@@ -101,7 +101,7 @@ class HFE_Admin {
 	function ehf_register_metabox() {
 		add_meta_box( 'ehf-meta-box', __( 'Elementor Header Footer options', 'header-footer-elementor' ), array(
 			$this,
-			'cd_meta_box_cb',
+			'efh_metabox_render',
 		), 'ehf', 'normal', 'high' );
 	}
 
@@ -110,7 +110,7 @@ class HFE_Admin {
 	 *
 	 * @param  POST $post Currennt post object which is being displayed.
 	 */
-	function cd_meta_box_cb( $post ) {
+	function efh_metabox_render( $post ) {
 		$values   = get_post_custom( $post->ID );
 		$selected = isset( $values['ehf_template_type'] ) ? esc_attr( $values['ehf_template_type'][0] ) : '';
 		// We'll use this nonce field later on when saving.
