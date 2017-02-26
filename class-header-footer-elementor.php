@@ -59,27 +59,24 @@ class Header_Footer_Elementor {
 
 		} else {
 
-			add_action( 'admin_notices', array( $this, 'bb_not_available' ) );
-			add_action( 'network_admin_notices', array( $this, 'bb_not_available' ) );
+			add_action( 'admin_notices', array( $this, 'elementor_not_available' ) );
+			add_action( 'network_admin_notices', array( $this, 'elementor_not_available' ) );
 		}
 	}
 
 	/**
 	 * Prints the admin notics when Elementor is not installed or activated.
 	 */
-	public function bb_not_available() {
+	public function elementor_not_available() {
 
-		if ( file_exists( plugin_dir_path( 'bb-plugin-agency/fl-builder.php' ) )
-		     || file_exists( plugin_dir_path( 'beaver-builder-lite-version/fl-builder.php' ) )
-		) {
-
-			$url = network_admin_url() . 'plugins.php?s=Beaver+Builder+Plugin';
+		if ( file_exists(  WP_PLUGIN_DIR . '/elementor/elementor.php' ) ) {
+			$url = network_admin_url() . 'plugins.php?s=elementor';
 		} else {
-			$url = network_admin_url() . 'plugin-install.php?s=billyyoung&tab=search&type=author';
+			$url = network_admin_url() . 'plugin-install.php?s=elementor';
 		}
 
 		echo '<div class="notice notice-error">';
-		echo '<p>' . sprintf( __( 'The <strong>BB Header Footer</strong> plugin requires <strong><a href="%s">Elementor</strong></a> plugin installed & activated.', 'header-footer-elementor' ) . '</p>', $url );
+		echo '<p>' . sprintf( __( 'The <strong>Elementor Header Footer</strong> plugin requires <strong><a href="%s">Elementor</strong></a> plugin installed & activated.', 'header-footer-elementor' ) . '</p>', $url );
 		echo '</div>';
 	}
 
@@ -101,9 +98,9 @@ class Header_Footer_Elementor {
 	 * Enqueue styles and scripts.
 	 */
 	public function enqueue_scripts() {
-		wp_enqueue_style( 'bbhf-style', HFE_URL . 'assets/css/header-footer-elementor.css', array(), HFE_VER );
-		wp_register_script( 'header-footer-elementor', HFE_URL . 'assets/js/header-footer-elementor.js', array( 'jquery' ), HFE_VER, true );
-		wp_enqueue_script( 'header-footer-elementor' );
+		wp_enqueue_style( 'hfe-style', HFE_URL . 'assets/css/header-footer-elementor.css', array(), HFE_VER );
+		wp_register_script( 'hfe-script', HFE_URL . 'assets/js/header-footer-elementor.js', array( 'jquery' ), HFE_VER, true );
+		wp_enqueue_script( 'hfe-script' );
 	}
 
 	/**
