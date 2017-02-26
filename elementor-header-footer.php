@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:     Header Footer Elementor
+ * Plugin Name:     Elementor Header Footer
  * Plugin URI:      PLUGIN SITE HERE
  * Description:     PLUGIN DESCRIPTION HERE
  * Author:          Nikhil Chavan
