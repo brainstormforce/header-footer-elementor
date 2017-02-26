@@ -1,0 +1,118 @@
+.footer-width-fixer {
+	width: 100%;
+}
+
+/* Container fix for genesis themes */
+
+.dhf-template-genesis.dhf-header .site-header .wrap,
+.dhf-template-genesis.dhf-footer .site-footer .wrap,
+.dhf-template-generatepress.dhf-header .site-header .inside-header {
+    width: 100%;
+    padding: 0;
+    max-width: 100%;
+}
+
+/* Container fix for generatepress theme */
+
+.dhf-template-generatepress.dhf-header .site-header,
+.dhf-template-generatepress.dhf-footer .site-footer {
+    width: 100%;
+    padding: 0;
+    max-width: 100%;
+    background-color: transparent !important; /* override generatepress default white color for header */
+}
+
+.bhf-hidden {
+	display: none
+}
+
+/* Transparent header */
+
+.fl-builder.dhf-template-beaver-builder-theme.bbhf-transparent-header:not(.bhf-sticky-header) header .fl-row-content-wrap,
+.fl-builder.dhf-template-generatepress.bbhf-transparent-header:not(.bhf-sticky-header) header .fl-row-content-wrap,
+.fl-builder.dhf-template-generatepress.bbhf-transparent-header:not(.bhf-sticky-header) .site-header,
+.fl-builder.dhf-template-genesis.bbhf-transparent-header:not(.bhf-sticky-header) header .fl-row-content-wrap,
+.fl-builder.dhf-template-genesis.bbhf-transparent-header:not(.bhf-sticky-header) .site-header {
+ 	background-color: transparent; 
+	border: none;
+	transition: background-color 0.3s ease-in-out;
+}
+
+.fl-builder.dhf-template-beaver-builder-theme.bbhf-transparent-header .fl-page,
+.fl-builder.dhf-template-generatepress.bbhf-transparent-header .fl-page,
+.fl-builder.dhf-template-genesis.bbhf-transparent-header .fl-page  {
+	position: relative;
+}
+
+.fl-builder.dhf-template-beaver-builder-theme.bbhf-transparent-header header#masthead,
+.fl-builder.dhf-template-generatepress.bbhf-transparent-header header#masthead,
+.fl-builder.dhf-template-genesis.bbhf-transparent-header header#masthead  {
+	position: absolute;
+	z-index: 10;
+	width: 100%;
+}
+
+.fl-builder.dhf-template-genesis.bbhf-transparent-header .site-inner {
+	padding-top: 0;
+	margin-top: 0;
+}
+
+/* Sticky header */
+
+.fl-builder.dhf-template-beaver-builder-theme.bbhf-transparent-header header .bhf-fixed-header:not(.bhf-fixed) .fl-row-content-wrap,
+.fl-builder.dhf-template-generatepress.bbhf-transparent-header header .bhf-fixed-header:not(.bhf-fixed) .fl-row-content-wrap,
+.fl-builder.dhf-template-generatepress.bbhf-transparent-header .bhf-fixed-header:not(.bhf-fixed) .site-header,
+.fl-builder.dhf-template-genesis.bbhf-transparent-header header .bhf-fixed-header:not(.bhf-fixed) .fl-row-content-wrap,
+.fl-builder.dhf-template-genesis.bbhf-transparent-header .bhf-fixed-header:not(.bhf-fixed) .site-header {
+    background-color: transparent; 
+    border: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.bhf-sticky-header .bhf-fixed-header {
+    width:100%;
+    transform: translateZ(0);
+    transition:all 0.4s;
+}
+
+.bhf-sticky-header .bhf-fixed {
+    box-shadow:0 2px 6px rgba(0,0,0,0.2);
+    animation:fadeIn 0.4s;
+    z-index: 35;
+    position: fixed;
+}
+
+.bhf-sticky-header .bhf-fixed .fa-gg {                  
+    transform: rotate(360deg);      
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/*Shrink the sticky header*/
+.bhf-sticky-header.bhf-shrink-header header .fl-row-content-wrap {
+    transition:padding 0.4s ease-in-out;
+}
+
+.bhf-sticky-header.bhf-shrink-header .bhf-fixed .fl-row-content-wrap {
+    padding-top: 0;
+    padding-bottom: 0;
+    transition:padding 0.4s ease-in-out;
+}
