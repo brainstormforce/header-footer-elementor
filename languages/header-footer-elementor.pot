@@ -1,0 +1,115 @@
+# Copyright (C) 2017 Nikhil Chavan
+# This file is distributed under the same license as the Header Footer Elementor package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Header Footer Elementor 0.1.0\n"
+"Report-Msgid-Bugs-To: "
+"https://wordpress.org/support/plugin/header-footer-elementor\n"
+"POT-Creation-Date: 2017-02-26 08:41:34+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: grunt-wp-i18n 0.5.4\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: United States\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
+
+#: admin/class-hfe-admin-ui.php:53 admin/class-hfe-admin-ui.php:55
+msgid "Header / Footers Template"
+msgstr ""
+
+#: admin/class-hfe-admin-ui.php:54 admin/class-hfe-admin-ui.php:56
+msgid "Elementor Header Footer"
+msgstr ""
+
+#: admin/class-hfe-admin-ui.php:57
+msgid "Add New"
+msgstr ""
+
+#: admin/class-hfe-admin-ui.php:58
+msgid "Add New Header Footer"
+msgstr ""
+
+#: admin/class-hfe-admin-ui.php:59
+msgid "New Header / Footers Template"
+msgstr ""
+
+#: admin/class-hfe-admin-ui.php:60
+msgid "Edit Header / Footers Template"
+msgstr ""
+
+#: admin/class-hfe-admin-ui.php:61
+msgid "View Header / Footers Template"
+msgstr ""
+
+#: admin/class-hfe-admin-ui.php:62
+msgid "All Elementor Header Footers"
+msgstr ""
+
+#: admin/class-hfe-admin-ui.php:63
+msgid "Search Recipes"
+msgstr ""
+
+#: admin/class-hfe-admin-ui.php:64
+msgid "Parent Recipes:"
+msgstr ""
+
+#: admin/class-hfe-admin-ui.php:65
+msgid "No recipes found."
+msgstr ""
+
+#: admin/class-hfe-admin-ui.php:66
+msgid "No recipes found in Trash."
+msgstr ""
+
+#: admin/class-hfe-admin-ui.php:71
+msgid "My yummy recipes will be published using this post type"
+msgstr ""
+
+#: admin/class-hfe-admin-ui.php:102
+msgid "Elementor Header Footer options"
+msgstr ""
+
+#: class-header-footer-elementor.php:82
+msgid ""
+"The <strong>BB Header Footer</strong> plugin requires <strong><a "
+"href=\"%s\">Elementor</strong></a> plugin installed & activated."
+msgstr ""
+
+#: class-header-footer-elementor.php:155
+msgid ""
+"Hey, your current theme is not supported by BB Header Footer, click <a "
+"href=\"https://github.com/Nikschavan/header-footer-elementor#which-themes-"
+"are-supported-by-this-plugin\">here</a> to check out the supported themes."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Header Footer Elementor"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "PLUGIN SITE HERE"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "PLUGIN DESCRIPTION HERE"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Nikhil Chavan"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://www.nikhilchavan.com"
+msgstr ""
