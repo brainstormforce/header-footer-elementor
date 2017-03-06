@@ -42,6 +42,8 @@ class HFE_Admin {
 		add_action( 'admin_menu', array( $this, 'register_admin_menu' ), 50 );
 		add_action( 'add_meta_boxes', array( $this, 'ehf_register_metabox' ) );
 		add_action( 'save_post', array( $this, 'ehf_save_meta' ) );
+
+		add_action( 'template_redirect', array( $this, 'block_template_frontend' ) );
 	}
 
 	/**
@@ -150,6 +152,13 @@ class HFE_Admin {
 
 		if ( isset( $_POST['ehf_template_type'] ) ) {
 			update_post_meta( $post_id, 'ehf_template_type', esc_attr( $_POST['ehf_template_type'] ) );
+		}
+	}
+
+	public function block_template_frontend() {
+		if ( is_singular( 'ehf' ) && ! current_user_can( 'edit_posts' ) ) {
+			wp_redirect( site_url(), 301 );
+			die;
 		}
 	}
 
