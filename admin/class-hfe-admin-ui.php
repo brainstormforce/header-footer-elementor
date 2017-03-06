@@ -39,7 +39,7 @@ class HFE_Admin {
 	 */
 	private function __construct() {
 		add_action( 'init', array( $this, 'header_footer_posttype' ) );
-		add_action( 'admin_head', array( $this, 'elementor_cpt_support' ) );
+		add_action( 'admin_menu', array( $this, 'register_admin_menu' ), 50 );
 		add_action( 'add_meta_boxes', array( $this, 'ehf_register_metabox' ) );
 		add_action( 'save_post', array( $this, 'ehf_save_meta' ) );
 	}
@@ -69,30 +69,29 @@ class HFE_Admin {
 		$args = array(
 			'labels'              => $labels,
 			'description'         => __( 'My yummy recipes will be published using this post type', 'header-footer-elementor' ),
-			'public'              => true,
-			'show_ui'             => true,
-			'show_in_admin_bar'   => true,
-			'publicly_queryable'  => true,
+			'public' => true,
+			'rewrite' => false,
+			'show_ui' => true,
+			'show_in_menu' => false,
+			'show_in_nav_menus' => false,
 			'exclude_from_search' => true,
-			'menu_position'       => 60,
+			'capability_type' => 'post',
+			'hierarchical' => false,
 			'menu_icon'           => 'dashicons-editor-kitchensink',
-			'supports'            => array( 'title' ),
-			'rewrite'             => array( 'slug' => 'ehf' ),
+			'supports'            => array( 'title', 'thumbnail', 'author', 'elementor' ),
 		);
 
 		register_post_type( 'ehf', $args );
 	}
 
-	/**
-	 * Enable Elementor Page Builder on the Post type ctp
-	 */
-	public function elementor_cpt_support() {
-		$elementor_post_types = get_option( 'elementor_cpt_support', array() );
-
-		if ( ! in_array( 'ehf', $elementor_post_types ) ) {
-			array_push( $elementor_post_types, 'ehf' );
-			update_option( 'elementor_cpt_support', $elementor_post_types );
-		}
+	public function register_admin_menu() {
+		add_submenu_page(
+			'options-general.php',
+			__( 'Header Footer Templates', 'elementor' ),
+			__( 'Header Footer Templates', 'elementor' ),
+			'edit_pages',
+			'edit.php?post_type=ehf'
+		);
 	}
 
 	/**
