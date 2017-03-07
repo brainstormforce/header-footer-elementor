@@ -42,6 +42,7 @@ class HFE_Admin {
 		add_action( 'admin_menu', array( $this, 'register_admin_menu' ), 50 );
 		add_action( 'add_meta_boxes', array( $this, 'ehf_register_metabox' ) );
 		add_action( 'save_post', array( $this, 'ehf_save_meta' ) );
+		add_action( 'admin_notices', array( $this, 'location_notice' ) );
 
 		add_action( 'template_redirect', array( $this, 'block_template_frontend' ) );
 	}
@@ -135,6 +136,7 @@ class HFE_Admin {
 	 * @return Void
 	 */
 	public function ehf_save_meta( $post_id ) {
+		
 		// Bail if we're doing an auto save.
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 			return;
@@ -146,13 +148,50 @@ class HFE_Admin {
 		}
 
 		// if our current user can't edit this post, bail.
-		if ( ! current_user_can( 'edit_post' ) ) {
+		if ( ! current_user_can( 'edit_posts' ) ) {
 			return;
 		}
 
 		if ( isset( $_POST['ehf_template_type'] ) ) {
 			update_post_meta( $post_id, 'ehf_template_type', esc_attr( $_POST['ehf_template_type'] ) );
 		}
+
+
+	}
+
+	public function location_notice() {
+
+		global $pagenow;
+		global $post;
+
+		if ( 'post.php' != $pagenow || ! is_object( $post ) || 'ehf' != $post->post_type ) {
+			return;
+		}
+
+		$template_type = get_post_meta( $post->ID, 'ehf_template_type', true );
+
+		if ( '' !== $template_type ) {
+			$templates = Header_Footer_Elementor::get_template_id( $template_type );
+
+			// Check if more than one template is selected for current template type.
+			if ( is_array( $templates ) && isset( $templates[1] ) && $post->ID != $templates[0] ) {
+
+				$post_title 		= '<strong>' . get_the_title( $templates[0] ) . '</strong>';
+				$template_location 	= '<strong>' . $this->template_location( $template_type ) . '</strong>';
+
+				$message = __( sprintf( 'Template %s is already assigned to the location %s', $post_title, $template_location ), 'header-footer-elementor' );
+
+				echo '<div class="error"><p>';
+				echo $message;
+				echo '</p></div>';
+			}
+		}
+
+	}
+
+	public function template_location( $template_type ) {
+		$template_type = ucfirst( str_replace( 'type_', '', $template_type ) );
+		return $template_type;
 	}
 
 	public function block_template_frontend() {

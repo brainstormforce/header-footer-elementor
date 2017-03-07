@@ -196,7 +196,9 @@ class Header_Footer_Elementor {
 	public static function get_settings( $setting = '', $default = '' ) {
 
 		if ( 'type_header' == $setting || 'type_footer' == $setting ) {
-			return self::get_template_id( $setting );
+			$templates = self::get_template_id( $setting );
+
+			return $templates[0];
 		}
 
 		$value   = $default;
@@ -216,7 +218,7 @@ class Header_Footer_Elementor {
 	 *
 	 * @return Mixed       Returns the header or footer template id if found, else returns string ''.
 	 */
-	private static function get_template_id( $type ) {
+	public static function get_template_id( $type ) {
 
 		$template = new WP_Query( array(
 			'post_type'    => 'ehf',
@@ -240,7 +242,7 @@ class Header_Footer_Elementor {
 		if ( $template->have_posts() ) {
 			$posts = wp_list_pluck( $template->posts, 'ID' );
 
-			return $posts[0];
+			return $posts;
 		}
 
 		return '';
