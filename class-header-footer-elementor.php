@@ -99,8 +99,6 @@ class Header_Footer_Elementor {
 	 */
 	public function enqueue_scripts() {
 		wp_enqueue_style( 'hfe-style', HFE_URL . 'assets/css/header-footer-elementor.css', array(), HFE_VER );
-		wp_register_script( 'hfe-script', HFE_URL . 'assets/js/header-footer-elementor.js', array( 'jquery' ), HFE_VER, true );
-		wp_enqueue_script( 'hfe-script' );
 	}
 
 	/**
@@ -119,27 +117,27 @@ class Header_Footer_Elementor {
 		$bb_shrink_header      = Header_Footer_Elementor::get_settings( 'bb_shrink_header', 'on' );
 
 		if ( '' !== $header_id ) {
-			$classes[] = 'dhf-header';
+			$classes[] = 'ehf-header';
 		}
 
 		if ( '' !== $footer_id ) {
-			$classes[] = 'dhf-footer';
+			$classes[] = 'ehf-footer';
 		}
 
 		if ( 'on' == $bb_transparent_header ) {
-			$classes[] = 'bbhf-transparent-header';
+			$classes[] = 'ehf-transparent-header';
 		}
 
 		if ( 'on' == $bb_sticky_header ) {
-			$classes[] = 'bhf-sticky-header';
+			$classes[] = 'ehf-sticky-header';
 		}
 
 		if ( 'on' == $bb_shrink_header ) {
-			$classes[] = 'bhf-shrink-header';
+			$classes[] = 'ehf-shrink-header';
 		}
 
-		$classes[] = 'dhf-template-' . $this->template;
-		$classes[] = 'dhf-stylesheet-' . get_stylesheet();
+		$classes[] = 'ehf-template-' . $this->template;
+		$classes[] = 'ehf-stylesheet-' . get_stylesheet();
 
 		return $classes;
 	}
