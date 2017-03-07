@@ -168,7 +168,7 @@ class Header_Footer_Elementor {
 		if ( 'type_header' == $setting || 'type_footer' == $setting ) {
 			$templates = self::get_template_id( $setting );
 
-			return $templates[0];
+			return is_array( $templates ) ? $templates[0] : '';
 		}
 	}
 
