@@ -71,7 +71,6 @@ class HFE_Admin {
 
 		$args = array(
 			'labels'              => $labels,
-			'description'         => __( 'My yummy recipes will be published using this post type', 'header-footer-elementor' ),
 			'public' => true,
 			'rewrite' => false,
 			'show_ui' => true,
@@ -136,7 +135,7 @@ class HFE_Admin {
 	 * @return Void
 	 */
 	public function ehf_save_meta( $post_id ) {
-		
+
 		// Bail if we're doing an auto save.
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 			return;
