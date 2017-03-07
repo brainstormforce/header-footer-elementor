@@ -19,7 +19,6 @@ The plugin only works with limited number of themes as of now, here is the list 
 1. Beaver Builder theme
 2. Genesis Theme
 3. GeneratePress Theme
-4. Primer Theme
 
 ### Supported & Actively Developed ###
 Need help with something? Have an issue to report? [Get in touch](https://github.com/Nikschavan/header-footer-elemento "Header Footer elementor on GitHub"). with us on GitHub.
@@ -37,7 +36,6 @@ Need help with something? Have an issue to report? [Get in touch](https://github
 1. Beaver Builder Theme.
 2. Genesis Theme (and should work with most of its child themes).
 3. GeneratePress Theme.
-4. Primer Theme.
 
 ## Changelog ##
 
