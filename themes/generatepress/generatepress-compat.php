@@ -69,7 +69,7 @@ class HFE_GeneratePress_Compat {
 	}
 
 	/**
-	 * Display header markup for beaver builder theme.
+	 * Display header markup for generatepress theme.
 	 */
 	public function get_header_content() {
 
@@ -82,7 +82,7 @@ class HFE_GeneratePress_Compat {
 	}
 
 	/**
-	 * Display footer markup for beaver builder theme.
+	 * Display footer markup for generatepress theme.
 	 */
 	public function get_footer_content() {
 		?>

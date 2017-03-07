@@ -1,6 +1,6 @@
 # Header Footer Elementor #
 **Contributors:** brainstormforce, Nikschavan  
-**Tags:** beaver builder, header footer builder, header, footer, page builder, template builder, landing page builder, front-end editor  
+**Tags:** elementor, header footer builder, header, footer, page builder, template builder, landing page builder, front-end editor  
 **Donate link:** https://www.paypal.me/BrainstormForce  
 **Requires at least:** 3.6  
 **Tested up to:** 4.7.2  
