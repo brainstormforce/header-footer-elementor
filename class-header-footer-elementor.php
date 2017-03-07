@@ -112,9 +112,6 @@ class Header_Footer_Elementor {
 
 		$header_id             = Header_Footer_Elementor::get_settings( 'type_header', '' );
 		$footer_id             = Header_Footer_Elementor::get_settings( 'type_footer', '' );
-		$bb_transparent_header = Header_Footer_Elementor::get_settings( 'bb_transparent_header', 'off' );
-		$bb_sticky_header      = Header_Footer_Elementor::get_settings( 'bb_sticky_header', 'off' );
-		$bb_shrink_header      = Header_Footer_Elementor::get_settings( 'bb_shrink_header', 'on' );
 
 		if ( '' !== $header_id ) {
 			$classes[] = 'ehf-header';
@@ -122,18 +119,6 @@ class Header_Footer_Elementor {
 
 		if ( '' !== $footer_id ) {
 			$classes[] = 'ehf-footer';
-		}
-
-		if ( 'on' == $bb_transparent_header ) {
-			$classes[] = 'ehf-transparent-header';
-		}
-
-		if ( 'on' == $bb_sticky_header ) {
-			$classes[] = 'ehf-sticky-header';
-		}
-
-		if ( 'on' == $bb_shrink_header ) {
-			$classes[] = 'ehf-shrink-header';
 		}
 
 		$classes[] = 'ehf-template-' . $this->template;
@@ -147,7 +132,7 @@ class Header_Footer_Elementor {
 	 */
 	public function unsupported_theme() {
 		$class   = 'notice notice-error';
-		$message = __( 'Hey, your current theme is not supported by BB Header Footer, click <a href="https://github.com/Nikschavan/header-footer-elementor#which-themes-are-supported-by-this-plugin">here</a> to check out the supported themes.', 'header-footer-elementor' );
+		$message = __( 'Hey, your current theme is not supported by Header Footer elementor, click <a href="https://github.com/Nikschavan/header-footer-elementor#which-themes-are-supported-by-this-plugin">here</a> to check out the supported themes.', 'header-footer-elementor' );
 
 		printf( '<div class="%1$s"><p>%2$s</p></div>', $class, $message );
 	}
@@ -156,20 +141,8 @@ class Header_Footer_Elementor {
 	 * Prints the Header content.
 	 */
 	public static function get_header_content() {
-
-		$header_id        = Header_Footer_Elementor::get_settings( 'type_header', '' );
-		$bb_sticky_header = Header_Footer_Elementor::get_settings( 'bb_sticky_header', 'off' );
-
-		if ( 'on' == $bb_sticky_header ) {
-			echo '<div class="bhf-fixed-header">';
-		}
-
+		$header_id = Header_Footer_Elementor::get_settings( 'type_header', '' );
 		echo self::$elementor_frontend->get_builder_content_for_display( $header_id );
-
-		if ( 'on' == $bb_sticky_header ) {
-			echo '</div>';
-			echo '<div class="bhf-ffixed-header-fixer" style="display:none;"></div>';
-		}
 	}
 
 	/**
@@ -192,21 +165,11 @@ class Header_Footer_Elementor {
 	 * @return mixed.
 	 */
 	public static function get_settings( $setting = '', $default = '' ) {
-
 		if ( 'type_header' == $setting || 'type_footer' == $setting ) {
 			$templates = self::get_template_id( $setting );
 
 			return $templates[0];
 		}
-
-		$value   = $default;
-		$options = get_option( 'new_options', array() );
-
-		if ( isset( $options[ $setting ] ) ) {
-			$value = $options[ $setting ];
-		}
-
-		return apply_filters( "bhf_setting_{$setting}", $value );
 	}
 
 	/**
