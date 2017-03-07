@@ -65,6 +65,7 @@ class HFE_GeneratePress_Compat {
 	 */
 	public function generatepress_setup_footer() {
 		remove_action( 'generate_footer', 'generate_construct_footer_widgets', 5 );
+		remove_action( 'generate_footer','generate_construct_footer' );
 	}
 
 	/**
@@ -84,7 +85,11 @@ class HFE_GeneratePress_Compat {
 	 * Display footer markup for beaver builder theme.
 	 */
 	public function get_footer_content() {
-		Header_Footer_Elementor::get_footer_content();
+		?>
+		<footer class="ehf-site-info" itemtype="http://schema.org/WPFooter" itemscope="itemscope">
+			<?php Header_Footer_Elementor::get_footer_content(); ?>
+		</footer>
+		<?php
 	}
 
 }
