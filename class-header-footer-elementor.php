@@ -76,7 +76,7 @@ class Header_Footer_Elementor {
 		}
 
 		echo '<div class="notice notice-error">';
-		echo '<p>' . sprintf( __( 'The <strong>Elementor Header Footer</strong> plugin requires <strong><a href="%s">Elementor</strong></a> plugin installed & activated.', 'header-footer-elementor' ) . '</p>', $url );
+		echo '<p>' . sprintf( __( 'The <strong>Header Footer Elementor</strong> plugin requires <strong><a href="%s">Elementor</strong></a> plugin installed & activated.', 'header-footer-elementor' ) . '</p>', $url );
 		echo '</div>';
 	}
 
@@ -132,7 +132,7 @@ class Header_Footer_Elementor {
 	 */
 	public function unsupported_theme() {
 		$class   = 'notice notice-error';
-		$message = __( 'Hey, your current theme is not supported by Header Footer elementor, click <a href="https://github.com/Nikschavan/header-footer-elementor#which-themes-are-supported-by-this-plugin">here</a> to check out the supported themes.', 'header-footer-elementor' );
+		$message = __( 'Hey, your current theme is not supported by Header Footer Elementor, click <a href="https://github.com/Nikschavan/header-footer-elementor#which-themes-are-supported-by-this-plugin">here</a> to check out the supported themes.', 'header-footer-elementor' );
 
 		printf( '<div class="%1$s"><p>%2$s</p></div>', $class, $message );
 	}

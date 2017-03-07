@@ -1,13 +1,13 @@
 <?php
 /**
- * Plugin Name:     Elementor Header Footer
- * Plugin URI:      PLUGIN SITE HERE
- * Description:     PLUGIN DESCRIPTION HERE
- * Author:          Nikhil Chavan
- * Author URI:      https://www.nikhilchavan.com
+ * Plugin Name:     Header Footer Elementor
+ * Plugin URI:      https://github.com/Nikschavan/header-footer-elemento
+ * Description:     Create Header and Footer for your site using Elementor Page Builder.
+ * Author:          Brainstorm Force, Nikhil Chavan
+ * Author URI:      https://www.brainstormforce.com/
  * Text Domain:     header-footer-elementor
  * Domain Path:     /languages
- * Version:         0.1.0
+ * Version:         1.1.3
  *
  * @package         header-footer-elementor
  */
