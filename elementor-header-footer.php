@@ -7,7 +7,7 @@
  * Author URI:      https://www.brainstormforce.com/
  * Text Domain:     header-footer-elementor
  * Domain Path:     /languages
- * Version:         1.1.3
+ * Version:         1.0.0
  *
  * @package         header-footer-elementor
  */
@@ -17,7 +17,7 @@
  */
 require_once 'class-header-footer-elementor.php';
 
-define( 'HFE_VER', '0.1.0' );
+define( 'HFE_VER', '1.0.0' );
 define( 'HFE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'HFE_URL', plugins_url( '/', __FILE__ ) );
 define( 'HFE_PATH', plugin_basename( __FILE__ ) );
