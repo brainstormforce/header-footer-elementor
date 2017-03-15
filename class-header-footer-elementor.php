@@ -181,6 +181,12 @@ class Header_Footer_Elementor {
 	 */
 	public static function get_template_id( $type ) {
 
+		$cached = wp_cache_get( $type );
+		
+		if ( false !== $cached ) {
+			return $cached;
+		}
+
 		$template = new WP_Query( array(
 			'post_type'    => 'ehf',
 			'meta_key'     => 'ehf_template_type',
@@ -202,6 +208,7 @@ class Header_Footer_Elementor {
 
 		if ( $template->have_posts() ) {
 			$posts = wp_list_pluck( $template->posts, 'ID' );
+			wp_cache_set( $type, $posts );
 
 			return $posts;
 		}
