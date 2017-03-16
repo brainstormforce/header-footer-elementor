@@ -80,10 +80,10 @@ class HFE_Admin {
 			'capability_type' => 'post',
 			'hierarchical' => false,
 			'menu_icon'           => 'dashicons-editor-kitchensink',
-			'supports'            => array( 'title', 'thumbnail', 'author', 'elementor' ),
+			'supports'            => array( 'title', 'thumbnail', 'elementor' ),
 		);
 
-		register_post_type( 'ehf', $args );
+		register_post_type( 'elementor-hf', $args );
 	}
 
 	public function register_admin_menu() {
@@ -92,7 +92,7 @@ class HFE_Admin {
 			__( 'Header Footer Templates', 'elementor', 'header-footer-elementor' ),
 			__( 'Header Footer Templates', 'elementor', 'header-footer-elementor' ),
 			'edit_pages',
-			'edit.php?post_type=ehf'
+			'edit.php?post_type=elementor-hf'
 		);
 	}
 
@@ -103,7 +103,7 @@ class HFE_Admin {
 		add_meta_box( 'ehf-meta-box', __( 'Elementor Header Footer options', 'header-footer-elementor' ), array(
 			$this,
 			'efh_metabox_render',
-		), 'ehf', 'normal', 'high' );
+		), 'elementor-hf', 'normal', 'high' );
 	}
 
 	/**
@@ -163,7 +163,7 @@ class HFE_Admin {
 		global $pagenow;
 		global $post;
 
-		if ( 'post.php' != $pagenow || ! is_object( $post ) || 'ehf' != $post->post_type ) {
+		if ( 'post.php' != $pagenow || ! is_object( $post ) || 'header-footer-elementor' != $post->post_type ) {
 			return;
 		}
 
@@ -194,7 +194,7 @@ class HFE_Admin {
 	}
 
 	public function block_template_frontend() {
-		if ( is_singular( 'ehf' ) && ! current_user_can( 'edit_posts' ) ) {
+		if ( is_singular( 'elementor-hf' ) && ! current_user_can( 'edit_posts' ) ) {
 			wp_redirect( site_url(), 301 );
 			die;
 		}

@@ -188,7 +188,7 @@ class Header_Footer_Elementor {
 		}
 
 		$template = new WP_Query( array(
-			'post_type'    => 'ehf',
+			'post_type'    => 'elementor-hf',
 			'meta_key'     => 'ehf_template_type',
 			'meta_value'   => $type,
 			'meta_type'    => 'post',
