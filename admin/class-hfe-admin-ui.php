@@ -53,15 +53,15 @@ class HFE_Admin {
 	public function header_footer_posttype() {
 
 		$labels = array(
-			'name'               => __( 'Header / Footers Template', 'header-footer-elementor' ),
+			'name'               => __( 'Header Footers Template', 'header-footer-elementor' ),
 			'singular_name'      => __( 'Elementor Header Footer', 'header-footer-elementor' ),
-			'menu_name'          => __( 'Header / Footers Template', 'header-footer-elementor' ),
+			'menu_name'          => __( 'Header Footers Template', 'header-footer-elementor' ),
 			'name_admin_bar'     => __( 'Elementor Header Footer', 'header-footer-elementor' ),
 			'add_new'            => __( 'Add New', 'header-footer-elementor' ),
 			'add_new_item'       => __( 'Add New Header Footer', 'header-footer-elementor' ),
-			'new_item'           => __( 'New Header / Footers Template', 'header-footer-elementor' ),
-			'edit_item'          => __( 'Edit Header / Footers Template', 'header-footer-elementor' ),
-			'view_item'          => __( 'View Header / Footers Template', 'header-footer-elementor' ),
+			'new_item'           => __( 'New Header Footers Template', 'header-footer-elementor' ),
+			'edit_item'          => __( 'Edit Header Footers Template', 'header-footer-elementor' ),
+			'view_item'          => __( 'View Header Footers Template', 'header-footer-elementor' ),
 			'all_items'          => __( 'All Elementor Header Footers', 'header-footer-elementor' ),
 			'search_items'       => __( 'Search Recipes', 'header-footer-elementor' ),
 			'parent_item_colon'  => __( 'Parent Recipes:', 'header-footer-elementor' ),
@@ -88,9 +88,9 @@ class HFE_Admin {
 
 	public function register_admin_menu() {
 		add_submenu_page(
-			'options-general.php',
-			__( 'Header Footer Templates', 'elementor', 'header-footer-elementor' ),
-			__( 'Header Footer Templates', 'elementor', 'header-footer-elementor' ),
+			'themes.php',
+			__( 'Header Footer Builder', 'elementor', 'header-footer-elementor' ),
+			__( 'Header Footer Builder', 'elementor', 'header-footer-elementor' ),
 			'edit_pages',
 			'edit.php?post_type=elementor-hf'
 		);
