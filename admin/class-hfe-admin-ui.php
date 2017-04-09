@@ -89,8 +89,8 @@ class HFE_Admin {
 	public function register_admin_menu() {
 		add_submenu_page(
 			'themes.php',
-			__( 'Header Footer Elementor', 'elementor', 'header-footer-elementor' ),
-			__( 'Header Footer Elementor', 'elementor', 'header-footer-elementor' ),
+			__( 'Header Footer Builder', 'elementor', 'header-footer-elementor' ),
+			__( 'Header Footer Builder', 'elementor', 'header-footer-elementor' ),
 			'edit_pages',
 			'edit.php?post_type=elementor-hf'
 		);
