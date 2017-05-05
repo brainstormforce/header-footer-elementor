@@ -39,5 +39,8 @@ Need help with something? Have an issue to report? [Get in touch](https://github
 
 == Changelog ==
 
-= 1.0 =
+= 1.0.1 (unreleased) =
+* Moved the menu under Appearance -> Header Footer Builder.
+
+= 1.0.0 =
 * Initial Release.
