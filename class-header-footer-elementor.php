@@ -76,6 +76,7 @@ class Header_Footer_Elementor {
 		}
 
 		echo '<div class="notice notice-error">';
+		/* Translators: URL to install or activate Elementor plugin. */
 		echo '<p>' . sprintf( __( 'The <strong>Header Footer Elementor</strong> plugin requires <strong><a href="%s">Elementor</strong></a> plugin installed & activated.', 'header-footer-elementor' ) . '</p>', $url );
 		echo '</div>';
 	}
