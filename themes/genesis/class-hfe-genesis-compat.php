@@ -60,7 +60,7 @@ class HFE_Genesis_Compat {
 	 */
 	public function genesis_setup_header() {
 
-		for ( $priority = 0; $priority < 16; $priority++ ) {
+		for ( $priority = 0; $priority < 16; $priority ++ ) {
 			remove_all_actions( 'genesis_header', $priority );
 		}
 
@@ -71,7 +71,7 @@ class HFE_Genesis_Compat {
 	 */
 	public function genesis_setup_footer() {
 
-		for ( $priority = 0; $priority < 16; $priority++ ) {
+		for ( $priority = 0; $priority < 16; $priority ++ ) {
 			remove_all_actions( 'genesis_footer', $priority );
 		}
 
@@ -126,8 +126,8 @@ class HFE_Genesis_Compat {
 
 		genesis_structural_wrap( 'footer', 'close' );
 		genesis_markup( array(
-			'html5'   => '</footer>',
-			'xhtml'   => '</div>',
+			'html5' => '</footer>',
+			'xhtml' => '</div>',
 		) );
 
 	}

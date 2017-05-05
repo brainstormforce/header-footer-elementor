@@ -43,9 +43,8 @@ class HFE_Admin {
 		add_action( 'add_meta_boxes', array( $this, 'ehf_register_metabox' ) );
 		add_action( 'save_post', array( $this, 'ehf_save_meta' ) );
 		add_action( 'admin_notices', array( $this, 'location_notice' ) );
-
 		add_action( 'template_redirect', array( $this, 'block_template_frontend' ) );
-		add_filter('single_template', array( $this, 'load_canvas_template' ) );
+		add_filter( 'single_template', array( $this, 'load_canvas_template' ) );
 	}
 
 	/**
@@ -72,26 +71,33 @@ class HFE_Admin {
 
 		$args = array(
 			'labels'              => $labels,
-			'public' => true,
-			'rewrite' => false,
-			'show_ui' => true,
-			'show_in_menu' => false,
-			'show_in_nav_menus' => false,
+			'public'              => true,
+			'rewrite'             => false,
+			'show_ui'             => true,
+			'show_in_menu'        => false,
+			'show_in_nav_menus'   => false,
 			'exclude_from_search' => true,
-			'capability_type' => 'post',
-			'hierarchical' => false,
+			'capability_type'     => 'post',
+			'hierarchical'        => false,
 			'menu_icon'           => 'dashicons-editor-kitchensink',
-			'supports'            => array( 'title', 'thumbnail', 'elementor' ),
+			'supports'            => array( 'title', 'thumbnail', 'header-footer-elementor' ),
 		);
 
 		register_post_type( 'elementor-hf', $args );
 	}
 
+	/**
+	 * Register the admin menu for Header Footer builder.
+	 *
+	 * @since  1.0.0
+	 * @since  1.0.1
+	 *         Moved the menu under Appearance -> Header Footer Builder
+	 */
 	public function register_admin_menu() {
 		add_submenu_page(
 			'themes.php',
-			__( 'Header Footer Builder', 'elementor', 'header-footer-elementor' ),
-			__( 'Header Footer Builder', 'elementor', 'header-footer-elementor' ),
+			__( 'Header Footer Builder', 'header-footer-elementor' ),
+			__( 'Header Footer Builder', 'header-footer-elementor' ),
 			'edit_pages',
 			'edit.php?post_type=elementor-hf'
 		);
@@ -133,6 +139,7 @@ class HFE_Admin {
 	 * Save meta field.
 	 *
 	 * @param  POST $post_id Currennt post object which is being displayed.
+	 *
 	 * @return Void
 	 */
 	public function ehf_save_meta( $post_id ) {
@@ -156,9 +163,13 @@ class HFE_Admin {
 			update_post_meta( $post_id, 'ehf_template_type', esc_attr( $_POST['ehf_template_type'] ) );
 		}
 
-
 	}
 
+	/**
+	 * Display notice when editing the header or footer when there is one more of similar layout is active on the site.
+	 *
+	 * @since 1.0.0
+	 */
 	public function location_notice() {
 
 		global $pagenow;
@@ -176,10 +187,10 @@ class HFE_Admin {
 			// Check if more than one template is selected for current template type.
 			if ( is_array( $templates ) && isset( $templates[1] ) && $post->ID != $templates[0] ) {
 
-				$post_title 		= '<strong>' . get_the_title( $templates[0] ) . '</strong>';
-				$template_location 	= '<strong>' . $this->template_location( $template_type ) . '</strong>';
-
-				$message = __( sprintf( 'Template %s is already assigned to the location %s', $post_title, $template_location ), 'header-footer-elementor' );
+				$post_title        = '<strong>' . get_the_title( $templates[0] ) . '</strong>';
+				$template_location = '<strong>' . $this->template_location( $template_type ) . '</strong>';
+				/* Translators: Post title, Template Location */
+				$message = sprintf( __( 'Template %1$s is already assigned to the location %2$s', 'header-footer-elementor' ), $post_title, $template_location );
 
 				echo '<div class="error"><p>';
 				echo $message;
@@ -189,11 +200,26 @@ class HFE_Admin {
 
 	}
 
+	/**
+	 * Convert the Template name to be added in the notice.
+	 *
+	 * @since  1.0.0
+	 *
+	 * @param  String $template_type Template type name.
+	 *
+	 * @return String $template_type Template type name.
+	 */
 	public function template_location( $template_type ) {
 		$template_type = ucfirst( str_replace( 'type_', '', $template_type ) );
+
 		return $template_type;
 	}
 
+	/**
+	 * Don't display the elementor header footer templates on the frontend for non edit_posts capable users.
+	 *
+	 * @since  1.0.0
+	 */
 	public function block_template_frontend() {
 		if ( is_singular( 'elementor-hf' ) && ! current_user_can( 'edit_posts' ) ) {
 			wp_redirect( site_url(), 301 );
@@ -202,9 +228,13 @@ class HFE_Admin {
 	}
 
 	/**
-	* Single template function which will choose our template
-	*/
-	function load_canvas_template($single) {
+	 * Single template function which will choose our template
+	 *
+	 * @since  1.0.1
+	 *
+	 * @param  String $single_template Single template.
+	 */
+	function load_canvas_template( $single_template ) {
 
 		global $post;
 
@@ -212,6 +242,7 @@ class HFE_Admin {
 			return ELEMENTOR_PATH . '/includes/page-templates/canvas.php';
 		}
 
+		return $single_template;
 	}
 
 }

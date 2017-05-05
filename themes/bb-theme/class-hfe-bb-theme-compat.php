@@ -58,17 +58,19 @@ class HFE_BB_Theme_Compat {
 	 */
 	public function get_header_content() {
 
-		$header_layout  = FLTheme::get_setting( 'fl-header-layout' );
+		$header_layout = FLTheme::get_setting( 'fl-header-layout' );
 
 		if ( 'none' == $header_layout || is_page_template( 'tpl-no-header-footer.php' ) ) {
 			return;
 		}
 
 		?>
-			<header id="masthead" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
-				<p class="main-title bhf-hidden" itemprop="headline"><a href="<?php echo bloginfo( 'url' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php Header_Footer_Elementor::get_header_content(); ?>
-			</header>
+		<header id="masthead" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+			<p class="main-title bhf-hidden" itemprop="headline"><a href="<?php echo bloginfo( 'url' ); ?>"
+																	title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"
+																	rel="home"><?php bloginfo( 'name' ); ?></a></p>
+			<?php Header_Footer_Elementor::get_header_content(); ?>
+		</header>
 		<?php
 	}
 
@@ -82,9 +84,9 @@ class HFE_BB_Theme_Compat {
 		}
 
 		?>
-			<footer itemscope="itemscope" itemtype="http://schema.org/WPFooter">
-				<?php Header_Footer_Elementor::get_footer_content(); ?>
-			</footer>
+		<footer itemscope="itemscope" itemtype="http://schema.org/WPFooter">
+			<?php Header_Footer_Elementor::get_footer_content(); ?>
+		</footer>
 		<?php
 	}
 
