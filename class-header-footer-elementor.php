@@ -69,7 +69,7 @@ class Header_Footer_Elementor {
 	 */
 	public function elementor_not_available() {
 
-		if ( file_exists(  WP_PLUGIN_DIR . '/elementor/elementor.php' ) ) {
+		if ( file_exists( WP_PLUGIN_DIR . '/elementor/elementor.php' ) ) {
 			$url = network_admin_url() . 'plugins.php?s=elementor';
 		} else {
 			$url = network_admin_url() . 'plugin-install.php?s=elementor';
@@ -110,8 +110,8 @@ class Header_Footer_Elementor {
 	 */
 	public function body_class( $classes ) {
 
-		$header_id             = Header_Footer_Elementor::get_settings( 'type_header', '' );
-		$footer_id             = Header_Footer_Elementor::get_settings( 'type_footer', '' );
+		$header_id = Header_Footer_Elementor::get_settings( 'type_header', '' );
+		$footer_id = Header_Footer_Elementor::get_settings( 'type_footer', '' );
 
 		if ( '' !== $header_id ) {
 			$classes[] = 'ehf-header';
@@ -182,7 +182,7 @@ class Header_Footer_Elementor {
 	public static function get_template_id( $type ) {
 
 		$cached = wp_cache_get( $type );
-		
+
 		if ( false !== $cached ) {
 			return $cached;
 		}

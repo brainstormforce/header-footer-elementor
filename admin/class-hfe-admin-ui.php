@@ -43,9 +43,8 @@ class HFE_Admin {
 		add_action( 'add_meta_boxes', array( $this, 'ehf_register_metabox' ) );
 		add_action( 'save_post', array( $this, 'ehf_save_meta' ) );
 		add_action( 'admin_notices', array( $this, 'location_notice' ) );
-
 		add_action( 'template_redirect', array( $this, 'block_template_frontend' ) );
-		add_filter('single_template', array( $this, 'load_canvas_template' ) );
+		add_filter( 'single_template', array( $this, 'load_canvas_template' ) );
 	}
 
 	/**
@@ -72,14 +71,14 @@ class HFE_Admin {
 
 		$args = array(
 			'labels'              => $labels,
-			'public' => true,
-			'rewrite' => false,
-			'show_ui' => true,
-			'show_in_menu' => false,
-			'show_in_nav_menus' => false,
+			'public'              => true,
+			'rewrite'             => false,
+			'show_ui'             => true,
+			'show_in_menu'        => false,
+			'show_in_nav_menus'   => false,
 			'exclude_from_search' => true,
-			'capability_type' => 'post',
-			'hierarchical' => false,
+			'capability_type'     => 'post',
+			'hierarchical'        => false,
 			'menu_icon'           => 'dashicons-editor-kitchensink',
 			'supports'            => array( 'title', 'thumbnail', 'elementor' ),
 		);
@@ -133,6 +132,7 @@ class HFE_Admin {
 	 * Save meta field.
 	 *
 	 * @param  POST $post_id Currennt post object which is being displayed.
+	 *
 	 * @return Void
 	 */
 	public function ehf_save_meta( $post_id ) {
@@ -176,8 +176,8 @@ class HFE_Admin {
 			// Check if more than one template is selected for current template type.
 			if ( is_array( $templates ) && isset( $templates[1] ) && $post->ID != $templates[0] ) {
 
-				$post_title 		= '<strong>' . get_the_title( $templates[0] ) . '</strong>';
-				$template_location 	= '<strong>' . $this->template_location( $template_type ) . '</strong>';
+				$post_title        = '<strong>' . get_the_title( $templates[0] ) . '</strong>';
+				$template_location = '<strong>' . $this->template_location( $template_type ) . '</strong>';
 
 				$message = __( sprintf( 'Template %s is already assigned to the location %s', $post_title, $template_location ), 'header-footer-elementor' );
 
@@ -191,6 +191,7 @@ class HFE_Admin {
 
 	public function template_location( $template_type ) {
 		$template_type = ucfirst( str_replace( 'type_', '', $template_type ) );
+
 		return $template_type;
 	}
 
@@ -202,9 +203,9 @@ class HFE_Admin {
 	}
 
 	/**
-	* Single template function which will choose our template
-	*/
-	function load_canvas_template($single) {
+	 * Single template function which will choose our template
+	 */
+	function load_canvas_template( $single ) {
 
 		global $post;
 
