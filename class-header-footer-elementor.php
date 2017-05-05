@@ -46,7 +46,7 @@ class Header_Footer_Elementor {
 				require HFE_DIR . 'themes/bb-theme/class-bb-theme-compat.php';
 			} elseif ( 'generatepress' == $this->template ) {
 
-				require HFE_DIR . 'themes/generatepress/generatepress-compat.php';
+				require HFE_DIR . 'themes/generatepress/class-generatepress-compat.php';
 			} else {
 
 				add_action( 'admin_notices', array( $this, 'unsupported_theme' ) );
