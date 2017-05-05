@@ -63,10 +63,10 @@ class HFE_Admin {
 			'edit_item'          => __( 'Edit Header Footers Template', 'header-footer-elementor' ),
 			'view_item'          => __( 'View Header Footers Template', 'header-footer-elementor' ),
 			'all_items'          => __( 'All Elementor Header Footers', 'header-footer-elementor' ),
-			'search_items'       => __( 'Search Recipes', 'header-footer-elementor' ),
-			'parent_item_colon'  => __( 'Parent Recipes:', 'header-footer-elementor' ),
-			'not_found'          => __( 'No recipes found.', 'header-footer-elementor' ),
-			'not_found_in_trash' => __( 'No recipes found in Trash.', 'header-footer-elementor' ),
+			'search_items'       => __( 'Search Header Footers Templates', 'header-footer-elementor' ),
+			'parent_item_colon'  => __( 'Parent Header Footers Templates:', 'header-footer-elementor' ),
+			'not_found'          => __( 'No Header Footers Templates found.', 'header-footer-elementor' ),
+			'not_found_in_trash' => __( 'No Header Footers Templates found in Trash.', 'header-footer-elementor' ),
 		);
 
 		$args = array(
