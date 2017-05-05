@@ -45,6 +45,7 @@ class HFE_Admin {
 		add_action( 'admin_notices', array( $this, 'location_notice' ) );
 
 		add_action( 'template_redirect', array( $this, 'block_template_frontend' ) );
+		add_filter('single_template', array( $this, 'load_canvas_template' ) );
 	}
 
 	/**
@@ -163,7 +164,7 @@ class HFE_Admin {
 		global $pagenow;
 		global $post;
 
-		if ( 'post.php' != $pagenow || ! is_object( $post ) || 'header-footer-elementor' != $post->post_type ) {
+		if ( 'post.php' != $pagenow || ! is_object( $post ) || 'elementor-hf' != $post->post_type ) {
 			return;
 		}
 
@@ -198,6 +199,19 @@ class HFE_Admin {
 			wp_redirect( site_url(), 301 );
 			die;
 		}
+	}
+
+	/**
+	* Single template function which will choose our template
+	*/
+	function load_canvas_template($single) {
+
+		global $post;
+
+		if ( 'elementor-hf' == $post->post_type ) {
+			return ELEMENTOR_PATH . '/includes/page-templates/canvas.php';
+		}
+
 	}
 
 }
