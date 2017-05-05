@@ -80,7 +80,7 @@ class HFE_Admin {
 			'capability_type'     => 'post',
 			'hierarchical'        => false,
 			'menu_icon'           => 'dashicons-editor-kitchensink',
-			'supports'            => array( 'title', 'thumbnail', 'header-footer-elementor' ),
+			'supports'            => array( 'title', 'thumbnail', 'elementor' ),
 		);
 
 		register_post_type( 'elementor-hf', $args );
