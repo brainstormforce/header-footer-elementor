@@ -156,7 +156,6 @@ class HFE_Admin {
 			update_post_meta( $post_id, 'ehf_template_type', esc_attr( $_POST['ehf_template_type'] ) );
 		}
 
-
 	}
 
 	public function location_notice() {
