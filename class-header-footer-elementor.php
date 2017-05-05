@@ -40,13 +40,13 @@ class Header_Footer_Elementor {
 
 			if ( 'genesis' == $this->template ) {
 
-				require HFE_DIR . 'themes/genesis/class-genesis-compat.php';
+				require HFE_DIR . 'themes/genesis/class-hfe-genesis-compat.php';
 			} elseif ( 'bb-theme' == $this->template || 'beaver-builder-theme' == $this->template ) {
 				$this->template = 'beaver-builder-theme';
-				require HFE_DIR . 'themes/bb-theme/class-bb-theme-compat.php';
+				require HFE_DIR . 'themes/bb-theme/class-hfe-bb-theme-compat.php';
 			} elseif ( 'generatepress' == $this->template ) {
 
-				require HFE_DIR . 'themes/generatepress/class-generatepress-compat.php';
+				require HFE_DIR . 'themes/generatepress/class-hfe-generatepress-compat.php';
 			} else {
 
 				add_action( 'admin_notices', array( $this, 'unsupported_theme' ) );
@@ -84,7 +84,7 @@ class Header_Footer_Elementor {
 	 * Loads the globally required files for the plugin.
 	 */
 	public function includes() {
-		require_once HFE_DIR . 'admin/class-hfe-admin-ui.php';
+		require_once HFE_DIR . 'admin/class-hfe-admin.php';
 	}
 
 	/**
