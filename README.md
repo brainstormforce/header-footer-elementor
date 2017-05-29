@@ -16,9 +16,9 @@ Create header and footer of your site easily using [Elementor](https://wordpress
 
 The plugin only works with limited number of themes as of now, here is the list of supported themes - 
 
-1. Beaver Builder theme
+1. GeneratePress Theme
 2. Genesis Theme
-3. GeneratePress Theme
+3. Beaver Builder theme
 
 ### Supported & Actively Developed ###
 Need help with something? Have an issue to report? [Get in touch](https://github.com/Nikschavan/header-footer-elemento "Header Footer elementor on GitHub"). with us on GitHub.
