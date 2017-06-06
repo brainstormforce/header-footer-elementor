@@ -25,3 +25,9 @@
 .bhf-hidden {
     display: none
 }
+
+/* Fix: Header hidden below the page content */
+.ehf-header header {
+	z-index: 30;
+    position: relative;
+}
