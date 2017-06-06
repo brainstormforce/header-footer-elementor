@@ -2,7 +2,7 @@
 /**
  * HFE_Astra_Compat setup
  *
- * @package bb-header-footer
+ * @package header-footer-elementor
  */
 
 /**
