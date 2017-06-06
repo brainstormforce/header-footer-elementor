@@ -41,6 +41,9 @@ class Header_Footer_Elementor {
 			if ( 'genesis' == $this->template ) {
 
 				require HFE_DIR . 'themes/genesis/class-hfe-genesis-compat.php';
+			} elseif ( 'astra' == $this->template ) {
+
+				require HFE_DIR . 'themes/astra/class-hfe-astra-compat.php';
 			} elseif ( 'bb-theme' == $this->template || 'beaver-builder-theme' == $this->template ) {
 				$this->template = 'beaver-builder-theme';
 				require HFE_DIR . 'themes/bb-theme/class-hfe-bb-theme-compat.php';
