@@ -44,6 +44,7 @@ Need help with something? Have an issue to report? [Get in touch](https://github
 = 1.0.1 (unreleased) =
 - New: Added support for the <a href="https://wpastra.com/?utm_source=wp-repo&utm_campaign=bb-header-footer&utm_medium=description">Astra</a> WordPress theme - The Fastest, Most Lightweight &amp; Customizable WordPress Theme.
 * Moved the menu under Appearance -> Header Footer Builder.
+* Fix: Header content getting hidden behind tha page content.
 
 = 1.0.0 =
 * Initial Release.
