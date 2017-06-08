@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Header Footer Elementor 1.0.0\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/header-footer-elementor\n"
-"POT-Creation-Date: 2017-03-07 08:24:30+00:00\n"
+"POT-Creation-Date: 2017-06-08 05:20:36+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,69 +25,75 @@ msgstr ""
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
 
-#: admin/class-hfe-admin-ui.php:56 admin/class-hfe-admin-ui.php:58
-msgid "Header / Footers Template"
+#: admin/class-hfe-admin.php:56 admin/class-hfe-admin.php:58
+msgid "Header Footers Template"
 msgstr ""
 
-#: admin/class-hfe-admin-ui.php:57 admin/class-hfe-admin-ui.php:59
+#: admin/class-hfe-admin.php:57 admin/class-hfe-admin.php:59
 msgid "Elementor Header Footer"
 msgstr ""
 
-#: admin/class-hfe-admin-ui.php:60
+#: admin/class-hfe-admin.php:60
 msgid "Add New"
 msgstr ""
 
-#: admin/class-hfe-admin-ui.php:61
+#: admin/class-hfe-admin.php:61
 msgid "Add New Header Footer"
 msgstr ""
 
-#: admin/class-hfe-admin-ui.php:62
-msgid "New Header / Footers Template"
+#: admin/class-hfe-admin.php:62
+msgid "New Header Footers Template"
 msgstr ""
 
-#: admin/class-hfe-admin-ui.php:63
-msgid "Edit Header / Footers Template"
+#: admin/class-hfe-admin.php:63
+msgid "Edit Header Footers Template"
 msgstr ""
 
-#: admin/class-hfe-admin-ui.php:64
-msgid "View Header / Footers Template"
+#: admin/class-hfe-admin.php:64
+msgid "View Header Footers Template"
 msgstr ""
 
-#: admin/class-hfe-admin-ui.php:65
+#: admin/class-hfe-admin.php:65
 msgid "All Elementor Header Footers"
 msgstr ""
 
-#: admin/class-hfe-admin-ui.php:66
-msgid "Search Recipes"
+#: admin/class-hfe-admin.php:66
+msgid "Search Header Footers Templates"
 msgstr ""
 
-#: admin/class-hfe-admin-ui.php:67
-msgid "Parent Recipes:"
+#: admin/class-hfe-admin.php:67
+msgid "Parent Header Footers Templates:"
 msgstr ""
 
-#: admin/class-hfe-admin-ui.php:68
-msgid "No recipes found."
+#: admin/class-hfe-admin.php:68
+msgid "No Header Footers Templates found."
 msgstr ""
 
-#: admin/class-hfe-admin-ui.php:69
-msgid "No recipes found in Trash."
+#: admin/class-hfe-admin.php:69
+msgid "No Header Footers Templates found in Trash."
 msgstr ""
 
-#: admin/class-hfe-admin-ui.php:92 admin/class-hfe-admin-ui.php:93
-msgid "Header Footer Templates"
+#: admin/class-hfe-admin.php:99 admin/class-hfe-admin.php:100
+msgid "Header Footer Builder"
 msgstr ""
 
-#: admin/class-hfe-admin-ui.php:103
+#: admin/class-hfe-admin.php:110
 msgid "Elementor Header Footer options"
 msgstr ""
 
-#: class-header-footer-elementor.php:79
+#: admin/class-hfe-admin.php:193
+#. Translators: Post title, Template Location
+msgid "Template %1$s is already assigned to the location %2$s"
+msgstr ""
+
+#: class-header-footer-elementor.php:83
+#. Translators: URL to install or activate Elementor plugin.
 msgid ""
 "The <strong>Header Footer Elementor</strong> plugin requires <strong><a "
 "href=\"%s\">Elementor</strong></a> plugin installed & activated."
 msgstr ""
 
-#: class-header-footer-elementor.php:135
+#: class-header-footer-elementor.php:139
 msgid ""
 "Hey, your current theme is not supported by Header Footer Elementor, click "
 "<a "
