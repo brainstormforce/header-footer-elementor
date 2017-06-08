@@ -1,7 +1,7 @@
 
 {
   "name": "header-footer-elementor",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "main": "Gruntfile.js",
   "author": "YOUR NAME HERE",
   "devDependencies": {
