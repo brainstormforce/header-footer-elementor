@@ -82,11 +82,13 @@ class HFE_Genesis_Compat {
 	 */
 	public function genesis_header_markup_open() {
 
-		genesis_markup( array(
-			'html5'   => '<header %s>',
-			'xhtml'   => '<div id="header">',
-			'context' => 'site-header',
-		) );
+		genesis_markup(
+			array(
+				'html5'   => '<header %s>',
+				'xhtml'   => '<div id="header">',
+				'context' => 'site-header',
+			)
+		);
 
 		genesis_structural_wrap( 'header' );
 
@@ -98,10 +100,12 @@ class HFE_Genesis_Compat {
 	public function genesis_header_markup_close() {
 
 		genesis_structural_wrap( 'header', 'close' );
-		genesis_markup( array(
-			'html5' => '</header>',
-			'xhtml' => '</div>',
-		) );
+		genesis_markup(
+			array(
+				'html5' => '</header>',
+				'xhtml' => '</div>',
+			)
+		);
 
 	}
 
@@ -110,11 +114,13 @@ class HFE_Genesis_Compat {
 	 */
 	public function genesis_footer_markup_open() {
 
-		genesis_markup( array(
-			'html5'   => '<footer %s>',
-			'xhtml'   => '<div id="footer" class="footer">',
-			'context' => 'site-footer',
-		) );
+		genesis_markup(
+			array(
+				'html5'   => '<footer %s>',
+				'xhtml'   => '<div id="footer" class="footer">',
+				'context' => 'site-footer',
+			)
+		);
 		genesis_structural_wrap( 'footer', 'open' );
 
 	}
@@ -125,10 +131,12 @@ class HFE_Genesis_Compat {
 	public function genesis_footer_markup_close() {
 
 		genesis_structural_wrap( 'footer', 'close' );
-		genesis_markup( array(
-			'html5' => '</footer>',
-			'xhtml' => '</div>',
-		) );
+		genesis_markup(
+			array(
+				'html5' => '</footer>',
+				'xhtml' => '</div>',
+			)
+		);
 
 	}
 
