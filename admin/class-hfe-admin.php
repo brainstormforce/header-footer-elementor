@@ -107,10 +107,12 @@ class HFE_Admin {
 	 * Register meta box(es).
 	 */
 	function ehf_register_metabox() {
-		add_meta_box( 'ehf-meta-box', __( 'Elementor Header Footer options', 'header-footer-elementor' ), array(
-			$this,
-			'efh_metabox_render',
-		), 'elementor-hf', 'normal', 'high' );
+		add_meta_box(
+			'ehf-meta-box', __( 'Elementor Header Footer options', 'header-footer-elementor' ), array(
+				$this,
+				'efh_metabox_render',
+			), 'elementor-hf', 'normal', 'high'
+		);
 	}
 
 	/**
