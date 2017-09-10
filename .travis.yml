@@ -16,15 +16,11 @@ matrix:
     - php: 7.1
       env: WP_TRAVISCI=phpcs
     - php: 7.1
-      env: WP_VERSION=latest
+      env: WP_VERSION=trunk
     - php: 7.0
-      env: WP_VERSION=latest
-    - php: 5.6
-      env: WP_VERSION=latest
+      env: WP_VERSION=trunk
     - php: 5.6
       env: WP_VERSION=trunk
-    - php: 5.3
-      env: WP_VERSION=latest
 
 before_script:
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
