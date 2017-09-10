@@ -103,6 +103,15 @@ class Header_Footer_Elementor {
 	 */
 	public function enqueue_scripts() {
 		wp_enqueue_style( 'hfe-style', HFE_URL . 'assets/css/header-footer-elementor.css', array(), HFE_VER );
+
+		if ( class_exists( '\Elementor\Post_CSS_File' ) ) {
+			$header_id = Header_Footer_Elementor::get_settings( 'type_header', '' );
+
+			if ( '' !== $header_id ) {
+				$css_file = new \Elementor\Post_CSS_File( $header_id );
+				$css_file->enqueue();
+			}
+		}
 	}
 
 	/**
