@@ -76,6 +76,10 @@ function get_hfe_footer_id() {
  */
 function hfe_render_header() {
 
+	if ( false == apply_filters( 'enable_hfe_render_header', '__return_true' ) ) {
+		return;
+	}
+
 	?>
 		<header id="masthead" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
 			<p class="main-title bhf-hidden" itemprop="headline"><a href="<?php echo bloginfo( 'url' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
@@ -92,6 +96,10 @@ function hfe_render_header() {
  * @since  1.0.2
  */
 function hfe_render_footer() {
+
+	if ( false == apply_filters( 'enable_hfe_render_footer', '__return_true' ) ) {
+		return;
+	}
 
 	?>
 		<footer itemscope="itemscope" itemtype="http://schema.org/WPFooter">
