@@ -38,15 +38,12 @@ class HFE_BB_Theme_Compat {
 	 */
 	public function hooks() {
 
-		$header_id = Header_Footer_Elementor::get_settings( 'type_header', '' );
-		$footer_id = Header_Footer_Elementor::get_settings( 'type_footer', '' );
-
-		if ( '' !== $header_id ) {
+		if ( hfe_header_enabled() ) {
 			add_filter( 'fl_header_enabled', '__return_false' );
 			add_action( 'fl_before_header', array( $this, 'get_header_content' ) );
 		}
 
-		if ( '' !== $footer_id ) {
+		if ( hfe_footer_enabled() ) {
 			add_filter( 'fl_footer_enabled', '__return_false' );
 			add_action( 'fl_after_content', array( $this, 'get_footer_content' ) );
 		}
