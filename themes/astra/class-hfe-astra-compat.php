@@ -36,7 +36,7 @@ class HFE_Astra_Compat {
 	 */
 	public function hooks() {
 
-		if ( hfe_header_enabled()() ) {
+		if ( hfe_header_enabled() ) {
 			add_action( 'template_redirect', array( $this, 'astra_setup_header' ), 10 );
 			add_action( 'astra_header', array( $this, 'add_header_markup' ) );
 		}
