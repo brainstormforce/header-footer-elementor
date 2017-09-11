@@ -53,7 +53,7 @@ class Header_Footer_Elementor {
 			} elseif ( 'oceanwp' == $this->template ) {
 
 				require HFE_DIR . 'themes/oceanwp/class-hfe-oceanwp-compat.php';
-			} else {
+			} elseif ( ! current_theme_supports( 'header-footer-elementor' ) ) {
 
 				add_action( 'admin_notices', array( $this, 'unsupported_theme' ) );
 				add_action( 'network_admin_notices', array( $this, 'unsupported_theme' ) );
