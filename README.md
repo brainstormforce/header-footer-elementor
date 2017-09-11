@@ -4,7 +4,7 @@
 **Donate link:** https://www.paypal.me/BrainstormForce  
 **Requires at least:** 3.6  
 **Tested up to:** 4.8.0  
-**Stable tag:** 1.0.2-beta.1  
+**Stable tag:** 1.0.2  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -27,7 +27,7 @@ All you need to do is -
 
 The plugin only works with limited number of themes as of now, here is the list of supported themes - 
 
-1. <a href="https://wpastra.com/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description">Astra</a> - The Fastest, Most Lightweight &amp; Customizable WordPress Theme.
+1. <a href="https://wpastra.com/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description&bsf=162">Astra</a> - The Fastest, Most Lightweight &amp; Customizable WordPress Theme.
 2. GeneratePress Theme.
 3. Genesis Theme.
 4. Beaver Builder theme.
@@ -48,7 +48,7 @@ Made with love at <a href="https://www.brainstormforce.com/?utm_source=wp-repo&u
 
 ### Which themes are supported by this plugin? ###
 
-1. <a href="https://wpastra.com/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description">Astra</a> - The Fastest, Most Lightweight &amp; Customizable WordPress Theme.
+1. <a href="https://wpastra.com/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description&bsf=162">Astra</a> - The Fastest, Most Lightweight &amp; Customizable WordPress Theme.
 2. Beaver Builder Theme.
 3. Genesis Theme (and should work with most of its child themes).
 4. GeneratePress Theme.
@@ -70,7 +70,9 @@ Made with love at <a href="https://www.brainstormforce.com/?utm_source=wp-repo&u
 ## Changelog ##
 
 ### 1.0.2 ###
+- New: Added support for the OceanWP Theme.
 - Fix: Load the elementor header assets corectly in header. This fixes header looking different just when loading the page as previously Elementor would load it's CSS in the footer.
+- Introduced helper functions for rendering and checking the headers to make it simpler to integrate HFE with more themes, Tutorials coming very soon!
 
 ### 1.0.1 ###
 - New: Added support for the <a href="https://wpastra.com/?utm_source=wp-repo&utm_campaign=bb-header-footer&utm_medium=description">Astra</a> WordPress theme - The Fastest, Most Lightweight &amp; Customizable WordPress Theme.
