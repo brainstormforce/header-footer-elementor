@@ -50,7 +50,10 @@ class Header_Footer_Elementor {
 			} elseif ( 'generatepress' == $this->template ) {
 
 				require HFE_DIR . 'themes/generatepress/class-hfe-generatepress-compat.php';
-			} else {
+			} elseif ( 'oceanwp' == $this->template ) {
+
+				require HFE_DIR . 'themes/oceanwp/class-hfe-oceanwp-compat.php';
+			}else {
 
 				add_action( 'admin_notices', array( $this, 'unsupported_theme' ) );
 				add_action( 'network_admin_notices', array( $this, 'unsupported_theme' ) );
