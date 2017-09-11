@@ -12,15 +12,15 @@
  * @package         header-footer-elementor
  */
 
-/**
- * Load the class loader.
- */
-require_once 'class-header-footer-elementor.php';
-
 define( 'HFE_VER', '1.0.2-beta.1' );
 define( 'HFE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'HFE_URL', plugins_url( '/', __FILE__ ) );
 define( 'HFE_PATH', plugin_basename( __FILE__ ) );
+
+/**
+ * Load the class loader.
+ */
+require_once HFE_DIR . '/inc/class-header-footer-elementor.php';
 
 /**
  * Load the Plugin Class.

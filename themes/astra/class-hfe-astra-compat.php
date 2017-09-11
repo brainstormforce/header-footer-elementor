@@ -36,15 +36,12 @@ class HFE_Astra_Compat {
 	 */
 	public function hooks() {
 
-		$header_id = Header_Footer_Elementor::get_settings( 'type_header', '' );
-		$footer_id = Header_Footer_Elementor::get_settings( 'type_footer', '' );
-
-		if ( '' !== $header_id ) {
+		if ( hfe_header_enabled() ) {
 			add_action( 'template_redirect', array( $this, 'astra_setup_header' ), 10 );
 			add_action( 'astra_header', array( $this, 'add_header_markup' ) );
 		}
 
-		if ( '' !== $footer_id ) {
+		if ( hfe_footer_enabled() ) {
 			add_action( 'template_redirect', array( $this, 'astra_setup_footer' ), 10 );
 			add_action( 'astra_footer', array( $this, 'add_footer_markup' ) );
 		}
