@@ -32,6 +32,8 @@ The plugin only works with limited number of themes as of now, here is the list 
 3. Genesis Theme.
 4. Beaver Builder theme.
 
+If you are a theme developer <a href="https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme">here</a> is a quick tutorial on how you can add support for the Header Footer Elementor from your theme.
+
 = Supported & Actively Developed =
 Need help with something? Have an issue to report? [Get in touch](https://github.com/Nikschavan/header-footer-elemento "Header Footer elementor on GitHub"). with us on GitHub.
 
@@ -68,7 +70,7 @@ Made with love at <a href="https://www.brainstormforce.com/?utm_source=wp-repo&u
 = 1.0.2 =
 - New: Added support for the OceanWP Theme.
 - Fix: Load the elementor header assets corectly in header. This fixes header looking different just when loading the page as previously Elementor would load it's CSS in the footer.
-- Introduced helper functions for rendering and checking the headers to make it simpler to integrate HFE with more themes, Tutorials coming very soon!
+- Introduced helper functions for rendering and checking the headers to make it simpler to integrate HFE with more themes.
 
 = 1.0.1 =
 - New: Added support for the <a href="https://wpastra.com/?utm_source=wp-repo&utm_campaign=bb-header-footer&utm_medium=description">Astra</a> WordPress theme - The Fastest, Most Lightweight &amp; Customizable WordPress Theme.
