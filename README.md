@@ -12,7 +12,7 @@ Create Header and Footer for your site using Elementor Page Builder.
 
 ## Description ##
 
-Create header and footer of your site easily using [Elementor](https://wordpress.org/plugins/elementor/ "Elementor").
+Create header and footer of your site easily using [Elementor](https://elementor.com/?ref=1352 "Elementor").
 
 All you need to do is -
 
@@ -31,6 +31,7 @@ The plugin only works with limited number of themes as of now, here is the list 
 2. GeneratePress Theme.
 3. Genesis Theme.
 4. Beaver Builder theme.
+5. OceanWP Theme.
 
 If you are a theme developer <a href="https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme">here</a> is a quick tutorial on how you can add support for the Header Footer Elementor from your theme.
 
@@ -77,7 +78,7 @@ Made with love at <a href="https://www.brainstormforce.com/?utm_source=wp-repo&u
 - Introduced helper functions for rendering and checking the headers to make it simpler to integrate HFE with more themes.
 
 ### 1.0.1 ###
-- New: Added support for the <a href="https://wpastra.com/?utm_source=wp-repo&utm_campaign=bb-header-footer&utm_medium=description">Astra</a> WordPress theme - The Fastest, Most Lightweight &amp; Customizable WordPress Theme.
+- New: Added support for the <a href="https://wpastra.com/?utm_source=wp-repo&utm_campaign=bb-header-footer&utm_medium=description-changelog">Astra</a> WordPress theme - The Fastest, Most Lightweight &amp; Customizable WordPress Theme.
 * Moved the menu under Appearance -> Header Footer Builder.
 * Fix: Header content getting hidden behind tha page content.
 * Use Elemenntor's canvas template when designing header and footer layout to have full width experience.
