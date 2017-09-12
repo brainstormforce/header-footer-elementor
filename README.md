@@ -33,8 +33,6 @@ The plugin only works with limited number of themes as of now, here is the list 
 4. Beaver Builder theme.
 5. OceanWP Theme.
 
-If you are a theme developer <a href="https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme">here</a> is a quick tutorial on how you can add support for the Header Footer Elementor from your theme.
-
 ### Supported & Actively Developed ###
 Need help with something? Have an issue to report? [Get in touch](https://github.com/Nikschavan/header-footer-elementor "Header Footer elementor on GitHub"). with us on GitHub.
 
@@ -55,6 +53,9 @@ Made with love at <a href="https://www.brainstormforce.com/?utm_source=wp-repo&u
 2. Beaver Builder Theme.
 3. Genesis Theme (and should work with most of its child themes).
 4. GeneratePress Theme.
+5. OceanWP Theme.
+
+If you are a theme developer <a href="https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme">here</a> is a quick tutorial on how you can add support for the Header Footer Elementor from your theme.
 
 ### How does this plugin work ###
 
