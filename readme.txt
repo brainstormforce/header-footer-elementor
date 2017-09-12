@@ -56,7 +56,7 @@ Made with love at <a href="https://www.brainstormforce.com/?utm_source=wp-repo&u
 3. Genesis Theme (and should work with most of its child themes).
 4. GeneratePress Theme.
 
-= How does this plugin work> =
+= How does this plugin work =
 
 1. Go to `Appearance -> Header Footer Builder` to build a header or footer layout using elementor.
 1. After the layout is ready assign the layout as header or footer using the option `Select the type of template this is` (<a href="https://cloudup.com/clK2sPg9nXK+">screenshot</a>)
