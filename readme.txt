@@ -12,7 +12,7 @@ Create Header and Footer for your site using Elementor Page Builder.
 
 == Description ==
 
-Create header and footer of your site easily using [Elementor](https://elementor.com/?ref=1352 "Elementor").
+Create header and footer of your site easily using [Elementor](https://goo.gl/qhDrbf "Elementor").
 
 All you need to do is -
 
