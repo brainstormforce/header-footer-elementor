@@ -20,7 +20,7 @@ All you need to do is -
 2. Select the template type to be used for header or footer.
 3. The template will be used throughout the site as header / footer.
 
-= Features of Beaver Builder Header Footer =
+= Features of Header Footer Elementor =
 
 - Create attractive pages and templates that can be displayed as a Header or Footer.
 - Lets you use a fully customized header or footer across the website.
@@ -30,8 +30,8 @@ The plugin only works with limited number of themes as of now, here is the list 
 1. <a href="https://wpastra.com/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description&bsf=162">Astra</a> - The Fastest, Most Lightweight &amp; Customizable WordPress Theme.
 2. GeneratePress Theme.
 3. Genesis Theme.
-4. Beaver Builder theme.
-5. OceanWP Theme.
+4. OceanWP Theme.
+5. Beaver Builder theme.
 
 = Supported & Actively Developed =
 Need help with something? Have an issue to report? [Get in touch](https://github.com/Nikschavan/header-footer-elementor "Header Footer elementor on GitHub"). with us on GitHub.
@@ -50,10 +50,10 @@ Made with love at <a href="https://www.brainstormforce.com/?utm_source=wp-repo&u
 = Which themes are supported by this plugin? =
 
 1. <a href="https://wpastra.com/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description&bsf=162">Astra</a> - The Fastest, Most Lightweight &amp; Customizable WordPress Theme.
-2. Beaver Builder Theme.
+2. GeneratePress Theme.
 3. Genesis Theme (and should work with most of its child themes).
-4. GeneratePress Theme.
-5. OceanWP Theme.
+4. OceanWP Theme.
+5. Beaver Builder theme.
 
 If you are a theme developer <a href="https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme">here</a> is a quick tutorial on how you can add support for the Header Footer Elementor from your theme.
 
