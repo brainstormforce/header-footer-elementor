@@ -53,10 +53,8 @@ class Header_Footer_Elementor {
 			} elseif ( 'oceanwp' == $this->template ) {
 
 				require HFE_DIR . 'themes/oceanwp/class-hfe-oceanwp-compat.php';
-			} elseif ( ! current_theme_supports( 'header-footer-elementor' ) ) {
-
-				add_action( 'admin_notices', array( $this, 'unsupported_theme' ) );
-				add_action( 'network_admin_notices', array( $this, 'unsupported_theme' ) );
+			} else {
+				add_action( 'init', array( $this, 'setup_unsupported_theme_notice' ) );
 			}
 
 			// Scripts and styles.
@@ -139,6 +137,20 @@ class Header_Footer_Elementor {
 		$classes[] = 'ehf-stylesheet-' . get_stylesheet();
 
 		return $classes;
+	}
+
+	/**
+	 * Display Unsupported theme notice if the current theme does add support for 'header-footer-elementor'
+	 *
+	 * @since  1.0.3
+	 */
+	public function setup_unsupported_theme_notice() {
+
+		if ( ! current_theme_supports( 'header-footer-elementor' ) ) {
+			add_action( 'admin_notices', array( $this, 'unsupported_theme' ) );
+			add_action( 'network_admin_notices', array( $this, 'unsupported_theme' ) );
+		}
+
 	}
 
 	/**
