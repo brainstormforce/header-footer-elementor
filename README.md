@@ -4,7 +4,7 @@
 **Donate link:** https://www.paypal.me/BrainstormForce  
 **Requires at least:** 3.6  
 **Tested up to:** 4.8.2  
-**Stable tag:** 1.0.2  
+**Stable tag:** 1.0.3  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -32,6 +32,9 @@ The plugin only works with limited number of themes as of now, here is the list 
 3. Genesis Theme.
 4. OceanWP Theme.
 5. Beaver Builder theme.
+
+If you are a theme developer <a href="https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme">here</a> is a quick tutorial on how you can add support for the Header Footer Elementor from your theme.
+
 
 ### Supported & Actively Developed ###
 Need help with something? Have an issue to report? [Get in touch](https://github.com/Nikschavan/header-footer-elementor "Header Footer elementor on GitHub"). with us on GitHub.
@@ -72,6 +75,9 @@ If you are a theme developer <a href="https://github.com/Nikschavan/header-foote
 
 
 ## Changelog ##
+
+### 1.0.3 ###
+- Fix: Adding theme support for the plugin does not remove the "no supported" notice.
 
 ### 1.0.2 ###
 - New: Added support for the OceanWP Theme.
