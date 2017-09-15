@@ -38,8 +38,6 @@ class Header_Footer_Elementor {
 			$this->includes();
 			$this->load_textdomain();
 
-			add_action( 'init', array( $this, 'setup_unsupported_theme_notice' ) );
-
 			if ( 'genesis' == $this->template ) {
 
 				require HFE_DIR . 'themes/genesis/class-hfe-genesis-compat.php';
@@ -55,6 +53,8 @@ class Header_Footer_Elementor {
 			} elseif ( 'oceanwp' == $this->template ) {
 
 				require HFE_DIR . 'themes/oceanwp/class-hfe-oceanwp-compat.php';
+			} else {
+				add_action( 'init', array( $this, 'setup_unsupported_theme_notice' ) );
 			}
 
 			// Scripts and styles.
