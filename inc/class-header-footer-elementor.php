@@ -33,7 +33,7 @@ class Header_Footer_Elementor {
 		if ( defined( 'ELEMENTOR_VERSION' ) ) {
 
 			self::$elementor_instance = Elementor\Plugin::instance();
-			
+
 			$this->includes();
 			$this->load_textdomain();
 
