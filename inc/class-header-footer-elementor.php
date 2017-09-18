@@ -22,8 +22,7 @@ class Header_Footer_Elementor {
 	 *
 	 * @var \Elementor\Frontend()
 	 */
-	private static $elementor_frontend;
-
+	private static $elementor_instance;
 	/**
 	 * Constructor
 	 */
@@ -33,8 +32,8 @@ class Header_Footer_Elementor {
 
 		if ( defined( 'ELEMENTOR_VERSION' ) ) {
 
-			self::$elementor_frontend = new \Elementor\Frontend();
-
+			self::$elementor_instance = Elementor\Plugin::instance();
+			
 			$this->includes();
 			$this->load_textdomain();
 
@@ -167,7 +166,7 @@ class Header_Footer_Elementor {
 	 * Prints the Header content.
 	 */
 	public static function get_header_content() {
-		echo self::$elementor_frontend->get_builder_content_for_display( get_hfe_header_id() );
+		echo self::$elementor_instance->frontend->get_builder_content_for_display( get_hfe_header_id() );
 	}
 
 	/**
@@ -176,7 +175,7 @@ class Header_Footer_Elementor {
 	public static function get_footer_content() {
 
 		echo "<div class='footer-width-fixer'>";
-		echo self::$elementor_frontend->get_builder_content_for_display( get_hfe_footer_id() );
+		echo self::$elementor_instance->frontend->get_builder_content_for_display( get_hfe_footer_id() );
 		echo '</div>';
 	}
 
