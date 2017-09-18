@@ -4,7 +4,7 @@ Tags: elementor, header footer builder, header, footer, page builder, template b
 Donate link: https://www.paypal.me/BrainstormForce
 Requires at least: 3.6
 Tested up to: 4.8.2
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -71,6 +71,9 @@ If you are a theme developer <a href="https://github.com/Nikschavan/header-foote
 2. After the template is reade, Assign the template to be header or footer replacement.
 
 == Changelog ==
+
+= 1.0.4 =
+- Improvement: Use Elementor's created instance when rendering the markup for header/footer - Credits <a href="https://github.com/itay9001">itay9001</a>
 
 = 1.0.3 =
 - Fix: Adding theme support for the plugin does not remove the "no supported" notice.
