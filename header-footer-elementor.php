@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:     Header Footer Elementor
- * Plugin URI:      https://github.com/Nikschavan/header-footer-elemento
+ * Plugin URI:      https://github.com/Nikschavan/header-footer-elementor
  * Description:     Create Header and Footer for your site using Elementor Page Builder.
  * Author:          Brainstorm Force, Nikhil Chavan
  * Author URI:      https://www.brainstormforce.com/
