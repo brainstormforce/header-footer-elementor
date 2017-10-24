@@ -30,7 +30,7 @@ class Header_Footer_Elementor {
 
 		$this->template = get_template();
 
-		if ( defined( 'ELEMENTOR_VERSION' ) ) {
+		if ( defined( 'ELEMENTOR_VERSION' ) && is_callable( 'Elementor\Plugin::instance' ) ) {
 
 			self::$elementor_instance = Elementor\Plugin::instance();
 
