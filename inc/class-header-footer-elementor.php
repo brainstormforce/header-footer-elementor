@@ -191,7 +191,7 @@ class Header_Footer_Elementor {
 				'show_if'          => true,
 				'message'          => sprintf(
 					/* translators: 1: Link to the blackfriday deals */
-					__( 'Black Friday is here with huge savings! See our hand curated list of <a href="%1$s">Best WordPress Deals</a>!', 'header-footer-elementor' ),
+					__( 'Thanks for updating Header Footer Elementor. Black Friday is here with huge savings! See our hand curated list of <a href="%1$s">Best WordPress Deals</a>!', 'header-footer-elementor' ),
 					esc_url( $url )
 				),
 				'dismissible'      => true,
