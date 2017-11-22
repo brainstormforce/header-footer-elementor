@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the Header Footer Elementor package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Header Footer Elementor 1.0.0\n"
+"Project-Id-Version: Header Footer Elementor 1.0.6\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/header-footer-elementor\n"
-"POT-Creation-Date: 2017-06-08 05:20:36+00:00\n"
+"POT-Creation-Date: 2017-11-22 15:26:39+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -77,23 +77,33 @@ msgstr ""
 msgid "Header Footer Builder"
 msgstr ""
 
-#: admin/class-hfe-admin.php:110
+#: admin/class-hfe-admin.php:111
 msgid "Elementor Header Footer options"
 msgstr ""
 
-#: admin/class-hfe-admin.php:193
+#: admin/class-hfe-admin.php:142
+msgid "Display Layout on Elementor Canvas Template?"
+msgstr ""
+
+#: admin/class-hfe-admin.php:145
+msgid ""
+"Enabling this option will display this layout on pages using Elementor "
+"Canvas Template."
+msgstr ""
+
+#: admin/class-hfe-admin.php:210
 #. Translators: Post title, Template Location
 msgid "Template %1$s is already assigned to the location %2$s"
 msgstr ""
 
-#: class-header-footer-elementor.php:83
+#: inc/class-header-footer-elementor.php:85
 #. Translators: URL to install or activate Elementor plugin.
 msgid ""
 "The <strong>Header Footer Elementor</strong> plugin requires <strong><a "
 "href=\"%s\">Elementor</strong></a> plugin installed & activated."
 msgstr ""
 
-#: class-header-footer-elementor.php:139
+#: inc/class-header-footer-elementor.php:168
 msgid ""
 "Hey, your current theme is not supported by Header Footer Elementor, click "
 "<a "
@@ -101,12 +111,20 @@ msgid ""
 "are-supported-by-this-plugin\">here</a> to check out the supported themes."
 msgstr ""
 
+#: inc/class-header-footer-elementor.php:194
+#. translators: 1: Link to the blackfriday deals
+msgid ""
+"Thanks for updating Header Footer Elementor. Black Friday is here with huge "
+"savings! See our hand curated list of <a href=\"%1$s\">Best WordPress "
+"Deals</a>!"
+msgstr ""
+
 #. Plugin Name of the plugin/theme
 msgid "Header Footer Elementor"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "https://github.com/Nikschavan/header-footer-elemento"
+msgid "https://github.com/Nikschavan/header-footer-elementor"
 msgstr ""
 
 #. Description of the plugin/theme
