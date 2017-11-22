@@ -142,6 +142,7 @@ class HFE_Admin {
 					<?php _e( 'Display Layout on Elementor Canvas Template?', 'header-footer-elemenntor' ); ?>
 			</label>
 		</p>
+		<p class="description"><?php _e( 'Enabling this option will display this layout on pages using Elementor Canvas Template.', 'header-footer-elemenntor' ); ?></p>
 		<?php
 	}
 
