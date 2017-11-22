@@ -121,18 +121,26 @@ class HFE_Admin {
 	 * @param  POST $post Currennt post object which is being displayed.
 	 */
 	function efh_metabox_render( $post ) {
-		$values   = get_post_custom( $post->ID );
-		$selected = isset( $values['ehf_template_type'] ) ? esc_attr( $values['ehf_template_type'][0] ) : '';
+		$values            = get_post_custom( $post->ID );
+		$template_type     = isset( $values['ehf_template_type'] ) ? esc_attr( $values['ehf_template_type'][0] ) : '';
+		$display_on_canvas = isset( $values['display-on-canvas-template'] ) ? true : false;
+
 		// We'll use this nonce field later on when saving.
 		wp_nonce_field( 'ehf_meta_nounce', 'ehf_meta_nounce' );
 		?>
 		<p>
 			<label for="ehf_template_type">Select the type of template this is</label>
 			<select name="ehf_template_type" id="ehf_template_type">
-				<option value="" <?php selected( $selected, '' ); ?>>Select Option</option>
-				<option value="type_header" <?php selected( $selected, 'type_header' ); ?>>Header</option>
-				<option value="type_footer" <?php selected( $selected, 'type_footer' ); ?>>Footer</option>
+				<option value="" <?php selected( $template_type, '' ); ?>>Select Option</option>
+				<option value="type_header" <?php selected( $template_type, 'type_header' ); ?>>Header</option>
+				<option value="type_footer" <?php selected( $template_type, 'type_footer' ); ?>>Footer</option>
 			</select>
+		</p>
+		<p>
+			<label for="display-on-canvas-template">
+				<input type="checkbox" id="display-on-canvas-template" name="display-on-canvas-template" value="1" <?php checked( $display_on_canvas, true ); ?> />
+					<?php _e( 'Display Layout on Elementor Canvas Template?', 'header-footer-elemenntor' ); ?>
+			</label>
 		</p>
 		<?php
 	}
@@ -163,6 +171,12 @@ class HFE_Admin {
 
 		if ( isset( $_POST['ehf_template_type'] ) ) {
 			update_post_meta( $post_id, 'ehf_template_type', esc_attr( $_POST['ehf_template_type'] ) );
+		}
+
+		if ( isset( $_POST['display-on-canvas-template'] ) ) {
+			update_post_meta( $post_id, 'display-on-canvas-template', esc_attr( $_POST['display-on-canvas-template'] ) );
+		} else {
+			delete_post_meta( $post_id, 'display-on-canvas-template' );
 		}
 
 	}
