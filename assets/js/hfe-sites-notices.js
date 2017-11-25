@@ -1,9 +1,10 @@
 jQuery(document).ready(function ($) {
 
 	jQuery( '.hfe-notice.is-dismissible .notice-dismiss' ).on( 'click', function() {
-		var $id = jQuery( this ).attr( 'id' ) || '';
-		var $time = jQuery( this ).attr( 'dismissible-time' ) || '';
-		var $meta = jQuery( this ).attr( 'dismissible-meta' ) || '';
+		_this 		= jQuery( this ).parents( '.hfe-active-notice' );
+		var $id 	= _this.attr( 'id' ) || '';
+		var $time 	= _this.attr( 'dismissible-time' ) || '';
+		var $meta 	= _this.attr( 'dismissible-meta' ) || '';
 
 		jQuery.ajax({
 			url: ajaxurl,
