@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the Header Footer Elementor package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Header Footer Elementor 1.0.6\n"
+"Project-Id-Version: Header Footer Elementor 1.0.7\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/header-footer-elementor\n"
-"POT-Creation-Date: 2017-11-22 15:26:39+00:00\n"
+"POT-Creation-Date: 2017-11-25 02:05:59+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
