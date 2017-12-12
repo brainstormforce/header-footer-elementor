@@ -59,7 +59,6 @@ class Header_Footer_Elementor {
 			// Scripts and styles.
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 			add_filter( 'body_class', array( $this, 'body_class' ) );
-			add_action( 'admin_init', array( $this, 'setup_notices' ) );
 
 		} else {
 
@@ -98,7 +97,8 @@ class Header_Footer_Elementor {
 		require_once HFE_DIR . 'inc/class-hfe-elementor-canvas-compat.php';
 
 		// Load the Admin Notice Class.
-		require_once HFE_DIR . 'inc/class-hfe-notices.php';
+		// Stop loading the comments class until it is required the next time.
+		// require_once HFE_DIR . 'inc/class-hfe-notices.php';.
 	}
 
 	/**
@@ -168,37 +168,6 @@ class Header_Footer_Elementor {
 		$message = __( 'Hey, your current theme is not supported by Header Footer Elementor, click <a href="https://github.com/Nikschavan/header-footer-elementor#which-themes-are-supported-by-this-plugin">here</a> to check out the supported themes.', 'header-footer-elementor' );
 
 		printf( '<div class="%1$s"><p>%2$s</p></div>', $class, $message );
-	}
-
-	/**
-	 * Setup admin notice
-	 */
-	public function setup_notices() {
-
-		$url = add_query_arg(
-			array(
-				'utm_source'   => 'hfe-notice',
-				'utm_campaign' => 'header-footer-elementor',
-				'utm_medium'   => 'blackfriday-notice',
-				'bsf'          => '162',
-			), 'https://www.brainstormforce.com/deals/2017-black-friday-cyber-monday-wordpress-deals/'
-		);
-
-		HFE_Notices::add_notice(
-			array(
-				'id'               => 'hfe-blackfriday-sale',
-				'type'             => 'info',
-				'show_if'          => true,
-				'message'          => sprintf(
-					/* translators: 1: Link to the blackfriday deals */
-					__( 'Thanks for updating Header Footer Elementor. Black Friday is here with huge savings! See our hand curated list of <a href="%1$s">Best WordPress Deals</a>!', 'header-footer-elementor' ),
-					esc_url( $url )
-				),
-				'dismissible'      => true,
-				'dismissible-time' => WEEK_IN_SECONDS,
-			)
-		);
-
 	}
 
 	/**
