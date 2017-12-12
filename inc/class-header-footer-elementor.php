@@ -249,25 +249,29 @@ class Header_Footer_Elementor {
 			return $cached;
 		}
 
-		$template = new WP_Query(
-			array(
-				'post_type'    => 'elementor-hf',
-				'meta_key'     => 'ehf_template_type',
-				'meta_value'   => $type,
-				'meta_type'    => 'post',
-				'meta_compare' => '>=',
-				'orderby'      => 'meta_value',
-				'order'        => 'ASC',
-				'meta_query'   => array(
-					'relation' => 'OR',
-					array(
-						'key'     => 'ehf_template_type',
-						'value'   => $type,
-						'compare' => '==',
-						'type'    => 'post',
-					),
+		$args = array(
+			'post_type'    => 'elementor-hf',
+			'meta_key'     => 'ehf_template_type',
+			'meta_value'   => $type,
+			'meta_type'    => 'post',
+			'meta_compare' => '>=',
+			'orderby'      => 'meta_value',
+			'order'        => 'ASC',
+			'meta_query'   => array(
+				'relation' => 'OR',
+				array(
+					'key'     => 'ehf_template_type',
+					'value'   => $type,
+					'compare' => '==',
+					'type'    => 'post',
 				),
-			)
+			),
+		);
+
+		$args = apply_filters( 'hfe_get_template_id_args', $args );
+
+		$template = new WP_Query(
+			$args
 		);
 
 		if ( $template->have_posts() ) {
