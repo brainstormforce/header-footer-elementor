@@ -1,15 +1,15 @@
-# Copyright (C) 2017 Brainstorm Force, Nikhil Chavan
+# Copyright (C) 2018 Brainstorm Force, Nikhil Chavan
 # This file is distributed under the same license as the Header Footer Elementor package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Header Footer Elementor 1.0.7\n"
+"Project-Id-Version: Header Footer Elementor 1.0.8\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/header-footer-elementor\n"
-"POT-Creation-Date: 2017-11-25 02:05:59+00:00\n"
+"POT-Creation-Date: 2018-01-23 14:52:07+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 0.5.4\n"
@@ -81,6 +81,22 @@ msgstr ""
 msgid "Elementor Header Footer options"
 msgstr ""
 
+#: admin/class-hfe-admin.php:132
+msgid "Select the type of template this is"
+msgstr ""
+
+#: admin/class-hfe-admin.php:134
+msgid "Select Option"
+msgstr ""
+
+#: admin/class-hfe-admin.php:135
+msgid "Header"
+msgstr ""
+
+#: admin/class-hfe-admin.php:136
+msgid "Footer"
+msgstr ""
+
 #: admin/class-hfe-admin.php:142
 msgid "Display Layout on Elementor Canvas Template?"
 msgstr ""
@@ -96,7 +112,7 @@ msgstr ""
 msgid "Template %1$s is already assigned to the location %2$s"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:85
+#: inc/class-header-footer-elementor.php:84
 #. Translators: URL to install or activate Elementor plugin.
 msgid ""
 "The <strong>Header Footer Elementor</strong> plugin requires <strong><a "
@@ -109,14 +125,6 @@ msgid ""
 "<a "
 "href=\"https://github.com/Nikschavan/header-footer-elementor#which-themes-"
 "are-supported-by-this-plugin\">here</a> to check out the supported themes."
-msgstr ""
-
-#: inc/class-header-footer-elementor.php:194
-#. translators: 1: Link to the blackfriday deals
-msgid ""
-"Thanks for updating Header Footer Elementor. Black Friday is here with huge "
-"savings! See our hand curated list of <a href=\"%1$s\">Best WordPress "
-"Deals</a>!"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
