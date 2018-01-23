@@ -96,6 +96,11 @@ class Header_Footer_Elementor {
 		// Load Elementor Canvas Compatibility.
 		require_once HFE_DIR . 'inc/class-hfe-elementor-canvas-compat.php';
 
+		// Load WPML Compatibility if WPML is installed and activated.
+		if ( defined( 'ICL_SITEPRESS_VERSION' ) ) {
+			require_once HFE_DIR . 'inc/compatibility/class-hfe-wpml-compatibility.php';
+		}
+
 		// Load the Admin Notice Class.
 		// Stop loading the comments class until it is required the next time.
 		// require_once HFE_DIR . 'inc/class-hfe-notices.php';.
@@ -199,7 +204,10 @@ class Header_Footer_Elementor {
 		if ( 'type_header' == $setting || 'type_footer' == $setting ) {
 			$templates = self::get_template_id( $setting );
 
-			return is_array( $templates ) ? $templates[0] : '';
+			$template = is_array( $templates ) ? $templates[0] : '';
+			$template = apply_filters( "hfe_get_settings_{$setting}", $template );
+
+			return $template;
 		}
 	}
 
