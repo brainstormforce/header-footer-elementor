@@ -3,8 +3,8 @@ Contributors: brainstormforce, Nikschavan
 Tags: elementor, header footer builder, header, footer, page builder, template builder, landing page builder, front-end editor
 Donate link: https://www.paypal.me/BrainstormForce
 Requires at least: 4.4
-Tested up to: 4.9.0
-Stable tag: 1.0.8
+Tested up to: 4.9.2
+Stable tag: 1.0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -71,6 +71,10 @@ If you are a theme developer <a href="https://github.com/Nikschavan/header-foote
 2. After the template is reade, Assign the template to be header or footer replacement.
 
 == Changelog ==
+
+= 1.0.9 = 
+- Add Support for WPML.
+- Updated the missing strings from the translations template.
 
 = 1.0.8 = 
 - Allow filters to override the WP_Query parameters when retreiving the Header / Footer template id.
