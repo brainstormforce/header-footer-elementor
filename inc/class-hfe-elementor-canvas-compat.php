@@ -38,24 +38,22 @@ class HFE_Elementor_Canvas_Compat {
 
 		if ( hfe_header_enabled() ) {
 
-			// Action `elementor/page_templates/canvas/before_content` is introduced in Elementor Version 1.4.1
+			// Action `elementor/page_templates/canvas/before_content` is introduced in Elementor Version 1.4.1.
 			if ( version_compare( ELEMENTOR_VERSION, '1.4.1', '>=' ) ) {
 				add_action( 'elementor/page_templates/canvas/before_content', array( $this, 'render_header' ) );
 			} else {
 				add_action( 'wp_head', array( $this, 'render_header' ) );
 			}
-
 		}
 
 		if ( hfe_footer_enabled() ) {
 
-			// Action `elementor/page_templates/canvas/after_content` is introduced in Elementor Version 1.9.0
+			// Action `elementor/page_templates/canvas/after_content` is introduced in Elementor Version 1.9.0.
 			if ( version_compare( ELEMENTOR_VERSION, '1.9.0', '>=' ) ) {
 				add_action( 'elementor/page_templates/canvas/after_content', array( $this, 'render_footer' ) );
 			} else {
 				add_action( 'wp_footer', array( $this, 'render_footer' ) );
 			}
-
 		}
 
 	}
