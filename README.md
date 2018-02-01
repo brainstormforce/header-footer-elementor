@@ -4,7 +4,7 @@
 **Donate link:** https://www.paypal.me/BrainstormForce  
 **Requires at least:** 4.4  
 **Tested up to:** 4.9.2  
-**Stable tag:** 1.0.9  
+**Stable tag:** 1.0.10  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -75,6 +75,9 @@ If you are a theme developer <a href="https://github.com/Nikschavan/header-foote
 
 
 ## Changelog ##
+
+### 1.0.10 ###
+- Provide more filters for the helper functions.
 
 ### 1.0.9 ###
 - Add Support for WPML.
