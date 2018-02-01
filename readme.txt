@@ -73,6 +73,7 @@ If you are a theme developer <a href="https://github.com/Nikschavan/header-foote
 == Changelog ==
 
 = 1.0.10 = 
+- Load the Elementor Pro CSS/JS files in <head>.
 - Provide more filters for the helper functions.
 
 = 1.0.9 = 

@@ -121,6 +121,16 @@ class Header_Footer_Elementor {
 
 		if ( class_exists( '\Elementor\Post_CSS_File' ) ) {
 
+			if ( class_exists( '\Elementor\Plugin' ) ) {
+				$elementor = \Elementor\Plugin::instance();
+				$elementor->frontend->enqueue_styles();
+			}
+
+			if ( class_exists( '\ElementorPro\Plugin' ) ) {
+				$elementor_pro = \ElementorPro\Plugin::instance();
+				$elementor_pro->enqueue_styles();
+			}
+
 			if ( hfe_header_enabled() ) {
 				$css_file = new \Elementor\Post_CSS_File( get_hfe_header_id() );
 				$css_file->enqueue();
