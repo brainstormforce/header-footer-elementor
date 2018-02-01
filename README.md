@@ -3,7 +3,8 @@
 **Tags:** elementor, header footer builder, header, footer, page builder, template builder, landing page builder, front-end editor  
 **Donate link:** https://www.paypal.me/BrainstormForce  
 **Requires at least:** 4.4  
-**Tested up to:** 4.9.2  
+**Requires PHP:** 5.4  
+**Tested up to:** 4.9.3  
 **Stable tag:** 1.0.10  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
