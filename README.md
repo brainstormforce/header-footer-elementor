@@ -77,6 +77,7 @@ If you are a theme developer <a href="https://github.com/Nikschavan/header-foote
 ## Changelog ##
 
 ### 1.0.10 ###
+- Load the header layout correctly in the <body> in Elementor canvas template.
 - Load the Elementor Pro CSS/JS files in <head>.
 - Provide more filters for the helper functions.
 
