@@ -19,7 +19,7 @@ function hfe_header_enabled() {
 		$status = true;
 	}
 
-	return apply_filters( 'hfe_footer_enabled', $status );
+	return apply_filters( 'hfe_header_enabled', $status );
 }
 
 /**
