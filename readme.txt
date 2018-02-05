@@ -75,6 +75,14 @@ The Header-Footer Elementor plugin just gives you a container where you can comp
 Here is a documentation by Elementor Page builder which explains how you can create mobile responsive layouts using Elementor - https://elementor.com/introducing-mobile-editing/
 This same applies when you are creating your Header/Footer using this plugin.
 
+= How Can I add support for Heade/Footer Plugin from my theme? =
+
+If you are a theme developer <a href="https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme">here</a> is a quick tutorial on how you can add support for the Header Footer Elementor from your theme.
+
+If you are using a pre-made theme, The best approach would be to contact yoru theme developer and provide them link to the <a href="https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme">Wiki article</a> on how they can add support for the plugin. 
+If the above is nnot possible, You can also add support for the plugin from your child theme. Just follow <a href="https://github.com/Nikschavan/header-footer-elementor/wiki/Add-support-to-Header-Footer-Elementor-from-the-Child-Theme">this article</a>
+
+
 == Screenshots ==
 
 1. Go to Appearane -> Header Footer Builder to create a new template.
