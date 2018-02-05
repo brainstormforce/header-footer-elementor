@@ -72,7 +72,7 @@ Yes, You can create the mobile responsive layout of your header using the plugin
 
 The Header-Footer Elementor plugin just gives you a container where you can completely design the header using Elementor Page Builder, So the process of creating the mobile responsive layout is exactly same as you would create a responsive layout of your page.
 
-Here is a documentation by Elementor Page builder which explains how you can create mobile responsive layouts using Elementor - https://elementor.com/introducing-mobile-editing/
+Here is a documentation by Elementor Page builder which explains how you can create mobile responsive layouts using Elementor - <a href="https://elementor.com/introducing-mobile-editing/">https://elementor.com/introducing-mobile-editing/</a>
 This same applies when you are creating your Header/Footer using this plugin.
 
 = How Can I add support for Heade/Footer Plugin from my theme? =
