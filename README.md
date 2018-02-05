@@ -66,6 +66,15 @@ If you are a theme developer <a href="https://github.com/Nikschavan/header-foote
 1. Go to `Appearance -> Header Footer Builder` to build a header or footer layout using elementor.
 1. After the layout is ready assign the layout as header or footer using the option `Select the type of template this is` (<a href="https://cloudup.com/clK2sPg9nXK+">screenshot</a>)
 
+### Can you create Mobile Responsive Header/Footer using this plugin? ###
+
+Yes, You can create the mobile responsive layout of your header using the plugin.  
+
+The Header-Footer Elementor plugin just gives you a container where you can completely design the header using Elementor Page Builder, So the process of creating the mobile responsive layout is exactly same as you would create a responsive layout of your page.
+
+Here is a documentation by Elementor Page builder which explains how you can create mobile responsive layouts using Elementor - https://elementor.com/introducing-mobile-editing/
+This same applies when you are creating your Header/Footer using this plugin.
+
 ## Screenshots ##
 
 ### 1. Go to Appearane -> Header Footer Builder to create a new template. ###
