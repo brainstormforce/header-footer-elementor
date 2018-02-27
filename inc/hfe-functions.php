@@ -104,7 +104,7 @@ function hfe_render_footer() {
 	}
 
 	?>
-		<footer itemscope="itemscope" itemtype="http://schema.org/WPFooter">
+		<footer itemtype="https://schema.org/WPFooter" itemscope="itemscope" id="colophon" role="contentinfo">
 			<?php Header_Footer_Elementor::get_footer_content(); ?>
 		</footer>
 	<?php
