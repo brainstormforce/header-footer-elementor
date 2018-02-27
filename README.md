@@ -5,7 +5,7 @@
 **Requires at least:** 4.4  
 **Requires PHP:** 5.4  
 **Tested up to:** 4.9.4  
-**Stable tag:** 1.0.11-beta.1  
+**Stable tag:** 1.0.11  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -96,6 +96,8 @@ If the above is nnot possible, You can also add support for the plugin from your
 
 ### 1.0.11 ###
 - Load the CSS for footer early in page to avoid slow rendering of CSS.
+- Change the schema.org links to be https.
+- Fix: Added correct schema markup for footer.
 
 ### 1.0.10 ###
 - Load the header layout correctly in the <body> in Elementor canvas template.
