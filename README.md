@@ -95,9 +95,9 @@ If the above is nnot possible, You can also add support for the plugin from your
 ## Changelog ##
 
 ### 1.0.11 ###
-- Load the CSS for footer early in page to avoid slow rendering of CSS.
+- Load the CSS footer early in the page to avoid slow rendering of CSS.
 - Change the schema.org links to be https.
-- Fix: Added correct schema markup for footer.
+- Fix: Added correct schema markup for the footer.
 
 ### 1.0.10 ###
 - Load the header layout correctly in the <body> in Elementor canvas template.
