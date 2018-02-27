@@ -135,6 +135,11 @@ class Header_Footer_Elementor {
 				$css_file = new \Elementor\Post_CSS_File( get_hfe_header_id() );
 				$css_file->enqueue();
 			}
+
+			if ( hfe_footer_enabled() ) {
+				$css_file = new \Elementor\Post_CSS_File( get_hfe_footer_id() );
+				$css_file->enqueue();
+			}
 		}
 	}
 
