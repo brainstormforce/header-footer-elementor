@@ -7,12 +7,12 @@
  * Author URI:      https://www.brainstormforce.com/
  * Text Domain:     header-footer-elementor
  * Domain Path:     /languages
- * Version:         1.0.10
+ * Version:         1.0.11-beta.1
  *
  * @package         header-footer-elementor
  */
 
-define( 'HFE_VER', '1.0.10' );
+define( 'HFE_VER', '1.0.11-beta.1' );
 define( 'HFE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'HFE_URL', plugins_url( '/', __FILE__ ) );
 define( 'HFE_PATH', plugin_basename( __FILE__ ) );
