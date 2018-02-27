@@ -92,6 +92,7 @@ If the above is nnot possible, You can also add support for the plugin from your
 
 = 1.0.11 = 
 - Load the CSS for footer early in page to avoid slow rendering of CSS.
+- Change the schema.org links to be https.
 - Fix: Added correct schema markup for footer.
 
 = 1.0.10 = 
