@@ -88,8 +88,8 @@ If the above is nnot possible, You can also add support for the plugin from your
 ### 1. Go to Appearane -> Header Footer Builder to create a new template. ###
 ![Go to Appearane -> Header Footer Builder to create a new template.](http://ps.w.org/header-footer-elementor/assets/screenshot-1.png)
 
-### 2. After the template is reade, Assign the template to be header or footer replacement. ###
-![After the template is reade, Assign the template to be header or footer replacement.](http://ps.w.org/header-footer-elementor/assets/screenshot-2.png)
+### 2. After the template is ready, assign it to be a header or footer replacement. ###
+![After the template is ready, assign it to be a header or footer replacement.](http://ps.w.org/header-footer-elementor/assets/screenshot-2.png)
 
 
 ## Changelog ##

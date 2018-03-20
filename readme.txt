@@ -86,7 +86,7 @@ If the above is nnot possible, You can also add support for the plugin from your
 == Screenshots ==
 
 1. Go to Appearane -> Header Footer Builder to create a new template.
-2. After the template is reade, Assign the template to be header or footer replacement.
+2. After the template is ready, assign it to be a header or footer replacement.
 
 == Changelog ==
 
