@@ -90,6 +90,9 @@ If the above is nnot possible, You can also add support for the plugin from your
 
 == Changelog ==
 
+= 1.0.12 = 
+- Fix: Compatibility with Elementor 2.0 changed canvas template path.
+
 = 1.0.11 = 
 - Load the CSS footer early in the page to avoid slow rendering of CSS.
 - Change the schema.org links to be https.
