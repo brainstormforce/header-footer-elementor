@@ -256,7 +256,14 @@ class HFE_Admin {
 		global $post;
 
 		if ( 'elementor-hf' == $post->post_type ) {
-			return ELEMENTOR_PATH . '/includes/page-templates/canvas.php';
+
+			$elementor_2_0_canvas = ELEMENTOR_PATH . '/modules/page-templates/templates/canvas.php';
+
+			if ( file_exists( $elementor_2_0_canvas ) ) {
+				return $elementor_2_0_canvas;
+			} else {
+				return ELEMENTOR_PATH . '/includes/page-templates/canvas.php';
+			}
 		}
 
 		return $single_template;
