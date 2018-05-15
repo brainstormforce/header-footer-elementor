@@ -1,5 +1,5 @@
 # Header Footer Elementor #
-**Contributors:** brainstormforce, Nikschavan  
+**Contributors:** [brainstormforce](https://profiles.wordpress.org/brainstormforce), [Nikschavan](https://profiles.wordpress.org/Nikschavan)  
 **Tags:** elementor, header footer builder, header, footer, page builder, template builder, landing page builder, front-end editor  
 **Donate link:** https://www.paypal.me/BrainstormForce  
 **Requires at least:** 4.4  
@@ -30,9 +30,9 @@ The plugin only works with limited number of themes as of now, here is the list 
 
 1. <a href="https://wpastra.com/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description&bsf=162">Astra</a> - The Fastest, Most Lightweight &amp; Customizable WordPress Theme.
 2. GeneratePress Theme.
-3. Genesis Theme.
-4. OceanWP Theme.
-5. Beaver Builder theme.
+3. OceanWP Theme.
+4. Genesis Theme.
+5. Phlox Theme.
 
 If you are a theme developer <a href="https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme">here</a> is a quick tutorial on how you can add support for the Header Footer Elementor from your theme.
 
@@ -85,12 +85,8 @@ If the above is nnot possible, You can also add support for the plugin from your
 
 ## Screenshots ##
 
-### 1. Go to Appearane -> Header Footer Builder to create a new template. ###
-![Go to Appearane -> Header Footer Builder to create a new template.](http://ps.w.org/header-footer-elementor/assets/screenshot-1.png)
-
-### 2. After the template is ready, assign it to be a header or footer replacement. ###
-![After the template is ready, assign it to be a header or footer replacement.](http://ps.w.org/header-footer-elementor/assets/screenshot-2.png)
-
+1. Go to Appearane -> Header Footer Builder to create a new template.
+2. After the template is ready, assign it to be a header or footer replacement.
 
 ## Changelog ##
 

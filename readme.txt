@@ -30,9 +30,9 @@ The plugin only works with limited number of themes as of now, here is the list 
 
 1. <a href="https://wpastra.com/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description&bsf=162">Astra</a> - The Fastest, Most Lightweight &amp; Customizable WordPress Theme.
 2. GeneratePress Theme.
-3. Genesis Theme.
-4. OceanWP Theme.
-5. Beaver Builder theme.
+3. OceanWP Theme.
+4. Genesis Theme.
+5. Phlox Theme.
 
 If you are a theme developer <a href="https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme">here</a> is a quick tutorial on how you can add support for the Header Footer Elementor from your theme.
 
