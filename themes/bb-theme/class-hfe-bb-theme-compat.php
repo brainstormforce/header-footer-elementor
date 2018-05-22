@@ -27,7 +27,7 @@ class HFE_BB_Theme_Compat {
 		if ( ! isset( self::$instance ) ) {
 			self::$instance = new HFE_BB_Theme_Compat();
 
-			self::$instance->hooks();
+			add_action( 'wp', array( self::$instance, 'hooks' ) );
 		}
 
 		return self::$instance;
