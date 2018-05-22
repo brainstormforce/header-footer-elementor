@@ -247,7 +247,6 @@ class Header_Footer_Elementor {
 			'meta_value'       => $type,
 			'meta_type'        => 'post',
 			'meta_compare'     => '>=',
-			'suppress_filters' => true,
 			'orderby'          => 'meta_value',
 			'order'            => 'ASC',
 			'meta_query'       => array(
