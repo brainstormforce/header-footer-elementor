@@ -39,12 +39,12 @@ class HFE_GeneratePress_Compat {
 	public function hooks() {
 
 		if ( hfe_header_enabled() ) {
-			add_action( 'init', array( $this, 'generatepress_setup_header' ), 10 );
+			add_action( 'template_redirect', array( $this, 'generatepress_setup_header' ) );
 			add_action( 'generate_header', 'hfe_render_header' );
 		}
 
 		if ( hfe_footer_enabled() ) {
-			add_action( 'init', array( $this, 'generatepress_setup_footer' ), 10 );
+			add_action( 'template_redirect', array( $this, 'generatepress_setup_footer' ) );
 			add_action( 'generate_footer', 'hfe_render_footer' );
 		}
 

@@ -37,14 +37,14 @@ class HFE_Genesis_Compat {
 	public function hooks() {
 
 		if ( hfe_header_enabled() ) {
-			add_action( 'init', array( $this, 'genesis_setup_header' ), 10 );
+			add_action( 'template_redirect', array( $this, 'genesis_setup_header' ) );
 			add_action( 'genesis_header', array( $this, 'genesis_header_markup_open' ), 16 );
 			add_action( 'genesis_header', array( $this, 'genesis_header_markup_close' ), 25 );
 			add_action( 'genesis_header', array( 'Header_Footer_Elementor', 'get_header_content' ), 16 );
 		}
 
 		if ( hfe_footer_enabled() ) {
-			add_action( 'init', array( $this, 'genesis_setup_footer' ), 10 );
+			add_action( 'template_redirect', array( $this, 'genesis_setup_footer' ) );
 			add_action( 'genesis_footer', array( $this, 'genesis_footer_markup_open' ), 16 );
 			add_action( 'genesis_footer', array( $this, 'genesis_footer_markup_close' ), 25 );
 			add_action( 'genesis_footer', array( 'Header_Footer_Elementor', 'get_footer_content' ), 16 );
