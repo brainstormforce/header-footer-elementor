@@ -5,7 +5,7 @@
 **Requires at least:** 4.4  
 **Requires PHP:** 5.4  
 **Tested up to:** 4.9.6  
-**Stable tag:** 1.0.14  
+**Stable tag:** 1.0.15  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -89,6 +89,9 @@ If the above is nnot possible, You can also add support for the plugin from your
 2. After the template is ready, assign it to be a header or footer replacement.
 
 ## Changelog ##
+
+### 1.0.15 ###
+- Fix: Default Header being displayed for Generatepress and Gensis theme after v1.0.14.
 
 ### 1.0.14 ###
 - Fix: Fixes possible PHP notices/Errors due to WP_Query being called early for all the supported themes.
