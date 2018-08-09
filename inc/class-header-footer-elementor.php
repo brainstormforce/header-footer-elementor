@@ -59,6 +59,7 @@ class Header_Footer_Elementor {
 			// Scripts and styles.
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 			add_filter( 'body_class', array( $this, 'body_class' ) );
+			add_action( 'switch_theme', array( $this, 'reset_unsupported_theme_notice' ) );
 
 		} else {
 
@@ -66,6 +67,17 @@ class Header_Footer_Elementor {
 			add_action( 'network_admin_notices', array( $this, 'elementor_not_available' ) );
 		}
 
+	}
+
+	/**
+	 * Reset the Unsupported theme nnotice after a theme is switched.
+	 *
+	 * @since 1.0.16
+	 *
+	 * @return void
+	 */
+	public function reset_unsupported_theme_notice() {
+		delete_user_meta( get_current_user_id(), 'hfe-sites-notices-id-unsupported-theme' );
 	}
 
 	/**
@@ -102,8 +114,7 @@ class Header_Footer_Elementor {
 		}
 
 		// Load the Admin Notice Class.
-		// Stop loading the comments class until it is required the next time.
-		// require_once HFE_DIR . 'inc/class-hfe-notices.php';.
+		require_once HFE_DIR . 'inc/class-hfe-notices.php';
 	}
 
 	/**
@@ -174,20 +185,16 @@ class Header_Footer_Elementor {
 	public function setup_unsupported_theme_notice() {
 
 		if ( ! current_theme_supports( 'header-footer-elementor' ) ) {
-			add_action( 'admin_notices', array( $this, 'unsupported_theme' ) );
-			add_action( 'network_admin_notices', array( $this, 'unsupported_theme' ) );
+			HFE_Notices::add_notice(
+				array(
+					'id'          => 'unsupported-theme',
+					'type'        => 'error',
+					'dismissible' => true,
+					'message'     => __( 'Hey, your current theme is not supported by Header Footer Elementor, click <a href="https://github.com/Nikschavan/header-footer-elementor#which-themes-are-supported-by-this-plugin">here</a> to check out the supported themes.', 'header-footer-elementor' ),
+				)
+			);
 		}
 
-	}
-
-	/**
-	 * Prints an admin notics oif the currently installed theme is not supported by header-footer-elementor.
-	 */
-	public function unsupported_theme() {
-		$class   = 'notice notice-error';
-		$message = __( 'Hey, your current theme is not supported by Header Footer Elementor, click <a href="https://github.com/Nikschavan/header-footer-elementor#which-themes-are-supported-by-this-plugin">here</a> to check out the supported themes.', 'header-footer-elementor' );
-
-		printf( '<div class="%1$s"><p>%2$s</p></div>', $class, $message );
 	}
 
 	/**

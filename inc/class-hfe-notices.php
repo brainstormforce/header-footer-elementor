@@ -150,10 +150,10 @@ if ( ! class_exists( 'HFE_Notices' ) ) :
 				}
 
 				// Notice ID.
-				$notice_id    = 'hfe-sites-notices-id-' . $key;
+				$notice_id    = 'hfe-sites-notices-id-' . $notice['id'];
 				$notice['id'] = $notice_id;
 				if ( ! isset( $notice['id'] ) ) {
-					$notice_id    = 'hfe-sites-notices-id-' . $key;
+					$notice_id    = 'hfe-sites-notices-id-' . $notice['id'];
 					$notice['id'] = $notice_id;
 				} else {
 					$notice_id = $notice['id'];
