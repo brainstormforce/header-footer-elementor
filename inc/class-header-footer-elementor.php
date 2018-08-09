@@ -71,7 +71,7 @@ class Header_Footer_Elementor {
 
 	/**
 	 * Reset the Unsupported theme nnotice after a theme is switched.
-	 * 
+	 *
 	 * @since 1.0.16
 	 *
 	 * @return void
