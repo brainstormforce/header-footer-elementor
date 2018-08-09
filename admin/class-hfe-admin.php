@@ -139,7 +139,7 @@ class HFE_Admin {
 		<p>
 			<label for="display-on-canvas-template">
 				<input type="checkbox" id="display-on-canvas-template" name="display-on-canvas-template" value="1" <?php checked( $display_on_canvas, true ); ?> />
-					<?php _e( 'Display Layout on Elementor Canvas Template?', 'header-footer-elementor' ); ?>
+					<?php _e( 'Display Layout automatically on Elementor Canvas Template?', 'header-footer-elementor' ); ?>
 			</label>
 		</p>
 		<p class="description"><?php _e( 'Enabling this option will display this layout on pages using Elementor Canvas Template.', 'header-footer-elementor' ); ?></p>
