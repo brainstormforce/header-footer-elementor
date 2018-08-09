@@ -95,6 +95,7 @@ If the above is nnot possible, You can also add support for the plugin from your
 
 = 1.0.16 =
 - Fix: Make the theme not supported notice dismissable.
+- Fix: Use specific selector when adding z-index for the header.
 
 = 1.0.15 =
 - Fix: Default Header being displayed for Generatepress and Gensis theme after v1.0.14.
