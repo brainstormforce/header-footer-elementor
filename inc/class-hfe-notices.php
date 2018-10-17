@@ -107,6 +107,7 @@ if ( ! class_exists( 'HFE_Notices' ) ) :
 		 */
 		function enqueue_scripts() {
 			wp_register_script( 'hfe-sites-notices', HFE_URL . 'assets/js/hfe-sites-notices.js', array( 'jquery' ), HFE_VER, true );
+			wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'assets/css/admin-header-footer-elementor.css', array(), HFE_VER );
 		}
 
 		/**
