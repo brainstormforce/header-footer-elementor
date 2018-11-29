@@ -64,7 +64,7 @@ class Header_Footer_Elementor {
 			add_filter( 'body_class', array( $this, 'body_class' ) );
 			add_action( 'switch_theme', array( $this, 'reset_unsupported_theme_notice' ) );
 
-			add_shortcode( 'hcf-template', array( $this, 'render_template' ) );
+			add_shortcode( 'hfe_template', array( $this, 'render_template' ) );
 
 		} else {
 
@@ -156,6 +156,18 @@ class Header_Footer_Elementor {
 				$css_file = new \Elementor\Post_CSS_File( get_hfe_footer_id() );
 				$css_file->enqueue();
 			}
+		}
+	}
+
+	/**
+	 * Load admin styles on header footer elementor edit screen.
+	 */
+	public function enqueue_admin_scripts() {
+		global $pagenow;
+		$screen = get_current_screen();
+
+		if ( ( 'elementor-hf' == $screen->id && ( 'post.php' == $pagenow || 'post-new.php' == $pagenow ) ) || ( 'edit.php' == $pagenow && 'edit-elementor-hf' == $screen->id ) ) {
+			wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'admin/assets/css/ehf-admin.css', array(), HFE_VER );
 		}
 	}
 
@@ -289,18 +301,6 @@ class Header_Footer_Elementor {
 	}
 
 	/**
-	 * Load admin styles on header footer elementor edit screen.
-	 */
-	public function enqueue_admin_scripts() {
-		global $pagenow;
-		$screen = get_current_screen();
-
-		if ( ( 'elementor-hf' == $screen->id && ( 'post.php' == $pagenow || 'post-new.php' == $pagenow ) ) || ( 'edit.php' == $pagenow && 'edit-elementor-hf' == $screen->id ) ) {
-			wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'admin/assets/css/hcf-admin.css', array(), HFE_VER );
-		}
-	}
-
-	/**
 	 * Callback to shortcode.
 	 *
 	 * @param array $atts attributes for shortcode.
@@ -312,7 +312,7 @@ class Header_Footer_Elementor {
 				'id' => '',
 			),
 			$atts,
-			'hcf-template'
+			'hfe_template'
 		);
 
 		$id = ! empty( $atts['id'] ) ? intval( $atts['id'] ) : '';
