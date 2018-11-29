@@ -142,14 +142,27 @@ class HFE_Admin {
 			<tbody>
 				<tr class="hfe-options-row">
 					<td class="hfe-options-row-heading">
-					<label for="ehf_template_type"><?php _e( 'Type of Template', 'header-footer-elementor' ); ?></label>
+						<label for="ehf_template_type"><?php _e( 'Type of Template', 'header-footer-elementor' ); ?></label>
 					</td>
 					<td class="hfe-options-row-content">
-					<select name="ehf_template_type" id="ehf_template_type">
-						<option value="" <?php selected( $template_type, '' ); ?>><?php _e( 'Select Option', 'header-footer-elementor' ); ?></option>
-						<option value="type_header" <?php selected( $template_type, 'type_header' ); ?>><?php _e( 'Header', 'header-footer-elementor' ); ?></option>
-						<option value="type_footer" <?php selected( $template_type, 'type_footer' ); ?>><?php _e( 'Footer', 'header-footer-elementor' ); ?></option>
-					</select>
+						<select name="ehf_template_type" id="ehf_template_type">
+							<option value="" <?php selected( $template_type, '' ); ?>><?php _e( 'Select Option', 'header-footer-elementor' ); ?></option>
+							<option value="type_header" <?php selected( $template_type, 'type_header' ); ?>><?php _e( 'Header', 'header-footer-elementor' ); ?></option>
+							<option value="type_footer" <?php selected( $template_type, 'type_footer' ); ?>><?php _e( 'Footer', 'header-footer-elementor' ); ?></option>
+							<option value="custom" <?php selected( $template_type, 'custom' ); ?>><?php _e( 'Custom Block', 'header-footer-elementor' ); ?></option>
+						</select>
+					</td>
+				</tr>
+				<tr class="hfe-options-row hfe-shortcode">
+					<td class="hfe-options-row-heading">
+						<label for="ehf_template_type"><?php _e( 'Shortcode', 'header-footer-elementor' ); ?></label>
+						<i class="hfe-options-row-heading-help dashicons dashicons-editor-help" title="<?php _e( 'Copy this shortcode and paste it into your post, page, or text widget content.', 'header-footer-elementor' ); ?>">
+						</i>
+					</td>
+					<td class="hfe-options-row-content">
+						<span class="hfe-shortcode-col-wrap">
+							<input type="text" onfocus="this.select();" readonly="readonly" value="[hfe_template id='<?php echo esc_attr( $post->ID ); ?>']" class="hfe-large-text code">
+						</span>
 					</td>
 				</tr>
 				<tr class="hfe-options-row">
@@ -161,19 +174,6 @@ class HFE_Admin {
 					</td>
 					<td class="hfe-options-row-content">
 						<input type="checkbox" id="display-on-canvas-template" name="display-on-canvas-template" value="1" <?php checked( $display_on_canvas, true ); ?> />
-					</td>
-				</tr>
-				<tr class="hfe-options-row">
-					<td class="hfe-options-row-heading">
-						<label for="ehf_template_type"><?php _e( 'Shortcode', 'header-footer-elementor' ); ?></label>
-						<i class="hfe-options-row-heading-help dashicons dashicons-editor-help" title="<?php _e( 'Copy this shortcode and paste it into your post, page, or text widget content.', 'header-footer-elementor' ); ?>">
-						</i>
-					</td>
-					<td class="hfe-options-row-content">
-						<span class="hfe-shortcode-col-wrap">
-							<input type="text" onfocus="this.select();" readonly="readonly" value="[hfe_template id='<?php echo esc_attr( $post->ID ); ?>']" class="hfe-large-text code">
-						</span>
-
 					</td>
 				</tr>
 			</tbody>

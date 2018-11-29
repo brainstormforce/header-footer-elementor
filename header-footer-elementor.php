@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:     Header Footer Elementor
+ * Plugin Name:     Header, Footer & Blocks for Elementor
  * Plugin URI:      https://github.com/Nikschavan/header-footer-elementor
  * Description:     Create Header and Footer for your site using Elementor Page Builder.
  * Author:          Brainstorm Force, Nikhil Chavan
