@@ -108,10 +108,15 @@ class HFE_Admin {
 	 */
 	function ehf_register_metabox() {
 		add_meta_box(
-			'ehf-meta-box', __( 'Elementor Header Footer options', 'header-footer-elementor' ), array(
+			'ehf-meta-box',
+			__( 'Elementor Header Footer options', 'header-footer-elementor' ),
+			array(
 				$this,
 				'efh_metabox_render',
-			), 'elementor-hf', 'normal', 'high'
+			),
+			'elementor-hf',
+			'normal',
+			'high'
 		);
 	}
 
@@ -128,21 +133,33 @@ class HFE_Admin {
 		// We'll use this nonce field later on when saving.
 		wp_nonce_field( 'ehf_meta_nounce', 'ehf_meta_nounce' );
 		?>
-		<p>
-			<label for="ehf_template_type"><?php _e( 'Select the type of template this is', 'header-footer-elementor' ); ?></label>
-			<select name="ehf_template_type" id="ehf_template_type">
-				<option value="" <?php selected( $template_type, '' ); ?>><?php _e( 'Select Option', 'header-footer-elementor' ); ?></option>
-				<option value="type_header" <?php selected( $template_type, 'type_header' ); ?>><?php _e( 'Header', 'header-footer-elementor' ); ?></option>
-				<option value="type_footer" <?php selected( $template_type, 'type_footer' ); ?>><?php _e( 'Footer', 'header-footer-elementor' ); ?></option>
-			</select>
-		</p>
-		<p>
-			<label for="display-on-canvas-template">
-				<input type="checkbox" id="display-on-canvas-template" name="display-on-canvas-template" value="1" <?php checked( $display_on_canvas, true ); ?> />
-					<?php _e( 'Display Layout automatically on Elementor Canvas Template?', 'header-footer-elementor' ); ?>
-			</label>
-		</p>
-		<p class="description"><?php _e( 'Enabling this option will display this layout on pages using Elementor Canvas Template.', 'header-footer-elementor' ); ?></p>
+		<table class="ehf-options-table widefat">
+			<tbody>
+				<tr class="ehf-options-row">
+					<td class="ehf-options-row-heading">
+					<label for="ehf_template_type"><?php _e( 'Type of Template', 'header-footer-elementor' ); ?></label>
+					</td>
+					<td class="ehf-options-row-content">
+					<select name="ehf_template_type" id="ehf_template_type">
+						<option value="" <?php selected( $template_type, '' ); ?>><?php _e( 'Select Option', 'header-footer-elementor' ); ?></option>
+						<option value="type_header" <?php selected( $template_type, 'type_header' ); ?>><?php _e( 'Header', 'header-footer-elementor' ); ?></option>
+						<option value="type_footer" <?php selected( $template_type, 'type_footer' ); ?>><?php _e( 'Footer', 'header-footer-elementor' ); ?></option>
+					</select>
+					</td>
+				</tr>
+				<tr class="ehf-options-row">
+					<td class="ehf-options-row-heading">
+						<label for="display-on-canvas-template">
+							<?php _e( 'Enable Layout for Elementor Canvas Template?', 'header-footer-elementor' ); ?>
+						</label>
+						<p class="description"><?php _e( 'Enabling this option will display this layout on pages using Elementor Canvas Template.', 'header-footer-elementor' ); ?></p>
+					</td>
+					<td class="ehf-options-row-content">
+						<input type="checkbox" id="display-on-canvas-template" name="display-on-canvas-template" value="1" <?php checked( $display_on_canvas, true ); ?> />
+					</td>
+				</tr>
+			</tbody>
+		</table>
 		<?php
 	}
 

@@ -58,6 +58,9 @@ class Header_Footer_Elementor {
 
 			// Scripts and styles.
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+
+			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
+
 			add_filter( 'body_class', array( $this, 'body_class' ) );
 			add_action( 'switch_theme', array( $this, 'reset_unsupported_theme_notice' ) );
 
@@ -151,6 +154,20 @@ class Header_Footer_Elementor {
 				$css_file = new \Elementor\Post_CSS_File( get_hfe_footer_id() );
 				$css_file->enqueue();
 			}
+		}
+	}
+
+	/**
+	 * Load admin styles on header footer elementor edit screen.
+	 */
+	public function enqueue_admin_scripts() {
+
+		global $pagenow;
+		$screen = get_current_screen();
+
+		if ( 'elementor-hf' == $screen->id && ( 'post.php' == $pagenow || 'post-new.php' == $pagenow ) ) {
+
+			wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'admin/assets/css/hcf-admin.css', array(), HFE_VER );
 		}
 	}
 

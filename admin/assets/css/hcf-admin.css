@@ -1,0 +1,44 @@
+
+.ehf-options-row-heading {
+    border-right: 1px solid #E1E1E1;
+    padding: 15px;
+    width: 45%;
+    vertical-align: middle;
+}
+
+.ehf-options-row td {
+    padding-left: 12px;
+    padding-right: 12px;
+    border-bottom: 1px solid #f0f0f0;
+    zoom: 1;
+    vertical-align: middle;
+}
+
+.ehf-options-table .ehf-options-row-content {
+    padding: 15px 10px;
+    position: relative;
+    width: 55%;
+}
+
+.ehf-options-table.widefat{
+	border-width: 0;
+}
+
+#ehf-meta-box .inside {
+    margin: 0;
+    padding: 0;
+}
+
+.ehf-options-row-heading label {
+    display: inline-block;
+    font-size: 13px;
+    line-height: 1.4em;
+    font-weight: bold;
+    padding: 0;
+    margin: 0 0 3px;
+    color: #333;
+}
+
+.ehf-options-table #ehf_template_type {
+    width: 80%;
+}
