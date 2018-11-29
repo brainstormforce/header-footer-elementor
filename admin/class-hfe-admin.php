@@ -45,6 +45,11 @@ class HFE_Admin {
 		add_action( 'admin_notices', array( $this, 'location_notice' ) );
 		add_action( 'template_redirect', array( $this, 'block_template_frontend' ) );
 		add_filter( 'single_template', array( $this, 'load_canvas_template' ) );
+
+		add_filter( 'manage_elementor-hf_posts_columns', array( $this, 'set_shortcode_columns' ) );
+
+		add_action( 'manage_elementor-hf_posts_custom_column', array( $this, 'render_shortcode_column' ), 10, 2 );
+
 	}
 
 	/**
@@ -108,10 +113,15 @@ class HFE_Admin {
 	 */
 	function ehf_register_metabox() {
 		add_meta_box(
-			'ehf-meta-box', __( 'Elementor Header Footer options', 'header-footer-elementor' ), array(
+			'ehf-meta-box',
+			__( 'Elementor Header Footer options', 'header-footer-elementor' ),
+			array(
 				$this,
 				'efh_metabox_render',
-			), 'elementor-hf', 'normal', 'high'
+			),
+			'elementor-hf',
+			'normal',
+			'high'
 		);
 	}
 
@@ -269,6 +279,45 @@ class HFE_Admin {
 		return $single_template;
 	}
 
+	/**
+	 * Set shortcode column for template list.
+	 *
+	 * @param array $columns template list columns.
+	 */
+	function set_shortcode_columns( $columns ) {
+
+		$date_column = $columns['date'];
+
+		unset( $columns['date'] );
+
+		$columns['shortcode'] = __( 'Shortcode', 'header-footer-elementor' );
+		$columns['date']      = $date_column;
+
+		return $columns;
+	}
+
+	/**
+	 * Display shortcode in template list column.
+	 *
+	 * @param array $column template list column.
+	 * @param int   $post_id post id.
+	 */
+	function render_shortcode_column( $column, $post_id ) {
+
+		switch ( $column ) {
+			case 'shortcode':
+				ob_start();
+				?>
+				<span class="hcf-shortcode-col-wrap">
+					<input type="text" onfocus="this.select();" readonly="readonly" value="[hcf-template id='<?php echo esc_attr( $post_id ); ?>']" class="hcf-large-text code">
+				</span>
+
+				<?php
+
+				ob_get_contents();
+				break;
+		}
+	}
 }
 
 HFE_Admin::instance();
