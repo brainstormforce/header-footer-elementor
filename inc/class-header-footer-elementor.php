@@ -328,7 +328,7 @@ class Header_Footer_Elementor {
 			$css_file->enqueue();
 		}
 
-		echo self::$elementor_instance->frontend->get_builder_content_for_display( $id );
+		return self::$elementor_instance->frontend->get_builder_content_for_display( $id );
 
 	}
 
