@@ -150,7 +150,7 @@ class HFE_Admin {
 				<tr class="ehf-options-row">
 					<td class="ehf-options-row-heading">
 						<label for="display-on-canvas-template">
-							<?php _e( 'Display Layout automatically on Elementor Canvas Template?', 'header-footer-elementor' ); ?>
+							<?php _e( 'Enable Layout for Elementor Canvas Template?', 'header-footer-elementor' ); ?>
 						</label>
 						<p class="description"><?php _e( 'Enabling this option will display this layout on pages using Elementor Canvas Template.', 'header-footer-elementor' ); ?></p>
 					</td>

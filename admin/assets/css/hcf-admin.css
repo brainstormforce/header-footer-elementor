@@ -38,3 +38,7 @@
     margin: 0 0 3px;
     color: #333;
 }
+
+.ehf-options-table #ehf_template_type {
+    width: 80%;
+}
