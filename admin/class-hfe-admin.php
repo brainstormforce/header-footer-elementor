@@ -45,6 +45,11 @@ class HFE_Admin {
 		add_action( 'admin_notices', array( $this, 'location_notice' ) );
 		add_action( 'template_redirect', array( $this, 'block_template_frontend' ) );
 		add_filter( 'single_template', array( $this, 'load_canvas_template' ) );
+
+		add_filter( 'manage_elementor-hf_posts_columns', array( $this, 'set_shortcode_columns' ) );
+
+		add_action( 'manage_elementor-hf_posts_custom_column', array( $this, 'render_shortcode_column' ), 10, 2 );
+
 	}
 
 	/**
@@ -133,13 +138,13 @@ class HFE_Admin {
 		// We'll use this nonce field later on when saving.
 		wp_nonce_field( 'ehf_meta_nounce', 'ehf_meta_nounce' );
 		?>
-		<table class="ehf-options-table widefat">
+		<table class="hfe-options-table widefat">
 			<tbody>
-				<tr class="ehf-options-row">
-					<td class="ehf-options-row-heading">
+				<tr class="hfe-options-row">
+					<td class="hfe-options-row-heading">
 					<label for="ehf_template_type"><?php _e( 'Type of Template', 'header-footer-elementor' ); ?></label>
 					</td>
-					<td class="ehf-options-row-content">
+					<td class="hfe-options-row-content">
 					<select name="ehf_template_type" id="ehf_template_type">
 						<option value="" <?php selected( $template_type, '' ); ?>><?php _e( 'Select Option', 'header-footer-elementor' ); ?></option>
 						<option value="type_header" <?php selected( $template_type, 'type_header' ); ?>><?php _e( 'Header', 'header-footer-elementor' ); ?></option>
@@ -147,15 +152,28 @@ class HFE_Admin {
 					</select>
 					</td>
 				</tr>
-				<tr class="ehf-options-row">
-					<td class="ehf-options-row-heading">
+				<tr class="hfe-options-row">
+					<td class="hfe-options-row-heading">
 						<label for="display-on-canvas-template">
 							<?php _e( 'Enable Layout for Elementor Canvas Template?', 'header-footer-elementor' ); ?>
 						</label>
-						<p class="description"><?php _e( 'Enabling this option will display this layout on pages using Elementor Canvas Template.', 'header-footer-elementor' ); ?></p>
+						<i class="hfe-options-row-heading-help dashicons dashicons-editor-help" title="<?php _e( 'Enabling this option will display this layout on pages using Elementor Canvas Template.', 'header-footer-elementor' ); ?>"></i>
 					</td>
-					<td class="ehf-options-row-content">
+					<td class="hfe-options-row-content">
 						<input type="checkbox" id="display-on-canvas-template" name="display-on-canvas-template" value="1" <?php checked( $display_on_canvas, true ); ?> />
+					</td>
+				</tr>
+				<tr class="hfe-options-row">
+					<td class="hfe-options-row-heading">
+						<label for="ehf_template_type"><?php _e( 'Shortcode', 'header-footer-elementor' ); ?></label>
+						<i class="hfe-options-row-heading-help dashicons dashicons-editor-help" title="<?php _e( 'Copy this shortcode and paste it into your post, page, or text widget content.', 'header-footer-elementor' ); ?>">
+						</i>
+					</td>
+					<td class="hfe-options-row-content">
+						<span class="hfe-shortcode-col-wrap">
+							<input type="text" onfocus="this.select();" readonly="readonly" value="[hfe_template id='<?php echo esc_attr( $post->ID ); ?>']" class="hfe-large-text code">
+						</span>
+
 					</td>
 				</tr>
 			</tbody>
@@ -286,6 +304,45 @@ class HFE_Admin {
 		return $single_template;
 	}
 
+	/**
+	 * Set shortcode column for template list.
+	 *
+	 * @param array $columns template list columns.
+	 */
+	function set_shortcode_columns( $columns ) {
+
+		$date_column = $columns['date'];
+
+		unset( $columns['date'] );
+
+		$columns['shortcode'] = __( 'Shortcode', 'header-footer-elementor' );
+		$columns['date']      = $date_column;
+
+		return $columns;
+	}
+
+	/**
+	 * Display shortcode in template list column.
+	 *
+	 * @param array $column template list column.
+	 * @param int   $post_id post id.
+	 */
+	function render_shortcode_column( $column, $post_id ) {
+
+		switch ( $column ) {
+			case 'shortcode':
+				ob_start();
+				?>
+				<span class="hfe-shortcode-col-wrap">
+					<input type="text" onfocus="this.select();" readonly="readonly" value="[hfe_template id='<?php echo esc_attr( $post_id ); ?>']" class="hfe-large-text code">
+				</span>
+
+				<?php
+
+				ob_get_contents();
+				break;
+		}
+	}
 }
 
 HFE_Admin::instance();

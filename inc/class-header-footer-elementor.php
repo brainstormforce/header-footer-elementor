@@ -64,6 +64,8 @@ class Header_Footer_Elementor {
 			add_filter( 'body_class', array( $this, 'body_class' ) );
 			add_action( 'switch_theme', array( $this, 'reset_unsupported_theme_notice' ) );
 
+			add_shortcode( 'hfe_template', array( $this, 'render_template' ) );
+
 		} else {
 
 			add_action( 'admin_notices', array( $this, 'elementor_not_available' ) );
@@ -161,13 +163,11 @@ class Header_Footer_Elementor {
 	 * Load admin styles on header footer elementor edit screen.
 	 */
 	public function enqueue_admin_scripts() {
-
 		global $pagenow;
 		$screen = get_current_screen();
 
-		if ( 'elementor-hf' == $screen->id && ( 'post.php' == $pagenow || 'post-new.php' == $pagenow ) ) {
-
-			wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'admin/assets/css/hcf-admin.css', array(), HFE_VER );
+		if ( ( 'elementor-hf' == $screen->id && ( 'post.php' == $pagenow || 'post-new.php' == $pagenow ) ) || ( 'edit.php' == $pagenow && 'edit-elementor-hf' == $screen->id ) ) {
+			wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'admin/assets/css/ehf-admin.css', array(), HFE_VER );
 		}
 	}
 
@@ -298,6 +298,38 @@ class Header_Footer_Elementor {
 		}
 
 		return '';
+	}
+
+	/**
+	 * Callback to shortcode.
+	 *
+	 * @param array $atts attributes for shortcode.
+	 */
+	public function render_template( $atts ) {
+
+		$atts = shortcode_atts(
+			array(
+				'id' => '',
+			),
+			$atts,
+			'hfe_template'
+		);
+
+		$id = ! empty( $atts['id'] ) ? intval( $atts['id'] ) : '';
+
+		if ( empty( $id ) ) {
+			return '';
+		}
+
+		if ( class_exists( '\Elementor\Post_CSS_File' ) ) {
+
+			// Load elementor styles.
+			$css_file = new \Elementor\Post_CSS_File( $id );
+			$css_file->enqueue();
+		}
+
+		return self::$elementor_instance->frontend->get_builder_content_for_display( $id );
+
 	}
 
 }
