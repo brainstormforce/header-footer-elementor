@@ -18,6 +18,13 @@ class HFE_Astra_Compat {
 	private static $instance;
 
 	/**
+	 * Instance of Elementor Frontend class.
+	 *
+	 * @var \Elementor\Frontend()
+	 */
+	private static $elementor_instance;
+
+	/**
 	 *  Initiator
 	 */
 	public static function instance() {
@@ -26,6 +33,12 @@ class HFE_Astra_Compat {
 			self::$instance = new HFE_Astra_Compat();
 
 			add_action( 'wp', array( self::$instance, 'hooks' ) );
+		}
+
+		if ( defined( 'ELEMENTOR_VERSION' ) && is_callable( 'Elementor\Plugin::instance' ) ) {
+
+			self::$elementor_instance = Elementor\Plugin::instance();
+
 		}
 
 		return self::$instance;
@@ -46,6 +59,9 @@ class HFE_Astra_Compat {
 			add_action( 'astra_footer', 'hfe_render_footer' );
 		}
 
+		if ( $this->is_before_footer_enabled() ) {
+			add_action( 'astra_footer_before', array( $this, 'render_before_footer' ) );
+		}
 	}
 
 	/**
@@ -60,6 +76,70 @@ class HFE_Astra_Compat {
 	 */
 	public function astra_setup_footer() {
 		remove_action( 'astra_footer', 'astra_footer_markup' );
+	}
+
+	/**
+	 * Get HFE Before Footer ID
+	 *
+	 * @since  1.0.2
+	 * @return (String|boolean) before gooter id if it is set else returns false.
+	 */
+	function get_hfe_before_footer_id() {
+
+		$before_footer_id = Header_Footer_Elementor::get_settings( 'type_before_footer', '' );
+
+		if ( '' === $before_footer_id ) {
+			$before_footer_id = false;
+		}
+
+		return apply_filters( 'get_hfe_before_footer_id', $before_footer_id );
+	}
+
+	/**
+	 * Checks if Before Footer is enabled from HFE.
+	 *
+	 * @since  1.0.2
+	 * @return bool True if before footer is enabled. False if before footer is not enabled.
+	 */
+	function is_before_footer_enabled() {
+
+		$before_footer_id = Header_Footer_Elementor::get_settings( 'type_before_footer', '' );
+		$status           = false;
+
+		if ( '' !== $before_footer_id ) {
+			$status = true;
+		}
+
+		return apply_filters( 'hfe_before_footer_enabled', $status );
+	}
+
+	/**
+	 * Display before footer markup.
+	 *
+	 * @since  1.0.2
+	 */
+	public function render_before_footer() {
+
+		if ( false == apply_filters( 'enable_hfe_render_before_footer', true ) ) {
+			return;
+		}
+
+		?>
+			<footer itemtype="https://schema.org/WPFooter" itemscope="itemscope" id="colophon" role="contentinfo">
+				<?php $this->get_before_footer_content(); ?>
+			</footer>
+		<?php
+
+	}
+
+	/**
+	 * Prints the Before Footer content.
+	 */
+	public function get_before_footer_content() {
+
+		echo "<div class='footer-width-fixer'>";
+		echo self::$elementor_instance->frontend->get_builder_content_for_display( $this->get_hfe_before_footer_id() );
+		echo '</div>';
 	}
 
 }

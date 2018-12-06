@@ -242,7 +242,7 @@ class Header_Footer_Elementor {
 	 * @return mixed.
 	 */
 	public static function get_settings( $setting = '', $default = '' ) {
-		if ( 'type_header' == $setting || 'type_footer' == $setting ) {
+		if ( 'type_header' == $setting || 'type_footer' == $setting || 'type_before_footer' == $setting ) {
 			$templates = self::get_template_id( $setting );
 
 			$template = is_array( $templates ) ? $templates[0] : '';
