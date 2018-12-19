@@ -1,4 +1,4 @@
-# Header Footer Elementor #
+# Header, Footer & Blocks for Elementor #
 **Contributors:** [brainstormforce](https://profiles.wordpress.org/brainstormforce), [Nikschavan](https://profiles.wordpress.org/Nikschavan)  
 **Tags:** elementor, header footer builder, header, footer, page builder, template builder, landing page builder, front-end editor  
 **Donate link:** https://www.paypal.me/BrainstormForce  
