@@ -4,8 +4,8 @@
 **Donate link:** https://www.paypal.me/BrainstormForce  
 **Requires at least:** 4.4  
 **Requires PHP:** 5.4  
-**Tested up to:** 4.9.8  
-**Stable tag:** 1.0.16  
+**Tested up to:** 5.0  
+**Stable tag:** 1.0.17  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -92,6 +92,12 @@ If the above is nnot possible, You can also add support for the plugin from your
 2. After the template is ready, assign it to be a header or footer replacement.
 
 ## Changelog ##
+
+### 1.0.17 ###
+- New: Rename plugin to be Header Footer & Blocks builder as now thee blocks templates can be used as shortcodes.
+- New: Add templates before the footer for Astra Theme. Options for other themes will be cominng soon.
+- New: Use templates (Blocks) anywhere in your content with the help of shortcodes.
+- Improvement: Improved the UI of the metabox for Header Footer post type.
 
 ### 1.0.16 ###
 - Fix: Make the theme not supported notice dismissable.
