@@ -32,7 +32,7 @@ class HFE_WPML_Compatibility {
 	 */
 	public static function instance() {
 		if ( ! isset( self::$_instance ) ) {
-			self::$_instance = new self;
+			self::$_instance = new self();
 		}
 
 		return self::$_instance;
@@ -56,7 +56,13 @@ class HFE_WPML_Compatibility {
 	 * @return Int $id  Post ID of the template being rendered, Passed through the `wpml_object_id` id.
 	 */
 	public function get_wpml_object( $id ) {
-		return apply_filters( 'wpml_object_id', $id );
+		$id = apply_filters( 'wpml_object_id', $id );
+
+		if ( null === $id ) {
+			$id = '';
+		}
+
+		return $id;
 	}
 
 }
