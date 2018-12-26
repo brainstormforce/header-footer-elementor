@@ -5,7 +5,7 @@ Donate link: https://www.paypal.me/BrainstormForce
 Requires at least: 4.4
 Requires PHP: 5.4
 Tested up to: 5.0
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -92,6 +92,9 @@ If the above is nnot possible, You can also add support for the plugin from your
 2. After the template is ready, assign it to be a header or footer replacement.
 
 == Changelog ==
+
+= 1.1.1 =
+- Fix: Blank header being displayed when only footer is translated using WPML.
 
 = 1.1.0 =
 - New: Rename plugin to be Header Footer & Blocks builder as now thee blocks templates can be used as shortcodes.
