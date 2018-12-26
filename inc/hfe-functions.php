@@ -12,10 +12,10 @@
  * @return bool True if header is enabled. False if header is not enabled
  */
 function hfe_header_enabled() {
-	$header_id = Header_Footer_Elementor::get_settings( 'type_header', null );
+	$header_id = Header_Footer_Elementor::get_settings( 'type_header', '' );
 	$status    = false;
 
-	if ( null !== $header_id ) {
+	if ( '' !== $header_id ) {
 		$status = true;
 	}
 
@@ -29,10 +29,10 @@ function hfe_header_enabled() {
  * @return bool True if header is enabled. False if header is not enabled.
  */
 function hfe_footer_enabled() {
-	$footer_id = Header_Footer_Elementor::get_settings( 'type_footer', null );
+	$footer_id = Header_Footer_Elementor::get_settings( 'type_footer', '' );
 	$status    = false;
 
-	if ( null !== $footer_id ) {
+	if ( '' !== $footer_id ) {
 		$status = true;
 	}
 
@@ -46,9 +46,9 @@ function hfe_footer_enabled() {
  * @return (String|boolean) header id if it is set else returns false.
  */
 function get_hfe_header_id() {
-	$header_id = Header_Footer_Elementor::get_settings( 'type_header', null );
+	$header_id = Header_Footer_Elementor::get_settings( 'type_header', '' );
 
-	if ( null === $header_id ) {
+	if ( '' === $header_id ) {
 		$header_id = false;
 	}
 
@@ -62,9 +62,9 @@ function get_hfe_header_id() {
  * @return (String|boolean) header id if it is set else returns false.
  */
 function get_hfe_footer_id() {
-	$footer_id = Header_Footer_Elementor::get_settings( 'type_footer', null );
+	$footer_id = Header_Footer_Elementor::get_settings( 'type_footer', '' );
 
-	if ( null === $footer_id ) {
+	if ( '' === $footer_id ) {
 		$footer_id = false;
 	}
 
