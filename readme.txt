@@ -28,7 +28,7 @@ All you need to do is -
 - Create attractive pages and templates that can be displayed as a Header or Footer.
 - Lets you use a fully customized header or footer across the website.
 
-The plugin works best with these themes â€“ 
+The plugin works best with these themes -
 
 1. <a href="https://wpastra.com/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description&bsf=162">Astra</a> - The Fastest, Most Lightweight &amp; Customizable WordPress Theme.
 2. GeneratePress.
