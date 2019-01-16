@@ -94,7 +94,7 @@ If the above is nnot possible, You can also add support for the plugin from your
 ## Changelog ##
 
 ### 1.1.2 ###
-- Fix: Depracated fuction warning from Elementor's method `\Elementor\Post_CSS_File`
+- Fix: Depracated function warning from Elementor's method `\Elementor\Post_CSS_File`
 
 ### 1.1.1 ###
 - Fix: Blank header being displayed when only footer is translated using WPML.
