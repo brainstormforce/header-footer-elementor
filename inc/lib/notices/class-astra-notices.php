@@ -272,9 +272,9 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 */
 		private static function is_expired( $notice ) {
 			$transient_status = get_transient( $notice['id'] );
-			
+
 			if ( false === $transient_status ) {
-				
+
 				if ( false !== $notice['display-notice-after'] ) {
 
 					if ( 'delayed-notice' !== get_user_meta( get_current_user_id(), $notice['id'], true ) ) {
