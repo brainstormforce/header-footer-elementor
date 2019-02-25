@@ -132,6 +132,7 @@ class Header_Footer_Elementor {
 					__( 'I already did', 'header-footer-elementor' )
 				),
 				'repeat-notice-after'        => MONTH_IN_SECONDS,
+				'display-notice-after'		 => 5,
 				'priority'                   => 18,
 				'display-with-other-notices' => false,
 			)
