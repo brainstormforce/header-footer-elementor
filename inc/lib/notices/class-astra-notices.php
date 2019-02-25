@@ -84,7 +84,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @since 1.4.0
 		 * @return Array
 		 */
-		function add_data_attributes( $allowedposttags, $context ) {
+		public function add_data_attributes( $allowedposttags, $context ) {
 			$allowedposttags['a']['data-repeat-notice-after'] = true;
 
 			return $allowedposttags;
@@ -107,7 +107,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @since 1.4.0
 		 * @return void
 		 */
-		function dismiss_notice() {
+		public function dismiss_notice() {
 			$notice_id           = ( isset( $_POST['notice_id'] ) ) ? sanitize_key( $_POST['notice_id'] ) : '';
 			$repeat_notice_after = ( isset( $_POST['repeat_notice_after'] ) ) ? absint( $_POST['repeat_notice_after'] ) : '';
 
@@ -132,7 +132,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @since 1.4.0
 		 * @return void
 		 */
-		function enqueue_scripts() {
+		public function enqueue_scripts() {
 			wp_register_script( 'astra-notices', self::_get_uri() . 'notices.js', array( 'jquery' ), null, self::$version );
 		}
 
@@ -144,7 +144,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @param array $array2 array two.
 		 * @return array
 		 */
-		function sort_notices( $array1, $array2 ) {
+		public function sort_notices( $array1, $array2 ) {
 			if ( ! isset( $array1['priority'] ) ) {
 				$array1['priority'] = 10;
 			}
@@ -161,7 +161,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @since 1.4.0
 		 * @return void
 		 */
-		function show_notices() {
+		public function show_notices() {
 
 			$defaults = array(
 				'id'                         => '',      // Optional, Notice ID. If empty it set `astra-notices-id-<$array-index>`.
