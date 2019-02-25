@@ -169,6 +169,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 				'message'                    => '',      // Optional, Message.
 				'show_if'                    => true,    // Optional, Show notice on custom condition. E.g. 'show_if' => if( is_admin() ) ? true, false, .
 				'repeat-notice-after'        => '',      // Optional, Dismiss-able notice time. It'll auto show after given time.
+				'display-notice-after'       => false,      // Optional, Dismiss-able notice time. It'll auto show after given time.
 				'class'                      => '',      // Optional, Additional notice wrapper class.
 				'priority'                   => 10,      // Priority of the notice.
 				'display-with-other-notices' => true,    // Should the notice be displayed if other notices  are being displayed from Astra_Notices.
@@ -269,11 +270,24 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @return boolean
 		 */
 		private static function is_expired( $notice ) {
+			$transient_status = get_transient( $notice['id'] );
+			
+			if ( false === $transient_status ) {
+				
+				if ( false !== $notice['display-notice-after'] ) {
 
-			$expired = get_transient( $notice['id'] );
-			if ( false === $expired ) {
-				$expired = get_user_meta( get_current_user_id(), $notice['id'], true );
-				if ( empty( $expired ) ) {
+					if ( 'delayed-notice' !== get_user_meta( get_current_user_id(), $notice['id'], true ) ) {
+						set_transient( $notice['id'], '', $notice['display-notice-after'] );
+						update_user_meta( get_current_user_id(), $notice['id'], 'delayed-notice' );
+
+						return false;
+					}
+				}
+
+				// Check the user meta status if current notice is dismissed or delay completed.
+				$meta_status = get_user_meta( get_current_user_id(), $notice['id'], true );
+
+				if ( empty( $meta_status ) || 'delayed-notice' === $meta_status ) {
 					return true;
 				}
 			}
