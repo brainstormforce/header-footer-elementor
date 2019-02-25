@@ -191,12 +191,13 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 
 				// Notices visible after transient expire.
 				if ( isset( $notice['show_if'] ) && true === $notice['show_if'] ) {
-					if ( self::is_expired( $notice ) ) {
 
-						// don't display the notice if it is not supposed to be displayed with other notices.
-						if ( 0 !== $notices_displayed && false === $notice['display-with-other-notices'] ) {
-							continue;
-						}
+					// don't display the notice if it is not supposed to be displayed with other notices.
+					if ( 0 !== $notices_displayed && false === $notice['display-with-other-notices'] ) {
+						continue;
+					}
+
+					if ( self::is_expired( $notice ) ) {
 
 						self::markup( $notice );
 						++$notices_displayed;
