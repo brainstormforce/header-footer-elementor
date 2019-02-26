@@ -10,21 +10,11 @@ node_modules/
 # sass cache
 .sass-cache
 
-# map files
-*.map
-
-# Skip package file from versoning
-astra-theme.zip
-
-# ignore git inside subproject
-admin/bsf-core/.git
-
 # ignore PHPCS report files
 phpcs-summary.log
 phpcs-full.log
 
 # Org Package
-astra
 *.zip
 
 # Ignore Composer's directories
