@@ -278,7 +278,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 				if ( false !== $notice['display-notice-after'] ) {
 
 					if ( 'delayed-notice' !== get_user_meta( get_current_user_id(), $notice['id'], true ) ) {
-						set_transient( $notice['id'], '', $notice['display-notice-after'] );
+						set_transient( $notice['id'], 'delayed-notice', $notice['display-notice-after'] );
 						update_user_meta( get_current_user_id(), $notice['id'], 'delayed-notice' );
 
 						return false;
