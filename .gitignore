@@ -1,7 +1,31 @@
+# ignore PHPStorm extra directories
+.idea/
+
+# OS specific files
 .DS_Store
-Thumbs.db
-wp-cli.local.yml
+
+# Leave node_modules from git
 node_modules/
+
+# sass cache
+.sass-cache
+
+# map files
+*.map
+
+# Skip package file from versoning
+astra-theme.zip
+
+# ignore git inside subproject
+admin/bsf-core/.git
+
+# ignore PHPCS report files
+phpcs-summary.log
+phpcs-full.log
+
+# Org Package
+astra
 *.zip
-*.tar.gz
-package-lock.json
+
+# Ignore Composer's directories
+vendor/
