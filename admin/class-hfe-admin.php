@@ -28,7 +28,7 @@ class HFE_Admin {
 	 */
 	public static function instance() {
 		if ( ! isset( self::$_instance ) ) {
-			self::$_instance = new self;
+			self::$_instance = new self();
 		}
 
 		return self::$_instance;
@@ -42,6 +42,7 @@ class HFE_Admin {
 		add_action( 'admin_menu', array( $this, 'register_admin_menu' ), 50 );
 		add_action( 'add_meta_boxes', array( $this, 'ehf_register_metabox' ) );
 		add_action( 'save_post', array( $this, 'ehf_save_meta' ) );
+		add_action( 'save_post', array( $this, 'ehf_header_footer_template_save_meta' ) );
 		add_action( 'admin_notices', array( $this, 'location_notice' ) );
 		add_action( 'template_redirect', array( $this, 'block_template_frontend' ) );
 		add_filter( 'single_template', array( $this, 'load_canvas_template' ) );
@@ -123,6 +124,60 @@ class HFE_Admin {
 			'normal',
 			'high'
 		);
+
+		$post_types = get_post_types( array( 'public' => true ) );
+
+		foreach ( $post_types as $type ) {
+			if ( 'attachment' !== $type && 'elementor-hf' !== $type ) {
+				// Header Footer template selection for post/page.
+				add_meta_box(
+					'ehf-meta-box-post',
+					__( 'Elementor Header Footer options', 'header-footer-elementor' ),
+					array(
+						$this,
+						'header_footer_selection_metabox',
+					),
+					$type,
+					'side',
+					'high'
+				);
+			}
+		}
+	}
+
+	public function header_footer_selection_metabox( $post ) {
+		$values        = get_post_custom( $post->ID );
+		$template_type = isset( $values['header-tenplate'] ) ? esc_attr( $values['header-tenplate'][0] ) : '';
+
+		// We'll use this nonce field later on when saving.
+		wp_nonce_field( 'ehf_header_footer_selectin_meta_nounce', 'ehf_header_footer_selectin_meta_nounce' );
+
+		$all_posts = array();
+		$atts      = array(
+			'post_type'      => array(
+				'elementor-hf',
+			),
+			'posts_per_page' => 200,
+			'cache_results'  => true,
+		);
+		$query     = new WP_Query( $atts );
+		if ( $query->have_posts() ) {
+			while ( $query->have_posts() ) {
+				$query->the_post();
+				$title            = get_the_title();
+				$id               = get_the_id();
+				$all_posts[ $id ] = $title;
+			}
+		}
+		echo '<select name="header-tenplate">';
+		echo '<option value="" ' . selected( '', $template_type ) . '>Default</option>';
+		echo '<option value="theme-header" ' . selected( 'theme-header', $template_type ) . '>Theme Header</option>';
+
+		foreach ( $all_posts as $id => $post_name ) {
+			echo '<option value="' . $id . '" ' . selected( $id, $template_type ) . ' >' . $post_name . '</option>';
+		}
+
+		echo '</select>';
 	}
 
 	/**
@@ -182,6 +237,36 @@ class HFE_Admin {
 			</tbody>
 		</table>
 		<?php
+	}
+
+	/**
+	 * Save meta field.
+	 *
+	 * @param  POST $post_id Currennt post object which is being displayed.
+	 *
+	 * @return Void
+	 */
+	public function ehf_header_footer_template_save_meta( $post_id ) {
+
+		// Bail if we're doing an auto save.
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+			return;
+		}
+
+		// if our nonce isn't there, or we can't verify it, bail.
+		if ( ! isset( $_POST['ehf_header_footer_selectin_meta_nounce'] ) || ! wp_verify_nonce( $_POST['ehf_header_footer_selectin_meta_nounce'], 'ehf_header_footer_selectin_meta_nounce' ) ) {
+			return;
+		}
+
+		// if our current user can't edit this post, bail.
+		if ( ! current_user_can( 'edit_posts' ) ) {
+			return;
+		}
+
+		if ( isset( $_POST['header-tenplate'] ) ) {
+			update_post_meta( $post_id, 'header-tenplate', esc_attr( $_POST['header-tenplate'] ) );
+		}
+
 	}
 
 	/**
