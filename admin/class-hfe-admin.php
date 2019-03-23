@@ -182,7 +182,7 @@ class HFE_Admin {
 		echo '<strong>' . esc_html_e( 'Header Template', 'header-footer-elementor' ) . '</strong>';
 		echo '</p>';
 
-		echo '<select name="header-template" class="">';
+		echo '<select name="header-template">';
 		echo '<option value="" ' . selected( '', $header_template ) . '>' . __( 'Default', 'header-footer-elementor' ) . '</option>';
 		echo '<option value="theme-header" ' . selected( 'theme-header', $header_template ) . '>' . __( 'Theme Header', 'header-footer-elementor' ) . '</option>';
 
@@ -199,7 +199,7 @@ class HFE_Admin {
 		echo '<strong>' . esc_html_e( 'Footer Template', 'header-footer-elementor' ) . '</strong>';
 		echo '</p>';
 
-		echo '<select name="footer-template" class="">';
+		echo '<select name="footer-template">';
 		echo '<option value="" ' . selected( '', $footer_template ) . '>' . __( 'Default', 'header-footer-elementor' ) . '</option>';
 		echo '<option value="theme-footer" ' . selected( 'theme-foter', $footer_template ) . '>' . __( 'Theme Footer', 'header-footer-elementor' ) . '</option>';
 
