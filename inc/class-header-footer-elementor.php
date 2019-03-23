@@ -23,6 +23,26 @@ class Header_Footer_Elementor {
 	 * @var \Elementor\Frontend()
 	 */
 	private static $elementor_instance;
+
+	/**
+	 * Instance of HFE_Admin
+	 *
+	 * @var HFE_Admin
+	 */
+	private static $_instance = null;
+
+	/**
+	 * Instance of HFE_Admin
+	 *
+	 * @return HFE_Admin Instance of HFE_Admin
+	 */
+	public static function instance() {
+		if ( ! isset( self::$_instance ) ) {
+			self::$_instance = new self();
+		}
+
+		return self::$_instance;
+	}
 	/**
 	 * Constructor
 	 */
@@ -252,7 +272,13 @@ class Header_Footer_Elementor {
 		if ( 'type_header' == $setting || 'type_footer' == $setting || 'type_before_footer' == $setting ) {
 			$templates = self::get_template_id( $setting );
 
-			$template = is_array( $templates ) ? $templates[0] : '';
+			$template = ! is_array( $templates ) ? $templates : $templates[0];
+
+			// Reset to use default theme header/footer from meta.
+			if ( 'theme-header' === $template ) {
+				$template = '';
+			}
+
 			$template = apply_filters( "hfe_get_settings_{$setting}", $template );
 
 			return $template;
@@ -267,6 +293,10 @@ class Header_Footer_Elementor {
 	 * @return Mixed       Returns the header or footer template id if found, else returns string ''.
 	 */
 	public static function get_template_id( $type ) {
+
+		if ( false !== self::instance()->get_meta_value( $type ) ) {
+			return self::instance()->get_meta_value( $type );
+		}
 
 		$cached = wp_cache_get( $type );
 
@@ -307,6 +337,27 @@ class Header_Footer_Elementor {
 		}
 
 		return '';
+	}
+
+	/**
+	 * Get post meta value.
+	 *
+	 * @since x.x.x
+	 * @param  String $type Type of the template header/footer.
+	 * @return Mixed       Returns the header or footer template id if found, else returns string ''.
+	 */
+	private function get_meta_value( $type ) {
+		// Bail if not on a single post.
+		if ( false === get_the_id() ) {
+			return false;
+		}
+
+		// Post meta to select header template for meta.
+		if ( 'type_header' === $type && '' !== get_post_meta( get_the_id(), 'header-template', true ) ) {
+			return get_post_meta( get_the_id(), 'header-template', true );
+		}
+
+		return false;
 	}
 
 	/**

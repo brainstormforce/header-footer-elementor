@@ -145,9 +145,15 @@ class HFE_Admin {
 		}
 	}
 
+	/**
+	 * Markup for the header/footer template selection.
+	 *
+	 * @since x.x.x
+	 * @param WP_Post $post  $post Current post object which is being displayed.
+	 */
 	public function header_footer_selection_metabox( $post ) {
 		$values        = get_post_custom( $post->ID );
-		$template_type = isset( $values['header-tenplate'] ) ? esc_attr( $values['header-tenplate'][0] ) : '';
+		$template_type = isset( $values['header-template'] ) ? esc_attr( $values['header-template'][0] ) : '';
 
 		// We'll use this nonce field later on when saving.
 		wp_nonce_field( 'ehf_header_footer_selectin_meta_nounce', 'ehf_header_footer_selectin_meta_nounce' );
@@ -169,7 +175,13 @@ class HFE_Admin {
 				$all_posts[ $id ] = $title;
 			}
 		}
-		echo '<select name="header-tenplate">';
+
+		echo '<div id="astra_settings_meta_box" class="meta-box-sortables">';
+		echo '<p class="post-attributes-label-wrapper" >';
+		echo '<strong>' . esc_html_e( 'Header Template', 'astra' ) . '</strong>';
+		echo '</p>';
+
+		echo '<select name="header-template" class="">';
 		echo '<option value="" ' . selected( '', $template_type ) . '>Default</option>';
 		echo '<option value="theme-header" ' . selected( 'theme-header', $template_type ) . '>Theme Header</option>';
 
@@ -178,6 +190,8 @@ class HFE_Admin {
 		}
 
 		echo '</select>';
+
+		echo '</div>';
 	}
 
 	/**
@@ -263,8 +277,8 @@ class HFE_Admin {
 			return;
 		}
 
-		if ( isset( $_POST['header-tenplate'] ) ) {
-			update_post_meta( $post_id, 'header-tenplate', esc_attr( $_POST['header-tenplate'] ) );
+		if ( isset( $_POST['header-template'] ) ) {
+			update_post_meta( $post_id, 'header-template', esc_attr( $_POST['header-template'] ) );
 		}
 
 	}
