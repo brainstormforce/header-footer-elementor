@@ -179,7 +179,7 @@ class HFE_Admin {
 
 		echo '<div id="astra_settings_meta_box" class="meta-box-sortables">';
 		echo '<p class="post-attributes-label-wrapper" >';
-		echo '<strong>' . esc_html_e( 'Header Template', 'header-footer-elementor' ) . '</strong>';
+		echo '<strong>' . esc_html__( 'Header Template', 'header-footer-elementor' ) . '</strong>';
 		echo '</p>';
 
 		echo '<select name="header-template">';
@@ -196,7 +196,7 @@ class HFE_Admin {
 
 		echo '<div id="astra_settings_meta_box" class="meta-box-sortables">';
 		echo '<p class="post-attributes-label-wrapper" >';
-		echo '<strong>' . esc_html_e( 'Footer Template', 'header-footer-elementor' ) . '</strong>';
+		echo '<strong>' . esc_html__( 'Footer Template', 'header-footer-elementor' ) . '</strong>';
 		echo '</p>';
 
 		echo '<select name="footer-template">';
