@@ -275,7 +275,7 @@ class Header_Footer_Elementor {
 			$template = ! is_array( $templates ) ? $templates : $templates[0];
 
 			// Reset to use default theme header/footer from meta.
-			if ( 'theme-header' === $template ) {
+			if ( 'theme-header' === $template || 'theme-footer' === $template ) {
 				$template = '';
 			}
 
@@ -355,6 +355,10 @@ class Header_Footer_Elementor {
 		// Post meta to select header template for meta.
 		if ( 'type_header' === $type && '' !== get_post_meta( get_the_id(), 'header-template', true ) ) {
 			return get_post_meta( get_the_id(), 'header-template', true );
+		}
+
+		if ( 'type_footer' === $type && '' !== get_post_meta( get_the_id(), 'footer-template', true ) ) {
+			return get_post_meta( get_the_id(), 'footer-template', true );
 		}
 
 		return false;

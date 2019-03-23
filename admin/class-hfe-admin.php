@@ -152,8 +152,9 @@ class HFE_Admin {
 	 * @param WP_Post $post  $post Current post object which is being displayed.
 	 */
 	public function header_footer_selection_metabox( $post ) {
-		$values        = get_post_custom( $post->ID );
-		$template_type = isset( $values['header-template'] ) ? esc_attr( $values['header-template'][0] ) : '';
+		$values          = get_post_custom( $post->ID );
+		$header_template = isset( $values['header-template'] ) ? esc_attr( $values['header-template'][0] ) : '';
+		$footer_template = isset( $values['footer-template'] ) ? esc_attr( $values['footer-template'][0] ) : '';
 
 		// We'll use this nonce field later on when saving.
 		wp_nonce_field( 'ehf_header_footer_selectin_meta_nounce', 'ehf_header_footer_selectin_meta_nounce' );
@@ -178,15 +179,32 @@ class HFE_Admin {
 
 		echo '<div id="astra_settings_meta_box" class="meta-box-sortables">';
 		echo '<p class="post-attributes-label-wrapper" >';
-		echo '<strong>' . esc_html_e( 'Header Template', 'astra' ) . '</strong>';
+		echo '<strong>' . esc_html_e( 'Header Template', 'header-footer-elementor' ) . '</strong>';
 		echo '</p>';
 
 		echo '<select name="header-template" class="">';
-		echo '<option value="" ' . selected( '', $template_type ) . '>Default</option>';
-		echo '<option value="theme-header" ' . selected( 'theme-header', $template_type ) . '>Theme Header</option>';
+		echo '<option value="" ' . selected( '', $header_template ) . '>' . __( 'Default', 'header-footer-elementor' ) . '</option>';
+		echo '<option value="theme-header" ' . selected( 'theme-header', $header_template ) . '>' . __( 'Theme Header', 'header-footer-elementor' ) . '</option>';
 
 		foreach ( $all_posts as $id => $post_name ) {
-			echo '<option value="' . $id . '" ' . selected( $id, $template_type ) . ' >' . $post_name . '</option>';
+			echo '<option value="' . $id . '" ' . selected( $id, $header_template ) . ' >' . $post_name . '</option>';
+		}
+
+		echo '</select>';
+
+		echo '</div>';
+
+		echo '<div id="astra_settings_meta_box" class="meta-box-sortables">';
+		echo '<p class="post-attributes-label-wrapper" >';
+		echo '<strong>' . esc_html_e( 'Footer Template', 'header-footer-elementor' ) . '</strong>';
+		echo '</p>';
+
+		echo '<select name="footer-template" class="">';
+		echo '<option value="" ' . selected( '', $footer_template ) . '>' . __( 'Default', 'header-footer-elementor' ) . '</option>';
+		echo '<option value="theme-footer" ' . selected( 'theme-foter', $footer_template ) . '>' . __( 'Theme Footer', 'header-footer-elementor' ) . '</option>';
+
+		foreach ( $all_posts as $id => $post_name ) {
+			echo '<option value="' . $id . '" ' . selected( $id, $footer_template ) . ' >' . $post_name . '</option>';
 		}
 
 		echo '</select>';
@@ -279,6 +297,10 @@ class HFE_Admin {
 
 		if ( isset( $_POST['header-template'] ) ) {
 			update_post_meta( $post_id, 'header-template', esc_attr( $_POST['header-template'] ) );
+		}
+
+		if ( isset( $_POST['footer-template'] ) ) {
+			update_post_meta( $post_id, 'footer-template', esc_attr( $_POST['footer-template'] ) );
 		}
 
 	}
