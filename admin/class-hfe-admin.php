@@ -183,8 +183,8 @@ class HFE_Admin {
 		echo '</p>';
 
 		echo '<select name="header-template">';
-		echo '<option value="" ' . selected( '', $header_template ) . '>' . __( 'Default', 'header-footer-elementor' ) . '</option>';
-		echo '<option value="theme-header" ' . selected( 'theme-header', $header_template ) . '>' . __( 'Theme Header', 'header-footer-elementor' ) . '</option>';
+		echo '<option value="" ' . selected( '', $header_template ) . '>' . esc_html__( 'Default', 'header-footer-elementor' ) . '</option>';
+		echo '<option value="theme-header" ' . selected( 'theme-header', $header_template ) . '>' . esc_html__( 'Theme Header', 'header-footer-elementor' ) . '</option>';
 
 		foreach ( $all_posts as $id => $post_name ) {
 			echo '<option value="' . esc_attr( $id ) . '" ' . selected( $id, $header_template ) . ' >' . esc_html( $post_name ) . '</option>';
@@ -200,8 +200,8 @@ class HFE_Admin {
 		echo '</p>';
 
 		echo '<select name="footer-template">';
-		echo '<option value="" ' . selected( '', $footer_template ) . '>' . __( 'Default', 'header-footer-elementor' ) . '</option>';
-		echo '<option value="theme-footer" ' . selected( 'theme-foter', $footer_template ) . '>' . __( 'Theme Footer', 'header-footer-elementor' ) . '</option>';
+		echo '<option value="" ' . selected( '', $footer_template ) . '>' . esc_html__( 'Default', 'header-footer-elementor' ) . '</option>';
+		echo '<option value="theme-footer" ' . selected( 'theme-foter', $footer_template ) . '>' . esc_html__( 'Theme Footer', 'header-footer-elementor' ) . '</option>';
 
 		foreach ( $all_posts as $id => $post_name ) {
 			echo '<option value="' . esc_attr( $id ) . '" ' . selected( $id, $footer_template ) . ' >' . esc_html( $post_name ) . '</option>';
