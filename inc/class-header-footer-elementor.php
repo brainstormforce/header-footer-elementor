@@ -27,14 +27,14 @@ class Header_Footer_Elementor {
 	/**
 	 * Instance of HFE_Admin
 	 *
-	 * @var HFE_Admin
+	 * @var Header_Footer_Elementor
 	 */
 	private static $_instance = null;
 
 	/**
-	 * Instance of HFE_Admin
+	 * Instance of Header_Footer_Elementor
 	 *
-	 * @return HFE_Admin Instance of HFE_Admin
+	 * @return Header_Footer_Elementor Instance of Header_Footer_Elementor
 	 */
 	public static function instance() {
 		if ( ! isset( self::$_instance ) ) {
