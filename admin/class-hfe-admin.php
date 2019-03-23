@@ -187,7 +187,7 @@ class HFE_Admin {
 		echo '<option value="theme-header" ' . selected( 'theme-header', $header_template ) . '>' . __( 'Theme Header', 'header-footer-elementor' ) . '</option>';
 
 		foreach ( $all_posts as $id => $post_name ) {
-			echo '<option value="' . $id . '" ' . selected( $id, $header_template ) . ' >' . $post_name . '</option>';
+			echo '<option value="' . esc_attr( $id ) . '" ' . selected( $id, $header_template ) . ' >' . esc_html( $post_name ) . '</option>';
 		}
 
 		echo '</select>';
@@ -204,7 +204,7 @@ class HFE_Admin {
 		echo '<option value="theme-footer" ' . selected( 'theme-foter', $footer_template ) . '>' . __( 'Theme Footer', 'header-footer-elementor' ) . '</option>';
 
 		foreach ( $all_posts as $id => $post_name ) {
-			echo '<option value="' . $id . '" ' . selected( $id, $footer_template ) . ' >' . $post_name . '</option>';
+			echo '<option value="' . esc_attr( $id ) . '" ' . selected( $id, $footer_template ) . ' >' . esc_html( $post_name ) . '</option>';
 		}
 
 		echo '</select>';
