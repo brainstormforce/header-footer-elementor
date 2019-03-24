@@ -293,7 +293,6 @@ class Header_Footer_Elementor {
 	 * @return Mixed       Returns the header or footer template id if found, else returns string ''.
 	 */
 	public static function get_template_id( $type ) {
-
 		// Check if the meta setting is overiting the template.
 		if ( false !== self::instance()->get_meta_value( $type ) ) {
 			return self::instance()->get_meta_value( $type );

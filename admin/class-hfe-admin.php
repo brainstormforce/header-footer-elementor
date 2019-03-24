@@ -210,7 +210,7 @@ class HFE_Admin {
 		echo '<strong>' . esc_html__( 'Header Template', 'header-footer-elementor' ) . '</strong>';
 		echo '</p>';
 
-		echo $this->get_hfe_template_select_field( 'theme-header', $header_template );
+		echo $this->get_hfe_template_select_field( 'header-template', $header_template );
 
 		echo '</div>';
 
@@ -219,7 +219,7 @@ class HFE_Admin {
 		echo '<strong>' . esc_html__( 'Footer Template', 'header-footer-elementor' ) . '</strong>';
 		echo '</p>';
 
-		echo $this->get_hfe_template_select_field( 'theme-footer', $footer_template );
+		echo $this->get_hfe_template_select_field( 'footer-template', $footer_template );
 
 		echo '</div>';
 	}
