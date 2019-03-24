@@ -39,6 +39,7 @@ class HFE_Admin {
 	 */
 	private function __construct() {
 		add_action( 'init', array( $this, 'header_footer_posttype' ) );
+		add_action( 'init', array( $this, 'register_term_meta_options' ) );
 		add_action( 'admin_menu', array( $this, 'register_admin_menu' ), 50 );
 		add_action( 'add_meta_boxes', array( $this, 'ehf_register_metabox' ) );
 		add_action( 'save_post', array( $this, 'ehf_save_meta' ) );
@@ -87,6 +88,20 @@ class HFE_Admin {
 		);
 
 		register_post_type( 'elementor-hf', $args );
+	}
+
+	/**
+	 * Register taxanomy meta options.
+	 *
+	 * @since x.x.x
+	 * @return void
+	 */
+	public function register_term_meta_options() {
+		$taxonomies = get_taxonomies( array() );
+		foreach ( $taxonomies as $slug => $taxanomy ) {
+			add_action( "{$taxanomy}_edit_form_fields", array( $this, 'header_footer_selection_taxanomy_meta' ), 60, 2 );
+			add_action( "edited_{$taxanomy}", array( $this, 'save_term_meta' ), 10, 2 );
+		}
 	}
 
 	/**
@@ -143,6 +158,40 @@ class HFE_Admin {
 	}
 
 	/**
+	 * Markup for the header/footer template selection for taxanomy meta.
+	 *
+	 * @since x.x.x
+	 * @param WP_Term $term  Current taxonomy term object.
+	 * @param String  $taxonomy Current taxonomy slug.
+	 */
+	public function header_footer_selection_taxanomy_meta( $term, $taxonomy ) {
+		$header_template = get_term_meta( $term->term_id, 'header-template', true );
+		$footer_template = get_term_meta( $term->term_id, 'footer-template', true );
+		?>
+
+		<tr class="form-field">
+			<th valign="top" scope="row">
+				<label for="header-template"><?php esc_html_e( 'Header Template', 'header-footer-elementor' ); ?></label>
+			</th>
+			<td>
+				<?php echo $this->get_hfe_template_select_field( 'header-template', $header_template ); ?>
+			</td>
+		</tr>
+
+		<tr class="form-field">
+			<th valign="top" scope="row">
+				<label for="footer-template"><?php esc_html_e( 'Footer Template', 'header-footer-elementor' ); ?></label>
+			</th>
+			<td>
+				<?php echo $this->get_hfe_template_select_field( 'footer-template', $footer_template ); ?>
+			</td>
+		</tr>
+
+		<?php
+	}
+
+
+	/**
 	 * Markup for the header/footer template selection.
 	 *
 	 * @since x.x.x
@@ -156,6 +205,54 @@ class HFE_Admin {
 		// We'll use this nonce field later on when saving.
 		wp_nonce_field( 'ehf_header_footer_selectin_meta_nounce', 'ehf_header_footer_selectin_meta_nounce' );
 
+		echo '<div id="astra_settings_meta_box" class="meta-box-sortables">';
+		echo '<p class="post-attributes-label-wrapper" >';
+		echo '<strong>' . esc_html__( 'Header Template', 'header-footer-elementor' ) . '</strong>';
+		echo '</p>';
+
+		echo $this->get_hfe_template_select_field( 'theme-header', $header_template );
+
+		echo '</div>';
+
+		echo '<div id="astra_settings_meta_box" class="meta-box-sortables">';
+		echo '<p class="post-attributes-label-wrapper" >';
+		echo '<strong>' . esc_html__( 'Footer Template', 'header-footer-elementor' ) . '</strong>';
+		echo '</p>';
+
+		echo $this->get_hfe_template_select_field( 'theme-footer', $footer_template );
+
+		echo '</div>';
+	}
+
+	/**
+	 * Markup for select field fr selecting header foter templates.
+	 *
+	 * @param String $name input name.
+	 * @param Select $selected_check Selected field for option.
+	 * @return String HTML markup of the select field.
+	 */
+	private function get_hfe_template_select_field( $name, $selected_check ) {
+		$markup  = '';
+		$markup .= '<select name="' . $name . '">';
+		$markup .= '<option value="" ' . selected( '', $selected_check, false ) . '>' . esc_html__( 'Default', 'header-footer-elementor' ) . '</option>';
+		$markup .= '<option value="theme-default" ' . selected( 'theme-default', $selected_check, false ) . '>' . esc_html__( 'Theme Default', 'header-footer-elementor' ) . '</option>';
+
+		foreach ( $this->get_hfe_posts() as $id => $post_name ) {
+			$markup .= '<option value="' . esc_attr( $id ) . '" ' . selected( $id, $selected_check, false ) . ' >' . esc_html( $post_name ) . '</option>';
+		}
+
+		$markup .= '</select>';
+
+		return $markup;
+	}
+
+	/**
+	 * Get all posts in elementr-hf post type.
+	 *
+	 * @since x.x.x
+	 * @return Array All elementr-hf posts.
+	 */
+	private function get_hfe_posts() {
 		$all_posts = array();
 		$atts      = array(
 			'post_type'      => array(
@@ -174,39 +271,7 @@ class HFE_Admin {
 			}
 		}
 
-		echo '<div id="astra_settings_meta_box" class="meta-box-sortables">';
-		echo '<p class="post-attributes-label-wrapper" >';
-		echo '<strong>' . esc_html__( 'Header Template', 'header-footer-elementor' ) . '</strong>';
-		echo '</p>';
-
-		echo '<select name="header-template">';
-		echo '<option value="" ' . selected( '', $header_template ) . '>' . esc_html__( 'Default', 'header-footer-elementor' ) . '</option>';
-		echo '<option value="theme-header" ' . selected( 'theme-header', $header_template ) . '>' . esc_html__( 'Theme Header', 'header-footer-elementor' ) . '</option>';
-
-		foreach ( $all_posts as $id => $post_name ) {
-			echo '<option value="' . esc_attr( $id ) . '" ' . selected( $id, $header_template ) . ' >' . esc_html( $post_name ) . '</option>';
-		}
-
-		echo '</select>';
-
-		echo '</div>';
-
-		echo '<div id="astra_settings_meta_box" class="meta-box-sortables">';
-		echo '<p class="post-attributes-label-wrapper" >';
-		echo '<strong>' . esc_html__( 'Footer Template', 'header-footer-elementor' ) . '</strong>';
-		echo '</p>';
-
-		echo '<select name="footer-template">';
-		echo '<option value="" ' . selected( '', $footer_template ) . '>' . esc_html__( 'Default', 'header-footer-elementor' ) . '</option>';
-		echo '<option value="theme-footer" ' . selected( 'theme-foter', $footer_template ) . '>' . esc_html__( 'Theme Footer', 'header-footer-elementor' ) . '</option>';
-
-		foreach ( $all_posts as $id => $post_name ) {
-			echo '<option value="' . esc_attr( $id ) . '" ' . selected( $id, $footer_template ) . ' >' . esc_html( $post_name ) . '</option>';
-		}
-
-		echo '</select>';
-
-		echo '</div>';
+		return $all_posts;
 	}
 
 	/**
@@ -266,6 +331,24 @@ class HFE_Admin {
 			</tbody>
 		</table>
 		<?php
+	}
+
+	/**
+	 * Save term metadatam
+	 *
+	 * @param int $term_id Term id.
+	 * @param int $tt_id Term taxonomy ID.
+	 * @return void
+	 */
+	public function save_term_meta( $term_id, $tt_id ) {
+
+		if ( isset( $_POST['header-template'] ) ) {
+			update_term_meta( $term_id, 'header-template', esc_attr( $_POST['header-template'] ) );
+		}
+
+		if ( isset( $_POST['footer-template'] ) ) {
+			update_term_meta( $term_id, 'footer-template', esc_attr( $_POST['footer-template'] ) );
+		}
 	}
 
 	/**

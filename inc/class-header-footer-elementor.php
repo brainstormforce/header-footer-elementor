@@ -275,7 +275,7 @@ class Header_Footer_Elementor {
 			$template = ! is_array( $templates ) ? $templates : $templates[0];
 
 			// Reset to use default theme header/footer from meta.
-			if ( 'theme-header' === $template || 'theme-footer' === $template ) {
+			if ( 'theme-default' === $template ) {
 				$template = '';
 			}
 
@@ -349,17 +349,31 @@ class Header_Footer_Elementor {
 	 */
 	private function get_meta_value( $type ) {
 		// Bail if not on a single post.
-		if ( false === get_the_id() ) {
+		if ( is_singular() ) {
+			// Post meta to select header template for meta.
+			if ( 'type_header' === $type && '' !== get_post_meta( get_the_id(), 'header-template', true ) ) {
+				return get_post_meta( get_the_id(), 'header-template', true );
+			}
+
+			if ( 'type_footer' === $type && '' !== get_post_meta( get_the_id(), 'footer-template', true ) ) {
+				return get_post_meta( get_the_id(), 'footer-template', true );
+			}
+
 			return false;
 		}
 
-		// Post meta to select header template for meta.
-		if ( 'type_header' === $type && '' !== get_post_meta( get_the_id(), 'header-template', true ) ) {
-			return get_post_meta( get_the_id(), 'header-template', true );
-		}
+		if ( is_category() || is_tag() || is_tax() ) {
 
-		if ( 'type_footer' === $type && '' !== get_post_meta( get_the_id(), 'footer-template', true ) ) {
-			return get_post_meta( get_the_id(), 'footer-template', true );
+			// Post meta to select header template for meta.
+			if ( 'type_header' === $type && '' !== get_term_meta( get_queried_object()->term_id, 'header-template', true ) ) {
+				return get_term_meta( get_queried_object()->term_id, 'header-template', true );
+			}
+
+			if ( 'type_footer' === $type && '' !== get_term_meta( get_queried_object()->term_id, 'footer-template', true ) ) {
+				return get_term_meta( get_queried_object()->term_id, 'footer-template', true );
+			}
+
+			return false;
 		}
 
 		return false;
