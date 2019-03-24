@@ -46,11 +46,8 @@ class HFE_Admin {
 		add_action( 'admin_notices', array( $this, 'location_notice' ) );
 		add_action( 'template_redirect', array( $this, 'block_template_frontend' ) );
 		add_filter( 'single_template', array( $this, 'load_canvas_template' ) );
-
 		add_filter( 'manage_elementor-hf_posts_columns', array( $this, 'set_shortcode_columns' ) );
-
 		add_action( 'manage_elementor-hf_posts_custom_column', array( $this, 'render_shortcode_column' ), 10, 2 );
-
 	}
 
 	/**
