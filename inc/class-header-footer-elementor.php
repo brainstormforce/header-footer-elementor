@@ -324,7 +324,7 @@ class Header_Footer_Elementor {
 			'hfe_template'
 		);
 
-		$id = ! empty( $atts['id'] ) ? intval( $atts['id'] ) : '';
+		$id = ! empty( $atts['id'] ) ? apply_filters( 'hfe_render_template_id', intval( $atts['id'] ) ) : '';
 
 		if ( empty( $id ) ) {
 			return '';
