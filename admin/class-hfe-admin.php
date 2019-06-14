@@ -38,6 +38,7 @@ class HFE_Admin {
 	 * Constructor
 	 */
 	private function __construct() {
+		add_action( 'admin_init', array( $this, 'include_libraries' ) );
 		add_action( 'init', array( $this, 'header_footer_posttype' ) );
 		add_action( 'init', array( $this, 'register_term_meta_options' ) );
 		add_action( 'admin_menu', array( $this, 'register_admin_menu' ), 50 );
@@ -49,6 +50,16 @@ class HFE_Admin {
 		add_filter( 'single_template', array( $this, 'load_canvas_template' ) );
 		add_filter( 'manage_elementor-hf_posts_columns', array( $this, 'set_shortcode_columns' ) );
 		add_action( 'manage_elementor-hf_posts_custom_column', array( $this, 'render_shortcode_column' ), 10, 2 );
+	}
+
+	/**
+	 * Include libraries
+	 *
+	 * @since x.x.x
+	 * @return void
+	 */
+	public function include_libraries() {
+		require_once HFE_DIR . 'inc/lib/target-rule/class-astra-target-rules-fields.php';
 	}
 
 	/**
@@ -305,6 +316,8 @@ class HFE_Admin {
 						</select>
 					</td>
 				</tr>
+
+				<?php $this->display_rules_tab();  ?>
 				<tr class="hfe-options-row hfe-shortcode">
 					<td class="hfe-options-row-heading">
 						<label for="ehf_template_type"><?php _e( 'Shortcode', 'header-footer-elementor' ); ?></label>
@@ -330,6 +343,90 @@ class HFE_Admin {
 				</tr>
 			</tbody>
 		</table>
+		<?php
+	}
+
+	/**
+	 * Markup for Display Rules Tabs.
+	 *
+	 * @since  1.0.0
+	 *
+	 * @param  array $options Post meta.
+	 */
+	public function display_rules_tab( $options = [] ) {
+		// Load Target Rule assets.
+		Astra_Target_Rules_Fields::get_instance()->admin_styles();
+
+		$layout            = $options['layouts'];
+		$design            = $options['designs'];
+		$include_locations = $options['include_locations'];
+		$exclude_locations = $options['exclude_locations'];
+		$users             = $options['user_roles'];
+		?>
+		<tr class="ast-advanced-headers-row">
+			<td class="ast-advanced-headers-row-heading">
+				<label><?php esc_html_e( 'Display On', 'astra-addon' ); ?></label>
+				<i class="ast-advanced-headers-heading-help dashicons dashicons-editor-help"
+					title="<?php echo esc_attr__( 'Add locations for where this Advanced Header should appear.', 'astra-addon' ); ?>"></i>
+			</td>
+			<td class="ast-advanced-headers-row-content">
+				<?php
+				Astra_Target_Rules_Fields::target_rule_settings_field(
+					'ast-advanced-headers-location',
+					array(
+						'title'          => __( 'Display Rules', 'astra-addon' ),
+						'value'          => '[{"type":"basic-global","specific":null}]',
+						'tags'           => 'site,enable,target,pages',
+						'rule_type'      => 'display',
+						'add_rule_label' => __( 'Add Display Rule', 'astra-addon' ),
+					),
+					$include_locations
+				);
+				?>
+			</td>
+		</tr>
+		<tr class="ast-advanced-headers-row">
+			<td class="ast-advanced-headers-row-heading">
+				<label><?php esc_html_e( 'Do Not Display On', 'astra-addon' ); ?></label>
+				<i class="ast-advanced-headers-heading-help dashicons dashicons-editor-help"
+					title="<?php echo esc_attr__( 'This Advanced Header will not appear at these locations.', 'astra-addon' ); ?>"></i>
+			</td>
+			<td class="ast-advanced-headers-row-content">
+				<?php
+				Astra_Target_Rules_Fields::target_rule_settings_field(
+					'ast-advanced-headers-exclusion',
+					array(
+						'title'          => __( 'Exclude On', 'astra-addon' ),
+						'value'          => '[]',
+						'tags'           => 'site,enable,target,pages',
+						'add_rule_label' => __( 'Add Exclusion Rule', 'astra-addon' ),
+						'rule_type'      => 'exclude',
+					),
+					$exclude_locations
+				);
+				?>
+			</td>
+		</tr>
+		<tr class="ast-advanced-headers-row">
+			<td class="ast-advanced-headers-row-heading">
+				<label><?php esc_html_e( 'User Roles', 'astra-addon' ); ?></label>
+				<i class="ast-advanced-headers-heading-help dashicons dashicons-editor-help" title="<?php echo esc_attr__( 'Targer header based on user role.', 'astra-addon' ); ?>"></i>
+			</td>
+			<td class="ast-advanced-headers-row-content">
+				<?php
+				Astra_Target_Rules_Fields::target_user_role_settings_field(
+					'ast-advanced-headers-users',
+					array(
+						'title'          => __( 'Users', 'astra-addon' ),
+						'value'          => '[]',
+						'tags'           => 'site,enable,target,pages',
+						'add_rule_label' => __( 'Add User Rule', 'astra-addon' ),
+					),
+					$users
+				);
+				?>
+			</td>
+		</tr>
 		<?php
 	}
 
