@@ -93,6 +93,9 @@ If the above is nnot possible, You can also add support for the plugin from your
 
 == Changelog ==
 
+= Unreleased
+- Fix: WPML Translations do not work when using the Elementor Template as a shortcode.
+
 = 1.1.2 =
 - Fix: Depracated function warning from Elementor's method `\Elementor\Post_CSS_File`
 
