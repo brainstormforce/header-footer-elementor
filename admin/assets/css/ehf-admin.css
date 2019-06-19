@@ -52,7 +52,7 @@ input.hfe-large-text{
     color: #333;
 }
 
-.hfe-options-table #ehf_template_type {
+.hfe-options-row-content select {
     width: 80%;
 }
 

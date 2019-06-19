@@ -353,53 +353,53 @@ class HFE_Admin {
 	 *
 	 * @param  array $options Post meta.
 	 */
-	public function display_rules_tab( $options = [] ) {
+	public function display_rules_tab() {
 		// Load Target Rule assets.
 		Astra_Target_Rules_Fields::get_instance()->admin_styles();
 
-		$layout            = $options['layouts'];
-		$design            = $options['designs'];
-		$include_locations = $options['include_locations'];
-		$exclude_locations = $options['exclude_locations'];
-		$users             = $options['user_roles'];
+		$display_rules = get_post_meta( get_the_id(), 'ehf_target_rules', true );
+
+		$include_locations = isset( $display_rules['include_locations'] ) ? $display_rules['include_locations'] : false;
+		$exclude_locations = isset( $display_rules['exclude_locations'] ) ? $display_rules['exclude_locations'] : false;
+		$users             = isset( $display_rules['user_roles'] ) ? $display_rules['user_roles'] : false;
 		?>
-		<tr class="ast-advanced-headers-row">
-			<td class="ast-advanced-headers-row-heading">
-				<label><?php esc_html_e( 'Display On', 'astra-addon' ); ?></label>
-				<i class="ast-advanced-headers-heading-help dashicons dashicons-editor-help"
-					title="<?php echo esc_attr__( 'Add locations for where this Advanced Header should appear.', 'astra-addon' ); ?>"></i>
+		<tr class="bsf-target-rules-row hfe-options-row">
+			<td class="bsf-target-rules-row-heading hfe-options-row-heading">
+				<label><?php esc_html_e( 'Display On', 'header-footer-elementor' ); ?></label>
+				<i class="bsf-target-rules-heading-help dashicons dashicons-editor-help"
+					title="<?php echo esc_attr__( 'Add locations for where this template should appear.', 'header-footer-elementor' ); ?>"></i>
 			</td>
-			<td class="ast-advanced-headers-row-content">
+			<td class="bsf-target-rules-row-content hfe-options-row-content">
 				<?php
 				Astra_Target_Rules_Fields::target_rule_settings_field(
-					'ast-advanced-headers-location',
+					'bsf-target-rules-location',
 					array(
-						'title'          => __( 'Display Rules', 'astra-addon' ),
+						'title'          => __( 'Display Rules', 'header-footer-elementor' ),
 						'value'          => '[{"type":"basic-global","specific":null}]',
 						'tags'           => 'site,enable,target,pages',
 						'rule_type'      => 'display',
-						'add_rule_label' => __( 'Add Display Rule', 'astra-addon' ),
+						'add_rule_label' => __( 'Add Display Rule', 'header-footer-elementor' ),
 					),
 					$include_locations
 				);
 				?>
 			</td>
 		</tr>
-		<tr class="ast-advanced-headers-row">
-			<td class="ast-advanced-headers-row-heading">
-				<label><?php esc_html_e( 'Do Not Display On', 'astra-addon' ); ?></label>
-				<i class="ast-advanced-headers-heading-help dashicons dashicons-editor-help"
-					title="<?php echo esc_attr__( 'This Advanced Header will not appear at these locations.', 'astra-addon' ); ?>"></i>
+		<tr class="bsf-target-rules-row hfe-options-row">
+			<td class="bsf-target-rules-row-heading hfe-options-row-heading">
+				<label><?php esc_html_e( 'Do Not Display On', 'header-footer-elementor' ); ?></label>
+				<i class="bsf-target-rules-heading-help dashicons dashicons-editor-help"
+					title="<?php echo esc_attr__( 'This Advanced Header will not appear at these locations.', 'header-footer-elementor' ); ?>"></i>
 			</td>
-			<td class="ast-advanced-headers-row-content">
+			<td class="bsf-target-rules-row-content hfe-options-row-content">
 				<?php
 				Astra_Target_Rules_Fields::target_rule_settings_field(
-					'ast-advanced-headers-exclusion',
+					'bsf-target-rules-exclusion',
 					array(
-						'title'          => __( 'Exclude On', 'astra-addon' ),
+						'title'          => __( 'Exclude On', 'header-footer-elementor' ),
 						'value'          => '[]',
 						'tags'           => 'site,enable,target,pages',
-						'add_rule_label' => __( 'Add Exclusion Rule', 'astra-addon' ),
+						'add_rule_label' => __( 'Add Exclusion Rule', 'header-footer-elementor' ),
 						'rule_type'      => 'exclude',
 					),
 					$exclude_locations
@@ -407,20 +407,20 @@ class HFE_Admin {
 				?>
 			</td>
 		</tr>
-		<tr class="ast-advanced-headers-row">
-			<td class="ast-advanced-headers-row-heading">
-				<label><?php esc_html_e( 'User Roles', 'astra-addon' ); ?></label>
-				<i class="ast-advanced-headers-heading-help dashicons dashicons-editor-help" title="<?php echo esc_attr__( 'Targer header based on user role.', 'astra-addon' ); ?>"></i>
+		<tr class="bsf-target-rules-row hfe-options-row">
+			<td class="bsf-target-rules-row-heading hfe-options-row-heading">
+				<label><?php esc_html_e( 'User Roles', 'header-footer-elementor' ); ?></label>
+				<i class="bsf-target-rules-heading-help dashicons dashicons-editor-help" title="<?php echo esc_attr__( 'Targer header based on user role.', 'header-footer-elementor' ); ?>"></i>
 			</td>
-			<td class="ast-advanced-headers-row-content">
+			<td class="bsf-target-rules-row-content hfe-options-row-content">
 				<?php
 				Astra_Target_Rules_Fields::target_user_role_settings_field(
-					'ast-advanced-headers-users',
+					'bsf-target-rules-users',
 					array(
-						'title'          => __( 'Users', 'astra-addon' ),
+						'title'          => __( 'Users', 'header-footer-elementor' ),
 						'value'          => '[]',
 						'tags'           => 'site,enable,target,pages',
-						'add_rule_label' => __( 'Add User Rule', 'astra-addon' ),
+						'add_rule_label' => __( 'Add User Rule', 'header-footer-elementor' ),
 					),
 					$users
 				);
@@ -505,6 +505,24 @@ class HFE_Admin {
 		if ( ! current_user_can( 'edit_posts' ) ) {
 			return;
 		}
+
+		$target_locations = Astra_Target_Rules_Fields::get_format_rule_value( $_POST, 'bsf-target-rules-location' );
+		$target_exclusion = Astra_Target_Rules_Fields::get_format_rule_value( $_POST, 'bsf-target-rules-exclusion' );
+		$target_users	  = array();
+
+		if ( isset( $_POST['bsf-target-rules-users'] ) ) {
+			$target_users = array_map( 'sanitize_text_field', $_POST['bsf-target-rules-users'] );
+		}
+
+		update_post_meta(
+			$post_id,
+			'ehf_target_rules',
+			array(
+				'include_locations' => $target_locations,
+				'exclude_locations' => $target_exclusion,
+				'user_roles' 		=> $target_users,
+			)
+		);
 
 		if ( isset( $_POST['ehf_template_type'] ) ) {
 			update_post_meta( $post_id, 'ehf_template_type', esc_attr( $_POST['ehf_template_type'] ) );
