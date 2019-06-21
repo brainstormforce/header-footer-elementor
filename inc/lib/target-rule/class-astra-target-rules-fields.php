@@ -1376,6 +1376,8 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 						break;
 				}
 
+				// dd( $query );
+
 				// Ignore the PHPCS warning about constant declaration.
 				// @codingStandardsIgnoreStart
 				$posts  = $wpdb->get_results( $query . ' AND (' . $meta_args . ')' . $orderby );

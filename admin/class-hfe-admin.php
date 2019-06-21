@@ -38,7 +38,6 @@ class HFE_Admin {
 	 * Constructor
 	 */
 	private function __construct() {
-		add_action( 'admin_init', array( $this, 'include_libraries' ) );
 		add_action( 'init', array( $this, 'header_footer_posttype' ) );
 		add_action( 'init', array( $this, 'register_term_meta_options' ) );
 		add_action( 'admin_menu', array( $this, 'register_admin_menu' ), 50 );
@@ -50,16 +49,6 @@ class HFE_Admin {
 		add_filter( 'single_template', array( $this, 'load_canvas_template' ) );
 		add_filter( 'manage_elementor-hf_posts_columns', array( $this, 'set_shortcode_columns' ) );
 		add_action( 'manage_elementor-hf_posts_custom_column', array( $this, 'render_shortcode_column' ), 10, 2 );
-	}
-
-	/**
-	 * Include libraries
-	 *
-	 * @since x.x.x
-	 * @return void
-	 */
-	public function include_libraries() {
-		require_once HFE_DIR . 'inc/lib/target-rule/class-astra-target-rules-fields.php';
 	}
 
 	/**
@@ -357,11 +346,9 @@ class HFE_Admin {
 		// Load Target Rule assets.
 		Astra_Target_Rules_Fields::get_instance()->admin_styles();
 
-		$display_rules = get_post_meta( get_the_id(), 'ehf_target_rules', true );
-
-		$include_locations = isset( $display_rules['include_locations'] ) ? $display_rules['include_locations'] : false;
-		$exclude_locations = isset( $display_rules['exclude_locations'] ) ? $display_rules['exclude_locations'] : false;
-		$users             = isset( $display_rules['user_roles'] ) ? $display_rules['user_roles'] : false;
+		$include_locations 	= get_post_meta( get_the_id(), 'ehf_target_include_locations', true );
+		$exclude_locations 	= get_post_meta( get_the_id(), 'ehf_target_exclude_locations', true );
+		$users 				= get_post_meta( get_the_id(), 'ehf_target_user_roles', true );
 		?>
 		<tr class="bsf-target-rules-row hfe-options-row">
 			<td class="bsf-target-rules-row-heading hfe-options-row-heading">
@@ -514,15 +501,9 @@ class HFE_Admin {
 			$target_users = array_map( 'sanitize_text_field', $_POST['bsf-target-rules-users'] );
 		}
 
-		update_post_meta(
-			$post_id,
-			'ehf_target_rules',
-			array(
-				'include_locations' => $target_locations,
-				'exclude_locations' => $target_exclusion,
-				'user_roles' 		=> $target_users,
-			)
-		);
+		update_post_meta( $post_id, 'ehf_target_include_locations', $target_locations );
+		update_post_meta( $post_id, 'ehf_target_exclude_locations', $target_exclusion );
+		update_post_meta( $post_id, 'ehf_target_user_roles', $target_users );
 
 		if ( isset( $_POST['ehf_template_type'] ) ) {
 			update_post_meta( $post_id, 'ehf_template_type', esc_attr( $_POST['ehf_template_type'] ) );

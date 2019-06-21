@@ -140,6 +140,9 @@ class Header_Footer_Elementor {
 
 		// Load the Admin Notice Class.
 		require_once HFE_DIR . 'inc/class-hfe-notices.php';
+
+		// Load Target rules.
+		require_once HFE_DIR . 'inc/lib/target-rule/class-astra-target-rules-fields.php';
 	}
 
 	/**
@@ -293,6 +296,15 @@ class Header_Footer_Elementor {
 	 * @return Mixed       Returns the header or footer template id if found, else returns string ''.
 	 */
 	public static function get_template_id( $type ) {
+
+		// $option = array(
+		// 	'location'  => 'ehf_target_include_locations',
+		// 	'exclusion' => 'ehf_target_exclude_locations',
+		// 	'users'     => 'ehf_target_user_roles',
+		// );
+
+		// $header_options  = Astra_Target_Rules_Fields::get_instance()->get_posts_by_conditions( 'elementor-hf', $option );
+
 		// Check if the meta setting is overiting the template.
 		if ( false !== self::instance()->get_meta_value( $type ) ) {
 			return self::instance()->get_meta_value( $type );
