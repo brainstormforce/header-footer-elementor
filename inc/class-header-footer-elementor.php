@@ -82,7 +82,7 @@ class Header_Footer_Elementor {
 	 *
 	 * Load widgets files
 	 *
-	 * @since 1.2.0
+	 * @since x.x.x
 	 * @access public
 	 */
 	public function include_widgets_files() {
@@ -94,7 +94,7 @@ class Header_Footer_Elementor {
 	 *
 	 * Register new Elementor widgets.
 	 *
-	 * @since 1.2.0
+	 * @since x.x.x
 	 * @access public
 	 */
 	public function register_widgets() {

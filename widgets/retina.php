@@ -24,14 +24,14 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * Elementor widget for hello world.
  *
- * @since 1.0.0
+ * @since x.x.x
  */
 class Retina extends Widget_Base {
 
 	/**
 	 * Retrieve the widget name.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 *
 	 * @access public
 	 *
@@ -44,7 +44,7 @@ class Retina extends Widget_Base {
 	/**
 	 * Retrieve the widget title.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 *
 	 * @access public
 	 *
@@ -57,7 +57,7 @@ class Retina extends Widget_Base {
 	/**
 	 * Retrieve the widget icon.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 *
 	 * @access public
 	 *
@@ -75,7 +75,7 @@ class Retina extends Widget_Base {
 	 * Note that currently Elementor supports only one category.
 	 * When multiple categories passed, Elementor uses the first one.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 *
 	 * @access public
 	 *
