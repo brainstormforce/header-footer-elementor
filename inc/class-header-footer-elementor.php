@@ -2,7 +2,7 @@
 /**
  * Entry point for the plugin. Checks if Elementor is installed and activated and loads it's own files and actions.
  *
- * @package  header-footer-elementor
+ * @package header-footer-elementor
  */
 
 /**
@@ -66,12 +66,43 @@ class Header_Footer_Elementor {
 
 			add_shortcode( 'hfe_template', array( $this, 'render_template' ) );
 
+			// Register widgets
+			add_action( 'elementor/widgets/widgets_registered', [ $this, 'register_widgets' ] );
+
 		} else {
 
 			add_action( 'admin_notices', array( $this, 'elementor_not_available' ) );
 			add_action( 'network_admin_notices', array( $this, 'elementor_not_available' ) );
 		}
 
+	}
+
+	/**
+	 * Include Widgets files
+	 *
+	 * Load widgets files
+	 *
+	 * @since 1.2.0
+	 * @access public
+	 */
+	public function include_widgets_files() {
+		require_once HFE_DIR . 'widgets/retina.php';
+	}
+
+	/**
+	 * Register Widgets
+	 *
+	 * Register new Elementor widgets.
+	 *
+	 * @since 1.2.0
+	 * @access public
+	 */
+	public function register_widgets() {
+
+		// Its is now safe to include Widgets files
+		$this->include_widgets_files();
+		// Register Widgets
+		self::$elementor_instance->widgets_manager->register_widget_type( new Retina() );
 	}
 
 	/**
@@ -324,18 +355,18 @@ class Header_Footer_Elementor {
 			'hfe_template'
 		);
 
-		$id = ! empty( $atts['id'] ) ? apply_filters( 'hfe_render_template_id', intval( $atts['id'] ) ) : '';
+		$id = ! empty( $atts['id'] ) ? intval( $atts['id'] ) : '';
 
 		if ( empty( $id ) ) {
 			return '';
 		}
 
-		if ( class_exists( '\Elementor\Core\Files\CSS\Post' ) ) {
-			$css_file = new \Elementor\Core\Files\CSS\Post( $id );
-		} elseif ( class_exists( '\Elementor\Post_CSS_File' ) ) {
+		if ( class_exists( '\Elementor\Post_CSS_File' ) ) {
+
+			// Load elementor styles.
 			$css_file = new \Elementor\Post_CSS_File( $id );
+			$css_file->enqueue();
 		}
-		$css_file->enqueue();
 
 		return self::$elementor_instance->frontend->get_builder_content_for_display( $id );
 
