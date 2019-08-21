@@ -580,7 +580,6 @@ class Retina extends Widget_Base {
 	protected function render() {
 
 		$settings = $this->get_settings_for_display();
-		$is_editor_retina = \Elementor\Plugin::instance()->editor->is_edit_mode();
 
 		if ( empty( $settings['retina_image']['url'] ) ) {
 			return;
@@ -681,7 +680,7 @@ class Retina extends Widget_Base {
 			}
 			$class_animation= $retina_image_class . $demo;
 
-			if ( $is_editor_retina == true && strpos($_SERVER['HTTP_USER_AGENT'], 'Chrome') !== FALSE ) {
+			if ( strpos($_SERVER['HTTP_USER_AGENT'], 'Chrome') !== FALSE ) {
 
 				$date     = new \DateTime();
 				$timestam = $date->getTimestamp();
