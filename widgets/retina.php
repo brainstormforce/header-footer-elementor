@@ -94,6 +94,8 @@ class Retina extends Widget_Base {
 	protected function _register_controls() {
 
 		$this->register_content_retina_image_controls();
+		$this->register_retina_image_styling_controls();
+		$this->register_retina_caption_styling_controls();
 	}
 
 	/**
@@ -162,8 +164,9 @@ class Retina extends Widget_Base {
 						'icon'  => 'fa fa-align-right',
 					],
 				],
+				'default'   => 'center',
 				'selectors' => [
-					'{{WRAPPER}}' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .hfe-retina-image-container, {{WRAPPER}} .widget-image-caption' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -227,35 +230,15 @@ class Retina extends Widget_Base {
 				'show_label'  => false,
 			]
 		);
-
-		$this->add_control(
-			'open_lightbox',
-			[
-				'label'     => __( 'Lightbox', 'hfe' ),
-				'type'      => Controls_Manager::SELECT,
-				'default'   => 'default',
-				'options'   => [
-					'default' => __( 'Default', 'hfe' ),
-					'yes'     => __( 'Yes', 'hfe' ),
-					'no'      => __( 'No', 'hfe' ),
-				],
-				'condition' => [
-					'link_to' => 'file',
-				],
-			]
-		);
-
-		$this->add_control(
-			'view',
-			[
-				'label'   => __( 'View', 'hfe' ),
-				'type'    => Controls_Manager::HIDDEN,
-				'default' => 'traditional',
-			]
-		);
-
 		$this->end_controls_section();
-
+	}
+	/**
+	 * Register Retina Image Style Controls.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function register_retina_image_styling_controls() {
 		$this->start_controls_section(
 			'section_style_retina_image',
 			[
@@ -436,6 +419,13 @@ class Retina extends Widget_Base {
 		);
 
 		$this->add_control(
+			'hover_animation',
+			[
+				'label' => __( 'Hover Animation', 'hfe' ),
+				'type'  => Controls_Manager::HOVER_ANIMATION,
+			]
+		);
+		$this->add_control(
 			'background_hover_transition',
 			[
 				'label'     => __( 'Transition Duration', 'hfe' ),
@@ -452,19 +442,19 @@ class Retina extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'hover_animation',
-			[
-				'label' => __( 'Hover Animation', 'hfe' ),
-				'type'  => Controls_Manager::HOVER_ANIMATION,
-			]
-		);
-
 		$this->end_controls_tab();
 
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
+	}
+	/**
+	 * Register Caption style Controls.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function register_retina_caption_styling_controls() {
 
 		$this->start_controls_section(
 			'section_style_caption',
@@ -473,36 +463,6 @@ class Retina extends Widget_Base {
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'caption_source!' => 'none',
-				],
-			]
-		);
-
-		$this->add_control(
-			'caption_align',
-			[
-				'label'     => __( 'Alignment', 'hfe' ),
-				'type'      => Controls_Manager::CHOOSE,
-				'options'   => [
-					'left'    => [
-						'title' => __( 'Left', 'hfe' ),
-						'icon'  => 'fa fa-align-left',
-					],
-					'center'  => [
-						'title' => __( 'Center', 'hfe' ),
-						'icon'  => 'fa fa-align-center',
-					],
-					'right'   => [
-						'title' => __( 'Right', 'hfe' ),
-						'icon'  => 'fa fa-align-right',
-					],
-					'justify' => [
-						'title' => __( 'Justified', 'hfe' ),
-						'icon'  => 'fa fa-align-justify',
-					],
-				],
-				'default'   => '',
-				'selectors' => [
-					'{{WRAPPER}} .widget-image-caption' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -620,6 +580,7 @@ class Retina extends Widget_Base {
 	protected function render() {
 
 		$settings = $this->get_settings_for_display();
+		$is_editor_retina = \Elementor\Plugin::instance()->editor->is_edit_mode();
 
 		if ( empty( $settings['retina_image']['url'] ) ) {
 			return;
@@ -628,7 +589,6 @@ class Retina extends Widget_Base {
 		$has_caption = $this->has_caption( $settings );
 
 		$this->add_render_attribute( 'wrapper', 'class', 'hfe-retina-image' );
-		// $this->add_render_attribute( 'wrapper', 'class', 'hfe-image' );
 		$link = $this->get_link_url( $settings );
 
 		if ( $link ) {
@@ -636,7 +596,6 @@ class Retina extends Widget_Base {
 				'link',
 				[
 					'href'                         => $link['url'],
-					'data-elementor-open-lightbox' => $settings['open_lightbox'],
 				]
 			);
 
@@ -720,13 +679,20 @@ class Retina extends Widget_Base {
 			if ( ! empty( $retina_data ) ) {
 				$retina_image_url = $retina_data[0];
 			}
+			$class_animation= $retina_image_class . $demo;
 
-			$date = new \DateTime();
+			if ( $is_editor_retina == true && strpos($_SERVER['HTTP_USER_AGENT'], 'Chrome') !== FALSE ) {
+
+				$date     = new \DateTime();
+				$timestam = $date->getTimestamp();
+				$image_url = $image_url . '?' . $timestam;
+				$retina_image_url = $retina_image_url . '?' . $timestam;
+			}
 
 			?>
 				<div class="hfe-retina-image-set">
 					<div class="hfe-retina-image-container">
-						<img class="hfe-before-img <?php echo $retina_image_class . $demo; ?>"  src="<?php echo $image_url . '?' . $date->getTimestamp(); ?>" srcset="<?php echo $image_url . '?' . $date->getTimestamp() . ' 1x' . ',' . $retina_image_url . '?' . $date->getTimestamp() . ' 2x'; ?>"/>
+						<img class="hfe-retina-img <?php echo $class_animation; ?>"  src="<?php echo $image_url; ?>" srcset="<?php echo $image_url . ' 1x' . ',' . $retina_image_url . ' 2x'; ?>"/>
 					</div>
 				</div>
 			<?php if ( $link ) : ?>
@@ -736,8 +702,6 @@ class Retina extends Widget_Base {
 					<?php if ( ! empty( $this->get_caption( $settings ) ) ) : ?> 
 						<figcaption class="widget-image-caption wp-caption-text"><?php echo $this->get_caption( $settings ); ?></figcaption>
 				<?php endif; ?>
-			<?php endif; ?>
-			<?php if ( $has_caption ) : ?>
 				</figure>
 			<?php endif; ?>
 		</div> 
@@ -764,9 +728,5 @@ class Retina extends Widget_Base {
 			}
 			return $settings['link'];
 		}
-
-		return [
-			'url' => $settings['retina_image']['url'],
-		];
 	}
 }
