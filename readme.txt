@@ -119,7 +119,7 @@ If the above is nnot possible, You can also add support for the plugin from your
 - Improvement: Allow changing the permalinks for the hfe templates (<a href="https://github.com/Nikschavan/header-footer-elementor/pull/162/">#162</a>) 
 - Fix: WPML Translations do not work when using the Elementor Template as a shortcode. (<a href="https://github.com/Nikschavan/header-footer-elementor/pull/159/">#159</a>)
 - Fix: Page content appears over the header. (<a href="https://github.com/Nikschavan/header-footer-elementor/pull/150/">#150</a>)
-- Fix: Remove the deprecated function warning for shortcode functions. (<a href="https://github.com/Nikschavan/header-footer-elementor/pull/145/">#145</a>)
+- Fix: Remove the deprecated function warning for shortcode functions. (Props <a href="https://github.com/hogash">@hogash</a> <a href="https://github.com/Nikschavan/header-footer-elementor/pull/145/">#145</a>)
 
 = 1.1.2 =
 - Fix: Depracated function warning from Elementor's method `\Elementor\Post_CSS_File`
