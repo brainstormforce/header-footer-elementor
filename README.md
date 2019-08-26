@@ -5,7 +5,7 @@
 **Requires at least:** 4.4  
 **Requires PHP:** 5.4  
 **Tested up to:** 5.0  
-**Stable tag:** 1.1.2  
+**Stable tag:** 1.1.3  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -49,7 +49,7 @@ Check <a href="https://uaelementor.com/?utm_source=wp-repo&utm_campaign=header-f
 
 ### HAVE YOU TRIED ASTRA WITH ELEMENTOR? ###
 
-Powering over 400,000+ WordPress websites, Astra is loved for the performance and ease-of-use it offers.
+Powering over 300,000+ WordPress websites, Astra is loved for the performance and ease-of-use it offers.
 
 ### WHY PEOPLE LOVE ASTRA? ###
 
@@ -114,6 +114,12 @@ If the above is nnot possible, You can also add support for the plugin from your
 2. After the template is ready, assign it to be a header or footer replacement.
 
 ## Changelog ##
+
+### 1.1.3 ###
+- Improvement: Allow changing the permalinks for the hfe templates (<a href="https://github.com/Nikschavan/header-footer-elementor/pull/162/">#162</a>) 
+- Fix: WPML Translations do not work when using the Elementor Template as a shortcode. (<a href="https://github.com/Nikschavan/header-footer-elementor/pull/159/">#159</a>)
+- Fix: Page content appears over the header. (<a href="https://github.com/Nikschavan/header-footer-elementor/pull/150/">#150</a>)
+- Fix: Remove the deprecated function warning for shortcode functions. (<a href="https://github.com/Nikschavan/header-footer-elementor/pull/145/">#145</a>)
 
 ### 1.1.2 ###
 - Fix: Depracated function warning from Elementor's method `\Elementor\Post_CSS_File`
