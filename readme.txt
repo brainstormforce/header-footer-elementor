@@ -49,7 +49,7 @@ Check <a href="https://uaelementor.com/?utm_source=wp-repo&utm_campaign=header-f
 
 = HAVE YOU TRIED ASTRA WITH ELEMENTOR? =
 
-Powering over 300,000+ WordPress websites, Astra is loved for the performance and ease-of-use it offers.
+Powering over 400,000+ WordPress websites, Astra is loved for the performance and ease-of-use it offers.
 
 = WHY PEOPLE LOVE ASTRA? =
 
