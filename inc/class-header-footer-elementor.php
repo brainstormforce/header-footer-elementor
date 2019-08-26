@@ -69,6 +69,9 @@ class Header_Footer_Elementor {
 			// Register widgets
 			add_action( 'elementor/widgets/widgets_registered', [ $this, 'register_widgets' ] );
 
+			//Add svg support
+			add_filter( 'upload_mimes', array( $this,'hfe_svg_mime_types'));
+
 		} else {
 
 			add_action( 'admin_notices', array( $this, 'elementor_not_available' ) );
@@ -87,6 +90,21 @@ class Header_Footer_Elementor {
 	 */
 	public function include_widgets_files() {
 		require_once HFE_DIR . 'widgets/retina.php';
+	}
+
+	/**
+	 * Provide the SVG support for Retina Logo widget.
+	 *
+	 * @param array $mimes which return mime type.
+	 *
+	 * @since  x.x.x
+	 * @return $mimes.
+	 */
+	public function hfe_svg_mime_types( $mimes ) {
+     
+	    //New allowed mime types.
+	    $mimes['svg']  = 'image/svg+xml';
+	    return $mimes;
 	}
 
 	/**
