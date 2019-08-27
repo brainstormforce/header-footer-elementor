@@ -120,6 +120,9 @@ class Header_Footer_Elementor {
 
 		// Load the Admin Notice Class.
 		require_once HFE_DIR . 'inc/class-hfe-notices.php';
+
+		// Setup upgrade routines.
+		require_once HFE_DIR . 'inc/class-hfe-update.php';
 	}
 
 	/**
