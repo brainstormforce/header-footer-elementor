@@ -6,7 +6,7 @@
  * @author      Nikhil Chavan <email@nikhilchavan.com>
  * @copyright   Copyright (c) 2019, Header Footer Elementor
  * @link        https://github.com/Nikschavan/header-footer-elementor/
- * @since       HFE 1.1.3
+ * @since       HFE 1.1.4
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -18,14 +18,14 @@ if ( ! class_exists( 'HFE_Update' ) ) {
 	/**
 	 * HFE_Update initial setup
 	 *
-	 * @since 1.1.3
+	 * @since 1.1.4
 	 */
 	class HFE_Update {
 
 		/**
 		 * Option key for stored version number.
 		 *
-		 * @since 1.1.3
+		 * @since 1.1.4
 		 * @var string
 		 */
 		private $db_option_key = '_hfe_db_version';
@@ -33,7 +33,7 @@ if ( ! class_exists( 'HFE_Update' ) ) {
 		/**
 		 *  Constructor
 		 *
-		 * @since 1.1.3
+		 * @since 1.1.4
 		 */
 		public function __construct() {
 
@@ -48,7 +48,7 @@ if ( ! class_exists( 'HFE_Update' ) ) {
 		/**
 		 * Implement theme update logic.
 		 *
-		 * @since 1.1.3
+		 * @since 1.1.4
 		 */
 		public function init() {
 			do_action( 'hfe_update_before' );
@@ -68,7 +68,7 @@ if ( ! class_exists( 'HFE_Update' ) ) {
 		/**
 		 * Check if db upgrade is required.
 		 *
-		 * @since 1.1.3
+		 * @since 1.1.4
 		 * @return true|false True if stored database version is lower than constant; false if otherwise.
 		 */
 		private function needs_db_update() {
@@ -84,7 +84,7 @@ if ( ! class_exists( 'HFE_Update' ) ) {
 		/**
 		 * Update DB version.
 		 *
-		 * @since 1.1.3
+		 * @since 1.1.4
 		 * @return void
 		 */
 		private function update_db_version() {
