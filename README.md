@@ -4,8 +4,8 @@
 **Donate link:** https://www.paypal.me/BrainstormForce  
 **Requires at least:** 4.4  
 **Requires PHP:** 5.4  
-**Tested up to:** 5.0  
-**Stable tag:** 1.1.2  
+**Tested up to:** 5.2  
+**Stable tag:** 1.1.3  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -49,7 +49,7 @@ Check <a href="https://uaelementor.com/?utm_source=wp-repo&utm_campaign=header-f
 
 ### HAVE YOU TRIED ASTRA WITH ELEMENTOR? ###
 
-Powering over 300,000+ WordPress websites, Astra is loved for the performance and ease-of-use it offers.
+Powering over 400,000+ WordPress websites, Astra is loved for the performance and ease-of-use it offers.
 
 ### WHY PEOPLE LOVE ASTRA? ###
 
@@ -114,6 +114,9 @@ If the above is nnot possible, You can also add support for the plugin from your
 2. After the template is ready, assign it to be a header or footer replacement.
 
 ## Changelog ##
+
+### 1.1.3 ###
+- Fix: Flush permalinks on plugin update to Elementor error when trying to edit the Header/Footer.
 
 ### 1.1.2 ###
 - Fix: Depracated function warning from Elementor's method `\Elementor\Post_CSS_File`
