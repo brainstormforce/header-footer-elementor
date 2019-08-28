@@ -39,11 +39,9 @@ class HFE_Admin {
 	 */
 	private function __construct() {
 		add_action( 'init', array( $this, 'header_footer_posttype' ) );
-		add_action( 'init', array( $this, 'register_term_meta_options' ) );
 		add_action( 'admin_menu', array( $this, 'register_admin_menu' ), 50 );
 		add_action( 'add_meta_boxes', array( $this, 'ehf_register_metabox' ) );
 		add_action( 'save_post', array( $this, 'ehf_save_meta' ) );
-		add_action( 'save_post', array( $this, 'ehf_header_footer_template_save_meta' ) );
 		add_action( 'admin_notices', array( $this, 'location_notice' ) );
 		add_action( 'template_redirect', array( $this, 'block_template_frontend' ) );
 		add_filter( 'single_template', array( $this, 'load_canvas_template' ) );
@@ -88,20 +86,6 @@ class HFE_Admin {
 		);
 
 		register_post_type( 'elementor-hf', $args );
-	}
-
-	/**
-	 * Register taxanomy meta options.
-	 *
-	 * @since x.x.x
-	 * @return void
-	 */
-	public function register_term_meta_options() {
-		$taxonomies = get_taxonomies( array() );
-		foreach ( $taxonomies as $slug => $taxanomy ) {
-			add_action( "{$taxanomy}_edit_form_fields", array( $this, 'header_footer_selection_taxanomy_meta' ), 60, 2 );
-			add_action( "edited_{$taxanomy}", array( $this, 'save_term_meta' ), 10, 2 );
-		}
 	}
 
 	/**
@@ -188,90 +172,6 @@ class HFE_Admin {
 		</tr>
 
 		<?php
-	}
-
-
-	/**
-	 * Markup for the header/footer template selection.
-	 *
-	 * @since x.x.x
-	 * @param WP_Post $post  $post Current post object which is being displayed.
-	 */
-	public function header_footer_selection_metabox( $post ) {
-		$values          = get_post_custom( $post->ID );
-		$header_template = isset( $values['header-template'] ) ? esc_attr( $values['header-template'][0] ) : '';
-		$footer_template = isset( $values['footer-template'] ) ? esc_attr( $values['footer-template'][0] ) : '';
-
-		// We'll use this nonce field later on when saving.
-		wp_nonce_field( 'ehf_header_footer_selectin_meta_nounce', 'ehf_header_footer_selectin_meta_nounce' );
-
-		echo '<div id="astra_settings_meta_box" class="meta-box-sortables">';
-		echo '<p class="post-attributes-label-wrapper" >';
-		echo '<strong>' . esc_html__( 'Header Template', 'header-footer-elementor' ) . '</strong>';
-		echo '</p>';
-
-		echo $this->get_hfe_template_select_field( 'header-template', $header_template );
-
-		echo '</div>';
-
-		echo '<div id="astra_settings_meta_box" class="meta-box-sortables">';
-		echo '<p class="post-attributes-label-wrapper" >';
-		echo '<strong>' . esc_html__( 'Footer Template', 'header-footer-elementor' ) . '</strong>';
-		echo '</p>';
-
-		echo $this->get_hfe_template_select_field( 'footer-template', $footer_template );
-
-		echo '</div>';
-	}
-
-	/**
-	 * Markup for select field fr selecting header foter templates.
-	 *
-	 * @param String $name input name.
-	 * @param Select $selected_check Selected field for option.
-	 * @return String HTML markup of the select field.
-	 */
-	private function get_hfe_template_select_field( $name, $selected_check ) {
-		$markup  = '';
-		$markup .= '<select name="' . $name . '">';
-		$markup .= '<option value="" ' . selected( '', $selected_check, false ) . '>' . esc_html__( 'Default', 'header-footer-elementor' ) . '</option>';
-		$markup .= '<option value="theme-default" ' . selected( 'theme-default', $selected_check, false ) . '>' . esc_html__( 'Theme Default', 'header-footer-elementor' ) . '</option>';
-
-		foreach ( $this->get_hfe_posts() as $id => $post_name ) {
-			$markup .= '<option value="' . esc_attr( $id ) . '" ' . selected( $id, $selected_check, false ) . ' >' . esc_html( $post_name ) . '</option>';
-		}
-
-		$markup .= '</select>';
-
-		return $markup;
-	}
-
-	/**
-	 * Get all posts in elementr-hf post type.
-	 *
-	 * @since x.x.x
-	 * @return Array All elementr-hf posts.
-	 */
-	private function get_hfe_posts() {
-		$all_posts = array();
-		$atts      = array(
-			'post_type'      => array(
-				'elementor-hf',
-			),
-			'posts_per_page' => 200,
-			'cache_results'  => true,
-		);
-		$query     = new WP_Query( $atts );
-		if ( $query->have_posts() ) {
-			while ( $query->have_posts() ) {
-				$query->the_post();
-				$title            = get_the_title();
-				$id               = get_the_id();
-				$all_posts[ $id ] = $title;
-			}
-		}
-
-		return $all_posts;
 	}
 
 	/**
@@ -413,58 +313,6 @@ class HFE_Admin {
 			</td>
 		</tr>
 		<?php
-	}
-
-	/**
-	 * Save term metadatam
-	 *
-	 * @param int $term_id Term id.
-	 * @param int $tt_id Term taxonomy ID.
-	 * @return void
-	 */
-	public function save_term_meta( $term_id, $tt_id ) {
-
-		if ( isset( $_POST['header-template'] ) ) {
-			update_term_meta( $term_id, 'header-template', esc_attr( $_POST['header-template'] ) );
-		}
-
-		if ( isset( $_POST['footer-template'] ) ) {
-			update_term_meta( $term_id, 'footer-template', esc_attr( $_POST['footer-template'] ) );
-		}
-	}
-
-	/**
-	 * Save meta field.
-	 *
-	 * @param  POST $post_id Currennt post object which is being displayed.
-	 *
-	 * @return Void
-	 */
-	public function ehf_header_footer_template_save_meta( $post_id ) {
-
-		// Bail if we're doing an auto save.
-		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
-			return;
-		}
-
-		// if our nonce isn't there, or we can't verify it, bail.
-		if ( ! isset( $_POST['ehf_header_footer_selectin_meta_nounce'] ) || ! wp_verify_nonce( $_POST['ehf_header_footer_selectin_meta_nounce'], 'ehf_header_footer_selectin_meta_nounce' ) ) {
-			return;
-		}
-
-		// if our current user can't edit this post, bail.
-		if ( ! current_user_can( 'edit_posts' ) ) {
-			return;
-		}
-
-		if ( isset( $_POST['header-template'] ) ) {
-			update_post_meta( $post_id, 'header-template', esc_attr( $_POST['header-template'] ) );
-		}
-
-		if ( isset( $_POST['footer-template'] ) ) {
-			update_post_meta( $post_id, 'footer-template', esc_attr( $_POST['footer-template'] ) );
-		}
-
 	}
 
 	/**

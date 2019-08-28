@@ -277,11 +277,6 @@ class Header_Footer_Elementor {
 
 			$template = ! is_array( $templates ) ? $templates : $templates[0];
 
-			// Reset to use default theme header/footer from meta.
-			if ( 'theme-default' === $template ) {
-				$template = '';
-			}
-
 			$template = apply_filters( "hfe_get_settings_{$setting}", $template );
 
 			return $template;
@@ -311,45 +306,6 @@ class Header_Footer_Elementor {
 		}
 
 		return '';
-	}
-
-	/**
-	 * Get post meta value.
-	 *
-	 * @since x.x.x
-	 * @param  String $type Type of the template header/footer.
-	 * @return Mixed       Returns the header or footer template id if found, else returns string ''.
-	 */
-	private function get_meta_value( $type ) {
-		// Bail if not on a single post.
-		if ( is_singular() ) {
-			// Post meta to select header template for meta.
-			if ( 'type_header' === $type && '' !== get_post_meta( get_the_id(), 'header-template', true ) ) {
-				return get_post_meta( get_the_id(), 'header-template', true );
-			}
-
-			if ( 'type_footer' === $type && '' !== get_post_meta( get_the_id(), 'footer-template', true ) ) {
-				return get_post_meta( get_the_id(), 'footer-template', true );
-			}
-
-			return false;
-		}
-
-		if ( is_category() || is_tag() || is_tax() ) {
-
-			// Post meta to select header template for meta.
-			if ( 'type_header' === $type && '' !== get_term_meta( get_queried_object()->term_id, 'header-template', true ) ) {
-				return get_term_meta( get_queried_object()->term_id, 'header-template', true );
-			}
-
-			if ( 'type_footer' === $type && '' !== get_term_meta( get_queried_object()->term_id, 'footer-template', true ) ) {
-				return get_term_meta( get_queried_object()->term_id, 'footer-template', true );
-			}
-
-			return false;
-		}
-
-		return false;
 	}
 
 	/**
