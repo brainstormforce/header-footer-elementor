@@ -56,7 +56,7 @@ class Retina extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Retina Logo', 'hfe' );
+		return __( 'Retina Image', 'hfe' );
 	}
 
 	/**
