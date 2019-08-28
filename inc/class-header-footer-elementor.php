@@ -143,6 +143,8 @@ class Header_Footer_Elementor {
 
 		// Load Target rules.
 		require_once HFE_DIR . 'inc/lib/target-rule/class-astra-target-rules-fields.php';
+		// Setup upgrade routines.
+		require_once HFE_DIR . 'inc/class-hfe-update.php';
 	}
 
 	/**
@@ -323,7 +325,7 @@ class Header_Footer_Elementor {
 			'hfe_template'
 		);
 
-		$id = ! empty( $atts['id'] ) ? intval( $atts['id'] ) : '';
+		$id = ! empty( $atts['id'] ) ? apply_filters( 'hfe_render_template_id', intval( $atts['id'] ) ) : '';
 
 		if ( empty( $id ) ) {
 			return '';
