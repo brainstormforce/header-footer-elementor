@@ -15,6 +15,10 @@
  * @since 1.4.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 if ( ! class_exists( 'Astra_Notices' ) ) :
 
 	/**
@@ -31,7 +35,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @var array Notices.
 		 * @since 1.4.0
 		 */
-		private static $version = '1.0.0';
+		private static $version = '1.1.2';
 
 		/**
 		 * Notices
@@ -117,7 +121,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 				if ( ! empty( $repeat_notice_after ) ) {
 					set_transient( $notice_id, true, $repeat_notice_after );
 				} else {
-					update_user_meta( get_current_user_id(), $notice_id, true );
+					update_user_meta( get_current_user_id(), $notice_id, 'notice-dismissed' );
 				}
 
 				wp_send_json_success();
@@ -133,7 +137,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @return void
 		 */
 		public function enqueue_scripts() {
-			wp_register_script( 'astra-notices', self::_get_uri() . 'notices.js', array( 'jquery' ), null, self::$version );
+			wp_register_script( 'astra-notices', self::_get_uri() . 'notices.js', array( 'jquery' ), self::$version, true );
 		}
 
 		/**
@@ -173,6 +177,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 				'class'                      => '',      // Optional, Additional notice wrapper class.
 				'priority'                   => 10,      // Priority of the notice.
 				'display-with-other-notices' => true,    // Should the notice be displayed if other notices  are being displayed from Astra_Notices.
+				'is_dismissible'             => true,
 			);
 
 			// Count for the notices that are rendered.
@@ -218,13 +223,23 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 
 			wp_enqueue_script( 'astra-notices' );
 
+			do_action( 'astra_notice_before_markup' );
+
+			do_action( "astra_notice_before_markup_{$notice['id']}" );
+
 			?>
 			<div id="<?php echo esc_attr( $notice['id'] ); ?>" class="<?php echo esc_attr( $notice['classes'] ); ?>" data-repeat-notice-after="<?php echo esc_attr( $notice['repeat-notice-after'] ); ?>">
 				<div class="notice-container">
+					<?php do_action( "astra_notice_inside_markup_{$notice['id']}" ); ?>
 					<?php echo wp_kses_post( $notice['message'] ); ?>
 				</div>
 			</div>
 			<?php
+
+			do_action( "astra_notice_after_markup_{$notice['id']}" );
+
+			do_action( 'astra_notice_after_markup' );
+
 		}
 
 		/**
@@ -236,7 +251,12 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @return array       Notice wrapper classes.
 		 */
 		private static function get_wrap_classes( $notice ) {
-			$classes   = array( 'astra-notice', 'notice', 'is-dismissible' );
+			$classes = array( 'astra-notice', 'notice' );
+
+			if ( $notice['is_dismissible'] ) {
+				$classes[] = 'is-dismissible';
+			}
+
 			$classes[] = $notice['class'];
 			if ( isset( $notice['type'] ) && '' !== $notice['type'] ) {
 				$classes[] = 'notice-' . $notice['type'];
@@ -275,9 +295,10 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 
 			if ( false === $transient_status ) {
 
-				if ( false !== $notice['display-notice-after'] ) {
+				if ( isset( $notice['display-notice-after'] ) && false !== $notice['display-notice-after'] ) {
 
-					if ( 'delayed-notice' !== get_user_meta( get_current_user_id(), $notice['id'], true ) ) {
+					if ( 'delayed-notice' !== get_user_meta( get_current_user_id(), $notice['id'], true ) &&
+						'notice-dismissed' !== get_user_meta( get_current_user_id(), $notice['id'], true ) ) {
 						set_transient( $notice['id'], 'delayed-notice', $notice['display-notice-after'] );
 						update_user_meta( get_current_user_id(), $notice['id'], 'delayed-notice' );
 
