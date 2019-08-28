@@ -77,7 +77,6 @@ class HFE_Admin {
 		$args = array(
 			'labels'              => $labels,
 			'public'              => true,
-			'rewrite'             => false,
 			'show_ui'             => true,
 			'show_in_menu'        => false,
 			'show_in_nav_menus'   => false,
