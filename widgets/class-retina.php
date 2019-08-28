@@ -1,5 +1,10 @@
 <?php
-// Elementor Classes.
+/**
+ * Elementor Classes.
+ *
+ * @package header-footer-elementor
+ */
+
 use Elementor\Controls_Manager;
 use Elementor\Control_Media;
 use Elementor\Utils;
@@ -697,9 +702,12 @@ class Retina extends Widget_Base {
 			<?php if ( $link ) : ?>
 					</a>
 			<?php endif; ?>
-			<?php if ( $has_caption ) : ?>
-					<?php if ( ! empty( $this->get_caption( $settings ) ) ) : ?> 
-						<figcaption class="widget-image-caption wp-caption-text"><?php echo $this->get_caption( $settings ); ?></figcaption>
+			<?php
+			if ( $has_caption ) :
+				$caption_text = $this->get_caption( $settings );
+				?>
+				<?php if ( ! empty( $caption_text ) ) : ?> 
+					<figcaption class="widget-image-caption wp-caption-text"><?php echo $caption_text; ?></figcaption>
 				<?php endif; ?>
 				</figure>
 			<?php endif; ?>
