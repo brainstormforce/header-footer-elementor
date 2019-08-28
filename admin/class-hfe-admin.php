@@ -120,58 +120,6 @@ class HFE_Admin {
 			'normal',
 			'high'
 		);
-
-		$post_types = get_post_types( array( 'public' => true ) );
-
-		foreach ( $post_types as $type ) {
-			if ( 'attachment' !== $type && 'elementor-hf' !== $type ) {
-				// Header Footer template selection for post/page.
-				add_meta_box(
-					'ehf-meta-box-post',
-					__( 'Elementor Header Footer options', 'header-footer-elementor' ),
-					array(
-						$this,
-						'header_footer_selection_metabox',
-					),
-					$type,
-					'side',
-					'high'
-				);
-			}
-		}
-	}
-
-	/**
-	 * Markup for the header/footer template selection for taxanomy meta.
-	 *
-	 * @since x.x.x
-	 * @param WP_Term $term  Current taxonomy term object.
-	 * @param String  $taxonomy Current taxonomy slug.
-	 */
-	public function header_footer_selection_taxanomy_meta( $term, $taxonomy ) {
-		$header_template = get_term_meta( $term->term_id, 'header-template', true );
-		$footer_template = get_term_meta( $term->term_id, 'footer-template', true );
-		?>
-
-		<tr class="form-field">
-			<th valign="top" scope="row">
-				<label for="header-template"><?php esc_html_e( 'Header Template', 'header-footer-elementor' ); ?></label>
-			</th>
-			<td>
-				<?php echo $this->get_hfe_template_select_field( 'header-template', $header_template ); ?>
-			</td>
-		</tr>
-
-		<tr class="form-field">
-			<th valign="top" scope="row">
-				<label for="footer-template"><?php esc_html_e( 'Footer Template', 'header-footer-elementor' ); ?></label>
-			</th>
-			<td>
-				<?php echo $this->get_hfe_template_select_field( 'footer-template', $footer_template ); ?>
-			</td>
-		</tr>
-
-		<?php
 	}
 
 	/**
