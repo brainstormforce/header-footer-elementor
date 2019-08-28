@@ -66,11 +66,11 @@ class Header_Footer_Elementor {
 
 			add_shortcode( 'hfe_template', array( $this, 'render_template' ) );
 
-			// Register widgets
-			add_action( 'elementor/widgets/widgets_registered', [ $this, 'register_widgets' ] );
+			// Register widgets.
+			add_action( 'elementor/widgets/widgets_registered', array( $this, 'register_widgets' ) );
 
-			//Add svg support
-			add_filter( 'upload_mimes', array( $this,'hfe_svg_mime_types'));
+			// Add svg support.
+			add_filter( 'upload_mimes', array( $this, 'hfe_svg_mime_types' ) );
 
 		} else {
 
@@ -89,7 +89,7 @@ class Header_Footer_Elementor {
 	 * @access public
 	 */
 	public function include_widgets_files() {
-		require_once HFE_DIR . 'widgets/retina.php';
+		require_once HFE_DIR . 'widgets/class-retina.php';
 	}
 
 	/**
@@ -101,10 +101,10 @@ class Header_Footer_Elementor {
 	 * @return $mimes.
 	 */
 	public function hfe_svg_mime_types( $mimes ) {
-     
-	    //New allowed mime types.
-	    $mimes['svg']  = 'image/svg+xml';
-	    return $mimes;
+
+		// New allowed mime types.
+		$mimes['svg'] = 'image/svg+xml';
+		return $mimes;
 	}
 
 	/**
@@ -117,9 +117,9 @@ class Header_Footer_Elementor {
 	 */
 	public function register_widgets() {
 
-		// Its is now safe to include Widgets files
+		// Its is now safe to include Widgets files.
 		$this->include_widgets_files();
-		// Register Widgets
+		// Register Widgets.
 		self::$elementor_instance->widgets_manager->register_widget_type( new Retina() );
 	}
 

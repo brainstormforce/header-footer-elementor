@@ -594,7 +594,7 @@ class Retina extends Widget_Base {
 			$this->add_render_attribute(
 				'link',
 				[
-					'href'                         => $link['url'],
+					'href' => $link['url'],
 				]
 			);
 
@@ -678,13 +678,13 @@ class Retina extends Widget_Base {
 			if ( ! empty( $retina_data ) ) {
 				$retina_image_url = $retina_data[0];
 			}
-			$class_animation= $retina_image_class . $demo;
+			$class_animation = $retina_image_class . $demo;
 
-			if ( strpos($_SERVER['HTTP_USER_AGENT'], 'Chrome') !== FALSE ) {
+			if ( strpos( $_SERVER['HTTP_USER_AGENT'], 'Chrome' ) !== false ) {
 
-				$date     = new \DateTime();
-				$timestam = $date->getTimestamp();
-				$image_url = $image_url . '?' . $timestam;
+				$date             = new \DateTime();
+				$timestam         = $date->getTimestamp();
+				$image_url        = $image_url . '?' . $timestam;
 				$retina_image_url = $retina_image_url . '?' . $timestam;
 			}
 
