@@ -5,7 +5,10 @@
 	<rule ref="PHPCompatibility"/>
 	<config name="testVersion" value="5.3-"/>
 
-	<rule ref="WordPress-Core" />
+	<rule ref="WordPress-Core" >
+		<exclude name="WordPress.PHP.StrictComparisons.LooseComparison" />
+		<exclude name="WordPress.PHP.StrictInArray.MissingTrueStrict" />
+	</rule>
 	<rule ref="WordPress-Docs" />
 
 	<!-- Check all PHP files in directory tree by default. -->
@@ -17,4 +20,5 @@
 
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<exclude-pattern>*/inc/lib/target-rule/*</exclude-pattern>
 </ruleset>

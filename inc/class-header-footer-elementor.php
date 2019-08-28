@@ -296,56 +296,18 @@ class Header_Footer_Elementor {
 	 * @return Mixed       Returns the header or footer template id if found, else returns string ''.
 	 */
 	public static function get_template_id( $type ) {
-
-		// $option = array(
-		// 	'location'  => 'ehf_target_include_locations',
-		// 	'exclusion' => 'ehf_target_exclude_locations',
-		// 	'users'     => 'ehf_target_user_roles',
-		// );
-
-		// $header_options  = Astra_Target_Rules_Fields::get_instance()->get_posts_by_conditions( 'elementor-hf', $option );
-
-		// Check if the meta setting is overiting the template.
-		if ( false !== self::instance()->get_meta_value( $type ) ) {
-			return self::instance()->get_meta_value( $type );
-		}
-
-		$cached = wp_cache_get( $type );
-
-		if ( false !== $cached ) {
-			return $cached;
-		}
-
-		$args = array(
-			'post_type'    => 'elementor-hf',
-			'meta_key'     => 'ehf_template_type',
-			'meta_value'   => $type,
-			'meta_type'    => 'post',
-			'meta_compare' => '>=',
-			'orderby'      => 'meta_value',
-			'order'        => 'ASC',
-			'meta_query'   => array(
-				'relation' => 'OR',
-				array(
-					'key'     => 'ehf_template_type',
-					'value'   => $type,
-					'compare' => '==',
-					'type'    => 'post',
-				),
-			),
+		$option = array(
+			'location'  => 'ehf_target_include_locations',
+			'exclusion' => 'ehf_target_exclude_locations',
+			'users'     => 'ehf_target_user_roles',
 		);
 
-		$args = apply_filters( 'hfe_get_template_id_args', $args );
+		$hfe_templates = Astra_Target_Rules_Fields::get_instance()->get_posts_by_conditions( 'elementor-hf', $option );
 
-		$template = new WP_Query(
-			$args
-		);
-
-		if ( $template->have_posts() ) {
-			$posts = wp_list_pluck( $template->posts, 'ID' );
-			wp_cache_set( $type, $posts );
-
-			return $posts;
+		foreach ( $hfe_templates as $template ) {
+			if ( get_post_meta( absint( $template['id'] ), 'ehf_template_type', true ) === $type ) {
+				return $template['id'];
+			}
 		}
 
 		return '';

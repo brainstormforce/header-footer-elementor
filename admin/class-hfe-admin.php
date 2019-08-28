@@ -306,7 +306,7 @@ class HFE_Admin {
 					</td>
 				</tr>
 
-				<?php $this->display_rules_tab();  ?>
+				<?php $this->display_rules_tab(); ?>
 				<tr class="hfe-options-row hfe-shortcode">
 					<td class="hfe-options-row-heading">
 						<label for="ehf_template_type"><?php _e( 'Shortcode', 'header-footer-elementor' ); ?></label>
@@ -339,16 +339,14 @@ class HFE_Admin {
 	 * Markup for Display Rules Tabs.
 	 *
 	 * @since  1.0.0
-	 *
-	 * @param  array $options Post meta.
 	 */
 	public function display_rules_tab() {
 		// Load Target Rule assets.
 		Astra_Target_Rules_Fields::get_instance()->admin_styles();
 
-		$include_locations 	= get_post_meta( get_the_id(), 'ehf_target_include_locations', true );
-		$exclude_locations 	= get_post_meta( get_the_id(), 'ehf_target_exclude_locations', true );
-		$users 				= get_post_meta( get_the_id(), 'ehf_target_user_roles', true );
+		$include_locations = get_post_meta( get_the_id(), 'ehf_target_include_locations', true );
+		$exclude_locations = get_post_meta( get_the_id(), 'ehf_target_exclude_locations', true );
+		$users             = get_post_meta( get_the_id(), 'ehf_target_user_roles', true );
 		?>
 		<tr class="bsf-target-rules-row hfe-options-row">
 			<td class="bsf-target-rules-row-heading hfe-options-row-heading">
@@ -495,7 +493,7 @@ class HFE_Admin {
 
 		$target_locations = Astra_Target_Rules_Fields::get_format_rule_value( $_POST, 'bsf-target-rules-location' );
 		$target_exclusion = Astra_Target_Rules_Fields::get_format_rule_value( $_POST, 'bsf-target-rules-exclusion' );
-		$target_users	  = array();
+		$target_users     = array();
 
 		if ( isset( $_POST['bsf-target-rules-users'] ) ) {
 			$target_users = array_map( 'sanitize_text_field', $_POST['bsf-target-rules-users'] );
