@@ -182,9 +182,8 @@ class Retina extends Widget_Base {
 				'label'   => __( 'Caption', 'hfe' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					'none'       => __( 'None', 'hfe' ),
-					'attachment' => __( 'Attachment Caption', 'hfe' ),
-					'custom'     => __( 'Custom Caption', 'hfe' ),
+					'none'   => __( 'None', 'hfe' ),
+					'custom' => __( 'Custom Caption', 'hfe' ),
 				],
 				'default' => 'none',
 			]
@@ -563,11 +562,8 @@ class Retina extends Widget_Base {
 	private function get_caption( $settings ) {
 		$caption = '';
 		if ( ! empty( $settings['caption_source'] ) ) {
-			switch ( $settings['caption_source'] ) {
-				case 'attachment':
-					$caption = wp_get_attachment_caption( $settings['retina_image']['id'] );
-					break;
-				case 'custom':
+
+			if ( 'custom' == $settings['caption_source'] ) {
 					$caption = ! empty( $settings['caption'] ) ? $settings['caption'] : '';
 			}
 		}
