@@ -681,6 +681,13 @@ class Retina extends Widget_Base {
 			}
 			$class_animation = $retina_image_class . $demo;
 
+			$retina_none = site_url()."/wp-includes/images/media/default.png";
+			
+			if( $retina_none === $retina_image_url ) {
+
+				$retina_image_url = $image_url;
+			}
+			
 			if ( strpos( $_SERVER['HTTP_USER_AGENT'], 'Chrome' ) !== false ) {
 
 				$date             = new \DateTime();
