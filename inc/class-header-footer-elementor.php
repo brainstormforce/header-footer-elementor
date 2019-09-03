@@ -66,8 +66,6 @@ class Header_Footer_Elementor {
 
 			add_shortcode( 'hfe_template', array( $this, 'render_template' ) );
 
-			require HFE_DIR . 'inc/widgets-manager/class-hfe-widgets-loader.php';
-
 		} else {
 
 			add_action( 'admin_notices', array( $this, 'elementor_not_available' ) );
@@ -125,6 +123,9 @@ class Header_Footer_Elementor {
 
 		// Setup upgrade routines.
 		require_once HFE_DIR . 'inc/class-hfe-update.php';
+
+		// Load the widgets.
+		require HFE_DIR . 'inc/widgets-manager/class-hfe-widgets-loader.php';
 	}
 
 	/**
