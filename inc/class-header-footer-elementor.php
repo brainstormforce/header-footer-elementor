@@ -66,7 +66,7 @@ class Header_Footer_Elementor {
 
 			add_shortcode( 'hfe_template', array( $this, 'render_template' ) );
 
-			require HFE_DIR . 'inc/widgets-loader/class-hfe-widgets-loader.php';
+			require HFE_DIR . 'inc/widgets-manager/class-hfe-widgets-loader.php';
 
 		} else {
 

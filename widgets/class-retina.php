@@ -27,9 +27,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Elementor Hello World
+ * HFE Retina widget
  *
- * Elementor widget for hello world.
+ * HFE widget for Retina Image.
  *
  * @since x.x.x
  */
