@@ -66,7 +66,7 @@ class Header_Footer_Elementor {
 
 			add_shortcode( 'hfe_template', array( $this, 'render_template' ) );
 
-			require HFE_DIR . 'inc/widgets-loader/class-widgets-loader.php';
+			require HFE_DIR . 'inc/widgets-loader/class-hfe-widgets-loader.php';
 
 		} else {
 
@@ -336,7 +336,7 @@ class Header_Footer_Elementor {
 		}
 
 		if ( class_exists( '\Elementor\Core\Files\CSS\Post' ) ) {
-			$css_file = new \Elementor\Core\Files\CSS\Post( $id );	
+			$css_file = new \Elementor\Core\Files\CSS\Post( $id );
 		} elseif ( class_exists( '\Elementor\Post_CSS_File' ) ) {
 			// Load elementor styles.
 			$css_file = new \Elementor\Post_CSS_File( $id );

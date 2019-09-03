@@ -53,7 +53,7 @@ class HFE_Widgets_Loader {
 		add_filter( 'upload_mimes', array( $this, 'hfe_svg_mime_types' ) );
 	}
 
-	
+
 	/**
 	 * Include Widgets files
 	 *
