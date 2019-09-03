@@ -19,7 +19,7 @@ class HFE_Widgets_Loader {
 	/**
 	 * Instance of HFE_Widgets_Loader.
 	 *
-	 * @since  1.0.9
+	 * @since  x.x.x
 	 * @var null
 	 */
 	private static $_instance = null;
@@ -27,7 +27,7 @@ class HFE_Widgets_Loader {
 	/**
 	 * Get instance of HFE_Widgets_Loader
 	 *
-	 * @since  1.0.9
+	 * @since  x.x.x
 	 * @return HFE_Widgets_Loader
 	 */
 	public static function instance() {
@@ -41,7 +41,7 @@ class HFE_Widgets_Loader {
 	/**
 	 * Setup actions and filters.
 	 *
-	 * @since  1.0.9
+	 * @since  x.x.x
 	 */
 	private function __construct() {
 		// Register widgets.
