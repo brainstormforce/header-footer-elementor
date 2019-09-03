@@ -35,7 +35,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @var array Notices.
 		 * @since 1.4.0
 		 */
-		private static $version = '1.1.2';
+		private static $version = '1.1.4';
 
 		/**
 		 * Notices
