@@ -376,18 +376,19 @@ class Header_Footer_Elementor {
 			'hfe_template'
 		);
 
-		$id = ! empty( $atts['id'] ) ? intval( $atts['id'] ) : '';
+		$id = ! empty( $atts['id'] ) ? apply_filters( 'hfe_render_template_id', intval( $atts['id'] ) ) : '';
 
 		if ( empty( $id ) ) {
 			return '';
 		}
 
-		if ( class_exists( '\Elementor\Post_CSS_File' ) ) {
-
+		if ( class_exists( '\Elementor\Core\Files\CSS\Post' ) ) {
+			$css_file = new \Elementor\Core\Files\CSS\Post( $id );	
+		} elseif ( class_exists( '\Elementor\Post_CSS_File' ) ) {
 			// Load elementor styles.
 			$css_file = new \Elementor\Post_CSS_File( $id );
-			$css_file->enqueue();
 		}
+			$css_file->enqueue();
 
 		return self::$elementor_instance->frontend->get_builder_content_for_display( $id );
 
