@@ -561,11 +561,8 @@ class Retina extends Widget_Base {
 	 */
 	private function get_caption( $settings ) {
 		$caption = '';
-		if ( ! empty( $settings['caption_source'] ) ) {
-
-			if ( 'custom' == $settings['caption_source'] ) {
-					$caption = ! empty( $settings['caption'] ) ? $settings['caption'] : '';
-			}
+		if ( 'custom' === $settings['caption_source'] ) {
+			$caption = ! empty( $settings['caption'] ) ? $settings['caption'] : '';
 		}
 		return $caption;
 	}
