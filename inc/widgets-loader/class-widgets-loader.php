@@ -9,6 +9,8 @@
  * @since       HFE x.x.x
  */
 
+namespace HeaderFooterElementor;
+
 defined( 'ABSPATH' ) or exit;
 
 /**
@@ -61,6 +63,7 @@ class HFE_Widgets_Loader {
 	 * @access public
 	 */
 	public function include_widgets_files() {
+
 		require_once HFE_DIR . 'widgets/class-retina.php';
 	}
 
@@ -92,7 +95,7 @@ class HFE_Widgets_Loader {
 		// Its is now safe to include Widgets files.
 		$this->include_widgets_files();
 		// Register Widgets.
-		Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Retina() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Retina() );
 	}
 
 }
