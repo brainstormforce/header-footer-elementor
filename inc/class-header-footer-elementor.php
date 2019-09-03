@@ -66,11 +66,7 @@ class Header_Footer_Elementor {
 
 			add_shortcode( 'hfe_template', array( $this, 'render_template' ) );
 
-			// Register widgets.
-			add_action( 'elementor/widgets/widgets_registered', array( $this, 'register_widgets' ) );
-
-			// Add svg support.
-			add_filter( 'upload_mimes', array( $this, 'hfe_svg_mime_types' ) );
+			require HFE_DIR . 'inc/widgets-loader/class-widgets-loader.php';
 
 		} else {
 
@@ -78,49 +74,6 @@ class Header_Footer_Elementor {
 			add_action( 'network_admin_notices', array( $this, 'elementor_not_available' ) );
 		}
 
-	}
-
-	/**
-	 * Include Widgets files
-	 *
-	 * Load widgets files
-	 *
-	 * @since x.x.x
-	 * @access public
-	 */
-	public function include_widgets_files() {
-		require_once HFE_DIR . 'widgets/class-retina.php';
-	}
-
-	/**
-	 * Provide the SVG support for Retina Logo widget.
-	 *
-	 * @param array $mimes which return mime type.
-	 *
-	 * @since  x.x.x
-	 * @return $mimes.
-	 */
-	public function hfe_svg_mime_types( $mimes ) {
-
-		// New allowed mime types.
-		$mimes['svg'] = 'image/svg+xml';
-		return $mimes;
-	}
-
-	/**
-	 * Register Widgets
-	 *
-	 * Register new Elementor widgets.
-	 *
-	 * @since x.x.x
-	 * @access public
-	 */
-	public function register_widgets() {
-
-		// Its is now safe to include Widgets files.
-		$this->include_widgets_files();
-		// Register Widgets.
-		self::$elementor_instance->widgets_manager->register_widget_type( new Retina() );
 	}
 
 	/**
