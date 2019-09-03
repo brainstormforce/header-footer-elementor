@@ -53,6 +53,9 @@ class Header_Footer_Elementor {
 
 				require HFE_DIR . 'themes/oceanwp/class-hfe-oceanwp-compat.php';
 			} else {
+				require HFE_DIR . 'themes/default/class-default-theme-compat.php';
+				add_action( 'get_header', [ $this, 'override_header' ] );
+				add_action( 'get_footer', [ $this, 'override_footer' ] );
 				add_action( 'init', array( $this, 'setup_unsupported_theme_notice' ) );
 			}
 
@@ -74,6 +77,31 @@ class Header_Footer_Elementor {
 
 	}
 
+	public function override_header() {
+		require HFE_DIR . 'themes/default/hfe-header.php';
+
+		$templates 	 = [];
+		$templates[] = 'header.php';
+
+		// Avoid running wp_head hooks again
+		remove_all_actions( 'wp_head' );
+		ob_start();
+		locate_template( $templates, true );
+		ob_get_clean();
+	}
+
+	public function override_footer() {
+		require HFE_DIR . 'themes/default/hfe-footer.php';
+
+		$templates 	 = [];
+		$templates[] = 'footer.php';
+
+		// Avoid running wp_head hooks again
+		remove_all_actions( 'wp_head' );
+		ob_start();
+		locate_template( $templates, true );
+		ob_get_clean();
+	}
 	/**
 	 * Reset the Unsupported theme nnotice after a theme is switched.
 	 *
