@@ -9,17 +9,19 @@
  * @since       HFE x.x.x
  */
 
-namespace HeaderFooterElementor;
+namespace HFE\WidgetsManager;
+
+use Elementor\Plugin;
 
 defined( 'ABSPATH' ) or exit;
 
 /**
  * Set up Widgets Loader class
  */
-class HFE_Widgets_Loader {
+class Widgets_Loader {
 
 	/**
-	 * Instance of HFE_Widgets_Loader.
+	 * Instance of Widgets_Loader.
 	 *
 	 * @since  x.x.x
 	 * @var null
@@ -27,10 +29,10 @@ class HFE_Widgets_Loader {
 	private static $_instance = null;
 
 	/**
-	 * Get instance of HFE_Widgets_Loader
+	 * Get instance of Widgets_Loader
 	 *
 	 * @since  x.x.x
-	 * @return HFE_Widgets_Loader
+	 * @return Widgets_Loader
 	 */
 	public static function instance() {
 		if ( ! isset( self::$_instance ) ) {
@@ -64,7 +66,7 @@ class HFE_Widgets_Loader {
 	 */
 	public function include_widgets_files() {
 
-		require_once HFE_DIR . 'widgets/class-retina.php';
+		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-retina.php';
 	}
 
 	/**
@@ -95,7 +97,7 @@ class HFE_Widgets_Loader {
 		// Its is now safe to include Widgets files.
 		$this->include_widgets_files();
 		// Register Widgets.
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Retina() );
+		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Retina() );
 	}
 
 }
@@ -103,4 +105,4 @@ class HFE_Widgets_Loader {
 /**
  * Initiate the class.
  */
-HFE_Widgets_Loader::instance();
+Widgets_Loader::instance();

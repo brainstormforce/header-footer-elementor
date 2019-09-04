@@ -5,7 +5,7 @@
  * @package header-footer-elementor
  */
 
-namespace HeaderFooterElementor;
+namespace HFE\WidgetsManager\Widgets;
 
 use Elementor\Controls_Manager;
 use Elementor\Control_Media;

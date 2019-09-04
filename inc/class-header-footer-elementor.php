@@ -125,7 +125,7 @@ class Header_Footer_Elementor {
 		require_once HFE_DIR . 'inc/class-hfe-update.php';
 
 		// Load the widgets.
-		require HFE_DIR . 'inc/widgets-manager/class-hfe-widgets-loader.php';
+		require HFE_DIR . 'inc/widgets-manager/class-widgets-loader.php';
 	}
 
 	/**
