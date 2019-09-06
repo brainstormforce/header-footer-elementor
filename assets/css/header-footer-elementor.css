@@ -31,3 +31,11 @@
 	z-index: 200;
     position: relative;
 }
+
+/* Set the css for Helpful Information link */
+.hfe-editor-doc {
+    font-size: 11px;
+    font-style: italic;
+    line-height: 1.4;
+    color: #a4afb7;
+}

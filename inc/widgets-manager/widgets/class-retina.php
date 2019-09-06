@@ -71,7 +71,7 @@ class Retina extends Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'eicon-posts-ticker';
+		return 'fas fa-search';
 	}
 
 	/**
@@ -103,6 +103,7 @@ class Retina extends Widget_Base {
 		$this->register_content_retina_image_controls();
 		$this->register_retina_image_styling_controls();
 		$this->register_retina_caption_styling_controls();
+		$this->register_helpful_information();
 	}
 
 	/**
@@ -173,7 +174,7 @@ class Retina extends Widget_Base {
 				],
 				'default'   => 'center',
 				'selectors' => [
-					'{{WRAPPER}} .hfe-retina-image-container, {{WRAPPER}} .widget-image-caption' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .hfe-retina-image-container, {{WRAPPER}} .hfe-caption-width' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -284,6 +285,7 @@ class Retina extends Widget_Base {
 				],
 				'selectors'      => [
 					'{{WRAPPER}} .hfe-retina-image img' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .hfe-retina-image .wp-caption .widget-image-caption' => 'width: {{SIZE}}{{UNIT}}; display: inline-block;',
 				],
 			]
 		);
@@ -311,6 +313,7 @@ class Retina extends Widget_Base {
 				],
 				'selectors'      => [
 					'{{WRAPPER}} .hfe-retina-image img' => 'max-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .wp-caption-text'      => 'max-width: {{SIZE}}{{UNIT}}; display: inline-block; width: 100%;',
 				],
 			]
 		);
@@ -320,6 +323,37 @@ class Retina extends Widget_Base {
 			[
 				'type'  => Controls_Manager::DIVIDER,
 				'style' => 'thick',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name'     => 'image_border',
+				'selector' => '{{WRAPPER}} .hfe-retina-image img',
+			]
+		);
+
+		$this->add_responsive_control(
+			'image_border_radius',
+			[
+				'label'      => __( 'Border Radius', 'hfe' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'selectors'  => [
+					'{{WRAPPER}} .hfe-retina-image img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name'     => 'image_box_shadow',
+				'exclude'  => [
+					'box_shadow_position',
+				],
+				'selector' => '{{WRAPPER}} .hfe-retina-image img',
 			]
 		);
 
@@ -354,38 +388,6 @@ class Retina extends Widget_Base {
 			Group_Control_Css_Filter::get_type(),
 			[
 				'name'     => 'css_filters',
-				'selector' => '{{WRAPPER}} .hfe-retina-image img',
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Border::get_type(),
-			[
-				'name'      => 'image_border',
-				'selector'  => '{{WRAPPER}} .hfe-retina-image img',
-				'separator' => 'before',
-			]
-		);
-
-		$this->add_responsive_control(
-			'image_border_radius',
-			[
-				'label'      => __( 'Border Radius', 'hfe' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%' ],
-				'selectors'  => [
-					'{{WRAPPER}} .hfe-retina-image img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Box_Shadow::get_type(),
-			[
-				'name'     => 'image_box_shadow',
-				'exclude'  => [
-					'box_shadow_position',
-				],
 				'selector' => '{{WRAPPER}} .hfe-retina-image img',
 			]
 		);
@@ -517,25 +519,68 @@ class Retina extends Widget_Base {
 			]
 		);
 
-			$this->add_responsive_control(
-				'caption_space',
-				[
-					'label'     => __( 'Spacing', 'hfe' ),
-					'type'      => Controls_Manager::SLIDER,
-					'range'     => [
-						'px' => [
-							'min' => 0,
-							'max' => 100,
-						],
+		$this->add_responsive_control(
+			'caption_padding',
+			[
+				'label'      => __( 'Padding', 'uael' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', 'em', '%' ],
+				'selectors'  => [
+					'{{WRAPPER}} .widget-image-caption' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+		$this->add_responsive_control(
+			'caption_space',
+			[
+				'label'     => __( 'Caption Top Spacing', 'uael' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
 					],
-					'selectors' => [
-						'{{WRAPPER}} .widget-image-caption' => 'margin-top: {{SIZE}}{{UNIT}}; margin-bottom: 0px;',
-					],
-				]
-			);
+				],
+				'default'   => [
+					'size' => 0,
+					'unit' => 'px',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .widget-image-caption' => 'margin-top: {{SIZE}}{{UNIT}}; margin-bottom: 0px;',
+				],
+			]
+		);
 
 		$this->end_controls_section();
 
+	}
+
+	/**
+	 * Helpful Information.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function register_helpful_information() {
+
+			$this->start_controls_section(
+				'section_helpful_info',
+				[
+					'label' => __( 'Helpful Information', 'hfe' ),
+				]
+			);
+
+			$this->add_control(
+				'help_doc_1',
+				[
+					'type'            => Controls_Manager::RAW_HTML,
+					/* translators: %1$s doc link */
+					'raw'             => sprintf( __( '%1$s Getting started article » %2$s', 'hfe' ), '<a href="https://uaelementor.com/docs/introducing-retina-image-widget/" target="_blank" rel="noopener">', '</a>' ),
+					'content_classes' => 'hfe-editor-doc',
+				]
+			);
+
+			$this->end_controls_section();
 	}
 
 	/**
@@ -708,8 +753,10 @@ class Retina extends Widget_Base {
 			if ( $has_caption ) :
 				$caption_text = $this->get_caption( $settings );
 				?>
-				<?php if ( ! empty( $caption_text ) ) : ?> 
-					<figcaption class="widget-image-caption wp-caption-text"><?php echo $caption_text; ?></figcaption>
+				<?php if ( ! empty( $caption_text ) ) : ?>
+					<div class="hfe-caption-width"> 
+						<figcaption class="widget-image-caption wp-caption-text"><?php echo $caption_text; ?></figcaption>
+					</div>
 				<?php endif; ?>
 				</figure>
 			<?php endif; ?>
