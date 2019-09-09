@@ -326,11 +326,63 @@ class Retina extends Widget_Base {
 			]
 		);
 
-		$this->add_group_control(
-			Group_Control_Border::get_type(),
+		$this->add_control(
+			'retina_image_border',
 			[
-				'name'     => 'image_border',
-				'selector' => '{{WRAPPER}} .hfe-retina-image img',
+				'label'       => __( 'Border Style', 'hfe' ),
+				'type'        => Controls_Manager::SELECT,
+				'default'     => 'none',
+				'label_block' => false,
+				'options'     => [
+					'none'   => __( 'None', 'hfe' ),
+					'solid'  => __( 'Solid', 'hfe' ),
+					'double' => __( 'Double', 'hfe' ),
+					'dotted' => __( 'Dotted', 'hfe' ),
+					'dashed' => __( 'Dashed', 'hfe' ),
+				],
+				'selectors'   => [
+					'{{WRAPPER}} .hfe-retina-image-container .hfe-retina-img' => 'border-style: {{VALUE}};',
+				],
+			]
+		);
+		$this->add_control(
+			'retina_image_border_size',
+			[
+				'label'      => __( 'Border Width', 'hfe' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px' ],
+				'default'    => [
+					'top'    => '1',
+					'bottom' => '1',
+					'left'   => '1',
+					'right'  => '1',
+					'unit'   => 'px',
+				],
+				'condition'  => [
+					'retina_image_border!' => 'none',
+				],
+				'selectors'  => [
+					'{{WRAPPER}} .hfe-retina-image-container .hfe-retina-img' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'retina_image_border_color',
+			[
+				'label'     => __( 'Border Color', 'hfe' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => [
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_1,
+				],
+				'condition' => [
+					'retina_image_border!' => 'none',
+				],
+				'default'   => '',
+				'selectors' => [
+					'{{WRAPPER}} .hfe-retina-image-container .hfe-retina-img' => 'border-color: {{VALUE}};',
+				],
 			]
 		);
 
@@ -522,7 +574,7 @@ class Retina extends Widget_Base {
 		$this->add_responsive_control(
 			'caption_padding',
 			[
-				'label'      => __( 'Padding', 'uael' ),
+				'label'      => __( 'Padding', 'hfe' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
@@ -533,7 +585,7 @@ class Retina extends Widget_Base {
 		$this->add_responsive_control(
 			'caption_space',
 			[
-				'label'     => __( 'Caption Top Spacing', 'uael' ),
+				'label'     => __( 'Caption Top Spacing', 'hfe' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => [
 					'px' => [
