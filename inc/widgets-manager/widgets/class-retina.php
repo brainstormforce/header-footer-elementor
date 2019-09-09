@@ -777,11 +777,19 @@ class Retina extends Widget_Base {
 			}
 			$class_animation = $retina_image_class . $demo;
 
-			$retina_none = site_url() . '/wp-includes/images/media/default.png';
+			$image_unset         = site_url() . '/wp-includes/images/media/default.png';
+			$placeholder_img_url = Utils::get_placeholder_image_src();
 
-			if ( $retina_none === $retina_image_url ) {
+			if ( $image_unset === $retina_image_url ) {
+				if ( $image_unset !== $image_url ) {
+					$retina_image_url = $image_url;
+				} else {
+					$retina_image_url = $placeholder_img_url;
+				}
+			}
 
-				$retina_image_url = $image_url;
+			if ( $image_unset === $image_url ) {
+				$image_url = $placeholder_img_url;
 			}
 
 			if ( strpos( $_SERVER['HTTP_USER_AGENT'], 'Chrome' ) !== false ) {
