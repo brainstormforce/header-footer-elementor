@@ -2,7 +2,7 @@
 /**
  * Entry point for the plugin. Checks if Elementor is installed and activated and loads it's own files and actions.
  *
- * @package  header-footer-elementor
+ * @package header-footer-elementor
  */
 
 /**
@@ -178,6 +178,9 @@ class Header_Footer_Elementor {
 
 		// Setup upgrade routines.
 		require_once HFE_DIR . 'inc/class-hfe-update.php';
+
+		// Load the widgets.
+		require HFE_DIR . 'inc/widgets-manager/class-widgets-loader.php';
 	}
 
 	/**
@@ -392,9 +395,10 @@ class Header_Footer_Elementor {
 		if ( class_exists( '\Elementor\Core\Files\CSS\Post' ) ) {
 			$css_file = new \Elementor\Core\Files\CSS\Post( $id );
 		} elseif ( class_exists( '\Elementor\Post_CSS_File' ) ) {
+			// Load elementor styles.
 			$css_file = new \Elementor\Post_CSS_File( $id );
 		}
-		$css_file->enqueue();
+			$css_file->enqueue();
 
 		return self::$elementor_instance->frontend->get_builder_content_for_display( $id );
 
