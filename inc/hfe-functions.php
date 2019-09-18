@@ -116,7 +116,7 @@ function hfe_render_footer() {
  * Get HFE Before Footer ID
  *
  * @since  1.0.2
- * @return (String|boolean) before gooter id if it is set else returns false.
+ * @return String|boolean before footer id if it is set else returns false.
  */
 function hfe_get_before_footer_id() {
 
