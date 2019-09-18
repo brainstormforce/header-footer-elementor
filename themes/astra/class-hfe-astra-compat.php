@@ -60,23 +60,7 @@ class HFE_Astra_Compat {
 		}
 
 		if ( hfe_is_before_footer_enabled() ) {
-
-			// Action `elementor/page_templates/canvas/after_content` is introduced in Elementor Version 1.9.0.
-			if ( version_compare( ELEMENTOR_VERSION, '1.9.0', '>=' ) ) {
-
-				// check if current page template is Elemenntor Canvas.
-				if ( 'elementor_canvas' == get_page_template_slug() ) {
-
-					$override_cannvas_template = get_post_meta( $this->get_hfe_before_footer_id(), 'display-on-canvas-template', true );
-
-					if ( '1' == $override_cannvas_template ) {
-						add_action( 'elementor/page_templates/canvas/after_content', 'hfe_render_before_footer', 9 );
-					}
-				}
-			}
-
 			add_action( 'astra_footer_before', 'hfe_render_before_footer' );
-
 		}
 	}
 
