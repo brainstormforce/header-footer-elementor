@@ -2,7 +2,7 @@
 /**
  * Entry point for the plugin. Checks if Elementor is installed and activated and loads it's own files and actions.
  *
- * @package  header-footer-elementor
+ * @package header-footer-elementor
  */
 
 /**
@@ -86,6 +86,8 @@ class Header_Footer_Elementor {
 
 			add_shortcode( 'hfe_template', array( $this, 'render_template' ) );
 
+			add_action( 'admin_notices', array( $this, 'register_notices' ) );
+
 		} else {
 
 			add_action( 'admin_notices', array( $this, 'elementor_not_available' ) );
@@ -102,7 +104,60 @@ class Header_Footer_Elementor {
 	 * @return void
 	 */
 	public function reset_unsupported_theme_notice() {
-		delete_user_meta( get_current_user_id(), 'hfe-sites-notices-id-unsupported-theme' );
+		delete_user_meta( get_current_user_id(), 'unsupported-theme' );
+	}
+
+	/**
+	 * Register Astra Notices.
+	 *
+	 * @since x.x.x
+	 *
+	 * @return void
+	 */
+	public function register_notices() {
+		$image_path = HFE_URL . 'assets/images/header-footer-elementor-icon.svg';
+		Astra_Notices::add_notice(
+			array(
+				'id'                         => 'header-footer-elementor-rating',
+				'type'                       => '',
+				'message'                    => sprintf(
+					'<div class="notice-image">
+						<img src="%1$s" class="custom-logo" alt="Sidebar Manager" itemprop="logo"></div> 
+						<div class="notice-content">
+							<div class="notice-heading">
+								%2$s
+							</div>
+							%3$s<br />
+							<div class="astra-review-notice-container">
+								<a href="%4$s" class="astra-notice-close astra-review-notice button-primary" target="_blank">
+								%5$s
+								</a>
+							<span class="dashicons dashicons-calendar"></span>
+								<a href="#" data-repeat-notice-after="%6$s" class="astra-notice-close astra-review-notice">
+								%7$s
+								</a>
+							<span class="dashicons dashicons-smiley"></span>
+								<a href="#" class="astra-notice-close astra-review-notice">
+								%8$s
+								</a>
+							</div>
+						</div>',
+					$image_path,
+					__( 'Hello! Seems like you have used Elementor - Header, Footer & Blocks to build this website — Thanks a ton!', 'header-footer-elementor' ),
+					__( 'Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Elementor - Header, Footer & Blocks.', 'header-footer-elementor' ),
+					'https://wordpress.org/support/plugin/header-footer-elementor/reviews/?filter=5#new-post',
+					__( 'Ok, you deserve it', 'header-footer-elementor' ),
+					MONTH_IN_SECONDS,
+					__( 'Nope, maybe later', 'header-footer-elementor' ),
+					__( 'I already did', 'header-footer-elementor' )
+				),
+				'show_if'                    => ( hfe_header_enabled() || hfe_footer_enabled() ) ? true : false,
+				'repeat-notice-after'        => MONTH_IN_SECONDS,
+				'display-notice-after'       => 1296000, // Display notice after 15 days.
+				'priority'                   => 18,
+				'display-with-other-notices' => false,
+			)
+		);
 	}
 
 	/**
@@ -139,12 +194,15 @@ class Header_Footer_Elementor {
 		}
 
 		// Load the Admin Notice Class.
-		require_once HFE_DIR . 'inc/class-hfe-notices.php';
+		require_once HFE_DIR . 'inc/lib/notices/class-astra-notices.php';
 
 		// Load Target rules.
 		require_once HFE_DIR . 'inc/lib/target-rule/class-astra-target-rules-fields.php';
 		// Setup upgrade routines.
 		require_once HFE_DIR . 'inc/class-hfe-update.php';
+
+		// Load the widgets.
+		require HFE_DIR . 'inc/widgets-manager/class-widgets-loader.php';
 	}
 
 	/**
@@ -236,12 +294,13 @@ class Header_Footer_Elementor {
 	public function setup_unsupported_theme_notice() {
 
 		if ( ! current_theme_supports( 'header-footer-elementor' ) ) {
-			HFE_Notices::add_notice(
+			Astra_Notices::add_notice(
 				array(
-					'id'          => 'unsupported-theme',
-					'type'        => 'error',
-					'dismissible' => true,
-					'message'     => __( 'Hey, your current theme is not supported by Header Footer Elementor, click <a href="https://github.com/Nikschavan/header-footer-elementor#which-themes-are-supported-by-this-plugin">here</a> to check out the supported themes.', 'header-footer-elementor' ),
+					'id'                  => 'unsupported-theme',
+					'type'                => 'error',
+					'dismissible'         => true,
+					'message'             => '<p>' . __( 'Hey, your current theme is not supported by Header Footer Elementor, click <a href="https://github.com/Nikschavan/header-footer-elementor#which-themes-are-supported-by-this-plugin">here</a> to check out the supported themes.', 'header-footer-elementor' ) . '</p>',
+					'repeat-notice-after' => false,
 				)
 			);
 		}
@@ -334,9 +393,10 @@ class Header_Footer_Elementor {
 		if ( class_exists( '\Elementor\Core\Files\CSS\Post' ) ) {
 			$css_file = new \Elementor\Core\Files\CSS\Post( $id );
 		} elseif ( class_exists( '\Elementor\Post_CSS_File' ) ) {
+			// Load elementor styles.
 			$css_file = new \Elementor\Post_CSS_File( $id );
 		}
-		$css_file->enqueue();
+			$css_file->enqueue();
 
 		return self::$elementor_instance->frontend->get_builder_content_for_display( $id );
 
