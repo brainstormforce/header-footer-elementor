@@ -83,8 +83,8 @@ if ( ! class_exists( 'HFE_Update' ) ) {
 				'specific' => [],
 			];
 
-			$header_id        = $this->get_legacy_template_id( 'type_before_footer' );
-			$footer_id        = $this->get_legacy_template_id( 'type_before_footer' );
+			$header_id        = $this->get_legacy_template_id( 'type_header' );
+			$footer_id        = $this->get_legacy_template_id( 'type_footer' );
 			$before_footer_id = $this->get_legacy_template_id( 'type_before_footer' );
 
 			// Header.
