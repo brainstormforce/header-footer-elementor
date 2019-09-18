@@ -57,12 +57,35 @@ if ( ! class_exists( 'HFE_Update' ) ) {
 				return;
 			}
 
+			$db_version = get_option( $this->db_option_key, false );
+
+			if ( version_compare( $db_version, '1.2.0', '<' ) ) {
+				$this->setup_default_terget_rules();
+			}
+
 			// flush rewrite rules on plugin update.
 			flush_rewrite_rules();
 
-			$this->update_db_version();
+			// $this->update_db_version();
 
 			do_action( 'hfe_update_after' );
+		}
+
+		private function setup_default_terget_rules() {
+			$default_include_locations = [
+				'rule'     => [ 0 => 'basic-global' ],
+				'specific' => [],
+			];
+
+			$default_exclude_locations = [];
+
+			// Header
+			// update_post_meta( get_hfe_header_id(), 'ehf_target_include_locations' );
+			// update_post_meta( get_hfe_header_id(), 'ehf_target_exclude_locations' );
+
+			// Footer
+			// update_post_meta( get_hfe_footer_id(), 'ehf_target_include_locations' );
+			// update_post_meta( get_hfe_footer_id(), 'ehf_target_exclude_locations' );
 		}
 
 		/**

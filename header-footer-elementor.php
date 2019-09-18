@@ -12,7 +12,7 @@
  * @package         header-footer-elementor
  */
 
-define( 'HFE_VER', '1.1.4' );
+define( 'HFE_VER', '1.2.0-beta.1' );
 define( 'HFE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'HFE_URL', plugins_url( '/', __FILE__ ) );
 define( 'HFE_PATH', plugin_basename( __FILE__ ) );
