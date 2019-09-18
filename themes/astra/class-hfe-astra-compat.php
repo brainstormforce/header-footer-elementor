@@ -18,13 +18,6 @@ class HFE_Astra_Compat {
 	private static $instance;
 
 	/**
-	 * Instance of Elementor Frontend class.
-	 *
-	 * @var \Elementor\Frontend()
-	 */
-	private static $elementor_instance;
-
-	/**
 	 *  Initiator
 	 */
 	public static function instance() {
@@ -33,12 +26,6 @@ class HFE_Astra_Compat {
 			self::$instance = new HFE_Astra_Compat();
 
 			add_action( 'wp', array( self::$instance, 'hooks' ) );
-		}
-
-		if ( defined( 'ELEMENTOR_VERSION' ) && is_callable( 'Elementor\Plugin::instance' ) ) {
-
-			self::$elementor_instance = Elementor\Plugin::instance();
-
 		}
 
 		return self::$instance;
