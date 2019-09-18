@@ -5,6 +5,8 @@
  * @package  header-footer-elementor
  */
 
+use HFE\Lib\Astra_Target_Rules_Fields;
+
 defined( 'ABSPATH' ) or exit;
 
 /**
