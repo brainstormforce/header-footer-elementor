@@ -61,7 +61,7 @@ Powering over 400,000+ WordPress websites, Astra is loved for the performance an
 
 **Deeper Integrations** - Astra works seamlessly with all WooCommerce plugins, LifterLMS, LearnDash, etc. Therefore, you can now build online stores or websites offering online courses with Astra and Elementor!
 
-**Ready-to-use complete website demos** - Astra offers free ready-made website demos built with Elementor. You can import them using the <a href="https://wordpress.org/plugins/astra-sites/">Astra Starter Sites</a> plugin, tweak them as you want and go live in minutes!
+**Ready-to-use complete website demos** - Astra offers free ready-made website demos built with Elementor. You can choose any of the Elementor templates <a href="https://wpastra.com/elementor-templates-free-downloads/">Elementor Templates</a>, tweak them as you want and go live in minutes!
 
 = SUPPORTED & ACTIVELY DEVELOPED =
 Need help with something? Have an issue to report? [Get in touch](https://github.com/Nikschavan/header-footer-elementor "Header Footer elementor on GitHub"). with us on GitHub.
