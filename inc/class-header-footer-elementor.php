@@ -303,6 +303,15 @@ class Header_Footer_Elementor {
 	}
 
 	/**
+	 * Prints the Before Footer content.
+	 */
+	public static function get_before_footer_content() {
+		echo "<div class='footer-width-fixer'>";
+		echo self::$elementor_instance->frontend->get_builder_content_for_display( hfe_get_before_footer_id() );
+		echo '</div>';
+	}
+
+	/**
 	 * Get option for the plugin settings
 	 *
 	 * @param  mixed $setting Option name.

@@ -110,3 +110,58 @@ function hfe_render_footer() {
 	<?php
 
 }
+
+
+/**
+ * Get HFE Before Footer ID
+ *
+ * @since  1.0.2
+ * @return String|boolean before footer id if it is set else returns false.
+ */
+function hfe_get_before_footer_id() {
+
+	$before_footer_id = Header_Footer_Elementor::get_settings( 'type_before_footer', '' );
+
+	if ( '' === $before_footer_id ) {
+		$before_footer_id = false;
+	}
+
+	return apply_filters( 'get_hfe_before_footer_id', $before_footer_id );
+}
+
+/**
+ * Checks if Before Footer is enabled from HFE.
+ *
+ * @since  1.0.2
+ * @return bool True if before footer is enabled. False if before footer is not enabled.
+ */
+function hfe_is_before_footer_enabled() {
+
+	$before_footer_id = Header_Footer_Elementor::get_settings( 'type_before_footer', '' );
+	$status           = false;
+
+	if ( '' !== $before_footer_id ) {
+		$status = true;
+	}
+
+	return apply_filters( 'hfe_before_footer_enabled', $status );
+}
+
+/**
+ * Display before footer markup.
+ *
+ * @since  1.0.2
+ */
+function hfe_render_before_footer() {
+
+	if ( false == apply_filters( 'enable_hfe_render_before_footer', true ) ) {
+		return;
+	}
+
+	?>
+		<div class="hfe-before-footer-wrap">
+			<?php Header_Footer_Elementor::get_before_footer_content(); ?>
+		</div>
+	<?php
+
+}
