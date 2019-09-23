@@ -115,6 +115,9 @@ If the above is nnot possible, You can also add support for the plugin from your
 
 ## Changelog ##
 
+### 1.2.0 (Unreleased) ###
+- Improvement: Allow before footer to work on Elementor Canvas Template when not usina Astra Theme.
+
 ### 1.1.4 ###
 - Fix: Flush permalinks on plugin update to Elementor error when trying to edit the Header/Footer.
 
