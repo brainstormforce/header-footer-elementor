@@ -67,7 +67,6 @@ class HFE_Elementor_Canvas_Compat {
 					add_action( 'elementor/page_templates/canvas/after_content', 'hfe_render_before_footer', 9 );
 				}
 			}
-
 		}
 
 	}
