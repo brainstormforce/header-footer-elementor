@@ -8,7 +8,7 @@
 namespace HFE\Themes;
 
 /**
- * Genesis theme compatibility.
+ * Global theme compatibility.
  */
 class Global_Theme_Compatibility {
 
