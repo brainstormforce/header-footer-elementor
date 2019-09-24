@@ -1,0 +1,104 @@
+/* Select2 */
+.post-type-astra_adv_header span.select2.select2-container.select2-container--default,
+.post-type-astra-advanced-hook span.select2.select2-container.select2-container--default {
+    margin-top: 0;
+}
+
+.post-type-astra_adv_header li.select2-results__option.select2-results__message,
+.post-type-astra-advanced-hook li.select2-results__option.select2-results__message {
+    background: #ecebeb;
+    margin-bottom: 0;
+}
+.ast-target-rule-wrapper  .select2-container {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    width: 100% !important;
+}
+
+.ast-target-rule-wrapper .select2-container--default.select2-container--focus .select2-selection--multiple,
+.ast-target-rule-wrapper .select2-container--default .select2-selection--multiple {
+    border: 1px solid #ddd;
+    margin-top: 10px;
+}
+
+.ast-target-rule-wrapper .select2-container .select2-search--inline,
+.ast-target-rule-wrapper .select2-container--default .select2-search--inline .select2-search__field {
+    width: 100% !important;
+}
+
+/* Target Rule field */
+.astra-target-rule-condition,
+.astra-user-role-condition {
+    position: relative;
+    margin-top: 10px;
+}
+
+.target_rule-specific-page-wrap {
+    position: relative;
+    padding: 0 30px 0 0;
+}
+
+.user_role-add-rule-wrap,
+.target_rule-add-rule-wrap,
+.target_rule-add-exclusion-rule,
+.user_role-add-rule-wrap {
+    margin-top: 15px;
+}
+
+.ast-target-rule-display-on,
+.ast-target-rule-exclude-on {
+    margin-bottom: 10px;
+}
+
+.target_rule-condition-delete,
+.user_role-condition-delete {
+    position: absolute;
+    color: #999;
+    right: 0px;
+    top: 0px;
+    font-size: 18px;
+    line-height: 18px;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    cursor: pointer;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.target_rule-condition-delete:hover {
+    color: #d54e21;
+}
+
+.target_rule-add-rule-wrap {
+    display: inline-block;
+}
+
+.target_rule-add-exclusion-rule {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.configure-content [data-element="exclude_from"],
+.configure-content [data-element="exclusive_on"] {
+    padding-bottom: 0;
+}
+
+.configure-content .ast-allow-specific-posts input, 
+.configure-content .ast-post-types {
+    margin-right: 3px;
+}
+
+.hide-on-devices input[type=checkbox] {
+    margin-right: 5px;
+}
+
+.search-panel.search-close-icon {
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.ast-hidden {
+    display: none !important;
+}

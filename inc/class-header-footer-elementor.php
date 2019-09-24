@@ -5,6 +5,8 @@
  * @package header-footer-elementor
  */
 
+use HFE\Lib\Astra_Target_Rules_Fields;
+
 /**
  * Class Header_Footer_Elementor
  */
@@ -23,6 +25,26 @@ class Header_Footer_Elementor {
 	 * @var \Elementor\Frontend()
 	 */
 	private static $elementor_instance;
+
+	/**
+	 * Instance of HFE_Admin
+	 *
+	 * @var Header_Footer_Elementor
+	 */
+	private static $_instance = null;
+
+	/**
+	 * Instance of Header_Footer_Elementor
+	 *
+	 * @return Header_Footer_Elementor Instance of Header_Footer_Elementor
+	 */
+	public static function instance() {
+		if ( ! isset( self::$_instance ) ) {
+			self::$_instance = new self();
+		}
+
+		return self::$_instance;
+	}
 	/**
 	 * Constructor
 	 */
@@ -176,6 +198,8 @@ class Header_Footer_Elementor {
 		// Load the Admin Notice Class.
 		require_once HFE_DIR . 'inc/lib/notices/class-astra-notices.php';
 
+		// Load Target rules.
+		require_once HFE_DIR . 'inc/lib/target-rule/class-astra-target-rules-fields.php';
 		// Setup upgrade routines.
 		require_once HFE_DIR . 'inc/class-hfe-update.php';
 
@@ -323,7 +347,8 @@ class Header_Footer_Elementor {
 		if ( 'type_header' == $setting || 'type_footer' == $setting || 'type_before_footer' == $setting ) {
 			$templates = self::get_template_id( $setting );
 
-			$template = is_array( $templates ) ? $templates[0] : '';
+			$template = ! is_array( $templates ) ? $templates : $templates[0];
+
 			$template = apply_filters( "hfe_get_settings_{$setting}", $template );
 
 			return $template;
@@ -338,43 +363,18 @@ class Header_Footer_Elementor {
 	 * @return Mixed       Returns the header or footer template id if found, else returns string ''.
 	 */
 	public static function get_template_id( $type ) {
-
-		$cached = wp_cache_get( $type );
-
-		if ( false !== $cached ) {
-			return $cached;
-		}
-
-		$args = array(
-			'post_type'    => 'elementor-hf',
-			'meta_key'     => 'ehf_template_type',
-			'meta_value'   => $type,
-			'meta_type'    => 'post',
-			'meta_compare' => '>=',
-			'orderby'      => 'meta_value',
-			'order'        => 'ASC',
-			'meta_query'   => array(
-				'relation' => 'OR',
-				array(
-					'key'     => 'ehf_template_type',
-					'value'   => $type,
-					'compare' => '==',
-					'type'    => 'post',
-				),
-			),
+		$option = array(
+			'location'  => 'ehf_target_include_locations',
+			'exclusion' => 'ehf_target_exclude_locations',
+			'users'     => 'ehf_target_user_roles',
 		);
 
-		$args = apply_filters( 'hfe_get_template_id_args', $args );
+		$hfe_templates = Astra_Target_Rules_Fields::get_instance()->get_posts_by_conditions( 'elementor-hf', $option );
 
-		$template = new WP_Query(
-			$args
-		);
-
-		if ( $template->have_posts() ) {
-			$posts = wp_list_pluck( $template->posts, 'ID' );
-			wp_cache_set( $type, $posts );
-
-			return $posts;
+		foreach ( $hfe_templates as $template ) {
+			if ( get_post_meta( absint( $template['id'] ), 'ehf_template_type', true ) === $type ) {
+				return $template['id'];
+			}
 		}
 
 		return '';
