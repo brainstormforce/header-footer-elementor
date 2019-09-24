@@ -36,7 +36,7 @@ class Global_Theme_Compatibility {
 			add_action( 'wp_footer', array( 'Header_Footer_Elementor', 'get_footer_content' ), 50 );
 		}
 
-    }
+	}
 
 }
 

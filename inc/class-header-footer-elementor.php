@@ -76,7 +76,7 @@ class Header_Footer_Elementor {
 				require HFE_DIR . 'themes/oceanwp/class-hfe-oceanwp-compat.php';
 			} else {
 				add_action( 'init', array( $this, 'setup_unsupported_theme_notice' ) );
-				require HFE_DIR . 'themes/global-theme-fallback/class-global-theme-fallback.php';
+				require HFE_DIR . 'themes/global-theme-fallback/class-global-theme-compatibility.php';
 			}
 
 			// Scripts and styles.
