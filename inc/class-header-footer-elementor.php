@@ -76,6 +76,7 @@ class Header_Footer_Elementor {
 				require HFE_DIR . 'themes/oceanwp/class-hfe-oceanwp-compat.php';
 			} else {
 				add_action( 'init', array( $this, 'setup_unsupported_theme_notice' ) );
+				require HFE_DIR . 'themes/global-theme-fallback/class-global-theme-fallback.php';
 			}
 
 			// Scripts and styles.
@@ -245,6 +246,16 @@ class Header_Footer_Elementor {
 				$css_file = new \Elementor\Core\Files\CSS\Post( get_hfe_footer_id() );
 			} elseif ( class_exists( '\Elementor\Post_CSS_File' ) ) {
 				$css_file = new \Elementor\Post_CSS_File( get_hfe_footer_id() );
+			}
+
+			$css_file->enqueue();
+		}
+
+		if ( hfe_is_before_footer_enabled() ) {
+			if ( class_exists( '\Elementor\Core\Files\CSS\Post' ) ) {
+				$css_file = new \Elementor\Core\Files\CSS\Post( hfe_get_before_footer_id() );
+			} elseif ( class_exists( '\Elementor\Post_CSS_File' ) ) {
+				$css_file = new \Elementor\Post_CSS_File( hfe_get_before_footer_id() );
 			}
 
 			$css_file->enqueue();

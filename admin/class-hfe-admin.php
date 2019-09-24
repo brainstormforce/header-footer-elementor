@@ -146,7 +146,7 @@ class HFE_Admin {
 						<select name="ehf_template_type" id="ehf_template_type">
 							<option value="" <?php selected( $template_type, '' ); ?>><?php _e( 'Select Option', 'header-footer-elementor' ); ?></option>
 							<option value="type_header" <?php selected( $template_type, 'type_header' ); ?>><?php _e( 'Header', 'header-footer-elementor' ); ?></option>
-							<?php if ( 'astra' == get_template() ) { ?>
+							<?php if ( 'astra' == get_template() || ! current_theme_supports( 'header-footer-elementor' ) ) { ?>
 								<option value="type_before_footer" <?php selected( $template_type, 'type_before_footer' ); ?>><?php _e( 'Before Footer', 'header-footer-elementor' ); ?></option>
 							<?php } ?>
 							<option value="type_footer" <?php selected( $template_type, 'type_footer' ); ?>><?php _e( 'Footer', 'header-footer-elementor' ); ?></option>
