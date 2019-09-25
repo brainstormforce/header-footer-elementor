@@ -43,6 +43,10 @@ class HFE_BB_Theme_Compat {
 			add_action( 'fl_before_header', array( $this, 'get_header_content' ) );
 		}
 
+		if ( hfe_is_before_footer_enabled() ) {
+			add_action( 'fl_after_content', array( 'Header_Footer_Elementor', 'get_before_footer_content' ), 10 );
+		}
+
 		if ( hfe_footer_enabled() ) {
 			add_filter( 'fl_footer_enabled', '__return_false' );
 			add_action( 'fl_after_content', array( $this, 'get_footer_content' ) );
