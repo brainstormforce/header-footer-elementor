@@ -76,6 +76,7 @@ class Header_Footer_Elementor {
 				require HFE_DIR . 'themes/oceanwp/class-hfe-oceanwp-compat.php';
 			} else {
 				add_action( 'init', array( $this, 'setup_unsupported_theme_notice' ) );
+				add_action( 'get_header', [ $this, 'override_header' ] );
 				require HFE_DIR . 'themes/global-theme-fallback/class-global-theme-compatibility.php';
 			}
 
@@ -97,6 +98,21 @@ class Header_Footer_Elementor {
 			add_action( 'network_admin_notices', array( $this, 'elementor_not_available' ) );
 		}
 
+	}
+
+	
+	public function override_header() {
+		$templates = array();
+
+		$templates[] = 'header.php';
+
+		locate_template( $templates, true );
+
+		if ( ! did_action( 'wp_body_open' ) ) {
+			echo '<div class="force-stretched-header">';
+			do_action( 'hfe_fallback_header' );
+			echo '</div>';
+		}
 	}
 
 	/**

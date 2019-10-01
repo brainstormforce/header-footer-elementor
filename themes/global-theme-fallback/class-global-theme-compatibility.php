@@ -26,6 +26,7 @@ class Global_Theme_Compatibility {
 
 		if ( hfe_header_enabled() ) {
 			add_action( 'wp_body_open', array( 'Header_Footer_Elementor', 'get_header_content' ) );
+			add_action( 'hfe_fallback_header', array( 'Header_Footer_Elementor', 'get_header_content' ) );
 		}
 
 		if ( hfe_is_before_footer_enabled() ) {
