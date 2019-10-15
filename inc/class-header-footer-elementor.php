@@ -77,6 +77,8 @@ class Header_Footer_Elementor {
 			} else {
 				add_action( 'init', array( $this, 'setup_unsupported_theme_notice' ) );
 				add_action( 'get_header', [ $this, 'override_header' ] );
+				add_action( 'admin_menu', array( $this, 'hfe_settings_page' ) );
+				add_action( 'admin_init', array( $this, 'hfe_save_setting_data' ) );
 				require HFE_DIR . 'themes/global-theme-fallback/class-global-theme-compatibility.php';
 			}
 
@@ -99,6 +101,42 @@ class Header_Footer_Elementor {
 		}
 
 	}
+
+	/**
+	 * Show a settings page incase of unsupported theme.
+	 *
+	 * @since 1.0.16
+	 *
+	 * @return void
+	 */
+	public function hfe_settings_page(){
+		add_submenu_page(
+						'options-general.php',
+						'Header Footer Elementor',
+						'Header Footer Elementor',
+						'manage_options',
+						'hfe',
+						array( $this, 'hfe_settings_page_html' )
+					);
+	}
+
+	public function hfe_save_setting_data() {
+		if ( ! empty( $_POST['hfe_radio_button'] ) ) {
+						$hfe_radio = sanitize_text_field( wp_unslash( $_POST['hfe_radio_button'] ) );
+						update_option( 'hfe_all_theme_support_option', $hfe_radio );
+		}
+	}
+	
+	/**
+		 * Settings page
+		 *
+		 * All the tabs are managed in the file which is included.
+		 *
+		 * @since 1.0.0
+		 */
+		public function hfe_settings_page_html() {
+			require_once HFE_DIR . 'inc/hfe-settings-page.php';
+		}
 
 	
 	public function override_header() {
