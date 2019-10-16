@@ -1,6 +1,6 @@
 <?php
 /**
- * HFE_Astra_Compat setup
+ * HFE_Default_Compat setup
  *
  * @package header-footer-elementor
  */
@@ -8,12 +8,12 @@
 /**
  * Astra theme compatibility.
  */
-class HFE_Astra_Compat {
+class HFE_Default_Compat {
 
 	/**
-	 * Instance of HFE_Astra_Compat.
+	 * Instance of HFE_Default_Compat.
 	 *
-	 * @var HFE_Astra_Compat
+	 * @var HFE_Default_Compat
 	 */
 	private static $instance;
 
@@ -30,7 +30,7 @@ class HFE_Astra_Compat {
 	public static function instance() {
 
 		if ( ! isset( self::$instance ) ) {
-			self::$instance = new HFE_Astra_Compat();
+			self::$instance = new HFE_Default_Compat();
 
 			add_action( 'wp', array( self::$instance, 'hooks' ) );
 		}
@@ -50,13 +50,11 @@ class HFE_Astra_Compat {
 	public function hooks() {
 
 		if ( hfe_header_enabled() ) {
-			add_action( 'template_redirect', array( $this, 'astra_setup_header' ), 10 );
-			add_action( 'astra_header', 'hfe_render_header' );
+			add_action( 'hfe_header', 'hfe_render_header' );
 		}
 
 		if ( hfe_footer_enabled() ) {
-			add_action( 'template_redirect', array( $this, 'astra_setup_footer' ), 10 );
-			add_action( 'astra_footer', 'hfe_render_footer' );
+			add_action( 'hfe_footer', 'hfe_render_footer' );
 		}
 
 		if ( $this->is_before_footer_enabled() ) {
@@ -75,23 +73,9 @@ class HFE_Astra_Compat {
 				}
 			}
 
-			add_action( 'astra_footer_before', array( $this, 'render_before_footer' ) );
+			add_action( 'hfe_footer_before', array( $this, 'render_before_footer' ) );
 
 		}
-	}
-
-	/**
-	 * Disable header from the theme.
-	 */
-	public function astra_setup_header() {
-		remove_action( 'astra_header', 'astra_header_markup' );
-	}
-
-	/**
-	 * Disable footer from the theme.
-	 */
-	public function astra_setup_footer() {
-		remove_action( 'astra_footer', 'astra_footer_markup' );
 	}
 
 	/**
@@ -160,4 +144,4 @@ class HFE_Astra_Compat {
 
 }
 
-HFE_Astra_Compat::instance();
+HFE_Default_Compat::instance();

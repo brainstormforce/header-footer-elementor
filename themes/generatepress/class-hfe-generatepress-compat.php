@@ -43,10 +43,6 @@ class HFE_GeneratePress_Compat {
 			add_action( 'generate_header', 'hfe_render_header' );
 		}
 
-		if ( hfe_is_before_footer_enabled() ) {
-			add_action( 'generate_footer', array( 'Header_Footer_Elementor', 'get_before_footer_content' ), 10 );
-		}
-
 		if ( hfe_footer_enabled() ) {
 			add_action( 'template_redirect', array( $this, 'generatepress_setup_footer' ) );
 			add_action( 'generate_footer', 'hfe_render_footer' );

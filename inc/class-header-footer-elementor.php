@@ -2,10 +2,8 @@
 /**
  * Entry point for the plugin. Checks if Elementor is installed and activated and loads it's own files and actions.
  *
- * @package header-footer-elementor
+ * @package  header-footer-elementor
  */
-
-use HFE\Lib\Astra_Target_Rules_Fields;
 
 /**
  * Class Header_Footer_Elementor
@@ -25,30 +23,12 @@ class Header_Footer_Elementor {
 	 * @var \Elementor\Frontend()
 	 */
 	private static $elementor_instance;
-
-	/**
-	 * Instance of HFE_Admin
-	 *
-	 * @var Header_Footer_Elementor
-	 */
-	private static $_instance = null;
-
-	/**
-	 * Instance of Header_Footer_Elementor
-	 *
-	 * @return Header_Footer_Elementor Instance of Header_Footer_Elementor
-	 */
-	public static function instance() {
-		if ( ! isset( self::$_instance ) ) {
-			self::$_instance = new self();
-		}
-
-		return self::$_instance;
-	}
 	/**
 	 * Constructor
 	 */
 	function __construct() {
+
+		$hfe_compatibility_option = get_option('hfe_all_theme_support_option',"1");
 
 		$this->template = get_template();
 
@@ -76,10 +56,17 @@ class Header_Footer_Elementor {
 				require HFE_DIR . 'themes/oceanwp/class-hfe-oceanwp-compat.php';
 			} else {
 				add_action( 'init', array( $this, 'setup_unsupported_theme_notice' ) );
-				add_action( 'get_header', [ $this, 'override_header' ] );
 				add_action( 'admin_menu', array( $this, 'hfe_settings_page' ) );
 				add_action( 'admin_init', array( $this, 'hfe_save_setting_data' ) );
-				require HFE_DIR . 'themes/global-theme-fallback/class-global-theme-compatibility.php';
+				if( "1" === $hfe_compatibility_option ){
+					add_action( 'get_header', [ $this, 'override_header' ] );
+					add_action( 'get_footer', [ $this, 'override_footer' ] );
+					require HFE_DIR . 'themes/default/class-default-theme-compat.php';	
+				}else if("2" === $hfe_compatibility_option ){
+					add_action( 'get_header', [ $this, 'option_override_header' ] );
+					require HFE_DIR . 'themes/global-theme-fallback/class-global-theme-compatibility.php';
+				}
+
 			}
 
 			// Scripts and styles.
@@ -92,8 +79,6 @@ class Header_Footer_Elementor {
 
 			add_shortcode( 'hfe_template', array( $this, 'render_template' ) );
 
-			add_action( 'admin_notices', array( $this, 'register_notices' ) );
-
 		} else {
 
 			add_action( 'admin_notices', array( $this, 'elementor_not_available' ) );
@@ -103,12 +88,12 @@ class Header_Footer_Elementor {
 	}
 
 	/**
-	 * Show a settings page incase of unsupported theme.
-	 *
-	 * @since 1.0.16
-	 *
-	 * @return void
-	 */
+	* Show a settings page incase of unsupported theme.
+	*
+	* @since 1.0.16
+	*
+	* @return void
+	*/
 	public function hfe_settings_page(){
 		add_submenu_page(
 						'options-general.php',
@@ -120,6 +105,7 @@ class Header_Footer_Elementor {
 					);
 	}
 
+
 	public function hfe_save_setting_data() {
 		if ( ! empty( $_POST['hfe_radio_button'] ) ) {
 						$hfe_radio = sanitize_text_field( wp_unslash( $_POST['hfe_radio_button'] ) );
@@ -128,24 +114,21 @@ class Header_Footer_Elementor {
 	}
 	
 	/**
-		 * Settings page
-		 *
-		 * All the tabs are managed in the file which is included.
-		 *
-		 * @since 1.0.0
-		 */
-		public function hfe_settings_page_html() {
-			require_once HFE_DIR . 'inc/hfe-settings-page.php';
-		}
+	* Settings page.
+	*
+	* Settings page markup in the file which is included.
+	*
+	* @since 1.0.0
+	*/
+	public function hfe_settings_page_html() {
+	require_once HFE_DIR . 'inc/hfe-settings-page.php';
+	}
 
-	
-	public function override_header() {
+
+	public function option_override_header() {
 		$templates = array();
-
 		$templates[] = 'header.php';
-
 		locate_template( $templates, true );
-
 		if ( ! did_action( 'wp_body_open' ) ) {
 			echo '<div class="force-stretched-header">';
 			do_action( 'hfe_fallback_header' );
@@ -153,6 +136,31 @@ class Header_Footer_Elementor {
 		}
 	}
 
+	public function override_header() {
+		require HFE_DIR . 'themes/default/hfe-header.php';
+
+		$templates 	 = [];
+		$templates[] = 'header.php';
+
+		// Avoid running wp_head hooks again
+		remove_all_actions( 'wp_head' );
+		ob_start();
+		locate_template( $templates, true );
+		ob_get_clean();
+	}
+
+	public function override_footer() {
+		require HFE_DIR . 'themes/default/hfe-footer.php';
+
+		$templates 	 = [];
+		$templates[] = 'footer.php';
+
+		// Avoid running wp_head hooks again
+		remove_all_actions( 'wp_head' );
+		ob_start();
+		locate_template( $templates, true );
+		ob_get_clean();
+	}
 	/**
 	 * Reset the Unsupported theme nnotice after a theme is switched.
 	 *
@@ -161,60 +169,7 @@ class Header_Footer_Elementor {
 	 * @return void
 	 */
 	public function reset_unsupported_theme_notice() {
-		delete_user_meta( get_current_user_id(), 'unsupported-theme' );
-	}
-
-	/**
-	 * Register Astra Notices.
-	 *
-	 * @since x.x.x
-	 *
-	 * @return void
-	 */
-	public function register_notices() {
-		$image_path = HFE_URL . 'assets/images/header-footer-elementor-icon.svg';
-		Astra_Notices::add_notice(
-			array(
-				'id'                         => 'header-footer-elementor-rating',
-				'type'                       => '',
-				'message'                    => sprintf(
-					'<div class="notice-image">
-						<img src="%1$s" class="custom-logo" alt="Sidebar Manager" itemprop="logo"></div> 
-						<div class="notice-content">
-							<div class="notice-heading">
-								%2$s
-							</div>
-							%3$s<br />
-							<div class="astra-review-notice-container">
-								<a href="%4$s" class="astra-notice-close astra-review-notice button-primary" target="_blank">
-								%5$s
-								</a>
-							<span class="dashicons dashicons-calendar"></span>
-								<a href="#" data-repeat-notice-after="%6$s" class="astra-notice-close astra-review-notice">
-								%7$s
-								</a>
-							<span class="dashicons dashicons-smiley"></span>
-								<a href="#" class="astra-notice-close astra-review-notice">
-								%8$s
-								</a>
-							</div>
-						</div>',
-					$image_path,
-					__( 'Hello! Seems like you have used Elementor - Header, Footer & Blocks to build this website — Thanks a ton!', 'header-footer-elementor' ),
-					__( 'Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Elementor - Header, Footer & Blocks.', 'header-footer-elementor' ),
-					'https://wordpress.org/support/plugin/header-footer-elementor/reviews/?filter=5#new-post',
-					__( 'Ok, you deserve it', 'header-footer-elementor' ),
-					MONTH_IN_SECONDS,
-					__( 'Nope, maybe later', 'header-footer-elementor' ),
-					__( 'I already did', 'header-footer-elementor' )
-				),
-				'show_if'                    => ( hfe_header_enabled() || hfe_footer_enabled() ) ? true : false,
-				'repeat-notice-after'        => MONTH_IN_SECONDS,
-				'display-notice-after'       => 1296000, // Display notice after 15 days.
-				'priority'                   => 18,
-				'display-with-other-notices' => false,
-			)
-		);
+		delete_user_meta( get_current_user_id(), 'hfe-sites-notices-id-unsupported-theme' );
 	}
 
 	/**
@@ -251,15 +206,10 @@ class Header_Footer_Elementor {
 		}
 
 		// Load the Admin Notice Class.
-		require_once HFE_DIR . 'inc/lib/notices/class-astra-notices.php';
+		require_once HFE_DIR . 'inc/class-hfe-notices.php';
 
-		// Load Target rules.
-		require_once HFE_DIR . 'inc/lib/target-rule/class-astra-target-rules-fields.php';
 		// Setup upgrade routines.
 		require_once HFE_DIR . 'inc/class-hfe-update.php';
-
-		// Load the widgets.
-		require HFE_DIR . 'inc/widgets-manager/class-widgets-loader.php';
 	}
 
 	/**
@@ -311,7 +261,6 @@ class Header_Footer_Elementor {
 			} elseif ( class_exists( '\Elementor\Post_CSS_File' ) ) {
 				$css_file = new \Elementor\Post_CSS_File( hfe_get_before_footer_id() );
 			}
-
 			$css_file->enqueue();
 		}
 	}
@@ -361,13 +310,12 @@ class Header_Footer_Elementor {
 	public function setup_unsupported_theme_notice() {
 
 		if ( ! current_theme_supports( 'header-footer-elementor' ) ) {
-			Astra_Notices::add_notice(
+			HFE_Notices::add_notice(
 				array(
-					'id'                  => 'unsupported-theme',
-					'type'                => 'error',
-					'dismissible'         => true,
-					'message'             => '<p>' . __( 'Hey, your current theme is not supported by Header Footer Elementor, click <a href="https://github.com/Nikschavan/header-footer-elementor#which-themes-are-supported-by-this-plugin">here</a> to check out the supported themes.', 'header-footer-elementor' ) . '</p>',
-					'repeat-notice-after' => false,
+					'id'          => 'unsupported-theme',
+					'type'        => 'error',
+					'dismissible' => true,
+					'message'     => __( 'Hey, your current theme is not supported by Header Footer Elementor, click <a href="https://github.com/Nikschavan/header-footer-elementor#which-themes-are-supported-by-this-plugin">here</a> to check out the supported themes.', 'header-footer-elementor' ),
 				)
 			);
 		}
@@ -392,15 +340,6 @@ class Header_Footer_Elementor {
 	}
 
 	/**
-	 * Prints the Before Footer content.
-	 */
-	public static function get_before_footer_content() {
-		echo "<div class='footer-width-fixer'>";
-		echo self::$elementor_instance->frontend->get_builder_content_for_display( hfe_get_before_footer_id() );
-		echo '</div>';
-	}
-
-	/**
 	 * Get option for the plugin settings
 	 *
 	 * @param  mixed $setting Option name.
@@ -412,8 +351,7 @@ class Header_Footer_Elementor {
 		if ( 'type_header' == $setting || 'type_footer' == $setting || 'type_before_footer' == $setting ) {
 			$templates = self::get_template_id( $setting );
 
-			$template = ! is_array( $templates ) ? $templates : $templates[0];
-
+			$template = is_array( $templates ) ? $templates[0] : '';
 			$template = apply_filters( "hfe_get_settings_{$setting}", $template );
 
 			return $template;
@@ -428,18 +366,43 @@ class Header_Footer_Elementor {
 	 * @return Mixed       Returns the header or footer template id if found, else returns string ''.
 	 */
 	public static function get_template_id( $type ) {
-		$option = array(
-			'location'  => 'ehf_target_include_locations',
-			'exclusion' => 'ehf_target_exclude_locations',
-			'users'     => 'ehf_target_user_roles',
+
+		$cached = wp_cache_get( $type );
+
+		if ( false !== $cached ) {
+			return $cached;
+		}
+
+		$args = array(
+			'post_type'    => 'elementor-hf',
+			'meta_key'     => 'ehf_template_type',
+			'meta_value'   => $type,
+			'meta_type'    => 'post',
+			'meta_compare' => '>=',
+			'orderby'      => 'meta_value',
+			'order'        => 'ASC',
+			'meta_query'   => array(
+				'relation' => 'OR',
+				array(
+					'key'     => 'ehf_template_type',
+					'value'   => $type,
+					'compare' => '==',
+					'type'    => 'post',
+				),
+			),
 		);
 
-		$hfe_templates = Astra_Target_Rules_Fields::get_instance()->get_posts_by_conditions( 'elementor-hf', $option );
+		$args = apply_filters( 'hfe_get_template_id_args', $args );
 
-		foreach ( $hfe_templates as $template ) {
-			if ( get_post_meta( absint( $template['id'] ), 'ehf_template_type', true ) === $type ) {
-				return $template['id'];
-			}
+		$template = new WP_Query(
+			$args
+		);
+
+		if ( $template->have_posts() ) {
+			$posts = wp_list_pluck( $template->posts, 'ID' );
+			wp_cache_set( $type, $posts );
+
+			return $posts;
 		}
 
 		return '';
@@ -469,10 +432,9 @@ class Header_Footer_Elementor {
 		if ( class_exists( '\Elementor\Core\Files\CSS\Post' ) ) {
 			$css_file = new \Elementor\Core\Files\CSS\Post( $id );
 		} elseif ( class_exists( '\Elementor\Post_CSS_File' ) ) {
-			// Load elementor styles.
 			$css_file = new \Elementor\Post_CSS_File( $id );
 		}
-			$css_file->enqueue();
+		$css_file->enqueue();
 
 		return self::$elementor_instance->frontend->get_builder_content_for_display( $id );
 

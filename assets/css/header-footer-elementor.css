@@ -31,10 +31,3 @@
 	z-index: 200;
     position: relative;
 }
-
-.force-stretched-header {
-    width: 100vw;
-    position: relative;
-    margin-left: -50vw;
-    left: 50%;
-}
