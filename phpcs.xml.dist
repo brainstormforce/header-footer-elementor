@@ -5,7 +5,10 @@
 	<rule ref="PHPCompatibility"/>
 	<config name="testVersion" value="5.3-"/>
 
-	<rule ref="WordPress-Core" />
+	<rule ref="WordPress-Core" >
+		<exclude name="WordPress.PHP.StrictComparisons.LooseComparison" />
+	</rule>
+
 	<rule ref="WordPress-Docs" />
 
 	<!-- Check all PHP files in directory tree by default. -->

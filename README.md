@@ -1,11 +1,11 @@
-# Header Footer Elementor #
+# Elementor - Header, Footer & Blocks #
 **Contributors:** [brainstormforce](https://profiles.wordpress.org/brainstormforce), [Nikschavan](https://profiles.wordpress.org/Nikschavan)  
 **Tags:** elementor, header footer builder, header, footer, page builder, template builder, landing page builder, front-end editor  
 **Donate link:** https://www.paypal.me/BrainstormForce  
 **Requires at least:** 4.4  
 **Requires PHP:** 5.4  
-**Tested up to:** 4.9.8  
-**Stable tag:** 1.0.16  
+**Tested up to:** 5.2  
+**Stable tag:** 1.1.4  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -13,7 +13,9 @@ Create Header and Footer for your site using Elementor Page Builder.
 
 ## Description ##
 
-Create header and footer of your site easily using [Elementor](https://goo.gl/qhDrbf "Elementor").
+Have you ever imagined you could create your website’s header and footer with <a href="https://elementor.com/?ref=1352">Elementor</a>?
+
+The Header Footer Elementor plugin allows you to create a layout with Elementor and set it as a header or footer easily on your website.
 
 All you need to do is -
 
@@ -21,27 +23,47 @@ All you need to do is -
 2. Select whether it should be applied as the header or footer.
 3. The template will be automatically applied as the header/footer. Easy peasy!
 
-[Here is the step by step article](https://uaelementor.com/header-footer-with-elementor/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description "UAElementor") with screenshots.
+You can refer to our step-by-step article that will help you <a href="https://uaelementor.com/header-footer-with-elementor/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description">set Elementor headers and footers</a> quickly.
 
 ### Features of Header Footer Elementor ###
 
-- Create attractive pages and templates that can be displayed as a Header or Footer.
-- Lets you use a fully customized header or footer across the website.
+- Create attractive pages and templates to be used as header or footer.
+- Usefully customized header and footer across the website.
 
-The plugin works best with these themes â€“ 
+### Themes you can use Header Footer Elementor with ###
+
+The Header Footer Elementor isn’t universally compatible with all WordPress themes. Here is a list of themes you can use it with
 
 1. <a href="https://wpastra.com/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description&bsf=162">Astra</a> - The Fastest, Most Lightweight &amp; Customizable WordPress Theme.
-2. GeneratePress.
-3. OceanWP.
-4. Genesis.
-5. Phlox Theme.
+2. <a href="https://shareasale.com/r.cfm?b=642802&u=1115254&m=55096&urllink=themeisle%2Ecom%2Fthemes%2Fneve%2F&afftrack=">Neve.</a>
+3. <a href="https://shareasale.com/r.cfm?b=642802&u=1115254&m=55096&urllink=themeisle%2Ecom%2Fthemes%2Fhestia%2F&afftrack=">Hestia.</a>
+4. GeneratePress.
+5. OceanWP.
+6. Genesis.
+7. Phlox Theme.
 
-If you are a theme developer you can add support for the Header Footer Elementor from your theme easily. <a href="https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme">Read instructions here</a>.
+Do not see your theme listed here? Theme authors can add <a href="https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme">support for Header Footer Elementor through their theme</a> easily.
 
-### Looking for premium Elementor Addons and Widgets? ###
-Check <a href="https://uaelementor.com/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description">Ultimate Addons for Elementor</a>. It is a library of unique Elementor addons and widgets to add more functionality and flexibility to your favorite page builder.
+### LOOKING FOR PREMIUM ELEMENTOR ADDONS AND WIDGETS? ###
+Check <a href="https://uaelementor.com/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description">Ultimate Addons for Elementor</a>. It is a library of creative and unique Elementor widgets that add more functionality and flexibility to your favorite page builder.
 
-### Supported & Actively Developed ###
+### HAVE YOU TRIED ASTRA WITH ELEMENTOR? ###
+
+Powering over 400,000+ WordPress websites, Astra is loved for the performance and ease-of-use it offers.
+
+### WHY PEOPLE LOVE ASTRA? ###
+
+**Better Performance** - Optimized code and modular architecture make Astra the most lightweight theme for a faster loading website!
+
+**Page Builder’s Best Friend** - Astra works great with all page builders. Its support for custom layouts, Elementor templates, and ready-made starter sites makes it the best <a href="https://wpastra.com/theme-for-elementor/?utm_source=wp-repo&utm_medium=astra_desc&utm_campaign=header_footer_elementor">theme for Elementor</a>.
+
+**Easy Customization** - Astra takes away the pain and time spent in coding. With all the settings available in the customizer itself, Astra lets you manage all the theme options with just a few clicks.
+
+**Deeper Integrations** - Astra works seamlessly with all WooCommerce plugins, LifterLMS, LearnDash, etc. Therefore, you can now build online stores or websites offering online courses with Astra and Elementor!
+
+**Ready-to-use complete website demos** - Astra offers free ready-made website demos built with Elementor. You can import them using the <a href="https://wordpress.org/plugins/astra-sites/">Astra Starter Sites</a> plugin, tweak them as you want and go live in minutes!
+
+### SUPPORTED & ACTIVELY DEVELOPED ###
 Need help with something? Have an issue to report? [Get in touch](https://github.com/Nikschavan/header-footer-elementor "Header Footer elementor on GitHub"). with us on GitHub.
 
 Made with love at <a href="https://www.brainstormforce.com/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description">Brainstorm Force</a>!
@@ -88,10 +110,31 @@ If the above is nnot possible, You can also add support for the plugin from your
 
 ## Screenshots ##
 
-1. Go to Appearane -> Header Footer Builder to create a new template.
+1. Go to Appearance -> Header Footer Builder to create a new template.
 2. After the template is ready, assign it to be a header or footer replacement.
 
 ## Changelog ##
+
+### 1.1.4 ###
+- Fix: Flush permalinks on plugin update to Elementor error when trying to edit the Header/Footer.
+
+### 1.1.3 ###
+- Improvement: Allow changing the permalinks for the hfe templates (<a href="https://github.com/Nikschavan/header-footer-elementor/pull/162/">#162</a>) 
+- Fix: WPML Translations do not work when using the Elementor Template as a shortcode. (<a href="https://github.com/Nikschavan/header-footer-elementor/pull/159/">#159</a>)
+- Fix: Page content appears over the header. (<a href="https://github.com/Nikschavan/header-footer-elementor/pull/150/">#150</a>)
+- Fix: Remove the deprecated function warning for shortcode functions. (Props <a href="https://github.com/hogash">@hogash</a> <a href="https://github.com/Nikschavan/header-footer-elementor/pull/145/">#145</a>)
+
+### 1.1.2 ###
+- Fix: Depracated function warning from Elementor's method `\Elementor\Post_CSS_File`
+
+### 1.1.1 ###
+- Fix: Blank header being displayed when only footer is translated using WPML.
+
+### 1.1.0 ###
+- New: Rename plugin to be Header Footer & Blocks builder as now thee blocks templates can be used as shortcodes.
+- New: Add templates before the footer for Astra Theme. Options for other themes will be cominng soon.
+- New: Use templates (Blocks) anywhere in your content with the help of shortcodes.
+- Improvement: Improved the UI of the metabox for Header Footer post type.
 
 ### 1.0.16 ###
 - Fix: Make the theme not supported notice dismissable.
