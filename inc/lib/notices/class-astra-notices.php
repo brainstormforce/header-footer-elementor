@@ -110,6 +110,11 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		function dismiss_notice() {
 			$notice_id           = ( isset( $_POST['notice_id'] ) ) ? sanitize_key( $_POST['notice_id'] ) : '';
 			$repeat_notice_after = ( isset( $_POST['repeat_notice_after'] ) ) ? absint( $_POST['repeat_notice_after'] ) : '';
+			$nonce               = ( isset( $_POST['nonce'] ) ) ? sanitize_key( $_POST['nonce'] ) : '';
+
+			if ( false === wp_verify_nonce( $nonce, 'astra-notices' ) ) {
+				wp_send_json_error( _e( 'WordPress Nonce not validated.', 'astra-sites' ) );
+			}
 
 			// Valid inputs?
 			if ( ! empty( $notice_id ) ) {
@@ -134,6 +139,13 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 */
 		function enqueue_scripts() {
 			wp_register_script( 'astra-notices', self::_get_uri() . 'notices.js', array( 'jquery' ), null, self::$version );
+			wp_localize_script(
+				'astra-notices',
+				'astraNotices',
+				array(
+					'_notice_nonce' => wp_create_nonce( 'astra-notices' ),
+				)
+			);
 		}
 
 		/**

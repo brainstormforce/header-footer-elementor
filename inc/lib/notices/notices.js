@@ -82,6 +82,7 @@
 					action            : 'astra-notice-dismiss',
 					notice_id         : notice_id,
 					repeat_notice_after : parseInt( repeat_notice_after ),
+					nonce             : astraNotices._notice_nonce
 				},
 			});
 

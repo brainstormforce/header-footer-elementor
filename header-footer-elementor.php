@@ -35,10 +35,10 @@ add_action( 'plugins_loaded', 'hfe_init' );
 if ( ! function_exists( 'register_notices' ) ) :
 
 	/**
-	* Ask Theme Rating
-	*
-	* @since 1.4.0
-	*/
+	 * Ask Theme Rating
+	 *
+	 * @since 1.4.0
+	 */
 	function register_notices() {
 		$image_path = HFE_URL . 'assets/images/header-footer-elementor-icon.png';
 		Astra_Notices::add_notice(
