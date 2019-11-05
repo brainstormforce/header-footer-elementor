@@ -1,4 +1,10 @@
 <?php
+/**
+ * Settings page for compatibility options.
+ *
+ * @package header-footer-elementor
+ */
+
 $hfe_radio_button = get_option( 'hfe_all_theme_support_option', '1' );
 wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'admin/assets/css/ehf-admin.css', array(), HFE_VER );
 ?>
@@ -14,10 +20,8 @@ wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'admin/assets/css/ehf-admin.css',
 	<table id="poststuff" class="hfe-table wp-list-table widefat fixed striped posts importers striped">
 		<tbody>
 			<tr>
-				<th class="categories column-categories">
-					
+				<th class="categories column-categories">	
 					<b class="hfe-setting-name"><?php esc_html_e( 'Select a way for compatibility', 'header-footer-elementor' ); ?></b>
-
 				</th>
 				<td class="title column-title has-row-actions column-primary page-title">
 					<label>

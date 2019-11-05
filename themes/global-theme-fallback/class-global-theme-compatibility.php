@@ -4,6 +4,7 @@
  *
  * @package header-footer-elementor
  */
+
 namespace HFE\Themes;
 
 /**
