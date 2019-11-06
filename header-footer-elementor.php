@@ -25,8 +25,4 @@ require_once HFE_DIR . '/inc/class-header-footer-elementor.php';
 /**
  * Load the Plugin Class.
  */
-function hfe_init() {
-	new Header_Footer_Elementor();
-}
-
-add_action( 'plugins_loaded', 'hfe_init' );
+new Header_Footer_Elementor();
