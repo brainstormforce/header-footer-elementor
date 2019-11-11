@@ -62,3 +62,26 @@ input.hfe-large-text{
     float: right;
     font-size: 18px;
 }
+
+.hfe_radio_options {
+    display: inline-block;
+    font-weight: bold;
+}
+
+.hfe-table td{
+    padding-top: 34px;
+}
+
+.hfe-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+.hfe-settings-header {
+    background-color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 0 #efefef, 0 2px 2px #ececec;
+}   } 

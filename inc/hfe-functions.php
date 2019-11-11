@@ -93,6 +93,21 @@ function hfe_render_header() {
 }
 
 /**
+ * Checks if Before Footer is enabled from HFE.
+ *
+ * @since  1.0.2
+ * @return bool True if before footer is enabled. False if before footer is not enabled.
+ */
+function hfe_is_before_footer_enabled() {
+	$before_footer_id = Header_Footer_Elementor::get_settings( 'type_before_footer', '' );
+	$status           = false;
+	if ( '' !== $before_footer_id ) {
+		$status = true;
+	}
+	return apply_filters( 'hfe_before_footer_enabled', $status );
+}
+
+/**
  * Display footer markup.
  *
  * @since  1.0.2

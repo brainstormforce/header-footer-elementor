@@ -28,6 +28,8 @@ class Header_Footer_Elementor {
 	 */
 	function __construct() {
 
+		$hfe_compatibility_option = get_option( 'hfe_all_theme_support_option', '1' );
+
 		$this->template = get_template();
 
 		if ( defined( 'ELEMENTOR_VERSION' ) && is_callable( 'Elementor\Plugin::instance' ) ) {
@@ -53,6 +55,17 @@ class Header_Footer_Elementor {
 
 				require HFE_DIR . 'themes/oceanwp/class-hfe-oceanwp-compat.php';
 			} else {
+
+				add_action( 'admin_menu', array( $this, 'hfe_settings_page' ) );
+				add_action( 'admin_init', array( $this, 'hfe_save_setting_data' ) );
+				if ( '1' === $hfe_compatibility_option ) {
+					add_action( 'get_header', [ $this, 'override_header' ] );
+					add_action( 'get_footer', [ $this, 'override_footer' ] );
+					require HFE_DIR . 'themes/default/class-default-theme-compat.php';
+				} elseif ( '2' === $hfe_compatibility_option ) {
+					add_action( 'get_header', [ $this, 'option_override_header' ] );
+					require HFE_DIR . 'themes/global-theme-fallback/class-global-theme-compatibility.php';
+				}
 				add_action( 'init', array( $this, 'setup_unsupported_theme_notice' ) );
 			}
 
@@ -72,6 +85,101 @@ class Header_Footer_Elementor {
 			add_action( 'network_admin_notices', array( $this, 'elementor_not_available' ) );
 		}
 
+	}
+
+	/**
+	 * Function for overriding the header in the elmentor way.
+	 *
+	 * @since 1.0.16
+	 *
+	 * @return void
+	 */
+	public function override_header() {
+		require HFE_DIR . 'themes/default/hfe-header.php';
+		$templates   = [];
+		$templates[] = 'header.php';
+		// Avoid running wp_head hooks again
+		remove_all_actions( 'wp_head' );
+		ob_start();
+		locate_template( $templates, true );
+		ob_get_clean();
+	}
+
+	/**
+	 * Function for overriding the footer in the elmentor way.
+	 *
+	 * @since 1.0.16
+	 *
+	 * @return void
+	 */
+	public function override_footer() {
+		require HFE_DIR . 'themes/default/hfe-footer.php';
+		$templates   = [];
+		$templates[] = 'footer.php';
+		// Avoid running wp_head hooks again
+		remove_all_actions( 'wp_head' );
+		ob_start();
+		locate_template( $templates, true );
+		ob_get_clean();
+	}
+
+	/**
+	 * Function for overriding the header in the wp_body_open way.
+	 *
+	 * @since 1.0.16
+	 *
+	 * @return void
+	 */
+	public function option_override_header() {
+		$templates   = array();
+		$templates[] = 'header.php';
+		locate_template( $templates, true );
+		if ( ! did_action( 'wp_body_open' ) ) {
+			echo '<div class="force-stretched-header">';
+			do_action( 'hfe_fallback_header' );
+			echo '</div>';
+		}
+	}
+
+	/**
+	 * Show a settings page incase of unsupported theme.
+	 *
+	 * @since 1.0.16
+	 *
+	 * @return void
+	 */
+	public function hfe_settings_page() {
+		add_submenu_page(
+			'options-general.php',
+			'Header Footer Elementor',
+			'Header Footer Elementor',
+			'manage_options',
+			'hfe',
+			array( $this, 'hfe_settings_page_html' )
+		);
+	}
+	/**
+	 * Save the data from the settings page.
+	 *
+	 * @since 1.0.16
+	 *
+	 * @return void
+	 */
+	public function hfe_save_setting_data() {
+		if ( ! empty( $_POST['hfe_radio_button'] ) ) {
+						$hfe_radio = sanitize_text_field( wp_unslash( $_POST['hfe_radio_button'] ) );
+						update_option( 'hfe_all_theme_support_option', $hfe_radio );
+		}
+	}
+	/**
+	 * Settings page.
+	 *
+	 * Settings page markup in the file which is included.
+	 *
+	 * @since 1.0.0
+	 */
+	public function hfe_settings_page_html() {
+		require_once HFE_DIR . 'inc/hfe-settings-page.php';
 	}
 
 	/**
@@ -165,6 +273,15 @@ class Header_Footer_Elementor {
 				$css_file = new \Elementor\Post_CSS_File( get_hfe_footer_id() );
 			}
 
+			$css_file->enqueue();
+		}
+
+		if ( hfe_is_before_footer_enabled() ) {
+			if ( class_exists( '\Elementor\Core\Files\CSS\Post' ) ) {
+				$css_file = new \Elementor\Core\Files\CSS\Post( hfe_get_before_footer_id() );
+			} elseif ( class_exists( '\Elementor\Post_CSS_File' ) ) {
+				$css_file = new \Elementor\Post_CSS_File( hfe_get_before_footer_id() );
+			}
 			$css_file->enqueue();
 		}
 	}
