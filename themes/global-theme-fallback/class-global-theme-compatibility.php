@@ -9,7 +9,6 @@ namespace HFE\Themes;
 /**
  * Global theme compatibility.
  */
-
 class Global_Theme_Compatibility {
 	/**
 	 *  Initiator

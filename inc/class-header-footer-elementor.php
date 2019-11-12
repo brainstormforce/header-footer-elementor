@@ -59,11 +59,11 @@ class Header_Footer_Elementor {
 				add_action( 'admin_menu', array( $this, 'hfe_settings_page' ) );
 				add_action( 'admin_init', array( $this, 'hfe_save_setting_data' ) );
 				if ( '1' === $hfe_compatibility_option ) {
-					add_action( 'get_header', [ $this, 'override_header' ] );
-					add_action( 'get_footer', [ $this, 'override_footer' ] );
-					require HFE_DIR . 'themes/default/class-default-theme-compat.php';
+					add_action( 'get_header', array( $this, 'override_header' ) );
+					add_action( 'get_footer', array( $this, 'override_footer' ) );
+					require HFE_DIR . 'themes/default/class-hfe-default-compat.php';
 				} elseif ( '2' === $hfe_compatibility_option ) {
-					add_action( 'get_header', [ $this, 'option_override_header' ] );
+					add_action( 'get_header', array( $this, 'option_override_header' ) );
 					require HFE_DIR . 'themes/global-theme-fallback/class-global-theme-compatibility.php';
 				}
 				add_action( 'init', array( $this, 'setup_unsupported_theme_notice' ) );
@@ -96,9 +96,9 @@ class Header_Footer_Elementor {
 	 */
 	public function override_header() {
 		require HFE_DIR . 'themes/default/hfe-header.php';
-		$templates   = [];
+		$templates   = array();
 		$templates[] = 'header.php';
-		// Avoid running wp_head hooks again
+		// Avoid running wp_head hooks again.
 		remove_all_actions( 'wp_head' );
 		ob_start();
 		locate_template( $templates, true );
@@ -114,9 +114,9 @@ class Header_Footer_Elementor {
 	 */
 	public function override_footer() {
 		require HFE_DIR . 'themes/default/hfe-footer.php';
-		$templates   = [];
+		$templates   = array();
 		$templates[] = 'footer.php';
-		// Avoid running wp_head hooks again
+		// Avoid running wp_head hooks again.
 		remove_all_actions( 'wp_head' );
 		ob_start();
 		locate_template( $templates, true );
@@ -124,7 +124,7 @@ class Header_Footer_Elementor {
 	}
 
 	/**
-	 * Function for overriding the header in the wp_body_open way.
+	 * Function overriding the header in the wp_body_open way.
 	 *
 	 * @since 1.0.16
 	 *

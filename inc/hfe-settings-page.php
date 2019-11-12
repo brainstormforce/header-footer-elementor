@@ -11,7 +11,7 @@ wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'admin/assets/css/ehf-admin.css',
 <div class="hfe-settings-header">
 	<?php
 		echo '<h1 class="hfe_main_title">';
-		esc_attr_e( 'Elementor Header Footer', 'header-footer-elementor' );
+		esc_attr_e( 'Header Footer Elementor ', 'header-footer-elementor' );
 		echo '</h1>';
 	?>
 </div>

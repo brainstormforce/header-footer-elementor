@@ -4,10 +4,10 @@
  *
  * @package header-footer-elementor
  */
+
 /**
  * Astra theme compatibility.
  */
-
 class HFE_Default_Compat {
 	/**
 	 * Instance of HFE_Default_Compat.

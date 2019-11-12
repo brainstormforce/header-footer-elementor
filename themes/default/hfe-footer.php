@@ -1,5 +1,7 @@
 <?php
 /**
+ * Footer file in case of the elementor way
+ *
  * @package header-footer-elementor
  * @since x.x.x
  */
