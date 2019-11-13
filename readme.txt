@@ -41,6 +41,7 @@ The Header Footer Elementor isn’t universally compatible with all WordPress th
 5. OceanWP.
 6. Genesis.
 7. Phlox Theme.
+8. Attesa Theme.
 
 Do not see your theme listed here? Theme authors can add <a href="https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme">support for Header Footer Elementor through their theme</a> easily.
 
@@ -76,14 +77,6 @@ Made with love at <a href="https://www.brainstormforce.com/?utm_source=wp-repo&u
 1. After the layout is ready assign the layout as header or footer using the option `Select the type of template this is` (<a href="https://cloudup.com/clK2sPg9nXK+">screenshot</a>)
 
 == Frequently Asked Questions ==
-
-= Which themes are supported by this plugin? =
-
-1. <a href="https://wpastra.com/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description&bsf=162">Astra</a> - The Fastest, Most Lightweight &amp; Customizable WordPress Theme.
-2. GeneratePress Theme.
-3. Genesis Theme (and should work with most of its child themes).
-4. OceanWP Theme.
-5. Beaver Builder theme.
 
 If you are a theme developer <a href="https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme">here</a> is a quick tutorial on how you can add support for the Header Footer Elementor from your theme.
 
