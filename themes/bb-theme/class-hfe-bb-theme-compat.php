@@ -27,7 +27,7 @@ class HFE_BB_Theme_Compat {
 		if ( ! isset( self::$instance ) ) {
 			self::$instance = new HFE_BB_Theme_Compat();
 
-			add_action( 'wp', array( self::$instance, 'hooks' ) );
+			add_action( 'wp', [ self::$instance, 'hooks' ] );
 		}
 
 		return self::$instance;
@@ -40,16 +40,16 @@ class HFE_BB_Theme_Compat {
 
 		if ( hfe_header_enabled() ) {
 			add_filter( 'fl_header_enabled', '__return_false' );
-			add_action( 'fl_before_header', array( $this, 'get_header_content' ) );
+			add_action( 'fl_before_header', [ $this, 'get_header_content' ] );
 		}
 
 		if ( hfe_is_before_footer_enabled() ) {
-			add_action( 'fl_after_content', array( 'Header_Footer_Elementor', 'get_before_footer_content' ), 10 );
+			add_action( 'fl_after_content', [ 'Header_Footer_Elementor', 'get_before_footer_content' ], 10 );
 		}
 
 		if ( hfe_footer_enabled() ) {
 			add_filter( 'fl_footer_enabled', '__return_false' );
-			add_action( 'fl_after_content', array( $this, 'get_footer_content' ) );
+			add_action( 'fl_after_content', [ $this, 'get_footer_content' ] );
 		}
 
 	}
