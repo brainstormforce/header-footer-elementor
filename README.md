@@ -4,7 +4,7 @@
 **Donate link:** https://www.paypal.me/BrainstormForce  
 **Requires at least:** 4.4  
 **Requires PHP:** 5.4  
-**Tested up to:** 5.2  
+**Tested up to:** 5.3  
 **Stable tag:** 1.1.4  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
@@ -41,6 +41,7 @@ The Header Footer Elementor isn’t universally compatible with all WordPress th
 5. OceanWP.
 6. Genesis.
 7. Phlox Theme.
+8. Attesa Theme.
 
 Do not see your theme listed here? Theme authors can add <a href="https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme">support for Header Footer Elementor through their theme</a> easily.
 
@@ -61,7 +62,7 @@ Powering over 400,000+ WordPress websites, Astra is loved for the performance an
 
 **Deeper Integrations** - Astra works seamlessly with all WooCommerce plugins, LifterLMS, LearnDash, etc. Therefore, you can now build online stores or websites offering online courses with Astra and Elementor!
 
-**Ready-to-use complete website demos** - Astra offers free ready-made website demos built with Elementor. You can import them using the <a href="https://wordpress.org/plugins/astra-sites/">Astra Starter Sites</a> plugin, tweak them as you want and go live in minutes!
+**Ready-to-use complete website demos** - Astra offers free ready-made website demos built with Elementor. You can choose any of the <a href="https://wpastra.com/elementor-templates-free-downloads/">Elementor Templates</a>, tweak them as you want and go live in minutes!
 
 ### SUPPORTED & ACTIVELY DEVELOPED ###
 Need help with something? Have an issue to report? [Get in touch](https://github.com/Nikschavan/header-footer-elementor "Header Footer elementor on GitHub"). with us on GitHub.
@@ -76,14 +77,6 @@ Made with love at <a href="https://www.brainstormforce.com/?utm_source=wp-repo&u
 1. After the layout is ready assign the layout as header or footer using the option `Select the type of template this is` (<a href="https://cloudup.com/clK2sPg9nXK+">screenshot</a>)
 
 ## Frequently Asked Questions ##
-
-### Which themes are supported by this plugin? ###
-
-1. <a href="https://wpastra.com/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description&bsf=162">Astra</a> - The Fastest, Most Lightweight &amp; Customizable WordPress Theme.
-2. GeneratePress Theme.
-3. Genesis Theme (and should work with most of its child themes).
-4. OceanWP Theme.
-5. Beaver Builder theme.
 
 If you are a theme developer <a href="https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme">here</a> is a quick tutorial on how you can add support for the Header Footer Elementor from your theme.
 
