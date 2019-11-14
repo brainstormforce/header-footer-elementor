@@ -333,7 +333,7 @@ class Astra_Target_Rules_Fields {
 
 			add_filter( 'posts_search', array( $this, 'search_only_titles' ), 10, 2 );
 
-			$query = new WP_Query(
+			$query = new \WP_Query(
 				array(
 					's'              => $search_string,
 					'post_type'      => $post_type,
