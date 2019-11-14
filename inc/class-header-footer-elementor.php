@@ -91,7 +91,7 @@ class Header_Footer_Elementor {
 			add_shortcode( 'hfe_template', array( $this, 'render_template' ) );
 
 			add_action( 'admin_notices', array( $this, 'register_notices' ) );
-
+			add_action( 'astra_notice_before_markup_header-footer-elementor-rating', array( $this, 'rating_notice_css' ) );
 		} else {
 
 			add_action( 'admin_notices', array( $this, 'elementor_not_available' ) );
@@ -162,6 +162,16 @@ class Header_Footer_Elementor {
 				'display-with-other-notices' => false,
 			)
 		);
+	}
+
+	/**
+	 * Enqueue CSS for the Rating Notice.
+	 *
+	 * @since x.x.x
+	 * @return void
+	 */
+	public function rating_notice_css() {
+		wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'assets/css/admin-header-footer-elementor.css', array(), HFE_VER );
 	}
 
 	/**
