@@ -6,6 +6,7 @@
  */
 
 namespace HFE\Themes;
+
 /**
  * Astra theme compatibility.
  */

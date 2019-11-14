@@ -6,6 +6,7 @@
  */
 
 namespace HFE\Themes;
+
 /**
  * Global theme compatibility.
  */
