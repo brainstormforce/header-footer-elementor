@@ -43,6 +43,10 @@ class HFE_Genesis_Compat {
 			add_action( 'genesis_header', array( 'Header_Footer_Elementor', 'get_header_content' ), 16 );
 		}
 
+		if ( hfe_is_before_footer_enabled() ) {
+			add_action( 'genesis_footer', array( 'Header_Footer_Elementor', 'get_before_footer_content' ), 16 );
+		}
+
 		if ( hfe_footer_enabled() ) {
 			add_action( 'template_redirect', array( $this, 'genesis_setup_footer' ) );
 			add_action( 'genesis_footer', array( $this, 'genesis_footer_markup_open' ), 16 );

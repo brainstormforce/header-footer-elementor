@@ -249,6 +249,16 @@ class Header_Footer_Elementor {
 
 			$css_file->enqueue();
 		}
+
+		if ( hfe_is_before_footer_enabled() ) {
+			if ( class_exists( '\Elementor\Core\Files\CSS\Post' ) ) {
+				$css_file = new \Elementor\Core\Files\CSS\Post( hfe_get_before_footer_id() );
+			} elseif ( class_exists( '\Elementor\Post_CSS_File' ) ) {
+				$css_file = new \Elementor\Post_CSS_File( hfe_get_before_footer_id() );
+			}
+
+			$css_file->enqueue();
+		}
 	}
 
 	/**
