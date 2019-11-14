@@ -10,12 +10,14 @@ namespace HFE\Themes;
  * Global theme compatibility.
  */
 class Global_Theme_Compatibility {
+
 	/**
 	 *  Initiator
 	 */
 	public function __construct() {
 		add_action( 'wp', array( $this, 'hooks' ) );
 	}
+
 	/**
 	 * Run all the Actions / Filters.
 	 */
@@ -67,7 +69,7 @@ class Global_Theme_Compatibility {
 	/**
 	 * Function overriding the header in the wp_body_open way.
 	 *
-	 * @since 1.0.16
+	 * @since x.x.x
 	 *
 	 * @return void
 	 */

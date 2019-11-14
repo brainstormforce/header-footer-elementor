@@ -54,7 +54,7 @@ class HFE_Fallback_Theme_Support {
 	/**
 	 * Show a settings page incase of unsupported theme.
 	 *
-	 * @since 1.0.16
+	 * @since x.x.x
 	 *
 	 * @return void
 	 */
@@ -74,7 +74,7 @@ class HFE_Fallback_Theme_Support {
 	 *
 	 * Settings page markup in the file which is included.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 */
 	public function hfe_settings_page_html() {
 		require_once HFE_DIR . 'inc/hfe-settings-page.php';
@@ -83,7 +83,7 @@ class HFE_Fallback_Theme_Support {
 	/**
 	 * Save the data from the settings page.
 	 *
-	 * @since 1.0.16
+	 * @since x.x.x
 	 *
 	 * @return void
 	 */

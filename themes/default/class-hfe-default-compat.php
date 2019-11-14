@@ -57,7 +57,7 @@ class HFE_Default_Compat {
 	/**
 	 * Function for overriding the header in the elmentor way.
 	 *
-	 * @since 1.0.16
+	 * @since x.x.x
 	 *
 	 * @return void
 	 */
@@ -75,7 +75,7 @@ class HFE_Default_Compat {
 	/**
 	 * Function for overriding the footer in the elmentor way.
 	 *
-	 * @since 1.0.16
+	 * @since x.x.x
 	 *
 	 * @return void
 	 */
