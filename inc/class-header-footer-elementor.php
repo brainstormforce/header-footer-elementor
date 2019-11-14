@@ -190,10 +190,13 @@ class Header_Footer_Elementor {
 	 * @return void
 	 */
 	public function hfe_save_setting_data() {
-		if ( ! empty( $_POST['hfe_radio_button'] ) ) {
-						$hfe_radio = sanitize_text_field( wp_unslash( $_POST['hfe_radio_button'] ) );
-						update_option( 'hfe_all_theme_support_option', $hfe_radio );
+		// bail if our option is not set.
+		if ( empty( $_POST['hfe_radio_button'] ) ) {
+			return;
 		}
+
+		$hfe_radio = sanitize_text_field( wp_unslash( $_POST['hfe_radio_button'] ) );
+		update_option( 'hfe_all_theme_support_option', $hfe_radio );
 	}
 	/**
 	 * Settings page.
