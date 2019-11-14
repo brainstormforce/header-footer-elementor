@@ -35,6 +35,33 @@ class Global_Theme_Compatibility {
 		if ( hfe_footer_enabled() ) {
 			add_action( 'wp_footer', array( 'Header_Footer_Elementor', 'get_footer_content' ), 50 );
 		}
+
+		if ( hfe_header_enabled() || hfe_footer_enabled() ) {
+			add_action( 'wp_enqueue_scripts', [ $this, 'force_fullwidth' ] );
+		}
+	}
+
+	/**
+	 * Force full width CSS for the header.
+	 *
+	 * @since x.x.x
+	 * @return void
+	 */
+	public function force_fullwidth() {
+		$css = '
+		.force-stretched-header {
+			width: 100vw;
+			position: relative;
+			margin-left: -50vw;
+			left: 50%;
+		}
+		
+		header#masthead,
+		footer#colophon {
+			display: none;
+		}';
+
+		wp_add_inline_style( 'hfe-style', $css );
 	}
 
 	/**
