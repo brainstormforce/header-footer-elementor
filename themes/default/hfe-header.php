@@ -3,7 +3,7 @@
  * Header file in case of the elementor way
  *
  * @package header-footer-elementor
- * @since 1.0
+ * @since x.x.x
  */
 
 ?><!DOCTYPE html>
