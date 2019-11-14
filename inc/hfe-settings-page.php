@@ -6,7 +6,7 @@
  */
 
 $hfe_radio_button = get_option( 'hfe_all_theme_support_option', '1' );
-wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'admin/assets/css/ehf-admin.css', array(), HFE_VER );
+wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'admin/assets/css/ehf-admin.css', [], HFE_VER );
 ?>
 <div class="hfe-settings-header">
 	<?php

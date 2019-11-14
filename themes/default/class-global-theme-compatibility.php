@@ -15,7 +15,7 @@ class Global_Theme_Compatibility {
 	 *  Initiator
 	 */
 	public function __construct() {
-		add_action( 'wp', array( $this, 'hooks' ) );
+		add_action( 'wp', [ $this, 'hooks' ] );
 	}
 
 	/**
@@ -24,18 +24,18 @@ class Global_Theme_Compatibility {
 	public function hooks() {
 		if ( hfe_header_enabled() ) {
 			// Replace header.php.
-			add_action( 'get_header', array( $this, 'option_override_header' ) );
+			add_action( 'get_header', [ $this, 'option_override_header' ] );
 
-			add_action( 'wp_body_open', array( 'Header_Footer_Elementor', 'get_header_content' ) );
-			add_action( 'hfe_fallback_header', array( 'Header_Footer_Elementor', 'get_header_content' ) );
+			add_action( 'wp_body_open', [ 'Header_Footer_Elementor', 'get_header_content' ] );
+			add_action( 'hfe_fallback_header', [ 'Header_Footer_Elementor', 'get_header_content' ] );
 		}
 
 		if ( hfe_is_before_footer_enabled() ) {
-			add_action( 'wp_footer', array( 'Header_Footer_Elementor', 'get_before_footer_content' ), 20 );
+			add_action( 'wp_footer', [ 'Header_Footer_Elementor', 'get_before_footer_content' ], 20 );
 		}
 
 		if ( hfe_footer_enabled() ) {
-			add_action( 'wp_footer', array( 'Header_Footer_Elementor', 'get_footer_content' ), 50 );
+			add_action( 'wp_footer', [ 'Header_Footer_Elementor', 'get_footer_content' ], 50 );
 		}
 
 		if ( hfe_header_enabled() || hfe_footer_enabled() ) {
@@ -74,7 +74,7 @@ class Global_Theme_Compatibility {
 	 * @return void
 	 */
 	public function option_override_header() {
-		$templates   = array();
+		$templates   = [];
 		$templates[] = 'header.php';
 		locate_template( $templates, true );
 

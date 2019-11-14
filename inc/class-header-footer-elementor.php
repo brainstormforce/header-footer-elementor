@@ -90,7 +90,7 @@ class Header_Footer_Elementor {
 
 			add_shortcode( 'hfe_template', [ $this, 'render_template' ] );
 
-			add_action( 'astra_notice_before_markup_header-footer-elementor-rating', array( $this, 'rating_notice_css' ) );
+			add_action( 'astra_notice_before_markup_header-footer-elementor-rating', [ $this, 'rating_notice_css' ] );
 			add_action( 'admin_notices', [ $this, 'register_notices' ] );
 
 		} else {
@@ -172,7 +172,7 @@ class Header_Footer_Elementor {
 	 * @return void
 	 */
 	public function rating_notice_css() {
-		wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'assets/css/admin-header-footer-elementor.css', array(), HFE_VER );
+		wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'assets/css/admin-header-footer-elementor.css', [], HFE_VER );
 	}
 
 	/**

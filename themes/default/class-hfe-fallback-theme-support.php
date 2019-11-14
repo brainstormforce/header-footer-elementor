@@ -31,8 +31,8 @@ class HFE_Fallback_Theme_Support {
 	public function __construct() {
 		$this->setup_fallback_support();
 
-		add_action( 'admin_menu', array( $this, 'hfe_settings_page' ) );
-		add_action( 'admin_init', array( $this, 'hfe_save_setting_data' ) );
+		add_action( 'admin_menu', [ $this, 'hfe_settings_page' ] );
+		add_action( 'admin_init', [ $this, 'hfe_save_setting_data' ] );
 	}
 
 	/**
