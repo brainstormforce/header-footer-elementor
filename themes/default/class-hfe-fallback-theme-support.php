@@ -8,6 +8,7 @@
  * @package hfe
  */
 
+namespace HFE\Themes;
 /**
  * Class HFE Theme Fallback support.
  *
