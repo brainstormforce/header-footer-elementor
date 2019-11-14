@@ -2,12 +2,13 @@
 <ruleset name="WordPress Coding Standards for Plugins">
 	<description>Generally-applicable sniffs for WordPress plugins</description>
 
-	<rule ref="PHPCompatibility"/>
+	<rule ref="PHPCompatibilityWP"/>
 	<config name="testVersion" value="5.4-"/>
 
 	<rule ref="WordPress-Core" >
 		<exclude name="WordPress.PHP.StrictComparisons.LooseComparison" />
 		<exclude name="WordPress.PHP.StrictInArray.MissingTrueStrict" />
+		<exclude name="Generic.Arrays.DisallowShortArraySyntax.Found" />
 	</rule>
 	<rule ref="WordPress-Docs" />
 
