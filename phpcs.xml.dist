@@ -12,6 +12,10 @@
 	</rule>
 	<rule ref="WordPress-Docs" />
 
+	<rule ref="Generic.Arrays.DisallowLongArraySyntax.Found">
+		<type>warning</type>
+	</rule>
+
 	<!-- Check all PHP files in directory tree by default. -->
 	<arg name="extensions" value="php"/>
 	<file>.</file>
@@ -21,5 +25,5 @@
 
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
-	<exclude-pattern>*/inc/lib/target-rule/*</exclude-pattern>
+	<exclude-pattern>*/inc/lib/**</exclude-pattern>
 </ruleset>

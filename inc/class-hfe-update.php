@@ -39,9 +39,9 @@ if ( ! class_exists( 'HFE_Update' ) ) {
 
 			// Theme Updates.
 			if ( is_admin() ) {
-				add_action( 'admin_init', array( $this, 'init' ), 5 );
+				add_action( 'admin_init', [ $this, 'init' ], 5 );
 			} else {
-				add_action( 'wp', array( $this, 'init' ), 5 );
+				add_action( 'wp', [ $this, 'init' ], 5 );
 			}
 		}
 
