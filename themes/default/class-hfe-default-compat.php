@@ -12,20 +12,9 @@ namespace HFE\Themes;
 class HFE_Default_Compat {
 
 	/**
-	 * Instance of Elementor Frontend class.
-	 *
-	 * @var \Elementor\Frontend()
-	 */
-	private static $elementor_instance;
-
-	/**
 	 *  Initiator
 	 */
 	public function __construct() {
-		if ( defined( 'ELEMENTOR_VERSION' ) && is_callable( 'Elementor\Plugin::instance' ) ) {
-			self::$elementor_instance = Elementor\Plugin::instance();
-		}
-
 		add_action( 'wp', [ $this, 'hooks' ] );
 	}
 
