@@ -46,7 +46,7 @@ class HFE_Fallback_Theme_Support {
 		if ( '1' === $hfe_compatibility_option ) {
 			require HFE_DIR . 'themes/default/class-hfe-default-compat.php';
 		} elseif ( '2' === $hfe_compatibility_option ) {
-			require HFE_DIR . 'themes/global-theme-fallback/class-global-theme-compatibility.php';
+			require HFE_DIR . 'themes/default/class-global-theme-compatibility.php';
 		}
 	}
 
