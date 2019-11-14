@@ -37,7 +37,7 @@ class HFE_Default_Compat {
 		}
 		return self::$instance;
 	}
-	
+
 	/**
 	 * Run all the Actions / Filters.
 	 */
