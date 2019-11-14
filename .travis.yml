@@ -10,12 +10,11 @@ notifications:
   slack: bsf-bots:RDGCoMDDxnlCvnUfvhq8pQ36
 
 cache:
-  - composer
   - $HOME/.composer/cache
 
 matrix:
   include:
-    - php: 7.0
+    - php: 7.3
       env: WP_TRAVISCI=phpcs
 
 before_script:
@@ -29,3 +28,5 @@ script:
     if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
       vendor/bin/phpcs
     fi
+  - if find . -name "*.php" ! -path "./vendor/*" ! -path "./admin/bsf-core/*" -exec php -l {} \; | grep "Errors parsing"; then exit 1; fi
+  

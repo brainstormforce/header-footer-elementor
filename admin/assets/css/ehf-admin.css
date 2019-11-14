@@ -52,8 +52,8 @@ input.hfe-large-text{
     color: #333;
 }
 
-.hfe-options-table #ehf_template_type {
-    width: 80%;
+.hfe-options-row-content select {
+    width: 95%;
 }
 
 .hfe-options-row-heading-help{

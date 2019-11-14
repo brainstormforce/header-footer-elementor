@@ -12,7 +12,7 @@
  * @package         header-footer-elementor
  */
 
-define( 'HFE_VER', '1.1.4' );
+define( 'HFE_VER', '1.2.0-beta.1' );
 define( 'HFE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'HFE_URL', plugins_url( '/', __FILE__ ) );
 define( 'HFE_PATH', plugin_basename( __FILE__ ) );
@@ -26,7 +26,7 @@ require_once HFE_DIR . '/inc/class-header-footer-elementor.php';
  * Load the Plugin Class.
  */
 function hfe_init() {
-	new Header_Footer_Elementor();
+	Header_Footer_Elementor::instance();
 }
 
 add_action( 'plugins_loaded', 'hfe_init' );
