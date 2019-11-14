@@ -22,6 +22,7 @@ phpcs.xml
 phpcs.xml.dist
 README.md
 wp-cli.local.yml
+yarn.lock
 tests
 vendor
 node_modules
@@ -29,3 +30,5 @@ node_modules
 *.tar.gz
 *.zip
 package-lock.json
+.github
+.wordpress-org
