@@ -25,7 +25,7 @@ class HFE_OceanWP_Compat {
 		if ( ! isset( self::$instance ) ) {
 			self::$instance = new HFE_OceanWP_Compat();
 
-			add_action( 'wp', array( self::$instance, 'hooks' ) );
+			add_action( 'wp', [ self::$instance, 'hooks' ] );
 		}
 
 		return self::$instance;
@@ -37,16 +37,16 @@ class HFE_OceanWP_Compat {
 	public function hooks() {
 
 		if ( hfe_header_enabled() ) {
-			add_action( 'template_redirect', array( $this, 'setup_header' ), 10 );
+			add_action( 'template_redirect', [ $this, 'setup_header' ], 10 );
 			add_action( 'ocean_header', 'hfe_render_header' );
 		}
 
 		if ( hfe_is_before_footer_enabled() ) {
-			add_action( 'ocean_footer', array( 'Header_Footer_Elementor', 'get_before_footer_content' ), 5 );
+			add_action( 'ocean_footer', [ 'Header_Footer_Elementor', 'get_before_footer_content' ], 5 );
 		}
 
 		if ( hfe_footer_enabled() ) {
-			add_action( 'template_redirect', array( $this, 'setup_footer' ), 10 );
+			add_action( 'template_redirect', [ $this, 'setup_footer' ], 10 );
 			add_action( 'ocean_footer', 'hfe_render_footer' );
 		}
 
