@@ -17,13 +17,6 @@ namespace HFE\Themes;
 class HFE_Fallback_Theme_Support {
 
 	/**
-	 * Fallback Support.
-	 *
-	 * @since x.x.x
-	 */
-	const FALLBACK_SUPPORT = true;
-
-	/**
 	 * Constructor.
 	 *
 	 * @since x.x.x
