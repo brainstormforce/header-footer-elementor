@@ -65,23 +65,25 @@ input.hfe-large-text{
 
 .hfe_radio_options {
     display: inline-block;
-    font-weight: bold;
 }
 
-.hfe-table td{
-    padding-top: 34px;
+li#toplevel_page_Settings-page {
+    display: none;
 }
 
-.hfe-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    box-sizing: border-box;
+.wp-admin #adminmenu .wp-submenu a[href="themes.php?page=Settings-page"] {
+    display:none;
 }
-.hfe-settings-header {
-    background-color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 0 #efefef, 0 2px 2px #ececec;
-}   } 
+
+.appearance_page_Settings-page #adminmenu .wp-submenu a[href ="edit.php?post_type=elementor-hf" ] {
+    color: white;
+    font-weight: 600;
+}
+
+.hfe-heading-inline{
+    font-size: 23px;
+    font-weight: 400;
+    margin: 0;
+    padding: 9px 0 4px 0;
+    line-height: 1.3;
+}

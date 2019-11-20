@@ -74,7 +74,7 @@ class Astra_Target_Rules_Fields {
 	 */
 	public static function get_instance() {
 		if ( ! isset( self::$instance ) ) {
-			self::$instance = new self;
+			self::$instance = new self();
 		}
 
 		return self::$instance;
@@ -110,7 +110,6 @@ class Astra_Target_Rules_Fields {
 	 * @return array
 	 */
 	public static function get_location_selections() {
-
 		$args = array(
 			'public'   => true,
 			'_builtin' => true,
@@ -168,15 +167,11 @@ class Astra_Target_Rules_Fields {
 				}
 
 				foreach ( $post_types as $post_type ) {
-
 					$post_opt = self::get_post_target_rule_options( $post_type, $taxonomy );
 
 					if ( isset( $selection_options[ $post_opt['post_key'] ] ) ) {
-
 						if ( ! empty( $post_opt['value'] ) && is_array( $post_opt['value'] ) ) {
-
 							foreach ( $post_opt['value'] as $key => $value ) {
-
 								if ( ! in_array( $value, $selection_options[ $post_opt['post_key'] ]['value'] ) ) {
 									$selection_options[ $post_opt['post_key'] ]['value'][ $key ] = $value;
 								}
@@ -204,7 +199,7 @@ class Astra_Target_Rules_Fields {
 		 *
 		 * @since 1.5.0
 		 */
-		return  apply_filters( 'astra_display_on_list', $selection_options );
+		return apply_filters( 'astra_display_on_list', $selection_options );
 	}
 
 	/**
@@ -310,7 +305,6 @@ class Astra_Target_Rules_Fields {
 	 * @since  1.0.0
 	 */
 	function astra_get_posts_by_query() {
-
 		$search_string = isset( $_POST['q'] ) ? sanitize_text_field( $_POST['q'] ) : '';
 		$data          = array();
 		$result        = array();
@@ -328,7 +322,6 @@ class Astra_Target_Rules_Fields {
 		$post_types['Pages'] = 'page';
 
 		foreach ( $post_types as $key => $post_type ) {
-
 			$data = array();
 
 			add_filter( 'posts_search', array( $this, 'search_only_titles' ), 10, 2 );
@@ -389,9 +382,7 @@ class Astra_Target_Rules_Fields {
 			$label = ucwords( $taxonomy->label );
 
 			if ( ! empty( $terms ) ) {
-
 				foreach ( $terms as $term ) {
-
 					$term_taxonomy_name = ucfirst( str_replace( '_', ' ', $taxonomy->name ) );
 
 					$data[] = array(
@@ -403,7 +394,6 @@ class Astra_Target_Rules_Fields {
 						'id'   => 'tax-' . $term->term_id . '-single-' . $taxonomy->name,
 						'text' => 'All singulars from ' . $term->name,
 					);
-
 				}
 			}
 
@@ -456,13 +446,11 @@ class Astra_Target_Rules_Fields {
 	 * Function Description: admin_styles.
 	 */
 	public function admin_styles() {
-
 		wp_enqueue_script( 'astra-select2', AST_TARGET_RULE_URI . 'select2.js', array( 'jquery' ), AST_TARGET_RULE_VER, true );
 
 		$wp_lang  = get_locale();
 		$ast_lang = '';
 		if ( '' !== $wp_lang ) {
-
 			$select2_lang = array(
 				''               => 'en',
 				'hi_IN'          => 'hi',
@@ -579,7 +567,6 @@ class Astra_Target_Rules_Fields {
 			);
 
 			if ( isset( $select2_lang[ $wp_lang ] ) && file_exists( AST_TARGET_RULE_DIR . 'i18n/' . $select2_lang[ $wp_lang ] . '.js' ) ) {
-
 				$ast_lang = $select2_lang[ $wp_lang ];
 				wp_enqueue_script(
 					'astra-select2-lang',
@@ -677,7 +664,6 @@ class Astra_Target_Rules_Fields {
 		$output .= '<option value="">' . __( 'Select', 'astra-addon' ) . '</option>';
 
 		foreach ( $selection_options as $group => $group_data ) {
-
 			$output .= '<optgroup label="' . $group_data['label'] . '">';
 			foreach ( $group_data['value'] as $opt_key => $opt_value ) {
 				$output .= '<option value="' . $opt_key . '">' . $opt_value . '</option>';
@@ -719,7 +705,6 @@ class Astra_Target_Rules_Fields {
 	 * @param object $taxonomy taxonomy for creating the target rule markup.
 	 */
 	public static function get_post_target_rule_options( $post_type, $taxonomy ) {
-
 		$post_key    = str_replace( ' ', '-', strtolower( $post_type->label ) );
 		$post_label  = ucwords( $post_type->label );
 		$post_name   = $post_type->name;
@@ -765,7 +750,6 @@ class Astra_Target_Rules_Fields {
 	 * @return HTML Markup for for the location settings.
 	 */
 	public static function generate_target_rule_selector( $type, $selection_options, $input_name, $saved_values, $add_rule_label ) {
-
 		$output = '<div class="target_rule-builder-wrap">';
 
 		if ( ! is_array( $saved_values ) || ( is_array( $saved_values ) && empty( $saved_values ) ) ) {
@@ -777,7 +761,6 @@ class Astra_Target_Rules_Fields {
 		$index = 0;
 
 		foreach ( $saved_values['rule'] as $index => $data ) {
-
 			$output .= '<div class="astra-target-rule-condition ast-target-rule-' . $index . '" data-rule="' . $index . '" >';
 			/* Condition Selection */
 			$output .= '<span class="target_rule-condition-delete dashicons dashicons-dismiss"></span>';
@@ -786,7 +769,6 @@ class Astra_Target_Rules_Fields {
 			$output .= '<option value="">' . __( 'Select', 'astra-addon' ) . '</option>';
 
 			foreach ( $selection_options as $group => $group_data ) {
-
 				$output .= '<optgroup label="' . $group_data['label'] . '">';
 				foreach ( $group_data['value'] as $opt_key => $opt_value ) {
 
@@ -811,7 +793,6 @@ class Astra_Target_Rules_Fields {
 			$output .= '<select name="' . esc_attr( $input_name ) . '[specific][]" class="target-rule-select2 target_rule-specific-page form-control ast-input " multiple="multiple">';
 
 			if ( 'specifics' == $data && isset( $saved_values['specific'] ) && null != $saved_values['specific'] && is_array( $saved_values['specific'] ) ) {
-
 				foreach ( $saved_values['specific'] as $data_key => $sel_value ) {
 					// posts.
 					if ( strpos( $sel_value, 'post-' ) !== false ) {
@@ -822,7 +803,6 @@ class Astra_Target_Rules_Fields {
 
 					// taxonomy options.
 					if ( strpos( $sel_value, 'tax-' ) !== false ) {
-
 						$tax_data = explode( '-', $sel_value );
 
 						$tax_id    = (int) str_replace( 'tax-', '', $sel_value );
@@ -911,13 +891,11 @@ class Astra_Target_Rules_Fields {
 	 * @return boolean      Returns true or false depending on if the $rules match for the current page and the layout is to be displayed.
 	 */
 	public function parse_layout_display_condition( $post_id, $rules ) {
-
 		$display           = false;
 		$current_post_type = get_post_type( $post_id );
 
 		if ( isset( $rules['rule'] ) && is_array( $rules['rule'] ) && ! empty( $rules['rule'] ) ) {
 			foreach ( $rules['rule'] as $key => $rule ) {
-
 				if ( strrpos( $rule, 'all' ) !== false ) {
 					$rule_case = 'all';
 				} else {
@@ -990,23 +968,18 @@ class Astra_Target_Rules_Fields {
 						$archieve_type = isset( $rule_data[2] ) ? $rule_data[2] : false;
 						$taxonomy      = isset( $rule_data[3] ) ? $rule_data[3] : false;
 						if ( false === $archieve_type ) {
-
 							$current_post_type = get_post_type( $post_id );
 
 							if ( false !== $post_id && $current_post_type == $post_type ) {
-
 								$display = true;
 							}
 						} else {
-
 							if ( is_archive() ) {
-
 								$current_post_type = get_post_type();
 								if ( $current_post_type == $post_type ) {
 									if ( 'archive' == $archieve_type ) {
 										$display = true;
 									} elseif ( 'taxarchive' == $archieve_type ) {
-
 										$obj              = get_queried_object();
 										$current_taxonomy = '';
 										if ( '' !== $obj && null !== $obj ) {
@@ -1025,7 +998,6 @@ class Astra_Target_Rules_Fields {
 					case 'specifics':
 						if ( isset( $rules['specific'] ) && is_array( $rules['specific'] ) ) {
 							foreach ( $rules['specific'] as $specific_page ) {
-
 								$specific_data = explode( '-', $specific_page );
 
 								$specific_post_type = isset( $specific_data[0] ) ? $specific_data[0] : false;
@@ -1035,7 +1007,6 @@ class Astra_Target_Rules_Fields {
 										$display = true;
 									}
 								} elseif ( isset( $specific_data[2] ) && ( 'single' == $specific_data[2] ) && 'tax' == $specific_post_type ) {
-
 									if ( is_singular() ) {
 										$term_details = get_term( $specific_post_id );
 
@@ -1102,7 +1073,6 @@ class Astra_Target_Rules_Fields {
 					$output .= '<option value="">' . __( 'Select', 'astra-addon' ) . '</option>';
 
 		foreach ( $selection_options as $group => $group_data ) {
-
 			$output .= '<optgroup label="' . $group_data['label'] . '">';
 			foreach ( $group_data['value'] as $opt_key => $opt_value ) {
 				$output .= '<option value="' . $opt_key . '">' . $opt_value . '</option>';
@@ -1115,7 +1085,6 @@ class Astra_Target_Rules_Fields {
 		$output             .= '</script>';
 
 		if ( ! is_array( $saved_values ) || ( is_array( $saved_values ) && empty( $saved_values ) ) ) {
-
 			$saved_values    = array();
 			$saved_values[0] = '';
 		}
@@ -1134,10 +1103,8 @@ class Astra_Target_Rules_Fields {
 					$output .= '<option value="">' . __( 'Select', 'astra-addon' ) . '</option>';
 
 			foreach ( $selection_options as $group => $group_data ) {
-
 				$output .= '<optgroup label="' . $group_data['label'] . '">';
 				foreach ( $group_data['value'] as $opt_key => $opt_value ) {
-
 					$output .= '<option value="' . $opt_key . '" ' . selected( $data, $opt_key, false ) . '>' . $opt_value . '</option>';
 				}
 				$output .= '</optgroup>';
@@ -1167,14 +1134,12 @@ class Astra_Target_Rules_Fields {
 	 * @return boolean  True = user condition passes. False = User condition does not pass.
 	 */
 	public function parse_user_role_condition( $post_id, $rules ) {
-
 		$show_popup = true;
 
 		if ( is_array( $rules ) && ! empty( $rules ) ) {
 			$show_popup = false;
 
 			foreach ( $rules as $i => $rule ) {
-
 				switch ( $rule ) {
 					case '':
 					case 'all':
@@ -1195,14 +1160,12 @@ class Astra_Target_Rules_Fields {
 
 					default:
 						if ( is_user_logged_in() ) {
-
 							$current_user = wp_get_current_user();
 
 							if ( isset( $current_user->roles )
 									&& is_array( $current_user->roles )
 									&& in_array( $rule, $current_user->roles )
 								) {
-
 								$show_popup = true;
 							}
 						}
@@ -1226,9 +1189,7 @@ class Astra_Target_Rules_Fields {
 	 * @return string Page Type.
 	 */
 	public function get_current_page_type() {
-
 		if ( null === self::$current_page_type ) {
-
 			$page_type  = '';
 			$current_id = false;
 
@@ -1277,7 +1238,6 @@ class Astra_Target_Rules_Fields {
 	 * @return object  Posts.
 	 */
 	public function get_posts_by_conditions( $post_type, $option ) {
-
 		global $wpdb;
 		global $post;
 
@@ -1296,7 +1256,6 @@ class Astra_Target_Rules_Fields {
 
 		/* Meta option is enabled */
 		if ( false === $meta_header ) {
-
 			$current_post_type = esc_sql( get_post_type() );
 			$current_post_id   = false;
 			$q_obj             = get_queried_object();
@@ -1329,7 +1288,6 @@ class Astra_Target_Rules_Fields {
 					$meta_args .= " OR pm.meta_value LIKE '%\"{$current_post_type}|all|archive\"%'";
 
 					if ( 'is_tax' == $current_page_type && ( is_category() || is_tag() || is_tax() ) ) {
-
 						if ( is_object( $q_obj ) ) {
 							$meta_args .= " OR pm.meta_value LIKE '%\"{$current_post_type}|all|taxarchive|{$q_obj->taxonomy}\"%'";
 							$meta_args .= " OR pm.meta_value LIKE '%\"tax-{$q_obj->term_id}\"%'";
@@ -1404,12 +1362,10 @@ class Astra_Target_Rules_Fields {
 	 * @param  array  $option meta option name.
 	 */
 	public function remove_exclusion_rule_posts( $post_type, $option ) {
-
 		$exclusion       = isset( $option['exclusion'] ) ? $option['exclusion'] : '';
 		$current_post_id = isset( $option['current_post_id'] ) ? $option['current_post_id'] : false;
 
 		foreach ( self::$current_page_data[ $post_type ] as $c_post_id => $c_data ) {
-
 			$exclusion_rules = get_post_meta( $c_post_id, $exclusion, true );
 			$is_exclude      = $this->parse_layout_display_condition( $current_post_id, $exclusion_rules );
 
@@ -1427,12 +1383,10 @@ class Astra_Target_Rules_Fields {
 	 * @param  array $option meta option name.
 	 */
 	public function remove_user_rule_posts( $post_type, $option ) {
-
 		$users           = isset( $option['users'] ) ? $option['users'] : '';
 		$current_post_id = isset( $option['current_post_id'] ) ? $option['current_post_id'] : false;
 
 		foreach ( self::$current_page_data[ $post_type ] as $c_post_id => $c_data ) {
-
 			$user_rules = get_post_meta( $c_post_id, $users, true );
 			$is_user    = $this->parse_user_role_condition( $current_post_id, $user_rules );
 
@@ -1449,7 +1403,7 @@ class Astra_Target_Rules_Fields {
 	 * @param  int   $post_type Post Type.
 	 * @param  array $option meta option name.
 	 */
-	static public function same_display_on_notice( $post_type, $option ) {
+	public static function same_display_on_notice( $post_type, $option ) {
 		global $wpdb;
 		global $post;
 
@@ -1471,21 +1425,16 @@ class Astra_Target_Rules_Fields {
 		);
 
 		foreach ( $all_headers as $header ) {
-
 			$location_rules = unserialize( $header->meta_value );
 
 			if ( is_array( $location_rules ) && isset( $location_rules['rule'] ) ) {
-
 				foreach ( $location_rules['rule'] as $key => $rule ) {
-
 					if ( ! isset( $all_rules[ $rule ] ) ) {
 						$all_rules[ $rule ] = array();
 					}
 
 					if ( 'specifics' == $rule && isset( $location_rules['specific'] ) && is_array( $location_rules['specific'] ) ) {
-
 						foreach ( $location_rules['specific'] as $s_index => $s_value ) {
-
 							$all_rules[ $rule ][ $s_value ][ $header->ID ] = array(
 								'ID'   => $header->ID,
 								'name' => $header->post_title,
@@ -1506,22 +1455,18 @@ class Astra_Target_Rules_Fields {
 		$current_post_data = get_post_meta( $post->ID, $location, true );
 
 		if ( is_array( $current_post_data ) && isset( $current_post_data['rule'] ) ) {
-
 			foreach ( $current_post_data['rule'] as $c_key => $c_rule ) {
-
 				if ( ! isset( $all_rules[ $c_rule ] ) ) {
 					continue;
 				}
 
 				if ( 'specifics' === $c_rule ) {
-
 					foreach ( $current_post_data['specific'] as $s_index => $s_id ) {
 						if ( ! isset( $all_rules[ $c_rule ][ $s_id ] ) ) {
 							continue;
 						}
 
 						foreach ( $all_rules[ $c_rule ][ $s_id ] as $p_id => $data ) {
-
 							if ( $p_id == $post->ID ) {
 								continue;
 							}
@@ -1530,9 +1475,7 @@ class Astra_Target_Rules_Fields {
 						}
 					}
 				} else {
-
 					foreach ( $all_rules[ $c_rule ] as $p_id => $data ) {
-
 						if ( $p_id == $post->ID ) {
 							continue;
 						}
@@ -1547,7 +1490,6 @@ class Astra_Target_Rules_Fields {
 			add_action(
 				'admin_notices',
 				function() use ( $already_set_rule ) {
-
 					$rule_set_titles = '<strong>' . implode( ',', $already_set_rule ) . '</strong>';
 
 					/* translators: %s post title. */
@@ -1556,7 +1498,6 @@ class Astra_Target_Rules_Fields {
 					echo '<div class="error">';
 					echo '<p>' . $notice . '</p>';
 					echo '</div>';
-
 				}
 			);
 		}
@@ -1571,7 +1512,7 @@ class Astra_Target_Rules_Fields {
 	 *
 	 * @return false | object
 	 */
-	static public function get_meta_option_post( $post_type, $option ) {
+	public static function get_meta_option_post( $post_type, $option ) {
 		$page_meta = ( isset( $option['page_meta'] ) && '' != $option['page_meta'] ) ? $option['page_meta'] : false;
 
 		if ( false !== $page_meta ) {
@@ -1599,7 +1540,7 @@ class Astra_Target_Rules_Fields {
 	 *
 	 * @return object  Posts.
 	 */
-	static public function get_post_selection( $post_type ) {
+	public static function get_post_selection( $post_type ) {
 		$query_args = array(
 			'post_type'      => $post_type,
 			'posts_per_page' => -1,
@@ -1615,7 +1556,6 @@ class Astra_Target_Rules_Fields {
 			);
 
 			foreach ( $all_headers as $i => $data ) {
-
 				$headers[ $data->ID ] = $data->post_title;
 			}
 		}
@@ -1632,7 +1572,7 @@ class Astra_Target_Rules_Fields {
 	 *
 	 * @return array Rule data.
 	 */
-	static public function get_format_rule_value( $save_data, $key ) {
+	public static function get_format_rule_value( $save_data, $key ) {
 		$meta_value = array();
 
 		if ( isset( $save_data[ $key ]['rule'] ) ) {

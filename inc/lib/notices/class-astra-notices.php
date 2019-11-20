@@ -122,7 +122,6 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 
 			// Valid inputs?
 			if ( ! empty( $notice_id ) ) {
-
 				if ( ! empty( $repeat_notice_after ) ) {
 					set_transient( $notice_id, true, $repeat_notice_after );
 				} else {
@@ -178,7 +177,6 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @return void
 		 */
 		public function show_notices() {
-
 			$defaults = array(
 				'id'                         => '',      // Optional, Notice ID. If empty it set `astra-notices-id-<$array-index>`.
 				'type'                       => 'info',  // Optional, Notice type. Default `info`. Expected [info, warning, notice, error].
@@ -199,7 +197,6 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 			usort( self::$notices, array( $this, 'sort_notices' ) );
 
 			foreach ( self::$notices as $key => $notice ) {
-
 				$notice = wp_parse_args( $notice, $defaults );
 
 				$notice['id'] = self::get_notice_id( $notice, $key );
@@ -215,13 +212,11 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 					}
 
 					if ( self::is_expired( $notice ) ) {
-
 						self::markup( $notice );
 						++$notices_displayed;
 					}
 				}
 			}
-
 		}
 
 		/**
@@ -232,7 +227,6 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @return void
 		 */
 		public static function markup( $notice = array() ) {
-
 			wp_enqueue_script( 'astra-notices' );
 
 			do_action( 'astra_notice_before_markup' );
@@ -251,7 +245,6 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 			do_action( "astra_notice_after_markup_{$notice['id']}" );
 
 			do_action( 'astra_notice_after_markup' );
-
 		}
 
 		/**
@@ -306,9 +299,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 			$transient_status = get_transient( $notice['id'] );
 
 			if ( false === $transient_status ) {
-
 				if ( isset( $notice['display-notice-after'] ) && false !== $notice['display-notice-after'] ) {
-
 					if ( 'delayed-notice' !== get_user_meta( get_current_user_id(), $notice['id'], true ) &&
 						'notice-dismissed' !== get_user_meta( get_current_user_id(), $notice['id'], true ) ) {
 						set_transient( $notice['id'], 'delayed-notice', $notice['display-notice-after'] );
@@ -356,5 +347,4 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 	 * Kicking this off by calling 'get_instance()' method
 	 */
 	Astra_Notices::get_instance();
-
 endif;

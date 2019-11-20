@@ -49,10 +49,10 @@ class Widgets_Loader {
 	 */
 	private function __construct() {
 		// Register widgets.
-		add_action( 'elementor/widgets/widgets_registered', [ $this, 'register_widgets' ] );
+		add_action( 'elementor/widgets/widgets_registered', array( $this, 'register_widgets' ) );
 
 		// Add svg support.
-		add_filter( 'upload_mimes', [ $this, 'hfe_svg_mime_types' ] );
+		add_filter( 'upload_mimes', array( $this, 'hfe_svg_mime_types' ) );
 	}
 
 
@@ -65,7 +65,6 @@ class Widgets_Loader {
 	 * @access public
 	 */
 	public function include_widgets_files() {
-
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-retina.php';
 	}
 
