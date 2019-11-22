@@ -89,7 +89,7 @@ class Retina extends Widget_Base {
 	 * @return array Widget categories.
 	 */
 	public function get_categories() {
-		return array( 'HFE' );
+		return [ 'HFE' ];
 	}
 
 	/**
@@ -114,127 +114,127 @@ class Retina extends Widget_Base {
 	protected function register_content_retina_image_controls() {
 		$this->start_controls_section(
 			'section_retina_image',
-			array(
+			[
 				'label' => __( 'Retina Image', 'hfe' ),
-			)
+			]
 		);
 		$this->add_control(
 			'retina_image',
-			array(
+			[
 				'label'   => __( 'Choose Default Image', 'hfe' ),
 				'type'    => Controls_Manager::MEDIA,
-				'dynamic' => array(
+				'dynamic' => [
 					'active' => true,
-				),
-				'default' => array(
+				],
+				'default' => [
 					'url' => Utils::get_placeholder_image_src(),
-				),
-			)
+				],
+			]
 		);
 		$this->add_control(
 			'real_retina',
-			array(
+			[
 				'label'   => __( 'Choose Retina Image', 'hfe' ),
 				'type'    => Controls_Manager::MEDIA,
-				'dynamic' => array(
+				'dynamic' => [
 					'active' => true,
-				),
-				'default' => array(
+				],
+				'default' => [
 					'url' => Utils::get_placeholder_image_src(),
-				),
-			)
+				],
+			]
 		);
 		$this->add_group_control(
 			Group_Control_Image_Size::get_type(),
-			array(
+			[
 				'name'    => 'retina_image',
 				'label'   => __( 'Image Size', 'hfe' ),
 				'default' => 'medium',
-			)
+			]
 		);
 		$this->add_responsive_control(
 			'align',
-			array(
+			[
 				'label'     => __( 'Alignment', 'hfe' ),
 				'type'      => Controls_Manager::CHOOSE,
-				'options'   => array(
-					'left'   => array(
+				'options'   => [
+					'left'   => [
 						'title' => __( 'Left', 'hfe' ),
 						'icon'  => 'fa fa-align-left',
-					),
-					'center' => array(
+					],
+					'center' => [
 						'title' => __( 'Center', 'hfe' ),
 						'icon'  => 'fa fa-align-center',
-					),
-					'right'  => array(
+					],
+					'right'  => [
 						'title' => __( 'Right', 'hfe' ),
 						'icon'  => 'fa fa-align-right',
-					),
-				),
+					],
+				],
 				'default'   => 'center',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .hfe-retina-image-container, {{WRAPPER}} .hfe-caption-width' => 'text-align: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'caption_source',
-			array(
+			[
 				'label'   => __( 'Caption', 'hfe' ),
 				'type'    => Controls_Manager::SELECT,
-				'options' => array(
+				'options' => [
 					'none'   => __( 'None', 'hfe' ),
 					'custom' => __( 'Custom Caption', 'hfe' ),
-				),
+				],
 				'default' => 'none',
-			)
+			]
 		);
 
 		$this->add_control(
 			'caption',
-			array(
+			[
 				'label'       => __( 'Custom Caption', 'hfe' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => '',
 				'placeholder' => __( 'Enter your image caption', 'hfe' ),
-				'condition'   => array(
+				'condition'   => [
 					'caption_source' => 'custom',
-				),
-				'dynamic'     => array(
+				],
+				'dynamic'     => [
 					'active' => true,
-				),
+				],
 				'label_block' => true,
-			)
+			]
 		);
 
 		$this->add_control(
 			'link_to',
-			array(
+			[
 				'label'   => __( 'Link', 'hfe' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'none',
-				'options' => array(
+				'options' => [
 					'none'   => __( 'None', 'hfe' ),
 					'custom' => __( 'Custom URL', 'hfe' ),
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'link',
-			array(
+			[
 				'label'       => __( 'Link', 'hfe' ),
 				'type'        => Controls_Manager::URL,
-				'dynamic'     => array(
+				'dynamic'     => [
 					'active' => true,
-				),
+				],
 				'placeholder' => __( 'https://your-link.com', 'hfe' ),
-				'condition'   => array(
+				'condition'   => [
 					'link_to' => 'custom',
-				),
+				],
 				'show_label'  => false,
-			)
+			]
 		);
 		$this->end_controls_section();
 	}
@@ -247,258 +247,258 @@ class Retina extends Widget_Base {
 	protected function register_retina_image_styling_controls() {
 		$this->start_controls_section(
 			'section_style_retina_image',
-			array(
+			[
 				'label' => __( 'Retina Image', 'hfe' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
-			)
+			]
 		);
 
 		$this->add_responsive_control(
 			'width',
-			array(
+			[
 				'label'          => __( 'Width', 'hfe' ),
 				'type'           => Controls_Manager::SLIDER,
-				'default'        => array(
+				'default'        => [
 					'unit' => '%',
-				),
-				'tablet_default' => array(
+				],
+				'tablet_default' => [
 					'unit' => '%',
-				),
-				'mobile_default' => array(
+				],
+				'mobile_default' => [
 					'unit' => '%',
-				),
-				'size_units'     => array( '%', 'px', 'vw' ),
-				'range'          => array(
-					'%'  => array(
+				],
+				'size_units'     => [ '%', 'px', 'vw' ],
+				'range'          => [
+					'%'  => [
 						'min' => 1,
 						'max' => 100,
-					),
-					'px' => array(
+					],
+					'px' => [
 						'min' => 1,
 						'max' => 1000,
-					),
-					'vw' => array(
+					],
+					'vw' => [
 						'min' => 1,
 						'max' => 100,
-					),
-				),
-				'selectors'      => array(
+					],
+				],
+				'selectors'      => [
 					'{{WRAPPER}} .hfe-retina-image img' => 'width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .hfe-retina-image .wp-caption .widget-image-caption' => 'width: {{SIZE}}{{UNIT}}; display: inline-block;',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'space',
-			array(
+			[
 				'label'          => __( 'Max Width', 'hfe' ) . ' (%)',
 				'type'           => Controls_Manager::SLIDER,
-				'default'        => array(
+				'default'        => [
 					'unit' => '%',
-				),
-				'tablet_default' => array(
+				],
+				'tablet_default' => [
 					'unit' => '%',
-				),
-				'mobile_default' => array(
+				],
+				'mobile_default' => [
 					'unit' => '%',
-				),
-				'size_units'     => array( '%' ),
-				'range'          => array(
-					'%' => array(
+				],
+				'size_units'     => [ '%' ],
+				'range'          => [
+					'%' => [
 						'min' => 1,
 						'max' => 100,
-					),
-				),
-				'selectors'      => array(
+					],
+				],
+				'selectors'      => [
 					'{{WRAPPER}} .hfe-retina-image img' => 'max-width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .wp-caption-text'      => 'max-width: {{SIZE}}{{UNIT}}; display: inline-block; width: 100%;',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'separator_panel_style',
-			array(
+			[
 				'type'  => Controls_Manager::DIVIDER,
 				'style' => 'thick',
-			)
+			]
 		);
 
 		$this->add_control(
 			'retina_image_border',
-			array(
+			[
 				'label'       => __( 'Border Style', 'hfe' ),
 				'type'        => Controls_Manager::SELECT,
 				'default'     => 'none',
 				'label_block' => false,
-				'options'     => array(
+				'options'     => [
 					'none'   => __( 'None', 'hfe' ),
 					'solid'  => __( 'Solid', 'hfe' ),
 					'double' => __( 'Double', 'hfe' ),
 					'dotted' => __( 'Dotted', 'hfe' ),
 					'dashed' => __( 'Dashed', 'hfe' ),
-				),
-				'selectors'   => array(
+				],
+				'selectors'   => [
 					'{{WRAPPER}} .hfe-retina-image-container .hfe-retina-img' => 'border-style: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 		$this->add_control(
 			'retina_image_border_size',
-			array(
+			[
 				'label'      => __( 'Border Width', 'hfe' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px' ),
-				'default'    => array(
+				'size_units' => [ 'px' ],
+				'default'    => [
 					'top'    => '1',
 					'bottom' => '1',
 					'left'   => '1',
 					'right'  => '1',
 					'unit'   => 'px',
-				),
-				'condition'  => array(
+				],
+				'condition'  => [
 					'retina_image_border!' => 'none',
-				),
-				'selectors'  => array(
+				],
+				'selectors'  => [
 					'{{WRAPPER}} .hfe-retina-image-container .hfe-retina-img' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'retina_image_border_color',
-			array(
+			[
 				'label'     => __( 'Border Color', 'hfe' ),
 				'type'      => Controls_Manager::COLOR,
-				'scheme'    => array(
+				'scheme'    => [
 					'type'  => Scheme_Color::get_type(),
 					'value' => Scheme_Color::COLOR_1,
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'retina_image_border!' => 'none',
-				),
+				],
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .hfe-retina-image-container .hfe-retina-img' => 'border-color: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'image_border_radius',
-			array(
+			[
 				'label'      => __( 'Border Radius', 'hfe' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
-				'selectors'  => array(
+				'size_units' => [ 'px', '%' ],
+				'selectors'  => [
 					'{{WRAPPER}} .hfe-retina-image img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
-			array(
+			[
 				'name'     => 'image_box_shadow',
-				'exclude'  => array(
+				'exclude'  => [
 					'box_shadow_position',
-				),
+				],
 				'selector' => '{{WRAPPER}} .hfe-retina-image img',
-			)
+			]
 		);
 
 		$this->start_controls_tabs( 'image_effects' );
 
 		$this->start_controls_tab(
 			'normal',
-			array(
+			[
 				'label' => __( 'Normal', 'hfe' ),
-			)
+			]
 		);
 
 		$this->add_control(
 			'opacity',
-			array(
+			[
 				'label'     => __( 'Opacity', 'hfe' ),
 				'type'      => Controls_Manager::SLIDER,
-				'range'     => array(
-					'px' => array(
+				'range'     => [
+					'px' => [
 						'max'  => 1,
 						'min'  => 0.10,
 						'step' => 0.01,
-					),
-				),
-				'selectors' => array(
+					],
+				],
+				'selectors' => [
 					'{{WRAPPER}} .hfe-retina-image img' => 'opacity: {{SIZE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Css_Filter::get_type(),
-			array(
+			[
 				'name'     => 'css_filters',
 				'selector' => '{{WRAPPER}} .hfe-retina-image img',
-			)
+			]
 		);
 
 		$this->end_controls_tab();
 
 		$this->start_controls_tab(
 			'hover',
-			array(
+			[
 				'label' => __( 'Hover', 'hfe' ),
-			)
+			]
 		);
 		$this->add_control(
 			'opacity_hover',
-			array(
+			[
 				'label'     => __( 'Opacity', 'hfe' ),
 				'type'      => Controls_Manager::SLIDER,
-				'range'     => array(
-					'px' => array(
+				'range'     => [
+					'px' => [
 						'max'  => 1,
 						'min'  => 0.10,
 						'step' => 0.01,
-					),
-				),
-				'selectors' => array(
+					],
+				],
+				'selectors' => [
 					'{{WRAPPER}} .hfe-retina-image:hover img' => 'opacity: {{SIZE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Css_Filter::get_type(),
-			array(
+			[
 				'name'     => 'css_filters_hover',
 				'selector' => '{{WRAPPER}} .hfe-retina-image:hover img',
-			)
+			]
 		);
 
 		$this->add_control(
 			'hover_animation',
-			array(
+			[
 				'label' => __( 'Hover Animation', 'hfe' ),
 				'type'  => Controls_Manager::HOVER_ANIMATION,
-			)
+			]
 		);
 		$this->add_control(
 			'background_hover_transition',
-			array(
+			[
 				'label'     => __( 'Transition Duration', 'hfe' ),
 				'type'      => Controls_Manager::SLIDER,
-				'range'     => array(
-					'px' => array(
+				'range'     => [
+					'px' => [
 						'max'  => 3,
 						'step' => 0.1,
-					),
-				),
-				'selectors' => array(
+					],
+				],
+				'selectors' => [
 					'{{WRAPPER}} .hfe-retina-image img' => 'transition-duration: {{SIZE}}s',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_tab();
@@ -516,89 +516,89 @@ class Retina extends Widget_Base {
 	protected function register_retina_caption_styling_controls() {
 		$this->start_controls_section(
 			'section_style_caption',
-			array(
+			[
 				'label'     => __( 'Caption', 'hfe' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
-				'condition' => array(
+				'condition' => [
 					'caption_source!' => 'none',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'text_color',
-			array(
+			[
 				'label'     => __( 'Text Color', 'hfe' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .widget-image-caption' => 'color: {{VALUE}};',
-				),
-				'scheme'    => array(
+				],
+				'scheme'    => [
 					'type'  => Scheme_Color::get_type(),
 					'value' => Scheme_Color::COLOR_3,
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'caption_background_color',
-			array(
+			[
 				'label'     => __( 'Background Color', 'hfe' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .widget-image-caption' => 'background-color: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
+			[
 				'name'     => 'caption_typography',
 				'selector' => '{{WRAPPER}} .widget-image-caption',
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_3,
-			)
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Text_Shadow::get_type(),
-			array(
+			[
 				'name'     => 'caption_text_shadow',
 				'selector' => '{{WRAPPER}} .widget-image-caption',
-			)
+			]
 		);
 
 		$this->add_responsive_control(
 			'caption_padding',
-			array(
+			[
 				'label'      => __( 'Padding', 'hfe' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', 'em', '%' ),
-				'selectors'  => array(
+				'size_units' => [ 'px', 'em', '%' ],
+				'selectors'  => [
 					'{{WRAPPER}} .widget-image-caption' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 		$this->add_responsive_control(
 			'caption_space',
-			array(
+			[
 				'label'     => __( 'Caption Top Spacing', 'hfe' ),
 				'type'      => Controls_Manager::SLIDER,
-				'range'     => array(
-					'px' => array(
+				'range'     => [
+					'px' => [
 						'min' => 0,
 						'max' => 100,
-					),
-				),
-				'default'   => array(
+					],
+				],
+				'default'   => [
 					'size' => 0,
 					'unit' => 'px',
-				),
-				'selectors' => array(
+				],
+				'selectors' => [
 					'{{WRAPPER}} .widget-image-caption' => 'margin-top: {{SIZE}}{{UNIT}}; margin-bottom: 0px;',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_section();
@@ -613,19 +613,19 @@ class Retina extends Widget_Base {
 	protected function register_helpful_information() {
 			$this->start_controls_section(
 				'section_helpful_info',
-				array(
+				[
 					'label' => __( 'Helpful Information', 'hfe' ),
-				)
+				]
 			);
 
 			$this->add_control(
 				'help_doc_1',
-				array(
+				[
 					'type'            => Controls_Manager::RAW_HTML,
 					/* translators: %1$s doc link */
 					'raw'             => sprintf( __( '%1$s Getting started article » %2$s', 'hfe' ), '<a href="https://uaelementor.com/docs/introducing-retina-image-widget/" target="_blank" rel="noopener">', '</a>' ),
 					'content_classes' => 'hfe-editor-doc',
-				)
+				]
 			);
 
 			$this->end_controls_section();
@@ -685,17 +685,17 @@ class Retina extends Widget_Base {
 		if ( $link ) {
 			$this->add_render_attribute(
 				'link',
-				array(
+				[
 					'href' => $link['url'],
-				)
+				]
 			);
 
 			if ( Plugin::$instance->editor->is_edit_mode() ) {
 				$this->add_render_attribute(
 					'link',
-					array(
+					[
 						'class' => 'elementor-clickable',
-					)
+					]
 				);
 			}
 
@@ -727,14 +727,14 @@ class Retina extends Widget_Base {
 
 				$image_dimension = $settings[ 'retina_image' . '_custom_dimension' ];
 
-				$image_size = array(
+				$image_size = [
 					// Defaults sizes.
 					0           => null, // Width.
 					1           => null, // Height.
 
 					'bfi_thumb' => true,
 					'crop'      => true,
-				);
+				];
 
 				$has_custom_size = false;
 				if ( ! empty( $image_dimension['width'] ) ) {
