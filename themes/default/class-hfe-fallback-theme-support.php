@@ -160,7 +160,7 @@ class HFE_Fallback_Theme_Support {
 					'url'  => admin_url( 'themes.php?page=hfe-settings' ),
 				],
 			];
-			$active_tab = 'hfe-settings' === isset( $_GET['page'] ) && $_GET['page'] ? 'hfe_settings' : 'hfe_templates';
+			$active_tab = 'hfe-settings' == isset( $_GET['page'] ) && $_GET['page'] ? 'hfe_settings' : 'hfe_templates';
 			foreach ( $tabs as $tab_id => $tab ) {
 				$active = $active_tab == $tab_id ? ' nav-tab-active' : '';
 				echo '<a href="' . esc_url( $tab['url'] ) . '" class="nav-tab' . $active . '">';
@@ -201,7 +201,7 @@ class HFE_Fallback_Theme_Support {
 					'url'  => admin_url( 'themes.php?page=hfe-settings' ),
 				],
 			];
-			$active_tab = 'hfe-settings' === isset( $_GET['page'] ) && $_GET['page'] ? 'hfe_settings' : 'hfe_templates';
+			$active_tab = 'hfe-settings' == isset( $_GET['page'] ) && $_GET['page'] ? 'hfe_settings' : 'hfe_templates';
 			foreach ( $tabs as $tab_id => $tab ) {
 				$active = $active_tab == $tab_id ? ' nav-tab-active' : '';
 
