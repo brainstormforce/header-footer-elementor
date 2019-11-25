@@ -219,7 +219,7 @@ class Header_Footer_Elementor {
 					'id'          => 'unsupported-theme',
 					'type'        => 'error',
 					'dismissible' => true,
-					'message'     => __( 'Hey, your current theme is not supported by Header Footer Elementor, click <a href="https://github.com/Nikschavan/header-footer-elementor#which-themes-are-supported-by-this-plugin">here</a> to check out the supported themes.', 'header-footer-elementor' ),
+					'message'     => __( 'Hey, your current theme is not supported by Header Footer Elementor, click <a href="https://github.com/Nikschavan/header-footer-elementor#themes-you-can-use-header-footer-elementor-with">here</a> to check out the supported themes.', 'header-footer-elementor' ),
 				)
 			);
 		}
