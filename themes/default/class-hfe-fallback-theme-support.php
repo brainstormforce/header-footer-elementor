@@ -91,7 +91,7 @@ class HFE_Fallback_Theme_Support {
 		$hfe_radio_button = get_option( 'hfe_compatibility_option', '1' );
 			wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'admin/assets/css/ehf-admin.css', [], HFE_VER );
 		?>
-		
+
 		<label>
 			<input type="radio" name="hfe_compatibility_option" value= 1 <?php checked( $hfe_radio_button, 1 ); ?> > <div class="hfe_radio_options"><?php esc_html_e( 'Method 1', 'header-footer-elementor' ); ?></div>
 					<p class="description"><?php esc_html_e( 'This replaces the header.php & footer.php template with a custom templates from the plugin.', 'header-footer-elementor' ); ?></p><br>
