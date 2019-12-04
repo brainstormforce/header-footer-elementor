@@ -63,8 +63,8 @@ class HFE_Fallback_Theme_Support {
 	 */
 	public function hfe_admin_init() {
 		register_setting( 'hfe-plugin-options', 'hfe_compatibility_option' );
-		add_settings_section( 'hfe-options', 'Compatibility option', [ $this, 'hfe_compatibility_callback' ], 'Settings' );
-		add_settings_field( 'hfe-way', 'Select the way of Compatibility', [ $this, 'hfe_compatibility_option_callback' ], 'Settings', 'hfe-options' );
+		add_settings_section( 'hfe-options', __( 'Compatibility Mode', 'header-footer-elementor' ), [ $this, 'hfe_compatibility_callback' ], 'Settings' );
+		add_settings_field( 'hfe-way', 'Select Fallback Compatibility Mode', [ $this, 'hfe_compatibility_option_callback' ], 'Settings', 'hfe-options' );
 	}
 
 	/**
@@ -76,7 +76,7 @@ class HFE_Fallback_Theme_Support {
 	 * @return void
 	 */
 	public function hfe_compatibility_callback() {
-		echo 'This setting allows you to select the way for compatibility.	';
+		_e( 'Header Footer Elementor plugin includes two compatibility modes to try to support all the themes.<br>Use the method which works best with your theme.', 'header-footer-elementor' );
 	}
 
 	/**
@@ -90,15 +90,20 @@ class HFE_Fallback_Theme_Support {
 	public function hfe_compatibility_option_callback() {
 		$hfe_radio_button = get_option( 'hfe_compatibility_option', '1' );
 			wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'admin/assets/css/ehf-admin.css', [], HFE_VER );
-		?><label>
-						<input type="radio" name="hfe_compatibility_option" value= 1 <?php checked( $hfe_radio_button, 1 ); ?> > <div class="hfe_radio_options"><?php esc_html_e( 'Elementor way', 'header-footer-elementor' ); ?></div>
-						<p class="description"><?php esc_html_e( 'This replaces the header.php & footer.php template with a custom templates from the plugin.', 'header-footer-elementor' ); ?></p><br></label>
-					<label>
-						<input type="radio" name="hfe_compatibility_option" value= 2 <?php checked( $hfe_radio_button, 2 ); ?> > <div class="hfe_radio_options"><?php esc_html_e( 'Using action wp_body_opens', 'header-footer-elementor' ); ?></div>
-						<p class="description">
+		?>
+		
+		<label>
+			<input type="radio" name="hfe_compatibility_option" value= 1 <?php checked( $hfe_radio_button, 1 ); ?> > <div class="hfe_radio_options"><?php esc_html_e( 'Method 1', 'header-footer-elementor' ); ?></div>
+					<p class="description"><?php esc_html_e( 'This replaces the header.php & footer.php template with a custom templates from the plugin.', 'header-footer-elementor' ); ?></p><br>
+		</label>
+		<label>
+			<input type="radio" name="hfe_compatibility_option" value= 2 <?php checked( $hfe_radio_button, 2 ); ?> > <div class="hfe_radio_options"><?php esc_html_e( 'Method 2', 'header-footer-elementor' ); ?></div>
+			<p class="description">
 						<?php esc_html_e( 'This adds the header in the new action that was introduced by WordPress `wp_body_option` and footer is added in wp_footer action.', 'header-footer-elementor' ); ?>
-						</p></label>
-						<?php
+			</p>
+		</label>
+
+		<?php
 	}
 
 	/**
@@ -125,14 +130,14 @@ class HFE_Fallback_Theme_Support {
 	 * @return void
 	 */
 	public function hfe_register_settings_page() {
-			add_submenu_page(
-				'themes.php',
-				__( 'Settings', 'header-footer-elementor' ),
-				__( 'Settings', 'header-footer-elementor' ),
-				'manage_options',
-				'hfe-settings',
-				[ $this, 'hfe_settings_page' ]
-			);
+		add_submenu_page(
+			'themes.php',
+			__( 'Settings', 'header-footer-elementor' ),
+			__( 'Settings', 'header-footer-elementor' ),
+			'manage_options',
+			'hfe-settings',
+			[ $this, 'hfe_settings_page' ]
+		);
 	}
 
 	/**
@@ -148,7 +153,7 @@ class HFE_Fallback_Theme_Support {
 		echo '</h1>';
 
 		?>
-	<h2 class="nav-tab-wrapper">
+		<h2 class="nav-tab-wrapper">
 			<?php
 			$tabs       = [
 				'hfe_templates' => [
@@ -189,7 +194,7 @@ class HFE_Fallback_Theme_Support {
 	 */
 	public function hfe_tabs() {
 		?>
-	<h2 class="nav-tab-wrapper">
+		<h2 class="nav-tab-wrapper">
 			<?php
 			$tabs       = [
 				'hfe_templates' => [
@@ -205,7 +210,7 @@ class HFE_Fallback_Theme_Support {
 			foreach ( $tabs as $tab_id => $tab ) {
 				$active = $active_tab == $tab_id ? ' nav-tab-active' : '';
 
-				echo '<a href="' . esc_url( $tab['url'] ) . '" class="nav-tab' . $active . '">';
+				echo '<a href="' . esc_url( $tab['url'] ) . '" class="nav-tab' . esc_attr( $active ) . '">';
 				echo esc_html( $tab['name'] );
 				echo '</a>';
 			}
