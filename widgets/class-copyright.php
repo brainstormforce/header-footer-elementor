@@ -152,7 +152,7 @@ class CopyRight extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'scheme'    => array(
 					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'value' => Scheme_Color::COLOR_3,
 				),
 				'selectors' => array(
 					// Stronger selector to avoid section style from overwriting.
