@@ -6,18 +6,10 @@
  */
 
 use Elementor\Controls_Manager;
-use Elementor\Control_Media;
 use Elementor\Utils;
-use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
-use Elementor\Group_Control_Box_Shadow;
 use Elementor\Scheme_Typography;
 use Elementor\Scheme_Color;
-use Elementor\Group_Control_Image_Size;
-use Elementor\Repeater;
-use Elementor\Group_Control_Css_Filter;
-use Elementor\Group_Control_Text_Shadow;
-use Elementor\Plugin;
 use Elementor\Widget_Base;
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;   // Exit if accessed directly.
@@ -114,7 +106,7 @@ class CopyRight extends Widget_Base {
 				'dynamic' => array(
 					'active' => true,
 				),
-				'default' => __( 'Copyright © [hfe_current_year] [hfe_site_title] | Powered by [hfe_theme_author]', 'header-footer-elementor' ),
+				'default' => __( 'Copyright © [hfe_current_year] [hfe_site_title] | Powered by [hfe_site_title]', 'header-footer-elementor' ),
 			)
 		);
 
@@ -144,26 +136,11 @@ class CopyRight extends Widget_Base {
 		);
 
 		$this->add_control(
-			'link_to',
-			array(
-				'label'   => __( 'Link', 'header-footer-elementor' ),
-				'type'    => Controls_Manager::SELECT,
-				'default' => 'none',
-				'options' => array(
-					'none'   => __( 'None', 'header-footer-elementor' ),
-					'custom' => __( 'Custom URL', 'header-footer-elementor' ),
-				),
-			)
-		);
-		$this->add_control(
 			'link',
 			array(
 				'label'       => __( 'Link', 'header-footer-elementor' ),
 				'type'        => Controls_Manager::URL,
 				'placeholder' => __( 'https://your-link.com', 'header-footer-elementor' ),
-				'condition'   => array(
-					'link_to' => 'custom',
-				),
 				'show_label'  => false,
 			)
 		);
@@ -179,19 +156,7 @@ class CopyRight extends Widget_Base {
 				),
 				'selectors' => array(
 					// Stronger selector to avoid section style from overwriting.
-					'{{WRAPPER}}' => 'color: {{VALUE}};',
-				),
-			)
-		);
-
-		$this->add_control(
-			'background_color',
-			array(
-				'label'     => __( 'Background Color', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::COLOR,
-				'selectors' => array(
-					// Stronger selector to avoid section style from overwriting.
-					'{{WRAPPER}}.elementor-widget-copyright .elementor-widget-container' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .hfe-shortcode a, {{WRAPPER}} .hfe-shortcode' => 'color: {{VALUE}};',
 				),
 			)
 		);
@@ -217,16 +182,24 @@ class CopyRight extends Widget_Base {
 	 */
 	protected function render() {
 		$settings = $this->get_settings_for_display();
-		$link     = $settings['link'];
+		$link     = isset( $settings['link']['url'] ) ? $settings['link']['url'] : '';
 
 		$copy_right_shortcode = do_shortcode( shortcode_unautop( $settings['shortcode'] ) );
-		?>
-		<div class="hfe-shortcode">
-			<a href="<?php echo $link['url']; ?>">
-			<?php echo $copy_right_shortcode; ?>		
-			</a>
-		</div>
-		<?php
+		if ( ! empty( $link ) ) {
+			?>
+				<div class="hfe-shortcode">
+					<a href="<?php echo $link; ?>">
+						<?php echo $copy_right_shortcode; ?>		
+					</a>
+				</div>
+			<?php
+		} else {
+			?>
+				<div class="hfe-shortcode">
+						<?php echo $copy_right_shortcode; ?>		
+				</div>
+			<?php
+		}
 	}
 
 	/**
@@ -240,21 +213,5 @@ class CopyRight extends Widget_Base {
 	public function render_plain_content() {
 		// In plain mode, render without shortcode.
 		echo $this->get_settings( 'shortcode' );
-	}
-
-	/**
-	 * Render heading widget output in the editor.
-	 *
-	 * Written as a Backbone JavaScript template and used to generate the live preview.
-	 *
-	 * @since x.x.x
-	 * @access protected
-	 */
-	protected function _content_template() {
-		?>
-		<div class="hfe-shortcode">
-			<a href="{{settings.link}}">{{{settings.shortcode}}}</a>
-		</div>
-		<?php
 	}
 }
