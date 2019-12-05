@@ -66,12 +66,44 @@ class Header_Footer_Elementor {
 
 			add_shortcode( 'hfe_template', array( $this, 'render_template' ) );
 
+			// Register widgets.
+			add_action( 'elementor/widgets/widgets_registered', array( $this, 'register_widgets' ) );
+
 		} else {
 
 			add_action( 'admin_notices', array( $this, 'elementor_not_available' ) );
 			add_action( 'network_admin_notices', array( $this, 'elementor_not_available' ) );
 		}
 
+	}
+
+
+	/**
+	 * Include Widgets files
+	 *
+	 * Load widgets files
+	 *
+	 * @since x.x.x
+	 * @access public
+	 */
+	public function include_widgets_files() {
+		require_once HFE_DIR . 'widgets/class-copyright.php';
+		require_once HFE_DIR . 'widgets/class-copyright-shortcode.php';
+	}
+
+	/**
+	 * Register Widgets
+	 *
+	 * Register new Elementor widgets.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 */
+	public function register_widgets() {
+		// Its is now safe to include Widgets files.
+		$this->include_widgets_files();
+		// Register Widgets.
+		self::$elementor_instance->widgets_manager->register_widget_type( new CopyRight() );
 	}
 
 	/**
@@ -178,7 +210,6 @@ class Header_Footer_Elementor {
 
 		if ( ( 'elementor-hf' == $screen->id && ( 'post.php' == $pagenow || 'post-new.php' == $pagenow ) ) || ( 'edit.php' == $pagenow && 'edit-elementor-hf' == $screen->id ) ) {
 			wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'admin/assets/css/ehf-admin.css', array(), HFE_VER );
-
 			wp_enqueue_script( 'hfe-admin-script', HFE_URL . 'admin/assets/js/ehf-admin.js', array(), HFE_VER );
 		}
 	}

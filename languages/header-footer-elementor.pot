@@ -1,11 +1,11 @@
 # Copyright (C) 2019 Brainstorm Force, Nikhil Chavan
-# This file is distributed under the same license as the Header, Footer & Blocks for Elementor package.
+# This file is distributed under the same license as the Elementor - Header, Footer & Blocks package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Header, Footer & Blocks for Elementor 1.1.2\n"
+"Project-Id-Version: Elementor - Header, Footer & Blocks 1.1.4\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/header-footer-elementor\n"
-"POT-Creation-Date: 2019-01-16 07:15:45+00:00\n"
+"POT-Creation-Date: 2019-12-05 10:27:45+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,7 +23,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
-"X-Generator: grunt-wp-i18n1.0.2\n"
+"X-Generator: grunt-wp-i18n 1.0.3\n"
 
 #: admin/class-hfe-admin.php:61 admin/class-hfe-admin.php:63
 msgid "Header Footers Template"
@@ -73,80 +73,135 @@ msgstr ""
 msgid "No Header Footers Templates found in Trash."
 msgstr ""
 
-#: admin/class-hfe-admin.php:104 admin/class-hfe-admin.php:105
+#: admin/class-hfe-admin.php:103 admin/class-hfe-admin.php:104
 msgid "Header Footer Builder"
 msgstr ""
 
-#: admin/class-hfe-admin.php:117
+#: admin/class-hfe-admin.php:116
 msgid "Elementor Header Footer options"
 msgstr ""
 
-#: admin/class-hfe-admin.php:145
+#: admin/class-hfe-admin.php:144
 msgid "Type of Template"
 msgstr ""
 
-#: admin/class-hfe-admin.php:149
+#: admin/class-hfe-admin.php:148
 msgid "Select Option"
 msgstr ""
 
-#: admin/class-hfe-admin.php:150
+#: admin/class-hfe-admin.php:149
 msgid "Header"
 msgstr ""
 
-#: admin/class-hfe-admin.php:152
+#: admin/class-hfe-admin.php:151
 msgid "Before Footer"
 msgstr ""
 
-#: admin/class-hfe-admin.php:154
+#: admin/class-hfe-admin.php:153
 msgid "Footer"
 msgstr ""
 
-#: admin/class-hfe-admin.php:155
+#: admin/class-hfe-admin.php:154
 msgid "Custom Block"
 msgstr ""
 
-#: admin/class-hfe-admin.php:161 admin/class-hfe-admin.php:321
+#: admin/class-hfe-admin.php:160 admin/class-hfe-admin.php:320
 msgid "Shortcode"
 msgstr ""
 
-#: admin/class-hfe-admin.php:162
+#: admin/class-hfe-admin.php:161
 msgid ""
 "Copy this shortcode and paste it into your post, page, or text widget "
 "content."
 msgstr ""
 
-#: admin/class-hfe-admin.php:174
+#: admin/class-hfe-admin.php:173
 msgid "Enable Layout for Elementor Canvas Template?"
 msgstr ""
 
-#: admin/class-hfe-admin.php:176
+#: admin/class-hfe-admin.php:175
 msgid ""
 "Enabling this option will display this layout on pages using Elementor "
 "Canvas Template."
 msgstr ""
 
-#: admin/class-hfe-admin.php:248
+#: admin/class-hfe-admin.php:247
 #. Translators: Post title, Template Location
 msgid "Template %1$s is already assigned to the location %2$s"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:101
+#: inc/class-header-footer-elementor.php:133
 #. Translators: URL to install or activate Elementor plugin.
 msgid ""
 "The <strong>Header Footer Elementor</strong> plugin requires <strong><a "
 "href=\"%s\">Elementor</strong></a> plugin installed & activated."
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:219
+#: inc/class-header-footer-elementor.php:253
 msgid ""
 "Hey, your current theme is not supported by Header Footer Elementor, click "
 "<a "
-"href=\"https://github.com/Nikschavan/header-footer-elementor#which-themes-"
-"are-supported-by-this-plugin\">here</a> to check out the supported themes."
+"href=\"https://github.com/Nikschavan/header-footer-elementor#themes-you-can-"
+"use-header-footer-elementor-with\">here</a> to check out the supported "
+"themes."
+msgstr ""
+
+#: widgets/class-copyright.php:55 widgets/class-copyright.php:105
+msgid "CopyRight"
+msgstr ""
+
+#: widgets/class-copyright.php:112
+msgid "CopyRight Title"
+msgstr ""
+
+#: widgets/class-copyright.php:117
+msgid ""
+"Copyright © [hfe_current_year] [hfe_site_title] | Powered by "
+"[hfe_theme_author]"
+msgstr ""
+
+#: widgets/class-copyright.php:124
+msgid "Alignment"
+msgstr ""
+
+#: widgets/class-copyright.php:128
+msgid "Left"
+msgstr ""
+
+#: widgets/class-copyright.php:132
+msgid "Center"
+msgstr ""
+
+#: widgets/class-copyright.php:136
+msgid "Right"
+msgstr ""
+
+#: widgets/class-copyright.php:149 widgets/class-copyright.php:161
+msgid "Link"
+msgstr ""
+
+#: widgets/class-copyright.php:153
+msgid "None"
+msgstr ""
+
+#: widgets/class-copyright.php:154
+msgid "Custom URL"
+msgstr ""
+
+#: widgets/class-copyright.php:163
+msgid "https://your-link.com"
+msgstr ""
+
+#: widgets/class-copyright.php:174
+msgid "Text Color"
+msgstr ""
+
+#: widgets/class-copyright.php:190
+msgid "Background Color"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "Header, Footer & Blocks for Elementor"
+msgid "Elementor - Header, Footer & Blocks"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
