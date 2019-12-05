@@ -11,13 +11,14 @@ use Elementor\Group_Control_Typography;
 use Elementor\Scheme_Typography;
 use Elementor\Scheme_Color;
 use Elementor\Widget_Base;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;   // Exit if accessed directly.
 }
 /**
- * Elementor Hello World
+ * Elementor Copy Right
  *
- * Elementor widget for hello world.
+ * Elementor widget for copy right.
  *
  * @since x.x.x
  */
@@ -44,7 +45,7 @@ class CopyRight extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'CopyRight', 'header-footer-elementor' );
+		return __( 'Copyright', 'header-footer-elementor' );
 	}
 	/**
 	 * Retrieve the widget icon.
@@ -76,7 +77,7 @@ class CopyRight extends Widget_Base {
 		return array( 'HFE' );
 	}
 	/**
-	 * Register Retina Logo controls.
+	 * Register Copy Right controls.
 	 *
 	 * @since x.x.x
 	 * @access protected
@@ -85,7 +86,7 @@ class CopyRight extends Widget_Base {
 		$this->register_content_retina_image_controls();
 	}
 	/**
-	 * Register Retina Logo General Controls.
+	 * Register Copy Right General Controls.
 	 *
 	 * @since x.x.x
 	 * @access protected
@@ -94,14 +95,14 @@ class CopyRight extends Widget_Base {
 		$this->start_controls_section(
 			'section_title',
 			array(
-				'label' => __( 'CopyRight', 'header-footer-elementor' ),
+				'label' => __( 'Copyright', 'header-footer-elementor' ),
 			)
 		);
 
 		$this->add_control(
 			'shortcode',
 			array(
-				'label'   => __( 'CopyRight Title', 'header-footer-elementor' ),
+				'label'   => __( 'Copyright Title', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::TEXTAREA,
 				'dynamic' => array(
 					'active' => true,
@@ -156,7 +157,7 @@ class CopyRight extends Widget_Base {
 				),
 				'selectors' => array(
 					// Stronger selector to avoid section style from overwriting.
-					'{{WRAPPER}} .hfe-shortcode a, {{WRAPPER}} .hfe-shortcode' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .hfe-copyright-wrapper a, {{WRAPPER}} .hfe-copyright-wrapper' => 'color: {{VALUE}};',
 				),
 			)
 		);
@@ -165,7 +166,7 @@ class CopyRight extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'     => 'caption_typography',
-				'selector' => '{{WRAPPER}} .hfe-heading-title,{{WRAPPER}} .hfe-shortcode',
+				'selector' => '{{WRAPPER}} .hfe-copyright-wrapper',
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_3,
 			)
 		);
@@ -187,17 +188,17 @@ class CopyRight extends Widget_Base {
 		$copy_right_shortcode = do_shortcode( shortcode_unautop( $settings['shortcode'] ) );
 		if ( ! empty( $link ) ) {
 			?>
-				<div class="hfe-shortcode">
+				<span class="hfe-copyright-wrapper">
 					<a href="<?php echo $link; ?>">
 						<?php echo $copy_right_shortcode; ?>		
 					</a>
-				</div>
+				</span>
 			<?php
 		} else {
 			?>
-				<div class="hfe-shortcode">
+				<span class="hfe-copyright-wrapper">
 						<?php echo $copy_right_shortcode; ?>		
-				</div>
+				</span>
 			<?php
 		}
 	}

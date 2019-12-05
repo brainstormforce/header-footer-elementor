@@ -1,6 +1,6 @@
 <?php
 /**
- * Calling W.ORG API Response.
+ * Calling copy right shortcode.
  *
  * @package CopyRight
  * @author Brainstorm Force
@@ -14,19 +14,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Helper class for the ActiveCampaign API.
+ * Helper class for the Copy Right.
  *
  * @since 1.0.0
  */
 class CopyRight_Shortcode {
 	/**
-	 * The unique instance of the plugin.
+	 * The unique instance of the copy right shortcode.
 	 *
 	 * @var Instance variable
 	 */
 	private static $instance;
 	/**
-	 * Gets an instance of our plugin.
+	 * Gets an instance of our copy right shortcode.
 	 */
 	public static function get_instance() {
 		if ( null === self::$instance ) {
@@ -47,7 +47,7 @@ class CopyRight_Shortcode {
 	/**
 	 * Get the hfe_current_year Details.
 	 *
-	 * @return array $hfe_current_year Get plugin Details.
+	 * @return array $hfe_current_year Get Current Year Details.
 	 */
 	public function display_current_year() {
 
@@ -58,7 +58,7 @@ class CopyRight_Shortcode {
 		}
 	}
 	/**
-	 * Get slug of Plugins.
+	 * Get site title of Site.
 	 *
 	 * @return string.
 	 */
