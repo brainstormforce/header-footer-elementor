@@ -52,7 +52,7 @@ class CopyRight extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'CopyRight', 'hfe', 'header-footer-elementor' );
+		return __( 'CopyRight', 'header-footer-elementor' );
 	}
 	/**
 	 * Retrieve the widget icon.
@@ -102,38 +102,38 @@ class CopyRight extends Widget_Base {
 		$this->start_controls_section(
 			'section_title',
 			array(
-				'label' => __( 'CopyRight', 'hfe', 'header-footer-elementor' ),
+				'label' => __( 'CopyRight', 'header-footer-elementor' ),
 			)
 		);
 
 		$this->add_control(
 			'shortcode',
 			array(
-				'label'   => __( 'CopyRight Title', 'hfe', 'header-footer-elementor' ),
+				'label'   => __( 'CopyRight Title', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::TEXTAREA,
 				'dynamic' => array(
 					'active' => true,
 				),
-				'default' => __( 'Copyright © [hfe_current_year] [hfe_site_title] | Powered by [hfe_theme_author]', 'hfe', 'header-footer-elementor' ),
+				'default' => __( 'Copyright © [hfe_current_year] [hfe_site_title] | Powered by [hfe_theme_author]', 'header-footer-elementor' ),
 			)
 		);
 
 		$this->add_responsive_control(
 			'align',
 			array(
-				'label'     => __( 'Alignment', 'hfe', 'header-footer-elementor' ),
+				'label'     => __( 'Alignment', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'options'   => array(
 					'left'   => array(
-						'title' => __( 'Left', 'hfe', 'header-footer-elementor' ),
+						'title' => __( 'Left', 'header-footer-elementor' ),
 						'icon'  => 'fa fa-align-left',
 					),
 					'center' => array(
-						'title' => __( 'Center', 'hfe', 'header-footer-elementor' ),
+						'title' => __( 'Center', 'header-footer-elementor' ),
 						'icon'  => 'fa fa-align-center',
 					),
 					'right'  => array(
-						'title' => __( 'Right', 'hfe', 'header-footer-elementor' ),
+						'title' => __( 'Right', 'header-footer-elementor' ),
 						'icon'  => 'fa fa-align-right',
 					),
 				),
@@ -146,21 +146,21 @@ class CopyRight extends Widget_Base {
 		$this->add_control(
 			'link_to',
 			array(
-				'label'   => __( 'Link', 'hfe', 'header-footer-elementor' ),
+				'label'   => __( 'Link', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'none',
 				'options' => array(
-					'none'   => __( 'None', 'hfe', 'header-footer-elementor' ),
-					'custom' => __( 'Custom URL', 'hfe', 'header-footer-elementor' ),
+					'none'   => __( 'None', 'header-footer-elementor' ),
+					'custom' => __( 'Custom URL', 'header-footer-elementor' ),
 				),
 			)
 		);
 		$this->add_control(
 			'link',
 			array(
-				'label'       => __( 'Link', 'hfe', 'header-footer-elementor' ),
+				'label'       => __( 'Link', 'header-footer-elementor' ),
 				'type'        => Controls_Manager::URL,
-				'placeholder' => __( 'https://your-link.com', 'hfe', 'header-footer-elementor' ),
+				'placeholder' => __( 'https://your-link.com', 'header-footer-elementor' ),
 				'condition'   => array(
 					'link_to' => 'custom',
 				),
@@ -171,7 +171,7 @@ class CopyRight extends Widget_Base {
 		$this->add_control(
 			'title_color',
 			array(
-				'label'     => __( 'Text Color', 'hfe', 'header-footer-elementor' ),
+				'label'     => __( 'Text Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'scheme'    => array(
 					'type'  => Scheme_Color::get_type(),
@@ -187,7 +187,7 @@ class CopyRight extends Widget_Base {
 		$this->add_control(
 			'background_color',
 			array(
-				'label'     => __( 'Background Color', 'hfe', 'header-footer-elementor' ),
+				'label'     => __( 'Background Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
 					// Stronger selector to avoid section style from overwriting.
