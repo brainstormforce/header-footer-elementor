@@ -21,7 +21,6 @@ class HFE_Astra_Compat {
 	 *  Initiator
 	 */
 	public static function instance() {
-
 		if ( ! isset( self::$instance ) ) {
 			self::$instance = new HFE_Astra_Compat();
 
@@ -35,7 +34,6 @@ class HFE_Astra_Compat {
 	 * Run all the Actions / Filters.
 	 */
 	public function hooks() {
-
 		if ( hfe_header_enabled() ) {
 			add_action( 'template_redirect', [ $this, 'astra_setup_header' ], 10 );
 			add_action( 'astra_header', 'hfe_render_header' );

@@ -21,7 +21,6 @@ class HFE_OceanWP_Compat {
 	 *  Initiator
 	 */
 	public static function instance() {
-
 		if ( ! isset( self::$instance ) ) {
 			self::$instance = new HFE_OceanWP_Compat();
 
@@ -35,7 +34,6 @@ class HFE_OceanWP_Compat {
 	 * Run all the Actions / Filters.
 	 */
 	public function hooks() {
-
 		if ( hfe_header_enabled() ) {
 			add_action( 'template_redirect', [ $this, 'setup_header' ], 10 );
 			add_action( 'ocean_header', 'hfe_render_header' );
@@ -49,7 +47,6 @@ class HFE_OceanWP_Compat {
 			add_action( 'template_redirect', [ $this, 'setup_footer' ], 10 );
 			add_action( 'ocean_footer', 'hfe_render_footer' );
 		}
-
 	}
 
 	/**

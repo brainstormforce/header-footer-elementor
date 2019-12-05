@@ -62,3 +62,28 @@ input.hfe-large-text{
     float: right;
     font-size: 18px;
 }
+
+.hfe_radio_options {
+    display: inline-block;
+}
+
+li#toplevel_page_Settings-page {
+    display: none;
+}
+
+.wp-admin #adminmenu .wp-submenu a[href="themes.php?page=Settings-page"] {
+    display:none;
+}
+
+.appearance_page_Settings-page #adminmenu .wp-submenu a[href ="edit.php?post_type=elementor-hf" ] {
+    color: white;
+    font-weight: 600;
+}
+
+.hfe-heading-inline{
+    font-size: 23px;
+    font-weight: 400;
+    margin: 0;
+    padding: 9px 0 4px 0;
+    line-height: 1.3;
+}

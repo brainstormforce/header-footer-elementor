@@ -99,7 +99,6 @@ class Retina extends Widget_Base {
 	 * @access protected
 	 */
 	protected function _register_controls() {
-
 		$this->register_content_retina_image_controls();
 		$this->register_retina_image_styling_controls();
 		$this->register_retina_caption_styling_controls();
@@ -515,7 +514,6 @@ class Retina extends Widget_Base {
 	 * @access protected
 	 */
 	protected function register_retina_caption_styling_controls() {
-
 		$this->start_controls_section(
 			'section_style_caption',
 			[
@@ -604,7 +602,6 @@ class Retina extends Widget_Base {
 		);
 
 		$this->end_controls_section();
-
 	}
 
 	/**
@@ -614,7 +611,6 @@ class Retina extends Widget_Base {
 	 * @access protected
 	 */
 	protected function register_helpful_information() {
-
 			$this->start_controls_section(
 				'section_helpful_info',
 				[
@@ -675,7 +671,6 @@ class Retina extends Widget_Base {
 	 * @access protected
 	 */
 	protected function render() {
-
 		$settings = $this->get_settings_for_display();
 
 		if ( empty( $settings['retina_image']['url'] ) ) {
@@ -728,7 +723,7 @@ class Retina extends Widget_Base {
 			if ( 'custom' !== $size ) {
 				$image_size = $size;
 			} else {
-				require_once( ELEMENTOR_PATH . 'includes/libraries/bfi-thumb/bfi-thumb.php' );
+				require_once ELEMENTOR_PATH . 'includes/libraries/bfi-thumb/bfi-thumb.php';
 
 				$image_dimension = $settings[ 'retina_image' . '_custom_dimension' ];
 
@@ -793,7 +788,6 @@ class Retina extends Widget_Base {
 			}
 
 			if ( strpos( $_SERVER['HTTP_USER_AGENT'], 'Chrome' ) !== false ) {
-
 				$date             = new \DateTime();
 				$timestam         = $date->getTimestamp();
 				$image_url        = $image_url . '?' . $timestam;

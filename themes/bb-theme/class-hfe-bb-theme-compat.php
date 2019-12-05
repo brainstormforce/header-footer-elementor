@@ -23,7 +23,6 @@ class HFE_BB_Theme_Compat {
 	 *  Initiator
 	 */
 	public static function instance() {
-
 		if ( ! isset( self::$instance ) ) {
 			self::$instance = new HFE_BB_Theme_Compat();
 
@@ -37,7 +36,6 @@ class HFE_BB_Theme_Compat {
 	 * Run all the Actions / Filters.
 	 */
 	public function hooks() {
-
 		if ( hfe_header_enabled() ) {
 			add_filter( 'fl_header_enabled', '__return_false' );
 			add_action( 'fl_before_header', [ $this, 'get_header_content' ] );
@@ -51,14 +49,12 @@ class HFE_BB_Theme_Compat {
 			add_filter( 'fl_footer_enabled', '__return_false' );
 			add_action( 'fl_after_content', [ $this, 'get_footer_content' ] );
 		}
-
 	}
 
 	/**
 	 * Display header markup for beaver builder theme.
 	 */
 	public function get_header_content() {
-
 		$header_layout = FLTheme::get_setting( 'fl-header-layout' );
 
 		if ( 'none' == $header_layout || is_page_template( 'tpl-no-header-footer.php' ) ) {
@@ -79,7 +75,6 @@ class HFE_BB_Theme_Compat {
 	 * Display footer markup for beaver builder theme.
 	 */
 	public function get_footer_content() {
-
 		if ( is_page_template( 'tpl-no-header-footer.php' ) ) {
 			return;
 		}

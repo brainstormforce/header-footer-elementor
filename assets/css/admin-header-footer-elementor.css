@@ -37,3 +37,7 @@
     justify-content: left;
     align-items: center;
 }
+
+li#toplevel_page_Settings-page {
+    display: none;
+}

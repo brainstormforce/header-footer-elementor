@@ -49,32 +49,28 @@ class Header_Footer_Elementor {
 	 * Constructor
 	 */
 	function __construct() {
-
 		$this->template = get_template();
 
 		if ( defined( 'ELEMENTOR_VERSION' ) && is_callable( 'Elementor\Plugin::instance' ) ) {
-
 			self::$elementor_instance = Elementor\Plugin::instance();
 
 			$this->includes();
 			$this->load_textdomain();
 
 			if ( 'genesis' == $this->template ) {
-
 				require HFE_DIR . 'themes/genesis/class-hfe-genesis-compat.php';
 			} elseif ( 'astra' == $this->template ) {
-
 				require HFE_DIR . 'themes/astra/class-hfe-astra-compat.php';
 			} elseif ( 'bb-theme' == $this->template || 'beaver-builder-theme' == $this->template ) {
 				$this->template = 'beaver-builder-theme';
 				require HFE_DIR . 'themes/bb-theme/class-hfe-bb-theme-compat.php';
 			} elseif ( 'generatepress' == $this->template ) {
-
 				require HFE_DIR . 'themes/generatepress/class-hfe-generatepress-compat.php';
 			} elseif ( 'oceanwp' == $this->template ) {
-
 				require HFE_DIR . 'themes/oceanwp/class-hfe-oceanwp-compat.php';
 			} else {
+				require_once HFE_DIR . 'themes/default/class-hfe-fallback-theme-support.php';
+
 				add_action( 'init', [ $this, 'setup_unsupported_theme_notice' ] );
 			}
 
@@ -88,14 +84,12 @@ class Header_Footer_Elementor {
 
 			add_shortcode( 'hfe_template', [ $this, 'render_template' ] );
 
+			add_action( 'astra_notice_before_markup_header-footer-elementor-rating', [ $this, 'rating_notice_css' ] );
 			add_action( 'admin_notices', [ $this, 'register_notices' ] );
-
 		} else {
-
 			add_action( 'admin_notices', [ $this, 'elementor_not_available' ] );
 			add_action( 'network_admin_notices', [ $this, 'elementor_not_available' ] );
 		}
-
 	}
 
 	/**
@@ -163,10 +157,19 @@ class Header_Footer_Elementor {
 	}
 
 	/**
+	 * Enqueue CSS for the Rating Notice.
+	 *
+	 * @since x.x.x
+	 * @return void
+	 */
+	public function rating_notice_css() {
+		wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'assets/css/admin-header-footer-elementor.css', [], HFE_VER );
+	}
+
+	/**
 	 * Prints the admin notics when Elementor is not installed or activated.
 	 */
 	public function elementor_not_available() {
-
 		if ( file_exists( WP_PLUGIN_DIR . '/elementor/elementor.php' ) ) {
 			$url = network_admin_url() . 'plugins.php?s=elementor';
 		} else {
@@ -256,7 +259,6 @@ class Header_Footer_Elementor {
 			} elseif ( class_exists( '\Elementor\Post_CSS_File' ) ) {
 				$css_file = new \Elementor\Post_CSS_File( hfe_get_before_footer_id() );
 			}
-
 			$css_file->enqueue();
 		}
 	}
@@ -270,7 +272,6 @@ class Header_Footer_Elementor {
 
 		if ( ( 'elementor-hf' == $screen->id && ( 'post.php' == $pagenow || 'post-new.php' == $pagenow ) ) || ( 'edit.php' == $pagenow && 'edit-elementor-hf' == $screen->id ) ) {
 			wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'admin/assets/css/ehf-admin.css', [], HFE_VER );
-
 			wp_enqueue_script( 'hfe-admin-script', HFE_URL . 'admin/assets/js/ehf-admin.js', [], HFE_VER );
 		}
 	}
@@ -283,7 +284,6 @@ class Header_Footer_Elementor {
 	 * @return Array          array with class names for the body tag.
 	 */
 	public function body_class( $classes ) {
-
 		if ( hfe_header_enabled() ) {
 			$classes[] = 'ehf-header';
 		}
@@ -304,7 +304,6 @@ class Header_Footer_Elementor {
 	 * @since  1.0.3
 	 */
 	public function setup_unsupported_theme_notice() {
-
 		if ( ! current_theme_supports( 'header-footer-elementor' ) ) {
 			Astra_Notices::add_notice(
 				[
@@ -316,7 +315,6 @@ class Header_Footer_Elementor {
 				]
 			);
 		}
-
 	}
 
 	/**
@@ -330,7 +328,6 @@ class Header_Footer_Elementor {
 	 * Prints the Footer content.
 	 */
 	public static function get_footer_content() {
-
 		echo "<div class='footer-width-fixer'>";
 		echo self::$elementor_instance->frontend->get_builder_content_for_display( get_hfe_footer_id() );
 		echo '</div>';
@@ -396,7 +393,6 @@ class Header_Footer_Elementor {
 	 * @param array $atts attributes for shortcode.
 	 */
 	public function render_template( $atts ) {
-
 		$atts = shortcode_atts(
 			[
 				'id' => '',
@@ -420,7 +416,6 @@ class Header_Footer_Elementor {
 			$css_file->enqueue();
 
 		return self::$elementor_instance->frontend->get_builder_content_for_display( $id );
-
 	}
 
 }

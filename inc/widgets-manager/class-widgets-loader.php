@@ -65,7 +65,6 @@ class Widgets_Loader {
 	 * @access public
 	 */
 	public function include_widgets_files() {
-
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-retina.php';
 	}
 

@@ -51,11 +51,11 @@ class HFE_Admin {
 		add_action( 'manage_elementor-hf_posts_custom_column', [ $this, 'render_shortcode_column' ], 10, 2 );
 	}
 
+
 	/**
 	 * Register Post type for header footer templates
 	 */
 	public function header_footer_posttype() {
-
 		$labels = [
 			'name'               => __( 'Header Footers Template', 'header-footer-elementor' ),
 			'singular_name'      => __( 'Elementor Header Footer', 'header-footer-elementor' ),
@@ -146,9 +146,7 @@ class HFE_Admin {
 						<select name="ehf_template_type" id="ehf_template_type">
 							<option value="" <?php selected( $template_type, '' ); ?>><?php _e( 'Select Option', 'header-footer-elementor' ); ?></option>
 							<option value="type_header" <?php selected( $template_type, 'type_header' ); ?>><?php _e( 'Header', 'header-footer-elementor' ); ?></option>
-							<?php if ( 'astra' == get_template() ) { ?>
-								<option value="type_before_footer" <?php selected( $template_type, 'type_before_footer' ); ?>><?php _e( 'Before Footer', 'header-footer-elementor' ); ?></option>
-							<?php } ?>
+							<option value="type_before_footer" <?php selected( $template_type, 'type_before_footer' ); ?>><?php _e( 'Before Footer', 'header-footer-elementor' ); ?></option>
 							<option value="type_footer" <?php selected( $template_type, 'type_footer' ); ?>><?php _e( 'Footer', 'header-footer-elementor' ); ?></option>
 							<option value="custom" <?php selected( $template_type, 'custom' ); ?>><?php _e( 'Custom Block', 'header-footer-elementor' ); ?></option>
 						</select>
@@ -309,7 +307,6 @@ class HFE_Admin {
 		} else {
 			delete_post_meta( $post_id, 'display-on-canvas-template' );
 		}
-
 	}
 
 	/**
@@ -318,7 +315,6 @@ class HFE_Admin {
 	 * @since 1.0.0
 	 */
 	public function location_notice() {
-
 		global $pagenow;
 		global $post;
 
@@ -333,7 +329,6 @@ class HFE_Admin {
 
 			// Check if more than one template is selected for current template type.
 			if ( is_array( $templates ) && isset( $templates[1] ) && $post->ID != $templates[0] ) {
-
 				$post_title        = '<strong>' . get_the_title( $templates[0] ) . '</strong>';
 				$template_location = '<strong>' . $this->template_location( $template_type ) . '</strong>';
 				/* Translators: Post title, Template Location */
@@ -344,7 +339,6 @@ class HFE_Admin {
 				echo '</p></div>';
 			}
 		}
-
 	}
 
 	/**
@@ -382,11 +376,9 @@ class HFE_Admin {
 	 * @param  String $single_template Single template.
 	 */
 	function load_canvas_template( $single_template ) {
-
 		global $post;
 
 		if ( 'elementor-hf' == $post->post_type ) {
-
 			$elementor_2_0_canvas = ELEMENTOR_PATH . '/modules/page-templates/templates/canvas.php';
 
 			if ( file_exists( $elementor_2_0_canvas ) ) {
@@ -405,7 +397,6 @@ class HFE_Admin {
 	 * @param array $columns template list columns.
 	 */
 	function set_shortcode_columns( $columns ) {
-
 		$date_column = $columns['date'];
 
 		unset( $columns['date'] );
@@ -423,7 +414,6 @@ class HFE_Admin {
 	 * @param int   $post_id post id.
 	 */
 	function render_shortcode_column( $column, $post_id ) {
-
 		switch ( $column ) {
 			case 'shortcode':
 				ob_start();

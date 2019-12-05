@@ -21,7 +21,6 @@ class HFE_Elementor_Canvas_Compat {
 	 *  Initiator
 	 */
 	public static function instance() {
-
 		if ( ! isset( self::$instance ) ) {
 			self::$instance = new HFE_Elementor_Canvas_Compat();
 
@@ -35,7 +34,6 @@ class HFE_Elementor_Canvas_Compat {
 	 * Run all the Actions / Filters.
 	 */
 	public function hooks() {
-
 		if ( hfe_header_enabled() ) {
 
 			// Action `elementor/page_templates/canvas/before_content` is introduced in Elementor Version 1.4.1.
@@ -60,7 +58,6 @@ class HFE_Elementor_Canvas_Compat {
 
 			// check if current page template is Elemenntor Canvas.
 			if ( 'elementor_canvas' == get_page_template_slug() ) {
-
 				$override_cannvas_template = get_post_meta( hfe_get_before_footer_id(), 'display-on-canvas-template', true );
 
 				if ( '1' == $override_cannvas_template ) {
@@ -68,7 +65,6 @@ class HFE_Elementor_Canvas_Compat {
 				}
 			}
 		}
-
 	}
 
 	/**
