@@ -15,6 +15,7 @@ use Elementor\Widget_Base;
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;   // Exit if accessed directly.
 }
+
 /**
  * Elementor Copy Right
  *
@@ -23,6 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since x.x.x
  */
 class CopyRight extends Widget_Base {
+
 	/**
 	 * Retrieve the widget name.
 	 *
@@ -45,7 +47,7 @@ class CopyRight extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Copyright', 'header-footer-elementor' );
+		return __( 'Copyright', 'hfe' );
 	}
 	/**
 	 * Retrieve the widget icon.
@@ -95,61 +97,60 @@ class CopyRight extends Widget_Base {
 		$this->start_controls_section(
 			'section_title',
 			array(
-				'label' => __( 'Copyright', 'header-footer-elementor' ),
+				'label' => __( 'Copyright', 'hfe' ),
 			)
 		);
 
 		$this->add_control(
 			'shortcode',
 			array(
-				'label'   => __( 'Copyright Title', 'header-footer-elementor' ),
+				'label'   => __( 'Copyright Title', 'hfe' ),
 				'type'    => Controls_Manager::TEXTAREA,
 				'dynamic' => array(
 					'active' => true,
 				),
-				'default' => __( 'Copyright © [hfe_current_year] [hfe_site_title] | Powered by [hfe_site_title]', 'header-footer-elementor' ),
-			)
-		);
-
-		$this->add_responsive_control(
-			'align',
-			array(
-				'label'     => __( 'Alignment', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::CHOOSE,
-				'options'   => array(
-					'left'   => array(
-						'title' => __( 'Left', 'header-footer-elementor' ),
-						'icon'  => 'fa fa-align-left',
-					),
-					'center' => array(
-						'title' => __( 'Center', 'header-footer-elementor' ),
-						'icon'  => 'fa fa-align-center',
-					),
-					'right'  => array(
-						'title' => __( 'Right', 'header-footer-elementor' ),
-						'icon'  => 'fa fa-align-right',
-					),
-				),
-				'selectors' => array(
-					'{{WRAPPER}}' => 'text-align: {{VALUE}};',
-				),
+				'default' => __( 'Copyright © [hfe_current_year] [hfe_site_title] | Powered by [hfe_site_title]', 'hfe' ),
 			)
 		);
 
 		$this->add_control(
 			'link',
 			array(
-				'label'       => __( 'Link', 'header-footer-elementor' ),
+				'label'       => __( 'Link', 'hfe' ),
 				'type'        => Controls_Manager::URL,
-				'placeholder' => __( 'https://your-link.com', 'header-footer-elementor' ),
-				'show_label'  => false,
+				'placeholder' => __( 'https://your-link.com', 'hfe' ),
+			)
+		);
+
+		$this->add_responsive_control(
+			'align',
+			array(
+				'label'     => __( 'Alignment', 'hfe' ),
+				'type'      => Controls_Manager::CHOOSE,
+				'options'   => array(
+					'left'   => array(
+						'title' => __( 'Left', 'hfe' ),
+						'icon'  => 'fa fa-align-left',
+					),
+					'center' => array(
+						'title' => __( 'Center', 'hfe' ),
+						'icon'  => 'fa fa-align-center',
+					),
+					'right'  => array(
+						'title' => __( 'Right', 'hfe' ),
+						'icon'  => 'fa fa-align-right',
+					),
+				),
+				'selectors' => array(
+					'{{WRAPPER}} .hfe-copyright-wrapper' => 'text-align: {{VALUE}};',
+				),
 			)
 		);
 
 		$this->add_control(
 			'title_color',
 			array(
-				'label'     => __( 'Text Color', 'header-footer-elementor' ),
+				'label'     => __( 'Text Color', 'hfe' ),
 				'type'      => Controls_Manager::COLOR,
 				'scheme'    => array(
 					'type'  => Scheme_Color::get_type(),
@@ -174,7 +175,7 @@ class CopyRight extends Widget_Base {
 	}
 
 	/**
-	 * Render CopyRight output on the frontend.
+	 * Render Copyright output on the frontend.
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
@@ -186,21 +187,17 @@ class CopyRight extends Widget_Base {
 		$link     = isset( $settings['link']['url'] ) ? $settings['link']['url'] : '';
 
 		$copy_right_shortcode = do_shortcode( shortcode_unautop( $settings['shortcode'] ) );
-		if ( ! empty( $link ) ) {
-			?>
-				<span class="hfe-copyright-wrapper">
-					<a href="<?php echo $link; ?>">
-						<?php echo $copy_right_shortcode; ?>		
-					</a>
-				</span>
-			<?php
-		} else {
-			?>
-				<span class="hfe-copyright-wrapper">
-						<?php echo $copy_right_shortcode; ?>		
-				</span>
-			<?php
-		}
+		if ( ! empty( $link ) ) { ?>
+			<div class="hfe-copyright-wrapper">
+				<a href="<?php echo $link; ?>">
+					<span><?php echo $copy_right_shortcode; ?></span>
+				</a>
+			</div>
+		<?php } else { ?>
+			<div class="hfe-copyright-wrapper">
+				<span><?php echo $copy_right_shortcode; ?></span>
+			</div>
+		<?php }
 	}
 
 	/**
@@ -208,11 +205,21 @@ class CopyRight extends Widget_Base {
 	 *
 	 * Override the default behavior by printing the shortcode instead of rendering it.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access public
 	 */
 	public function render_plain_content() {
 		// In plain mode, render without shortcode.
 		echo $this->get_settings( 'shortcode' );
 	}
+
+	/**
+	 * Render shortcode widget output in the editor.
+	 *
+	 * Written as a Backbone JavaScript template and used to generate the live preview.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function _content_template() {}
 }
