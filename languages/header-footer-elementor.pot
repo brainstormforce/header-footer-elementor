@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Elementor - Header, Footer & Blocks 1.1.4\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/header-footer-elementor\n"
-"POT-Creation-Date: 2019-12-05 12:48:40+00:00\n"
+"POT-Creation-Date: 2019-12-06 06:24:11+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -146,45 +146,45 @@ msgid ""
 "themes."
 msgstr ""
 
-#: widgets/class-copyright.php:47 widgets/class-copyright.php:97
-msgid "CopyRight"
+#: widgets/class-copyright.php:50 widgets/class-copyright.php:100
+msgid "Copyright"
 msgstr ""
 
-#: widgets/class-copyright.php:104
-msgid "CopyRight Title"
+#: widgets/class-copyright.php:107
+msgid "Copyright Text"
 msgstr ""
 
-#: widgets/class-copyright.php:109
+#: widgets/class-copyright.php:112
 msgid ""
 "Copyright © [hfe_current_year] [hfe_site_title] | Powered by "
 "[hfe_site_title]"
 msgstr ""
 
-#: widgets/class-copyright.php:116
-msgid "Alignment"
-msgstr ""
-
-#: widgets/class-copyright.php:120
-msgid "Left"
-msgstr ""
-
-#: widgets/class-copyright.php:124
-msgid "Center"
-msgstr ""
-
-#: widgets/class-copyright.php:128
-msgid "Right"
-msgstr ""
-
-#: widgets/class-copyright.php:141
+#: widgets/class-copyright.php:119
 msgid "Link"
 msgstr ""
 
-#: widgets/class-copyright.php:143
+#: widgets/class-copyright.php:121
 msgid "https://your-link.com"
 msgstr ""
 
-#: widgets/class-copyright.php:151
+#: widgets/class-copyright.php:128
+msgid "Alignment"
+msgstr ""
+
+#: widgets/class-copyright.php:132
+msgid "Left"
+msgstr ""
+
+#: widgets/class-copyright.php:136
+msgid "Center"
+msgstr ""
+
+#: widgets/class-copyright.php:140
+msgid "Right"
+msgstr ""
+
+#: widgets/class-copyright.php:153
 msgid "Text Color"
 msgstr ""
 

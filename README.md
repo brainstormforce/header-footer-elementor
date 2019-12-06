@@ -108,6 +108,9 @@ If the above is nnot possible, You can also add support for the plugin from your
 
 ## Changelog ##
 
+### 1.1.5 ###
+- New: Added Copyright widget and Shortcode for current year & site title.
+
 ### 1.1.4 ###
 - Fix: Flush permalinks on plugin update to Elementor error when trying to edit the Header/Footer.
 
