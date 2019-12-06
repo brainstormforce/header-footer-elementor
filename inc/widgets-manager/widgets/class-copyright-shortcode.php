@@ -61,4 +61,4 @@ class Copyright_Shortcode {
 
 }
 
-$copyright_shortcode = new Copyright_Shortcode();
+new Copyright_Shortcode();
