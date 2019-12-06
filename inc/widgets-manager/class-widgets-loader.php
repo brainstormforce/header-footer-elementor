@@ -99,7 +99,7 @@ class Widgets_Loader {
 		$this->include_widgets_files();
 		// Register Widgets.
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Retina() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\CopyRight() );
+		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Copyright() );
 	}
 
 }

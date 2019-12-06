@@ -20,13 +20,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Elementor Copy Right
+ * Elementor Copyright
  *
- * Elementor widget for copy right.
+ * Elementor widget for copyright.
  *
  * @since x.x.x
  */
-class CopyRight extends Widget_Base {
+class Copyright extends Widget_Base {
 
 	/**
 	 * Retrieve the widget name.
@@ -82,16 +82,16 @@ class CopyRight extends Widget_Base {
 		return [ 'HFE' ];
 	}
 	/**
-	 * Register Copy Right controls.
+	 * Register Copyright controls.
 	 *
 	 * @since x.x.x
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function _register_controls() { //phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
 		$this->register_content_copy_right_controls();
 	}
 	/**
-	 * Register Copy Right General Controls.
+	 * Register Copyright General Controls.
 	 *
 	 * @since x.x.x
 	 * @access protected
@@ -192,11 +192,11 @@ class CopyRight extends Widget_Base {
 		$copy_right_shortcode = do_shortcode( shortcode_unautop( $settings['shortcode'] ) ); ?>
 		<div class="hfe-copyright-wrapper">
 			<?php if ( ! empty( $link ) ) { ?>
-				<a href="<?php echo $link; ?>">
-					<span><?php echo $copy_right_shortcode; ?></span>
+				<a href="<?php echo esc_url( $link ); ?>">
+					<span><?php echo esc_attr( $copy_right_shortcode ); ?></span>
 				</a>
 			<?php } else { ?>
-				<span><?php echo $copy_right_shortcode; ?></span>
+				<span><?php echo esc_attr( $copy_right_shortcode ); ?></span>
 			<?php } ?>
 		</div>
 		<?php
@@ -212,7 +212,7 @@ class CopyRight extends Widget_Base {
 	 */
 	public function render_plain_content() {
 		// In plain mode, render without shortcode.
-		echo $this->get_settings( 'shortcode' );
+		echo esc_attr( $this->get_settings( 'shortcode' ) );
 	}
 
 	/**
@@ -223,5 +223,5 @@ class CopyRight extends Widget_Base {
 	 * @since x.x.x
 	 * @access protected
 	 */
-	protected function _content_template() {}
+	protected function _content_template() {} //phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
 }

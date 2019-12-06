@@ -1,10 +1,12 @@
 <?php
 /**
- * Calling copy right shortcode.
+ * Calling copyright shortcode.
  *
- * @package CopyRight
+ * @package Copyright
  * @author Brainstorm Force
  */
+
+namespace HFE\WidgetsManager\Widgets;
 
 /**
  * Exit if accessed directly.
@@ -14,29 +16,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Helper class for the Copy Right.
+ * Helper class for the Copyright.
  *
  * @since x.x.x
  */
-class CopyRight_Shortcode {
-
-	/**
-	 * The unique instance of the copy right shortcode.
-	 *
-	 * @var Instance variable
-	 */
-	private static $instance;
-
-	/**
-	 * Gets an instance of our copy right shortcode.
-	 */
-	public static function get_instance() {
-		if ( null === self::$instance ) {
-			self::$instance = new self();
-		}
-
-		return self::$instance;
-	}
+class Copyright_Shortcode {
 
 	/**
 	 * Constructor.
@@ -77,4 +61,4 @@ class CopyRight_Shortcode {
 
 }
 
-$copyright_shortcode = CopyRight_Shortcode::get_instance();
+$copyright_shortcode = new Copyright_Shortcode();
