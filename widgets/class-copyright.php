@@ -104,7 +104,7 @@ class CopyRight extends Widget_Base {
 		$this->add_control(
 			'shortcode',
 			array(
-				'label'   => __( 'Copyright Title', 'hfe' ),
+				'label'   => __( 'Copyright Text', 'hfe' ),
 				'type'    => Controls_Manager::TEXTAREA,
 				'dynamic' => array(
 					'active' => true,
@@ -167,7 +167,7 @@ class CopyRight extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'     => 'caption_typography',
-				'selector' => '{{WRAPPER}} .hfe-copyright-wrapper',
+				'selector' => '{{WRAPPER}} .hfe-copyright-wrapper, {{WRAPPER}} .hfe-copyright-wrapper a',
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_3,
 			)
 		);
@@ -186,19 +186,18 @@ class CopyRight extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 		$link     = isset( $settings['link']['url'] ) ? $settings['link']['url'] : '';
 
-		$copy_right_shortcode = do_shortcode( shortcode_unautop( $settings['shortcode'] ) );
-		if ( ! empty( $link ) ) { ?>
-			<div class="hfe-copyright-wrapper">
+		$copy_right_shortcode = do_shortcode( shortcode_unautop( $settings['shortcode'] ) ); ?>
+		
+		<div class="hfe-copyright-wrapper">
+			<?php if ( ! empty( $link ) ) { ?>
 				<a href="<?php echo $link; ?>">
 					<span><?php echo $copy_right_shortcode; ?></span>
 				</a>
-			</div>
-		<?php } else { ?>
-			<div class="hfe-copyright-wrapper">
+			<?php } else { ?>
 				<span><?php echo $copy_right_shortcode; ?></span>
-			</div>
-		<?php }
-	}
+			<?php } ?>
+		</div>
+	<?php }
 
 	/**
 	 * Render shortcode widget as plain content.
