@@ -57,12 +57,19 @@ class Global_Theme_Compatibility {
 			position: relative;
 			margin-left: -50vw;
 			left: 50%;
-		}
-		
-		header#masthead,
-		footer#colophon {
-			display: none;
 		}';
+
+		if ( true === hfe_header_enabled() ) {
+			$css .= 'header#masthead {
+				display: none;
+			}';
+		}
+
+		if ( true === hfe_footer_enabled() ) {
+			$css .= 'footer#colophon {
+				display: none;
+			}';
+		}
 
 		wp_add_inline_style( 'hfe-style', $css );
 	}
