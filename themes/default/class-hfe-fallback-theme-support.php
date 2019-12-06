@@ -76,7 +76,7 @@ class HFE_Fallback_Theme_Support {
 	 * @return void
 	 */
 	public function hfe_compatibility_callback() {
-		_e( 'Header Footer Elementor plugin includes two compatibility modes to try to support all the themes.<br>Use the method which works best with your theme.', 'header-footer-elementor' );
+		_e( 'Header Footer Elementor plugin includes two compatibility modes to try to support all the themes.<br>Use the method which works best with your theme.<br><br>It is possible that both these methods will not work with your theme correctly with your theme, In that case you should contact your theme author and request them to <a href="https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme" target="_blank">add support for this plugin</a>.', 'header-footer-elementor' );
 	}
 
 	/**
@@ -94,12 +94,17 @@ class HFE_Fallback_Theme_Support {
 
 		<label>
 			<input type="radio" name="hfe_compatibility_option" value= 1 <?php checked( $hfe_radio_button, 1 ); ?> > <div class="hfe_radio_options"><?php esc_html_e( 'Method 1', 'header-footer-elementor' ); ?></div>
-					<p class="description"><?php esc_html_e( 'This replaces the header.php & footer.php template with a custom templates from the plugin.', 'header-footer-elementor' ); ?></p><br>
+			<p class="description"><?php esc_html_e( 'This replaces the header.php & footer.php template with a custom templates from the plugin.', 'header-footer-elementor' ); ?></p><br>
 		</label>
 		<label>
 			<input type="radio" name="hfe_compatibility_option" value= 2 <?php checked( $hfe_radio_button, 2 ); ?> > <div class="hfe_radio_options"><?php esc_html_e( 'Method 2', 'header-footer-elementor' ); ?></div>
 			<p class="description">
-						<?php esc_html_e( 'This adds the header in the new action that was introduced by WordPress `wp_body_option` and footer is added in wp_footer action.', 'header-footer-elementor' ); ?>
+				<?php
+				echo sprintf(
+					esc_html( "This option uses WordPress action `wp_body_option for header` and `wp_footer` action for footer.%1s Theme's default header is hidden using CSS.", 'header-footer-elementor' ),
+					'<br>'
+				);
+				?>
 			</p>
 		</label>
 
