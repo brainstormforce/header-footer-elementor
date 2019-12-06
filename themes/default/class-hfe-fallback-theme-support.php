@@ -25,10 +25,10 @@ class HFE_Fallback_Theme_Support {
 	public function __construct() {
 		$this->setup_fallback_support();
 
-		add_action( 'admin_menu', array( $this, 'hfe_register_settings_page' ) );
-		add_action( 'admin_init', array( $this, 'hfe_admin_init' ) );
-		add_action( 'admin_head', array( $this, 'hfe_global_css' ) );
-		add_filter( 'views_edit-elementor-hf', array( $this, 'hfe_settings' ), 10, 1 );
+		add_action( 'admin_menu', [ $this, 'hfe_register_settings_page' ] );
+		add_action( 'admin_init', [ $this, 'hfe_admin_init' ] );
+		add_action( 'admin_head', [ $this, 'hfe_global_css' ] );
+		add_filter( 'views_edit-elementor-hf', [ $this, 'hfe_settings' ], 10, 1 );
 	}
 
 	/**
@@ -38,7 +38,7 @@ class HFE_Fallback_Theme_Support {
 	 * @return void
 	 */
 	public function hfe_global_css() {
-		wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'admin/assets/css/ehf-admin.css', array(), HFE_VER );
+		wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'admin/assets/css/ehf-admin.css', [], HFE_VER );
 	}
 
 	/**
@@ -63,8 +63,8 @@ class HFE_Fallback_Theme_Support {
 	 */
 	public function hfe_admin_init() {
 		register_setting( 'hfe-plugin-options', 'hfe_compatibility_option' );
-		add_settings_section( 'hfe-options', __( 'Compatibility Mode', 'header-footer-elementor' ), array( $this, 'hfe_compatibility_callback' ), 'Settings' );
-		add_settings_field( 'hfe-way', 'Select Fallback Compatibility Mode', array( $this, 'hfe_compatibility_option_callback' ), 'Settings', 'hfe-options' );
+		add_settings_section( 'hfe-options', __( 'Compatibility Mode', 'header-footer-elementor' ), [ $this, 'hfe_compatibility_callback' ], 'Settings' );
+		add_settings_field( 'hfe-way', 'Select Fallback Compatibility Mode', [ $this, 'hfe_compatibility_option_callback' ], 'Settings', 'hfe-options' );
 	}
 
 	/**
@@ -89,7 +89,7 @@ class HFE_Fallback_Theme_Support {
 	 */
 	public function hfe_compatibility_option_callback() {
 		$hfe_radio_button = get_option( 'hfe_compatibility_option', '1' );
-			wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'admin/assets/css/ehf-admin.css', array(), HFE_VER );
+			wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'admin/assets/css/ehf-admin.css', [], HFE_VER );
 		?>
 
 		<label>
@@ -136,7 +136,7 @@ class HFE_Fallback_Theme_Support {
 			__( 'Settings', 'header-footer-elementor' ),
 			'manage_options',
 			'hfe-settings',
-			array( $this, 'hfe_settings_page' )
+			[ $this, 'hfe_settings_page' ]
 		);
 	}
 
@@ -155,16 +155,16 @@ class HFE_Fallback_Theme_Support {
 		?>
 		<h2 class="nav-tab-wrapper">
 			<?php
-			$tabs       = array(
-				'hfe_templates' => array(
+			$tabs       = [
+				'hfe_templates' => [
 					'name' => __( 'All templates', 'header-footer-elementor' ),
 					'url'  => admin_url( 'edit.php?post_type=elementor-hf' ),
-				),
-				'hfe_settings'  => array(
+				],
+				'hfe_settings'  => [
 					'name' => __( 'Settings', 'header-footer-elementor' ),
 					'url'  => admin_url( 'themes.php?page=hfe-settings' ),
-				),
-			);
+				],
+			];
 			$active_tab = 'hfe-settings' == isset( $_GET['page'] ) && $_GET['page'] ? 'hfe_settings' : 'hfe_templates';
 			foreach ( $tabs as $tab_id => $tab ) {
 				$active = $active_tab == $tab_id ? ' nav-tab-active' : '';
@@ -196,16 +196,16 @@ class HFE_Fallback_Theme_Support {
 		?>
 		<h2 class="nav-tab-wrapper">
 			<?php
-			$tabs       = array(
-				'hfe_templates' => array(
+			$tabs       = [
+				'hfe_templates' => [
 					'name' => __( 'All templates', 'header-footer-elementor' ),
 					'url'  => admin_url( 'edit.php?post_type=elementor-hf' ),
-				),
-				'hfe_settings'  => array(
+				],
+				'hfe_settings'  => [
 					'name' => __( 'Settings', 'header-footer-elementor' ),
 					'url'  => admin_url( 'themes.php?page=hfe-settings' ),
-				),
-			);
+				],
+			];
 			$active_tab = 'hfe-settings' == isset( $_GET['page'] ) && $_GET['page'] ? 'hfe_settings' : 'hfe_templates';
 			foreach ( $tabs as $tab_id => $tab ) {
 				$active = $active_tab == $tab_id ? ' nav-tab-active' : '';

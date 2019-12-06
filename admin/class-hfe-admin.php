@@ -40,15 +40,15 @@ class HFE_Admin {
 	 * Constructor
 	 */
 	private function __construct() {
-		add_action( 'init', array( $this, 'header_footer_posttype' ) );
-		add_action( 'admin_menu', array( $this, 'register_admin_menu' ), 50 );
-		add_action( 'add_meta_boxes', array( $this, 'ehf_register_metabox' ) );
-		add_action( 'save_post', array( $this, 'ehf_save_meta' ) );
-		add_action( 'admin_notices', array( $this, 'location_notice' ) );
-		add_action( 'template_redirect', array( $this, 'block_template_frontend' ) );
-		add_filter( 'single_template', array( $this, 'load_canvas_template' ) );
-		add_filter( 'manage_elementor-hf_posts_columns', array( $this, 'set_shortcode_columns' ) );
-		add_action( 'manage_elementor-hf_posts_custom_column', array( $this, 'render_shortcode_column' ), 10, 2 );
+		add_action( 'init', [ $this, 'header_footer_posttype' ] );
+		add_action( 'admin_menu', [ $this, 'register_admin_menu' ], 50 );
+		add_action( 'add_meta_boxes', [ $this, 'ehf_register_metabox' ] );
+		add_action( 'save_post', [ $this, 'ehf_save_meta' ] );
+		add_action( 'admin_notices', [ $this, 'location_notice' ] );
+		add_action( 'template_redirect', [ $this, 'block_template_frontend' ] );
+		add_filter( 'single_template', [ $this, 'load_canvas_template' ] );
+		add_filter( 'manage_elementor-hf_posts_columns', [ $this, 'set_shortcode_columns' ] );
+		add_action( 'manage_elementor-hf_posts_custom_column', [ $this, 'render_shortcode_column' ], 10, 2 );
 	}
 
 
@@ -56,7 +56,7 @@ class HFE_Admin {
 	 * Register Post type for header footer templates
 	 */
 	public function header_footer_posttype() {
-		$labels = array(
+		$labels = [
 			'name'               => __( 'Header Footers Template', 'header-footer-elementor' ),
 			'singular_name'      => __( 'Elementor Header Footer', 'header-footer-elementor' ),
 			'menu_name'          => __( 'Header Footers Template', 'header-footer-elementor' ),
@@ -71,9 +71,9 @@ class HFE_Admin {
 			'parent_item_colon'  => __( 'Parent Header Footers Templates:', 'header-footer-elementor' ),
 			'not_found'          => __( 'No Header Footers Templates found.', 'header-footer-elementor' ),
 			'not_found_in_trash' => __( 'No Header Footers Templates found in Trash.', 'header-footer-elementor' ),
-		);
+		];
 
-		$args = array(
+		$args = [
 			'labels'              => $labels,
 			'public'              => true,
 			'show_ui'             => true,
@@ -83,8 +83,8 @@ class HFE_Admin {
 			'capability_type'     => 'post',
 			'hierarchical'        => false,
 			'menu_icon'           => 'dashicons-editor-kitchensink',
-			'supports'            => array( 'title', 'thumbnail', 'elementor' ),
-		);
+			'supports'            => [ 'title', 'thumbnail', 'elementor' ],
+		];
 
 		register_post_type( 'elementor-hf', $args );
 	}
@@ -113,10 +113,10 @@ class HFE_Admin {
 		add_meta_box(
 			'ehf-meta-box',
 			__( 'Elementor Header Footer options', 'header-footer-elementor' ),
-			array(
+			[
 				$this,
 				'efh_metabox_render',
-			),
+			],
 			'elementor-hf',
 			'normal',
 			'high'
@@ -205,13 +205,13 @@ class HFE_Admin {
 				<?php
 				Astra_Target_Rules_Fields::target_rule_settings_field(
 					'bsf-target-rules-location',
-					array(
+					[
 						'title'          => __( 'Display Rules', 'header-footer-elementor' ),
 						'value'          => '[{"type":"basic-global","specific":null}]',
 						'tags'           => 'site,enable,target,pages',
 						'rule_type'      => 'display',
 						'add_rule_label' => __( 'Add Display Rule', 'header-footer-elementor' ),
-					),
+					],
 					$include_locations
 				);
 				?>
@@ -227,13 +227,13 @@ class HFE_Admin {
 				<?php
 				Astra_Target_Rules_Fields::target_rule_settings_field(
 					'bsf-target-rules-exclusion',
-					array(
+					[
 						'title'          => __( 'Exclude On', 'header-footer-elementor' ),
 						'value'          => '[]',
 						'tags'           => 'site,enable,target,pages',
 						'add_rule_label' => __( 'Add Exclusion Rule', 'header-footer-elementor' ),
 						'rule_type'      => 'exclude',
-					),
+					],
 					$exclude_locations
 				);
 				?>
@@ -248,12 +248,12 @@ class HFE_Admin {
 				<?php
 				Astra_Target_Rules_Fields::target_user_role_settings_field(
 					'bsf-target-rules-users',
-					array(
+					[
 						'title'          => __( 'Users', 'header-footer-elementor' ),
 						'value'          => '[]',
 						'tags'           => 'site,enable,target,pages',
 						'add_rule_label' => __( 'Add User Rule', 'header-footer-elementor' ),
-					),
+					],
 					$users
 				);
 				?>
@@ -288,7 +288,7 @@ class HFE_Admin {
 
 		$target_locations = Astra_Target_Rules_Fields::get_format_rule_value( $_POST, 'bsf-target-rules-location' );
 		$target_exclusion = Astra_Target_Rules_Fields::get_format_rule_value( $_POST, 'bsf-target-rules-exclusion' );
-		$target_users     = array();
+		$target_users     = [];
 
 		if ( isset( $_POST['bsf-target-rules-users'] ) ) {
 			$target_users = array_map( 'sanitize_text_field', $_POST['bsf-target-rules-users'] );

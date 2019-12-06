@@ -43,8 +43,8 @@ class CopyRight_Shortcode {
 	 */
 	public function __construct() {
 
-		add_shortcode( 'hfe_current_year', array( $this, 'display_current_year' ) );
-		add_shortcode( 'hfe_site_title', array( $this, 'display_site_title' ) );
+		add_shortcode( 'hfe_current_year', [ $this, 'display_current_year' ] );
+		add_shortcode( 'hfe_site_title', [ $this, 'display_site_title' ] );
 	}
 
 	/**
