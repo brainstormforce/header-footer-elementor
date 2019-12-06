@@ -47,7 +47,7 @@ class CopyRight extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Copyright', 'hfe', 'header-footer-elementor' );
+		return __( 'Copyright', 'header-footer-elementor' );
 	}
 	/**
 	 * Retrieve the widget icon.
@@ -97,47 +97,47 @@ class CopyRight extends Widget_Base {
 		$this->start_controls_section(
 			'section_title',
 			array(
-				'label' => __( 'Copyright', 'hfe', 'header-footer-elementor' ),
+				'label' => __( 'Copyright', 'header-footer-elementor' ),
 			)
 		);
 
 		$this->add_control(
 			'shortcode',
 			array(
-				'label'   => __( 'Copyright Text', 'hfe', 'header-footer-elementor' ),
+				'label'   => __( 'Copyright Text', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::TEXTAREA,
 				'dynamic' => array(
 					'active' => true,
 				),
-				'default' => __( 'Copyright © [hfe_current_year] [hfe_site_title] | Powered by [hfe_site_title]', 'hfe', 'header-footer-elementor' ),
+				'default' => __( 'Copyright © [hfe_current_year] [hfe_site_title] | Powered by [hfe_site_title]', 'header-footer-elementor' ),
 			)
 		);
 
 		$this->add_control(
 			'link',
 			array(
-				'label'       => __( 'Link', 'hfe', 'header-footer-elementor' ),
+				'label'       => __( 'Link', 'header-footer-elementor' ),
 				'type'        => Controls_Manager::URL,
-				'placeholder' => __( 'https://your-link.com', 'hfe', 'header-footer-elementor' ),
+				'placeholder' => __( 'https://your-link.com', 'header-footer-elementor' ),
 			)
 		);
 
 		$this->add_responsive_control(
 			'align',
 			array(
-				'label'     => __( 'Alignment', 'hfe', 'header-footer-elementor' ),
+				'label'     => __( 'Alignment', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'options'   => array(
 					'left'   => array(
-						'title' => __( 'Left', 'hfe', 'header-footer-elementor' ),
+						'title' => __( 'Left', 'header-footer-elementor' ),
 						'icon'  => 'fa fa-align-left',
 					),
 					'center' => array(
-						'title' => __( 'Center', 'hfe', 'header-footer-elementor' ),
+						'title' => __( 'Center', 'header-footer-elementor' ),
 						'icon'  => 'fa fa-align-center',
 					),
 					'right'  => array(
-						'title' => __( 'Right', 'hfe', 'header-footer-elementor' ),
+						'title' => __( 'Right', 'header-footer-elementor' ),
 						'icon'  => 'fa fa-align-right',
 					),
 				),
@@ -150,7 +150,7 @@ class CopyRight extends Widget_Base {
 		$this->add_control(
 			'title_color',
 			array(
-				'label'     => __( 'Text Color', 'hfe', 'header-footer-elementor' ),
+				'label'     => __( 'Text Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'scheme'    => array(
 					'type'  => Scheme_Color::get_type(),
