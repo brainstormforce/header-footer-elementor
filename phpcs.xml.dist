@@ -2,19 +2,16 @@
 <ruleset name="WordPress Coding Standards for Plugins">
 	<description>Generally-applicable sniffs for WordPress plugins</description>
 
-	<rule ref="PHPCompatibilityWP"/>
-	<config name="testVersion" value="5.4-"/>
+	<rule ref="PHPCompatibility"/>
+	<config name="testVersion" value="5.3-"/>
 
 	<rule ref="WordPress-Core" >
 		<exclude name="WordPress.PHP.StrictComparisons.LooseComparison" />
 		<exclude name="WordPress.PHP.StrictInArray.MissingTrueStrict" />
 		<exclude name="Generic.Arrays.DisallowShortArraySyntax.Found" />
 	</rule>
-	<rule ref="WordPress-Docs" />
 
-	<rule ref="Generic.Arrays.DisallowLongArraySyntax.Found">
-		<type>warning</type>
-	</rule>
+	<rule ref="WordPress-Docs" />
 
 	<!-- Check all PHP files in directory tree by default. -->
 	<arg name="extensions" value="php"/>
@@ -25,5 +22,4 @@
 
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
-	<exclude-pattern>*/inc/lib/**</exclude-pattern>
 </ruleset>

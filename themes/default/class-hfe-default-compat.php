@@ -16,7 +16,7 @@ class HFE_Default_Compat {
 	 *  Initiator
 	 */
 	public function __construct() {
-		add_action( 'wp', [ $this, 'hooks' ] );
+		add_action( 'wp', array( $this, 'hooks' ) );
 	}
 
 	/**
@@ -25,7 +25,7 @@ class HFE_Default_Compat {
 	public function hooks() {
 		if ( hfe_header_enabled() ) {
 			// Replace header.php template.
-			add_action( 'get_header', [ $this, 'override_header' ] );
+			add_action( 'get_header', array( $this, 'override_header' ) );
 
 			// Display HFE's header in the replaced header.
 			add_action( 'hfe_header', 'hfe_render_header' );
@@ -33,14 +33,14 @@ class HFE_Default_Compat {
 
 		if ( hfe_footer_enabled() ) {
 			// Replace footer.php template.
-			add_action( 'get_footer', [ $this, 'override_footer' ] );
+			add_action( 'get_footer', array( $this, 'override_footer' ) );
 
 			// Display HFE's footer in the replaced header.
 			add_action( 'hfe_footer', 'hfe_render_footer' );
 		}
 
 		if ( hfe_is_before_footer_enabled() ) {
-			add_action( 'hfe_footer_before', [ 'Header_Footer_Elementor', 'get_before_footer_content' ] );
+			add_action( 'hfe_footer_before', array( 'Header_Footer_Elementor', 'get_before_footer_content' ) );
 		}
 	}
 
@@ -53,7 +53,7 @@ class HFE_Default_Compat {
 	 */
 	public function override_header() {
 		require HFE_DIR . 'themes/default/hfe-header.php';
-		$templates   = [];
+		$templates   = array();
 		$templates[] = 'header.php';
 		// Avoid running wp_head hooks again.
 		remove_all_actions( 'wp_head' );
@@ -71,7 +71,7 @@ class HFE_Default_Compat {
 	 */
 	public function override_footer() {
 		require HFE_DIR . 'themes/default/hfe-footer.php';
-		$templates   = [];
+		$templates   = array();
 		$templates[] = 'footer.php';
 		// Avoid running wp_head hooks again.
 		remove_all_actions( 'wp_head' );

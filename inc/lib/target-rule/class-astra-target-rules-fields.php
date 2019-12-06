@@ -1331,7 +1331,7 @@ class Astra_Target_Rules_Fields {
 					break;
 			}
 
-			// dd( $query );
+			// dd( $query );.
 
 			// Ignore the PHPCS warning about constant declaration.
 			// @codingStandardsIgnoreStart

@@ -71,24 +71,24 @@ class Header_Footer_Elementor {
 			} else {
 				require_once HFE_DIR . 'themes/default/class-hfe-fallback-theme-support.php';
 
-				add_action( 'init', [ $this, 'setup_unsupported_theme_notice' ] );
+				add_action( 'init', array( $this, 'setup_unsupported_theme_notice' ) );
 			}
 
 			// Scripts and styles.
-			add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
+			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
-			add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
+			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
 
-			add_filter( 'body_class', [ $this, 'body_class' ] );
-			add_action( 'switch_theme', [ $this, 'reset_unsupported_theme_notice' ] );
+			add_filter( 'body_class', array( $this, 'body_class' ) );
+			add_action( 'switch_theme', array( $this, 'reset_unsupported_theme_notice' ) );
 
-			add_shortcode( 'hfe_template', [ $this, 'render_template' ] );
+			add_shortcode( 'hfe_template', array( $this, 'render_template' ) );
 
-			add_action( 'astra_notice_before_markup_header-footer-elementor-rating', [ $this, 'rating_notice_css' ] );
-			add_action( 'admin_notices', [ $this, 'register_notices' ] );
+			add_action( 'astra_notice_before_markup_header-footer-elementor-rating', array( $this, 'rating_notice_css' ) );
+			add_action( 'admin_notices', array( $this, 'register_notices' ) );
 		} else {
-			add_action( 'admin_notices', [ $this, 'elementor_not_available' ] );
-			add_action( 'network_admin_notices', [ $this, 'elementor_not_available' ] );
+			add_action( 'admin_notices', array( $this, 'elementor_not_available' ) );
+			add_action( 'network_admin_notices', array( $this, 'elementor_not_available' ) );
 		}
 	}
 
@@ -113,7 +113,7 @@ class Header_Footer_Elementor {
 	public function register_notices() {
 		$image_path = HFE_URL . 'assets/images/header-footer-elementor-icon.svg';
 		Astra_Notices::add_notice(
-			[
+			array(
 				'id'                         => 'header-footer-elementor-rating',
 				'type'                       => '',
 				'message'                    => sprintf(
@@ -152,7 +152,7 @@ class Header_Footer_Elementor {
 				'display-notice-after'       => 1296000, // Display notice after 15 days.
 				'priority'                   => 18,
 				'display-with-other-notices' => false,
-			]
+			)
 		);
 	}
 
@@ -163,7 +163,7 @@ class Header_Footer_Elementor {
 	 * @return void
 	 */
 	public function rating_notice_css() {
-		wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'assets/css/admin-header-footer-elementor.css', [], HFE_VER );
+		wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'assets/css/admin-header-footer-elementor.css', array(), HFE_VER );
 	}
 
 	/**
@@ -221,7 +221,7 @@ class Header_Footer_Elementor {
 	 * Enqueue styles and scripts.
 	 */
 	public function enqueue_scripts() {
-		wp_enqueue_style( 'hfe-style', HFE_URL . 'assets/css/header-footer-elementor.css', [], HFE_VER );
+		wp_enqueue_style( 'hfe-style', HFE_URL . 'assets/css/header-footer-elementor.css', array(), HFE_VER );
 
 		if ( class_exists( '\Elementor\Plugin' ) ) {
 			$elementor = \Elementor\Plugin::instance();
@@ -271,8 +271,8 @@ class Header_Footer_Elementor {
 		$screen = get_current_screen();
 
 		if ( ( 'elementor-hf' == $screen->id && ( 'post.php' == $pagenow || 'post-new.php' == $pagenow ) ) || ( 'edit.php' == $pagenow && 'edit-elementor-hf' == $screen->id ) ) {
-			wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'admin/assets/css/ehf-admin.css', [], HFE_VER );
-			wp_enqueue_script( 'hfe-admin-script', HFE_URL . 'admin/assets/js/ehf-admin.js', [], HFE_VER );
+			wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'admin/assets/css/ehf-admin.css', array(), HFE_VER );
+			wp_enqueue_script( 'hfe-admin-script', HFE_URL . 'admin/assets/js/ehf-admin.js', array(), HFE_VER );
 		}
 	}
 
@@ -306,13 +306,13 @@ class Header_Footer_Elementor {
 	public function setup_unsupported_theme_notice() {
 		if ( ! current_theme_supports( 'header-footer-elementor' ) ) {
 			Astra_Notices::add_notice(
-				[
+				array(
 					'id'                  => 'unsupported-theme',
 					'type'                => 'error',
 					'dismissible'         => true,
 					'message'             => '<p>' . __( 'Hey, your current theme is not supported by Header Footer Elementor, click <a href="https://github.com/Nikschavan/header-footer-elementor#which-themes-are-supported-by-this-plugin">here</a> to check out the supported themes.', 'header-footer-elementor' ) . '</p>',
 					'repeat-notice-after' => false,
-				]
+				)
 			);
 		}
 	}
@@ -370,11 +370,11 @@ class Header_Footer_Elementor {
 	 * @return Mixed       Returns the header or footer template id if found, else returns string ''.
 	 */
 	public static function get_template_id( $type ) {
-		$option = [
+		$option = array(
 			'location'  => 'ehf_target_include_locations',
 			'exclusion' => 'ehf_target_exclude_locations',
 			'users'     => 'ehf_target_user_roles',
-		];
+		);
 
 		$hfe_templates = Astra_Target_Rules_Fields::get_instance()->get_posts_by_conditions( 'elementor-hf', $option );
 
@@ -394,9 +394,9 @@ class Header_Footer_Elementor {
 	 */
 	public function render_template( $atts ) {
 		$atts = shortcode_atts(
-			[
+			array(
 				'id' => '',
-			],
+			),
 			$atts,
 			'hfe_template'
 		);
