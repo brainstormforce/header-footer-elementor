@@ -110,10 +110,10 @@ If the above is nnot possible, You can also add support for the plugin from your
 
 = 1.2.0 (Unreleased) =
 - New: Support all the themes, Includes two separate fallback methods so that you can create custom headers and footers for any theme.
-- New: Added target rule engine which allows you to have different headers/footer for different pages.
-- New: Added Retina Image Elementor widget which can be used as a Site Logo.
+- New: Added target rule engine, which allows you to have different headers/footers for different pages.
+- New: Added Retina Image Elementor widget, which can be used as a Site Logo.
 - New: Added Copyright widget and Shortcode for current year & site title.
-- Improvement: Allow before footer to work on Elementor Canvas Template when not usina Astra Theme.
+- Improvement: Allow before footer to work on Elementor Canvas Template when not using Astra Theme.
 - Improvement: Added support of `Before Footer` action for all the themes.
 
 = 1.1.4 =
