@@ -59,7 +59,7 @@ if ( ! class_exists( 'HFE_Update' ) ) {
 
 			$db_version = get_option( $this->db_option_key, false );
 
-			if ( version_compare( $db_version, '1.2.0-beta.1', '<' ) ) {
+			if ( version_compare( $db_version, '1.2.0-beta.2', '<' ) ) {
 				$this->setup_default_terget_rules();
 			}
 
