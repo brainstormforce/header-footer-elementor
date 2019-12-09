@@ -58,7 +58,7 @@ class Retina extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Retina Image', 'hfe' );
+		return __( 'Retina Image', 'header-footer-elementor' );
 	}
 
 	/**
@@ -115,13 +115,13 @@ class Retina extends Widget_Base {
 		$this->start_controls_section(
 			'section_retina_image',
 			[
-				'label' => __( 'Retina Image', 'hfe' ),
+				'label' => __( 'Retina Image', 'header-footer-elementor' ),
 			]
 		);
 		$this->add_control(
 			'retina_image',
 			[
-				'label'   => __( 'Choose Default Image', 'hfe' ),
+				'label'   => __( 'Choose Default Image', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::MEDIA,
 				'dynamic' => [
 					'active' => true,
@@ -134,7 +134,7 @@ class Retina extends Widget_Base {
 		$this->add_control(
 			'real_retina',
 			[
-				'label'   => __( 'Choose Retina Image', 'hfe' ),
+				'label'   => __( 'Choose Retina Image', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::MEDIA,
 				'dynamic' => [
 					'active' => true,
@@ -148,26 +148,26 @@ class Retina extends Widget_Base {
 			Group_Control_Image_Size::get_type(),
 			[
 				'name'    => 'retina_image',
-				'label'   => __( 'Image Size', 'hfe' ),
+				'label'   => __( 'Image Size', 'header-footer-elementor' ),
 				'default' => 'medium',
 			]
 		);
 		$this->add_responsive_control(
 			'align',
 			[
-				'label'     => __( 'Alignment', 'hfe' ),
+				'label'     => __( 'Alignment', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'options'   => [
 					'left'   => [
-						'title' => __( 'Left', 'hfe' ),
+						'title' => __( 'Left', 'header-footer-elementor' ),
 						'icon'  => 'fa fa-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'hfe' ),
+						'title' => __( 'Center', 'header-footer-elementor' ),
 						'icon'  => 'fa fa-align-center',
 					],
 					'right'  => [
-						'title' => __( 'Right', 'hfe' ),
+						'title' => __( 'Right', 'header-footer-elementor' ),
 						'icon'  => 'fa fa-align-right',
 					],
 				],
@@ -181,11 +181,11 @@ class Retina extends Widget_Base {
 		$this->add_control(
 			'caption_source',
 			[
-				'label'   => __( 'Caption', 'hfe' ),
+				'label'   => __( 'Caption', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					'none'   => __( 'None', 'hfe' ),
-					'custom' => __( 'Custom Caption', 'hfe' ),
+					'none'   => __( 'None', 'header-footer-elementor' ),
+					'custom' => __( 'Custom Caption', 'header-footer-elementor' ),
 				],
 				'default' => 'none',
 			]
@@ -194,10 +194,10 @@ class Retina extends Widget_Base {
 		$this->add_control(
 			'caption',
 			[
-				'label'       => __( 'Custom Caption', 'hfe' ),
+				'label'       => __( 'Custom Caption', 'header-footer-elementor' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => '',
-				'placeholder' => __( 'Enter your image caption', 'hfe' ),
+				'placeholder' => __( 'Enter your image caption', 'header-footer-elementor' ),
 				'condition'   => [
 					'caption_source' => 'custom',
 				],
@@ -211,12 +211,12 @@ class Retina extends Widget_Base {
 		$this->add_control(
 			'link_to',
 			[
-				'label'   => __( 'Link', 'hfe' ),
+				'label'   => __( 'Link', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'none',
 				'options' => [
-					'none'   => __( 'None', 'hfe' ),
-					'custom' => __( 'Custom URL', 'hfe' ),
+					'none'   => __( 'None', 'header-footer-elementor' ),
+					'custom' => __( 'Custom URL', 'header-footer-elementor' ),
 				],
 			]
 		);
@@ -224,12 +224,12 @@ class Retina extends Widget_Base {
 		$this->add_control(
 			'link',
 			[
-				'label'       => __( 'Link', 'hfe' ),
+				'label'       => __( 'Link', 'header-footer-elementor' ),
 				'type'        => Controls_Manager::URL,
 				'dynamic'     => [
 					'active' => true,
 				],
-				'placeholder' => __( 'https://your-link.com', 'hfe' ),
+				'placeholder' => __( 'https://your-link.com', 'header-footer-elementor' ),
 				'condition'   => [
 					'link_to' => 'custom',
 				],
@@ -248,7 +248,7 @@ class Retina extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_retina_image',
 			[
-				'label' => __( 'Retina Image', 'hfe' ),
+				'label' => __( 'Retina Image', 'header-footer-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -256,7 +256,7 @@ class Retina extends Widget_Base {
 		$this->add_responsive_control(
 			'width',
 			[
-				'label'          => __( 'Width', 'hfe' ),
+				'label'          => __( 'Width', 'header-footer-elementor' ),
 				'type'           => Controls_Manager::SLIDER,
 				'default'        => [
 					'unit' => '%',
@@ -292,7 +292,7 @@ class Retina extends Widget_Base {
 		$this->add_responsive_control(
 			'space',
 			[
-				'label'          => __( 'Max Width', 'hfe' ) . ' (%)',
+				'label'          => __( 'Max Width', 'header-footer-elementor' ) . ' (%)',
 				'type'           => Controls_Manager::SLIDER,
 				'default'        => [
 					'unit' => '%',
@@ -328,16 +328,16 @@ class Retina extends Widget_Base {
 		$this->add_control(
 			'retina_image_border',
 			[
-				'label'       => __( 'Border Style', 'hfe' ),
+				'label'       => __( 'Border Style', 'header-footer-elementor' ),
 				'type'        => Controls_Manager::SELECT,
 				'default'     => 'none',
 				'label_block' => false,
 				'options'     => [
-					'none'   => __( 'None', 'hfe' ),
-					'solid'  => __( 'Solid', 'hfe' ),
-					'double' => __( 'Double', 'hfe' ),
-					'dotted' => __( 'Dotted', 'hfe' ),
-					'dashed' => __( 'Dashed', 'hfe' ),
+					'none'   => __( 'None', 'header-footer-elementor' ),
+					'solid'  => __( 'Solid', 'header-footer-elementor' ),
+					'double' => __( 'Double', 'header-footer-elementor' ),
+					'dotted' => __( 'Dotted', 'header-footer-elementor' ),
+					'dashed' => __( 'Dashed', 'header-footer-elementor' ),
 				],
 				'selectors'   => [
 					'{{WRAPPER}} .hfe-retina-image-container .hfe-retina-img' => 'border-style: {{VALUE}};',
@@ -347,7 +347,7 @@ class Retina extends Widget_Base {
 		$this->add_control(
 			'retina_image_border_size',
 			[
-				'label'      => __( 'Border Width', 'hfe' ),
+				'label'      => __( 'Border Width', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'default'    => [
@@ -369,7 +369,7 @@ class Retina extends Widget_Base {
 		$this->add_control(
 			'retina_image_border_color',
 			[
-				'label'     => __( 'Border Color', 'hfe' ),
+				'label'     => __( 'Border Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'scheme'    => [
 					'type'  => Scheme_Color::get_type(),
@@ -388,7 +388,7 @@ class Retina extends Widget_Base {
 		$this->add_responsive_control(
 			'image_border_radius',
 			[
-				'label'      => __( 'Border Radius', 'hfe' ),
+				'label'      => __( 'Border Radius', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -413,14 +413,14 @@ class Retina extends Widget_Base {
 		$this->start_controls_tab(
 			'normal',
 			[
-				'label' => __( 'Normal', 'hfe' ),
+				'label' => __( 'Normal', 'header-footer-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'opacity',
 			[
-				'label'     => __( 'Opacity', 'hfe' ),
+				'label'     => __( 'Opacity', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => [
 					'px' => [
@@ -448,13 +448,13 @@ class Retina extends Widget_Base {
 		$this->start_controls_tab(
 			'hover',
 			[
-				'label' => __( 'Hover', 'hfe' ),
+				'label' => __( 'Hover', 'header-footer-elementor' ),
 			]
 		);
 		$this->add_control(
 			'opacity_hover',
 			[
-				'label'     => __( 'Opacity', 'hfe' ),
+				'label'     => __( 'Opacity', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => [
 					'px' => [
@@ -480,14 +480,14 @@ class Retina extends Widget_Base {
 		$this->add_control(
 			'hover_animation',
 			[
-				'label' => __( 'Hover Animation', 'hfe' ),
+				'label' => __( 'Hover Animation', 'header-footer-elementor' ),
 				'type'  => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
 		$this->add_control(
 			'background_hover_transition',
 			[
-				'label'     => __( 'Transition Duration', 'hfe' ),
+				'label'     => __( 'Transition Duration', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => [
 					'px' => [
@@ -517,7 +517,7 @@ class Retina extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_caption',
 			[
-				'label'     => __( 'Caption', 'hfe' ),
+				'label'     => __( 'Caption', 'header-footer-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'caption_source!' => 'none',
@@ -528,7 +528,7 @@ class Retina extends Widget_Base {
 		$this->add_control(
 			'text_color',
 			[
-				'label'     => __( 'Text Color', 'hfe' ),
+				'label'     => __( 'Text Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => [
@@ -544,7 +544,7 @@ class Retina extends Widget_Base {
 		$this->add_control(
 			'caption_background_color',
 			[
-				'label'     => __( 'Background Color', 'hfe' ),
+				'label'     => __( 'Background Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .widget-image-caption' => 'background-color: {{VALUE}};',
@@ -572,7 +572,7 @@ class Retina extends Widget_Base {
 		$this->add_responsive_control(
 			'caption_padding',
 			[
-				'label'      => __( 'Padding', 'hfe' ),
+				'label'      => __( 'Padding', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
@@ -583,7 +583,7 @@ class Retina extends Widget_Base {
 		$this->add_responsive_control(
 			'caption_space',
 			[
-				'label'     => __( 'Caption Top Spacing', 'hfe' ),
+				'label'     => __( 'Caption Top Spacing', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => [
 					'px' => [
@@ -614,7 +614,7 @@ class Retina extends Widget_Base {
 			$this->start_controls_section(
 				'section_helpful_info',
 				[
-					'label' => __( 'Helpful Information', 'hfe' ),
+					'label' => __( 'Helpful Information', 'header-footer-elementor' ),
 				]
 			);
 
@@ -623,7 +623,7 @@ class Retina extends Widget_Base {
 				[
 					'type'            => Controls_Manager::RAW_HTML,
 					/* translators: %1$s doc link */
-					'raw'             => sprintf( __( '%1$s Getting started article » %2$s', 'hfe' ), '<a href="https://uaelementor.com/docs/introducing-retina-image-widget/" target="_blank" rel="noopener">', '</a>' ),
+					'raw'             => sprintf( __( '%1$s Getting started article » %2$s', 'header-footer-elementor' ), '<a href="https://uaelementor.com/docs/introducing-retina-image-widget/" target="_blank" rel="noopener">', '</a>' ),
 					'content_classes' => 'hfe-editor-doc',
 				]
 			);

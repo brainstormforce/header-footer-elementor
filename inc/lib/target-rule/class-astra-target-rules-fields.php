@@ -124,30 +124,30 @@ class Astra_Target_Rules_Fields {
 		$post_types = apply_filters( 'astra_location_rule_post_types', array_merge( $post_types, $custom_post_type ) );
 
 		$special_pages = array(
-			'special-404'    => __( '404 Page', 'astra-addon' ),
-			'special-search' => __( 'Search Page', 'astra-addon' ),
-			'special-blog'   => __( 'Blog / Posts Page', 'astra-addon' ),
-			'special-front'  => __( 'Front Page', 'astra-addon' ),
-			'special-date'   => __( 'Date Archive', 'astra-addon' ),
-			'special-author' => __( 'Author Archive', 'astra-addon' ),
+			'special-404'    => __( '404 Page', 'header-footer-elementor' ),
+			'special-search' => __( 'Search Page', 'header-footer-elementor' ),
+			'special-blog'   => __( 'Blog / Posts Page', 'header-footer-elementor' ),
+			'special-front'  => __( 'Front Page', 'header-footer-elementor' ),
+			'special-date'   => __( 'Date Archive', 'header-footer-elementor' ),
+			'special-author' => __( 'Author Archive', 'header-footer-elementor' ),
 		);
 
 		if ( class_exists( 'WooCommerce' ) ) {
-			$special_pages['special-woo-shop'] = __( 'WooCommerce Shop Page', 'astra-addon' );
+			$special_pages['special-woo-shop'] = __( 'WooCommerce Shop Page', 'header-footer-elementor' );
 		}
 
 		$selection_options = array(
 			'basic'         => array(
-				'label' => __( 'Basic', 'astra-addon' ),
+				'label' => __( 'Basic', 'header-footer-elementor' ),
 				'value' => array(
-					'basic-global'    => __( 'Entire Website', 'astra-addon' ),
-					'basic-singulars' => __( 'All Singulars', 'astra-addon' ),
-					'basic-archives'  => __( 'All Archives', 'astra-addon' ),
+					'basic-global'    => __( 'Entire Website', 'header-footer-elementor' ),
+					'basic-singulars' => __( 'All Singulars', 'header-footer-elementor' ),
+					'basic-archives'  => __( 'All Archives', 'header-footer-elementor' ),
 				),
 			),
 
 			'special-pages' => array(
-				'label' => __( 'Special Pages', 'astra-addon' ),
+				'label' => __( 'Special Pages', 'header-footer-elementor' ),
 				'value' => $special_pages,
 			),
 		);
@@ -188,9 +188,9 @@ class Astra_Target_Rules_Fields {
 		}
 
 		$selection_options['specific-target'] = array(
-			'label' => __( 'Specific Target', 'astra-addon' ),
+			'label' => __( 'Specific Target', 'header-footer-elementor' ),
 			'value' => array(
-				'specifics' => __( 'Specific Pages / Posts / Taxanomies, etc.', 'astra-addon' ),
+				'specifics' => __( 'Specific Pages / Posts / Taxanomies, etc.', 'header-footer-elementor' ),
 			),
 		);
 
@@ -210,16 +210,16 @@ class Astra_Target_Rules_Fields {
 	public static function get_user_selections() {
 		$selection_options = array(
 			'basic'    => array(
-				'label' => __( 'Basic', 'astra-addon' ),
+				'label' => __( 'Basic', 'header-footer-elementor' ),
 				'value' => array(
-					'all'        => __( 'All', 'astra-addon' ),
-					'logged-in'  => __( 'Logged In', 'astra-addon' ),
-					'logged-out' => __( 'Logged Out', 'astra-addon' ),
+					'all'        => __( 'All', 'header-footer-elementor' ),
+					'logged-in'  => __( 'Logged In', 'header-footer-elementor' ),
+					'logged-out' => __( 'Logged Out', 'header-footer-elementor' ),
 				),
 			),
 
 			'advanced' => array(
-				'label' => __( 'Advanced', 'astra-addon' ),
+				'label' => __( 'Advanced', 'header-footer-elementor' ),
 				'value' => array(),
 			),
 		);
@@ -616,18 +616,18 @@ class Astra_Target_Rules_Fields {
 		 */
 		$localize_vars = array(
 			'ast_lang'      => $ast_lang,
-			'please_enter'  => __( 'Please enter', 'astra-addon' ),
-			'please_delete' => __( 'Please delete', 'astra-addon' ),
-			'more_char'     => __( 'or more characters', 'astra-addon' ),
-			'character'     => __( 'character', 'astra-addon' ),
-			'loading'       => __( 'Loading more results…', 'astra-addon' ),
-			'only_select'   => __( 'You can only select', 'astra-addon' ),
-			'item'          => __( 'item', 'astra-addon' ),
-			'char_s'        => __( 's', 'astra-addon' ),
-			'no_result'     => __( 'No results found', 'astra-addon' ),
-			'searching'     => __( 'Searching…', 'astra-addon' ),
-			'not_loader'    => __( 'The results could not be loaded.', 'astra-addon' ),
-			'search'        => __( 'Search pages / post / categories', 'astra-addon' ),
+			'please_enter'  => __( 'Please enter', 'header-footer-elementor' ),
+			'please_delete' => __( 'Please delete', 'header-footer-elementor' ),
+			'more_char'     => __( 'or more characters', 'header-footer-elementor' ),
+			'character'     => __( 'character', 'header-footer-elementor' ),
+			'loading'       => __( 'Loading more results…', 'header-footer-elementor' ),
+			'only_select'   => __( 'You can only select', 'header-footer-elementor' ),
+			'item'          => __( 'item', 'header-footer-elementor' ),
+			'char_s'        => __( 's', 'header-footer-elementor' ),
+			'no_result'     => __( 'No results found', 'header-footer-elementor' ),
+			'searching'     => __( 'Searching…', 'header-footer-elementor' ),
+			'not_loader'    => __( 'The results could not be loaded.', 'header-footer-elementor' ),
+			'search'        => __( 'Search pages / post / categories', 'header-footer-elementor' ),
 		);
 		wp_localize_script( 'astra-select2', 'astRules', $localize_vars );
 	}
@@ -645,7 +645,7 @@ class Astra_Target_Rules_Fields {
 		$type           = isset( $settings['type'] ) ? $settings['type'] : 'target_rule';
 		$class          = isset( $settings['class'] ) ? $settings['class'] : '';
 		$rule_type      = isset( $settings['rule_type'] ) ? $settings['rule_type'] : 'target_rule';
-		$add_rule_label = isset( $settings['add_rule_label'] ) ? $settings['add_rule_label'] : __( 'Add Rule', 'astra-addon' );
+		$add_rule_label = isset( $settings['add_rule_label'] ) ? $settings['add_rule_label'] : __( 'Add Rule', 'header-footer-elementor' );
 		$saved_values   = $value;
 		$output         = '';
 
@@ -661,7 +661,7 @@ class Astra_Target_Rules_Fields {
 		/* Condition Selection */
 		$output .= '<div class="target_rule-condition-wrap" >';
 		$output .= '<select name="' . esc_attr( $input_name ) . '[rule][{{data.id}}]" class="target_rule-condition form-control ast-input">';
-		$output .= '<option value="">' . __( 'Select', 'astra-addon' ) . '</option>';
+		$output .= '<option value="">' . __( 'Select', 'header-footer-elementor' ) . '</option>';
 
 		foreach ( $selection_options as $group => $group_data ) {
 			$output .= '<optgroup label="' . $group_data['label'] . '">';
@@ -711,12 +711,12 @@ class Astra_Target_Rules_Fields {
 		$post_option = array();
 
 		/* translators: %s post label */
-		$all_posts                          = sprintf( __( 'All %s', 'astra-addon' ), $post_label );
+		$all_posts                          = sprintf( __( 'All %s', 'header-footer-elementor' ), $post_label );
 		$post_option[ $post_name . '|all' ] = $all_posts;
 
 		if ( 'pages' != $post_key ) {
 			/* translators: %s post label */
-			$all_archive                                = sprintf( __( 'All %s Archive', 'astra-addon' ), $post_label );
+			$all_archive                                = sprintf( __( 'All %s Archive', 'header-footer-elementor' ), $post_label );
 			$post_option[ $post_name . '|all|archive' ] = $all_archive;
 		}
 
@@ -725,7 +725,7 @@ class Astra_Target_Rules_Fields {
 			$tax_name  = $taxonomy->name;
 
 			/* translators: %s taxonomy label */
-			$tax_archive = sprintf( __( 'All %s Archive', 'astra-addon' ), $tax_label );
+			$tax_archive = sprintf( __( 'All %s Archive', 'header-footer-elementor' ), $tax_label );
 
 			$post_option[ $post_name . '|all|taxarchive|' . $tax_name ] = $tax_archive;
 		}
@@ -766,7 +766,7 @@ class Astra_Target_Rules_Fields {
 			$output .= '<span class="target_rule-condition-delete dashicons dashicons-dismiss"></span>';
 			$output .= '<div class="target_rule-condition-wrap" >';
 			$output .= '<select name="' . esc_attr( $input_name ) . '[rule][' . $index . ']" class="target_rule-condition form-control ast-input">';
-			$output .= '<option value="">' . __( 'Select', 'astra-addon' ) . '</option>';
+			$output .= '<option value="">' . __( 'Select', 'header-footer-elementor' ) . '</option>';
 
 			foreach ( $selection_options as $group => $group_data ) {
 				$output .= '<optgroup label="' . $group_data['label'] . '">';
@@ -837,7 +837,7 @@ class Astra_Target_Rules_Fields {
 		if ( 'display' == $type ) {
 			/* Add new rule */
 			$output .= '<div class="target_rule-add-exclusion-rule">';
-			$output .= '<a href="#" class="button">' . __( 'Add Exclusion Rule', 'astra-addon' ) . '</a>';
+			$output .= '<a href="#" class="button">' . __( 'Add Exclusion Rule', 'header-footer-elementor' ) . '</a>';
 			$output .= '</div>';
 		}
 
@@ -1054,7 +1054,7 @@ class Astra_Target_Rules_Fields {
 		$type           = isset( $settings['type'] ) ? $settings['type'] : 'target_rule';
 		$class          = isset( $settings['class'] ) ? $settings['class'] : '';
 		$rule_type      = isset( $settings['rule_type'] ) ? $settings['rule_type'] : 'target_rule';
-		$add_rule_label = isset( $settings['add_rule_label'] ) ? $settings['add_rule_label'] : __( 'Add Rule', 'astra-addon' );
+		$add_rule_label = isset( $settings['add_rule_label'] ) ? $settings['add_rule_label'] : __( 'Add Rule', 'header-footer-elementor' );
 		$saved_values   = $value;
 		$output         = '';
 
@@ -1070,7 +1070,7 @@ class Astra_Target_Rules_Fields {
 				/* Condition Selection */
 				$output     .= '<div class="user_role-condition-wrap" >';
 					$output .= '<select name="' . esc_attr( $input_name ) . '[{{data.id}}]" class="user_role-condition form-control ast-input">';
-					$output .= '<option value="">' . __( 'Select', 'astra-addon' ) . '</option>';
+					$output .= '<option value="">' . __( 'Select', 'header-footer-elementor' ) . '</option>';
 
 		foreach ( $selection_options as $group => $group_data ) {
 			$output .= '<optgroup label="' . $group_data['label'] . '">';
@@ -1100,7 +1100,7 @@ class Astra_Target_Rules_Fields {
 				/* Condition Selection */
 				$output     .= '<div class="user_role-condition-wrap" >';
 					$output .= '<select name="' . esc_attr( $input_name ) . '[' . $index . ']" class="user_role-condition form-control ast-input">';
-					$output .= '<option value="">' . __( 'Select', 'astra-addon' ) . '</option>';
+					$output .= '<option value="">' . __( 'Select', 'header-footer-elementor' ) . '</option>';
 
 			foreach ( $selection_options as $group => $group_data ) {
 				$output .= '<optgroup label="' . $group_data['label'] . '">';
@@ -1491,7 +1491,7 @@ class Astra_Target_Rules_Fields {
 					$rule_set_titles = '<strong>' . implode( ',', $already_set_rule ) . '</strong>';
 
 					/* translators: %s post title. */
-					$notice = sprintf( __( 'The same display setting is already exist in %s post/s.', 'astra-addon' ), $rule_set_titles );
+					$notice = sprintf( __( 'The same display setting is already exist in %s post/s.', 'header-footer-elementor' ), $rule_set_titles );
 
 					echo '<div class="error">';
 					echo '<p>' . $notice . '</p>';
@@ -1550,7 +1550,7 @@ class Astra_Target_Rules_Fields {
 
 		if ( ! empty( $all_headers ) ) {
 			$headers = array(
-				'' => __( 'Select', 'astra-addon' ),
+				'' => __( 'Select', 'header-footer-elementor' ),
 			);
 
 			foreach ( $all_headers as $i => $data ) {

@@ -1,11 +1,11 @@
 # Copyright (C) 2019 Brainstorm Force, Nikhil Chavan
-# This file is distributed under the same license as the Header, Footer & Blocks for Elementor package.
+# This file is distributed under the same license as the Elementor - Header, Footer & Blocks package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Header, Footer & Blocks for Elementor 1.1.2\n"
+"Project-Id-Version: Elementor - Header, Footer & Blocks 1.2.0-beta.1\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/header-footer-elementor\n"
-"POT-Creation-Date: 2019-01-16 07:15:45+00:00\n"
+"POT-Creation-Date: 2019-12-09 06:37:46+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,121 +23,195 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
-"X-Generator: grunt-wp-i18n1.0.2\n"
+"X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: admin/class-hfe-admin.php:61 admin/class-hfe-admin.php:63
+#: admin/class-hfe-admin.php:60 admin/class-hfe-admin.php:62
 msgid "Header Footers Template"
 msgstr ""
 
-#: admin/class-hfe-admin.php:62 admin/class-hfe-admin.php:64
+#: admin/class-hfe-admin.php:61 admin/class-hfe-admin.php:63
 msgid "Elementor Header Footer"
 msgstr ""
 
-#: admin/class-hfe-admin.php:65
+#: admin/class-hfe-admin.php:64
 msgid "Add New"
 msgstr ""
 
-#: admin/class-hfe-admin.php:66
+#: admin/class-hfe-admin.php:65
 msgid "Add New Header Footer"
 msgstr ""
 
-#: admin/class-hfe-admin.php:67
+#: admin/class-hfe-admin.php:66
 msgid "New Header Footers Template"
 msgstr ""
 
-#: admin/class-hfe-admin.php:68
+#: admin/class-hfe-admin.php:67
 msgid "Edit Header Footers Template"
 msgstr ""
 
-#: admin/class-hfe-admin.php:69
+#: admin/class-hfe-admin.php:68
 msgid "View Header Footers Template"
 msgstr ""
 
-#: admin/class-hfe-admin.php:70
+#: admin/class-hfe-admin.php:69
 msgid "All Elementor Header Footers"
 msgstr ""
 
-#: admin/class-hfe-admin.php:71
+#: admin/class-hfe-admin.php:70
 msgid "Search Header Footers Templates"
 msgstr ""
 
-#: admin/class-hfe-admin.php:72
+#: admin/class-hfe-admin.php:71
 msgid "Parent Header Footers Templates:"
 msgstr ""
 
-#: admin/class-hfe-admin.php:73
+#: admin/class-hfe-admin.php:72
 msgid "No Header Footers Templates found."
 msgstr ""
 
-#: admin/class-hfe-admin.php:74
+#: admin/class-hfe-admin.php:73
 msgid "No Header Footers Templates found in Trash."
 msgstr ""
 
-#: admin/class-hfe-admin.php:104 admin/class-hfe-admin.php:105
+#: admin/class-hfe-admin.php:102 admin/class-hfe-admin.php:103
 msgid "Header Footer Builder"
 msgstr ""
 
-#: admin/class-hfe-admin.php:117
+#: admin/class-hfe-admin.php:115
 msgid "Elementor Header Footer options"
 msgstr ""
 
-#: admin/class-hfe-admin.php:145
+#: admin/class-hfe-admin.php:143
 msgid "Type of Template"
 msgstr ""
 
-#: admin/class-hfe-admin.php:149
+#: admin/class-hfe-admin.php:147
 msgid "Select Option"
 msgstr ""
 
-#: admin/class-hfe-admin.php:150
+#: admin/class-hfe-admin.php:148
 msgid "Header"
 msgstr ""
 
-#: admin/class-hfe-admin.php:152
+#: admin/class-hfe-admin.php:149
 msgid "Before Footer"
 msgstr ""
 
-#: admin/class-hfe-admin.php:154
+#: admin/class-hfe-admin.php:150
 msgid "Footer"
 msgstr ""
 
-#: admin/class-hfe-admin.php:155
+#: admin/class-hfe-admin.php:151
 msgid "Custom Block"
 msgstr ""
 
-#: admin/class-hfe-admin.php:161 admin/class-hfe-admin.php:321
+#: admin/class-hfe-admin.php:159 admin/class-hfe-admin.php:404
 msgid "Shortcode"
 msgstr ""
 
-#: admin/class-hfe-admin.php:162
+#: admin/class-hfe-admin.php:160
 msgid ""
 "Copy this shortcode and paste it into your post, page, or text widget "
 "content."
 msgstr ""
 
-#: admin/class-hfe-admin.php:174
+#: admin/class-hfe-admin.php:172
 msgid "Enable Layout for Elementor Canvas Template?"
 msgstr ""
 
-#: admin/class-hfe-admin.php:176
+#: admin/class-hfe-admin.php:174
 msgid ""
 "Enabling this option will display this layout on pages using Elementor "
 "Canvas Template."
 msgstr ""
 
-#: admin/class-hfe-admin.php:248
+#: admin/class-hfe-admin.php:200
+msgid "Display On"
+msgstr ""
+
+#: admin/class-hfe-admin.php:202
+msgid "Add locations for where this template should appear."
+msgstr ""
+
+#: admin/class-hfe-admin.php:209
+msgid "Display Rules"
+msgstr ""
+
+#: admin/class-hfe-admin.php:213
+msgid "Add Display Rule"
+msgstr ""
+
+#: admin/class-hfe-admin.php:222
+msgid "Do Not Display On"
+msgstr ""
+
+#: admin/class-hfe-admin.php:224
+msgid "This Advanced Header will not appear at these locations."
+msgstr ""
+
+#: admin/class-hfe-admin.php:231
+msgid "Exclude On"
+msgstr ""
+
+#: admin/class-hfe-admin.php:234
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:840
+msgid "Add Exclusion Rule"
+msgstr ""
+
+#: admin/class-hfe-admin.php:244
+msgid "User Roles"
+msgstr ""
+
+#: admin/class-hfe-admin.php:245
+msgid "Targer header based on user role."
+msgstr ""
+
+#: admin/class-hfe-admin.php:252
+msgid "Users"
+msgstr ""
+
+#: admin/class-hfe-admin.php:255
+msgid "Add User Rule"
+msgstr ""
+
+#: admin/class-hfe-admin.php:335
 #. Translators: Post title, Template Location
 msgid "Template %1$s is already assigned to the location %2$s"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:101
+#: inc/class-header-footer-elementor.php:142
+msgid ""
+"Hello! Seems like you have used Elementor - Header, Footer & Blocks to "
+"build this website — Thanks a ton!"
+msgstr ""
+
+#: inc/class-header-footer-elementor.php:143
+msgid ""
+"Could you please do us a BIG favor and give it a 5-star rating on "
+"WordPress? This would boost our motivation and help other users make a "
+"comfortable decision while choosing the Elementor - Header, Footer & Blocks."
+msgstr ""
+
+#: inc/class-header-footer-elementor.php:145
+msgid "Ok, you deserve it"
+msgstr ""
+
+#: inc/class-header-footer-elementor.php:147
+msgid "Nope, maybe later"
+msgstr ""
+
+#: inc/class-header-footer-elementor.php:148
+msgid "I already did"
+msgstr ""
+
+#: inc/class-header-footer-elementor.php:181
 #. Translators: URL to install or activate Elementor plugin.
 msgid ""
 "The <strong>Header Footer Elementor</strong> plugin requires <strong><a "
 "href=\"%s\">Elementor</strong></a> plugin installed & activated."
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:219
+#: inc/class-header-footer-elementor.php:313
 msgid ""
 "Hey, your current theme is not supported by Header Footer Elementor, click "
 "<a "
@@ -145,8 +219,384 @@ msgid ""
 "are-supported-by-this-plugin\">here</a> to check out the supported themes."
 msgstr ""
 
+#: inc/lib/notices/class-astra-notices.php:120
+msgid "WordPress Nonce not validated."
+msgstr ""
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:127
+msgid "404 Page"
+msgstr ""
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:128
+msgid "Search Page"
+msgstr ""
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:129
+msgid "Blog / Posts Page"
+msgstr ""
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:130
+msgid "Front Page"
+msgstr ""
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:131
+msgid "Date Archive"
+msgstr ""
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:132
+msgid "Author Archive"
+msgstr ""
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:136
+msgid "WooCommerce Shop Page"
+msgstr ""
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:141
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:213
+msgid "Basic"
+msgstr ""
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:143
+msgid "Entire Website"
+msgstr ""
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:144
+msgid "All Singulars"
+msgstr ""
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:145
+msgid "All Archives"
+msgstr ""
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:150
+msgid "Special Pages"
+msgstr ""
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:191
+msgid "Specific Target"
+msgstr ""
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:193
+msgid "Specific Pages / Posts / Taxanomies, etc."
+msgstr ""
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:215
+msgid "All"
+msgstr ""
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:216
+msgid "Logged In"
+msgstr ""
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:217
+msgid "Logged Out"
+msgstr ""
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:222
+msgid "Advanced"
+msgstr ""
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:619
+msgid "Please enter"
+msgstr ""
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:620
+msgid "Please delete"
+msgstr ""
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:621
+msgid "or more characters"
+msgstr ""
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:622
+msgid "character"
+msgstr ""
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:623
+msgid "Loading more results…"
+msgstr ""
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:624
+msgid "You can only select"
+msgstr ""
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:625
+msgid "item"
+msgstr ""
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:626
+msgid "s"
+msgstr ""
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:627
+msgid "No results found"
+msgstr ""
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:628
+msgid "Searching…"
+msgstr ""
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:629
+msgid "The results could not be loaded."
+msgstr ""
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:630
+msgid "Search pages / post / categories"
+msgstr ""
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:648
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:1057
+msgid "Add Rule"
+msgstr ""
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:664
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:769
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:1073
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:1103
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:1553
+msgid "Select"
+msgstr ""
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:714
+#. translators: %s post label
+msgid "All %s"
+msgstr ""
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:719
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:728
+#. translators: %s post label
+#. translators: %s taxonomy label
+msgid "All %s Archive"
+msgstr ""
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:1494
+#. translators: %s post title.
+msgid "The same display setting is already exist in %s post/s."
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-copyright.php:53
+#: inc/widgets-manager/widgets/class-copyright.php:103
+msgid "Copyright"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-copyright.php:110
+msgid "Copyright Text"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-copyright.php:115
+msgid ""
+"Copyright © [hfe_current_year] [hfe_site_title] | Powered by "
+"[hfe_site_title]"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-copyright.php:122
+#: inc/widgets-manager/widgets/class-retina.php:214
+#: inc/widgets-manager/widgets/class-retina.php:227
+msgid "Link"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-copyright.php:124
+#: inc/widgets-manager/widgets/class-retina.php:232
+msgid "https://your-link.com"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-copyright.php:131
+#: inc/widgets-manager/widgets/class-retina.php:158
+msgid "Alignment"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-copyright.php:135
+#: inc/widgets-manager/widgets/class-retina.php:162
+msgid "Left"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-copyright.php:139
+#: inc/widgets-manager/widgets/class-retina.php:166
+msgid "Center"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-copyright.php:143
+#: inc/widgets-manager/widgets/class-retina.php:170
+msgid "Right"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-copyright.php:156
+#: inc/widgets-manager/widgets/class-retina.php:531
+msgid "Text Color"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-retina.php:61
+#: inc/widgets-manager/widgets/class-retina.php:118
+#: inc/widgets-manager/widgets/class-retina.php:251
+msgid "Retina Image"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-retina.php:124
+msgid "Choose Default Image"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-retina.php:137
+msgid "Choose Retina Image"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-retina.php:151
+msgid "Image Size"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-retina.php:184
+#: inc/widgets-manager/widgets/class-retina.php:520
+msgid "Caption"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-retina.php:187
+#: inc/widgets-manager/widgets/class-retina.php:218
+#: inc/widgets-manager/widgets/class-retina.php:336
+msgid "None"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-retina.php:188
+#: inc/widgets-manager/widgets/class-retina.php:197
+msgid "Custom Caption"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-retina.php:200
+msgid "Enter your image caption"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-retina.php:219
+msgid "Custom URL"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-retina.php:259
+msgid "Width"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-retina.php:295
+msgid "Max Width"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-retina.php:331
+msgid "Border Style"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-retina.php:337
+msgid "Solid"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-retina.php:338
+msgid "Double"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-retina.php:339
+msgid "Dotted"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-retina.php:340
+msgid "Dashed"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-retina.php:350
+msgid "Border Width"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-retina.php:372
+msgid "Border Color"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-retina.php:391
+msgid "Border Radius"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-retina.php:416
+msgid "Normal"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-retina.php:423
+#: inc/widgets-manager/widgets/class-retina.php:457
+msgid "Opacity"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-retina.php:451
+msgid "Hover"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-retina.php:483
+msgid "Hover Animation"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-retina.php:490
+msgid "Transition Duration"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-retina.php:547
+msgid "Background Color"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-retina.php:575
+msgid "Padding"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-retina.php:586
+msgid "Caption Top Spacing"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-retina.php:617
+msgid "Helpful Information"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-retina.php:626
+#. translators: %1$s doc link
+msgid "%1$s Getting started article » %2$s"
+msgstr ""
+
+#: themes/default/class-hfe-fallback-theme-support.php:66
+msgid "Compatibility Mode"
+msgstr ""
+
+#: themes/default/class-hfe-fallback-theme-support.php:79
+msgid ""
+"Header Footer Elementor plugin includes two compatibility modes to try to "
+"support all the themes.<br>Use the method which works best with your "
+"theme.<br><br>It is possible that both these methods will not work with "
+"your theme correctly with your theme, In that case you should contact your "
+"theme author and request them to <a "
+"href=\"https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-"
+"Header-Footer-Elementor-support-for-your-theme\" target=\"_blank\">add "
+"support for this plugin</a>."
+msgstr ""
+
+#: themes/default/class-hfe-fallback-theme-support.php:96
+msgid "Method 1"
+msgstr ""
+
+#: themes/default/class-hfe-fallback-theme-support.php:97
+msgid ""
+"This replaces the header.php & footer.php template with a custom templates "
+"from the plugin."
+msgstr ""
+
+#: themes/default/class-hfe-fallback-theme-support.php:100
+msgid "Method 2"
+msgstr ""
+
+#: themes/default/class-hfe-fallback-theme-support.php:140
+#: themes/default/class-hfe-fallback-theme-support.php:141
+#: themes/default/class-hfe-fallback-theme-support.php:169
+#: themes/default/class-hfe-fallback-theme-support.php:210
+msgid "Settings"
+msgstr ""
+
+#: themes/default/class-hfe-fallback-theme-support.php:157
+msgid "Elementor - Header, Footer & Blocks "
+msgstr ""
+
+#: themes/default/class-hfe-fallback-theme-support.php:165
+#: themes/default/class-hfe-fallback-theme-support.php:206
+msgid "All templates"
+msgstr ""
+
 #. Plugin Name of the plugin/theme
-msgid "Header, Footer & Blocks for Elementor"
+msgid "Elementor - Header, Footer & Blocks"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
