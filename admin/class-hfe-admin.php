@@ -49,6 +49,98 @@ class HFE_Admin {
 		add_filter( 'single_template', [ $this, 'load_canvas_template' ] );
 		add_filter( 'manage_elementor-hf_posts_columns', [ $this, 'set_shortcode_columns' ] );
 		add_action( 'manage_elementor-hf_posts_custom_column', [ $this, 'render_shortcode_column' ], 10, 2 );
+
+		if ( is_admin() ) {
+			add_action( 'manage_elementor-hf_posts_custom_column', [ $this, 'column_content' ], 10, 2 );
+			add_filter( 'manage_elementor-hf_posts_columns', [ $this, 'column_headings' ] );
+		}
+	}
+
+	/**
+	 * Adds or removes list table column headings.
+	 *
+	 * @param array $columns Array of columns.
+	 * @return array
+	 */
+	public function column_headings( $columns ) {
+		unset( $columns['date'] );
+
+		$columns['elementor_hf_display_rules'] = __( 'Display Rules', 'header-footer-elementor' );
+		$columns['date']                       = __( 'Date', 'header-footer-elementor' );
+
+		return $columns;
+	}
+
+	/**
+	 * Adds the custom list table column content.
+	 *
+	 * @since 1.2.0
+	 * @param array $column Name of column.
+	 * @param int   $post_id Post id.
+	 * @return void
+	 */
+	public function column_content( $column, $post_id ) {
+
+		if ( 'elementor_hf_display_rules' == $column ) {
+
+			$locations = get_post_meta( $post_id, 'ehf_target_include_locations', true );
+			if ( ! empty( $locations ) ) {
+				echo '<div class="ast-advanced-headers-location-wrap" style="margin-bottom: 5px;">';
+				echo '<strong>Display: </strong>';
+				$this->column_display_location_rules( $locations );
+				echo '</div>';
+			}
+
+			$locations = get_post_meta( $post_id, 'ehf_target_exclude_locations', true );
+			if ( ! empty( $locations ) ) {
+				echo '<div class="ast-advanced-headers-exclusion-wrap" style="margin-bottom: 5px;">';
+				echo '<strong>Exclusion: </strong>';
+				$this->column_display_location_rules( $locations );
+				echo '</div>';
+			}
+
+			$users = get_post_meta( $post_id, 'ehf_target_user_roles', true );
+			if ( isset( $users ) && is_array( $users ) ) {
+				if ( isset( $users[0] ) && ! empty( $users[0] ) ) {
+					$user_label = [];
+					foreach ( $users as $user ) {
+						$user_label[] = Astra_Target_Rules_Fields::get_user_by_key( $user );
+					}
+					echo '<div class="ast-advanced-headers-users-wrap">';
+					echo '<strong>Users: </strong>';
+					echo join( ', ', $user_label );
+					echo '</div>';
+				}
+			}
+		}
+	}
+
+	/**
+	 * Get Markup of Location rules for Display rule column.
+	 *
+	 * @param array $locations Array of locations.
+	 * @return void
+	 */
+	public function column_display_location_rules( $locations ) {
+
+		$location_label = [];
+		$index          = array_search( 'specifics', $locations['rule'] );
+		if ( false !== $index && ! empty( $index ) ) {
+			unset( $locations['rule'][ $index ] );
+		}
+
+		if ( isset( $locations['rule'] ) && is_array( $locations['rule'] ) ) {
+			foreach ( $locations['rule'] as $location ) {
+				$location_label[] = Astra_Target_Rules_Fields::get_location_by_key( $location );
+			}
+		}
+		if ( isset( $locations['specific'] ) && is_array( $locations['specific'] ) ) {
+			foreach ( $locations['specific'] as $location ) {
+				$location_label[] = Astra_Target_Rules_Fields::get_location_by_key( $location );
+			}
+		}
+
+		echo join( ', ', $location_label );
 	}
 
 
