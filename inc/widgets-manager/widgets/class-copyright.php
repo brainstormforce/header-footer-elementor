@@ -24,14 +24,14 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * Elementor widget for copyright.
  *
- * @since x.x.x
+ * @since 1.2.0
  */
 class Copyright extends Widget_Base {
 
 	/**
 	 * Retrieve the widget name.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 *
 	 * @access public
 	 *
@@ -43,7 +43,7 @@ class Copyright extends Widget_Base {
 	/**
 	 * Retrieve the widget title.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 *
 	 * @access public
 	 *
@@ -55,7 +55,7 @@ class Copyright extends Widget_Base {
 	/**
 	 * Retrieve the widget icon.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 *
 	 * @access public
 	 *
@@ -72,7 +72,7 @@ class Copyright extends Widget_Base {
 	 * Note that currently Elementor supports only one category.
 	 * When multiple categories passed, Elementor uses the first one.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 *
 	 * @access public
 	 *
@@ -84,7 +84,7 @@ class Copyright extends Widget_Base {
 	/**
 	 * Register Copyright controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 * @access protected
 	 */
 	protected function _register_controls() { //phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
@@ -93,7 +93,7 @@ class Copyright extends Widget_Base {
 	/**
 	 * Register Copyright General Controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 * @access protected
 	 */
 	protected function register_content_copy_right_controls() {
@@ -182,7 +182,7 @@ class Copyright extends Widget_Base {
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 * @access protected
 	 */
 	protected function render() {
@@ -207,7 +207,7 @@ class Copyright extends Widget_Base {
 	 *
 	 * Override the default behavior by printing the shortcode instead of rendering it.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 * @access public
 	 */
 	public function render_plain_content() {
@@ -220,7 +220,7 @@ class Copyright extends Widget_Base {
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 * @access protected
 	 */
 	protected function _content_template() {} //phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore

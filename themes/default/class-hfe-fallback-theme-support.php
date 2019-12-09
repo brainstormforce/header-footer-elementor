@@ -4,7 +4,7 @@
  *
  * Add theme compatibility for all the WordPress themes.
  *
- * @since x.x.x
+ * @since 1.2.0
  * @package hfe
  */
 
@@ -13,14 +13,14 @@ namespace HFE\Themes;
 /**
  * Class HFE Theme Fallback support.
  *
- * @since x.x.x
+ * @since 1.2.0
  */
 class HFE_Fallback_Theme_Support {
 
 	/**
 	 * Constructor.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 */
 	public function __construct() {
 		$this->setup_fallback_support();
@@ -34,7 +34,7 @@ class HFE_Fallback_Theme_Support {
 	/**
 	 * Adds CSS to Hide the extra submenu added for the settings tab.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 * @return void
 	 */
 	public function hfe_global_css() {
@@ -44,7 +44,7 @@ class HFE_Fallback_Theme_Support {
 	/**
 	 * Adds a tab in plugin submenu page.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 * @param string $views to add tab to current post type view.
 	 *
 	 * @return mixed
@@ -58,7 +58,7 @@ class HFE_Fallback_Theme_Support {
 	/**
 	 * Function for registering the settings api.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 * @return void
 	 */
 	public function hfe_admin_init() {
@@ -72,7 +72,7 @@ class HFE_Fallback_Theme_Support {
 	 *
 	 * This function can be used to add description of the settings sections
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 * @return void
 	 */
 	public function hfe_compatibility_callback() {
@@ -84,7 +84,7 @@ class HFE_Fallback_Theme_Support {
 	 *
 	 * This function will contain the markup for the input feilds that we can add.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 * @return void
 	 */
 	public function hfe_compatibility_option_callback() {
@@ -114,7 +114,7 @@ class HFE_Fallback_Theme_Support {
 	/**
 	 * Setup Theme Support.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 * @return void
 	 */
 	public function setup_fallback_support() {
@@ -130,7 +130,7 @@ class HFE_Fallback_Theme_Support {
 	/**
 	 * Show a settings page incase of unsupported theme.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 *
 	 * @return void
 	 */
@@ -150,7 +150,7 @@ class HFE_Fallback_Theme_Support {
 	 *
 	 * Call back function for add submenu page function.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 */
 	public function hfe_settings_page() {
 		echo '<h1 class="hfe-heading-inline">';
@@ -194,7 +194,7 @@ class HFE_Fallback_Theme_Support {
 	/**
 	 * Function for adding tabs
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 * @return void
 	 */
 	public function hfe_tabs() {

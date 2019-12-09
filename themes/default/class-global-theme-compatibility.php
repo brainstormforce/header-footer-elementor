@@ -47,7 +47,7 @@ class Global_Theme_Compatibility {
 	/**
 	 * Force full width CSS for the header.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 * @return void
 	 */
 	public function force_fullwidth() {
@@ -77,7 +77,7 @@ class Global_Theme_Compatibility {
 	/**
 	 * Function overriding the header in the wp_body_open way.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 *
 	 * @return void
 	 */

@@ -106,7 +106,7 @@ class Header_Footer_Elementor {
 	/**
 	 * Register Astra Notices.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 *
 	 * @return void
 	 */
@@ -159,7 +159,7 @@ class Header_Footer_Elementor {
 	/**
 	 * Enqueue CSS for the Rating Notice.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 * @return void
 	 */
 	public function rating_notice_css() {
