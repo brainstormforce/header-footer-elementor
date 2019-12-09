@@ -53,6 +53,12 @@ class HFE_Storefront_Compat {
 		}
 	}
 
+	/**
+	 * Add inline CSS to hide empty divs for header and footer in storefront
+	 *
+	 * @since 1.2.0
+	 * @return void
+	 */
 	public function styles() {
 		$css = '';
 
