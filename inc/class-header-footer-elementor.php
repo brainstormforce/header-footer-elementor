@@ -68,6 +68,8 @@ class Header_Footer_Elementor {
 				require HFE_DIR . 'themes/generatepress/class-hfe-generatepress-compat.php';
 			} elseif ( 'oceanwp' == $this->template ) {
 				require HFE_DIR . 'themes/oceanwp/class-hfe-oceanwp-compat.php';
+			} elseif ( 'storefront' == $this->template ) {
+				require HFE_DIR . 'themes/storefront/class-hfe-storefront-compat.php';
 			} else {
 				require_once HFE_DIR . 'themes/default/class-hfe-fallback-theme-support.php';
 
