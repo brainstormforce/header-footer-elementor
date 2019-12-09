@@ -66,6 +66,8 @@ class Widgets_Loader {
 	 */
 	public function include_widgets_files() {
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-retina.php';
+		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-copyright.php';
+		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-copyright-shortcode.php';
 	}
 
 	/**
@@ -97,6 +99,7 @@ class Widgets_Loader {
 		$this->include_widgets_files();
 		// Register Widgets.
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Retina() );
+		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Copyright() );
 	}
 
 }
