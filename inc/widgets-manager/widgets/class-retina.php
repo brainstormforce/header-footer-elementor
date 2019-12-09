@@ -31,14 +31,14 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * HFE widget for Retina Image.
  *
- * @since x.x.x
+ * @since 1.2.0
  */
 class Retina extends Widget_Base {
 
 	/**
 	 * Retrieve the widget name.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 *
 	 * @access public
 	 *
@@ -51,7 +51,7 @@ class Retina extends Widget_Base {
 	/**
 	 * Retrieve the widget title.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 *
 	 * @access public
 	 *
@@ -64,7 +64,7 @@ class Retina extends Widget_Base {
 	/**
 	 * Retrieve the widget icon.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 *
 	 * @access public
 	 *
@@ -82,7 +82,7 @@ class Retina extends Widget_Base {
 	 * Note that currently Elementor supports only one category.
 	 * When multiple categories passed, Elementor uses the first one.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 *
 	 * @access public
 	 *
@@ -95,7 +95,7 @@ class Retina extends Widget_Base {
 	/**
 	 * Register Retina Logo controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 * @access protected
 	 */
 	protected function _register_controls() {
@@ -108,7 +108,7 @@ class Retina extends Widget_Base {
 	/**
 	 * Register Retina Logo General Controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 * @access protected
 	 */
 	protected function register_content_retina_image_controls() {
@@ -241,7 +241,7 @@ class Retina extends Widget_Base {
 	/**
 	 * Register Retina Image Style Controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 * @access protected
 	 */
 	protected function register_retina_image_styling_controls() {
@@ -510,7 +510,7 @@ class Retina extends Widget_Base {
 	/**
 	 * Register Caption style Controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 * @access protected
 	 */
 	protected function register_retina_caption_styling_controls() {
@@ -607,7 +607,7 @@ class Retina extends Widget_Base {
 	/**
 	 * Helpful Information.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 * @access protected
 	 */
 	protected function register_helpful_information() {
@@ -635,7 +635,7 @@ class Retina extends Widget_Base {
 	 * Check if the current widget has caption
 	 *
 	 * @access private
-	 * @since x.x.x
+	 * @since 1.2.0
 	 *
 	 * @param array $settings returns settings.
 	 *
@@ -649,7 +649,7 @@ class Retina extends Widget_Base {
 	 * Get the caption for current widget.
 	 *
 	 * @access private
-	 * @since x.x.x
+	 * @since 1.2.0
 	 * @param array $settings returns the caption.
 	 *
 	 * @return string
@@ -667,7 +667,7 @@ class Retina extends Widget_Base {
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 * @access protected
 	 */
 	protected function render() {
@@ -821,7 +821,7 @@ class Retina extends Widget_Base {
 	/**
 	 * Retrieve Retina image widget link URL.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 * @access private
 	 *
 	 * @param array $settings returns settings.

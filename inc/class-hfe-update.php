@@ -74,7 +74,7 @@ if ( ! class_exists( 'HFE_Update' ) ) {
 		/**
 		 * Set default target rules for header, footer, before footers being used before target rules were added to the plugin.
 		 *
-		 * @since x.x.x
+		 * @since 1.2.0-beta.1
 		 * @return void
 		 */
 		private function setup_default_terget_rules() {

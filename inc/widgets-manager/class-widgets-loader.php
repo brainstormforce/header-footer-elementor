@@ -6,7 +6,7 @@
  * @author      HFE
  * @copyright   Copyright (c) 2018, HFE
  * @link        http://brainstormforce.com/
- * @since       HFE x.x.x
+ * @since       HFE 1.2.0
  */
 
 namespace HFE\WidgetsManager;
@@ -23,7 +23,7 @@ class Widgets_Loader {
 	/**
 	 * Instance of Widgets_Loader.
 	 *
-	 * @since  x.x.x
+	 * @since  1.2.0
 	 * @var null
 	 */
 	private static $_instance = null;
@@ -31,7 +31,7 @@ class Widgets_Loader {
 	/**
 	 * Get instance of Widgets_Loader
 	 *
-	 * @since  x.x.x
+	 * @since  1.2.0
 	 * @return Widgets_Loader
 	 */
 	public static function instance() {
@@ -45,7 +45,7 @@ class Widgets_Loader {
 	/**
 	 * Setup actions and filters.
 	 *
-	 * @since  x.x.x
+	 * @since  1.2.0
 	 */
 	private function __construct() {
 		// Register widgets.
@@ -61,7 +61,7 @@ class Widgets_Loader {
 	 *
 	 * Load widgets files
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 * @access public
 	 */
 	public function include_widgets_files() {
@@ -75,7 +75,7 @@ class Widgets_Loader {
 	 *
 	 * @param array $mimes which return mime type.
 	 *
-	 * @since  x.x.x
+	 * @since  1.2.0
 	 * @return $mimes.
 	 */
 	public function hfe_svg_mime_types( $mimes ) {
@@ -90,7 +90,7 @@ class Widgets_Loader {
 	 *
 	 * Register new Elementor widgets.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 * @access public
 	 */
 	public function register_widgets() {

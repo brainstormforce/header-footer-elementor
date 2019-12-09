@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Helper class for the Copyright.
  *
- * @since x.x.x
+ * @since 1.2.0
  */
 class Copyright_Shortcode {
 
