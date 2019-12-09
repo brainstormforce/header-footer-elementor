@@ -35,12 +35,12 @@ class HFE_Storefront_Compat {
 	 */
 	public function hooks() {
 		if ( hfe_header_enabled() ) {
-			add_action( 'template_redirect', [ $this, 'astra_setup_header' ], 10 );
+			add_action( 'template_redirect', [ $this, 'setup_header' ], 10 );
 			add_action( 'storefront_before_header', 'hfe_render_header', 500 );
 		}
 
 		if ( hfe_footer_enabled() ) {
-			add_action( 'template_redirect', [ $this, 'astra_setup_footer' ], 10 );
+			add_action( 'template_redirect', [ $this, 'setup_footer' ], 10 );
 			add_action( 'storefront_after_footer', 'hfe_render_footer', 500 );
 		}
 
@@ -74,7 +74,7 @@ class HFE_Storefront_Compat {
 	/**
 	 * Disable header from the theme.
 	 */
-	public function astra_setup_header() {
+	public function setup_header() {
 		for ( $priority = 0; $priority < 200; $priority ++ ) {
 			remove_all_actions( 'storefront_header', $priority );
 		}
@@ -83,7 +83,7 @@ class HFE_Storefront_Compat {
 	/**
 	 * Disable footer from the theme.
 	 */
-	public function astra_setup_footer() {
+	public function setup_footer() {
 		for ( $priority = 0; $priority < 200; $priority ++ ) {
 			remove_all_actions( 'storefront_footer', $priority );
 		}
