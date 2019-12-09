@@ -52,13 +52,24 @@ module.exports = function( grunt ) {
 		},
 
 		replace: {
+			plugin_readme: {
+				src: ['readme.txt'],
+				overwrite: true,
+				replacements: [
+					{
+						from: /Stable tag:\ ((?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)(?:-(?:[1-9]\d*|[\da-z-]*[a-z-][\da-z-]*)(?:\.(?:[1-9]\d*|[\da-z-]*[a-z-][\da-z-]*))*)?(?:\+[\da-z-]+(?:\.[\da-z-]+)*)?)/g,
+						to: 'Stable tag: <%= pkg.version %>'
+					}
+				]
+			},
+
 			plugin_main: {
 				src: ['header-footer-elementor.php'],
 				overwrite: true,
 				replacements: [
 					{
-						from: /Version: \bv?(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)(?:-[\da-z-A-Z-]+(?:\.[\da-z-A-Z-]+)*)?(?:\+[\da-z-A-Z-]+(?:\.[\da-z-A-Z-]+)*)?\b/g,
-						to: 'Version: <%= pkg.version %>'
+						from: /Version:[\t\s]+((?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)(?:-(?:[1-9]\d*|[\da-z-]*[a-z-][\da-z-]*)(?:\.(?:[1-9]\d*|[\da-z-]*[a-z-][\da-z-]*))*)?(?:\+[\da-z-]+(?:\.[\da-z-]+)*)?)/g,
+						to: 'Version:		<%= pkg.version %>'
 					}
 				]
 			},
