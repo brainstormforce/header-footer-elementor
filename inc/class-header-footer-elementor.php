@@ -312,7 +312,7 @@ class Header_Footer_Elementor {
 					'id'                  => 'unsupported-theme',
 					'type'                => 'error',
 					'dismissible'         => true,
-					'message'             => '<p>' . __( 'Hey, your current theme is not supported by Header Footer Elementor, click <a href="https://github.com/Nikschavan/header-footer-elementor#which-themes-are-supported-by-this-plugin">here</a> to check out the supported themes.', 'header-footer-elementor' ) . '</p>',
+					'message'             => '<p>' . __( 'Hey, your current theme is not supported by Header Footer Elementor, click <a href="themes.php?page=hfe-settings">here</a> to add support for the theme.', 'header-footer-elementor' ) . '</p>',
 					'repeat-notice-after' => false,
 				]
 			);
