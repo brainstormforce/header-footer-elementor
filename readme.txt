@@ -83,7 +83,7 @@ If you are a theme developer <a href="https://github.com/Nikschavan/header-foote
 = How does this plugin work =
 
 1. Go to `Appearance -> Header Footer Builder` to build a header or footer layout using elementor.
-1. After the layout is ready assign the layout as header or footer using the option `Select the type of template this is` (<a href="https://cloudup.com/clK2sPg9nXK+">screenshot</a>)
+2. After the layout is ready assign the layout as header or footer using the option `Select the type of template this is` (<a href="https://cloudup.com/clK2sPg9nXK+">screenshot</a>)
 
 = Can you create a Mobile Responsive Header/Footer using this plugin? =
 
