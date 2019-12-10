@@ -75,11 +75,7 @@ class HFE_Fallback_Theme_Support {
 	 * @return void
 	 */
 	public function hfe_compatibility_callback() {
-		_e(
-			'The Elementor - Header, Footer & Blocks plugin is compatible with themes listed <a href="https://github.com/Nikschavan/header-footer-elementor#themes-you-can-use-header-footer-elementor-with"> here</a>.
-			<br><br> In case your current theme is not in the list, you can choose one of the following methods to add theme support.',
-			'header-footer-elementor'
-		);
+		_e(	'The Elementor - Header, Footer & Blocks plugin is compatible with themes listed <a href="https://github.com/Nikschavan/header-footer-elementor#themes-you-can-use-header-footer-elementor-with"> here</a>.<br><br> In case your current theme is not in the list, you can choose one of the following methods to add theme support.','header-footer-elementor');
 	}
 
 	/**
