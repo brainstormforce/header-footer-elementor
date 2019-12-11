@@ -24,7 +24,6 @@ class HFE_Fallback_Theme_Support {
 	 */
 	public function __construct() {
 		$this->setup_fallback_support();
-
 		add_action( 'admin_menu', [ $this, 'hfe_register_settings_page' ] );
 		add_action( 'admin_init', [ $this, 'hfe_admin_init' ] );
 		add_action( 'admin_head', [ $this, 'hfe_global_css' ] );
@@ -63,8 +62,8 @@ class HFE_Fallback_Theme_Support {
 	 */
 	public function hfe_admin_init() {
 		register_setting( 'hfe-plugin-options', 'hfe_compatibility_option' );
-		add_settings_section( 'hfe-options', __( 'Compatibility Mode', 'header-footer-elementor' ), [ $this, 'hfe_compatibility_callback' ], 'Settings' );
-		add_settings_field( 'hfe-way', 'Select Fallback Compatibility Mode', [ $this, 'hfe_compatibility_option_callback' ], 'Settings', 'hfe-options' );
+		add_settings_section( 'hfe-options', __( 'Add Theme Support', 'header-footer-elementor' ), [ $this, 'hfe_compatibility_callback' ], 'Settings' );
+		add_settings_field( 'hfe-way', 'Select Method to Add Theme Support', [ $this, 'hfe_compatibility_option_callback' ], 'Settings', 'hfe-options' );
 	}
 
 	/**
@@ -76,7 +75,7 @@ class HFE_Fallback_Theme_Support {
 	 * @return void
 	 */
 	public function hfe_compatibility_callback() {
-		_e( 'Header Footer Elementor plugin includes two compatibility modes to try to support all the themes.<br>Use the method which works best with your theme.<br><br>It is possible that both these methods will not work with your theme correctly with your theme, In that case you should contact your theme author and request them to <a href="https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme" target="_blank">add support for this plugin</a>.', 'header-footer-elementor' );
+		_e( 'The Elementor - Header, Footer & Blocks plugin is compatible with themes listed <a href="https://github.com/Nikschavan/header-footer-elementor#themes-you-can-use-header-footer-elementor-with"> here</a>.<br><br> In case your current theme is not in the list, you can choose one of the following methods to add theme support.', 'header-footer-elementor' );
 	}
 
 	/**
@@ -93,15 +92,26 @@ class HFE_Fallback_Theme_Support {
 		?>
 
 		<label>
-			<input type="radio" name="hfe_compatibility_option" value= 1 <?php checked( $hfe_radio_button, 1 ); ?> > <div class="hfe_radio_options"><?php esc_html_e( 'Method 1', 'header-footer-elementor' ); ?></div>
-			<p class="description"><?php esc_html_e( 'This replaces the header.php & footer.php template with a custom templates from the plugin.', 'header-footer-elementor' ); ?></p><br>
+			<input type="radio" name="hfe_compatibility_option" value= 1 <?php checked( $hfe_radio_button, 1 ); ?> > <div class="hfe_radio_options"><?php esc_html_e( ' Method 1 (Recommended)', 'header-footer-elementor' ); ?></div>
+			<p class="description"><?php esc_html_e( 'This method replaces your theme\'s header (header.php) & footer (footer.php) template with plugin\'s custom templates.', 'header-footer-elementor' ); ?></p><br>
 		</label>
 		<label>
 			<input type="radio" name="hfe_compatibility_option" value= 2 <?php checked( $hfe_radio_button, 2 ); ?> > <div class="hfe_radio_options"><?php esc_html_e( 'Method 2', 'header-footer-elementor' ); ?></div>
 			<p class="description">
 				<?php
 				echo sprintf(
-					esc_html( "This option uses WordPress action `wp_body_option for header` and `wp_footer` action for footer.%1s Theme's default header is hidden using CSS.", 'header-footer-elementor' ),
+					esc_html( "This method hides your theme's header & footer template with CSS and displays custom templates from the plugin.", 'header-footer-elementor' ),
+					'<br>'
+				);
+				?>
+			</p><br>
+		</label>
+		<label>
+			<p> <?php esc_html_e( 'Method 3', 'header-footer-elementor' ); ?> </p>
+			<p class="description">
+				<?php
+				echo sprintf(
+					_e( 'Sometimes above methods might not work well with your theme, in this case, contact your theme author and request them to add support for the <a href="https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme">plugin.</>', 'header-footer-elementor' ),
 					'<br>'
 				);
 				?>
@@ -166,7 +176,7 @@ class HFE_Fallback_Theme_Support {
 					'url'  => admin_url( 'edit.php?post_type=elementor-hf' ),
 				],
 				'hfe_settings'  => [
-					'name' => __( 'Settings', 'header-footer-elementor' ),
+					'name' => __( 'Theme Support', 'header-footer-elementor' ),
 					'url'  => admin_url( 'themes.php?page=hfe-settings' ),
 				],
 			];
@@ -207,7 +217,7 @@ class HFE_Fallback_Theme_Support {
 					'url'  => admin_url( 'edit.php?post_type=elementor-hf' ),
 				],
 				'hfe_settings'  => [
-					'name' => __( 'Settings', 'header-footer-elementor' ),
+					'name' => __( 'Theme Support', 'header-footer-elementor' ),
 					'url'  => admin_url( 'themes.php?page=hfe-settings' ),
 				],
 			];
