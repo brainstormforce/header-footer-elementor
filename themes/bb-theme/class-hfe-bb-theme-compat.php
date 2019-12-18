@@ -23,11 +23,10 @@ class HFE_BB_Theme_Compat {
 	 *  Initiator
 	 */
 	public static function instance() {
-
 		if ( ! isset( self::$instance ) ) {
 			self::$instance = new HFE_BB_Theme_Compat();
 
-			add_action( 'wp', array( self::$instance, 'hooks' ) );
+			add_action( 'wp', [ self::$instance, 'hooks' ] );
 		}
 
 		return self::$instance;
@@ -37,24 +36,25 @@ class HFE_BB_Theme_Compat {
 	 * Run all the Actions / Filters.
 	 */
 	public function hooks() {
-
 		if ( hfe_header_enabled() ) {
 			add_filter( 'fl_header_enabled', '__return_false' );
-			add_action( 'fl_before_header', array( $this, 'get_header_content' ) );
+			add_action( 'fl_before_header', [ $this, 'get_header_content' ] );
+		}
+
+		if ( hfe_is_before_footer_enabled() ) {
+			add_action( 'fl_after_content', [ 'Header_Footer_Elementor', 'get_before_footer_content' ], 10 );
 		}
 
 		if ( hfe_footer_enabled() ) {
 			add_filter( 'fl_footer_enabled', '__return_false' );
-			add_action( 'fl_after_content', array( $this, 'get_footer_content' ) );
+			add_action( 'fl_after_content', [ $this, 'get_footer_content' ] );
 		}
-
 	}
 
 	/**
 	 * Display header markup for beaver builder theme.
 	 */
 	public function get_header_content() {
-
 		$header_layout = FLTheme::get_setting( 'fl-header-layout' );
 
 		if ( 'none' == $header_layout || is_page_template( 'tpl-no-header-footer.php' ) ) {
@@ -75,7 +75,6 @@ class HFE_BB_Theme_Compat {
 	 * Display footer markup for beaver builder theme.
 	 */
 	public function get_footer_content() {
-
 		if ( is_page_template( 'tpl-no-header-footer.php' ) ) {
 			return;
 		}
