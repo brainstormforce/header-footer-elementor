@@ -312,7 +312,7 @@ class Header_Footer_Elementor {
 					'id'                  => 'unsupported-theme',
 					'type'                => 'error',
 					'dismissible'         => true,
-					'message'             => '<p>' . __( 'Your current theme is not supported by Elementor - Header, Footer & Blocks plugin, click <a href="themes.php?page=hfe-settings">here</a> to add support for the theme.', 'header-footer-elementor' ) . '</p>',
+					'message'             => '<p>' . __( 'Your current theme is not supported by Elementor - Header, Footer & Blocks plugin, click <a href="themes.php?page=hfe-settings">here</a> to check available compatibility methods.', 'header-footer-elementor' ) . '</p>',
 					'repeat-notice-after' => false,
 				]
 			);

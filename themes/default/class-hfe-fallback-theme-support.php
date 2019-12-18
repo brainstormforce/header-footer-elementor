@@ -106,17 +106,14 @@ class HFE_Fallback_Theme_Support {
 				?>
 			</p><br>
 		</label>
-		<label>
-			<p> <?php esc_html_e( 'Method 3', 'header-footer-elementor' ); ?> </p>
-			<p class="description">
-				<?php
-				echo sprintf(
-					_e( 'Sometimes above methods might not work well with your theme, in this case, contact your theme author and request them to add support for the <a href="https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme">plugin.</>', 'header-footer-elementor' ),
-					'<br>'
-				);
-				?>
-			</p>
-		</label>
+		<p class="description">
+			<?php
+			echo sprintf(
+				_e( 'Sometimes above methods might not work well with your theme, in this case, contact your theme author and request them to add support for the <a href="https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme">plugin.</>', 'header-footer-elementor' ),
+				'<br>'
+			);
+			?>
+		</p>
 
 		<?php
 	}
