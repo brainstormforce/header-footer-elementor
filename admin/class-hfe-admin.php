@@ -334,7 +334,7 @@ class HFE_Admin {
 		<tr class="bsf-target-rules-row hfe-options-row">
 			<td class="bsf-target-rules-row-heading hfe-options-row-heading">
 				<label><?php esc_html_e( 'User Roles', 'header-footer-elementor' ); ?></label>
-				<i class="bsf-target-rules-heading-help dashicons dashicons-editor-help" title="<?php echo esc_attr__( 'Targer header based on user role.', 'header-footer-elementor' ); ?>"></i>
+				<i class="bsf-target-rules-heading-help dashicons dashicons-editor-help" title="<?php echo esc_attr__( 'Display custom template based on user role.', 'header-footer-elementor' ); ?>"></i>
 			</td>
 			<td class="bsf-target-rules-row-content hfe-options-row-content">
 				<?php
