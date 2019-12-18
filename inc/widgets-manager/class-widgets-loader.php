@@ -100,10 +100,10 @@ class Widgets_Loader {
 
 		$this_cat->add_category(
 			'hfe-widgets',
-			array(
+			[
 				'title' => $category,
 				'icon'  => 'eicon-font',
-			)
+			]
 		);
 
 		return $this_cat;
