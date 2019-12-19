@@ -196,7 +196,7 @@ class Copyright extends Widget_Base {
 					<span><?php echo $copy_right_shortcode; ?></span>
 				</a>
 			<?php } else { ?>
-				<span><?php echo $copy_right_shortcode; ?></span>
+				<span><?php echo wp_kses_post( $copy_right_shortcode ); ?></span>
 			<?php } ?>
 		</div>
 		<?php
