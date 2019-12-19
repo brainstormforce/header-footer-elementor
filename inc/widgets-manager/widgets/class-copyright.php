@@ -192,8 +192,8 @@ class Copyright extends Widget_Base {
 		$copy_right_shortcode = do_shortcode( shortcode_unautop( $settings['shortcode'] ) ); ?>
 		<div class="hfe-copyright-wrapper">
 			<?php if ( ! empty( $link ) ) { ?>
-				<a href="<?php echo $link; ?>">
-					<span><?php echo $copy_right_shortcode; ?></span>
+				<a href="<?php echo esc_url( $link ); ?>">
+					<span><?php echo wp_kses_post( $copy_right_shortcode ); ?></span>
 				</a>
 			<?php } else { ?>
 				<span><?php echo wp_kses_post( $copy_right_shortcode ); ?></span>
