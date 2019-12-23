@@ -5,7 +5,7 @@ Donate link: https://www.paypal.me/BrainstormForce
 Requires at least: 4.4
 Requires PHP: 5.4
 Tested up to: 5.3
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -129,6 +129,10 @@ You can add support for the plugin from your child theme. Just follow <a href="h
 4. Methods to add Theme Support.
 
 == Changelog ==
+
+= 1.2.1 =
+- Categorize the Elementor widgets in a separate category in the Elementor window.
+- Hide target rules options when a custom block template is selected.
 
 = 1.2.0 =
 - New: Support all the themes, Includes two separate fallback methods so that you can create custom headers and footers for any theme.
