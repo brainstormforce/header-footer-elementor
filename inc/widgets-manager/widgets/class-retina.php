@@ -89,7 +89,7 @@ class Retina extends Widget_Base {
 	 * @return array Widget categories.
 	 */
 	public function get_categories() {
-		return [ 'HFE' ];
+		return [ 'hfe-widgets' ];
 	}
 
 	/**

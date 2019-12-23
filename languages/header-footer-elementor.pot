@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the Elementor - Header, Footer & Blocks package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Elementor - Header, Footer & Blocks 1.2.0-beta.1\n"
+"Project-Id-Version: Elementor - Header, Footer & Blocks 1.2.1\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/header-footer-elementor\n"
-"POT-Creation-Date: 2019-12-09 06:37:46+00:00\n"
+"POT-Creation-Date: 2019-12-23 05:47:57+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,198 +25,201 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: admin/class-hfe-admin.php:60 admin/class-hfe-admin.php:62
-msgid "Header Footers Template"
-msgstr ""
-
-#: admin/class-hfe-admin.php:61 admin/class-hfe-admin.php:63
-msgid "Elementor Header Footer"
-msgstr ""
-
-#: admin/class-hfe-admin.php:64
-msgid "Add New"
-msgstr ""
-
-#: admin/class-hfe-admin.php:65
-msgid "Add New Header Footer"
-msgstr ""
-
-#: admin/class-hfe-admin.php:66
-msgid "New Header Footers Template"
-msgstr ""
-
-#: admin/class-hfe-admin.php:67
-msgid "Edit Header Footers Template"
-msgstr ""
-
-#: admin/class-hfe-admin.php:68
-msgid "View Header Footers Template"
+#: admin/class-hfe-admin.php:68 admin/class-hfe-admin.php:301
+msgid "Display Rules"
 msgstr ""
 
 #: admin/class-hfe-admin.php:69
-msgid "All Elementor Header Footers"
+msgid "Date"
 msgstr ""
 
-#: admin/class-hfe-admin.php:70
-msgid "Search Header Footers Templates"
+#: admin/class-hfe-admin.php:152 admin/class-hfe-admin.php:154
+msgid "Header Footers Template"
 msgstr ""
 
-#: admin/class-hfe-admin.php:71
-msgid "Parent Header Footers Templates:"
+#: admin/class-hfe-admin.php:153 admin/class-hfe-admin.php:155
+msgid "Elementor Header Footer"
 msgstr ""
 
-#: admin/class-hfe-admin.php:72
-msgid "No Header Footers Templates found."
+#: admin/class-hfe-admin.php:156
+msgid "Add New"
 msgstr ""
 
-#: admin/class-hfe-admin.php:73
-msgid "No Header Footers Templates found in Trash."
+#: admin/class-hfe-admin.php:157
+msgid "Add New Header Footer"
 msgstr ""
 
-#: admin/class-hfe-admin.php:102 admin/class-hfe-admin.php:103
-msgid "Header Footer Builder"
+#: admin/class-hfe-admin.php:158
+msgid "New Header Footers Template"
 msgstr ""
 
-#: admin/class-hfe-admin.php:115
-msgid "Elementor Header Footer options"
-msgstr ""
-
-#: admin/class-hfe-admin.php:143
-msgid "Type of Template"
-msgstr ""
-
-#: admin/class-hfe-admin.php:147
-msgid "Select Option"
-msgstr ""
-
-#: admin/class-hfe-admin.php:148
-msgid "Header"
-msgstr ""
-
-#: admin/class-hfe-admin.php:149
-msgid "Before Footer"
-msgstr ""
-
-#: admin/class-hfe-admin.php:150
-msgid "Footer"
-msgstr ""
-
-#: admin/class-hfe-admin.php:151
-msgid "Custom Block"
-msgstr ""
-
-#: admin/class-hfe-admin.php:159 admin/class-hfe-admin.php:404
-msgid "Shortcode"
+#: admin/class-hfe-admin.php:159
+msgid "Edit Header Footers Template"
 msgstr ""
 
 #: admin/class-hfe-admin.php:160
+msgid "View Header Footers Template"
+msgstr ""
+
+#: admin/class-hfe-admin.php:161
+msgid "All Elementor Header Footers"
+msgstr ""
+
+#: admin/class-hfe-admin.php:162
+msgid "Search Header Footers Templates"
+msgstr ""
+
+#: admin/class-hfe-admin.php:163
+msgid "Parent Header Footers Templates:"
+msgstr ""
+
+#: admin/class-hfe-admin.php:164
+msgid "No Header Footers Templates found."
+msgstr ""
+
+#: admin/class-hfe-admin.php:165
+msgid "No Header Footers Templates found in Trash."
+msgstr ""
+
+#: admin/class-hfe-admin.php:194 admin/class-hfe-admin.php:195
+msgid "Header Footer Builder"
+msgstr ""
+
+#: admin/class-hfe-admin.php:207
+msgid "Elementor Header Footer options"
+msgstr ""
+
+#: admin/class-hfe-admin.php:235
+msgid "Type of Template"
+msgstr ""
+
+#: admin/class-hfe-admin.php:239
+msgid "Select Option"
+msgstr ""
+
+#: admin/class-hfe-admin.php:240
+msgid "Header"
+msgstr ""
+
+#: admin/class-hfe-admin.php:241
+msgid "Before Footer"
+msgstr ""
+
+#: admin/class-hfe-admin.php:242
+msgid "Footer"
+msgstr ""
+
+#: admin/class-hfe-admin.php:243
+msgid "Custom Block"
+msgstr ""
+
+#: admin/class-hfe-admin.php:251 admin/class-hfe-admin.php:496
+msgid "Shortcode"
+msgstr ""
+
+#: admin/class-hfe-admin.php:252
 msgid ""
 "Copy this shortcode and paste it into your post, page, or text widget "
 "content."
 msgstr ""
 
-#: admin/class-hfe-admin.php:172
+#: admin/class-hfe-admin.php:264
 msgid "Enable Layout for Elementor Canvas Template?"
 msgstr ""
 
-#: admin/class-hfe-admin.php:174
+#: admin/class-hfe-admin.php:266
 msgid ""
 "Enabling this option will display this layout on pages using Elementor "
 "Canvas Template."
 msgstr ""
 
-#: admin/class-hfe-admin.php:200
+#: admin/class-hfe-admin.php:292
 msgid "Display On"
 msgstr ""
 
-#: admin/class-hfe-admin.php:202
+#: admin/class-hfe-admin.php:294
 msgid "Add locations for where this template should appear."
 msgstr ""
 
-#: admin/class-hfe-admin.php:209
-msgid "Display Rules"
-msgstr ""
-
-#: admin/class-hfe-admin.php:213
+#: admin/class-hfe-admin.php:305
 msgid "Add Display Rule"
 msgstr ""
 
-#: admin/class-hfe-admin.php:222
+#: admin/class-hfe-admin.php:314
 msgid "Do Not Display On"
 msgstr ""
 
-#: admin/class-hfe-admin.php:224
+#: admin/class-hfe-admin.php:316
 msgid "This Advanced Header will not appear at these locations."
 msgstr ""
 
-#: admin/class-hfe-admin.php:231
+#: admin/class-hfe-admin.php:323
 msgid "Exclude On"
 msgstr ""
 
-#: admin/class-hfe-admin.php:234
+#: admin/class-hfe-admin.php:326
 #: inc/lib/target-rule/class-astra-target-rules-fields.php:840
 msgid "Add Exclusion Rule"
 msgstr ""
 
-#: admin/class-hfe-admin.php:244
+#: admin/class-hfe-admin.php:336
 msgid "User Roles"
 msgstr ""
 
-#: admin/class-hfe-admin.php:245
-msgid "Targer header based on user role."
+#: admin/class-hfe-admin.php:337
+msgid "Display custom template based on user role."
 msgstr ""
 
-#: admin/class-hfe-admin.php:252
+#: admin/class-hfe-admin.php:344
 msgid "Users"
 msgstr ""
 
-#: admin/class-hfe-admin.php:255
+#: admin/class-hfe-admin.php:347
 msgid "Add User Rule"
 msgstr ""
 
-#: admin/class-hfe-admin.php:335
+#: admin/class-hfe-admin.php:427
 #. Translators: Post title, Template Location
 msgid "Template %1$s is already assigned to the location %2$s"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:142
+#: inc/class-header-footer-elementor.php:144
 msgid ""
 "Hello! Seems like you have used Elementor - Header, Footer & Blocks to "
 "build this website — Thanks a ton!"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:143
+#: inc/class-header-footer-elementor.php:145
 msgid ""
 "Could you please do us a BIG favor and give it a 5-star rating on "
 "WordPress? This would boost our motivation and help other users make a "
 "comfortable decision while choosing the Elementor - Header, Footer & Blocks."
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:145
+#: inc/class-header-footer-elementor.php:147
 msgid "Ok, you deserve it"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:147
+#: inc/class-header-footer-elementor.php:149
 msgid "Nope, maybe later"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:148
+#: inc/class-header-footer-elementor.php:150
 msgid "I already did"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:181
+#: inc/class-header-footer-elementor.php:183
 #. Translators: URL to install or activate Elementor plugin.
 msgid ""
 "The <strong>Header Footer Elementor</strong> plugin requires <strong><a "
 "href=\"%s\">Elementor</strong></a> plugin installed & activated."
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:313
+#: inc/class-header-footer-elementor.php:315
 msgid ""
-"Hey, your current theme is not supported by Header Footer Elementor, click "
-"<a "
-"href=\"https://github.com/Nikschavan/header-footer-elementor#which-themes-"
-"are-supported-by-this-plugin\">here</a> to check out the supported themes."
+"Your current theme is not supported by Elementor - Header, Footer & Blocks "
+"plugin, click <a href=\"themes.php?page=hfe-settings\">here</a> to check "
+"available compatibility methods."
 msgstr ""
 
 #: inc/lib/notices/class-astra-notices.php:120
@@ -372,6 +375,10 @@ msgstr ""
 #: inc/lib/target-rule/class-astra-target-rules-fields.php:1494
 #. translators: %s post title.
 msgid "The same display setting is already exist in %s post/s."
+msgstr ""
+
+#: inc/widgets-manager/class-widgets-loader.php:99
+msgid "Header, Footer & Blocks"
 msgstr ""
 
 #: inc/widgets-manager/widgets/class-copyright.php:53
@@ -549,50 +556,59 @@ msgstr ""
 msgid "%1$s Getting started article » %2$s"
 msgstr ""
 
-#: themes/default/class-hfe-fallback-theme-support.php:66
-msgid "Compatibility Mode"
+#: themes/default/class-hfe-fallback-theme-support.php:65
+msgid "Add Theme Support"
 msgstr ""
 
-#: themes/default/class-hfe-fallback-theme-support.php:79
+#: themes/default/class-hfe-fallback-theme-support.php:78
 msgid ""
-"Header Footer Elementor plugin includes two compatibility modes to try to "
-"support all the themes.<br>Use the method which works best with your "
-"theme.<br><br>It is possible that both these methods will not work with "
-"your theme correctly with your theme, In that case you should contact your "
-"theme author and request them to <a "
-"href=\"https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-"
-"Header-Footer-Elementor-support-for-your-theme\" target=\"_blank\">add "
-"support for this plugin</a>."
+"The Elementor - Header, Footer & Blocks plugin is compatible with themes "
+"listed <a "
+"href=\"https://github.com/Nikschavan/header-footer-elementor#themes-you-can-"
+"use-header-footer-elementor-with\"> here</a>.<br><br> In case your current "
+"theme is not in the list, you can choose one of the following methods to "
+"add theme support."
+msgstr ""
+
+#: themes/default/class-hfe-fallback-theme-support.php:95
+msgid " Method 1 (Recommended)"
 msgstr ""
 
 #: themes/default/class-hfe-fallback-theme-support.php:96
-msgid "Method 1"
-msgstr ""
-
-#: themes/default/class-hfe-fallback-theme-support.php:97
 msgid ""
-"This replaces the header.php & footer.php template with a custom templates "
-"from the plugin."
+"This method replaces your theme's header (header.php) & footer (footer.php) "
+"template with plugin's custom templates."
 msgstr ""
 
-#: themes/default/class-hfe-fallback-theme-support.php:100
+#: themes/default/class-hfe-fallback-theme-support.php:99
 msgid "Method 2"
 msgstr ""
 
-#: themes/default/class-hfe-fallback-theme-support.php:140
-#: themes/default/class-hfe-fallback-theme-support.php:141
-#: themes/default/class-hfe-fallback-theme-support.php:169
-#: themes/default/class-hfe-fallback-theme-support.php:210
+#: themes/default/class-hfe-fallback-theme-support.php:112
+msgid ""
+"Sometimes above methods might not work well with your theme, in this case, "
+"contact your theme author and request them to add support for the <a "
+"href=\"https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-"
+"Header-Footer-Elementor-support-for-your-theme\">plugin.</>"
+msgstr ""
+
+#: themes/default/class-hfe-fallback-theme-support.php:147
+#: themes/default/class-hfe-fallback-theme-support.php:148
 msgid "Settings"
 msgstr ""
 
-#: themes/default/class-hfe-fallback-theme-support.php:157
+#: themes/default/class-hfe-fallback-theme-support.php:164
 msgid "Elementor - Header, Footer & Blocks "
 msgstr ""
 
-#: themes/default/class-hfe-fallback-theme-support.php:165
-#: themes/default/class-hfe-fallback-theme-support.php:206
+#: themes/default/class-hfe-fallback-theme-support.php:172
+#: themes/default/class-hfe-fallback-theme-support.php:213
 msgid "All templates"
+msgstr ""
+
+#: themes/default/class-hfe-fallback-theme-support.php:176
+#: themes/default/class-hfe-fallback-theme-support.php:217
+msgid "Theme Support"
 msgstr ""
 
 #. Plugin Name of the plugin/theme

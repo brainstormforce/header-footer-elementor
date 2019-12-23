@@ -230,7 +230,7 @@ class HFE_Admin {
 		?>
 		<table class="hfe-options-table widefat">
 			<tbody>
-				<tr class="hfe-options-row">
+				<tr class="hfe-options-row type-of-template">
 					<td class="hfe-options-row-heading">
 						<label for="ehf_template_type"><?php _e( 'Type of Template', 'header-footer-elementor' ); ?></label>
 					</td>
@@ -258,7 +258,7 @@ class HFE_Admin {
 						</span>
 					</td>
 				</tr>
-				<tr class="hfe-options-row">
+				<tr class="hfe-options-row enable-for-canvas">
 					<td class="hfe-options-row-heading">
 						<label for="display-on-canvas-template">
 							<?php _e( 'Enable Layout for Elementor Canvas Template?', 'header-footer-elementor' ); ?>

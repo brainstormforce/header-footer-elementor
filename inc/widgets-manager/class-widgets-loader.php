@@ -48,6 +48,10 @@ class Widgets_Loader {
 	 * @since  1.2.0
 	 */
 	private function __construct() {
+
+		// Register category.
+		add_action( 'elementor/elements/categories_registered', [ $this, 'register_widget_category' ] );
+
 		// Register widgets.
 		add_action( 'elementor/widgets/widgets_registered', [ $this, 'register_widgets' ] );
 
@@ -83,6 +87,26 @@ class Widgets_Loader {
 		// New allowed mime types.
 		$mimes['svg'] = 'image/svg+xml';
 		return $mimes;
+	}
+
+	/**
+	 * Register Category
+	 *
+	 * @since 1.2.0
+	 * @param object $this_cat class.
+	 */
+	public function register_widget_category( $this_cat ) {
+		$category = __( 'Header, Footer & Blocks', 'header-footer-elementor' );
+
+		$this_cat->add_category(
+			'hfe-widgets',
+			[
+				'title' => $category,
+				'icon'  => 'eicon-font',
+			]
+		);
+
+		return $this_cat;
 	}
 
 	/**
