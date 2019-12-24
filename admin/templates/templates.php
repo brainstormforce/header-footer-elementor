@@ -2,8 +2,8 @@
 /**
  * Shortcode Markup
  *
- * TMPL - Single Demo Preview
- * TMPL - No more demos
+ * TMPL - Single Block Preview
+ * TMPL - No more Blocks
  * TMPL - Filters
  * TMPL - List
  *
@@ -17,34 +17,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<script type="text/template" id="tmpl-ast-template-base-skeleton">
-	<div class="dialog-widget dialog-lightbox-widget dialog-type-buttons dialog-type-lightbox" id="ast-sites-modal">
+<script type="text/template" id="tmpl-ehf-base-skeleton">
+	<div class="dialog-widget dialog-lightbox-widget dialog-type-buttons dialog-type-lightbox" id="ehf-blocks-modal">
 		<div class="dialog-widget-content dialog-lightbox-widget-content">
-			<div class="astra-sites-content-wrap">
-				<div id="ast-sites-floating-notice-wrap-id" class="ast-sites-floating-notice-wrap"><div class="ast-sites-floating-notice"></div></div>
-				<?php
-				$batch_status = get_option( 'astra-sites-batch-is-complete', 'no' );
-				if ( 'yes' === $batch_status ) {
-					?>
-					<div class="ast-sites-floating-notice-wrap refreshed-notice slide-in">
-						<div class="ast-sites-floating-notice">
-							<div class="astra-sites-sync-library-message success astra-sites-notice notice notice-success is-dismissible">
-								<?php esc_html_e( 'Template library refreshed!', 'astra-sites' ); ?> <button type="button" class="notice-dismiss"><span class="screen-reader-text"><?php esc_html_e( 'Dismiss', 'astra-sites' ); ?></span></button>
-							</div>
-						</div>
-					</div>
-				<?php } ?>
-				<div class="dialog-message dialog-lightbox-message" data-type="pages">
-					<div class="dialog-content dialog-lightbox-content theme-browser"></div>
-					<div class="theme-preview"></div>
-				</div>
+			<div class="ehf-blocks__content-wrap">
 				<div class="dialog-message dialog-lightbox-message-block" data-type="blocks">
-					<div class="astra-blocks-category-wrap">
-						<div class="astra-blocks-category-inner-wrap">
-							<select id="elementor-template-library-filter" class="astra-blocks-category elementor-template-library-filter-select elementor-select2">
-								<option value=""><?php esc_html_e( 'All', 'astra-sites' ); ?></option>
-								<# for ( key in astraElementorSites.astra_block_categories ) { #>
-								<option value="{{astraElementorSites.astra_block_categories[key].id}}">{{astraElementorSites.astra_block_categories[key].name}}</option>
+					<div class="ehf-blocks__category-wrap">
+						<div class="ehf-blocks__category-inner-wrap">
+							<select id="elementor-template-library-filter" class="ehf-blocks__category elementor-template-library-filter-select elementor-select2">
+								<option value=""><?php esc_html_e( 'All', 'header-footer-elementor' ); ?></option>
+								<# for ( key in ehf_blocks.block_categories ) { #>
+								<option value="{{ehf_blocks.block_categories[key].id}}">{{ehf_blocks.block_categories[key].name}}</option>
 								<# } #>
 							</select>
 						</div>
@@ -59,23 +42,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</div>
 </script>
 
-<script type="text/template" id="tmpl-ast-template-modal__header-back">
-	<div class="dialog-lightbox-back"><span class="dialog-lightbox-back-text"><?php esc_html_e( 'Back to Pages', 'astra-sites' ); ?></span></div>
+<script type="text/template" id="tmpl-ehf-modal__header-back">
+	<div class="dialog-lightbox-back"><span class="dialog-lightbox-back-text"><?php esc_html_e( 'Back to Pages', 'header-footer-elementor' ); ?></span></div>
 </script>
 
-<script type="text/template" id="tmpl-ast-template-modal__header">
+<script type="text/template" id="tmpl-ehf-modal__header">
 	<div class="dialog-header dialog-lightbox-header">
-		<div class="ast-sites-modal__header">
-			<div class="ast-sites-modal__header__logo-area position-left-last">
-				<div class="ast-sites-modal__header__logo">
-					<span class="ast-sites-modal__header__logo__icon-wrapper"></span>
+		<div class="ehf-blocks-modal__header">
+			<div class="ehf-blocks-modal__header__logo-area position-left-last">
+				<div class="ehf-blocks-modal__header__logo">
+					<span class="ehf-blocks-modal__header__logo__icon-wrapper"></span>
 				</div>
-				<div class="back-to-layout" title="<?php esc_html_e( 'Back to Layout', 'astra-sites' ); ?>" data-step="1"><i class="icon-chevron-left"></i></div>
+				<div class="back-to-layout" title="<?php esc_html_e( 'Back to Layout', 'header-footer-elementor' ); ?>" data-step="1"><i class="icon-chevron-left"></i></div>
 			</div>
-			<div class="ast-sites-modal__header__menu-area astra-sites-step-1-wrap">
+			<div class="ehf-blocks-modal__header__menu-area astra-sites-step-1-wrap">
 				<div class="elementor-template-library-header-menu">
 					<div class="search-form">
-						<input autocomplete="off" placeholder="<?php esc_html_e( 'Search...', 'astra-sites' ); ?>" type="search" aria-describedby="live-search-desc" id="wp-filter-search-input" class="wp-filter-search">
+						<input autocomplete="off" placeholder="<?php esc_html_e( 'Search...', 'header-footer-elementor' ); ?>" type="search" aria-describedby="live-search-desc" id="wp-filter-search-input" class="wp-filter-search">
 						<span class="icon-search search-icon"></span>
 						<div class="astra-sites-autocomplete-result"></div>
 					</div>
@@ -83,19 +66,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</div>
 			<div class="elementor-templates-modal__header__menu-area astra-sites-step-1-wrap ast-sites-modal__options">
 				<div class="elementor-template-library-header-menu">
-					<div class="elementor-template-library-menu-item elementor-active" data-template-source="remote" data-template-type="pages"><span class="icon-file"></span><?php esc_html_e( 'Pages', 'astra-sites' ); ?></div>		
-					<div class="elementor-template-library-menu-item" data-template-source="remote" data-template-type="blocks"><span class="icon-layers"></span><?php esc_html_e( 'Blocks', 'astra-sites' ); ?></div>
 					<div class="astra-sites__sync-wrap">
 						<div class="astra-sites-sync-library-button">
-							<span class="icon-refresh" aria-hidden="true" title="<?php esc_html_e( 'Sync Library', 'astra-sites' ); ?>"></span>
+							<span class="icon-refresh" aria-hidden="true" title="<?php esc_html_e( 'Sync Library', 'header-footer-elementor' ); ?>"></span>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="elementor-templates-modal__header__items-area">
-				<div class="ast-sites-modal__header__close ast-sites-modal__header__close--normal ast-sites-modal__header__item">
-					<i class="eicon-close" aria-hidden="true" title="<?php esc_html_e( 'Close', 'astra-sites' ); ?>"></i>
-					<span class="elementor-screen-only"><?php esc_html_e( 'Close', 'astra-sites' ); ?></span>
+				<div class="ehf-blocks-modal__header__close ehf-blocks-modal__header__close--normal ehf-blocks-modal__header__item">
+					<i class="eicon-close" aria-hidden="true" title="<?php esc_html_e( 'Close', 'header-footer-elementor' ); ?>"></i>
+					<span class="elementor-screen-only"><?php esc_html_e( 'Close', 'header-footer-elementor' ); ?></span>
 				</div>
 			</div>
 		</div>
@@ -131,7 +112,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<h3 class="theme-name">{{{site_title}}}</h3>
 					</div>
 					<# if ( site_type && 'free' !== site_type ) { #>
-						<div class="agency-ribbons" title="<?php esc_attr_e( 'This premium template is accessible with Astra "Agency" Package.', 'astra-sites' ); ?>"><?php esc_html_e( 'Agency', 'astra-sites' ); ?></div>
+						<div class="agency-ribbons" title="<?php esc_attr_e( 'This premium template is accessible with Astra "Agency" Package.', 'header-footer-elementor' ); ?>"><?php esc_html_e( 'Agency', 'header-footer-elementor' ); ?></div>
 					<# } #>
 				</div>
 			</div>
@@ -140,15 +121,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	#>
 </script>
 
-<script type="text/template" id="tmpl-astra-blocks-list">
+<script type="text/template" id="tmpl-ehf-blocks-list">
 
 	<#
 		var count = 0;
 		for ( key in data ) {
-			var site_title = ( undefined == data[ key ]['category'] ) ? data[ key ]['title'] : astraElementorSites.astra_block_categories[data[ key ]['category']].name;
+			var site_title = ( undefined == data[ key ]['category'] ) ? data[ key ]['title'] : ehf_blocks.block_categories[data[ key ]['category']].name;
 			count++;
-			if ( '' !== AstraElementorSitesAdmin.blockCategory ) {
-				if ( AstraElementorSitesAdmin.blockCategory != data[ key ]['category'] ) {
+			if ( '' !== EHFBlocks.blockCategory ) {
+				if ( EHFBlocks.blockCategory != data[ key ]['category'] ) {
 					continue;
 				}
 			}
@@ -169,16 +150,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	#>
 		<div class="astra-sites-no-sites">
 			<div class="inner">
-				<h3><?php esc_html_e( 'Sorry No Result Found.', 'astra-sites' ); ?></h3>
+				<h3><?php esc_html_e( 'Sorry No Result Found.', 'header-footer-elementor' ); ?></h3>
 				<div class="content">
 					<div class="description">
 						<p>
 						<?php
 						/* translators: %1$s External Link */
-						printf( __( 'Don\'t see a template you would like to import?<br><a target="_blank" href="%1$s">Please Suggest Us!</a>', 'astra-sites' ), esc_url( 'https://wpastra.com/sites-suggestions/?utm_source=demo-import-panel&utm_campaign=astra-sites&utm_medium=suggestions' ) );
+						printf( __( 'Don\'t see a template you would like to import?<br><a target="_blank" href="%1$s">Please Suggest Us!</a>', 'header-footer-elementor' ), esc_url( 'https://wpastra.com/sites-suggestions/?utm_source=demo-import-panel&utm_campaign=astra-sites&utm_medium=suggestions' ) );
 						?>
 						</p>
-						<div class="back-to-layout-button"><span class="button astra-sites-back"><?php esc_html_e( 'Back to Templates', 'astra-sites' ); ?></span></div>
+						<div class="back-to-layout-button"><span class="button astra-sites-back"><?php esc_html_e( 'Back to Templates', 'header-footer-elementor' ); ?></span></div>
 					</div>
 				</div>
 			</div>
@@ -188,7 +169,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	#>
 </script>
 
-<script type="text/template" id="tmpl-astra-sites-list-search">
+<script type="text/template" id="tmpl-ehf-list-search">
 
 	<#
 		var count = 0;
@@ -218,7 +199,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<h3 class="theme-name">{{{site_title}}}</h3>
 				</div>
 				<# if ( site_type && 'free' !== site_type ) { #>
-					<div class="agency-ribbons" title="<?php esc_attr_e( 'This premium template is accessible with Astra "Agency" Package.', 'astra-sites' ); ?>"><?php esc_html_e( 'Agency', 'astra-sites' ); ?></div>
+					<div class="agency-ribbons" title="<?php esc_attr_e( 'This premium template is accessible with Astra "Agency" Package.', 'header-footer-elementor' ); ?>"><?php esc_html_e( 'Agency', 'header-footer-elementor' ); ?></div>
 				<# } #>
 			</div>
 		</div>
@@ -229,16 +210,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	#>
 		<div class="astra-sites-no-sites">
 			<div class="inner">
-				<h3><?php esc_html_e( 'Sorry No Result Found.', 'astra-sites' ); ?></h3>
+				<h3><?php esc_html_e( 'Sorry No Result Found.', 'header-footer-elementor' ); ?></h3>
 				<div class="content">
 					<div class="description">
 						<p>
 						<?php
 						/* translators: %1$s External Link */
-						printf( __( 'Don\'t see a template you would like to import?<br><a target="_blank" href="%1$s">Please Suggest Us!</a>', 'astra-sites' ), esc_url( 'https://wpastra.com/sites-suggestions/?utm_source=demo-import-panel&utm_campaign=astra-sites&utm_medium=suggestions' ) );
+						printf( __( 'Don\'t see a template you would like to import?<br><a target="_blank" href="%1$s">Please Suggest Us!</a>', 'header-footer-elementor' ), esc_url( 'https://wpastra.com/sites-suggestions/?utm_source=demo-import-panel&utm_campaign=astra-sites&utm_medium=suggestions' ) );
 						?>
 						</p>
-						<div class="back-to-layout-button"><span class="button astra-sites-back"><?php esc_html_e( 'Back to Templates', 'astra-sites' ); ?></span></div>
+						<div class="back-to-layout-button"><span class="button astra-sites-back"><?php esc_html_e( 'Back to Templates', 'header-footer-elementor' ); ?></span></div>
 					</div>
 				</div>
 			</div>
@@ -248,7 +229,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	#>
 </script>
 
-<script type="text/template" id="tmpl-astra-sites-search">
+<script type="text/template" id="tmpl-ehf-search">
 
 	<#
 		var count = 0;
@@ -303,7 +284,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<h3 class="theme-name"><strong>{{title1}}</strong>{{title2}}</h3>
 				</div>
 				<# if ( site_type && 'free' !== site_type ) { #>
-					<div class="agency-ribbons" title="<?php esc_attr_e( 'This premium template is accessible with Astra "Agency" Package.', 'astra-sites' ); ?>"><?php esc_html_e( 'Agency', 'astra-sites' ); ?></div>
+					<div class="agency-ribbons" title="<?php esc_attr_e( 'This premium template is accessible with Astra "Agency" Package.', 'header-footer-elementor' ); ?>"><?php esc_html_e( 'Agency', 'header-footer-elementor' ); ?></div>
 				<# } #>
 			</div>
 		</div>
@@ -314,16 +295,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	#>
 		<div class="astra-sites-no-sites">
 			<div class="inner">
-				<h3><?php esc_html_e( 'Sorry No Result Found.', 'astra-sites' ); ?></h3>
+				<h3><?php esc_html_e( 'Sorry No Result Found.', 'header-footer-elementor' ); ?></h3>
 				<div class="content">
 					<div class="description">
 						<p>
 						<?php
 						/* translators: %1$s External Link */
-						printf( __( 'Don\'t see a template you would like to import?<br><a target="_blank" href="%1$s">Please Suggest Us!</a>', 'astra-sites' ), esc_url( 'https://wpastra.com/sites-suggestions/?utm_source=demo-import-panel&utm_campaign=astra-sites&utm_medium=suggestions' ) );
+						printf( __( 'Don\'t see a template you would like to import?<br><a target="_blank" href="%1$s">Please Suggest Us!</a>', 'header-footer-elementor' ), esc_url( 'https://wpastra.com/sites-suggestions/?utm_source=demo-import-panel&utm_campaign=astra-sites&utm_medium=suggestions' ) );
 						?>
 						</p>
-						<div class="back-to-layout-button"><span class="button astra-sites-back"><?php esc_html_e( 'Back to Templates', 'astra-sites' ); ?></span></div>
+						<div class="back-to-layout-button"><span class="button astra-sites-back"><?php esc_html_e( 'Back to Templates', 'header-footer-elementor' ); ?></span></div>
 					</div>
 				</div>
 			</div>
@@ -334,10 +315,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 </script>
 
 <script type="text/template" id="tmpl-astra-sites-insert-button">
-	<div id="elementor-template-library-header-preview-insert-wrapper" class="elementor-templates-modal__header__item" data-template-id={{data.template_id}} data-site-id={{data.site_id}}>
+	<div id="elementor-template-library-header-preview-insert-wrapper" class="elementor-templates-modal__header__item" data-template-id={{data.template_id}}>
 		<a class="elementor-template-library-template-action elementor-template-library-template-insert elementor-button">
 			<i class="eicon-file-download" aria-hidden="true"></i>
-			<span class="elementor-button-title"><?php esc_html_e( 'Insert', 'astra-sites' ); ?></span>
+			<span class="elementor-button-title"><?php esc_html_e( 'Insert', 'header-footer-elementor' ); ?></span>
 		</a>
 
 	</div>
@@ -349,8 +330,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <script type="text/template" id="tmpl-astra-sites-third-party-required-plugins">
 	<div class="astra-sites-third-party-required-plugins-wrap">
-		<h3 class="theme-name"><?php esc_html_e( 'Required Plugin Missing', 'astra-sites' ); ?></h3>
-		<p><?php esc_html_e( 'This starter site requires premium plugins. As these are third party premium plugins, you\'ll need to purchase, install and activate them first.', 'astra-sites' ); ?></p>
+		<h3 class="theme-name"><?php esc_html_e( 'Required Plugin Missing', 'header-footer-elementor' ); ?></h3>
+		<p><?php esc_html_e( 'This starter site requires premium plugins. As these are third party premium plugins, you\'ll need to purchase, install and activate them first.', 'header-footer-elementor' ); ?></p>
 		<ul class="astra-sites-third-party-required-plugins">
 			<# for ( key in data ) { #>
 				<li class="plugin-card plugin-card-{{data[ key ].slug}}'" data-slug="{{data[ key ].slug }}" data-init="{{data[ key ].init}}" data-name="{{data[ key ].name}}"><a href="{{data[ key ].link}}" target="_blank">{{data[ key ].name}}</a></li>
@@ -362,19 +343,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 <script type="text/template" id="tmpl-astra-sites-no-sites">
 	<div class="astra-sites-no-sites">
 		<div class="inner">
-			<h3><?php esc_html_e( 'Sorry No Result Found.', 'astra-sites' ); ?></h3>
+			<h3><?php esc_html_e( 'Sorry No Result Found.', 'header-footer-elementor' ); ?></h3>
 			<div class="content">
 				<div class="empty-item">
-					<img class="empty-collection-part" src="<?php echo esc_url( ASTRA_SITES_URI . 'inc/assets/images/empty-collection.svg' ); ?>" alt="empty-collection">
+					<img class="empty-collection-part" src="<?php echo esc_url( 'inc/assets/images/empty-collection.svg' ); ?>" alt="empty-collection">
 				</div>
 				<div class="description">
 					<p>
 					<?php
 					/* translators: %1$s External Link */
-					printf( __( 'Don\'t see a template you would like to import?<br><a target="_blank" href="%1$s">Please Suggest Us!</a>', 'astra-sites' ), esc_url( 'https://wpastra.com/sites-suggestions/?utm_source=demo-import-panel&utm_campaign=astra-sites&utm_medium=suggestions' ) );
+					printf( __( 'Don\'t see a template you would like to import?<br><a target="_blank" href="%1$s">Please Suggest Us!</a>', 'header-footer-elementor' ), esc_url( 'https://wpastra.com/sites-suggestions/?utm_source=demo-import-panel&utm_campaign=astra-sites&utm_medium=suggestions' ) );
 					?>
 					</p>
-					<div class="back-to-layout-button"><span class="button astra-sites-back"><?php esc_html_e( 'Back to Templates', 'astra-sites' ); ?></span></div>
+					<div class="back-to-layout-button"><span class="button astra-sites-back"><?php esc_html_e( 'Back to Templates', 'header-footer-elementor' ); ?></span></div>
 				</div>
 			</div>
 		</div>
@@ -384,7 +365,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <script type="text/template" id="tmpl-astra-sites-elementor-preview">
 	<#
-	let wrap_height = $elscope.find( '.astra-sites-content-wrap' ).height();
+	let wrap_height = $elscope.find( '.ehf-blocks__content-wrap' ).height();
 	wrap_height = ( wrap_height - 55 );
 	wrap_height = wrap_height + 'px';
 	#>
@@ -402,38 +383,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 </script>
 
 <script type="text/template" id="tmpl-astra-sites-elementor-preview-actions">
-	<#
-	var demo_link = '';
-	var action_str = '';
-	if ( 'blocks' == AstraElementorSitesAdmin.type ) {
-		demo_link = astraElementorSites.astra_blocks[AstraElementorSitesAdmin.block_id]['url'];
-		action_str = 'Block';
-	} else {
-		demo_link = data['astra-page-url'];
-		action_str = 'Template';
-	}
-	#>
+
 	<div class="astra-preview-actions-wrap">
 		<div class="astra-preview-actions-inner-wrap">
 			<div class="astra-preview-actions">
 				<div class="site-action-buttons-wrap">
 					<div class="astra-sites-import-template-action site-action-buttons-right">
-
-						<#
-						var is_free = true;
-						if ( 'pages' == AstraElementorSitesAdmin.type ) {
-							if( 'free' !== data['site-pages-type'] && ! astraElementorSites.license_status ) {
-								is_free = false;
-							}
-						}
-						if( ! is_free ) { #>
-							<a class="button button-hero button-primary" href="{{astraElementorSites.getProURL}}" target="_blank">{{astraElementorSites.getProText}}<i class="dashicons dashicons-external"></i></a>
-						<# } else { #>
-							<div type="button" class="button button-hero button-primary ast-library-template-insert disabled"><?php esc_html_e( 'Import ', 'astra-sites' ); ?>{{action_str}}</div>
-							<div type="button" class="button button-hero button-primary ast-import-elementor-template disabled"><?php esc_html_e( 'Save ', 'astra-sites' ); ?>{{action_str}}</div>
-						<# } #>
-
-
+						<div type="button" class="button button-hero button-primary ast-library-template-insert disabled"><?php esc_html_e( 'Import Block', 'header-footer-elementor' ); ?></div>
+						<div type="button" class="button button-hero button-primary ast-import-elementor-template disabled"><?php esc_html_e( 'Save Block', 'header-footer-elementor' ); ?></div>
 						<div class="astra-sites-tooltip"><span class="astra-sites-tooltip-icon" data-tip-id="astra-sites-tooltip-plugins-settings"><span class="dashicons dashicons-editor-help"></span></span></div>
 					</div>
 				</div>

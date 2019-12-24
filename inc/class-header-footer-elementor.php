@@ -76,8 +76,6 @@ class Header_Footer_Elementor {
 				add_action( 'init', [ $this, 'setup_unsupported_theme_notice' ] );
 			}
 
-			add_action( 'elementor/editor/footer', [ $this, 'insert_templates' ] );
-
 			// Scripts and styles.
 			add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
 
@@ -90,7 +88,6 @@ class Header_Footer_Elementor {
 
 			add_action( 'astra_notice_before_markup_header-footer-elementor-rating', [ $this, 'rating_notice_css' ] );
 
-			add_action( 'elementor/editor/footer', [ $this, 'enqueue_elementor_editor_script' ], 99 );
 			add_action( 'admin_notices', [ $this, 'register_notices' ] );
 		} else {
 			add_action( 'admin_notices', [ $this, 'elementor_not_available' ] );
@@ -214,6 +211,10 @@ class Header_Footer_Elementor {
 
 		// Load the widgets.
 		require HFE_DIR . 'inc/widgets-manager/class-widgets-loader.php';
+
+		// Load Elementor Ready Blocks Import Popup.
+		require_once HFE_DIR . 'inc/batch-processing/class-ehf-batch-processing.php';
+		require_once HFE_DIR . 'inc/class-header-footer-elementor-popup.php';
 	}
 
 	/**
@@ -269,28 +270,6 @@ class Header_Footer_Elementor {
 		}
 	}
 
-	/**
-	 * Enqueue Template Popup Assets
-	 *
-	 * @return void
-	 */
-	public function enqueue_elementor_editor_script() {
-
-		if ( hfe_footer_enabled() || hfe_header_enabled() ) {
-			wp_enqueue_script( 'hfe-template-popup-script', HFE_URL . 'admin/assets/js/ehf-template-popup.js', [], HFE_VER );
-		}
-	}
-
-	/**
-	 * Insert Template Popup Template
-	 *
-	 * @return void
-	 */
-	public function insert_templates() {
-		ob_start();
-		require_once HFE_DIR . 'admin/templates/templates.php';
-		ob_end_flush();
-	}
 
 	/**
 	 * Load admin styles on header footer elementor edit screen.

@@ -77,7 +77,7 @@ var EHFAjaxQueue = (function() {
 
 (function($){
 
-	$elscope = {};
+	$ehfscope = {};
 
 	$.fn.isInViewport = function() {
 
@@ -133,43 +133,43 @@ var EHFAjaxQueue = (function() {
 
 					let action_for_add_section = add_section_tmpl.text();
 					
-					action_for_add_section = action_for_add_section.replace( '<div class="elementor-add-section-drag-title', '<div class="elementor-add-section-area-button elementor-add-ast-site-button" title="Astra Starters"> <i class="eicon-folder"></i> </div><div class="elementor-add-section-drag-title' );
+					action_for_add_section = action_for_add_section.replace( '<div class="elementor-add-section-drag-title', '<div class="elementor-add-section-area-button elementor-add-ehf-button" title="Elementor Blocks"> <i class="eicon-folder"></i> </div><div class="elementor-add-section-drag-title' );
 
 					add_section_tmpl.text( action_for_add_section );
 
 					elementor.on( "preview:loaded", function() {
 
-						let base_skeleton = wp.template( 'ast-template-base-skeleton' );
-						let header_template = $( '#tmpl-ast-template-modal__header' ).text();
+						let base_skeleton = wp.template( 'ehf-base-skeleton' );
+						let header_template = $( '#tmpl-ehf-modal__header' ).text();
 
 						$( 'body' ).append( base_skeleton() );
-						$elscope = $( '#ast-sites-modal' );
-						$elscope.find( '.astra-sites-content-wrap' ).before( header_template );
+						$ehfscope = $( '#ehf-blocks-modal' );
+						$ehfscope.find( '.ehf-blocks__content-wrap' ).before( header_template );
 
-						$elscope.find( '.astra-blocks-category' ).select2();
+						$ehfscope.find( '.ehf-blocks__category' ).select2();
 
-						$elscope.find( '.astra-blocks-category' ).on( 'select2:select', EHFBlocks._categoryChange );
+						$ehfscope.find( '.ehf-blocks__category' ).on( 'select2:select', EHFBlocks._categoryChange );
 
-						$( elementor.$previewContents[0].body ).on( "click", ".elementor-add-ast-site-button", EHFBlocks._open );
+						$( elementor.$previewContents[0].body ).on( "click", ".elementor-add-ehf-button", EHFBlocks._open );
 
 						// Click events.
-						$( 'body' ).on( "click", ".ast-sites-modal__header__close", EHFBlocks._close );
-						$( 'body' ).on( "click", "#ast-sites-modal .elementor-template-library-menu-item", EHFBlocks._libraryClick );
-						$( 'body' ).on( "click", "#ast-sites-modal .theme-screenshot", EHFBlocks._preview );
-						$( 'body' ).on( "click", "#ast-sites-modal .back-to-layout", EHFBlocks._goBack );
+						$( 'body' ).on( "click", ".ehf-blocks-modal__header__close", EHFBlocks._close );
+						$( 'body' ).on( "click", "#ehf-blocks-modal .elementor-template-library-menu-item", EHFBlocks._libraryClick );
+						$( 'body' ).on( "click", "#ehf-blocks-modal .theme-screenshot", EHFBlocks._preview );
+						$( 'body' ).on( "click", "#ehf-blocks-modal .back-to-layout", EHFBlocks._goBack );
 						$( 'body' ).on( "click", EHFBlocks._closeTooltip );
 
-						$( document ).on( "click", "#ast-sites-modal .ast-library-template-insert", EHFBlocks._insert );
+						$( document ).on( "click", "#ehf-blocks-modal .ast-library-template-insert", EHFBlocks._insert );
 						$( document ).on( "click", ".ast-import-elementor-template", EHFBlocks._importTemplate );
-						$( 'body' ).on( "click", "#ast-sites-modal .astra-sites-tooltip-icon", EHFBlocks._toggleTooltip );
+						$( 'body' ).on( "click", "#ehf-blocks-modal .astra-sites-tooltip-icon", EHFBlocks._toggleTooltip );
 						$( document ).on( "click", ".elementor-template-library-menu-item", EHFBlocks._toggle );
-						$( document ).on( 'click', '#ast-sites-modal .astra-sites__sync-wrap', EHFBlocks._sync );
-						$( document ).on( 'click', '#ast-sites-modal .ast-sites-modal__header__logo__icon-wrapper, #ast-sites-modal .back-to-layout-button', EHFBlocks._home );
-						$( document ).on( 'click', '#ast-sites-modal .notice-dismiss', EHFBlocks._dismiss );
+						$( document ).on( 'click', '#ehf-blocks-modal .astra-sites__sync-wrap', EHFBlocks._sync );
+						$( document ).on( 'click', '#ehf-blocks-modal .ehf-blocks-modal__header__logo__icon-wrapper, #ehf-blocks-modal .back-to-layout-button', EHFBlocks._home );
+						$( document ).on( 'click', '#ehf-blocks-modal .notice-dismiss', EHFBlocks._dismiss );
 
 						// Other events.
-						$elscope.find( '.astra-sites-content-wrap' ).scroll( EHFBlocks._loadLargeImages );
-						$( document ).on( 'keyup input' , '#ast-sites-modal #wp-filter-search-input', EHFBlocks._search );
+						$ehfscope.find( '.ehf-blocks__content-wrap' ).scroll( EHFBlocks._loadLargeImages );
+						$( document ).on( 'keyup input' , '#ehf-blocks-modal #wp-filter-search-input', EHFBlocks._search );
 
 						// Triggers.
 						$( document ).on( "astra-sites__elementor-open-after", EHFBlocks._initSites );
@@ -197,7 +197,7 @@ var EHFAjaxQueue = (function() {
 		_categoryChange( event ) {
 			var data = event.params.data;
 			EHFBlocks.blockCategory = $( this ).val();
-			$elscope.find( '#wp-filter-search-input' ).trigger( 'keyup' );
+			$ehfscope.find( '#wp-filter-search-input' ).trigger( 'keyup' );
 		},
 
 		_dismiss: function() {
@@ -211,10 +211,10 @@ var EHFAjaxQueue = (function() {
 
 			if ( $( this ).closest( '.ast-sites-floating-notice-wrap' ).hasClass( 'refreshed-notice' ) ) {
 				$.ajax({
-					url  : astraElementorSites.ajaxurl,
+					url  : ehf_blocks.ajax_url,
 					type : 'POST',
 					data : {
-						action : 'astra-sites-update-library-complete',
+						action : 'ehf-update-library-complete',
 					},
 				});
 			}
@@ -223,27 +223,27 @@ var EHFAjaxQueue = (function() {
 		_done: function( data ) {
 
 			var str = ( EHFBlocks.type == 'pages' ) ? 'Template' : 'Block';
-			$elscope.find( '.ast-import-elementor-template' ).removeClass( 'installing' );
-			$elscope.find( '.ast-import-elementor-template' ).attr( 'data-demo-link', data.data.link );
+			$ehfscope.find( '.ast-import-elementor-template' ).removeClass( 'installing' );
+			$ehfscope.find( '.ast-import-elementor-template' ).attr( 'data-demo-link', data.data.link );
 			setTimeout( function() {
-				$elscope.find( '.ast-import-elementor-template' ).text( 'View Saved ' + str );
-				$elscope.find( '.ast-import-elementor-template' ).addClass( 'action-done' );
+				$ehfscope.find( '.ast-import-elementor-template' ).text( 'View Saved ' + str );
+				$ehfscope.find( '.ast-import-elementor-template' ).addClass( 'action-done' );
 			}, 200 );
 		},
 
 		_beforeClose: function() {
 			if ( EHFBlocks.action == 'insert' ) {
-				$elscope.find( '.ast-library-template-insert' ).removeClass( 'installing' );
-				$elscope.find( '.ast-library-template-insert' ).text( 'Imported' );
-				$elscope.find( '.ast-library-template-insert' ).addClass( 'action-done' );
+				$ehfscope.find( '.ast-library-template-insert' ).removeClass( 'installing' );
+				$ehfscope.find( '.ast-library-template-insert' ).text( 'Imported' );
+				$ehfscope.find( '.ast-library-template-insert' ).addClass( 'action-done' );
 
-				if ( $elscope.find( '.ast-sites-floating-notice-wrap' ).hasClass( 'slide-in' ) ) {
+				if ( $ehfscope.find( '.ast-sites-floating-notice-wrap' ).hasClass( 'slide-in' ) ) {
 
-					$elscope.find( '.ast-sites-floating-notice-wrap' ).removeClass( 'slide-in' );
-					$elscope.find( '.ast-sites-floating-notice-wrap' ).addClass( 'slide-out' );
+					$ehfscope.find( '.ast-sites-floating-notice-wrap' ).removeClass( 'slide-in' );
+					$ehfscope.find( '.ast-sites-floating-notice-wrap' ).addClass( 'slide-out' );
 
 					setTimeout( function() {
-						$elscope.find( '.ast-sites-floating-notice-wrap' ).removeClass( 'slide-out' );
+						$ehfscope.find( '.ast-sites-floating-notice-wrap' ).removeClass( 'slide-out' );
 					}, 200 );
 				}
 			}
@@ -255,9 +255,9 @@ var EHFAjaxQueue = (function() {
 				event.target.className !== "ast-tooltip-wrap" &&
 				event.target.className !== "dashicons dashicons-editor-help"
 			) {
-				var wrap = $elscope.find( '.ast-tooltip-wrap' );
+				var wrap = $ehfscope.find( '.ast-tooltip-wrap' );
 				if ( wrap.hasClass( 'ast-show-tooltip' ) ) {
-					$elscope.find( '.ast-tooltip-wrap' ).removeClass( 'ast-show-tooltip' );
+					$ehfscope.find( '.ast-tooltip-wrap' ).removeClass( 'ast-show-tooltip' );
 				}
 			}
 		},
@@ -272,14 +272,14 @@ var EHFAjaxQueue = (function() {
 			}
 
 			button.addClass( 'updating-message');
-			$elscope.find( '#ast-sites-floating-notice-wrap-id .ast-sites-floating-notice' ).html( '<span class="message">Syncing template library in the background. The process can take anywhere between 2 to 3 minutes. We will notify you once done.<span><button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss</span></button>' );
-			$elscope.find( '#ast-sites-floating-notice-wrap-id' ).addClass( 'slide-in' );
+			$ehfscope.find( '#ast-sites-floating-notice-wrap-id .ast-sites-floating-notice' ).html( '<span class="message">Syncing template library in the background. The process can take anywhere between 2 to 3 minutes. We will notify you once done.<span><button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss</span></button>' );
+			$ehfscope.find( '#ast-sites-floating-notice-wrap-id' ).addClass( 'slide-in' );
 
 			$.ajax({
-				url  : astraElementorSites.ajaxurl,
+				url  : ehf_blocks.ajax_url,
 				type : 'POST',
 				data : {
-					action : 'astra-sites-update-library',
+					action : 'ehf-update-library',
 				},
 			})
 			.fail(function( jqXHR ){
@@ -288,36 +288,12 @@ var EHFAjaxQueue = (function() {
 			.done(function ( response ) {
 				button.removeClass( 'updating-message');
 
-				// Import categories.
-				$.ajax({
-					url  : astraElementorSites.ajaxurl,
-					type : 'POST',
-					data : {
-						action : 'astra-sites-import-categories',
-					},
-				})
-				.fail(function( jqXHR ){
-					console.log( jqXHR );
-				});
-
-				// Import Site Categories.
-				$.ajax({
-					url  : astraElementorSites.ajaxurl,
-					type : 'POST',
-					data : {
-						action : 'astra-sites-import-site-categories',
-					},
-				})
-				.fail(function( jqXHR ){
-					console.log( jqXHR );
-				});
-
 				// Import Blocks.
 				$.ajax({
-					url  : astraElementorSites.ajaxurl,
+					url  : ehf_blocks.ajax_url,
 					type : 'POST',
 					data : {
-						action : 'astra-sites-import-blocks',
+						action : 'ehf-import-blocks',
 					},
 				})
 				.fail(function( jqXHR ){
@@ -326,81 +302,43 @@ var EHFAjaxQueue = (function() {
 
 				// Import Block Categories.
 				$.ajax({
-					url  : astraElementorSites.ajaxurl,
+					url  : ehf_blocks.ajax_url,
 					type : 'POST',
 					data : {
-						action : 'astra-sites-import-block-categories',
+						action : 'ehf-import-block-categories',
 					},
 				})
 				.fail(function( jqXHR ){
 					console.log( jqXHR );
-				});
-
-				$.ajax({
-					url  : astraElementorSites.ajaxurl,
-					type : 'POST',
-					data : {
-						action : 'astra-sites-get-sites-request-count',
-					},
-				})
-				.fail(function( jqXHR ){
-					console.log( jqXHR );
-			    })
-				.done(function ( response ) {
-					if( response.success ) {
-						var total = response.data;
-
-						for( let i = 1; i <= total; i++ ) {
-							EHFAjaxQueue.add({
-								url: astraElementorSites.ajaxurl,
-								type: 'POST',
-								data: {
-									action  : 'astra-sites-import-sites',
-									page_no : i,
-								},
-								success: function( result ){
-
-									if( i === total && astraElementorSites.syncCompleteMessage ) {
-										$elscope.find( '#ast-sites-floating-notice-wrap-id').addClass('refreshed-notice').find('.ast-sites-floating-notice' ).html( '<span class="message">'+astraElementorSites.syncCompleteMessage+'</span><button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss</span></button>' );
-									} else {
-										$elscope.find( '#ast-sites-floating-notice-wrap-id .ast-sites-floating-notice' ).find('.message').text('Importing 15 Templates for each page. Now imported ' + i + ' page of ' + total + '. You can close this window. The Import process works in the background too. ');
-									}
-								}
-							});
-						}
-
-						// Run the AJAX queue.
-						EHFAjaxQueue.run();
-					}
 				});
 			});
 		},
 
 		_toggleTooltip: function( e ) {
 
-			var wrap = $elscope.find( '.ast-tooltip-wrap' );
+			var wrap = $ehfscope.find( '.ast-tooltip-wrap' );
 
 
 			if ( wrap.hasClass( 'ast-show-tooltip' ) ) {
-				$elscope.find( '.ast-tooltip-wrap' ).removeClass( 'ast-show-tooltip' );
+				$ehfscope.find( '.ast-tooltip-wrap' ).removeClass( 'ast-show-tooltip' );
 			} else {
-				$elscope.find( '.ast-tooltip-wrap' ).addClass( 'ast-show-tooltip' );
+				$ehfscope.find( '.ast-tooltip-wrap' ).addClass( 'ast-show-tooltip' );
 			}
 		},
 
 		_toggle: function( e ) {
-			$elscope.find( '.elementor-template-library-menu-item' ).removeClass( 'elementor-active' );
+			$ehfscope.find( '.elementor-template-library-menu-item' ).removeClass( 'elementor-active' );
 
-			$elscope.find( '.dialog-lightbox-content' ).hide();
+			$ehfscope.find( '.dialog-lightbox-content' ).hide();
 
-			$elscope.find( '.theme-preview' ).hide();
-			$elscope.find( '.theme-preview' ).html( '' );
-			$elscope.find( '.theme-preview-block' ).hide();
-			$elscope.find( '.theme-preview-block' ).html( '' );
-			$elscope.find( '.astra-blocks-category-wrap' ).show();
+			$ehfscope.find( '.theme-preview' ).hide();
+			$ehfscope.find( '.theme-preview' ).html( '' );
+			$ehfscope.find( '.theme-preview-block' ).hide();
+			$ehfscope.find( '.theme-preview-block' ).html( '' );
+			$ehfscope.find( '.ehf-blocks__category-wrap' ).show();
 
-			$elscope.find( '.dialog-lightbox-content' ).hide();
-			$elscope.find( '.dialog-lightbox-content-block' ).hide();
+			$ehfscope.find( '.dialog-lightbox-content' ).hide();
+			$ehfscope.find( '.dialog-lightbox-content-block' ).hide();
 
 			$( this ).addClass( 'elementor-active' );
 			let data_type = $( this ).data( 'template-type' );
@@ -410,19 +348,19 @@ var EHFAjaxQueue = (function() {
 		},
 
 		_home: function() {
-			$elscope.find( '#wp-filter-search-input' ).val( '' );
-			$elscope.find( '.elementor-template-library-menu-item:first-child' ).trigger( 'click' );
+			$ehfscope.find( '#wp-filter-search-input' ).val( '' );
+			$ehfscope.find( '.elementor-template-library-menu-item:first-child' ).trigger( 'click' );
 		},
 
 		_switchTo: function( type ) {
 			if ( 'pages' == type ) {
 				EHFBlocks._initSites();
-				$elscope.find( '.dialog-lightbox-content' ).show();
+				$ehfscope.find( '.dialog-lightbox-content' ).show();
 			} else {
 				EHFBlocks._initBlocks();
-				$elscope.find( '.dialog-lightbox-content-block' ).show();
+				$ehfscope.find( '.dialog-lightbox-content-block' ).show();
 			}
-			$elscope.find( '.astra-sites-content-wrap' ).trigger( 'scroll' );
+			$ehfscope.find( '.ehf-blocks__content-wrap' ).trigger( 'scroll' );
 		},
 
 		_importWPForm: function( wpforms_url, callback ) {
@@ -435,13 +373,13 @@ var EHFAjaxQueue = (function() {
 			}
 
 			$.ajax({
-				url  : astraElementorSites.ajaxurl,
+				url  : ehf_blocks.ajax_url,
 				type : 'POST',
 				dataType: 'json',
 				data : {
 					action      : 'astra-sites-import-wpforms',
 					wpforms_url : wpforms_url,
-					_ajax_nonce : astraElementorSites._ajax_nonce,
+					_ajax_nonce : ehf_blocks._ajax_nonce,
 				},
 				beforeSend: function() {
 					console.log( 'Importing WP Forms..' );
@@ -467,15 +405,15 @@ var EHFAjaxQueue = (function() {
 
 			// Work with JSON page here
 			$.ajax({
-				url: astraElementorSites.ajaxurl,
+				url: ehf_blocks.ajax_url,
 				type: 'POST',
 				dataType: 'json',
 				data: {
 					'action' : 'astra-sites-create-template',
 					'data'   : data,
-					'title'  : ( EHFBlocks.type == 'pages' ) ? astraElementorSites.default_page_builder_sites[ EHFBlocks.site_id ]['title'] : '',
+					'title'  : ( EHFBlocks.type == 'pages' ) ? ehf_blocks.default_page_builder_sites[ EHFBlocks.site_id ]['title'] : '',
 					'type'   : EHFBlocks.type,
-					'_ajax_nonce' : astraElementorSites._ajax_nonce,
+					'_ajax_nonce' : ehf_blocks._ajax_nonce,
 				},
 				beforeSend: function() {
 					console.log( 'Creating Template..' );
@@ -522,7 +460,7 @@ var EHFAjaxQueue = (function() {
 				console.log( 'Activating Plugin - ' + single_plugin.name );
 
 				EHFAjaxQueue.add({
-					url: astraElementorSites.ajaxurl,
+					url: ehf_blocks.ajax_url,
 					type: 'POST',
 					data: {
 						'action' : 'astra-required-plugin-activate',
@@ -647,7 +585,7 @@ var EHFAjaxQueue = (function() {
 					EHFBlocks._addSites( items );
 				} else {
 					$( this ).removeClass( 'has-input' );
-					EHFBlocks._appendSites( astraElementorSites.default_page_builder_sites );
+					EHFBlocks._appendSites( ehf_blocks.default_page_builder_sites );
 				}
 			} else {
 
@@ -658,7 +596,7 @@ var EHFAjaxQueue = (function() {
 					EHFBlocks._appendBlocks( items );
 				} else {
 					$( this ).removeClass( 'has-input' );
-					EHFBlocks._appendBlocks( astraElementorSites.astra_blocks );
+					EHFBlocks._appendBlocks( ehf_blocks.astra_blocks );
 				}
 			}
 		},
@@ -667,9 +605,9 @@ var EHFAjaxQueue = (function() {
 			var items = [];
 			search_term = search_term.toLowerCase();
 
-			for( site_id in astraElementorSites.default_page_builder_sites ) {
+			for( site_id in ehf_blocks.default_page_builder_sites ) {
 
-				var current_site = astraElementorSites.default_page_builder_sites[site_id];
+				var current_site = ehf_blocks.default_page_builder_sites[site_id];
 
 				// Check in site title.
 				if( current_site['title'] ) {
@@ -766,9 +704,9 @@ var EHFAjaxQueue = (function() {
 
 			if( search_term.length ) {
 
-				for( block_id in astraElementorSites.astra_blocks ) {
+				for( block_id in ehf_blocks.astra_blocks ) {
 
-					var current_site = astraElementorSites.astra_blocks[block_id];
+					var current_site = ehf_blocks.astra_blocks[block_id];
 
 					// Check in site title.
 					if( current_site['title'] ) {
@@ -802,13 +740,13 @@ var EHFAjaxQueue = (function() {
 		_addSites: function( data ) {
 
 			if ( data ) {
-				let single_template = wp.template( 'astra-sites-search' );
+				let single_template = wp.template( 'ehf-search' );
 				pages_list = single_template( data );
-				$elscope.find( '.dialog-lightbox-content' ).html( pages_list );
+				$ehfscope.find( '.dialog-lightbox-content' ).html( pages_list );
 				EHFBlocks._loadLargeImages();
 
 			} else {
-				$elscope.find( '.dialog-lightbox-content' ).html( wp.template('astra-sites-no-sites') );
+				$ehfscope.find( '.dialog-lightbox-content' ).html( wp.template('ehf-no-sites') );
 			}
 		},
 
@@ -816,19 +754,19 @@ var EHFAjaxQueue = (function() {
 
 			let single_template = wp.template( 'astra-sites-list' );
 			pages_list = single_template( data );
-			$elscope.find( '.dialog-lightbox-message-block' ).hide();
-			$elscope.find( '.dialog-lightbox-message' ).show();
-			$elscope.find( '.dialog-lightbox-content' ).html( pages_list );
+			$ehfscope.find( '.dialog-lightbox-message-block' ).hide();
+			$ehfscope.find( '.dialog-lightbox-message' ).show();
+			$ehfscope.find( '.dialog-lightbox-content' ).html( pages_list );
 			EHFBlocks._loadLargeImages();
 		},
 
 		_appendBlocks: function( data ) {
 
-			let single_template = wp.template( 'astra-blocks-list' );
+			let single_template = wp.template( 'ehf-blocks-list' );
 			let blocks_list = single_template( data );
-			$elscope.find( '.dialog-lightbox-message' ).hide();
-			$elscope.find( '.dialog-lightbox-message-block' ).show();
-			$elscope.find( '.dialog-lightbox-content-block' ).html( blocks_list );
+			$ehfscope.find( '.dialog-lightbox-message' ).hide();
+			$ehfscope.find( '.dialog-lightbox-message-block' ).show();
+			$ehfscope.find( '.dialog-lightbox-content-block' ).html( blocks_list );
 			EHFBlocks._masonry();
 		},
 
@@ -853,7 +791,7 @@ var EHFAjaxQueue = (function() {
 
 				EHFBlocks._importWPForm( EHFBlocks.templateData['astra-site-wpforms-path'], function( form_response ) {
 
-					fetch( EHFBlocks.templateData['astra-page-api-url'] + '?&track=true&site_url=' + astraElementorSites.siteURL ).then(response => {
+					fetch( EHFBlocks.templateData['astra-page-api-url'] + '?&track=true&site_url=' + ehf_blocks.site_url ).then(response => {
 						return response.json();
 					}).then( data => {
 						EHFBlocks.insertData = data;
@@ -892,8 +830,8 @@ var EHFAjaxQueue = (function() {
 
 			if ( 'pages' == EHFBlocks.type ) {
 
-				$elscope.find( '#ast-sites-floating-notice-wrap-id .ast-sites-floating-notice' ).html( 'Inserting this Page will add a common Page Setting as <strong>Starter Templates Settings</strong>. You can turn the setting off if you do not wish to use them. <button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss</span></button>' );
-				$elscope.find( '#ast-sites-floating-notice-wrap-id' ).addClass( 'slide-in' );
+				$ehfscope.find( '#ast-sites-floating-notice-wrap-id .ast-sites-floating-notice' ).html( 'Inserting this Page will add a common Page Setting as <strong>Starter Templates Settings</strong>. You can turn the setting off if you do not wish to use them. <button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss</span></button>' );
+				$ehfscope.find( '#ast-sites-floating-notice-wrap-id' ).addClass( 'slide-in' );
 			}
 
 
@@ -918,19 +856,19 @@ var EHFAjaxQueue = (function() {
 				let api_url = '';
 
 				if ( 'blocks' == EHFBlocks.type ) {
-					api_url = astraElementorSites.ApiURL + 'astra-blocks/' + data['id'] + '/?&track=true&site_url=' + astraElementorSites.siteURL;
+					api_url = ehf_blocks.ApiURL + 'astra-blocks/' + data['id'] + '/?&track=true&site_url=' + ehf_blocks.site_url;
 				} else {
-					api_url = EHFBlocks.templateData['astra-page-api-url'] + '?&track=true&site_url=' + astraElementorSites.siteURL;
+					api_url = EHFBlocks.templateData['astra-page-api-url'] + '?&track=true&site_url=' + ehf_blocks.site_url;
 				}
 
 				$.ajax({
-					url  : astraElementorSites.ajaxurl,
+					url  : ehf_blocks.ajax_url,
 					type : 'POST',
 					data : {
 						action : 'astra-page-elementor-batch-process',
 						id : elementor.config.document.id,
 						url : api_url,
-						_ajax_nonce : astraElementorSites._ajax_nonce,
+						_ajax_nonce : ehf_blocks._ajax_nonce,
 					},
 					beforeSend: function() {
 						console.log( 'Demo Batch Process Started..' );
@@ -982,8 +920,8 @@ var EHFAjaxQueue = (function() {
 
 			let step = $( this ).attr( 'data-step' );
 
-			$elscope.find( '.astra-sites-step-1-wrap' ).show();
-			$elscope.find( '.astra-preview-actions-wrap' ).remove();
+			$ehfscope.find( '.astra-sites-step-1-wrap' ).show();
+			$ehfscope.find( '.astra-preview-actions-wrap' ).remove();
 
 			if ( 'pages' == EHFBlocks.type ) {
 
@@ -999,7 +937,7 @@ var EHFAjaxQueue = (function() {
 				$( document ).trigger( 'astra-sites__elementor-goback-step-1' );
 			}
 
-			$elscope.find( '.astra-sites-content-wrap' ).trigger( 'scroll' );
+			$ehfscope.find( '.ehf-blocks__content-wrap' ).trigger( 'scroll' );
 		},
 
 		_goStep1: function( e ) {
@@ -1015,34 +953,34 @@ var EHFAjaxQueue = (function() {
 			EHFBlocks.canInsert = false;
 
 			// Hide Back button.
-			$elscope.find( '.back-to-layout' ).css( 'visibility', 'hidden' );
-			$elscope.find( '.back-to-layout' ).css( 'opacity', '0' );
+			$ehfscope.find( '.back-to-layout' ).css( 'visibility', 'hidden' );
+			$ehfscope.find( '.back-to-layout' ).css( 'opacity', '0' );
 
 			// Hide Preview Page.
-			$elscope.find( '.theme-preview' ).hide();
-			$elscope.find( '.theme-preview' ).html( '' );
-			$elscope.find( '.theme-preview-block' ).hide();
-			$elscope.find( '.theme-preview-block' ).html( '' );
-			$elscope.find( '.astra-blocks-category-wrap' ).show();
+			$ehfscope.find( '.theme-preview' ).hide();
+			$ehfscope.find( '.theme-preview' ).html( '' );
+			$ehfscope.find( '.theme-preview-block' ).hide();
+			$ehfscope.find( '.theme-preview-block' ).html( '' );
+			$ehfscope.find( '.ehf-blocks__category-wrap' ).show();
 
 			// Show listing page.
 			if( EHFBlocks.type == 'pages' ) {
 
-				$elscope.find( '.dialog-lightbox-content' ).show();
-				$elscope.find( '.dialog-lightbox-content-block' ).hide();
+				$ehfscope.find( '.dialog-lightbox-content' ).show();
+				$ehfscope.find( '.dialog-lightbox-content-block' ).hide();
 
 				// Set listing HTML.
-				EHFBlocks._appendSites( astraElementorSites.default_page_builder_sites );
+				EHFBlocks._appendSites( ehf_blocks.default_page_builder_sites );
 			} else {
 
 				// Set listing HTML.
-				EHFBlocks._appendBlocks( astraElementorSites.astra_blocks );
+				EHFBlocks._appendBlocks( ehf_blocks.astra_blocks );
 
-				$elscope.find( '.dialog-lightbox-content-block' ).show();
-				$elscope.find( '.dialog-lightbox-content' ).hide();
+				$ehfscope.find( '.dialog-lightbox-content-block' ).show();
+				$ehfscope.find( '.dialog-lightbox-content' ).hide();
 
-				if ( '' !== $elscope.find( '#wp-filter-search-input' ).val() ) {
-					$elscope.find( '#wp-filter-search-input' ).trigger( 'keyup' );
+				if ( '' !== $ehfscope.find( '#wp-filter-search-input' ).val() ) {
+					$ehfscope.find( '#wp-filter-search-input' ).trigger( 'keyup' );
 				}
 			}
 		},
@@ -1050,7 +988,7 @@ var EHFAjaxQueue = (function() {
 		_goStep2: function( e ) {
 
 			// Set page and site ids.
-			EHFBlocks.site_id = $elscope.find( '#astra-blocks' ).data( 'site-id' );
+			EHFBlocks.site_id = $ehfscope.find( '#astra-blocks' ).data( 'site-id' );
 			EHFBlocks.page_id = '';
 
 			if ( undefined === EHFBlocks.site_id ) {
@@ -1059,26 +997,26 @@ var EHFAjaxQueue = (function() {
 
 			// Single Preview template.
 			let single_template = wp.template( 'astra-sites-list-search' );
-			let passing_data = astraElementorSites.default_page_builder_sites[ EHFBlocks.site_id ]['pages'];
+			let passing_data = ehf_blocks.default_page_builder_sites[ EHFBlocks.site_id ]['pages'];
 			passing_data['site_id'] = EHFBlocks.site_id;
 			pages_list = single_template( passing_data );
-			$elscope.find( '.dialog-lightbox-content' ).html( pages_list );
+			$ehfscope.find( '.dialog-lightbox-content' ).html( pages_list );
 
 			// Hide Preview page.
-			$elscope.find( '.theme-preview' ).hide();
-			$elscope.find( '.theme-preview' ).html( '' );
-			$elscope.find( '.astra-blocks-category-wrap' ).show();
-			$elscope.find( '.theme-preview-block' ).hide();
-			$elscope.find( '.theme-preview-block' ).html( '' );
+			$ehfscope.find( '.theme-preview' ).hide();
+			$ehfscope.find( '.theme-preview' ).html( '' );
+			$ehfscope.find( '.ehf-blocks__category-wrap' ).show();
+			$ehfscope.find( '.theme-preview-block' ).hide();
+			$ehfscope.find( '.theme-preview-block' ).html( '' );
 
 			// Show listing page.
-			$elscope.find( '.dialog-lightbox-content' ).show();
-			$elscope.find( '.dialog-lightbox-content-block' ).hide();
+			$ehfscope.find( '.dialog-lightbox-content' ).show();
+			$ehfscope.find( '.dialog-lightbox-content-block' ).hide();
 
 			EHFBlocks._loadLargeImages();
 
-			if ( '' !== $elscope.find( '#wp-filter-search-input' ).val() ) {
-				$elscope.find( '#wp-filter-search-input' ).trigger( 'keyup' );
+			if ( '' !== $ehfscope.find( '#wp-filter-search-input' ).val() ) {
+				$ehfscope.find( '#wp-filter-search-input' ).trigger( 'keyup' );
 			}
 		},
 
@@ -1086,7 +1024,7 @@ var EHFAjaxQueue = (function() {
 
 			if ( 'pages' == EHFBlocks.type ) {
 
-				let passing_data = astraElementorSites.default_page_builder_sites[ EHFBlocks.site_id ]['pages'];
+				let passing_data = ehf_blocks.default_page_builder_sites[ EHFBlocks.site_id ]['pages'];
 
 				var count = 0;
 				var one_page = [];
@@ -1109,10 +1047,10 @@ var EHFAjaxQueue = (function() {
 					// Logic for one page sites.
 					EHFBlocks.page_id = one_page_id;
 
-					$elscope.find( '.back-to-layout' ).css( 'visibility', 'visible' );
-					$elscope.find( '.back-to-layout' ).css( 'opacity', '1' );
+					$ehfscope.find( '.back-to-layout' ).css( 'visibility', 'visible' );
+					$ehfscope.find( '.back-to-layout' ).css( 'opacity', '1' );
 
-					$elscope.find( '.back-to-layout' ).attr( 'data-step', 2 );
+					$ehfscope.find( '.back-to-layout' ).attr( 'data-step', 2 );
 					$( document ).trigger( 'astra-sites__elementor-do-step-2' );
 
 					return;
@@ -1122,44 +1060,44 @@ var EHFAjaxQueue = (function() {
 				let single_template = wp.template( 'astra-sites-list-search' );
 				passing_data['site_id'] = EHFBlocks.site_id;
 				pages_list = single_template( passing_data );
-				$elscope.find( '.dialog-lightbox-content-block' ).hide();
-				$elscope.find( '.astra-sites-step-1-wrap' ).show();
-				$elscope.find( '.astra-preview-actions-wrap' ).remove();
-				$elscope.find( '.theme-preview' ).hide();
-				$elscope.find( '.theme-preview' ).html( '' );
-				$elscope.find( '.astra-blocks-category-wrap' ).show();
-				$elscope.find( '.theme-preview-block' ).hide();
-				$elscope.find( '.theme-preview-block' ).html( '' );
-				$elscope.find( '.dialog-lightbox-content' ).show();
-				$elscope.find( '.dialog-lightbox-content' ).html( pages_list );
+				$ehfscope.find( '.dialog-lightbox-content-block' ).hide();
+				$ehfscope.find( '.astra-sites-step-1-wrap' ).show();
+				$ehfscope.find( '.astra-preview-actions-wrap' ).remove();
+				$ehfscope.find( '.theme-preview' ).hide();
+				$ehfscope.find( '.theme-preview' ).html( '' );
+				$ehfscope.find( '.ehf-blocks__category-wrap' ).show();
+				$ehfscope.find( '.theme-preview-block' ).hide();
+				$ehfscope.find( '.theme-preview-block' ).html( '' );
+				$ehfscope.find( '.dialog-lightbox-content' ).show();
+				$ehfscope.find( '.dialog-lightbox-content' ).html( pages_list );
 
 				EHFBlocks._loadLargeImages();
 
 			} else {
 
-				$elscope.find( '.dialog-lightbox-content' ).hide();
-				$elscope.find( '.dialog-lightbox-content-block' ).hide();
-				$elscope.find( '.dialog-lightbox-message' ).animate({ scrollTop: 0 }, 50 );
-				$elscope.find( '.theme-preview-block' ).show();
-				$elscope.find( '.astra-blocks-category-wrap' ).hide();
+				$ehfscope.find( '.dialog-lightbox-content' ).hide();
+				$ehfscope.find( '.dialog-lightbox-content-block' ).hide();
+				$ehfscope.find( '.dialog-lightbox-message' ).animate({ scrollTop: 0 }, 50 );
+				$ehfscope.find( '.theme-preview-block' ).show();
+				$ehfscope.find( '.ehf-blocks__category-wrap' ).hide();
 
 				// Hide.
-				$elscope.find( '.theme-preview' ).hide();
-				$elscope.find( '.theme-preview' ).html( '' );
+				$ehfscope.find( '.theme-preview' ).hide();
+				$ehfscope.find( '.theme-preview' ).html( '' );
 
 				let import_template = wp.template( 'astra-sites-elementor-preview' );
 				let import_template_header = wp.template( 'astra-sites-elementor-preview-actions' );
-				let template_object = astraElementorSites.astra_blocks[ EHFBlocks.block_id ];
+				let template_object = ehf_blocks.astra_blocks[ EHFBlocks.block_id ];
 
 				template_object['id'] = EHFBlocks.block_id;
 
 				preview_page_html = import_template( template_object );
-				$elscope.find( '.theme-preview-block' ).html( preview_page_html );
+				$ehfscope.find( '.theme-preview-block' ).html( preview_page_html );
 
-				$elscope.find( '.astra-sites-step-1-wrap' ).hide();
+				$ehfscope.find( '.astra-sites-step-1-wrap' ).hide();
 
 				preview_action_html = import_template_header( template_object );
-				$elscope.find( '.elementor-templates-modal__header__items-area' ).before( preview_action_html );
+				$ehfscope.find( '.elementor-templates-modal__header__items-area' ).before( preview_action_html );
 				EHFBlocks._masonry();
 
 				let actual_id = EHFBlocks.block_id.replace( 'id-', '' );
@@ -1169,9 +1107,9 @@ var EHFAjaxQueue = (function() {
 
 		_step2: function( e ) {
 
-			$elscope.find( '.dialog-lightbox-content' ).hide();
-			$elscope.find( '.dialog-lightbox-message' ).animate({ scrollTop: 0 }, 50 );
-			$elscope.find( '.theme-preview' ).show();
+			$ehfscope.find( '.dialog-lightbox-content' ).hide();
+			$ehfscope.find( '.dialog-lightbox-message' ).animate({ scrollTop: 0 }, 50 );
+			$ehfscope.find( '.theme-preview' ).show();
 
 			if ( undefined === EHFBlocks.site_id ) {
 				return;
@@ -1179,7 +1117,7 @@ var EHFAjaxQueue = (function() {
 
 			let import_template = wp.template( 'astra-sites-elementor-preview' );
 			let import_template_header = wp.template( 'astra-sites-elementor-preview-actions' );
-			let template_object = astraElementorSites.default_page_builder_sites[ EHFBlocks.site_id ]['pages'][ EHFBlocks.page_id ];
+			let template_object = ehf_blocks.default_page_builder_sites[ EHFBlocks.site_id ]['pages'][ EHFBlocks.page_id ];
 
 			if ( undefined === template_object ) {
 				return;
@@ -1188,12 +1126,12 @@ var EHFAjaxQueue = (function() {
 			template_object['id'] = EHFBlocks.site_id;
 
 			preview_page_html = import_template( template_object );
-			$elscope.find( '.theme-preview' ).html( preview_page_html );
+			$ehfscope.find( '.theme-preview' ).html( preview_page_html );
 
-			$elscope.find( '.astra-sites-step-1-wrap' ).hide();
+			$ehfscope.find( '.astra-sites-step-1-wrap' ).hide();
 
 			preview_action_html = import_template_header( template_object );
-				$elscope.find( '.elementor-templates-modal__header__items-area' ).before( preview_action_html );
+				$ehfscope.find( '.elementor-templates-modal__header__items-area' ).before( preview_action_html );
 
 			let actual_id = EHFBlocks.page_id.replace( 'id-', '' );
 			$( document ).trigger( 'astra-sites__elementor-plugin-check', { 'id': actual_id } );
@@ -1207,17 +1145,17 @@ var EHFAjaxQueue = (function() {
 			EHFBlocks.page_id = $( this ).closest( '.astra-theme' ).data( 'template-id' );
 			EHFBlocks.block_id = $( this ).closest( '.astra-theme' ).data( 'block-id' );
 
-			$elscope.find( '.back-to-layout' ).css( 'visibility', 'visible' );
-			$elscope.find( '.back-to-layout' ).css( 'opacity', '1' );
+			$ehfscope.find( '.back-to-layout' ).css( 'visibility', 'visible' );
+			$ehfscope.find( '.back-to-layout' ).css( 'opacity', '1' );
 
 			if ( 1 == step ) {
 
-				$elscope.find( '.back-to-layout' ).attr( 'data-step', 2 );
+				$ehfscope.find( '.back-to-layout' ).attr( 'data-step', 2 );
 				$( document ).trigger( 'astra-sites__elementor-do-step-1' );
 
 			} else {
 
-				$elscope.find( '.back-to-layout' ).attr( 'data-step', 3 );
+				$ehfscope.find( '.back-to-layout' ).attr( 'data-step', 3 );
 				$( document ).trigger( 'astra-sites__elementor-do-step-2' );
 
 			}
@@ -1241,7 +1179,7 @@ var EHFAjaxQueue = (function() {
 				cache: 'default',
 			};
 
-			fetch( astraElementorSites.ApiURL + api_post.slug, params ).then( response => {
+			fetch( ehf_blocks.ApiURL + api_post.slug, params ).then( response => {
 				if ( response.status === 200 ) {
 					return response.json().then(items => ({
 						items 		: items,
@@ -1280,17 +1218,17 @@ var EHFAjaxQueue = (function() {
 
 			if (
 				EHFBlocks.type == 'pages' &&
-				astraElementorSites.default_page_builder_sites[EHFBlocks.site_id]['astra-sites-type'] != undefined &&
-				astraElementorSites.default_page_builder_sites[EHFBlocks.site_id]['astra-sites-type'] != 'free'
+				ehf_blocks.default_page_builder_sites[EHFBlocks.site_id]['astra-sites-type'] != undefined &&
+				ehf_blocks.default_page_builder_sites[EHFBlocks.site_id]['astra-sites-type'] != 'free'
 			) {
 
-				if ( ! astraElementorSites.license_status ) {
+				if ( ! ehf_blocks.license_status ) {
 
-					output = '<p class="ast-validate">' + astraElementorSites.license_msg + '</p>';
+					output = '<p class="ast-validate">' + ehf_blocks.license_msg + '</p>';
 
-					$elscope.find('.required-plugins-list').html( output );
-					$elscope.find('.ast-tooltip-wrap').css( 'opacity', 1 );
-					$elscope.find('.astra-sites-tooltip').css( 'opacity', 1 );
+					$ehfscope.find('.required-plugins-list').html( output );
+					$ehfscope.find('.ast-tooltip-wrap').css( 'opacity', 1 );
+					$ehfscope.find('.astra-sites-tooltip').css( 'opacity', 1 );
 
 					/**
 					 * Enable Demo Import Button
@@ -1299,7 +1237,7 @@ var EHFAjaxQueue = (function() {
 					EHFBlocks.requiredPlugins = [];
 					EHFBlocks.canImport = true;
 					EHFBlocks.canInsert = true;
-					$elscope.find( '.astra-sites-import-template-action > div' ).removeClass( 'disabled' );
+					$ehfscope.find( '.astra-sites-import-template-action > div' ).removeClass( 'disabled' );
 					return;
 				}
 
@@ -1307,11 +1245,11 @@ var EHFAjaxQueue = (function() {
 
 		 	// Required Required.
 			$.ajax({
-				url  : astraElementorSites.ajaxurl,
+				url  : ehf_blocks.ajax_url,
 				type : 'POST',
 				data : {
 					action           : 'astra-required-plugins',
-					_ajax_nonce      : astraElementorSites._ajax_nonce,
+					_ajax_nonce      : ehf_blocks._ajax_nonce,
 					required_plugins : requiredPlugins
 				},
 			})
@@ -1388,9 +1326,9 @@ var EHFAjaxQueue = (function() {
 
 				if ( '' != output ) {
 					output = '<li class="plugin-card-head"><strong>Install Required Plugins</strong></li>' + output;
-					$elscope.find('.required-plugins-list').html( output );
-					$elscope.find('.ast-tooltip-wrap').css( 'opacity', 1 );
-					$elscope.find('.astra-sites-tooltip').css( 'opacity', 1 );
+					$ehfscope.find('.required-plugins-list').html( output );
+					$ehfscope.find('.ast-tooltip-wrap').css( 'opacity', 1 );
+					$ehfscope.find('.astra-sites-tooltip').css( 'opacity', 1 );
 				}
 
 
@@ -1401,12 +1339,12 @@ var EHFAjaxQueue = (function() {
 				EHFBlocks.requiredPlugins = response.data['required_plugins'];
 				EHFBlocks.canImport = true;
 				EHFBlocks.canInsert = true;
-				$elscope.find( '.astra-sites-import-template-action > div' ).removeClass( 'disabled' );
+				$ehfscope.find( '.astra-sites-import-template-action > div' ).removeClass( 'disabled' );
 			});
 		},
 
 		_libraryClick: function( e ) {
-			$elscope.find( ".elementor-template-library-menu-item" ).each( function() {
+			$ehfscope.find( ".elementor-template-library-menu-item" ).each( function() {
 				$(this).removeClass( 'elementor-active' );
 			} );
 			$( this ).addClass( 'elementor-active' );
@@ -1431,14 +1369,14 @@ var EHFAjaxQueue = (function() {
 		},
 
 		_loadLargeImages: function() {
-			$elscope.find('.theme-screenshot').each(function( key, el ) {
+			$ehfscope.find('.theme-screenshot').each(function( key, el ) {
 				EHFBlocks._loadLargeImage( $(el) );
 			});
 		},
 
 		_close: function( e ) {
 			$( document ).trigger( 'astra-sites__elementor-close-before' );
-			setTimeout( function() { $elscope.fadeOut(); }, 300 );
+			setTimeout( function() { $ehfscope.fadeOut(); }, 300 );
 			$( document ).trigger( 'astra-sites__elementor-close-after' );
 		},
 
@@ -1453,31 +1391,31 @@ var EHFAjaxQueue = (function() {
 				EHFBlocks.index = add_section.prev().children().length;
 			}
 			EHFBlocks._home();
-			$elscope.fadeIn();
+			$ehfscope.fadeIn();
 			$( document ).trigger( 'astra-sites__elementor-open-after' );
 		},
 
 		_beforeOpen: function( e ) {
 
 			// Hide preview page.
-			$elscope.find( '.theme-preview' ).hide();
-			$elscope.find( '.theme-preview' ).html( '' );
+			$ehfscope.find( '.theme-preview' ).hide();
+			$ehfscope.find( '.theme-preview' ).html( '' );
 
 			// Show site listing page.
-			$elscope.find( '.dialog-lightbox-content' ).show();
+			$ehfscope.find( '.dialog-lightbox-content' ).show();
 
 			// Hide Back button.
-			$elscope.find( '.back-to-layout' ).css( 'visibility', 'hidden' );
-			$elscope.find( '.back-to-layout' ).css( 'opacity', '0' );
+			$ehfscope.find( '.back-to-layout' ).css( 'visibility', 'hidden' );
+			$ehfscope.find( '.back-to-layout' ).css( 'opacity', '0' );
 		},
 
 		_initSites: function( e ) {
-			EHFBlocks._appendSites( astraElementorSites.default_page_builder_sites );
+			EHFBlocks._appendSites( ehf_blocks.default_page_builder_sites );
 			EHFBlocks._goBack();
 		},
 
 		_initBlocks: function( e ) {
-			EHFBlocks._appendBlocks( astraElementorSites.astra_blocks );
+			EHFBlocks._appendBlocks( ehf_blocks.astra_blocks );
 			EHFBlocks._goBack();
 		},
 
@@ -1505,7 +1443,7 @@ var EHFAjaxQueue = (function() {
 				console.log( 'Activating Plugin - ' + curr_plugin.name );
 
 				$.ajax({
-					url: astraElementorSites.ajaxurl,
+					url: ehf_blocks.ajax_url,
 					type: 'POST',
 					data: {
 						'action' : 'astra-required-plugin-activate',
