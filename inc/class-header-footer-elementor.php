@@ -76,7 +76,7 @@ class Header_Footer_Elementor {
 				add_action( 'init', [ $this, 'setup_unsupported_theme_notice' ] );
 			}
 
-			add_action( 'elementor/editor/footer', array( $this, 'insert_templates' ) );
+			add_action( 'elementor/editor/footer', [ $this, 'insert_templates' ] );
 
 			// Scripts and styles.
 			add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
@@ -90,7 +90,7 @@ class Header_Footer_Elementor {
 
 			add_action( 'astra_notice_before_markup_header-footer-elementor-rating', [ $this, 'rating_notice_css' ] );
 
-			add_action( 'elementor/editor/footer', array( $this, 'enqueue_elementor_editor_script' ), 99 );
+			add_action( 'elementor/editor/footer', [ $this, 'enqueue_elementor_editor_script' ], 99 );
 			add_action( 'admin_notices', [ $this, 'register_notices' ] );
 		} else {
 			add_action( 'admin_notices', [ $this, 'elementor_not_available' ] );

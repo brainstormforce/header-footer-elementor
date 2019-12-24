@@ -87,3 +87,21 @@ li#toplevel_page_Settings-page {
     padding: 9px 0 4px 0;
     line-height: 1.3;
 }
+
+.hfe-selected-template-type-custom .bsf-target-rules-row,
+.hfe-selected-template-type-custom .enable-for-canvas {
+    display: none;
+}
+
+.hfe-selected-template-type-custom .hfe-shortcode {
+    display: table-row;
+}
+.hfe-shortcode {
+    display: none;
+}
+
+.hfe-selected-template-type-none .bsf-target-rules-row,
+.hfe-selected-template-type-none .hfe-shortcode,
+.hfe-selected-template-type-none .enable-for-canvas {
+    display: none;
+}
