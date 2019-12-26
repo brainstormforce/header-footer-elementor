@@ -365,7 +365,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <script type="text/template" id="tmpl-astra-sites-elementor-preview">
 	<#
-	let wrap_height = $elscope.find( '.ehf-blocks__content-wrap' ).height();
+	let wrap_height = $ehfscope.find( '.ehf-blocks__content-wrap' ).height();
 	wrap_height = ( wrap_height - 55 );
 	wrap_height = wrap_height + 'px';
 	#>
