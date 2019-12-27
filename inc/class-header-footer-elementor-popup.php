@@ -62,7 +62,11 @@ class Header_Footer_Elementor_Popup {
 
 		add_action( 'elementor/editor/footer', [ $this, 'enqueue_elementor_editor_script' ], 99 );
 		add_action( 'elementor/editor/before_enqueue_scripts', [ $this, 'enqueue_elementor_editor_style' ] );
-			add_action( 'elementor/preview/enqueue_styles', [ $this, 'enqueue_elementor_editor_style' ] );
+		add_action( 'elementor/preview/enqueue_styles', [ $this, 'enqueue_elementor_editor_style' ] );
+
+		// Import AJAX.
+		add_action( 'wp_ajax_ehf-blocks-import-wpforms', array( $this, 'import_wpforms' ) );
+		add_action( 'wp_ajax_ehf-blocks-batch-process', array( $this, 'blocks_batch_process' ) );
 	}
 
 	/**
@@ -108,6 +112,7 @@ class Header_Footer_Elementor_Popup {
 					'_ajax_nonce'      => wp_create_nonce( 'ehf-elementor-popup' ),
 					'block_categories' => get_option( 'ehf-blocks-categories', [] ),
 					'site_url'         => site_url(),
+					'type'             => 'contact',
 				]
 			);
 
@@ -241,6 +246,199 @@ class Header_Footer_Elementor_Popup {
 		}
 
 		return $blocks;
+	}
+
+	/**
+	 * Import WP Forms
+	 *
+	 * @since x.x.x
+	 *
+	 * @param  string $wpforms_url WP Forms JSON file URL.
+	 * @return void
+	 */
+	public function import_wpforms( $wpforms_url = '' ) {
+
+		// Verify Nonce.
+		check_ajax_referer( 'ehf-elementor-popup', '_ajax_nonce' );
+
+		if ( ! current_user_can( 'customize' ) ) {
+			wp_send_json_error( __( 'You are not allowed to perform this action', 'header-footer-elementor' ) );
+		}
+
+		$wpforms_url = ( isset( $_REQUEST['wpforms_url'] ) ) ? urldecode( $_REQUEST['wpforms_url'] ) : $wpforms_url;
+		$ids_mapping = array();
+
+		if ( ! empty( $wpforms_url ) && function_exists( 'wpforms_encode' ) ) {
+
+			// Download JSON file.
+			$file_path = self::download_file( $wpforms_url );
+
+			if ( $file_path['success'] ) {
+				if ( isset( $file_path['data']['file'] ) ) {
+
+					$ext = strtolower( pathinfo( $file_path['data']['file'], PATHINFO_EXTENSION ) );
+
+					if ( 'json' === $ext ) {
+						$forms = json_decode( file_get_contents( $file_path['data']['file'] ), true );
+
+						if ( ! empty( $forms ) ) {
+
+							foreach ( $forms as $form ) {
+								$title = ! empty( $form['settings']['form_title'] ) ? $form['settings']['form_title'] : '';
+								$desc  = ! empty( $form['settings']['form_desc'] ) ? $form['settings']['form_desc'] : '';
+
+								$new_id = post_exists( $title );
+
+								if ( ! $new_id ) {
+									$new_id = wp_insert_post(
+										array(
+											'post_title'   => $title,
+											'post_status'  => 'publish',
+											'post_type'    => 'wpforms',
+											'post_excerpt' => $desc,
+										)
+									);
+
+									// Set meta for tracking the post.
+									update_post_meta( $new_id, '_ehf_blocks_imported_wp_forms', true );
+								}
+
+								if ( $new_id ) {
+
+									// ID mapping.
+									$ids_mapping[ $form['id'] ] = $new_id;
+
+									$form['id'] = $new_id;
+									wp_update_post(
+										array(
+											'ID' => $new_id,
+											'post_content' => wpforms_encode( $form ),
+										)
+									);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		update_option( 'ehf_blocks_wpforms_ids_mapping', $ids_mapping );
+
+		wp_send_json_success( $ids_mapping );
+	}
+
+	/**
+	 * Download File Into Uploads Directory
+	 *
+	 * @param  string $file Download File URL.
+	 * @param  int    $timeout_seconds Timeout in downloading the XML file in seconds.
+	 * @return array        Downloaded file data.
+	 */
+	public static function download_file( $file = '', $timeout_seconds = 300 ) {
+
+		// Gives us access to the download_url() and wp_handle_sideload() functions.
+		require_once ABSPATH . 'wp-admin/includes/file.php';
+
+		// Download file to temp dir.
+		$temp_file = download_url( $file, $timeout_seconds );
+
+		// WP Error.
+		if ( is_wp_error( $temp_file ) ) {
+			return array(
+				'success' => false,
+				'data'    => $temp_file->get_error_message(),
+			);
+		}
+
+		// Array based on $_FILE as seen in PHP file uploads.
+		$file_args = array(
+			'name'     => basename( $file ),
+			'tmp_name' => $temp_file,
+			'error'    => 0,
+			'size'     => filesize( $temp_file ),
+		);
+
+		$overrides = array(
+
+			// Tells WordPress to not look for the POST form
+			// fields that would normally be present as
+			// we downloaded the file from a remote server, so there
+			// will be no form fields
+			// Default is true.
+			'test_form'   => false,
+
+			// Setting this to false lets WordPress allow empty files, not recommended.
+			// Default is true.
+			'test_size'   => true,
+
+			// A properly uploaded file will pass this test. There should be no reason to override this one.
+			'test_upload' => true,
+
+			'mimes'       => array(
+				'xml'  => 'text/xml',
+				'json' => 'text/plain',
+			),
+		);
+
+		// Move the temporary file into the uploads directory.
+		$results = wp_handle_sideload( $file_args, $overrides );
+
+		if ( isset( $results['error'] ) ) {
+			return array(
+				'success' => false,
+				'data'    => $results,
+			);
+		}
+
+		// Success.
+		return array(
+			'success' => true,
+			'data'    => $results,
+		);
+	}
+
+	/**
+	 * Blocks Batch Process via AJAX
+	 *
+	 * @since x.x.x
+	 */
+	public function blocks_batch_process() {
+
+		// Verify Nonce.
+		check_ajax_referer( 'ehf-elementor-popup', '_ajax_nonce' );
+
+		if ( ! current_user_can( 'customize' ) ) {
+			wp_send_json_error( __( 'You are not allowed to perform this action', 'header-footer-elementor' ) );
+		}
+
+		if ( ! isset( $_POST['url'] ) ) {
+			wp_send_json_error( __( 'Invalid API URL', 'header-footer-elementor' ) );
+		}
+
+		$response = wp_remote_get( $_POST['url'] );
+
+		if ( is_wp_error( $response ) ) {
+			wp_send_json_error( wp_remote_retrieve_body( $response ) );
+		}
+
+		$body = wp_remote_retrieve_body( $response );
+		$data = json_decode( $body, true );
+		if ( ! isset( $data['post-meta']['_elementor_data'] ) ) {
+			wp_send_json_error( __( 'Invalid Post Meta', 'header-footer-elementor' ) );
+		}
+
+		$meta    = json_decode( $data['post-meta']['_elementor_data'], true );
+		$post_id = $_POST['id'];
+
+		if ( empty( $post_id ) || empty( $meta ) ) {
+			wp_send_json_error( __( 'Invalid Post ID or Elementor Meta', 'header-footer-elementor' ) );
+		}
+
+		$import      = new \Elementor\TemplateLibrary\Header_Footer_Elementor_Import();
+		$import_data = $import->import( $post_id, $meta );
+
+		wp_send_json_success( $import_data );
 	}
 }
 

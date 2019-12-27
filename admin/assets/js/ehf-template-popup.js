@@ -98,13 +98,10 @@ var EHFAjaxQueue = (function() {
 	EHFBlocks = {
 
 		templateData: {},
-		insertData: {},
 		log_file        : '',
 		pages_list      : '',
-		insertActionFlag : false,
 		block_id : 0,
 		requiredPlugins : [],
-		canImport : false,
 		canInsert : false,
 		type : 'blocks',
 		action : '',
@@ -157,34 +154,24 @@ var EHFAjaxQueue = (function() {
 						$( 'body' ).on( "click", "#ehf-blocks-modal .elementor-template-library-menu-item", EHFBlocks._libraryClick );
 						$( 'body' ).on( "click", "#ehf-blocks-modal .theme-screenshot", EHFBlocks._preview );
 						$( 'body' ).on( "click", "#ehf-blocks-modal .back-to-layout", EHFBlocks._goBack );
-						$( 'body' ).on( "click", EHFBlocks._closeTooltip );
 
-						$( document ).on( "click", "#ehf-blocks-modal .ast-library-template-insert", EHFBlocks._insert );
-						$( document ).on( "click", ".ast-import-elementor-template", EHFBlocks._importTemplate );
-						$( 'body' ).on( "click", "#ehf-blocks-modal .astra-sites-tooltip-icon", EHFBlocks._toggleTooltip );
-						$( document ).on( 'click', '#ehf-blocks-modal .astra-sites__sync-wrap', EHFBlocks._sync );
+						$( document ).on( "click", "#ehf-blocks-modal .ehf-library-template-insert", EHFBlocks._insert );
+						$( document ).on( 'click', '#ehf-blocks-modal .ehf-blocks__sync-wrap', EHFBlocks._sync );
 						$( document ).on( 'click', '#ehf-blocks-modal .ehf-blocks-modal__header__logo__icon-wrapper, #ehf-blocks-modal .back-to-layout-button', EHFBlocks._home );
-						$( document ).on( 'click', '#ehf-blocks-modal .notice-dismiss', EHFBlocks._dismiss );
 
 						// Other events.
 						$ehfscope.find( '.ehf-blocks__content-wrap' ).scroll( EHFBlocks._loadLargeImages );
 						$( document ).on( 'keyup input' , '#ehf-blocks-modal #wp-filter-search-input', EHFBlocks._search );
 
 						// Triggers.
-						$( document ).on( "astra-sites__elementor-open-after", EHFBlocks._initBlocks );
-						$( document ).on( "astra-sites__elementor-open-before", EHFBlocks._beforeOpen );
-						$( document ).on( "astra-sites__elementor-plugin-check", EHFBlocks._pluginCheck );
-						$( document ).on( 'astra-sites__elementor-close-before', EHFBlocks._beforeClose );
+						$( document ).on( "ehf-blocks__elementor-open-after", EHFBlocks._initBlocks );
+						$( document ).on( "ehf-blocks__elementor-open-before", EHFBlocks._beforeOpen );
+						$( document ).on( 'ehf-blocks__elementor-close-before', EHFBlocks._beforeClose );
+						$( document ).on( "ehf-blocks__elementor-plugin-check", EHFBlocks._pluginCheck );
 
-						$( document ).on( 'astra-sites__elementor-do-step-1', EHFBlocks._step1 );
-						$( document ).on( 'astra-sites__elementor-do-step-2', EHFBlocks._step2 );
-
-						$( document ).on( 'astra-sites__elementor-goback-step-1', EHFBlocks._goStep1 );
-						$( document ).on( 'astra-sites__elementor-goback-step-2', EHFBlocks._goStep2 );
+						EHFBlocks._open();
 
 						// Plugin install & activate.
-						$( document ).on( 'wp-plugin-installing' , EHFBlocks._pluginInstalling );
-						$( document ).on( 'wp-plugin-install-error' , EHFBlocks._installError );
 						$( document ).on( 'wp-plugin-install-success' , EHFBlocks._installSuccess );
 
 					});
@@ -199,79 +186,25 @@ var EHFAjaxQueue = (function() {
 			$ehfscope.find( '#wp-filter-search-input' ).trigger( 'keyup' );
 		},
 
-		_dismiss: function() {
-
-			$( this ).closest( '.ast-sites-floating-notice-wrap' ).removeClass( 'slide-in' );
-			$( this ).closest( '.ast-sites-floating-notice-wrap' ).addClass( 'slide-out' );
-
-			setTimeout( function() {
-				$( this ).closest( '.ast-sites-floating-notice-wrap' ).removeClass( 'slide-out' );
-			}, 200 );
-
-			if ( $( this ).closest( '.ast-sites-floating-notice-wrap' ).hasClass( 'refreshed-notice' ) ) {
-				$.ajax({
-					url  : ehf_blocks.ajax_url,
-					type : 'POST',
-					data : {
-						action : 'ehf-update-library-complete',
-					},
-				});
-			}
-		},
-
-		_done: function( data ) {
-
-			$ehfscope.find( '.ast-import-elementor-template' ).removeClass( 'installing' );
-			$ehfscope.find( '.ast-import-elementor-template' ).attr( 'data-demo-link', data.data.link );
-			setTimeout( function() {
-				$ehfscope.find( '.ast-import-elementor-template' ).text( 'View Saved Block' );
-				$ehfscope.find( '.ast-import-elementor-template' ).addClass( 'action-done' );
-			}, 200 );
-		},
-
 		_beforeClose: function() {
 			if ( EHFBlocks.action == 'insert' ) {
-				$ehfscope.find( '.ast-library-template-insert' ).removeClass( 'installing' );
-				$ehfscope.find( '.ast-library-template-insert' ).text( 'Imported' );
-				$ehfscope.find( '.ast-library-template-insert' ).addClass( 'action-done' );
-
-				if ( $ehfscope.find( '.ast-sites-floating-notice-wrap' ).hasClass( 'slide-in' ) ) {
-
-					$ehfscope.find( '.ast-sites-floating-notice-wrap' ).removeClass( 'slide-in' );
-					$ehfscope.find( '.ast-sites-floating-notice-wrap' ).addClass( 'slide-out' );
-
-					setTimeout( function() {
-						$ehfscope.find( '.ast-sites-floating-notice-wrap' ).removeClass( 'slide-out' );
-					}, 200 );
-				}
-			}
-		},
-
-		_closeTooltip: function( event ) {
-
-			if(
-				event.target.className !== "ast-tooltip-wrap" &&
-				event.target.className !== "dashicons dashicons-editor-help"
-			) {
-				var wrap = $ehfscope.find( '.ast-tooltip-wrap' );
-				if ( wrap.hasClass( 'ast-show-tooltip' ) ) {
-					$ehfscope.find( '.ast-tooltip-wrap' ).removeClass( 'ast-show-tooltip' );
-				}
+				$ehfscope.find( '.ehf-library-template-insert' ).removeClass( 'installing' );
+				$ehfscope.find( '.ehf-library-template-insert' ).text( 'Imported' );
+				$ehfscope.find( '.ehf-library-template-insert' ).addClass( 'action-done' );
 			}
 		},
 
 		_sync: function( event ) {
 
 			event.preventDefault();
-			var button = $( this ).find( '.astra-sites-sync-library-button' );
+			var button = $( this ).find( '.ehf-blocks__sync-library-button' );
 
 			if( button.hasClass( 'updating-message') ) {
 				return;
 			}
 
 			button.addClass( 'updating-message');
-			$ehfscope.find( '#ast-sites-floating-notice-wrap-id .ast-sites-floating-notice' ).html( '<span class="message">Syncing template library in the background. The process can take anywhere between 2 to 3 minutes. We will notify you once done.<span><button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss</span></button>' );
-			$ehfscope.find( '#ast-sites-floating-notice-wrap-id' ).addClass( 'slide-in' );
+			console.log( 'Syncing template library in the background. The process can take anywhere between 2 to 3 minutes. We will notify you once done.' );
 
 			$.ajax({
 				url  : ehf_blocks.ajax_url,
@@ -312,21 +245,49 @@ var EHFAjaxQueue = (function() {
 			});
 		},
 
-		_toggleTooltip: function( e ) {
-
-			var wrap = $ehfscope.find( '.ast-tooltip-wrap' );
-
-
-			if ( wrap.hasClass( 'ast-show-tooltip' ) ) {
-				$ehfscope.find( '.ast-tooltip-wrap' ).removeClass( 'ast-show-tooltip' );
-			} else {
-				$ehfscope.find( '.ast-tooltip-wrap' ).addClass( 'ast-show-tooltip' );
-			}
-		},
-
 		_home: function() {
 			$ehfscope.find( '#wp-filter-search-input' ).val( '' );
 			$ehfscope.find( '.elementor-template-library-menu-item:first-child' ).trigger( 'click' );
+		},
+
+		_pluginCheck : function( e, data ) {
+
+			var api_post = {
+				slug: 'astra-blocks' + '/' + data['id']
+			};
+
+			var params = {
+				method: 'GET',
+				cache: 'default',
+			};
+
+			fetch( ehf_blocks.api_url + api_post.slug, params ).then( response => {
+				if ( response.status === 200 ) {
+					return response.json().then(items => ({
+						items 		: items,
+						items_count	: response.headers.get( 'x-wp-total' ),
+						item_pages	: response.headers.get( 'x-wp-totalpages' ),
+					}))
+				} else {
+					return response.json();
+				}
+			})
+			.then(data => {
+				if( 'object' === typeof data ) {
+					if ( undefined !== data && undefined !== data['items'] ) {
+						EHFBlocks.templateData = data['items'];
+						if ( undefined !== EHFBlocks.templateData['post-meta']['astra-blocks-required-plugins'] ) {
+							/**
+							 * Enable Demo Import Button
+							 * @type number
+							 */
+							EHFBlocks.requiredPlugins = EHFBlocks.templateData['post-meta']['astra-blocks-required-plugins'];
+							EHFBlocks.canInsert = true;
+							$ehfscope.find( '.ehf-block-import-template > div' ).removeClass( 'disabled' );
+						}
+					}
+			   	}
+			});
 		},
 
 		_importWPForm: function( wpforms_url, callback ) {
@@ -343,7 +304,7 @@ var EHFAjaxQueue = (function() {
 				type : 'POST',
 				dataType: 'json',
 				data : {
-					action      : 'astra-sites-import-wpforms',
+					action      : 'ehf-blocks-import-wpforms',
 					wpforms_url : wpforms_url,
 					_ajax_nonce : ehf_blocks._ajax_nonce,
 				},
@@ -364,32 +325,6 @@ var EHFAjaxQueue = (function() {
 						callback( data );
 				    }
 				}
-			});
-		},
-
-		_createTemplate: function( data ) {
-
-			// Work with JSON page here
-			$.ajax({
-				url: ehf_blocks.ajax_url,
-				type: 'POST',
-				dataType: 'json',
-				data: {
-					'action' : 'astra-sites-create-template',
-					'data'   : data,
-					'title'  : '',
-					'type'   : EHFBlocks.type,
-					'_ajax_nonce' : ehf_blocks._ajax_nonce,
-				},
-				beforeSend: function() {
-					console.log( 'Creating Template..' );
-				}
-			})
-			.fail(function( jqXHR ){
-				console.log( jqXHR );
-			})
-			.done(function ( data ) {
-				EHFBlocks._done( data );
 			});
 		},
 
@@ -501,25 +436,6 @@ var EHFAjaxQueue = (function() {
 			}
 		},
 
-		_importTemplate: function( e ) {
-
-			if ( ! EHFBlocks.canImport ) {
-				if ( $( this ).attr( 'data-demo-link' ) != undefined ) {
-					window.open( $( this ).attr( 'data-demo-link' ), '_blank' );
-				}
-				return;
-			}
-
-			EHFBlocks.canImport = false;
-
-			$( this ).addClass( 'installing' );
-			$( this ).text( 'Saving Block...' );
-
-			EHFBlocks.action = 'import';
-
-			EHFBlocks._bulkPluginInstallActivate();
-		},
-
 		_unescape: function( input_string ) {
 			var title = _.unescape( input_string );
 
@@ -541,14 +457,16 @@ var EHFAjaxQueue = (function() {
 			search_term = search_term.toLowerCase();
 
 			var items = EHFBlocks._getSearchedBlocks( search_term );
+			var blocks = [];
 
 			if( search_term.length ) {
 				$( this ).addClass( 'has-input' );
-				EHFBlocks._appendBlocks( items );
+				blocks = items;
 			} else {
 				$( this ).removeClass( 'has-input' );
-				EHFBlocks._appendBlocks( ehf_blocks.blocks );
+				blocks = ehf_blocks.blocks;
 			}
+			EHFBlocks._appendBlocks( blocks );
 		},
 
 		_getSearchedBlocks: function( search_term ) {
@@ -567,8 +485,6 @@ var EHFAjaxQueue = (function() {
 
 						if( site_title.toLowerCase().includes( search_term ) ) {
 							items[block_id] = current_site;
-							items[block_id]['type'] = 'site';
-							items[block_id]['site_id'] = block_id;
 						}
 					}
 
@@ -579,8 +495,6 @@ var EHFAjaxQueue = (function() {
 
 							if( tag_title.toLowerCase().includes( search_term ) ) {
 								items[block_id] = current_site;
-								items[block_id]['type'] = 'site';
-								items[block_id]['site_id'] = block_id;
 							}
 						}
 					}
@@ -594,7 +508,6 @@ var EHFAjaxQueue = (function() {
 
 			let single_template = wp.template( 'ehf-blocks-list' );
 			let blocks_list = single_template( data );
-			$ehfscope.find( '.dialog-lightbox-message' ).hide();
 			$ehfscope.find( '.dialog-lightbox-message-block' ).show();
 			$ehfscope.find( '.dialog-lightbox-content-block' ).html( blocks_list );
 			EHFBlocks._masonry();
@@ -608,7 +521,7 @@ var EHFAjaxQueue = (function() {
 			// initialize Masonry after all images have loaded
 			imagesLoaded( container, function() {
 				masonryObj = new Masonry( container, {
-					itemSelector: '.astra-sites-library-template'
+					itemSelector: '.ehf-blocks-library-template'
 				});
 			});
 		},
@@ -618,12 +531,7 @@ var EHFAjaxQueue = (function() {
 			console.log( 'Import Enabled' );
 
 			EHFBlocks._importWPForm( EHFBlocks.templateData['post-meta']['astra-site-wpforms-path'], function( form_response ) {
-				EHFBlocks.insertData = EHFBlocks.templateData;
-				if ( 'insert' == EHFBlocks.action ) {
-					EHFBlocks._insertDemo( EHFBlocks.templateData );
-				} else {
-					EHFBlocks._createTemplate( EHFBlocks.templateData );
-				}
+				EHFBlocks._insertDemo( EHFBlocks.templateData );
 			});
 		},
 
@@ -634,13 +542,6 @@ var EHFAjaxQueue = (function() {
 			}
 
 			console.log( 'Insert Process Started' );
-
-			if ( 'pages' == EHFBlocks.type ) {
-
-				$ehfscope.find( '#ast-sites-floating-notice-wrap-id .ast-sites-floating-notice' ).html( 'Inserting this Page will add a common Page Setting as <strong>Starter Templates Settings</strong>. You can turn the setting off if you do not wish to use them. <button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss</span></button>' );
-				$ehfscope.find( '#ast-sites-floating-notice-wrap-id' ).addClass( 'slide-in' );
-			}
-
 
 			EHFBlocks.canInsert = false;
 			$( this ).addClass( 'installing' );
@@ -658,13 +559,13 @@ var EHFAjaxQueue = (function() {
 				// let templateModel = elementor.getPanelView().getCurrentPageView();
 				let page_content = JSON.parse( data[ 'post-meta' ][ '_elementor_data' ]);
 				let page_settings = '';
-				let api_url = ehf_blocks.ApiURL + 'astra-blocks/' + data['id'] + '/?&track=true&site_url=' + ehf_blocks.site_url;
+				let api_url = ehf_blocks.api_url + 'astra-blocks/' + data['id'] + '/?&track=true&site_url=' + ehf_blocks.site_url;
 
 				$.ajax({
 					url  : ehf_blocks.ajax_url,
 					type : 'POST',
 					data : {
-						action : 'astra-page-elementor-batch-process',
+						action : 'ehf-blocks-batch-process',
 						id : elementor.config.document.id,
 						url : api_url,
 						_ajax_nonce : ehf_blocks._ajax_nonce,
@@ -682,34 +583,11 @@ var EHFAjaxQueue = (function() {
 
 					console.log( page_content );
 
-					if ( undefined !== data[ 'post-meta' ][ '_elementor_page_settings' ] ) {
-						page_settings = PHP.parse( data[ 'post-meta' ][ '_elementor_page_settings' ] );
-					}
-
-					if ( '' != page_settings ) {
-						if ( undefined != page_settings.astra_sites_page_setting_enable ) {
-								page_settings.astra_sites_page_setting_enable = 'yes';
-						}
-
-						if ( undefined != page_settings.astra_sites_body_font_family ) {
-							page_settings.astra_sites_body_font_family = page_settings.astra_sites_body_font_family.replace( /'/g, '' );
-						}
-
-						for ( var i = 1; i < 7; i++ ) {
-
-							if ( undefined != page_settings['astra_sites_heading_' + i + '_font_family'] ) {
-								page_settings['astra_sites_heading_' + i + '_font_family'] = page_settings['astra_sites_heading_' + i + '_font_family'].replace( /'/g, '' );
-							}
-						}
-					}
-
 					if ( undefined !== page_content && '' !== page_content ) {
 						//elementor.channels.data.trigger('template:before:insert', templateModel);
 						elementor.getPreviewView().addChildModel( page_content, { at : EHFBlocks.index } || {} );
 						//elementor.channels.data.trigger('template:after:insert', templateModel);
-						elementor.settings.page.model.setExternalChange( page_settings );
 					}
-					EHFBlocks.insertActionFlag = true;
 					EHFBlocks._close();
 				});
 			}
@@ -717,27 +595,15 @@ var EHFAjaxQueue = (function() {
 
 		_goBack: function( e ) {
 
-			let step = $( this ).attr( 'data-step' );
-
-			$ehfscope.find( '.astra-sites-step-1-wrap' ).show();
-			$ehfscope.find( '.astra-preview-actions-wrap' ).remove();
+			$ehfscope.find( '.ehf-blocks-step-1-wrap' ).show();
+			$ehfscope.find( '.ehf-block-preview-actions-wrap' ).remove();
 
 			$( this ).attr( 'data-step', 1 );
-			$( document ).trigger( 'astra-sites__elementor-goback-step-1' );
-
-			$ehfscope.find( '.ehf-blocks__content-wrap' ).trigger( 'scroll' );
-		},
-
-		_goStep1: function( e ) {
-
-
+			
 			// Reset site and page ids to null.
-			EHFBlocks.site_id = '';
-			EHFBlocks.page_id = '';
 			EHFBlocks.block_id = '';
 			EHFBlocks.requiredPlugins = [];
 			EHFBlocks.templateData = {};
-			EHFBlocks.canImport = false;
 			EHFBlocks.canInsert = false;
 
 			// Hide Back button.
@@ -745,8 +611,6 @@ var EHFAjaxQueue = (function() {
 			$ehfscope.find( '.back-to-layout' ).css( 'opacity', '0' );
 
 			// Hide Preview Page.
-			$ehfscope.find( '.theme-preview' ).hide();
-			$ehfscope.find( '.theme-preview' ).html( '' );
 			$ehfscope.find( '.theme-preview-block' ).hide();
 			$ehfscope.find( '.theme-preview-block' ).html( '' );
 			$ehfscope.find( '.ehf-blocks__category-wrap' ).show();
@@ -755,62 +619,27 @@ var EHFAjaxQueue = (function() {
 			EHFBlocks._appendBlocks( ehf_blocks.blocks );
 
 			$ehfscope.find( '.dialog-lightbox-content-block' ).show();
-			$ehfscope.find( '.dialog-lightbox-content' ).hide();
 
 			if ( '' !== $ehfscope.find( '#wp-filter-search-input' ).val() ) {
 				$ehfscope.find( '#wp-filter-search-input' ).trigger( 'keyup' );
 			}
+
+			//$ehfscope.find( '.ehf-blocks__content-wrap' ).trigger( 'scroll' );
 		},
 
-		_goStep2: function( e ) {
+		_preview : function( e ) {
 
-			// Set page and site ids.
-			EHFBlocks.site_id = $ehfscope.find( '#astra-blocks' ).data( 'site-id' );
-			EHFBlocks.page_id = '';
+			EHFBlocks.block_id = $( this ).closest( '.ehf-block-theme' ).data( 'block-id' );
 
-			if ( undefined === EHFBlocks.site_id ) {
-				return;
-			}
+			$ehfscope.find( '.back-to-layout' ).css( 'visibility', 'visible' );
+			$ehfscope.find( '.back-to-layout' ).css( 'opacity', '1' );
 
-			// Single Preview template.
-			let single_template = wp.template( 'astra-sites-list-search' );
-			let passing_data = ehf_blocks.default_page_builder_sites[ EHFBlocks.site_id ]['pages'];
-			passing_data['site_id'] = EHFBlocks.site_id;
-			pages_list = single_template( passing_data );
-			$ehfscope.find( '.dialog-lightbox-content' ).html( pages_list );
-
-			// Hide Preview page.
-			$ehfscope.find( '.theme-preview' ).hide();
-			$ehfscope.find( '.theme-preview' ).html( '' );
-			$ehfscope.find( '.ehf-blocks__category-wrap' ).show();
-			$ehfscope.find( '.theme-preview-block' ).hide();
-			$ehfscope.find( '.theme-preview-block' ).html( '' );
-
-			// Show listing page.
-			$ehfscope.find( '.dialog-lightbox-content' ).show();
 			$ehfscope.find( '.dialog-lightbox-content-block' ).hide();
-
-			EHFBlocks._loadLargeImages();
-
-			if ( '' !== $ehfscope.find( '#wp-filter-search-input' ).val() ) {
-				$ehfscope.find( '#wp-filter-search-input' ).trigger( 'keyup' );
-			}
-		},
-
-		_step1: function( e ) {
-
-			$ehfscope.find( '.dialog-lightbox-content' ).hide();
-			$ehfscope.find( '.dialog-lightbox-content-block' ).hide();
-			$ehfscope.find( '.dialog-lightbox-message' ).animate({ scrollTop: 0 }, 50 );
 			$ehfscope.find( '.theme-preview-block' ).show();
 			$ehfscope.find( '.ehf-blocks__category-wrap' ).hide();
 
-			// Hide.
-			$ehfscope.find( '.theme-preview' ).hide();
-			$ehfscope.find( '.theme-preview' ).html( '' );
-
-			let import_template = wp.template( 'astra-sites-elementor-preview' );
-			let import_template_header = wp.template( 'astra-sites-elementor-preview-actions' );
+			let import_template = wp.template( 'ehf-block-preview' );
+			let import_template_header = wp.template( 'ehf-blocks-preview-actions' );
 			let template_object = ehf_blocks.blocks[ EHFBlocks.block_id ];
 
 			template_object['id'] = EHFBlocks.block_id;
@@ -818,236 +647,14 @@ var EHFAjaxQueue = (function() {
 			preview_page_html = import_template( template_object );
 			$ehfscope.find( '.theme-preview-block' ).html( preview_page_html );
 
-			$ehfscope.find( '.astra-sites-step-1-wrap' ).hide();
+			$ehfscope.find( '.ehf-blocks-step-1-wrap' ).hide();
 
 			preview_action_html = import_template_header( template_object );
 			$ehfscope.find( '.elementor-templates-modal__header__items-area' ).before( preview_action_html );
 			EHFBlocks._masonry();
 
 			let actual_id = EHFBlocks.block_id.replace( 'id-', '' );
-			$( document ).trigger( 'astra-sites__elementor-plugin-check', { 'id': actual_id } );
-		},
-
-		_step2: function( e ) {
-
-			$ehfscope.find( '.dialog-lightbox-content' ).hide();
-			$ehfscope.find( '.dialog-lightbox-message' ).animate({ scrollTop: 0 }, 50 );
-			$ehfscope.find( '.theme-preview' ).show();
-
-			if ( undefined === EHFBlocks.site_id ) {
-				return;
-			}
-
-			let import_template = wp.template( 'astra-sites-elementor-preview' );
-			let import_template_header = wp.template( 'astra-sites-elementor-preview-actions' );
-			let template_object = ehf_blocks.default_page_builder_sites[ EHFBlocks.site_id ]['pages'][ EHFBlocks.page_id ];
-
-			if ( undefined === template_object ) {
-				return;
-			}
-
-			template_object['id'] = EHFBlocks.site_id;
-
-			preview_page_html = import_template( template_object );
-			$ehfscope.find( '.theme-preview' ).html( preview_page_html );
-
-			$ehfscope.find( '.astra-sites-step-1-wrap' ).hide();
-
-			preview_action_html = import_template_header( template_object );
-				$ehfscope.find( '.elementor-templates-modal__header__items-area' ).before( preview_action_html );
-
-			let actual_id = EHFBlocks.page_id.replace( 'id-', '' );
-			$( document ).trigger( 'astra-sites__elementor-plugin-check', { 'id': actual_id } );
-		},
-
-		_preview : function( e ) {
-
-			let step = $( this ).attr( 'data-step' );
-
-			EHFBlocks.block_id = $( this ).closest( '.astra-theme' ).data( 'block-id' );
-
-			$ehfscope.find( '.back-to-layout' ).css( 'visibility', 'visible' );
-			$ehfscope.find( '.back-to-layout' ).css( 'opacity', '1' );
-
-			if ( 1 == step ) {
-
-				$ehfscope.find( '.back-to-layout' ).attr( 'data-step', 2 );
-				$( document ).trigger( 'astra-sites__elementor-do-step-1' );
-
-			} else {
-
-				$ehfscope.find( '.back-to-layout' ).attr( 'data-step', 3 );
-				$( document ).trigger( 'astra-sites__elementor-do-step-2' );
-
-			}
-		},
-
-		_pluginCheck : function( e, data ) {
-
-			var api_post = {
-				slug: 'astra-blocks' + '/' + data['id']
-			};
-
-			var params = {
-				method: 'GET',
-				cache: 'default',
-			};
-
-			fetch( ehf_blocks.ApiURL + api_post.slug, params ).then( response => {
-				if ( response.status === 200 ) {
-					return response.json().then(items => ({
-						items 		: items,
-						items_count	: response.headers.get( 'x-wp-total' ),
-						item_pages	: response.headers.get( 'x-wp-totalpages' ),
-					}))
-				} else {
-					//$(document).trigger( 'astra-sites-api-request-error' );
-					return response.json();
-				}
-			})
-			.then(data => {
-				if( 'object' === typeof data ) {
-					if ( undefined !== data && undefined !== data['items'] ) {
-						EHFBlocks.templateData = data['items'];
-						if ( undefined !== EHFBlocks.templateData['post-meta']['astra-blocks-required-plugins'] ) {
-							EHFBlocks._requiredPluginsMarkup( EHFBlocks.templateData['post-meta']['astra-blocks-required-plugins'] );
-						}
-					}
-			   	}
-			});
-		},
-
-		_requiredPluginsMarkup: function( requiredPlugins ) {
-
-			if( '' === requiredPlugins ) {
-				return;
-			}
-
-			if (
-				EHFBlocks.type == 'pages' &&
-				ehf_blocks.default_page_builder_sites[EHFBlocks.site_id]['astra-sites-type'] != undefined &&
-				ehf_blocks.default_page_builder_sites[EHFBlocks.site_id]['astra-sites-type'] != 'free'
-			) {
-
-				if ( ! ehf_blocks.license_status ) {
-
-					output = '<p class="ast-validate">' + ehf_blocks.license_msg + '</p>';
-
-					$ehfscope.find('.required-plugins-list').html( output );
-					$ehfscope.find('.ast-tooltip-wrap').css( 'opacity', 1 );
-					$ehfscope.find('.astra-sites-tooltip').css( 'opacity', 1 );
-
-					/**
-					 * Enable Demo Import Button
-					 * @type number
-					 */
-					EHFBlocks.requiredPlugins = [];
-					EHFBlocks.canImport = true;
-					EHFBlocks.canInsert = true;
-					$ehfscope.find( '.astra-sites-import-template-action > div' ).removeClass( 'disabled' );
-					return;
-				}
-
-			}
-
-		 	// Required Required.
-			$.ajax({
-				url  : ehf_blocks.ajax_url,
-				type : 'POST',
-				data : {
-					action           : 'astra-required-plugins',
-					_ajax_nonce      : ehf_blocks._ajax_nonce,
-					required_plugins : requiredPlugins
-				},
-			})
-			.fail(function( jqXHR ){
-				console.log( jqXHR );
-			})
-			.done(function ( response ) {
-
-				var output = '';
-
-				/**
-				 * Count remaining plugins.
-				 * @type number
-				 */
-				var remaining_plugins = 0;
-				var required_plugins_markup = '';
-
-				required_plugins = response.data['required_plugins'];				
-
-				if( response.data['third_party_required_plugins'].length ) {
-					output += '<li class="plugin-card plugin-card-'+plugin.slug+'" data-slug="'+plugin.slug+'" data-init="'+plugin.init+'" data-name="'+plugin.name+'">'+plugin.name+'</li>';
-				}
-
-				/**
-				 * Not Installed
-				 *
-				 * List of not installed required plugins.
-				 */
-				if ( typeof required_plugins.notinstalled !== 'undefined' ) {
-
-					// Add not have installed plugins count.
-					remaining_plugins += parseInt( required_plugins.notinstalled.length );
-
-					$( required_plugins.notinstalled ).each(function( index, plugin ) {
-						if ( 'elementor' == plugin.slug ) {
-							return;
-						}
-						output += '<li class="plugin-card plugin-card-'+plugin.slug+'" data-slug="'+plugin.slug+'" data-init="'+plugin.init+'" data-name="'+plugin.name+'">'+plugin.name+'</li>';
-					});
-				}
-
-				/**
-				 * Inactive
-				 *
-				 * List of not inactive required plugins.
-				 */
-				if ( typeof required_plugins.inactive !== 'undefined' ) {
-
-					// Add inactive plugins count.
-					remaining_plugins += parseInt( required_plugins.inactive.length );
-
-					$( required_plugins.inactive ).each(function( index, plugin ) {
-						if ( 'elementor' == plugin.slug ) {
-							return;
-						}
-						output += '<li class="plugin-card plugin-card-'+plugin.slug+'" data-slug="'+plugin.slug+'" data-init="'+plugin.init+'" data-name="'+plugin.name+'">'+plugin.name+'</li>';
-					});
-				}
-
-				/**
-				 * Active
-				 *
-				 * List of not active required plugins.
-				 */
-				if ( typeof required_plugins.active !== 'undefined' ) {
-
-					$( required_plugins.active ).each(function( index, plugin ) {
-						if ( 'elementor' == plugin.slug ) {
-							return;
-						}
-						output += '<li class="plugin-card plugin-card-'+plugin.slug+'" data-slug="'+plugin.slug+'" data-init="'+plugin.init+'" data-name="'+plugin.name+'">'+plugin.name+'</li>';
-					});
-				}
-
-				if ( '' != output ) {
-					output = '<li class="plugin-card-head"><strong>Install Required Plugins</strong></li>' + output;
-					$ehfscope.find('.required-plugins-list').html( output );
-					$ehfscope.find('.ast-tooltip-wrap').css( 'opacity', 1 );
-					$ehfscope.find('.astra-sites-tooltip').css( 'opacity', 1 );
-				}
-
-
-				/**
-				 * Enable Demo Import Button
-				 * @type number
-				 */
-				EHFBlocks.requiredPlugins = response.data['required_plugins'];
-				EHFBlocks.canImport = true;
-				EHFBlocks.canInsert = true;
-				$ehfscope.find( '.astra-sites-import-template-action > div' ).removeClass( 'disabled' );
-			});
+			$( document ).trigger( 'ehf-blocks__elementor-plugin-check', { 'id': actual_id } );
 		},
 
 		_libraryClick: function( e ) {
@@ -1063,7 +670,7 @@ var EHFAjaxQueue = (function() {
 				return;
 			}
 
-			if( el.parents('.astra-theme').isInViewport() ) {
+			if( el.parents('.ehf-block-theme').isInViewport() ) {
 				var large_img_url = el.data('src') || '';
 				var imgLarge = new Image();
 				imgLarge.src = large_img_url; 
@@ -1082,13 +689,13 @@ var EHFAjaxQueue = (function() {
 		},
 
 		_close: function( e ) {
-			$( document ).trigger( 'astra-sites__elementor-close-before' );
+			$( document ).trigger( 'ehf-blocks__elementor-close-before' );
 			setTimeout( function() { $ehfscope.fadeOut(); }, 300 );
-			$( document ).trigger( 'astra-sites__elementor-close-after' );
+			$( document ).trigger( 'ehf-blocks__elementor-close-after' );
 		},
 
 		_open: function( e ) {
-			$( document ).trigger( 'astra-sites__elementor-open-before' );
+			$( document ).trigger( 'ehf-blocks__elementor-open-before' );
 			
 			let add_section = $( this ).closest( '.elementor-add-section' );
 			
@@ -1099,7 +706,7 @@ var EHFAjaxQueue = (function() {
 			}
 			EHFBlocks._home();
 			$ehfscope.fadeIn();
-			$( document ).trigger( 'astra-sites__elementor-open-after' );
+			$( document ).trigger( 'ehf-blocks__elementor-open-after' );
 		},
 
 		_beforeOpen: function( e ) {
@@ -1109,7 +716,6 @@ var EHFAjaxQueue = (function() {
 			$ehfscope.find( '.theme-preview' ).html( '' );
 
 			// Show site listing page.
-			$ehfscope.find( '.dialog-lightbox-content' ).show();
 
 			// Hide Back button.
 			$ehfscope.find( '.back-to-layout' ).css( 'visibility', 'hidden' );
@@ -1169,39 +775,6 @@ var EHFAjaxQueue = (function() {
 				});
 
 			}, 1200 );
-
-		},
-
-		/**
-		 * Plugin Installation Error.
-		 */
-		_installError: function( event, response ) {
-
-			// var $card = $( '.plugin-card-' + response.slug );
-			// var $name = $card.data('name');
-
-			// EHFBlocks._log_title( response.errorMessage + ' ' + EHFBlocks.ucwords($name) );
-
-
-			// $card
-			// 	.removeClass( 'button-primary' )
-			// 	.addClass( 'disabled' )
-			// 	.html( wp.updates.l10n.installFailedShort );
-
-		},
-
-		/**
-		 * Installing Plugin
-		 */
-		_pluginInstalling: function(event, args) {
-			// event.preventDefault();
-
-			// var $card = $( '.plugin-card-' + args.slug );
-			// var $name = $card.data('name');
-
-			// EHFBlocks._log_title( 'Installing Plugin - ' + EHFBlocks.ucwords( $name ));
-
-			// $card.addClass('updating-message');
 
 		},
 	};

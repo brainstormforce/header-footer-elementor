@@ -213,6 +213,7 @@ class Header_Footer_Elementor {
 		require HFE_DIR . 'inc/widgets-manager/class-widgets-loader.php';
 
 		// Load Elementor Ready Blocks Import Popup.
+		require_once HFE_DIR . 'inc/class-header-footer-elementor-import.php';
 		require_once HFE_DIR . 'inc/batch-processing/class-ehf-batch-processing.php';
 		require_once HFE_DIR . 'inc/class-header-footer-elementor-popup.php';
 	}
