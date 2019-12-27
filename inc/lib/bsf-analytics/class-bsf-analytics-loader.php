@@ -76,11 +76,11 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
                                     <div class="notice-heading">
                                         %1$s
                                     </div>
-                                    <div class="astra-review-notice-container">
-                                        <a href="%3$s" class="astra-review-notice button-primary">
+                                    <div class="astra-notices-container">
+                                        <a href="%3$s" class="astra-notices button-primary">
                                         %4$s
                                         </a> &nbsp; 
-                                        <a href="%5$s" data-repeat-notice-after="%6$s" class="astra-review-notice button-secondary">
+                                        <a href="%5$s" data-repeat-notice-after="%6$s" class="astra-notices button-secondary">
                                         %7$s
                                         </a>
                                     </div>

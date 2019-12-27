@@ -1,0 +1,17 @@
+.notice-container {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.astra-review-notice-container {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.astra-notices-container {
+    padding-top: 10px;
+}
