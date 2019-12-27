@@ -106,7 +106,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 							__( 'No Thanks', 'header-footer-elementor' )
 						),
 						'show_if'                    => true,
-						'repeat-notice-after'        => MONTH_IN_SECONDS,
+						'repeat-notice-after'        => false,
 						// 'display-notice-after'       => 1296000, // Display notice after 15 days.
 						'priority'                   => 18,
 						'display-with-other-notices' => true,
