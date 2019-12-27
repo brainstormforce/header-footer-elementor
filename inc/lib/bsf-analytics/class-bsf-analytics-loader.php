@@ -36,9 +36,13 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 			);
 		}
 
+		private function get_api_url() {
+			return defined( 'BSF_API_URL' ) ? BSF_API_URL : 'https://support.brainstormforce.com/';
+		}
+
 		public function send() {
 			wp_remote_post(
-				'https://bsf-support.test/wp-json/bsf-core/v1/analytics/',
+				$this->get_api_url() . 'wp-json/bsf-core/v1/analytics/',
 				array(
 					'body'     => $this->stats()->get_stats(),
 					'timeout'  => 5,
