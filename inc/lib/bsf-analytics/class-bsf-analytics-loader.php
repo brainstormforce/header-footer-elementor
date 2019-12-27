@@ -92,7 +92,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 									'bsf_analytics_optin' => 'yes',
 									'bsf_analytics_product' => $product['slug'],
 									'bsf_analytics_nonce' => wp_create_nonce( 'bsf_analytics_optin' ),
-								),
+								)
 							),
 							__( 'Allow', 'header-footer-elementor' ),
 							add_query_arg(
@@ -100,7 +100,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 									'bsf_analytics_optin' => 'no',
 									'bsf_analytics_product' => $product['slug'],
 									'bsf_analytics_nonce' => wp_create_nonce( 'bsf_analytics_optin' ),
-								),
+								)
 							),
 							MONTH_IN_SECONDS,
 							__( 'No Thanks', 'header-footer-elementor' ),
