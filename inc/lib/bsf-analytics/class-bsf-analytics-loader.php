@@ -64,7 +64,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 				// Don't display the notice if the user has taken action on the notice.
 				if ( array_key_exists( $product['slug'], get_option( 'bsf_analytics_optin', array() ) ) ) {
-					// continue;
+					continue;
 				}
 
 				Astra_Notices::add_notice(
