@@ -22,7 +22,7 @@ class BSF_Analytics_Stats {
 			'php_os'                 => PHP_OS,
 			'server_software'        => $_SERVER['SERVER_SOFTWARE'],
 			'mysql_version'          => $this->get_mysql_version(),
-			'php_version'            => phpversion(),
+			'php_version'            => $this->get_php_version(),
 			'php_max_input_vars'     => ini_get( 'max_input_vars' ), // phpcs:ignore:PHPCompatibility.IniDirectives.NewIniDirectives.max_input_varsFound
 			'php_post_max_size'      => ini_get( 'post_max_size' ),
 			'php_max_execution_time' => ini_get( 'max_execution_time' ),
@@ -50,6 +50,14 @@ class BSF_Analytics_Stats {
 			'active_theme'           => get_template(),
 			'active_stylesheet'      => get_stylesheet(),
 		);
+	}
+
+	private function get_php_version() {
+		if ( defined( 'PHP_MAJOR_VERSION' ) ) {
+			return PHP_MAJOR_VERSION . '.' . PHP_MINOR_VERSION . '.' . PHP_RELEASE_VERSION;
+		}
+
+		return phpversion();
 	}
 
 	private function get_user_count() {
