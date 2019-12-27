@@ -11,6 +11,16 @@ class BSF_Analytics_Stats {
 	 */
 	private $plugins;
 
+	private static $_instance = null;
+
+	public static function instance() {
+		if ( null === self::$_instance ) {
+			self::$_instance = new self();
+		}
+
+		return self::$_instance;
+	}
+
 	public function get_stats() {
 		return apply_filters( 'bsf_core_stats', $this->get_default_stats() );
 	}
@@ -53,7 +63,7 @@ class BSF_Analytics_Stats {
 	}
 
 	private function get_php_version() {
-		if ( defined( 'PHP_MAJOR_VERSION' ) && defined( 'PHP_MINOR_VERSION' ) && defined( 'PHP_RELEASE_VERSION' ) ) {
+		if ( defined( 'PHP_MAJOR_VERSION' ) && defined( 'PHP_MINOR_VERSION' ) && defined( 'PHP_RELEASE_VERSION' ) ) { // phpcs:disable 
 			return PHP_MAJOR_VERSION . '.' . PHP_MINOR_VERSION . '.' . PHP_RELEASE_VERSION;
 		}
 
