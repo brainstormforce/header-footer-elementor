@@ -103,7 +103,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 								)
 							),
 							MONTH_IN_SECONDS,
-							__( 'No Thanks', 'header-footer-elementor' ),
+							__( 'No Thanks', 'header-footer-elementor' )
 						),
 						'show_if'                    => true,
 						'repeat-notice-after'        => MONTH_IN_SECONDS,
