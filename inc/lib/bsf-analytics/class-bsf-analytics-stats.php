@@ -91,7 +91,7 @@ class BSF_Analytics_Stats {
 
 	private function get_mysql_version() {
 		global $wpdb;
-		return $wpdb->get_var( 'SELECT VERSION()' );
+		return $wpdb->db_version();
 	}
 
 	private function is_content_writable() {
