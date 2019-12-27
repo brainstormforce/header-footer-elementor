@@ -5,7 +5,7 @@
 **Requires at least:** 4.4  
 **Requires PHP:** 5.4  
 **Tested up to:** 5.3  
-**Stable tag:** 1.2.0  
+**Stable tag:** 1.2.1  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -81,7 +81,7 @@ Made with love at <a href="https://www.brainstormforce.com/?utm_source=wp-repo&u
 
 ## Installation ##
 
-1. Go to `Plugins -> Add New` and search for Header Footer Elementor.
+1. Go to `Plugins -> Add New` and search for Elementor – Header, Footer & Blocks.
 2. Activate the plugin through the 'Plugins' screen in WordPress.
 3. Go to `Appearance -> Header Footer Builder` to build a header or footer layout using elementor.
 4. After the layout is ready assign it as header or footer using the option `Select the type of template this is` (<a href="https://cloudup.com/clK2sPg9nXK+">screenshot</a>)
