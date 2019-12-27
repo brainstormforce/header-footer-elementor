@@ -459,7 +459,7 @@
     content: "\f147";
     display: inline-block;
     margin-right: 10px;
-    font: normal 20px/1 'dashicons';
+    font-family: 'dashicons';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     vertical-align: middle;
@@ -468,7 +468,7 @@
     content: "\f504";
     display: inline-block;
     margin-left: 10px;
-    font: normal 20px/1 'dashicons';
+    font-family: 'dashicons';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     vertical-align: middle;
@@ -478,7 +478,7 @@
     content: "\f463";
     display: inline-block;
     margin-right: 10px;
-    font: normal 20px/1 'dashicons';
+    font-family: 'dashicons';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     vertical-align: middle;
@@ -705,9 +705,12 @@
     cursor: pointer;
 }
 #ehf-blocks-modal .ehf-library-template-insert {
-    margin-right: 20px;
+    color: #fff;
+    background-color: #39b54a;
+    padding: 8px 14px;
+    font-size: 11px;
 }
-#ehf-blocks-modal .ehf-block-import-template .button-hero.disabled {
+#ehf-blocks-modal .ehf-block-import-template .ehf-library-template-insert.disabled {
     color: #66c6e4 !important;
     background: #008ec2 !important;
     border-color: #007cb2 !important;
@@ -719,6 +722,26 @@
     margin-left: 0;
     padding-right: 15px;
     padding-left: 30px;
+}
+#ehf-blocks-modal .back-to-layout:hover:before {
+    background: #f7f7f7;
+    border-color: #0073aa;
+    color: #0073aa;
+}
+
+#ehf-blocks-modal .back-to-layout {
+    border-right: 1px solid #eeeeee;
+    padding: 20px 14px;
+    text-align: center;
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    font-size: 24px;
+    line-height: normal;
+}
+
+#ehf-blocks-modal .back-to-layout:hover {
+    background-color: #f7f7f7;
 }
 #ehf-blocks-modal .single-site-preview {
     margin-right: 0;

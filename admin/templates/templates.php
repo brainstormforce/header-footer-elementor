@@ -152,7 +152,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div class="ehf-block-preview-actions">
 				<div class="site-action-buttons-wrap">
 					<div class="ehf-block-import-template site-action-buttons-right">
-						<div type="button" class="button button-hero button-primary ehf-library-template-insert disabled"><?php esc_html_e( 'Import Block', 'header-footer-elementor' ); ?></div>
+						<div type="button" class="elementor-button ehf-library-template-insert disabled"><?php esc_html_e( 'Import Block', 'header-footer-elementor' ); ?></div>
 					</div>
 				</div>
 			</div>
