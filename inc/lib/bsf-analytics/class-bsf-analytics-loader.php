@@ -190,8 +190,11 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 		private function stats() {
 			if ( null === $this->stats ) {
-				require_once __DIR__ . '/class-bsf-analytics-stats.php';
-				$this->stats = new BSF_Analytics_Stats();
+
+				if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
+					require_once __DIR__ . '/class-bsf-analytics-stats.php';
+					$this->stats = new BSF_Analytics_Stats();
+				}
 			}
 
 			return $this->stats;
