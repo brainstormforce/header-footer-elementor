@@ -79,7 +79,7 @@ class Copyright extends Widget_Base {
 	 * @return array Widget categories.
 	 */
 	public function get_categories() {
-		return [ 'HFE' ];
+		return [ 'hfe-widgets' ];
 	}
 	/**
 	 * Register Copyright controls.
@@ -193,10 +193,10 @@ class Copyright extends Widget_Base {
 		<div class="hfe-copyright-wrapper">
 			<?php if ( ! empty( $link ) ) { ?>
 				<a href="<?php echo esc_url( $link ); ?>">
-					<span><?php echo esc_attr( $copy_right_shortcode ); ?></span>
+					<span><?php echo wp_kses_post( $copy_right_shortcode ); ?></span>
 				</a>
 			<?php } else { ?>
-				<span><?php echo esc_attr( $copy_right_shortcode ); ?></span>
+				<span><?php echo wp_kses_post( $copy_right_shortcode ); ?></span>
 			<?php } ?>
 		</div>
 		<?php
