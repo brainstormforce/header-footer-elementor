@@ -4,8 +4,6 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 	class BSF_Analytics {
 
-		private $stats = null;
-
 		private static $products = array();
 
 		private static $_instance = null;
@@ -20,7 +18,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 		public function __construct() {
 			add_action( 'admin_init', array( $this, 'handle_optin_optout' ) );
-			add_action( 'cron_schedules', array( $this, 'add_weekly_schedule' ) );
+			add_action( 'cron_schedules', array( $this, 'every_two_days_schedule' ) );
 			add_action( 'admin_notices', array( $this, 'option_notice' ) );
 
 			if ( ! has_action( 'bsf_analytics_send', array( $this, 'send' ) ) ) {
@@ -44,7 +42,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 			wp_remote_post(
 				$this->get_api_url() . 'wp-json/bsf-core/v1/analytics/',
 				array(
-					'body'     => $this->stats()->get_stats(),
+					'body'     => BSF_Analytics_Stats::instance()->get_stats(),
 					'timeout'  => 5,
 					'blocking' => false,
 				)
@@ -169,10 +167,10 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 			update_option( 'bsf_analytics_optin', $products );
 		}
 
-		public function add_weekly_schedule( $schedules ) {
-			$schedules['weekly'] = array(
-				'interval' => WEEK_IN_SECONDS,
-				'display'  => __( 'Once Weekly', 'textdomain' ),
+		public function every_two_days_schedule( $schedules ) {
+			$schedules['every-two-days'] = array(
+				'interval' => 2 * DAY_IN_SECONDS,
+				'display'  => __( 'Every two days', 'textdomain' ),
 			);
 
 			return $schedules;
@@ -186,18 +184,6 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 		private function unschedule_event() {
 			wp_clear_scheduled_hook( 'bsf_analytics_send' );
-		}
-
-		private function stats() {
-			if ( null === $this->stats ) {
-
-				if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
-					require_once __DIR__ . '/class-bsf-analytics-stats.php';
-					$this->stats = new BSF_Analytics_Stats();
-				}
-			}
-
-			return $this->stats;
 		}
 
 	}
