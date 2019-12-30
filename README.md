@@ -130,6 +130,9 @@ You can add support for the plugin from your child theme. Just follow <a href="h
 
 ## Changelog ##
 
+### 1.2.2 ###
+- Fix: Add default fallback theme support after checking if current theme does not add it.
+
 ### 1.2.1 ###
 - Categorize the Elementor widgets in a separate category in the Elementor window.
 - Hide target rules options when a custom block template is selected.
