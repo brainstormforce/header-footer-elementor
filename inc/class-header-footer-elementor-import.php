@@ -44,14 +44,14 @@ class Header_Footer_Elementor_Import extends Source_Local {
 	 * @param  array   $data Elementor Data.
 	 * @return array   $data Elementor Imported Data.
 	 */
-	public function import( $post_id = 0, $data = array() ) {
+	public function import( $post_id = 0, $data = [] ) {
 
 		if ( ! empty( $post_id ) && ! empty( $data ) ) {
 
 			$data = json_encode( $data, true );
 
 			// Update WP form IDs.
-			$ids_mapping = get_option( 'ehf_blocks_wpforms_ids_mapping', array() );
+			$ids_mapping = get_option( 'ehf_blocks_wpforms_ids_mapping', [] );
 			if ( $ids_mapping ) {
 				foreach ( $ids_mapping as $old_id => $new_id ) {
 					$data = str_replace( '[wpforms id=\"' . $old_id, '[wpforms id=\"' . $new_id, $data );
@@ -72,6 +72,6 @@ class Header_Footer_Elementor_Import extends Source_Local {
 			return $data;
 		}
 
-		return array();
+		return [];
 	}
 }

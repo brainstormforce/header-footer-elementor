@@ -65,8 +65,8 @@ class Header_Footer_Elementor_Popup {
 		add_action( 'elementor/preview/enqueue_styles', [ $this, 'enqueue_elementor_editor_style' ] );
 
 		// Import AJAX.
-		add_action( 'wp_ajax_ehf-blocks-import-wpforms', array( $this, 'import_wpforms' ) );
-		add_action( 'wp_ajax_ehf-blocks-batch-process', array( $this, 'blocks_batch_process' ) );
+		add_action( 'wp_ajax_ehf-blocks-import-wpforms', [ $this, 'import_wpforms' ] );
+		add_action( 'wp_ajax_ehf-blocks-batch-process', [ $this, 'blocks_batch_process' ] );
 	}
 
 	/**
@@ -96,6 +96,10 @@ class Header_Footer_Elementor_Popup {
 	 * @return void
 	 */
 	public function enqueue_elementor_editor_script() {
+
+		if ( defined( 'ASTRA_SITES_VER' ) ) {
+			return;
+		}
 
 		if ( hfe_footer_enabled() || hfe_header_enabled() ) {
 
@@ -266,7 +270,7 @@ class Header_Footer_Elementor_Popup {
 		}
 
 		$wpforms_url = ( isset( $_REQUEST['wpforms_url'] ) ) ? urldecode( $_REQUEST['wpforms_url'] ) : $wpforms_url;
-		$ids_mapping = array();
+		$ids_mapping = [];
 
 		if ( ! empty( $wpforms_url ) && function_exists( 'wpforms_encode' ) ) {
 
@@ -291,12 +295,12 @@ class Header_Footer_Elementor_Popup {
 
 								if ( ! $new_id ) {
 									$new_id = wp_insert_post(
-										array(
+										[
 											'post_title'   => $title,
 											'post_status'  => 'publish',
 											'post_type'    => 'wpforms',
 											'post_excerpt' => $desc,
-										)
+										]
 									);
 
 									// Set meta for tracking the post.
@@ -310,10 +314,10 @@ class Header_Footer_Elementor_Popup {
 
 									$form['id'] = $new_id;
 									wp_update_post(
-										array(
-											'ID' => $new_id,
+										[
+											'ID'           => $new_id,
 											'post_content' => wpforms_encode( $form ),
-										)
+										]
 									);
 								}
 							}
@@ -345,21 +349,21 @@ class Header_Footer_Elementor_Popup {
 
 		// WP Error.
 		if ( is_wp_error( $temp_file ) ) {
-			return array(
+			return [
 				'success' => false,
 				'data'    => $temp_file->get_error_message(),
-			);
+			];
 		}
 
 		// Array based on $_FILE as seen in PHP file uploads.
-		$file_args = array(
+		$file_args = [
 			'name'     => basename( $file ),
 			'tmp_name' => $temp_file,
 			'error'    => 0,
 			'size'     => filesize( $temp_file ),
-		);
+		];
 
-		$overrides = array(
+		$overrides = [
 
 			// Tells WordPress to not look for the POST form
 			// fields that would normally be present as
@@ -375,27 +379,27 @@ class Header_Footer_Elementor_Popup {
 			// A properly uploaded file will pass this test. There should be no reason to override this one.
 			'test_upload' => true,
 
-			'mimes'       => array(
+			'mimes'       => [
 				'xml'  => 'text/xml',
 				'json' => 'text/plain',
-			),
-		);
+			],
+		];
 
 		// Move the temporary file into the uploads directory.
 		$results = wp_handle_sideload( $file_args, $overrides );
 
 		if ( isset( $results['error'] ) ) {
-			return array(
+			return [
 				'success' => false,
 				'data'    => $results,
-			);
+			];
 		}
 
 		// Success.
-		return array(
+		return [
 			'success' => true,
 			'data'    => $results,
-		);
+		];
 	}
 
 	/**

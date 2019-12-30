@@ -27,7 +27,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<select id="elementor-template-library-filter" class="ehf-blocks__category elementor-template-library-filter-select elementor-select2">
 								<option value=""><?php esc_html_e( 'All', 'header-footer-elementor' ); ?></option>
 								<# for ( key in ehf_blocks.block_categories ) { #>
-								<option value="{{ehf_blocks.block_categories[key].id}}">{{ehf_blocks.block_categories[key].name}}</option>
+									<# var selected = ( ehf_blocks.block_categories[key].slug == 'contact' ) ? 'selected="selected"' : ''; #>
+								<option value="{{ehf_blocks.block_categories[key].id}}" {{selected}}>{{ehf_blocks.block_categories[key].name}}</option>
 								<# } #>
 							</select>
 						</div>
@@ -86,7 +87,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			var site_title = ( undefined == data[ key ]['category'] ) ? data[ key ]['title'] : ehf_blocks.block_categories[data[ key ]['category']].name;
 			count++;
 			if ( '' !== EHFBlocks.blockCategory ) {
-				if ( EHFBlocks.blockCategory != data[ key ]['category'] ) {
+				if ( EHFBlocks.blockCategory != ehf_blocks.block_categories[data[ key ]['category']].slug ) {
 					continue;
 				}
 			}

@@ -459,25 +459,17 @@
     content: "\f147";
     display: inline-block;
     margin-right: 10px;
+    font-size: 16px;
     font-family: 'dashicons';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     vertical-align: middle;
 }
-#ehf-blocks-modal .ehf-block-import-template.action-done:after {
-    content: "\f504";
-    display: inline-block;
-    margin-left: 10px;
-    font-family: 'dashicons';
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    vertical-align: middle;
-}
-#ehf-blocks-modal .ehf-library-template-insert.installing:before,
-#ehf-blocks-modal .ehf-block-import-template.installing:before {
+#ehf-blocks-modal .ehf-library-template-insert.installing:before {
     content: "\f463";
     display: inline-block;
     margin-right: 10px;
+    font-size: 16px;
     font-family: 'dashicons';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -711,11 +703,10 @@
     font-size: 11px;
 }
 #ehf-blocks-modal .ehf-block-import-template .ehf-library-template-insert.disabled {
-    color: #66c6e4 !important;
-    background: #008ec2 !important;
-    border-color: #007cb2 !important;
-    box-shadow: none !important;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1) !important;
+    color: #fff;
+    background: #d6d6d6;
+    box-shadow: none;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
     cursor: default;
 }
 #ehf-blocks-modal .single-site-footer {
