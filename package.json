@@ -9,8 +9,5 @@
     "grunt-text-replace": "^0.4.0",
     "grunt-wp-i18n": "~1.0.3",
     "grunt-wp-readme-to-markdown": "~2.0.1"
-  },
-  "dependencies": {
-    "npm-check-updates": "^2.15.0"
   }
 }
