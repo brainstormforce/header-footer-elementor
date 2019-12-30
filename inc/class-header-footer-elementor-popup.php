@@ -107,6 +107,16 @@ class Header_Footer_Elementor_Popup {
 			wp_enqueue_script( 'imagesloaded' );
 			wp_enqueue_script( 'hfe-template-popup-script', HFE_URL . 'admin/assets/js/ehf-template-popup.js', [ 'jquery', 'wp-util', 'updates', 'masonry', 'imagesloaded' ], HFE_VER );
 
+			$type = '';
+
+			if ( hfe_footer_enabled() ) {
+				$type = 'about';
+			}
+
+			if ( hfe_header_enabled() ) {
+				$type = 'contact';
+			}
+
 			$data = apply_filters(
 				'ehf_render_localized_vars',
 				[
@@ -116,7 +126,7 @@ class Header_Footer_Elementor_Popup {
 					'_ajax_nonce'      => wp_create_nonce( 'ehf-elementor-popup' ),
 					'block_categories' => get_option( 'ehf-blocks-categories', [] ),
 					'site_url'         => site_url(),
-					'type'             => 'contact',
+					'type'             => $type,
 				]
 			);
 
