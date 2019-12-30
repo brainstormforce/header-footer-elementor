@@ -12,14 +12,14 @@ class HFE_Stats {
 		);
 
 		if ( BSF_Analytics::instance()->is_tracking_enabled( 'header-footer-elementor' ) ) {
-			add_filter( 'bsf_core_stats', array( $this, 'hfe_stats' ) );
+			add_filter( 'bsf_core_stats', [ $this, 'hfe_stats' ] );
 		}
 	}
 
 	public function hfe_stats( $stats ) {
-		$stats['header-footer-elementor'][] = array(
+		$stats['header-footer-elementor'][] = [
 			'version' => HFE_VER,
-		);
+		];
 
 		return $stats;
 	}
