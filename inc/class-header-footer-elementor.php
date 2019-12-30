@@ -71,8 +71,6 @@ class Header_Footer_Elementor {
 			} elseif ( 'storefront' == $this->template ) {
 				require HFE_DIR . 'themes/storefront/class-hfe-storefront-compat.php';
 			} else {
-				require_once HFE_DIR . 'themes/default/class-hfe-fallback-theme-support.php';
-
 				add_action( 'init', [ $this, 'setup_unsupported_theme_notice' ] );
 			}
 
@@ -316,6 +314,8 @@ class Header_Footer_Elementor {
 					'repeat-notice-after' => false,
 				]
 			);
+
+			require_once HFE_DIR . 'themes/default/class-hfe-fallback-theme-support.php';
 		}
 	}
 
