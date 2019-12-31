@@ -5,7 +5,7 @@ Donate link: https://www.paypal.me/BrainstormForce
 Requires at least: 4.4
 Requires PHP: 5.4
 Tested up to: 5.3
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -81,7 +81,7 @@ Made with love at <a href="https://www.brainstormforce.com/?utm_source=wp-repo&u
 
 == Installation ==
 
-1. Go to `Plugins -> Add New` and search for Header Footer Elementor.
+1. Go to `Plugins -> Add New` and search for Elementor – Header, Footer & Blocks.
 2. Activate the plugin through the 'Plugins' screen in WordPress.
 3. Go to `Appearance -> Header Footer Builder` to build a header or footer layout using elementor.
 4. After the layout is ready assign it as header or footer using the option `Select the type of template this is` (<a href="https://cloudup.com/clK2sPg9nXK+">screenshot</a>)
@@ -129,6 +129,9 @@ You can add support for the plugin from your child theme. Just follow <a href="h
 4. Methods to add Theme Support.
 
 == Changelog ==
+
+= 1.2.2 =
+- Fix: Add default fallback theme support after checking if current theme does not add it.
 
 = 1.2.1 =
 - Categorize the Elementor widgets in a separate category in the Elementor window.
