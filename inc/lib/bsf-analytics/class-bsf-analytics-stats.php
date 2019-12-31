@@ -83,16 +83,28 @@ class BSF_Analytics_Stats {
 
 	private function get_active_plugins() {
 		if ( ! $this->plugins ) {
-			// Ensure get_plugins function is loaded
-			if ( ! function_exists( 'get_plugins' ) ) {
-				include ABSPATH . '/wp-admin/includes/plugin.php';
+			// Ensure get_plugin_data function is loaded
+			if ( ! function_exists( 'get_plugin_data' ) ) {
+				require_once ABSPATH . 'wp-admin/includes/plugin.php';
 			}
-
-			$active_plugins = get_option( 'active_plugins' );
-			$this->plugins  = array_values( array_intersect_key( get_plugins(), array_flip( $active_plugins ) ) );
+	
+			$plugins = wp_get_active_and_valid_plugins();
+			$plugins = array_map( 'get_plugin_data', $plugins );
+			$this->plugins = array_map( array( $this, 'format_plugin' ), $plugins );
 		}
 
 		return $this->plugins;
+	}
+
+	public function format_plugin( $plugin ) {
+		return array(
+			'name'    		=> html_entity_decode( $plugin['Name'] ),
+			'url'     		=> $plugin['PluginURI'],
+			'version' 		=> $plugin['Version'],
+			'slug'    		=> $plugin['TextDomain'],
+			'author_name'  	=> html_entity_decode( strip_tags( $plugin['Author'] ) ),
+			'author_url'  	=> $plugin['AuthorURI'],
+		);
 	}
 
 	private function get_curl_ssl_version() {
