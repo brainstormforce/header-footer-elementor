@@ -162,7 +162,7 @@ if ( ! class_exists( 'EHF_Batch_Processing' ) ) :
 					return;
 				}
 
-				if ( 'appearance_page_astra-sites' === $current_screen->id ) {
+				if ( 'edit-elementor-hf' === $current_screen->id ) {
 
 					// Process import.
 					$this->process_import();
