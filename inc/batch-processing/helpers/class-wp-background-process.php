@@ -196,7 +196,7 @@ if ( ! class_exists( 'WP_Background_Process' ) ) {
 			}
 
 			$key = $this->identifier . '_batch_%';
-
+			/* translators: 1: Key. */
 			$count = $wpdb->get_var(
 				$wpdb->prepare(
 					"
@@ -276,7 +276,7 @@ if ( ! class_exists( 'WP_Background_Process' ) ) {
 			}
 
 			$key = $this->identifier . '_batch_%';
-
+			/* translators: 1: Key. */
 			$query = $wpdb->get_row(
 				$wpdb->prepare(
 					"
@@ -432,6 +432,7 @@ if ( ! class_exists( 'WP_Background_Process' ) ) {
 			// Adds every 5 minutes to the existing schedules.
 			$schedules[ $this->identifier . '_cron_interval' ] = [
 				'interval' => MINUTE_IN_SECONDS * $interval,
+				/* translators: 1: Interval. */
 				'display'  => sprintf( __( 'Every %d Minutes', 'header-footer-elementor' ), $interval ),
 			];
 
