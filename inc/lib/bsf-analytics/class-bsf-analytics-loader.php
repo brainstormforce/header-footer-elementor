@@ -24,6 +24,8 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 			if ( ! has_action( 'bsf_analytics_send', array( $this, 'send' ) ) ) {
 				add_action( 'bsf_analytics_send', array( $this, 'send' ) );
 			}
+
+			$this->includes();
 		}
 
 		public static function register_product( $slug, $name, $type ) {
@@ -184,6 +186,10 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 		private function unschedule_event() {
 			wp_clear_scheduled_hook( 'bsf_analytics_send' );
+		}
+
+		private function includes() {
+			require_once __DIR__ . '/class-bsf-analytics-stats.php';
 		}
 
 	}
