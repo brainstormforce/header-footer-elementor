@@ -26,6 +26,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 			}
 
 			$this->includes();
+			$this->schedule_event();
 		}
 
 		public static function register_product( $slug, $name, $type ) {
@@ -170,7 +171,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		}
 
 		public function every_two_days_schedule( $schedules ) {
-			$schedules['every-two-days'] = array(
+			$schedules['every_two_days'] = array(
 				'interval' => 2 * DAY_IN_SECONDS,
 				'display'  => __( 'Every two days', 'textdomain' ),
 			);
@@ -179,8 +180,8 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		}
 
 		private function schedule_event() {
-			if ( ! wp_next_scheduled( 'bsf_analytics_send' ) ) {
-				wp_schedule_event( time(), 'weekly', 'bsf_analytics_send' );
+			if ( ! wp_next_scheduled( 'bsf_analytics_send' ) && ! empty( $this->trackable_products() ) ) {
+				wp_schedule_event( time(), 'every_two_days', 'bsf_analytics_send' );
 			}
 		}
 
