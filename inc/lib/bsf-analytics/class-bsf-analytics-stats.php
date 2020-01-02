@@ -39,6 +39,8 @@ class BSF_Analytics_Stats {
 			'php_memory_limit'       => ini_get( 'memory_limit' ),
 			'zip_installed'          => extension_loaded( 'zip' ),
 			'imagick_availabile'     => extension_loaded( 'imagick' ),
+			'xmlreader_exists'       => class_exists( 'XMLReader' ),
+			'gd_available'           => extension_loaded( 'gd' ),
 			'curl_version'           => $this->get_curl_version(),
 			'curl_ssl_version'       => $this->get_curl_ssl_version(),
 			'is_writable'            => $this->is_content_writable(),
