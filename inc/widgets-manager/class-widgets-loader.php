@@ -22,6 +22,7 @@ class Widgets_Loader {
 
 
 
+
 	/**
 	 * Instance of Widgets_Loader.
 	 *
