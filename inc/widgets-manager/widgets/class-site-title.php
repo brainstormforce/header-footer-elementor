@@ -6,21 +6,13 @@
  */
 
 namespace HFE\WidgetsManager\Widgets;
-
 use Elementor\Controls_Manager;
-use Elementor\Control_Media;
-use Elementor\Utils;
-use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
-use Elementor\Group_Control_Box_Shadow;
 use Elementor\Scheme_Typography;
-use Elementor\Scheme_Color;
-use Elementor\Group_Control_Image_Size;
-use Elementor\Repeater;
-use Elementor\Group_Control_Css_Filter;
-use Elementor\Group_Control_Text_Shadow;
-use Elementor\Plugin;
 use Elementor\Widget_Base;
+use Elementor\Group_Control_Text_Shadow;
+use Elementor\Scheme_Color;
+
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;   // Exit if accessed directly.
@@ -93,139 +85,282 @@ class Site_Title extends Widget_Base {
 	}
 
 	/**
-	 * Register Retina Logo controls.
+	 * Register site title controls controls.
 	 *
-	 * @since 1.2.0
+	 * @since 0.0.1
 	 * @access protected
 	 */
 	protected function _register_controls() {
-		$this->register_site_title_content();
-	
+
+		$this->register_general_content_controls();
+		$this->register_style_content_controls();
+		$this->register_heading_typo_content_controls();
+	}
+
+	/**
+	 * Register Advanced Heading General Controls.
+	 *
+	 * @since 0.0.1
+	 * @access protected
+	 */
+	protected function register_general_content_controls() {
+
+		$this->start_controls_section(
+			'section_general_fields',
+			[
+				'label' => __( 'General', 'header-footer-elementor' ),
+			]
+		);
+
+		$this->add_control(
+			'before',
+			[
+				'label'   => __( 'Before Title text', 'header-footer-elementor' ),
+				'type'    => Controls_Manager::TEXTAREA,
+				'rows'    => '1',
+				'dynamic' => [
+					'active' => true,
+				],
+			]
+		);
+
+		$this->add_control(
+			'after',
+			[
+				'label'   => __( 'After Title Text', 'header-footer-elementor' ),
+				'type'    => Controls_Manager::TEXTAREA,
+				'rows'    => '1',
+				'dynamic' => [
+					'active' => true,
+				],
+			]
+		);
+
+		$this->add_control(
+			'heading_link',
+			[
+				'label'       => __( 'Link', 'uael' ),
+				'type'        => Controls_Manager::URL,
+				'placeholder' => __( 'https://your-link.com', 'uael' ),
+				'dynamic'     => [
+					'active' => true,
+				],
+				'default'     => [
+					'url' => '',
+				],
+			]
+		);
+		$this->end_controls_section();
 	}
 
 
-	protected function register_site_title_content(){
+
+	/**
+	 * Register Advanced Heading Controls.
+	 *
+	 * @since 0.0.1
+	 * @access protected
+	 */
+	protected function register_style_content_controls() {
 		$this->start_controls_section(
-			'section_retina_image',
+			'section_style',
 			[
-				'label' => __( 'Retina Image', 'header-footer-elementor' ),
-			]
-		);
-
-		$this->add_control(
-			'before_heading',
-			array(
-				'label'   => __( 'Before heading', 'uael' ),
-				'type'    => Controls_Manager::TEXTAREA,
-				'rows'    => '1',
-				'dynamic' => array(
-					'active' => true,
-				),
-			)
-		);
-
-		$this->add_control(
-			'after_heading',
-			array(
-				'label'   => __( 'after heading', 'uael' ),
-				'type'    => Controls_Manager::TEXTAREA,
-				'rows'    => '1',
-				'dynamic' => array(
-					'active' => true,
-				),
-			)
-		);
-
-		$this->add_control(
-			'size',
-			[
-				'label' => __( 'Size', 'elementor' ),
-				'type' => Controls_Manager::SELECT,
-				'default' => 'default',
-				'options' => [
-					'default' => __( 'Default', 'elementor' ),
-					'small' => __( 'Small', 'elementor' ),
-					'medium' => __( 'Medium', 'elementor' ),
-					'large' => __( 'Large', 'elementor' ),
-					'xl' => __( 'XL', 'elementor' ),
-					'xxl' => __( 'XXL', 'elementor' ),
-				],
-			]
-		);
-
-		$this->add_control(
-			'header_size',
-			[
-				'label' => __( 'HTML Tag', 'elementor' ),
-				'type' => Controls_Manager::SELECT,
-				'options' => [
-					'h1' => 'H1',
-					'h2' => 'H2',
-					'h3' => 'H3',
-					'h4' => 'H4',
-					'h5' => 'H5',
-					'h6' => 'H6',
-					'div' => 'div',
-					'span' => 'span',
-					'p' => 'p',
-				],
-				'default' => 'h2',
+				'label' => __( 'General', 'header-footer-elementor' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
 
 		$this->add_responsive_control(
-			'align',
+			'heading_text_align',
 			[
-				'label' => __( 'Alignment', 'elementor' ),
-				'type' => Controls_Manager::CHOOSE,
-				'options' => [
-					'left' => [
-						'title' => __( 'Left', 'elementor' ),
-						'icon' => 'eicon-text-align-left',
+				'label'        => __( 'Overall Alignment', 'header-footer-elementor' ),
+				'type'         => Controls_Manager::CHOOSE,
+				'options'      => [
+					'left'   => [
+						'title' => __( 'Left', 'header-footer-elementor' ),
+						'icon'  => 'fa fa-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'elementor' ),
-						'icon' => 'eicon-text-align-center',
+						'title' => __( 'Center', 'header-footer-elementor' ),
+						'icon'  => 'fa fa-align-center',
 					],
-					'right' => [
-						'title' => __( 'Right', 'elementor' ),
-						'icon' => 'eicon-text-align-right',
-					],
-					'justify' => [
-						'title' => __( 'Justified', 'elementor' ),
-						'icon' => 'eicon-text-align-justify',
+					'right'  => [
+						'title' => __( 'Right', 'header-footer-elementor' ),
+						'icon'  => 'fa fa-align-right',
 					],
 				],
-				'default' => '',
+				'selectors'    => [
+					'{{WRAPPER}} .hfe-heading,{{WRAPPER}} .hfe-sub-heading, {{WRAPPER}} .hfe-sub-heading *,{{WRAPPER}} .hfe-subheading, {{WRAPPER}} .hfe-subheading *, {{WRAPPER}} .hfe-separator-parent' => 'text-align: {{VALUE}};',
+				],
+				'prefix_class' => 'hfe%s-heading-align-',
+			]
+		);
+
+		$this->end_controls_section();
+	}
+
+	/**
+	 * Register Advanced Heading Typography Controls.
+	 *
+	 * @since 0.0.1
+	 * @access protected
+	 */
+	protected function register_heading_typo_content_controls() {
+		$this->start_controls_section(
+			'section_heading_typography',
+			[
+				'label' => __( 'Heading', 'header-footer-elementor' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+		$this->add_control(
+			'heading_tag',
+			[
+				'label'   => __( 'HTML Tag', 'header-footer-elementor' ),
+				'type'    => Controls_Manager::SELECT,
+				'options' => [
+					'h1' => __( 'H1', 'header-footer-elementor' ),
+					'h2' => __( 'H2', 'header-footer-elementor' ),
+					'h3' => __( 'H3', 'header-footer-elementor' ),
+					'h4' => __( 'H4', 'header-footer-elementor' ),
+					'h5' => __( 'H5', 'header-footer-elementor' ),
+					'h6' => __( 'H6', 'header-footer-elementor' ),
+				],
+				'default' => 'h2',
+			]
+		);
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'     => 'heading_typography',
+				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
+				'selector' => '{{WRAPPER}} .hfe-heading, {{WRAPPER}} .hfe-heading a',
+			]
+		);
+		$this->add_control(
+			'heading_color',
+			[
+				'label'     => __( 'Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => [
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_1,
+				],
 				'selectors' => [
-					'{{WRAPPER}}' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .hfe-heading-text' => 'color: {{VALUE}};',
 				],
 			]
 		);
 
-
+		$this->add_group_control(
+			Group_Control_Text_Shadow::get_type(),
+			[
+				'name'     => 'heading_shadow',
+				'selector' => '{{WRAPPER}} .hfe-heading-text',
+			]
+		);
+		$this->add_responsive_control(
+			'heading_margin',
+			[
+				'label'      => __( 'Title Margin', 'header-footer-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px' ],
+				'default'    => [
+					'top'      => '0',
+					'bottom'   => '15',
+					'left'     => '0',
+					'right'    => '0',
+					'unit'     => 'px',
+					'isLinked' => false,
+				],
+				'selectors'  => [
+					'{{WRAPPER}} .hfe-heading' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+		$this->add_control(
+			'blend_mode',
+			[
+				'label'     => __( 'Blend Mode', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SELECT,
+				'options'   => [
+					''            => __( 'Normal', 'header-footer-elementor' ),
+					'multiply'    => 'Multiply',
+					'screen'      => 'Screen',
+					'overlay'     => 'Overlay',
+					'darken'      => 'Darken',
+					'lighten'     => 'Lighten',
+					'color-dodge' => 'Color Dodge',
+					'saturation'  => 'Saturation',
+					'color'       => 'Color',
+					'difference'  => 'Difference',
+					'exclusion'   => 'Exclusion',
+					'hue'         => 'Hue',
+					'luminosity'  => 'Luminosity',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .hfe-heading-text' => 'mix-blend-mode: {{VALUE}}',
+				],
+				'separator' => 'none',
+			]
+		);
 		$this->end_controls_section();
 	}
+
+
+
 	/**
-	 * Render Retina Image output on the frontend.
+	 * Render Heading output on the frontend.
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
-	 * @since 1.2.0
+	 * @since 0.0.1
 	 * @access protected
 	 */
 	protected function render() {
 
-		$bloginfo = get_bloginfo('name');
-		// echo $bloginfo;
-		$settings = $this->get_settings_for_display();
-		?> < <?php echo $settings['header_size'];?> class="uael-heading">
-			?> <p class="hfe-site-title">
-			<?php	echo $bloginfo;?>
-			</p>
-		</<?php echo $settings['header_size']; ?>>
-	<?php
-		
+		$settings         = $this->get_settings();
+		$dynamic_settings = $this->get_settings_for_display();
+		$title            = get_bloginfo( 'name' );
+
+		$this->add_inline_editing_attributes( 'heading_title', 'basic' );
+		$this->add_inline_editing_attributes( 'sub_heading', 'advanced' );
+
+		if ( ! empty( $dynamic_settings['heading_link']['url'] ) ) {
+			$this->add_render_attribute( 'url', 'href', $dynamic_settings['heading_link']['url'] );
+
+			if ( $dynamic_settings['heading_link']['is_external'] ) {
+				$this->add_render_attribute( 'url', 'target', '_blank' );
+			}
+
+			if ( ! empty( $dynamic_settings['heading_link']['nofollow'] ) ) {
+				$this->add_render_attribute( 'url', 'rel', 'nofollow' );
+			}
+			$link = $this->get_render_attribute_string( 'url' );
+		}
+		?>
+
+		<div class="hfe-module-content hfe-heading-wrapper">
+		<?php if ( ! empty( $dynamic_settings['heading_link']['url'] ) ) { ?>
+					<a <?php echo $link; ?> >
+				<?php } ?>
+			<<?php echo $settings['heading_tag']; ?> class="hfe-heading">
+						<span class="hfe-heading-text elementor-inline-editing hfe-size--<?php echo $settings['size']; ?>" >
+						<?php
+						if ( '' !== $settings['before'] ) {
+							echo $settings['before'];
+						}
+						echo $title;
+						if ( '' !== $settings['after'] ) {
+							echo $settings['after'];
+						}
+						?>
+						</span>
+						<?php if ( ! empty( $dynamic_settings['heading_link']['url'] ) ) { ?>
+					</a>	
+					<?php } ?>					
+			</<?php echo $settings['heading_tag']; ?>>
+		</div>
+		<?php
 	}
-	
 }
