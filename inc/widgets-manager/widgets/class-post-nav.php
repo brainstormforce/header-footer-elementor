@@ -90,4 +90,87 @@ class Post_Nav extends Widget_Base {
 	public function get_categories() {
 		return [ 'hfe-widgets' ];
 	}
+
+	/**
+	 * Register Post Navigation Controls.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function _register_controls() {
+		$this->register_content_controls();
+	}
+
+	/**
+	 * Register Post Navigation General Controls.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function register_content_controls() {
+		$this->start_controls_section(
+			'post_navigation_content',
+			[
+				'label' => __( 'Post Navigation', 'header-footer-elementor' ),
+			]
+		);
+
+		$this->add_control(
+			'show_label',
+			[
+				'label' => __( 'Label', 'header-footer-elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => __( 'Show', 'header-footer-elementor' ),
+				'label_off' => __( 'Hide', 'header-footer-elementor' ),
+				'default' => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'prev_label',
+			[
+				'label' => __( 'Previous Label', 'header-footer-elementor' ),
+				'type' => Controls_Manager::TEXT,
+				'default' => __( 'Previous', 'header-footer-elementor' ),
+				'condition' => [
+					'show_label' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'next_label',
+			[
+				'label' => __( 'Next Label', 'header-footer-elementor' ),
+				'type' => Controls_Manager::TEXT,
+				'default' => __( 'Next', 'header-footer-elementor' ),
+				'condition' => [
+					'show_label' => 'yes',
+				],
+			]
+		);
+	}
+
+	/**
+	 * Render Post Navigation output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function render() {
+
+		$settings = $this->get_settings_for_display();
+
+		$prev_label = '';
+		$next_label = '';
+		$prev_arrow = '';
+		$next_arrow = '';
+
+		if ( 'yes' === $settings['show_label'] ) {
+			$prev_label = '<span class="hfe-post-nav-prev-label">' . $settings['prev_label'] . '</span>';
+			$next_label = '<span class="hfe-post-nav-next-label">' . $settings['next_label'] . '</span>';
+		}
+	}
 }
