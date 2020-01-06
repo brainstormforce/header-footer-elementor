@@ -201,28 +201,32 @@ class Post_Title extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'heading_text_align',
+			'align',
 			[
-				'label'        => __( 'Overall Alignment', 'header-footer-elementor' ),
-				'type'         => Controls_Manager::CHOOSE,
-				'options'      => [
-					'left'   => [
-						'title' => __( 'Left', 'header-footer-elementor' ),
-						'icon'  => 'fa fa-align-left',
+				'label' => __( 'Alignment', 'elementor' ),
+				'type' => Controls_Manager::CHOOSE,
+				'options' => [
+					'left' => [
+						'title' => __( 'Left', 'elementor' ),
+						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'header-footer-elementor' ),
-						'icon'  => 'fa fa-align-center',
+						'title' => __( 'Center', 'elementor' ),
+						'icon' => 'eicon-text-align-center',
 					],
-					'right'  => [
-						'title' => __( 'Right', 'header-footer-elementor' ),
-						'icon'  => 'fa fa-align-right',
+					'right' => [
+						'title' => __( 'Right', 'elementor' ),
+						'icon' => 'eicon-text-align-right',
+					],
+					'justify' => [
+						'title' => __( 'Justified', 'elementor' ),
+						'icon' => 'eicon-text-align-justify',
 					],
 				],
-				'selectors'    => [
-					'{{WRAPPER}} .hfe-heading,{{WRAPPER}} .hfe-sub-heading, {{WRAPPER}} .hfe-sub-heading *,{{WRAPPER}} .hfe-subheading, {{WRAPPER}} .hfe-subheading *, {{WRAPPER}} .hfe-separator-parent' => 'text-align: {{VALUE}};',
+				'default' => '',
+				'selectors' => [
+					'{{WRAPPER}} .hfe-post-title-wrapper' => 'text-align: {{VALUE}};',
 				],
-				'prefix_class' => 'hfe%s-heading-align-',
 			]
 		);
 
@@ -322,8 +326,6 @@ class Post_Title extends Widget_Base {
 		$this->end_controls_section();
 	}
 
-
-
 	/**
 	 * Render Heading output on the frontend.
 	 *
@@ -377,7 +379,7 @@ class Post_Title extends Widget_Base {
 		$title_html = sprintf( '<%1$s %2$s>%3$s</%1$s>', $settings['heading_tag'], $this->get_render_attribute_string( 'title' ), $title );
 		?>
 
-		<div class="hfe-module-content hfe-heading-wrapper">
+		<div class="hfe-widget-content hfe-post-title-wrapper">
 			<?php echo $title_html; ?>
 		</div>
 		<?php
