@@ -360,7 +360,7 @@ class Post_Title extends Widget_Base {
 		$title_html = sprintf( '<%1$s %2$s>%3$s</%1$s>', $settings['heading_tag'], $this->get_render_attribute_string( 'title' ), $title );
 		?>
 
-		<div class="hfe-post-title hfe-post-title-wrapper">
+		<div class="hfe-post-title hfe-post-title-wrapper elementor-widget-heading">
 			<?php echo $title_html; ?>
 		</div>
 		<?php
