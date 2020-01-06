@@ -146,7 +146,7 @@ class Site_Title extends Widget_Base {
 					'active' => true,
 				],
 				'default'     => [
-					'url' => '',
+					'url' => get_home_url(),
 				],
 			]
 		);
@@ -372,7 +372,6 @@ class Site_Title extends Widget_Base {
 		 * @access protected
 		 */
 	protected function _content_template() {
-
 		?>
 		<#
 		if ( '' == settings.heading_title ) {
