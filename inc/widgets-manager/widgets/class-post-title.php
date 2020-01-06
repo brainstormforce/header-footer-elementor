@@ -251,7 +251,7 @@ class Post_Title extends Widget_Base {
 				[
 					'name'     => 'title_typography',
 					'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
-					'selector' => '{{WRAPPER}} .hfe-post-title, {{WRAPPER}} .hfe-post-title a',
+					'selector' => '{{WRAPPER}} .elementor-heading-title, {{WRAPPER}} .hfe-post-title a',
 				]
 			);
 
@@ -265,7 +265,7 @@ class Post_Title extends Widget_Base {
 						'value' => Scheme_Color::COLOR_1,
 					],
 					'selectors' => [
-						'{{WRAPPER}} .hfe-post-title, {{WRAPPER}} .hfe-post-title a' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .elementor-heading-title, {{WRAPPER}} .hfe-post-title a' => 'color: {{VALUE}};',
 					],
 				]
 			);
@@ -274,7 +274,7 @@ class Post_Title extends Widget_Base {
 				Group_Control_Text_Shadow::get_type(),
 				[
 					'name'     => 'title_shadow',
-					'selector' => '{{WRAPPER}} .hfe-post-title',
+					'selector' => '{{WRAPPER}} .elementor-heading-title',
 				]
 			);
 
@@ -299,7 +299,7 @@ class Post_Title extends Widget_Base {
 						'luminosity'  => 'Luminosity',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .hfe-post-title' => 'mix-blend-mode: {{VALUE}}',
+						'{{WRAPPER}} .elementor-heading-title' => 'mix-blend-mode: {{VALUE}}',
 					],
 				]
 			);
