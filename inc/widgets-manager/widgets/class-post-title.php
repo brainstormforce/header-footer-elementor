@@ -107,7 +107,7 @@ class Post_Title extends Widget_Base {
 		$this->start_controls_section(
 			'section_general_fields',
 			[
-				'label' => __( 'General', 'header-footer-elementor' ),
+				'label' => __( 'Title', 'header-footer-elementor' ),
 			]
 		);
 
@@ -327,13 +327,13 @@ class Post_Title extends Widget_Base {
 		}
 
 		if ( '' !== $settings['before'] ) {
-			$title .= $settings['before'];
+			$title .= $settings['before'] . ' ';
 		}
 
 		$title .= wp_kses_post( get_the_title() );
 
 		if ( '' !== $settings['after'] ) {
-			$title .= $settings['after'];
+			$title .= ' ' . $settings['after'];
 		}
 
 		if ( 'custom' === $settings['link'] && ( ! empty( $settings['custom_link']['url'] ) ) ) {
@@ -362,6 +362,42 @@ class Post_Title extends Widget_Base {
 
 		<div class="hfe-post-title hfe-post-title-wrapper elementor-widget-heading">
 			<?php echo $title_html; ?>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Render post Title widget output in the editor.
+	 *
+	 * Written as a Backbone JavaScript template and used to generate the live preview.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function _content_template() {
+		?>
+		<#
+		var enable_link = false; 
+		if ( ( 'custom' === settings.link && '' !== settings.custom_link.url ) || 'default' === settings.link ) {
+			enable_link = true;
+		}
+		#>
+		<div class="hfe-post-title hfe-post-title-wrapper elementor-widget-heading">
+			<{{{ settings.heading_tag }}} class="elementor-heading-title elementor-size-{{{ settings.size }}}">
+				<# if ( enable_link ) { #>
+					<a>
+				<# } #>
+					<# if ( '' != settings.before ) { #>
+						{{{ settings.before }}}
+					<# } #>
+					<?php echo wp_kses_post( get_the_title() ); ?>
+					<# if ( '' != settings.after ) { #>
+						{{{ settings.after }}}
+					<# } #>
+				<# if ( enable_link ) { #>
+					</a>
+				<# } #>
+			</{{{ settings.heading_tag }}}>
 		</div>
 		<?php
 	}
