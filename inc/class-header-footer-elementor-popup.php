@@ -107,15 +107,16 @@ class Header_Footer_Elementor_Popup {
 			wp_enqueue_script( 'imagesloaded' );
 			wp_enqueue_script( 'hfe-template-popup-script', HFE_URL . 'admin/assets/js/ehf-template-popup.js', [ 'jquery', 'wp-util', 'updates', 'masonry', 'imagesloaded' ], HFE_VER );
 
+			$category_type = get_post_meta( get_the_ID(), 'ehf_template_type', true );
 			$type = '';
 
-			if ( get_post_meta( get_the_ID(), 'ehf_template_type', true ) ) {
+			if ( $category_type ) {
 
-				if ( hfe_footer_enabled() ) {
+				if ( 'type_footer' == $category_type ) {
 					$type = 'about';
 				}
 
-				if ( hfe_header_enabled() ) {
+				if ( 'type_header' == $category_type ) {
 					$type = 'contact';
 				}
 			}
@@ -130,7 +131,6 @@ class Header_Footer_Elementor_Popup {
 					'block_categories' => get_option( 'ehf-blocks-categories', [] ),
 					'site_url'         => site_url(),
 					'type'             => $type,
-					'type_slug' 	   => get_post_meta( get_the_ID(), 'ehf_template_type', true ),
 				]
 			);
 

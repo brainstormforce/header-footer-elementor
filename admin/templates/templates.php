@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<select id="elementor-template-library-filter" class="ehf-blocks__category elementor-template-library-filter-select elementor-select2">
 								<option value=""><?php esc_html_e( 'All', 'header-footer-elementor' ); ?></option>
 								<# for ( key in ehf_blocks.block_categories ) { #>
-									<# var selected = ( ehf_blocks.block_categories[key].slug == 'contact' ) ? 'selected="selected"' : ''; #>
+									<# var selected = ( ehf_blocks.block_categories[key].slug == EHFBlocks.blockCategory ) ? 'selected="selected"' : ''; #>
 								<option value="{{ehf_blocks.block_categories[key].id}}" {{selected}}>{{ehf_blocks.block_categories[key].name}}</option>
 								<# } #>
 							</select>
