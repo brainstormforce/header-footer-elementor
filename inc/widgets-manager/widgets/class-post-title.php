@@ -139,10 +139,10 @@ class Post_Title extends Widget_Base {
 				'label'   => __( 'Link', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'default',
-				'options' => array(
-					'default'    => __( 'Default', 'header-footer-elementor' ),
-					'custom'     => __( 'Custom Link', 'header-footer-elementor' ),
-				),
+				'options' => [
+					'default' => __( 'Default', 'header-footer-elementor' ),
+					'custom'  => __( 'Custom Link', 'header-footer-elementor' ),
+				],
 			]
 		);
 
@@ -158,27 +158,27 @@ class Post_Title extends Widget_Base {
 				'default'     => [
 					'url' => '',
 				],
-				'condition'   => array(
+				'condition'   => [
 					'link' => 'custom',
-				),
+				],
 			]
 		);
 
 		$this->add_control(
 			'size',
-			array(
+			[
 				'label'   => __( 'Size', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'default',
-				'options' => array(
+				'options' => [
 					'default' => __( 'Default', 'header-footer-elementor' ),
 					'small'   => __( 'Small', 'header-footer-elementor' ),
 					'medium'  => __( 'Medium', 'header-footer-elementor' ),
 					'large'   => __( 'Large', 'header-footer-elementor' ),
 					'xl'      => __( 'XL', 'header-footer-elementor' ),
 					'xxl'     => __( 'XXL', 'header-footer-elementor' ),
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
@@ -201,27 +201,27 @@ class Post_Title extends Widget_Base {
 		$this->add_responsive_control(
 			'align',
 			[
-				'label' => __( 'Alignment', 'header-footer-elementor' ),
-				'type' => Controls_Manager::CHOOSE,
-				'options' => [
-					'left' => [
+				'label'     => __( 'Alignment', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::CHOOSE,
+				'options'   => [
+					'left'    => [
 						'title' => __( 'Left', 'header-footer-elementor' ),
-						'icon' => 'eicon-text-align-left',
+						'icon'  => 'eicon-text-align-left',
 					],
-					'center' => [
+					'center'  => [
 						'title' => __( 'Center', 'header-footer-elementor' ),
-						'icon' => 'eicon-text-align-center',
+						'icon'  => 'eicon-text-align-center',
 					],
-					'right' => [
+					'right'   => [
 						'title' => __( 'Right', 'header-footer-elementor' ),
-						'icon' => 'eicon-text-align-right',
+						'icon'  => 'eicon-text-align-right',
 					],
 					'justify' => [
 						'title' => __( 'Justified', 'header-footer-elementor' ),
-						'icon' => 'eicon-text-align-justify',
+						'icon'  => 'eicon-text-align-justify',
 					],
 				],
-				'default' => '',
+				'default'   => '',
 				'selectors' => [
 					'{{WRAPPER}} .hfe-post-title-wrapper' => 'text-align: {{VALUE}};',
 				],
@@ -245,7 +245,7 @@ class Post_Title extends Widget_Base {
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
-		
+
 			$this->add_group_control(
 				Group_Control_Typography::get_type(),
 				[
@@ -317,8 +317,8 @@ class Post_Title extends Widget_Base {
 	 */
 	protected function render() {
 
-		$settings 		= $this->get_settings_for_display();
-		$title 			= '';
+		$settings = $this->get_settings_for_display();
+		$title    = '';
 
 		$this->add_render_attribute( 'title', 'class', 'elementor-heading-title' );
 
@@ -348,10 +348,10 @@ class Post_Title extends Widget_Base {
 			}
 
 			$title = sprintf( '<a %1$s>%2$s</a>', $this->get_render_attribute_string( 'url' ), $title );
-			
-		} else if( 'default' === $settings['link'] ) {
 
-			$this->add_render_attribute( 'url', 'href',  get_the_permalink() );
+		} elseif ( 'default' === $settings['link'] ) {
+
+			$this->add_render_attribute( 'url', 'href', get_the_permalink() );
 
 			$title = sprintf( '<a %1$s>%2$s</a>', $this->get_render_attribute_string( 'url' ), $title );
 
