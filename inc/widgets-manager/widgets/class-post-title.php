@@ -93,7 +93,7 @@ class Post_Title extends Widget_Base {
 	protected function _register_controls() {
 
 		$this->register_general_content_controls();
-		$this->register_heading_typo_content_controls();
+		$this->register_heading_style_controls();
 	}
 
 	/**
@@ -115,8 +115,7 @@ class Post_Title extends Widget_Base {
 			'before',
 			[
 				'label'   => __( 'Before Title text', 'header-footer-elementor' ),
-				'type'    => Controls_Manager::TEXTAREA,
-				'rows'    => '1',
+				'type'    => Controls_Manager::TEXT,
 				'dynamic' => [
 					'active' => true,
 				],
@@ -127,8 +126,7 @@ class Post_Title extends Widget_Base {
 			'after',
 			[
 				'label'   => __( 'After Title Text', 'header-footer-elementor' ),
-				'type'    => Controls_Manager::TEXTAREA,
-				'rows'    => '1',
+				'type'    => Controls_Manager::TEXT,
 				'dynamic' => [
 					'active' => true,
 				],
@@ -138,12 +136,12 @@ class Post_Title extends Widget_Base {
 		$this->add_control(
 			'link',
 			[
-				'label'   => __( 'Link', 'uael' ),
+				'label'   => __( 'Link', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'default',
 				'options' => array(
-					'default'    => __( 'Default', 'uael' ),
-					'custom'     => __( 'Custom Link', 'uael' ),
+					'default'    => __( 'Default', 'header-footer-elementor' ),
+					'custom'     => __( 'Custom Link', 'header-footer-elementor' ),
 				),
 			]
 		);
@@ -151,16 +149,16 @@ class Post_Title extends Widget_Base {
 		$this->add_control(
 			'custom_link',
 			[
-				'label'       => __( 'Enter URL', 'uael' ),
+				'label'       => __( 'Enter URL', 'header-footer-elementor' ),
 				'type'        => Controls_Manager::URL,
-				'placeholder' => __( 'https://your-link.com', 'uael' ),
+				'placeholder' => __( 'https://your-link.com', 'header-footer-elementor' ),
 				'dynamic'     => [
 					'active' => true,
 				],
 				'default'     => [
 					'url' => '',
 				],
-				'condition'       => array(
+				'condition'   => array(
 					'link' => 'custom',
 				),
 			]
@@ -169,16 +167,16 @@ class Post_Title extends Widget_Base {
 		$this->add_control(
 			'size',
 			array(
-				'label'   => __( 'Size', 'uael' ),
+				'label'   => __( 'Size', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'default',
 				'options' => array(
-					'default' => __( 'Default', 'uael' ),
-					'small'   => __( 'Small', 'uael' ),
-					'medium'  => __( 'Medium', 'uael' ),
-					'large'   => __( 'Large', 'uael' ),
-					'xl'      => __( 'XL', 'uael' ),
-					'xxl'     => __( 'XXL', 'uael' ),
+					'default' => __( 'Default', 'header-footer-elementor' ),
+					'small'   => __( 'Small', 'header-footer-elementor' ),
+					'medium'  => __( 'Medium', 'header-footer-elementor' ),
+					'large'   => __( 'Large', 'header-footer-elementor' ),
+					'xl'      => __( 'XL', 'header-footer-elementor' ),
+					'xxl'     => __( 'XXL', 'header-footer-elementor' ),
 				),
 			)
 		);
@@ -203,23 +201,23 @@ class Post_Title extends Widget_Base {
 		$this->add_responsive_control(
 			'align',
 			[
-				'label' => __( 'Alignment', 'elementor' ),
+				'label' => __( 'Alignment', 'header-footer-elementor' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => __( 'Left', 'elementor' ),
+						'title' => __( 'Left', 'header-footer-elementor' ),
 						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'elementor' ),
+						'title' => __( 'Center', 'header-footer-elementor' ),
 						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
-						'title' => __( 'Right', 'elementor' ),
+						'title' => __( 'Right', 'header-footer-elementor' ),
 						'icon' => 'eicon-text-align-right',
 					],
 					'justify' => [
-						'title' => __( 'Justified', 'elementor' ),
+						'title' => __( 'Justified', 'header-footer-elementor' ),
 						'icon' => 'eicon-text-align-justify',
 					],
 				],
@@ -234,95 +232,78 @@ class Post_Title extends Widget_Base {
 	}
 
 	/**
-	 * Register Advanced Heading Typography Controls.
+	 * Register Style Controls.
 	 *
 	 * @since x.x.x
 	 * @access protected
 	 */
-	protected function register_heading_typo_content_controls() {
+	protected function register_heading_style_controls() {
 		$this->start_controls_section(
-			'section_heading_typography',
+			'section_title_typography',
 			[
-				'label' => __( 'Heading', 'header-footer-elementor' ),
+				'label' => __( 'Title', 'header-footer-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
 		
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'name'     => 'heading_typography',
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .hfe-heading, {{WRAPPER}} .hfe-heading a',
-			]
-		);
-		$this->add_control(
-			'heading_color',
-			[
-				'label'     => __( 'Color', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::COLOR,
-				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .hfe-heading-text' => 'color: {{VALUE}};',
-				],
-			]
-		);
+			$this->add_group_control(
+				Group_Control_Typography::get_type(),
+				[
+					'name'     => 'title_typography',
+					'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
+					'selector' => '{{WRAPPER}} .hfe-post-title, {{WRAPPER}} .hfe-post-title a',
+				]
+			);
 
-		$this->add_group_control(
-			Group_Control_Text_Shadow::get_type(),
-			[
-				'name'     => 'heading_shadow',
-				'selector' => '{{WRAPPER}} .hfe-heading-text',
-			]
-		);
-		$this->add_responsive_control(
-			'heading_margin',
-			[
-				'label'      => __( 'Title Margin', 'header-footer-elementor' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px' ],
-				'default'    => [
-					'top'      => '0',
-					'bottom'   => '15',
-					'left'     => '0',
-					'right'    => '0',
-					'unit'     => 'px',
-					'isLinked' => false,
-				],
-				'selectors'  => [
-					'{{WRAPPER}} .hfe-heading' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
-		$this->add_control(
-			'blend_mode',
-			[
-				'label'     => __( 'Blend Mode', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::SELECT,
-				'options'   => [
-					''            => __( 'Normal', 'header-footer-elementor' ),
-					'multiply'    => 'Multiply',
-					'screen'      => 'Screen',
-					'overlay'     => 'Overlay',
-					'darken'      => 'Darken',
-					'lighten'     => 'Lighten',
-					'color-dodge' => 'Color Dodge',
-					'saturation'  => 'Saturation',
-					'color'       => 'Color',
-					'difference'  => 'Difference',
-					'exclusion'   => 'Exclusion',
-					'hue'         => 'Hue',
-					'luminosity'  => 'Luminosity',
-				],
-				'selectors' => [
-					'{{WRAPPER}} .hfe-heading-text' => 'mix-blend-mode: {{VALUE}}',
-				],
-				'separator' => 'none',
-			]
-		);
+			$this->add_control(
+				'title_color',
+				[
+					'label'     => __( 'Color', 'header-footer-elementor' ),
+					'type'      => Controls_Manager::COLOR,
+					'scheme'    => [
+						'type'  => Scheme_Color::get_type(),
+						'value' => Scheme_Color::COLOR_1,
+					],
+					'selectors' => [
+						'{{WRAPPER}} .hfe-post-title, {{WRAPPER}} .hfe-post-title a' => 'color: {{VALUE}};',
+					],
+				]
+			);
+
+			$this->add_group_control(
+				Group_Control_Text_Shadow::get_type(),
+				[
+					'name'     => 'title_shadow',
+					'selector' => '{{WRAPPER}} .hfe-post-title',
+				]
+			);
+
+			$this->add_control(
+				'blend_mode',
+				[
+					'label'     => __( 'Blend Mode', 'header-footer-elementor' ),
+					'type'      => Controls_Manager::SELECT,
+					'options'   => [
+						''            => __( 'Normal', 'header-footer-elementor' ),
+						'multiply'    => 'Multiply',
+						'screen'      => 'Screen',
+						'overlay'     => 'Overlay',
+						'darken'      => 'Darken',
+						'lighten'     => 'Lighten',
+						'color-dodge' => 'Color Dodge',
+						'saturation'  => 'Saturation',
+						'color'       => 'Color',
+						'difference'  => 'Difference',
+						'exclusion'   => 'Exclusion',
+						'hue'         => 'Hue',
+						'luminosity'  => 'Luminosity',
+					],
+					'selectors' => [
+						'{{WRAPPER}} .hfe-post-title' => 'mix-blend-mode: {{VALUE}}',
+					],
+				]
+			);
+			
 		$this->end_controls_section();
 	}
 
@@ -379,7 +360,7 @@ class Post_Title extends Widget_Base {
 		$title_html = sprintf( '<%1$s %2$s>%3$s</%1$s>', $settings['heading_tag'], $this->get_render_attribute_string( 'title' ), $title );
 		?>
 
-		<div class="hfe-widget-content hfe-post-title-wrapper">
+		<div class="hfe-post-title hfe-post-title-wrapper">
 			<?php echo $title_html; ?>
 		</div>
 		<?php
