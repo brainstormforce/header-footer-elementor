@@ -326,7 +326,7 @@ class Site_Title extends Widget_Base {
 					<a <?php echo $link; ?> >
 				<?php } ?>
 			<<?php echo $settings['heading_tag']; ?> class="hfe-heading">
-						<span class="hfe-heading-text elementor-inline-editing hfe-size--<?php echo $settings['size']; ?>" >
+						<span class="hfe-heading-text  hfe-size--<?php echo $settings['size']; ?>" >
 						<?php
 						if ( '' !== $settings['before'] ) {
 							echo $settings['before'];
@@ -370,13 +370,13 @@ class Site_Title extends Widget_Base {
 				<# if ( '' != settings.heading_link.url ) { #>
 					<a {{{ view.getRenderAttributeString( 'url' ) }}} >
 				<# } #>
-				<span class="hfe-heading-text elementor-inline-editing hfe-size--{{{ settings.size }}}" data-elementor-setting-key="heading_title" data-elementor-inline-editing-toolbar="basic" >
+				<span class="hfe-heading-text  hfe-size--{{{ settings.size }}}" data-elementor-setting-key="heading_title" data-elementor-inline-editing-toolbar="basic" >
 				<#if ( '' != settings.before ){#>
-					{{{ settings.before }}}
+					{{{settings.before}}}
 				<#}#>
 				<?php echo get_bloginfo( 'name' ); ?>
 				<# if ( '' != settings.after ){#>
-					{{{ settings.after }}}
+					{{{settings.after}}}
 				<#}#>
 				</span>
 				<# if ( '' != settings.heading_link.url ) { #>
