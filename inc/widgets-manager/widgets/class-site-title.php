@@ -139,9 +139,9 @@ class Site_Title extends Widget_Base {
 		$this->add_control(
 			'heading_link',
 			[
-				'label'       => __( 'Link', 'uael' ),
+				'label'       => __( 'Link', 'header-footer-elementor' ),
 				'type'        => Controls_Manager::URL,
-				'placeholder' => __( 'https://your-link.com', 'uael' ),
+				'placeholder' => __( 'https://your-link.com', 'header-footer-elementor' ),
 				'dynamic'     => [
 					'active' => true,
 				],
@@ -360,6 +360,49 @@ class Site_Title extends Widget_Base {
 					</a>	
 					<?php } ?>					
 			</<?php echo $settings['heading_tag']; ?>>
+		</div>
+		<?php
+	}
+		/**
+		 * Render Heading widgets output in the editor.
+		 *
+		 * Written as a Backbone JavaScript template and used to generate the live preview.
+		 *
+		 * @since 0.0.1
+		 * @access protected
+		 */
+	protected function _content_template() {
+
+		?>
+		<#
+		if ( '' == settings.heading_title ) {
+			return;
+		}
+		if ( '' == settings.size ){
+			return;
+		}
+		if ( '' != settings.heading_link.url ) {
+			view.addRenderAttribute( 'url', 'href', settings.heading_link.url );
+		}
+		#>
+		<div class="hfe-module-content hfe-heading-wrapper">
+			<{{{ settings.heading_tag }}} class="hfe-heading">
+				<# if ( '' != settings.heading_link.url ) { #>
+					<a {{{ view.getRenderAttributeString( 'url' ) }}} >
+				<# } #>
+				<span class="hfe-heading-text elementor-inline-editing hfe-size--{{{ settings.size }}}" data-elementor-setting-key="heading_title" data-elementor-inline-editing-toolbar="basic" >
+				<#if ( '' != settings.before ){#>
+					{{{ settings.before }}}
+				<#}#>
+				<?php echo get_bloginfo( 'name' ); ?>
+				<# if ( '' != settings.after ){#>
+					{{{ settings.after }}}
+				<#}#>
+				</span>
+				<# if ( '' != settings.heading_link.url ) { #>
+					</a>
+				<# } #>
+			</{{{ settings.heading_tag }}}>
 		</div>
 		<?php
 	}
