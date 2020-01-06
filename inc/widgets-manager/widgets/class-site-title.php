@@ -253,7 +253,7 @@ class Site_Title extends Widget_Base {
 			[
 				'name'     => 'heading_typography',
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .hfe-heading, {{WRAPPER}} .hfe-heading a',
+				'selector' => '{{WRAPPER}} .elementor-heading-title, {{WRAPPER}} .hfe-heading a',
 			]
 		);
 		$this->add_control(
