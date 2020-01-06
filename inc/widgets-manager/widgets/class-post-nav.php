@@ -153,11 +153,45 @@ class Post_Nav extends Widget_Base {
 		$this->add_control(
 			'show_title',
 			[
-				'label' => __( 'Post Title', 'elementor-pro' ),
+				'label' => __( 'Post Title', 'header-footer-elementor' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'Show', 'elementor-pro' ),
-				'label_off' => __( 'Hide', 'elementor-pro' ),
+				'label_on' => __( 'Show', 'header-footer-elementor' ),
+				'label_off' => __( 'Hide', 'header-footer-elementor' ),
 				'default' => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'show_arrow',
+			[
+				'label' => __( 'Arrows', 'header-footer-elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => __( 'Show', 'header-footer-elementor' ),
+				'label_off' => __( 'Hide', 'header-footer-elementor' ),
+				'default' => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'arrow',
+			[
+				'label' => __( 'Arrows Type', 'header-footer-elementor' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'fa fa-angle-left' => __( 'Angle', 'header-footer-elementor' ),
+					'fa fa-angle-double-left' => __( 'Double Angle', 'header-footer-elementor' ),
+					'fa fa-chevron-left' => __( 'Chevron', 'header-footer-elementor' ),
+					'fa fa-chevron-circle-left' => __( 'Chevron Circle', 'header-footer-elementor' ),
+					'fa fa-caret-left' => __( 'Caret', 'header-footer-elementor' ),
+					'fa fa-arrow-left' => __( 'Arrow', 'header-footer-elementor' ),
+					'fa fa-long-arrow-left' => __( 'Long Arrow', 'header-footer-elementor' ),
+					'fa fa-arrow-circle-left' => __( 'Arrow Circle', 'header-footer-elementor' ),
+					'fa fa-arrow-circle-o-left' => __( 'Arrow Circle Negative', 'header-footer-elementor' ),
+				],
+				'default' => 'fa fa-angle-left',
+				'condition' => [
+					'show_arrow' => 'yes',
+				],
 			]
 		);
 
@@ -180,6 +214,8 @@ class Post_Nav extends Widget_Base {
 		$next_label = '';
 		$prev_title = '';
 		$next_title = '';
+		$prev_arrow = '';
+		$next_arrow = '';
 
 
 		if ( 'yes' === $settings['show_label'] ) {
@@ -192,14 +228,27 @@ class Post_Nav extends Widget_Base {
 			$next_title = '<span class="hfe-post-nav-next-title">%title</span>';
 		}
 
+		if ( 'yes' === $settings['show_arrow'] ) {
+			if ( is_rtl() ) {
+				$prev_icon_class = str_replace( 'left', 'right', $settings['arrow'] );
+				$next_icon_class = $settings['arrow'];
+			} else {
+				$prev_icon_class = $settings['arrow'];
+				$next_icon_class = str_replace( 'left', 'right', $settings['arrow'] );
+			}
+
+			$prev_arrow = '<span class="post-navigation__arrow-wrapper post-navigation__arrow-prev"><i class="' . $prev_icon_class . '" aria-hidden="true"></i><span class="elementor-screen-only">' . esc_html__( 'Prev', 'elementor-pro' ) . '</span></span>';
+			$next_arrow = '<span class="post-navigation__arrow-wrapper post-navigation__arrow-next"><i class="' . $next_icon_class . '" aria-hidden="true"></i><span class="elementor-screen-only">' . esc_html__( 'Next', 'elementor-pro' ) . '</span></span>';
+		}
+
 		?>
 
 		<div class="hfe-post-navigation elementor-grid">
 			<div class="hfe-post-nav-prev hfe-post-nav-link">
-				<?php previous_post_link( '%link', '<span class="hfe-post-nav-link-prev">' . $prev_label . $prev_title . '</span>' ); ?>
+				<?php previous_post_link( '%link', $prev_arrow . '<span class="hfe-post-nav-link-prev">' . $prev_label . $prev_title . '</span>' ); ?>
 			</div>
 			<div class="hfe-post-nav-next hfe-post-nav-link">
-				<?php next_post_link( '%link', '<span class="hfe-post-nav-link-next">' . $next_label . $next_title . '</span>' ); ?>
+				<?php next_post_link( '%link', '<span class="hfe-post-nav-link-next">' . $next_label . $next_title . '</span>' . $next_arrow ); ?>
 			</div>
 		</div>
 
