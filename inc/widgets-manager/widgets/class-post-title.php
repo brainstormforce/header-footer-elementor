@@ -93,7 +93,6 @@ class Post_Title extends Widget_Base {
 	protected function _register_controls() {
 
 		$this->register_general_content_controls();
-		$this->register_style_content_controls();
 		$this->register_heading_typo_content_controls();
 	}
 
@@ -137,9 +136,22 @@ class Post_Title extends Widget_Base {
 		);
 
 		$this->add_control(
-			'heading_link',
+			'link',
 			[
-				'label'       => __( 'Link', 'uael' ),
+				'label'   => __( 'Link', 'uael' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'default',
+				'options' => array(
+					'default'    => __( 'Default', 'uael' ),
+					'custom'     => __( 'Custom Link', 'uael' ),
+				),
+			]
+		);
+
+		$this->add_control(
+			'custom_link',
+			[
+				'label'       => __( 'Enter URL', 'uael' ),
 				'type'        => Controls_Manager::URL,
 				'placeholder' => __( 'https://your-link.com', 'uael' ),
 				'dynamic'     => [
@@ -148,25 +160,43 @@ class Post_Title extends Widget_Base {
 				'default'     => [
 					'url' => '',
 				],
+				'condition'       => array(
+					'link' => 'custom',
+				),
 			]
 		);
-		$this->end_controls_section();
-	}
 
+		$this->add_control(
+			'size',
+			array(
+				'label'   => __( 'Size', 'uael' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'default',
+				'options' => array(
+					'default' => __( 'Default', 'uael' ),
+					'small'   => __( 'Small', 'uael' ),
+					'medium'  => __( 'Medium', 'uael' ),
+					'large'   => __( 'Large', 'uael' ),
+					'xl'      => __( 'XL', 'uael' ),
+					'xxl'     => __( 'XXL', 'uael' ),
+				),
+			)
+		);
 
-
-	/**
-	 * Register Advanced Heading Controls.
-	 *
-	 * @since x.x.x
-	 * @access protected
-	 */
-	protected function register_style_content_controls() {
-		$this->start_controls_section(
-			'section_style',
+		$this->add_control(
+			'heading_tag',
 			[
-				'label' => __( 'General', 'header-footer-elementor' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
+				'label'   => __( 'HTML Tag', 'header-footer-elementor' ),
+				'type'    => Controls_Manager::SELECT,
+				'options' => [
+					'h1' => __( 'H1', 'header-footer-elementor' ),
+					'h2' => __( 'H2', 'header-footer-elementor' ),
+					'h3' => __( 'H3', 'header-footer-elementor' ),
+					'h4' => __( 'H4', 'header-footer-elementor' ),
+					'h5' => __( 'H5', 'header-footer-elementor' ),
+					'h6' => __( 'H6', 'header-footer-elementor' ),
+				],
+				'default' => 'h2',
 			]
 		);
 
@@ -213,22 +243,7 @@ class Post_Title extends Widget_Base {
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
-		$this->add_control(
-			'heading_tag',
-			[
-				'label'   => __( 'HTML Tag', 'header-footer-elementor' ),
-				'type'    => Controls_Manager::SELECT,
-				'options' => [
-					'h1' => __( 'H1', 'header-footer-elementor' ),
-					'h2' => __( 'H2', 'header-footer-elementor' ),
-					'h3' => __( 'H3', 'header-footer-elementor' ),
-					'h4' => __( 'H4', 'header-footer-elementor' ),
-					'h5' => __( 'H5', 'header-footer-elementor' ),
-					'h6' => __( 'H6', 'header-footer-elementor' ),
-				],
-				'default' => 'h2',
-			]
-		);
+		
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
@@ -319,47 +334,51 @@ class Post_Title extends Widget_Base {
 	 */
 	protected function render() {
 
-		$settings         = $this->get_settings();
-		$dynamic_settings = $this->get_settings_for_display();
-		$title            = wp_kses_post( get_the_title() );
+		$settings 		= $this->get_settings_for_display();
+		$title 			= '';
 
-		$this->add_inline_editing_attributes( 'heading_title', 'basic' );
-		$this->add_inline_editing_attributes( 'sub_heading', 'advanced' );
+		$this->add_render_attribute( 'title', 'class', 'elementor-heading-title' );
 
-		if ( ! empty( $dynamic_settings['heading_link']['url'] ) ) {
-			$this->add_render_attribute( 'url', 'href', $dynamic_settings['heading_link']['url'] );
+		if ( ! empty( $settings['size'] ) ) {
+			$this->add_render_attribute( 'title', 'class', 'elementor-size-' . $settings['size'] );
+		}
 
-			if ( $dynamic_settings['heading_link']['is_external'] ) {
+		if ( '' !== $settings['before'] ) {
+			$title .= $settings['before'];
+		}
+
+		$title .= wp_kses_post( get_the_title() );
+
+		if ( '' !== $settings['after'] ) {
+			$title .= $settings['after'];
+		}
+
+		if ( 'custom' === $settings['link'] && ( ! empty( $settings['custom_link']['url'] ) ) ) {
+			$this->add_render_attribute( 'url', 'href', $settings['custom_link']['url'] );
+
+			if ( $settings['custom_link']['is_external'] ) {
 				$this->add_render_attribute( 'url', 'target', '_blank' );
 			}
 
-			if ( ! empty( $dynamic_settings['heading_link']['nofollow'] ) ) {
+			if ( ! empty( $settings['custom_link']['nofollow'] ) ) {
 				$this->add_render_attribute( 'url', 'rel', 'nofollow' );
 			}
-			$link = $this->get_render_attribute_string( 'url' );
+
+			$title = sprintf( '<a %1$s>%2$s</a>', $this->get_render_attribute_string( 'url' ), $title );
+			
+		} else if( 'default' === $settings['link'] ) {
+
+			$this->add_render_attribute( 'url', 'href',  get_the_permalink() );
+
+			$title = sprintf( '<a %1$s>%2$s</a>', $this->get_render_attribute_string( 'url' ), $title );
+
 		}
+
+		$title_html = sprintf( '<%1$s %2$s>%3$s</%1$s>', $settings['heading_tag'], $this->get_render_attribute_string( 'title' ), $title );
 		?>
 
 		<div class="hfe-module-content hfe-heading-wrapper">
-			<?php if ( ! empty( $dynamic_settings['heading_link']['url'] ) ) { ?>
-				<a <?php echo $link; ?> >
-			<?php } ?>
-				<<?php echo $settings['heading_tag']; ?> class="hfe-heading">
-					<span class="hfe-heading-text elementor-inline-editing hfe-size--<?php echo $settings['size']; ?>" >
-						<?php
-						if ( '' !== $settings['before'] ) {
-							echo $settings['before'];
-						}
-						echo $title;
-						if ( '' !== $settings['after'] ) {
-							echo $settings['after'];
-						}
-						?>
-					</span>
-				</<?php echo $settings['heading_tag']; ?>>
-			<?php if ( ! empty( $dynamic_settings['heading_link']['url'] ) ) { ?>
-				</a>
-			<?php } ?>					
+			<?php echo $title_html; ?>
 		</div>
 		<?php
 	}
