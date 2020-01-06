@@ -109,12 +109,15 @@ class Header_Footer_Elementor_Popup {
 
 			$type = '';
 
-			if ( hfe_footer_enabled() ) {
-				$type = 'about';
-			}
+			if ( get_post_meta( get_the_ID(), 'ehf_template_type', true ) ) {
 
-			if ( hfe_header_enabled() ) {
-				$type = 'contact';
+				if ( hfe_footer_enabled() ) {
+					$type = 'about';
+				}
+
+				if ( hfe_header_enabled() ) {
+					$type = 'contact';
+				}
 			}
 
 			$data = apply_filters(
@@ -127,6 +130,7 @@ class Header_Footer_Elementor_Popup {
 					'block_categories' => get_option( 'ehf-blocks-categories', [] ),
 					'site_url'         => site_url(),
 					'type'             => $type,
+					'type_slug' 	   => get_post_meta( get_the_ID(), 'ehf_template_type', true ),
 				]
 			);
 

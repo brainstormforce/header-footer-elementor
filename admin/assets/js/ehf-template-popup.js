@@ -171,7 +171,9 @@ var EHFAjaxQueue = (function() {
 						$( document ).on( 'ehf-blocks__elementor-close-before', EHFBlocks._beforeClose );
 						$( document ).on( "ehf-blocks__elementor-plugin-check", EHFBlocks._pluginCheck );
 
-						EHFBlocks._open();
+						if ( '' != ehf_blocks.type ) {
+							EHFBlocks._open();
+						}
 
 						// Plugin install & activate.
 						$( document ).on( 'wp-plugin-install-success' , EHFBlocks._installSuccess );
