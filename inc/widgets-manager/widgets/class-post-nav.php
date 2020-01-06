@@ -20,7 +20,7 @@ use Elementor\Repeater;
 use Elementor\Group_Control_Css_Filter;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Plugin;
-use Elementor\Widget_Base;
+use Elementor\Widget_Base;	
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;   // Exit if accessed directly.
@@ -89,6 +89,60 @@ class Post_Nav extends Widget_Base {
 	 */
 	public function get_categories() {
 		return [ 'hfe-widgets' ];
+	}
+
+	protected function get_public_post_types( $args = [] ) {
+
+		$post_type_args = [
+			// Default is the value $public.
+			'show_in_nav_menus' => true,
+		];
+
+		// Keep for backwards compatibility
+		if ( ! empty( $args['post_type'] ) ) {
+			$post_type_args['name'] = $args['post_type'];
+			unset( $args['post_type'] );
+		}
+
+		$post_type_args = wp_parse_args( $post_type_args, $args );
+
+		$_post_types = get_post_types( $post_type_args, 'objects' );
+
+		$post_types = [];
+
+		foreach ( $_post_types as $post_type => $object ) {
+			$post_types[ $post_type ] = $object->label;
+		}
+
+		return $post_types;
+	}
+
+	protected function get_taxonomies( $args = [], $output = 'names', $operator = 'and' ) {
+		global $wp_taxonomies;
+
+		$field = ( 'names' === $output ) ? 'name' : false;
+
+		// Handle 'object_type' separately.
+		if ( isset( $args['object_type'] ) ) {
+			$object_type = (array) $args['object_type'];
+			unset( $args['object_type'] );
+		}
+
+		$taxonomies = wp_filter_object_list( $wp_taxonomies, $args, $operator );
+
+		if ( isset( $object_type ) ) {
+			foreach ( $taxonomies as $tax => $tax_data ) {
+				if ( ! array_intersect( $object_type, $tax_data->object_type ) ) {
+					unset( $taxonomies[ $tax ] );
+				}
+			}
+		}
+
+		if ( $field ) {
+			$taxonomies = wp_list_pluck( $taxonomies, $field );
+		}
+
+		return $taxonomies;
 	}
 
 	/**
@@ -165,6 +219,59 @@ class Post_Nav extends Widget_Base {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
+			'post_navigation_term',
+			[
+				'label' => __( 'In Same Term', 'header-footer-elementor' ),
+			]
+		);
+
+		// Filter out post type without taxonomies
+		$post_type_options = [];
+		$post_type_taxonomies = [];
+		foreach ( $this->get_public_post_types() as $post_type => $post_type_label ) {
+			$taxonomies = $this->get_taxonomies( [ 'object_type' => $post_type ], false );
+			if ( empty( $taxonomies ) ) {
+				continue;
+			}
+
+			$post_type_options[ $post_type ] = $post_type_label;
+			$post_type_taxonomies[ $post_type ] = [];
+			foreach ( $taxonomies as $taxonomy ) {
+				$post_type_taxonomies[ $post_type ][ $taxonomy->name ] = $taxonomy->label;
+			}
+		}
+
+		$this->add_control(
+			'in_same_term',
+			[
+				'label' => __( 'Select Term', 'elementor-pro' ),
+				'type' => Controls_Manager::SELECT2,
+				'options' => $post_type_options,
+				'default' => '',
+				'multiple' => true,
+				'label_block' => true,
+				'description' => __( 'Indicates whether next post must be within the same taxonomy term as the current post, this lets you set a taxonomy per each post type', 'elementor-pro' ),
+			]
+		);
+
+		foreach ( $post_type_options as $post_type => $post_type_label ) {
+			$this->add_control(
+				$post_type . '_taxonomy',
+				[
+					'label' => $post_type_label . ' ' . __( 'Taxonomy', 'elementor-pro' ),
+					'type' => Controls_Manager::SELECT,
+					'options' => $post_type_taxonomies[ $post_type ],
+					'default' => '',
+					'condition' => [
+						'in_same_term' => $post_type,
+					],
+				]
+			);
+		}
+		$this->end_controls_section();
+
+
+		$this->start_controls_section(
 			'post_navigation_arrow',
 			[
 				'label' => __( 'Arrows', 'header-footer-elementor' ),
@@ -204,7 +311,7 @@ class Post_Nav extends Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->end_controls_section();
 	}
 
@@ -497,14 +604,25 @@ class Post_Nav extends Widget_Base {
 			$next_arrow = '<span class="hfe-post-nav-arrow-wrapper hfe-post-nav-arrow-next"><i class="' . $next_icon_class . '" aria-hidden="true"></i><span class="elementor-screen-only">' . esc_html__( 'Next', 'header-footer-elementor' ) . '</span></span>';
 		}
 
+		$in_same_term = false;
+		$taxonomy = 'category';
+		$post_type = get_post_type( get_queried_object_id() );
+
+		if ( ! empty( $settings['in_same_term'] ) && is_array( $settings['in_same_term'] ) && in_array( $post_type, $settings['in_same_term'] ) ) {
+			if ( isset( $settings[ $post_type . '_taxonomy' ] ) ) {
+				$in_same_term = true;
+				$taxonomy = $settings[ $post_type . '_taxonomy' ];
+			}
+		}
+
 		?>
 
 		<div class="hfe-post-navigation elementor-grid">
 			<div class="hfe-post-nav-prev hfe-post-nav-link">
-				<?php previous_post_link( '%link', $prev_arrow . '<span class="hfe-post-nav-link-prev">' . $prev_label . $prev_title . '</span>' ); ?>
+				<?php previous_post_link( '%link', $prev_arrow . '<span class="hfe-post-nav-link-prev">' . $prev_label . $prev_title . '</span>' , $in_same_term, '', $taxonomy ); ?>
 			</div>
 			<div class="hfe-post-nav-next hfe-post-nav-link">
-				<?php next_post_link( '%link', '<span class="hfe-post-nav-link-next">' . $next_label . $next_title . '</span>' . $next_arrow ); ?>
+				<?php next_post_link( '%link', '<span class="hfe-post-nav-link-next">' . $next_label . $next_title . '</span>' . $next_arrow, $in_same_term, '', $taxonomy  ); ?>
 			</div>
 		</div>
 
