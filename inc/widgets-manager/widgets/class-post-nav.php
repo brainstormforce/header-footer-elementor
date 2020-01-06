@@ -112,7 +112,7 @@ class Post_Nav extends Widget_Base {
 		$this->start_controls_section(
 			'post_navigation_content',
 			[
-				'label' => __( 'Post Navigation', 'header-footer-elementor' ),
+				'label' => __( 'General', 'header-footer-elementor' ),
 			]
 		);
 
@@ -162,6 +162,15 @@ class Post_Nav extends Widget_Base {
 			]
 		);
 
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'post_navigation_arrow',
+			[
+				'label' => __( 'Arrows', 'header-footer-elementor' ),
+			]
+		);
+
 		$this->add_control(
 			'show_arrow',
 			[
@@ -195,7 +204,7 @@ class Post_Nav extends Widget_Base {
 				],
 			]
 		);
-
+		
 		$this->end_controls_section();
 	}
 
@@ -214,6 +223,16 @@ class Post_Nav extends Widget_Base {
 				'condition' => [
 					'show_label' => 'yes',
 				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name' => 'label_typography',
+				'scheme' => Scheme_Typography::TYPOGRAPHY_2,
+				'selector' => '{{WRAPPER}} span.hfe-post-nav-prev-label, {{WRAPPER}} span.hfe-post-nav-next-label',
+				'exclude' => [ 'line_height' ],
 			]
 		);
 
@@ -267,16 +286,6 @@ class Post_Nav extends Widget_Base {
 
 		$this->end_controls_tabs();
 
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'name' => 'label_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_2,
-				'selector' => '{{WRAPPER}} span.hfe-post-nav-prev-label, {{WRAPPER}} span.hfe-post-nav-next-label',
-				'exclude' => [ 'line_height' ],
-			]
-		);
-
 		$this->end_controls_section();
 
 		$this->start_controls_section(
@@ -287,6 +296,16 @@ class Post_Nav extends Widget_Base {
 				'condition' => [
 					'show_title' => 'yes',
 				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name' => 'title_typography',
+				'scheme' => Scheme_Typography::TYPOGRAPHY_2,
+				'selector' => '{{WRAPPER}} span.hfe-post-nav-prev-title, {{WRAPPER}} span.hfe-post-nav-next-title',
+				'exclude' => [ 'line_height' ],
 			]
 		);
 
@@ -338,16 +357,6 @@ class Post_Nav extends Widget_Base {
 
 		$this->end_controls_tabs();
 
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'name' => 'title_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_2,
-				'selector' => '{{WRAPPER}} span.hfe-post-nav-prev-title, {{WRAPPER}} span.hfe-post-nav-next-title',
-				'exclude' => [ 'line_height' ],
-			]
-		);
-
 		$this->end_controls_section();
 
 		$this->start_controls_section(
@@ -357,6 +366,43 @@ class Post_Nav extends Widget_Base {
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_arrow' => 'yes',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'arrow_size',
+			[
+				'label' => __( 'Size', 'header-footer-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'min' => 6,
+						'max' => 300,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .hfe-post-nav-arrow-wrapper' => 'font-size: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'arrow_padding',
+			[
+				'label' => __( 'Gap', 'header-footer-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'selectors' => [
+					'body:not(.rtl) {{WRAPPER}} .hfe-post-nav-arrow-prev' => 'padding-right: {{SIZE}}{{UNIT}};',
+					'body:not(.rtl) {{WRAPPER}} .hfe-post-nav-arrow-next' => 'padding-left: {{SIZE}}{{UNIT}};',
+					'body.rtl {{WRAPPER}} .hfe-post-nav-arrow-prev' => 'padding-left: {{SIZE}}{{UNIT}};',
+					'body.rtl {{WRAPPER}} .hfe-post-nav-arrow-next' => 'padding-right: {{SIZE}}{{UNIT}};',
+				],
+				'range' => [
+					'em' => [
+						'min' => 0,
+						'max' => 5,
+					],
 				],
 			]
 		);
@@ -404,43 +450,6 @@ class Post_Nav extends Widget_Base {
 		$this->end_controls_tab();
 
 		$this->end_controls_tabs();
-
-		$this->add_responsive_control(
-			'arrow_size',
-			[
-				'label' => __( 'Size', 'header-footer-elementor' ),
-				'type' => Controls_Manager::SLIDER,
-				'range' => [
-					'px' => [
-						'min' => 6,
-						'max' => 300,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .hfe-post-nav-arrow-wrapper' => 'font-size: {{SIZE}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_control(
-			'arrow_padding',
-			[
-				'label' => __( 'Gap', 'header-footer-elementor' ),
-				'type' => Controls_Manager::SLIDER,
-				'selectors' => [
-					'body:not(.rtl) {{WRAPPER}} .hfe-post-nav-arrow-prev' => 'padding-right: {{SIZE}}{{UNIT}};',
-					'body:not(.rtl) {{WRAPPER}} .hfe-post-nav-arrow-next' => 'padding-left: {{SIZE}}{{UNIT}};',
-					'body.rtl {{WRAPPER}} .hfe-post-nav-arrow-prev' => 'padding-left: {{SIZE}}{{UNIT}};',
-					'body.rtl {{WRAPPER}} .hfe-post-nav-arrow-next' => 'padding-right: {{SIZE}}{{UNIT}};',
-				],
-				'range' => [
-					'em' => [
-						'min' => 0,
-						'max' => 5,
-					],
-				],
-			]
-		);
 
 		$this->end_controls_section();
 	}
