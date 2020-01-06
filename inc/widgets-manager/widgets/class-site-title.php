@@ -168,6 +168,23 @@ class Site_Title extends Widget_Base {
 		);
 
 		$this->add_control(
+			'size',
+			[
+				'label'   => __( 'Size', 'header-footer-elementor' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'default',
+				'options' => [
+					'default' => __( 'Default', 'header-footer-elementor' ),
+					'small'   => __( 'Small', 'header-footer-elementor' ),
+					'medium'  => __( 'Medium', 'header-footer-elementor' ),
+					'large'   => __( 'Large', 'header-footer-elementor' ),
+					'xl'      => __( 'XL', 'header-footer-elementor' ),
+					'xxl'     => __( 'XXL', 'header-footer-elementor' ),
+				],
+			]
+		);
+
+		$this->add_control(
 			'heading_tag',
 			[
 				'label'   => __( 'HTML Tag', 'header-footer-elementor' ),
@@ -308,7 +325,10 @@ class Site_Title extends Widget_Base {
 		$default_link = get_home_url();
 
 		$this->add_inline_editing_attributes( 'heading_title', 'basic' );
-		$this->add_inline_editing_attributes( 'sub_heading', 'advanced' );
+
+		if ( ! empty( $settings['size'] ) ) {
+			$this->add_render_attribute( 'title', 'class', 'elementor-size-' . $settings['size'] );
+		}
 
 		if ( ! empty( $settings['heading_link']['url'] ) ) {
 			$this->add_render_attribute( 'url', 'href', $settings['heading_link']['url'] );
@@ -324,14 +344,14 @@ class Site_Title extends Widget_Base {
 		}
 		?>
 
-		<div class="hfe-module-content hfe-heading-wrapper">
+		<div class="hfe-module-content hfe-heading-wrapper elementor-widget-heading">
 		<?php if ( ! empty( $settings['heading_link']['url'] ) && 'custom' === $settings['custom_link'] ) { ?>
 					<a <?php echo $link; ?> >
 				<?php } else { ?>
-					<a href="<?php echo get_home_url(); ?> ">
+					<a href="<?php echo get_home_url(); ?>">
 				<?php } ?>
 			<<?php echo $settings['heading_tag']; ?> class="hfe-heading">
-						<span class="hfe-heading-text  hfe-size--<?php echo $settings['size']; ?>" >
+						<span class="hfe-heading-text elementor-heading-title elementor-size-<?php echo $settings['size']; ?>" >
 						<?php
 						if ( '' !== $settings['before'] ) {
 							echo $settings['before'];
@@ -370,12 +390,12 @@ class Site_Title extends Widget_Base {
 			view.addRenderAttribute( 'url', 'href', settings.heading_link.url );
 		}
 		#>
-		<div class="hfe-module-content hfe-heading-wrapper">
+		<div class="hfe-module-content hfe-heading-wrapper elementor-widget-heading">
 			<{{{ settings.heading_tag }}} class="hfe-heading">
 				<# if ( '' != settings.heading_link.url ) { #>
 					<a {{{ view.getRenderAttributeString( 'url' ) }}} >
 				<# } #>
-				<span class="hfe-heading-text  hfe-size--{{{ settings.size }}}" data-elementor-setting-key="heading_title" data-elementor-inline-editing-toolbar="basic" >
+				<span class="hfe-heading-text  elementor-heading-title elementor-size-{{{ settings.size }}}" data-elementor-setting-key="heading_title" data-elementor-inline-editing-toolbar="basic" >
 				<#if ( '' != settings.before ){#>
 					{{{settings.before}}}
 				<#}#>
