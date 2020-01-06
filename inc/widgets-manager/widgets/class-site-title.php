@@ -93,7 +93,6 @@ class Site_Title extends Widget_Base {
 	protected function _register_controls() {
 
 		$this->register_general_content_controls();
-		$this->register_style_content_controls();
 		$this->register_heading_typo_content_controls();
 	}
 
@@ -150,23 +149,21 @@ class Site_Title extends Widget_Base {
 				],
 			]
 		);
-		$this->end_controls_section();
-	}
 
-
-
-	/**
-	 * Register Advanced Heading Controls.
-	 *
-	 * @since 0.0.1
-	 * @access protected
-	 */
-	protected function register_style_content_controls() {
-		$this->start_controls_section(
-			'section_style',
+		$this->add_control(
+			'heading_tag',
 			[
-				'label' => __( 'General', 'header-footer-elementor' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
+				'label'   => __( 'HTML Tag', 'header-footer-elementor' ),
+				'type'    => Controls_Manager::SELECT,
+				'options' => [
+					'h1' => __( 'H1', 'header-footer-elementor' ),
+					'h2' => __( 'H2', 'header-footer-elementor' ),
+					'h3' => __( 'H3', 'header-footer-elementor' ),
+					'h4' => __( 'H4', 'header-footer-elementor' ),
+					'h5' => __( 'H5', 'header-footer-elementor' ),
+					'h6' => __( 'H6', 'header-footer-elementor' ),
+				],
+				'default' => 'h2',
 			]
 		);
 
@@ -195,9 +192,9 @@ class Site_Title extends Widget_Base {
 				'prefix_class' => 'hfe%s-heading-align-',
 			]
 		);
-
 		$this->end_controls_section();
 	}
+
 
 	/**
 	 * Register Advanced Heading Typography Controls.
@@ -209,24 +206,8 @@ class Site_Title extends Widget_Base {
 		$this->start_controls_section(
 			'section_heading_typography',
 			[
-				'label' => __( 'Heading', 'header-footer-elementor' ),
+				'label' => __( 'Title', 'header-footer-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
-			]
-		);
-		$this->add_control(
-			'heading_tag',
-			[
-				'label'   => __( 'HTML Tag', 'header-footer-elementor' ),
-				'type'    => Controls_Manager::SELECT,
-				'options' => [
-					'h1' => __( 'H1', 'header-footer-elementor' ),
-					'h2' => __( 'H2', 'header-footer-elementor' ),
-					'h3' => __( 'H3', 'header-footer-elementor' ),
-					'h4' => __( 'H4', 'header-footer-elementor' ),
-					'h5' => __( 'H5', 'header-footer-elementor' ),
-					'h6' => __( 'H6', 'header-footer-elementor' ),
-				],
-				'default' => 'h2',
 			]
 		);
 		$this->add_group_control(
