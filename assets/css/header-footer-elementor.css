@@ -67,5 +67,9 @@
     text-overflow: ellipsis;
 }
 
+.hfe-post-navigation .hfe-post-nav-arrow-wrapper i {
+    transform: translateY(-5%);
+}
+
 
 

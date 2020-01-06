@@ -99,6 +99,7 @@ class Post_Nav extends Widget_Base {
 	 */
 	protected function _register_controls() {
 		$this->register_content_controls();
+		$this->register_styling_controls();
 	}
 
 	/**
@@ -199,6 +200,252 @@ class Post_Nav extends Widget_Base {
 	}
 
 	/**
+	 * Register Post Navigation General Controls.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function register_styling_controls() {
+		$this->start_controls_section(
+			'label_style',
+			[
+				'label' => __( 'Label', 'header-footer-elementor' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'show_label' => 'yes',
+				],
+			]
+		);
+
+		$this->start_controls_tabs( 'tabs_label_style' );
+
+		$this->start_controls_tab(
+			'label_color_normal',
+			[
+				'label' => __( 'Normal', 'header-footer-elementor' ),
+			]
+		);
+
+		$this->add_control(
+			'label_color',
+			[
+				'label' => __( 'Color', 'header-footer-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'scheme' => [
+					'type' => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_3,
+				],
+				'selectors' => [
+					'{{WRAPPER}} span.hfe-post-nav-prev-label' => 'color: {{VALUE}};',
+					'{{WRAPPER}} span.hfe-post-nav-next-label' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'label_color_hover',
+			[
+				'label' => __( 'Hover', 'header-footer-elementor' ),
+			]
+		);
+
+		$this->add_control(
+			'label_hover_color',
+			[
+				'label' => __( 'Color', 'header-footer-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} span.hfe-post-nav-prev-label:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} span.hfe-post-nav-next-label:hover' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name' => 'label_typography',
+				'scheme' => Scheme_Typography::TYPOGRAPHY_2,
+				'selector' => '{{WRAPPER}} span.hfe-post-nav-prev-label, {{WRAPPER}} span.hfe-post-nav-next-label',
+				'exclude' => [ 'line_height' ],
+			]
+		);
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'title_style',
+			[
+				'label' => __( 'Title', 'header-footer-elementor' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'show_title' => 'yes',
+				],
+			]
+		);
+
+		$this->start_controls_tabs( 'tabs_post_navigation_style' );
+
+		$this->start_controls_tab(
+			'tab_color_normal',
+			[
+				'label' => __( 'Normal', 'header-footer-elementor' ),
+			]
+		);
+
+		$this->add_control(
+			'text_color',
+			[
+				'label' => __( 'Color', 'header-footer-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'scheme' => [
+					'type' => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_2,
+				],
+				'selectors' => [
+					'{{WRAPPER}} span.hfe-post-nav-prev-title, {{WRAPPER}} span.hfe-post-nav-next-title' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'tab_color_hover',
+			[
+				'label' => __( 'Hover', 'header-footer-elementor' ),
+			]
+		);
+
+		$this->add_control(
+			'hover_color',
+			[
+				'label' => __( 'Color', 'header-footer-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} span.hfe-post-nav-prev-title:hover, {{WRAPPER}} span.hfe-post-nav-next-title:hover' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name' => 'title_typography',
+				'scheme' => Scheme_Typography::TYPOGRAPHY_2,
+				'selector' => '{{WRAPPER}} span.hfe-post-nav-prev-title, {{WRAPPER}} span.hfe-post-nav-next-title',
+				'exclude' => [ 'line_height' ],
+			]
+		);
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'arrow_style',
+			[
+				'label' => __( 'Arrow', 'header-footer-elementor' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'show_arrow' => 'yes',
+				],
+			]
+		);
+
+		$this->start_controls_tabs( 'tabs_post_navigation_arrow_style' );
+
+		$this->start_controls_tab(
+			'arrow_color_normal',
+			[
+				'label' => __( 'Normal', 'header-footer-elementor' ),
+			]
+		);
+
+		$this->add_control(
+			'arrow_color',
+			[
+				'label' => __( 'Color', 'header-footer-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .hfe-post-nav-arrow-wrapper' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'arrow_color_hover',
+			[
+				'label' => __( 'Hover', 'header-footer-elementor' ),
+			]
+		);
+
+		$this->add_control(
+			'arrow_hover_color',
+			[
+				'label' => __( 'Color', 'header-footer-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .hfe-post-nav-arrow-wrapper:hover' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+		$this->add_responsive_control(
+			'arrow_size',
+			[
+				'label' => __( 'Size', 'header-footer-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'min' => 6,
+						'max' => 300,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .hfe-post-nav-arrow-wrapper' => 'font-size: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'arrow_padding',
+			[
+				'label' => __( 'Gap', 'header-footer-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'selectors' => [
+					'body:not(.rtl) {{WRAPPER}} .hfe-post-nav-arrow-prev' => 'padding-right: {{SIZE}}{{UNIT}};',
+					'body:not(.rtl) {{WRAPPER}} .hfe-post-nav-arrow-next' => 'padding-left: {{SIZE}}{{UNIT}};',
+					'body.rtl {{WRAPPER}} .hfe-post-nav-arrow-prev' => 'padding-left: {{SIZE}}{{UNIT}};',
+					'body.rtl {{WRAPPER}} .hfe-post-nav-arrow-next' => 'padding-right: {{SIZE}}{{UNIT}};',
+				],
+				'range' => [
+					'em' => [
+						'min' => 0,
+						'max' => 5,
+					],
+				],
+			]
+		);
+
+		$this->end_controls_section();
+	}
+
+	/**
 	 * Render Post Navigation output on the frontend.
 	 *
 	 * Written in PHP and used to generate the final HTML.
@@ -237,8 +484,8 @@ class Post_Nav extends Widget_Base {
 				$next_icon_class = str_replace( 'left', 'right', $settings['arrow'] );
 			}
 
-			$prev_arrow = '<span class="post-navigation__arrow-wrapper post-navigation__arrow-prev"><i class="' . $prev_icon_class . '" aria-hidden="true"></i><span class="elementor-screen-only">' . esc_html__( 'Prev', 'elementor-pro' ) . '</span></span>';
-			$next_arrow = '<span class="post-navigation__arrow-wrapper post-navigation__arrow-next"><i class="' . $next_icon_class . '" aria-hidden="true"></i><span class="elementor-screen-only">' . esc_html__( 'Next', 'elementor-pro' ) . '</span></span>';
+			$prev_arrow = '<span class="hfe-post-nav-arrow-wrapper hfe-post-nav-arrow-prev"><i class="' . $prev_icon_class . '" aria-hidden="true"></i><span class="elementor-screen-only">' . esc_html__( 'Prev', 'header-footer-elementor' ) . '</span></span>';
+			$next_arrow = '<span class="hfe-post-nav-arrow-wrapper hfe-post-nav-arrow-next"><i class="' . $next_icon_class . '" aria-hidden="true"></i><span class="elementor-screen-only">' . esc_html__( 'Next', 'header-footer-elementor' ) . '</span></span>';
 		}
 
 		?>
