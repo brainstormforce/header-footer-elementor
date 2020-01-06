@@ -136,6 +136,20 @@ class Site_Title extends Widget_Base {
 		);
 
 		$this->add_control(
+			'custom_link',
+			[
+				'label'   => __( 'Link', 'header-footer-elementor' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'toggle',
+				'options' => [
+					'custom'  => __( 'Custom', 'header-footer-elementor' ),
+					'default' => __( 'Default', 'header-footer-elementor' ),
+				],
+				'default' => 'default',
+			]
+		);
+
+		$this->add_control(
 			'heading_link',
 			[
 				'label'       => __( 'Link', 'header-footer-elementor' ),
@@ -146,6 +160,9 @@ class Site_Title extends Widget_Base {
 				],
 				'default'     => [
 					'url' => get_home_url(),
+				],
+				'condition'   => [
+					'custom_link' => 'custom',
 				],
 			]
 		);
@@ -286,21 +303,21 @@ class Site_Title extends Widget_Base {
 	 */
 	protected function render() {
 
-		$settings         = $this->get_settings();
-		$dynamic_settings = $this->get_settings_for_display();
-		$title            = get_bloginfo( 'name' );
+		$settings     = $this->get_settings();
+		$title        = get_bloginfo( 'name' );
+		$default_link = get_home_url();
 
 		$this->add_inline_editing_attributes( 'heading_title', 'basic' );
 		$this->add_inline_editing_attributes( 'sub_heading', 'advanced' );
 
-		if ( ! empty( $dynamic_settings['heading_link']['url'] ) ) {
-			$this->add_render_attribute( 'url', 'href', $dynamic_settings['heading_link']['url'] );
+		if ( ! empty( $settings['heading_link']['url'] ) ) {
+			$this->add_render_attribute( 'url', 'href', $settings['heading_link']['url'] );
 
-			if ( $dynamic_settings['heading_link']['is_external'] ) {
+			if ( $settings['heading_link']['is_external'] ) {
 				$this->add_render_attribute( 'url', 'target', '_blank' );
 			}
 
-			if ( ! empty( $dynamic_settings['heading_link']['nofollow'] ) ) {
+			if ( ! empty( $settings['heading_link']['nofollow'] ) ) {
 				$this->add_render_attribute( 'url', 'rel', 'nofollow' );
 			}
 			$link = $this->get_render_attribute_string( 'url' );
@@ -308,8 +325,10 @@ class Site_Title extends Widget_Base {
 		?>
 
 		<div class="hfe-module-content hfe-heading-wrapper">
-		<?php if ( ! empty( $dynamic_settings['heading_link']['url'] ) ) { ?>
+		<?php if ( ! empty( $settings['heading_link']['url'] ) && 'custom' === $settings['custom_link'] ) { ?>
 					<a <?php echo $link; ?> >
+				<?php } else { ?>
+					<a href="<?php echo get_home_url(); ?> ">
 				<?php } ?>
 			<<?php echo $settings['heading_tag']; ?> class="hfe-heading">
 						<span class="hfe-heading-text  hfe-size--<?php echo $settings['size']; ?>" >
@@ -323,7 +342,7 @@ class Site_Title extends Widget_Base {
 						}
 						?>
 						</span>
-						<?php if ( ! empty( $dynamic_settings['heading_link']['url'] ) ) { ?>
+						<?php if ( ! empty( $settings['heading_link']['url'] ) ) { ?>
 					</a>	
 					<?php } ?>					
 			</<?php echo $settings['heading_tag']; ?>>
