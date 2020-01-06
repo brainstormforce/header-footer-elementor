@@ -20,7 +20,7 @@ use Elementor\Repeater;
 use Elementor\Group_Control_Css_Filter;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Plugin;
-use Elementor\Widget_Base;	
+use Elementor\Widget_Base;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;   // Exit if accessed directly.
@@ -91,6 +91,19 @@ class Post_Nav extends Widget_Base {
 		return [ 'hfe-widgets' ];
 	}
 
+	/**
+	 * Retrieve the list of public post types.
+	 *
+	 * Used to retrieve the post type.
+	 *
+	 * @since x.x.x
+	 *
+	 * @access protected
+	 *
+	 * @return array post types.
+	 *
+	 * @param array $args array of query arguments.
+	 */
 	protected function get_public_post_types( $args = [] ) {
 
 		$post_type_args = [
@@ -98,7 +111,7 @@ class Post_Nav extends Widget_Base {
 			'show_in_nav_menus' => true,
 		];
 
-		// Keep for backwards compatibility
+		// Keep for backwards compatibility.
 		if ( ! empty( $args['post_type'] ) ) {
 			$post_type_args['name'] = $args['post_type'];
 			unset( $args['post_type'] );
@@ -117,6 +130,21 @@ class Post_Nav extends Widget_Base {
 		return $post_types;
 	}
 
+	/**
+	 * Retrieve the list of taxonomies.
+	 *
+	 * Used to retrieve the post taxonomies.
+	 *
+	 * @since x.x.x
+	 *
+	 * @access protected
+	 *
+	 * @return array of taxonomies.
+	 *
+	 * @param array  $args array of query arguments.
+	 * @param string $output name of taxonomies.
+	 * @param string $operator name of operator.
+	 */
 	protected function get_taxonomies( $args = [], $output = 'names', $operator = 'and' ) {
 		global $wp_taxonomies;
 
@@ -173,20 +201,20 @@ class Post_Nav extends Widget_Base {
 		$this->add_control(
 			'show_label',
 			[
-				'label' => __( 'Label', 'header-footer-elementor' ),
-				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'Show', 'header-footer-elementor' ),
+				'label'     => __( 'Label', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SWITCHER,
+				'label_on'  => __( 'Show', 'header-footer-elementor' ),
 				'label_off' => __( 'Hide', 'header-footer-elementor' ),
-				'default' => 'yes',
+				'default'   => 'yes',
 			]
 		);
 
 		$this->add_control(
 			'prev_label',
 			[
-				'label' => __( 'Previous Label', 'header-footer-elementor' ),
-				'type' => Controls_Manager::TEXT,
-				'default' => __( 'Previous', 'header-footer-elementor' ),
+				'label'     => __( 'Previous Label', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::TEXT,
+				'default'   => __( 'Previous', 'header-footer-elementor' ),
 				'condition' => [
 					'show_label' => 'yes',
 				],
@@ -196,9 +224,9 @@ class Post_Nav extends Widget_Base {
 		$this->add_control(
 			'next_label',
 			[
-				'label' => __( 'Next Label', 'header-footer-elementor' ),
-				'type' => Controls_Manager::TEXT,
-				'default' => __( 'Next', 'header-footer-elementor' ),
+				'label'     => __( 'Next Label', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::TEXT,
+				'default'   => __( 'Next', 'header-footer-elementor' ),
 				'condition' => [
 					'show_label' => 'yes',
 				],
@@ -208,11 +236,11 @@ class Post_Nav extends Widget_Base {
 		$this->add_control(
 			'show_title',
 			[
-				'label' => __( 'Post Title', 'header-footer-elementor' ),
-				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'Show', 'header-footer-elementor' ),
+				'label'     => __( 'Post Title', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SWITCHER,
+				'label_on'  => __( 'Show', 'header-footer-elementor' ),
 				'label_off' => __( 'Hide', 'header-footer-elementor' ),
-				'default' => 'yes',
+				'default'   => 'yes',
 			]
 		);
 
@@ -225,8 +253,8 @@ class Post_Nav extends Widget_Base {
 			]
 		);
 
-		// Filter out post type without taxonomies
-		$post_type_options = [];
+		// Filter out post type without taxonomies.
+		$post_type_options    = [];
 		$post_type_taxonomies = [];
 		foreach ( $this->get_public_post_types() as $post_type => $post_type_label ) {
 			$taxonomies = $this->get_taxonomies( [ 'object_type' => $post_type ], false );
@@ -234,7 +262,7 @@ class Post_Nav extends Widget_Base {
 				continue;
 			}
 
-			$post_type_options[ $post_type ] = $post_type_label;
+			$post_type_options[ $post_type ]    = $post_type_label;
 			$post_type_taxonomies[ $post_type ] = [];
 			foreach ( $taxonomies as $taxonomy ) {
 				$post_type_taxonomies[ $post_type ][ $taxonomy->name ] = $taxonomy->label;
@@ -244,11 +272,11 @@ class Post_Nav extends Widget_Base {
 		$this->add_control(
 			'in_same_term',
 			[
-				'label' => __( 'Select Term', 'elementor-pro' ),
-				'type' => Controls_Manager::SELECT2,
-				'options' => $post_type_options,
-				'default' => '',
-				'multiple' => true,
+				'label'       => __( 'Select Term', 'elementor-pro' ),
+				'type'        => Controls_Manager::SELECT2,
+				'options'     => $post_type_options,
+				'default'     => '',
+				'multiple'    => true,
 				'label_block' => true,
 				'description' => __( 'Indicates whether next post must be within the same taxonomy term as the current post, this lets you set a taxonomy per each post type', 'elementor-pro' ),
 			]
@@ -258,10 +286,10 @@ class Post_Nav extends Widget_Base {
 			$this->add_control(
 				$post_type . '_taxonomy',
 				[
-					'label' => $post_type_label . ' ' . __( 'Taxonomy', 'elementor-pro' ),
-					'type' => Controls_Manager::SELECT,
-					'options' => $post_type_taxonomies[ $post_type ],
-					'default' => '',
+					'label'     => $post_type_label . ' ' . __( 'Taxonomy', 'elementor-pro' ),
+					'type'      => Controls_Manager::SELECT,
+					'options'   => $post_type_taxonomies[ $post_type ],
+					'default'   => '',
 					'condition' => [
 						'in_same_term' => $post_type,
 					],
@@ -269,7 +297,6 @@ class Post_Nav extends Widget_Base {
 			);
 		}
 		$this->end_controls_section();
-
 
 		$this->start_controls_section(
 			'post_navigation_arrow',
@@ -281,31 +308,31 @@ class Post_Nav extends Widget_Base {
 		$this->add_control(
 			'show_arrow',
 			[
-				'label' => __( 'Arrows', 'header-footer-elementor' ),
-				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'Show', 'header-footer-elementor' ),
+				'label'     => __( 'Arrows', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SWITCHER,
+				'label_on'  => __( 'Show', 'header-footer-elementor' ),
 				'label_off' => __( 'Hide', 'header-footer-elementor' ),
-				'default' => 'yes',
+				'default'   => 'yes',
 			]
 		);
 
 		$this->add_control(
 			'arrow',
 			[
-				'label' => __( 'Arrows Type', 'header-footer-elementor' ),
-				'type' => Controls_Manager::SELECT,
-				'options' => [
-					'fa fa-angle-left' => __( 'Angle', 'header-footer-elementor' ),
-					'fa fa-angle-double-left' => __( 'Double Angle', 'header-footer-elementor' ),
-					'fa fa-chevron-left' => __( 'Chevron', 'header-footer-elementor' ),
+				'label'     => __( 'Arrows Type', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SELECT,
+				'options'   => [
+					'fa fa-angle-left'          => __( 'Angle', 'header-footer-elementor' ),
+					'fa fa-angle-double-left'   => __( 'Double Angle', 'header-footer-elementor' ),
+					'fa fa-chevron-left'        => __( 'Chevron', 'header-footer-elementor' ),
 					'fa fa-chevron-circle-left' => __( 'Chevron Circle', 'header-footer-elementor' ),
-					'fa fa-caret-left' => __( 'Caret', 'header-footer-elementor' ),
-					'fa fa-arrow-left' => __( 'Arrow', 'header-footer-elementor' ),
-					'fa fa-long-arrow-left' => __( 'Long Arrow', 'header-footer-elementor' ),
-					'fa fa-arrow-circle-left' => __( 'Arrow Circle', 'header-footer-elementor' ),
+					'fa fa-caret-left'          => __( 'Caret', 'header-footer-elementor' ),
+					'fa fa-arrow-left'          => __( 'Arrow', 'header-footer-elementor' ),
+					'fa fa-long-arrow-left'     => __( 'Long Arrow', 'header-footer-elementor' ),
+					'fa fa-arrow-circle-left'   => __( 'Arrow Circle', 'header-footer-elementor' ),
 					'fa fa-arrow-circle-o-left' => __( 'Arrow Circle Negative', 'header-footer-elementor' ),
 				],
-				'default' => 'fa fa-angle-left',
+				'default'   => 'fa fa-angle-left',
 				'condition' => [
 					'show_arrow' => 'yes',
 				],
@@ -325,8 +352,8 @@ class Post_Nav extends Widget_Base {
 		$this->start_controls_section(
 			'label_style',
 			[
-				'label' => __( 'Label', 'header-footer-elementor' ),
-				'tab' => Controls_Manager::TAB_STYLE,
+				'label'     => __( 'Label', 'header-footer-elementor' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_label' => 'yes',
 				],
@@ -336,10 +363,10 @@ class Post_Nav extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'label_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_2,
+				'name'     => 'label_typography',
+				'scheme'   => Scheme_Typography::TYPOGRAPHY_2,
 				'selector' => '{{WRAPPER}} span.hfe-post-nav-prev-label, {{WRAPPER}} span.hfe-post-nav-next-label',
-				'exclude' => [ 'line_height' ],
+				'exclude'  => [ 'line_height' ],
 			]
 		);
 
@@ -355,10 +382,10 @@ class Post_Nav extends Widget_Base {
 		$this->add_control(
 			'label_color',
 			[
-				'label' => __( 'Color', 'header-footer-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
+				'label'     => __( 'Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => [
+					'type'  => Scheme_Color::get_type(),
 					'value' => Scheme_Color::COLOR_3,
 				],
 				'selectors' => [
@@ -380,8 +407,8 @@ class Post_Nav extends Widget_Base {
 		$this->add_control(
 			'label_hover_color',
 			[
-				'label' => __( 'Color', 'header-footer-elementor' ),
-				'type' => Controls_Manager::COLOR,
+				'label'     => __( 'Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} span.hfe-post-nav-prev-label:hover' => 'color: {{VALUE}};',
 					'{{WRAPPER}} span.hfe-post-nav-next-label:hover' => 'color: {{VALUE}};',
@@ -398,8 +425,8 @@ class Post_Nav extends Widget_Base {
 		$this->start_controls_section(
 			'title_style',
 			[
-				'label' => __( 'Title', 'header-footer-elementor' ),
-				'tab' => Controls_Manager::TAB_STYLE,
+				'label'     => __( 'Title', 'header-footer-elementor' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_title' => 'yes',
 				],
@@ -409,10 +436,10 @@ class Post_Nav extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'title_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_2,
+				'name'     => 'title_typography',
+				'scheme'   => Scheme_Typography::TYPOGRAPHY_2,
 				'selector' => '{{WRAPPER}} span.hfe-post-nav-prev-title, {{WRAPPER}} span.hfe-post-nav-next-title',
-				'exclude' => [ 'line_height' ],
+				'exclude'  => [ 'line_height' ],
 			]
 		);
 
@@ -428,10 +455,10 @@ class Post_Nav extends Widget_Base {
 		$this->add_control(
 			'text_color',
 			[
-				'label' => __( 'Color', 'header-footer-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
+				'label'     => __( 'Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => [
+					'type'  => Scheme_Color::get_type(),
 					'value' => Scheme_Color::COLOR_2,
 				],
 				'selectors' => [
@@ -452,8 +479,8 @@ class Post_Nav extends Widget_Base {
 		$this->add_control(
 			'hover_color',
 			[
-				'label' => __( 'Color', 'header-footer-elementor' ),
-				'type' => Controls_Manager::COLOR,
+				'label'     => __( 'Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} span.hfe-post-nav-prev-title:hover, {{WRAPPER}} span.hfe-post-nav-next-title:hover' => 'color: {{VALUE}};',
 				],
@@ -469,8 +496,8 @@ class Post_Nav extends Widget_Base {
 		$this->start_controls_section(
 			'arrow_style',
 			[
-				'label' => __( 'Arrow', 'header-footer-elementor' ),
-				'tab' => Controls_Manager::TAB_STYLE,
+				'label'     => __( 'Arrow', 'header-footer-elementor' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_arrow' => 'yes',
 				],
@@ -480,9 +507,9 @@ class Post_Nav extends Widget_Base {
 		$this->add_responsive_control(
 			'arrow_size',
 			[
-				'label' => __( 'Size', 'header-footer-elementor' ),
-				'type' => Controls_Manager::SLIDER,
-				'range' => [
+				'label'     => __( 'Size', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => [
 					'px' => [
 						'min' => 6,
 						'max' => 300,
@@ -497,15 +524,15 @@ class Post_Nav extends Widget_Base {
 		$this->add_control(
 			'arrow_padding',
 			[
-				'label' => __( 'Gap', 'header-footer-elementor' ),
-				'type' => Controls_Manager::SLIDER,
+				'label'     => __( 'Gap', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SLIDER,
 				'selectors' => [
 					'body:not(.rtl) {{WRAPPER}} .hfe-post-nav-arrow-prev' => 'padding-right: {{SIZE}}{{UNIT}};',
 					'body:not(.rtl) {{WRAPPER}} .hfe-post-nav-arrow-next' => 'padding-left: {{SIZE}}{{UNIT}};',
 					'body.rtl {{WRAPPER}} .hfe-post-nav-arrow-prev' => 'padding-left: {{SIZE}}{{UNIT}};',
 					'body.rtl {{WRAPPER}} .hfe-post-nav-arrow-next' => 'padding-right: {{SIZE}}{{UNIT}};',
 				],
-				'range' => [
+				'range'     => [
 					'em' => [
 						'min' => 0,
 						'max' => 5,
@@ -526,8 +553,8 @@ class Post_Nav extends Widget_Base {
 		$this->add_control(
 			'arrow_color',
 			[
-				'label' => __( 'Color', 'header-footer-elementor' ),
-				'type' => Controls_Manager::COLOR,
+				'label'     => __( 'Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .hfe-post-nav-arrow-wrapper' => 'color: {{VALUE}};',
 				],
@@ -546,8 +573,8 @@ class Post_Nav extends Widget_Base {
 		$this->add_control(
 			'arrow_hover_color',
 			[
-				'label' => __( 'Color', 'header-footer-elementor' ),
-				'type' => Controls_Manager::COLOR,
+				'label'     => __( 'Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .hfe-post-nav-arrow-wrapper:hover' => 'color: {{VALUE}};',
 				],
@@ -580,7 +607,6 @@ class Post_Nav extends Widget_Base {
 		$prev_arrow = '';
 		$next_arrow = '';
 
-
 		if ( 'yes' === $settings['show_label'] ) {
 			$prev_label = '<span class="hfe-post-nav-prev-label">' . $settings['prev_label'] . '</span>';
 			$next_label = '<span class="hfe-post-nav-next-label">' . $settings['next_label'] . '</span>';
@@ -605,13 +631,13 @@ class Post_Nav extends Widget_Base {
 		}
 
 		$in_same_term = false;
-		$taxonomy = 'category';
-		$post_type = get_post_type( get_queried_object_id() );
+		$taxonomy     = 'category';
+		$post_type    = get_post_type( get_queried_object_id() );
 
 		if ( ! empty( $settings['in_same_term'] ) && is_array( $settings['in_same_term'] ) && in_array( $post_type, $settings['in_same_term'] ) ) {
 			if ( isset( $settings[ $post_type . '_taxonomy' ] ) ) {
 				$in_same_term = true;
-				$taxonomy = $settings[ $post_type . '_taxonomy' ];
+				$taxonomy     = $settings[ $post_type . '_taxonomy' ];
 			}
 		}
 
@@ -619,10 +645,10 @@ class Post_Nav extends Widget_Base {
 
 		<div class="hfe-post-navigation elementor-grid">
 			<div class="hfe-post-nav-prev hfe-post-nav-link">
-				<?php previous_post_link( '%link', $prev_arrow . '<span class="hfe-post-nav-link-prev">' . $prev_label . $prev_title . '</span>' , $in_same_term, '', $taxonomy ); ?>
+				<?php previous_post_link( '%link', $prev_arrow . '<span class="hfe-post-nav-link-prev">' . $prev_label . $prev_title . '</span>', $in_same_term, '', $taxonomy ); ?>
 			</div>
 			<div class="hfe-post-nav-next hfe-post-nav-link">
-				<?php next_post_link( '%link', '<span class="hfe-post-nav-link-next">' . $next_label . $next_title . '</span>' . $next_arrow, $in_same_term, '', $taxonomy  ); ?>
+				<?php next_post_link( '%link', '<span class="hfe-post-nav-link-next">' . $next_label . $next_title . '</span>' . $next_arrow, $in_same_term, '', $taxonomy ); ?>
 			</div>
 		</div>
 
