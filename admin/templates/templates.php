@@ -84,9 +84,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<#
 		var count = 0;
 		for ( key in data ) {
-			var site_title = ( undefined == data[ key ]['category'] ) ? data[ key ]['title'] : ehf_blocks.block_categories[data[ key ]['category']].name;
+			var site_title = ( undefined == data[ key ]['category'] || 0 == data[ key ]['category'].length ) ? data[ key ]['title'] : ehf_blocks.block_categories[data[ key ]['category']].name;
 			count++;
-			if ( '' !== EHFBlocks.blockCategory ) {
+			if ( '' !== EHFBlocks.blockCategory && 0 != data[ key ]['category'].length ) {
 				if ( EHFBlocks.blockCategory != ehf_blocks.block_categories[data[ key ]['category']].slug ) {
 					continue;
 				}
