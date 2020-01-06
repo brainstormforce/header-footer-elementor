@@ -303,7 +303,7 @@ class Post_Title extends Widget_Base {
 					],
 				]
 			);
-			
+
 		$this->end_controls_section();
 	}
 
@@ -365,4 +365,5 @@ class Post_Title extends Widget_Base {
 		</div>
 		<?php
 	}
+
 }
