@@ -170,20 +170,24 @@ class Site_Title extends Widget_Base {
 		$this->add_responsive_control(
 			'heading_text_align',
 			[
-				'label'        => __( 'Overall Alignment', 'header-footer-elementor' ),
+				'label'        => __( 'Alignment', 'header-footer-elementor' ),
 				'type'         => Controls_Manager::CHOOSE,
 				'options'      => [
-					'left'   => [
+					'left'    => [
 						'title' => __( 'Left', 'header-footer-elementor' ),
 						'icon'  => 'fa fa-align-left',
 					],
-					'center' => [
+					'center'  => [
 						'title' => __( 'Center', 'header-footer-elementor' ),
 						'icon'  => 'fa fa-align-center',
 					],
-					'right'  => [
+					'right'   => [
 						'title' => __( 'Right', 'header-footer-elementor' ),
 						'icon'  => 'fa fa-align-right',
+					],
+					'justify' => [
+						'title' => __( 'Justify', 'header-footer-elementor' ),
+						'icon'  => 'fa fa-align-justify',
 					],
 				],
 				'selectors'    => [
@@ -240,25 +244,7 @@ class Site_Title extends Widget_Base {
 				'selector' => '{{WRAPPER}} .hfe-heading-text',
 			]
 		);
-		$this->add_responsive_control(
-			'heading_margin',
-			[
-				'label'      => __( 'Title Margin', 'header-footer-elementor' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px' ],
-				'default'    => [
-					'top'      => '0',
-					'bottom'   => '15',
-					'left'     => '0',
-					'right'    => '0',
-					'unit'     => 'px',
-					'isLinked' => false,
-				],
-				'selectors'  => [
-					'{{WRAPPER}} .hfe-heading' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
+
 		$this->add_control(
 			'blend_mode',
 			[
