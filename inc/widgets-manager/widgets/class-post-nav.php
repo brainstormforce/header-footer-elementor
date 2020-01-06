@@ -149,6 +149,19 @@ class Post_Nav extends Widget_Base {
 				],
 			]
 		);
+
+		$this->add_control(
+			'show_title',
+			[
+				'label' => __( 'Post Title', 'elementor-pro' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => __( 'Show', 'elementor-pro' ),
+				'label_off' => __( 'Hide', 'elementor-pro' ),
+				'default' => 'yes',
+			]
+		);
+
+		$this->end_controls_section();
 	}
 
 	/**
@@ -165,12 +178,31 @@ class Post_Nav extends Widget_Base {
 
 		$prev_label = '';
 		$next_label = '';
-		$prev_arrow = '';
-		$next_arrow = '';
+		$prev_title = '';
+		$next_title = '';
+
 
 		if ( 'yes' === $settings['show_label'] ) {
 			$prev_label = '<span class="hfe-post-nav-prev-label">' . $settings['prev_label'] . '</span>';
 			$next_label = '<span class="hfe-post-nav-next-label">' . $settings['next_label'] . '</span>';
 		}
+
+		if ( 'yes' === $settings['show_title'] ) {
+			$prev_title = '<span class="hfe-post-nav-prev-title">%title</span>';
+			$next_title = '<span class="hfe-post-nav-next-title">%title</span>';
+		}
+
+		?>
+
+		<div class="hfe-post-navigation elementor-grid">
+			<div class="hfe-post-nav-prev hfe-post-nav-link">
+				<?php previous_post_link( '%link', '<span class="hfe-post-nav-link-prev">' . $prev_label . $prev_title . '</span>' ); ?>
+			</div>
+			<div class="hfe-post-nav-next hfe-post-nav-link">
+				<?php next_post_link( '%link', '<span class="hfe-post-nav-link-next">' . $next_label . $next_title . '</span>' ); ?>
+			</div>
+		</div>
+
+		<?php
 	}
 }
