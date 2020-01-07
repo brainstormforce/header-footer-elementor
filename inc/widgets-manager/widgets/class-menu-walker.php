@@ -27,7 +27,7 @@ class Menu_Walker extends \Walker_Nav_Menu {
 	 * @param int    $id Menu ID.
 	 * @access public
 	 */
-	public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+	public function start_el( &$output, $item, $depth = 0, $args = [], $id = 0 ) {
 
 		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 		$args   = (object) $args;
@@ -37,7 +37,7 @@ class Menu_Walker extends \Walker_Nav_Menu {
 		$rel_xfn     = '';
 		$rel_blank   = '';
 
-		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
+		$classes = empty( $item->classes ) ? [] : (array) $item->classes;
 		$submenu = $args->has_children ? ' uael-has-submenu' : '';
 
 		if ( 0 === $depth ) {
