@@ -721,14 +721,14 @@ class Post_Nav extends Widget_Base {
 			$next_link_arrow = '<span class="hfe-post-nav-arrow-wrapper hfe-post-nav-arrow-next"><i class="' . $next_icon_class . '" aria-hidden="true"></i><span class="elementor-screen-only">' . esc_html__( 'Next', 'header-footer-elementor' ) . '</span></span>';
 		}
 
-		$filter       = false;
-		$taxonomy     = 'category';
-		$post_type    = get_post_type( get_queried_object_id() );
+		$filter    = false;
+		$taxonomy  = 'category';
+		$post_type = get_post_type( get_queried_object_id() );
 
 		if ( ! empty( $settings['in_same_term'] ) && is_array( $settings['in_same_term'] ) && in_array( $post_type, $settings['in_same_term'] ) ) {
 			if ( isset( $settings[ $post_type . '_taxonomy' ] ) ) {
-				$filter = true;
-				$taxonomy     = $settings[ $post_type . '_taxonomy' ];
+				$filter   = true;
+				$taxonomy = $settings[ $post_type . '_taxonomy' ];
 			}
 		}
 
