@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * HFE Post Title
  *
- * HFE widget for Retina Image.
+ * HFE widget for Post Title.
  *
  * @since x.x.x
  */
@@ -97,7 +97,7 @@ class Post_Title extends Widget_Base {
 	}
 
 	/**
-	 * Register Advanced Heading General Controls.
+	 * Register Post Title General Controls.
 	 *
 	 * @since x.x.x
 	 * @access protected
@@ -232,7 +232,7 @@ class Post_Title extends Widget_Base {
 	}
 
 	/**
-	 * Register Style Controls.
+	 * Register Post Title Style Controls.
 	 *
 	 * @since x.x.x
 	 * @access protected
@@ -308,7 +308,7 @@ class Post_Title extends Widget_Base {
 	}
 
 	/**
-	 * Render Heading output on the frontend.
+	 * Render Post Title output on the frontend.
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
@@ -367,7 +367,7 @@ class Post_Title extends Widget_Base {
 	}
 
 	/**
-	 * Render post Title widget output in the editor.
+	 * Render Post Title widget output in the editor.
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
