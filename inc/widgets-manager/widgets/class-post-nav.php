@@ -364,7 +364,7 @@ class Post_Nav extends Widget_Base {
 		$this->add_control(
 			'arrow_padding',
 			[
-				'label'     => __( 'Gap', 'header-footer-elementor' ),
+				'label'     => __( 'Spacing', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::SLIDER,
 				'selectors' => [
 					'body:not(.rtl) {{WRAPPER}} .hfe-post-nav-arrow-prev' => 'padding-right: {{SIZE}}{{UNIT}};',
@@ -691,21 +691,21 @@ class Post_Nav extends Widget_Base {
 
 		$settings = $this->get_settings_for_display();
 
-		$prev_label = '';
-		$next_label = '';
-		$prev_title = '';
-		$next_title = '';
-		$prev_arrow = '';
-		$next_arrow = '';
+		$prev_link_label = '';
+		$next_link_label = '';
+		$prev_post_title = '';
+		$next_post_title = '';
+		$prev_link_arrow = '';
+		$next_link_arrow = '';
 
 		if ( 'yes' === $settings['show_label'] ) {
-			$prev_label = '<span class="hfe-post-nav-prev-label">' . $settings['prev_label'] . '</span>';
-			$next_label = '<span class="hfe-post-nav-next-label">' . $settings['next_label'] . '</span>';
+			$prev_link_label = '<span class="hfe-post-nav-prev-label">' . $settings['prev_label'] . '</span>';
+			$next_link_label = '<span class="hfe-post-nav-next-label">' . $settings['next_label'] . '</span>';
 		}
 
 		if ( 'yes' === $settings['show_title'] ) {
-			$prev_title = '<span class="hfe-post-nav-prev-title">%title</span>';
-			$next_title = '<span class="hfe-post-nav-next-title">%title</span>';
+			$prev_post_title = '<span class="hfe-post-nav-prev-title">%title</span>';
+			$next_post_title = '<span class="hfe-post-nav-next-title">%title</span>';
 		}
 
 		if ( 'yes' === $settings['show_arrow'] ) {
@@ -717,17 +717,17 @@ class Post_Nav extends Widget_Base {
 				$next_icon_class = str_replace( 'left', 'right', $settings['arrow'] );
 			}
 
-			$prev_arrow = '<span class="hfe-post-nav-arrow-wrapper hfe-post-nav-arrow-prev"><i class="' . $prev_icon_class . '" aria-hidden="true"></i><span class="elementor-screen-only">' . esc_html__( 'Prev', 'header-footer-elementor' ) . '</span></span>';
-			$next_arrow = '<span class="hfe-post-nav-arrow-wrapper hfe-post-nav-arrow-next"><i class="' . $next_icon_class . '" aria-hidden="true"></i><span class="elementor-screen-only">' . esc_html__( 'Next', 'header-footer-elementor' ) . '</span></span>';
+			$prev_link_arrow = '<span class="hfe-post-nav-arrow-wrapper hfe-post-nav-arrow-prev"><i class="' . $prev_icon_class . '" aria-hidden="true"></i><span class="elementor-screen-only">' . esc_html__( 'Prev', 'header-footer-elementor' ) . '</span></span>';
+			$next_link_arrow = '<span class="hfe-post-nav-arrow-wrapper hfe-post-nav-arrow-next"><i class="' . $next_icon_class . '" aria-hidden="true"></i><span class="elementor-screen-only">' . esc_html__( 'Next', 'header-footer-elementor' ) . '</span></span>';
 		}
 
-		$in_same_term = false;
+		$filter       = false;
 		$taxonomy     = 'category';
 		$post_type    = get_post_type( get_queried_object_id() );
 
 		if ( ! empty( $settings['in_same_term'] ) && is_array( $settings['in_same_term'] ) && in_array( $post_type, $settings['in_same_term'] ) ) {
 			if ( isset( $settings[ $post_type . '_taxonomy' ] ) ) {
-				$in_same_term = true;
+				$filter = true;
 				$taxonomy     = $settings[ $post_type . '_taxonomy' ];
 			}
 		}
@@ -736,7 +736,7 @@ class Post_Nav extends Widget_Base {
 
 		<div class="hfe-post-navigation elementor-grid">
 			<div class="hfe-post-nav-prev hfe-post-nav-link">
-				<?php previous_post_link( '%link', $prev_arrow . '<span class="hfe-post-nav-link-prev">' . $prev_label . $prev_title . '</span>', $in_same_term, '', $taxonomy ); ?>
+				<?php previous_post_link( '%link', $prev_link_arrow . '<span class="hfe-post-nav-link-prev">' . $prev_link_label . $prev_post_title . '</span>', $filter, '', $taxonomy ); ?>
 			</div>
 			<?php if ( 'yes' === $settings['show_separator'] ) { ?>
 				<div class="hfe-post-nav-separator-wrapper">
@@ -744,7 +744,7 @@ class Post_Nav extends Widget_Base {
 				</div>
 			<?php } ?>
 			<div class="hfe-post-nav-next hfe-post-nav-link">
-				<?php next_post_link( '%link', '<span class="hfe-post-nav-link-next">' . $next_label . $next_title . '</span>' . $next_arrow, $in_same_term, '', $taxonomy ); ?>
+				<?php next_post_link( '%link', '<span class="hfe-post-nav-link-next">' . $next_link_label . $next_post_title . '</span>' . $next_link_arrow, $filter, '', $taxonomy ); ?>
 			</div>
 		</div>
 
