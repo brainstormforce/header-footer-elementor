@@ -151,7 +151,7 @@ class Post_Nav extends Widget_Base {
 		global $wp_taxonomies;
 
 		$field = ( 'names' === $output ) ? 'name' : false;
-	
+
 		// Handle 'object_type' separately.
 		if ( isset( $args['object_type'] ) ) {
 			$object_type = (array) $args['object_type'];
@@ -352,9 +352,9 @@ class Post_Nav extends Widget_Base {
 						'max' => 300,
 					],
 				],
-				'default'    => array(
+				'default'   => [
 					'size' => 30,
-				),
+				],
 				'selectors' => [
 					'{{WRAPPER}} .hfe-post-nav-arrow-wrapper' => 'font-size: {{SIZE}}{{UNIT}};',
 				],
@@ -378,9 +378,9 @@ class Post_Nav extends Widget_Base {
 						'max' => 5,
 					],
 				],
-				'default'    => array(
+				'default'   => [
 					'size' => 15,
-				),
+				],
 			]
 		);
 
@@ -396,75 +396,75 @@ class Post_Nav extends Widget_Base {
 		$this->add_control(
 			'show_separator',
 			[
-				'label' => __( 'Enable', 'header-footer-elementor' ),
-				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'Yes', 'header-footer-elementor' ),
+				'label'     => __( 'Enable', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SWITCHER,
+				'label_on'  => __( 'Yes', 'header-footer-elementor' ),
 				'label_off' => __( 'No', 'header-footer-elementor' ),
-				'default' => 'no',
+				'default'   => 'no',
 			]
 		);
 
 		$this->add_control(
 			'separator_style',
-			array(
+			[
 				'label'       => __( 'Style', 'uael' ),
 				'type'        => Controls_Manager::SELECT,
 				'default'     => 'solid',
 				'label_block' => false,
-				'options'     => array(
+				'options'     => [
 					'solid'  => __( 'Solid', 'uael' ),
 					'double' => __( 'Double', 'uael' ),
 					'dotted' => __( 'Dotted', 'uael' ),
 					'dashed' => __( 'Dashed', 'uael' ),
-				),
-				'condition'   => array(
+				],
+				'condition'   => [
 					'show_separator' => 'yes',
-				),
-				'selectors'   => array(
+				],
+				'selectors'   => [
 					'{{WRAPPER}} .hfe-post-nav-separator-wrapper' => 'border-left-style: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 		$this->add_control(
 			'separator_color',
-			array(
+			[
 				'label'     => __( 'Color', 'uael' ),
 				'type'      => Controls_Manager::COLOR,
-				'scheme'    => array(
+				'scheme'    => [
 					'type'  => Scheme_Color::get_type(),
 					'value' => Scheme_Color::COLOR_1,
-				),
-				'condition'   => array(
+				],
+				'condition' => [
 					'show_separator' => 'yes',
-				),
+				],
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .hfe-post-nav-separator-wrapper' => 'border-left-color: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'separator_size',
-			array(
+			[
 				'label'      => __( 'Width', 'uael' ),
 				'type'       => Controls_Manager::SLIDER,
-				'size_units' => array( 'px' ),
-				'default'    => array(
+				'size_units' => [ 'px' ],
+				'default'    => [
 					'size' => 1,
-				),
-				'range'      => array(
-					'px' => array(
+				],
+				'range'      => [
+					'px' => [
 						'max' => 150,
-					),
-				),
-				'selectors'  => array(
+					],
+				],
+				'selectors'  => [
 					'{{WRAPPER}} .hfe-post-nav-separator-wrapper' => 'border-left-width: {{SIZE}}{{UNIT}}; box-sizing:content-box;',
-				),
-				'condition'   => array(
+				],
+				'condition'  => [
 					'show_separator' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_section();
