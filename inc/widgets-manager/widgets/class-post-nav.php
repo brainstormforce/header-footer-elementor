@@ -352,7 +352,9 @@ class Post_Nav extends Widget_Base {
 						'max' => 300,
 					],
 				],
-				'default' => '30',
+				'default'    => array(
+					'size' => 30,
+				),
 				'selectors' => [
 					'{{WRAPPER}} .hfe-post-nav-arrow-wrapper' => 'font-size: {{SIZE}}{{UNIT}};',
 				],
@@ -376,7 +378,9 @@ class Post_Nav extends Widget_Base {
 						'max' => 5,
 					],
 				],
-				'default' => '15',
+				'default'    => array(
+					'size' => 15,
+				),
 			]
 		);
 
@@ -397,7 +401,6 @@ class Post_Nav extends Widget_Base {
 				'label_on' => __( 'Yes', 'header-footer-elementor' ),
 				'label_off' => __( 'No', 'header-footer-elementor' ),
 				'default' => 'no',
-				'prefix_class' => 'hfe-post-nav-separator-',
 			]
 		);
 
@@ -406,10 +409,9 @@ class Post_Nav extends Widget_Base {
 			array(
 				'label'       => __( 'Style', 'uael' ),
 				'type'        => Controls_Manager::SELECT,
-				'default'     => 'none',
+				'default'     => 'solid',
 				'label_block' => false,
 				'options'     => array(
-					'none'   => __( 'None', 'uael' ),
 					'solid'  => __( 'Solid', 'uael' ),
 					'double' => __( 'Double', 'uael' ),
 					'dotted' => __( 'Dotted', 'uael' ),
@@ -449,7 +451,7 @@ class Post_Nav extends Widget_Base {
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px' ),
 				'default'    => array(
-					'size' => 40,
+					'size' => 1,
 				),
 				'range'      => array(
 					'px' => array(
@@ -748,4 +750,14 @@ class Post_Nav extends Widget_Base {
 
 		<?php
 	}
+
+	/**
+	 * Rend Posts Navigation in the editor.
+	 *
+	 * Written as a Backbone JavaScript template and used to generate the live preview.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function _content_template() {}
 }
