@@ -22,6 +22,7 @@ use Elementor\Plugin;
 
 // HFE Classes.
 use HFE\Inc\WidgetsManager\Widgets\Menu_Walker;
+use HFE\Inc\WidgetsManager\Widgets_Loader;
 
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -435,7 +436,7 @@ class Nav_Menu extends Widget_Base {
 			)
 		);
 
-		if ( UAEL_Helper::is_elementor_updated() ) {
+		if ( Widgets_Loader::is_elementor_updated() ) {
 			$this->add_control(
 				'dropdown_icon',
 				array(
@@ -466,7 +467,7 @@ class Nav_Menu extends Widget_Base {
 			);
 		}
 
-		if ( UAEL_Helper::is_elementor_updated() ) {
+		if ( Widgets_Loader::is_elementor_updated() ) {
 			$this->add_control(
 				'dropdown_close_icon',
 				array(
@@ -1427,7 +1428,7 @@ class Nav_Menu extends Widget_Base {
 	<div <?php echo $this->get_render_attribute_string( 'hfe-main-menu' ); ?>>
 		<div class="hfe-nav-menu__toggle elementor-clickable">
 			<div class="hfe-nav-menu-icon">
-				<?php if ( UAEL_Helper::is_elementor_updated() ) { ?>
+				<?php if ( Widgets_Loader::is_elementor_updated() ) { ?>
 					<i class="<?php echo esc_attr( $settings['dropdown_icon']['value'] ); ?>" aria-hidden="true" tabindex="0"></i>
 				<?php } else { ?>
 					<i class="<?php echo esc_attr( $settings['dropdown_icon'] ); ?>" aria-hidden="true" tabindex="0"></i>

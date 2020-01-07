@@ -91,6 +91,21 @@ class Widgets_Loader {
 	}
 
 	/**
+	 * Check if the Elementor is updated.
+	 *
+	 * @since x.x.x
+	 *
+	 * @return boolean if Elementor updated.
+	 */
+	static public function is_elementor_updated() {
+		if ( class_exists( 'Elementor\Icons_Manager' ) ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	/**
 	 * Register Category
 	 *
 	 * @since 1.2.0
