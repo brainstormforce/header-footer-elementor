@@ -165,23 +165,6 @@ class Post_Title extends Widget_Base {
 		);
 
 		$this->add_control(
-			'size',
-			[
-				'label'   => __( 'Size', 'header-footer-elementor' ),
-				'type'    => Controls_Manager::SELECT,
-				'default' => 'default',
-				'options' => [
-					'default' => __( 'Default', 'header-footer-elementor' ),
-					'small'   => __( 'Small', 'header-footer-elementor' ),
-					'medium'  => __( 'Medium', 'header-footer-elementor' ),
-					'large'   => __( 'Large', 'header-footer-elementor' ),
-					'xl'      => __( 'XL', 'header-footer-elementor' ),
-					'xxl'     => __( 'XXL', 'header-footer-elementor' ),
-				],
-			]
-		);
-
-		$this->add_control(
 			'heading_tag',
 			[
 				'label'   => __( 'HTML Tag', 'header-footer-elementor' ),
@@ -195,6 +178,23 @@ class Post_Title extends Widget_Base {
 					'h6' => __( 'H6', 'header-footer-elementor' ),
 				],
 				'default' => 'h2',
+			]
+		);
+
+		$this->add_control(
+			'size',
+			[
+				'label'   => __( 'Size', 'header-footer-elementor' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'default',
+				'options' => [
+					'default' => __( 'Default', 'header-footer-elementor' ),
+					'small'   => __( 'Small', 'header-footer-elementor' ),
+					'medium'  => __( 'Medium', 'header-footer-elementor' ),
+					'large'   => __( 'Large', 'header-footer-elementor' ),
+					'xl'      => __( 'XL', 'header-footer-elementor' ),
+					'xxl'     => __( 'XXL', 'header-footer-elementor' ),
+				],
 			]
 		);
 
