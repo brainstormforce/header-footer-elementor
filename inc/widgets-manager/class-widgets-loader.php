@@ -72,7 +72,8 @@ class Widgets_Loader {
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-retina.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-copyright.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-copyright-shortcode.php';
-		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-nav-menu.php';
+		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-navigation-menu.php';
+		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-menu-walker.php';
 	}
 
 	/**
@@ -88,21 +89,6 @@ class Widgets_Loader {
 		// New allowed mime types.
 		$mimes['svg'] = 'image/svg+xml';
 		return $mimes;
-	}
-
-	/**
-	 * Check if the Elementor is updated.
-	 *
-	 * @since x.x.x
-	 *
-	 * @return boolean if Elementor updated.
-	 */
-	static public function is_elementor_updated() {
-		if ( class_exists( 'Elementor\Icons_Manager' ) ) {
-			return true;
-		} else {
-			return false;
-		}
 	}
 
 	/**
@@ -140,7 +126,7 @@ class Widgets_Loader {
 		// Register Widgets.
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Retina() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Copyright() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Nav_Menu() );
+		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Navigation_Menu() );
 	}
 }
 

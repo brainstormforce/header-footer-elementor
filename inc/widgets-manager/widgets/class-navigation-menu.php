@@ -1,10 +1,9 @@
 <?php
 /**
- * HFE Navigation Menu.
+ * Elementor Classes.
  *
  * @package header-footer-elementor
  */
-
 namespace HFE\WidgetsManager\Widgets;
 
 // Elementor Classes.
@@ -16,23 +15,22 @@ use Elementor\Scheme_Typography;
 use Elementor\Scheme_Color;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
-use Elementor\Repeater;
 use Elementor\Widget_Base;
 use Elementor\Plugin;
 
 // HFE Classes.
-use HFE\Inc\WidgetsManager\Widgets\Menu_Walker;
-use HFE\Inc\WidgetsManager\Widgets_Loader;
+use HFE\Inc\WidgetsManager\Menu_Walker;
 
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;   // Exit if accessed directly.
 }
 
+
 /**
  * Class Nav Menu.
  */
-class Nav_Menu extends Widget_Base {
+class Navigation_Menu extends Widget_Base {
 
 	/**
 	 * Menu index.
@@ -52,7 +50,7 @@ class Nav_Menu extends Widget_Base {
 	 * @return string Widget name.
 	 */
 	public function get_name() {
-		return 'nav-menu';
+		return 'navigation-menu';
 	}
 
 	/**
@@ -136,6 +134,21 @@ class Nav_Menu extends Widget_Base {
 		return $options;
 	}
 
+	/**
+	 * Check if the Elementor is updated.
+	 *
+	 * @since x.x.x
+	 *
+	 * @return boolean if Elementor updated.
+	 */
+	static public function is_elementor_updated() {
+		if ( class_exists( 'Elementor\Icons_Manager' ) ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 
 	/**
 	 * Register Nav Menu controls.
@@ -148,7 +161,6 @@ class Nav_Menu extends Widget_Base {
 		$this->register_general_content_controls();
 		$this->register_style_content_controls();
 		$this->register_dropdown_content_controls();
-		$this->register_helpful_information();
 	}
 
 	/**
@@ -180,9 +192,6 @@ class Nav_Menu extends Widget_Base {
 					'separator'    => 'after',
 					/* translators: %s Nav menu URL */
 					'description'  => sprintf( __( 'Go to the <a href="%s" target="_blank">Menus screen</a> to manage your menus.', 'header-footer-elementor' ), admin_url( 'nav-menus.php' ) ),
-					'condition'    => array(
-						'menu_type' => 'wordpress_menu',
-					),
 				)
 			);
 		} else {
@@ -194,9 +203,6 @@ class Nav_Menu extends Widget_Base {
 					'raw'             => sprintf( __( '<strong>There are no menus in your site.</strong><br>Go to the <a href="%s" target="_blank">Menus screen</a> to create one.', 'header-footer-elementor' ), admin_url( 'nav-menus.php?action=edit&menu=0' ) ),
 					'separator'       => 'after',
 					'content_classes' => 'elementor-panel-alert elementor-panel-alert-info',
-					'condition'       => array(
-						'menu_type' => 'wordpress_menu',
-					),
 				)
 			);
 		}
@@ -277,7 +283,7 @@ class Nav_Menu extends Widget_Base {
 					),
 					'default'   => 'center',
 					'condition' => array(
-						'layout' => array( 'expandible' ),
+						'layout' => 'expandible',
 					),
 					'selectors' => array(
 						'{{WRAPPER}} .hfe-nav-menu__toggle' => 'justify-content: {{VALUE}};',
@@ -330,9 +336,6 @@ class Nav_Menu extends Widget_Base {
 						'plus'    => __( 'Plus Sign', 'header-footer-elementor' ),
 						'classic' => __( 'Classic', 'header-footer-elementor' ),
 					),
-					'condition'    => array(
-						'menu_type' => 'wordpress_menu',
-					),
 					'prefix_class' => 'hfe-submenu-icon-',
 				)
 			);
@@ -346,9 +349,6 @@ class Nav_Menu extends Widget_Base {
 					'options'      => array(
 						'none'     => __( 'Default', 'header-footer-elementor' ),
 						'slide_up' => __( 'Slide Up', 'header-footer-elementor' ),
-					),
-					'condition'    => array(
-						'menu_type' => array( 'wordpress_menu' ),
 					),
 					'prefix_class' => 'hfe-submenu-animation-',
 					'condition'    => array(
@@ -436,7 +436,7 @@ class Nav_Menu extends Widget_Base {
 			)
 		);
 
-		if ( Widgets_Loader::is_elementor_updated() ) {
+		if ( $this->is_elementor_updated() ) {
 			$this->add_control(
 				'dropdown_icon',
 				array(
@@ -467,7 +467,7 @@ class Nav_Menu extends Widget_Base {
 			);
 		}
 
-		if ( Widgets_Loader::is_elementor_updated() ) {
+		if ( $this->is_elementor_updated() ) {
 			$this->add_control(
 				'dropdown_close_icon',
 				array(
@@ -821,9 +821,6 @@ class Nav_Menu extends Widget_Base {
 					'tab_menu_item_active',
 					array(
 						'label'     => __( 'Active', 'header-footer-elementor' ),
-						'condition' => array(
-							'menu_type' => 'wordpress_menu',
-						),
 					)
 				);
 
@@ -1370,7 +1367,6 @@ class Nav_Menu extends Widget_Base {
 		);
 
 		$menu_html = wp_nav_menu( $args );
-
 		
 		$this->add_render_attribute(
 			'hfe-main-menu',
@@ -1428,7 +1424,7 @@ class Nav_Menu extends Widget_Base {
 	<div <?php echo $this->get_render_attribute_string( 'hfe-main-menu' ); ?>>
 		<div class="hfe-nav-menu__toggle elementor-clickable">
 			<div class="hfe-nav-menu-icon">
-				<?php if ( Widgets_Loader::is_elementor_updated() ) { ?>
+				<?php if ( $this->is_elementor_updated() ) { ?>
 					<i class="<?php echo esc_attr( $settings['dropdown_icon']['value'] ); ?>" aria-hidden="true" tabindex="0"></i>
 				<?php } else { ?>
 					<i class="<?php echo esc_attr( $settings['dropdown_icon'] ); ?>" aria-hidden="true" tabindex="0"></i>
