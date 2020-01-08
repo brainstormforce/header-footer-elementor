@@ -19,18 +19,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * HFE Retina widget
+ * HFE Site title widget
  *
- * HFE widget for Retina Image.
+ * HFE widget for site title
  *
- * @since 1.2.0
+ * @since x.x.x
  */
 class Site_Title extends Widget_Base {
 
 	/**
 	 * Retrieve the widget name.
 	 *
-	 * @since 1.2.0
+	 * @since x.x.x
 	 *
 	 * @access public
 	 *
@@ -43,7 +43,7 @@ class Site_Title extends Widget_Base {
 	/**
 	 * Retrieve the widget title.
 	 *
-	 * @since 1.2.0
+	 * @since x.x.x
 	 *
 	 * @access public
 	 *
@@ -56,7 +56,7 @@ class Site_Title extends Widget_Base {
 	/**
 	 * Retrieve the widget icon.
 	 *
-	 * @since 1.2.0
+	 * @since x.x.x
 	 *
 	 * @access public
 	 *
@@ -74,7 +74,7 @@ class Site_Title extends Widget_Base {
 	 * Note that currently Elementor supports only one category.
 	 * When multiple categories passed, Elementor uses the first one.
 	 *
-	 * @since 1.2.0
+	 * @since x.x.x
 	 *
 	 * @access public
 	 *
@@ -87,7 +87,7 @@ class Site_Title extends Widget_Base {
 	/**
 	 * Register site title controls controls.
 	 *
-	 * @since 0.0.1
+	 * @since x.x.x
 	 * @access protected
 	 */
 	protected function _register_controls() {
@@ -99,7 +99,7 @@ class Site_Title extends Widget_Base {
 	/**
 	 * Register Advanced Heading General Controls.
 	 *
-	 * @since 0.0.1
+	 * @since x.x.x
 	 * @access protected
 	 */
 	protected function register_general_content_controls() {
@@ -225,7 +225,7 @@ class Site_Title extends Widget_Base {
 					],
 				],
 				'selectors'    => [
-					'{{WRAPPER}} .hfe-heading,{{WRAPPER}} .hfe-sub-heading, {{WRAPPER}} .hfe-sub-heading *,{{WRAPPER}} .hfe-subheading, {{WRAPPER}} .hfe-subheading *, {{WRAPPER}} .hfe-separator-parent' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .hfe-heading' => 'text-align: {{VALUE}};',
 				],
 				'prefix_class' => 'hfe%s-heading-align-',
 			]
@@ -237,7 +237,7 @@ class Site_Title extends Widget_Base {
 	/**
 	 * Register Advanced Heading Typography Controls.
 	 *
-	 * @since 0.0.1
+	 * @since x.x.x
 	 * @access protected
 	 */
 	protected function register_heading_typo_content_controls() {
@@ -315,14 +315,13 @@ class Site_Title extends Widget_Base {
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
-	 * @since 0.0.1
+	 * @since x.x.x
 	 * @access protected
 	 */
 	protected function render() {
 
-		$settings     = $this->get_settings();
-		$title        = get_bloginfo( 'name' );
-		$default_link = get_home_url();
+		$settings = $this->get_settings();
+		$title    = get_bloginfo( 'name' );
 
 		$this->add_inline_editing_attributes( 'heading_title', 'basic' );
 
@@ -356,7 +355,7 @@ class Site_Title extends Widget_Base {
 						if ( '' !== $settings['before'] ) {
 							echo wp_kses_post( $settings['before'] );
 						}
-						echo $title;
+						echo wp_kses_post( $title );
 						if ( '' !== $settings['after'] ) {
 							echo wp_kses_post( $settings['after'] );
 						}
@@ -374,7 +373,7 @@ class Site_Title extends Widget_Base {
 		 *
 		 * Written as a Backbone JavaScript template and used to generate the live preview.
 		 *
-		 * @since 0.0.1
+		 * @since x.x.x
 		 * @access protected
 		 */
 	protected function _content_template() {
