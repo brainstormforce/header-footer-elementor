@@ -63,7 +63,7 @@ class Post_Title extends Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'fas fa-search';
+		return 'hfe-icon-navigation-menu-5';
 	}
 
 	/**
