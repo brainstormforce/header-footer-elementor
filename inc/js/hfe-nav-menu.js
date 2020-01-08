@@ -401,14 +401,9 @@
 		} );
 	}
 
-	$( document ).on( 'hfe_nav_menu_init', function( e, id ){
-
-		_sizeCal( id );
-	});
-
 	$( window ).on( 'elementor/frontend/init', function () {
 
-		elementorFrontend.hooks.addAction( 'frontend/element_ready/hfe-nav-menu.default', WidgethfeNavMenuHandler );
+		elementorFrontend.hooks.addAction( 'frontend/element_ready/navigation-menu.default', WidgethfeNavMenuHandler );
 
 	});
 

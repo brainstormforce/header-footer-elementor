@@ -19,14 +19,9 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Widget_Base;
 use Elementor\Plugin;
 
-// HFE Classes.
-// use Menu_Walker;
-
-
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;   // Exit if accessed directly.
 }
-
 
 /**
  * Class Nav Menu.

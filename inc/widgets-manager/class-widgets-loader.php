@@ -95,6 +95,24 @@ class Widgets_Loader {
 	}
 
 	/**
+	 * Returns Script array.
+	 *
+	 * @return array()
+	 * @since x.x.x
+	 */
+	public static function get_widget_list() {
+		$widget_list = array(
+			'retina',
+			'copyright',
+			'copyright-shortcode',
+			'navigation-menu',
+			'menu-walker'
+		);	
+
+		return $widget_list;
+	}
+
+	/**
 	 * Include Widgets files
 	 *
 	 * Load widgets files
@@ -106,12 +124,13 @@ class Widgets_Loader {
 
 		$css_files = $this->get_widget_style();
 		$js_files = $this->get_widget_script();
+		$widget_list = $this->get_widget_list();
 
-		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-retina.php';
-		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-copyright.php';
-		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-copyright-shortcode.php';
-		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-navigation-menu.php';
-		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-menu-walker.php';
+		if ( ! empty( $widget_list ) ) {
+			foreach ( $widget_list as $handle => $data ) {
+				require_once HFE_DIR . '/inc/widgets-manager/widgets/class-' . $data . '.php';
+			}
+		}
 
 		if ( ! empty( $css_files ) ) {
 			foreach ( $css_files as $handle => $data ) {
@@ -126,8 +145,6 @@ class Widgets_Loader {
 				wp_register_script( $handle, HFE_URL . $data['path'], $data['dep'], HFE_VER, $data['in_footer'] );
 			}
 		}
-
-		//wp_register_script( 'hfe-nav-menu', HFE_DIR . '/inc/js/hfe-nav-menu.js', [ 'jquery' ], HFE_VER, 'true' );
 	}
 
 	/**
