@@ -38,13 +38,13 @@ class Menu_Walker extends \Walker_Nav_Menu {
 		$rel_blank   = '';
 
 		$classes = empty( $item->classes ) ? [] : (array) $item->classes;
-		$submenu = $args->has_children ? ' uael-has-submenu' : '';
+		$submenu = $args->has_children ? ' hfe-has-submenu' : '';
 
 		if ( 0 === $depth ) {
 			array_push( $classes, 'parent' );
 		}
 		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args, $depth ) );
-		$class_names = ' class="' . esc_attr( $class_names ) . $submenu . ' uael-creative-menu"';
+		$class_names = ' class="' . esc_attr( $class_names ) . $submenu . ' hfe-creative-menu"';
 
 		$output .= $indent . '<li id="menu-item-' . $item->ID . '"' . $value . $class_names . '>';
 
@@ -60,18 +60,18 @@ class Menu_Walker extends \Walker_Nav_Menu {
 		$attributes .= ! empty( $item->xfn ) ? ' rel="' . esc_attr( $item->xfn ) . $rel_xfn . '"' : '' . $rel_blank;
 		$attributes .= ! empty( $item->url ) ? ' href="' . esc_attr( $item->url ) . '"' : '';
 
-		$item_output  = $args->has_children ? '<div class="uael-has-submenu-container">' : '';
+		$item_output  = $args->has_children ? '<div class="hfe-has-submenu-container">' : '';
 		$item_output .= $args->before;
 		$item_output .= '<a' . $attributes;
 		if ( 0 === $depth ) {
-			$item_output .= ' class = "uael-menu-item"';
+			$item_output .= ' class = "hfe-menu-item"';
 		} else {
-			$item_output .= ' class = "uael-sub-menu-item"';
+			$item_output .= ' class = "hfe-sub-menu-item"';
 		}
 		$item_output .= '>';
 		$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
 		if ( $args->has_children ) {
-			$item_output .= "<span class='uael-menu-toggle sub-arrow uael-menu-child-";
+			$item_output .= "<span class='hfe-menu-toggle sub-arrow hfe-menu-child-";
 			$item_output .= $depth;
 			$item_output .= "'><i class='fa'></i></span>";
 		}

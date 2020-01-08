@@ -60,6 +60,23 @@ class Widgets_Loader {
 	}
 
 	/**
+	 * Returns Style array.
+	 *
+	 * @return array()
+	 * @since x.x.x
+	 */
+	public static function get_widget_style() {
+		$css_files = array(
+			'hfe-nav-menu-css' => array(
+				'path' => 'inc/css/hfe-nav-menu.css',
+				'dep'  => array(),
+			),
+		);
+
+		return $css_files;
+	}
+
+	/**
 	 * Returns Script array.
 	 *
 	 * @return array()
@@ -68,7 +85,7 @@ class Widgets_Loader {
 	public static function get_widget_script() {
 		$js_files = array(
 			'hfe-nav-menu'   => array(
-				'path'      => '/inc/js/hfe-nav-menu.js',
+				'path'      => 'inc/js/hfe-nav-menu.js',
 				'dep'       => array( 'jquery' ),
 				'in_footer' => true,
 			),
@@ -87,17 +104,27 @@ class Widgets_Loader {
 	 */
 	public function include_widgets_files() {
 
+		$css_files = $this->get_widget_style();
 		$js_files = $this->get_widget_script();
-		
+
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-retina.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-copyright.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-copyright-shortcode.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-navigation-menu.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-menu-walker.php';
 
-		foreach ( $js_files as $handle => $data ) {
+		if ( ! empty( $css_files ) ) {
+			foreach ( $css_files as $handle => $data ) {
+				wp_register_style( $handle, HFE_URL . $data['path'], $data['dep'], HFE_VER );
+				wp_enqueue_style( $handle, HFE_URL . $data['path'], $data['dep'], HFE_VER );
+			}
+		}
 
-			wp_register_script( $handle, HFE_DIR . $data['path'], $data['dep'], HFE_VER, $data['in_footer'] );
+		if ( ! empty( $js_files ) ) {
+			foreach ( $js_files as $handle => $data ) {
+
+				wp_register_script( $handle, HFE_URL . $data['path'], $data['dep'], HFE_VER, $data['in_footer'] );
+			}
 		}
 
 		//wp_register_script( 'hfe-nav-menu', HFE_DIR . '/inc/js/hfe-nav-menu.js', [ 'jquery' ], HFE_VER, 'true' );
