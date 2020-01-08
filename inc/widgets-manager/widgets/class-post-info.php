@@ -12,7 +12,7 @@ use Elementor\Scheme_Typography;
 use Elementor\Widget_Base;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Scheme_Color;
-
+use Elementor\Repeater;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;   // Exit if accessed directly.
@@ -115,7 +115,7 @@ class Post_Info extends Widget_Base {
 				'view',
 				[
 					'label' => __( 'Layout', 'header-footer-elementor' ),
-					'type' => Controls_Manager::CHOOSE,
+					'type' => Controls_Manager::SELECT,
 					'default' => 'inline',
 					'options' => [
 						'default' => __( 'Default', 'header-footer-elementor' ),
@@ -125,7 +125,120 @@ class Post_Info extends Widget_Base {
 				]
 			);
 
+			$repeater = new Repeater();
+
+			$repeater->add_control(
+				'type',
+				[
+					'label' => __( 'Type', 'header-footer-elementor' ),
+					'type' => Controls_Manager::SELECT,
+					'default' => 'date',
+					'options' => [
+						'author' => __( 'Author', 'header-footer-elementor' ),
+						'date' => __( 'Date', 'header-footer-elementor' ),
+						'time' => __( 'Time', 'header-footer-elementor' ),
+						'comments' => __( 'Comments', 'header-footer-elementor' ),
+						'terms' => __( 'Terms', 'header-footer-elementor' ),
+						'custom' => __( 'Custom', 'header-footer-elementor' ),
+					],
+				]
+			);
+
+			$repeater->add_control(
+				'date_format',
+				[
+					'label' => __( 'Date Format', 'header-footer-elementor' ),
+					'type' => Controls_Manager::SELECT,
+					'label_block' => false,
+					'default' => 'default',
+					'options' => [
+						'default' => 'Default',
+						'0' => _x( 'January 2, 2020 (F j, Y)', 'Date Format', 'header-footer-elementor' ),
+						'1' => '2020-01-02 (Y-m-d)',
+						'2' => '01/02/2020 (m/d/Y)',
+						'3' => '02/01/2020 (d/m/Y)',
+						'custom' => __( 'Custom', 'header-footer-elementor' ),
+					],
+					'condition' => [
+						'type' => 'date',
+					],
+				]
+			);
+
+			$repeater->add_control(
+				'custom_date_format',
+				[
+					'label' => __( 'Custom Date Format', 'header-footer-elementor' ),
+					'type' => Controls_Manager::TEXT,
+					'default' => 'F j, Y',
+					'label_block' => false,
+					'condition' => [
+						'type' => 'date',
+						'date_format' => 'custom',
+					],
+					'description' => sprintf(
+						/* translators: %s: Allowed data letters (see: http://php.net/manual/en/function.date.php). */
+						__( 'Use the letters: %s', 'header-footer-elementor' ),
+						'l D d j S F m M n Y y'
+					),
+				]
+			);
+
+			$repeater->add_control(
+				'time_format',
+				[
+					'label' => __( 'Time Format', 'header-footer-elementor' ),
+					'type' => Controls_Manager::SELECT,
+					'label_block' => false,
+					'default' => 'default',
+					'options' => [
+						'default' => 'Default',
+						'0' => '5:12 pm (g:i a)',
+						'1' => '5:12 PM (g:i A)',
+						'2' => '17:12 (H:i)',
+						'custom' => __( 'Custom', 'header-footer-elementor' ),
+					],
+					'condition' => [
+						'type' => 'time',
+					],
+				]
+			);
+			$repeater->add_control(
+				'custom_time_format',
+				[
+					'label' => __( 'Custom Time Format', 'header-footer-elementor' ),
+					'type' => Controls_Manager::TEXT,
+					'default' => 'g:i a',
+					'placeholder' => 'g:i a',
+					'label_block' => false,
+					'condition' => [
+						'type' => 'time',
+						'time_format' => 'custom',
+					],
+					'description' => sprintf(
+						/* translators: %s: Allowed time letters (see: http://php.net/manual/en/function.time.php). */
+						__( 'Use the letters: %s', 'header-footer-elementor' ),
+						'g G H i a A'
+					),
+				]
+			);
+
 			
+
+			$this->add_control(
+				'meta_list',
+				[
+					'label' => '',
+					'type' => Controls_Manager::REPEATER,
+					'fields' => $repeater->get_controls(),
+					'default' => [
+						[
+							'type' => 'date',
+						],
+					],
+					'title_field' => '{{{ type }}}',
+				]
+			);			
 
 		$this->end_controls_section();
 	}
