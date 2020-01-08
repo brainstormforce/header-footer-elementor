@@ -4,6 +4,7 @@
  *
  * @package header-footer-elementor
  */
+
 namespace HFE\WidgetsManager\Widgets;
 
 use Elementor\Controls_Manager;
@@ -30,6 +31,8 @@ if (! defined('ABSPATH')) {
  */
 class Feature_Image extends Widget_Base
 {
+
+
     /**
      * Retrieve the widget name.
      *
@@ -124,20 +127,20 @@ class Feature_Image extends Widget_Base
         $this->add_responsive_control(
             'align',
             [
-                'label' => __('Alignment', 'header-footer-elementor'),
-                'type' => Controls_Manager::CHOOSE,
-                'options' => [
-                    'left' => [
+                'label'     => __('Alignment', 'header-footer-elementor'),
+                'type'      => Controls_Manager::CHOOSE,
+                'options'   => [
+                    'left'   => [
                         'title' => __('Left', 'header-footer-elementor'),
-                        'icon' => 'eicon-text-align-left',
+                        'icon'  => 'eicon-text-align-left',
                     ],
                     'center' => [
                         'title' => __('Center', 'header-footer-elementor'),
-                        'icon' => 'eicon-text-align-center',
+                        'icon'  => 'eicon-text-align-center',
                     ],
-                    'right' => [
+                    'right'  => [
                         'title' => __('Right', 'header-footer-elementor'),
-                        'icon' => 'eicon-text-align-right',
+                        'icon'  => 'eicon-text-align-right',
                     ],
                 ],
                 'selectors' => [
@@ -149,10 +152,10 @@ class Feature_Image extends Widget_Base
         $this->add_control(
             'caption_source',
             [
-                'label' => __('Caption', 'header-footer-elementor'),
-                'type' => Controls_Manager::SELECT,
+                'label'   => __('Caption', 'header-footer-elementor'),
+                'type'    => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => __('None', 'header-footer-elementor'),
+                    'none'   => __('None', 'header-footer-elementor'),
                     'custom' => __('Custom Caption', 'header-footer-elementor'),
                 ],
                 'default' => 'none',
@@ -162,14 +165,14 @@ class Feature_Image extends Widget_Base
         $this->add_control(
             'caption',
             [
-                'label' => __('Custom Caption', 'header-footer-elementor'),
-                'type' => Controls_Manager::TEXT,
-                'default' => '',
+                'label'       => __('Custom Caption', 'header-footer-elementor'),
+                'type'        => Controls_Manager::TEXT,
+                'default'     => '',
                 'placeholder' => __('Enter your image caption', 'header-footer-elementor'),
-                'condition' => [
+                'condition'   => [
                     'caption_source' => 'custom',
                 ],
-                'dynamic' => [
+                'dynamic'     => [
                     'active' => true,
                 ],
             ]
@@ -178,11 +181,11 @@ class Feature_Image extends Widget_Base
         $this->add_control(
             'link_to',
             [
-                'label' => __('Link', 'header-footer-elementor'),
-                'type' => Controls_Manager::SELECT,
+                'label'   => __('Link', 'header-footer-elementor'),
+                'type'    => Controls_Manager::SELECT,
                 'default' => 'none',
                 'options' => [
-                    'none' => __('None', 'header-footer-elementor'),
+                    'none'   => __('None', 'header-footer-elementor'),
                     'custom' => __('Custom URL', 'header-footer-elementor'),
                 ],
             ]
@@ -191,24 +194,24 @@ class Feature_Image extends Widget_Base
         $this->add_control(
             'link',
             [
-                'label' => __('Custom Link', 'header-footer-elementor'),
-                'type' => Controls_Manager::URL,
-                'dynamic' => [
+                'label'       => __('Custom Link', 'header-footer-elementor'),
+                'type'        => Controls_Manager::URL,
+                'dynamic'     => [
                     'active' => true,
                 ],
                 'placeholder' => __('https://your-link.com', 'header-footer-elementor'),
-                'condition' => [
+                'condition'   => [
                     'link_to' => 'custom',
                 ],
-                'show_label' => false,
+                'show_label'  => false,
             ]
         );
 
         $this->add_control(
             'view',
             [
-                'label' => __('View', 'header-footer-elementor'),
-                'type' => Controls_Manager::HIDDEN,
+                'label'   => __('View', 'header-footer-elementor'),
+                'type'    => Controls_Manager::HIDDEN,
                 'default' => 'traditional',
             ]
         );
@@ -226,9 +229,9 @@ class Feature_Image extends Widget_Base
         $this->add_responsive_control(
             'width',
             [
-                'label' => __('Width', 'header-footer-elementor'),
-                'type' => Controls_Manager::SLIDER,
-                'default' => [
+                'label'          => __('Width', 'header-footer-elementor'),
+                'type'           => Controls_Manager::SLIDER,
+                'default'        => [
                     'unit' => '%',
                 ],
                 'tablet_default' => [
@@ -237,9 +240,9 @@ class Feature_Image extends Widget_Base
                 'mobile_default' => [
                     'unit' => '%',
                 ],
-                'size_units' => [ '%', 'px', 'vw' ],
-                'range' => [
-                    '%' => [
+                'size_units'     => [ '%', 'px', 'vw' ],
+                'range'          => [
+                    '%'  => [
                         'min' => 1,
                         'max' => 100,
                     ],
@@ -252,7 +255,7 @@ class Feature_Image extends Widget_Base
                         'max' => 100,
                     ],
                 ],
-                'selectors' => [
+                'selectors'      => [
                     '{{WRAPPER}} .hfe-featured-image' => 'width: {{SIZE}}{{UNIT}};',
                 ],
             ]
@@ -261,9 +264,9 @@ class Feature_Image extends Widget_Base
         $this->add_responsive_control(
             'space',
             [
-                'label' => __('Max Width', 'header-footer-elementor') . ' (%)',
-                'type' => Controls_Manager::SLIDER,
-                'default' => [
+                'label'          => __('Max Width', 'header-footer-elementor') . ' (%)',
+                'type'           => Controls_Manager::SLIDER,
+                'default'        => [
                     'unit' => '%',
                 ],
                 'tablet_default' => [
@@ -272,14 +275,14 @@ class Feature_Image extends Widget_Base
                 'mobile_default' => [
                     'unit' => '%',
                 ],
-                'size_units' => [ '%' ],
-                'range' => [
+                'size_units'     => [ '%' ],
+                'range'          => [
                     '%' => [
                         'min' => 1,
                         'max' => 100,
                     ],
                 ],
-                'selectors' => [
+                'selectors'      => [
                     '{{WRAPPER}} .hfe-featured-image' => 'max-width: {{SIZE}}{{UNIT}};',
                 ],
             ]
@@ -288,7 +291,7 @@ class Feature_Image extends Widget_Base
         $this->add_control(
             'separator_panel_style',
             [
-                'type' => Controls_Manager::DIVIDER,
+                'type'  => Controls_Manager::DIVIDER,
                 'style' => 'thick',
             ]
         );
@@ -305,12 +308,12 @@ class Feature_Image extends Widget_Base
         $this->add_control(
             'opacity',
             [
-                'label' => __('Opacity', 'header-footer-elementor'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
+                'label'     => __('Opacity', 'header-footer-elementor'),
+                'type'      => Controls_Manager::SLIDER,
+                'range'     => [
                     'px' => [
-                        'max' => 1,
-                        'min' => 0.10,
+                        'max'  => 1,
+                        'min'  => 0.10,
                         'step' => 0.01,
                     ],
                 ],
@@ -323,7 +326,7 @@ class Feature_Image extends Widget_Base
         $this->add_group_control(
             Group_Control_Css_Filter::get_type(),
             [
-                'name' => 'css_filters',
+                'name'     => 'css_filters',
                 'selector' => '{{WRAPPER}} .hfe-featured-image',
             ]
         );
@@ -340,12 +343,12 @@ class Feature_Image extends Widget_Base
         $this->add_control(
             'opacity_hover',
             [
-                'label' => __('Opacity', 'header-footer-elementor'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
+                'label'     => __('Opacity', 'header-footer-elementor'),
+                'type'      => Controls_Manager::SLIDER,
+                'range'     => [
                     'px' => [
-                        'max' => 1,
-                        'min' => 0.10,
+                        'max'  => 1,
+                        'min'  => 0.10,
                         'step' => 0.01,
                     ],
                 ],
@@ -358,11 +361,11 @@ class Feature_Image extends Widget_Base
         $this->add_control(
             'background_hover_transition',
             [
-                'label' => __('Transition Duration', 'header-footer-elementor'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
+                'label'     => __('Transition Duration', 'header-footer-elementor'),
+                'type'      => Controls_Manager::SLIDER,
+                'range'     => [
                     'px' => [
-                        'max' => 3,
+                        'max'  => 3,
                         'step' => 0.1,
                     ],
                 ],
@@ -375,7 +378,7 @@ class Feature_Image extends Widget_Base
         $this->add_group_control(
             Group_Control_Css_Filter::get_type(),
             [
-                'name' => 'css_filters_hover',
+                'name'     => 'css_filters_hover',
                 'selector' => '{{WRAPPER}} .hfe-featured-image:hover img',
             ]
         );
@@ -384,7 +387,7 @@ class Feature_Image extends Widget_Base
             'hover_animation',
             [
                 'label' => __('Hover Animation', 'header-footer-elementor'),
-                'type' => Controls_Manager::HOVER_ANIMATION,
+                'type'  => Controls_Manager::HOVER_ANIMATION,
             ]
         );
 
@@ -395,8 +398,8 @@ class Feature_Image extends Widget_Base
         $this->add_group_control(
             Group_Control_Border::get_type(),
             [
-                'name' => 'image_border',
-                'selector' => '{{WRAPPER}} .hfe-featured-image',
+                'name'      => 'image_border',
+                'selector'  => '{{WRAPPER}} .hfe-featured-image',
                 'separator' => 'before',
             ]
         );
@@ -404,10 +407,10 @@ class Feature_Image extends Widget_Base
         $this->add_responsive_control(
             'image_border_radius',
             [
-                'label' => __('Border Radius', 'header-footer-elementor'),
-                'type' => Controls_Manager::DIMENSIONS,
+                'label'      => __('Border Radius', 'header-footer-elementor'),
+                'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
-                'selectors' => [
+                'selectors'  => [
                     '{{WRAPPER}} .hfe-featured-image' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
@@ -416,8 +419,8 @@ class Feature_Image extends Widget_Base
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
             [
-                'name' => 'image_box_shadow',
-                'exclude' => [
+                'name'     => 'image_box_shadow',
+                'exclude'  => [
                     'box_shadow_position',
                 ],
                 'selector' => '{{WRAPPER}} .hfe-featured-image',
@@ -429,8 +432,8 @@ class Feature_Image extends Widget_Base
         $this->start_controls_section(
             'section_style_caption',
             [
-                'label' => __('Caption', 'header-footer-elementor'),
-                'tab'   => Controls_Manager::TAB_STYLE,
+                'label'     => __('Caption', 'header-footer-elementor'),
+                'tab'       => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'caption_source!' => 'none',
                 ],
@@ -440,27 +443,27 @@ class Feature_Image extends Widget_Base
         $this->add_control(
             'caption_align',
             [
-                'label' => __('Alignment', 'header-footer-elementor'),
-                'type' => Controls_Manager::CHOOSE,
-                'options' => [
-                    'left' => [
+                'label'     => __('Alignment', 'header-footer-elementor'),
+                'type'      => Controls_Manager::CHOOSE,
+                'options'   => [
+                    'left'    => [
                         'title' => __('Left', 'header-footer-elementor'),
-                        'icon' => 'eicon-text-align-left',
+                        'icon'  => 'eicon-text-align-left',
                     ],
-                    'center' => [
+                    'center'  => [
                         'title' => __('Center', 'header-footer-elementor'),
-                        'icon' => 'eicon-text-align-center',
+                        'icon'  => 'eicon-text-align-center',
                     ],
-                    'right' => [
+                    'right'   => [
                         'title' => __('Right', 'header-footer-elementor'),
-                        'icon' => 'eicon-text-align-right',
+                        'icon'  => 'eicon-text-align-right',
                     ],
                     'justify' => [
                         'title' => __('Justified', 'header-footer-elementor'),
-                        'icon' => 'eicon-text-align-justify',
+                        'icon'  => 'eicon-text-align-justify',
                     ],
                 ],
-                'default' => '',
+                'default'   => '',
                 'selectors' => [
                     '{{WRAPPER}} .widget-image-caption' => 'text-align: {{VALUE}};',
                 ],
@@ -470,14 +473,14 @@ class Feature_Image extends Widget_Base
         $this->add_control(
             'text_color',
             [
-                'label' => __('Text Color', 'header-footer-elementor'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '',
+                'label'     => __('Text Color', 'header-footer-elementor'),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '',
                 'selectors' => [
                     '{{WRAPPER}} .widget-image-caption' => 'color: {{VALUE}};',
                 ],
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
+                'scheme'    => [
+                    'type'  => Scheme_Color::get_type(),
                     'value' => Scheme_Color::COLOR_3,
                 ],
             ]
@@ -486,8 +489,8 @@ class Feature_Image extends Widget_Base
         $this->add_control(
             'caption_background_color',
             [
-                'label' => __('Background Color', 'header-footer-elementor'),
-                'type' => Controls_Manager::COLOR,
+                'label'     => __('Background Color', 'header-footer-elementor'),
+                'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .widget-image-caption' => 'background-color: {{VALUE}};',
                 ],
@@ -497,16 +500,16 @@ class Feature_Image extends Widget_Base
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-                'name' => 'caption_typography',
+                'name'     => 'caption_typography',
                 'selector' => '{{WRAPPER}} .widget-image-caption',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_3,
+                'scheme'   => Scheme_Typography::TYPOGRAPHY_3,
             ]
         );
 
         $this->add_group_control(
             Group_Control_Text_Shadow::get_type(),
             [
-                'name' => 'caption_text_shadow',
+                'name'     => 'caption_text_shadow',
                 'selector' => '{{WRAPPER}} .widget-image-caption',
             ]
         );
@@ -514,9 +517,9 @@ class Feature_Image extends Widget_Base
         $this->add_responsive_control(
             'caption_space',
             [
-                'label' => __('Spacing', 'header-footer-elementor'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
+                'label'     => __('Spacing', 'header-footer-elementor'),
+                'type'      => Controls_Manager::SLIDER,
+                'range'     => [
                     'px' => [
                         'min' => 0,
                         'max' => 100,
@@ -531,7 +534,7 @@ class Feature_Image extends Widget_Base
         $this->end_controls_section();
     }
 
-    
+
     /**
      * Check if the current widget has caption
      *
@@ -591,8 +594,7 @@ class Feature_Image extends Widget_Base
      */
     protected function render()
     {
-           $settings = $this->get_settings_for_display();
-            
+        $settings = $this->get_settings_for_display();
 
         $has_caption = $this->has_caption($settings);
         $this->add_render_attribute('wrapper', 'class', 'hfe-featured-image-wrap');
@@ -618,7 +620,7 @@ class Feature_Image extends Widget_Base
         <?php endif; ?>
         <?php
         $size = $settings[ 'feature_image' . '_size' ];
-        
+
         $feature_image = $this->the_post_thumbnail_url($size);
 
         if (empty($feature_image)) {
@@ -631,7 +633,7 @@ class Feature_Image extends Widget_Base
         } else {
             require_once ELEMENTOR_PATH . 'includes/libraries/bfi-thumb/bfi-thumb.php';
             $image_dimension = $settings[ 'site_image' . '_custom_dimension' ];
-            $image_size = [
+            $image_size      = [
                 // Defaults sizes.
                 0           => null, // Width.
                 1           => null, // Height.
@@ -652,9 +654,9 @@ class Feature_Image extends Widget_Base
             }
         }
         $image_url = $feature_image;
-       
+
         $image_data = $feature_image;
-        
+
         $site_image_class = 'elementor-animation-';
         if (! empty($settings['hover_animation'])) {
             $demo = $settings['hover_animation'];
@@ -663,7 +665,7 @@ class Feature_Image extends Widget_Base
             $image_url = $image_data;
         }
         $class_animation = $site_image_class . $demo;
-        $image_unset         = site_url() . '/wp-includes/images/media/default.png';
+        $image_unset     = site_url() . '/wp-includes/images/media/default.png';
 
         if ($image_unset !== $image_url) {
             $image_url = $image_url;
