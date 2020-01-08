@@ -223,7 +223,181 @@ class Post_Info extends Widget_Base {
 				]
 			);
 
-			
+			$repeater->add_control(
+				'taxonomy',
+				[
+					'label' => __( 'Taxonomy', 'header-footer-elementor' ),
+					'type' => Controls_Manager::SELECT2,
+					'label_block' => true,
+					'default' => [],
+					'options' => $this->get_taxonomies(),
+					'condition' => [
+						'type' => 'terms',
+					],
+				]
+			);
+
+			$repeater->add_control(
+				'text_prefix',
+				[
+					'label' => __( 'Before', 'header-footer-elementor' ),
+					'type' => Controls_Manager::TEXT,
+					'label_block' => false,
+					'condition' => [
+						'type!' => 'custom',
+					],
+				]
+			);
+
+			$repeater->add_control(
+				'show_avatar',
+				[
+					'label' => __( 'Avatar', 'header-footer-elementor' ),
+					'type' => Controls_Manager::SWITCHER,
+					'condition' => [
+						'type' => 'author',
+					],
+				]
+			);
+
+			$repeater->add_responsive_control(
+				'avatar_size',
+				[
+					'label' => __( 'Size', 'header-footer-elementor' ),
+					'type' => Controls_Manager::SLIDER,
+					'selectors' => [
+						'{{WRAPPER}} {{CURRENT_ITEM}} .elementor-icon-list-icon' => 'width: {{SIZE}}{{UNIT}}',
+					],
+					'condition' => [
+						'show_avatar' => 'yes',
+					],
+				]
+			);
+
+			$repeater->add_control(
+				'comments_custom_strings',
+				[
+					'label' => __( 'Custom Format', 'header-footer-elementor' ),
+					'type' => Controls_Manager::SWITCHER,
+					'default' => false,
+					'condition' => [
+						'type' => 'comments',
+					],
+				]
+			);
+
+			$repeater->add_control(
+				'string_no_comments',
+				[
+					'label' => __( 'No Comments', 'header-footer-elementor' ),
+					'type' => Controls_Manager::TEXT,
+					'label_block' => false,
+					'placeholder' => __( 'No Comments', 'header-footer-elementor' ),
+					'condition' => [
+						'comments_custom_strings' => 'yes',
+						'type' => 'comments',
+					],
+				]
+			);
+
+			$repeater->add_control(
+				'string_one_comment',
+				[
+					'label' => __( 'One Comment', 'header-footer-elementor' ),
+					'type' => Controls_Manager::TEXT,
+					'label_block' => false,
+					'placeholder' => __( 'One Comment', 'header-footer-elementor' ),
+					'condition' => [
+						'comments_custom_strings' => 'yes',
+						'type' => 'comments',
+					],
+				]
+			);
+
+			$repeater->add_control(
+				'string_comments',
+				[
+					'label' => __( 'Comments', 'header-footer-elementor' ),
+					'type' => Controls_Manager::TEXT,
+					'label_block' => false,
+					'placeholder' => __( '%s Comments', 'header-footer-elementor' ),
+					'condition' => [
+						'comments_custom_strings' => 'yes',
+						'type' => 'comments',
+					],
+				]
+			);
+
+			$repeater->add_control(
+				'custom_text',
+				[
+					'label' => __( 'Custom', 'header-footer-elementor' ),
+					'type' => Controls_Manager::TEXT,
+					'dynamic' => [
+						'active' => true,
+					],
+					'label_block' => true,
+					'condition' => [
+						'type' => 'custom',
+					],
+				]
+			);
+
+			$repeater->add_control(
+				'link',
+				[
+					'label' => __( 'Link', 'header-footer-elementor' ),
+					'type' => Controls_Manager::SWITCHER,
+					'default' => 'yes',
+					'condition' => [
+						'type!' => 'time',
+					],
+				]
+			);
+
+			$repeater->add_control(
+				'custom_url',
+				[
+					'label' => __( 'Custom URL', 'header-footer-elementor' ),
+					'type' => Controls_Manager::URL,
+					'dynamic' => [
+						'active' => true,
+					],
+					'condition' => [
+						'type' => 'custom',
+					],
+				]
+			);
+
+			$repeater->add_control(
+				'show_icon',
+				[
+					'label' => __( 'Icon', 'header-footer-elementor' ),
+					'type' => Controls_Manager::SELECT,
+					'options' => [
+						'none' => __( 'None', 'header-footer-elementor' ),
+						'default' => __( 'Default', 'header-footer-elementor' ),
+						'custom' => __( 'Custom', 'header-footer-elementor' ),
+					],
+					'default' => 'default',
+					'condition' => [
+						'show_avatar!' => 'yes',
+					],
+				]
+			);
+
+			$repeater->add_control(
+				'selected_icon',
+				[
+					'label' => __( 'Choose Icon', 'header-footer-elementor' ),
+					'type' => Controls_Manager::ICONS,
+					'fa4compatibility' => 'icon',
+					'condition' => [
+						'show_icon' => 'custom',
+						'show_avatar!' => 'yes',
+					],
+				]
+			);
 
 			$this->add_control(
 				'meta_list',
@@ -233,12 +407,37 @@ class Post_Info extends Widget_Base {
 					'fields' => $repeater->get_controls(),
 					'default' => [
 						[
+							'type' => 'author',
+							'selected_icon' => [
+								'value' => 'far fa-user-circle',
+								'library' => 'fa-regular',
+							],
+						],
+						[
 							'type' => 'date',
+							'selected_icon' => [
+								'value' => 'fas fa-calendar',
+								'library' => 'fa-solid',
+							],
+						],
+						[
+							'type' => 'time',
+							'selected_icon' => [
+								'value' => 'far fa-clock',
+								'library' => 'fa-regular',
+							],
+						],
+						[
+							'type' => 'comments',
+							'selected_icon' => [
+								'value' => 'far fa-comment-dots',
+								'library' => 'fa-regular',
+							],
 						],
 					],
-					'title_field' => '{{{ type }}}',
+					'title_field' => '{{{ elementor.helpers.renderIcon( this, selected_icon, {}, "i", "panel" ) || \'<i class="{{ icon }}" aria-hidden="true"></i>\' }}} <span style="text-transform: capitalize;">{{{ type }}}</span>',
 				]
-			);			
+			);	
 
 		$this->end_controls_section();
 	}
@@ -262,6 +461,28 @@ class Post_Info extends Widget_Base {
 	}
 
 	/**
+	 * Render taxonomies list.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function get_taxonomies() {
+		$taxonomies = get_taxonomies( [
+			'show_in_nav_menus' => true,
+		], 'objects' );
+
+		$options = [
+			'' => __( 'Choose', 'header-footer-elementor' ),
+		];
+
+		foreach ( $taxonomies as $taxonomy ) {
+			$options[ $taxonomy->name ] = $taxonomy->label;
+		}
+
+		return $options;
+	}
+
+	/**
 	 * Render Post Info output on the frontend.
 	 *
 	 * Written in PHP and used to generate the final HTML.
@@ -273,6 +494,43 @@ class Post_Info extends Widget_Base {
 
 		$settings = $this->get_settings_for_display();
 
+		ob_start();
+
+		if ( ! empty( $settings['meta_list'] ) ) {
+			foreach ( $settings['meta_list'] as $repeater_item ) {
+				$this->render_item( $repeater_item );
+			}
+		}
+		$items_html = ob_get_clean();
+
+	}
+
+	/**
+	 * Render meta data items output.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function render_item( $repeater_item ) {
+
+		$item_data = [];
+
+		if( 'date' === $repeater_item['type'] ) {
+
+			$custom_date_format = empty( $repeater_item['custom_date_format'] ) ? 'F j, Y' : $repeater_item['custom_date_format'];
+
+			$format_options = [
+				'default' => 'F j, Y',
+				'0' => 'F j, Y',
+				'1' => 'Y-m-d',
+				'2' => 'm/d/Y',
+				'3' => 'd/m/Y',
+				'custom' => $custom_date_format,
+			];
+
+			$item_data['text'] = get_the_time( $format_options[ $repeater_item['date_format'] ] );
+
+		}
 	}
 
 	/**
