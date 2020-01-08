@@ -59,6 +59,23 @@ class Widgets_Loader {
 		add_filter( 'upload_mimes', [ $this, 'hfe_svg_mime_types' ] );
 	}
 
+	/**
+	 * Returns Script array.
+	 *
+	 * @return array()
+	 * @since x.x.x
+	 */
+	public static function get_widget_script() {
+		$js_files = array(
+			'hfe-nav-menu'   => array(
+				'path'      => '/inc/js/hfe-nav-menu.js',
+				'dep'       => array( 'jquery' ),
+				'in_footer' => true,
+			),
+		);	
+
+		return $js_files;
+	}
 
 	/**
 	 * Include Widgets files
@@ -69,11 +86,21 @@ class Widgets_Loader {
 	 * @access public
 	 */
 	public function include_widgets_files() {
+
+		$js_files = $this->get_widget_script();
+		
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-retina.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-copyright.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-copyright-shortcode.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-navigation-menu.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-menu-walker.php';
+
+		foreach ( $js_files as $handle => $data ) {
+
+			wp_register_script( $handle, HFE_DIR . $data['path'], $data['dep'], HFE_VER, $data['in_footer'] );
+		}
+
+		//wp_register_script( 'hfe-nav-menu', HFE_DIR . '/inc/js/hfe-nav-menu.js', [ 'jquery' ], HFE_VER, 'true' );
 	}
 
 	/**

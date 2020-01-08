@@ -20,7 +20,7 @@ use Elementor\Widget_Base;
 use Elementor\Plugin;
 
 // HFE Classes.
-use HFE\Inc\WidgetsManager\Menu_Walker;
+// use Menu_Walker;
 
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -96,6 +96,20 @@ class Navigation_Menu extends Widget_Base {
 	 */
 	public function get_categories() {
 		return [ 'hfe-widgets' ];
+	}
+
+	/**
+	 * Retrieve the list of scripts the navigation menu depended on.
+	 *
+	 * Used to set scripts dependencies required to run the widget.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 *
+	 * @return array Widget scripts dependencies.
+	 */
+	public function get_script_depends() {
+		return array( 'hfe-nav-menu' );
 	}
 
 	/**
