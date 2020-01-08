@@ -85,6 +85,17 @@ class Post_Info extends Widget_Base {
 	}
 
 	/**
+	 * Retrieve the widget keywords.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 * @return string Widget keywords.
+	 */
+	public function get_keywords() {
+		return [ 'post', 'info', 'date', 'time', 'author', 'taxonomy', 'comments', 'terms', 'avatar' ];
+	}
+
+	/**
 	 * Register site title controls controls.
 	 *
 	 * @since x.x.x
@@ -110,6 +121,22 @@ class Post_Info extends Widget_Base {
 				'label' => __( 'Meta Info', 'header-footer-elementor' ),
 			]
 		);
+
+			$this->add_control(
+				'view',
+				[
+					'label' => __( 'Layout', 'header-footer-elementor' ),
+					'type' => Controls_Manager::CHOOSE,
+					'default' => 'inline',
+					'options' => [
+						'default' => __( 'Default', 'header-footer-elementor' ),
+						'inline' => __( 'Inline', 'header-footer-elementor' ),
+					],
+					'render_type' => 'template',
+				]
+			);
+
+			
 
 		$this->end_controls_section();
 	}
