@@ -18,6 +18,7 @@ use Elementor\Group_Control_Css_Filter;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Plugin;
 use Elementor\Widget_Base;
+use Elementor\Utils;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;   // Exit if accessed directly.
@@ -30,6 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since x.x.x
  */
 class Feature_Image extends Widget_Base {
+
 
 
 
@@ -109,6 +111,35 @@ class Feature_Image extends Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'feature_image',
+			[
+				'label'       => __( 'Enable Fallback', 'header-footer-elementor' ),
+				'type'        => Controls_Manager::SWITCHER,
+				'yes'         => __( 'Yes', 'uael' ),
+				'no'          => __( 'No', 'uael' ),
+				'default'     => 'no',
+				'render_type' => 'template',
+			]
+		);
+
+		$this->add_control(
+			'custom_image',
+			[
+				'label'     => __( 'Custom Image', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::MEDIA,
+				'dynamic'   => [
+					'active' => true,
+				],
+				'default'   => [
+					'url' => Utils::get_placeholder_image_src(),
+				],
+				'condition' => [
+					'feature_image' => 'yes',
+				],
+			]
+		);
+
 		$this->add_group_control(
 			Group_Control_Image_Size::get_type(),
 			[
@@ -180,6 +211,7 @@ class Feature_Image extends Widget_Base {
 				'default' => 'none',
 				'options' => [
 					'none'   => __( 'None', 'header-footer-elementor' ),
+					'file'   => __( 'Media File', 'header-footer-elementor' ),
 					'custom' => __( 'Custom URL', 'header-footer-elementor' ),
 				],
 			]
@@ -198,6 +230,23 @@ class Feature_Image extends Widget_Base {
 					'link_to' => 'custom',
 				],
 				'show_label'  => false,
+			]
+		);
+
+		$this->add_control(
+			'open_lightbox',
+			[
+				'label'     => __( 'Lightbox', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'default',
+				'options'   => [
+					'default' => __( 'Default', 'header-footer-elementor' ),
+					'yes'     => __( 'Yes', 'header-footer-elementor' ),
+					'no'      => __( 'No', 'header-footer-elementor' ),
+				],
+				'condition' => [
+					'link_to' => 'file',
+				],
 			]
 		);
 
@@ -584,21 +633,29 @@ class Feature_Image extends Widget_Base {
 	 * @access protected
 	 */
 	protected function render() {
-		$settings = $this->get_settings_for_display();
-
+		$settings    = $this->get_settings_for_display();
 		$has_caption = $this->has_caption( $settings );
 		$this->add_render_attribute( 'wrapper', 'class', 'hfe-featured-image-wrap' );
-		$link = $this->get_link_url( $settings );
-		if ( $link ) {
-			$this->add_link_attributes( 'link', $link );
-			if ( Plugin::$instance->editor->is_edit_mode() ) {
-				$this->add_render_attribute(
-					'link',
-					[
-						'class' => 'elementor-clickable',
-					]
-				);
-			}
+
+		$size = $settings[ 'feature_image' . '_size' ];
+
+		if ( ! empty( $settings['custom_image']['url'] ) ) {
+			$image_data    = wp_get_attachment_image_src( $settings['custom_image']['id'], $size, true );
+			$feature_image = $image_data[0];
+		} else {
+			$feature_image = $this->the_post_thumbnail_url( $size );
+		}
+
+		if ( 'file' === $settings['link_to'] ) {
+				$link = $feature_image;
+		} else {
+			$link = $settings['link']['url'];
+		}
+
+		if ( Plugin::$instance->editor->is_edit_mode() ) {
+			$class = 'elementor-non-clickable';
+		} else {
+			$class = 'elementor-clickable';
 		}
 		?>
 		<div <?php echo $this->get_render_attribute_string( 'wrapper' ); ?>>
@@ -606,12 +663,14 @@ class Feature_Image extends Widget_Base {
 				<figure class="wp-caption">
 		<?php endif; ?>
 		<?php if ( $link ) : ?>
-					<a <?php echo $this->get_render_attribute_string( 'link' ); ?>>
+			<?php
+			if ( 'no' === $settings['open_lightbox'] ) {
+				$class = 'elementor-non-clickable';
+			}
+			?>
+				<a data-elementor-open-lightbox="<?php echo esc_attr( $settings['open_lightbox'] ); ?>"  class='<?php echo  esc_attr( $class ); ?>' href="<?php echo esc_url( $link ); ?>">
 		<?php endif; ?>
 		<?php
-		$size = $settings[ 'feature_image' . '_size' ];
-
-		$feature_image = $this->the_post_thumbnail_url( $size );
 
 		if ( empty( $feature_image ) ) {
 			return;
