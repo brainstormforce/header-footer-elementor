@@ -7,15 +7,12 @@
 namespace HFE\WidgetsManager\Widgets;
 
 use Elementor\Controls_Manager;
-use Elementor\Control_Media;
-use Elementor\Utils;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Scheme_Typography;
 use Elementor\Scheme_Color;
 use Elementor\Group_Control_Image_Size;
-use Elementor\Repeater;
 use Elementor\Group_Control_Css_Filter;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Plugin;
@@ -25,18 +22,18 @@ if (! defined('ABSPATH')) {
     exit;   // Exit if accessed directly.
 }
 /**
- * HFE Site Logo widget
+ * HFE Featured Image widget
  *
- * HFE widget for Site Logo Image.
+ * HFE widget for Featured Image Image.
  *
- * @since 1.2.0
+ * @since x.x.x
  */
 class Feature_Image extends Widget_Base
 {
     /**
      * Retrieve the widget name.
      *
-     * @since 1.2.0
+     * @since x.x.x
      *
      * @access public
      *
@@ -49,7 +46,7 @@ class Feature_Image extends Widget_Base
     /**
      * Retrieve the widget title.
      *
-     * @since 1.2.0
+     * @since x.x.x
      *
      * @access public
      *
@@ -62,7 +59,7 @@ class Feature_Image extends Widget_Base
     /**
      * Retrieve the widget icon.
      *
-     * @since 1.2.0
+     * @since x.x.x
      *
      * @access public
      *
@@ -80,7 +77,7 @@ class Feature_Image extends Widget_Base
      * Note that currently Elementor supports only one category.
      * When multiple categories passed, Elementor uses the first one.
      *
-     * @since 1.2.0
+     * @since x.x.x
      *
      * @access public
      *
@@ -91,22 +88,22 @@ class Feature_Image extends Widget_Base
         return [ 'hfe-widgets' ];
     }
     /**
-     * Register Site Logo controls.
+     * Register Featured Image controls.
      *
-     * @since 1.2.0
+     * @since x.x.x
      * @access protected
      */
     protected function _register_controls()
     {
-        $this->register_content_site_logo_controls();
+        $this->register_content_featured_image_controls();
     }
     /**
-     * Register Site Logo General Controls.
+     * Register Featured Image General Controls.
      *
-     * @since 1.2.0
+     * @since x.x.x
      * @access protected
      */
-    protected function register_content_site_logo_controls()
+    protected function register_content_featured_image_controls()
     {
         $this->start_controls_section(
             'section_image',
@@ -115,26 +112,12 @@ class Feature_Image extends Widget_Base
             ]
         );
 
-        $this->add_control(
-            'image',
-            [
-                'label' => __('Choose Image', 'header-footer-elementor'),
-                'type'        => Controls_Manager::URL,
-                'dynamic' => [
-                    'active' => true,
-                ],
-                'default' => [
-                    'url' => $this->site_featured_image_url(),
-                ],
-            ]
-        );
-
         $this->add_group_control(
             Group_Control_Image_Size::get_type(),
             [
-                'name' => 'image', // Usage: `{name}_size` and `{name}_custom_dimension`, in this case `image_size` and `image_custom_dimension`.
-                'default' => 'large',
-                'separator' => 'none',
+                'name'    => 'feature_image',
+                'label'   => __('Image Size', 'header-footer-elementor'),
+                'default' => 'medium',
             ]
         );
 
@@ -170,7 +153,6 @@ class Feature_Image extends Widget_Base
                 'type' => Controls_Manager::SELECT,
                 'options' => [
                     'none' => __('None', 'header-footer-elementor'),
-                    'attachment' => __('Attachment Caption', 'header-footer-elementor'),
                     'custom' => __('Custom Caption', 'header-footer-elementor'),
                 ],
                 'default' => 'none',
@@ -201,7 +183,6 @@ class Feature_Image extends Widget_Base
                 'default' => 'none',
                 'options' => [
                     'none' => __('None', 'header-footer-elementor'),
-                    'file' => __('Media File', 'header-footer-elementor'),
                     'custom' => __('Custom URL', 'header-footer-elementor'),
                 ],
             ]
@@ -210,7 +191,7 @@ class Feature_Image extends Widget_Base
         $this->add_control(
             'link',
             [
-                'label' => __('Link', 'header-footer-elementor'),
+                'label' => __('Custom Link', 'header-footer-elementor'),
                 'type' => Controls_Manager::URL,
                 'dynamic' => [
                     'active' => true,
@@ -220,23 +201,6 @@ class Feature_Image extends Widget_Base
                     'link_to' => 'custom',
                 ],
                 'show_label' => false,
-            ]
-        );
-
-        $this->add_control(
-            'open_lightbox',
-            [
-                'label' => __('Lightbox', 'header-footer-elementor'),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'default',
-                'options' => [
-                    'default' => __('Default', 'header-footer-elementor'),
-                    'yes' => __('Yes', 'header-footer-elementor'),
-                    'no' => __('No', 'header-footer-elementor'),
-                ],
-                'condition' => [
-                    'link_to' => 'file',
-                ],
             ]
         );
 
@@ -289,7 +253,7 @@ class Feature_Image extends Widget_Base
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .elementor-image img' => 'width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .hfe-featured-image' => 'width: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -316,7 +280,7 @@ class Feature_Image extends Widget_Base
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .elementor-image img' => 'max-width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .hfe-featured-image' => 'max-width: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -351,7 +315,7 @@ class Feature_Image extends Widget_Base
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .elementor-image img' => 'opacity: {{SIZE}};',
+                    '{{WRAPPER}} .hfe-featured-image' => 'opacity: {{SIZE}};',
                 ],
             ]
         );
@@ -360,7 +324,7 @@ class Feature_Image extends Widget_Base
             Group_Control_Css_Filter::get_type(),
             [
                 'name' => 'css_filters',
-                'selector' => '{{WRAPPER}} .elementor-image img',
+                'selector' => '{{WRAPPER}} .hfe-featured-image',
             ]
         );
 
@@ -386,16 +350,8 @@ class Feature_Image extends Widget_Base
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .elementor-image:hover img' => 'opacity: {{SIZE}};',
+                    '{{WRAPPER}} .hfe-featured-image:hover' => 'opacity: {{SIZE}};',
                 ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Css_Filter::get_type(),
-            [
-                'name' => 'css_filters_hover',
-                'selector' => '{{WRAPPER}} .elementor-image:hover img',
             ]
         );
 
@@ -411,8 +367,16 @@ class Feature_Image extends Widget_Base
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .elementor-image img' => 'transition-duration: {{SIZE}}s',
+                    '{{WRAPPER}} ..hfe-featured-image' => 'transition-duration: {{SIZE}}s',
                 ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Css_Filter::get_type(),
+            [
+                'name' => 'css_filters_hover',
+                'selector' => '{{WRAPPER}} .hfe-featured-image:hover img',
             ]
         );
 
@@ -432,7 +396,7 @@ class Feature_Image extends Widget_Base
             Group_Control_Border::get_type(),
             [
                 'name' => 'image_border',
-                'selector' => '{{WRAPPER}} .elementor-image img',
+                'selector' => '{{WRAPPER}} .hfe-featured-image',
                 'separator' => 'before',
             ]
         );
@@ -444,7 +408,7 @@ class Feature_Image extends Widget_Base
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
-                    '{{WRAPPER}} .elementor-image img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hfe-featured-image' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -456,7 +420,7 @@ class Feature_Image extends Widget_Base
                 'exclude' => [
                     'box_shadow_position',
                 ],
-                'selector' => '{{WRAPPER}} .elementor-image img',
+                'selector' => '{{WRAPPER}} .hfe-featured-image',
             ]
         );
 
@@ -572,7 +536,7 @@ class Feature_Image extends Widget_Base
      * Check if the current widget has caption
      *
      * @access private
-     * @since 1.2.0
+     * @since x.x.x
      *
      * @param array $settings returns settings.
      *
@@ -586,7 +550,7 @@ class Feature_Image extends Widget_Base
      * Get the caption for current widget.
      *
      * @access private
-     * @since 1.2.0
+     * @since x.x.x
      * @param array $settings returns the caption.
      *
      * @return string
@@ -600,44 +564,40 @@ class Feature_Image extends Widget_Base
         return $caption;
     }
     /**
-     * Render Site Image output on the frontend.
+     * Render Featured Image output on the frontend.
      *
      * Written in PHP and used to generate the final HTML.
      *
-     * @since 1.2.0
+     * @since x.x.x
+     * @param string $size returns the size of image.
      * @access public
+     *
+     * @return string
      */
-    public function site_featured_image_url()
+    public function the_post_thumbnail_url($size = 'post-thumbnail')
     {
-        if (has_post_thumbnail()) {
-            $featured_image = get_the_post_thumbnail_url();
-        } else {
-            $featured_image = Utils::get_placeholder_image_src();
+        $url = get_the_post_thumbnail_url(null, $size);
+        if ($url) {
+            return esc_url($url);
         }
-        
-        return $featured_image;
     }
     /**
-     * Render Site Image output on the frontend.
+     * Render Featured Image output on the frontend.
      *
      * Written in PHP and used to generate the final HTML.
      *
-     * @since 1.2.0
+     * @since x.x.x
      * @access protected
      */
     protected function render()
     {
-              $settings = $this->get_settings_for_display();
-
-        if (empty($settings['image']['url'])) {
-            return;
-        }
+           $settings = $this->get_settings_for_display();
+            
 
         $has_caption = $this->has_caption($settings);
-        $this->add_render_attribute('wrapper', 'class', 'hfe-featured-image');
+        $this->add_render_attribute('wrapper', 'class', 'hfe-featured-image-wrap');
         $link = $this->get_link_url($settings);
         if ($link) {
-            // $this->add_render_attribute('link', 'data-elementor-open-lightbox', $settings['open_lightbox']);
             $this->add_link_attributes('link', $link);
             if (Plugin::$instance->editor->is_edit_mode()) {
                 $this->add_render_attribute(
@@ -657,7 +617,14 @@ class Feature_Image extends Widget_Base
                     <a <?php echo $this->get_render_attribute_string('link'); ?>>
         <?php endif; ?>
         <?php
-        $size = $settings['image_size'];
+        $size = $settings[ 'feature_image' . '_size' ];
+        
+        $feature_image = $this->the_post_thumbnail_url($size);
+
+        if (empty($feature_image)) {
+            return;
+        }
+
         $demo = '';
         if ('custom' !== $size) {
             $image_size = $size;
@@ -684,36 +651,28 @@ class Feature_Image extends Widget_Base
                 $image_size = 'full';
             }
         }
-        $image_url = $settings['site_image']['url'];
-        $custom_logo_id = get_theme_mod('custom_logo');
-        $image_data = wp_get_attachment_image_src($custom_logo_id, $image_size, true);
+        $image_url = $feature_image;
+       
+        $image_data = $feature_image;
+        
         $site_image_class = 'elementor-animation-';
         if (! empty($settings['hover_animation'])) {
             $demo = $settings['hover_animation'];
         }
         if (! empty($image_data)) {
-            $image_url = $image_data[0];
+            $image_url = $image_data;
         }
         $class_animation = $site_image_class . $demo;
         $image_unset         = site_url() . '/wp-includes/images/media/default.png';
-        $placeholder_img_url = Utils::get_placeholder_image_src();
+
         if ($image_unset !== $image_url) {
             $image_url = $image_url;
-        } else {
-            $image_url = $placeholder_img_url;
         }
-        if ($image_unset === $image_url) {
-            $image_url = $placeholder_img_url;
-        }
-        if (strpos($_SERVER['HTTP_USER_AGENT'], 'Chrome') !== false) {
-            $date      = new \DateTime();
-            $timestam  = $date->getTimestamp();
-            $image_url = $image_url . '?' . $timestam;
-        }
+
         ?>
             <div class="hfe-featured-image-set">           
                 <div class="hfe-featured-image-container">
-                    <img class="hfe-featured-image <?php echo $class_animation; ?>"  src="<?php echo $image_url; ?>" srcset="<?php echo $image_url . ' 1x'; ?>"/>
+                    <img src="<?php echo esc_url($feature_image); ?>" class="hfe-featured-image <?php echo esc_attr($class_animation); ?>">
                 </div>
             </div>
         <?php if ($link) : ?>
@@ -725,18 +684,18 @@ class Feature_Image extends Widget_Base
             ?>
             <?php if (! empty($caption_text)) : ?>
                     <div class="hfe-caption-width"> 
-                        <figcaption class="widget-image-caption wp-caption-text"><?php echo $caption_text; ?></figcaption>
+                        <figcaption class="widget-image-caption wp-caption-text"><?php echo esc_attr($caption_text); ?></figcaption>
                     </div>
             <?php endif; ?>
                 </figure>
         <?php endif; ?>
-        </div>  
-            <?php
+        </div>
+        <?php
     }
     /**
-     * Retrieve Site image widget link URL.
+     * Retrieve Featured image widget link URL.
      *
-     * @since 1.2.0
+     * @since x.x.x
      * @access private
      *
      * @param array $settings returns settings.
