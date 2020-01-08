@@ -350,7 +350,7 @@ class Site_Title extends Widget_Base {
 				<?php } else { ?>
 					<a href="<?php echo get_home_url(); ?>">
 				<?php } ?>
-			<<?php echo $settings['heading_tag']; ?> class="hfe-heading">
+			<<?php echo wp_kses_post( $settings['heading_tag'] ); ?> class="hfe-heading">
 						<span class="hfe-heading-text elementor-heading-title elementor-size-<?php echo $settings['size']; ?>" >
 						<?php
 						if ( '' !== $settings['before'] ) {
