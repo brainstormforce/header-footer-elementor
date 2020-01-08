@@ -37,7 +37,7 @@ class Post_Info extends Widget_Base {
 	 * @return string Widget name.
 	 */
 	public function get_name() {
-		return 'post-info';
+		return 'hfe-post-info';
 	}
 
 	/**
@@ -82,17 +82,6 @@ class Post_Info extends Widget_Base {
 	 */
 	public function get_categories() {
 		return [ 'hfe-widgets' ];
-	}
-
-	/**
-	 * Retrieve the widget keywords.
-	 *
-	 * @since x.x.x
-	 * @access public
-	 * @return string Widget keywords.
-	 */
-	public function get_keywords() {
-		return [ 'post', 'info', 'date', 'time', 'author', 'taxonomy', 'comments', 'terms', 'avatar' ];
 	}
 
 	/**
