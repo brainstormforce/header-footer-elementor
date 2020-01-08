@@ -346,7 +346,7 @@ class Site_Title extends Widget_Base {
 
 		<div class="hfe-module-content hfe-heading-wrapper elementor-widget-heading">
 		<?php if ( ! empty( $settings['heading_link']['url'] ) && 'custom' === $settings['custom_link'] ) { ?>
-					<a <?php echo $link; ?> >
+					<a <?php echo esc_url_raw( $link ); ?> >
 				<?php } else { ?>
 					<a href="<?php echo get_home_url(); ?>">
 				<?php } ?>
@@ -354,18 +354,18 @@ class Site_Title extends Widget_Base {
 						<span class="hfe-heading-text elementor-heading-title elementor-size-<?php echo $settings['size']; ?>" >
 						<?php
 						if ( '' !== $settings['before'] ) {
-							echo $settings['before'];
+							echo wp_kses_post( $settings['before'] );
 						}
 						echo $title;
 						if ( '' !== $settings['after'] ) {
-							echo $settings['after'];
+							echo wp_kses_post( $settings['after'] );
 						}
 						?>
 						</span>
 						<?php if ( ! empty( $settings['heading_link']['url'] ) ) { ?>
 					</a>	
 					<?php } ?>					
-			</<?php echo $settings['heading_tag']; ?>>
+			</<?php echo wp_kses_post( $settings['heading_tag'] ); ?>>
 		</div>
 		<?php
 	}
@@ -399,7 +399,7 @@ class Site_Title extends Widget_Base {
 				<#if ( '' != settings.before ){#>
 					{{{settings.before}}}
 				<#}#>
-				<?php echo get_bloginfo( 'name' ); ?>
+				<?php echo wp_kses_post( get_bloginfo( 'name' ) ); ?>
 				<# if ( '' != settings.after ){#>
 					{{{settings.after}}}
 				<#}#>
