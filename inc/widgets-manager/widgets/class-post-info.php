@@ -503,7 +503,22 @@ class Post_Info extends Widget_Base {
 		}
 		$items_html = ob_get_clean();
 
-		echo $items_html;
+		if ( empty( $items_html ) ) {
+			return;
+		}
+
+		if ( 'inline' === $settings['view'] ) {
+			$this->add_render_attribute( 'terms_list', 'class', 'elementor-inline-items' );
+		}
+
+		$this->add_render_attribute( 'terms_list', 'class', [ 'elementor-icon-list-items', 'elementor-post-info' ] );
+		?>
+
+		<ul <?php echo $this->get_render_attribute_string( 'terms_list' ); ?>>
+			<?php echo $items_html; ?>
+		</ul>
+
+		<?php
 	}
 
 	/**
@@ -514,25 +529,71 @@ class Post_Info extends Widget_Base {
 	 */
 	protected function render_item( $repeater_item ) {
 
+		$item_data = $this->get_meta_data( $repeater_item );
+		$repeater_index = $repeater_item['_id'];
+
+		if ( empty( $item_data['text'] ) && empty( $item_data['terms_list'] ) ) {
+			return;
+		}
+
+		$has_link = false;
+		$link_key = 'link_' . $repeater_index;
+		$item_key = 'item_' . $repeater_index;
+
+		$this->add_render_attribute( $item_key, 'class',
+			[
+				'elementor-icon-list-item',
+				'elementor-repeater-item-' . $repeater_item['_id'],
+			]
+		);
+
+		$active_settings = $this->get_active_settings();
+
+		if ( 'inline' === $active_settings['view'] ) {
+			$this->add_render_attribute( $item_key, 'class', 'elementor-inline-item' );
+		}
+
+		if ( ! empty( $item_data['url']['url'] ) ) {
+			$has_link = true;
+
+			$url = $item_data['url'];
+			$this->add_render_attribute( $link_key, 'href', $url['url'] );
+
+			if ( ! empty( $url['is_external'] ) ) {
+				$this->add_render_attribute( $link_key, 'target', '_blank' );
+			}
+
+			if ( ! empty( $url['nofollow'] ) ) {
+				$this->add_render_attribute( $link_key, 'rel', 'nofollow' );
+			}
+		}
+
+		?>
+		<li <?php echo $this->get_render_attribute_string( $item_key ); ?>>
+			<?php if ( $has_link ) : ?>
+				<a <?php echo $this->get_render_attribute_string( $link_key ); ?>>
+			<?php endif; ?>
+				<?php $this->render_item_icon_or_image( $item_data, $repeater_item, $repeater_index ); ?>
+				<?php $this->render_item_text( $item_data, $repeater_index ); ?>
+			<?php if ( $has_link ) : ?>
+				</a>
+			<?php endif; ?>
+		</li>
+		<?php
+	}
+
+	/**
+	 * Render meta data items output.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function get_meta_data( $repeater_item ) {
+
 		$item_data = [];
 		$repeater_index = $repeater_item['_id'];
 
 		switch ( $repeater_item['type'] ) {
-			case 'author':
-
-				break;
-
-			case 'date':
-
-				break;
-
-			case 'time':
-
-				break;
-
-			case 'comments':
-
-				break;
 
 			case 'terms':
 
@@ -557,16 +618,34 @@ class Post_Info extends Widget_Base {
 
 				break;
 
+			case 'author':
+
+				break;
+
+			case 'date':
+
+				break;
+
+			case 'time':
+
+				break;
+
+			case 'comments':
+
+				break;
+
 			case 'custom':
 
 				break;
 		}
 
-		// echo '<pre>'; print_r( $item_data ); echo '</pre>'; 
+		$item_data['type'] = $repeater_item['type'];
 
-		$this->render_item_icon_or_image( $item_data, $repeater_item, $repeater_index );
-		$this->render_item_text( $item_data, $repeater_index );
+		if ( ! empty( $repeater_item['text_prefix'] ) ) {
+			$item_data['text_prefix'] = esc_html( $repeater_item['text_prefix'] );
+		}
 
+		return $item_data;
 	}
 
 	/**
@@ -615,11 +694,26 @@ class Post_Info extends Widget_Base {
 	 * @access protected
 	 */
 	protected function render_item_text( $item_data, $repeater_index ) {
-		if ( ! empty( $item_data['terms_list'] ) ) :
-			$item_class = 'elementor-post-info__terms-list-item';
-			$terms_list = [];
-			?>
-			<span class="elementor-post-info__terms-list">
+
+		$repeater_setting_key = $this->get_repeater_setting_key( 'text', 'icon_list', $repeater_index );
+
+		$this->add_render_attribute( $repeater_setting_key, 'class', [ 'elementor-icon-list-text', 'elementor-post-info__item', 'elementor-post-info__item--type-' . $item_data['type'] ] );
+
+		if ( ! empty( $item['terms_list'] ) ) {
+			$this->add_render_attribute( $repeater_setting_key, 'class', 'elementor-terms-list' );
+		}
+
+		?>
+		<span <?php echo $this->get_render_attribute_string( $repeater_setting_key ); ?>>
+			<?php if ( ! empty( $item_data['text_prefix'] ) ) : ?>
+				<span class="elementor-post-info__item-prefix"><?php echo esc_html( $item_data['text_prefix'] ); ?></span>
+			<?php endif; ?>
+			<?php
+			if ( ! empty( $item_data['terms_list'] ) ) :
+				$terms_list = [];
+				$item_class = 'elementor-post-info__terms-list-item';
+				?>
+				<span class="elementor-post-info__terms-list">
 				<?php
 				foreach ( $item_data['terms_list'] as $term ) :
 					if ( ! empty( $term['url'] ) ) :
@@ -631,9 +725,21 @@ class Post_Info extends Widget_Base {
 
 				echo implode( ', ', $terms_list );
 				?>
-			</span>
-			<?php
-		endif;
+				</span>
+			<?php else : ?>
+				<?php
+				echo wp_kses( $item_data['text'], [
+					'a' => [
+						'href' => [],
+						'title' => [],
+						'rel' => [],
+					],
+				] );
+				?>
+			<?php endif; ?>
+		</span>
+		<?php
+
 	}
 
 	/**
