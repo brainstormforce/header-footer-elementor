@@ -321,6 +321,7 @@ class Post_Info extends Widget_Base {
 					'label'       => __( 'Comments', 'header-footer-elementor' ),
 					'type'        => Controls_Manager::TEXT,
 					'label_block' => false,
+					/* translators: %s admin link */
 					'placeholder' => __( '%s Comments', 'header-footer-elementor' ),
 					'condition'   => [
 						'comments_custom_strings' => 'yes',
@@ -530,6 +531,7 @@ class Post_Info extends Widget_Base {
 	 *
 	 * @since x.x.x
 	 * @access protected
+	 * @param array $repeater_item current meta item..
 	 */
 	protected function render_item( $repeater_item ) {
 
@@ -593,6 +595,8 @@ class Post_Info extends Widget_Base {
 	 *
 	 * @since x.x.x
 	 * @access protected
+	 * @param array $repeater_item current meta item.
+	 * @return array meta data.
 	 */
 	protected function get_meta_data( $repeater_item ) {
 
@@ -623,11 +627,10 @@ class Post_Info extends Widget_Base {
 				break;
 
 			case 'author':
-
 				$item_data['text'] = get_the_author_meta( 'display_name' );
 
 				$item_data['icon'] = [
-					'value' => 'fas fa-user',
+					'value'   => 'fas fa-user',
 					'library' => 'fa-solid',
 				];
 
@@ -644,12 +647,12 @@ class Post_Info extends Widget_Base {
 				break;
 
 			case 'comments':
-
 				if ( comments_open() ) {
 					$default_strings = [
 						'string_no_comments' => __( 'No Comments', 'elementor-pro' ),
 						'string_one_comment' => __( 'One Comment', 'elementor-pro' ),
-						'string_comments' => __( '%s Comments', 'elementor-pro' ),
+						/* translators: %s admin link */
+						'string_comments'    => __( '%s Comments', 'elementor-pro' ),
 					];
 
 					if ( 'yes' === $repeater_item['comments_custom_strings'] ) {
@@ -681,7 +684,7 @@ class Post_Info extends Widget_Base {
 					}
 
 					$item_data['icon'] = [
-						'value' => 'fas fa-comments',
+						'value'   => 'fas fa-comments',
 						'library' => 'fa-solid',
 					];
 
@@ -690,22 +693,21 @@ class Post_Info extends Widget_Base {
 				break;
 
 			case 'date':
-
 				$custom_date_format = empty( $repeater_item['custom_date_format'] ) ? 'F j, Y' : $repeater_item['custom_date_format'];
 
 				$format_options = [
 					'default' => 'F j, Y',
-					'0' => 'F j, Y',
-					'1' => 'Y-m-d',
-					'2' => 'm/d/Y',
-					'3' => 'd/m/Y',
-					'custom' => $custom_date_format,
+					'0'       => 'F j, Y',
+					'1'       => 'Y-m-d',
+					'2'       => 'm/d/Y',
+					'3'       => 'd/m/Y',
+					'custom'  => $custom_date_format,
 				];
 
 				$item_data['text'] = get_the_time( $format_options[ $repeater_item['date_format'] ] );
 
 				$item_data['icon'] = [
-					'value' => 'fas fa-calendar',
+					'value'   => 'fas fa-calendar',
 					'library' => 'fa-solid',
 				];
 
@@ -718,27 +720,25 @@ class Post_Info extends Widget_Base {
 				break;
 
 			case 'time':
-
 				$custom_time_format = empty( $repeater_item['custom_time_format'] ) ? 'g:i a' : $repeater_item['custom_time_format'];
 
-				$format_options = [
+				$format_options    = [
 					'default' => 'g:i a',
-					'0' => 'g:i a',
-					'1' => 'g:i A',
-					'2' => 'H:i',
-					'custom' => $custom_time_format,
+					'0'       => 'g:i a',
+					'1'       => 'g:i A',
+					'2'       => 'H:i',
+					'custom'  => $custom_time_format,
 				];
 				$item_data['text'] = get_the_time( $format_options[ $repeater_item['time_format'] ] );
-				
+
 				$item_data['icon'] = [
-					'value' => 'fas fa-clock',
+					'value'   => 'fas fa-clock',
 					'library' => 'fa-solid',
 				];
 
 				break;
 
 			case 'custom':
-
 				$item_data['text'] = $repeater_item['custom_text'];
 				$item_data['icon'] = [
 					'value'   => 'fas fa-tags',
@@ -766,6 +766,10 @@ class Post_Info extends Widget_Base {
 	 *
 	 * @since x.x.x
 	 * @access protected
+	 * @param array  $item_data current meta item data.
+	 * @param array  $repeater_item current meta item.
+	 * @param string $repeater_index current meta item index.
+	 * @return array meta data.
 	 */
 	protected function render_item_icon( $item_data, $repeater_item, $repeater_index ) {
 
@@ -791,9 +795,11 @@ class Post_Info extends Widget_Base {
 					$this->add_render_attribute( $image_data, 'alt', $item_data['text'] );
 					?>
 					<img class="elementor-avatar" <?php echo $this->get_render_attribute_string( $image_data ); ?>>
-				<?php elseif ( $show_icon ) :
+					<?php
+				elseif ( $show_icon ) :
 					Icons_Manager::render_icon( $item_data['icon'], [ 'aria-hidden' => 'true' ] );
-				endif; ?>
+				endif;
+				?>
 			</span>
 			<?php
 		}
@@ -804,6 +810,8 @@ class Post_Info extends Widget_Base {
 	 *
 	 * @since x.x.x
 	 * @access protected
+	 * @param array  $item_data current meta item data.
+	 * @param string $repeater_index current meta item index.
 	 */
 	protected function render_item_text( $item_data, $repeater_index ) {
 
