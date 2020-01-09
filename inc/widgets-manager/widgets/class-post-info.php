@@ -605,7 +605,7 @@ class Post_Info extends Widget_Base {
 				$item_data['icon'] = [
 					'value'   => 'fas fa-tags',
 					'library' => 'fa-solid',
-				]; // Default icons.
+				];
 
 				$taxonomy = $repeater_item['taxonomy'];
 
@@ -623,6 +623,24 @@ class Post_Info extends Widget_Base {
 				break;
 
 			case 'author':
+
+				$item_data['text'] = get_the_author_meta( 'display_name' );
+
+				$item_data['icon'] = [
+					'value' => 'fas fa-user',
+					'library' => 'fa-solid',
+				];
+
+				if ( 'yes' === $repeater_item['link'] ) {
+					$item_data['url'] = [
+						'url' => get_author_posts_url( get_the_author_meta( 'ID' ) ),
+					];
+				}
+
+				if ( 'yes' === $repeater_item['show_avatar'] ) {
+					$item_data['image'] = get_avatar_url( get_the_author_meta( 'ID' ), 98 );
+				}
+
 				break;
 
 			case 'date':
@@ -661,14 +679,25 @@ class Post_Info extends Widget_Base {
 			$item_data['icon'] = [];
 		}
 
-		if ( empty( $item_data['icon'] ) ) {
+		if ( empty( $item_data['icon'] ) && empty( $item_data['image'] ) ) {
 			return;
 		}
 
-		if ( 'none' !== $repeater_item['show_icon'] ) {
+		$show_icon = 'none' !== $repeater_item['show_icon'];
+
+		if ( ! empty( $item_data['image'] ) || $show_icon ) {
 			?>
 			<span class="elementor-icon-list-icon">
-				<?php Icons_Manager::render_icon( $item_data['icon'], [ 'aria-hidden' => 'true' ] ); ?>
+				<?php
+				if ( ! empty( $item_data['image'] ) ) :
+					$image_data = 'image_' . $repeater_index;
+					$this->add_render_attribute( $image_data, 'src', $item_data['image'] );
+					$this->add_render_attribute( $image_data, 'alt', $item_data['text'] );
+					?>
+					<img class="elementor-avatar" <?php echo $this->get_render_attribute_string( $image_data ); ?>>
+				<?php elseif ( $show_icon ) :
+					Icons_Manager::render_icon( $item_data['icon'], [ 'aria-hidden' => 'true' ] );
+				endif; ?>
 			</span>
 			<?php
 		}
