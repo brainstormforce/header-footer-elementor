@@ -650,9 +650,63 @@ class Post_Info extends Widget_Base {
 				break;
 
 			case 'comments':
+
+				if ( comments_open() ) {
+					$default_strings = [
+						'string_no_comments' => __( 'No Comments', 'elementor-pro' ),
+						'string_one_comment' => __( 'One Comment', 'elementor-pro' ),
+						'string_comments' => __( '%s Comments', 'elementor-pro' ),
+					];
+
+					if ( 'yes' === $repeater_item['comments_custom_strings'] ) {
+						if ( ! empty( $repeater_item['string_no_comments'] ) ) {
+							$default_strings['string_no_comments'] = $repeater_item['string_no_comments'];
+						}
+
+						if ( ! empty( $repeater_item['string_one_comment'] ) ) {
+							$default_strings['string_one_comment'] = $repeater_item['string_one_comment'];
+						}
+
+						if ( ! empty( $repeater_item['string_comments'] ) ) {
+							$default_strings['string_comments'] = $repeater_item['string_comments'];
+						}
+					}
+
+					$num_comments = (int) get_comments_number(); // get_comments_number returns only a numeric value
+
+					if ( 0 === $num_comments ) {
+						$item_data['text'] = $default_strings['string_no_comments'];
+					} else {
+						$item_data['text'] = sprintf( _n( $default_strings['string_one_comment'], $default_strings['string_comments'], $num_comments, 'elementor-pro' ), $num_comments );
+					}
+
+					if ( 'yes' === $repeater_item['link'] ) {
+						$item_data['url'] = [
+							'url' => get_comments_link(),
+						];
+					}
+
+					$item_data['icon'] = [
+						'value' => 'fas fa-comments',
+						'library' => 'fa-solid',
+					];
+
+				}
+
 				break;
 
 			case 'custom':
+
+				$item_data['text'] = $repeater_item['custom_text'];
+				$item_data['icon'] = [
+					'value'   => 'fas fa-tags',
+					'library' => 'fa-solid',
+				];
+
+				if ( 'yes' === $repeater_item['link'] && ! empty( $repeater_item['custom_url'] ) ) {
+					$item_data['url'] = $repeater_item['custom_url'];
+				}
+
 				break;
 		}
 
@@ -683,7 +737,7 @@ class Post_Info extends Widget_Base {
 			return;
 		}
 
-		$show_icon = 'none' !== $repeater_item['show_icon'];
+		$show_icon = ( 'none' !== $repeater_item['show_icon'] );
 
 		if ( ! empty( $item_data['image'] ) || $show_icon ) {
 			?>
