@@ -507,11 +507,12 @@ class Post_Info extends Widget_Base {
 			return;
 		}
 
+		$this->add_render_attribute( 'terms_list', 'class', [ 'elementor-icon-list-items', 'elementor-post-info' ] );
+
 		if ( 'inline' === $settings['view'] ) {
 			$this->add_render_attribute( 'terms_list', 'class', 'elementor-inline-items' );
 		}
 
-		$this->add_render_attribute( 'terms_list', 'class', [ 'elementor-icon-list-items', 'elementor-post-info' ] );
 		?>
 
 		<ul <?php echo $this->get_render_attribute_string( 'terms_list' ); ?>>
@@ -522,7 +523,7 @@ class Post_Info extends Widget_Base {
 	}
 
 	/**
-	 * Render meta data items output.
+	 * Render meta items output.
 	 *
 	 * @since x.x.x
 	 * @access protected
@@ -573,7 +574,7 @@ class Post_Info extends Widget_Base {
 			<?php if ( $has_link ) : ?>
 				<a <?php echo $this->get_render_attribute_string( $link_key ); ?>>
 			<?php endif; ?>
-				<?php $this->render_item_icon_or_image( $item_data, $repeater_item, $repeater_index ); ?>
+				<?php $this->render_item_icon( $item_data, $repeater_item, $repeater_index ); ?>
 				<?php $this->render_item_text( $item_data, $repeater_index ); ?>
 			<?php if ( $has_link ) : ?>
 				</a>
@@ -583,7 +584,7 @@ class Post_Info extends Widget_Base {
 	}
 
 	/**
-	 * Render meta data items output.
+	 * Render meta data list.
 	 *
 	 * @since x.x.x
 	 * @access protected
@@ -649,13 +650,12 @@ class Post_Info extends Widget_Base {
 	}
 
 	/**
-	 * Render meta data items output.
+	 * Render meta items icon.
 	 *
 	 * @since x.x.x
 	 * @access protected
 	 */
-	protected function render_item_icon_or_image( $item_data, $repeater_item, $repeater_index ) {
-		// Set icon according to user settings.
+	protected function render_item_icon( $item_data, $repeater_item, $repeater_index ) {
 		
 		if ( 'custom' === $repeater_item['show_icon'] && ! empty( $repeater_item['icon'] ) ) {
 			$item_data['icon'] = $repeater_item['icon'];
@@ -663,39 +663,26 @@ class Post_Info extends Widget_Base {
 			$item_data['icon'] = [];
 		}
 
-		if ( empty( $item_data['icon'] ) && empty( $item_data['image'] ) ) {
+		if ( empty( $item_data['icon'] ) ) {
 			return;
 		}
 
-		$show_icon = ( 'none' !== $repeater_item['show_icon'] );
-
-		if ( ! empty( $item_data['image'] ) || $show_icon ) {
-			?>
+		if ( 'none' !== $repeater_item['show_icon'] ) { ?>
 			<span class="elementor-icon-list-icon">
-				<?php
-				if ( ! empty( $item_data['image'] ) ) :
-					$image_data = 'image_' . $repeater_index;
-					$this->add_render_attribute( $image_data, 'src', $item_data['image'] );
-					$this->add_render_attribute( $image_data, 'alt', $item_data['text'] );
-					?>
-						<img class="elementor-avatar" <?php echo $this->get_render_attribute_string( $image_data ); ?>>
-					<?php elseif ( $show_icon ) :
-							Icons_Manager::render_icon( $item_data['icon'], [ 'aria-hidden' => 'true' ] );
-				endif; ?>
+				<?php Icons_Manager::render_icon( $item_data['icon'], [ 'aria-hidden' => 'true' ] ); ?>
 			</span>
-			<?php
-		}
+		<?php }
 	}
 
 	/**
-	 * Render meta data items output.
+	 * Render meta data items text.
 	 *
 	 * @since x.x.x
 	 * @access protected
 	 */
 	protected function render_item_text( $item_data, $repeater_index ) {
 
-		$repeater_setting_key = $this->get_repeater_setting_key( 'text', 'icon_list', $repeater_index );
+		$repeater_setting_key = $this->get_repeater_setting_key( 'text', 'terms_list', $repeater_index );
 
 		$this->add_render_attribute( $repeater_setting_key, 'class', [ 'elementor-icon-list-text', 'elementor-post-info__item', 'elementor-post-info__item--type-' . $item_data['type'] ] );
 
@@ -714,17 +701,17 @@ class Post_Info extends Widget_Base {
 				$item_class = 'elementor-post-info__terms-list-item';
 				?>
 				<span class="elementor-post-info__terms-list">
-				<?php
-				foreach ( $item_data['terms_list'] as $term ) :
-					if ( ! empty( $term['url'] ) ) :
-						$terms_list[] = '<a href="' . esc_attr( $term['url'] ) . '" class="' . $item_class . '">' . esc_html( $term['text'] ) . '</a>';
-					else :
-						$terms_list[] = '<span class="' . $item_class . '">' . esc_html( $term['text'] ) . '</span>';
-					endif;
-				endforeach;
+					<?php
+					foreach ( $item_data['terms_list'] as $term ) :
+						if ( ! empty( $term['url'] ) ) :
+							$terms_list[] = '<a href="' . esc_attr( $term['url'] ) . '" class="' . $item_class . '">' . esc_html( $term['text'] ) . '</a>';
+						else :
+							$terms_list[] = '<span class="' . $item_class . '">' . esc_html( $term['text'] ) . '</span>';
+						endif;
+					endforeach;
 
-				echo implode( ', ', $terms_list );
-				?>
+					echo implode( ', ', $terms_list );
+					?>
 				</span>
 			<?php else : ?>
 				<?php
