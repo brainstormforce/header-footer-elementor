@@ -73,6 +73,8 @@ class Widgets_Loader {
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-copyright.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-copyright-shortcode.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-post-nav.php';
+		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-post-title.php';
+		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-site-title.php';
 	}
 
 	/**
@@ -125,7 +127,12 @@ class Widgets_Loader {
 		// Register Widgets.
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Retina() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Copyright() );
+<<<<<<< HEAD
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Post_Nav() );
+=======
+		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Post_Title() );
+		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Title() );
+>>>>>>> 74310bf75f3e6919684888c4aad3cb8186625e50
 	}
 
 }
