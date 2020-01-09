@@ -8,40 +8,38 @@
 namespace HFE\WidgetsManager\Widgets;
 
 use Elementor\Controls_Manager;
-use Elementor\Control_Media;
-use Elementor\Utils;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Scheme_Typography;
 use Elementor\Scheme_Color;
 use Elementor\Group_Control_Image_Size;
-use Elementor\Repeater;
 use Elementor\Group_Control_Css_Filter;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Plugin;
 use Elementor\Widget_Base;
+use Elementor\Utils;
 
 if (! defined('ABSPATH')) {
     exit;   // Exit if accessed directly.
 }
-
 /**
- * HFE Site Logo widget
+ * HFE Featured Image widget
  *
- * HFE widget for Site Logo Image.
+ * HFE widget for Featured Image Image.
  *
- * @since 1.2.0
+ * @since x.x.x
  */
-class Site_Logo extends Widget_Base
+class Feature_Image extends Widget_Base
 {
+
 
 
 
     /**
      * Retrieve the widget name.
      *
-     * @since 1.2.0
+     * @since x.x.x
      *
      * @access public
      *
@@ -49,13 +47,12 @@ class Site_Logo extends Widget_Base
      */
     public function get_name()
     {
-        return 'site-logo';
+        return 'feature-image';
     }
-
     /**
      * Retrieve the widget title.
      *
-     * @since 1.2.0
+     * @since x.x.x
      *
      * @access public
      *
@@ -63,13 +60,12 @@ class Site_Logo extends Widget_Base
      */
     public function get_title()
     {
-        return __('Site Logo', 'header-footer-elementor');
+        return __('Feature Image', 'header-footer-elementor');
     }
-
     /**
      * Retrieve the widget icon.
      *
-     * @since 1.2.0
+     * @since x.x.x
      *
      * @access public
      *
@@ -77,9 +73,8 @@ class Site_Logo extends Widget_Base
      */
     public function get_icon()
     {
-        return 'eicon-site-logo';
+        return 'eicon-featured-image';
     }
-
     /**
      * Retrieve the list of categories the widget belongs to.
      *
@@ -88,7 +83,7 @@ class Site_Logo extends Widget_Base
      * Note that currently Elementor supports only one category.
      * When multiple categories passed, Elementor uses the first one.
      *
-     * @since 1.2.0
+     * @since x.x.x
      *
      * @access public
      *
@@ -98,39 +93,35 @@ class Site_Logo extends Widget_Base
     {
         return [ 'hfe-widgets' ];
     }
-
     /**
-     * Register Site Logo controls.
+     * Register Featured Image controls.
      *
-     * @since 1.2.0
+     * @since x.x.x
      * @access protected
      */
     protected function _register_controls()
     {
-        $this->register_content_site_logo_controls();
-        $this->register_site_logo_styling_controls();
-        $this->register_site_logo_caption_styling_controls();
+        $this->register_content_featured_image_controls();
     }
-
     /**
-     * Register Site Logo General Controls.
+     * Register Featured Image General Controls.
      *
-     * @since 1.2.0
+     * @since x.x.x
      * @access protected
      */
-    protected function register_content_site_logo_controls()
+    protected function register_content_featured_image_controls()
     {
         $this->start_controls_section(
-            'section_site_image',
+            'section_image',
             [
-                'label' => __('Site Logo', 'header-footer-elementor'),
+                'label' => __('Image', 'header-footer-elementor'),
             ]
         );
 
         $this->add_control(
-            'site_image',
+            'feature_image',
             [
-                'label'       => __('Add Fallback', 'header-footer-elementor'),
+                'label'       => __('Enable Fallback', 'header-footer-elementor'),
                 'type'        => Controls_Manager::SWITCHER,
                 'yes'         => __('Yes', 'uael'),
                 'no'          => __('No', 'uael'),
@@ -151,31 +142,20 @@ class Site_Logo extends Widget_Base
                     'url' => Utils::get_placeholder_image_src(),
                 ],
                 'condition' => [
-                    'site_image' => 'yes',
+                    'feature_image' => 'yes',
                 ],
             ]
         );
 
-        $this->add_control(
-            'site_image',
-            [
-                'label'       => __('Site Logo ', 'header-footer-elementor'),
-                'type'        => Controls_Manager::URL,
-                'default'     => [
-                    'url' => $this->site_image_url(),
-                ],
-                'placeholder' => __($this->site_image_url(), 'header-footer-elementor'),
-                'show_label'  => false,
-            ]
-        );
         $this->add_group_control(
             Group_Control_Image_Size::get_type(),
             [
-                'name'    => 'site_image',
+                'name'    => 'feature_image',
                 'label'   => __('Image Size', 'header-footer-elementor'),
                 'default' => 'medium',
             ]
         );
+
         $this->add_responsive_control(
             'align',
             [
@@ -184,20 +164,19 @@ class Site_Logo extends Widget_Base
                 'options'   => [
                     'left'   => [
                         'title' => __('Left', 'header-footer-elementor'),
-                        'icon'  => 'fa fa-align-left',
+                        'icon'  => 'eicon-text-align-left',
                     ],
                     'center' => [
                         'title' => __('Center', 'header-footer-elementor'),
-                        'icon'  => 'fa fa-align-center',
+                        'icon'  => 'eicon-text-align-center',
                     ],
                     'right'  => [
                         'title' => __('Right', 'header-footer-elementor'),
-                        'icon'  => 'fa fa-align-right',
+                        'icon'  => 'eicon-text-align-right',
                     ],
                 ],
-                'default'   => 'center',
                 'selectors' => [
-                    '{{WRAPPER}} .hfe-site-logo-container, {{WRAPPER}} .hfe-caption-width' => 'text-align: {{VALUE}};',
+                    '{{WRAPPER}}' => 'text-align: {{VALUE}};',
                 ],
             ]
         );
@@ -228,7 +207,6 @@ class Site_Logo extends Widget_Base
                 'dynamic'     => [
                     'active' => true,
                 ],
-                'label_block' => true,
             ]
         );
 
@@ -249,7 +227,7 @@ class Site_Logo extends Widget_Base
         $this->add_control(
             'link',
             [
-                'label'       => __('Link', 'header-footer-elementor'),
+                'label'       => __('Custom Link', 'header-footer-elementor'),
                 'type'        => Controls_Manager::URL,
                 'dynamic'     => [
                     'active' => true,
@@ -287,20 +265,13 @@ class Site_Logo extends Widget_Base
                 'default' => 'traditional',
             ]
         );
+
         $this->end_controls_section();
-    }
-    /**
-     * Register Site Image Style Controls.
-     *
-     * @since 1.2.0
-     * @access protected
-     */
-    protected function register_site_logo_styling_controls()
-    {
+
         $this->start_controls_section(
-            'section_style_site_logo_image',
+            'section_style_image',
             [
-                'label' => __('Site logo', 'header-footer-elementor'),
+                'label' => __('Image', 'header-footer-elementor'),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -335,8 +306,7 @@ class Site_Logo extends Widget_Base
                     ],
                 ],
                 'selectors'      => [
-                    '{{WRAPPER}} .hfe-site-logo img' => 'width: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .hfe-site-logo .wp-caption .widget-image-caption' => 'width: {{SIZE}}{{UNIT}}; display: inline-block;',
+                    '{{WRAPPER}} .hfe-featured-image' => 'width: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -363,8 +333,7 @@ class Site_Logo extends Widget_Base
                     ],
                 ],
                 'selectors'      => [
-                    '{{WRAPPER}} .hfe-site-logo img' => 'max-width: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .wp-caption-text'   => 'max-width: {{SIZE}}{{UNIT}}; display: inline-block; width: 100%;',
+                    '{{WRAPPER}} .hfe-featured-image' => 'max-width: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -374,89 +343,6 @@ class Site_Logo extends Widget_Base
             [
                 'type'  => Controls_Manager::DIVIDER,
                 'style' => 'thick',
-            ]
-        );
-
-        $this->add_control(
-            'site_logo_image_border',
-            [
-                'label'       => __('Border Style', 'header-footer-elementor'),
-                'type'        => Controls_Manager::SELECT,
-                'default'     => 'none',
-                'label_block' => false,
-                'options'     => [
-                    'none'   => __('None', 'header-footer-elementor'),
-                    'solid'  => __('Solid', 'header-footer-elementor'),
-                    'double' => __('Double', 'header-footer-elementor'),
-                    'dotted' => __('Dotted', 'header-footer-elementor'),
-                    'dashed' => __('Dashed', 'header-footer-elementor'),
-                ],
-                'selectors'   => [
-                    '{{WRAPPER}} .hfe-site-logo-container .hfe-site-logo-img' => 'border-style: {{VALUE}};',
-                ],
-            ]
-        );
-        $this->add_control(
-            'site_logo_image_border_size',
-            [
-                'label'      => __('Border Width', 'header-footer-elementor'),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px' ],
-                'default'    => [
-                    'top'    => '1',
-                    'bottom' => '1',
-                    'left'   => '1',
-                    'right'  => '1',
-                    'unit'   => 'px',
-                ],
-                'condition'  => [
-                    'Site_image_border!' => 'none',
-                ],
-                'selectors'  => [
-                    '{{WRAPPER}} .hfe-site-logo-container .hfe-site-logo-img' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'site_logo_image_border_color',
-            [
-                'label'     => __('Border Color', 'header-footer-elementor'),
-                'type'      => Controls_Manager::COLOR,
-                'scheme'    => [
-                    'type'  => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
-                'condition' => [
-                    'Site_image_border!' => 'none',
-                ],
-                'default'   => '',
-                'selectors' => [
-                    '{{WRAPPER}} .hfe-site-logo-container .hfe-site-logo-img' => 'border-color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'image_border_radius',
-            [
-                'label'      => __('Border Radius', 'header-footer-elementor'),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%' ],
-                'selectors'  => [
-                    '{{WRAPPER}} .hfe-site-logo img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
-                'name'     => 'image_box_shadow',
-                'exclude'  => [
-                    'box_shadow_position',
-                ],
-                'selector' => '{{WRAPPER}} .hfe-site-logo img',
             ]
         );
 
@@ -482,7 +368,7 @@ class Site_Logo extends Widget_Base
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .hfe-site-logo img' => 'opacity: {{SIZE}};',
+                    '{{WRAPPER}} .hfe-featured-image' => 'opacity: {{SIZE}};',
                 ],
             ]
         );
@@ -491,7 +377,7 @@ class Site_Logo extends Widget_Base
             Group_Control_Css_Filter::get_type(),
             [
                 'name'     => 'css_filters',
-                'selector' => '{{WRAPPER}} .hfe-site-logo img',
+                'selector' => '{{WRAPPER}} .hfe-featured-image',
             ]
         );
 
@@ -503,6 +389,7 @@ class Site_Logo extends Widget_Base
                 'label' => __('Hover', 'header-footer-elementor'),
             ]
         );
+
         $this->add_control(
             'opacity_hover',
             [
@@ -516,26 +403,11 @@ class Site_Logo extends Widget_Base
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .hfe-site-logo:hover img' => 'opacity: {{SIZE}};',
+                    '{{WRAPPER}} .hfe-featured-image:hover' => 'opacity: {{SIZE}};',
                 ],
             ]
         );
 
-        $this->add_group_control(
-            Group_Control_Css_Filter::get_type(),
-            [
-                'name'     => 'css_filters_hover',
-                'selector' => '{{WRAPPER}} .hfe-site-logo:hover img',
-            ]
-        );
-
-        $this->add_control(
-            'hover_animation',
-            [
-                'label' => __('Hover Animation', 'header-footer-elementor'),
-                'type'  => Controls_Manager::HOVER_ANIMATION,
-            ]
-        );
         $this->add_control(
             'background_hover_transition',
             [
@@ -548,8 +420,24 @@ class Site_Logo extends Widget_Base
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .hfe-site-logo img' => 'transition-duration: {{SIZE}}s',
+                    '{{WRAPPER}} ..hfe-featured-image' => 'transition-duration: {{SIZE}}s',
                 ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Css_Filter::get_type(),
+            [
+                'name'     => 'css_filters_hover',
+                'selector' => '{{WRAPPER}} .hfe-featured-image:hover img',
+            ]
+        );
+
+        $this->add_control(
+            'hover_animation',
+            [
+                'label' => __('Hover Animation', 'header-footer-elementor'),
+                'type'  => Controls_Manager::HOVER_ANIMATION,
             ]
         );
 
@@ -557,16 +445,40 @@ class Site_Logo extends Widget_Base
 
         $this->end_controls_tabs();
 
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name'      => 'image_border',
+                'selector'  => '{{WRAPPER}} .hfe-featured-image',
+                'separator' => 'before',
+            ]
+        );
+
+        $this->add_responsive_control(
+            'image_border_radius',
+            [
+                'label'      => __('Border Radius', 'header-footer-elementor'),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%' ],
+                'selectors'  => [
+                    '{{WRAPPER}} .hfe-featured-image' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name'     => 'image_box_shadow',
+                'exclude'  => [
+                    'box_shadow_position',
+                ],
+                'selector' => '{{WRAPPER}} .hfe-featured-image',
+            ]
+        );
+
         $this->end_controls_section();
-    }
-    /**
-     * Register Caption style Controls.
-     *
-     * @since 1.2.0
-     * @access protected
-     */
-    protected function register_site_logo_caption_styling_controls()
-    {
+
         $this->start_controls_section(
             'section_style_caption',
             [
@@ -574,6 +486,36 @@ class Site_Logo extends Widget_Base
                 'tab'       => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'caption_source!' => 'none',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'caption_align',
+            [
+                'label'     => __('Alignment', 'header-footer-elementor'),
+                'type'      => Controls_Manager::CHOOSE,
+                'options'   => [
+                    'left'    => [
+                        'title' => __('Left', 'header-footer-elementor'),
+                        'icon'  => 'eicon-text-align-left',
+                    ],
+                    'center'  => [
+                        'title' => __('Center', 'header-footer-elementor'),
+                        'icon'  => 'eicon-text-align-center',
+                    ],
+                    'right'   => [
+                        'title' => __('Right', 'header-footer-elementor'),
+                        'icon'  => 'eicon-text-align-right',
+                    ],
+                    'justify' => [
+                        'title' => __('Justified', 'header-footer-elementor'),
+                        'icon'  => 'eicon-text-align-justify',
+                    ],
+                ],
+                'default'   => '',
+                'selectors' => [
+                    '{{WRAPPER}} .widget-image-caption' => 'text-align: {{VALUE}};',
                 ],
             ]
         );
@@ -623,20 +565,9 @@ class Site_Logo extends Widget_Base
         );
 
         $this->add_responsive_control(
-            'caption_padding',
-            [
-                'label'      => __('Padding', 'header-footer-elementor'),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', 'em', '%' ],
-                'selectors'  => [
-                    '{{WRAPPER}} .widget-image-caption' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-            ]
-        );
-        $this->add_responsive_control(
             'caption_space',
             [
-                'label'     => __('Caption Top Spacing', 'header-footer-elementor'),
+                'label'     => __('Spacing', 'header-footer-elementor'),
                 'type'      => Controls_Manager::SLIDER,
                 'range'     => [
                     'px' => [
@@ -644,12 +575,8 @@ class Site_Logo extends Widget_Base
                         'max' => 100,
                     ],
                 ],
-                'default'   => [
-                    'size' => 0,
-                    'unit' => 'px',
-                ],
                 'selectors' => [
-                    '{{WRAPPER}} .widget-image-caption' => 'margin-top: {{SIZE}}{{UNIT}}; margin-bottom: 0px;',
+                    '{{WRAPPER}} .widget-image-caption' => 'margin-top: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -657,11 +584,12 @@ class Site_Logo extends Widget_Base
         $this->end_controls_section();
     }
 
+
     /**
      * Check if the current widget has caption
      *
      * @access private
-     * @since 1.2.0
+     * @since x.x.x
      *
      * @param array $settings returns settings.
      *
@@ -671,12 +599,11 @@ class Site_Logo extends Widget_Base
     {
         return ( ! empty($settings['caption_source']) && 'none' !== $settings['caption_source'] );
     }
-
     /**
      * Get the caption for current widget.
      *
      * @access private
-     * @since 1.2.0
+     * @since x.x.x
      * @param array $settings returns the caption.
      *
      * @return string
@@ -689,57 +616,49 @@ class Site_Logo extends Widget_Base
         }
         return $caption;
     }
-
     /**
-     * Render Site Image output on the frontend.
+     * Render Featured Image output on the frontend.
      *
      * Written in PHP and used to generate the final HTML.
      *
-     * @since 1.2.0
+     * @since x.x.x
+     * @param string $size returns the size of image.
      * @access public
+     *
+     * @return string
      */
-    public function site_image_url($size = 'post-thumbnail')
+    public function the_post_thumbnail_url($size = 'post-thumbnail')
     {
-        $custom_logo_id = get_theme_mod('custom_logo');
-
-        $logo = wp_get_attachment_image_src($custom_logo_id, $size);
-
-        if (empty($logo)) {
-            return Utils::get_placeholder_image_src();
+        $url = get_the_post_thumbnail_url(null, $size);
+        if ($url) {
+            return esc_url($url);
         }
-
-        return $logo[0];
     }
-
     /**
-     * Render Site Image output on the frontend.
+     * Render Featured Image output on the frontend.
      *
      * Written in PHP and used to generate the final HTML.
      *
-     * @since 1.2.0
+     * @since x.x.x
      * @access protected
      */
     protected function render()
     {
-
-        $settings = $this->get_settings_for_display();
-
+        $settings    = $this->get_settings_for_display();
         $has_caption = $this->has_caption($settings);
+        $this->add_render_attribute('wrapper', 'class', 'hfe-featured-image-wrap');
 
-        $this->add_render_attribute('wrapper', 'class', 'hfe-site-logo');
-
-
-        $size = $settings[ 'site_image' . '_size' ];
+        $size = $settings[ 'feature_image' . '_size' ];
 
         if (! empty($settings['custom_image']['url'])) {
             $image_data    = wp_get_attachment_image_src($settings['custom_image']['id'], $size, true);
-            $site_image = $image_data[0];
+            $feature_image = $image_data[0];
         } else {
-            $site_image = $this->site_image_url($size);
+            $feature_image = $this->the_post_thumbnail_url($size);
         }
 
         if ('file' === $settings['link_to']) {
-                $link = $site_image;
+                $link = $feature_image;
         } else {
             $link = $settings['link']['url'];
         }
@@ -755,83 +674,67 @@ class Site_Logo extends Widget_Base
                 <figure class="wp-caption">
         <?php endif; ?>
         <?php if ($link) : ?>
-                    <?php
-                    if ('no' === $settings['open_lightbox']) {
-                        $class = 'elementor-non-clickable';
-                    }
-                    ?>
+            <?php
+            if ('no' === $settings['open_lightbox']) {
+                $class = 'elementor-non-clickable';
+            }
+            ?>
                 <a data-elementor-open-lightbox="<?php echo esc_attr($settings['open_lightbox']); ?>"  class='<?php echo  esc_attr($class); ?>' href="<?php echo esc_url($link); ?>">
         <?php endif; ?>
         <?php
-        if (empty($site_image)) {
+
+        if (empty($feature_image)) {
             return;
         }
-        $demo = '';
 
+        $demo = '';
         if ('custom' !== $size) {
             $image_size = $size;
         } else {
             require_once ELEMENTOR_PATH . 'includes/libraries/bfi-thumb/bfi-thumb.php';
-
             $image_dimension = $settings[ 'site_image' . '_custom_dimension' ];
-
-            $image_size = [
+            $image_size      = [
                 // Defaults sizes.
                 0           => null, // Width.
                 1           => null, // Height.
-
                 'bfi_thumb' => true,
                 'crop'      => true,
             ];
-
             $has_custom_size = false;
             if (! empty($image_dimension['width'])) {
                 $has_custom_size = true;
                 $image_size[0]   = $image_dimension['width'];
             }
-
             if (! empty($image_dimension['height'])) {
                 $has_custom_size = true;
                 $image_size[1]   = $image_dimension['height'];
             }
-
             if (! $has_custom_size) {
                 $image_size = 'full';
             }
         }
+        $image_url = $feature_image;
 
-        $image_url = $site_image;
-
-        $image_data = $site_image;
+        $image_data = $feature_image;
 
         $site_image_class = 'elementor-animation-';
-
         if (! empty($settings['hover_animation'])) {
             $demo = $settings['hover_animation'];
         }
         if (! empty($image_data)) {
             $image_url = $image_data;
         }
-
         $class_animation = $site_image_class . $demo;
-
-        $image_unset         = site_url() . '/wp-includes/images/media/default.png';
-       
+        $image_unset     = site_url() . '/wp-includes/images/media/default.png';
 
         if ($image_unset !== $image_url) {
             $image_url = $image_url;
         }
 
-        if (strpos($_SERVER['HTTP_USER_AGENT'], 'Chrome') !== false) {
-            $date      = new \DateTime();
-            $timestam  = $date->getTimestamp();
-            $image_url = $image_url . '?' . $timestam;
-        }
-
         ?>
-            <div class="hfe-site-logo-set">           
-                <div class="hfe-site-logo-container">
-                    <img class="hfe-site-logo-img <?php echo esc_attr($class_animation); ?>"  src="<?php echo esc_url($image_url); ?>"/>
+            <div class="hfe-featured-image-set">           
+                <div class="hfe-featured-image-container">
+                    <img src="<?php echo esc_url($feature_image); ?>" class="hfe-featured-image <?php echo esc_attr($class_animation); ?>">
                 </div>
             </div>
         <?php if ($link) : ?>
@@ -848,14 +751,13 @@ class Site_Logo extends Widget_Base
             <?php endif; ?>
                 </figure>
         <?php endif; ?>
-        </div>  
-            <?php
+        </div>
+        <?php
     }
-
     /**
-     * Retrieve Site image widget link URL.
+     * Retrieve Featured image widget link URL.
      *
-     * @since 1.2.0
+     * @since x.x.x
      * @access private
      *
      * @param array $settings returns settings.
@@ -866,7 +768,6 @@ class Site_Logo extends Widget_Base
         if ('none' === $settings['link_to']) {
             return false;
         }
-
         if ('custom' === $settings['link_to']) {
             if (empty($settings['link']['url'])) {
                 return false;
