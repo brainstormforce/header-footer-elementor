@@ -387,11 +387,10 @@ class Post_Info extends Widget_Base {
 			);
 
 			$repeater->add_control(
-				'selected_icon',
+				'icon',
 				[
 					'label' => __( 'Choose Icon', 'header-footer-elementor' ),
 					'type' => Controls_Manager::ICONS,
-					'fa4compatibility' => 'icon',
 					'condition' => [
 						'show_icon' => 'custom',
 						'show_avatar!' => 'yes',
@@ -400,7 +399,7 @@ class Post_Info extends Widget_Base {
 			);
 
 			$this->add_control(
-				'meta_list',
+				'terms_list',
 				[
 					'label' => '',
 					'type' => Controls_Manager::REPEATER,
@@ -408,34 +407,34 @@ class Post_Info extends Widget_Base {
 					'default' => [
 						[
 							'type' => 'author',
-							'selected_icon' => [
+							'icon' => [
 								'value' => 'far fa-user-circle',
 								'library' => 'fa-regular',
 							],
 						],
 						[
 							'type' => 'date',
-							'selected_icon' => [
+							'icon' => [
 								'value' => 'fas fa-calendar',
 								'library' => 'fa-solid',
 							],
 						],
 						[
 							'type' => 'time',
-							'selected_icon' => [
+							'icon' => [
 								'value' => 'far fa-clock',
 								'library' => 'fa-regular',
 							],
 						],
 						[
 							'type' => 'comments',
-							'selected_icon' => [
+							'icon' => [
 								'value' => 'far fa-comment-dots',
 								'library' => 'fa-regular',
 							],
 						],
 					],
-					'title_field' => '{{{ elementor.helpers.renderIcon( this, selected_icon, {}, "i", "panel" ) || \'<i class="{{ icon }}" aria-hidden="true"></i>\' }}} <span style="text-transform: capitalize;">{{{ type }}}</span>',
+					'title_field' => '{{{ elementor.helpers.renderIcon( this, icon, {}, "i", "panel" ) || \'<i class="{{ icon }}" aria-hidden="true"></i>\' }}} <span style="text-transform: capitalize;">{{{ type }}}</span>',
 				]
 			);	
 
@@ -496,13 +495,14 @@ class Post_Info extends Widget_Base {
 
 		ob_start();
 
-		if ( ! empty( $settings['meta_list'] ) ) {
-			foreach ( $settings['meta_list'] as $repeater_item ) {
+		if ( ! empty( $settings['terms_list'] ) ) {
+			foreach ( $settings['terms_list'] as $repeater_item ) {
 				$this->render_item( $repeater_item );
 			}
 		}
 		$items_html = ob_get_clean();
 
+		echo $items_html;
 	}
 
 	/**
@@ -514,23 +514,85 @@ class Post_Info extends Widget_Base {
 	protected function render_item( $repeater_item ) {
 
 		$item_data = [];
+		$repeater_index = $repeater_item['_id'];
 
-		if( 'date' === $repeater_item['type'] ) {
+		switch ( $repeater_item['type'] ) {
+			case 'author':
 
-			$custom_date_format = empty( $repeater_item['custom_date_format'] ) ? 'F j, Y' : $repeater_item['custom_date_format'];
+				break;
 
-			$format_options = [
-				'default' => 'F j, Y',
-				'0' => 'F j, Y',
-				'1' => 'Y-m-d',
-				'2' => 'm/d/Y',
-				'3' => 'd/m/Y',
-				'custom' => $custom_date_format,
-			];
+			case 'date':
 
-			$item_data['text'] = get_the_time( $format_options[ $repeater_item['date_format'] ] );
+				break;
 
+			case 'time':
+
+				break;
+
+			case 'comments':
+
+				break;
+
+			case 'terms':
+
+				$item_data['icon'] = [
+					'value' => 'fas fa-tags',
+					'library' => 'fa-solid',
+				]; // Default icons.
+
+				$taxonomy = $repeater_item['taxonomy'];
+
+				$terms = wp_get_post_terms( get_the_ID(), $taxonomy );
+
+				foreach ( $terms as $term ) {
+
+					$item_data['terms_list'][ $term->term_id ]['text'] = $term->name;
+
+					if ( 'yes' === $repeater_item['link'] ) {
+						$item_data['terms_list'][ $term->term_id ]['url'] = get_term_link( $term );
+					}
+
+				}
+
+				break;
+
+			case 'custom':
+
+				break;
 		}
+
+		// echo '<pre>'; print_r( $item_data ); echo '</pre>'; 
+
+		$this->render_item_text( $item_data, $repeater_index );
+
+	}
+
+	/**
+	 * Render meta data items output.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function render_item_text( $item_data, $repeater_index ) {
+		if ( ! empty( $item_data['terms_list'] ) ) :
+			$item_class = 'elementor-post-info__terms-list-item';
+			$terms_list = [];
+			?>
+			<span class="elementor-post-info__terms-list">
+				<?php
+				foreach ( $item_data['terms_list'] as $term ) :
+					if ( ! empty( $term['url'] ) ) :
+						$terms_list[] = '<a href="' . esc_attr( $term['url'] ) . '" class="' . $item_class . '">' . esc_html( $term['text'] ) . '</a>';
+					else :
+						$terms_list[] = '<span class="' . $item_class . '">' . esc_html( $term['text'] ) . '</span>';
+					endif;
+				endforeach;
+
+				echo implode( ', ', $terms_list );
+				?>
+			</span>
+			<?php
+		endif;
 	}
 
 	/**
