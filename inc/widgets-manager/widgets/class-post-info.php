@@ -643,12 +643,6 @@ class Post_Info extends Widget_Base {
 
 				break;
 
-			case 'date':
-				break;
-
-			case 'time':
-				break;
-
 			case 'comments':
 
 				if ( comments_open() ) {
@@ -692,6 +686,54 @@ class Post_Info extends Widget_Base {
 					];
 
 				}
+
+				break;
+
+			case 'date':
+
+				$custom_date_format = empty( $repeater_item['custom_date_format'] ) ? 'F j, Y' : $repeater_item['custom_date_format'];
+
+				$format_options = [
+					'default' => 'F j, Y',
+					'0' => 'F j, Y',
+					'1' => 'Y-m-d',
+					'2' => 'm/d/Y',
+					'3' => 'd/m/Y',
+					'custom' => $custom_date_format,
+				];
+
+				$item_data['text'] = get_the_time( $format_options[ $repeater_item['date_format'] ] );
+
+				$item_data['icon'] = [
+					'value' => 'fas fa-calendar',
+					'library' => 'fa-solid',
+				];
+
+				if ( 'yes' === $repeater_item['link'] ) {
+					$item_data['url'] = [
+						'url' => get_day_link( get_post_time( 'Y' ), get_post_time( 'm' ), get_post_time( 'j' ) ),
+					];
+				}
+
+				break;
+
+			case 'time':
+
+				$custom_time_format = empty( $repeater_item['custom_time_format'] ) ? 'g:i a' : $repeater_item['custom_time_format'];
+
+				$format_options = [
+					'default' => 'g:i a',
+					'0' => 'g:i a',
+					'1' => 'g:i A',
+					'2' => 'H:i',
+					'custom' => $custom_time_format,
+				];
+				$item_data['text'] = get_the_time( $format_options[ $repeater_item['time_format'] ] );
+				
+				$item_data['icon'] = [
+					'value' => 'fas fa-clock',
+					'library' => 'fa-solid',
+				];
 
 				break;
 
