@@ -13,6 +13,7 @@ use Elementor\Widget_Base;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Scheme_Color;
 use Elementor\Repeater;
+use Elementor\Icons_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;   // Exit if accessed directly.
@@ -563,8 +564,48 @@ class Post_Info extends Widget_Base {
 
 		// echo '<pre>'; print_r( $item_data ); echo '</pre>'; 
 
+		$this->render_item_icon_or_image( $item_data, $repeater_item, $repeater_index );
 		$this->render_item_text( $item_data, $repeater_index );
 
+	}
+
+	/**
+	 * Render meta data items output.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function render_item_icon_or_image( $item_data, $repeater_item, $repeater_index ) {
+		// Set icon according to user settings.
+		
+		if ( 'custom' === $repeater_item['show_icon'] && ! empty( $repeater_item['icon'] ) ) {
+			$item_data['icon'] = $repeater_item['icon'];
+		} elseif ( 'none' === $repeater_item['show_icon'] ) {
+			$item_data['icon'] = [];
+		}
+
+		if ( empty( $item_data['icon'] ) && empty( $item_data['image'] ) ) {
+			return;
+		}
+
+		$show_icon = ( 'none' !== $repeater_item['show_icon'] );
+
+		if ( ! empty( $item_data['image'] ) || $show_icon ) {
+			?>
+			<span class="elementor-icon-list-icon">
+				<?php
+				if ( ! empty( $item_data['image'] ) ) :
+					$image_data = 'image_' . $repeater_index;
+					$this->add_render_attribute( $image_data, 'src', $item_data['image'] );
+					$this->add_render_attribute( $image_data, 'alt', $item_data['text'] );
+					?>
+						<img class="elementor-avatar" <?php echo $this->get_render_attribute_string( $image_data ); ?>>
+					<?php elseif ( $show_icon ) :
+							Icons_Manager::render_icon( $item_data['icon'], [ 'aria-hidden' => 'true' ] );
+				endif; ?>
+			</span>
+			<?php
+		}
 	}
 
 	/**
