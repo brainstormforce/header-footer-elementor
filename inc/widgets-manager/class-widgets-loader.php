@@ -75,6 +75,8 @@ class Widgets_Loader {
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-post-nav.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-post-title.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-site-title.php';
+
+		wp_enqueue_style( 'hfe-widgets-style', HFE_URL . 'inc/widgets-css/frontend.css', [], HFE_VER );
 	}
 
 	/**
