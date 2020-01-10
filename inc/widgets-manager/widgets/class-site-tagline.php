@@ -95,7 +95,7 @@ class Site_Tagline extends Widget_Base {
 	}
 
 	/**
-	 * Register Advanced Heading General Controls.
+	 * Register site tagline General Controls.
 	 *
 	 * @since x.x.x
 	 * @access protected
@@ -165,7 +165,7 @@ class Site_Tagline extends Widget_Base {
 	}
 
 	/**
-	 * Render Heading output on the frontend.
+	 * Render site tagline output on the frontend.
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
