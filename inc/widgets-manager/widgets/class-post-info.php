@@ -114,7 +114,7 @@ class Post_Info extends Widget_Base {
 		);
 
 			$this->add_control(
-				'view',
+				'layout',
 				[
 					'label'       => __( 'Layout', 'header-footer-elementor' ),
 					'type'        => Controls_Manager::SELECT,
@@ -232,7 +232,7 @@ class Post_Info extends Widget_Base {
 					'type'        => Controls_Manager::SELECT2,
 					'label_block' => true,
 					'default'     => [],
-					'options'     => $this->get_taxonomies(),
+					'options'     => $this->get_taxonomy_list(),
 					'condition'   => [
 						'type' => 'terms',
 					],
@@ -254,7 +254,7 @@ class Post_Info extends Widget_Base {
 			$repeater->add_control(
 				'show_avatar',
 				[
-					'label'     => __( 'Avatar', 'header-footer-elementor' ),
+					'label'     => __( 'Show Avatar', 'header-footer-elementor' ),
 					'type'      => Controls_Manager::SWITCHER,
 					'condition' => [
 						'type' => 'author',
@@ -402,7 +402,7 @@ class Post_Info extends Widget_Base {
 			);
 
 			$this->add_control(
-				'terms_list',
+				'meta_list',
 				[
 					'label'       => '',
 					'type'        => Controls_Manager::REPEATER,
@@ -452,7 +452,7 @@ class Post_Info extends Widget_Base {
 	 */
 	protected function register_list_style_controls() {
 		$this->start_controls_section(
-			'section_style',
+			'section_list_style',
 			[
 				'label' => __( 'List', 'header-footer-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
@@ -614,7 +614,7 @@ class Post_Info extends Widget_Base {
 			$this->add_group_control(
 				Group_Control_Typography::get_type(),
 				[
-					'name'     => 'icon_typography',
+					'name'     => 'text_typography',
 					'selector' => '{{WRAPPER}} .elementor-icon-list-item',
 					'scheme'   => Scheme_Typography::TYPOGRAPHY_3,
 				]
@@ -629,7 +629,7 @@ class Post_Info extends Widget_Base {
 	 * @since x.x.x
 	 * @access protected
 	 */
-	protected function get_taxonomies() {
+	protected function get_taxonomy_list() {
 		$taxonomies = get_taxonomies(
 			[
 				'show_in_nav_menus' => true,
@@ -637,15 +637,15 @@ class Post_Info extends Widget_Base {
 			'objects'
 		);
 
-		$options = [
-			'' => __( 'Choose', 'header-footer-elementor' ),
+		$taxonomy_list = [
+			'' => __( 'Select', 'header-footer-elementor' ),
 		];
 
 		foreach ( $taxonomies as $taxonomy ) {
-			$options[ $taxonomy->name ] = $taxonomy->label;
+			$taxonomy_list[ $taxonomy->name ] = $taxonomy->label;
 		}
 
-		return $options;
+		return $taxonomy_list;
 	}
 
 	/**
@@ -662,26 +662,27 @@ class Post_Info extends Widget_Base {
 
 		ob_start();
 
-		if ( ! empty( $settings['terms_list'] ) ) {
-			foreach ( $settings['terms_list'] as $repeater_item ) {
+		if ( ! empty( $settings['meta_list'] ) ) {
+			foreach ( $settings['meta_list'] as $repeater_item ) {
 				$this->render_item( $repeater_item );
 			}
 		}
+		
 		$items_html = ob_get_clean();
 
 		if ( empty( $items_html ) ) {
 			return;
 		}
 
-		$this->add_render_attribute( 'terms_list', 'class', [ 'elementor-icon-list-items', 'elementor-post-info' ] );
+		$this->add_render_attribute( 'meta_list', 'class', [ 'elementor-icon-list-items', 'elementor-post-info' ] );
 
-		if ( 'inline' === $settings['view'] ) {
-			$this->add_render_attribute( 'terms_list', 'class', 'elementor-inline-items' );
+		if ( 'inline' === $settings['layout'] ) {
+			$this->add_render_attribute( 'meta_list', 'class', 'elementor-inline-items' );
 		}
 
 		?>
 
-		<ul <?php echo $this->get_render_attribute_string( 'terms_list' ); ?>>
+		<ul <?php echo $this->get_render_attribute_string( 'meta_list' ); ?>>
 			<?php echo $items_html; ?>
 		</ul>
 
@@ -700,7 +701,7 @@ class Post_Info extends Widget_Base {
 		$item_data      = $this->get_meta_data( $repeater_item );
 		$repeater_index = $repeater_item['_id'];
 
-		if ( empty( $item_data['text'] ) && empty( $item_data['terms_list'] ) ) {
+		if ( empty( $item_data['text'] ) && empty( $item_data['meta_list'] ) ) {
 			return;
 		}
 
@@ -719,7 +720,7 @@ class Post_Info extends Widget_Base {
 
 		$active_settings = $this->get_active_settings();
 
-		if ( 'inline' === $active_settings['view'] ) {
+		if ( 'inline' === $active_settings['layout'] ) {
 			$this->add_render_attribute( $item_key, 'class', 'elementor-inline-item' );
 		}
 
@@ -779,10 +780,10 @@ class Post_Info extends Widget_Base {
 
 				foreach ( $terms as $term ) {
 
-					$item_data['terms_list'][ $term->term_id ]['text'] = $term->name;
+					$item_data['meta_list'][ $term->term_id ]['text'] = $term->name;
 
 					if ( 'yes' === $repeater_item['link'] ) {
-						$item_data['terms_list'][ $term->term_id ]['url'] = get_term_link( $term );
+						$item_data['meta_list'][ $term->term_id ]['url'] = get_term_link( $term );
 					}
 				}
 
@@ -977,11 +978,11 @@ class Post_Info extends Widget_Base {
 	 */
 	protected function render_item_text( $item_data, $repeater_index ) {
 
-		$repeater_setting_key = $this->get_repeater_setting_key( 'text', 'terms_list', $repeater_index );
+		$repeater_setting_key = $this->get_repeater_setting_key( 'text', 'meta_list', $repeater_index );
 
 		$this->add_render_attribute( $repeater_setting_key, 'class', [ 'elementor-icon-list-text', 'elementor-post-info__item', 'elementor-post-info__item--type-' . $item_data['type'] ] );
 
-		if ( ! empty( $item['terms_list'] ) ) {
+		if ( ! empty( $item['meta_list'] ) ) {
 			$this->add_render_attribute( $repeater_setting_key, 'class', 'elementor-terms-list' );
 		}
 
@@ -991,21 +992,21 @@ class Post_Info extends Widget_Base {
 				<span class="elementor-post-info__item-prefix"><?php echo esc_html( $item_data['text_prefix'] ); ?></span>
 			<?php endif; ?>
 			<?php
-			if ( ! empty( $item_data['terms_list'] ) ) :
-				$terms_list = [];
+			if ( ! empty( $item_data['meta_list'] ) ) :
+				$meta_list = [];
 				$item_class = 'elementor-post-info__terms-list-item';
 				?>
 				<span class="elementor-post-info__terms-list">
 					<?php
-					foreach ( $item_data['terms_list'] as $term ) :
+					foreach ( $item_data['meta_list'] as $term ) :
 						if ( ! empty( $term['url'] ) ) :
-							$terms_list[] = '<a href="' . esc_attr( $term['url'] ) . '" class="' . $item_class . '">' . esc_html( $term['text'] ) . '</a>';
+							$meta_list[] = '<a href="' . esc_attr( $term['url'] ) . '" class="' . $item_class . '">' . esc_html( $term['text'] ) . '</a>';
 						else :
-							$terms_list[] = '<span class="' . $item_class . '">' . esc_html( $term['text'] ) . '</span>';
+							$meta_list[] = '<span class="' . $item_class . '">' . esc_html( $term['text'] ) . '</span>';
 						endif;
 					endforeach;
 
-					echo implode( ', ', $terms_list );
+					echo implode( ', ', $meta_list );
 					?>
 				</span>
 			<?php else : ?>
