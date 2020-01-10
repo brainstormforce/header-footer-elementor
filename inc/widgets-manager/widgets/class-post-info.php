@@ -132,7 +132,7 @@ class Post_Info extends Widget_Base {
 			$repeater->add_control(
 				'meta_type',
 				[
-					'label'   => __( 'Type', 'header-footer-elementor' ),
+					'label'   => __( 'Select Type', 'header-footer-elementor' ),
 					'type'    => Controls_Manager::SELECT,
 					'default' => 'date',
 					'options' => [
@@ -254,7 +254,7 @@ class Post_Info extends Widget_Base {
 			$repeater->add_control(
 				'text_prefix',
 				[
-					'label'       => __( 'Before', 'header-footer-elementor' ),
+					'label'       => __( 'Prefix', 'header-footer-elementor' ),
 					'type'        => Controls_Manager::TEXT,
 					'label_block' => false,
 					'condition'   => [
@@ -423,8 +423,8 @@ class Post_Info extends Widget_Base {
 						[
 							'meta_type' => 'author',
 							'icon' => [
-								'value'   => 'far fa-user-circle',
-								'library' => 'fa-regular',
+								'value'   => 'fas fa-user',
+								'library' => 'fa-solid',
 							],
 						],
 						[
@@ -437,15 +437,15 @@ class Post_Info extends Widget_Base {
 						[
 							'meta_type' => 'time',
 							'icon' => [
-								'value'   => 'far fa-clock',
-								'library' => 'fa-regular',
+								'value'   => 'fas fa-clock',
+								'library' => 'fa-solid',
 							],
 						],
 						[
 							'meta_type' => 'comments',
 							'icon' => [
-								'value'   => 'far fa-comment-dots',
-								'library' => 'fa-regular',
+								'value'   => 'fas fa-comments',
+								'library' => 'fa-solid',
 							],
 						],
 					],
