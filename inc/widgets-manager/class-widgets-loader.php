@@ -20,6 +20,7 @@ defined( 'ABSPATH' ) or exit;
  */
 class Widgets_Loader {
 
+
 	/**
 	 * Instance of Widgets_Loader.
 	 *
@@ -75,6 +76,7 @@ class Widgets_Loader {
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-post-nav.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-post-title.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-site-title.php';
+		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-author-box.php';
 
 		// Emqueue the widgets style.
 		wp_enqueue_style( 'hfe-widgets-style', HFE_URL . 'inc/widgets-css/frontend.css', [], HFE_VER );
@@ -133,8 +135,8 @@ class Widgets_Loader {
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Post_Nav() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Post_Title() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Title() );
+		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Author_Box() );
 	}
-
 }
 
 /**
