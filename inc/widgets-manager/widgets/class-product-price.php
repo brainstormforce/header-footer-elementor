@@ -181,9 +181,9 @@ class Product_Price extends Widget_Base {
 				global $product;
 				$product = wc_get_product();
 
-				if ( empty( $product ) ) {
-					return;
-				}
+			if ( empty( $product ) ) {
+				return;
+			}
 
 				wc_get_template( '/single-product/price.php' );
 			?>
