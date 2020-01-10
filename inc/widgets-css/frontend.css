@@ -1,0 +1,46 @@
+/* Post Navigation Widget CSS */
+
+.hfe-post-navigation {
+    overflow: hidden;
+    display: flex;
+}
+
+.hfe-post-navigation .hfe-post-nav-link {
+    width: calc( 50% - ( 1px / 2 ));
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.hfe-post-navigation .hfe-post-nav-link a {
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+}
+
+.hfe-post-navigation span.hfe-post-nav-link-next, 
+.hfe-post-navigation span.hfe-post-nav-link-prev {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.hfe-post-navigation .hfe-post-nav-prev-label, 
+.hfe-post-navigation .hfe-post-nav-prev-title, 
+.hfe-post-navigation .hfe-post-nav-next-label, 
+.hfe-post-navigation .hfe-post-nav-next-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.hfe-post-navigation .hfe-post-nav-arrow-wrapper i {
+    transform: translateY(-5%);
+}
+
+.hfe-post-navigatio span.hfe-post-nav-link-next {
+     text-align: right; 
+}
+
+.hfe-post-navigation .hfe-post-nav-next a {
+    float: right;
+}
