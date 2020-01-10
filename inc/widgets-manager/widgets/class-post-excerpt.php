@@ -115,13 +115,26 @@ class Post_Excerpt extends Widget_Base {
 		$this->add_control(
 			'custom_excerpt',
 			[
-				'label'        => __( 'Custom Excerpt', 'uael' ),
+				'label'        => __( 'Short Excerpt', 'uael' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'label_on'     => __( 'Show', 'uael' ),
 				'label_off'    => __( 'Hide', 'uael' ),
 				'return_value' => 'yes',
 				'default'      => 'no',
 			]
+		);
+
+		$this->add_control(
+			'excerpt_length',
+			array(
+				'label'       => __( 'Length', 'uael' ),
+				'type'        => Controls_Manager::NUMBER,
+				'label_block' => false,
+				'default'     => '25',
+				'condition'   => array(
+					'custom_excerpt' => 'yes',
+				),
+			)
 		);
 
 		$this->end_controls_section();
@@ -188,10 +201,20 @@ class Post_Excerpt extends Widget_Base {
 	 */
 	protected function render() {
 
+		$settings = $this->get_settings_for_display();
+
 		$this->add_render_attribute( 'post-excerpt-content', 'class', 'hfe-post-excerpt-content' );
 
-		$title_html = sprintf( '<%1$s %2$s>%3$s</%1$s>', 'div', $this->get_render_attribute_string( 'post-excerpt-content' ), get_the_excerpt() );
+		if( 'yes' === $settings['custom_excerpt'] ){
 
-		echo $title_html;
+			$custom_excerpt = substr( get_the_excerpt(), 0, $settings['excerpt_length'] );
+
+			$excerpt_html = sprintf( '<%1$s %2$s>%3$s</%1$s>', 'div', $this->get_render_attribute_string( 'post-excerpt-content' ), $custom_excerpt );
+		} else {
+
+			$excerpt_html = sprintf( '<%1$s %2$s>%3$s</%1$s>', 'div', $this->get_render_attribute_string( 'post-excerpt-content' ), get_the_excerpt() );
+		}
+
+		echo $excerpt_html;
 	}
 }
