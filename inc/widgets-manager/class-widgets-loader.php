@@ -76,7 +76,7 @@ class Widgets_Loader {
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-post-title.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-site-title.php';
 
-		if( class_exists( 'woocommerce' ) ) {
+		if ( class_exists( 'woocommerce' ) ) {
 			require_once HFE_DIR . '/inc/widgets-manager/widgets/class-product-price.php';
 		}
 
@@ -138,7 +138,7 @@ class Widgets_Loader {
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Post_Title() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Title() );
 
-		if( class_exists( 'woocommerce' ) ) {
+		if ( class_exists( 'woocommerce' ) ) {
 			Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Product_Price() );
 		}
 	}

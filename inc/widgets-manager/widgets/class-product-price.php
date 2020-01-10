@@ -84,7 +84,7 @@ class Product_Price extends Widget_Base {
 	}
 
 	/**
-	 * Register site title controls controls.
+	 * Register Product Price controls controls.
 	 *
 	 * @since x.x.x
 	 * @access protected
