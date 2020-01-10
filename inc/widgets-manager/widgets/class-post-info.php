@@ -463,9 +463,9 @@ class Post_Info extends Widget_Base {
 			$this->add_responsive_control(
 				'space_between',
 				[
-					'label' => __( 'Space Between', 'header-footer-elementor' ),
-					'type' => Controls_Manager::SLIDER,
-					'range' => [
+					'label'     => __( 'Space Between', 'header-footer-elementor' ),
+					'type'      => Controls_Manager::SLIDER,
+					'range'     => [
 						'px' => [
 							'max' => 50,
 						],
@@ -484,20 +484,20 @@ class Post_Info extends Widget_Base {
 			$this->add_responsive_control(
 				'content_align',
 				[
-					'label' => __( 'Alignment', 'header-footer-elementor' ),
-					'type' => Controls_Manager::CHOOSE,
-					'options' => [
-						'left' => [
+					'label'        => __( 'Alignment', 'header-footer-elementor' ),
+					'type'         => Controls_Manager::CHOOSE,
+					'options'      => [
+						'left'   => [
 							'title' => __( 'Start', 'header-footer-elementor' ),
-							'icon' => 'eicon-h-align-left',
+							'icon'  => 'eicon-h-align-left',
 						],
 						'center' => [
 							'title' => __( 'Center', 'header-footer-elementor' ),
-							'icon' => 'eicon-h-align-center',
+							'icon'  => 'eicon-h-align-center',
 						],
-						'right' => [
+						'right'  => [
 							'title' => __( 'End', 'header-footer-elementor' ),
-							'icon' => 'eicon-h-align-right',
+							'icon'  => 'eicon-h-align-right',
 						],
 					],
 					'prefix_class' => 'elementor%s-align-',
@@ -525,15 +525,15 @@ class Post_Info extends Widget_Base {
 			$this->add_control(
 				'icon_color',
 				[
-					'label' => __( 'Color', 'header-footer-elementor' ),
-					'type' => Controls_Manager::COLOR,
-					'default' => '',
+					'label'     => __( 'Color', 'header-footer-elementor' ),
+					'type'      => Controls_Manager::COLOR,
+					'default'   => '',
 					'selectors' => [
 						'{{WRAPPER}} .elementor-icon-list-icon i' => 'color: {{VALUE}};',
 						'{{WRAPPER}} .elementor-icon-list-icon svg' => 'fill: {{VALUE}};',
 					],
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
+					'scheme'    => [
+						'type'  => Scheme_Color::get_type(),
 						'value' => Scheme_Color::COLOR_1,
 					],
 				]
@@ -542,12 +542,12 @@ class Post_Info extends Widget_Base {
 			$this->add_responsive_control(
 				'icon_size',
 				[
-					'label' => __( 'Size', 'header-footer-elementor' ),
-					'type' => Controls_Manager::SLIDER,
-					'default' => [
+					'label'     => __( 'Size', 'header-footer-elementor' ),
+					'type'      => Controls_Manager::SLIDER,
+					'default'   => [
 						'size' => 14,
 					],
-					'range' => [
+					'range'     => [
 						'px' => [
 							'min' => 6,
 						],
@@ -563,9 +563,9 @@ class Post_Info extends Widget_Base {
 			$this->add_control(
 				'icon_spacing',
 				[
-					'label' => __( 'Spacing', 'header-footer-elementor' ),
-					'type' => Controls_Manager::SLIDER,
-					'range' => [
+					'label'     => __( 'Spacing', 'header-footer-elementor' ),
+					'type'      => Controls_Manager::SLIDER,
+					'range'     => [
 						'px' => [
 							'max' => 50,
 						],
@@ -599,14 +599,14 @@ class Post_Info extends Widget_Base {
 			$this->add_control(
 				'text_color',
 				[
-					'label' => __( 'Text Color', 'header-footer-elementor' ),
-					'type' => Controls_Manager::COLOR,
-					'default' => '',
+					'label'     => __( 'Text Color', 'header-footer-elementor' ),
+					'type'      => Controls_Manager::COLOR,
+					'default'   => '',
 					'selectors' => [
 						'{{WRAPPER}} .elementor-icon-list-text, {{WRAPPER}} .elementor-icon-list-text a' => 'color: {{VALUE}}',
 					],
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
+					'scheme'    => [
+						'type'  => Scheme_Color::get_type(),
 						'value' => Scheme_Color::COLOR_2,
 					],
 				]
@@ -615,9 +615,9 @@ class Post_Info extends Widget_Base {
 			$this->add_group_control(
 				Group_Control_Typography::get_type(),
 				[
-					'name' => 'icon_typography',
+					'name'     => 'icon_typography',
 					'selector' => '{{WRAPPER}} .elementor-icon-list-item',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_3,
+					'scheme'   => Scheme_Typography::TYPOGRAPHY_3,
 				]
 			);
 
