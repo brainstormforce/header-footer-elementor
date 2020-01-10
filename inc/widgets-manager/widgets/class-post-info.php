@@ -10,7 +10,6 @@ use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
 use Elementor\Scheme_Typography;
 use Elementor\Widget_Base;
-use Elementor\Group_Control_Text_Shadow;
 use Elementor\Scheme_Color;
 use Elementor\Repeater;
 use Elementor\Icons_Manager;
