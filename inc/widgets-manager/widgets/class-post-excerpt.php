@@ -126,15 +126,15 @@ class Post_Excerpt extends Widget_Base {
 
 		$this->add_control(
 			'excerpt_length',
-			array(
+			[
 				'label'       => __( 'Length', 'uael' ),
 				'type'        => Controls_Manager::NUMBER,
 				'label_block' => false,
 				'default'     => '25',
-				'condition'   => array(
+				'condition'   => [
 					'custom_excerpt' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_section();
@@ -205,7 +205,7 @@ class Post_Excerpt extends Widget_Base {
 
 		$this->add_render_attribute( 'post-excerpt-content', 'class', 'hfe-post-excerpt-content' );
 
-		if( 'yes' === $settings['custom_excerpt'] ){
+		if ( 'yes' === $settings['custom_excerpt'] ) {
 
 			$custom_excerpt = substr( get_the_excerpt(), 0, $settings['excerpt_length'] );
 
