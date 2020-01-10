@@ -130,7 +130,7 @@ class Post_Info extends Widget_Base {
 			$repeater = new Repeater();
 
 			$repeater->add_control(
-				'type',
+				'meta_type',
 				[
 					'label'   => __( 'Type', 'header-footer-elementor' ),
 					'type'    => Controls_Manager::SELECT,
@@ -162,7 +162,7 @@ class Post_Info extends Widget_Base {
 						'custom'  => __( 'Custom', 'header-footer-elementor' ),
 					],
 					'condition'   => [
-						'type' => 'date',
+						'meta_type' => 'date',
 					],
 				]
 			);
@@ -175,7 +175,7 @@ class Post_Info extends Widget_Base {
 					'default'     => 'F j, Y',
 					'label_block' => false,
 					'condition'   => [
-						'type'        => 'date',
+						'meta_type'        => 'date',
 						'date_format' => 'custom',
 					],
 					'description' => sprintf(
@@ -201,7 +201,7 @@ class Post_Info extends Widget_Base {
 						'custom'  => __( 'Custom', 'header-footer-elementor' ),
 					],
 					'condition'   => [
-						'type' => 'time',
+						'meta_type' => 'time',
 					],
 				]
 			);
@@ -214,7 +214,7 @@ class Post_Info extends Widget_Base {
 					'placeholder' => 'g:i a',
 					'label_block' => false,
 					'condition'   => [
-						'type'        => 'time',
+						'meta_type'        => 'time',
 						'time_format' => 'custom',
 					],
 					'description' => sprintf(
@@ -234,7 +234,7 @@ class Post_Info extends Widget_Base {
 					'default'     => [],
 					'options'     => $this->get_taxonomy_list(),
 					'condition'   => [
-						'type' => 'terms',
+						'meta_type' => 'terms',
 					],
 				]
 			);
@@ -246,7 +246,7 @@ class Post_Info extends Widget_Base {
 					'type'        => Controls_Manager::TEXT,
 					'label_block' => false,
 					'condition'   => [
-						'type!' => 'custom',
+						'meta_type!' => 'custom',
 					],
 				]
 			);
@@ -257,7 +257,7 @@ class Post_Info extends Widget_Base {
 					'label'     => __( 'Show Avatar', 'header-footer-elementor' ),
 					'type'      => Controls_Manager::SWITCHER,
 					'condition' => [
-						'type' => 'author',
+						'meta_type' => 'author',
 					],
 				]
 			);
@@ -283,13 +283,13 @@ class Post_Info extends Widget_Base {
 					'type'      => Controls_Manager::SWITCHER,
 					'default'   => false,
 					'condition' => [
-						'type' => 'comments',
+						'meta_type' => 'comments',
 					],
 				]
 			);
 
 			$repeater->add_control(
-				'string_no_comments',
+				'no_comments_string',
 				[
 					'label'       => __( 'No Comments', 'header-footer-elementor' ),
 					'type'        => Controls_Manager::TEXT,
@@ -297,13 +297,13 @@ class Post_Info extends Widget_Base {
 					'placeholder' => __( 'No Comments', 'header-footer-elementor' ),
 					'condition'   => [
 						'comments_custom_strings' => 'yes',
-						'type'                    => 'comments',
+						'meta_type'                    => 'comments',
 					],
 				]
 			);
 
 			$repeater->add_control(
-				'string_one_comment',
+				'one_comment_string',
 				[
 					'label'       => __( 'One Comment', 'header-footer-elementor' ),
 					'type'        => Controls_Manager::TEXT,
@@ -311,13 +311,13 @@ class Post_Info extends Widget_Base {
 					'placeholder' => __( 'One Comment', 'header-footer-elementor' ),
 					'condition'   => [
 						'comments_custom_strings' => 'yes',
-						'type'                    => 'comments',
+						'meta_type'                    => 'comments',
 					],
 				]
 			);
 
 			$repeater->add_control(
-				'string_comments',
+				'comments_string',
 				[
 					'label'       => __( 'Comments', 'header-footer-elementor' ),
 					'type'        => Controls_Manager::TEXT,
@@ -326,7 +326,7 @@ class Post_Info extends Widget_Base {
 					'placeholder' => __( '%s Comments', 'header-footer-elementor' ),
 					'condition'   => [
 						'comments_custom_strings' => 'yes',
-						'type'                    => 'comments',
+						'meta_type'                    => 'comments',
 					],
 				]
 			);
@@ -341,7 +341,7 @@ class Post_Info extends Widget_Base {
 					],
 					'label_block' => true,
 					'condition'   => [
-						'type' => 'custom',
+						'meta_type' => 'custom',
 					],
 				]
 			);
@@ -353,7 +353,7 @@ class Post_Info extends Widget_Base {
 					'type'      => Controls_Manager::SWITCHER,
 					'default'   => 'yes',
 					'condition' => [
-						'type!' => 'time',
+						'meta_type!' => 'time',
 					],
 				]
 			);
@@ -367,7 +367,7 @@ class Post_Info extends Widget_Base {
 						'active' => true,
 					],
 					'condition' => [
-						'type' => 'custom',
+						'meta_type' => 'custom',
 					],
 				]
 			);
@@ -409,35 +409,35 @@ class Post_Info extends Widget_Base {
 					'fields'      => $repeater->get_controls(),
 					'default'     => [
 						[
-							'type' => 'author',
+							'meta_type' => 'author',
 							'icon' => [
 								'value'   => 'far fa-user-circle',
 								'library' => 'fa-regular',
 							],
 						],
 						[
-							'type' => 'date',
+							'meta_type' => 'date',
 							'icon' => [
 								'value'   => 'fas fa-calendar',
 								'library' => 'fa-solid',
 							],
 						],
 						[
-							'type' => 'time',
+							'meta_type' => 'time',
 							'icon' => [
 								'value'   => 'far fa-clock',
 								'library' => 'fa-regular',
 							],
 						],
 						[
-							'type' => 'comments',
+							'meta_type' => 'comments',
 							'icon' => [
 								'value'   => 'far fa-comment-dots',
 								'library' => 'fa-regular',
 							],
 						],
 					],
-					'title_field' => '{{{ elementor.helpers.renderIcon( this, icon, {}, "i", "panel" ) || \'<i class="{{ icon }}" aria-hidden="true"></i>\' }}} <span style="text-transform: capitalize;">{{{ type }}}</span>',
+					'title_field' => '{{{ elementor.helpers.renderIcon( this, icon, {}, "i", "panel" ) || \'<i class="{{ icon }}" aria-hidden="true"></i>\' }}} <span style="text-transform: capitalize;">{{{ meta_type }}}</span>',
 				]
 			);
 
@@ -664,26 +664,26 @@ class Post_Info extends Widget_Base {
 
 		if ( ! empty( $settings['meta_list'] ) ) {
 			foreach ( $settings['meta_list'] as $repeater_item ) {
-				$this->render_item( $repeater_item );
+				$this->render_meta_item( $repeater_item );
 			}
 		}
-		
-		$items_html = ob_get_clean();
 
-		if ( empty( $items_html ) ) {
+		$meta_html = ob_get_clean();
+
+		if ( empty( $meta_html ) ) {
 			return;
 		}
 
-		$this->add_render_attribute( 'meta_list', 'class', [ 'elementor-icon-list-items', 'elementor-post-info' ] );
+		$layout = '';
 
 		if ( 'inline' === $settings['layout'] ) {
-			$this->add_render_attribute( 'meta_list', 'class', 'elementor-inline-items' );
+			$layout = 'elementor-inline-items';
 		}
 
 		?>
 
-		<ul <?php echo $this->get_render_attribute_string( 'meta_list' ); ?>>
-			<?php echo $items_html; ?>
+		<ul class="elementor-icon-list-items elementor-post-info <?php echo $layout; ?>">
+			<?php echo $meta_html; ?>
 		</ul>
 
 		<?php
@@ -694,27 +694,27 @@ class Post_Info extends Widget_Base {
 	 *
 	 * @since x.x.x
 	 * @access protected
-	 * @param array $repeater_item current meta item..
+	 * @param array $current_item current meta item..
 	 */
-	protected function render_item( $repeater_item ) {
+	protected function render_meta_item( $current_item ) {
 
-		$item_data      = $this->get_meta_data( $repeater_item );
-		$repeater_index = $repeater_item['_id'];
+		$item_data      = $this->get_meta_data( $current_item );
+		$current_index = $current_item['_id'];
 
 		if ( empty( $item_data['text'] ) && empty( $item_data['meta_list'] ) ) {
 			return;
 		}
 
-		$has_link = false;
-		$link_key = 'link_' . $repeater_index;
-		$item_key = 'item_' . $repeater_index;
+		$enable_link = false;
+		$link_key = 'link_' . $current_index;
+		$item_key = 'item_' . $current_index;
 
 		$this->add_render_attribute(
 			$item_key,
 			'class',
 			[
 				'elementor-icon-list-item',
-				'elementor-repeater-item-' . $repeater_item['_id'],
+				'elementor-repeater-item-' . $current_item['_id'],
 			]
 		);
 
@@ -725,7 +725,7 @@ class Post_Info extends Widget_Base {
 		}
 
 		if ( ! empty( $item_data['url']['url'] ) ) {
-			$has_link = true;
+			$enable_link = true;
 
 			$url = $item_data['url'];
 			$this->add_render_attribute( $link_key, 'href', $url['url'] );
@@ -741,12 +741,12 @@ class Post_Info extends Widget_Base {
 
 		?>
 		<li <?php echo $this->get_render_attribute_string( $item_key ); ?>>
-			<?php if ( $has_link ) : ?>
+			<?php if ( $enable_link ) : ?>
 				<a <?php echo $this->get_render_attribute_string( $link_key ); ?>>
 			<?php endif; ?>
-				<?php $this->render_item_icon( $item_data, $repeater_item, $repeater_index ); ?>
-				<?php $this->render_item_text( $item_data, $repeater_index ); ?>
-			<?php if ( $has_link ) : ?>
+				<?php $this->render_item_icon( $item_data, $current_item, $current_index ); ?>
+				<?php $this->render_item_text( $item_data, $current_index ); ?>
+			<?php if ( $enable_link ) : ?>
 				</a>
 			<?php endif; ?>
 		</li>
@@ -758,15 +758,14 @@ class Post_Info extends Widget_Base {
 	 *
 	 * @since x.x.x
 	 * @access protected
-	 * @param array $repeater_item current meta item.
+	 * @param array $current_item current meta item.
 	 * @return array meta data.
 	 */
-	protected function get_meta_data( $repeater_item ) {
+	protected function get_meta_data( $current_item ) {
 
 		$item_data      = [];
-		$repeater_index = $repeater_item['_id'];
 
-		switch ( $repeater_item['type'] ) {
+		switch ( $current_item['meta_type'] ) {
 
 			case 'terms':
 				$item_data['icon'] = [
@@ -774,7 +773,7 @@ class Post_Info extends Widget_Base {
 					'library' => 'fa-solid',
 				];
 
-				$taxonomy = $repeater_item['taxonomy'];
+				$taxonomy = $current_item['taxonomy'];
 
 				$terms = wp_get_post_terms( get_the_ID(), $taxonomy );
 
@@ -782,7 +781,7 @@ class Post_Info extends Widget_Base {
 
 					$item_data['meta_list'][ $term->term_id ]['text'] = $term->name;
 
-					if ( 'yes' === $repeater_item['link'] ) {
+					if ( 'yes' === $current_item['link'] ) {
 						$item_data['meta_list'][ $term->term_id ]['url'] = get_term_link( $term );
 					}
 				}
@@ -790,20 +789,21 @@ class Post_Info extends Widget_Base {
 				break;
 
 			case 'author':
-				$item_data['text'] = get_the_author_meta( 'display_name' );
 
 				$item_data['icon'] = [
 					'value'   => 'fas fa-user',
 					'library' => 'fa-solid',
 				];
 
-				if ( 'yes' === $repeater_item['link'] ) {
+				$item_data['text'] = get_the_author_meta( 'display_name' );
+
+				if ( 'yes' === $current_item['link'] ) {
 					$item_data['url'] = [
 						'url' => get_author_posts_url( get_the_author_meta( 'ID' ) ),
 					];
 				}
 
-				if ( 'yes' === $repeater_item['show_avatar'] ) {
+				if ( 'yes' === $current_item['show_avatar'] ) {
 					$item_data['image'] = get_avatar_url( get_the_author_meta( 'ID' ), 98 );
 				}
 
@@ -811,52 +811,60 @@ class Post_Info extends Widget_Base {
 
 			case 'comments':
 				if ( comments_open() ) {
-					$default_strings = [
-						'string_no_comments' => __( 'No Comments', 'header-footer-elementor' ),
-						'string_one_comment' => __( 'One Comment', 'header-footer-elementor' ),
-						/* translators: %s admin link */
-						'string_comments'    => __( '%s Comments', 'header-footer-elementor' ),
-					];
-
-					if ( 'yes' === $repeater_item['comments_custom_strings'] ) {
-						if ( ! empty( $repeater_item['string_no_comments'] ) ) {
-							$default_strings['string_no_comments'] = $repeater_item['string_no_comments'];
-						}
-
-						if ( ! empty( $repeater_item['string_one_comment'] ) ) {
-							$default_strings['string_one_comment'] = $repeater_item['string_one_comment'];
-						}
-
-						if ( ! empty( $repeater_item['string_comments'] ) ) {
-							$default_strings['string_comments'] = $repeater_item['string_comments'];
-						}
-					}
-
-					$num_comments = (int) get_comments_number(); // get_comments_number returns only a numeric value
-
-					if ( 0 === $num_comments ) {
-						$item_data['text'] = $default_strings['string_no_comments'];
-					} else {
-						$item_data['text'] = sprintf( _n( $default_strings['string_one_comment'], $default_strings['string_comments'], $num_comments, 'header-footer-elementor' ), $num_comments );
-					}
-
-					if ( 'yes' === $repeater_item['link'] ) {
-						$item_data['url'] = [
-							'url' => get_comments_link(),
-						];
-					}
 
 					$item_data['icon'] = [
 						'value'   => 'fas fa-comments',
 						'library' => 'fa-solid',
 					];
 
+					$no_comments_string = __( 'No Comments', 'header-footer-elementor' );
+					$one_comment_string = __( 'One Comment', 'header-footer-elementor' );
+					/* translators: %s admin link */
+					$comments_string    = __( '%s Comments', 'header-footer-elementor' );
+
+					if ( 'yes' === $current_item['comments_custom_strings'] ) {
+
+						if ( ! empty( $current_item['no_comments_string'] ) ) {
+							$no_comments_string = $current_item['no_comments_string'];
+						}
+
+						if ( ! empty( $current_item['one_comment_string'] ) ) {
+							$one_comment_string = $current_item['one_comment_string'];
+						}
+
+						if ( ! empty( $current_item['comments_string'] ) ) {
+							$comments_string = $current_item['comments_string'];
+						}
+					}
+
+					$total_comments = (int) get_comments_number();
+
+					if ( 0 === $total_comments ) {
+						$item_data['text'] = $no_comments_string;
+					} else if ( 1 === $total_comments ) {
+						$item_data['text'] = $one_comment_string;
+					} else {
+						$item_data['text'] = sprintf( __( $comments_string, 'header-footer-elementor' ), $total_comments );
+					}
+
+					if ( 'yes' === $current_item['link'] ) {
+						$item_data['url'] = [
+							'url' => get_comments_link(),
+						];
+					}
+
 				}
 
 				break;
 
 			case 'date':
-				$custom_date_format = empty( $repeater_item['custom_date_format'] ) ? 'F j, Y' : $repeater_item['custom_date_format'];
+
+				$item_data['icon'] = [
+					'value'   => 'fas fa-calendar',
+					'library' => 'fa-solid',
+				];
+
+				$custom_date_format = empty( $current_item['custom_date_format'] ) ? 'F j, Y' : $current_item['custom_date_format'];
 
 				$format_options = [
 					'default' => 'F j, Y',
@@ -867,14 +875,9 @@ class Post_Info extends Widget_Base {
 					'custom'  => $custom_date_format,
 				];
 
-				$item_data['text'] = get_the_time( $format_options[ $repeater_item['date_format'] ] );
+				$item_data['text'] = get_the_time( $format_options[ $current_item['date_format'] ] );
 
-				$item_data['icon'] = [
-					'value'   => 'fas fa-calendar',
-					'library' => 'fa-solid',
-				];
-
-				if ( 'yes' === $repeater_item['link'] ) {
+				if ( 'yes' === $current_item['link'] ) {
 					$item_data['url'] = [
 						'url' => get_day_link( get_post_time( 'Y' ), get_post_time( 'm' ), get_post_time( 'j' ) ),
 					];
@@ -883,7 +886,13 @@ class Post_Info extends Widget_Base {
 				break;
 
 			case 'time':
-				$custom_time_format = empty( $repeater_item['custom_time_format'] ) ? 'g:i a' : $repeater_item['custom_time_format'];
+
+				$item_data['icon'] = [
+					'value'   => 'fas fa-clock',
+					'library' => 'fa-solid',
+				];
+
+				$custom_time_format = empty( $current_item['custom_time_format'] ) ? 'g:i a' : $current_item['custom_time_format'];
 
 				$format_options    = [
 					'default' => 'g:i a',
@@ -892,33 +901,31 @@ class Post_Info extends Widget_Base {
 					'2'       => 'H:i',
 					'custom'  => $custom_time_format,
 				];
-				$item_data['text'] = get_the_time( $format_options[ $repeater_item['time_format'] ] );
 
-				$item_data['icon'] = [
-					'value'   => 'fas fa-clock',
-					'library' => 'fa-solid',
-				];
+				$item_data['text'] = get_the_time( $format_options[ $current_item['time_format'] ] );
 
 				break;
 
 			case 'custom':
-				$item_data['text'] = $repeater_item['custom_text'];
+
 				$item_data['icon'] = [
 					'value'   => 'fas fa-tags',
 					'library' => 'fa-solid',
 				];
 
-				if ( 'yes' === $repeater_item['link'] && ! empty( $repeater_item['custom_url'] ) ) {
-					$item_data['url'] = $repeater_item['custom_url'];
+				$item_data['text'] = $current_item['custom_text'];
+
+				if ( 'yes' === $current_item['link'] && ! empty( $current_item['custom_url'] ) ) {
+					$item_data['url'] = $current_item['custom_url'];
 				}
 
 				break;
 		}
 
-		$item_data['type'] = $repeater_item['type'];
+		$item_data['meta_type'] = $current_item['meta_type'];
 
-		if ( ! empty( $repeater_item['text_prefix'] ) ) {
-			$item_data['text_prefix'] = esc_html( $repeater_item['text_prefix'] );
+		if ( ! empty( $current_item['text_prefix'] ) ) {
+			$item_data['text_prefix'] = esc_html( $current_item['text_prefix'] );
 		}
 
 		return $item_data;
@@ -931,10 +938,10 @@ class Post_Info extends Widget_Base {
 	 * @access protected
 	 * @param array  $item_data current meta item data.
 	 * @param array  $repeater_item current meta item.
-	 * @param string $repeater_index current meta item index.
+	 * @param string $current_index current meta item index.
 	 * @return array meta data.
 	 */
-	protected function render_item_icon( $item_data, $repeater_item, $repeater_index ) {
+	protected function render_item_icon( $item_data, $repeater_item, $current_index ) {
 
 		if ( 'custom' === $repeater_item['show_icon'] && ! empty( $repeater_item['icon'] ) ) {
 			$item_data['icon'] = $repeater_item['icon'];
@@ -953,7 +960,7 @@ class Post_Info extends Widget_Base {
 			<span class="elementor-icon-list-icon">
 				<?php
 				if ( ! empty( $item_data['image'] ) ) :
-					$image_data = 'image_' . $repeater_index;
+					$image_data = 'image_' . $current_index;
 					$this->add_render_attribute( $image_data, 'src', $item_data['image'] );
 					$this->add_render_attribute( $image_data, 'alt', $item_data['text'] );
 					?>
@@ -974,13 +981,13 @@ class Post_Info extends Widget_Base {
 	 * @since x.x.x
 	 * @access protected
 	 * @param array  $item_data current meta item data.
-	 * @param string $repeater_index current meta item index.
+	 * @param string $current_index current meta item index.
 	 */
-	protected function render_item_text( $item_data, $repeater_index ) {
+	protected function render_item_text( $item_data, $current_index ) {
 
-		$repeater_setting_key = $this->get_repeater_setting_key( 'text', 'meta_list', $repeater_index );
+		$repeater_setting_key = $this->get_repeater_setting_key( 'text', 'meta_list', $current_index );
 
-		$this->add_render_attribute( $repeater_setting_key, 'class', [ 'elementor-icon-list-text', 'elementor-post-info__item', 'elementor-post-info__item--type-' . $item_data['type'] ] );
+		$this->add_render_attribute( $repeater_setting_key, 'class', [ 'elementor-icon-list-text', 'elementor-post-info__item', 'elementor-post-info__item--type-' . $item_data['meta_type'] ] );
 
 		if ( ! empty( $item['meta_list'] ) ) {
 			$this->add_render_attribute( $repeater_setting_key, 'class', 'elementor-terms-list' );
