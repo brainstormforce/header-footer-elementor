@@ -93,7 +93,7 @@ class Post_Excerpt extends Widget_Base {
 	 * @access protected
 	 */
 	protected function _register_controls() {
-		$this->register_content_post_excerpt_controls();	
+		$this->register_content_post_excerpt_controls();
 		$this->register_styling_post_excerpt_controls();
 	}
 
@@ -114,14 +114,14 @@ class Post_Excerpt extends Widget_Base {
 
 		$this->add_control(
 			'custom_excerpt',
-			array(
+			[
 				'label'        => __( 'Custom Excerpt', 'uael' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'label_on'     => __( 'Show', 'uael' ),
 				'label_off'    => __( 'Hide', 'uael' ),
 				'return_value' => 'yes',
 				'default'      => 'no',
-			)
+			]
 		);
 
 		$this->end_controls_section();
@@ -139,31 +139,38 @@ class Post_Excerpt extends Widget_Base {
 			'section_style',
 			[
 				'label' => __( 'Style', 'header-footer-elementor' ),
-				'tab' => Controls_Manager::TAB_STYLE,
-			]
-		);
-
-		$this->add_control(
-			'text_color',
-			[
-				'label'     => __( 'Text Color', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => [
-					'{{WRAPPER}} .hfe-post-excerpt-content' => 'color: {{VALUE}};',
-				],
-				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
-				],
+				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'typography',
-				'scheme' =>Scheme_Typography::TYPOGRAPHY_3,
+				'name'     => 'title_typography',
+				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
+				'selector' => '{{WRAPPER}} .hfe-post-excerpt-content, {{WRAPPER}} .hfe-post-title a',
+			]
+		);
+
+		$this->add_control(
+			'excerpt_color',
+			[
+				'label'     => __( 'Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => [
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .hfe-post-excerpt-content' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Text_Shadow::get_type(),
+			[
+				'name'     => 'excerpt_shadow',
 				'selector' => '{{WRAPPER}} .hfe-post-excerpt-content',
 			]
 		);
