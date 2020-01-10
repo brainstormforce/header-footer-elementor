@@ -94,7 +94,9 @@ class Post_Info extends Widget_Base {
 	protected function _register_controls() {
 
 		$this->register_content_controls();
-		$this->register_style_controls();
+		$this->register_list_style_controls();
+		$this->register_list_icon_style_controls();
+		$this->register_list_text_style_controls();
 	}
 
 	/**
@@ -449,14 +451,175 @@ class Post_Info extends Widget_Base {
 	 * @since x.x.x
 	 * @access protected
 	 */
-	protected function register_style_controls() {
+	protected function register_list_style_controls() {
 		$this->start_controls_section(
 			'section_style',
 			[
-				'label' => __( 'Meta Info', 'header-footer-elementor' ),
+				'label' => __( 'List', 'header-footer-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
+
+			$this->add_responsive_control(
+				'space_between',
+				[
+					'label' => __( 'Space Between', 'header-footer-elementor' ),
+					'type' => Controls_Manager::SLIDER,
+					'range' => [
+						'px' => [
+							'max' => 50,
+						],
+					],
+					'selectors' => [
+						'{{WRAPPER}} .elementor-icon-list-items:not(.elementor-inline-items) .elementor-icon-list-item:not(:last-child)' => 'padding-bottom: calc({{SIZE}}{{UNIT}}/2)',
+						'{{WRAPPER}} .elementor-icon-list-items:not(.elementor-inline-items) .elementor-icon-list-item:not(:first-child)' => 'margin-top: calc({{SIZE}}{{UNIT}}/2)',
+						'{{WRAPPER}} .elementor-icon-list-items.elementor-inline-items .elementor-icon-list-item' => 'margin-right: calc({{SIZE}}{{UNIT}}/2); margin-left: calc({{SIZE}}{{UNIT}}/2)',
+						'{{WRAPPER}} .elementor-icon-list-items.elementor-inline-items' => 'margin-right: calc(-{{SIZE}}{{UNIT}}/2); margin-left: calc(-{{SIZE}}{{UNIT}}/2)',
+						'body.rtl {{WRAPPER}} .elementor-icon-list-items.elementor-inline-items .elementor-icon-list-item:after' => 'left: calc(-{{SIZE}}{{UNIT}}/2)',
+						'body:not(.rtl) {{WRAPPER}} .elementor-icon-list-items.elementor-inline-items .elementor-icon-list-item:after' => 'right: calc(-{{SIZE}}{{UNIT}}/2)',
+					],
+				]
+			);
+
+			$this->add_responsive_control(
+				'content_align',
+				[
+					'label' => __( 'Alignment', 'header-footer-elementor' ),
+					'type' => Controls_Manager::CHOOSE,
+					'options' => [
+						'left' => [
+							'title' => __( 'Start', 'header-footer-elementor' ),
+							'icon' => 'eicon-h-align-left',
+						],
+						'center' => [
+							'title' => __( 'Center', 'header-footer-elementor' ),
+							'icon' => 'eicon-h-align-center',
+						],
+						'right' => [
+							'title' => __( 'End', 'header-footer-elementor' ),
+							'icon' => 'eicon-h-align-right',
+						],
+					],
+					'prefix_class' => 'elementor%s-align-',
+				]
+			);
+
+		$this->end_controls_section();
+	}
+
+	/**
+	 * Register Post Info icon Style Controls.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function register_list_icon_style_controls() {
+		$this->start_controls_section(
+			'section_icon',
+			[
+				'label' => __( 'Icon', 'header-footer-elementor' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+			$this->add_control(
+				'icon_color',
+				[
+					'label' => __( 'Color', 'header-footer-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '',
+					'selectors' => [
+						'{{WRAPPER}} .elementor-icon-list-icon i' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .elementor-icon-list-icon svg' => 'fill: {{VALUE}};',
+					],
+					'scheme' => [
+						'type' => Scheme_Color::get_type(),
+						'value' => Scheme_Color::COLOR_1,
+					],
+				]
+			);
+
+			$this->add_responsive_control(
+				'icon_size',
+				[
+					'label' => __( 'Size', 'header-footer-elementor' ),
+					'type' => Controls_Manager::SLIDER,
+					'default' => [
+						'size' => 14,
+					],
+					'range' => [
+						'px' => [
+							'min' => 6,
+						],
+					],
+					'selectors' => [
+						'{{WRAPPER}} .elementor-icon-list-icon' => 'width: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .elementor-icon-list-icon i' => 'font-size: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .elementor-icon-list-icon svg' => 'width: {{SIZE}}{{UNIT}};',
+					],
+				]
+			);
+
+			$this->add_control(
+				'icon_spacing',
+				[
+					'label' => __( 'Spacing', 'header-footer-elementor' ),
+					'type' => Controls_Manager::SLIDER,
+					'range' => [
+						'px' => [
+							'max' => 50,
+						],
+					],
+					'selectors' => [
+						'body:not(.rtl) {{WRAPPER}} .elementor-icon-list-text' => 'padding-left: {{SIZE}}{{UNIT}}',
+						'body.rtl {{WRAPPER}} .elementor-icon-list-text' => 'padding-right: {{SIZE}}{{UNIT}}',
+					],
+				]
+			);
+
+		$this->end_controls_section();
+	}
+
+	/**
+	 * Register Post Info text Style Controls.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function register_list_text_style_controls() {
+
+		$this->start_controls_section(
+			'section_style_text',
+			[
+				'label' => __( 'Text', 'header-footer-elementor' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+			$this->add_control(
+				'text_color',
+				[
+					'label' => __( 'Text Color', 'header-footer-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '',
+					'selectors' => [
+						'{{WRAPPER}} .elementor-icon-list-text, {{WRAPPER}} .elementor-icon-list-text a' => 'color: {{VALUE}}',
+					],
+					'scheme' => [
+						'type' => Scheme_Color::get_type(),
+						'value' => Scheme_Color::COLOR_2,
+					],
+				]
+			);
+
+			$this->add_group_control(
+				Group_Control_Typography::get_type(),
+				[
+					'name' => 'icon_typography',
+					'selector' => '{{WRAPPER}} .elementor-icon-list-item',
+					'scheme' => Scheme_Typography::TYPOGRAPHY_3,
+				]
+			);
 
 		$this->end_controls_section();
 	}
@@ -649,10 +812,10 @@ class Post_Info extends Widget_Base {
 			case 'comments':
 				if ( comments_open() ) {
 					$default_strings = [
-						'string_no_comments' => __( 'No Comments', 'elementor-pro' ),
-						'string_one_comment' => __( 'One Comment', 'elementor-pro' ),
+						'string_no_comments' => __( 'No Comments', 'header-footer-elementor' ),
+						'string_one_comment' => __( 'One Comment', 'header-footer-elementor' ),
 						/* translators: %s admin link */
-						'string_comments'    => __( '%s Comments', 'elementor-pro' ),
+						'string_comments'    => __( '%s Comments', 'header-footer-elementor' ),
 					];
 
 					if ( 'yes' === $repeater_item['comments_custom_strings'] ) {
@@ -674,7 +837,7 @@ class Post_Info extends Widget_Base {
 					if ( 0 === $num_comments ) {
 						$item_data['text'] = $default_strings['string_no_comments'];
 					} else {
-						$item_data['text'] = sprintf( _n( $default_strings['string_one_comment'], $default_strings['string_comments'], $num_comments, 'elementor-pro' ), $num_comments );
+						$item_data['text'] = sprintf( _n( $default_strings['string_one_comment'], $default_strings['string_comments'], $num_comments, 'header-footer-elementor' ), $num_comments );
 					}
 
 					if ( 'yes' === $repeater_item['link'] ) {
