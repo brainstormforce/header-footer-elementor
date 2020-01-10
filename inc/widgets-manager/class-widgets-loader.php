@@ -72,9 +72,13 @@ class Widgets_Loader {
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-retina.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-copyright.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-copyright-shortcode.php';
+		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-post-nav.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-post-title.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-site-title.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-post-info.php';
+
+		// Emqueue the widgets style.
+		wp_enqueue_style( 'hfe-widgets-style', HFE_URL . 'inc/widgets-css/frontend.css', [], HFE_VER );
 	}
 
 	/**
@@ -127,6 +131,7 @@ class Widgets_Loader {
 		// Register Widgets.
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Retina() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Copyright() );
+		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Post_Nav() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Post_Title() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Title() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Post_Info() );
