@@ -155,10 +155,10 @@ class Post_Info extends Widget_Base {
 					'default'     => 'default',
 					'options'     => [
 						'default' => 'Default',
-						'0'       => _x( 'January 2, 2020 (F j, Y)', 'Date Format', 'header-footer-elementor' ),
-						'1'       => '2020-01-02 (Y-m-d)',
-						'2'       => '01/02/2020 (m/d/Y)',
-						'3'       => '02/01/2020 (d/m/Y)',
+						'0'       => _x( 'January 26, 2020 (F j, Y)', 'Date Format', 'header-footer-elementor' ),
+						'1'       => '2020-01-26 (Y-m-d)',
+						'2'       => '01/26/2020 (m/d/Y)',
+						'3'       => '26/01/2020 (d/m/Y)',
 						'custom'  => __( 'Custom', 'header-footer-elementor' ),
 					],
 					'condition'   => [
@@ -280,7 +280,7 @@ class Post_Info extends Widget_Base {
 					'label'     => __( 'Size', 'header-footer-elementor' ),
 					'type'      => Controls_Manager::SLIDER,
 					'selectors' => [
-						'{{WRAPPER}} {{CURRENT_ITEM}} .elementor-icon-list-icon' => 'width: {{SIZE}}{{UNIT}}',
+						'{{WRAPPER}} {{CURRENT_ITEM}} .hfe-post-info-list-icon' => 'width: {{SIZE}}{{UNIT}}',
 					],
 					'condition' => [
 						'show_avatar' => 'yes',
@@ -482,12 +482,12 @@ class Post_Info extends Widget_Base {
 						],
 					],
 					'selectors' => [
-						'{{WRAPPER}} .elementor-icon-list-items:not(.elementor-inline-items) .elementor-icon-list-item:not(:last-child)' => 'padding-bottom: calc({{SIZE}}{{UNIT}}/2)',
-						'{{WRAPPER}} .elementor-icon-list-items:not(.elementor-inline-items) .elementor-icon-list-item:not(:first-child)' => 'margin-top: calc({{SIZE}}{{UNIT}}/2)',
-						'{{WRAPPER}} .elementor-icon-list-items.elementor-inline-items .elementor-icon-list-item' => 'margin-right: calc({{SIZE}}{{UNIT}}/2); margin-left: calc({{SIZE}}{{UNIT}}/2)',
-						'{{WRAPPER}} .elementor-icon-list-items.elementor-inline-items' => 'margin-right: calc(-{{SIZE}}{{UNIT}}/2); margin-left: calc(-{{SIZE}}{{UNIT}}/2)',
-						'body.rtl {{WRAPPER}} .elementor-icon-list-items.elementor-inline-items .elementor-icon-list-item:after' => 'left: calc(-{{SIZE}}{{UNIT}}/2)',
-						'body:not(.rtl) {{WRAPPER}} .elementor-icon-list-items.elementor-inline-items .elementor-icon-list-item:after' => 'right: calc(-{{SIZE}}{{UNIT}}/2)',
+						'{{WRAPPER}} .hfe-post-info-list:not(.elementor-inline-items) .hfe-post-info-list-item:not(:last-child)' => 'padding-bottom: calc({{SIZE}}{{UNIT}}/2)',
+						'{{WRAPPER}} .hfe-post-info-list:not(.elementor-inline-items) .hfe-post-info-list-item:not(:first-child)' => 'margin-top: calc({{SIZE}}{{UNIT}}/2)',
+						'{{WRAPPER}} .hfe-post-info-list.elementor-inline-items .hfe-post-info-list-item' => 'margin-right: calc({{SIZE}}{{UNIT}}/2); margin-left: calc({{SIZE}}{{UNIT}}/2)',
+						'{{WRAPPER}} .hfe-post-info-list.elementor-inline-items' => 'margin-right: calc(-{{SIZE}}{{UNIT}}/2); margin-left: calc(-{{SIZE}}{{UNIT}}/2)',
+						'body.rtl {{WRAPPER}} .hfe-post-info-list.elementor-inline-items .hfe-post-info-list-item:after' => 'left: calc(-{{SIZE}}{{UNIT}}/2)',
+						'body:not(.rtl) {{WRAPPER}} .hfe-post-info-list.elementor-inline-items .hfe-post-info-list-item:after' => 'right: calc(-{{SIZE}}{{UNIT}}/2)',
 					],
 				]
 			);
@@ -540,8 +540,8 @@ class Post_Info extends Widget_Base {
 					'type'      => Controls_Manager::COLOR,
 					'default'   => '',
 					'selectors' => [
-						'{{WRAPPER}} .elementor-icon-list-icon i' => 'color: {{VALUE}};',
-						'{{WRAPPER}} .elementor-icon-list-icon svg' => 'fill: {{VALUE}};',
+						'{{WRAPPER}} .hfe-post-info-list-icon i' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .hfe-post-info-list-icon svg' => 'fill: {{VALUE}};',
 					],
 					'scheme'    => [
 						'type'  => Scheme_Color::get_type(),
@@ -564,9 +564,9 @@ class Post_Info extends Widget_Base {
 						],
 					],
 					'selectors' => [
-						'{{WRAPPER}} .elementor-icon-list-icon' => 'width: {{SIZE}}{{UNIT}};',
-						'{{WRAPPER}} .elementor-icon-list-icon i' => 'font-size: {{SIZE}}{{UNIT}};',
-						'{{WRAPPER}} .elementor-icon-list-icon svg' => 'width: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .hfe-post-info-list-icon' => 'width: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .hfe-post-info-list-icon i' => 'font-size: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .hfe-post-info-list-icon svg' => 'width: {{SIZE}}{{UNIT}};',
 					],
 				]
 			);
@@ -627,7 +627,7 @@ class Post_Info extends Widget_Base {
 				Group_Control_Typography::get_type(),
 				[
 					'name'     => 'text_typography',
-					'selector' => '{{WRAPPER}} .elementor-icon-list-item',
+					'selector' => '{{WRAPPER}} .hfe-post-info-list-item',
 					'scheme'   => Scheme_Typography::TYPOGRAPHY_3,
 				]
 			);
@@ -693,11 +693,11 @@ class Post_Info extends Widget_Base {
 		}
 
 		?>
-
-		<ul class="elementor-icon-list-items elementor-post-info <?php echo $layout; ?>">
-			<?php echo $meta_html; ?>
-		</ul>
-
+		<div class="hfe-post-info-widget">
+			<ul class="hfe-post-info-list elementor-icon-list-items <?php echo $layout; ?>">
+				<?php echo $meta_html; ?>
+			</ul>
+		</div>
 		<?php
 	}
 
@@ -718,15 +718,16 @@ class Post_Info extends Widget_Base {
 		}
 
 		$enable_link = false;
-		$link_key = 'link_' . $current_index;
 		$item_key = 'item_' . $current_index;
+		$link_key = 'link_' . $current_index;
 
 		$this->add_render_attribute(
 			$item_key,
 			'class',
 			[
+				'hfe-post-info-item-' . $current_item['_id'],
+				'hfe-post-info-list-item',
 				'elementor-icon-list-item',
-				'elementor-repeater-item-' . $current_item['_id'],
 			]
 		);
 
@@ -975,7 +976,7 @@ class Post_Info extends Widget_Base {
 
 		if ( ! empty( $item_data['image'] ) || $show_icon ) {
 			?>
-			<span class="elementor-icon-list-icon">
+			<span class="hfe-post-info-list-icon elementor-icon-list-icon">
 				<?php
 				if ( ! empty( $item_data['image'] ) ) :
 					$image_data = 'image_' . $current_index;
@@ -1002,26 +1003,17 @@ class Post_Info extends Widget_Base {
 	 * @param string $current_index current meta item index.
 	 */
 	protected function render_item_text( $item_data, $current_index ) {
-
-		$repeater_setting_key = $this->get_repeater_setting_key( 'text', 'meta_list', $current_index );
-
-		$this->add_render_attribute( $repeater_setting_key, 'class', [ 'elementor-icon-list-text', 'elementor-post-info__item', 'elementor-post-info__item--type-' . $item_data['meta_type'] ] );
-
-		if ( ! empty( $item['meta_list'] ) ) {
-			$this->add_render_attribute( $repeater_setting_key, 'class', 'elementor-terms-list' );
-		}
-
 		?>
-		<span <?php echo $this->get_render_attribute_string( $repeater_setting_key ); ?>>
+		<span class="hfe-post-info-item-text elementor-icon-list-text">
 			<?php if ( ! empty( $item_data['text_prefix'] ) ) : ?>
 				<span class="elementor-post-info__item-prefix"><?php echo esc_html( $item_data['text_prefix'] ); ?></span>
 			<?php endif; ?>
 			<?php
 			if ( ! empty( $item_data['meta_list'] ) ) :
 				$meta_list = [];
-				$item_class = 'elementor-post-info__terms-list-item';
+				$item_class = 'hfe-post-info-meta-item';
 				?>
-				<span class="elementor-post-info__terms-list">
+				<span class="hfe-post-info-terms-list">
 					<?php
 					foreach ( $item_data['meta_list'] as $term ) :
 						if ( ! empty( $term['url'] ) ) :
