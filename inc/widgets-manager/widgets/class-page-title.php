@@ -27,6 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Page_Title extends Widget_Base {
 
+
 	/**
 	 * Retrieve the widget name.
 	 *
@@ -285,14 +286,14 @@ class Page_Title extends Widget_Base {
 		$this->end_controls_section();
 	}
 
-	 /**
-	  * Render heading widget output on the frontend.
-	  *
-	  * Written in PHP and used to generate the final HTML.
-	  *
-	  * @since 1.0.0
-	  * @access protected
-	  */
+	/**
+	 * Render heading widget output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @since 1.0.0
+	 * @access protected
+	 */
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 
