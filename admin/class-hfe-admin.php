@@ -39,7 +39,7 @@ class HFE_Admin {
 	}
 
 	/**
-		 * Defines all constants
+		 * Load the icons style in editor.
 		 *
 		 * @since x.x.x
 		 */
@@ -56,7 +56,7 @@ class HFE_Admin {
 	 */
 	public static function hfe_admin_enqueue_scripts( $hook ) {
 
-		// Register styles.
+		// Register the icons styles.
 		wp_register_style(
 			'hfe-style',
 			HFE_URL . 'assets/css/style.css',
