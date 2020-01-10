@@ -240,6 +240,18 @@ class Post_Info extends Widget_Base {
 			);
 
 			$repeater->add_control(
+				'max_terms',
+				array(
+					'label'     => __( 'Maximum Terms', 'uael' ),
+					'type'      => Controls_Manager::NUMBER,
+					'min'       => 1,
+					'condition' => array(
+						'meta_type' => 'terms',
+					),
+				)
+			);
+
+			$repeater->add_control(
 				'text_prefix',
 				[
 					'label'       => __( 'Before', 'header-footer-elementor' ),
@@ -776,6 +788,12 @@ class Post_Info extends Widget_Base {
 				$taxonomy = $current_item['taxonomy'];
 
 				$terms = wp_get_post_terms( get_the_ID(), $taxonomy );
+
+				$max_terms = $current_item['max_terms'];
+
+				if ( '' !== $max_terms ) {
+					$terms = array_slice( $terms, 0, $max_terms );
+				}
 
 				foreach ( $terms as $term ) {
 
