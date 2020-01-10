@@ -175,13 +175,7 @@ class Product_Price extends Widget_Base {
 	 * @access protected
 	 */
 	protected function render() {
-
-		$settings = $this->get_settings_for_display();
-
-		$title = wp_kses_post( get_the_title() );
-
 		?>
-
 		<div class="hfe-product-price">
 			<?php
 				global $product;
