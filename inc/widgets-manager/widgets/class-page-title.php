@@ -28,6 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Page_Title extends Widget_Base {
 
 
+
 	/**
 	 * Retrieve the widget name.
 	 *
@@ -93,8 +94,7 @@ class Page_Title extends Widget_Base {
 	 */
 	protected function _register_controls() {
 		$this->register_content_page_title_controls();
-		// $this->register_site_logo_styling_controls();
-		// $this->register_site_logo_caption_styling_controls();
+		$this->register_page_title_style_controls();
 	}
 
 	/**
@@ -105,36 +105,79 @@ class Page_Title extends Widget_Base {
 	 */
 	protected function register_content_page_title_controls() {
 		$this->start_controls_section(
-			'section_title',
+			'section_general_fields',
 			[
 				'label' => __( 'Title', 'header-footer-elementor' ),
 			]
 		);
 
 		$this->add_control(
-			'title',
+			'before',
 			[
-				'label'   => __( 'Title', 'header-footer-elementor' ),
-				'type'    => Controls_Manager::TEXTAREA,
+				'label'   => __( 'Before Title text', 'header-footer-elementor' ),
+				'type'    => Controls_Manager::TEXT,
 				'dynamic' => [
 					'active' => true,
 				],
-				'default' => get_the_title(),
+			]
+		);
+
+		$this->add_control(
+			'after',
+			[
+				'label'   => __( 'After Title Text', 'header-footer-elementor' ),
+				'type'    => Controls_Manager::TEXT,
+				'dynamic' => [
+					'active' => true,
+				],
 			]
 		);
 
 		$this->add_control(
 			'link',
 			[
-				'label'     => __( 'Link', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::URL,
-				'dynamic'   => [
+				'label'   => __( 'Link', 'header-footer-elementor' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'default',
+				'options' => [
+					'default' => __( 'Default', 'header-footer-elementor' ),
+					'custom'  => __( 'Custom Link', 'header-footer-elementor' ),
+				],
+			]
+		);
+
+		$this->add_control(
+			'custom_link',
+			[
+				'label'       => __( 'Enter URL', 'header-footer-elementor' ),
+				'type'        => Controls_Manager::URL,
+				'placeholder' => __( 'https://your-link.com', 'header-footer-elementor' ),
+				'dynamic'     => [
 					'active' => true,
 				],
-				'default'   => [
+				'default'     => [
 					'url' => '',
 				],
-				'separator' => 'before',
+				'condition'   => [
+					'link' => 'custom',
+				],
+			]
+		);
+
+		$this->add_control(
+			'heading_tag',
+			[
+				'label'   => __( 'HTML Tag', 'header-footer-elementor' ),
+				'type'    => Controls_Manager::SELECT,
+				'options' => [
+					'h1' => __( 'H1', 'header-footer-elementor' ),
+					'h2' => __( 'H2', 'header-footer-elementor' ),
+					'h3' => __( 'H3', 'header-footer-elementor' ),
+					'h4' => __( 'H4', 'header-footer-elementor' ),
+					'h5' => __( 'H5', 'header-footer-elementor' ),
+					'h6' => __( 'H6', 'header-footer-elementor' ),
+				],
+				'default' => 'h2',
 			]
 		);
 
@@ -152,26 +195,6 @@ class Page_Title extends Widget_Base {
 					'xl'      => __( 'XL', 'header-footer-elementor' ),
 					'xxl'     => __( 'XXL', 'header-footer-elementor' ),
 				],
-			]
-		);
-
-		$this->add_control(
-			'header_size',
-			[
-				'label'   => __( 'HTML Tag', 'header-footer-elementor' ),
-				'type'    => Controls_Manager::SELECT,
-				'options' => [
-					'h1'   => 'H1',
-					'h2'   => 'H2',
-					'h3'   => 'H3',
-					'h4'   => 'H4',
-					'h5'   => 'H5',
-					'h6'   => 'H6',
-					'div'  => 'div',
-					'span' => 'span',
-					'p'    => 'p',
-				],
-				'default' => 'h2',
 			]
 		);
 
@@ -200,88 +223,85 @@ class Page_Title extends Widget_Base {
 				],
 				'default'   => '',
 				'selectors' => [
-					'{{WRAPPER}}' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .hfe-page-title-wrapper' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
 
-		$this->add_control(
-			'view',
-			[
-				'label'   => __( 'View', 'header-footer-elementor' ),
-				'type'    => Controls_Manager::HIDDEN,
-				'default' => 'traditional',
-			]
-		);
-
 		$this->end_controls_section();
-
+	}
+	/**
+	 * Register Page Title Style Controls.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function register_page_title_style_controls() {
 		$this->start_controls_section(
-			'section_title_style',
+			'section_title_typography',
 			[
 				'label' => __( 'Title', 'header-footer-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
 
-		$this->add_control(
-			'title_color',
-			[
-				'label'     => __( 'Text Color', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::COLOR,
-				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				],
-				'selectors' => [
-					'{{WRAPPER}}.elementor-widget-heading .elementor-heading-title' => 'color: {{VALUE}};',
-				],
-			]
-		);
+			$this->add_group_control(
+				Group_Control_Typography::get_type(),
+				[
+					'name'     => 'title_typography',
+					'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
+					'selector' => '{{WRAPPER}} .elementor-heading-title, {{WRAPPER}} .hfe-page-title a',
+				]
+			);
 
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'name'     => 'typography',
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .elementor-heading-title',
-			]
-		);
+			$this->add_control(
+				'title_color',
+				[
+					'label'     => __( 'Color', 'header-footer-elementor' ),
+					'type'      => Controls_Manager::COLOR,
+					'scheme'    => [
+						'type'  => Scheme_Color::get_type(),
+						'value' => Scheme_Color::COLOR_1,
+					],
+					'selectors' => [
+						'{{WRAPPER}} .elementor-heading-title, {{WRAPPER}} .hfe-page-title a' => 'color: {{VALUE}};',
+					],
+				]
+			);
 
-		$this->add_group_control(
-			Group_Control_Text_Shadow::get_type(),
-			[
-				'name'     => 'text_shadow',
-				'selector' => '{{WRAPPER}} .elementor-heading-title',
-			]
-		);
+			$this->add_group_control(
+				Group_Control_Text_Shadow::get_type(),
+				[
+					'name'     => 'title_shadow',
+					'selector' => '{{WRAPPER}} .elementor-heading-title',
+				]
+			);
 
-		$this->add_control(
-			'blend_mode',
-			[
-				'label'     => __( 'Blend Mode', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::SELECT,
-				'options'   => [
-					''            => __( 'Normal', 'header-footer-elementor' ),
-					'multiply'    => 'Multiply',
-					'screen'      => 'Screen',
-					'overlay'     => 'Overlay',
-					'darken'      => 'Darken',
-					'lighten'     => 'Lighten',
-					'color-dodge' => 'Color Dodge',
-					'saturation'  => 'Saturation',
-					'color'       => 'Color',
-					'difference'  => 'Difference',
-					'exclusion'   => 'Exclusion',
-					'hue'         => 'Hue',
-					'luminosity'  => 'Luminosity',
-				],
-				'selectors' => [
-					'{{WRAPPER}} .elementor-heading-title' => 'mix-blend-mode: {{VALUE}}',
-				],
-				'separator' => 'none',
-			]
-		);
+			$this->add_control(
+				'blend_mode',
+				[
+					'label'     => __( 'Blend Mode', 'header-footer-elementor' ),
+					'type'      => Controls_Manager::SELECT,
+					'options'   => [
+						''            => __( 'Normal', 'header-footer-elementor' ),
+						'multiply'    => 'Multiply',
+						'screen'      => 'Screen',
+						'overlay'     => 'Overlay',
+						'darken'      => 'Darken',
+						'lighten'     => 'Lighten',
+						'color-dodge' => 'Color Dodge',
+						'saturation'  => 'Saturation',
+						'color'       => 'Color',
+						'difference'  => 'Difference',
+						'exclusion'   => 'Exclusion',
+						'hue'         => 'Hue',
+						'luminosity'  => 'Luminosity',
+					],
+					'selectors' => [
+						'{{WRAPPER}} .elementor-heading-title' => 'mix-blend-mode: {{VALUE}}',
+					],
+				]
+			);
 
 		$this->end_controls_section();
 	}
@@ -296,10 +316,7 @@ class Page_Title extends Widget_Base {
 	 */
 	protected function render() {
 		$settings = $this->get_settings_for_display();
-
-		if ( '' === $settings['title'] ) {
-			return;
-		}
+		$title    = '';
 
 		$this->add_render_attribute( 'title', 'class', 'elementor-heading-title' );
 
@@ -307,27 +324,41 @@ class Page_Title extends Widget_Base {
 			$this->add_render_attribute( 'title', 'class', 'elementor-size-' . $settings['size'] );
 		}
 
-		$this->add_inline_editing_attributes( 'title' );
+		if ( '' !== $settings['before'] ) {
+			$title .= $settings['before'] . ' ';
+		}
 
-		$title = $settings['title'];
+		$title .= wp_kses_post( get_the_title() );
 
-		if ( ! empty( $settings['link']['url'] ) ) {
-			$this->add_render_attribute( 'url', 'href', $settings['link']['url'] );
+		if ( '' !== $settings['after'] ) {
+			$title .= ' ' . $settings['after'];
+		}
 
-			if ( $settings['link']['is_external'] ) {
+		if ( 'custom' === $settings['link'] && ( ! empty( $settings['custom_link']['url'] ) ) ) {
+			$this->add_render_attribute( 'url', 'href', $settings['custom_link']['url'] );
+
+			if ( $settings['custom_link']['is_external'] ) {
 				$this->add_render_attribute( 'url', 'target', '_blank' );
 			}
 
-			if ( ! empty( $settings['link']['nofollow'] ) ) {
+			if ( ! empty( $settings['custom_link']['nofollow'] ) ) {
 				$this->add_render_attribute( 'url', 'rel', 'nofollow' );
 			}
 
 			$title = sprintf( '<a %1$s>%2$s</a>', $this->get_render_attribute_string( 'url' ), $title );
+		} elseif ( 'default' === $settings['link'] ) {
+			$this->add_render_attribute( 'url', 'href', get_the_permalink() );
+
+			$title = sprintf( '<a %1$s>%2$s</a>', $this->get_render_attribute_string( 'url' ), $title );
 		}
 
-		$title_html = sprintf( '<%1$s %2$s>%3$s</%1$s>', $settings['header_size'], $this->get_render_attribute_string( 'title' ), $title );
+		$title_html = sprintf( '<%1$s %2$s>%3$s</%1$s>', $settings['heading_tag'], $this->get_render_attribute_string( 'title' ), $title );
+		?>
 
-		echo $title_html;
+		<div class="hfe-page-title hfe-page-title-wrapper elementor-widget-heading">
+			<?php echo $title_html; ?>
+		</div>
+		<?php
 	}
 
 	/**
@@ -341,20 +372,28 @@ class Page_Title extends Widget_Base {
 	protected function _content_template() {
 		?>
 		<#
-		var title = settings.title;
-
-		if ( '' !== settings.link.url ) {
-			title = '<a href="' + settings.link.url + '">' + title + '</a>';
+		var enable_link = false; 
+		if ( ( 'custom' === settings.link && '' !== settings.custom_link.url ) || 'default' === settings.link ) {
+			enable_link = true;
 		}
-
-		view.addRenderAttribute( 'title', 'class', [ 'elementor-heading-title', 'elementor-size-' + settings.size ] );
-
-		view.addInlineEditingAttributes( 'title' );
-
-		var title_html = '<' + settings.header_size  + ' ' + view.getRenderAttributeString( 'title' ) + '>' + title + '</' + settings.header_size + '>';
-
-		print( title_html );
 		#>
+		<div class="hfe-page-title hfe-page-title-wrapper elementor-widget-heading">
+			<{{{ settings.heading_tag }}} class="elementor-heading-title elementor-size-{{{ settings.size }}}">
+				<# if ( enable_link ) { #>
+					<a>
+				<# } #>
+					<# if ( '' != settings.before ) { #>
+						{{{ settings.before }}}
+					<# } #>
+					<?php echo wp_kses_post( get_the_title() ); ?>
+					<# if ( '' != settings.after ) { #>
+						{{{ settings.after }}}
+					<# } #>
+				<# if ( enable_link ) { #>
+					</a>
+				<# } #>
+			</{{{ settings.heading_tag }}}>
+		</div>
 		<?php
 	}
 }
