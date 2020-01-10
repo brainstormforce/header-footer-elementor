@@ -870,8 +870,8 @@ class Post_Info extends Widget_Base {
 					'default' => 'F j, Y',
 					'0'       => 'F j, Y',
 					'1'       => 'Y-m-d',
-					'2'       => 'm/d/Y',
-					'3'       => 'd/m/Y',
+					'2'       => 'd/m/Y',
+					'3'       => 'm/d/Y',
 					'custom'  => $custom_date_format,
 				];
 
