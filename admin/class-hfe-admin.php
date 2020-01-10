@@ -39,13 +39,13 @@ class HFE_Admin {
 	}
 
 	/**
-		 * Load the icons style in editor.
-		 *
-		 * @since x.x.x
-		 */
-		public static function load_admin() {
-			add_action( 'elementor/editor/after_enqueue_styles', __CLASS__ . '::hfe_admin_enqueue_scripts' );
-		}
+	 * Load the icons style in editor.
+	 *
+	 * @since x.x.x
+	 */
+	public static function load_admin() {
+		add_action( 'elementor/editor/after_enqueue_styles', __CLASS__ . '::hfe_admin_enqueue_scripts' );
+	}
 
 	/**
 	 * Enqueue admin scripts
@@ -60,11 +60,11 @@ class HFE_Admin {
 		wp_register_style(
 			'hfe-style',
 			HFE_URL . 'assets/css/style.css',
-			array(),
+			[],
 			HFE_VER
 		);
 
-		wp_enqueue_style( 'hfe-style' );		
+		wp_enqueue_style( 'hfe-style' );
 	}
 
 	/**
