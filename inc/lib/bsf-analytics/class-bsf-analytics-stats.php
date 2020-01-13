@@ -51,7 +51,6 @@ class BSF_Analytics_Stats {
 			'timezone'               => wp_timezone_string(),
 			'is_ssl'                 => is_ssl(),
 			'is_multisite'           => is_multisite(),
-			'admin_email'            => get_option( 'admin_email' ),
 			'external_object_cache'  => (bool) wp_using_ext_object_cache(),
 			'wp_debug'               => WP_DEBUG,
 			'wp_debug_display'       => WP_DEBUG_DISPLAY,
@@ -110,13 +109,19 @@ class BSF_Analytics_Stats {
 	}
 
 	private function get_curl_ssl_version() {
-		$curl = curl_version();
+		$curl = array();
+		if( function_exists( 'curl_version' ) ) {
+			$curl = curl_version();
+		}
 
 		return isset( $curl['ssl_version'] ) ? $curl['ssl_version'] : false;
 	}
 
 	private function get_curl_version() {
-		$curl = curl_version();
+		$curl = array();
+		if( function_exists( 'curl_version' ) ) {
+			$curl = curl_version();
+		}
 
 		return isset( $curl['version'] ) ? $curl['version'] : false;
 	}
