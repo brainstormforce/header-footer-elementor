@@ -219,7 +219,7 @@ class Short_Description extends Widget_Base {
 		$this->add_render_attribute( 'short_desp_child', 'class', 'hfe-short-desp-child' );
 		?>
 		<div <?php echo $this->get_render_attribute_string( 'hfe_short_desp_parent' ); ?>>
-			<<?php echo $settings['heading_tag'];?> <?php echo $this->get_render_attribute_string( 'short_desp_child' ); ?>><?php echo $this->render_short_description(); ?>
+			<<?php echo $settings['heading_tag']; ?> <?php echo $this->get_render_attribute_string( 'short_desp_child' ); ?>><?php echo $this->render_short_description(); ?>
 		</div>
 		<?php
 	}
