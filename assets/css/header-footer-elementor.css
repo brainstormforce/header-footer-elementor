@@ -31,3 +31,18 @@
 	z-index: 200;
     position: relative;
 }
+.elementor-widget-short-description .hfe-short-desp-parent.elementor-size-small .hfe-short-desp-child {
+    font-size: 15px;
+}
+.elementor-widget-short-description .hfe-short-desp-parent.elementor-size-medium .hfe-short-desp-child {
+    font-size: 19px
+}
+.elementor-widget-short-description .hfe-short-desp-parent.elementor-size-large .hfe-short-desp-child {
+    font-size: 29px
+}
+.elementor-widget-short-description .hfe-short-desp-parent.elementor-size-xl .hfe-short-desp-child {
+    font-size: 39px
+}
+.elementor-widget-short-description .hfe-short-desp-parent.elementor-size-xxl .hfe-short-desp-child {
+    font-size: 59px;
+}
