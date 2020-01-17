@@ -228,7 +228,7 @@ class Short_Description extends Widget_Base {
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
-	 * @since 1.2.0
+	 * @since x.x.x
 	 * @access protected
 	 */
 	protected function _content_template() {}
