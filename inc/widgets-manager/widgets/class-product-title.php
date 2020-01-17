@@ -339,7 +339,7 @@ class Product_Title extends Widget_Base {
 		}
 		$product_title_html = sprintf( '<%1$s %2$s>%3$s</%1$s>', $settings['heading_tag'], $this->get_render_attribute_string( 'title' ), $product_title );
 		?>
-		<div class="hfe-product-title hfe-product-title-wrapper elementor-widget-heading"><?php echo $product_title_html;?></div>
+		<div class="hfe-product-title hfe-product-title-wrapper elementor-widget-heading"><?php echo $product_title_html; ?></div>
 		<?php
 	}
 	/**
