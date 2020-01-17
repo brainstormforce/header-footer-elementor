@@ -76,7 +76,7 @@ class Widgets_Loader {
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-post-title.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-site-title.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-post-content.php';
-
+		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-product-content.php';
 		// Emqueue the widgets style.
 		wp_enqueue_style( 'hfe-widgets-style', HFE_URL . 'inc/widgets-css/frontend.css', [], HFE_VER );
 	}
@@ -135,6 +135,7 @@ class Widgets_Loader {
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Post_Title() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Title() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Post_Content() );
+		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Product_Content() );
 	}
 
 }
