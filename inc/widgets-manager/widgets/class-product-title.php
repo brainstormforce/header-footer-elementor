@@ -292,6 +292,7 @@ class Product_Title extends Widget_Base {
 	 */
 	public function render_product_title() {
 		global $product;
+		$product_title = '';
 		if ( is_product() ) {
 			$get_id        = get_the_ID();
 			$product       = wc_get_product( $get_id );
