@@ -192,6 +192,7 @@ class Short_Description extends Widget_Base {
 	 */
 	public function render_short_description() {
 		global $product;
+		$short_description = '';
 		if ( is_product() ) {
 			$product           = wc_get_product( get_the_ID() );
 			$short_description = $product->get_short_description();
