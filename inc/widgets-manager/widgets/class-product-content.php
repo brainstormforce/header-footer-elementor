@@ -160,6 +160,7 @@ class Product_Content extends Widget_Base {
 	 */
 	public function render_product_content() {
 		global $product;
+		$product_content = '';
 		if ( is_product() ) {
 			$product         = wc_get_product( get_the_ID() );
 			$product_content = $product->get_description();
