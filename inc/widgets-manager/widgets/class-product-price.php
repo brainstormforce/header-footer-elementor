@@ -166,9 +166,9 @@ class Product_Price extends Widget_Base {
 			$this->add_control(
 				'sale_separator',
 				[
-					'label' => __( 'Sale Price', 'header-footer-elementor' ),
-					'type' => Controls_Manager::HEADING,
-					'separator' => 'before'
+					'label'     => __( 'Sale Price', 'header-footer-elementor' ),
+					'type'      => Controls_Manager::HEADING,
+					'separator' => 'before',
 				]
 			);
 
@@ -217,11 +217,11 @@ class Product_Price extends Widget_Base {
 			$this->add_control(
 				'inline_items',
 				[
-					'label'     => __( 'Stacked', 'header-footer-elementor' ),
-					'type'      => Controls_Manager::SWITCHER,
-					'label_on'  => __( 'Yes', 'header-footer-elementor' ),
-					'label_off' => __( 'No', 'header-footer-elementor' ),
-					'default'   => 'yes',
+					'label'        => __( 'Stacked', 'header-footer-elementor' ),
+					'type'         => Controls_Manager::SWITCHER,
+					'label_on'     => __( 'Yes', 'header-footer-elementor' ),
+					'label_off'    => __( 'No', 'header-footer-elementor' ),
+					'default'      => 'yes',
 					'prefix_class' => 'hfe-product-price-',
 				]
 			);
