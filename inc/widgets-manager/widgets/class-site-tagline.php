@@ -6,6 +6,7 @@
  */
 
 namespace HFE\WidgetsManager\Widgets;
+
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
 use Elementor\Scheme_Typography;
@@ -49,7 +50,7 @@ class Site_Tagline extends Widget_Base {
 	 *
 	 * @return string Widget tagline.
 	 */
-	public function get_tagline() {
+	public function get_title() {
 		return __( 'Site Tagline', 'header-footer-elementor' );
 	}
 

@@ -44,7 +44,7 @@ class Post_Nav extends Widget_Base {
 	 * @return string Widget name.
 	 */
 	public function get_name() {
-		return 'post-nav';
+		return 'hfe-post-nav';
 	}
 
 	/**
