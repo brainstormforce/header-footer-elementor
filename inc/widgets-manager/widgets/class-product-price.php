@@ -109,6 +109,30 @@ class Product_Price extends Widget_Base {
 			]
 		);
 
+			$this->add_control(
+				'title_color',
+				[
+					'label'     => __( 'Color', 'header-footer-elementor' ),
+					'type'      => Controls_Manager::COLOR,
+					'scheme'    => [
+						'type'  => Scheme_Color::get_type(),
+						'value' => Scheme_Color::COLOR_2,
+					],
+					'selectors' => [
+						'{{WRAPPER}} .hfe-product-price, {{WRAPPER}} .hfe-product-price .price' => 'color: {{VALUE}};',
+					],
+				]
+			);
+
+			$this->add_group_control(
+				Group_Control_Typography::get_type(),
+				[
+					'name'     => 'title_typography',
+					'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
+					'selector' => '{{WRAPPER}} .hfe-product-price, {{WRAPPER}} .hfe-product-price .price',
+				]
+			);
+
 			$this->add_responsive_control(
 				'align',
 				[
@@ -139,27 +163,66 @@ class Product_Price extends Widget_Base {
 				]
 			);
 
-			$this->add_group_control(
-				Group_Control_Typography::get_type(),
+			$this->add_control(
+				'sale_separator',
 				[
-					'name'     => 'title_typography',
-					'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
-					'selector' => '{{WRAPPER}} .hfe-product-price, {{WRAPPER}} .hfe-product-price .price',
+					'label' => __( 'Sale Price', 'header-footer-elementor' ),
+					'type' => Controls_Manager::HEADING,
+					'separator' => 'before'
 				]
 			);
 
 			$this->add_control(
-				'title_color',
+				'sale_title_color',
 				[
 					'label'     => __( 'Color', 'header-footer-elementor' ),
 					'type'      => Controls_Manager::COLOR,
 					'scheme'    => [
 						'type'  => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_1,
+						'value' => Scheme_Color::COLOR_2,
 					],
 					'selectors' => [
-						'{{WRAPPER}} .hfe-product-price, {{WRAPPER}} .hfe-product-price .price' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .hfe-product-price .price ins' => 'color: {{VALUE}};',
 					],
+				]
+			);
+
+			$this->add_group_control(
+				Group_Control_Typography::get_type(),
+				[
+					'name'     => 'sale_title_typography',
+					'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
+					'selector' => '{{WRAPPER}} .hfe-product-price .price ins',
+				]
+			);
+
+			$this->add_responsive_control(
+				'sale_price_spacing',
+				[
+					'label'     => __( 'Spacing', 'header-footer-elementor' ),
+					'type'      => Controls_Manager::SLIDER,
+					'range'     => [
+						'px' => [
+							'min' => 0,
+							'max' => 50,
+						],
+					],
+					'selectors' => [
+						'{{WRAPPER}} .hfe-product-price .price ins' => 'margin-left: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}}.hfe-product-price-yes .price ins' => 'margin-top: {{SIZE}}{{UNIT}}; margin-left: 0{{UNIT}};',
+					],
+				]
+			);
+
+			$this->add_control(
+				'inline_items',
+				[
+					'label'     => __( 'Stacked', 'header-footer-elementor' ),
+					'type'      => Controls_Manager::SWITCHER,
+					'label_on'  => __( 'Yes', 'header-footer-elementor' ),
+					'label_off' => __( 'No', 'header-footer-elementor' ),
+					'default'   => 'yes',
+					'prefix_class' => 'hfe-product-price-',
 				]
 			);
 

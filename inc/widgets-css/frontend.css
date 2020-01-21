@@ -44,3 +44,9 @@
 .hfe-post-navigation .hfe-post-nav-next a {
     float: right;
 }
+
+/* Product Price widget */
+.woocommerce div.product.elementor .hfe-product-price-yes .hfe-product-price .price ins,
+.woocommerce div.product.elementor .hfe-product-price-yes .hfe-product-price .price del {
+    display: block;
+}
