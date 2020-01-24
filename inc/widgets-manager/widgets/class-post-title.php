@@ -85,7 +85,7 @@ class Post_Title extends Widget_Base {
 	}
 
 	/**
-	 * Register site title controls controls.
+	 * Register post title controls.
 	 *
 	 * @since x.x.x
 	 * @access protected
