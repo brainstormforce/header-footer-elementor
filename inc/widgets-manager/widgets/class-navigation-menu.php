@@ -274,31 +274,38 @@ class Navigation_Menu extends Widget_Base {
 
 			$this->add_responsive_control(
 				'hamburger_align',
-				[
-					'label'     => __( 'Hamburger Align', 'header-footer-elementor' ),
-					'type'      => Controls_Manager::CHOOSE,
-					'options'   => [
-						'flex-start' => [
-							'title' => __( 'Left', 'header-footer-elementor' ),
+				array(
+					'label'                => __( 'Hamburger Align', 'uael' ),
+					'type'                 => Controls_Manager::CHOOSE,
+					'default'              => 'center',
+					'options'              => array(
+						'left'   => array(
+							'title' => __( 'Left', 'uael' ),
 							'icon'  => 'eicon-h-align-left',
-						],
-						'center'     => [
-							'title' => __( 'Center', 'header-footer-elementor' ),
+						),
+						'center' => array(
+							'title' => __( 'Center', 'uael' ),
 							'icon'  => 'eicon-h-align-center',
-						],
-						'flex-end'   => [
-							'title' => __( 'Right', 'header-footer-elementor' ),
+						),
+						'right'  => array(
+							'title' => __( 'Right', 'uael' ),
 							'icon'  => 'eicon-h-align-right',
-						],
-					],
-					'default'   => 'center',
-					'condition' => [
-						'layout' => 'expandible',
-					],
-					'selectors' => [
-						'{{WRAPPER}} .hfe-nav-menu__toggle' => 'justify-content: {{VALUE}};',
-					],
-				]
+						),
+					),
+					'selectors_dictionary' => array(
+						'left'   => 'margin-right: auto',
+						'center' => 'margin: 0 auto',
+						'right'  => 'margin-left: auto',
+					),
+					'selectors'            => array(
+						'{{WRAPPER}} .hfe-nav-menu__toggle' => '{{VALUE}}',
+					),
+					'default'              => 'center',
+					'condition'            => array(
+						'layout' => array( 'expandible' ),
+					),
+					'label_block'          => false,
+				)
 			);
 
 			$this->add_responsive_control(

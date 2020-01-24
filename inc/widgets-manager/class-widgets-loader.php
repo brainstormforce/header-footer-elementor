@@ -60,23 +60,6 @@ class Widgets_Loader {
 	}
 
 	/**
-	 * Returns Style array.
-	 *
-	 * @return array()
-	 * @since x.x.x
-	 */
-	public static function get_widget_style() {
-		$css_files = array(
-			'hfe-nav-menu-css' => array(
-				'path' => 'inc/css/hfe-nav-menu.css',
-				'dep'  => array(),
-			),
-		);
-
-		return $css_files;
-	}
-
-	/**
 	 * Returns Script array.
 	 *
 	 * @return array()
@@ -106,7 +89,10 @@ class Widgets_Loader {
 			'copyright',
 			'copyright-shortcode',
 			'navigation-menu',
-			'menu-walker'
+			'menu-walker',
+			'post-nav',
+			'post-title',
+			'site-title'
 		);	
 
 		return $widget_list;
@@ -122,7 +108,6 @@ class Widgets_Loader {
 	 */
 	public function include_widgets_files() {
 
-		$css_files = $this->get_widget_style();
 		$js_files = $this->get_widget_script();
 		$widget_list = $this->get_widget_list();
 
@@ -132,19 +117,15 @@ class Widgets_Loader {
 			}
 		}
 
-		if ( ! empty( $css_files ) ) {
-			foreach ( $css_files as $handle => $data ) {
-				wp_register_style( $handle, HFE_URL . $data['path'], $data['dep'], HFE_VER );
-				wp_enqueue_style( $handle, HFE_URL . $data['path'], $data['dep'], HFE_VER );
-			}
-		}
-
 		if ( ! empty( $js_files ) ) {
 			foreach ( $js_files as $handle => $data ) {
 
 				wp_register_script( $handle, HFE_URL . $data['path'], $data['dep'], HFE_VER, $data['in_footer'] );
 			}
 		}
+
+		// Emqueue the widgets style.
+		wp_enqueue_style( 'hfe-widgets-style', HFE_URL . 'inc/widgets-css/frontend.css', [], HFE_VER );
 	}
 
 	/**
@@ -198,6 +179,9 @@ class Widgets_Loader {
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Retina() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Copyright() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Navigation_Menu() );
+		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Post_Nav() );
+		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Post_Title() );
+		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Title() );
 	}
 }
 
