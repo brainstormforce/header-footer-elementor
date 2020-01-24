@@ -66,13 +66,13 @@ class Widgets_Loader {
 	 * @since x.x.x
 	 */
 	public static function get_widget_script() {
-		$js_files = array(
-			'hfe-nav-menu'   => array(
+		$js_files = [
+			'hfe-nav-menu' => [
 				'path'      => 'inc/js/hfe-nav-menu.js',
-				'dep'       => array( 'jquery' ),
+				'dep'       => [ 'jquery' ],
 				'in_footer' => true,
-			),
-		);	
+			],
+		];
 
 		return $js_files;
 	}
@@ -84,7 +84,7 @@ class Widgets_Loader {
 	 * @since x.x.x
 	 */
 	public static function get_widget_list() {
-		$widget_list = array(
+		$widget_list = [
 			'retina',
 			'copyright',
 			'copyright-shortcode',
@@ -92,8 +92,8 @@ class Widgets_Loader {
 			'menu-walker',
 			'post-nav',
 			'post-title',
-			'site-title'
-		);	
+			'site-title',
+		];
 
 		return $widget_list;
 	}
@@ -108,7 +108,7 @@ class Widgets_Loader {
 	 */
 	public function include_widgets_files() {
 
-		$js_files = $this->get_widget_script();
+		$js_files    = $this->get_widget_script();
 		$widget_list = $this->get_widget_list();
 
 		if ( ! empty( $widget_list ) ) {

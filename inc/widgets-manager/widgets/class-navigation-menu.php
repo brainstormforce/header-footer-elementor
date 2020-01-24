@@ -104,7 +104,7 @@ class Navigation_Menu extends Widget_Base {
 	 * @return array Widget scripts dependencies.
 	 */
 	public function get_script_depends() {
-		return array( 'hfe-nav-menu' );
+		return [ 'hfe-nav-menu' ];
 	}
 
 	/**
@@ -274,38 +274,38 @@ class Navigation_Menu extends Widget_Base {
 
 			$this->add_responsive_control(
 				'hamburger_align',
-				array(
+				[
 					'label'                => __( 'Hamburger Align', 'uael' ),
 					'type'                 => Controls_Manager::CHOOSE,
 					'default'              => 'center',
-					'options'              => array(
-						'left'   => array(
+					'options'              => [
+						'left'   => [
 							'title' => __( 'Left', 'uael' ),
 							'icon'  => 'eicon-h-align-left',
-						),
-						'center' => array(
+						],
+						'center' => [
 							'title' => __( 'Center', 'uael' ),
 							'icon'  => 'eicon-h-align-center',
-						),
-						'right'  => array(
+						],
+						'right'  => [
 							'title' => __( 'Right', 'uael' ),
 							'icon'  => 'eicon-h-align-right',
-						),
-					),
-					'selectors_dictionary' => array(
+						],
+					],
+					'selectors_dictionary' => [
 						'left'   => 'margin-right: auto',
 						'center' => 'margin: 0 auto',
 						'right'  => 'margin-left: auto',
-					),
-					'selectors'            => array(
+					],
+					'selectors'            => [
 						'{{WRAPPER}} .hfe-nav-menu__toggle' => '{{VALUE}}',
-					),
+					],
 					'default'              => 'center',
-					'condition'            => array(
-						'layout' => array( 'expandible' ),
-					),
+					'condition'            => [
+						'layout' => [ 'expandible' ],
+					],
 					'label_block'          => false,
-				)
+				]
 			);
 
 			$this->add_responsive_control(
@@ -724,7 +724,7 @@ class Navigation_Menu extends Widget_Base {
 				'name'      => 'menu_typography',
 				'scheme'    => Scheme_Typography::TYPOGRAPHY_1,
 				'separator' => 'before',
-				'selector'  => '{{WRAPPER}} .menu-item',
+				'selector'  => '{{WRAPPER}} a.hfe-menu-item, {{WRAPPER}} a.hfe-sub-menu-item',
 			]
 		);
 
@@ -1016,11 +1016,12 @@ class Navigation_Menu extends Widget_Base {
 					'name'      => 'dropdown_typography',
 					'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
 					'separator' => 'before',
-					'exclude'   => [ 'line_height' ],
-					'selector'  => '{{WRAPPER}} .sub-menu li,
-							{{WRAPPER}} nav.hfe-dropdown li,
-							{{WRAPPER}} nav.hfe-dropdown-expandible li',
-
+					'selector'  => '
+							{{WRAPPER}} .sub-menu li a.hfe-sub-menu-item,
+							{{WRAPPER}} nav.hfe-dropdown li a.hfe-sub-menu-item,
+							{{WRAPPER}} nav.hfe-dropdown li a.hfe-menu-item,
+							{{WRAPPER}} nav.hfe-dropdown-expandible li a.hfe-menu-item,
+							{{WRAPPER}} nav.hfe-dropdown-expandible li a.hfe-sub-menu-item',
 				]
 			);
 
