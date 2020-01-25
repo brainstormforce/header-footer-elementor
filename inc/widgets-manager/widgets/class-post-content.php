@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 /**
- * HFE Post content
+ * HFE Post content.
  *
  * HFE widget for Post Content.
  *
@@ -89,7 +89,8 @@ class Post_Content extends Widget_Base {
 	 *
 	 * Register Post content General Controls.
 	 *
-	 * @since x.x.x * @access protected.
+	 * @since x.x.x
+	 * @access protected
 	 */
 	protected function register_general_style_controls() {
 		$this->start_controls_section(
