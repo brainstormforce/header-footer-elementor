@@ -21,16 +21,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * HFE Author Box
+ * HFE Author Box.
  *
  * HFE widget for Author Box.
  *
  * @since x.x.x
  */
 class Author_Box extends Widget_Base {
-
-
-
 	/**
 	 * Retrieve the widget name.
 	 *
@@ -89,7 +86,7 @@ class Author_Box extends Widget_Base {
 	}
 
 	/**
-	 * Register Author Box controls controls.
+	 * Register Author Box controls.
 	 *
 	 * @since x.x.x
 	 * @access protected
