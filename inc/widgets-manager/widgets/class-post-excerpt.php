@@ -201,10 +201,10 @@ class Post_Excerpt extends Widget_Base {
 	 */
 	protected function render() {
 
-		$settings = $this->get_settings_for_display();
+		$settings     = $this->get_settings_for_display();
 		$excerpt_html = '';
 		$this->add_render_attribute( 'post-excerpt-content', 'class', 'hfe-post-excerpt-content' );
-		if(has_excerpt( get_the_ID() ) ){
+		if ( has_excerpt( get_the_ID() ) ) {
 			if ( 'yes' === $settings['custom_excerpt'] ) {
 
 				$custom_excerpt = substr( get_the_excerpt(), 0, $settings['excerpt_length'] );
