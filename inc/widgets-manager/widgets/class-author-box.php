@@ -51,7 +51,7 @@ class Author_Box extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'HFE Author Box', 'header-footer-elementor' );
+		return __( 'Author Box', 'header-footer-elementor' );
 	}
 
 	/**
