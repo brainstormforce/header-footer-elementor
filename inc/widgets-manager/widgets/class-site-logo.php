@@ -29,16 +29,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * HFE Site Logo widget
  *
- * HFE widget for Site Logo Image.
+ * HFE widget for Site Logo.
  *
  * @since 1.2.0
  */
 class Site_Logo extends Widget_Base {
-
-
-
-
-
 
 	/**
 	 * Retrieve the widget name.
@@ -152,18 +147,6 @@ class Site_Logo extends Widget_Base {
 			]
 		);
 
-		// $this->add_control(
-		// 'site_logo',
-		// [
-		// 'label'       => __('Site Logo ', 'header-footer-elementor'),
-		// 'type'        => Controls_Manager::URL,
-		// 'default'     => [
-		// 'url' => $this->site_image_url(),
-		// ],
-		// 'placeholder' => __($this->site_image_url(), 'header-footer-elementor'),
-		// 'show_label'  => false,
-		// ]
-		// );
 		$this->add_group_control(
 			Group_Control_Image_Size::get_type(),
 			[
@@ -555,7 +538,7 @@ class Site_Logo extends Widget_Base {
 		$this->end_controls_section();
 	}
 	/**
-	 * Register Caption style Controls.
+	 * Register Site Logo style Controls.
 	 *
 	 * @since 1.2.0
 	 * @access protected
@@ -841,7 +824,7 @@ class Site_Logo extends Widget_Base {
 	}
 
 	/**
-	 * Retrieve Site image widget link URL.
+	 * Retrieve Site Logo widget link URL.
 	 *
 	 * @since 1.2.0
 	 * @access private
