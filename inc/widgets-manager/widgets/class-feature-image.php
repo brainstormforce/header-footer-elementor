@@ -645,8 +645,16 @@ class Feature_Image extends Widget_Base {
 
 		if ( 'file' === $settings['link_to'] ) {
 				$link = $feature_image;
+				$this->add_render_attribute( 'link', 'href', $link );
 		} else {
-			$link = $settings['link']['url'];
+			$link = $this->get_link_url( $settings );
+			$this->add_render_attribute( 'link', 'href', $link['url'] );
+			if ( ! empty( $link['nofollow'] ) ) {
+				$this->add_render_attribute( 'link', 'rel', 'nofollow' );
+			}
+			if ( ! empty( $link['is_external'] ) ) {
+				$this->add_render_attribute( 'link', 'target', '_blank' );
+			}
 		}
 
 		if ( Plugin::$instance->editor->is_edit_mode() ) {
@@ -665,7 +673,7 @@ class Feature_Image extends Widget_Base {
 				$class = 'elementor-non-clickable';
 			}
 			?>
-				<a data-elementor-open-lightbox="<?php echo esc_attr( $settings['open_lightbox'] ); ?>"  class='<?php echo  esc_attr( $class ); ?>' href="<?php echo esc_url( $link ); ?>">
+				<a data-elementor-open-lightbox="<?php echo esc_attr( $settings['open_lightbox'] ); ?>"  class='<?php echo  esc_attr( $class ); ?>' <?php echo $this->get_render_attribute_string( 'link' ); ?>>
 		<?php endif; ?>
 		<?php
 
