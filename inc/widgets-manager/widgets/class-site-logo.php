@@ -675,14 +675,12 @@ class Site_Logo extends Widget_Base {
 	 * @access public
 	 */
 	public function site_image_url( $size = 'post-thumbnail' ) {
-		$custom_logo_id = get_theme_mod( 'custom_logo' );
-
-		$logo = wp_get_attachment_image_src( $custom_logo_id, $size );
-
-		if ( empty( $logo ) ) {
-			return Utils::get_placeholder_image_src();
+		$settings = $this->get_settings_for_display();
+		if ( ! empty( $settings['custom_image']['url'] ) ) {
+			$logo = wp_get_attachment_image_src( $settings['custom_image']['id'], $size, true );
+		} else {
+			$logo = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), $size, true );
 		}
-
 		return $logo[0];
 	}
 
@@ -708,8 +706,16 @@ class Site_Logo extends Widget_Base {
 
 		if ( 'file' === $settings['link_to'] ) {
 				$link = $site_image;
+				$this->add_render_attribute( 'link', 'href', $link );
 		} else {
-			$link = $settings['link']['url'];
+			$link = $this->get_link_url( $settings );
+			$this->add_render_attribute( 'link', 'href', $link['url'] );
+			if ( ! empty( $link['nofollow'] ) ) {
+				$this->add_render_attribute( 'link', 'rel', 'nofollow' );
+			}
+			if ( ! empty( $link['is_external'] ) ) {
+				$this->add_render_attribute( 'link', 'target', '_blank' );
+			}
 		}
 
 		if ( Plugin::$instance->editor->is_edit_mode() ) {
@@ -728,7 +734,7 @@ class Site_Logo extends Widget_Base {
 						$class = 'elementor-non-clickable';
 					}
 					?>
-				<a data-elementor-open-lightbox="<?php echo esc_attr( $settings['open_lightbox'] ); ?>"  class='<?php echo  esc_attr( $class ); ?>' href="<?php echo esc_url( $link ); ?>">
+				<a data-elementor-open-lightbox="<?php echo esc_attr( $settings['open_lightbox'] ); ?>"  class='<?php echo  esc_attr( $class ); ?>' <?php echo $this->get_render_attribute_string( 'link' ); ?>>
 		<?php endif; ?>
 		<?php
 		if ( empty( $site_image ) ) {
