@@ -740,7 +740,7 @@ class Site_Logo extends Widget_Base {
 		if ( empty( $site_image ) ) {
 			return;
 		}
-		$demo = '';
+		$img_animation = '';
 
 		if ( 'custom' !== $size ) {
 			$image_size = $size;
@@ -785,13 +785,13 @@ class Site_Logo extends Widget_Base {
 		$site_image_class = 'elementor-animation-';
 
 		if ( ! empty( $settings['hover_animation'] ) ) {
-			$demo = $settings['hover_animation'];
+			$img_animation = $settings['hover_animation'];
 		}
 		if ( ! empty( $image_data ) ) {
 			$image_url = $image_data[0];
 		}
 
-		$class_animation = $site_image_class . $demo;
+		$class_animation = $site_image_class . $img_animation;
 
 		$image_unset = site_url() . '/wp-includes/images/media/default.png';
 
