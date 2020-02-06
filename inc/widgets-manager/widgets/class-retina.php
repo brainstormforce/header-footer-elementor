@@ -34,7 +34,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.2.0
  */
 class Retina extends Widget_Base {
-
 	/**
 	 * Retrieve the widget name.
 	 *

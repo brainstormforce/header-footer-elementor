@@ -48,7 +48,6 @@ class Widgets_Loader {
 	 * @since  1.2.0
 	 */
 	private function __construct() {
-
 		// Register category.
 		add_action( 'elementor/elements/categories_registered', [ $this, 'register_widget_category' ] );
 
@@ -72,11 +71,9 @@ class Widgets_Loader {
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-retina.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-copyright.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-copyright-shortcode.php';
+		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-page-title.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-site-title.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-site-tagline.php';
-
-		// Emqueue the widgets style.
-		wp_enqueue_style( 'hfe-widgets-style', HFE_URL . 'inc/widgets-css/frontend.css', [], HFE_VER );
 	}
 
 	/**
@@ -88,7 +85,6 @@ class Widgets_Loader {
 	 * @return $mimes.
 	 */
 	public function hfe_svg_mime_types( $mimes ) {
-
 		// New allowed mime types.
 		$mimes['svg'] = 'image/svg+xml';
 		return $mimes;
@@ -123,16 +119,15 @@ class Widgets_Loader {
 	 * @access public
 	 */
 	public function register_widgets() {
-
 		// Its is now safe to include Widgets files.
 		$this->include_widgets_files();
 		// Register Widgets.
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Retina() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Copyright() );
+		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Page_Title() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Title() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Tagline() );
 	}
-
 }
 
 /**
