@@ -78,8 +78,6 @@ class Widgets_Loader {
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-copyright-shortcode.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-site-logo.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-page-title.php';
-		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-post-nav.php';
-		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-post-title.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-site-title.php';
 
 		// Emqueue the widgets style.
@@ -136,8 +134,6 @@ class Widgets_Loader {
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Copyright() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Logo() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Page_Title() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Post_Nav() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Post_Title() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Title() );
 	}
 }
