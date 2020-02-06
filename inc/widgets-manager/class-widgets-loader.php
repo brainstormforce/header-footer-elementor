@@ -20,11 +20,6 @@ defined( 'ABSPATH' ) or exit;
  */
 class Widgets_Loader {
 
-
-
-
-
-
 	/**
 	 * Instance of Widgets_Loader.
 	 *
@@ -76,13 +71,9 @@ class Widgets_Loader {
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-retina.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-copyright.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-copyright-shortcode.php';
-		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-site-logo.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-page-title.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-site-title.php';
 		require_once HFE_DIR . '/inc/widgets-manager/widgets/class-site-tagline.php';
-
-		// Emqueue the widgets style.
-		wp_enqueue_style( 'hfe-widgets-style', HFE_URL . 'inc/widgets-css/frontend.css', [], HFE_VER );
 	}
 
 	/**
@@ -133,7 +124,6 @@ class Widgets_Loader {
 		// Register Widgets.
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Retina() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Copyright() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Logo() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Page_Title() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Title() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Tagline() );
