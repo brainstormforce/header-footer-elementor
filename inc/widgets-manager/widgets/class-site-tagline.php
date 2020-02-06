@@ -14,7 +14,6 @@ use Elementor\Widget_Base;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Scheme_Color;
 
-
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;   // Exit if accessed directly.
 }
