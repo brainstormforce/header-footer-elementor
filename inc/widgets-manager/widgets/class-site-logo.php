@@ -715,7 +715,7 @@ class Site_Logo extends Widget_Base {
 				$this->add_render_attribute( 'link', 'target', '_blank' );
 			}
 		}
-		$class ='';
+		$class = '';
 		if ( Plugin::$instance->editor->is_edit_mode() ) {
 			$class = 'elementor-non-clickable';
 		} else {
