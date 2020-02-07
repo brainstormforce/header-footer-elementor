@@ -1201,8 +1201,6 @@ class Navigation_Menu extends Widget_Base {
 					],
 					'selectors'   => [
 						'{{WRAPPER}} nav.hfe-nav-menu__layout-horizontal ul.sub-menu, {{WRAPPER}} nav.hfe-nav-menu__layout-expandible.menu-is-active' => 'margin-top: {{SIZE}}px;',
-						'(tablet){{WRAPPER}}.hfe-nav-menu__breakpoint-tablet nav.hfe-nav-menu__layout-horizontal ul.sub-menu' => 'margin-top: 0px',
-						'(mobile){{WRAPPER}}.hfe-nav-menu__breakpoint-mobile nav.hfe-nav-menu__layout-horizontal ul.sub-menu' => 'margin-top: 0px',
 						'{{WRAPPER}} .hfe-dropdown.menu-is-active' => 'margin-top: {{SIZE}}px;',
 					],
 					'condition'   => [
