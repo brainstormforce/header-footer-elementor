@@ -176,7 +176,7 @@ class Site_Logo extends Widget_Base {
 				],
 				'default'   => 'center',
 				'selectors' => [
-					'{{WRAPPER}} .hfe-site-logo-container, {{WRAPPER}} .hfe-caption-width' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .hfe-site-logo-container, {{WRAPPER}} .hfe-caption-width figcaption' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -313,8 +313,7 @@ class Site_Logo extends Widget_Base {
 					],
 				],
 				'selectors'      => [
-					'{{WRAPPER}} .hfe-site-logo img' => 'width: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .hfe-site-logo .wp-caption .widget-image-caption' => 'width: {{SIZE}}{{UNIT}}; display: inline-block;',
+					'{{WRAPPER}} .hfe-site-logo .hfe-site-logo-container img' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -342,7 +341,6 @@ class Site_Logo extends Widget_Base {
 				],
 				'selectors'      => [
 					'{{WRAPPER}} .hfe-site-logo img' => 'max-width: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .wp-caption-text'   => 'max-width: {{SIZE}}{{UNIT}}; display: inline-block; width: 100%;',
 				],
 			]
 		);
@@ -717,7 +715,7 @@ class Site_Logo extends Widget_Base {
 				$this->add_render_attribute( 'link', 'target', '_blank' );
 			}
 		}
-
+		$class ='';
 		if ( Plugin::$instance->editor->is_edit_mode() ) {
 			$class = 'elementor-non-clickable';
 		} else {
