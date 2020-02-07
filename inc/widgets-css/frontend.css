@@ -422,6 +422,7 @@ div.hfe-nav-menu,
     border-radius: 3px;
     color: #494c4f;
     position: relative;
+    line-height: 1;
 }
 
 .hfe-nav-menu__toggle-icon {

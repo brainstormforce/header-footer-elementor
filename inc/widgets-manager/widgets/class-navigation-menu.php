@@ -436,6 +436,42 @@ class Navigation_Menu extends Widget_Base {
 			]
 		);
 
+		$this->add_responsive_control(
+				'resp_align',
+				[
+					'label'       => __( 'Alignment', 'header-footer-elementor' ),
+					'type'        => Controls_Manager::CHOOSE,
+					'options'     => [
+						'left'   => [
+							'title' => __( 'Left', 'header-footer-elementor' ),
+							'icon'  => 'eicon-h-align-left',
+						],
+						'center' => [
+							'title' => __( 'Center', 'header-footer-elementor' ),
+							'icon'  => 'eicon-h-align-center',
+						],
+						'right'  => [
+							'title' => __( 'Right', 'header-footer-elementor' ),
+							'icon'  => 'eicon-h-align-right',
+						],
+					],
+					'default'     => 'center',
+					'description' => __( 'This is the alignement of menu icon on selected responsive breakpoints.', 'header-footer-elementor' ),
+					'condition'   => [
+						'layout'    => [ 'horizontal', 'vertical' ],
+						'dropdown!' => 'none',
+					],
+					'selectors_dictionary' => [
+						'left'   => 'margin-right: auto',
+						'center' => 'margin: 0 auto',
+						'right'  => 'margin-left: auto',
+					],
+					'selectors'            => [
+						'{{WRAPPER}} .hfe-nav-menu__toggle' => '{{VALUE}}',
+					],
+				]
+			);
+
 		$this->add_control(
 			'full_width_dropdown',
 			[
@@ -553,7 +589,11 @@ class Navigation_Menu extends Widget_Base {
 						'unit' => 'px',
 					],
 					'selectors'   => [
-						'{{WRAPPER}} .menu-item a.hfe-menu-item,{{WRAPPER}} .menu-item a.hfe-sub-menu-item' => 'padding-left: {{SIZE}}{{UNIT}}; padding-right: {{SIZE}}{{UNIT}}',
+						'{{WRAPPER}} .menu-item a.hfe-menu-item' => 'padding-left: {{SIZE}}{{UNIT}}; padding-right: {{SIZE}}{{UNIT}}',
+						'{{WRAPPER}} .menu-item a.hfe-sub-menu-item' => 'padding-left: calc( {{SIZE}}{{UNIT}} + 20px );padding-right: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .hfe-nav-menu__layout-vertical .menu-item ul ul a.hfe-sub-menu-item' => 'padding-left: calc( {{SIZE}}{{UNIT}} + 40px );padding-right: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .hfe-nav-menu__layout-vertical .menu-item ul ul ul a.hfe-sub-menu-item' => 'padding-left: calc( {{SIZE}}{{UNIT}} + 60px );padding-right: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .hfe-nav-menu__layout-vertical .menu-item ul ul ul ul a.hfe-sub-menu-item' => 'padding-left: calc( {{SIZE}}{{UNIT}} + 80px );padding-right: {{SIZE}}{{UNIT}};',
 					],
 					'render_type' => 'template',
 				]
@@ -1108,9 +1148,15 @@ class Navigation_Menu extends Widget_Base {
 					'selectors'   => [
 						'{{WRAPPER}} .sub-menu li a.hfe-sub-menu-item,
 						{{WRAPPER}} nav.hfe-dropdown li a.hfe-menu-item,
-						{{WRAPPER}} nav.hfe-dropdown li a.hfe-sub-menu-item,
-						{{WRAPPER}} nav.hfe-dropdown-expandible li a.hfe-menu-item,
-						{{WRAPPER}} nav.hfe-dropdown-expandible li a.hfe-sub-menu-item' => 'padding-left: {{SIZE}}{{UNIT}}; padding-right: {{SIZE}}{{UNIT}}',
+						{{WRAPPER}} nav.hfe-dropdown-expandible li a.hfe-menu-item' => 'padding-left: {{SIZE}}{{UNIT}}; padding-right: {{SIZE}}{{UNIT}}',
+						'{{WRAPPER}} nav.hfe-dropdown-expandible a.hfe-sub-menu-item,
+						{{WRAPPER}} nav.hfe-dropdown li a.hfe-sub-menu-item' => 'padding-left: calc( {{SIZE}}{{UNIT}} + 20px );padding-right: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .hfe-dropdown .menu-item ul ul a.hfe-sub-menu-item,
+						{{WRAPPER}} .hfe-dropdown-expandible .menu-item ul ul a.hfe-sub-menu-item' => 'padding-left: calc( {{SIZE}}{{UNIT}} + 40px );padding-right: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .hfe-dropdown .menu-item ul ul ul a.hfe-sub-menu-item,
+						{{WRAPPER}} .hfe-dropdown-expandible .menu-item ul ul ul a.hfe-sub-menu-item' => 'padding-left: calc( {{SIZE}}{{UNIT}} + 60px );padding-right: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .hfe-dropdown .menu-item ul ul ul ul a.hfe-sub-menu-item,
+						{{WRAPPER}} .hfe-dropdown-expandible .menu-item ul ul ul ul a.hfe-sub-menu-item' => 'padding-left: calc( {{SIZE}}{{UNIT}} + 80px );padding-right: {{SIZE}}{{UNIT}};',
 					],
 					'render_type' => 'template',
 				]

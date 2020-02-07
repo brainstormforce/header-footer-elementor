@@ -74,12 +74,6 @@
 
 		});
 
-		var padd = $( '.elementor-element-' + id + ' ul.sub-menu li a' ).css( 'paddingLeft' );
-		    padd = parseFloat( padd );
-            padd = padd + 20;
-
-        $( '.elementor-element-' + id + ' ul.sub-menu li a.hfe-sub-menu-item' ).css( 'paddingLeft', padd + 'px' );
-
         // Acessibility functions
 
   		$scope.find( '.parent-has-child .hfe-has-submenu-container a').attr( 'aria-haspopup', 'true' );
