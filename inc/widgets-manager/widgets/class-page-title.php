@@ -6,64 +6,64 @@
  */
 
 namespace HFE\WidgetsManager\Widgets;
+
 use Elementor\Controls_Manager;
+use Elementor\Group_Control_Text_Shadow;
+use Elementor\Widget_Base;
 use Elementor\Group_Control_Typography;
 use Elementor\Scheme_Typography;
-use Elementor\Widget_Base;
-use Elementor\Group_Control_Text_Shadow;
 use Elementor\Scheme_Color;
-
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;   // Exit if accessed directly.
 }
 
 /**
- * HFE Post Title
+ * HFE Page Title widget
  *
- * HFE widget for Post Title.
+ * HFE widget for Page Title.
  *
- * @since x.x.x
+ * @since 1.2.0
  */
-class Post_Title extends Widget_Base {
+class Page_Title extends Widget_Base {
 
 	/**
 	 * Retrieve the widget name.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 *
 	 * @access public
 	 *
 	 * @return string Widget name.
 	 */
 	public function get_name() {
-		return 'post-title';
+		return 'heading';
 	}
 
 	/**
 	 * Retrieve the widget title.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 *
 	 * @access public
 	 *
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Post Title', 'header-footer-elementor' );
+		return __( 'Page Title', 'header-footer-elementor' );
 	}
 
 	/**
 	 * Retrieve the widget icon.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 *
 	 * @access public
 	 *
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'fas fa-search';
+		return 'eicon-archive-title';
 	}
 
 	/**
@@ -74,7 +74,7 @@ class Post_Title extends Widget_Base {
 	 * Note that currently Elementor supports only one category.
 	 * When multiple categories passed, Elementor uses the first one.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 *
 	 * @access public
 	 *
@@ -85,25 +85,23 @@ class Post_Title extends Widget_Base {
 	}
 
 	/**
-	 * Register post title controls.
+	 * Register Page Title controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 * @access protected
 	 */
 	protected function _register_controls() {
-
-		$this->register_general_content_controls();
-		$this->register_heading_style_controls();
+		$this->register_content_page_title_controls();
+		$this->register_page_title_style_controls();
 	}
 
 	/**
-	 * Register Post Title General Controls.
+	 * Register Page Title General Controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.2.0
 	 * @access protected
 	 */
-	protected function register_general_content_controls() {
-
+	protected function register_content_page_title_controls() {
 		$this->start_controls_section(
 			'section_general_fields',
 			[
@@ -223,21 +221,20 @@ class Post_Title extends Widget_Base {
 				],
 				'default'   => '',
 				'selectors' => [
-					'{{WRAPPER}} .hfe-post-title-wrapper' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .hfe-page-title-wrapper' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
 
 		$this->end_controls_section();
 	}
-
 	/**
-	 * Register Post Title Style Controls.
+	 * Register Page Title Style Controls.
 	 *
 	 * @since x.x.x
 	 * @access protected
 	 */
-	protected function register_heading_style_controls() {
+	protected function register_page_title_style_controls() {
 		$this->start_controls_section(
 			'section_title_typography',
 			[
@@ -251,7 +248,7 @@ class Post_Title extends Widget_Base {
 				[
 					'name'     => 'title_typography',
 					'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
-					'selector' => '{{WRAPPER}} .elementor-heading-title, {{WRAPPER}} .hfe-post-title a',
+					'selector' => '{{WRAPPER}} .elementor-heading-title, {{WRAPPER}} .hfe-page-title a',
 				]
 			);
 
@@ -265,7 +262,7 @@ class Post_Title extends Widget_Base {
 						'value' => Scheme_Color::COLOR_1,
 					],
 					'selectors' => [
-						'{{WRAPPER}} .elementor-heading-title, {{WRAPPER}} .hfe-post-title a' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .elementor-heading-title, {{WRAPPER}} .hfe-page-title a' => 'color: {{VALUE}};',
 					],
 				]
 			);
@@ -308,15 +305,14 @@ class Post_Title extends Widget_Base {
 	}
 
 	/**
-	 * Render Post Title output on the frontend.
+	 * Render heading widget output on the frontend.
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
-	 * @since x.x.x
+	 * @since 1.0.0
 	 * @access protected
 	 */
 	protected function render() {
-
 		$settings = $this->get_settings_for_display();
 		$title    = '';
 
@@ -348,30 +344,27 @@ class Post_Title extends Widget_Base {
 			}
 
 			$title = sprintf( '<a %1$s>%2$s</a>', $this->get_render_attribute_string( 'url' ), $title );
-
 		} elseif ( 'default' === $settings['link'] ) {
-
 			$this->add_render_attribute( 'url', 'href', get_the_permalink() );
 
 			$title = sprintf( '<a %1$s>%2$s</a>', $this->get_render_attribute_string( 'url' ), $title );
-
 		}
 
 		$title_html = sprintf( '<%1$s %2$s>%3$s</%1$s>', $settings['heading_tag'], $this->get_render_attribute_string( 'title' ), $title );
 		?>
 
-		<div class="hfe-post-title hfe-post-title-wrapper elementor-widget-heading">
+		<div class="hfe-page-title hfe-page-title-wrapper elementor-widget-heading">
 			<?php echo $title_html; ?>
 		</div>
 		<?php
 	}
 
 	/**
-	 * Render Post Title widget output in the editor.
+	 * Render heading widget output in the editor.
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
-	 * @since x.x.x
+	 * @since 1.0.0
 	 * @access protected
 	 */
 	protected function _content_template() {
@@ -382,7 +375,7 @@ class Post_Title extends Widget_Base {
 			enable_link = true;
 		}
 		#>
-		<div class="hfe-post-title hfe-post-title-wrapper elementor-widget-heading">
+		<div class="hfe-page-title hfe-page-title-wrapper elementor-widget-heading">
 			<{{{ settings.heading_tag }}} class="elementor-heading-title elementor-size-{{{ settings.size }}}">
 				<# if ( enable_link ) { #>
 					<a>
@@ -401,5 +394,4 @@ class Post_Title extends Widget_Base {
 		</div>
 		<?php
 	}
-
 }

@@ -48,7 +48,6 @@ class Widgets_Loader {
 	 * @since  1.2.0
 	 */
 	private function __construct() {
-
 		// Register category.
 		add_action( 'elementor/elements/categories_registered', [ $this, 'register_widget_category' ] );
 
@@ -90,9 +89,9 @@ class Widgets_Loader {
 			'copyright-shortcode',
 			'navigation-menu',
 			'menu-walker',
-			'post-nav',
-			'post-title',
 			'site-title',
+			'page-title',
+			'site-tagline'
 		];
 
 		return $widget_list;
@@ -137,7 +136,6 @@ class Widgets_Loader {
 	 * @return $mimes.
 	 */
 	public function hfe_svg_mime_types( $mimes ) {
-
 		// New allowed mime types.
 		$mimes['svg'] = 'image/svg+xml';
 		return $mimes;
@@ -172,16 +170,15 @@ class Widgets_Loader {
 	 * @access public
 	 */
 	public function register_widgets() {
-
 		// Its is now safe to include Widgets files.
 		$this->include_widgets_files();
 		// Register Widgets.
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Retina() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Copyright() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Navigation_Menu() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Post_Nav() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Post_Title() );
+		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Page_Title() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Title() );
+		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Tagline() );
 	}
 }
 
