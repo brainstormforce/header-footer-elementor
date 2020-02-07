@@ -437,40 +437,40 @@ class Navigation_Menu extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-				'resp_align',
-				[
-					'label'       => __( 'Alignment', 'header-footer-elementor' ),
-					'type'        => Controls_Manager::CHOOSE,
-					'options'     => [
-						'left'   => [
-							'title' => __( 'Left', 'header-footer-elementor' ),
-							'icon'  => 'eicon-h-align-left',
-						],
-						'center' => [
-							'title' => __( 'Center', 'header-footer-elementor' ),
-							'icon'  => 'eicon-h-align-center',
-						],
-						'right'  => [
-							'title' => __( 'Right', 'header-footer-elementor' ),
-							'icon'  => 'eicon-h-align-right',
-						],
+			'resp_align',
+			[
+				'label'                => __( 'Alignment', 'header-footer-elementor' ),
+				'type'                 => Controls_Manager::CHOOSE,
+				'options'              => [
+					'left'   => [
+						'title' => __( 'Left', 'header-footer-elementor' ),
+						'icon'  => 'eicon-h-align-left',
 					],
-					'default'     => 'center',
-					'description' => __( 'This is the alignement of menu icon on selected responsive breakpoints.', 'header-footer-elementor' ),
-					'condition'   => [
-						'layout'    => [ 'horizontal', 'vertical' ],
-						'dropdown!' => 'none',
+					'center' => [
+						'title' => __( 'Center', 'header-footer-elementor' ),
+						'icon'  => 'eicon-h-align-center',
 					],
-					'selectors_dictionary' => [
-						'left'   => 'margin-right: auto',
-						'center' => 'margin: 0 auto',
-						'right'  => 'margin-left: auto',
+					'right'  => [
+						'title' => __( 'Right', 'header-footer-elementor' ),
+						'icon'  => 'eicon-h-align-right',
 					],
-					'selectors'            => [
-						'{{WRAPPER}} .hfe-nav-menu__toggle' => '{{VALUE}}',
-					],
-				]
-			);
+				],
+				'default'              => 'center',
+				'description'          => __( 'This is the alignement of menu icon on selected responsive breakpoints.', 'header-footer-elementor' ),
+				'condition'            => [
+					'layout'    => [ 'horizontal', 'vertical' ],
+					'dropdown!' => 'none',
+				],
+				'selectors_dictionary' => [
+					'left'   => 'margin-right: auto',
+					'center' => 'margin: 0 auto',
+					'right'  => 'margin-left: auto',
+				],
+				'selectors'            => [
+					'{{WRAPPER}} .hfe-nav-menu__toggle' => '{{VALUE}}',
+				],
+			]
+		);
 
 		$this->add_control(
 			'full_width_dropdown',

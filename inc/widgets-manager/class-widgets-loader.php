@@ -91,7 +91,7 @@ class Widgets_Loader {
 			'menu-walker',
 			'site-title',
 			'page-title',
-			'site-tagline'
+			'site-tagline',
 		];
 
 		return $widget_list;
