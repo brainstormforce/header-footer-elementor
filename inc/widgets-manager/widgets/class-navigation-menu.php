@@ -28,6 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Navigation_Menu extends Widget_Base {
 
+
 	/**
 	 * Menu index.
 	 *
@@ -151,7 +152,7 @@ class Navigation_Menu extends Widget_Base {
 	 *
 	 * @return boolean if Elementor updated.
 	 */
-	static public function is_elementor_updated() {
+	public static function is_elementor_updated() {
 		if ( class_exists( 'Elementor\Icons_Manager' ) ) {
 			return true;
 		} else {
@@ -402,37 +403,6 @@ class Navigation_Menu extends Widget_Base {
 					'layout' => [ 'horizontal', 'vertical' ],
 				],
 				'render_type'  => 'template',
-			]
-		);
-
-		$this->add_control(
-			'resp_align',
-			[
-				'label'       => __( 'Alignment', 'header-footer-elementor' ),
-				'type'        => Controls_Manager::CHOOSE,
-				'options'     => [
-					'left'   => [
-						'title' => __( 'Left', 'header-footer-elementor' ),
-						'icon'  => 'eicon-h-align-left',
-					],
-					'center' => [
-						'title' => __( 'Center', 'header-footer-elementor' ),
-						'icon'  => 'eicon-h-align-center',
-					],
-					'right'  => [
-						'title' => __( 'Right', 'header-footer-elementor' ),
-						'icon'  => 'eicon-h-align-right',
-					],
-				],
-				'default'     => 'center',
-				'description' => __( 'This is the alignement of menu icon on selected responsive breakpoints.', 'header-footer-elementor' ),
-				'condition'   => [
-					'layout'    => [ 'horizontal', 'vertical' ],
-					'dropdown!' => 'none',
-				],
-				'selectors'   => [
-					'{{WRAPPER}} .hfe-nav-menu__toggle' => 'text-align: {{VALUE}};',
-				],
 			]
 		);
 
@@ -1446,16 +1416,13 @@ class Navigation_Menu extends Widget_Base {
 		$this->add_render_attribute( 'hfe-main-menu', 'data-layout', $settings['layout'] );
 
 		if ( $settings['pointer'] ) {
-
 			if ( 'horizontal' === $settings['layout'] || 'vertical' === $settings['layout'] ) {
 				$this->add_render_attribute( 'hfe-main-menu', 'class', 'hfe-pointer__' . $settings['pointer'] );
 
 				if ( in_array( $settings['pointer'], [ 'double-line', 'underline', 'overline' ], true ) ) {
-
 					$key = 'animation_line';
 					$this->add_render_attribute( 'hfe-main-menu', 'class', 'hfe-animation__' . $settings[ $key ] );
 				} elseif ( 'framed' === $settings['pointer'] || 'text' === $settings['pointer'] ) {
-
 					$key = 'animation_' . $settings['pointer'];
 					$this->add_render_attribute( 'hfe-main-menu', 'class', 'hfe-animation__' . $settings[ $key ] );
 				}
@@ -1463,7 +1430,6 @@ class Navigation_Menu extends Widget_Base {
 		}
 
 		if ( 'expandible' === $settings['layout'] ) {
-
 			$this->add_render_attribute( 'hfe-nav-menu', 'class', 'hfe-dropdown-expandible' );
 		}
 
@@ -1493,7 +1459,7 @@ class Navigation_Menu extends Widget_Base {
 				<?php } ?>
 			</div>
 		</div>
-		<nav <?php echo $this->get_render_attribute_string( 'hfe-nav-menu' ); ?>><?php echo $menu_html; ?></nav>				
+		<nav <?php echo $this->get_render_attribute_string( 'hfe-nav-menu' ); ?>><?php echo $menu_html; ?></nav>              
 	</div>
 		<?php
 	}
