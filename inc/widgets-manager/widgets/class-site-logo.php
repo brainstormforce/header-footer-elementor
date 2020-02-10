@@ -76,7 +76,7 @@ class Site_Logo extends Widget_Base
      */
     public function get_icon()
     {
-        return 'eicon-site-logo';
+        return 'icon-site-logo';
     }
 
     /**
@@ -621,7 +621,7 @@ class Site_Logo extends Widget_Base
         $this->add_responsive_control(
             'caption_space',
             [
-                'label'     => __('Caption Top Spacing', 'header-footer-elementor'),
+                'label'     => __('Spacing', 'header-footer-elementor'),
                 'type'      => Controls_Manager::SLIDER,
                 'range'     => [
                     'px' => [
