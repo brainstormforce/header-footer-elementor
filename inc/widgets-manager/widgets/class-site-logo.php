@@ -40,7 +40,7 @@ class Site_Logo extends Widget_Base
     /**
      * Retrieve the widget name.
      *
-     * @since 1.2.0
+     * @since x.x.x
      *
      * @access public
      *
@@ -54,7 +54,7 @@ class Site_Logo extends Widget_Base
     /**
      * Retrieve the widget title.
      *
-     * @since 1.2.0
+     * @since x.x.x
      *
      * @access public
      *
@@ -68,7 +68,7 @@ class Site_Logo extends Widget_Base
     /**
      * Retrieve the widget icon.
      *
-     * @since 1.2.0
+     * @since x.x.x
      *
      * @access public
      *
@@ -87,7 +87,7 @@ class Site_Logo extends Widget_Base
      * Note that currently Elementor supports only one category.
      * When multiple categories passed, Elementor uses the first one.
      *
-     * @since 1.2.0
+     * @since x.x.x
      *
      * @access public
      *
@@ -101,7 +101,7 @@ class Site_Logo extends Widget_Base
     /**
      * Register Site Logo controls.
      *
-     * @since 1.2.0
+     * @since x.x.x
      * @access protected
      */
     protected function _register_controls()
@@ -114,7 +114,7 @@ class Site_Logo extends Widget_Base
     /**
      * Register Site Logo General Controls.
      *
-     * @since 1.2.0
+     * @since x.x.x
      * @access protected
      */
     protected function register_content_site_logo_controls()
@@ -195,7 +195,7 @@ class Site_Logo extends Widget_Base
                 'label'   => __('Caption', 'header-footer-elementor'),
                 'type'    => Controls_Manager::SELECT,
                 'options' => [
-                    'no'   => __('No', 'header-footer-elementor'),
+                    'no'  => __('No', 'header-footer-elementor'),
                     'yes' => __('Yes', 'header-footer-elementor'),
                 ],
                 'default' => 'none',
@@ -210,7 +210,8 @@ class Site_Logo extends Widget_Base
                 'default'     => '',
                 'placeholder' => __('Enter your image caption', 'header-footer-elementor'),
                 'condition'   => [
-                    'caption_source' => 'yes'                ],
+                    'caption_source' => 'yes',
+                ],
                 'dynamic'     => [
                     'active' => true,
                 ],
@@ -278,7 +279,7 @@ class Site_Logo extends Widget_Base
     /**
      * Register Site Image Style Controls.
      *
-     * @since 1.2.0
+     * @since x.x.x
      * @access protected
      */
     protected function register_site_logo_styling_controls()
@@ -546,7 +547,7 @@ class Site_Logo extends Widget_Base
     /**
      * Register Site Logo style Controls.
      *
-     * @since 1.2.0
+     * @since x.x.x
      * @access protected
      */
     protected function register_site_logo_caption_styling_controls()
@@ -645,7 +646,7 @@ class Site_Logo extends Widget_Base
      * Check if the current widget has caption
      *
      * @access private
-     * @since 1.2.0
+     * @since x.x.x
      *
      * @param array $settings returns settings.
      *
@@ -660,7 +661,7 @@ class Site_Logo extends Widget_Base
      * Get the caption for current widget.
      *
      * @access private
-     * @since 1.2.0
+     * @since x.x.x
      * @param array $settings returns the caption.
      *
      * @return string
@@ -679,7 +680,7 @@ class Site_Logo extends Widget_Base
      *
      * Written in PHP and used to generate the final HTML.
      *
-     * @since 1.2.0
+     * @since x.x.x
      * @param array $size returns the size of an image.
      * @access public
      */
@@ -699,7 +700,7 @@ class Site_Logo extends Widget_Base
      *
      * Written in PHP and used to generate the final HTML.
      *
-     * @since 1.2.0
+     * @since x.x.x
      * @access protected
      */
     protected function render()
@@ -843,7 +844,7 @@ class Site_Logo extends Widget_Base
     /**
      * Retrieve Site Logo widget link URL.
      *
-     * @since 1.2.0
+     * @since x.x.x
      * @access private
      *
      * @param array $settings returns settings.
