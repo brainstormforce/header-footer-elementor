@@ -29,22 +29,18 @@ if (! defined('ABSPATH')) {
 /**
  * HFE Site Logo widget
  *
- * HFE widget for Site Logo Image.
+ * HFE widget for Site Logo.
  *
  * @since x.x.x
  */
+
 class Site_Logo extends Widget_Base
 {
-
-
-
-
-
 
     /**
      * Retrieve the widget name.
      *
-     * @since x.x.x
+     * @since 1.2.0
      *
      * @access public
      *
@@ -58,7 +54,7 @@ class Site_Logo extends Widget_Base
     /**
      * Retrieve the widget title.
      *
-     * @since x.x.x
+     * @since 1.2.0
      *
      * @access public
      *
@@ -72,7 +68,7 @@ class Site_Logo extends Widget_Base
     /**
      * Retrieve the widget icon.
      *
-     * @since x.x.x
+     * @since 1.2.0
      *
      * @access public
      *
@@ -91,7 +87,7 @@ class Site_Logo extends Widget_Base
      * Note that currently Elementor supports only one category.
      * When multiple categories passed, Elementor uses the first one.
      *
-     * @since x.x.x
+     * @since 1.2.0
      *
      * @access public
      *
@@ -105,7 +101,7 @@ class Site_Logo extends Widget_Base
     /**
      * Register Site Logo controls.
      *
-     * @since x.x.x
+     * @since 1.2.0
      * @access protected
      */
     protected function _register_controls()
@@ -118,7 +114,7 @@ class Site_Logo extends Widget_Base
     /**
      * Register Site Logo General Controls.
      *
-     * @since x.x.x
+     * @since 1.2.0
      * @access protected
      */
     protected function register_content_site_logo_controls()
@@ -188,31 +184,21 @@ class Site_Logo extends Widget_Base
                 ],
                 'default'   => 'center',
                 'selectors' => [
-                    '{{WRAPPER}} .hfe-site-logo-container, {{WRAPPER}} .hfe-caption-width' => 'text-align: {{VALUE}};',
+                    '{{WRAPPER}} .hfe-site-logo-container, {{WRAPPER}} .hfe-caption-width figcaption' => 'text-align: {{VALUE}};',
                 ],
             ]
         );
-
-        // $this->add_control(
-        //     'site_logo_fallback',
-        //     [
-        //         'label'       => __('Add Fallback', 'header-footer-elementor'),
-        //         'type'        => Controls_Manager::SWITCHER,
-        //         'yes'         => __('Yes', 'uael'),
-        //         'no'          => __('No', 'uael'),
-        //         'default'     => 'no',
-        //         'render_type' => 'template',
-        //     ]
-        // );
 
         $this->add_control(
             'caption_source',
             [
                 'label'   => __('Caption', 'header-footer-elementor'),
-                'type'    => Controls_Manager::SWITCHER,
-                'no'    => __('No', 'header-footer-elementor'),
-                'yes'  => __('Yes', 'header-footer-elementor'),
-                'default' => 'no',
+                'type'    => Controls_Manager::SELECT,
+                'options' => [
+                    'no'   => __('No', 'header-footer-elementor'),
+                    'yes' => __('Yes', 'header-footer-elementor'),
+                ],
+                'default' => 'none',
             ]
         );
 
@@ -224,8 +210,7 @@ class Site_Logo extends Widget_Base
                 'default'     => '',
                 'placeholder' => __('Enter your image caption', 'header-footer-elementor'),
                 'condition'   => [
-                    'caption_source' => 'yes',
-                ],
+                    'caption_source' => 'yes'                ],
                 'dynamic'     => [
                     'active' => true,
                 ],
@@ -293,7 +278,7 @@ class Site_Logo extends Widget_Base
     /**
      * Register Site Image Style Controls.
      *
-     * @since x.x.x
+     * @since 1.2.0
      * @access protected
      */
     protected function register_site_logo_styling_controls()
@@ -336,8 +321,7 @@ class Site_Logo extends Widget_Base
                     ],
                 ],
                 'selectors'      => [
-                    '{{WRAPPER}} .hfe-site-logo img' => 'width: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .hfe-site-logo .wp-caption .widget-image-caption' => 'width: {{SIZE}}{{UNIT}}; display: inline-block;',
+                    '{{WRAPPER}} .hfe-site-logo .hfe-site-logo-container img' => 'width: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -365,7 +349,6 @@ class Site_Logo extends Widget_Base
                 ],
                 'selectors'      => [
                     '{{WRAPPER}} .hfe-site-logo img' => 'max-width: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .wp-caption-text'   => 'max-width: {{SIZE}}{{UNIT}}; display: inline-block; width: 100%;',
                 ],
             ]
         );
@@ -561,9 +544,9 @@ class Site_Logo extends Widget_Base
         $this->end_controls_section();
     }
     /**
-     * Register Caption style Controls.
+     * Register Site Logo style Controls.
      *
-     * @since x.x.x
+     * @since 1.2.0
      * @access protected
      */
     protected function register_site_logo_caption_styling_controls()
@@ -574,7 +557,7 @@ class Site_Logo extends Widget_Base
                 'label'     => __('Caption', 'header-footer-elementor'),
                 'tab'       => Controls_Manager::TAB_STYLE,
                 'condition' => [
-                    'caption_source!' => 'no',
+                    'caption_source!' => 'none',
                 ],
             ]
         );
@@ -637,7 +620,7 @@ class Site_Logo extends Widget_Base
         $this->add_responsive_control(
             'caption_space',
             [
-                'label'     => __('Spacing between caption and logo', 'header-footer-elementor'),
+                'label'     => __('Caption Top Spacing', 'header-footer-elementor'),
                 'type'      => Controls_Manager::SLIDER,
                 'range'     => [
                     'px' => [
@@ -662,7 +645,7 @@ class Site_Logo extends Widget_Base
      * Check if the current widget has caption
      *
      * @access private
-     * @since x.x.x
+     * @since 1.2.0
      *
      * @param array $settings returns settings.
      *
@@ -677,7 +660,7 @@ class Site_Logo extends Widget_Base
      * Get the caption for current widget.
      *
      * @access private
-     * @since x.x.x
+     * @since 1.2.0
      * @param array $settings returns the caption.
      *
      * @return string
@@ -685,7 +668,6 @@ class Site_Logo extends Widget_Base
     private function get_caption($settings)
     {
         $caption = '';
-        
         if ('yes' === $settings['caption_source']) {
             $caption = ! empty($settings['caption']) ? $settings['caption'] : '';
         }
@@ -697,20 +679,18 @@ class Site_Logo extends Widget_Base
      *
      * Written in PHP and used to generate the final HTML.
      *
-     * @since x.x.x
+     * @since 1.2.0
      * @param array $size returns the size of an image.
      * @access public
      */
     public function site_image_url($size = 'post-thumbnail')
     {
-        $custom_logo_id = get_theme_mod('custom_logo');
-
-        $logo = wp_get_attachment_image_src($custom_logo_id, $size);
-
-        if (empty($logo)) {
-            return Utils::get_placeholder_image_src();
+        $settings = $this->get_settings_for_display();
+        if (! empty($settings['custom_image']['url'])) {
+            $logo = wp_get_attachment_image_src($settings['custom_image']['id'], $size, true);
+        } else {
+            $logo = wp_get_attachment_image_src(get_theme_mod('custom_logo'), $size, true);
         }
-
         return $logo[0];
     }
 
@@ -719,7 +699,7 @@ class Site_Logo extends Widget_Base
      *
      * Written in PHP and used to generate the final HTML.
      *
-     * @since x.x.x
+     * @since 1.2.0
      * @access protected
      */
     protected function render()
@@ -737,10 +717,18 @@ class Site_Logo extends Widget_Base
 
         if ('file' === $settings['link_to']) {
                 $link = $site_image;
+                $this->add_render_attribute('link', 'href', $link);
         } else {
-            $link = $settings['link']['url'];
+            $link = $this->get_link_url($settings);
+            $this->add_render_attribute('link', 'href', $link['url']);
+            if (! empty($link['nofollow'])) {
+                $this->add_render_attribute('link', 'rel', 'nofollow');
+            }
+            if (! empty($link['is_external'])) {
+                $this->add_render_attribute('link', 'target', '_blank');
+            }
         }
-
+        $class = '';
         if (Plugin::$instance->editor->is_edit_mode()) {
             $class = 'elementor-non-clickable';
         } else {
@@ -757,13 +745,13 @@ class Site_Logo extends Widget_Base
                         $class = 'elementor-non-clickable';
                     }
                     ?>
-                <a data-elementor-open-lightbox="<?php echo esc_attr($settings['open_lightbox']); ?>"  class='<?php echo  esc_attr($class); ?>' href="<?php echo esc_url($link); ?>">
+                <a data-elementor-open-lightbox="<?php echo esc_attr($settings['open_lightbox']); ?>"  class='<?php echo  esc_attr($class); ?>' <?php echo $this->get_render_attribute_string('link'); ?>>
         <?php endif; ?>
         <?php
         if (empty($site_image)) {
             return;
         }
-        $demo = '';
+        $img_animation = '';
 
         if ('custom' !== $size) {
             $image_size = $size;
@@ -808,13 +796,13 @@ class Site_Logo extends Widget_Base
         $site_image_class = 'elementor-animation-';
 
         if (! empty($settings['hover_animation'])) {
-            $demo = $settings['hover_animation'];
+            $img_animation = $settings['hover_animation'];
         }
         if (! empty($image_data)) {
             $image_url = $image_data[0];
         }
 
-        $class_animation = $site_image_class . $demo;
+        $class_animation = $site_image_class . $img_animation;
 
         $image_unset = site_url() . '/wp-includes/images/media/default.png';
 
@@ -853,9 +841,9 @@ class Site_Logo extends Widget_Base
     }
 
     /**
-     * Retrieve Site image widget link URL.
+     * Retrieve Site Logo widget link URL.
      *
-     * @since x.x.x
+     * @since 1.2.0
      * @access private
      *
      * @param array $settings returns settings.

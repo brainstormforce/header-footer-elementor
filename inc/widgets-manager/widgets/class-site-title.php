@@ -37,7 +37,7 @@ class Site_Title extends Widget_Base {
 	 * @return string Widget name.
 	 */
 	public function get_name() {
-		return 'site-title';
+		return 'hfe-site-title';
 	}
 
 	/**

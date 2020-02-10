@@ -19,15 +19,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * HFE Site Logo widget
+ * HFE Page Title widget
  *
- * HFE widget for Site Logo Image.
+ * HFE widget for Page Title.
  *
  * @since 1.2.0
  */
 class Page_Title extends Widget_Base {
-
-
 
 	/**
 	 * Retrieve the widget name.
@@ -87,7 +85,7 @@ class Page_Title extends Widget_Base {
 	}
 
 	/**
-	 * Register Site Logo controls.
+	 * Register Page Title controls.
 	 *
 	 * @since 1.2.0
 	 * @access protected
@@ -98,7 +96,7 @@ class Page_Title extends Widget_Base {
 	}
 
 	/**
-	 * Register Site Logo General Controls.
+	 * Register Page Title General Controls.
 	 *
 	 * @since 1.2.0
 	 * @access protected
