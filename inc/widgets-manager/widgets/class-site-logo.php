@@ -198,7 +198,7 @@ class Site_Logo extends Widget_Base
                     'no'  => __('No', 'header-footer-elementor'),
                     'yes' => __('Yes', 'header-footer-elementor'),
                 ],
-                'default' => 'none',
+                'default' => 'no',
             ]
         );
 
