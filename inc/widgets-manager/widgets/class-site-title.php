@@ -63,7 +63,7 @@ class Site_Title extends Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'fas fa-search';
+		return 'icon-site-title';
 	}
 
 	/**

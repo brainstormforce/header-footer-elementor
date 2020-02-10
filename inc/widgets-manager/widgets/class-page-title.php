@@ -63,7 +63,7 @@ class Page_Title extends Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'eicon-archive-title';
+		return 'icon-page-title';
 	}
 
 	/**
