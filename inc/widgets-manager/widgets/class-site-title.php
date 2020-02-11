@@ -63,7 +63,7 @@ class Site_Title extends Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'icon-site-title';
+		return 'hfe-icon-site-title';
 	}
 
 	/**
@@ -421,7 +421,7 @@ class Site_Title extends Widget_Base {
 	 * @since x.x.x
 	 * @access protected
 	 */
-	protected function _content_template() { 
+	protected function _content_template() {
 		$this->content_template();
 	}
 }

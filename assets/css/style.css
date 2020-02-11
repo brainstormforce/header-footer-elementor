@@ -9,7 +9,7 @@
     font-style: normal;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+[class^="hfe-icon-"], [class*=" hfe-icon-"] {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'hfe' !important;
     speak: none;
@@ -24,26 +24,42 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-copyright-widget:before {
+.elementor-element [class*="hfe-icon-"]:after {
+  content: "HFE";
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  color: #a4afb7;
+  background: transparent;
+  font-size: 10px;
+  font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+  padding: 0.2em 0.5em;
+  border-width: 0 0 1px 1px;
+  border-color: #e0e0e0;
+  border-style: solid;
+}
+
+.hfe-icon-copyright-widget:before {
   content: "\e905";
 }
-.icon-retina-image:before {
+.hfe-icon-retina-image:before {
   content: "\e906";
 }
 
-.icon-page-title:before {
+.hfe-icon-page-title:before {
   content: "\e900";
 }
-.icon-site-logo:before {
+.hfe-icon-site-logo:before {
   content: "\e901";
 }
-.icon-site-tagline:before {
+.hfe-icon-site-tagline:before {
   content: "\e902";
 }
-.icon-site-title:before {
+.hfe-icon-site-title:before {
   content: "\e903";
 }  
-.icon-navigation-menu-4:before {
+.hfe-icon-navigation-menu-4:before {
   content: "\e904";
   color: #556068;
 }

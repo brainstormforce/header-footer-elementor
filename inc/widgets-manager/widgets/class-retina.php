@@ -70,7 +70,7 @@ class Retina extends Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'icon-retina-image';
+		return 'hfe-icon-retina-image';
 	}
 
 	/**
@@ -97,7 +97,7 @@ class Retina extends Widget_Base {
 	 * @since 1.2.0
 	 * @access protected
 	 */
-	protected function _register_controls() { 
+	protected function _register_controls() {
 		$this->register_content_retina_image_controls();
 		$this->register_retina_image_styling_controls();
 		$this->register_retina_caption_styling_controls();

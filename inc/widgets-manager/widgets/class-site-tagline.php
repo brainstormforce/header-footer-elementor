@@ -63,7 +63,7 @@ class Site_Tagline extends Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'icon-site-tagline';
+		return 'hfe-icon-site-tagline';
 	}
 
 	/**
@@ -206,7 +206,7 @@ class Site_Tagline extends Widget_Base {
 	 * @since x.x.x
 	 * @access protected
 	 */
-	protected function _content_template() { 
+	protected function _content_template() {
 		$this->content_template();
 	}
 }

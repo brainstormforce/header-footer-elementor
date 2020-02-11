@@ -62,7 +62,7 @@ class Copyright extends Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'icon-copyright-widget';
+		return 'hfe-icon-copyright-widget';
 	}
 	/**
 	 * Retrieve the list of categories the widget belongs to.
@@ -223,7 +223,7 @@ class Copyright extends Widget_Base {
 	 * @since x.x.x
 	 * @access protected
 	 */
-	protected function content_template() {} 
+	protected function content_template() {}
 
 	/**
 	 * Render shortcode output in the editor.
@@ -235,7 +235,7 @@ class Copyright extends Widget_Base {
 	 * @since 1.2.0
 	 * @access protected
 	 */
-	protected function _content_template() { 
+	protected function _content_template() {
 		$this->content_template();
 	}
 }

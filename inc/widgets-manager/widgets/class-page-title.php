@@ -63,7 +63,7 @@ class Page_Title extends Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'icon-page-title';
+		return 'hfe-icon-page-title';
 	}
 
 	/**
@@ -405,7 +405,7 @@ class Page_Title extends Widget_Base {
 	 * @since 1.0.0
 	 * @access protected
 	 */
-	protected function _content_template() { 
+	protected function _content_template() {
 		$this->content_template();
 	}
 }
