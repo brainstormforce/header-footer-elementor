@@ -188,11 +188,25 @@ class Site_Tagline extends Widget_Base {
 	 * @since x.x.x
 	 * @access protected
 	 */
-	protected function _content_template() {
+	protected function content_template() {
 		?>
 		<div class="hfe-site-tagline hfe-site-tagline-wrapper">
 			<span><?php echo wp_kses_post( get_bloginfo( 'description' ) ); ?></span>
 		</div>
 		<?php
+	}
+
+	/**
+	 * Render Site Tagline output in the editor.
+	 *
+	 * Written as a Backbone JavaScript template and used to generate the live preview.
+	 *
+	 * Remove this after Elementor v3.3.0
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function _content_template() { 
+		$this->content_template();
 	}
 }

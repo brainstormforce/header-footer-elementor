@@ -369,14 +369,14 @@ class Site_Title extends Widget_Base {
 		<?php
 	}
 		/**
-		 * Render Heading widgets output in the editor.
+		 * Render site title output in the editor.
 		 *
 		 * Written as a Backbone JavaScript template and used to generate the live preview.
 		 *
 		 * @since x.x.x
 		 * @access protected
 		 */
-	protected function _content_template() {
+	protected function content_template() {
 		?>
 		<#
 		if ( '' == settings.heading_title ) {
@@ -409,5 +409,19 @@ class Site_Title extends Widget_Base {
 			</{{{ settings.heading_tag }}}>
 		</div>
 		<?php
+	}
+
+	/**
+	 * Render site title output in the editor.
+	 *
+	 * Written as a Backbone JavaScript template and used to generate the live preview.
+	 *
+	 * Remove this after Elementor v3.3.0
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function _content_template() { 
+		$this->content_template();
 	}
 }
