@@ -24,6 +24,13 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-copyright-widget:before {
+  content: "\e905";
+}
+.icon-retina-image:before {
+  content: "\e906";
+}
+
 .icon-page-title:before {
   content: "\e900";
 }

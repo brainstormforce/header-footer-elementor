@@ -62,7 +62,7 @@ class Copyright extends Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'fa fa-copyright';
+		return 'icon-copyright-widget';
 	}
 	/**
 	 * Retrieve the list of categories the widget belongs to.
