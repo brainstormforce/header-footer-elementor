@@ -1552,3 +1552,9 @@ div.hfe-nav-menu,
     display: none;
 }
 
+/* Icon common CSS */
+
+.hfe-icon {
+    display: inline-block;
+}
+
