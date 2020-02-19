@@ -29,7 +29,22 @@
 			_eventClick( id );
 		}
 		
-		_borderClass( id );		
+		_borderClass( id );	
+
+		$( '.elementor-element-' + id + ' .hfe-nav-menu-icon' ).off( 'click keyup' ).on( 'click keyup', function() {
+
+			_openMenu( id );
+		} );
+
+		$( '.elementor-element-' + id + ' .hfe-flyout-close' ).off( 'click keyup' ).on( 'click keyup', function() {
+
+			_closeMenu( id );
+		} );
+
+		$( '.elementor-element-' + id + ' .hfe-flyout-overlay' ).off( 'click' ).on( 'click', function() {
+
+			_closeMenu( id );
+		} );	
 
 
 		$scope.find( '.sub-menu' ).each( function() {
@@ -72,21 +87,6 @@
 			}
 
 			_borderClass( id );	
-
-			$( '.elementor-element-' + id + ' .hfe-nav-menu-icon' ).off( 'click keyup' ).on( 'click keyup', function() {
-
-				_openMenu( id );
-			} );
-
-			$( '.elementor-element-' + id + ' .hfe-flyout-close' ).off( 'click keyup' ).on( 'click keyup', function() {
-
-				_closeMenu( id );
-			} );
-
-			$( '.elementor-element-' + id + ' .hfe-flyout-overlay' ).off( 'click' ).on( 'click', function() {
-
-				_closeMenu( id );
-			} );
 
 		});
 

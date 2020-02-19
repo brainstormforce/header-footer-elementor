@@ -270,7 +270,6 @@ class Navigation_Menu extends Widget_Base {
 						'layout' => [ 'horizontal', 'vertical' ],
 					],
 					'prefix_class' => 'hfe-nav-menu__align-',
-					'render_type'  => 'template',
 				]
 			);
 
@@ -334,7 +333,8 @@ class Navigation_Menu extends Widget_Base {
 						'right'  => 'margin-left: auto',
 					],
 					'selectors'            => [
-						'{{WRAPPER}} .hfe-nav-menu__toggle' => '{{VALUE}}',
+						'{{WRAPPER}} .hfe-nav-menu__toggle,
+						{{WRAPPER}} .hfe-nav-menu-icon' => '{{VALUE}}',
 					],
 					'default'              => 'center',
 					'condition'            => [
@@ -602,7 +602,7 @@ class Navigation_Menu extends Widget_Base {
 					'condition'   => array(
 						'layout' => 'flyout',
 					),
-					'render_type' => 'template',
+					'render_type'  => 'template',
 				)
 			);
 
@@ -651,7 +651,6 @@ class Navigation_Menu extends Widget_Base {
 						'{{WRAPPER}} .hfe-nav-menu__layout-vertical .menu-item ul ul ul a.hfe-sub-menu-item' => 'padding-left: calc( {{SIZE}}{{UNIT}} + 60px );padding-right: {{SIZE}}{{UNIT}};',
 						'{{WRAPPER}} .hfe-nav-menu__layout-vertical .menu-item ul ul ul ul a.hfe-sub-menu-item' => 'padding-left: calc( {{SIZE}}{{UNIT}} + 80px );padding-right: {{SIZE}}{{UNIT}};',
 					],
-					'render_type' => 'template',
 				]
 			);
 
@@ -673,7 +672,6 @@ class Navigation_Menu extends Widget_Base {
 					'selectors'   => [
 						'{{WRAPPER}} .menu-item a.hfe-menu-item, {{WRAPPER}} .menu-item a.hfe-sub-menu-item' => 'padding-top: {{SIZE}}{{UNIT}}; padding-bottom: {{SIZE}}{{UNIT}};',
 					],
-					'render_type' => 'template',
 				]
 			);
 
@@ -695,7 +693,6 @@ class Navigation_Menu extends Widget_Base {
 						'(tablet)body:not(.rtl) {{WRAPPER}}.hfe-nav-menu__breakpoint-tablet .hfe-nav-menu__layout-horizontal .hfe-nav-menu > li.menu-item:not(:last-child)' => 'margin-right: 0px',
 						'(mobile)body:not(.rtl) {{WRAPPER}}.hfe-nav-menu__breakpoint-mobile .hfe-nav-menu__layout-horizontal .hfe-nav-menu > li.menu-item:not(:last-child)' => 'margin-right: 0px',
 					],
-					'render_type' => 'template',
 					'condition'   => [
 						'layout' => 'horizontal',
 					],
@@ -719,7 +716,6 @@ class Navigation_Menu extends Widget_Base {
 					'condition'   => [
 						'layout' => 'horizontal',
 					],
-					'render_type' => 'template',
 				]
 			);
 
@@ -740,7 +736,6 @@ class Navigation_Menu extends Widget_Base {
 					'condition'   => array(
 						'layout' => 'flyout',
 					),
-					'render_type' => 'template',
 				)
 			);
 
@@ -1235,8 +1230,7 @@ class Navigation_Menu extends Widget_Base {
 					],
 					'condition'   => [
 						'layout' => 'horizontal',
-					],
-					'render_type' => 'template',
+					]
 				]
 			);
 
@@ -1246,10 +1240,6 @@ class Navigation_Menu extends Widget_Base {
 					'label'       => __( 'Horizontal Padding', 'header-footer-elementor' ),
 					'type'        => Controls_Manager::SLIDER,
 					'size_units'  => [ 'px' ],
-					'default'     => [
-						'size' => 15,
-						'unit' => 'px',
-					],
 					'selectors'   => [
 						'{{WRAPPER}} .sub-menu li a.hfe-sub-menu-item,
 						{{WRAPPER}} nav.hfe-dropdown li a.hfe-menu-item,
@@ -1263,7 +1253,6 @@ class Navigation_Menu extends Widget_Base {
 						'{{WRAPPER}} .hfe-dropdown .menu-item ul ul ul ul a.hfe-sub-menu-item,
 						{{WRAPPER}} .hfe-dropdown-expandible .menu-item ul ul ul ul a.hfe-sub-menu-item' => 'padding-left: calc( {{SIZE}}{{UNIT}} + 80px );padding-right: {{SIZE}}{{UNIT}};',
 					],
-					'render_type' => 'template',
 				]
 			);
 
@@ -1289,7 +1278,6 @@ class Navigation_Menu extends Widget_Base {
 						 {{WRAPPER}} nav.hfe-dropdown-expandible li a.hfe-menu-item,
 						 {{WRAPPER}} nav.hfe-dropdown-expandible li a.hfe-sub-menu-item' => 'padding-top: {{SIZE}}{{UNIT}}; padding-bottom: {{SIZE}}{{UNIT}}',
 					],
-					'render_type' => 'template',
 				]
 			);
 
@@ -1311,7 +1299,6 @@ class Navigation_Menu extends Widget_Base {
 					'condition'   => [
 						'layout' => [ 'horizontal', 'vertical', 'expandible' ],
 					],
-					'render_type' => 'template',
 				]
 			);
 
@@ -1572,14 +1559,12 @@ class Navigation_Menu extends Widget_Base {
 
 		if ( 'flyout' === $settings['layout'] ) {
 
-			if ( 'flyout' === $settings['layout'] ) {
-
-				$this->add_render_attribute( 'hfe-flyout', 'class', 'hfe-flyout-wrapper' );
-			}
+			$this->add_render_attribute( 'hfe-flyout', 'class', 'hfe-flyout-wrapper' );
+			
 			?>
 			<div class="hfe-nav-menu__toggle elementor-clickable hfe-flyout-trigger" tabindex="0">
 					<div class="hfe-nav-menu-icon">
-						<?php if ( hfe_Helper::is_elementor_updated() ) { ?>
+						<?php if ( $this->is_elementor_updated() ) { ?>
 							<i class="<?php echo esc_attr( $settings['dropdown_icon']['value'] ); ?>" aria-hidden="true" tabindex="0"></i>
 						<?php } else { ?>
 							<i class="<?php echo esc_attr( $settings['dropdown_icon'] ); ?>" aria-hidden="true" tabindex="0"></i>
@@ -1590,16 +1575,10 @@ class Navigation_Menu extends Widget_Base {
 				<div class="hfe-flyout-overlay elementor-clickable"></div>
 				<div class="hfe-flyout-container">
 					<div id="hfe-flyout-content-id-<?php echo esc_attr( $this->get_id() ); ?>" class="hfe-side hfe-flyout-<?php echo esc_attr( $settings['flyout_layout'] ); ?> hfe-flyout-open" data-width="<?php echo esc_attr( $settings['width_flyout_menu_item']['size'] ); ?>" data-layout="<?php echo wp_kses_post( $settings['flyout_layout'] ); ?>" data-flyout-type="<?php echo wp_kses_post( $settings['flyout_type'] ); ?>">
-						<div class="hfe-flyout-content push">
-							<?php if ( 'wordpress_menu' === $settings['menu_type'] ) { ?>
-								<nav <?php echo wp_kses_post( $this->get_render_attribute_string( 'hfe-nav-menu' ) ); ?>><?php echo wp_kses_post( $menu_html ); ?></nav>
-								<?php
-							} else {
-								$this->get_custom_style();
-							}
-							?>
+						<div class="hfe-flyout-content push">						
+							<nav <?php echo wp_kses_post( $this->get_render_attribute_string( 'hfe-nav-menu' ) ); ?>><?php echo wp_kses_post( $menu_html ); ?></nav>
 							<div class="elementor-clickable hfe-flyout-close" tabindex="0">
-								<?php if ( hfe_Helper::is_elementor_updated() ) { ?>
+								<?php if ( $this->is_elementor_updated() ) { ?>
 									<i class="<?php echo esc_attr( $settings['dropdown_close_icon']['value'] ); ?>" aria-hidden="true"></i>
 								<?php } else { ?>
 									<i class="<?php echo esc_attr( $settings['dropdown_close_icon'] ); ?>" aria-hidden="true"></i>
