@@ -237,6 +237,7 @@ class Navigation_Menu extends Widget_Base {
 						'horizontal' => __( 'Horizontal', 'header-footer-elementor' ),
 						'vertical'   => __( 'Vertical', 'header-footer-elementor' ),
 						'expandible' => __( 'Expanded', 'header-footer-elementor' ),
+						'flyout' => __( 'Flyout', 'header-footer-elementor' ),
 					],
 				]
 			);
@@ -273,23 +274,57 @@ class Navigation_Menu extends Widget_Base {
 				]
 			);
 
+			$this->add_control(
+				'flyout_layout',
+				array(
+					'label'     => __( 'Flyout Orientation', 'header-footer-elementor' ),
+					'type'      => Controls_Manager::SELECT,
+					'default'   => 'left',
+					'options'   => array(
+						'left'  => __( 'Left', 'header-footer-elementor' ),
+						'right' => __( 'Right', 'header-footer-elementor' ),
+					),
+					'condition' => array(
+						'layout' => 'flyout',
+					),
+				)
+			);
+
+			$this->add_control(
+				'flyout_type',
+				array(
+					'label'       => __( 'Appear Effect', 'header-footer-elementor' ),
+					'type'        => Controls_Manager::SELECT,
+					'default'     => 'normal',
+					'label_block' => false,
+					'options'     => array(
+						'normal' => __( 'Slide', 'header-footer-elementor' ),
+						'push'   => __( 'Push', 'header-footer-elementor' ),
+					),
+					'render_type' => 'template',
+					'condition'   => array(
+						'layout' => 'flyout',
+					),
+				)
+			);
+
 			$this->add_responsive_control(
 				'hamburger_align',
 				[
-					'label'                => __( 'Hamburger Align', 'uael' ),
+					'label'                => __( 'Hamburger Align', 'header-footer-elementor' ),
 					'type'                 => Controls_Manager::CHOOSE,
 					'default'              => 'center',
 					'options'              => [
 						'left'   => [
-							'title' => __( 'Left', 'uael' ),
+							'title' => __( 'Left', 'header-footer-elementor' ),
 							'icon'  => 'eicon-h-align-left',
 						],
 						'center' => [
-							'title' => __( 'Center', 'uael' ),
+							'title' => __( 'Center', 'header-footer-elementor' ),
 							'icon'  => 'eicon-h-align-center',
 						],
 						'right'  => [
-							'title' => __( 'Right', 'uael' ),
+							'title' => __( 'Right', 'header-footer-elementor' ),
 							'icon'  => 'eicon-h-align-right',
 						],
 					],
@@ -303,7 +338,7 @@ class Navigation_Menu extends Widget_Base {
 					],
 					'default'              => 'center',
 					'condition'            => [
-						'layout' => [ 'expandible' ],
+						'layout' => [ 'expandible', 'flyout' ],
 					],
 					'label_block'          => false,
 				]
@@ -334,7 +369,7 @@ class Navigation_Menu extends Widget_Base {
 					],
 					'default'      => 'space-between',
 					'condition'    => [
-						'layout' => 'expandible',
+						'layout' => [ 'expandible', 'flyout' ]
 					],
 					'selectors'    => [
 						'{{WRAPPER}} li.menu-item a' => 'justify-content: {{VALUE}};',
@@ -454,6 +489,7 @@ class Navigation_Menu extends Widget_Base {
 				'default'      => 'yes',
 				'condition'    => [
 					'dropdown!' => 'none',
+					'layout!'   => 'flyout',
 				],
 				'render_type'  => 'template',
 			]
@@ -542,6 +578,56 @@ class Navigation_Menu extends Widget_Base {
 				],
 			]
 		);
+
+		$this->add_responsive_control(
+				'width_flyout_menu_item',
+				array(
+					'label'       => __( 'Flyout Box Width', 'header-footer-elementor' ),
+					'type'        => Controls_Manager::SLIDER,
+					'range'       => array(
+						'px' => array(
+							'max' => 500,
+							'min' => 100,
+						),
+					),
+					'default'     => array(
+						'size' => 300,
+						'unit' => 'px',
+					),
+					'selectors'   => array(
+						'{{WRAPPER}} .hfe-flyout-wrapper .hfe-side' => 'width: {{SIZE}}{{UNIT}}',
+						'{{WRAPPER}} .hfe-flyout-open.left'     => 'left: -{{SIZE}}{{UNIT}}',
+						'{{WRAPPER}} .hfe-flyout-open.right'    => 'right: -{{SIZE}}{{UNIT}}',
+					),
+					'condition'   => array(
+						'layout' => 'flyout',
+					),
+					'render_type' => 'template',
+				)
+			);
+
+			$this->add_responsive_control(
+				'padding_flyout_menu_item',
+				array(
+					'label'     => __( 'Flyout Box Padding', 'header-footer-elementor' ),
+					'type'      => Controls_Manager::SLIDER,
+					'range'     => array(
+						'px' => array(
+							'max' => 50,
+						),
+					),
+					'default'   => array(
+						'size' => 30,
+						'unit' => 'px',
+					),
+					'selectors' => array(
+						'{{WRAPPER}} .hfe-flyout-content' => 'padding: {{SIZE}}{{UNIT}}',
+					),
+					'condition' => array(
+						'layout' => 'flyout',
+					),
+				)
+			);
 
 			$this->add_responsive_control(
 				'padding_horizontal_menu_item',
@@ -635,6 +721,43 @@ class Navigation_Menu extends Widget_Base {
 					],
 					'render_type' => 'template',
 				]
+			);
+
+			$this->add_responsive_control(
+				'menu_top_space',
+				array(
+					'label'       => __( 'Menu Item Top Spacing', 'header-footer-elementor' ),
+					'type'        => Controls_Manager::SLIDER,
+					'size_units'  => array( 'px', '%' ),
+					'range'       => array(
+						'px' => array(
+							'max' => 100,
+						),
+					),
+					'selectors'   => array(
+						'{{WRAPPER}} .hfe-flyout-wrapper .hfe-nav-menu > li.menu-item:first-child' => 'margin-top: {{SIZE}}{{UNIT}}',
+					),
+					'condition'   => array(
+						'layout' => 'flyout',
+					),
+					'render_type' => 'template',
+				)
+			);
+
+			$this->add_control(
+				'bg_color_flyout',
+				array(
+					'label'     => __( 'Background Color', 'header-footer-elementor' ),
+					'type'      => Controls_Manager::COLOR,
+					'default'   => '#FFFFFF',
+					'selectors' => array(
+						'{{WRAPPER}} .menu-item a.hfe-menu-item' => 'background-color: {{VALUE}}',
+						'{{WRAPPER}} .hfe-flyout-content' => 'background-color: {{VALUE}}',
+					),
+					'condition' => array(
+						'layout' => 'flyout',
+					),
+				)
 			);
 
 			$this->add_control(
@@ -772,6 +895,9 @@ class Navigation_Menu extends Widget_Base {
 							'selectors' => [
 								'{{WRAPPER}} .menu-item a.hfe-menu-item, {{WRAPPER}} .sub-menu, {{WRAPPER}} nav.hfe-dropdown, {{WRAPPER}} .hfe-dropdown-expandible' => 'background-color: {{VALUE}}',
 							],
+							'condition' => [
+								'layout!' =>'flyout'
+							]
 						]
 					);
 
@@ -815,6 +941,9 @@ class Navigation_Menu extends Widget_Base {
 								{{WRAPPER}} .menu-item a.hfe-menu-item.highlighted,
 								{{WRAPPER}} .menu-item a.hfe-menu-item:focus' => 'background-color: {{VALUE}}',
 							],
+							'condition' => [
+								'layout!' => 'flyout'
+							]
 						]
 					);
 
@@ -837,6 +966,7 @@ class Navigation_Menu extends Widget_Base {
 							],
 							'condition' => [
 								'pointer!' => [ 'none', 'text' ],
+								'layout!'  => 'flyout',
 							],
 						]
 					);
@@ -871,6 +1001,9 @@ class Navigation_Menu extends Widget_Base {
 							'selectors' => [
 								'{{WRAPPER}} .menu-item.current-menu-item a.hfe-menu-item' => 'background-color: {{VALUE}}',
 							],
+							'condition' => [
+								'layout!' => 'flyout',
+							]
 						]
 					);
 
@@ -889,6 +1022,7 @@ class Navigation_Menu extends Widget_Base {
 							],
 							'condition' => [
 								'pointer!' => [ 'none', 'text' ],
+								'layout!'  => 'flyout',
 							],
 						]
 					);
@@ -925,6 +1059,7 @@ class Navigation_Menu extends Widget_Base {
 					'condition'       => [
 						'layout!' => [
 							'expandible',
+							'flyout'
 						],
 					],
 				]
@@ -1373,6 +1508,41 @@ class Navigation_Menu extends Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'close_color_flyout',
+			array(
+				'label'     => __( 'Close Icon Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#7A7A7A',
+				'selectors' => array(
+					'{{WRAPPER}} .hfe-flyout-close' => 'color: {{VALUE}}',
+				),
+				'condition' => array(
+					'layout' => 'flyout',
+				),
+				'separator' => 'before',
+			)
+		);
+
+		$this->add_responsive_control(
+			'close_flyout_size',
+			array(
+				'label'     => __( 'Close Icon Size', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => array(
+					'px' => array(
+						'min' => 15,
+					),
+				),
+				'selectors' => array(
+					'{{WRAPPER}} .hfe-flyout-close' => 'height: {{SIZE}}px; width: {{SIZE}}px; font-size: {{SIZE}}px; line-height: {{SIZE}}px;',
+				),
+				'condition' => array(
+					'layout' => 'flyout',
+				),
+			)
+		);
+
 		$this->end_controls_section();
 	}
 
@@ -1400,68 +1570,110 @@ class Navigation_Menu extends Widget_Base {
 
 		$menu_html = wp_nav_menu( $args );
 
-		$this->add_render_attribute(
-			'hfe-main-menu',
-			'class',
-			[
-				'hfe-nav-menu',
-				'hfe-layout-' . $settings['layout'],
-			]
-		);
+		if ( 'flyout' === $settings['layout'] ) {
 
-		$this->add_render_attribute( 'hfe-main-menu', 'class', 'hfe-nav-menu-layout' );
+			if ( 'flyout' === $settings['layout'] ) {
 
-		$this->add_render_attribute( 'hfe-main-menu', 'class', $settings['layout'] );
+				$this->add_render_attribute( 'hfe-flyout', 'class', 'hfe-flyout-wrapper' );
+			}
+			?>
+			<div class="hfe-nav-menu__toggle elementor-clickable hfe-flyout-trigger" tabindex="0">
+					<div class="hfe-nav-menu-icon">
+						<?php if ( hfe_Helper::is_elementor_updated() ) { ?>
+							<i class="<?php echo esc_attr( $settings['dropdown_icon']['value'] ); ?>" aria-hidden="true" tabindex="0"></i>
+						<?php } else { ?>
+							<i class="<?php echo esc_attr( $settings['dropdown_icon'] ); ?>" aria-hidden="true" tabindex="0"></i>
+						<?php } ?>
+					</div>
+				</div>
+			<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'hfe-flyout' ) ); ?> >
+				<div class="hfe-flyout-overlay elementor-clickable"></div>
+				<div class="hfe-flyout-container">
+					<div id="hfe-flyout-content-id-<?php echo esc_attr( $this->get_id() ); ?>" class="hfe-side hfe-flyout-<?php echo esc_attr( $settings['flyout_layout'] ); ?> hfe-flyout-open" data-width="<?php echo esc_attr( $settings['width_flyout_menu_item']['size'] ); ?>" data-layout="<?php echo wp_kses_post( $settings['flyout_layout'] ); ?>" data-flyout-type="<?php echo wp_kses_post( $settings['flyout_type'] ); ?>">
+						<div class="hfe-flyout-content push">
+							<?php if ( 'wordpress_menu' === $settings['menu_type'] ) { ?>
+								<nav <?php echo wp_kses_post( $this->get_render_attribute_string( 'hfe-nav-menu' ) ); ?>><?php echo wp_kses_post( $menu_html ); ?></nav>
+								<?php
+							} else {
+								$this->get_custom_style();
+							}
+							?>
+							<div class="elementor-clickable hfe-flyout-close" tabindex="0">
+								<?php if ( hfe_Helper::is_elementor_updated() ) { ?>
+									<i class="<?php echo esc_attr( $settings['dropdown_close_icon']['value'] ); ?>" aria-hidden="true"></i>
+								<?php } else { ?>
+									<i class="<?php echo esc_attr( $settings['dropdown_close_icon'] ); ?>" aria-hidden="true"></i>
+								<?php } ?>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>				
+			<?php
+		} else {
+			$this->add_render_attribute(
+				'hfe-main-menu',
+				'class',
+				[
+					'hfe-nav-menu',
+					'hfe-layout-' . $settings['layout'],
+				]
+			);
 
-		$this->add_render_attribute( 'hfe-main-menu', 'data-layout', $settings['layout'] );
+			$this->add_render_attribute( 'hfe-main-menu', 'class', 'hfe-nav-menu-layout' );
 
-		if ( $settings['pointer'] ) {
-			if ( 'horizontal' === $settings['layout'] || 'vertical' === $settings['layout'] ) {
-				$this->add_render_attribute( 'hfe-main-menu', 'class', 'hfe-pointer__' . $settings['pointer'] );
+			$this->add_render_attribute( 'hfe-main-menu', 'class', $settings['layout'] );
 
-				if ( in_array( $settings['pointer'], [ 'double-line', 'underline', 'overline' ], true ) ) {
-					$key = 'animation_line';
-					$this->add_render_attribute( 'hfe-main-menu', 'class', 'hfe-animation__' . $settings[ $key ] );
-				} elseif ( 'framed' === $settings['pointer'] || 'text' === $settings['pointer'] ) {
-					$key = 'animation_' . $settings['pointer'];
-					$this->add_render_attribute( 'hfe-main-menu', 'class', 'hfe-animation__' . $settings[ $key ] );
+			$this->add_render_attribute( 'hfe-main-menu', 'data-layout', $settings['layout'] );
+
+			if ( $settings['pointer'] ) {
+				if ( 'horizontal' === $settings['layout'] || 'vertical' === $settings['layout'] ) {
+					$this->add_render_attribute( 'hfe-main-menu', 'class', 'hfe-pointer__' . $settings['pointer'] );
+
+					if ( in_array( $settings['pointer'], [ 'double-line', 'underline', 'overline' ], true ) ) {
+						$key = 'animation_line';
+						$this->add_render_attribute( 'hfe-main-menu', 'class', 'hfe-animation__' . $settings[ $key ] );
+					} elseif ( 'framed' === $settings['pointer'] || 'text' === $settings['pointer'] ) {
+						$key = 'animation_' . $settings['pointer'];
+						$this->add_render_attribute( 'hfe-main-menu', 'class', 'hfe-animation__' . $settings[ $key ] );
+					}
 				}
 			}
-		}
 
-		if ( 'expandible' === $settings['layout'] ) {
-			$this->add_render_attribute( 'hfe-nav-menu', 'class', 'hfe-dropdown-expandible' );
-		}
+			if ( 'expandible' === $settings['layout'] ) {
+				$this->add_render_attribute( 'hfe-nav-menu', 'class', 'hfe-dropdown-expandible' );
+			}
 
-		$this->add_render_attribute(
-			'hfe-nav-menu',
-			'class',
-			[
-				'hfe-nav-menu__layout-' . $settings['layout'],
-				'hfe-nav-menu__submenu-' . $settings['submenu_icon'],
-			]
-		);
+			$this->add_render_attribute(
+				'hfe-nav-menu',
+				'class',
+				[
+					'hfe-nav-menu__layout-' . $settings['layout'],
+					'hfe-nav-menu__submenu-' . $settings['submenu_icon'],
+				]
+			);
 
-		$this->add_render_attribute( 'hfe-nav-menu', 'data-toggle-icon', $settings['dropdown_icon'] );
+			$this->add_render_attribute( 'hfe-nav-menu', 'data-toggle-icon', $settings['dropdown_icon'] );
 
-		$this->add_render_attribute( 'hfe-nav-menu', 'data-close-icon', $settings['dropdown_close_icon'] );
+			$this->add_render_attribute( 'hfe-nav-menu', 'data-close-icon', $settings['dropdown_close_icon'] );
 
-		$this->add_render_attribute( 'hfe-nav-menu', 'data-full-width', $settings['full_width_dropdown'] );
+			$this->add_render_attribute( 'hfe-nav-menu', 'data-full-width', $settings['full_width_dropdown'] );
 
-		?>
-	<div <?php echo $this->get_render_attribute_string( 'hfe-main-menu' ); ?>>
-		<div class="hfe-nav-menu__toggle elementor-clickable">
-			<div class="hfe-nav-menu-icon">
-				<?php if ( $this->is_elementor_updated() ) { ?>
-					<i class="<?php echo esc_attr( $settings['dropdown_icon']['value'] ); ?>" aria-hidden="true" tabindex="0"></i>
-				<?php } else { ?>
-					<i class="<?php echo esc_attr( $settings['dropdown_icon'] ); ?>" aria-hidden="true" tabindex="0"></i>
-				<?php } ?>
+			?>
+			<div <?php echo $this->get_render_attribute_string( 'hfe-main-menu' ); ?>>
+				<div class="hfe-nav-menu__toggle elementor-clickable">
+					<div class="hfe-nav-menu-icon">
+						<?php if ( $this->is_elementor_updated() ) { ?>
+							<i class="<?php echo esc_attr( $settings['dropdown_icon']['value'] ); ?>" aria-hidden="true" tabindex="0"></i>
+						<?php } else { ?>
+							<i class="<?php echo esc_attr( $settings['dropdown_icon'] ); ?>" aria-hidden="true" tabindex="0"></i>
+						<?php } ?>
+					</div>
+				</div>
+				<nav <?php echo $this->get_render_attribute_string( 'hfe-nav-menu' ); ?>><?php echo $menu_html; ?></nav>              
 			</div>
-		</div>
-		<nav <?php echo $this->get_render_attribute_string( 'hfe-nav-menu' ); ?>><?php echo $menu_html; ?></nav>              
-	</div>
-		<?php
+			<?php
+		}		
 	}
 }
 
