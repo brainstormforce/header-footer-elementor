@@ -132,7 +132,7 @@ class Site_Tagline extends Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_control(
 			'icon',
 			[
@@ -141,85 +141,85 @@ class Site_Tagline extends Widget_Base {
 				'label_block' => 'true',
 			]
 		);
-	
+
 		// $this->add_responsive_control(
-		// 	'icon_size',
-		// 	array(
-		// 		'label'      => __( 'Icon Size', 'header-footer-elementor' ),
-		// 		'type'       => Controls_Manager::SLIDER,
-		// 		'size_units' => array( 'px', 'em', 'rem' ),
-		// 		'range'      => array(
-		// 			'px' => array(
-		// 				'min' => 1,
-		// 				'max' => 200,
-		// 			),
-		// 		),
-		// 		'default'    => array(
-		// 			'size' => 40,
-		// 			'unit' => 'px',
-		// 		),
-		// 		'condition' => array(
-		// 			'icon[value]!' => '' 
-		// 		),
-		// 		'selectors'  => array(
-		// 			'{{WRAPPER}} .hfe-icon i' => 'font-size: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};line-height: {{SIZE}}{{UNIT}}; text-align: center;',
-		// 			'{{WRAPPER}} .hfe-icon' => ' height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};line-height: {{SIZE}}{{UNIT}};',
-		// 		),
-		// 	)
+		// 'icon_size',
+		// array(
+		// 'label'      => __( 'Icon Size', 'header-footer-elementor' ),
+		// 'type'       => Controls_Manager::SLIDER,
+		// 'size_units' => array( 'px', 'em', 'rem' ),
+		// 'range'      => array(
+		// 'px' => array(
+		// 'min' => 1,
+		// 'max' => 200,
+		// ),
+		// ),
+		// 'default'    => array(
+		// 'size' => 40,
+		// 'unit' => 'px',
+		// ),
+		// 'condition' => array(
+		// 'icon[value]!' => ''
+		// ),
+		// 'selectors'  => array(
+		// '{{WRAPPER}} .hfe-icon i' => 'font-size: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};line-height: {{SIZE}}{{UNIT}}; text-align: center;',
+		// '{{WRAPPER}} .hfe-icon' => ' height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};line-height: {{SIZE}}{{UNIT}};',
+		// ),
+		// )
 		// );
 
 		$this->add_control(
 			'icon_indent',
-			array(
-				'label'      => __( 'Icon Spacing', 'uael' ),
-				'type'       => Controls_Manager::SLIDER,
-				'range'      => array(
-					'px' => array(
+			[
+				'label'     => __( 'Icon Spacing', 'uael' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => [
+					'px' => [
 						'max' => 50,
-					),
-				),
-				'condition' => array(
-					'icon[value]!' => '' 
-				),
-				'selectors'  => array(
+					],
+				],
+				'condition' => [
+					'icon[value]!' => '',
+				],
+				'selectors' => [
 					'{{WRAPPER}} .hfe-icon' => 'margin-right: {{SIZE}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'icon_color',
-			array(
-				'label'      => __( 'Icon Color', 'uael' ),
-				'type'       => Controls_Manager::COLOR,
-				'scheme'     => array(
+			[
+				'label'     => __( 'Icon Color', 'uael' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => [
 					'type'  => Scheme_Color::get_type(),
 					'value' => Scheme_Color::COLOR_1,
-				),
-				'condition' => array(
-					'icon[value]!' => '' 
-				),
-				'default'    => '',
-				'selectors'  => array(
-					'{{WRAPPER}} .hfe-icon i' => 'color: {{VALUE}};',
+				],
+				'condition' => [
+					'icon[value]!' => '',
+				],
+				'default'   => '',
+				'selectors' => [
+					'{{WRAPPER}} .hfe-icon i'   => 'color: {{VALUE}};',
 					'{{WRAPPER}} .hfe-icon svg' => 'fill: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 		$this->add_control(
 			'icons_hover_color',
-			array(
-				'label'      => __( 'Icon Hover Color', 'uael' ),
-				'type'       => Controls_Manager::COLOR,
-				'condition' => array(
-					'icon[value]!' => '' 
-				),
-				'default'    => '',
-				'selectors'  => array(
-					'{{WRAPPER}} .hfe-icon:hover i'=> 'color: {{VALUE}};',
+			[
+				'label'     => __( 'Icon Hover Color', 'uael' ),
+				'type'      => Controls_Manager::COLOR,
+				'condition' => [
+					'icon[value]!' => '',
+				],
+				'default'   => '',
+				'selectors' => [
+					'{{WRAPPER}} .hfe-icon:hover i'   => 'color: {{VALUE}};',
 					'{{WRAPPER}} .hfe-icon:hover svg' => 'fill: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
@@ -289,9 +289,9 @@ class Site_Tagline extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 		?>
 		<div class="hfe-site-tagline hfe-site-tagline-wrapper">
-			<?php if( '' !== $settings['icon']['value'] ){ ?>
+			<?php if ( '' !== $settings['icon']['value'] ) { ?>
 				<span class="hfe-icon">
-					<?php \Elementor\Icons_Manager::render_icon( $settings['icon'], array( 'aria-hidden' => 'true' ) ); ?>					
+					<?php \Elementor\Icons_Manager::render_icon( $settings['icon'], [ 'aria-hidden' => 'true' ] ); ?>					
 				</span>
 			<?php } ?>
 			<span>
@@ -299,7 +299,7 @@ class Site_Tagline extends Widget_Base {
 			if ( '' !== $settings['before'] ) {
 				echo wp_kses_post( $settings['before'] ) . ' ';
 			}
-			echo wp_kses_post( get_bloginfo( 'description' ) ); 
+			echo wp_kses_post( get_bloginfo( 'description' ) );
 			if ( '' !== $settings['after'] ) {
 				echo ' ' . wp_kses_post( $settings['after'] );
 			}
@@ -332,7 +332,7 @@ class Site_Tagline extends Widget_Base {
 			<#}#>
 			<?php echo wp_kses_post( get_bloginfo( 'description' ) ); ?>
 			<# if ( '' != settings.after ){#>
-			    {{{ ' ' + settings.after }}}
+				{{{ ' ' + settings.after }}}
 			<#}#>
 			</span>
 		</div>

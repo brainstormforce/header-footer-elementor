@@ -6,6 +6,7 @@
  */
 
 namespace HFE\WidgetsManager\Widgets;
+
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
 use Elementor\Scheme_Typography;
@@ -134,7 +135,7 @@ class Site_Title extends Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_control(
 			'icon',
 			[
@@ -143,85 +144,85 @@ class Site_Title extends Widget_Base {
 				'label_block' => 'true',
 			]
 		);
-	
+
 		// $this->add_responsive_control(
-		// 	'icon_size',
-		// 	array(
-		// 		'label'      => __( 'Icon Size', 'header-footer-elementor' ),
-		// 		'type'       => Controls_Manager::SLIDER,
-		// 		'size_units' => array( 'px', 'em', 'rem' ),
-		// 		'range'      => array(
-		// 			'px' => array(
-		// 				'min' => 1,
-		// 				'max' => 200,
-		// 			),
-		// 		),
-		// 		'default'    => array(
-		// 			'size' => 40,
-		// 			'unit' => 'px',
-		// 		),
-		// 		'condition' => array(
-		// 			'icon[value]!' => '' 
-		// 		),
-		// 		'selectors'  => array(
-		// 			'{{WRAPPER}} .hfe-icon i' => 'font-size: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};line-height: {{SIZE}}{{UNIT}}; text-align: center;',
-		// 			'{{WRAPPER}} .hfe-icon' => ' height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};line-height: {{SIZE}}{{UNIT}};',
-		// 		),
-		// 	)
+		// 'icon_size',
+		// array(
+		// 'label'      => __( 'Icon Size', 'header-footer-elementor' ),
+		// 'type'       => Controls_Manager::SLIDER,
+		// 'size_units' => array( 'px', 'em', 'rem' ),
+		// 'range'      => array(
+		// 'px' => array(
+		// 'min' => 1,
+		// 'max' => 200,
+		// ),
+		// ),
+		// 'default'    => array(
+		// 'size' => 40,
+		// 'unit' => 'px',
+		// ),
+		// 'condition' => array(
+		// 'icon[value]!' => ''
+		// ),
+		// 'selectors'  => array(
+		// '{{WRAPPER}} .hfe-icon i' => 'font-size: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};line-height: {{SIZE}}{{UNIT}}; text-align: center;',
+		// '{{WRAPPER}} .hfe-icon' => ' height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};line-height: {{SIZE}}{{UNIT}};',
+		// ),
+		// )
 		// );
 
 		$this->add_control(
 			'icon_indent',
-			array(
-				'label'      => __( 'Icon Spacing', 'uael' ),
-				'type'       => Controls_Manager::SLIDER,
-				'range'      => array(
-					'px' => array(
+			[
+				'label'     => __( 'Icon Spacing', 'uael' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => [
+					'px' => [
 						'max' => 50,
-					),
-				),
-				'condition' => array(
-					'icon[value]!' => '' 
-				),
-				'selectors'  => array(
+					],
+				],
+				'condition' => [
+					'icon[value]!' => '',
+				],
+				'selectors' => [
 					'{{WRAPPER}} .hfe-icon' => 'margin-right: {{SIZE}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'icon_color',
-			array(
-				'label'      => __( 'Icon Color', 'uael' ),
-				'type'       => Controls_Manager::COLOR,
-				'scheme'     => array(
+			[
+				'label'     => __( 'Icon Color', 'uael' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => [
 					'type'  => Scheme_Color::get_type(),
 					'value' => Scheme_Color::COLOR_1,
-				),
-				'condition' => array(
-					'icon[value]!' => '' 
-				),
-				'default'    => '',
-				'selectors'  => array(
-					'{{WRAPPER}} .hfe-icon i' => 'color: {{VALUE}};',
+				],
+				'condition' => [
+					'icon[value]!' => '',
+				],
+				'default'   => '',
+				'selectors' => [
+					'{{WRAPPER}} .hfe-icon i'   => 'color: {{VALUE}};',
 					'{{WRAPPER}} .hfe-icon svg' => 'fill: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 		$this->add_control(
 			'icons_hover_color',
-			array(
-				'label'      => __( 'Icon Hover Color', 'uael' ),
-				'type'       => Controls_Manager::COLOR,
-				'condition' => array(
-					'icon[value]!' => '' 
-				),
-				'default'    => '',
-				'selectors'  => array(
-					'{{WRAPPER}} .hfe-icon:hover i'=> 'color: {{VALUE}};',
+			[
+				'label'     => __( 'Icon Hover Color', 'uael' ),
+				'type'      => Controls_Manager::COLOR,
+				'condition' => [
+					'icon[value]!' => '',
+				],
+				'default'   => '',
+				'selectors' => [
+					'{{WRAPPER}} .hfe-icon:hover i'   => 'color: {{VALUE}};',
 					'{{WRAPPER}} .hfe-icon:hover svg' => 'fill: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
@@ -439,9 +440,9 @@ class Site_Title extends Widget_Base {
 					<a href="<?php echo get_home_url(); ?>">
 				<?php } ?>
 			<<?php echo wp_kses_post( $settings['heading_tag'] ); ?> class="hfe-heading elementor-heading-title">
-				<?php if( '' !== $settings['icon']['value'] ){ ?>
+				<?php if ( '' !== $settings['icon']['value'] ) { ?>
 					<span class="hfe-icon">
-						<?php \Elementor\Icons_Manager::render_icon( $settings['icon'], array( 'aria-hidden' => 'true' ) ); ?>					
+						<?php \Elementor\Icons_Manager::render_icon( $settings['icon'], [ 'aria-hidden' => 'true' ] ); ?>					
 					</span>
 				<?php } ?>
 					<span class="hfe-heading-text elementor-size-<?php echo $settings['size']; ?>" >
@@ -500,7 +501,7 @@ class Site_Title extends Widget_Base {
 				<#}#>
 				<?php echo wp_kses_post( get_bloginfo( 'name' ) ); ?>
 				<# if ( '' != settings.after ){#>
-				    {{{ ' ' + settings.after }}}
+					{{{ ' ' + settings.after }}}
 				<#}#>
 				</span>
 				<# if ( '' != settings.heading_link.url ) { #>
