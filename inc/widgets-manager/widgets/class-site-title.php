@@ -145,32 +145,6 @@ class Site_Title extends Widget_Base {
 			]
 		);
 
-		// $this->add_responsive_control(
-		// 'icon_size',
-		// array(
-		// 'label'      => __( 'Icon Size', 'header-footer-elementor' ),
-		// 'type'       => Controls_Manager::SLIDER,
-		// 'size_units' => array( 'px', 'em', 'rem' ),
-		// 'range'      => array(
-		// 'px' => array(
-		// 'min' => 1,
-		// 'max' => 200,
-		// ),
-		// ),
-		// 'default'    => array(
-		// 'size' => 40,
-		// 'unit' => 'px',
-		// ),
-		// 'condition' => array(
-		// 'icon[value]!' => ''
-		// ),
-		// 'selectors'  => array(
-		// '{{WRAPPER}} .hfe-icon i' => 'font-size: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};line-height: {{SIZE}}{{UNIT}}; text-align: center;',
-		// '{{WRAPPER}} .hfe-icon' => ' height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};line-height: {{SIZE}}{{UNIT}};',
-		// ),
-		// )
-		// );
-
 		$this->add_control(
 			'icon_indent',
 			[
