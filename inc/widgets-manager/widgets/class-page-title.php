@@ -27,6 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Page_Title extends Widget_Base {
 
+
 	/**
 	 * Retrieve the widget name.
 	 *
@@ -106,6 +107,19 @@ class Page_Title extends Widget_Base {
 			'section_general_fields',
 			[
 				'label' => __( 'Title', 'header-footer-elementor' ),
+			]
+		);
+
+		$this->add_control(
+			'new_page_title_select_icon',
+			[
+				'label'       => __( 'Select Icon', 'header-footer-elementor' ),
+				'type'        => Controls_Manager::ICONS,
+				'default'     => [
+					'value'   => 'fa fa-star',
+					'library' => 'fa-solid',
+				],
+				'render_type' => 'template',
 			]
 		);
 
@@ -313,49 +327,31 @@ class Page_Title extends Widget_Base {
 	 * @access protected
 	 */
 	protected function render() {
-		$settings = $this->get_settings_for_display();
-		$title    = '';
-
-		$this->add_render_attribute( 'title', 'class', 'elementor-heading-title' );
-
-		if ( ! empty( $settings['size'] ) ) {
-			$this->add_render_attribute( 'title', 'class', 'elementor-size-' . $settings['size'] );
-		}
-
-		if ( '' !== $settings['before'] ) {
-			$title .= $settings['before'] . ' ';
-		}
-
-		$title .= wp_kses_post( get_the_title() );
-
-		if ( '' !== $settings['after'] ) {
-			$title .= ' ' . $settings['after'];
-		}
-
-		if ( 'custom' === $settings['link'] && ( ! empty( $settings['custom_link']['url'] ) ) ) {
-			$this->add_render_attribute( 'url', 'href', $settings['custom_link']['url'] );
-
-			if ( $settings['custom_link']['is_external'] ) {
-				$this->add_render_attribute( 'url', 'target', '_blank' );
-			}
-
-			if ( ! empty( $settings['custom_link']['nofollow'] ) ) {
-				$this->add_render_attribute( 'url', 'rel', 'nofollow' );
-			}
-
-			$title = sprintf( '<a %1$s>%2$s</a>', $this->get_render_attribute_string( 'url' ), $title );
-		} elseif ( 'default' === $settings['link'] ) {
-			$this->add_render_attribute( 'url', 'href', get_the_permalink() );
-
-			$title = sprintf( '<a %1$s>%2$s</a>', $this->get_render_attribute_string( 'url' ), $title );
-		}
-
-		$title_html = sprintf( '<%1$s %2$s>%3$s</%1$s>', $settings['heading_tag'], $this->get_render_attribute_string( 'title' ), $title );
+		$settings    = $this->get_settings_for_display();
+		$title       = '';
+		$enable_link = false;
 		?>
-
 		<div class="hfe-page-title hfe-page-title-wrapper elementor-widget-heading">
-			<?php echo $title_html; ?>
-		</div>
+			<<?php echo wp_kses_post( $settings['heading_tag'] ); ?> class="elementor-heading-title elementor-size-<?php echo $settings['size']; ?>">
+			<?php if ( '' !== $settings['new_page_title_select_icon']['value'] ) { ?>
+					<span class="hfe-page-title-icon">
+						<?php \Elementor\Icons_Manager::render_icon( $settings['new_page_title_select_icon'], [ 'aria-hidden' => 'true' ] ); ?>             </span>
+			<?php } ?>
+				<?php if ( $enable_link ) { ?>
+					<a>
+				<?php } ?>
+					<?php if ( '' != $settings['before'] ) { ?>
+						<?php echo $settings['before']; ?>
+					<?php } ?>
+				<?php echo wp_kses_post( get_the_title() ); ?>
+					<?php if ( '' != $settings['after'] ) { ?>
+						<?php echo $settings['after']; ?>
+					<?php } ?>
+				<?php if ( $enable_link ) { ?>
+					</a>
+				<?php } ?>
+			</ <?php echo $settings['heading_tag']; ?> > 
+			</div>
 		<?php
 	}
 
@@ -374,16 +370,22 @@ class Page_Title extends Widget_Base {
 		if ( ( 'custom' === settings.link && '' !== settings.custom_link.url ) || 'default' === settings.link ) {
 			enable_link = true;
 		}
+		var iconHTML = elementor.helpers.renderIcon( view, settings.new_page_title_select_icon, { 'aria-hidden': true }, 'i' , 'object' );
 		#>
 		<div class="hfe-page-title hfe-page-title-wrapper elementor-widget-heading">
 			<{{{ settings.heading_tag }}} class="elementor-heading-title elementor-size-{{{ settings.size }}}">
+			<# if( '' != settings.new_page_title_select_icon.value ){ #>
+					<span class="hfe-page-title-icon">
+						{{{iconHTML.value}}}                    
+					</span>
+				<# } #>
 				<# if ( enable_link ) { #>
 					<a>
 				<# } #>
 					<# if ( '' != settings.before ) { #>
 						{{{ settings.before }}}
 					<# } #>
-					<?php echo wp_kses_post( get_the_title() ); ?>
+				<?php echo wp_kses_post( get_the_title() ); ?>
 					<# if ( '' != settings.after ) { #>
 						{{{ settings.after }}}
 					<# } #>
