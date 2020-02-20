@@ -23,17 +23,15 @@ if (! defined('ABSPATH')) {
  *
  * HFE widget for Page Title.
  *
- * @since 1.2.0
+ * @since x.x.x
  */
 class Page_Title extends Widget_Base
 {
 
-
-
     /**
      * Retrieve the widget name.
      *
-     * @since 1.2.0
+     * @since x.x.x
      *
      * @access public
      *
@@ -47,7 +45,7 @@ class Page_Title extends Widget_Base
     /**
      * Retrieve the widget title.
      *
-     * @since 1.2.0
+     * @since x.x.x
      *
      * @access public
      *
@@ -61,7 +59,7 @@ class Page_Title extends Widget_Base
     /**
      * Retrieve the widget icon.
      *
-     * @since 1.2.0
+     * @since x.x.x
      *
      * @access public
      *
@@ -80,7 +78,7 @@ class Page_Title extends Widget_Base
      * Note that currently Elementor supports only one category.
      * When multiple categories passed, Elementor uses the first one.
      *
-     * @since 1.2.0
+     * @since x.x.x
      *
      * @access public
      *
@@ -94,7 +92,7 @@ class Page_Title extends Widget_Base
     /**
      * Register Page Title controls.
      *
-     * @since 1.2.0
+     * @since x.x.x
      * @access protected
      */
     protected function _register_controls()
@@ -106,7 +104,7 @@ class Page_Title extends Widget_Base
     /**
      * Register Page Title General Controls.
      *
-     * @since 1.2.0
+     * @since x.x.x
      * @access protected
      */
     protected function register_content_page_title_controls()
@@ -145,10 +143,6 @@ class Page_Title extends Widget_Base
             [
                 'label'       => __('Select Icon', 'header-footer-elementor'),
                 'type'        => Controls_Manager::ICONS,
-                'default'     => [
-                    'value'   => 'fa fa-star',
-                    'library' => 'fa-solid',
-                ],
                 'render_type' => 'template',
             ]
         );
@@ -168,41 +162,6 @@ class Page_Title extends Widget_Base
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .hfe-page-title-icon' => 'margin-right: {{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'page_title_icon_color',
-            [
-                'label'     => __( 'Icon Color', 'uael' ),
-                'type'      => Controls_Manager::COLOR,
-                'scheme'    => [
-                    'type'  => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
-                'condition' => [
-                    'new_page_title_select_icon[value]!' => '',
-                ],
-                'default'   => '',
-                'selectors' => [
-                    '{{WRAPPER}} .hfe-page-title-icon i'   => 'color: {{VALUE}};',
-                    '{{WRAPPER}} .hfe-page-title-icon svg' => 'fill: {{VALUE}};',
-                ],
-            ]
-        );
-        $this->add_control(
-            'page_title_icons_hover_color',
-            [
-                'label'     => __( 'Icon Hover Color', 'uael' ),
-                'type'      => Controls_Manager::COLOR,
-                'condition' => [
-                    'new_page_title_select_icon[value]!' => '',
-                ],
-                'default'   => '',
-                'selectors' => [
-                    '{{WRAPPER}} .hfe-page-title-icon:hover i'   => 'color: {{VALUE}};',
-                    '{{WRAPPER}} .hfe-page-title-icon:hover svg' => 'fill: {{VALUE}};',
                 ],
             ]
         );
@@ -341,6 +300,8 @@ class Page_Title extends Widget_Base
                     ],
                     'selectors' => [
                         '{{WRAPPER}} .elementor-heading-title, {{WRAPPER}} .hfe-page-title a' => 'color: {{VALUE}};',
+                        '{{WRAPPER}} .hfe-page-title-icon i'   => 'color: {{VALUE}};',
+                        '{{WRAPPER}} .hfe-page-title-icon svg' => 'fill: {{VALUE}};',
                     ],
                 ]
             );
@@ -378,6 +339,54 @@ class Page_Title extends Widget_Base
                     ],
                 ]
             );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'section_icon',
+            [
+                'label' => __( 'Icon', 'header-footer-elementor' ),
+                'tab'   => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'new_page_title_select_icon[value]!' => '',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'page_title_icon_color',
+            [
+                'label'     => __( 'Icon Color', 'uael' ),
+                'type'      => Controls_Manager::COLOR,
+                'scheme'    => [
+                    'type'  => Scheme_Color::get_type(),
+                    'value' => Scheme_Color::COLOR_1,
+                ],
+                'condition' => [
+                    'new_page_title_select_icon[value]!' => '',
+                ],
+                'default'   => '',
+                'selectors' => [
+                    '{{WRAPPER}} .hfe-page-title-icon i'   => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .hfe-page-title-icon svg' => 'fill: {{VALUE}};',
+                ],
+            ]
+        );
+        $this->add_control(
+            'page_title_icons_hover_color',
+            [
+                'label'     => __( 'Icon Hover Color', 'uael' ),
+                'type'      => Controls_Manager::COLOR,
+                'condition' => [
+                    'new_page_title_select_icon[value]!' => '',
+                ],
+                'default'   => '',
+                'selectors' => [
+                    '{{WRAPPER}} .hfe-page-title-icon:hover i'   => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .hfe-page-title-icon:hover svg' => 'fill: {{VALUE}};',
+                ],
+            ]
+        );
 
         $this->end_controls_section();
     }
@@ -418,20 +427,20 @@ class Page_Title extends Widget_Base
                         <a href="<?php echo esc_url($page_title_url); ?>">
             <?php } ?>
             <<?php echo wp_kses_post($settings['heading_tag']); ?> class="elementor-heading-title elementor-size-<?php echo $settings['size']; ?>">
-                        <?php if ('' !== $settings['new_page_title_select_icon']['value']) { ?>
-                                <span class="hfe-page-title-icon">
-                                    <?php \Elementor\Icons_Manager::render_icon($settings['new_page_title_select_icon'], [ 'aria-hidden' => 'true' ]); ?>             </span>
-                        <?php } ?>
-                        
-                        <?php if ('' != $settings['before']) { ?>
-                            <?php echo wp_kses_post($settings['before']); ?>
-                        <?php } ?>
+                <?php if ('' !== $settings['new_page_title_select_icon']['value']) { ?>
+                        <span class="hfe-page-title-icon">
+                            <?php \Elementor\Icons_Manager::render_icon($settings['new_page_title_select_icon'], [ 'aria-hidden' => 'true' ]); ?>             </span>
+                <?php } ?>
+                
+                <?php if ('' != $settings['before']) { ?>
+                    <?php echo wp_kses_post($settings['before']); ?>
+                <?php } ?>
 
-                        <?php echo wp_kses_post(get_the_title()); ?>
+                <?php echo wp_kses_post(get_the_title()); ?>
 
-                        <?php if ('' != $settings['after']) { ?>
-                            <?php echo wp_kses_post($settings['after']); ?>
-                        <?php } ?>  
+                <?php if ('' != $settings['after']) { ?>
+                    <?php echo wp_kses_post($settings['after']); ?>
+                <?php } ?>  
             
             </ <?php echo wp_kses_post($settings['heading_tag']); ?> > 
              <?php if (! empty($settings['page_heading_link']['url'])) { ?>
