@@ -119,19 +119,6 @@ class Page_Title extends Widget_Base
         );
 
         $this->add_control(
-            'new_page_title_select_icon',
-            [
-                'label'       => __('Select Icon', 'header-footer-elementor'),
-                'type'        => Controls_Manager::ICONS,
-                'default'     => [
-                    'value'   => 'fa fa-star',
-                    'library' => 'fa-solid',
-                ],
-                'render_type' => 'template',
-            ]
-        );
-
-        $this->add_control(
             'before',
             [
                 'label'   => __('Before Title text', 'header-footer-elementor'),
@@ -149,6 +136,73 @@ class Page_Title extends Widget_Base
                 'type'    => Controls_Manager::TEXT,
                 'dynamic' => [
                     'active' => true,
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'new_page_title_select_icon',
+            [
+                'label'       => __('Select Icon', 'header-footer-elementor'),
+                'type'        => Controls_Manager::ICONS,
+                'default'     => [
+                    'value'   => 'fa fa-star',
+                    'library' => 'fa-solid',
+                ],
+                'render_type' => 'template',
+            ]
+        );
+
+        $this->add_control(
+            'page_title_icon_indent',
+            [
+                'label'     => __( 'Icon Spacing', 'uael' ),
+                'type'      => Controls_Manager::SLIDER,
+                'range'     => [
+                    'px' => [
+                        'max' => 50,
+                    ],
+                ],
+                'condition' => [
+                    'new_page_title_select_icon[value]!' => '',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .hfe-page-title-icon' => 'margin-right: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'page_title_icon_color',
+            [
+                'label'     => __( 'Icon Color', 'uael' ),
+                'type'      => Controls_Manager::COLOR,
+                'scheme'    => [
+                    'type'  => Scheme_Color::get_type(),
+                    'value' => Scheme_Color::COLOR_1,
+                ],
+                'condition' => [
+                    'new_page_title_select_icon[value]!' => '',
+                ],
+                'default'   => '',
+                'selectors' => [
+                    '{{WRAPPER}} .hfe-page-title-icon i'   => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .hfe-page-title-icon svg' => 'fill: {{VALUE}};',
+                ],
+            ]
+        );
+        $this->add_control(
+            'page_title_icons_hover_color',
+            [
+                'label'     => __( 'Icon Hover Color', 'uael' ),
+                'type'      => Controls_Manager::COLOR,
+                'condition' => [
+                    'new_page_title_select_icon[value]!' => '',
+                ],
+                'default'   => '',
+                'selectors' => [
+                    '{{WRAPPER}} .hfe-page-title-icon:hover i'   => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .hfe-page-title-icon:hover svg' => 'fill: {{VALUE}};',
                 ],
             ]
         );
