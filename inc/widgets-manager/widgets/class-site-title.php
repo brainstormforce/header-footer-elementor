@@ -6,13 +6,13 @@
  */
 
 namespace HFE\WidgetsManager\Widgets;
+
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
 use Elementor\Scheme_Typography;
 use Elementor\Widget_Base;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Scheme_Color;
-
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;   // Exit if accessed directly.
@@ -26,6 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since x.x.x
  */
 class Site_Title extends Widget_Base {
+
 
 	/**
 	 * Retrieve the widget name.
@@ -345,10 +346,10 @@ class Site_Title extends Widget_Base {
 
 		<div class="hfe-module-content hfe-heading-wrapper elementor-widget-heading">
 		<?php if ( ! empty( $settings['heading_link']['url'] ) && 'custom' === $settings['custom_link'] ) { ?>
-					<a <?php echo esc_url_raw( $link ); ?> >
-				<?php } else { ?>
+					<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'url' ) ); ?> >
+		<?php } else { ?>
 					<a href="<?php echo get_home_url(); ?>">
-				<?php } ?>
+		<?php } ?>
 			<<?php echo wp_kses_post( $settings['heading_tag'] ); ?> class="hfe-heading">
 						<span class="hfe-heading-text elementor-heading-title elementor-size-<?php echo $settings['size']; ?>" >
 						<?php
@@ -361,10 +362,11 @@ class Site_Title extends Widget_Base {
 						}
 						?>
 						</span>
-						<?php if ( ! empty( $settings['heading_link']['url'] ) ) { ?>
-					</a>	
-					<?php } ?>					
+										
 			</<?php echo wp_kses_post( $settings['heading_tag'] ); ?>>
+			<?php if ( ! empty( $settings['heading_link']['url'] ) ) { ?>
+					</a>    
+			<?php } ?>  
 		</div>
 		<?php
 	}

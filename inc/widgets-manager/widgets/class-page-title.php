@@ -28,6 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Page_Title extends Widget_Base {
 
 
+
 	/**
 	 * Retrieve the widget name.
 	 *
@@ -146,32 +147,33 @@ class Page_Title extends Widget_Base {
 		);
 
 		$this->add_control(
-			'link',
+			'page_custom_link',
 			[
 				'label'   => __( 'Link', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::SELECT,
-				'default' => 'default',
+				'default' => 'toggle',
 				'options' => [
+					'custom'  => __( 'Custom', 'header-footer-elementor' ),
 					'default' => __( 'Default', 'header-footer-elementor' ),
-					'custom'  => __( 'Custom Link', 'header-footer-elementor' ),
 				],
+				'default' => 'default',
 			]
 		);
 
 		$this->add_control(
-			'custom_link',
+			'page_heading_link',
 			[
-				'label'       => __( 'Enter URL', 'header-footer-elementor' ),
+				'label'       => __( 'Link', 'header-footer-elementor' ),
 				'type'        => Controls_Manager::URL,
 				'placeholder' => __( 'https://your-link.com', 'header-footer-elementor' ),
 				'dynamic'     => [
 					'active' => true,
 				],
 				'default'     => [
-					'url' => '',
+					'url' => get_home_url(),
 				],
 				'condition'   => [
-					'link' => 'custom',
+					'page_custom_link' => 'custom',
 				],
 			]
 		);
@@ -327,31 +329,52 @@ class Page_Title extends Widget_Base {
 	 * @access protected
 	 */
 	protected function render() {
-		$settings    = $this->get_settings_for_display();
-		$title       = '';
-		$enable_link = false;
+		$settings = $this->get_settings_for_display();
+
+		$this->add_inline_editing_attributes( 'page_title', 'basic' );
+
+		if ( ! empty( $settings['page_heading_link']['url'] ) ) {
+			$this->add_render_attribute( 'url', 'href', $settings['page_heading_link']['url'] );
+
+			if ( $settings['page_heading_link']['is_external'] ) {
+				$this->add_render_attribute( 'url', 'target', '_blank' );
+			}
+
+			if ( ! empty( $settings['page_heading_link']['nofollow'] ) ) {
+				$this->add_render_attribute( 'url', 'rel', 'nofollow' );
+			}
+			$link = $this->get_render_attribute_string( 'url' );
+		}
+		$page_title_url = get_home_url();
 		?>
+		
 		<div class="hfe-page-title hfe-page-title-wrapper elementor-widget-heading">
-			<<?php echo wp_kses_post( $settings['heading_tag'] ); ?> class="elementor-heading-title elementor-size-<?php echo $settings['size']; ?>">
-			<?php if ( '' !== $settings['new_page_title_select_icon']['value'] ) { ?>
-					<span class="hfe-page-title-icon">
-						<?php \Elementor\Icons_Manager::render_icon( $settings['new_page_title_select_icon'], [ 'aria-hidden' => 'true' ] ); ?>             </span>
+			<?php if ( '' != $settings['page_heading_link']['url'] && 'custom' === $settings['page_custom_link'] ) { ?>
+						<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'url' ) ); ?> >
+			<?php } else { ?>
+						<a href="<?php echo esc_url( $page_title_url ); ?>">
 			<?php } ?>
-				<?php if ( $enable_link ) { ?>
-					<a>
-				<?php } ?>
-					<?php if ( '' != $settings['before'] ) { ?>
-						<?php echo $settings['before']; ?>
-					<?php } ?>
-				<?php echo wp_kses_post( get_the_title() ); ?>
-					<?php if ( '' != $settings['after'] ) { ?>
-						<?php echo $settings['after']; ?>
-					<?php } ?>
-				<?php if ( $enable_link ) { ?>
-					</a>
-				<?php } ?>
-			</ <?php echo $settings['heading_tag']; ?> > 
-			</div>
+			<<?php echo wp_kses_post( $settings['heading_tag'] ); ?> class="elementor-heading-title elementor-size-<?php echo $settings['size']; ?>">
+						<?php if ( '' !== $settings['new_page_title_select_icon']['value'] ) { ?>
+								<span class="hfe-page-title-icon">
+									<?php \Elementor\Icons_Manager::render_icon( $settings['new_page_title_select_icon'], [ 'aria-hidden' => 'true' ] ); ?>             </span>
+						<?php } ?>
+						
+						<?php if ( '' != $settings['before'] ) { ?>
+							<?php echo wp_kses_post( $settings['before'] ); ?>
+						<?php } ?>
+
+						<?php echo wp_kses_post( get_the_title() ); ?>
+
+						<?php if ( '' != $settings['after'] ) { ?>
+							<?php echo wp_kses_post( $settings['after'] ); ?>
+						<?php } ?> 	
+			
+			</ <?php echo wp_kses_post( $settings['heading_tag'] ); ?> > 
+			 <?php if ( ! empty( $settings['page_heading_link']['url'] ) ) { ?>
+					</a>    
+			<?php } ?>
+		</div>
 		<?php
 	}
 
@@ -366,21 +389,25 @@ class Page_Title extends Widget_Base {
 	protected function content_template() {
 		?>
 		<#
-		var enable_link = false; 
-		if ( ( 'custom' === settings.link && '' !== settings.custom_link.url ) || 'default' === settings.link ) {
-			enable_link = true;
+		if ( '' == settings.page_title ) {
+			return;
+		}
+
+		if ( '' != settings.page_heading_link.url ) {
+			view.addRenderAttribute( 'url', 'href', settings.page_heading_link.url );
 		}
 		var iconHTML = elementor.helpers.renderIcon( view, settings.new_page_title_select_icon, { 'aria-hidden': true }, 'i' , 'object' );
 		#>
 		<div class="hfe-page-title hfe-page-title-wrapper elementor-widget-heading">
+			<# if ( '' != settings.page_heading_link.url ) { #>
+					<a {{{ view.getRenderAttributeString( 'url' ) }}} >
+			<# } #>
 			<{{{ settings.heading_tag }}} class="elementor-heading-title elementor-size-{{{ settings.size }}}">
+			
 			<# if( '' != settings.new_page_title_select_icon.value ){ #>
-					<span class="hfe-page-title-icon">
+					<span class="hfe-page-title-icon" data-elementor-setting-key="page_title" data-elementor-inline-editing-toolbar="basic">
 						{{{iconHTML.value}}}                    
 					</span>
-				<# } #>
-				<# if ( enable_link ) { #>
-					<a>
 				<# } #>
 					<# if ( '' != settings.before ) { #>
 						{{{ settings.before }}}
@@ -389,10 +416,13 @@ class Page_Title extends Widget_Base {
 					<# if ( '' != settings.after ) { #>
 						{{{ settings.after }}}
 					<# } #>
-				<# if ( enable_link ) { #>
-					</a>
-				<# } #>
+			
+				
 			</{{{ settings.heading_tag }}}>
+			<# if ( '' != settings.page_heading_link.url ) { #>
+					</a>
+			<# } #>
+			
 		</div>
 		<?php
 	}
