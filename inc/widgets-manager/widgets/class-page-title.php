@@ -41,7 +41,7 @@ class Page_Title extends Widget_Base
      */
     public function get_name()
     {
-        return 'heading';
+        return 'page-title';
     }
 
     /**
