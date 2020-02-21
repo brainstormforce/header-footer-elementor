@@ -421,13 +421,13 @@ class Site_Title extends Widget_Base {
 				<?php } else { ?>
 					<a href="<?php echo get_home_url(); ?>">
 				<?php } ?>
-			<<?php echo wp_kses_post( $settings['heading_tag'] ); ?> class="hfe-heading elementor-heading-title">
+			<<?php echo wp_kses_post( $settings['heading_tag'] ); ?> class="hfe-heading elementor-heading-title elementor-size-<?php echo $settings['size']; ?>">
 				<?php if ( '' !== $settings['icon']['value'] ) { ?>
 					<span class="hfe-icon">
 						<?php \Elementor\Icons_Manager::render_icon( $settings['icon'], [ 'aria-hidden' => 'true' ] ); ?>					
 					</span>
 				<?php } ?>
-					<span class="hfe-heading-text elementor-size-<?php echo $settings['size']; ?>" >
+					<span class="hfe-heading-text" >
 					<?php
 					if ( '' !== $settings['before'] ) {
 						echo wp_kses_post( $settings['before'] );
@@ -470,16 +470,16 @@ class Site_Title extends Widget_Base {
 		var iconHTML = elementor.helpers.renderIcon( view, settings.icon, { 'aria-hidden': true }, 'i' , 'object' );
 		#>
 		<div class="hfe-module-content hfe-heading-wrapper elementor-widget-heading">
-			<{{{ settings.heading_tag }}} class="hfe-heading elementor-heading-title">
 				<# if ( '' != settings.heading_link.url ) { #>
 					<a {{{ view.getRenderAttributeString( 'url' ) }}} >
 				<# } #>
+				<{{{ settings.heading_tag }}} class="hfe-heading elementor-heading-title elementor-size-{{{ settings.size }}}">
 				<# if( '' != settings.icon.value ){ #>
-					<span class="hfe-icon">
-						{{{iconHTML.value}}}					
-					</span>
+				<span class="hfe-icon">
+					{{{iconHTML.value}}}					
+				</span>
 				<# } #>
-				<span class="hfe-heading-text  elementor-heading-title elementor-size-{{{ settings.size }}}" data-elementor-setting-key="heading_title" data-elementor-inline-editing-toolbar="basic" >
+				<span class="hfe-heading-text  elementor-heading-title" data-elementor-setting-key="heading_title" data-elementor-inline-editing-toolbar="basic" >
 				<#if ( '' != settings.before ){#>
 					{{{ settings.before }}} 
 				<#}#>
