@@ -35,7 +35,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Site_Logo extends Widget_Base {
 
-
 	/**
 	 * Retrieve the widget name.
 	 *
@@ -122,7 +121,7 @@ class Site_Logo extends Widget_Base {
 		$this->add_control(
 			'site_logo_fallback',
 			[
-				'label'       => __( 'Add Fallback', 'header-footer-elementor' ),
+				'label'       => __( 'Custom Image', 'header-footer-elementor' ),
 				'type'        => Controls_Manager::SWITCHER,
 				'yes'         => __( 'Yes', 'uael' ),
 				'no'          => __( 'No', 'uael' ),
@@ -134,7 +133,7 @@ class Site_Logo extends Widget_Base {
 		$this->add_control(
 			'custom_image',
 			[
-				'label'     => __( 'Custom Image', 'header-footer-elementor' ),
+				'label'     => __( 'Add Image', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::MEDIA,
 				'dynamic'   => [
 					'active' => true,
@@ -217,11 +216,12 @@ class Site_Logo extends Widget_Base {
 			[
 				'label'   => __( 'Link', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::SELECT,
-				'default' => 'none',
+				'default' => 'default',
 				'options' => [
-					'none'   => __( 'None', 'header-footer-elementor' ),
-					'file'   => __( 'Media File', 'header-footer-elementor' ),
-					'custom' => __( 'Custom URL', 'header-footer-elementor' ),
+					'default' => __( 'Default', 'header-footer-elementor' ),
+					'none'    => __( 'None', 'header-footer-elementor' ),
+					'file'    => __( 'Media File', 'header-footer-elementor' ),
+					'custom'  => __( 'Custom URL', 'header-footer-elementor' ),
 				],
 			]
 		);
@@ -351,6 +351,17 @@ class Site_Logo extends Widget_Base {
 			[
 				'type'  => Controls_Manager::DIVIDER,
 				'style' => 'thick',
+			]
+		);
+
+		$this->add_control(
+			'site_logo_background_color',
+			[
+				'label'     => __( 'Background Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .hfe-site-logo-set .hfe-site-logo-container' => 'background-color: {{VALUE}};',
+				],
 			]
 		);
 
@@ -702,9 +713,18 @@ class Site_Logo extends Widget_Base {
 
 		$site_image = $this->site_image_url( $size );
 
+		if ( site_url() . '/wp-includes/images/media/default.png' === $site_image ) {
+			$site_image = site_url() . '/wp-content/plugins/elementor/assets/images/placeholder.png';
+		} else {
+			$site_image = $site_image;
+		}
+
 		if ( 'file' === $settings['link_to'] ) {
 				$link = $site_image;
 				$this->add_render_attribute( 'link', 'href', $link );
+		} elseif ( 'default' === $settings['link_to'] ) {
+			$link = site_url();
+			$this->add_render_attribute( 'link', 'href', $link );
 		} else {
 			$link = $this->get_link_url( $settings );
 			$this->add_render_attribute( 'link', 'href', $link['url'] );
@@ -789,18 +809,18 @@ class Site_Logo extends Widget_Base {
 			$image_url = $image_data[0];
 		}
 
-		$class_animation = $site_image_class . $img_animation;
-
-		$image_unset = site_url() . '/wp-includes/images/media/default.png';
-
-		if ( $image_unset !== $image_url ) {
+		if ( site_url() . '/wp-includes/images/media/default.png' === $image_url ) {
+			$image_url = site_url() . '/wp-content/plugins/elementor/assets/images/placeholder.png';
+		} else {
 			$image_url = $image_url;
 		}
 
-		if ( strpos( $_SERVER['HTTP_USER_AGENT'], 'Chrome' ) !== false ) {
-			$date      = new \DateTime();
-			$timestam  = $date->getTimestamp();
-			$image_url = $image_url . '?' . $timestam;
+		$class_animation = $site_image_class . $img_animation;
+
+		$image_unset = site_url() . '/wp-content/plugins/elementor/assets/images/placeholder.png';
+
+		if ( $image_unset !== $image_url ) {
+			$image_url = $image_url;
 		}
 
 		?>
@@ -846,6 +866,13 @@ class Site_Logo extends Widget_Base {
 				return false;
 			}
 			return $settings['link'];
+		}
+
+		if ( 'default' === $settings['link_to'] ) {
+			if ( empty( $settings['link']['url'] ) ) {
+				return false;
+			}
+			return site_url();
 		}
 	}
 }
