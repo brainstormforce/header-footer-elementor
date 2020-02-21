@@ -385,11 +385,11 @@ class Page_Title extends Widget_Base {
 	}
 
 	/**
-	 * Render heading widget output on the frontend.
+	 * Render page title widget output on the frontend.
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access protected
 	 */
 	protected function render() {
@@ -491,7 +491,7 @@ class Page_Title extends Widget_Base {
 	 *
 	 * Remove this after Elementor v3.3.0
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access protected
 	 */
 	protected function _content_template() {
