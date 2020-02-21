@@ -408,13 +408,12 @@ class Page_Title extends Widget_Base {
 			}
 			$link = $this->get_render_attribute_string( 'url' );
 		}
-		$page_title_url = get_home_url();
 		?>		
 		<div class="hfe-page-title hfe-page-title-wrapper elementor-widget-heading">
 			<?php if ( '' != $settings['page_heading_link']['url'] && 'custom' === $settings['page_custom_link'] ) { ?>
-						<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'url' ) ); ?> >
+						<a <?php echo esc_attr( $link ); ?> >
 			<?php } else { ?>
-						<a href="<?php echo esc_url( $page_title_url ); ?>">
+						<a href="<?php echo esc_url( get_home_url() ); ?>">
 			<?php } ?>
 			<<?php echo wp_kses_post( $settings['heading_tag'] ); ?> class="elementor-heading-title elementor-size-<?php echo $settings['size']; ?>">
 				<?php if ( '' !== $settings['new_page_title_select_icon']['value'] ) { ?>
@@ -431,9 +430,7 @@ class Page_Title extends Widget_Base {
 					<?php echo wp_kses_post( $settings['after'] ); ?>
 				<?php } ?>  
 			</<?php echo wp_kses_post( $settings['heading_tag'] ); ?> > 
-			<?php if ( ! empty( $settings['page_heading_link']['url'] ) ) { ?>
-					</a>    
-				<?php } ?>
+			</a>    
 		</div>
 		<?php
 	}
@@ -463,7 +460,7 @@ class Page_Title extends Widget_Base {
 					<a {{{ view.getRenderAttributeString( 'url' ) }}} >
 			<# } #>
 			<{{{ settings.heading_tag }}} class="elementor-heading-title elementor-size-{{{ settings.size }}}">		
-			<# if( '' != settings.new_page_title_select_icon.value ){ #>
+				<# if( '' != settings.new_page_title_select_icon.value ){ #>
 					<span class="hfe-page-title-icon" data-elementor-setting-key="page_title" data-elementor-inline-editing-toolbar="basic">
 						{{{iconHTML.value}}}                    
 					</span>

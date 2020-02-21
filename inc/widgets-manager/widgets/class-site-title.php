@@ -438,11 +438,9 @@ class Site_Title extends Widget_Base {
 						echo wp_kses_post( $settings['after'] );
 					}
 					?>
-					</span>
-					<?php if ( ! empty( $settings['heading_link']['url'] ) ) { ?>
-				<?php } ?>					
+					</span>			
 			</<?php echo wp_kses_post( $settings['heading_tag'] ); ?>>
-			</a>	
+			</a>		
 		</div>
 		<?php
 	}
