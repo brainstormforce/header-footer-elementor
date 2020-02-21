@@ -35,11 +35,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Site_Logo extends Widget_Base {
 
-
-
-
-
-
 	/**
 	 * Retrieve the widget name.
 	 *
