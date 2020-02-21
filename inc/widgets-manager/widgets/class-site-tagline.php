@@ -161,40 +161,7 @@ class Site_Tagline extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'icon_color',
-			[
-				'label'     => __( 'Icon Color', 'uael' ),
-				'type'      => Controls_Manager::COLOR,
-				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				],
-				'condition' => [
-					'icon[value]!' => '',
-				],
-				'default'   => '',
-				'selectors' => [
-					'{{WRAPPER}} .hfe-icon i'   => 'color: {{VALUE}};',
-					'{{WRAPPER}} .hfe-icon svg' => 'fill: {{VALUE}};',
-				],
-			]
-		);
-		$this->add_control(
-			'icons_hover_color',
-			[
-				'label'     => __( 'Icon Hover Color', 'uael' ),
-				'type'      => Controls_Manager::COLOR,
-				'condition' => [
-					'icon[value]!' => '',
-				],
-				'default'   => '',
-				'selectors' => [
-					'{{WRAPPER}} .hfe-icon:hover i'   => 'color: {{VALUE}};',
-					'{{WRAPPER}} .hfe-icon:hover svg' => 'fill: {{VALUE}};',
-				],
-			]
-		);
+		
 
 		$this->add_responsive_control(
 			'heading_text_align',
@@ -244,6 +211,43 @@ class Site_Tagline extends Widget_Base {
 				],
 				'selectors' => [
 					'{{WRAPPER}} .hfe-site-tagline' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .hfe-icon i'   => 'color: {{VALUE}};',
+					'{{WRAPPER}} .hfe-icon svg' => 'fill: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'icon_color',
+			[
+				'label'     => __( 'Icon Color', 'uael' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => [
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_1,
+				],
+				'condition' => [
+					'icon[value]!' => '',
+				],
+				'default'   => '',
+				'selectors' => [
+					'{{WRAPPER}} .hfe-icon i'   => 'color: {{VALUE}};',
+					'{{WRAPPER}} .hfe-icon svg' => 'fill: {{VALUE}};',
+				],
+			]
+		);
+		$this->add_control(
+			'icons_hover_color',
+			[
+				'label'     => __( 'Icon Hover Color', 'uael' ),
+				'type'      => Controls_Manager::COLOR,
+				'condition' => [
+					'icon[value]!' => '',
+				],
+				'default'   => '',
+				'selectors' => [
+					'{{WRAPPER}} .hfe-icon:hover i'   => 'color: {{VALUE}};',
+					'{{WRAPPER}} .hfe-icon:hover svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -271,10 +275,10 @@ class Site_Tagline extends Widget_Base {
 			<span>
 			<?php
 			if ( '' !== $settings['before'] ) {
-				echo wp_kses_post( $settings['before'] ) . ' ';
-			}
-			echo wp_kses_post( get_bloginfo( 'description' ) );
-			if ( '' !== $settings['after'] ) {
+				echo wp_kses_post( $settings['before'] );
+			}?>
+			<?php echo wp_kses_post( get_bloginfo( 'description' ) ); ?>
+			<?php if ( '' !== $settings['after'] ) {
 				echo ' ' . wp_kses_post( $settings['after'] );
 			}
 			?>
