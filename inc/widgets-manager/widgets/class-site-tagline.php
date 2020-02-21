@@ -306,11 +306,11 @@ class Site_Tagline extends Widget_Base {
 			<# } #>
 			<span>
 			<#if ( '' != settings.before ){#>
-				{{{ settings.before + ' ' }}} 
+				{{{ settings.before}}} 
 			<#}#>
 			<?php echo wp_kses_post( get_bloginfo( 'description' ) ); ?>
 			<# if ( '' != settings.after ){#>
-				{{{ ' ' + settings.after }}}
+				{{{ settings.after }}}
 			<#}#>
 			</span>
 		</div>
