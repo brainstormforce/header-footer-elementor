@@ -200,7 +200,7 @@ class Site_Logo extends Widget_Base {
 				'label'       => __( 'Custom Caption', 'header-footer-elementor' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => '',
-				'placeholder' => __( 'Enter your image caption', 'header-footer-elementor' ),
+				'placeholder' => __( 'Enter caption', 'header-footer-elementor' ),
 				'condition'   => [
 					'caption_source' => 'yes',
 				],
@@ -684,7 +684,7 @@ class Site_Logo extends Widget_Base {
 	 * @param array $size returns the size of an image.
 	 * @access public
 	 */
-	public function site_image_url( $size = 'post-thumbnail' ) {
+	public function site_image_url( $size ) {
 		$settings = $this->get_settings_for_display();
 		if ( ! empty( $settings['custom_image']['url'] ) ) {
 			$logo = wp_get_attachment_image_src( $settings['custom_image']['id'], $size, true );
@@ -709,7 +709,7 @@ class Site_Logo extends Widget_Base {
 
 		$this->add_render_attribute( 'wrapper', 'class', 'hfe-site-logo' );
 
-		$size = $settings[ 'site_logo_size' . '_size' ];
+		$size = $settings[ 'site_logo_size_size' ];
 
 		$site_image = $this->site_image_url( $size );
 
@@ -765,7 +765,7 @@ class Site_Logo extends Widget_Base {
 		} else {
 			require_once ELEMENTOR_PATH . 'includes/libraries/bfi-thumb/bfi-thumb.php';
 
-			$image_dimension = $settings[ 'site_logo_size' . '_custom_dimension' ];
+			$image_dimension = $settings[ 'site_logo_size_custom_dimension' ];
 
 			$image_size = [
 				// Defaults sizes.
