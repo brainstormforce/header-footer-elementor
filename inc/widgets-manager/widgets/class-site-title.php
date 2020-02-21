@@ -487,10 +487,10 @@ class Site_Title extends Widget_Base {
 					{{{ settings.after }}}
 				<#}#>
 				</span>
-				<# if ( '' != settings.heading_link.url ) { #>
-					</a>
-				<# } #>
 			</{{{ settings.heading_tag }}}>
+			<# if ( '' != settings.heading_link.url ) { #>
+				</a>
+			<# } #>
 		</div>
 		<?php
 	}
