@@ -166,7 +166,6 @@ class Site_Title extends Widget_Base {
 			[
 				'label'   => __( 'Link', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::SELECT,
-				'default' => 'toggle',
 				'options' => [
 					'custom'  => __( 'Custom URL', 'header-footer-elementor' ),
 					'default' => __( 'Default', 'header-footer-elementor' ),
