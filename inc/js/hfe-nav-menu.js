@@ -12,6 +12,7 @@
 		var id = $scope.data( 'id' );
 		var wrapper = $scope.find('.elementor-widget-hfe-nav-menu ');		
 		var layout = $( '.elementor-element-' + id + ' .hfe-nav-menu' ).data( 'layout' );
+		var flyout_data = $( '.hfe-flyout-wrapper' ).data( 'flyout-class' );
 
 		$( 'div.hfe-has-submenu-container' ).removeClass( 'sub-menu-active' );
 
@@ -28,7 +29,22 @@
 			_eventClick( id );
 		}
 		
-		_borderClass( id );		
+		_borderClass( id );	
+
+		$( '.elementor-element-' + id + ' .hfe-nav-menu-icon' ).off( 'click keyup' ).on( 'click keyup', function() {
+
+			_openMenu( id );
+		} );
+
+		$( '.elementor-element-' + id + ' .hfe-flyout-close' ).off( 'click keyup' ).on( 'click keyup', function() {
+
+			_closeMenu( id );
+		} );
+
+		$( '.elementor-element-' + id + ' .hfe-flyout-overlay' ).off( 'click' ).on( 'click', function() {
+
+			_closeMenu( id );
+		} );	
 
 
 		$scope.find( '.sub-menu' ).each( function() {
@@ -57,7 +73,7 @@
 				$( '.elementor-element-' + id + ' div.hfe-has-submenu-container' ).next().css( 'position', 'absolute');	
 			}
 
-			if( 'expandible' == layout ){
+			if( 'expandible' == layout || 'flyout' == layout ){
 
 				_toggleClick( id );
 			}else if ( 'vertical' == layout || 'horizontal' == layout ) {
@@ -158,6 +174,93 @@
 		  		
 		});
 	};
+
+	function _openMenu( id ) {
+
+		var layout = $( '#hfe-flyout-content-id-' + id ).data( 'layout' );
+		var layout_type = $( '#hfe-flyout-content-id-' + id ).data( 'flyout-type' );
+		var wrap_width = $( '#hfe-flyout-content-id-' + id ).data( 'width' ) + 'px';
+		var container = $( '.elementor-element-' + id + ' .hfe-flyout-container .hfe-side.hfe-flyout-' + layout );
+
+		$( '.elementor-element-' + id + ' .hfe-flyout-overlay' ).fadeIn( 100 );
+
+		if( 'left' == layout ) {
+
+			$( 'body' ).css( 'margin-left' , '0' );
+			container.css( 'left', '0' );
+
+			if( 'push' == layout_type ) {
+
+				$( 'body' ).addClass( 'hfe-flyout-animating' ).css({ 
+					position: 'absolute',
+					width: '100%',
+					'margin-left' : wrap_width,
+					'margin-right' : 'auto'
+				});
+			}		
+		} else {
+
+			$( 'body' ).css( 'margin-right', '0' );
+			container.css( 'right', '0' );
+
+			if( 'push' == layout_type ) {
+
+				$( 'body' ).addClass( 'hfe-flyout-animating' ).css({ 
+					position: 'absolute',
+					width: '100%',
+					'margin-left' : '-' + wrap_width,
+					'margin-right' : 'auto',
+				});
+			}
+		}		
+	}
+
+	function _closeMenu( id ) {
+
+		var layout    = $( '#hfe-flyout-content-id-' + id ).data( 'layout' );
+		var wrap_width = $( '#hfe-flyout-content-id-' + id ).data( 'width' ) + 'px';
+		var layout_type = $( '#hfe-flyout-content-id-' + id ).data( 'flyout-type' );
+		var container = $( '.elementor-element-' + id + ' .hfe-flyout-container .hfe-side.hfe-flyout-' + layout );
+
+		$( '.elementor-element-' + id + ' .hfe-flyout-overlay' ).fadeOut( 100 );	
+
+		if( 'left' == layout ) {
+
+			container.css( 'left', '-' + wrap_width );
+
+			if( 'push' == layout_type ) {
+
+				$( 'body' ).css({ 
+					position: '',
+					'margin-left' : '',
+					'margin-right' : '',
+				});
+
+				setTimeout( function() {
+					$( 'body' ).removeClass( 'hfe-flyout-animating' ).css({ 
+						width: '',
+					});
+				});
+			}			
+		} else {
+			container.css( 'right', '-' + wrap_width );
+			
+			if( 'push' == layout_type ) {
+
+				$( 'body' ).css({
+					position: '',
+					'margin-right' : '',
+					'margin-left' : '',
+				});
+
+				setTimeout( function() {
+					$( 'body' ).removeClass( 'hfe-flyout-animating' ).css({ 
+						width: '',
+					});
+				});
+			}
+		}	
+	}
 
 	function _eventClick( id ){
 

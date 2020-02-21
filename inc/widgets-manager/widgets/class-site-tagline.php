@@ -109,6 +109,58 @@ class Site_Tagline extends Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'before',
+			[
+				'label'   => __( 'Before Title Text', 'header-footer-elementor' ),
+				'type'    => Controls_Manager::TEXTAREA,
+				'rows'    => '1',
+				'dynamic' => [
+					'active' => true,
+				],
+			]
+		);
+
+		$this->add_control(
+			'after',
+			[
+				'label'   => __( 'After Title Text', 'header-footer-elementor' ),
+				'type'    => Controls_Manager::TEXTAREA,
+				'rows'    => '1',
+				'dynamic' => [
+					'active' => true,
+				],
+			]
+		);
+
+		$this->add_control(
+			'icon',
+			[
+				'label'       => __( 'Icon', 'header-footer-elementor' ),
+				'type'        => Controls_Manager::ICONS,
+				'label_block' => 'true',
+			]
+		);
+
+		$this->add_control(
+			'icon_indent',
+			[
+				'label'     => __( 'Icon Spacing', 'uael' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => [
+					'px' => [
+						'max' => 50,
+					],
+				],
+				'condition' => [
+					'icon[value]!' => '',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .hfe-icon' => 'margin-right: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
 		$this->add_responsive_control(
 			'heading_text_align',
 			[
@@ -157,6 +209,43 @@ class Site_Tagline extends Widget_Base {
 				],
 				'selectors' => [
 					'{{WRAPPER}} .hfe-site-tagline' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .hfe-icon i'       => 'color: {{VALUE}};',
+					'{{WRAPPER}} .hfe-icon svg'     => 'fill: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'icon_color',
+			[
+				'label'     => __( 'Icon Color', 'uael' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => [
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_1,
+				],
+				'condition' => [
+					'icon[value]!' => '',
+				],
+				'default'   => '',
+				'selectors' => [
+					'{{WRAPPER}} .hfe-icon i'   => 'color: {{VALUE}};',
+					'{{WRAPPER}} .hfe-icon svg' => 'fill: {{VALUE}};',
+				],
+			]
+		);
+		$this->add_control(
+			'icons_hover_color',
+			[
+				'label'     => __( 'Icon Hover Color', 'uael' ),
+				'type'      => Controls_Manager::COLOR,
+				'condition' => [
+					'icon[value]!' => '',
+				],
+				'default'   => '',
+				'selectors' => [
+					'{{WRAPPER}} .hfe-icon:hover i'   => 'color: {{VALUE}};',
+					'{{WRAPPER}} .hfe-icon:hover svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -173,9 +262,27 @@ class Site_Tagline extends Widget_Base {
 	 * @access protected
 	 */
 	protected function render() {
+		$settings = $this->get_settings_for_display();
 		?>
 		<div class="hfe-site-tagline hfe-site-tagline-wrapper">
-			<span><?php echo wp_kses_post( get_bloginfo( 'description' ) ); ?></span>
+			<?php if ( '' !== $settings['icon']['value'] ) { ?>
+				<span class="hfe-icon">
+					<?php \Elementor\Icons_Manager::render_icon( $settings['icon'], [ 'aria-hidden' => 'true' ] ); ?>					
+				</span>
+			<?php } ?>
+			<span>
+			<?php
+			if ( '' !== $settings['before'] ) {
+				echo wp_kses_post( $settings['before'] );
+			}
+			?>
+			<?php echo wp_kses_post( get_bloginfo( 'description' ) ); ?>
+			<?php
+			if ( '' !== $settings['after'] ) {
+				echo ' ' . wp_kses_post( $settings['after'] );
+			}
+			?>
+			</span>
 		</div>
 		<?php
 	}
@@ -190,8 +297,22 @@ class Site_Tagline extends Widget_Base {
 	 */
 	protected function content_template() {
 		?>
+		<# var iconHTML = elementor.helpers.renderIcon( view, settings.icon, { 'aria-hidden': true }, 'i' , 'object' ); #>
 		<div class="hfe-site-tagline hfe-site-tagline-wrapper">
-			<span><?php echo wp_kses_post( get_bloginfo( 'description' ) ); ?></span>
+			<# if( '' != settings.icon.value ){ #>
+				<span class="hfe-icon">
+					{{{iconHTML.value}}}					
+				</span>
+			<# } #>
+			<span>
+			<#if ( '' != settings.before ){#>
+				{{{ settings.before}}} 
+			<#}#>
+			<?php echo wp_kses_post( get_bloginfo( 'description' ) ); ?>
+			<# if ( '' != settings.after ){#>
+				{{{ settings.after }}}
+			<#}#>
+			</span>
 		</div>
 		<?php
 	}
