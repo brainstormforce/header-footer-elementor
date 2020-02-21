@@ -113,7 +113,7 @@ class Page_Title extends Widget_Base {
 		$this->add_control(
 			'before',
 			[
-				'label'   => __( 'Before Title text', 'header-footer-elementor' ),
+				'label'   => __( 'Before Title Text', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::TEXT,
 				'dynamic' => [
 					'active' => true,
