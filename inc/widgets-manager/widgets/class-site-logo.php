@@ -709,7 +709,7 @@ class Site_Logo extends Widget_Base {
 
 		$this->add_render_attribute( 'wrapper', 'class', 'hfe-site-logo' );
 
-		$size = $settings[ 'site_logo_size_size' ];
+		$size = $settings['site_logo_size_size'];
 
 		$site_image = $this->site_image_url( $size );
 
@@ -765,7 +765,7 @@ class Site_Logo extends Widget_Base {
 		} else {
 			require_once ELEMENTOR_PATH . 'includes/libraries/bfi-thumb/bfi-thumb.php';
 
-			$image_dimension = $settings[ 'site_logo_size_custom_dimension' ];
+			$image_dimension = $settings['site_logo_size_custom_dimension'];
 
 			$image_size = [
 				// Defaults sizes.

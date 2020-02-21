@@ -161,8 +161,6 @@ class Site_Tagline extends Widget_Base {
 			]
 		);
 
-		
-
 		$this->add_responsive_control(
 			'heading_text_align',
 			[
@@ -211,8 +209,8 @@ class Site_Tagline extends Widget_Base {
 				],
 				'selectors' => [
 					'{{WRAPPER}} .hfe-site-tagline' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .hfe-icon i'   => 'color: {{VALUE}};',
-					'{{WRAPPER}} .hfe-icon svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .hfe-icon i'       => 'color: {{VALUE}};',
+					'{{WRAPPER}} .hfe-icon svg'     => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -276,9 +274,11 @@ class Site_Tagline extends Widget_Base {
 			<?php
 			if ( '' !== $settings['before'] ) {
 				echo wp_kses_post( $settings['before'] );
-			}?>
+			}
+			?>
 			<?php echo wp_kses_post( get_bloginfo( 'description' ) ); ?>
-			<?php if ( '' !== $settings['after'] ) {
+			<?php
+			if ( '' !== $settings['after'] ) {
 				echo ' ' . wp_kses_post( $settings['after'] );
 			}
 			?>
