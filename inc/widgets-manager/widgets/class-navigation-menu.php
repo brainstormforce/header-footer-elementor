@@ -916,7 +916,7 @@ class Navigation_Menu extends Widget_Base {
 							],
 							'selectors' => [
 								'{{WRAPPER}} .menu-item a.hfe-menu-item:hover,
-								{{WRAPPER}} .sub-menu a:hover,
+								{{WRAPPER}} .sub-menu a.hfe-sub-menu-item:hover,
 								{{WRAPPER}} .menu-item.current-menu-item a.hfe-menu-item,
 								{{WRAPPER}} .menu-item a.hfe-menu-item.highlighted,
 								{{WRAPPER}} .menu-item a.hfe-menu-item:focus' => 'color: {{VALUE}}',
@@ -931,7 +931,7 @@ class Navigation_Menu extends Widget_Base {
 							'type'      => Controls_Manager::COLOR,
 							'selectors' => [
 								'{{WRAPPER}} .menu-item a.hfe-menu-item:hover,
-								{{WRAPPER}} .sub-menu a:hover,
+								{{WRAPPER}} .sub-menu a.hfe-sub-menu-item:hover,
 								{{WRAPPER}} .menu-item.current-menu-item a.hfe-menu-item,
 								{{WRAPPER}} .menu-item a.hfe-menu-item.highlighted,
 								{{WRAPPER}} .menu-item a.hfe-menu-item:focus' => 'background-color: {{VALUE}}',
