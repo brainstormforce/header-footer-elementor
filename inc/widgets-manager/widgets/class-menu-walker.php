@@ -19,7 +19,7 @@ class Menu_Walker extends \Walker_Nav_Menu {
 	/**
 	 * Start element
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @param string $output Output HTML.
 	 * @param object $item Individual Menu item.
 	 * @param int    $depth Depth.
@@ -86,7 +86,7 @@ class Menu_Walker extends \Walker_Nav_Menu {
 	/**
 	 * Display element
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @param object $element Individual Menu element.
 	 * @param object $children_elements Child Elements.
 	 * @param int    $max_depth Maximum Depth.

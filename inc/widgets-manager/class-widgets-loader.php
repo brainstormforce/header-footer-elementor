@@ -62,7 +62,7 @@ class Widgets_Loader {
 	 * Returns Script array.
 	 *
 	 * @return array()
-	 * @since x.x.x
+	 * @since 1.3.0
 	 */
 	public static function get_widget_script() {
 		$js_files = [
@@ -80,7 +80,7 @@ class Widgets_Loader {
 	 * Returns Script array.
 	 *
 	 * @return array()
-	 * @since x.x.x
+	 * @since 1.3.0
 	 */
 	public static function get_widget_list() {
 		$widget_list = [

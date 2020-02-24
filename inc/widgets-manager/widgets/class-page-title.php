@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * HFE widget for Page Title.
  *
- * @since x.x.x
+ * @since 1.3.0
  */
 class Page_Title extends Widget_Base {
 
@@ -31,7 +31,7 @@ class Page_Title extends Widget_Base {
 	/**
 	 * Retrieve the widget name.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 *
 	 * @access public
 	 *
@@ -44,7 +44,7 @@ class Page_Title extends Widget_Base {
 	/**
 	 * Retrieve the widget title.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 *
 	 * @access public
 	 *
@@ -57,7 +57,7 @@ class Page_Title extends Widget_Base {
 	/**
 	 * Retrieve the widget icon.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 *
 	 * @access public
 	 *
@@ -75,7 +75,7 @@ class Page_Title extends Widget_Base {
 	 * Note that currently Elementor supports only one category.
 	 * When multiple categories passed, Elementor uses the first one.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 *
 	 * @access public
 	 *
@@ -88,7 +88,7 @@ class Page_Title extends Widget_Base {
 	/**
 	 * Register Page Title controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @access protected
 	 */
 	protected function _register_controls() {
@@ -99,7 +99,7 @@ class Page_Title extends Widget_Base {
 	/**
 	 * Register Page Title General Controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @access protected
 	 */
 	protected function register_content_page_title_controls() {
@@ -144,7 +144,7 @@ class Page_Title extends Widget_Base {
 		$this->add_control(
 			'page_title_icon_indent',
 			[
-				'label'     => __( 'Icon Spacing', 'uael' ),
+				'label'     => __( 'Icon Spacing', 'uael', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => [
 					'px' => [
@@ -260,7 +260,7 @@ class Page_Title extends Widget_Base {
 	/**
 	 * Register Page Title Style Controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @access protected
 	 */
 	protected function register_page_title_style_controls() {
@@ -348,7 +348,7 @@ class Page_Title extends Widget_Base {
 		$this->add_control(
 			'page_title_icon_color',
 			[
-				'label'     => __( 'Icon Color', 'uael' ),
+				'label'     => __( 'Icon Color', 'uael', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'scheme'    => [
 					'type'  => Scheme_Color::get_type(),
@@ -367,7 +367,7 @@ class Page_Title extends Widget_Base {
 		$this->add_control(
 			'page_title_icons_hover_color',
 			[
-				'label'     => __( 'Icon Hover Color', 'uael' ),
+				'label'     => __( 'Icon Hover Color', 'uael', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'new_page_title_select_icon[value]!' => '',
@@ -388,7 +388,7 @@ class Page_Title extends Widget_Base {
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @access protected
 	 */
 	protected function render() {
@@ -440,7 +440,7 @@ class Page_Title extends Widget_Base {
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @access protected
 	 */
 	protected function content_template() {
@@ -487,7 +487,7 @@ class Page_Title extends Widget_Base {
 	 *
 	 * Remove this after Elementor v3.3.0
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @access protected
 	 */
 	protected function _content_template() {

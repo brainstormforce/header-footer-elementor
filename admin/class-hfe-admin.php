@@ -41,7 +41,7 @@ class HFE_Admin {
 	/**
 	 * Load the icons style in editor.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 */
 	public static function load_admin() {
 		add_action( 'elementor/editor/after_enqueue_styles', __CLASS__ . '::hfe_admin_enqueue_scripts' );
@@ -50,7 +50,7 @@ class HFE_Admin {
 	/**
 	 * Enqueue admin scripts
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @param string $hook Current page hook.
 	 * @access public
 	 */

@@ -40,7 +40,7 @@ class Navigation_Menu extends Widget_Base {
 	/**
 	 * Retrieve the widget name.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 *
 	 * @access public
 	 *
@@ -53,7 +53,7 @@ class Navigation_Menu extends Widget_Base {
 	/**
 	 * Retrieve the widget title.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 *
 	 * @access public
 	 *
@@ -66,7 +66,7 @@ class Navigation_Menu extends Widget_Base {
 	/**
 	 * Retrieve the widget icon.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 *
 	 * @access public
 	 *
@@ -84,7 +84,7 @@ class Navigation_Menu extends Widget_Base {
 	 * Note that currently Elementor supports only one category.
 	 * When multiple categories passed, Elementor uses the first one.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 *
 	 * @access public
 	 *
@@ -99,7 +99,7 @@ class Navigation_Menu extends Widget_Base {
 	 *
 	 * Used to set scripts dependencies required to run the widget.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @access public
 	 *
 	 * @return array Widget scripts dependencies.
@@ -113,7 +113,7 @@ class Navigation_Menu extends Widget_Base {
 	 *
 	 * Used to get index of nav menu.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @access protected
 	 *
 	 * @return string nav index.
@@ -127,7 +127,7 @@ class Navigation_Menu extends Widget_Base {
 	 *
 	 * Used to get the list of available menus.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @access private
 	 *
 	 * @return array get WordPress menus list.
@@ -148,7 +148,7 @@ class Navigation_Menu extends Widget_Base {
 	/**
 	 * Check if the Elementor is updated.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 *
 	 * @return boolean if Elementor updated.
 	 */
@@ -164,7 +164,7 @@ class Navigation_Menu extends Widget_Base {
 	/**
 	 * Register Nav Menu controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @access protected
 	 */
 	protected function _register_controls() {
@@ -177,7 +177,7 @@ class Navigation_Menu extends Widget_Base {
 	/**
 	 * Register Nav Menu General Controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @access protected
 	 */
 	protected function register_general_content_controls() {
@@ -563,7 +563,7 @@ class Navigation_Menu extends Widget_Base {
 	/**
 	 * Register Nav Menu General Controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @access protected
 	 */
 	protected function register_style_content_controls() {
@@ -1032,7 +1032,7 @@ class Navigation_Menu extends Widget_Base {
 	/**
 	 * Register Nav Menu General Controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @access protected
 	 */
 	protected function register_dropdown_content_controls() {
@@ -1538,7 +1538,7 @@ class Navigation_Menu extends Widget_Base {
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @access protected
 	 */
 	protected function render() {

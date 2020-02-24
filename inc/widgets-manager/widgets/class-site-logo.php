@@ -31,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * HFE widget for Site Logo.
  *
- * @since x.x.x
+ * @since 1.3.0
  */
 class Site_Logo extends Widget_Base {
 
@@ -39,7 +39,7 @@ class Site_Logo extends Widget_Base {
 	/**
 	 * Retrieve the widget name.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 *
 	 * @access public
 	 *
@@ -52,7 +52,7 @@ class Site_Logo extends Widget_Base {
 	/**
 	 * Retrieve the widget title.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 *
 	 * @access public
 	 *
@@ -65,7 +65,7 @@ class Site_Logo extends Widget_Base {
 	/**
 	 * Retrieve the widget icon.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 *
 	 * @access public
 	 *
@@ -83,7 +83,7 @@ class Site_Logo extends Widget_Base {
 	 * Note that currently Elementor supports only one category.
 	 * When multiple categories passed, Elementor uses the first one.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 *
 	 * @access public
 	 *
@@ -96,7 +96,7 @@ class Site_Logo extends Widget_Base {
 	/**
 	 * Register Site Logo controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @access protected
 	 */
 	protected function _register_controls() {
@@ -108,7 +108,7 @@ class Site_Logo extends Widget_Base {
 	/**
 	 * Register Site Logo General Controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @access protected
 	 */
 	protected function register_content_site_logo_controls() {
@@ -124,8 +124,8 @@ class Site_Logo extends Widget_Base {
 			[
 				'label'       => __( 'Custom Image', 'header-footer-elementor' ),
 				'type'        => Controls_Manager::SWITCHER,
-				'yes'         => __( 'Yes', 'uael' ),
-				'no'          => __( 'No', 'uael' ),
+				'yes'         => __( 'Yes', 'uael', 'header-footer-elementor' ),
+				'no'          => __( 'No', 'uael', 'header-footer-elementor' ),
 				'default'     => 'no',
 				'render_type' => 'template',
 			]
@@ -273,7 +273,7 @@ class Site_Logo extends Widget_Base {
 	/**
 	 * Register Site Image Style Controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @access protected
 	 */
 	protected function register_site_logo_styling_controls() {
@@ -551,7 +551,7 @@ class Site_Logo extends Widget_Base {
 	/**
 	 * Register Site Logo style Controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @access protected
 	 */
 	protected function register_site_logo_caption_styling_controls() {
@@ -649,7 +649,7 @@ class Site_Logo extends Widget_Base {
 	 * Check if the current widget has caption
 	 *
 	 * @access private
-	 * @since x.x.x
+	 * @since 1.3.0
 	 *
 	 * @param array $settings returns settings.
 	 *
@@ -663,7 +663,7 @@ class Site_Logo extends Widget_Base {
 	 * Get the caption for current widget.
 	 *
 	 * @access private
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @param array $settings returns the caption.
 	 *
 	 * @return string
@@ -681,7 +681,7 @@ class Site_Logo extends Widget_Base {
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @param array $size returns the size of an image.
 	 * @access public
 	 */
@@ -700,7 +700,7 @@ class Site_Logo extends Widget_Base {
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @access protected
 	 */
 	protected function render() {
@@ -851,7 +851,7 @@ class Site_Logo extends Widget_Base {
 	/**
 	 * Retrieve Site Logo widget link URL.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @access private
 	 *
 	 * @param array $settings returns settings.

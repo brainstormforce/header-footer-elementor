@@ -23,14 +23,14 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * HFE widget for site tagline
  *
- * @since x.x.x
+ * @since 1.3.0
  */
 class Site_Tagline extends Widget_Base {
 
 	/**
 	 * Retrieve the widget name.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 *
 	 * @access public
 	 *
@@ -43,7 +43,7 @@ class Site_Tagline extends Widget_Base {
 	/**
 	 * Retrieve the widget tagline.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 *
 	 * @access public
 	 *
@@ -56,7 +56,7 @@ class Site_Tagline extends Widget_Base {
 	/**
 	 * Retrieve the widget icon.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 *
 	 * @access public
 	 *
@@ -74,7 +74,7 @@ class Site_Tagline extends Widget_Base {
 	 * Note that currently Elementor supports only one category.
 	 * When multiple categories passed, Elementor uses the first one.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 *
 	 * @access public
 	 *
@@ -87,7 +87,7 @@ class Site_Tagline extends Widget_Base {
 	/**
 	 * Register site tagline controls controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @access protected
 	 */
 	protected function _register_controls() {
@@ -97,7 +97,7 @@ class Site_Tagline extends Widget_Base {
 	/**
 	 * Register site tagline General Controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @access protected
 	 */
 	protected function register_general_content_controls() {
@@ -145,7 +145,7 @@ class Site_Tagline extends Widget_Base {
 		$this->add_control(
 			'icon_indent',
 			[
-				'label'     => __( 'Icon Spacing', 'uael' ),
+				'label'     => __( 'Icon Spacing', 'uael', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => [
 					'px' => [
@@ -218,7 +218,7 @@ class Site_Tagline extends Widget_Base {
 		$this->add_control(
 			'icon_color',
 			[
-				'label'     => __( 'Icon Color', 'uael' ),
+				'label'     => __( 'Icon Color', 'uael', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'scheme'    => [
 					'type'  => Scheme_Color::get_type(),
@@ -237,7 +237,7 @@ class Site_Tagline extends Widget_Base {
 		$this->add_control(
 			'icons_hover_color',
 			[
-				'label'     => __( 'Icon Hover Color', 'uael' ),
+				'label'     => __( 'Icon Hover Color', 'uael', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'icon[value]!' => '',
@@ -258,7 +258,7 @@ class Site_Tagline extends Widget_Base {
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @access protected
 	 */
 	protected function render() {
@@ -292,7 +292,7 @@ class Site_Tagline extends Widget_Base {
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @access protected
 	 */
 	protected function content_template() {
@@ -324,7 +324,7 @@ class Site_Tagline extends Widget_Base {
 	 *
 	 * Remove this after Elementor v3.3.0
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @access protected
 	 */
 	protected function _content_template() {
