@@ -62,7 +62,7 @@ class Copyright extends Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'fa fa-copyright';
+		return 'hfe-icon-copyright-widget';
 	}
 	/**
 	 * Retrieve the list of categories the widget belongs to.
@@ -220,8 +220,22 @@ class Copyright extends Widget_Base {
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
+	 * @since 1.3.0
+	 * @access protected
+	 */
+	protected function content_template() {}
+
+	/**
+	 * Render shortcode output in the editor.
+	 *
+	 * Written as a Backbone JavaScript template and used to generate the live preview.
+	 *
+	 * Remove this after Elementor v3.3.0
+	 *
 	 * @since 1.2.0
 	 * @access protected
 	 */
-	protected function _content_template() {} //phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+	protected function _content_template() {
+		$this->content_template();
+	}
 }
