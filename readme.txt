@@ -130,6 +130,14 @@ You can add support for the plugin from your child theme. Just follow <a href="h
 
 == Changelog ==
 
+= 1.3.0 =
+- New: Added 'Site Logo' widget.
+- New: Added 'Site Title' widget.
+- New: Added 'Site Tagline' widget.
+- New: Added 'Navigation Menu' widget.
+- New: Added 'Page Title' widget.
+- Improvement: Elementor v2.9 compatibility.
+
 = 1.2.2 =
 - Fix: Add default fallback theme support after checking if current theme does not add it.
 
