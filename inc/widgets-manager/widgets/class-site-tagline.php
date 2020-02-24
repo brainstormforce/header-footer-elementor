@@ -145,7 +145,7 @@ class Site_Tagline extends Widget_Base {
 		$this->add_control(
 			'icon_indent',
 			[
-				'label'     => __( 'Icon Spacing', 'uael', 'header-footer-elementor' ),
+				'label'     => __( 'Icon Spacing', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => [
 					'px' => [
@@ -218,7 +218,7 @@ class Site_Tagline extends Widget_Base {
 		$this->add_control(
 			'icon_color',
 			[
-				'label'     => __( 'Icon Color', 'uael', 'header-footer-elementor' ),
+				'label'     => __( 'Icon Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'scheme'    => [
 					'type'  => Scheme_Color::get_type(),
@@ -237,7 +237,7 @@ class Site_Tagline extends Widget_Base {
 		$this->add_control(
 			'icons_hover_color',
 			[
-				'label'     => __( 'Icon Hover Color', 'uael', 'header-footer-elementor' ),
+				'label'     => __( 'Icon Hover Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'icon[value]!' => '',

@@ -124,8 +124,8 @@ class Site_Logo extends Widget_Base {
 			[
 				'label'       => __( 'Custom Image', 'header-footer-elementor' ),
 				'type'        => Controls_Manager::SWITCHER,
-				'yes'         => __( 'Yes', 'uael', 'header-footer-elementor' ),
-				'no'          => __( 'No', 'uael', 'header-footer-elementor' ),
+				'yes'         => __( 'Yes', 'header-footer-elementor' ),
+				'no'          => __( 'No', 'header-footer-elementor' ),
 				'default'     => 'no',
 				'render_type' => 'template',
 			]

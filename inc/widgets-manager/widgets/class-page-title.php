@@ -144,7 +144,7 @@ class Page_Title extends Widget_Base {
 		$this->add_control(
 			'page_title_icon_indent',
 			[
-				'label'     => __( 'Icon Spacing', 'uael', 'header-footer-elementor' ),
+				'label'     => __( 'Icon Spacing', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => [
 					'px' => [
@@ -348,7 +348,7 @@ class Page_Title extends Widget_Base {
 		$this->add_control(
 			'page_title_icon_color',
 			[
-				'label'     => __( 'Icon Color', 'uael', 'header-footer-elementor' ),
+				'label'     => __( 'Icon Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'scheme'    => [
 					'type'  => Scheme_Color::get_type(),
@@ -367,7 +367,7 @@ class Page_Title extends Widget_Base {
 		$this->add_control(
 			'page_title_icons_hover_color',
 			[
-				'label'     => __( 'Icon Hover Color', 'uael', 'header-footer-elementor' ),
+				'label'     => __( 'Icon Hover Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'new_page_title_select_icon[value]!' => '',
