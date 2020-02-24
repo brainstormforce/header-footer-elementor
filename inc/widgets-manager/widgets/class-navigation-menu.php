@@ -10,7 +10,6 @@ namespace HFE\WidgetsManager\Widgets;
 // Elementor Classes.
 use Elementor\Controls_Manager;
 use Elementor\Utils;
-use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
 use Elementor\Scheme_Typography;
 use Elementor\Scheme_Color;
