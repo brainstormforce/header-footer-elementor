@@ -63,12 +63,10 @@ In case you see a notice to enable theme support manually, go to Appearance > He
 ### STEPS TO USE THE PLUGIN ###
 
 Step 1 - Visit Appearance > Header Footer Builder and click on the ‘Add New’.
-Step 2 - Select ‘Type of Template’ (header/footer/block). Set its display location and user roles. 
+Step 2 - Select ‘Type of Template’ (header/footer/block). Set its display location and user roles.
 Step 3 - Publish it.
-Step 4 - Edit it with Elementor and design a section. 
-Step 5 - Save it and you are done! 
-
-Easy peasy!
+Step 4 - Edit it with Elementor and design a section.
+Step 5 - Save it and you are done!
 
 You can refer to our step-by-step article that will help you [set Elementor headers and footers](https://uaelementor.com/header-footer-with-elementor/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description) quickly.
 
@@ -88,7 +86,7 @@ People love Astra for -
 **Ready-to-use complete website templates** - Astra offers free ready-made website demos built with Elementor. You can choose any of the [Elementor Templates](https://wpastra.com/elementor-templates-free-downloads/ "Elementor Templates"), tweak them as you want and go live in minutes!
 
 ### SUPPORTED & ACTIVELY DEVELOPED ###
-Need help with something? Have an issue to report? Visit [Plugin’s Forum](https://wordpress.org/plugins/header-footer-elementor/ "Plugin’s Forum"). [Get in touch](https://github.com/Nikschavan/header-footer-elementor "Header Footer elementor on GitHub"). with us on GitHub.
+Need help with something? Have an issue to report? Visit [Plugin’s Forum](https://wordpress.org/plugins/header-footer-elementor/ "Plugin’s Forum"). [Get in touch](https://github.com/Nikschavan/header-footer-elementor "Header Footer elementor on GitHub") with us on GitHub.
 
 Made with love at [Brainstorm Force](https://www.brainstormforce.com/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description "Brainstorm Force")!
 
@@ -106,8 +104,9 @@ Made with love at [Brainstorm Force](https://www.brainstormforce.com/?utm_source
 1. Go to Appearance -> Header Footer Builder to build a header or footer layout using Elementor.
 2. Click on “Add New” and design a template with Elementor. 
 3. Once the template is ready, set is as a header/footer/block using options “Type of Template” (<a href="https://share.getcloudapp.com/geurz2JR">screenshot</a>).
-4. a) For Header/Footer - Select the target location with the option “Display On”. With this Header/Footer will be visible only on selected locations for selected “User Roles”.
-   b) For Custom Block - Just copy the shortcode and add it anywhere on the website. Your designed template will display automatically. Display conditions or user roles will not be effective with shortcodes. 
+4.
+	a) For Header/Footer - Select the target location with the option “Display On”. With this Header/Footer will be visible only on selected locations for selected “User Roles”.
+	b) For Custom Block - Just copy the shortcode and add it anywhere on the website. Your designed template will display automatically. Display conditions or user roles will not be effective with shortcodes. 
 
 ### Can You Create a Mobile Responsive Header/Footer Using This Plugin? ###
 
