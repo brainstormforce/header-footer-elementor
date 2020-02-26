@@ -101,8 +101,6 @@ Made with love at [Brainstorm Force](https://www.brainstormforce.com/?utm_source
 
 == Frequently Asked Questions ==
 
-If you are a theme developer [here](https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme) is a quick tutorial on how you can add support for the Elementor – Header, Footer & Blocks from your theme.
-
 = How Does This Plugin Work? =
 
 1. Go to Appearance -> Header Footer Builder to build a header or footer layout using Elementor.
