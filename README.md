@@ -63,9 +63,13 @@ In case you see a notice to enable theme support manually, go to Appearance > He
 ### STEPS TO USE THE PLUGIN ###
 
 Step 1 - Visit Appearance > Header Footer Builder and click on the ‘Add New’.
+
 Step 2 - Select ‘Type of Template’ (header/footer/block). Set its display location and user roles.
+
 Step 3 - Publish it.
+
 Step 4 - Edit it with Elementor and design a section.
+
 Step 5 - Save it and you are done!
 
 You can refer to our step-by-step article that will help you [set Elementor headers and footers](https://uaelementor.com/header-footer-with-elementor/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description) quickly.
