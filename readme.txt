@@ -11,6 +11,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Create Header and Footer for your site using Elementor Page Builder.
 
+## Description ##
+
 Have you ever imagined you could create your website header and footer with <a href="https://elementor.com/?ref=1352">Elementor</a> for free?
 
 Elementor – Header, Footer & Blocks is a simple yet powerful plugin that allows you to create a layout with Elementor and set it as 
