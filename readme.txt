@@ -132,6 +132,8 @@ You can add support for the plugin from your child theme. Just follow <a href="h
 
 = 1.4.0 =
 - New: Added 'Post Title' widget.
+- New: Added 'Post Content' widget.
+
 = 1.3.0 =
 - New: Added 'Site Logo' widget.
 - New: Added 'Site Title' widget.
