@@ -95,6 +95,7 @@ class Widgets_Loader {
 			'site-logo',
 			'post-title',
 			'post-content',
+			'post-info',
 		];
 
 		return $widget_list;
@@ -181,6 +182,7 @@ class Widgets_Loader {
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Navigation_Menu() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Page_Title() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Title() );
+		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Post_Info() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Post_Content() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Tagline() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Logo() );
