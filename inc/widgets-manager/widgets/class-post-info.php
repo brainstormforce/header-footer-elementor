@@ -175,7 +175,7 @@ class Post_Info extends Widget_Base {
 					'default'     => 'F j, Y',
 					'label_block' => false,
 					'condition'   => [
-						'meta_type'        => 'date',
+						'meta_type'   => 'date',
 						'date_format' => 'custom',
 					],
 					'description' => sprintf(
@@ -214,7 +214,7 @@ class Post_Info extends Widget_Base {
 					'placeholder' => 'g:i a',
 					'label_block' => false,
 					'condition'   => [
-						'meta_type'        => 'time',
+						'meta_type'   => 'time',
 						'time_format' => 'custom',
 					],
 					'description' => sprintf(
@@ -241,14 +241,14 @@ class Post_Info extends Widget_Base {
 
 			$repeater->add_control(
 				'max_terms',
-				array(
+				[
 					'label'     => __( 'Maximum Terms', 'uael' ),
 					'type'      => Controls_Manager::NUMBER,
 					'min'       => 1,
-					'condition' => array(
+					'condition' => [
 						'meta_type' => 'terms',
-					),
-				)
+					],
+				]
 			);
 
 			$repeater->add_control(
@@ -309,7 +309,7 @@ class Post_Info extends Widget_Base {
 					'placeholder' => __( 'No Comments', 'header-footer-elementor' ),
 					'condition'   => [
 						'comments_custom_strings' => 'yes',
-						'meta_type'                    => 'comments',
+						'meta_type'               => 'comments',
 					],
 				]
 			);
@@ -323,7 +323,7 @@ class Post_Info extends Widget_Base {
 					'placeholder' => __( 'One Comment', 'header-footer-elementor' ),
 					'condition'   => [
 						'comments_custom_strings' => 'yes',
-						'meta_type'                    => 'comments',
+						'meta_type'               => 'comments',
 					],
 				]
 			);
@@ -338,7 +338,7 @@ class Post_Info extends Widget_Base {
 					'placeholder' => __( '%s Comments', 'header-footer-elementor' ),
 					'condition'   => [
 						'comments_custom_strings' => 'yes',
-						'meta_type'                    => 'comments',
+						'meta_type'               => 'comments',
 					],
 				]
 			);
@@ -380,7 +380,7 @@ class Post_Info extends Widget_Base {
 					],
 					'condition' => [
 						'meta_type' => 'custom',
-						'link' => 'yes'
+						'link'      => 'yes',
 					],
 				]
 			);
@@ -423,28 +423,28 @@ class Post_Info extends Widget_Base {
 					'default'     => [
 						[
 							'meta_type' => 'author',
-							'icon' => [
+							'icon'      => [
 								'value'   => 'fas fa-user',
 								'library' => 'fa-solid',
 							],
 						],
 						[
 							'meta_type' => 'date',
-							'icon' => [
+							'icon'      => [
 								'value'   => 'fas fa-calendar',
 								'library' => 'fa-solid',
 							],
 						],
 						[
 							'meta_type' => 'time',
-							'icon' => [
+							'icon'      => [
 								'value'   => 'fas fa-clock',
 								'library' => 'fa-solid',
 							],
 						],
 						[
 							'meta_type' => 'comments',
-							'icon' => [
+							'icon'      => [
 								'value'   => 'fas fa-comments',
 								'library' => 'fa-solid',
 							],
@@ -728,7 +728,7 @@ class Post_Info extends Widget_Base {
 	 */
 	protected function render_meta_item( $current_item ) {
 
-		$item_data      = $this->get_meta_data( $current_item );
+		$item_data     = $this->get_meta_data( $current_item );
 		$current_index = $current_item['_id'];
 
 		if ( empty( $item_data['text'] ) && empty( $item_data['meta_list'] ) ) {
@@ -736,8 +736,8 @@ class Post_Info extends Widget_Base {
 		}
 
 		$enable_link = false;
-		$item_key = 'item_' . $current_index;
-		$link_key = 'link_' . $current_index;
+		$item_key    = 'item_' . $current_index;
+		$link_key    = 'link_' . $current_index;
 
 		$this->add_render_attribute(
 			$item_key,
@@ -794,7 +794,7 @@ class Post_Info extends Widget_Base {
 	 */
 	protected function get_meta_data( $current_item ) {
 
-		$item_data      = [];
+		$item_data = [];
 
 		switch ( $current_item['meta_type'] ) {
 
@@ -826,7 +826,6 @@ class Post_Info extends Widget_Base {
 				break;
 
 			case 'author':
-
 				$item_data['icon'] = [
 					'value'   => 'fas fa-user',
 					'library' => 'fa-solid',
@@ -857,7 +856,7 @@ class Post_Info extends Widget_Base {
 					$no_comments_string = __( 'No Comments', 'header-footer-elementor' );
 					$one_comment_string = __( 'One Comment', 'header-footer-elementor' );
 					/* translators: %s admin link */
-					$comments_string    = __( '%s Comments', 'header-footer-elementor' );
+					$comments_string = __( '%s Comments', 'header-footer-elementor' );
 
 					if ( 'yes' === $current_item['comments_custom_strings'] ) {
 
@@ -878,10 +877,10 @@ class Post_Info extends Widget_Base {
 
 					if ( 0 === $total_comments ) {
 						$item_data['text'] = $no_comments_string;
-					} else if ( 1 === $total_comments ) {
+					} elseif ( 1 === $total_comments ) {
 						$item_data['text'] = $one_comment_string;
 					} else {
-						$item_data['text'] = sprintf( __( $comments_string, 'header-footer-elementor' ), $total_comments );
+						$item_data['text'] = $comments_string;
 					}
 
 					if ( 'yes' === $current_item['link'] ) {
@@ -889,13 +888,11 @@ class Post_Info extends Widget_Base {
 							'url' => get_comments_link(),
 						];
 					}
-
 				}
 
 				break;
 
 			case 'date':
-
 				$item_data['icon'] = [
 					'value'   => 'fas fa-calendar',
 					'library' => 'fa-solid',
@@ -923,7 +920,6 @@ class Post_Info extends Widget_Base {
 				break;
 
 			case 'time':
-
 				$item_data['icon'] = [
 					'value'   => 'fas fa-clock',
 					'library' => 'fa-solid',
@@ -931,7 +927,7 @@ class Post_Info extends Widget_Base {
 
 				$custom_time_format = empty( $current_item['custom_time_format'] ) ? 'g:i a' : $current_item['custom_time_format'];
 
-				$format_options    = [
+				$format_options = [
 					'default' => 'g:i a',
 					'0'       => 'g:i a',
 					'1'       => 'g:i A',
@@ -944,7 +940,6 @@ class Post_Info extends Widget_Base {
 				break;
 
 			case 'custom':
-
 				$item_data['icon'] = [
 					'value'   => 'fas fa-tags',
 					'library' => 'fa-solid',
@@ -1028,7 +1023,7 @@ class Post_Info extends Widget_Base {
 			<?php endif; ?>
 			<?php
 			if ( ! empty( $item_data['meta_list'] ) ) :
-				$meta_list = [];
+				$meta_list  = [];
 				$item_class = 'hfe-post-info-meta-item';
 				?>
 				<span class="hfe-post-info-terms-list">

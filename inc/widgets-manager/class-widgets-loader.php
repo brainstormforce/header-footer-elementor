@@ -95,7 +95,7 @@ class Widgets_Loader {
 			'site-logo',
 			'post-title',
 			'post-content',
-			'post-info'
+			'post-info',
 		];
 
 		return $widget_list;
