@@ -130,6 +130,8 @@ You can add support for the plugin from your child theme. Just follow <a href="h
 
 == Changelog ==
 
+= 1.4.0 =
+
 = 1.3.0 =
 - New: Added 'Site Logo' widget.
 - New: Added 'Site Title' widget.
