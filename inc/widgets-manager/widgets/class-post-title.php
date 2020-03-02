@@ -469,7 +469,7 @@ class Post_Title extends Widget_Base {
 	 * @since x.x.x
 	 * @access protected
 	 */
-	protected function _content_template() {
+	protected function content_template() {
 		?>
 		<#
 		var enable_link = false; 
@@ -503,6 +503,20 @@ class Post_Title extends Widget_Base {
 			<# } #>
 		</div>
 		<?php
+	}
+
+	/**
+	 * Render post title output in the editor.
+	 *
+	 * Written as a Backbone JavaScript template and used to generate the live preview.
+	 *
+	 * Remove this after Elementor v3.3.0
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function _content_template() {
+		$this->content_template();
 	}
 
 }
