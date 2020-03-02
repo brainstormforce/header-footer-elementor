@@ -6,13 +6,13 @@
  */
 
 namespace HFE\WidgetsManager\Widgets;
+
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
 use Elementor\Scheme_Typography;
 use Elementor\Widget_Base;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Scheme_Color;
-
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;   // Exit if accessed directly.
@@ -23,27 +23,27 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * HFE widget for site title
  *
- * @since x.x.x
+ * @since 1.3.0
  */
 class Site_Title extends Widget_Base {
 
 	/**
 	 * Retrieve the widget name.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 *
 	 * @access public
 	 *
 	 * @return string Widget name.
 	 */
 	public function get_name() {
-		return 'site-title';
+		return 'hfe-site-title';
 	}
 
 	/**
 	 * Retrieve the widget title.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 *
 	 * @access public
 	 *
@@ -56,14 +56,14 @@ class Site_Title extends Widget_Base {
 	/**
 	 * Retrieve the widget icon.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 *
 	 * @access public
 	 *
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'fas fa-search';
+		return 'hfe-icon-site-title';
 	}
 
 	/**
@@ -74,7 +74,7 @@ class Site_Title extends Widget_Base {
 	 * Note that currently Elementor supports only one category.
 	 * When multiple categories passed, Elementor uses the first one.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 *
 	 * @access public
 	 *
@@ -87,7 +87,7 @@ class Site_Title extends Widget_Base {
 	/**
 	 * Register site title controls controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @access protected
 	 */
 	protected function _register_controls() {
@@ -99,7 +99,7 @@ class Site_Title extends Widget_Base {
 	/**
 	 * Register Advanced Heading General Controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @access protected
 	 */
 	protected function register_general_content_controls() {
@@ -114,9 +114,8 @@ class Site_Title extends Widget_Base {
 		$this->add_control(
 			'before',
 			[
-				'label'   => __( 'Before Title text', 'header-footer-elementor' ),
-				'type'    => Controls_Manager::TEXTAREA,
-				'rows'    => '1',
+				'label'   => __( 'Before Title Text', 'header-footer-elementor' ),
+				'type'    => Controls_Manager::TEXT,
 				'dynamic' => [
 					'active' => true,
 				],
@@ -127,10 +126,37 @@ class Site_Title extends Widget_Base {
 			'after',
 			[
 				'label'   => __( 'After Title Text', 'header-footer-elementor' ),
-				'type'    => Controls_Manager::TEXTAREA,
-				'rows'    => '1',
+				'type'    => Controls_Manager::TEXT,
 				'dynamic' => [
 					'active' => true,
+				],
+			]
+		);
+
+		$this->add_control(
+			'icon',
+			[
+				'label'       => __( 'Icon', 'header-footer-elementor' ),
+				'type'        => Controls_Manager::ICONS,
+				'label_block' => 'true',
+			]
+		);
+
+		$this->add_control(
+			'icon_indent',
+			[
+				'label'     => __( 'Icon Spacing', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => [
+					'px' => [
+						'max' => 50,
+					],
+				],
+				'condition' => [
+					'icon[value]!' => '',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .hfe-icon' => 'margin-right: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -140,9 +166,8 @@ class Site_Title extends Widget_Base {
 			[
 				'label'   => __( 'Link', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::SELECT,
-				'default' => 'toggle',
 				'options' => [
-					'custom'  => __( 'Custom', 'header-footer-elementor' ),
+					'custom'  => __( 'Custom URL', 'header-footer-elementor' ),
 					'default' => __( 'Default', 'header-footer-elementor' ),
 				],
 				'default' => 'default',
@@ -237,7 +262,7 @@ class Site_Title extends Widget_Base {
 	/**
 	 * Register Advanced Heading Typography Controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @access protected
 	 */
 	protected function register_heading_typo_content_controls() {
@@ -267,6 +292,8 @@ class Site_Title extends Widget_Base {
 				],
 				'selectors' => [
 					'{{WRAPPER}} .hfe-heading-text' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .hfe-icon i'       => 'color: {{VALUE}};',
+					'{{WRAPPER}} .hfe-icon svg'     => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -306,16 +333,60 @@ class Site_Title extends Widget_Base {
 			]
 		);
 		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'section_icon',
+			[
+				'label'     => __( 'Icon', 'header-footer-elementor' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'icon[value]!' => '',
+				],
+			]
+		);
+		$this->add_control(
+			'icon_color',
+			[
+				'label'     => __( 'Icon Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => [
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_1,
+				],
+				'condition' => [
+					'icon[value]!' => '',
+				],
+				'default'   => '',
+				'selectors' => [
+					'{{WRAPPER}} .hfe-icon i'   => 'color: {{VALUE}};',
+					'{{WRAPPER}} .hfe-icon svg' => 'fill: {{VALUE}};',
+				],
+			]
+		);
+		$this->add_control(
+			'icons_hover_color',
+			[
+				'label'     => __( 'Icon Hover Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'condition' => [
+					'icon[value]!' => '',
+				],
+				'default'   => '',
+				'selectors' => [
+					'{{WRAPPER}} .hfe-icon:hover i'   => 'color: {{VALUE}};',
+					'{{WRAPPER}} .hfe-icon:hover svg' => 'fill: {{VALUE}};',
+				],
+			]
+		);
+		$this->end_controls_section();
 	}
-
-
 
 	/**
 	 * Render Heading output on the frontend.
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @access protected
 	 */
 	protected function render() {
@@ -345,38 +416,43 @@ class Site_Title extends Widget_Base {
 
 		<div class="hfe-module-content hfe-heading-wrapper elementor-widget-heading">
 		<?php if ( ! empty( $settings['heading_link']['url'] ) && 'custom' === $settings['custom_link'] ) { ?>
-					<a <?php echo esc_url_raw( $link ); ?> >
+					<a <?php echo esc_attr( $link ); ?> >
 				<?php } else { ?>
 					<a href="<?php echo get_home_url(); ?>">
 				<?php } ?>
-			<<?php echo wp_kses_post( $settings['heading_tag'] ); ?> class="hfe-heading">
-						<span class="hfe-heading-text elementor-heading-title elementor-size-<?php echo $settings['size']; ?>" >
-						<?php
-						if ( '' !== $settings['before'] ) {
-							echo wp_kses_post( $settings['before'] );
-						}
-						echo wp_kses_post( $title );
-						if ( '' !== $settings['after'] ) {
-							echo wp_kses_post( $settings['after'] );
-						}
-						?>
-						</span>
-						<?php if ( ! empty( $settings['heading_link']['url'] ) ) { ?>
-					</a>	
-					<?php } ?>					
+			<<?php echo wp_kses_post( $settings['heading_tag'] ); ?> class="hfe-heading elementor-heading-title elementor-size-<?php echo $settings['size']; ?>">
+				<?php if ( '' !== $settings['icon']['value'] ) { ?>
+					<span class="hfe-icon">
+						<?php \Elementor\Icons_Manager::render_icon( $settings['icon'], [ 'aria-hidden' => 'true' ] ); ?>					
+					</span>
+				<?php } ?>
+					<span class="hfe-heading-text" >
+					<?php
+					if ( '' !== $settings['before'] ) {
+						echo wp_kses_post( $settings['before'] );
+					}
+					?>
+					<?php echo wp_kses_post( $title ); ?>
+					<?php
+					if ( '' !== $settings['after'] ) {
+						echo wp_kses_post( $settings['after'] );
+					}
+					?>
+					</span>			
 			</<?php echo wp_kses_post( $settings['heading_tag'] ); ?>>
+			</a>		
 		</div>
 		<?php
 	}
 		/**
-		 * Render Heading widgets output in the editor.
+		 * Render site title output in the editor.
 		 *
 		 * Written as a Backbone JavaScript template and used to generate the live preview.
 		 *
-		 * @since x.x.x
+		 * @since 1.3.0
 		 * @access protected
 		 */
-	protected function _content_template() {
+	protected function content_template() {
 		?>
 		<#
 		if ( '' == settings.heading_title ) {
@@ -388,26 +464,46 @@ class Site_Title extends Widget_Base {
 		if ( '' != settings.heading_link.url ) {
 			view.addRenderAttribute( 'url', 'href', settings.heading_link.url );
 		}
+		var iconHTML = elementor.helpers.renderIcon( view, settings.icon, { 'aria-hidden': true }, 'i' , 'object' );
 		#>
 		<div class="hfe-module-content hfe-heading-wrapper elementor-widget-heading">
-			<{{{ settings.heading_tag }}} class="hfe-heading">
 				<# if ( '' != settings.heading_link.url ) { #>
 					<a {{{ view.getRenderAttributeString( 'url' ) }}} >
 				<# } #>
-				<span class="hfe-heading-text  elementor-heading-title elementor-size-{{{ settings.size }}}" data-elementor-setting-key="heading_title" data-elementor-inline-editing-toolbar="basic" >
+				<{{{ settings.heading_tag }}} class="hfe-heading elementor-heading-title elementor-size-{{{ settings.size }}}">
+				<# if( '' != settings.icon.value ){ #>
+				<span class="hfe-icon">
+					{{{iconHTML.value}}}					
+				</span>
+				<# } #>
+				<span class="hfe-heading-text  elementor-heading-title" data-elementor-setting-key="heading_title" data-elementor-inline-editing-toolbar="basic" >
 				<#if ( '' != settings.before ){#>
-					{{{settings.before}}}
+					{{{ settings.before }}} 
 				<#}#>
 				<?php echo wp_kses_post( get_bloginfo( 'name' ) ); ?>
 				<# if ( '' != settings.after ){#>
-					{{{settings.after}}}
+					{{{ settings.after }}}
 				<#}#>
 				</span>
-				<# if ( '' != settings.heading_link.url ) { #>
-					</a>
-				<# } #>
 			</{{{ settings.heading_tag }}}>
+			<# if ( '' != settings.heading_link.url ) { #>
+				</a>
+			<# } #>
 		</div>
 		<?php
+	}
+
+	/**
+	 * Render site title output in the editor.
+	 *
+	 * Written as a Backbone JavaScript template and used to generate the live preview.
+	 *
+	 * Remove this after Elementor v3.3.0
+	 *
+	 * @since 1.3.0
+	 * @access protected
+	 */
+	protected function _content_template() {
+		$this->content_template();
 	}
 }

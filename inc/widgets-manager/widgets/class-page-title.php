@@ -8,63 +8,63 @@
 namespace HFE\WidgetsManager\Widgets;
 
 use Elementor\Controls_Manager;
+use Elementor\Group_Control_Text_Shadow;
+use Elementor\Widget_Base;
 use Elementor\Group_Control_Typography;
 use Elementor\Scheme_Typography;
-use Elementor\Widget_Base;
-use Elementor\Group_Control_Text_Shadow;
 use Elementor\Scheme_Color;
-
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;   // Exit if accessed directly.
 }
 
 /**
- * HFE Post Title
+ * HFE Page Title widget
  *
- * HFE widget for Post Title.
+ * HFE widget for Page Title.
  *
- * @since x.x.x
+ * @since 1.3.0
  */
-class Post_Title extends Widget_Base {
+class Page_Title extends Widget_Base {
+
 
 	/**
 	 * Retrieve the widget name.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 *
 	 * @access public
 	 *
 	 * @return string Widget name.
 	 */
 	public function get_name() {
-		return 'post-title';
+		return 'page-title';
 	}
 
 	/**
 	 * Retrieve the widget title.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 *
 	 * @access public
 	 *
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Post Title', 'header-footer-elementor' );
+		return __( 'Page Title', 'header-footer-elementor' );
 	}
 
 	/**
 	 * Retrieve the widget icon.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 *
 	 * @access public
 	 *
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'fas fa-search';
+		return 'hfe-icon-page-title';
 	}
 
 	/**
@@ -75,7 +75,7 @@ class Post_Title extends Widget_Base {
 	 * Note that currently Elementor supports only one category.
 	 * When multiple categories passed, Elementor uses the first one.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 *
 	 * @access public
 	 *
@@ -86,25 +86,23 @@ class Post_Title extends Widget_Base {
 	}
 
 	/**
-	 * Register post title controls.
+	 * Register Page Title controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @access protected
 	 */
 	protected function _register_controls() {
-
-		$this->register_general_content_controls();
-		$this->register_heading_style_controls();
+		$this->register_content_page_title_controls();
+		$this->register_page_title_style_controls();
 	}
 
 	/**
-	 * Register Post Title General Controls.
+	 * Register Page Title General Controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @access protected
 	 */
-	protected function register_general_content_controls() {
-
+	protected function register_content_page_title_controls() {
 		$this->start_controls_section(
 			'section_general_fields',
 			[
@@ -135,7 +133,7 @@ class Post_Title extends Widget_Base {
 		);
 
 		$this->add_control(
-			'new_post_title_select_icon',
+			'new_page_title_select_icon',
 			[
 				'label'       => __( 'Select Icon', 'header-footer-elementor' ),
 				'type'        => Controls_Manager::ICONS,
@@ -144,7 +142,7 @@ class Post_Title extends Widget_Base {
 		);
 
 		$this->add_control(
-			'post_title_icon_indent',
+			'page_title_icon_indent',
 			[
 				'label'     => __( 'Icon Spacing', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::SLIDER,
@@ -154,41 +152,41 @@ class Post_Title extends Widget_Base {
 					],
 				],
 				'condition' => [
-					'new_post_title_select_icon[value]!' => '',
+					'new_page_title_select_icon[value]!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .hfe-post-title-icon' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .hfe-page-title-icon' => 'margin-right: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
 
 		$this->add_control(
-			'link',
+			'page_custom_link',
 			[
 				'label'   => __( 'Link', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::SELECT,
-				'default' => 'default',
 				'options' => [
+					'custom'  => __( 'Custom URL', 'header-footer-elementor' ),
 					'default' => __( 'Default', 'header-footer-elementor' ),
-					'custom'  => __( 'Custom Link', 'header-footer-elementor' ),
 				],
+				'default' => 'default',
 			]
 		);
 
 		$this->add_control(
-			'custom_link',
+			'page_heading_link',
 			[
-				'label'       => __( 'Enter URL', 'header-footer-elementor' ),
+				'label'       => __( 'Link', 'header-footer-elementor' ),
 				'type'        => Controls_Manager::URL,
 				'placeholder' => __( 'https://your-link.com', 'header-footer-elementor' ),
 				'dynamic'     => [
 					'active' => true,
 				],
 				'default'     => [
-					'url' => '',
+					'url' => get_home_url(),
 				],
 				'condition'   => [
-					'link' => 'custom',
+					'page_custom_link' => 'custom',
 				],
 			]
 		);
@@ -252,21 +250,20 @@ class Post_Title extends Widget_Base {
 				],
 				'default'   => '',
 				'selectors' => [
-					'{{WRAPPER}} .hfe-post-title-wrapper' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .hfe-page-title-wrapper' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
 
 		$this->end_controls_section();
 	}
-
 	/**
-	 * Register Post Title Style Controls.
+	 * Register Page Title Style Controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @access protected
 	 */
-	protected function register_heading_style_controls() {
+	protected function register_page_title_style_controls() {
 		$this->start_controls_section(
 			'section_title_typography',
 			[
@@ -280,7 +277,7 @@ class Post_Title extends Widget_Base {
 				[
 					'name'     => 'title_typography',
 					'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
-					'selector' => '{{WRAPPER}} .elementor-heading-title, {{WRAPPER}} .hfe-post-title a',
+					'selector' => '{{WRAPPER}} .elementor-heading-title, {{WRAPPER}} .hfe-page-title a',
 				]
 			);
 
@@ -294,10 +291,9 @@ class Post_Title extends Widget_Base {
 						'value' => Scheme_Color::COLOR_1,
 					],
 					'selectors' => [
-						'{{WRAPPER}} .elementor-heading-title, 
-						{{WRAPPER}} .hfe-post-title a,
-						{{WRAPPER}} .hfe-post-title-icon i' => 'color: {{VALUE}};',
-						'{{WRAPPER}} .hfe-post-title-icon svg' => 'fill: {{VALUE}};',
+						'{{WRAPPER}} .elementor-heading-title, {{WRAPPER}} .hfe-page-title a' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .hfe-page-title-icon i'   => 'color: {{VALUE}};',
+						'{{WRAPPER}} .hfe-page-title-icon svg' => 'fill: {{VALUE}};',
 					],
 				]
 			);
@@ -306,7 +302,7 @@ class Post_Title extends Widget_Base {
 				Group_Control_Text_Shadow::get_type(),
 				[
 					'name'     => 'title_shadow',
-					'selector' => '{{WRAPPER}} .hfe-widget-post-title-text',
+					'selector' => '{{WRAPPER}} .elementor-heading-title',
 				]
 			);
 
@@ -337,19 +333,20 @@ class Post_Title extends Widget_Base {
 			);
 
 		$this->end_controls_section();
+
 		$this->start_controls_section(
 			'section_icon',
 			[
 				'label'     => __( 'Icon', 'header-footer-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'new_post_title_select_icon[value]!' => '',
+					'new_page_title_select_icon[value]!' => '',
 				],
 			]
 		);
 
 		$this->add_control(
-			'post_title_icon_color',
+			'page_title_icon_color',
 			[
 				'label'     => __( 'Icon Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
@@ -358,27 +355,27 @@ class Post_Title extends Widget_Base {
 					'value' => Scheme_Color::COLOR_1,
 				],
 				'condition' => [
-					'new_post_title_select_icon[value]!' => '',
+					'new_page_title_select_icon[value]!' => '',
 				],
 				'default'   => '',
 				'selectors' => [
-					'{{WRAPPER}} .hfe-post-title-icon i'   => 'color: {{VALUE}};',
-					'{{WRAPPER}} .hfe-post-title-icon svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .hfe-page-title-icon i'   => 'color: {{VALUE}};',
+					'{{WRAPPER}} .hfe-page-title-icon svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
 		$this->add_control(
-			'post_title_icons_hover_color',
+			'page_title_icons_hover_color',
 			[
 				'label'     => __( 'Icon Hover Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
-					'new_post_title_select_icon[value]!' => '',
+					'new_page_title_select_icon[value]!' => '',
 				],
 				'default'   => '',
 				'selectors' => [
-					'{{WRAPPER}} .hfe-post-title-icon:hover i'   => 'color: {{VALUE}};',
-					'{{WRAPPER}} .hfe-post-title-icon:hover svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .hfe-page-title-icon:hover i'   => 'color: {{VALUE}};',
+					'{{WRAPPER}} .hfe-page-title-icon:hover svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -387,136 +384,113 @@ class Post_Title extends Widget_Base {
 	}
 
 	/**
-	 * Render Post Title output on the frontend.
+	 * Render page title widget output on the frontend.
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @access protected
 	 */
 	protected function render() {
-
 		$settings = $this->get_settings_for_display();
-		$title    = '';
 
-		$this->add_render_attribute( 'title', 'class', 'elementor-heading-title' );
+		$this->add_inline_editing_attributes( 'page_title', 'basic' );
 
-		if ( ! empty( $settings['size'] ) ) {
-			$this->add_render_attribute( 'title', 'class', 'elementor-size-' . $settings['size'] );
-		}
+		if ( ! empty( $settings['page_heading_link']['url'] ) ) {
+			$this->add_render_attribute( 'url', 'href', $settings['page_heading_link']['url'] );
 
-		$title .= '<span class="hfe-widget-post-title-text">';
-
-		if ( '' !== $settings['before'] ) {
-			$title .= $settings['before'] . ' ';
-		}
-
-		$title .= wp_kses_post( get_the_title() );
-
-		if ( '' !== $settings['after'] ) {
-			$title .= ' ' . $settings['after'];
-		}
-
-		$title .= '</span>';
-
-		if ( 'custom' === $settings['link'] && ( ! empty( $settings['custom_link']['url'] ) ) ) {
-			$this->add_render_attribute( 'url', 'href', $settings['custom_link']['url'] );
-
-			if ( $settings['custom_link']['is_external'] ) {
+			if ( $settings['page_heading_link']['is_external'] ) {
 				$this->add_render_attribute( 'url', 'target', '_blank' );
 			}
 
-			if ( ! empty( $settings['custom_link']['nofollow'] ) ) {
+			if ( ! empty( $settings['page_heading_link']['nofollow'] ) ) {
 				$this->add_render_attribute( 'url', 'rel', 'nofollow' );
 			}
-
-			$a_open  = sprintf( '<a %1$s>', $this->get_render_attribute_string( 'url' ) );
-			$a_close = '</a>';
-
-		} elseif ( 'default' === $settings['link'] ) {
-
-			$this->add_render_attribute( 'url', 'href', get_the_permalink() );
-
-			$a_open  = sprintf( '<a %1$s>', $this->get_render_attribute_string( 'url' ) );
-			$a_close = '</a>';
+			$link = $this->get_render_attribute_string( 'url' );
 		}
+		?>		
+		<div class="hfe-page-title hfe-page-title-wrapper elementor-widget-heading">
+			<?php if ( '' != $settings['page_heading_link']['url'] && 'custom' === $settings['page_custom_link'] ) { ?>
+						<a <?php echo esc_attr( $link ); ?> >
+			<?php } else { ?>
+						<a href="<?php echo esc_url( get_home_url() ); ?>">
+			<?php } ?>
+			<<?php echo wp_kses_post( $settings['heading_tag'] ); ?> class="elementor-heading-title elementor-size-<?php echo $settings['size']; ?>">
+				<?php if ( '' !== $settings['new_page_title_select_icon']['value'] ) { ?>
+						<span class="hfe-page-title-icon">
+							<?php \Elementor\Icons_Manager::render_icon( $settings['new_page_title_select_icon'], [ 'aria-hidden' => 'true' ] ); ?>             </span>
+				<?php } ?>				
+				<?php if ( '' != $settings['before'] ) { ?>
+					<?php echo wp_kses_post( $settings['before'] ); ?>
+				<?php } ?>
 
-		$title_start_html = sprintf( '<%1$s %2$s>', $settings['heading_tag'], $this->get_render_attribute_string( 'title' ) );
-		$title_end_html   = sprintf( '</%s>', $settings['heading_tag'] );
+				<?php echo wp_kses_post( get_the_title() ); ?>
 
-		?>
-
-		<div class="hfe-post-title hfe-post-title-wrapper elementor-widget-heading">
-			<?php echo $a_open; ?>
-				<?php echo $title_start_html; ?>
-					<?php if ( '' !== $settings['new_post_title_select_icon']['value'] ) { ?>
-							<span class="hfe-post-title-icon">
-								<?php \Elementor\Icons_Manager::render_icon( $settings['new_post_title_select_icon'], [ 'aria-hidden' => 'true' ] ); ?>             
-							</span>
-					<?php } ?>
-					<?php echo $title; ?>
-				<?php echo $title_end_html; ?>
-			<?php echo $a_close; ?>
+				<?php if ( '' != $settings['after'] ) { ?>
+					<?php echo wp_kses_post( $settings['after'] ); ?>
+				<?php } ?>  
+			</<?php echo wp_kses_post( $settings['heading_tag'] ); ?> > 
+			</a>    
 		</div>
 		<?php
 	}
 
 	/**
-	 * Render Post Title widget output in the editor.
+	 * Render page title output in the editor.
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @access protected
 	 */
 	protected function content_template() {
 		?>
 		<#
-		var enable_link = false; 
-		if ( ( 'custom' === settings.link && '' !== settings.custom_link.url ) || 'default' === settings.link ) {
-			enable_link = true;
+		if ( '' == settings.page_title ) {
+			return;
 		}
-		var iconHTML = elementor.helpers.renderIcon( view, settings.new_post_title_select_icon, { 'aria-hidden': true }, 'i' , 'object' );
+
+		if ( '' != settings.page_heading_link.url ) {
+			view.addRenderAttribute( 'url', 'href', settings.page_heading_link.url );
+		}
+		var iconHTML = elementor.helpers.renderIcon( view, settings.new_page_title_select_icon, { 'aria-hidden': true }, 'i' , 'object' );
 		#>
-		<div class="hfe-post-title hfe-post-title-wrapper elementor-widget-heading">
-			<# if ( enable_link ) { #>
-				<a>
+		<div class="hfe-page-title hfe-page-title-wrapper elementor-widget-heading">
+			<# if ( '' != settings.page_heading_link.url ) { #>
+					<a {{{ view.getRenderAttributeString( 'url' ) }}} >
 			<# } #>
-			<{{{ settings.heading_tag }}} class="elementor-heading-title elementor-size-{{{ settings.size }}}">
-				<# if( '' != settings.new_post_title_select_icon.value ){ #>
-					<span class="hfe-post-title-icon" data-elementor-setting-key="page_title" data-elementor-inline-editing-toolbar="basic">
+			<{{{ settings.heading_tag }}} class="elementor-heading-title elementor-size-{{{ settings.size }}}">		
+				<# if( '' != settings.new_page_title_select_icon.value ){ #>
+					<span class="hfe-page-title-icon" data-elementor-setting-key="page_title" data-elementor-inline-editing-toolbar="basic">
 						{{{iconHTML.value}}}                    
 					</span>
 				<# } #>
-				<span class="hfe-widget-post-title-text">
 					<# if ( '' != settings.before ) { #>
 						{{{ settings.before }}}
 					<# } #>
-					<?php echo wp_kses_post( get_the_title() ); ?>
+				<?php echo wp_kses_post( get_the_title() ); ?>
 					<# if ( '' != settings.after ) { #>
 						{{{ settings.after }}}
-					<# } #>
-				</span>
+					<# } #>				
 			</{{{ settings.heading_tag }}}>
-			<# if ( enable_link ) { #>
-				</a>
-			<# } #>
+			<# if ( '' != settings.page_heading_link.url ) { #>
+					</a>
+			<# } #>			
 		</div>
 		<?php
 	}
 
 	/**
-	 * Render post title output in the editor.
+	 * Render page title output in the editor.
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
 	 * Remove this after Elementor v3.3.0
 	 *
-	 * @since x.x.x
+	 * @since 1.3.0
 	 * @access protected
 	 */
 	protected function _content_template() {
 		$this->content_template();
 	}
-
 }
