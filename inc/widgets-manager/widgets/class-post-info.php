@@ -120,7 +120,7 @@ class Post_Info extends Widget_Base {
 					'type'        => Controls_Manager::SELECT,
 					'default'     => 'inline',
 					'options'     => [
-						'default' => __( 'Default', 'header-footer-elementor' ),
+						'default' => __( 'Vertical', 'header-footer-elementor' ),
 						'inline'  => __( 'Inline', 'header-footer-elementor' ),
 					],
 					'render_type' => 'template',
@@ -380,6 +380,7 @@ class Post_Info extends Widget_Base {
 					],
 					'condition' => [
 						'meta_type' => 'custom',
+						'link' => 'yes'
 					],
 				]
 			);
@@ -542,6 +543,23 @@ class Post_Info extends Widget_Base {
 					'selectors' => [
 						'{{WRAPPER}} .hfe-post-info-list-icon i' => 'color: {{VALUE}};',
 						'{{WRAPPER}} .hfe-post-info-list-icon svg' => 'fill: {{VALUE}};',
+					],
+					'scheme'    => [
+						'type'  => Scheme_Color::get_type(),
+						'value' => Scheme_Color::COLOR_1,
+					],
+				]
+			);
+
+			$this->add_control(
+				'icon_hover_color',
+				[
+					'label'     => __( 'Hover Color', 'header-footer-elementor' ),
+					'type'      => Controls_Manager::COLOR,
+					'default'   => '',
+					'selectors' => [
+						'{{WRAPPER}} .hfe-post-info-list-icon:hover i' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .hfe-post-info-list-icon:hover svg' => 'fill: {{VALUE}};',
 					],
 					'scheme'    => [
 						'type'  => Scheme_Color::get_type(),
@@ -725,7 +743,7 @@ class Post_Info extends Widget_Base {
 			$item_key,
 			'class',
 			[
-				'hfe-post-info-item-' . $current_item['_id'],
+				'elementor-repeater-item-' . $current_item['_id'],
 				'hfe-post-info-list-item',
 				'elementor-icon-list-item',
 			]
