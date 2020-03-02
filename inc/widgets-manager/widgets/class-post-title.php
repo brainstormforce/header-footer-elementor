@@ -430,19 +430,19 @@ class Post_Title extends Widget_Base {
 				$this->add_render_attribute( 'url', 'rel', 'nofollow' );
 			}
 
-			$a_open = sprintf( '<a %1$s>', $this->get_render_attribute_string( 'url' ) );
+			$a_open  = sprintf( '<a %1$s>', $this->get_render_attribute_string( 'url' ) );
 			$a_close = '</a>';
 
 		} elseif ( 'default' === $settings['link'] ) {
 
 			$this->add_render_attribute( 'url', 'href', get_the_permalink() );
 
-			$a_open = sprintf( '<a %1$s>', $this->get_render_attribute_string( 'url' ) );
+			$a_open  = sprintf( '<a %1$s>', $this->get_render_attribute_string( 'url' ) );
 			$a_close = '</a>';
 		}
 
 		$title_start_html = sprintf( '<%1$s %2$s>', $settings['heading_tag'], $this->get_render_attribute_string( 'title' ) );
-		$title_end_html = sprintf( '</%s>', $settings['heading_tag'] );
+		$title_end_html   = sprintf( '</%s>', $settings['heading_tag'] );
 
 		?>
 

@@ -93,7 +93,7 @@ class Widgets_Loader {
 			'page-title',
 			'site-tagline',
 			'site-logo',
-			'post-title'
+			'post-title',
 		];
 
 		return $widget_list;
