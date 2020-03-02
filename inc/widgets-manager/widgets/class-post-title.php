@@ -294,7 +294,10 @@ class Post_Title extends Widget_Base {
 						'value' => Scheme_Color::COLOR_1,
 					],
 					'selectors' => [
-						'{{WRAPPER}} .elementor-heading-title, {{WRAPPER}} .hfe-post-title a' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .elementor-heading-title, 
+						{{WRAPPER}} .hfe-post-title a,
+						{{WRAPPER}} .hfe-post-title-icon i' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .hfe-post-title-icon svg' => 'fill: {{VALUE}};',
 					],
 				]
 			);
@@ -303,7 +306,7 @@ class Post_Title extends Widget_Base {
 				Group_Control_Text_Shadow::get_type(),
 				[
 					'name'     => 'title_shadow',
-					'selector' => '{{WRAPPER}} .elementor-heading-title',
+					'selector' => '{{WRAPPER}} .hfe-widget-post-title-text',
 				]
 			);
 
@@ -340,7 +343,7 @@ class Post_Title extends Widget_Base {
 				'label'     => __( 'Icon', 'header-footer-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'new_page_title_select_icon[value]!' => '',
+					'new_post_title_select_icon[value]!' => '',
 				],
 			]
 		);
@@ -355,7 +358,7 @@ class Post_Title extends Widget_Base {
 					'value' => Scheme_Color::COLOR_1,
 				],
 				'condition' => [
-					'new_page_title_select_icon[value]!' => '',
+					'new_post_title_select_icon[value]!' => '',
 				],
 				'default'   => '',
 				'selectors' => [
@@ -370,7 +373,7 @@ class Post_Title extends Widget_Base {
 				'label'     => __( 'Icon Hover Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
-					'new_page_title_select_icon[value]!' => '',
+					'new_post_title_select_icon[value]!' => '',
 				],
 				'default'   => '',
 				'selectors' => [
@@ -402,6 +405,8 @@ class Post_Title extends Widget_Base {
 			$this->add_render_attribute( 'title', 'class', 'elementor-size-' . $settings['size'] );
 		}
 
+		$title .= '<span class="hfe-widget-post-title-text">';
+
 		if ( '' !== $settings['before'] ) {
 			$title .= $settings['before'] . ' ';
 		}
@@ -411,6 +416,8 @@ class Post_Title extends Widget_Base {
 		if ( '' !== $settings['after'] ) {
 			$title .= ' ' . $settings['after'];
 		}
+
+		$title .= '</span>';
 
 		if ( 'custom' === $settings['link'] && ( ! empty( $settings['custom_link']['url'] ) ) ) {
 			$this->add_render_attribute( 'url', 'href', $settings['custom_link']['url'] );
@@ -423,21 +430,33 @@ class Post_Title extends Widget_Base {
 				$this->add_render_attribute( 'url', 'rel', 'nofollow' );
 			}
 
-			$title = sprintf( '<a %1$s>%2$s</a>', $this->get_render_attribute_string( 'url' ), $title );
+			$a_open = sprintf( '<a %1$s>', $this->get_render_attribute_string( 'url' ) );
+			$a_close = '</a>';
 
 		} elseif ( 'default' === $settings['link'] ) {
 
 			$this->add_render_attribute( 'url', 'href', get_the_permalink() );
 
-			$title = sprintf( '<a %1$s>%2$s</a>', $this->get_render_attribute_string( 'url' ), $title );
-
+			$a_open = sprintf( '<a %1$s>', $this->get_render_attribute_string( 'url' ) );
+			$a_close = '</a>';
 		}
 
-		$title_html = sprintf( '<%1$s %2$s>%3$s</%1$s>', $settings['heading_tag'], $this->get_render_attribute_string( 'title' ), $title );
+		$title_start_html = sprintf( '<%1$s %2$s>', $settings['heading_tag'], $this->get_render_attribute_string( 'title' ) );
+		$title_end_html = sprintf( '</%s>', $settings['heading_tag'] );
+
 		?>
 
 		<div class="hfe-post-title hfe-post-title-wrapper elementor-widget-heading">
-			<?php echo $title_html; ?>
+			<?php echo $a_open; ?>
+				<?php echo $title_start_html; ?>
+					<?php if ( '' !== $settings['new_post_title_select_icon']['value'] ) { ?>
+							<span class="hfe-post-title-icon">
+								<?php \Elementor\Icons_Manager::render_icon( $settings['new_post_title_select_icon'], [ 'aria-hidden' => 'true' ] ); ?>             
+							</span>
+					<?php } ?>
+					<?php echo $title; ?>
+				<?php echo $title_end_html; ?>
+			<?php echo $a_close; ?>
 		</div>
 		<?php
 	}
@@ -457,12 +476,19 @@ class Post_Title extends Widget_Base {
 		if ( ( 'custom' === settings.link && '' !== settings.custom_link.url ) || 'default' === settings.link ) {
 			enable_link = true;
 		}
+		var iconHTML = elementor.helpers.renderIcon( view, settings.new_post_title_select_icon, { 'aria-hidden': true }, 'i' , 'object' );
 		#>
 		<div class="hfe-post-title hfe-post-title-wrapper elementor-widget-heading">
+			<# if ( enable_link ) { #>
+				<a>
+			<# } #>
 			<{{{ settings.heading_tag }}} class="elementor-heading-title elementor-size-{{{ settings.size }}}">
-				<# if ( enable_link ) { #>
-					<a>
+				<# if( '' != settings.new_post_title_select_icon.value ){ #>
+					<span class="hfe-post-title-icon" data-elementor-setting-key="page_title" data-elementor-inline-editing-toolbar="basic">
+						{{{iconHTML.value}}}                    
+					</span>
 				<# } #>
+				<span class="hfe-widget-post-title-text">
 					<# if ( '' != settings.before ) { #>
 						{{{ settings.before }}}
 					<# } #>
@@ -470,10 +496,11 @@ class Post_Title extends Widget_Base {
 					<# if ( '' != settings.after ) { #>
 						{{{ settings.after }}}
 					<# } #>
-				<# if ( enable_link ) { #>
-					</a>
-				<# } #>
+				</span>
 			</{{{ settings.heading_tag }}}>
+			<# if ( enable_link ) { #>
+				</a>
+			<# } #>
 		</div>
 		<?php
 	}
