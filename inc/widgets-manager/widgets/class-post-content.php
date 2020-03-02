@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 /**
- * HFE Post content.
+ * HFE Post Content.
  *
  * HFE widget for Post Content.
  *
@@ -87,7 +87,7 @@ class Post_Content extends Widget_Base {
 
 	/**
 	 *
-	 * Register Post content General Controls.
+	 * Register Post Content General Controls.
 	 *
 	 * @since x.x.x
 	 * @access protected
@@ -161,19 +161,11 @@ class Post_Content extends Widget_Base {
 	 * @access protected
 	 */
 	protected function render() {
-		$settings = $this->get_settings_for_display();
 		$this->add_render_attribute( 'hfe_post_content_parent', 'class', 'hfe-post-content-parent' );
 		?>
-		<div <?php echo $this->get_render_attribute_string( 'hfe_post_content_parent' ); ?>><?php echo the_content(); ?></div>
+		<div <?php echo $this->get_render_attribute_string( 'hfe_post_content_parent' ); ?>>
+			<?php echo the_content(); ?>
+		</div>
 		<?php
 	}
-	/**
-	 * Render Post Content output in the editor.
-	 *
-	 * Written as a Backbone JavaScript template and used to generate the live preview.
-	 *
-	 * @since x.x.x
-	 * @access protected
-	 */
-	protected function _content_template() {}
 }
