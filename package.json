@@ -1,6 +1,6 @@
 {
   "name": "header-footer-elementor",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "main": "Gruntfile.js",
   "author": "Nikhil Chavan",
   "devDependencies": {
@@ -9,5 +9,19 @@
     "grunt-text-replace": "^0.4.0",
     "grunt-wp-i18n": "~1.0.3",
     "grunt-wp-readme-to-markdown": "~2.0.1"
-  }
+  },
+  "description": "**Contributors:** [brainstormforce](https://profiles.wordpress.org/brainstormforce), [Nikschavan](https://profiles.wordpress.org/Nikschavan)  \r **Tags:** elementor, header footer builder, header, footer, page builder, template builder, landing page builder, front-end editor  \r **Donate link:** https://www.paypal.me/BrainstormForce  \r **Requires at least:** 4.4  \r **Requires PHP:** 5.4  \r **Tested up to:** 5.3  \r **Stable tag:** 1.2.2  \r **License:** GPLv2 or later  \r **License URI:** http://www.gnu.org/licenses/gpl-2.0.html",
+  "dependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nikschavan/header-footer-elementor.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nikschavan/header-footer-elementor/issues"
+  },
+  "homepage": "https://github.com/Nikschavan/header-footer-elementor#readme"
 }

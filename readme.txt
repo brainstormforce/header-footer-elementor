@@ -5,79 +5,96 @@ Donate link: https://www.paypal.me/BrainstormForce
 Requires at least: 4.4
 Requires PHP: 5.4
 Tested up to: 5.3
-Stable tag: 1.2.2
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Create Header and Footer for your site using Elementor Page Builder.
 
-== Description ==
+## Description ##
 
-Have you ever imagined you could create your website header and footer with <a href="https://elementor.com/?ref=1352">Elementor</a>?
+Have you ever imagined you could create your website header and footer with <a href="https://elementor.com/?ref=1352">Elementor</a> for free?
 
-The Elementor – Header, Footer & Blocks plugin allows you to create a layout with Elementor and set it as a header/footer or use as a custom block easily on your website.
+Elementor – Header, Footer & Blocks is a simple yet powerful plugin that allows you to create a layout with Elementor and set it as 
+- Header 
+- Footer 
+- Block (anywhere on the website)
 
-All you need to do is –
+= Create Attractive Designs =
 
-1. Design a layout using Elementor.
-2. Select whether it should be applied as the header or footer. 
-3. Select target locations where the template should appear.
-4. The template will be automatically applied as the header/footer on selected locations. 
-5. To display a template as a block, just copy the shortcode and display it anywhere on the website. 
+Elementor editor gives you the flexibility to design beautiful sections. Using it you can create out of the box layout and set it as header or footer.
 
-Easy peasy!
+= Pick Display Locations =
 
-You can refer to our step-by-step article that will help you <a href="https://uaelementor.com/header-footer-with-elementor/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description">set Elementor headers and footers</a> quickly.
+Want to display custom header only on the homepage or on the blog archive page or on the entire website? Well, this plugin allows choosing a specific target location to display header and footer on.
 
-= Features of Elementor – Header, Footer & Blocks =
+= Add Custom Blocks Anywhere =
 
-- Create attractive pages and templates to be used as a header or footer.
-- Usefully customized header and footer across the website.
-- Design useful custom blocks and add them anywhere with a shortcode. 
+Apart from header and footer, you can design a section with Elementor and set it at any place on the website with a shortcode.
 
+= ‘Before Footer’ Template =
 
-= Themes you can use Elementor – Header, Footer & Blocks with =
+Along with the main footer, the plugin gives the additional area - above the footer - where you can append your custom designed template. This gives great flexibility in footer designing.
 
-The Elementor – Header, Footer & Blocks isn’t universally compatible with all WordPress themes. Here is a list of themes you can use it with
+= Available With Elementor Canvas Template =
 
-1. <a href="https://wpastra.com/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description&bsf=162">Astra</a> - The Fastest, Most Lightweight &amp; Customizable WordPress Theme.
-2. <a href="https://shareasale.com/r.cfm?b=642802&u=1115254&m=55096&urllink=themeisle%2Ecom%2Fthemes%2Fneve%2F&afftrack=">Neve.</a>
-3. <a href="https://shareasale.com/r.cfm?b=642802&u=1115254&m=55096&urllink=themeisle%2Ecom%2Fthemes%2Fhestia%2F&afftrack=">Hestia.</a>
-4. GeneratePress.
-5. OceanWP.
-6. Genesis.
-7. Phlox Theme.
-8. Attesa Theme.
+Your custom header/footer layout can be easily displayed on the pages where Elementor Canvas Template is enabled.
 
-Do not see your theme listed here? Don’t Worry! 
+= Comes With Inbuilt Widgets =
 
-A plugin itself offers inbuild options to add theme support. 
+The plugin offers inbuilt widgets that help to create header/footer layouts. These widgets offer basic required features so you don’t have to look for extra plugins.
 
-Also, theme authors can add <a href="https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme">support for Elementor – Header, Footer & Blocks through their theme</a> easily.
+<ul>
+	<li><strong>Site Logo</strong> - Automatically inherits a logo from the customizer. You can even set a custom image as a logo with a custom link and caption.</li>
+	<li><strong>Site Title</strong> - Site name will be automatically inherited from the customizer. You can add prefix, suffix, icon, and link with it.</li>
+	<li><strong>Site Tagline</strong> - It will display a tagline from the customizer. You get an option for prefix, suffix, icon, and link with it.</li>
+	<li><strong>Navigation Menu</strong> - Offers you list of already created menus on your website. You just need to choose the required one. If offers 4 layouts for the menu - horizontal, vertical, expanded and flyout. With many other options, you can even set custom icons to open and close the menu.</li>
+	<li><strong>Page Title</strong> - Displays your current post/page title and offers additional options for prefix, suffix, icon, link, and alignment.</li>
+	<li><strong>Retina Image</strong> - You can upload the retina image for high definition screens.</li>
+	<li><strong>Copyright</strong> - It offers constants to display copyright notice - [hfe_current_year] and [hfe_site_title].</li>
+</ul>
+
+= WORKS WITH ALL THEMES =
+
+Elementor – Header, Footer & Blocks plugin works with all themes. Few of the themes have direct support while for few you can enable theme support with few clicks. 
+
+In case you see a notice to enable theme support manually, go to Appearance > Header Footer Builder > Theme Support. Select a method to add compatibility to your current theme and you are good to go! 
+
+= STEPS TO USE THE PLUGIN =
+
+Step 1 - Visit Appearance > Header Footer Builder and click on the ‘Add New’.
+
+Step 2 - Select ‘Type of Template’ (header/footer/block). Set its display location and user roles.
+
+Step 3 - Publish it.
+
+Step 4 - Edit it with Elementor and design a section.
+
+Step 5 - Save it and you are done!
+
+You can refer to our step-by-step article that will help you [set Elementor headers and footers](https://uaelementor.com/header-footer-with-elementor/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description) quickly.
 
 = LOOKING FOR PREMIUM ELEMENTOR ADDONS AND WIDGETS? =
-Check <a href="https://uaelementor.com/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description">Ultimate Addons for Elementor</a>. It is a library of creative and unique Elementor widgets that add more functionality and flexibility to your favorite page builder.
+Check [Ultimate Addons for Elementor](https://uaelementor.com/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description). It is a library of creative and unique Elementor widgets that add more functionality and flexibility to your favorite page builder.
 
 = HAVE YOU TRIED ASTRA WITH ELEMENTOR? =
 
-Powering over 500,000+ WordPress websites, Astra is loved for the performance and ease-of-use it offers.
+Powering over 600,000+ WordPress websites, Astra is loved for the performance and ease-of-use it offers.
 
-= WHY PEOPLE LOVE ASTRA? =
+People love Astra for -
 
 **Better Performance** - Optimized code and modular architecture make Astra the most lightweight theme for a faster loading website!
 
-**Page Builder’s Best Friend** - Astra works great with all page builders. Its support for custom layouts, Elementor templates, and ready-made starter sites makes it the best <a href="https://wpastra.com/theme-for-elementor/?utm_source=wp-repo&utm_medium=astra_desc&utm_campaign=header_footer_elementor">theme for Elementor</a>.
+**Page Builder’s Best Friend** - Astra works great with all page builders. Its support for custom layouts, Elementor templates, and ready-made starter sites makes it the best [theme for Elementor](https://wpastra.com/theme-for-elementor/?utm_source=wp-repo&utm_medium=astra_desc&utm_campaign=header_footer_elementor).
 
-**Easy Customization** - Astra takes away the pain and time spent in coding. With all the settings available in the customizer itself, Astra lets you manage all the theme options with just a few clicks.
-
-**Deeper Integrations** - Astra works seamlessly with all WooCommerce plugins, LifterLMS, LearnDash, etc. Therefore, you can now build online stores or websites offering online courses with Astra and Elementor!
-
-**Ready-to-use complete website demos** - Astra offers free ready-made website demos built with Elementor. You can choose any of the <a href="https://wpastra.com/elementor-templates-free-downloads/">Elementor Templates</a>, tweak them as you want and go live in minutes!
+**Ready-to-use complete website templates** - Astra offers free ready-made website demos built with Elementor. You can choose any of the [Elementor Templates](https://wpastra.com/elementor-templates-free-downloads/ "Elementor Templates"), tweak them as you want and go live in minutes!
 
 = SUPPORTED & ACTIVELY DEVELOPED =
-Need help with something? Have an issue to report? [Get in touch](https://github.com/Nikschavan/header-footer-elementor "Header Footer elementor on GitHub"). with us on GitHub.
+Need help with something? Have an issue to report? Visit [Plugin’s Forum](https://wordpress.org/plugins/header-footer-elementor/ "Plugin’s Forum").
 
-Made with love at <a href="https://www.brainstormforce.com/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description">Brainstorm Force</a>!
+[Get in touch](https://github.com/Nikschavan/header-footer-elementor "Header Footer elementor on GitHub") with us on GitHub.
+
+Made with love at [Brainstorm Force](https://www.brainstormforce.com/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description "Brainstorm Force")!
 
 == Installation ==
 
@@ -88,15 +105,16 @@ Made with love at <a href="https://www.brainstormforce.com/?utm_source=wp-repo&u
 
 == Frequently Asked Questions ==
 
-If you are a theme developer <a href="https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme">here</a> is a quick tutorial on how you can add support for the Elementor – Header, Footer & Blocks from your theme.
-
 = How Does This Plugin Work? =
 
 1. Go to Appearance -> Header Footer Builder to build a header or footer layout using Elementor.
 2. Click on “Add New” and design a template with Elementor. 
 3. Once the template is ready, set is as a header/footer/block using options “Type of Template” (<a href="https://share.getcloudapp.com/geurz2JR">screenshot</a>).
-4. a) For Header/Footer - Select the target location with the option “Display On”. With this Header/Footer will be visible only on selected locations for selected “User Roles”.
-   b) For Custom Block - Just copy the shortcode and add it anywhere on the website. Your designed template will display automatically. Display conditions or user roles will not be effective with shortcodes. 
+4.
+	
+	a) For Header/Footer - Select the target location with the option “Display On”. With this Header/Footer will be visible only on selected locations for selected “User Roles”.
+	
+	b) For Custom Block - Just copy the shortcode and add it anywhere on the website. Your designed template will display automatically. Display conditions or user roles will not be effective with shortcodes. 
 
 = Can You Create a Mobile Responsive Header/Footer Using This Plugin? =
 
@@ -104,22 +122,8 @@ Yes, You can create the mobile responsive layout of your header using the plugin
 
 The Elementor – Header, Footer & Blocks plugin just gives you a container where you can completely design the header using Elementor Page Builder, So the process of creating the mobile responsive layout is exactly the same as you would create a responsive layout of your other Elementor page.
 
-Here is a documentation by Elementor Page builder which explains how you can create mobile responsive layouts using Elementor - <a href="https://elementor.com/introducing-mobile-editing/">https://elementor.com/introducing-mobile-editing/</a>
+Here is a documentation by Elementor Page builder which explains how you can create mobile responsive layouts using Elementor - [https://elementor.com/introducing-mobile-editing/](https://elementor.com/introducing-mobile-editing/)
 This same applies when you are creating your Header/Footer using this plugin.
-
-= I Am NOT a Developer. How Can I Add Support for the Plugin from My Theme? =
-
-The plugin offers two inbuild methods to add theme support. (<a href="https://share.getcloudapp.com/4gux9ykY">Screenshot</a>)
-
-1. If your theme is unsupported by the plugin, you can see a tab “Theme Support” under Appearance -> Header Footer Builder. 
-2. Select a suitable method.
-3. In case inbuild methods won’t work, you can get in touch with your theme author and share the link <a href="https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme">here</a>. With this link, your theme author will be able to add theme support very easily. 
-
-= I Am a Developer. How Can I Add Support for the Plugin from the Theme? =
-
-If you are a theme developer <a href="https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme">here</a> is a quick tutorial on how you can add support for the Elementor – Header, Footer & Blocks from your theme.
-
-You can add support for the plugin from your child theme. Just follow <a href="https://github.com/Nikschavan/header-footer-elementor/wiki/Add-support-to-Header-Footer-Elementor-from-the-Child-Theme">this article</a>.
 
 == Screenshots ==
 
@@ -127,8 +131,17 @@ You can add support for the plugin from your child theme. Just follow <a href="h
 2. Assign template to be a header/footer and select display rules. 
 3. Copy shortcode for Custom Blocks. 
 4. Methods to add Theme Support.
+5. Inbuilt Elementor widgets
 
 == Changelog ==
+
+= 1.3.0 =
+- New: Added 'Site Logo' widget.
+- New: Added 'Site Title' widget.
+- New: Added 'Site Tagline' widget.
+- New: Added 'Navigation Menu' widget.
+- New: Added 'Page Title' widget.
+- Improvement: Elementor v2.9 compatibility.
 
 = 1.2.2 =
 - Fix: Add default fallback theme support after checking if current theme does not add it.
