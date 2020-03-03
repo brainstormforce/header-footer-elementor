@@ -5,7 +5,7 @@
 **Requires at least:** 4.4  
 **Requires PHP:** 5.4  
 **Tested up to:** 5.3  
-**Stable tag:** 1.2.2  
+**Stable tag:** 1.3.0  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -129,6 +129,14 @@ You can add support for the plugin from your child theme. Just follow <a href="h
 4. Methods to add Theme Support.
 
 ## Changelog ##
+
+### 1.3.0 ###
+- New: Added 'Site Logo' widget.
+- New: Added 'Site Title' widget.
+- New: Added 'Site Tagline' widget.
+- New: Added 'Navigation Menu' widget.
+- New: Added 'Page Title' widget.
+- Improvement: Elementor v2.9 compatibility.
 
 ### 1.2.2 ###
 - Fix: Add default fallback theme support after checking if current theme does not add it.
