@@ -116,7 +116,7 @@ class Post_Excerpt extends Widget_Base {
 			[
 				'name'     => 'title_typography',
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .hfe-post-excerpt-content, {{WRAPPER}} .hfe-post-title a',
+				'selector' => '{{WRAPPER}} .hfe-post-excerpt-content',
 			]
 		);
 
