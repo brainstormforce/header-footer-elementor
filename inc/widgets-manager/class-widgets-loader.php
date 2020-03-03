@@ -96,7 +96,7 @@ class Widgets_Loader {
 			'post-title',
 			'post-content',
 			'post-info',
-			'post-excerpt'
+			'post-excerpt',
 		];
 
 		return $widget_list;
@@ -188,7 +188,7 @@ class Widgets_Loader {
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Post_Title() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Post_Content() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Post_Info() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Post_Excerpt() );		
+		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Post_Excerpt() );
 	}
 }
 
