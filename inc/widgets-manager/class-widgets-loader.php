@@ -96,6 +96,7 @@ class Widgets_Loader {
 			'post-title',
 			'post-content',
 			'post-info',
+			'post-excerpt',
 		];
 
 		return $widget_list;
@@ -180,13 +181,14 @@ class Widgets_Loader {
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Retina() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Copyright() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Navigation_Menu() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Page_Title() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Title() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Post_Info() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Post_Content() );
+		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Page_Title() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Tagline() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Logo() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Post_Title() );
+		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Post_Content() );
+		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Post_Info() );
+		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Post_Excerpt() );
 	}
 }
 
