@@ -9,7 +9,7 @@ Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Create Header and Footer for your site using Elementor Page Builder.
+Create Header and Footer for your WordPress website using Elementor Page Builder for free.
 
 Have you ever imagined you could create your website header and footer with <a href="https://elementor.com/?ref=1352">Elementor</a> for FREE?
 
