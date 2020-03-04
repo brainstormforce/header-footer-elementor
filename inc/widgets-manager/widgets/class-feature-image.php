@@ -33,7 +33,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Feature_Image extends Widget_Base {
 
 
-
 	/**
 	 * Retrieve the widget name.
 	 *
@@ -56,7 +55,7 @@ class Feature_Image extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Feature Image', 'header-footer-elementor' );
+		return __( 'Featured Image', 'header-footer-elementor' );
 	}
 	/**
 	 * Retrieve the widget icon.
@@ -167,6 +166,7 @@ class Feature_Image extends Widget_Base {
 						'icon'  => 'eicon-text-align-right',
 					],
 				],
+				'default'   => 'left',
 				'selectors' => [
 					'{{WRAPPER}} .hfe-featured-image-set,{{WRAPPER}} .hfe-caption-width .widget-image-caption' => 'text-align: {{VALUE}};',
 				],
@@ -179,8 +179,8 @@ class Feature_Image extends Widget_Base {
 				'label'   => __( 'Caption', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					'none'   => __( 'None', 'header-footer-elementor' ),
-					'custom' => __( 'Custom Caption', 'header-footer-elementor' ),
+					'none'   => __( 'No', 'header-footer-elementor' ),
+					'custom' => __( 'Yes', 'header-footer-elementor' ),
 				],
 				'default' => 'none',
 			]
@@ -207,11 +207,12 @@ class Feature_Image extends Widget_Base {
 			[
 				'label'   => __( 'Link', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::SELECT,
-				'default' => 'none',
+				'default' => 'default',
 				'options' => [
-					'none'   => __( 'None', 'header-footer-elementor' ),
-					'file'   => __( 'Media File', 'header-footer-elementor' ),
-					'custom' => __( 'Custom URL', 'header-footer-elementor' ),
+					'default' => __( 'Default', 'header-footer-elementor' ),
+					'none'    => __( 'None', 'header-footer-elementor' ),
+					'file'    => __( 'Media File', 'header-footer-elementor' ),
+					'custom'  => __( 'Custom URL', 'header-footer-elementor' ),
 				],
 			]
 		);
@@ -338,22 +339,53 @@ class Feature_Image extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'feature_image_background_color',
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
 			[
-				'label'     => __( 'Background Color', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .hfe-featured-image-container' => 'background-color: {{VALUE}};',
+				'label'    => __( 'Border Style', 'header-footer-elementor' ),
+				'name'     => 'hfe_image_border',
+				'selector' => '{{WRAPPER}} .hfe-featured-image',
+			]
+		);
+
+		$this->add_control(
+			'hfe_image_border_size',
+			[
+				'label'      => __( 'Border Width', 'header-footer-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px' ],
+				'default'    => [
+					'top'    => '1',
+					'bottom' => '1',
+					'left'   => '1',
+					'right'  => '1',
+					'unit'   => 'px',
+				],
+				'condition'  => [
+					'image_border!' => 'none',
+				],
+				'selectors'  => [
+					'{{WRAPPER}} .hfe-featured-image' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
 
-		$this->add_group_control(
-			Group_Control_Border::get_type(),
+		$this->add_control(
+			'hfe_image_border_colors',
 			[
-				'name'     => 'image_border',
-				'selector' => '{{WRAPPER}} .hfe-featured-image',
+				'label'     => __( 'Border Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => [
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_1,
+				],
+				'condition' => [
+					'image_border!' => 'none',
+				],
+				'default'   => '',
+				'selectors' => [
+					'{{WRAPPER}} .hfe-featured-image' => 'border-color: {{VALUE}};',
+				],
 			]
 		);
 
@@ -559,6 +591,10 @@ class Feature_Image extends Widget_Base {
 						'max' => 100,
 					],
 				],
+				'default'   => [
+					'size' => 0,
+					'unit' => 'px',
+				],
 				'selectors' => [
 					'{{WRAPPER}} .widget-image-caption' => 'margin-top: {{SIZE}}{{UNIT}};',
 				],
@@ -646,11 +682,12 @@ class Feature_Image extends Widget_Base {
 		if ( 'file' === $settings['link_to'] ) {
 				$link = $feature_image;
 				$this->add_render_attribute( 'link', 'href', $link );
+		} elseif ( 'default' === $settings['link_to'] ) {
+			$link = site_url();
+			$this->add_render_attribute( 'link', 'href', $link );
 		} else {
 			$link = $this->get_link_url( $settings );
-			if ( ! empty( $link['url'] ) ) {
-				$this->add_render_attribute( 'link', 'href', $link['url'] );
-			}
+			$this->add_render_attribute( 'link', 'href', $link['url'] );
 			if ( ! empty( $link['nofollow'] ) ) {
 				$this->add_render_attribute( 'link', 'rel', 'nofollow' );
 			}
@@ -684,6 +721,7 @@ class Feature_Image extends Widget_Base {
 		}
 
 		$demo = '';
+
 		if ( 'custom' !== $size ) {
 			$image_size = $size;
 		} else {
@@ -696,6 +734,7 @@ class Feature_Image extends Widget_Base {
 				'bfi_thumb' => true,
 				'crop'      => true,
 			];
+
 			$has_custom_size = false;
 			if ( ! empty( $image_dimension['width'] ) ) {
 				$has_custom_size = true;
@@ -709,9 +748,15 @@ class Feature_Image extends Widget_Base {
 				$image_size = 'full';
 			}
 		}
+
 		$image_url = $feature_image;
 
-		$image_data = $feature_image;
+		if ( ! empty( $settings['custom_image']['url'] ) ) {
+			$image_data = wp_get_attachment_image_src( $settings['custom_image']['id'], $image_size, true );
+			$image_data = $image_data[0];
+		} else {
+			$image_data = $this->the_post_thumbnail_url( $image_size );
+		}
 
 		$site_image_class = 'elementor-animation-';
 		if ( ! empty( $settings['hover_animation'] ) ) {
@@ -720,8 +765,16 @@ class Feature_Image extends Widget_Base {
 		if ( ! empty( $image_data ) ) {
 			$image_url = $image_data;
 		}
+
+		if ( site_url() . '/wp-includes/images/media/default.png' === $image_url || empty( $image_url ) ) {
+			$image_url = site_url() . '/wp-content/plugins/elementor/assets/images/placeholder.png';
+		} else {
+			$image_url = $image_url;
+		}
+
 		$class_animation = $site_image_class . $demo;
-		$image_unset     = site_url() . '/wp-includes/images/media/default.png';
+
+		$image_unset = site_url() . '/wp-content/plugins/elementor/assets/images/placeholder.png';
 
 		if ( $image_unset !== $image_url ) {
 			$image_url = $image_url;
@@ -730,7 +783,7 @@ class Feature_Image extends Widget_Base {
 		?>
 			<div class="hfe-featured-image-set">           
 				<div class="hfe-featured-image-container">
-					<img src="<?php echo esc_url( $feature_image ); ?>" class="hfe-featured-image <?php echo esc_attr( $class_animation ); ?>">
+					<img src="<?php echo esc_url( $image_url ); ?>" class="hfe-featured-image <?php echo esc_attr( $class_animation ); ?>">
 				</div>
 			</div>
 		<?php if ( $link ) : ?>
