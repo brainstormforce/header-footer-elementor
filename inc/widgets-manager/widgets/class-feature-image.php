@@ -32,6 +32,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Feature_Image extends Widget_Base {
 
+
+
 	/**
 	 * Retrieve the widget name.
 	 *
@@ -166,7 +168,7 @@ class Feature_Image extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}}' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .hfe-featured-image-set,{{WRAPPER}} .hfe-caption-width .widget-image-caption' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -336,6 +338,48 @@ class Feature_Image extends Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'feature_image_background_color',
+			[
+				'label'     => __( 'Background Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .hfe-featured-image-container' => 'background-color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name'     => 'image_border',
+				'selector' => '{{WRAPPER}} .hfe-featured-image',
+			]
+		);
+
+		$this->add_responsive_control(
+			'image_border_radius',
+			[
+				'label'      => __( 'Border Radius', 'header-footer-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'selectors'  => [
+					'{{WRAPPER}} .hfe-featured-image' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name'     => 'image_box_shadow',
+				'exclude'  => [
+					'box_shadow_position',
+				],
+				'selector' => '{{WRAPPER}} .hfe-featured-image',
+			]
+		);
+
 		$this->start_controls_tabs( 'image_effects' );
 
 		$this->start_controls_tab(
@@ -435,38 +479,6 @@ class Feature_Image extends Widget_Base {
 
 		$this->end_controls_tabs();
 
-		$this->add_group_control(
-			Group_Control_Border::get_type(),
-			[
-				'name'      => 'image_border',
-				'selector'  => '{{WRAPPER}} .hfe-featured-image',
-				'separator' => 'before',
-			]
-		);
-
-		$this->add_responsive_control(
-			'image_border_radius',
-			[
-				'label'      => __( 'Border Radius', 'header-footer-elementor' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%' ],
-				'selectors'  => [
-					'{{WRAPPER}} .hfe-featured-image' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Box_Shadow::get_type(),
-			[
-				'name'     => 'image_box_shadow',
-				'exclude'  => [
-					'box_shadow_position',
-				],
-				'selector' => '{{WRAPPER}} .hfe-featured-image',
-			]
-		);
-
 		$this->end_controls_section();
 
 		$this->start_controls_section(
@@ -476,36 +488,6 @@ class Feature_Image extends Widget_Base {
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'caption_source!' => 'none',
-				],
-			]
-		);
-
-		$this->add_control(
-			'caption_align',
-			[
-				'label'     => __( 'Alignment', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::CHOOSE,
-				'options'   => [
-					'left'    => [
-						'title' => __( 'Left', 'header-footer-elementor' ),
-						'icon'  => 'eicon-text-align-left',
-					],
-					'center'  => [
-						'title' => __( 'Center', 'header-footer-elementor' ),
-						'icon'  => 'eicon-text-align-center',
-					],
-					'right'   => [
-						'title' => __( 'Right', 'header-footer-elementor' ),
-						'icon'  => 'eicon-text-align-right',
-					],
-					'justify' => [
-						'title' => __( 'Justified', 'header-footer-elementor' ),
-						'icon'  => 'eicon-text-align-justify',
-					],
-				],
-				'default'   => '',
-				'selectors' => [
-					'{{WRAPPER}} .widget-image-caption' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -551,6 +533,18 @@ class Feature_Image extends Widget_Base {
 			[
 				'name'     => 'caption_text_shadow',
 				'selector' => '{{WRAPPER}} .widget-image-caption',
+			]
+		);
+
+		$this->add_responsive_control(
+			'caption_padding',
+			[
+				'label'      => __( 'Padding', 'header-footer-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', 'em', '%' ],
+				'selectors'  => [
+					'{{WRAPPER}} .widget-image-caption' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
 			]
 		);
 
@@ -641,6 +635,12 @@ class Feature_Image extends Widget_Base {
 			$feature_image = $image_data[0];
 		} else {
 			$feature_image = $this->the_post_thumbnail_url( $size );
+		}
+
+		if ( site_url() . '/wp-includes/images/media/default.png' === $feature_image || empty( $feature_image ) ) {
+			$feature_image = site_url() . '/wp-content/plugins/elementor/assets/images/placeholder.png';
+		} else {
+			$feature_image = $feature_image;
 		}
 
 		if ( 'file' === $settings['link_to'] ) {
@@ -740,7 +740,7 @@ class Feature_Image extends Widget_Base {
 			?>
 			<?php if ( ! empty( $caption_text ) ) : ?>
 					<div class="hfe-caption-width"> 
-						<figcaption class="widget-image-caption wp-caption-text"><?php echo esc_attr( $caption_text ); ?></figcaption>
+						<figcaption class="widget-image-caption wp-caption-text"><?php echo wp_kses_post( $caption_text ); ?></figcaption>
 					</div>
 			<?php endif; ?>
 				</figure>
