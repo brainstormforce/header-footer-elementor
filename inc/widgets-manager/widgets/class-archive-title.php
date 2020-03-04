@@ -220,7 +220,7 @@ class Archive_Title extends Widget_Base {
 				],
 				'default'   => '',
 				'selectors' => [
-					'{{WRAPPER}} .hfe-post-title-wrapper' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .hfe-archive-title-wrapper' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -318,13 +318,14 @@ class Archive_Title extends Widget_Base {
 			$this->add_render_attribute( 'title', 'class', ['elementor-size-' . $settings['size']]);
 		}
 		
-		if ( '' !== $settings['before'] ) {
+		/*if ( '' != $settings['before'] ) {
 			$before = $settings['before'] . ' ';
 		}
 		
-		if ( '' !== $settings['after'] ) {
+		if ( '' != $settings['after'] ) {
 			$after = ' ' . $settings['after'];
-		}
+		}*/
+		
 		if ( 'custom' === $settings['link'] && ( ! empty( $settings['custom_link']['url'] ) ) ) {
 			$this->add_render_attribute( 'url', 'href', $settings['custom_link']['url'] );
 			if ( $settings['custom_link']['is_external'] ) {
@@ -337,8 +338,11 @@ class Archive_Title extends Widget_Base {
 			$this->add_render_attribute( 'url', 'href', get_the_permalink() );
 		}
 		?>
-		<div <?php echo $this->get_render_attribute_string('title');?>>
-		<<?php echo $settings['heading_tag'];?>><a <?php echo $this->get_render_attribute_string( 'url' ); ?>><?php the_archive_title( $before , $after ); ?></a>
+		<div class="hfe-archive-title hfe-archive-title-wrapper elementor-widget-heading">
+			<<?php echo wp_kses_post( $settings['heading_tag'] );?> <?php echo $this->get_render_attribute_string('title');?>>
+				<a <?php echo $this->get_render_attribute_string( 'url' ); ?>>
+					<?php the_archive_title(  $settings['before'], $settings['after'] ); ?></a>
+			</<?php echo wp_kses_post( $settings['heading_tag'] );?>
 		</div>
 		<?php
 	}

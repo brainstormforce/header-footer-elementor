@@ -93,6 +93,7 @@ class Widgets_Loader {
 			'page-title',
 			'site-tagline',
 			'site-logo',
+			'archive-title',
 		];
 
 		return $widget_list;
@@ -181,6 +182,7 @@ class Widgets_Loader {
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Title() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Tagline() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Logo() );
+		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Archive_Title() );
 	}
 }
 
