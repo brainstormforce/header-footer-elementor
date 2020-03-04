@@ -26,7 +26,7 @@ Elementor editor gives you the flexibility to design beautiful sections. Using i
 
 Want to display a custom header template only on the homepage or on the blog archive page or on the entire website? Well, this plugin allows choosing a specific target location to display header and footer on.
 
-### Add Elementor Blocks Anywheree ###
+### Add Elementor Blocks Anywhere ###
 
 Apart from header and footer, you can design custom templates with Elementor and set it at any place on the website with a shortcode.
 
