@@ -33,6 +33,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Feature_Image extends Widget_Base {
 
 
+
 	/**
 	 * Retrieve the widget name.
 	 *
@@ -207,12 +208,11 @@ class Feature_Image extends Widget_Base {
 			[
 				'label'   => __( 'Link', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::SELECT,
-				'default' => 'default',
+				'default' => 'none',
 				'options' => [
-					'default' => __( 'Default', 'header-footer-elementor' ),
-					'none'    => __( 'None', 'header-footer-elementor' ),
-					'file'    => __( 'Media File', 'header-footer-elementor' ),
-					'custom'  => __( 'Custom URL', 'header-footer-elementor' ),
+					'none'   => __( 'None', 'header-footer-elementor' ),
+					'file'   => __( 'Media File', 'header-footer-elementor' ),
+					'custom' => __( 'Custom URL', 'header-footer-elementor' ),
 				],
 			]
 		);
@@ -339,19 +339,46 @@ class Feature_Image extends Widget_Base {
 			]
 		);
 
-		$this->add_group_control(
-			Group_Control_Border::get_type(),
+		$this->add_control(
+			'hfe_image_border',
 			[
-				'label'    => __( 'Border Style', 'header-footer-elementor' ),
-				'name'     => 'hfe_image_border',
-				'selector' => '{{WRAPPER}} .hfe-featured-image',
+				'label' => __( 'Border', 'uael' ),
+				'type'  => Controls_Manager::HEADING,
+			]
+		);
+
+		// $this->add_group_control(
+		// Group_Control_Border::get_type(),
+		// [
+		// 'label'    => __('Type', 'header-footer-elementor'),
+		// 'name'     => 'hfe_image_border',
+		// 'selector' => '{{WRAPPER}} .hfe-featured-image',
+		// ]
+		// );
+		$this->add_control(
+			'hfe_image_border_style',
+			[
+				'label'       => __( 'Style', 'header-footer-elementor' ),
+				'type'        => Controls_Manager::SELECT,
+				'default'     => 'none',
+				'label_block' => false,
+				'options'     => [
+					'none'   => __( 'None', 'header-footer-elementor' ),
+					'solid'  => __( 'Solid', 'header-footer-elementor' ),
+					'double' => __( 'Double', 'header-footer-elementor' ),
+					'dotted' => __( 'Dotted', 'header-footer-elementor' ),
+					'dashed' => __( 'Dashed', 'header-footer-elementor' ),
+				],
+				'selectors'   => [
+					'{{WRAPPER}} .hfe-featured-image' => 'border-style: {{VALUE}};',
+				],
 			]
 		);
 
 		$this->add_control(
 			'hfe_image_border_size',
 			[
-				'label'      => __( 'Border Width', 'header-footer-elementor' ),
+				'label'      => __( 'Width', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'default'    => [
@@ -362,7 +389,7 @@ class Feature_Image extends Widget_Base {
 					'unit'   => 'px',
 				],
 				'condition'  => [
-					'image_border!' => 'none',
+					'hfe_image_border_style!' => 'none',
 				],
 				'selectors'  => [
 					'{{WRAPPER}} .hfe-featured-image' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -373,14 +400,14 @@ class Feature_Image extends Widget_Base {
 		$this->add_control(
 			'hfe_image_border_colors',
 			[
-				'label'     => __( 'Border Color', 'header-footer-elementor' ),
+				'label'     => __( 'Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'scheme'    => [
 					'type'  => Scheme_Color::get_type(),
 					'value' => Scheme_Color::COLOR_1,
 				],
 				'condition' => [
-					'image_border!' => 'none',
+					'hfe_image_border_style!' => 'none',
 				],
 				'default'   => '',
 				'selectors' => [
@@ -392,7 +419,7 @@ class Feature_Image extends Widget_Base {
 		$this->add_responsive_control(
 			'image_border_radius',
 			[
-				'label'      => __( 'Border Radius', 'header-footer-elementor' ),
+				'label'      => __( 'Radius', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -438,7 +465,6 @@ class Feature_Image extends Widget_Base {
 				],
 			]
 		);
-
 		$this->add_group_control(
 			Group_Control_Css_Filter::get_type(),
 			[
@@ -474,6 +500,14 @@ class Feature_Image extends Widget_Base {
 			]
 		);
 
+		$this->add_group_control(
+			Group_Control_Css_Filter::get_type(),
+			[
+				'name'     => 'css_filters_hover',
+				'selector' => '{{WRAPPER}} .hfe-featured-image:hover img',
+			]
+		);
+
 		$this->add_control(
 			'background_hover_transition',
 			[
@@ -488,14 +522,6 @@ class Feature_Image extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} ..hfe-featured-image' => 'transition-duration: {{SIZE}}s',
 				],
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Css_Filter::get_type(),
-			[
-				'name'     => 'css_filters_hover',
-				'selector' => '{{WRAPPER}} .hfe-featured-image:hover img',
 			]
 		);
 
