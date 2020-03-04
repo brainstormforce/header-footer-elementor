@@ -33,7 +33,38 @@ class HFE_Admin {
 			self::$_instance = new self();
 		}
 
+		add_action( 'elementor/init', __CLASS__ . '::load_admin', 0 );
+
 		return self::$_instance;
+	}
+
+	/**
+	 * Load the icons style in editor.
+	 *
+	 * @since 1.3.0
+	 */
+	public static function load_admin() {
+		add_action( 'elementor/editor/after_enqueue_styles', __CLASS__ . '::hfe_admin_enqueue_scripts' );
+	}
+
+	/**
+	 * Enqueue admin scripts
+	 *
+	 * @since 1.3.0
+	 * @param string $hook Current page hook.
+	 * @access public
+	 */
+	public static function hfe_admin_enqueue_scripts( $hook ) {
+
+		// Register the icons styles.
+		wp_register_style(
+			'hfe-style',
+			HFE_URL . 'assets/css/style.css',
+			[],
+			HFE_VER
+		);
+
+		wp_enqueue_style( 'hfe-style' );
 	}
 
 	/**
