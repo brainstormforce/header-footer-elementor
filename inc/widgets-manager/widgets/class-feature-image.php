@@ -113,7 +113,7 @@ class Feature_Image extends Widget_Base {
 		$this->add_control(
 			'feature_image',
 			[
-				'label'       => __( 'Enable Fallback', 'header-footer-elementor' ),
+				'label'       => __( 'Custom Image', 'header-footer-elementor' ),
 				'type'        => Controls_Manager::SWITCHER,
 				'yes'         => __( 'Yes', 'uael' ),
 				'no'          => __( 'No', 'uael' ),
@@ -125,7 +125,7 @@ class Feature_Image extends Widget_Base {
 		$this->add_control(
 			'custom_image',
 			[
-				'label'     => __( 'Custom Image', 'header-footer-elementor' ),
+				'label'     => __( 'Add Image', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::MEDIA,
 				'dynamic'   => [
 					'active' => true,
@@ -142,7 +142,7 @@ class Feature_Image extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Image_Size::get_type(),
 			[
-				'name'    => 'feature_image',
+				'name'    => 'feature_image_size',
 				'label'   => __( 'Image Size', 'header-footer-elementor' ),
 				'default' => 'medium',
 			]
@@ -628,7 +628,7 @@ class Feature_Image extends Widget_Base {
 		$has_caption = $this->has_caption( $settings );
 		$this->add_render_attribute( 'wrapper', 'class', 'hfe-featured-image-wrap' );
 
-		$size = $settings[ 'feature_image' . '_size' ];
+		$size = $settings[ 'feature_image_size_size' ];
 
 		if ( ! empty( $settings['custom_image']['url'] ) ) {
 			$image_data    = wp_get_attachment_image_src( $settings['custom_image']['id'], $size, true );
@@ -648,7 +648,9 @@ class Feature_Image extends Widget_Base {
 				$this->add_render_attribute( 'link', 'href', $link );
 		} else {
 			$link = $this->get_link_url( $settings );
-			$this->add_render_attribute( 'link', 'href', $link['url'] );
+			if ( ! empty( $link['url'] ) ) {
+				$this->add_render_attribute( 'link', 'href', $link['url'] );				
+			}			
 			if ( ! empty( $link['nofollow'] ) ) {
 				$this->add_render_attribute( 'link', 'rel', 'nofollow' );
 			}
@@ -686,7 +688,7 @@ class Feature_Image extends Widget_Base {
 			$image_size = $size;
 		} else {
 			require_once ELEMENTOR_PATH . 'includes/libraries/bfi-thumb/bfi-thumb.php';
-			$image_dimension = $settings[ 'site_image' . '_custom_dimension' ];
+			$image_dimension = $settings[ 'feature_image_size_custom_dimension' ];
 			$image_size      = [
 				// Defaults sizes.
 				0           => null, // Width.
