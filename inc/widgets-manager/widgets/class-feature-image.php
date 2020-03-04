@@ -628,7 +628,7 @@ class Feature_Image extends Widget_Base {
 		$has_caption = $this->has_caption( $settings );
 		$this->add_render_attribute( 'wrapper', 'class', 'hfe-featured-image-wrap' );
 
-		$size = $settings[ 'feature_image_size_size' ];
+		$size = $settings['feature_image_size_size'];
 
 		if ( ! empty( $settings['custom_image']['url'] ) ) {
 			$image_data    = wp_get_attachment_image_src( $settings['custom_image']['id'], $size, true );
@@ -649,8 +649,8 @@ class Feature_Image extends Widget_Base {
 		} else {
 			$link = $this->get_link_url( $settings );
 			if ( ! empty( $link['url'] ) ) {
-				$this->add_render_attribute( 'link', 'href', $link['url'] );				
-			}			
+				$this->add_render_attribute( 'link', 'href', $link['url'] );
+			}
 			if ( ! empty( $link['nofollow'] ) ) {
 				$this->add_render_attribute( 'link', 'rel', 'nofollow' );
 			}
@@ -688,7 +688,7 @@ class Feature_Image extends Widget_Base {
 			$image_size = $size;
 		} else {
 			require_once ELEMENTOR_PATH . 'includes/libraries/bfi-thumb/bfi-thumb.php';
-			$image_dimension = $settings[ 'feature_image_size_custom_dimension' ];
+			$image_dimension = $settings['feature_image_size_custom_dimension'];
 			$image_size      = [
 				// Defaults sizes.
 				0           => null, // Width.

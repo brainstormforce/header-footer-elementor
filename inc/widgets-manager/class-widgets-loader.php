@@ -98,7 +98,7 @@ class Widgets_Loader {
 			'post-content',
 			'post-info',
 			'post-excerpt',
-			'feature-image'
+			'feature-image',
 		];
 
 		return $widget_list;
