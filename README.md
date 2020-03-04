@@ -1,6 +1,6 @@
 # Elementor - Header, Footer & Blocks #
 **Contributors:** [brainstormforce](https://profiles.wordpress.org/brainstormforce), [Nikschavan](https://profiles.wordpress.org/Nikschavan)  
-**Tags:** elementor, header footer builder, header, footer, page builder, template builder, landing page builder, front-end editor  
+**Tags:** elementor, header footer builder, header template, footer template, elementor widget, WordPress header, WordPress footer, elementor menu, website header design, footer design  
 **Donate link:** https://www.paypal.me/BrainstormForce  
 **Requires at least:** 4.4  
 **Requires PHP:** 5.4  
@@ -11,30 +11,28 @@
 
 Create Header and Footer for your site using Elementor Page Builder.
 
-## Description ##
+Have you ever imagined you could create your website header and footer with <a href="https://elementor.com/?ref=1352">Elementor</a> for FREE?
 
-Have you ever imagined you could create your website header and footer with <a href="https://elementor.com/?ref=1352">Elementor</a> for free?
-
-Elementor – Header, Footer & Blocks is a simple yet powerful plugin that allows you to create a layout with Elementor and set it as 
+Elementor -  Header, Footer & Blocks is a simple yet powerful WordPress plugin that allows you to create a layout with Elementor and set it as 
 - Header 
 - Footer 
 - Block (anywhere on the website)
 
 ### Create Attractive Designs ###
 
-Elementor editor gives you the flexibility to design beautiful sections. Using it you can create out of the box layout and set it as header or footer.
+Elementor editor gives you the flexibility to design beautiful sections. Using it you can create out of the box header and footer designs.
 
 ### Pick Display Locations ###
 
-Want to display custom header only on the homepage or on the blog archive page or on the entire website? Well, this plugin allows choosing a specific target location to display header and footer on.
+Want to display a custom header template only on the homepage or on the blog archive page or on the entire website? Well, this plugin allows choosing a specific target location to display header and footer on.
 
-### Add Custom Blocks Anywhere ###
+### Add Elementor Blocks Anywheree ###
 
-Apart from header and footer, you can design a section with Elementor and set it at any place on the website with a shortcode.
+Apart from header and footer, you can design custom templates with Elementor and set it at any place on the website with a shortcode.
 
 ### ‘Before Footer’ Template ###
 
-Along with the main footer, the plugin gives the additional area - above the footer - where you can append your custom designed template. This gives great flexibility in footer designing.
+Along with the main footer, the plugin gives the additional area - above the footer - where you can append your custom template. This gives great flexibility in footer design.
 
 ### Available With Elementor Canvas Template ###
 
@@ -56,9 +54,9 @@ The plugin offers inbuilt widgets that help to create header/footer layouts. The
 
 ### WORKS WITH ALL THEMES ###
 
-Elementor – Header, Footer & Blocks plugin works with all themes. Few of the themes have direct support while for few you can enable theme support with few clicks. 
+Elementor – Header, Footer & Blocks plugin works with all themes. Few of the themes have direct support while for few you can enable theme support with few clicks.
 
-In case you see a notice to enable theme support manually, go to Appearance > Header Footer Builder > Theme Support. Select a method to add compatibility to your current theme and you are good to go! 
+In case you see a notice to enable theme support manually, go to Appearance > Header Footer Builder > Theme Support. Select a method to add compatibility to your current theme and you are good to go!
 
 ### STEPS TO USE THE PLUGIN ###
 
@@ -75,6 +73,7 @@ Step 5 - Save it and you are done!
 You can refer to our step-by-step article that will help you [set Elementor headers and footers](https://uaelementor.com/header-footer-with-elementor/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description) quickly.
 
 ### LOOKING FOR PREMIUM ELEMENTOR ADDONS AND WIDGETS? ###
+
 Check [Ultimate Addons for Elementor](https://uaelementor.com/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description). It is a library of creative and unique Elementor widgets that add more functionality and flexibility to your favorite page builder.
 
 ### HAVE YOU TRIED ASTRA WITH ELEMENTOR? ###
@@ -85,7 +84,7 @@ People love Astra for -
 
 **Better Performance** - Optimized code and modular architecture make Astra the most lightweight theme for a faster loading website!
 
-**Page Builder’s Best Friend** - Astra works great with all page builders. Its support for custom layouts, Elementor templates, and ready-made starter sites makes it the best [theme for Elementor](https://wpastra.com/theme-for-elementor/?utm_source=wp-repo&utm_medium=astra_desc&utm_campaign=header_footer_elementor).
+**Page Builder's Best Friend** - Astra works great with all page builders. Its support for custom layouts, Elementor templates, and ready-made starter sites makes it the best [theme for Elementor](https://wpastra.com/theme-for-elementor/?utm_source=wp-repo&utm_medium=astra_desc&utm_campaign=header_footer_elementor).
 
 **Ready-to-use complete website templates** - Astra offers free ready-made website demos built with Elementor. You can choose any of the [Elementor Templates](https://wpastra.com/elementor-templates-free-downloads/ "Elementor Templates"), tweak them as you want and go live in minutes!
 
@@ -102,6 +101,7 @@ Made with love at [Brainstorm Force](https://www.brainstormforce.com/?utm_source
 2. Activate the plugin through the 'Plugins' screen in WordPress.
 3. Go to `Appearance -> Header Footer Builder` to build a header or footer layout using elementor.
 4. After the layout is ready assign it as header or footer using the option `Select the type of template this is` (<a href="https://cloudup.com/clK2sPg9nXK+">screenshot</a>)
+5. Default widgets available with the plugin. 
 
 ## Frequently Asked Questions ##
 
