@@ -101,7 +101,6 @@ Made with love at [Brainstorm Force](https://www.brainstormforce.com/?utm_source
 2. Activate the plugin through the 'Plugins' screen in WordPress.
 3. Go to `Appearance -> Header Footer Builder` to build a header or footer layout using elementor.
 4. After the layout is ready assign it as header or footer using the option `Select the type of template this is` (<a href="https://cloudup.com/clK2sPg9nXK+">screenshot</a>)
-5. Default widgets available with the plugin. 
 
 ## Frequently Asked Questions ##
 
@@ -131,7 +130,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 2. Assign template to be a header/footer and select display rules. 
 3. Copy shortcode for Custom Blocks. 
 4. Methods to add Theme Support.
-5. Inbuilt Elementor widgets
+5. Default widgets available with the plugin.
 
 ## Changelog ##
 
