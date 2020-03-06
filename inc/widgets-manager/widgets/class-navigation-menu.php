@@ -1608,7 +1608,7 @@ class Navigation_Menu extends Widget_Base {
 						'name'     => 'all_typography',
 						'label'    => __( 'Title Typography', 'header-footer-elementor' ),
 						'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-						'selector' => '{{WRAPPER}} .uael-marketing-button-title',
+						'selector' => '{{WRAPPER}} .hfe-marketing-button-title',
 					)
 				);
 			$this->add_responsive_control(
@@ -1802,7 +1802,7 @@ class Navigation_Menu extends Widget_Base {
 			add_filter( 'wp_nav_menu_items', function( $items, $args ){
 				$settings = $this->get_settings_for_display();
 
-				$items .= '<li class="uael-button-wrapper elementor-button-wrapper">';
+				$items .= '<li class="hfe-button-wrapper elementor-button-wrapper menu-item">';
 					$items .= '<a id="' . $settings['button_css_id'] . '"href="' . $settings['button_link']['url'] . '" class="elementor-button-link elementor-button">';
 						$items .= '<span class="elementor-button-content-wrapper">';
 							$items .= '<span class="elementor-button-text elementor-inline-editing" data-elementor-inline-editing-toolbar="advanced">';
@@ -1810,10 +1810,13 @@ class Navigation_Menu extends Widget_Base {
 							$items .= '</span>';
 						$items .= '</span>';
 					$items .= '</a>';
+					$items .= '<a id="' . $settings['button_css_id'] . '"href="' . $settings['button_link']['url'] . '" class="hfe-menu-item">';
+						$items .= $settings['button_text'];
+					$items .= '</a>';
 				$items .= '</li>';
 				return $items;			
 			}, 10, 2 );
-			
+
 		}
 
 		$menu_html = wp_nav_menu( $args );
