@@ -1606,9 +1606,9 @@ class Navigation_Menu extends Widget_Base {
 					Group_Control_Typography::get_type(),
 					array(
 						'name'     => 'all_typography',
-						'label'    => __( 'Title Typography', 'header-footer-elementor' ),
+						'label'    => __( 'Typography', 'header-footer-elementor' ),
 						'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-						'selector' => '{{WRAPPER}} .hfe-marketing-button-title',
+						'selector' => '{{WRAPPER}} .elementor-button-text',
 					)
 				);
 			$this->add_responsive_control(
@@ -1688,15 +1688,6 @@ class Navigation_Menu extends Widget_Base {
 						array(
 							'name'     => 'all_button_box_shadow',
 							'selector' => '{{WRAPPER}} .elementor-button',
-						)
-					);
-
-					$this->add_control(
-						'blink_effect',
-						array(
-							'label'   => __( 'Flare Animation', 'header-footer-elementor' ),
-							'type'    => Controls_Manager::SWITCHER,
-							'default' => 'no',
 						)
 					);
 
