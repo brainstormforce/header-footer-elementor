@@ -136,6 +136,11 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 
+= 1.4.0 =
+- New: Added 'Post Title' widget.
+- New: Added 'Post Content' widget.
+- New: Added 'Post Info' widget.
+
 = 1.3.0 =
 - New: Added 'Site Logo' widget.
 - New: Added 'Site Title' widget.

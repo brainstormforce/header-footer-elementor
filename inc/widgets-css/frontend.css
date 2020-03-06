@@ -1557,3 +1557,20 @@ div.hfe-nav-menu,
     display: inline-block;
 }
 
+/* Post Info widget */
+.hfe-post-info-terms-list {
+    display: inline-block; 
+}
+
+.hfe-post-info-widget .elementor-icon-list-icon .elementor-avatar {
+    border-radius: 100%; 
+}
+
+.hfe-post-info-widget .elementor-icon-list-item .hfe-post-info-item-text {
+    display: inline-block; 
+}
+
+.hfe-post-info-widget .elementor-icon-list-item .hfe-post-info-item-text a, 
+.hfe-post-info-widget .elementor-icon-list-item .hfe-post-info-item-text span {
+    display: inline; 
+}
