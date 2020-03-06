@@ -136,6 +136,13 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 
+= 1.4.0 =
+- Improvement: Added inbuilt support to Hello Elementor theme.
+- Fix: Before Footer template translation not working with WPML.
+- Fix: Copyright - Link with open in new tab not working.
+- Fix: Navigation Menu - Hamburger menu click not working on responsive devices.
+- Deprecated: Removed the theme dependency for the plugin, so removed the associated notice.
+
 = 1.3.0 =
 - New: Added 'Site Logo' widget.
 - New: Added 'Site Title' widget.
