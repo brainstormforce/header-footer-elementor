@@ -31,7 +31,7 @@
 		
 		_borderClass( id );	
 
-		$( '.elementor-element-' + id + ' .hfe-nav-menu-icon' ).off( 'click keyup' ).on( 'click keyup', function() {
+		$( '.elementor-element-' + id + ' .hfe-flyout-trigger .hfe-nav-menu-icon' ).off( 'click keyup' ).on( 'click keyup', function() {
 
 			_openMenu( id );
 		} );
