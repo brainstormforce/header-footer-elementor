@@ -440,7 +440,7 @@ class Navigation_Menu extends Widget_Base {
 			]
 		);
 
-		$this->add_responsive_control(
+		$this->add_control(
 			'resp_align',
 			[
 				'label'                => __( 'Alignment', 'header-footer-elementor' ),
