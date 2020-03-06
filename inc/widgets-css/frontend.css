@@ -135,7 +135,15 @@ div.hfe-nav-menu,
           -webkit-justify-content: flex-end;
           -moz-box-pack: end;
           justify-content: flex-end; }
-
+.hfe-nav-menu__align-right .hfe-nav-menu__layout-vertical li.elementor-button-wrapper{
+    text-align: right;
+}
+.hfe-nav-menu__align-left .hfe-nav-menu__layout-vertical li.elementor-button-wrapper{
+    text-align: left;
+}
+.hfe-nav-menu__align-center .hfe-nav-menu__layout-vertical li.elementor-button-wrapper{
+    text-align: center;
+}
 .hfe-nav-menu__align-left .hfe-nav-menu {
   margin-right: auto;
   -webkit-box-pack: start;
@@ -162,14 +170,14 @@ div.hfe-nav-menu,
           justify-content: center; }
 
 .hfe-nav-menu__align-center .hfe-nav-menu__layout-vertical li a.hfe-menu-item,
-.hfe-nav-menu__align-center .hfe-nav-menu__layout-vertical li a.hfe-sub-menu-item{
+.hfe-nav-menu__align-center .hfe-nav-menu__layout-vertical li a.hfe-sub-menu-item {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           -webkit-justify-content: center;
           -moz-box-pack: center;
           justify-content: center; }
 
-.hfe-nav-menu__layout-horizontal .hfe-nav-menu{
+.hfe-nav-menu__layout-horizontal .hfe-nav-menu {
     -js-display: flex;
     display: -webkit-box;
     display: -webkit-flex;
@@ -1082,13 +1090,13 @@ div.hfe-nav-menu,
 /* Last Menu Item Button CSS */
 .hfe-button-wrapper.menu-item .hfe-menu-item,
 .hfe-layout-expandible .hfe-button-wrapper .elementor-button,
-.hfe-flyout-content .hfe-button-wrapper .elementor-button
+.hfe-flyout-content .hfe-button-wrapper.menu-item .hfe-menu-item
 {
     display: none;
 }
 
 .hfe-layout-expandible .hfe-button-wrapper.menu-item .hfe-menu-item,
-.hfe-flyout-content .hfe-button-wrapper.menu-item .hfe-menu-item
+.hfe-flyout-content .hfe-button-wrapper .elementor-button
 {
     display: inline-flex;
 }
@@ -1281,7 +1289,8 @@ div.hfe-nav-menu,
     }
 
     .hfe-nav-menu__breakpoint-tablet.hfe-nav-menu__align-justify .hfe-nav-menu__layout-horizontal .hfe-nav-menu li a.hfe-menu-item,
-    .hfe-nav-menu__breakpoint-tablet.hfe-nav-menu__align-justify .hfe-nav-menu__layout-horizontal .hfe-nav-menu li a.hfe-sub-menu-item {
+    .hfe-nav-menu__breakpoint-tablet.hfe-nav-menu__align-justify .hfe-nav-menu__layout-horizontal .hfe-nav-menu li a.hfe-sub-menu-item,
+    .hfe-nav-menu__breakpoint-tablet.hfe-nav-menu__align-justify .hfe-nav-menu__layout-horizontal .hfe-nav-menu li.elementor-button-wrapper {
         -webkit-box-pack: justify;
         -webkit-justify-content: space-between;
         -moz-box-pack: justify;
@@ -1303,7 +1312,8 @@ div.hfe-nav-menu,
 @media only screen and ( max-width: 767px ) {
 
     .hfe-nav-menu__breakpoint-mobile.hfe-nav-menu__align-justify .hfe-nav-menu__layout-horizontal .hfe-nav-menu li a.hfe-menu-item,
-    .hfe-nav-menu__breakpoint-mobile.hfe-nav-menu__align-justify .hfe-nav-menu__layout-horizontal .hfe-nav-menu li a.hfe-sub-menu-item { 
+    .hfe-nav-menu__breakpoint-mobile.hfe-nav-menu__align-justify .hfe-nav-menu__layout-horizontal .hfe-nav-menu li a.hfe-sub-menu-item 
+    .hfe-nav-menu__breakpoint-tablet.hfe-nav-menu__align-justify .hfe-nav-menu__layout-horizontal .hfe-nav-menu li.elementor-button-wrapper { 
         -webkit-box-pack: justify;
         -webkit-justify-content: space-between;
         -moz-box-pack: justify;
