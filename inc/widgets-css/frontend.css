@@ -1557,3 +1557,103 @@ div.hfe-nav-menu,
     display: inline-block;
 }
 
+/* Custom type */
+
+.hfe-cart-menu-wrap-custom {
+    display: inline-block;
+    line-height: 1;
+}
+
+.hfe-cart-menu-wrap-custom .count, .hfe-cart-menu-wrap-custom .count:after {
+    border-color: #75c32c;
+    color: #75c32c;
+}
+
+.hfe-cart-menu-wrap-custom .count {
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    min-width: 2.1em;
+    min-height: 2.1em;
+    font-size: 0.860em;
+    line-height: 1.8;
+    border-radius: 0.3em 0.3em 0.3em 0.3em;
+    border-width: 2px;
+    border-style: solid;
+    padding: 12px 24px;
+}
+
+
+  .hfe-cart-menu-wrap-custom.elementor-size-xs {
+    font-size: 13px;
+    padding: 10px 20px;
+    -webkit-border-radius: 2px;
+            border-radius: 2px; }
+  .hfe-cart-menu-wrap-custom.elementor-size-sm {
+    font-size: 15px;
+    padding: 12px 24px;
+    -webkit-border-radius: 3px;
+            border-radius: 3px; }
+  .hfe-cart-menu-wrap-custom.elementor-size-md {
+    font-size: 16px;
+    padding: 15px 30px;
+    -webkit-border-radius: 4px;
+            border-radius: 4px; }
+  .hfe-cart-menu-wrap-custom.elementor-size-lg {
+    font-size: 18px;
+    padding: 20px 40px;
+    -webkit-border-radius: 5px;
+            border-radius: 5px; }
+  .hfe-cart-menu-wrap-custom.elementor-size-xl {
+    font-size: 20px;
+    padding: 25px 50px;
+    -webkit-border-radius: 6px;
+            border-radius: 6px; }
+
+
+/* Default skin for cart*/
+            .hfe-cart-menu-wrap-default {
+    display: inline-block;
+    line-height: 1;
+}
+
+.hfe-cart-menu-wrap-default .count, .hfe-cart-menu-wrap-default .count:after {
+    border-color: #75c32c;
+    color: #75c32c;
+}
+
+.hfe-cart-menu-wrap-default .count {
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    min-width: 2.1em;
+    min-height: 2.1em;
+    font-size: 0.860em;
+    line-height: 1.8;
+    border-radius: 0em 0em 0.3em 0.3em;
+    border-width: 2px;
+    border-style: solid;
+    padding: 0 .4em;
+}
+
+.hfe-cart-menu-wrap-default .count:after {
+    bottom: 100%;
+    margin-bottom: 0;
+    height: .8em;
+    width: .8em;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -.6em;
+    content: ' ';
+    position: absolute;
+    pointer-events: none;
+    border-width: 2px;
+    border-style: solid;
+    border-top-left-radius: 10em;
+    border-top-right-radius: 10em;
+    border-bottom: 0;
+}
