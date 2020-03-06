@@ -1080,8 +1080,17 @@ div.hfe-nav-menu,
 }
 
 /* Last Menu Item Button CSS */
-.hfe-button-wrapper.menu-item .hfe-menu-item{
+.hfe-button-wrapper.menu-item .hfe-menu-item,
+.hfe-layout-expandible .hfe-button-wrapper .elementor-button,
+.hfe-flyout-content .hfe-button-wrapper .elementor-button
+{
     display: none;
+}
+
+.hfe-layout-expandible .hfe-button-wrapper.menu-item .hfe-menu-item,
+.hfe-flyout-content .hfe-button-wrapper.menu-item .hfe-menu-item
+{
+    display: inline-flex;
 }
 
 /* Tablet */

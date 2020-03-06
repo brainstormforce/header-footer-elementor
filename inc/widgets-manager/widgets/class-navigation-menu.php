@@ -227,7 +227,7 @@ class Navigation_Menu extends Widget_Base {
 					'none' => __( 'None', 'header-footer-elementor' ),
 					'cta' => __( 'Button', 'header-footer-elementor' )
 					),
-				'default'      => 'none',
+				'default'  => 'none',
 			]
 		);
 
@@ -1792,16 +1792,32 @@ class Navigation_Menu extends Widget_Base {
 			
 			add_filter( 'wp_nav_menu_items', function( $items, $args ){
 				$settings = $this->get_settings_for_display();
+				if ( ! empty( $settings['button_link']['url'] ) ) {
+					$this->add_render_attribute( 'button-link', 'href', $settings['button_link']['url'] );
+
+					if ( $settings['button_link']['is_external'] ) {
+						$this->add_render_attribute( 'button-link', 'target', '_blank' );
+					}
+					if ( $settings['button_link']['nofollow'] ) {
+						$this->add_render_attribute( 'button-link', 'rel', 'nofollow' );
+					}
+				}
+
+				$css_id = '';
+
+				if ( '' !== $settings['button_css_id'] ) {
+					$css_id = $settings['button_css_id'];
+				}
 
 				$items .= '<li class="hfe-button-wrapper elementor-button-wrapper menu-item">';
-					$items .= '<a id="' . $settings['button_css_id'] . '"href="' . $settings['button_link']['url'] . '" class="elementor-button-link elementor-button">';
+					$items .= '<a id="' . $css_id .'"' . $this->get_render_attribute_string( 'button-link' ) . 'class="elementor-button-link elementor-button">';
 						$items .= '<span class="elementor-button-content-wrapper">';
 							$items .= '<span class="elementor-button-text elementor-inline-editing" data-elementor-inline-editing-toolbar="advanced">';
 								$items .= $settings['button_text'];
 							$items .= '</span>';
 						$items .= '</span>';
 					$items .= '</a>';
-					$items .= '<a id="' . $settings['button_css_id'] . '"href="' . $settings['button_link']['url'] . '" class="hfe-menu-item">';
+					$items .= '<a id="' . $css_id .'"' . $this->get_render_attribute_string( 'button-link' ) . 'class="hfe-menu-item">';
 						$items .= $settings['button_text'];
 					$items .= '</a>';
 				$items .= '</li>';
@@ -1831,7 +1847,7 @@ class Navigation_Menu extends Widget_Base {
 				<div class="hfe-flyout-container">
 					<div id="hfe-flyout-content-id-<?php echo esc_attr( $this->get_id() ); ?>" class="hfe-side hfe-flyout-<?php echo esc_attr( $settings['flyout_layout'] ); ?> hfe-flyout-open" data-width="<?php echo esc_attr( $settings['width_flyout_menu_item']['size'] ); ?>" data-layout="<?php echo wp_kses_post( $settings['flyout_layout'] ); ?>" data-flyout-type="<?php echo wp_kses_post( $settings['flyout_type'] ); ?>">
 						<div class="hfe-flyout-content push">						
-							<nav <?php echo wp_kses_post( $this->get_render_attribute_string( 'hfe-nav-menu' ) ); ?>><?php echo wp_kses_post( $menu_html ); ?></nav>
+							<nav <?php echo wp_kses_post( $this->get_render_attribute_string( 'hfe-nav-menu' ) ); ?>><?php echo $menu_html; ?></nav>
 							<div class="elementor-clickable hfe-flyout-close" tabindex="0">
 								<?php if ( $this->is_elementor_updated() ) { ?>
 									<i class="<?php echo esc_attr( $settings['dropdown_close_icon']['value'] ); ?>" aria-hidden="true"></i>
