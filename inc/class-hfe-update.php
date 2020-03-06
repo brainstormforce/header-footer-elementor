@@ -22,6 +22,7 @@ if ( ! class_exists( 'HFE_Update' ) ) {
 	 */
 	class HFE_Update {
 
+
 		/**
 		 * Option key for stored version number.
 		 *
@@ -168,7 +169,6 @@ if ( ! class_exists( 'HFE_Update' ) ) {
 		private function update_db_version() {
 			update_option( $this->db_option_key, HFE_VER );
 		}
-
 	}
 }
 
