@@ -217,6 +217,19 @@ class Navigation_Menu extends Widget_Base {
 			);
 		}
 
+		$this->add_control(
+			'menu_last_item',
+			[
+				'label'        => __( 'Last Item In Menu', 'header-footer-elementor' ),
+				'type'         => Controls_Manager::SELECT,
+				'options'      => array(
+					'none' => __( 'None', 'header-footer-elementor' ),
+					'cta' => __( 'Button', 'header-footer-elementor' )
+					),
+				'default'      => 'none',
+			]
+		);
+		
 		$this->end_controls_section();
 
 			$this->start_controls_section(
@@ -1555,6 +1568,8 @@ class Navigation_Menu extends Widget_Base {
 		];
 
 		$menu_html = wp_nav_menu( $args );
+
+		vl($menu_html);
 
 		if ( 'flyout' === $settings['layout'] ) {
 
