@@ -22,7 +22,6 @@ if ( ! class_exists( 'HFE_Update' ) ) {
 	 */
 	class HFE_Update {
 
-
 		/**
 		 * Option key for stored version number.
 		 *

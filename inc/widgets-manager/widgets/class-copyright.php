@@ -27,7 +27,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Copyright extends Widget_Base {
 
-
 	/**
 	 * Retrieve the widget name.
 	 *
@@ -229,8 +228,7 @@ class Copyright extends Widget_Base {
 	 * @since 1.3.0
 	 * @access protected
 	 */
-	protected function content_template() {
-	}
+	protected function content_template() {}
 
 	/**
 	 * Render shortcode output in the editor.

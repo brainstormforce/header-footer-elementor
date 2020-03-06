@@ -16,7 +16,6 @@ defined( 'ABSPATH' ) or exit;
  */
 class HFE_WPML_Compatibility {
 
-
 	/**
 	 * Instance of HFE_WPML_Compatibility.
 	 *
