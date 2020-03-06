@@ -15,6 +15,7 @@ use Elementor\Scheme_Typography;
 use Elementor\Scheme_Color;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
+use Elementor\Group_Control_Background;
 use Elementor\Widget_Base;
 use Elementor\Plugin;
 
@@ -228,6 +229,53 @@ class Navigation_Menu extends Widget_Base {
 					),
 				'default'      => 'none',
 			]
+		);
+
+		$this->add_control(
+			'button_text',
+			[
+				'label'   => __( 'Text', 'uael' ),
+				'type'    => Controls_Manager::TEXTAREA,
+				'rows'    => '2',
+				'default' => __( 'Button', 'uael' ),
+				'dynamic' => [
+					'active' => true,
+				],
+				'condition' => [
+					'menu_last_item' => 'cta'
+				],
+			]
+		);
+
+		$this->add_control(
+			'button_link',
+			[
+				'label'    => __( 'Link', 'uael' ),
+				'type'     => Controls_Manager::URL,
+				'default'  => [
+					'url'         => '#',
+					'is_external' => '',
+				],
+				'dynamic'  => [
+					'active' => true,
+				],
+				'condition' => [
+					'menu_last_item' => 'cta'
+				],
+			]
+		);
+
+		$this->add_control(
+			'button_css_id',
+			array(
+				'label'   => __( 'CSS ID', 'uael' ),
+				'type'    => Controls_Manager::TEXT,
+				'default' => '',
+				'title'   => __( 'Add your custom id WITHOUT the # key.', 'uael' ),
+				'condition' => [
+					'menu_last_item' => 'cta'
+				],
+			)
 		);
 		
 		$this->end_controls_section();
@@ -1543,6 +1591,188 @@ class Navigation_Menu extends Widget_Base {
 		);
 
 		$this->end_controls_section();
+		$this->start_controls_section(
+			'style_button',
+			[
+				'label' => __( 'Button', 'header-footer-elementor' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'menu_last_item' => 'cta'
+				],
+			]
+		);
+
+			$this->add_group_control(
+					Group_Control_Typography::get_type(),
+					array(
+						'name'     => 'all_typography',
+						'label'    => __( 'Title Typography', 'uael' ),
+						'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
+						'selector' => '{{WRAPPER}} .uael-marketing-button-title',
+					)
+				);
+			$this->add_responsive_control(
+					'padding',
+					array(
+						'label'      => __( 'Padding', 'uael' ),
+						'type'       => Controls_Manager::DIMENSIONS,
+						'size_units' => array( 'px', 'em', '%' ),
+						'selectors'  => array(
+							'{{WRAPPER}} .elementor-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						),
+					)
+				);
+
+			$this->start_controls_tabs( '_button_style' );
+
+				$this->start_controls_tab(
+					'_button_normal',
+					array(
+						'label' => __( 'Normal', 'uael' ),
+					)
+				);
+
+					$this->add_control(
+						'all_text_color',
+						array(
+							'label'     => __( 'Text Color', 'uael' ),
+							'type'      => Controls_Manager::COLOR,
+							'default'   => '',
+							'selectors' => array(
+								'{{WRAPPER}} a.elementor-button' => 'color: {{VALUE}};',
+							),
+						)
+					);
+
+					$this->add_group_control(
+						Group_Control_Background::get_type(),
+						array(
+							'name'           => 'all_background_color',
+							'label'          => __( 'Background Color', 'uael' ),
+							'types'          => array( 'classic', 'gradient' ),
+							'selector'       => '{{WRAPPER}} a.elementor-button',
+							'fields_options' => array(
+								'color' => array(
+									'scheme' => array(
+										'type'  => Scheme_Color::get_type(),
+										'value' => Scheme_Color::COLOR_4,
+									),
+								),
+							),
+						)
+					);
+
+					$this->add_group_control(
+						Group_Control_Border::get_type(),
+						array(
+							'name'     => 'all_border',
+							'label'    => __( 'Border', 'uael' ),
+							'selector' => '{{WRAPPER}} .elementor-button',
+						)
+					);
+
+					$this->add_control(
+						'all_border_radius',
+						array(
+							'label'      => __( 'Border Radius', 'uael' ),
+							'type'       => Controls_Manager::DIMENSIONS,
+							'size_units' => array( 'px', '%' ),
+							'selectors'  => array(
+								'{{WRAPPER}} .elementor-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+							),
+						)
+					);
+
+					$this->add_group_control(
+						Group_Control_Box_Shadow::get_type(),
+						array(
+							'name'     => 'all_button_box_shadow',
+							'selector' => '{{WRAPPER}} .elementor-button',
+						)
+					);
+
+					$this->add_control(
+						'blink_effect',
+						array(
+							'label'   => __( 'Flare Animation', 'uael' ),
+							'type'    => Controls_Manager::SWITCHER,
+							'default' => 'no',
+						)
+					);
+
+				$this->end_controls_tab();
+
+				$this->start_controls_tab(
+					'all_button_hover',
+					array(
+						'label' => __( 'Hover', 'uael' ),
+					)
+				);
+
+					$this->add_control(
+						'all_hover_color',
+						array(
+							'label'     => __( 'Text Color', 'uael' ),
+							'type'      => Controls_Manager::COLOR,
+							'selectors' => array(
+								'{{WRAPPER}} a.elementor-button:hover' => 'color: {{VALUE}};',
+							),
+						)
+					);
+
+					$this->add_group_control(
+						Group_Control_Background::get_type(),
+						array(
+							'name'           => 'all_background_hover_color',
+							'label'          => __( 'Background Color', 'uael' ),
+							'types'          => array( 'classic', 'gradient' ),
+							'selector'       => '{{WRAPPER}} a.elementor-button:hover',
+							'fields_options' => array(
+								'color' => array(
+									'scheme' => array(
+										'type'  => Scheme_Color::get_type(),
+										'value' => Scheme_Color::COLOR_4,
+									),
+								),
+							),
+						)
+					);
+
+					$this->add_control(
+						'all_border_hover_color',
+						array(
+							'label'     => __( 'Border Hover Color', 'uael' ),
+							'type'      => Controls_Manager::COLOR,
+							'default'   => '',
+							'selectors' => array(
+								'{{WRAPPER}} a.elementor-button:hover' => 'border-color: {{VALUE}};',
+							),
+						)
+					);
+
+					$this->add_group_control(
+						Group_Control_Box_Shadow::get_type(),
+						array(
+							'name'      => 'all_button_hover_box_shadow',
+							'selector'  => '{{WRAPPER}} .elementor-button:hover',
+							'separator' => 'after',
+						)
+					);
+
+					$this->add_control(
+						'hover_animation',
+						array(
+							'label'       => __( 'Hover Animation', 'uael' ),
+							'type'        => Controls_Manager::HOVER_ANIMATION,
+							'label_block' => false,
+						)
+					);
+
+				$this->end_controls_tab();
+
+			$this->end_controls_tabs();
+
+		$this->end_controls_section();
 	}
 
 	/**
@@ -1567,9 +1797,14 @@ class Navigation_Menu extends Widget_Base {
 			'walker'      => new Menu_Walker,
 		];
 
-		$menu_html = wp_nav_menu( $args );
+		if( 'cta' === $settings['menu_last_item'] ){
+			
+			add_filter( 'wp_nav_menu_items', function( $items, $args ){
+				return $items .= '<li class="hfe-nav-menu-custom-menu-item"><a href="#myModal" role="button" data-toggle="modal">Contact</a></li>';				
+			}, 10, 2 );
+		}
 
-		vl($menu_html);
+		$menu_html = wp_nav_menu( $args );
 
 		if ( 'flyout' === $settings['layout'] ) {
 
