@@ -136,7 +136,7 @@ class Archive_Title extends Widget_Base {
 				'label'   => __( 'Link', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'default',
-					'url'	=>'get_the_permalink',
+				'url'     => 'get_the_permalink',
 				'options' => [
 					'default' => __( 'Default', 'header-footer-elementor' ),
 					'custom'  => __( 'Custom Link', 'header-footer-elementor' ),
@@ -314,11 +314,11 @@ class Archive_Title extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 		$title    = '';
 		$this->add_render_attribute( 'title', 'class', 'elementor-heading-title' );
-		
+
 		if ( ! empty( $settings['size'] ) ) {
-			$this->add_render_attribute( 'title', 'class', ['elementor-size-' . $settings['size']]);
+			$this->add_render_attribute( 'title', 'class', [ 'elementor-size-' . $settings['size'] ] );
 		}
-		
+
 		if ( 'custom' === $settings['link'] && ( ! empty( $settings['custom_link']['url'] ) ) ) {
 			$this->add_render_attribute( 'url', 'href', $settings['custom_link']['url'] );
 			if ( $settings['custom_link']['is_external'] ) {
@@ -332,19 +332,23 @@ class Archive_Title extends Widget_Base {
 		}
 		?>
 		<div class="hfe-archive-title hfe-archive-title-wrapper elementor-widget-heading">
-			<<?php echo wp_kses_post( $settings['heading_tag'] );?> <?php echo $this->get_render_attribute_string('title');?>>
+			<<?php echo wp_kses_post( $settings['heading_tag'] ); ?> <?php echo $this->get_render_attribute_string( 'title' ); ?>>
 				<a <?php echo $this->get_render_attribute_string( 'url' ); ?>>
-					<?php if ( '' != $settings['before'] ) {
-							echo wp_kses_post($settings['before']);
-					} ?>
 					<?php
-						 wp_kses_post(the_archive_title());
+					if ( '' != $settings['before'] ) {
+							echo wp_kses_post( $settings['before'] );
+					}
 					?>
-					<?php if ( '' != $settings['after'] ) {
-							echo wp_kses_post($settings['after']);
-					} ?> 
-				 </a>
-			</<?php echo wp_kses_post( $settings['heading_tag'] );?>
+					<?php
+						wp_kses_post( the_archive_title() );
+					?>
+					<?php
+					if ( '' != $settings['after'] ) {
+							echo wp_kses_post( $settings['after'] );
+					}
+					?>
+				</a>
+			</<?php echo wp_kses_post( $settings['heading_tag'] ); ?>
 		</div>
 		<?php
 	}
@@ -374,7 +378,7 @@ class Archive_Title extends Widget_Base {
 						{{{ settings.before }}}
 					<# } #>
 				<?php
-					 wp_kses_post(the_archive_title());
+					wp_kses_post( the_archive_title() );
 				?>
 				<# if ( '' != settings.after ) { #>
 					{{{ settings.after }}}
