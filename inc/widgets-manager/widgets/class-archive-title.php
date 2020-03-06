@@ -136,6 +136,7 @@ class Archive_Title extends Widget_Base {
 				'label'   => __( 'Link', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'default',
+					'url'	=>'get_the_permalink',
 				'options' => [
 					'default' => __( 'Default', 'header-footer-elementor' ),
 					'custom'  => __( 'Custom Link', 'header-footer-elementor' ),
@@ -359,11 +360,16 @@ class Archive_Title extends Widget_Base {
 	protected function content_template() {
 		?>
 		<#
+		if ( '' != settings.custom_link.url ) {
+			view.addRenderAttribute( 'url', 'href', settings.custom_link.url );
+		} else {
+			view.addRenderAttribute('url', 'href', <?php get_the_permalink(); ?> );
+		}
 
 		#>
 		<div class="hfe-archive-title hfe-archive-title-wrapper elementor-widget-heading ">
 			<{{{settings.heading_tag}}} class = "elementor-heading-title elementor-size-{{{settings.size}}}" >
-			<a {{{view.addRenderAttribute('url')}}}>
+			<a {{{view.getRenderAttributeString( 'url' ) }}} >
 				<# if ( '' != settings.before ) { #>
 						{{{ settings.before }}}
 					<# } #>
