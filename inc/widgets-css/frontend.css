@@ -1557,3 +1557,44 @@ div.hfe-nav-menu,
     display: inline-block;
 }
 
+/*Search Box CSS*/
+
+.hfe-search-button-wrapper {
+    display: block;    
+}
+
+.hfe-search-form-container {
+    display: flex;
+    /*background: #eceeef;*/
+    /*min-height: 53px;*/
+}
+
+.hfe-search-form__input {
+    flex-basis: 100%;
+}
+
+.hfe-search-icon-toggle{
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle;
+    color: #494c4f;
+}
+
+.hfe-search-icon-toggle i
+{
+    display: block;
+    position:relative;
+    background-color: rgba(0, 0, 0, 0.05);
+    width: 33px;
+    height: 33px;
+    border-radius: 3px;
+    /*font-size: 33px;*/
+}
+
+.hfe-search-icon-toggle i:before{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top:50%;
+    left: 50%;
+    font-size: 0.55em;
+}

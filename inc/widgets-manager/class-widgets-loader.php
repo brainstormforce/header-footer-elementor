@@ -94,6 +94,7 @@ class Widgets_Loader {
 			'site-tagline',
 			'site-logo',
 			'archive-title',
+			'search-button',
 		];
 
 		return $widget_list;
@@ -183,6 +184,7 @@ class Widgets_Loader {
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Tagline() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Logo() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Archive_Title() );
+		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Search_Button() );
 	}
 }
 
