@@ -228,53 +228,7 @@ class Navigation_Menu extends Widget_Base {
 					'cta'  => __( 'Button', 'header-footer-elementor' ),
 				],
 				'default' => 'none',
-			]
-		);
-
-		$this->add_control(
-			'button_text',
-			[
-				'label'     => __( 'Text', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::TEXTAREA,
-				'rows'      => '2',
-				'default'   => __( 'Button', 'header-footer-elementor' ),
-				'dynamic'   => [
-					'active' => true,
-				],
-				'condition' => [
-					'menu_last_item' => 'cta',
-				],
-			]
-		);
-
-		$this->add_control(
-			'button_link',
-			[
-				'label'     => __( 'Link', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::URL,
-				'default'   => [
-					'url'         => '#',
-					'is_external' => '',
-				],
-				'dynamic'   => [
-					'active' => true,
-				],
-				'condition' => [
-					'menu_last_item' => 'cta',
-				],
-			]
-		);
-
-		$this->add_control(
-			'button_css_id',
-			[
-				'label'     => __( 'CSS ID', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::TEXT,
-				'default'   => '',
-				'title'     => __( 'Add your custom id WITHOUT the # key.', 'header-footer-elementor' ),
-				'condition' => [
-					'menu_last_item' => 'cta',
-				],
+				'prefix_class' => 'hfe-last-menu-'
 			]
 		);
 
@@ -1610,7 +1564,7 @@ class Navigation_Menu extends Widget_Base {
 					'name'     => 'all_typography',
 					'label'    => __( 'Typography', 'header-footer-elementor' ),
 					'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-					'selector' => '{{WRAPPER}} .elementor-button-text',
+					'selector' => '{{WRAPPER}} .menu-item a.hfe-menu-item.elementor-button',
 				]
 			);
 			$this->add_responsive_control(
@@ -1620,30 +1574,7 @@ class Navigation_Menu extends Widget_Base {
 					'type'       => Controls_Manager::DIMENSIONS,
 					'size_units' => [ 'px', 'em', '%' ],
 					'selectors'  => [
-						'{{WRAPPER}} .elementor-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					],
-				]
-			);
-
-			$this->add_responsive_control(
-				'button_space',
-				[
-					'label'      => __( 'Button Top Spacing', 'header-footer-elementor' ),
-					'type'       => Controls_Manager::SLIDER,
-					'size_units' => [ 'px' ],
-					'range'      => [
-						'px' => [
-							'max' => 100,
-						],
-					],
-					'default'    => [
-						'size' => '15',
-					],
-					'selectors'  => [
-						'body:not(.rtl) {{WRAPPER}} .hfe-button-wrapper.elementor-button-wrapper.menu-item' => 'margin-top: {{SIZE}}{{UNIT}}',
-					],
-					'condition'  => [
-						'layout' => [ 'vertical', 'flyout' ],
+						'{{WRAPPER}} .menu-item a.hfe-menu-item.elementor-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					],
 				]
 			);
@@ -1664,7 +1595,7 @@ class Navigation_Menu extends Widget_Base {
 							'type'      => Controls_Manager::COLOR,
 							'default'   => '',
 							'selectors' => [
-								'{{WRAPPER}} a.elementor-button' => 'color: {{VALUE}};',
+								'{{WRAPPER}} .menu-item a.hfe-menu-item.elementor-button' => 'color: {{VALUE}};',
 							],
 						]
 					);
@@ -1675,7 +1606,7 @@ class Navigation_Menu extends Widget_Base {
 							'name'           => 'all_background_color',
 							'label'          => __( 'Background Color', 'header-footer-elementor' ),
 							'types'          => [ 'classic', 'gradient' ],
-							'selector'       => '{{WRAPPER}} a.elementor-button',
+							'selector'       => '{{WRAPPER}} .menu-item a.hfe-menu-item.elementor-button',
 							'fields_options' => [
 								'color' => [
 									'scheme' => [
@@ -1692,7 +1623,7 @@ class Navigation_Menu extends Widget_Base {
 						[
 							'name'     => 'all_border',
 							'label'    => __( 'Border', 'header-footer-elementor' ),
-							'selector' => '{{WRAPPER}} .elementor-button',
+							'selector' => '{{WRAPPER}} .menu-item a.hfe-menu-item.elementor-button',
 						]
 					);
 
@@ -1703,7 +1634,7 @@ class Navigation_Menu extends Widget_Base {
 							'type'       => Controls_Manager::DIMENSIONS,
 							'size_units' => [ 'px', '%' ],
 							'selectors'  => [
-								'{{WRAPPER}} .elementor-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+								'{{WRAPPER}} .menu-item a.hfe-menu-item.elementor-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 							],
 						]
 					);
@@ -1712,7 +1643,7 @@ class Navigation_Menu extends Widget_Base {
 						Group_Control_Box_Shadow::get_type(),
 						[
 							'name'     => 'all_button_box_shadow',
-							'selector' => '{{WRAPPER}} .elementor-button',
+							'selector' => '{{WRAPPER}} .menu-item a.hfe-menu-item.elementor-button',
 						]
 					);
 
@@ -1731,7 +1662,7 @@ class Navigation_Menu extends Widget_Base {
 							'label'     => __( 'Text Color', 'header-footer-elementor' ),
 							'type'      => Controls_Manager::COLOR,
 							'selectors' => [
-								'{{WRAPPER}} a.elementor-button:hover' => 'color: {{VALUE}};',
+								'{{WRAPPER}} .menu-item a.hfe-menu-item.elementor-button:hover' => 'color: {{VALUE}};',
 							],
 						]
 					);
@@ -1742,7 +1673,7 @@ class Navigation_Menu extends Widget_Base {
 							'name'           => 'all_background_hover_color',
 							'label'          => __( 'Background Color', 'header-footer-elementor' ),
 							'types'          => [ 'classic', 'gradient' ],
-							'selector'       => '{{WRAPPER}} a.elementor-button:hover',
+							'selector'       => '{{WRAPPER}} .menu-item a.hfe-menu-item.elementor-button:hover',
 							'fields_options' => [
 								'color' => [
 									'scheme' => [
@@ -1761,7 +1692,7 @@ class Navigation_Menu extends Widget_Base {
 							'type'      => Controls_Manager::COLOR,
 							'default'   => '',
 							'selectors' => [
-								'{{WRAPPER}} a.elementor-button:hover' => 'border-color: {{VALUE}};',
+								'{{WRAPPER}} .menu-item a.hfe-menu-item.elementor-button:hover' => 'border-color: {{VALUE}};',
 							],
 						]
 					);
@@ -1770,17 +1701,8 @@ class Navigation_Menu extends Widget_Base {
 						Group_Control_Box_Shadow::get_type(),
 						[
 							'name'      => 'all_button_hover_box_shadow',
-							'selector'  => '{{WRAPPER}} .elementor-button:hover',
+							'selector'  => '{{WRAPPER}} .menu-item a.hfe-menu-item.elementor-button:hover',
 							'separator' => 'after',
-						]
-					);
-
-					$this->add_control(
-						'hover_animation',
-						[
-							'label'       => __( 'Hover Animation', 'header-footer-elementor' ),
-							'type'        => Controls_Manager::HOVER_ANIMATION,
-							'label_block' => false,
 						]
 					);
 
@@ -1813,54 +1735,15 @@ class Navigation_Menu extends Widget_Base {
 			'walker'      => new Menu_Walker,
 		];
 
-		if ( 'cta' === $settings['menu_last_item'] ) {
-
-			add_filter(
-				'wp_nav_menu_items',
-				function( $items, $args ) {
-					$settings = $this->get_settings_for_display();
-					if ( ! empty( $settings['button_link']['url'] ) ) {
-						$this->add_render_attribute( 'button-link', 'href', $settings['button_link']['url'] );
-
-						if ( $settings['button_link']['is_external'] ) {
-							$this->add_render_attribute( 'button-link', 'target', '_blank' );
-						}
-						if ( $settings['button_link']['nofollow'] ) {
-							$this->add_render_attribute( 'button-link', 'rel', 'nofollow' );
-						}
-					}
-
-					$css_id = '';
-
-					if ( '' !== $settings['button_css_id'] ) {
-						$css_id = $settings['button_css_id'];
-					}
-
-					$items             .= '<li class="hfe-button-wrapper elementor-button-wrapper menu-item">';
-					$items             .= '<a id="' . $css_id . '"' . $this->get_render_attribute_string( 'button-link' ) . 'class="elementor-button-link elementor-button">';
-						$items         .= '<span class="elementor-button-content-wrapper">';
-							$items     .= '<span class="elementor-button-text elementor-inline-editing" data-elementor-inline-editing-toolbar="advanced">';
-								$items .= $settings['button_text'];
-							$items     .= '</span>';
-						$items         .= '</span>';
-					$items             .= '</a>';
-					$items             .= '<a id="' . $css_id . '"' . $this->get_render_attribute_string( 'button-link' ) . 'class="hfe-menu-item">';
-						$items         .= $settings['button_text'];
-					$items             .= '</a>';
-					$items             .= '</li>';
-					return $items;
-				},
-				10,
-				2
-			);
-
-		}
-
 		$menu_html = wp_nav_menu( $args );
 
 		if ( 'flyout' === $settings['layout'] ) {
 
 			$this->add_render_attribute( 'hfe-flyout', 'class', 'hfe-flyout-wrapper' );
+			if ( 'cta' === $settings['menu_last_item'] ) {
+
+				$this->add_render_attribute( 'hfe-flyout', 'data-last-item', $settings['menu_last_item'] );
+			}
 
 			?>
 			<div class="hfe-nav-menu__toggle elementor-clickable hfe-flyout-trigger" tabindex="0">
@@ -1905,6 +1788,11 @@ class Navigation_Menu extends Widget_Base {
 			$this->add_render_attribute( 'hfe-main-menu', 'class', $settings['layout'] );
 
 			$this->add_render_attribute( 'hfe-main-menu', 'data-layout', $settings['layout'] );
+
+			if ( 'cta' === $settings['menu_last_item'] ) {
+
+				$this->add_render_attribute( 'hfe-main-menu', 'data-last-item', $settings['menu_last_item'] );
+			}
 
 			if ( $settings['pointer'] ) {
 				if ( 'horizontal' === $settings['layout'] || 'vertical' === $settings['layout'] ) {
