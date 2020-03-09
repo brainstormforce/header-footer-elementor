@@ -912,11 +912,25 @@ div.hfe-nav-menu,
     -webkit-backface-visibility: hidden;
 }
 
-.hfe-flyout-animating,
-.hfe-side,
-.hfe-flyout-overlay {
-    -webkit-transition: all 0.3s;
-    transition: all 0.3s;
+/* No link hover effect to last menu item */
+
+.hfe-pointer__underline .menu-item.parent a.hfe-menu-item.elementor-button:after,
+.hfe-pointer__overline .menu-item.parent a.hfe-menu-item.elementor-button:before,
+.hfe-pointer__double-line .menu-item.parent a.hfe-menu-item.elementor-button:after,
+.hfe-pointer__double-line .menu-item.parent a.hfe-menu-item.elementor-button:before {
+    height: 0px;
+}
+
+.hfe-pointer__framed .menu-item.parent a.hfe-menu-item.elementor-button:before,
+.hfe-pointer__framed .menu-item.parent a.hfe-menu-item.elementor-button:after{
+    border-width: 0px;
+}
+
+.hfe-pointer__text.hfe-animation__grow .menu-item.parent a.hfe-menu-item.elementor-button:hover,
+.hfe-pointer__text.hfe-animation__grow .menu-item.parent a.hfe-menu-item.elementor-button:focus
+{
+    -webkit-transform: none;
+    transform: none;
 }
 
 .hfe-flyout-close {

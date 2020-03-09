@@ -228,7 +228,6 @@ class Navigation_Menu extends Widget_Base {
 					'cta'  => __( 'Button', 'header-footer-elementor' ),
 				],
 				'default' => 'none',
-				'prefix_class' => 'hfe-last-menu-'
 			]
 		);
 
