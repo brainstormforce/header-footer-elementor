@@ -13,6 +13,8 @@ use Elementor\Scheme_Typography;
 use Elementor\Widget_Base;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Scheme_Color;
+use Elementor\Core\Schemes;
+use Elementor\Group_Control_Border;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;   // Exit if accessed directly.
@@ -23,16 +25,15 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * HFE widget for cart
  *
- * @since 1.3.0
+ * @since x.x.x
  */
 class Cart extends Widget_Base {
-
 
 
 	/**
 	 * Retrieve the widget name.
 	 *
-	 * @since 1.3.0
+	 * @since x.x.x
 	 *
 	 * @access public
 	 *
@@ -45,7 +46,7 @@ class Cart extends Widget_Base {
 	/**
 	 * Retrieve the widget title.
 	 *
-	 * @since 1.3.0
+	 * @since x.x.x
 	 *
 	 * @access public
 	 *
@@ -58,7 +59,7 @@ class Cart extends Widget_Base {
 	/**
 	 * Retrieve the widget icon.
 	 *
-	 * @since 1.3.0
+	 * @since x.x.x
 	 *
 	 * @access public
 	 *
@@ -76,7 +77,7 @@ class Cart extends Widget_Base {
 	 * Note that currently Elementor supports only one category.
 	 * When multiple categories passed, Elementor uses the first one.
 	 *
-	 * @since 1.3.0
+	 * @since x.x.x
 	 *
 	 * @access public
 	 *
@@ -89,7 +90,7 @@ class Cart extends Widget_Base {
 	/**
 	 * Register cart controls controls.
 	 *
-	 * @since 1.3.0
+	 * @since x.x.x
 	 * @access protected
 	 */
 	protected function _register_controls() {
@@ -101,7 +102,7 @@ class Cart extends Widget_Base {
 	/**
 	 * Register Advanced Heading General Controls.
 	 *
-	 * @since 1.3.0
+	 * @since x.x.x
 	 * @access protected
 	 */
 	protected function register_general_content_controls() {
@@ -109,7 +110,7 @@ class Cart extends Widget_Base {
 		$this->start_controls_section(
 			'section_general_fields',
 			[
-				'label' => __( 'General', 'header-footer-elementor' ),
+				'label' => __( 'Menu Cart', 'header-footer-elementor' ),
 			]
 		);
 
@@ -129,26 +130,83 @@ class Cart extends Widget_Base {
 		$this->add_control(
 			'icon',
 			[
-				'label'       => __( 'Icon', 'header-footer-elementor' ),
-				'type'        => Controls_Manager::ICONS,
-				'label_block' => 'true',
+				'label'        => __( 'Icon', 'header-footer-elementor' ),
+				'type'         => Controls_Manager::SELECT,
+				'options'      => [
+					'cart-light'    => __( 'Light', 'header-footer-elementor' ),
+					'cart-medium'   => __( 'Medium', 'header-footer-elementor' ),
+					'cart-solid'    => __( 'Solid', 'header-footer-elementor' ),
+					'basket-light'  => __( 'Light', 'header-footer-elementor' ),
+					'basket-medium' => __( 'Medium', 'header-footer-elementor' ),
+					'basket-solid'  => __( 'Solid', 'header-footer-elementor' ),
+					'bag-light'     => __( 'Light', 'header-footer-elementor' ),
+					'bag-medium'    => __( 'Medium', 'header-footer-elementor' ),
+					'bag-solid'     => __( 'Solid', 'header-footer-elementor' ),
+				],
+				'default'      => 'cart-medium',
+				'prefix_class' => 'toggle-icon--',
+				'condition'    => [
+					'hfe_cart_type' => 'custom',
+				],
 			]
 		);
 
 		$this->add_control(
-			'size',
+			'items_indicator',
 			[
-				'label'   => __( 'Size', 'header-footer-elementor' ),
-				'type'    => Controls_Manager::SELECT,
-				'default' => 'default',
-				'options' => [
-					'default' => __( 'Default', 'header-footer-elementor' ),
-					'xs'      => __( 'Extra Small', 'header-footer-elementor' ),
-					'sm'      => __( 'Small', 'header-footer-elementor' ),
-					'md'      => __( 'Medium', 'header-footer-elementor' ),
-					'lg'      => __( 'Large', 'header-footer-elementor' ),
-					'xl'      => __( 'Extra Large', 'header-footer-elementor' ),
+				'label'        => __( 'Items Indicator', 'header-footer-elementor' ),
+				'type'         => Controls_Manager::SELECT,
+				'options'      => [
+					'none'   => __( 'None', 'header-footer-elementor' ),
+					'bubble' => __( 'Bubble', 'header-footer-elementor' ),
+					'plain'  => __( 'Plain', 'header-footer-elementor' ),
 				],
+				'prefix_class' => 'hfe-menu-cart--items-indicator-',
+				'default'      => 'bubble',
+				'condition'    => [
+					'hfe_cart_type' => 'custom',
+				],
+			]
+		);
+
+		$this->add_control(
+			'hide_empty_indicator',
+			[
+				'label'        => __( 'Hide Empty', 'header-footer-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Yes', 'header-footer-elementor' ),
+				'label_off'    => __( 'No', 'header-footer-elementor' ),
+				'return_value' => 'hide',
+				'prefix_class' => 'hfe-menu-cart--empty-indicator-',
+				'condition'    => [
+					'items_indicator!' => 'none',
+					'hfe_cart_type'    => 'custom',
+				],
+			]
+		);
+
+		$this->add_control(
+			'show_subtotal',
+			[
+				'label'        => __( 'Subtotal', 'header-footer-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Show', 'header-footer-elementor' ),
+				'label_off'    => __( 'Hide', 'header-footer-elementor' ),
+				'return_value' => 'yes',
+				'default'      => 'yes',
+				'prefix_class' => 'hfe-menu-cart--show-subtotal-',
+				'condition'    => [
+					'hfe_cart_type' => 'custom',
+				],
+			]
+		);
+
+		$this->add_control(
+			'icon',
+			[
+				'label'       => __( 'Icon', 'header-footer-elementor' ),
+				'type'        => Controls_Manager::ICONS,
+				'label_block' => 'true',
 			]
 		);
 
@@ -158,40 +216,23 @@ class Cart extends Widget_Base {
 				'label'        => __( 'Alignment', 'elementor' ),
 				'type'         => Controls_Manager::CHOOSE,
 				'options'      => [
-					'left'    => [
+					'left'   => [
 						'title' => __( 'Left', 'elementor' ),
 						'icon'  => 'eicon-text-align-left',
 					],
-					'center'  => [
+					'center' => [
 						'title' => __( 'Center', 'elementor' ),
 						'icon'  => 'eicon-text-align-center',
 					],
-					'right'   => [
+					'right'  => [
 						'title' => __( 'Right', 'elementor' ),
 						'icon'  => 'eicon-text-align-right',
-					],
-					'justify' => [
-						'title' => __( 'Justified', 'elementor' ),
-						'icon'  => 'eicon-text-align-justify',
 					],
 				],
 				'prefix_class' => 'elementor%s-align-',
 				'default'      => '',
 			]
 		);
-
-		// $this->add_control(
-		// 'hfe_cart_icon_align',
-		// [
-		// 'label' => __('Icon Position', 'header-footer-elementor'),
-		// 'type' => Controls_Manager::SELECT,
-		// 'default' => 'left',
-		// 'options' => [
-		// 'left' => __('Before', 'header-footer-elementor'),
-		// 'right' => __('After', 'header-footer-elementor'),
-		// ],
-		// ]
-		// );
 
 		$this->end_controls_section();
 	}
@@ -200,129 +241,316 @@ class Cart extends Widget_Base {
 	/**
 	 * Register Advanced Heading Typography Controls.
 	 *
-	 * @since 1.3.0
+	 * @since x.x.x
 	 * @access protected
 	 */
 	protected function register_heading_typo_content_controls() {
 		$this->start_controls_section(
 			'section_heading_typography',
 			[
-				'label' => __( 'Title', 'header-footer-elementor' ),
+				'label' => __( 'Menu Cart', 'header-footer-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
+
+		$this->start_controls_tabs( 'toggle_button_colors' );
+
+		$this->start_controls_tab(
+			'toggle_button_normal_colors',
 			[
-				'name'     => 'heading_typography',
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .cart-customlocation, {{WRAPPER}} .hfe-cart-menu-wrap-custom a,{{WRAPPER}} .hfe-cart-menu-wrap-default a',
+				'label' => __( 'Normal', 'header-footer-elementor' ),
 			]
 		);
+
 		$this->add_control(
-			'heading_color',
+			'toggle_button_text_color',
 			[
-				'label'     => __( 'Color', 'header-footer-elementor' ),
+				'label'     => __( 'Text Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				],
 				'selectors' => [
-					'{{WRAPPER}} .hfe-cart-menu-wrap-custom span,{{WRAPPER}} .hfe-cart-menu-wrap-custom a.cart-customlocation' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .hfe-cart-menu-wrap-default span,{{WRAPPER}} .hfe-cart-menu-wrap-default a.cart-customlocation' => 'color: {{VALUE}};',
-				],
-			]
-		);
-		$this->add_control(
-			'heading_bg_color',
-			[
-				'label'     => __( 'Background Color', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::COLOR,
-				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .hfe-cart-menu-wrap-custom span.count,{{WRAPPER}} .hfe-cart-menu-wrap-default span.count' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button,{{WRAPPER}} .hfe-cart-menu-wrap-default span.count' => 'color: {{VALUE}}',
 				],
 			]
 		);
 
-		$this->add_group_control(
-			Group_Control_Text_Shadow::get_type(),
+		$this->add_control(
+			'toggle_button_icon_color',
 			[
-				'name'     => 'heading_shadow',
-				'selector' => '{{WRAPPER}} .hfe-cart-menu-wrap-custom span,{{WRAPPER}} .hfe-cart-menu-wrap-custom a.cart-customlocation,{{WRAPPER}} .hfe-cart-menu-wrap-default span,{{WRAPPER}} .hfe-cart-menu-wrap-default a.cart-customlocation',
+				'label'     => __( 'Icon Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button-icon' => 'color: {{VALUE}}',
+				],
+				'condition' => [
+					'hfe_cart_type' => 'custom',
+				],
 			]
 		);
+
+		$this->add_control(
+			'toggle_button_background_color',
+			[
+				'label'     => __( 'Background Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button,{{WRAPPER}} .hfe-cart-menu-wrap-default span.count' => 'background-color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'toggle_button_border_color',
+			[
+				'label'     => __( 'Border Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button,{{WRAPPER}} .hfe-cart-menu-wrap-default .count:after,.hfe-cart-menu-wrap-default .count' => 'border-color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab( 'toggle_button_hover_colors', [ 'label' => __( 'Hover', 'header-footer-elementor' ) ] );
+
+		$this->add_control(
+			'toggle_button_hover_text_color',
+			[
+				'label'     => __( 'Text Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button:hover,{{WRAPPER}} .hfe-cart-menu-wrap-default span.count:hover' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'toggle_button_hover_icon_color',
+			[
+				'label'     => __( 'Icon Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button:hover .elementor-button-icon' => 'color: {{VALUE}}',
+				],
+				'condition' => [
+					'hfe_cart_type' => 'custom',
+				],
+			]
+		);
+
+		$this->add_control(
+			'toggle_button_hover_background_color',
+			[
+				'label'     => __( 'Background Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button:hover,{{WRAPPER}} .hfe-cart-menu-wrap-default span.count:hover' => 'background-color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'toggle_button_hover_border_color',
+			[
+				'label'     => __( 'Border Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button:hover,{{WRAPPER}} .hfe-cart-menu-wrap-default:hover .count:after,.hfe-cart-menu-wrap-default:hover .count' => 'border-color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+		$this->add_control(
+			'toggle_button_border_width',
+			[
+				'label'     => __( 'Border Width', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => [
+					'px' => [
+						'min' => 0,
+						'max' => 20,
+					],
+				],
+				'separator' => 'before',
+				'selectors' => [
+					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button,{{WRAPPER}} .hfe-cart-menu-wrap-default .count:after,.hfe-cart-menu-wrap-default .count' => 'border-width: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'toggle_button_border_radius',
+			[
+				'label'      => __( 'Border Radius', 'header-footer-elementor' ),
+				'type'       => Controls_Manager::SLIDER,
+				'range'      => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'size_units' => [ 'px', 'em', '%' ],
+				'selectors'  => [
+					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button,{{WRAPPER}} .hfe-cart-menu-wrap-default .count:after,.hfe-cart-menu-wrap-default .count' => 'border-radius: {{SIZE}}{{UNIT}}',
+				],
+
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'      => 'toggle_button_typography',
+				'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
+				'selector'  => '{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button',
+				'separator' => 'before',
+				'condition' => [
+					'hfe_cart_type' => 'custom',
+				],
+			]
+		);
+
+		$this->add_control(
+			'heading_icon_style',
+			[
+				'type'      => Controls_Manager::HEADING,
+				'label'     => __( 'Icon', 'header-footer-elementor' ),
+				'separator' => 'before',
+				'condition' => [
+					'hfe_cart_type' => 'custom',
+				],
+			]
+		);
+
+		$this->add_control(
+			'toggle_icon_size',
+			[
+				'label'      => __( 'Size', 'header-footer-elementor' ),
+				'type'       => Controls_Manager::SLIDER,
+				'range'      => [
+					'px' => [
+						'min' => 0,
+						'max' => 50,
+					],
+				],
+				'size_units' => [ 'px', 'em' ],
+				'selectors'  => [
+					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button-icon' => 'font-size: {{SIZE}}{{UNIT}}',
+				],
+				'condition'  => [
+					'hfe_cart_type' => 'custom',
+				],
+			]
+		);
+
+		$this->add_control(
+			'toggle_icon_spacing',
+			[
+				'label'      => __( 'Spacing', 'header-footer-elementor' ),
+				'type'       => Controls_Manager::SLIDER,
+				'range'      => [
+					'px' => [
+						'min' => 0,
+						'max' => 50,
+					],
+				],
+				'size-units' => [ 'px', 'em' ],
+				'selectors'  => [
+					'body:not(.rtl) {{WRAPPER}} .hfe-menu-cart__toggle .elementor-button-text' => 'margin-right: {{SIZE}}{{UNIT}}',
+					'body.rtl {{WRAPPER}} .hfe-menu-cart__toggle .elementor-button-text' => 'margin-left: {{SIZE}}{{UNIT}}',
+				],
+				'condition'  => [
+					'hfe_cart_type' => 'custom',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'toggle_button_padding',
+			[
+				'label'      => __( 'Padding', 'header-footer-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', 'em' ],
+				'selectors'  => [
+					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
+				],
+				'condition'  => [
+					'hfe_cart_type' => 'custom',
+				],
+			]
+		);
+
 		$this->end_controls_section();
 
 		$this->start_controls_section(
 			'section_icon',
 			[
-				'label'     => __( 'Icon', 'header-footer-elementor' ),
+				'label'     => __( 'Items Indicator', 'header-footer-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'icon[value]!' => '',
-				],
-			]
-		);
-		$this->add_control(
-			'icon_color',
-			[
-				'label'     => __( 'Icon Color', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::COLOR,
-				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				],
-				'condition' => [
-					'icon[value]!' => '',
-				],
-				'default'   => '',
-				'selectors' => [
-					'{{WRAPPER}} .hfe-button-icon i'   => 'color: {{VALUE}};',
-					'{{WRAPPER}} .hfe-button-icon svg' => 'fill: {{VALUE}};',
+					'icon[value]!'     => '',
+					'items_indicator!' => 'none',
+					'hfe_cart_type'    => 'custom',
 				],
 			]
 		);
 
 		$this->add_control(
-			'button_border_color',
+			'items_indicator_text_color',
 			[
-				'label'     => __( 'Border Color', 'header-footer-elementor' ),
+				'label'     => __( 'Text Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+				'selectors' => [
+					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button-icon[data-counter]:before' => 'color: {{VALUE}}',
 				],
 				'condition' => [
-					'icon[value]!' => '',
-				],
-				'default'   => '',
-				'selectors' => [
-					'{{WRAPPER}} .hfe-cart-menu-wrap-custom .count,{{WRAPPER}} .hfe-cart-menu-wrap-custom .count:after'   => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .hfe-cart-menu-wrap-default .count,{{WRAPPER}} .hfe-cart-menu-wrap-default .count:after'   => 'border-color: {{VALUE}};',
+					'items_indicator!' => 'none',
 				],
 			]
 		);
 
-		// $this->add_control(
-		// 'icons_hover_color',
-		// [
-		// 'label'     => __('Icon Hover Color', 'header-footer-elementor'),
-		// 'type'      => Controls_Manager::COLOR,
-		// 'condition' => [
-		// 'icon[value]!' => '',
-		// ],
-		// 'default'   => '',
-		// 'selectors' => [
-		// '{{WRAPPER}} .hfe-button-icon:hover i'   => 'color: {{VALUE}};',
-		// '{{WRAPPER}} .hfe-button-icon:hover svg' => 'fill: {{VALUE}};',
-		// ],
-		// ]
-		// );
+		$this->add_control(
+			'items_indicator_background_color',
+			[
+				'label'     => __( 'Background Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button-icon[data-counter]:before' => 'background-color: {{VALUE}}',
+				],
+				'condition' => [
+					'items_indicator' => 'bubble',
+				],
+			]
+		);
+
+		$this->add_control(
+			'items_indicator_distance',
+			[
+				'label'     => __( 'Distance', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SLIDER,
+				'default'   => [
+					'unit' => 'em',
+				],
+				'range'     => [
+					'em' => [
+						'min'  => 0,
+						'max'  => 4,
+						'step' => 0.1,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button-icon[data-counter]:before' => 'right: -{{SIZE}}{{UNIT}}; top: -{{SIZE}}{{UNIT}}',
+				],
+				'condition' => [
+					'items_indicator' => 'bubble',
+				],
+			]
+		);
+
 		$this->end_controls_section();
 	}
 
@@ -331,7 +559,7 @@ class Cart extends Widget_Base {
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
-	 * @since 1.3.0
+	 * @since x.x.x
 	 * @access protected
 	 */
 	protected function render() {
@@ -342,44 +570,64 @@ class Cart extends Widget_Base {
 		if ( empty( $woocommerce ) ) {
 			return;
 		}
-
-		// echo sprintf(_n('%d ', '%d ', $woocommerce->cart->cart_contents_count, 'header-footer-elementor'), $woocommerce->cart->cart_contents_count);
-		// echo $woocommerce->cart->get_cart_total();
-
 		?>
+
 		<div class="hfe-masthead-custom-menu-items woocommerce-custom-menu-item">
 			<div id="hfe-site-header-cart" class="hfe-site-header-cart hfe-menu-cart-with-border">
 				<div class="hfe-site-header-cart-li current-menu-item">
-				  <?php if ( 'default' === $settings['hfe_cart_type'] ) { ?>
+				<?php if ( 'default' === $settings['hfe_cart_type'] ) { ?>
 				<a class="cart-container" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="View your shopping cart">
-					<div class="hfe-cart-menu-wrap-<?php echo $settings['hfe_cart_type']; ?> elementor-size-<?php echo $settings['size']; ?>">
-						<span class="count"> <?php echo sprintf( _n( '%d ', '%d ', $woocommerce->cart->cart_contents_count, 'header-footer-elementor' ), $woocommerce->cart->cart_contents_count ); ?></span>
+					<div class="hfe-cart-menu-wrap-<?php echo $settings['hfe_cart_type']; ?>">
+						<span class="count">
+							<?php
+							/* translators: %d Woocommerce count */
+							echo sprintf( _n( '%d ', '%d ', $woocommerce->cart->cart_contents_count, 'header-footer-elementor' ), $woocommerce->cart->cart_contents_count );
+							?>
+						</span>
 					</div>
 				</a>
-					<?php } else { ?>
+				<?php } elseif ( 'custom' === $settings['hfe_cart_type'] ) { ?>
+						<div class="hfe-menu-cart__toggle elementor-button-wrapper">
+							<a id="hfe-menu-cart__toggle_button" href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="elementor-button">
+								<span class="elementor-button-text">
+								   <?php echo $woocommerce->cart->get_cart_total(); ?>
+								</span>
+								<?php /* translators: %d Woocommerce count */ ?>
+								<span class="elementor-button-icon" data-counter="<?php echo sprintf( _n( '%d ', '%d ', $woocommerce->cart->cart_contents_count, 'header-footer-elementor' ), $woocommerce->cart->cart_contents_count ); ?>">
+									<i class="eicon" aria-hidden="true"></i>
+									<span class="elementor-screen-only">Cart</span>
+								</span>
+							</a>
+				<?php } else { ?>
 						<div class="hfe-cart-menu-wrap-<?php echo $settings['hfe_cart_type']; ?> elementor-size-<?php echo $settings['size']; ?>">
-							<span class="count"> 
 							<span class="hfe-button-icon hfe-align-icon-<?php echo $settings['hfe_cart_icon_align']; ?>">
 								<i aria-hidden="true" class="<?php echo $settings['icon']['value']; ?>"></i>
 							</span>
-								<a class="cart-customlocation" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php _e( 'View your shopping cart', 'header-footer-elementor' ); ?>"><?php echo sprintf( _n( '%d item', '%d items', $woocommerce->cart->cart_contents_count, 'header-footer-elementor' ), $woocommerce->cart->cart_contents_count ); ?> - <?php echo $woocommerce->cart->get_cart_total(); ?>
+								<a class="cart-customlocation" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php _e( 'View your shopping cart', 'header-footer-elementor' ); ?>">
+									<?php
+									/* translators: %d Woocommerce count */
+									echo sprintf( _n( '%d item', '%d items', $woocommerce->cart->cart_contents_count, 'header-footer-elementor' ), $woocommerce->cart->cart_contents_count );
+									?>
+									  - <?php echo $woocommerce->cart->get_cart_total(); ?>
 								</a>
-							</span>
 						</div>
-						<?php } ?>            
+						</div>
+				<?php } ?>            
 				</div>
 			</div>
 		</div> 
 		<?php
 	}
-		/**
-		 * Render cart output in the editor.
-		 *
-		 * Written as a Backbone JavaScript template and used to generate the live preview.
-		 *
-		 * @since 1.3.0
-		 * @access protected
-		 */
+
+
+	/**
+	 * Render cart output in the editor.
+	 *
+	 * Written as a Backbone JavaScript template and used to generate the live preview.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
 	protected function content_template() {
 	}
 
@@ -390,7 +638,7 @@ class Cart extends Widget_Base {
 	 *
 	 * Remove this after Elementor v3.3.0
 	 *
-	 * @since 1.3.0
+	 * @since x.x.x
 	 * @access protected
 	 */
 	protected function _content_template() {
