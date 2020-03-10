@@ -1563,7 +1563,7 @@ div.hfe-nav-menu,
     display: block;    
 }
 
-.hfe-search-form-container {
+.hfe-search-form__container {
     display: flex;
     /*background: #eceeef;*/
     /*min-height: 53px;*/
