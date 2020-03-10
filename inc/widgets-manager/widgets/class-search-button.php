@@ -7,11 +7,13 @@
 namespace HFE\WidgetsManager\Widgets;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
+use Elementor\Group_Control_Background;
 use Elementor\Scheme_Typography;
 use Elementor\Widget_Base;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Scheme_Color;
+use Elementor\Group_Control_Border;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;   // Exit if accessed directly.
@@ -259,6 +261,24 @@ class Search_Button extends Widget_Base {
 			]
 		);
 
+/*		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			array(
+				'name'           => 'button_background_color',
+				'label'          => __( 'Background Color', 'header-footer-elementor' ),
+				'types'          => array( 'classic', 'gradient' ),
+				'selector'       => '{{WRAPPER}} .hfe-search-form__input',
+				'fields_options' => array(
+					'color' => array(
+						'scheme' => array(
+							'type'  => Scheme_Color::get_type(),
+							'value' => Scheme_Color::COLOR_4,
+						),
+					),
+				),
+			)
+		);
+*/
 		$this->add_control(
 			'input_background_color',
 			[
@@ -270,7 +290,18 @@ class Search_Button extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			array(
+				'name'        => 'input_border_color',
+				'placeholder' => '',
+				'default'     => '',
+				'selector'    => '{{WRAPPER}} .hfe-search-form__container',
+			)
+		);
+
+
+/*		$this->add_control(
 			'input_border_color',
 			[
 				'label' => __( 'Border Color', 'header-footer-elementor' ),
@@ -279,6 +310,19 @@ class Search_Button extends Widget_Base {
 					'{{WRAPPER}} .hfe-search-form__container' => 'border-color: {{VALUE}}'
 			],
 			]
+		);
+*/
+
+		$this->add_control(
+			'border_radius',
+			array(
+				'label'      => __( 'Border Radius', 'header-footer-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .hfe-search-form__container' => 'border-radius: {{SIZE}}{{UNIT}}',
+				),
+			)
 		);
 
 		$this->add_group_control(
