@@ -1,6 +1,26 @@
 ( function( $ ) {
 
 	/**
+	* Search widget JS
+	*/
+
+	var WidgethfeSearchButton = function( $scope, $ ){
+
+		if ( 'undefined' == typeof $scope )
+			return;
+
+		console.log("inside search button");
+		
+		$( ".hfe-search-form__input" ).focus(function() {
+			$(".hfe-search-button-wrapper").addClass("hfe-input-focus");
+		});
+
+		$( ".hfe-search-form__input" ).blur(function() {
+			$(".hfe-search-button-wrapper").removeClass("hfe-input-focus");
+		});
+
+	};
+		/**
 	 * Nav Menu handler Function.
 	 *
 	 */
@@ -8,7 +28,7 @@
 
 		if ( 'undefined' == typeof $scope )
 			return;
-
+		
 		var id = $scope.data( 'id' );
 		var wrapper = $scope.find('.elementor-widget-hfe-nav-menu ');		
 		var layout = $( '.elementor-element-' + id + ' .hfe-nav-menu' ).data( 'layout' );
@@ -501,7 +521,10 @@
 	$( window ).on( 'elementor/frontend/init', function () {
 
 		elementorFrontend.hooks.addAction( 'frontend/element_ready/navigation-menu.default', WidgethfeNavMenuHandler );
+		elementorFrontend.hooks.addAction( 'frontend/element_ready/hfe-search-button.default', WidgethfeSearchButton );
 
 	});
+
+
 
 } )( jQuery );

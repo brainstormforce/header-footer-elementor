@@ -85,6 +85,20 @@ class Search_Button extends Widget_Base {
 	}
 
 	/**
+	 * Retrieve the list of scripts the navigation menu depended on.
+	 *
+	 * Used to set scripts dependencies required to run the widget.
+	 *
+	 * @since 1.3.0
+	 * @access public
+	 *
+	 * @return array Widget scripts dependencies.
+	 */
+	public function get_script_depends() {
+		return [ 'hfe-nav-menu' ];
+	}
+
+	/**
 	 * Register Search Button controls.
 	 *
 	 * @since x.x.x
@@ -120,7 +134,7 @@ class Search_Button extends Widget_Base {
 					'icon' => __( 'Icon', 'header-footer-elementor' ),
 					'icon_text' => __( 'Text with Icon', 'header-footer-elementor' ),
 				],
-				'prefix_class' => 'hfe-search-form-layout-',
+				// 'prefix_class' => 'hfe-search-form-layout-',
 			]
 		);
 
@@ -324,7 +338,7 @@ class Search_Button extends Widget_Base {
 				'label' => __( 'Text Color', 'header-footer-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .hfe-search-form__input input[type="search"]:focus' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .hfe-input-focus .hfe-search-form__input:focus' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -335,7 +349,7 @@ class Search_Button extends Widget_Base {
 				'label' => __( 'Background Color', 'header-footer-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'',
+					'{{WRAPPER}} .hfe-input-focus .hfe-search-form__input:focus' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
@@ -346,7 +360,7 @@ class Search_Button extends Widget_Base {
 				'label' => __( 'Border Color', 'header-footer-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'',
+					'{{WRAPPER}} .hfe-input-focus .hfe-search-form__container' => 'border-color: {{VALUE}}',
 				],
 			]
 		);
@@ -355,7 +369,7 @@ class Search_Button extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'input_box_shadow_focus',
-				'selector' => '{{WRAPPER}} .hfe-search-form--focus .elementor-search-form__container',
+				'selector' => 'form.hfe-search-button-wrapper.hfe-input-focus',
 				'fields_options' => [
 					'box_shadow_type' => [
 						'separator' => 'default',
@@ -391,12 +405,12 @@ class Search_Button extends Widget_Base {
 		);
 
 		$this->add_control(
-			'button_text_color',
+			'button_icon_color',
 			[
-				'label' => __( 'Text Color', 'header-footer-elementor' ),
+				'label' => __( 'Icon Color', 'header-footer-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .elementor-search-form__submit' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .hfe-search-submit' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -407,7 +421,7 @@ class Search_Button extends Widget_Base {
 				'label' => __( 'Background Color', 'header-footer-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .elementor-search-form__submit' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .hfe-search-submit' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
@@ -427,7 +441,7 @@ class Search_Button extends Widget_Base {
 				'label' => __( 'Text Color', 'header-footer-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .elementor-search-form__submit:hover' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .hfe-search-submit:hover' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -438,7 +452,7 @@ class Search_Button extends Widget_Base {
 				'label' => __( 'Background Color', 'header-footer-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .elementor-search-form__submit:hover' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .hfe-search-submit:hover' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
@@ -452,7 +466,6 @@ class Search_Button extends Widget_Base {
 			[
 				'label' => __( 'Icon Size', 'header-footer-elementor' ),
 				'type' => Controls_Manager::SLIDER,
-				'default' => '15',
 				'range' => [
 					'px' => [
 						'min' => 0,
@@ -476,7 +489,7 @@ class Search_Button extends Widget_Base {
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
-						'min' => 10,
+						'min' => 0,
 						'max' => 1000,
 						'step' => 10,
 					],
@@ -517,9 +530,7 @@ class Search_Button extends Widget_Base {
 			<?php } else { ?>
 			<div class="hfe-search-form__container">
 				<?php if ( 'text' === $settings['layout'] ) { ?>
-					<!-- <div class="hfe-search-text"> -->
-						<input <?php echo $this->get_render_attribute_string( 'input' ); ?>>
-					<!-- </div> -->
+					<input <?php echo $this->get_render_attribute_string( 'input' ); ?>>
 				<?php } else { ?>
 					
 						<input <?php echo $this->get_render_attribute_string( 'input' ); ?>>
