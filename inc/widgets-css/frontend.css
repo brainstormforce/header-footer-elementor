@@ -1565,6 +1565,7 @@ div.hfe-nav-menu,
 
 .hfe-search-form__container {
     display: flex;
+    overflow: hidden;
     /*background: #eceeef;*/
     /*min-height: 53px;*/
 }
