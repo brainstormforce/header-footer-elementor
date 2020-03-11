@@ -704,12 +704,12 @@ class Navigation_Menu extends Widget_Base {
 					'selectors'  => [
 						'body:not(.rtl) {{WRAPPER}} .hfe-nav-menu__layout-horizontal .hfe-nav-menu > li.menu-item:not(:last-child)' => 'margin-right: {{SIZE}}{{UNIT}}',
 						'body.rtl {{WRAPPER}} .hfe-nav-menu__layout-horizontal .hfe-nav-menu > li.menu-item:not(:last-child)' => 'margin-left: {{SIZE}}{{UNIT}}',
-						'{{WRAPPER}} nav:not(.hfe-nav-menu__layout-horizontal) .hfe-nav-menu > li.menu-item:not(:last-child)' => 'margin-bottom: 0',
+						'{{WRAPPER}} nav:not(.hfe-nav-menu__layout-horizontal) .hfe-nav-menu > li.menu-item:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}}',
 						'(tablet)body:not(.rtl) {{WRAPPER}}.hfe-nav-menu__breakpoint-tablet .hfe-nav-menu__layout-horizontal .hfe-nav-menu > li.menu-item:not(:last-child)' => 'margin-right: 0px',
 						'(mobile)body:not(.rtl) {{WRAPPER}}.hfe-nav-menu__breakpoint-mobile .hfe-nav-menu__layout-horizontal .hfe-nav-menu > li.menu-item:not(:last-child)' => 'margin-right: 0px',
 					],
 					'condition'  => [
-						'layout' => 'horizontal',
+						'layout!' => 'expandible',
 					],
 				]
 			);
@@ -761,7 +761,6 @@ class Navigation_Menu extends Widget_Base {
 					'type'      => Controls_Manager::COLOR,
 					'default'   => '#FFFFFF',
 					'selectors' => [
-						'{{WRAPPER}} .menu-item a.hfe-menu-item' => 'background-color: {{VALUE}}',
 						'{{WRAPPER}} .hfe-flyout-content' => 'background-color: {{VALUE}}',
 					],
 					'condition' => [
