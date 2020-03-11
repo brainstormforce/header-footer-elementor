@@ -417,6 +417,10 @@
 
 	function _borderClass( id ){
 
+		var last_item = $( '.elementor-element-' + id + ' .hfe-nav-menu' ).data( 'last-item' );
+		var last_item_flyout = $( '.elementor-element-' + id + ' .hfe-flyout-wrapper' ).data( 'last-item' );
+		var layout = $( '.elementor-element-' + id + ' .hfe-nav-menu' ).data( 'layout' );
+
 		$( '.elementor-element-' + id + ' nav').removeClass('hfe-dropdown');
 
 		if ( window.matchMedia( "( max-width: 767px )" ).matches ) {
@@ -424,26 +428,34 @@
 			if( $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-mobile') || $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-tablet')){
 				
 				$( '.elementor-element-' + id + ' nav').addClass('hfe-dropdown');
-				$( '.elementor-element-' + id + ' li.menu-item:last-child' ).removeClass( 'elementor-button-wrapper' );
-				$( '.elementor-element-' + id + ' li.menu-item:last-child a' ).removeClass( 'elementor-button' );	
+				if( ( 'cta' == last_item || 'cta' == last_item_flyout ) && 'expandible' != layout ){
+					$( '.elementor-element-' + id + ' li.menu-item:last-child' ).removeClass( 'elementor-button-wrapper' );
+					$( '.elementor-element-' + id + ' li.menu-item:last-child a' ).removeClass( 'elementor-button' );
+				}	
 			}else{
 				
 				$( '.elementor-element-' + id + ' nav').removeClass('hfe-dropdown');
-				$( '.elementor-element-' + id + ' li.menu-item:last-child' ).addClass( 'elementor-button-wrapper' );
-				$( '.elementor-element-' + id + ' li.menu-item:last-child a' ).addClass( 'elementor-button' );	
+				if( ( 'cta' == last_item || 'cta' == last_item_flyout ) && 'expandible' != layout ){
+					$( '.elementor-element-' + id + ' li.menu-item:last-child' ).addClass( 'elementor-button-wrapper' );
+					$( '.elementor-element-' + id + ' li.menu-item:last-child a' ).addClass( 'elementor-button' );	
+				}
 			}
 		}else if ( window.matchMedia( "( max-width: 1023px )" ).matches ) {
 
 			if( $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-tablet') ) {
 				
 				$( '.elementor-element-' + id + ' nav').addClass('hfe-dropdown');
-				$( '.elementor-element-' + id + ' li.menu-item:last-child' ).removeClass( 'elementor-button-wrapper' );
-				$( '.elementor-element-' + id + ' li.menu-item:last-child a' ).removeClass( 'elementor-button' );
+				if( ( 'cta' == last_item || 'cta' == last_item_flyout ) && 'expandible' != layout ){
+					$( '.elementor-element-' + id + ' li.menu-item:last-child' ).removeClass( 'elementor-button-wrapper' );
+					$( '.elementor-element-' + id + ' li.menu-item:last-child a' ).removeClass( 'elementor-button' );
+				}
 			}else{
 				
 				$( '.elementor-element-' + id + ' nav').removeClass('hfe-dropdown');
-				$( '.elementor-element-' + id + ' li.menu-item:last-child' ).addClass( 'elementor-button-wrapper' );
-				$( '.elementor-element-' + id + ' li.menu-item:last-child a' ).addClass( 'elementor-button' );
+				if( ( 'cta' == last_item || 'cta' == last_item_flyout ) && 'expandible' != layout ){
+					$( '.elementor-element-' + id + ' li.menu-item:last-child' ).addClass( 'elementor-button-wrapper' );
+					$( '.elementor-element-' + id + ' li.menu-item:last-child a' ).addClass( 'elementor-button' );
+				}
 			}
 		}
 
