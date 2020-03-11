@@ -221,10 +221,10 @@ class Navigation_Menu extends Widget_Base {
 		$this->add_control(
 			'menu_last_item',
 			[
-				'label'   => __( 'Last Item In Menu', 'header-footer-elementor' ),
+				'label'   => __( 'Last Menu Item', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					'none' => __( 'None', 'header-footer-elementor' ),
+					'none' => __( 'Default', 'header-footer-elementor' ),
 					'cta'  => __( 'Button', 'header-footer-elementor' ),
 				],
 				'default' => 'none',
