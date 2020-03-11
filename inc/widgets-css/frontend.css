@@ -1105,6 +1105,10 @@ a.hfe-menu-item.elementor-button {
     display: inline-flex;
 }
 
+.hfe-nav-menu li.elementor-button-wrapper {
+    align-self: center;
+}
+
 /* Tablet */
 @media only screen and ( max-width: 1023px ) {
 

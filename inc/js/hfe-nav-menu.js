@@ -58,15 +58,15 @@
 		});
 
 		if( ( 'cta' == last_item || 'cta' == last_item_flyout ) && 'expandible' != layout ){
-			$( '.elementor-element-' + id + ' li.menu-item:last-child' ).addClass( 'elementor-button-wrapper' );
-			$( '.elementor-element-' + id + ' li.menu-item:last-child a' ).addClass( 'elementor-button' );			
+			$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).parent().addClass( 'elementor-button-wrapper' );
+			$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).addClass( 'elementor-button' );			
 		}
 
 		$( window ).resize( function(){ 
 
 			if( ( 'cta' == last_item || 'cta' == last_item_flyout ) && 'expandible' != layout ){
-				$( '.elementor-element-' + id + ' li.menu-item:last-child' ).addClass( 'elementor-button-wrapper' );
-				$( '.elementor-element-' + id + ' li.menu-item:last-child a' ).addClass( 'elementor-button' );			
+				$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).parent().addClass( 'elementor-button-wrapper' );
+				$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).addClass( 'elementor-button' );			
 			}
 
 			if( 'horizontal' !== layout ) {
@@ -436,8 +436,8 @@
 				
 				$( '.elementor-element-' + id + ' nav').removeClass('hfe-dropdown');
 				if( ( 'cta' == last_item || 'cta' == last_item_flyout ) && 'expandible' != layout ){
-					$( '.elementor-element-' + id + ' li.menu-item:last-child' ).addClass( 'elementor-button-wrapper' );
-					$( '.elementor-element-' + id + ' li.menu-item:last-child a' ).addClass( 'elementor-button' );	
+					$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).parent().addClass( 'elementor-button-wrapper' );
+					$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).addClass( 'elementor-button' );	
 				}
 			}
 		}else if ( window.matchMedia( "( max-width: 1023px )" ).matches ) {
@@ -453,8 +453,8 @@
 				
 				$( '.elementor-element-' + id + ' nav').removeClass('hfe-dropdown');
 				if( ( 'cta' == last_item || 'cta' == last_item_flyout ) && 'expandible' != layout ){
-					$( '.elementor-element-' + id + ' li.menu-item:last-child' ).addClass( 'elementor-button-wrapper' );
-					$( '.elementor-element-' + id + ' li.menu-item:last-child a' ).addClass( 'elementor-button' );
+					$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).parent().addClass( 'elementor-button-wrapper' );
+					$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).addClass( 'elementor-button' );
 				}
 			}
 		}
