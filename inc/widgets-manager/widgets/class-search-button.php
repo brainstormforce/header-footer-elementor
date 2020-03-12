@@ -126,12 +126,12 @@ class Search_Button extends Widget_Base {
 		$this->add_control(
 			'layout',
 			[
-				'label' => __( 'Layout', 'header-footer-elementor' ),
-				'type' => Controls_Manager::SELECT,
+				'label'   => __( 'Layout', 'header-footer-elementor' ),
+				'type'    => Controls_Manager::SELECT,
 				'default' => 'text',
 				'options' => [
-					'text' => __( 'Text', 'header-footer-elementor' ),
-					'icon' => __( 'Icon', 'header-footer-elementor' ),
+					'text'      => __( 'Text', 'header-footer-elementor' ),
+					'icon'      => __( 'Icon', 'header-footer-elementor' ),
 					'icon_text' => __( 'Text with Icon', 'header-footer-elementor' ),
 				],
 				// 'prefix_class' => 'hfe-search-form-layout-',
@@ -141,39 +141,39 @@ class Search_Button extends Widget_Base {
 		$this->add_control(
 			'placeholder',
 			[
-				'label' => __( 'Placeholder', 'header-footer-elementor' ),
-				'type' => Controls_Manager::TEXT,
+				'label'   => __( 'Placeholder', 'header-footer-elementor' ),
+				'type'    => Controls_Manager::TEXT,
 				'default' => __( 'Search', 'header-footer-elementor' ) . '...',
 			]
 		);
 
 		$this->add_control(
-				'search_icon',
-				array(
-					'label'            => __( 'Select Icon', 'header-footer-elementor' ),
-					'type'             => Controls_Manager::ICONS,
-					'default'          => array(
-						'value'   => 'fas fa-search',
-						'library' => 'fa-solid',
-					),
-					'condition'        => array(
-						'layout' => ['icon','icon_text'], 
-					),
-					'render_type' => 'template',
-				)
-			);
+			'search_icon',
+			[
+				'label'       => __( 'Select Icon', 'header-footer-elementor' ),
+				'type'        => Controls_Manager::ICONS,
+				'default'     => [
+					'value'   => 'fas fa-search',
+					'library' => 'fa-solid',
+				],
+				'condition'   => [
+					'layout' => [ 'icon', 'icon_text' ],
+				],
+				'render_type' => 'template',
+			]
+		);
 
 		$this->add_control(
 			'size',
 			[
-				'label' => __( 'Size', 'header-footer-elementor' ),
-				'type' => Controls_Manager::SLIDER,
-				'default' => [
+				'label'     => __( 'Size', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SLIDER,
+				'default'   => [
 				// 'size' => 50,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-form__container' => 'min-height: {{SIZE}}{{UNIT}}',
-					'{{WRAPPER}} .hfe-search-submit' => 'min-width: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .hfe-search-submit'      => 'min-width: {{SIZE}}{{UNIT}}',
 					'{{WRAPPER}} .hfe-search-form__input' => 'padding-left: calc({{SIZE}}{{UNIT}} / 1); padding-right: calc({{SIZE}}{{UNIT}} / 1)',
 				],
 				'condition' => [
@@ -181,32 +181,32 @@ class Search_Button extends Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_control(
 			'button_align',
 			[
-				'label' => __( 'Alignment', 'header-footer-elementor' ),
-				'type' => Controls_Manager::CHOOSE,
+				'label'       => __( 'Alignment', 'header-footer-elementor' ),
+				'type'        => Controls_Manager::CHOOSE,
 				'label_block' => false,
-				'default' => 'center',
-				'options' => [
-					'left' => [
+				'default'     => 'center',
+				'options'     => [
+					'left'   => [
 						'title' => __( 'Left', 'header-footer-elementor' ),
-						'icon' => 'eicon-h-align-left',
+						'icon'  => 'eicon-h-align-left',
 					],
 					'center' => [
 						'title' => __( 'Center', 'header-footer-elementor' ),
-						'icon' => 'eicon-h-align-center',
+						'icon'  => 'eicon-h-align-center',
 					],
-					'right' => [
+					'right'  => [
 						'title' => __( 'Right', 'header-footer-elementor' ),
-						'icon' => 'eicon-h-align-right',
+						'icon'  => 'eicon-h-align-right',
 					],
 				],
-				'selectors' => [
+				'selectors'   => [
 					'{{WRAPPER}} .hfe-search-button-wrapper' => 'text-align: {{VALUE}}',
 				],
-				'condition' => [
+				'condition'   => [
 					'layout' => 'icon',
 				],
 			]
@@ -215,9 +215,9 @@ class Search_Button extends Widget_Base {
 		$this->add_control(
 			'toggle_icon_size',
 			[
-				'label' => __( 'Size', 'header-footer-elementor' ),
-				'type' => Controls_Manager::SLIDER,
-				'default' => [
+				'label'     => __( 'Size', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SLIDER,
+				'default'   => [
 					'size' => 33,
 				],
 				'selectors' => [
@@ -237,14 +237,14 @@ class Search_Button extends Widget_Base {
 			'section_input_style',
 			[
 				'label' => __( 'Input', 'header-footer-elementor' ),
-				'tab' => Controls_Manager::TAB_STYLE,
+				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'input_typography',
+				'name'     => 'input_typography',
 				'selector' => '{{WRAPPER}} input[type="search"].hfe-search-form__input',
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
 			]
@@ -262,7 +262,7 @@ class Search_Button extends Widget_Base {
 		$this->add_control(
 			'input_text_color',
 			[
-				'label' => __( 'Text Color', 'header-footer-elementor' ),
+				'label'     => __( 'Text Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'scheme'    => [
 					'type'  => Scheme_Color::get_type(),
@@ -277,8 +277,8 @@ class Search_Button extends Widget_Base {
 		$this->add_control(
 			'input_background_color',
 			[
-				'label' => __( 'Background Color', 'header-footer-elementor' ),
-				'type' => Controls_Manager::COLOR,
+				'label'     => __( 'Background Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-form__input' => 'background-color: {{VALUE}}',
 				],
@@ -287,11 +287,11 @@ class Search_Button extends Widget_Base {
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
-			array(
-				'name'        => 'input_border_color',
-				'default'     => '',
-				'selector'    => '{{WRAPPER}} .hfe-search-form__container',
-			)
+			[
+				'name'     => 'input_border_color',
+				'default'  => '',
+				'selector' => '{{WRAPPER}} .hfe-search-form__container',
+			]
 		);
 
 		$this->add_group_control(
@@ -304,23 +304,23 @@ class Search_Button extends Widget_Base {
 
 		$this->add_control(
 			'border_radius',
-			array(
-				'label'      => __( 'Border Radius', 'header-footer-elementor' ),
-				'type'       => Controls_Manager::SLIDER,
-				'range' => [
+			[
+				'label'     => __( 'Border Radius', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => [
 					'px' => [
 						'min' => 0,
 						'max' => 200,
 					],
 				],
-				'default' => [
+				'default'   => [
 					'size' => 3,
 					'unit' => 'px',
 				],
-				'selectors'  => array(
+				'selectors' => [
 					'{{WRAPPER}} .hfe-search-form__container' => 'border-radius: {{SIZE}}{{UNIT}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_tab();
@@ -335,8 +335,8 @@ class Search_Button extends Widget_Base {
 		$this->add_control(
 			'input_text_color_focus',
 			[
-				'label' => __( 'Text Color', 'header-footer-elementor' ),
-				'type' => Controls_Manager::COLOR,
+				'label'     => __( 'Text Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .hfe-input-focus .hfe-search-form__input:focus' => 'color: {{VALUE}}',
 				],
@@ -346,8 +346,8 @@ class Search_Button extends Widget_Base {
 		$this->add_control(
 			'input_background_color_focus',
 			[
-				'label' => __( 'Background Color', 'header-footer-elementor' ),
-				'type' => Controls_Manager::COLOR,
+				'label'     => __( 'Background Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .hfe-input-focus .hfe-search-form__input:focus' => 'background-color: {{VALUE}}',
 				],
@@ -357,8 +357,8 @@ class Search_Button extends Widget_Base {
 		$this->add_control(
 			'input_border_color_focus',
 			[
-				'label' => __( 'Border Color', 'header-footer-elementor' ),
-				'type' => Controls_Manager::COLOR,
+				'label'     => __( 'Border Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .hfe-input-focus .hfe-search-form__container' => 'border-color: {{VALUE}}',
 				],
@@ -368,8 +368,8 @@ class Search_Button extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name' => 'input_box_shadow_focus',
-				'selector' => 'form.hfe-search-button-wrapper.hfe-input-focus',
+				'name'           => 'input_box_shadow_focus',
+				'selector'       => 'form.hfe-search-button-wrapper.hfe-input-focus',
 				'fields_options' => [
 					'box_shadow_type' => [
 						'separator' => 'default',
@@ -387,8 +387,8 @@ class Search_Button extends Widget_Base {
 		$this->start_controls_section(
 			'section_button_style',
 			[
-				'label' => __( 'Button', 'header-footer-elementor' ),
-				'tab' => Controls_Manager::TAB_STYLE,
+				'label'     => __( 'Button', 'header-footer-elementor' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'layout' => 'icon_text',
 				],
@@ -407,8 +407,8 @@ class Search_Button extends Widget_Base {
 		$this->add_control(
 			'button_icon_color',
 			[
-				'label' => __( 'Icon Color', 'header-footer-elementor' ),
-				'type' => Controls_Manager::COLOR,
+				'label'     => __( 'Icon Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-submit' => 'color: {{VALUE}}',
 				],
@@ -418,8 +418,8 @@ class Search_Button extends Widget_Base {
 		$this->add_control(
 			'button_background_color',
 			[
-				'label' => __( 'Background Color', 'header-footer-elementor' ),
-				'type' => Controls_Manager::COLOR,
+				'label'     => __( 'Background Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-submit' => 'background-color: {{VALUE}}',
 				],
@@ -438,8 +438,8 @@ class Search_Button extends Widget_Base {
 		$this->add_control(
 			'button_text_color_hover',
 			[
-				'label' => __( 'Text Color', 'header-footer-elementor' ),
-				'type' => Controls_Manager::COLOR,
+				'label'     => __( 'Text Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-submit:hover' => 'color: {{VALUE}}',
 				],
@@ -449,8 +449,8 @@ class Search_Button extends Widget_Base {
 		$this->add_control(
 			'button_background_color_hover',
 			[
-				'label' => __( 'Background Color', 'header-footer-elementor' ),
-				'type' => Controls_Manager::COLOR,
+				'label'     => __( 'Background Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-submit:hover' => 'background-color: {{VALUE}}',
 				],
@@ -464,9 +464,9 @@ class Search_Button extends Widget_Base {
 		$this->add_responsive_control(
 			'icon_size',
 			[
-				'label' => __( 'Icon Size', 'header-footer-elementor' ),
-				'type' => Controls_Manager::SLIDER,
-				'range' => [
+				'label'     => __( 'Icon Size', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => [
 					'px' => [
 						'min' => 0,
 						'max' => 100,
@@ -485,12 +485,12 @@ class Search_Button extends Widget_Base {
 		$this->add_responsive_control(
 			'button_width',
 			[
-				'label' => __( 'Width', 'header-footer-elementor' ),
-				'type' => Controls_Manager::SLIDER,
-				'range' => [
+				'label'     => __( 'Width', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => [
 					'px' => [
-						'min' => 0,
-						'max' => 1000,
+						'min'  => 0,
+						'max'  => 1000,
 						'step' => 10,
 					],
 				],
@@ -507,20 +507,21 @@ class Search_Button extends Widget_Base {
 
 	}
 
-	protected function render(){
+	protected function render() {
 		$settings = $this->get_settings_for_display();
 
 		$this->add_render_attribute(
-			'input', [
+			'input',
+			[
 				'placeholder' => $settings['placeholder'],
-				'class' => 'hfe-search-form__input',
-				'type' => 'search',
-				'name' => 's',
-				'title' => __( 'Search', 'header-footer-elementor' ),
-				'value' => get_search_query(),
+				'class'       => 'hfe-search-form__input',
+				'type'        => 'search',
+				'name'        => 's',
+				'title'       => __( 'Search', 'header-footer-elementor' ),
+				'value'       => get_search_query(),
 			]
 		);
-		
+
 		?>
 		<form class="hfe-search-button-wrapper" role="search" action="<?php echo home_url(); ?>" method="get">
 			<?php if ( 'icon' === $settings['layout'] ) { ?>
@@ -543,7 +544,6 @@ class Search_Button extends Widget_Base {
 		<?php } ?>
 		</form>
 		<?php
-
 
 	}
 
