@@ -470,9 +470,6 @@
 				var full_width = $this.parent().parent().next().data( 'full-width' );
 				var close_icon = $( '.elementor-element-' + id + ' nav' ).data( 'close-icon' );
 
-				var container = $( '.elementor-element-' + id ).closest('.elementor-container');
-				var container_width = container.outerWidth();
-
 				$( '.elementor-element-' + id).find( '.hfe-nav-menu-icon i' ).attr( 'class', close_icon );
 				
 				$this.parent().parent().addClass( 'hfe-active-menu' );
