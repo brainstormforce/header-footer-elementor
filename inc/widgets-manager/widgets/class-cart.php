@@ -37,6 +37,11 @@ class Cart extends Widget_Base
 
 
 
+
+
+
+
+
     /**
      * Retrieve the widget name.
      *
@@ -568,7 +573,7 @@ class Cart extends Widget_Base
                     <div class="hfe-cart-menu-wrap-<?php echo $settings['hfe_cart_type']; ?>">
                         <span class="count">
                             <?php
-                            echo sprintf(/* translators: %d Woocommerce count */ _n('%d ', '%d ', $woocommerce->cart->cart_contents_count, 'header-footer-elementor'), $woocommerce->cart->cart_contents_count);
+                            echo $woocommerce->cart->cart_contents_count;
                             ?>
                         </span>
                     </div>
@@ -577,9 +582,9 @@ class Cart extends Widget_Base
                         <div class="hfe-menu-cart__toggle elementor-button-wrapper">
                             <a id="hfe-menu-cart__toggle_button" href="<?php echo esc_url(wc_get_cart_url()); ?>" class="elementor-button">
                                 <span class="elementor-button-text">
-                                   <?php echo $woocommerce->cart->get_cart_total(); ?>
+                                    <?php echo $woocommerce->cart->get_cart_total(); ?>
                                 </span>
-                                <span class="elementor-button-icon" data-counter="<?php echo sprintf(/* translators: %d Woocommerce count */ _n('%d ', '%d ', $woocommerce->cart->cart_contents_count, 'header-footer-elementor'), $woocommerce->cart->cart_contents_count); ?>">
+                                <span class="elementor-button-icon" data-counter="<?php echo $woocommerce->cart->cart_contents_count; ?>">
                                     <i class="eicon" aria-hidden="true"></i>
                                     <span class="elementor-screen-only">Cart</span>
                                 </span>
