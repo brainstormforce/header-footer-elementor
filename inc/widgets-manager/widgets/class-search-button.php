@@ -524,9 +524,10 @@ class Search_Button extends Widget_Base {
 		?>
 		<form class="hfe-search-button-wrapper" role="search" action="<?php echo home_url(); ?>" method="get">
 			<?php if ( 'icon' === $settings['layout'] ) { ?>
-			<div class="hfe-search-icon-toggle">
-				<i class="fa fa-search" aria-hidden="true"></i>
-			</div>
+			<div class = "hfe-search-icon-toggle">
+				<!-- <i class="fa fa-search" aria-hidden="true"></i> -->
+						<input <?php echo $this->get_render_attribute_string( 'input' ); ?>>
+				</div>
 			<?php } else { ?>
 			<div class="hfe-search-form__container">
 				<?php if ( 'text' === $settings['layout'] ) { ?>
@@ -541,9 +542,9 @@ class Search_Button extends Widget_Base {
 			</div>
 		<?php } ?>
 		</form>
-
-
 		<?php
+
+
 	}
 
 }

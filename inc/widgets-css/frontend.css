@@ -1599,3 +1599,40 @@ div.hfe-nav-menu,
     left: 50%;
     font-size: 0.55em;
 }
+/*search icon css*/
+
+/* Demo 2 */
+
+.hfe-search-icon-toggle input {
+    outline: none;
+}
+
+.hfe-search-icon-toggle input[type=search] {
+    background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+    border: solid 1px #ccc;
+    padding: 9px 10px 9px 32px;
+    width: 40px;
+    padding-left: 10px;
+    color: transparent;
+    cursor: pointer;
+    border-radius: 10em;
+    transition: all .5s;
+}
+.hfe-search-icon-toggle input[type=search]:hover {
+    background-color: #fff;
+}
+.hfe-search-icon-toggle input[type=search]:focus {
+    width: 150px;
+    padding-left: 32px;
+    color: #000;
+    background-color: #fff;
+    border-color: #66CC75;
+    cursor: auto;
+    box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+.hfe-search-icon-toggle input:-moz-placeholder {
+    color: transparent;
+}
+.hfe-search-icon-toggle input::-webkit-input-placeholder {
+    color: transparent;
+}
