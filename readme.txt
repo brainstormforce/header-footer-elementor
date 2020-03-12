@@ -5,7 +5,7 @@ Donate link: https://www.paypal.me/BrainstormForce
 Requires at least: 4.4
 Requires PHP: 5.4
 Tested up to: 5.3
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -56,9 +56,9 @@ The plugin offers inbuilt widgets that help to create header/footer layouts. The
 
 = WORKS WITH ALL THEMES =
 
-Elementor – Header, Footer & Blocks plugin works with all themes. Few of the themes have direct support while for few you can enable theme support with few clicks.
+Elementor – Header, Footer & Blocks plugin works with all themes. Few of the themes have direct support while for few you can choose a method to add theme support.
 
-In case you see a notice to enable theme support manually, go to Appearance > Header Footer Builder > Theme Support. Select a method to add compatibility to your current theme and you are good to go!
+In case you face any difficulty displaying header/footer, manually choose the theme support method. Visit Appearance > Header Footer Builder > Theme Support. Select a method to suit your current theme and you are good to go!
 
 = STEPS TO USE THE PLUGIN =
 
@@ -80,7 +80,7 @@ Check [Ultimate Addons for Elementor](https://uaelementor.com/?utm_source=wp-rep
 
 = HAVE YOU TRIED ASTRA WITH ELEMENTOR? =
 
-Powering over 600,000+ WordPress websites, Astra is loved for the performance and ease-of-use it offers.
+Powering over 700,000+ WordPress websites, Astra is loved for the performance and ease-of-use it offers.
 
 People love Astra for -
 
@@ -135,6 +135,11 @@ This same applies when you are creating your Header/Footer using this plugin.
 5. Default widgets available with the plugin.
 
 == Changelog ==
+
+= 1.3.1 =
+- Fix: Copyright - Link with open in new tab not working.
+- Fix: Navigation Menu - Hamburger menu click not working on responsive devices.
+- Deprecated: Removed the theme dependency for the plugin, so removed the associated notice.
 
 = 1.3.0 =
 - New: Added 'Site Logo' widget.

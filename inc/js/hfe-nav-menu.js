@@ -31,7 +31,7 @@
 		
 		_borderClass( id );	
 
-		$( '.elementor-element-' + id + ' .hfe-nav-menu-icon' ).off( 'click keyup' ).on( 'click keyup', function() {
+		$( '.elementor-element-' + id + ' .hfe-flyout-trigger .hfe-nav-menu-icon' ).off( 'click keyup' ).on( 'click keyup', function() {
 
 			_openMenu( id );
 		} );
@@ -436,7 +436,6 @@
 
 			var width = $( '.elementor-element-' + id ).closest('.elementor-section').outerWidth();
 			var sec_pos = $( '.elementor-element-' + id ).closest('.elementor-section').offset().left - $( '.elementor-element-' + id + ' .hfe-nav-menu__toggle i' ).parent().parent().next().offset().left;
-		
 			$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle i' ).parent().parent().next().css( 'width', width + 'px' );
 			$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle i' ).parent().parent().next().css( 'left', sec_pos + 'px' );
 		}
