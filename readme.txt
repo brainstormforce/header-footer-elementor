@@ -58,7 +58,8 @@ The plugin offers inbuilt widgets that help to create header/footer layouts. The
 
 Elementor – Header, Footer & Blocks plugin works with all themes. Few of the themes have direct support while for few you can enable theme support with few clicks.
 
-In case you see a notice to enable theme support manually, go to Appearance > Header Footer Builder > Theme Support. Select a method to add compatibility to your current theme and you are good to go!
+Elementor – Header, Footer & Blocks plugin works with all themes. Few of the themes have direct support while for few you can choose a method to add theme support.
+In case you face any difficulty displaying header/footer, manually choose the theme support method. Visit Appearance > Header Footer Builder > Theme Support. Select a method to suit your current theme and you are good to go!
 
 = STEPS TO USE THE PLUGIN =
 
@@ -80,7 +81,7 @@ Check [Ultimate Addons for Elementor](https://uaelementor.com/?utm_source=wp-rep
 
 = HAVE YOU TRIED ASTRA WITH ELEMENTOR? =
 
-Powering over 600,000+ WordPress websites, Astra is loved for the performance and ease-of-use it offers.
+Powering over 700,000+ WordPress websites, Astra is loved for the performance and ease-of-use it offers.
 
 People love Astra for -
 
