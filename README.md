@@ -57,6 +57,8 @@ The plugin offers inbuilt widgets that help to create header/footer layouts. The
 ### WORKS WITH ALL THEMES ###
 
 Elementor – Header, Footer & Blocks plugin works with all themes. Few of the themes have direct support while for few you can choose a method to add theme support.
+
+
 In case you face any difficulty displaying header/footer, manually choose the theme support method. Visit Appearance > Header Footer Builder > Theme Support. Select a method to suit your current theme and you are good to go!
 
 ### STEPS TO USE THE PLUGIN ###
