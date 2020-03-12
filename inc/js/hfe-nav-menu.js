@@ -436,7 +436,6 @@
 
 			var width = $( '.elementor-element-' + id ).closest('.elementor-section').outerWidth();
 			var sec_pos = $( '.elementor-element-' + id ).closest('.elementor-section').offset().left - $( '.elementor-element-' + id + ' .hfe-nav-menu__toggle i' ).parent().parent().next().offset().left;
-
 			$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle i' ).parent().parent().next().css( 'width', width + 'px' );
 			$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle i' ).parent().parent().next().css( 'left', sec_pos + 'px' );
 		}
