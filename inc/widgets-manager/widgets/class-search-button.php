@@ -4,6 +4,7 @@
  *
  * @package header-footer-elementor
  */
+
 namespace HFE\WidgetsManager\Widgets;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
@@ -114,7 +115,6 @@ class Search_Button extends Widget_Base {
 	 * @since x.x.x
 	 * @access protected
 	 */
-
 	protected function register_general_content_controls() {
 		$this->start_controls_section(
 			'section_general_fields',
@@ -212,11 +212,14 @@ class Search_Button extends Widget_Base {
 			]
 		);
 
-		
-
 		$this->end_controls_section();
 	}
-
+	/**
+	 * Register Archive Title Style Controls.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
 	protected function register_search_style_controls() {
 		$this->start_controls_section(
 			'section_input_style',
@@ -513,8 +516,8 @@ class Search_Button extends Widget_Base {
 		$this->add_control(
 			'toggle_color',
 			[
-				'label' => __( 'Color', 'header-footer-elementor' ),
-				'type' => Controls_Manager::COLOR,
+				'label'     => __( 'Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-icon-toggle' => 'color: {{VALUE}}; border-color: {{VALUE}}',
 				],
@@ -524,8 +527,8 @@ class Search_Button extends Widget_Base {
 		$this->add_control(
 			'toggle_background_color',
 			[
-				'label' => __( 'Background Color', 'header-footer-elementor' ),
-				'type' => Controls_Manager::COLOR,
+				'label'     => __( 'Background Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-icon-toggle .hfe-search-form__input' => 'background-color: {{VALUE}}',
 				],
@@ -544,8 +547,8 @@ class Search_Button extends Widget_Base {
 		$this->add_control(
 			'toggle_color_hover',
 			[
-				'label' => __( 'Color', 'header-footer-elementor' ),
-				'type' => Controls_Manager::COLOR,
+				'label'     => __( 'Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-icon-toggle:hover' => 'color: {{VALUE}}; border-color: {{VALUE}}',
 				],
@@ -555,8 +558,8 @@ class Search_Button extends Widget_Base {
 		$this->add_control(
 			'toggle_background_color_hover',
 			[
-				'label' => __( 'Background Color', 'header-footer-elementor' ),
-				'type' => Controls_Manager::COLOR,
+				'label'     => __( 'Background Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-icon-toggle .hfe-search-form__input:hover' => 'background-color: {{VALUE}}',
 				],
@@ -587,7 +590,14 @@ class Search_Button extends Widget_Base {
 		$this->end_controls_section();
 
 	}
-
+	/**
+	 * Render Search button output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 
@@ -615,11 +625,10 @@ class Search_Button extends Widget_Base {
 				<?php if ( 'text' === $settings['layout'] ) { ?>
 					<input <?php echo $this->get_render_attribute_string( 'input' ); ?>>
 				<?php } else { ?>
-					
-						<input <?php echo $this->get_render_attribute_string( 'input' ); ?>>
-							<button class="hfe-search-submit" type="submit">
-								<i class="fa fa-search" aria-hidden="true"></i>
-							</button>
+					<input <?php echo $this->get_render_attribute_string( 'input' ); ?>>
+						<button class="hfe-search-submit" type="submit">
+							<i class="fa fa-search" aria-hidden="true"></i>
+						</button>
 				<?php } ?>
 			</div>
 		<?php } ?>
