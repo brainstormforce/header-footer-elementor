@@ -71,7 +71,7 @@ class Header_Footer_Elementor {
 			} elseif ( 'storefront' == $this->template ) {
 				require HFE_DIR . 'themes/storefront/class-hfe-storefront-compat.php';
 			} else {
-				add_action( 'init', [ $this, 'setup_unsupported_theme_notice' ] );
+				add_action( 'init', [ $this, 'setup_unsupported_theme' ] );
 			}
 
 			// Scripts and styles.
@@ -303,18 +303,8 @@ class Header_Footer_Elementor {
 	 *
 	 * @since  1.0.3
 	 */
-	public function setup_unsupported_theme_notice() {
+	public function setup_unsupported_theme() {
 		if ( ! current_theme_supports( 'header-footer-elementor' ) ) {
-			Astra_Notices::add_notice(
-				[
-					'id'                  => 'unsupported-theme',
-					'type'                => 'error',
-					'dismissible'         => true,
-					'message'             => '<p>' . __( 'Your current theme is not supported by Elementor - Header, Footer & Blocks plugin, click <a href="themes.php?page=hfe-settings">here</a> to check available compatibility methods.', 'header-footer-elementor' ) . '</p>',
-					'repeat-notice-after' => false,
-				]
-			);
-
 			require_once HFE_DIR . 'themes/default/class-hfe-fallback-theme-support.php';
 		}
 	}

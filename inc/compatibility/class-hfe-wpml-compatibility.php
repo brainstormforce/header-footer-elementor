@@ -65,7 +65,6 @@ class HFE_WPML_Compatibility {
 
 		return $id;
 	}
-
 }
 
 /**
