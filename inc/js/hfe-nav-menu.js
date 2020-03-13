@@ -1,7 +1,5 @@
 ( function( $ ) {
 
-	console.log('x');
-
 	/**
 	 * Nav Menu handler Function.
 	 *
@@ -12,7 +10,6 @@
 			return;
 
 		var id = $scope.data( 'id' );
-		console.log('abhijit');
 		var wrapper = $scope.find('.elementor-widget-hfe-nav-menu ');		
 		var layout = $( '.elementor-element-' + id + ' .hfe-nav-menu' ).data( 'layout' );
 		var flyout_data = $( '.hfe-flyout-wrapper' ).data( 'flyout-class' );
