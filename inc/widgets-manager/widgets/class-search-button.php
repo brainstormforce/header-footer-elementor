@@ -212,22 +212,7 @@ class Search_Button extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'toggle_icon_size',
-			[
-				'label'     => __( 'Size', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::SLIDER,
-				'default'   => [
-					'size' => 33,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .hfe-search-icon-toggle i' => 'font-size: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}',
-				],
-				'condition' => [
-					'layout' => 'icon',
-				],
-			]
-		);
+		
 
 		$this->end_controls_section();
 	}
@@ -505,6 +490,102 @@ class Search_Button extends Widget_Base {
 
 		$this->end_controls_section();
 
+		$this->start_controls_section(
+			'section_toggle_style',
+			[
+				'label'     => __( 'Toggle Icon', 'header-footer-elementor' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'layout' => 'icon',
+				],
+			]
+		);
+
+		$this->start_controls_tabs( 'tabs_toggle_color' );
+
+		$this->start_controls_tab(
+			'tab_toggle_normal',
+			[
+				'label' => __( 'Normal', 'header-footer-elementor' ),
+			]
+		);
+
+		$this->add_control(
+			'toggle_color',
+			[
+				'label' => __( 'Color', 'header-footer-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .hfe-search-icon-toggle' => 'color: {{VALUE}}; border-color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'toggle_background_color',
+			[
+				'label' => __( 'Background Color', 'header-footer-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .hfe-search-icon-toggle .hfe-search-form__input' => 'background-color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'tab_toggle_hover',
+			[
+				'label' => __( 'Hover', 'header-footer-elementor' ),
+			]
+		);
+
+		$this->add_control(
+			'toggle_color_hover',
+			[
+				'label' => __( 'Color', 'header-footer-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .hfe-search-icon-toggle:hover' => 'color: {{VALUE}}; border-color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'toggle_background_color_hover',
+			[
+				'label' => __( 'Background Color', 'header-footer-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .hfe-search-icon-toggle .hfe-search-form__input:hover' => 'background-color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+		$this->add_control(
+			'toggle_icon_size',
+			[
+				'label'     => __( 'Icon Size', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SLIDER,
+				'default'   => [
+					'size' => 33,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .hfe-search-icon-toggle i' => 'font-size: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'layout' => 'icon',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+
 	}
 
 	protected function render() {
@@ -526,8 +607,8 @@ class Search_Button extends Widget_Base {
 		<form class="hfe-search-button-wrapper" role="search" action="<?php echo home_url(); ?>" method="get">
 			<?php if ( 'icon' === $settings['layout'] ) { ?>
 			<div class = "hfe-search-icon-toggle">
-				<!-- <i class="fa fa-search" aria-hidden="true"></i> -->
-						<input <?php echo $this->get_render_attribute_string( 'input' ); ?>>
+				<i class="fa fa-search" aria-hidden="true"></i>
+					<input <?php echo $this->get_render_attribute_string( 'input' ); ?>>
 				</div>
 			<?php } else { ?>
 			<div class="hfe-search-form__container">
