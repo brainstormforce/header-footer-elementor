@@ -134,7 +134,6 @@ class Search_Button extends Widget_Base {
 					'icon'      => __( 'Icon', 'header-footer-elementor' ),
 					'icon_text' => __( 'Text with Icon', 'header-footer-elementor' ),
 				],
-				// 'prefix_class' => 'hfe-search-form-layout-',
 			]
 		);
 
@@ -617,7 +616,7 @@ class Search_Button extends Widget_Base {
 		<form class="hfe-search-button-wrapper" role="search" action="<?php echo home_url(); ?>" method="get">
 			<?php if ( 'icon' === $settings['layout'] ) { ?>
 			<div class = "hfe-search-icon-toggle">
-				<i class="fa fa-search" aria-hidden="true"></i>
+				<?php \Elementor\Icons_Manager::render_icon( $settings['search_icon'], array( 'aria-hidden' => 'true' ) ); ?>
 					<input <?php echo $this->get_render_attribute_string( 'input' ); ?>>
 				</div>
 			<?php } else { ?>
