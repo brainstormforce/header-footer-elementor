@@ -52,68 +52,60 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 			);
 		}
 
-		public function trackable_products() {
-			return array_keys( get_option( 'bsf_analytics_optin', array() ), 'yes' );
-		}
-
-		public function is_tracking_enabled( $plugin ) {
-			return in_array( $plugin, $this->trackable_products() );
+		public function is_tracking_enabled() {
+			return ( get_option( 'bsf_analytics_optin' ) === 'yes' ) ? true : false; 
 		}
 
 		public function option_notice() {
-			foreach ( self::$products as $product ) {
 
-				// Don't display the notice if the user has taken action on the notice.
-				if ( array_key_exists( $product['slug'], get_option( 'bsf_analytics_optin', array() ) ) ) {
-					continue;
-				}
-
-				Astra_Notices::add_notice(
-					array(
-						'id'                         => $product['slug'] . '-optin-notice',
-						'type'                       => '',
-						'message'                    => sprintf(
-							'<div class="notice-content">
-                                    <div class="notice-heading">
-                                        %1$s
-                                    </div>
-                                    <div class="astra-notices-container">
-                                        <a href="%3$s" class="astra-notices button-primary">
-                                        %4$s
-                                        </a> &nbsp; 
-                                        <a href="%5$s" data-repeat-notice-after="%6$s" class="astra-notices button-secondary">
-                                        %7$s
-                                        </a>
-                                    </div>
-                                </div>',
-							sprintf( __( 'Want to help make <b>%1$s</b> even more awesome? Allow %1$s to collect non-sensitive diagnostic data and usage information', 'header-footer-elementor' ), $product['name'] ),
-							__( 'Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Elementor - Header, Footer & Blocks.', 'header-footer-elementor' ),
-							add_query_arg(
-								array(
-									'bsf_analytics_optin' => 'yes',
-									'bsf_analytics_product' => $product['slug'],
-									'bsf_analytics_nonce' => wp_create_nonce( 'bsf_analytics_optin' ),
-								)
-							),
-							__( 'Allow', 'header-footer-elementor' ),
-							add_query_arg(
-								array(
-									'bsf_analytics_optin' => 'no',
-									'bsf_analytics_product' => $product['slug'],
-									'bsf_analytics_nonce' => wp_create_nonce( 'bsf_analytics_optin' ),
-								)
-							),
-							MONTH_IN_SECONDS,
-							__( 'No Thanks', 'header-footer-elementor' )
-						),
-						'show_if'                    => true,
-						'repeat-notice-after'        => false,
-						// 'display-notice-after'       => 1296000, // Display notice after 15 days.
-						'priority'                   => 18,
-						'display-with-other-notices' => true,
-					)
-				);
+			// Don't display the notice if the user has taken action on the notice.
+			if ( get_option( 'bsf_analytics_optin' ) ) {
+				return;
 			}
+
+			Astra_Notices::add_notice(
+				array(
+					'id'                         => 'bsf-optin-notice',
+					'type'                       => '',
+					'message'                    => sprintf(
+						'<div class="notice-content">
+								<div class="notice-heading">
+									%1$s
+								</div>
+								<div class="astra-notices-container">
+									<a href="%3$s" class="astra-notices button-primary">
+									%4$s
+									</a> &nbsp; 
+									<a href="%5$s" data-repeat-notice-after="%6$s" class="astra-notices button-secondary">
+									%7$s
+									</a>
+								</div>
+							</div>',
+						sprintf( __( 'Want to help make <b>%1$s</b> even more awesome? Allow us to collect non-sensitive diagnostic data and usage information', 'header-footer-elementor' ), '' ),
+						__( 'Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Elementor - Header, Footer & Blocks.', 'header-footer-elementor' ),
+						add_query_arg(
+							array(
+								'bsf_analytics_optin' => 'yes',
+								'bsf_analytics_nonce' => wp_create_nonce( 'bsf_analytics_optin' ),
+							)
+						),
+						__( 'Allow', 'header-footer-elementor' ),
+						add_query_arg(
+							array(
+								'bsf_analytics_optin' => 'no',
+								'bsf_analytics_nonce' => wp_create_nonce( 'bsf_analytics_optin' ),
+							)
+						),
+						MONTH_IN_SECONDS,
+						__( 'No Thanks', 'header-footer-elementor' )
+					),
+					'show_if'                    => true,
+					'repeat-notice-after'        => false,
+					// 'display-notice-after'       => 1296000, // Display notice after 15 days.
+					'priority'                   => 18,
+					'display-with-other-notices' => true,
+				)
+			);
 		}
 
 		public function handle_optin_optout() {
@@ -125,13 +117,12 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 				return;
 			}
 
-			$product_id   = sanitize_text_field( $_GET['bsf_analytics_product'] );
 			$optin_status = sanitize_text_field( $_GET['bsf_analytics_optin'] );
 
 			if ( 'yes' == $optin_status ) {
-				$this->optin( $product_id );
+				$this->optin();
 			} elseif ( 'no' == $optin_status ) {
-				$this->optout( $product_id );
+				$this->optout();
 			}
 
 			wp_redirect(
@@ -145,29 +136,15 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 			);
 		}
 
-		private function optin( $product_id ) {
+		private function optin() {
 			$this->unschedule_event();
 			$this->schedule_event();
-			$this->add_to_tracker( $product_id );
+			update_option( 'bsf_analytics_optin', 'yes' );
 		}
 
-		private function optout( $product_id ) {
+		private function optout() {
 			$this->unschedule_event();
-			$this->untrack_product( $product_id );
-		}
-
-		public function add_to_tracker( $product_id ) {
-			$products                = get_option( 'bsf_analytics_optin', array() );
-			$products[ $product_id ] = 'yes';
-
-			update_option( 'bsf_analytics_optin', $products );
-		}
-
-		public function untrack_product( $product_id ) {
-			$products                = get_option( 'bsf_analytics_optin', array() );
-			$products[ $product_id ] = 'no';
-
-			update_option( 'bsf_analytics_optin', $products );
+			update_option( 'bsf_analytics_optin', 'no' );
 		}
 
 		public function every_two_days_schedule( $schedules ) {
@@ -180,7 +157,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		}
 
 		private function schedule_event() {
-			if ( ! wp_next_scheduled( 'bsf_analytics_send' ) && ! empty( $this->trackable_products() ) ) {
+			if ( ! wp_next_scheduled( 'bsf_analytics_send' ) && $this->is_tracking_enabled() ) {
 				wp_schedule_event( time(), 'every_two_days', 'bsf_analytics_send' );
 			}
 		}
