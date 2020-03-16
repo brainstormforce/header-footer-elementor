@@ -1,7 +1,18 @@
 <?php
+/**
+ * HFE_Stats setup
+ *
+ * @package header-footer-elementor
+ */
 
+/**
+ * Analytics stats.
+ */
 class HFE_Stats {
 
+	/**
+	 *  Constructor
+	 */
 	public function __construct() {
 		$this->load_analytics();
 
@@ -16,6 +27,11 @@ class HFE_Stats {
 		}
 	}
 
+	/**
+	 * Adding plugin version to stats.
+	 *
+	 * @param  Array $stats analytics stat object.
+	 */
 	public function hfe_stats( $stats ) {
 		$stats['header-footer-elementor'][] = [
 			'version' => HFE_VER,
@@ -24,6 +40,10 @@ class HFE_Stats {
 		return $stats;
 	}
 
+	/**
+	 * Load analytics class.
+	 * .
+	 */
 	private function load_analytics() {
 		require_once HFE_DIR . 'inc/lib/bsf-analytics/class-bsf-analytics-loader.php';
 	}
