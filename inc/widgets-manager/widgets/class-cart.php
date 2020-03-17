@@ -29,19 +29,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Cart extends Widget_Base {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 	/**
 	 * Retrieve the widget name.
 	 *
@@ -199,7 +186,7 @@ class Cart extends Widget_Base {
 				'label_off'    => __( 'No', 'header-footer-elementor' ),
 				'return_value' => 'hide',
 				'prefix_class' => 'hfe-menu-cart--empty-indicator-',
-				'description'  => __( 'This will hide the bubble icon until the cart is empty', 'uael' ),
+				'description'  => __( 'This will hide the items count until the cart is empty', 'uael' ),
 				'condition'    => [
 					'items_indicator!' => 'none',
 					'hfe_cart_type'    => 'custom',
@@ -275,6 +262,9 @@ class Cart extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .hfe-masthead-custom-menu-items .hfe-site-header-cart .hfe-site-header-cart-li ' => 'font-size: {{SIZE}}{{UNIT}};',
 				],
+				'condition' => [
+					'hfe_cart_type' => 'default'
+				]
 			]
 		);
 		$this->add_control(
@@ -284,10 +274,10 @@ class Cart extends Widget_Base {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'default'    => [
-					'top'    => '2',
-					'bottom' => '2',
-					'left'   => '2',
-					'right'  => '2',
+					'top'    => '1',
+					'bottom' => '1',
+					'left'   => '1',
+					'right'  => '1',
 					'unit'   => 'px',
 				],
 				'selectors'  => [
@@ -360,49 +350,6 @@ class Cart extends Widget_Base {
 					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button-icon' => 'color: {{VALUE}}',
 				],
 				'condition' => [
-					'hfe_cart_type' => 'custom',
-				],
-			]
-		);
-
-		$this->add_control(
-			'toggle_icon_size',
-			[
-				'label'      => __( 'Icon Size', 'header-footer-elementor' ),
-				'type'       => Controls_Manager::SLIDER,
-				'range'      => [
-					'px' => [
-						'min' => 0,
-						'max' => 50,
-					],
-				],
-				'size_units' => [ 'px', 'em' ],
-				'selectors'  => [
-					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button-icon' => 'font-size: {{SIZE}}{{UNIT}}',
-				],
-				'condition'  => [
-					'hfe_cart_type' => 'custom',
-				],
-			]
-		);
-
-		$this->add_control(
-			'toggle_icon_spacing',
-			[
-				'label'      => __( 'Icon Spacing', 'header-footer-elementor' ),
-				'type'       => Controls_Manager::SLIDER,
-				'range'      => [
-					'px' => [
-						'min' => 0,
-						'max' => 50,
-					],
-				],
-				'size-units' => [ 'px', 'em' ],
-				'selectors'  => [
-					'body:not(.rtl) {{WRAPPER}} .hfe-menu-cart__toggle .elementor-button-text' => 'margin-right: {{SIZE}}{{UNIT}}',
-					'body.rtl {{WRAPPER}} .hfe-menu-cart__toggle .elementor-button-text' => 'margin-left: {{SIZE}}{{UNIT}}',
-				],
-				'condition'  => [
 					'hfe_cart_type' => 'custom',
 				],
 			]
@@ -484,6 +431,49 @@ class Cart extends Widget_Base {
 		$this->end_controls_tab();
 
 		$this->end_controls_tabs();
+		$this->add_control(
+			'toggle_icon_size',
+			[
+				'label'      => __( 'Icon Size', 'header-footer-elementor' ),
+				'type'       => Controls_Manager::SLIDER,
+				'range'      => [
+					'px' => [
+						'min' => 0,
+						'max' => 50,
+					],
+				],
+				'size_units' => [ 'px', 'em' ],
+				'selectors'  => [
+					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button-icon' => 'font-size: {{SIZE}}{{UNIT}}',
+				],
+				'condition'  => [
+					'hfe_cart_type' => 'custom',
+				],
+				'separator' => 'before'
+			]
+		);
+
+		$this->add_control(
+			'toggle_icon_spacing',
+			[
+				'label'      => __( 'Icon Spacing', 'header-footer-elementor' ),
+				'type'       => Controls_Manager::SLIDER,
+				'range'      => [
+					'px' => [
+						'min' => 0,
+						'max' => 50,
+					],
+				],
+				'size-units' => [ 'px', 'em' ],
+				'selectors'  => [
+					'body:not(.rtl) {{WRAPPER}} .hfe-menu-cart__toggle .elementor-button-text' => 'margin-right: {{SIZE}}{{UNIT}}',
+					'body.rtl {{WRAPPER}} .hfe-menu-cart__toggle .elementor-button-text' => 'margin-left: {{SIZE}}{{UNIT}}',
+				],
+				'condition'  => [
+					'hfe_cart_type' => 'custom',
+				],
+			]
+		);
 
 		$this->end_controls_section();
 
