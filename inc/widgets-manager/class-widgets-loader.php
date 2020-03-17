@@ -183,7 +183,7 @@ class Widgets_Loader {
 
 		if ( class_exists( 'woocommerce' ) ) {
 			Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Cart() );
-		}		
+		}
 	}
 }
 
