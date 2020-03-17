@@ -1617,36 +1617,6 @@ a.hfe-menu-item.elementor-button {
     padding: 12px 24px;
 }
 
-
-
-
-  /*.hfe-cart-menu-wrap-default.elementor-size-xs span,.elementor-widget-hfe-cart a#hfe-menu-cart__toggle_button.elementor-button.elementor-size-xs {
-    font-size: 13px;
-    padding: 10px 20px;
-    -webkit-border-radius: 2px;
-            border-radius: 2px; }
-  .hfe-cart-menu-wrap-default.elementor-size-sm span,.elementor-widget-hfe-cart a#hfe-menu-cart__toggle_button.elementor-button.elementor-size-sm {
-    font-size: 15px;
-    padding: 12px 24px;
-    -webkit-border-radius: 3px;
-            border-radius: 3px; }
-  .hfe-cart-menu-wrap-default.elementor-size-md span,.elementor-widget-hfe-cart a#hfe-menu-cart__toggle_button.elementor-button.elementor-size-md {
-    font-size: 16px;
-    padding: 15px 30px;
-    -webkit-border-radius: 4px;
-            border-radius: 4px; }
-  .hfe-cart-menu-wrap-default.elementor-size-lg span,.elementor-widget-hfe-cart a#hfe-menu-cart__toggle_button.elementor-button.elementor-size-lg {
-    font-size: 18px;
-    padding: 20px 40px;
-    -webkit-border-radius: 5px;
-            border-radius: 5px; }
-  .hfe-cart-menu-wrap-default.elementor-size-xl span,.elementor-widget-hfe-cart a#hfe-menu-cart__toggle_button.elementor-button.elementor-size-xl {
-    font-size: 20px;
-    padding: 25px 50px;
-    -webkit-border-radius: 6px;
-            border-radius: 6px; }*/
-
-
 /* Default skin for cart*/
             .hfe-cart-menu-wrap-default {
     display: inline-block;

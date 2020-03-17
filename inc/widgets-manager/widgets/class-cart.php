@@ -251,9 +251,9 @@ class Cart extends Widget_Base {
 		$this->add_control(
 			'icon_size',
 			[
-				'label' => __( 'Size', 'header-footer-elementor' ),
-				'type' => Controls_Manager::SLIDER,
-				'range' => [
+				'label'     => __( 'Size', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => [
 					'px' => [
 						'min' => 15,
 						'max' => 30,
@@ -263,8 +263,8 @@ class Cart extends Widget_Base {
 					'{{WRAPPER}} .hfe-masthead-custom-menu-items .hfe-site-header-cart .hfe-site-header-cart-li ' => 'font-size: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
-					'hfe_cart_type' => 'default'
-				]
+					'hfe_cart_type' => 'default',
+				],
 			]
 		);
 		$this->add_control(
@@ -449,7 +449,7 @@ class Cart extends Widget_Base {
 				'condition'  => [
 					'hfe_cart_type' => 'custom',
 				],
-				'separator' => 'before'
+				'separator'  => 'before',
 			]
 		);
 
