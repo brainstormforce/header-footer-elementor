@@ -46,6 +46,7 @@ class HFE_WPML_Compatibility {
 	private function __construct() {
 		add_filter( 'hfe_get_settings_type_header', [ $this, 'get_wpml_object' ] );
 		add_filter( 'hfe_get_settings_type_footer', [ $this, 'get_wpml_object' ] );
+		add_filter( 'hfe_get_settings_type_before_footer', [ $this, 'get_wpml_object' ] );
 		add_filter( 'hfe_render_template_id', [ $this, 'get_wpml_object' ] );
 	}
 
