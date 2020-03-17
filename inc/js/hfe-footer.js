@@ -17,6 +17,7 @@
                     jQuery.each(elementorFrontend.documentsManager.documents, function (index, document) {
                         var $documentElement = document.$element;
                         console.log($documentElement.data('elementor-title'));
+                        // Update this selector - elementor-document-handle__title text.
                     });
                 }, 1000 );
             });
