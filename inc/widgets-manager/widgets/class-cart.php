@@ -65,7 +65,7 @@ class Cart extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'cart', 'header-footer-elementor' );
+		return __( 'Cart', 'header-footer-elementor' );
 	}
 
 	/**
@@ -199,6 +199,7 @@ class Cart extends Widget_Base {
 				'label_off'    => __( 'No', 'header-footer-elementor' ),
 				'return_value' => 'hide',
 				'prefix_class' => 'hfe-menu-cart--empty-indicator-',
+				'description'  => __( 'This will hide the bubble icon until the cart is empty', 'uael' ),
 				'condition'    => [
 					'items_indicator!' => 'none',
 					'hfe_cart_type'    => 'custom',
@@ -286,10 +287,10 @@ class Cart extends Widget_Base {
 				'label'      => __( 'Border Radius', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'default'    => [
-					'top'    => '1',
-					'bottom' => '1',
-					'left'   => '1',
-					'right'  => '1',
+					'top'    => '',
+					'bottom' => '',
+					'left'   => '',
+					'right'  => '',
 					'unit'   => 'px',
 				],
 				'size_units' => [ 'px', 'em', '%' ],
@@ -561,7 +562,7 @@ class Cart extends Widget_Base {
 			<div id="hfe-site-header-cart" class="hfe-site-header-cart hfe-menu-cart-with-border">
 				<div class="hfe-site-header-cart-li current-menu-item">
 				<?php if ( 'default' === $settings['hfe_cart_type'] ) { ?>
-				<a class="cart-container" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="View your shopping cart">
+				<a class="hfe-cart-container" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="View your shopping cart">
 					<div class="hfe-cart-menu-wrap-<?php echo $settings['hfe_cart_type']; ?>">
 						<span class="count">
 							<?php
