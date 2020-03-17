@@ -30,8 +30,6 @@
 
 			_eventClick( id );
 		}
-		
-		_borderClass( id );	
 
 		$( '.elementor-element-' + id + ' .hfe-flyout-trigger .hfe-nav-menu-icon' ).off( 'click keyup' ).on( 'click keyup', function() {
 
@@ -62,12 +60,9 @@
 			$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).addClass( 'elementor-button' );			
 		}
 
-		$( window ).resize( function(){ 
+		_borderClass( id );	
 
-			if( ( 'cta' == last_item || 'cta' == last_item_flyout ) && 'expandible' != layout ){
-				$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).parent().addClass( 'elementor-button-wrapper' );
-				$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).addClass( 'elementor-button' );			
-			}
+		$( window ).resize( function(){ 
 
 			if( 'horizontal' !== layout ) {
 
@@ -429,8 +424,8 @@
 				
 				$( '.elementor-element-' + id + ' nav').addClass('hfe-dropdown');
 				if( ( 'cta' == last_item || 'cta' == last_item_flyout ) && 'expandible' != layout ){
-					$( '.elementor-element-' + id + ' li.menu-item:last-child' ).removeClass( 'elementor-button-wrapper' );
-					$( '.elementor-element-' + id + ' li.menu-item:last-child a' ).removeClass( 'elementor-button' );
+					$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).parent().removeClass( 'elementor-button-wrapper' );
+					$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).removeClass( 'elementor-button' );	
 				}	
 			}else{
 				
@@ -446,8 +441,8 @@
 				
 				$( '.elementor-element-' + id + ' nav').addClass('hfe-dropdown');
 				if( ( 'cta' == last_item || 'cta' == last_item_flyout ) && 'expandible' != layout ){
-					$( '.elementor-element-' + id + ' li.menu-item:last-child' ).removeClass( 'elementor-button-wrapper' );
-					$( '.elementor-element-' + id + ' li.menu-item:last-child a' ).removeClass( 'elementor-button' );
+					$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).parent().removeClass( 'elementor-button-wrapper' );
+					$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).removeClass( 'elementor-button' );	
 				}
 			}else{
 				
