@@ -135,7 +135,15 @@ div.hfe-nav-menu,
           -webkit-justify-content: flex-end;
           -moz-box-pack: end;
           justify-content: flex-end; }
-
+.hfe-nav-menu__align-right .hfe-nav-menu__layout-vertical li.elementor-button-wrapper{
+    text-align: right;
+}
+.hfe-nav-menu__align-left .hfe-nav-menu__layout-vertical li.elementor-button-wrapper{
+    text-align: left;
+}
+.hfe-nav-menu__align-center .hfe-nav-menu__layout-vertical li.elementor-button-wrapper{
+    text-align: center;
+}
 .hfe-nav-menu__align-left .hfe-nav-menu {
   margin-right: auto;
   -webkit-box-pack: start;
@@ -162,14 +170,14 @@ div.hfe-nav-menu,
           justify-content: center; }
 
 .hfe-nav-menu__align-center .hfe-nav-menu__layout-vertical li a.hfe-menu-item,
-.hfe-nav-menu__align-center .hfe-nav-menu__layout-vertical li a.hfe-sub-menu-item{
+.hfe-nav-menu__align-center .hfe-nav-menu__layout-vertical li a.hfe-sub-menu-item {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           -webkit-justify-content: center;
           -moz-box-pack: center;
           justify-content: center; }
 
-.hfe-nav-menu__layout-horizontal .hfe-nav-menu{
+.hfe-nav-menu__layout-horizontal .hfe-nav-menu {
     -js-display: flex;
     display: -webkit-box;
     display: -webkit-flex;
@@ -904,11 +912,25 @@ div.hfe-nav-menu,
     -webkit-backface-visibility: hidden;
 }
 
-.hfe-flyout-animating,
-.hfe-side,
-.hfe-flyout-overlay {
-    -webkit-transition: all 0.3s;
-    transition: all 0.3s;
+/* No link hover effect to last menu item */
+
+.hfe-pointer__underline .menu-item.parent a.hfe-menu-item.elementor-button:after,
+.hfe-pointer__overline .menu-item.parent a.hfe-menu-item.elementor-button:before,
+.hfe-pointer__double-line .menu-item.parent a.hfe-menu-item.elementor-button:after,
+.hfe-pointer__double-line .menu-item.parent a.hfe-menu-item.elementor-button:before {
+    height: 0px;
+}
+
+.hfe-pointer__framed .menu-item.parent a.hfe-menu-item.elementor-button:before,
+.hfe-pointer__framed .menu-item.parent a.hfe-menu-item.elementor-button:after{
+    border-width: 0px;
+}
+
+.hfe-pointer__text.hfe-animation__grow .menu-item.parent a.hfe-menu-item.elementor-button:hover,
+.hfe-pointer__text.hfe-animation__grow .menu-item.parent a.hfe-menu-item.elementor-button:focus
+{
+    -webkit-transform: none;
+    transform: none;
 }
 
 .hfe-flyout-close {
@@ -1077,6 +1099,14 @@ div.hfe-nav-menu,
     transform: translateY(0);
     opacity: 1;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+}
+
+a.hfe-menu-item.elementor-button {
+    display: inline-flex;
+}
+
+.hfe-nav-menu li.elementor-button-wrapper {
+    align-self: center;
 }
 
 /* Tablet */
@@ -1267,7 +1297,8 @@ div.hfe-nav-menu,
     }
 
     .hfe-nav-menu__breakpoint-tablet.hfe-nav-menu__align-justify .hfe-nav-menu__layout-horizontal .hfe-nav-menu li a.hfe-menu-item,
-    .hfe-nav-menu__breakpoint-tablet.hfe-nav-menu__align-justify .hfe-nav-menu__layout-horizontal .hfe-nav-menu li a.hfe-sub-menu-item {
+    .hfe-nav-menu__breakpoint-tablet.hfe-nav-menu__align-justify .hfe-nav-menu__layout-horizontal .hfe-nav-menu li a.hfe-sub-menu-item,
+    .hfe-nav-menu__breakpoint-tablet.hfe-nav-menu__align-justify .hfe-nav-menu__layout-horizontal .hfe-nav-menu li.elementor-button-wrapper {
         -webkit-box-pack: justify;
         -webkit-justify-content: space-between;
         -moz-box-pack: justify;
@@ -1280,7 +1311,8 @@ div.hfe-nav-menu,
 @media only screen and ( max-width: 767px ) {
 
     .hfe-nav-menu__breakpoint-mobile.hfe-nav-menu__align-justify .hfe-nav-menu__layout-horizontal .hfe-nav-menu li a.hfe-menu-item,
-    .hfe-nav-menu__breakpoint-mobile.hfe-nav-menu__align-justify .hfe-nav-menu__layout-horizontal .hfe-nav-menu li a.hfe-sub-menu-item { 
+    .hfe-nav-menu__breakpoint-mobile.hfe-nav-menu__align-justify .hfe-nav-menu__layout-horizontal .hfe-nav-menu li a.hfe-sub-menu-item 
+    .hfe-nav-menu__breakpoint-tablet.hfe-nav-menu__align-justify .hfe-nav-menu__layout-horizontal .hfe-nav-menu li.elementor-button-wrapper { 
         -webkit-box-pack: justify;
         -webkit-justify-content: space-between;
         -moz-box-pack: justify;
