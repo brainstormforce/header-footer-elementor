@@ -469,12 +469,8 @@
 
 			var width = $( '.elementor-element-' + id ).closest('.elementor-section').outerWidth();
 			var sec_pos = $( '.elementor-element-' + id ).closest('.elementor-section').offset().left - $( '.elementor-element-' + id + ' .hfe-nav-menu__toggle i' ).parent().parent().next().offset().left;
-			var container = $( '.elementor-element-' + id ).closest('.elementor-container');
-			var container_width = container.outerWidth();
-
 			$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle i' ).parent().parent().next().css( 'width', width + 'px' );
 			$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle i' ).parent().parent().next().css( 'left', sec_pos + 'px' );
-			$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle i' ).parent().parent().next().find( 'ul.hfe-nav-menu' ).css( { 'width': container_width + 'px', 'margin' : '0 auto' } );
 		}
 
 		$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle .hfe-nav-menu-icon' ).off( 'click keyup' ).on( 'click keyup', function( event ) {
@@ -499,16 +495,12 @@
 					$this.parent().parent().next().css( 'width', 'auto' );
 					$this.parent().parent().next().css( 'left', '0' );
 					$this.parent().parent().next().css( 'z-index', '0' );
-					$this.parent().parent().next().find( 'ul.hfe-nav-menu' ).css( { 'width': 'auto', 'margin' : '0' } );
 				}				
 			} else {
 
 				var layout = $( '.elementor-element-' + id + ' .hfe-nav-menu' ).data( 'layout' );
 				var full_width = $this.parent().parent().next().data( 'full-width' );
 				var close_icon = $( '.elementor-element-' + id + ' nav' ).data( 'close-icon' );
-
-				var container = $( '.elementor-element-' + id ).closest('.elementor-container');
-				var container_width = container.outerWidth();
 
 				$( '.elementor-element-' + id).find( '.hfe-nav-menu-icon i' ).attr( 'class', close_icon );
 				
@@ -525,7 +517,6 @@
 					$this.parent().parent().next().css( 'width', width + 'px' );
 					$this.parent().parent().next().css( 'left', sec_pos + 'px' );
 					$this.parent().parent().next().css( 'z-index', '9999' );
-					$this.parent().parent().next().find( 'ul.hfe-nav-menu' ).css( { 'width': container_width + 'px', 'margin' : '0 auto' } );
 				}
 			}
 

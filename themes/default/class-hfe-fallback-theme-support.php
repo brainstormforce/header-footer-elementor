@@ -63,7 +63,7 @@ class HFE_Fallback_Theme_Support {
 	public function hfe_admin_init() {
 		register_setting( 'hfe-plugin-options', 'hfe_compatibility_option' );
 		add_settings_section( 'hfe-options', __( 'Add Theme Support', 'header-footer-elementor' ), [ $this, 'hfe_compatibility_callback' ], 'Settings' );
-		add_settings_field( 'hfe-way', 'Select Method to Add Theme Support', [ $this, 'hfe_compatibility_option_callback' ], 'Settings', 'hfe-options' );
+		add_settings_field( 'hfe-way', 'Methods to Add Theme Support', [ $this, 'hfe_compatibility_option_callback' ], 'Settings', 'hfe-options' );
 	}
 
 	/**
@@ -75,7 +75,7 @@ class HFE_Fallback_Theme_Support {
 	 * @return void
 	 */
 	public function hfe_compatibility_callback() {
-		_e( 'The Elementor - Header, Footer & Blocks plugin is compatible with themes listed <a href="https://github.com/Nikschavan/header-footer-elementor#themes-you-can-use-header-footer-elementor-with"> here</a>.<br><br> In case your current theme is not in the list, you can choose one of the following methods to add theme support.', 'header-footer-elementor' );
+		_e( 'The Elementor - Header, Footer & Blocks plugin need compatibility with your current theme to work smoothly.</br></br>Following are two methods that enable theme support for the plugin.</br></br>Method 1 is selected by default and that works fine almost will all themes. In case, you face any issue with the header or footer template, try choosing Method 2.', 'header-footer-elementor' );
 	}
 
 	/**
