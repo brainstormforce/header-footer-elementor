@@ -80,11 +80,23 @@ class HFE_Admin {
 		add_filter( 'single_template', [ $this, 'load_canvas_template' ] );
 		add_filter( 'manage_elementor-hf_posts_columns', [ $this, 'set_shortcode_columns' ] );
 		add_action( 'manage_elementor-hf_posts_custom_column', [ $this, 'render_shortcode_column' ], 10, 2 );
+		add_action( 'elementor/editor/footer', array( $this, 'register_widget_scripts' ), 99 );
 
 		if ( is_admin() ) {
 			add_action( 'manage_elementor-hf_posts_custom_column', [ $this, 'column_content' ], 10, 2 );
 			add_filter( 'manage_elementor-hf_posts_columns', [ $this, 'column_headings' ] );
 		}
+	}
+
+	/**
+	 * Scripts for Elementor
+	 *
+	 * @since x.x.x
+	 *
+	 * @return void
+	 */
+	public function register_widget_scripts( $post_id ) {
+		wp_enqueue_script( 'hfe-elementor-admin-page', HFE_URL . 'inc/js/hfe-footer.js', array( 'jquery' ), HFE_VER, true );
 	}
 
 	/**

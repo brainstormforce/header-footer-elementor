@@ -77,8 +77,6 @@ class Header_Footer_Elementor {
 			// Scripts and styles.
 			add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
 
-			add_action( 'elementor/editor/footer', array( $this, 'register_widget_scripts' ), 99 );
-
 			add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
 
 			add_filter( 'body_class', [ $this, 'body_class' ] );
@@ -92,17 +90,6 @@ class Header_Footer_Elementor {
 			add_action( 'admin_notices', [ $this, 'elementor_not_available' ] );
 			add_action( 'network_admin_notices', [ $this, 'elementor_not_available' ] );
 		}
-	}
-
-	/**
-	 * Scripts for Elementor
-	 *
-	 * @since x.x.x
-	 *
-	 * @return void
-	 */
-	public function register_widget_scripts() {
-		wp_enqueue_script( 'hfe-elementor-admin-page', HFE_URL . 'inc/js/hfe-footer.js', array( 'jquery' ), HFE_VER, true );
 	}
 
 	/**
