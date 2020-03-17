@@ -1,8 +1,11 @@
 ( function( $ ) {
-	$( document ).ready( function( e ) {
-		setTimeout(function(){
-			console.log( $( '.elementor-element-72d3746' ).addClass('hi'));
-			$( '.elementor-element-72d3746' ).css('background-color', 'red');
-		}, 2000);
-	} );
+
+	elementor.on( "preview:loaded", function() {
+		
+		
+		console.log($( '.elementor-document-handle').addClass('hii'));
+	});
+	setTimeout(function(){
+		jQuery( '.hfe-search-button-wrapper' ).addClass('hii');
+	}, 3000);
 } )( jQuery );

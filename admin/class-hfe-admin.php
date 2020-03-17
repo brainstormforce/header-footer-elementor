@@ -68,6 +68,38 @@ class HFE_Admin {
 	}
 
 	/**
+	 * Enqueue admin scripts
+	 *
+	 * @since 1.3.0
+	 * @param string $hook Current page hook.
+	 * @access public
+	 */
+	public static function hfe_admin_enqueue_styles( $hook ) {
+
+		// Register the icons styles.
+		wp_register_script(
+			'hfe-script',
+			HFE_URL . 'assets/js/script.js',
+			[],
+			HFE_VER
+		);
+
+		wp_enqueue_script( 'hfe-script' );
+	}
+
+	/**
+	 * Enqueue admin scripts
+	 *
+	 * @since 1.3.0
+	 * @param string $hook Current page hook.
+	 * @access public
+	 */
+	public static function register_widget_scripts( $hook ) {
+
+		wp_enqueue_script( 'hfe-script', HFE_URL . 'assets/js/script.js', [ 'jquery' ], HFE_VER, true );
+	}
+
+	/**
 	 * Constructor
 	 */
 	private function __construct() {
@@ -80,6 +112,7 @@ class HFE_Admin {
 		add_filter( 'single_template', [ $this, 'load_canvas_template' ] );
 		add_filter( 'manage_elementor-hf_posts_columns', [ $this, 'set_shortcode_columns' ] );
 		add_action( 'manage_elementor-hf_posts_custom_column', [ $this, 'render_shortcode_column' ], 10, 2 );
+		add_action( 'elementor/editor/footer', __CLASS__ . '::hfe_admin_enqueue_styles' );
 
 		if ( is_admin() ) {
 			add_action( 'manage_elementor-hf_posts_custom_column', [ $this, 'column_content' ], 10, 2 );
