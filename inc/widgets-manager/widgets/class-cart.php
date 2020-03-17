@@ -261,7 +261,22 @@ class Cart extends Widget_Base {
 				],
 			]
 		);
-
+		$this->add_control(
+			'icon_size',
+			[
+				'label' => __( 'Size', 'header-footer-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'min' => 15,
+						'max' => 30,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .hfe-masthead-custom-menu-items .hfe-site-header-cart .hfe-site-header-cart-li ' => 'font-size: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
 		$this->add_control(
 			'toggle_button_border_width',
 			[
@@ -269,10 +284,10 @@ class Cart extends Widget_Base {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'default'    => [
-					'top'    => '1',
-					'bottom' => '1',
-					'left'   => '1',
-					'right'  => '1',
+					'top'    => '2',
+					'bottom' => '2',
+					'left'   => '2',
+					'right'  => '2',
 					'unit'   => 'px',
 				],
 				'selectors'  => [
