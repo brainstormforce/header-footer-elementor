@@ -17,11 +17,10 @@
                         var ids_array = JSON.parse( hfe_admin.ids_array );
                         ids_array.forEach( function(item, index){
                         	var elementor_id = $documentElement.data('elementor-id');
-                        	if( elementor_id == ids_array[index].ID ){
-                        		$documentElement.find( '.elementor-document-handle__title' ).text( elementor.translate('edit_element', [ids_array[index].VALUE] ) );
+                        	if( elementor_id == ids_array[index].id ){
+                        		$documentElement.find( '.elementor-document-handle__title' ).text( elementor.translate('edit_element', [ids_array[index].value] ) );
                         	}
                         } );
-                        // Update this selector - elementor-document-handle__title text.
                     });
                 }, 1000 );
             });
