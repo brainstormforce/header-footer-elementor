@@ -98,7 +98,6 @@ class HFE_Admin {
 	 * @return void
 	 */
 	public function register_hfe_epro_script() {
-		$ids_array = [];
 		$ids_array = [
 			[
 				'id'    => get_hfe_header_id(),
