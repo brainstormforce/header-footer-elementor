@@ -1,6 +1,6 @@
 (function($){
 
-	EHF_Footer = {
+	EHF_EPRO_Compatibility = {
 
         /**
 		 * Binds events for the Elementor Header Footer.
@@ -28,10 +28,10 @@
 	};
 
 	/**
-	 * Initialize EHF_Footer
+	 * Initialize EHF_EPRO_Compatibility
 	 */
 	$(function(){
-		EHF_Footer.init();
+		EHF_EPRO_Compatibility.init();
 	});
 
 })(jQuery);
