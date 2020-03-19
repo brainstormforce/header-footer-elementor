@@ -80,10 +80,10 @@ class HFE_Admin {
 		add_filter( 'single_template', [ $this, 'load_canvas_template' ] );
 		add_filter( 'manage_elementor-hf_posts_columns', [ $this, 'set_shortcode_columns' ] );
 		add_action( 'manage_elementor-hf_posts_custom_column', [ $this, 'render_shortcode_column' ], 10, 2 );
-		if ( defined( 'ELEMENTOR_PRO_VERSION' ) && ELEMENTOR_PRO_VERSION > 2.8 ){
-			add_action( 'elementor/editor/footer', [ $this, 'register_hfe_epro_script' ], 99 );			
+		if ( defined( 'ELEMENTOR_PRO_VERSION' ) && ELEMENTOR_PRO_VERSION > 2.8 ) {
+			add_action( 'elementor/editor/footer', [ $this, 'register_hfe_epro_script' ], 99 );
 		}
-		
+
 		if ( is_admin() ) {
 			add_action( 'manage_elementor-hf_posts_custom_column', [ $this, 'column_content' ], 10, 2 );
 			add_filter( 'manage_elementor-hf_posts_columns', [ $this, 'column_headings' ] );
