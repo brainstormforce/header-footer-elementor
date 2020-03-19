@@ -9,5 +9,4 @@ jQuery(document).ready(function ($) {
 	});
 
 	ehf_hide_shortcode_field();
-
 });
