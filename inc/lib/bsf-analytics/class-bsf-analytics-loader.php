@@ -25,6 +25,8 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 				add_action( 'bsf_analytics_send', array( $this, 'send' ) );
 			}
 
+			add_action( 'admin_init', array( $this, 'register_usage_tracking_setting' ) );
+
 			$this->includes();
 			$this->schedule_event();
 		}
@@ -170,6 +172,40 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 			require_once __DIR__ . '/class-bsf-analytics-stats.php';
 		}
 
+		/*
+		 * Register usage tracking option in General settings page.
+		 */
+		function register_usage_tracking_setting(){
+
+			register_setting(
+				'general',             // Options group.
+				'bsf_analytics_optin',      // Option name/database.
+				array( 'sanitize_callback' => array( $this, 'sanitize_option' ) ) // sanitize callback function.
+			);
+
+			add_settings_field(
+				'bsf-analytics-optin',       // Field ID.
+				'Usage Tracking',       // Field title.
+				array( $this, 'render_settings_field_html' ), // Field callback function.
+				'general',                    // Settings page slug.
+			);
+		}
+
+		/* Sanitize Callback Function */
+		function sanitize_option( $input ) {
+			return $input ? 'yes' : 'no';
+		}
+
+		/* Settings Field Callback */
+		function render_settings_field_html(){
+			?>
+			<label for="bsf-analytics-optin">
+				<input id="bsf-analytics-optin" type="checkbox" value="1" name="bsf_analytics_optin" <?php checked( get_option( 'bsf_analytics_optin', 'no' ), 'yes' ); ?>>
+				<?php sprintf( _e( 'Allow Brainstorm Force products to track non-sensitive usage tracking data.', 'bsf' ), "#" ); ?>
+			</label>
+			<?php echo sprintf( '<a href="%1s">%2s</a>', "#", __( 'Learn More.', 'bsf' ) );	
+			
+		}
 	}
 
 }
