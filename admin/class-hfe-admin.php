@@ -96,20 +96,18 @@ class HFE_Admin {
 	 * @return void
 	 */
 	public function register_widget_scripts() {
-		$dummy_id = hfe_get_before_footer_id();
-		$dummy_array = array();
-
-		//$dummy_array[$dummy_id] = 'Before Footer';
-		$dummy_array[] = array( 'ID' => $dummy_id, 'VALUE' => 'Before Footer' );
-
-
-		vl(json_encode($dummy_array));
+		$ids_array = array();
+		
+		$ids_array = array( [ 'id' => get_hfe_header_id(), 'value' => 'Header' ], 
+							[ 'id' => get_hfe_footer_id(), 'value' => 'Footer' ],
+							[ 'id' => hfe_get_before_footer_id(), 'value' => 'Before Footer']
+					);
 
 		wp_enqueue_script( 'hfe-elementor-admin-page', HFE_URL . 'inc/js/hfe-footer.js', array( 'jquery' ), HFE_VER, true );
 
 		wp_localize_script( 'hfe-elementor-admin-page', 'hfe_admin', 
 			array(
-				'json_array' => wp_json_encode($dummy_array)
+				'ids_array' => wp_json_encode( $ids_array )
 			)
 		);
 	}

@@ -11,19 +11,15 @@
 		 */
 		init: function() {
 			elementor.on( "document:loaded", function() {
-
                 setTimeout( function() {
-                    //console.log(elementorFrontend.documentsManager.documents);
                     jQuery.each(elementorFrontend.documentsManager.documents, function (index, document) {
                         var $documentElement = document.$element;
-                        //console.log($documentElement.data('elementor-title'));
-                        var json_parse = JSON.parse( hfe_admin.json_array );
-           				var dummy_id = $documentElement.data('elementor-id');
-                        
-                        console.log( json_parse );
-
-                        json_parse.forEach( function(item, index){
-                        	console.log( json_parse[index].ID );
+                        var ids_array = JSON.parse( hfe_admin.ids_array );
+                        ids_array.forEach( function(item, index){
+                        	var elementor_id = $documentElement.data('elementor-id');
+                        	if( elementor_id == ids_array[index].ID ){
+                        		$documentElement.find( '.elementor-document-handle__title' ).text( elementor.translate('edit_element', [ids_array[index].VALUE] ) );
+                        	}
                         } );
                         // Update this selector - elementor-document-handle__title text.
                     });
