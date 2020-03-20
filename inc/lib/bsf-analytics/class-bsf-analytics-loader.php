@@ -4,8 +4,6 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 	class BSF_Analytics {
 
-		private static $products = array();
-
 		private static $_instance = null;
 
 		public static function instance() {
@@ -29,14 +27,6 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 			$this->includes();
 			$this->schedule_event();
-		}
-
-		public static function register_product( $slug, $name, $type ) {
-			self::$products[] = array(
-				'slug' => $slug,
-				'name' => $name,
-				'type' => $type,
-			);
 		}
 
 		private function get_api_url() {
@@ -75,16 +65,15 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 									%1$s
 								</div>
 								<div class="astra-notices-container">
-									<a href="%3$s" class="astra-notices button-primary">
-									%4$s
+									<a href="%2$s" class="astra-notices button-primary">
+									%3$s
 									</a> &nbsp; 
-									<a href="%5$s" data-repeat-notice-after="%6$s" class="astra-notices button-secondary">
-									%7$s
+									<a href="%4$s" data-repeat-notice-after="%5$s" class="astra-notices button-secondary">
+									%6$s
 									</a>
 								</div>
 							</div>',
-						sprintf( __( 'Want to help make <b>%1$s</b> even more awesome? Allow us to collect non-sensitive diagnostic data and usage information', 'header-footer-elementor' ), '' ),
-						__( 'Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Elementor - Header, Footer & Blocks.', 'header-footer-elementor' ),
+						sprintf( __( 'Want to help make <strong>Brainstorm Force</strong> Products even more awesome? Allow us to collect non-sensitive diagnostic data and usage information.', 'header-footer-elementor' ) . '<a href="%1s">%2s</a>', "#", __( 'Know More.', 'bsf' ) ),
 						add_query_arg(
 							array(
 								'bsf_analytics_optin' => 'yes',
@@ -103,9 +92,8 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 					),
 					'show_if'                    => true,
 					'repeat-notice-after'        => false,
-					// 'display-notice-after'       => 1296000, // Display notice after 15 days.
 					'priority'                   => 18,
-					'display-with-other-notices' => true,
+					'display-with-other-notices' => true
 				)
 			);
 		}
@@ -131,7 +119,6 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 				remove_query_arg(
 					array(
 						'bsf_analytics_optin',
-						'bsf_analytics_product',
 						'bsf_analytics_nonce',
 					)
 				)
@@ -175,7 +162,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		/*
 		 * Register usage tracking option in General settings page.
 		 */
-		function register_usage_tracking_setting(){
+		public function register_usage_tracking_setting(){
 
 			register_setting(
 				'general',             // Options group.
@@ -201,10 +188,9 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 			?>
 			<label for="bsf-analytics-optin">
 				<input id="bsf-analytics-optin" type="checkbox" value="1" name="bsf_analytics_optin" <?php checked( get_option( 'bsf_analytics_optin', 'no' ), 'yes' ); ?>>
-				<?php sprintf( _e( 'Allow Brainstorm Force products to track non-sensitive usage tracking data.', 'bsf' ), "#" ); ?>
+				<?php esc_html_e( 'Allow Brainstorm Force products to track non-sensitive usage tracking data.', 'bsf' ); ?>
 			</label>
 			<?php echo sprintf( '<a href="%1s">%2s</a>', "#", __( 'Learn More.', 'bsf' ) );	
-			
 		}
 	}
 
