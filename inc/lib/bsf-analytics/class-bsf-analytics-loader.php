@@ -174,7 +174,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 				'bsf-analytics-optin',       // Field ID.
 				'Usage Tracking',       // Field title.
 				array( $this, 'render_settings_field_html' ), // Field callback function.
-				'general',                    // Settings page slug.
+				'general'                    // Settings page slug.
 			);
 		}
 
