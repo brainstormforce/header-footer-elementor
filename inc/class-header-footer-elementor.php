@@ -70,6 +70,8 @@ class Header_Footer_Elementor {
 				require HFE_DIR . 'themes/oceanwp/class-hfe-oceanwp-compat.php';
 			} elseif ( 'storefront' == $this->template ) {
 				require HFE_DIR . 'themes/storefront/class-hfe-storefront-compat.php';
+			} elseif ( 'hello-elementor' == $this->template ) {
+				require HFE_DIR . 'themes/hello-elementor/class-hfe-hello-elementor-compat.php';
 			} else {
 				add_action( 'init', [ $this, 'setup_unsupported_theme' ] );
 			}

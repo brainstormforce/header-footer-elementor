@@ -40,26 +40,28 @@
   border-style: solid;
 }
 
-.hfe-icon-copyright-widget:before {
-  content: "\e905";
-}
-.hfe-icon-retina-image:before {
-  content: "\e906";
-}
-
-.hfe-icon-page-title:before {
+.hfe-icon-navigation-menu:before {
   content: "\e900";
+  color: #556068;
 }
-.hfe-icon-site-logo:before {
+.hfe-icon-menu-cart:before {
   content: "\e901";
 }
-.hfe-icon-site-tagline:before {
+.hfe-icon-copyright-widget:before {
   content: "\e902";
 }
-.hfe-icon-site-title:before {
+.hfe-icon-retina-image:before {
   content: "\e903";
-}  
-.hfe-icon-navigation-menu-4:before {
+}
+.hfe-icon-page-title:before {
   content: "\e904";
-  color: #556068;
+}
+.hfe-icon-site-logo:before {
+  content: "\e905";
+}
+.hfe-icon-site-tagline:before {
+  content: "\e906";
+}
+.hfe-icon-site-title:before {
+  content: "\e907";
 }

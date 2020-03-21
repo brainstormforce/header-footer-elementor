@@ -15,6 +15,7 @@ use Elementor\Scheme_Typography;
 use Elementor\Scheme_Color;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
+use Elementor\Group_Control_Background;
 use Elementor\Widget_Base;
 use Elementor\Plugin;
 
@@ -72,7 +73,7 @@ class Navigation_Menu extends Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'hfe-icon-navigation-menu-4';
+		return 'hfe-icon-navigation-menu';
 	}
 
 	/**
@@ -216,6 +217,19 @@ class Navigation_Menu extends Widget_Base {
 				]
 			);
 		}
+
+		$this->add_control(
+			'menu_last_item',
+			[
+				'label'   => __( 'Last Menu Item', 'header-footer-elementor' ),
+				'type'    => Controls_Manager::SELECT,
+				'options' => [
+					'none' => __( 'Default', 'header-footer-elementor' ),
+					'cta'  => __( 'Button', 'header-footer-elementor' ),
+				],
+				'default' => 'none',
+			]
+		);
 
 		$this->end_controls_section();
 
@@ -372,6 +386,8 @@ class Navigation_Menu extends Widget_Base {
 					],
 					'selectors'    => [
 						'{{WRAPPER}} li.menu-item a' => 'justify-content: {{VALUE}};',
+						'{{WRAPPER}} li.elementor-button-wrapper' => 'text-align: {{VALUE}};',
+						'{{WRAPPER}}.hfe-menu-item-flex-end li.elementor-button-wrapper' => 'text-align: right;',
 					],
 					'prefix_class' => 'hfe-menu-item-',
 				]
@@ -688,12 +704,14 @@ class Navigation_Menu extends Widget_Base {
 					'selectors'  => [
 						'body:not(.rtl) {{WRAPPER}} .hfe-nav-menu__layout-horizontal .hfe-nav-menu > li.menu-item:not(:last-child)' => 'margin-right: {{SIZE}}{{UNIT}}',
 						'body.rtl {{WRAPPER}} .hfe-nav-menu__layout-horizontal .hfe-nav-menu > li.menu-item:not(:last-child)' => 'margin-left: {{SIZE}}{{UNIT}}',
-						'{{WRAPPER}} nav:not(.hfe-nav-menu__layout-horizontal) .hfe-nav-menu > li.menu-item:not(:last-child)' => 'margin-bottom: 0',
+						'{{WRAPPER}} nav:not(.hfe-nav-menu__layout-horizontal) .hfe-nav-menu > li.menu-item:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}}',
 						'(tablet)body:not(.rtl) {{WRAPPER}}.hfe-nav-menu__breakpoint-tablet .hfe-nav-menu__layout-horizontal .hfe-nav-menu > li.menu-item:not(:last-child)' => 'margin-right: 0px',
 						'(mobile)body:not(.rtl) {{WRAPPER}}.hfe-nav-menu__breakpoint-mobile .hfe-nav-menu__layout-horizontal .hfe-nav-menu > li.menu-item:not(:last-child)' => 'margin-right: 0px',
+						'(tablet)body {{WRAPPER}} nav.hfe-nav-menu__layout-vertical .hfe-nav-menu > li.menu-item:not(:last-child)' => 'margin-bottom: 0px',
+						'(mobile)body {{WRAPPER}} nav.hfe-nav-menu__layout-vertical .hfe-nav-menu > li.menu-item:not(:last-child)' => 'margin-bottom: 0px',
 					],
 					'condition'  => [
-						'layout' => 'horizontal',
+						'layout!' => 'expandible',
 					],
 				]
 			);
@@ -745,7 +763,6 @@ class Navigation_Menu extends Widget_Base {
 					'type'      => Controls_Manager::COLOR,
 					'default'   => '#FFFFFF',
 					'selectors' => [
-						'{{WRAPPER}} .menu-item a.hfe-menu-item' => 'background-color: {{VALUE}}',
 						'{{WRAPPER}} .hfe-flyout-content' => 'background-color: {{VALUE}}',
 					],
 					'condition' => [
@@ -1530,6 +1547,170 @@ class Navigation_Menu extends Widget_Base {
 		);
 
 		$this->end_controls_section();
+		$this->start_controls_section(
+			'style_button',
+			[
+				'label'     => __( 'Button', 'header-footer-elementor' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'menu_last_item' => 'cta',
+				],
+			]
+		);
+
+			$this->add_group_control(
+				Group_Control_Typography::get_type(),
+				[
+					'name'     => 'all_typography',
+					'label'    => __( 'Typography', 'header-footer-elementor' ),
+					'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
+					'selector' => '{{WRAPPER}} .menu-item a.hfe-menu-item.elementor-button',
+				]
+			);
+			$this->add_responsive_control(
+				'padding',
+				[
+					'label'      => __( 'Padding', 'header-footer-elementor' ),
+					'type'       => Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', 'em', '%' ],
+					'selectors'  => [
+						'{{WRAPPER}} .menu-item a.hfe-menu-item.elementor-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+				]
+			);
+
+			$this->start_controls_tabs( '_button_style' );
+
+				$this->start_controls_tab(
+					'_button_normal',
+					[
+						'label' => __( 'Normal', 'header-footer-elementor' ),
+					]
+				);
+
+					$this->add_control(
+						'all_text_color',
+						[
+							'label'     => __( 'Text Color', 'header-footer-elementor' ),
+							'type'      => Controls_Manager::COLOR,
+							'default'   => '',
+							'selectors' => [
+								'{{WRAPPER}} .menu-item a.hfe-menu-item.elementor-button' => 'color: {{VALUE}};',
+							],
+						]
+					);
+
+					$this->add_group_control(
+						Group_Control_Background::get_type(),
+						[
+							'name'           => 'all_background_color',
+							'label'          => __( 'Background Color', 'header-footer-elementor' ),
+							'types'          => [ 'classic', 'gradient' ],
+							'selector'       => '{{WRAPPER}} .menu-item a.hfe-menu-item.elementor-button',
+							'fields_options' => [
+								'color' => [
+									'scheme' => [
+										'type'  => Scheme_Color::get_type(),
+										'value' => Scheme_Color::COLOR_4,
+									],
+								],
+							],
+						]
+					);
+
+					$this->add_group_control(
+						Group_Control_Border::get_type(),
+						[
+							'name'     => 'all_border',
+							'label'    => __( 'Border', 'header-footer-elementor' ),
+							'selector' => '{{WRAPPER}} .menu-item a.hfe-menu-item.elementor-button',
+						]
+					);
+
+					$this->add_control(
+						'all_border_radius',
+						[
+							'label'      => __( 'Border Radius', 'header-footer-elementor' ),
+							'type'       => Controls_Manager::DIMENSIONS,
+							'size_units' => [ 'px', '%' ],
+							'selectors'  => [
+								'{{WRAPPER}} .menu-item a.hfe-menu-item.elementor-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+							],
+						]
+					);
+
+					$this->add_group_control(
+						Group_Control_Box_Shadow::get_type(),
+						[
+							'name'     => 'all_button_box_shadow',
+							'selector' => '{{WRAPPER}} .menu-item a.hfe-menu-item.elementor-button',
+						]
+					);
+
+				$this->end_controls_tab();
+
+				$this->start_controls_tab(
+					'all_button_hover',
+					[
+						'label' => __( 'Hover', 'header-footer-elementor' ),
+					]
+				);
+
+					$this->add_control(
+						'all_hover_color',
+						[
+							'label'     => __( 'Text Color', 'header-footer-elementor' ),
+							'type'      => Controls_Manager::COLOR,
+							'selectors' => [
+								'{{WRAPPER}} .menu-item a.hfe-menu-item.elementor-button:hover' => 'color: {{VALUE}};',
+							],
+						]
+					);
+
+					$this->add_group_control(
+						Group_Control_Background::get_type(),
+						[
+							'name'           => 'all_background_hover_color',
+							'label'          => __( 'Background Color', 'header-footer-elementor' ),
+							'types'          => [ 'classic', 'gradient' ],
+							'selector'       => '{{WRAPPER}} .menu-item a.hfe-menu-item.elementor-button:hover',
+							'fields_options' => [
+								'color' => [
+									'scheme' => [
+										'type'  => Scheme_Color::get_type(),
+										'value' => Scheme_Color::COLOR_4,
+									],
+								],
+							],
+						]
+					);
+
+					$this->add_control(
+						'all_border_hover_color',
+						[
+							'label'     => __( 'Border Hover Color', 'header-footer-elementor' ),
+							'type'      => Controls_Manager::COLOR,
+							'default'   => '',
+							'selectors' => [
+								'{{WRAPPER}} .menu-item a.hfe-menu-item.elementor-button:hover' => 'border-color: {{VALUE}};',
+							],
+						]
+					);
+
+					$this->add_group_control(
+						Group_Control_Box_Shadow::get_type(),
+						[
+							'name'      => 'all_button_hover_box_shadow',
+							'selector'  => '{{WRAPPER}} .menu-item a.hfe-menu-item.elementor-button:hover',
+							'separator' => 'after',
+						]
+					);
+
+				$this->end_controls_tab();
+
+			$this->end_controls_tabs();
+
+		$this->end_controls_section();
 	}
 
 	/**
@@ -1559,6 +1740,10 @@ class Navigation_Menu extends Widget_Base {
 		if ( 'flyout' === $settings['layout'] ) {
 
 			$this->add_render_attribute( 'hfe-flyout', 'class', 'hfe-flyout-wrapper' );
+			if ( 'cta' === $settings['menu_last_item'] ) {
+
+				$this->add_render_attribute( 'hfe-flyout', 'data-last-item', $settings['menu_last_item'] );
+			}
 
 			?>
 			<div class="hfe-nav-menu__toggle elementor-clickable hfe-flyout-trigger" tabindex="0">
@@ -1575,7 +1760,7 @@ class Navigation_Menu extends Widget_Base {
 				<div class="hfe-flyout-container">
 					<div id="hfe-flyout-content-id-<?php echo esc_attr( $this->get_id() ); ?>" class="hfe-side hfe-flyout-<?php echo esc_attr( $settings['flyout_layout'] ); ?> hfe-flyout-open" data-width="<?php echo esc_attr( $settings['width_flyout_menu_item']['size'] ); ?>" data-layout="<?php echo wp_kses_post( $settings['flyout_layout'] ); ?>" data-flyout-type="<?php echo wp_kses_post( $settings['flyout_type'] ); ?>">
 						<div class="hfe-flyout-content push">						
-							<nav <?php echo wp_kses_post( $this->get_render_attribute_string( 'hfe-nav-menu' ) ); ?>><?php echo wp_kses_post( $menu_html ); ?></nav>
+							<nav <?php echo wp_kses_post( $this->get_render_attribute_string( 'hfe-nav-menu' ) ); ?>><?php echo $menu_html; ?></nav>
 							<div class="elementor-clickable hfe-flyout-close" tabindex="0">
 								<?php if ( $this->is_elementor_updated() ) { ?>
 									<i class="<?php echo esc_attr( $settings['dropdown_close_icon']['value'] ); ?>" aria-hidden="true"></i>
@@ -1603,6 +1788,11 @@ class Navigation_Menu extends Widget_Base {
 			$this->add_render_attribute( 'hfe-main-menu', 'class', $settings['layout'] );
 
 			$this->add_render_attribute( 'hfe-main-menu', 'data-layout', $settings['layout'] );
+
+			if ( 'cta' === $settings['menu_last_item'] ) {
+
+				$this->add_render_attribute( 'hfe-main-menu', 'data-last-item', $settings['menu_last_item'] );
+			}
 
 			if ( $settings['pointer'] ) {
 				if ( 'horizontal' === $settings['layout'] || 'vertical' === $settings['layout'] ) {
