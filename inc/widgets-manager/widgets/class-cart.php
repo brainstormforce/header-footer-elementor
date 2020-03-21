@@ -185,7 +185,7 @@ class Cart extends Widget_Base {
 				'label_off'    => __( 'No', 'header-footer-elementor' ),
 				'return_value' => 'hide',
 				'prefix_class' => 'hfe-menu-cart--empty-indicator-',
-				'description'  => __( 'This will hide the items count until the cart is empty', 'uael' ),
+				'description'  => __( 'This will hide the items count until the cart is empty', 'uael', 'header-footer-elementor' ),
 				'condition'    => [
 					'items_indicator!' => 'none',
 					'hfe_cart_type'    => 'custom',
