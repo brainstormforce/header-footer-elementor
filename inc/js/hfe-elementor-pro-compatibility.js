@@ -5,7 +5,7 @@
         /**
 		 * Binds events for the Elementor Header Footer.
 		 *
-		 * @since x.x.x
+		 * @since 1.4.0
 		 * @access private
 		 * @method _bind
 		 */
