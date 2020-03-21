@@ -93,7 +93,7 @@ class HFE_Admin {
 	/**
 	 * Scripts for Elementor
 	 *
-	 * @since x.x.x
+	 * @since 1.4.0
 	 *
 	 * @return void
 	 */

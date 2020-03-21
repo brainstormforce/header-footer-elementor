@@ -24,14 +24,14 @@ if ( ! defined( 'ABSPATH' ) ) {
  * HFE Cart Widget
  *
  *
- * @since x.x.x
+ * @since 1.4.0
  */
 class Cart extends Widget_Base {
 
 	/**
 	 * Retrieve the widget name.
 	 *
-	 * @since x.x.x
+	 * @since 1.4.0
 	 *
 	 * @access public
 	 *
@@ -44,7 +44,7 @@ class Cart extends Widget_Base {
 	/**
 	 * Retrieve the widget title.
 	 *
-	 * @since x.x.x
+	 * @since 1.4.0
 	 *
 	 * @access public
 	 *
@@ -57,7 +57,7 @@ class Cart extends Widget_Base {
 	/**
 	 * Retrieve the widget icon.
 	 *
-	 * @since x.x.x
+	 * @since 1.4.0
 	 *
 	 * @access public
 	 *
@@ -75,7 +75,7 @@ class Cart extends Widget_Base {
 	 * Note that currently Elementor supports only one category.
 	 * When multiple categories passed, Elementor uses the first one.
 	 *
-	 * @since x.x.x
+	 * @since 1.4.0
 	 *
 	 * @access public
 	 *
@@ -88,7 +88,7 @@ class Cart extends Widget_Base {
 	/**
 	 * Register cart controls controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.4.0
 	 * @access protected
 	 */
 	protected function _register_controls() {
@@ -100,7 +100,7 @@ class Cart extends Widget_Base {
 	/**
 	 * Register Menu Cart General Controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.4.0
 	 * @access protected
 	 */
 	protected function register_general_content_controls() {
@@ -224,7 +224,7 @@ class Cart extends Widget_Base {
 	/**
 	 * Register Menu Cart Typography Controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.4.0
 	 * @access protected
 	 */
 	protected function register_cart_typo_content_controls() {
@@ -553,7 +553,7 @@ class Cart extends Widget_Base {
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
-	 * @since x.x.x
+	 * @since 1.4.0
 	 * @access protected
 	 */
 	protected function render() {
@@ -603,7 +603,7 @@ class Cart extends Widget_Base {
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
-	 * @since x.x.x
+	 * @since 1.4.0
 	 * @access protected
 	 */
 	protected function content_template() {
@@ -616,7 +616,7 @@ class Cart extends Widget_Base {
 	 *
 	 * Remove this after Elementor v3.3.0
 	 *
-	 * @since x.x.x
+	 * @since 1.4.0
 	 * @access protected
 	 */
 	protected function _content_template() {
