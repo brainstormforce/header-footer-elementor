@@ -23,7 +23,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * HFE Cart Widget
  *
- *
  * @since 1.4.0
  */
 class Cart extends Widget_Base {
@@ -378,10 +377,11 @@ class Cart extends Widget_Base {
 
 		$this->end_controls_tab();
 
-		$this->start_controls_tab( 'toggle_button_hover_colors', 
-			[ 
-				'label' => __( 'Hover', 'header-footer-elementor' ) 
-			] 
+		$this->start_controls_tab(
+			'toggle_button_hover_colors',
+			[
+				'label' => __( 'Hover', 'header-footer-elementor' ),
+			]
 		);
 
 		$this->add_control(
