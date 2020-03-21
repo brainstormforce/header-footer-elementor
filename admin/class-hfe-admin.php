@@ -91,7 +91,7 @@ class HFE_Admin {
 	}
 
 	/**
-	 * Scripts for Elementor
+	 * Script for Elementor Pro full site editing support.
 	 *
 	 * @since 1.4.0
 	 *
