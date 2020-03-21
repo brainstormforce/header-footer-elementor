@@ -21,9 +21,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * HFE cart widget
+ * HFE Cart Widget
  *
- * HFE widget for cart
  *
  * @since x.x.x
  */
@@ -95,11 +94,11 @@ class Cart extends Widget_Base {
 	protected function _register_controls() {
 
 		$this->register_general_content_controls();
-		$this->register_heading_typo_content_controls();
+		$this->register_cart_typo_content_controls();
 	}
 
 	/**
-	 * Register Advanced Heading General Controls.
+	 * Register Menu Cart General Controls.
 	 *
 	 * @since x.x.x
 	 * @access protected
@@ -164,7 +163,7 @@ class Cart extends Widget_Base {
 		$this->add_control(
 			'show_subtotal',
 			[
-				'label'        => __( 'Show Total', 'header-footer-elementor' ),
+				'label'        => __( 'Show Total Price', 'header-footer-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'label_on'     => __( 'Yes', 'header-footer-elementor' ),
 				'label_off'    => __( 'No', 'header-footer-elementor' ),
@@ -197,19 +196,19 @@ class Cart extends Widget_Base {
 		$this->add_responsive_control(
 			'align',
 			[
-				'label'        => __( 'Alignment', 'elementor' ),
+				'label'        => __( 'Alignment', 'header-footer-elementor' ),
 				'type'         => Controls_Manager::CHOOSE,
 				'options'      => [
 					'left'   => [
-						'title' => __( 'Left', 'elementor' ),
+						'title' => __( 'Left', 'header-footer-elementor' ),
 						'icon'  => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'elementor' ),
+						'title' => __( 'Center', 'header-footer-elementor' ),
 						'icon'  => 'eicon-text-align-center',
 					],
 					'right'  => [
-						'title' => __( 'Right', 'elementor' ),
+						'title' => __( 'Right', 'header-footer-elementor' ),
 						'icon'  => 'eicon-text-align-right',
 					],
 				],
@@ -223,12 +222,12 @@ class Cart extends Widget_Base {
 
 
 	/**
-	 * Register Advanced Heading Typography Controls.
+	 * Register Menu Cart Typography Controls.
 	 *
 	 * @since x.x.x
 	 * @access protected
 	 */
-	protected function register_heading_typo_content_controls() {
+	protected function register_cart_typo_content_controls() {
 		$this->start_controls_section(
 			'section_heading_typography',
 			[
@@ -379,7 +378,11 @@ class Cart extends Widget_Base {
 
 		$this->end_controls_tab();
 
-		$this->start_controls_tab( 'toggle_button_hover_colors', [ 'label' => __( 'Hover', 'header-footer-elementor' ) ] );
+		$this->start_controls_tab( 'toggle_button_hover_colors', 
+			[ 
+				'label' => __( 'Hover', 'header-footer-elementor' ) 
+			] 
+		);
 
 		$this->add_control(
 			'toggle_button_hover_text_color',
@@ -546,7 +549,7 @@ class Cart extends Widget_Base {
 	}
 
 	/**
-	 * Render Heading output on the frontend.
+	 * Render Menu Cart output on the frontend.
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
@@ -596,7 +599,7 @@ class Cart extends Widget_Base {
 
 
 	/**
-	 * Render cart output in the editor.
+	 * Render Menu Cart output in the editor.
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
