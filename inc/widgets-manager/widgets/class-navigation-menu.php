@@ -73,7 +73,7 @@ class Navigation_Menu extends Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'hfe-icon-navigation-menu-4';
+		return 'hfe-icon-navigation-menu';
 	}
 
 	/**

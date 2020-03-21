@@ -64,7 +64,7 @@ class Cart extends Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'eicon-cart';
+		return 'hfe-icon-menu-cart';
 	}
 
 	/**
