@@ -93,6 +93,7 @@ class Widgets_Loader {
 			'page-title',
 			'site-tagline',
 			'site-logo',
+			'cart',
 		];
 
 		return $widget_list;
@@ -107,7 +108,6 @@ class Widgets_Loader {
 	 * @access public
 	 */
 	public function include_widgets_files() {
-
 		$js_files    = $this->get_widget_script();
 		$widget_list = $this->get_widget_list();
 
@@ -119,7 +119,6 @@ class Widgets_Loader {
 
 		if ( ! empty( $js_files ) ) {
 			foreach ( $js_files as $handle => $data ) {
-
 				wp_register_script( $handle, HFE_URL . $data['path'], $data['dep'], HFE_VER, $data['in_footer'] );
 			}
 		}
@@ -181,6 +180,10 @@ class Widgets_Loader {
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Title() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Tagline() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Logo() );
+
+		if ( class_exists( 'woocommerce' ) ) {
+			Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Cart() );
+		}
 	}
 }
 
