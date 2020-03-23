@@ -1596,7 +1596,8 @@ a.hfe-menu-item.elementor-button {
     line-height: 1;
 }
 
-.hfe-cart-menu-wrap-custom .count, .hfe-cart-menu-wrap-custom .count:after {
+.hfe-cart-menu-wrap-custom .count, 
+.hfe-cart-menu-wrap-custom .count:after {
     border-color: #75c32c;
     color: #75c32c;
 }
