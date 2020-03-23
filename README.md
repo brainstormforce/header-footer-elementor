@@ -140,8 +140,8 @@ This same applies when you are creating your Header/Footer using this plugin.
 - New: WooCommerce Menu Cart widget.
 - Improvement: Compatibility to Elementor Pro v2.9 full site editing.
 - Improvement: In-built support to Hello Elementor theme.
-- Improvement: Navigation Menu - Added option to convert last item into CTA.
 - Improvement: WPML support to before footer template.
+- Improvement: Navigation Menu - Added option to convert last item into CTA.
 
 ### 1.3.1 ###
 - Fix: Copyright - Link with open in new tab not working.
