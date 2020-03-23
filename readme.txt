@@ -5,7 +5,7 @@ Donate link: https://www.paypal.me/BrainstormForce
 Requires at least: 4.4
 Requires PHP: 5.4
 Tested up to: 5.3
-Stable tag: 1.3.1
+Stable tag: 1.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -135,6 +135,13 @@ This same applies when you are creating your Header/Footer using this plugin.
 5. Default widgets available with the plugin.
 
 == Changelog ==
+
+= 1.4.0 =
+- New: WooCommerce Menu Cart widget.
+- Improvement: Compatibility to Elementor Pro v2.9 full site editing.
+- Improvement: In-built support to Hello Elementor theme.
+- Improvement: WPML support to before footer template.
+- Improvement: Navigation Menu - Added option to convert last item into CTA.
 
 = 1.3.1 =
 - Fix: Copyright - Link with open in new tab not working.
