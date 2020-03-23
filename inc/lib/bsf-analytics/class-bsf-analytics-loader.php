@@ -73,7 +73,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 									</a>
 								</div>
 							</div>',
-						sprintf( __( 'Want to help make <strong>Brainstorm Force</strong> Products even more awesome? Allow us to collect non-sensitive diagnostic data and usage information.', 'header-footer-elementor' ) . '<a href="%1s">%2s</a>', "#", __( 'Know More.', 'bsf' ) ),
+						sprintf( __( 'Want to help make <strong>%1s</strong> even more awesome? Allow us to collect non-sensitive diagnostic data and usage information. ', 'header-footer-elementor' ) . '<a href="%2s">%3s</a>', $this->get_product_name(), "#", __( 'Know More.', 'bsf' ) ),
 						add_query_arg(
 							array(
 								'bsf_analytics_optin' => 'yes',
@@ -192,6 +192,25 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 			</label>
 			<?php echo sprintf( '<a href="%1s">%2s</a>', "#", __( 'Learn More.', 'bsf' ) );	
 		}
+
+
+		function get_product_name() {
+
+			$base = plugin_basename( __FILE__ ); 
+
+			$exploded_path = explode( "/", $base, 2 );
+			$plugin_slug = $exploded_path[0];
+
+			if( ! function_exists('get_plugin_data') ){
+				require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+			}
+
+			$plugin_main_file = wp_normalize_path( WP_PLUGIN_DIR ) . '/' . $plugin_slug . '/' . $plugin_slug . '.php';
+			$plugin_data = get_plugin_data( $plugin_main_file );
+			$plugin_name = $plugin_data['Name'];
+
+			return $plugin_name;
+		}	
 	}
 
 }
