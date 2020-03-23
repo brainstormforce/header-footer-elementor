@@ -45,13 +45,14 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		}
 
 		public function is_tracking_enabled() {
-			return ( get_option( 'bsf_analytics_optin' ) === 'yes' ) ? true : false; 
+			$is_enabled = get_option( 'bsf_analytics_optin' ) === 'yes' ? true : false;
+			return apply_filters( 'bsf_tracking_enabled', $is_enabled );
 		}
 
 		public function option_notice() {
 
 			// Don't display the notice if the user has taken action on the notice.
-			if ( get_option( 'bsf_analytics_optin' ) ) {
+			if ( get_option( 'bsf_analytics_optin' ) || ! apply_filters( 'bsf_tracking_enabled', true ) ) {
 				return;
 			}
 
@@ -73,14 +74,14 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 									</a>
 								</div>
 							</div>',
-						sprintf( __( 'Want to help make <strong>%1s</strong> even more awesome? Allow us to collect non-sensitive diagnostic data and usage information. ', 'header-footer-elementor' ) . '<a href="%2s">%3s</a>', $this->get_product_name(), "#", __( 'Know More.', 'bsf' ) ),
+						sprintf( __( 'Want to help make <strong>%1s</strong> even more awesome? Allow us to collect non-sensitive diagnostic data and usage information. ', 'bsf' ) . '<a href="%2s">%3s</a>', $this->get_product_name(), "#", __( 'Know More.', 'bsf' ) ),
 						add_query_arg(
 							array(
 								'bsf_analytics_optin' => 'yes',
 								'bsf_analytics_nonce' => wp_create_nonce( 'bsf_analytics_optin' ),
 							)
 						),
-						__( 'Allow', 'header-footer-elementor' ),
+						__( 'Allow', 'bsf' ),
 						add_query_arg(
 							array(
 								'bsf_analytics_optin' => 'no',
@@ -88,7 +89,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 							)
 						),
 						MONTH_IN_SECONDS,
-						__( 'No Thanks', 'header-footer-elementor' )
+						__( 'No Thanks', 'bsf' )
 					),
 					'show_if'                    => true,
 					'repeat-notice-after'        => false,
@@ -163,6 +164,10 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * Register usage tracking option in General settings page.
 		 */
 		public function register_usage_tracking_setting(){
+
+			if( ! apply_filters( 'bsf_tracking_enabled', true ) ) {
+				return;
+			}
 
 			register_setting(
 				'general',             // Options group.
