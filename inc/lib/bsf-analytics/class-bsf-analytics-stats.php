@@ -1,6 +1,14 @@
 <?php
+/**
+ * BSF analytics stat class file.
+ *
+ * @package bsf-analytics
+ */
 
-if( ! class_exists( 'BSF_Analytics_Stats' ) ) {
+if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
+	/**
+	 * BSF analytics stat class.
+	 */
 	class BSF_Analytics_Stats {
 
 		/**
@@ -12,20 +20,38 @@ if( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 		 */
 		private $plugins;
 
-		private static $_instance = null;
+		/**
+		 * Member Variable
+		 *
+		 * @var object instance
+		 */
+		private static $instance = null;
 
+		/**
+		 * Initiator
+		 */
 		public static function instance() {
-			if ( null === self::$_instance ) {
-				self::$_instance = new self();
+			if ( null === self::$instance ) {
+				self::$instance = new self();
 			}
 
-			return self::$_instance;
+			return self::$instance;
 		}
 
+		/**
+		 * Get stats.
+		 *
+		 * @return array stats data.
+		 */
 		public function get_stats() {
 			return apply_filters( 'bsf_core_stats', $this->get_default_stats() );
 		}
 
+		/**
+		 * Retrieve stats for site.
+		 *
+		 * @return array stats data.
+		 */
 		private function get_default_stats() {
 			return array(
 				'graupi_version'         => defined( 'BSF_UPDATER_VERSION' ) ? BSF_UPDATER_VERSION : false,
@@ -64,6 +90,11 @@ if( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 			);
 		}
 
+		/**
+		 * Get installed PHP version.
+		 *
+		 * @return float PHP version.
+		 */
 		private function get_php_version() {
 			if ( defined( 'PHP_MAJOR_VERSION' ) && defined( 'PHP_MINOR_VERSION' ) && defined( 'PHP_RELEASE_VERSION' ) ) { // phpcs:ignore
 				return PHP_MAJOR_VERSION . '.' . PHP_MINOR_VERSION . '.' . PHP_RELEASE_VERSION;
@@ -72,6 +103,11 @@ if( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 			return phpversion();
 		}
 
+		/**
+		 * User count on site.
+		 *
+		 * @return int User count.
+		 */
 		private function get_user_count() {
 			if ( is_multisite() ) {
 				$user_count = get_user_count();
@@ -83,60 +119,90 @@ if( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 			return $user_count;
 		}
 
+		/**
+		 * Get active plugin's data.
+		 *
+		 * @return array active plugin's list.
+		 */
 		private function get_active_plugins() {
 			if ( ! $this->plugins ) {
-				// Ensure get_plugin_data function is loaded
+				// Ensure get_plugin_data function is loaded.
 				if ( ! function_exists( 'get_plugin_data' ) ) {
 					require_once ABSPATH . 'wp-admin/includes/plugin.php';
 				}
-		
-				$plugins = wp_get_active_and_valid_plugins();
-				$plugins = array_map( 'get_plugin_data', $plugins );
+
+				$plugins       = wp_get_active_and_valid_plugins();
+				$plugins       = array_map( 'get_plugin_data', $plugins );
 				$this->plugins = array_map( array( $this, 'format_plugin' ), $plugins );
 			}
 
 			return $this->plugins;
 		}
 
+		/**
+		 * Format plugin data.
+		 *
+		 * @param string $plugin plugin.
+		 * @return array formatted plugin data.
+		 */
 		public function format_plugin( $plugin ) {
 			return array(
-				'name'    		=> html_entity_decode( $plugin['Name'] ),
-				'url'     		=> $plugin['PluginURI'],
-				'version' 		=> $plugin['Version'],
-				'slug'    		=> $plugin['TextDomain'],
-				'author_name'  	=> html_entity_decode( strip_tags( $plugin['Author'] ) ),
-				'author_url'  	=> $plugin['AuthorURI'],
+				'name'        => html_entity_decode( $plugin['Name'], ENT_COMPAT, 'UTF-8' ),
+				'url'         => $plugin['PluginURI'],
+				'version'     => $plugin['Version'],
+				'slug'        => $plugin['TextDomain'],
+				'author_name' => html_entity_decode( wp_strip_all_tags( $plugin['Author'] ), ENT_COMPAT, 'UTF-8' ),
+				'author_url'  => $plugin['AuthorURI'],
 			);
 		}
 
+		/**
+		 * Curl SSL version.
+		 *
+		 * @return float SSL version.
+		 */
 		private function get_curl_ssl_version() {
 			$curl = array();
-			if( function_exists( 'curl_version' ) ) {
+			if ( function_exists( 'curl_version' ) ) {
 				$curl = curl_version();
 			}
 
 			return isset( $curl['ssl_version'] ) ? $curl['ssl_version'] : false;
 		}
 
+		/**
+		 * Get cURL version.
+		 *
+		 * @return float cURL version.
+		 */
 		private function get_curl_version() {
 			$curl = array();
-			if( function_exists( 'curl_version' ) ) {
+			if ( function_exists( 'curl_version' ) ) {
 				$curl = curl_version();
 			}
 
 			return isset( $curl['version'] ) ? $curl['version'] : false;
 		}
 
+		/**
+		 * Get MySQL version.
+		 *
+		 * @return float MySQL version.
+		 */
 		private function get_mysql_version() {
 			global $wpdb;
 			return $wpdb->db_version();
 		}
 
+		/**
+		 * Check if content directory is writable.
+		 *
+		 * @return bool
+		 */
 		private function is_content_writable() {
 			$upload_dir = wp_upload_dir();
 			return wp_is_writable( $upload_dir['basedir'] );
 		}
-
 	}
 }
 
@@ -144,22 +210,27 @@ if( ! class_exists( 'BSF_Analytics_Stats' ) ) {
  * Polyfill for sites using WP version less than 5.3
  */
 if ( ! function_exists( 'wp_timezone_string' ) ) {
+	/**
+	 * Get timezone string.
+	 *
+	 * @return string timezone string.
+	 */
 	function wp_timezone_string() {
 		$timezone_string = get_option( 'timezone_string' );
-	 
+
 		if ( $timezone_string ) {
 			return $timezone_string;
 		}
-	 
+
 		$offset  = (float) get_option( 'gmt_offset' );
 		$hours   = (int) $offset;
 		$minutes = ( $offset - $hours );
-	 
+
 		$sign      = ( $offset < 0 ) ? '-' : '+';
 		$abs_hour  = abs( $hours );
 		$abs_mins  = abs( $minutes * 60 );
 		$tz_offset = sprintf( '%s%02d:%02d', $sign, $abs_hour, $abs_mins );
-	 
+
 		return $tz_offset;
 	}
 }
