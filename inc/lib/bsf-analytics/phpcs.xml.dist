@@ -1,23 +1,11 @@
 <?xml version="1.0"?>
 <ruleset name="WordPress Coding Standards for Plugins">
 	<description>Generally-applicable sniffs for WordPress plugins</description>
-
-	<rule ref="PHPCompatibility">
-	 	<exclude name="WordPress.PHP.StrictComparisons.LooseComparison" />
-		<exclude name="WordPress.PHP.StrictInArray.MissingTrueStrict" />
-	</rule>
 	<config name="testVersion" value="5.3-"/>
 
 	<rule ref="WordPress-Core" />
 	<rule ref="WordPress-Docs" />
 	<rule ref="WordPress-Extra" />
-	<rule ref="WordPress.Security.EscapeOutput">
-		<properties>
-			<property name="customAutoEscapedFunctions" type="array">
-				<element value="astra_attr"/>
-			</property>
-		</properties>
-	</rule>
 
 	<!-- Check all PHP files in directory tree by default. -->
 	<arg name="extensions" value="php"/>
@@ -28,8 +16,4 @@
 
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
-	<exclude-pattern>*/admin/bsf-core/*</exclude-pattern>
-	<!-- Exclude Libraries -->
-	<exclude-pattern>*/classes/library/batch-processing/*</exclude-pattern>
-	<exclude-pattern>*/classes/library/image-processing-queue/*</exclude-pattern>
 </ruleset>

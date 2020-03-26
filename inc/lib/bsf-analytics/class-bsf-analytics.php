@@ -154,9 +154,9 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 			$optin_status = sanitize_text_field( $_GET['bsf_analytics_optin'] );
 
-			if ( 'yes' == $optin_status ) {
+			if ( 'yes' === $optin_status ) {
 				$this->optin();
-			} elseif ( 'no' == $optin_status ) {
+			} elseif ( 'no' === $optin_status ) {
 				$this->optout();
 			}
 
