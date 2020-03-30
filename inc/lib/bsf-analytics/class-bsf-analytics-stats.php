@@ -5,6 +5,10 @@
  * @package bsf-analytics
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 	/**
 	 * BSF analytics stat class.
@@ -19,24 +23,6 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 		 * @var array
 		 */
 		private $plugins;
-
-		/**
-		 * Member Variable
-		 *
-		 * @var object instance
-		 */
-		private static $instance = null;
-
-		/**
-		 * Initiator
-		 */
-		public static function instance() {
-			if ( null === self::$instance ) {
-				self::$instance = new self();
-			}
-
-			return self::$instance;
-		}
 
 		/**
 		 * Get stats.

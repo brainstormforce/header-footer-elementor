@@ -2,8 +2,14 @@
 /**
  * BSF analytics class file.
  *
+ * @version 1.0.0
+ *
  * @package bsf-analytics
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
 if ( ! class_exists( 'BSF_Analytics' ) ) {
 
@@ -15,20 +21,9 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		/**
 		 * Member Variable
 		 *
-		 * @var object instance
+		 * @var string Usage tracking document URL
 		 */
-		private static $instance = null;
-
-		/**
-		 * Initiator
-		 */
-		public static function instance() {
-			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self();
-			}
-
-			return self::$instance;
-		}
+		private $usage_doc_link = 'https://store.brainstormforce.com/usage-tracking/?utm_source=wp_dashboard&utm_medium=general_settings&utm_campaign=usage_tracking';
 
 		/**
 		 * Setup actions, load files.
@@ -61,10 +56,11 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * Send analytics API call.
 		 */
 		public function send() {
+			$bsf_analytics_stats = new BSF_Analytics_Stats();
 			wp_remote_post(
 				$this->get_api_url() . 'wp-json/bsf-core/v1/analytics/',
 				array(
-					'body'     => BSF_Analytics_Stats::instance()->get_stats(),
+					'body'     => $bsf_analytics_stats->get_stats(),
 					'timeout'  => 5,
 					'blocking' => false,
 				)
@@ -115,7 +111,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 								</div>
 							</div>',
 						/* translators: %s product name */
-						sprintf( __( 'Want to help make <strong>%1s</strong> even more awesome? Allow us to collect non-sensitive diagnostic data and usage information. ', 'bsf' ) . '<a href="%2s">%3s</a>', $this->get_product_name(), '#', __( 'Know More.', 'bsf' ) ),
+						sprintf( __( 'Want to help make <strong>%1s</strong> even more awesome? Allow us to collect non-sensitive diagnostic data and usage information. ', 'bsf' ) . '<a href="%2s" target="_blank" rel="noreferrer noopener">%3s</a>', $this->get_product_name(), esc_url( $this->usage_doc_link ), __( 'Know More.', 'bsf' ) ),
 						add_query_arg(
 							array(
 								'bsf_analytics_optin' => 'yes',
@@ -241,7 +237,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 			add_settings_field(
 				'bsf-analytics-optin',       // Field ID.
-				'Usage Tracking',       // Field title.
+				__( 'Usage Tracking', 'bsf' ),       // Field title.
 				array( $this, 'render_settings_field_html' ), // Field callback function.
 				'general'                    // Settings page slug.
 			);
@@ -266,7 +262,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 				<?php esc_html_e( 'Allow Brainstorm Force products to track non-sensitive usage tracking data.', 'bsf' ); ?>
 			</label>
 			<?php
-			echo wp_kses_post( sprintf( '<a href="%1s">%2s</a>', '#', __( 'Learn More.', 'bsf' ) ) );
+			echo wp_kses_post( sprintf( '<a href="%1s" target="_blank" rel="noreferrer noopener">%2s</a>', esc_url( $this->usage_doc_link ), __( 'Learn More.', 'bsf' ) ) );
 		}
 
 		/**
@@ -275,6 +271,14 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * @return string $plugin_data['Name] Name of plugin.
 		 */
 		private function get_product_name() {
+
+			$base      = wp_normalize_path( dirname( __FILE__ ) );
+			$theme_dir = wp_normalize_path( get_template_directory() );
+
+			if ( false !== strpos( $base, $theme_dir ) ) {
+				$theme = wp_get_theme( get_template() );
+				return $theme->get( 'Name' );
+			}
 
 			$base = plugin_basename( __FILE__ );
 
@@ -285,8 +289,8 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 				require_once ABSPATH . 'wp-admin/includes/plugin.php';
 			}
 
-			$plugin_main_file = wp_normalize_path( WP_PLUGIN_DIR ) . '/' . $plugin_slug . '/' . $plugin_slug . '.php';
-			$plugin_data      = get_plugin_data( $plugin_main_file );
+			$plugin_main_file = WP_PLUGIN_DIR . '/' . $plugin_slug . '/' . $plugin_slug . '.php';
+			$plugin_data      = get_plugin_data( wp_normalize_path( $plugin_main_file ) );
 
 			return $plugin_data['Name'];
 		}
@@ -311,4 +315,4 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 }
 
-BSF_Analytics::instance();
+new BSF_Analytics();
