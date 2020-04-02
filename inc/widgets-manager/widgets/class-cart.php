@@ -569,17 +569,17 @@ class Cart extends Widget_Base {
 		<div class="hfe-masthead-custom-menu-items woocommerce-custom-menu-item">
 			<div id="hfe-site-header-cart" class="hfe-site-header-cart hfe-menu-cart-with-border">
 				<div class="hfe-site-header-cart-li current-menu-item">
-				<?php if ( 'default' === $settings['hfe_cart_type'] ) { ?>
-				<a class="hfe-cart-container" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="View your shopping cart">
-					<div class="hfe-cart-menu-wrap-<?php echo $settings['hfe_cart_type']; ?>">
-						<span class="count">
-							<?php
-							echo $woocommerce->cart->cart_contents_count;
-							?>
-						</span>
-					</div>
-				</a>
-				<?php } else { ?>
+					<?php if ( 'default' === $settings['hfe_cart_type'] ) { ?>
+						<a class="hfe-cart-container" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="View your shopping cart">
+							<div class="hfe-cart-menu-wrap-<?php echo $settings['hfe_cart_type']; ?>">
+								<span class="count">
+									<?php
+									echo $woocommerce->cart->cart_contents_count;
+									?>
+								</span>
+							</div>
+						</a>
+					<?php } else { ?>
 						<div class="hfe-menu-cart__toggle elementor-button-wrapper">
 							<a id="hfe-menu-cart__toggle_button" href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="elementor-button">
 								<span class="elementor-button-text">
@@ -590,7 +590,8 @@ class Cart extends Widget_Base {
 									<span class="elementor-screen-only">Cart</span>
 								</span>
 							</a>
-				<?php } ?>            
+						</div>
+					<?php } ?>            
 				</div>
 			</div>
 		</div> 
