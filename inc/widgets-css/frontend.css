@@ -1594,7 +1594,7 @@ div.hfe-nav-menu,
     transform: translate(-50%, -50%);
     top:50%;
     left: 50%;
-    font-size: 0.55em;
+    font-size: 20px;
 }
 /*search icon toggle css*/
 
@@ -1658,4 +1658,7 @@ input[type="search"]:focus{
 
 .hfe-search-icon-toggle{
     display: inline-block;
+}
+.hfe-search-form__container .hfe-search-submit {
+    min-width: 3%;
 }
