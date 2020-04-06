@@ -575,7 +575,7 @@ class Cart extends Widget_Base {
 						<span class="count">
 							<?php
 							$count;
-							if( empty( $woocommerce->cart ) ){
+							if ( empty( $woocommerce->cart ) ) {
 								$count = 0;
 							} else {
 								$count = $woocommerce->cart->cart_contents_count;
@@ -591,7 +591,7 @@ class Cart extends Widget_Base {
 								<span class="elementor-button-text">
 									<?php
 									$count;
-									if( empty( $woocommerce->cart ) ){
+									if ( empty( $woocommerce->cart ) ) {
 										$count = 0;
 									} else {
 										$count = $woocommerce->cart->get_cart_total();
@@ -601,7 +601,7 @@ class Cart extends Widget_Base {
 								</span>
 								<?php
 								$count;
-								if( empty( $woocommerce->cart ) ){
+								if ( empty( $woocommerce->cart ) ) {
 									$count = 0;
 								} else {
 									$count = $woocommerce->cart->cart_contents_count;
