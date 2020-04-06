@@ -51,6 +51,7 @@ The plugin offers inbuilt widgets that help to create header/footer layouts. The
 	<li><strong>Navigation Menu</strong> - Offers you list of already created menus on your website. You just need to choose the required one. If offers 4 layouts for the menu - horizontal, vertical, expanded and flyout. With many other options, you can even set custom icons to open and close the menu.</li>
 	<li><strong>Page Title</strong> - Displays your current post/page title and offers additional options for prefix, suffix, icon, link, and alignment.</li>
 	<li><strong>Retina Image</strong> - You can upload the retina image for high definition screens.</li>
+	<li><strong>WooCommerce Menu Cart</strong> - You can display current number of products in the cart along with the total price.</li>
 	<li><strong>Copyright</strong> - It offers constants to display copyright notice - [hfe_current_year] and [hfe_site_title].</li>
 </ul>
 
@@ -135,6 +136,11 @@ This same applies when you are creating your Header/Footer using this plugin.
 5. Default widgets available with the plugin.
 
 ## Changelog ##
+
+### 1.4.1 ###
+- Fix: EHF header overlapping Astra WooCommerce Off-Canvas.
+- Fix: WooCommerce Menu Cart - 'div' tag of custom cart layout was not closed.
+- Fix: WooCommerce Menu Cart - Fatal error with count when cart is empty.
 
 ### 1.4.0 ###
 - New: WooCommerce Menu Cart widget.
