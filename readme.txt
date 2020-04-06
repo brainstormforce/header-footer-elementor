@@ -138,6 +138,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 == Changelog ==
 
 = 1.4.1 =
+- Fix: EHF header overlapping Astra WooCommerce Off-Canvas.
 - Fix: WooCommerce Menu Cart - 'div' tag of custom cart layout was not closed.
 - Fix: WooCommerce Menu Cart - Fatal error with count when cart is empty.
 
