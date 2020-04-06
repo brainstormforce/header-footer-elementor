@@ -574,7 +574,13 @@ class Cart extends Widget_Base {
 					<div class="hfe-cart-menu-wrap-<?php echo $settings['hfe_cart_type']; ?>">
 						<span class="count">
 							<?php
-							echo $woocommerce->cart->cart_contents_count;
+							$count;
+							if( empty( $woocommerce->cart ) ){
+								$count = 0;
+							} else {
+								$count = $woocommerce->cart->cart_contents_count;
+							}
+							echo $count;
 							?>
 						</span>
 					</div>
@@ -583,9 +589,25 @@ class Cart extends Widget_Base {
 						<div class="hfe-menu-cart__toggle elementor-button-wrapper">
 							<a id="hfe-menu-cart__toggle_button" href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="elementor-button">
 								<span class="elementor-button-text">
-									<?php echo $woocommerce->cart->get_cart_total(); ?>
+									<?php
+									$count;
+									if( empty( $woocommerce->cart ) ){
+										$count = 0;
+									} else {
+										$count = $woocommerce->cart->get_cart_total();
+									}
+									echo $count;
+									?>
 								</span>
-								<span class="elementor-button-icon" data-counter="<?php echo $woocommerce->cart->cart_contents_count; ?>">
+								<?php
+								$count;
+								if( empty( $woocommerce->cart ) ){
+									$count = 0;
+								} else {
+									$count = $woocommerce->cart->cart_contents_count;
+								}
+								?>
+								<span class="elementor-button-icon" data-counter="<?php echo $count; ?>">
 									<i class="eicon" aria-hidden="true"></i>
 									<span class="elementor-screen-only">Cart</span>
 								</span>
