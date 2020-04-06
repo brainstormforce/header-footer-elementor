@@ -589,10 +589,11 @@ class Cart extends Widget_Base {
 								</span>
 								<span class="elementor-button-icon" data-counter="<?php echo ( ( empty( $woocommerce->cart ) ) ? 0 : $woocommerce->cart->cart_contents_count ); ?>">
 									<i class="eicon" aria-hidden="true"></i>
-									<span class="elementor-screen-only">Cart</span>
+									<span class="elementor-screen-only"><?php _e( 'Cart', 'header-footer-elementor' ); ?></span>
 								</span>
 							</a>
-				<?php } ?>            
+						</div>
+					<?php } ?>            
 				</div>
 			</div>
 		</div> 
