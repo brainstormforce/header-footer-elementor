@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Elementor - Header, Footer & Blocks 1.4.0\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/header-footer-elementor\n"
-"POT-Creation-Date: 2020-03-23 05:29:17+00:00\n"
+"POT-Creation-Date: 2020-04-06 08:51:46+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -375,6 +375,7 @@ msgid "Header, Footer & Blocks"
 msgstr ""
 
 #: inc/widgets-manager/widgets/class-cart.php:53
+#: inc/widgets-manager/widgets/class-cart.php:592
 msgid "Cart"
 msgstr ""
 
@@ -1290,7 +1291,10 @@ msgid "https://github.com/Nikschavan/header-footer-elementor"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "Create Header and Footer for your site using Elementor Page Builder."
+msgid ""
+"This powerful plugin allows creating a custom header, footer with Elementor "
+"and display them on selected locations. You can also create custom "
+"Elementor blocks and place them anywhere on the website with a shortcode."
 msgstr ""
 
 #. Author of the plugin/theme
