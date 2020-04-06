@@ -136,6 +136,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 
+= 1.4.1 =
+- Fix: WooCommerce Menu Cart - Fatal error with count when cart is empty.
+
 = 1.4.0 =
 - New: WooCommerce Menu Cart widget.
 - Improvement: Compatibility to Elementor Pro v2.9 full site editing.
