@@ -28,6 +28,6 @@
 
 /* Fix: Header hidden below the page content */
 .ehf-header #masthead {
-	z-index: 200;
+	z-index: 99;
     position: relative;
 }

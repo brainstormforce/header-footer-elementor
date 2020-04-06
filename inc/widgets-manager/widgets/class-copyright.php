@@ -14,7 +14,6 @@ use Elementor\Scheme_Typography;
 use Elementor\Scheme_Color;
 use Elementor\Widget_Base;
 
-
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;   // Exit if accessed directly.
 }
@@ -174,7 +173,6 @@ class Copyright extends Widget_Base {
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_3,
 			]
 		);
-
 	}
 
 	/**
@@ -189,10 +187,17 @@ class Copyright extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 		$link     = isset( $settings['link']['url'] ) ? $settings['link']['url'] : '';
 
+		if ( ! empty( $settings['link']['nofollow'] ) ) {
+			$this->add_render_attribute( 'link', 'rel', 'nofollow' );
+		}
+		if ( ! empty( $settings['link']['is_external'] ) ) {
+			$this->add_render_attribute( 'link', 'target', '_blank' );
+		}
+
 		$copy_right_shortcode = do_shortcode( shortcode_unautop( $settings['shortcode'] ) ); ?>
 		<div class="hfe-copyright-wrapper">
 			<?php if ( ! empty( $link ) ) { ?>
-				<a href="<?php echo esc_url( $link ); ?>">
+				<a href="<?php echo esc_url( $link ); ?>" <?php echo $this->get_render_attribute_string( 'link' ); ?>>
 					<span><?php echo wp_kses_post( $copy_right_shortcode ); ?></span>
 				</a>
 			<?php } else { ?>

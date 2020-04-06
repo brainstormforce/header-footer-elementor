@@ -2,17 +2,17 @@
 /**
  * Plugin Name: Elementor - Header, Footer & Blocks
  * Plugin URI:  https://github.com/Nikschavan/header-footer-elementor
- * Description: Create Header and Footer for your site using Elementor Page Builder.
+ * Description: This powerful plugin allows creating a custom header, footer with Elementor and display them on selected locations. You can also create custom Elementor blocks and place them anywhere on the website with a shortcode.
  * Author:      Brainstorm Force, Nikhil Chavan
  * Author URI:  https://www.brainstormforce.com/
  * Text Domain: header-footer-elementor
  * Domain Path: /languages
- * Version: 1.3.0
+ * Version: 1.4.1
  *
  * @package         header-footer-elementor
  */
 
-define( 'HFE_VER', '1.3.0' );
+define( 'HFE_VER', '1.4.1' );
 define( 'HFE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'HFE_URL', plugins_url( '/', __FILE__ ) );
 define( 'HFE_PATH', plugin_basename( __FILE__ ) );
