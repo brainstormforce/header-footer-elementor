@@ -8,14 +8,10 @@
 
 		if ( 'undefined' == typeof $scope )
 			return;
-		
-		$scope.find( ".hfe-search-form__input" ).focus(function() {
-			$scope.find(".hfe-search-button-wrapper").addClass("hfe-input-focus");
-		});
 
-		$scope.find( ".hfe-search-form__input" ).blur(function() {
-			$scope.find(".hfe-search-button-wrapper").removeClass("hfe-input-focus");
-		});
+		$scope.find( '.hfe-search-icon-toggle' ).on( 'click', function( ){
+			$scope.find(".hfe-search-form__input").focus();						
+		});		
 	};
 		/**
 	 * Nav Menu handler Function.
