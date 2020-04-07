@@ -680,9 +680,10 @@ class Search_Button extends Widget_Base {
 					'size' => 33,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .hfe-search-icon-toggle i' => 'font-size: {{SIZE}}{{UNIT}}; margin-top: calc({{SIZE}}{{UNIT}}/2); margin-left: calc({{SIZE}}{{UNIT}}/2);',
-					'{{WRAPPER}} .hfe-search-icon-toggle input[type=search]' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .hfe-search-icon-toggle input[type=search]:focus' => 'width: calc( {{SIZE}}{{UNIT}} * 4 );padding-left: calc( {{SIZE}}{{UNIT}} );'
+					'{{WRAPPER}} .hfe-search-icon-toggle i' => 'margin-top: {{SIZE}}{{UNIT}}; margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .hfe-search-icon-toggle input[type=search]' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}; padding: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .hfe-search-icon-toggle input[type=search]:focus' => 'width: calc( {{SIZE}}{{UNIT}} * 8 );padding-left: calc( {{SIZE}}{{UNIT}} + 15{{UNIT}} );',
+					'{{WRAPPER}} .hfe-search-icon-toggle i:before' => 'font-size: {{SIZE}}{{UNIT}};'
 				],
 				'condition' => [
 					'layout' => 'icon',
