@@ -130,9 +130,9 @@ class Search_Button extends Widget_Base {
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'text',
 				'options' => [
-					'text'      => __( 'Text', 'header-footer-elementor' ),
+					'text'      => __( 'Input Box', 'header-footer-elementor' ),
 					'icon'      => __( 'Icon', 'header-footer-elementor' ),
-					'icon_text' => __( 'Text with Icon', 'header-footer-elementor' ),
+					'icon_text' => __( 'Input Box With Button', 'header-footer-elementor' ),
 				],
 				'prefix_class' => 'hfe-search-layout-',
 				'render_type' => 'template'
@@ -144,7 +144,7 @@ class Search_Button extends Widget_Base {
 			[
 				'label'   => __( 'Placeholder', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::TEXT,
-				'default' => __( 'Search', 'header-footer-elementor' ) . '...',
+				'default' => __( 'Type & Hit Enter', 'header-footer-elementor' ) . '...',
 				'condition' => [
 					'layout!' => 'icon'
 				]
@@ -170,7 +170,7 @@ class Search_Button extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'button_align',
 			[
 				'label'       => __( 'Alignment', 'header-footer-elementor' ),
