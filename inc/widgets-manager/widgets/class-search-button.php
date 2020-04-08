@@ -436,8 +436,9 @@ class Search_Button extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'           => 'input_box_shadow_focus',
-				'selector'       => '{{WRAPPER}} .hfe-search-button-wrapper.hfe-input-focus .hfe-search-form__container,
-				                     {{WRAPPER}} .hfe-search-button-wrapper.hfe-input-focus input.hfe-search-form__input',
+				'selector'       => 
+				'{{WRAPPER}} .hfe-search-button-wrapper.hfe-input-focus .hfe-search-form__container,
+				 {{WRAPPER}} .hfe-search-button-wrapper.hfe-input-focus input.hfe-search-form__input',
 				'fields_options' => [
 					'box_shadow_type' => [
 						'separator' => 'default',
@@ -452,7 +453,8 @@ class Search_Button extends Widget_Base {
 				'label'     => __( 'Border Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .hfe-input-focus .hfe-search-form__container' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .hfe-input-focus .hfe-search-form__container,
+					 {{WRAPPER}} .hfe-input-focus .hfe-search-icon-toggle .hfe-search-form__input' => 'border-color: {{VALUE}}',
 				],
 			]
 		);
@@ -512,7 +514,7 @@ class Search_Button extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_button_hover',
 			[
-				'label' => __( 'Hover/Focus', 'header-footer-elementor' ),
+				'label' => __( 'Hover', 'header-footer-elementor' ),
 			]
 		);
 
@@ -620,7 +622,7 @@ class Search_Button extends Widget_Base {
 				'label'     => __( 'Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .hfe-search-icon-toggle' => 'color: {{VALUE}}; border-color: {{VALUE}}',
+					'{{WRAPPER}} .hfe-search-icon-toggle' => 'color: {{VALUE}}; border-color: {{VALUE}}; fill: {{VALUE}};',
 				],
 			]
 		);
@@ -652,7 +654,7 @@ class Search_Button extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-icon-toggle:hover' => 'color: {{VALUE}}; border-color: {{VALUE}}',
-				],
+				],	
 			]
 		);
 
@@ -662,7 +664,7 @@ class Search_Button extends Widget_Base {
 				'label'     => __( 'Background Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .hfe-search-icon-toggle .hfe-search-form__input:hover' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .hfe-search-icon-toggle:hover .hfe-search-form__input' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
