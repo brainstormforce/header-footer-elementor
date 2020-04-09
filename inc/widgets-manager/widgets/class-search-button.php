@@ -64,7 +64,7 @@ class Search_Button extends Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'fas fa-search';
+		return 'hfe-icon-search';
 	}
 
 	/**
