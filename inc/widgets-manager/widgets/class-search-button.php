@@ -741,6 +741,3 @@ class Search_Button extends Widget_Base {
 		<?php
 	}
 }
-
-
-
