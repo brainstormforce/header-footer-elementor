@@ -272,7 +272,7 @@ class HFE_Admin {
 	function ehf_register_metabox() {
 		add_meta_box(
 			'ehf-meta-box',
-			__( 'Elementor Header Footer options', 'header-footer-elementor' ),
+			__( 'Elementor Header Footer Options', 'header-footer-elementor' ),
 			[
 				$this,
 				'efh_metabox_render',
@@ -381,7 +381,7 @@ class HFE_Admin {
 			<td class="bsf-target-rules-row-heading hfe-options-row-heading">
 				<label><?php esc_html_e( 'Do Not Display On', 'header-footer-elementor' ); ?></label>
 				<i class="bsf-target-rules-heading-help dashicons dashicons-editor-help"
-					title="<?php echo esc_attr__( 'This Advanced Header will not appear at these locations.', 'header-footer-elementor' ); ?>"></i>
+					title="<?php echo esc_attr__( 'Add locations for where this template should not appear.', 'header-footer-elementor' ); ?>"></i>
 			</td>
 			<td class="bsf-target-rules-row-content hfe-options-row-content">
 				<?php
