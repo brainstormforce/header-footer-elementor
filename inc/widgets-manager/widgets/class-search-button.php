@@ -556,13 +556,6 @@ class Search_Button extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-submit' => 'font-size: {{SIZE}}{{UNIT}}',
 				],
-<<<<<<< HEAD
-=======
-				'default'   => [
-					'size' => '21',
-					'unit' => 'px',
-				],
->>>>>>> 9b01d757870fb6b8d674c93d8272161ef0d9687a
 				'condition' => [
 					'layout!' => 'icon',
 				],
@@ -581,13 +574,6 @@ class Search_Button extends Widget_Base {
 						'step' => 5,
 					],
 				],
-<<<<<<< HEAD
-=======
-				// 'default' => [
-				// 'min' => '3',
-				// 'unit' => '%',
-				// ],
->>>>>>> 9b01d757870fb6b8d674c93d8272161ef0d9687a
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-form__container .hfe-search-submit' => 'width: {{SIZE}}{{UNIT}}',
 				],
