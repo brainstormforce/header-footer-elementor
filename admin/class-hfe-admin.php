@@ -213,24 +213,24 @@ class HFE_Admin {
 
 
 	/**
-	 * Register Post type for header footer templates
+	 * Register Post type for header footer & blocks templates
 	 */
 	public function header_footer_posttype() {
 		$labels = [
-			'name'               => __( 'Header Footers Template', 'header-footer-elementor' ),
-			'singular_name'      => __( 'Elementor Header Footer', 'header-footer-elementor' ),
-			'menu_name'          => __( 'Header Footers Template', 'header-footer-elementor' ),
-			'name_admin_bar'     => __( 'Elementor Header Footer', 'header-footer-elementor' ),
+			'name'               => __( 'Header Footer & Blocks Template', 'header-footer-elementor' ),
+			'singular_name'      => __( 'Elementor Header Footer & Blocks', 'header-footer-elementor' ),
+			'menu_name'          => __( 'Header Footer & Blocks Template', 'header-footer-elementor' ),
+			'name_admin_bar'     => __( 'Elementor Header Footer & Blocks', 'header-footer-elementor' ),
 			'add_new'            => __( 'Add New', 'header-footer-elementor' ),
-			'add_new_item'       => __( 'Add New Header Footer', 'header-footer-elementor' ),
-			'new_item'           => __( 'New Header Footers Template', 'header-footer-elementor' ),
-			'edit_item'          => __( 'Edit Header Footers Template', 'header-footer-elementor' ),
-			'view_item'          => __( 'View Header Footers Template', 'header-footer-elementor' ),
-			'all_items'          => __( 'All Elementor Header Footers', 'header-footer-elementor' ),
-			'search_items'       => __( 'Search Header Footers Templates', 'header-footer-elementor' ),
-			'parent_item_colon'  => __( 'Parent Header Footers Templates:', 'header-footer-elementor' ),
-			'not_found'          => __( 'No Header Footers Templates found.', 'header-footer-elementor' ),
-			'not_found_in_trash' => __( 'No Header Footers Templates found in Trash.', 'header-footer-elementor' ),
+			'add_new_item'       => __( 'Add New Header Footer or Block', 'header-footer-elementor' ),
+			'new_item'           => __( 'New Header Footer & Blocks Template', 'header-footer-elementor' ),
+			'edit_item'          => __( 'Edit Header Footer & Blocks Template', 'header-footer-elementor' ),
+			'view_item'          => __( 'View Header Footer & Blocks Template', 'header-footer-elementor' ),
+			'all_items'          => __( 'All Elementor Header Footer & Blocks', 'header-footer-elementor' ),
+			'search_items'       => __( 'Search Header Footer & Blocks Templates', 'header-footer-elementor' ),
+			'parent_item_colon'  => __( 'Parent Header Footer & Blocks Templates:', 'header-footer-elementor' ),
+			'not_found'          => __( 'No Header Footer & Blocks Templates found.', 'header-footer-elementor' ),
+			'not_found_in_trash' => __( 'No Header Footer & Blocks Templates found in Trash.', 'header-footer-elementor' ),
 		];
 
 		$args = [
@@ -517,7 +517,7 @@ class HFE_Admin {
 	}
 
 	/**
-	 * Don't display the elementor header footer templates on the frontend for non edit_posts capable users.
+	 * Don't display the elementor header footer & blocks templates on the frontend for non edit_posts capable users.
 	 *
 	 * @since  1.0.0
 	 */
