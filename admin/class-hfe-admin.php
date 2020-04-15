@@ -272,7 +272,7 @@ class HFE_Admin {
 	function ehf_register_metabox() {
 		add_meta_box(
 			'ehf-meta-box',
-			__( 'Elementor Header Footer Options', 'header-footer-elementor' ),
+			__( 'Elementor Header Footer & Block Options', 'header-footer-elementor' ),
 			[
 				$this,
 				'efh_metabox_render',
