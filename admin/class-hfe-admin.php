@@ -250,17 +250,17 @@ class HFE_Admin {
 	}
 
 	/**
-	 * Register the admin menu for Header Footer builder.
+	 * Register the admin menu for Header Footer & Blocks builder.
 	 *
 	 * @since  1.0.0
 	 * @since  1.0.1
-	 *         Moved the menu under Appearance -> Header Footer Builder
+	 *         Moved the menu under Appearance -> Header Footer & Blocks Builder
 	 */
 	public function register_admin_menu() {
 		add_submenu_page(
 			'themes.php',
-			__( 'Header Footer Builder', 'header-footer-elementor' ),
-			__( 'Header Footer Builder', 'header-footer-elementor' ),
+			__( 'Header Footer & Blocks Builder', 'header-footer-elementor' ),
+			__( 'Header Footer & Blocks Builder', 'header-footer-elementor' ),
 			'edit_pages',
 			'edit.php?post_type=elementor-hf'
 		);
