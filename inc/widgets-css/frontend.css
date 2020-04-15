@@ -1846,4 +1846,5 @@ input[type="search"]:focus{
 }
 .hfe-search-form__container .hfe-search-submit {
     min-width: 3%;
+    font-size: 16px;
 }

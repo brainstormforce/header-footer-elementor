@@ -119,7 +119,7 @@ class Search_Button extends Widget_Base {
 		$this->start_controls_section(
 			'section_general_fields',
 			[
-				'label' => __( 'Search Button', 'header-footer-elementor' ),
+				'label' => __( 'Search Box', 'header-footer-elementor' ),
 			]
 		);
 
@@ -154,10 +154,10 @@ class Search_Button extends Widget_Base {
 		$this->add_control(
 			'size',
 			[
-				'label'     => __( 'Size', 'header-footer-elementor' ),
+				'label'     => __( 'Button Size', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::SLIDER,
 				'default'   => [
-				// 'size' => 50,
+				'size' => 50,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-form__container' => 'min-height: {{SIZE}}{{UNIT}}',
@@ -558,10 +558,6 @@ class Search_Button extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-submit' => 'font-size: {{SIZE}}{{UNIT}}',
 				],
-				'default' => [
-					'size' => '21',
-					'unit' => 'px'
-				],
 				'condition' => [
 					'layout!' => 'icon',
 				],
@@ -576,15 +572,10 @@ class Search_Button extends Widget_Base {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => [
 					'px' => [
-						// 'min'  => 3,
 						'max'  => 500,
 						'step' => 5,
 					],
 				],
-				// 'default' => [
-				// 	'min' => '3',
-				// 	'unit' => '%',
-				// ],
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-form__container .hfe-search-submit' => 'width: {{SIZE}}{{UNIT}}',
 				],
@@ -685,7 +676,7 @@ class Search_Button extends Widget_Base {
 					'{{WRAPPER}} .hfe-search-icon-toggle i' => 'margin-top: {{SIZE}}{{UNIT}}; margin-left: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .hfe-search-icon-toggle input[type=search]' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}; padding: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .hfe-search-icon-toggle input[type=search]:focus' => 'width: calc( {{SIZE}}{{UNIT}} * 8 );padding-left: calc( {{SIZE}}{{UNIT}} + 15{{UNIT}} );',
-					'{{WRAPPER}} .hfe-search-icon-toggle i:before' => 'font-size: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .hfe-search-icon-toggle i:before' => 'font-size: {{SIZE}}{{UNIT}}',
 				],
 				'condition' => [
 					'layout' => 'icon',
@@ -730,7 +721,7 @@ class Search_Button extends Widget_Base {
 			<?php } else { ?>
 			<div class="hfe-search-form__container">
 				<?php if ( 'text' === $settings['layout'] ) { ?>
-					<input <?php echo $this->get_render_attribute_string( 'input' ); ?>>
+					<input <?php echo $this->get_render_attribute_string( 'input' ); ?> >
 				<?php } else { ?>
 					<input <?php echo $this->get_render_attribute_string( 'input' ); ?>>
 						<button class="hfe-search-submit" type="submit">
