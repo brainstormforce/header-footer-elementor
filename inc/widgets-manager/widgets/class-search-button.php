@@ -64,7 +64,7 @@ class Search_Button extends Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'fas fa-search';
+		return 'hfe-icon-search';
 	}
 
 	/**
@@ -126,28 +126,28 @@ class Search_Button extends Widget_Base {
 		$this->add_control(
 			'layout',
 			[
-				'label'   => __( 'Layout', 'header-footer-elementor' ),
-				'type'    => Controls_Manager::SELECT,
-				'default' => 'text',
-				'options' => [
+				'label'        => __( 'Layout', 'header-footer-elementor' ),
+				'type'         => Controls_Manager::SELECT,
+				'default'      => 'text',
+				'options'      => [
 					'text'      => __( 'Input Box', 'header-footer-elementor' ),
 					'icon'      => __( 'Icon', 'header-footer-elementor' ),
 					'icon_text' => __( 'Input Box With Button', 'header-footer-elementor' ),
 				],
 				'prefix_class' => 'hfe-search-layout-',
-				'render_type' => 'template'
+				'render_type'  => 'template',
 			]
 		);
 
 		$this->add_control(
 			'placeholder',
 			[
-				'label'   => __( 'Placeholder', 'header-footer-elementor' ),
-				'type'    => Controls_Manager::TEXT,
-				'default' => __( 'Type & Hit Enter', 'header-footer-elementor' ) . '...',
+				'label'     => __( 'Placeholder', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::TEXT,
+				'default'   => __( 'Type & Hit Enter', 'header-footer-elementor' ) . '...',
 				'condition' => [
-					'layout!' => 'icon'
-				]
+					'layout!' => 'icon',
+				],
 			]
 		);
 
@@ -200,8 +200,6 @@ class Search_Button extends Widget_Base {
 			]
 		);
 
-
-
 		$this->end_controls_section();
 	}
 	/**
@@ -251,7 +249,7 @@ class Search_Button extends Widget_Base {
 				],
 				'condition' => [
 					'layout!' => 'icon',
-				]
+				],
 			]
 		);
 
@@ -269,7 +267,7 @@ class Search_Button extends Widget_Base {
 				],
 				'condition' => [
 					'layout!' => 'icon',
-				]
+				],
 			]
 		);
 
@@ -278,13 +276,13 @@ class Search_Button extends Widget_Base {
 			[
 				'label'     => __( 'Background Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'default' => '#ededed',
+				'default'   => '#ededed',
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-form__input' => 'background-color: {{VALUE}}',
 				],
 				'condition' => [
-					'layout!' => 'icon'
-				]
+					'layout!' => 'icon',
+				],
 			]
 		);
 
@@ -413,7 +411,7 @@ class Search_Button extends Widget_Base {
 				],
 				'condition' => [
 					'layout!' => 'icon',
-				]
+				],
 			]
 		);
 
@@ -427,8 +425,8 @@ class Search_Button extends Widget_Base {
 					{{WRAPPER}}.hfe-search-layout-icon .hfe-search-icon-toggle .hfe-search-form__input' => 'background-color: {{VALUE}}',
 				],
 				'condition' => [
-					'layout!' => 'icon'
-				]
+					'layout!' => 'icon',
+				],
 			]
 		);
 
@@ -436,7 +434,7 @@ class Search_Button extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'           => 'input_box_shadow_focus',
-				'selector'       => 
+				'selector'       =>
 				'{{WRAPPER}} .hfe-search-button-wrapper.hfe-input-focus .hfe-search-form__container,
 				 {{WRAPPER}} .hfe-search-button-wrapper.hfe-input-focus input.hfe-search-form__input',
 				'fields_options' => [
@@ -558,6 +556,13 @@ class Search_Button extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-submit' => 'font-size: {{SIZE}}{{UNIT}}',
 				],
+<<<<<<< HEAD
+=======
+				'default'   => [
+					'size' => '21',
+					'unit' => 'px',
+				],
+>>>>>>> 9b01d757870fb6b8d674c93d8272161ef0d9687a
 				'condition' => [
 					'layout!' => 'icon',
 				],
@@ -576,6 +581,13 @@ class Search_Button extends Widget_Base {
 						'step' => 5,
 					],
 				],
+<<<<<<< HEAD
+=======
+				// 'default' => [
+				// 'min' => '3',
+				// 'unit' => '%',
+				// ],
+>>>>>>> 9b01d757870fb6b8d674c93d8272161ef0d9687a
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-form__container .hfe-search-submit' => 'width: {{SIZE}}{{UNIT}}',
 				],
@@ -645,7 +657,7 @@ class Search_Button extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-icon-toggle:hover' => 'color: {{VALUE}}; border-color: {{VALUE}}',
-				],	
+				],
 			]
 		);
 
@@ -676,7 +688,11 @@ class Search_Button extends Widget_Base {
 					'{{WRAPPER}} .hfe-search-icon-toggle i' => 'margin-top: {{SIZE}}{{UNIT}}; margin-left: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .hfe-search-icon-toggle input[type=search]' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}; padding: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .hfe-search-icon-toggle input[type=search]:focus' => 'width: calc( {{SIZE}}{{UNIT}} * 8 );padding-left: calc( {{SIZE}}{{UNIT}} + 15{{UNIT}} );',
+<<<<<<< HEAD
 					'{{WRAPPER}} .hfe-search-icon-toggle i:before' => 'font-size: {{SIZE}}{{UNIT}}',
+=======
+					'{{WRAPPER}} .hfe-search-icon-toggle i:before' => 'font-size: {{SIZE}}{{UNIT}};',
+>>>>>>> 9b01d757870fb6b8d674c93d8272161ef0d9687a
 				],
 				'condition' => [
 					'layout' => 'icon',
@@ -715,7 +731,7 @@ class Search_Button extends Widget_Base {
 		<form class="hfe-search-button-wrapper" role="search" action="<?php echo home_url(); ?>" method="get">
 			<?php if ( 'icon' === $settings['layout'] ) { ?>
 			<div class = "hfe-search-icon-toggle">
-			<i class="fas fa-search" aria-hidden="true"></i>
+				<i class="fas fa-search" aria-hidden="true"></i>
 				<input <?php echo $this->get_render_attribute_string( 'input' ); ?>>
 			</div>
 			<?php } else { ?>
@@ -725,17 +741,12 @@ class Search_Button extends Widget_Base {
 				<?php } else { ?>
 					<input <?php echo $this->get_render_attribute_string( 'input' ); ?>>
 						<button class="hfe-search-submit" type="submit">
-						<i class="fas fa-search" aria-hidden="true"></i>
+							<i class="fas fa-search" aria-hidden="true"></i>
 						</button>
 				<?php } ?>
 			</div>
 		<?php } ?>
 		</form>
 		<?php
-
 	}
-
 }
-
-
-
