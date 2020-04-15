@@ -9,7 +9,7 @@ Stable tag: 1.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Create Header and Footer for your WordPress website using Elementor Page Builder for free.
+Create Header, Footer and Blocks for your WordPress website using Elementor Page Builder for free.
 
 ## Description ##
 
@@ -94,7 +94,7 @@ People love Astra for -
 = SUPPORTED & ACTIVELY DEVELOPED =
 Need help with something? Have an issue to report? Visit [Plugin’s Forum](https://wordpress.org/plugins/header-footer-elementor/ "Plugin’s Forum").
 
-[Get in touch](https://github.com/Nikschavan/header-footer-elementor "Header Footer elementor on GitHub") with us on GitHub.
+[Get in touch](https://github.com/Nikschavan/header-footer-elementor "Elementor - Header Footer & Blocks on GitHub") with us on GitHub.
 
 Made with love at [Brainstorm Force](https://www.brainstormforce.com/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description "Brainstorm Force")!
 
