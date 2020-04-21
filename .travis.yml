@@ -13,7 +13,7 @@ cache:
 
 matrix:
   include:
-    - php: 7.3
+    - php: 7.4
       env: WP_TRAVISCI=phpcs
 
 before_script:
