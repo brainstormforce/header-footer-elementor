@@ -56,6 +56,7 @@ class HFE_GeneratePress_Compat {
 	 */
 	public function generatepress_setup_header() {
 		remove_action( 'generate_header', 'generate_construct_header' );
+		remove_action( 'generate_after_header', 'generate_add_navigation_after_header', 5 );
 	}
 
 	/**
