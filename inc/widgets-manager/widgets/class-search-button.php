@@ -720,6 +720,7 @@ class Search_Button extends Widget_Base {
 			<div class="hfe-search-form__container">
 				<?php if ( 'text' === $settings['layout'] ) { ?>
 					<input <?php echo $this->get_render_attribute_string( 'input' ); ?> >
+					<button id="clear" type="reset"></button>
 				<?php } else { ?>
 					<input <?php echo $this->get_render_attribute_string( 'input' ); ?>>
 						<button class="hfe-search-submit" type="submit">

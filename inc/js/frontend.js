@@ -21,6 +21,14 @@
 			$scope.find( ".hfe-search-button-wrapper" ).removeClass( "hfe-input-focus" );
 		});
 
+		// $('#clear').click(function () {
+		// 	$('.hfe-search-form__container input').val('');
+		// });
+
+		// $('#clear').click(function () {
+		// 	$('.hfe-search-form__container input').val('');
+		// });
+
 	};
 		/**
 	 * Nav Menu handler Function.
