@@ -392,6 +392,7 @@ class Page_Title extends Widget_Base {
 	 * @access protected
 	 */
 	protected function render() {
+		if( ! is_home( ) ) {
 		$settings = $this->get_settings_for_display();
 
 		$this->add_inline_editing_attributes( 'page_title', 'basic' );
@@ -410,8 +411,13 @@ class Page_Title extends Widget_Base {
 		}
 		?>		
 		<div class="hfe-page-title hfe-page-title-wrapper elementor-widget-heading">
-			<?php if ( '' != $settings['page_heading_link']['url'] && 'custom' === $settings['page_custom_link'] ) { ?>
-						<a <?php echo esc_attr( $link ); ?> >
+
+		<?php 
+		$head_link_url = isset( $settings['page_heading_link']['url'] ) ? $settings['page_heading_link']['url'] : '';
+		$head_custom_link = isset( $settings['page_custom_link'] ) ? $settings['page_custom_link'] : '';
+		?>
+			<?php if ( '' != $head_link_url && 'custom' === $head_custom_link ) { ?>
+						<a <?php echo $link; ?> >
 			<?php } else { ?>
 						<a href="<?php echo esc_url( get_home_url() ); ?>">
 			<?php } ?>
@@ -433,7 +439,8 @@ class Page_Title extends Widget_Base {
 			</a>    
 		</div>
 		<?php
-	}
+		}	
+}
 
 	/**
 	 * Render page title output in the editor.
