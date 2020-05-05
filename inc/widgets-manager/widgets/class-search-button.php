@@ -163,6 +163,7 @@ class Search_Button extends Widget_Base {
 					'{{WRAPPER}} .hfe-search-form__container' => 'min-height: {{SIZE}}{{UNIT}}',
 					'{{WRAPPER}} .hfe-search-submit'      => 'min-width: {{SIZE}}{{UNIT}}',
 					'{{WRAPPER}} .hfe-search-form__input' => 'padding-left: calc({{SIZE}}{{UNIT}} / 5); padding-right: calc({{SIZE}}{{UNIT}} / 5)',
+					// '{{WRAPPER}} .hfe-close-icon-yes button#clear_with_button' => 'right: calc({{SIZE}}{{UNIT}} / 5);'
 				],
 				'condition' => [
 					'layout!' => 'icon',
@@ -199,6 +200,25 @@ class Search_Button extends Widget_Base {
 				],
 			]
 		);
+
+
+		// $this->add_control(
+		// 	'close_icon_switcher',
+		// 	array(
+		// 		'label'       => __( 'Close Icon', 'header-footer-elementor' ),
+		// 		'type'        => Controls_Manager::SWITCHER,
+		// 		'label_on'    => __( 'Yes', 'header-footer-elementor' ),
+		// 		'label_off'   => __( 'No', 'header-footer-elementor' ),
+		// 		'default'     => 'yes',
+		// 		'description' => 'Enable this option to display the close icon',
+		// 		'condition' => [
+		// 			'layout!' => 'icon',
+		// 		]
+		// 	)
+		// );
+
+
+
 
 		$this->end_controls_section();
 	}
@@ -576,6 +596,7 @@ class Search_Button extends Widget_Base {
 				],
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-form__container .hfe-search-submit' => 'width: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .hfe-close-icon-yes button#clear_with_button' => 'right: {{SIZE}}{{UNIT}}'
 				],
 				'condition' => [
 					'layout' => 'icon_text',
@@ -685,6 +706,93 @@ class Search_Button extends Widget_Base {
 
 		$this->end_controls_section();
 
+
+		$this->start_controls_section(
+			'section_close_icon',
+			[
+				'label'     => __( 'Close Icon', 'header-footer-elementor' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'layout!' => 'icon',
+					// 'close_icon_switcher' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'close_icon_size',
+			[
+				'label'     => __( 'Close Icon Size', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SLIDER,
+				'default'   => [
+				// 'size' => 50,
+				],
+				'range'     => [
+					'px' => [
+						'min' => 0,
+						'max' => 50,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .hfe-search-form__container button#clear,
+				{{WRAPPER}} .hfe-search-form__container button#clear-with-button' => 'font-size: {{SIZE}}{{UNIT}};'
+				],
+				
+			]
+		);
+
+		$this->start_controls_tabs( 'close_icon_normal' );
+
+		$this->start_controls_tab(
+			'normal_close_button',
+			[
+				'label' => __( 'Normal', 'header-footer-elementor' ),
+			]
+		);
+		$this->add_control(
+			'text_color',
+			[
+				'label'     => __( 'Text Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => [
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_3,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .hfe-search-form__container button#clear-with-button,
+					{{WRAPPER}} .hfe-search-form__container button#clear' => 'color: {{VALUE}}',
+				],
+			]
+		);
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'hover_close_icon',
+			[
+				'label' => __( 'Hover', 'header-footer-elementor' ),
+			]
+		);
+
+		$this->add_control(
+			'hover_close_icon_text',
+			[
+				'label'     => __( 'Text Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .hfe-search-form__container button#clear-with-button:hover,
+					{{WRAPPER}} .hfe-search-form__container button#clear:hover
+					' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+		$this->end_controls_section();
+
+
 	}
 	/**
 	 * Render Search button output on the frontend.
@@ -706,9 +814,20 @@ class Search_Button extends Widget_Base {
 				'name'        => 's',
 				'title'       => __( 'Search', 'header-footer-elementor' ),
 				'value'       => get_search_query(),
+				
 			]
 		);
 
+
+		// $close_icon_support = ( 'yes' === $settings['close_icon_switcher'] ) ? 'hfe-close-icon-yes' : '';
+//', $close_icon_support 
+		$this->add_render_attribute(
+			'container',
+			array(
+				'class' => array( 'hfe-search-form__container'),
+				'role'  => 'tablist',
+			)
+		);
 		?>
 		<form class="hfe-search-button-wrapper" role="search" action="<?php echo home_url(); ?>" method="get">
 			<?php if ( 'icon' === $settings['layout'] ) { ?>
@@ -717,15 +836,25 @@ class Search_Button extends Widget_Base {
 				<input <?php echo $this->get_render_attribute_string( 'input' ); ?>>
 			</div>
 			<?php } else { ?>
-			<div class="hfe-search-form__container">
+			<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'container' ) ); ?>>
 				<?php if ( 'text' === $settings['layout'] ) { ?>
-					<input <?php echo $this->get_render_attribute_string( 'input' ); ?> >
-					<button id="clear" type="reset"></button>
+					<input <?php echo $this->get_render_attribute_string( 'input' ); ?>>
+					<?php //if( $settings['close_icon_switcher'] == 'yes') { ?>
+						<button id="clear" type="reset">
+							<!-- <i class="fas fa-times" aria-hidden="true"></i> -->
+							<i class="fas fa-times clearable__clear" aria-hidden="true"></i>
+						</button>
+					<?php//  } ?>
 				<?php } else { ?>
 					<input <?php echo $this->get_render_attribute_string( 'input' ); ?>>
-						<button class="hfe-search-submit" type="submit">
-							<i class="fas fa-search" aria-hidden="true"></i>
-						</button>
+					<?php //if( $settings['close_icon_switcher'] == 'yes') { ?>
+					<button id="clear-with-button" type="reset">
+						<i class="fas fa-times" aria-hidden="true"></i>
+					</button>
+					<?php //} ?>
+							<button class="hfe-search-submit" type="submit">
+								<i class="fas fa-search" aria-hidden="true"></i>
+							</button>
 				<?php } ?>
 			</div>
 		<?php } ?>

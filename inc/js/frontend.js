@@ -21,14 +21,39 @@
 			$scope.find( ".hfe-search-button-wrapper" ).removeClass( "hfe-input-focus" );
 		});
 
+		
 		// $('#clear').click(function () {
-		// 	$('.hfe-search-form__container input').val('');
+		// 	$('input[type="search"]').attr('value','');
 		// });
 
-		// $('#clear').click(function () {
-		// 	$('.hfe-search-form__container input').val('');
+		// $('#clear_with_button').click(function () {
+		// 	$('input[type="search"]').attr('value','');
 		// });
 
+		$(".hfe-search-form__container").each(function() {
+  
+			var $input = $(this).find("input"),
+				$clear = $(this).find("button#clear"),
+				$clear_with_button = $( this ).find("button#clear-with-button");
+		   
+			$input.on("input", function(){
+			  $clear.toggle(!!this.value);
+			});
+			
+			$input.on("input", function(){
+			    $clear_with_button.toggle(!!this.value);
+			});
+
+			$clear.on("touchstart click", function(e) {
+			  e.preventDefault();
+			  $input.val("").trigger("input");
+			});
+
+			$clear_with_button.on("touchstart click", function(e) {
+				e.preventDefault();
+				$input.val("").trigger("input");
+			});
+		});
 	};
 		/**
 	 * Nav Menu handler Function.
