@@ -1,6 +1,6 @@
 === Elementor - Header, Footer & Blocks ===
 Contributors: brainstormforce, Nikschavan
-Tags: elementor, header footer builder, header template, footer template, elementor widget, WordPress header, WordPress footer, elementor menu, website header design, footer design
+Tags: Elementor, header footer builder, header template, footer template, Elementor widget, WordPress header, WordPress footer, elementor menu, website header design, footer design
 Donate link: https://www.paypal.me/BrainstormForce
 Requires at least: 4.4
 Requires PHP: 5.4
@@ -63,7 +63,7 @@ In case you face any difficulty displaying header/footer, manually choose the th
 
 = STEPS TO USE THE PLUGIN =
 
-Step 1 - Visit Appearance > Header Footer Builder and click on the ‘Add New’.
+Step 1 - Visit Appearance > Elementor - Header Footer & Blocks Template and click on the ‘Add New’.
 
 Step 2 - Select ‘Type of Template’ (header/footer/block). Set its display location and user roles.
 
@@ -81,7 +81,7 @@ Check [Ultimate Addons for Elementor](https://uaelementor.com/?utm_source=wp-rep
 
 = HAVE YOU TRIED ASTRA WITH ELEMENTOR? =
 
-Powering over 700,000+ WordPress websites, Astra is loved for the performance and ease-of-use it offers.
+Powering over 800,000+ WordPress websites, Astra is loved for the performance and ease-of-use it offers.
 
 People love Astra for -
 
@@ -102,7 +102,7 @@ Made with love at [Brainstorm Force](https://www.brainstormforce.com/?utm_source
 
 1. Go to `Plugins -> Add New` and search for Elementor – Header, Footer & Blocks.
 2. Activate the plugin through the 'Plugins' screen in WordPress.
-3. Go to `Appearance -> Header Footer Builder` to build a header or footer layout using elementor.
+3. Go to `Appearance -> Header Footer Builder` to build a header or footer layout using Elementor.
 4. After the layout is ready assign it as header or footer using the option `Select the type of template this is` (<a href="https://cloudup.com/clK2sPg9nXK+">screenshot</a>)
 
 == Frequently Asked Questions ==
@@ -129,7 +129,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Screenshots ==
 
-1. Go to Appearance -> Header Footer Builder to create a new template.
+1. Go to Appearance -> Elementor - Header Footer & Blocks Template to create a new template.
 2. Assign template to be a header/footer and select display rules. 
 3. Copy shortcode for Custom Blocks. 
 4. Methods to add Theme Support.
@@ -248,7 +248,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 = 1.0.2 =
 - New: Added support for the OceanWP Theme.
-- Fix: Load the elementor header assets correctly in the header. This fixes header looking different just when loading the page as previously Elementor would load its CSS in the footer.
+- Fix: Load the Elementor header assets correctly in the header. This fixes header looking different just when loading the page as previously Elementor would load its CSS in the footer.
 - Introduced helper functions for rendering and checking the headers to make it simpler to integrate HFE with more themes.
 
 = 1.0.1 =

@@ -217,9 +217,9 @@ class HFE_Admin {
 	 */
 	public function header_footer_posttype() {
 		$labels = [
-			'name'               => __( 'Header Footer & Blocks Template', 'header-footer-elementor' ),
+			'name'               => __( 'Elementor - Header Footer & Blocks Template', 'header-footer-elementor' ),
 			'singular_name'      => __( 'Elementor Header Footer & Blocks', 'header-footer-elementor' ),
-			'menu_name'          => __( 'Header Footer & Blocks Template', 'header-footer-elementor' ),
+			'menu_name'          => __( 'Elementor - Header Footer & Blocks Template', 'header-footer-elementor' ),
 			'name_admin_bar'     => __( 'Elementor Header Footer & Blocks', 'header-footer-elementor' ),
 			'add_new'            => __( 'Add New', 'header-footer-elementor' ),
 			'add_new_item'       => __( 'Add New Header Footer or Block', 'header-footer-elementor' ),
@@ -259,8 +259,8 @@ class HFE_Admin {
 	public function register_admin_menu() {
 		add_submenu_page(
 			'themes.php',
-			__( 'Header Footer & Blocks Builder', 'header-footer-elementor' ),
-			__( 'Header Footer & Blocks Builder', 'header-footer-elementor' ),
+			__( 'Elementor - Header Footer & Blocks Template', 'header-footer-elementor' ),
+			__( 'Elementor - Header Footer & Blocks Template', 'header-footer-elementor' ),
 			'edit_pages',
 			'edit.php?post_type=elementor-hf'
 		);
