@@ -433,3 +433,22 @@ class Header_Footer_Elementor {
 	}
 
 }
+/**
+ * Is elementor plugin installed.
+ */
+if ( ! function_exists( '_is_elementor_installed' ) ) {
+
+	/**
+	 * Check if Elementor is installed
+	 *
+	 * @since x.x.x
+	 *
+	 * @access public
+	 */
+	function _is_elementor_installed() {
+		$path    = 'elementor/elementor.php';
+		$plugins = get_plugins();
+
+		return isset( $plugins[ $path ] );
+	}
+}
