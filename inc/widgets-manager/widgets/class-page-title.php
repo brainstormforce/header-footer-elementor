@@ -392,7 +392,7 @@ class Page_Title extends Widget_Base {
 	 * @access protected
 	 */
 	protected function render() {
-		if( ! is_home( ) ) {
+		if( ! is_home() ) {
 		$settings = $this->get_settings_for_display();
 
 		$this->add_inline_editing_attributes( 'page_title', 'basic' );
@@ -451,6 +451,8 @@ class Page_Title extends Widget_Base {
 	 * @access protected
 	 */
 	protected function content_template() {
+
+		if( ! is_home() ) {
 		?>
 		<#
 		if ( '' == settings.page_title ) {
@@ -485,6 +487,7 @@ class Page_Title extends Widget_Base {
 			<# } #>			
 		</div>
 		<?php
+		}
 	}
 
 	/**
