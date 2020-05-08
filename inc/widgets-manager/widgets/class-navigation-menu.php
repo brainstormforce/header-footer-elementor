@@ -1164,6 +1164,41 @@ class Navigation_Menu extends Widget_Base {
 
 				$this->end_controls_tab();
 
+				$this->start_controls_tab(
+					'tab_dropdown_item_active',
+					array(
+						'label' => __( 'Active', 'header-footer-elementor' ),
+					),
+				);
+
+				$this->add_control(
+					'color_dropdown_item_active',
+					[
+						'label'                 => __( 'Text Color', 'header-footer-elementor' ),
+						'type'                  => Controls_Manager::COLOR,
+						'default'               => '',
+						'selectors'             => [
+							'{{WRAPPER}} .hfe-nav-menu .current-menu-item.page_item.current_page_item a.hfe-sub-menu-item' => 'color: {{VALUE}}',
+
+						],
+					]
+				);
+		
+				$this->add_control(
+					'background_color_dropdown_item_active',
+					[
+						'label'                 => __( 'Background Color', 'header-footer-elementor' ),
+						'type'                  => Controls_Manager::COLOR,
+						'default'               => '',
+						'selectors'             => [
+							'{{WRAPPER}} .hfe-nav-menu .current-menu-item.page_item.current_page_item a.hfe-sub-menu-item' => 'background-color: {{VALUE}}',
+						],
+					]
+				);
+
+				$this->end_controls_tabs();
+
+
 			$this->end_controls_tabs();
 
 			$this->add_group_control(
