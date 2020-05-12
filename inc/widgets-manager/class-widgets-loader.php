@@ -58,7 +58,9 @@ class Widgets_Loader {
 		add_filter( 'upload_mimes', [ $this, 'hfe_svg_mime_types' ] );
 
 		// Refresh the cart fragments.
-		add_filter( 'woocommerce_add_to_cart_fragments', [ $this, 'wc_refresh_mini_cart_count' ] );
+		if ( class_exists( 'woocommerce' ) ) {
+			add_filter( 'woocommerce_add_to_cart_fragments', [ $this, 'wc_refresh_mini_cart_count' ] );
+		}
 	}
 
 	/**
