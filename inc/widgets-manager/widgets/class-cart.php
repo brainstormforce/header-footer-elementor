@@ -572,7 +572,7 @@ class Cart extends Widget_Base {
 				<span class="elementor-button-text">
 					<?php echo WC()->cart->get_cart_subtotal(); ?>
 				</span>
-				<span class="elementor-button-icon" data-counter="<?php echo WC()->cart->get_cart_contents_count() ); ?>">
+				<span class="elementor-button-icon" data-counter="<?php echo WC()->cart->get_cart_contents_count(); ?>">
 					<i class="eicon" aria-hidden="true"></i>
 					<span class="elementor-screen-only"><?php _e( 'Cart', 'header-footer-elementor' ); ?></span>
 				</span>
