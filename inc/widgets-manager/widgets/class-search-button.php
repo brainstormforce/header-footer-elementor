@@ -157,7 +157,7 @@ class Search_Button extends Widget_Base {
 				'label'     => __( 'Button Size', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::SLIDER,
 				'default'   => [
-				'size' => 50,
+					'size' => 50,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-form__container' => 'min-height: {{SIZE}}{{UNIT}}',
@@ -689,7 +689,7 @@ class Search_Button extends Widget_Base {
 				'label'     => __( 'Icon Size', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::SLIDER,
 				'default'   => [
-					'size' => 33,
+					'size' => 15,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-icon-toggle i' => 'margin-top: {{SIZE}}{{UNIT}}; margin-left: {{SIZE}}{{UNIT}};',
