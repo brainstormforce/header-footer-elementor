@@ -194,8 +194,8 @@ class Widgets_Loader {
 	    ?>
 	    
 		<a class="hfe-cart-container" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="View your shopping cart">
-			<div class="hfe-cart-menu-wrap">
-				<span class="count" id="hfe-cart-contents-count">
+			<div class="hfe-cart-menu-wrap-default">
+				<span class="count">
 					<?php
 					echo ( ( empty( WC()->cart ) ) ? 0 : WC()->cart->get_cart_contents_count() );
 					?>

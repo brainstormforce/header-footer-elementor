@@ -566,15 +566,37 @@ class Cart extends Widget_Base {
 		}
 		?>
 
-		<a class="hfe-cart-container" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="View your shopping cart">
-			<div class="hfe-cart-menu-wrap">
-				<span class="count" id="hfe-cart-contents-count">
-					<?php
-					echo ( ( empty( WC()->cart ) ) ? 0 : WC()->cart->get_cart_contents_count() );
-					?>
-				</span>
+		<div class="hfe-masthead-custom-menu-items woocommerce-custom-menu-item">
+			<div id="hfe-site-header-cart" class="hfe-site-header-cart hfe-menu-cart-with-border">
+				<div class="hfe-site-header-cart-li current-menu-item">
+				<?php if ( 'default' === $settings['hfe_cart_type'] ) { ?>
+				<a class="hfe-cart-container" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="View your shopping cart">
+					<div class="hfe-cart-menu-wrap-default">
+						<span class="count">
+							<?php
+							echo ( ( empty( WC()->cart ) ) ? 0 : WC()->cart->get_cart_contents_count() );
+							?>
+						</span>
+					</div>
+				</a>
+				<?php } else { ?>
+						<div class="hfe-menu-cart__toggle elementor-button-wrapper">
+							<a id="hfe-menu-cart__toggle_button" href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="elementor-button">
+								<span class="elementor-button-text">
+									<?php
+									echo ( ( empty( $woocommerce->cart ) ) ? 0 : $woocommerce->cart->get_cart_total() );
+									?>
+								</span>
+								<span class="elementor-button-icon" data-counter="<?php echo ( ( empty( $woocommerce->cart ) ) ? 0 : $woocommerce->cart->cart_contents_count ); ?>">
+									<i class="eicon" aria-hidden="true"></i>
+									<span class="elementor-screen-only"><?php _e( 'Cart', 'header-footer-elementor' ); ?></span>
+								</span>
+							</a>
+						</div>
+					<?php } ?>            
+				</div>
 			</div>
-		</a>
+		</div> 
 		<?php
 	}
 
