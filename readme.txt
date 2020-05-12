@@ -138,7 +138,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 == Changelog ==
 
 = 1.5.0 =
-- Fix: GeneratePress theme header not overriding by EHF.
+- Fix: GeneratePress theme header now overriden by EHF.
 
 = 1.4.1 =
 - Fix: EHF header overlapping Astra WooCommerce Off-Canvas.
