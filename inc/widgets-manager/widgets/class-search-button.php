@@ -151,10 +151,10 @@ class Search_Button extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'size',
 			[
-				'label'     => __( 'Button Size', 'header-footer-elementor' ),
+				'label'     => __( 'Size', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::SLIDER,
 				'default'   => [
 					'size' => 50,
@@ -712,21 +712,14 @@ class Search_Button extends Widget_Base {
 			[
 				'label'     => __( 'Close Icon', 'header-footer-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
-				'condition' => [
-					'layout!' => 'icon',
-					// 'close_icon_switcher' => 'yes',
-				],
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'close_icon_size',
 			[
-				'label'     => __( 'Close Icon Size', 'header-footer-elementor' ),
+				'label'     => __( 'Size', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::SLIDER,
-				'default'   => [
-				// 'size' => 50,
-				],
 				'range'     => [
 					'px' => [
 						'min' => 0,
@@ -752,7 +745,7 @@ class Search_Button extends Widget_Base {
 		$this->add_control(
 			'text_color',
 			[
-				'label'     => __( 'Text Color', 'header-footer-elementor' ),
+				'label'     => __( 'Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'scheme'    => [
 					'type'  => Scheme_Color::get_type(),
@@ -776,7 +769,7 @@ class Search_Button extends Widget_Base {
 		$this->add_control(
 			'hover_close_icon_text',
 			[
-				'label'     => __( 'Text Color', 'header-footer-elementor' ),
+				'label'     => __( 'Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-form__container button#clear-with-button:hover,
