@@ -56,6 +56,9 @@ class Widgets_Loader {
 
 		// Add svg support.
 		add_filter( 'upload_mimes', [ $this, 'hfe_svg_mime_types' ] );
+
+		add_filter( 'woocommerce_add_to_cart_fragments', [ $this, 'wc_refresh_mini_cart_count' ] );
+
 	}
 
 	/**
@@ -184,6 +187,26 @@ class Widgets_Loader {
 		if ( class_exists( 'woocommerce' ) ) {
 			Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Cart() );
 		}
+	}
+
+	function wc_refresh_mini_cart_count($fragments){
+	    ob_start();
+	    ?>
+	    
+		<a class="hfe-cart-container" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="View your shopping cart">
+			<div class="hfe-cart-menu-wrap">
+				<span class="count" id="hfe-cart-contents-count">
+					<?php
+					echo ( ( empty( WC()->cart ) ) ? 0 : WC()->cart->get_cart_contents_count() );
+					?>
+				</span>
+			</div>
+		</a>
+				
+
+	    <?php
+			$fragments['a.hfe-cart-container'] = ob_get_clean();
+	    return $fragments;
 	}
 }
 
