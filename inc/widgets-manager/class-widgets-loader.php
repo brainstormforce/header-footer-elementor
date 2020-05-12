@@ -58,7 +58,6 @@ class Widgets_Loader {
 		add_filter( 'upload_mimes', [ $this, 'hfe_svg_mime_types' ] );
 
 		add_filter( 'woocommerce_add_to_cart_fragments', [ $this, 'wc_refresh_mini_cart_count' ] );
-
 	}
 
 	/**
@@ -190,22 +189,18 @@ class Widgets_Loader {
 	}
 
 	function wc_refresh_mini_cart_count($fragments){
-	    ob_start();
-	    ?>
-	    
-		<a class="hfe-cart-container" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="View your shopping cart">
-			<div class="hfe-cart-menu-wrap-default">
-				<span class="count">
-					<?php
-					echo ( ( empty( WC()->cart ) ) ? 0 : WC()->cart->get_cart_contents_count() );
-					?>
-				</span>
-			</div>
-		</a>
-				
 
-	    <?php
-			$fragments['a.hfe-cart-container'] = ob_get_clean();
+		
+
+	    ob_start();
+	    
+	    include HFE_DIR . '/inc/widgets-manager/widgets/class-cart.php';
+	    $name = get_option( 'hfe_cart_widget' );
+	    
+		\HFE\WidgetsManager\Widgets\Cart::get_cart_link( $name );
+					    
+		$fragments['body:not(.elementor-editor-active) a.hfe-cart-container'] = ob_get_clean();
+
 	    return $fragments;
 	}
 }
