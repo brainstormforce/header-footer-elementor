@@ -57,6 +57,7 @@ class Widgets_Loader {
 		// Add svg support.
 		add_filter( 'upload_mimes', [ $this, 'hfe_svg_mime_types' ] );
 
+		// Refresh the cart fragments.
 		add_filter( 'woocommerce_add_to_cart_fragments', [ $this, 'wc_refresh_mini_cart_count' ] );
 	}
 
@@ -188,16 +189,15 @@ class Widgets_Loader {
 		}
 	}
 
-	function wc_refresh_mini_cart_count($fragments){
-
-		
+	public function wc_refresh_mini_cart_count( $fragments ){
 
 	    ob_start();
 	    
 	    include HFE_DIR . '/inc/widgets-manager/widgets/class-cart.php';
-	    $name = get_option( 'hfe_cart_widget' );
+
+	    $cart_type = get_option( 'hfe_cart_widget_type' );
 	    
-		\HFE\WidgetsManager\Widgets\Cart::get_cart_link( $name );
+		\HFE\WidgetsManager\Widgets\Cart::get_cart_link( $cart_type );
 					    
 		$fragments['body:not(.elementor-editor-active) a.hfe-cart-container'] = ob_get_clean();
 
