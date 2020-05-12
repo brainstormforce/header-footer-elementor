@@ -189,19 +189,28 @@ class Widgets_Loader {
 		}
 	}
 
-	public function wc_refresh_mini_cart_count( $fragments ){
+	/**
+	 * Cart Fragments.
+	 *
+	 * Refresh the cart fragments.
+	 *
+	 * @since x.x.x
+	 * @param array $fragments Array of fragments.
+	 * @access public
+	 */
+	public function wc_refresh_mini_cart_count( $fragments ) {
 
-	    ob_start();
-	    
-	    include HFE_DIR . '/inc/widgets-manager/widgets/class-cart.php';
+		ob_start();
 
-	    $cart_type = get_option( 'hfe_cart_widget_type' );
-	    
+		include HFE_DIR . '/inc/widgets-manager/widgets/class-cart.php';
+
+		$cart_type = get_option( 'hfe_cart_widget_type' );
+
 		\HFE\WidgetsManager\Widgets\Cart::get_cart_link( $cart_type );
-					    
+
 		$fragments['body:not(.elementor-editor-active) a.hfe-cart-container'] = ob_get_clean();
 
-	    return $fragments;
+		return $fragments;
 	}
 }
 

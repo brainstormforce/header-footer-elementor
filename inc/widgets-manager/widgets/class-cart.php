@@ -548,30 +548,37 @@ class Cart extends Widget_Base {
 		$this->end_controls_section();
 	}
 
-	public static function get_cart_link ( $type ){
-		if ( 'default' === $type ) { ?>
+	/**
+	 * Fetch the cart layout.
+	 *
+	 * @since x.x.x
+	 * @param string $cart_type Menu Cart type.
+	 * @access public
+	 */
+	public static function get_cart_link( $cart_type ) {
+		if ( null === WC()->cart ) {
+			return;
+		}
+		if ( 'default' === $cart_type ) { ?>
 			<a class="hfe-cart-container" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="View your shopping cart">
 				<div class="hfe-cart-menu-wrap-default">
 					<span class="count">
-						<?php
-						echo ( ( empty( WC()->cart ) ) ? 0 : WC()->cart->get_cart_contents_count() );
-						?>
+						<?php echo WC()->cart->get_cart_contents_count(); ?>
 					</span>
 				</div>
 			</a>
-			<?php } else { ?> 
+		<?php } else { ?> 
 			<a id="hfe-menu-cart__toggle_button" href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="elementor-button hfe-cart-container">
 				<span class="elementor-button-text">
-					<?php
-					echo ( ( empty( WC()->cart ) ) ? 0 : WC()->cart->get_cart_subtotal() );
-					?>
+					<?php echo WC()->cart->get_cart_subtotal(); ?>
 				</span>
-				<span class="elementor-button-icon" data-counter="<?php echo ( ( empty( WC()->cart ) ) ? 0 : WC()->cart->get_cart_contents_count() ); ?>">
+				<span class="elementor-button-icon" data-counter="<?php echo WC()->cart->get_cart_contents_count() ); ?>">
 					<i class="eicon" aria-hidden="true"></i>
 					<span class="elementor-screen-only"><?php _e( 'Cart', 'header-footer-elementor' ); ?></span>
 				</span>
 			</a>	
-		<?php } 	
+			<?php
+		}
 	}
 
 	/**
@@ -584,7 +591,7 @@ class Cart extends Widget_Base {
 	 */
 	protected function render() {
 
-		$settings = $this->get_settings_for_display();
+		$settings  = $this->get_settings_for_display();
 		$cart_type = $settings['hfe_cart_type'];
 		update_option( 'hfe_cart_widget_type', $cart_type );
 		?>
@@ -592,10 +599,12 @@ class Cart extends Widget_Base {
 		<div class="hfe-masthead-custom-menu-items woocommerce-custom-menu-item">
 			<div id="hfe-site-header-cart" class="hfe-site-header-cart hfe-menu-cart-with-border">
 				<div class="hfe-site-header-cart-li current-menu-item">
-				<?php if ( 'default' === $cart_type ) { 
+				<?php
+				if ( 'default' === $cart_type ) {
 
 					$this->get_cart_link( 'default' );
-				} else { ?>
+				} else {
+					?>
 						<div class="hfe-menu-cart__toggle elementor-button-wrapper">
 							<?php $this->get_cart_link( 'custom' ); ?>
 						</div>
