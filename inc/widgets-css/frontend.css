@@ -1807,8 +1807,6 @@ a.hfe-menu-item.elementor-button {
     background-color: #fff;
 }
 .hfe-search-button-wrapper input[type=search]:focus {
-    width: 100%;
-    /*padding-left: 32px;*/
     color: #000;
     background-color: #fff;
     cursor: auto;
@@ -1928,24 +1926,46 @@ input[type="search"]:focus{
 
 .hfe-search-button-wrapper, 
 .hfe-search-form__container,
-.hfe-search-icon-toggle 
+.hfe-search-icon-toggle,
+.hfe-search-button-wrapper .hfe-search-icon-toggle i,
+.hfe-search-button-wrapper .hfe-search-icon-toggle i:before
 {
     position: relative;
+}
+
+.hfe-search-button-wrapper .hfe-search-icon-toggle .hfe-search-form__input {
+    position: absolute;
+    width: 0;
 }
 
 .hfe-search-icon-toggle {
     width: 100%!important;
 }
 
-.hfe-search-button-wrapper .hfe-search-icon-toggle .hfe-search-form__input{
+.hfe-search-button-wrapper.hfe-input-focus .hfe-search-icon-toggle .hfe-search-form__input{
     position: absolute;
     width: 250px;
     right: 0;
 }
 
-.hfe-search-button-wrapper .hfe-search-icon-toggle i,
-.hfe-search-button-wrapper .hfe-search-icon-toggle i:before {
+.hfe-search-button-wrapper .hfe-search-icon-toggle .focus-visible + i,
+.hfe-search-button-wrapper .hfe-search-icon-toggle .focus-visible + i:before {
     padding: 0;
     position: absolute;
     right: 0;
+}
+
+.hfe-search-button-wrapper {
+    text-align: right;
+}
+
+.hfe-search-icon-toggle .hfe-search-form__input {
+    background-color: transparent;
+}
+
+.hfe-search-layout-text .hfe-search-form__container,
+.hfe-search-layout-icon_text .hfe-search-form__container,
+.hfe-search-layout-text .hfe-search-form__container .hfe-search-form__input,
+.hfe-search-layout-icon_text .hfe-search-form__container .hfe-search-form__input {
+    width: 100%;
 }

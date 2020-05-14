@@ -171,36 +171,6 @@ class Search_Button extends Widget_Base {
 			]
 		);
 
-		$this->add_responsive_control(
-			'button_align',
-			[
-				'label'       => __( 'Alignment', 'header-footer-elementor' ),
-				'type'        => Controls_Manager::CHOOSE,
-				'label_block' => false,
-				'default'     => 'center',
-				'options'     => [
-					'left'   => [
-						'title' => __( 'Left', 'header-footer-elementor' ),
-						'icon'  => 'eicon-h-align-left',
-					],
-					'center' => [
-						'title' => __( 'Center', 'header-footer-elementor' ),
-						'icon'  => 'eicon-h-align-center',
-					],
-					'right'  => [
-						'title' => __( 'Right', 'header-footer-elementor' ),
-						'icon'  => 'eicon-h-align-right',
-					],
-				],
-				'selectors'   => [
-					'{{WRAPPER}} .hfe-search-button-wrapper' => 'text-align: {{VALUE}}',
-				],
-				'condition'   => [
-					'layout' => 'icon',
-				],
-			]
-		);
-
 		$this->end_controls_section();
 	}
 	/**
@@ -227,6 +197,29 @@ class Search_Button extends Widget_Base {
 			]
 		);
 
+		$this->add_responsive_control(
+			'input_icon_size',
+			[
+				'label'     => __( 'Width', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SLIDER,
+				'default'   => [
+					'size' => 250,
+				],
+				'range'     => [
+					'px' => [
+						'min' => 0,
+						'max' => 1500,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .hfe-search-icon-toggle input[type=search]' => 'width: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'layout' => 'icon',
+				],
+			]
+		);
+
 		$this->start_controls_tabs( 'tabs_input_colors' );
 
 		$this->start_controls_tab(
@@ -248,9 +241,6 @@ class Search_Button extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-form__input' => 'color: {{VALUE}}',
 				],
-				'condition' => [
-					'layout!' => 'icon',
-				],
 			]
 		);
 
@@ -266,9 +256,6 @@ class Search_Button extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-form__input::placeholder' => 'color: {{VALUE}}',
 				],
-				'condition' => [
-					'layout!' => 'icon',
-				],
 			]
 		);
 
@@ -279,10 +266,8 @@ class Search_Button extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#ededed',
 				'selectors' => [
-					'{{WRAPPER}} .hfe-search-form__input' => 'background-color: {{VALUE}}',
-				],
-				'condition' => [
-					'layout!' => 'icon',
+					'{{WRAPPER}} .hfe-search-form__input, {{WRAPPER}} .hfe-input-focus .hfe-search-icon-toggle .hfe-search-form__input' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .hfe-search-icon-toggle .hfe-search-form__input' => 'background-color: transparent;'
 				],
 			]
 		);
@@ -309,7 +294,7 @@ class Search_Button extends Widget_Base {
 					'dashed' => __( 'Dashed', 'header-footer-elementor' ),
 				],
 				'selectors'   => [
-					'{{WRAPPER}} .hfe-search-form__container ,{{WRAPPER}} .hfe-search-icon-toggle .hfe-search-form__input' => 'border-style: {{VALUE}};',
+					'{{WRAPPER}} .hfe-search-form__container ,{{WRAPPER}} .hfe-search-icon-toggle .hfe-search-form__input,{{WRAPPER}} .hfe-input-focus .hfe-search-icon-toggle .hfe-search-form__input' => 'border-style: {{VALUE}};',
 				],
 			]
 		);
@@ -328,7 +313,7 @@ class Search_Button extends Widget_Base {
 				],
 				'default'   => '',
 				'selectors' => [
-					'{{WRAPPER}} .hfe-search-form__container, {{WRAPPER}} .hfe-search-icon-toggle .hfe-search-form__input' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .hfe-search-form__container, {{WRAPPER}} .hfe-search-icon-toggle .hfe-search-form__input,{{WRAPPER}} .hfe-input-focus .hfe-search-icon-toggle .hfe-search-form__input' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -350,7 +335,7 @@ class Search_Button extends Widget_Base {
 					'border_style!' => 'none',
 				],
 				'selectors'  => [
-					'{{WRAPPER}} .hfe-search-form__container, {{WRAPPER}} .hfe-search-icon-toggle .hfe-search-form__input' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .hfe-search-form__container, {{WRAPPER}} .hfe-search-icon-toggle .hfe-search-form__input,{{WRAPPER}} .hfe-input-focus .hfe-search-icon-toggle .hfe-search-form__input' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -371,7 +356,7 @@ class Search_Button extends Widget_Base {
 					'unit' => 'px',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .hfe-search-form__container, {{WRAPPER}} .hfe-search-icon-toggle .hfe-search-form__input' => 'border-radius: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .hfe-search-form__container, {{WRAPPER}} .hfe-search-icon-toggle .hfe-search-form__input,{{WRAPPER}} .hfe-input-focus .hfe-search-icon-toggle .hfe-search-form__input' => 'border-radius: {{SIZE}}{{UNIT}}',
 				],
 				'separator' => 'before',
 			]
@@ -410,9 +395,6 @@ class Search_Button extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-form__input:focus::placeholder' => 'color: {{VALUE}}',
 				],
-				'condition' => [
-					'layout!' => 'icon',
-				],
 			]
 		);
 
@@ -424,9 +406,6 @@ class Search_Button extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .hfe-input-focus .hfe-search-form__input:focus,
 					{{WRAPPER}}.hfe-search-layout-icon .hfe-search-icon-toggle .hfe-search-form__input' => 'background-color: {{VALUE}}',
-				],
-				'condition' => [
-					'layout!' => 'icon',
 				],
 			]
 		);
@@ -613,7 +592,7 @@ class Search_Button extends Widget_Base {
 				'label'     => __( 'Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .hfe-search-icon-toggle' => 'color: {{VALUE}}; border-color: {{VALUE}}; fill: {{VALUE}};',
+					'{{WRAPPER}} .hfe-search-icon-toggle i' => 'color: {{VALUE}}; border-color: {{VALUE}}; fill: {{VALUE}};',
 				],
 			]
 		);
@@ -624,7 +603,7 @@ class Search_Button extends Widget_Base {
 				'label'     => __( 'Background Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .hfe-search-icon-toggle .hfe-search-form__input' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .hfe-search-icon-toggle i' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
@@ -644,7 +623,7 @@ class Search_Button extends Widget_Base {
 				'label'     => __( 'Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .hfe-search-icon-toggle:hover' => 'color: {{VALUE}}; border-color: {{VALUE}}',
+					'{{WRAPPER}} .hfe-search-icon-toggle i:hover' => 'color: {{VALUE}}; border-color: {{VALUE}}',
 				],
 			]
 		);
@@ -655,7 +634,7 @@ class Search_Button extends Widget_Base {
 				'label'     => __( 'Background Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .hfe-search-icon-toggle:hover .hfe-search-form__input' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .hfe-search-icon-toggle i:hover' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
@@ -673,9 +652,10 @@ class Search_Button extends Widget_Base {
 					'size' => 15,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .hfe-search-icon-toggle input[type=search]' => 'padding: 0 calc( {{SIZE}}{{UNIT}} / 4);',
+					'{{WRAPPER}} .hfe-search-icon-toggle input[type=search]' => 'padding: calc( {{SIZE}}{{UNIT}} / 4);',
 					'{{WRAPPER}} .hfe-search-icon-toggle i.fa-search:before' => 'font-size: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .hfe-search-icon-toggle i.fa-search,{{WRAPPER}} .hfe-search-icon-toggle' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .hfe-search-icon-toggle i.fa-search, {{WRAPPER}} .hfe-search-icon-toggle' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .hfe-search-icon-toggle input[type=search]' => 'height: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'layout' => 'icon',
@@ -692,6 +672,9 @@ class Search_Button extends Widget_Base {
 			[
 				'label'     => __( 'Close Icon', 'header-footer-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'layout!' => 'icon'
+				]
 			]
 		);
 
@@ -708,7 +691,7 @@ class Search_Button extends Widget_Base {
 				],
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-form__container button#clear i:before,
-					{{WRAPPER}} .hfe-search-icon-toggle button#clear i:before
+					{{WRAPPER}} .hfe-search-icon-toggle button#clear i:before,
 				{{WRAPPER}} .hfe-search-form__container button#clear-with-button i:before' => 'font-size: {{SIZE}}{{UNIT}};'
 				],
 				
