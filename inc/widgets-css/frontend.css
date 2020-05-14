@@ -1953,3 +1953,23 @@ input[type="search"]:focus{
     position: relative;
     width: 100%;
 }
+
+.hfe-search-icon-toggle i:before {
+    position: relative;
+    top: unset;
+    left: unset;
+}
+
+.hfe-search-icon-toggle i {
+    padding: 9px 0px;
+}
+
+.hfe-search-button-wrapper.hfe-input-focus .hfe-search-icon-toggle i:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.hfe-search-button-wrapper.hfe-input-focus .hfe-search-icon-toggle i{
+    padding: 0;
+}
