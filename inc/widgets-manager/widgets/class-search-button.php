@@ -540,6 +540,7 @@ class Search_Button extends Widget_Base {
 					'layout!' => 'icon',
 				],
 				'separator' => 'before',
+				'render_type' => 'template'
 			]
 		);
 
@@ -561,6 +562,7 @@ class Search_Button extends Widget_Base {
 				'condition' => [
 					'layout' => 'icon_text',
 				],
+				'render_type' => 'template'
 			]
 		);
 
