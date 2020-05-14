@@ -9,54 +9,42 @@
 		if ( 'undefined' == typeof $scope )
 			return;
 
+		var $input = $scope.find( "input" ),
+			$clear = $scope.find( "button#clear" ),
+			$clear_with_button = $scope.find( "button#clear-with-button" ),
+			$search_button = $scope.find( ".hfe-search-submit" );
+
 		$scope.find( '.hfe-search-icon-toggle' ).on( 'click', function( ){
 			$scope.find( ".hfe-search-form__input" ).focus();						
 		});	
 		
-		$scope.find( ".hfe-search-form__input" ).focus(function( ){
+		$scope.find( ".hfe-search-form__input" ).focus( function(){
 			$scope.find( ".hfe-search-button-wrapper" ).addClass( "hfe-input-focus" );
 		});
 
-		$scope.find( ".hfe-search-form__input" ).blur(function() {
+		$scope.find( ".hfe-search-form__input" ).blur( function() {
 			$scope.find( ".hfe-search-button-wrapper" ).removeClass( "hfe-input-focus" );
 		});
-
-		
-		// $('#clear').click(function () {
-		// 	$('input[type="search"]').attr('value','');
-		// });
-
-		// $('#clear_with_button').click(function () {
-		// 	$('input[type="search"]').attr('value','');
-		// });
-
-		$(".hfe-search-form__container").each(function() {
-  
-			var $input = $(this).find("input"),
-				$clear = $(this).find("button#clear"),
-				$clear_with_button = $( this ).find("button#clear-with-button");
-				$search_button = $('.hfe-search-submit');
-		   
-			$input.on("input", function(){
-			  $clear.toggle(!!this.value);
-			});
-			
-			$input.on("input", function(){
-			    $clear_with_button.toggle(!!this.value);
-			});
-
-			$clear.on("touchstart click", function(e) {
-			  e.preventDefault();
-			  $input.val("").trigger("input");
-			});
-
-			$clear_with_button.on("touchstart click", function(e) {
-				e.preventDefault();
-				$input.val("").trigger("input");
-			});
-
-			$clear_with_button.css( 'right', $search_button.outerWidth() + 'px');
+  		   
+		$input.on( "input", function(){
+		  	$clear.toggle( !!this.value );
 		});
+		
+		$input.on( "input", function(){
+		    $clear_with_button.toggle( !!this.value );
+		});
+
+		$clear.on( "touchstart click", function(e) {
+		  	e.preventDefault();
+		  	$input.val("").trigger( "input" );
+		});
+
+		$clear_with_button.on( "touchstart click", function(e) {
+			e.preventDefault();
+			$input.val("").trigger( "input" );
+		});
+
+		$clear_with_button.css( 'right', $search_button.outerWidth() + 'px' );
 	};
 		/**
 	 * Nav Menu handler Function.
