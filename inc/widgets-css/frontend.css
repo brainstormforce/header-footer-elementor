@@ -1768,10 +1768,8 @@ a.hfe-menu-item.elementor-button {
 {
     display: inline-block;
     position: absolute;
-    /*background-color: rgba(0, 0, 0, 0.05);*/
     border-radius: 3px;
-    margin-left: 20px;
-    margin-top: 20px;
+    width: 20px;
 }
 
 .hfe-search-icon-toggle i:before{
@@ -1792,7 +1790,7 @@ a.hfe-menu-item.elementor-button {
 .hfe-search-button-wrapper input[type=search] {
     border: 0;
     padding: 9px 10px 9px 32px;
-    width: 42px;
+   
     padding-left: 10px;
     /* color: transparent; */
     cursor: pointer;
@@ -1810,8 +1808,8 @@ a.hfe-menu-item.elementor-button {
     background-color: #fff;
 }
 .hfe-search-button-wrapper input[type=search]:focus {
-    width: 150px;
-    padding-left: 32px;
+    width: 100%;
+    /*padding-left: 32px;*/
     color: #000;
     background-color: #fff;
     cursor: auto;
@@ -1840,9 +1838,8 @@ input[type="search"]:focus{
 .hfe-search-layout-icon .hfe-search-icon-toggle .hfe-search-form__input {
     background-color: unset;
 }
-
-.hfe-search-icon-toggle{
-    display: inline-block;
+.hfe-search-button-wrapper.hfe-input-focus{
+    display: flex;
 }
 .hfe-search-form__container .hfe-search-submit {
     min-width: 3%;
@@ -1882,7 +1879,8 @@ input[type="search"]:focus{
     user-select: none;
     cursor: pointer;
     bottom:0;
-    background-color: unset;
+    background-color: transparent;
+    color: #7a7a7a;
   }
 /* .hfe-close-icon-yes button#clear {
     background-color: transparent;
@@ -1929,6 +1927,29 @@ input[type="search"]:focus{
 
 .hfe-search-button-wrapper, 
 .hfe-search-form__container,
+.hfe-search-form__input,
+.hfe-search-icon-toggle,
+.hfe-search-icon-toggle i,
 .hfe-search-form__input {
     position: relative;
+}
+
+.hfe-search-icon-toggle {
+    display: inline-block;
+    width: 50px;
+}
+
+.hfe-search-button-wrapper.hfe-input-focus .hfe-search-icon-toggle {
+    display: flex;
+    width: 100%;
+}
+
+.hfe-search-icon-toggle .hfe-search-form__input{
+   position: absolute;
+   width: 50px;
+}
+
+.hfe-search-button-wrapper.hfe-input-focus .hfe-search-icon-toggle .hfe-search-form__input{
+    position: relative;
+    width: 100%;
 }

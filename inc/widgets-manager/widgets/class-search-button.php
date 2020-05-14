@@ -683,26 +683,26 @@ class Search_Button extends Widget_Base {
 
 		$this->end_controls_tabs();
 
-		$this->add_control(
-			'toggle_icon_size',
-			[
-				'label'     => __( 'Icon Size', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::SLIDER,
-				'default'   => [
-					'size' => 15,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .hfe-search-icon-toggle i' => 'margin-top: {{SIZE}}{{UNIT}}; margin-left: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .hfe-search-icon-toggle input[type=search]' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}; padding: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .hfe-search-icon-toggle input[type=search]:focus' => 'width: calc( {{SIZE}}{{UNIT}} * 8 );padding-left: calc( {{SIZE}}{{UNIT}} + 15{{UNIT}} );',
-					'{{WRAPPER}} .hfe-search-icon-toggle i:before' => 'font-size: {{SIZE}}{{UNIT}};',
-				],
-				'condition' => [
-					'layout' => 'icon',
-				],
-				'separator' => 'before',
-			]
-		);
+		// $this->add_control(
+		// 	'toggle_icon_size',
+		// 	[
+		// 		'label'     => __( 'Icon Size', 'header-footer-elementor' ),
+		// 		'type'      => Controls_Manager::SLIDER,
+		// 		'default'   => [
+		// 			'size' => 15,
+		// 		],
+		// 		'selectors' => [
+		// 			'{{WRAPPER}} .hfe-search-icon-toggle i' => 'margin-top: {{SIZE}}{{UNIT}}; margin-left: {{SIZE}}{{UNIT}};',
+		// 			'{{WRAPPER}} .hfe-search-icon-toggle input[type=search]' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}; padding: {{SIZE}}{{UNIT}};',
+		// 			'{{WRAPPER}} .hfe-search-icon-toggle input[type=search]:focus' => 'width: calc( {{SIZE}}{{UNIT}} * 8 );padding-left: calc( {{SIZE}}{{UNIT}} + 15{{UNIT}} );',
+		// 			'{{WRAPPER}} .hfe-search-icon-toggle i:before' => 'font-size: {{SIZE}}{{UNIT}};',
+		// 		],
+		// 		'condition' => [
+		// 			'layout' => 'icon',
+		// 		],
+		// 		'separator' => 'before',
+		// 	]
+		// );
 
 		$this->end_controls_section();
 
