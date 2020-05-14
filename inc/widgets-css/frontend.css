@@ -1776,10 +1776,6 @@ a.hfe-menu-item.elementor-button {
 }
 
 .hfe-search-icon-toggle i:before{
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top:50%;
-    left: 50%;
     font-size: 20px;
 }
 /*search icon toggle css*/
@@ -1932,45 +1928,24 @@ input[type="search"]:focus{
 
 .hfe-search-button-wrapper, 
 .hfe-search-form__container,
-.hfe-search-form__input,
-.hfe-search-icon-toggle,
-.hfe-search-icon-toggle i,
-.hfe-search-form__input {
+.hfe-search-icon-toggle 
+{
     position: relative;
 }
 
 .hfe-search-icon-toggle {
-    display: inline-block;
-    width: 50px;
-}
-
-.hfe-search-button-wrapper.hfe-input-focus .hfe-search-icon-toggle {
-    display: flex;
     width: 100%!important;
 }
 
-.hfe-search-icon-toggle .hfe-search-form__input{
-   position: absolute;
-   width: 0px;
-}
-
-.hfe-search-button-wrapper.hfe-input-focus .hfe-search-icon-toggle .hfe-search-form__input{
+.hfe-search-button-wrapper .hfe-search-icon-toggle .hfe-search-form__input{
     position: absolute;
-    left: 100%;
     width: 250px;
-    margin-left: 10px;
+    right: 0;
 }
 
-.hfe-search-icon-toggle i:before {
-    position: relative;
-    top: unset;
-    left: unset;
-}
-
-.hfe-search-button-wrapper.hfe-input-focus .hfe-search-icon-toggle i:before {
-    position: relative;   
-}
-
-.hfe-search-button-wrapper.hfe-input-focus .hfe-search-icon-toggle i{
+.hfe-search-button-wrapper .hfe-search-icon-toggle i,
+.hfe-search-button-wrapper .hfe-search-icon-toggle i:before {
     padding: 0;
+    position: absolute;
+    right: 0;
 }
