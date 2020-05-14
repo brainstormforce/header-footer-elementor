@@ -1874,16 +1874,15 @@ input[type="search"]:focus{
 
   .hfe-search-form__container button#clear-with-button{
     display: none;
-    position: relative;
-    right: 0; 
-    /* margin-right:; */
-    top:0;
+    position: absolute;
+    top: 0;
     padding: 0 8px;
     font-style: normal;
     font-size: 1.2em;
     user-select: none;
     cursor: pointer;
     bottom:0;
+    background-color: unset;
   }
 /* .hfe-close-icon-yes button#clear {
     background-color: transparent;
@@ -1927,3 +1926,9 @@ input[type="search"]:focus{
 	font-size: 12px;
 	cursor: pointer;
 } */
+
+.hfe-search-button-wrapper, 
+.hfe-search-form__container,
+.hfe-search-form__input {
+    position: relative;
+}

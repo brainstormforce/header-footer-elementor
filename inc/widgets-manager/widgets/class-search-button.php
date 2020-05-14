@@ -163,11 +163,11 @@ class Search_Button extends Widget_Base {
 					'{{WRAPPER}} .hfe-search-form__container' => 'min-height: {{SIZE}}{{UNIT}}',
 					'{{WRAPPER}} .hfe-search-submit'      => 'min-width: {{SIZE}}{{UNIT}}',
 					'{{WRAPPER}} .hfe-search-form__input' => 'padding-left: calc({{SIZE}}{{UNIT}} / 5); padding-right: calc({{SIZE}}{{UNIT}} / 5)',
-					// '{{WRAPPER}} .hfe-close-icon-yes button#clear_with_button' => 'right: calc({{SIZE}}{{UNIT}} / 5);'
 				],
 				'condition' => [
 					'layout!' => 'icon',
 				],
+				'render_type' => 'template'
 			]
 		);
 

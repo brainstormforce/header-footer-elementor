@@ -35,6 +35,7 @@
 			var $input = $(this).find("input"),
 				$clear = $(this).find("button#clear"),
 				$clear_with_button = $( this ).find("button#clear-with-button");
+				$search_button = $('.hfe-search-submit');
 		   
 			$input.on("input", function(){
 			  $clear.toggle(!!this.value);
@@ -53,6 +54,8 @@
 				e.preventDefault();
 				$input.val("").trigger("input");
 			});
+
+			$clear_with_button.css( 'right', $search_button.outerWidth() + 'px');
 		});
 	};
 		/**
