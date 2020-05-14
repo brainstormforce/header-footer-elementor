@@ -1946,7 +1946,7 @@ input[type="search"]:focus{
 
 .hfe-search-icon-toggle .hfe-search-form__input{
    position: absolute;
-   width: 50px;
+   width: 0px;
 }
 
 .hfe-search-button-wrapper.hfe-input-focus .hfe-search-icon-toggle .hfe-search-form__input{
