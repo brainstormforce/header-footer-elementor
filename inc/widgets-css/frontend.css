@@ -1764,9 +1764,12 @@ a.hfe-menu-item.elementor-button {
     color: #494c4f;
 }
 
+.hfe-search-icon-toggle i.fa-search {
+    display: inline-block;
+}
+
 .hfe-search-icon-toggle i
 {
-    display: inline-block;
     position: absolute;
     border-radius: 3px;
     width: 20px;
@@ -1853,10 +1856,12 @@ input[type="search"]:focus{
     /* display:inline-block; */
 }
 
-.hfe-search-form__container button#clear{
+.hfe-search-form__container button#clear,
+.hfe-search-icon-toggle button#clear{
     display: none;
     position: absolute;
-    right:0; top:0;
+    right:0; 
+    top:0;
     padding: 0 8px;
     font-style: normal;
     font-size: 1.2em;

@@ -24,6 +24,7 @@
 
 		$scope.find( ".hfe-search-form__input" ).blur( function() {
 			$scope.find( ".hfe-search-button-wrapper" ).removeClass( "hfe-input-focus" );
+			$clear.hide();
 		});
   		   
 		$input.on( "input", function(){

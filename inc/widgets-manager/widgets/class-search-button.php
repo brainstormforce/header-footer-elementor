@@ -201,25 +201,6 @@ class Search_Button extends Widget_Base {
 			]
 		);
 
-
-		// $this->add_control(
-		// 	'close_icon_switcher',
-		// 	array(
-		// 		'label'       => __( 'Close Icon', 'header-footer-elementor' ),
-		// 		'type'        => Controls_Manager::SWITCHER,
-		// 		'label_on'    => __( 'Yes', 'header-footer-elementor' ),
-		// 		'label_off'   => __( 'No', 'header-footer-elementor' ),
-		// 		'default'     => 'yes',
-		// 		'description' => 'Enable this option to display the close icon',
-		// 		'condition' => [
-		// 			'layout!' => 'icon',
-		// 		]
-		// 	)
-		// );
-
-
-
-
 		$this->end_controls_section();
 	}
 	/**
@@ -693,8 +674,8 @@ class Search_Button extends Widget_Base {
 				],
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-icon-toggle input[type=search]' => 'padding: 0 calc( {{SIZE}}{{UNIT}} / 4);',
-					'{{WRAPPER}} .hfe-search-icon-toggle i:before' => 'font-size: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .hfe-search-icon-toggle i,{{WRAPPER}} .hfe-search-icon-toggle' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .hfe-search-icon-toggle i.fa-search:before' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .hfe-search-icon-toggle i.fa-search,{{WRAPPER}} .hfe-search-icon-toggle' => 'width: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'layout' => 'icon',
@@ -726,8 +707,9 @@ class Search_Button extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .hfe-search-form__container button#clear,
-				{{WRAPPER}} .hfe-search-form__container button#clear-with-button' => 'font-size: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .hfe-search-form__container button#clear i:before,
+					{{WRAPPER}} .hfe-search-icon-toggle button#clear i:before
+				{{WRAPPER}} .hfe-search-form__container button#clear-with-button i:before' => 'font-size: {{SIZE}}{{UNIT}};'
 				],
 				
 			]
@@ -752,7 +734,8 @@ class Search_Button extends Widget_Base {
 				],
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-form__container button#clear-with-button,
-					{{WRAPPER}} .hfe-search-form__container button#clear' => 'color: {{VALUE}}',
+					{{WRAPPER}} .hfe-search-form__container button#clear,
+					{{WRAPPER}} .hfe-search-icon-toggle button#clear' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -772,8 +755,8 @@ class Search_Button extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-form__container button#clear-with-button:hover,
-					{{WRAPPER}} .hfe-search-form__container button#clear:hover
-					' => 'color: {{VALUE}}',
+					{{WRAPPER}} .hfe-search-form__container button#clear:hover,
+					{{WRAPPER}} .hfe-search-icon-toggle button#clear:hover' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -826,27 +809,25 @@ class Search_Button extends Widget_Base {
 			<div class = "hfe-search-icon-toggle">
 				<i class="fas fa-search" aria-hidden="true"></i>
 				<input <?php echo $this->get_render_attribute_string( 'input' ); ?>>
+				<button id="clear" type="reset">
+					<i class="fas fa-times clearable__clear" aria-hidden="true"></i>
+				</button>
 			</div>
 			<?php } else { ?>
 			<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'container' ) ); ?>>
 				<?php if ( 'text' === $settings['layout'] ) { ?>
 					<input <?php echo $this->get_render_attribute_string( 'input' ); ?>>
-					<?php //if( $settings['close_icon_switcher'] == 'yes') { ?>
 						<button id="clear" type="reset">
-							<!-- <i class="fas fa-times" aria-hidden="true"></i> -->
 							<i class="fas fa-times clearable__clear" aria-hidden="true"></i>
 						</button>
-					<?php//  } ?>
 				<?php } else { ?>
 					<input <?php echo $this->get_render_attribute_string( 'input' ); ?>>
-					<?php //if( $settings['close_icon_switcher'] == 'yes') { ?>
 					<button id="clear-with-button" type="reset">
 						<i class="fas fa-times" aria-hidden="true"></i>
 					</button>
-					<?php //} ?>
-							<button class="hfe-search-submit" type="submit">
-								<i class="fas fa-search" aria-hidden="true"></i>
-							</button>
+					<button class="hfe-search-submit" type="submit">
+						<i class="fas fa-search" aria-hidden="true"></i>
+					</button>
 				<?php } ?>
 			</div>
 		<?php } ?>
