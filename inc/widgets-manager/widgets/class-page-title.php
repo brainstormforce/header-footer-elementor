@@ -392,6 +392,7 @@ class Page_Title extends Widget_Base {
 	 * @access protected
 	 */
 	protected function render() {
+
 		$settings = $this->get_settings_for_display();
 
 		$this->add_inline_editing_attributes( 'page_title', 'basic' );
@@ -410,8 +411,13 @@ class Page_Title extends Widget_Base {
 		}
 		?>		
 		<div class="hfe-page-title hfe-page-title-wrapper elementor-widget-heading">
-			<?php if ( '' != $settings['page_heading_link']['url'] && 'custom' === $settings['page_custom_link'] ) { ?>
-						<a <?php echo esc_attr( $link ); ?> >
+
+		<?php
+		$head_link_url    = isset( $settings['page_heading_link']['url'] ) ? $settings['page_heading_link']['url'] : '';
+		$head_custom_link = isset( $settings['page_custom_link'] ) ? $settings['page_custom_link'] : '';
+		?>
+			<?php if ( '' != $head_link_url && 'custom' === $head_custom_link ) { ?>
+						<a <?php echo $link; ?> >
 			<?php } else { ?>
 						<a href="<?php echo esc_url( get_home_url() ); ?>">
 			<?php } ?>
@@ -422,17 +428,24 @@ class Page_Title extends Widget_Base {
 				<?php } ?>				
 				<?php if ( '' != $settings['before'] ) { ?>
 					<?php echo wp_kses_post( $settings['before'] ); ?>
-				<?php } ?>
+					<?php
+				}
 
-				<?php echo wp_kses_post( get_the_title() ); ?>
+				if ( is_archive() || is_home() ) {
+					echo wp_kses_post( get_the_archive_title() );
+				} else {
+					echo wp_kses_post( get_the_title() );
+				}
 
-				<?php if ( '' != $settings['after'] ) { ?>
+				if ( '' != $settings['after'] ) {
+					?>
 					<?php echo wp_kses_post( $settings['after'] ); ?>
 				<?php } ?>  
 			</<?php echo wp_kses_post( $settings['heading_tag'] ); ?> > 
 			</a>    
 		</div>
 		<?php
+
 	}
 
 	/**
@@ -444,6 +457,7 @@ class Page_Title extends Widget_Base {
 	 * @access protected
 	 */
 	protected function content_template() {
+
 		?>
 		<#
 		if ( '' == settings.page_title ) {
@@ -468,7 +482,13 @@ class Page_Title extends Widget_Base {
 					<# if ( '' != settings.before ) { #>
 						{{{ settings.before }}}
 					<# } #>
-				<?php echo wp_kses_post( get_the_title() ); ?>
+					<?php
+					if ( is_archive() || is_home() ) {
+						echo wp_kses_post( get_the_archive_title() );
+					} else {
+						echo wp_kses_post( get_the_title() );
+					}
+					?>
 					<# if ( '' != settings.after ) { #>
 						{{{ settings.after }}}
 					<# } #>				

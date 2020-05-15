@@ -137,6 +137,11 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 
+= 1.5.0 =
+- Fix: GeneratePress theme header now overriden by EHF.
+- Fix: Cart - Count not increasing with AJAX call.
+- Fix: Page Title - Added support for archive title.
+
 = 1.4.1 =
 - Fix: EHF header overlapping Astra WooCommerce Off-Canvas.
 - Fix: WooCommerce Menu Cart - 'div' tag of custom cart layout was not closed.
