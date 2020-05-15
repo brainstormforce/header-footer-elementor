@@ -138,6 +138,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 == Changelog ==
 
 = 1.5.0 =
+- New: Search Form widget.
 - Fix: GeneratePress theme header now overriden by EHF.
 - Fix: Page Title - Added support for archive title.
 
