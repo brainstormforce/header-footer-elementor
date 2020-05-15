@@ -1,4 +1,4 @@
-# Elementor - Header, Footer & Blocks Template#
+# Elementor - Header, Footer & Blocks Template #
 **Contributors:** [brainstormforce](https://profiles.wordpress.org/brainstormforce), [Nikschavan](https://profiles.wordpress.org/Nikschavan)  
 **Tags:** Elementor, header footer builder, header template, footer template, Elementor widget, WordPress header, WordPress footer, elementor menu, website header design, footer design, blocks  
 **Donate link:** https://www.paypal.me/BrainstormForce  
@@ -129,7 +129,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 ## Screenshots ##
 
-1. Go to Appearance -> Elementor - Header Footer & Blocks Template to create a new template.
+1. Go to Appearance -> Header Footer & Blocks to create a new template.
 2. Assign template to be a header/footer and select display rules. 
 3. Copy shortcode for Custom Blocks. 
 4. Methods to add Theme Support.
