@@ -63,7 +63,7 @@ In case you face any difficulty displaying header/footer, manually choose the th
 
 ### STEPS TO USE THE PLUGIN ###
 
-Step 1 - Visit Appearance > Elementor - Header Footer & Blocks Template and click on the ‘Add New’.
+Step 1 - Visit Appearance > Header Footer & Blocks and click on the ‘Add New’.
 
 Step 2 - Select ‘Type of Template’ (header/footer/block). Set its display location and user roles.
 
@@ -100,16 +100,16 @@ Made with love at [Brainstorm Force](https://www.brainstormforce.com/?utm_source
 
 ## Installation ##
 
-1. Go to `Plugins -> Add New` and search for Elementor – Header, Footer & Blocks.
+1. Go to `Plugins -> Add New` and search for Elementor – Header, Footer & Blocks Template.
 2. Activate the plugin through the 'Plugins' screen in WordPress.
-3. Go to `Appearance -> Header Footer Builder` to build a header or footer layout using Elementor.
+3. Go to `Appearance -> Header Footer & Blocks` to build a header or footer layout using Elementor.
 4. After the layout is ready assign it as header or footer using the option `Select the type of template this is` (<a href="https://cloudup.com/clK2sPg9nXK+">screenshot</a>)
 
 ## Frequently Asked Questions ##
 
 ### How Does This Plugin Work? ###
 
-1. Go to Appearance -> Header Footer Builder to build a header or footer layout using Elementor.
+1. Go to Appearance -> Header Footer & Blocks to build a header or footer layout using Elementor.
 2. Click on “Add New” and design a template with Elementor. 
 3. Once the template is ready, set is as a header/footer/block using options “Type of Template” (<a href="https://share.getcloudapp.com/geurz2JR">screenshot</a>).
 4.
@@ -122,7 +122,7 @@ Made with love at [Brainstorm Force](https://www.brainstormforce.com/?utm_source
 
 Yes, You can create the mobile responsive layout of your header using the plugin.  
 
-The Elementor – Header, Footer & Blocks plugin just gives you a container where you can completely design the header using Elementor Page Builder, So the process of creating the mobile responsive layout is exactly the same as you would create a responsive layout of your other Elementor page.
+The Elementor – Header, Footer & Blocks Template plugin just gives you a container where you can completely design the header using Elementor Page Builder, So the process of creating the mobile responsive layout is exactly the same as you would create a responsive layout of your other Elementor page.
 
 Here is a documentation by Elementor Page builder which explains how you can create mobile responsive layouts using Elementor - [https://elementor.com/introducing-mobile-editing/](https://elementor.com/introducing-mobile-editing/)
 This same applies when you are creating your Header/Footer using this plugin.
