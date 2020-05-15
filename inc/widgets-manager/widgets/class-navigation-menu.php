@@ -1178,7 +1178,7 @@ class Navigation_Menu extends Widget_Base {
 						'type'                  => Controls_Manager::COLOR,
 						'default'               => '',
 						'selectors'             => [
-							'{{WRAPPER}} .hfe-nav-menu .current-menu-item.page_item.current_page_item a.hfe-sub-menu-item' => 'color: {{VALUE}}',
+							'{{WRAPPER}} .hfe-nav-menu .menu-item.current-menu-ancestor .hfe-has-submenu-container a.hfe-menu-item' => 'color: {{VALUE}}',
 
 						],
 					]
@@ -1191,7 +1191,7 @@ class Navigation_Menu extends Widget_Base {
 						'type'                  => Controls_Manager::COLOR,
 						'default'               => '',
 						'selectors'             => [
-							'{{WRAPPER}} .hfe-nav-menu .current-menu-item.page_item.current_page_item a.hfe-sub-menu-item' => 'background-color: {{VALUE}}',
+							'{{WRAPPER}} .hfe-nav-menu .menu-item.current-menu-ancestor .hfe-has-submenu-container a.hfe-menu-item' => 'background-color: {{VALUE}}',
 						],
 					]
 				);
