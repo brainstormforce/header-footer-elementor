@@ -29,20 +29,16 @@
   		   
 		$input.on( "input", function(){
 		  	$clear.toggle( !!this.value );
-		});
-		
-		$input.on( "input", function(){
-		    $clear_with_button.toggle( !!this.value );
+		  	$clear_with_button.toggle( !!this.value );
 		});
 
-		$clear.on( "touchstart click", function(e) {
-		  	e.preventDefault();
-		  	$input.val("").trigger( "input" );
+		$search_button.on( 'touchstart click', function(){
+			$input.submit();
 		});
 
-		$clear_with_button.on( "touchstart click", function(e) {
+		$( document ).on( 'touchstart click', 'button#clear, button#clear-with-button', function( e ){
 			e.preventDefault();
-			$input.val("").trigger( "input" );
+			$input.val("").trigger( "input" );			
 		});
 
 		$clear_with_button.css( 'right', $search_button.outerWidth() + 'px' );
