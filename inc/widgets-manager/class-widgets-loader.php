@@ -66,7 +66,7 @@ class Widgets_Loader {
 	 */
 	public static function get_widget_script() {
 		$js_files = [
-			'hfe-nav-menu' => [
+			'hfe-frontend-js' => [
 				'path'      => 'inc/js/frontend.js',
 				'dep'       => [ 'jquery' ],
 				'in_footer' => true,

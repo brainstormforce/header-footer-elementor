@@ -90,13 +90,13 @@ class Search_Button extends Widget_Base {
 	 *
 	 * Used to set scripts dependencies required to run the widget.
 	 *
-	 * @since 1.3.0
+	 * @since x.x.x
 	 * @access public
 	 *
 	 * @return array Widget scripts dependencies.
 	 */
 	public function get_script_depends() {
-		return [ 'hfe-nav-menu' ];
+		return [ 'hfe-frontend-js' ];
 	}
 
 	/**
@@ -110,7 +110,7 @@ class Search_Button extends Widget_Base {
 		$this->register_search_style_controls();
 	}
 	/**
-	 * Register Archive Title General Controls.
+	 * Register Search General Controls.
 	 *
 	 * @since x.x.x
 	 * @access protected
@@ -174,7 +174,7 @@ class Search_Button extends Widget_Base {
 		$this->end_controls_section();
 	}
 	/**
-	 * Register Archive Title Style Controls.
+	 * Register Search Style Controls.
 	 *
 	 * @since x.x.x
 	 * @access protected
