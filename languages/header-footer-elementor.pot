@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Elementor - Header, Footer & Blocks 1.4.1\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/header-footer-elementor\n"
-"POT-Creation-Date: 2020-04-15 09:38:00+00:00\n"
+"POT-Creation-Date: 2020-05-15 11:30:15+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -34,7 +34,7 @@ msgid "Date"
 msgstr ""
 
 #: admin/class-hfe-admin.php:220 admin/class-hfe-admin.php:222
-msgid "Header Footer & Blocks Template"
+msgid "Elementor - Header Footer & Blocks Template"
 msgstr ""
 
 #: admin/class-hfe-admin.php:221 admin/class-hfe-admin.php:223
@@ -46,7 +46,7 @@ msgid "Add New"
 msgstr ""
 
 #: admin/class-hfe-admin.php:225
-msgid "Add New Header Footer or Block"
+msgid "Add New Header, Footer or Block"
 msgstr ""
 
 #: admin/class-hfe-admin.php:226
@@ -82,11 +82,11 @@ msgid "No Header Footer & Blocks Templates found in Trash."
 msgstr ""
 
 #: admin/class-hfe-admin.php:262 admin/class-hfe-admin.php:263
-msgid "Header Footer & Blocks Builder"
+msgid "Header Footer & Blocks"
 msgstr ""
 
 #: admin/class-hfe-admin.php:275
-msgid "Elementor Header Footer & Block Options"
+msgid "Elementor - Header Footer & Block Options"
 msgstr ""
 
 #: admin/class-hfe-admin.php:303
@@ -378,12 +378,12 @@ msgstr ""
 msgid "The same display setting is already exist in %s post/s."
 msgstr ""
 
-#: inc/widgets-manager/class-widgets-loader.php:151
+#: inc/widgets-manager/class-widgets-loader.php:156
 msgid "Header, Footer & Blocks"
 msgstr ""
 
 #: inc/widgets-manager/widgets/class-cart.php:53
-#: inc/widgets-manager/widgets/class-cart.php:592
+#: inc/widgets-manager/widgets/class-cart.php:577
 msgid "Cart"
 msgstr ""
 
@@ -1281,13 +1281,16 @@ msgid "Elementor - Header, Footer & Blocks "
 msgstr ""
 
 #: themes/default/class-hfe-fallback-theme-support.php:172
-#: themes/default/class-hfe-fallback-theme-support.php:213
-msgid "All templates"
+msgid "All Templates"
 msgstr ""
 
 #: themes/default/class-hfe-fallback-theme-support.php:176
 #: themes/default/class-hfe-fallback-theme-support.php:217
 msgid "Theme Support"
+msgstr ""
+
+#: themes/default/class-hfe-fallback-theme-support.php:213
+msgid "All templates"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
