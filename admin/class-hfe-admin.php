@@ -222,7 +222,7 @@ class HFE_Admin {
 			'menu_name'          => __( 'Elementor - Header Footer & Blocks Template', 'header-footer-elementor' ),
 			'name_admin_bar'     => __( 'Elementor Header Footer & Blocks', 'header-footer-elementor' ),
 			'add_new'            => __( 'Add New', 'header-footer-elementor' ),
-			'add_new_item'       => __( 'Add New Header Footer or Block', 'header-footer-elementor' ),
+			'add_new_item'       => __( 'Add New Header, Footer or Block', 'header-footer-elementor' ),
 			'new_item'           => __( 'New Header Footer & Blocks Template', 'header-footer-elementor' ),
 			'edit_item'          => __( 'Edit Header Footer & Blocks Template', 'header-footer-elementor' ),
 			'view_item'          => __( 'View Header Footer & Blocks Template', 'header-footer-elementor' ),
@@ -259,8 +259,8 @@ class HFE_Admin {
 	public function register_admin_menu() {
 		add_submenu_page(
 			'themes.php',
-			__( 'Elementor - Header Footer & Blocks Template', 'header-footer-elementor' ),
-			__( 'Elementor - Header Footer & Blocks Template', 'header-footer-elementor' ),
+			__( 'Header Footer & Blocks', 'header-footer-elementor' ),
+			__( 'Header Footer & Blocks', 'header-footer-elementor' ),
 			'edit_pages',
 			'edit.php?post_type=elementor-hf'
 		);
@@ -272,7 +272,7 @@ class HFE_Admin {
 	function ehf_register_metabox() {
 		add_meta_box(
 			'ehf-meta-box',
-			__( 'Elementor Header Footer & Block Options', 'header-footer-elementor' ),
+			__( 'Elementor - Header Footer & Block Options', 'header-footer-elementor' ),
 			[
 				$this,
 				'efh_metabox_render',
