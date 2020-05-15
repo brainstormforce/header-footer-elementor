@@ -1,6 +1,6 @@
 # Elementor - Header, Footer & Blocks Template #
 **Contributors:** [brainstormforce](https://profiles.wordpress.org/brainstormforce), [Nikschavan](https://profiles.wordpress.org/Nikschavan)  
-**Tags:** Elementor, header footer builder, header template, footer template, Elementor widget, WordPress header, WordPress footer, elementor menu, website header design, footer design, blocks  
+**Tags:** elementor, header footer builder, header template, footer template, elementor widget, WordPress header, WordPress footer, elementor menu, website header design, footer design, blocks  
 **Donate link:** https://www.paypal.me/BrainstormForce  
 **Requires at least:** 4.4  
 **Requires PHP:** 5.4  
@@ -136,6 +136,11 @@ This same applies when you are creating your Header/Footer using this plugin.
 5. Default widgets available with the plugin.
 
 ## Changelog ##
+
+### 1.5.0 ###
+- Fix: GeneratePress theme header now overriden by EHF.
+- Fix: Cart - Count not increasing with AJAX call.
+- Fix: Page Title - Added support for archive title.
 
 ### 1.4.1 ###
 - Fix: EHF header overlapping Astra WooCommerce Off-Canvas.
