@@ -1695,7 +1695,8 @@ a.hfe-menu-item.elementor-button {
 }
 
 .hfe-menu-cart__toggle .elementor-button-text {
-    margin-right: 0.3em; }
+    margin-right: 0.3em; 
+}
 
 .hfe-menu-cart__toggle .elementor-button-icon {
     position: relative;
@@ -1745,7 +1746,11 @@ a.hfe-menu-item.elementor-button {
 /*Search Box CSS*/
 
 .hfe-search-button-wrapper {
-    display: block;    
+    display: block;
+    cursor: pointer;
+    vertical-align: middle;
+    color: #494c4f;
+    text-align: right;
 }
 
 .hfe-search-form__container {
@@ -1757,22 +1762,13 @@ a.hfe-menu-item.elementor-button {
     flex-basis: 100%;
 }
 
-.hfe-search-button-wrapper{
-    display: block;
-    cursor: pointer;
-    vertical-align: middle;
-    color: #494c4f;
-}
-
 .hfe-search-icon-toggle i.fa-search {
     display: inline-block;
-}
-
-.hfe-search-icon-toggle i
-{
     position: absolute;
     border-radius: 3px;
     width: 20px;
+    box-sizing: content-box;
+    padding: 10px;
 }
 
 .hfe-search-icon-toggle i:before{
@@ -1782,19 +1778,14 @@ a.hfe-menu-item.elementor-button {
 
 /*search icon toggle css*/
 
-.hfe-search-button-wrapper input {
-    outline: none;
-}
-
 .hfe-search-button-wrapper input[type=search] {
     border: 0;
-    padding: 9px 10px 9px 32px;
-   
-    padding-left: 10px;
-    /* color: transparent; */
+    padding: 10px;
     cursor: pointer;
     border-radius: 0;
     transition: all .5s;
+    box-sizing: content-box;
+    outline: none;
 }
 
 .hfe-search-button-wrapper button {
@@ -1810,44 +1801,30 @@ a.hfe-menu-item.elementor-button {
     color: #000;
     background-color: #fff;
     cursor: auto;
-}
-.hfe-search-icon-toggle input:-moz-placeholder {
-    color: transparent;
-}
-.hfe-search-icon-toggle input::-webkit-input-placeholder {
-    color: transparent;
-}
-
-input:focus {
     border: none;
-}
-
-input[type="search"]:focus{
     box-shadow: none;
 }
 
-.hfe-search-button-wrapper button {
-    border: none;
-    border-radius: 0;
-    padding: 0;
+.hfe-search-icon-toggle input:-moz-placeholder {
+    color: transparent;
+}
+
+.hfe-search-icon-toggle input::-webkit-input-placeholder {
+    color: transparent;
 }
 
 .hfe-search-layout-icon .hfe-search-icon-toggle .hfe-search-form__input {
     background-color: unset;
 }
-.hfe-search-button-wrapper.hfe-input-focus{
+
+.hfe-search-button-wrapper.hfe-input-focus {
     display: flex;
 }
+
 .hfe-search-form__container .hfe-search-submit {
     min-width: 3%;
     font-size: 16px;
     position:relative;
-}
-
-/* ---------------- */
-.hfe-search-form__container {
-    position: relative;
-    /* display:inline-block; */
 }
 
 .hfe-search-form__container button#clear,
@@ -1865,10 +1842,9 @@ input[type="search"]:focus{
     margin-right:10px;
     background-color: transparent;
     color: #7a7a7a;
-  }
+}
 
-
-  .hfe-search-form__container button#clear-with-button{
+.hfe-search-form__container button#clear-with-button{
     display: none;
     position: absolute;
     top: 0;
@@ -1880,49 +1856,7 @@ input[type="search"]:focus{
     bottom:0;
     background-color: transparent;
     color: #7a7a7a;
-  }
-/* .hfe-close-icon-yes button#clear {
-    background-color: transparent;
-    display: inline-block;
-    vertical-align: middle;
-    outline: 0;
-    cursor: pointer;
-
-    display: block;
-	position: absolute;
-	z-index:1;
-	right: 19px;
-	top: 0;
-	bottom: 0;
-	margin: auto;
-	padding: 2px;
-    text-align: center;
-    color: #7a7a7a;
-	font-size: 12px;
-    cursor: pointer;
 }
-
-.hfe-close-icon-yes button#clear_with_button {
-    background-color: transparent;
-    display: inline-block;
-    vertical-align: middle;
-    outline: 0;
-    cursor: pointer;
-
-    display: block;
-	position: absolute;
-	z-index:1;
-	right: 60px;
-	top: 0;
-	bottom: 0;
-	margin: auto;
-	padding: 2px;
-	border-radius: 50%;
-	text-align: center;
-	color: #7a7a7a;
-	font-size: 12px;
-	cursor: pointer;
-} */
 
 .hfe-search-button-wrapper, 
 .hfe-search-form__container,
@@ -1936,6 +1870,8 @@ input[type="search"]:focus{
 .hfe-search-button-wrapper .hfe-search-icon-toggle .hfe-search-form__input {
     position: absolute;
     width: 0;
+    right: 0;
+    background-color: transparent;
 }
 
 .hfe-search-icon-toggle {
@@ -1946,21 +1882,6 @@ input[type="search"]:focus{
     position: absolute;
     width: 250px;
     right: 0;
-}
-
-.hfe-search-button-wrapper .hfe-search-icon-toggle .focus-visible + i,
-.hfe-search-button-wrapper .hfe-search-icon-toggle .focus-visible + i:before {
-    padding: 0;
-    position: absolute;
-    right: 0;
-}
-
-.hfe-search-button-wrapper {
-    text-align: right;
-}
-
-.hfe-search-icon-toggle .hfe-search-form__input {
-    background-color: transparent;
 }
 
 .hfe-search-layout-text .hfe-search-form__container,
