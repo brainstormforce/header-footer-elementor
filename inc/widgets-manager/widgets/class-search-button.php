@@ -256,6 +256,9 @@ class Search_Button extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-form__input::placeholder' => 'color: {{VALUE}}',
 				],
+				'condition' => [
+					'layout!' => 'icon',
+				],
 			]
 		);
 
@@ -394,6 +397,9 @@ class Search_Button extends Widget_Base {
 				],
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-form__input:focus::placeholder' => 'color: {{VALUE}}',
+				],
+				'condition' => [
+					'layout!' => 'icon',
 				],
 			]
 		);
