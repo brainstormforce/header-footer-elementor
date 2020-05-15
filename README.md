@@ -1,6 +1,6 @@
-# Elementor - Header, Footer & Blocks #
+# Elementor - Header, Footer & Blocks Template#
 **Contributors:** [brainstormforce](https://profiles.wordpress.org/brainstormforce), [Nikschavan](https://profiles.wordpress.org/Nikschavan)  
-**Tags:** Elementor, header footer builder, header template, footer template, Elementor widget, WordPress header, WordPress footer, elementor menu, website header design, footer design  
+**Tags:** Elementor, header footer builder, header template, footer template, Elementor widget, WordPress header, WordPress footer, elementor menu, website header design, footer design, blocks  
 **Donate link:** https://www.paypal.me/BrainstormForce  
 **Requires at least:** 4.4  
 **Requires PHP:** 5.4  
@@ -15,7 +15,7 @@ Create Header, Footer and Blocks for your WordPress website using Elementor Page
 
 Have you ever imagined you could create your website header and footer with <a href="https://elementor.com/?ref=1352">Elementor</a> for FREE?
 
-Elementor -  Header, Footer & Blocks is a simple yet powerful WordPress plugin that allows you to create a layout with Elementor and set it as 
+Elementor -  Header, Footer & Blocks Template is a simple yet powerful WordPress plugin that allows you to create a layout with Elementor and set it as 
 - Header 
 - Footer 
 - Block (anywhere on the website)
@@ -57,9 +57,9 @@ The plugin offers inbuilt widgets that help to create header/footer layouts. The
 
 ### WORKS WITH ALL THEMES ###
 
-Elementor – Header, Footer & Blocks plugin works with all themes. Few of the themes have direct support while for few you can choose a method to add theme support.
+Elementor – Header, Footer & Blocks Template plugin works with all themes. Few of the themes have direct support while for few you can choose a method to add theme support.
 
-In case you face any difficulty displaying header/footer, manually choose the theme support method. Visit Appearance > Header Footer Builder > Theme Support. Select a method to suit your current theme and you are good to go!
+In case you face any difficulty displaying header/footer, manually choose the theme support method. Visit Appearance > Header Footer & Blocks > Theme Support. Select a method to suit your current theme and you are good to go!
 
 ### STEPS TO USE THE PLUGIN ###
 
