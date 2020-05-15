@@ -446,9 +446,6 @@ if ( ! function_exists( '_is_elementor_installed' ) ) {
 	 * @access public
 	 */
 	function _is_elementor_installed() {
-		$path    = 'elementor/elementor.php';
-		$plugins = get_plugins();
-
-		return isset( $plugins[ $path ] );
+		return defined( 'ELEMENTOR_VERSION' ) ? true : false;
 	}
 }
