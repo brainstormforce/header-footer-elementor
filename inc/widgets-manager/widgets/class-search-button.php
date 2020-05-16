@@ -832,7 +832,7 @@ class Search_Button extends Widget_Base {
 					'size' => 15,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .hfe-search-icon-toggle input[type=search],{{WRAPPER}} .hfe-search-icon-toggle i.fa-search' => 'padding: calc( {{SIZE}}{{UNIT}} / 8);',
+					'{{WRAPPER}} .hfe-search-icon-toggle input[type=search],{{WRAPPER}} .hfe-search-icon-toggle i.fa-search' => 'padding: calc( {{SIZE}}{{UNIT}} / 2);',
 					'{{WRAPPER}} .hfe-search-icon-toggle i.fa-search:before' => 'font-size: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .hfe-search-icon-toggle i.fa-search, {{WRAPPER}} .hfe-search-icon-toggle' => 'width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .hfe-search-icon-toggle input[type=search]' => 'height: {{SIZE}}{{UNIT}};',
