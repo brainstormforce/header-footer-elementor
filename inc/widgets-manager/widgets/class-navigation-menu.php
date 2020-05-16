@@ -1168,18 +1168,18 @@ class Navigation_Menu extends Widget_Base {
 
 				$this->start_controls_tab(
 					'tab_dropdown_item_active',
-					array(
+					[
 						'label' => __( 'Active', 'header-footer-elementor' ),
-					)
+					]
 				);
 
 				$this->add_control(
 					'color_dropdown_item_active',
 					[
-						'label'                 => __( 'Text Color', 'header-footer-elementor' ),
-						'type'                  => Controls_Manager::COLOR,
-						'default'               => '',
-						'selectors'             => [
+						'label'     => __( 'Text Color', 'header-footer-elementor' ),
+						'type'      => Controls_Manager::COLOR,
+						'default'   => '',
+						'selectors' => [
 							'{{WRAPPER}} .sub-menu .menu-item.current-menu-item a.hfe-sub-menu-item.hfe-sub-menu-item-active,	
 							{{WRAPPER}} nav.hfe-dropdown .menu-item.current-menu-item a.hfe-menu-item,
 							{{WRAPPER}} nav.hfe-dropdown .menu-item.current-menu-ancestor a.hfe-menu-item,
@@ -1189,14 +1189,14 @@ class Navigation_Menu extends Widget_Base {
 						],
 					]
 				);
-		
+
 				$this->add_control(
 					'background_color_dropdown_item_active',
 					[
-						'label'                 => __( 'Background Color', 'header-footer-elementor' ),
-						'type'                  => Controls_Manager::COLOR,
-						'default'               => '',
-						'selectors'             => [
+						'label'     => __( 'Background Color', 'header-footer-elementor' ),
+						'type'      => Controls_Manager::COLOR,
+						'default'   => '',
+						'selectors' => [
 							'{{WRAPPER}} .sub-menu .menu-item.current-menu-item a.hfe-sub-menu-item.hfe-sub-menu-item-active,	
 							{{WRAPPER}} nav.hfe-dropdown .menu-item.current-menu-item a.hfe-menu-item,
 							{{WRAPPER}} nav.hfe-dropdown .menu-item.current-menu-ancestor a.hfe-menu-item,
@@ -1206,7 +1206,6 @@ class Navigation_Menu extends Widget_Base {
 				);
 
 				$this->end_controls_tabs();
-
 
 			$this->end_controls_tabs();
 
