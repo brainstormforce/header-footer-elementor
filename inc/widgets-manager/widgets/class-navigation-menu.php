@@ -1117,7 +1117,7 @@ class Navigation_Menu extends Widget_Base {
 								{{WRAPPER}} nav.hfe-dropdown .menu-item a.hfe-menu-item,
 								{{WRAPPER}} nav.hfe-dropdown .menu-item a.hfe-sub-menu-item' => 'background-color: {{VALUE}}',
 							],
-							'separator' => 'after'
+							'separator' => 'after',
 						]
 					);
 
@@ -1160,7 +1160,7 @@ class Navigation_Menu extends Widget_Base {
 								{{WRAPPER}} nav.hfe-dropdown-expandible li a.hfe-menu-item:hover,
 								{{WRAPPER}} nav.hfe-dropdown-expandible li a.hfe-sub-menu-item:hover' => 'background-color: {{VALUE}}',
 							],
-							'separator' => 'after'
+							'separator' => 'after',
 						]
 					);
 
@@ -1202,7 +1202,7 @@ class Navigation_Menu extends Widget_Base {
 							{{WRAPPER}} nav.hfe-dropdown .menu-item.current-menu-ancestor a.hfe-menu-item,
 							{{WRAPPER}} nav.hfe-dropdown .sub-menu .menu-item.current-menu-item a.hfe-sub-menu-item.hfe-sub-menu-item-active' => 'background-color: {{VALUE}}',
 						],
-						'separator' => 'after'
+						'separator' => 'after',
 					]
 				);
 
