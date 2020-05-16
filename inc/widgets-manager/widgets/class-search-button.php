@@ -823,7 +823,7 @@ class Search_Button extends Widget_Base {
 
 		$this->end_controls_tabs();
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'toggle_icon_size',
 			[
 				'label'     => __( 'Icon Size', 'header-footer-elementor' ),
