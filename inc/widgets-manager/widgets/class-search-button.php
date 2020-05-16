@@ -777,17 +777,6 @@ class Search_Button extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'toggle_background_color',
-			[
-				'label'     => __( 'Background Color', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .hfe-search-icon-toggle i' => 'background-color: {{VALUE}}',
-				],
-			]
-		);
-
 		$this->end_controls_tab();
 
 		$this->start_controls_tab(
@@ -804,17 +793,6 @@ class Search_Button extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-icon-toggle i:hover' => 'color: {{VALUE}}; border-color: {{VALUE}}',
-				],
-			]
-		);
-
-		$this->add_control(
-			'toggle_background_color_hover',
-			[
-				'label'     => __( 'Background Color', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .hfe-search-icon-toggle i:hover' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
