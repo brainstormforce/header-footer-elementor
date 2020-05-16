@@ -444,8 +444,8 @@ class Navigation_Menu extends Widget_Base {
 				'type'         => Controls_Manager::SELECT,
 				'default'      => 'tablet',
 				'options'      => [
-					'mobile' => __( 'Mobile (767px >)', 'header-footer-elementor' ),
-					'tablet' => __( 'Tablet (1023px >)', 'header-footer-elementor' ),
+					'mobile' => __( 'Mobile (768px >)', 'header-footer-elementor' ),
+					'tablet' => __( 'Tablet (1025px >)', 'header-footer-elementor' ),
 					'none'   => __( 'None', 'header-footer-elementor' ),
 				],
 				'prefix_class' => 'hfe-nav-menu__breakpoint-',
