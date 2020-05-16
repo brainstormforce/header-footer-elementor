@@ -225,7 +225,7 @@ class Search_Button extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_input_normal',
 			[
-				'label' => __( 'Normal', 'header-footer-elementor' ),
+				'label'     => __( 'Normal', 'header-footer-elementor' ),
 				'condition' => [
 					'layout!' => 'icon',
 				],
@@ -287,8 +287,8 @@ class Search_Button extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name'     => 'input_box_shadow',
-				'selector' => '{{WRAPPER}} .hfe-search-form__container,{{WRAPPER}} input.hfe-search-form__input',
+				'name'      => 'input_box_shadow',
+				'selector'  => '{{WRAPPER}} .hfe-search-form__container,{{WRAPPER}} input.hfe-search-form__input',
 				'condition' => [
 					'layout!' => 'icon',
 				],
@@ -311,7 +311,7 @@ class Search_Button extends Widget_Base {
 				'selectors'   => [
 					'{{WRAPPER}} .hfe-search-form__container ,{{WRAPPER}} .hfe-search-icon-toggle .hfe-search-form__input,{{WRAPPER}} .hfe-input-focus .hfe-search-icon-toggle .hfe-search-form__input' => 'border-style: {{VALUE}};',
 				],
-				'condition' => [
+				'condition'   => [
 					'layout!' => 'icon',
 				],
 			]
@@ -358,7 +358,7 @@ class Search_Button extends Widget_Base {
 				'selectors'  => [
 					'{{WRAPPER}} .hfe-search-form__container, {{WRAPPER}} .hfe-search-icon-toggle .hfe-search-form__input,{{WRAPPER}} .hfe-input-focus .hfe-search-icon-toggle .hfe-search-form__input' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
-				'condition' => [
+				'condition'  => [
 					'layout!' => 'icon',
 				],
 			]
@@ -394,7 +394,7 @@ class Search_Button extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_input_focus',
 			[
-				'label' => __( 'Focus', 'header-footer-elementor' ),
+				'label'     => __( 'Focus', 'header-footer-elementor' ),
 				'condition' => [
 					'layout!' => 'icon',
 				],
@@ -461,7 +461,7 @@ class Search_Button extends Widget_Base {
 						'separator' => 'default',
 					],
 				],
-				'condition' => [
+				'condition'      => [
 					'layout!' => 'icon',
 				],
 			]
@@ -497,7 +497,7 @@ class Search_Button extends Widget_Base {
 				'condition' => [
 					'layout' => 'icon',
 				],
-				'separator' => 'before'
+				'separator' => 'before',
 			]
 		);
 
@@ -528,7 +528,7 @@ class Search_Button extends Widget_Base {
 						'separator' => 'default',
 					],
 				],
-				'condition' => [
+				'condition'      => [
 					'layout' => 'icon',
 				],
 			]
@@ -551,7 +551,7 @@ class Search_Button extends Widget_Base {
 				'selectors'   => [
 					'{{WRAPPER}} .hfe-input-focus .hfe-search-icon-toggle .hfe-search-form__input' => 'border-style: {{VALUE}};',
 				],
-				'condition' => [
+				'condition'   => [
 					'layout' => 'icon',
 				],
 			]
@@ -567,7 +567,7 @@ class Search_Button extends Widget_Base {
 					 {{WRAPPER}} .hfe-input-focus .hfe-search-icon-toggle .hfe-search-form__input' => 'border-color: {{VALUE}}',
 				],
 				'condition' => [
-					'layout' => 'icon',
+					'layout'             => 'icon',
 					'icon_border_style!' => 'none',
 				],
 			]
@@ -588,7 +588,7 @@ class Search_Button extends Widget_Base {
 				],
 				'condition'  => [
 					'icon_border_style!' => 'none',
-					'layout' => 'icon'
+					'layout'             => 'icon',
 				],
 				'selectors'  => [
 					'{{WRAPPER}} .hfe-input-focus .hfe-search-icon-toggle .hfe-search-form__input' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -805,22 +805,22 @@ class Search_Button extends Widget_Base {
 		$this->add_responsive_control(
 			'toggle_icon_size',
 			[
-				'label'     => __( 'Icon Size', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::SLIDER,
-				'default'   => [
+				'label'       => __( 'Icon Size', 'header-footer-elementor' ),
+				'type'        => Controls_Manager::SLIDER,
+				'default'     => [
 					'size' => 15,
 				],
-				'selectors' => [
+				'selectors'   => [
 					'{{WRAPPER}} .hfe-search-icon-toggle input[type=search]' => 'padding: calc( {{SIZE}}{{UNIT}} / 2);',
 					'{{WRAPPER}} .hfe-search-icon-toggle i.fa-search:before' => 'font-size: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .hfe-search-icon-toggle i.fa-search, {{WRAPPER}} .hfe-search-icon-toggle' => 'width: {{SIZE}}{{UNIT}};',
-					
+
 				],
-				'condition' => [
+				'condition'   => [
 					'layout' => 'icon',
 				],
-				'separator' => 'before',
-				'render_type' => 'template'
+				'separator'   => 'before',
+				'render_type' => 'template',
 			]
 		);
 
