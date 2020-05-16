@@ -192,7 +192,7 @@ class Search_Button extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'input_typography',
-				'selector' => '{{WRAPPER}} input[type="search"].hfe-search-form__input',
+				'selector' => '{{WRAPPER}} input[type="search"].hfe-search-form__input,{{WRAPPER}} .hfe-search-icon-toggle',
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
@@ -832,10 +832,10 @@ class Search_Button extends Widget_Base {
 					'size' => 15,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .hfe-search-icon-toggle input[type=search],{{WRAPPER}} .hfe-search-icon-toggle i.fa-search' => 'padding: calc( {{SIZE}}{{UNIT}} / 2);',
+					'{{WRAPPER}} .hfe-search-icon-toggle input[type=search]' => 'padding: calc( {{SIZE}}{{UNIT}} / 2);',
 					'{{WRAPPER}} .hfe-search-icon-toggle i.fa-search:before' => 'font-size: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .hfe-search-icon-toggle i.fa-search, {{WRAPPER}} .hfe-search-icon-toggle' => 'width: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .hfe-search-icon-toggle input[type=search]' => 'height: {{SIZE}}{{UNIT}};',
+					
 				],
 				'condition' => [
 					'layout' => 'icon',

@@ -1773,6 +1773,7 @@ a.hfe-menu-item.elementor-button {
 
 .hfe-search-icon-toggle i:before{
     font-size: 20px;
+    vertical-align: middle;
 }
 /*search icon toggle css*/
 
@@ -1889,4 +1890,8 @@ a.hfe-menu-item.elementor-button {
 .hfe-search-layout-text .hfe-search-form__container .hfe-search-form__input,
 .hfe-search-layout-icon_text .hfe-search-form__container .hfe-search-form__input {
     width: 100%;
+}
+
+.hfe-search-icon-toggle {
+    line-height: 1.5;
 }
