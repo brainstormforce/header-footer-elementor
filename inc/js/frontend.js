@@ -12,7 +12,8 @@
 		var $input = $scope.find( "input" ),
 			$clear = $scope.find( "button#clear" ),
 			$clear_with_button = $scope.find( "button#clear-with-button" ),
-			$search_button = $scope.find( ".hfe-search-submit" );
+			$search_button = $scope.find( ".hfe-search-submit" ),
+			$toggle_search = $scope.find( ".hfe-search-icon-toggle input" );
 
 		$scope.find( '.hfe-search-icon-toggle' ).on( 'click', function( ){
 			$scope.find( ".hfe-search-form__input" ).focus();						
@@ -35,6 +36,8 @@
 		$search_button.on( 'touchstart click', function(){
 			$input.submit();
 		});
+
+		$toggle_search.css( 'padding-right', $toggle_search.next().outerWidth() + 'px' );
 
 		$( document ).on( 'touchstart click', 'button#clear, button#clear-with-button', function( e ){
 			e.preventDefault();

@@ -506,6 +506,7 @@ class Search_Button extends Widget_Base {
 			[
 				'label'     => __( 'Background Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
+				'default'   => '#ededed',
 				'selectors' => [
 					'{{WRAPPER}} .hfe-input-focus .hfe-search-form__input:focus' => 'background-color: {{VALUE}}',
 				],
