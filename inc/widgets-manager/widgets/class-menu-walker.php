@@ -66,8 +66,9 @@ class Menu_Walker extends \Walker_Nav_Menu {
 		if ( 0 === $depth ) {
 			$item_output .= ' class = "hfe-menu-item"';
 		} else {
-			$item_output .= ' class = "hfe-sub-menu-item"';
+			$item_output .= in_array( 'current-menu-item', $item->classes ) ? ' class = "hfe-sub-menu-item hfe-sub-menu-item-active"' : ' class = "hfe-sub-menu-item"';
 		}
+
 		$item_output .= '>';
 		$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
 		if ( $args->has_children ) {

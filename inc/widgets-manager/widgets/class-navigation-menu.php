@@ -998,7 +998,8 @@ class Navigation_Menu extends Widget_Base {
 							'type'      => Controls_Manager::COLOR,
 							'default'   => '',
 							'selectors' => [
-								'{{WRAPPER}} .menu-item.current-menu-item a.hfe-menu-item' => 'color: {{VALUE}}',
+								'{{WRAPPER}} .menu-item.current-menu-item a.hfe-menu-item,
+								{{WRAPPER}} .menu-item.current-menu-ancestor a.hfe-menu-item' => 'color: {{VALUE}}',
 							],
 						]
 					);
@@ -1010,7 +1011,8 @@ class Navigation_Menu extends Widget_Base {
 							'type'      => Controls_Manager::COLOR,
 							'default'   => '',
 							'selectors' => [
-								'{{WRAPPER}} .menu-item.current-menu-item a.hfe-menu-item' => 'background-color: {{VALUE}}',
+								'{{WRAPPER}} .menu-item.current-menu-item a.hfe-menu-item,
+								{{WRAPPER}} .menu-item.current-menu-ancestor a.hfe-menu-item' => 'background-color: {{VALUE}}',
 							],
 							'condition' => [
 								'layout!' => 'flyout',
@@ -1168,7 +1170,7 @@ class Navigation_Menu extends Widget_Base {
 					'tab_dropdown_item_active',
 					array(
 						'label' => __( 'Active', 'header-footer-elementor' ),
-					),
+					)
 				);
 
 				$this->add_control(
@@ -1178,7 +1180,11 @@ class Navigation_Menu extends Widget_Base {
 						'type'                  => Controls_Manager::COLOR,
 						'default'               => '',
 						'selectors'             => [
-							'{{WRAPPER}} .hfe-nav-menu .menu-item.current-menu-ancestor .hfe-has-submenu-container a.hfe-menu-item' => 'color: {{VALUE}}',
+							'{{WRAPPER}} .sub-menu .menu-item.current-menu-item a.hfe-sub-menu-item.hfe-sub-menu-item-active,	
+							{{WRAPPER}} nav.hfe-dropdown .menu-item.current-menu-item a.hfe-menu-item,
+							{{WRAPPER}} nav.hfe-dropdown .menu-item.current-menu-ancestor a.hfe-menu-item,
+							{{WRAPPER}} nav.hfe-dropdown .sub-menu .menu-item.current-menu-item a.hfe-sub-menu-item.hfe-sub-menu-item-active
+							' => 'color: {{VALUE}}',
 
 						],
 					]
@@ -1191,7 +1197,10 @@ class Navigation_Menu extends Widget_Base {
 						'type'                  => Controls_Manager::COLOR,
 						'default'               => '',
 						'selectors'             => [
-							'{{WRAPPER}} .hfe-nav-menu .menu-item.current-menu-ancestor .hfe-has-submenu-container a.hfe-menu-item' => 'background-color: {{VALUE}}',
+							'{{WRAPPER}} .sub-menu .menu-item.current-menu-item a.hfe-sub-menu-item.hfe-sub-menu-item-active,	
+							{{WRAPPER}} nav.hfe-dropdown .menu-item.current-menu-item a.hfe-menu-item,
+							{{WRAPPER}} nav.hfe-dropdown .menu-item.current-menu-ancestor a.hfe-menu-item,
+							{{WRAPPER}} nav.hfe-dropdown .sub-menu .menu-item.current-menu-item a.hfe-sub-menu-item.hfe-sub-menu-item-active' => 'background-color: {{VALUE}}',
 						],
 					]
 				);
