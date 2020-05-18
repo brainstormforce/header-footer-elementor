@@ -37,21 +37,21 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 			define( 'BSF_ANALYTICS_PATH', dirname( __FILE__ ) );
 			define( 'BSF_ANALYTICS_URI', $this->bsf_analytics_url() );
 
-			add_action( 'admin_init', array( $this, 'handle_optin_optout' ) );
-			add_action( 'cron_schedules', array( $this, 'every_two_days_schedule' ) );
-			add_action( 'admin_notices', array( $this, 'option_notice' ) );
-			add_action( 'astra_notice_before_markup_bsf-optin-notice', array( $this, 'enqueue_assets' ) );
+			add_action( 'admin_init', [ $this, 'handle_optin_optout' ] );
+			add_action( 'cron_schedules', [ $this, 'every_two_days_schedule' ] );
+			add_action( 'admin_notices', [ $this, 'option_notice' ] );
+			add_action( 'astra_notice_before_markup_bsf-optin-notice', [ $this, 'enqueue_assets' ] );
 
-			add_action( 'init', array( $this, 'schedule_unschedule_event' ) );
+			add_action( 'init', [ $this, 'schedule_unschedule_event' ] );
 
-			if ( ! has_action( 'bsf_analytics_send', array( $this, 'send' ) ) ) {
-				add_action( 'bsf_analytics_send', array( $this, 'send' ) );
+			if ( ! has_action( 'bsf_analytics_send', [ $this, 'send' ] ) ) {
+				add_action( 'bsf_analytics_send', [ $this, 'send' ] );
 			}
 
-			add_action( 'admin_init', array( $this, 'register_usage_tracking_setting' ) );
+			add_action( 'admin_init', [ $this, 'register_usage_tracking_setting' ] );
 
-			add_action( 'update_option_bsf_analytics_optin', array( $this, 'update_analytics_option_callback' ), 10, 3 );
-			add_action( 'add_option_bsf_analytics_optin', array( $this, 'add_analytics_option_callback' ), 10, 2 );
+			add_action( 'update_option_bsf_analytics_optin', [ $this, 'update_analytics_option_callback' ], 10, 3 );
+			add_action( 'add_option_bsf_analytics_optin', [ $this, 'add_analytics_option_callback' ], 10, 2 );
 
 			$this->includes();
 		}
@@ -114,11 +114,11 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		public function send() {
 			wp_remote_post(
 				$this->get_api_url() . 'wp-json/bsf-core/v1/analytics/',
-				array(
+				[
 					'body'     => BSF_Analytics_Stats::instance()->get_stats(),
 					'timeout'  => 5,
 					'blocking' => false,
-				)
+				]
 			);
 		}
 
@@ -143,7 +143,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 */
 		public function is_white_label_enabled() {
 
-			$options    = apply_filters( 'bsf_white_label_options', array() );
+			$options    = apply_filters( 'bsf_white_label_options', [] );
 			$is_enabled = false;
 
 			if ( is_array( $options ) ) {
@@ -187,7 +187,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 			}
 
 			Astra_Notices::add_notice(
-				array(
+				[
 					'id'                         => 'bsf-optin-notice',
 					'type'                       => '',
 					'message'                    => sprintf(
@@ -207,17 +207,17 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 						/* translators: %s usage doc link */
 						sprintf( $notice_string . '<a href="%2s" target="_blank" rel="noreferrer noopener">%3s</a>', $this->get_product_name(), esc_url( $this->usage_doc_link ), __( ' Know More.' ) ),
 						add_query_arg(
-							array(
+							[
 								'bsf_analytics_optin' => 'yes',
 								'bsf_analytics_nonce' => wp_create_nonce( 'bsf_analytics_optin' ),
-							)
+							]
 						),
 						__( 'Yes! Allow it' ),
 						add_query_arg(
-							array(
+							[
 								'bsf_analytics_optin' => 'no',
 								'bsf_analytics_nonce' => wp_create_nonce( 'bsf_analytics_optin' ),
-							)
+							]
 						),
 						MONTH_IN_SECONDS,
 						__( 'No Thanks' )
@@ -226,7 +226,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 					'repeat-notice-after'        => false,
 					'priority'                   => 18,
 					'display-with-other-notices' => true,
-				)
+				]
 			);
 		}
 
@@ -254,10 +254,10 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 			wp_safe_redirect(
 				remove_query_arg(
-					array(
+					[
 						'bsf_analytics_optin',
 						'bsf_analytics_nonce',
-					)
+					]
 				)
 			);
 		}
@@ -287,10 +287,10 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * @since 1.0.0
 		 */
 		public function every_two_days_schedule( $schedules ) {
-			$schedules['every_two_days'] = array(
+			$schedules['every_two_days'] = [
 				'interval' => 2 * DAY_IN_SECONDS,
 				'display'  => __( 'Every two days' ),
-			);
+			];
 
 			return $schedules;
 		}
@@ -338,13 +338,13 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 			register_setting(
 				'general',             // Options group.
 				'bsf_analytics_optin',      // Option name/database.
-				array( 'sanitize_callback' => array( $this, 'sanitize_option' ) ) // sanitize callback function.
+				[ 'sanitize_callback' => [ $this, 'sanitize_option' ] ] // sanitize callback function.
 			);
 
 			add_settings_field(
 				'bsf-analytics-optin',       // Field ID.
 				__( 'Usage Tracking' ),       // Field title.
-				array( $this, 'render_settings_field_html' ), // Field callback function.
+				[ $this, 'render_settings_field_html' ], // Field callback function.
 				'general'                    // Settings page slug.
 			);
 		}

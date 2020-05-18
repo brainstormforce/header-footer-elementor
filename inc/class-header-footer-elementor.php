@@ -89,7 +89,7 @@ class Header_Footer_Elementor {
 			add_action( 'astra_notice_before_markup_header-footer-elementor-rating', [ $this, 'rating_notice_css' ] );
 			add_action( 'admin_notices', [ $this, 'register_notices' ] );
 
-			//Tracker.
+			// Tracker.
 			require_once HFE_DIR . 'admin/bsf-analytics/class-bsf-analytics.php';
 
 		} else {

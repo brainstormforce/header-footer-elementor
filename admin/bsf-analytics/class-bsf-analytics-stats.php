@@ -64,7 +64,7 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 		 * @since 1.0.0
 		 */
 		private function get_default_stats() {
-			return array(
+			return [
 				'graupi_version'         => defined( 'BSF_UPDATER_VERSION' ) ? BSF_UPDATER_VERSION : false,
 				'domain_name'            => get_site_url(),
 				'php_os'                 => PHP_OS,
@@ -99,7 +99,7 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 
 				'active_theme'           => get_template(),
 				'active_stylesheet'      => get_stylesheet(),
-			);
+			];
 		}
 
 		/**
@@ -148,7 +148,7 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 
 				$plugins       = wp_get_active_and_valid_plugins();
 				$plugins       = array_map( 'get_plugin_data', $plugins );
-				$this->plugins = array_map( array( $this, 'format_plugin' ), $plugins );
+				$this->plugins = array_map( [ $this, 'format_plugin' ], $plugins );
 			}
 
 			return $this->plugins;
@@ -162,14 +162,14 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 		 * @since 1.0.0
 		 */
 		public function format_plugin( $plugin ) {
-			return array(
+			return [
 				'name'        => html_entity_decode( $plugin['Name'], ENT_COMPAT, 'UTF-8' ),
 				'url'         => $plugin['PluginURI'],
 				'version'     => $plugin['Version'],
 				'slug'        => $plugin['TextDomain'],
 				'author_name' => html_entity_decode( wp_strip_all_tags( $plugin['Author'] ), ENT_COMPAT, 'UTF-8' ),
 				'author_url'  => $plugin['AuthorURI'],
-			);
+			];
 		}
 
 		/**
@@ -179,7 +179,7 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 		 * @since 1.0.0
 		 */
 		private function get_curl_ssl_version() {
-			$curl = array();
+			$curl = [];
 			if ( function_exists( 'curl_version' ) ) {
 				$curl = curl_version();
 			}
@@ -194,7 +194,7 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 		 * @since 1.0.0
 		 */
 		private function get_curl_version() {
-			$curl = array();
+			$curl = [];
 			if ( function_exists( 'curl_version' ) ) {
 				$curl = curl_version();
 			}
