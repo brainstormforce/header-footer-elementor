@@ -142,6 +142,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 - Improvement: Navigation Menu - Added active color for dropdown and current menu parent.
 - Improvement: Navigation Menu - Changed the tablet breakpoint to 1024 in order to support iPad Pro.
 - Fix: GeneratePress theme header now overriden by EHF.
+- Fix: Prevent PHP notice in widgets for PHP v7.4.
 - Fix: Cart - Count not increasing with AJAX call.
 - Fix: Page Title - Added support for archive title.
 
