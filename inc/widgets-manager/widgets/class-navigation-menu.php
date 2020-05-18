@@ -1875,8 +1875,11 @@ class Navigation_Menu extends Widget_Base {
 			<div <?php echo $this->get_render_attribute_string( 'hfe-main-menu' ); ?>>
 				<div class="hfe-nav-menu__toggle elementor-clickable">
 					<div class="hfe-nav-menu-icon">
-						<?php if ( $this->is_elementor_updated() ) { ?>
-							<i class="<?php echo esc_attr( $settings['dropdown_icon']['value'] ); ?>" aria-hidden="true" tabindex="0"></i>
+						<?php
+						if ( $this->is_elementor_updated() ) {
+							$dropdown_icon_value = isset( $settings['dropdown_icon']['value'] ) ? $settings['dropdown_icon']['value'] : '';
+							?>
+							<i class="<?php echo esc_attr( $dropdown_icon_value ); ?>" aria-hidden="true" tabindex="0"></i>
 						<?php } else { ?>
 							<i class="<?php echo esc_attr( $settings['dropdown_icon'] ); ?>" aria-hidden="true" tabindex="0"></i>
 						<?php } ?>
