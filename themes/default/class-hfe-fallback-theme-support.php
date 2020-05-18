@@ -169,7 +169,7 @@ class HFE_Fallback_Theme_Support {
 			<?php
 			$tabs       = [
 				'hfe_templates' => [
-					'name' => __( 'All templates', 'header-footer-elementor' ),
+					'name' => __( 'All Templates', 'header-footer-elementor' ),
 					'url'  => admin_url( 'edit.php?post_type=elementor-hf' ),
 				],
 				'hfe_settings'  => [
