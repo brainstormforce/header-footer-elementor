@@ -559,6 +559,11 @@ class Cart extends Widget_Base {
 		if ( null === WC()->cart ) {
 			return;
 		}
+		
+		if( \Elementor\Plugin::instance()->editor->is_edit_mode() ){
+			update_option( 'hfe_cart_widget_type', $cart_type );			
+		}
+		
 		if ( 'default' === $cart_type ) { ?>
 			<a class="hfe-cart-container" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="View your shopping cart">
 				<div class="hfe-cart-menu-wrap-default">
@@ -593,7 +598,6 @@ class Cart extends Widget_Base {
 
 		$settings  = $this->get_settings_for_display();
 		$cart_type = $settings['hfe_cart_type'];
-		update_option( 'hfe_cart_widget_type', $cart_type );
 		?>
 
 		<div class="hfe-masthead-custom-menu-items woocommerce-custom-menu-item">
