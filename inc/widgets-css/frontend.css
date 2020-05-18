@@ -1785,7 +1785,7 @@ a.hfe-menu-item.elementor-button {
     cursor: pointer;
     border-radius: 0;
     transition: all .5s;
-    box-sizing: content-box;
+    box-sizing: border-box;
     outline: none;
 }
 
@@ -1816,6 +1816,7 @@ a.hfe-menu-item.elementor-button {
 
 .hfe-search-layout-icon .hfe-search-icon-toggle .hfe-search-form__input {
     background-color: unset;
+    height: 100%;
 }
 
 .hfe-search-button-wrapper.hfe-input-focus {
