@@ -726,8 +726,9 @@ class Site_Logo extends Widget_Base {
 			$link = site_url();
 			$this->add_render_attribute( 'link', 'href', $link );
 		} else {
-			$link = $this->get_link_url( $settings );
-			$this->add_render_attribute( 'link', 'href', $link['url'] );
+			$link     = $this->get_link_url( $settings );
+			$link_url = isset( $link['url'] ) ? $link['url'] : '';
+			$this->add_render_attribute( 'link', 'href', $link_url );
 			if ( ! empty( $link['nofollow'] ) ) {
 				$this->add_render_attribute( 'link', 'rel', 'nofollow' );
 			}

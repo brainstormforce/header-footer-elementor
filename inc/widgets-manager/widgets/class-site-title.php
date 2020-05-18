@@ -416,7 +416,7 @@ class Site_Title extends Widget_Base {
 
 		<div class="hfe-module-content hfe-heading-wrapper elementor-widget-heading">
 		<?php if ( ! empty( $settings['heading_link']['url'] ) && 'custom' === $settings['custom_link'] ) { ?>
-					<a <?php echo esc_attr( $link ); ?> >
+					<a <?php echo $link; ?> >
 				<?php } else { ?>
 					<a href="<?php echo get_home_url(); ?>">
 				<?php } ?>
