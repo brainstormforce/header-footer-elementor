@@ -149,8 +149,6 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 					'_notice_nonce' => wp_create_nonce( 'astra-notices' ),
 				)
 			);
-
-			wp_register_style( 'astra-notices', self::_get_uri() . 'notices.css', array(), self::$version );
 		}
 
 		/**
@@ -230,7 +228,6 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 */
 		public static function markup( $notice = array() ) {
 			wp_enqueue_script( 'astra-notices' );
-			wp_enqueue_style( 'astra-notices' );
 
 			do_action( 'astra_notice_before_markup' );
 
