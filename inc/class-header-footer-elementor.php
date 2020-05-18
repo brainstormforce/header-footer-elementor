@@ -174,9 +174,9 @@ class Header_Footer_Elementor {
 	public function elementor_not_available() {
 
 		if ( ! did_action( 'elementor/loaded' ) ) {
-			//Check user capability.
+			// Check user capability.
 			if ( ! ( current_user_can( 'activate_plugins' ) && current_user_can( 'install_plugins' ) ) ) {
-			    return;
+				return;
 			}
 
 			/* TO DO */
