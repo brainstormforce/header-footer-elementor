@@ -59,6 +59,7 @@ class Widgets_Loader {
 
 		// Refresh the cart fragments.
 		if ( class_exists( 'woocommerce' ) ) {
+			add_action( 'elementor/editor/before_enqueue_scripts', [ $this, 'init_cart' ], 10, 0 );
 			add_filter( 'woocommerce_add_to_cart_fragments', [ $this, 'wc_refresh_mini_cart_count' ] );
 		}
 	}
@@ -191,6 +192,24 @@ class Widgets_Loader {
 			Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Cart() );
 		}
 
+	}
+
+	/**
+	 * Initialize the cart.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 */
+	public function init_cart() {
+		$has_cart = is_a( WC()->cart, 'WC_Cart' );
+
+		if ( ! $has_cart ) {
+			$session_class = apply_filters( 'woocommerce_session_handler', 'WC_Session_Handler' );
+			WC()->session  = new $session_class();
+			WC()->session->init();
+			WC()->cart     = new \WC_Cart();
+			WC()->customer = new \WC_Customer( get_current_user_id(), true );
+		}
 	}
 
 	/**
