@@ -145,6 +145,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 - Fix: Prevent PHP notice in widgets for PHP v7.4.
 - Fix: Cart - Count not increasing with AJAX call.
 - Fix: Page Title - Added support for archive title.
+- Fix: Site Title - Custom URL not working.
 
 ### 1.4.1 ###
 - Fix: EHF header overlapping Astra WooCommerce Off-Canvas.
