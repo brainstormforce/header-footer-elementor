@@ -192,14 +192,20 @@ class Widgets_Loader {
 		}
 	}
 
+	/**
+	 * Initialize the cart.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 */
 	public function init_cart() {
 		$has_cart = is_a( WC()->cart, 'WC_Cart' );
 
 		if ( ! $has_cart ) {
 			$session_class = apply_filters( 'woocommerce_session_handler', 'WC_Session_Handler' );
-			WC()->session = new $session_class();
+			WC()->session  = new $session_class();
 			WC()->session->init();
-			WC()->cart = new \WC_Cart();
+			WC()->cart     = new \WC_Cart();
 			WC()->customer = new \WC_Customer( get_current_user_id(), true );
 		}
 	}
