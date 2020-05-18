@@ -15,6 +15,8 @@ matrix:
     - php: 7.4snapshot
       env: WP_TRAVISCI=phpcs
 
+dist: trusty
+
 before_script:
   - |
     if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
