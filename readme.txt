@@ -53,6 +53,7 @@ The plugin offers inbuilt widgets that help to create header/footer layouts. The
 	<li><strong>Retina Image</strong> - You can upload the retina image for high definition screens.</li>
 	<li><strong>WooCommerce Menu Cart</strong> - You can display current number of products in the cart along with the total price.</li>
 	<li><strong>Copyright</strong> - It offers constants to display copyright notice - [hfe_current_year] and [hfe_site_title].</li>
+	<li><strong>Search</strong> - Add a search form to your with different layout and styling options.</li>
 </ul>
 
 = WORKS WITH ALL THEMES =
