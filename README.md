@@ -57,7 +57,7 @@ The plugin offers inbuilt widgets that help to create header/footer layouts. The
 
 ### WORKS WITH ALL THEMES ###
 
-Elementor – Header, Footer & Blocks plugin works with all WordPress themes. Custom header/footer you design with this plugin will replace your theme’s header/footer without any issue. 
+Elementor – Header, Footer & Blocks plugin works with all WordPress themes. Few of the themes have direct support while for few you can choose a method to add theme support. 
 
 In case you face any difficulty displaying header/footer, manually choose the theme support method. Visit Appearance > Header Footer & Blocks > Theme Support. Select a method to suit your current theme and you are good to go!
 
