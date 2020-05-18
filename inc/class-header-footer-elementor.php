@@ -174,6 +174,11 @@ class Header_Footer_Elementor {
 	public function elementor_not_available() {
 
 		if ( ! did_action( 'elementor/loaded' ) ) {
+			//Check user capability.
+			if ( ! ( current_user_can( 'activate_plugins' ) && current_user_can( 'install_plugins' ) ) ) {
+			    return;
+			}
+
 			/* TO DO */
 			$class = 'notice notice-error';
 			/* translators: %s: html tags */
@@ -182,17 +187,11 @@ class Header_Footer_Elementor {
 			$plugin = 'elementor/elementor.php';
 
 			if ( _is_elementor_installed() ) {
-				if ( ! current_user_can( 'activate_plugins' ) ) {
-					return;
-				}
 
 				$action_url   = wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $plugin . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin );
 				$button_label = __( 'Activate Elementor', 'header-footer-elementor' );
 
 			} else {
-				if ( ! current_user_can( 'install_plugins' ) ) {
-					return;
-				}
 
 				$action_url   = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=elementor' ), 'install-plugin_elementor' );
 				$button_label = __( 'Install Elementor', 'header-footer-elementor' );
