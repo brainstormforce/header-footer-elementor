@@ -1819,7 +1819,7 @@ a.hfe-menu-item.elementor-button {
 
 .hfe-search-form__container button#clear,
 .hfe-search-icon-toggle button#clear {
-    display: none;
+    visibility: hidden;
     position: absolute;
     right:0; 
     top:0;
@@ -1832,8 +1832,15 @@ a.hfe-menu-item.elementor-button {
     background-color: transparent;
 }
 
+.hfe-search-button-wrapper input[type="search"]::-webkit-search-decoration,
+.hfe-search-button-wrapper input[type="search"]::-webkit-search-cancel-button,
+.hfe-search-button-wrapper input[type="search"]::-webkit-search-results-button,
+.hfe-search-button-wrapper input[type="search"]::-webkit-search-results-decoration { 
+    display: none; 
+}
+
 .hfe-search-form__container button#clear-with-button{
-    display: none;
+    visibility: hidden;
     position: absolute;
     top: 0;
     padding: 0 8px;
