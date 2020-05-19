@@ -111,6 +111,16 @@ class Page_Title extends Widget_Base {
 		);
 
 		$this->add_control(
+			'archive_title_note',
+			[
+				'type'            => Controls_Manager::RAW_HTML,
+				/* translators: %1$s doc link */
+				'raw'             => sprintf( __( '<b>Note:</b> Archive page title will be visible on frontend.', 'header-footer-elementor' ) ),
+				'content_classes' => 'elementor-panel-alert elementor-panel-alert-warning',
+			]
+		);
+
+		$this->add_control(
 			'before',
 			[
 				'label'   => __( 'Before Title Text', 'header-footer-elementor' ),

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Elementor - Header, Footer & Blocks 1.4.1\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/header-footer-elementor\n"
-"POT-Creation-Date: 2020-05-18 12:39:54+00:00\n"
+"POT-Creation-Date: 2020-05-19 07:50:47+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -443,8 +443,8 @@ msgstr ""
 #: inc/widgets-manager/widgets/class-cart.php:121
 #: inc/widgets-manager/widgets/class-navigation-menu.php:227
 #: inc/widgets-manager/widgets/class-navigation-menu.php:418
-#: inc/widgets-manager/widgets/class-page-title.php:170
-#: inc/widgets-manager/widgets/class-page-title.php:218
+#: inc/widgets-manager/widgets/class-page-title.php:180
+#: inc/widgets-manager/widgets/class-page-title.php:228
 #: inc/widgets-manager/widgets/class-site-logo.php:221
 #: inc/widgets-manager/widgets/class-site-logo.php:252
 #: inc/widgets-manager/widgets/class-site-title.php:171
@@ -458,7 +458,7 @@ msgstr ""
 
 #: inc/widgets-manager/widgets/class-cart.php:130
 #: inc/widgets-manager/widgets/class-navigation-menu.php:533
-#: inc/widgets-manager/widgets/class-page-title.php:340
+#: inc/widgets-manager/widgets/class-page-title.php:350
 #: inc/widgets-manager/widgets/class-site-tagline.php:139
 #: inc/widgets-manager/widgets/class-site-title.php:139
 #: inc/widgets-manager/widgets/class-site-title.php:340
@@ -532,7 +532,7 @@ msgstr ""
 #: inc/widgets-manager/widgets/class-copyright.php:130
 #: inc/widgets-manager/widgets/class-navigation-menu.php:261
 #: inc/widgets-manager/widgets/class-navigation-menu.php:462
-#: inc/widgets-manager/widgets/class-page-title.php:231
+#: inc/widgets-manager/widgets/class-page-title.php:241
 #: inc/widgets-manager/widgets/class-retina.php:156
 #: inc/widgets-manager/widgets/class-site-logo.php:161
 #: inc/widgets-manager/widgets/class-site-tagline.php:167
@@ -547,7 +547,7 @@ msgstr ""
 #: inc/widgets-manager/widgets/class-navigation-menu.php:331
 #: inc/widgets-manager/widgets/class-navigation-menu.php:367
 #: inc/widgets-manager/widgets/class-navigation-menu.php:466
-#: inc/widgets-manager/widgets/class-page-title.php:235
+#: inc/widgets-manager/widgets/class-page-title.php:245
 #: inc/widgets-manager/widgets/class-retina.php:160
 #: inc/widgets-manager/widgets/class-site-logo.php:165
 #: inc/widgets-manager/widgets/class-site-tagline.php:171
@@ -561,7 +561,7 @@ msgstr ""
 #: inc/widgets-manager/widgets/class-navigation-menu.php:335
 #: inc/widgets-manager/widgets/class-navigation-menu.php:371
 #: inc/widgets-manager/widgets/class-navigation-menu.php:470
-#: inc/widgets-manager/widgets/class-page-title.php:239
+#: inc/widgets-manager/widgets/class-page-title.php:249
 #: inc/widgets-manager/widgets/class-retina.php:164
 #: inc/widgets-manager/widgets/class-site-logo.php:169
 #: inc/widgets-manager/widgets/class-site-tagline.php:175
@@ -576,7 +576,7 @@ msgstr ""
 #: inc/widgets-manager/widgets/class-navigation-menu.php:339
 #: inc/widgets-manager/widgets/class-navigation-menu.php:375
 #: inc/widgets-manager/widgets/class-navigation-menu.php:474
-#: inc/widgets-manager/widgets/class-page-title.php:243
+#: inc/widgets-manager/widgets/class-page-title.php:253
 #: inc/widgets-manager/widgets/class-retina.php:168
 #: inc/widgets-manager/widgets/class-site-logo.php:173
 #: inc/widgets-manager/widgets/class-site-tagline.php:179
@@ -585,7 +585,7 @@ msgid "Right"
 msgstr ""
 
 #: inc/widgets-manager/widgets/class-cart.php:252
-#: inc/widgets-manager/widgets/class-page-title.php:214
+#: inc/widgets-manager/widgets/class-page-title.php:224
 #: inc/widgets-manager/widgets/class-site-title.php:198
 msgid "Size"
 msgstr ""
@@ -619,7 +619,7 @@ msgstr ""
 #: inc/widgets-manager/widgets/class-navigation-menu.php:1086
 #: inc/widgets-manager/widgets/class-navigation-menu.php:1452
 #: inc/widgets-manager/widgets/class-navigation-menu.php:1631
-#: inc/widgets-manager/widgets/class-page-title.php:315
+#: inc/widgets-manager/widgets/class-page-title.php:325
 #: inc/widgets-manager/widgets/class-retina.php:414
 #: inc/widgets-manager/widgets/class-site-logo.php:456
 #: inc/widgets-manager/widgets/class-site-title.php:315
@@ -645,7 +645,7 @@ msgstr ""
 
 #: inc/widgets-manager/widgets/class-cart.php:345
 #: inc/widgets-manager/widgets/class-cart.php:401
-#: inc/widgets-manager/widgets/class-page-title.php:351
+#: inc/widgets-manager/widgets/class-page-title.php:361
 #: inc/widgets-manager/widgets/class-site-tagline.php:221
 #: inc/widgets-manager/widgets/class-site-title.php:350
 msgid "Icon Color"
@@ -695,7 +695,7 @@ msgid "Icon Size"
 msgstr ""
 
 #: inc/widgets-manager/widgets/class-cart.php:462
-#: inc/widgets-manager/widgets/class-page-title.php:147
+#: inc/widgets-manager/widgets/class-page-title.php:157
 #: inc/widgets-manager/widgets/class-site-tagline.php:148
 #: inc/widgets-manager/widgets/class-site-title.php:148
 msgid "Icon Spacing"
@@ -721,8 +721,8 @@ msgid ""
 msgstr ""
 
 #: inc/widgets-manager/widgets/class-copyright.php:121
-#: inc/widgets-manager/widgets/class-page-title.php:166
-#: inc/widgets-manager/widgets/class-page-title.php:179
+#: inc/widgets-manager/widgets/class-page-title.php:176
+#: inc/widgets-manager/widgets/class-page-title.php:189
 #: inc/widgets-manager/widgets/class-retina.php:212
 #: inc/widgets-manager/widgets/class-retina.php:225
 #: inc/widgets-manager/widgets/class-site-logo.php:217
@@ -733,7 +733,7 @@ msgid "Link"
 msgstr ""
 
 #: inc/widgets-manager/widgets/class-copyright.php:123
-#: inc/widgets-manager/widgets/class-page-title.php:181
+#: inc/widgets-manager/widgets/class-page-title.php:191
 #: inc/widgets-manager/widgets/class-retina.php:230
 #: inc/widgets-manager/widgets/class-site-logo.php:237
 #: inc/widgets-manager/widgets/class-site-title.php:182
@@ -1020,7 +1020,7 @@ msgstr ""
 
 #: inc/widgets-manager/widgets/class-navigation-menu.php:1459
 #: inc/widgets-manager/widgets/class-navigation-menu.php:1490
-#: inc/widgets-manager/widgets/class-page-title.php:287
+#: inc/widgets-manager/widgets/class-page-title.php:297
 #: inc/widgets-manager/widgets/class-site-tagline.php:204
 #: inc/widgets-manager/widgets/class-site-title.php:287
 msgid "Color"
@@ -1051,104 +1051,109 @@ msgid "Page Title"
 msgstr ""
 
 #: inc/widgets-manager/widgets/class-page-title.php:109
-#: inc/widgets-manager/widgets/class-page-title.php:270
+#: inc/widgets-manager/widgets/class-page-title.php:280
 #: inc/widgets-manager/widgets/class-site-title.php:272
 msgid "Title"
 msgstr ""
 
-#: inc/widgets-manager/widgets/class-page-title.php:116
+#: inc/widgets-manager/widgets/class-page-title.php:118
+#. translators: %1$s doc link
+msgid "<b>Note:</b> Archive page title will be visible on frontend."
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-page-title.php:126
 #: inc/widgets-manager/widgets/class-site-tagline.php:115
 #: inc/widgets-manager/widgets/class-site-title.php:117
 msgid "Before Title Text"
 msgstr ""
 
-#: inc/widgets-manager/widgets/class-page-title.php:127
+#: inc/widgets-manager/widgets/class-page-title.php:137
 #: inc/widgets-manager/widgets/class-site-tagline.php:127
 #: inc/widgets-manager/widgets/class-site-title.php:128
 msgid "After Title Text"
 msgstr ""
 
-#: inc/widgets-manager/widgets/class-page-title.php:138
+#: inc/widgets-manager/widgets/class-page-title.php:148
 msgid "Select Icon"
 msgstr ""
 
-#: inc/widgets-manager/widgets/class-page-title.php:169
+#: inc/widgets-manager/widgets/class-page-title.php:179
 #: inc/widgets-manager/widgets/class-retina.php:217
 #: inc/widgets-manager/widgets/class-site-logo.php:224
 #: inc/widgets-manager/widgets/class-site-title.php:170
 msgid "Custom URL"
 msgstr ""
 
-#: inc/widgets-manager/widgets/class-page-title.php:197
+#: inc/widgets-manager/widgets/class-page-title.php:207
 #: inc/widgets-manager/widgets/class-site-title.php:215
 msgid "HTML Tag"
 msgstr ""
 
-#: inc/widgets-manager/widgets/class-page-title.php:200
+#: inc/widgets-manager/widgets/class-page-title.php:210
 #: inc/widgets-manager/widgets/class-site-title.php:218
 msgid "H1"
 msgstr ""
 
-#: inc/widgets-manager/widgets/class-page-title.php:201
+#: inc/widgets-manager/widgets/class-page-title.php:211
 #: inc/widgets-manager/widgets/class-site-title.php:219
 msgid "H2"
 msgstr ""
 
-#: inc/widgets-manager/widgets/class-page-title.php:202
+#: inc/widgets-manager/widgets/class-page-title.php:212
 #: inc/widgets-manager/widgets/class-site-title.php:220
 msgid "H3"
 msgstr ""
 
-#: inc/widgets-manager/widgets/class-page-title.php:203
+#: inc/widgets-manager/widgets/class-page-title.php:213
 #: inc/widgets-manager/widgets/class-site-title.php:221
 msgid "H4"
 msgstr ""
 
-#: inc/widgets-manager/widgets/class-page-title.php:204
+#: inc/widgets-manager/widgets/class-page-title.php:214
 #: inc/widgets-manager/widgets/class-site-title.php:222
 msgid "H5"
 msgstr ""
 
-#: inc/widgets-manager/widgets/class-page-title.php:205
+#: inc/widgets-manager/widgets/class-page-title.php:215
 #: inc/widgets-manager/widgets/class-site-title.php:223
 msgid "H6"
 msgstr ""
 
-#: inc/widgets-manager/widgets/class-page-title.php:219
+#: inc/widgets-manager/widgets/class-page-title.php:229
 #: inc/widgets-manager/widgets/class-site-title.php:203
 msgid "Small"
 msgstr ""
 
-#: inc/widgets-manager/widgets/class-page-title.php:220
+#: inc/widgets-manager/widgets/class-page-title.php:230
 #: inc/widgets-manager/widgets/class-site-title.php:204
 msgid "Medium"
 msgstr ""
 
-#: inc/widgets-manager/widgets/class-page-title.php:221
+#: inc/widgets-manager/widgets/class-page-title.php:231
 #: inc/widgets-manager/widgets/class-site-title.php:205
 msgid "Large"
 msgstr ""
 
-#: inc/widgets-manager/widgets/class-page-title.php:222
+#: inc/widgets-manager/widgets/class-page-title.php:232
 #: inc/widgets-manager/widgets/class-site-title.php:206
 msgid "XL"
 msgstr ""
 
-#: inc/widgets-manager/widgets/class-page-title.php:223
+#: inc/widgets-manager/widgets/class-page-title.php:233
 #: inc/widgets-manager/widgets/class-site-title.php:207
 msgid "XXL"
 msgstr ""
 
-#: inc/widgets-manager/widgets/class-page-title.php:247
+#: inc/widgets-manager/widgets/class-page-title.php:257
 msgid "Justified"
 msgstr ""
 
-#: inc/widgets-manager/widgets/class-page-title.php:312
+#: inc/widgets-manager/widgets/class-page-title.php:322
 #: inc/widgets-manager/widgets/class-site-title.php:312
 msgid "Blend Mode"
 msgstr ""
 
-#: inc/widgets-manager/widgets/class-page-title.php:370
+#: inc/widgets-manager/widgets/class-page-title.php:380
 #: inc/widgets-manager/widgets/class-site-tagline.php:240
 #: inc/widgets-manager/widgets/class-site-title.php:369
 msgid "Icon Hover Color"
