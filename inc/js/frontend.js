@@ -9,11 +9,11 @@
 		if ( 'undefined' == typeof $scope )
 			return;
 
-		var $input = $scope.find( "input" ),
-			$clear = $scope.find( "button#clear" ),
-			$clear_with_button = $scope.find( "button#clear-with-button" ),
-			$search_button = $scope.find( ".hfe-search-submit" ),
-			$toggle_search = $scope.find( ".hfe-search-icon-toggle input" );
+			var $input = $scope.find( "input.hfe-search-form__input" );
+			var $clear = $scope.find( "button#clear" );
+			var $clear_with_button = $scope.find( "button#clear-with-button" );
+			var $search_button = $scope.find( ".hfe-search-submit" );
+			var $toggle_search = $scope.find( ".hfe-search-icon-toggle input" );
 
 		$scope.find( '.hfe-search-icon-toggle' ).on( 'click', function( ){
 			$scope.find( ".hfe-search-form__input" ).focus();						
@@ -25,13 +25,8 @@
 
 		$scope.find( ".hfe-search-form__input" ).blur( function() {
 			$scope.find( ".hfe-search-button-wrapper" ).removeClass( "hfe-input-focus" );
-			$clear.hide();
 		});
   		   
-		$input.on( "input", function(){
-		  	$clear.toggle( !!this.value );
-		  	$clear_with_button.toggle( !!this.value );
-		});
 
 		$search_button.on( 'touchstart click', function(){
 			$input.submit();
@@ -39,12 +34,22 @@
 
 		$toggle_search.css( 'padding-right', $toggle_search.next().outerWidth() + 'px' );
 
-		$( document ).on( 'touchstart click', 'button#clear, button#clear-with-button', function( e ){
-			e.preventDefault();
-			$input.val("").trigger( "input" );			
+	
+		$input.on( 'keyup', function(){
+			$clear.style = (this.value.length) ? $clear.css('visibility','visible'): $clear.css('visibility','hidden');
+			$clear_with_button.style = (this.value.length) ? $clear_with_button.css('visibility','visible'): $clear_with_button.css('visibility','hidden');
+			$clear_with_button.css( 'right', $search_button.outerWidth() + 'px' );
 		});
 
-		$clear_with_button.css( 'right', $search_button.outerWidth() + 'px' );
+		$clear.on("click",function(){
+			this.style = $clear.css('visibility','hidden');
+			$input.value = "";
+		});
+		$clear_with_button.on("click",function(){
+			this.style = $clear_with_button.css('visibility','hidden');
+			$input.value = "";
+		});
+		
 	};
 		/**
 	 * Nav Menu handler Function.
