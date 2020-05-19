@@ -712,6 +712,10 @@ class Search_Button extends Widget_Base {
 						'max' => 100,
 					],
 				],
+				'default' => [
+					'size' => '16',
+					'unit' => 'px',
+				],
 				'selectors'   => [
 					'{{WRAPPER}} .hfe-search-submit' => 'font-size: {{SIZE}}{{UNIT}}',
 				],

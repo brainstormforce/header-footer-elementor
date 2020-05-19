@@ -1795,12 +1795,7 @@ a.hfe-menu-item.elementor-button {
     padding: 0;
 }
 
-.hfe-search-button-wrapper input[type=search]:hover {
-    background-color: #fff;
-}
 .hfe-search-button-wrapper input[type=search]:focus {
-    color: #000;
-    background-color: #fff;
     cursor: auto;
     border: none;
     box-shadow: none;
