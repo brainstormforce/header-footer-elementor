@@ -934,8 +934,6 @@ class Search_Button extends Widget_Base {
 			]
 		);
 
-		// $close_icon_support = ( 'yes' === $settings['close_icon_switcher'] ) ? 'hfe-close-icon-yes' : '';
-		// ', $close_icon_support
 		$this->add_render_attribute(
 			'container',
 			[
