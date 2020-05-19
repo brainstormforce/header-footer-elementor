@@ -57,7 +57,7 @@ The plugin offers inbuilt widgets that help to create header/footer layouts. The
 
 ### WORKS WITH ALL THEMES ###
 
-Elementor – Header, Footer & Blocks Template plugin works with all themes. Few of the themes have direct support while for few you can choose a method to add theme support.
+Elementor – Header, Footer & Blocks plugin works with all WordPress themes. Few of the themes have direct support while for few you can choose a method to add theme support. 
 
 In case you face any difficulty displaying header/footer, manually choose the theme support method. Visit Appearance > Header Footer & Blocks > Theme Support. Select a method to suit your current theme and you are good to go!
 
@@ -130,10 +130,10 @@ This same applies when you are creating your Header/Footer using this plugin.
 ## Screenshots ##
 
 1. Go to Appearance -> Header Footer & Blocks to create a new template.
-2. Assign template to be a header/footer and select display rules. 
-3. Copy shortcode for Custom Blocks. 
+2. Assign template to be a header/footer and select display rules.
+3. 3. For blocks, select the type of template as Custom Blocks. You can copy the shortcode and use it anywhere. 
 4. Methods to add Theme Support.
-5. Default widgets available with the plugin.
+5. Default widgets available with Elementor – Header, Footer & Blocks.
 
 ## Changelog ##
 
