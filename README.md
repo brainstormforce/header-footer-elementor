@@ -53,6 +53,7 @@ The plugin offers inbuilt widgets that help to create header/footer layouts. The
 	<li><strong>Retina Image</strong> - You can upload the retina image for high definition screens.</li>
 	<li><strong>WooCommerce Menu Cart</strong> - You can display current number of products in the cart along with the total price.</li>
 	<li><strong>Copyright</strong> - It offers constants to display copyright notice - [hfe_current_year] and [hfe_site_title].</li>
+	<li><strong>Search</strong> - Add a search form to your with different layout and styling options.</li>
 </ul>
 
 ### WORKS WITH ALL THEMES ###
@@ -139,6 +140,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 ### 1.5.0 ###
 - New: Users can now share non-personal usage data to help us test and develop better products. ( https://store.brainstormforce.com/usage-tracking/?utm_source=wp_dashboard&utm_medium=general_settings&utm_campaign=usage_tracking )
+- New: Search widget.
 - Improvement: UI improvements.
 - Improvement: Navigation Menu - Added active color for dropdown and current menu parent.
 - Improvement: Navigation Menu - Changed the tablet breakpoint to 1024 in order to support iPad Pro.

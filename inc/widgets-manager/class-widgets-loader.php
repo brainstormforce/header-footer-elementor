@@ -72,8 +72,8 @@ class Widgets_Loader {
 	 */
 	public static function get_widget_script() {
 		$js_files = [
-			'hfe-nav-menu' => [
-				'path'      => 'inc/js/hfe-nav-menu.js',
+			'hfe-frontend-js' => [
+				'path'      => 'inc/js/frontend.js',
 				'dep'       => [ 'jquery' ],
 				'in_footer' => true,
 			],
@@ -100,6 +100,7 @@ class Widgets_Loader {
 			'site-tagline',
 			'site-logo',
 			'cart',
+			'search-button',
 		];
 
 		return $widget_list;
@@ -186,10 +187,11 @@ class Widgets_Loader {
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Title() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Tagline() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Logo() );
-
+		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Search_Button() );
 		if ( class_exists( 'woocommerce' ) ) {
 			Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Cart() );
 		}
+
 	}
 
 	/**

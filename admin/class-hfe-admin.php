@@ -89,7 +89,6 @@ class HFE_Admin {
 			add_filter( 'manage_elementor-hf_posts_columns', [ $this, 'column_headings' ] );
 		}
 	}
-
 	/**
 	 * Script for Elementor Pro full site editing support.
 	 *

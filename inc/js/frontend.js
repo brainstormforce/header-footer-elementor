@@ -1,6 +1,52 @@
 ( function( $ ) {
 
 	/**
+	* Search widget JS
+	*/
+
+	var WidgethfeSearchButton = function( $scope, $ ){
+
+		if ( 'undefined' == typeof $scope )
+			return;
+
+		var $input = $scope.find( "input" ),
+			$clear = $scope.find( "button#clear" ),
+			$clear_with_button = $scope.find( "button#clear-with-button" ),
+			$search_button = $scope.find( ".hfe-search-submit" ),
+			$toggle_search = $scope.find( ".hfe-search-icon-toggle input" );
+
+		$scope.find( '.hfe-search-icon-toggle' ).on( 'click', function( ){
+			$scope.find( ".hfe-search-form__input" ).focus();						
+		});	
+		
+		$scope.find( ".hfe-search-form__input" ).focus( function(){
+			$scope.find( ".hfe-search-button-wrapper" ).addClass( "hfe-input-focus" );
+		});
+
+		$scope.find( ".hfe-search-form__input" ).blur( function() {
+			$scope.find( ".hfe-search-button-wrapper" ).removeClass( "hfe-input-focus" );
+			$clear.hide();
+		});
+  		   
+		$input.on( "input", function(){
+		  	$clear.toggle( !!this.value );
+		  	$clear_with_button.toggle( !!this.value );
+		});
+
+		$search_button.on( 'touchstart click', function(){
+			$input.submit();
+		});
+
+		$toggle_search.css( 'padding-right', $toggle_search.next().outerWidth() + 'px' );
+
+		$( document ).on( 'touchstart click', 'button#clear, button#clear-with-button', function( e ){
+			e.preventDefault();
+			$input.val("").trigger( "input" );			
+		});
+
+		$clear_with_button.css( 'right', $search_button.outerWidth() + 'px' );
+	};
+		/**
 	 * Nav Menu handler Function.
 	 *
 	 */
@@ -8,7 +54,7 @@
 
 		if ( 'undefined' == typeof $scope )
 			return;
-
+		
 		var id = $scope.data( 'id' );
 		var wrapper = $scope.find('.elementor-widget-hfe-nav-menu ');		
 		var layout = $( '.elementor-element-' + id + ' .hfe-nav-menu' ).data( 'layout' );
@@ -535,7 +581,6 @@
 	$( window ).on( 'elementor/frontend/init', function () {
 
 		elementorFrontend.hooks.addAction( 'frontend/element_ready/navigation-menu.default', WidgethfeNavMenuHandler );
-
+		elementorFrontend.hooks.addAction( 'frontend/element_ready/hfe-search-button.default', WidgethfeSearchButton );
 	});
-
 } )( jQuery );

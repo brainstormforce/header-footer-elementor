@@ -105,7 +105,7 @@ class Navigation_Menu extends Widget_Base {
 	 * @return array Widget scripts dependencies.
 	 */
 	public function get_script_depends() {
-		return [ 'hfe-nav-menu' ];
+		return [ 'hfe-frontend-js' ];
 	}
 
 	/**
