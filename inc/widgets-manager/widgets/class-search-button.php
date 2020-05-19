@@ -852,6 +852,10 @@ class Search_Button extends Widget_Base {
 						'max' => 50,
 					],
 				],
+				'default' => [
+					'size' => '20',
+					'unit' => 'px',
+				],
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-form__container button#clear i:before,
 					{{WRAPPER}} .hfe-search-icon-toggle button#clear i:before,
@@ -878,6 +882,7 @@ class Search_Button extends Widget_Base {
 					'type'  => Scheme_Color::get_type(),
 					'value' => Scheme_Color::COLOR_3,
 				],
+				'default' => '#7a7a7a',
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-form__container button#clear-with-button,
 					{{WRAPPER}} .hfe-search-form__container button#clear,
