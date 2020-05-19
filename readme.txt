@@ -129,10 +129,11 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Screenshots ==
 
-1. Go to Appearance -> Header Footer & Blocks to create a new template (<a href="https://share.getcloudapp.com/DOuQLGP1">screenshot</a>).
-2. Assign template to be a header/footer and select display rules (<a href="https://share.getcloudapp.com/6qu5ABko">screenshot</a>).
-3. For blocks, select the type of template as Custom Blocks. You can copy the shortcode and use it anywhere (<a href="https://share.getcloudapp.com/xQuWkg0p">screenshot</a>).
-4. Default widgets available with Elementor – Header, Footer & Blocks (<a href="https://share.getcloudapp.com/mXuBNq57">screenshot</a>).
+1. Go to Appearance -> Header Footer & Blocks to create a new template.
+2. Assign template to be a header/footer and select display rules.
+3. 3. For blocks, select the type of template as Custom Blocks. You can copy the shortcode and use it anywhere. 
+4. Methods to add Theme Support.
+5. Default widgets available with Elementor – Header, Footer & Blocks.
 
 == Changelog ==
 
