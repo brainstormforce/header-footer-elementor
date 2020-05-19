@@ -712,7 +712,7 @@ class Search_Button extends Widget_Base {
 						'max' => 100,
 					],
 				],
-				'default' => [
+				'default'     => [
 					'size' => '16',
 					'unit' => 'px',
 				],
