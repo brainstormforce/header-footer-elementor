@@ -6,10 +6,9 @@
 <title>Square Avatar 02</title>
 <desc>Created with Sketch.</desc>
 <g>
-	
-		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="624.0195" y1="319" x2="815.9805" y2="319" gradientTransform="matrix(1 0 0 1 -592 -191)">
-		<stop  offset="0" style="stop-color:#1488CC"/>
-		<stop  offset="1" style="stop-color:#2B32B2"/>
+	<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="17.6064" y1="129.6445" x2="219.1065" y2="126.6445">
+		<stop  offset="0" style="stop-color:#373ADE"/>
+		<stop  offset="1" style="stop-color:#6163FE"/>
 	</linearGradient>
 	<path fill="url(#SVGID_1_)" d="M206.656,44.953c3.242,0,5.871,2.628,5.871,5.87v154.354c0,3.243-2.629,5.871-5.871,5.871H49.34
 		c-3.241,0-5.868-2.628-5.868-5.871V50.823c0-3.242,2.627-5.87,5.868-5.87H206.656 M206.656,33.5H49.34
@@ -18,20 +17,29 @@
 </g>
 <g>
 	
-		<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="651.7793" y1="376.8877" x2="788.2207" y2="376.8877" gradientTransform="matrix(1 0 0 1 -592 -191)">
+		<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="897.7793" y1="-455.8877" x2="1034.2207" y2="-455.8877" gradientTransform="matrix(1 0 0 -1 -838 -270)">
 		<stop  offset="0" style="stop-color:#1488CC"/>
 		<stop  offset="1" style="stop-color:#2B32B2"/>
 	</linearGradient>
-	<path fill="url(#SVGID_2_)" d="M196.221,193.779c0,3.648-2.959,6.607-6.605,6.607H66.386c-3.648,0-6.607-2.959-6.607-6.607v-15.784
-		c0-3.647,2.959-6.606,6.607-6.606h123.229c3.646,0,6.605,2.959,6.605,6.606V193.779z"/>
+	<path fill="url(#SVGID_2_)" d="M196.221,193.779c0,3.647-2.959,6.607-6.604,6.607H66.386c-3.648,0-6.607-2.96-6.607-6.607v-15.784
+		c0-3.647,2.959-6.606,6.607-6.606h123.229c3.646,0,6.605,2.959,6.605,6.606V193.779L196.221,193.779z"/>
 </g>
 <g>
-	
-		<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="651.7793" y1="263.0508" x2="788.2207" y2="263.0508" gradientTransform="matrix(1 0 0 1 -592 -191)">
-		<stop  offset="0" style="stop-color:#1488CC"/>
-		<stop  offset="1" style="stop-color:#2B32B2"/>
+	<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="39.2861" y1="67.8374" x2="228.7861" y2="76.8374">
+		<stop  offset="0" style="stop-color:#3739DE"/>
+		<stop  offset="1" style="stop-color:#5F61FD"/>
 	</linearGradient>
-	<path fill="url(#SVGID_3_)" d="M196.221,79.943c0,3.649-2.959,6.607-6.605,6.607H66.386c-3.648,0-6.607-2.958-6.607-6.607V64.159
-		c0-3.647,2.959-6.607,6.607-6.607h123.229c3.646,0,6.605,2.958,6.605,6.607V79.943z"/>
+	<path fill="url(#SVGID_3_)" stroke="#DDDDDD" stroke-miterlimit="10" d="M196.221,79.943c0,3.649-2.959,6.607-6.604,6.607H66.386
+		c-3.648,0-6.607-2.958-6.607-6.607V64.159c0-3.647,2.959-6.607,6.607-6.607h123.229c3.646,0,6.605,2.958,6.605,6.607V79.943
+		L196.221,79.943z"/>
+</g>
+<g>
+	<linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="59.7788" y1="186.0508" x2="196.2207" y2="186.0508">
+		<stop  offset="0" style="stop-color:#3739DE"/>
+		<stop  offset="1" style="stop-color:#5F61FD"/>
+	</linearGradient>
+	<path fill="url(#SVGID_4_)" stroke="#DDDDDD" stroke-miterlimit="10" d="M196.221,193.943c0,3.648-2.959,6.606-6.604,6.606H66.386
+		c-3.648,0-6.607-2.958-6.607-6.606v-15.784c0-3.647,2.959-6.607,6.607-6.607h123.229c3.646,0,6.605,2.958,6.605,6.607V193.943
+		L196.221,193.943z"/>
 </g>
 </svg>
