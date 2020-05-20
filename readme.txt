@@ -140,7 +140,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 = 1.5.0 =
 - New: Search widget.
-- New: Users can now share non-personal usage data to help us test and develop better products. ( <a href="https://store.brainstormforce.com/usage-tracking/?utm_source=wp_dashboard&utm_medium=general_settings&utm_campaign=usage_tracking" target="_blank">Know More</a> )
+- New: Users can now share non-personal usage data to help us test and develop better products. ( <a href="https://store.brainstormforce.com/usage-tracking/?utm_source=wp_dashboard&utm_medium=general_settings&utm_campaign=usage_tracking" target="_blank" rel="noopener">Know More</a> )
 - Improvement: UI improvements.
 - Improvement: Navigation Menu - Added active color for dropdown and current menu parent.
 - Improvement: Navigation Menu - Changed the tablet breakpoint to 1024 in order to support iPad Pro.
