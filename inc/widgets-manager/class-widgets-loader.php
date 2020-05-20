@@ -197,7 +197,7 @@ class Widgets_Loader {
 	/**
 	 * Initialize the cart.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.0
 	 * @access public
 	 */
 	public function init_cart() {
@@ -217,7 +217,7 @@ class Widgets_Loader {
 	 *
 	 * Refresh the cart fragments.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.0
 	 * @param array $fragments Array of fragments.
 	 * @access public
 	 */

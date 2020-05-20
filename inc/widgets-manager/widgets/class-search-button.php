@@ -25,13 +25,13 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * HFE widget for Search Button.
  *
- * @since x.x.x
+ * @since 1.5.0
  */
 class Search_Button extends Widget_Base {
 	/**
 	 * Retrieve the widget name.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.0
 	 *
 	 * @access public
 	 *
@@ -44,7 +44,7 @@ class Search_Button extends Widget_Base {
 	/**
 	 * Retrieve the widget title.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.0
 	 *
 	 * @access public
 	 *
@@ -57,7 +57,7 @@ class Search_Button extends Widget_Base {
 	/**
 	 * Retrieve the widget icon.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.0
 	 *
 	 * @access public
 	 *
@@ -75,7 +75,7 @@ class Search_Button extends Widget_Base {
 	 * Note that currently Elementor supports only one category.
 	 * When multiple categories passed, Elementor uses the first one.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.0
 	 *
 	 * @access public
 	 *
@@ -90,7 +90,7 @@ class Search_Button extends Widget_Base {
 	 *
 	 * Used to set scripts dependencies required to run the widget.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.0
 	 * @access public
 	 *
 	 * @return array Widget scripts dependencies.
@@ -102,7 +102,7 @@ class Search_Button extends Widget_Base {
 	/**
 	 * Register Search Button controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.0
 	 * @access protected
 	 */
 	protected function _register_controls() {
@@ -112,7 +112,7 @@ class Search_Button extends Widget_Base {
 	/**
 	 * Register Search General Controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.0
 	 * @access protected
 	 */
 	protected function register_general_content_controls() {
@@ -176,7 +176,7 @@ class Search_Button extends Widget_Base {
 	/**
 	 * Register Search Style Controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.0
 	 * @access protected
 	 */
 	protected function register_search_style_controls() {
@@ -924,7 +924,7 @@ class Search_Button extends Widget_Base {
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.0
 	 * @access protected
 	 */
 	protected function render() {

@@ -551,7 +551,7 @@ class Cart extends Widget_Base {
 	/**
 	 * Fetch the cart layout.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.0
 	 * @param string $cart_type Menu Cart type.
 	 * @access public
 	 */
