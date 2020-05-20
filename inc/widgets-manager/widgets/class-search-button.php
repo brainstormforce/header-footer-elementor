@@ -262,6 +262,7 @@ class Search_Button extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-form__input::placeholder' => 'color: {{VALUE}}',
 				],
+				'default' => '#7A7A7A6B',
 				'condition' => [
 					'layout!' => 'icon',
 				],
