@@ -89,7 +89,6 @@ class HFE_Admin {
 			add_filter( 'manage_elementor-hf_posts_columns', [ $this, 'column_headings' ] );
 		}
 	}
-
 	/**
 	 * Script for Elementor Pro full site editing support.
 	 *
@@ -213,24 +212,24 @@ class HFE_Admin {
 
 
 	/**
-	 * Register Post type for header footer templates
+	 * Register Post type for header footer & blocks templates
 	 */
 	public function header_footer_posttype() {
 		$labels = [
-			'name'               => __( 'Header Footers Template', 'header-footer-elementor' ),
-			'singular_name'      => __( 'Elementor Header Footer', 'header-footer-elementor' ),
-			'menu_name'          => __( 'Header Footers Template', 'header-footer-elementor' ),
-			'name_admin_bar'     => __( 'Elementor Header Footer', 'header-footer-elementor' ),
+			'name'               => __( 'Elementor - Header Footer & Blocks Template', 'header-footer-elementor' ),
+			'singular_name'      => __( 'Elementor Header Footer & Blocks', 'header-footer-elementor' ),
+			'menu_name'          => __( 'Elementor - Header Footer & Blocks Template', 'header-footer-elementor' ),
+			'name_admin_bar'     => __( 'Elementor Header Footer & Blocks', 'header-footer-elementor' ),
 			'add_new'            => __( 'Add New', 'header-footer-elementor' ),
-			'add_new_item'       => __( 'Add New Header Footer', 'header-footer-elementor' ),
-			'new_item'           => __( 'New Header Footers Template', 'header-footer-elementor' ),
-			'edit_item'          => __( 'Edit Header Footers Template', 'header-footer-elementor' ),
-			'view_item'          => __( 'View Header Footers Template', 'header-footer-elementor' ),
-			'all_items'          => __( 'All Elementor Header Footers', 'header-footer-elementor' ),
-			'search_items'       => __( 'Search Header Footers Templates', 'header-footer-elementor' ),
-			'parent_item_colon'  => __( 'Parent Header Footers Templates:', 'header-footer-elementor' ),
-			'not_found'          => __( 'No Header Footers Templates found.', 'header-footer-elementor' ),
-			'not_found_in_trash' => __( 'No Header Footers Templates found in Trash.', 'header-footer-elementor' ),
+			'add_new_item'       => __( 'Add New Header, Footer or Block', 'header-footer-elementor' ),
+			'new_item'           => __( 'New Header Footer & Blocks Template', 'header-footer-elementor' ),
+			'edit_item'          => __( 'Edit Header Footer & Blocks Template', 'header-footer-elementor' ),
+			'view_item'          => __( 'View Header Footer & Blocks Template', 'header-footer-elementor' ),
+			'all_items'          => __( 'All Elementor Header Footer & Blocks', 'header-footer-elementor' ),
+			'search_items'       => __( 'Search Header Footer & Blocks Templates', 'header-footer-elementor' ),
+			'parent_item_colon'  => __( 'Parent Header Footer & Blocks Templates:', 'header-footer-elementor' ),
+			'not_found'          => __( 'No Header Footer & Blocks Templates found.', 'header-footer-elementor' ),
+			'not_found_in_trash' => __( 'No Header Footer & Blocks Templates found in Trash.', 'header-footer-elementor' ),
 		];
 
 		$args = [
@@ -250,17 +249,17 @@ class HFE_Admin {
 	}
 
 	/**
-	 * Register the admin menu for Header Footer builder.
+	 * Register the admin menu for Header Footer & Blocks builder.
 	 *
 	 * @since  1.0.0
 	 * @since  1.0.1
-	 *         Moved the menu under Appearance -> Header Footer Builder
+	 *         Moved the menu under Appearance -> Header Footer & Blocks Builder
 	 */
 	public function register_admin_menu() {
 		add_submenu_page(
 			'themes.php',
-			__( 'Header Footer Builder', 'header-footer-elementor' ),
-			__( 'Header Footer Builder', 'header-footer-elementor' ),
+			__( 'Header Footer & Blocks', 'header-footer-elementor' ),
+			__( 'Header Footer & Blocks', 'header-footer-elementor' ),
 			'edit_pages',
 			'edit.php?post_type=elementor-hf'
 		);
@@ -272,7 +271,7 @@ class HFE_Admin {
 	function ehf_register_metabox() {
 		add_meta_box(
 			'ehf-meta-box',
-			__( 'Elementor Header Footer options', 'header-footer-elementor' ),
+			__( 'Elementor - Header Footer & Block Options', 'header-footer-elementor' ),
 			[
 				$this,
 				'efh_metabox_render',
@@ -381,7 +380,7 @@ class HFE_Admin {
 			<td class="bsf-target-rules-row-heading hfe-options-row-heading">
 				<label><?php esc_html_e( 'Do Not Display On', 'header-footer-elementor' ); ?></label>
 				<i class="bsf-target-rules-heading-help dashicons dashicons-editor-help"
-					title="<?php echo esc_attr__( 'This Advanced Header will not appear at these locations.', 'header-footer-elementor' ); ?>"></i>
+					title="<?php echo esc_attr__( 'Add locations for where this template should not appear.', 'header-footer-elementor' ); ?>"></i>
 			</td>
 			<td class="bsf-target-rules-row-content hfe-options-row-content">
 				<?php
@@ -517,7 +516,7 @@ class HFE_Admin {
 	}
 
 	/**
-	 * Don't display the elementor header footer templates on the frontend for non edit_posts capable users.
+	 * Don't display the elementor header footer & blocks templates on the frontend for non edit_posts capable users.
 	 *
 	 * @since  1.0.0
 	 */

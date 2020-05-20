@@ -88,6 +88,10 @@ class Header_Footer_Elementor {
 
 			add_action( 'astra_notice_before_markup_header-footer-elementor-rating', [ $this, 'rating_notice_css' ] );
 			add_action( 'admin_notices', [ $this, 'register_notices' ] );
+
+			// BSF Analytics Tracker.
+			require_once HFE_DIR . 'admin/bsf-analytics/class-bsf-analytics.php';
+
 		} else {
 			add_action( 'admin_notices', [ $this, 'elementor_not_available' ] );
 			add_action( 'network_admin_notices', [ $this, 'elementor_not_available' ] );
@@ -172,16 +176,35 @@ class Header_Footer_Elementor {
 	 * Prints the admin notics when Elementor is not installed or activated.
 	 */
 	public function elementor_not_available() {
-		if ( file_exists( WP_PLUGIN_DIR . '/elementor/elementor.php' ) ) {
-			$url = network_admin_url() . 'plugins.php?s=elementor';
-		} else {
-			$url = network_admin_url() . 'plugin-install.php?s=elementor';
-		}
 
-		echo '<div class="notice notice-error">';
-		/* Translators: URL to install or activate Elementor plugin. */
-		echo '<p>' . sprintf( __( 'The <strong>Header Footer Elementor</strong> plugin requires <strong><a href="%s">Elementor</strong></a> plugin installed & activated.', 'header-footer-elementor' ) . '</p>', $url );
-		echo '</div>';
+		if ( ! did_action( 'elementor/loaded' ) ) {
+			// Check user capability.
+			if ( ! ( current_user_can( 'activate_plugins' ) && current_user_can( 'install_plugins' ) ) ) {
+				return;
+			}
+
+			/* TO DO */
+			$class = 'notice notice-error';
+			/* translators: %s: html tags */
+			$message = sprintf( __( 'The %1$sElementor - Header Footer and Blocks%2$s plugin requires %1$sElementor%2$s plugin installed & activated.', 'header-footer-elementor' ), '<strong>', '</strong>' );
+
+			$plugin = 'elementor/elementor.php';
+
+			if ( _is_elementor_installed() ) {
+
+				$action_url   = wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $plugin . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin );
+				$button_label = __( 'Activate Elementor', 'header-footer-elementor' );
+
+			} else {
+
+				$action_url   = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=elementor' ), 'install-plugin_elementor' );
+				$button_label = __( 'Install Elementor', 'header-footer-elementor' );
+			}
+
+			$button = '<p><a href="' . $action_url . '" class="button-primary">' . $button_label . '</a></p><p></p>';
+
+			printf( '<div class="%1$s"><p>%2$s</p>%3$s</div>', esc_attr( $class ), wp_kses_post( $message ), wp_kses_post( $button ) );
+		}
 	}
 
 	/**
@@ -412,4 +435,20 @@ class Header_Footer_Elementor {
 		return self::$elementor_instance->frontend->get_builder_content_for_display( $id );
 	}
 
+}
+/**
+ * Is elementor plugin installed.
+ */
+if ( ! function_exists( '_is_elementor_installed' ) ) {
+
+	/**
+	 * Check if Elementor is installed
+	 *
+	 * @since 1.5.0
+	 *
+	 * @access public
+	 */
+	function _is_elementor_installed() {
+		return defined( 'ELEMENTOR_VERSION' ) ? true : false;
+	}
 }

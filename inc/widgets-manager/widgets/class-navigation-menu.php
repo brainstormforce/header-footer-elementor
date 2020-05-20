@@ -105,7 +105,7 @@ class Navigation_Menu extends Widget_Base {
 	 * @return array Widget scripts dependencies.
 	 */
 	public function get_script_depends() {
-		return [ 'hfe-nav-menu' ];
+		return [ 'hfe-frontend-js' ];
 	}
 
 	/**
@@ -444,8 +444,8 @@ class Navigation_Menu extends Widget_Base {
 				'type'         => Controls_Manager::SELECT,
 				'default'      => 'tablet',
 				'options'      => [
-					'mobile' => __( 'Mobile (767px >)', 'header-footer-elementor' ),
-					'tablet' => __( 'Tablet (1023px >)', 'header-footer-elementor' ),
+					'mobile' => __( 'Mobile (768px >)', 'header-footer-elementor' ),
+					'tablet' => __( 'Tablet (1025px >)', 'header-footer-elementor' ),
 					'none'   => __( 'None', 'header-footer-elementor' ),
 				],
 				'prefix_class' => 'hfe-nav-menu__breakpoint-',
@@ -998,7 +998,8 @@ class Navigation_Menu extends Widget_Base {
 							'type'      => Controls_Manager::COLOR,
 							'default'   => '',
 							'selectors' => [
-								'{{WRAPPER}} .menu-item.current-menu-item a.hfe-menu-item' => 'color: {{VALUE}}',
+								'{{WRAPPER}} .menu-item.current-menu-item a.hfe-menu-item,
+								{{WRAPPER}} .menu-item.current-menu-ancestor a.hfe-menu-item' => 'color: {{VALUE}}',
 							],
 						]
 					);
@@ -1010,7 +1011,8 @@ class Navigation_Menu extends Widget_Base {
 							'type'      => Controls_Manager::COLOR,
 							'default'   => '',
 							'selectors' => [
-								'{{WRAPPER}} .menu-item.current-menu-item a.hfe-menu-item' => 'background-color: {{VALUE}}',
+								'{{WRAPPER}} .menu-item.current-menu-item a.hfe-menu-item,
+								{{WRAPPER}} .menu-item.current-menu-ancestor a.hfe-menu-item' => 'background-color: {{VALUE}}',
 							],
 							'condition' => [
 								'layout!' => 'flyout',
@@ -1115,7 +1117,7 @@ class Navigation_Menu extends Widget_Base {
 								{{WRAPPER}} nav.hfe-dropdown .menu-item a.hfe-menu-item,
 								{{WRAPPER}} nav.hfe-dropdown .menu-item a.hfe-sub-menu-item' => 'background-color: {{VALUE}}',
 							],
-							'separator' => 'none',
+							'separator' => 'after',
 						]
 					);
 
@@ -1158,11 +1160,53 @@ class Navigation_Menu extends Widget_Base {
 								{{WRAPPER}} nav.hfe-dropdown-expandible li a.hfe-menu-item:hover,
 								{{WRAPPER}} nav.hfe-dropdown-expandible li a.hfe-sub-menu-item:hover' => 'background-color: {{VALUE}}',
 							],
-							'separator' => 'none',
+							'separator' => 'after',
 						]
 					);
 
 				$this->end_controls_tab();
+
+				$this->start_controls_tab(
+					'tab_dropdown_item_active',
+					[
+						'label' => __( 'Active', 'header-footer-elementor' ),
+					]
+				);
+
+				$this->add_control(
+					'color_dropdown_item_active',
+					[
+						'label'     => __( 'Text Color', 'header-footer-elementor' ),
+						'type'      => Controls_Manager::COLOR,
+						'default'   => '',
+						'selectors' => [
+							'{{WRAPPER}} .sub-menu .menu-item.current-menu-item a.hfe-sub-menu-item.hfe-sub-menu-item-active,	
+							{{WRAPPER}} nav.hfe-dropdown .menu-item.current-menu-item a.hfe-menu-item,
+							{{WRAPPER}} nav.hfe-dropdown .menu-item.current-menu-ancestor a.hfe-menu-item,
+							{{WRAPPER}} nav.hfe-dropdown .sub-menu .menu-item.current-menu-item a.hfe-sub-menu-item.hfe-sub-menu-item-active
+							' => 'color: {{VALUE}}',
+
+						],
+					]
+				);
+
+				$this->add_control(
+					'background_color_dropdown_item_active',
+					[
+						'label'     => __( 'Background Color', 'header-footer-elementor' ),
+						'type'      => Controls_Manager::COLOR,
+						'default'   => '',
+						'selectors' => [
+							'{{WRAPPER}} .sub-menu .menu-item.current-menu-item a.hfe-sub-menu-item.hfe-sub-menu-item-active,	
+							{{WRAPPER}} nav.hfe-dropdown .menu-item.current-menu-item a.hfe-menu-item,
+							{{WRAPPER}} nav.hfe-dropdown .menu-item.current-menu-ancestor a.hfe-menu-item,
+							{{WRAPPER}} nav.hfe-dropdown .sub-menu .menu-item.current-menu-item a.hfe-sub-menu-item.hfe-sub-menu-item-active' => 'background-color: {{VALUE}}',
+						],
+						'separator' => 'after',
+					]
+				);
+
+				$this->end_controls_tabs();
 
 			$this->end_controls_tabs();
 
@@ -1831,8 +1875,11 @@ class Navigation_Menu extends Widget_Base {
 			<div <?php echo $this->get_render_attribute_string( 'hfe-main-menu' ); ?>>
 				<div class="hfe-nav-menu__toggle elementor-clickable">
 					<div class="hfe-nav-menu-icon">
-						<?php if ( $this->is_elementor_updated() ) { ?>
-							<i class="<?php echo esc_attr( $settings['dropdown_icon']['value'] ); ?>" aria-hidden="true" tabindex="0"></i>
+						<?php
+						if ( $this->is_elementor_updated() ) {
+							$dropdown_icon_value = isset( $settings['dropdown_icon']['value'] ) ? $settings['dropdown_icon']['value'] : '';
+							?>
+							<i class="<?php echo esc_attr( $dropdown_icon_value ); ?>" aria-hidden="true" tabindex="0"></i>
 						<?php } else { ?>
 							<i class="<?php echo esc_attr( $settings['dropdown_icon'] ); ?>" aria-hidden="true" tabindex="0"></i>
 						<?php } ?>

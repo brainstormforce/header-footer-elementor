@@ -56,13 +56,6 @@ input.hfe-large-text{
     width: 95%;
 }
 
-.hfe-options-row-heading-help{
-    color: #b3b3b3;
-    cursor: help;
-    float: right;
-    font-size: 18px;
-}
-
 .hfe_radio_options {
     display: inline-block;
 }

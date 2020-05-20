@@ -1,21 +1,21 @@
-=== Elementor - Header, Footer & Blocks ===
+=== Elementor - Header, Footer & Blocks Template ===
 Contributors: brainstormforce, Nikschavan
-Tags: elementor, header footer builder, header template, footer template, elementor widget, WordPress header, WordPress footer, elementor menu, website header design, footer design
+Tags: elementor, header footer builder, header template, footer template, elementor widget, WordPress header, WordPress footer, elementor menu, website header design, footer design, blocks
 Donate link: https://www.paypal.me/BrainstormForce
 Requires at least: 4.4
 Requires PHP: 5.4
 Tested up to: 5.4
-Stable tag: 1.4.1
+Stable tag: 1.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Create Header and Footer for your WordPress website using Elementor Page Builder for free.
+Create Header, Footer and Blocks for your WordPress website using Elementor Page Builder for free.
 
 ## Description ##
 
 Have you ever imagined you could create your website header and footer with <a href="https://elementor.com/?ref=1352">Elementor</a> for FREE?
 
-Elementor -  Header, Footer & Blocks is a simple yet powerful WordPress plugin that allows you to create a layout with Elementor and set it as 
+Elementor -  Header, Footer & Blocks Template is a simple yet powerful WordPress plugin that allows you to create a layout with Elementor and set it as 
 - Header 
 - Footer 
 - Block (anywhere on the website)
@@ -53,17 +53,18 @@ The plugin offers inbuilt widgets that help to create header/footer layouts. The
 	<li><strong>Retina Image</strong> - You can upload the retina image for high definition screens.</li>
 	<li><strong>WooCommerce Menu Cart</strong> - You can display current number of products in the cart along with the total price.</li>
 	<li><strong>Copyright</strong> - It offers constants to display copyright notice - [hfe_current_year] and [hfe_site_title].</li>
+	<li><strong>Search</strong> - Add a search form to your with different layout and styling options.</li>
 </ul>
 
 = WORKS WITH ALL THEMES =
 
-Elementor – Header, Footer & Blocks plugin works with all themes. Few of the themes have direct support while for few you can choose a method to add theme support.
+Elementor – Header, Footer & Blocks plugin works with all WordPress themes. Few of the themes have direct support while for few you can choose a method to add theme support. 
 
-In case you face any difficulty displaying header/footer, manually choose the theme support method. Visit Appearance > Header Footer Builder > Theme Support. Select a method to suit your current theme and you are good to go!
+In case you face any difficulty displaying header/footer, manually choose the theme support method. Visit Appearance > Header Footer & Blocks > Theme Support. Select a method to suit your current theme and you are good to go!
 
 = STEPS TO USE THE PLUGIN =
 
-Step 1 - Visit Appearance > Header Footer Builder and click on the ‘Add New’.
+Step 1 - Visit Appearance > Header Footer & Blocks and click on the ‘Add New’.
 
 Step 2 - Select ‘Type of Template’ (header/footer/block). Set its display location and user roles.
 
@@ -81,7 +82,7 @@ Check [Ultimate Addons for Elementor](https://uaelementor.com/?utm_source=wp-rep
 
 = HAVE YOU TRIED ASTRA WITH ELEMENTOR? =
 
-Powering over 700,000+ WordPress websites, Astra is loved for the performance and ease-of-use it offers.
+Powering over 800,000+ WordPress websites, Astra is loved for the performance and ease-of-use it offers.
 
 People love Astra for -
 
@@ -94,22 +95,22 @@ People love Astra for -
 = SUPPORTED & ACTIVELY DEVELOPED =
 Need help with something? Have an issue to report? Visit [Plugin’s Forum](https://wordpress.org/plugins/header-footer-elementor/ "Plugin’s Forum").
 
-[Get in touch](https://github.com/Nikschavan/header-footer-elementor "Header Footer elementor on GitHub") with us on GitHub.
+[Get in touch](https://github.com/Nikschavan/header-footer-elementor "Elementor - Header Footer & Blocks on GitHub") with us on GitHub.
 
 Made with love at [Brainstorm Force](https://www.brainstormforce.com/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description "Brainstorm Force")!
 
 == Installation ==
 
-1. Go to `Plugins -> Add New` and search for Elementor – Header, Footer & Blocks.
+1. Go to `Plugins -> Add New` and search for Elementor – Header, Footer & Blocks Template.
 2. Activate the plugin through the 'Plugins' screen in WordPress.
-3. Go to `Appearance -> Header Footer Builder` to build a header or footer layout using elementor.
+3. Go to `Appearance -> Header Footer & Blocks` to build a header or footer layout using Elementor.
 4. After the layout is ready assign it as header or footer using the option `Select the type of template this is` (<a href="https://cloudup.com/clK2sPg9nXK+">screenshot</a>)
 
 == Frequently Asked Questions ==
 
 = How Does This Plugin Work? =
 
-1. Go to Appearance -> Header Footer Builder to build a header or footer layout using Elementor.
+1. Go to Appearance -> Header Footer & Blocks to build a header or footer layout using Elementor.
 2. Click on “Add New” and design a template with Elementor. 
 3. Once the template is ready, set is as a header/footer/block using options “Type of Template” (<a href="https://share.getcloudapp.com/geurz2JR">screenshot</a>).
 4.
@@ -122,20 +123,32 @@ Made with love at [Brainstorm Force](https://www.brainstormforce.com/?utm_source
 
 Yes, You can create the mobile responsive layout of your header using the plugin.  
 
-The Elementor – Header, Footer & Blocks plugin just gives you a container where you can completely design the header using Elementor Page Builder, So the process of creating the mobile responsive layout is exactly the same as you would create a responsive layout of your other Elementor page.
+The Elementor – Header, Footer & Blocks Template plugin just gives you a container where you can completely design the header using Elementor Page Builder, So the process of creating the mobile responsive layout is exactly the same as you would create a responsive layout of your other Elementor page.
 
 Here is a documentation by Elementor Page builder which explains how you can create mobile responsive layouts using Elementor - [https://elementor.com/introducing-mobile-editing/](https://elementor.com/introducing-mobile-editing/)
 This same applies when you are creating your Header/Footer using this plugin.
 
 == Screenshots ==
 
-1. Go to Appearance -> Header Footer Builder to create a new template.
-2. Assign template to be a header/footer and select display rules. 
-3. Copy shortcode for Custom Blocks. 
+1. Go to Appearance -> Header Footer & Blocks to create a new template.
+2. Assign template to be a header/footer and select display rules.
+3. 3. For blocks, select the type of template as Custom Blocks. You can copy the shortcode and use it anywhere. 
 4. Methods to add Theme Support.
-5. Default widgets available with the plugin.
+5. Default widgets available with Elementor – Header, Footer & Blocks.
 
 == Changelog ==
+
+= 1.5.0 =
+- New: Search widget.
+- New: Users can now share non-personal usage data to help us test and develop better products. ( <a href="https://store.brainstormforce.com/usage-tracking/?utm_source=changelog&utm_medium=readme&utm_campaign=usage_tracking" target="_blank" rel="noopener">Know More</a> )
+- Improvement: UI improvements.
+- Improvement: Navigation Menu - Added active color for dropdown and current menu parent.
+- Improvement: Navigation Menu - Changed the tablet breakpoint to 1024 in order to support iPad Pro.
+- Fix: Compatibility to PHP v7.4.
+- Fix: GeneratePress theme header now overriden by EHF.
+- Fix: Cart - Count not increasing with AJAX call.
+- Fix: Page Title - Added support for archive title.
+- Fix: Site Title - Custom URL not working.
 
 = 1.4.1 =
 - Fix: EHF header overlapping Astra WooCommerce Off-Canvas.
@@ -248,7 +261,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 = 1.0.2 =
 - New: Added support for the OceanWP Theme.
-- Fix: Load the elementor header assets correctly in the header. This fixes header looking different just when loading the page as previously Elementor would load its CSS in the footer.
+- Fix: Load the Elementor header assets correctly in the header. This fixes header looking different just when loading the page as previously Elementor would load its CSS in the footer.
 - Introduced helper functions for rendering and checking the headers to make it simpler to integrate HFE with more themes.
 
 = 1.0.1 =

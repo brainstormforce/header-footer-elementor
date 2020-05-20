@@ -56,6 +56,12 @@ class Widgets_Loader {
 
 		// Add svg support.
 		add_filter( 'upload_mimes', [ $this, 'hfe_svg_mime_types' ] );
+
+		// Refresh the cart fragments.
+		if ( class_exists( 'woocommerce' ) ) {
+			add_action( 'elementor/editor/before_enqueue_scripts', [ $this, 'init_cart' ], 10, 0 );
+			add_filter( 'woocommerce_add_to_cart_fragments', [ $this, 'wc_refresh_mini_cart_count' ] );
+		}
 	}
 
 	/**
@@ -66,8 +72,8 @@ class Widgets_Loader {
 	 */
 	public static function get_widget_script() {
 		$js_files = [
-			'hfe-nav-menu' => [
-				'path'      => 'inc/js/hfe-nav-menu.js',
+			'hfe-frontend-js' => [
+				'path'      => 'inc/js/frontend.js',
 				'dep'       => [ 'jquery' ],
 				'in_footer' => true,
 			],
@@ -94,6 +100,7 @@ class Widgets_Loader {
 			'site-tagline',
 			'site-logo',
 			'cart',
+			'search-button',
 		];
 
 		return $widget_list;
@@ -180,10 +187,53 @@ class Widgets_Loader {
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Title() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Tagline() );
 		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Logo() );
-
+		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Search_Button() );
 		if ( class_exists( 'woocommerce' ) ) {
 			Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Cart() );
 		}
+
+	}
+
+	/**
+	 * Initialize the cart.
+	 *
+	 * @since 1.5.0
+	 * @access public
+	 */
+	public function init_cart() {
+		$has_cart = is_a( WC()->cart, 'WC_Cart' );
+
+		if ( ! $has_cart ) {
+			$session_class = apply_filters( 'woocommerce_session_handler', 'WC_Session_Handler' );
+			WC()->session  = new $session_class();
+			WC()->session->init();
+			WC()->cart     = new \WC_Cart();
+			WC()->customer = new \WC_Customer( get_current_user_id(), true );
+		}
+	}
+
+	/**
+	 * Cart Fragments.
+	 *
+	 * Refresh the cart fragments.
+	 *
+	 * @since 1.5.0
+	 * @param array $fragments Array of fragments.
+	 * @access public
+	 */
+	public function wc_refresh_mini_cart_count( $fragments ) {
+
+		ob_start();
+
+		include HFE_DIR . '/inc/widgets-manager/widgets/class-cart.php';
+
+		$cart_type = get_option( 'hfe_cart_widget_type' );
+
+		\HFE\WidgetsManager\Widgets\Cart::get_cart_link( $cart_type );
+
+		$fragments['body:not(.elementor-editor-active) a.hfe-cart-container'] = ob_get_clean();
+
+		return $fragments;
 	}
 }
 

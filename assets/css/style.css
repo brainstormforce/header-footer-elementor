@@ -25,7 +25,7 @@
 }
 
 .elementor-element [class*="hfe-icon-"]:after {
-  content: "HFE";
+  content: "HFB";
   position: absolute;
   top: 0;
   right: 0;
@@ -40,28 +40,33 @@
   border-style: solid;
 }
 
-.hfe-icon-navigation-menu:before {
+.hfe-icon-search:before {
+  content: "\e908";
+  color: #556068;
+}
+.hfe-icon-site-logo:before {
   content: "\e900";
+}
+.hfe-icon-site-title:before {
+  content: "\e901";
+}
+.hfe-icon-site-tagline:before {
+  content: "\e902";
+}
+.hfe-icon-page-title:before {
+  content: "\e903";
+}
+.hfe-icon-navigation-menu:before {
+  content: "\e904";
   color: #556068;
 }
 .hfe-icon-menu-cart:before {
-  content: "\e901";
+  content: "\e905";
+  color: #556068;
 }
 .hfe-icon-copyright-widget:before {
-  content: "\e902";
-}
-.hfe-icon-retina-image:before {
-  content: "\e903";
-}
-.hfe-icon-page-title:before {
-  content: "\e904";
-}
-.hfe-icon-site-logo:before {
-  content: "\e905";
-}
-.hfe-icon-site-tagline:before {
   content: "\e906";
 }
-.hfe-icon-site-title:before {
+.hfe-icon-retina-image:before {
   content: "\e907";
 }
