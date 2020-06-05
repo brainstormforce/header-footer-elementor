@@ -138,6 +138,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 ## Changelog ##
 
+### 1.5.1 ###
+- Fix: Retained GeneratePress theme's after header while using EHF header.
+
 ### 1.5.0 ###
 - New: Search widget.
 - New: Users can now share non-personal usage data to help us test and develop better products. ( <a href="https://store.brainstormforce.com/usage-tracking/?utm_source=changelog&utm_medium=readme&utm_campaign=usage_tracking" target="_blank" rel="noopener">Know More</a> )
