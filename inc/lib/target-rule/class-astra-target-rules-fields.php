@@ -190,7 +190,7 @@ class Astra_Target_Rules_Fields {
 		$selection_options['specific-target'] = array(
 			'label' => __( 'Specific Target', 'header-footer-elementor' ),
 			'value' => array(
-				'specifics' => __( 'Specific Pages / Posts / Taxanomies, etc.', 'header-footer-elementor' ),
+				'specifics' => __( 'Specific Pages / Posts / Taxonomies, etc.', 'header-footer-elementor' ),
 			),
 		);
 
