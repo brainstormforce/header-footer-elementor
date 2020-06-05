@@ -138,7 +138,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 ## Changelog ##
 
-### 1.5.1 ###
+### 1.5.0.1 ###
 - Fix: Retained GeneratePress theme's after header while using EHF header.
 
 ### 1.5.0 ###
