@@ -222,6 +222,11 @@ class Widgets_Loader {
 	 */
 	public function wc_refresh_mini_cart_count( $fragments ) {
 
+		$has_cart = is_a( WC()->cart, 'WC_Cart' );
+		if ( ! $has_cart ) {
+			return $fragments;
+		}
+
 		ob_start();
 
 		include HFE_DIR . '/inc/widgets-manager/widgets/class-cart.php';
