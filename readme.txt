@@ -82,7 +82,7 @@ Check [Ultimate Addons for Elementor](https://uaelementor.com/?utm_source=wp-rep
 
 = HAVE YOU TRIED ASTRA WITH ELEMENTOR? =
 
-Powering over 800,000+ WordPress websites, Astra is loved for the performance and ease-of-use it offers.
+Powering over 900,000+ WordPress websites, Astra is loved for the performance and ease-of-use it offers.
 
 People love Astra for -
 
