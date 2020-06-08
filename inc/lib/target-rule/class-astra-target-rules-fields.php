@@ -91,7 +91,7 @@ class Astra_Target_Rules_Fields {
 		define( 'AST_TARGET_RULE_DIR', plugin_dir_path( __FILE__ ) );
 
 		add_action( 'admin_action_edit', array( $this, 'initialize_options' ) );
-		add_action( 'wp_ajax_astra_get_posts_by_query', array( $this, 'astra_get_posts_by_query' ) );
+		add_action( 'wp_ajax_hfe_get_posts_by_query', array( $this, 'hfe_get_posts_by_query' ) );
 	}
 
 	/**
@@ -190,7 +190,7 @@ class Astra_Target_Rules_Fields {
 		$selection_options['specific-target'] = array(
 			'label' => __( 'Specific Target', 'header-footer-elementor' ),
 			'value' => array(
-				'specifics' => __( 'Specific Pages / Posts / Taxanomies, etc.', 'header-footer-elementor' ),
+				'specifics' => __( 'Specific Pages / Posts / Taxonomies, etc.', 'header-footer-elementor' ),
 			),
 		);
 
@@ -304,7 +304,10 @@ class Astra_Target_Rules_Fields {
 	 *
 	 * @since  1.0.0
 	 */
-	function astra_get_posts_by_query() {
+	function hfe_get_posts_by_query() {
+
+		check_ajax_referer( 'hfe-get-posts-by-query', 'nonce' );
+
 		$search_string = isset( $_POST['q'] ) ? sanitize_text_field( $_POST['q'] ) : '';
 		$data          = array();
 		$result        = array();
@@ -411,7 +414,7 @@ class Astra_Target_Rules_Fields {
 
 	/**
 	 * Return search results only by post title.
-	 * This is only run from astra_get_posts_by_query()
+	 * This is only run from hfe_get_posts_by_query()
 	 *
 	 * @param  (string)   $search   Search SQL for WHERE clause.
 	 * @param  (WP_Query) $wp_query The current WP_Query object.
@@ -628,6 +631,7 @@ class Astra_Target_Rules_Fields {
 			'searching'     => __( 'Searching…', 'header-footer-elementor' ),
 			'not_loader'    => __( 'The results could not be loaded.', 'header-footer-elementor' ),
 			'search'        => __( 'Search pages / post / categories', 'header-footer-elementor' ),
+			'ajax_nonce'    => wp_create_nonce( 'hfe-get-posts-by-query' ),
 		);
 		wp_localize_script( 'astra-select2', 'astRules', $localize_vars );
 	}

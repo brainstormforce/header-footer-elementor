@@ -207,7 +207,6 @@ class Widgets_Loader {
 			$session_class = apply_filters( 'woocommerce_session_handler', 'WC_Session_Handler' );
 			WC()->session  = new $session_class();
 			WC()->session->init();
-			WC()->cart     = new \WC_Cart();
 			WC()->customer = new \WC_Customer( get_current_user_id(), true );
 		}
 	}
@@ -222,6 +221,11 @@ class Widgets_Loader {
 	 * @access public
 	 */
 	public function wc_refresh_mini_cart_count( $fragments ) {
+
+		$has_cart = is_a( WC()->cart, 'WC_Cart' );
+		if ( ! $has_cart ) {
+			return $fragments;
+		}
 
 		ob_start();
 

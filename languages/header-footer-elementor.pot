@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the Elementor - Header, Footer & Blocks package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Elementor - Header, Footer & Blocks 1.4.1\n"
+"Project-Id-Version: Elementor - Header, Footer & Blocks 1.5.0.1\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/header-footer-elementor\n"
-"POT-Creation-Date: 2020-05-20 04:21:11+00:00\n"
+"POT-Creation-Date: 2020-06-08 04:38:59+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -202,7 +202,7 @@ msgid "Exclude On"
 msgstr ""
 
 #: admin/class-hfe-admin.php:393
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:840
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:844
 msgid "Add Exclusion Rule"
 msgstr ""
 
@@ -325,7 +325,7 @@ msgid "Specific Target"
 msgstr ""
 
 #: inc/lib/target-rule/class-astra-target-rules-fields.php:193
-msgid "Specific Pages / Posts / Taxanomies, etc."
+msgid "Specific Pages / Posts / Taxonomies, etc."
 msgstr ""
 
 #: inc/lib/target-rule/class-astra-target-rules-fields.php:215
@@ -344,80 +344,80 @@ msgstr ""
 msgid "Advanced"
 msgstr ""
 
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:619
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:622
 msgid "Please enter"
 msgstr ""
 
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:620
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:623
 msgid "Please delete"
 msgstr ""
 
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:621
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:624
 msgid "or more characters"
 msgstr ""
 
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:622
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:625
 msgid "character"
 msgstr ""
 
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:623
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:626
 msgid "Loading more results…"
 msgstr ""
 
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:624
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:627
 msgid "You can only select"
 msgstr ""
 
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:625
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:628
 msgid "item"
 msgstr ""
 
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:626
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:629
 msgid "s"
 msgstr ""
 
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:627
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:630
 msgid "No results found"
 msgstr ""
 
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:628
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:631
 msgid "Searching…"
 msgstr ""
 
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:629
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:632
 msgid "The results could not be loaded."
 msgstr ""
 
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:630
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:633
 msgid "Search pages / post / categories"
 msgstr ""
 
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:648
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:1057
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:652
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:1061
 msgid "Add Rule"
 msgstr ""
 
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:664
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:769
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:1073
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:1103
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:1553
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:668
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:773
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:1077
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:1107
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:1557
 msgid "Select"
 msgstr ""
 
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:714
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:718
 #. translators: %s post label
 msgid "All %s"
 msgstr ""
 
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:719
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:728
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:723
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:732
 #. translators: %s post label
 #. translators: %s taxonomy label
 msgid "All %s Archive"
 msgstr ""
 
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:1494
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:1498
 #. translators: %s post title.
 msgid "The same display setting is already exist in %s post/s."
 msgstr ""
@@ -460,7 +460,7 @@ msgstr ""
 #: inc/widgets-manager/widgets/class-navigation-menu.php:533
 #: inc/widgets-manager/widgets/class-page-title.php:350
 #: inc/widgets-manager/widgets/class-search-button.php:134
-#: inc/widgets-manager/widgets/class-search-button.php:757
+#: inc/widgets-manager/widgets/class-search-button.php:758
 #: inc/widgets-manager/widgets/class-site-tagline.php:139
 #: inc/widgets-manager/widgets/class-site-title.php:139
 #: inc/widgets-manager/widgets/class-site-title.php:340
@@ -491,8 +491,8 @@ msgstr ""
 #: inc/widgets-manager/widgets/class-retina.php:185
 #: inc/widgets-manager/widgets/class-retina.php:216
 #: inc/widgets-manager/widgets/class-retina.php:334
-#: inc/widgets-manager/widgets/class-search-button.php:305
-#: inc/widgets-manager/widgets/class-search-button.php:545
+#: inc/widgets-manager/widgets/class-search-button.php:306
+#: inc/widgets-manager/widgets/class-search-button.php:546
 #: inc/widgets-manager/widgets/class-site-logo.php:222
 #: inc/widgets-manager/widgets/class-site-logo.php:376
 msgid "None"
@@ -591,7 +591,7 @@ msgstr ""
 #: inc/widgets-manager/widgets/class-cart.php:252
 #: inc/widgets-manager/widgets/class-page-title.php:224
 #: inc/widgets-manager/widgets/class-search-button.php:157
-#: inc/widgets-manager/widgets/class-search-button.php:847
+#: inc/widgets-manager/widgets/class-search-button.php:848
 #: inc/widgets-manager/widgets/class-site-title.php:198
 msgid "Size"
 msgstr ""
@@ -600,8 +600,8 @@ msgstr ""
 #: inc/widgets-manager/widgets/class-navigation-menu.php:1415
 #: inc/widgets-manager/widgets/class-navigation-menu.php:1533
 #: inc/widgets-manager/widgets/class-retina.php:348
-#: inc/widgets-manager/widgets/class-search-button.php:345
-#: inc/widgets-manager/widgets/class-search-button.php:579
+#: inc/widgets-manager/widgets/class-search-button.php:346
+#: inc/widgets-manager/widgets/class-search-button.php:580
 #: inc/widgets-manager/widgets/class-site-logo.php:390
 msgid "Border Width"
 msgstr ""
@@ -611,8 +611,8 @@ msgstr ""
 #: inc/widgets-manager/widgets/class-navigation-menu.php:1549
 #: inc/widgets-manager/widgets/class-navigation-menu.php:1677
 #: inc/widgets-manager/widgets/class-retina.php:389
-#: inc/widgets-manager/widgets/class-search-button.php:370
-#: inc/widgets-manager/widgets/class-search-button.php:602
+#: inc/widgets-manager/widgets/class-search-button.php:371
+#: inc/widgets-manager/widgets/class-search-button.php:603
 #: inc/widgets-manager/widgets/class-site-logo.php:431
 msgid "Border Radius"
 msgstr ""
@@ -632,9 +632,9 @@ msgstr ""
 #: inc/widgets-manager/widgets/class-page-title.php:325
 #: inc/widgets-manager/widgets/class-retina.php:414
 #: inc/widgets-manager/widgets/class-search-button.php:228
-#: inc/widgets-manager/widgets/class-search-button.php:641
-#: inc/widgets-manager/widgets/class-search-button.php:770
-#: inc/widgets-manager/widgets/class-search-button.php:873
+#: inc/widgets-manager/widgets/class-search-button.php:642
+#: inc/widgets-manager/widgets/class-search-button.php:771
+#: inc/widgets-manager/widgets/class-search-button.php:874
 #: inc/widgets-manager/widgets/class-site-logo.php:456
 #: inc/widgets-manager/widgets/class-site-title.php:315
 msgid "Normal"
@@ -654,9 +654,9 @@ msgstr ""
 #: inc/widgets-manager/widgets/class-navigation-menu.php:1706
 #: inc/widgets-manager/widgets/class-retina.php:529
 #: inc/widgets-manager/widgets/class-search-button.php:238
-#: inc/widgets-manager/widgets/class-search-button.php:407
-#: inc/widgets-manager/widgets/class-search-button.php:492
-#: inc/widgets-manager/widgets/class-search-button.php:681
+#: inc/widgets-manager/widgets/class-search-button.php:408
+#: inc/widgets-manager/widgets/class-search-button.php:493
+#: inc/widgets-manager/widgets/class-search-button.php:682
 #: inc/widgets-manager/widgets/class-site-logo.php:571
 msgid "Text Color"
 msgstr ""
@@ -664,7 +664,7 @@ msgstr ""
 #: inc/widgets-manager/widgets/class-cart.php:345
 #: inc/widgets-manager/widgets/class-cart.php:401
 #: inc/widgets-manager/widgets/class-page-title.php:361
-#: inc/widgets-manager/widgets/class-search-button.php:648
+#: inc/widgets-manager/widgets/class-search-button.php:649
 #: inc/widgets-manager/widgets/class-site-tagline.php:221
 #: inc/widgets-manager/widgets/class-site-title.php:350
 msgid "Icon Color"
@@ -685,11 +685,11 @@ msgstr ""
 #: inc/widgets-manager/widgets/class-navigation-menu.php:1651
 #: inc/widgets-manager/widgets/class-navigation-menu.php:1718
 #: inc/widgets-manager/widgets/class-retina.php:545
-#: inc/widgets-manager/widgets/class-search-button.php:274
-#: inc/widgets-manager/widgets/class-search-button.php:440
-#: inc/widgets-manager/widgets/class-search-button.php:507
-#: inc/widgets-manager/widgets/class-search-button.php:660
-#: inc/widgets-manager/widgets/class-search-button.php:692
+#: inc/widgets-manager/widgets/class-search-button.php:275
+#: inc/widgets-manager/widgets/class-search-button.php:441
+#: inc/widgets-manager/widgets/class-search-button.php:508
+#: inc/widgets-manager/widgets/class-search-button.php:661
+#: inc/widgets-manager/widgets/class-search-button.php:693
 #: inc/widgets-manager/widgets/class-site-logo.php:360
 #: inc/widgets-manager/widgets/class-site-logo.php:587
 msgid "Background Color"
@@ -699,9 +699,9 @@ msgstr ""
 #: inc/widgets-manager/widgets/class-cart.php:426
 #: inc/widgets-manager/widgets/class-navigation-menu.php:1398
 #: inc/widgets-manager/widgets/class-retina.php:370
-#: inc/widgets-manager/widgets/class-search-button.php:323
-#: inc/widgets-manager/widgets/class-search-button.php:473
-#: inc/widgets-manager/widgets/class-search-button.php:563
+#: inc/widgets-manager/widgets/class-search-button.php:324
+#: inc/widgets-manager/widgets/class-search-button.php:474
+#: inc/widgets-manager/widgets/class-search-button.php:564
 #: inc/widgets-manager/widgets/class-site-logo.php:412
 msgid "Border Color"
 msgstr ""
@@ -712,17 +712,17 @@ msgstr ""
 #: inc/widgets-manager/widgets/class-navigation-menu.php:1483
 #: inc/widgets-manager/widgets/class-navigation-menu.php:1699
 #: inc/widgets-manager/widgets/class-retina.php:449
-#: inc/widgets-manager/widgets/class-search-button.php:674
-#: inc/widgets-manager/widgets/class-search-button.php:790
-#: inc/widgets-manager/widgets/class-search-button.php:898
+#: inc/widgets-manager/widgets/class-search-button.php:675
+#: inc/widgets-manager/widgets/class-search-button.php:791
+#: inc/widgets-manager/widgets/class-search-button.php:899
 #: inc/widgets-manager/widgets/class-site-logo.php:491
 msgid "Hover"
 msgstr ""
 
 #: inc/widgets-manager/widgets/class-cart.php:440
 #: inc/widgets-manager/widgets/class-navigation-menu.php:1516
-#: inc/widgets-manager/widgets/class-search-button.php:707
-#: inc/widgets-manager/widgets/class-search-button.php:812
+#: inc/widgets-manager/widgets/class-search-button.php:708
+#: inc/widgets-manager/widgets/class-search-button.php:813
 msgid "Icon Size"
 msgstr ""
 
@@ -801,7 +801,7 @@ msgstr ""
 
 #: inc/widgets-manager/widgets/class-navigation-menu.php:228
 #: inc/widgets-manager/widgets/class-navigation-menu.php:1597
-#: inc/widgets-manager/widgets/class-search-button.php:628
+#: inc/widgets-manager/widgets/class-search-button.php:629
 msgid "Button"
 msgstr ""
 
@@ -916,7 +916,7 @@ msgstr ""
 
 #: inc/widgets-manager/widgets/class-navigation-menu.php:548
 #: inc/widgets-manager/widgets/class-navigation-menu.php:564
-#: inc/widgets-manager/widgets/class-search-button.php:836
+#: inc/widgets-manager/widgets/class-search-button.php:837
 msgid "Close Icon"
 msgstr ""
 
@@ -1021,40 +1021,40 @@ msgstr ""
 
 #: inc/widgets-manager/widgets/class-navigation-menu.php:1377
 #: inc/widgets-manager/widgets/class-retina.php:329
-#: inc/widgets-manager/widgets/class-search-button.php:300
-#: inc/widgets-manager/widgets/class-search-button.php:540
+#: inc/widgets-manager/widgets/class-search-button.php:301
+#: inc/widgets-manager/widgets/class-search-button.php:541
 #: inc/widgets-manager/widgets/class-site-logo.php:371
 msgid "Border Style"
 msgstr ""
 
 #: inc/widgets-manager/widgets/class-navigation-menu.php:1383
 #: inc/widgets-manager/widgets/class-retina.php:335
-#: inc/widgets-manager/widgets/class-search-button.php:306
-#: inc/widgets-manager/widgets/class-search-button.php:546
+#: inc/widgets-manager/widgets/class-search-button.php:307
+#: inc/widgets-manager/widgets/class-search-button.php:547
 #: inc/widgets-manager/widgets/class-site-logo.php:377
 msgid "Solid"
 msgstr ""
 
 #: inc/widgets-manager/widgets/class-navigation-menu.php:1384
 #: inc/widgets-manager/widgets/class-retina.php:336
-#: inc/widgets-manager/widgets/class-search-button.php:307
-#: inc/widgets-manager/widgets/class-search-button.php:547
+#: inc/widgets-manager/widgets/class-search-button.php:308
+#: inc/widgets-manager/widgets/class-search-button.php:548
 #: inc/widgets-manager/widgets/class-site-logo.php:378
 msgid "Double"
 msgstr ""
 
 #: inc/widgets-manager/widgets/class-navigation-menu.php:1385
 #: inc/widgets-manager/widgets/class-retina.php:337
-#: inc/widgets-manager/widgets/class-search-button.php:308
-#: inc/widgets-manager/widgets/class-search-button.php:548
+#: inc/widgets-manager/widgets/class-search-button.php:309
+#: inc/widgets-manager/widgets/class-search-button.php:549
 #: inc/widgets-manager/widgets/class-site-logo.php:379
 msgid "Dotted"
 msgstr ""
 
 #: inc/widgets-manager/widgets/class-navigation-menu.php:1386
 #: inc/widgets-manager/widgets/class-retina.php:338
-#: inc/widgets-manager/widgets/class-search-button.php:309
-#: inc/widgets-manager/widgets/class-search-button.php:549
+#: inc/widgets-manager/widgets/class-search-button.php:310
+#: inc/widgets-manager/widgets/class-search-button.php:550
 #: inc/widgets-manager/widgets/class-site-logo.php:380
 msgid "Dashed"
 msgstr ""
@@ -1066,10 +1066,10 @@ msgstr ""
 #: inc/widgets-manager/widgets/class-navigation-menu.php:1459
 #: inc/widgets-manager/widgets/class-navigation-menu.php:1490
 #: inc/widgets-manager/widgets/class-page-title.php:297
-#: inc/widgets-manager/widgets/class-search-button.php:777
-#: inc/widgets-manager/widgets/class-search-button.php:797
-#: inc/widgets-manager/widgets/class-search-button.php:879
-#: inc/widgets-manager/widgets/class-search-button.php:905
+#: inc/widgets-manager/widgets/class-search-button.php:778
+#: inc/widgets-manager/widgets/class-search-button.php:798
+#: inc/widgets-manager/widgets/class-search-button.php:880
+#: inc/widgets-manager/widgets/class-search-button.php:906
 #: inc/widgets-manager/widgets/class-site-tagline.php:204
 #: inc/widgets-manager/widgets/class-site-title.php:287
 msgid "Color"
@@ -1246,7 +1246,7 @@ msgstr ""
 
 #: inc/widgets-manager/widgets/class-retina.php:257
 #: inc/widgets-manager/widgets/class-search-button.php:203
-#: inc/widgets-manager/widgets/class-search-button.php:733
+#: inc/widgets-manager/widgets/class-search-button.php:734
 #: inc/widgets-manager/widgets/class-site-logo.php:290
 msgid "Width"
 msgstr ""
@@ -1287,7 +1287,7 @@ msgid "%1$s Getting started article » %2$s"
 msgstr ""
 
 #: inc/widgets-manager/widgets/class-search-button.php:54
-#: inc/widgets-manager/widgets/class-search-button.php:940
+#: inc/widgets-manager/widgets/class-search-button.php:941
 msgid "Search"
 msgstr ""
 
@@ -1316,11 +1316,11 @@ msgid "Input"
 msgstr ""
 
 #: inc/widgets-manager/widgets/class-search-button.php:256
-#: inc/widgets-manager/widgets/class-search-button.php:422
+#: inc/widgets-manager/widgets/class-search-button.php:423
 msgid "Placeholder Color"
 msgstr ""
 
-#: inc/widgets-manager/widgets/class-search-button.php:397
+#: inc/widgets-manager/widgets/class-search-button.php:398
 msgid "Focus"
 msgstr ""
 

@@ -596,8 +596,13 @@ class Cart extends Widget_Base {
 	 */
 	protected function render() {
 
+		if ( null === WC()->cart ) {
+			return;
+		}
+
 		$settings  = $this->get_settings_for_display();
 		$cart_type = $settings['hfe_cart_type'];
+
 		?>
 
 		<div class="hfe-masthead-custom-menu-items woocommerce-custom-menu-item">
