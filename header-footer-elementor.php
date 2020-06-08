@@ -7,7 +7,7 @@
  * Author URI:  https://www.brainstormforce.com/
  * Text Domain: header-footer-elementor
  * Domain Path: /languages
- * Version: 1.5.1.1
+ * Version: 1.5.1
  *
  * @package         header-footer-elementor
  */
