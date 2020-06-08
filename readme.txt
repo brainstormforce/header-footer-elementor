@@ -138,8 +138,10 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 
-= 1.5.0.1 =
+= 1.5.1 =
 - Fix: Retained GeneratePress theme's after header while using EHF header.
+- Fix: Target rule 'Specific Pages/Posts/Taxonomies etc' not working.
+- Fix: Cart - Error in some cases.
 
 = 1.5.0 =
 - New: Search widget.
