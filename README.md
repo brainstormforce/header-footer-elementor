@@ -74,11 +74,11 @@ Step 4 - Edit it with Elementor and design a section.
 
 Step 5 - Save it and you are done!
 
-You can refer to our step-by-step article that will help you [set Elementor headers and footers](https://uaelementor.com/header-footer-with-elementor/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description) quickly.
+You can refer to our step-by-step article that will help you [set Elementor headers and footers](https://ultimateelementor.com/header-footer-with-elementor/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description) quickly.
 
 ### LOOKING FOR PREMIUM ELEMENTOR ADDONS AND WIDGETS? ###
 
-Check [Ultimate Addons for Elementor](https://uaelementor.com/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description). It is a library of creative and unique Elementor widgets that add more functionality and flexibility to your favorite page builder.
+Check [Ultimate Addons for Elementor](https://ultimateelementor.com/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description). It is a library of creative and unique Elementor widgets that add more functionality and flexibility to your favorite page builder.
 
 ### HAVE YOU TRIED ASTRA WITH ELEMENTOR? ###
 
