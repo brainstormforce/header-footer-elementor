@@ -138,6 +138,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 
+= 1.5.2 =
+- Improvement: Navigation Menu - Added support to SVG for toggle and close icon.
+
 = 1.5.1 =
 - Fix: Retained GeneratePress theme's after header while using EHF header.
 - Fix: Target rule 'Specific Pages/Posts/Taxonomies etc' not working.
