@@ -235,9 +235,10 @@
 
 	function _openMenu( id ) {
 
+		var flyout_content = $( '#hfe-flyout-content-id-' + id );
 		var layout = $( '#hfe-flyout-content-id-' + id ).data( 'layout' );
 		var layout_type = $( '#hfe-flyout-content-id-' + id ).data( 'flyout-type' );
-		var wrap_width = $( '#hfe-flyout-content-id-' + id ).data( 'width' ) + 'px';
+		var wrap_width = flyout_content.width() + 'px';
 		var container = $( '.elementor-element-' + id + ' .hfe-flyout-container .hfe-side.hfe-flyout-' + layout );
 
 		$( '.elementor-element-' + id + ' .hfe-flyout-overlay' ).fadeIn( 100 );
@@ -275,8 +276,9 @@
 
 	function _closeMenu( id ) {
 
+		var flyout_content = $( '#hfe-flyout-content-id-' + id );
 		var layout    = $( '#hfe-flyout-content-id-' + id ).data( 'layout' );
-		var wrap_width = $( '#hfe-flyout-content-id-' + id ).data( 'width' ) + 'px';
+		var wrap_width = flyout_content.width() + 'px';
 		var layout_type = $( '#hfe-flyout-content-id-' + id ).data( 'flyout-type' );
 		var container = $( '.elementor-element-' + id + ' .hfe-flyout-container .hfe-side.hfe-flyout-' + layout );
 
