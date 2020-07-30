@@ -139,7 +139,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 == Changelog ==
 
 = 1.5.2 =
-- Fix: Cart - Missing wrapper class in controls selector.
+- Fix: Cart - Missing wrapper class in the control selector.
 
 = 1.5.1 =
 - Fix: Retained GeneratePress theme's after header while using EHF header.
