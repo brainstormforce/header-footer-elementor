@@ -1524,7 +1524,7 @@ class Navigation_Menu extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .hfe-nav-menu-icon' => 'font-size: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .hfe-nav-menu-icon'     => 'font-size: {{SIZE}}{{UNIT}}',
 					'{{WRAPPER}} .hfe-nav-menu-icon svg' => 'font-size: {{SIZE}}px;line-height: {{SIZE}}px;height: {{SIZE}}px;width: {{SIZE}}px;',
 				],
 				'separator' => 'before',
@@ -1566,7 +1566,7 @@ class Navigation_Menu extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#7A7A7A',
 				'selectors' => [
-					'{{WRAPPER}} .hfe-flyout-close' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .hfe-flyout-close'     => 'color: {{VALUE}}',
 					'{{WRAPPER}} .hfe-flyout-close svg' => 'fill: {{VALUE}}',
 
 				],
@@ -1774,21 +1774,21 @@ class Navigation_Menu extends Widget_Base {
 	public function get_menu_close_icon( $settings ) {
 		$menu_icon     = '';
 		$close_icon    = '';
-		$icons         = array();
-		$icon_settings = array(
+		$icons         = [];
+		$icon_settings = [
 			$settings['dropdown_icon'],
 			$settings['dropdown_close_icon'],
-		);
+		];
 
 		foreach ( $icon_settings as $icon ) {
 			if ( $this->is_elementor_updated() ) {
 				ob_start();
 				\Elementor\Icons_Manager::render_icon(
 					$icon,
-					array(
+					[
 						'aria-hidden' => 'true',
 						'tabindex'    => '0',
-					)
+					]
 				);
 				$menu_icon = ob_get_clean();
 			} else {
@@ -1811,8 +1811,8 @@ class Navigation_Menu extends Widget_Base {
 	 */
 	protected function render() {
 
-		$settings = $this->get_settings_for_display();
-		$menu_close_icons = array();
+		$settings         = $this->get_settings_for_display();
+		$menu_close_icons = [];
 		$menu_close_icons = $this->get_menu_close_icon( $settings );
 
 		$args = [
