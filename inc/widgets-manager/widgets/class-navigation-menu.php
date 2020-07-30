@@ -1460,6 +1460,7 @@ class Navigation_Menu extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} div.hfe-nav-menu-icon' => 'color: {{VALUE}}',
+					'{{WRAPPER}} div.hfe-nav-menu-icon svg' => 'fill: {{VALUE}}',
 				],
 			]
 		);
@@ -1491,6 +1492,8 @@ class Navigation_Menu extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} div.hfe-nav-menu-icon:hover' => 'color: {{VALUE}}',
+					'{{WRAPPER}} div.hfe-nav-menu-icon:hover svg' => 'fill: {{VALUE}}',
+
 				],
 			]
 		);
@@ -1522,6 +1525,7 @@ class Navigation_Menu extends Widget_Base {
 				],
 				'selectors' => [
 					'{{WRAPPER}} .hfe-nav-menu-icon' => 'font-size: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .hfe-nav-menu-icon svg' => 'font-size: {{SIZE}}px;line-height: {{SIZE}}px;height: {{SIZE}}px;width: {{SIZE}}px;',
 				],
 				'separator' => 'before',
 			]
@@ -1563,6 +1567,8 @@ class Navigation_Menu extends Widget_Base {
 				'default'   => '#7A7A7A',
 				'selectors' => [
 					'{{WRAPPER}} .hfe-flyout-close' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .hfe-flyout-close svg' => 'fill: {{VALUE}}',
+
 				],
 				'condition' => [
 					'layout' => 'flyout',
@@ -1582,7 +1588,8 @@ class Navigation_Menu extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .hfe-flyout-close' => 'height: {{SIZE}}px; width: {{SIZE}}px; font-size: {{SIZE}}px; line-height: {{SIZE}}px;',
+					'{{WRAPPER}} .hfe-flyout-close,
+					{{WRAPPER}} .hfe-flyout-close svg' => 'height: {{SIZE}}px; width: {{SIZE}}px; font-size: {{SIZE}}px; line-height: {{SIZE}}px;',
 				],
 				'condition' => [
 					'layout' => 'flyout',
