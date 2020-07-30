@@ -256,7 +256,9 @@
 					'margin-left' : wrap_width,
 					'margin-right' : 'auto'
 				});
-			}		
+			}	
+
+			container.addClass( 'hfe-flyout-show' );	
 		} else {
 
 			$( 'body' ).css( 'margin-right', '0' );
@@ -271,6 +273,8 @@
 					'margin-right' : 'auto',
 				});
 			}
+
+			container.addClass( 'hfe-flyout-show' );
 		}		
 	}
 
@@ -301,7 +305,9 @@
 						width: '',
 					});
 				});
-			}			
+			}	
+
+			container.removeClass( 'hfe-flyout-show' );					
 		} else {
 			container.css( 'right', '-' + wrap_width );
 			
@@ -319,6 +325,7 @@
 					});
 				});
 			}
+			container.removeClass( 'hfe-flyout-show' );
 		}	
 	}
 

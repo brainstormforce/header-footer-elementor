@@ -959,13 +959,17 @@ div.hfe-nav-menu,
 }
 
 .hfe-flyout-wrapper .hfe-side {
-    display: block;
+    display: none;
     position: fixed;
     z-index: 999999;
     padding: 0;
     margin: 0;
     -webkit-overflow-scrolling: touch;
     -webkit-backface-visibility: hidden;
+}
+
+.hfe-flyout-wrapper .hfe-side.hfe-flyout-show {
+    display: block;
 }
 
 .hfe-flyout-content.push {
@@ -979,17 +983,6 @@ div.hfe-nav-menu,
 /* ===========================================================
  *  Flyout Location
  * ======================================================== */
-
-.hfe-flyout-wrapper .hfe-side {
-    /* Allows iframes and google maps to display correctly while still being "hidden" */
-    display: block;
-    position: fixed;
-    z-index: 999999;
-    padding: 0;
-    margin: 0;
-    -webkit-overflow-scrolling: touch;
-    -webkit-backface-visibility: hidden;
-}
 
 .hfe-flyout-wrapper .hfe-side.hfe-flyout-right {
     top: 0;
