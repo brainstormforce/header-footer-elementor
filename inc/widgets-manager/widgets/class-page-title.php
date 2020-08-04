@@ -429,7 +429,7 @@ class Page_Title extends Widget_Base {
 		?>
 			<?php if ( '' != $head_link_url && 'custom' === $head_custom_link ) { ?>
 						<a <?php echo $link; ?> >
-			<?php } else if( 'none' !== $head_custom_link && 'default' === $head_custom_link ) { ?>
+			<?php } else if( 'default' === $head_custom_link ) { ?>
 						<a href="<?php echo esc_url( get_home_url() ); ?>">
 			<?php } ?>
 			<<?php echo wp_kses_post( $settings['heading_tag'] ); ?> class="elementor-heading-title elementor-size-<?php echo $settings['size']; ?>">
@@ -475,13 +475,13 @@ class Page_Title extends Widget_Base {
 			return;
 		}
 
-		if ( '' != settings.page_heading_link.url && 'none' != settings.page_heading_link ) {
+		if ( '' != settings.page_heading_link.url ) {
 			view.addRenderAttribute( 'url', 'href', settings.page_heading_link.url );
 		}
 		var iconHTML = elementor.helpers.renderIcon( view, settings.new_page_title_select_icon, { 'aria-hidden': true }, 'i' , 'object' );
 		#>
 		<div class="hfe-page-title hfe-page-title-wrapper elementor-widget-heading">
-			<# if ( '' != settings.page_heading_link.url && 'none' != settings.page_heading_link ) { #>
+			<# if ( '' != settings.page_heading_link.url ) { #>
 					<a {{{ view.getRenderAttributeString( 'url' ) }}} >
 			<# } #>
 			<{{{ settings.heading_tag }}} class="elementor-heading-title elementor-size-{{{ settings.size }}}">		
@@ -504,7 +504,7 @@ class Page_Title extends Widget_Base {
 						{{{ settings.after }}}
 					<# } #>				
 			</{{{ settings.heading_tag }}}>
-			<# if ( '' != settings.page_heading_link.url && 'none' != settings.page_heading_link ) { #>
+			<# if ( '' != settings.page_heading_link.url ) { #>
 					</a>
 			<# } #>			
 		</div>
