@@ -427,7 +427,7 @@ class Page_Title extends Widget_Base {
 		$head_link_url    = isset( $settings['page_heading_link']['url'] ) ? $settings['page_heading_link']['url'] : '';
 		$head_custom_link = isset( $settings['page_custom_link'] ) ? $settings['page_custom_link'] : '';
 		?>
-			<?php if ( '' != $head_link_url && 'custom' === $head_custom_link && 'none' != $head_custom_link ) { ?>
+			<?php if ( '' != $head_link_url && 'custom' === $head_custom_link ) { ?>
 						<a <?php echo $link; ?> >
 			<?php } else if( 'none' !== $head_custom_link && 'default' === $head_custom_link ) { ?>
 						<a href="<?php echo esc_url( get_home_url() ); ?>">
