@@ -218,8 +218,8 @@ class Header_Footer_Elementor {
 		// Load Elementor Canvas Compatibility.
 		require_once HFE_DIR . 'inc/class-hfe-elementor-canvas-compat.php';
 
-		// Load WPML Compatibility if WPML is installed and activated.
-		if ( defined( 'ICL_SITEPRESS_VERSION' ) ) {
+		// Load WPML & Polylang Compatibility if WPML is installed and activated.
+		if ( defined( 'ICL_SITEPRESS_VERSION' ) || defined( 'POLYLANG_BASENAME' ) ) {
 			require_once HFE_DIR . 'inc/compatibility/class-hfe-wpml-compatibility.php';
 		}
 
