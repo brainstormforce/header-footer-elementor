@@ -1784,7 +1784,7 @@ class Navigation_Menu extends Widget_Base {
 	 * @param string $atts link attributes.
 	 * @access protected
 	 */
-	public function handle_link_classes( $atts ) {
+	public function handle_link_attrs( $atts ) {
 
 		$atts = 'itemprop="url"';
 		return $atts;
@@ -1855,7 +1855,7 @@ class Navigation_Menu extends Widget_Base {
 			$this->add_render_attribute( 'hfe-nav-menu', 'itemscope', 'itemscope' );
 			$this->add_render_attribute( 'hfe-nav-menu', 'itemtype', 'http://schema.org/SiteNavigationElement' );
 
-			add_filter( 'hfe_nav_menu_attrs', [ $this, 'handle_link_classes' ] );
+			add_filter( 'hfe_nav_menu_attrs', [ $this, 'handle_link_attrs' ] );
 		}
 
 		$menu_html = wp_nav_menu( $args );
