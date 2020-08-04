@@ -1770,8 +1770,15 @@ class Navigation_Menu extends Widget_Base {
 		$this->end_controls_section();
 	}
 
+	/**
+	 * Add itemprop for Navigation Schema.
+	 *
+	 * @since x.x.x
+	 * @param string $atts link attributes.
+	 * @access protected
+	 */
 	public function handle_link_classes( $atts ) {
-		
+
 		$atts = 'itemprop="url"';
 		return $atts;
 	}
@@ -1798,7 +1805,7 @@ class Navigation_Menu extends Widget_Base {
 			'walker'      => new Menu_Walker,
 		];
 
-		if( 'yes' === $settings['schema_support'] ){
+		if ( 'yes' === $settings['schema_support'] ) {
 			$this->add_render_attribute( 'hfe-nav-menu', 'itemscope', 'itemscope' );
 			$this->add_render_attribute( 'hfe-nav-menu', 'itemtype', 'http://schema.org/SiteNavigationElement' );
 
