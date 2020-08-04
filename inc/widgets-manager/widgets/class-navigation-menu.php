@@ -234,7 +234,7 @@ class Navigation_Menu extends Widget_Base {
 		$this->add_control(
 			'schema_support',
 			[
-				'label'        => __( 'Schema Support', 'header-footer-elementor' ),
+				'label'        => __( 'Enable Schema Support', 'header-footer-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'label_on'     => __( 'Yes', 'header-footer-elementor' ),
 				'label_off'    => __( 'No', 'header-footer-elementor' ),
@@ -1770,6 +1770,12 @@ class Navigation_Menu extends Widget_Base {
 		$this->end_controls_section();
 	}
 
+	public function handle_link_classes( $atts ) {
+		
+		$atts = 'itemprop="url"';
+		return $atts;
+	}
+
 	/**
 	 * Render Nav Menu output on the frontend.
 	 *
@@ -1792,12 +1798,14 @@ class Navigation_Menu extends Widget_Base {
 			'walker'      => new Menu_Walker,
 		];
 
-		$menu_html = wp_nav_menu( $args );
-
 		if( 'yes' === $settings['schema_support'] ){
 			$this->add_render_attribute( 'hfe-nav-menu', 'itemscope', 'itemscope' );
 			$this->add_render_attribute( 'hfe-nav-menu', 'itemtype', 'http://schema.org/SiteNavigationElement' );
+
+			add_filter( 'hfe_nav_menu_attrs', [ $this, 'handle_link_classes' ] );
 		}
+
+		$menu_html = wp_nav_menu( $args );
 
 		if ( 'flyout' === $settings['layout'] ) {
 
