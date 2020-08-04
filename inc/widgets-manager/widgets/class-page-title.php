@@ -178,6 +178,7 @@ class Page_Title extends Widget_Base {
 				'options' => [
 					'custom'  => __( 'Custom URL', 'header-footer-elementor' ),
 					'default' => __( 'Default', 'header-footer-elementor' ),
+					'none' => __( 'None', 'header-footer-elementor' ),
 				],
 				'default' => 'default',
 			]
@@ -426,9 +427,9 @@ class Page_Title extends Widget_Base {
 		$head_link_url    = isset( $settings['page_heading_link']['url'] ) ? $settings['page_heading_link']['url'] : '';
 		$head_custom_link = isset( $settings['page_custom_link'] ) ? $settings['page_custom_link'] : '';
 		?>
-			<?php if ( '' != $head_link_url && 'custom' === $head_custom_link ) { ?>
+			<?php if ( '' != $head_link_url && 'custom' === $head_custom_link && 'none' != $head_custom_link ) { ?>
 						<a <?php echo $link; ?> >
-			<?php } else { ?>
+			<?php } else if( 'none' !== $head_custom_link && 'default' === $head_custom_link ) { ?>
 						<a href="<?php echo esc_url( get_home_url() ); ?>">
 			<?php } ?>
 			<<?php echo wp_kses_post( $settings['heading_tag'] ); ?> class="elementor-heading-title elementor-size-<?php echo $settings['size']; ?>">
@@ -474,13 +475,13 @@ class Page_Title extends Widget_Base {
 			return;
 		}
 
-		if ( '' != settings.page_heading_link.url ) {
+		if ( '' != settings.page_heading_link.url && 'none' != settings.page_heading_link ) {
 			view.addRenderAttribute( 'url', 'href', settings.page_heading_link.url );
 		}
 		var iconHTML = elementor.helpers.renderIcon( view, settings.new_page_title_select_icon, { 'aria-hidden': true }, 'i' , 'object' );
 		#>
 		<div class="hfe-page-title hfe-page-title-wrapper elementor-widget-heading">
-			<# if ( '' != settings.page_heading_link.url ) { #>
+			<# if ( '' != settings.page_heading_link.url && 'none' != settings.page_heading_link ) { #>
 					<a {{{ view.getRenderAttributeString( 'url' ) }}} >
 			<# } #>
 			<{{{ settings.heading_tag }}} class="elementor-heading-title elementor-size-{{{ settings.size }}}">		
@@ -503,7 +504,7 @@ class Page_Title extends Widget_Base {
 						{{{ settings.after }}}
 					<# } #>				
 			</{{{ settings.heading_tag }}}>
-			<# if ( '' != settings.page_heading_link.url ) { #>
+			<# if ( '' != settings.page_heading_link.url && 'none' != settings.page_heading_link ) { #>
 					</a>
 			<# } #>			
 		</div>
