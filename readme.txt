@@ -139,6 +139,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 == Changelog ==
 
 = 1.5.2 =
+- Improvement: Navigation Menu - Added 'SiteNavigationElement' schema support.
 - Fix: Cart - Missing wrapper class in the control selector.
 - Fix: Exclude EHF templates from query for target rules - Specific Pages / Posts / taxonomies etc.
 
