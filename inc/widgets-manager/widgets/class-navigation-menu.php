@@ -231,6 +231,19 @@ class Navigation_Menu extends Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'schema_support',
+			[
+				'label'        => __( 'Schema Support', 'header-footer-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Yes', 'header-footer-elementor' ),
+				'label_off'    => __( 'No', 'header-footer-elementor' ),
+				'return_value' => 'yes',
+				'default'      => 'no',
+				'render_type'  => 'template',
+			]
+		);
+
 		$this->end_controls_section();
 
 			$this->start_controls_section(
@@ -1780,6 +1793,11 @@ class Navigation_Menu extends Widget_Base {
 		];
 
 		$menu_html = wp_nav_menu( $args );
+
+		if( 'yes' === $settings['schema_support'] ){
+			$this->add_render_attribute( 'hfe-nav-menu', 'itemscope', 'itemscope' );
+			$this->add_render_attribute( 'hfe-nav-menu', 'itemtype', 'http://schema.org/SiteNavigationElement' );
+		}
 
 		if ( 'flyout' === $settings['layout'] ) {
 
