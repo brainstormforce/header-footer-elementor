@@ -1788,9 +1788,9 @@ class Navigation_Menu extends Widget_Base {
 
 		$atts = 'itemprop="url"';
 		return $atts;
-	} 
+	}
 
-	/*
+	/**
 	 * Get the menu and close icon HTML.
 	 *
 	 * @since x.x.x
