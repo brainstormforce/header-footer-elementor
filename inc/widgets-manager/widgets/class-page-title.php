@@ -178,7 +178,7 @@ class Page_Title extends Widget_Base {
 				'options' => [
 					'custom'  => __( 'Custom URL', 'header-footer-elementor' ),
 					'default' => __( 'Default', 'header-footer-elementor' ),
-					'none' => __( 'None', 'header-footer-elementor' ),
+					'none'    => __( 'None', 'header-footer-elementor' ),
 				],
 				'default' => 'default',
 			]
@@ -429,7 +429,7 @@ class Page_Title extends Widget_Base {
 		?>
 			<?php if ( '' != $head_link_url && 'custom' === $head_custom_link ) { ?>
 						<a <?php echo $link; ?> >
-			<?php } else if( 'default' === $head_custom_link ) { ?>
+			<?php } elseif ( 'default' === $head_custom_link ) { ?>
 						<a href="<?php echo esc_url( get_home_url() ); ?>">
 			<?php } ?>
 			<<?php echo wp_kses_post( $settings['heading_tag'] ); ?> class="elementor-heading-title elementor-size-<?php echo $settings['size']; ?>">
