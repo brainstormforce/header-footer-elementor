@@ -141,6 +141,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 = 1.5.2 =
 - Improvement: Compatibility with Polylang.
 - Improvement: Navigation Menu - Added support to SVG for toggle and close icon.
+- Improvement: Navigation Menu - Added active color support to the link hover effects.
 - Fix: Cart - Missing wrapper class in the control selector.
 - Fix: Exclude EHF templates from query for target rules - Specific Pages / Posts / taxonomies etc.
 - Fix: Navigation Menu - Added responsive support to flyout box width.
