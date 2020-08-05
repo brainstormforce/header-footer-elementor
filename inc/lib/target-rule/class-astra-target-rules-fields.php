@@ -321,6 +321,8 @@ class Astra_Target_Rules_Fields {
 		$operator   = 'and'; // also supports 'or'.
 		$post_types = get_post_types( $args, $output, $operator );
 
+		unset( $post_types['elementor-hf'] ); //Exclude EHF templates.
+
 		$post_types['Posts'] = 'post';
 		$post_types['Pages'] = 'page';
 
