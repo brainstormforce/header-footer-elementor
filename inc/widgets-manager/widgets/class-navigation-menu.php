@@ -231,6 +231,19 @@ class Navigation_Menu extends Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'schema_support',
+			[
+				'label'        => __( 'Enable Schema Support', 'header-footer-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Yes', 'header-footer-elementor' ),
+				'label_off'    => __( 'No', 'header-footer-elementor' ),
+				'return_value' => 'yes',
+				'default'      => 'no',
+				'render_type'  => 'template',
+			]
+		);
+
 		$this->end_controls_section();
 
 			$this->start_controls_section(
@@ -1765,6 +1778,19 @@ class Navigation_Menu extends Widget_Base {
 	}
 
 	/**
+	 * Add itemprop for Navigation Schema.
+	 *
+	 * @since x.x.x
+	 * @param string $atts link attributes.
+	 * @access protected
+	 */
+	public function handle_link_attrs( $atts ) {
+
+		$atts = 'itemprop="url"';
+		return $atts;
+	}
+
+	/**
 	 * Get the menu and close icon HTML.
 	 *
 	 * @since x.x.x
@@ -1824,6 +1850,13 @@ class Navigation_Menu extends Widget_Base {
 			'container'   => '',
 			'walker'      => new Menu_Walker,
 		];
+
+		if ( 'yes' === $settings['schema_support'] ) {
+			$this->add_render_attribute( 'hfe-nav-menu', 'itemscope', 'itemscope' );
+			$this->add_render_attribute( 'hfe-nav-menu', 'itemtype', 'http://schema.org/SiteNavigationElement' );
+
+			add_filter( 'hfe_nav_menu_attrs', [ $this, 'handle_link_attrs' ] );
+		}
 
 		$menu_html = wp_nav_menu( $args );
 

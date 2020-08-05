@@ -16,7 +16,7 @@ define( 'HFE_VER', '1.5.1' );
 define( 'HFE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'HFE_URL', plugins_url( '/', __FILE__ ) );
 define( 'HFE_PATH', plugin_basename( __FILE__ ) );
-define( 'HFE_DOMAIN', trailingslashit( 'https://ultimateelementor.com') );
+define( 'HFE_DOMAIN', trailingslashit( 'https://ultimateelementor.com' ) );
 
 /**
  * Load the class loader.
