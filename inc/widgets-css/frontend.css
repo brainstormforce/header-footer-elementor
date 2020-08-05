@@ -308,6 +308,13 @@ div.hfe-nav-menu,
     border: 0 solid;
 }
 
+.hfe-nav-menu-icon svg {
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 25px;
+}
+
 .hfe-nav-menu-icon i:focus {
     outline: 0;
 }
@@ -932,7 +939,8 @@ div.hfe-nav-menu,
     transform: none;
 }
 
-.hfe-flyout-close {
+.hfe-flyout-close,
+.hfe-flyout-close svg {
     position: absolute;
     top: 0;
     right: 0;
