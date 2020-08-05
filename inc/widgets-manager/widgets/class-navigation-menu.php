@@ -1780,7 +1780,7 @@ class Navigation_Menu extends Widget_Base {
 	/**
 	 * Add itemprop for Navigation Schema.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.2
 	 * @param string $atts link attributes.
 	 * @access protected
 	 */
@@ -1793,7 +1793,7 @@ class Navigation_Menu extends Widget_Base {
 	/**
 	 * Get the menu and close icon HTML.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.2
 	 * @param array $settings Widget settings array.
 	 * @access public
 	 */
