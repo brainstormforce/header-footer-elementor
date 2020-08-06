@@ -535,7 +535,7 @@
 			$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).next().css( 'left', sec_pos + 'px' );
 		}
 
-		$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle .hfe-nav-menu-icon' ).off( 'click keyup' ).on( 'click keyup', function( event ) {
+		$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).off( 'click keyup' ).on( 'click keyup', function( event ) {
 
 			var $this = $( this );
 			var $selector = $this.next();
@@ -575,7 +575,7 @@
 					$this.addClass( 'hfe-active-menu-full-width' );
 
 					var width = $( '.elementor-element-' + id ).closest('.elementor-section').outerWidth();
-					var sec_pos = $( '.elementor-element-' + id ).closest('.elementor-section').offset().left - $this.parent().parent().next().offset().left;
+					var sec_pos = $( '.elementor-element-' + id ).closest('.elementor-section').offset().left - $selector.offset().left;
 				
 					$selector.css( 'width', width + 'px' );
 					$selector.css( 'left', sec_pos + 'px' );
