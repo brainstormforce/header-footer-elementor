@@ -453,7 +453,9 @@ class Page_Title extends Widget_Base {
 					<?php echo wp_kses_post( $settings['after'] ); ?>
 				<?php } ?>  
 			</<?php echo wp_kses_post( $settings['heading_tag'] ); ?> > 
-			</a>    
+			<?php if ( ( '' != $head_link_url && 'custom' === $head_custom_link ) || 'default' === $head_custom_link ) { ?>
+						</a>
+			<?php } ?>
 		</div>
 		<?php
 
