@@ -609,6 +609,9 @@ class Retina extends Widget_Base {
 	 * @access protected
 	 */
 	protected function register_helpful_information() {
+
+			$help_link_1 = HFE_DOMAIN . 'docs/introducing-retina-image-widget';
+
 			$this->start_controls_section(
 				'section_helpful_info',
 				[
@@ -621,7 +624,7 @@ class Retina extends Widget_Base {
 				[
 					'type'            => Controls_Manager::RAW_HTML,
 					/* translators: %1$s doc link */
-					'raw'             => sprintf( __( '%1$s Getting started article » %2$s', 'header-footer-elementor' ), '<a href="https://uaelementor.com/docs/introducing-retina-image-widget/" target="_blank" rel="noopener">', '</a>' ),
+					'raw'             => sprintf( __( '%1$s Getting started article » %2$s', 'header-footer-elementor' ), '<a href=' . $help_link_1 . 'docs/introducing-retina-image-widget/" target="_blank" rel="noopener">', '</a>' ),
 					'content_classes' => 'hfe-editor-doc',
 				]
 			);
