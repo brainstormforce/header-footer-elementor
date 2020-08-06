@@ -144,8 +144,8 @@ This same applies when you are creating your Header/Footer using this plugin.
 - Improvement: Navigation Menu - Added support to SVG for toggle and close icon.
 - Improvement: Navigation Menu - Added active color support to the link hover effects.
 - Improvement: Page Title - Added option to disable the link.
-- Fix: Cart - Missing wrapper class in the control selector.
 - Fix: Exclude EHF templates from query for target rules - Specific Pages / Posts / taxonomies etc.
+- Fix: Cart - Missing wrapper class in the control selector.
 - Fix: Navigation Menu - Added responsive support to flyout box width.
 
 = 1.5.1 =
