@@ -13,7 +13,7 @@ Create Header, Footer and Blocks for your WordPress website using Elementor Page
 
 ## Description ##
 
-Have you ever imagined you could create your website header and footer with <a href="https://elementor.com/?ref=1352">Elementor</a> for FREE?
+Have you ever imagined you could create your website header and footer with <a href="https://elementor.com/">Elementor</a> for FREE?
 
 Elementor -  Header, Footer & Blocks Template is a simple yet powerful WordPress plugin that allows you to create a layout with Elementor and set it as 
 - Header 
