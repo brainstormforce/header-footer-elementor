@@ -58,7 +58,7 @@ class HFE_WPML_Compatibility {
 	 * @return Int $id  Post ID of the template being rendered, Passed through the `wpml_object_id` id.
 	 */
 	public function get_wpml_object( $id ) {
-		$id = apply_filters( 'wpml_object_id', $id, 11, 1 );
+		$id = apply_filters( 'wpml_object_id', $id );
 
 		if ( null === $id ) {
 			$id = '';
