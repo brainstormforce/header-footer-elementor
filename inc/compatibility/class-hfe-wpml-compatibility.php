@@ -74,8 +74,8 @@ class HFE_WPML_Compatibility {
 
 				/** Return translated post ID */
 				return $translated_id;
-			} 
-		} 
+			}
+		}
 
 		if ( null === $translated_id ) {
 			$translated_id = '';
