@@ -78,7 +78,6 @@ class HFE_WPML_Compatibility {
 				return $translated_id;
 
 			}  // end if
-
 		}  //
 
 		if ( null === $translated_id ) {
