@@ -58,13 +58,26 @@ class HFE_WPML_Compatibility {
 	 * @return Int $id  Post ID of the template being rendered, Passed through the `wpml_object_id` id.
 	 */
 	public function get_wpml_object( $id ) {
-		$id = apply_filters( 'wpml_object_id', $id );
+		$translated_id = apply_filters( 'wpml_object_id', $id );
 
-		if ( null === $id ) {
-			$id = '';
+		if ( defined( 'POLYLANG_BASENAME' ) ) {
+
+			if ( null === $translated_id ) {
+
+				// The current language is not defined yet or translation is not available.
+				return $id;
+			} else {
+
+				// Return translated post ID.
+				return $translated_id;
+			}
 		}
 
-		return $id;
+		if ( null === $translated_id ) {
+			$translated_id = '';
+		}
+
+		return $translated_id;
 	}
 }
 

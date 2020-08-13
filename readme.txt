@@ -139,7 +139,11 @@ This same applies when you are creating your Header/Footer using this plugin.
 == Changelog ==
 
 = 1.5.3 =
+<<<<<<< HEAD
 - Fix: Navigation Menu - Double link attributes issue with translation plugins.
+=======
+- Fix: Polylang plugin conflicting issue with target rules.
+>>>>>>> 136a1e1e2e451940aa4015e1fcf0ddb9905496d9
 
 = 1.5.2 =
 - Improvement: Compatibility with Polylang.

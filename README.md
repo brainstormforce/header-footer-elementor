@@ -138,6 +138,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 ## Changelog ##
 
+### 1.5.3 ###
+- Fix: Polylang plugin conflicting issue with target rules.
+
 ### 1.5.2 ###
 - Improvement: Compatibility with Polylang.
 - Improvement: Navigation Menu - Added 'SiteNavigationElement' schema support.
