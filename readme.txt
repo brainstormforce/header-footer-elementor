@@ -139,8 +139,8 @@ This same applies when you are creating your Header/Footer using this plugin.
 == Changelog ==
 
 = 1.5.3 =
-- Fix: Navigation Menu - Double link attributes issue with translation plugins.
 - Fix: Polylang plugin conflicting issue with target rules.
+- Fix: Navigation Menu - Double link attributes issue with translation plugins.
 
 = 1.5.2 =
 - Improvement: Compatibility with Polylang.
