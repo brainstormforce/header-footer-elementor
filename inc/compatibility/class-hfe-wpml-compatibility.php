@@ -64,13 +64,9 @@ class HFE_WPML_Compatibility {
 
 			if ( null === $translated_id ) {
 
-				// The current language is not defined yet.
+				// The current language is not defined yet or translation is not available.
 				return $id;
-			} elseif ( false === $translated_id ) {
-
-				// No translation yet.
-				return $id;
-			} elseif ( $translated_id > 0 ) {
+			} else {
 
 				// Return translated post ID.
 				return $translated_id;
