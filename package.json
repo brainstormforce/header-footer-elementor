@@ -1,6 +1,6 @@
 {
   "name": "header-footer-elementor",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "main": "Gruntfile.js",
   "author": "Nikhil Chavan",
   "devDependencies": {
