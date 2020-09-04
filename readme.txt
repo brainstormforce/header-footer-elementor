@@ -138,6 +138,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 
+= 1.5.4 =
+- Fix: Closed the HTML tag in footer in the global theme compatibility.
+
 = 1.5.3 =
 - Fix: Polylang plugin conflicting issue with target rules.
 - Fix: Navigation Menu - Double link attributes issue with translation plugins.
