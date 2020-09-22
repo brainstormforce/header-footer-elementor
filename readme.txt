@@ -138,6 +138,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 
+= 1.5.4 = 
+- Improvement: Improved compatibility with Astra theme.
+
 = 1.5.3 =
 - Fix: Polylang plugin conflicting issue with target rules.
 - Fix: Navigation Menu - Double link attributes issue with translation plugins.
