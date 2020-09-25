@@ -213,10 +213,10 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 				}
 
 				/* translators: %s product name */
-				$notice_string = __( 'Want to help make <strong>%1s</strong> even more awesome? Allow us to collect non-sensitive diagnostic data and usage information. ', 'uael', 'header-footer-elementor' );
+				$notice_string = __( 'Want to help make <strong>%1s</strong> even more awesome? Allow us to collect non-sensitive diagnostic data and usage information. ', 'header-footer-elementor' );
 
 				if ( is_multisite() ) {
-					$notice_string .= __( 'This will be applicable for all sites from the network.', 'uael', 'header-footer-elementor' );
+					$notice_string .= __( 'This will be applicable for all sites from the network.', 'header-footer-elementor' );
 				}
 
 				$language_dir = is_rtl() ? 'rtl' : 'ltr';
@@ -240,7 +240,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 									</div>
 								</div>',
 							/* translators: %s usage doc link */
-							sprintf( $notice_string . '<span dir="%2s"><a href="%3s" target="_blank" rel="noreferrer noopener">%4s</a><span>', esc_html( $data['product_name'] ), $language_dir, esc_url( $usage_doc_link ), __( ' Know More.', 'uael', 'header-footer-elementor' ) ),
+							sprintf( $notice_string . '<span dir="%2s"><a href="%3s" target="_blank" rel="noreferrer noopener">%4s</a><span>', esc_html( $data['product_name'] ), $language_dir, esc_url( $usage_doc_link ), __( ' Know More.', 'header-footer-elementor' ) ),
 							add_query_arg(
 								[
 									$key . '_analytics_optin' => 'yes',
@@ -248,7 +248,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 									'bsf_analytics_source' => $key,
 								]
 							),
-							__( 'Yes! Allow it', 'uael', 'header-footer-elementor' ),
+							__( 'Yes! Allow it', 'header-footer-elementor' ),
 							add_query_arg(
 								[
 									$key . '_analytics_optin' => 'no',
@@ -257,7 +257,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 								]
 							),
 							MONTH_IN_SECONDS,
-							__( 'No Thanks', 'uael', 'header-footer-elementor' )
+							__( 'No Thanks', 'header-footer-elementor' )
 						),
 						'show_if'                    => true,
 						'repeat-notice-after'        => false,
@@ -361,7 +361,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 				add_settings_field(
 					$key . '-analytics-optin',       // Field ID.
-					__( 'Usage Tracking', 'uael', 'header-footer-elementor' ),       // Field title.
+					__( 'Usage Tracking', 'header-footer-elementor' ),       // Field title.
 					[ $this, 'render_settings_field_html' ], // Field callback function.
 					'general',
 					'default',                   // Settings page slug.
@@ -405,15 +405,15 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 				<input id="<?php echo esc_attr( $args['id'] ); ?>" type="checkbox" value="1" name="<?php echo esc_attr( $args['name'] ); ?>" <?php checked( get_site_option( $args['name'], 'no' ), 'yes' ); ?>>
 				<?php
 				/* translators: %s Product title */
-				echo esc_html( sprintf( __( 'Allow %s products to track non-sensitive usage tracking data.', 'uael', 'header-footer-elementor' ), $args['title'] ) );// phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText
+				echo esc_html( sprintf( __( 'Allow %s products to track non-sensitive usage tracking data.', 'header-footer-elementor' ), $args['title'] ) );// phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText
 
 				if ( is_multisite() ) {
-					esc_html_e( ' This will be applicable for all sites from the network.', 'uael', 'header-footer-elementor' );
+					esc_html_e( ' This will be applicable for all sites from the network.', 'header-footer-elementor' );
 				}
 				?>
 			</label>
 			<?php
-			echo wp_kses_post( sprintf( '<a href="%1s" target="_blank" rel="noreferrer noopener">%2s</a>', esc_url( $args['usage_doc_link'] ), __( 'Learn More.', 'uael', 'header-footer-elementor' ) ) );
+			echo wp_kses_post( sprintf( '<a href="%1s" target="_blank" rel="noreferrer noopener">%2s</a>', esc_url( $args['usage_doc_link'] ), __( 'Learn More.', 'header-footer-elementor' ) ) );
 			?>
 			</fieldset>
 			<?php
