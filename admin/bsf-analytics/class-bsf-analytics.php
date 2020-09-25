@@ -52,13 +52,13 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 			define( 'BSF_ANALYTICS_VERSION', $analytics_version );
 			define( 'BSF_ANALYTICS_URI', $this->get_analytics_url( $analytics_path ) );
 
-			add_action( 'admin_init', array( $this, 'handle_optin_optout' ) );
-			add_action( 'admin_notices', array( $this, 'option_notice' ) );
-			add_action( 'init', array( $this, 'maybe_track_analytics' ), 99 );
+			add_action( 'admin_init', [ $this, 'handle_optin_optout' ] );
+			add_action( 'admin_notices', [ $this, 'option_notice' ] );
+			add_action( 'init', [ $this, 'maybe_track_analytics' ], 99 );
 
 			$this->set_actions();
 
-			add_action( 'admin_init', array( $this, 'register_usage_tracking_setting' ) );
+			add_action( 'admin_init', [ $this, 'register_usage_tracking_setting' ] );
 
 			$this->includes();
 		}
@@ -71,9 +71,9 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		public function set_actions() {
 
 			foreach ( $this->entities as $key => $data ) {
-				add_action( 'astra_notice_before_markup_' . $key . '-optin-notice', array( $this, 'enqueue_assets' ) );
-				add_action( 'update_option_' . $key . '_analytics_optin', array( $this, 'update_analytics_option_callback' ), 10, 3 );
-				add_action( 'add_option_' . $key . '_analytics_optin', array( $this, 'add_analytics_option_callback' ), 10, 2 );
+				add_action( 'astra_notice_before_markup_' . $key . '-optin-notice', [ $this, 'enqueue_assets' ] );
+				add_action( 'update_option_' . $key . '_analytics_optin', [ $this, 'update_analytics_option_callback' ], 10, 3 );
+				add_action( 'add_option_' . $key . '_analytics_optin', [ $this, 'add_analytics_option_callback' ], 10, 2 );
 			}
 		}
 
@@ -133,11 +133,11 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		public function send() {
 			wp_remote_post(
 				$this->get_api_url() . 'wp-json/bsf-core/v1/analytics/',
-				array(
+				[
 					'body'     => BSF_Analytics_Stats::instance()->get_stats(),
 					'timeout'  => 5,
 					'blocking' => false,
-				)
+				]
 			);
 		}
 
@@ -171,7 +171,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 */
 		public function is_white_label_enabled( $source ) {
 
-			$options    = apply_filters( $source . '_white_label_options', array() );
+			$options    = apply_filters( $source . '_white_label_options', [] );
 			$is_enabled = false;
 
 			if ( is_array( $options ) ) {
@@ -213,16 +213,16 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 				}
 
 				/* translators: %s product name */
-				$notice_string = __( 'Want to help make <strong>%1s</strong> even more awesome? Allow us to collect non-sensitive diagnostic data and usage information. ', 'uael' );
+				$notice_string = __( 'Want to help make <strong>%1s</strong> even more awesome? Allow us to collect non-sensitive diagnostic data and usage information. ', 'uael', 'header-footer-elementor' );
 
 				if ( is_multisite() ) {
-					$notice_string .= __( 'This will be applicable for all sites from the network.', 'uael' );
+					$notice_string .= __( 'This will be applicable for all sites from the network.', 'uael', 'header-footer-elementor' );
 				}
 
 				$language_dir = is_rtl() ? 'rtl' : 'ltr';
 
 				Astra_Notices::add_notice(
-					array(
+					[
 						'id'                         => $key . '-optin-notice',
 						'type'                       => '',
 						'message'                    => sprintf(
@@ -240,30 +240,30 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 									</div>
 								</div>',
 							/* translators: %s usage doc link */
-							sprintf( $notice_string . '<span dir="%2s"><a href="%3s" target="_blank" rel="noreferrer noopener">%4s</a><span>', esc_html( $data['product_name'] ), $language_dir, esc_url( $usage_doc_link ), __( ' Know More.', 'uael' ) ),
+							sprintf( $notice_string . '<span dir="%2s"><a href="%3s" target="_blank" rel="noreferrer noopener">%4s</a><span>', esc_html( $data['product_name'] ), $language_dir, esc_url( $usage_doc_link ), __( ' Know More.', 'uael', 'header-footer-elementor' ) ),
 							add_query_arg(
-								array(
+								[
 									$key . '_analytics_optin' => 'yes',
 									$key . '_analytics_nonce' => wp_create_nonce( $key . '_analytics_optin' ),
 									'bsf_analytics_source' => $key,
-								)
+								]
 							),
-							__( 'Yes! Allow it', 'uael' ),
+							__( 'Yes! Allow it', 'uael', 'header-footer-elementor' ),
 							add_query_arg(
-								array(
+								[
 									$key . '_analytics_optin' => 'no',
 									$key . '_analytics_nonce' => wp_create_nonce( $key . '_analytics_optin' ),
 									'bsf_analytics_source' => $key,
-								)
+								]
 							),
 							MONTH_IN_SECONDS,
-							__( 'No Thanks', 'uael' )
+							__( 'No Thanks', 'uael', 'header-footer-elementor' )
 						),
 						'show_if'                    => true,
 						'repeat-notice-after'        => false,
 						'priority'                   => 18,
 						'display-with-other-notices' => true,
-					)
+					]
 				);
 			}
 		}
@@ -299,11 +299,11 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 			wp_safe_redirect(
 				remove_query_arg(
-					array(
+					[
 						$source . '_analytics_optin',
 						$source . '_analytics_nonce',
 						'bsf_analytics_source',
-					)
+					]
 				)
 			);
 		}
@@ -356,23 +356,23 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 				register_setting(
 					'general',             // Options group.
 					$key . '_analytics_optin',      // Option name/database.
-					array( 'sanitize_callback' => array( $this, 'sanitize_option' ) ) // sanitize callback function.
+					[ 'sanitize_callback' => [ $this, 'sanitize_option' ] ] // sanitize callback function.
 				);
 
 				add_settings_field(
 					$key . '-analytics-optin',       // Field ID.
-					__( 'Usage Tracking', 'uael' ),       // Field title.
-					array( $this, 'render_settings_field_html' ), // Field callback function.
+					__( 'Usage Tracking', 'uael', 'header-footer-elementor' ),       // Field title.
+					[ $this, 'render_settings_field_html' ], // Field callback function.
 					'general',
 					'default',                   // Settings page slug.
-					array(
+					[
 						'type'           => 'checkbox',
 						'title'          => $author,
 						'name'           => $key . '_analytics_optin',
 						'label_for'      => $key . '-analytics-optin',
 						'id'             => $key . '-analytics-optin',
 						'usage_doc_link' => $usage_doc_link,
-					)
+					]
 				);
 			}
 		}
@@ -405,15 +405,15 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 				<input id="<?php echo esc_attr( $args['id'] ); ?>" type="checkbox" value="1" name="<?php echo esc_attr( $args['name'] ); ?>" <?php checked( get_site_option( $args['name'], 'no' ), 'yes' ); ?>>
 				<?php
 				/* translators: %s Product title */
-				echo esc_html( sprintf( __( 'Allow %s products to track non-sensitive usage tracking data.', 'uael' ), $args['title'] ) );// phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText
+				echo esc_html( sprintf( __( 'Allow %s products to track non-sensitive usage tracking data.', 'uael', 'header-footer-elementor' ), $args['title'] ) );// phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText
 
 				if ( is_multisite() ) {
-					esc_html_e( ' This will be applicable for all sites from the network.', 'uael' );
+					esc_html_e( ' This will be applicable for all sites from the network.', 'uael', 'header-footer-elementor' );
 				}
 				?>
 			</label>
 			<?php
-			echo wp_kses_post( sprintf( '<a href="%1s" target="_blank" rel="noreferrer noopener">%2s</a>', esc_url( $args['usage_doc_link'] ), __( 'Learn More.', 'uael' ) ) );
+			echo wp_kses_post( sprintf( '<a href="%1s" target="_blank" rel="noreferrer noopener">%2s</a>', esc_url( $args['usage_doc_link'] ), __( 'Learn More.', 'uael', 'header-footer-elementor' ) ) );
 			?>
 			</fieldset>
 			<?php
