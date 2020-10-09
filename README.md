@@ -137,6 +137,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 5. Default widgets available with Elementor – Header, Footer & Blocks.
 
 ## Changelog ##
+### Development Version ###
+- Fix: Closed the HTML tag in footer in the global theme compatibility.
+- Fix: Navigation Menu - Fixed spacing issue when border-width is increased for expanded layout.
 
 ### 1.5.3 ###
 - Fix: Polylang plugin conflicting issue with target rules.
