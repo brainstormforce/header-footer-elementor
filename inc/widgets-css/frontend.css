@@ -387,6 +387,7 @@ div.hfe-nav-menu,
 .hfe-nav-menu__layout-expandible {
     visibility: hidden;
     opacity: 0; 
+    display:none;
 }
 
 .hfe-nav-menu__layout-expandible .sub-menu {
@@ -398,6 +399,7 @@ div.hfe-nav-menu,
     visibility: visible;
     opacity: 1; 
     height: auto;
+    display: block;
 }
 
 .hfe-active-menu.hfe-active-menu-full-width + .hfe-nav-menu__layout-expandible,
