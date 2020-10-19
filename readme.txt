@@ -138,6 +138,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 = Development Version =
+- Fix: Notice appears to install Elementor if Elementor is installed but not active.
 - Fix: Closed the HTML tag in footer in the global theme compatibility.
 - Fix: Navigation Menu - Fixed spacing issue when border-width is increased for expanded layout.
 - Fix: Navigation Menu - Fixed extra spacing if used in the footer.
