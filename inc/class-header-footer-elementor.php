@@ -83,7 +83,6 @@ class Header_Footer_Elementor {
 										'section'  => 'section-header-builder-layout',
 										'priority' => 9,
 										'help'     => '<div class="ast-customizer-notice wp-ui-highlight"><p>' . $message . '<p></div>',
-										'context'  => Astra_Builder_Helper::$general_tab,
 									]
 								);
 
@@ -105,7 +104,6 @@ class Header_Footer_Elementor {
 										'section'  => 'section-footer-builder-layout',
 										'priority' => 9,
 										'help'     => '<div class="ast-customizer-notice wp-ui-highlight"><p>' . $message . '<p></div>',
-										'context'  => Astra_Builder_Helper::$general_tab,
 									]
 								);
 
