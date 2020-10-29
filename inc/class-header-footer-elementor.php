@@ -264,7 +264,7 @@ class Header_Footer_Elementor {
 
 			$plugin = 'elementor/elementor.php';
 
-			if ( _is_elementor_installed() ) {
+			if ( file_exists( WP_PLUGIN_DIR . '/elementor/elementor.php' ) ) {
 
 				$action_url   = wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $plugin . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin );
 				$button_label = __( 'Activate Elementor', 'header-footer-elementor' );
@@ -509,20 +509,4 @@ class Header_Footer_Elementor {
 		return self::$elementor_instance->frontend->get_builder_content_for_display( $id );
 	}
 
-}
-/**
- * Is elementor plugin installed.
- */
-if ( ! function_exists( '_is_elementor_installed' ) ) {
-
-	/**
-	 * Check if Elementor is installed
-	 *
-	 * @since 1.5.0
-	 *
-	 * @access public
-	 */
-	function _is_elementor_installed() {
-		return defined( 'ELEMENTOR_VERSION' ) ? true : false;
-	}
 }
