@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Elementor - Header, Footer & Blocks 1.5.3\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/header-footer-elementor\n"
-"POT-Creation-Date: 2020-09-25 09:19:59+00:00\n"
+"POT-Creation-Date: 2020-10-30 12:39:54+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -224,43 +224,59 @@ msgstr ""
 msgid "Template %1$s is already assigned to the location %2$s"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:163
+#: inc/class-header-footer-elementor.php:75
+#. translators: %s: Links to to plugin
+msgid ""
+"The header on the page you are previewing is built using %3$s plugin. "
+"Options given below will not work here.</p><p></br> %1$s Click here %2$s to "
+"modify the header on this page."
+msgstr ""
+
+#: inc/class-header-footer-elementor.php:94
+#. translators: %s: Links to to plugin
+msgid ""
+"The footer on the page you are previewing is built using %3$s plugin. "
+"Options given below will not work here.</p><p></br> %1$s Click here %2$s to "
+"modify the footer on this page."
+msgstr ""
+
+#: inc/class-header-footer-elementor.php:216
 msgid ""
 "Hello! Seems like you have used Elementor - Header, Footer & Blocks to "
 "build this website — Thanks a ton!"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:164
+#: inc/class-header-footer-elementor.php:217
 msgid ""
 "Could you please do us a BIG favor and give it a 5-star rating on "
 "WordPress? This would boost our motivation and help other users make a "
 "comfortable decision while choosing the Elementor - Header, Footer & Blocks."
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:166
+#: inc/class-header-footer-elementor.php:219
 msgid "Ok, you deserve it"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:168
+#: inc/class-header-footer-elementor.php:221
 msgid "Nope, maybe later"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:169
+#: inc/class-header-footer-elementor.php:222
 msgid "I already did"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:204
+#: inc/class-header-footer-elementor.php:257
 #. translators: %s: html tags
 msgid ""
 "The %1$sElementor - Header Footer and Blocks%2$s plugin requires "
 "%1$sElementor%2$s plugin installed & activated."
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:211
+#: inc/class-header-footer-elementor.php:264
 msgid "Activate Elementor"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:216
+#: inc/class-header-footer-elementor.php:269
 msgid "Install Elementor"
 msgstr ""
 

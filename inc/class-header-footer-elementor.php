@@ -72,7 +72,7 @@ class Header_Footer_Elementor {
 
 							if ( hfe_header_enabled() ) {
 								/* translators: %s: Links to to plugin */
-								$message = sprintf( __( 'The header on the page you are previewing is built using %3$s plugin. Options given below will not work here.</p><p></br> %1$s Click here %2$s to modify the header on this page.', 'astra' ), '<a href="' . admin_url( 'edit.php?post_type=elementor-hf' ) . '" target="_blank">', '</a>', '<strong>Elementor - Header, Footer & Blocks</strong>' );
+								$message = sprintf( __( 'The header on the page you are previewing is built using %3$s plugin. Options given below will not work here.</p><p></br> %1$s Click here %2$s to modify the header on this page.', 'astra', 'header-footer-elementor' ), '<a href="' . admin_url( 'edit.php?post_type=elementor-hf' ) . '" target="_blank">', '</a>', '<strong>Elementor - Header, Footer & Blocks</strong>' );
 
 								array_push(
 									$hf_builder_notices,
@@ -91,7 +91,7 @@ class Header_Footer_Elementor {
 
 							if ( hfe_footer_enabled() ) {
 								/* translators: %s: Links to to plugin */
-								$message = sprintf( __( 'The footer on the page you are previewing is built using %3$s plugin. Options given below will not work here.</p><p></br> %1$s Click here %2$s to modify the footer on this page.', 'astra' ), '<a href="' . admin_url( 'edit.php?post_type=elementor-hf' ) . '" target="_blank">', '</a>', '<strong>Elementor - Header, Footer & Blocks</strong>' );
+								$message = sprintf( __( 'The footer on the page you are previewing is built using %3$s plugin. Options given below will not work here.</p><p></br> %1$s Click here %2$s to modify the footer on this page.', 'astra', 'header-footer-elementor' ), '<a href="' . admin_url( 'edit.php?post_type=elementor-hf' ) . '" target="_blank">', '</a>', '<strong>Elementor - Header, Footer & Blocks</strong>' );
 
 								array_push(
 									$hf_builder_notices,
