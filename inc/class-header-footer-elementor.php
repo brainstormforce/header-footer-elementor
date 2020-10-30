@@ -77,16 +77,14 @@ class Header_Footer_Elementor {
 								array_push(
 									$hf_builder_notices,
 									[
-										'name'     => ASTRA_THEME_SETTINGS . '[header-notice]',
+										'name'     => ASTRA_THEME_SETTINGS . '[ehf-header-notice]',
 										'type'     => 'control',
 										'control'  => 'ast-description',
 										'section'  => 'section-header-builder-layout',
-										'priority' => 9,
+										'priority' => 1,
 										'help'     => '<div class="ast-customizer-notice wp-ui-highlight"><p>' . $message . '<p></div>',
 									]
 								);
-
-								$hf_builder_notices = array_merge( $hf_builder_notices, Astra_Builder_Base_Configuration::prepare_advanced_tab( 'section-header-builder-layout' ) );
 
 								$configurations = array_merge( $configurations, $hf_builder_notices );
 							}
@@ -98,16 +96,14 @@ class Header_Footer_Elementor {
 								array_push(
 									$hf_builder_notices,
 									[
-										'name'     => ASTRA_THEME_SETTINGS . '[footer-notice]',
+										'name'     => ASTRA_THEME_SETTINGS . '[ehf-footer-notice]',
 										'type'     => 'control',
 										'control'  => 'ast-description',
 										'section'  => 'section-footer-builder-layout',
-										'priority' => 9,
+										'priority' => 1,
 										'help'     => '<div class="ast-customizer-notice wp-ui-highlight"><p>' . $message . '<p></div>',
 									]
 								);
-
-								$hf_builder_notices = array_merge( $hf_builder_notices, Astra_Builder_Base_Configuration::prepare_advanced_tab( 'section-footer-builder-layout' ) );
 
 								$configurations = array_merge( $configurations, $hf_builder_notices );
 							}
