@@ -93,7 +93,7 @@ div.hfe-nav-menu,
     opacity: 0;
     display: none;
 }
-.hfe-dropdown-expandible .hfe-nav-menu .menu-item-has-children .sub-menu{
+.hfe-nav-menu .menu-item-has-children .sub-menu-active + ul.sub-menu {
     display: block;
 }
 .hfe-flyout-container .hfe-nav-menu .menu-item-has-children .menu-item-has-children .sub-menu {
@@ -1113,14 +1113,6 @@ a.hfe-menu-item.elementor-button {
 
 .hfe-nav-menu li.elementor-button-wrapper {
     align-self: center;
-}
-
-/* Vertical layout at footer extra space hide */
-.hfe-layout-vertical ul.hfe-nav-menu:last-child .sub-menu-active + .sub-menu-open {
-    display: block;
-}
-.hfe-layout-vertical ul.hfe-nav-menu:last-child .sub-menu {
-    display:none;
 }
 
 /* Tablet */
