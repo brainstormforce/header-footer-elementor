@@ -18,7 +18,8 @@ matrix:
 dist: trusty
 
 before_script:
-  - composer self-update --rollback; composer install
+  - composer self-update --rollback
+    composer install
 
 script:
   - |
