@@ -18,11 +18,7 @@ matrix:
 dist: trusty
 
 before_script:
-  - |
-    if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
-      composer self-update --rollback
-      composer install
-    fi
+  - composer self-update --rollback; composer install
 
 script:
   - |
