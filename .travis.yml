@@ -12,7 +12,7 @@ cache:
 
 matrix:
   include:
-    - php: 7.4snapshot
+    - php: 7.4
       env: WP_TRAVISCI=phpcs
 
 dist: trusty
@@ -20,6 +20,7 @@ dist: trusty
 before_script:
   - |
     if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
+      composer self-update --rollback
       composer install
     fi
 
