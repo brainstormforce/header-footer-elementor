@@ -1170,6 +1170,7 @@ a.hfe-menu-item.elementor-button {
     .hfe-nav-menu__breakpoint-tablet .hfe-nav-menu__layout-horizontal .sub-menu {
         visibility: hidden;
         opacity: 0;
+        display: none;
     }
 
     .hfe-nav-menu__breakpoint-tablet .hfe-nav-menu__layout-horizontal .menu-item-has-children .menu-item-has-children .sub-menu {
@@ -1402,6 +1403,7 @@ a.hfe-menu-item.elementor-button {
     .hfe-nav-menu__breakpoint-mobile .hfe-nav-menu__layout-horizontal .sub-menu {
         visibility: hidden;
         opacity: 0;
+        display: none;
     }
 
     .hfe-nav-menu__breakpoint-mobile .hfe-nav-menu__layout-horizontal .hfe-nav-menu {
