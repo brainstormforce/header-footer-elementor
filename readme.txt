@@ -144,6 +144,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 - Fix: Notice appears to install Elementor if Elementor is installed but not active.
 - Fix: Navigation Menu - Fixed spacing issue when border-width is increased for 'Expanded' layout.
 - Fix: Navigation Menu - Fixed extra spacing if used in the footer.
+- Fix: Navigation Menu - Alignment option not working if the last menu item is a button.
 
 = 1.5.3 =
 - Fix: Polylang plugin conflicting issue with target rules.
