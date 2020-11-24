@@ -827,7 +827,7 @@ class Site_Logo extends Widget_Base {
 		?>
 			<div class="hfe-site-logo-set">           
 				<div class="hfe-site-logo-container">
-					<img class="hfe-site-logo-img <?php echo esc_attr( $class_animation ); ?>"  src="<?php echo esc_url( $image_url ); ?>"/>
+					<img class="hfe-site-logo-img <?php echo esc_attr( $class_animation ); ?>"  src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( Control_Media::get_image_alt( $settings['custom_image'] ) ); ?>"/>
 				</div>
 			</div>
 		<?php if ( $link ) : ?>
