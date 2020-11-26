@@ -798,7 +798,7 @@ class Retina extends Widget_Base {
 			?>
 				<div class="hfe-retina-image-set">
 					<div class="hfe-retina-image-container">
-						<img class="hfe-retina-img <?php echo $class_animation; ?>"  src="<?php echo $image_url; ?>" srcset="<?php echo $image_url . ' 1x' . ',' . $retina_image_url . ' 2x'; ?>"/>
+						<img class="hfe-retina-img <?php echo $class_animation; ?>"  src="<?php echo $image_url; ?>" alt="<?php echo esc_attr( Control_Media::get_image_alt( $settings['retina_image'] ) ); ?>" srcset="<?php echo $image_url . ' 1x' . ',' . $retina_image_url . ' 2x'; ?>"/>
 					</div>
 				</div>
 			<?php if ( $link ) : ?>
