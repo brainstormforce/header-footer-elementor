@@ -399,8 +399,8 @@ class Navigation_Menu extends Widget_Base {
 					],
 					'selectors'    => [
 						'{{WRAPPER}} li.menu-item a' => 'justify-content: {{VALUE}};',
-						'{{WRAPPER}} li.elementor-button-wrapper' => 'text-align: {{VALUE}};',
-						'{{WRAPPER}}.hfe-menu-item-flex-end li.elementor-button-wrapper' => 'text-align: right;',
+						'{{WRAPPER}} li .elementor-button-wrapper' => 'text-align: {{VALUE}};',
+						'{{WRAPPER}}.hfe-menu-item-flex-end li .elementor-button-wrapper' => 'text-align: right;',
 					],
 					'prefix_class' => 'hfe-menu-item-',
 				]
