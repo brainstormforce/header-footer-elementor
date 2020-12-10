@@ -140,8 +140,8 @@ This same applies when you are creating your Header/Footer using this plugin.
 = 1.5.4 =
 - Improvement: Compatibility to PHP v8.0.
 - Improvement: Improved compatibility with Astra theme.
-- Improvement: Handled jquery deprecation.
 - Improvement: Navigation Menu - Added option to toggle menu item.
+- Fix: jQuery shorthand deprecation warning for click() and focus() functions.
 - Fix: Added 'alt' attribute to the widget containing images.
 - Fix: Closed the HTML tag in footer in the global theme compatibility.
 - Fix: Notice appears to install Elementor if Elementor is installed but not active.
