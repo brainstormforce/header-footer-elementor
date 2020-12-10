@@ -93,13 +93,6 @@ div.hfe-nav-menu,
     opacity: 0;
 }
 
-.hfe-nav-menu__layout-vertical .hfe-nav-menu .menu-item-has-children .sub-menu {
-    display: none;
-}
-
-.hfe-nav-menu .menu-item-has-children .sub-menu-active + ul.sub-menu {
-    display: block;
-}
 .hfe-flyout-container .hfe-nav-menu .menu-item-has-children .menu-item-has-children .sub-menu {
     top: 0;
     left: 0;
@@ -394,7 +387,6 @@ div.hfe-nav-menu,
 .hfe-nav-menu__layout-expandible {
     visibility: hidden;
     opacity: 0; 
-    display:none;
 }
 
 .hfe-nav-menu__layout-expandible .sub-menu {
@@ -406,7 +398,6 @@ div.hfe-nav-menu,
     visibility: visible;
     opacity: 1; 
     height: auto;
-    display: block;
 }
 
 .hfe-active-menu.hfe-active-menu-full-width + .hfe-nav-menu__layout-expandible,
@@ -1155,7 +1146,6 @@ a.hfe-menu-item.elementor-button {
         visibility: visible;
         opacity: 1;
         height: auto;
-        display: block;
     }
 
     .hfe-nav-menu__breakpoint-tablet .hfe-active-menu.hfe-active-menu-full-width + .hfe-nav-menu__layout-horizontal .hfe-nav-menu {
@@ -1170,7 +1160,6 @@ a.hfe-menu-item.elementor-button {
     .hfe-nav-menu__breakpoint-tablet .hfe-nav-menu__layout-horizontal .sub-menu {
         visibility: hidden;
         opacity: 0;
-        display: none;
     }
 
     .hfe-nav-menu__breakpoint-tablet .hfe-nav-menu__layout-horizontal .menu-item-has-children .menu-item-has-children .sub-menu {
@@ -1403,7 +1392,6 @@ a.hfe-menu-item.elementor-button {
     .hfe-nav-menu__breakpoint-mobile .hfe-nav-menu__layout-horizontal .sub-menu {
         visibility: hidden;
         opacity: 0;
-        display: none;
     }
 
     .hfe-nav-menu__breakpoint-mobile .hfe-nav-menu__layout-horizontal .hfe-nav-menu {
@@ -1421,7 +1409,6 @@ a.hfe-menu-item.elementor-button {
         visibility: hidden;
         opacity: 0;
         height: 0;
-        display: none;
     }
 
     .hfe-nav-menu__breakpoint-mobile .hfe-active-menu + .hfe-nav-menu__layout-horizontal,
@@ -1429,7 +1416,6 @@ a.hfe-menu-item.elementor-button {
         visibility: visible;
         opacity: 1;
         height: auto;
-        display: block;
     }
 
     .hfe-nav-menu__breakpoint-mobile .hfe-active-menu.hfe-active-menu-full-width + .hfe-nav-menu__layout-horizontal .hfe-nav-menu {
