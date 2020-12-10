@@ -1138,7 +1138,6 @@ a.hfe-menu-item.elementor-button {
         visibility: hidden;
         opacity: 0;
         height: 0;
-        display: none;
     }
 
     .hfe-nav-menu__breakpoint-tablet .hfe-active-menu + .hfe-nav-menu__layout-horizontal,

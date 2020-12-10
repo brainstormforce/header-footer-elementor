@@ -61,59 +61,6 @@ class Header_Footer_Elementor {
 				require HFE_DIR . 'themes/genesis/class-hfe-genesis-compat.php';
 			} elseif ( 'astra' == $this->template ) {
 				require HFE_DIR . 'themes/astra/class-hfe-astra-compat.php';
-
-				add_filter(
-					'astra_customizer_configurations',
-					function( $configurations, $wp_customize ) {
-
-						if ( class_exists( 'Astra_Builder_Helper' ) && Astra_Builder_Helper::$is_header_footer_builder_active ) {
-
-							$hf_builder_notices = [];
-
-							if ( hfe_header_enabled() ) {
-								/* translators: %s: Links to to plugin */
-								$message = sprintf( __( 'The header on the page you are previewing is built using %3$s plugin. Options given below will not work here.</p><p></br> %1$s Click here %2$s to modify the header on this page.', 'header-footer-elementor' ), '<a href="' . admin_url( 'edit.php?post_type=elementor-hf' ) . '" target="_blank">', '</a>', '<strong>Elementor - Header, Footer & Blocks</strong>' );
-
-								array_push(
-									$hf_builder_notices,
-									[
-										'name'     => ASTRA_THEME_SETTINGS . '[ehf-header-notice]',
-										'type'     => 'control',
-										'control'  => 'ast-description',
-										'section'  => 'section-header-builder-layout',
-										'priority' => 1,
-										'help'     => '<div class="ast-customizer-notice wp-ui-highlight"><p>' . $message . '<p></div>',
-									]
-								);
-
-								$configurations = array_merge( $configurations, $hf_builder_notices );
-							}
-
-							if ( hfe_footer_enabled() ) {
-								/* translators: %s: Links to to plugin */
-								$message = sprintf( __( 'The footer on the page you are previewing is built using %3$s plugin. Options given below will not work here.</p><p></br> %1$s Click here %2$s to modify the footer on this page.', 'header-footer-elementor' ), '<a href="' . admin_url( 'edit.php?post_type=elementor-hf' ) . '" target="_blank">', '</a>', '<strong>Elementor - Header, Footer & Blocks</strong>' );
-
-								array_push(
-									$hf_builder_notices,
-									[
-										'name'     => ASTRA_THEME_SETTINGS . '[ehf-footer-notice]',
-										'type'     => 'control',
-										'control'  => 'ast-description',
-										'section'  => 'section-footer-builder-layout',
-										'priority' => 1,
-										'help'     => '<div class="ast-customizer-notice wp-ui-highlight"><p>' . $message . '<p></div>',
-									]
-								);
-
-								$configurations = array_merge( $configurations, $hf_builder_notices );
-							}
-						}
-
-						return $configurations;
-					},
-					31,
-					2
-				);
 			} elseif ( 'bb-theme' == $this->template || 'beaver-builder-theme' == $this->template ) {
 				$this->template = 'beaver-builder-theme';
 				require HFE_DIR . 'themes/bb-theme/class-hfe-bb-theme-compat.php';
