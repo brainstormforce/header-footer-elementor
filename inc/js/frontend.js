@@ -338,6 +338,7 @@
 			var $this = $( this );
 
 			if( $( '.elementor-element-' + id ).hasClass( 'hfe-link-redirect-child' ) ) {
+
 				if( $this.hasClass( 'sub-menu-active' ) ) {
 
 					if( ! $this.next().hasClass( 'sub-menu-open' ) ) {
@@ -349,12 +350,12 @@
 							event.preventDefault();
 
 							$this.next().css( 'position', 'relative' );	
-						}else if ( 'horizontal' === layout && window.matchMedia( "( max-width: 767px )" ).matches && ($( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-tablet') || $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-mobile'))) {
+						} else if ( 'horizontal' === layout && window.matchMedia( "( max-width: 767px )" ).matches && ($( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-tablet') || $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-mobile'))) {
 							
 							event.preventDefault();
 
 							$this.next().css( 'position', 'relative' );	
-						}else if ( 'horizontal' === layout && window.matchMedia( "( max-width: 1024px )" ).matches && ( $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-tablet') || $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-mobile'))) {
+						} else if ( 'horizontal' === layout && window.matchMedia( "( max-width: 1024px )" ).matches && ( $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-tablet') || $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-mobile'))) {
 							
 							event.preventDefault();	
 
@@ -365,7 +366,7 @@
 						$this.next().removeClass( 'sub-menu-open' );
 						$this.next().css( { 'visibility': 'hidden', 'opacity': '0', 'height': '0' } );
 						$this.next().css( { 'transition': 'none'} );										
-					}else{
+					} else{
 
 						$this.find( 'a' ).attr( 'aria-expanded', 'false' );
 						
@@ -386,28 +387,28 @@
 							$this.next().css( 'position', 'absolute' );				
 						}	  								
 					}		  											
-				}else {
+				} else {
 
-						$this.find( 'a' ).attr( 'aria-expanded', 'true' );
-						if ( 'horizontal' !== layout ) {
+					$this.find( 'a' ).attr( 'aria-expanded', 'true' );
+					if ( 'horizontal' !== layout ) {
+						
+						event.preventDefault();
+						$this.next().css( 'position', 'relative');			
+					} else if ( 'horizontal' === layout && window.matchMedia( "( max-width: 767px )" ).matches && ($( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-tablet') || $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-mobile'))) {
+						
+						event.preventDefault();
+						$this.next().css( 'position', 'relative');		  					
+					} else if ( 'horizontal' === layout && window.matchMedia( "( max-width: 1024px )" ).matches ) {
+						event.preventDefault();
+
+						if ( $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-tablet') ) {
+
+							$this.next().css( 'position', 'relative');	
+						} else if ( $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-mobile') || $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-none') ) {
 							
-							event.preventDefault();
-							$this.next().css( 'position', 'relative');			
-						} else if ( 'horizontal' === layout && window.matchMedia( "( max-width: 767px )" ).matches && ($( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-tablet') || $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-mobile'))) {
-							
-							event.preventDefault();
-							$this.next().css( 'position', 'relative');		  					
-						} else if ( 'horizontal' === layout && window.matchMedia( "( max-width: 1024px )" ).matches ) {
-							event.preventDefault();
-
-							if ( $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-tablet') ) {
-
-								$this.next().css( 'position', 'relative');	
-							} else if ( $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-mobile') || $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-none') ) {
-								
-								$this.next().css( 'position', 'absolute');	
-							}
-						}	
+							$this.next().css( 'position', 'absolute');	
+						}
+					}	
 							
 					$this.addClass( 'sub-menu-active' );
 					$this.next().addClass( 'sub-menu-open' );	
