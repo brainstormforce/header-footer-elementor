@@ -138,6 +138,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 = 1.5.4 =
+- Improvement: Compatibility to PHP v8.0.
 - Improvement: Improved compatibility with Astra theme.
 - Improvement: Navigation Menu - Added option to toggle menu item.
 - Fix: Added ALT attribute to the widget containing image.
