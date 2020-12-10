@@ -440,19 +440,19 @@ class Navigation_Menu extends Widget_Base {
 
 			$this->add_control(
 				'link_redirect',
-				array(
+				[
 					'label'        => __( 'Action On Menu Click', 'header-footer-elementor' ),
 					'type'         => Controls_Manager::SELECT,
 					'default'      => 'child',
 					'description'  => __( 'For Horizontal layout, this will affect on the selected breakpoint', 'header-footer-elementor' ),
-					'options'      => array(
+					'options'      => [
 						'child'     => __( 'Open Submenu', 'header-footer-elementor' ),
-						'self_link' => __( 'Redirect To Self Link', 'uael', 'header-footer-elementor' ),
-					),
+						'self_link' => __( 'Redirect To Self Link', 'header-footer-elementor' ),
+					],
 					'prefix_class' => 'hfe-link-redirect-',
-				)
+				]
 			);
-			
+
 			$this->add_control(
 				'heading_responsive',
 				[
