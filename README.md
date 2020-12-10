@@ -4,7 +4,7 @@
 **Donate link:** https://www.paypal.me/BrainstormForce  
 **Requires at least:** 4.4  
 **Requires PHP:** 5.4  
-**Tested up to:** 5.5  
+**Tested up to:** 5.6  
 **Stable tag:** 1.5.4  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
@@ -138,12 +138,13 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 ## Changelog ##
 ### 1.5.4 ###
+- Improvement: Compatibility to PHP v8.0.
 - Improvement: Improved compatibility with Astra theme.
 - Improvement: Navigation Menu - Added option to toggle menu item.
+- Fix: Added ALT attribute to the widget containing images.
 - Fix: Closed the HTML tag in footer in the global theme compatibility.
 - Fix: Notice appears to install Elementor if Elementor is installed but not active.
-- Fix: Navigation Menu - Fixed spacing issue when border-width is increased for 'Expanded' layout.
-- Fix: Navigation Menu - Fixed extra spacing if used in the footer.
+- Fix: Navigation Menu - Alignment option not working for the last menu item set as 'Button'.
 
 ### 1.5.3 ###
 - Fix: Polylang plugin conflicting issue with target rules.
