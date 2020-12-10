@@ -113,7 +113,7 @@
 
 		_borderClass( id );	
 
-		$( window ).resize( function(){ 
+		$( window ).on( 'resize', function(){ 
 
 			if( 'horizontal' !== layout ) {
 
