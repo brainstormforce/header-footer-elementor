@@ -447,7 +447,7 @@ class Navigation_Menu extends Widget_Base {
 					'description'  => __( 'For Horizontal layout, this will affect on the selected breakpoint', 'header-footer-elementor' ),
 					'options'      => array(
 						'child'     => __( 'Open Submenu', 'header-footer-elementor' ),
-						'self_link' => __( 'Redirect To Self Link', 'uael' ),
+						'self_link' => __( 'Redirect To Self Link', 'uael', 'header-footer-elementor' ),
 					),
 					'prefix_class' => 'hfe-link-redirect-',
 				)
