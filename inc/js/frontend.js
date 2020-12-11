@@ -451,7 +451,7 @@
 
 				$this.parent().parent().addClass( 'menu-active' );
 
-				$this.parent().parent().next().css( { 'visibility': 'visible', 'opacity': '1', 'height': 'auto', 'display':'block' } );
+				$this.parent().parent().next().css( { 'visibility': 'visible', 'opacity': '1', 'height': 'auto' } );
 
 				if ( 'horizontal' !== layout ) {
 						
