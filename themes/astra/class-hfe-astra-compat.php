@@ -54,6 +54,11 @@ class HFE_Astra_Compat {
 	 */
 	public function astra_setup_header() {
 		remove_action( 'astra_header', 'astra_header_markup' );
+
+		// Remove the new header builder action.
+		if ( class_exists( 'Astra_Builder_Helper' ) && Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			remove_action( 'astra_header', [ Astra_Builder_Header::get_instance(), 'prepare_header_builder_markup' ] );
+		}
 	}
 
 	/**
@@ -61,8 +66,12 @@ class HFE_Astra_Compat {
 	 */
 	public function astra_setup_footer() {
 		remove_action( 'astra_footer', 'astra_footer_markup' );
-	}
 
+		// Remove the new footer builder action.
+		if ( class_exists( 'Astra_Builder_Helper' ) && Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			remove_action( 'astra_footer', [ Astra_Builder_Footer::get_instance(), 'footer_markup' ] );
+		}
+	}
 }
 
 HFE_Astra_Compat::instance();

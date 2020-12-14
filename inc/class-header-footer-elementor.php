@@ -90,7 +90,22 @@ class Header_Footer_Elementor {
 			add_action( 'admin_notices', [ $this, 'register_notices' ] );
 
 			// BSF Analytics Tracker.
-			require_once HFE_DIR . 'admin/bsf-analytics/class-bsf-analytics.php';
+			if ( ! class_exists( 'BSF_Analytics_Loader' ) ) {
+				require_once HFE_DIR . 'admin/bsf-analytics/class-bsf-analytics-loader.php';
+			}
+
+			$bsf_analytics = BSF_Analytics_Loader::get_instance();
+
+			$bsf_analytics->set_entity(
+				[
+					'bsf' => [
+						'product_name'    => 'Elementor - Header, Footer & Blocks',
+						'path'            => HFE_DIR . 'admin/bsf-analytics',
+						'author'          => 'Brainstorm Force',
+						'time_to_display' => '+24 hours',
+					],
+				]
+			);
 
 		} else {
 			add_action( 'admin_notices', [ $this, 'elementor_not_available' ] );
@@ -190,7 +205,7 @@ class Header_Footer_Elementor {
 
 			$plugin = 'elementor/elementor.php';
 
-			if ( _is_elementor_installed() ) {
+			if ( file_exists( WP_PLUGIN_DIR . '/elementor/elementor.php' ) ) {
 
 				$action_url   = wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $plugin . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin );
 				$button_label = __( 'Activate Elementor', 'header-footer-elementor' );
@@ -435,20 +450,4 @@ class Header_Footer_Elementor {
 		return self::$elementor_instance->frontend->get_builder_content_for_display( $id );
 	}
 
-}
-/**
- * Is elementor plugin installed.
- */
-if ( ! function_exists( '_is_elementor_installed' ) ) {
-
-	/**
-	 * Check if Elementor is installed
-	 *
-	 * @since 1.5.0
-	 *
-	 * @access public
-	 */
-	function _is_elementor_installed() {
-		return defined( 'ELEMENTOR_VERSION' ) ? true : false;
-	}
 }

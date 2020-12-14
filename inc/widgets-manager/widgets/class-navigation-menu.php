@@ -399,8 +399,8 @@ class Navigation_Menu extends Widget_Base {
 					],
 					'selectors'    => [
 						'{{WRAPPER}} li.menu-item a' => 'justify-content: {{VALUE}};',
-						'{{WRAPPER}} li.elementor-button-wrapper' => 'text-align: {{VALUE}};',
-						'{{WRAPPER}}.hfe-menu-item-flex-end li.elementor-button-wrapper' => 'text-align: right;',
+						'{{WRAPPER}} li .elementor-button-wrapper' => 'text-align: {{VALUE}};',
+						'{{WRAPPER}}.hfe-menu-item-flex-end li .elementor-button-wrapper' => 'text-align: right;',
 					],
 					'prefix_class' => 'hfe-menu-item-',
 				]
@@ -435,6 +435,21 @@ class Navigation_Menu extends Widget_Base {
 					'condition'    => [
 						'layout' => 'horizontal',
 					],
+				]
+			);
+
+			$this->add_control(
+				'link_redirect',
+				[
+					'label'        => __( 'Action On Menu Click', 'header-footer-elementor' ),
+					'type'         => Controls_Manager::SELECT,
+					'default'      => 'child',
+					'description'  => __( 'For Horizontal layout, this will affect on the selected breakpoint', 'header-footer-elementor' ),
+					'options'      => [
+						'child'     => __( 'Open Submenu', 'header-footer-elementor' ),
+						'self_link' => __( 'Redirect To Self Link', 'header-footer-elementor' ),
+					],
+					'prefix_class' => 'hfe-link-redirect-',
 				]
 			);
 
