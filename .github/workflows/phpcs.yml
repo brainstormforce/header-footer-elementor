@@ -21,4 +21,3 @@ jobs:
 
       - name: Detect coding standard violations
         run: vendor/bin/phpcs
-        
