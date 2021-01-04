@@ -146,7 +146,6 @@ This same applies when you are creating your Header/Footer using this plugin.
 - Improvement: Navigation Menu - Added option to toggle menu item.
 - Fix: Added 'alt' attribute to the widget containing images.
 - Fix: Closed the HTML tag in footer in the global theme compatibility.
-- Fix: Notice appears to install Elementor if Elementor is installed but not active.
 - Fix: Navigation Menu - Alignment option not working for the last menu item set as 'Button'.
 
 = 1.5.3 =
