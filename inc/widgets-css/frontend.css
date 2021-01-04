@@ -1101,9 +1101,9 @@ div.hfe-nav-menu,
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 }
 
-a.hfe-menu-item.elementor-button {
+.elementor-widget-navigation-menu:not(.hfe-nav-menu__align-justify):not(.hfe-menu-item-space-between) a.hfe-menu-item.elementor-button {
     display: inline-flex;
-}
+} 
 
 .hfe-nav-menu li.elementor-button-wrapper {
     align-self: center;
