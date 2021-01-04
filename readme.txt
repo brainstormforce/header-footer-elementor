@@ -147,8 +147,6 @@ This same applies when you are creating your Header/Footer using this plugin.
 - Fix: Added 'alt' attribute to the widget containing images.
 - Fix: Closed the HTML tag in footer in the global theme compatibility.
 - Fix: Notice appears to install Elementor if Elementor is installed but not active.
-- Fix: Added 'alt' attribute to the widgets containing images.
-- Fix: Closed the missing HTML tag in footer in the global theme compatibility.
 - Fix: Navigation Menu - Alignment option not working for the last menu item set as 'Button'.
 
 = 1.5.3 =
