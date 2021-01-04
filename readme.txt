@@ -144,7 +144,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 - Improvement: Compatibility to PHP v8.0.
 - Improvement: Improved compatibility with Astra theme.
 - Improvement: Navigation Menu - Added option to toggle menu item.
-- Fix: Added 'alt' attribute to the widgets containing images.	
+- Fix: Added 'alt' attribute to the widgets containing images.
 - Fix: Closed the missing HTML tag in footer in the global theme compatibility.
 - Fix: Navigation Menu - Alignment option not working for the last menu item set as 'Button'.
 
