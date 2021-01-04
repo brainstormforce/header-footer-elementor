@@ -2,7 +2,7 @@
   "name": "nikschavan/header-footer-elementor",
   "description": "Create Header and Footer using Elementor page builder.",
   "require-dev": {
-    "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
     "wp-coding-standards/wpcs": "dev-master",
     "phpcompatibility/phpcompatibility-wp": "*"
   },

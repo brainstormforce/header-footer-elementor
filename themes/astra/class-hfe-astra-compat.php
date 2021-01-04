@@ -57,7 +57,7 @@ class HFE_Astra_Compat {
 
 		// Remove the new header builder action.
 		if ( class_exists( 'Astra_Builder_Helper' ) && Astra_Builder_Helper::$is_header_footer_builder_active ) {
-			remove_action( 'astra_header', [ Astra_Builder_Header::get_instance(), 'header_builder_markup' ] );
+			remove_action( 'astra_header', [ Astra_Builder_Header::get_instance(), 'prepare_header_builder_markup' ] );
 		}
 	}
 
