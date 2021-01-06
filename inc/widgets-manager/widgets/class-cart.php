@@ -494,6 +494,39 @@ class Cart extends Widget_Base {
 		);
 
 		$this->add_control(
+			'items_indicator_distance',
+			[
+				'label'     => __( 'Distance', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SLIDER,
+				'default'   => [
+					'unit' => 'em',
+				],
+				'range'     => [
+					'em' => [
+						'min'  => 0,
+						'max'  => 4,
+						'step' => 0.1,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button-icon[data-counter]:before' => 'right: -{{SIZE}}{{UNIT}}; top: -{{SIZE}}{{UNIT}}',
+				],
+				'condition' => [
+					'items_indicator' => 'bubble',
+				],
+			]
+		);
+
+		$this->start_controls_tabs( 'count_colors' );
+
+		$this->start_controls_tab(
+			'count_normal_colors',
+			[
+				'label' => __( 'Normal', 'header-footer-elementor' ),
+			]
+		);
+
+		$this->add_control(
 			'items_indicator_text_color',
 			[
 				'label'     => __( 'Text Color', 'header-footer-elementor' ),
@@ -521,29 +554,46 @@ class Cart extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'items_indicator_distance',
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'count_hover_colors',
 			[
-				'label'     => __( 'Distance', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::SLIDER,
-				'default'   => [
-					'unit' => 'em',
-				],
-				'range'     => [
-					'em' => [
-						'min'  => 0,
-						'max'  => 4,
-						'step' => 0.1,
-					],
-				],
+				'label' => __( 'Hover', 'header-footer-elementor' ),
+			]
+		);
+
+		$this->add_control(
+			'items_indicator_text_hover_color',
+			[
+				'label'     => __( 'Text Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button-icon[data-counter]:before' => 'right: -{{SIZE}}{{UNIT}}; top: -{{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .hfe-menu-cart__toggle:hover .elementor-button-icon[data-counter]:before' => 'color: {{VALUE}}',
+				],
+				'condition' => [
+					'items_indicator!' => 'none',
+				],
+			]
+		);
+
+		$this->add_control(
+			'items_indicator_background_hover_color',
+			[
+				'label'     => __( 'Background Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .hfe-menu-cart__toggle:hover .elementor-button-icon[data-counter]:before' => 'background-color: {{VALUE}}',
 				],
 				'condition' => [
 					'items_indicator' => 'bubble',
 				],
 			]
 		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
 
 		$this->end_controls_section();
 	}
