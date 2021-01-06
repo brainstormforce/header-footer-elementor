@@ -211,7 +211,7 @@ class Widgets_Loader {
 			return $fragments;
 		}
 
-		$fragments['span.count'] = '<span class="count">' . WC()->cart->get_cart_contents_count() . '</span>';
+		$fragments['span.hfe-cart-count'] = '<span class="hfe-cart-count">' . WC()->cart->get_cart_contents_count() . '</span>';
 
 		$fragments['span.elementor-button-text'] = '<span class="elementor-button-text">' . WC()->cart->get_cart_subtotal() . '</span>';
 
