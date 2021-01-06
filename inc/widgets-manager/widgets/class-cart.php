@@ -571,7 +571,8 @@ class Cart extends Widget_Base {
 			<div id="hfe-site-header-cart" class="hfe-site-header-cart hfe-menu-cart-with-border">
 				<div class="hfe-site-header-cart-li current-menu-item">
 				<?php
-				if ( 'default' === $cart_type ) { ?>
+				if ( 'default' === $cart_type ) {
+					?>
 
 					<a class="hfe-cart-container" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="View your shopping cart">
 						<div class="hfe-cart-menu-wrap-default">
@@ -580,8 +581,9 @@ class Cart extends Widget_Base {
 							</span>
 						</div>
 					</a>
-					<?php 
-				} else { ?>
+					<?php
+				} else {
+					?>
 
 					<div class="hfe-menu-cart__toggle elementor-button-wrapper">
 						<a id="hfe-menu-cart__toggle_button" href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="elementor-button hfe-cart-container">

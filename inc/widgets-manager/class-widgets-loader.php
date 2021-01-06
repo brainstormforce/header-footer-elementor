@@ -59,7 +59,7 @@ class Widgets_Loader {
 
 		// Refresh the cart fragments.
 		if ( class_exists( 'woocommerce' ) ) {
-			
+
 			add_filter( 'woocommerce_add_to_cart_fragments', [ $this, 'wc_refresh_mini_cart_count' ] );
 		}
 	}
@@ -215,7 +215,7 @@ class Widgets_Loader {
 
 		$fragments['span.elementor-button-text'] = '<span class="elementor-button-text">' . WC()->cart->get_cart_subtotal() . '</span>';
 
-		$fragments['span.elementor-button-icon[data-counter]'] = '<span class="elementor-button-icon" data-counter="' . WC()->cart->get_cart_contents_count() . '"><i class="eicon" aria-hidden="true"></i>' . '<span class="elementor-screen-only">' . __( 'Cart', 'header-footer-elementor' ) . '</span>' . '</span>';		
+		$fragments['span.elementor-button-icon[data-counter]'] = '<span class="elementor-button-icon" data-counter="' . WC()->cart->get_cart_contents_count() . '"><i class="eicon" aria-hidden="true"></i>' . '<span class="elementor-screen-only">' . __( 'Cart', 'header-footer-elementor' ) . '</span>' . '</span>';
 
 		return $fragments;
 	}
