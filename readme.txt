@@ -138,6 +138,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 = 1.5.4.1 =
+- Improvement: Compatibility with Elementor v3.1.
 - Fix: jQuery shorthand deprecation warning for click() and focus() functions.
 
 = 1.5.4 =
