@@ -137,6 +137,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 5. Default widgets available with Elementor – Header, Footer & Blocks.
 
 == Changelog ==
+= 1.5.4.1 =
+- Fix: Cart - Fixed fatal error due to cart initialization.
+
 = 1.5.4 =
 - Improvement: Compatibility to PHP v8.0.
 - Improvement: Improved compatibility with Astra theme.
