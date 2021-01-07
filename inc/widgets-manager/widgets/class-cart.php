@@ -626,9 +626,11 @@ class Cart extends Widget_Base {
 
 					<a class="hfe-cart-container" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="View your shopping cart">
 						<div class="hfe-cart-menu-wrap-default">
-							<span class="hfe-cart-count">
-								<?php echo WC()->cart->get_cart_contents_count(); ?>
-							</span>
+							<?php if( null !== WC()->cart ){ ?>
+								<span class="hfe-cart-count">
+									<?php echo WC()->cart->get_cart_contents_count(); ?>
+								</span>
+							<?php } ?>
 						</div>
 					</a>
 					<?php
@@ -637,10 +639,12 @@ class Cart extends Widget_Base {
 
 					<div class="hfe-menu-cart__toggle elementor-button-wrapper">
 						<a id="hfe-menu-cart__toggle_button" href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="elementor-button hfe-cart-container">
-							<span class="elementor-button-text">
-								<?php echo WC()->cart->get_cart_subtotal(); ?>
-							</span>
-							<span class="elementor-button-icon" data-counter="<?php echo WC()->cart->get_cart_contents_count(); ?>">
+							<?php if( null !== WC()->cart ){ ?>
+								<span class="elementor-button-text">
+									<?php echo WC()->cart->get_cart_subtotal(); ?>
+								</span>
+							<?php } ?>
+							<span class="elementor-button-icon" data-counter="<?php echo ( null !== WC()->cart ) ? WC()->cart->get_cart_contents_count() : ''; ?>">
 								<i class="eicon" aria-hidden="true"></i>
 								<span class="elementor-screen-only">
 									<?php _e( 'Cart', 'header-footer-elementor' ); ?>
