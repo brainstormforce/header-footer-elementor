@@ -213,7 +213,7 @@ class Widgets_Loader {
 
 		$cart_badge_count = ( null !== WC()->cart ) ? WC()->cart->get_cart_contents_count() : '';
 
-		if( null !== WC()->cart ){
+		if ( null !== WC()->cart ) {
 
 			$fragments['span.hfe-cart-count'] = '<span class="hfe-cart-count">' . WC()->cart->get_cart_contents_count() . '</span>';
 
