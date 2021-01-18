@@ -59,7 +59,7 @@ class Widgets_Loader {
 
 		// Refresh the cart fragments.
 		if ( class_exists( 'woocommerce' ) ) {
-			add_action( 'elementor/editor/before_enqueue_scripts', [ $this, 'init_cart' ], 10, 0 );
+
 			add_filter( 'woocommerce_add_to_cart_fragments', [ $this, 'wc_refresh_mini_cart_count' ] );
 		}
 	}
@@ -195,23 +195,6 @@ class Widgets_Loader {
 	}
 
 	/**
-	 * Initialize the cart.
-	 *
-	 * @since 1.5.0
-	 * @access public
-	 */
-	public function init_cart() {
-		$has_cart = is_a( WC()->cart, 'WC_Cart' );
-
-		if ( ! $has_cart ) {
-			$session_class = apply_filters( 'woocommerce_session_handler', 'WC_Session_Handler' );
-			WC()->session  = new $session_class();
-			WC()->session->init();
-			WC()->customer = new \WC_Customer( get_current_user_id(), true );
-		}
-	}
-
-	/**
 	 * Cart Fragments.
 	 *
 	 * Refresh the cart fragments.
@@ -223,19 +206,21 @@ class Widgets_Loader {
 	public function wc_refresh_mini_cart_count( $fragments ) {
 
 		$has_cart = is_a( WC()->cart, 'WC_Cart' );
+
 		if ( ! $has_cart ) {
 			return $fragments;
 		}
 
-		ob_start();
+		$cart_badge_count = ( null !== WC()->cart ) ? WC()->cart->get_cart_contents_count() : '';
 
-		include HFE_DIR . '/inc/widgets-manager/widgets/class-cart.php';
+		if ( null !== WC()->cart ) {
 
-		$cart_type = get_option( 'hfe_cart_widget_type' );
+			$fragments['span.hfe-cart-count'] = '<span class="hfe-cart-count">' . WC()->cart->get_cart_contents_count() . '</span>';
 
-		\HFE\WidgetsManager\Widgets\Cart::get_cart_link( $cart_type );
+			$fragments['span.elementor-button-text'] = '<span class="elementor-button-text">' . WC()->cart->get_cart_subtotal() . '</span>';
+		}
 
-		$fragments['body:not(.elementor-editor-active) a.hfe-cart-container'] = ob_get_clean();
+		$fragments['span.elementor-button-icon[data-counter]'] = '<span class="elementor-button-icon" data-counter="' . $cart_badge_count . '"><i class="eicon" aria-hidden="true"></i><span class="elementor-screen-only">' . __( 'Cart', 'header-footer-elementor' ) . '</span></span>';
 
 		return $fragments;
 	}
