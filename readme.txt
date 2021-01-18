@@ -138,7 +138,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 = 1.5.4.1 =
+- Improvement: Compatibility with Elementor v3.1.
 - Improvement: Cart - Added Items Count hover color options.
+- Fix: jQuery shorthand deprecation warning for click() and focus() functions.
 - Fix: Cart - Fixed fatal error due to cart initialization.
 
 = 1.5.4 =
