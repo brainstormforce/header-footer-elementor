@@ -16,10 +16,10 @@
 			var $toggle_search = $scope.find( ".hfe-search-icon-toggle input" );
 
 		$scope.find( '.hfe-search-icon-toggle' ).on( 'click', function( ){
-			$scope.find( ".hfe-search-form__input" ).focus();						
+			$scope.find( ".hfe-search-form__input" ).trigger( 'focus' );						
 		});	
 		
-		$scope.find( ".hfe-search-form__input" ).focus( function(){
+		$scope.find( ".hfe-search-form__input" ).on( 'focus', function(){
 			$scope.find( ".hfe-search-button-wrapper" ).addClass( "hfe-input-focus" );
 		});
 
@@ -113,7 +113,7 @@
 
 		_borderClass( id );	
 
-		$( window ).resize( function(){ 
+		$( window ).on( 'resize', function(){ 
 
 			if( 'horizontal' !== layout ) {
 

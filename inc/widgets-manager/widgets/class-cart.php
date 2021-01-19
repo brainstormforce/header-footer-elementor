@@ -279,7 +279,7 @@ class Cart extends Widget_Base {
 					'unit'   => 'px',
 				],
 				'selectors'  => [
-					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button,{{WRAPPER}} .hfe-cart-menu-wrap-default .count:after, {{WRAPPER}} .hfe-cart-menu-wrap-default .count' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button,{{WRAPPER}} .hfe-cart-menu-wrap-default .hfe-cart-count:after, {{WRAPPER}} .hfe-cart-menu-wrap-default .hfe-cart-count' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -298,7 +298,7 @@ class Cart extends Widget_Base {
 				],
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button,{{WRAPPER}} .hfe-cart-menu-wrap-default .count:after, {{WRAPPER}} .hfe-cart-menu-wrap-default .count' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button,{{WRAPPER}} .hfe-cart-menu-wrap-default .hfe-cart-count:after, {{WRAPPER}} .hfe-cart-menu-wrap-default .hfe-cart-count' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 
 			]
@@ -334,7 +334,7 @@ class Cart extends Widget_Base {
 				'label'     => __( 'Text Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button,{{WRAPPER}} .hfe-cart-menu-wrap-default span.count' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button,{{WRAPPER}} .hfe-cart-menu-wrap-default span.hfe-cart-count' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -359,7 +359,7 @@ class Cart extends Widget_Base {
 				'label'     => __( 'Background Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button,{{WRAPPER}} .hfe-cart-menu-wrap-default span.count' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button,{{WRAPPER}} .hfe-cart-menu-wrap-default span.hfe-cart-count' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
@@ -370,7 +370,7 @@ class Cart extends Widget_Base {
 				'label'     => __( 'Border Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button,{{WRAPPER}} .hfe-cart-menu-wrap-default .count:after, {{WRAPPER}} .hfe-masthead-custom-menu-items .hfe-cart-menu-wrap-default .count' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button,{{WRAPPER}} .hfe-cart-menu-wrap-default .hfe-cart-count:after, {{WRAPPER}} .hfe-masthead-custom-menu-items .hfe-cart-menu-wrap-default .hfe-cart-count' => 'border-color: {{VALUE}}',
 				],
 			]
 		);
@@ -390,7 +390,7 @@ class Cart extends Widget_Base {
 				'label'     => __( 'Text Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button:hover,{{WRAPPER}} .hfe-cart-menu-wrap-default span.count:hover' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button:hover,{{WRAPPER}} .hfe-cart-menu-wrap-default span.hfe-cart-count:hover' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -415,7 +415,7 @@ class Cart extends Widget_Base {
 				'label'     => __( 'Background Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button:hover,{{WRAPPER}} .hfe-cart-menu-wrap-default span.count:hover' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button:hover,{{WRAPPER}} .hfe-cart-menu-wrap-default span.hfe-cart-count:hover' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
@@ -426,7 +426,7 @@ class Cart extends Widget_Base {
 				'label'     => __( 'Border Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button:hover,{{WRAPPER}} .hfe-cart-menu-wrap-default:hover .count:after, {{WRAPPER}} .hfe-cart-menu-wrap-default:hover .count' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button:hover,{{WRAPPER}} .hfe-cart-menu-wrap-default:hover .hfe-cart-count:after, {{WRAPPER}} .hfe-cart-menu-wrap-default:hover .hfe-cart-count' => 'border-color: {{VALUE}}',
 				],
 			]
 		);
@@ -494,6 +494,39 @@ class Cart extends Widget_Base {
 		);
 
 		$this->add_control(
+			'items_indicator_distance',
+			[
+				'label'     => __( 'Distance', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SLIDER,
+				'default'   => [
+					'unit' => 'em',
+				],
+				'range'     => [
+					'em' => [
+						'min'  => 0,
+						'max'  => 4,
+						'step' => 0.1,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button-icon[data-counter]:before' => 'right: -{{SIZE}}{{UNIT}}; top: -{{SIZE}}{{UNIT}}',
+				],
+				'condition' => [
+					'items_indicator' => 'bubble',
+				],
+			]
+		);
+
+		$this->start_controls_tabs( 'count_colors' );
+
+		$this->start_controls_tab(
+			'count_normal_colors',
+			[
+				'label' => __( 'Normal', 'header-footer-elementor' ),
+			]
+		);
+
+		$this->add_control(
 			'items_indicator_text_color',
 			[
 				'label'     => __( 'Text Color', 'header-footer-elementor' ),
@@ -521,23 +554,36 @@ class Cart extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'items_indicator_distance',
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'count_hover_colors',
 			[
-				'label'     => __( 'Distance', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::SLIDER,
-				'default'   => [
-					'unit' => 'em',
-				],
-				'range'     => [
-					'em' => [
-						'min'  => 0,
-						'max'  => 4,
-						'step' => 0.1,
-					],
-				],
+				'label' => __( 'Hover', 'header-footer-elementor' ),
+			]
+		);
+
+		$this->add_control(
+			'items_indicator_text_hover_color',
+			[
+				'label'     => __( 'Text Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button-icon[data-counter]:before' => 'right: -{{SIZE}}{{UNIT}}; top: -{{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .hfe-menu-cart__toggle:hover .elementor-button-icon[data-counter]:before' => 'color: {{VALUE}}',
+				],
+				'condition' => [
+					'items_indicator!' => 'none',
+				],
+			]
+		);
+
+		$this->add_control(
+			'items_indicator_background_hover_color',
+			[
+				'label'     => __( 'Background Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .hfe-menu-cart__toggle:hover .elementor-button-icon[data-counter]:before' => 'background-color: {{VALUE}}',
 				],
 				'condition' => [
 					'items_indicator' => 'bubble',
@@ -545,45 +591,11 @@ class Cart extends Widget_Base {
 			]
 		);
 
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
 		$this->end_controls_section();
-	}
-
-	/**
-	 * Fetch the cart layout.
-	 *
-	 * @since 1.5.0
-	 * @param string $cart_type Menu Cart type.
-	 * @access public
-	 */
-	public static function get_cart_link( $cart_type ) {
-		if ( null === WC()->cart ) {
-			return;
-		}
-
-		if ( \Elementor\Plugin::instance()->editor->is_edit_mode() ) {
-			update_option( 'hfe_cart_widget_type', $cart_type );
-		}
-
-		if ( 'default' === $cart_type ) { ?>
-			<a class="hfe-cart-container" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="View your shopping cart">
-				<div class="hfe-cart-menu-wrap-default">
-					<span class="count">
-						<?php echo WC()->cart->get_cart_contents_count(); ?>
-					</span>
-				</div>
-			</a>
-		<?php } else { ?> 
-			<a id="hfe-menu-cart__toggle_button" href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="elementor-button hfe-cart-container">
-				<span class="elementor-button-text">
-					<?php echo WC()->cart->get_cart_subtotal(); ?>
-				</span>
-				<span class="elementor-button-icon" data-counter="<?php echo WC()->cart->get_cart_contents_count(); ?>">
-					<i class="eicon" aria-hidden="true"></i>
-					<span class="elementor-screen-only"><?php _e( 'Cart', 'header-footer-elementor' ); ?></span>
-				</span>
-			</a>	
-			<?php
-		}
 	}
 
 	/**
@@ -610,14 +622,37 @@ class Cart extends Widget_Base {
 				<div class="hfe-site-header-cart-li current-menu-item">
 				<?php
 				if ( 'default' === $cart_type ) {
+					?>
 
-					$this->get_cart_link( 'default' );
+					<a class="hfe-cart-container" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="View your shopping cart">
+						<div class="hfe-cart-menu-wrap-default">
+							<?php if ( null !== WC()->cart ) { ?>
+								<span class="hfe-cart-count">
+									<?php echo WC()->cart->get_cart_contents_count(); ?>
+								</span>
+							<?php } ?>
+						</div>
+					</a>
+					<?php
 				} else {
 					?>
-						<div class="hfe-menu-cart__toggle elementor-button-wrapper">
-							<?php $this->get_cart_link( 'custom' ); ?>
-						</div>
-					<?php } ?>            
+
+					<div class="hfe-menu-cart__toggle elementor-button-wrapper">
+						<a id="hfe-menu-cart__toggle_button" href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="elementor-button hfe-cart-container">
+							<?php if ( null !== WC()->cart ) { ?>
+								<span class="elementor-button-text">
+									<?php echo WC()->cart->get_cart_subtotal(); ?>
+								</span>
+							<?php } ?>
+							<span class="elementor-button-icon" data-counter="<?php echo ( null !== WC()->cart ) ? WC()->cart->get_cart_contents_count() : ''; ?>">
+								<i class="eicon" aria-hidden="true"></i>
+								<span class="elementor-screen-only">
+									<?php _e( 'Cart', 'header-footer-elementor' ); ?>
+								</span>
+							</span>
+						</a>	
+					</div>
+				<?php } ?>            
 				</div>
 			</div>
 		</div> 
