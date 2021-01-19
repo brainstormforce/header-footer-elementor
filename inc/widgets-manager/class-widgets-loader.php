@@ -217,7 +217,7 @@ class Widgets_Loader {
 
 			$fragments['span.hfe-cart-count'] = '<span class="hfe-cart-count">' . WC()->cart->get_cart_contents_count() . '</span>';
 
-			$fragments['span.elementor-button-text'] = '<span class="elementor-button-text">' . WC()->cart->get_cart_subtotal() . '</span>';
+			$fragments['span.elementor-button-text.hfe-subtotal'] = '<span class="elementor-button-text hfe-subtotal">' . WC()->cart->get_cart_subtotal() . '</span>';
 		}
 
 		$fragments['span.elementor-button-icon[data-counter]'] = '<span class="elementor-button-icon" data-counter="' . $cart_badge_count . '"><i class="eicon" aria-hidden="true"></i><span class="elementor-screen-only">' . __( 'Cart', 'header-footer-elementor' ) . '</span></span>';
