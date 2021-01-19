@@ -137,6 +137,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 5. Default widgets available with Elementor – Header, Footer & Blocks.
 
 ## Changelog ##
+### 1.5.6 ###
+- Fix: Buttons showing cart subtotal.
+
 ### 1.5.5 ###
 - Improvement: Compatibility with Elementor v3.1.
 - Improvement: Cart - Added Items Count hover color options.
