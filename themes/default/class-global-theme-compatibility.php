@@ -60,7 +60,7 @@ class Global_Theme_Compatibility {
 		}';
 
 		if ( true === hfe_header_enabled() ) {
-			$css .= 'header#masthead {
+			$css .= 'header#mastheadhfe {
 				display: none;
 			}';
 		}

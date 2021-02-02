@@ -27,7 +27,7 @@
 }
 
 /* Fix: Header hidden below the page content */
-.ehf-header #masthead {
+.ehf-header #mastheadhfe {
 	z-index: 99;
     position: relative;
 }

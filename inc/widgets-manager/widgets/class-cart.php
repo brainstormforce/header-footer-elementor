@@ -258,7 +258,7 @@ class Cart extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .hfe-masthead-custom-menu-items .hfe-site-header-cart .hfe-site-header-cart-li ' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .hfe-mastheadhfe-custom-menu-items .hfe-site-header-cart .hfe-site-header-cart-li ' => 'font-size: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'hfe_cart_type' => 'default',
@@ -370,7 +370,7 @@ class Cart extends Widget_Base {
 				'label'     => __( 'Border Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button,{{WRAPPER}} .hfe-cart-menu-wrap-default .hfe-cart-count:after, {{WRAPPER}} .hfe-masthead-custom-menu-items .hfe-cart-menu-wrap-default .hfe-cart-count' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button,{{WRAPPER}} .hfe-cart-menu-wrap-default .hfe-cart-count:after, {{WRAPPER}} .hfe-mastheadhfe-custom-menu-items .hfe-cart-menu-wrap-default .hfe-cart-count' => 'border-color: {{VALUE}}',
 				],
 			]
 		);
@@ -617,7 +617,7 @@ class Cart extends Widget_Base {
 
 		?>
 
-		<div class="hfe-masthead-custom-menu-items woocommerce-custom-menu-item">
+		<div class="hfe-mastheadhfe-custom-menu-items woocommerce-custom-menu-item">
 			<div id="hfe-site-header-cart" class="hfe-site-header-cart hfe-menu-cart-with-border">
 				<div class="hfe-site-header-cart-li current-menu-item">
 				<?php
