@@ -70,7 +70,7 @@ class HFE_Settings_Page {
 		add_settings_section( 'hfe-options', __( 'Add Theme Support', 'header-footer-elementor' ), [ $this, 'hfe_compatibility_callback' ], 'Settings' );
 		add_settings_field( 'hfe-way', 'Methods to Add Theme Support', [ $this, 'hfe_compatibility_option_callback' ], 'Settings', 'hfe-options' );
 
-		register_setting( 'hfe-plugin-guide', 'hfe_compatibility_option' );
+		register_setting( 'hfe-plugin-guide', 'hfe_guide_option' );
 		add_settings_section( 'hfe-guide-options', __( 'Step-By-Step Guide', 'header-footer-elementor' ), [ $this, 'hfe_guide_callback' ], 'Step-By-Step Guide' );
 		add_settings_field( 'hfe-way', 'Subscribe', [ $this, 'hfe_guide_option_callback' ], 'Step-By-Step Guide', 'hfe-guide-options' );
 	}
