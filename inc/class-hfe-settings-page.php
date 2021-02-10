@@ -24,9 +24,9 @@ class HFE_Settings_Page {
 	 */
 	public function __construct() {
 		$this->setup_fallback_support();
+		add_action( 'admin_head', [ $this, 'hfe_global_css' ] );
 		add_action( 'admin_menu', [ $this, 'hfe_register_settings_page' ] );
 		add_action( 'admin_init', [ $this, 'hfe_admin_init' ] );
-		add_action( 'admin_head', [ $this, 'hfe_global_css' ] );
 		add_filter( 'views_edit-elementor-hf', [ $this, 'hfe_settings' ], 10, 1 );
 		add_filter( 'admin_footer_text', [ $this, 'admin_footer_text' ] );
 	}
@@ -334,13 +334,67 @@ class HFE_Settings_Page {
 	 * @return void
 	 */
 	public function get_about_html() {
+		$this->output_about_info();
+		// $this->output_about_addons();
+	}
 
+	/**
+	 * Display the General Info section of About tab.
+	 *
+	 * @since x.x.x
+	 */
+	protected function output_about_info() {
 		?>
-		<form action="options.php" method="post">
-			<?php settings_fields( 'hfe-plugin-options' ); ?>
-			<?php do_settings_sections( 'Settings' ); ?>
-			<?php submit_button(); ?>
-		</form>
+
+		<div class="hfe-admin-about-section hfe-admin-columns">
+
+			<div class="hfe-admin-column-60">
+				<h3>
+					<?php esc_html_e( 'Hello and Welcome to Elementor - Header, Footer & Blocks, the most friendly Header & Footer builder plugin for Elementor. We build software that helps you create beautiful responsive header & footers for your website in minutes.', 'header-footer-elementor' ); ?>
+				</h3>
+
+				<p>
+					<?php esc_html_e( 'Pellentesque in ipsum id orci porta dapibus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Nulla quis lorem ut libero malesuada feugiat. Curabitur aliquet quam id dui posuere blandit.', 'header-footer-elementor' ); ?>
+				</p>
+				<p>
+					<?php esc_html_e( 'Our goal is to make header & footer design easy in Elementor.', 'header-footer-elementor' ); ?>
+				</p>
+				<p>
+					<?php
+					printf(
+						wp_kses(
+						/* translators: %1$s - WPBeginner URL; %2$s - OptinMonster URL; %3$s - MonsterInsights URL; %4$s - RafflePress URL. */
+							__( 'Elementor - Header, Footer & Blocks is brought to you by the same team that’s behind the largest WordPress plugins, <a href="%1$s" target="_blank" rel="noopener noreferrer">Ultimate Addons for Gutenberg</a>, the most popular lead-generation software, <a href="%2$s" target="_blank" rel="noopener noreferrer">Ultimate Addons for Beaver Builder</a>, the best WordPress analytics plugin, <a href="%3$s" target="_blank" rel="noopener noreferrer">Schema Pro</a>, and the most powerful WordPress contest plugin, <a href="%4$s" target="_blank" rel="noopener noreferrer">Astra Theme</a>.', 'header-footer-elementor' ),
+							array(
+								'a' => array(
+									'href'   => array(),
+									'rel'    => array(),
+									'target' => array(),
+								),
+							)
+						),
+						'https://www.wpastra.com/',
+						'https://www.wpastra.com/',
+						'https://www.wpastra.com/',
+						'https://www.wpastra.com/'
+					);
+					?>
+				</p>
+				<p>
+					<?php esc_html_e( 'Yup, we know a thing or two about building awesome products that customers love.', 'header-footer-elementor' ); ?>
+				</p>
+			</div>
+
+			<div class="hfe-admin-column-40 hfe-admin-column-last">
+				<figure>
+					<img src="<?php echo WPFORMS_PLUGIN_URL; ?>assets/images/about/team.jpg" alt="<?php esc_attr_e( 'Team photo', 'header-footer-elementor' ); ?>">
+					<figcaption>
+						<?php esc_html_e( 'The Brainstorm Force Team', 'header-footer-elementor' ); ?><br>
+					</figcaption>
+				</figure>
+			</div>
+
+		</div>
 		<?php
 	}
 
