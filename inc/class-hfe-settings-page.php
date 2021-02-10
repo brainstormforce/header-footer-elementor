@@ -554,7 +554,7 @@ class HFE_Settings_Page {
 			'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php' => array(
 				'icon'  => $images_url . 'plugin-mi.png',
 				'name'  => esc_html__( 'Ultimate Addons for Gutenberg', 'header-footer-elementor' ),
-				'desc'  => esc_html__( 'Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Nulla quis lorem ut libero malesuada feugiat.', 'header-footer-elementor' ),
+				'desc'  => esc_html__( 'Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Vivamus magna justo, lacinia eget.', 'header-footer-elementor' ),
 				'wporg' => 'https://wordpress.org/plugins/header-footer-for-gutenberg/',
 				'url'   => 'https://downloads.wordpress.org/plugin/header-footer-for-gutenberg.zip',
 			),
