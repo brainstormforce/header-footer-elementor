@@ -189,7 +189,7 @@ class HFE_Settings_Page {
 			foreach ( $tabs as $tab_id => $tab ) {
 
 				$tab_slug = str_replace( '_', '-', $tab_id );
-				$active_tab = ( isset( $_GET['page'] ) && $tab_slug == $_GET['page'] ) ? $tab_id : '';			
+				$active_tab = ( isset( $_GET['page'] ) && $tab_slug == $_GET['page'] ) ? $tab_id : 'hfe_templates';	
 
 				$active = $active_tab == $tab_id ? ' nav-tab-active' : '';
 
@@ -244,7 +244,7 @@ class HFE_Settings_Page {
 
 				$tab_slug = str_replace( '_', '-', $tab_id );
 
-				$active_tab = ( isset( $_GET['page'] ) && $tab_slug == $_GET['page'] ) ? $tab_id : '';
+				$active_tab = ( isset( $_GET['page'] ) && $tab_slug == $_GET['page'] ) ? $tab_id : 'hfe_templates';
 
 				$active = $active_tab == $tab_id ? ' nav-tab-active' : '';
 
