@@ -335,7 +335,7 @@ class HFE_Settings_Page {
 	 */
 	public function get_about_html() {
 		$this->output_about_info();
-		// $this->output_about_addons();
+		$this->output_about_addons();
 	}
 
 	/**
@@ -387,7 +387,7 @@ class HFE_Settings_Page {
 
 			<div class="hfe-admin-column-40 hfe-admin-column-last">
 				<figure>
-					<img src="<?php echo WPFORMS_PLUGIN_URL; ?>assets/images/about/team.jpg" alt="<?php esc_attr_e( 'Team photo', 'header-footer-elementor' ); ?>">
+					<img src="<?php echo hfe_PLUGIN_URL; ?>assets/images/about/team.jpg" alt="<?php esc_attr_e( 'Team photo', 'header-footer-elementor' ); ?>">
 					<figcaption>
 						<?php esc_html_e( 'The Brainstorm Force Team', 'header-footer-elementor' ); ?><br>
 					</figcaption>
@@ -396,6 +396,217 @@ class HFE_Settings_Page {
 
 		</div>
 		<?php
+	}
+
+	
+	/**
+	 * Display the Addons section of About tab.
+	 *
+	 * @since x.x.x
+	 */
+	protected function output_about_addons() {
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+
+		$all_plugins         = get_plugins();
+		$bsf_plugins         = $this->get_bsf_plugins();
+		$can_install_plugins = $this->hfe_can_install( 'plugin' );
+
+		?>
+		<div id="hfe-admin-addons">
+			<div class="addons-container">
+				<?php
+				foreach ( $bsf_plugins as $plugin => $details ) :
+
+					$plugin_data = $this->get_plugin_data( $plugin, $details, $all_plugins );
+
+					?>
+					<div class="addon-container">
+						<div class="addon-item">
+							<div class="details hfe-clear">
+								<img src="<?php echo esc_url( $plugin_data['details']['icon'] ); ?>">
+								<h5 class="addon-name">
+									<?php echo esc_html( $plugin_data['details']['name'] ); ?>
+								</h5>
+								<p class="addon-desc">
+									<?php echo wp_kses_post( $plugin_data['details']['desc'] ); ?>
+								</p>
+							</div>
+							<div class="actions hfe-clear">
+								<div class="status">
+									<strong>
+										<?php
+										printf(
+										/* translators: %s - addon status label. */
+											esc_html__( 'Status: %s', 'header-footer-elementor' ),
+											'<span class="status-label ' . esc_attr( $plugin_data['status_class'] ) . '">' . wp_kses_post( $plugin_data['status_text'] ) . '</span>'
+										);
+										?>
+									</strong>
+								</div>
+								<div class="action-button">
+									<?php if ( $can_install_plugins ) { ?>
+										<button class="<?php echo esc_attr( $plugin_data['action_class'] ); ?>" data-plugin="<?php echo esc_attr( $plugin_data['plugin_src'] ); ?>" data-type="plugin">
+											<?php echo wp_kses_post( $plugin_data['action_text'] ); ?>
+										</button>
+									<?php } else { ?>
+										<a href="<?php echo esc_url( $details['wporg'] ); ?>" target="_blank" rel="noopener noreferrer">
+											<?php esc_html_e( 'WordPress.org', 'header-footer-elementor' ); ?>
+											<span aria-hidden="true" class="dashicons dashicons-external"></span>
+										</a>
+									<?php } ?>
+								</div>
+							</div>
+						</div>
+					</div>
+				<?php endforeach; ?>
+			</div>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Get AM plugin data to display in the Addons section of About tab.
+	 *
+	 * @since x.x.x
+	 *
+	 * @param string $plugin      Plugin slug.
+	 * @param array  $details     Plugin details.
+	 * @param array  $all_plugins List of all plugins.
+	 *
+	 * @return array
+	 */
+	protected function get_plugin_data( $plugin, $details, $all_plugins ) {
+
+		$have_pro = ( ! empty( $details['pro'] ) && ! empty( $details['pro']['plug'] ) );
+		$show_pro = false;
+
+		$plugin_data = array();
+
+		if ( $have_pro ) {
+			if ( array_key_exists( $plugin, $all_plugins ) ) {
+				if ( is_plugin_active( $plugin ) ) {
+					$show_pro = true;
+				}
+			}
+			if ( array_key_exists( $details['pro']['plug'], $all_plugins ) ) {
+				$show_pro = true;
+			}
+			if ( $show_pro ) {
+				$plugin  = $details['pro']['plug'];
+				$details = $details['pro'];
+			}
+		}
+
+		if ( array_key_exists( $plugin, $all_plugins ) ) {
+			if ( is_plugin_active( $plugin ) ) {
+				// Status text/status.
+				$plugin_data['status_class'] = 'status-active';
+				$plugin_data['status_text']  = esc_html__( 'Active', 'header-footer-elementor' );
+				// Button text/status.
+				$plugin_data['action_class'] = $plugin_data['status_class'] . ' button button-secondary disabled';
+				$plugin_data['action_text']  = esc_html__( 'Activated', 'header-footer-elementor' );
+				$plugin_data['plugin_src']   = esc_attr( $plugin );
+			} else {
+				// Status text/status.
+				$plugin_data['status_class'] = 'status-inactive';
+				$plugin_data['status_text']  = esc_html__( 'Inactive', 'header-footer-elementor' );
+				// Button text/status.
+				$plugin_data['action_class'] = $plugin_data['status_class'] . ' button button-secondary';
+				$plugin_data['action_text']  = esc_html__( 'Activate', 'header-footer-elementor' );
+				$plugin_data['plugin_src']   = esc_attr( $plugin );
+			}
+		} else {
+			// Doesn't exist, install.
+			// Status text/status.
+			$plugin_data['status_class'] = 'status-download';
+			if ( isset( $details['act'] ) && 'go-to-url' === $details['act'] ) {
+				$plugin_data['status_class'] = 'status-go-to-url';
+			}
+			$plugin_data['status_text'] = esc_html__( 'Not Installed', 'header-footer-elementor' );
+			// Button text/status.
+			$plugin_data['action_class'] = $plugin_data['status_class'] . ' button button-primary';
+			$plugin_data['action_text']  = esc_html__( 'Install Plugin', 'header-footer-elementor' );
+			$plugin_data['plugin_src']   = esc_url( $details['url'] );
+		}
+
+		$plugin_data['details'] = $details;
+
+		return $plugin_data;
+	}
+
+	/**
+	 * List of AM plugins that we propose to install.
+	 *
+	 * @since x.x.x
+	 *
+	 * @return array
+	 */
+	protected function get_bsf_plugins() {
+
+		// $images_url = hfe_PLUGIN_URL . 'assets/images/about/';
+		$images_url = '';
+
+		return array(
+
+			'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php' => array(
+				'icon'  => $images_url . 'plugin-mi.png',
+				'name'  => esc_html__( 'Ultimate Addons for Gutenberg', 'header-footer-elementor' ),
+				'desc'  => esc_html__( 'Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Nulla quis lorem ut libero malesuada feugiat.', 'header-footer-elementor' ),
+				'wporg' => 'https://wordpress.org/plugins/header-footer-for-gutenberg/',
+				'url'   => 'https://downloads.wordpress.org/plugin/header-footer-for-gutenberg.zip',
+			),
+
+			'wp-mail-smtp/wp_mail_smtp.php' => array(
+				'icon'  => $images_url . 'plugin-smtp.png',
+				'name'  => esc_html__( 'WP Mail SMTP', 'header-footer-elementor' ),
+				'desc'  => esc_html__( 'Make sure your website\'s emails reach the inbox. Our goal is to make email deliverability easy and reliable. Trusted by over 2 million websites.', 'header-footer-elementor' ),
+				'wporg' => 'https://wordpress.org/plugins/wp-mail-smtp/',
+				'url'   => 'https://downloads.wordpress.org/plugin/wp-mail-smtp.zip',
+				'pro'   => array(
+					'plug' => 'wp-mail-smtp-pro/wp_mail_smtp.php',
+					'icon' => $images_url . 'plugin-smtp.png',
+					'name' => esc_html__( 'WP Mail SMTP Pro', 'header-footer-elementor' ),
+					'desc' => esc_html__( 'Make sure your website\'s emails reach the inbox. Our goal is to make email deliverability easy and reliable. Trusted by over 2 million websites.', 'header-footer-elementor' ),
+					'url'  => 'https://wpmailsmtp.com/pricing/',
+					'act'  => 'go-to-url',
+				),
+			),
+		);
+	}
+
+	/**
+	 * Determine if the plugin/addon installations are allowed.
+	 *
+	 * @since x.x.x
+	 *
+	 * @param string $type Should be `plugin` or `addon`.
+	 *
+	 * @return bool
+	 */
+	public function hfe_can_install( $type ) {
+
+		if ( ! in_array( $type, [ 'plugin', 'addon' ], true ) ) {
+			return false;
+		}
+
+		if ( ! current_user_can( 'install_plugins' ) ) {
+			return false;
+		}
+
+		// Determine whether file modifications are allowed.
+		if ( ! wp_is_file_mod_allowed( 'hfe_can_install' ) ) {
+			return false;
+		}
+
+		// All plugin checks are done.
+		if ( 'plugin' === $type ) {
+			return true;
+		}
+
+		return false;
 	}
 
 }
