@@ -172,10 +172,6 @@ class HFE_Settings_Page {
 					'name' => __( 'All Templates', 'header-footer-elementor' ),
 					'url'  => admin_url( 'edit.php?post_type=elementor-hf' ),
 				],
-				'hfe_settings'  => [
-					'name' => __( 'Theme Support', 'header-footer-elementor' ),
-					'url'  => admin_url( 'themes.php?page=hfe-settings' ),
-				],
 				'hfe_guide'  => [
 					'name' => __( 'Step-By-Step Guide', 'header-footer-elementor' ),
 					'url'  => admin_url( 'themes.php?page=hfe-guide' ),
@@ -185,7 +181,7 @@ class HFE_Settings_Page {
 					'url'  => admin_url( 'themes.php?page=hfe-abou' ),
 				],
 			];
-			$active_tab = 'hfe-settings' == isset( $_GET['page'] ) && $_GET['page'] ? 'hfe_settings' : 'hfe_templates';
+			$active_tab = isset( $_GET['page'] ) && ( str_replace( '_', '-', tab_id ) == $_GET['page'] ) ? $tab_id : 'hfe_templates';
 			foreach ( $tabs as $tab_id => $tab ) {
 				$active = $active_tab == $tab_id ? ' nav-tab-active' : '';
 				echo '<a href="' . esc_url( $tab['url'] ) . '" class="nav-tab' . $active . '">';
@@ -221,10 +217,6 @@ class HFE_Settings_Page {
 					'name' => __( 'All templates', 'header-footer-elementor' ),
 					'url'  => admin_url( 'edit.php?post_type=elementor-hf' ),
 				],
-				'hfe_settings'  => [
-					'name' => __( 'Theme Support', 'header-footer-elementor' ),
-					'url'  => admin_url( 'themes.php?page=hfe-settings' ),
-				],
 				'hfe_guide'  => [
 					'name' => __( 'Step-By-Step Guide', 'header-footer-elementor' ),
 					'url'  => admin_url( 'themes.php?page=hfe-guide' ),
@@ -234,7 +226,7 @@ class HFE_Settings_Page {
 					'url'  => admin_url( 'themes.php?page=hfe-abou' ),
 				],
 			];
-			$active_tab = 'hfe-settings' == isset( $_GET['page'] ) && $_GET['page'] ? 'hfe_settings' : 'hfe_templates';
+			$active_tab = isset( $_GET['page'] ) && ( str_replace( '_', '-', tab_id ) == $_GET['page'] ) ? $tab_id : 'hfe_templates';
 			foreach ( $tabs as $tab_id => $tab ) {
 				$active = $active_tab == $tab_id ? ' nav-tab-active' : '';
 

@@ -54,6 +54,8 @@ class Header_Footer_Elementor {
 		if ( defined( 'ELEMENTOR_VERSION' ) && is_callable( 'Elementor\Plugin::instance' ) ) {
 			self::$elementor_instance = Elementor\Plugin::instance();
 
+			add_action( 'admin_notices', [ $this, 'show_setup_wizard' ] );
+
 			$this->includes();
 			$this->load_textdomain();
 
@@ -99,18 +101,16 @@ class Header_Footer_Elementor {
 			add_action( 'network_admin_notices', [ $this, 'elementor_not_available' ] );
 		}
 
-		register_activation_hook( HFE_FILE, array( $this, 'plugin_activation' ) );
+		// register_activation_hook( HFE_FILE, array( $this, 'plugin_activation' ) );
 
 	}
 
 	/**
 	 * Call hook on plugin activation for both multi-site and single-site.
 	 */
-	function plugin_activation( $plugin ) {
-		if( $plugin == plugin_basename( HFE_FILE ) ) {
-			wp_redirect( admin_url( 'edit.php?post_type=elementor-hf' ) );
-		}
-	}
+	// function plugin_activation() {
+	// 	add_action( 'admin_notices', [ $this, 'elementor_not_available' ] );
+	// }
 
 	/**
 	 * Reset the Unsupported theme nnotice after a theme is switched.
@@ -219,6 +219,27 @@ class Header_Footer_Elementor {
 
 			printf( '<div class="%1$s"><p>%2$s</p>%3$s</div>', esc_attr( $class ), wp_kses_post( $message ), wp_kses_post( $button ) );
 		}
+	}
+
+	/**
+	 * Prints the admin notics when Elementor is not installed or activated.
+	 */
+	public function show_setup_wizard() {
+
+		$screen          = get_current_screen();
+		$screen_id       = $screen ? $screen->id : '';
+
+		if ( 'plugins' !== $screen_id ) {
+			return;
+		}
+
+		/* TO DO */
+		$class = 'notice notice-info is-dismissible';
+
+		/* translators: %s: html tags */
+		$message = sprintf( __( 'Thank you for installing %1$sElementor - Header, Footer & Blocks%2$s by Brainstorm Force. Create your first excellent design under the %1$sAppearance> Header Footer and Blocks%2$s.', 'header-footer-elementor' ), '<strong>', '</strong>' );
+
+		printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), wp_kses_post( $message ) );
 	}
 
 	/**
