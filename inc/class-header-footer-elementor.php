@@ -57,6 +57,10 @@ class Header_Footer_Elementor {
 			$this->includes();
 			$this->load_textdomain();
 
+			register_activation_hook( __FILE__, array( $this, 'plugin_activation' ) );
+
+			add_action( 'init', [ $this, 'setup_settings_page' ] );
+
 			if ( 'genesis' == $this->template ) {
 				require HFE_DIR . 'themes/genesis/class-hfe-genesis-compat.php';
 			} elseif ( 'astra' == $this->template ) {
@@ -90,27 +94,19 @@ class Header_Footer_Elementor {
 			add_action( 'admin_notices', [ $this, 'register_notices' ] );
 
 			// BSF Analytics Tracker.
-			if ( ! class_exists( 'BSF_Analytics_Loader' ) ) {
-				require_once HFE_DIR . 'admin/bsf-analytics/class-bsf-analytics-loader.php';
-			}
-
-			$bsf_analytics = BSF_Analytics_Loader::get_instance();
-
-			$bsf_analytics->set_entity(
-				[
-					'bsf' => [
-						'product_name'    => 'Elementor - Header, Footer & Blocks',
-						'path'            => HFE_DIR . 'admin/bsf-analytics',
-						'author'          => 'Brainstorm Force',
-						'time_to_display' => '+24 hours',
-					],
-				]
-			);
+			require_once HFE_DIR . 'admin/bsf-analytics/class-bsf-analytics.php';
 
 		} else {
 			add_action( 'admin_notices', [ $this, 'elementor_not_available' ] );
 			add_action( 'network_admin_notices', [ $this, 'elementor_not_available' ] );
 		}
+	}
+
+	/**
+	 * Call hook on plugin activation for both multi-site and single-site.
+	 */
+	function plugin_activation() {
+		exit( wp_redirect( admin_url( 'edit.php?post_type=elementor-hf' ) ) );
 	}
 
 	/**
@@ -205,7 +201,7 @@ class Header_Footer_Elementor {
 
 			$plugin = 'elementor/elementor.php';
 
-			if ( file_exists( WP_PLUGIN_DIR . '/elementor/elementor.php' ) ) {
+			if ( _is_elementor_installed() ) {
 
 				$action_url   = wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $plugin . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin );
 				$button_label = __( 'Activate Elementor', 'header-footer-elementor' );
@@ -233,8 +229,8 @@ class Header_Footer_Elementor {
 		// Load Elementor Canvas Compatibility.
 		require_once HFE_DIR . 'inc/class-hfe-elementor-canvas-compat.php';
 
-		// Load WPML & Polylang Compatibility if WPML is installed and activated.
-		if ( defined( 'ICL_SITEPRESS_VERSION' ) || defined( 'POLYLANG_BASENAME' ) ) {
+		// Load WPML Compatibility if WPML is installed and activated.
+		if ( defined( 'ICL_SITEPRESS_VERSION' ) ) {
 			require_once HFE_DIR . 'inc/compatibility/class-hfe-wpml-compatibility.php';
 		}
 
@@ -336,6 +332,15 @@ class Header_Footer_Elementor {
 		$classes[] = 'ehf-stylesheet-' . get_stylesheet();
 
 		return $classes;
+	}
+	
+	/**
+	 * Display Settings Page options
+	 *
+	 * @since x.x.x
+	 */
+	public function setup_settings_page() {
+		require_once HFE_DIR . 'inc/class-hfe-settings-page.php';
 	}
 
 	/**
@@ -450,4 +455,20 @@ class Header_Footer_Elementor {
 		return self::$elementor_instance->frontend->get_builder_content_for_display( $id );
 	}
 
+}
+/**
+ * Is elementor plugin installed.
+ */
+if ( ! function_exists( '_is_elementor_installed' ) ) {
+
+	/**
+	 * Check if Elementor is installed
+	 *
+	 * @since 1.5.0
+	 *
+	 * @access public
+	 */
+	function _is_elementor_installed() {
+		return defined( 'ELEMENTOR_VERSION' ) ? true : false;
+	}
 }
