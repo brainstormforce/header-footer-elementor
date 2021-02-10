@@ -28,6 +28,7 @@ class HFE_Settings_Page {
 		add_action( 'admin_init', [ $this, 'hfe_admin_init' ] );
 		add_action( 'admin_head', [ $this, 'hfe_global_css' ] );
 		add_filter( 'views_edit-elementor-hf', [ $this, 'hfe_settings' ], 10, 1 );
+		add_filter( 'admin_footer_text', [ $this, 'admin_footer_text' ] );
 	}
 
 	/**
@@ -52,7 +53,6 @@ class HFE_Settings_Page {
 		$this->hfe_tabs();
 		return $views;
 	}
-
 
 	/**
 	 * Function for registering the settings api.
@@ -182,7 +182,7 @@ class HFE_Settings_Page {
 				],
 				'hfe_about'  => [
 					'name' => __( 'About Us', 'header-footer-elementor' ),
-					'url'  => admin_url( 'themes.php?page=hfe-abou' ),
+					'url'  => admin_url( 'themes.php?page=hfe-about' ),
 				],
 			];
 			
@@ -236,7 +236,7 @@ class HFE_Settings_Page {
 				],
 				'hfe_about'  => [
 					'name' => __( 'About Us', 'header-footer-elementor' ),
-					'url'  => admin_url( 'themes.php?page=hfe-abou' ),
+					'url'  => admin_url( 'themes.php?page=hfe-about' ),
 				],
 			];
 			
@@ -257,6 +257,37 @@ class HFE_Settings_Page {
 		</h2>
 		<br />
 		<?php
+	}
+
+	
+	/**
+	 * Admin footer text.
+	 *
+	 * Modifies the "Thank you" text displayed in the admin footer.
+	 *
+	 * Fired by `admin_footer_text` filter.
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 *
+	 * @param string $footer_text The content that will be printed.
+	 *
+	 * @return string The content that will be printed.
+	 */
+	public function admin_footer_text( $footer_text ) {
+		$current_screen = get_current_screen();
+		$is_elementor_screen = ( $current_screen && 'elementor-hf' === $current_screen->post_type );
+
+		if ( $is_elementor_screen ) {
+			$footer_text = sprintf(
+				/* translators: 1: Elementor, 2: Link to plugin review */
+				__( 'Please rate %1$s on %2$s %3$s to help us spread the word. We really appreciate your support!', 'header-footer-elementor' ),
+				'<strong>' . __( 'Elementor - Header, Footer & Blocks', 'header-footer-elementor' ) . '</strong>', '&#9733;&#9733;&#9733;&#9733;&#9733;',
+				'<a href="https://wordpress.org/support/theme/astra/reviews/#new-post" target="_blank">WordPress.org</a>'
+			);
+		}
+
+		return $footer_text;
 	}
 
 }
