@@ -51,8 +51,6 @@ class Header_Footer_Elementor {
 	function __construct() {
 		$this->template = get_template();
 
-		register_activation_hook( HFE_FILE, array( $this, 'plugin_activation' ) );
-
 		if ( defined( 'ELEMENTOR_VERSION' ) && is_callable( 'Elementor\Plugin::instance' ) ) {
 			self::$elementor_instance = Elementor\Plugin::instance();
 
@@ -100,13 +98,18 @@ class Header_Footer_Elementor {
 			add_action( 'admin_notices', [ $this, 'elementor_not_available' ] );
 			add_action( 'network_admin_notices', [ $this, 'elementor_not_available' ] );
 		}
+
+		register_activation_hook( HFE_FILE, array( $this, 'plugin_activation' ) );
+
 	}
 
 	/**
 	 * Call hook on plugin activation for both multi-site and single-site.
 	 */
-	function plugin_activation() {
-		exit( wp_redirect( admin_url( 'edit.php?post_type=elementor-hf' ) ) );
+	function plugin_activation( $plugin ) {
+		if( $plugin == plugin_basename( HFE_FILE ) ) {
+			wp_redirect( admin_url( 'edit.php?post_type=elementor-hf' ) );
+		}
 	}
 
 	/**
