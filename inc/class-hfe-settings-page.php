@@ -364,7 +364,7 @@ class HFE_Settings_Page {
 					printf(
 						wp_kses(
 						/* translators: %1$s - WPBeginner URL; %2$s - OptinMonster URL; %3$s - MonsterInsights URL; %4$s - RafflePress URL. */
-							__( 'Elementor - Header, Footer & Blocks is brought to you by the same team that’s behind the largest WordPress plugins, <a href="%1$s" target="_blank" rel="noopener noreferrer">Ultimate Addons for Gutenberg</a>, the most popular lead-generation software, <a href="%2$s" target="_blank" rel="noopener noreferrer">Ultimate Addons for Beaver Builder</a>, the best WordPress analytics plugin, <a href="%3$s" target="_blank" rel="noopener noreferrer">Schema Pro</a>, and the most powerful WordPress contest plugin, <a href="%4$s" target="_blank" rel="noopener noreferrer">Astra Theme</a>.', 'header-footer-elementor' ),
+							__( 'Elementor - Header, Footer & Blocks is brought to you by the same team that’s behind the largest WordPress plugins, <a href="%1$s" target="_blank" rel="noopener noreferrer">Ultimate Addons for Gutenberg</a>, the most popular lead-generation software, <a href="%2$s" target="_blank" rel="noopener noreferrer">Ultimate Addons for Beaver Builder</a>, the best WordPress analytics plugin, <a href="%3$s" target="_blank" rel="noopener noreferrer">All in One Schem</a>, and the most powerful WordPress Theme, <a href="%4$s" target="_blank" rel="noopener noreferrer">Astra Theme</a>.', 'header-footer-elementor' ),
 							array(
 								'a' => array(
 									'href'   => array(),
@@ -387,7 +387,7 @@ class HFE_Settings_Page {
 
 			<div class="hfe-admin-column-40 hfe-admin-column-last">
 				<figure>
-					<img src="<?php echo hfe_PLUGIN_URL; ?>assets/images/about/team.jpg" alt="<?php esc_attr_e( 'Team photo', 'header-footer-elementor' ); ?>">
+					<img src="<?php echo WPFORMS_PLUGIN_URL; ?>assets/images/about/team.jpg" alt="<?php esc_attr_e( 'Team photo', 'header-footer-elementor' ); ?>">
 					<figcaption>
 						<?php esc_html_e( 'The Brainstorm Force Team', 'header-footer-elementor' ); ?><br>
 					</figcaption>

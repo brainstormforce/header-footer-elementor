@@ -143,9 +143,56 @@ li#toplevel_page_Settings-page {
 .hfe-admin-about-section p.smaller {
     font-size: 14px;
 }
-.hfe-admin-columns {
-    display: flex;
+
+.hfe-clear:before {
+    content: " ";
+    display: table;
 }
+
+.hfe-clear:after {
+    clear: both;
+    content: " ";
+    display: table;
+}
+
+.hfe-admin-columns > div[class*="-column-"] {
+    float: left;
+}
+
+.hfe-admin-columns .hfe-admin-column-20 {
+    width: 20%;
+}
+
+.hfe-admin-columns .hfe-admin-column-33 {
+    width: 33.33333%;
+}
+
+.hfe-admin-columns .hfe-admin-column-40 {
+    width: 40%;
+}
+
+.hfe-admin-columns .hfe-admin-column-50 {
+    width: 50%;
+}
+
+.hfe-admin-columns .hfe-admin-column-60 {
+    width: 60%;
+}
+
+.hfe-admin-columns .hfe-admin-column-80 {
+    width: 80%;
+}
+
+.hfe-admin-columns .hfe-admin-column-last {
+    float: right !important;
+}
+
+.hfe-admin-columns:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+  
 .hfe-admin-about-section p:last-child {
     margin-bottom: 0;
 }
@@ -222,11 +269,18 @@ padding: 0 !important;
 .hfe-admin-about-section .centered {
 text-align: center !important;
 }
+.hfe-admin-about-section *, 
+.hfe-admin-about-section *::before, 
+.hfe-admin-about-section *::after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
 
+/* About Us - Plugins section */
 #hfe-admin-addons {
     padding: 0 30px;
 }
-
 #hfe-admin-addons .addon-container {
     padding: 0 10px;
 }
