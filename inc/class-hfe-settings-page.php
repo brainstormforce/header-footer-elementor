@@ -69,6 +69,10 @@ class HFE_Settings_Page {
 		register_setting( 'hfe-plugin-options', 'hfe_compatibility_option' );
 		add_settings_section( 'hfe-options', __( 'Add Theme Support', 'header-footer-elementor' ), [ $this, 'hfe_compatibility_callback' ], 'Settings' );
 		add_settings_field( 'hfe-way', 'Methods to Add Theme Support', [ $this, 'hfe_compatibility_option_callback' ], 'Settings', 'hfe-options' );
+
+		register_setting( 'hfe-plugin-guide', 'hfe_compatibility_option' );
+		add_settings_section( 'hfe-guide-options', __( 'Step-By-Step Guide', 'header-footer-elementor' ), [ $this, 'hfe_guide_callback' ], 'Step-By-Step Guide' );
+		add_settings_field( 'hfe-way', 'Subscribe', [ $this, 'hfe_guide_option_callback' ], 'Step-By-Step Guide', 'hfe-guide-options' );
 	}
 
 	/**
@@ -311,19 +315,70 @@ class HFE_Settings_Page {
 	}
 
 	/**
+	 * Call back function for the ssettings api function add_settings_section
+	 *
+	 * This function can be used to add description of the settings sections
+	 *
+	 * @since x.x.x
+	 * @return void
+	 */
+	public function hfe_guide_callback() {
+		esc_html_e( 'Our goal is to make header & footer design easy in Elementor.', 'header-footer-elementor' );
+	}
+
+	/**
+	 * Call back function for the ssettings api function add_settings_field
+	 *
+	 * This function will contain the markup for the input feilds that we can add.
+	 *
+	 * @since x.x.x
+	 * @return void
+	 */
+	public function hfe_guide_option_callback() {
+		$hfe_radio_button = get_option( 'hfe_guide_option', '1' );
+		?>
+
+		<label>
+			<input type="checkbox" name="hfe_guide_option" value= 1 <?php checked( $hfe_radio_button, 1 ); ?> > <div class="hfe_checkbox_options"><?php esc_html_e( ' By entering your email, you agree to our privacy policy', 'header-footer-elementor' ); ?></div>
+			<br>
+		</label>
+		
+		<p>
+			<?php esc_html_e( 'Yup, we know a thing or two about building awesome products that customers love.', 'header-footer-elementor' ); ?>
+		</p>
+
+		<?php
+	}
+
+	/**
 	 * Function for Step-By-Step guide
 	 *
 	 * @since x.x.x
 	 * @return void
 	 */
 	public function get_guide_html() {
-
 		?>
-		<form action="options.php" method="post">
-			<?php settings_fields( 'hfe-plugin-options' ); ?>
-			<?php do_settings_sections( 'Settings' ); ?>
-			<?php submit_button(); ?>
-		</form>
+
+		<div class="hfe-admin-about-section hfe-admin-columns hfe-admin-guide-section">
+
+			<div class="hfe-admin-column-50">
+				<h4>
+					<?php esc_html_e( 'Learn the Art of Designing Custom Header & Footer with this Free Plugin ( Video Tutorial )', 'header-footer-elementor' ); ?>
+				</h4>
+				<figure>
+					<img src="<?php echo WPFORMS_PLUGIN_URL; ?>assets/images/about/team.jpg" alt="<?php esc_attr_e( 'Team photo', 'header-footer-elementor' ); ?>">
+				</figure>
+			</div>
+
+			<div class="hfe-admin-column-50 hfe-admin-column-last">
+				<div class="hfe-guide-content">
+					<h3>
+						<?php esc_html_e( 'Get Inspiring & Creative Header & Footer Design Examples ( With 11 Research-Based Tips ).', 'header-footer-elementor' ); ?>
+					</h3>
+					<?php settings_fields( 'hfe-plugin-guide' ); ?>
+				</div>
+			</div>
+		</div>
 		<?php
 	}
 
@@ -397,7 +452,6 @@ class HFE_Settings_Page {
 		</div>
 		<?php
 	}
-
 	
 	/**
 	 * Display the Addons section of About tab.

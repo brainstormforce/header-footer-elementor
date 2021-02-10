@@ -98,7 +98,18 @@ li#toplevel_page_Settings-page {
 .hfe-selected-template-type-none .enable-for-canvas {
     display: none;
 }
-
+/* EHF Settings - Step by Step guide */
+.hfe-admin-guide-section .hfe-admin-column-50:not(.hfe-admin-column-last) {
+    padding-right: 20px;
+}
+.hfe-admin-guide-section .hfe-admin-column-last,
+.hfe-guide-content {
+    border: 1px solid grey;
+    padding: 20px;
+}
+.hfe-guide-content {
+    background-color: #efeeee;
+}
 /* EHF Settings - About Us */
 .hfe-admin-about-section {
     margin: 0 20px 20px;
