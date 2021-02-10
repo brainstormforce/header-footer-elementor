@@ -51,13 +51,13 @@ class Header_Footer_Elementor {
 	function __construct() {
 		$this->template = get_template();
 
+		register_activation_hook( HFE_FILE, array( $this, 'plugin_activation' ) );
+
 		if ( defined( 'ELEMENTOR_VERSION' ) && is_callable( 'Elementor\Plugin::instance' ) ) {
 			self::$elementor_instance = Elementor\Plugin::instance();
 
 			$this->includes();
 			$this->load_textdomain();
-
-			register_activation_hook( __FILE__, array( $this, 'plugin_activation' ) );
 
 			add_action( 'init', [ $this, 'setup_settings_page' ] );
 
