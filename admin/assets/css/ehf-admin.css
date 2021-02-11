@@ -67,7 +67,12 @@ li#toplevel_page_Settings-page {
 .wp-admin #adminmenu .wp-submenu a[href="themes.php?page=hfe-settings"] {
     display:none;
 }
-
+.wp-admin #adminmenu .wp-submenu a[href="themes.php?page=hfe-guide"] {
+  display:none;
+}
+.wp-admin #adminmenu .wp-submenu a[href="themes.php?page=hfe-about"] {
+  display:none;
+}
 .appearance_page_hfe-settings #adminmenu .wp-submenu a[href ="edit.php?post_type=elementor-hf" ] {
     color: white;
     font-weight: 600;
@@ -99,6 +104,17 @@ li#toplevel_page_Settings-page {
     display: none;
 }
 /* EHF Settings - Step by Step guide */
+.hfe-guide-content .form-table th {
+   display: none;
+}
+.hfe-guide-content .form-table input[type="checkbox"] {
+    margin-top: -4px;
+    margin-right: 4px;
+    float: none;
+}
+.hfe-guide-content .hfe_checkbox_options {
+    display: inline-block;
+}
 .hfe-admin-guide-section .hfe-admin-column-50:not(.hfe-admin-column-last) {
     padding-right: 20px;
 }

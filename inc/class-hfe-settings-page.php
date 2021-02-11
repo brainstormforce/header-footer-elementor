@@ -71,8 +71,8 @@ class HFE_Settings_Page {
 		add_settings_field( 'hfe-way', 'Methods to Add Theme Support', [ $this, 'hfe_compatibility_option_callback' ], 'Settings', 'hfe-options' );
 
 		register_setting( 'hfe-plugin-guide', 'hfe_guide_option' );
-		add_settings_section( 'hfe-guide-options', __( 'Step-By-Step Guide', 'header-footer-elementor' ), [ $this, 'hfe_guide_callback' ], 'Step-By-Step Guide' );
-		add_settings_field( 'hfe-way', 'Subscribe', [ $this, 'hfe_guide_option_callback' ], 'Step-By-Step Guide', 'hfe-guide-options' );
+		add_settings_section( 'hfe-guide-options', '', [ $this, 'hfe_guide_callback' ], 'Step-By-Step Guide' );
+		add_settings_field( 'hfe-guide', '', [ $this, 'hfe_guide_option_callback' ], 'Step-By-Step Guide', 'hfe-guide-options' );
 	}
 
 	/**
@@ -323,7 +323,11 @@ class HFE_Settings_Page {
 	 * @return void
 	 */
 	public function hfe_guide_callback() {
-		esc_html_e( 'Our goal is to make header & footer design easy in Elementor.', 'header-footer-elementor' );
+		?>
+		<h3>
+			<?php esc_html_e( 'Get Inspiring & Creative Header & Footer Design Examples ( With 11 Research-Based Tips ).', 'header-footer-elementor' ); ?>
+		</h3>
+		<?php
 	}
 
 	/**
@@ -337,7 +341,6 @@ class HFE_Settings_Page {
 	public function hfe_guide_option_callback() {
 		$hfe_radio_button = get_option( 'hfe_guide_option', '1' );
 		?>
-
 		<label>
 			<input type="checkbox" name="hfe_guide_option" value= 1 <?php checked( $hfe_radio_button, 1 ); ?> > <div class="hfe_checkbox_options"><?php esc_html_e( ' By entering your email, you agree to our privacy policy', 'header-footer-elementor' ); ?></div>
 			<br>
@@ -372,10 +375,9 @@ class HFE_Settings_Page {
 
 			<div class="hfe-admin-column-50 hfe-admin-column-last">
 				<div class="hfe-guide-content">
-					<h3>
-						<?php esc_html_e( 'Get Inspiring & Creative Header & Footer Design Examples ( With 11 Research-Based Tips ).', 'header-footer-elementor' ); ?>
-					</h3>
 					<?php settings_fields( 'hfe-plugin-guide' ); ?>
+						<?php do_settings_sections( 'Step-By-Step Guide' ); ?>
+					<?php submit_button(); ?>
 				</div>
 			</div>
 		</div>
