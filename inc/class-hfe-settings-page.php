@@ -196,7 +196,7 @@ class HFE_Settings_Page {
 		<?php
 		$hfe_radio_button = get_option( 'hfe_compatibility_option', '1' );
 
-		$this->get_guide_modal();
+		// $this->get_guide_modal();
 		?>
 		<?php
 		switch( $_GET['page'] ){
@@ -215,7 +215,6 @@ class HFE_Settings_Page {
 			case 'default' :
 				break;
 		}
-		
 	}
 
 	/**
@@ -255,9 +254,9 @@ class HFE_Settings_Page {
 
 				$tab_slug = str_replace( '_', '-', $tab_id );
 
-				$active_tab = ( isset( $_GET['page'] ) && $tab_slug == $_GET['page'] ) ? $tab_id : 'hfe_templates';
+				$active_tab = ( ( isset( $_GET['page'] ) && $tab_slug == $_GET['page'] ) || ( ! isset( $_GET['page'] ) && 'hfe_templates' == $tab_id ) ) ? $tab_id : '';
 
-				$active = $active_tab == $tab_id ? ' nav-tab-active' : '';
+				$active = ( $active_tab == $tab_id ) ? ' nav-tab-active' : '';
 
 				echo '<a href="' . esc_url( $tab['url'] ) . '" class="nav-tab' . esc_attr( $active ) . '">';
 				echo esc_html( $tab['name'] );
