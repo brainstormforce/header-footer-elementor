@@ -115,6 +115,12 @@ li#toplevel_page_Settings-page {
 .hfe-guide-content .hfe_checkbox_options {
     display: inline-block;
 }
+.hfe-guide-content p.submit {
+    text-align: center;
+}
+.hfe-guide-content input#submit {
+    text-transform: uppercase;
+}
 .hfe-admin-guide-section .hfe-admin-column-50:not(.hfe-admin-column-last) {
     padding-right: 20px;
 }

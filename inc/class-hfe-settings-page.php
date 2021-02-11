@@ -377,7 +377,7 @@ class HFE_Settings_Page {
 				<div class="hfe-guide-content">
 					<?php settings_fields( 'hfe-plugin-guide' ); ?>
 						<?php do_settings_sections( 'Step-By-Step Guide' ); ?>
-					<?php submit_button(); ?>
+					<?php submit_button( 'Download This Guide & Start Brainstorming' ); ?>
 				</div>
 			</div>
 		</div>
