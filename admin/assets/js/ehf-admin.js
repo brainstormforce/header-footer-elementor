@@ -9,4 +9,12 @@ jQuery(document).ready(function ($) {
 	});
 
 	ehf_hide_shortcode_field();
+
+	var hf_new_post = jQuery( '.post-type-elementor-hf' ).find( '.page-title-action' );
+
+	hf_new_post.on( 'click', function(e) {
+		e.preventDefault();
+		e.stopPropagation();
+		var $this 		= jQuery( this );
+	});
 });
