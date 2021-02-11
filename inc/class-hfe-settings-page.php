@@ -228,25 +228,23 @@ class HFE_Settings_Page {
 		<h2 class="nav-tab-wrapper">
 			<?php
 			if ( ! isset( self::$hfe_settings_tabs ) ) {
-				self::$hfe_settings_tabs       = [
-					'hfe_templates' => [
+				self::$hfe_settings_tabs = apply_filters( 'hfe_settings_tabs', array(
+					'hfe_templates' => array(
 						'name' => __( 'All templates', 'header-footer-elementor' ),
 						'url'  => admin_url( 'edit.php?post_type=elementor-hf' ),
-					],
-					'hfe_settings'  => [
-						'name' => __( 'Theme Support', 'header-footer-elementor' ),
-						'url'  => admin_url( 'themes.php?page=hfe-settings' ),
-					],
-					'hfe_guide'  => [
-						'name' => __( 'Step-By-Step Guide', 'header-footer-elementor' ),
-						'url'  => admin_url( 'themes.php?page=hfe-guide' ),
-					],
-					'hfe_about'  => [
-						'name' => __( 'About Us', 'header-footer-elementor' ),
-						'url'  => admin_url( 'themes.php?page=hfe-about' ),
-					],
-				];
+					)
+				) );
 			}
+
+			self::$hfe_settings_tabs['hfe_guide'] = array(
+				'name' => __( 'Step-By-Step Guide', 'header-footer-elementor' ),
+				'url'  => admin_url( 'themes.php?page=hfe-guide' ),
+			);
+
+			self::$hfe_settings_tabs['hfe_about'] = array(
+				'name' => __( 'About Us', 'header-footer-elementor' ),
+				'url'  => admin_url( 'themes.php?page=hfe-about' ),
+			);
 
 			$tabs = self::$hfe_settings_tabs;
 			

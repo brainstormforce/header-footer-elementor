@@ -54,8 +54,6 @@ class Header_Footer_Elementor {
 		if ( defined( 'ELEMENTOR_VERSION' ) && is_callable( 'Elementor\Plugin::instance' ) ) {
 			self::$elementor_instance = Elementor\Plugin::instance();
 
-			add_action( 'admin_notices', [ $this, 'show_setup_wizard' ] );
-
 			$this->includes();
 			$this->load_textdomain();
 
@@ -77,8 +75,10 @@ class Header_Footer_Elementor {
 			} elseif ( 'hello-elementor' == $this->template ) {
 				require HFE_DIR . 'themes/hello-elementor/class-hfe-hello-elementor-compat.php';
 			} else {
-				add_action( 'init', [ $this, 'setup_unsupported_theme' ] );
+				add_filter( 'hfe_settings_tabs', [ $this, 'setup_unsupported_theme' ] );
 			}
+
+			add_action( 'admin_notices', [ $this, 'show_setup_wizard' ] );
 
 			// Scripts and styles.
 			add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
@@ -101,16 +101,7 @@ class Header_Footer_Elementor {
 			add_action( 'network_admin_notices', [ $this, 'elementor_not_available' ] );
 		}
 
-		// register_activation_hook( HFE_FILE, array( $this, 'plugin_activation' ) );
-
 	}
-
-	/**
-	 * Call hook on plugin activation for both multi-site and single-site.
-	 */
-	// function plugin_activation() {
-	// 	add_action( 'admin_notices', [ $this, 'elementor_not_available' ] );
-	// }
 
 	/**
 	 * Reset the Unsupported theme nnotice after a theme is switched.
@@ -372,9 +363,13 @@ class Header_Footer_Elementor {
 	 *
 	 * @since  1.0.3
 	 */
-	public function setup_unsupported_theme() {
+	public function setup_unsupported_theme( $hfe_settings_tabs  ) {
 		if ( ! current_theme_supports( 'header-footer-elementor' ) ) {
-			require_once HFE_DIR . 'themes/default/class-hfe-fallback-theme-support.php';
+			$hfe_settings_tabs['hfe_settings'] = array(
+				'name' => __( 'Theme Support', 'header-footer-elementor' ),
+				'url'  => admin_url( 'themes.php?page=hfe-settings' ),
+			);
+			return $hfe_settings_tabs;
 		}
 	}
 
