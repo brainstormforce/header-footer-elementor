@@ -104,6 +104,10 @@ li#toplevel_page_Settings-page {
     display: none;
 }
 /* EHF Settings - Step by Step guide */
+.hfe-admin-guide-section.hfe-admin-about-section {
+  margin: 0px;
+  padding: 0px;
+}
 .hfe-guide-content .form-table th {
    display: none;
 }
@@ -122,15 +126,16 @@ li#toplevel_page_Settings-page {
     text-transform: uppercase;
 }
 .hfe-admin-guide-section .hfe-admin-column-50:not(.hfe-admin-column-last) {
-    padding-right: 20px;
+    padding: 30px;
+    border-right: 1px solid #DDDDDD;
 }
 .hfe-admin-guide-section .hfe-admin-column-last,
 .hfe-guide-content {
-    border: 1px solid grey;
     padding: 20px;
 }
 .hfe-guide-content {
     background-color: #efeeee;
+    border: 1px solid #DDDDDD;
 }
 /* EHF Settings - About Us */
 .hfe-admin-about-section {
