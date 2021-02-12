@@ -29,6 +29,8 @@ class HFE_Settings_Page {
 		add_action( 'admin_init', [ $this, 'hfe_admin_init' ] );
 		add_filter( 'views_edit-elementor-hf', [ $this, 'hfe_settings' ], 10, 1 );
 		add_filter( 'admin_footer_text', [ $this, 'admin_footer_text' ] );
+		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
+
 	}
 
 	/**
@@ -44,6 +46,13 @@ class HFE_Settings_Page {
 	 */
 	public function hfe_global_css() {
 		wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'admin/assets/css/ehf-admin.css', [], HFE_VER );
+	}
+
+	/**
+	 * Load admin styles on header footer elementor edit screen.
+	 */
+	public function enqueue_admin_scripts() {
+		wp_enqueue_script( 'hfe-admin-script', HFE_URL . 'admin/assets/js/ehf-admin.js', [], HFE_VER );
 	}
 
 	/**
