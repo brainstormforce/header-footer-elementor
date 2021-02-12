@@ -60,19 +60,13 @@ input.hfe-large-text{
     display: inline-block;
 }
 
-li#toplevel_page_Settings-page {
+li#toplevel_page_Settings-page,
+.wp-admin #adminmenu .wp-submenu a[href="themes.php?page=hfe-settings"],
+.wp-admin #adminmenu .wp-submenu a[href="themes.php?page=hfe-guide"],
+.wp-admin #adminmenu .wp-submenu a[href="themes.php?page=hfe-about"] {
     display: none;
 }
 
-.wp-admin #adminmenu .wp-submenu a[href="themes.php?page=hfe-settings"] {
-    display:none;
-}
-.wp-admin #adminmenu .wp-submenu a[href="themes.php?page=hfe-guide"] {
-  display:none;
-}
-.wp-admin #adminmenu .wp-submenu a[href="themes.php?page=hfe-about"] {
-  display:none;
-}
 .appearance_page_hfe-settings #adminmenu .wp-submenu a[href ="edit.php?post_type=elementor-hf" ] {
     color: white;
     font-weight: 600;
