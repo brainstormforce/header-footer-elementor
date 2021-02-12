@@ -30,7 +30,6 @@ class HFE_Settings_Page {
 		add_filter( 'views_edit-elementor-hf', [ $this, 'hfe_settings' ], 10, 1 );
 		add_filter( 'admin_footer_text', [ $this, 'admin_footer_text' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
-
 	}
 
 	/**
@@ -65,6 +64,7 @@ class HFE_Settings_Page {
 	 */
 	public function hfe_settings( $views ) {
 		$this->hfe_tabs();
+		$this->get_guide_modal();
 		return $views;
 	}
 
@@ -203,10 +203,7 @@ class HFE_Settings_Page {
 		?>
 		<br />
 		<?php
-		$hfe_radio_button = get_option( 'hfe_compatibility_option', '1' );
-
-		$this->get_guide_modal();
-		
+		$hfe_radio_button = get_option( 'hfe_compatibility_option', '1' );		
 		?>
 		<?php
 		switch( $_GET['page'] ){
@@ -403,8 +400,9 @@ class HFE_Settings_Page {
 	 * @return void
 	 */
 	public function get_guide_modal() {
+		$new_page_url = admin_url('post-new.php?post_type=elementor-hf');
 		?>
-		<div class="hfe-guide-modal-popup hfe-show">
+		<div class="hfe-guide-modal-popup" data-new-page="<?php echo esc_attr( $new_page_url ); ?>">
 			<div class="hfe-guide-modal-popup-wrapper">
 				<div class="hfe-guide-modal-content">
 					<div class="hfe-guide-modal-header">

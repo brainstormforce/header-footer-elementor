@@ -14,14 +14,23 @@ jQuery(document).ready(function ($) {
 
 	var close_button = jQuery( '.hfe-close-icon' );
 	var modal_wrapper = jQuery( '.hfe-guide-modal-popup' );
+	var new_page_link = modal_wrapper.data( 'new-page' );
 
-	close_button.on( 'click', function(e) {
-		if( modal_wrapper.hasClass( 'hfe-show' ) ) {
-			modal_wrapper.removeClass( 'hfe-show' )
+	// Display Modal Popup on click of Add new button.
+	hf_new_post.on( 'click', function(e) {
+		e.preventDefault();
+		e.stopPropagation();
+		if( ! modal_wrapper.hasClass( 'hfe-show' ) ) {
+			modal_wrapper.addClass( 'hfe-show' );
 		}
 	});
 
-	hf_new_post.on( 'click', function(e) {
-		
+	// Close popup and redirect to edit page.
+	close_button.on( 'click', function(e) {
+		if( modal_wrapper.hasClass( 'hfe-show' ) ) {
+			modal_wrapper.removeClass( 'hfe-show' );
+		}
+		window.location = new_page_link;
 	});
+
 });
