@@ -33,7 +33,9 @@ class HFE_Settings_Page {
 	}
 
 	/**
-	 * var for tabs
+	 * Settings tab array
+	 *
+	 * @var settings tabs
 	 */
 	public static $hfe_settings_tabs;
 
@@ -203,23 +205,23 @@ class HFE_Settings_Page {
 		?>
 		<br />
 		<?php
-		$hfe_radio_button = get_option( 'hfe_compatibility_option', '1' );		
+		$hfe_radio_button = get_option( 'hfe_compatibility_option', '1' );
 		?>
 		<?php
-		switch( $_GET['page'] ){
-			case 'hfe-settings' :
+		switch ( $_GET['page'] ) {
+			case 'hfe-settings':
 				$this->get_themes_support();
 				break;
-			
-			case 'hfe-guide' :
+
+			case 'hfe-guide':
 				$this->get_guide_html();
 				break;
 
-			case 'hfe-about' :
+			case 'hfe-about':
 				$this->get_about_html();
 				break;
 
-			case 'default' :
+			case 'default':
 				break;
 		}
 	}
@@ -235,26 +237,29 @@ class HFE_Settings_Page {
 		<h2 class="nav-tab-wrapper">
 			<?php
 			if ( ! isset( self::$hfe_settings_tabs ) ) {
-				self::$hfe_settings_tabs = apply_filters( 'hfe_settings_tabs', array(
-					'hfe_templates' => array(
-						'name' => __( 'All templates', 'header-footer-elementor' ),
-						'url'  => admin_url( 'edit.php?post_type=elementor-hf' ),
-					)
-				) );
+				self::$hfe_settings_tabs = apply_filters(
+					'hfe_settings_tabs',
+					[
+						'hfe_templates' => [
+							'name' => __( 'All templates', 'header-footer-elementor' ),
+							'url'  => admin_url( 'edit.php?post_type=elementor-hf' ),
+						],
+					]
+				);
 			}
 
-			self::$hfe_settings_tabs['hfe_guide'] = array(
+			self::$hfe_settings_tabs['hfe_guide'] = [
 				'name' => __( 'Step-By-Step Guide', 'header-footer-elementor' ),
 				'url'  => admin_url( 'themes.php?page=hfe-guide' ),
-			);
+			];
 
-			self::$hfe_settings_tabs['hfe_about'] = array(
+			self::$hfe_settings_tabs['hfe_about'] = [
 				'name' => __( 'About Us', 'header-footer-elementor' ),
 				'url'  => admin_url( 'themes.php?page=hfe-about' ),
-			);
+			];
 
 			$tabs = self::$hfe_settings_tabs;
-			
+
 			foreach ( $tabs as $tab_id => $tab ) {
 
 				$tab_slug = str_replace( '_', '-', $tab_id );
@@ -273,7 +278,7 @@ class HFE_Settings_Page {
 		<br />
 		<?php
 	}
-	
+
 	/**
 	 * Admin footer text.
 	 *
@@ -297,7 +302,8 @@ class HFE_Settings_Page {
 			$footer_text = sprintf(
 				/* translators: 1: Elementor, 2: Link to plugin review */
 				__( 'Please rate %1$s on %2$s %3$s to help us spread the word. We really appreciate your support!', 'header-footer-elementor' ),
-				'<strong>' . __( 'Elementor - Header, Footer & Blocks', 'header-footer-elementor' ) . '</strong>', '&#9733;&#9733;&#9733;&#9733;&#9733;',
+				'<strong>' . __( 'Elementor - Header, Footer & Blocks', 'header-footer-elementor' ) . '</strong>',
+				'&#9733;&#9733;&#9733;&#9733;&#9733;',
 				'<a href="https://wordpress.org/support/theme/astra/reviews/#new-post" target="_blank">WordPress.org</a>'
 			);
 		}
@@ -352,10 +358,7 @@ class HFE_Settings_Page {
 			<input type="checkbox" name="hfe_guide_option" value= 1 <?php checked( $hfe_radio_button, 1 ); ?> > <div class="hfe_checkbox_options"><?php esc_html_e( ' By entering your email, you agree to our privacy policy', 'header-footer-elementor' ); ?></div>
 			<br>
 		</label>
-		
-		<p>
-			<?php esc_html_e( 'Yup, we know a thing or two about building awesome products that customers love.', 'header-footer-elementor' ); ?>
-		</p>
+		<p><?php esc_html_e( 'Yup, we know a thing or two about building awesome products that customers love.', 'header-footer-elementor' ); ?></p>
 
 		<?php
 	}
@@ -400,17 +403,23 @@ class HFE_Settings_Page {
 	 * @return void
 	 */
 	public function get_guide_modal() {
-		$new_page_url = admin_url('post-new.php?post_type=elementor-hf');
+		$new_page_url = admin_url( 'post-new.php?post_type=elementor-hf' );
 		?>
 		<div class="hfe-guide-modal-popup" data-new-page="<?php echo esc_attr( $new_page_url ); ?>">
 			<div class="hfe-guide-modal-popup-wrapper">
 				<div class="hfe-guide-modal-content">
 					<div class="hfe-guide-modal-header">
-						<span><?php echo __( 'Header Footer & Blocks: Created in ', 'header-footer-elementor' ); 
-						?></span>
+						<span>
+						<?php
+						echo __( 'Header Footer & Blocks: Created in ', 'header-footer-elementor' );
+						?>
+						</span>
 						<span class="dashicons dashicons-heart"></span>
-						<span><?php echo __( ' with Brainstorm Force', 'header-footer-elementor' );
-						?></span>
+						<span>
+						<?php
+						echo __( ' with Brainstorm Force', 'header-footer-elementor' );
+						?>
+						</span>
 					</div>
 					<?php $this->get_guide_html(); ?>
 				</div>
@@ -459,13 +468,13 @@ class HFE_Settings_Page {
 						wp_kses(
 						/* translators: %1$s - WPBeginner URL; %2$s - OptinMonster URL; %3$s - MonsterInsights URL; %4$s - RafflePress URL. */
 							__( 'Elementor - Header, Footer & Blocks is brought to you by the same team that’s behind the largest WordPress plugins, <a href="%1$s" target="_blank" rel="noopener noreferrer">Ultimate Addons for Gutenberg</a>, the most popular lead-generation software, <a href="%2$s" target="_blank" rel="noopener noreferrer">Ultimate Addons for Beaver Builder</a>, the best WordPress analytics plugin, <a href="%3$s" target="_blank" rel="noopener noreferrer">All in One Schem</a>, and the most powerful WordPress Theme, <a href="%4$s" target="_blank" rel="noopener noreferrer">Astra Theme</a>.', 'header-footer-elementor' ),
-							array(
-								'a' => array(
-									'href'   => array(),
-									'rel'    => array(),
-									'target' => array(),
-								),
-							)
+							[
+								'a' => [
+									'href'   => [],
+									'rel'    => [],
+									'target' => [],
+								],
+							]
 						),
 						'https://www.wpastra.com/',
 						'https://www.wpastra.com/',
@@ -491,7 +500,7 @@ class HFE_Settings_Page {
 		</div>
 		<?php
 	}
-	
+
 	/**
 	 * Display the Addons section of About tab.
 	 *
@@ -576,7 +585,7 @@ class HFE_Settings_Page {
 		$have_pro = ( ! empty( $details['pro'] ) && ! empty( $details['pro']['plug'] ) );
 		$show_pro = false;
 
-		$plugin_data = array();
+		$plugin_data = [];
 
 		if ( $have_pro ) {
 			if ( array_key_exists( $plugin, $all_plugins ) ) {
@@ -642,32 +651,32 @@ class HFE_Settings_Page {
 		// $images_url = hfe_PLUGIN_URL . 'assets/images/about/';
 		$images_url = '';
 
-		return array(
+		return [
 
-			'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php' => array(
+			'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php' => [
 				'icon'  => $images_url . 'plugin-mi.png',
 				'name'  => esc_html__( 'Ultimate Addons for Gutenberg', 'header-footer-elementor' ),
 				'desc'  => esc_html__( 'Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Vivamus magna justo, lacinia eget.', 'header-footer-elementor' ),
 				'wporg' => 'https://wordpress.org/plugins/header-footer-for-gutenberg/',
 				'url'   => 'https://downloads.wordpress.org/plugin/header-footer-for-gutenberg.zip',
-			),
+			],
 
-			'wp-mail-smtp/wp_mail_smtp.php' => array(
+			'wp-mail-smtp/wp_mail_smtp.php' => [
 				'icon'  => $images_url . 'plugin-smtp.png',
 				'name'  => esc_html__( 'WP Mail SMTP', 'header-footer-elementor' ),
 				'desc'  => esc_html__( 'Make sure your website\'s emails reach the inbox. Our goal is to make email deliverability easy and reliable. Trusted by over 2 million websites.', 'header-footer-elementor' ),
 				'wporg' => 'https://wordpress.org/plugins/wp-mail-smtp/',
 				'url'   => 'https://downloads.wordpress.org/plugin/wp-mail-smtp.zip',
-				'pro'   => array(
+				'pro'   => [
 					'plug' => 'wp-mail-smtp-pro/wp_mail_smtp.php',
 					'icon' => $images_url . 'plugin-smtp.png',
 					'name' => esc_html__( 'WP Mail SMTP Pro', 'header-footer-elementor' ),
 					'desc' => esc_html__( 'Make sure your website\'s emails reach the inbox. Our goal is to make email deliverability easy and reliable. Trusted by over 2 million websites.', 'header-footer-elementor' ),
 					'url'  => 'https://wpmailsmtp.com/pricing/',
 					'act'  => 'go-to-url',
-				),
-			),
-		);
+				],
+			],
+		];
 	}
 
 	/**
@@ -705,3 +714,5 @@ class HFE_Settings_Page {
 }
 
 new HFE_Settings_Page();
+
+?>

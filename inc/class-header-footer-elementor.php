@@ -217,8 +217,8 @@ class Header_Footer_Elementor {
 	 */
 	public function show_setup_wizard() {
 
-		$screen          = get_current_screen();
-		$screen_id       = $screen ? $screen->id : '';
+		$screen    = get_current_screen();
+		$screen_id = $screen ? $screen->id : '';
 
 		if ( 'plugins' !== $screen_id ) {
 			return;
@@ -348,7 +348,7 @@ class Header_Footer_Elementor {
 
 		return $classes;
 	}
-	
+
 	/**
 	 * Display Settings Page options
 	 *
@@ -361,14 +361,15 @@ class Header_Footer_Elementor {
 	/**
 	 * Display Unsupported theme notice if the current theme does add support for 'header-footer-elementor'
 	 *
-	 * @since  1.0.3
+	 * @param array $hfe_settings_tabs settings tabs.
+	 * @since 1.0.3
 	 */
-	public function setup_unsupported_theme( $hfe_settings_tabs  ) {
+	public function setup_unsupported_theme( $hfe_settings_tabs ) {
 		if ( ! current_theme_supports( 'header-footer-elementor' ) ) {
-			$hfe_settings_tabs['hfe_settings'] = array(
+			$hfe_settings_tabs['hfe_settings'] = [
 				'name' => __( 'Theme Support', 'header-footer-elementor' ),
 				'url'  => admin_url( 'themes.php?page=hfe-settings' ),
-			);
+			];
 			return $hfe_settings_tabs;
 		}
 	}
