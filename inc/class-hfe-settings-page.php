@@ -281,7 +281,7 @@ class HFE_Settings_Page {
 	 *
 	 * Fired by `admin_footer_text` filter.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access public
 	 *
 	 * @param string $footer_text The content that will be printed.
