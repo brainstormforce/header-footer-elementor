@@ -293,7 +293,8 @@ class HFE_Settings_Page {
 	 */
 	public function admin_footer_text( $footer_text ) {
 		$current_screen = get_current_screen();
-		$is_elementor_screen = ( $current_screen && 'elementor-hf' === $current_screen->post_type );
+
+		$is_elementor_screen = ( $current_screen && ( 'elementor-hf' === $current_screen->post_type || 'appearance_page_hfe-guide' === $current_screen->id || 'appearance_page_hfe-about' === $current_screen->id || 'appearance_page_hfe-settings' === $current_screen->id ) );
 
 		if ( $is_elementor_screen ) {
 			$footer_text = sprintf(
