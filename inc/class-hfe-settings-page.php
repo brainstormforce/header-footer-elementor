@@ -337,9 +337,14 @@ class HFE_Settings_Page {
 	 */
 	public function hfe_guide_callback() {
 		?>
-		<h3>
-			<?php esc_html_e( 'Get Inspiring & Creative Header & Footer Design Examples ( With 11 Research-Based Tips ).', 'header-footer-elementor' ); ?>
-		</h3>
+		<div class="hfe-guide-content-header hfe-admin-columns">
+			<div class="hfe-admin-column-20">
+				<img src="http://plugin-mi.png">
+			</div>
+			<div class="hfe-admin-column-80">
+				<h3><?php esc_html_e( 'Get Inspiring & Creative Header & Footer Design Examples ( With 11 Research-Based Tips ).', 'header-footer-elementor' ); ?></h3>
+			</div>
+		</div>
 		<?php
 	}
 
@@ -536,9 +541,7 @@ class HFE_Settings_Page {
 						<div class="addon-item">
 							<div class="details hfe-clear">
 								<img src="<?php echo esc_url( $plugin_data['details']['icon'] ); ?>">
-								<h5 class="addon-name">
-									<?php echo esc_html( $plugin_data['details']['name'] ); ?>
-								</h5>
+								<h5 class="addon-name"><?php echo esc_html( $plugin_data['details']['name'] ); ?></h5>
 								<p class="addon-desc">
 									<?php echo wp_kses_post( $plugin_data['details']['desc'] ); ?>
 								</p>

@@ -204,6 +204,12 @@ input[type="text"].hfe-subscribe-field {
 .hfe-admin-columns .hfe-admin-column-60 {
     width: 60%;
 }
+.hfe-admin-columns .hfe-admin-column-20 {
+    width: 20%;
+}
+.hfe-admin-columns .hfe-admin-column-80 {
+    width: 80%;
+}
 .hfe-admin-columns .hfe-admin-column-last {
     float: right !important;
 }
