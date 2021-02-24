@@ -629,11 +629,11 @@ span.dashicons.dashicons-no {
     .hfe-admin-guide-section.hfe-admin-about-section {
         display: block;
     }
-    .hfe-guide-modal-content .hfe-guide-content .form-table input[type="checkbox"] {
+    .hfe-guide-content .form-table input[type="checkbox"] {
         height: 1em;
         width: 1em;
     }
-    .hfe-guide-modal-content .hfe-guide-content .form-table input[type="checkbox"]:checked:before {
+    .hfe-guide-content .form-table input[type="checkbox"]:checked:before {
         height: 1em;
         width: 1em;
         margin: -1px;
@@ -641,5 +641,11 @@ span.dashicons.dashicons-no {
     .hfe-guide-content input#submit {
         font-size: 10px;
         white-space: pre-wrap;
+    }
+    .hfe-checkbox-container {
+        display: flex;
+        margin-top: 1px;
+        margin-right: 6px;
+        float: none;
     }
 }
