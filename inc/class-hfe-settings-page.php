@@ -82,6 +82,8 @@ class HFE_Settings_Page {
 		add_settings_field( 'hfe-way', 'Methods to Add Theme Support', [ $this, 'hfe_compatibility_option_callback' ], 'Settings', 'hfe-options' );
 
 		register_setting( 'hfe-plugin-guide', 'hfe_guide_option' );
+		register_setting( 'hfe-plugin-guide', 'hfe_guide_email' );
+
 		add_settings_section( 'hfe-guide-options', '', [ $this, 'hfe_guide_callback' ], 'Step-By-Step Guide' );
 		add_settings_field( 'hfe-guide', '', [ $this, 'hfe_guide_option_callback' ], 'Step-By-Step Guide', 'hfe-guide-options' );
 	}
@@ -364,7 +366,7 @@ class HFE_Settings_Page {
 			<div class="hfe-subscribe-email">
 				<span class="dashicons dashicons-email"></span>
 			</div>
-			<input id="hfe_subscribe_field" class="hfe-subscribe-field" type="text" placeholder="<?php echo $email_placeholder; ?>" name="hfe_subscribe_field">
+			<input id="hfe_subscribe_field" class="hfe-subscribe-field" type="text" placeholder="<?php echo $email_placeholder; ?>" name="hfe_subscribe_field" value="<?php echo get_option( 'hfe_guide_email' ); ?>">
 		</div>
 		<div class="hfe-checkbox-container">
 			<input type="checkbox" name="hfe_guide_option" value= 1 <?php checked( $hfe_radio_button, 1 ); ?> > <div class="hfe_checkbox_options"><?php esc_html_e( ' By entering your email, you agree to our privacy policy', 'header-footer-elementor' ); ?></div>
