@@ -644,8 +644,12 @@ span.dashicons.dashicons-no {
     .hfe-guide-content input#submit {
         font-size: 10px;
         white-space: pre-wrap;
+        line-height: 2em;
     }
     .hfe-checkbox-container {
         display: flex;
+    }
+    .hfe-admin-columns .hfe-admin-column-last {
+        padding-top: 0px;
     }
 }

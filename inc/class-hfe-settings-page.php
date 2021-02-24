@@ -392,7 +392,7 @@ class HFE_Settings_Page {
 						<?php esc_html_e( 'Learn the Art of Designing Custom Header & Footer with this Free Plugin ( Video Tutorial )', 'header-footer-elementor' ); ?>
 					</h4>
 					<figure>
-						<img src="<?php echo WPFORMS_PLUGIN_URL; ?>assets/images/about/team.jpg" alt="<?php esc_attr_e( 'Team photo', 'header-footer-elementor' ); ?>">
+						<img src="<?php echo HFE_URL; ?>assets/images/settings/our-team.jpg" alt="<?php esc_attr_e( 'Team photo', 'header-footer-elementor' ); ?>">
 					</figure>
 				</div>
 			</div>
@@ -504,7 +504,7 @@ class HFE_Settings_Page {
 
 			<div class="hfe-admin-column-40 hfe-admin-column-last">
 				<figure>
-					<img src="<?php echo WPFORMS_PLUGIN_URL; ?>assets/images/about/team.jpg" alt="<?php esc_attr_e( 'Team photo', 'header-footer-elementor' ); ?>">
+					<img src="<?php echo HFE_URL; ?>assets/images/settings/our-team.jpg" alt="<?php esc_attr_e( 'Team photo', 'header-footer-elementor' ); ?>">
 					<figcaption>
 						<?php esc_html_e( 'The Brainstorm Force Team', 'header-footer-elementor' ); ?><br>
 					</figcaption>
@@ -660,8 +660,7 @@ class HFE_Settings_Page {
 	 */
 	protected function get_bsf_plugins() {
 
-		// $images_url = hfe_PLUGIN_URL . 'assets/images/about/';
-		$images_url = '';
+		$images_url = HFE_URL . 'assets/images/settings/';
 
 		return [
 
