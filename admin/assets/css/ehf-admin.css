@@ -117,6 +117,15 @@ li#toplevel_page_Settings-page,
     width: 100%;
     margin-bottom: 20px;
 }
+.hfe-guide-modal-content .hfe-guide-content .form-table input[type="checkbox"] {
+    margin-top: 1px;
+    margin-right: 6px;
+    float: none;
+}
+.hfe-guide-modal-content .hfe-checkbox-container {
+    display: flex;
+    align-items: flex-start;
+}
 .hfe-subscribe-email {
     padding: 10px 15px;
     min-width: 50px;
