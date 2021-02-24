@@ -79,6 +79,7 @@ class Header_Footer_Elementor {
 			}
 
 			add_action( 'admin_notices', [ $this, 'show_setup_wizard' ] );
+			add_action( 'admin_init', 'hfe_notice_dismissed' );
 
 			// Scripts and styles.
 			add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
@@ -112,6 +113,22 @@ class Header_Footer_Elementor {
 	 */
 	public function reset_unsupported_theme_notice() {
 		delete_user_meta( get_current_user_id(), 'unsupported-theme' );
+	}
+
+	/**
+	 * Save an option when notice dismissed.
+	 *
+	 * @since x.x.x
+	 *
+	 * @return void
+	 */
+	function hfe_notice_dismissed() {
+		if ( isset( $_GET['my-plugin-dismissed'] ) ) {
+			if ( get_option( 'myplugin_data_1' ) == '') {
+				update_option( 'myplugin_data_1',array() );
+			}
+			update_option( 'myplugin_activated',time() );
+		}
 	}
 
 	/**
@@ -227,10 +244,16 @@ class Header_Footer_Elementor {
 		/* TO DO */
 		$class = 'notice notice-info is-dismissible';
 
-		/* translators: %s: html tags */
-		$message = sprintf( __( 'Thank you for installing %1$sElementor - Header, Footer & Blocks%2$s by Brainstorm Force. Create your first excellent design under the %1$sAppearance> Header Footer and Blocks%2$s.', 'header-footer-elementor' ), '<strong>', '</strong>' );
-
-		printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), wp_kses_post( $message ) );
+		Astra_Notices::add_notice(
+			[
+				'id'                         => 'header-footer-install-notice',
+				'type'                       => 'info',
+				'message'                    => sprintf( __( 'Thank you for installing &nbsp;%1$s Elementor - Header, Footer & Blocks %2$s&nbsp; by Brainstorm Force. Create your excellent design under the &nbsp;%1$sAppearance > Header Footer and Blocks%2$s.', 'header-footer-elementor' ), '<strong>', '</strong>' ),
+				'repeat-notice-after'        => false,
+				'priority'                   => 18,
+				'display-with-other-notices' => false,
+			]
+		);
 	}
 
 	/**

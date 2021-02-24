@@ -548,7 +548,7 @@ span.dashicons.dashicons-no {
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 99;
+    z-index: 9999;
     opacity: 0;
     background: rgba(0,0,0,0.75);
     -webkit-transition: all .3s;
@@ -565,7 +565,7 @@ span.dashicons.dashicons-no {
     left: 5%;
 }
 .hfe-guide-modal-popup-wrapper {
-    z-index: 999;
+    z-index: 99999;
     top: 51%;
     transform: translateY(-50%);
     margin-bottom: 20px;
