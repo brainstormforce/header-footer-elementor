@@ -641,6 +641,9 @@ span.dashicons.dashicons-no {
         width: 1em;
         margin: -1px;
     }
+    .hfe-guide-content-header .hfe-admin-column-80 {
+        padding-left: 10px;
+    }
     .hfe-guide-content input#submit {
         font-size: 10px;
         white-space: pre-wrap;

@@ -341,7 +341,7 @@ class HFE_Settings_Page {
 		?>
 		<div class="hfe-guide-content-header hfe-admin-columns">
 			<div class="hfe-admin-column-20">
-				<img src="http://plugin-mi.png">
+				<img src="<?php echo HFE_URL; ?>assets/images/settings/plugin-mi.png">
 			</div>
 			<div class="hfe-admin-column-80">
 				<h3><?php esc_html_e( 'Get Inspiring & Creative Header & Footer Design Examples ( With 11 Research-Based Tips ).', 'header-footer-elementor' ); ?></h3>
@@ -668,6 +668,14 @@ class HFE_Settings_Page {
 				'icon'  => $images_url . 'plugin-mi.png',
 				'name'  => esc_html__( 'Ultimate Addons for Gutenberg', 'header-footer-elementor' ),
 				'desc'  => esc_html__( 'Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Vivamus magna justo, lacinia eget.', 'header-footer-elementor' ),
+				'wporg' => 'https://wordpress.org/plugins/header-footer-for-gutenberg/',
+				'url'   => 'https://downloads.wordpress.org/plugin/header-footer-for-gutenberg.zip',
+			],
+
+			'ultimate-elementor/ultimate-elementor.php' => [
+				'icon'  => $images_url . 'plugin-smtp.png',
+				'name'  => esc_html__( 'Ultimate Elementor', 'header-footer-elementor' ),
+				'desc'  => esc_html__( 'Make sure your website\'s emails reach the inbox. Our goal is to make email deliverability easy and reliable. Trusted by over 2 million websites.', 'header-footer-elementor' ),
 				'wporg' => 'https://wordpress.org/plugins/header-footer-for-gutenberg/',
 				'url'   => 'https://downloads.wordpress.org/plugin/header-footer-for-gutenberg.zip',
 			],
