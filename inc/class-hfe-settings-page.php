@@ -353,12 +353,17 @@ class HFE_Settings_Page {
 	 */
 	public function hfe_guide_option_callback() {
 		$hfe_radio_button = get_option( 'hfe_guide_option', '1' );
+		$email_placeholder = __( 'Enter Your Email', 'uael' );
 		?>
-		<label>
-			<input type="checkbox" name="hfe_guide_option" value= 1 <?php checked( $hfe_radio_button, 1 ); ?> > <div class="hfe_checkbox_options"><?php esc_html_e( ' By entering your email, you agree to our privacy policy', 'header-footer-elementor' ); ?></div>
-			<br>
-		</label>
-		<p><?php esc_html_e( 'Yup, we know a thing or two about building awesome products that customers love.', 'header-footer-elementor' ); ?></p>
+		<div class="hfe-input-container">
+			<span class="dashicons dashicons-email"></span>
+			<input id="hfe_subscribe_field" class="hfe-subscribe-field" type="text" placeholder="<?php echo $email_placeholder; ?>" name="hfe_subscribe_field">
+		</div>
+
+		<br>
+
+		<input type="checkbox" name="hfe_guide_option" value= 1 <?php checked( $hfe_radio_button, 1 ); ?> > <div class="hfe_checkbox_options"><?php esc_html_e( ' By entering your email, you agree to our privacy policy', 'header-footer-elementor' ); ?></div>
+		<br>
 
 		<?php
 	}
@@ -387,9 +392,11 @@ class HFE_Settings_Page {
 
 			<div class="hfe-admin-column-50 hfe-admin-column-last">
 				<div class="hfe-guide-content">
-					<?php settings_fields( 'hfe-plugin-guide' ); ?>
-						<?php do_settings_sections( 'Step-By-Step Guide' ); ?>
-					<?php submit_button( 'Download This Guide & Start Brainstorming' ); ?>
+					<form action="options.php" method="post">
+						<?php settings_fields( 'hfe-plugin-guide' ); ?>
+							<?php do_settings_sections( 'Step-By-Step Guide' ); ?>
+						<?php submit_button( 'Download This Guide & Start Brainstorming' ); ?>
+					</form>
 				</div>
 			</div>
 		</div>

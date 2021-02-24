@@ -111,6 +111,24 @@ li#toplevel_page_Settings-page,
     margin-right: 4px;
     float: none;
 }
+.hfe-input-container {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.hfe-input-container .dashicons-email {
+    padding: 5px 15px;
+    color: #7e8993;
+    min-width: 50px;
+    text-align: center;
+    border: 1px solid #7e8993;
+}
+.hfe-subscribe-field {
+    width: 100%;
+    padding: 5px 15px;
+    outline: none;
+}
 .hfe-guide-content .hfe_checkbox_options {
     display: inline-block;
 }
