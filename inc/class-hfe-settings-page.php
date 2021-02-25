@@ -563,7 +563,7 @@ class HFE_Settings_Page {
 								<div class="action-button">
 									<?php if ( $can_install_plugins ) { ?>
 										<button class="<?php echo esc_attr( $plugin_data['action_class'] ); ?>" data-plugin="<?php echo esc_attr( $plugin_data['plugin_src'] ); ?>" data-type="plugin">
-											<?php echo wp_kses_post( $plugin_data['action_text'] ); ?>
+											<span><?php echo wp_kses_post( $plugin_data['action_text'] ); ?></span>
 										</button>
 									<?php } else { ?>
 										<a href="<?php echo esc_url( $details['wporg'] ); ?>" target="_blank" rel="noopener noreferrer">
