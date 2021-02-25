@@ -89,7 +89,6 @@ function hfe_install_addon() {
 	// Run a security check.
 	check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
 
-	var_dump( 'heyyyy' );
 	$generic_error = esc_html__( 'There was an error while performing your request.', 'header-footer-elementor' );
 
 	$type = 'addon';
@@ -97,93 +96,93 @@ function hfe_install_addon() {
 		$type = sanitize_key( $_POST['type'] );
 	}
 
-	// // Check if new installations are allowed.
-	// if ( ! hfe_can_install( $type ) ) {
-	// 	wp_send_json_error( $generic_error );
-	// }
+	// Check if new installations are allowed.
+	if ( ! hfe_can_install( $type ) ) {
+		wp_send_json_error( $generic_error );
+	}
 
-	// $error = esc_html__( 'Could not install addon. Please download from wpforms.com and install manually.', 'header-footer-elementor' );
+	$error = esc_html__( 'Could not install addon. Please download from wpforms.com and install manually.', 'header-footer-elementor' );
 
-	// if ( empty( $_POST['plugin'] ) ) {
-	// 	wp_send_json_error( $error );
-	// }
+	if ( empty( $_POST['plugin'] ) ) {
+		wp_send_json_error( $error );
+	}
 
-	// // Set the current screen to avoid undefined notices.
-	// set_current_screen( 'appearance_page_hfe-about' );
+	// Set the current screen to avoid undefined notices.
+	set_current_screen( 'appearance_page_hfe-about' );
 
-	// // Prepare variables.
-	// $url = esc_url_raw(
-	// 	add_query_arg(
-	// 		array(
-	// 			'page' => 'hfe-about',
-	// 		),
-	// 		admin_url( 'admin.php' )
-	// 	)
-	// );
+	// Prepare variables.
+	$url = esc_url_raw(
+		add_query_arg(
+			array(
+				'page' => 'hfe-about',
+			),
+			admin_url( 'admin.php' )
+		)
+	);
 
-	// $creds = request_filesystem_credentials( $url, '', false, false, null );
+	$creds = request_filesystem_credentials( $url, '', false, false, null );
 
-	// // Check for file system permissions.
-	// if ( false === $creds ) {
-	// 	wp_send_json_error( $error );
-	// }
+	// Check for file system permissions.
+	if ( false === $creds ) {
+		wp_send_json_error( $error );
+	}
 
-	// if ( ! WP_Filesystem( $creds ) ) {
-	// 	wp_send_json_error( $error );
-	// }
+	if ( ! WP_Filesystem( $creds ) ) {
+		wp_send_json_error( $error );
+	}
 
-	// /*
-	//  * We do not need any extra credentials if we have gotten this far, so let's install the plugin.
-	//  */
-	// require_once HFE_DIR . 'admin/class-skin-install.php';
+	/*
+	 * We do not need any extra credentials if we have gotten this far, so let's install the plugin.
+	 */
+	require_once HFE_DIR . 'admin/class-skin-install.php';
 
-	// // Do not allow WordPress to search/download translations, as this will break JS output.
-	// remove_action( 'upgrader_process_complete', array( 'Language_Pack_Upgrader', 'async_upgrade' ), 20 );
+	// Do not allow WordPress to search/download translations, as this will break JS output.
+	remove_action( 'upgrader_process_complete', array( 'Language_Pack_Upgrader', 'async_upgrade' ), 20 );
 
-	// // Create the plugin upgrader with our custom skin.
-	// $installer = new HFE\Inc\Helpers\HFE_PluginInstaller( new HFE_Skin_Install() );
+	// Create the plugin upgrader with our custom skin.
+	$installer = new HFE\Inc\Helpers\HFE_PluginInstaller( new HFE_Skin_Install() );
 
-	// // Error check.
-	// if ( ! method_exists( $installer, 'install' ) || empty( $_POST['plugin'] ) ) {
-	// 	wp_send_json_error( $error );
-	// }
+	// Error check.
+	if ( ! method_exists( $installer, 'install' ) || empty( $_POST['plugin'] ) ) {
+		wp_send_json_error( $error );
+	}
 
-	// $installer->install( $_POST['plugin'] ); // phpcs:ignore
+	$installer->install( $_POST['plugin'] ); // phpcs:ignore
 
-	// // Flush the cache and return the newly installed plugin basename.
-	// wp_cache_flush();
+	// Flush the cache and return the newly installed plugin basename.
+	wp_cache_flush();
 
-	// $plugin_basename = $installer->plugin_info();
+	$plugin_basename = $installer->plugin_info();
 
-	// if ( empty( $plugin_basename ) ) {
-	// 	wp_send_json_error( $error );
-	// }
+	if ( empty( $plugin_basename ) ) {
+		wp_send_json_error( $error );
+	}
 
-	// $result = array(
-	// 	'msg'          => $generic_error,
-	// 	'is_activated' => false,
-	// 	'basename'     => $plugin_basename,
-	// );
+	$result = array(
+		'msg'          => $generic_error,
+		'is_activated' => false,
+		'basename'     => $plugin_basename,
+	);
 
-	// // Check for permissions.
-	// if ( ! current_user_can( 'activate_plugins' ) ) {
-	// 	$result['msg'] = 'plugin' === $type ? esc_html__( 'Plugin installed.', 'header-footer-elementor' ) : esc_html__( 'Addon installed.', 'header-footer-elementor' );
+	// Check for permissions.
+	if ( ! current_user_can( 'activate_plugins' ) ) {
+		$result['msg'] = 'plugin' === $type ? esc_html__( 'Plugin installed.', 'header-footer-elementor' ) : esc_html__( 'Addon installed.', 'header-footer-elementor' );
 
-	// 	wp_send_json_success( $result );
-	// }
+		wp_send_json_success( $result );
+	}
 
-	// // Activate the plugin silently.
-	// $activated = activate_plugin( $plugin_basename );
+	// Activate the plugin silently.
+	$activated = activate_plugin( $plugin_basename );
 
-	// if ( ! is_wp_error( $activated ) ) {
-	// 	$result['is_activated'] = true;
-	// 	$result['msg']          = 'plugin' === $type ? esc_html__( 'Plugin installed & activated.', 'header-footer-elementor' ) : esc_html__( 'Addon installed & activated.', 'header-footer-elementor' );
+	if ( ! is_wp_error( $activated ) ) {
+		$result['is_activated'] = true;
+		$result['msg']          = 'plugin' === $type ? esc_html__( 'Plugin installed & activated.', 'header-footer-elementor' ) : esc_html__( 'Addon installed & activated.', 'header-footer-elementor' );
 
-	// 	wp_send_json_success( $result );
-	// }
+		wp_send_json_success( $result );
+	}
 
-	// // Fallback error just in case.
-	// wp_send_json_error( $result );
+	// Fallback error just in case.
+	wp_send_json_error( $result );
 }
 add_action( 'wp_ajax_hfe_install_addon', 'wpforms_install_addon' );
 
