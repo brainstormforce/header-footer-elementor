@@ -253,10 +253,18 @@
 				type: pluginType,
 			};
 
+			console.log( hfe_admin_data.ajax_url );
+				console.log( data );
+
 			$.post( hfe_admin_data.ajax_url, data, function( res ) {
 
 				callback( res );
 			} ).fail( function( xhr ) {
+
+				console.log( 'failed' );
+
+
+				console.log( xhr );
 
 				console.log( xhr.responseText );
 			} );
