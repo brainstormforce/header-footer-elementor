@@ -1,4 +1,4 @@
-( function( $ ) {
+;( function( $ ) {
 
 	'use strict';
 
@@ -14,6 +14,51 @@
 			iconInstall: '<i class="fa fa-cloud-download" aria-hidden="true"></i>',
 			iconSpinner: '<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>',
 			mediaFrame: false
+		},
+
+		/**
+		 * Start the engine.
+		 *
+		 * @since 1.3.9
+		 */
+		init: function() {
+
+			// Settings shortcut.
+			s = this.settings;
+			
+			$( document ).ready( function( e ) {
+
+				var ehf_hide_shortcode_field = function() {
+					var selected = $('#ehf_template_type').val() || 'none';
+					$( '.hfe-options-table' ).removeClass().addClass( 'hfe-options-table widefat hfe-selected-template-type-' + selected );
+				}
+			
+				$(document).on( 'change', '#ehf_template_type', function( e ) {
+					ehf_hide_shortcode_field();
+				});
+			
+				ehf_hide_shortcode_field();
+			
+				// Templates page modal popup.
+				HFEAdmin._display_modal();
+			
+				// About us - addons functionality.
+				if ( $( '#hfe-admin-addons' ).length ) {
+			
+					$( document ).on( 'click', '#hfe-admin-addons .addon-item button', function( event ) {
+						event.preventDefault();
+			
+						if ( $( this ).hasClass( 'disabled' ) ) {
+							return false;
+						}
+			
+						HFEAdmin._addons( $( this ) );
+
+					} );
+			
+				}
+			});
+
 		},
 
 		/**
@@ -50,8 +95,7 @@
 		 */
 		_addons: function( $button ) {
 
-			// Settings shortcut.
-			s = this.settings;
+			console.log( $button );
 
 			var $addon = $button.closest( '.addon-item' ),
 				plugin = $button.attr( 'data-plugin' ),
@@ -81,9 +125,9 @@
 				if ( pluginType === 'plugin' ) {
 					cssClass += ' button button-secondary';
 				}
-				stateText = hfe_admin.addon_inactive;
-				buttonText = hfe_admin.addon_activate;
-				errorText  = hfe_admin.addon_deactivate;
+				stateText = hfe_admin_data.addon_inactive;
+				buttonText = hfe_admin_data.addon_activate;
+				errorText  = hfe_admin_data.addon_deactivate;
 				if ( pluginType === 'addon' ) {
 					buttonText = s.iconActivate + buttonText;
 					errorText  = s.iconDeactivate + errorText;
@@ -97,14 +141,14 @@
 				if ( pluginType === 'plugin' ) {
 					cssClass += ' button button-secondary disabled';
 				}
-				stateText = hfe_admin.addon_active;
-				buttonText = hfe_admin.addon_deactivate;
+				stateText = hfe_admin_data.addon_active;
+				buttonText = hfe_admin_data.addon_deactivate;
 				if ( pluginType === 'addon' ) {
 					buttonText = s.iconDeactivate + buttonText;
-					errorText  = s.iconActivate + hfe_admin.addon_activate;
+					errorText  = s.iconActivate + hfe_admin_data.addon_activate;
 				} else if ( pluginType === 'plugin' ) {
-					buttonText = hfe_admin.addon_activated;
-					errorText  = hfe_admin.addon_activate;
+					buttonText = hfe_admin_data.addon_activated;
+					errorText  = hfe_admin_data.addon_activate;
 				}
 
 			} else if ( $button.hasClass( 'status-download' ) ) {
@@ -115,12 +159,12 @@
 				if ( pluginType === 'plugin' ) {
 					cssClass += ' button disabled';
 				}
-				stateText = hfe_admin.addon_active;
-				buttonText = hfe_admin.addon_activated;
+				stateText = hfe_admin_data.addon_active;
+				buttonText = hfe_admin_data.addon_activated;
 				errorText  = s.iconInstall;
 				if ( pluginType === 'addon' ) {
-					buttonText = s.iconActivate + hfe_admin.addon_deactivate;
-					errorText += hfe_admin.addon_install;
+					buttonText = s.iconActivate + hfe_admin_data.addon_deactivate;
+					errorText += hfe_admin_data.addon_install;
 				}
 
 			} else {
@@ -128,15 +172,15 @@
 			}
 
 			// eslint-disable-next-line complexity
-			WPFormsAdmin._setAddonState( plugin, state, pluginType, function( res ) {
+			HFEAdmin._setAddonState( plugin, state, pluginType, function( res ) {
 
 				if ( res.success ) {
 					if ( 'install' === state ) {
 						$button.attr( 'data-plugin', res.data.basename );
 						successText = res.data.msg;
 						if ( ! res.data.is_activated ) {
-							stateText  = hfe_admin.addon_inactive;
-							buttonText = 'plugin' === pluginType ? hfe_admin.addon_activate : s.iconActivate + hfe_admin.addon_activate;
+							stateText  = hfe_admin_data.addon_inactive;
+							buttonText = 'plugin' === pluginType ? hfe_admin_data.addon_activate : s.iconActivate + hfe_admin_data.addon_activate;
 							cssClass   = 'plugin' === pluginType ? 'status-inactive button button-secondary' : 'status-inactive';
 						}
 					} else {
@@ -204,12 +248,12 @@
 
 			var data = {
 				action: action,
-				nonce: hfe_admin.nonce,
+				nonce: hfe_admin_data.nonce,
 				plugin: plugin,
 				type: pluginType,
 			};
 
-			$.post( hfe_admin.ajax_url, data, function( res ) {
+			$.post( hfe_admin_data.ajax_url, data, function( res ) {
 
 				callback( res );
 			} ).fail( function( xhr ) {
@@ -219,40 +263,8 @@
 		},
 	};
 
-	$( document ).ready( function() {
+	HFEAdmin.init();
 
-		console.log( '=======================================================================================================================' );
-
-		var ehf_hide_shortcode_field = function() {
-			var selected = $('#ehf_template_type').val() || 'none';
-			$( '.hfe-options-table' ).removeClass().addClass( 'hfe-options-table widefat hfe-selected-template-type-' + selected );
-		}
-	
-		$(document).on( 'change', '#ehf_template_type', function( e ) {
-			ehf_hide_shortcode_field();
-		});
-	
-		ehf_hide_shortcode_field();
-	
-		// Templates page modal popup.
-		HFEAdmin._display_modal();
-	
-		// About us - addons functionality.
-		if ( ! $( '#hfe-admin-addons' ).length ) {
-	
-			$( document ).on( 'click', '#hfe-admin-addons .addon-item button', function( event ) {
-	
-				event.preventDefault();
-	
-				if ( $( this ).hasClass( 'disabled' ) ) {
-					return false;
-				}
-	
-				HFEAdmin._addons( $( this ) );
-
-			} );
-	
-		}
-	});
+	window.HFEAdmin = HFEAdmin;
 
 } )( jQuery );
