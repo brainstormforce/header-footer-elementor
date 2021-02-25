@@ -67,25 +67,39 @@
 		 */
 		_display_modal: function() {
 			var hf_new_post = $( '.post-type-elementor-hf' ).find( '.page-title-action' );
-	
+
 			var close_button = $( '.hfe-close-icon' );
 			var modal_wrapper = $( '.hfe-guide-modal-popup' );
 			var new_page_link = modal_wrapper.data( 'new-page' );
-		
-			// Display Modal Popup on click of Add new button.
-			hf_new_post.on( 'click', function(e) {
-				e.preventDefault();
-				e.stopPropagation();
-				if( ! modal_wrapper.hasClass( 'hfe-show' ) ) {
-					modal_wrapper.addClass( 'hfe-show' );
-				}
-			});
+			var display_allow = hfe_admin_data.popup_dismiss;
+
+			if( 'dismissed' !== display_allow ) {
+				// Display Modal Popup on click of Add new button.
+				hf_new_post.on( 'click', function(e) {
+					if( modal_wrapper.length && ! modal_wrapper.hasClass( 'hfe-show' ) ) {
+						e.preventDefault();
+						e.stopPropagation();
+						modal_wrapper.addClass( 'hfe-show' );
+					}
+				});
+			}
 		
 			// Close popup and redirect to edit page.
 			close_button.on( 'click', function(e) {
+				
+				$.ajax({
+					url: hfe_admin_data.ajax_url,
+					type: 'POST',
+					data: {
+						action  : 'hfe_admin_modal',
+						nonce   : hfe_admin_data.nonce,
+					},
+				});
+
 				if( modal_wrapper.hasClass( 'hfe-show' ) ) {
 					modal_wrapper.removeClass( 'hfe-show' );
 				}
+
 				window.location = new_page_link;
 			});
 		},
@@ -198,11 +212,8 @@
 						.addClass( cssClass ).html( buttonText );
 				} else {
 					if ( 'object' === typeof res.data ) {
-						if ( pluginType === 'addon' ) {
-							$addon.find( '.actions' ).append( '<div class="msg error">' +hfes_admin.addon_error + '</div>' );
-						} else {
-							$addon.find( '.actions' ).append( '<div class="msg error">' +hfes_admin.plugin_error + '</div>' );
-						}
+						
+						$addon.find( '.actions' ).append( '<div class="msg error">' +hfes_admin.plugin_error + '</div>' );
 					} else {
 						$addon.find( '.actions' ).append( '<div class="msg error">' + res.data + '</div>' );
 					}
