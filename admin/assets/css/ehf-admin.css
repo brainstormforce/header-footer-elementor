@@ -601,6 +601,14 @@ span.dashicons.dashicons-no {
     transform: scale(1);
     opacity: 1;
 }
+.hfe-input-container.hfe-error .hfe-subscribe-field,
+.hfe-input-container.hfe-error .hfe-subscribe-email,
+.hfe-checkbox-container input[type="checkbox"].hfe-error {
+    border-color: red;
+}
+.hfe-checkbox-container input[type="checkbox"]:checked.hfe-error {
+    border-color: unset;
+}
 
 @media screen and ( max-width: 782px ) {
     .hfe-admin-guide-section .hfe-admin-column-50:not(.hfe-admin-column-last) {

@@ -12,8 +12,7 @@
 			iconActivate: '<i class="fa fa-toggle-on fa-flip-horizontal" aria-hidden="true"></i>',
 			iconDeactivate: '<i class="fa fa-toggle-on" aria-hidden="true"></i>',
 			iconInstall: '<i class="fa fa-cloud-download" aria-hidden="true"></i>',
-			iconSpinner: '<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>',
-			mediaFrame: false
+			iconSpinner: '<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>'
 		},
 
 		/**
@@ -41,6 +40,8 @@
 			
 				// Templates page modal popup.
 				HFEAdmin._display_modal();
+
+				$( document ).on( 'click', '.hfe-guide-content .button', HFEAdmin._subscribe );
 			
 				// About us - addons functionality.
 				if ( $( '#hfe-admin-addons' ).length ) {
@@ -57,8 +58,77 @@
 					} );
 			
 				}
+				
 			});
 
+		},
+
+		/**
+		 * Subscribe Form
+		 *
+		 */
+		_subscribe: function( event ) {
+
+			event.preventDefault();
+			event.stopPropagation();
+
+			var submit_button = $(this);
+			
+			var email_field = $( '.hfe-guide-content input[name="hfe_subscribe_field"]' );
+			var subscription_email = email_field.val() || '';
+
+			HFEAdmin.addEmailError(subscription_email );
+
+			if( ! $( '.hfe-checkbox-container input.hfe-guide-checkbox' ).is( ':checked' ) ) {
+				$( '.hfe-guide-checkbox' ).addClass( 'hfe-error' );
+				return;
+			}
+
+			if( ! submit_button.hasClass( 'submitting' ) ) {
+				submit_button.addClass( 'submitting' );
+			}			
+
+			var subscription_fields = {
+				email: subscription_email,
+			};
+
+			$.ajax({
+				url  : hfe_admin_data.ajax_url,
+				type : 'POST',
+				data : {
+					action : 'hfe-update-subscription',
+					nonce : hfe_admin_data.nonce,
+					data: JSON.stringify( subscription_fields ),
+				},
+				beforeSend: function() {
+					console.groupCollapsed( 'Email Subscription' );
+				},
+			})
+			.done( function ( response ) {
+
+				submit_button.removeClass( 'submitting' ).addClass('submitted');
+
+			});
+
+		},
+
+		
+		addEmailError: function( subscription_email ) {
+
+			$( '.hfe-input-container' ).removeClass( 'hfe-error' );
+
+			if( ! subscription_email || false === HFEAdmin.isValidEmail( subscription_email ) ) {
+				$( '.hfe-input-container' ).addClass( 'hfe-error' );
+			}
+
+		},
+
+		isValidEmail: function(eMail) {
+			if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test( eMail ) ) {
+				return true;
+			}
+			
+			return false;
 		},
 
 		/**

@@ -396,7 +396,7 @@ class HFE_Settings_Page {
 			<input id="hfe_subscribe_field" class="hfe-subscribe-field" type="text" placeholder="<?php echo $email_placeholder; ?>" name="hfe_subscribe_field" value="<?php echo get_option( 'hfe_guide_email' ); ?>">
 		</div>
 		<div class="hfe-checkbox-container">
-			<input type="checkbox" name="hfe_guide_option" value= 1 <?php checked( $hfe_radio_button, 1 ); ?> > <div class="hfe_checkbox_options"><?php esc_html_e( ' By entering your email, you agree to our privacy policy', 'header-footer-elementor' ); ?></div>
+			<input type="checkbox" name="hfe_guide_option" class="hfe-guide-checkbox" value= 1 <?php checked( $hfe_radio_button, 1 ); ?> > <div class="hfe_checkbox_options"><?php esc_html_e( ' By entering your email, you agree to our privacy policy', 'header-footer-elementor' ); ?></div>
 		</div>
 
 		<?php
