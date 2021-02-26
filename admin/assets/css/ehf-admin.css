@@ -623,6 +623,10 @@ span.dashicons.dashicons-update.hfe-loader {
 .hfe-guide-content-header .hfe-admin-column-80 {
     padding-left: 10px;
 }
+span.hfe-star-icons {
+    color: #ffb900;
+    font-size: 15px;
+}
 @media screen and ( max-width: 782px ) {
     .hfe-admin-guide-section .hfe-admin-column-50:not(.hfe-admin-column-last) {
         border-right: 0px;
