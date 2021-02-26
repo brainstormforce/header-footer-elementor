@@ -11,8 +11,7 @@
 		settings: {
 			iconActivate: '<i class="fa fa-toggle-on fa-flip-horizontal" aria-hidden="true"></i>',
 			iconDeactivate: '<i class="fa fa-toggle-on" aria-hidden="true"></i>',
-			iconInstall: '<i class="fa fa-cloud-download" aria-hidden="true"></i>',
-			iconSpinner: '<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>'
+			iconInstall: '<i class="fa fa-cloud-download" aria-hidden="true"></i>'
 		},
 
 		/**
@@ -216,8 +215,6 @@
 		 */
 		_addons: function( $button ) {
 
-			console.log( $button );
-
 			var $addon = $button.closest( '.addon-item' ),
 				plugin = $button.attr( 'data-plugin' ),
 				pluginType = $button.attr( 'data-type' ),
@@ -236,7 +233,7 @@
 			}
 
 			$button.prop( 'disabled', true ).addClass( 'loading' );
-			$button.html( s.iconSpinner );
+			$button.html( '<span class="dashicons dashicons-update hfe-loader"></span>' );
 
 			if ( $button.hasClass( 'status-active' ) ) {
 
