@@ -73,11 +73,17 @@
 			event.stopPropagation();
 
 			var submit_button = $(this);
+
+			var is_modal = $( '.hfe-guide-modal-popup.hfe-show' );
 			
 			var email_field = $( '.hfe-guide-content input[name="hfe_subscribe_field"]' );
 			var subscription_email = email_field.val() || '';
 
-			HFEAdmin.addEmailError(subscription_email );
+			var $is_message = submit_button.next().hasClass( 'hfe-subscribe-message' );
+
+			if( false === HFEAdmin.addEmailError(subscription_email ) ) {
+				return;
+			}
 
 			if( ! $( '.hfe-checkbox-container input.hfe-guide-checkbox' ).is( ':checked' ) ) {
 				$( '.hfe-guide-checkbox' ).addClass( 'hfe-error' );
@@ -86,7 +92,9 @@
 
 			if( ! submit_button.hasClass( 'submitting' ) ) {
 				submit_button.addClass( 'submitting' );
-			}			
+			} else {
+				return;
+			}
 
 			var subscription_fields = {
 				email: subscription_email,
@@ -102,27 +110,56 @@
 				},
 				beforeSend: function() {
 					console.groupCollapsed( 'Email Subscription' );
+
+					submit_button.after( '<span class="dashicons dashicons-update hfe-loader"></span>' );
+
 				},
 			})
 			.done( function ( response ) {
 
+				// $( '.hfe-loader.dashicons-update' ).remove();
+
 				submit_button.removeClass( 'submitting' ).addClass('submitted');
+				$('.hfe-guide-content form').trigger("reset");
+
+				// if( $is_message ) {
+				// 	return;
+				// } else {
+				// 	submit_button.after( '<span class="hfe-subscribe-message">' + hfe_admin_data.subscribe_success + '</span>' );
+				// }
+
+				// if( is_modal.length ) {
+				// 	window.setTimeout( function () {
+				// 		window.location = $( '.hfe-guide-modal-popup' ).data( 'new-page' );;
+				// 	});
+				// }				
 
 			});
 
 		},
 
-		
+		/**
+		 * Display error if email field is invalid
+		 *
+		 */
 		addEmailError: function( subscription_email ) {
 
 			$( '.hfe-input-container' ).removeClass( 'hfe-error' );
 
 			if( ! subscription_email || false === HFEAdmin.isValidEmail( subscription_email ) ) {
 				$( '.hfe-input-container' ).addClass( 'hfe-error' );
+
+				return false;
 			}
+
+			return true;
 
 		},
 
+		/**
+		 * email Validation
+		 *
+		 */
 		isValidEmail: function(eMail) {
 			if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test( eMail ) ) {
 				return true;

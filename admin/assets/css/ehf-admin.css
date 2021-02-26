@@ -609,7 +609,20 @@ span.dashicons.dashicons-no {
 .hfe-checkbox-container input[type="checkbox"]:checked.hfe-error {
     border-color: unset;
 }
-
+span.hfe-subscribe-message {
+    width: 100%;
+    display: block;
+    text-align: center;
+    color: #12b512;
+    margin-top: 10px;
+}
+span.dashicons.dashicons-update.hfe-loader {
+    animation: rotation 2s infinite linear;
+    vertical-align: text-top;
+}
+.hfe-guide-content-header .hfe-admin-column-80 {
+    padding-left: 10px;
+}
 @media screen and ( max-width: 782px ) {
     .hfe-admin-guide-section .hfe-admin-column-50:not(.hfe-admin-column-last) {
         border-right: 0px;
@@ -648,9 +661,6 @@ span.dashicons.dashicons-no {
         height: 1em;
         width: 1em;
         margin: -1px;
-    }
-    .hfe-guide-content-header .hfe-admin-column-80 {
-        padding-left: 10px;
     }
     .hfe-guide-content input#submit {
         font-size: 10px;

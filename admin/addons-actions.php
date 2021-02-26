@@ -99,8 +99,6 @@ add_action( 'wp_ajax_hfe_activate_addon', 'hfe_activate_addon' );
  */
 function hfe_install_addon() {
 
-	var_dump( 'sushmaaa' );
-
 	// Run a security check.
 	check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
 
@@ -199,6 +197,40 @@ function hfe_install_addon() {
 	// Fallback error just in case.
 	wp_send_json_error( $result );
 }
-add_action( 'wp_ajax_hfe_install_addon', 'wpforms_install_addon' );
+add_action( 'wp_ajax_hfe_install_addon', 'hfe_install_addon' );
+
+/**
+ * Update Subscription
+ */
+function update_subscription() {
+
+	check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
+
+	if ( ! current_user_can( 'manage_options' ) ) {
+		wp_send_json_error( 'You can\'t perform this action.' );
+	}
+
+	$arguments = isset( $_POST['data'] ) ? array_map( 'sanitize_text_field', json_decode( stripslashes( $_POST['data'] ), true ) ) : array();
+
+	// $url = add_query_arg( $arguments, $this->api_domain . 'wp-json/starter-templates/v1/subscribe/' ); // add URL of your site or mail API
+
+	// $response = wp_remote_post( $url );
+	// if ( ! is_wp_error( $response ) || wp_remote_retrieve_response_code( $response ) === 200 ) {
+	// 	$response = json_decode( wp_remote_retrieve_body( $response ), true );
+
+	// 	// Successfully subscribed.
+	// 	if ( isset( $response['success'] ) && $response['success'] ) {
+	// 		update_user_meta( get_current_user_ID(), 'astra-sites-subscribed', 'yes' );
+	// 	}
+	// }
+
+	// wp_send_json_success( $response );
+
+	update_user_meta( get_current_user_ID(), 'hfe-subscribed', 'yes' );
+
+	wp_send_json_success( 'true' );
+}
+
+add_action( 'wp_ajax_hfe-update-subscription', 'update_subscription' );
 
 ?>
