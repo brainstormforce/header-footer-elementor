@@ -93,7 +93,9 @@ class HFE_Settings_Page {
 		$this->hfe_tabs();
 		$is_dismissed = array();
 		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
-		if( empty( $is_dismissed ) && 'dismissed' !== $is_dismissed[0] ) {
+		if( ! empty( $is_dismissed ) && 'dismissed' === $is_dismissed[0] ) {
+			return false;
+		} else {
 			$this->get_guide_modal();
 		}
 		return $views;
