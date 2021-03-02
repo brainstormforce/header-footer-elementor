@@ -79,7 +79,7 @@ class Header_Footer_Elementor {
 			}
 
 			add_action( 'admin_notices', [ $this, 'show_setup_wizard' ] );
-			add_action( 'admin_init', 'hfe_notice_dismissed' );
+			add_action( 'admin_init', [ $this, 'hfe_notice_dismissed' ] );
 
 			// Scripts and styles.
 			add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );

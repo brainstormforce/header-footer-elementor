@@ -65,10 +65,10 @@ class HFE_Settings_Page {
 			'addon_inactive'                  => esc_html__( 'Inactive', 'header-footer-elementor' ),
 			'addon_install'                   => esc_html__( 'Install Addon', 'header-footer-elementor' ),
 			'plugin_error'                    => esc_html__( 'Could not install a plugin. Please download from WordPress.org and install manually.', 'header-footer-elementor' ),
-			'subscribe_success'                  => esc_html__( 'Thanks for Subscribing!', 'header-footer-elementor' ),
+			'subscribe_success'               => esc_html__( 'Thanks for Subscribing!', 'header-footer-elementor' ),
 			'ajax_url'                        => admin_url( 'admin-ajax.php' ),
 			'nonce'                           => wp_create_nonce( 'hfe-admin-nonce' ),
-			'popup_dismiss'					  => $is_dismissed[0]
+			'popup_dismiss'					  => $is_dismissed
 		);
 
 		$strings = apply_filters( 'hfe_admin_strings', $strings );
@@ -91,8 +91,9 @@ class HFE_Settings_Page {
 	 */
 	public function hfe_settings( $views ) {
 		$this->hfe_tabs();
+		$is_dismissed = array();
 		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
-		if( 'dismissed' !== $is_dismissed[0] ) {
+		if( empty( $is_dismissed ) && 'dismissed' !== $is_dismissed[0] ) {
 			$this->get_guide_modal();
 		}
 		return $views;

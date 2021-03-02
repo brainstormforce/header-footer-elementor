@@ -179,7 +179,7 @@
 			var new_page_link = modal_wrapper.data( 'new-page' );
 			var display_allow = hfe_admin_data.popup_dismiss;
 
-			if( 'dismissed' !== display_allow ) {
+			if( 'dismissed' !== display_allow[0] ) {
 				// Display Modal Popup on click of Add new button.
 				hf_new_post.on( 'click', function(e) {
 					if( modal_wrapper.length && ! modal_wrapper.hasClass( 'hfe-show' ) ) {
