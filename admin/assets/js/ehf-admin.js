@@ -116,22 +116,22 @@
 			})
 			.done( function ( response ) {
 
-				// $( '.hfe-loader.dashicons-update' ).remove();
+				$( '.hfe-loader.dashicons-update' ).remove();
 
 				submit_button.removeClass( 'submitting' ).addClass('submitted');
 				$('.hfe-guide-content form').trigger("reset");
 
-				// if( $is_message ) {
-				// 	return;
-				// } else {
-				// 	submit_button.after( '<span class="hfe-subscribe-message">' + hfe_admin_data.subscribe_success + '</span>' );
-				// }
+				if( $is_message ) {
+					return;
+				} else {
+					submit_button.after( '<span class="hfe-subscribe-message">' + hfe_admin_data.subscribe_success + '</span>' );
+				}
 
-				// if( is_modal.length ) {
-				// 	window.setTimeout( function () {
-				// 		window.location = $( '.hfe-guide-modal-popup' ).data( 'new-page' );;
-				// 	});
-				// }				
+				if( is_modal.length ) {
+					window.setTimeout( function () {
+						window.location = $( '.hfe-guide-modal-popup' ).data( 'new-page' );;
+					});
+				}
 
 			});
 
