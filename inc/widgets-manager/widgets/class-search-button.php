@@ -105,7 +105,7 @@ class Search_Button extends Widget_Base {
 	 * @since 1.5.0
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->register_general_content_controls();
 		$this->register_search_style_controls();
 	}

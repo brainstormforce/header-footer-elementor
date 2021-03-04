@@ -98,7 +98,7 @@ class Site_Logo extends Widget_Base {
 	 * @since 1.3.0
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->register_content_site_logo_controls();
 		$this->register_site_logo_styling_controls();
 		$this->register_site_logo_caption_styling_controls();

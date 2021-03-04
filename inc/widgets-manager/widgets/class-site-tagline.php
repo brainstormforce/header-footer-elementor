@@ -90,7 +90,7 @@ class Site_Tagline extends Widget_Base {
 	 * @since 1.3.0
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->register_general_content_controls();
 	}
 
