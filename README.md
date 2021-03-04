@@ -5,7 +5,7 @@
 **Requires at least:** 4.4  
 **Requires PHP:** 5.4  
 **Tested up to:** 5.6  
-**Stable tag:** 1.5.6  
+**Stable tag:** 1.5.7
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -137,6 +137,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 5. Default widgets available with Elementor – Header, Footer & Blocks.
 
 ## Changelog ##
+### 1.5.7 ###
+- Improvement: Compatibility to Elementor v3.1.
+
 ### 1.5.6 ###
 - Fix: Buttons showing cart subtotal.
 
