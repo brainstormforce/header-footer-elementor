@@ -80,10 +80,22 @@ class Copyright extends Widget_Base {
 	public function get_categories() {
 		return [ 'hfe-widgets' ];
 	}
+
+	/**
+	 * Register widget controls.
+	 *
+	 * @since 1.2.0
+	 * @access protected
+	 */
+	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+
+		$this->register_controls();
+	}
+
 	/**
 	 * Register Copyright controls.
 	 *
-	 * @since 1.2.0
+	 * @since x.x.x
 	 * @access protected
 	 */
 	protected function register_controls() {

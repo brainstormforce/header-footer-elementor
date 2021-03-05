@@ -100,9 +100,20 @@ class Search_Button extends Widget_Base {
 	}
 
 	/**
-	 * Register Search Button controls.
+	 * Register widget controls.
 	 *
 	 * @since 1.5.0
+	 * @access protected
+	 */
+	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+
+		$this->register_controls();
+	}
+
+	/**
+	 * Register Search Button controls.
+	 *
+	 * @since x.x.x
 	 * @access protected
 	 */
 	protected function register_controls() {

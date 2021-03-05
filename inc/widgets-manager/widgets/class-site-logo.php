@@ -93,9 +93,20 @@ class Site_Logo extends Widget_Base {
 	}
 
 	/**
-	 * Register Site Logo controls.
+	 * Register widget controls.
 	 *
 	 * @since 1.3.0
+	 * @access protected
+	 */
+	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+
+		$this->register_controls();
+	}
+
+	/**
+	 * Register Site Logo controls.
+	 *
+	 * @since x.x.x
 	 * @access protected
 	 */
 	protected function register_controls() {
