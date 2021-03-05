@@ -604,7 +604,7 @@ span.dashicons.dashicons-no {
 .hfe-input-container.hfe-error .hfe-subscribe-field,
 .hfe-input-container.hfe-error .hfe-subscribe-email,
 .hfe-checkbox-container input[type="checkbox"].hfe-error {
-    border-color: red;
+    border-color: #d11212;
 }
 .hfe-checkbox-container input[type="checkbox"]:checked.hfe-error {
     border-color: unset;
@@ -615,6 +615,12 @@ span.hfe-subscribe-message {
     text-align: center;
     color: #12b512;
     margin-top: 10px;
+}
+span.hfe-subscribe-message.success {
+    color: #12b512;
+}
+span.hfe-subscribe-message.error {
+    color: #d11212;
 }
 span.dashicons.dashicons-update.hfe-loader {
     animation: rotation 2s infinite linear;

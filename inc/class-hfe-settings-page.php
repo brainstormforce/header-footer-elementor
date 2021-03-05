@@ -66,6 +66,7 @@ class HFE_Settings_Page {
 			'addon_install'                   => esc_html__( 'Install Addon', 'header-footer-elementor' ),
 			'plugin_error'                    => esc_html__( 'Could not install a plugin. Please download from WordPress.org and install manually.', 'header-footer-elementor' ),
 			'subscribe_success'               => esc_html__( 'Thanks for Subscribing!', 'header-footer-elementor' ),
+			'subscribe_error'               => esc_html__( 'Please enter valid email address.', 'header-footer-elementor' ),
 			'ajax_url'                        => admin_url( 'admin-ajax.php' ),
 			'nonce'                           => wp_create_nonce( 'hfe-admin-nonce' ),
 			'popup_dismiss'					  => $is_dismissed

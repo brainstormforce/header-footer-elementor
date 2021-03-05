@@ -78,7 +78,7 @@
 			var email_field = $( '.hfe-guide-content input[name="hfe_subscribe_field"]' );
 			var subscription_email = email_field.val() || '';
 
-			var $is_message = submit_button.next().hasClass( 'hfe-subscribe-message' );
+			$( '.hfe-subscribe-message' ).remove();
 
 			if( false === HFEAdmin.addEmailError(subscription_email ) ) {
 				return;
@@ -119,18 +119,19 @@
 				$( '.hfe-loader.dashicons-update' ).remove();
 
 				submit_button.removeClass( 'submitting' ).addClass('submitted');
-				$('.hfe-guide-content form').trigger("reset");
 
-				if( $is_message ) {
-					return;
+				if( response.success === true ) {
+					$('.hfe-guide-content form').trigger("reset");
+
+					submit_button.after( '<span class="hfe-subscribe-message success">' + hfe_admin_data.subscribe_success + '</span>' );
 				} else {
-					submit_button.after( '<span class="hfe-subscribe-message">' + hfe_admin_data.subscribe_success + '</span>' );
+					submit_button.after( '<span class="hfe-subscribe-message error">' + hfe_admin_data.subscribe_error + '</span>' );
 				}
-
+				
 				if( is_modal.length ) {
 					window.setTimeout( function () {
-						window.location = $( '.hfe-guide-modal-popup' ).data( 'new-page' );;
-					});
+						window.location = $( '.hfe-guide-modal-popup' ).data( 'new-page' );
+					}, 3000 );
 				}
 
 			});

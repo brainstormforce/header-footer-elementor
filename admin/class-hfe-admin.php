@@ -87,7 +87,7 @@ class HFE_Admin {
 		if ( is_admin() ) {
 			add_action( 'manage_elementor-hf_posts_custom_column', [ $this, 'column_content' ], 10, 2 );
 			add_filter( 'manage_elementor-hf_posts_columns', [ $this, 'column_headings' ] );
-			require_once HFE_DIR . 'admin/addons-actions.php';
+			require_once HFE_DIR . 'admin/class-addons-actions.php';
 		}
 	}
 	/**
