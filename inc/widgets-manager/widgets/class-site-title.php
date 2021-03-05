@@ -85,7 +85,7 @@ class Site_Title extends Widget_Base {
 	}
 
 	/**
-	 * Register widget controls.
+	 * Register site title controls.
 	 *
 	 * @since 1.3.0
 	 * @access protected
@@ -96,7 +96,7 @@ class Site_Title extends Widget_Base {
 	}
 
 	/**
-	 * Register site title controls controls.
+	 * Register site title controls.
 	 *
 	 * @since x.x.x
 	 * @access protected

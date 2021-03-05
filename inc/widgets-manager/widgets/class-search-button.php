@@ -100,7 +100,7 @@ class Search_Button extends Widget_Base {
 	}
 
 	/**
-	 * Register widget controls.
+	 * Register Search Button controls.
 	 *
 	 * @since 1.5.0
 	 * @access protected

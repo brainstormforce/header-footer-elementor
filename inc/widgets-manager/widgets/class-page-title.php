@@ -86,7 +86,7 @@ class Page_Title extends Widget_Base {
 	}
 
 	/**
-	 * Register widget controls.
+	 * Register Page Title controls.
 	 *
 	 * @since 1.3.0
 	 * @access protected

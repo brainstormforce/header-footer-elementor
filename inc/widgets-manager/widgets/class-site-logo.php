@@ -93,7 +93,7 @@ class Site_Logo extends Widget_Base {
 	}
 
 	/**
-	 * Register widget controls.
+	 * Register Site Logo controls.
 	 *
 	 * @since 1.3.0
 	 * @access protected

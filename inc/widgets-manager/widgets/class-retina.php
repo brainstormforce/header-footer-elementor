@@ -91,7 +91,7 @@ class Retina extends Widget_Base {
 	}
 
 	/**
-	 * Register widget controls.
+	 * Register Retina Logo controls.
 	 *
 	 * @since 1.2.0
 	 * @access protected

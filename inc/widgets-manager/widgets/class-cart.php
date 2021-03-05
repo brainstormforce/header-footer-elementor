@@ -85,7 +85,7 @@ class Cart extends Widget_Base {
 	}
 
 	/**
-	 * Register widget controls.
+	 * Register cart controls.
 	 *
 	 * @since 1.4.0
 	 * @access protected

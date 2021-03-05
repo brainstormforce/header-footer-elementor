@@ -82,7 +82,7 @@ class Copyright extends Widget_Base {
 	}
 
 	/**
-	 * Register widget controls.
+	 * Register Copyright controls.
 	 *
 	 * @since 1.2.0
 	 * @access protected

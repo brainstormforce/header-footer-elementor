@@ -85,7 +85,7 @@ class Site_Tagline extends Widget_Base {
 	}
 
 	/**
-	 * Register widget controls.
+	 * Register site tagline controls.
 	 *
 	 * @since 1.3.0
 	 * @access protected
@@ -96,7 +96,7 @@ class Site_Tagline extends Widget_Base {
 	}
 
 	/**
-	 * Register site tagline controls controls.
+	 * Register site tagline controls.
 	 *
 	 * @since x.x.x
 	 * @access protected

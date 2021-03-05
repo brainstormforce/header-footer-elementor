@@ -161,7 +161,7 @@ class Navigation_Menu extends Widget_Base {
 	}
 
 	/**
-	 * Register widget controls.
+	 * Register Nav Menu controls.
 	 *
 	 * @since 1.3.0
 	 * @access protected
