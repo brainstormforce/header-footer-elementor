@@ -92,7 +92,6 @@ class Page_Title extends Widget_Base {
 	 * @access protected
 	 */
 	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
-
 		$this->register_controls();
 	}
 

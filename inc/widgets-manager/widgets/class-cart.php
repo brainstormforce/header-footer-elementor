@@ -94,7 +94,7 @@ class Cart extends Widget_Base {
 
 		$this->register_controls();
 	}
- 
+
 	/**
 	 * Register cart controls controls.
 	 *
