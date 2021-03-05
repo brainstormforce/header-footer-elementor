@@ -40,6 +40,10 @@
 				// Templates page modal popup.
 				HFEAdmin._display_modal();
 
+				$( '#hfe_subscribe_field' ).on( 'keyup', function( e ) {
+					$( '.hfe-subscribe-message' ).remove();
+				});
+
 				$( document ).on( 'click', '.hfe-guide-content .button', HFEAdmin._subscribe );
 			
 				// About us - addons functionality.
