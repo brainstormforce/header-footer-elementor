@@ -156,6 +156,9 @@ input[type="text"].hfe-subscribe-field {
 .hfe-guide-content input#submit {
     text-transform: uppercase;
 }
+.hfe-guide-content input#submit.submitting {
+    margin-right: 2px;
+}
 .hfe-admin-guide-section .hfe-admin-column-50:not(.hfe-admin-column-last) {
     padding: 30px;
     border-right: 1px solid #DDDDDD;

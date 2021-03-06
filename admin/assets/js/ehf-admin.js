@@ -93,6 +93,8 @@
 				return;
 			}
 
+			submit_button.removeClass( 'submitted' );
+
 			if( ! submit_button.hasClass( 'submitting' ) ) {
 				submit_button.addClass( 'submitting' );
 			} else {
@@ -101,6 +103,7 @@
 
 			var subscription_fields = {
 				email: subscription_email,
+				source: 'HFE'
 			};
 
 			$.ajax({
