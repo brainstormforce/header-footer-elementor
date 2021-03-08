@@ -98,7 +98,7 @@ class Site_Tagline extends Widget_Base {
 	/**
 	 * Register site tagline controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.7
 	 * @access protected
 	 */
 	protected function register_controls() {

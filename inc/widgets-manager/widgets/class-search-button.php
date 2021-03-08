@@ -113,7 +113,7 @@ class Search_Button extends Widget_Base {
 	/**
 	 * Register Search Button controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.7
 	 * @access protected
 	 */
 	protected function register_controls() {

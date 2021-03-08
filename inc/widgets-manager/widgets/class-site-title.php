@@ -98,7 +98,7 @@ class Site_Title extends Widget_Base {
 	/**
 	 * Register site title controls.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.7
 	 * @access protected
 	 */
 	protected function register_controls() {
