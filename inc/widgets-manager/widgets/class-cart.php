@@ -85,12 +85,23 @@ class Cart extends Widget_Base {
 	}
 
 	/**
-	 * Register cart controls controls.
+	 * Register cart controls.
 	 *
 	 * @since 1.4.0
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+
+		$this->register_controls();
+	}
+
+	/**
+	 * Register cart controls.
+	 *
+	 * @since 1.5.7
+	 * @access protected
+	 */
+	protected function register_controls() {
 
 		$this->register_general_content_controls();
 		$this->register_cart_typo_content_controls();

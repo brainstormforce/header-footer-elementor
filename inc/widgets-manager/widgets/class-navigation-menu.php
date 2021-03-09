@@ -160,14 +160,24 @@ class Navigation_Menu extends Widget_Base {
 		}
 	}
 
-
 	/**
 	 * Register Nav Menu controls.
 	 *
 	 * @since 1.3.0
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+
+		$this->register_controls();
+	}
+
+	/**
+	 * Register Nav Menu controls.
+	 *
+	 * @since 1.5.7
+	 * @access protected
+	 */
+	protected function register_controls() {
 
 		$this->register_general_content_controls();
 		$this->register_style_content_controls();
@@ -1852,7 +1862,14 @@ class Navigation_Menu extends Widget_Base {
 	 */
 	protected function render() {
 
-		$settings         = $this->get_settings_for_display();
+		$menus = $this->get_available_menus();
+
+		if ( empty( $menus ) ) {
+			return false;
+		}
+
+		$settings = $this->get_settings_for_display();
+
 		$menu_close_icons = [];
 		$menu_close_icons = $this->get_menu_close_icon( $settings );
 
