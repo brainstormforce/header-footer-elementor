@@ -1868,7 +1868,7 @@ class Navigation_Menu extends Widget_Base {
 			return false;
 		}
 
-		$settings         = $this->get_settings_for_display();
+		$settings = $this->get_settings_for_display();
 
 		$menu_close_icons = [];
 		$menu_close_icons = $this->get_menu_close_icon( $settings );
