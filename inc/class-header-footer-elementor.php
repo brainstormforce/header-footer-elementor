@@ -243,12 +243,13 @@ class Header_Footer_Elementor {
 
 		/* TO DO */
 		$class = 'notice notice-info is-dismissible';
+		$setting_url = admin_url( 'post-new.php?post_type=elementor-hf' );
 
 		Astra_Notices::add_notice(
 			[
-				'id'                         => 'header-footer-install-notice',
+				'id'                         => 'header-footer-install-notice2',
 				'type'                       => 'info',
-				'message'                    => sprintf( __( 'Thank you for installing &nbsp;%1$s Elementor - Header, Footer & Blocks %2$s&nbsp; by Brainstorm Force. Create your excellent design under the &nbsp;%1$sAppearance > Header Footer and Blocks%2$s.', 'header-footer-elementor' ), '<strong>', '</strong>' ),
+				'message'                    => sprintf( __( 'Thank you for installing &nbsp;%1$s Elementor - Header, Footer & Blocks %2$s&nbsp; by Brainstorm Force. &nbsp;%3$sLet\'s get started %4$s!', 'header-footer-elementor' ), '<strong>', '</strong>', '<a href="' . $setting_url . '">', '</a>' ),
 				'repeat-notice-after'        => false,
 				'priority'                   => 18,
 				'display-with-other-notices' => false,
