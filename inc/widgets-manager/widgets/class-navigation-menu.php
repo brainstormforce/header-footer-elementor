@@ -1862,7 +1862,14 @@ class Navigation_Menu extends Widget_Base {
 	 */
 	protected function render() {
 
-		$settings         = $this->get_settings_for_display();
+		$menus = $this->get_available_menus();
+
+		if ( empty( $menus ) ) {
+			return false;
+		}
+
+		$settings = $this->get_settings_for_display();
+
 		$menu_close_icons = [];
 		$menu_close_icons = $this->get_menu_close_icon( $settings );
 
