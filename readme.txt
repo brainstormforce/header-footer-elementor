@@ -139,6 +139,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 == Changelog ==
 = 1.5.7 =
 - Improvement: Compatibility to Elementor v3.1.
+- Fix: Navigation Menu - Undefined index notice when menu is not set.
 
 = 1.5.6 =
 - Fix: Buttons showing cart subtotal.
