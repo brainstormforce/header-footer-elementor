@@ -85,12 +85,23 @@ class Site_Title extends Widget_Base {
 	}
 
 	/**
-	 * Register site title controls controls.
+	 * Register site title controls.
 	 *
 	 * @since 1.3.0
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+
+		$this->register_controls();
+	}
+
+	/**
+	 * Register site title controls.
+	 *
+	 * @since 1.5.7
+	 * @access protected
+	 */
+	protected function register_controls() {
 
 		$this->register_general_content_controls();
 		$this->register_heading_typo_content_controls();
