@@ -276,7 +276,7 @@ class HFE_Settings_Page {
 					'hfe_settings_tabs',
 					[
 						'hfe_templates' => [
-							'name' => __( 'All templates', 'header-footer-elementor' ),
+							'name' => __( 'All Templates', 'header-footer-elementor' ),
 							'url'  => admin_url( 'edit.php?post_type=elementor-hf' ),
 						],
 					]
@@ -346,7 +346,7 @@ class HFE_Settings_Page {
 	}
 
 	/**
-	 * Function for theme suuport tab
+	 * Function for theme support tab
 	 *
 	 * @since x.x.x
 	 * @return void
