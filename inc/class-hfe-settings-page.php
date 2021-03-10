@@ -581,28 +581,15 @@ class HFE_Settings_Page {
 								</p>
 							</div>
 							<div class="actions hfe-clear">
-								<div class="status">
-									<strong>
-										<?php
-										printf(
-										/* translators: %s - addon status label. */
-											esc_html__( 'Status: %s', 'header-footer-elementor' ),
-											'<span class="status-label ' . esc_attr( $plugin_data['status_class'] ) . '">' . wp_kses_post( $plugin_data['status_text'] ) . '</span>'
-										);
-										?>
-									</strong>
-								</div>
-								<div class="action-button">
-									<?php if ( $can_install_plugins ) { ?>
-										<button class="<?php echo esc_attr( $plugin_data['action_class'] ); ?>" data-plugin="<?php echo esc_attr( $plugin_data['plugin_src'] ); ?>" data-type="plugin">
-											<span><?php echo wp_kses_post( $plugin_data['action_text'] ); ?></span>
-										</button>
-									<?php } else { ?>
-										<a href="<?php echo esc_url( $details['wporg'] ); ?>" target="_blank" rel="noopener noreferrer">
-											<?php esc_html_e( 'WordPress.org', 'header-footer-elementor' ); ?>
-											<span aria-hidden="true" class="dashicons dashicons-external"></span>
-										</a>
-									<?php } ?>
+								<div class="website-link">
+									<?php
+									printf(
+									/* translators: %s - addon status label. */
+										esc_html__( '%1$s Visit Website %2$s', 'header-footer-elementor' ),
+										'<a href="' . esc_attr( $plugin_data['plugin_src'] ) . '">',
+										'</a>'
+									);
+									?>
 								</div>
 							</div>
 						</div>
@@ -696,36 +683,28 @@ class HFE_Settings_Page {
 
 		return [
 
-			'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php' => [
-				'icon'  => $images_url . 'plugin-mi.png',
-				'name'  => esc_html__( 'Ultimate Addons for Gutenberg', 'header-footer-elementor' ),
-				'desc'  => esc_html__( 'Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Vivamus magna justo, lacinia eget.', 'header-footer-elementor' ),
-				'wporg' => 'https://wordpress.org/plugins/header-footer-for-gutenberg/',
-				'url'   => 'https://downloads.wordpress.org/plugin/header-footer-for-gutenberg.zip',
+			'astra' => [
+				'icon'  => $images_url . 'plugin-astra.png',
+				'name'  => esc_html__( 'Astra Theme', 'header-footer-elementor' ),
+				'desc'  => esc_html__( 'Astra is fast, fully customizable & beautiful WordPress theme suitable for blog, personal portfolio, business website and WooCommerce storefront.', 'header-footer-elementor' ),
+				'wporg' => 'https://wordpress.org/themes/astra/',
+				'url'   => 'https://wpastra.com/',
 			],
 
-			'ultimate-elementor/ultimate-elementor.php' => [
-				'icon'  => $images_url . 'plugin-smtp.png',
+			'starter-templates' => [
+				'icon'  => $images_url . 'plugin-st.png',
+				'name'  => esc_html__( 'Starter Templates', 'header-footer-elementor' ),
+				'desc'  => esc_html__( 'The Starter Templates plugin offers ready website templates. The Starter Templates plugin is currently powering 900,000k+ WordPress websites.', 'header-footer-elementor' ),
+				'wporg' => 'https://wordpress.org/plugins/astra-sites/',
+				'url'   => 'https://startertemplates.com/',
+			],
+
+			'ultimate-elementor' => [
+				'icon'  => $images_url . 'plugin-uae.png',
 				'name'  => esc_html__( 'Ultimate Elementor', 'header-footer-elementor' ),
-				'desc'  => esc_html__( 'Make sure your website\'s emails reach the inbox. Our goal is to make email deliverability easy and reliable. Trusted by over 2 million websites.', 'header-footer-elementor' ),
-				'wporg' => 'https://wordpress.org/plugins/header-footer-for-gutenberg/',
-				'url'   => 'https://downloads.wordpress.org/plugin/header-footer-for-gutenberg.zip',
-			],
-
-			'wp-mail-smtp/wp_mail_smtp.php' => [
-				'icon'  => $images_url . 'plugin-smtp.png',
-				'name'  => esc_html__( 'WP Mail SMTP', 'header-footer-elementor' ),
-				'desc'  => esc_html__( 'Make sure your website\'s emails reach the inbox. Our goal is to make email deliverability easy and reliable. Trusted by over 2 million websites.', 'header-footer-elementor' ),
-				'wporg' => 'https://wordpress.org/plugins/wp-mail-smtp/',
-				'url'   => 'https://downloads.wordpress.org/plugin/wp-mail-smtp.zip',
-				'pro'   => [
-					'plug' => 'wp-mail-smtp-pro/wp_mail_smtp.php',
-					'icon' => $images_url . 'plugin-smtp.png',
-					'name' => esc_html__( 'WP Mail SMTP Pro', 'header-footer-elementor' ),
-					'desc' => esc_html__( 'Make sure your website\'s emails reach the inbox. Our goal is to make email deliverability easy and reliable. Trusted by over 2 million websites.', 'header-footer-elementor' ),
-					'url'  => 'https://wpmailsmtp.com/pricing/',
-					'act'  => 'go-to-url',
-				],
+				'desc'  => esc_html__( 'The Ultimate Addons for Elementor plugin offers unique, creative and optimized widgets that would enhance the page builder with more features.', 'header-footer-elementor' ),
+				'wporg' => '',
+				'url'   => 'https://ultimateelementor.com/',
 			],
 		];
 	}

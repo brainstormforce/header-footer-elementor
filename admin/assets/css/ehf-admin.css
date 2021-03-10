@@ -348,7 +348,10 @@ input[type="text"].hfe-subscribe-field {
 #hfe-admin-addons .addon-item .action-button .button.disabled {
     cursor: default;
 }
-
+#hfe-admin-addons .website-link {
+    width: 100%;
+    text-align: right;
+}
 #hfe-admin-addons *,
 #hfe-admin-addons *::before,
 #hfe-admin-addons *::after {
@@ -431,99 +434,9 @@ input[type="text"].hfe-subscribe-field {
   align-items: center;
   background-color: #f7f7f7;
   border-top: 1px solid #ddd;
-  padding: 20px;
-  min-height: 75px;
+  padding: 0px 20px;
+  min-height: 50px;
   position: relative;
-}
-
-#hfe-admin-addons .addon-item .actions .msg {
-  background-color: #f7f7f7;
-  border: none;
-  position: absolute;
-  text-align: center;
-  font-weight: 600;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  z-index: 99;
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#hfe-admin-addons .addon-item .actions .msg.success,
-#hfe-admin-addons .addon-item .status .status-active,
-#hfe-admin-addons .addon-item .action-button button.status-active .fa {
-  color: #2a9b39;
-}
-
-#hfe-admin-addons .addon-item .actions .msg.error,
-#hfe-admin-addons .addon-item .status .status-inactive,
-#hfe-admin-addons .addon-item .action-button button.status-inactive .fa {
-  color: red;
-}
-
-#hfe-admin-addons .addon-item .status {
-  flex-grow: 1;
-}
-
-#hfe-admin-addons .addon-item .status .status-download {
-  color: #666;
-}
-
-#hfe-admin-addons .addon-item .upgrade-button {
-  text-align: center;
-}
-
-#hfe-admin-addons .addon-item .upgrade-button a {
-  font-weight: 600;
-  width: 140px;
-  text-align: center;
-  padding: 8px 5px;
-}
-
-#hfe-admin-addons .addon-item .action-button button {
-  background: none;
-  border: 1px solid #ddd;
-  border-radius: 3px;
-  box-shadow: none;
-  cursor: pointer;
-  font-weight: 600;
-  width: 140px;
-  text-align: center;
-  padding: 8px 5px;
-}
-
-#hfe-admin-addons .addon-item .action-button button:hover, #hfe-admin-addons .addon-item .action-button button.loading {
-  background-color: #e9e9e9;
-}
-
-#hfe-admin-addons .addon-item .action-button button .fa {
-  margin-right: 8px;
-}
-
-#hfe-admin-addons .addon-item .action-button button .fa.fa-spinner {
-  margin-right: 0;
-}
-
-#hfe-admin-addons .addon-item .action-button button.status-download .fa {
-  color: #999;
-}
-
-#hfe-admin-addons .addon-item .action-button button.disabled {
-    cursor: default;
-    pointer-events: none;
-}
-
-#hfe-admin-addons .addon-item .action-button button.loading .fa {
-    color: #666;
-}
-
-#hfe-admin-addons .addon-item .action-button a {
-    text-decoration: none;
 }
 
 /* Modal Popup */
