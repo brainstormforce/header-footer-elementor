@@ -336,8 +336,7 @@ class HFE_Settings_Page {
 		if ( $is_elementor_screen ) {
 			$footer_text = sprintf(
 				/* translators: 1: Elementor, 2: Link to plugin review */
-				__( 'Please rate %1$s on %2$s %3$s to help us spread the word. We really appreciate your support!', 'header-footer-elementor' ),
-				'<strong>' . __( 'Elementor - Header, Footer & Blocks', 'header-footer-elementor' ) . '</strong>',
+				__( 'Please rate our plugin %1$s on %2$s to help us spread the word. Thank you from Brainstorm Force team!', 'header-footer-elementor' ),
 				'<span class="hfe-star-icons">&#9733;&#9733;&#9733;&#9733;&#9733;</span>',
 				'<a href="https://wordpress.org/support/theme/astra/reviews/#new-post" target="_blank">WordPress.org</a>'
 			);
