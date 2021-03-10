@@ -70,7 +70,7 @@ class HFE_Settings_Page {
 			'subscribe_error'               => esc_html__( 'Please enter valid email address.', 'header-footer-elementor' ),
 			'ajax_url'                        => admin_url( 'admin-ajax.php' ),
 			'nonce'                           => wp_create_nonce( 'hfe-admin-nonce' ),
-			'popup_dismiss'					  => $is_dismissed
+			'popup_dismiss'					  => false
 		);
 
 		$strings = apply_filters( 'hfe_admin_strings', $strings );
@@ -94,12 +94,12 @@ class HFE_Settings_Page {
 	public function hfe_settings( $views ) {
 		$this->hfe_tabs();
 		$is_dismissed = array();
-		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
-		if( ! empty( $is_dismissed ) && 'dismissed' === $is_dismissed[0] ) {
-			return false;
-		} else {
+		// $is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
+		// if( ! empty( $is_dismissed ) && 'dismissed' === $is_dismissed[0] ) {
+		// 	return false;
+		// } else {
 			$this->get_guide_modal();
-		}
+		// }
 		return $views;
 	}
 
@@ -249,7 +249,7 @@ class HFE_Settings_Page {
 				break;
 
 			case 'hfe-guide':
-				$this->get_guide_html();
+				$this->get_guide_html( 'page' );
 				break;
 
 			case 'hfe-about':
@@ -408,19 +408,27 @@ class HFE_Settings_Page {
 	 * @since x.x.x
 	 * @return void
 	 */
-	public function get_guide_html() {
+	public function get_guide_html( $type ) {
 		?>
 
 		<div class="hfe-admin-about-section hfe-admin-columns hfe-admin-guide-section">
 
 			<div class="hfe-admin-column-50">
 				<div class="hfe-admin-about-section-column">
-					<h3>
-						<?php esc_html_e( 'Learn the Art of Designing Custom Header & Footer with this Free Plugin ( Video Tutorial )', 'header-footer-elementor' ); ?>
-					</h3>
-					<figure>
-						<img src="<?php echo HFE_URL; ?>assets/images/settings/our-team.jpg" alt="<?php esc_attr_e( 'Team photo', 'header-footer-elementor' ); ?>">
-					</figure>
+
+					<?php if( 'page' === $type ) { ?>
+						<h3>
+							<?php esc_html_e( 'Learn the Art of Designing Custom Header & Footer with this Free Plugin ( Video Tutorial )', 'header-footer-elementor' ); ?>
+						</h3>
+						<figure>
+							<img src="<?php echo HFE_URL; ?>assets/images/settings/our-team.jpg" alt="<?php esc_attr_e( 'Team photo', 'header-footer-elementor' ); ?>">
+						</figure>
+					<?php } else if( 'popup' === $type ) { ?>
+						<h2>
+							<?php esc_html_e( 'Learn the Art of Designing Custom Header & Footer with this Free Plugin.', 'header-footer-elementor' ); ?>
+						</h2>
+					<?php } ?>
+					
 				</div>
 			</div>
 
@@ -462,7 +470,7 @@ class HFE_Settings_Page {
 						?>
 						</span>
 					</div>
-					<?php $this->get_guide_html(); ?>
+					<?php $this->get_guide_html( 'popup' ); ?>
 				</div>
 			</div>
 			<div class="hfe-guide-modal-overlay"></div>
