@@ -214,7 +214,7 @@
 					modal_wrapper.removeClass( 'hfe-show' );
 				}
 
-				window.location = new_page_link;
+				// window.location = new_page_link;
 			});
 		},
 

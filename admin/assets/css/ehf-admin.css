@@ -470,17 +470,16 @@ span.dashicons.dashicons-no {
     z-index: 9999;
     opacity: 0;
     background: rgba(0,0,0,0.75);
-    -webkit-transition: all .3s;
-    transition: all .3s;
+    -webkit-transition: all .5s;
+    transition: all .5s;
 }
 .hfe-guide-modal-content {
     width: 70%;
     background-color: #ffffff;
-    transform: scale(.7);
     opacity: 0;
     position: relative;
     margin: 0 auto;
-    transition: all .3s;
+    transition: all .5s;
     left: 5%;
 }
 .hfe-guide-modal-popup-wrapper {
@@ -508,7 +507,6 @@ span.dashicons.dashicons-no {
     visibility: visible;
 }
 .hfe-show .hfe-guide-modal-content {
-    transform: scale(1);
     opacity: 1;
 }
 .hfe-input-container.hfe-error .hfe-subscribe-field,
