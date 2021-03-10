@@ -372,12 +372,7 @@ class HFE_Settings_Page {
 	public function hfe_guide_callback() {
 		?>
 		<div class="hfe-guide-content-header hfe-admin-columns">
-			<div class="hfe-admin-column-20">
-				<img src="<?php echo HFE_URL; ?>assets/images/settings/plugin-mi.png">
-			</div>
-			<div class="hfe-admin-column-80">
-				<h3><?php esc_html_e( 'Get Inspiring & Creative Header & Footer Design Examples ( With 11 Research-Based Tips ).', 'header-footer-elementor' ); ?></h3>
-			</div>
+			<h3><?php esc_html_e( 'Get Inspiring & Creative Header & Footer Design Examples ( With 11 Research-Based Tips ).', 'header-footer-elementor' ); ?></h3>
 		</div>
 		<?php
 	}
@@ -420,9 +415,9 @@ class HFE_Settings_Page {
 
 			<div class="hfe-admin-column-50">
 				<div class="hfe-admin-about-section-column">
-					<h4>
+					<h3>
 						<?php esc_html_e( 'Learn the Art of Designing Custom Header & Footer with this Free Plugin ( Video Tutorial )', 'header-footer-elementor' ); ?>
-					</h4>
+					</h3>
 					<figure>
 						<img src="<?php echo HFE_URL; ?>assets/images/settings/our-team.jpg" alt="<?php esc_attr_e( 'Team photo', 'header-footer-elementor' ); ?>">
 					</figure>

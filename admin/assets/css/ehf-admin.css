@@ -216,12 +216,6 @@ input[type="text"].hfe-subscribe-field {
 .hfe-admin-columns .hfe-admin-column-60 {
     width: 60%;
 }
-.hfe-admin-columns .hfe-admin-column-20 {
-    width: 20%;
-}
-.hfe-admin-columns .hfe-admin-column-80 {
-    width: 80%;
-}
 .hfe-admin-columns .hfe-admin-column-last {
     float: right !important;
 }
@@ -541,9 +535,6 @@ span.hfe-subscribe-message.error {
 span.dashicons.dashicons-update.hfe-loader {
     animation: rotation 2s infinite linear;
     vertical-align: text-top;
-}
-.hfe-guide-content-header .hfe-admin-column-80 {
-    padding-left: 10px;
 }
 span.hfe-star-icons {
     color: #ffb900;
