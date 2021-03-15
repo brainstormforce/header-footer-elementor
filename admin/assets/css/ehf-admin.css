@@ -102,6 +102,7 @@ li#toplevel_page_Settings-page,
   margin: 0px;
   padding: 0px;
   display: flex;
+  background-color: #f1f3f5;
 }
 .hfe-guide-content .form-table th {
    display: none;
@@ -176,7 +177,7 @@ input[type="text"].hfe-subscribe-field {
     margin: 0 20px 20px;
     padding: 30px;
     background: #fff;
-    border: 1px solid #DDDDDD;
+    /* border: 1px solid #DDDDDD; */
     line-height: 2;
 }
 
@@ -458,6 +459,29 @@ span.dashicons.dashicons-no {
     padding: 10px;
     text-align: center;
 }
+.hfe-guide-modal-popup-wrapper .heading {
+    background: #ffffff;
+    padding: 0px 35px;
+    margin-top: 0;
+    box-shadow: 0 0 8px rgb(0 0 0 / 10%);
+    display: flex;
+    justify-content: space-between;
+}
+.hfe-guide-modal-popup-wrapper .close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 53px;
+    line-height: 53px;
+    width: 53px;
+    cursor: pointer;
+    border-left: 1px solid #eee;
+    color: #aaa;
+    font-size: 22px;
+    opacity: 1;
+    visibility: visible;
+}
 .hfe-guide-modal-overlay {
     position: fixed;
     width: 100%;
@@ -551,7 +575,7 @@ span.hfe-star-icons {
         line-height: 1;
         width: 15px;
     }
-    .hfe-subscribe-email input#hfe_subscribe_field {
+    .hfe-subscribe-email input.hfe-subscribe-field {
         min-height: unset;
         font-size: 10px;
     }

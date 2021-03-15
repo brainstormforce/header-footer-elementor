@@ -109,6 +109,7 @@ class HFE_Settings_Page {
 
 		register_setting( 'hfe-plugin-guide', 'hfe_guide_option' );
 		register_setting( 'hfe-plugin-guide', 'hfe_guide_email' );
+		register_setting( 'hfe-plugin-guide', 'hfe_guide_fname' );
 
 		add_settings_section( 'hfe-guide-options', '', [ $this, 'hfe_guide_callback' ], 'Step-By-Step Guide' );
 		add_settings_field( 'hfe-guide', '', [ $this, 'hfe_guide_option_callback' ], 'Step-By-Step Guide', 'hfe-guide-options' );
@@ -380,13 +381,41 @@ class HFE_Settings_Page {
 	 */
 	public function hfe_guide_option_callback() {
 		$hfe_radio_button = get_option( 'hfe_guide_option', '1' );
-		$email_placeholder = __( 'Enter Your Email', 'uael' );
+		$email_placeholder = __( 'Your Work Email', 'header-footer-elementor' );
+		$fname_placeholder = __( 'Your First Name', 'header-footer-elementor' );
 		?>
-		<div class="hfe-input-container">
-			<div class="hfe-subscribe-email">
-				<span class="dashicons dashicons-email"></span>
+		<div class="subscription-fields">
+			<div class="subscription-field-wrap">
+				<select class="subscription-input subscription-input-wp-user-type" name="wp_user_type">
+					<option value=""></option>
+					<option value="1"><?php esc_html_e( 'Beginner', 'astra-sites' ); ?></option>
+					<option value="2"><?php esc_html_e( 'Intermediate', 'astra-sites' ); ?></option>
+					<option value="3"><?php esc_html_e( 'Expert', 'astra-sites' ); ?></option>
+				</select>
+				<small class="subscription-desc"><?php esc_html_e( 'Field is required', 'astra-sites' ); ?></small>
+				<label class="subscription-label"><?php esc_html_e( 'I\'m a WordPress:', 'astra-sites' ); ?></label>
 			</div>
-			<input id="hfe_subscribe_field" class="hfe-subscribe-field" type="text" placeholder="<?php echo $email_placeholder; ?>" name="hfe_subscribe_field" value="<?php echo get_option( 'hfe_guide_email' ); ?>">
+			<div class="subscription-field-wrap">
+				<select class="subscription-input subscription-input-build-website-for" name="build_website_for">
+					<option value=""></option>
+					<option value="1"><?php esc_html_e( 'Myself/My company', 'astra-sites' ); ?></option>
+					<option value="2"><?php esc_html_e( 'My client', 'astra-sites' ); ?></option>
+				</select>
+				<small class="subscription-desc"><?php esc_html_e( 'Field is required', 'astra-sites' ); ?></small>
+				<label class="subscription-label"><?php esc_html_e( 'I\'m building website for:', 'astra-sites' ); ?></label>
+			</div>
+		</div>
+		<div class="hfe-input-container">
+			<!-- <div class="hfe-subscribe-email">
+				<span class="dashicons dashicons-email"></span>
+			</div> -->
+			<input id="hfe_subscribe_name" class="hfe-subscribe-field" type="text" placeholder="<?php echo $fname_placeholder; ?>" name="hfe_subscribe_name" value="<?php echo get_option( 'hfe_guide_fname' ); ?>">
+		</div>
+		<div class="hfe-input-container">
+			<!-- <div class="hfe-subscribe-email">
+				<span class="dashicons dashicons-email"></span>
+			</div> -->
+			<input id="hfe_subscribe_email" class="hfe-subscribe-field" type="text" placeholder="<?php echo $email_placeholder; ?>" name="hfe_subscribe_email" value="<?php echo get_option( 'hfe_guide_email' ); ?>">
 		</div>
 		<div class="hfe-checkbox-container">
 			<input type="checkbox" name="hfe_guide_option" class="hfe-guide-checkbox" value= 1 <?php checked( $hfe_radio_button, 1 ); ?> > <div class="hfe_checkbox_options"><?php esc_html_e( ' By entering your email, you agree to our privacy policy', 'header-footer-elementor' ); ?></div>
@@ -418,7 +447,7 @@ class HFE_Settings_Page {
 						</figure>
 					<?php } else if( 'popup' === $type ) { ?>
 						<h2>
-							<?php esc_html_e( 'Learn the Art of Designing Custom Header & Footer with this Free Plugin.', 'header-footer-elementor' ); ?>
+							<?php esc_html_e( 'Get Inspiring & Creative Header & Footer Design Examples ( With 11 Research-Based Tips ).' ); ?>
 						</h2>
 					<?php } ?>
 					
@@ -450,24 +479,15 @@ class HFE_Settings_Page {
 		<div class="hfe-guide-modal-popup" data-new-page="<?php echo esc_attr( $new_page_url ); ?>">
 			<div class="hfe-guide-modal-popup-wrapper">
 				<div class="hfe-guide-modal-content">
-					<div class="hfe-guide-modal-header">
-						<span>
-						<?php
-						echo __( 'Header Footer & Blocks: Created in ', 'header-footer-elementor' );
-						?>
-						</span>
-						<span class="dashicons dashicons-heart"></span>
-						<span>
-						<?php
-						echo __( ' with Brainstorm Force', 'header-footer-elementor' );
-						?>
-						</span>
+					<div class="heading">
+						<h3><?php esc_html_e( 'One Last Step..', 'header-footer-elementor' ); ?></h3>
+						<span class="dashicons close dashicons-no-alt hfe-modal-close hfe-close-icon"></span>
 					</div>
 					<?php $this->get_guide_html( 'popup' ); ?>
 				</div>
 			</div>
 			<div class="hfe-guide-modal-overlay"></div>
-			<span class="hfe-modal-close hfe-close-icon hfe-close-custom-top-right"><span class="dashicons dashicons-no"></span></span>
+			<!-- <span class="hfe-modal-close hfe-close-icon hfe-close-custom-top-right"><span class="dashicons dashicons-no"></span></span> -->
 		</div>
 		<?php
 	}

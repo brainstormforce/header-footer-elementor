@@ -27,7 +27,7 @@
 				// Templates page modal popup.
 				HFEAdmin._display_modal();
 
-				$( '#hfe_subscribe_field' ).on( 'keyup', function( e ) {
+				$( '.hfe-subscribe-field' ).on( 'keyup', function( e ) {
 					$( '.hfe-subscribe-message' ).remove();
 				});
 
@@ -49,7 +49,7 @@
 
 			var is_modal = $( '.hfe-guide-modal-popup.hfe-show' );
 			
-			var email_field = $( '.hfe-guide-content input[name="hfe_subscribe_field"]' );
+			var email_field = $( '.hfe-guide-content input[name="hfe_subscribe_email"]' );
 			var subscription_email = email_field.val() || '';
 
 			$( '.hfe-subscribe-message' ).remove();
