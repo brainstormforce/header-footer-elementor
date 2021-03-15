@@ -384,38 +384,33 @@ class HFE_Settings_Page {
 		$email_placeholder = __( 'Your Work Email', 'header-footer-elementor' );
 		$fname_placeholder = __( 'Your First Name', 'header-footer-elementor' );
 		?>
-		<div class="subscription-fields">
-			<div class="subscription-field-wrap">
-				<select class="subscription-input subscription-input-wp-user-type" name="wp_user_type">
-					<option value=""></option>
+		<div class="hfe-subscription-row">
+			<div class="hfe-input-container">
+				<select class="hfe-subscribe-field subscription-input-wp-user-type" name="wp_user_type">
+					<option value="0"><?php esc_html_e( 'I\'m a WordPress:', 'astra-sites' ); ?></option>
 					<option value="1"><?php esc_html_e( 'Beginner', 'astra-sites' ); ?></option>
 					<option value="2"><?php esc_html_e( 'Intermediate', 'astra-sites' ); ?></option>
 					<option value="3"><?php esc_html_e( 'Expert', 'astra-sites' ); ?></option>
 				</select>
-				<small class="subscription-desc"><?php esc_html_e( 'Field is required', 'astra-sites' ); ?></small>
-				<label class="subscription-label"><?php esc_html_e( 'I\'m a WordPress:', 'astra-sites' ); ?></label>
 			</div>
-			<div class="subscription-field-wrap">
-				<select class="subscription-input subscription-input-build-website-for" name="build_website_for">
-					<option value=""></option>
+			<div class="hfe-input-container">
+				<select class="hfe-subscribe-field subscription-input-build-website-for" name="build_website_for">
+					<option value="0"><?php esc_html_e( 'I\'m building website for:', 'astra-sites' ); ?></option>
 					<option value="1"><?php esc_html_e( 'Myself/My company', 'astra-sites' ); ?></option>
 					<option value="2"><?php esc_html_e( 'My client', 'astra-sites' ); ?></option>
 				</select>
-				<small class="subscription-desc"><?php esc_html_e( 'Field is required', 'astra-sites' ); ?></small>
-				<label class="subscription-label"><?php esc_html_e( 'I\'m building website for:', 'astra-sites' ); ?></label>
 			</div>
 		</div>
-		<div class="hfe-input-container">
-			<!-- <div class="hfe-subscribe-email">
-				<span class="dashicons dashicons-email"></span>
-			</div> -->
-			<input id="hfe_subscribe_name" class="hfe-subscribe-field" type="text" placeholder="<?php echo $fname_placeholder; ?>" name="hfe_subscribe_name" value="<?php echo get_option( 'hfe_guide_fname' ); ?>">
-		</div>
-		<div class="hfe-input-container">
-			<!-- <div class="hfe-subscribe-email">
-				<span class="dashicons dashicons-email"></span>
-			</div> -->
-			<input id="hfe_subscribe_email" class="hfe-subscribe-field" type="text" placeholder="<?php echo $email_placeholder; ?>" name="hfe_subscribe_email" value="<?php echo get_option( 'hfe_guide_email' ); ?>">
+		<div class="hfe-subscription-row">
+			<div class="hfe-input-container">
+				<input id="hfe_subscribe_name" class="hfe-subscribe-field" type="text" placeholder="<?php echo $fname_placeholder; ?>" name="hfe_subscribe_name" value="<?php echo get_option( 'hfe_guide_fname' ); ?>">
+			</div>
+			<div class="hfe-input-container">
+				<!-- <div class="hfe-subscribe-email">
+					<span class="dashicons dashicons-email"></span>
+				</div> -->
+				<input id="hfe_subscribe_email" class="hfe-subscribe-field" type="text" placeholder="<?php echo $email_placeholder; ?>" name="hfe_subscribe_email" value="<?php echo get_option( 'hfe_guide_email' ); ?>">
+			</div>
 		</div>
 		<div class="hfe-checkbox-container">
 			<input type="checkbox" name="hfe_guide_option" class="hfe-guide-checkbox" value= 1 <?php checked( $hfe_radio_button, 1 ); ?> > <div class="hfe_checkbox_options"><?php esc_html_e( ' By entering your email, you agree to our privacy policy', 'header-footer-elementor' ); ?></div>

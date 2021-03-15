@@ -118,6 +118,13 @@ li#toplevel_page_Settings-page,
     width: 100%;
     margin-bottom: 20px;
 }
+.hfe-subscription-row {
+    display: flex;
+}
+.hfe-subscription-row .hfe-input-container {
+    width: 50%;
+    margin-right: 10px;
+}
 .hfe-guide-modal-content .hfe-guide-content .form-table input[type="checkbox"] {
     margin-top: 1px;
     margin-right: 6px;
@@ -140,7 +147,8 @@ li#toplevel_page_Settings-page,
 .hfe-input-container .dashicons-email {    
     color: #7e8993;
 }
-input[type="text"].hfe-subscribe-field {
+input[type="text"].hfe-subscribe-field,
+select.hfe-subscribe-field {
     width: 100%;
     padding: 10px 15px;
     outline: none;
