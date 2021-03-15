@@ -59,13 +59,6 @@ class HFE_Settings_Page {
 		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
 
 		$strings = array(
-			'addon_activate'                  => esc_html__( 'Activate', 'header-footer-elementor' ),
-			'addon_activated'                 => esc_html__( 'Activated', 'header-footer-elementor' ),
-			'addon_active'                    => esc_html__( 'Active', 'header-footer-elementor' ),
-			'addon_deactivate'                => esc_html__( 'Deactivate', 'header-footer-elementor' ),
-			'addon_inactive'                  => esc_html__( 'Inactive', 'header-footer-elementor' ),
-			'addon_install'                   => esc_html__( 'Install Addon', 'header-footer-elementor' ),
-			'plugin_error'                    => esc_html__( 'Could not install a plugin. Please download from WordPress.org and install manually.', 'header-footer-elementor' ),
 			'subscribe_success'               => esc_html__( 'Thanks for Subscribing!', 'header-footer-elementor' ),
 			'subscribe_error'               => esc_html__( 'Please enter valid email address.', 'header-footer-elementor' ),
 			'ajax_url'                        => admin_url( 'admin-ajax.php' ),
