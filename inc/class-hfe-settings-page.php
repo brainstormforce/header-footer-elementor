@@ -58,14 +58,14 @@ class HFE_Settings_Page {
 
 		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
 
-		$strings = array(
-			'subscribe_success'               => esc_html__( 'Thanks for Subscribing!', 'header-footer-elementor' ),
-			'subscribe_error'                 => esc_html__( 'Please enter all fields.', 'header-footer-elementor' ),
-			'ajax_url'                        => admin_url( 'admin-ajax.php' ),
-			'nonce'                           => wp_create_nonce( 'hfe-admin-nonce' ),
-			'popup_dismiss'					  => false,
-			'data_source' 					  => 'HFE'
-		);
+		$strings = [
+			'subscribe_success' => esc_html__( 'Thanks for Subscribing!', 'header-footer-elementor' ),
+			'subscribe_error'   => esc_html__( 'Please enter all fields.', 'header-footer-elementor' ),
+			'ajax_url'          => admin_url( 'admin-ajax.php' ),
+			'nonce'             => wp_create_nonce( 'hfe-admin-nonce' ),
+			'popup_dismiss'     => false,
+			'data_source'       => 'HFE',
+		];
 
 		$strings = apply_filters( 'hfe_admin_strings', $strings );
 
@@ -87,10 +87,10 @@ class HFE_Settings_Page {
 	 */
 	public function hfe_settings( $views ) {
 		$this->hfe_tabs();
-		$is_dismissed = array();
+		$is_dismissed = [];
 		// $is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
 		// if( ! empty( $is_dismissed ) && 'dismissed' === $is_dismissed[0] ) {
-		// 	return false;
+		// return false;
 		// } else {
 			$this->get_guide_modal();
 		// }
@@ -427,6 +427,7 @@ class HFE_Settings_Page {
 	 * Function for Step-By-Step guide
 	 *
 	 * @since x.x.x
+	 * @param string $type Page or Popup.
 	 * @return void
 	 */
 	public function get_guide_html( $type ) {
@@ -437,18 +438,17 @@ class HFE_Settings_Page {
 			<div class="hfe-admin-column-50">
 				<div class="hfe-admin-about-section-column">
 
-					<?php if( 'page' === $type ) { ?>
+					<?php if ( 'page' === $type ) { ?>
 						<h3>
 							<?php esc_html_e( 'Learn the Art of Designing Custom Header & Footer with this Free Plugin ( Video Tutorial )', 'header-footer-elementor' ); ?>
 						</h3>
 						<figure>
 							<img src="<?php echo HFE_URL; ?>assets/images/settings/our-team.jpg" alt="<?php esc_attr_e( 'Team photo', 'header-footer-elementor' ); ?>">
 						</figure>
-					<?php } else if( 'popup' === $type ) { ?>
+					<?php } elseif ( 'popup' === $type ) { ?>
 						<h2><?php esc_html_e( 'Get Inspiring & Creative Header & Footer Design Examples.', 'header-footer-elementor' ); ?></h2>
 						<p><?php esc_html_e( 'Create different header and footer designs for your site, and customize as per your need.', 'header-footer-elementor' ); ?></p>
 					<?php } ?>
-					
 				</div>
 			</div>
 
@@ -697,7 +697,7 @@ class HFE_Settings_Page {
 
 		return [
 
-			'astra' => [
+			'astra'              => [
 				'icon'  => $images_url . 'plugin-astra.png',
 				'name'  => esc_html__( 'Astra Theme', 'header-footer-elementor' ),
 				'desc'  => esc_html__( 'Astra is fast, fully customizable & beautiful WordPress theme suitable for blog, personal portfolio, business website and WooCommerce storefront.', 'header-footer-elementor' ),
@@ -705,7 +705,7 @@ class HFE_Settings_Page {
 				'url'   => 'https://wpastra.com/',
 			],
 
-			'starter-templates' => [
+			'starter-templates'  => [
 				'icon'  => $images_url . 'plugin-st.png',
 				'name'  => esc_html__( 'Starter Templates', 'header-footer-elementor' ),
 				'desc'  => esc_html__( 'The Starter Templates plugin offers ready website templates. The Starter Templates plugin is currently powering 900,000k+ WordPress websites.', 'header-footer-elementor' ),
@@ -770,9 +770,9 @@ class HFE_Settings_Page {
 			'<a href="%s" aria-label="%s">%s</a>',
 			esc_url(
 				add_query_arg(
-					array(
+					[
 						'post_type' => 'elementor-hf',
-					),
+					],
 					admin_url( 'edit.php' )
 				)
 			),

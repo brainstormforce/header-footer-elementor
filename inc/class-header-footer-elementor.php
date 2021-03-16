@@ -124,10 +124,10 @@ class Header_Footer_Elementor {
 	 */
 	function hfe_notice_dismissed() {
 		if ( isset( $_GET['my-plugin-dismissed'] ) ) {
-			if ( get_option( 'myplugin_data_1' ) == '') {
-				update_option( 'myplugin_data_1',array() );
+			if ( get_option( 'myplugin_data_1' ) == '' ) {
+				update_option( 'myplugin_data_1', [] );
 			}
-			update_option( 'myplugin_activated',time() );
+			update_option( 'myplugin_activated', time() );
 		}
 	}
 
@@ -242,13 +242,14 @@ class Header_Footer_Elementor {
 		}
 
 		/* TO DO */
-		$class = 'notice notice-info is-dismissible';
+		$class       = 'notice notice-info is-dismissible';
 		$setting_url = admin_url( 'post-new.php?post_type=elementor-hf' );
 
 		Astra_Notices::add_notice(
 			[
 				'id'                         => 'header-footer-install-notice2',
 				'type'                       => 'info',
+				/* translators: %s: html tags */
 				'message'                    => sprintf( __( 'Thank you for installing &nbsp;%1$s Elementor Header & Footer Builder %2$s&nbsp; by Brainstorm Force. &nbsp;%3$sLet\'s get started %4$s!', 'header-footer-elementor' ), '<strong>', '</strong>', '<a href="' . $setting_url . '">', '</a>' ),
 				'repeat-notice-after'        => false,
 				'priority'                   => 18,

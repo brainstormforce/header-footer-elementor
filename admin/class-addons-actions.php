@@ -1,4 +1,10 @@
-<?php 
+<?php
+/**
+ * Plugin AJAX functions.
+ *
+ * @package  header-footer-elementor
+ */
+
 /**
  * Open modal popup.
  *
@@ -10,7 +16,6 @@ function hfe_admin_modal() {
 	check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
 
 	// update_user_meta( get_current_user_id(), 'hfe-popup', 'dismissed' );
-
 }
 add_action( 'wp_ajax_hfe_admin_modal', 'hfe_admin_modal' );
 
@@ -27,7 +32,7 @@ function update_subscription() {
 
 	$api_domain = trailingslashit( get_api_domain() );
 
-	$arguments = isset( $_POST['data'] ) ? array_map( 'sanitize_text_field', json_decode( stripslashes( $_POST['data'] ), true ) ) : array();
+	$arguments = isset( $_POST['data'] ) ? array_map( 'sanitize_text_field', json_decode( stripslashes( $_POST['data'] ), true ) ) : [];
 
 	$url = add_query_arg( $arguments, $api_domain . 'wp-json/starter-templates/v1/subscribe/' ); // add URL of your site or mail API.
 
@@ -41,7 +46,6 @@ function update_subscription() {
 			update_user_meta( get_current_user_ID(), 'hfe-subscribed', 'yes' );
 			wp_send_json_success( $response );
 		}
-
 	} else {
 		wp_send_json_error( $response );
 	}
@@ -58,4 +62,4 @@ function get_api_domain() {
 	return apply_filters( 'hfe_api_domain', 'https://astra-sites-multisite.mydomain9.com/' );
 }
 
-?>
+
