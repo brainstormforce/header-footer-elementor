@@ -232,7 +232,11 @@ li#toplevel_page_Settings-page,
     display: flex;
     align-items: flex-start;
 }
-.hfe-subscribe-email {
+.hfe-guide-modal-content .hfe-admin-column-50:not(.hfe-admin-column-last) {
+    display: flex;
+    align-items: center;
+}
+/* .hfe-subscribe-email {
     padding: 10px 15px;
     min-width: 50px;
     text-align: center;
@@ -241,10 +245,10 @@ li#toplevel_page_Settings-page,
     justify-content: center;
     align-items: center;
     border-right: 0px;
-}
-.hfe-input-container .dashicons-email {    
+} */
+/* .hfe-input-container .dashicons-email {    
     color: #7e8993;
-}
+} */
 input[type="text"].hfe-subscribe-field,
 select.hfe-subscribe-field {
     text-align: left;
@@ -252,7 +256,6 @@ select.hfe-subscribe-field {
     padding: 10px 15px;
     outline: none;
     line-height: 1.3;
-    border-radius: 0px;
     margin-left: 0px;
 }
 .hfe-guide-content .hfe_checkbox_options {
@@ -263,12 +266,13 @@ select.hfe-subscribe-field {
 }
 .hfe-guide-content input#submit {
     text-transform: uppercase;
+    padding: 6px 15px;
 }
 .hfe-guide-content input#submit.submitting {
     margin-right: 2px;
 }
 .hfe-admin-guide-section .hfe-admin-column-50:not(.hfe-admin-column-last) {
-    padding: 30px;
+    padding: 60px;
     border-right: 1px solid #DDDDDD;
 }
 .hfe-admin-guide-section .hfe-admin-column-last,
@@ -568,7 +572,7 @@ span.dashicons.dashicons-no {
 }
 .hfe-guide-modal-popup-wrapper .heading {
     background: #ffffff;
-    padding: 0px 35px;
+    padding: 5px 10px;
     margin-top: 0;
     box-shadow: 0 0 8px rgb(0 0 0 / 10%);
     display: flex;
@@ -579,9 +583,9 @@ span.dashicons.dashicons-no {
     right: 0;
     top: 0;
     bottom: 0;
-    height: 53px;
-    line-height: 53px;
-    width: 53px;
+    height: 100%;
+    line-height: 60px;
+    width: 55px;
     cursor: pointer;
     border-left: 1px solid #eee;
     color: #aaa;
@@ -605,13 +609,13 @@ span.dashicons.dashicons-no {
     transition: all .5s;
 }
 .hfe-guide-modal-content {
-    width: 70%;
+    width: 80%;
     background-color: #ffffff;
     opacity: 0;
     position: relative;
     margin: 0 auto;
     transition: all .5s;
-    left: 5%;
+    /* left: 5%; */
 }
 .hfe-guide-modal-popup-wrapper {
     z-index: 99999;
@@ -624,6 +628,58 @@ span.dashicons.dashicons-no {
     width: 100%;
     max-width: 100%;
     bottom: auto;
+}
+.hfe-guide-modal-popup-wrapper .subscription-anim .subscription-label {
+    background-color: #ffffff;
+}
+.hfe-guide-modal-popup-wrapper .hfe-admin-about-section {
+    background-color: #f1f3f5;
+}
+.hfe-guide-modal-popup-wrapper .hfe-guide-content-header {
+    display: none;
+}
+.hfe-guide-modal-popup-wrapper .hfe-guide-content {
+    background-color: #ffffff;
+    box-shadow: 0 2px 30px 0 rgb(0 0 0 / 8%);
+}
+.hfe-guide-modal-popup-wrapper .hfe-admin-column-50:not(.hfe-admin-column-last) {
+    border-right: 0px;
+}
+.hfe-guide-modal-popup-wrapper .hfe-admin-columns .hfe-admin-column-last {
+    padding: 0px 30px;
+}
+.hfe-guide-modal-popup-wrapper .hfe-guide-content {
+    border: 0px;
+    padding: 45px 30px;
+}
+.hfe-guide-modal-popup-wrapper .hfe-admin-columns .hfe-admin-column-50.hfe-admin-column-last {
+    width: 55%;
+}
+.hfe-guide-modal-popup-wrapper .hfe-admin-columns .hfe-admin-column-50 {
+    width: 40%;
+}
+.hfe-guide-modal-popup-wrapper .heading {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+}
+.hfe-guide-modal-popup-wrapper .hfe-logo {
+    height: 35px;
+} 
+.hfe-guide-modal-popup-wrapper h3 {
+    width: 100%;
+    margin-left: 15px;
+}
+.hfe-guide-modal-popup-wrapper .hfe-admin-about-section.hfe-admin-columns.hfe-admin-guide-section {
+    max-height: 70vh;
+    overflow: auto;
+}
+.hfe-guide-modal-popup-wrapper .hfe-admin-about-section-column {
+    padding-bottom: 20px;
+}
+.hfe-admin-about-section-column h2 {
+    font-size: 25px;
 }
 .hfe-show {
     z-index: 9999;
@@ -670,10 +726,14 @@ span.hfe-star-icons {
     font-size: 15px;
 }
 @media screen and ( max-width: 782px ) {
+    .hfe-guide-modal-content p.button {
+        padding-bottom: 0px;
+    }
     .hfe-admin-guide-section .hfe-admin-column-50:not(.hfe-admin-column-last) {
         border-right: 0px;
     }
-    .hfe-admin-guide-section.hfe-admin-columns .hfe-admin-column-50 {
+    .hfe-admin-guide-section.hfe-admin-columns .hfe-admin-column-50,
+    .hfe-guide-modal-popup-wrapper .hfe-admin-columns .hfe-admin-column-50.hfe-admin-column-last {
         width: 100%;
     }
     .hfe-subscribe-email span.dashicons.dashicons-email {
@@ -712,6 +772,7 @@ span.hfe-star-icons {
         font-size: 10px;
         white-space: pre-wrap;
         line-height: 2em;
+        padding: 8px 15px;
     }
     .hfe-checkbox-container {
         display: flex;

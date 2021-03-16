@@ -60,10 +60,12 @@ class HFE_Settings_Page {
 
 		$strings = array(
 			'subscribe_success'               => esc_html__( 'Thanks for Subscribing!', 'header-footer-elementor' ),
-			'subscribe_error'               => esc_html__( 'Please enter valid email address.', 'header-footer-elementor' ),
+			'subscribe_error'                 => esc_html__( 'Please enter all fields.', 'header-footer-elementor' ),
 			'ajax_url'                        => admin_url( 'admin-ajax.php' ),
 			'nonce'                           => wp_create_nonce( 'hfe-admin-nonce' ),
-			'popup_dismiss'					  => false
+			'popup_dismiss'					  => false,
+			'default_builder'				  => 'Elementor',
+			'data_source' 					  => 'HFE'
 		);
 
 		$strings = apply_filters( 'hfe_admin_strings', $strings );
@@ -444,9 +446,8 @@ class HFE_Settings_Page {
 							<img src="<?php echo HFE_URL; ?>assets/images/settings/our-team.jpg" alt="<?php esc_attr_e( 'Team photo', 'header-footer-elementor' ); ?>">
 						</figure>
 					<?php } else if( 'popup' === $type ) { ?>
-						<h2>
-							<?php esc_html_e( 'Get Inspiring & Creative Header & Footer Design Examples ( With 11 Research-Based Tips ).' ); ?>
-						</h2>
+						<h2><?php esc_html_e( 'Get Inspiring & Creative Header & Footer Design Examples.' ); ?></h2>
+						<p><?php esc_html_e( 'Create different header and footer designs for your site, and customize as per your need.', 'header-footer-elementor' ); ?></p>
 					<?php } ?>
 					
 				</div>
@@ -478,14 +479,14 @@ class HFE_Settings_Page {
 			<div class="hfe-guide-modal-popup-wrapper">
 				<div class="hfe-guide-modal-content">
 					<div class="heading">
-						<h3><?php esc_html_e( 'One Last Step..', 'header-footer-elementor' ); ?></h3>
+						<img src="<?php echo HFE_URL . 'assets/images/settings/plugin-uae.png'; ?>" class="hfe-logo">
+						<h3><?php esc_html_e( 'Elementor - Header & Footer Builder', 'header-footer-elementor' ); ?></h3>
 						<span class="dashicons close dashicons-no-alt hfe-modal-close hfe-close-icon"></span>
 					</div>
 					<?php $this->get_guide_html( 'popup' ); ?>
 				</div>
 			</div>
 			<div class="hfe-guide-modal-overlay"></div>
-			<!-- <span class="hfe-modal-close hfe-close-icon hfe-close-custom-top-right"><span class="dashicons dashicons-no"></span></span> -->
 		</div>
 		<?php
 	}

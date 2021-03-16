@@ -29,7 +29,7 @@ function update_subscription() {
 
 	$arguments = isset( $_POST['data'] ) ? array_map( 'sanitize_text_field', json_decode( stripslashes( $_POST['data'] ), true ) ) : array();
 
-	$url = add_query_arg( $arguments, $api_domain . 'wp-json/starter-templates/v1/subscribe/' ); // add URL of your site or mail API
+	$url = add_query_arg( $arguments, $api_domain . 'wp-json/starter-templates/v1/subscribe/' ); // add URL of your site or mail API.
 
 	$response = wp_remote_post( $url );
 	if ( ! is_wp_error( $response ) || wp_remote_retrieve_response_code( $response ) === 200 ) {
@@ -54,7 +54,7 @@ add_action( 'wp_ajax_hfe-update-subscription', 'update_subscription' );
  * @since x.x.x
  */
 function get_api_domain() {
-	return apply_filters( 'hfe_api_domain', 'http://multi.test/' );
+	return apply_filters( 'hfe_api_domain', 'http://demo.test/' );
 }
 
 ?>

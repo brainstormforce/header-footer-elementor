@@ -69,7 +69,7 @@
 			} else {
 				parentWrapper.removeClass('subscription-success subscription-anim').addClass('subscription-error');
 
-				if (field.hasClass('hfe-subscribe-email') && fieldValue.length) {
+				if ( field.hasClass('hfe-subscribe-email') && fieldValue.length ) {
 					parentWrapper.addClass('subscription-anim')
 				}
 			}
@@ -88,15 +88,27 @@
 			var submit_button = $(this);
 
 			var is_modal = $( '.hfe-guide-modal-popup.hfe-show' );
-			
-			var email_field = $( '.hfe-guide-content input[name="hfe_subscribe_email"]' );
+
+			var first_name_field = $('.hfe-subscribe-field[name="hfe_subscribe_name"]');
+			var email_field = $('.hfe-subscribe-field[name="hfe_subscribe_email"]');
+			var user_type_field = $('.hfe-subscribe-field[name="wp_user_type"]');
+			var build_for_field = $('.hfe-subscribe-field[name="build_website_for"]');
+
+			var subscription_first_name = first_name_field.val() || '';
 			var subscription_email = email_field.val() || '';
+			var subscription_user_type = user_type_field.val() || '';
+			var subscription_build_for = build_for_field.val() || '';
+
+			HFEAdmin._validate_field( first_name_field );
+			HFEAdmin._validate_field( email_field );
+			HFEAdmin._validate_field( user_type_field );
+			HFEAdmin._validate_field( build_for_field );
 
 			$( '.hfe-subscribe-message' ).remove();
 
-			// if( false === HFEAdmin.addEmailError(subscription_email ) ) {
-			// 	return;
-			// }
+			if ( $( '.hfe-input-container' ).hasClass( 'subscription-error' )) {
+				return;
+			}
 
 			if( ! $( '.hfe-checkbox-container input.hfe-guide-checkbox' ).is( ':checked' ) ) {
 				$( '.hfe-guide-checkbox' ).addClass( 'hfe-error' );
@@ -112,8 +124,12 @@
 			}
 
 			var subscription_fields = {
-				email: subscription_email,
-				source: 'HFE'
+				EMAIL: subscription_email,
+				FIRSTNAME: subscription_first_name,
+				PAGE_BUILDER: hfe_admin_data.default_builder,
+				WP_USER_TYPE: subscription_user_type,
+				BUILD_WEBSITE_FOR: subscription_build_for,
+				SOURCE: hfe_admin_data.data_source
 			};
 
 			$.ajax({
@@ -138,7 +154,7 @@
 				submit_button.removeClass( 'submitting' ).addClass('submitted');
 
 				if( response.success === true ) {
-					$('.hfe-guide-content form').trigger("reset");
+					$('.hfe-subscribe-fieldform').trigger("reset");
 
 					submit_button.after( '<span class="hfe-subscribe-message success">' + hfe_admin_data.subscribe_success + '</span>' );
 				} else {
