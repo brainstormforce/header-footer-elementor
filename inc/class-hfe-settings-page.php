@@ -381,37 +381,34 @@ class HFE_Settings_Page {
 	 */
 	public function hfe_guide_option_callback() {
 		$hfe_radio_button = get_option( 'hfe_guide_option', '1' );
-		$email_placeholder = __( 'Your Work Email', 'header-footer-elementor' );
-		$fname_placeholder = __( 'Your First Name', 'header-footer-elementor' );
 		?>
 		<div class="hfe-subscription-row">
 			<div class="hfe-input-container">
 				<select class="hfe-subscribe-field subscription-input-wp-user-type" name="wp_user_type">
-					<option value="0"><?php esc_html_e( 'I\'m a WordPress:', 'astra-sites' ); ?></option>
-					<option value="1"><?php esc_html_e( 'Beginner', 'astra-sites' ); ?></option>
-					<option value="2"><?php esc_html_e( 'Intermediate', 'astra-sites' ); ?></option>
-					<option value="3"><?php esc_html_e( 'Expert', 'astra-sites' ); ?></option>
+					<option value="0"><?php esc_html_e( 'I\'m a WordPress:', 'header-footer-elementor' ); ?></option>
+					<option value="1"><?php esc_html_e( 'Beginner', 'header-footer-elementor' ); ?></option>
+					<option value="2"><?php esc_html_e( 'Intermediate', 'header-footer-elementor' ); ?></option>
+					<option value="3"><?php esc_html_e( 'Expert', 'header-footer-elementor' ); ?></option>
 				</select>
 			</div>
 			<div class="hfe-input-container">
 				<select class="hfe-subscribe-field subscription-input-build-website-for" name="build_website_for">
-					<option value="0"><?php esc_html_e( 'I\'m building website for:', 'astra-sites' ); ?></option>
-					<option value="1"><?php esc_html_e( 'Myself/My company', 'astra-sites' ); ?></option>
-					<option value="2"><?php esc_html_e( 'My client', 'astra-sites' ); ?></option>
+					<option value="0"><?php esc_html_e( 'I\'m building website for:', 'header-footer-elementor' ); ?></option>
+					<option value="1"><?php esc_html_e( 'Myself/My company', 'header-footer-elementor' ); ?></option>
+					<option value="2"><?php esc_html_e( 'My client', 'header-footer-elementor' ); ?></option>
 				</select>
 			</div>
 		</div>
 		<div class="hfe-subscription-row">
 			<div class="hfe-input-container">
 				<input id="hfe_subscribe_name" class="hfe-subscribe-field hfe-subscribe-name" type="text" name="hfe_subscribe_name" value="<?php echo get_option( 'hfe_guide_fname' ); ?>">
-				<small class="subscription-desc"><?php esc_html_e( 'First name is required', 'astra-sites' ); ?></small>
-				<label class="subscription-label"><?php esc_html_e( 'Your First Name', 'astra-sites' ); ?></label>
+				<small class="subscription-desc"><?php esc_html_e( 'First name is required', 'header-footer-elementor' ); ?></small>
+				<label class="subscription-label"><?php esc_html_e( 'Your First Name', 'header-footer-elementor' ); ?></label>
 			</div>
 			<div class="hfe-input-container">
-				<!-- <div class="hfe-subscribe-email">
-					<span class="dashicons dashicons-email"></span>
-				</div> -->
-				<input id="hfe_subscribe_email" class="hfe-subscribe-field hfe-subscribe-email" type="text" placeholder="<?php echo $email_placeholder; ?>" name="hfe_subscribe_email" value="<?php echo get_option( 'hfe_guide_email' ); ?>">
+				<input id="hfe_subscribe_email" class="hfe-subscribe-field hfe-subscribe-email" type="text" name="hfe_subscribe_email" value="<?php echo get_option( 'hfe_guide_email' ); ?>">
+				<small class="subscription-desc"><?php esc_html_e( 'Email address is required', 'header-footer-elementor' ); ?></small>
+				<label class="subscription-label"><?php esc_html_e( 'Your Work Email', 'header-footer-elementor' ); ?></label>
 			</div>
 		</div>
 		<div class="hfe-checkbox-container">

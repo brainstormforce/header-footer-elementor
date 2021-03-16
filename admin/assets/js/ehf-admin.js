@@ -94,9 +94,9 @@
 
 			$( '.hfe-subscribe-message' ).remove();
 
-			if( false === HFEAdmin.addEmailError(subscription_email ) ) {
-				return;
-			}
+			// if( false === HFEAdmin.addEmailError(subscription_email ) ) {
+			// 	return;
+			// }
 
 			if( ! $( '.hfe-checkbox-container input.hfe-guide-checkbox' ).is( ':checked' ) ) {
 				$( '.hfe-guide-checkbox' ).addClass( 'hfe-error' );
@@ -159,19 +159,19 @@
 		 * Display error if email field is invalid
 		 *
 		 */
-		addEmailError: function( subscription_email ) {
+		// addEmailError: function( subscription_email ) {
 
-			$( '.hfe-input-container' ).removeClass( 'hfe-error' );
+		// 	$( '.hfe-input-container' ).removeClass( 'hfe-error' );
 
-			if( ! subscription_email || false === HFEAdmin.isValidEmail( subscription_email ) ) {
-				$( '.hfe-input-container' ).addClass( 'hfe-error' );
+		// 	if( ! subscription_email || false === HFEAdmin.isValidEmail( subscription_email ) ) {
+		// 		$( '.hfe-input-container' ).addClass( 'hfe-error' );
 
-				return false;
-			}
+		// 		return false;
+		// 	}
 
-			return true;
+		// 	return true;
 
-		},
+		// },
 
 		/**
 		 * email Validation

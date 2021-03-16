@@ -248,6 +248,7 @@ li#toplevel_page_Settings-page,
 }
 input[type="text"].hfe-subscribe-field,
 select.hfe-subscribe-field {
+    text-align: left;
     width: 100%;
     padding: 10px 15px;
     outline: none;
