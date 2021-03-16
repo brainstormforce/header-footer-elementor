@@ -31,8 +31,48 @@
 					$( '.hfe-subscribe-message' ).remove();
 				});
 
+				$(document).on( 'focusout change', '.hfe-subscribe-field', HFEAdmin.validate_single_field);
+				$(document).on( 'click input', '.hfe-subscribe-field', HFEAdmin._animate_fields);
+
 				$( document ).on( 'click', '.hfe-guide-content .button', HFEAdmin._subscribe );
 			});
+
+		},
+
+		_animate_fields: function ( event ) {
+			event.preventDefault();
+			event.stopPropagation();
+			var parentWrapper = $(this).parents( '.hfe-input-container' );
+			parentWrapper.addClass( 'subscription-anim' );
+		},
+
+		validate_single_field: function ( event ) {
+			event.preventDefault();
+			event.stopPropagation();
+			HFEAdmin._validate_field( event.target );
+		},
+
+		_validate_field: function ( target ) {
+
+			var field = $( target );
+			var fieldValue = field.val() || '';
+			var parentWrapper = $(target).parents( '.hfe-input-container' );
+			var fieldStatus = fieldValue.length ? true : false;
+
+			if ((field.hasClass('hfe-subscribe-email') && false === HFEAdmin.isValidEmail( fieldValue ))) {
+				fieldStatus = false;
+			}
+
+			if ( fieldStatus ) {
+				parentWrapper.removeClass('subscription-error').addClass('subscription-success');
+
+			} else {
+				parentWrapper.removeClass('subscription-success subscription-anim').addClass('subscription-error');
+
+				if (field.hasClass('hfe-subscribe-email') && fieldValue.length) {
+					parentWrapper.addClass('subscription-anim')
+				}
+			}
 
 		},
 

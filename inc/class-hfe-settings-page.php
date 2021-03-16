@@ -403,13 +403,15 @@ class HFE_Settings_Page {
 		</div>
 		<div class="hfe-subscription-row">
 			<div class="hfe-input-container">
-				<input id="hfe_subscribe_name" class="hfe-subscribe-field" type="text" placeholder="<?php echo $fname_placeholder; ?>" name="hfe_subscribe_name" value="<?php echo get_option( 'hfe_guide_fname' ); ?>">
+				<input id="hfe_subscribe_name" class="hfe-subscribe-field hfe-subscribe-name" type="text" name="hfe_subscribe_name" value="<?php echo get_option( 'hfe_guide_fname' ); ?>">
+				<small class="subscription-desc"><?php esc_html_e( 'First name is required', 'astra-sites' ); ?></small>
+				<label class="subscription-label"><?php esc_html_e( 'Your First Name', 'astra-sites' ); ?></label>
 			</div>
 			<div class="hfe-input-container">
 				<!-- <div class="hfe-subscribe-email">
 					<span class="dashicons dashicons-email"></span>
 				</div> -->
-				<input id="hfe_subscribe_email" class="hfe-subscribe-field" type="text" placeholder="<?php echo $email_placeholder; ?>" name="hfe_subscribe_email" value="<?php echo get_option( 'hfe_guide_email' ); ?>">
+				<input id="hfe_subscribe_email" class="hfe-subscribe-field hfe-subscribe-email" type="text" placeholder="<?php echo $email_placeholder; ?>" name="hfe_subscribe_email" value="<?php echo get_option( 'hfe_guide_email' ); ?>">
 			</div>
 		</div>
 		<div class="hfe-checkbox-container">

@@ -1,3 +1,103 @@
+
+.hfe-subscription-row .hfe-subscribe-field:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.hfe-subscription-row .hfe-subscribe-field {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 3px;
+    border: 1px solid #585F66;
+    padding: 0 10px;
+    padding: 14px 14px;
+    box-shadow: none;
+    padding: 6px 12px;
+    min-height: 44px;
+    font-size: 14px;
+    font-weight: 400;
+    outline: none;
+    background-color: transparent;
+    background-position: right 10px top 55%;
+    margin: 0;
+}
+
+.subscription-label {
+    color: #585F66;
+    margin: 12px 10px;
+    position: absolute;
+    top: 0;
+    font-weight: 400;
+    padding: 0 5px;
+    font-size: 14px;
+    left: 0;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    pointer-events: none;
+}
+
+.hfe-input-container {
+    position: relative;
+}
+
+.hfe-subscription-row .hfe-input-container:not(.subscription-success, .subscription-error) .hfe-subscribe-field:hover {
+    border-color: #2271b1;
+}
+
+.hfe-subscription-row .hfe-subscribe-field:hover,
+.hfe-subscription-row .hfe-subscribe-field:focus {
+    color: #2c3338;
+}
+
+.subscription-anim .subscription-label {
+    background-color: #f1f3f5;
+    font-size: 12px;
+    line-height: 12px;
+    margin-top: 0;
+    padding: 0 4px;
+    top: -5px;
+    transition: all 0.125s ease;
+    -webkit-transition: all 0.125s ease;
+    color: #2271b1;
+}
+
+.subscription-error .hfe-subscribe-field,
+.subscription-error .hfe-subscribe-field:focus {
+    border-color: red;
+}
+
+.subscription-error .subscription-desc {
+    color: red;
+}
+
+.subscription-anim.subscription-error .subscription-label {
+    color: red;
+}
+.hfe-input-container .subscription-desc {
+    padding-left: 2px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.subscription-success .hfe-subscribe-field,
+.subscription-success .hfe-subscribe-field:focus {
+    border-color: #66a700;
+}
+
+.subscription-anim.subscription-success .subscription-label {
+    color: #66a700;
+}
+
+.hfe-input-container {
+    margin-bottom: 1em;
+}
+
+.hfe-input-container.subscription-error .subscription-desc {
+    opacity: 1;
+    visibility: visible;
+}
+
+
 span.hfe-shortcode-col-wrap > input {
     background: inherit;
     color: inherit;
@@ -102,7 +202,6 @@ li#toplevel_page_Settings-page,
   margin: 0px;
   padding: 0px;
   display: flex;
-  background-color: #f1f3f5;
 }
 .hfe-guide-content .form-table th {
    display: none;
@@ -113,8 +212,8 @@ li#toplevel_page_Settings-page,
     float: none;
 }
 .hfe-input-container {
-    display: -ms-flexbox; /* IE10 */
-    display: flex;
+    /* display: -ms-flexbox;
+    display: flex; */
     width: 100%;
     margin-bottom: 20px;
 }
