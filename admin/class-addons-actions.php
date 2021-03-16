@@ -33,8 +33,6 @@ function update_subscription() {
 
 	$response = wp_remote_post( $url );
 
-	var_dump( $response );
-	
 	if ( ! is_wp_error( $response ) || wp_remote_retrieve_response_code( $response ) === 200 ) {
 		$response = json_decode( wp_remote_retrieve_body( $response ), true );
 
