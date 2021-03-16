@@ -32,6 +32,9 @@ function update_subscription() {
 	$url = add_query_arg( $arguments, $api_domain . 'wp-json/starter-templates/v1/subscribe/' ); // add URL of your site or mail API.
 
 	$response = wp_remote_post( $url );
+
+	var_dump( $response );
+	
 	if ( ! is_wp_error( $response ) || wp_remote_retrieve_response_code( $response ) === 200 ) {
 		$response = json_decode( wp_remote_retrieve_body( $response ), true );
 
@@ -54,7 +57,7 @@ add_action( 'wp_ajax_hfe-update-subscription', 'update_subscription' );
  * @since x.x.x
  */
 function get_api_domain() {
-	return apply_filters( 'hfe_api_domain', 'http://demo.test/' );
+	return apply_filters( 'hfe_api_domain', 'https://astra-sites-multisite.mydomain9.com/' );
 }
 
 ?>

@@ -126,7 +126,7 @@
 			var subscription_fields = {
 				EMAIL: subscription_email,
 				FIRSTNAME: subscription_first_name,
-				PAGE_BUILDER: hfe_admin_data.default_builder,
+				PAGE_BUILDER: "1",
 				WP_USER_TYPE: subscription_user_type,
 				BUILD_WEBSITE_FOR: subscription_build_for,
 				SOURCE: hfe_admin_data.data_source
@@ -154,7 +154,7 @@
 				submit_button.removeClass( 'submitting' ).addClass('submitted');
 
 				if( response.success === true ) {
-					$('.hfe-subscribe-fieldform').trigger("reset");
+					$('.hfe-subscribe-fieldform').trigger( "reset" );
 
 					submit_button.after( '<span class="hfe-subscribe-message success">' + hfe_admin_data.subscribe_success + '</span>' );
 				} else {

@@ -64,7 +64,6 @@ class HFE_Settings_Page {
 			'ajax_url'                        => admin_url( 'admin-ajax.php' ),
 			'nonce'                           => wp_create_nonce( 'hfe-admin-nonce' ),
 			'popup_dismiss'					  => false,
-			'default_builder'				  => 'Elementor',
 			'data_source' 					  => 'HFE'
 		);
 
