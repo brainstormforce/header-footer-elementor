@@ -479,7 +479,7 @@ class HFE_Settings_Page {
 				<div class="hfe-guide-modal-content">
 					<div class="heading">
 						<img src="<?php echo HFE_URL . 'assets/images/settings/plugin-uae.png'; ?>" class="hfe-logo">
-						<h3><?php esc_html_e( 'Elementor - Header & Footer Builder', 'header-footer-elementor' ); ?></h3>
+						<h3><?php esc_html_e( 'Elementor Header & Footer Builder', 'header-footer-elementor' ); ?></h3>
 						<span class="dashicons close dashicons-no-alt hfe-modal-close hfe-close-icon"></span>
 					</div>
 					<?php $this->get_guide_html( 'popup' ); ?>
