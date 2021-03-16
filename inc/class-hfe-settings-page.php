@@ -385,18 +385,22 @@ class HFE_Settings_Page {
 		<div class="hfe-subscription-row">
 			<div class="hfe-input-container">
 				<select class="hfe-subscribe-field subscription-input-wp-user-type" name="wp_user_type">
-					<option value="0"><?php esc_html_e( 'I\'m a WordPress:', 'header-footer-elementor' ); ?></option>
+					<option value=""></option>
 					<option value="1"><?php esc_html_e( 'Beginner', 'header-footer-elementor' ); ?></option>
 					<option value="2"><?php esc_html_e( 'Intermediate', 'header-footer-elementor' ); ?></option>
 					<option value="3"><?php esc_html_e( 'Expert', 'header-footer-elementor' ); ?></option>
 				</select>
+				<small class="subscription-desc"><?php esc_html_e( 'Field is required', 'header-footer-elementor' ); ?></small>
+				<label class="subscription-label"><?php esc_html_e( 'I\'m a WordPress:', 'header-footer-elementor' ); ?></label>
 			</div>
 			<div class="hfe-input-container">
 				<select class="hfe-subscribe-field subscription-input-build-website-for" name="build_website_for">
-					<option value="0"><?php esc_html_e( 'I\'m building website for:', 'header-footer-elementor' ); ?></option>
+					<option value=""></option>
 					<option value="1"><?php esc_html_e( 'Myself/My company', 'header-footer-elementor' ); ?></option>
 					<option value="2"><?php esc_html_e( 'My client', 'header-footer-elementor' ); ?></option>
 				</select>
+				<small class="subscription-desc"><?php esc_html_e( 'Field is required', 'header-footer-elementor' ); ?></small>
+				<label class="subscription-label"><?php esc_html_e( 'I\'m building website for:', 'header-footer-elementor' ); ?></label>
 			</div>
 		</div>
 		<div class="hfe-subscription-row">
