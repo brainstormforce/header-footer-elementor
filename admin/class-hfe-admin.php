@@ -213,7 +213,7 @@ class HFE_Admin {
 
 
 	/**
-	 * Register Post type for header footer & blocks templates
+	 * Register Post type for Elementor Header & Footer Builder templates
 	 */
 	public function header_footer_posttype() {
 		$labels = [
@@ -250,17 +250,17 @@ class HFE_Admin {
 	}
 
 	/**
-	 * Register the admin menu for Header Footer & Blocks builder.
+	 * Register the admin menu for Elementor Header & Footer Builder.
 	 *
 	 * @since  1.0.0
 	 * @since  1.0.1
-	 *         Moved the menu under Appearance -> Header Footer & Blocks Builder
+	 *         Moved the menu under Appearance -> Elementor Header & Footer Builder
 	 */
 	public function register_admin_menu() {
 		add_submenu_page(
 			'themes.php',
-			__( 'Header Footer & Blocks', 'header-footer-elementor' ),
-			__( 'Header Footer & Blocks', 'header-footer-elementor' ),
+			__( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
+			__( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
 			'edit_pages',
 			'edit.php?post_type=elementor-hf'
 		);
@@ -517,7 +517,7 @@ class HFE_Admin {
 	}
 
 	/**
-	 * Don't display the elementor header footer & blocks templates on the frontend for non edit_posts capable users.
+	 * Don't display the elementor Elementor Header & Footer Builder templates on the frontend for non edit_posts capable users.
 	 *
 	 * @since  1.0.0
 	 */

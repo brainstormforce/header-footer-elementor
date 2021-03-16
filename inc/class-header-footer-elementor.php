@@ -167,8 +167,8 @@ class Header_Footer_Elementor {
 							</div>
 						</div>',
 					$image_path,
-					__( 'Hello! Seems like you have used Elementor - Header, Footer & Blocks to build this website — Thanks a ton!', 'header-footer-elementor' ),
-					__( 'Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Elementor - Header, Footer & Blocks.', 'header-footer-elementor' ),
+					__( 'Hello! Seems like you have used Elementor Header & Footer Builder to build this website — Thanks a ton!', 'header-footer-elementor' ),
+					__( 'Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Elementor Header & Footer Builder.', 'header-footer-elementor' ),
 					'https://wordpress.org/support/plugin/header-footer-elementor/reviews/?filter=5#new-post',
 					__( 'Ok, you deserve it', 'header-footer-elementor' ),
 					MONTH_IN_SECONDS,
@@ -249,7 +249,7 @@ class Header_Footer_Elementor {
 			[
 				'id'                         => 'header-footer-install-notice2',
 				'type'                       => 'info',
-				'message'                    => sprintf( __( 'Thank you for installing &nbsp;%1$s Elementor - Header, Footer & Blocks %2$s&nbsp; by Brainstorm Force. &nbsp;%3$sLet\'s get started %4$s!', 'header-footer-elementor' ), '<strong>', '</strong>', '<a href="' . $setting_url . '">', '</a>' ),
+				'message'                    => sprintf( __( 'Thank you for installing &nbsp;%1$s Elementor Header & Footer Builder %2$s&nbsp; by Brainstorm Force. &nbsp;%3$sLet\'s get started %4$s!', 'header-footer-elementor' ), '<strong>', '</strong>', '<a href="' . $setting_url . '">', '</a>' ),
 				'repeat-notice-after'        => false,
 				'priority'                   => 18,
 				'display-with-other-notices' => false,
