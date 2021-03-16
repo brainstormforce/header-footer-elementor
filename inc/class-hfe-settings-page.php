@@ -125,7 +125,7 @@ class HFE_Settings_Page {
 	 * @return void
 	 */
 	public function hfe_compatibility_callback() {
-		_e( 'The Elementor - Header, Footer & Blocks plugin need compatibility with your current theme to work smoothly.</br></br>Following are two methods that enable theme support for the plugin.</br></br>Method 1 is selected by default and that works fine almost will all themes. In case, you face any issue with the header or footer template, try choosing Method 2.', 'header-footer-elementor' );
+		_e( 'The Elementor Header & Footer Builder plugin need compatibility with your current theme to work smoothly.</br></br>Following are two methods that enable theme support for the plugin.</br></br>Method 1 is selected by default and that works fine almost will all themes. In case, you face any issue with the header or footer template, try choosing Method 2.', 'header-footer-elementor' );
 	}
 
 	/**
@@ -229,7 +229,7 @@ class HFE_Settings_Page {
 	 */
 	public function hfe_settings_page() {
 		echo '<h1 class="hfe-heading-inline">';
-		esc_attr_e( 'Elementor - Header, Footer & Blocks ', 'header-footer-elementor' );
+		esc_attr_e( 'Elementor Header & Footer Builder ', 'header-footer-elementor' );
 		echo '</h1>';
 		$this->hfe_tabs();
 		?>
@@ -513,7 +513,7 @@ class HFE_Settings_Page {
 
 			<div class="hfe-admin-column-60">
 				<h3>
-					<?php esc_html_e( 'Hello and Welcome to Elementor - Header, Footer & Blocks, the most friendly Header & Footer builder plugin for Elementor. We build software that helps you create beautiful responsive header & footers for your website in minutes.', 'header-footer-elementor' ); ?>
+					<?php esc_html_e( 'Hello and Welcome to Elementor Header & Footer Builder, the most friendly plugin for Elementor. We build software that helps you create beautiful responsive header & footers for your website in minutes.', 'header-footer-elementor' ); ?>
 				</h3>
 
 				<p>
@@ -527,7 +527,7 @@ class HFE_Settings_Page {
 					printf(
 						wp_kses(
 						/* translators: %1$s - WPBeginner URL; %2$s - OptinMonster URL; %3$s - MonsterInsights URL; %4$s - RafflePress URL. */
-							__( 'Elementor - Header, Footer & Blocks is brought to you by the same team that’s behind the largest WordPress plugins, <a href="%1$s" target="_blank" rel="noopener noreferrer">Ultimate Addons for Gutenberg</a>, the most popular lead-generation software, <a href="%2$s" target="_blank" rel="noopener noreferrer">Ultimate Addons for Beaver Builder</a>, the best WordPress analytics plugin, <a href="%3$s" target="_blank" rel="noopener noreferrer">All in One Schem</a>, and the most powerful WordPress Theme, <a href="%4$s" target="_blank" rel="noopener noreferrer">Astra Theme</a>.', 'header-footer-elementor' ),
+							__( 'Elementor Header & Footer Builder is brought to you by the same team that’s behind the largest WordPress plugins, <a href="%1$s" target="_blank" rel="noopener noreferrer">Ultimate Addons for Gutenberg</a>, the most popular lead-generation software, <a href="%2$s" target="_blank" rel="noopener noreferrer">Ultimate Addons for Beaver Builder</a>, the best WordPress analytics plugin, <a href="%3$s" target="_blank" rel="noopener noreferrer">All in One Schem</a>, and the most powerful WordPress Theme, <a href="%4$s" target="_blank" rel="noopener noreferrer">Astra Theme</a>.', 'header-footer-elementor' ),
 							[
 								'a' => [
 									'href'   => [],
