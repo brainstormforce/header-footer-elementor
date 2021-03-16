@@ -217,20 +217,20 @@ class HFE_Admin {
 	 */
 	public function header_footer_posttype() {
 		$labels = [
-			'name'               => __( 'Elementor - Header Footer & Blocks Template', 'header-footer-elementor' ),
-			'singular_name'      => __( 'Elementor Header Footer & Blocks', 'header-footer-elementor' ),
-			'menu_name'          => __( 'Elementor - Header Footer & Blocks Template', 'header-footer-elementor' ),
-			'name_admin_bar'     => __( 'Elementor Header Footer & Blocks', 'header-footer-elementor' ),
+			'name'               => __( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
+			'singular_name'      => __( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
+			'menu_name'          => __( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
+			'name_admin_bar'     => __( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
 			'add_new'            => __( 'Add New', 'header-footer-elementor' ),
-			'add_new_item'       => __( 'Add New Header, Footer or Block', 'header-footer-elementor' ),
-			'new_item'           => __( 'New Header Footer & Blocks Template', 'header-footer-elementor' ),
-			'edit_item'          => __( 'Edit Header Footer & Blocks Template', 'header-footer-elementor' ),
-			'view_item'          => __( 'View Header Footer & Blocks Template', 'header-footer-elementor' ),
-			'all_items'          => __( 'All Elementor Header Footer & Blocks', 'header-footer-elementor' ),
-			'search_items'       => __( 'Search Header Footer & Blocks Templates', 'header-footer-elementor' ),
-			'parent_item_colon'  => __( 'Parent Header Footer & Blocks Templates:', 'header-footer-elementor' ),
-			'not_found'          => __( 'No Header Footer & Blocks Templates found.', 'header-footer-elementor' ),
-			'not_found_in_trash' => __( 'No Header Footer & Blocks Templates found in Trash.', 'header-footer-elementor' ),
+			'add_new_item'       => __( 'Add New Header or Footer', 'header-footer-elementor' ),
+			'new_item'           => __( 'New Header & Footer Template', 'header-footer-elementor' ),
+			'edit_item'          => __( 'Edit Header & Footer Template', 'header-footer-elementor' ),
+			'view_item'          => __( 'View Header & Footer Template', 'header-footer-elementor' ),
+			'all_items'          => __( 'All Elementor Header & Footer Builder', 'header-footer-elementor' ),
+			'search_items'       => __( 'Search Header & Footer Templates', 'header-footer-elementor' ),
+			'parent_item_colon'  => __( 'Parent Header & Footer Templates:', 'header-footer-elementor' ),
+			'not_found'          => __( 'No Header & Footer Templates found.', 'header-footer-elementor' ),
+			'not_found_in_trash' => __( 'No Header & Footer Templates found in Trash.', 'header-footer-elementor' ),
 		];
 
 		$args = [

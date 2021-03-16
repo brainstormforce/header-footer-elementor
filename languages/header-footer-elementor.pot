@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Elementor Header & Footer Builder 1.5.7\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/header-footer-elementor\n"
-"POT-Creation-Date: 2021-03-16 16:56:20+00:00\n"
+"POT-Creation-Date: 2021-03-16 17:02:59+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -74,12 +74,8 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-#: admin/class-hfe-admin.php:220 admin/class-hfe-admin.php:222
-msgid "Elementor - Header Footer & Blocks Template"
-msgstr ""
-
-#: admin/class-hfe-admin.php:221 admin/class-hfe-admin.php:223
-msgid "Elementor Header Footer & Blocks"
+#. Plugin Name of the plugin/theme
+msgid "Elementor Header & Footer Builder"
 msgstr ""
 
 #: admin/class-hfe-admin.php:224
@@ -87,43 +83,39 @@ msgid "Add New"
 msgstr ""
 
 #: admin/class-hfe-admin.php:225
-msgid "Add New Header, Footer or Block"
+msgid "Add New Header or Footer"
 msgstr ""
 
 #: admin/class-hfe-admin.php:226
-msgid "New Header Footer & Blocks Template"
+msgid "New Header & Footer Template"
 msgstr ""
 
 #: admin/class-hfe-admin.php:227
-msgid "Edit Header Footer & Blocks Template"
+msgid "Edit Header & Footer Template"
 msgstr ""
 
 #: admin/class-hfe-admin.php:228
-msgid "View Header Footer & Blocks Template"
+msgid "View Header & Footer Template"
 msgstr ""
 
 #: admin/class-hfe-admin.php:229
-msgid "All Elementor Header Footer & Blocks"
+msgid "All Elementor Header & Footer Builder"
 msgstr ""
 
 #: admin/class-hfe-admin.php:230
-msgid "Search Header Footer & Blocks Templates"
+msgid "Search Header & Footer Templates"
 msgstr ""
 
 #: admin/class-hfe-admin.php:231
-msgid "Parent Header Footer & Blocks Templates:"
+msgid "Parent Header & Footer Templates:"
 msgstr ""
 
 #: admin/class-hfe-admin.php:232
-msgid "No Header Footer & Blocks Templates found."
+msgid "No Header & Footer Templates found."
 msgstr ""
 
 #: admin/class-hfe-admin.php:233
-msgid "No Header Footer & Blocks Templates found in Trash."
-msgstr ""
-
-#. Plugin Name of the plugin/theme
-msgid "Elementor Header & Footer Builder"
+msgid "No Header & Footer Templates found in Trash."
 msgstr ""
 
 #: admin/class-hfe-admin.php:275
