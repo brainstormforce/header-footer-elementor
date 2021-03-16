@@ -37,7 +37,8 @@
 }
 
 .hfe-input-container {
-    position: relative;
+    position: relative;    
+    width: 100%;
 }
 
 .hfe-subscription-row .hfe-input-container:not(.subscription-success, .subscription-error) .hfe-subscribe-field:hover {
@@ -211,12 +212,10 @@ li#toplevel_page_Settings-page,
     margin-right: 4px;
     float: none;
 }
-.hfe-input-container {
-    /* display: -ms-flexbox;
-    display: flex; */
-    width: 100%;
-    margin-bottom: 20px;
-}
+/* .hfe-input-container {
+    display: -ms-flexbox;
+    display: flex;
+} */
 .hfe-subscription-row {
     display: flex;
 }
