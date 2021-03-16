@@ -445,7 +445,7 @@ class HFE_Settings_Page {
 							<img src="<?php echo HFE_URL; ?>assets/images/settings/our-team.jpg" alt="<?php esc_attr_e( 'Team photo', 'header-footer-elementor' ); ?>">
 						</figure>
 					<?php } else if( 'popup' === $type ) { ?>
-						<h2><?php esc_html_e( 'Get Inspiring & Creative Header & Footer Design Examples.' ); ?></h2>
+						<h2><?php esc_html_e( 'Get Inspiring & Creative Header & Footer Design Examples.', 'header-footer-elementor' ); ?></h2>
 						<p><?php esc_html_e( 'Create different header and footer designs for your site, and customize as per your need.', 'header-footer-elementor' ); ?></p>
 					<?php } ?>
 					

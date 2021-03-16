@@ -1,4 +1,4 @@
-=== Elementor - Header, Footer & Blocks Template ===
+=== Elementor Header & Footer Builder ===
 Contributors: brainstormforce, Nikschavan
 Tags: elementor, header footer builder, header template, footer template, elementor widget, WordPress header, WordPress footer, elementor menu, website header design, footer design, blocks
 Donate link: https://www.paypal.me/BrainstormForce
@@ -245,7 +245,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 - Fix: Blank header being displayed when only footer is translated using WPML.
 
 = 1.1.0 =
-- New: Rename plugin to be Header Footer & Blocks builder as now thee blocks templates can be used as shortcodes.
+- New: Rename plugin to be Header Footer & Blocks builder as now the blocks templates can be used as shortcodes.
 - New: Add templates before the footer for Astra Theme. Options for other themes will be coming soon.
 - New: Use templates (Blocks) anywhere in your content with the help of shortcodes.
 - Improvement: Improved the UI of the metabox for Header Footer post type.
