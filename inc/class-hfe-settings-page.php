@@ -60,7 +60,7 @@ class HFE_Settings_Page {
 
 		$strings = [
 			'subscribe_success' => esc_html__( 'Thanks for Subscribing!', 'header-footer-elementor' ),
-			'subscribe_error'   => esc_html__( 'Please enter all fields.', 'header-footer-elementor' ),
+			'subscribe_error'   => esc_html__( 'Error encountered while submitting the form!', 'header-footer-elementor' ),
 			'ajax_url'          => admin_url( 'admin-ajax.php' ),
 			'nonce'             => wp_create_nonce( 'hfe-admin-nonce' ),
 			'popup_dismiss'     => false,
