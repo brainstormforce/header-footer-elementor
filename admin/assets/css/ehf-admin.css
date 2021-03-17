@@ -9,10 +9,8 @@
     max-width: 100%;
     border-radius: 3px;
     border: 1px solid #585F66;
-    padding: 0 10px;
-    padding: 14px 14px;
+    padding: 10px 15px;
     box-shadow: none;
-    padding: 6px 12px;
     min-height: 44px;
     font-size: 14px;
     font-weight: 400;
@@ -64,15 +62,12 @@
 
 .subscription-error .hfe-subscribe-field,
 .subscription-error .hfe-subscribe-field:focus {
-    border-color: red;
+    border-color: #ff0000;
 }
 
-.subscription-error .subscription-desc {
-    color: red;
-}
-
+.subscription-error .subscription-desc,
 .subscription-anim.subscription-error .subscription-label {
-    color: red;
+    color: #ff0000;
 }
 .hfe-input-container .subscription-desc {
     padding-left: 2px;
@@ -97,8 +92,6 @@
     opacity: 1;
     visibility: visible;
 }
-
-
 span.hfe-shortcode-col-wrap > input {
     background: inherit;
     color: inherit;
@@ -134,13 +127,8 @@ input.hfe-large-text{
     width: 55%;
 }
 
-.hfe-options-table.widefat{
+.hfe-options-table.widefat {
 	border-width: 0;
-}
-
-#ehf-meta-box .inside {
-    margin: 0;
-    padding: 0;
 }
 
 .hfe-options-row-heading label {
@@ -157,10 +145,6 @@ input.hfe-large-text{
     width: 95%;
 }
 
-.hfe_radio_options {
-    display: inline-block;
-}
-
 li#toplevel_page_Settings-page,
 .wp-admin #adminmenu .wp-submenu a[href="themes.php?page=hfe-settings"],
 .wp-admin #adminmenu .wp-submenu a[href="themes.php?page=hfe-guide"],
@@ -169,7 +153,7 @@ li#toplevel_page_Settings-page,
 }
 
 .appearance_page_hfe-settings #adminmenu .wp-submenu a[href ="edit.php?post_type=elementor-hf" ] {
-    color: white;
+    color: #ffffff;
     font-weight: 600;
 }
 
@@ -181,41 +165,31 @@ li#toplevel_page_Settings-page,
     line-height: 1.3;
 }
 
-.hfe-selected-template-type-custom .bsf-target-rules-row,
-.hfe-selected-template-type-custom .enable-for-canvas {
-    display: none;
-}
-
 .hfe-selected-template-type-custom .hfe-shortcode {
     display: table-row;
 }
-.hfe-shortcode {
-    display: none;
-}
 
+.hfe-selected-template-type-custom .bsf-target-rules-row,
+.hfe-selected-template-type-custom .enable-for-canvas,
+.hfe-shortcode,
 .hfe-selected-template-type-none .bsf-target-rules-row,
 .hfe-selected-template-type-none .hfe-shortcode,
-.hfe-selected-template-type-none .enable-for-canvas {
+.hfe-selected-template-type-none .enable-for-canvas,
+.hfe-guide-content .form-table th {
     display: none;
 }
 /* EHF Settings - Step by Step guide */
+#ehf-meta-box .inside,
 .hfe-admin-guide-section.hfe-admin-about-section {
   margin: 0px;
   padding: 0px;
-  display: flex;
-}
-.hfe-guide-content .form-table th {
-   display: none;
 }
 .hfe-guide-content .form-table input[type="checkbox"] {
     margin-top: -4px;
     margin-right: 4px;
     float: none;
 }
-/* .hfe-input-container {
-    display: -ms-flexbox;
-    display: flex;
-} */
+.hfe-admin-guide-section.hfe-admin-about-section,
 .hfe-subscription-row {
     display: flex;
 }
@@ -236,19 +210,6 @@ li#toplevel_page_Settings-page,
     display: flex;
     align-items: center;
 }
-/* .hfe-subscribe-email {
-    padding: 10px 15px;
-    min-width: 50px;
-    text-align: center;
-    border: 1px solid #7e8993;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-right: 0px;
-} */
-/* .hfe-input-container .dashicons-email {    
-    color: #7e8993;
-} */
 input[type="text"].hfe-subscribe-field,
 select.hfe-subscribe-field {
     text-align: left;
@@ -258,6 +219,7 @@ select.hfe-subscribe-field {
     line-height: 1.3;
     margin-left: 0px;
 }
+.hfe_radio_options,
 .hfe-guide-content .hfe_checkbox_options {
     display: inline-block;
 }
@@ -288,7 +250,6 @@ select.hfe-subscribe-field {
     margin: 0 20px 20px;
     padding: 30px;
     background: #fff;
-    /* border: 1px solid #DDDDDD; */
     line-height: 2;
 }
 
@@ -305,16 +266,11 @@ select.hfe-subscribe-field {
     content: " ";
     display: table;
 }
-
-.hfe-clear:after {
+.hfe-clear:after,
+.hfe-admin-columns:after {
     clear: both;
     content: " ";
     display: table;
-}
-.hfe-admin-columns:after {
-  content: "";
-  display: table;
-  clear: both;
 }
 .hfe-admin-columns > div[class*="-column-"] {
     float: left;
@@ -334,11 +290,9 @@ select.hfe-subscribe-field {
 .hfe-admin-about-section figure {
     margin: 0;
 }
-
 .hfe-admin-about-section figure img {
     width: 100%;
 }
-
 .hfe-admin-about-section figure figcaption {
     font-size: 14px;
     color: #686868;
@@ -351,23 +305,8 @@ select.hfe-subscribe-field {
     padding-left: 15px;
 }
 
-@media (max-width: 767px) {
-    .hfe-admin-about-section .hfe-admin-column-40 {
-        width: 100%;
-        padding-left: 0;
-        padding-top: 20px;
-    }
-}
-
 .hfe-admin-about-section .hfe-admin-column-60 {
     padding-right: 15px;
-}
-
-@media (max-width: 767px) {
-    .hfe-admin-about-section .hfe-admin-column-60 {
-        width: 100%;
-        padding-right: 0;
-    }
 }
 
 .hfe-admin-about-section *, 
@@ -394,66 +333,10 @@ select.hfe-subscribe-field {
     padding: 10px;
 }
 
-#hfe-admin-addons .addon-item img[src*="-mi"] {
+#hfe-admin-addons .addon-item img {
     padding: 13px;  
 }
 
-#hfe-admin-addons .addon-item .action-button .button {
-    display: inline-block;
-    text-decoration: none;
-    font-size: 13px;
-    line-height: 26px;
-    height: 28px;
-    margin: 0;
-    padding: 0 10px 1px;
-    box-shadow: 0 1px 0 #cccccc;
-    cursor: pointer;
-    -webkit-appearance: none;
-    border-radius: 3px;
-    border: 1px solid #cccccc;
-    background: #f7f7f7;
-    font-weight: normal;
-}
-
-#hfe-admin-addons .addon-item .action-button .button:hover, 
-#hfe-admin-addons .addon-item .action-button .button:focus {
-    background: #fafafa;
-    border-color: #999;
-    color: #23282d;
-}
-
-#hfe-admin-addons .addon-item .action-button .button.button-primary {
-    background: #0085ba;
-    border-color: #0073aa #006799 #006799;
-    box-shadow: 0 1px 0 #006799;
-    color: #fff;
-    text-shadow: 0 -1px 1px #006799, 1px 0 1px #006799, 0 1px 1px #006799, -1px 0 1px #006799;
-}
-
-#hfe-admin-addons .addon-item .action-button .button.button-primary:hover, 
-#hfe-admin-addons .addon-item .action-button .button.button-primary:focus {
-    background: #008ec2;
-    border-color: #006799;
-    color: #fff;
-}
-
-#hfe-admin-addons .addon-item .action-button .button.button-secondary {
-    color: #555;
-    border-color: #cccccc;
-    background: #f7f7f7;
-    box-shadow: 0 1px 0 #cccccc;
-}
-
-#hfe-admin-addons .addon-item .action-button .button.button-secondary:hover, 
-#hfe-admin-addons .addon-item .action-button .button.button-secondary:focus {
-    background: #fafafa;
-    border-color: #999;
-    color: #23282d;
-}
-
-#hfe-admin-addons .addon-item .action-button .button.disabled {
-    cursor: default;
-}
 #hfe-admin-addons .website-link {
     width: 100%;
     text-align: right;
@@ -469,11 +352,10 @@ select.hfe-subscribe-field {
 #hfe-admin-addons #hfe-admin-addons-list .list {
   display: flex;
   flex-wrap: wrap;
-  margin-left: -20px;
-  margin-right: -20px;
 }
 
-#hfe-admin-addons .addons-container {
+#hfe-admin-addons .addons-container,
+#hfe-admin-addons #hfe-admin-addons-list .list {
   margin-left: -20px;
   margin-right: -20px;
 }
@@ -483,19 +365,6 @@ select.hfe-subscribe-field {
   float: left;
   width: 33.333333%;
   margin-bottom: 20px;
-}
-
-@media (max-width: 1249px) {
-  #hfe-admin-addons .addon-container {
-    width: 50%;
-  }
-}
-
-@media (max-width: 767px) {
-  #hfe-admin-addons .addon-container {
-    width: 100%;
-    margin-bottom: 20px;
-  }
 }
 
 #hfe-admin-addons h4 {
@@ -509,13 +378,6 @@ select.hfe-subscribe-field {
   border-radius: 3px;
   margin: 0;
 }
-
-@media (max-width: 767px) {
-  #hfe-admin-addons .addon-item {
-    margin: 0 0;
-  }
-}
-
 #hfe-admin-addons .addon-item img {
   border: 1px solid #eee;
   float: left;
@@ -615,7 +477,6 @@ span.dashicons.dashicons-no {
     position: relative;
     margin: 0 auto;
     transition: all .5s;
-    /* left: 5%; */
 }
 .hfe-guide-modal-popup-wrapper {
     z-index: 99999;
@@ -725,15 +586,45 @@ span.hfe-star-icons {
     color: #ffb900;
     font-size: 15px;
 }
+
+@media (max-width: 1249px) {
+    #hfe-admin-addons .addon-container {
+      width: 50%;
+    }
+}
+  
+@media (max-width: 767px) {
+    #hfe-admin-addons .addon-container {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .hfe-admin-about-section .hfe-admin-column-40 {
+        width: 100%;
+        padding-left: 0;
+        padding-top: 20px;
+    }
+    .hfe-admin-about-section .hfe-admin-column-60 {
+        width: 100%;
+        padding-right: 0;
+    }
+    #hfe-admin-addons .addon-item {
+        margin: 0 0;
+    }
+}
+
 @media screen and ( max-width: 782px ) {
-    .hfe-guide-modal-content p.button {
+    .hfe-subscription-row {
+        display: block;
+    }
+    .hfe-guide-modal-popup-wrapper p.button {
         padding-bottom: 0px;
     }
     .hfe-admin-guide-section .hfe-admin-column-50:not(.hfe-admin-column-last) {
         border-right: 0px;
     }
     .hfe-admin-guide-section.hfe-admin-columns .hfe-admin-column-50,
-    .hfe-guide-modal-popup-wrapper .hfe-admin-columns .hfe-admin-column-50.hfe-admin-column-last {
+    .hfe-guide-modal-popup-wrapper .hfe-admin-columns .hfe-admin-column-50.hfe-admin-column-last,
+    .hfe-subscription-row .hfe-input-container {
         width: 100%;
     }
     .hfe-subscribe-email span.dashicons.dashicons-email {
@@ -779,5 +670,11 @@ span.hfe-star-icons {
     }
     .hfe-admin-columns .hfe-admin-column-last {
         padding-top: 0px;
+    }
+    .hfe-admin-guide-section .hfe-admin-column-50:not(.hfe-admin-column-last) {
+        padding: 30px;
+    }
+    .hfe-subscription-row select.hfe-subscribe-field {
+        padding: 10px 15px;
     }
 }
