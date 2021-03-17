@@ -247,7 +247,7 @@ class Header_Footer_Elementor {
 
 		Astra_Notices::add_notice(
 			[
-				'id'                         => 'header-footer-install-notice2',
+				'id'                         => 'header-footer-install-notice',
 				'type'                       => 'info',
 				/* translators: %s: html tags */
 				'message'                    => sprintf( __( 'Thank you for installing &nbsp;%1$s Elementor Header & Footer Builder %2$s&nbsp; by Brainstorm Force. &nbsp;%3$sLet\'s get started %4$s!', 'header-footer-elementor' ), '<strong>', '</strong>', '<a href="' . $setting_url . '">', '</a>' ),
