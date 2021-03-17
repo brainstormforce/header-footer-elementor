@@ -137,6 +137,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 5. Default widgets available with Elementor Header & Footer Builder.
 
 == Changelog ==
+= 1.5.8 =
+- Improvement: Rename plugin to Elementor Header & Footer builder.
+
 = 1.5.7 =
 - Improvement: Compatibility with Elementor v3.1.
 - Fix: Navigation Menu - Undefined index notice when menu is not set.
