@@ -79,8 +79,6 @@ class Header_Footer_Elementor {
 			}
 
 			add_action( 'admin_notices', [ $this, 'show_setup_wizard' ] );
-			add_action( 'admin_init', [ $this, 'hfe_notice_dismissed' ] );
-
 			// Scripts and styles.
 			add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
 
@@ -113,22 +111,6 @@ class Header_Footer_Elementor {
 	 */
 	public function reset_unsupported_theme_notice() {
 		delete_user_meta( get_current_user_id(), 'unsupported-theme' );
-	}
-
-	/**
-	 * Save an option when notice dismissed.
-	 *
-	 * @since x.x.x
-	 *
-	 * @return void
-	 */
-	function hfe_notice_dismissed() {
-		if ( isset( $_GET['my-plugin-dismissed'] ) ) {
-			if ( get_option( 'myplugin_data_1' ) == '' ) {
-				update_option( 'myplugin_data_1', [] );
-			}
-			update_option( 'myplugin_activated', time() );
-		}
 	}
 
 	/**
