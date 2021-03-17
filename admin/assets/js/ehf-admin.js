@@ -172,24 +172,6 @@
 		},
 
 		/**
-		 * Display error if email field is invalid
-		 *
-		 */
-		// addEmailError: function( subscription_email ) {
-
-		// 	$( '.hfe-input-container' ).removeClass( 'hfe-error' );
-
-		// 	if( ! subscription_email || false === HFEAdmin.isValidEmail( subscription_email ) ) {
-		// 		$( '.hfe-input-container' ).addClass( 'hfe-error' );
-
-		// 		return false;
-		// 	}
-
-		// 	return true;
-
-		// },
-
-		/**
 		 * email Validation
 		 *
 		 */
@@ -240,7 +222,7 @@
 					modal_wrapper.removeClass( 'hfe-show' );
 				}
 
-				// window.location = new_page_link;
+				window.location = new_page_link;
 			});
 		},
 
