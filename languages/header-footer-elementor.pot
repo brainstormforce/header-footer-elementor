@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Elementor Header & Footer Builder 1.5.7\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/header-footer-elementor\n"
-"POT-Creation-Date: 2021-03-16 17:02:59+00:00\n"
+"POT-Creation-Date: 2021-03-18 17:18:02+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -216,53 +216,54 @@ msgstr ""
 msgid "Template %1$s is already assigned to the location %2$s"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:170
+#: inc/class-header-footer-elementor.php:152
 msgid ""
 "Hello! Seems like you have used Elementor Header & Footer Builder to build "
 "this website — Thanks a ton!"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:171
+#: inc/class-header-footer-elementor.php:153
 msgid ""
 "Could you please do us a BIG favor and give it a 5-star rating on "
 "WordPress? This would boost our motivation and help other users make a "
 "comfortable decision while choosing the Elementor Header & Footer Builder."
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:173
+#: inc/class-header-footer-elementor.php:155
 msgid "Ok, you deserve it"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:175
+#: inc/class-header-footer-elementor.php:157
 msgid "Nope, maybe later"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:176
+#: inc/class-header-footer-elementor.php:158
 msgid "I already did"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:211
+#: inc/class-header-footer-elementor.php:193
 #. translators: %s: html tags
 msgid ""
-"The %1$sElementor - Header Footer and Blocks%2$s plugin requires "
+"The %1$sElementor Header & Footer Builder%2$s plugin requires "
 "%1$sElementor%2$s plugin installed & activated."
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:218
+#: inc/class-header-footer-elementor.php:200
 msgid "Activate Elementor"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:223
+#: inc/class-header-footer-elementor.php:205
 msgid "Install Elementor"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:252
+#: inc/class-header-footer-elementor.php:235
+#. translators: %s: html tags
 msgid ""
 "Thank you for installing &nbsp;%1$s Elementor Header & Footer Builder "
 "%2$s&nbsp; by Brainstorm Force. &nbsp;%3$sLet's get started %4$s!"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:396
+#: inc/class-header-footer-elementor.php:379
 msgid "Theme Support"
 msgstr ""
 
@@ -271,7 +272,7 @@ msgid "Thanks for Subscribing!"
 msgstr ""
 
 #: inc/class-hfe-settings-page.php:63
-msgid "Please enter all fields."
+msgid "Error encountered while submitting the form!"
 msgstr ""
 
 #: inc/class-hfe-settings-page.php:108
@@ -397,21 +398,21 @@ msgstr ""
 msgid " By entering your email, you agree to our privacy policy"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:442
+#: inc/class-hfe-settings-page.php:443
 msgid ""
 "Learn the Art of Designing Custom Header & Footer with this Free Plugin ( "
 "Video Tutorial )"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:445 inc/class-hfe-settings-page.php:553
+#: inc/class-hfe-settings-page.php:446 inc/class-hfe-settings-page.php:553
 msgid "Team photo"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:448
+#: inc/class-hfe-settings-page.php:449
 msgid "Get Inspiring & Creative Header & Footer Design Examples."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:449
+#: inc/class-hfe-settings-page.php:450
 msgid ""
 "Create different header and footer designs for your site, and customize as "
 "per your need."
