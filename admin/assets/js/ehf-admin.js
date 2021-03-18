@@ -208,15 +208,6 @@
 		
 			// Close popup and redirect to edit page.
 			close_button.on( 'click', function(e) {
-				
-				$.ajax({
-					url: hfe_admin_data.ajax_url,
-					type: 'POST',
-					data: {
-						action  : 'hfe_admin_modal',
-						nonce   : hfe_admin_data.nonce,
-					},
-				});
 
 				HFEAdmin._close_modal();
 			});
@@ -229,6 +220,15 @@
 		 _close_modal: function() {
 			var modal_wrapper = $( '.hfe-guide-modal-popup' );
 			var new_page_link = modal_wrapper.data( 'new-page' );
+				
+			$.ajax({
+				url: hfe_admin_data.ajax_url,
+				type: 'POST',
+				data: {
+					action  : 'hfe_admin_modal',
+					nonce   : hfe_admin_data.nonce,
+				},
+			});
 		
 			if( modal_wrapper.hasClass( 'hfe-show' ) ) {
 				modal_wrapper.removeClass( 'hfe-show' );
