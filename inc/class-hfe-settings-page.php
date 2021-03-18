@@ -138,7 +138,7 @@ class HFE_Settings_Page {
 	 */
 	public function hfe_compatibility_option_callback() {
 		$hfe_radio_button = get_option( 'hfe_compatibility_option', '1' );
-			wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'admin/assets/css/ehf-admin.css', [], HFE_VER );
+		wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'admin/assets/css/ehf-admin.css', [], HFE_VER );
 		?>
 
 		<label>
