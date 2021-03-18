@@ -337,10 +337,6 @@ select.hfe-subscribe-field {
     padding: 13px;  
 }
 
-#hfe-admin-addons .website-link {
-    width: 100%;
-    text-align: right;
-}
 #hfe-admin-addons *,
 #hfe-admin-addons *::before,
 #hfe-admin-addons *::after {
@@ -385,7 +381,7 @@ select.hfe-subscribe-field {
 }
 
 #hfe-admin-addons .addon-item h5 {
-  margin: 0 0 10px 100px;
+  margin: 0 0 15px 100px;
   font-size: 16px;
 }
 
@@ -393,11 +389,15 @@ select.hfe-subscribe-field {
   margin: 0 0 0 100px;
 }
 
+#hfe-admin-addons .website-link {
+    margin: 15px 0 0 100px;
+}
+
 #hfe-admin-addons .addon-item .details {
   padding: 30px 20px;
 }
 
-#hfe-admin-addons .addon-item .actions {
+/* #hfe-admin-addons .addon-item .actions {
   display: flex;
   align-items: center;
   background-color: #f7f7f7;
@@ -405,7 +405,7 @@ select.hfe-subscribe-field {
   padding: 0px 20px;
   min-height: 50px;
   position: relative;
-}
+} */
 
 /* Modal Popup */
 .hfe-modal-close {

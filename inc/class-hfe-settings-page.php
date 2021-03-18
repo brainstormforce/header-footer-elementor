@@ -590,11 +590,7 @@ class HFE_Settings_Page {
 							<div class="details hfe-clear">
 								<img src="<?php echo esc_url( $plugin_data['details']['icon'] ); ?>">
 								<h5 class="addon-name"><?php echo esc_html( $plugin_data['details']['name'] ); ?></h5>
-								<p class="addon-desc">
-									<?php echo wp_kses_post( $plugin_data['details']['desc'] ); ?>
-								</p>
-							</div>
-							<div class="actions hfe-clear">
+								<p class="addon-desc"><?php echo wp_kses_post( $plugin_data['details']['desc'] ); ?></p>
 								<div class="website-link">
 									<?php
 									printf(
