@@ -154,7 +154,8 @@
 				submit_button.removeClass( 'submitting' ).addClass('submitted');
 
 				if( response.success === true ) {
-					$('.hfe-subscribe-fieldform').trigger( "reset" );
+					$('.hfe-admin-about-section form').trigger( "reset" );
+					$( '.hfe-input-container' ).removeClass( 'subscription-success subscription-anim' );
 
 					submit_button.after( '<span class="hfe-subscribe-message success">' + hfe_admin_data.subscribe_success + '</span>' );
 				} else {
