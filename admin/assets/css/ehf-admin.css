@@ -219,12 +219,23 @@ select.hfe-subscribe-field {
     line-height: 1.3;
     margin-left: 0px;
 }
-.hfe_radio_options,
-.hfe-guide-content .hfe_checkbox_options {
-    display: inline-block;
-}
 .hfe-guide-content p.submit {
     text-align: center;
+    margin-top: 0px;
+}
+.hfe-privacy-policy-container {
+    margin-top: 0.8em;
+    text-align: center;
+}
+.hfe-privacy-policy-container p {
+    margin: 0;
+}
+.button-subscription-skip:focus {
+    box-shadow: none;
+}
+.button-subscription-skip {
+    margin-top: .8em;
+    display: inline-block;
 }
 .hfe-guide-content input#submit {
     text-transform: uppercase;

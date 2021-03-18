@@ -31,10 +31,14 @@
 					$( '.hfe-subscribe-message' ).remove();
 				});
 
-				$(document).on( 'focusout change', '.hfe-subscribe-field', HFEAdmin.validate_single_field);
-				$(document).on( 'click input', '.hfe-subscribe-field', HFEAdmin._animate_fields);
+				$(document).on( 'focusout change', '.hfe-subscribe-field', HFEAdmin.validate_single_field );
+				$(document).on( 'click input', '.hfe-subscribe-field', HFEAdmin._animate_fields );
 
 				$( document ).on( 'click', '.hfe-guide-content .button', HFEAdmin._subscribe );
+				$( document ).on( 'click', '.hfe-guide-content .button', HFEAdmin._subscribe );
+
+				$( document ).on('click', '.hfe-guide-content .button-subscription-skip', HFEAdmin._close_modal );
+
 			});
 
 		},
@@ -107,11 +111,6 @@
 			$( '.hfe-subscribe-message' ).remove();
 
 			if ( $( '.hfe-input-container' ).hasClass( 'subscription-error' )) {
-				return;
-			}
-
-			if( ! $( '.hfe-checkbox-container input.hfe-guide-checkbox' ).is( ':checked' ) ) {
-				$( '.hfe-guide-checkbox' ).addClass( 'hfe-error' );
 				return;
 			}
 
@@ -219,12 +218,23 @@
 					},
 				});
 
-				if( modal_wrapper.hasClass( 'hfe-show' ) ) {
-					modal_wrapper.removeClass( 'hfe-show' );
-				}
-
-				window.location = new_page_link;
+				HFEAdmin._close_modal();
 			});
+		},
+
+		/**
+		 * Close the Modal Popup
+		 *
+		 */
+		 _close_modal: function() {
+			var modal_wrapper = $( '.hfe-guide-modal-popup' );
+			var new_page_link = modal_wrapper.data( 'new-page' );
+		
+			if( modal_wrapper.hasClass( 'hfe-show' ) ) {
+				modal_wrapper.removeClass( 'hfe-show' );
+			}
+
+			window.location = new_page_link;
 		},
 
 	};

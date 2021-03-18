@@ -108,7 +108,6 @@ class HFE_Settings_Page {
 		add_settings_section( 'hfe-options', __( 'Add Theme Support', 'header-footer-elementor' ), [ $this, 'hfe_compatibility_callback' ], 'Settings' );
 		add_settings_field( 'hfe-way', 'Methods to Add Theme Support', [ $this, 'hfe_compatibility_option_callback' ], 'Settings', 'hfe-options' );
 
-		register_setting( 'hfe-plugin-guide', 'hfe_guide_option' );
 		register_setting( 'hfe-plugin-guide', 'hfe_guide_email' );
 		register_setting( 'hfe-plugin-guide', 'hfe_guide_fname' );
 
@@ -381,7 +380,6 @@ class HFE_Settings_Page {
 	 * @return void
 	 */
 	public function hfe_guide_option_callback() {
-		$hfe_radio_button = get_option( 'hfe_guide_option', '1' );
 		?>
 		<div class="hfe-subscription-row">
 			<div class="hfe-input-container">
@@ -415,9 +413,6 @@ class HFE_Settings_Page {
 				<small class="subscription-desc"><?php esc_html_e( 'Email address is required', 'header-footer-elementor' ); ?></small>
 				<label class="subscription-label"><?php esc_html_e( 'Your Work Email', 'header-footer-elementor' ); ?></label>
 			</div>
-		</div>
-		<div class="hfe-checkbox-container">
-			<input type="checkbox" name="hfe_guide_option" class="hfe-guide-checkbox" value= 1 <?php checked( $hfe_radio_button, 1 ); ?> > <div class="hfe_checkbox_options"><?php esc_html_e( ' By entering your email, you agree to our privacy policy', 'header-footer-elementor' ); ?></div>
 		</div>
 
 		<?php
@@ -458,6 +453,14 @@ class HFE_Settings_Page {
 						<?php settings_fields( 'hfe-plugin-guide' ); ?>
 							<?php do_settings_sections( 'Step-By-Step Guide' ); ?>
 						<?php submit_button( 'Download This Guide & Start Brainstorming' ); ?>
+						<div class="hfe-privacy-policy-container">
+							<?php /* translators: %1$s and %3$s are opening anchor tags, and %2$s and %4$s is closing anchor tags. */ ?>
+
+							<p><?php printf( __( 'By submitting, you agree to our %1$sTerms%2$s and %3$sPrivacy Policy%4$s.', 'header-footer-elementor' ), '<a href="https://store.brainstormforce.com/terms-and-conditions/" target="_blank">', '</a>', '<a href="https://store.brainstormforce.com/privacy-policy/" target="_blank">', '</a>' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+							<?php if ( 'popup' === $type ) { ?>
+								<a href="#" class="button-subscription-skip"><?php esc_html_e( 'Skip', 'header-footer-elementor' ); ?></a>
+							<?php } ?>
+						</div>
 					</form>
 				</div>
 			</div>
