@@ -83,10 +83,6 @@
 .subscription-anim.subscription-success .subscription-label {
     color: #66a700;
 }
-/* 
-.hfe-input-container {
-    margin-bottom: 1em;
-} */
 
 .hfe-input-container.subscription-error .subscription-desc {
     opacity: 1;
@@ -238,7 +234,7 @@ select.hfe-subscribe-field {
 }
 .hfe-guide-content input.button {
     text-transform: uppercase;
-    padding: 6px 15px;
+    padding: 10px 20px;
 }
 .hfe-guide-content input.button.submitting {
     margin-right: 3px;
@@ -512,10 +508,6 @@ span.dashicons.dashicons-no {
 .hfe-guide-content-header {
     margin-bottom: 15px;
 }
-.hfe-admin-guide-section .button {
-    text-transform: uppercase;
-    padding: 10px 20px;
-}
 .hfe-guide-modal-popup-wrapper .hfe-guide-content {
     background-color: #ffffff;
     box-shadow: 0 2px 30px 0 rgb(0 0 0 / 8%);
@@ -556,23 +548,18 @@ span.dashicons.dashicons-no {
 .hfe-guide-modal-popup-wrapper .hfe-admin-about-section-column {
     padding-bottom: 20px;
 }
-.hfe-guide-modal-popup-wrapper .hfe-subscription-step-1-active .hfe-subscription-step-2 {
-    display: none;
-}
+.hfe-guide-modal-popup-wrapper .hfe-subscription-step-1-active .hfe-subscription-step-2,
 .hfe-guide-modal-popup-wrapper .hfe-subscription-step-2-active .hfe-subscription-step-1 {
     display: none;
 }
 /* Limited this only for modal Popup */
-.hfe-guide-modal-popup-wrapper .hfe-subscription-row .hfe-input-container {
-    width: 100%;
-}
+.hfe-guide-modal-popup-wrapper .hfe-subscription-row .hfe-input-container,
 .hfe-guide-modal-popup-wrapper .button {
     width: 100%;
 }
 .hfe-guide-modal-popup-wrapper .hfe-subscription-row {
     display: block;
 }
-
 .hfe-admin-about-section-column h2 {
     font-size: 25px;
 }

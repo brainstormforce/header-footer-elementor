@@ -34,7 +34,6 @@
 				$(document).on( 'focusout change', '.hfe-subscribe-field', HFEAdmin.validate_single_field );
 				$(document).on( 'click input', '.hfe-subscribe-field', HFEAdmin._animate_fields );
 
-				// $( document ).on( 'click', '.hfe-guide-content .button', HFEAdmin._subscribe );
 				$( document ).on( 'click', '.hfe-guide-content .submit-1', HFEAdmin._step_one_subscribe );
 				$( document ).on( 'click', '.hfe-guide-content .submit-2', HFEAdmin._step_two_subscribe );
 
