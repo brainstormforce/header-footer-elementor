@@ -34,8 +34,9 @@
 				$(document).on( 'focusout change', '.hfe-subscribe-field', HFEAdmin.validate_single_field );
 				$(document).on( 'click input', '.hfe-subscribe-field', HFEAdmin._animate_fields );
 
-				$( document ).on( 'click', '.hfe-guide-content .button', HFEAdmin._subscribe );
-				$( document ).on( 'click', '.hfe-guide-content .button', HFEAdmin._subscribe );
+				// $( document ).on( 'click', '.hfe-guide-content .button', HFEAdmin._subscribe );
+				$( document ).on( 'click', '.hfe-guide-content .submit-1', HFEAdmin._step_one_subscribe );
+				$( document ).on( 'click', '.hfe-guide-content .submit-2', HFEAdmin._step_two_subscribe );
 
 				$( document ).on('click', '.hfe-guide-content .button-subscription-skip', HFEAdmin._close_modal );
 
@@ -81,10 +82,34 @@
 		},
 
 		/**
+		 * Subscribe Form Step One
+		 *
+		 */
+		_step_one_subscribe: function( event ) {
+			event.preventDefault();
+			event.stopPropagation();
+
+			var form_one_wrapper = $( '.hfe-subscription-step-1' );
+
+			var first_name_field = form_one_wrapper.find( '.hfe-subscribe-field[name="hfe_subscribe_name"]' );
+			var email_field = form_one_wrapper.find( '.hfe-subscribe-field[name="hfe_subscribe_email"]' );
+
+			HFEAdmin._validate_field( first_name_field );
+			HFEAdmin._validate_field( email_field );
+
+			if ( form_one_wrapper.find( '.hfe-input-container' ).hasClass( 'subscription-error' )) {
+				return;
+			}
+
+			$( '.hfe-guide-content' ).addClass( 'hfe-subscription-step-2-active' ).removeClass( 'hfe-subscription-step-1-active' );
+
+		},
+
+		/**
 		 * Subscribe Form
 		 *
 		 */
-		_subscribe: function( event ) {
+		 _step_two_subscribe: function( event ) {
 
 			event.preventDefault();
 			event.stopPropagation();
