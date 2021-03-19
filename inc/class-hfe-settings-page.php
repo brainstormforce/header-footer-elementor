@@ -402,15 +402,16 @@ class HFE_Settings_Page {
 	 * @param string $type Page or Popup.
 	 * @return void
 	 */
-	public function get_form_html( $type ) { ?>
+	public function get_form_html( $type ) {
+		?>
 		<div class="hfe-guide-content-header hfe-admin-columns">
 			<h3><?php esc_html_e( 'Get Inspiring & Creative Header & Footer Design Examples ( With 11 Research-Based Tips ).', 'header-footer-elementor' ); ?></h3>
 		</div>
 
 		<?php $this->get_form_row_1( $type ); ?>
 		<?php $this->get_form_row_2( $type ); ?>
-		
-	<?php }
+		<?php
+	}
 
 	/**
 	 * Function for form Row 1 HTML
@@ -419,7 +420,8 @@ class HFE_Settings_Page {
 	 * @param string $type Page or Popup.
 	 * @return void
 	 */
-	public function get_form_row_1( $type ) { ?>
+	public function get_form_row_1( $type ) {
+		?>
 
 		<div class="hfe-subscription-step-1">
 			<div class="hfe-subscription-row">
@@ -444,13 +446,14 @@ class HFE_Settings_Page {
 				</div>
 			</div>
 
-			<?php if( 'popup' === $type ) { ?>
+			<?php if ( 'popup' === $type ) { ?>
 				<p class="submit">
 					<input type="submit" name="submit-1" id="submit-1" class="button submit-1 button-primary" value="Next">
 				</p>
 			<?php } ?>
 		</div>
-	<?php }
+		<?php
+	}
 
 	/**
 	 * Function for form Row 2 HTML
@@ -459,7 +462,8 @@ class HFE_Settings_Page {
 	 * @param string $type Page or Popup.
 	 * @return void
 	 */
-	public function get_form_row_2( $type ) { ?>
+	public function get_form_row_2( $type ) {
+		?>
 		<div class="hfe-subscription-step-2">
 			<div class="hfe-subscription-row">
 				<div class="hfe-input-container">
@@ -484,7 +488,8 @@ class HFE_Settings_Page {
 				<a href="#" class="button-subscription-skip"><?php esc_html_e( 'Skip', 'header-footer-elementor' ); ?></a>
 			<?php } ?>
 		</div>
-	<?php }
+		<?php
+	}
 
 
 	/**
