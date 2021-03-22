@@ -36,7 +36,7 @@ function update_subscription() {
 
 	$url = add_query_arg( $arguments, $api_domain . 'wp-json/starter-templates/v1/subscribe/' ); // add URL of your site or mail API.
 
-	$response = wp_remote_post( $url, array( 'timeout' => 60 ) );
+	$response = wp_remote_post( $url, [ 'timeout' => 60 ] );
 
 	if ( ! is_wp_error( $response ) || wp_remote_retrieve_response_code( $response ) === 200 ) {
 		$response = json_decode( wp_remote_retrieve_body( $response ), true );

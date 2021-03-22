@@ -111,8 +111,6 @@ class HFE_Settings_Page {
 		register_setting( 'hfe-plugin-guide', 'hfe_guide_email' );
 		register_setting( 'hfe-plugin-guide', 'hfe_guide_fname' );
 
-		add_settings_section( 'hfe-guide-options', '', [ $this, 'hfe_guide_callback' ], 'Step-By-Step Guide' );
-		add_settings_field( 'hfe-guide', '', [ $this, 'hfe_guide_option_callback' ], 'Step-By-Step Guide', 'hfe-guide-options' );
 	}
 
 	/**
@@ -356,69 +354,6 @@ class HFE_Settings_Page {
 	}
 
 	/**
-	 * Call back function for the ssettings api function add_settings_section
-	 *
-	 * This function can be used to add description of the settings sections
-	 *
-	 * @since x.x.x
-	 * @return void
-	 */
-	public function hfe_guide_callback() {
-		?>
-		<div class="hfe-guide-content-header hfe-admin-columns">
-			<h3><?php esc_html_e( 'Get Inspiring & Creative Header & Footer Design Examples ( With 11 Research-Based Tips ).', 'header-footer-elementor' ); ?></h3>
-		</div>
-		<?php
-	}
-
-	/**
-	 * Call back function for the ssettings api function add_settings_field
-	 *
-	 * This function will contain the markup for the input feilds that we can add.
-	 *
-	 * @since x.x.x
-	 * @return void
-	 */
-	public function hfe_guide_option_callback() {
-		?>
-		<div class="hfe-subscription-row">
-			<div class="hfe-input-container">
-				<select class="hfe-subscribe-field subscription-input-wp-user-type" name="wp_user_type">
-					<option value=""></option>
-					<option value="1"><?php esc_html_e( 'Beginner', 'header-footer-elementor' ); ?></option>
-					<option value="2"><?php esc_html_e( 'Intermediate', 'header-footer-elementor' ); ?></option>
-					<option value="3"><?php esc_html_e( 'Expert', 'header-footer-elementor' ); ?></option>
-				</select>
-				<small class="subscription-desc"><?php esc_html_e( 'Field is required', 'header-footer-elementor' ); ?></small>
-				<label class="subscription-label"><?php esc_html_e( 'I\'m a WordPress:', 'header-footer-elementor' ); ?></label>
-			</div>
-			<div class="hfe-input-container">
-				<select class="hfe-subscribe-field subscription-input-build-website-for" name="build_website_for">
-					<option value=""></option>
-					<option value="1"><?php esc_html_e( 'Myself/My company', 'header-footer-elementor' ); ?></option>
-					<option value="2"><?php esc_html_e( 'My client', 'header-footer-elementor' ); ?></option>
-				</select>
-				<small class="subscription-desc"><?php esc_html_e( 'Field is required', 'header-footer-elementor' ); ?></small>
-				<label class="subscription-label"><?php esc_html_e( 'I\'m building website for:', 'header-footer-elementor' ); ?></label>
-			</div>
-		</div>
-		<div class="hfe-subscription-row">
-			<div class="hfe-input-container">
-				<input id="hfe_subscribe_name" class="hfe-subscribe-field hfe-subscribe-name" type="text" name="hfe_subscribe_name" value="<?php echo get_option( 'hfe_guide_fname' ); ?>">
-				<small class="subscription-desc"><?php esc_html_e( 'First name is required', 'header-footer-elementor' ); ?></small>
-				<label class="subscription-label"><?php esc_html_e( 'Your First Name', 'header-footer-elementor' ); ?></label>
-			</div>
-			<div class="hfe-input-container">
-				<input id="hfe_subscribe_email" class="hfe-subscribe-field hfe-subscribe-email" type="text" name="hfe_subscribe_email" value="<?php echo get_option( 'hfe_guide_email' ); ?>">
-				<small class="subscription-desc"><?php esc_html_e( 'Email address is required', 'header-footer-elementor' ); ?></small>
-				<label class="subscription-label"><?php esc_html_e( 'Your Work Email', 'header-footer-elementor' ); ?></label>
-			</div>
-		</div>
-
-		<?php
-	}
-
-	/**
 	 * Function for Step-By-Step guide
 	 *
 	 * @since x.x.x
@@ -448,18 +383,10 @@ class HFE_Settings_Page {
 			</div>
 
 			<div class="hfe-admin-column-50 hfe-admin-column-last">
-				<div class="hfe-guide-content">
+				<div class="hfe-guide-content hfe-subscription-step-1-active">
 					<form action="options.php" method="post">
-						<?php settings_fields( 'hfe-plugin-guide' ); ?>
-							<?php do_settings_sections( 'Step-By-Step Guide' ); ?>
-						<?php submit_button( 'Download This Guide & Start Brainstorming' ); ?>
 						<div class="hfe-privacy-policy-container">
-							<?php /* translators: %1$s and %3$s are opening anchor tags, and %2$s and %4$s is closing anchor tags. */ ?>
-
-							<p><?php printf( __( 'By submitting, you agree to our %1$sTerms%2$s and %3$sPrivacy Policy%4$s.', 'header-footer-elementor' ), '<a href="https://store.brainstormforce.com/terms-and-conditions/" target="_blank">', '</a>', '<a href="https://store.brainstormforce.com/privacy-policy/" target="_blank">', '</a>' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-							<?php if ( 'popup' === $type ) { ?>
-								<a href="#" class="button-subscription-skip"><?php esc_html_e( 'Skip', 'header-footer-elementor' ); ?></a>
-							<?php } ?>
+							<?php $this->get_form_html( $type ); ?>
 						</div>
 					</form>
 				</div>
@@ -467,6 +394,103 @@ class HFE_Settings_Page {
 		</div>
 		<?php
 	}
+
+	/**
+	 * Function for form HTML
+	 *
+	 * @since x.x.x
+	 * @param string $type Page or Popup.
+	 * @return void
+	 */
+	public function get_form_html( $type ) {
+		?>
+		<div class="hfe-guide-content-header hfe-admin-columns">
+			<h3><?php esc_html_e( 'Get Inspiring & Creative Header & Footer Design Examples ( With 11 Research-Based Tips ).', 'header-footer-elementor' ); ?></h3>
+		</div>
+
+		<?php $this->get_form_row_1( $type ); ?>
+		<?php $this->get_form_row_2( $type ); ?>
+		<?php
+	}
+
+	/**
+	 * Function for form Row 1 HTML
+	 *
+	 * @since x.x.x
+	 * @param string $type Page or Popup.
+	 * @return void
+	 */
+	public function get_form_row_1( $type ) {
+		?>
+
+		<div class="hfe-subscription-step-1">
+			<div class="hfe-subscription-row">
+				<div class="hfe-input-container">
+					<select class="hfe-subscribe-field subscription-input-wp-user-type" name="wp_user_type">
+						<option value=""></option>
+						<option value="1"><?php esc_html_e( 'Beginner', 'header-footer-elementor' ); ?></option>
+						<option value="2"><?php esc_html_e( 'Intermediate', 'header-footer-elementor' ); ?></option>
+						<option value="3"><?php esc_html_e( 'Expert', 'header-footer-elementor' ); ?></option>
+					</select>
+					<small class="subscription-desc"><?php esc_html_e( 'Field is required', 'header-footer-elementor' ); ?></small>
+					<label class="subscription-label"><?php esc_html_e( 'I\'m a WordPress:', 'header-footer-elementor' ); ?></label>
+				</div>
+				<div class="hfe-input-container">
+					<select class="hfe-subscribe-field subscription-input-build-website-for" name="build_website_for">
+						<option value=""></option>
+						<option value="1"><?php esc_html_e( 'Myself/My company', 'header-footer-elementor' ); ?></option>
+						<option value="2"><?php esc_html_e( 'My client', 'header-footer-elementor' ); ?></option>
+					</select>
+					<small class="subscription-desc"><?php esc_html_e( 'Field is required', 'header-footer-elementor' ); ?></small>
+					<label class="subscription-label"><?php esc_html_e( 'I\'m building website for:', 'header-footer-elementor' ); ?></label>
+				</div>
+			</div>
+
+			<?php if ( 'popup' === $type ) { ?>
+				<p class="submit">
+					<input type="submit" name="submit-1" id="submit-1" class="button submit-1 button-primary" value="Next">
+				</p>
+			<?php } ?>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Function for form Row 2 HTML
+	 *
+	 * @since x.x.x
+	 * @param string $type Page or Popup.
+	 * @return void
+	 */
+	public function get_form_row_2( $type ) {
+		?>
+		<div class="hfe-subscription-step-2">
+			<div class="hfe-subscription-row">
+				<div class="hfe-input-container">
+					<input id="hfe_subscribe_name" class="hfe-subscribe-field hfe-subscribe-name" type="text" name="hfe_subscribe_name" value="<?php echo get_option( 'hfe_guide_fname' ); ?>">
+					<small class="subscription-desc"><?php esc_html_e( 'First name is required', 'header-footer-elementor' ); ?></small>
+					<label class="subscription-label"><?php esc_html_e( 'Your First Name', 'header-footer-elementor' ); ?></label>
+				</div>
+				<div class="hfe-input-container">
+					<input id="hfe_subscribe_email" class="hfe-subscribe-field hfe-subscribe-email" type="text" name="hfe_subscribe_email" value="<?php echo get_option( 'hfe_guide_email' ); ?>">
+					<small class="subscription-desc"><?php esc_html_e( 'Email address is required', 'header-footer-elementor' ); ?></small>
+					<label class="subscription-label"><?php esc_html_e( 'Your Work Email', 'header-footer-elementor' ); ?></label>
+				</div>
+			</div>
+
+			<p class="submit">
+				<input type="submit" name="submit-2" id="submit-2" class="button submit-2 button-primary" value="Download This Guide & Start Brainstorming">
+			</p>
+
+			<?php /* translators: %1$s and %3$s are opening anchor tags, and %2$s and %4$s is closing anchor tags. */ ?>
+			<p><?php printf( __( 'By submitting, you agree to our %1$sTerms%2$s and %3$sPrivacy Policy%4$s.', 'header-footer-elementor' ), '<a href="https://store.brainstormforce.com/terms-and-conditions/" target="_blank">', '</a>', '<a href="https://store.brainstormforce.com/privacy-policy/" target="_blank">', '</a>' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+			<?php if ( 'popup' === $type ) { ?>
+				<a href="#" class="button-subscription-skip"><?php esc_html_e( 'Skip', 'header-footer-elementor' ); ?></a>
+			<?php } ?>
+		</div>
+		<?php
+	}
+
 
 	/**
 	 * Function for Step-By-Step guide modal popup
