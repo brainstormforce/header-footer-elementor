@@ -540,7 +540,7 @@ class HFE_Settings_Page {
 
 			<div class="hfe-admin-column-60">
 				<h3>
-					<?php esc_html_e( 'Hello and Welcome to Elementor Header & Footer Builder, the most friendly plugin for Elementor. We build software that helps you create beautiful responsive header & footers for your website in minutes.', 'header-footer-elementor' ); ?>
+					<?php esc_html_e( 'Hello and Welcome to Elementor Header & Footer Builder.', 'header-footer-elementor' ); ?>
 				</h3>
 
 				<p>
