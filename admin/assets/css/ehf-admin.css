@@ -243,7 +243,7 @@ select.hfe-subscribe-field {
     margin-right: 3px;
 }
 .hfe-admin-guide-section .hfe-admin-column-50:not(.hfe-admin-column-last) {
-    padding: 40px 35px;
+    padding: 40px 40px;
     border-right: 1px solid #DDDDDD;
 }
 .hfe-admin-guide-section .hfe-admin-column-last {
@@ -468,6 +468,9 @@ span.dashicons.dashicons-no {
 }
 .hfe-guide-modal-popup-wrapper .hfe-admin-guide-section.hfe-admin-about-section {
     margin: 0px;
+}
+.hfe-guide-modal-popup-wrapper .hfe-admin-column-50:not(.hfe-admin-column-last) {
+    padding: 40px 30px;
 }
 .hfe-guide-modal-overlay {
     position: fixed;
