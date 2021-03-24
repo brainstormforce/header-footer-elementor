@@ -369,15 +369,13 @@ class HFE_Settings_Page {
 				<div class="hfe-admin-about-section-column">
 
 					<?php if ( 'page' === $type ) { ?>
-						<h3>
-							<?php esc_html_e( 'Learn the Art of Designing Custom Header & Footer with this Free Plugin ( Video Tutorial )', 'header-footer-elementor' ); ?>
-						</h3>
+						<h3><?php esc_html_e( 'Learn the Art of Designing Custom Header & Footer', 'header-footer-elementor' ); ?></h3>
 						<figure>
 							<img src="<?php echo HFE_URL; ?>assets/images/settings/our-team.jpg" alt="<?php esc_attr_e( 'Team photo', 'header-footer-elementor' ); ?>">
 						</figure>
 					<?php } elseif ( 'popup' === $type ) { ?>
-						<h2><?php esc_html_e( 'Get Inspiring & Creative Header & Footer Design Examples.', 'header-footer-elementor' ); ?></h2>
-						<p><?php esc_html_e( 'Create different header and footer designs for your site, and customize as per your need.', 'header-footer-elementor' ); ?></p>
+						<h2><?php esc_html_e( 'Get Creative Header & Footer Examples', 'header-footer-elementor' ); ?></h2>
+						<p><?php esc_html_e( 'Create header and footer designs for your site', 'header-footer-elementor' ); ?></p>
 					<?php } ?>
 				</div>
 			</div>

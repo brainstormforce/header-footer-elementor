@@ -571,6 +571,10 @@ span.dashicons.dashicons-no {
 .hfe-admin-about-section-column h2 {
     font-size: 25px;
 }
+.hfe-admin-about-section-column h3 {
+    margin-bottom: 30px;
+    text-align: center;
+}
 .hfe-show {
     z-index: 9999;
 } 
