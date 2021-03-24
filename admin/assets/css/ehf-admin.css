@@ -524,6 +524,7 @@ span.dashicons.dashicons-no {
 }
 .hfe-guide-modal-popup-wrapper .hfe-admin-columns .hfe-admin-column-50.hfe-admin-column-last {
     width: 45%;
+    margin: 25px 0px;
 }
 .hfe-guide-modal-popup-wrapper .hfe-admin-columns .hfe-admin-column-50 {
     width: 50%;
@@ -542,7 +543,7 @@ span.dashicons.dashicons-no {
     margin-left: 15px;
 }
 .hfe-guide-modal-popup-wrapper .hfe-admin-about-section.hfe-admin-columns.hfe-admin-guide-section {
-    max-height: 70vh;
+    max-height: 75vh;
     overflow: auto;
 }
 .hfe-guide-modal-popup-wrapper .hfe-admin-about-section-column {
