@@ -253,7 +253,7 @@ select.hfe-subscribe-field {
 }
 /* EHF Settings - About Us */
 .hfe-admin-about-section {
-    margin: 0 20px 20px;
+    margin: -11px 17px 23px 0px;
     padding: 30px;
     background: #fff;
     line-height: 2;
@@ -324,11 +324,17 @@ select.hfe-subscribe-field {
 }
 
 /* About Us - Plugins section */
+#hfe-admin-addons .addon-container:last-child {
+    padding-right: 10px;
+}
+#hfe-admin-addons .addon-container:first-child {
+    padding-left: 10px;
+}
 #hfe-admin-addons {
-    padding: 0 30px;
+    padding: 0 27px 0px 10px;
 }
 #hfe-admin-addons .addon-container {
-    padding: 0 10px;
+    padding-left: 10px;
 }
 
 #hfe-admin-addons .addon-item .details {
@@ -363,7 +369,7 @@ select.hfe-subscribe-field {
 }
 
 #hfe-admin-addons .addon-container {
-  padding: 0 20px;
+  padding-right: 10px;
   float: left;
   width: 33.333333%;
   margin-bottom: 20px;
