@@ -177,8 +177,10 @@ li#toplevel_page_Settings-page,
 /* EHF Settings - Step by Step guide */
 #ehf-meta-box .inside,
 .hfe-admin-guide-section.hfe-admin-about-section {
-  margin: 0px;
   padding: 0px;
+}
+.hfe-admin-guide-section.hfe-admin-about-section {
+    margin: -11px 18px 0px 0px;
 }
 .hfe-guide-content .form-table input[type="checkbox"] {
     margin-top: -4px;
@@ -235,6 +237,7 @@ select.hfe-subscribe-field {
 .hfe-guide-content input.button {
     text-transform: uppercase;
     padding: 10px 20px;
+    width: 100%;
 }
 .hfe-guide-content input.button.submitting {
     margin-right: 3px;
@@ -243,13 +246,8 @@ select.hfe-subscribe-field {
     padding: 40px 40px;
     border-right: 1px solid #DDDDDD;
 }
-.hfe-admin-guide-section .hfe-admin-column-last,
-.hfe-guide-content {
+.hfe-admin-guide-section .hfe-admin-column-last {
     padding: 40px;
-}
-.hfe-guide-content {
-    background-color: #efeeee;
-    border: 1px solid #DDDDDD;
 }
 /* EHF Settings - About Us */
 .hfe-admin-about-section {
