@@ -243,7 +243,7 @@ select.hfe-subscribe-field {
     margin-right: 3px;
 }
 .hfe-admin-guide-section .hfe-admin-column-50:not(.hfe-admin-column-last) {
-    padding: 40px 40px;
+    padding: 40px 35px;
     border-right: 1px solid #DDDDDD;
 }
 .hfe-admin-guide-section .hfe-admin-column-last {
@@ -466,6 +466,9 @@ span.dashicons.dashicons-no {
     opacity: 1;
     visibility: visible;
 }
+.hfe-guide-modal-popup-wrapper .hfe-admin-guide-section.hfe-admin-about-section {
+    margin: 0px;
+}
 .hfe-guide-modal-overlay {
     position: fixed;
     width: 100%;
@@ -528,8 +531,8 @@ span.dashicons.dashicons-no {
     padding: 50px 55px;
 }
 .hfe-guide-modal-popup-wrapper .hfe-admin-columns .hfe-admin-column-50.hfe-admin-column-last {
-    width: 45%;
-    margin: 25px 0px;
+    width: 50%;
+    margin: 30px 0px;
 }
 .hfe-guide-modal-popup-wrapper .hfe-admin-columns .hfe-admin-column-50 {
     width: 50%;
@@ -708,7 +711,6 @@ span.hfe-star-icons {
         padding: 10px 15px;
     }
 }
-111111
 span.hfe-star-icons {
     color: #ffb900;
     font-size: 15px;

@@ -375,7 +375,7 @@ class HFE_Settings_Page {
 						</figure>
 					<?php } elseif ( 'popup' === $type ) { ?>
 						<h2><?php esc_html_e( 'Get Creative Header & Footer Examples', 'header-footer-elementor' ); ?></h2>
-						<p><?php esc_html_e( 'Create header and footer designs for your site', 'header-footer-elementor' ); ?></p>
+						<p><?php esc_html_e( 'Create header and footer designs for your site. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque velit nisi, pretium ut lacinia in, elementum id enim.', 'header-footer-elementor' ); ?></p>
 					<?php } ?>
 				</div>
 			</div>
@@ -403,7 +403,7 @@ class HFE_Settings_Page {
 	public function get_form_html( $type ) {
 		?>
 		<div class="hfe-guide-content-header hfe-admin-columns">
-			<h3><?php esc_html_e( 'Get Inspiring & Creative Header & Footer Design Examples ( With 11 Research-Based Tips ).', 'header-footer-elementor' ); ?></h3>
+			<h3><?php esc_html_e( 'Get Inspiring & Creative Header & Footer Examples.', 'header-footer-elementor' ); ?></h3>
 		</div>
 
 		<?php $this->get_form_row_1( $type ); ?>
