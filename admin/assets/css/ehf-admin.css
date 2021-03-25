@@ -178,13 +178,17 @@ li#toplevel_page_Settings-page,
 .appearance_page_hfe-about .nav-tab-wrapper,
 .appearance_page_hfe-settings .nav-tab-wrapper {
     margin-right: 18px;
+    margin-bottom: 25px;
+}
+.post-type-elementor-hf .nav-tab-wrapper {
+    margin-bottom: 18px;
 }
 #ehf-meta-box .inside,
 .hfe-admin-guide-section.hfe-admin-about-section {
   padding: 0px;
 }
 .hfe-admin-guide-section.hfe-admin-about-section {
-    margin: -11px 18px 0px 0px;
+    margin: 0px 18px 0px 0px;
 }
 .hfe-guide-content .form-table input[type="checkbox"] {
     margin-top: -4px;
@@ -258,7 +262,7 @@ select.hfe-subscribe-field {
 }
 /* EHF Settings - About Us */
 .hfe-admin-about-section {
-    margin: -12px 19px 23px 0px;
+    margin: 0px 19px 23px 0px;
     padding: 30px;
     background: #fff;
     line-height: 2;
@@ -277,6 +281,12 @@ select.hfe-subscribe-field {
 .hfe-clear:before {
     content: " ";
     display: table;
+}
+.hfe-admin-guide-section.hfe-admin-columns .hfe-admin-column-last {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45%;
 }
 .hfe-clear:after,
 .hfe-admin-columns:after {
@@ -298,10 +308,6 @@ select.hfe-subscribe-field {
 }
 .hfe-admin-columns .hfe-admin-column-last {
     float: right !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 45%;
 }
 .hfe-admin-columns .hfe-admin-column-last .hfe-guide-content {
     width: 100%;

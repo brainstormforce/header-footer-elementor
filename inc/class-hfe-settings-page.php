@@ -230,7 +230,6 @@ class HFE_Settings_Page {
 		echo '</h1>';
 		$this->hfe_tabs();
 		?>
-		<br />
 		<?php
 		$hfe_radio_button = get_option( 'hfe_compatibility_option', '1' );
 		?>
@@ -261,7 +260,7 @@ class HFE_Settings_Page {
 	 */
 	public function hfe_tabs() {
 		?>
-		<h2 class="nav-tab-wrapper">
+		<div class="nav-tab-wrapper">
 			<?php
 			if ( ! isset( self::$hfe_settings_tabs ) ) {
 				self::$hfe_settings_tabs = apply_filters(
@@ -301,8 +300,7 @@ class HFE_Settings_Page {
 			}
 
 			?>
-		</h2>
-		<br />
+		</div>
 		<?php
 	}
 
