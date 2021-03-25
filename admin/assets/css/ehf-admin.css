@@ -253,7 +253,7 @@ select.hfe-subscribe-field {
     margin-right: 3px;
 }
 .hfe-admin-guide-section .hfe-admin-column-50:not(.hfe-admin-column-last) {
-    padding: 40px 40px;
+    padding: 40px;
     border-right: 1px solid #DDDDDD;
     width: 55%;
 }
