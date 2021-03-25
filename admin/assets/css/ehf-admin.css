@@ -296,6 +296,12 @@ select.hfe-subscribe-field {
 }
 .hfe-admin-columns .hfe-admin-column-last {
     float: right !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hfe-admin-columns .hfe-admin-column-last .hfe-guide-content {
+    width: 100%;
 }
 .hfe-admin-about-section figure {
     margin: 0;
