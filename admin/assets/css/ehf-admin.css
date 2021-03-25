@@ -263,7 +263,7 @@ select.hfe-subscribe-field {
 /* EHF Settings - About Us */
 .hfe-admin-about-section {
     margin: 0px 19px 23px 0px;
-    padding: 30px;
+    padding: 40px;
     background: #fff;
     line-height: 2;
     border: 1px solid #ddd;
@@ -307,7 +307,7 @@ select.hfe-subscribe-field {
     width: 60%;
 }
 .hfe-admin-columns .hfe-admin-column-last {
-    float: right !important;
+    /* float: right !important; */
 }
 .hfe-admin-columns .hfe-admin-column-last .hfe-guide-content {
     width: 100%;
@@ -523,13 +523,12 @@ span.dashicons.dashicons-no {
 .hfe-guide-modal-popup-wrapper .hfe-admin-about-section {
     background-color: #f1f3f5;
 }
-.hfe-guide-modal-popup-wrapper .hfe-guide-content-header {
-    display: none;
-}
 .hfe-guide-content-header {
     margin-bottom: 15px;
+    text-align: center;
 }
-.hfe-guide-content-header h3 {
+.hfe-guide-content-header h3,
+.hfe-admin-about-section h3 {
     font-size: 20px;
 }
 .hfe-guide-modal-popup-wrapper .hfe-guide-content {

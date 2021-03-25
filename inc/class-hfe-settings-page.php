@@ -380,6 +380,11 @@ class HFE_Settings_Page {
 
 			<div class="hfe-admin-column-50 hfe-admin-column-last">
 				<div class="hfe-guide-content hfe-subscription-step-1-active">
+					<div class="hfe-guide-content-header hfe-admin-columns">
+						<?php if ( 'popup' !== $type ) { ?>
+							<h3><?php esc_html_e( 'Get Inspiring & Creative Header & Footer Examples.', 'header-footer-elementor' ); ?></h3>
+						<?php } ?>
+					</div>
 					<form action="options.php" method="post">
 						<div class="hfe-privacy-policy-container">
 							<?php $this->get_form_html( $type ); ?>
@@ -400,10 +405,6 @@ class HFE_Settings_Page {
 	 */
 	public function get_form_html( $type ) {
 		?>
-		<div class="hfe-guide-content-header hfe-admin-columns">
-			<h3><?php esc_html_e( 'Get Inspiring & Creative Header & Footer Examples.', 'header-footer-elementor' ); ?></h3>
-		</div>
-
 		<?php $this->get_form_row_1( $type ); ?>
 		<?php $this->get_form_row_2( $type ); ?>
 		<?php
@@ -535,16 +536,10 @@ class HFE_Settings_Page {
 		<div class="hfe-admin-about-section hfe-admin-columns">
 
 			<div class="hfe-admin-column-60">
-				<h3>
-					<?php esc_html_e( 'Hello and Welcome to Elementor Header & Footer Builder.', 'header-footer-elementor' ); ?>
-				</h3>
+				<h3><?php esc_html_e( 'Hello and Welcome to Elementor Header & Footer Builder.', 'header-footer-elementor' ); ?></h3>
 
-				<p>
-					<?php esc_html_e( 'Pellentesque in ipsum id orci porta dapibus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Nulla quis lorem ut libero malesuada feugiat. Curabitur aliquet quam id dui posuere blandit.', 'header-footer-elementor' ); ?>
-				</p>
-				<p>
-					<?php esc_html_e( 'Our goal is to make header & footer design easy in Elementor.', 'header-footer-elementor' ); ?>
-				</p>
+				<p><?php esc_html_e( 'Pellentesque in ipsum id orci porta dapibus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Nulla quis lorem ut libero malesuada feugiat. Curabitur aliquet quam id dui posuere blandit.', 'header-footer-elementor' ); ?></p>
+				<p><?php esc_html_e( 'Our goal is to make header & footer design easy in Elementor.', 'header-footer-elementor' ); ?></p>
 				<p>
 					<?php
 					printf(
