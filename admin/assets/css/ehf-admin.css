@@ -175,6 +175,11 @@ li#toplevel_page_Settings-page,
     display: none;
 }
 /* EHF Settings - Step by Step guide */
+.appearance_page_hfe-guide .nav-tab-wrapper,
+.appearance_page_hfe-about .nav-tab-wrapper,
+.appearance_page_hfe-settings .nav-tab-wrapper {
+    margin-right: 18px;
+}
 #ehf-meta-box .inside,
 .hfe-admin-guide-section.hfe-admin-about-section {
   padding: 0px;
