@@ -126,6 +126,7 @@
 			var subscription_email = email_field.val() || '';
 			var subscription_user_type = user_type_field.val() || '';
 			var subscription_build_for = build_for_field.val() || '';
+			var button_text = submit_button.find( '.hfe-submit-button-text' );
 
 			HFEAdmin._validate_field( first_name_field );
 			HFEAdmin._validate_field( email_field );
@@ -166,7 +167,8 @@
 				beforeSend: function() {
 					console.groupCollapsed( 'Email Subscription' );
 
-					submit_button.after( '<span class="dashicons dashicons-update hfe-loader"></span>' );
+					// submit_button.after( '<span class="dashicons dashicons-update hfe-loader"></span>' );
+					button_text.append( '<span class="dashicons dashicons-update hfe-loader"></span>' );
 
 				},
 			})

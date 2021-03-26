@@ -359,9 +359,12 @@ class HFE_Settings_Page {
 	 * @return void
 	 */
 	public function get_guide_html( $type ) {
+
+		$is_subscribed = get_user_meta( get_current_user_ID(), 'hfe-subscribed' );
+		$subscribe_flag = ( 'yes' === $is_subscribed ) ? ' hfe-user-subscribed' : '';
 		?>
 
-		<div class="hfe-admin-about-section hfe-admin-columns hfe-admin-guide-section">
+		<div class="hfe-admin-about-section hfe-admin-columns hfe-admin-guide-section<?php echo $subscribe_flag; ?>">
 
 			<div class="hfe-admin-column-50">
 				<div class="hfe-admin-about-section-column">
@@ -377,21 +380,22 @@ class HFE_Settings_Page {
 					<?php } ?>
 				</div>
 			</div>
-
-			<div class="hfe-admin-column-50 hfe-admin-column-last">
-				<div class="hfe-guide-content hfe-subscription-step-1-active">
-					<div class="hfe-guide-content-header hfe-admin-columns">
-						<?php if ( 'popup' !== $type ) { ?>
-							<h3><?php esc_html_e( 'Get Inspiring & Creative Header & Footer Examples.', 'header-footer-elementor' ); ?></h3>
-						<?php } ?>
-					</div>
-					<form action="options.php" method="post">
-						<div class="hfe-privacy-policy-container">
-							<?php $this->get_form_html( $type ); ?>
+			<?php if( 'yes' !== $is_subscribed ) { ?>
+				<div class="hfe-admin-column-50 hfe-admin-column-last">
+					<div class="hfe-guide-content hfe-subscription-step-1-active">
+						<div class="hfe-guide-content-header hfe-admin-columns">
+							<?php if ( 'popup' !== $type ) { ?>
+								<h3><?php esc_html_e( 'Get Inspiring & Creative Header & Footer Examples.', 'header-footer-elementor' ); ?></h3>
+							<?php } ?>
 						</div>
-					</form>
+						<form action="options.php" method="post">
+							<div class="hfe-privacy-policy-container">
+								<?php $this->get_form_html( $type ); ?>
+							</div>
+						</form>
+					</div>
 				</div>
-			</div>
+			<?php } ?>
 		</div>
 		<?php
 	}
@@ -474,10 +478,11 @@ class HFE_Settings_Page {
 					<label class="subscription-label"><?php esc_html_e( 'Your Work Email', 'header-footer-elementor' ); ?></label>
 				</div>
 			</div>
-
 			<p class="submit">
-				<input type="submit" name="submit-2" id="submit-2" class="button submit-2 button-primary" value="Download This Guide & Start Brainstorming">
-			</p>
+				<button type="submit" id="submit-2"  class="button submit-2 button-primary">
+					<span class="hfe-submit-button-text"><?php echo __( 'Download This Guide & Start Brainstorming', 'header-footer-elementor' ); ?></span>
+				</button>
+			</p>		
 
 			<?php /* translators: %1$s and %3$s are opening anchor tags, and %2$s and %4$s is closing anchor tags. */ ?>
 			<p><?php printf( __( 'By submitting, you agree to our %1$sTerms%2$s and %3$sPrivacy Policy%4$s.', 'header-footer-elementor' ), '<a href="https://store.brainstormforce.com/terms-and-conditions/" target="_blank">', '</a>', '<a href="https://store.brainstormforce.com/privacy-policy/" target="_blank">', '</a>' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>

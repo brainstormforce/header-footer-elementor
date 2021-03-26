@@ -197,6 +197,12 @@ li#toplevel_page_Settings-page,
 .hfe-admin-guide-section.hfe-admin-about-section {
   padding: 0px;
 }
+.hfe-admin-guide-section.hfe-user-subscribed .hfe-admin-column-50 {
+    width: 100%;
+}
+.hfe-user-subscribed .hfe-admin-about-section-column h3 {
+    text-align: center;
+}
 .hfe-admin-guide-section.hfe-admin-about-section {
     margin: 0px 18px 0px 0px;
 }
@@ -259,12 +265,12 @@ select.hfe-subscribe-field {
     margin-top: .8em;
     display: inline-block;
 }
-.hfe-guide-content input.button {
+.hfe-guide-content .button {
     text-transform: uppercase;
     padding: 10px 20px;
     width: 100%;
 }
-.hfe-guide-content input.button.submitting {
+.hfe-guide-content .button.submitting {
     margin-right: 3px;
 }
 .hfe-admin-guide-section .hfe-admin-column-50:not(.hfe-admin-column-last) {
@@ -643,6 +649,7 @@ span.hfe-subscribe-message.error {
 span.dashicons.dashicons-update.hfe-loader {
     animation: rotation 2s infinite linear;
     vertical-align: text-top;
+    margin-left: 7px;
 }
 span.hfe-star-icons {
     color: #ffb900;
@@ -721,7 +728,7 @@ span.hfe-star-icons {
         width: 1em;
         margin: -1px;
     }
-    .hfe-guide-content input.button {
+    .hfe-guide-content .button {
         font-size: 10px;
         white-space: pre-wrap;
     }
