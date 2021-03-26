@@ -205,7 +205,7 @@ li#toplevel_page_Settings-page,
     margin-right: 4px;
     float: none;
 }
-.hfe-admin-guide-section.hfe-admin-about-section,
+.hfe-admin-about-section,
 .hfe-subscription-row {
     display: flex;
 }
@@ -304,9 +304,9 @@ select.hfe-subscribe-field {
     content: " ";
     display: table;
 }
-.hfe-admin-columns > div[class*="-column-"] {
+/* .hfe-admin-columns > div[class*="-column-"] {
     float: left;
-}
+} */
 .hfe-admin-columns .hfe-admin-column-40 {
     width: 40%;
 }
