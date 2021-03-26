@@ -173,6 +173,16 @@ li#toplevel_page_Settings-page,
 .hfe-guide-content .form-table th {
     display: none;
 }
+
+/* Notice */
+.notice-container {
+    display: flex;
+    align-items: center;
+}
+#header-footer-install-noticess img.custom-logo {
+    height: 30px;
+    margin-right: 5px;
+}
 /* EHF Settings - Step by Step guide */
 .appearance_page_hfe-guide .nav-tab-wrapper,
 .appearance_page_hfe-about .nav-tab-wrapper,
@@ -305,9 +315,6 @@ select.hfe-subscribe-field {
 }
 .hfe-admin-columns .hfe-admin-column-60 {
     width: 60%;
-}
-.hfe-admin-columns .hfe-admin-column-last {
-    /* float: right !important; */
 }
 .hfe-admin-columns .hfe-admin-column-last .hfe-guide-content {
     width: 100%;

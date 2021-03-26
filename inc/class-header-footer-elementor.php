@@ -226,13 +226,23 @@ class Header_Footer_Elementor {
 		/* TO DO */
 		$class       = 'notice notice-info is-dismissible';
 		$setting_url = admin_url( 'post-new.php?post_type=elementor-hf' );
+		$image_path = HFE_URL . 'assets/images/header-footer-elementor-icon.svg';
+
+		$notice_message = sprintf( __( 'Thank you for installing %1$s Elementor Header & Footer Builder %2$s by Brainstorm Force. %3$sLet\'s get started! %4$s', 'header-footer-elementor' ), '<strong>', '</strong>', '<a href="' . $setting_url . '">', '</a>' );
 
 		Astra_Notices::add_notice(
 			[
 				'id'                         => 'header-footer-install-notice',
 				'type'                       => 'info',
 				/* translators: %s: html tags */
-				'message'                    => sprintf( __( 'Thank you for installing &nbsp;%1$s Elementor Header & Footer Builder %2$s&nbsp; by Brainstorm Force. &nbsp;%3$sLet\'s get started %4$s!', 'header-footer-elementor' ), '<strong>', '</strong>', '<a href="' . $setting_url . '">', '</a>' ),
+				'message'                    => sprintf(
+					'<img src="%1$s" class="custom-logo" alt="HFE" itemprop="logo">
+					<div class="notice-content">
+						<p>%2$s</p>
+					</div>',
+					$image_path,
+					$notice_message
+				),
 				'repeat-notice-after'        => false,
 				'priority'                   => 18,
 				'display-with-other-notices' => false,
