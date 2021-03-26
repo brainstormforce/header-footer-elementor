@@ -200,6 +200,11 @@ li#toplevel_page_Settings-page,
 .hfe-admin-guide-section.hfe-admin-about-section {
     margin: 0px 18px 0px 0px;
 }
+.hfe-admin-guide-section h3{
+    padding: 15px 30px;
+    border-bottom: 1px solid #c3c4c7;
+    margin-bottom: 0px;
+}
 .hfe-guide-content .form-table input[type="checkbox"] {
     margin-top: -4px;
     margin-right: 4px;
@@ -263,19 +268,18 @@ select.hfe-subscribe-field {
     margin-right: 3px;
 }
 .hfe-admin-guide-section .hfe-admin-column-50:not(.hfe-admin-column-last) {
-    padding: 40px;
     border-right: 1px solid #DDDDDD;
-    width: 55%;
-}
-.hfe-admin-guide-section .hfe-admin-column-last {
-    padding: 40px;
+    margin-right: 20px;
 }
 /* EHF Settings - About Us */
 .hfe-admin-about-section {
     margin: 0px 19px 23px 0px;
     padding: 40px;
-    background: #fff;
     line-height: 2;
+    line-height: 2;
+}
+.hfe-admin-about-us {
+    background: #fff;
     border: 1px solid #ddd;
 }
 
@@ -285,33 +289,26 @@ select.hfe-subscribe-field {
 .hfe-admin-about-section h4, 
 .hfe-admin-about-section h5 {
     margin-top: 0;
-    padding-top: 0;
     line-height: 1.6;
 }
 .hfe-clear:before {
     content: " ";
     display: table;
 }
-.hfe-admin-guide-section.hfe-admin-columns .hfe-admin-column-last {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 45%;
-}
+
 .hfe-clear:after,
 .hfe-admin-columns:after {
     clear: both;
     content: " ";
     display: table;
 }
-/* .hfe-admin-columns > div[class*="-column-"] {
-    float: left;
-} */
 .hfe-admin-columns .hfe-admin-column-40 {
     width: 40%;
 }
 .hfe-admin-columns .hfe-admin-column-50 {
     width: 50%;
+    background: #fff;
+    border: 1px solid #ddd;
 }
 .hfe-admin-columns .hfe-admin-column-60 {
     width: 60%;
@@ -321,6 +318,7 @@ select.hfe-subscribe-field {
 }
 .hfe-admin-about-section figure {
     margin: 0;
+    padding: 30px;
 }
 .hfe-admin-about-section figure img {
     width: 100%;
@@ -531,12 +529,14 @@ span.dashicons.dashicons-no {
     background-color: #f1f3f5;
 }
 .hfe-guide-content-header {
-    margin-bottom: 15px;
-    text-align: center;
+    margin-bottom: 0;
 }
 .hfe-guide-content-header h3,
 .hfe-admin-about-section h3 {
     font-size: 20px;
+}
+.hfe-admin-column-last .hfe-guide-content form {
+    padding: 30px;
 }
 .hfe-guide-modal-popup-wrapper .hfe-guide-content {
     background-color: #ffffff;
@@ -558,6 +558,8 @@ span.dashicons.dashicons-no {
 }
 .hfe-guide-modal-popup-wrapper .hfe-admin-columns .hfe-admin-column-50 {
     width: 50%;
+    background: unset;
+    border: 0px;
 }
 .hfe-guide-modal-popup-wrapper .heading {
     position: relative;
@@ -595,9 +597,11 @@ span.dashicons.dashicons-no {
     font-size: 25px;
 }
 .hfe-admin-about-section-column h3 {
-    margin-bottom: 30px;
-    text-align: center;
-    font-size: 25px;
+    margin-bottom: 0;
+    /* text-align: center; */
+    font-size: 20px;
+    padding: 15px 30px;
+    border-bottom: 1px solid #c3c4c7;
 }
 .hfe-show {
     z-index: 9999;

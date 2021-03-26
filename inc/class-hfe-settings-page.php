@@ -533,7 +533,7 @@ class HFE_Settings_Page {
 	protected function output_about_info() {
 		?>
 
-		<div class="hfe-admin-about-section hfe-admin-columns">
+		<div class="hfe-admin-about-section hfe-admin-columns hfe-admin-about-us">
 
 			<div class="hfe-admin-column-60">
 				<h3><?php esc_html_e( 'Hello and Welcome to Elementor Header & Footer Builder.', 'header-footer-elementor' ); ?></h3>
