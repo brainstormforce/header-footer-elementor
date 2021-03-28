@@ -1,3 +1,141 @@
+span.hfe-shortcode-col-wrap > input {
+    background: inherit;
+    color: inherit;
+    font-size: 12px;
+    border: none;
+    box-shadow: none;
+    padding: 4px 8px;
+    margin: 0;
+}
+input.hfe-large-text{
+    width: 99%;
+}
+.hfe-options-row-heading {
+    border-right: 1px solid #E1E1E1;
+    padding: 15px;
+    width: 45%;
+    vertical-align: middle;
+}
+.hfe-options-row td {
+    padding-left: 12px;
+    padding-right: 12px;
+    border-bottom: 1px solid #f0f0f0;
+    zoom: 1;
+    vertical-align: middle;
+}
+.hfe-options-table .hfe-options-row-content {
+    padding: 15px 10px;
+    position: relative;
+    width: 55%;
+}
+.hfe-options-table.widefat {
+	border-width: 0;
+}
+.hfe-options-row-heading label {
+    display: inline-block;
+    font-size: 13px;
+    line-height: 1.4em;
+    font-weight: bold;
+    padding: 0;
+    margin: 0 0 3px;
+    color: #333;
+}
+.hfe-options-row-content select {
+    width: 95%;
+}
+li#toplevel_page_Settings-page,
+.wp-admin #adminmenu .wp-submenu a[href="themes.php?page=hfe-settings"],
+.wp-admin #adminmenu .wp-submenu a[href="themes.php?page=hfe-guide"],
+.wp-admin #adminmenu .wp-submenu a[href="themes.php?page=hfe-about"] {
+    display: none;
+}
+.appearance_page_hfe-settings #adminmenu .wp-submenu a[href ="edit.php?post_type=elementor-hf" ] {
+    color: #ffffff;
+    font-weight: 600;
+}
+.hfe-heading-inline {
+    font-size: 23px;
+    font-weight: 400;
+    margin: 0;
+    padding: 9px 0 4px 0;
+    line-height: 1.3;
+}
+.hfe-selected-template-type-custom .hfe-shortcode {
+    display: table-row;
+}
+.hfe-selected-template-type-custom .bsf-target-rules-row,
+.hfe-selected-template-type-custom .enable-for-canvas,
+.hfe-shortcode,
+.hfe-selected-template-type-none .bsf-target-rules-row,
+.hfe-selected-template-type-none .hfe-shortcode,
+.hfe-selected-template-type-none .enable-for-canvas,
+.hfe-guide-content .form-table th {
+    display: none;
+}
+/* Notice */
+.notice-container {
+    display: flex;
+    align-items: center;
+}
+#header-footer-install-notice img.custom-logo {
+    height: 30px;
+    margin-right: 5px;
+}
+/* EHF Settings - Step by Step guide */
+#ehf-meta-box .inside,
+.hfe-admin-guide-section.hfe-admin-about-section {
+    padding: 0px;
+}
+.appearance_page_hfe-guide .nav-tab-wrapper,
+.appearance_page_hfe-about .nav-tab-wrapper,
+.appearance_page_hfe-settings .nav-tab-wrapper {
+    margin-right: 18px;
+    margin-bottom: 25px;
+}
+.post-type-elementor-hf .nav-tab-wrapper {
+    margin-bottom: 18px;
+}
+.hfe-admin-guide-section.hfe-user-subscribed .hfe-admin-column-50 {
+    width: 100%;
+}
+.hfe-user-subscribed .hfe-admin-about-section-column h3 {
+    text-align: center;
+}
+.hfe-admin-guide-section.hfe-admin-about-section {
+    margin: 0px 18px 0px 0px;
+}
+.hfe-admin-guide-section h3 {
+    padding: 15px 30px;
+    border-bottom: 1px solid #c3c4c7;
+    margin-bottom: 0px;
+}
+.hfe-admin-about-section,
+.hfe-subscription-row {
+    display: flex;
+}
+.hfe-subscription-row .hfe-input-container {
+    width: 50%;
+    text-align: left;
+    position: relative;    
+    width: 100%;
+}
+.hfe-subscription-row .hfe-input-container:not(:last-child) {
+    margin-right: 25px;
+}
+.hfe-guide-modal-content .hfe-guide-content .form-table input[type="checkbox"] {
+    margin-top: 1px;
+    margin-right: 6px;
+    float: none;
+}
+.hfe-guide-modal-content .hfe-checkbox-container {
+    display: flex;
+    align-items: flex-start;
+}
+.hfe-guide-modal-content .hfe-admin-column-50:not(.hfe-admin-column-last) {
+    display: flex;
+    align-items: center;
+}
+/* Form CSS */
 .hfe-subscription-row {
     margin-bottom: 10px;
 }
@@ -20,7 +158,6 @@
     background-position: right 10px top 55%;
     margin: 0;
 }
-
 .hfe-subscription-row .subscription-label {
     color: #585F66;
     margin: 12px 10px;
@@ -34,20 +171,13 @@
     transition: all 0.25s ease;
     pointer-events: none;
 }
-
-.hfe-input-container {
-    position: relative;    
-    width: 100%;
-}
 .hfe-subscription-row .hfe-input-container:not(.subscription-success, .subscription-error) .hfe-subscribe-field:hover {
     border-color: #2271b1;
 }
-
 .hfe-subscription-row .hfe-subscribe-field:hover,
 .hfe-subscription-row .hfe-subscribe-field:focus {
     color: #2c3338;
 }
-
 .hfe-subscription-row .subscription-anim .subscription-label {
     background-color: #fff;
     font-size: 12px;
@@ -59,187 +189,29 @@
     -webkit-transition: all 0.125s ease;
     color: #2271b1;
 }
-
 .hfe-subscription-row .subscription-error .hfe-subscribe-field,
 .hfe-subscription-row .subscription-error .hfe-subscribe-field:focus {
     border-color: #ff0000;
 }
-
 .hfe-subscription-row .subscription-error .subscription-desc,
 .hfe-subscription-row .subscription-anim.subscription-error .subscription-label {
     color: #ff0000;
+}
+.hfe-subscription-row .subscription-success .hfe-subscribe-field,
+.hfe-subscription-row .subscription-success .hfe-subscribe-field:focus {
+    border-color: #66a700;
+}
+.hfe-subscription-row .subscription-anim.subscription-success .subscription-label {
+    color: #66a700;
 }
 .hfe-input-container .subscription-desc {
     padding-left: 2px;
     opacity: 0;
     visibility: hidden;
 }
-
-.hfe-subscription-row .subscription-success .hfe-subscribe-field,
-.hfe-subscription-row .subscription-success .hfe-subscribe-field:focus {
-    border-color: #66a700;
-}
-
-.hfe-subscription-row .subscription-anim.subscription-success .subscription-label {
-    color: #66a700;
-}
-
 .hfe-input-container.subscription-error .subscription-desc {
     opacity: 1;
     visibility: visible;
-}
-span.hfe-shortcode-col-wrap > input {
-    background: inherit;
-    color: inherit;
-    font-size: 12px;
-    border: none;
-    box-shadow: none;
-    padding: 4px 8px;
-    margin: 0;
-}
-
-input.hfe-large-text{
-    width: 99%;
-}
-
-.hfe-options-row-heading {
-    border-right: 1px solid #E1E1E1;
-    padding: 15px;
-    width: 45%;
-    vertical-align: middle;
-}
-
-.hfe-options-row td {
-    padding-left: 12px;
-    padding-right: 12px;
-    border-bottom: 1px solid #f0f0f0;
-    zoom: 1;
-    vertical-align: middle;
-}
-
-.hfe-options-table .hfe-options-row-content {
-    padding: 15px 10px;
-    position: relative;
-    width: 55%;
-}
-
-.hfe-options-table.widefat {
-	border-width: 0;
-}
-
-.hfe-options-row-heading label {
-    display: inline-block;
-    font-size: 13px;
-    line-height: 1.4em;
-    font-weight: bold;
-    padding: 0;
-    margin: 0 0 3px;
-    color: #333;
-}
-
-.hfe-options-row-content select {
-    width: 95%;
-}
-
-li#toplevel_page_Settings-page,
-.wp-admin #adminmenu .wp-submenu a[href="themes.php?page=hfe-settings"],
-.wp-admin #adminmenu .wp-submenu a[href="themes.php?page=hfe-guide"],
-.wp-admin #adminmenu .wp-submenu a[href="themes.php?page=hfe-about"] {
-    display: none;
-}
-
-.appearance_page_hfe-settings #adminmenu .wp-submenu a[href ="edit.php?post_type=elementor-hf" ] {
-    color: #ffffff;
-    font-weight: 600;
-}
-
-.hfe-heading-inline {
-    font-size: 23px;
-    font-weight: 400;
-    margin: 0;
-    padding: 9px 0 4px 0;
-    line-height: 1.3;
-}
-
-.hfe-selected-template-type-custom .hfe-shortcode {
-    display: table-row;
-}
-
-.hfe-selected-template-type-custom .bsf-target-rules-row,
-.hfe-selected-template-type-custom .enable-for-canvas,
-.hfe-shortcode,
-.hfe-selected-template-type-none .bsf-target-rules-row,
-.hfe-selected-template-type-none .hfe-shortcode,
-.hfe-selected-template-type-none .enable-for-canvas,
-.hfe-guide-content .form-table th {
-    display: none;
-}
-
-/* Notice */
-.notice-container {
-    display: flex;
-    align-items: center;
-}
-#header-footer-install-notice img.custom-logo {
-    height: 30px;
-    margin-right: 5px;
-}
-/* EHF Settings - Step by Step guide */
-.appearance_page_hfe-guide .nav-tab-wrapper,
-.appearance_page_hfe-about .nav-tab-wrapper,
-.appearance_page_hfe-settings .nav-tab-wrapper {
-    margin-right: 18px;
-    margin-bottom: 25px;
-}
-.post-type-elementor-hf .nav-tab-wrapper {
-    margin-bottom: 18px;
-}
-#ehf-meta-box .inside,
-.hfe-admin-guide-section.hfe-admin-about-section {
-  padding: 0px;
-}
-.hfe-admin-guide-section.hfe-user-subscribed .hfe-admin-column-50 {
-    width: 100%;
-}
-.hfe-user-subscribed .hfe-admin-about-section-column h3 {
-    text-align: center;
-}
-.hfe-admin-guide-section.hfe-admin-about-section {
-    margin: 0px 18px 0px 0px;
-}
-.hfe-admin-guide-section h3{
-    padding: 15px 30px;
-    border-bottom: 1px solid #c3c4c7;
-    margin-bottom: 0px;
-}
-.hfe-guide-content .form-table input[type="checkbox"] {
-    margin-top: -4px;
-    margin-right: 4px;
-    float: none;
-}
-.hfe-admin-about-section,
-.hfe-subscription-row {
-    display: flex;
-}
-.hfe-subscription-row .hfe-input-container {
-    width: 50%;
-    text-align: left;
-}
-.hfe-subscription-row .hfe-input-container:not(:last-child) {
-    margin-right: 25px;
-}
-.hfe-guide-modal-content .hfe-guide-content .form-table input[type="checkbox"] {
-    margin-top: 1px;
-    margin-right: 6px;
-    float: none;
-}
-.hfe-guide-modal-content .hfe-checkbox-container {
-    display: flex;
-    align-items: flex-start;
-}
-.hfe-guide-modal-content .hfe-admin-column-50:not(.hfe-admin-column-last) {
-    display: flex;
-    align-items: center;
 }
 input[type="text"].hfe-subscribe-field,
 select.hfe-subscribe-field {
@@ -285,13 +257,11 @@ select.hfe-subscribe-field {
     margin: 0px 19px 23px 0px;
     padding: 40px;
     line-height: 2;
-    line-height: 2;
 }
 .hfe-admin-about-us {
     background: #fff;
     border: 1px solid #ddd;
 }
-
 .hfe-admin-about-section h1, 
 .hfe-admin-about-section h2, 
 .hfe-admin-about-section h3, 
@@ -304,7 +274,6 @@ select.hfe-subscribe-field {
     content: " ";
     display: table;
 }
-
 .hfe-clear:after,
 .hfe-admin-columns:after {
     clear: both;
@@ -339,80 +308,58 @@ select.hfe-subscribe-field {
     text-align: center;
     line-height: initial;
 }
-
 .hfe-admin-about-section .hfe-admin-column-40 {
     padding-left: 15px;
 }
-
 .hfe-admin-about-section .hfe-admin-column-60 {
     padding-right: 15px;
 }
-
 .hfe-admin-about-section *, 
 .hfe-admin-about-section *::before, 
-.hfe-admin-about-section *::after {
+.hfe-admin-about-section *::after,
+#hfe-admin-addons *,
+#hfe-admin-addons *::before,
+#hfe-admin-addons *::after {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-
 /* About Us - Plugins section */
 #hfe-admin-addons .addon-container:last-child {
     padding-right: 10px;
 }
-#hfe-admin-addons .addon-container:first-child {
+#hfe-admin-addons .addon-container:first-child,
+#hfe-admin-addons .addon-container {
     padding-left: 10px;
 }
 #hfe-admin-addons {
     padding: 0 27px 0px 10px;
 }
-#hfe-admin-addons .addon-container {
-    padding-left: 10px;
-}
-
 #hfe-admin-addons .addon-item .details {
     padding: 20px;
 }
-
-#hfe-admin-addons .addon-item img {
-    padding: 10px;
-}
-
 #hfe-admin-addons .addon-item img {
     padding: 13px;  
 }
-
-#hfe-admin-addons *,
-#hfe-admin-addons *::before,
-#hfe-admin-addons *::after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
 #hfe-admin-addons #hfe-admin-addons-list .list {
   display: flex;
   flex-wrap: wrap;
 }
-
 #hfe-admin-addons .addons-container,
 #hfe-admin-addons #hfe-admin-addons-list .list {
   margin-left: -20px;
   margin-right: -20px;
 }
-
 #hfe-admin-addons .addon-container {
   padding-right: 10px;
   float: left;
   width: 33.333333%;
   margin-bottom: 20px;
 }
-
 #hfe-admin-addons h4 {
   font-size: 17px;
   font-weight: 700;
 }
-
 #hfe-admin-addons .addon-item {
   background-color: #fff;
   border: 1px solid #ddd;
@@ -424,45 +371,20 @@ select.hfe-subscribe-field {
   float: left;
   max-width: 75px;
 }
-
 #hfe-admin-addons .addon-item h5 {
   margin: 0 0 15px 100px;
   font-size: 16px;
 }
-
 #hfe-admin-addons .addon-item p {
   margin: 0 0 0 100px;
 }
-
 #hfe-admin-addons .website-link {
     margin: 15px 0 0 100px;
 }
-
 #hfe-admin-addons .addon-item .details {
   padding: 30px 20px;
 }
-
 /* Modal Popup */
-.hfe-modal-close {
-    position: fixed;
-    z-index: 9999;
-    cursor: pointer;
-    font-size: 1.6em;
-    text-align: center;
-    top: 50px;
-    right: 50px;
-    visibility: hidden;
-}
-span.dashicons.dashicons-no {
-    color: #ffffff;
-    font-size: 25px;
-    line-height: 25px;
-    height: 25px;
-    width: 25px;
-}
-.hfe-guide-modal-content .dashicons-heart:before {
-    color: #d64242;
-}
 .hfe-guide-modal-header {
     padding: 10px;
     text-align: center;
@@ -488,14 +410,15 @@ span.dashicons.dashicons-no {
     color: #aaa;
     font-size: 22px;
     opacity: 1;
-    visibility: visible;
+    visibility: hidden;
 }
-.hfe-guide-modal-popup-wrapper .hfe-admin-guide-section.hfe-admin-about-section {
+.hfe-guide-modal-popup-wrapper .hfe-admin-guide-section.hfe-admin-about-section,
+.hfe-guide-modal-popup-wrapper .hfe-admin-column-50:not(.hfe-admin-column-last) {
     margin: 0px;
 }
-.hfe-guide-modal-popup-wrapper .hfe-admin-column-50:not(.hfe-admin-column-last) {
+.hfe-guide-modal-popup-wrapper .hfe-admin-column-50:not(.hfe-admin-column-last),
+.hfe-admin-column-last .hfe-guide-content form {
     padding: 50px;
-    margin: 0;
 }
 .hfe-guide-modal-overlay {
     position: fixed;
@@ -544,9 +467,6 @@ span.dashicons.dashicons-no {
 .hfe-guide-content-header h3,
 .hfe-admin-about-section h3 {
     font-size: 20px;
-}
-.hfe-admin-column-last .hfe-guide-content form {
-    padding: 50px;
 }
 .hfe-guide-modal-popup-wrapper .hfe-guide-content form {
     padding: 0px;
@@ -641,13 +561,8 @@ span.dashicons.dashicons-no {
 .hfe-show .hfe-guide-modal-content {
     opacity: 1;
 }
-.hfe-input-container.hfe-error .hfe-subscribe-field,
-.hfe-input-container.hfe-error .hfe-subscribe-email,
-.hfe-checkbox-container input[type="checkbox"].hfe-error {
+.hfe-input-container.hfe-error .hfe-subscribe-field {
     border-color: #d11212;
-}
-.hfe-checkbox-container input[type="checkbox"]:checked.hfe-error {
-    border-color: unset;
 }
 span.hfe-subscribe-message {
     width: 100%;
@@ -699,10 +614,12 @@ span.hfe-star-icons {
 }
 
 @media screen and ( max-width: 782px ) {
-    .hfe-subscription-row {
+    .hfe-subscription-row,
+    .hfe-admin-about-section {
         display: block;
     }
-    .hfe-guide-modal-popup-wrapper p.button {
+    .hfe-guide-modal-popup-wrapper p.button,
+    .hfe-admin-about-section figure {
         padding-bottom: 0px;
     }
     .hfe-admin-guide-section .hfe-admin-column-50:not(.hfe-admin-column-last) {
@@ -712,6 +629,11 @@ span.hfe-star-icons {
     .hfe-guide-modal-popup-wrapper .hfe-admin-columns .hfe-admin-column-50.hfe-admin-column-last,
     .hfe-subscription-row .hfe-input-container {
         width: 100%;
+    }
+    .hfe-guide-modal-popup-wrapper .hfe-admin-columns .hfe-admin-column-50.hfe-admin-column-last,
+    .hfe-guide-modal-popup-wrapper .hfe-guide-content,
+    .hfe-admin-guide-section .hfe-admin-column-50:not(.hfe-admin-column-last) {
+        padding: 30px;
     }
     .hfe-subscribe-email span.dashicons.dashicons-email {
         font-size: 15px;
@@ -723,31 +645,14 @@ span.hfe-star-icons {
         min-height: unset;
         font-size: 10px;
     }
-    .hfe-subscribe-email,
     .hfe-subscribe-field {
         padding: 5px;
-    }
-    .hfe-subscribe-email {
-        min-width: 20%
     }
     .hfe-admin-guide-section.hfe-admin-about-section {
         display: block;
     }
-    .hfe-guide-content .form-table input[type="checkbox"] {
-        height: 1em;
-        width: 1em;
-        margin-top: 1px;
-        margin-right: 6px;
-        float: none;
-    }
-    .hfe-guide-content .form-table input[type="checkbox"]:checked:before {
-        height: 1em;
-        width: 1em;
-        margin: -1px;
-    }
     .hfe-guide-content .button {
         font-size: 10px;
-        white-space: pre-wrap;
     }
     .hfe-checkbox-container {
         display: flex;
@@ -755,19 +660,18 @@ span.hfe-star-icons {
     .hfe-admin-columns .hfe-admin-column-last {
         padding-top: 0px;
     }
-    .hfe-admin-guide-section .hfe-admin-column-50:not(.hfe-admin-column-last) {
-        padding: 30px;
-    }
     .hfe-subscription-row select.hfe-subscribe-field {
         padding: 10px 15px;
     }
+    .hfe-admin-guide-section h3,
+    .hfe-admin-about-section-column h3 {
+        border-bottom: 0px;
+    }
+    .hfe-admin-about-us {
+        margin-right: 10px;
+    }
+    #hfe-admin-addons .addon-container,
+    #hfe-admin-addons .addon-container:last-child {
+        padding-right: 0px;
+    }
 }
-span.hfe-star-icons {
-    color: #ffb900;
-    font-size: 15px;
-}
-span.hfe-star-icons {
-    color: #ffb900;
-    font-size: 15px;
-}
-
