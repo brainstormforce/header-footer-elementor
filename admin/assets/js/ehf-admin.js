@@ -10,15 +10,13 @@
 		 * @since 1.3.9
 		 */
 		init: function() {
-			
-			$( document ).ready( function( e ) {
 
 				var ehf_hide_shortcode_field = function() {
 					var selected = $('#ehf_template_type').val() || 'none';
 					$( '.hfe-options-table' ).removeClass().addClass( 'hfe-options-table widefat hfe-selected-template-type-' + selected );
 				}
 			
-				$(document).on( 'change', '#ehf_template_type', function( e ) {
+				$( document ).on( 'change', '#ehf_template_type', function( e ) {
 					ehf_hide_shortcode_field();
 				});
 			
@@ -38,15 +36,12 @@
 				$( document ).on( 'click', '.hfe-guide-content .submit-2', HFEAdmin._step_two_subscribe );
 
 				$( document ).on('click', '.hfe-guide-content .button-subscription-skip', HFEAdmin._close_modal );
-
-			});
-
 		},
 
 		_animate_fields: function ( event ) {
 			event.preventDefault();
 			event.stopPropagation();
-			var parentWrapper = $(this).parents( '.hfe-input-container' );
+			var parentWrapper = $( this ).parents( '.hfe-input-container' );
 			parentWrapper.addClass( 'subscription-anim' );
 		},
 
@@ -60,21 +55,20 @@
 
 			var field = $( target );
 			var fieldValue = field.val() || '';
-			var parentWrapper = $(target).parents( '.hfe-input-container' );
+			var parentWrapper = $( target ).parents( '.hfe-input-container' );
 			var fieldStatus = fieldValue.length ? true : false;
 
-			if ((field.hasClass('hfe-subscribe-email') && false === HFEAdmin.isValidEmail( fieldValue ))) {
+			if ( ( field.hasClass( 'hfe-subscribe-email' ) && false === HFEAdmin.isValidEmail( fieldValue ) )) {
 				fieldStatus = false;
 			}
 
 			if ( fieldStatus ) {
-				parentWrapper.removeClass('subscription-error').addClass('subscription-success');
-
+				parentWrapper.removeClass( 'subscription-error' ).addClass( 'subscription-success' );
 			} else {
-				parentWrapper.removeClass('subscription-success subscription-anim').addClass('subscription-error');
+				parentWrapper.removeClass( 'subscription-success subscription-anim' ).addClass( 'subscription-error' );
 
-				if ( field.hasClass('hfe-subscribe-email') && fieldValue.length ) {
-					parentWrapper.addClass('subscription-anim')
+				if ( field.hasClass( 'hfe-subscribe-email' ) && fieldValue.length ) {
+					parentWrapper.addClass( 'subscription-anim' );
 				}
 			}
 
@@ -167,7 +161,6 @@
 				beforeSend: function() {
 					console.groupCollapsed( 'Email Subscription' );
 
-					// submit_button.after( '<span class="dashicons dashicons-update hfe-loader"></span>' );
 					button_text.append( '<span class="dashicons dashicons-update hfe-loader"></span>' );
 
 				},
@@ -265,7 +258,9 @@
 
 	};
 
-	HFEAdmin.init();
+	$( document ).ready( function( e ) {
+		HFEAdmin.init();
+	});
 
 	window.HFEAdmin = HFEAdmin;
 
