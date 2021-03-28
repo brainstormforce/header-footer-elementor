@@ -73,13 +73,21 @@ li#toplevel_page_Settings-page,
     display: none;
 }
 /* Notice */
-.notice-container {
-    display: flex;
-    align-items: center;
-}
 #header-footer-install-notice img.custom-logo {
     height: 30px;
     margin-right: 5px;
+}
+#header-footer-install-notice .notice-container {
+    display: flex;
+    align-items: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+#header-footer-install-notice .notice-content {
+    margin-left: 0px;
+}
+#header-footer-install-notice .notice-dismiss {
+    height: 100%;
 }
 /* EHF Settings - Step by Step guide */
 #ehf-meta-box .inside,
