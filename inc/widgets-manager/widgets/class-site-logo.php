@@ -98,7 +98,18 @@ class Site_Logo extends Widget_Base {
 	 * @since 1.3.0
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+
+		$this->register_controls();
+	}
+
+	/**
+	 * Register Site Logo controls.
+	 *
+	 * @since 1.5.7
+	 * @access protected
+	 */
+	protected function register_controls() {
 		$this->register_content_site_logo_controls();
 		$this->register_site_logo_styling_controls();
 		$this->register_site_logo_caption_styling_controls();
@@ -827,7 +838,7 @@ class Site_Logo extends Widget_Base {
 		?>
 			<div class="hfe-site-logo-set">           
 				<div class="hfe-site-logo-container">
-					<img class="hfe-site-logo-img <?php echo esc_attr( $class_animation ); ?>"  src="<?php echo esc_url( $image_url ); ?>"/>
+					<img class="hfe-site-logo-img <?php echo esc_attr( $class_animation ); ?>"  src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( Control_Media::get_image_alt( $settings['custom_image'] ) ); ?>"/>
 				</div>
 			</div>
 		<?php if ( $link ) : ?>

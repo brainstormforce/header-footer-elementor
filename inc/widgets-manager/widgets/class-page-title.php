@@ -91,7 +91,17 @@ class Page_Title extends Widget_Base {
 	 * @since 1.3.0
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+		$this->register_controls();
+	}
+
+	/**
+	 * Register Page Title controls.
+	 *
+	 * @since 1.5.7
+	 * @access protected
+	 */
+	protected function register_controls() {
 		$this->register_content_page_title_controls();
 		$this->register_page_title_style_controls();
 	}
