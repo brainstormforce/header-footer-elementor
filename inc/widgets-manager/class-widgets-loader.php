@@ -12,6 +12,7 @@
 namespace HFE\WidgetsManager;
 
 use Elementor\Plugin;
+use Elementor\Utils;
 
 defined( 'ABSPATH' ) or exit;
 
@@ -19,6 +20,28 @@ defined( 'ABSPATH' ) or exit;
  * Set up Widgets Loader class
  */
 class Widgets_Loader {
+
+	/**
+	 * A list of safe tage for `validate_html_tag` method.
+	 */
+	const ALLOWED_HTML_WRAPPER_TAGS = [
+		'article',
+		'aside',
+		'div',
+		'footer',
+		'h1',
+		'h2',
+		'h3',
+		'h4',
+		'h5',
+		'h6',
+		'header',
+		'main',
+		'nav',
+		'p',
+		'section',
+		'span',
+	];
 
 	/**
 	 * Instance of Widgets_Loader.
@@ -223,6 +246,22 @@ class Widgets_Loader {
 		$fragments['span.elementor-button-icon[data-counter]'] = '<span class="elementor-button-icon" data-counter="' . $cart_badge_count . '"><i class="eicon" aria-hidden="true"></i><span class="elementor-screen-only">' . __( 'Cart', 'header-footer-elementor' ) . '</span></span>';
 
 		return $fragments;
+	}
+
+	/**
+	 * Validate an HTML tag against a safe allowed list.
+	 *
+	 * @since x.x.x
+	 * @param string $tag
+	 *
+	 * @return string
+	 */
+	public static function validate_html_tag( $tag ) {
+		if( method_exists( 'Elementor\Utils', 'validate_html_tag' ) ) {
+			return Utils::validate_html_tag( $tag );
+		} else {
+			return in_array( strtolower( $tag ), self::ALLOWED_HTML_WRAPPER_TAGS ) ? $tag : 'div';
+		}
 	}
 }
 
