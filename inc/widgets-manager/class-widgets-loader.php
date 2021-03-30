@@ -22,28 +22,6 @@ defined( 'ABSPATH' ) or exit;
 class Widgets_Loader {
 
 	/**
-	 * A list of safe tage for `validate_html_tag` method.
-	 */
-	const ALLOWED_HTML_WRAPPER_TAGS = [
-		'article',
-		'aside',
-		'div',
-		'footer',
-		'h1',
-		'h2',
-		'h3',
-		'h4',
-		'h5',
-		'h6',
-		'header',
-		'main',
-		'nav',
-		'p',
-		'section',
-		'span',
-	];
-
-	/**
 	 * Instance of Widgets_Loader.
 	 *
 	 * @since  1.2.0
@@ -252,15 +230,18 @@ class Widgets_Loader {
 	 * Validate an HTML tag against a safe allowed list.
 	 *
 	 * @since x.x.x
-	 * @param string $tag
-	 *
-	 * @return string
+	 * @param string $tag specifies the HTML Tag.
+	 * @access public
 	 */
 	public static function validate_html_tag( $tag ) {
-		if( method_exists( 'Elementor\Utils', 'validate_html_tag' ) ) {
+
+		// Check if Elementor method exists, else we will run custom validation code.
+		if ( method_exists( 'Elementor\Utils', 'validate_html_tag' ) ) {
 			return Utils::validate_html_tag( $tag );
 		} else {
-			return in_array( strtolower( $tag ), self::ALLOWED_HTML_WRAPPER_TAGS ) ? $tag : 'div';
+
+			$allowed_tags = [ 'article', 'aside', 'div', 'footer', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'header', 'main', 'nav', 'p', 'section', 'span' ];
+			return in_array( strtolower( $tag ), $allowed_tags ) ? $tag : 'div';
 		}
 	}
 }
