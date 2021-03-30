@@ -131,6 +131,16 @@ class Widgets_Loader {
 			}
 		}
 
+		$tag_validation = array( 'article', 'aside', 'div', 'footer', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'header', 'main', 'nav', 'p', 'section', 'span' );
+
+		wp_localize_script(
+			'elementor-editor',
+			'HfeWidgetsData',
+			array(
+				'allowed_tags' => $tag_validation,
+			)
+		);
+
 		// Emqueue the widgets style.
 		wp_enqueue_style( 'hfe-widgets-style', HFE_URL . 'inc/widgets-css/frontend.css', [], HFE_VER );
 	}
@@ -239,7 +249,6 @@ class Widgets_Loader {
 		if ( method_exists( 'Elementor\Utils', 'validate_html_tag' ) ) {
 			return Utils::validate_html_tag( $tag );
 		} else {
-
 			$allowed_tags = [ 'article', 'aside', 'div', 'footer', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'header', 'main', 'nav', 'p', 'section', 'span' ];
 			return in_array( strtolower( $tag ), $allowed_tags ) ? $tag : 'div';
 		}

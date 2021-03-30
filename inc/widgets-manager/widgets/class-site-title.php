@@ -484,7 +484,9 @@ class Site_Title extends Widget_Base {
 		var headingSizeTag = settings.heading_tag;
 
 		if ( typeof elementor.helpers.validateHTMLTag === "function" ) { 
-			headingSizeTag = elementor.helpers.validateHTMLTag( settings.heading_tag );
+			headingSizeTag = elementor.helpers.validateHTMLTag( headingSizeTag );
+		} else if( HfeWidgetsData.allowed_tags ) {
+			headingSizeTag = HfeWidgetsData.allowed_tags.includes( headingSizeTag.toLowerCase() ) ? headingSizeTag : 'div';
 		}
 
 		#>
