@@ -427,7 +427,7 @@ class Site_Title extends Widget_Base {
 			$link = $this->get_render_attribute_string( 'url' );
 		}
 
-		$heading_size = Widgets_Loader::validate_html_tag( $settings['heading_tag'] );
+		$heading_tag_value = Widgets_Loader::validate_html_tag( $settings['heading_tag'] );
 		?>
 
 		<div class="hfe-module-content hfe-heading-wrapper elementor-widget-heading">
@@ -436,7 +436,7 @@ class Site_Title extends Widget_Base {
 				<?php } else { ?>
 					<a href="<?php echo get_home_url(); ?>">
 				<?php } ?>
-			<<?php echo $heading_size; ?> class="hfe-heading elementor-heading-title elementor-size-<?php echo $settings['size']; ?>">
+			<<?php echo $heading_tag_value; ?> class="hfe-heading elementor-heading-title elementor-size-<?php echo $settings['size']; ?>">
 				<?php if ( '' !== $settings['icon']['value'] ) { ?>
 					<span class="hfe-icon">
 						<?php \Elementor\Icons_Manager::render_icon( $settings['icon'], [ 'aria-hidden' => 'true' ] ); ?>					
@@ -455,7 +455,7 @@ class Site_Title extends Widget_Base {
 					}
 					?>
 					</span>			
-			</<?php echo $heading_size; ?>>
+			</<?php echo $heading_tag_value; ?>>
 			</a>		
 		</div>
 		<?php
