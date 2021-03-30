@@ -500,6 +500,8 @@ class Page_Title extends Widget_Base {
 
 		if ( typeof elementor.helpers.validateHTMLTag === "function" ) { 
 			headingSizeTag = elementor.helpers.validateHTMLTag( settings.heading_tag );
+		} else if( HfeWidgetsData.allowed_tags ) {
+			headingSizeTag = HfeWidgetsData.allowed_tags.includes( headingSizeTag.toLowerCase() ) ? headingSizeTag : 'div';
 		}
 
 		#>
