@@ -131,14 +131,14 @@ class Widgets_Loader {
 			}
 		}
 
-		$tag_validation = array( 'article', 'aside', 'div', 'footer', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'header', 'main', 'nav', 'p', 'section', 'span' );
+		$tag_validation = [ 'article', 'aside', 'div', 'footer', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'header', 'main', 'nav', 'p', 'section', 'span' ];
 
 		wp_localize_script(
 			'elementor-editor',
 			'HfeWidgetsData',
-			array(
+			[
 				'allowed_tags' => $tag_validation,
-			)
+			]
 		);
 
 		// Emqueue the widgets style.
