@@ -239,7 +239,7 @@ class Widgets_Loader {
 	/**
 	 * Validate an HTML tag against a safe allowed list.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.8
 	 * @param string $tag specifies the HTML Tag.
 	 * @access public
 	 */
