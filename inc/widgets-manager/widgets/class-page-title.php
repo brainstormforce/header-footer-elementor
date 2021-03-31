@@ -14,6 +14,8 @@ use Elementor\Group_Control_Typography;
 use Elementor\Scheme_Typography;
 use Elementor\Scheme_Color;
 
+use HFE\WidgetsManager\Widgets_Loader;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;   // Exit if accessed directly.
 }
@@ -430,6 +432,8 @@ class Page_Title extends Widget_Base {
 			}
 			$link = $this->get_render_attribute_string( 'url' );
 		}
+
+		$heading_size_tag = Widgets_Loader::validate_html_tag( $settings['heading_tag'] );
 		?>		
 		<div class="hfe-page-title hfe-page-title-wrapper elementor-widget-heading">
 
@@ -442,7 +446,7 @@ class Page_Title extends Widget_Base {
 			<?php } elseif ( 'default' === $head_custom_link ) { ?>
 						<a href="<?php echo esc_url( get_home_url() ); ?>">
 			<?php } ?>
-			<<?php echo wp_kses_post( $settings['heading_tag'] ); ?> class="elementor-heading-title elementor-size-<?php echo $settings['size']; ?>">
+			<<?php echo $heading_size_tag; ?> class="elementor-heading-title elementor-size-<?php echo $settings['size']; ?>">
 				<?php if ( '' !== $settings['new_page_title_select_icon']['value'] ) { ?>
 						<span class="hfe-page-title-icon">
 							<?php \Elementor\Icons_Manager::render_icon( $settings['new_page_title_select_icon'], [ 'aria-hidden' => 'true' ] ); ?>             </span>
@@ -462,7 +466,7 @@ class Page_Title extends Widget_Base {
 					?>
 					<?php echo wp_kses_post( $settings['after'] ); ?>
 				<?php } ?>  
-			</<?php echo wp_kses_post( $settings['heading_tag'] ); ?> > 
+			</<?php echo $heading_size_tag; ?> > 
 			<?php if ( ( '' != $head_link_url && 'custom' === $head_custom_link ) || 'default' === $head_custom_link ) { ?>
 						</a>
 			<?php } ?>
@@ -491,12 +495,21 @@ class Page_Title extends Widget_Base {
 			view.addRenderAttribute( 'url', 'href', settings.page_heading_link.url );
 		}
 		var iconHTML = elementor.helpers.renderIcon( view, settings.new_page_title_select_icon, { 'aria-hidden': true }, 'i' , 'object' );
+
+		var headingSizeTag = settings.heading_tag;
+
+		if ( typeof elementor.helpers.validateHTMLTag === "function" ) { 
+			headingSizeTag = elementor.helpers.validateHTMLTag( settings.heading_tag );
+		} else if( HfeWidgetsData.allowed_tags ) {
+			headingSizeTag = HfeWidgetsData.allowed_tags.includes( headingSizeTag.toLowerCase() ) ? headingSizeTag : 'div';
+		}
+
 		#>
 		<div class="hfe-page-title hfe-page-title-wrapper elementor-widget-heading">
 			<# if ( '' != settings.page_heading_link.url ) { #>
 					<a {{{ view.getRenderAttributeString( 'url' ) }}} >
 			<# } #>
-			<{{{ settings.heading_tag }}} class="elementor-heading-title elementor-size-{{{ settings.size }}}">		
+			<{{{ headingSizeTag }}} class="elementor-heading-title elementor-size-{{{ settings.size }}}">		
 				<# if( '' != settings.new_page_title_select_icon.value ){ #>
 					<span class="hfe-page-title-icon" data-elementor-setting-key="page_title" data-elementor-inline-editing-toolbar="basic">
 						{{{iconHTML.value}}}                    
@@ -515,7 +528,7 @@ class Page_Title extends Widget_Base {
 					<# if ( '' != settings.after ) { #>
 						{{{ settings.after }}}
 					<# } #>				
-			</{{{ settings.heading_tag }}}>
+			</{{{ headingSizeTag }}}>
 			<# if ( '' != settings.page_heading_link.url ) { #>
 					</a>
 			<# } #>			
