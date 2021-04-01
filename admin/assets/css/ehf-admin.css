@@ -296,6 +296,9 @@ select.hfe-subscribe-field {
     background: #fff;
     border: 1px solid #ddd;
 }
+.hfe-admin-guide-section.hfe-admin-columns .hfe-admin-column-50 {
+    min-height: 425px;
+}
 .hfe-admin-columns .hfe-admin-column-60 {
     width: 60%;
 }
@@ -575,16 +578,21 @@ select.hfe-subscribe-field {
 span.hfe-subscribe-message {
     width: 100%;
     display: block;
-    text-align: center;
+    text-align: left;
     margin-top: 20px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
+    padding: 15px;
 }
 span.hfe-subscribe-message.success {
-    color: #12b512;
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-left: 4px solid #93d776;
 }
 span.hfe-subscribe-message.error {
     color: #d11212;
+    background-color: #f2dede96;
+    border-left: 4px solid #c01a1a66;
 }
 span.dashicons.dashicons-update.hfe-loader {
     animation: rotation 2s infinite linear;

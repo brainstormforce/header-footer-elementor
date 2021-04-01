@@ -59,7 +59,7 @@ class HFE_Settings_Page {
 		$is_dismissed = get_user_meta( get_current_user_id(), 'dummy-popup' );
 
 		$strings = [
-			'subscribe_success' => esc_html__( 'Thanks for Subscribing!', 'header-footer-elementor' ),
+			'subscribe_success' => esc_html__( 'Thank you for subscribing with us!', 'header-footer-elementor' ),
 			'subscribe_error'   => esc_html__( 'Error encountered while submitting the form!', 'header-footer-elementor' ),
 			'ajax_url'          => admin_url( 'admin-ajax.php' ),
 			'nonce'             => wp_create_nonce( 'hfe-admin-nonce' ),
