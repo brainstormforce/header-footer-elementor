@@ -233,13 +233,15 @@ select.hfe-subscribe-field {
     text-align: center;
     margin-top: 0px;
     padding-top: 0px;
+    padding-bottom: 0px;
 }
 .hfe-privacy-policy-container {
     margin-top: 0;
     text-align: center;
 }
-.hfe-privacy-policy-container p {
+.hfe-privacy-policy-container .hfe-subscription-policy {
     margin: 0;
+    padding-top: 10px;
 }
 .hfe-privacy-policy-container .button-subscription-skip:focus {
     box-shadow: none;
@@ -543,9 +545,6 @@ select.hfe-subscribe-field {
 .hfe-guide-modal-popup-wrapper .hfe-admin-about-section-column p {
     font-size: 16px;
 }
-.hfe-guide-modal-popup-wrapper .hfe-guide-content p.submit {
-    padding-bottom: 0;
-}
 .hfe-admin-about-section-column h3 {
     margin-bottom: 0;
     padding: 15px 30px;
@@ -578,7 +577,7 @@ select.hfe-subscribe-field {
 span.hfe-subscribe-message {
     width: 100%;
     display: block;
-    text-align: left;
+    text-align: center;
     margin-top: 20px;
     font-size: 14px;
     font-weight: 400;
