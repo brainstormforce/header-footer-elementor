@@ -250,7 +250,8 @@ select.hfe-subscribe-field {
 }
 .hfe-privacy-policy-container .button-subscription-skip {
     margin-top: .8em;
-    display: inline-block;
+    display: inline-block;    
+    font-size: 14px;
 }
 .hfe-guide-content .button {
     text-transform: uppercase;

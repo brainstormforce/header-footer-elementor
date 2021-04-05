@@ -56,7 +56,7 @@ class HFE_Settings_Page {
 	public function enqueue_admin_scripts() {
 		wp_enqueue_script( 'hfe-admin-script', HFE_URL . 'admin/assets/js/ehf-admin.js', [], HFE_VER );
 
-		$is_dismissed = get_user_meta( get_current_user_id(), 'dummy-popup' );
+		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
 
 		$strings = [
 			'subscribe_success' => esc_html__( 'Thank you for subscribing with us!', 'header-footer-elementor' ),
@@ -88,7 +88,7 @@ class HFE_Settings_Page {
 	public function hfe_settings( $views ) {
 		$this->hfe_tabs();
 		$is_dismissed = [];
-		$is_dismissed = get_user_meta( get_current_user_id(), 'dummy-popup' );
+		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
 		if ( ! empty( $is_dismissed ) && 'dismissed' === $is_dismissed[0] ) {
 			return false;
 		} else {
@@ -361,7 +361,7 @@ class HFE_Settings_Page {
 	public function get_guide_html( $type ) {
 
 		$is_subscribed  = get_user_meta( get_current_user_ID(), 'hfe-subscribed' );
-		$subscribe_flag = ( 'yes' === $is_subscribed ) ? ' hfe-user-subscribed' : '';
+		$subscribe_flag = ( 'yes' === $is_subscribed[0] ) ? ' hfe-user-subscribed' : '';
 		?>
 
 		<div class="hfe-admin-about-section hfe-admin-columns hfe-admin-guide-section<?php echo $subscribe_flag; ?>">
@@ -380,7 +380,7 @@ class HFE_Settings_Page {
 					<?php } ?>
 				</div>
 			</div>
-			<?php if ( 'yes' !== $is_subscribed ) { ?>
+			<?php if ( 'yes' !== $is_subscribed[0] ) { ?>
 				<div class="hfe-admin-column-50 hfe-admin-column-last">
 					<div class="hfe-guide-content hfe-subscription-step-1-active">
 						<div class="hfe-guide-content-header hfe-admin-columns">
