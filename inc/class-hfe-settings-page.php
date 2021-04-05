@@ -360,7 +360,7 @@ class HFE_Settings_Page {
 	 */
 	public function get_guide_html( $type ) {
 
-		$is_subscribed = get_user_meta( get_current_user_ID(), 'hfe-subscribed' );
+		$is_subscribed  = get_user_meta( get_current_user_ID(), 'hfe-subscribed' );
 		$subscribe_flag = ( 'yes' === $is_subscribed ) ? ' hfe-user-subscribed' : '';
 		?>
 
@@ -380,7 +380,7 @@ class HFE_Settings_Page {
 					<?php } ?>
 				</div>
 			</div>
-			<?php if( 'yes' !== $is_subscribed ) { ?>
+			<?php if ( 'yes' !== $is_subscribed ) { ?>
 				<div class="hfe-admin-column-50 hfe-admin-column-last">
 					<div class="hfe-guide-content hfe-subscription-step-1-active">
 						<div class="hfe-guide-content-header hfe-admin-columns">

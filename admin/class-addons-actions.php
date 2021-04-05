@@ -15,7 +15,7 @@ function hfe_admin_modal() {
 	// Run a security check.
 	check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
 
-	// update_user_meta( get_current_user_id(), 'dummy-popup', 'dismissed' );
+	// update_user_meta( get_current_user_id(), 'dummy-popup', 'dismissed' );.
 }
 add_action( 'wp_ajax_hfe_admin_modal', 'hfe_admin_modal' );
 
