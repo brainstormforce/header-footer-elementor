@@ -181,6 +181,11 @@ class Header_Footer_Elementor {
 	 */
 	public function elementor_not_available() {
 
+		$screen = get_current_screen();
+		if ( isset( $screen->parent_file ) && 'plugins.php' === $screen->parent_file && 'update' === $screen->id ) {
+			return;
+		}
+
 		if ( ! did_action( 'elementor/loaded' ) ) {
 			// Check user capability.
 			if ( ! ( current_user_can( 'activate_plugins' ) && current_user_can( 'install_plugins' ) ) ) {
@@ -225,9 +230,10 @@ class Header_Footer_Elementor {
 
 		/* TO DO */
 		$class       = 'notice notice-info is-dismissible';
-		$setting_url = admin_url( 'post-new.php?post_type=elementor-hf' );
-		$image_path = HFE_URL . 'assets/images/header-footer-elementor-icon.svg';
+		$setting_url = admin_url( 'edit.php?post_type=elementor-hf' );
+		$image_path  = HFE_URL . 'assets/images/header-footer-elementor-icon.svg';
 
+		/* translators: %s: html tags */
 		$notice_message = sprintf( __( 'Thank you for installing %1$s Elementor Header & Footer Builder %2$s by Brainstorm Force. %3$sLet\'s get started! %4$s', 'header-footer-elementor' ), '<strong>', '</strong>', '<a href="' . $setting_url . '">', '</a>' );
 
 		Astra_Notices::add_notice(

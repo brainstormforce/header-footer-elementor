@@ -159,7 +159,7 @@ li#toplevel_page_Settings-page,
     padding: 10px 15px;
     box-shadow: none;
     min-height: 44px;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 400;
     outline: none;
     background-color: transparent;
@@ -234,6 +234,7 @@ select.hfe-subscribe-field {
     margin-top: 0px;
     padding-top: 0px;
     padding-bottom: 0px;
+    margin-bottom: 0px;
 }
 .hfe-privacy-policy-container {
     margin-top: 0;
@@ -242,18 +243,21 @@ select.hfe-subscribe-field {
 .hfe-privacy-policy-container .hfe-subscription-policy {
     margin: 0;
     padding-top: 10px;
+    font-size: 14px;
 }
 .hfe-privacy-policy-container .button-subscription-skip:focus {
     box-shadow: none;
 }
 .hfe-privacy-policy-container .button-subscription-skip {
     margin-top: .8em;
-    display: inline-block;
+    display: inline-block;    
+    font-size: 14px;
 }
 .hfe-guide-content .button {
     text-transform: uppercase;
     padding: 10px 20px;
     width: 100%;
+    font-size: 13px;
 }
 .hfe-guide-content .button.submitting {
     margin-right: 3px;
@@ -268,6 +272,11 @@ select.hfe-subscribe-field {
     padding: 40px;
     line-height: 2;
 }
+.hfe-admin-about-section p,
+#hfe-admin-addons .addon-item,
+#hfe-admin-addons .addon-item p {
+    font-size: 15px;
+}
 .hfe-admin-about-us {
     background: #fff;
     border: 1px solid #ddd;
@@ -278,7 +287,7 @@ select.hfe-subscribe-field {
 .hfe-admin-about-section h4, 
 .hfe-admin-about-section h5 {
     margin-top: 0;
-    line-height: 1.6;
+    line-height: 1.3;
 }
 .hfe-clear:before {
     content: " ";
@@ -301,21 +310,26 @@ select.hfe-subscribe-field {
 .hfe-admin-guide-section.hfe-admin-columns .hfe-admin-column-50 {
     min-height: 425px;
 }
+.hfe-user-subscribed.hfe-admin-columns .hfe-admin-column-50 {
+    min-height: 500px;
+}
 .hfe-admin-columns .hfe-admin-column-60 {
     width: 60%;
 }
 .hfe-admin-columns .hfe-admin-column-last .hfe-guide-content {
     width: 100%;
 }
-.hfe-admin-about-section figure {
+.hfe-admin-about-section figure,
+.hfe-admin-guide-section .hfe-admin-video {
     margin: 0;
     padding: 30px;
 }
-.hfe-admin-about-section figure img {
+.hfe-admin-about-section figure img,
+.hfe-admin-guide-section .hfe-admin-video iframe {
     width: 100%;
 }
 .hfe-admin-about-section figure figcaption {
-    font-size: 14px;
+    font-size: 15px;
     color: #686868;
     margin-top: 5px;
     text-align: center;
@@ -386,7 +400,7 @@ select.hfe-subscribe-field {
 }
 #hfe-admin-addons .addon-item h5 {
   margin: 0 0 15px 100px;
-  font-size: 16px;
+  font-size: 17px;
 }
 #hfe-admin-addons .addon-item p {
   margin: 0 0 0 100px;
@@ -534,16 +548,15 @@ select.hfe-subscribe-field {
 .hfe-guide-modal-popup-wrapper .hfe-subscription-row .hfe-input-container,
 .hfe-guide-modal-popup-wrapper .button {
     width: 100%;
+    margin-bottom: 5px;
 }
 .hfe-guide-modal-popup-wrapper .hfe-subscription-row {
     display: block;
+    margin-bottom: 0px;
 }
 .hfe-guide-modal-popup-wrapper .hfe-admin-about-section-column h2 {
     font-size: 28px;
     margin-bottom: 15px;
-}
-.hfe-guide-modal-popup-wrapper .hfe-admin-about-section-column p {
-    font-size: 16px;
 }
 .hfe-admin-about-section-column h3 {
     margin-bottom: 0;
@@ -554,7 +567,7 @@ select.hfe-subscribe-field {
 .hfe-guide-content-header h3 {
     text-align: center;
     font-size: 18px;
-    line-height: 1.5;
+    line-height: 1.3;
 }
 .hfe-show {
     z-index: 9999;
@@ -648,7 +661,7 @@ span.hfe-star-icons {
     .hfe-guide-modal-popup-wrapper .hfe-admin-columns .hfe-admin-column-50.hfe-admin-column-last,
     .hfe-guide-modal-popup-wrapper .hfe-guide-content,
     .hfe-admin-guide-section .hfe-admin-column-50:not(.hfe-admin-column-last) {
-        padding: 30px;
+        padding: 15px;
     }
     .hfe-subscribe-email span.dashicons.dashicons-email {
         font-size: 15px;

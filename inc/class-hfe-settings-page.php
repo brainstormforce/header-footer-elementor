@@ -56,7 +56,7 @@ class HFE_Settings_Page {
 	public function enqueue_admin_scripts() {
 		wp_enqueue_script( 'hfe-admin-script', HFE_URL . 'admin/assets/js/ehf-admin.js', [], HFE_VER );
 
-		$is_dismissed = get_user_meta( get_current_user_id(), 'dummy-popup' );
+		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
 
 		$strings = [
 			'subscribe_success' => esc_html__( 'Thank you for subscribing with us!', 'header-footer-elementor' ),
@@ -88,7 +88,8 @@ class HFE_Settings_Page {
 	public function hfe_settings( $views ) {
 		$this->hfe_tabs();
 		$is_dismissed = [];
-		$is_dismissed = get_user_meta( get_current_user_id(), 'dummy-popup' );
+		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
+
 		if ( ! empty( $is_dismissed ) && 'dismissed' === $is_dismissed[0] ) {
 			return false;
 		} else {
@@ -263,15 +264,10 @@ class HFE_Settings_Page {
 		<div class="nav-tab-wrapper">
 			<?php
 			if ( ! isset( self::$hfe_settings_tabs ) ) {
-				self::$hfe_settings_tabs = apply_filters(
-					'hfe_settings_tabs',
-					[
-						'hfe_templates' => [
-							'name' => __( 'All Templates', 'header-footer-elementor' ),
-							'url'  => admin_url( 'edit.php?post_type=elementor-hf' ),
-						],
-					]
-				);
+				self::$hfe_settings_tabs['hfe_templates'] = [
+					'name' => __( 'All Templates', 'header-footer-elementor' ),
+					'url'  => admin_url( 'edit.php?post_type=elementor-hf' ),
+				];
 			}
 
 			self::$hfe_settings_tabs['hfe_guide'] = [
@@ -284,7 +280,7 @@ class HFE_Settings_Page {
 				'url'  => admin_url( 'themes.php?page=hfe-about' ),
 			];
 
-			$tabs = self::$hfe_settings_tabs;
+			$tabs = apply_filters( 'hfe_settings_tabs', self::$hfe_settings_tabs );
 
 			foreach ( $tabs as $tab_id => $tab ) {
 
@@ -360,8 +356,10 @@ class HFE_Settings_Page {
 	 */
 	public function get_guide_html( $type ) {
 
-		$is_subscribed = get_user_meta( get_current_user_ID(), 'hfe-subscribed' );
-		$subscribe_flag = ( 'yes' === $is_subscribed ) ? ' hfe-user-subscribed' : '';
+		$is_subscribed  = get_user_meta( get_current_user_ID(), 'hfe-subscribed' );
+		$subscribe_flag = ( 'yes' === $is_subscribed[0] ) ? ' hfe-user-subscribed' : '';
+
+		$video_height = ( 'yes' === $is_subscribed[0] ) ? '450' : '300';
 		?>
 
 		<div class="hfe-admin-about-section hfe-admin-columns hfe-admin-guide-section<?php echo $subscribe_flag; ?>">
@@ -371,16 +369,16 @@ class HFE_Settings_Page {
 
 					<?php if ( 'page' === $type ) { ?>
 						<h3><?php esc_html_e( 'Learn the Art of Designing Custom Header & Footer', 'header-footer-elementor' ); ?></h3>
-						<figure>
-							<img src="<?php echo HFE_URL; ?>assets/images/settings/our-team.jpg" alt="<?php esc_attr_e( 'Team photo', 'header-footer-elementor' ); ?>">
-						</figure>
+						<div class="hfe-admin-video">
+							<iframe width="560" height=<?php echo $video_height; ?> src="https://www.youtube.com/embed/XLEQb2hF2Fo?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</div>
 					<?php } elseif ( 'popup' === $type ) { ?>
 						<h2><?php esc_html_e( 'Get Creative Header & Footer Examples', 'header-footer-elementor' ); ?></h2>
 						<p><?php esc_html_e( 'Create header and footer designs for your site. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque velit nisi, pretium ut lacinia in, elementum id enim.', 'header-footer-elementor' ); ?></p>
 					<?php } ?>
 				</div>
 			</div>
-			<?php if( 'yes' !== $is_subscribed ) { ?>
+			<?php if ( 'yes' !== $is_subscribed[0] ) { ?>
 				<div class="hfe-admin-column-50 hfe-admin-column-last">
 					<div class="hfe-guide-content hfe-subscription-step-1-active">
 						<div class="hfe-guide-content-header hfe-admin-columns">
@@ -736,7 +734,7 @@ class HFE_Settings_Page {
 
 			'ultimate-elementor' => [
 				'icon'  => $images_url . 'plugin-uae.png',
-				'name'  => esc_html__( 'Ultimate Elementor', 'header-footer-elementor' ),
+				'name'  => esc_html__( 'Ultimate Addons for Elementor', 'header-footer-elementor' ),
 				'desc'  => esc_html__( 'The Ultimate Addons for Elementor plugin offers unique, creative and optimized widgets that would enhance the page builder with more features.', 'header-footer-elementor' ),
 				'wporg' => '',
 				'url'   => 'https://ultimateelementor.com/',
