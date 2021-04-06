@@ -5,7 +5,7 @@
 **Requires at least:** 4.4  
 **Requires PHP:** 5.4  
 **Tested up to:** 5.7  
-**Stable tag:** 1.5.7  
+**Stable tag:** 1.5.8  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -138,7 +138,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 ## Changelog ##
 ### 1.5.8 ###
-- Improvement: Rename plugin to Elementor Header & Footer builder.
+- Fix: Hardened allowed options in the editor to enforce better security policies.
 
 ### 1.5.7 ###
 - Improvement: Compatibility with Elementor v3.1.
