@@ -88,7 +88,8 @@ class HFE_Settings_Page {
 	public function hfe_settings( $views ) {
 		$this->hfe_tabs();
 		$is_dismissed = [];
-		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
+		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popupe' );
+
 		if ( ! empty( $is_dismissed ) && 'dismissed' === $is_dismissed[0] ) {
 			return false;
 		} else {
@@ -357,6 +358,8 @@ class HFE_Settings_Page {
 
 		$is_subscribed  = get_user_meta( get_current_user_ID(), 'hfe-subscribed' );
 		$subscribe_flag = ( 'yes' === $is_subscribed[0] ) ? ' hfe-user-subscribed' : '';
+
+		$video_height = ( 'yes' === $is_subscribed[0] ) ? '450' : '300';
 		?>
 
 		<div class="hfe-admin-about-section hfe-admin-columns hfe-admin-guide-section<?php echo $subscribe_flag; ?>">
@@ -367,7 +370,7 @@ class HFE_Settings_Page {
 					<?php if ( 'page' === $type ) { ?>
 						<h3><?php esc_html_e( 'Learn the Art of Designing Custom Header & Footer', 'header-footer-elementor' ); ?></h3>
 						<div class="hfe-admin-video">
-							<iframe width="560" height="450" src="https://www.youtube.com/embed/XLEQb2hF2Fo?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<iframe width="560" height=<?php echo $video_height; ?> src="https://www.youtube.com/embed/XLEQb2hF2Fo?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						</div>
 					<?php } elseif ( 'popup' === $type ) { ?>
 						<h2><?php esc_html_e( 'Get Creative Header & Footer Examples', 'header-footer-elementor' ); ?></h2>

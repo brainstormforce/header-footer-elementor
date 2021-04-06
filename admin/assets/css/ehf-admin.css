@@ -661,7 +661,7 @@ span.hfe-star-icons {
     .hfe-guide-modal-popup-wrapper .hfe-admin-columns .hfe-admin-column-50.hfe-admin-column-last,
     .hfe-guide-modal-popup-wrapper .hfe-guide-content,
     .hfe-admin-guide-section .hfe-admin-column-50:not(.hfe-admin-column-last) {
-        padding: 30px;
+        padding: 15px;
     }
     .hfe-subscribe-email span.dashicons.dashicons-email {
         font-size: 15px;
