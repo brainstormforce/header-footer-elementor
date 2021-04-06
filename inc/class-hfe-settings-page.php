@@ -263,15 +263,10 @@ class HFE_Settings_Page {
 		<div class="nav-tab-wrapper">
 			<?php
 			if ( ! isset( self::$hfe_settings_tabs ) ) {
-				self::$hfe_settings_tabs = apply_filters(
-					'hfe_settings_tabs',
-					[
-						'hfe_templates' => [
-							'name' => __( 'All Templates', 'header-footer-elementor' ),
-							'url'  => admin_url( 'edit.php?post_type=elementor-hf' ),
-						],
-					]
-				);
+				self::$hfe_settings_tabs['hfe_templates'] = [
+					'name' => __( 'All Templates', 'header-footer-elementor' ),
+					'url'  => admin_url( 'edit.php?post_type=elementor-hf' ),
+				];
 			}
 
 			self::$hfe_settings_tabs['hfe_guide'] = [
@@ -284,7 +279,7 @@ class HFE_Settings_Page {
 				'url'  => admin_url( 'themes.php?page=hfe-about' ),
 			];
 
-			$tabs = self::$hfe_settings_tabs;
+			$tabs =  apply_filters( 'hfe_settings_tabs', self::$hfe_settings_tabs );
 
 			foreach ( $tabs as $tab_id => $tab ) {
 
