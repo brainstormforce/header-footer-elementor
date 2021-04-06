@@ -181,6 +181,11 @@ class Header_Footer_Elementor {
 	 */
 	public function elementor_not_available() {
 
+		$screen = get_current_screen();
+		if ( isset( $screen->parent_file ) && 'plugins.php' === $screen->parent_file && 'update' === $screen->id ) {
+			return;
+		}
+
 		if ( ! did_action( 'elementor/loaded' ) ) {
 			// Check user capability.
 			if ( ! ( current_user_can( 'activate_plugins' ) && current_user_can( 'install_plugins' ) ) ) {
