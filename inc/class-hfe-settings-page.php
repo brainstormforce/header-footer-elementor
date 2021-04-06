@@ -366,9 +366,9 @@ class HFE_Settings_Page {
 
 					<?php if ( 'page' === $type ) { ?>
 						<h3><?php esc_html_e( 'Learn the Art of Designing Custom Header & Footer', 'header-footer-elementor' ); ?></h3>
-						<figure>
-							<img src="<?php echo HFE_URL; ?>assets/images/settings/our-team.jpg" alt="<?php esc_attr_e( 'Team photo', 'header-footer-elementor' ); ?>">
-						</figure>
+						<div class="hfe-admin-video">
+							<iframe width="560" height="450" src="https://www.youtube.com/embed/XLEQb2hF2Fo?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</div>
 					<?php } elseif ( 'popup' === $type ) { ?>
 						<h2><?php esc_html_e( 'Get Creative Header & Footer Examples', 'header-footer-elementor' ); ?></h2>
 						<p><?php esc_html_e( 'Create header and footer designs for your site. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque velit nisi, pretium ut lacinia in, elementum id enim.', 'header-footer-elementor' ); ?></p>

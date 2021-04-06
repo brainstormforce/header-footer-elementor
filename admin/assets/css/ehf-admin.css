@@ -310,17 +310,22 @@ select.hfe-subscribe-field {
 .hfe-admin-guide-section.hfe-admin-columns .hfe-admin-column-50 {
     min-height: 425px;
 }
+.hfe-user-subscribed.hfe-admin-columns .hfe-admin-column-50 {
+    min-height: 500px;
+}
 .hfe-admin-columns .hfe-admin-column-60 {
     width: 60%;
 }
 .hfe-admin-columns .hfe-admin-column-last .hfe-guide-content {
     width: 100%;
 }
-.hfe-admin-about-section figure {
+.hfe-admin-about-section figure,
+.hfe-admin-guide-section .hfe-admin-video {
     margin: 0;
     padding: 30px;
 }
-.hfe-admin-about-section figure img {
+.hfe-admin-about-section figure img,
+.hfe-admin-guide-section .hfe-admin-video iframe {
     width: 100%;
 }
 .hfe-admin-about-section figure figcaption {
