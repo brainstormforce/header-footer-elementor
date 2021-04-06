@@ -736,7 +736,7 @@ class HFE_Settings_Page {
 
 			'ultimate-elementor' => [
 				'icon'  => $images_url . 'plugin-uae.png',
-				'name'  => esc_html__( 'Ultimate Elementor', 'header-footer-elementor' ),
+				'name'  => esc_html__( 'Ultimate Addons for Elementor', 'header-footer-elementor' ),
 				'desc'  => esc_html__( 'The Ultimate Addons for Elementor plugin offers unique, creative and optimized widgets that would enhance the page builder with more features.', 'header-footer-elementor' ),
 				'wporg' => '',
 				'url'   => 'https://ultimateelementor.com/',
