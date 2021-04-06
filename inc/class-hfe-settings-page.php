@@ -280,7 +280,7 @@ class HFE_Settings_Page {
 				'url'  => admin_url( 'themes.php?page=hfe-about' ),
 			];
 
-			$tabs =  apply_filters( 'hfe_settings_tabs', self::$hfe_settings_tabs );
+			$tabs = apply_filters( 'hfe_settings_tabs', self::$hfe_settings_tabs );
 
 			foreach ( $tabs as $tab_id => $tab ) {
 
