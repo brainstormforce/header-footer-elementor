@@ -212,7 +212,9 @@ class HFE_Settings_Page {
 		$hfe_compatibility_option = get_option( 'hfe_compatibility_option', '1' );
 
 		if ( '1' === $hfe_compatibility_option ) {
-			require HFE_DIR . 'themes/default/class-hfe-default-compat.php';
+			if ( ! class_exists( 'HFE_Default_Compat' ) ) {
+				require_once HFE_DIR . 'themes/default/class-hfe-default-compat.php';
+			}
 		} elseif ( '2' === $hfe_compatibility_option ) {
 			require HFE_DIR . 'themes/default/class-global-theme-compatibility.php';
 		}
