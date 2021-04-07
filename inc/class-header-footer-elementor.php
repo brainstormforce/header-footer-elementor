@@ -78,7 +78,7 @@ class Header_Footer_Elementor {
 				add_filter( 'hfe_settings_tabs', [ $this, 'setup_unsupported_theme' ] );
 			}
 
-			if( 'yes' === get_option( 'HFE_Plugin_Activated' ) ) {
+			if ( 'yes' === get_option( 'HFE_Plugin_Activated' ) ) {
 				add_action( 'admin_notices', [ $this, 'show_setup_wizard' ] );
 			}
 
