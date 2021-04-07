@@ -29,6 +29,15 @@ require_once HFE_DIR . '/inc/class-header-footer-elementor.php';
 /**
  * Load the Plugin Class.
  */
+function hfe_activation_reset() {
+	add_option( 'HFE_Plugin_Activated', 'yes' );
+}
+
+register_activation_hook( HFE_FILE, 'hfe_activation_reset' );
+
+/**
+ * Load the Plugin Class.
+ */
 function hfe_init() {
 	Header_Footer_Elementor::instance();
 }

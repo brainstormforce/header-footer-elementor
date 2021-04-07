@@ -78,7 +78,10 @@ class Header_Footer_Elementor {
 				add_filter( 'hfe_settings_tabs', [ $this, 'setup_unsupported_theme' ] );
 			}
 
-			add_action( 'admin_notices', [ $this, 'show_setup_wizard' ] );
+			if( 'yes' === get_option( 'HFE_Plugin_Activated' ) ) {
+				add_action( 'admin_notices', [ $this, 'show_setup_wizard' ] );
+			}
+
 			// Scripts and styles.
 			add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
 
@@ -380,6 +383,7 @@ class Header_Footer_Elementor {
 	 * @since x.x.x
 	 */
 	public function setup_settings_page() {
+
 		require_once HFE_DIR . 'inc/class-hfe-settings-page.php';
 	}
 
