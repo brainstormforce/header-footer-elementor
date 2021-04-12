@@ -323,9 +323,12 @@ select.hfe-subscribe-field {
 .hfe-admin-guide-section .hfe-admin-video {
     margin: 0;
     padding: 30px;
+    text-align: center;
 }
-.hfe-admin-about-section figure img,
-.hfe-admin-guide-section .hfe-admin-video iframe {
+.hfe-admin-about-section figure {
+    padding-top: 0px;
+}
+.hfe-admin-about-section figure img {
     width: 100%;
 }
 .hfe-admin-about-section figure figcaption {

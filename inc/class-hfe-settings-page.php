@@ -361,7 +361,7 @@ class HFE_Settings_Page {
 		$is_subscribed  = get_user_meta( get_current_user_ID(), 'hfe-subscribed' );
 		$subscribe_flag = ( 'yes' === $is_subscribed[0] ) ? ' hfe-user-subscribed' : '';
 
-		$video_height = ( 'yes' === $is_subscribed[0] ) ? '450' : '300';
+		$video_height = ( 'yes' === $is_subscribed[0] ) ? '320' : '300';
 		?>
 
 		<div class="hfe-admin-about-section hfe-admin-columns hfe-admin-guide-section<?php echo $subscribe_flag; ?>">
