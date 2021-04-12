@@ -480,7 +480,7 @@ class HFE_Settings_Page {
 			</div>
 			<p class="submit">
 				<button type="submit" id="submit-2"  class="button submit-2 button-primary">
-					<span class="hfe-submit-button-text"><?php echo __( 'Download This Guide & Start Brainstorming', 'header-footer-elementor' ); ?></span>
+					<span class="hfe-submit-button-text"><?php echo __( 'Submit', 'header-footer-elementor' ); ?></span>
 				</button>
 			</p>		
 

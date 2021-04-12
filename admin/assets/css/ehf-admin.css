@@ -99,9 +99,15 @@ li#toplevel_page_Settings-page,
 .appearance_page_hfe-settings .nav-tab-wrapper {
     margin-right: 18px;
     margin-bottom: 25px;
+    margin-top: 10px;
 }
 .post-type-elementor-hf .nav-tab-wrapper {
     margin-bottom: 18px;
+    margin-top: 10px;
+}
+.post-type-elementor-hf .wrap h1.wp-heading-inline,
+.hfe-heading-inline {
+    margin-top: 10px
 }
 .hfe-admin-guide-section.hfe-user-subscribed .hfe-admin-column-50 {
     width: 100%;
