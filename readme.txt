@@ -138,6 +138,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 = 1.5.8 =
+- Improvement: Added an option to hide + & - sign added by Twenty Twenty-One Theme.
+
+= 1.5.8 =
 - Fix: Hardened allowed options in the editor to enforce better security policies.
 
 = 1.5.7 =

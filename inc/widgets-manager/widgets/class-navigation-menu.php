@@ -255,7 +255,7 @@ class Navigation_Menu extends Widget_Base {
 		);
 
 		$current_theme = wp_get_theme();
-		
+
 		if ( 'Twenty Twenty-One' === $current_theme->get( 'Name' ) ) {
 			$this->add_control(
 				'hide_theme_icons',
