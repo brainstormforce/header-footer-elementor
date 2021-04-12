@@ -399,8 +399,8 @@ class Header_Footer_Elementor {
 				'name' => __( 'Theme Support', 'header-footer-elementor' ),
 				'url'  => admin_url( 'themes.php?page=hfe-settings' ),
 			];
-			return $hfe_settings_tabs;
 		}
+		return $hfe_settings_tabs;
 	}
 
 	/**
