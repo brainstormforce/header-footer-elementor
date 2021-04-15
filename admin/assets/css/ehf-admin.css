@@ -404,7 +404,8 @@ select.hfe-subscribe-field {
     padding: 20px;
 }
 #hfe-admin-addons .addon-item img {
-    padding: 13px;  
+    padding: 13px;
+    padding-top: 0px;
 }
 #hfe-admin-addons #hfe-admin-addons-list .list {
   display: flex;
@@ -432,9 +433,9 @@ select.hfe-subscribe-field {
   margin: 0;
 }
 #hfe-admin-addons .addon-item img {
-  border: 1px solid #eee;
+  /* border: 1px solid #eee; */
   float: left;
-  max-width: 75px;
+  max-width: 80px;
 }
 #hfe-admin-addons .addon-item h5 {
   margin: 0 0 15px 100px;
