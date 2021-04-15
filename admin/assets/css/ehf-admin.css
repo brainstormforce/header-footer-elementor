@@ -336,6 +336,7 @@ select.hfe-subscribe-field {
 }
 .hfe-admin-about-section figure img {
     width: 100%;
+    box-shadow: 0 0 8px rgb(0 0 0 / 10%);
 }
 .hfe-admin-about-section figure figcaption {
     font-size: 15px;
