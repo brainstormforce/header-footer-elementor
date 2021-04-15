@@ -396,8 +396,8 @@ class HFE_Settings_Page {
 						
 						<?php } ?>
 					<?php } elseif ( 'popup' === $type ) { ?>
-						<h2><?php esc_html_e( 'Get Creative Header & Footer Examples', 'header-footer-elementor' ); ?></h2>
-						<p><?php esc_html_e( 'Create header and footer designs for your site. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque velit nisi, pretium ut lacinia in, elementum id enim.', 'header-footer-elementor' ); ?></p>
+						<h2><?php esc_html_e( 'Create Impressive Header and Footer Designs', 'header-footer-elementor' ); ?></h2>
+						<p><?php esc_html_e( 'Elementor Header & Footer Builder plugin lets you build impactful navigation for your website very easily. Before we begin, we would like to know more about you. This will help us to serve you better.', 'header-footer-elementor' ); ?></p>
 					<?php } ?>
 				</div>
 			</div>
