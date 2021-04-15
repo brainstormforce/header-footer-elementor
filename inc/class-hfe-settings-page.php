@@ -562,41 +562,25 @@ class HFE_Settings_Page {
 		<div class="hfe-admin-about-section hfe-admin-columns hfe-admin-about-us">
 
 			<div class="hfe-admin-column-60">
-				<h3><?php esc_html_e( 'Hello and Welcome to Elementor Header & Footer Builder.', 'header-footer-elementor' ); ?></h3>
+				<h3><?php esc_html_e( 'Welcome to Elementor Header & Footer Builder!', 'header-footer-elementor' ); ?></h3>
 
-				<p><?php esc_html_e( 'Pellentesque in ipsum id orci porta dapibus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Nulla quis lorem ut libero malesuada feugiat. Curabitur aliquet quam id dui posuere blandit.', 'header-footer-elementor' ); ?></p>
-				<p><?php esc_html_e( 'Our goal is to make header & footer design easy in Elementor.', 'header-footer-elementor' ); ?></p>
-				<p>
-					<?php
-					printf(
-						wp_kses(
-						/* translators: %1$s - WPBeginner URL; %2$s - OptinMonster URL; %3$s - MonsterInsights URL; %4$s - RafflePress URL. */
-							__( 'Elementor Header & Footer Builder is brought to you by the same team that’s behind the largest WordPress plugins, <a href="%1$s" target="_blank" rel="noopener noreferrer">Ultimate Addons for Gutenberg</a>, the most popular lead-generation software, <a href="%2$s" target="_blank" rel="noopener noreferrer">Ultimate Addons for Beaver Builder</a>, the best WordPress analytics plugin, <a href="%3$s" target="_blank" rel="noopener noreferrer">All in One Schema</a>, and the most powerful WordPress Theme, <a href="%4$s" target="_blank" rel="noopener noreferrer">Astra Theme</a>.', 'header-footer-elementor' ),
-							[
-								'a' => [
-									'href'   => [],
-									'rel'    => [],
-									'target' => [],
-								],
-							]
-						),
-						'https://www.wpastra.com/',
-						'https://www.wpastra.com/',
-						'https://www.wpastra.com/',
-						'https://www.wpastra.com/'
-					);
-					?>
-				</p>
-				<p>
-					<?php esc_html_e( 'Yup, we know a thing or two about building awesome products that customers love.', 'header-footer-elementor' ); ?>
-				</p>
+				<p><?php esc_html_e( 'The plugin offers the easiest way to create a customized header and footer for your website with Elementor. That too 100% FREE!', 'header-footer-elementor' ); ?></p>
+
+				<p><?php esc_html_e( 'Design beautiful layouts with simple drag & drop and display them at desired location with powerful target options. You can set this layout as a header, footer, or place it anywhere on the website with a shortcode.', 'header-footer-elementor' ); ?></p>
+
+				<p><?php esc_html_e( 'The plugin comes with inbuilt Elementor widgets that offer essential features to build header and footer. So you don’t have to look for extra plugins. You get 9 widgets including  Site Logo, Site Title, Navigation Menu, Retina Image, WooCommerce Menu Cart, Search, and so on.', 'header-footer-elementor' ); ?></p>
+
+				<p><?php esc_html_e( 'It’s a lightweight plugin that works seamlessly with all themes. This flexible plugin is easy to use and backed up by 24/7 support. Trusted by more than a million users, Elementor Header & Footer Builder is a modern way to build advanced navigation for your website.', 'header-footer-elementor' ); ?></p>
+
+				<p><?php esc_html_e( 'This plugin is brought to you by the same team behind the popular WordPress theme Astra and a series of Ultimate Addons plugins.', 'header-footer-elementor' ); ?></p>
+
 			</div>
 
 			<div class="hfe-admin-column-40 hfe-admin-column-last">
 				<figure>
 					<img src="<?php echo HFE_URL; ?>assets/images/settings/our-team.jpg" alt="<?php esc_attr_e( 'Team photo', 'header-footer-elementor' ); ?>">
 					<figcaption>
-						<?php esc_html_e( 'The Brainstorm Force Team', 'header-footer-elementor' ); ?><br>
+						<?php esc_html_e( 'Brainstorm Force Team Celebrating 5,000,000 Plugin Installations', 'header-footer-elementor' ); ?><br>
 					</figcaption>
 				</figure>
 			</div>
@@ -641,7 +625,7 @@ class HFE_Settings_Page {
 										printf(
 										/* translators: %s - addon status label. */
 											esc_html__( '%1$s Visit Website %2$s', 'header-footer-elementor' ),
-											'<a href="' . esc_attr( $plugin_data['plugin_src'] ) . '">',
+											'<a href="' . esc_attr( $plugin_data['plugin_src'] ) . '" target="_blank">',
 											'</a>'
 										);
 										?>
@@ -742,7 +726,7 @@ class HFE_Settings_Page {
 			'astra'              => [
 				'icon'  => $images_url . 'plugin-astra.png',
 				'name'  => esc_html__( 'Astra Theme', 'header-footer-elementor' ),
-				'desc'  => esc_html__( 'Astra is fast, fully customizable & beautiful WordPress theme suitable for blog, personal portfolio, business website and WooCommerce storefront.', 'header-footer-elementor' ),
+				'desc'  => esc_html__( 'Powering over 1M+ WordPress websites, Astra is loved for the performance and ease-of-use it offers. It is suitable for all kinds of websites like blogs, personal portfolios, business websites, and WooCommerce storefront.', 'header-footer-elementor' ),
 				'wporg' => 'https://wordpress.org/themes/astra/',
 				'url'   => 'https://wpastra.com/',
 			],
@@ -750,7 +734,7 @@ class HFE_Settings_Page {
 			'starter-templates'  => [
 				'icon'  => $images_url . 'plugin-st.png',
 				'name'  => esc_html__( 'Starter Templates', 'header-footer-elementor' ),
-				'desc'  => esc_html__( 'The Starter Templates plugin offers ready website templates. The Starter Templates plugin is currently powering 900,000k+ WordPress websites.', 'header-footer-elementor' ),
+				'desc'  => esc_html__( 'This is a popular templates plugin that provides an extensive library of 600+ ready website and page templates. You’ll find professional and fully customizable pre-built templates for every niche. More than 1M+ websites have built using Starter Templates. Choose it for your website today!', 'header-footer-elementor' ),
 				'wporg' => 'https://wordpress.org/plugins/astra-sites/',
 				'url'   => 'https://startertemplates.com/',
 			],
@@ -758,7 +742,7 @@ class HFE_Settings_Page {
 			'ultimate-elementor' => [
 				'icon'  => $images_url . 'plugin-uae.png',
 				'name'  => esc_html__( 'Ultimate Addons for Elementor', 'header-footer-elementor' ),
-				'desc'  => esc_html__( 'The Ultimate Addons for Elementor plugin offers unique, creative and optimized widgets that would enhance the page builder with more features.', 'header-footer-elementor' ),
+				'desc'  => esc_html__( 'Get a collection of unique, creative, and optimized Elementor widgets and readymade templates with Ultimate Addons for Elementor. It’s a complete Elementor toolkit that lets you create impactful designs with 40+ widgets and 100+ templates. Join 600K+ web professionals and enhance your website design today!', 'header-footer-elementor' ),
 				'wporg' => '',
 				'url'   => 'https://ultimateelementor.com/',
 			],
