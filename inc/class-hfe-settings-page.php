@@ -56,10 +56,10 @@ class HFE_Settings_Page {
 	public function enqueue_admin_scripts() {
 		wp_enqueue_script( 'hfe-admin-script', HFE_URL . 'admin/assets/js/ehf-admin.js', [], HFE_VER );
 
-		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
+		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popupss' );
 
 		$strings = [
-			'subscribe_success' => esc_html__( 'Thank you for subscribing with us!', 'header-footer-elementor' ),
+			'subscribe_success' => esc_html__( 'Your details are submitted successfully.', 'header-footer-elementor' ),
 			'subscribe_error'   => esc_html__( 'Error encountered while submitting the form!', 'header-footer-elementor' ),
 			'ajax_url'          => admin_url( 'admin-ajax.php' ),
 			'nonce'             => wp_create_nonce( 'hfe-admin-nonce' ),
@@ -88,7 +88,7 @@ class HFE_Settings_Page {
 	public function hfe_settings( $views ) {
 		$this->hfe_tabs();
 		$is_dismissed = [];
-		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
+		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popupss' );
 
 		if ( ! empty( $is_dismissed ) && 'dismissed' === $is_dismissed[0] ) {
 			return false;
@@ -324,7 +324,7 @@ class HFE_Settings_Page {
 		if ( $is_elementor_screen ) {
 			$footer_text = sprintf(
 				/* translators: 1: Elementor, 2: Link to plugin review */
-				__( 'Please rate our plugin %1$s on %2$s to help us spread the word. Thank you from Brainstorm Force team!', 'header-footer-elementor' ),
+				__( 'Help us spread the word about the plugin by leaving %1$s ratings on %2$s. Thank you from the Brainstorm Force team!', 'header-footer-elementor' ),
 				'<span class="hfe-star-icons">&#9733;&#9733;&#9733;&#9733;&#9733;</span>',
 				'<a href="https://wordpress.org/support/theme/astra/reviews/#new-post" target="_blank">WordPress.org</a>'
 			);
@@ -358,7 +358,7 @@ class HFE_Settings_Page {
 	 */
 	public function get_guide_html( $type ) {
 
-		$is_subscribed  = get_user_meta( get_current_user_ID(), 'hfe-subscribed' );
+		$is_subscribed  = get_user_meta( get_current_user_ID(), 'sshfe-subscribed' );
 		$subscribe_flag = ( 'yes' === $is_subscribed[0] ) ? ' hfe-user-subscribed' : '';
 
 		$video_height = ( 'yes' === $is_subscribed[0] ) ? '380' : '300';
@@ -406,7 +406,7 @@ class HFE_Settings_Page {
 					<div class="hfe-guide-content hfe-subscription-step-1-active">
 						<div class="hfe-guide-content-header hfe-admin-columns">
 							<?php if ( 'popup' !== $type ) { ?>
-								<h3><?php esc_html_e( 'Get Inspiring & Creative Header & Footer Examples.', 'header-footer-elementor' ); ?></h3>
+								<h3><?php esc_html_e( 'Get Inspiring & Creative Header & Footer Examples', 'header-footer-elementor' ); ?></h3>
 							<?php } ?>
 						</div>
 						<form action="options.php" method="post">

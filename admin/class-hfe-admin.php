@@ -223,14 +223,14 @@ class HFE_Admin {
 			'name_admin_bar'     => __( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
 			'add_new'            => __( 'Add New', 'header-footer-elementor' ),
 			'add_new_item'       => __( 'Add New Header or Footer', 'header-footer-elementor' ),
-			'new_item'           => __( 'New Header & Footer Template', 'header-footer-elementor' ),
-			'edit_item'          => __( 'Edit Header & Footer Template', 'header-footer-elementor' ),
-			'view_item'          => __( 'View Header & Footer Template', 'header-footer-elementor' ),
-			'all_items'          => __( 'All Elementor Header & Footer Builder', 'header-footer-elementor' ),
-			'search_items'       => __( 'Search Header & Footer Templates', 'header-footer-elementor' ),
-			'parent_item_colon'  => __( 'Parent Header & Footer Templates:', 'header-footer-elementor' ),
-			'not_found'          => __( 'No Header & Footer Templates found.', 'header-footer-elementor' ),
-			'not_found_in_trash' => __( 'No Header & Footer Templates found in Trash.', 'header-footer-elementor' ),
+			'new_item'           => __( 'New Template', 'header-footer-elementor' ),
+			'edit_item'          => __( 'Edit Template', 'header-footer-elementor' ),
+			'view_item'          => __( 'View Template', 'header-footer-elementor' ),
+			'all_items'          => __( 'All Templates', 'header-footer-elementor' ),
+			'search_items'       => __( 'Search Templates', 'header-footer-elementor' ),
+			'parent_item_colon'  => __( 'Parent Templates:', 'header-footer-elementor' ),
+			'not_found'          => __( 'No Templates found.', 'header-footer-elementor' ),
+			'not_found_in_trash' => __( 'No Templates found in Trash.', 'header-footer-elementor' ),
 		];
 
 		$args = [
