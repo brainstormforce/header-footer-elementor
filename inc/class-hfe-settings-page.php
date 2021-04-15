@@ -371,10 +371,30 @@ class HFE_Settings_Page {
 				<div class="hfe-admin-about-section-column">
 
 					<?php if ( 'page' === $type ) { ?>
-						<h3><?php esc_html_e( 'Learn the Art of Designing Custom Header & Footer', 'header-footer-elementor' ); ?></h3>
-						<div class="hfe-admin-video">
-							<iframe width=<?php echo $video_width; ?> height=<?php echo $video_height; ?> src="https://www.youtube.com/embed/XLEQb2hF2Fo?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						</div>
+
+						<?php if ( 'yes' !== $is_subscribed[0] ) { ?>
+
+							<h3><?php esc_html_e( 'Learn the Art of Designing Custom Header & Footer', 'header-footer-elementor' ); ?></h3>
+							<div class="hfe-admin-video">
+								<iframe width=<?php echo $video_width; ?> height=<?php echo $video_height; ?> src="https://www.youtube.com/embed/XLEQb2hF2Fo?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							</div>
+							
+						<?php } else {
+							$image_path  = HFE_URL . 'assets/images/header-footer-elementor-icon.svg';
+							?>
+							<div class="hfe-subscribed-header">
+								<img src=<?php echo $image_path; ?> class="custom-logo" alt="HFE" itemprop="logo">
+								<div class="hfe-header-content">
+									<p><?php echo esc_html_e( 'Getting Started', 'header-footer-elementor' ); ?></p>
+								</div>
+							</div>
+							<div class="hfe-admin-video">
+								<h3 class="hfe-subscribed-heading"><?php esc_html_e( 'Design Custom Header & Footer', 'header-footer-elementor' ); ?></h3>
+								<p class="hfe-subscribed-desc"><?php echo esc_html_e( 'Get introduced to Header & Footer Elementor Builder by watching our "Getting Started" video. It will guide you through the steps needed to create your header/footer.', 'header-footer-elementor' ); ?></p>
+								<iframe width=<?php echo $video_width; ?> height=<?php echo $video_height; ?> src="https://www.youtube.com/embed/XLEQb2hF2Fo?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							</div>
+						
+						<?php } ?>
 					<?php } elseif ( 'popup' === $type ) { ?>
 						<h2><?php esc_html_e( 'Get Creative Header & Footer Examples', 'header-footer-elementor' ); ?></h2>
 						<p><?php esc_html_e( 'Create header and footer designs for your site. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque velit nisi, pretium ut lacinia in, elementum id enim.', 'header-footer-elementor' ); ?></p>
