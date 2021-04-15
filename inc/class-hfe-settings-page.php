@@ -86,11 +86,15 @@ class HFE_Settings_Page {
 	 * @return mixed
 	 */
 	public function hfe_settings( $views ) {
+
 		$this->hfe_tabs();
 		$is_dismissed = [];
 		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
 
-		if ( ! empty( $is_dismissed ) && 'dismissed' === $is_dismissed[0] ) {
+		$is_subscribed  = get_user_meta( get_current_user_ID(), 'hfe-subscribed' );
+		$subscribe_valid = ( is_array( $is_subscribed ) && isset( $is_subscribed[0] ) && 'yes' === $is_subscribed[0] ) ? 'yes' : false;
+
+		if ( ( ! empty( $is_dismissed ) && 'dismissed' === $is_dismissed[0] ) || 'yes' === $subscribe_valid ) {
 			return false;
 		} else {
 			$this->get_guide_modal();
@@ -359,10 +363,11 @@ class HFE_Settings_Page {
 	public function get_guide_html( $type ) {
 
 		$is_subscribed  = get_user_meta( get_current_user_ID(), 'hfe-subscribed' );
-		$subscribe_flag = ( 'yes' === $is_subscribed[0] ) ? ' hfe-user-subscribed' : '';
+		$subscribe_valid = ( is_array( $is_subscribed ) && isset( $is_subscribed[0] ) && 'yes' === $is_subscribed[0] ) ? 'yes' : false;
+		$subscribe_flag = ( 'yes' === $subscribe_valid ) ? ' hfe-user-subscribed' : '';
 
-		$video_height = ( 'yes' === $is_subscribed[0] ) ? '350' : '300';
-		$video_width = ( 'yes' === $is_subscribed[0] ) ? '620' : '560';
+		$video_height = ( 'yes' === $subscribe_valid ) ? '350' : '300';
+		$video_width = ( 'yes' === $subscribe_valid ) ? '620' : '560';
 		?>
 
 		<div class="hfe-admin-about-section hfe-admin-columns hfe-admin-guide-section<?php echo $subscribe_flag; ?>">
@@ -373,7 +378,9 @@ class HFE_Settings_Page {
 					<?php if ( 'page' === $type ) { ?>
 						<h3><?php esc_html_e( 'Learn the Art of Designing Custom Header & Footer', 'header-footer-elementor' ); ?></h3>
 						<div class="hfe-admin-video">
-							<p class="hfe-subscribed-desc"><?php echo esc_html_e( 'Get introduced to Header & Footer Elementor Builder by watching our "Getting Started" video. It will guide you through the steps needed to create your header/footer.', 'header-footer-elementor' ); ?></p>
+							<?php if ( 'yes' === $subscribe_valid ) { ?>
+								<p class="hfe-subscribed-desc"><?php echo esc_html_e( 'Get introduced to Header & Footer Elementor Builder by watching our "Getting Started" video. It will guide you through the steps needed to create your header/footer.', 'header-footer-elementor' ); ?></p>
+							<?php } ?>
 							<iframe width=<?php echo $video_width; ?> height=<?php echo $video_height; ?> src="https://www.youtube.com/embed/XLEQb2hF2Fo?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						</div>
 					<?php } elseif ( 'popup' === $type ) { ?>
@@ -382,7 +389,7 @@ class HFE_Settings_Page {
 					<?php } ?>
 				</div>
 			</div>
-			<?php if ( 'yes' !== $is_subscribed[0] ) { ?>
+			<?php if ( 'yes' !== $subscribe_valid ) { ?>
 				<div class="hfe-admin-column-50 hfe-admin-column-last">
 					<div class="hfe-guide-content hfe-subscription-step-1-active">
 						<div class="hfe-guide-content-header hfe-admin-columns">

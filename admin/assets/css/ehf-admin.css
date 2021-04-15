@@ -346,7 +346,7 @@ select.hfe-subscribe-field {
     padding: 30px;
     text-align: center;
 }
-.hfe-admin-video iframe {
+.hfe-user-subscribed .hfe-admin-video iframe {
     box-shadow: 10px 10px 20px rgb(0 0 0 / 15%);
 }
 .hfe-admin-about-section figure {
