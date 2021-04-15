@@ -76,7 +76,7 @@ li#toplevel_page_Settings-page,
 #header-footer-install-notice img.custom-logo,
 .hfe-subscribed-header img.custom-logo {
     height: 30px;
-    margin-right: 5px;
+    margin-right: 6px;
 }
 .hfe-admin-about-section .hfe-header-content p {
     font-weight: 600;
@@ -141,7 +141,7 @@ li#toplevel_page_Settings-page,
     padding-bottom: 40px;
 }
 .hfe-admin-guide-section .hfe-subscribed-header {
-    padding: 0px 15px;
+    padding: 3px 15px;
 }
 .hfe-admin-guide-section h3.hfe-subscribed-heading {
     border-bottom: 0px;
