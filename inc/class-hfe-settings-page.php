@@ -56,7 +56,7 @@ class HFE_Settings_Page {
 	public function enqueue_admin_scripts() {
 		wp_enqueue_script( 'hfe-admin-script', HFE_URL . 'admin/assets/js/ehf-admin.js', [], HFE_VER );
 
-		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popupss' );
+		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
 
 		$strings = [
 			'subscribe_success' => esc_html__( 'Your details are submitted successfully.', 'header-footer-elementor' ),
@@ -88,7 +88,7 @@ class HFE_Settings_Page {
 	public function hfe_settings( $views ) {
 		$this->hfe_tabs();
 		$is_dismissed = [];
-		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popupss' );
+		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
 
 		if ( ! empty( $is_dismissed ) && 'dismissed' === $is_dismissed[0] ) {
 			return false;
@@ -358,7 +358,7 @@ class HFE_Settings_Page {
 	 */
 	public function get_guide_html( $type ) {
 
-		$is_subscribed  = get_user_meta( get_current_user_ID(), 'sshfe-subscribed' );
+		$is_subscribed  = get_user_meta( get_current_user_ID(), 'hfe-subscribed' );
 		$subscribe_flag = ( 'yes' === $is_subscribed[0] ) ? ' hfe-user-subscribed' : '';
 
 		$video_height = ( 'yes' === $is_subscribed[0] ) ? '380' : '300';
