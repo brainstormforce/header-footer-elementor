@@ -675,6 +675,15 @@ span.hfe-star-icons {
     .hfe-admin-about-section {
         display: block;
     }
+    .hfe-user-subscribed .hfe-admin-about-section-column h3 {
+        box-shadow: unset;
+    }
+    .hfe-user-subscribed .hfe-admin-video iframe {
+        width: 100%;
+    }
+    .hfe-admin-guide-section.hfe-user-subscribed .hfe-admin-video {
+        padding: 20px;
+    }
     .hfe-guide-modal-popup-wrapper p.button,
     .hfe-admin-about-section figure {
         padding-bottom: 0px;
