@@ -73,18 +73,11 @@ li#toplevel_page_Settings-page,
     display: none;
 }
 /* Notice */
-#header-footer-install-notice img.custom-logo,
-.hfe-subscribed-header img.custom-logo {
+#header-footer-install-notice img.custom-logo {
     height: 30px;
     margin-right: 6px;
 }
-.hfe-admin-about-section .hfe-header-content p {
-    font-weight: 600;
-    font-size: 13px;
-    text-transform: uppercase;
-}
-#header-footer-install-notice .notice-container,
-.hfe-subscribed-header {
+#header-footer-install-notice .notice-container {
     display: flex;
     align-items: center;
     padding-top: 5px;
@@ -122,33 +115,25 @@ li#toplevel_page_Settings-page,
 }
 .hfe-user-subscribed .hfe-admin-about-section-column h3 {
     text-align: center;
+    box-shadow: 0 0 8px rgb(0 0 0 / 13%);
+    border-bottom: 0;
 }
 .hfe-admin-guide-section.hfe-user-subscribed .hfe-admin-video {
-    padding: 50px;
+    padding: 40px;
     padding-bottom: 100px;
 }
 .hfe-admin-guide-section.hfe-admin-about-section {
     margin: 0px 18px 0px 0px;
 }
-.hfe-admin-guide-section h3,
-.hfe-subscribed-header {
+.hfe-admin-guide-section h3 {
     padding: 15px 30px;
     border-bottom: 1px solid #c3c4c7;
     margin-bottom: 0px;
 }
 .hfe-subscribed-desc {
-    max-width: 600px;
+    max-width: 650px;
     margin: auto;
     padding-bottom: 40px;
-}
-.hfe-admin-guide-section .hfe-subscribed-header {
-    padding: 3px 15px;
-}
-.hfe-admin-guide-section h3.hfe-subscribed-heading {
-    border-bottom: 0px;
-    padding-top: 0px;
-    padding-bottom: 30px;
-    font-size: 21px;
 }
 .hfe-admin-about-section,
 .hfe-subscription-row {
@@ -346,7 +331,8 @@ select.hfe-subscribe-field {
 }
 .hfe-user-subscribed.hfe-admin-columns .hfe-admin-column-50 {
     min-height: 500px;
-    box-shadow: 0 0 8px rgb(0 0 0 / 10%);
+    box-shadow: 0 0 8px rgb(0 0 0 / 4%);
+    border: 1px solid #c3c4c7;
 }
 .hfe-admin-columns .hfe-admin-column-60 {
     width: 60%;
@@ -359,6 +345,9 @@ select.hfe-subscribe-field {
     margin: 0;
     padding: 30px;
     text-align: center;
+}
+.hfe-admin-video iframe {
+    box-shadow: 10px 10px 20px rgb(0 0 0 / 15%);
 }
 .hfe-admin-about-section figure {
     padding-top: 0px;

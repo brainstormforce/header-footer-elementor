@@ -361,8 +361,8 @@ class HFE_Settings_Page {
 		$is_subscribed  = get_user_meta( get_current_user_ID(), 'hfe-subscribed' );
 		$subscribe_flag = ( 'yes' === $is_subscribed[0] ) ? ' hfe-user-subscribed' : '';
 
-		$video_height = ( 'yes' === $is_subscribed[0] ) ? '380' : '300';
-		$video_width = ( 'yes' === $is_subscribed[0] ) ? '650' : '560';
+		$video_height = ( 'yes' === $is_subscribed[0] ) ? '350' : '300';
+		$video_width = ( 'yes' === $is_subscribed[0] ) ? '620' : '560';
 		?>
 
 		<div class="hfe-admin-about-section hfe-admin-columns hfe-admin-guide-section<?php echo $subscribe_flag; ?>">
@@ -371,30 +371,11 @@ class HFE_Settings_Page {
 				<div class="hfe-admin-about-section-column">
 
 					<?php if ( 'page' === $type ) { ?>
-
-						<?php if ( 'yes' !== $is_subscribed[0] ) { ?>
-
-							<h3><?php esc_html_e( 'Learn the Art of Designing Custom Header & Footer', 'header-footer-elementor' ); ?></h3>
-							<div class="hfe-admin-video">
-								<iframe width=<?php echo $video_width; ?> height=<?php echo $video_height; ?> src="https://www.youtube.com/embed/XLEQb2hF2Fo?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-							</div>
-							
-						<?php } else {
-							$image_path  = HFE_URL . 'assets/images/header-footer-elementor-icon.svg';
-							?>
-							<div class="hfe-subscribed-header">
-								<img src=<?php echo $image_path; ?> class="custom-logo" alt="HFE" itemprop="logo">
-								<div class="hfe-header-content">
-									<p><?php echo esc_html_e( 'Getting Started', 'header-footer-elementor' ); ?></p>
-								</div>
-							</div>
-							<div class="hfe-admin-video">
-								<h3 class="hfe-subscribed-heading"><?php esc_html_e( 'Design Custom Header & Footer', 'header-footer-elementor' ); ?></h3>
-								<p class="hfe-subscribed-desc"><?php echo esc_html_e( 'Get introduced to Header & Footer Elementor Builder by watching our "Getting Started" video. It will guide you through the steps needed to create your header/footer.', 'header-footer-elementor' ); ?></p>
-								<iframe width=<?php echo $video_width; ?> height=<?php echo $video_height; ?> src="https://www.youtube.com/embed/XLEQb2hF2Fo?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-							</div>
-						
-						<?php } ?>
+						<h3><?php esc_html_e( 'Learn the Art of Designing Custom Header & Footer', 'header-footer-elementor' ); ?></h3>
+						<div class="hfe-admin-video">
+							<p class="hfe-subscribed-desc"><?php echo esc_html_e( 'Get introduced to Header & Footer Elementor Builder by watching our "Getting Started" video. It will guide you through the steps needed to create your header/footer.', 'header-footer-elementor' ); ?></p>
+							<iframe width=<?php echo $video_width; ?> height=<?php echo $video_height; ?> src="https://www.youtube.com/embed/XLEQb2hF2Fo?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</div>
 					<?php } elseif ( 'popup' === $type ) { ?>
 						<h2><?php esc_html_e( 'Create Impressive Header and Footer Designs', 'header-footer-elementor' ); ?></h2>
 						<p><?php esc_html_e( 'Elementor Header & Footer Builder plugin lets you build impactful navigation for your website very easily. Before we begin, we would like to know more about you. This will help us to serve you better.', 'header-footer-elementor' ); ?></p>
