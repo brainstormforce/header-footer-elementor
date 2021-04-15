@@ -90,11 +90,11 @@ class HFE_Settings_Page {
 		$is_dismissed = [];
 		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
 
-		// if ( ! empty( $is_dismissed ) && 'dismissed' === $is_dismissed[0] ) {
-		// 	return false;
-		// } else {
+		if ( ! empty( $is_dismissed ) && 'dismissed' === $is_dismissed[0] ) {
+			return false;
+		} else {
 			$this->get_guide_modal();
-		// }
+		}
 		return $views;
 	}
 
@@ -358,7 +358,7 @@ class HFE_Settings_Page {
 	 */
 	public function get_guide_html( $type ) {
 
-		$is_subscribed  = get_user_meta( get_current_user_ID(), 'hfe-subscrib' );
+		$is_subscribed  = get_user_meta( get_current_user_ID(), 'hfe-subscribed' );
 		$subscribe_flag = ( 'yes' === $is_subscribed[0] ) ? ' hfe-user-subscribed' : '';
 
 		$video_height = ( 'yes' === $is_subscribed[0] ) ? '380' : '300';
