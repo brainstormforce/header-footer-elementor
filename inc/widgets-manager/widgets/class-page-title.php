@@ -11,8 +11,8 @@ use Elementor\Controls_Manager;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Widget_Base;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
-use Elementor\Scheme_Color;
+use Elementor\Core\Schemes\Typography;
+use Elementor\Core\Schemes\Color;
 
 use HFE\WidgetsManager\Widgets_Loader;
 
@@ -299,7 +299,7 @@ class Page_Title extends Widget_Base {
 				Group_Control_Typography::get_type(),
 				[
 					'name'     => 'title_typography',
-					'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
+					'scheme'   => Typography::TYPOGRAPHY_1,
 					'selector' => '{{WRAPPER}} .elementor-heading-title, {{WRAPPER}} .hfe-page-title a',
 				]
 			);
@@ -310,8 +310,8 @@ class Page_Title extends Widget_Base {
 					'label'     => __( 'Color', 'header-footer-elementor' ),
 					'type'      => Controls_Manager::COLOR,
 					'scheme'    => [
-						'type'  => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_1,
+						'type'  => Color::get_type(),
+						'value' => Color::COLOR_1,
 					],
 					'selectors' => [
 						'{{WRAPPER}} .elementor-heading-title, {{WRAPPER}} .hfe-page-title a' => 'color: {{VALUE}};',
@@ -374,8 +374,8 @@ class Page_Title extends Widget_Base {
 				'label'     => __( 'Icon Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'condition' => [
 					'new_page_title_select_icon[value]!' => '',

@@ -11,8 +11,8 @@ namespace HFE\WidgetsManager\Widgets;
 use Elementor\Controls_Manager;
 use Elementor\Utils;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
-use Elementor\Scheme_Color;
+use Elementor\Core\Schemes\Typography;
+use Elementor\Core\Schemes\Color;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Background;
@@ -904,7 +904,7 @@ class Navigation_Menu extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'menu_typography',
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_1,
+				'scheme'    => Typography::TYPOGRAPHY_1,
 				'separator' => 'before',
 				'selector'  => '{{WRAPPER}} a.hfe-menu-item, {{WRAPPER}} a.hfe-sub-menu-item',
 			]
@@ -925,8 +925,8 @@ class Navigation_Menu extends Widget_Base {
 							'label'     => __( 'Text Color', 'header-footer-elementor' ),
 							'type'      => Controls_Manager::COLOR,
 							'scheme'    => [
-								'type'  => Scheme_Color::get_type(),
-								'value' => Scheme_Color::COLOR_3,
+								'type'  => Color::get_type(),
+								'value' => Color::COLOR_3,
 							],
 							'default'   => '',
 							'selectors' => [
@@ -965,8 +965,8 @@ class Navigation_Menu extends Widget_Base {
 							'label'     => __( 'Text Color', 'header-footer-elementor' ),
 							'type'      => Controls_Manager::COLOR,
 							'scheme'    => [
-								'type'  => Scheme_Color::get_type(),
-								'value' => Scheme_Color::COLOR_4,
+								'type'  => Color::get_type(),
+								'value' => Color::COLOR_4,
 							],
 							'selectors' => [
 								'{{WRAPPER}} .menu-item a.hfe-menu-item:hover,
@@ -1002,8 +1002,8 @@ class Navigation_Menu extends Widget_Base {
 							'label'     => __( 'Link Hover Effect Color', 'header-footer-elementor' ),
 							'type'      => Controls_Manager::COLOR,
 							'scheme'    => [
-								'type'  => Scheme_Color::get_type(),
-								'value' => Scheme_Color::COLOR_4,
+								'type'  => Color::get_type(),
+								'value' => Color::COLOR_4,
 							],
 							'default'   => '',
 							'selectors' => [
@@ -1252,7 +1252,7 @@ class Navigation_Menu extends Widget_Base {
 				Group_Control_Typography::get_type(),
 				[
 					'name'      => 'dropdown_typography',
-					'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
+					'scheme'    => Typography::TYPOGRAPHY_4,
 					'separator' => 'before',
 					'selector'  => '
 							{{WRAPPER}} .sub-menu li a.hfe-sub-menu-item,
@@ -1652,7 +1652,7 @@ class Navigation_Menu extends Widget_Base {
 				[
 					'name'     => 'all_typography',
 					'label'    => __( 'Typography', 'header-footer-elementor' ),
-					'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
+					'scheme'   => Typography::TYPOGRAPHY_4,
 					'selector' => '{{WRAPPER}} .menu-item a.hfe-menu-item.elementor-button',
 				]
 			);
@@ -1699,8 +1699,8 @@ class Navigation_Menu extends Widget_Base {
 							'fields_options' => [
 								'color' => [
 									'scheme' => [
-										'type'  => Scheme_Color::get_type(),
-										'value' => Scheme_Color::COLOR_4,
+										'type'  => Color::get_type(),
+										'value' => Color::COLOR_4,
 									],
 								],
 							],
@@ -1766,8 +1766,8 @@ class Navigation_Menu extends Widget_Base {
 							'fields_options' => [
 								'color' => [
 									'scheme' => [
-										'type'  => Scheme_Color::get_type(),
-										'value' => Scheme_Color::COLOR_4,
+										'type'  => Color::get_type(),
+										'value' => Color::COLOR_4,
 									],
 								],
 							],

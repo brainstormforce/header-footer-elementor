@@ -9,10 +9,10 @@ namespace HFE\WidgetsManager\Widgets;
 
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
+use Elementor\Core\Schemes\Typography;
 use Elementor\Widget_Base;
 use Elementor\Group_Control_Text_Shadow;
-use Elementor\Scheme_Color;
+use Elementor\Core\Schemes\Color;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;   // Exit if accessed directly.
@@ -205,7 +205,7 @@ class Site_Tagline extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'tagline_typography',
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_2,
+				'scheme'   => Typography::TYPOGRAPHY_2,
 				'selector' => '{{WRAPPER}} .hfe-site-tagline',
 			]
 		);
@@ -215,8 +215,8 @@ class Site_Tagline extends Widget_Base {
 				'label'     => __( 'Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_2,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .hfe-site-tagline' => 'color: {{VALUE}};',
@@ -232,8 +232,8 @@ class Site_Tagline extends Widget_Base {
 				'label'     => __( 'Icon Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'condition' => [
 					'icon[value]!' => '',

@@ -13,8 +13,8 @@ use Elementor\Utils;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Box_Shadow;
-use Elementor\Scheme_Typography;
-use Elementor\Scheme_Color;
+use Elementor\Core\Schemes\Typography;
+use Elementor\Core\Schemes\Color;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Css_Filter;
 use Elementor\Group_Control_Text_Shadow;
@@ -381,8 +381,8 @@ class Retina extends Widget_Base {
 				'label'     => __( 'Border Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_1,
 				],
 				'condition' => [
 					'retina_image_border!' => 'none',
@@ -544,8 +544,8 @@ class Retina extends Widget_Base {
 					'{{WRAPPER}} .widget-image-caption' => 'color: {{VALUE}};',
 				],
 				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
+					'type'  => Color::get_type(),
+					'value' => Color::COLOR_3,
 				],
 			]
 		);
@@ -566,7 +566,7 @@ class Retina extends Widget_Base {
 			[
 				'name'     => 'caption_typography',
 				'selector' => '{{WRAPPER}} .widget-image-caption',
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_3,
+				'scheme'   => Typography::TYPOGRAPHY_3,
 			]
 		);
 
