@@ -904,7 +904,7 @@ class Navigation_Menu extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'menu_typography',
-				'global'   => [
+				'global'    => [
 					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
 				],
 				'separator' => 'before',
@@ -1251,7 +1251,7 @@ class Navigation_Menu extends Widget_Base {
 				Group_Control_Typography::get_type(),
 				[
 					'name'      => 'dropdown_typography',
-					'global'   => [
+					'global'    => [
 						'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 					],
 					'separator' => 'before',
@@ -1701,7 +1701,7 @@ class Navigation_Menu extends Widget_Base {
 							'selector'       => '{{WRAPPER}} .menu-item a.hfe-menu-item.elementor-button',
 							'fields_options' => [
 								'color' => [
-									'global'    => [
+									'global' => [
 										'default' => Global_Colors::COLOR_ACCENT,
 									],
 								],
@@ -1767,7 +1767,7 @@ class Navigation_Menu extends Widget_Base {
 							'selector'       => '{{WRAPPER}} .menu-item a.hfe-menu-item.elementor-button:hover',
 							'fields_options' => [
 								'color' => [
-									'global'    => [
+									'global' => [
 										'default' => Global_Colors::COLOR_ACCENT,
 									],
 								],
