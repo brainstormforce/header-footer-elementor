@@ -248,7 +248,7 @@ class Cart extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'toggle_button_typography',
-				'global'   => [
+				'global'    => [
 					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
 				],
 				'selector'  => '{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button',
