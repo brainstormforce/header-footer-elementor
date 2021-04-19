@@ -515,6 +515,13 @@
 					$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).addClass( 'elementor-button' );
 				}
 			}
+		}else {
+			var $parent_element = $( '.elementor-element-' + id );
+			$parent_element.find( 'nav').removeClass( 'hfe-dropdown' );
+			if( ( 'cta' == last_item || 'cta' == last_item_flyout ) && 'expandible' != layout ){
+				$parent_element.find( 'li.menu-item:last-child a.hfe-menu-item' ).parent().addClass( 'elementor-button-wrapper' );
+				$parent_element.find( 'li.menu-item:last-child a.hfe-menu-item' ).addClass( 'elementor-button' );
+			}
 		}
 
 		var layout = $( '.elementor-element-' + id + ' .hfe-nav-menu' ).data( 'layout' );

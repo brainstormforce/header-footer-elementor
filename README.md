@@ -137,6 +137,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 5. Default widgets available with Elementor – Header, Footer & Blocks.
 
 ## Changelog ##
+### 1.5.9 ###
+- Fix: Navigation Menu - Last menu item button disappearing while switching from mobile to desktop. 
+
 ### 1.5.8 ###
 - Fix: Hardened allowed options in the editor to enforce better security policies.
 
