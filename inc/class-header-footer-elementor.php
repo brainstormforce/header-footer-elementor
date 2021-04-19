@@ -51,6 +51,17 @@ class Header_Footer_Elementor {
 	function __construct() {
 		$this->template = get_template();
 
+		$is_elementor_callable = ( defined( 'ELEMENTOR_VERSION' ) && is_callable( 'Elementor\Plugin::instance' ) ) ? true : false;
+
+		$required_elementor_version = '3.1.0';
+
+		$is_elementor_outdated = ( defined( 'ELEMENTOR_VERSION' ) && ( ! version_compare( ELEMENTOR_VERSION, $required_elementor_version, '>=' ) ) ) ? true : false;
+
+		if( ( ! $is_elementor_callable ) || $is_elementor_outdated ) {
+			$this->elementor_not_available( $is_elementor_callable, $is_elementor_outdated );
+			return;
+		}
+
 		if ( defined( 'ELEMENTOR_VERSION' ) && is_callable( 'Elementor\Plugin::instance' ) ) {
 			self::$elementor_instance = Elementor\Plugin::instance();
 
@@ -107,9 +118,6 @@ class Header_Footer_Elementor {
 				]
 			);
 
-		} else {
-			add_action( 'admin_notices', [ $this, 'elementor_not_available' ] );
-			add_action( 'network_admin_notices', [ $this, 'elementor_not_available' ] );
 		}
 	}
 
@@ -188,38 +196,89 @@ class Header_Footer_Elementor {
 	}
 
 	/**
+	 * Prints the admin notics when Elementor is not installed or activated or version outdated.
+	 */
+	public function elementor_not_available( $is_elementor_callable, $is_elementor_outdated ) {
+		
+		if ( ( ! did_action( 'elementor/loaded' ) ) || ( ! $is_elementor_callable ) ) {
+			add_action( 'admin_notices', [ $this, 'elementor_not_installed_activated' ] );
+			add_action( 'network_admin_notices', [ $this, 'elementor_not_installed_activated' ] );
+			return;
+		}
+		
+		if ( $is_elementor_outdated ) {
+			add_action( 'admin_notices', [ $this, 'elementor_outdated' ] );
+			add_action( 'network_admin_notices', [ $this, 'elementor_outdated' ] );
+			return;
+		}
+
+	}
+
+	/**
 	 * Prints the admin notics when Elementor is not installed or activated.
 	 */
-	public function elementor_not_available() {
+	public function elementor_not_installed_activated() {
 
-		if ( ! did_action( 'elementor/loaded' ) ) {
-			// Check user capability.
-			if ( ! ( current_user_can( 'activate_plugins' ) && current_user_can( 'install_plugins' ) ) ) {
-				return;
-			}
-
-			/* TO DO */
-			$class = 'notice notice-error';
-			/* translators: %s: html tags */
-			$message = sprintf( __( 'The %1$sElementor - Header Footer and Blocks%2$s plugin requires %1$sElementor%2$s plugin installed & activated.', 'header-footer-elementor' ), '<strong>', '</strong>' );
-
-			$plugin = 'elementor/elementor.php';
-
-			if ( file_exists( WP_PLUGIN_DIR . '/elementor/elementor.php' ) ) {
-
-				$action_url   = wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $plugin . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin );
-				$button_label = __( 'Activate Elementor', 'header-footer-elementor' );
-
-			} else {
-
-				$action_url   = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=elementor' ), 'install-plugin_elementor' );
-				$button_label = __( 'Install Elementor', 'header-footer-elementor' );
-			}
-
-			$button = '<p><a href="' . $action_url . '" class="button-primary">' . $button_label . '</a></p><p></p>';
-
-			printf( '<div class="%1$s"><p>%2$s</p>%3$s</div>', esc_attr( $class ), wp_kses_post( $message ), wp_kses_post( $button ) );
+		// Check user capability.
+		if ( ! ( current_user_can( 'activate_plugins' ) && current_user_can( 'install_plugins' ) ) ) {
+			return;
 		}
+
+		/* TO DO */
+		$class = 'notice notice-error';
+		/* translators: %s: html tags */
+		$message = sprintf( __( 'The %1$sElementor - Header Footer and Blocks%2$s plugin requires %1$sElementor%2$s plugin installed & activated.', 'header-footer-elementor' ), '<strong>', '</strong>' );
+
+		$plugin = 'elementor/elementor.php';
+
+		if ( file_exists( WP_PLUGIN_DIR . '/elementor/elementor.php' ) ) {
+
+			$action_url   = wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $plugin . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin );
+			$button_label = __( 'Activate Elementor', 'header-footer-elementor' );
+
+		} else {
+
+			$action_url   = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=elementor' ), 'install-plugin_elementor' );
+			$button_label = __( 'Install Elementor', 'header-footer-elementor' );
+		}
+
+		$button = '<p><a href="' . $action_url . '" class="button-primary">' . $button_label . '</a></p><p></p>';
+
+		printf( '<div class="%1$s"><p>%2$s</p>%3$s</div>', esc_attr( $class ), wp_kses_post( $message ), wp_kses_post( $button ) );
+	}
+
+	
+	/**
+	 * Prints the admin notics when Elementor version is outdated.
+	 */
+	public function elementor_outdated() {
+
+		// Check user capability.
+		if ( ! ( current_user_can( 'activate_plugins' ) && current_user_can( 'install_plugins' ) ) ) {
+			return;
+		}
+
+		/* TO DO */
+		$class = 'notice notice-error';
+		/* translators: %s: html tags */
+		$message = sprintf( __( 'The %1$sElementor - Header Footer and Blocks%2$s plugin is not working because you are using old version of %1$sElementor%2$s plugin.', 'header-footer-elementor' ), '<strong>', '</strong>' );
+
+		$plugin = 'elementor/elementor.php';
+
+		if ( file_exists( WP_PLUGIN_DIR . '/elementor/elementor.php' ) ) {
+
+			$action_url   = wp_nonce_url( 'update.php?action=upgrade-plugin&amp;plugin=' . $plugin . '&amp;', 'upgrade-plugin_' . $plugin );
+			$button_label = __( 'Update Elementor Now', 'header-footer-elementor' );
+
+		} else {
+
+			$action_url   = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=elementor' ), 'install-plugin_elementor' );
+			$button_label = __( 'Install Elementor', 'header-footer-elementor' );
+		}
+
+		$button = '<p><a href="' . $action_url . '" class="button-primary">' . $button_label . '</a></p><p></p>';
+
+		printf( '<div class="%1$s"><p>%2$s</p>%3$s</div>', esc_attr( $class ), wp_kses_post( $message ), wp_kses_post( $button ) );
 	}
 
 	/**
