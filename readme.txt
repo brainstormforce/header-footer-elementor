@@ -138,6 +138,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 = 1.5.9 = 
+- Improvement: Added Elementor Global Color and Typography scheme support.
 - Fix: Navigation Menu - Last menu item button disappearing while switching from mobile to desktop. 
 
 = 1.5.8 =
