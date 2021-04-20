@@ -264,7 +264,7 @@ class Header_Footer_Elementor {
 		/* TO DO */
 		$class = 'notice notice-error';
 		/* translators: %s: html tags */
-		$message = sprintf( __( 'The %1$sElementor - Header Footer and Blocks%2$s plugin is not working because you are using old version of %1$sElementor%2$s plugin.', 'header-footer-elementor' ), '<strong>', '</strong>' );
+		$message = sprintf( __( 'The %1$sElementor - Header Footer and Blocks%2$s plugin has stopped working because you are using an older version of %1$sElementor%2$s plugin.', 'header-footer-elementor' ), '<strong>', '</strong>' );
 
 		$plugin = 'elementor/elementor.php';
 
