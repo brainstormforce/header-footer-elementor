@@ -57,7 +57,7 @@ class Header_Footer_Elementor {
 
 		$is_elementor_outdated = ( defined( 'ELEMENTOR_VERSION' ) && ( ! version_compare( ELEMENTOR_VERSION, $required_elementor_version, '>=' ) ) ) ? true : false;
 
-		if( ( ! $is_elementor_callable ) || $is_elementor_outdated ) {
+		if ( ( ! $is_elementor_callable ) || $is_elementor_outdated ) {
 			$this->elementor_not_available( $is_elementor_callable, $is_elementor_outdated );
 			return;
 		}
@@ -199,13 +199,13 @@ class Header_Footer_Elementor {
 	 * Prints the admin notics when Elementor is not installed or activated or version outdated.
 	 */
 	public function elementor_not_available( $is_elementor_callable, $is_elementor_outdated ) {
-		
+
 		if ( ( ! did_action( 'elementor/loaded' ) ) || ( ! $is_elementor_callable ) ) {
 			add_action( 'admin_notices', [ $this, 'elementor_not_installed_activated' ] );
 			add_action( 'network_admin_notices', [ $this, 'elementor_not_installed_activated' ] );
 			return;
 		}
-		
+
 		if ( $is_elementor_outdated ) {
 			add_action( 'admin_notices', [ $this, 'elementor_outdated' ] );
 			add_action( 'network_admin_notices', [ $this, 'elementor_outdated' ] );
@@ -247,7 +247,7 @@ class Header_Footer_Elementor {
 		printf( '<div class="%1$s"><p>%2$s</p>%3$s</div>', esc_attr( $class ), wp_kses_post( $message ), wp_kses_post( $button ) );
 	}
 
-	
+
 	/**
 	 * Prints the admin notics when Elementor version is outdated.
 	 */
