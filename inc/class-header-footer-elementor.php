@@ -59,7 +59,6 @@ class Header_Footer_Elementor {
 
 		if ( ( ! $is_elementor_callable ) || $is_elementor_outdated ) {
 			$this->elementor_not_available( $is_elementor_callable, $is_elementor_outdated );
-			return;
 		}
 
 		if ( $is_elementor_callable ) {
@@ -246,7 +245,7 @@ class Header_Footer_Elementor {
 			$button_label = __( 'Install Elementor', 'header-footer-elementor' );
 		}
 
-		$button = '<p><a href="' . $action_url . '" class="button-primary">' . $button_label . '</a></p><p></p>';
+		$button = '<p><a href="' . esc_url( $action_url ) . '" class="button-primary">' . esc_html( $button_label ) . '</a></p><p></p>';
 
 		printf( '<div class="%1$s"><p>%2$s</p>%3$s</div>', esc_attr( $class ), wp_kses_post( $message ), wp_kses_post( $button ) );
 	}
@@ -279,7 +278,7 @@ class Header_Footer_Elementor {
 			$button_label = __( 'Install Elementor', 'header-footer-elementor' );
 		}
 
-		$button = '<p><a href="' . $action_url . '" class="button-primary">' . $button_label . '</a></p><p></p>';
+		$button = '<p><a href="' . esc_url( $action_url ) . '" class="button-primary">' . esc_html( $button_label ) . '</a></p><p></p>';
 
 		printf( '<div class="%1$s"><p>%2$s</p>%3$s</div>', esc_attr( $class ), wp_kses_post( $message ), wp_kses_post( $button ) );
 	}
