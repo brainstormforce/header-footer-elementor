@@ -270,7 +270,7 @@ class Header_Footer_Elementor {
 		if ( file_exists( WP_PLUGIN_DIR . '/elementor/elementor.php' ) ) {
 
 			$action_url   = wp_nonce_url( self_admin_url ( 'update.php?action=upgrade-plugin&amp;plugin=' ) . $plugin . '&amp;', 'upgrade-plugin_' . $plugin );
-			$button_label = __( 'Update Elementor Now', 'header-footer-elementor' );
+			$button_label = __( 'Update Elementor', 'header-footer-elementor' );
 
 		} else {
 
