@@ -140,7 +140,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 = 1.5.9 = 
 - Improvement: Elementor 3.2 Compatibility - Added Elementor Global Color and Typography scheme support.
 - Fix: Navigation Menu - Last menu item button disappearing while switching from mobile to desktop. 
-- Fix: Navigation Menu - Alignment not working for last menu item button with RTL plugin.
+- Fix: Navigation Menu - Last menu item button alignment not working in RTL view.
 
 = 1.5.8 =
 - Fix: Hardened allowed options in the editor to enforce better security policies.
