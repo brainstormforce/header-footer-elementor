@@ -395,7 +395,7 @@ class HFE_Settings_Page {
 					<div class="hfe-guide-content hfe-subscription-step-1-active">
 						<div class="hfe-guide-content-header hfe-admin-columns">
 							<?php if ( 'popup' !== $type ) { ?>
-								<h3><?php esc_html_e( 'Help us serve you better! Enter your details below', 'header-footer-elementor' ); ?></h3>
+								<h3><?php esc_html_e( 'Enter Details to Receive Future Updates and Beneficial Tips', 'header-footer-elementor' ); ?></h3>
 							<?php } ?>
 						</div>
 						<form action="options.php" method="post">
