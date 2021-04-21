@@ -341,7 +341,6 @@ select.hfe-subscribe-field {
 .hfe-admin-columns .hfe-admin-column-last .hfe-guide-content {
     width: 100%;
 }
-.hfe-admin-about-section figure,
 .hfe-admin-guide-section .hfe-admin-video {
     margin: 0;
     padding: 30px;
@@ -360,6 +359,7 @@ select.hfe-subscribe-field {
     border: 1px solid #DDDDDD;
 }
 .hfe-admin-about-section figure {
+    margin: 0;
     padding-top: 0px;
 }
 .hfe-admin-about-section figure img {
