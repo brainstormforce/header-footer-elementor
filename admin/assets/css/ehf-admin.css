@@ -293,7 +293,8 @@ select.hfe-subscribe-field {
 }
 .hfe-admin-about-section p,
 #hfe-admin-addons .addon-item,
-#hfe-admin-addons .addon-item p {
+#hfe-admin-addons .addon-item p,
+.hfe-admin-about-section ul {
     font-size: 15px;
 }
 .hfe-admin-about-us {
@@ -345,6 +346,10 @@ select.hfe-subscribe-field {
     margin: 0;
     padding: 30px;
     text-align: center;
+}
+.hfe-admin-about-section ul {
+    margin-left: 27px;
+    list-style: disc;
 }
 .hfe-user-unsubscribed .hfe-admin-video iframe {
     border: 1px solid #DDDDDD;
