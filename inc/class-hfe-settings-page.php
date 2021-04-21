@@ -328,9 +328,10 @@ class HFE_Settings_Page {
 		if ( $is_elementor_screen ) {
 			$footer_text = sprintf(
 				/* translators: 1: Elementor, 2: Link to plugin review */
-				__( 'Help us spread the word about the plugin by leaving %1$s ratings on %2$s. Thank you from the Brainstorm Force team!', 'header-footer-elementor' ),
-				'<span class="hfe-star-icons">&#9733;&#9733;&#9733;&#9733;&#9733;</span>',
-				'<a href="https://wordpress.org/support/theme/astra/reviews/#new-post" target="_blank">WordPress.org</a>'
+				__( 'Help us spread the word about the plugin by leaving %2$s %1$s %3$s ratings on %2$s WordPress.org %3$s. Thank you from the Brainstorm Force team!', 'header-footer-elementor' ),
+				'&#9733;&#9733;&#9733;&#9733;&#9733;',
+				'<a href="https://wordpress.org/support/plugin/header-footer-elementor/reviews/#new-post" target="_blank">',
+				'</a>'
 			);
 		}
 
@@ -364,7 +365,7 @@ class HFE_Settings_Page {
 
 		$is_subscribed  = get_user_meta( get_current_user_ID(), 'hfe-subscribed' );
 		$subscribe_valid = ( is_array( $is_subscribed ) && isset( $is_subscribed[0] ) && 'yes' === $is_subscribed[0] ) ? 'yes' : false;
-		$subscribe_flag = ( 'yes' === $subscribe_valid ) ? ' hfe-user-subscribed' : '';
+		$subscribe_flag = ( 'yes' === $subscribe_valid ) ? ' hfe-user-subscribed' : ' hfe-user-unsubscribed';
 
 		$video_height = ( 'yes' === $subscribe_valid ) ? '350' : '300';
 		$video_width = ( 'yes' === $subscribe_valid ) ? '620' : '560';
@@ -381,7 +382,7 @@ class HFE_Settings_Page {
 							<?php if ( 'yes' === $subscribe_valid ) { ?>
 								<p class="hfe-subscribed-desc"><?php echo esc_html_e( 'Get introduced to Header & Footer Elementor Builder by watching our "Getting Started" video. It will guide you through the steps needed to create your header/footer.', 'header-footer-elementor' ); ?></p>
 							<?php } ?>
-							<iframe width=<?php echo $video_width; ?> height=<?php echo $video_height; ?> src="https://www.youtube.com/embed/XLEQb2hF2Fo?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<iframe width=<?php echo $video_width; ?> height=<?php echo $video_height; ?> src="https://www.youtube.com/embed/XLEQb2hF2Fo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						</div>
 					<?php } elseif ( 'popup' === $type ) { ?>
 						<h2><?php esc_html_e( 'Create Impressive Header and Footer Designs', 'header-footer-elementor' ); ?></h2>

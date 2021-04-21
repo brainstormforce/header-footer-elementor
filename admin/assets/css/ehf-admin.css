@@ -346,8 +346,13 @@ select.hfe-subscribe-field {
     padding: 30px;
     text-align: center;
 }
+.hfe-user-unsubscribed .hfe-admin-video iframe {
+    border: 1px solid #DDDDDD;
+    width: 100%;
+}
 .hfe-user-subscribed .hfe-admin-video iframe {
     box-shadow: 10px 10px 20px rgb(0 0 0 / 15%);
+    border: 1px solid #DDDDDD;
 }
 .hfe-admin-about-section figure {
     padding-top: 0px;
@@ -639,10 +644,6 @@ span.dashicons.dashicons-update.hfe-loader {
     animation: rotation 2s infinite linear;
     vertical-align: text-top;
     margin-left: 7px;
-}
-span.hfe-star-icons {
-    color: #ffb900;
-    font-size: 15px;
 }
 
 @media (max-width: 1249px) {
