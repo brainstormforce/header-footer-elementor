@@ -197,7 +197,7 @@ class Header_Footer_Elementor {
 	/**
 	 * Prints the admin notics when Elementor is not installed or activated or version outdated.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.9
 	 * @param  boolean $is_elementor_callable specifies if elementor is available.
 	 * @param  boolean $is_elementor_outdated specifies if elementor version is old.
 	 */
