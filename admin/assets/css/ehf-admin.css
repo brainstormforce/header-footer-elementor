@@ -347,8 +347,9 @@ select.hfe-subscribe-field {
     text-align: center;
 }
 .hfe-admin-about-section ul {
-    margin-left: 27px;
+    margin-left: 30px;
     list-style: disc;
+    line-height: 1.5;
 }
 .hfe-user-unsubscribed .hfe-admin-video iframe {
     border: 1px solid #DDDDDD;
