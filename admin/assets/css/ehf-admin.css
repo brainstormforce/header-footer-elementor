@@ -441,6 +441,7 @@ select.hfe-subscribe-field {
 #hfe-admin-addons .addon-item h5 {
   margin: 0 0 15px 100px;
   font-size: 17px;
+  line-height: 1.4em;
 }
 #hfe-admin-addons .addon-item p {
   margin: 0 0 0 100px;
