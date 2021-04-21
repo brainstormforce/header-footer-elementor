@@ -715,7 +715,7 @@ class HFE_Settings_Page {
 			'astra'              => [
 				'icon'  => $images_url . 'plugin-astra.png',
 				'name'  => esc_html__( 'Astra Theme', 'header-footer-elementor' ),
-				'desc'  => esc_html__( 'Powering over 1M+ WordPress websites, Astra is loved for the performance and ease-of-use it offers. It is suitable for all kinds of websites like blogs, personal portfolios, business websites, and WooCommerce storefront.', 'header-footer-elementor' ),
+				'desc'  => esc_html__( 'Powering over 1M+ WordPress websites, Astra is loved for the fast performance and ease of use it offers. It is suitable for all kinds of websites like blogs, portfolios, business, and WooCommerce stores.', 'header-footer-elementor' ),
 				'wporg' => 'https://wordpress.org/themes/astra/',
 				'url'   => 'https://wpastra.com/',
 			],
@@ -723,7 +723,7 @@ class HFE_Settings_Page {
 			'starter-templates'  => [
 				'icon'  => $images_url . 'plugin-st.png',
 				'name'  => esc_html__( 'Starter Templates', 'header-footer-elementor' ),
-				'desc'  => esc_html__( 'This is a popular templates plugin that provides an extensive library of 600+ ready website and page templates. You’ll find professional and fully customizable pre-built templates for every niche. More than 1M+ websites have built using Starter Templates. Choose it for your website today!', 'header-footer-elementor' ),
+				'desc'  => esc_html__( 'A popular templates plugin that provides an extensive library of professional and fully customizable 600+ ready website and templates. More than 1M+ websites have built with this plugin.', 'header-footer-elementor' ),
 				'wporg' => 'https://wordpress.org/plugins/astra-sites/',
 				'url'   => 'https://startertemplates.com/',
 			],
@@ -731,7 +731,7 @@ class HFE_Settings_Page {
 			'ultimate-elementor' => [
 				'icon'  => $images_url . 'plugin-uae.png',
 				'name'  => esc_html__( 'Ultimate Addons for Elementor', 'header-footer-elementor' ),
-				'desc'  => esc_html__( 'Get a collection of unique, creative, and optimized Elementor widgets and readymade templates with Ultimate Addons for Elementor. It’s a complete Elementor toolkit that lets you create impactful designs with 40+ widgets and 100+ templates. Join 600K+ web professionals and enhance your website design today!', 'header-footer-elementor' ),
+				'desc'  => esc_html__( 'It’s a collection of 40+ unique, creative, and optimized Elementor widgets with 100+ readymade templates. Trusted by more than 600K+ web professionals it’s a #1 toolkit for Elementor.', 'header-footer-elementor' ),
 				'wporg' => '',
 				'url'   => 'https://ultimateelementor.com/',
 			],
