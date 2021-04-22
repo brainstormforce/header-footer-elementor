@@ -91,7 +91,7 @@ class HFE_Settings_Page {
 		$is_dismissed = [];
 		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
 
-		$is_subscribed  = get_user_meta( get_current_user_ID(), 'hfe-subscribed' );
+		$is_subscribed   = get_user_meta( get_current_user_ID(), 'hfe-subscribed' );
 		$subscribe_valid = ( is_array( $is_subscribed ) && isset( $is_subscribed[0] ) && 'yes' === $is_subscribed[0] ) ? 'yes' : false;
 
 		if ( ( ! empty( $is_dismissed ) && 'dismissed' === $is_dismissed[0] ) || 'yes' === $subscribe_valid ) {
@@ -363,12 +363,12 @@ class HFE_Settings_Page {
 	 */
 	public function get_guide_html( $type ) {
 
-		$is_subscribed  = get_user_meta( get_current_user_ID(), 'hfe-subscribed' );
+		$is_subscribed   = get_user_meta( get_current_user_ID(), 'hfe-subscribed' );
 		$subscribe_valid = ( is_array( $is_subscribed ) && isset( $is_subscribed[0] ) && 'yes' === $is_subscribed[0] ) ? 'yes' : false;
-		$subscribe_flag = ( 'yes' === $subscribe_valid ) ? ' hfe-user-subscribed' : ' hfe-user-unsubscribed';
+		$subscribe_flag  = ( 'yes' === $subscribe_valid ) ? ' hfe-user-subscribed' : ' hfe-user-unsubscribed';
 
 		$video_height = ( 'yes' === $subscribe_valid ) ? '350' : '300';
-		$video_width = ( 'yes' === $subscribe_valid ) ? '620' : '560';
+		$video_width  = ( 'yes' === $subscribe_valid ) ? '620' : '560';
 		?>
 
 		<div class="hfe-admin-about-section hfe-admin-columns hfe-admin-guide-section<?php echo $subscribe_flag; ?>">
