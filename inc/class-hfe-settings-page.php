@@ -553,17 +553,13 @@ class HFE_Settings_Page {
 			<div class="hfe-admin-column-60">
 				<h3><?php esc_html_e( 'Welcome to Elementor Header & Footer Builder!', 'header-footer-elementor' ); ?></h3>
 
-				<p><?php esc_html_e( 'This awesome plugin offers the easiest way to create a customized header and footer for your website with Elementor. That too 100% FREE!', 'header-footer-elementor' ); ?></p>
+				<p><?php esc_html_e( 'With this awesome plugin, experience the easiest way to create a customized header and footer for your website with Elementor. That too 100% FREE!', 'header-footer-elementor' ); ?></p>
 
-				<p><?php esc_html_e( 'Design beautiful layouts with simple drag & drop and display them at desired location with powerful target options. You can set this layout as a header, footer, or place it anywhere on the website with a shortcode.', 'header-footer-elementor' ); ?></p>
-				
-				<ul><li><?php esc_html_e( 'The plugin comes with inbuilt Elementor widgets that offer essential features to build header and footer.', 'header-footer-elementor' ); ?></li>
-				<li><?php esc_html_e( 'It’s a lightweight plugin that works seamlessly with all themes.', 'header-footer-elementor' ); ?></li>
-				<li><?php esc_html_e( 'This flexible plugin is easy to use.', 'header-footer-elementor' ); ?></li>
-				<li><?php esc_html_e( 'Backed up by 24/7 support.', 'header-footer-elementor' ); ?></li>
-				</ul>
+				<p><?php esc_html_e( 'Design beautiful layouts with simple drag & drop and display them at desired location with powerful target controls.', 'header-footer-elementor' ); ?></p>
 
-				<p><?php esc_html_e( 'Trusted by more than  1+ million users, Elementor Header & Footer Builder is a modern way to build advanced navigation for your website.', 'header-footer-elementor' ); ?></p>
+				<p><?php esc_html_e( 'The plugin comes with inbuilt Elementor widgets that offer essential features to build header and footer. It\'s a lightweight plugin that works seamlessly with all themes and backed up by 24/7 support.', 'header-footer-elementor' ); ?></p>
+
+				<p><?php esc_html_e( 'Trusted by more than 1+ million users, Elementor Header & Footer Builder is a modern way to build advanced navigation for your website.', 'header-footer-elementor' ); ?></p>
 
 				<p><?php esc_html_e( 'This plugin is brought to you by the same team behind the popular WordPress theme Astra and a series of Ultimate Addons plugins.', 'header-footer-elementor' ); ?></p>
 
