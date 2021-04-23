@@ -140,7 +140,6 @@ This same applies when you are creating your Header/Footer using this plugin.
 ### 1.5.9 ###
 - Improvement: Added notice to update Elementor to v3.0.0 or higher
 Elementor has deprecated few functions and namespaces with its v3.0.0. Following Elementor, our plugin too deprecates similar functions and namespaces. You will now require the Elementor v3.0.0 or higher. 
-- Improvement: Added notice to update the Elementor version to 3.0.0 or higher.
 - Improvement: Elementor 3.2 Compatibility - Added Elementor Global Color and Typography scheme support.
 - Fix: Navigation Menu - Last menu item button disappearing while switching from mobile to desktop. 
 - Fix: Navigation Menu - Last menu item button alignment not working in RTL view.
