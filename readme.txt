@@ -5,7 +5,7 @@ Donate link: https://www.paypal.me/BrainstormForce
 Requires at least: 4.4
 Requires PHP: 5.4
 Tested up to: 5.7
-Stable tag: 1.5.8
+Stable tag: 1.5.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -137,6 +137,13 @@ This same applies when you are creating your Header/Footer using this plugin.
 5. Default widgets available with Elementor – Header, Footer & Blocks.
 
 == Changelog ==
+= 1.5.9 = 
+- Improvement: Added notice to update Elementor to v3.0.0 or higher
+Elementor has deprecated few functions and namespaces with its v3.0.0. Following Elementor, our plugin too deprecates similar functions and namespaces. You will now require the Elementor v3.0.0 or higher. 
+- Improvement: Elementor 3.2 Compatibility - Added Elementor Global Color and Typography scheme support.
+- Fix: Navigation Menu - Last menu item button disappearing while switching from mobile to desktop. 
+- Fix: Navigation Menu - Last menu item button alignment not working in RTL view.
+
 = 1.5.8 =
 - Fix: Hardened allowed options in the editor to enforce better security policies.
 

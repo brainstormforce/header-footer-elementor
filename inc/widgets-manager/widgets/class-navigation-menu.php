@@ -11,8 +11,8 @@ namespace HFE\WidgetsManager\Widgets;
 use Elementor\Controls_Manager;
 use Elementor\Utils;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
-use Elementor\Scheme_Color;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Background;
@@ -904,7 +904,9 @@ class Navigation_Menu extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'menu_typography',
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_1,
+				'global'    => [
+					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
+				],
 				'separator' => 'before',
 				'selector'  => '{{WRAPPER}} a.hfe-menu-item, {{WRAPPER}} a.hfe-sub-menu-item',
 			]
@@ -924,9 +926,8 @@ class Navigation_Menu extends Widget_Base {
 						[
 							'label'     => __( 'Text Color', 'header-footer-elementor' ),
 							'type'      => Controls_Manager::COLOR,
-							'scheme'    => [
-								'type'  => Scheme_Color::get_type(),
-								'value' => Scheme_Color::COLOR_3,
+							'global'    => [
+								'default' => Global_Colors::COLOR_TEXT,
 							],
 							'default'   => '',
 							'selectors' => [
@@ -964,9 +965,8 @@ class Navigation_Menu extends Widget_Base {
 						[
 							'label'     => __( 'Text Color', 'header-footer-elementor' ),
 							'type'      => Controls_Manager::COLOR,
-							'scheme'    => [
-								'type'  => Scheme_Color::get_type(),
-								'value' => Scheme_Color::COLOR_4,
+							'global'    => [
+								'default' => Global_Colors::COLOR_ACCENT,
 							],
 							'selectors' => [
 								'{{WRAPPER}} .menu-item a.hfe-menu-item:hover,
@@ -1001,9 +1001,8 @@ class Navigation_Menu extends Widget_Base {
 						[
 							'label'     => __( 'Link Hover Effect Color', 'header-footer-elementor' ),
 							'type'      => Controls_Manager::COLOR,
-							'scheme'    => [
-								'type'  => Scheme_Color::get_type(),
-								'value' => Scheme_Color::COLOR_4,
+							'global'    => [
+								'default' => Global_Colors::COLOR_ACCENT,
 							],
 							'default'   => '',
 							'selectors' => [
@@ -1252,7 +1251,9 @@ class Navigation_Menu extends Widget_Base {
 				Group_Control_Typography::get_type(),
 				[
 					'name'      => 'dropdown_typography',
-					'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
+					'global'    => [
+						'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+					],
 					'separator' => 'before',
 					'selector'  => '
 							{{WRAPPER}} .sub-menu li a.hfe-sub-menu-item,
@@ -1652,7 +1653,9 @@ class Navigation_Menu extends Widget_Base {
 				[
 					'name'     => 'all_typography',
 					'label'    => __( 'Typography', 'header-footer-elementor' ),
-					'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
+					'global'   => [
+						'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+					],
 					'selector' => '{{WRAPPER}} .menu-item a.hfe-menu-item.elementor-button',
 				]
 			);
@@ -1698,9 +1701,8 @@ class Navigation_Menu extends Widget_Base {
 							'selector'       => '{{WRAPPER}} .menu-item a.hfe-menu-item.elementor-button',
 							'fields_options' => [
 								'color' => [
-									'scheme' => [
-										'type'  => Scheme_Color::get_type(),
-										'value' => Scheme_Color::COLOR_4,
+									'global' => [
+										'default' => Global_Colors::COLOR_ACCENT,
 									],
 								],
 							],
@@ -1765,9 +1767,8 @@ class Navigation_Menu extends Widget_Base {
 							'selector'       => '{{WRAPPER}} .menu-item a.hfe-menu-item.elementor-button:hover',
 							'fields_options' => [
 								'color' => [
-									'scheme' => [
-										'type'  => Scheme_Color::get_type(),
-										'value' => Scheme_Color::COLOR_4,
+									'global' => [
+										'default' => Global_Colors::COLOR_ACCENT,
 									],
 								],
 							],
