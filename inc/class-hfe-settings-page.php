@@ -559,7 +559,7 @@ class HFE_Settings_Page {
 
 				<p><?php esc_html_e( 'The plugin comes with inbuilt Elementor widgets that offer essential features to build header and footer. It\'s a lightweight plugin that works seamlessly with all themes and backed up by 24/7 support.', 'header-footer-elementor' ); ?></p>
 
-				<p><?php esc_html_e( 'Trusted by more than 1+ million users, Elementor Header & Footer Builder is a modern way to build advanced navigation for your website.', 'header-footer-elementor' ); ?></p>
+				<p><?php esc_html_e( 'Trusted by more than 1M+ users, Elementor Header & Footer Builder is a modern way to build advanced navigation for your website.', 'header-footer-elementor' ); ?></p>
 
 				<p><?php esc_html_e( 'This plugin is brought to you by the same team behind the popular WordPress theme Astra and a series of Ultimate Addons plugins.', 'header-footer-elementor' ); ?></p>
 
@@ -715,7 +715,7 @@ class HFE_Settings_Page {
 			'astra'              => [
 				'icon'  => $images_url . 'plugin-astra.png',
 				'name'  => esc_html__( 'Astra Theme', 'header-footer-elementor' ),
-				'desc'  => esc_html__( 'Powering over 1M+ WordPress websites, Astra is loved for the fast performance and ease of use it offers. It is suitable for all kinds of websites like blogs, portfolios, business, and WooCommerce stores.', 'header-footer-elementor' ),
+				'desc'  => esc_html__( 'Powering over 1 WordPress websites, Astra is loved for the fast performance and ease of use it offers. It is suitable for all kinds of websites like blogs, portfolios, business, and WooCommerce stores.', 'header-footer-elementor' ),
 				'wporg' => 'https://wordpress.org/themes/astra/',
 				'url'   => 'https://wpastra.com/',
 			],
@@ -723,7 +723,7 @@ class HFE_Settings_Page {
 			'starter-templates'  => [
 				'icon'  => $images_url . 'plugin-st.png',
 				'name'  => esc_html__( 'Starter Templates', 'header-footer-elementor' ),
-				'desc'  => esc_html__( 'A popular templates plugin that provides an extensive library of professional and fully customizable 600+ ready website and templates. More than 1M+ websites have built with this plugin.', 'header-footer-elementor' ),
+				'desc'  => esc_html__( 'A popular templates plugin that provides an extensive library of professional and fully customizable 600+ ready website and templates. More than 1 websites have built with this plugin.', 'header-footer-elementor' ),
 				'wporg' => 'https://wordpress.org/plugins/astra-sites/',
 				'url'   => 'https://startertemplates.com/',
 			],
