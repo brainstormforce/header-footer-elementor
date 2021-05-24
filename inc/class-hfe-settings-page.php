@@ -380,7 +380,7 @@ class HFE_Settings_Page {
 						<h3><?php esc_html_e( 'Learn the Art of Designing Custom Header & Footer', 'header-footer-elementor' ); ?></h3>
 						<div class="hfe-admin-video">
 							<?php if ( 'yes' === $subscribe_valid ) { ?>
-								<p class="hfe-subscribed-desc"><?php echo esc_html_e( 'Get introduced to Header & Footer Elementor Builder by watching our "Getting Started" video. It will guide you through the steps needed to create your header/footer.', 'header-footer-elementor' ); ?></p>
+								<p class="hfe-subscribed-desc"><?php echo esc_html_e( 'Get introduced to Elementor Header & Footer Builder by watching our "Getting Started" video. It will guide you through the steps needed to create your header/footer.', 'header-footer-elementor' ); ?></p>
 							<?php } ?>
 							<iframe width=<?php echo $video_width; ?> height=<?php echo $video_height; ?> src="https://www.youtube.com/embed/XLEQb2hF2Fo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						</div>
