@@ -59,7 +59,7 @@ add_action( 'wp_ajax_hfe-update-subscription', 'update_subscription' );
  * @since x.x.x
  */
 function get_api_domain() {
-	return apply_filters( 'hfe_api_domain', 'https://astra-sites-multisite.mydomain9.com/' );
+	return apply_filters( 'hfe_api_domain', 'https://mitras11.sg-host.com/' );
 }
 
 
