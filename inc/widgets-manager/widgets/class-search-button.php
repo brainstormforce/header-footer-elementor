@@ -9,11 +9,11 @@ namespace HFE\WidgetsManager\Widgets;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Background;
-use Elementor\Scheme_Typography;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use Elementor\Widget_Base;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Box_Shadow;
-use Elementor\Scheme_Color;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use Elementor\Group_Control_Border;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -204,7 +204,9 @@ class Search_Button extends Widget_Base {
 			[
 				'name'     => 'input_typography',
 				'selector' => '{{WRAPPER}} input[type="search"].hfe-search-form__input,{{WRAPPER}} .hfe-search-icon-toggle',
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
+				'global'   => [
+					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
+				],
 			]
 		);
 
@@ -248,9 +250,8 @@ class Search_Button extends Widget_Base {
 			[
 				'label'     => __( 'Text Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
+				'global'    => [
+					'default' => Global_Colors::COLOR_TEXT,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-form__input' => 'color: {{VALUE}}',
@@ -266,9 +267,8 @@ class Search_Button extends Widget_Base {
 			[
 				'label'     => __( 'Placeholder Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
+				'global'    => [
+					'default' => Global_Colors::COLOR_TEXT,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-form__input::placeholder' => 'color: {{VALUE}}',
@@ -334,9 +334,8 @@ class Search_Button extends Widget_Base {
 			[
 				'label'     => __( 'Border Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+				'global'    => [
+					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 				'condition' => [
 					'border_style!' => 'none',
@@ -433,9 +432,8 @@ class Search_Button extends Widget_Base {
 			[
 				'label'     => __( 'Placeholder Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
+				'global'    => [
+					'default' => Global_Colors::COLOR_TEXT,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-form__input:focus::placeholder' => 'color: {{VALUE}}',
@@ -890,9 +888,8 @@ class Search_Button extends Widget_Base {
 			[
 				'label'     => __( 'Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
+				'global'    => [
+					'default' => Global_Colors::COLOR_TEXT,
 				],
 				'default'   => '#7a7a7a',
 				'selectors' => [
