@@ -1392,7 +1392,7 @@ class Navigation_Menu extends Widget_Base {
 						],
 					],
 					'selectors' => [
-						'{{WRAPPER}} nav.hfe-nav-menu__layout-horizontal ul.sub-menu, {{WRAPPER}} nav.hfe-nav-menu__layout-expandible.menu-is-active' => 'margin-top: {{SIZE}}px;',
+						'{{WRAPPER}} nav.hfe-nav-menu__layout-horizontal:not(.hfe-dropdown) ul.sub-menu, {{WRAPPER}} nav.hfe-nav-menu__layout-expandible.menu-is-active' => 'margin-top: {{SIZE}}px;',
 						'{{WRAPPER}} .hfe-dropdown.menu-is-active' => 'margin-top: {{SIZE}}px;',
 					],
 					'condition' => [
