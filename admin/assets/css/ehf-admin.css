@@ -394,6 +394,167 @@ select.hfe-subscribe-field {
 #hfe-admin-addons .addon-item .details {
   padding: 30px 20px;
 }
+
+#hfe-admin-addons .addon-item .action-button .button {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 26px;
+    height: 28px;
+    margin: 0;
+    padding: 0 10px 1px;
+    box-shadow: 0 1px 0 #cccccc;
+    cursor: pointer;
+    -webkit-appearance: none;
+    border-radius: 3px;
+    border: 1px solid #cccccc;
+    background: #f7f7f7;
+    font-weight: normal;
+}
+
+#hfe-admin-addons .addon-item .action-button .button:hover, 
+#hfe-admin-addons .addon-item .action-button .button:focus {
+    background: #fafafa;
+    border-color: #999;
+    color: #23282d;
+}
+
+#hfe-admin-addons .addon-item .action-button .button.button-primary {
+    background: #0085ba;
+    border-color: #0073aa #006799 #006799;
+    box-shadow: 0 1px 0 #006799;
+    color: #fff;
+    text-shadow: 0 -1px 1px #006799, 1px 0 1px #006799, 0 1px 1px #006799, -1px 0 1px #006799;
+}
+
+#hfe-admin-addons .addon-item .action-button .button.button-primary:hover, 
+#hfe-admin-addons .addon-item .action-button .button.button-primary:focus {
+    background: #008ec2;
+    border-color: #006799;
+    color: #fff;
+}
+
+#hfe-admin-addons .addon-item .action-button .button.button-secondary {
+    color: #555;
+    border-color: #cccccc;
+    background: #f7f7f7;
+    box-shadow: 0 1px 0 #cccccc;
+}
+
+#hfe-admin-addons .addon-item .action-button .button.button-secondary:hover, 
+#hfe-admin-addons .addon-item .action-button .button.button-secondary:focus {
+    background: #fafafa;
+    border-color: #999;
+    color: #23282d;
+}
+
+#hfe-admin-addons .addon-item .action-button .button.disabled {
+    cursor: default;
+}
+
+#hfe-admin-addons .addon-item .actions {
+    display: flex;
+    align-items: center;
+    background-color: #f7f7f7;
+    border-top: 1px solid #ddd;
+    padding: 20px;
+    min-height: 75px;
+    position: relative;
+}
+  
+#hfe-admin-addons .addon-item .actions .msg {
+    background-color: #f7f7f7;
+    border: none;
+    position: absolute;
+    text-align: center;
+    font-weight: 600;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    z-index: 99;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+#hfe-admin-addons .addon-item .actions .msg.success,
+#hfe-admin-addons .addon-item .status .status-active,
+#hfe-admin-addons .addon-item .action-button button.status-active .fa {
+    color: #2a9b39;
+}
+  
+#hfe-admin-addons .addon-item .actions .msg.error,
+#hfe-admin-addons .addon-item .status .status-inactive,
+#hfe-admin-addons .addon-item .action-button button.status-inactive .fa {
+    color: red;
+}
+  
+#hfe-admin-addons .addon-item .status {
+    flex-grow: 1;
+}
+  
+#hfe-admin-addons .addon-item .status .status-download {
+    color: #666;
+}
+  
+#hfe-admin-addons .addon-item .upgrade-button {
+    text-align: center;
+}
+  
+#hfe-admin-addons .addon-item .upgrade-button a {
+    font-weight: 600;
+    width: 140px;
+    text-align: center;
+    padding: 8px 5px;
+}
+#hfe-admin-addons .addon-item .action-button a.button {
+    width: 140px;
+    text-align: center;
+}
+#hfe-admin-addons .addon-item .action-button button {
+    background: none;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-shadow: none;
+    cursor: pointer;
+    font-weight: 600;
+    width: 140px;
+    text-align: center;
+    padding: 8px 5px;
+}
+  
+#hfe-admin-addons .addon-item .action-button button:hover, #hfe-admin-addons .addon-item .action-button button.loading {
+    background-color: #e9e9e9;
+}
+  
+#hfe-admin-addons .addon-item .action-button button .fa {
+    margin-right: 8px;
+}
+  
+#hfe-admin-addons .addon-item .action-button button .fa.fa-spinner {
+    margin-right: 0;
+}
+  
+#hfe-admin-addons .addon-item .action-button button.status-download .fa {
+    color: #999;
+}
+  
+#hfe-admin-addons .addon-item .action-button button.disabled {
+    cursor: default;
+    pointer-events: none;
+}
+  
+#hfe-admin-addons .addon-item .action-button button.loading .fa {
+    color: #666;
+}
+  
+#hfe-admin-addons .addon-item .action-button a {
+    text-decoration: none;
+}
+
 /* Modal Popup */
 .hfe-guide-modal-header {
     padding: 10px;

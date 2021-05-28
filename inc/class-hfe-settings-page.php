@@ -59,6 +59,13 @@ class HFE_Settings_Page {
 		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
 
 		$strings = [
+			'addon_activate'    => esc_html__( 'Activate', 'header-footer-elementor' ),
+			'addon_activated'   => esc_html__( 'Activated', 'header-footer-elementor' ),
+			'addon_active'      => esc_html__( 'Active', 'header-footer-elementor' ),
+			'addon_deactivate'  => esc_html__( 'Deactivate', 'header-footer-elementor' ),
+			'addon_inactive'    => esc_html__( 'Inactive', 'header-footer-elementor' ),
+			'addon_install'     => esc_html__( 'Install', 'header-footer-elementor' ),
+			'plugin_error'      => esc_html__( 'Could not install. Please download from WordPress.org and install manually.', 'header-footer-elementor' ),
 			'subscribe_success' => esc_html__( 'Your details are submitted successfully.', 'header-footer-elementor' ),
 			'subscribe_error'   => esc_html__( 'Error encountered while submitting the form!', 'header-footer-elementor' ),
 			'ajax_url'          => admin_url( 'admin-ajax.php' ),
@@ -576,6 +583,33 @@ class HFE_Settings_Page {
 									</div>
 								</div>
 							</div>
+							<div class="actions hfe-clear">
+								<div class="status">
+									<strong>
+										<?php
+										printf(
+										/* translators: %s - addon status label. */
+											esc_html__( 'Status: %s', 'header-footer-elementor' ),
+											'<span class="status-label ' . esc_attr( $plugin_data['status_class'] ) . '">' . wp_kses_post( $plugin_data['status_text'] ) . '</span>'
+										);
+										?>
+									</strong>
+								</div>
+								<div class="action-button">
+									<?php if( 'Visit Website' === $plugin_data['action_text'] ) { ?>
+										<a href="<?php echo esc_url( $plugin_data['plugin_src'] ); ?>" target="_blank" rel="noopener noreferrer" class="pro-plugin button button-primary"><?php echo wp_kses_post( $plugin_data['action_text'] ); ?></a>
+									<?php } else if ( $can_install_plugins ) { ?>
+										<button class="<?php echo esc_attr( $plugin_data['action_class'] ); ?>" data-plugin="<?php echo esc_attr( $plugin_data['plugin_src'] ); ?>" data-type="plugin">
+											<span><?php echo wp_kses_post( $plugin_data['action_text'] ); ?></span>
+										</button>
+									<?php } else { ?>
+										<a href="<?php echo esc_url( $details['wporg'] ); ?>" target="_blank" rel="noopener noreferrer">
+											<?php esc_html_e( 'WordPress.org', 'header-footer-elementor' ); ?>
+											<span aria-hidden="true" class="dashicons dashicons-external"></span>
+										</a>
+									<?php } ?>
+								</div>
+							</div>
 						</div>
 					</div>
 				<?php endforeach; ?>
@@ -597,25 +631,10 @@ class HFE_Settings_Page {
 	 */
 	protected function get_plugin_data( $plugin, $details, $all_plugins ) {
 
-		$have_pro = ( ! empty( $details['pro'] ) && ! empty( $details['pro']['plug'] ) );
+		$have_pro = ( ! empty( $details['pro'] ) );
 		$show_pro = false;
 
 		$plugin_data = [];
-
-		if ( $have_pro ) {
-			if ( array_key_exists( $plugin, $all_plugins ) ) {
-				if ( is_plugin_active( $plugin ) ) {
-					$show_pro = true;
-				}
-			}
-			if ( array_key_exists( $details['pro']['plug'], $all_plugins ) ) {
-				$show_pro = true;
-			}
-			if ( $show_pro ) {
-				$plugin  = $details['pro']['plug'];
-				$details = $details['pro'];
-			}
-		}
 
 		if ( array_key_exists( $plugin, $all_plugins ) ) {
 			if ( is_plugin_active( $plugin ) ) {
@@ -645,8 +664,12 @@ class HFE_Settings_Page {
 			$plugin_data['status_text'] = esc_html__( 'Not Installed', 'header-footer-elementor' );
 			// Button text/status.
 			$plugin_data['action_class'] = $plugin_data['status_class'] . ' button button-primary';
-			$plugin_data['action_text']  = esc_html__( 'Install Plugin', 'header-footer-elementor' );
+			$plugin_data['action_text']  = esc_html__( 'Install', 'header-footer-elementor' );
 			$plugin_data['plugin_src']   = esc_url( $details['url'] );
+		}
+
+		if ( $have_pro ) {
+			$plugin_data['action_text']  = esc_html__( 'Visit Website', 'header-footer-elementor' );
 		}
 
 		$plugin_data['details'] = $details;
@@ -672,7 +695,8 @@ class HFE_Settings_Page {
 				'name'  => esc_html__( 'Astra Theme', 'header-footer-elementor' ),
 				'desc'  => esc_html__( 'Powering over 1 WordPress websites, Astra is loved for the fast performance and ease of use it offers. It is suitable for all kinds of websites like blogs, portfolios, business, and WooCommerce stores.', 'header-footer-elementor' ),
 				'wporg' => 'https://wordpress.org/themes/astra/',
-				'url'   => 'https://wpastra.com/',
+				'url'   => 'https://downloads.wordpress.org/theme/astra.zip',
+				'pro'   => false
 			],
 
 			'starter-templates'  => [
@@ -680,7 +704,8 @@ class HFE_Settings_Page {
 				'name'  => esc_html__( 'Starter Templates', 'header-footer-elementor' ),
 				'desc'  => esc_html__( 'A popular templates plugin that provides an extensive library of professional and fully customizable 600+ ready website and templates. More than 1 websites have built with this plugin.', 'header-footer-elementor' ),
 				'wporg' => 'https://wordpress.org/plugins/astra-sites/',
-				'url'   => 'https://startertemplates.com/',
+				'url'   => 'https://downloads.wordpress.org/plugin/astra-sites.zip',
+				'pro'   => false
 			],
 
 			'ultimate-elementor' => [
@@ -689,6 +714,7 @@ class HFE_Settings_Page {
 				'desc'  => esc_html__( 'It’s a collection of 40+ unique, creative, and optimized Elementor widgets with 100+ readymade templates. Trusted by more than 600K+ web professionals it’s a #1 toolkit for Elementor.', 'header-footer-elementor' ),
 				'wporg' => '',
 				'url'   => 'https://ultimateelementor.com/',
+				'pro'   => true
 			],
 		];
 	}
