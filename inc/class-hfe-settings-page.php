@@ -189,15 +189,6 @@ class HFE_Settings_Page {
 
 		add_submenu_page(
 			'themes.php',
-			__( 'Step-By-Step Guide', 'header-footer-elementor' ),
-			__( 'Step-By-Step Guide', 'header-footer-elementor' ),
-			'manage_options',
-			'hfe-guide',
-			[ $this, 'hfe_settings_page' ]
-		);
-
-		add_submenu_page(
-			'themes.php',
 			__( 'About Us', 'header-footer-elementor' ),
 			__( 'About Us', 'header-footer-elementor' ),
 			'manage_options',
@@ -246,10 +237,6 @@ class HFE_Settings_Page {
 				$this->get_themes_support();
 				break;
 
-			case 'hfe-guide':
-				$this->get_guide_html( 'page' );
-				break;
-
 			case 'hfe-about':
 				$this->get_about_html();
 				break;
@@ -275,11 +262,6 @@ class HFE_Settings_Page {
 					'url'  => admin_url( 'edit.php?post_type=elementor-hf' ),
 				];
 			}
-
-			self::$hfe_settings_tabs['hfe_guide'] = [
-				'name' => __( 'Step-By-Step Guide', 'header-footer-elementor' ),
-				'url'  => admin_url( 'themes.php?page=hfe-guide' ),
-			];
 
 			self::$hfe_settings_tabs['hfe_about'] = [
 				'name' => __( 'About Us', 'header-footer-elementor' ),
@@ -358,51 +340,35 @@ class HFE_Settings_Page {
 	 * Function for Step-By-Step guide
 	 *
 	 * @since x.x.x
-	 * @param string $type Page or Popup.
 	 * @return void
 	 */
-	public function get_guide_html( $type ) {
+	public function get_guide_html() {
 
 		$is_subscribed   = get_user_meta( get_current_user_ID(), 'hfe-subscribed' );
 		$subscribe_valid = ( is_array( $is_subscribed ) && isset( $is_subscribed[0] ) && 'yes' === $is_subscribed[0] ) ? 'yes' : false;
 		$subscribe_flag  = ( 'yes' === $subscribe_valid ) ? ' hfe-user-subscribed' : ' hfe-user-unsubscribed';
-
-		$video_height = ( 'yes' === $subscribe_valid ) ? '350' : '300';
-		$video_width  = ( 'yes' === $subscribe_valid ) ? '620' : '560';
 		?>
 
 		<div class="hfe-admin-about-section hfe-admin-columns hfe-admin-guide-section<?php echo $subscribe_flag; ?>">
 
 			<div class="hfe-admin-column-50">
-				<div class="hfe-admin-about-section-column">
-
-					<?php if ( 'page' === $type ) { ?>
-						<h3><?php esc_html_e( 'Learn the Art of Designing Custom Header & Footer', 'header-footer-elementor' ); ?></h3>
-						<div class="hfe-admin-video">
-							<?php if ( 'yes' === $subscribe_valid ) { ?>
-								<p class="hfe-subscribed-desc"><?php echo esc_html_e( 'Get introduced to Elementor Header & Footer Builder by watching our "Getting Started" video. It will guide you through the steps needed to create your header/footer.', 'header-footer-elementor' ); ?></p>
-							<?php } ?>
-							<iframe width=<?php echo $video_width; ?> height=<?php echo $video_height; ?> src="https://www.youtube.com/embed/XLEQb2hF2Fo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						</div>
-					<?php } elseif ( 'popup' === $type ) { ?>
-						<h2><?php esc_html_e( 'Create Impressive Header and Footer Designs', 'header-footer-elementor' ); ?></h2>
-						<p><?php esc_html_e( 'Elementor Header & Footer Builder plugin lets you build impactful navigation for your website very easily. Before we begin, we would like to know more about you. This will help us to serve you better.', 'header-footer-elementor' ); ?></p>
-					<?php } ?>
+				<div class="hfe-admin-about-section-column">					
+					<h2><?php esc_html_e( 'Create Impressive Header and Footer Designs', 'header-footer-elementor' ); ?></h2>
+					<p><?php esc_html_e( 'Elementor Header & Footer Builder plugin lets you build impactful navigation for your website very easily. Before we begin, we would like to know more about you. This will help us to serve you better.', 'header-footer-elementor' ); ?></p>
 				</div>
 			</div>
 			<?php if ( 'yes' !== $subscribe_valid ) { ?>
 				<div class="hfe-admin-column-50 hfe-admin-column-last">
 					<div class="hfe-guide-content hfe-subscription-step-1-active">
 						<div class="hfe-guide-content-header hfe-admin-columns">
-							<?php if ( 'popup' !== $type ) { ?>
-								<h3><?php esc_html_e( 'Enter Details to Receive Future Updates and Beneficial Tips', 'header-footer-elementor' ); ?></h3>
-							<?php } ?>
 						</div>
 						<form action="options.php" method="post">
-							<div class="hfe-privacy-policy-container">
-								<?php $this->get_form_html( $type ); ?>
-							</div>
+							<?php $this->get_form_html(); ?>
 						</form>
+					</div>
+					<div class="hfe-privacy-policy-container">
+						<?php /* translators: %1$s and %3$s are opening anchor tags, and %2$s and %4$s is closing anchor tags. */ ?>
+						<p class="hfe-subscription-policy"><?php printf( __( 'By submitting, you agree to our %1$sTerms%2$s and %3$sPrivacy Policy%4$s.', 'header-footer-elementor' ), '<a href="https://store.brainstormforce.com/terms-and-conditions/" target="_blank">', '</a>', '<a href="https://store.brainstormforce.com/privacy-policy/" target="_blank">', '</a>' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
 					</div>
 				</div>
 			<?php } ?>
@@ -414,13 +380,13 @@ class HFE_Settings_Page {
 	 * Function for form HTML
 	 *
 	 * @since x.x.x
-	 * @param string $type Page or Popup.
 	 * @return void
 	 */
-	public function get_form_html( $type ) {
+	public function get_form_html() {
 		?>
-		<?php $this->get_form_row_1( $type ); ?>
-		<?php $this->get_form_row_2( $type ); ?>
+		<?php $this->get_form_row_1(); ?>
+		<?php $this->get_form_row_2(); ?>
+		<a href="#" class="button-subscription-skip"><?php esc_html_e( 'Skip', 'header-footer-elementor' ); ?></a>
 		<?php
 	}
 
@@ -428,10 +394,9 @@ class HFE_Settings_Page {
 	 * Function for form Row 1 HTML
 	 *
 	 * @since x.x.x
-	 * @param string $type Page or Popup.
 	 * @return void
 	 */
-	public function get_form_row_1( $type ) {
+	public function get_form_row_1() {
 		?>
 
 		<div class="hfe-subscription-step-1">
@@ -457,11 +422,9 @@ class HFE_Settings_Page {
 				</div>
 			</div>
 
-			<?php if ( 'popup' === $type ) { ?>
-				<p class="submit">
-					<input type="submit" name="submit-1" id="submit-1" class="button submit-1 button-primary" value="Next">
-				</p>
-			<?php } ?>
+			<p class="submit">
+				<input type="submit" name="submit-1" id="submit-1" class="button submit-1 button-primary" value="Next">
+			</p>
 		</div>
 		<?php
 	}
@@ -470,10 +433,9 @@ class HFE_Settings_Page {
 	 * Function for form Row 2 HTML
 	 *
 	 * @since x.x.x
-	 * @param string $type Page or Popup.
 	 * @return void
 	 */
-	public function get_form_row_2( $type ) {
+	public function get_form_row_2() {
 		?>
 		<div class="hfe-subscription-step-2">
 			<div class="hfe-subscription-row">
@@ -492,13 +454,7 @@ class HFE_Settings_Page {
 				<button type="submit" id="submit-2"  class="button submit-2 button-primary">
 					<span class="hfe-submit-button-text"><?php echo __( 'Submit', 'header-footer-elementor' ); ?></span>
 				</button>
-			</p>		
-
-			<?php /* translators: %1$s and %3$s are opening anchor tags, and %2$s and %4$s is closing anchor tags. */ ?>
-			<p class="hfe-subscription-policy"><?php printf( __( 'By submitting, you agree to our %1$sTerms%2$s and %3$sPrivacy Policy%4$s.', 'header-footer-elementor' ), '<a href="https://store.brainstormforce.com/terms-and-conditions/" target="_blank">', '</a>', '<a href="https://store.brainstormforce.com/privacy-policy/" target="_blank">', '</a>' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php if ( 'popup' === $type ) { ?>
-				<a href="#" class="button-subscription-skip"><?php esc_html_e( 'Skip', 'header-footer-elementor' ); ?></a>
-			<?php } ?>
+			</p>
 		</div>
 		<?php
 	}
@@ -519,9 +475,8 @@ class HFE_Settings_Page {
 					<div class="heading">
 						<img src="<?php echo HFE_URL . 'assets/images/header-footer-elementor-icon.svg'; ?>" class="hfe-logo">
 						<h3><?php esc_html_e( 'Elementor Header & Footer Builder', 'header-footer-elementor' ); ?></h3>
-						<span class="dashicons close dashicons-no-alt hfe-modal-close hfe-close-icon"></span>
 					</div>
-					<?php $this->get_guide_html( 'popup' ); ?>
+					<?php $this->get_guide_html(); ?>
 				</div>
 			</div>
 			<div class="hfe-guide-modal-overlay"></div>
@@ -742,8 +697,6 @@ class HFE_Settings_Page {
 	 * Determine if the plugin/addon installations are allowed.
 	 *
 	 * @since x.x.x
-	 *
-	 * @param string $type Should be `plugin` or `addon`.
 	 *
 	 * @return bool
 	 */

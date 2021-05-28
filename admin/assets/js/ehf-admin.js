@@ -209,9 +209,7 @@
 		_display_modal: function() {
 			var hf_new_post = $( '.post-type-elementor-hf' ).find( '.page-title-action' );
 
-			var close_button = $( '.hfe-close-icon' );
 			var modal_wrapper = $( '.hfe-guide-modal-popup' );
-			var new_page_link = modal_wrapper.data( 'new-page' );
 			var display_allow = hfe_admin_data.popup_dismiss;
 
 			if( 'dismissed' !== display_allow[0] ) {
@@ -224,12 +222,6 @@
 					}
 				});
 			}
-		
-			// Close popup and redirect to edit page.
-			close_button.on( 'click', function(e) {
-
-				HFEAdmin._close_modal();
-			});
 		},
 
 		/**
