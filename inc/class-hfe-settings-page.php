@@ -554,6 +554,7 @@ class HFE_Settings_Page {
 		$all_plugins         = get_plugins();
 		$bsf_plugins         = $this->get_bsf_plugins();
 		$can_install_plugins = $this->hfe_can_install( 'plugin' );
+		$can_install_themes = $this->hfe_can_install( 'theme' );
 
 		?>
 		<div id="hfe-admin-addons">
@@ -692,6 +693,7 @@ class HFE_Settings_Page {
 
 			'astra'              => [
 				'icon'  => $images_url . 'plugin-astra.png',
+				'type' => 'theme',
 				'name'  => esc_html__( 'Astra Theme', 'header-footer-elementor' ),
 				'desc'  => esc_html__( 'Powering over 1 WordPress websites, Astra is loved for the fast performance and ease of use it offers. It is suitable for all kinds of websites like blogs, portfolios, business, and WooCommerce stores.', 'header-footer-elementor' ),
 				'wporg' => 'https://wordpress.org/themes/astra/',
@@ -701,6 +703,7 @@ class HFE_Settings_Page {
 
 			'starter-templates'  => [
 				'icon'  => $images_url . 'plugin-st.png',
+				'type' => 'plugin',
 				'name'  => esc_html__( 'Starter Templates', 'header-footer-elementor' ),
 				'desc'  => esc_html__( 'A popular templates plugin that provides an extensive library of professional and fully customizable 600+ ready website and templates. More than 1 websites have built with this plugin.', 'header-footer-elementor' ),
 				'wporg' => 'https://wordpress.org/plugins/astra-sites/',
@@ -710,6 +713,7 @@ class HFE_Settings_Page {
 
 			'ultimate-elementor' => [
 				'icon'  => $images_url . 'plugin-uae.png',
+				'type' => 'plugin',
 				'name'  => esc_html__( 'Ultimate Addons for Elementor', 'header-footer-elementor' ),
 				'desc'  => esc_html__( 'It’s a collection of 40+ unique, creative, and optimized Elementor widgets with 100+ readymade templates. Trusted by more than 600K+ web professionals it’s a #1 toolkit for Elementor.', 'header-footer-elementor' ),
 				'wporg' => '',
@@ -728,11 +732,7 @@ class HFE_Settings_Page {
 	 */
 	public function hfe_can_install( $type ) {
 
-		if ( ! in_array( $type, [ 'plugin', 'addon' ], true ) ) {
-			return false;
-		}
-
-		if ( ! current_user_can( 'install_plugins' ) ) {
+		if ( ! in_array( $type, [ 'plugin', 'theme' ], true ) ) {
 			return false;
 		}
 
@@ -741,8 +741,18 @@ class HFE_Settings_Page {
 			return false;
 		}
 
-		// All plugin checks are done.
-		if ( 'plugin' === $type ) {
+		if( 'theme' === $type ) {
+			if ( ! current_user_can( 'install_themes' ) ) {
+				return false;
+			}	
+	
+			return true;
+
+		} elseif ( 'plugin' === $type ) {
+			if ( ! current_user_can( 'install_plugins' ) ) {
+				return false;
+			}
+	
 			return true;
 		}
 
