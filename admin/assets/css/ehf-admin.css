@@ -398,7 +398,7 @@ select.hfe-subscribe-field {
 #hfe-admin-addons .addon-item .action-button .button {
     display: inline-block;
     text-decoration: none;
-    font-size: 13px;
+    font-size: 14px;
     line-height: 26px;
     height: 28px;
     margin: 0;
@@ -506,12 +506,12 @@ select.hfe-subscribe-field {
   
 #hfe-admin-addons .addon-item .upgrade-button a {
     font-weight: 600;
-    width: 140px;
+    width: 110px;
     text-align: center;
     padding: 8px 5px;
 }
 #hfe-admin-addons .addon-item .action-button a.button {
-    width: 140px;
+    width: 110px;
     text-align: center;
 }
 #hfe-admin-addons .addon-item .action-button button {
@@ -521,7 +521,7 @@ select.hfe-subscribe-field {
     box-shadow: none;
     cursor: pointer;
     font-weight: 600;
-    width: 140px;
+    width: 110px;
     text-align: center;
     padding: 8px 5px;
 }
