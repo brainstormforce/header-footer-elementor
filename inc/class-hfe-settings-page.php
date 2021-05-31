@@ -676,10 +676,10 @@ class HFE_Settings_Page {
 			$plugin_data['action_class'] = $plugin_data['status_class'] . ' button button-primary';
 			$plugin_data['action_text']  = esc_html__( 'Install', 'header-footer-elementor' );
 			$plugin_data['plugin_src']   = esc_url( $details['url'] );
-		}
 
-		if ( $have_pro ) {
-			$plugin_data['action_text']  = esc_html__( 'Visit Website', 'header-footer-elementor' );
+			if ( $have_pro ) {
+				$plugin_data['action_text']  = esc_html__( 'Visit Website', 'header-footer-elementor' );
+			}
 		}
 
 		$plugin_data['details'] = $details;
