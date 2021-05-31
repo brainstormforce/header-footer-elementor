@@ -167,7 +167,7 @@ function hfe_install_addon() {
 
 	$generic_error = esc_html__( 'There was an error while performing your request.', 'header-footer-elementor' );
 
-	$type = 'addon';
+	$type = '';
 	if ( ! empty( $_POST['type'] ) ) {
 		$type = sanitize_key( $_POST['type'] );
 	}
@@ -177,7 +177,7 @@ function hfe_install_addon() {
 		wp_send_json_error( $generic_error );
 	}
 
-	$error = esc_html__( 'Could not install addon. Please download from wpforms.com and install manually.', 'header-footer-elementor' );
+	$error = esc_html__( 'Could not install addon. Please download from wordpress.org and install manually.', 'header-footer-elementor' );
 
 	if ( empty( $_POST['plugin'] ) ) {
 		wp_send_json_error( $error );
@@ -240,21 +240,36 @@ function hfe_install_addon() {
 		'basename'     => $plugin_basename,
 	);
 
-	// Check for permissions.
-	if ( ! current_user_can( 'activate_plugins' ) ) {
-		$result['msg'] = 'plugin' === $type ? esc_html__( 'Plugin installed.', 'header-footer-elementor' ) : esc_html__( 'Addon installed.', 'header-footer-elementor' );
+	if( 'plugin' === $type ) {
+		// Check for permissions.
+		if ( ! current_user_can( 'activate_plugins' ) ) {
+			$result['msg'] = esc_html__( 'Plugin installed.', 'header-footer-elementor' );
+			wp_send_json_success( $result );
+		}
+		// Activate the plugin silently.
+		$activated = activate_plugin( $plugin_basename );
 
-		wp_send_json_success( $result );
+		if ( ! is_wp_error( $activated ) ) {
+			$result['is_activated'] = true;
+			$result['msg']          = esc_html__( 'Plugin installed & activated.', 'header-footer-elementor' );
+			wp_send_json_success( $result );
+		}
 	}
 
-	// Activate the plugin silently.
-	$activated = activate_plugin( $plugin_basename );
+	if( 'theme' === $type ) {
+		// Check for permissions.
+		if ( ! current_user_can( 'activate_themes' ) ) {
+			$result['msg'] = esc_html__( 'Theme installed.', 'header-footer-elementor' );
+			wp_send_json_success( $result );
+		}
+		// Activate the theme silently.
+		$activated = switch_theme( $plugin_basename );
 
-	if ( ! is_wp_error( $activated ) ) {
-		$result['is_activated'] = true;
-		$result['msg']          = 'plugin' === $type ? esc_html__( 'Plugin installed & activated.', 'header-footer-elementor' ) : esc_html__( 'Addon installed & activated.', 'header-footer-elementor' );
-
-		wp_send_json_success( $result );
+		if ( ! is_wp_error( $activated ) ) {
+			$result['is_activated'] = true;
+			$result['msg']          = esc_html__( 'Theme installed & activated.', 'header-footer-elementor' );
+			wp_send_json_success( $result );
+		}
 	}
 
 	// Fallback error just in case.
