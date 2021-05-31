@@ -552,6 +552,7 @@ class HFE_Settings_Page {
 		}
 
 		$all_plugins         = get_plugins();
+		$all_themes         = wp_get_themes();
 		$bsf_plugins         = $this->get_bsf_plugins();
 		$can_install_plugins = $this->hfe_can_install( 'plugin' );
 		$can_install_themes = $this->hfe_can_install( 'theme' );
@@ -562,7 +563,7 @@ class HFE_Settings_Page {
 				<?php
 				foreach ( $bsf_plugins as $plugin => $details ) :
 
-					$plugin_data = $this->get_plugin_data( $plugin, $details, $all_plugins );
+					$plugin_data = $this->get_plugin_data( $plugin, $details, $all_plugins, $all_themes );
 
 					?>
 					<div class="addon-container">
@@ -599,7 +600,7 @@ class HFE_Settings_Page {
 								<div class="action-button">
 									<?php if( 'Visit Website' === $plugin_data['action_text'] ) { ?>
 										<a href="<?php echo esc_url( $plugin_data['plugin_src'] ); ?>" target="_blank" rel="noopener noreferrer" class="pro-plugin button button-primary"><?php echo wp_kses_post( $plugin_data['action_text'] ); ?></a>
-									<?php } else if ( $can_install_plugins ) { ?>
+									<?php } else if ( ( 'theme' === $details['type'] && $can_install_themes  ) || ( 'plugin' === $details['type'] && $can_install_plugins  ) ) { ?>
 										<button class="<?php echo esc_attr( $plugin_data['action_class'] ); ?>" data-plugin="<?php echo esc_attr( $plugin_data['plugin_src'] ); ?>" data-type="plugin">
 											<span><?php echo wp_kses_post( $plugin_data['action_text'] ); ?></span>
 										</button>
@@ -624,28 +625,36 @@ class HFE_Settings_Page {
 	 *
 	 * @since x.x.x
 	 *
-	 * @param string $plugin      Plugin slug.
+	 * @param string $addon      Plugin/Theme slug.
 	 * @param array  $details     Plugin details.
 	 * @param array  $all_plugins List of all plugins.
+	 * @param array  $all_themes List of all themes.
 	 *
 	 * @return array
 	 */
-	protected function get_plugin_data( $plugin, $details, $all_plugins ) {
+	protected function get_plugin_data( $addon, $details, $all_plugins, $all_themes ) {
 
 		$have_pro = ( ! empty( $details['pro'] ) );
 		$show_pro = false;
 
+		$theme = wp_get_theme();
+
 		$plugin_data = [];
 
-		if ( array_key_exists( $plugin, $all_plugins ) ) {
-			if ( is_plugin_active( $plugin ) ) {
+		$is_plugin = ( 'plugin' === $details['type'] ) ? true : false;
+		$is_theme = ( 'theme' === $details['type'] ) ? true : false;
+
+		if ( ( $is_plugin && array_key_exists( $addon, $all_plugins ) ) || ( $is_theme && array_key_exists( $addon, $all_themes ) ) ) {
+			
+			if ( ( $is_plugin && is_plugin_active( $addon ) ) || ( $is_theme && ( 'Astra' === $theme->name || 'Astra' === $theme->parent_theme ) ) ) {
+
 				// Status text/status.
 				$plugin_data['status_class'] = 'status-active';
 				$plugin_data['status_text']  = esc_html__( 'Active', 'header-footer-elementor' );
 				// Button text/status.
 				$plugin_data['action_class'] = $plugin_data['status_class'] . ' button button-secondary disabled';
 				$plugin_data['action_text']  = esc_html__( 'Activated', 'header-footer-elementor' );
-				$plugin_data['plugin_src']   = esc_attr( $plugin );
+				$plugin_data['plugin_src']   = esc_attr( $addon );
 			} else {
 				// Status text/status.
 				$plugin_data['status_class'] = 'status-inactive';
@@ -653,7 +662,7 @@ class HFE_Settings_Page {
 				// Button text/status.
 				$plugin_data['action_class'] = $plugin_data['status_class'] . ' button button-secondary';
 				$plugin_data['action_text']  = esc_html__( 'Activate', 'header-footer-elementor' );
-				$plugin_data['plugin_src']   = esc_attr( $plugin );
+				$plugin_data['plugin_src']   = esc_attr( $addon );
 			}
 		} else {
 			// Doesn't exist, install.
@@ -701,7 +710,7 @@ class HFE_Settings_Page {
 				'pro'   => false
 			],
 
-			'starter-templates'  => [
+			'astra-sites/astra-sites.php'  => [
 				'icon'  => $images_url . 'plugin-st.png',
 				'type' => 'plugin',
 				'name'  => esc_html__( 'Starter Templates', 'header-footer-elementor' ),
@@ -711,7 +720,7 @@ class HFE_Settings_Page {
 				'pro'   => false
 			],
 
-			'ultimate-elementor' => [
+			'ultimate-elementor/ultimate-elementor.php' => [
 				'icon'  => $images_url . 'plugin-uae.png',
 				'type' => 'plugin',
 				'name'  => esc_html__( 'Ultimate Addons for Elementor', 'header-footer-elementor' ),
