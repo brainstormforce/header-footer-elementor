@@ -704,7 +704,7 @@ class HFE_Settings_Page {
 				'icon'  => $images_url . 'plugin-astra.png',
 				'type' => 'theme',
 				'name'  => esc_html__( 'Astra Theme', 'header-footer-elementor' ),
-				'desc'  => esc_html__( 'Powering over 1 WordPress websites, Astra is loved for the fast performance and ease of use it offers. It is suitable for all kinds of websites like blogs, portfolios, business, and WooCommerce stores.', 'header-footer-elementor' ),
+				'desc'  => esc_html__( 'Powering over 1 M + WordPress websites, Astra is loved for the fast performance and ease of use it offers. It is suitable for all kinds of websites like blogs, portfolios, business, and WooCommerce stores.', 'header-footer-elementor' ),
 				'wporg' => 'https://wordpress.org/themes/astra/',
 				'url'   => 'https://downloads.wordpress.org/theme/astra.zip',
 				'pro'   => false
@@ -714,7 +714,7 @@ class HFE_Settings_Page {
 				'icon'  => $images_url . 'plugin-st.png',
 				'type' => 'plugin',
 				'name'  => esc_html__( 'Starter Templates', 'header-footer-elementor' ),
-				'desc'  => esc_html__( 'A popular templates plugin that provides an extensive library of professional and fully customizable 600+ ready website and templates. More than 1 websites have built with this plugin.', 'header-footer-elementor' ),
+				'desc'  => esc_html__( 'A popular templates plugin that provides an extensive library of professional and fully customizable 600+ ready website and templates. More than 1 M+ websites have built with this plugin.', 'header-footer-elementor' ),
 				'wporg' => 'https://wordpress.org/plugins/astra-sites/',
 				'url'   => 'https://downloads.wordpress.org/plugin/astra-sites.zip',
 				'pro'   => false
