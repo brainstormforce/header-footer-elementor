@@ -117,26 +117,41 @@ function hfe_activate_addon() {
 
 	if ( isset( $_POST['plugin'] ) ) {
 
-		$type = 'addon';
+		$type = '';
 		if ( ! empty( $_POST['type'] ) ) {
 			$type = sanitize_key( $_POST['type'] );
 		}
 
 		$plugin   = sanitize_text_field( wp_unslash( $_POST['plugin'] ) );
-		$activate = activate_plugins( $plugin );
 
-		do_action( 'hfe_plugin_activated', $plugin );
+		if ( 'plugin' === $type ) {
+			$activate = activate_plugins( $plugin );
+			
+			if ( ! is_wp_error( $activate ) ) {
 
-		if ( ! is_wp_error( $activate ) ) {
-			if ( 'plugin' === $type ) {
+				do_action( 'hfe_plugin_activated', $plugin );
+
 				wp_send_json_success( esc_html__( 'Plugin activated.', 'header-footer-elementor' ) );
-			} else {
-				wp_send_json_success( esc_html__( 'Addon activated.', 'header-footer-elementor' ) );
+			}
+		}
+
+		if ( 'theme' === $type ) {
+			$activate = switch_theme( $plugin );
+			
+			if ( ! is_wp_error( $activate ) ) {
+
+				do_action( 'hfe_theme_activated', $plugin );
+
+				wp_send_json_success( esc_html__( 'Theme activated.', 'header-footer-elementor' ) );
 			}
 		}
 	}
 
-	wp_send_json_error( esc_html__( 'Could not activate addon. Please activate from the Plugins page.', 'header-footer-elementor' ) );
+	if ( 'plugin' === $type ) {
+		wp_send_json_error( esc_html__( 'Could not activate plugin. Please activate from the Plugins page.', 'header-footer-elementor' ) );
+	} else if ( 'theme' === $type ) {
+		wp_send_json_error( esc_html__( 'Could not activate theme. Please activate from the Themes page.', 'header-footer-elementor' ) );
+	}
 }
 add_action( 'wp_ajax_hfe_activate_addon', 'hfe_activate_addon' );
 
