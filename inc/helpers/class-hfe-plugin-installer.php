@@ -1,9 +1,13 @@
 <?php
 
-namespace HFE\Inc\Helpers;
+namespace HFE\Helpers;
 
-/** WP_Upgrader_Skin class */
-require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader-skin.php';
+// defined( 'ABSPATH' ) or exit;
+
+if ( ! class_exists( 'WP_Upgrader_Skin' ) ) {
+	/** WP_Upgrader_Skin class */
+	require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader-skin.php';
+}
 
 /**
  * Class HFEPluginInstaller.
@@ -11,7 +15,7 @@ require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader-skin.php';
  *
  * @since x.x.x
  */
-class HFE_PluginInstaller extends \WP_Upgrader_Skin {
+class HFE_Plugin_Installer extends \WP_Upgrader_Skin {
 
 	/**
 	 * Empty out the header of its HTML content and only check to see if it has

@@ -210,13 +210,14 @@ function hfe_install_addon() {
 	/*
 	 * We do not need any extra credentials if we have gotten this far, so let's install the plugin.
 	 */
+	require_once HFE_DIR . 'inc/helpers/class-hfe-plugin-installer.php';
 	require_once HFE_DIR . 'admin/class-skin-install.php';
 
 	// Do not allow WordPress to search/download translations, as this will break JS output.
 	remove_action( 'upgrader_process_complete', array( 'Language_Pack_Upgrader', 'async_upgrade' ), 20 );
 
 	// Create the plugin upgrader with our custom skin.
-	$installer = new HFE\Inc\Helpers\HFE_PluginInstaller( new HFE_Skin_Install() );
+	$installer = new HFE\Helpers\HFE_Plugin_Installer( new HFE_Skin_Install() );
 
 	// Error check.
 	if ( ! method_exists( $installer, 'install' ) || empty( $_POST['plugin'] ) ) {
