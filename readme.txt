@@ -137,6 +137,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 5. Default widgets available with Elementor – Header, Footer & Blocks.
 
 == Changelog ==
+= Development version =
+- Fix: Navigation Menu - Fixed schema not working issue.
+
 = 1.5.9 = 
 - Improvement: Added notice to update Elementor to v3.0.0 or higher
 Elementor has deprecated few functions and namespaces with its v3.0.0. Following Elementor, our plugin too deprecates similar functions and namespaces. You will now require the Elementor v3.0.0 or higher. 

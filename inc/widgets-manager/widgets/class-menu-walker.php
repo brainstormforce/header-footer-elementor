@@ -45,7 +45,8 @@ class Menu_Walker extends \Walker_Nav_Menu {
 		}
 		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args, $depth ) );
 		$class_names = ' class="' . esc_attr( $class_names ) . $submenu . ' hfe-creative-menu"';
-
+		$value = apply_filters( 'nav_menu_li_values', $value );
+		
 		$output .= $indent . '<li id="menu-item-' . $item->ID . '"' . $value . $class_names . '>';
 
 		if ( isset( $item->target ) && '_blank' === $item->target && isset( $item->xfn ) && false === strpos( $item->xfn, 'noopener' ) ) {
