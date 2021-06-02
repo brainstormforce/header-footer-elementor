@@ -277,5 +277,41 @@ function hfe_install_addon() {
 }
 add_action( 'wp_ajax_hfe_install_addon', 'hfe_install_addon' );
 
+/**
+ * Determine if the plugin/addon installations are allowed.
+ *
+ * @since x.x.x
+ *
+ * @return bool
+ */
+function hfe_can_install( $type ) {
+
+	if ( ! in_array( $type, [ 'plugin', 'theme' ], true ) ) {
+		return false;
+	}
+
+	// Determine whether file modifications are allowed.
+	if ( ! wp_is_file_mod_allowed( 'hfe_can_install' ) ) {
+		return false;
+	}
+
+	if( 'theme' === $type ) {
+		if ( ! current_user_can( 'install_themes' ) ) {
+			return false;
+		}	
+
+		return true;
+
+	} elseif ( 'plugin' === $type ) {
+		if ( ! current_user_can( 'install_plugins' ) ) {
+			return false;
+		}
+
+		return true;
+	}
+
+	return false;
+}
+
 
 

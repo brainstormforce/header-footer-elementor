@@ -3,16 +3,20 @@
 	'use strict';
 
 	// Global settings access.
-	var s;
+	var settings = {
+		iconActivate: '<i class="fa fa-toggle-on fa-flip-horizontal" aria-hidden="true"></i>',
+		iconDeactivate: '<i class="fa fa-toggle-on" aria-hidden="true"></i>',
+		iconInstall: '<i class="fa fa-cloud-download" aria-hidden="true"></i>'
+	};
 
 	var HFEAdmin = {
 
 		// Settings.
-		settings: {
-			iconActivate: '<i class="fa fa-toggle-on fa-flip-horizontal" aria-hidden="true"></i>',
-			iconDeactivate: '<i class="fa fa-toggle-on" aria-hidden="true"></i>',
-			iconInstall: '<i class="fa fa-cloud-download" aria-hidden="true"></i>'
-		},
+		// settings: {
+		// 	iconActivate: '<i class="fa fa-toggle-on fa-flip-horizontal" aria-hidden="true"></i>',
+		// 	iconDeactivate: '<i class="fa fa-toggle-on" aria-hidden="true"></i>',
+		// 	iconInstall: '<i class="fa fa-cloud-download" aria-hidden="true"></i>'
+		// },
 
 		/**
 		 * Start the engine.
@@ -336,14 +340,15 @@
 				}
 				stateText = hfe_admin_data.addon_active;
 				buttonText = hfe_admin_data.addon_activated;
-				errorText  = s.iconInstall;
+				errorText  = settings.iconInstall;
 	
 			} else {
 				return;
 			}
 	
-			// eslint-disable-next-line complexity
 			HFEAdmin._setAddonState( plugin, state, addonType, function( res ) {
+
+				console.log ( plugin );
 	
 				if ( res.success ) {
 					if ( 'install' === state ) {
@@ -351,7 +356,7 @@
 						successText = res.data.msg;
 						if ( ! res.data.is_activated ) {
 							stateText  = hfe_admin_data.addon_inactive;
-							buttonText = ( addonType === 'theme' || addonType === 'plugin' ) ? hfe_admin_data.addon_activate : s.iconActivate + hfe_admin_data.addon_activate;
+							buttonText = ( addonType === 'theme' || addonType === 'plugin' ) ? hfe_admin_data.addon_activate : settings.iconActivate + hfe_admin_data.addon_activate;
 							cssClass   = ( addonType === 'theme' || addonType === 'plugin' ) ? 'status-inactive button button-secondary' : 'status-inactive';
 						}
 					} else {
