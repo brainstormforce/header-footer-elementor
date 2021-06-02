@@ -1,13 +1,13 @@
 <?php
 
-use HFE\Inc\Helpers\PluginSilentUpgraderSkin;
+use HFE\Inc\Helpers\HFE_PluginInstaller;
 
 /**
  * Skin for on-the-fly addon installations.
  *
  * @since x.x.x
  */
-class HFE_Skin_Install extends PluginSilentUpgraderSkin {
+class HFE_Skin_Install extends HFE_PluginInstaller {
 
 	/**
 	 * Instead of outputting HTML for errors, json_encode the errors and send them
