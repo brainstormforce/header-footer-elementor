@@ -348,7 +348,9 @@
 	
 			HFEAdmin._setAddonState( plugin, state, addonType, function( res ) {
 
-				console.log ( plugin );
+				// console.log( res );
+				// console.log( res.success );
+				console.log( "sushma" );
 	
 				if ( res.success ) {
 					if ( 'install' === state ) {
@@ -375,14 +377,14 @@
 				} else {
 					if ( 'object' === typeof res.data ) {
 						
-						$addon.find( '.actions' ).append( '<div class="msg error">' +hfes_admin.plugin_error + '</div>' );
+						$addon.find( '.actions' ).append( '<div class="msg error">' + hfe_admin_data.plugin_error + '</div>' );
 					} else {
 						$addon.find( '.actions' ).append( '<div class="msg error">' + res.data + '</div>' );
 					}
 					if ( 'install' === state && ( addonType === 'theme' || addonType === 'plugin' ) ) {
 						$button.addClass( 'status-go-to-url' ).removeClass( 'status-download' );
 					}
-					$button.html( errorText );
+					$button.html( hfe_admin_data.addon_download );
 				}
 	
 				$button.prop( 'disabled', false ).removeClass( 'loading' );
@@ -427,8 +429,11 @@
 			};
 	
 			$.post( hfe_admin_data.ajax_url, data, function( res ) {
+				console.log( "sushmaaa" );
 				callback( res );
 			} ).fail( function( xhr ) {
+				console.log( "kure" );
+
 				console.log( xhr.responseText );
 			} );
 		}

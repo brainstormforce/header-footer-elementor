@@ -177,7 +177,7 @@ function hfe_install_addon() {
 		wp_send_json_error( $generic_error );
 	}
 
-	$error = esc_html__( 'Could not install addon. Please download from wordpress.org and install manually.', 'header-footer-elementor' );
+	$error = esc_html__( 'Could not install. Please download from wordpress.org and install manually.', 'header-footer-elementor' );
 
 	if ( empty( $_POST['plugin'] ) ) {
 		wp_send_json_error( $error );
@@ -200,11 +200,13 @@ function hfe_install_addon() {
 
 	// Check for file system permissions.
 	if ( false === $creds ) {
-		wp_send_json_error( $error );
+		wp_send_json_error( "false credentials" );
+		// wp_send_json_error( $error );
 	}
 
 	if ( ! WP_Filesystem( $creds ) ) {
-		wp_send_json_error( $error );
+		wp_send_json_error( "file system error" );
+		// wp_send_json_error( $error );
 	}
 
 	/*
@@ -221,7 +223,8 @@ function hfe_install_addon() {
 
 	// Error check.
 	if ( ! method_exists( $installer, 'install' ) || empty( $_POST['plugin'] ) ) {
-		wp_send_json_error( $error );
+		wp_send_json_error( "installer error" );
+		// wp_send_json_error( $error );
 	}
 
 	$installer->install( $_POST['plugin'] ); // phpcs:ignore
@@ -232,7 +235,8 @@ function hfe_install_addon() {
 	$plugin_basename = $installer->plugin_info();
 
 	if ( empty( $plugin_basename ) ) {
-		wp_send_json_error( $error );
+		wp_send_json_error( "plugin basename error" );
+		// wp_send_json_error( $error );
 	}
 
 	$result = array(
@@ -291,10 +295,10 @@ function hfe_can_install( $type ) {
 		return false;
 	}
 
-	// Determine whether file modifications are allowed.
-	if ( ! wp_is_file_mod_allowed( 'hfe_can_install' ) ) {
-		return false;
-	}
+	// // Determine whether file modifications are allowed.
+	// if ( ! wp_is_file_mod_allowed( 'hfe_can_install' ) ) {
+	// 	return false;
+	// }
 
 	if( 'theme' === $type ) {
 		if ( ! current_user_can( 'install_themes' ) ) {

@@ -65,6 +65,7 @@ class HFE_Settings_Page {
 			'addon_deactivate'  => esc_html__( 'Deactivate', 'header-footer-elementor' ),
 			'addon_inactive'    => esc_html__( 'Inactive', 'header-footer-elementor' ),
 			'addon_install'     => esc_html__( 'Install', 'header-footer-elementor' ),
+			'addon_download'     => esc_html__( 'Download', 'header-footer-elementor' ),
 			'plugin_error'      => esc_html__( 'Could not install. Please download from WordPress.org and install manually.', 'header-footer-elementor' ),
 			'subscribe_success' => esc_html__( 'Your details are submitted successfully.', 'header-footer-elementor' ),
 			'subscribe_error'   => esc_html__( 'Error encountered while submitting the form!', 'header-footer-elementor' ),
