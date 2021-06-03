@@ -350,9 +350,12 @@
 	
 				if ( res.success ) {
 					if ( 'install' === state ) {
+						console.log( 'installed' );
 						$button.attr( 'data-plugin', res.data.basename );
 						successText = res.data.msg;
 						if ( ! res.data.is_activated ) {
+							console.log( 'is activated' );
+
 							stateText  = hfe_admin_data.addon_inactive;
 							buttonText = ( addonType === 'theme' || addonType === 'plugin' ) ? hfe_admin_data.addon_activate : settings.iconActivate + hfe_admin_data.addon_activate;
 							cssClass   = ( addonType === 'theme' || addonType === 'plugin' ) ? 'status-inactive button button-secondary' : 'status-inactive';

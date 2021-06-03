@@ -140,12 +140,14 @@ function hfe_install_addon() {
 		$type = sanitize_key( wp_unslash( $_POST['type'] ) );
 	}
 
-	$plugin_name = $_POST['plugin'];
-
 	// Check if new installations are allowed.
 	if ( ! hfe_can_install( $type ) ) {
 		wp_send_json_error( $generic_error );
 	}
+
+	$plugin_name = $_POST['plugin'];
+
+	$plugin   = sanitize_text_field( wp_unslash( $_POST['plugin'] ) );
 
 	$error = esc_html__( 'Could not install. Please download from wordpress.org and install manually.', 'header-footer-elementor' );
 
@@ -190,7 +192,7 @@ function hfe_install_addon() {
 			'install' => 'theme',
 			'slug'    => $slug,
 		);
-		
+
 		include_once ABSPATH . 'wp-admin/includes/theme.php';
 
 		$api = themes_api(
@@ -205,8 +207,13 @@ function hfe_install_addon() {
 			$status['errorMessage'] = $api->get_error_message();
 			wp_send_json_error( $status );
 		}
+
+		/** WP_Ajax_Upgrader_Skin class */
+		require_once ABSPATH . 'wp-admin/includes/class-wp-ajax-upgrader-skin.php';
+
+		$skin     = new WP_Ajax_Upgrader_Skin();
 		
-		$installer = new Theme_Upgrader( new HFE_Skin_Install() );
+		$installer = new Theme_Upgrader( $skin );
 
 		// Error check.
 		if ( ! method_exists( $installer, 'install' ) ) {
@@ -236,7 +243,7 @@ function hfe_install_addon() {
 			wp_send_json_success( $result );
 		}
 		// Activate the theme silently.
-		$activated = switch_theme( $plugin_basename );
+		$activated = switch_theme( $plugin );
 
 		if ( ! is_wp_error( $activated ) ) {
 			$result['is_activated'] = true;
