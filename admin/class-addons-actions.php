@@ -190,7 +190,7 @@ function hfe_install_addon() {
 			'install' => 'theme',
 			'slug'    => $slug,
 		);
-
+		
 		include_once ABSPATH . 'wp-admin/includes/theme.php';
 
 		$api = themes_api(
@@ -213,7 +213,7 @@ function hfe_install_addon() {
 			wp_send_json_error( $error );
 		}
 
-		$installer->install( $plugin_name );
+		$installer->install( $api->download_link );
 
 		// Flush the cache and return the newly installed plugin basename.
 		wp_cache_flush();
