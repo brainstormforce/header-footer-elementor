@@ -408,7 +408,6 @@
 			var actions = {
 					'activate': 'hfe_activate_addon',
 					'install': 'hfe_install_addon',
-					'deactivate': 'hfe_deactivate_addon',
 				},
 				action = actions[ state ];
 	

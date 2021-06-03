@@ -63,44 +63,6 @@ function get_api_domain() {
 }
 
 /**
- * Deactivate addon.
- *
- * @since x.x.x
- */
-function hfe_deactivate_addon() {
-
-	// Run a security check.
-	check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
-
-	// Check for permissions.
-	if ( ! current_user_can( 'deactivate_plugins' ) ) {
-		wp_send_json_error( esc_html__( 'Plugin deactivation is disabled for you on this site.', 'header-footer-elementor' ) );
-	}
-
-	$type = 'addon';
-	if ( ! empty( $_POST['type'] ) ) {
-		$type = sanitize_key( $_POST['type'] );
-	}
-
-	if ( isset( $_POST['plugin'] ) ) {
-		$plugin = sanitize_text_field( wp_unslash( $_POST['plugin'] ) );
-
-		deactivate_plugins( $plugin );
-
-		do_action( 'hfe_plugin_deactivated', $plugin );
-
-		if ( 'plugin' === $type ) {
-			wp_send_json_success( esc_html__( 'Plugin deactivated.', 'header-footer-elementor' ) );
-		} else {
-			wp_send_json_success( esc_html__( 'Addon deactivated.', 'header-footer-elementor' ) );
-		}
-	}
-
-	wp_send_json_error( esc_html__( 'Could not deactivate the addon. Please deactivate from the Plugins page.', 'header-footer-elementor' ) );
-}
-add_action( 'wp_ajax_hfe_deactivate_addon', 'hfe_deactivate_addon' );
-
-/**
  * Activate addon.
  *
  * @since x.x.x
@@ -109,11 +71,6 @@ function hfe_activate_addon() {
 
 	// Run a security check.
 	check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
-
-	// Check for permissions.
-	if ( ! current_user_can( 'activate_plugins' ) ) {
-		wp_send_json_error( esc_html__( 'Plugin activation is disabled for you on this site.', 'header-footer-elementor' ) );
-	}
 
 	if ( isset( $_POST['plugin'] ) ) {
 
@@ -125,6 +82,12 @@ function hfe_activate_addon() {
 		$plugin   = sanitize_text_field( wp_unslash( $_POST['plugin'] ) );
 
 		if ( 'plugin' === $type ) {
+
+			// Check for permissions.
+			if ( ! current_user_can( 'activate_plugins' ) ) {
+				wp_send_json_error( esc_html__( 'Plugin activation is disabled for you on this site.', 'header-footer-elementor' ) );
+			}
+			
 			$activate = activate_plugins( $plugin );
 			
 			if ( ! is_wp_error( $activate ) ) {
@@ -136,6 +99,11 @@ function hfe_activate_addon() {
 		}
 
 		if ( 'theme' === $type ) {
+
+			// Check for permissions.
+			if( ! ( current_user_can( 'manage_options' ) ) ) {
+				wp_send_json_error( esc_html__( 'Theme activation is disabled for you on this site.', 'header-footer-elementor' ) );
+			}
 			$activate = switch_theme( $plugin );
 			
 			if ( ! is_wp_error( $activate ) ) {
@@ -196,17 +164,16 @@ function hfe_install_addon() {
 		)
 	);
 
+	require_once ABSPATH . 'wp-admin/includes/file.php';
 	$creds = request_filesystem_credentials( $url, '', false, false, null );
 
 	// Check for file system permissions.
 	if ( false === $creds ) {
-		wp_send_json_error( "false credentials" );
-		// wp_send_json_error( $error );
+		wp_send_json_error( $error );
 	}
 
 	if ( ! WP_Filesystem( $creds ) ) {
-		wp_send_json_error( "file system error" );
-		// wp_send_json_error( $error );
+		wp_send_json_error( $error );
 	}
 
 	require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
@@ -224,13 +191,11 @@ function hfe_install_addon() {
 	remove_action( 'upgrader_process_complete', array( 'Language_Pack_Upgrader', 'async_upgrade' ), 20 );
 
 	// Create the plugin upgrader with our custom skin.
-	// $installer = new HFE\Helpers\HFE_Plugin_Installer();
 	$installer = new Plugin_Upgrader( new HFE_Skin_Install() );
 
 	// Error check.
 	if ( ! method_exists( $installer, 'install' ) || empty( $_POST['plugin'] ) ) {
-		wp_send_json_error( "installer error" );
-		// wp_send_json_error( $error );
+		wp_send_json_error( $error );
 	}
 
 	$installer->install( $_POST['plugin'] ); // phpcs:ignore
@@ -241,8 +206,7 @@ function hfe_install_addon() {
 	$plugin_basename = $installer->plugin_info();
 
 	if ( empty( $plugin_basename ) ) {
-		wp_send_json_error( "plugin basename error" );
-		// wp_send_json_error( $error );
+		wp_send_json_error( $error );
 	}
 
 	$result = array(
@@ -252,7 +216,7 @@ function hfe_install_addon() {
 	);
 
 	if( 'plugin' === $type ) {
-		// Check for permissions.
+		// Check for permissions
 		if ( ! current_user_can( 'activate_plugins' ) ) {
 			$result['msg'] = esc_html__( 'Plugin installed.', 'header-footer-elementor' );
 			wp_send_json_success( $result );
@@ -269,7 +233,7 @@ function hfe_install_addon() {
 
 	if( 'theme' === $type ) {
 		// Check for permissions.
-		if ( ! current_user_can( 'activate_themes' ) ) {
+		if ( ! current_user_can( 'manage_options' ) ) {
 			$result['msg'] = esc_html__( 'Theme installed.', 'header-footer-elementor' );
 			wp_send_json_success( $result );
 		}
