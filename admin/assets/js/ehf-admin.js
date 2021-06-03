@@ -347,10 +347,6 @@
 			}
 	
 			HFEAdmin._setAddonState( plugin, state, addonType, function( res ) {
-
-				// console.log( res );
-				// console.log( res.success );
-				console.log( "sushma" );
 	
 				if ( res.success ) {
 					if ( 'install' === state ) {
@@ -389,9 +385,8 @@
 	
 				$button.prop( 'disabled', false ).removeClass( 'loading' );
 	
-				// Automatically clear addon messages after 3 seconds.
-				setTimeout( function() {
-	
+				// Automatically clear the messages after 3 seconds.
+				setTimeout( function() {	
 					$( '.addon-item .msg' ).remove();
 				}, 3000 );
 	
@@ -429,11 +424,8 @@
 			};
 	
 			$.post( hfe_admin_data.ajax_url, data, function( res ) {
-				console.log( "sushmaaa" );
 				callback( res );
 			} ).fail( function( xhr ) {
-				console.log( "kure" );
-
 				console.log( xhr.responseText );
 			} );
 		}
