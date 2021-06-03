@@ -266,9 +266,9 @@ function hfe_can_install( $type ) {
 	}
 
 	// // Determine whether file modifications are allowed.
-	// if ( ! wp_is_file_mod_allowed( 'hfe_can_install' ) ) {
-	// 	return false;
-	// }
+	if ( ! wp_is_file_mod_allowed( 'hfe_can_install' ) ) {
+		return false;
+	}
 
 	if( 'theme' === $type ) {
 		if ( ! current_user_can( 'install_themes' ) ) {
