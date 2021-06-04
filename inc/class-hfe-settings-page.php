@@ -65,7 +65,8 @@ class HFE_Settings_Page {
 			'addon_deactivate'  => esc_html__( 'Deactivate', 'header-footer-elementor' ),
 			'addon_inactive'    => esc_html__( 'Inactive', 'header-footer-elementor' ),
 			'addon_install'     => esc_html__( 'Install', 'header-footer-elementor' ),
-			'addon_download'     => esc_html__( 'Download', 'header-footer-elementor' ),
+			'addon_download'    => esc_html__( 'Download', 'header-footer-elementor' ),
+			'visit_site'     	=> esc_html__( 'Visit Website', 'header-footer-elementor' ),
 			'plugin_error'      => esc_html__( 'Could not install. Please download from WordPress.org and install manually.', 'header-footer-elementor' ),
 			'subscribe_success' => esc_html__( 'Your details are submitted successfully.', 'header-footer-elementor' ),
 			'subscribe_error'   => esc_html__( 'Error encountered while submitting the form!', 'header-footer-elementor' ),
@@ -602,11 +603,11 @@ class HFE_Settings_Page {
 									<?php if( 'Visit Website' === $plugin_data['action_text'] ) { ?>
 										<a href="<?php echo esc_url( $plugin_data['plugin_src'] ); ?>" target="_blank" rel="noopener noreferrer" class="pro-plugin button button-primary"><?php echo wp_kses_post( $plugin_data['action_text'] ); ?></a>
 									<?php } else if ( 'theme' === $details['type'] && $can_install_themes ) { ?>
-										<button class="<?php echo esc_attr( $plugin_data['action_class'] ); ?>" data-plugin="<?php echo esc_attr( $plugin_data['plugin_src'] ); ?>" data-type="theme">
+										<button class="<?php echo esc_attr( $plugin_data['action_class'] ); ?>" data-plugin="<?php echo esc_attr( $plugin_data['plugin_src'] ); ?>" data-type="theme" data-slug="<?php echo esc_attr( $details['slug'] ); ?>" data-site="<?php echo esc_url( $details['url'] ); ?>">
 											<span><?php echo wp_kses_post( $plugin_data['action_text'] ); ?></span>
 										</button>
 									<?php } else if ( 'plugin' === $details['type'] && $can_install_plugins ) {  ?>
-										<button class="<?php echo esc_attr( $plugin_data['action_class'] ); ?>" data-plugin="<?php echo esc_attr( $plugin_data['plugin_src'] ); ?>" data-type="plugin">
+										<button class="<?php echo esc_attr( $plugin_data['action_class'] ); ?>" data-plugin="<?php echo esc_attr( $plugin_data['plugin_src'] ); ?>" data-type="plugin" data-slug="<?php echo esc_attr( $details['slug'] ); ?>" data-site="<?php echo esc_url( $details['url'] ); ?>">
 											<span><?php echo wp_kses_post( $plugin_data['action_text'] ); ?></span>
 										</button>
 									<?php } else { ?>
@@ -683,6 +684,7 @@ class HFE_Settings_Page {
 			$plugin_data['plugin_src']   = esc_url( $details['url'] );
 
 			if ( $have_pro ) {
+				$plugin_data['status_class'] = '';
 				$plugin_data['action_text']  = esc_html__( 'Visit Website', 'header-footer-elementor' );
 			}
 		}
@@ -712,7 +714,8 @@ class HFE_Settings_Page {
 				'desc'  => esc_html__( 'Powering over 1M+ WordPress websites, Astra is loved for the fast performance and ease of use it offers. It is suitable for all kinds of websites like blogs, portfolios, business, and WooCommerce stores.', 'header-footer-elementor' ),
 				'wporg' => 'https://wordpress.org/themes/astra/',
 				'url'   => 'https://downloads.wordpress.org/theme/astra.zip',
-				'pro'   => false
+				'pro'   => false,
+				'slug'  => 'astra'
 			],
 
 			'astra-sites/astra-sites.php'  => [
@@ -722,7 +725,8 @@ class HFE_Settings_Page {
 				'desc'  => esc_html__( 'A popular templates plugin that provides an extensive library of professional and fully customizable 600+ ready website and templates. More than 1M+ websites have built with this plugin.', 'header-footer-elementor' ),
 				'wporg' => 'https://wordpress.org/plugins/astra-sites/',
 				'url'   => 'https://downloads.wordpress.org/plugin/astra-sites.zip',
-				'pro'   => false
+				'pro'   => false,
+				'slug'  => 'astra-sites'
 			],
 
 			'ultimate-elementor/ultimate-elementor.php' => [
@@ -732,7 +736,8 @@ class HFE_Settings_Page {
 				'desc'  => esc_html__( 'It’s a collection of 40+ unique, creative, and optimized Elementor widgets with 100+ readymade templates. Trusted by more than 600K+ web professionals it’s a #1 toolkit for Elementor.', 'header-footer-elementor' ),
 				'wporg' => '',
 				'url'   => 'https://ultimateelementor.com/',
-				'pro'   => true
+				'pro'   => true,
+				'slug'  => 'ultimate-elementor'
 			],
 		];
 	}

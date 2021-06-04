@@ -11,13 +11,6 @@
 
 	var HFEAdmin = {
 
-		// Settings.
-		// settings: {
-		// 	iconActivate: '<i class="fa fa-toggle-on fa-flip-horizontal" aria-hidden="true"></i>',
-		// 	iconDeactivate: '<i class="fa fa-toggle-on" aria-hidden="true"></i>',
-		// 	iconInstall: '<i class="fa fa-cloud-download" aria-hidden="true"></i>'
-		// },
-
 		/**
 		 * Start the engine.
 		 *
@@ -286,6 +279,7 @@
 			var $addon = $button.closest( '.addon-item' ),
 				plugin = $button.attr( 'data-plugin' ),
 				addonType = $button.attr( 'data-type' ),
+				addonSlug = $button.attr( 'data-slug' ),
 				state,
 				cssClass,
 				stateText,
@@ -296,7 +290,7 @@
 			if ( $button.hasClass( 'status-go-to-url' ) ) {
 	
 				// Open url in new tab.
-				window.open( $button.attr( 'data-plugin' ), '_blank' );
+				window.open( $button.attr( 'data-site' ), '_blank' );
 				return;
 			}
 	
@@ -308,9 +302,7 @@
 				// Deactivate.
 				state = 'deactivate';
 				cssClass = 'status-inactive';
-				if ( addonType === 'plugin' ) {
-					cssClass += ' button button-secondary';
-				}
+				cssClass += ' button button-secondary';
 				stateText = hfe_admin_data.addon_inactive;
 				buttonText = hfe_admin_data.addon_activate;
 				errorText  = hfe_admin_data.addon_deactivate;
@@ -320,24 +312,18 @@
 				// Activate.
 				state = 'activate';
 				cssClass = 'status-active';
-				if ( addonType === 'plugin' ) {
-					cssClass += ' button button-secondary disabled';
-				}
+				cssClass += ' button button-secondary disabled';
 				stateText = hfe_admin_data.addon_active;
 				buttonText = hfe_admin_data.addon_deactivate;
-				if ( addonType === 'theme' || addonType === 'plugin' ) {
-					buttonText = hfe_admin_data.addon_activated;
-					errorText  = hfe_admin_data.addon_activate;
-				}
+				buttonText = hfe_admin_data.addon_activated;
+				errorText  = hfe_admin_data.addon_activate;
 	
 			} else if ( $button.hasClass( 'status-download' ) ) {
 	
 				// Install & Activate.
 				state = 'install';
 				cssClass = 'status-active';
-				if ( addonType === 'plugin' ) {
-					cssClass += ' button disabled';
-				}
+				cssClass += ' button disabled';
 				stateText = hfe_admin_data.addon_active;
 				buttonText = hfe_admin_data.addon_activated;
 				errorText  = settings.iconInstall;
@@ -346,7 +332,7 @@
 				return;
 			}
 	
-			HFEAdmin._setAddonState( plugin, state, addonType, function( res ) {
+			HFEAdmin._setAddonState( plugin, state, addonType, addonSlug, function( res ) {
 	
 				if ( res.success ) {
 					if ( 'install' === state ) {
@@ -354,14 +340,17 @@
 						$button.attr( 'data-plugin', res.data.basename );
 						successText = res.data.msg;
 						if ( ! res.data.is_activated ) {
-							console.log( 'is activated' );
 
 							stateText  = hfe_admin_data.addon_inactive;
 							buttonText = ( addonType === 'theme' || addonType === 'plugin' ) ? hfe_admin_data.addon_activate : settings.iconActivate + hfe_admin_data.addon_activate;
 							cssClass   = ( addonType === 'theme' || addonType === 'plugin' ) ? 'status-inactive button button-secondary' : 'status-inactive';
 						}
+						console.log( 'heyy' );
+
 					} else {
+						console.log( 'sushma' );
 						successText = res.data;
+						console.log( res.data );
 					}
 					$addon.find( '.actions' ).append( '<div class="msg success">' + successText + '</div>' );
 					$addon.find( 'span.status-label' )
@@ -383,7 +372,13 @@
 					if ( 'install' === state && ( addonType === 'theme' || addonType === 'plugin' ) ) {
 						$button.addClass( 'status-go-to-url' ).removeClass( 'status-download' );
 					}
-					$button.html( hfe_admin_data.addon_download );
+
+					if( 'ultimate-elementor' === addonSlug ) {
+						$button.addClass( 'status-go-to-url' );
+						$button.html( hfe_admin_data.visit_site );
+					} else {
+						$button.html( hfe_admin_data.addon_download );
+					}
 				}
 	
 				$button.prop( 'disabled', false ).removeClass( 'loading' );
@@ -401,12 +396,13 @@
 		 *
 		 * @since x.x.x
 		 *
-		 * @param {string}   plugin     Plugin slug or URL for download.
+		 * @param {string}   plugin     Plugin/Theme URL for download.
 		 * @param {string}   state      State status activate|deactivate|install.
-		 * @param {string}   addonType Plugin type addon or plugin.
+		 * @param {string}   addonType Plugin/Theme type addon or plugin.
+		 * @param {string}   addonSlug Plugin/Theme slug addon or plugin.
 		 * @param {Function} callback   Callback for get result from AJAX.
 		 */
-		 _setAddonState: function( plugin, state, addonType, callback ) {
+		 _setAddonState: function( plugin, state, addonType, addonSlug, callback ) {
 
 			var actions = {
 					'activate': 'hfe_activate_addon',
@@ -423,6 +419,7 @@
 				nonce: hfe_admin_data.nonce,
 				plugin: plugin,
 				type: addonType,
+				slug: addonSlug
 			};
 	
 			$.post( hfe_admin_data.ajax_url, data, function( res ) {

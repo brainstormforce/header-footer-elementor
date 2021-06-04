@@ -76,10 +76,10 @@ function hfe_activate_addon() {
 
 		$type = '';
 		if ( ! empty( $_POST['type'] ) ) {
-			$type = sanitize_key( $_POST['type'] );
+			$type = sanitize_key( wp_unslash( $_POST['type'] ) );
 		}
 
-		$plugin   = sanitize_text_field( wp_unslash( $_POST['plugin'] ) );
+		$plugin   = sanitize_key( $_POST['plugin'] );
 
 		if ( 'plugin' === $type ) {
 
@@ -100,11 +100,14 @@ function hfe_activate_addon() {
 
 		if ( 'theme' === $type ) {
 
+			$slug   = sanitize_key( wp_unslash( $_POST['slug'] ) );
+
 			// Check for permissions.
 			if( ! ( current_user_can( 'switch_themes' ) ) ) {
 				wp_send_json_error( esc_html__( 'Theme activation is disabled for you on this site.', 'header-footer-elementor' ) );
 			}
-			$activate = switch_theme( $plugin );
+
+			$activate = switch_theme( $slug );
 			
 			if ( ! is_wp_error( $activate ) ) {
 
@@ -145,15 +148,13 @@ function hfe_install_addon() {
 		wp_send_json_error( $generic_error );
 	}
 
-	$plugin_name = $_POST['plugin'];
-
-	$plugin   = sanitize_text_field( wp_unslash( $_POST['plugin'] ) );
-
 	$error = esc_html__( 'Could not install. Please download from wordpress.org and install manually.', 'header-footer-elementor' );
 
 	if ( empty( $_POST['plugin'] ) ) {
 		wp_send_json_error( $error );
 	}
+
+	$plugin   = sanitize_key( $_POST['plugin'] );
 
 	// Set the current screen to avoid undefined notices.
 	set_current_screen( 'appearance_page_hfe-about' );
@@ -186,7 +187,7 @@ function hfe_install_addon() {
 
 	if( 'theme' === $type ) {
 
-		$slug = 'astra';
+		$slug = sanitize_key( wp_unslash( $_POST['slug'] ) );
 
 		$status = array(
 			'install' => 'theme',
@@ -243,7 +244,7 @@ function hfe_install_addon() {
 			wp_send_json_success( $result );
 		}
 		// Activate the theme silently.
-		$activated = switch_theme( $plugin );
+		$activated = switch_theme( $slug );
 
 		if ( ! is_wp_error( $activated ) ) {
 			$result['is_activated'] = true;
