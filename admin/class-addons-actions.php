@@ -79,7 +79,7 @@ function hfe_activate_addon() {
 			$type = sanitize_key( wp_unslash( $_POST['type'] ) );
 		}
 
-		$plugin   = sanitize_key( $_POST['plugin'] );
+		$plugin   = sanitize_text_field( $_POST['plugin'] );
 
 		if ( 'plugin' === $type ) {
 
@@ -154,7 +154,7 @@ function hfe_install_addon() {
 		wp_send_json_error( $error );
 	}
 
-	$plugin   = sanitize_key( $_POST['plugin'] );
+	$plugin   = sanitize_text_field( $_POST['plugin'] );
 
 	// Set the current screen to avoid undefined notices.
 	set_current_screen( 'appearance_page_hfe-about' );
@@ -271,7 +271,7 @@ function hfe_install_addon() {
 			wp_send_json_error( $error );
 		}
 
-		$installer->install( $plugin_name ); // phpcs:ignore
+		$installer->install( $plugin ); // phpcs:ignore
 
 		// Flush the cache and return the newly installed plugin basename.
 		wp_cache_flush();

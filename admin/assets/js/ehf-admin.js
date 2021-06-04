@@ -336,7 +336,6 @@
 	
 				if ( res.success ) {
 					if ( 'install' === state ) {
-						console.log( 'installed' );
 						$button.attr( 'data-plugin', res.data.basename );
 						successText = res.data.msg;
 						if ( ! res.data.is_activated ) {
@@ -345,12 +344,9 @@
 							buttonText = ( addonType === 'theme' || addonType === 'plugin' ) ? hfe_admin_data.addon_activate : settings.iconActivate + hfe_admin_data.addon_activate;
 							cssClass   = ( addonType === 'theme' || addonType === 'plugin' ) ? 'status-inactive button button-secondary' : 'status-inactive';
 						}
-						console.log( 'heyy' );
 
 					} else {
-						console.log( 'sushma' );
 						successText = res.data;
-						console.log( res.data );
 					}
 					$addon.find( '.actions' ).append( '<div class="msg success">' + successText + '</div>' );
 					$addon.find( 'span.status-label' )
