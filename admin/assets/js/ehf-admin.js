@@ -80,7 +80,7 @@
 
 			var field = $( target );
 			var fieldValue = field.val() || '';
-			var parentWrapper = $( target ).parents( '.hfe-input-container' );
+			var parentWrapper = field.parents( '.hfe-input-container' );
 			var fieldStatus = fieldValue.length ? true : false;
 
 			if ( ( field.hasClass( 'hfe-subscribe-email' ) && false === HFEAdmin.isValidEmail( fieldValue ) )) {
