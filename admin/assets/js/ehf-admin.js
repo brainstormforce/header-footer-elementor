@@ -22,8 +22,10 @@
 				var selected = $('#ehf_template_type').val() || 'none';
 				$( '.hfe-options-table' ).removeClass().addClass( 'hfe-options-table widefat hfe-selected-template-type-' + selected );
 			}
+
+			var $document = $( document );
 		
-			$( document ).on( 'change', '#ehf_template_type', function( e ) {
+			$document.on( 'change', '#ehf_template_type', function( e ) {
 				ehf_hide_shortcode_field();
 			});
 		
@@ -36,18 +38,18 @@
 				$( '.hfe-subscribe-message' ).remove();
 			});
 
-			$(document).on( 'focusout change', '.hfe-subscribe-field', HFEAdmin.validate_single_field );
-			$(document).on( 'click input', '.hfe-subscribe-field', HFEAdmin._animate_fields );
+			$document.on( 'focusout change', '.hfe-subscribe-field', HFEAdmin.validate_single_field );
+			$document.on( 'click input', '.hfe-subscribe-field', HFEAdmin._animate_fields );
 
-			$( document ).on( 'click', '.hfe-guide-content .submit-1', HFEAdmin._step_one_subscribe );
-			$( document ).on( 'click', '.hfe-guide-content .submit-2', HFEAdmin._step_two_subscribe );
+			$document.on( 'click', '.hfe-guide-content .submit-1', HFEAdmin._step_one_subscribe );
+			$document.on( 'click', '.hfe-guide-content .submit-2', HFEAdmin._step_two_subscribe );
 
-			$( document ).on('click', '.hfe-guide-content .button-subscription-skip', HFEAdmin._close_modal );
+			$document.on('click', '.hfe-guide-content .button-subscription-skip', HFEAdmin._close_modal );
 
 			// About us - addons functionality.
 			if ( $( '#hfe-admin-addons' ).length ) {
 	
-				$( document ).on( 'click', '#hfe-admin-addons .addon-item button', function( event ) {
+				$document.on( 'click', '#hfe-admin-addons .addon-item button', function( event ) {
 					event.preventDefault();
 		
 					if ( $( this ).hasClass( 'disabled' ) ) {
