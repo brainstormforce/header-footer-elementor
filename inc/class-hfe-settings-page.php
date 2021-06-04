@@ -531,9 +531,9 @@ class HFE_Settings_Page {
 
 			<div class="hfe-admin-column-40 hfe-admin-column-last">
 				<figure>
-					<img src="<?php echo HFE_URL; ?>assets/images/settings/our-team.jpg" alt="<?php esc_attr_e( 'Team photo', 'header-footer-elementor' ); ?>">
+					<img src="<?php echo HFE_URL; ?>assets/images/settings/our-team.jpeg" alt="<?php esc_attr_e( 'Team photo', 'header-footer-elementor' ); ?>">
 					<figcaption>
-						<?php esc_html_e( 'Brainstorm Force Team Celebrating 5,000,000 Plugin Installations', 'header-footer-elementor' ); ?><br>
+						<?php esc_html_e( 'Brainstorm Force Team', 'header-footer-elementor' ); ?><br>
 					</figcaption>
 				</figure>
 			</div>
