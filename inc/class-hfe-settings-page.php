@@ -573,18 +573,17 @@ class HFE_Settings_Page {
 							<div class="details hfe-clear">
 								<img src="<?php echo esc_url( $plugin_data['details']['icon'] ); ?>">
 								<div class="addon-details">
-									<h5 class="addon-name"><?php echo esc_html( $plugin_data['details']['name'] ); ?></h5>
-									<p class="addon-desc"><?php echo wp_kses_post( $plugin_data['details']['desc'] ); ?></p>
-									<div class="website-link">
-										<?php
+									<h5 class="addon-name"><?php
 										printf(
 										/* translators: %s - addon status label. */
-											esc_html__( '%1$s Visit Website %2$s', 'header-footer-elementor' ),
-											'<a href="' . esc_attr( $plugin_data['plugin_src'] ) . '" target="_blank">',
-											'</a>'
+											esc_html__( '%1$s %3$s %2$s', 'header-footer-elementor' ),
+											'<a href="' . esc_attr( $plugin_data['plugin_src'] ) . '" target="_blank" class="website-link">',
+											'</a>',
+											esc_html( $plugin_data['details']['name'] )
 										);
-										?>
-									</div>
+										?></h5>
+
+									<p class="addon-desc"><?php echo wp_kses_post( $plugin_data['details']['desc'] ); ?></p>
 								</div>
 							</div>
 							<div class="actions hfe-clear">

@@ -389,7 +389,8 @@ select.hfe-subscribe-field {
   margin: 0 0 0 100px;
 }
 #hfe-admin-addons .website-link {
-    margin: 15px 0 0 100px;
+    color: inherit;
+    text-decoration: none;
 }
 #hfe-admin-addons .addon-item .details {
   padding: 30px 20px;
