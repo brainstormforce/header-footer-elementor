@@ -734,7 +734,7 @@ class HFE_Settings_Page {
 				'icon'  => $images_url . 'plugin-uae.png',
 				'type'  => 'plugin',
 				'name'  => esc_html__( 'Ultimate Addons for Elementor', 'header-footer-elementor' ),
-				'desc'  => esc_html__( 'It’s a collection of 40+ unique, creative, and optimized Elementor widgets with 100+ readymade templates. Trusted by more than 600K+ web professionals it’s a #1 toolkit for Elementor.', 'header-footer-elementor' ),
+				'desc'  => esc_html__( 'It’s a collection of 40+ unique, creative, and optimized Elementor widgets with 100+ readymade templates. Trusted by more than 600K+ web professionals. It’s a #1 toolkit for Elementor Page Builder.', 'header-footer-elementor' ),
 				'wporg' => '',
 				'url'   => 'https://ultimateelementor.com/',
 				'pro'   => true,
