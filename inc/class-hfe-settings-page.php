@@ -578,7 +578,7 @@ class HFE_Settings_Page {
 										printf(
 										/* translators: %s - addon status label. */
 											esc_html__( '%1$s %3$s %2$s', 'header-footer-elementor' ),
-											'<a href="' . esc_attr( $plugin_data['plugin_src'] ) . '" target="_blank" class="website-link">',
+											'<a href="' . esc_attr( $details['siteurl'] ) . '" target="_blank" class="website-link">',
 											'</a>',
 											esc_html( $plugin_data['details']['name'] )
 										);
@@ -715,6 +715,7 @@ class HFE_Settings_Page {
 				'desc'  => esc_html__( 'Powering over 1M+ WordPress websites, Astra is loved for the fast performance and ease of use it offers. It is suitable for all kinds of websites like blogs, portfolios, business, and WooCommerce stores.', 'header-footer-elementor' ),
 				'wporg' => 'https://wordpress.org/themes/astra/',
 				'url'   => 'https://downloads.wordpress.org/theme/astra.zip',
+				'siteurl'   => 'https://wpastra.com/',
 				'pro'   => false,
 				'slug'  => 'astra',
 			],
@@ -726,6 +727,7 @@ class HFE_Settings_Page {
 				'desc'  => esc_html__( 'A popular templates plugin that provides an extensive library of professional and fully customizable 600+ ready website and templates. More than 1M+ websites have built with this plugin.', 'header-footer-elementor' ),
 				'wporg' => 'https://wordpress.org/plugins/astra-sites/',
 				'url'   => 'https://downloads.wordpress.org/plugin/astra-sites.zip',
+				'siteurl'   => 'https://startertemplates.com/',
 				'pro'   => false,
 				'slug'  => 'astra-sites',
 			],
@@ -737,6 +739,7 @@ class HFE_Settings_Page {
 				'desc'  => esc_html__( 'It’s a collection of 40+ unique, creative, and optimized Elementor widgets with 100+ readymade templates. Trusted by more than 600K+ web professionals. It’s a #1 toolkit for Elementor Page Builder.', 'header-footer-elementor' ),
 				'wporg' => '',
 				'url'   => 'https://ultimateelementor.com/',
+				'siteurl'   => 'https://ultimateelementor.com/',
 				'pro'   => true,
 				'slug'  => 'ultimate-elementor',
 			],
