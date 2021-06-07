@@ -66,7 +66,7 @@ class HFE_Settings_Page {
 			'addon_inactive'    => esc_html__( 'Inactive', 'header-footer-elementor' ),
 			'addon_install'     => esc_html__( 'Install', 'header-footer-elementor' ),
 			'addon_download'    => esc_html__( 'Download', 'header-footer-elementor' ),
-			'visit_site'     	=> esc_html__( 'Visit Website', 'header-footer-elementor' ),
+			'visit_site'        => esc_html__( 'Visit Website', 'header-footer-elementor' ),
 			'plugin_error'      => esc_html__( 'Could not install. Please download from WordPress.org and install manually.', 'header-footer-elementor' ),
 			'subscribe_success' => esc_html__( 'Your details are submitted successfully.', 'header-footer-elementor' ),
 			'subscribe_error'   => esc_html__( 'Error encountered while submitting the form!', 'header-footer-elementor' ),
@@ -554,10 +554,10 @@ class HFE_Settings_Page {
 		}
 
 		$all_plugins         = get_plugins();
-		$all_themes         = wp_get_themes();
+		$all_themes          = wp_get_themes();
 		$bsf_plugins         = $this->get_bsf_plugins();
 		$can_install_plugins = $this->hfe_can_install( 'plugin' );
-		$can_install_themes = $this->hfe_can_install( 'theme' );
+		$can_install_themes  = $this->hfe_can_install( 'theme' );
 
 		?>
 		<div class="hfe-admin-addons">
@@ -573,7 +573,8 @@ class HFE_Settings_Page {
 							<div class="details hfe-clear">
 								<img src="<?php echo esc_url( $plugin_data['details']['icon'] ); ?>">
 								<div class="addon-details">
-									<h5 class="addon-name"><?php
+									<h5 class="addon-name">
+									<?php
 										printf(
 										/* translators: %s - addon status label. */
 											esc_html__( '%1$s %3$s %2$s', 'header-footer-elementor' ),
@@ -581,7 +582,8 @@ class HFE_Settings_Page {
 											'</a>',
 											esc_html( $plugin_data['details']['name'] )
 										);
-										?></h5>
+									?>
+										</h5>
 
 									<p class="addon-desc"><?php echo wp_kses_post( $plugin_data['details']['desc'] ); ?></p>
 								</div>
@@ -599,13 +601,13 @@ class HFE_Settings_Page {
 									</strong>
 								</div>
 								<div class="action-button">
-									<?php if( 'Visit Website' === $plugin_data['action_text'] ) { ?>
+									<?php if ( 'Visit Website' === $plugin_data['action_text'] ) { ?>
 										<a href="<?php echo esc_url( $plugin_data['plugin_src'] ); ?>" target="_blank" rel="noopener noreferrer" class="pro-plugin button button-primary"><?php echo wp_kses_post( $plugin_data['action_text'] ); ?></a>
-									<?php } else if ( 'theme' === $details['type'] && $can_install_themes ) { ?>
+									<?php } elseif ( 'theme' === $details['type'] && $can_install_themes ) { ?>
 										<button class="<?php echo esc_attr( $plugin_data['action_class'] ); ?>" data-plugin="<?php echo esc_attr( $plugin_data['plugin_src'] ); ?>" data-type="theme" data-slug="<?php echo esc_attr( $details['slug'] ); ?>" data-site="<?php echo esc_url( $details['url'] ); ?>">
 											<span><?php echo wp_kses_post( $plugin_data['action_text'] ); ?></span>
 										</button>
-									<?php } else if ( 'plugin' === $details['type'] && $can_install_plugins ) {  ?>
+									<?php } elseif ( 'plugin' === $details['type'] && $can_install_plugins ) { ?>
 										<button class="<?php echo esc_attr( $plugin_data['action_class'] ); ?>" data-plugin="<?php echo esc_attr( $plugin_data['plugin_src'] ); ?>" data-type="plugin" data-slug="<?php echo esc_attr( $details['slug'] ); ?>" data-site="<?php echo esc_url( $details['url'] ); ?>">
 											<span><?php echo wp_kses_post( $plugin_data['action_text'] ); ?></span>
 										</button>
@@ -647,10 +649,10 @@ class HFE_Settings_Page {
 		$plugin_data = [];
 
 		$is_plugin = ( 'plugin' === $details['type'] ) ? true : false;
-		$is_theme = ( 'theme' === $details['type'] ) ? true : false;
+		$is_theme  = ( 'theme' === $details['type'] ) ? true : false;
 
 		if ( ( $is_plugin && array_key_exists( $addon, $all_plugins ) ) || ( $is_theme && array_key_exists( $addon, $all_themes ) ) ) {
-			
+
 			if ( ( $is_plugin && is_plugin_active( $addon ) ) || ( $is_theme && ( 'Astra' === $theme->name || 'Astra' === $theme->parent_theme ) ) ) {
 
 				// Status text/status.
@@ -706,37 +708,37 @@ class HFE_Settings_Page {
 
 		return [
 
-			'astra'              => [
+			'astra'                                     => [
 				'icon'  => $images_url . 'plugin-astra.png',
-				'type' => 'theme',
+				'type'  => 'theme',
 				'name'  => esc_html__( 'Astra Theme', 'header-footer-elementor' ),
 				'desc'  => esc_html__( 'Powering over 1M+ WordPress websites, Astra is loved for the fast performance and ease of use it offers. It is suitable for all kinds of websites like blogs, portfolios, business, and WooCommerce stores.', 'header-footer-elementor' ),
 				'wporg' => 'https://wordpress.org/themes/astra/',
 				'url'   => 'https://downloads.wordpress.org/theme/astra.zip',
 				'pro'   => false,
-				'slug'  => 'astra'
+				'slug'  => 'astra',
 			],
 
-			'astra-sites/astra-sites.php'  => [
+			'astra-sites/astra-sites.php'               => [
 				'icon'  => $images_url . 'plugin-st.png',
-				'type' => 'plugin',
+				'type'  => 'plugin',
 				'name'  => esc_html__( 'Starter Templates', 'header-footer-elementor' ),
 				'desc'  => esc_html__( 'A popular templates plugin that provides an extensive library of professional and fully customizable 600+ ready website and templates. More than 1M+ websites have built with this plugin.', 'header-footer-elementor' ),
 				'wporg' => 'https://wordpress.org/plugins/astra-sites/',
 				'url'   => 'https://downloads.wordpress.org/plugin/astra-sites.zip',
 				'pro'   => false,
-				'slug'  => 'astra-sites'
+				'slug'  => 'astra-sites',
 			],
 
 			'ultimate-elementor/ultimate-elementor.php' => [
 				'icon'  => $images_url . 'plugin-uae.png',
-				'type' => 'plugin',
+				'type'  => 'plugin',
 				'name'  => esc_html__( 'Ultimate Addons for Elementor', 'header-footer-elementor' ),
 				'desc'  => esc_html__( 'It’s a collection of 40+ unique, creative, and optimized Elementor widgets with 100+ readymade templates. Trusted by more than 600K+ web professionals it’s a #1 toolkit for Elementor.', 'header-footer-elementor' ),
 				'wporg' => '',
 				'url'   => 'https://ultimateelementor.com/',
 				'pro'   => true,
-				'slug'  => 'ultimate-elementor'
+				'slug'  => 'ultimate-elementor',
 			],
 		];
 	}
@@ -745,7 +747,7 @@ class HFE_Settings_Page {
 	 * Determine if the plugin/addon installations are allowed.
 	 *
 	 * @since x.x.x
-	 *
+	 * @param string $type defines addon type.
 	 * @return bool
 	 */
 	public function hfe_can_install( $type ) {
@@ -759,18 +761,18 @@ class HFE_Settings_Page {
 			return false;
 		}
 
-		if( 'theme' === $type ) {
+		if ( 'theme' === $type ) {
 			if ( ! current_user_can( 'install_themes' ) ) {
 				return false;
-			}	
-	
+			}
+
 			return true;
 
 		} elseif ( 'plugin' === $type ) {
 			if ( ! current_user_can( 'install_plugins' ) ) {
 				return false;
 			}
-	
+
 			return true;
 		}
 
@@ -808,5 +810,3 @@ class HFE_Settings_Page {
 }
 
 new HFE_Settings_Page();
-
-?>

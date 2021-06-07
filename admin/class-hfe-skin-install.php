@@ -7,8 +7,6 @@
  * @package header-footer-elementor
  */
 
-// use HFE\Helpers\HFE_Plugin_Installer;
-
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -57,8 +55,9 @@ class HFE_Skin_Install extends WP_Upgrader_Skin {
 	 * @since x.x.x
 	 *
 	 * @param string $string The feedback string.
+	 * @param mixed  ...$args Optional arguments.
 	 */
-	public function feedback( $string, ...$args ) {}
+	public function feedback( $string, ...$args ) {} // phpcs:ignore
 
 	/**
 	 * Empty out JavaScript output that calls function to decrement the update counts.

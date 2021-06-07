@@ -79,7 +79,7 @@ function hfe_activate_addon() {
 			$type = sanitize_key( wp_unslash( $_POST['type'] ) );
 		}
 
-		$plugin   = sanitize_text_field( $_POST['plugin'] );
+		$plugin = sanitize_text_field( $_POST['plugin'] );
 
 		if ( 'plugin' === $type ) {
 
@@ -87,9 +87,9 @@ function hfe_activate_addon() {
 			if ( ! current_user_can( 'activate_plugins' ) ) {
 				wp_send_json_error( esc_html__( 'Plugin activation is disabled for you on this site.', 'header-footer-elementor' ) );
 			}
-			
+
 			$activate = activate_plugins( $plugin );
-			
+
 			if ( ! is_wp_error( $activate ) ) {
 
 				do_action( 'hfe_plugin_activated', $plugin );
@@ -100,15 +100,15 @@ function hfe_activate_addon() {
 
 		if ( 'theme' === $type ) {
 
-			$slug   = sanitize_key( wp_unslash( $_POST['slug'] ) );
+			$slug = sanitize_key( wp_unslash( $_POST['slug'] ) );
 
 			// Check for permissions.
-			if( ! ( current_user_can( 'switch_themes' ) ) ) {
+			if ( ! ( current_user_can( 'switch_themes' ) ) ) {
 				wp_send_json_error( esc_html__( 'Theme activation is disabled for you on this site.', 'header-footer-elementor' ) );
 			}
 
 			$activate = switch_theme( $slug );
-			
+
 			if ( ! is_wp_error( $activate ) ) {
 
 				do_action( 'hfe_theme_activated', $plugin );
@@ -120,7 +120,7 @@ function hfe_activate_addon() {
 
 	if ( 'plugin' === $type ) {
 		wp_send_json_error( esc_html__( 'Could not activate plugin. Please activate from the Plugins page.', 'header-footer-elementor' ) );
-	} else if ( 'theme' === $type ) {
+	} elseif ( 'theme' === $type ) {
 		wp_send_json_error( esc_html__( 'Could not activate theme. Please activate from the Themes page.', 'header-footer-elementor' ) );
 	}
 }
@@ -154,7 +154,7 @@ function hfe_install_addon() {
 		wp_send_json_error( $error );
 	}
 
-	$plugin   = sanitize_text_field( $_POST['plugin'] );
+	$plugin = sanitize_text_field( $_POST['plugin'] );
 
 	// Set the current screen to avoid undefined notices.
 	set_current_screen( 'appearance_page_hfe-about' );
@@ -162,9 +162,9 @@ function hfe_install_addon() {
 	// Prepare variables.
 	$url = esc_url_raw(
 		add_query_arg(
-			array(
+			[
 				'page' => 'hfe-about',
-			),
+			],
 			admin_url( 'admin.php' )
 		)
 	);
@@ -183,25 +183,25 @@ function hfe_install_addon() {
 
 	require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
 
-	require_once HFE_DIR . 'admin/class-skin-install.php';
+	require_once HFE_DIR . 'admin/class-hfe-skin-install.php';
 
-	if( 'theme' === $type ) {
+	if ( 'theme' === $type ) {
 
 		$slug = sanitize_key( wp_unslash( $_POST['slug'] ) );
 
-		$status = array(
+		$status = [
 			'install' => 'theme',
 			'slug'    => $slug,
-		);
+		];
 
 		include_once ABSPATH . 'wp-admin/includes/theme.php';
 
 		$api = themes_api(
 			'theme_information',
-			array(
+			[
 				'slug'   => $slug,
-				'fields' => array( 'sections' => false ),
-			)
+				'fields' => [ 'sections' => false ],
+			]
 		);
 
 		if ( is_wp_error( $api ) ) {
@@ -212,8 +212,8 @@ function hfe_install_addon() {
 		/** WP_Ajax_Upgrader_Skin class */
 		require_once ABSPATH . 'wp-admin/includes/class-wp-ajax-upgrader-skin.php';
 
-		$skin     = new WP_Ajax_Upgrader_Skin();
-		
+		$skin = new WP_Ajax_Upgrader_Skin();
+
 		$installer = new Theme_Upgrader( $skin );
 
 		// Error check.
@@ -232,11 +232,11 @@ function hfe_install_addon() {
 			wp_send_json_error( $error );
 		}
 
-		$result = array(
+		$result = [
 			'msg'          => $generic_error,
 			'is_activated' => false,
 			'basename'     => $theme_basename,
-		);
+		];
 
 		// Check for permissions.
 		if ( ! current_user_can( 'switch_themes' ) ) {
@@ -251,17 +251,16 @@ function hfe_install_addon() {
 			$result['msg']          = esc_html__( 'Theme installed & activated.', 'header-footer-elementor' );
 			wp_send_json_success( $result );
 		}
-
 	}
 
-	if( 'plugin' === $type ) {
+	if ( 'plugin' === $type ) {
 
 		if ( ! function_exists( 'get_plugin_data' ) ) {
 			require_once ABSPATH . 'wp-admin/includes/plugin.php';
 		}
 
 		// Do not allow WordPress to search/download translations, as this will break JS output.
-		remove_action( 'upgrader_process_complete', array( 'Language_Pack_Upgrader', 'async_upgrade' ), 20 );
+		remove_action( 'upgrader_process_complete', [ 'Language_Pack_Upgrader', 'async_upgrade' ], 20 );
 
 		// Create the plugin upgrader with our custom skin.
 		$installer = new Plugin_Upgrader( new HFE_Skin_Install() );
@@ -282,13 +281,13 @@ function hfe_install_addon() {
 			wp_send_json_error( $error );
 		}
 
-		$result = array(
+		$result = [
 			'msg'          => $generic_error,
 			'is_activated' => false,
 			'basename'     => $plugin_basename,
-		);
+		];
 
-		// Check for permissions
+		// Check for permissions.
 		if ( ! current_user_can( 'activate_plugins' ) ) {
 			$result['msg'] = esc_html__( 'Plugin installed.', 'header-footer-elementor' );
 			wp_send_json_success( $result );
@@ -301,7 +300,6 @@ function hfe_install_addon() {
 			$result['msg']          = esc_html__( 'Plugin installed & activated.', 'header-footer-elementor' );
 			wp_send_json_success( $result );
 		}
-
 	}
 
 	// Fallback error just in case.
@@ -313,7 +311,7 @@ add_action( 'wp_ajax_hfe_install_addon', 'hfe_install_addon' );
  * Determine if the plugin/addon installations are allowed.
  *
  * @since x.x.x
- *
+ * @param string $type defines type of addon
  * @return bool
  */
 function hfe_can_install( $type ) {
@@ -327,10 +325,10 @@ function hfe_can_install( $type ) {
 		return false;
 	}
 
-	if( 'theme' === $type ) {
+	if ( 'theme' === $type ) {
 		if ( ! current_user_can( 'install_themes' ) ) {
 			return false;
-		}	
+		}
 
 		return true;
 
