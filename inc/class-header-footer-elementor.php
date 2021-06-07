@@ -471,7 +471,7 @@ class Header_Footer_Elementor {
 	 * @param array $hfe_settings_tabs settings array tabs.
 	 * @since 1.0.3
 	 */
-	public function setup_unsupported_theme( $hfe_settings_tabs = array() ) {
+	public function setup_unsupported_theme( $hfe_settings_tabs = [] ) {
 		if ( ! current_theme_supports( 'header-footer-elementor' ) ) {
 			$hfe_settings_tabs['hfe_settings'] = [
 				'name' => __( 'Theme Support', 'header-footer-elementor' ),

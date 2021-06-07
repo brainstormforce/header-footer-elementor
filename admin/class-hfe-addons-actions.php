@@ -39,12 +39,12 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		 *  Constructor
 		 */
 		public function __construct() {
-			add_action( 'wp_ajax_hfe_admin_modal', array( $this, 'hfe_admin_modal' ) );
-			add_action( 'wp_ajax_hfe-update-subscription', array( $this, 'update_subscription' ) );
-			add_action( 'wp_ajax_hfe_activate_addon', array( $this, 'hfe_activate_addon' ) );
-			add_action( 'wp_ajax_hfe_install_addon', array( $this, 'hfe_install_addon' ) );
+			add_action( 'wp_ajax_hfe_admin_modal', [ $this, 'hfe_admin_modal' ] );
+			add_action( 'wp_ajax_hfe-update-subscription', [ $this, 'update_subscription' ] );
+			add_action( 'wp_ajax_hfe_activate_addon', [ $this, 'hfe_activate_addon' ] );
+			add_action( 'wp_ajax_hfe_install_addon', [ $this, 'hfe_install_addon' ] );
 		}
-		
+
 		/**
 		 * Open modal popup.
 		 *
