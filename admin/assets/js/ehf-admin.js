@@ -47,9 +47,9 @@
 			$document.on('click', '.hfe-guide-content .button-subscription-skip', HFEAdmin._close_modal );
 
 			// About us - addons functionality.
-			if ( $( '#hfe-admin-addons' ).length ) {
+			if ( $( '.hfe-admin-addons' ).length ) {
 	
-				$document.on( 'click', '#hfe-admin-addons .addon-item button', function( event ) {
+				$document.on( 'click', '.hfe-admin-addons .addon-item button', function( event ) {
 					event.preventDefault();
 		
 					if ( $( this ).hasClass( 'disabled' ) ) {

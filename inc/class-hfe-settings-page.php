@@ -560,7 +560,7 @@ class HFE_Settings_Page {
 		$can_install_themes = $this->hfe_can_install( 'theme' );
 
 		?>
-		<div id="hfe-admin-addons">
+		<div class="hfe-admin-addons">
 			<div class="addons-container">
 				<?php
 				foreach ( $bsf_plugins as $plugin => $details ) :
