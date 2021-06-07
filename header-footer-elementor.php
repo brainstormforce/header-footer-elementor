@@ -14,7 +14,7 @@
  * @package         header-footer-elementor
  */
 
-define( 'HFE_VER', '1.5.9' );
+define( 'HFE_VER', '1.5.10' );
 define( 'HFE_FILE', __FILE__ );
 define( 'HFE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'HFE_URL', plugins_url( '/', __FILE__ ) );
