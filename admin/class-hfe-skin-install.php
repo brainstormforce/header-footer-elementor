@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Skin for on-the-fly addon installations.
+ * Plugin installation skin.
  *
  * @since x.x.x
  */
