@@ -16,7 +16,7 @@
 		 *
 		 * @since 1.3.9
 		 */
-		init: function() {
+		_init: function() {
 
 			var ehf_hide_shortcode_field = function() {
 				var selected = $('#ehf_template_type').val() || 'none';
@@ -38,7 +38,7 @@
 				$( '.hfe-subscribe-message' ).remove();
 			});
 
-			$document.on( 'focusout change', '.hfe-subscribe-field', HFEAdmin.validate_single_field );
+			$document.on( 'focusout change', '.hfe-subscribe-field', HFEAdmin._validate_single_field );
 			$document.on( 'click input', '.hfe-subscribe-field', HFEAdmin._animate_fields );
 
 			$document.on( 'click', '.hfe-guide-content .submit-1', HFEAdmin._step_one_subscribe );
@@ -70,7 +70,7 @@
 			parentWrapper.addClass( 'subscription-anim' );
 		},
 
-		validate_single_field: function ( event ) {
+		_validate_single_field: function ( event ) {
 			event.preventDefault();
 			event.stopPropagation();
 			HFEAdmin._validate_field( event.target );
@@ -83,7 +83,7 @@
 			var parentWrapper = field.parents( '.hfe-input-container' );
 			var fieldStatus = fieldValue.length ? true : false;
 
-			if ( ( field.hasClass( 'hfe-subscribe-email' ) && false === HFEAdmin.isValidEmail( fieldValue ) )) {
+			if ( ( field.hasClass( 'hfe-subscribe-email' ) && false === HFEAdmin._is_valid_email( fieldValue ) )) {
 				fieldStatus = false;
 			}
 
@@ -219,7 +219,7 @@
 		 * email Validation
 		 *
 		 */
-		isValidEmail: function(eMail) {
+		_is_valid_email: function(eMail) {
 			if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test( eMail ) ) {
 				return true;
 			}
@@ -334,7 +334,7 @@
 				return;
 			}
 	
-			HFEAdmin._setAddonState( plugin, state, addonType, addonSlug, function( res ) {
+			HFEAdmin._set_addon_state( plugin, state, addonType, addonSlug, function( res ) {
 	
 				if ( res.success ) {
 					if ( 'install' === state ) {
@@ -400,7 +400,7 @@
 		 * @param {string}   addonSlug Plugin/Theme slug addon or plugin.
 		 * @param {Function} callback   Callback for get result from AJAX.
 		 */
-		 _setAddonState: function( plugin, state, addonType, addonSlug, callback ) {
+		 _set_addon_state: function( plugin, state, addonType, addonSlug, callback ) {
 
 			var actions = {
 					'activate': 'hfe_activate_addon',
@@ -429,7 +429,7 @@
 	};
 
 	$( document ).ready( function( e ) {
-		HFEAdmin.init();
+		HFEAdmin._init();
 	});
 
 	window.HFEAdmin = HFEAdmin;
