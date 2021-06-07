@@ -311,7 +311,7 @@ add_action( 'wp_ajax_hfe_install_addon', 'hfe_install_addon' );
  * Determine if the plugin/addon installations are allowed.
  *
  * @since x.x.x
- * @param string $type defines type of addon
+ * @param string $type defines type of addon.
  * @return bool
  */
 function hfe_can_install( $type ) {
