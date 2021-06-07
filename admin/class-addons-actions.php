@@ -136,7 +136,7 @@ function hfe_install_addon() {
 	// Run a security check.
 	check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
 
-	$generic_error = esc_html__( 'There was an error while performing your request.', 'header-footer-elementor' );
+	$default_error = esc_html__( 'Encountered an error while performing your request.', 'header-footer-elementor' );
 
 	$type = '';
 	if ( ! empty( $_POST['type'] ) ) {
@@ -145,7 +145,7 @@ function hfe_install_addon() {
 
 	// Check if new installations are allowed.
 	if ( ! hfe_can_install( $type ) ) {
-		wp_send_json_error( $generic_error );
+		wp_send_json_error( $default_error );
 	}
 
 	$error = esc_html__( 'Could not install. Please download from wordpress.org and install manually.', 'header-footer-elementor' );
@@ -156,10 +156,9 @@ function hfe_install_addon() {
 
 	$plugin = sanitize_text_field( $_POST['plugin'] );
 
-	// Set the current screen to avoid undefined notices.
+	// To avoid undefined notices.
 	set_current_screen( 'appearance_page_hfe-about' );
 
-	// Prepare variables.
 	$url = esc_url_raw(
 		add_query_arg(
 			[
@@ -170,14 +169,10 @@ function hfe_install_addon() {
 	);
 
 	require_once ABSPATH . 'wp-admin/includes/file.php';
-	$creds = request_filesystem_credentials( $url, '', false, false, null );
+	$file_creds = request_filesystem_credentials( $url, '', false, false, null );
 
-	// Check for file system permissions.
-	if ( false === $creds ) {
-		wp_send_json_error( $error );
-	}
-
-	if ( ! WP_Filesystem( $creds ) ) {
+	// Check File permissions.
+	if ( false === $file_creds || ( ! WP_Filesystem( $file_creds ) ) ) {
 		wp_send_json_error( $error );
 	}
 
@@ -216,14 +211,14 @@ function hfe_install_addon() {
 
 		$installer = new Theme_Upgrader( $skin );
 
-		// Error check.
+		// Check for Error if any.
 		if ( ! method_exists( $installer, 'install' ) ) {
 			wp_send_json_error( $error );
 		}
 
 		$installer->install( $api->download_link );
 
-		// Flush the cache and return the newly installed plugin basename.
+		// To fetch newly installed plugin basename flush cache.
 		wp_cache_flush();
 
 		$theme_basename = wp_get_theme( $slug )->get( 'Name' );
@@ -233,7 +228,7 @@ function hfe_install_addon() {
 		}
 
 		$result = [
-			'msg'          => $generic_error,
+			'msg'          => $default_error,
 			'is_activated' => false,
 			'basename'     => $theme_basename,
 		];
@@ -282,7 +277,7 @@ function hfe_install_addon() {
 		}
 
 		$result = [
-			'msg'          => $generic_error,
+			'msg'          => $default_error,
 			'is_activated' => false,
 			'basename'     => $plugin_basename,
 		];
