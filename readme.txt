@@ -138,8 +138,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 = 1.5.10 =
+- New: Added Email Subscription and About Us section on settings page.
+- New: Rename plugin to be Elementor Header & Footer Builder.
 - Fix: Navigation Menu - Top distance option for dropdown adding a top margin to sub-menu.
-- Improvement: Added Email Subscription and About Us section on settings page.
 
 = 1.5.9 =
 - Improvement: Added notice to update Elementor to v3.0.0 or higher
