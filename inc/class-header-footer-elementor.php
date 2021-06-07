@@ -591,7 +591,7 @@ if ( ! function_exists( '_is_elementor_installed' ) ) {
 	/**
 	 * Check if Elementor is installed
 	 *
-	 * @since 1.5.0
+	 * @since x.x.x
 	 *
 	 * @access public
 	 */
