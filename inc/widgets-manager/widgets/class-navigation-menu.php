@@ -254,6 +254,23 @@ class Navigation_Menu extends Widget_Base {
 			]
 		);
 
+		$current_theme = wp_get_theme();
+
+		if ( 'Twenty Twenty-One' === $current_theme->get( 'Name' ) ) {
+			$this->add_control(
+				'hide_theme_icons',
+				[
+					'label'        => __( 'Hide + & - Sign', 'header-footer-elementor' ),
+					'type'         => Controls_Manager::SWITCHER,
+					'label_on'     => __( 'Yes', 'header-footer-elementor' ),
+					'label_off'    => __( 'No', 'header-footer-elementor' ),
+					'return_value' => 'yes',
+					'default'      => 'no',
+					'prefix_class' => 'hfe-nav-menu__theme-icon-',
+				]
+			);
+		}
+
 		$this->end_controls_section();
 
 			$this->start_controls_section(
