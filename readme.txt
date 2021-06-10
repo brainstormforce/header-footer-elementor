@@ -15,9 +15,15 @@ Create Header, Footer and Blocks for your WordPress website using Elementor Page
 
 Have you ever imagined you could create your website header and footer with <a href="https://elementor.com/">Elementor</a> for FREE?
 
+<<<<<<< HEAD
 Elementor Header & Footer Builder is a simple yet powerful WordPress plugin that allows you to create a layout with Elementor and set it as 
 - Header 
 - Footer 
+=======
+Elementor -  Header, Footer & Blocks Template is a simple yet powerful WordPress plugin that allows you to create a layout with Elementor and set it as
+- Header
+- Footer
+>>>>>>> aacf7751ab3bc14b745d0f4723214ec3ade0a7ab
 - Block (anywhere on the website)
 
 = Create Attractive Designs =
@@ -58,7 +64,11 @@ The plugin offers inbuilt widgets that help to create header/footer layouts. The
 
 = WORKS WITH ALL THEMES =
 
+<<<<<<< HEAD
 Elementor Header & Footer Builder plugin works with all WordPress themes. Few of the themes have direct support while for few you can choose a method to add theme support. 
+=======
+Elementor – Header, Footer & Blocks plugin works with all WordPress themes. Few of the themes have direct support while for few you can choose a method to add theme support.
+>>>>>>> aacf7751ab3bc14b745d0f4723214ec3ade0a7ab
 
 In case you face any difficulty displaying header/footer, manually choose the theme support method. Visit Appearance > Elementor Header & Footer Builder > Theme Support. Select a method to suit your current theme and you are good to go!
 
@@ -114,14 +124,14 @@ Made with love at [Brainstorm Force](https://www.brainstormforce.com/?utm_source
 2. Click on “Add New” and design a template with Elementor. 
 3. Once the template is ready, set is as a header/footer/block using options “Type of Template” (<a href="https://share.getcloudapp.com/geurz2JR">screenshot</a>).
 4.
-	
+
 	a) For Header/Footer - Select the target location with the option “Display On”. With this Header/Footer will be visible only on selected locations for selected “User Roles”.
-	
-	b) For Custom Block - Just copy the shortcode and add it anywhere on the website. Your designed template will display automatically. Display conditions or user roles will not be effective with shortcodes. 
+
+	b) For Custom Block - Just copy the shortcode and add it anywhere on the website. Your designed template will display automatically. Display conditions or user roles will not be effective with shortcodes.
 
 = Can You Create a Mobile Responsive Header/Footer Using This Plugin? =
 
-Yes, You can create the mobile responsive layout of your header using the plugin.  
+Yes, You can create the mobile responsive layout of your header using the plugin.
 
 The Elementor Header & Footer Builder plugin just gives you a container where you can completely design the header using Elementor Page Builder, So the process of creating the mobile responsive layout is exactly the same as you would create a responsive layout of your other Elementor page.
 
@@ -132,16 +142,20 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 1. Go to Appearance -> Elementor Header & Footer Builder to create a new template.
 2. Assign template to be a header/footer and select display rules.
-3. 3. For blocks, select the type of template as Custom Blocks. You can copy the shortcode and use it anywhere. 
+3. 3. For blocks, select the type of template as Custom Blocks. You can copy the shortcode and use it anywhere.
 4. Methods to add Theme Support.
 5. Default widgets available with Elementor Header & Footer Builder.
 
 == Changelog ==
-= 1.5.9 = 
+= 1.5.10 =
+- Improvement: Added an option to hide + & - sign added by Twenty Twenty-One Theme.
+- Fix: Navigation Menu - Top distance option for dropdown adding a top margin to sub-menu.
+
+= 1.5.9 =
 - Improvement: Added notice to update Elementor to v3.0.0 or higher
-Elementor has deprecated few functions and namespaces with its v3.0.0. Following Elementor, our plugin too deprecates similar functions and namespaces. You will now require the Elementor v3.0.0 or higher. 
+Elementor has deprecated few functions and namespaces with its v3.0.0. Following Elementor, our plugin too deprecates similar functions and namespaces. You will now require the Elementor v3.0.0 or higher.
 - Improvement: Elementor 3.2 Compatibility - Added Elementor Global Color and Typography scheme support.
-- Fix: Navigation Menu - Last menu item button disappearing while switching from mobile to desktop. 
+- Fix: Navigation Menu - Last menu item button disappearing while switching from mobile to desktop.
 - Fix: Navigation Menu - Last menu item button alignment not working in RTL view.
 
 = 1.5.8 =
@@ -243,7 +257,7 @@ Elementor has deprecated few functions and namespaces with its v3.0.0. Following
 - Fix: Flush permalinks on plugin update to Elementor error when trying to edit the Header/Footer.
 
 = 1.1.3 =
-- Improvement: Allow changing the permalinks for the hfe templates (<a href="https://github.com/Nikschavan/header-footer-elementor/pull/162/">#162</a>) 
+- Improvement: Allow changing the permalinks for the hfe templates (<a href="https://github.com/Nikschavan/header-footer-elementor/pull/162/">#162</a>)
 - Fix: WPML Translations do not work when using the Elementor Template as a shortcode. (<a href="https://github.com/Nikschavan/header-footer-elementor/pull/159/">#159</a>)
 - Fix: Page content appears over the header. (<a href="https://github.com/Nikschavan/header-footer-elementor/pull/150/">#150</a>)
 - Fix: Remove the deprecated function warning for shortcode functions. (Props <a href="https://github.com/hogash">@hogash</a> <a href="https://github.com/Nikschavan/header-footer-elementor/pull/145/">#145</a>)
@@ -273,24 +287,24 @@ Elementor has deprecated few functions and namespaces with its v3.0.0. Following
 = 1.0.13 =
 - Fix: PHP Notices and errors due to WP_Query being called early when some plugins use filters inside WP_Query.
 
-= 1.0.12 = 
+= 1.0.12 =
 - Fix: Compatibility with Elementor 2.0 changed canvas template path.
 
-= 1.0.11 = 
+= 1.0.11 =
 - Load the CSS footer early in the page to avoid slow rendering of CSS.
 - Change the schema.org links to be https.
 - Fix: Added correct schema markup for the footer.
 
-= 1.0.10 = 
+= 1.0.10 =
 - Load the header layout correctly in the <body> in Elementor canvas template.
 - Load the Elementor Pro CSS/JS files in <head>.
 - Provide more filters for the helper functions.
 
-= 1.0.9 = 
+= 1.0.9 =
 - Add Support for WPML.
 - Updated the missing strings from the translations template.
 
-= 1.0.8 = 
+= 1.0.8 =
 - Allow filters to override the WP_Query parameters when retreiving the Header / Footer template id.
 
 = 1.0.7 =
