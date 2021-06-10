@@ -11,8 +11,8 @@ namespace HFE\WidgetsManager\Widgets;
 use Elementor\Controls_Manager;
 use Elementor\Utils;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
-use Elementor\Scheme_Color;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Background;
@@ -921,7 +921,9 @@ class Navigation_Menu extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'menu_typography',
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_1,
+				'global'    => [
+					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
+				],
 				'separator' => 'before',
 				'selector'  => '{{WRAPPER}} a.hfe-menu-item, {{WRAPPER}} a.hfe-sub-menu-item',
 			]
@@ -941,9 +943,8 @@ class Navigation_Menu extends Widget_Base {
 						[
 							'label'     => __( 'Text Color', 'header-footer-elementor' ),
 							'type'      => Controls_Manager::COLOR,
-							'scheme'    => [
-								'type'  => Scheme_Color::get_type(),
-								'value' => Scheme_Color::COLOR_3,
+							'global'    => [
+								'default' => Global_Colors::COLOR_TEXT,
 							],
 							'default'   => '',
 							'selectors' => [
@@ -981,9 +982,8 @@ class Navigation_Menu extends Widget_Base {
 						[
 							'label'     => __( 'Text Color', 'header-footer-elementor' ),
 							'type'      => Controls_Manager::COLOR,
-							'scheme'    => [
-								'type'  => Scheme_Color::get_type(),
-								'value' => Scheme_Color::COLOR_4,
+							'global'    => [
+								'default' => Global_Colors::COLOR_ACCENT,
 							],
 							'selectors' => [
 								'{{WRAPPER}} .menu-item a.hfe-menu-item:hover,
@@ -1018,9 +1018,8 @@ class Navigation_Menu extends Widget_Base {
 						[
 							'label'     => __( 'Link Hover Effect Color', 'header-footer-elementor' ),
 							'type'      => Controls_Manager::COLOR,
-							'scheme'    => [
-								'type'  => Scheme_Color::get_type(),
-								'value' => Scheme_Color::COLOR_4,
+							'global'    => [
+								'default' => Global_Colors::COLOR_ACCENT,
 							],
 							'default'   => '',
 							'selectors' => [
@@ -1269,7 +1268,9 @@ class Navigation_Menu extends Widget_Base {
 				Group_Control_Typography::get_type(),
 				[
 					'name'      => 'dropdown_typography',
-					'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
+					'global'    => [
+						'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+					],
 					'separator' => 'before',
 					'selector'  => '
 							{{WRAPPER}} .sub-menu li a.hfe-sub-menu-item,
@@ -1284,10 +1285,11 @@ class Navigation_Menu extends Widget_Base {
 				Group_Control_Border::get_type(),
 				[
 					'name'     => 'dropdown_border',
-					'selector' => '{{WRAPPER}} nav.hfe-nav-menu__layout-horizontal .sub-menu, 
+					'selector' => '{{WRAPPER}} nav.hfe-nav-menu__layout-horizontal .sub-menu,
 							{{WRAPPER}} nav:not(.hfe-nav-menu__layout-horizontal) .sub-menu.sub-menu-open,
-							{{WRAPPER}} nav.hfe-dropdown,
-						 	{{WRAPPER}} nav.hfe-dropdown-expandible',
+							{{WRAPPER}} nav.hfe-dropdown .hfe-nav-menu,
+						 	{{WRAPPER}} nav.hfe-dropdown-expandible .hfe-nav-menu,
+						 	{{WRAPPER}} .hfe-flyout-wrapper .hfe-flyout-container .hfe-nav-menu',
 				]
 			);
 
@@ -1408,7 +1410,7 @@ class Navigation_Menu extends Widget_Base {
 						],
 					],
 					'selectors' => [
-						'{{WRAPPER}} nav.hfe-nav-menu__layout-horizontal ul.sub-menu, {{WRAPPER}} nav.hfe-nav-menu__layout-expandible.menu-is-active' => 'margin-top: {{SIZE}}px;',
+						'{{WRAPPER}} nav.hfe-nav-menu__layout-horizontal:not(.hfe-dropdown) ul.sub-menu, {{WRAPPER}} nav.hfe-nav-menu__layout-expandible.menu-is-active' => 'margin-top: {{SIZE}}px;',
 						'{{WRAPPER}} .hfe-dropdown.menu-is-active' => 'margin-top: {{SIZE}}px;',
 					],
 					'condition' => [
@@ -1669,7 +1671,9 @@ class Navigation_Menu extends Widget_Base {
 				[
 					'name'     => 'all_typography',
 					'label'    => __( 'Typography', 'header-footer-elementor' ),
-					'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
+					'global'   => [
+						'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+					],
 					'selector' => '{{WRAPPER}} .menu-item a.hfe-menu-item.elementor-button',
 				]
 			);
@@ -1715,9 +1719,8 @@ class Navigation_Menu extends Widget_Base {
 							'selector'       => '{{WRAPPER}} .menu-item a.hfe-menu-item.elementor-button',
 							'fields_options' => [
 								'color' => [
-									'scheme' => [
-										'type'  => Scheme_Color::get_type(),
-										'value' => Scheme_Color::COLOR_4,
+									'global' => [
+										'default' => Global_Colors::COLOR_ACCENT,
 									],
 								],
 							],
@@ -1782,9 +1785,8 @@ class Navigation_Menu extends Widget_Base {
 							'selector'       => '{{WRAPPER}} .menu-item a.hfe-menu-item.elementor-button:hover',
 							'fields_options' => [
 								'color' => [
-									'scheme' => [
-										'type'  => Scheme_Color::get_type(),
-										'value' => Scheme_Color::COLOR_4,
+									'global' => [
+										'default' => Global_Colors::COLOR_ACCENT,
 									],
 								],
 							],
