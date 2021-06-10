@@ -15,15 +15,9 @@ Create Header, Footer and Blocks for your WordPress website using Elementor Page
 
 Have you ever imagined you could create your website header and footer with <a href="https://elementor.com/">Elementor</a> for FREE?
 
-<<<<<<< HEAD
 Elementor Header & Footer Builder is a simple yet powerful WordPress plugin that allows you to create a layout with Elementor and set it as 
 - Header 
 - Footer 
-=======
-Elementor -  Header, Footer & Blocks Template is a simple yet powerful WordPress plugin that allows you to create a layout with Elementor and set it as
-- Header
-- Footer
->>>>>>> aacf7751ab3bc14b745d0f4723214ec3ade0a7ab
 - Block (anywhere on the website)
 
 = Create Attractive Designs =
@@ -64,11 +58,7 @@ The plugin offers inbuilt widgets that help to create header/footer layouts. The
 
 = WORKS WITH ALL THEMES =
 
-<<<<<<< HEAD
 Elementor Header & Footer Builder plugin works with all WordPress themes. Few of the themes have direct support while for few you can choose a method to add theme support. 
-=======
-Elementor – Header, Footer & Blocks plugin works with all WordPress themes. Few of the themes have direct support while for few you can choose a method to add theme support.
->>>>>>> aacf7751ab3bc14b745d0f4723214ec3ade0a7ab
 
 In case you face any difficulty displaying header/footer, manually choose the theme support method. Visit Appearance > Elementor Header & Footer Builder > Theme Support. Select a method to suit your current theme and you are good to go!
 
@@ -149,6 +139,8 @@ This same applies when you are creating your Header/Footer using this plugin.
 == Changelog ==
 = 1.5.10 =
 - Improvement: Added an option to hide + & - sign added by Twenty Twenty-One Theme.
+- New: Added Email Subscription and About Us section on settings page.
+- New: Rename plugin to be Elementor Header & Footer Builder.
 - Fix: Navigation Menu - Top distance option for dropdown adding a top margin to sub-menu.
 
 = 1.5.9 =

@@ -3,30 +3,29 @@
 	'use strict';
 
 	// Global settings access.
-	var s;
+	var settings = {
+		iconActivate: '<i class="fa fa-toggle-on fa-flip-horizontal" aria-hidden="true"></i>',
+		iconDeactivate: '<i class="fa fa-toggle-on" aria-hidden="true"></i>',
+		iconInstall: '<i class="fa fa-cloud-download" aria-hidden="true"></i>'
+	};
 
 	var HFEAdmin = {
-
-		// Settings.
-		settings: {
-			iconActivate: '<i class="fa fa-toggle-on fa-flip-horizontal" aria-hidden="true"></i>',
-			iconDeactivate: '<i class="fa fa-toggle-on" aria-hidden="true"></i>',
-			iconInstall: '<i class="fa fa-cloud-download" aria-hidden="true"></i>'
-		},
 
 		/**
 		 * Start the engine.
 		 *
 		 * @since 1.3.9
 		 */
-		init: function() {
+		_init: function() {
 
 			var ehf_hide_shortcode_field = function() {
 				var selected = $('#ehf_template_type').val() || 'none';
 				$( '.hfe-options-table' ).removeClass().addClass( 'hfe-options-table widefat hfe-selected-template-type-' + selected );
 			}
+
+			var $document = $( document );
 		
-			$( document ).on( 'change', '#ehf_template_type', function( e ) {
+			$document.on( 'change', '#ehf_template_type', function( e ) {
 				ehf_hide_shortcode_field();
 			});
 		
@@ -39,18 +38,18 @@
 				$( '.hfe-subscribe-message' ).remove();
 			});
 
-			$(document).on( 'focusout change', '.hfe-subscribe-field', HFEAdmin.validate_single_field );
-			$(document).on( 'click input', '.hfe-subscribe-field', HFEAdmin._animate_fields );
+			$document.on( 'focusout change', '.hfe-subscribe-field', HFEAdmin._validate_single_field );
+			$document.on( 'click input', '.hfe-subscribe-field', HFEAdmin._animate_fields );
 
-			$( document ).on( 'click', '.hfe-guide-content .submit-1', HFEAdmin._step_one_subscribe );
-			$( document ).on( 'click', '.hfe-guide-content .submit-2', HFEAdmin._step_two_subscribe );
+			$document.on( 'click', '.hfe-guide-content .submit-1', HFEAdmin._step_one_subscribe );
+			$document.on( 'click', '.hfe-guide-content .submit-2', HFEAdmin._step_two_subscribe );
 
-			$( document ).on('click', '.hfe-guide-content .button-subscription-skip', HFEAdmin._close_modal );
+			$document.on('click', '.hfe-guide-content .button-subscription-skip', HFEAdmin._close_modal );
 
 			// About us - addons functionality.
-			if ( $( '#hfe-admin-addons' ).length ) {
+			if ( $( '.hfe-admin-addons' ).length ) {
 	
-				$( document ).on( 'click', '#hfe-admin-addons .addon-item button', function( event ) {
+				$document.on( 'click', '.hfe-admin-addons .addon-item button', function( event ) {
 					event.preventDefault();
 		
 					if ( $( this ).hasClass( 'disabled' ) ) {
@@ -71,7 +70,7 @@
 			parentWrapper.addClass( 'subscription-anim' );
 		},
 
-		validate_single_field: function ( event ) {
+		_validate_single_field: function ( event ) {
 			event.preventDefault();
 			event.stopPropagation();
 			HFEAdmin._validate_field( event.target );
@@ -81,10 +80,10 @@
 
 			var field = $( target );
 			var fieldValue = field.val() || '';
-			var parentWrapper = $( target ).parents( '.hfe-input-container' );
+			var parentWrapper = field.parents( '.hfe-input-container' );
 			var fieldStatus = fieldValue.length ? true : false;
 
-			if ( ( field.hasClass( 'hfe-subscribe-email' ) && false === HFEAdmin.isValidEmail( fieldValue ) )) {
+			if ( ( field.hasClass( 'hfe-subscribe-email' ) && false === HFEAdmin._is_valid_email( fieldValue ) )) {
 				fieldStatus = false;
 			}
 
@@ -220,7 +219,7 @@
 		 * email Validation
 		 *
 		 */
-		isValidEmail: function(eMail) {
+		_is_valid_email: function(eMail) {
 			if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test( eMail ) ) {
 				return true;
 			}
@@ -282,6 +281,7 @@
 			var $addon = $button.closest( '.addon-item' ),
 				plugin = $button.attr( 'data-plugin' ),
 				addonType = $button.attr( 'data-type' ),
+				addonSlug = $button.attr( 'data-slug' ),
 				state,
 				cssClass,
 				stateText,
@@ -292,7 +292,7 @@
 			if ( $button.hasClass( 'status-go-to-url' ) ) {
 	
 				// Open url in new tab.
-				window.open( $button.attr( 'data-plugin' ), '_blank' );
+				window.open( $button.attr( 'data-site' ), '_blank' );
 				return;
 			}
 	
@@ -304,9 +304,7 @@
 				// Deactivate.
 				state = 'deactivate';
 				cssClass = 'status-inactive';
-				if ( addonType === 'plugin' ) {
-					cssClass += ' button button-secondary';
-				}
+				cssClass += ' button button-secondary';
 				stateText = hfe_admin_data.addon_inactive;
 				buttonText = hfe_admin_data.addon_activate;
 				errorText  = hfe_admin_data.addon_deactivate;
@@ -316,44 +314,39 @@
 				// Activate.
 				state = 'activate';
 				cssClass = 'status-active';
-				if ( addonType === 'plugin' ) {
-					cssClass += ' button button-secondary disabled';
-				}
+				cssClass += ' button button-secondary disabled';
 				stateText = hfe_admin_data.addon_active;
 				buttonText = hfe_admin_data.addon_deactivate;
-				if ( addonType === 'theme' || addonType === 'plugin' ) {
-					buttonText = hfe_admin_data.addon_activated;
-					errorText  = hfe_admin_data.addon_activate;
-				}
+				buttonText = hfe_admin_data.addon_activated;
+				errorText  = hfe_admin_data.addon_activate;
 	
 			} else if ( $button.hasClass( 'status-download' ) ) {
 	
 				// Install & Activate.
 				state = 'install';
 				cssClass = 'status-active';
-				if ( addonType === 'plugin' ) {
-					cssClass += ' button disabled';
-				}
+				cssClass += ' button disabled';
 				stateText = hfe_admin_data.addon_active;
 				buttonText = hfe_admin_data.addon_activated;
-				errorText  = s.iconInstall;
+				errorText  = settings.iconInstall;
 	
 			} else {
 				return;
 			}
 	
-			// eslint-disable-next-line complexity
-			HFEAdmin._setAddonState( plugin, state, addonType, function( res ) {
+			HFEAdmin._set_addon_state( plugin, state, addonType, addonSlug, function( res ) {
 	
 				if ( res.success ) {
 					if ( 'install' === state ) {
 						$button.attr( 'data-plugin', res.data.basename );
 						successText = res.data.msg;
 						if ( ! res.data.is_activated ) {
+
 							stateText  = hfe_admin_data.addon_inactive;
-							buttonText = ( addonType === 'theme' || addonType === 'plugin' ) ? hfe_admin_data.addon_activate : s.iconActivate + hfe_admin_data.addon_activate;
+							buttonText = ( addonType === 'theme' || addonType === 'plugin' ) ? hfe_admin_data.addon_activate : settings.iconActivate + hfe_admin_data.addon_activate;
 							cssClass   = ( addonType === 'theme' || addonType === 'plugin' ) ? 'status-inactive button button-secondary' : 'status-inactive';
 						}
+
 					} else {
 						successText = res.data;
 					}
@@ -370,21 +363,26 @@
 				} else {
 					if ( 'object' === typeof res.data ) {
 						
-						$addon.find( '.actions' ).append( '<div class="msg error">' +hfes_admin.plugin_error + '</div>' );
+						$addon.find( '.actions' ).append( '<div class="msg error">' + hfe_admin_data.plugin_error + '</div>' );
 					} else {
 						$addon.find( '.actions' ).append( '<div class="msg error">' + res.data + '</div>' );
 					}
 					if ( 'install' === state && ( addonType === 'theme' || addonType === 'plugin' ) ) {
 						$button.addClass( 'status-go-to-url' ).removeClass( 'status-download' );
 					}
-					$button.html( errorText );
+
+					if( 'ultimate-elementor' === addonSlug ) {
+						$button.addClass( 'status-go-to-url' );
+						$button.html( hfe_admin_data.visit_site );
+					} else {
+						$button.html( hfe_admin_data.addon_download );
+					}
 				}
 	
 				$button.prop( 'disabled', false ).removeClass( 'loading' );
 	
-				// Automatically clear addon messages after 3 seconds.
-				setTimeout( function() {
-	
+				// Automatically clear the messages after 3 seconds.
+				setTimeout( function() {	
 					$( '.addon-item .msg' ).remove();
 				}, 3000 );
 	
@@ -396,17 +394,17 @@
 		 *
 		 * @since x.x.x
 		 *
-		 * @param {string}   plugin     Plugin slug or URL for download.
+		 * @param {string}   plugin     Plugin/Theme URL for download.
 		 * @param {string}   state      State status activate|deactivate|install.
-		 * @param {string}   addonType Plugin type addon or plugin.
+		 * @param {string}   addonType Plugin/Theme type addon or plugin.
+		 * @param {string}   addonSlug Plugin/Theme slug addon or plugin.
 		 * @param {Function} callback   Callback for get result from AJAX.
 		 */
-		 _setAddonState: function( plugin, state, addonType, callback ) {
+		 _set_addon_state: function( plugin, state, addonType, addonSlug, callback ) {
 
 			var actions = {
 					'activate': 'hfe_activate_addon',
 					'install': 'hfe_install_addon',
-					'deactivate': 'hfe_deactivate_addon',
 				},
 				action = actions[ state ];
 	
@@ -419,6 +417,7 @@
 				nonce: hfe_admin_data.nonce,
 				plugin: plugin,
 				type: addonType,
+				slug: addonSlug
 			};
 	
 			$.post( hfe_admin_data.ajax_url, data, function( res ) {
@@ -430,7 +429,7 @@
 	};
 
 	$( document ).ready( function( e ) {
-		HFEAdmin.init();
+		HFEAdmin._init();
 	});
 
 	window.HFEAdmin = HFEAdmin;

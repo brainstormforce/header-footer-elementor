@@ -106,7 +106,22 @@ class Header_Footer_Elementor {
 			add_action( 'admin_notices', [ $this, 'register_notices' ] );
 
 			// BSF Analytics Tracker.
-			require_once HFE_DIR . 'admin/bsf-analytics/class-bsf-analytics.php';
+			if ( ! class_exists( 'BSF_Analytics_Loader' ) ) {
+				require_once HFE_DIR . 'admin/bsf-analytics/class-bsf-analytics-loader.php';
+			}
+
+			$bsf_analytics = BSF_Analytics_Loader::get_instance();
+
+			$bsf_analytics->set_entity(
+				[
+					'bsf' => [
+						'product_name'    => 'Elementor Header & Footer builder',
+						'path'            => HFE_DIR . 'admin/bsf-analytics',
+						'author'          => 'Brainstorm Force',
+						'time_to_display' => '+24 hours',
+					],
+				]
+			);
 
 		}
 
@@ -453,10 +468,10 @@ class Header_Footer_Elementor {
 	/**
 	 * Display Unsupported theme notice if the current theme does add support for 'header-footer-elementor'
 	 *
-	 * @param array $hfe_settings_tabs settings tabs.
+	 * @param array $hfe_settings_tabs settings array tabs.
 	 * @since 1.0.3
 	 */
-	public function setup_unsupported_theme( $hfe_settings_tabs ) {
+	public function setup_unsupported_theme( $hfe_settings_tabs = [] ) {
 		if ( ! current_theme_supports( 'header-footer-elementor' ) ) {
 			$hfe_settings_tabs['hfe_settings'] = [
 				'name' => __( 'Theme Support', 'header-footer-elementor' ),
@@ -576,7 +591,7 @@ if ( ! function_exists( '_is_elementor_installed' ) ) {
 	/**
 	 * Check if Elementor is installed
 	 *
-	 * @since 1.5.0
+	 * @since x.x.x
 	 *
 	 * @access public
 	 */
