@@ -67,6 +67,23 @@
 		var last_item = $( '.elementor-element-' + id + ' .hfe-nav-menu' ).data( 'last-item' );
 		var last_item_flyout = $( '.elementor-element-' + id + ' .hfe-flyout-wrapper' ).data( 'last-item' );
 
+		var menu_items_links = $( '.elementor-element-' + id + ' .hfe-nav-menu nav li a' );
+		menu_items_links.each(
+			function () {
+				if ($( this ).is( '[href*="#"]' )) {
+					$( this ).parent().removeClass( 'current-menu-item current-menu-ancestor' );
+					$( this ).click(
+						function () {
+							var current_index = $( this ).parent().index(),
+							parent_element    = $( this ).closest( 'ul' );
+							parent_element.find( 'li' ).not( ':eq(' + current_index + ')' ).removeClass( 'current-menu-item current-menu-ancestor' );
+							$( this ).parent().addClass( 'current-menu-item current-menu-ancestor' );
+						}
+					)
+				}
+			}
+		);
+
 		$( 'div.hfe-has-submenu-container' ).removeClass( 'sub-menu-active' );
 
 		_toggleClick( id );
