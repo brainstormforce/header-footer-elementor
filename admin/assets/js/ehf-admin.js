@@ -408,9 +408,10 @@
 				},
 				action = actions[ state ];
 	
-			if ( ! action ) {
-				return;
-			}
+			// if ( ! action ) {
+			// 	return;
+			// }
+
 
 			if( 'install' === state ) {
 
