@@ -411,20 +411,39 @@
 			if ( ! action ) {
 				return;
 			}
-	
-			var data = {
-				action: action,
-				nonce: hfe_admin_data.nonce,
-				plugin: plugin,
-				type: addonType,
-				slug: addonSlug
-			};
-	
-			$.post( hfe_admin_data.ajax_url, data, function( res ) {
-				callback( res );
-			} ).fail( function( xhr ) {
-				console.log( xhr.responseText );
-			} );
+
+			if( 'install' === action ) {
+
+				if ( wp.updates.shouldRequestFilesystemCredentials && ! wp.updates.ajaxLocked ) {
+					wp.updates.requestFilesystemCredentials();
+				}
+
+				if( 'theme' === addonType ) {
+					wp.updates.installTheme ( {
+						slug: addonSlug
+					});
+				} else if( 'plugin' === action ) {
+					wp.updates.installPlugin ( {
+						slug: addonSlug
+					});
+				}
+
+			} else {
+				var data = {
+					action: action,
+					nonce: hfe_admin_data.nonce,
+					plugin: plugin,
+					type: addonType,
+					slug: addonSlug
+				};
+		
+				$.post( hfe_admin_data.ajax_url, data, function( res ) {
+					callback( res );
+				} ).fail( function( xhr ) {
+					console.log( xhr.responseText );
+				} );
+			}
+			
 		}
 	};
 
