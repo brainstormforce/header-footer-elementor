@@ -519,9 +519,7 @@ class HFE_Settings_Page {
 
 				<p><?php esc_html_e( 'With this awesome plugin, experience the easiest way to create a customized header and footer for your website with Elementor. That too 100% FREE!', 'header-footer-elementor' ); ?></p>
 
-				<p><?php esc_html_e( 'Design beautiful layouts with simple drag & drop and display them at desired location with powerful target controls.', 'header-footer-elementor' ); ?></p>
-
-				<p><?php esc_html_e( 'The plugin comes with inbuilt Elementor widgets that offer essential features to build header and footer. It\'s a lightweight plugin that works seamlessly with all themes and backed up by 24/7 support.', 'header-footer-elementor' ); ?></p>
+				<p><?php esc_html_e( 'Design beautiful layouts with simple drag & drop and display them at desired location with powerful target controls. The plugin comes with inbuilt Elementor widgets that offer essential features to build header and footer. It\'s a lightweight plugin that works seamlessly with all themes and backed up by 24/7 support.', 'header-footer-elementor' ); ?></p>
 
 				<p><?php esc_html_e( 'Trusted by more than 1+ Million users, Elementor Header & Footer Builder is a modern way to build advanced navigation for your website.', 'header-footer-elementor' ); ?></p>
 
@@ -712,7 +710,7 @@ class HFE_Settings_Page {
 				'icon'    => $images_url . 'plugin-astra.png',
 				'type'    => 'theme',
 				'name'    => esc_html__( 'Astra Theme', 'header-footer-elementor' ),
-				'desc'    => esc_html__( 'Powering over 1+ Million WordPress websites, Astra is loved for the fast performance and ease of use it offers. It is suitable for all kinds of websites like blogs, portfolios, business, and WooCommerce stores.', 'header-footer-elementor' ),
+				'desc'    => esc_html__( 'Powering over 1+ Million websites, Astra is loved for the fast performance and ease of use it offers. It is suitable for all kinds of websites like blogs, portfolios, business, and WooCommerce stores.', 'header-footer-elementor' ),
 				'wporg'   => 'https://wordpress.org/themes/astra/',
 				'url'     => 'https://downloads.wordpress.org/theme/astra.zip',
 				'siteurl' => 'https://wpastra.com/',
