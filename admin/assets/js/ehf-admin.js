@@ -407,11 +407,6 @@
 					'install': '',
 				},
 				action = actions[ state ];
-	
-			// if ( ! action ) {
-			// 	return;
-			// }
-
 
 			if( 'install' === state ) {
 
@@ -422,7 +417,16 @@
 				if( 'theme' === addonType ) {
 					wp.updates.installTheme ( {
 						slug: addonSlug
+					}).then( function( e){
+						// $button.removeClass( "uag-install-theme updating-message" ).addClass( "uag-activate-theme" ).text( "Activate Astra Now!" )
 					});
+
+					// $document.on('wp-plugin-install-success', function (response) {
+					// 	let plugin_slug = response.currentTarget.activeElement.dataset.slug;
+					// 	self.offer_setting.activate_next_move_request(plugin_slug);
+					// 	self.offer_setting.nextMoveInstallState = 1;
+
+					// });
 				} else if( 'plugin' === action ) {
 					wp.updates.installPlugin ( {
 						slug: addonSlug
