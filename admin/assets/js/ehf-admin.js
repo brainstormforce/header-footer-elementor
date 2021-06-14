@@ -404,7 +404,7 @@
 
 			var actions = {
 					'activate': 'hfe_activate_addon',
-					'install': 'hfe_install_addon',
+					'install': '',
 				},
 				action = actions[ state ];
 	
@@ -412,7 +412,7 @@
 				return;
 			}
 
-			if( 'install' === action ) {
+			if( 'install' === state ) {
 
 				if ( wp.updates.shouldRequestFilesystemCredentials && ! wp.updates.ajaxLocked ) {
 					wp.updates.requestFilesystemCredentials();
@@ -428,7 +428,7 @@
 					});
 				}
 
-			} else {
+			} else if( 'activate' === state )  {
 				var data = {
 					action: action,
 					nonce: hfe_admin_data.nonce,
