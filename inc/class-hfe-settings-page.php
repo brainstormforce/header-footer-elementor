@@ -629,7 +629,7 @@ class HFE_Settings_Page {
 	}
 
 	/**
-	 * Get AM plugin data to display in the Addons section of About tab.
+	 * Get plugin data to display in the Addons section of About tab.
 	 *
 	 * @since x.x.x
 	 *
@@ -673,7 +673,7 @@ class HFE_Settings_Page {
 				$plugin_data['plugin_src']   = esc_attr( $addon );
 			}
 		} else {
-			// Doesn't exist, install.
+			// install if already doesn't exists.
 			// Status text/status.
 			$plugin_data['status_class'] = 'status-download';
 			if ( isset( $details['act'] ) && 'go-to-url' === $details['act'] ) {
@@ -697,7 +697,7 @@ class HFE_Settings_Page {
 	}
 
 	/**
-	 * List of AM plugins that we propose to install.
+	 * List of plugins that we propose to install.
 	 *
 	 * @since x.x.x
 	 *
