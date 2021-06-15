@@ -406,7 +406,16 @@
 					'activate': 'hfe_activate_addon',
 					'install': '',
 				},
-				action = actions[ state ];
+				action = actions[ state ],
+				activate_addon = false;
+
+			var data = {
+				action: action,
+				nonce: hfe_admin_data.nonce,
+				plugin: plugin,
+				type: addonType,
+				slug: addonSlug
+			};
 
 			if( 'install' === state ) {
 
@@ -415,18 +424,25 @@
 				}
 
 				if( 'theme' === addonType ) {
+
 					wp.updates.installTheme ( {
-						slug: addonSlug
-					}).then( function( e){
-						// $button.removeClass( "uag-install-theme updating-message" ).addClass( "uag-activate-theme" ).text( "Activate Astra Now!" )
+						slug: addonSlug,
+						success: function( successMessage ) {
+							console.log( successMessage );
+							// callback( res );
+						},
+						error: function( xhr, ajaxOptions, thrownerror ) {
+							console.log( xhr.errorCode );							
+							if ( 'folder_exists' === xhr.errorCode ) {
+								console.log( "folder exists" );
+							} else {
+								console.log( thrownerror );
+							}
+						},
+					}).always( function ( result ) {
+						callback( res );
 					});
 
-					// $document.on('wp-plugin-install-success', function (response) {
-					// 	let plugin_slug = response.currentTarget.activeElement.dataset.slug;
-					// 	self.offer_setting.activate_next_move_request(plugin_slug);
-					// 	self.offer_setting.nextMoveInstallState = 1;
-
-					// });
 				} else if( 'plugin' === action ) {
 					wp.updates.installPlugin ( {
 						slug: addonSlug
@@ -434,13 +450,6 @@
 				}
 
 			} else if( 'activate' === state )  {
-				var data = {
-					action: action,
-					nonce: hfe_admin_data.nonce,
-					plugin: plugin,
-					type: addonType,
-					slug: addonSlug
-				};
 		
 				$.post( hfe_admin_data.ajax_url, data, function( res ) {
 					callback( res );
