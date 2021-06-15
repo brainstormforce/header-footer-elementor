@@ -164,42 +164,6 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			}
 		}
 
-		/**
-		 * Determine if the plugin/addon installations are allowed.
-		 *
-		 * @since x.x.x
-		 * @param string $type defines type of addon.
-		 * @return bool
-		 */
-		public function hfe_can_install( $type ) {
-
-			if ( ! in_array( $type, [ 'plugin', 'theme' ], true ) ) {
-				return false;
-			}
-
-			// Check if file modifications are allowed.
-			if ( ! wp_is_file_mod_allowed( 'hfe_can_install' ) ) {
-				return false;
-			}
-
-			if ( 'theme' === $type ) {
-				if ( ! current_user_can( 'install_themes' ) ) {
-					return false;
-				}
-
-				return true;
-
-			} elseif ( 'plugin' === $type ) {
-				if ( ! current_user_can( 'install_plugins' ) ) {
-					return false;
-				}
-
-				return true;
-			}
-
-			return false;
-		}
-
 	}
 
 	/**
