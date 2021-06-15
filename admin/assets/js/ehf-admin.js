@@ -282,6 +282,7 @@
 				plugin = $button.attr( 'data-plugin' ),
 				addonType = $button.attr( 'data-type' ),
 				addonSlug = $button.attr( 'data-slug' ),
+				addonFile = $button.attr( 'data-file' ),
 				state,
 				cssClass,
 				stateText,
@@ -338,15 +339,12 @@
 	
 				if ( res.success ) {
 					if ( 'install' === state ) {
-						$button.attr( 'data-plugin', res.data.basename );
-						successText = res.data.msg;
-						if ( ! res.data.is_activated ) {
-
-							stateText  = hfe_admin_data.addon_inactive;
-							buttonText = ( addonType === 'theme' || addonType === 'plugin' ) ? hfe_admin_data.addon_activate : settings.iconActivate + hfe_admin_data.addon_activate;
-							cssClass   = ( addonType === 'theme' || addonType === 'plugin' ) ? 'status-inactive button button-secondary' : 'status-inactive';
-						}
-
+						successText = res.msg;
+						$button.attr( 'data-plugin', addonFile );
+						
+						stateText  = hfe_admin_data.addon_inactive;
+						buttonText = ( addonType === 'theme' || addonType === 'plugin' ) ? hfe_admin_data.addon_activate : settings.iconActivate + hfe_admin_data.addon_activate;
+						cssClass   = ( addonType === 'theme' || addonType === 'plugin' ) ? 'status-inactive button button-secondary' : 'status-inactive';
 					} else {
 						successText = res.data;
 					}
@@ -361,14 +359,13 @@
 						.removeClass( 'button button-primary button-secondary disabled' )
 						.addClass( cssClass ).html( buttonText );
 				} else {
-					if ( 'object' === typeof res.data ) {
-						
-						$addon.find( '.actions' ).append( '<div class="msg error">' + hfe_admin_data.plugin_error + '</div>' );
-					} else {
-						$addon.find( '.actions' ).append( '<div class="msg error">' + res.data + '</div>' );
-					}
+					
 					if ( 'install' === state && ( addonType === 'theme' || addonType === 'plugin' ) ) {
+						$addon.find( '.actions' ).append( '<div class="msg error">' + res.msg + '</div>' );
 						$button.addClass( 'status-go-to-url' ).removeClass( 'status-download' );
+					} else {
+						var error_msg = ( 'object' === typeof res.data ) ? hfe_admin_data.plugin_error : res.data;
+						$addon.find( '.actions' ).append( '<div class="msg error">' + error_msg + '</div>' );
 					}
 
 					if( 'ultimate-elementor' === addonSlug ) {
@@ -384,7 +381,7 @@
 				// Automatically clear the messages after 3 seconds.
 				setTimeout( function() {	
 					$( '.addon-item .msg' ).remove();
-				}, 3000 );
+				}, 2000 );
 	
 			} );
 		},
@@ -406,15 +403,15 @@
 					'activate': 'hfe_activate_addon',
 					'install': '',
 				},
-				action = actions[ state ],
-				activate_addon = false;
+				action = actions[ state ];
 
-			var data = {
-				action: action,
-				nonce: hfe_admin_data.nonce,
-				plugin: plugin,
-				type: addonType,
-				slug: addonSlug
+			if ( ! action && 'install' !== state ) {
+				return;
+			}
+
+			var data_result = {
+				success : false,
+				msg : hfe_admin_data.subscribe_error,
 			};
 
 			if( 'install' === state ) {
@@ -427,29 +424,57 @@
 
 					wp.updates.installTheme ( {
 						slug: addonSlug,
-						success: function( successMessage ) {
-							console.log( successMessage );
-							// callback( res );
+						success: function() {
+							data_result.success = true;
+							data_result.msg = hfe_admin_data.theme_installed;
+							
 						},
-						error: function( xhr, ajaxOptions, thrownerror ) {
+						error: function( xhr ) {
 							console.log( xhr.errorCode );							
 							if ( 'folder_exists' === xhr.errorCode ) {
-								console.log( "folder exists" );
+								data_result.success = true;
+								data_result.msg = hfe_admin_data.addon_exists;
 							} else {
-								console.log( thrownerror );
+								data_result.success = false;
+								data_result.msg = hfe_admin_data.plugin_error;
 							}
 						},
-					}).always( function ( result ) {
-						callback( res );
+					}).always( function () {
+						callback( data_result );
 					});
 
-				} else if( 'plugin' === action ) {
+				} else if( 'plugin' === addonType ) {
+					
 					wp.updates.installPlugin ( {
-						slug: addonSlug
+						slug: addonSlug,
+						success: function() {
+							data_result.success = true;
+							data_result.msg = hfe_admin_data.plugin_installed;
+						},
+						error: function( xhr ) {
+							console.log( xhr.errorCode );							
+							if ( 'folder_exists' === xhr.errorCode ) {
+								data_result.success = true;
+								data_result.msg = hfe_admin_data.addon_exists;
+							} else {
+								data_result.success = false;
+								data_result.msg = hfe_admin_data.plugin_error;
+							}
+						},
+					}).always( function () {
+						callback( data_result );
 					});
 				}
 
 			} else if( 'activate' === state )  {
+
+				var data = {
+					action: action,
+					nonce: hfe_admin_data.nonce,
+					plugin: plugin,
+					type: addonType,
+					slug: addonSlug
+				};
 		
 				$.post( hfe_admin_data.ajax_url, data, function( res ) {
 					callback( res );
@@ -457,7 +482,6 @@
 					console.log( xhr.responseText );
 				} );
 			}
-			
 		}
 	};
 

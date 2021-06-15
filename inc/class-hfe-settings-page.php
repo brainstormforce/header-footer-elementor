@@ -65,11 +65,14 @@ class HFE_Settings_Page {
 			'addon_deactivate'  => esc_html__( 'Deactivate', 'header-footer-elementor' ),
 			'addon_inactive'    => esc_html__( 'Inactive', 'header-footer-elementor' ),
 			'addon_install'     => esc_html__( 'Install', 'header-footer-elementor' ),
+			'theme_installed'   => esc_html__( 'Theme Installed', 'header-footer-elementor' ),
+			'plugin_installed'  => esc_html__( 'Plugin Installed', 'header-footer-elementor' ),
 			'addon_download'    => esc_html__( 'Download', 'header-footer-elementor' ),
+			'addon_exists'    => esc_html__( 'Already Exists.', 'header-footer-elementor' ),
 			'visit_site'        => esc_html__( 'Visit Website', 'header-footer-elementor' ),
 			'plugin_error'      => esc_html__( 'Could not install. Please download from WordPress.org and install manually.', 'header-footer-elementor' ),
 			'subscribe_success' => esc_html__( 'Your details are submitted successfully.', 'header-footer-elementor' ),
-			'subscribe_error'   => esc_html__( 'Error encountered while submitting the form!', 'header-footer-elementor' ),
+			'subscribe_error'   => esc_html__( 'Encountered an error while performing your request.', 'header-footer-elementor' ),
 			'ajax_url'          => admin_url( 'admin-ajax.php' ),
 			'nonce'             => wp_create_nonce( 'hfe-admin-nonce' ),
 			'popup_dismiss'     => false,
@@ -606,7 +609,7 @@ class HFE_Settings_Page {
 											<span><?php echo wp_kses_post( $plugin_data['action_text'] ); ?></span>
 										</button>
 									<?php } elseif ( 'plugin' === $details['type'] && $can_install_plugins ) { ?>
-										<button class="<?php echo esc_attr( $plugin_data['action_class'] ); ?>" data-plugin="<?php echo esc_attr( $plugin_data['plugin_src'] ); ?>" data-type="plugin" data-slug="<?php echo esc_attr( $details['slug'] ); ?>" data-site="<?php echo esc_url( $details['url'] ); ?>">
+										<button class="<?php echo esc_attr( $plugin_data['action_class'] ); ?>" data-plugin="<?php echo esc_attr( $plugin_data['plugin_src'] ); ?>" data-type="plugin" data-slug="<?php echo esc_attr( $details['slug'] ); ?>" data-site="<?php echo esc_url( $details['url'] ); ?>" data-file="<?php echo esc_attr( $plugin ); ?>">
 											<span><?php echo wp_kses_post( $plugin_data['action_text'] ); ?></span>
 										</button>
 									<?php } else { ?>
