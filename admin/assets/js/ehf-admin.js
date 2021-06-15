@@ -381,7 +381,7 @@
 				// Automatically clear the messages after 3 seconds.
 				setTimeout( function() {	
 					$( '.addon-item .msg' ).remove();
-				}, 2000 );
+				}, 3000 );
 	
 			} );
 		},
