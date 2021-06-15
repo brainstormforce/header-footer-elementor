@@ -54,7 +54,7 @@ class HFE_Settings_Page {
 	 * Load admin styles on header footer elementor edit screen.
 	 */
 	public function enqueue_admin_scripts() {
-		wp_enqueue_script( 'hfe-admin-script', HFE_URL . 'admin/assets/js/ehf-admin.js', ['jquery', 'updates'], HFE_VER, true );
+		wp_enqueue_script( 'hfe-admin-script', HFE_URL . 'admin/assets/js/ehf-admin.js', [ 'jquery', 'updates' ], HFE_VER, true );
 
 		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
 
@@ -68,7 +68,7 @@ class HFE_Settings_Page {
 			'theme_installed'   => esc_html__( 'Theme Installed', 'header-footer-elementor' ),
 			'plugin_installed'  => esc_html__( 'Plugin Installed', 'header-footer-elementor' ),
 			'addon_download'    => esc_html__( 'Download', 'header-footer-elementor' ),
-			'addon_exists'    => esc_html__( 'Already Exists.', 'header-footer-elementor' ),
+			'addon_exists'      => esc_html__( 'Already Exists.', 'header-footer-elementor' ),
 			'visit_site'        => esc_html__( 'Visit Website', 'header-footer-elementor' ),
 			'plugin_error'      => esc_html__( 'Could not install. Please download from WordPress.org and install manually.', 'header-footer-elementor' ),
 			'subscribe_success' => esc_html__( 'Your details are submitted successfully.', 'header-footer-elementor' ),
