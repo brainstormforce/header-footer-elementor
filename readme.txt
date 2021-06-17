@@ -5,7 +5,7 @@ Donate link: https://www.paypal.me/BrainstormForce
 Requires at least: 4.4
 Requires PHP: 5.4
 Tested up to: 5.7
-Stable tag: 1.5.10
+Stable tag: 1.6.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -137,7 +137,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 5. Default widgets available with Elementor Header & Footer Builder.
 
 == Changelog ==
-= 1.5.10 =
+= 1.6.0 =
 - New: Added Email Subscription and About Us section on settings page.
 - New: Rename plugin to be Elementor Header & Footer Builder.
 - Improvement: Added an option to hide + & - sign added by Twenty Twenty-One Theme.
