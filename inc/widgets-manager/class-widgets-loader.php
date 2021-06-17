@@ -166,7 +166,7 @@ class Widgets_Loader {
 	 * @param object $this_cat class.
 	 */
 	public function register_widget_category( $this_cat ) {
-		$category = __( 'Header, Footer & Blocks', 'header-footer-elementor' );
+		$category = __( 'Elementor Header & Footer Builder', 'header-footer-elementor' );
 
 		$this_cat->add_category(
 			'hfe-widgets',
