@@ -98,7 +98,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		 * @since x.x.x
 		 */
 		public function get_api_domain() {
-			return apply_filters( 'hfe_api_domain', 'https://mitras11.sg-host.com/' );
+			return apply_filters( 'hfe_api_domain', 'https://websitedemos.net/' );
 		}
 
 		/**
