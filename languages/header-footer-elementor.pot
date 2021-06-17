@@ -1,5 +1,5 @@
 # Copyright (C) 2021 Brainstorm Force, Nikhil Chavan
-# This file is distributed under the same license as the Elementor - Header, Footer & Blocks package.
+# This file is distributed under the same license as the Elementor Header & Footer Builder package.
 msgid ""
 msgstr ""
 "Project-Id-Version: Elementor - Header, Footer & Blocks 1.5.9\n"
@@ -66,202 +66,469 @@ msgstr ""
 msgid "Learn More."
 msgstr ""
 
-#: admin/class-hfe-admin.php:135 admin/class-hfe-admin.php:368
+#: admin/class-hfe-admin.php:136 admin/class-hfe-admin.php:369
 msgid "Display Rules"
 msgstr ""
 
-#: admin/class-hfe-admin.php:136
+#: admin/class-hfe-admin.php:137
 msgid "Date"
 msgstr ""
 
-#: admin/class-hfe-admin.php:219 admin/class-hfe-admin.php:221
-msgid "Elementor - Header Footer & Blocks Template"
-msgstr ""
-
-#: admin/class-hfe-admin.php:220 admin/class-hfe-admin.php:222
-msgid "Elementor Header Footer & Blocks"
-msgstr ""
-
-#: admin/class-hfe-admin.php:223
-msgid "Add New"
+#. Plugin Name of the plugin/theme
+msgid "Elementor Header & Footer Builder"
 msgstr ""
 
 #: admin/class-hfe-admin.php:224
-msgid "Add New Header, Footer or Block"
+msgid "Add New"
 msgstr ""
 
 #: admin/class-hfe-admin.php:225
-msgid "New Header Footer & Blocks Template"
+msgid "Add New Header or Footer"
 msgstr ""
 
 #: admin/class-hfe-admin.php:226
-msgid "Edit Header Footer & Blocks Template"
+msgid "New Header & Footer Template"
 msgstr ""
 
 #: admin/class-hfe-admin.php:227
-msgid "View Header Footer & Blocks Template"
+msgid "Edit Header & Footer Template"
 msgstr ""
 
 #: admin/class-hfe-admin.php:228
-msgid "All Elementor Header Footer & Blocks"
+msgid "View Header & Footer Template"
 msgstr ""
 
 #: admin/class-hfe-admin.php:229
-msgid "Search Header Footer & Blocks Templates"
+msgid "All Elementor Header & Footer Builder"
 msgstr ""
 
 #: admin/class-hfe-admin.php:230
-msgid "Parent Header Footer & Blocks Templates:"
+msgid "Search Header & Footer Templates"
 msgstr ""
 
 #: admin/class-hfe-admin.php:231
-msgid "No Header Footer & Blocks Templates found."
+msgid "Parent Header & Footer Templates:"
 msgstr ""
 
 #: admin/class-hfe-admin.php:232
-msgid "No Header Footer & Blocks Templates found in Trash."
+msgid "No Header & Footer Templates found."
 msgstr ""
 
-#: admin/class-hfe-admin.php:261 admin/class-hfe-admin.php:262
-msgid "Header Footer & Blocks"
+#: admin/class-hfe-admin.php:233
+msgid "No Header & Footer Templates found in Trash."
 msgstr ""
 
-#: admin/class-hfe-admin.php:274
-msgid "Elementor - Header Footer & Block Options"
+#: admin/class-hfe-admin.php:275
+msgid "Elementor Header & Footer Builder Options"
 msgstr ""
 
-#: admin/class-hfe-admin.php:302
+#: admin/class-hfe-admin.php:303
 msgid "Type of Template"
 msgstr ""
 
-#: admin/class-hfe-admin.php:306
+#: admin/class-hfe-admin.php:307
 msgid "Select Option"
 msgstr ""
 
-#: admin/class-hfe-admin.php:307
+#: admin/class-hfe-admin.php:308
 msgid "Header"
 msgstr ""
 
-#: admin/class-hfe-admin.php:308
+#: admin/class-hfe-admin.php:309
 msgid "Before Footer"
 msgstr ""
 
-#: admin/class-hfe-admin.php:309
+#: admin/class-hfe-admin.php:310
 msgid "Footer"
 msgstr ""
 
-#: admin/class-hfe-admin.php:310
+#: admin/class-hfe-admin.php:311
 msgid "Custom Block"
 msgstr ""
 
-#: admin/class-hfe-admin.php:318 admin/class-hfe-admin.php:563
+#: admin/class-hfe-admin.php:319 admin/class-hfe-admin.php:564
 msgid "Shortcode"
 msgstr ""
 
-#: admin/class-hfe-admin.php:319
+#: admin/class-hfe-admin.php:320
 msgid ""
 "Copy this shortcode and paste it into your post, page, or text widget "
 "content."
 msgstr ""
 
-#: admin/class-hfe-admin.php:331
+#: admin/class-hfe-admin.php:332
 msgid "Enable Layout for Elementor Canvas Template?"
 msgstr ""
 
-#: admin/class-hfe-admin.php:333
+#: admin/class-hfe-admin.php:334
 msgid ""
 "Enabling this option will display this layout on pages using Elementor "
 "Canvas Template."
 msgstr ""
 
-#: admin/class-hfe-admin.php:359
+#: admin/class-hfe-admin.php:360
 msgid "Display On"
 msgstr ""
 
-#: admin/class-hfe-admin.php:361
+#: admin/class-hfe-admin.php:362
 msgid "Add locations for where this template should appear."
 msgstr ""
 
-#: admin/class-hfe-admin.php:372
+#: admin/class-hfe-admin.php:373
 msgid "Add Display Rule"
 msgstr ""
 
-#: admin/class-hfe-admin.php:381
+#: admin/class-hfe-admin.php:382
 msgid "Do Not Display On"
 msgstr ""
 
-#: admin/class-hfe-admin.php:383
+#: admin/class-hfe-admin.php:384
 msgid "Add locations for where this template should not appear."
 msgstr ""
 
-#: admin/class-hfe-admin.php:390
+#: admin/class-hfe-admin.php:391
 msgid "Exclude On"
 msgstr ""
 
-#: admin/class-hfe-admin.php:393
+#: admin/class-hfe-admin.php:394
 #: inc/lib/target-rule/class-astra-target-rules-fields.php:846
 msgid "Add Exclusion Rule"
 msgstr ""
 
-#: admin/class-hfe-admin.php:403
+#: admin/class-hfe-admin.php:404
 msgid "User Roles"
 msgstr ""
 
-#: admin/class-hfe-admin.php:404
+#: admin/class-hfe-admin.php:405
 msgid "Display custom template based on user role."
 msgstr ""
 
-#: admin/class-hfe-admin.php:411
+#: admin/class-hfe-admin.php:412
 msgid "Users"
 msgstr ""
 
-#: admin/class-hfe-admin.php:414
+#: admin/class-hfe-admin.php:415
 msgid "Add User Rule"
 msgstr ""
 
-#: admin/class-hfe-admin.php:494
+#: admin/class-hfe-admin.php:495
 #. Translators: Post title, Template Location
 msgid "Template %1$s is already assigned to the location %2$s"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:163
+#: inc/class-header-footer-elementor.php:152
 msgid ""
-"Hello! Seems like you have used Elementor - Header, Footer & Blocks to "
-"build this website — Thanks a ton!"
+"Hello! Seems like you have used Elementor Header & Footer Builder to build "
+"this website — Thanks a ton!"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:164
+#: inc/class-header-footer-elementor.php:153
 msgid ""
 "Could you please do us a BIG favor and give it a 5-star rating on "
 "WordPress? This would boost our motivation and help other users make a "
-"comfortable decision while choosing the Elementor - Header, Footer & Blocks."
+"comfortable decision while choosing the Elementor Header & Footer Builder."
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:166
+#: inc/class-header-footer-elementor.php:155
 msgid "Ok, you deserve it"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:168
+#: inc/class-header-footer-elementor.php:157
 msgid "Nope, maybe later"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:169
+#: inc/class-header-footer-elementor.php:158
 msgid "I already did"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:204
+#: inc/class-header-footer-elementor.php:193
 #. translators: %s: html tags
 msgid ""
-"The %1$sElementor - Header Footer and Blocks%2$s plugin requires "
+"The %1$sElementor Header & Footer Builder%2$s plugin requires "
 "%1$sElementor%2$s plugin installed & activated."
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:211
+#: inc/class-header-footer-elementor.php:200
 msgid "Activate Elementor"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:216
+#: inc/class-header-footer-elementor.php:205
 msgid "Install Elementor"
+msgstr ""
+
+#: inc/class-header-footer-elementor.php:232
+#. translators: %s: html tags
+msgid ""
+"Thank you for installing %1$s Elementor Header & Footer Builder %2$s by "
+"Brainstorm Force. %3$sLet's get started! %4$s"
+msgstr ""
+
+#: inc/class-header-footer-elementor.php:390
+#. translators: %s: html tags
+msgid "Theme Support"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:62
+msgid "Thank you for subscribing with us!"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:63
+msgid "Error encountered while submitting the form!"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:108
+msgid "Add Theme Support"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:125
+msgid ""
+"The Elementor Header & Footer Builder plugin need compatibility with your "
+"current theme to work smoothly.</br></br>Following are two methods that "
+"enable theme support for the plugin.</br></br>Method 1 is selected by "
+"default and that works fine almost will all themes. In case, you face any "
+"issue with the header or footer template, try choosing Method 2."
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:142
+msgid " Method 1 (Recommended)"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:143
+msgid ""
+"This method replaces your theme's header (header.php) & footer (footer.php) "
+"template with plugin's custom templates."
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:146
+msgid "Method 2"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:159
+msgid ""
+"Sometimes above methods might not work well with your theme, in this case, "
+"contact your theme author and request them to add support for the <a "
+"href=\"https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-"
+"Header-Footer-Elementor-support-for-your-theme\">plugin.</>"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:178 inc/class-hfe-settings-page.php:179
+#: inc/class-hfe-settings-page.php:801
+msgid "Settings"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:187 inc/class-hfe-settings-page.php:188
+#: inc/class-hfe-settings-page.php:278
+msgid "Step-By-Step Guide"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:196 inc/class-hfe-settings-page.php:197
+#: inc/class-hfe-settings-page.php:283
+msgid "About Us"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:229
+msgid "Elementor Header & Footer Builder "
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:270
+msgid "All Templates"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:329
+#. translators: 1: Elementor, 2: Link to plugin review
+msgid ""
+"Please rate our plugin %1$s on %2$s to help us spread the word. Thank you "
+"from Brainstorm Force team!"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:373
+msgid "Learn the Art of Designing Custom Header & Footer"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:375 inc/class-hfe-settings-page.php:576
+msgid "Team photo"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:378
+msgid "Get Creative Header & Footer Examples"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:379
+msgid ""
+"Create header and footer designs for your site. Lorem ipsum dolor sit amet, "
+"consectetur adipiscing elit. Quisque velit nisi, pretium ut lacinia in, "
+"elementum id enim."
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:388
+msgid "Get Inspiring & Creative Header & Footer Examples."
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:432
+msgid "Beginner"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:433
+msgid "Intermediate"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:434
+msgid "Expert"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:436 inc/class-hfe-settings-page.php:445
+msgid "Field is required"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:437
+msgid "I'm a WordPress:"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:442
+msgid "Myself/My company"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:443
+msgid "My client"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:446
+msgid "I'm building website for:"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:472
+msgid "First name is required"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:473
+msgid "Your First Name"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:477
+msgid "Email address is required"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:478
+msgid "Your Work Email"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:483
+msgid "Download This Guide & Start Brainstorming"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:488
+#. translators: %1$s and %3$s are opening anchor tags, and %2$s and %4$s is
+#. closing anchor tags.
+msgid "By submitting, you agree to our %1$sTerms%2$s and %3$sPrivacy Policy%4$s."
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:490
+msgid "Skip"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:544
+msgid "Hello and Welcome to Elementor Header & Footer Builder."
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:546
+msgid ""
+"Pellentesque in ipsum id orci porta dapibus. Vestibulum ac diam sit amet "
+"quam vehicula elementum sed sit amet dui. Nulla quis lorem ut libero "
+"malesuada feugiat. Curabitur aliquet quam id dui posuere blandit."
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:547
+msgid "Our goal is to make header & footer design easy in Elementor."
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:553
+#. translators: %1$s - WPBeginner URL; %2$s - OptinMonster URL; %3$s -
+#. MonsterInsights URL; %4$s - RafflePress URL.
+msgid ""
+"Elementor Header & Footer Builder is brought to you by the same team that’s "
+"behind the largest WordPress plugins, <a href=\"%1$s\" target=\"_blank\" "
+"rel=\"noopener noreferrer\">Ultimate Addons for Gutenberg</a>, the most "
+"popular lead-generation software, <a href=\"%2$s\" target=\"_blank\" "
+"rel=\"noopener noreferrer\">Ultimate Addons for Beaver Builder</a>, the "
+"best WordPress analytics plugin, <a href=\"%3$s\" target=\"_blank\" "
+"rel=\"noopener noreferrer\">All in One Schema</a>, and the most powerful "
+"WordPress Theme, <a href=\"%4$s\" target=\"_blank\" rel=\"noopener "
+"noreferrer\">Astra Theme</a>."
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:570
+msgid ""
+"Yup, we know a thing or two about building awesome products that customers "
+"love."
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:578
+msgid "The Brainstorm Force Team"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:622
+#. translators: %s - addon status label.
+msgid "%1$s Visit Website %2$s"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:675
+#: inc/widgets-manager/widgets/class-navigation-menu.php:1028
+#: inc/widgets-manager/widgets/class-navigation-menu.php:1210
+msgid "Active"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:678
+msgid "Activated"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:683
+msgid "Inactive"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:686
+msgid "Activate"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:696
+msgid "Not Installed"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:699
+msgid "Install Plugin"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:723
+msgid "Astra Theme"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:724
+msgid ""
+"Astra is fast, fully customizable & beautiful WordPress theme suitable for "
+"blog, personal portfolio, business website and WooCommerce storefront."
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:731
+msgid "Starter Templates"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:732
+msgid ""
+"The Starter Templates plugin offers ready website templates. The Starter "
+"Templates plugin is currently powering 900,000k+ WordPress websites."
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:739
+msgid "Ultimate Addons for Elementor"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:740
+msgid ""
+"The Ultimate Addons for Elementor plugin offers unique, creative and "
+"optimized widgets that would enhance the page builder with more features."
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:800
+msgid "Go to HFE Settings page"
 msgstr ""
 
 #: inc/lib/notices/class-astra-notices.php:120
@@ -419,12 +686,20 @@ msgstr ""
 msgid "The same display setting is already exist in %s post/s."
 msgstr ""
 
+<<<<<<< HEAD
+#: inc/widgets-manager/class-widgets-loader.php:223
+=======
 #: inc/widgets-manager/class-widgets-loader.php:169
 msgid "Header, Footer & Blocks"
 msgstr ""
 
 #: inc/widgets-manager/class-widgets-loader.php:234
+<<<<<<< HEAD
+>>>>>>> 48fcce5839945e63c1feeec8d09653a17df36269
+#: inc/widgets-manager/widgets/class-cart.php:53
+=======
 #: inc/widgets-manager/widgets/class-cart.php:51
+>>>>>>> a0596ac5b3e72a278056141e457a0d9ae744e2e2
 #: inc/widgets-manager/widgets/class-cart.php:661
 msgid "Cart"
 msgstr ""
@@ -1017,12 +1292,16 @@ msgstr ""
 msgid "Link Hover Effect Color"
 msgstr ""
 
+<<<<<<< HEAD
+#: inc/widgets-manager/widgets/class-navigation-menu.php:1099
+=======
 #: inc/widgets-manager/widgets/class-navigation-menu.php:1027
 #: inc/widgets-manager/widgets/class-navigation-menu.php:1209
 msgid "Active"
 msgstr ""
 
 #: inc/widgets-manager/widgets/class-navigation-menu.php:1098
+>>>>>>> a0596ac5b3e72a278056141e457a0d9ae744e2e2
 msgid "Dropdown"
 msgstr ""
 
@@ -1400,67 +1679,6 @@ msgstr ""
 
 #: inc/widgets-manager/widgets/class-site-title.php:123
 msgid "General"
-msgstr ""
-
-#: themes/default/class-hfe-fallback-theme-support.php:65
-msgid "Add Theme Support"
-msgstr ""
-
-#: themes/default/class-hfe-fallback-theme-support.php:78
-msgid ""
-"The Elementor - Header, Footer & Blocks plugin need compatibility with your "
-"current theme to work smoothly.</br></br>Following are two methods that "
-"enable theme support for the plugin.</br></br>Method 1 is selected by "
-"default and that works fine almost will all themes. In case, you face any "
-"issue with the header or footer template, try choosing Method 2."
-msgstr ""
-
-#: themes/default/class-hfe-fallback-theme-support.php:95
-msgid " Method 1 (Recommended)"
-msgstr ""
-
-#: themes/default/class-hfe-fallback-theme-support.php:96
-msgid ""
-"This method replaces your theme's header (header.php) & footer (footer.php) "
-"template with plugin's custom templates."
-msgstr ""
-
-#: themes/default/class-hfe-fallback-theme-support.php:99
-msgid "Method 2"
-msgstr ""
-
-#: themes/default/class-hfe-fallback-theme-support.php:112
-msgid ""
-"Sometimes above methods might not work well with your theme, in this case, "
-"contact your theme author and request them to add support for the <a "
-"href=\"https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-"
-"Header-Footer-Elementor-support-for-your-theme\">plugin.</>"
-msgstr ""
-
-#: themes/default/class-hfe-fallback-theme-support.php:147
-#: themes/default/class-hfe-fallback-theme-support.php:148
-msgid "Settings"
-msgstr ""
-
-#: themes/default/class-hfe-fallback-theme-support.php:164
-msgid "Elementor - Header, Footer & Blocks "
-msgstr ""
-
-#: themes/default/class-hfe-fallback-theme-support.php:172
-msgid "All Templates"
-msgstr ""
-
-#: themes/default/class-hfe-fallback-theme-support.php:176
-#: themes/default/class-hfe-fallback-theme-support.php:217
-msgid "Theme Support"
-msgstr ""
-
-#: themes/default/class-hfe-fallback-theme-support.php:213
-msgid "All templates"
-msgstr ""
-
-#. Plugin Name of the plugin/theme
-msgid "Elementor - Header, Footer & Blocks"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
