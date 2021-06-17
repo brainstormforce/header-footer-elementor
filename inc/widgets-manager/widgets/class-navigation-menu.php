@@ -1920,7 +1920,7 @@ class Navigation_Menu extends Widget_Base {
 			$this->add_render_attribute( 'hfe-nav-menu', 'itemtype', 'http://schema.org/SiteNavigationElement' );
 
 			add_filter( 'hfe_nav_menu_attrs', [ $this, 'handle_link_attrs' ] );
-			add_filter( 'nav_menu_li_values', [ $this, 'handle_li_values'] );
+			add_filter( 'nav_menu_li_values', [ $this, 'handle_li_values' ] );
 		}
 
 		$menu_html = wp_nav_menu( $args );
