@@ -458,7 +458,7 @@ class Header_Footer_Elementor {
 	/**
 	 * Display Settings Page options
 	 *
-	 * @since x.x.x
+	 * @since 1.5.10
 	 */
 	public function setup_settings_page() {
 
@@ -591,7 +591,7 @@ if ( ! function_exists( '_is_elementor_installed' ) ) {
 	/**
 	 * Check if Elementor is installed
 	 *
-	 * @since x.x.x
+	 * @since 1.5.10
 	 *
 	 * @access public
 	 */

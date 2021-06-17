@@ -2,7 +2,7 @@
 /**
  * Install Skin class.
  *
- * @since x.x.x
+ * @since 1.5.10
  *
  * @package header-footer-elementor
  */
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Plugin installation skin.
  *
- * @since x.x.x
+ * @since 1.5.10
  */
 class HFE_Skin_Install extends WP_Upgrader_Skin {
 
@@ -23,14 +23,14 @@ class HFE_Skin_Install extends WP_Upgrader_Skin {
 	 * Empty out the header of its HTML content and only check to see if it has
 	 * been performed or not.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.10
 	 */
 	public function header() {}
 
 	/**
 	 * Empty out the footer of its HTML contents.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.10
 	 */
 	public function footer() {}
 
@@ -38,7 +38,7 @@ class HFE_Skin_Install extends WP_Upgrader_Skin {
 	 * Instead of outputting HTML for errors, json_encode the errors and send them
 	 * back to the Ajax script for processing.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.10
 	 *
 	 * @param array $errors Array of errors with the install process.
 	 */
@@ -52,7 +52,7 @@ class HFE_Skin_Install extends WP_Upgrader_Skin {
 	 * Empty out the feedback method to prevent outputting HTML strings as the install
 	 * is progressing.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.10
 	 *
 	 * @param string $string The feedback string.
 	 * @param mixed  ...$args Optional arguments.
@@ -62,7 +62,7 @@ class HFE_Skin_Install extends WP_Upgrader_Skin {
 	/**
 	 * Empty out JavaScript output that calls function to decrement the update counts.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.10
 	 *
 	 * @param string $type Type of update count to decrement.
 	 */

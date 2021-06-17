@@ -1837,7 +1837,7 @@ class Navigation_Menu extends Widget_Base {
 	/**
 	 * Add itemprop to the li tag of Navigation Schema.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.10
 	 * @param string $value link attributes.
 	 * @access public
 	 */

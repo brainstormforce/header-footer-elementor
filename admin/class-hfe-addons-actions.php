@@ -14,7 +14,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 	/**
 	 * Initialization
 	 *
-	 * @since x.x.x
+	 * @since 1.5.10
 	 */
 	class HFE_Addons_Actions {
 
@@ -47,7 +47,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		/**
 		 * Open modal popup.
 		 *
-		 * @since x.x.x
+		 * @since 1.5.10
 		 */
 		public function hfe_admin_modal() {
 
@@ -60,7 +60,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		/**
 		 * Update Subscription
 		 *
-		 * @since x.x.x
+		 * @since 1.5.10
 		 */
 		public function update_subscription() {
 
@@ -95,7 +95,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		/**
 		 * Get the API URL.
 		 *
-		 * @since x.x.x
+		 * @since 1.5.10
 		 */
 		public function get_api_domain() {
 			return apply_filters( 'hfe_api_domain', 'https://websitedemos.net/' );
@@ -104,7 +104,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		/**
 		 * Activate addon.
 		 *
-		 * @since x.x.x
+		 * @since 1.5.10
 		 */
 		public function hfe_activate_addon() {
 

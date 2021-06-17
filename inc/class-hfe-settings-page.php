@@ -4,7 +4,7 @@
  *
  * Add plugin setting page.
  *
- * @since x.x.x
+ * @since 1.5.10
  * @package hfe
  */
 
@@ -13,14 +13,14 @@ namespace HFE\Themes;
 /**
  * Class Settings Page.
  *
- * @since x.x.x
+ * @since 1.5.10
  */
 class HFE_Settings_Page {
 
 	/**
 	 * Constructor.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.10
 	 */
 	public function __construct() {
 		$this->setup_fallback_support();
@@ -43,7 +43,7 @@ class HFE_Settings_Page {
 	/**
 	 * Adds CSS to Hide the extra submenu added for the settings tab.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.10
 	 * @return void
 	 */
 	public function hfe_global_css() {
@@ -92,7 +92,7 @@ class HFE_Settings_Page {
 	/**
 	 * Adds a tab in plugin submenu page.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.10
 	 * @param string $views to add tab to current post type view.
 	 *
 	 * @return mixed
@@ -117,7 +117,7 @@ class HFE_Settings_Page {
 	/**
 	 * Function for registering the settings api.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.10
 	 * @return void
 	 */
 	public function hfe_admin_init() {
@@ -135,7 +135,7 @@ class HFE_Settings_Page {
 	 *
 	 * This function can be used to add description of the settings sections
 	 *
-	 * @since x.x.x
+	 * @since 1.5.10
 	 * @return void
 	 */
 	public function hfe_compatibility_callback() {
@@ -147,7 +147,7 @@ class HFE_Settings_Page {
 	 *
 	 * This function will contain the markup for the input feilds that we can add.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.10
 	 * @return void
 	 */
 	public function hfe_compatibility_option_callback() {
@@ -185,7 +185,7 @@ class HFE_Settings_Page {
 	/**
 	 * Show a settings page incase of unsupported theme.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.10
 	 *
 	 * @return void
 	 */
@@ -232,7 +232,7 @@ class HFE_Settings_Page {
 	 *
 	 * Call back function for add submenu page function.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.10
 	 */
 	public function hfe_settings_page() {
 		echo '<h1 class="hfe-heading-inline">';
@@ -261,7 +261,7 @@ class HFE_Settings_Page {
 	/**
 	 * Function for adding tabs
 	 *
-	 * @since x.x.x
+	 * @since 1.5.10
 	 * @return void
 	 */
 	public function hfe_tabs() {
@@ -307,7 +307,7 @@ class HFE_Settings_Page {
 	 *
 	 * Fired by `admin_footer_text` filter.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.10
 	 * @access public
 	 *
 	 * @param string $footer_text The content that will be printed.
@@ -335,7 +335,7 @@ class HFE_Settings_Page {
 	/**
 	 * Function for theme support tab
 	 *
-	 * @since x.x.x
+	 * @since 1.5.10
 	 * @return void
 	 */
 	public function get_themes_support() {
@@ -351,7 +351,7 @@ class HFE_Settings_Page {
 	/**
 	 * Function for Step-By-Step guide
 	 *
-	 * @since x.x.x
+	 * @since 1.5.10
 	 * @return void
 	 */
 	public function get_guide_html() {
@@ -391,7 +391,7 @@ class HFE_Settings_Page {
 	/**
 	 * Function for form HTML
 	 *
-	 * @since x.x.x
+	 * @since 1.5.10
 	 * @return void
 	 */
 	public function get_form_html() {
@@ -405,7 +405,7 @@ class HFE_Settings_Page {
 	/**
 	 * Function for form Row 1 HTML
 	 *
-	 * @since x.x.x
+	 * @since 1.5.10
 	 * @return void
 	 */
 	public function get_form_row_1() {
@@ -444,7 +444,7 @@ class HFE_Settings_Page {
 	/**
 	 * Function for form Row 2 HTML
 	 *
-	 * @since x.x.x
+	 * @since 1.5.10
 	 * @return void
 	 */
 	public function get_form_row_2() {
@@ -475,7 +475,7 @@ class HFE_Settings_Page {
 	/**
 	 * Function for Step-By-Step guide modal popup
 	 *
-	 * @since x.x.x
+	 * @since 1.5.10
 	 * @return void
 	 */
 	public function get_guide_modal() {
@@ -499,7 +499,7 @@ class HFE_Settings_Page {
 	/**
 	 * Function for About us HTML
 	 *
-	 * @since x.x.x
+	 * @since 1.5.10
 	 * @return void
 	 */
 	public function get_about_html() {
@@ -510,7 +510,7 @@ class HFE_Settings_Page {
 	/**
 	 * Display the General Info section of About tab.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.10
 	 */
 	protected function output_about_info() {
 		?>
@@ -546,7 +546,7 @@ class HFE_Settings_Page {
 	/**
 	 * Display the Addons section of About tab.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.10
 	 */
 	protected function output_about_addons() {
 
@@ -631,7 +631,7 @@ class HFE_Settings_Page {
 	/**
 	 * Get plugin data to display in the Addons section of About tab.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.10
 	 *
 	 * @param string $addon      Plugin/Theme slug.
 	 * @param array  $details     Plugin details.
@@ -699,7 +699,7 @@ class HFE_Settings_Page {
 	/**
 	 * List of plugins that we propose to install.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.10
 	 *
 	 * @return array
 	 */
@@ -750,7 +750,7 @@ class HFE_Settings_Page {
 	/**
 	 * Determine if the plugin/addon installations are allowed.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.10
 	 * @param string $type defines addon type.
 	 * @return bool
 	 */
@@ -786,7 +786,7 @@ class HFE_Settings_Page {
 	/**
 	 * Add settings link to the Plugins page.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.10
 	 *
 	 * @param array $links Plugin row links.
 	 *
