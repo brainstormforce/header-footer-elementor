@@ -5,7 +5,7 @@
 **Requires at least:** 4.4  
 **Requires PHP:** 5.4  
 **Tested up to:** 5.7  
-**Stable tag:** 1.5.10
+**Stable tag:** 1.5.10  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -138,11 +138,12 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 ## Changelog ##
 ### 1.5.10 ###
-- Improvement: Added an option to hide + & - sign added by Twenty Twenty-One Theme.
 - New: Added Email Subscription and About Us section on settings page.
 - New: Rename plugin to be Elementor Header & Footer Builder.
+- Improvement: Added an option to hide + & - sign added by Twenty Twenty-One Theme.
 - Fix: Navigation Menu - Top distance option for dropdown adding a top margin to sub-menu.
 - Fix: Navigation Menu - Fixed active color issues in case of full page anchor links used in nav links.
+- Fix: Navigation Menu - Navigation schema not working.
 
 ### 1.5.9 ###
 - Improvement: Added notice to update Elementor to v3.0.0 or higher
