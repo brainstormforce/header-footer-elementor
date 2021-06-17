@@ -1826,12 +1826,25 @@ class Navigation_Menu extends Widget_Base {
 	 *
 	 * @since 1.5.2
 	 * @param string $atts link attributes.
-	 * @access protected
+	 * @access public
 	 */
 	public function handle_link_attrs( $atts ) {
 
 		$atts .= ' itemprop="url"';
 		return $atts;
+	}
+
+	/**
+	 * Add itemprop to the li tag of Navigation Schema.
+	 *
+	 * @since x.x.x
+	 * @param string $value link attributes.
+	 * @access public
+	 */
+	public function handle_li_values( $value ) {
+
+		$value .= ' itemprop="name"';
+		return $value;
 	}
 
 	/**
@@ -1907,6 +1920,7 @@ class Navigation_Menu extends Widget_Base {
 			$this->add_render_attribute( 'hfe-nav-menu', 'itemtype', 'http://schema.org/SiteNavigationElement' );
 
 			add_filter( 'hfe_nav_menu_attrs', [ $this, 'handle_link_attrs' ] );
+			add_filter( 'nav_menu_li_values', [ $this, 'handle_li_values' ] );
 		}
 
 		$menu_html = wp_nav_menu( $args );

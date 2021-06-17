@@ -87,6 +87,7 @@ class HFE_Admin {
 		if ( is_admin() ) {
 			add_action( 'manage_elementor-hf_posts_custom_column', [ $this, 'column_content' ], 10, 2 );
 			add_filter( 'manage_elementor-hf_posts_columns', [ $this, 'column_headings' ] );
+			require_once HFE_DIR . 'admin/class-hfe-addons-actions.php';
 		}
 	}
 	/**
@@ -212,24 +213,24 @@ class HFE_Admin {
 
 
 	/**
-	 * Register Post type for header footer & blocks templates
+	 * Register Post type for Elementor Header & Footer Builder templates
 	 */
 	public function header_footer_posttype() {
 		$labels = [
-			'name'               => __( 'Elementor - Header Footer & Blocks Template', 'header-footer-elementor' ),
-			'singular_name'      => __( 'Elementor Header Footer & Blocks', 'header-footer-elementor' ),
-			'menu_name'          => __( 'Elementor - Header Footer & Blocks Template', 'header-footer-elementor' ),
-			'name_admin_bar'     => __( 'Elementor Header Footer & Blocks', 'header-footer-elementor' ),
+			'name'               => __( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
+			'singular_name'      => __( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
+			'menu_name'          => __( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
+			'name_admin_bar'     => __( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
 			'add_new'            => __( 'Add New', 'header-footer-elementor' ),
-			'add_new_item'       => __( 'Add New Header, Footer or Block', 'header-footer-elementor' ),
-			'new_item'           => __( 'New Header Footer & Blocks Template', 'header-footer-elementor' ),
-			'edit_item'          => __( 'Edit Header Footer & Blocks Template', 'header-footer-elementor' ),
-			'view_item'          => __( 'View Header Footer & Blocks Template', 'header-footer-elementor' ),
-			'all_items'          => __( 'All Elementor Header Footer & Blocks', 'header-footer-elementor' ),
-			'search_items'       => __( 'Search Header Footer & Blocks Templates', 'header-footer-elementor' ),
-			'parent_item_colon'  => __( 'Parent Header Footer & Blocks Templates:', 'header-footer-elementor' ),
-			'not_found'          => __( 'No Header Footer & Blocks Templates found.', 'header-footer-elementor' ),
-			'not_found_in_trash' => __( 'No Header Footer & Blocks Templates found in Trash.', 'header-footer-elementor' ),
+			'add_new_item'       => __( 'Add New Header or Footer', 'header-footer-elementor' ),
+			'new_item'           => __( 'New Template', 'header-footer-elementor' ),
+			'edit_item'          => __( 'Edit Template', 'header-footer-elementor' ),
+			'view_item'          => __( 'View Template', 'header-footer-elementor' ),
+			'all_items'          => __( 'All Templates', 'header-footer-elementor' ),
+			'search_items'       => __( 'Search Templates', 'header-footer-elementor' ),
+			'parent_item_colon'  => __( 'Parent Templates:', 'header-footer-elementor' ),
+			'not_found'          => __( 'No Templates found.', 'header-footer-elementor' ),
+			'not_found_in_trash' => __( 'No Templates found in Trash.', 'header-footer-elementor' ),
 		];
 
 		$args = [
@@ -249,17 +250,17 @@ class HFE_Admin {
 	}
 
 	/**
-	 * Register the admin menu for Header Footer & Blocks builder.
+	 * Register the admin menu for Elementor Header & Footer Builder.
 	 *
 	 * @since  1.0.0
 	 * @since  1.0.1
-	 *         Moved the menu under Appearance -> Header Footer & Blocks Builder
+	 *         Moved the menu under Appearance -> Elementor Header & Footer Builder
 	 */
 	public function register_admin_menu() {
 		add_submenu_page(
 			'themes.php',
-			__( 'Header Footer & Blocks', 'header-footer-elementor' ),
-			__( 'Header Footer & Blocks', 'header-footer-elementor' ),
+			__( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
+			__( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
 			'edit_pages',
 			'edit.php?post_type=elementor-hf'
 		);
@@ -271,7 +272,7 @@ class HFE_Admin {
 	function ehf_register_metabox() {
 		add_meta_box(
 			'ehf-meta-box',
-			__( 'Elementor - Header Footer & Block Options', 'header-footer-elementor' ),
+			__( 'Elementor Header & Footer Builder Options', 'header-footer-elementor' ),
 			[
 				$this,
 				'efh_metabox_render',
@@ -516,7 +517,7 @@ class HFE_Admin {
 	}
 
 	/**
-	 * Don't display the elementor header footer & blocks templates on the frontend for non edit_posts capable users.
+	 * Don't display the elementor Elementor Header & Footer Builder templates on the frontend for non edit_posts capable users.
 	 *
 	 * @since  1.0.0
 	 */
