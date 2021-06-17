@@ -70,14 +70,16 @@
 		var menu_items_links = $( '.elementor-element-' + id + ' .hfe-nav-menu nav li a' );
 		menu_items_links.each(
 			function () {
-				if ($( this ).is( '[href*="#"]' )) {
-					$( this ).parent().removeClass( 'current-menu-item current-menu-ancestor' );
-					$( this ).click(
+				var $this = $( this );
+				if ($this.is( '[href*="#"]' )) {
+					var menu_item_parent = $this.parent();
+					menu_item_parent.removeClass( 'current-menu-item current-menu-ancestor' );
+					$this.click(
 						function () {
-							var current_index = $( this ).parent().index(),
-							parent_element    = $( this ).closest( 'ul' );
+							var current_index = menu_item_parent.index(),
+							parent_element    = $this.closest( 'ul' );
 							parent_element.find( 'li' ).not( ':eq(' + current_index + ')' ).removeClass( 'current-menu-item current-menu-ancestor' );
-							$( this ).parent().addClass( 'current-menu-item current-menu-ancestor' );
+							menu_item_parent.addClass( 'current-menu-item current-menu-ancestor' );
 						}
 					)
 				}

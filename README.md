@@ -137,7 +137,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 5. Default widgets available with Elementor Header & Footer Builder.
 
 ## Changelog ##
-### 1.5.9.1 ###
+### 1.5.10 ###
 - Improvement: Added an option to hide + & - sign added by Twenty Twenty-One Theme.
 - New: Added Email Subscription and About Us section on settings page.
 - New: Rename plugin to be Elementor Header & Footer Builder.
