@@ -371,17 +371,16 @@ select.hfe-subscribe-field {
   margin: 0;
 }
 .hfe-admin-addons .addon-item img {
-  /* border: 1px solid #eee; */
   float: left;
   max-width: 80px;
 }
 .hfe-admin-addons .addon-item h5 {
-  margin: 0 0 15px 100px;
+  margin: 0 0 15px 90px;
   font-size: 17px;
   line-height: 1.4em;
 }
 .hfe-admin-addons .addon-item p {
-  margin: 0 0 0 100px;
+  margin: 0 0 0 90px;
 }
 .hfe-admin-addons .website-link {
     color: inherit;
