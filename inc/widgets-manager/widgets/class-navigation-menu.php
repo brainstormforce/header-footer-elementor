@@ -210,7 +210,6 @@ class Navigation_Menu extends Widget_Base {
 					'options'      => $menus,
 					'default'      => array_keys( $menus )[0],
 					'save_default' => true,
-					'separator'    => 'after',
 					/* translators: %s Nav menu URL */
 					'description'  => sprintf( __( 'Go to the <a href="%s" target="_blank">Menus screen</a> to manage your menus.', 'header-footer-elementor' ), admin_url( 'nav-menus.php' ) ),
 				]
@@ -222,7 +221,6 @@ class Navigation_Menu extends Widget_Base {
 					'type'            => Controls_Manager::RAW_HTML,
 					/* translators: %s Nav menu URL */
 					'raw'             => sprintf( __( '<strong>There are no menus in your site.</strong><br>Go to the <a href="%s" target="_blank">Menus screen</a> to create one.', 'header-footer-elementor' ), admin_url( 'nav-menus.php?action=edit&menu=0' ) ),
-					'separator'       => 'after',
 					'content_classes' => 'elementor-panel-alert elementor-panel-alert-info',
 				]
 			);
@@ -231,13 +229,16 @@ class Navigation_Menu extends Widget_Base {
 		$this->add_control(
 			'menu_last_item',
 			[
-				'label'   => __( 'Last Menu Item', 'header-footer-elementor' ),
-				'type'    => Controls_Manager::SELECT,
-				'options' => [
+				'label'     => __( 'Last Menu Item', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SELECT,
+				'options'   => [
 					'none' => __( 'Default', 'header-footer-elementor' ),
 					'cta'  => __( 'Button', 'header-footer-elementor' ),
 				],
-				'default' => 'none',
+				'default'   => 'none',
+				'condition' => [
+					'layout!' => 'expandible',
+				],
 			]
 		);
 
@@ -251,6 +252,7 @@ class Navigation_Menu extends Widget_Base {
 				'return_value' => 'yes',
 				'default'      => 'no',
 				'render_type'  => 'template',
+				'separator'    => 'before',
 			]
 		);
 
@@ -1288,8 +1290,8 @@ class Navigation_Menu extends Widget_Base {
 					'selector' => '{{WRAPPER}} nav.hfe-nav-menu__layout-horizontal .sub-menu,
 							{{WRAPPER}} nav:not(.hfe-nav-menu__layout-horizontal) .sub-menu.sub-menu-open,
 							{{WRAPPER}} nav.hfe-dropdown .hfe-nav-menu,
-						 	{{WRAPPER}} nav.hfe-dropdown-expandible .hfe-nav-menu,
-						 	{{WRAPPER}} .hfe-flyout-wrapper .hfe-flyout-container .hfe-nav-menu',
+						 	{{WRAPPER}} nav.hfe-dropdown-expandible .hfe-nav-menu ul.sub-menu,
+						 	{{WRAPPER}} .hfe-flyout-wrapper .hfe-flyout-container .hfe-nav-menu ul.sub-menu',
 				]
 			);
 
@@ -1410,7 +1412,7 @@ class Navigation_Menu extends Widget_Base {
 						],
 					],
 					'selectors' => [
-						'{{WRAPPER}} nav.hfe-nav-menu__layout-horizontal:not(.hfe-dropdown) ul.sub-menu, {{WRAPPER}} nav.hfe-nav-menu__layout-expandible.menu-is-active' => 'margin-top: {{SIZE}}px;',
+						'{{WRAPPER}} nav.hfe-nav-menu__layout-horizontal:not(.hfe-dropdown) ul.sub-menu, {{WRAPPER}} nav.hfe-nav-menu__layout-expandible.menu-is-active, {{WRAPPER}} nav.hfe-nav-menu__layout-vertical:not(.hfe-dropdown) ul.sub-menu' => 'margin-top: {{SIZE}}px;',
 						'{{WRAPPER}} .hfe-dropdown.menu-is-active' => 'margin-top: {{SIZE}}px;',
 					],
 					'condition' => [
