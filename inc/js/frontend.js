@@ -67,24 +67,15 @@
 		var last_item = $( '.elementor-element-' + id + ' .hfe-nav-menu' ).data( 'last-item' );
 		var last_item_flyout = $( '.elementor-element-' + id + ' .hfe-flyout-wrapper' ).data( 'last-item' );
 
-		var menu_items_links = $( '.elementor-element-' + id + ' .hfe-nav-menu nav li a' );
-		menu_items_links.each(
-			function () {
-				var $this = $( this );
-				if ($this.is( '[href*="#"]' )) {
-					var menu_item_parent = $this.parent();
-					menu_item_parent.removeClass( 'current-menu-item current-menu-ancestor' );
-					$this.click(
-						function () {
-							var current_index = menu_item_parent.index(),
-							parent_element    = $this.closest( 'ul' );
-							parent_element.find( 'li' ).not( ':eq(' + current_index + ')' ).removeClass( 'current-menu-item current-menu-ancestor' );
-							menu_item_parent.addClass( 'current-menu-item current-menu-ancestor' );
-						}
-					)
-				}
-			}
-		);
+		var menu_items_links        = $( '.elementor-element-' + id + ' .hfe-nav-menu nav li a' );
+		var menu_items_links_flyout = $( '.elementor-element-' + id + ' .hfe-flyout-wrapper li a' );
+		if (menu_items_links.length > 0) {
+			_handle_current_menu_item_class( menu_items_links );
+		}
+
+		if (menu_items_links_flyout.length > 0) {
+			_handle_current_menu_item_class( menu_items_links_flyout );
+		}
 
 		$( 'div.hfe-has-submenu-container' ).removeClass( 'sub-menu-active' );
 
@@ -251,6 +242,26 @@
 		  		
 		});
 	};
+
+	function _handle_current_menu_item_class( layout_links ) {
+		layout_links.each(
+			function () {
+				var $this = $( this );
+				if ($this.is( '[href*="#"]' )) {
+					var menu_item_parent = $this.parent();
+					menu_item_parent.removeClass( 'current-menu-item current-menu-ancestor' );
+					$this.click(
+						function () {
+							var current_index  = menu_item_parent.index(),
+								parent_element = $this.closest( 'ul' );
+							parent_element.find( 'li' ).not( ':eq(' + current_index + ')' ).removeClass( 'current-menu-item current-menu-ancestor' );
+							menu_item_parent.addClass( 'current-menu-item current-menu-ancestor' );
+						}
+					)
+				}
+			}
+		);
+	}
 
 	function _openMenu( id ) {
 
