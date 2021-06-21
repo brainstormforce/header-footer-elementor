@@ -596,6 +596,6 @@ if ( ! function_exists( '_is_elementor_installed' ) ) {
 	 * @access public
 	 */
 	function _is_elementor_installed() {
-		return defined( 'ELEMENTOR_VERSION' ) ? true : false;
+		return ( file_exists( WP_PLUGIN_DIR . '/elementor/elementor.php' ) ) ? true : false;
 	}
 }
