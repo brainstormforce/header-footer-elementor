@@ -144,21 +144,6 @@ module.exports = function( grunt ) {
 					]
 				}
 				]
-			},
-			version: {
-				options: {
-					archive: 'header-footer-elementor.zip',
-
-					mode: 'zip'
-				},
-				files: [
-				{
-					src: [
-					'./header-footer-elementor/**'
-					]
-
-				}
-				]
 			}
 		},
 		clean: {
@@ -179,7 +164,7 @@ module.exports = function( grunt ) {
 	
 	grunt.registerTask( 'i18n', ['addtextdomain', 'makepot'] );
 	grunt.registerTask( 'readme', ['wp_readme_to_markdown'] );
-	grunt.registerTask('release', ['clean:zip', 'copy:main','compress:main','clean:main']);
+	grunt.registerTask( 'release', ['clean:zip', 'copy:main','compress:main','clean:main'] );
 
 	// Bump Version - `grunt version-bump --ver=<version-number>`
     grunt.registerTask('version-bump', function (ver) {
