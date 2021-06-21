@@ -134,8 +134,7 @@ module.exports = function( grunt ) {
 		compress: {
 			main: {
 				options: {
-					archive: 'header-footer-elementor.zip',
-
+					archive: 'header-footer-elementor-<%=pkg.version %>.zip',
 					mode: 'zip'
 				},
 				files: [
@@ -143,7 +142,6 @@ module.exports = function( grunt ) {
 					src: [
 					'./header-footer-elementor/**'
 					]
-
 				}
 				]
 			},
