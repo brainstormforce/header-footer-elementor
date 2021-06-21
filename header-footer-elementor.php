@@ -30,7 +30,7 @@ require_once HFE_DIR . '/inc/class-header-footer-elementor.php';
  * Load the Plugin Class.
  */
 function hfe_plugin_activation() {
-	update_option( 'hfe_plugin_activated', 'yes' );
+	update_option( 'hfe_plugin_is_activated', 'yes' );
 }
 
 register_activation_hook( HFE_FILE, 'hfe_plugin_activation' );
