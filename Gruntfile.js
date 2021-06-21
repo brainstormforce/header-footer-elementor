@@ -102,9 +102,77 @@ module.exports = function( grunt ) {
 					}
 				]
 			}
-		}
+		},
+
+		copy: {
+			main: {
+				options: {
+					mode: true
+				},
+				src: [
+				'**',
+				'!node_modules/**',
+				'!.git/**',
+				'!*.sh',
+				'!*.zip',
+				'!Gruntfile.js',
+				'!package.json',
+                '!package-lock.json',
+				'!.gitignore',
+				'!.editorconfig',
+				'!.distignore',
+				'!composer.json',
+				'!composer.lock',
+				'!phpcs.xml.dist',
+				'!phpunit.xml.dist',
+				'!README.md',
+				'!vendor/**'
+				],
+				dest: 'header-footer-elementor/'
+			}
+		},
+		compress: {
+			main: {
+				options: {
+					archive: 'header-footer-elementor.zip',
+
+					mode: 'zip'
+				},
+				files: [
+				{
+					src: [
+					'./header-footer-elementor/**'
+					]
+
+				}
+				]
+			},
+			version: {
+				options: {
+					archive: 'header-footer-elementor.zip',
+
+					mode: 'zip'
+				},
+				files: [
+				{
+					src: [
+					'./header-footer-elementor/**'
+					]
+
+				}
+				]
+			}
+		},
+		clean: {
+			main: ["header-footer-elementor"],
+			zip: ["*.zip"],
+		},
 
 	} );
+
+	grunt.loadNpmTasks( 'grunt-contrib-copy' );
+	grunt.loadNpmTasks( 'grunt-contrib-compress' );
+	grunt.loadNpmTasks( 'grunt-contrib-clean' );
 	
 	grunt.loadNpmTasks( 'grunt-wp-i18n' );
 	grunt.loadNpmTasks( 'grunt-wp-readme-to-markdown' );
@@ -113,6 +181,7 @@ module.exports = function( grunt ) {
 	
 	grunt.registerTask( 'i18n', ['addtextdomain', 'makepot'] );
 	grunt.registerTask( 'readme', ['wp_readme_to_markdown'] );
+	grunt.registerTask('release', ['clean:zip', 'copy:main','compress:main','clean:main']);
 
 	// Bump Version - `grunt version-bump --ver=<version-number>`
     grunt.registerTask('version-bump', function (ver) {
