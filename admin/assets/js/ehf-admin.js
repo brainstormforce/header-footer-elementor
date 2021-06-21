@@ -389,7 +389,7 @@
 		/**
 		 * Change plugin/addon state.
 		 *
-		 * @since x.x.x
+		 * @since 1.6.0
 		 *
 		 * @param {string}   plugin     Plugin/Theme URL for download.
 		 * @param {string}   state      State status activate|deactivate|install.
