@@ -1290,7 +1290,7 @@ class Navigation_Menu extends Widget_Base {
 					'selector' => '{{WRAPPER}} nav.hfe-nav-menu__layout-horizontal .sub-menu,
 							{{WRAPPER}} nav:not(.hfe-nav-menu__layout-horizontal) .sub-menu.sub-menu-open,
 							{{WRAPPER}} nav.hfe-dropdown .hfe-nav-menu,
-						 	{{WRAPPER}} nav.hfe-dropdown-expandible .hfe-nav-menu ul.sub-menu,
+						 	{{WRAPPER}} nav.hfe-dropdown-expandible .hfe-nav-menu,
 						 	{{WRAPPER}} .hfe-flyout-wrapper .hfe-flyout-container .hfe-nav-menu ul.sub-menu',
 				]
 			);

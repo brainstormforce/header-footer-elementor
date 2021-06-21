@@ -81,6 +81,8 @@
 
 		_toggleClick( id );
 
+		_handleSinglePageMenu( id, layout );
+
 		if( 'horizontal' !== layout ){
 
 			_eventClick( id );
@@ -631,6 +633,45 @@
 				$( '.elementor-element-' + id + ' nav' ).addClass( 'menu-is-active' );
 			}				
 		} );
+	}
+
+	function _handleSinglePageMenu( id, layout ) {
+		$( '.elementor-element-' + id + ' ul.hfe-nav-menu li a' ).on(
+			'click',
+			function () {
+				var $this = $( this );
+				var link  = $this.attr( 'href' );
+				if ( link.includes( '#' ) ) {
+					var index     = link.indexOf( '#' );
+					var linkValue = link.slice( index + 1 );
+				}
+				if ( 'expandible' == layout ) {
+					if (linkValue.length > 0) {
+						$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).trigger( "click" );
+						if ($this.hasClass( 'hfe-sub-menu-item' )) {
+							$( '.elementor-element-' + id + ' .hfe-menu-toggle' ).trigger( "click" );
+						}
+					}
+				} else {
+					if ( window.matchMedia( '(max-width: 1024px)' ).matches && ( 'horizontal' == layout || 'vertical' == layout ) ) {
+						if (linkValue.length > 0) {
+							$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).trigger( "click" );
+							if ($this.hasClass( 'hfe-sub-menu-item' )) {
+								$( '.elementor-element-' + id + ' .hfe-menu-toggle' ).trigger( "click" );
+							}
+						}
+					} else {
+						if (linkValue.length > 0) {
+							if ($this.hasClass( 'hfe-sub-menu-item' )) {
+								_closeMenu( id );
+								$( '.elementor-element-' + id + ' .hfe-menu-toggle' ).trigger( "click" );
+							}
+							_closeMenu( id );
+						}
+					}
+				}
+			}
+		);
 	}
 
 	$( window ).on( 'elementor/frontend/init', function () {
