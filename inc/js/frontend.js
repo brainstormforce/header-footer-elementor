@@ -641,27 +641,24 @@
 			function () {
 				var $this = $( this );
 				var link  = $this.attr( 'href' );
+				var linkValue = '';
 				if ( link.includes( '#' ) ) {
 					var index     = link.indexOf( '#' );
-					var linkValue = link.slice( index + 1 );
+					linkValue = link.slice( index + 1 );
 				}
-				if ( 'expandible' == layout ) {
-					if (linkValue.length > 0) {
+				if ( linkValue.length > 0 ) {
+					if ( 'expandible' == layout ) {
 						$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).trigger( "click" );
 						if ($this.hasClass( 'hfe-sub-menu-item' )) {
 							$( '.elementor-element-' + id + ' .hfe-menu-toggle' ).trigger( "click" );
 						}
-					}
-				} else {
-					if ( window.matchMedia( '(max-width: 1024px)' ).matches && ( 'horizontal' == layout || 'vertical' == layout ) ) {
-						if (linkValue.length > 0) {
+					} else {
+						if ( window.matchMedia( '(max-width: 1024px)' ).matches && ( 'horizontal' == layout || 'vertical' == layout ) ) {
 							$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).trigger( "click" );
 							if ($this.hasClass( 'hfe-sub-menu-item' )) {
 								$( '.elementor-element-' + id + ' .hfe-menu-toggle' ).trigger( "click" );
 							}
-						}
-					} else {
-						if (linkValue.length > 0) {
+						} else {
 							if ($this.hasClass( 'hfe-sub-menu-item' )) {
 								_closeMenu( id );
 								$( '.elementor-element-' + id + ' .hfe-menu-toggle' ).trigger( "click" );
