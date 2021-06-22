@@ -21,7 +21,9 @@ ul.hfe-nav-menu,
     position: relative;
     background: inherit;
 }
-
+.hfe-nav-menu__theme-icon-yes button.sub-menu-toggle {
+    display: none;
+}
 div.hfe-nav-menu,
 .elementor-widget-hfe-nav-menu .elementor-widget-container {
     -js-display: flex;

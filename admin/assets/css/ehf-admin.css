@@ -7,18 +7,15 @@ span.hfe-shortcode-col-wrap > input {
     padding: 4px 8px;
     margin: 0;
 }
-
 input.hfe-large-text{
     width: 99%;
 }
-
 .hfe-options-row-heading {
     border-right: 1px solid #E1E1E1;
     padding: 15px;
     width: 45%;
     vertical-align: middle;
 }
-
 .hfe-options-row td {
     padding-left: 12px;
     padding-right: 12px;
@@ -26,22 +23,14 @@ input.hfe-large-text{
     zoom: 1;
     vertical-align: middle;
 }
-
 .hfe-options-table .hfe-options-row-content {
     padding: 15px 10px;
     position: relative;
     width: 55%;
 }
-
-.hfe-options-table.widefat{
+.hfe-options-table.widefat {
 	border-width: 0;
 }
-
-#ehf-meta-box .inside {
-    margin: 0;
-    padding: 0;
-}
-
 .hfe-options-row-heading label {
     display: inline-block;
     font-size: 13px;
@@ -51,50 +40,774 @@ input.hfe-large-text{
     margin: 0 0 3px;
     color: #333;
 }
-
 .hfe-options-row-content select {
     width: 95%;
 }
-
 .hfe_radio_options {
     display: inline-block;
 }
-
-li#toplevel_page_Settings-page {
+li#toplevel_page_Settings-page,
+.wp-admin #adminmenu .wp-submenu a[href="themes.php?page=hfe-settings"],
+.wp-admin #adminmenu .wp-submenu a[href="themes.php?page=hfe-guide"],
+.wp-admin #adminmenu .wp-submenu a[href="themes.php?page=hfe-about"] {
     display: none;
 }
-
-.wp-admin #adminmenu .wp-submenu a[href="themes.php?page=hfe-settings"] {
-    display:none;
-}
-
 .appearance_page_hfe-settings #adminmenu .wp-submenu a[href ="edit.php?post_type=elementor-hf" ] {
-    color: white;
+    color: #ffffff;
     font-weight: 600;
 }
-
-.hfe-heading-inline{
+.hfe-heading-inline {
     font-size: 23px;
     font-weight: 400;
     margin: 0;
     padding: 9px 0 4px 0;
     line-height: 1.3;
 }
-
-.hfe-selected-template-type-custom .bsf-target-rules-row,
-.hfe-selected-template-type-custom .enable-for-canvas {
-    display: none;
-}
-
 .hfe-selected-template-type-custom .hfe-shortcode {
     display: table-row;
 }
-.hfe-shortcode {
-    display: none;
-}
-
+.hfe-selected-template-type-custom .bsf-target-rules-row,
+.hfe-selected-template-type-custom .enable-for-canvas,
+.hfe-shortcode,
 .hfe-selected-template-type-none .bsf-target-rules-row,
 .hfe-selected-template-type-none .hfe-shortcode,
-.hfe-selected-template-type-none .enable-for-canvas {
+.hfe-selected-template-type-none .enable-for-canvas,
+.hfe-guide-content .form-table th {
     display: none;
+}
+/* Notice */
+#header-footer-install-notice img.custom-logo {
+    height: 30px;
+    margin-right: 6px;
+}
+#header-footer-install-notice .notice-container {
+    display: flex;
+    align-items: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+#header-footer-install-notice .notice-content {
+    margin-left: 0px;
+}
+#header-footer-install-notice .notice-dismiss {
+    height: 100%;
+}
+/* EHF Settings - Step by Step guide */
+#ehf-meta-box .inside,
+.hfe-admin-guide-section.hfe-admin-about-section {
+    padding: 0px;
+}
+.appearance_page_hfe-guide .nav-tab-wrapper,
+.appearance_page_hfe-about .nav-tab-wrapper,
+.appearance_page_hfe-settings .nav-tab-wrapper {
+    margin-right: 18px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+.post-type-elementor-hf .nav-tab-wrapper {
+    margin-bottom: 18px;
+    margin-top: 10px;
+}
+.post-type-elementor-hf .wrap h1.wp-heading-inline,
+.hfe-heading-inline {
+    margin-top: 10px
+}
+.hfe-admin-about-section,
+.hfe-subscription-row {
+    display: flex;
+    justify-content: center;
+}
+.hfe-subscription-row .hfe-input-container {
+    width: 50%;
+    text-align: left;
+    position: relative;    
+    width: 100%;
+}
+.hfe-guide-modal-content .hfe-checkbox-container {
+    display: flex;
+    align-items: flex-start;
+}
+.hfe-guide-modal-content .hfe-admin-column-50:not(.hfe-admin-column-last) {
+    display: flex;
+    align-items: center;
+}
+/* Form CSS */
+.hfe-subscription-row {
+    margin-bottom: 10px;
+}
+.hfe-subscription-row .hfe-subscribe-field:focus {
+    outline: none;
+    box-shadow: none;
+}
+.hfe-subscription-row .hfe-subscribe-field {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 3px;
+    border: 1px solid #585F66;
+    padding: 10px 15px;
+    box-shadow: none;
+    min-height: 44px;
+    font-size: 15px;
+    font-weight: 400;
+    outline: none;
+    background-color: transparent;
+    background-position: right 10px top 55%;
+    margin: 0;
+}
+.hfe-subscription-row .subscription-label {
+    color: #585F66;
+    margin: 12px 10px;
+    position: absolute;
+    top: 0;
+    font-weight: 400;
+    padding: 0 5px;
+    font-size: 14px;
+    left: 0;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    pointer-events: none;
+}
+.hfe-subscription-row .hfe-input-container:not(.subscription-success, .subscription-error) .hfe-subscribe-field:hover {
+    border-color: #2271b1;
+}
+.hfe-subscription-row .hfe-subscribe-field:hover,
+.hfe-subscription-row .hfe-subscribe-field:focus {
+    color: #2c3338;
+}
+.hfe-subscription-row .subscription-anim .subscription-label {
+    background-color: #fff;
+    font-size: 12px;
+    line-height: 12px;
+    margin-top: 0;
+    padding: 0 4px;
+    top: -5px;
+    transition: all 0.125s ease;
+    -webkit-transition: all 0.125s ease;
+    color: #2271b1;
+}
+.hfe-subscription-row .subscription-error .hfe-subscribe-field,
+.hfe-subscription-row .subscription-error .hfe-subscribe-field:focus {
+    border-color: #ff0000;
+}
+.hfe-subscription-row .subscription-error .subscription-desc,
+.hfe-subscription-row .subscription-anim.subscription-error .subscription-label {
+    color: #ff0000;
+}
+.hfe-subscription-row .subscription-success .hfe-subscribe-field,
+.hfe-subscription-row .subscription-success .hfe-subscribe-field:focus {
+    border-color: #66a700;
+}
+.hfe-subscription-row .subscription-anim.subscription-success .subscription-label {
+    color: #66a700;
+}
+.hfe-input-container .subscription-desc {
+    padding-left: 2px;
+    opacity: 0;
+    visibility: hidden;
+}
+.hfe-input-container.subscription-error .subscription-desc {
+    opacity: 1;
+    visibility: visible;
+}
+input[type="text"].hfe-subscribe-field,
+select.hfe-subscribe-field {
+    text-align: left;
+    width: 100%;
+    padding: 10px 15px;
+    outline: none;
+    margin-left: 0px;
+}
+.hfe-guide-content p.submit {
+    text-align: center;
+    margin-top: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+.hfe-privacy-policy-container {
+    margin-top: 0;
+    text-align: center;
+    display: none;
+}
+.hfe-subscription-step-2-active ~ .hfe-privacy-policy-container {
+    display: block;
+}
+.hfe-privacy-policy-container .hfe-subscription-policy {
+    margin: 0;
+    padding-top: 15px;
+    font-size: 12px;
+}
+.button-subscription-skip:focus {
+    box-shadow: none;
+}
+.button-subscription-skip {
+    width: 100%;
+    text-align: center;
+    margin-top: .8em;
+    display: inline-block;    
+    font-size: 14px;
+}
+.hfe-guide-content .button {
+    text-transform: uppercase;
+    padding: 10px 20px;
+    width: 100%;
+    font-size: 13px;
+}
+.hfe-guide-content .button.submitting {
+    margin-right: 3px;
+}
+/* EHF Settings - About Us */
+.hfe-admin-about-section {
+    margin: 0px 19px 23px 0px;
+    padding: 40px;
+    line-height: 2;
+}
+.hfe-admin-about-section p,
+.hfe-admin-addons .addon-item,
+.hfe-admin-addons .addon-item p,
+.hfe-admin-about-section ul {
+    font-size: 15px;
+}
+.hfe-admin-about-us {
+    background: #fff;
+    border: 1px solid #ddd;
+}
+.hfe-admin-about-section h1, 
+.hfe-admin-about-section h2, 
+.hfe-admin-about-section h3, 
+.hfe-admin-about-section h4, 
+.hfe-admin-about-section h5 {
+    margin-top: 0;
+    line-height: 1.3;
+}
+.hfe-clear:before {
+    content: " ";
+    display: table;
+}
+.hfe-clear:after,
+.hfe-admin-columns:after {
+    clear: both;
+    content: " ";
+    display: table;
+}
+.hfe-admin-columns .hfe-admin-column-40 {
+    width: 40%;
+}
+.hfe-admin-columns .hfe-admin-column-50 {
+    width: 50%;
+    background: #fff;
+    border: 1px solid #ddd;
+}
+.hfe-admin-columns .hfe-admin-column-60 {
+    width: 60%;
+}
+.hfe-admin-columns .hfe-admin-column-last .hfe-guide-content {
+    width: 100%;
+}
+.hfe-admin-about-section figure {
+    margin: 0;
+    padding-top: 0px;
+}
+.hfe-admin-about-section figure img {
+    width: 100%;
+    box-shadow: 0 0 8px rgb(0 0 0 / 10%);
+}
+.hfe-admin-about-section figure figcaption {
+    font-size: 15px;
+    color: #686868;
+    margin-top: 5px;
+    text-align: center;
+    line-height: initial;
+}
+.hfe-admin-about-section .hfe-admin-column-40 {
+    padding-left: 15px;
+}
+.hfe-admin-about-section .hfe-admin-column-60 {
+    padding-right: 15px;
+}
+.hfe-admin-about-section *, 
+.hfe-admin-about-section *::before, 
+.hfe-admin-about-section *::after,
+.hfe-admin-addons *,
+.hfe-admin-addons *::before,
+.hfe-admin-addons *::after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/* About Us - Plugins section */
+.hfe-admin-addons .addon-container:last-child {
+    padding-right: 10px;
+}
+.hfe-admin-addons .addon-container:first-child,
+.hfe-admin-addons .addon-container {
+    padding-left: 10px;
+}
+.hfe-admin-addons {
+    padding: 0 27px 0px 10px;
+}
+.hfe-admin-addons .addon-item .details {
+    padding: 20px;
+}
+.hfe-admin-addons .addon-item img {
+    padding: 13px;
+    padding-top: 0px;
+}
+.hfe-admin-addons .addons-container{
+  margin-left: -20px;
+  margin-right: -20px;
+}
+.hfe-admin-addons .addon-container {
+  padding-right: 10px;
+  float: left;
+  width: 33.333333%;
+  margin-bottom: 20px;
+}
+.hfe-admin-addons h4 {
+  font-size: 17px;
+  font-weight: 700;
+}
+.hfe-admin-addons .addon-item {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  margin: 0;
+}
+.hfe-admin-addons .addon-item img {
+  float: left;
+  max-width: 80px;
+}
+.hfe-admin-addons .addon-item h5 {
+  margin: 0 0 15px 90px;
+  font-size: 17px;
+  line-height: 1.4em;
+}
+.hfe-admin-addons .addon-item p {
+  margin: 0 0 0 90px;
+}
+.hfe-admin-addons .website-link {
+    color: inherit;
+    text-decoration: none;
+}
+.hfe-admin-addons .addon-item .details {
+  padding: 30px 20px;
+}
+
+.hfe-admin-addons .addon-item .action-button .button {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 26px;
+    height: 28px;
+    margin: 0;
+    padding: 0 10px 1px;
+    box-shadow: 0 1px 0 #cccccc;
+    cursor: pointer;
+    -webkit-appearance: none;
+    border-radius: 3px;
+    border: 1px solid #cccccc;
+    background: #f7f7f7;
+    font-weight: normal;
+}
+
+.hfe-admin-addons .addon-item .action-button .button:hover, 
+.hfe-admin-addons .addon-item .action-button .button:focus {
+    background: #fafafa;
+    border-color: #999;
+    color: #23282d;
+}
+
+.hfe-admin-addons .addon-item .action-button .button.button-primary {
+    background: #0085ba;
+    border-color: #0073aa #006799 #006799;
+    box-shadow: 0 1px 0 #006799;
+    color: #fff;
+    text-shadow: 0 -1px 1px #006799, 1px 0 1px #006799, 0 1px 1px #006799, -1px 0 1px #006799;
+}
+
+.hfe-admin-addons .addon-item .action-button .button.button-primary:hover, 
+.hfe-admin-addons .addon-item .action-button .button.button-primary:focus {
+    background: #008ec2;
+    border-color: #006799;
+    color: #fff;
+}
+
+.hfe-admin-addons .addon-item .action-button .button.button-secondary {
+    color: #555;
+    border-color: #cccccc;
+    background: #f7f7f7;
+    box-shadow: 0 1px 0 #cccccc;
+}
+
+.hfe-admin-addons .addon-item .action-button .button.button-secondary:hover, 
+.hfe-admin-addons .addon-item .action-button .button.button-secondary:focus {
+    background: #fafafa;
+    border-color: #999;
+    color: #23282d;
+}
+
+.hfe-admin-addons .addon-item .action-button .button.disabled {
+    cursor: default;
+}
+
+.hfe-admin-addons .addon-item .actions {
+    display: flex;
+    align-items: center;
+    background-color: #f7f7f7;
+    border-top: 1px solid #ddd;
+    padding: 20px;
+    min-height: 75px;
+    position: relative;
+}
+  
+.hfe-admin-addons .addon-item .actions .msg {
+    background-color: #f7f7f7;
+    border: none;
+    position: absolute;
+    text-align: center;
+    font-weight: 600;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    z-index: 99;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.hfe-admin-addons .addon-item .actions .msg.success,
+.hfe-admin-addons .addon-item .status .status-active,
+.hfe-admin-addons .addon-item .action-button button.status-active .fa {
+    color: #2a9b39;
+}
+  
+.hfe-admin-addons .addon-item .actions .msg.error,
+.hfe-admin-addons .addon-item .status .status-inactive,
+.hfe-admin-addons .addon-item .action-button button.status-inactive .fa {
+    color: red;
+}
+  
+.hfe-admin-addons .addon-item .status {
+    flex-grow: 1;
+}
+  
+.hfe-admin-addons .addon-item .status .status-download {
+    color: #666;
+}
+  
+.hfe-admin-addons .addon-item .upgrade-button {
+    text-align: center;
+}
+  
+.hfe-admin-addons .addon-item .upgrade-button a {
+    font-weight: 600;
+    width: 110px;
+    text-align: center;
+    padding: 8px 5px;
+}
+.hfe-admin-addons .addon-item .action-button a.button {
+    width: 110px;
+    text-align: center;
+}
+.hfe-admin-addons .addon-item .action-button button {
+    background: none;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-shadow: none;
+    cursor: pointer;
+    font-weight: 600;
+    width: 110px;
+    text-align: center;
+    padding: 8px 5px;
+}
+  
+.hfe-admin-addons .addon-item .action-button button:hover, .hfe-admin-addons .addon-item .action-button button.loading {
+    background-color: #e9e9e9;
+}
+  
+.hfe-admin-addons .addon-item .action-button button .fa {
+    margin-right: 8px;
+}
+  
+.hfe-admin-addons .addon-item .action-button button .fa.fa-spinner {
+    margin-right: 0;
+}
+  
+.hfe-admin-addons .addon-item .action-button button.status-download .fa {
+    color: #999;
+}
+  
+.hfe-admin-addons .addon-item .action-button button.disabled {
+    cursor: default;
+    pointer-events: none;
+}
+  
+.hfe-admin-addons .addon-item .action-button button.loading .fa {
+    color: #666;
+}
+  
+.hfe-admin-addons .addon-item .action-button a {
+    text-decoration: none;
+}
+
+/* Modal Popup */
+.hfe-guide-modal-header {
+    padding: 10px;
+    text-align: center;
+}
+.hfe-guide-modal-popup-wrapper .heading {
+    background: #ffffff;
+    padding: 5px 20px;
+    margin-top: 0;
+    box-shadow: 0 0 8px rgb(0 0 0 / 10%);
+    display: flex;
+    justify-content: space-between;
+}
+.hfe-guide-modal-popup-wrapper .hfe-admin-guide-section.hfe-admin-about-section,
+.hfe-guide-modal-popup-wrapper .hfe-admin-column-50:not(.hfe-admin-column-last) {
+    margin: 0px;
+}
+.hfe-guide-modal-popup-wrapper .hfe-admin-column-50:not(.hfe-admin-column-last),
+.hfe-admin-column-last .hfe-guide-content form {
+    padding: 50px;
+}
+.hfe-guide-modal-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    opacity: 0;
+    background: rgba(0,0,0,0.75);
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+.hfe-guide-modal-content {
+    width: 70%;
+    background-color: #ffffff;
+    opacity: 0;
+    position: relative;
+    margin: 0 auto;
+    transition: all .5s;
+}
+.hfe-guide-modal-popup-wrapper {
+    z-index: 99999;
+    top: 51%;
+    transform: translateY(-50%);
+    margin-bottom: 20px;
+    visibility: hidden;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    bottom: auto;
+}
+.hfe-guide-modal-popup-wrapper .subscription-anim .subscription-label {
+    background-color: #ffffff;
+}
+.hfe-guide-modal-popup-wrapper .hfe-admin-about-section {
+    background-color: #f1f3f5;
+}
+.hfe-admin-about-section h3 {
+    font-size: 20px;
+}
+.hfe-guide-modal-popup-wrapper .hfe-guide-content form {
+    padding: 0px;
+}
+.hfe-guide-modal-popup-wrapper .hfe-guide-content {
+    background-color: #ffffff;
+    box-shadow: 0 2px 30px 0 rgb(0 0 0 / 8%);
+    border: 0px;
+    padding: 50px 50px 25px 50px;
+}
+.hfe-guide-modal-popup-wrapper .hfe-admin-columns .hfe-admin-column-50.hfe-admin-column-last {
+    width: 50%;
+    margin: 0;
+    padding: 50px;
+}
+.hfe-guide-modal-popup-wrapper .hfe-admin-columns .hfe-admin-column-50 {
+    width: 50%;
+    background: unset;
+    border: 0px;
+}
+.hfe-guide-modal-popup-wrapper .heading {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+}
+.hfe-guide-modal-popup-wrapper .hfe-logo {
+    height: 35px;
+} 
+.hfe-guide-modal-popup-wrapper h3 {
+    width: 100%;
+    margin-left: 15px;
+}
+.hfe-guide-modal-popup-wrapper .hfe-admin-about-section.hfe-admin-columns.hfe-admin-guide-section {
+    max-height: 75vh;
+    overflow: auto;
+}
+.hfe-guide-modal-popup-wrapper .hfe-admin-about-section-column {
+    padding-bottom: 20px;
+}
+.hfe-guide-modal-popup-wrapper .hfe-subscription-step-1-active .hfe-subscription-step-2,
+.hfe-guide-modal-popup-wrapper .hfe-subscription-step-2-active .hfe-subscription-step-1 {
+    display: none;
+}
+/* Limited this only for modal Popup */
+.hfe-guide-modal-popup-wrapper .hfe-subscription-row .hfe-input-container,
+.hfe-guide-modal-popup-wrapper .button {
+    width: 100%;
+    margin-bottom: 5px;
+}
+.hfe-guide-modal-popup-wrapper .hfe-subscription-row {
+    display: block;
+    margin-bottom: 0px;
+}
+.hfe-guide-modal-popup-wrapper .hfe-admin-about-section-column h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+.hfe-admin-about-section-column h3 {
+    margin-bottom: 0;
+    padding: 15px 30px;
+    border-bottom: 1px solid #c3c4c7;
+}
+.hfe-admin-about-section-column h3 {
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.3;
+}
+.hfe-show {
+    z-index: 9999;
+} 
+.hfe-show .hfe-modal-close, 
+.hfe-show .hfe-modal-close.action-button,
+.hfe-show .hfe-guide-modal-content {
+    visibility: visible;
+}
+.hfe-show .hfe-guide-modal-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+.hfe-show .hfe-guide-modal-content {
+    opacity: 1;
+}
+.hfe-input-container.hfe-error .hfe-subscribe-field {
+    border-color: #d11212;
+}
+span.hfe-subscribe-message {
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 15px;
+}
+span.hfe-subscribe-message.success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-left: 4px solid #93d776;
+}
+span.hfe-subscribe-message.error {
+    color: #d11212;
+    background-color: #f2dede96;
+    border-left: 4px solid #c01a1a66;
+}
+span.dashicons.dashicons-update.hfe-loader {
+    animation: rotation 2s infinite linear;
+    vertical-align: text-top;
+    margin-left: 7px;
+}
+
+@media (max-width: 1249px) {
+    .hfe-admin-addons .addon-container {
+      width: 50%;
+    }
+}
+
+@media (max-width: 767px) {
+    .hfe-admin-addons .addon-container {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .hfe-admin-about-section .hfe-admin-column-40 {
+        width: 100%;
+        padding-left: 0;
+        padding-top: 20px;
+    }
+    .hfe-admin-about-section .hfe-admin-column-60 {
+        width: 100%;
+        padding-right: 0;
+    }
+    .hfe-admin-addons .addon-item {
+        margin: 0 0;
+    }
+}
+
+@media screen and ( max-width: 782px ) {
+    .hfe-subscription-row,
+    .hfe-admin-about-section {
+        display: block;
+    }
+    .hfe-guide-modal-popup-wrapper p.button,
+    .hfe-admin-about-section figure {
+        padding-bottom: 0px;
+    }
+    .hfe-admin-guide-section.hfe-admin-columns .hfe-admin-column-50,
+    .hfe-guide-modal-popup-wrapper .hfe-admin-columns .hfe-admin-column-50.hfe-admin-column-last,
+    .hfe-subscription-row .hfe-input-container {
+        width: 100%;
+    }
+    .hfe-guide-modal-popup-wrapper .hfe-admin-columns .hfe-admin-column-50.hfe-admin-column-last,
+    .hfe-guide-modal-popup-wrapper .hfe-guide-content,
+    .hfe-admin-guide-section .hfe-admin-column-50:not(.hfe-admin-column-last) {
+        padding: 15px;
+    }
+    .hfe-subscribe-email span.dashicons.dashicons-email {
+        font-size: 15px;
+        height: 15px;
+        line-height: 1;
+        width: 15px;
+    }
+    .hfe-subscribe-email input.hfe-subscribe-field {
+        min-height: unset;
+        font-size: 10px;
+    }
+    .hfe-subscribe-field {
+        padding: 5px;
+    }
+    .hfe-admin-guide-section.hfe-admin-about-section {
+        display: block;
+    }
+    .hfe-guide-content .button {
+        font-size: 10px;
+    }
+    .hfe-checkbox-container {
+        display: flex;
+    }
+    .hfe-admin-columns .hfe-admin-column-last {
+        padding-top: 0px;
+    }
+    .hfe-subscription-row select.hfe-subscribe-field {
+        padding: 10px 15px;
+    }
+    .hfe-admin-about-section-column h3 {
+        border-bottom: 0px;
+    }
+    .hfe-admin-about-us {
+        margin-right: 10px;
+    }
+    .hfe-admin-addons .addon-container,
+    .hfe-admin-addons .addon-container:last-child {
+        padding-right: 0px;
+    }
 }
