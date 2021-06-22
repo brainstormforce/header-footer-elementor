@@ -23,7 +23,6 @@ class HFE_Settings_Page {
 	 * @since 1.6.0
 	 */
 	public function __construct() {
-		$this->setup_fallback_support();
 		add_action( 'admin_head', [ $this, 'hfe_global_css' ] );
 		add_action( 'admin_menu', [ $this, 'hfe_register_settings_page' ] );
 		add_action( 'admin_init', [ $this, 'hfe_admin_init' ] );
@@ -207,24 +206,6 @@ class HFE_Settings_Page {
 			'hfe-about',
 			[ $this, 'hfe_settings_page' ]
 		);
-	}
-
-	/**
-	 * Setup Theme Support.
-	 *
-	 * @since 1.2.0
-	 * @return void
-	 */
-	public function setup_fallback_support() {
-		$hfe_compatibility_option = get_option( 'hfe_compatibility_option', '1' );
-
-		if ( '1' === $hfe_compatibility_option ) {
-			if ( ! class_exists( 'HFE_Default_Compat' ) ) {
-				require_once HFE_DIR . 'themes/default/class-hfe-default-compat.php';
-			}
-		} elseif ( '2' === $hfe_compatibility_option ) {
-			require HFE_DIR . 'themes/default/class-global-theme-compatibility.php';
-		}
 	}
 
 	/**

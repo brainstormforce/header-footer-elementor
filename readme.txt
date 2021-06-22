@@ -137,6 +137,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 5. Default widgets available with Elementor Header & Footer Builder.
 
 == Changelog ==
+= 1.6.1 =
+- Fix: Footer placement issue.
+
 = 1.6.0 =
 - New: Added Email Subscription and About Us section on the settings page.
 - New: Renamed the plugin to Elementor Header & Footer Builder.
