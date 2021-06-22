@@ -86,6 +86,7 @@ class Header_Footer_Elementor {
 				require HFE_DIR . 'themes/hello-elementor/class-hfe-hello-elementor-compat.php';
 			} else {
 				add_filter( 'hfe_settings_tabs', [ $this, 'setup_unsupported_theme' ] );
+				add_action( 'init', [ $this, 'setup_fallback_support' ] );
 			}
 
 			if ( 'yes' === get_option( 'hfe_plugin_is_activated' ) ) {
@@ -479,6 +480,26 @@ class Header_Footer_Elementor {
 			];
 		}
 		return $hfe_settings_tabs;
+	}
+
+	/**
+	 * Add support for theme if the current theme does add support for 'header-footer-elementor'
+	 *
+	 * @since  1.6.1
+	 */
+	public function setup_fallback_support() {
+		
+		if ( ! current_theme_supports( 'header-footer-elementor' ) ) {
+			$hfe_compatibility_option = get_option( 'hfe_compatibility_option', '1' );
+
+			if ( '1' === $hfe_compatibility_option ) {
+				if ( ! class_exists( 'HFE_Default_Compat' ) ) {
+					require_once HFE_DIR . 'themes/default/class-hfe-default-compat.php';
+				}
+			} elseif ( '2' === $hfe_compatibility_option ) {
+				require HFE_DIR . 'themes/default/class-global-theme-compatibility.php';
+			}
+		}
 	}
 
 	/**

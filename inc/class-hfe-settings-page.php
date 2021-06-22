@@ -23,7 +23,6 @@ class HFE_Settings_Page {
 	 * @since 1.6.0
 	 */
 	public function __construct() {
-		$this->setup_fallback_support();
 		add_action( 'admin_head', [ $this, 'hfe_global_css' ] );
 		add_action( 'admin_menu', [ $this, 'hfe_register_settings_page' ] );
 		add_action( 'admin_init', [ $this, 'hfe_admin_init' ] );
