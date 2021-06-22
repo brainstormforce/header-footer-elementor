@@ -138,11 +138,12 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 ## Changelog ##
 ### 1.6.0 ###
-- New: Added Email Subscription and About Us section on settings page.
-- New: Rename plugin to be Elementor Header & Footer Builder.
+- New: Added Email Subscription and About Us section on the settings page.
+- New: Renamed the plugin to Elementor Header & Footer Builder.
 - Improvement: Added an option to hide + & - sign added by Twenty Twenty-One Theme.
-- Fix: Navigation Menu - Top distance option for dropdown adding a top margin to sub-menu.
-- Fix: Navigation Menu - Fixed active color issues in case of full page anchor links used in nav links.
+- Fix: Navigation Menu - Border for dropdown is also applying to the menu trigger icon.
+- Fix: Navigation Menu - Fix top distance option for dropdown adding a top-margin to sub-menu.
+- Fix: Navigation Menu - Fixed active color issues in case of full-page anchor links used in nav links.
 - Fix: Navigation Menu - Navigation schema not working.
 
 ### 1.5.9 ###
