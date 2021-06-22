@@ -138,7 +138,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 ## Changelog ##
 ### 1.6.1 ###
-- Fix: Footer placement issue.
+- Fix: Footer misplaced in the header or content area due to a bug introduced in v1.6.0.
 
 ### 1.6.0 ###
 - New: Added Email Subscription and About Us section on the settings page.
