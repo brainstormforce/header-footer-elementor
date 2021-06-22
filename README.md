@@ -4,8 +4,8 @@
 **Donate link:** https://www.paypal.me/BrainstormForce  
 **Requires at least:** 4.4  
 **Requires PHP:** 5.4  
-**Tested up to:** 5.7  
-**Stable tag:** 1.6.0  
+**Tested up to:** 5.7.2  
+**Stable tag:** 1.6.1  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -137,6 +137,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 5. Default widgets available with Elementor Header & Footer Builder.
 
 ## Changelog ##
+### 1.6.1 ###
+- Fix: Footer placement issue.
+
 ### 1.6.0 ###
 - New: Added Email Subscription and About Us section on the settings page.
 - New: Renamed the plugin to Elementor Header & Footer Builder.
