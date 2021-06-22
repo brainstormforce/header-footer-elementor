@@ -209,24 +209,6 @@ class HFE_Settings_Page {
 	}
 
 	/**
-	 * Setup Theme Support.
-	 *
-	 * @since 1.2.0
-	 * @return void
-	 */
-	public function setup_fallback_support() {
-		$hfe_compatibility_option = get_option( 'hfe_compatibility_option', '1' );
-
-		if ( '1' === $hfe_compatibility_option ) {
-			if ( ! class_exists( 'HFE_Default_Compat' ) ) {
-				require_once HFE_DIR . 'themes/default/class-hfe-default-compat.php';
-			}
-		} elseif ( '2' === $hfe_compatibility_option ) {
-			require HFE_DIR . 'themes/default/class-global-theme-compatibility.php';
-		}
-	}
-
-	/**
 	 * Settings page.
 	 *
 	 * Call back function for add submenu page function.
