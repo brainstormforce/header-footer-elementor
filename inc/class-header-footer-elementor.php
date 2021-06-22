@@ -488,7 +488,7 @@ class Header_Footer_Elementor {
 	 * @since  1.6.1
 	 */
 	public function setup_fallback_support() {
-		
+
 		if ( ! current_theme_supports( 'header-footer-elementor' ) ) {
 			$hfe_compatibility_option = get_option( 'hfe_compatibility_option', '1' );
 
