@@ -714,6 +714,7 @@ class Site_Logo extends Widget_Base {
 	 * @access protected
 	 */
 	protected function render() {
+		$link     = '';
 		$settings = $this->get_settings_for_display();
 
 		$has_caption = $this->has_caption( $settings );
