@@ -664,14 +664,30 @@ class Search_Button extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'button_background_color',
+		// $this->add_control(
+		// 	'button_background_color',
+		// 	[
+		// 		'label'     => __( 'Background Color', 'header-footer-elementor' ),
+		// 		'type'      => Controls_Manager::COLOR,
+		// 		'default'   => '#818a91',
+		// 		'selectors' => [
+		// 			'{{WRAPPER}} .hfe-search-submit' => 'background-color: {{VALUE}}',
+		// 		],
+		// 	]
+		// );
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
 			[
-				'label'     => __( 'Background Color', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '#818a91',
-				'selectors' => [
-					'{{WRAPPER}} .hfe-search-submit' => 'background-color: {{VALUE}}',
+				'name' => 'button_background',
+				'label' => __( 'Background', 'elementor' ),
+				'types' => [ 'classic', 'gradient' ],
+				'exclude' => [ 'image' ],
+				'selector' => '{{WRAPPER}} .hfe-search-submit',
+				'fields_options' => [
+					'background' => [
+						'default' => 'classic',
+					],
 				],
 			]
 		);
@@ -703,6 +719,23 @@ class Search_Button extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-submit:hover' => 'background-color: {{VALUE}}',
+				],
+				'condition'   => [
+					'button_background_color_hover!' => '',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name' => 'button_background_hover',
+				'label' => __( 'Background', 'elementor' ),
+				'types' => [ 'classic', 'gradient' ],
+				'exclude' => [ 'image' ],
+				'selector' => '{{WRAPPER}} .hfe-search-submit:hover',
+				'condition'   => [
+					'button_background_color_hover' => '',
 				],
 			]
 		);
