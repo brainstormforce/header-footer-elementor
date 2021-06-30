@@ -414,16 +414,7 @@ class Site_Title extends Widget_Base {
 		}
 
 		if ( ! empty( $settings['heading_link']['url'] ) ) {
-			$this->add_render_attribute( 'url', 'href', $settings['heading_link']['url'] );
-
-			if ( $settings['heading_link']['is_external'] ) {
-				$this->add_render_attribute( 'url', 'target', '_blank' );
-			}
-
-			if ( ! empty( $settings['heading_link']['nofollow'] ) ) {
-				$this->add_render_attribute( 'url', 'rel', 'nofollow' );
-			}
-			$link = $this->get_render_attribute_string( 'url' );
+			$this->add_link_attributes( 'url', $settings['heading_link'] );
 		}
 
 		$heading_size_tag = Widgets_Loader::validate_html_tag( $settings['heading_tag'] );
@@ -431,7 +422,7 @@ class Site_Title extends Widget_Base {
 
 		<div class="hfe-module-content hfe-heading-wrapper elementor-widget-heading">
 		<?php if ( ! empty( $settings['heading_link']['url'] ) && 'custom' === $settings['custom_link'] ) { ?>
-					<a <?php echo $link; ?> >
+					<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'url' ) ); ?>>
 				<?php } else { ?>
 					<a href="<?php echo get_home_url(); ?>">
 				<?php } ?>
