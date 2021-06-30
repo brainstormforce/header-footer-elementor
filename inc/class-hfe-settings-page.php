@@ -235,7 +235,7 @@ class HFE_Settings_Page {
 	 *
 	 * Call back function for add submenu page function.
 	 *
-	 * @since x.x.x
+	 * @since 1.6.2
 	 */
 	public function hfe_modal() {
 		$is_dismissed = [];
