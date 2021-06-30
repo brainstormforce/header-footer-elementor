@@ -1951,3 +1951,7 @@ div.hfe-nav-menu,
 [dir="rtl"] .rtl .hfe-page-title.hfe-page-title-wrapper {
 	text-align: right;
 }
+ /* RTL - Site title */
+[dir="rtl"] .hfe-module-content.hfe-heading-wrapper .hfe-heading {
+	text-align: right;
+}
