@@ -738,6 +738,7 @@ class Site_Logo extends Widget_Base {
 			$this->add_render_attribute( 'link', 'href', $link );
 		} else {
 			$link = $this->get_link_url( $settings );
+
 			if ( $link ) {
 				$this->add_link_attributes( 'link', $link );
 			}

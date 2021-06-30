@@ -200,7 +200,7 @@ class Copyright extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 		$link     = isset( $settings['link']['url'] ) ? $settings['link']['url'] : '';
 
-		if( ! empty( $link ) ) {
+		if ( ! empty( $link ) ) {
 			$this->add_link_attributes( 'link', $settings['link'] );
 		}
 
