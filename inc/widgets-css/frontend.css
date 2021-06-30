@@ -1943,6 +1943,6 @@ div.hfe-nav-menu,
 
 /* RTL - Retina */
 
-.rtl .elementor-3165 .elementor-element.elementor-element-951df70 .hfe-retina-image-container, .elementor-3165 .elementor-element.elementor-element-951df70 .hfe-caption-width {
+[dir="rtl"] .hfe-retina-image .hfe-retina-image-set .hfe-retina-image-container, [dir="rtl"] .hfe-retina-image .wp-caption .hfe-caption-width {
 	text-align: right;
 }
