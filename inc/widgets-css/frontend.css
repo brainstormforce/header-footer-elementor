@@ -1960,3 +1960,7 @@ div.hfe-nav-menu,
 [dir="rtl"] .rtl .hfe-site-tagline.hfe-site-tagline-wrapper {
 	text-align: right;
 }
+ /* RTL - Site logo */
+[dir="rtl"] .hfe-site-logo .hfe-site-logo-set .hfe-site-logo-container, [dir="rtl"] .hfe-site-logo .wp-caption .hfe-caption-width figcaption {
+	text-align: right;
+}
