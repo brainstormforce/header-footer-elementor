@@ -668,7 +668,7 @@ class Search_Button extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name'           => 'button_background',
-				'label'          => __( 'Background', 'elementor' ),
+				'label'          => __( 'Background', 'elementor', 'header-footer-elementor' ),
 				'types'          => [ 'classic', 'gradient' ],
 				'exclude'        => [ 'image' ],
 				'selector'       => '{{WRAPPER}} .hfe-search-submit',
@@ -721,7 +721,7 @@ class Search_Button extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name'      => 'button_background_hover',
-				'label'     => __( 'Background', 'elementor' ),
+				'label'     => __( 'Background', 'elementor', 'header-footer-elementor' ),
 				'types'     => [ 'classic', 'gradient' ],
 				'exclude'   => [ 'image' ],
 				'selector'  => '{{WRAPPER}} .hfe-search-submit:hover',
