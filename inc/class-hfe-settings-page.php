@@ -101,7 +101,7 @@ class HFE_Settings_Page {
 		$this->hfe_tabs();
 		$this->hfe_modal();
 		return $views;
-		
+
 	}
 
 	/**
