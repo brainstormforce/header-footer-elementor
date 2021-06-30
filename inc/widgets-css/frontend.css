@@ -1946,21 +1946,38 @@ div.hfe-nav-menu,
 [dir="rtl"] .hfe-retina-image .hfe-retina-image-set .hfe-retina-image-container, [dir="rtl"] .hfe-retina-image .wp-caption .hfe-caption-width {
 	text-align: right;
 }
+[dir="rtl"] .hfe-retina-image .hfe-retina-image-set .hfe-retina-image-container, [dir="rtl"] .hfe-retina-image .wp-caption .hfe-caption-width {
+	text-align: left;
+}
 
 /* RTL - Page title */
 [dir="rtl"] .rtl .hfe-page-title.hfe-page-title-wrapper {
 	text-align: right;
 }
+[dir="rtl"] .rtl .hfe-page-title.hfe-page-title-wrapper {
+	text-align: left;
+}
+
  /* RTL - Site title */
 [dir="rtl"] .hfe-module-content.hfe-heading-wrapper .hfe-heading {
 	text-align: right;
+}
+[dir="rtl"] .hfe-module-content.hfe-heading-wrapper .hfe-heading {
+	text-align: left;
 }
 
 /* RTL - Tagline */
 [dir="rtl"] .rtl .hfe-site-tagline.hfe-site-tagline-wrapper {
 	text-align: right;
 }
+[dir="rtl"] .rtl .hfe-site-tagline.hfe-site-tagline-wrapper {
+	text-align: left;
+}
+
  /* RTL - Site logo */
 [dir="rtl"] .hfe-site-logo .hfe-site-logo-set .hfe-site-logo-container, [dir="rtl"] .hfe-site-logo .wp-caption .hfe-caption-width figcaption {
 	text-align: right;
+}
+[dir="rtl"] .hfe-site-logo .hfe-site-logo-set .hfe-site-logo-container, [dir="rtl"] .hfe-site-logo .wp-caption .hfe-caption-width figcaption {
+	text-align: left;
 }
