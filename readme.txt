@@ -138,14 +138,12 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 = 1.6.2 = 
-- Improvement: Copyright - Added custom attributes support.
-- Improvement: Page Title - Added custom attributes support.
-- Improvement: Retina Image - Added custom attributes support.
-- Improvement: Site Logo - Added custom attributes support.
-- Improvement: Site Title - Added custom attributes support.
-
-= 1.6.1 =
-- Fix: Templates views section not displaying correctly.
+- Improvement: Copyright - Added custom link attributes support.
+- Improvement: Page Title - Added custom link attributes support.
+- Improvement: Retina Image - Added custom link attributes support.
+- Improvement: Site Logo - Added custom link attributes support.
+- Improvement: Site Title - Added custom link attributes support.
+- Fix: Templates views section not displaying correctly and related code conflicting with Yoast SEO plugin.
 
 = 1.6.1 =
 - Fix: Footer misplaced in the header or content area due to a bug introduced in v1.6.0.
