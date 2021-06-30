@@ -1946,3 +1946,8 @@ div.hfe-nav-menu,
 [dir="rtl"] .hfe-retina-image .hfe-retina-image-set .hfe-retina-image-container, [dir="rtl"] .hfe-retina-image .wp-caption .hfe-caption-width {
 	text-align: right;
 }
+
+/* RTL - Page title */
+[dir="rtl"] .rtl .hfe-page-title.hfe-page-title-wrapper {
+	text-align: right;
+}
