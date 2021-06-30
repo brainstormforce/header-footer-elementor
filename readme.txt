@@ -138,7 +138,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 = 1.6.2 = 
-- Fix: Added custom attributes support to all the widgets having link control.
+- Improvement: Added custom attributes support to all the widgets having link control.
 
 = 1.6.1 =
 - Fix: Footer misplaced in the header or content area due to a bug introduced in v1.6.0.
