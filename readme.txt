@@ -141,7 +141,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 - Improvement: Copyright - Added custom link attributes support.
 - Improvement: Page Title - Added custom link attributes support.
 - Improvement: Retina Image - Added custom link attributes support.
-- Improvement: Search - Added gradient color support to search button.
+- Improvement: Search - Added gradient color support to the search button.
 - Improvement: Site Logo - Added custom link attributes support.
 - Improvement: Site Title - Added custom link attributes support.
 - Fix: Templates views section not displaying correctly and related code conflicting with Yoast SEO plugin.
