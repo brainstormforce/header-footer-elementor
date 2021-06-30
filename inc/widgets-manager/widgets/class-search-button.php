@@ -663,19 +663,7 @@ class Search_Button extends Widget_Base {
 				],
 			]
 		);
-
-		// $this->add_control(
-		// 	'button_background_color',
-		// 	[
-		// 		'label'     => __( 'Background Color', 'header-footer-elementor' ),
-		// 		'type'      => Controls_Manager::COLOR,
-		// 		'default'   => '#818a91',
-		// 		'selectors' => [
-		// 			'{{WRAPPER}} .hfe-search-submit' => 'background-color: {{VALUE}}',
-		// 		],
-		// 	]
-		// );
-
+		
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
@@ -687,6 +675,9 @@ class Search_Button extends Widget_Base {
 				'fields_options' => [
 					'background' => [
 						'default' => 'classic',
+					],
+					'color' => [
+						'default' => '#818a91',
 					],
 				],
 			]
