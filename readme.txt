@@ -138,7 +138,11 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 = 1.6.2 = 
-- Improvement: Added custom attributes support to all the widgets having link control.
+- Improvement: Copyright - Added custom attributes support.
+- Improvement: Page Title - Added custom attributes support.
+- Improvement: Retina Image - Added custom attributes support.
+- Improvement: Site Logo - Added custom attributes support.
+- Improvement: Site Title - Added custom attributes support.
 
 = 1.6.1 =
 - Fix: Footer misplaced in the header or content area due to a bug introduced in v1.6.0.
