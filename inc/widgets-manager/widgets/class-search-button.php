@@ -663,20 +663,20 @@ class Search_Button extends Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name' => 'button_background',
-				'label' => __( 'Background', 'elementor' ),
-				'types' => [ 'classic', 'gradient' ],
-				'exclude' => [ 'image' ],
-				'selector' => '{{WRAPPER}} .hfe-search-submit',
+				'name'           => 'button_background',
+				'label'          => __( 'Background', 'elementor' ),
+				'types'          => [ 'classic', 'gradient' ],
+				'exclude'        => [ 'image' ],
+				'selector'       => '{{WRAPPER}} .hfe-search-submit',
 				'fields_options' => [
 					'background' => [
 						'default' => 'classic',
 					],
-					'color' => [
+					'color'      => [
 						'default' => '#818a91',
 					],
 				],
@@ -711,7 +711,7 @@ class Search_Button extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-submit:hover' => 'background-color: {{VALUE}}',
 				],
-				'condition'   => [
+				'condition' => [
 					'button_background_color_hover!' => '',
 				],
 			]
@@ -720,12 +720,12 @@ class Search_Button extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name' => 'button_background_hover',
-				'label' => __( 'Background', 'elementor' ),
-				'types' => [ 'classic', 'gradient' ],
-				'exclude' => [ 'image' ],
-				'selector' => '{{WRAPPER}} .hfe-search-submit:hover',
-				'condition'   => [
+				'name'      => 'button_background_hover',
+				'label'     => __( 'Background', 'elementor' ),
+				'types'     => [ 'classic', 'gradient' ],
+				'exclude'   => [ 'image' ],
+				'selector'  => '{{WRAPPER}} .hfe-search-submit:hover',
+				'condition' => [
 					'button_background_color_hover' => '',
 				],
 			]
