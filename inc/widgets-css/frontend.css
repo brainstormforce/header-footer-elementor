@@ -1955,3 +1955,8 @@ div.hfe-nav-menu,
 [dir="rtl"] .hfe-module-content.hfe-heading-wrapper .hfe-heading {
 	text-align: right;
 }
+
+/* RTL - Tagline */
+[dir="rtl"] .rtl .hfe-site-tagline.hfe-site-tagline-wrapper {
+	text-align: right;
+}
