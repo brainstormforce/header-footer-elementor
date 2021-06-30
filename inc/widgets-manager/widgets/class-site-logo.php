@@ -738,14 +738,7 @@ class Site_Logo extends Widget_Base {
 			$this->add_render_attribute( 'link', 'href', $link );
 		} else {
 			$link     = $this->get_link_url( $settings );
-			$link_url = isset( $link['url'] ) ? $link['url'] : '';
-			$this->add_render_attribute( 'link', 'href', $link_url );
-			if ( ! empty( $link['nofollow'] ) ) {
-				$this->add_render_attribute( 'link', 'rel', 'nofollow' );
-			}
-			if ( ! empty( $link['is_external'] ) ) {
-				$this->add_render_attribute( 'link', 'target', '_blank' );
-			}
+			$this->add_link_attributes( 'link', $link );
 		}
 		$class = '';
 		if ( Plugin::$instance->editor->is_edit_mode() ) {
