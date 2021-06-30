@@ -704,7 +704,7 @@ class Retina extends Widget_Base {
 					]
 				);
 			}
-			
+
 			$this->add_link_attributes( 'link', $link );
 		}
 
