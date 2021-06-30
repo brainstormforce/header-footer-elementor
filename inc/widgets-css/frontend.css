@@ -1940,3 +1940,9 @@ div.hfe-nav-menu,
     opacity:1;
     height:100%;
 }
+
+/* RTL - Retina */
+
+.rtl .elementor-3165 .elementor-element.elementor-element-951df70 .hfe-retina-image-container, .elementor-3165 .elementor-element.elementor-element-951df70 .hfe-caption-width {
+	text-align: right;
+}
