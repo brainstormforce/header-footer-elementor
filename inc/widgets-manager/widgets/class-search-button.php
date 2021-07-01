@@ -695,7 +695,7 @@ class Search_Button extends Widget_Base {
 		$this->add_control(
 			'button_text_color_hover',
 			[
-				'label'     => __( 'Text Color', 'header-footer-elementor' ),
+				'label'     => __( 'Icon Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-submit:hover' => 'color: {{VALUE}}',
