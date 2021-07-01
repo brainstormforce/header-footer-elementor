@@ -145,7 +145,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 - Improvement: Site Logo - Added custom link attributes support.
 - Improvement: Site Title - Added custom link attributes support.
 - Fix: Templates views section not displaying correctly and related code conflicting with Yoast SEO plugin.
-- Fix: Widgets icon color issue with Elemenntor's dark mode.
+- Fix: Widgets icon color issue with Elementor's dark mode.
 
 = 1.6.1 =
 - Fix: Footer misplaced in the header or content area due to a bug introduced in v1.6.0.
