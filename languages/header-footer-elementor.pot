@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the Elementor Header & Footer Builder package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Elementor Header & Footer Builder 1.6.0\n"
+"Project-Id-Version: Elementor Header & Footer Builder 1.6.2\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/header-footer-elementor\n"
-"POT-Creation-Date: 2021-06-21 16:23:04+00:00\n"
+"POT-Creation-Date: 2021-06-30 09:50:46+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -122,7 +122,7 @@ msgstr ""
 msgid "View Template"
 msgstr ""
 
-#: admin/class-hfe-admin.php:229 inc/class-hfe-settings-page.php:273
+#: admin/class-hfe-admin.php:229 inc/class-hfe-settings-page.php:266
 msgid "All Templates"
 msgstr ""
 
@@ -240,133 +240,133 @@ msgstr ""
 msgid "Template %1$s is already assigned to the location %2$s"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:177
+#: inc/class-header-footer-elementor.php:178
 msgid ""
 "Hello! Seems like you have used Elementor Header & Footer Builder to build "
 "this website — Thanks a ton!"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:178
+#: inc/class-header-footer-elementor.php:179
 msgid ""
 "Could you please do us a BIG favor and give it a 5-star rating on "
 "WordPress? This would boost our motivation and help other users make a "
 "comfortable decision while choosing the Elementor Header & Footer Builder."
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:180
+#: inc/class-header-footer-elementor.php:181
 msgid "Ok, you deserve it"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:182
+#: inc/class-header-footer-elementor.php:183
 msgid "Nope, maybe later"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:183
+#: inc/class-header-footer-elementor.php:184
 msgid "I already did"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:246
+#: inc/class-header-footer-elementor.php:247
 #. translators: %s: html tags
 msgid ""
 "The %1$sElementor Header & Footer Builder%2$s plugin requires "
 "%1$sElementor%2$s plugin installed & activated."
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:253
+#: inc/class-header-footer-elementor.php:254
 msgid "Activate Elementor"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:258
-#: inc/class-header-footer-elementor.php:292
+#: inc/class-header-footer-elementor.php:259
+#: inc/class-header-footer-elementor.php:293
 msgid "Install Elementor"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:280
+#: inc/class-header-footer-elementor.php:281
 #. translators: %s: html tags
 msgid ""
 "The %1$sElementor Header & Footer Builder%2$s plugin has stopped working "
 "because you are using an older version of %1$sElementor%2$s plugin."
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:287
+#: inc/class-header-footer-elementor.php:288
 msgid "Update Elementor"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:318
+#: inc/class-header-footer-elementor.php:319
 #. translators: %s: html tags
 msgid ""
 "Thank you for installing %1$s Elementor Header & Footer Builder %2$s "
 "Plugin! Click here to %3$sget started. %4$s"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:477
+#: inc/class-header-footer-elementor.php:478
 #. translators: %s: html tags
 msgid "Theme Support"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:62 inc/class-hfe-settings-page.php:672
+#: inc/class-hfe-settings-page.php:61 inc/class-hfe-settings-page.php:665
 msgid "Activate"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:63 inc/class-hfe-settings-page.php:664
+#: inc/class-hfe-settings-page.php:62 inc/class-hfe-settings-page.php:657
 msgid "Activated"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:64 inc/class-hfe-settings-page.php:661
+#: inc/class-hfe-settings-page.php:63 inc/class-hfe-settings-page.php:654
 #: inc/widgets-manager/widgets/class-navigation-menu.php:1046
 #: inc/widgets-manager/widgets/class-navigation-menu.php:1228
 msgid "Active"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:65
+#: inc/class-hfe-settings-page.php:64
 msgid "Deactivate"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:66 inc/class-hfe-settings-page.php:669
+#: inc/class-hfe-settings-page.php:65 inc/class-hfe-settings-page.php:662
 msgid "Inactive"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:67 inc/class-hfe-settings-page.php:685
+#: inc/class-hfe-settings-page.php:66 inc/class-hfe-settings-page.php:678
 msgid "Install"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:68
+#: inc/class-hfe-settings-page.php:67
 msgid "Theme Installed"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:69
+#: inc/class-hfe-settings-page.php:68
 msgid "Plugin Installed"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:70
+#: inc/class-hfe-settings-page.php:69
 msgid "Download"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:71
+#: inc/class-hfe-settings-page.php:70
 msgid "Already Exists."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:72 inc/class-hfe-settings-page.php:690
+#: inc/class-hfe-settings-page.php:71 inc/class-hfe-settings-page.php:683
 msgid "Visit Website"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:73
+#: inc/class-hfe-settings-page.php:72
 msgid "Could not install. Please download from WordPress.org and install manually."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:74
+#: inc/class-hfe-settings-page.php:73
 msgid "Your details are submitted successfully."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:75
+#: inc/class-hfe-settings-page.php:74
 msgid "Encountered an error while performing your request."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:125
+#: inc/class-hfe-settings-page.php:115
 msgid "Add Theme Support"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:142
+#: inc/class-hfe-settings-page.php:132
 msgid ""
 "The Elementor Header & Footer Builder plugin need compatibility with your "
 "current theme to work smoothly.</br></br>Following are two methods that "
@@ -375,21 +375,21 @@ msgid ""
 "issue with the header or footer template, try choosing Method 2."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:159
+#: inc/class-hfe-settings-page.php:149
 msgid " Method 1 (Recommended)"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:160
+#: inc/class-hfe-settings-page.php:150
 msgid ""
 "This method replaces your theme's header (header.php) & footer (footer.php) "
 "template with plugin's custom templates."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:163
+#: inc/class-hfe-settings-page.php:153
 msgid "Method 2"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:176
+#: inc/class-hfe-settings-page.php:166
 msgid ""
 "Sometimes above methods might not work well with your theme, in this case, "
 "contact your theme author and request them to add support for the <a "
@@ -397,111 +397,111 @@ msgid ""
 "Header-Footer-Elementor-support-for-your-theme\">plugin.</>"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:195 inc/class-hfe-settings-page.php:196
-#: inc/class-hfe-settings-page.php:808
+#: inc/class-hfe-settings-page.php:185 inc/class-hfe-settings-page.php:186
+#: inc/class-hfe-settings-page.php:801
 msgid "Settings"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:204 inc/class-hfe-settings-page.php:205
-#: inc/class-hfe-settings-page.php:279
+#: inc/class-hfe-settings-page.php:194 inc/class-hfe-settings-page.php:195
+#: inc/class-hfe-settings-page.php:272
 msgid "About Us"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:239
+#: inc/class-hfe-settings-page.php:211
 msgid "Elementor Header & Footer Builder "
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:325
+#: inc/class-hfe-settings-page.php:318
 #. translators: 1: Elementor, 2: Link to plugin review
 msgid ""
 "Help us spread the word about the plugin by leaving %2$s %1$s %3$s ratings "
 "on %2$s WordPress.org %3$s. Thank you from the Brainstorm Force team!"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:368
+#: inc/class-hfe-settings-page.php:361
 msgid "Create Impressive Header and Footer Designs"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:369
+#: inc/class-hfe-settings-page.php:362
 msgid ""
 "Elementor Header & Footer Builder plugin lets you build impactful "
 "navigation for your website very easily. Before we begin, we would like to "
 "know more about you. This will help us to serve you better."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:383
+#: inc/class-hfe-settings-page.php:376
 #. translators: %1$s and %3$s are opening anchor tags, and %2$s and %4$s is
 #. closing anchor tags.
 msgid "By submitting, you agree to our %1$sTerms%2$s and %3$sPrivacy Policy%4$s."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:401
+#: inc/class-hfe-settings-page.php:394
 msgid "Skip"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:419
+#: inc/class-hfe-settings-page.php:412
 msgid "Beginner"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:420
+#: inc/class-hfe-settings-page.php:413
 msgid "Intermediate"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:421
+#: inc/class-hfe-settings-page.php:414
 msgid "Expert"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:423 inc/class-hfe-settings-page.php:432
+#: inc/class-hfe-settings-page.php:416 inc/class-hfe-settings-page.php:425
 msgid "Field is required"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:424
+#: inc/class-hfe-settings-page.php:417
 msgid "I'm a WordPress:"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:429
+#: inc/class-hfe-settings-page.php:422
 msgid "Myself/My company"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:430
+#: inc/class-hfe-settings-page.php:423
 msgid "My client"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:433
+#: inc/class-hfe-settings-page.php:426
 msgid "I'm building website for:"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:456
+#: inc/class-hfe-settings-page.php:449
 msgid "First name is required"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:457
+#: inc/class-hfe-settings-page.php:450
 msgid "Your First Name"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:461
+#: inc/class-hfe-settings-page.php:454
 msgid "Email address is required"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:462
+#: inc/class-hfe-settings-page.php:455
 msgid "Your Work Email"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:467
+#: inc/class-hfe-settings-page.php:460
 msgid "Submit"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:521
+#: inc/class-hfe-settings-page.php:514
 msgid "Welcome to Elementor Header & Footer Builder!"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:523
+#: inc/class-hfe-settings-page.php:516
 msgid ""
 "With this awesome plugin, experience the easiest way to create a customized "
 "header and footer for your website with Elementor. That too 100% FREE!"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:525
+#: inc/class-hfe-settings-page.php:518
 msgid ""
 "Design beautiful layouts with simple drag & drop and display them at "
 "desired location with powerful target controls. The plugin comes with "
@@ -510,78 +510,78 @@ msgid ""
 "backed up by 24/7 support."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:527
+#: inc/class-hfe-settings-page.php:520
 msgid ""
 "Trusted by more than 1+ Million users, Elementor Header & Footer Builder is "
 "a modern way to build advanced navigation for your website."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:529
+#: inc/class-hfe-settings-page.php:522
 msgid ""
 "This plugin is brought to you by the same team behind the popular WordPress "
 "theme Astra and a series of Ultimate Addons plugins."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:535
+#: inc/class-hfe-settings-page.php:528
 msgid "Team photo"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:537
+#: inc/class-hfe-settings-page.php:530
 msgid "Brainstorm Force Team"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:581
+#: inc/class-hfe-settings-page.php:574
 #. translators: %s - addon status label.
 msgid "%1$s %3$s %2$s"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:598
+#: inc/class-hfe-settings-page.php:591
 #. translators: %s - addon status label.
 msgid "Status: %s"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:617
+#: inc/class-hfe-settings-page.php:610
 msgid "WordPress.org"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:682
+#: inc/class-hfe-settings-page.php:675
 msgid "Not Installed"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:715
+#: inc/class-hfe-settings-page.php:708
 msgid "Astra Theme"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:716
+#: inc/class-hfe-settings-page.php:709
 msgid ""
 "Powering over 1+ Million websites, Astra is loved for the fast performance "
 "and ease of use it offers. It is suitable for all kinds of websites like "
 "blogs, portfolios, business, and WooCommerce stores."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:727
+#: inc/class-hfe-settings-page.php:720
 msgid "Starter Templates"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:728
+#: inc/class-hfe-settings-page.php:721
 msgid ""
 "A popular templates plugin that provides an extensive library of "
 "professional and fully customizable 600+ ready website and templates. More "
 "than 1+ Million websites have built with this plugin."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:739
+#: inc/class-hfe-settings-page.php:732
 msgid "Ultimate Addons for Elementor"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:740
+#: inc/class-hfe-settings-page.php:733
 msgid ""
 "It’s a collection of 40+ unique, creative, and optimized Elementor widgets "
 "with 100+ readymade templates. Trusted by more than 600+ K web "
 "professionals. It’s a #1 toolkit for Elementor Page Builder."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:807
+#: inc/class-hfe-settings-page.php:800
 msgid "Go to HFE Settings page"
 msgstr ""
 
@@ -775,7 +775,7 @@ msgstr ""
 #: inc/widgets-manager/widgets/class-navigation-menu.php:590
 #: inc/widgets-manager/widgets/class-page-title.php:364
 #: inc/widgets-manager/widgets/class-search-button.php:145
-#: inc/widgets-manager/widgets/class-search-button.php:767
+#: inc/widgets-manager/widgets/class-search-button.php:791
 #: inc/widgets-manager/widgets/class-site-tagline.php:150
 #: inc/widgets-manager/widgets/class-site-title.php:152
 #: inc/widgets-manager/widgets/class-site-title.php:354
@@ -911,7 +911,7 @@ msgstr ""
 #: inc/widgets-manager/widgets/class-cart.php:263
 #: inc/widgets-manager/widgets/class-page-title.php:237
 #: inc/widgets-manager/widgets/class-search-button.php:168
-#: inc/widgets-manager/widgets/class-search-button.php:857
+#: inc/widgets-manager/widgets/class-search-button.php:881
 #: inc/widgets-manager/widgets/class-site-title.php:211
 msgid "Size"
 msgstr ""
@@ -954,8 +954,8 @@ msgstr ""
 #: inc/widgets-manager/widgets/class-retina.php:424
 #: inc/widgets-manager/widgets/class-search-button.php:241
 #: inc/widgets-manager/widgets/class-search-button.php:651
-#: inc/widgets-manager/widgets/class-search-button.php:780
-#: inc/widgets-manager/widgets/class-search-button.php:883
+#: inc/widgets-manager/widgets/class-search-button.php:804
+#: inc/widgets-manager/widgets/class-search-button.php:907
 #: inc/widgets-manager/widgets/class-site-logo.php:466
 #: inc/widgets-manager/widgets/class-site-title.php:329
 msgid "Normal"
@@ -978,7 +978,7 @@ msgstr ""
 #: inc/widgets-manager/widgets/class-search-button.php:251
 #: inc/widgets-manager/widgets/class-search-button.php:418
 #: inc/widgets-manager/widgets/class-search-button.php:502
-#: inc/widgets-manager/widgets/class-search-button.php:691
+#: inc/widgets-manager/widgets/class-search-button.php:698
 #: inc/widgets-manager/widgets/class-site-logo.php:581
 msgid "Text Color"
 msgstr ""
@@ -1011,8 +1011,7 @@ msgstr ""
 #: inc/widgets-manager/widgets/class-search-button.php:286
 #: inc/widgets-manager/widgets/class-search-button.php:450
 #: inc/widgets-manager/widgets/class-search-button.php:517
-#: inc/widgets-manager/widgets/class-search-button.php:670
-#: inc/widgets-manager/widgets/class-search-button.php:702
+#: inc/widgets-manager/widgets/class-search-button.php:709
 #: inc/widgets-manager/widgets/class-site-logo.php:371
 #: inc/widgets-manager/widgets/class-site-logo.php:596
 msgid "Background Color"
@@ -1036,17 +1035,17 @@ msgstr ""
 #: inc/widgets-manager/widgets/class-navigation-menu.php:1542
 #: inc/widgets-manager/widgets/class-navigation-menu.php:1765
 #: inc/widgets-manager/widgets/class-retina.php:459
-#: inc/widgets-manager/widgets/class-search-button.php:684
-#: inc/widgets-manager/widgets/class-search-button.php:800
-#: inc/widgets-manager/widgets/class-search-button.php:907
+#: inc/widgets-manager/widgets/class-search-button.php:691
+#: inc/widgets-manager/widgets/class-search-button.php:824
+#: inc/widgets-manager/widgets/class-search-button.php:931
 #: inc/widgets-manager/widgets/class-site-logo.php:501
 msgid "Hover"
 msgstr ""
 
 #: inc/widgets-manager/widgets/class-cart.php:451
 #: inc/widgets-manager/widgets/class-navigation-menu.php:1577
-#: inc/widgets-manager/widgets/class-search-button.php:717
-#: inc/widgets-manager/widgets/class-search-button.php:822
+#: inc/widgets-manager/widgets/class-search-button.php:741
+#: inc/widgets-manager/widgets/class-search-button.php:846
 msgid "Icon Size"
 msgstr ""
 
@@ -1264,7 +1263,7 @@ msgstr ""
 
 #: inc/widgets-manager/widgets/class-navigation-menu.php:605
 #: inc/widgets-manager/widgets/class-navigation-menu.php:621
-#: inc/widgets-manager/widgets/class-search-button.php:846
+#: inc/widgets-manager/widgets/class-search-button.php:870
 msgid "Close Icon"
 msgstr ""
 
@@ -1409,10 +1408,10 @@ msgstr ""
 #: inc/widgets-manager/widgets/class-navigation-menu.php:1517
 #: inc/widgets-manager/widgets/class-navigation-menu.php:1549
 #: inc/widgets-manager/widgets/class-page-title.php:312
-#: inc/widgets-manager/widgets/class-search-button.php:787
-#: inc/widgets-manager/widgets/class-search-button.php:807
-#: inc/widgets-manager/widgets/class-search-button.php:889
-#: inc/widgets-manager/widgets/class-search-button.php:914
+#: inc/widgets-manager/widgets/class-search-button.php:811
+#: inc/widgets-manager/widgets/class-search-button.php:831
+#: inc/widgets-manager/widgets/class-search-button.php:913
+#: inc/widgets-manager/widgets/class-search-button.php:938
 #: inc/widgets-manager/widgets/class-site-tagline.php:217
 #: inc/widgets-manager/widgets/class-site-title.php:302
 msgid "Color"
@@ -1589,7 +1588,7 @@ msgstr ""
 
 #: inc/widgets-manager/widgets/class-retina.php:268
 #: inc/widgets-manager/widgets/class-search-button.php:216
-#: inc/widgets-manager/widgets/class-search-button.php:743
+#: inc/widgets-manager/widgets/class-search-button.php:767
 #: inc/widgets-manager/widgets/class-site-logo.php:301
 msgid "Width"
 msgstr ""
@@ -1630,7 +1629,7 @@ msgid "%1$s Getting started article » %2$s"
 msgstr ""
 
 #: inc/widgets-manager/widgets/class-search-button.php:54
-#: inc/widgets-manager/widgets/class-search-button.php:949
+#: inc/widgets-manager/widgets/class-search-button.php:973
 msgid "Search"
 msgstr ""
 
@@ -1665,6 +1664,11 @@ msgstr ""
 
 #: inc/widgets-manager/widgets/class-search-button.php:408
 msgid "Focus"
+msgstr ""
+
+#: inc/widgets-manager/widgets/class-search-button.php:671
+#: inc/widgets-manager/widgets/class-search-button.php:724
+msgid "Background"
 msgstr ""
 
 #: inc/widgets-manager/widgets/class-site-logo.php:61

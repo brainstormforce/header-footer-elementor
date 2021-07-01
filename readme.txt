@@ -5,7 +5,7 @@ Donate link: https://www.paypal.me/BrainstormForce
 Requires at least: 4.4
 Requires PHP: 5.4
 Tested up to: 5.7.2
-Stable tag: 1.6.1
+Stable tag: 1.6.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -137,6 +137,16 @@ This same applies when you are creating your Header/Footer using this plugin.
 5. Default widgets available with Elementor Header & Footer Builder.
 
 == Changelog ==
+= 1.6.2 = 
+- Improvement: Copyright - Added custom link attributes support.
+- Improvement: Page Title - Added custom link attributes support.
+- Improvement: Retina Image - Added custom link attributes support.
+- Improvement: Search - Added gradient color support to the search button.
+- Improvement: Site Logo - Added custom link attributes support.
+- Improvement: Site Title - Added custom link attributes support.
+- Fix: Templates views section not displaying correctly and related code conflicting with Yoast SEO plugin.
+- Fix: Widgets icon color issue with Elementor's dark mode.
+
 = 1.6.1 =
 - Fix: Footer misplaced in the header or content area due to a bug introduced in v1.6.0.
 

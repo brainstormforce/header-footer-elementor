@@ -695,12 +695,6 @@ class Retina extends Widget_Base {
 		$link = $this->get_link_url( $settings );
 
 		if ( $link ) {
-			$this->add_render_attribute(
-				'link',
-				[
-					'href' => $link['url'],
-				]
-			);
 
 			if ( Plugin::$instance->editor->is_edit_mode() ) {
 				$this->add_render_attribute(
@@ -711,13 +705,7 @@ class Retina extends Widget_Base {
 				);
 			}
 
-			if ( ! empty( $link['is_external'] ) ) {
-				$this->add_render_attribute( 'link', 'target', '_blank' );
-			}
-
-			if ( ! empty( $link['nofollow'] ) ) {
-				$this->add_render_attribute( 'link', 'rel', 'nofollow' );
-			}
+			$this->add_link_attributes( 'link', $link );
 		}
 
 		?>

@@ -42,7 +42,6 @@
 
 .hfe-icon-search:before {
   content: "\e908";
-  color: #556068;
 }
 .hfe-icon-site-logo:before {
   content: "\e900";
@@ -58,11 +57,9 @@
 }
 .hfe-icon-navigation-menu:before {
   content: "\e904";
-  color: #556068;
 }
 .hfe-icon-menu-cart:before {
   content: "\e905";
-  color: #556068;
 }
 .hfe-icon-copyright-widget:before {
   content: "\e906";
