@@ -186,6 +186,7 @@ class Site_Logo extends Widget_Base {
 					],
 				],
 				'default'   => 'center',
+				'prefix_class' => 'hfe-site-logo-align-',
 				'selectors' => [
 					'{{WRAPPER}} .hfe-site-logo-container, {{WRAPPER}} .hfe-caption-width figcaption' => 'text-align: {{VALUE}};',
 				],

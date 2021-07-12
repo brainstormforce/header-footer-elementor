@@ -195,6 +195,7 @@ class Site_Tagline extends Widget_Base {
 						'icon'  => 'fa fa-align-justify',
 					],
 				],
+				'prefix_class' => 'hfe-site-tagline-align-',
 				'selectors' => [
 					'{{WRAPPER}} .hfe-site-tagline' => 'text-align: {{VALUE}};',
 				],

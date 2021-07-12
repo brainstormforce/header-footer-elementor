@@ -1943,12 +1943,21 @@ div.hfe-nav-menu,
 
 /* RTL - Retina/Page title/Site title/Tagline/Site logo */
 
-[dir="rtl"] .hfe-retina-image .hfe-retina-image-set .hfe-retina-image-container,
-[dir="rtl"] .hfe-retina-image .wp-caption .hfe-caption-width,
-[dir="rtl"] .rtl .hfe-page-title.hfe-page-title-wrapper,
-[dir="rtl"] .hfe-module-content.hfe-heading-wrapper .hfe-heading,
-[dir="rtl"] .rtl .hfe-site-tagline.hfe-site-tagline-wrapper,
-[dir="rtl"] .hfe-site-logo .hfe-site-logo-set .hfe-site-logo-container,
-[dir="rtl"] .hfe-site-logo .wp-caption .hfe-caption-width figcaption {
+[dir="rtl"] .hfe-retina-img-align-left .hfe-retina-image .hfe-retina-image-set .hfe-retina-image-container,
+[dir="rtl"] .hfe-retina-img-align-left .hfe-retina-image .wp-caption .hfe-caption-width,
+[dir="rtl"] .rtl .hfe-page-title-align-left .hfe-page-title.hfe-page-title-wrapper,
+[dir="rtl"] .hfe-heading-align-left .hfe-module-content.hfe-heading-wrapper .hfe-heading,
+[dir="rtl"] .rtl .hfe-site-tagline-align-left .hfe-site-tagline.hfe-site-tagline-wrapper,
+[dir="rtl"] .hfe-site-logo-align-left .hfe-site-logo .hfe-site-logo-set .hfe-site-logo-container,
+[dir="rtl"] .hfe-site-logo-align-left .hfe-site-logo .wp-caption .hfe-caption-width figcaption {
 	text-align: right;
+}
+[dir="rtl"] .hfe-retina-img-align-right .hfe-retina-image .hfe-retina-image-set .hfe-retina-image-container,
+[dir="rtl"] .hfe-retina-img-align-right .hfe-retina-image .wp-caption .hfe-caption-width,
+[dir="rtl"] .rtl .hfe-page-title-align-right .hfe-page-title.hfe-page-title-wrapper,
+[dir="rtl"] .hfe-heading-align-right .hfe-module-content.hfe-heading-wrapper .hfe-heading,
+[dir="rtl"] .rtl .hfe-site-tagline-align-right .hfe-site-tagline.hfe-site-tagline-wrapper,
+[dir="rtl"] .hfe-site-logo-align-right .hfe-site-logo .hfe-site-logo-set .hfe-site-logo-container,
+[dir="rtl"] .hfe-site-logo-align-right .hfe-site-logo .wp-caption .hfe-caption-width figcaption {
+	text-align: left;
 }

@@ -181,6 +181,7 @@ class Retina extends Widget_Base {
 					],
 				],
 				'default'   => 'center',
+				'prefix_class' => 'hfe-retina-img-align-',
 				'selectors' => [
 					'{{WRAPPER}} .hfe-retina-image-container, {{WRAPPER}} .hfe-caption-width' => 'text-align: {{VALUE}};',
 				],

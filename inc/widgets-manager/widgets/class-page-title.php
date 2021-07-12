@@ -272,6 +272,7 @@ class Page_Title extends Widget_Base {
 					],
 				],
 				'default'   => '',
+				'prefix_class' => 'hfe-page-title-align-',
 				'selectors' => [
 					'{{WRAPPER}} .hfe-page-title-wrapper' => 'text-align: {{VALUE}};',
 				],
