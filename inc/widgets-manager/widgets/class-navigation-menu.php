@@ -538,6 +538,7 @@ class Navigation_Menu extends Widget_Base {
 					'layout'    => [ 'horizontal', 'vertical' ],
 					'dropdown!' => 'none',
 				],
+				'prefix_class' => 'hfe-nav-responsive-align-',
 				'selectors_dictionary' => [
 					'left'   => 'margin-right: auto',
 					'center' => 'margin: 0 auto',
