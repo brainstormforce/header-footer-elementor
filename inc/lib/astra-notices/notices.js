@@ -80,9 +80,9 @@
 				type: 'POST',
 				data: {
 					action            : 'astra-notice-dismiss',
+					nonce             : astraNotices._notice_nonce,
 					notice_id         : notice_id,
 					repeat_notice_after : parseInt( repeat_notice_after ),
-					nonce             : astraNotices._notice_nonce
 				},
 			});
 
