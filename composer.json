@@ -1,6 +1,22 @@
 {
   "name": "nikschavan/header-footer-elementor",
   "description": "Create Header and Footer using Elementor page builder.",
+  "require": {
+    "brainstormforce/astra-notices": "^1.1"
+  },
+  "extra": {
+      "installer-paths": {
+        "lib/{$name}/": [
+          "brainstormforce/astra-notices"
+        ]
+      }
+  },
+  "repositories": [
+      {
+        "type": "vcs",
+        "url": "git@github.com:brainstormforce/astra-notices.git"
+      }
+  ],
   "require-dev": {
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
     "wp-coding-standards/wpcs": "dev-master",
