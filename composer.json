@@ -6,7 +6,7 @@
   },
   "extra": {
       "installer-paths": {
-        "lib/{$name}/": [
+        "inc/lib/{$name}/": [
           "brainstormforce/astra-notices"
         ]
       }
