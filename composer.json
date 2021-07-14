@@ -11,12 +11,6 @@
         ]
       }
   },
-  "repositories": [
-      {
-        "type": "vcs",
-        "url": "git@github.com:brainstormforce/astra-notices.git"
-      }
-  ],
   "require-dev": {
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
     "wp-coding-standards/wpcs": "dev-master",
