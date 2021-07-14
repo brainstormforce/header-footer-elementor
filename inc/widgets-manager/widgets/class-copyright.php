@@ -155,6 +155,7 @@ class Copyright extends Widget_Base {
 						'icon'  => 'fa fa-align-right',
 					],
 				],
+				'prefix_class' => 'hfe-copyright-align-',
 				'selectors' => [
 					'{{WRAPPER}} .hfe-copyright-wrapper' => 'text-align: {{VALUE}};',
 				],
