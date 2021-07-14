@@ -251,9 +251,9 @@ class Page_Title extends Widget_Base {
 		$this->add_responsive_control(
 			'align',
 			[
-				'label'       => __( 'Alignment', 'header-footer-elementor' ),
-				'type'        => Controls_Manager::CHOOSE,
-				'options'     => [
+				'label'        => __( 'Alignment', 'header-footer-elementor' ),
+				'type'         => Controls_Manager::CHOOSE,
+				'options'      => [
 					'left'    => [
 						'title' => __( 'Left', 'header-footer-elementor' ),
 						'icon'  => 'eicon-text-align-left',
@@ -271,9 +271,9 @@ class Page_Title extends Widget_Base {
 						'icon'  => 'eicon-text-align-justify',
 					],
 				],
-				'default'       => '',
-				'prefix_class'  => 'hfe-page-title-align-',
-				'selectors'     => [
+				'default'      => '',
+				'prefix_class' => 'hfe-page-title-align-',
+				'selectors'    => [
 					'{{WRAPPER}} .hfe-page-title-wrapper' => 'text-align: {{VALUE}};',
 				],
 			]

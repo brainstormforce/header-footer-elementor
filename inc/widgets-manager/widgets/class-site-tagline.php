@@ -175,9 +175,9 @@ class Site_Tagline extends Widget_Base {
 		$this->add_responsive_control(
 			'heading_text_align',
 			[
-				'label'       => __( 'Alignment', 'header-footer-elementor' ),
-				'type'        => Controls_Manager::CHOOSE,
-				'options'     => [
+				'label'        => __( 'Alignment', 'header-footer-elementor' ),
+				'type'         => Controls_Manager::CHOOSE,
+				'options'      => [
 					'left'    => [
 						'title' => __( 'Left', 'header-footer-elementor' ),
 						'icon'  => 'fa fa-align-left',
