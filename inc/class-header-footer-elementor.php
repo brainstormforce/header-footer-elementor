@@ -90,7 +90,7 @@ class Header_Footer_Elementor {
 			}
 
 			if ( 'yes' === get_option( 'hfe_plugin_is_activated' ) ) {
-				add_action( 'admin_notices', [ $this, 'show_setup_wizard' ] );
+				add_action( 'admin_init', [ $this, 'show_setup_wizard' ] );
 			}
 
 			// Scripts and styles.
@@ -104,7 +104,7 @@ class Header_Footer_Elementor {
 			add_shortcode( 'hfe_template', [ $this, 'render_template' ] );
 
 			add_action( 'astra_notice_before_markup_header-footer-elementor-rating', [ $this, 'rating_notice_css' ] );
-			add_action( 'admin_notices', [ $this, 'register_notices' ] );
+			add_action( 'admin_init', [ $this, 'register_notices' ] );
 
 			// BSF Analytics Tracker.
 			if ( ! class_exists( 'BSF_Analytics_Loader' ) ) {
@@ -149,52 +149,47 @@ class Header_Footer_Elementor {
 	public function register_notices() {
 		$image_path = HFE_URL . 'assets/images/header-footer-elementor-icon.svg';
 
-		add_action(
-			'admin_init',
-			function() {
-				Astra_Notices::add_notice(
-					[
-						'id'                         => 'header-footer-elementor-rating',
-						'type'                       => '',
-						'message'                    => sprintf(
-							'<div class="notice-image">
-								<img src="%1$s" class="custom-logo" alt="Sidebar Manager" itemprop="logo"></div> 
-								<div class="notice-content">
-									<div class="notice-heading">
-										%2$s
-									</div>
-									%3$s<br />
-									<div class="astra-review-notice-container">
-										<a href="%4$s" class="astra-notice-close astra-review-notice button-primary" target="_blank">
-										%5$s
-										</a>
-									<span class="dashicons dashicons-calendar"></span>
-										<a href="#" data-repeat-notice-after="%6$s" class="astra-notice-close astra-review-notice">
-										%7$s
-										</a>
-									<span class="dashicons dashicons-smiley"></span>
-										<a href="#" class="astra-notice-close astra-review-notice">
-										%8$s
-										</a>
-									</div>
-								</div>',
-							$image_path,
-							__( 'Hello! Seems like you have used Elementor Header & Footer Builder to build this website — Thanks a ton!', 'header-footer-elementor' ),
-							__( 'Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Elementor Header & Footer Builder.', 'header-footer-elementor' ),
-							'https://wordpress.org/support/plugin/header-footer-elementor/reviews/?filter=5#new-post',
-							__( 'Ok, you deserve it', 'header-footer-elementor' ),
-							MONTH_IN_SECONDS,
-							__( 'Nope, maybe later', 'header-footer-elementor' ),
-							__( 'I already did', 'header-footer-elementor' )
-						),
-						'show_if'                    => ( hfe_header_enabled() || hfe_footer_enabled() || hfe_is_before_footer_enabled() ) ? true : false,
-						'repeat-notice-after'        => MONTH_IN_SECONDS,
-						'display-notice-after'       => 1296000, // Display notice after 15 days.
-						'priority'                   => 18,
-						'display-with-other-notices' => false,
-					]
-				);
-			}
+		Astra_Notices::add_notice(
+			[
+				'id'                         => 'header-footer-elementor-rating',
+				'type'                       => '',
+				'message'                    => sprintf(
+					'<div class="notice-image">
+						<img src="%1$s" class="custom-logo" alt="Sidebar Manager" itemprop="logo"></div> 
+						<div class="notice-content">
+							<div class="notice-heading">
+								%2$s
+							</div>
+							%3$s<br />
+							<div class="astra-review-notice-container">
+								<a href="%4$s" class="astra-notice-close astra-review-notice button-primary" target="_blank">
+								%5$s
+								</a>
+							<span class="dashicons dashicons-calendar"></span>
+								<a href="#" data-repeat-notice-after="%6$s" class="astra-notice-close astra-review-notice">
+								%7$s
+								</a>
+							<span class="dashicons dashicons-smiley"></span>
+								<a href="#" class="astra-notice-close astra-review-notice">
+								%8$s
+								</a>
+							</div>
+						</div>',
+					$image_path,
+					__( 'Hello! Seems like you have used Elementor Header & Footer Builder to build this website — Thanks a ton!', 'header-footer-elementor' ),
+					__( 'Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Elementor Header & Footer Builder.', 'header-footer-elementor' ),
+					'https://wordpress.org/support/plugin/header-footer-elementor/reviews/?filter=5#new-post',
+					__( 'Ok, you deserve it', 'header-footer-elementor' ),
+					MONTH_IN_SECONDS,
+					__( 'Nope, maybe later', 'header-footer-elementor' ),
+					__( 'I already did', 'header-footer-elementor' )
+				),
+				'show_if'                    => ( hfe_header_enabled() || hfe_footer_enabled() || hfe_is_before_footer_enabled() ) ? true : false,
+				'repeat-notice-after'        => MONTH_IN_SECONDS,
+				'display-notice-after'       => 1296000, // Display notice after 15 days.
+				'priority'                   => 18,
+				'display-with-other-notices' => false,
+			]
 		);
 	}
 
@@ -324,28 +319,23 @@ class Header_Footer_Elementor {
 		/* translators: %s: html tags */
 		$notice_message = sprintf( __( 'Thank you for installing %1$s Elementor Header & Footer Builder %2$s Plugin! Click here to %3$sget started. %4$s', 'header-footer-elementor' ), '<strong>', '</strong>', '<a href="' . $setting_url . '">', '</a>' );
 
-		add_action(
-			'admin_init',
-			function() {
-				Astra_Notices::add_notice(
-					[
-						'id'                         => 'header-footer-install-notice',
-						'type'                       => 'info',
-						/* translators: %s: html tags */
-						'message'                    => sprintf(
-							'<img src="%1$s" class="custom-logo" alt="HFE" itemprop="logo">
-							<div class="notice-content">
-								<p>%2$s</p>
-							</div>',
-							$image_path,
-							$notice_message
-						),
-						'repeat-notice-after'        => false,
-						'priority'                   => 18,
-						'display-with-other-notices' => false,
-					]
-				);
-			}
+		Astra_Notices::add_notice(
+			[
+				'id'                         => 'header-footer-install-notice',
+				'type'                       => 'info',
+				/* translators: %s: html tags */
+				'message'                    => sprintf(
+					'<img src="%1$s" class="custom-logo" alt="HFE" itemprop="logo">
+					<div class="notice-content">
+						<p>%2$s</p>
+					</div>',
+					$image_path,
+					$notice_message
+				),
+				'repeat-notice-after'        => false,
+				'priority'                   => 18,
+				'display-with-other-notices' => false,
+			]
 		);
 	}
 
