@@ -239,18 +239,4 @@ class Copyright extends Widget_Base {
 	 * @access protected
 	 */
 	protected function content_template() {}
-
-	/**
-	 * Render shortcode output in the editor.
-	 *
-	 * Written as a Backbone JavaScript template and used to generate the live preview.
-	 *
-	 * Remove this after Elementor v3.3.0
-	 *
-	 * @since 1.2.0
-	 * @access protected
-	 */
-	protected function _content_template() {
-		$this->content_template();
-	}
 }
