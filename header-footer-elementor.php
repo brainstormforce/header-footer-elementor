@@ -9,7 +9,7 @@
  * Domain Path: /languages
  * Version: 1.6.4
  * Elementor tested up to: 3.4
- * Elementor Pro tested up to: 3.3.6
+ * Elementor Pro tested up to: 3.3.7
  *
  * @package         header-footer-elementor
  */
