@@ -19,6 +19,3 @@ phpcs-full.log
 
 # Ignore Composer's directories
 vendor/
-
-# E2E test artifacts.
-artifacts/

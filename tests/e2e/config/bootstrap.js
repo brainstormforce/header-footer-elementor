@@ -215,7 +215,7 @@ beforeAll( async () => {
 // eslint-disable-next-line jest/require-top-level-describe
 afterEach( async () => {
 	await clearLocalStorage();
-	// await runAxeTests();
+	await runAxeTests();
 	await setupBrowser();
 } );
 
