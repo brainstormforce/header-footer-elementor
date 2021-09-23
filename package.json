@@ -10,13 +10,14 @@
     "@wordpress/jest-puppeteer-axe": "^3.1.0",
     "@wordpress/scripts": "^18.0.1",
     "cross-env": "^7.0.3",
+    "eslint-plugin-eslint-comments": "^3.2.0",
     "grunt": "^1.4.1",
     "grunt-bumpup": "^0.6.3",
+    "grunt-cli": "^1.4.3",
     "grunt-contrib-jshint": "^3.0.0",
     "grunt-text-replace": "^0.4.0",
     "grunt-wp-i18n": "~1.0.3",
     "grunt-wp-readme-to-markdown": "~2.0.1",
-    "grunt-cli": "^1.4.3",
     "jest-silent-reporter": "^0.5.0"
   },
   "description": "Create Header and Footer using Elementor page builder.",
@@ -24,6 +25,7 @@
     "test:e2e": "cross-env WP_BASE_URL=http://localhost:9091 wp-scripts test-e2e --config=tests/e2e/jest.config.js",
     "test:e2e:interactive": "npm run test:e2e -- --puppeteer-interactive",
     "test:e2e:ci": "npm run test:e2e -- --runInBand",
+    "format": "wp-scripts format tests/",
     "lint:css": "wp-scripts lint-style tests/",
     "lint:js": "wp-scripts lint-js tests/",
     "lint:js:fix": "npm run format && wp-scripts lint-js tests/ --fix",
@@ -41,5 +43,8 @@
   "bugs": {
     "url": "https://github.com/Nikschavan/header-footer-elementor/issues"
   },
-  "homepage": "https://github.com/Nikschavan/header-footer-elementor#readme"
+  "homepage": "https://github.com/Nikschavan/header-footer-elementor#readme",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
 }

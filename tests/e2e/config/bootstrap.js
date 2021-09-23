@@ -11,7 +11,7 @@ import {
 	enablePageDialogAccept,
 	isOfflineMode,
 	setBrowserViewport,
-	trashAllPosts
+	trashAllPosts,
 } from '@wordpress/e2e-test-utils';
 
 import './expect-extensions';
@@ -164,7 +164,8 @@ function observeConsoleLogging() {
  * @return {?Promise} Promise resolving once Axe texts are finished.
  */
 async function runAxeTests() {
-	if ( await page.$( 'body.wp-admin' ) ) {
+	// Force disable axe tests.
+	if ( await page.$( 'body' ) ) {
 		return;
 	}
 
@@ -175,10 +176,12 @@ async function runAxeTests() {
 				values: [ 'wcag2a', 'wcag2aa' ],
 			},
 		},
-		exclude: [ [
-			[ '#wpadminbar' ],
-			[ '.skip-link' ], // Ignoring "region" requirement for the skip link, This is added to the markup already.
-		] ],
+		exclude: [
+			[
+				[ '#wpadminbar' ],
+				[ '.skip-link' ], // Ignoring "region" requirement for the skip link, This is added to the markup already.
+			],
+		],
 		disabledRules: [
 			'landmark-unique', // Error appears in the markup from WordPress core related to individual widgets.
 		],
@@ -215,7 +218,7 @@ beforeAll( async () => {
 // eslint-disable-next-line jest/require-top-level-describe
 afterEach( async () => {
 	await clearLocalStorage();
-	// await runAxeTests();
+	await runAxeTests();
 	await setupBrowser();
 } );
 
