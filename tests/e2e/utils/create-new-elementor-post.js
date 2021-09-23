@@ -18,7 +18,7 @@ export async function createNewElementorPost(
 
     // Click on `Edit With Elementor` button
     const editWithElementorButton = await page.$( '#elementor-switch-mode-button' );
-    editWithElementorButton.click();
+    await editWithElementorButton.click();
 
     await page.waitForSelector( '#elementor-panel-saver-button-publish' );
 }
