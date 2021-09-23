@@ -1,14 +1,17 @@
 export async function insertSection( layout = 2 ) {
-	const frame = page.frames().find( ( singleFrame ) => singleFrame.url().includes( 'elementor-preview' ) );
+	await page.waitForSelector( '#elementor-preview-iframe' );
+	const elementHandle = await page.$( '#elementor-preview-iframe' );
+	const frame = await elementHandle.contentFrame();
 
+	await frame.waitForSelector( '.elementor-add-section-button' );
 	const insertSectionButton = await frame.$(
 		'.elementor-add-section-button',
 	);
-	await insertSectionButton.click();
-	await frame.waitForSelector( '.elementor-select-preset-list' );
+	await insertSectionButton.evaluate( ( b ) => b.click() );
 
+	await frame.waitForSelector( '.elementor-select-preset-list' );
 	const selectSectionPreset = await frame.$(
 		`.elementor-select-preset-list .elementor-preset:nth-child(${ layout })`,
 	);
-	await selectSectionPreset.click();
+	await selectSectionPreset.evaluate( ( b ) => b.click() );
 }
