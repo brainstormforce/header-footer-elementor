@@ -1,15 +1,19 @@
 /**
  * WordPress dependencies
  */
-import { visitAdminPage } from '@wordpress/e2e-test-utils';
+import { createNewElementorPost } from '../utils/create-new-elementor-post';
+import { insertSection } from '../utils/insert-section';
+import { insertWidget } from '../utils/insert-widget';
 
 describe( 'Hello World', () => {
-	it( 'should load properly', async () => {
-		await visitAdminPage( '/' );
-		const nodes = await page.$x(
-			'//h2[contains(text(), "Welcome to WordPress!")]',
-		);
-		await expect( nodes ).not.toHaveLength( 0 );
+	it( 'elementor Hello, World!', async () => {
+		await createNewElementorPost();
+		await insertSection();
+		await insertWidget( {
+			widgetName: 'Heading',
+			section: 1,
+			column: 1,
+		} );
 
 		await expect( true ).toBe( true );
 	} );
