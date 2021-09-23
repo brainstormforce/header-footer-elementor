@@ -10,7 +10,7 @@ describe( 'Hello World', () => {
 		await createNewElementorPost();
 		await insertSection();
 		await insertWidget( {
-			widgetName: 'Heading',
+			widgetName: 'Retina Image',
 			section: 1,
 			column: 1,
 		} );
