@@ -1,11 +1,11 @@
 /**
  * Drag and drop an element.
- * 
- * @link https://github.com/puppeteer/puppeteer/issues/1366#issuecomment-615887204
- * @link https://github.com/microsoft/playwright/issues/1094#issuecomment-812271473
- * @param {*} page page object for puppeteer
- * @param {*} originSelector Selector of the element which needs to be dragged
- * @param {String} destinationSelector CSS selector where the element is to be dropped
+ *
+ * @see https://github.com/puppeteer/puppeteer/issues/1366#issuecomment-615887204
+ * @see https://github.com/microsoft/playwright/issues/1094#issuecomment-812271473
+ * @param {*}      page                page object for puppeteer
+ * @param {*}      originSelector      Selector of the element which needs to be dragged
+ * @param {string} destinationSelector CSS selector where the element is to be dropped
  */
 export async function dragAndDrop( page, originSelector, destinationSelector ) {
 	await page.waitForSelector( '#elementor-preview-iframe' );
@@ -17,7 +17,7 @@ export async function dragAndDrop( page, originSelector, destinationSelector ) {
 	const originBox = await origin.boundingBox();
 	const destinationBox = await destination.boundingBox();
 	const lastPositionCoordenate = ( box ) => ( {
-		x: box.x + box.width / 2,
+		x: box.x + ( box.width / 2 ),
 		y: box.y + box.height,
 	} );
 	const getPayload = ( box ) => ( {
