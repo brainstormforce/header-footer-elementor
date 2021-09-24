@@ -17,6 +17,7 @@ export async function dragAndDrop( page, originSelector, destinationSelector ) {
 	const originBox = await origin.boundingBox();
 	const destinationBox = await destination.boundingBox();
 	const lastPositionCoordenate = ( box ) => ( {
+		// eslint-disable-next-line no-mixed-operators
 		x: box.x + box.width / 2,
 		y: box.y + box.height,
 	} );
