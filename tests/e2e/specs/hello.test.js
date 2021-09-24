@@ -1,11 +1,13 @@
 /**
  * WordPress dependencies
  */
-import { createNewElementorPost } from '../utils/create-new-elementor-post';
-import { insertSection } from '../utils/insert-section';
-import { insertWidget } from '../utils/insert-widget';
-import { publishPage } from '../utils/publish-page';
-import { viewPage } from '../utils/view-page';
+import {
+	createNewElementorPost,
+	insertSection,
+	insertWidget,
+	publishPage,
+	viewPage,
+} from '../utils/elementor-e2e-utils/src';
 
 describe( 'Hello World', () => {
 	it( 'elementor Hello, World!', async () => {

@@ -17,7 +17,7 @@ export async function dragAndDrop( page, originSelector, destinationSelector ) {
 	const originBox = await origin.boundingBox();
 	const destinationBox = await destination.boundingBox();
 	const lastPositionCoordenate = ( box ) => ( {
-		x: box.x + ( box.width / 2 ),
+		x: box.x + box.width / 2,
 		y: box.y + box.height,
 	} );
 	const getPayload = ( box ) => ( {
