@@ -9,7 +9,7 @@ import { viewPage } from '../utils/view-page';
 
 describe( 'Hello World', () => {
 	it( 'elementor Hello, World!', async () => {
-		await createNewElementorPost();
+		await createNewElementorPost( 'page' );
 		await insertSection();
 		await insertWidget( {
 			widgetName: 'Retina Image',
