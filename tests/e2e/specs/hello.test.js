@@ -7,7 +7,7 @@ import {
 	insertWidget,
 	publishPage,
 	viewPage,
-} from '../utils/elementor-e2e-utils/src';
+} from '../utils/elementor-e2e-test-utils/src';
 
 describe( 'Hello World', () => {
 	it( 'elementor Hello, World!', async () => {
