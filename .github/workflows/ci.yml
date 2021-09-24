@@ -48,3 +48,6 @@ jobs:
         if: always()
         env:
           COMPOSE_INTERACTIVE_]NO_CLI: true
+
+      - name: Lint JS
+        run: npm run lint:js
