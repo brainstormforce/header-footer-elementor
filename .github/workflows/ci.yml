@@ -1,0 +1,50 @@
+name: CI
+
+on: pull_request
+
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          coverage: none
+          tools: composer
+
+      - name: Use desired version of NodeJS
+        uses: actions/setup-node@v2
+        with:
+            node-version: 14.15
+            cache: 'npm'
+
+      - name: Composer Install
+        uses: ramsey/composer-install@v1
+
+      - name: PHPCS check
+        if: always()
+        uses: chekalsky/phpcs-action@v1
+        with:
+          phpcs_bin_path: './vendor/bin/phpcs'
+
+      - name: npm install, build
+        run: npm ci
+
+      - name: Start Docker environment
+        run: npm run env:start
+        env:
+          COMPOSE_INTERACTIVE_NO_CLI: true
+
+      - name: E2E Tests
+        if: always()
+        run: npm run test:e2e:ci
+
+      - name: Stop Docker environment
+        run: npm run env:stop
+        if: always()
+        env:
+          COMPOSE_INTERACTIVE_]NO_CLI: true
