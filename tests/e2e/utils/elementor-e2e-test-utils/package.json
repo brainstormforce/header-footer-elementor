@@ -1,0 +1,28 @@
+{
+	"name": "@brainstormforce/elementor-e2e-test-utils",
+	"version": "1.0.0",
+	"description": "End-To-End (E2E) test utils for Elementor Website Builder.",
+	"author": "Brainstorm Force",
+	"license": "GPL-2.0-or-later",
+	"keywords": [
+		"wordpress",
+		"elementor",
+		"e2e",
+		"utils"
+	],
+	"files": [
+		"src"
+	],
+	"main": "src/index.js",
+	"module": "src/index.js",
+	"dependencies": {
+		"@wordpress/e2e-test-utils": "^5.4.3"
+	},
+	"peerDependencies": {
+		"jest": ">=26",
+		"puppeteer": ">=1.19.0"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}
