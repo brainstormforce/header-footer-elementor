@@ -38,13 +38,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Nikschavan/header-footer-elementor.git"
+    "url": "git+https://github.com/brainstormforce/header-footer-elementor/.git"
   },
   "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/Nikschavan/header-footer-elementor/issues"
   },
-  "homepage": "https://github.com/Nikschavan/header-footer-elementor#readme",
+  "homepage": "https://github.com/brainstormforce/header-footer-elementor#readme",
   "dependencies": {
     "lodash": "^4.17.21"
   }
