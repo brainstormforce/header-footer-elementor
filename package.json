@@ -30,7 +30,7 @@
     "lint:css": "wp-scripts lint-style tests/",
     "lint:js": "wp-scripts lint-js tests/",
     "lint:js:fix": "npm run format && wp-scripts lint-js tests/ --fix",
-    "env:start": "wp-env start && wp-env run cli 'wp theme activate astra' && wp-env run cli 'wp rewrite structure '%postname%' --hard --quiet' && wp-env run cli 'wp rewrite flush'",
+    "env:start": "wp-env start && wp-env run cli \"wp theme activate astra\" && wp-env run cli \"wp rewrite structure '%postname%' --hard --quiet\" && wp-env run cli \"wp rewrite flush\"",
     "env:stop": "wp-env stop",
     "env:destroy": "wp-env destroy",
     "env:reset-site": "wp-env clean all",
