@@ -5,7 +5,7 @@
   "author": "Nikhil Chavan",
   "devDependencies": {
     "@wordpress/e2e-test-utils": "^5.4.3",
-    "@wordpress/env": "^4.1.1",
+    "@wordpress/env": "^4.1.2",
     "@wordpress/eslint-plugin": "^9.1.2",
     "@wordpress/jest-puppeteer-axe": "^3.1.0",
     "@wordpress/scripts": "^18.0.1",
