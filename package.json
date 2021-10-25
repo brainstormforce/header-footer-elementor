@@ -8,7 +8,7 @@
     "@wordpress/env": "^4.1.2",
     "@wordpress/eslint-plugin": "^9.2.0",
     "@wordpress/jest-puppeteer-axe": "^3.1.0",
-    "@wordpress/scripts": "^18.1.0",
+    "@wordpress/scripts": "^19.0.0",
     "cross-env": "^7.0.3",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "grunt": "^1.4.1",
