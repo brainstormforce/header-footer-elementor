@@ -1737,7 +1737,7 @@ div.hfe-nav-menu,
     font-weight: normal; 
 }
 
-.hfe-menu-cart--empty-indicator-hide .hfe-menu-cart__toggle .elementor-button .elementor-button-icon[data-counter]:before {
+.hfe-menu-cart--empty-indicator-hide .hfe-menu-cart__toggle .elementor-button .elementor-button-icon[data-counter="0"]:before {
     content: none;
     display: none; 
 }
