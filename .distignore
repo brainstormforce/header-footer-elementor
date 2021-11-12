@@ -32,3 +32,5 @@ node_modules
 package-lock.json
 .github
 .wordpress-org
+.eslintrc
+.wp-env.json

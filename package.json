@@ -4,27 +4,48 @@
   "main": "Gruntfile.js",
   "author": "Nikhil Chavan",
   "devDependencies": {
+    "@wordpress/e2e-test-utils": "^5.4.6",
+    "@wordpress/env": "^4.1.3",
+    "@wordpress/eslint-plugin": "^9.2.0",
+    "@wordpress/jest-puppeteer-axe": "^3.1.0",
+    "@wordpress/scripts": "^19.1.0",
+    "cross-env": "^7.0.3",
+    "eslint-plugin-eslint-comments": "^3.2.0",
     "grunt": "^1.4.1",
     "grunt-bumpup": "^0.6.3",
-    "grunt-contrib-jshint": "^3.0.0",
+    "grunt-cli": "^1.4.3",
+    "grunt-contrib-jshint": "^3.1.1",
     "grunt-text-replace": "^0.4.0",
     "grunt-wp-i18n": "~1.0.3",
-    "grunt-wp-readme-to-markdown": "~2.0.1"
+    "grunt-wp-readme-to-markdown": "~2.1.0",
+    "jest-silent-reporter": "^0.5.0"
   },
-  "description": "**Contributors:** [brainstormforce](https://profiles.wordpress.org/brainstormforce), [Nikschavan](https://profiles.wordpress.org/Nikschavan)  \r **Tags:** elementor, header footer builder, header, footer, page builder, template builder, landing page builder, front-end editor  \r **Donate link:** https://www.paypal.me/BrainstormForce  \r **Requires at least:** 4.4  \r **Requires PHP:** 5.4  \r **Tested up to:** 5.3  \r **Stable tag:** 1.2.2  \r **License:** GPLv2 or later  \r **License URI:** http://www.gnu.org/licenses/gpl-2.0.html",
-  "dependencies": {
-    "grunt-cli": "^1.4.3"
-  },
+  "description": "Create Header and Footer using Elementor page builder.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:e2e": "cross-env WP_BASE_URL=http://localhost:9091 wp-scripts test-e2e --config=tests/e2e/jest.config.js",
+    "test:e2e:interactive": "npm run test:e2e -- --puppeteer-interactive",
+    "test:e2e:ci": "npm run test:e2e -- --runInBand",
+    "test:e2e:debug": "npm run test:e2e -- --puppeteer-devtools",
+    "format": "wp-scripts format tests/",
+    "lint:css": "wp-scripts lint-style tests/",
+    "lint:js": "wp-scripts lint-js tests/",
+    "lint:js:fix": "npm run format && wp-scripts lint-js tests/ --fix",
+    "env:start": "wp-env start && wp-env run cli \"wp theme activate astra\" && wp-env run cli \"wp rewrite structure '%postname%' --hard --quiet\" && wp-env run cli \"wp rewrite flush\"",
+    "env:stop": "wp-env stop",
+    "env:destroy": "wp-env destroy",
+    "env:reset-site": "wp-env clean all",
+    "env": "wp-env"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Nikschavan/header-footer-elementor.git"
+    "url": "git+https://github.com/brainstormforce/header-footer-elementor/.git"
   },
-  "license": "ISC",
+  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/Nikschavan/header-footer-elementor/issues"
   },
-  "homepage": "https://github.com/Nikschavan/header-footer-elementor#readme"
+  "homepage": "https://github.com/brainstormforce/header-footer-elementor#readme",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
 }
