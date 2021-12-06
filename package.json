@@ -4,7 +4,7 @@
   "main": "Gruntfile.js",
   "author": "Nikhil Chavan",
   "devDependencies": {
-    "@wordpress/e2e-test-utils": "^5.4.8",
+    "@wordpress/e2e-test-utils": "^5.4.9",
     "@wordpress/env": "^4.1.3",
     "@wordpress/eslint-plugin": "^9.3.0",
     "@wordpress/jest-puppeteer-axe": "^3.1.1",
