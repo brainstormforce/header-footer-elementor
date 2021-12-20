@@ -204,9 +204,9 @@ class Cart extends Widget_Base {
 		$this->add_responsive_control(
 			'align',
 			[
-				'label'        => __( 'Alignment', 'header-footer-elementor' ),
-				'type'         => Controls_Manager::CHOOSE,
-				'options'      => [
+				'label'              => __( 'Alignment', 'header-footer-elementor' ),
+				'type'               => Controls_Manager::CHOOSE,
+				'options'            => [
 					'left'   => [
 						'title' => __( 'Left', 'header-footer-elementor' ),
 						'icon'  => 'eicon-text-align-left',
@@ -220,8 +220,9 @@ class Cart extends Widget_Base {
 						'icon'  => 'eicon-text-align-right',
 					],
 				],
-				'prefix_class' => 'elementor%s-align-',
-				'default'      => '',
+				'frontend_available' => true,
+				'prefix_class'       => 'elementor%s-align-',
+				'default'            => '',
 			]
 		);
 
@@ -318,15 +319,16 @@ class Cart extends Widget_Base {
 		$this->add_responsive_control(
 			'toggle_button_padding',
 			[
-				'label'      => __( 'Padding', 'header-footer-elementor' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', 'em' ],
-				'selectors'  => [
+				'label'              => __( 'Padding', 'header-footer-elementor' ),
+				'type'               => Controls_Manager::DIMENSIONS,
+				'size_units'         => [ 'px', 'em' ],
+				'selectors'          => [
 					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
 				],
-				'condition'  => [
+				'condition'          => [
 					'hfe_cart_type' => 'custom',
 				],
+				'frontend_available' => true,
 			]
 		);
 

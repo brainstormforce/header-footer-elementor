@@ -169,9 +169,9 @@ class Site_Logo extends Widget_Base {
 		$this->add_responsive_control(
 			'align',
 			[
-				'label'     => __( 'Alignment', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::CHOOSE,
-				'options'   => [
+				'label'              => __( 'Alignment', 'header-footer-elementor' ),
+				'type'               => Controls_Manager::CHOOSE,
+				'options'            => [
 					'left'   => [
 						'title' => __( 'Left', 'header-footer-elementor' ),
 						'icon'  => 'fa fa-align-left',
@@ -185,10 +185,11 @@ class Site_Logo extends Widget_Base {
 						'icon'  => 'fa fa-align-right',
 					],
 				],
-				'default'   => 'center',
-				'selectors' => [
+				'default'            => 'center',
+				'selectors'          => [
 					'{{WRAPPER}} .hfe-site-logo-container, {{WRAPPER}} .hfe-caption-width figcaption' => 'text-align: {{VALUE}};',
 				],
+				'frontend_available' => true,
 			]
 		);
 
@@ -298,19 +299,19 @@ class Site_Logo extends Widget_Base {
 		$this->add_responsive_control(
 			'width',
 			[
-				'label'          => __( 'Width', 'header-footer-elementor' ),
-				'type'           => Controls_Manager::SLIDER,
-				'default'        => [
+				'label'              => __( 'Width', 'header-footer-elementor' ),
+				'type'               => Controls_Manager::SLIDER,
+				'default'            => [
 					'unit' => '%',
 				],
-				'tablet_default' => [
+				'tablet_default'     => [
 					'unit' => '%',
 				],
-				'mobile_default' => [
+				'mobile_default'     => [
 					'unit' => '%',
 				],
-				'size_units'     => [ '%', 'px', 'vw' ],
-				'range'          => [
+				'size_units'         => [ '%', 'px', 'vw' ],
+				'range'              => [
 					'%'  => [
 						'min' => 1,
 						'max' => 100,
@@ -324,36 +325,38 @@ class Site_Logo extends Widget_Base {
 						'max' => 100,
 					],
 				],
-				'selectors'      => [
+				'selectors'          => [
 					'{{WRAPPER}} .hfe-site-logo .hfe-site-logo-container img' => 'width: {{SIZE}}{{UNIT}};',
 				],
+				'frontend_available' => true,
 			]
 		);
 
 		$this->add_responsive_control(
 			'space',
 			[
-				'label'          => __( 'Max Width', 'header-footer-elementor' ) . ' (%)',
-				'type'           => Controls_Manager::SLIDER,
-				'default'        => [
+				'label'              => __( 'Max Width', 'header-footer-elementor' ) . ' (%)',
+				'type'               => Controls_Manager::SLIDER,
+				'default'            => [
 					'unit' => '%',
 				],
-				'tablet_default' => [
+				'tablet_default'     => [
 					'unit' => '%',
 				],
-				'mobile_default' => [
+				'mobile_default'     => [
 					'unit' => '%',
 				],
-				'size_units'     => [ '%' ],
-				'range'          => [
+				'size_units'         => [ '%' ],
+				'range'              => [
 					'%' => [
 						'min' => 1,
 						'max' => 100,
 					],
 				],
-				'selectors'      => [
+				'selectors'          => [
 					'{{WRAPPER}} .hfe-site-logo img' => 'max-width: {{SIZE}}{{UNIT}};',
 				],
+				'frontend_available' => true,
 			]
 		);
 
@@ -438,12 +441,13 @@ class Site_Logo extends Widget_Base {
 		$this->add_responsive_control(
 			'image_border_radius',
 			[
-				'label'      => __( 'Border Radius', 'header-footer-elementor' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%' ],
-				'selectors'  => [
+				'label'              => __( 'Border Radius', 'header-footer-elementor' ),
+				'type'               => Controls_Manager::DIMENSIONS,
+				'size_units'         => [ 'px', '%' ],
+				'selectors'          => [
 					'{{WRAPPER}} .hfe-site-logo img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
+				'frontend_available' => true,
 			]
 		);
 
@@ -623,32 +627,34 @@ class Site_Logo extends Widget_Base {
 		$this->add_responsive_control(
 			'caption_padding',
 			[
-				'label'      => __( 'Padding', 'header-footer-elementor' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', 'em', '%' ],
-				'selectors'  => [
+				'label'              => __( 'Padding', 'header-footer-elementor' ),
+				'type'               => Controls_Manager::DIMENSIONS,
+				'size_units'         => [ 'px', 'em', '%' ],
+				'selectors'          => [
 					'{{WRAPPER}} .widget-image-caption' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
+				'frontend_available' => true,
 			]
 		);
 		$this->add_responsive_control(
 			'caption_space',
 			[
-				'label'     => __( 'Spacing', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::SLIDER,
-				'range'     => [
+				'label'              => __( 'Spacing', 'header-footer-elementor' ),
+				'type'               => Controls_Manager::SLIDER,
+				'range'              => [
 					'px' => [
 						'min' => 0,
 						'max' => 100,
 					],
 				],
-				'default'   => [
+				'default'            => [
 					'size' => 0,
 					'unit' => 'px',
 				],
-				'selectors' => [
+				'selectors'          => [
 					'{{WRAPPER}} .widget-image-caption' => 'margin-top: {{SIZE}}{{UNIT}}; margin-bottom: 0px;',
 				],
+				'frontend_available' => true,
 			]
 		);
 
