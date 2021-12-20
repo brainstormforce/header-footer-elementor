@@ -137,6 +137,10 @@ This same applies when you are creating your Header/Footer using this plugin.
 5. Default widgets available with Elementor Header & Footer Builder.
 
 ## Changelog ##
+### 1.6.6 ###
+- Improvement: Added compatibility to Elementor core version 3.5.0. Now to work with UAE, Elementor minimum version 3.1.0 or higher will be required.
+- Fix: PHP warning of undefined array key on responsive controls in all widgets.
+
 ### 1.6.5 ###
 - Fix: Hide empty cart count badge hiding even when cart is not empty.
 
