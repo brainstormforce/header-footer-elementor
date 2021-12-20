@@ -242,9 +242,9 @@ class Site_Title extends Widget_Base {
 		$this->add_responsive_control(
 			'heading_text_align',
 			[
-				'label'        => __( 'Alignment', 'header-footer-elementor' ),
-				'type'         => Controls_Manager::CHOOSE,
-				'options'      => [
+				'label'              => __( 'Alignment', 'header-footer-elementor' ),
+				'type'               => Controls_Manager::CHOOSE,
+				'options'            => [
 					'left'    => [
 						'title' => __( 'Left', 'header-footer-elementor' ),
 						'icon'  => 'fa fa-align-left',
@@ -262,10 +262,11 @@ class Site_Title extends Widget_Base {
 						'icon'  => 'fa fa-align-justify',
 					],
 				],
-				'selectors'    => [
+				'selectors'          => [
 					'{{WRAPPER}} .hfe-heading' => 'text-align: {{VALUE}};',
 				],
-				'prefix_class' => 'hfe%s-heading-align-',
+				'prefix_class'       => 'hfe%s-heading-align-',
+				'frontend_available' => true,
 			]
 		);
 		$this->end_controls_section();

@@ -165,20 +165,21 @@ class Search_Button extends Widget_Base {
 		$this->add_responsive_control(
 			'size',
 			[
-				'label'       => __( 'Size', 'header-footer-elementor' ),
-				'type'        => Controls_Manager::SLIDER,
-				'default'     => [
+				'label'              => __( 'Size', 'header-footer-elementor' ),
+				'type'               => Controls_Manager::SLIDER,
+				'default'            => [
 					'size' => 50,
 				],
-				'selectors'   => [
+				'selectors'          => [
 					'{{WRAPPER}} .hfe-search-form__container' => 'min-height: {{SIZE}}{{UNIT}}',
 					'{{WRAPPER}} .hfe-search-submit'      => 'min-width: {{SIZE}}{{UNIT}}',
 					'{{WRAPPER}} .hfe-search-form__input' => 'padding-left: calc({{SIZE}}{{UNIT}} / 5); padding-right: calc({{SIZE}}{{UNIT}} / 5)',
 				],
-				'condition'   => [
+				'condition'          => [
 					'layout!' => 'icon',
 				],
-				'render_type' => 'template',
+				'render_type'        => 'template',
+				'frontend_available' => true,
 			]
 		);
 
@@ -213,23 +214,24 @@ class Search_Button extends Widget_Base {
 		$this->add_responsive_control(
 			'input_icon_size',
 			[
-				'label'     => __( 'Width', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::SLIDER,
-				'default'   => [
+				'label'              => __( 'Width', 'header-footer-elementor' ),
+				'type'               => Controls_Manager::SLIDER,
+				'default'            => [
 					'size' => 250,
 				],
-				'range'     => [
+				'range'              => [
 					'px' => [
 						'min' => 0,
 						'max' => 1500,
 					],
 				],
-				'selectors' => [
+				'selectors'          => [
 					'{{WRAPPER}} .hfe-input-focus .hfe-search-icon-toggle input[type=search]' => 'width: {{SIZE}}{{UNIT}};',
 				],
-				'condition' => [
+				'condition'          => [
 					'layout' => 'icon',
 				],
+				'frontend_available' => true,
 			]
 		);
 
@@ -738,48 +740,50 @@ class Search_Button extends Widget_Base {
 		$this->add_responsive_control(
 			'icon_size',
 			[
-				'label'       => __( 'Icon Size', 'header-footer-elementor' ),
-				'type'        => Controls_Manager::SLIDER,
-				'range'       => [
+				'label'              => __( 'Icon Size', 'header-footer-elementor' ),
+				'type'               => Controls_Manager::SLIDER,
+				'range'              => [
 					'px' => [
 						'min' => 0,
 						'max' => 100,
 					],
 				],
-				'default'     => [
+				'default'            => [
 					'size' => '16',
 					'unit' => 'px',
 				],
-				'selectors'   => [
+				'selectors'          => [
 					'{{WRAPPER}} .hfe-search-submit' => 'font-size: {{SIZE}}{{UNIT}}',
 				],
-				'condition'   => [
+				'condition'          => [
 					'layout!' => 'icon',
 				],
-				'separator'   => 'before',
-				'render_type' => 'template',
+				'separator'          => 'before',
+				'render_type'        => 'template',
+				'frontend_available' => true,
 			]
 		);
 
 		$this->add_responsive_control(
 			'button_width',
 			[
-				'label'       => __( 'Width', 'header-footer-elementor' ),
-				'type'        => Controls_Manager::SLIDER,
-				'range'       => [
+				'label'              => __( 'Width', 'header-footer-elementor' ),
+				'type'               => Controls_Manager::SLIDER,
+				'range'              => [
 					'px' => [
 						'max'  => 500,
 						'step' => 5,
 					],
 				],
-				'selectors'   => [
+				'selectors'          => [
 					'{{WRAPPER}} .hfe-search-form__container .hfe-search-submit' => 'width: {{SIZE}}{{UNIT}}',
 					'{{WRAPPER}} .hfe-close-icon-yes button#clear_with_button' => 'right: {{SIZE}}{{UNIT}}',
 				],
-				'condition'   => [
+				'condition'          => [
 					'layout' => 'icon_text',
 				],
-				'render_type' => 'template',
+				'render_type'        => 'template',
+				'frontend_available' => true,
 			]
 		);
 
@@ -843,22 +847,23 @@ class Search_Button extends Widget_Base {
 		$this->add_responsive_control(
 			'toggle_icon_size',
 			[
-				'label'       => __( 'Icon Size', 'header-footer-elementor' ),
-				'type'        => Controls_Manager::SLIDER,
-				'default'     => [
+				'label'              => __( 'Icon Size', 'header-footer-elementor' ),
+				'type'               => Controls_Manager::SLIDER,
+				'default'            => [
 					'size' => 15,
 				],
-				'selectors'   => [
+				'selectors'          => [
 					'{{WRAPPER}} .hfe-search-icon-toggle input[type=search]' => 'padding: 0 calc( {{SIZE}}{{UNIT}} / 2);',
 					'{{WRAPPER}} .hfe-search-icon-toggle i.fa-search:before' => 'font-size: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .hfe-search-icon-toggle i.fa-search, {{WRAPPER}} .hfe-search-icon-toggle' => 'width: {{SIZE}}{{UNIT}};',
 
 				],
-				'condition'   => [
+				'condition'          => [
 					'layout' => 'icon',
 				],
-				'separator'   => 'before',
-				'render_type' => 'template',
+				'separator'          => 'before',
+				'render_type'        => 'template',
+				'frontend_available' => true,
 			]
 		);
 
@@ -878,23 +883,24 @@ class Search_Button extends Widget_Base {
 		$this->add_responsive_control(
 			'close_icon_size',
 			[
-				'label'     => __( 'Size', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::SLIDER,
-				'range'     => [
+				'label'              => __( 'Size', 'header-footer-elementor' ),
+				'type'               => Controls_Manager::SLIDER,
+				'range'              => [
 					'px' => [
 						'min' => 0,
 						'max' => 50,
 					],
 				],
-				'default'   => [
+				'default'            => [
 					'size' => '20',
 					'unit' => 'px',
 				],
-				'selectors' => [
+				'selectors'          => [
 					'{{WRAPPER}} .hfe-search-form__container button#clear i:before,
 					{{WRAPPER}} .hfe-search-icon-toggle button#clear i:before,
 				{{WRAPPER}} .hfe-search-form__container button#clear-with-button i:before' => 'font-size: {{SIZE}}{{UNIT}};',
 				],
+				'frontend_available' => true,
 
 			]
 		);
