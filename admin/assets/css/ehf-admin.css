@@ -167,6 +167,17 @@ li#toplevel_page_Settings-page,
     transition: all 0.25s ease;
     pointer-events: none;
 }
+
+.hfe-subscription-row input#hfe_subscribe_accept {
+	border: 1px solid #585F66;
+	border-radius: 3px;
+	margin: 0 4px 0 0;
+}
+
+.hfe-guide-modal-popup .hfe-guide-modal-popup-wrapper .hfe-subscription-row .hfe-input-container:nth-of-type(3) {
+	margin-bottom: 16px;
+}
+
 .hfe-subscription-row .hfe-input-container:not(.subscription-success, .subscription-error) .hfe-subscribe-field:hover {
     border-color: #2271b1;
 }

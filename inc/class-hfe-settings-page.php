@@ -454,6 +454,10 @@ class HFE_Settings_Page {
 					<small class="subscription-desc"><?php esc_html_e( 'Email address is required', 'header-footer-elementor' ); ?></small>
 					<label class="subscription-label"><?php esc_html_e( 'Your Work Email', 'header-footer-elementor' ); ?></label>
 				</div>
+				<div class="hfe-input-container">
+					<input type="checkbox" name="hfe_subscribe_accept" id="hfe_subscribe_accept" class="hfe_subscribe_accept" value="check">
+					<label for="hfe_subscribe_accept" class="hfe-subscribe-accept-label"><?php esc_html_e( 'I agree to receive your newsletters and accept the data privacy statement.', 'header-footer-elementor' ); ?></label>
+				</div>
 			</div>
 			<p class="submit">
 				<button type="submit" id="submit-2"  class="button submit-2 button-primary">

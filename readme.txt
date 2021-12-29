@@ -5,7 +5,7 @@ Donate link: https://www.paypal.me/BrainstormForce
 Requires at least: 4.4
 Requires PHP: 5.4
 Tested up to: 5.8.2
-Stable tag: 1.6.6
+Stable tag: 1.6.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -137,6 +137,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 5. Default widgets available with Elementor Header & Footer Builder.
 
 == Changelog ==
+= 1.6.7 =
+- Improvement: Added GDPR support to Subscription form.
+
 = 1.6.6 =
 - Improvement: Added compatibility to Elementor core version 3.5.0. Now to work with EHF, Elementor minimum version 3.1.0 or higher will be required.
 - Fix: PHP warning of undefined array key on responsive controls in all widgets.
