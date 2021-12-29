@@ -5,12 +5,12 @@
 module.exports = {
 	root: true,
 	extends: [
-		"plugin:@wordpress/eslint-plugin/recommended-with-formatting",
-		"plugin:import/recommended",
-		"plugin:eslint-comments/recommended"
+		'plugin:@wordpress/eslint-plugin/recommended-with-formatting',
+		'plugin:import/recommended',
+		'plugin:eslint-comments/recommended',
 	],
 	env: {
-		browser: true
+		browser: true,
 	},
 	parserOptions: {
 		requireConfigFile: false,
@@ -21,30 +21,30 @@ module.exports = {
 	overrides: [
 		{
 			files: [
-				"tests/e2e/**/*.js"
+				'tests/e2e/**/*.js',
 			],
 			extends: [
-				"plugin:@wordpress/eslint-plugin/test-e2e",
-				"plugin:jest/all"
+				'plugin:@wordpress/eslint-plugin/test-e2e',
+				'plugin:jest/all',
 			],
 			settings: {
 				jest: {
-					version: 26
-				}
+					version: 26,
+				},
 			},
 			rules: {
-				"jest/lowercase-name": [
-					"error",
+				'jest/lowercase-name': [
+					'error',
 					{
 						ignore: [
-							"describe"
-						]
-					}
+							'describe',
+						],
+					},
 				],
-				"jest/no-hooks": "off",
-				"jest/prefer-expect-assertions": "off",
-				"jest/prefer-inline-snapshots": "off"
-			}
-		}
-	]
-}
+				'jest/no-hooks': 'off',
+				'jest/prefer-expect-assertions': 'off',
+				'jest/prefer-inline-snapshots': 'off',
+			},
+		},
+	],
+};
