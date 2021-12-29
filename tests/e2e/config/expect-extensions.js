@@ -1,6 +1,7 @@
 /**
  * `expect` extension to count the number of elements with a given selector on the page.
  */
+// eslint-disable-next-line jest/require-hook -- This is ignore for now is coming after updating the eslint-plugin to v9.2.0.
 expect.extend( {
 	async countToBe( selector, expected ) {
 		const count = await page.$$eval( selector, ( els ) => els.length );
