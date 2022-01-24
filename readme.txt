@@ -4,8 +4,8 @@ Tags: elementor, header footer builder, header template, footer template, elemen
 Donate link: https://www.paypal.me/BrainstormForce
 Requires at least: 4.4
 Requires PHP: 5.4
-Tested up to: 5.8.2
-Stable tag: 1.6.7
+Tested up to: 5.9
+Stable tag: 1.6.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -137,6 +137,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 5. Default widgets available with Elementor Header & Footer Builder.
 
 == Changelog ==
+= 1.6.8 =
+- Improvement: WordPress 5.9 compatibility.
+
 = 1.6.7 =
 - Improvement: Added GDPR support to Subscription form.
 
