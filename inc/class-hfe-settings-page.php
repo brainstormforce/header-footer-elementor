@@ -244,11 +244,11 @@ class HFE_Settings_Page {
 		$is_subscribed   = get_user_meta( get_current_user_ID(), 'hfe-subscribed' );
 		$subscribe_valid = ( is_array( $is_subscribed ) && isset( $is_subscribed[0] ) && 'yes' === $is_subscribed[0] ) ? 'yes' : false;
 
-		// if ( ( ! empty( $is_dismissed ) && 'dismissed' === $is_dismissed[0] ) || 'yes' === $subscribe_valid ) {
-		// 	return false;
-		// } else {
+		if ( ( ! empty( $is_dismissed ) && 'dismissed' === $is_dismissed[0] ) || 'yes' === $subscribe_valid ) {
+			return false;
+		} else {
 			$this->get_guide_modal();
-		// }
+		}
 	}
 
 	/**
