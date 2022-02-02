@@ -138,7 +138,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 = 1.6.9 =
-- Compatibility with Elementor Pro version 3.6
+- Improvement: Compatibility with Elementor Pro version 3.6
 - Fix: Navigation Menu - If Polylang language switcher is present in the menu, it closes the menu with a click.
 
 = 1.6.8 =
