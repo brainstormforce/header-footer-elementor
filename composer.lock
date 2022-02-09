@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "brainstormforce/astra-notices",
-            "version": "1.1.9",
+            "version": "1.1.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/brainstormforce/astra-notices.git",
-                "reference": "de39e922610604bf581daef8630becd8715bdeba"
+                "reference": "09c34894e2fd7fc480ab38f62338507cd49624d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/brainstormforce/astra-notices/zipball/de39e922610604bf581daef8630becd8715bdeba",
-                "reference": "de39e922610604bf581daef8630becd8715bdeba",
+                "url": "https://api.github.com/repos/brainstormforce/astra-notices/zipball/09c34894e2fd7fc480ab38f62338507cd49624d3",
+                "reference": "09c34894e2fd7fc480ab38f62338507cd49624d3",
                 "shasum": ""
             },
             "require": {
@@ -26,9 +26,12 @@
             "require-dev": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
                 "phpcompatibility/phpcompatibility-wp": "^2.1",
-                "phpunit/phpunit": "^5.7 || ^6.5 || ^7.5",
+                "phpunit/phpunit": "^7",
+                "roots/wordpress": "^5.9",
                 "wp-cli/dist-archive-command": "^2.0",
-                "wp-coding-standards/wpcs": "^2.3"
+                "wp-coding-standards/wpcs": "^2.3",
+                "wp-phpunit/wp-phpunit": "^5",
+                "yoast/phpunit-polyfills": "^1.0"
             },
             "type": "wordpress-plugin",
             "notification-url": "https://packagist.org/downloads/",
@@ -44,9 +47,9 @@
             "description": "Easily create admin notices",
             "support": {
                 "issues": "https://github.com/brainstormforce/astra-notices/issues",
-                "source": "https://github.com/brainstormforce/astra-notices/tree/1.1.9"
+                "source": "https://github.com/brainstormforce/astra-notices/tree/1.1.10"
             },
-            "time": "2021-11-19T13:14:03+00:00"
+            "time": "2022-02-08T16:30:05+00:00"
         },
         {
             "name": "composer/installers",
@@ -552,5 +555,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.2.0"
 }
