@@ -168,7 +168,7 @@ class Widgets_Loader {
 	public function register_widget_category( $this_cat ) {
 		$category = __( 'Elementor Header & Footer Builder', 'header-footer-elementor' );
 
-		$this_cat->register(
+		$this_cat->add_category(
 			'hfe-widgets',
 			[
 				'title' => $category,
