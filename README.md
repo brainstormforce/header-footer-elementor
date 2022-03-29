@@ -137,7 +137,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 5. Default widgets available with Elementor Header & Footer Builder.
 
 ## Changelog ##
-### 1.7.0 ###
+### 1.6.10 ###
 - Improvement: Compatibility with Elementor version 3.6.
   Removed elementor deprecated functions and replaced with latest functions.
   Now to work with Elementor Header & Footer Builder, Elementor minimum version 3.5.0 or higher will be required.
