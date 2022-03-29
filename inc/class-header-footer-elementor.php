@@ -53,7 +53,7 @@ class Header_Footer_Elementor {
 
 		$is_elementor_callable = ( defined( 'ELEMENTOR_VERSION' ) && is_callable( 'Elementor\Plugin::instance' ) ) ? true : false;
 
-		$required_elementor_version = '3.1.0';
+		$required_elementor_version = '3.5.0';
 
 		$is_elementor_outdated = ( $is_elementor_callable && ( ! version_compare( ELEMENTOR_VERSION, $required_elementor_version, '>=' ) ) ) ? true : false;
 
