@@ -163,17 +163,6 @@ class Navigation_Menu extends Widget_Base {
 	/**
 	 * Register Nav Menu controls.
 	 *
-	 * @since 1.3.0
-	 * @access protected
-	 */
-	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
-
-		$this->register_controls();
-	}
-
-	/**
-	 * Register Nav Menu controls.
-	 *
 	 * @since 1.5.7
 	 * @access protected
 	 */

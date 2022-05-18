@@ -1,16 +1,23 @@
 version: 2
 updates:
+
+  # Maintain dependencies for GitHub Actions
   - package-ecosystem: "github-actions"
     directory: "/"
+    target-branch: "release-candidate"
     schedule:
       interval: "daily"
 
+  # Maintain dependencies for npm
   - package-ecosystem: "npm"
     directory: "/"
+    target-branch: "release-candidate"
     schedule:
       interval: "daily"
 
+  # Maintain dependencies for Composer
   - package-ecosystem: "composer"
+    target-branch: "release-candidate"
     directory: "/"
     schedule:
       interval: "daily"

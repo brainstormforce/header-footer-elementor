@@ -81,6 +81,8 @@
 
 		_toggleClick( id );
 
+		_handlePolylangSwitcher( $scope );
+
 		_handleSinglePageMenu( id, layout );
 
 		if( 'horizontal' !== layout ){
@@ -669,6 +671,23 @@
 				}
 			}
 		);
+	}
+
+	/**
+	 * This function handles polylang plugin's lang switcher if present in the menu.
+	 *
+	 * @param {Object} $scope The current element(hfe nav menu) wrapped with jQuery.
+	 */
+	function _handlePolylangSwitcher( $scope ) {
+		var polylangSwitcher = $scope.find( '.hfe-nav-menu nav .pll-parent-menu-item a.hfe-menu-item' );
+		var hrefProperty     = polylangSwitcher.prop( 'href' );
+		if ( undefined !== hrefProperty && hrefProperty.includes( '#' ) ) {
+			var index = hrefProperty.indexOf( '#' );
+			var value = hrefProperty.slice( index );
+			if ( value === '#pll_switcher' ) {
+				polylangSwitcher.prop( 'href', '#' );
+			}
+		}
 	}
 
 	$( window ).on( 'elementor/frontend/init', function () {

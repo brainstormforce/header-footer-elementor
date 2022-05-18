@@ -93,17 +93,6 @@ class Retina extends Widget_Base {
 	/**
 	 * Register Retina Logo controls.
 	 *
-	 * @since 1.2.0
-	 * @access protected
-	 */
-	protected function _register_controls() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
-
-		$this->register_controls();
-	}
-
-	/**
-	 * Register Retina Logo controls.
-	 *
 	 * @since 1.5.7
 	 * @access protected
 	 */

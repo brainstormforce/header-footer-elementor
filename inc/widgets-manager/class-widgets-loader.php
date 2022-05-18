@@ -53,7 +53,7 @@ class Widgets_Loader {
 		add_action( 'elementor/elements/categories_registered', [ $this, 'register_widget_category' ] );
 
 		// Register widgets.
-		add_action( 'elementor/widgets/widgets_registered', [ $this, 'register_widgets' ] );
+		add_action( 'elementor/widgets/register', [ $this, 'register_widgets' ] );
 
 		// Add svg support.
 		add_filter( 'upload_mimes', [ $this, 'hfe_svg_mime_types' ] );
@@ -191,16 +191,16 @@ class Widgets_Loader {
 		// Its is now safe to include Widgets files.
 		$this->include_widgets_files();
 		// Register Widgets.
-		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Retina() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Copyright() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Navigation_Menu() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Page_Title() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Title() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Tagline() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Site_Logo() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Search_Button() );
+		Plugin::instance()->widgets_manager->register( new Widgets\Retina() );
+		Plugin::instance()->widgets_manager->register( new Widgets\Copyright() );
+		Plugin::instance()->widgets_manager->register( new Widgets\Navigation_Menu() );
+		Plugin::instance()->widgets_manager->register( new Widgets\Page_Title() );
+		Plugin::instance()->widgets_manager->register( new Widgets\Site_Title() );
+		Plugin::instance()->widgets_manager->register( new Widgets\Site_Tagline() );
+		Plugin::instance()->widgets_manager->register( new Widgets\Site_Logo() );
+		Plugin::instance()->widgets_manager->register( new Widgets\Search_Button() );
 		if ( class_exists( 'woocommerce' ) ) {
-			Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Cart() );
+			Plugin::instance()->widgets_manager->register( new Widgets\Cart() );
 		}
 
 	}
