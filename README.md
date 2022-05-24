@@ -4,8 +4,8 @@
 **Donate link:** https://www.paypal.me/BrainstormForce  
 **Requires at least:** 4.4  
 **Requires PHP:** 5.4  
-**Tested up to:** 5.9  
-**Stable tag:** 1.6.11  
+**Tested up to:** 6.0
+**Stable tag:** 1.6.11
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -138,6 +138,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 ## Changelog ##
 ### 1.6.11 ###
+- Improvement: Compatibility with Elementor Pro version 3.7.
 - Fix: Removed meta tag attribute [maximum-scale=1] for a better accessibility.
 
 ### 1.6.10 ###
