@@ -139,6 +139,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 == Changelog ==
 = 1.6.11 =
 - Improvement: Compatibility with Elementor Pro version 3.7
+- Fix: Removed meta tag attribute [maximum-scale=1] for a better accessibility.
 
 = 1.6.10 =
 - Improvement: Compatibility with Elementor version 3.6.
