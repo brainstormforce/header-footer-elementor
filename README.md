@@ -138,7 +138,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 ## Changelog ##
 ### 1.6.12 ###
-- Compatibility with Elementor and elementor Pro
+- Compatibility with Elementor and Elementor Pro.
 
 ### 1.6.11 ###
 - Improvement: Compatibility with Elementor Pro version 3.7
