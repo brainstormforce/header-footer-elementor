@@ -6,7 +6,7 @@
   "devDependencies": {
     "@wordpress/e2e-test-utils": "^7.5.0",
     "@wordpress/env": "^4.7.0",
-    "@wordpress/eslint-plugin": "^9.3.0",
+    "@wordpress/eslint-plugin": "^13.0.0",
     "@wordpress/jest-puppeteer-axe": "^4.0.1",
     "@wordpress/scripts": "^19.2.3",
     "cross-env": "^7.0.3",
