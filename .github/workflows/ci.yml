@@ -3,7 +3,7 @@ name: CI
 on: pull_request
 
 jobs:
-  CI:
+  analysis:
     runs-on: ubuntu-latest
 
     strategy:
@@ -14,7 +14,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-     - name: Setup PHP
+      - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
@@ -27,7 +27,7 @@ jobs:
             node-version: 14.15
             cache: 'npm'
 
-       - name: Install composer dependencies
+      - name: Install composer dependencies
         run: composer config github-oauth.github.com ${{ secrets.PRIVATE_ACCESS_TOKEN }} && composer install --prefer-dist --no-suggest --no-progress
 
       - name: Run phpcs
