@@ -3,23 +3,18 @@ name: CI
 on: pull_request
 
 jobs:
-  analysis:
+  CI:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        php: ['7.4']
-
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ matrix.php }}
+          php-version: '7.4'
           coverage: none
-          tools: composer, cs2pr
+          tools: composer
 
       - name: Use desired version of NodeJS
         uses: actions/setup-node@v3
@@ -27,13 +22,14 @@ jobs:
             node-version: 14.15
             cache: 'npm'
 
-      - name: Install composer dependencies
-        run: composer config github-oauth.github.com ${{ secrets.PRIVATE_ACCESS_TOKEN }} && composer install --prefer-dist --no-suggest --no-progress
+      - name: Composer Install
+        uses: ramsey/composer-install@v1
 
-      - name: Run phpcs
-        id: phpcs
+      - name: PHPCS check
         if: always()
-        run: ./vendor/bin/phpcs --report-full --report-checkstyle=./phpcs-report.xml
+        uses: chekalsky/phpcs-action@v1
+        with:
+          phpcs_bin_path: './vendor/bin/phpcs'
 
       - name: npm install, build
         run: npm ci
