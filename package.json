@@ -7,7 +7,7 @@
     "@wordpress/e2e-test-utils": "^7.5.0",
     "@wordpress/env": "^4.7.0",
     "@wordpress/eslint-plugin": "^9.3.0",
-    "@wordpress/jest-puppeteer-axe": "^4.0.1",
+    "@wordpress/jest-puppeteer-axe": "^5.4.0",
     "@wordpress/scripts": "^19.2.3",
     "cross-env": "^7.0.3",
     "eslint-plugin-eslint-comments": "^3.2.0",
