@@ -174,7 +174,7 @@
 		if ( window.matchMedia( "( max-width: 1024px )" ).matches && $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-tablet') ) {
 			hef_navmenu_toggle.find('i').attr('aria-hidden', 'false');
 		}
-		if ( window.matchMedia( "( max-width: 1024px )" ).matches && $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-mobile') ) {
+		if ( window.matchMedia( "( max-width: 768px )" ).matches && $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-mobile') ) {
 			hef_navmenu_toggle.find('i').attr('aria-hidden', 'false');
 		}
 
