@@ -167,8 +167,16 @@
   		$scope.find( '.parent-has-child .hfe-has-submenu-container a').attr( 'aria-haspopup', 'true' );
   		$scope.find( '.parent-has-child .hfe-has-submenu-container a').attr( 'aria-expanded', 'false' );
 
-  		$scope.find( '.hfe-nav-menu__toggle').attr( 'aria-haspopup', 'true' );
-  		$scope.find( '.hfe-nav-menu__toggle').attr( 'aria-expanded', 'false' );
+		var hef_navmenu_toggle = $scope.find( '.hfe-nav-menu__toggle' );
+		hef_navmenu_toggle.attr( 'aria-haspopup', 'true' );
+		hef_navmenu_toggle.attr( 'aria-expanded', 'false' );
+
+		if ( window.matchMedia( "( max-width: 1024px )" ).matches && $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-tablet') ) {
+			hef_navmenu_toggle.find('i').attr('aria-hidden', 'false');
+		}
+		if ( window.matchMedia( "( max-width: 768px )" ).matches && $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-mobile') ) {
+			hef_navmenu_toggle.find('i').attr('aria-hidden', 'false');
+		}
 
   		// End of accessibility functions
 
