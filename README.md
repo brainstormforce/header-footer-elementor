@@ -4,8 +4,13 @@
 **Donate link:** https://www.paypal.me/BrainstormForce  
 **Requires at least:** 4.4  
 **Requires PHP:** 5.4  
+<<<<<<< HEAD
 **Tested up to:** 6.1  
 **Stable tag:** 1.6.14  
+=======
+**Tested up to:** 6.2 
+**Stable tag:** 1.6.13  
+>>>>>>> fbaed4705ad7201220834c6f7a61916b5605cc09
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
