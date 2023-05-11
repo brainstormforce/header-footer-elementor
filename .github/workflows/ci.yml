@@ -21,21 +21,21 @@ jobs:
           php-version: ${{ matrix.php }}
           coverage: none
           tools: composer
-
-      - name: Use desired version of NodeJS
-        uses: actions/setup-node@v3
-        with:
-            node-version: ${{ matrix.node }}
-            cache: 'npm'
-
-      - name: Composer Install
-        uses: ramsey/composer-install@v1
+            
+      - name: Install composer dependencies
+        run: composer config github-oauth.github.com ${{ secrets.PRIVATE_ACCESS_TOKEN }} && composer install --prefer-dist --no-suggest --no-progress
 
       - name: PHPCS check
         if: always()
         uses: chekalsky/phpcs-action@v1
         with:
           phpcs_bin_path: './vendor/bin/phpcs'
+          
+      - name: Use desired version of NodeJS
+        uses: actions/setup-node@v3
+        with:
+            node-version: ${{ matrix.node }}
+            cache: 'npm'
 
       - name: npm install, build
         run: npm ci
