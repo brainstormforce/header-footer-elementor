@@ -2018,7 +2018,7 @@ class Navigation_Menu extends Widget_Base {
 			?>
 			<div <?php echo $this->get_render_attribute_string( 'hfe-main-menu' ); ?>>
 				<div role="button" class="hfe-nav-menu__toggle elementor-clickable">
-					<span class="screen-reader-text"><?php echo __( 'Menu', 'header-footer-elementor' ); ?></span>
+					<span class="screen-reader-text"><?php echo esc_html_e( 'Menu', 'header-footer-elementor' ); ?></span>
 					<div class="hfe-nav-menu-icon">
 						<?php echo isset( $menu_close_icons[0] ) ? $menu_close_icons[0] : ''; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					</div>
