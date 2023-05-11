@@ -15,6 +15,13 @@
 	<rule ref="Generic.Arrays.DisallowLongArraySyntax.Found">
 		<type>warning</type>
 	</rule>
+	
+	<!-- Setting textdomain. -->
+	<config name="text_domain" value="header-footer-elementor"/>
+	<!-- Setting prefix. -->
+	<config name="prefixes" value=""/>
+	<!-- WP version. -->
+	<config name="minimum_supported_wp_version" value="5.2"/>
 
 	<!-- Check all PHP files in directory tree by default. -->
 	<arg name="extensions" value="php"/>
