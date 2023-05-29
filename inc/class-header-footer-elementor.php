@@ -566,7 +566,13 @@ class Header_Footer_Elementor {
 
 		foreach ( $hfe_templates as $template ) {
 			if ( get_post_meta( absint( $template['id'] ), 'ehf_template_type', true ) === $type ) {
-				return $template['id'];
+				if ( function_exists( 'pll_current_language' ) ) {
+					if ( pll_current_language( 'slug' ) == pll_get_post_language( $template['id'], 'slug' ) ) {
+						return $template['id'];
+					}
+				} else {
+					return $template['id'];
+				}
 			}
 		}
 
