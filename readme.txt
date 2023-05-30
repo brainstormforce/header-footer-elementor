@@ -137,6 +137,8 @@ This same applies when you are creating your Header/Footer using this plugin.
 5. Default widgets available with Elementor Header & Footer Builder.
 
 == Changelog ==
+= 1.6.15 =
+- Fix: Polylang plugin language causes conflicts when set up with a custom Header Footer.
 
 = 1.6.14 =
 - Improvement: Compatibility with Elementor version 3.13 and Elementor Pro version 3.13
