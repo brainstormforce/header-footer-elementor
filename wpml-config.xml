@@ -1,0 +1,84 @@
+<wpml-config>
+    <elementor-widgets>
+    	<widget name="copyright">
+			<conditions>
+				<condition key="widgetType">copyright</condition>
+			</conditions>
+    		<fields>
+        		<field type="Copyright Text" editor_type="AREA">shortcode</field>
+    		</fields>
+			<fields>
+        		<field type="Copyright: Link" editor_type="LINK">link</field>
+    		</fields>
+		</widget>
+		<widget name="page-title">
+			<conditions>
+				<condition key="widgetType">page-title</condition>
+			</conditions>
+    		<fields>
+        		<field type="Page Title: Before Title Text" editor_type="LINE">before</field>
+    		</fields>
+			<fields>
+        		<field type="Page Title: After Title Text" editor_type="LINE">after</field>
+    		</fields>
+			<fields>
+        		<field type="Page Title: Link" editor_type="LINK">page_heading_link</field>
+    		</fields>
+		</widget>
+		<widget name="retina">
+			<conditions>
+				<condition key="widgetType">retina</condition>
+			</conditions>
+    		<fields>
+        		<field type="Retina Image: Custom Caption" editor_type="LINE">caption</field>
+    		</fields>
+			<fields>
+        		<field type="Retina Image: Link" editor_type="LINK">link</field>
+    		</fields>
+		</widget>
+		<widget name="search-button">
+			<conditions>
+				<condition key="widgetType">search-button</condition>
+			</conditions>
+    		<fields>
+        		<field type="Search: Placeholder" editor_type="LINE">placeholder</field>
+    		</fields>
+		</widget>
+		<widget name="site-logo">
+			<conditions>
+				<condition key="widgetType">site-logo</condition>
+			</conditions>
+    		<fields>
+        		<field type="Site Logo: Custom Caption" editor_type="LINE">caption</field>
+    		</fields>
+			<fields>
+        		<field type="Site Logo: Link" editor_type="LINK">link</field>
+    		</fields>
+		</widget>
+		<widget name="site-tagline">
+			<conditions>
+				<condition key="widgetType">site-tagline</condition>
+			</conditions>
+    		<fields>
+        		<field type="Site Tagline: Before Title Text" editor_type="AREA">before</field>
+    		</fields>
+			<fields>
+        		<field type="Site Tagline: After Title Text" editor_type="AREA">after</field>
+    		</fields>
+		</widget>
+		<widget name="site-title">
+			<conditions>
+				<condition key="widgetType">"site-title</condition>
+			</conditions>
+    		<fields>
+        		<field type="Site Title: Before Title Text" editor_type="AREA">before</field>
+    		</fields>
+			<fields>
+        		<field type="Site Title: After Title Text" editor_type="AREA">after</field>
+    		</fields>
+			<fields>
+        		<field type="Site Title: Link" editor_type="LINK">heading_link</field>
+    		</fields>
+		</widget>
+	</elementor-widgets>
+</wpml-config>
