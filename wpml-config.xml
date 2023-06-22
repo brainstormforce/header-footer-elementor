@@ -6,9 +6,7 @@
 			</conditions>
     		<fields>
         		<field type="Copyright Text" editor_type="AREA">shortcode</field>
-    		</fields>
-			<fields>
-        		<field type="Copyright: Link" editor_type="LINK">link</field>
+        		<field type="Copyright: Link" editor_type="LINK" key_of="link">url</field>
     		</fields>
 		</widget>
 		<widget name="page-title">
@@ -17,12 +15,8 @@
 			</conditions>
     		<fields>
         		<field type="Page Title: Before Title Text" editor_type="LINE">before</field>
-    		</fields>
-			<fields>
         		<field type="Page Title: After Title Text" editor_type="LINE">after</field>
-    		</fields>
-			<fields>
-        		<field type="Page Title: Link" editor_type="LINK">page_heading_link</field>
+        		<field type="Page Title: Link" editor_type="LINK" key_of="page_heading_link">url</field>
     		</fields>
 		</widget>
 		<widget name="retina">
@@ -31,12 +25,10 @@
 			</conditions>
     		<fields>
         		<field type="Retina Image: Custom Caption" editor_type="LINE">caption</field>
-    		</fields>
-			<fields>
-        		<field type="Retina Image: Link" editor_type="LINK">link</field>
+        		<field type="Retina Image: Link" editor_type="LINK" key_of="link">url</field>
     		</fields>
 		</widget>
-		<widget name="search-button">
+		<widget name="hfe-search-button">
 			<conditions>
 				<condition key="widgetType">search-button</condition>
 			</conditions>
@@ -50,34 +42,26 @@
 			</conditions>
     		<fields>
         		<field type="Site Logo: Custom Caption" editor_type="LINE">caption</field>
-    		</fields>
-			<fields>
-        		<field type="Site Logo: Link" editor_type="LINK">link</field>
+        		<field type="Site Logo: Link" editor_type="LINK" key_of="link">url</field>
     		</fields>
 		</widget>
-		<widget name="site-tagline">
+		<widget name="hfe-site-tagline">
 			<conditions>
 				<condition key="widgetType">site-tagline</condition>
 			</conditions>
     		<fields>
         		<field type="Site Tagline: Before Title Text" editor_type="AREA">before</field>
-    		</fields>
-			<fields>
         		<field type="Site Tagline: After Title Text" editor_type="AREA">after</field>
     		</fields>
 		</widget>
-		<widget name="site-title">
+		<widget name="hfe-site-title">
 			<conditions>
 				<condition key="widgetType">"site-title</condition>
 			</conditions>
     		<fields>
         		<field type="Site Title: Before Title Text" editor_type="AREA">before</field>
-    		</fields>
-			<fields>
         		<field type="Site Title: After Title Text" editor_type="AREA">after</field>
-    		</fields>
-			<fields>
-        		<field type="Site Title: Link" editor_type="LINK">heading_link</field>
+        		<field type="Site Title: Link" editor_type="LINK" key_of="heading_link">url</field>
     		</fields>
 		</widget>
 	</elementor-widgets>
