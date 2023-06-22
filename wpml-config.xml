@@ -28,7 +28,7 @@
         		<field type="Retina Image: Link" editor_type="LINK" key_of="link">url</field>
     		</fields>
 		</widget>
-		<widget name="hfe-search-button">
+		<widget name="search-button">
 			<conditions>
 				<condition key="widgetType">search-button</condition>
 			</conditions>
@@ -45,7 +45,7 @@
         		<field type="Site Logo: Link" editor_type="LINK" key_of="link">url</field>
     		</fields>
 		</widget>
-		<widget name="hfe-site-tagline">
+		<widget name="site-tagline">
 			<conditions>
 				<condition key="widgetType">site-tagline</condition>
 			</conditions>
@@ -54,7 +54,7 @@
         		<field type="Site Tagline: After Title Text" editor_type="AREA">after</field>
     		</fields>
 		</widget>
-		<widget name="hfe-site-title">
+		<widget name="site-title">
 			<conditions>
 				<condition key="widgetType">"site-title</condition>
 			</conditions>
