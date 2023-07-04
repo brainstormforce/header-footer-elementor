@@ -5,8 +5,8 @@
 				<condition key="widgetType">copyright</condition>
 			</conditions>
     		<fields>
-        		<field type="Copyright Text" editor_type="AREA">shortcode</field>
-        		<field type="Copyright: Link" editor_type="LINK" key_of="link">url</field>
+        		<field type="Copyright Text">shortcode</field>
+        		<field type="Copyright: Link">link</field>
     		</fields>
 		</widget>
 		<widget name="page-title">
@@ -14,9 +14,9 @@
 				<condition key="widgetType">page-title</condition>
 			</conditions>
     		<fields>
-        		<field type="Page Title: Before Title Text" editor_type="LINE">before</field>
-        		<field type="Page Title: After Title Text" editor_type="LINE">after</field>
-        		<field type="Page Title: Link" editor_type="LINK" key_of="page_heading_link">url</field>
+        		<field type="Page Title: Before Title Text">before</field>
+        		<field type="Page Title: After Title Text">after</field>
+        		<field type="Page Title: Link">page_heading_link</field>
     		</fields>
 		</widget>
 		<widget name="retina">
@@ -24,45 +24,45 @@
 				<condition key="widgetType">retina</condition>
 			</conditions>
     		<fields>
-        		<field type="Retina Image: Custom Caption" editor_type="LINE">caption</field>
-        		<field type="Retina Image: Link" editor_type="LINK" key_of="link">url</field>
+        		<field type="Retina Image: Custom Caption">caption</field>
+        		<field type="Retina Image: Link">link</field>
     		</fields>
 		</widget>
-		<widget name="search-button">
+		<widget name="hfe-search-button">
 			<conditions>
-				<condition key="widgetType">search-button</condition>
-			</conditions>
-    		<fields>
-        		<field type="Search: Placeholder" editor_type="LINE">placeholder</field>
-    		</fields>
-		</widget>
+        		<condition key="widgetType">hfe-search-button</condition>
+     		</conditions>
+      		<fields>
+        		<field type="Search Placeholder">placeholder</field>
+      		</fields>
+    	</widget>
 		<widget name="site-logo">
 			<conditions>
 				<condition key="widgetType">site-logo</condition>
 			</conditions>
     		<fields>
-        		<field type="Site Logo: Custom Caption" editor_type="LINE">caption</field>
-        		<field type="Site Logo: Link" editor_type="LINK" key_of="link">url</field>
+        		<field type="Site Logo: Custom Caption">caption</field>
+        		<field type="Site Logo: Link">link</field>
     		</fields>
 		</widget>
-		<widget name="site-tagline">
+		<widget name="hfe-site-tagline">
 			<conditions>
-				<condition key="widgetType">site-tagline</condition>
+				<condition key="widgetType">hfe-site-tagline</condition>
 			</conditions>
-    		<fields>
-        		<field type="Site Tagline: Before Title Text" editor_type="AREA">before</field>
-        		<field type="Site Tagline: After Title Text" editor_type="AREA">after</field>
-    		</fields>
+			<fields>
+				<field type="Site Tagline: Before text">before</field>
+				<field type="Site Tagline: After text">after</field>
+			</fields>
 		</widget>
-		<widget name="site-title">
+		<widget name="hfe-site-title">
 			<conditions>
-				<condition key="widgetType">"site-title</condition>
+				<condition key="widgetType">hfe-site-title</condition>
 			</conditions>
-    		<fields>
-        		<field type="Site Title: Before Title Text" editor_type="AREA">before</field>
-        		<field type="Site Title: After Title Text" editor_type="AREA">after</field>
-        		<field type="Site Title: Link" editor_type="LINK" key_of="heading_link">url</field>
-    		</fields>
+			<fields>
+				<field type="Site Title: Before text">before</field>
+				<field type="Site Title: After text">after</field>
+				<field type="Site Title: Custom link">heading_link</field>
+			</fields>
 		</widget>
 	</elementor-widgets>
 </wpml-config>
