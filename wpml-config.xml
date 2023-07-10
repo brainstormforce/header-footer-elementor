@@ -6,7 +6,7 @@
 			</conditions>
     		<fields>
         		<field type="Copyright Text">shortcode</field>
-        		<field type="Copyright: Link">link</field>
+        		<field type="Copyright: Link">link>url</field>
     		</fields>
 		</widget>
 		<widget name="page-title">
@@ -16,7 +16,7 @@
     		<fields>
         		<field type="Page Title: Before Title Text">before</field>
         		<field type="Page Title: After Title Text">after</field>
-        		<field type="Page Title: Link">page_heading_link</field>
+        		<field type="Page Title: Link">page_heading_link>url</field>
     		</fields>
 		</widget>
 		<widget name="retina">
@@ -25,7 +25,7 @@
 			</conditions>
     		<fields>
         		<field type="Retina Image: Custom Caption">caption</field>
-        		<field type="Retina Image: Link">link</field>
+        		<field type="Retina Image: Link">link>url</field>
     		</fields>
 		</widget>
 		<widget name="hfe-search-button">
@@ -42,7 +42,7 @@
 			</conditions>
     		<fields>
         		<field type="Site Logo: Custom Caption">caption</field>
-        		<field type="Site Logo: Link">link</field>
+        		<field type="Site Logo: Link">link>url</field>
     		</fields>
 		</widget>
 		<widget name="hfe-site-tagline">
@@ -61,7 +61,7 @@
 			<fields>
 				<field type="Site Title: Before text">before</field>
 				<field type="Site Title: After text">after</field>
-				<field type="Site Title: Custom link">heading_link</field>
+				<field type="Site Title: Custom link">heading_link>url</field>
 			</fields>
 		</widget>
 	</elementor-widgets>
