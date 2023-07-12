@@ -1,4 +1,7 @@
 <wpml-config>
+	<custom-types>
+		<custom-type translate="1">elementor-hf</custom-type>
+	</custom-types>
     <elementor-widgets>
     	<widget name="copyright">
 			<conditions>
