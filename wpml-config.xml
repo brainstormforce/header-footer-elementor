@@ -1,0 +1,71 @@
+<wpml-config>
+	<custom-types>
+		<custom-type translate="1">elementor-hf</custom-type>
+	</custom-types>
+    <elementor-widgets>
+    	<widget name="copyright">
+			<conditions>
+				<condition key="widgetType">copyright</condition>
+			</conditions>
+    		<fields>
+        		<field type="Copyright Text">shortcode</field>
+        		<field type="Copyright: Link">link>url</field>
+    		</fields>
+		</widget>
+		<widget name="page-title">
+			<conditions>
+				<condition key="widgetType">page-title</condition>
+			</conditions>
+    		<fields>
+        		<field type="Page Title: Before Title Text">before</field>
+        		<field type="Page Title: After Title Text">after</field>
+        		<field type="Page Title: Link">page_heading_link>url</field>
+    		</fields>
+		</widget>
+		<widget name="retina">
+			<conditions>
+				<condition key="widgetType">retina</condition>
+			</conditions>
+    		<fields>
+        		<field type="Retina Image: Custom Caption">caption</field>
+        		<field type="Retina Image: Link">link>url</field>
+    		</fields>
+		</widget>
+		<widget name="hfe-search-button">
+			<conditions>
+        		<condition key="widgetType">hfe-search-button</condition>
+     		</conditions>
+      		<fields>
+        		<field type="Search Placeholder">placeholder</field>
+      		</fields>
+    	</widget>
+		<widget name="site-logo">
+			<conditions>
+				<condition key="widgetType">site-logo</condition>
+			</conditions>
+    		<fields>
+        		<field type="Site Logo: Custom Caption">caption</field>
+        		<field type="Site Logo: Link">link>url</field>
+    		</fields>
+		</widget>
+		<widget name="hfe-site-tagline">
+			<conditions>
+				<condition key="widgetType">hfe-site-tagline</condition>
+			</conditions>
+			<fields>
+				<field type="Site Tagline: Before text">before</field>
+				<field type="Site Tagline: After text">after</field>
+			</fields>
+		</widget>
+		<widget name="hfe-site-title">
+			<conditions>
+				<condition key="widgetType">hfe-site-title</condition>
+			</conditions>
+			<fields>
+				<field type="Site Title: Before text">before</field>
+				<field type="Site Title: After text">after</field>
+				<field type="Site Title: Custom link">heading_link>url</field>
+			</fields>
+		</widget>
+	</elementor-widgets>
+</wpml-config>

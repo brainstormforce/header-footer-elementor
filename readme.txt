@@ -138,6 +138,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 = 1.6.15 =
+- Improvement: Added WPML support.
 - Fix: Polylang plugin language causes conflicts when set up with a custom Header Footer.
 
 = 1.6.14 =
