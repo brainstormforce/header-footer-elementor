@@ -20,6 +20,8 @@ Elementor Header & Footer Builder is a simple yet powerful WordPress plugin that
 - Footer
 - Block (anywhere on the website)
 
+[Try it out on a free dummy site](https://bsf.io/hfe-demo)
+
 = Create Attractive Designs =
 
 Elementor editor gives you the flexibility to design beautiful sections. Using it you can create out of the box header and footer designs.
