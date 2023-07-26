@@ -143,6 +143,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 - Improvement: Added WPML support.
 - Fix: Navigation Menu - HTML validation error on mobile layout related to tabindex inside elements with attribute [role="button"].
 - Fix: Polylang plugin language causes conflicts when set up with a custom Header Footer.
+- Fix: Site Logo - Align icons not rendering in Elementor editor settings.
 
 = 1.6.14 =
 - Improvement: Compatibility with Elementor version 3.13 and Elementor Pro version 3.13
