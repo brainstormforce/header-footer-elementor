@@ -5,7 +5,7 @@ Donate link: https://www.paypal.me/BrainstormForce
 Requires at least: 4.4
 Requires PHP: 5.4
 Tested up to: 6.2
-Stable tag: 1.6.14
+Stable tag: 1.6.15
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -139,6 +139,13 @@ This same applies when you are creating your Header/Footer using this plugin.
 5. Default widgets available with Elementor Header & Footer Builder.
 
 == Changelog ==
+
+= 1.6.15 =
+- Improvement: Compatibility with latest Elementor and Elementor Pro 3.15 version.
+- Improvement: Added WPML support.
+- Fix: Navigation Menu - HTML validation error on mobile layout related to tabindex inside elements with attribute [role="button"].
+- Fix: Polylang plugin language causes conflicts when set up with a custom Header Footer.
+- Fix: Site Logo - Align icons not rendering in Elementor editor settings.
 
 = 1.6.14 =
 - Improvement: Compatibility with Elementor version 3.13 and Elementor Pro version 3.13
