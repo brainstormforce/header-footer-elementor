@@ -1,13 +1,13 @@
 # Elementor Header & Footer Builder #
-**Contributors:** [brainstormforce](https://profiles.wordpress.org/brainstormforce/), [nikschavan](https://profiles.wordpress.org/nikschavan/)
-**Tags:** elementor, header footer builder, header template, footer template, elementor widget, WordPress header, WordPress footer, elementor menu, website header design, footer design, blocks
-**Donate link:** https://www.paypal.me/BrainstormForce
-**Requires at least:** 4.4
-**Requires PHP:** 5.4
-**Tested up to:** 6.3
-**Stable tag:** 1.6.15
-**License:** GPLv2 or later
-**License URI:** http://www.gnu.org/licenses/gpl-2.0.html
+**Contributors:** [brainstormforce](https://profiles.wordpress.org/brainstormforce/), [nikschavan](https://profiles.wordpress.org/nikschavan/)  
+**Tags:** elementor, header footer builder, header template, footer template, elementor widget, WordPress header, WordPress footer, elementor menu, website header design, footer design, blocks  
+**Donate link:** https://www.paypal.me/BrainstormForce  
+**Requires at least:** 4.4  
+**Requires PHP:** 5.4  
+**Tested up to:** 6.3  
+**Stable tag:** 1.6.15  
+**License:** GPLv2 or later  
+**License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
 Create Header, Footer and Blocks for your WordPress website using Elementor Page Builder for free.
 
@@ -19,6 +19,8 @@ Elementor Header & Footer Builder is a simple yet powerful WordPress plugin that
 - Header
 - Footer
 - Block (anywhere on the website)
+
+[Try it out on a free dummy site](https://bsf.io/hfe-demo)
 
 ### Create Attractive Designs ###
 
