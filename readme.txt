@@ -139,6 +139,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 == Changelog ==
 
 = 1.6.15.1 =
+- Improvement: Compatibility with WordPress version 6.3
 - Improvement: Compatibility with PHP 8.1 version.
 
 = 1.6.15 =
