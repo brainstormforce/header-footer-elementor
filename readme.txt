@@ -139,6 +139,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 == Changelog ==
 
 = 1.6.15.1 =
+- Compatibility with latest Elementor and Elementor Pro 3.16 version.
 - Improvement: Compatibility with PHP 8.1 version.
 
 = 1.6.15 =
