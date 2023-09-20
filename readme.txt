@@ -140,6 +140,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 
+= 1.6.16.1 - Development version =
+- Fix: Site Logo - Added an alt text for the default logo.
+
 = 1.6.16 =
 - Compatibility with latest Elementor and Elementor Pro 3.16 version.
 - Compatibility with PHP 8.1 version.
