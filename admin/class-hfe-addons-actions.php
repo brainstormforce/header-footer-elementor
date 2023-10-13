@@ -139,20 +139,22 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 
 				if ( 'theme' === $type ) {
 
-					$slug = sanitize_key( wp_unslash( $_POST['slug'] ) );
+					if ( isset( $_POST['slug'] ) ) {
+						$slug = sanitize_key( wp_unslash( $_POST['slug'] ) );
 
-					// Check for permissions.
-					if ( ! ( current_user_can( 'switch_themes' ) ) ) {
-						wp_send_json_error( esc_html__( 'Theme activation is disabled for you on this site.', 'header-footer-elementor' ) );
-					}
+						// Check for permissions.
+						if ( ! ( current_user_can( 'switch_themes' ) ) ) {
+							wp_send_json_error( esc_html__( 'Theme activation is disabled for you on this site.', 'header-footer-elementor' ) );
+						}
 
-					$activate = switch_theme( $slug );
+						$activate = switch_theme( $slug );
 
-					if ( ! is_wp_error( $activate ) ) {
+						if ( ! is_wp_error( $activate ) ) {
 
-						do_action( 'hfe_theme_activated', $plugin );
+							do_action( 'hfe_theme_activated', $plugin );
 
-						wp_send_json_success( esc_html__( 'Theme Activated.', 'header-footer-elementor' ) );
+							wp_send_json_success( esc_html__( 'Theme Activated.', 'header-footer-elementor' ) );
+						}
 					}
 				}
 			}
