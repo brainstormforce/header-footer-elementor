@@ -631,6 +631,7 @@ class Cart extends Widget_Base {
 							<?php if ( null !== WC()->cart ) { ?>
 								<span class="hfe-cart-count">
 									<?php echo esc_html( WC()->cart->get_cart_contents_count() ); ?>
+							</span>
 							<?php } ?>
 						</div>
 					</a>
