@@ -176,7 +176,7 @@ class HFE_Admin {
 					}
 					echo '<div class="ast-advanced-headers-users-wrap">';
 					echo '<strong>Users: </strong>';
-					echo join( ', ', $user_label );
+					echo esc_html( join( ', ', $user_label ) );
 					echo '</div>';
 				}
 			}
@@ -208,7 +208,7 @@ class HFE_Admin {
 			}
 		}
 
-		echo join( ', ', $location_label );
+		echo esc_html( join( ', ', $location_label ) );
 	}
 
 
@@ -495,7 +495,7 @@ class HFE_Admin {
 				$message = sprintf( __( 'Template %1$s is already assigned to the location %2$s', 'header-footer-elementor' ), $post_title, $template_location );
 
 				echo '<div class="error"><p>';
-				echo $message;
+				echo esc_html( $message );
 				echo '</p></div>';
 			}
 		}
