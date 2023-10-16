@@ -428,7 +428,7 @@ class Page_Title extends Widget_Base {
 			<?php } elseif ( 'default' === $head_custom_link ) { ?>
 						<a href="<?php echo esc_url( get_home_url() ); ?>">
 			<?php } ?>
-			<<?php echo $heading_size_tag; ?> class="elementor-heading-title elementor-size-<?php echo $settings['size']; ?>">
+			<<?php echo esc_attr( $heading_size_tag ); ?> class="elementor-heading-title elementor-size-<?php echo esc_attr( $settings['size'] ); ?>">
 				<?php if ( '' !== $settings['new_page_title_select_icon']['value'] ) { ?>
 						<span class="hfe-page-title-icon">
 							<?php \Elementor\Icons_Manager::render_icon( $settings['new_page_title_select_icon'], [ 'aria-hidden' => 'true' ] ); ?>             </span>
@@ -448,7 +448,7 @@ class Page_Title extends Widget_Base {
 					?>
 					<?php echo wp_kses_post( $settings['after'] ); ?>
 				<?php } ?>  
-			</<?php echo $heading_size_tag; ?> > 
+			</<?php echo esc_attr( $heading_size_tag ); ?> > 
 			<?php if ( ( '' != $head_link_url && 'custom' === $head_custom_link ) || 'default' === $head_custom_link ) { ?>
 						</a>
 			<?php } ?>
