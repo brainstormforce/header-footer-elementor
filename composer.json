@@ -13,8 +13,9 @@
   },
   "require-dev": {
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
-    "wp-coding-standards/wpcs": "dev-master",
-    "phpcompatibility/phpcompatibility-wp": "*"
+    "phpcompatibility/phpcompatibility-wp": "*",
+    "wp-coding-standards/wpcs": "^3.0.0",
+		"automattic/vipwpcs": "^2.1"
   },
   "scripts": {
     "format": "phpcbf",
