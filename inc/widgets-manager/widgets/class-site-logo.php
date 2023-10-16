@@ -830,7 +830,11 @@ class Site_Logo extends Widget_Base {
 		?>
 			<div class="hfe-site-logo-set">           
 				<div class="hfe-site-logo-container">
-					<img class="hfe-site-logo-img <?php echo esc_attr( $class_animation ); ?>"  src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( Control_Media::get_image_alt( $settings['custom_image'] ) ); ?>"/>
+				<?php
+					$alt_text = Control_Media::get_image_alt( $settings['custom_image'] );
+					$alt_text = empty( $alt_text ) ? 'default-logo' : esc_attr( $alt_text );
+				?>
+					<img class="hfe-site-logo-img <?php echo esc_attr( $class_animation ); ?>"  src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $alt_text ); ?>"/>
 				</div>
 			</div>
 		<?php if ( $link ) : ?>
