@@ -993,7 +993,7 @@ class Search_Button extends Widget_Base {
 							<i class="fas fa-times clearable__clear" aria-hidden="true"></i>
 						</button>
 				<?php } else { ?>
-					<input <?php echo esc_attr( $this->get_render_attribute_string( 'input' ) ); ?>>
+					<input <?php echo wp_kses_post( $this->get_render_attribute_string( 'input' ) ); ?>>
 					<button id="clear-with-button" type="reset">
 						<i class="fas fa-times" aria-hidden="true"></i>
 					</button>

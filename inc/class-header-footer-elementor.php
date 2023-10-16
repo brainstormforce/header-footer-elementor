@@ -508,7 +508,7 @@ class Header_Footer_Elementor {
 	 */
 	public static function get_header_content() {
 		$header_content = self::$elementor_instance->frontend->get_builder_content_for_display( get_hfe_header_id() );
-		echo esc_html( $header_content );
+		echo wp_kses_post( $header_content );
 	}
 
 	/**
@@ -516,7 +516,7 @@ class Header_Footer_Elementor {
 	 */
 	public static function get_footer_content() {
 		echo "<div class='footer-width-fixer'>";
-		echo esc_html( self::$elementor_instance->frontend->get_builder_content_for_display( get_hfe_footer_id() ) );
+		echo wp_kses_post( self::$elementor_instance->frontend->get_builder_content_for_display( get_hfe_footer_id() ) );
 		echo '</div>';
 	}
 
@@ -525,7 +525,7 @@ class Header_Footer_Elementor {
 	 */
 	public static function get_before_footer_content() {
 		echo "<div class='footer-width-fixer'>";
-		echo esc_html( self::$elementor_instance->frontend->get_builder_content_for_display( hfe_get_before_footer_id() ) );
+		echo wp_kses_post( self::$elementor_instance->frontend->get_builder_content_for_display( hfe_get_before_footer_id() ) );
 		echo '</div>';
 	}
 

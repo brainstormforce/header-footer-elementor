@@ -2016,7 +2016,7 @@ class Navigation_Menu extends Widget_Base {
 			$this->add_render_attribute( 'hfe-nav-menu', 'data-full-width', $settings['full_width_dropdown'] );
 
 			?>
-			<div <?php echo esc_attr( $this->get_render_attribute_string( 'hfe-main-menu' ) ); ?>>
+			<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'hfe-main-menu' ) ); ?>>
 				<div role="button" class="hfe-nav-menu__toggle elementor-clickable">
 					<span class="screen-reader-text"><?php esc_html_e( 'Menu', 'header-footer-elementor' ); ?></span>
 					<div class="hfe-nav-menu-icon">
@@ -2026,7 +2026,7 @@ class Navigation_Menu extends Widget_Base {
 						?>
 					</div>
 				</div>
-				<nav <?php echo esc_attr( $this->get_render_attribute_string( 'hfe-nav-menu' ) ); ?>><?php echo esc_html( $menu_html ); ?></nav>
+				<nav <?php echo wp_kses_post( $this->get_render_attribute_string( 'hfe-nav-menu' ) ); ?>><?php echo wp_kses_post( $menu_html ); ?></nav>
 			</div>
 			<?php
 		}
