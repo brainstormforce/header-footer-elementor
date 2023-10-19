@@ -5,7 +5,7 @@ Donate link: https://www.paypal.me/BrainstormForce
 Requires at least: 4.4
 Requires PHP: 5.4
 Tested up to: 6.3
-Stable tag: 1.6.16
+Stable tag: 1.6.17
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -140,7 +140,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 
-= 1.6.16.1 - Development version =
+= 1.6.17 =
 - Improvement: Compatibility with latest Elementor and Elementor Pro 3.17 version.
 - Fix: Site Logo - Added an alt text for the default logo.
 
