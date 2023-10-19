@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Elementor Header & Footer Builder package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Elementor Header & Footer Builder 1.6.16\n"
+"Project-Id-Version: Elementor Header & Footer Builder 1.6.17\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/header-footer-elementor\n"
 "POT-Creation-Date: 2023-09-11 10:06:03+00:00\n"
