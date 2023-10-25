@@ -71,7 +71,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			}
 
 			$api_domain = trailingslashit( $this->get_api_domain() );
-
+			// PHPCS:Ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 			$arguments = isset( $_POST['data'] ) ? array_map( 'sanitize_text_field', json_decode( stripslashes( $_POST['data'] ), true ) ) : [];
 
 			$url = add_query_arg( $arguments, $api_domain . 'wp-json/starter-templates/v1/subscribe/' ); // add URL of your site or mail API.
