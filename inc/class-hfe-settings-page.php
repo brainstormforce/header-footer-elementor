@@ -216,8 +216,8 @@ class HFE_Settings_Page {
 		$hfe_radio_button = get_option( 'hfe_compatibility_option', '1' );
 		?>
 		<?php
-		if ( isset( $_GET['page'] ) ) {
-			switch ( $_GET['page'] ) {
+		if ( isset( $_GET['page'] ) ) { // PHPCS:Ignore WordPress.Security.NonceVerification.Recommended
+			switch ( $_GET['page'] ) { // PHPCS:Ignore WordPress.Security.NonceVerification.Recommended
 				case 'hfe-settings':
 					$this->get_themes_support();
 					break;
@@ -281,7 +281,7 @@ class HFE_Settings_Page {
 
 				$tab_slug = str_replace( '_', '-', $tab_id );
 
-				$active_tab = ( ( isset( $_GET['page'] ) && $tab_slug == $_GET['page'] ) || ( ! isset( $_GET['page'] ) && 'hfe_templates' == $tab_id ) ) ? $tab_id : '';
+				$active_tab = ( ( isset( $_GET['page'] ) && $tab_slug == $_GET['page'] ) || ( ! isset( $_GET['page'] ) && 'hfe_templates' == $tab_id ) ) ? $tab_id : ''; // PHPCS:Ignore WordPress.Security.NonceVerification.Recommended
 
 				$active = ( $active_tab == $tab_id ) ? ' nav-tab-active' : '';
 

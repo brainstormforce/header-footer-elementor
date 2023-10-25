@@ -64,7 +64,7 @@ if ( ! class_exists( 'HFE_Update' ) ) {
 			}
 
 			// flush rewrite rules on plugin update.
-			flush_rewrite_rules();
+			flush_rewrite_rules();  // PHPCS:Ignore WordPressVIPMinimum.Functions.RestrictedFunctions.flush_rewrite_rules_flush_rewrite_rules
 
 			$this->update_db_version();
 
@@ -114,12 +114,12 @@ if ( ! class_exists( 'HFE_Update' ) ) {
 			$args = [
 				'post_type'    => 'elementor-hf',
 				'meta_key'     => 'ehf_template_type',
-				'meta_value'   => $type,
+				'meta_value'   => $type, // PHPCS:Ignore  WordPress.DB.SlowDBQuery.slow_db_query_meta_value
 				'meta_type'    => 'post',
 				'meta_compare' => '>=',
 				'orderby'      => 'meta_value',
 				'order'        => 'ASC',
-				'meta_query'   => [
+				'meta_query'   => [  // PHPCS:Ignore  WordPress.DB.SlowDBQuery.slow_db_query_meta_query
 					'relation' => 'OR',
 					[
 						'key'     => 'ehf_template_type',
