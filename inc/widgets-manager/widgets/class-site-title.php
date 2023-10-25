@@ -473,24 +473,24 @@ class Site_Title extends Widget_Base {
 		#>
 		<div class="hfe-module-content hfe-heading-wrapper elementor-widget-heading">
 				<# if ( '' != settings.heading_link.url ) { #>
-					<a {{{ view.getRenderAttributeString( 'url' ) }}} >
+					<a {{{ view.getRenderAttributeString( 'url' ) }}} > <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 				<# } #>
-				<{{{ headingSizeTag }}} class="hfe-heading elementor-heading-title elementor-size-{{{ settings.size }}}">
+				<{{{ headingSizeTag }}} class="hfe-heading elementor-heading-title elementor-size-{{{ settings.size }}}"> <?php //phpcs:ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 				<# if( '' != settings.icon.value ){ #>
 				<span class="hfe-icon">
-					{{{ iconHTML.value }}}					
+					{{{ iconHTML.value }}}	<?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>			
 				</span>
 				<# } #>
 				<span class="hfe-heading-text  elementor-heading-title" data-elementor-setting-key="heading_title" data-elementor-inline-editing-toolbar="basic" >
 				<#if ( '' != settings.before ){#>
-					{{{ settings.before }}} 
+					{{{ settings.before }}}  <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 				<#}#>
 				<?php echo wp_kses_post( get_bloginfo( 'name' ) ); ?>
 				<# if ( '' != settings.after ){#>
-					{{{ settings.after }}}
+					{{{ settings.after }}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 				<#}#>
 				</span>
-			</{{{ headingSizeTag }}}>
+			</{{{ headingSizeTag }}}> <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 			<# if ( '' != settings.heading_link.url ) { #>
 				</a>
 			<# } #>

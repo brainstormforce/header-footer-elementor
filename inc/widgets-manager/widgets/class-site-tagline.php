@@ -302,16 +302,16 @@ class Site_Tagline extends Widget_Base {
 		<div class="hfe-site-tagline hfe-site-tagline-wrapper">
 			<# if( '' != settings.icon.value ){ #>
 				<span class="hfe-icon">
-					{{{iconHTML.value}}}
+					{{{iconHTML.value}}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 				</span>
 			<# } #>
 			<span>
 			<#if ( '' != settings.before ){#>
-				{{{ settings.before}}} 
+				{{{ settings.before}}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 			<#}#>
 			<?php echo wp_kses_post( get_bloginfo( 'description' ) ); ?>
 			<# if ( '' != settings.after ){#>
-				{{{ settings.after }}}
+				{{{ settings.after }}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 			<#}#>
 			</span>
 		</div>
