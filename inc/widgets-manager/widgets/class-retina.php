@@ -782,14 +782,15 @@ class Retina extends Widget_Base {
 				$image_url = $placeholder_img_url;
 			}
 
-			// PHPCS:Ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-			if ( strpos( $_SERVER['HTTP_USER_AGENT'], 'Chrome' ) !== false ) {
+			// PHPCS:Disable WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+			// PHPCS:Ignore WordPressVIPMinimum.Variables.RestrictedVariables.cache_constraints___SERVER__HTTP_USER_AGENT__
+			if ( isset( $_SERVER['HTTP_USER_AGENT'] ) && strpos( $_SERVER['HTTP_USER_AGENT'], 'Chrome' ) !== false ) {
 				$date             = new \DateTime();
 				$timestam         = $date->getTimestamp();
 				$image_url        = $image_url . '?' . $timestam;
 				$retina_image_url = $retina_image_url . '?' . $timestam;
 			}
-
+			// PHPCS:Enable WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 			?>
 				<div class="hfe-retina-image-set">
 					<div class="hfe-retina-image-container">
