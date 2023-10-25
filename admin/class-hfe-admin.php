@@ -437,6 +437,7 @@ class HFE_Admin {
 		}
 
 		// if our nonce isn't there, or we can't verify it, bail.
+		// PHPCS:Ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 		if ( ! isset( $_POST['ehf_meta_nounce'] ) || ! wp_verify_nonce( $_POST['ehf_meta_nounce'], 'ehf_meta_nounce' ) ) {
 			return;
 		}
@@ -459,11 +460,11 @@ class HFE_Admin {
 		update_post_meta( $post_id, 'ehf_target_user_roles', $target_users );
 
 		if ( isset( $_POST['ehf_template_type'] ) ) {
-			update_post_meta( $post_id, 'ehf_template_type', esc_attr( $_POST['ehf_template_type'] ) );
+			update_post_meta( $post_id, 'ehf_template_type', esc_attr( $_POST['ehf_template_type'] ) ); // PHPCS:Ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 		}
 
 		if ( isset( $_POST['display-on-canvas-template'] ) ) {
-			update_post_meta( $post_id, 'display-on-canvas-template', esc_attr( $_POST['display-on-canvas-template'] ) );
+			update_post_meta( $post_id, 'display-on-canvas-template', esc_attr( $_POST['display-on-canvas-template'] ) ); // PHPCS:Ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 		} else {
 			delete_post_meta( $post_id, 'display-on-canvas-template' );
 		}

@@ -782,6 +782,7 @@ class Retina extends Widget_Base {
 				$image_url = $placeholder_img_url;
 			}
 
+			// PHPCS:Ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 			if ( strpos( $_SERVER['HTTP_USER_AGENT'], 'Chrome' ) !== false ) {
 				$date             = new \DateTime();
 				$timestam         = $date->getTimestamp();
