@@ -437,8 +437,7 @@ class HFE_Admin {
 		}
 
 		// if our nonce isn't there, or we can't verify it, bail.
-		// PHPCS:Ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-		if ( ! isset( $_POST['ehf_meta_nounce'] ) || ! wp_verify_nonce( $_POST['ehf_meta_nounce'], 'ehf_meta_nounce' ) ) {
+		if ( ! isset( $_POST['ehf_meta_nounce'] ) || ! wp_verify_nonce( sanitize_text_field( $_POST['ehf_meta_nounce'] ), 'ehf_meta_nounce' ) ) {
 			return;
 		}
 
