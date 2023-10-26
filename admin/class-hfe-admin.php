@@ -464,6 +464,7 @@ class HFE_Admin {
 
 		if ( isset( $_POST['display-on-canvas-template'] ) ) {
 			update_post_meta( $post_id, 'display-on-canvas-template', sanitize_text_field( $_POST['display-on-canvas-template'] ) );
+		} else {
 			delete_post_meta( $post_id, 'display-on-canvas-template' );
 		}
 	}
