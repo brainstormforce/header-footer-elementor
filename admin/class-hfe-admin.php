@@ -460,12 +460,11 @@ class HFE_Admin {
 		update_post_meta( $post_id, 'ehf_target_user_roles', $target_users );
 
 		if ( isset( $_POST['ehf_template_type'] ) ) {
-			update_post_meta( $post_id, 'ehf_template_type', esc_attr( $_POST['ehf_template_type'] ) ); // PHPCS:Ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+			update_post_meta( $post_id, 'ehf_template_type', sanitize_text_field( $_POST['ehf_template_type'] ) );
 		}
 
 		if ( isset( $_POST['display-on-canvas-template'] ) ) {
-			update_post_meta( $post_id, 'display-on-canvas-template', esc_attr( $_POST['display-on-canvas-template'] ) ); // PHPCS:Ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-		} else {
+			update_post_meta( $post_id, 'display-on-canvas-template', sanitize_text_field( $_POST['display-on-canvas-template'] ) );
 			delete_post_meta( $post_id, 'display-on-canvas-template' );
 		}
 	}
