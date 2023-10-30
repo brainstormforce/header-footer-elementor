@@ -140,6 +140,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 
+= 1.6.17.1 - Development version =
+- Improvement: Compatibility with WordPress VIP Go rules.
+
 = 1.6.17 =
 - Improvement: Compatibility with latest Elementor and Elementor Pro 3.17 version.
 - Fix: Site Logo - Added an alt text for the default logo.

@@ -71,7 +71,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			}
 
 			$api_domain = trailingslashit( $this->get_api_domain() );
-
+			// PHPCS:Ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 			$arguments = isset( $_POST['data'] ) ? array_map( 'sanitize_text_field', json_decode( stripslashes( $_POST['data'] ), true ) ) : [];
 
 			$url = add_query_arg( $arguments, $api_domain . 'wp-json/starter-templates/v1/subscribe/' ); // add URL of your site or mail API.
@@ -139,20 +139,22 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 
 				if ( 'theme' === $type ) {
 
-					$slug = sanitize_key( wp_unslash( $_POST['slug'] ) );
+					if ( isset( $_POST['slug'] ) ) {
+						$slug = sanitize_key( wp_unslash( $_POST['slug'] ) );
 
-					// Check for permissions.
-					if ( ! ( current_user_can( 'switch_themes' ) ) ) {
-						wp_send_json_error( esc_html__( 'Theme activation is disabled for you on this site.', 'header-footer-elementor' ) );
-					}
+						// Check for permissions.
+						if ( ! ( current_user_can( 'switch_themes' ) ) ) {
+							wp_send_json_error( esc_html__( 'Theme activation is disabled for you on this site.', 'header-footer-elementor' ) );
+						}
 
-					$activate = switch_theme( $slug );
+						$activate = switch_theme( $slug );
 
-					if ( ! is_wp_error( $activate ) ) {
+						if ( ! is_wp_error( $activate ) ) {
 
-						do_action( 'hfe_theme_activated', $plugin );
+							do_action( 'hfe_theme_activated', $plugin );
 
-						wp_send_json_success( esc_html__( 'Theme Activated.', 'header-footer-elementor' ) );
+							wp_send_json_success( esc_html__( 'Theme Activated.', 'header-footer-elementor' ) );
+						}
 					}
 				}
 			}

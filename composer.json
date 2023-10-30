@@ -12,9 +12,11 @@
       }
   },
   "require-dev": {
-    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
-    "wp-coding-standards/wpcs": "dev-master",
-    "phpcompatibility/phpcompatibility-wp": "*"
+    "squizlabs/php_codesniffer": "^3.7",
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+    "wp-coding-standards/wpcs": "^2.3",
+    "phpcompatibility/phpcompatibility-wp": "*",
+    "automattic/vipwpcs": "^2.3"
   },
   "scripts": {
     "format": "phpcbf",

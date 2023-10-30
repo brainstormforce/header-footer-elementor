@@ -414,9 +414,9 @@ class Site_Title extends Widget_Base {
 		<?php if ( ! empty( $settings['heading_link']['url'] ) && 'custom' === $settings['custom_link'] ) { ?>
 					<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'url' ) ); ?>>
 				<?php } else { ?>
-					<a href="<?php echo get_home_url(); ?>">
+					<a href="<?php echo esc_url( get_home_url() ); ?>">
 				<?php } ?>
-			<<?php echo $heading_size_tag; ?> class="hfe-heading elementor-heading-title elementor-size-<?php echo $settings['size']; ?>">
+			<<?php echo esc_attr( $heading_size_tag ); ?> class="hfe-heading elementor-heading-title elementor-size-<?php echo esc_attr( $settings['size'] ); ?>">
 				<?php if ( '' !== $settings['icon']['value'] ) { ?>
 					<span class="hfe-icon">
 						<?php \Elementor\Icons_Manager::render_icon( $settings['icon'], [ 'aria-hidden' => 'true' ] ); ?>					
@@ -435,7 +435,7 @@ class Site_Title extends Widget_Base {
 					}
 					?>
 					</span>			
-			</<?php echo $heading_size_tag; ?>>
+			</<?php echo esc_attr( $heading_size_tag ); ?>>
 			</a>		
 		</div>
 		<?php
@@ -473,24 +473,24 @@ class Site_Title extends Widget_Base {
 		#>
 		<div class="hfe-module-content hfe-heading-wrapper elementor-widget-heading">
 				<# if ( '' != settings.heading_link.url ) { #>
-					<a {{{ view.getRenderAttributeString( 'url' ) }}} >
+					<a {{{ view.getRenderAttributeString( 'url' ) }}} > <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 				<# } #>
-				<{{{ headingSizeTag }}} class="hfe-heading elementor-heading-title elementor-size-{{{ settings.size }}}">
+				<{{{ headingSizeTag }}} class="hfe-heading elementor-heading-title elementor-size-{{{ settings.size }}}"> <?php //phpcs:ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 				<# if( '' != settings.icon.value ){ #>
 				<span class="hfe-icon">
-					{{{ iconHTML.value }}}					
+					{{{ iconHTML.value }}}	<?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>			
 				</span>
 				<# } #>
 				<span class="hfe-heading-text  elementor-heading-title" data-elementor-setting-key="heading_title" data-elementor-inline-editing-toolbar="basic" >
 				<#if ( '' != settings.before ){#>
-					{{{ settings.before }}} 
+					{{{ settings.before }}}  <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 				<#}#>
 				<?php echo wp_kses_post( get_bloginfo( 'name' ) ); ?>
 				<# if ( '' != settings.after ){#>
-					{{{ settings.after }}}
+					{{{ settings.after }}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 				<#}#>
 				</span>
-			</{{{ headingSizeTag }}}>
+			</{{{ headingSizeTag }}}> <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 			<# if ( '' != settings.heading_link.url ) { #>
 				</a>
 			<# } #>

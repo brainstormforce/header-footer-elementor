@@ -704,12 +704,12 @@ class Retina extends Widget_Base {
 		}
 
 		?>
-		<div <?php echo $this->get_render_attribute_string( 'wrapper' ); ?>>
+		<div <?php echo esc_attr( $this->get_render_attribute_string( 'wrapper' ) ); ?>>
 			<?php if ( $has_caption ) : ?>
 				<figure class="wp-caption">
 			<?php endif; ?>
 			<?php if ( $link ) : ?>
-					<a <?php echo $this->get_render_attribute_string( 'link' ); ?>>
+					<a <?php echo esc_url( $this->get_render_attribute_string( 'link' ) ); ?>>
 			<?php endif; ?>
 			<?php
 			$size = $settings[ 'retina_image' . '_size' ];
@@ -782,17 +782,17 @@ class Retina extends Widget_Base {
 				$image_url = $placeholder_img_url;
 			}
 
-			if ( strpos( $_SERVER['HTTP_USER_AGENT'], 'Chrome' ) !== false ) {
+			// PHPCS:Ignore WordPressVIPMinimum.Variables.RestrictedVariables.cache_constraints___SERVER__HTTP_USER_AGENT__
+			if ( isset( $_SERVER['HTTP_USER_AGENT'] ) && strpos( sanitize_text_field( $_SERVER['HTTP_USER_AGENT'] ), 'Chrome' ) !== false ) {
 				$date             = new \DateTime();
 				$timestam         = $date->getTimestamp();
 				$image_url        = $image_url . '?' . $timestam;
 				$retina_image_url = $retina_image_url . '?' . $timestam;
 			}
-
 			?>
 				<div class="hfe-retina-image-set">
 					<div class="hfe-retina-image-container">
-						<img class="hfe-retina-img <?php echo $class_animation; ?>"  src="<?php echo $image_url; ?>" alt="<?php echo esc_attr( Control_Media::get_image_alt( $settings['retina_image'] ) ); ?>" srcset="<?php echo $image_url . ' 1x' . ',' . $retina_image_url . ' 2x'; ?>"/>
+						<img class="hfe-retina-img <?php echo esc_attr( $class_animation ); ?>"  src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( Control_Media::get_image_alt( $settings['retina_image'] ) ); ?>" srcset="<?php echo esc_url( $image_url ) . ' 1x' . ',' . esc_url( $retina_image_url ) . ' 2x'; ?>"/>
 					</div>
 				</div>
 			<?php if ( $link ) : ?>
@@ -804,7 +804,7 @@ class Retina extends Widget_Base {
 				?>
 				<?php if ( ! empty( $caption_text ) ) : ?>
 					<div class="hfe-caption-width"> 
-						<figcaption class="widget-image-caption wp-caption-text"><?php echo $caption_text; ?></figcaption>
+						<figcaption class="widget-image-caption wp-caption-text"><?php echo esc_html( $caption_text ); ?></figcaption>
 					</div>
 				<?php endif; ?>
 				</figure>
