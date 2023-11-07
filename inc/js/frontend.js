@@ -671,8 +671,9 @@
 						} else {
 							if ($this.hasClass( 'hfe-sub-menu-item' )) {
 								_closeMenu( id );
-								// phpcs:ignore
-								// $( '.elementor-element-' + id + ' .hfe-menu-toggle' ).trigger( "click" ); .
+								if ( 'horizontal' !== layout ) {
+									$( '.elementor-element-' + id + ' .hfe-menu-toggle' ).trigger( "click" );
+								}
 							}
 							_closeMenu( id );
 						}
