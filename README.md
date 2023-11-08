@@ -4,7 +4,7 @@
 **Donate link:** https://www.paypal.me/BrainstormForce  
 **Requires at least:** 4.4  
 **Requires PHP:** 5.4  
-**Tested up to:** 6.3  
+**Tested up to:** 6.4 
 **Stable tag:** 1.6.17  
 
 **License:** GPLv2 or later  
