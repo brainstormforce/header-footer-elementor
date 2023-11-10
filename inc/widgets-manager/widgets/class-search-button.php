@@ -982,13 +982,13 @@ class Search_Button extends Widget_Base {
 		<form class="hfe-search-button-wrapper" role="search" action="<?php echo esc_url( home_url() ); ?>" method="get">
 			<?php if ( 'icon' === $settings['layout'] ) { ?>
 			<div class = "hfe-search-icon-toggle">
-				<input <?php echo wp_kses_post( $this->get_render_attribute_string( 'input' ) ); ?>>
+				<input <?php echo esc_attr( $this->get_render_attribute_string( 'input' ) ); ?>>
 				<i class="fas fa-search" aria-hidden="true"></i>
 			</div>
 			<?php } else { ?>
 			<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'container' ) ); ?>>
 				<?php if ( 'text' === $settings['layout'] ) { ?>
-					<input <?php echo wp_kses_post( $this->get_render_attribute_string( 'input' ) ); ?>>
+					<input <?php echo esc_attr( $this->get_render_attribute_string( 'input' ) ); ?>>
 						<button id="clear" type="reset">
 							<i class="fas fa-times clearable__clear" aria-hidden="true"></i>
 						</button>
