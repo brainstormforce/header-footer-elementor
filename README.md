@@ -5,7 +5,7 @@
 **Requires at least:** 4.4  
 **Requires PHP:** 5.4  
 **Tested up to:** 6.4.1 
-**Stable tag:** 1.6.18  
+**Stable tag:** 1.6.17
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -140,7 +140,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 ## Changelog ##
 
-### 1.6.18 ###
+### 1.6.17.1 ###
 - Improvement: Compatibility with WordPress VIP Go rules.
 
 ### 1.6.17 ###
