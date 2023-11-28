@@ -141,6 +141,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 ## Changelog ##
 
 ### 1.6.17.1 ###
+- Improvement: Compatibility with latest Elementor and Elementor Pro 3.18 version.
 - Improvement: Compatibility with WordPress VIP Go rules.
 
 ### 1.6.17 ###
