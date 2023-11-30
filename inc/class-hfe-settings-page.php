@@ -163,7 +163,7 @@ class HFE_Settings_Page {
 		<p class="description">
 			<?php
 			echo sprintf(
-				_e( 'Sometimes above methods might not work well with your theme, in this case, contact your theme author and request them to add support for the <a href="https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme">plugin.</>', 'header-footer-elementor' ),
+				esc_html__( 'Sometimes above methods might not work well with your theme, in this case, contact your theme author and request them to add support for the <a href="https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme">plugin.</>', 'header-footer-elementor' ),
 				'<br>'
 			);
 			?>
@@ -216,17 +216,19 @@ class HFE_Settings_Page {
 		$hfe_radio_button = get_option( 'hfe_compatibility_option', '1' );
 		?>
 		<?php
-		switch ( $_GET['page'] ) {
-			case 'hfe-settings':
-				$this->get_themes_support();
-				break;
+		if ( isset( $_GET['page'] ) ) { // PHPCS:Ignore WordPress.Security.NonceVerification.Recommended
+			switch ( $_GET['page'] ) { // PHPCS:Ignore WordPress.Security.NonceVerification.Recommended
+				case 'hfe-settings':
+					$this->get_themes_support();
+					break;
 
-			case 'hfe-about':
-				$this->get_about_html();
-				break;
+				case 'hfe-about':
+					$this->get_about_html();
+					break;
 
-			case 'default':
-				break;
+				case 'default':
+					break;
+			}
 		}
 	}
 
@@ -279,7 +281,7 @@ class HFE_Settings_Page {
 
 				$tab_slug = str_replace( '_', '-', $tab_id );
 
-				$active_tab = ( ( isset( $_GET['page'] ) && $tab_slug == $_GET['page'] ) || ( ! isset( $_GET['page'] ) && 'hfe_templates' == $tab_id ) ) ? $tab_id : '';
+				$active_tab = ( ( isset( $_GET['page'] ) && $tab_slug == $_GET['page'] ) || ( ! isset( $_GET['page'] ) && 'hfe_templates' == $tab_id ) ) ? $tab_id : ''; // PHPCS:Ignore WordPress.Security.NonceVerification.Recommended
 
 				$active = ( $active_tab == $tab_id ) ? ' nav-tab-active' : '';
 
@@ -354,7 +356,7 @@ class HFE_Settings_Page {
 		$subscribe_flag  = ( 'yes' === $subscribe_valid ) ? ' hfe-user-subscribed' : ' hfe-user-unsubscribed';
 		?>
 
-		<div class="hfe-admin-about-section hfe-admin-columns hfe-admin-guide-section<?php echo $subscribe_flag; ?>">
+		<div class="hfe-admin-about-section hfe-admin-columns hfe-admin-guide-section<?php echo esc_attr( $subscribe_flag ); ?>">
 
 			<div class="hfe-admin-column-50">
 				<div class="hfe-admin-about-section-column">					
@@ -445,12 +447,12 @@ class HFE_Settings_Page {
 		<div class="hfe-subscription-step-2">
 			<div class="hfe-subscription-row">
 				<div class="hfe-input-container">
-					<input id="hfe_subscribe_name" class="hfe-subscribe-field hfe-subscribe-name" type="text" name="hfe_subscribe_name" value="<?php echo get_option( 'hfe_guide_fname' ); ?>">
+					<input id="hfe_subscribe_name" class="hfe-subscribe-field hfe-subscribe-name" type="text" name="hfe_subscribe_name" value="<?php echo esc_attr( get_option( 'hfe_guide_fname' ) ); ?>">
 					<small class="subscription-desc"><?php esc_html_e( 'First name is required', 'header-footer-elementor' ); ?></small>
 					<label class="subscription-label"><?php esc_html_e( 'Your First Name', 'header-footer-elementor' ); ?></label>
 				</div>
 				<div class="hfe-input-container">
-					<input id="hfe_subscribe_email" class="hfe-subscribe-field hfe-subscribe-email" type="text" name="hfe_subscribe_email" value="<?php echo get_option( 'hfe_guide_email' ); ?>">
+					<input id="hfe_subscribe_email" class="hfe-subscribe-field hfe-subscribe-email" type="text" name="hfe_subscribe_email" value="<?php echo esc_attr( get_option( 'hfe_guide_email' ) ); ?>">
 					<small class="subscription-desc"><?php esc_html_e( 'Email address is required', 'header-footer-elementor' ); ?></small>
 					<label class="subscription-label"><?php esc_html_e( 'Your Work Email', 'header-footer-elementor' ); ?></label>
 				</div>
@@ -461,7 +463,7 @@ class HFE_Settings_Page {
 			</div>
 			<p class="submit">
 				<button type="submit" id="submit-2"  class="button submit-2 button-primary">
-					<span class="hfe-submit-button-text"><?php echo __( 'Submit', 'header-footer-elementor' ); ?></span>
+					<span class="hfe-submit-button-text"><?php echo esc_html__( 'Submit', 'header-footer-elementor' ); ?></span>
 				</button>
 			</p>
 		</div>
@@ -482,7 +484,7 @@ class HFE_Settings_Page {
 			<div class="hfe-guide-modal-popup-wrapper">
 				<div class="hfe-guide-modal-content">
 					<div class="heading">
-						<img src="<?php echo HFE_URL . 'assets/images/header-footer-elementor-icon.svg'; ?>" class="hfe-logo">
+						<img src="<?php echo esc_url( HFE_URL . 'assets/images/header-footer-elementor-icon.svg' ); ?>" class="hfe-logo">
 						<h3><?php esc_html_e( 'Elementor Header & Footer Builder', 'header-footer-elementor' ); ?></h3>
 					</div>
 					<?php $this->get_guide_html(); ?>
@@ -529,7 +531,7 @@ class HFE_Settings_Page {
 
 			<div class="hfe-admin-column-40 hfe-admin-column-last">
 				<figure>
-					<img src="<?php echo HFE_URL; ?>assets/images/settings/our-team.jpeg" alt="<?php esc_attr_e( 'Team photo', 'header-footer-elementor' ); ?>">
+					<img src="<?php echo esc_url( HFE_URL ); ?>assets/images/settings/our-team.jpeg" alt="<?php esc_attr_e( 'Team photo', 'header-footer-elementor' ); ?>">
 					<figcaption>
 						<?php esc_html_e( 'Brainstorm Force Team', 'header-footer-elementor' ); ?><br>
 					</figcaption>
@@ -576,7 +578,7 @@ class HFE_Settings_Page {
 										printf(
 										/* translators: %s - addon status label. */
 											esc_html__( '%1$s %3$s %2$s', 'header-footer-elementor' ),
-											'<a href="' . esc_attr( $details['siteurl'] ) . '" target="_blank" class="website-link">',
+											'<a href="' . esc_url( $details['siteurl'] ) . '" target="_blank" class="website-link">',
 											'</a>',
 											esc_html( $plugin_data['details']['name'] )
 										);

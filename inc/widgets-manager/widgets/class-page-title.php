@@ -428,7 +428,7 @@ class Page_Title extends Widget_Base {
 			<?php } elseif ( 'default' === $head_custom_link ) { ?>
 						<a href="<?php echo esc_url( get_home_url() ); ?>">
 			<?php } ?>
-			<<?php echo $heading_size_tag; ?> class="elementor-heading-title elementor-size-<?php echo $settings['size']; ?>">
+			<<?php echo esc_attr( $heading_size_tag ); ?> class="elementor-heading-title elementor-size-<?php echo esc_attr( $settings['size'] ); ?>">
 				<?php if ( '' !== $settings['new_page_title_select_icon']['value'] ) { ?>
 						<span class="hfe-page-title-icon">
 							<?php \Elementor\Icons_Manager::render_icon( $settings['new_page_title_select_icon'], [ 'aria-hidden' => 'true' ] ); ?>             </span>
@@ -448,7 +448,7 @@ class Page_Title extends Widget_Base {
 					?>
 					<?php echo wp_kses_post( $settings['after'] ); ?>
 				<?php } ?>  
-			</<?php echo $heading_size_tag; ?> > 
+			</<?php echo esc_attr( $heading_size_tag ); ?> > 
 			<?php if ( ( '' != $head_link_url && 'custom' === $head_custom_link ) || 'default' === $head_custom_link ) { ?>
 						</a>
 			<?php } ?>
@@ -489,16 +489,16 @@ class Page_Title extends Widget_Base {
 		#>
 		<div class="hfe-page-title hfe-page-title-wrapper elementor-widget-heading">
 			<# if ( '' != settings.page_heading_link.url ) { #>
-					<a {{{ view.getRenderAttributeString( 'url' ) }}} >
+					<a {{{ view.getRenderAttributeString( 'url' ) }}} > <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 			<# } #>
-			<{{{ headingSizeTag }}} class="elementor-heading-title elementor-size-{{{ settings.size }}}">		
+			<{{{ headingSizeTag }}} class="elementor-heading-title elementor-size-{{{ settings.size }}}"> <?php //phpcs:ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>		
 				<# if( '' != settings.new_page_title_select_icon.value ){ #>
 					<span class="hfe-page-title-icon" data-elementor-setting-key="page_title" data-elementor-inline-editing-toolbar="basic">
-						{{{iconHTML.value}}}                    
+						{{{iconHTML.value}}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>                    
 					</span>
 				<# } #>
 					<# if ( '' != settings.before ) { #>
-						{{{ settings.before }}}
+						{{{ settings.before }}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 					<# } #>
 					<?php
 					if ( is_archive() || is_home() ) {
@@ -508,9 +508,9 @@ class Page_Title extends Widget_Base {
 					}
 					?>
 					<# if ( '' != settings.after ) { #>
-						{{{ settings.after }}}
+						{{{ settings.after }}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 					<# } #>				
-			</{{{ headingSizeTag }}}>
+			</{{{ headingSizeTag }}}> <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 			<# if ( '' != settings.page_heading_link.url ) { #>
 					</a>
 			<# } #>			

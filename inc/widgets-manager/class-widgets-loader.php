@@ -56,7 +56,7 @@ class Widgets_Loader {
 		add_action( 'elementor/widgets/register', [ $this, 'register_widgets' ] );
 
 		// Add svg support.
-		add_filter( 'upload_mimes', [ $this, 'hfe_svg_mime_types' ] );
+		add_filter( 'upload_mimes', [ $this, 'hfe_svg_mime_types' ] ); // PHPCS:Ignore WordPressVIPMinimum.Hooks.RestrictedHooks.upload_mimes
 
 		// Refresh the cart fragments.
 		if ( class_exists( 'woocommerce' ) ) {

@@ -11,6 +11,11 @@
 		<exclude name="Generic.Arrays.DisallowShortArraySyntax.Found" />
 	</rule>
 	<rule ref="WordPress-Docs" />
+	<rule ref="WordPress-VIP-Go">
+		<exclude name="WordPressVIPMinimum.Functions.RestrictedFunctions.wp_remote_get_wp_remote_get" />
+		<exclude name="WordPressVIPMinimum.Performance.RemoteRequestTimeout.timeout_timeout" />
+		<exclude name="WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude" />
+	</rule>
 
 	<rule ref="Generic.Arrays.DisallowLongArraySyntax.Found">
 		<type>warning</type>
@@ -33,4 +38,5 @@
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
 	<exclude-pattern>*/inc/lib/**</exclude-pattern>
+	<exclude-pattern>*/admin/bsf-analytics/*</exclude-pattern>
 </ruleset>
