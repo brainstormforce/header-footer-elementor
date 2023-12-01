@@ -1952,7 +1952,7 @@ class Navigation_Menu extends Widget_Base {
 				<div class="hfe-flyout-container">
 					<div id="hfe-flyout-content-id-<?php echo esc_attr( $this->get_id() ); ?>" class="hfe-side hfe-flyout-<?php echo esc_attr( $settings['flyout_layout'] ); ?> hfe-flyout-open" data-layout="<?php echo wp_kses_post( $settings['flyout_layout'] ); ?>" data-flyout-type="<?php echo wp_kses_post( $settings['flyout_type'] ); ?>">
 						<div class="hfe-flyout-content push">
-							<nav <?php echo wp_kses_post( $this->get_render_attribute_string( 'hfe-nav-menu' ) ); ?>><?php echo esc_html( $menu_html ); ?></nav>
+							<nav <?php echo wp_kses_post( $this->get_render_attribute_string( 'hfe-nav-menu' ) ); ?>><?php echo ( $menu_html ); ?></nav>
 							<div class="elementor-clickable hfe-flyout-close" tabindex="0">
 								<?php echo isset( $menu_close_icons[1] ) ? $menu_close_icons[1] : ''; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 							</div>
