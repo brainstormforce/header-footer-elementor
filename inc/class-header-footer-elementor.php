@@ -155,7 +155,7 @@ class Header_Footer_Elementor {
 				'type'                       => '',
 				'message'                    => sprintf(
 					'<div class="notice-image">
-						<img src="%1$s" class="custom-logo" alt="Sidebar Manager" itemprop="logo"></div> 
+						<img src="%1$s" class="custom-logo" alt="Sidebar Manager" itemprop="logo"></div>
 						<div class="notice-content">
 							<div class="notice-heading">
 								%2$s
@@ -508,7 +508,7 @@ class Header_Footer_Elementor {
 	 */
 	public static function get_header_content() {
 		$header_content = self::$elementor_instance->frontend->get_builder_content_for_display( get_hfe_header_id() );
-		echo wp_kses_post( $header_content );
+		echo $header_content;
 	}
 
 	/**
@@ -516,7 +516,7 @@ class Header_Footer_Elementor {
 	 */
 	public static function get_footer_content() {
 		echo "<div class='footer-width-fixer'>";
-		echo wp_kses_post( self::$elementor_instance->frontend->get_builder_content_for_display( get_hfe_footer_id() ) );
+		echo self::$elementor_instance->frontend->get_builder_content_for_display( get_hfe_footer_id() );
 		echo '</div>';
 	}
 
@@ -525,7 +525,7 @@ class Header_Footer_Elementor {
 	 */
 	public static function get_before_footer_content() {
 		echo "<div class='footer-width-fixer'>";
-		echo wp_kses_post( self::$elementor_instance->frontend->get_builder_content_for_display( hfe_get_before_footer_id() ) );
+		echo self::$elementor_instance->frontend->get_builder_content_for_display( hfe_get_before_footer_id() );
 		echo '</div>';
 	}
 
