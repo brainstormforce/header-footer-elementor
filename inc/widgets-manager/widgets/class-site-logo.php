@@ -756,7 +756,7 @@ class Site_Logo extends Widget_Base {
 						$class = 'elementor-non-clickable';
 					}
 					?>
-				<a data-elementor-open-lightbox="<?php echo esc_attr( $settings['open_lightbox'] ); ?>"  class='<?php echo  esc_attr( $class ); ?>' <?php echo wp_kses_post( $this->get_render_attribute_string( 'link' ) ); ?>>
+				<a data-elementor-open-lightbox="<?php echo esc_attr( $settings['open_lightbox'] ); ?>"  class='<?php echo  esc_attr( $class ); ?>' <?php echo $this->get_render_attribute_string( 'link' ); ?>>
 		<?php endif; ?>
 		<?php
 		if ( empty( $site_image ) ) {
