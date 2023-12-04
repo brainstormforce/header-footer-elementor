@@ -704,7 +704,7 @@ class Retina extends Widget_Base {
 		}
 
 		?>
-		<div <?php echo esc_attr( $this->get_render_attribute_string( 'wrapper' ) ); ?>>
+		<div <?php echo ( $this->get_render_attribute_string( 'wrapper' ) ); ?>>
 			<?php if ( $has_caption ) : ?>
 				<figure class="wp-caption">
 			<?php endif; ?>
