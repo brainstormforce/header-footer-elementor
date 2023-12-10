@@ -804,7 +804,7 @@ class Retina extends Widget_Base {
 				?>
 				<?php if ( ! empty( $caption_text ) ) : ?>
 					<div class="hfe-caption-width"> 
-						<figcaption class="widget-image-caption wp-caption-text"><?php echo esc_html( $caption_text ); ?></figcaption>
+						<figcaption class="widget-image-caption wp-caption-text"><?php echo ( $caption_text ); ?></figcaption>
 					</div>
 				<?php endif; ?>
 				</figure>
