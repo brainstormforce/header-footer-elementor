@@ -709,7 +709,7 @@ class Retina extends Widget_Base {
 				<figure class="wp-caption">
 			<?php endif; ?>
 			<?php if ( $link ) : ?>
-					<a <?php echo esc_url( $this->get_render_attribute_string( 'link' ) ); ?>>
+					<a <?php echo ( $this->get_render_attribute_string( 'link' ) ); ?>>
 			<?php endif; ?>
 			<?php
 			$size = $settings[ 'retina_image' . '_size' ];
