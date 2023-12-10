@@ -141,7 +141,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 ## Changelog ##
 
 ### 1.6.22 ###
-- Fix: Retina Image - Navigating to custom URLs by clicking on images. 
+- Fix: Retina Image - Navigating to custom URL by clicking on images. 
 
 ### 1.6.21 ###
 - Fix: Site Logo - Width and height settings not applying to the logo. 
