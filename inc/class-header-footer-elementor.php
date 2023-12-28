@@ -568,7 +568,10 @@ class Header_Footer_Elementor {
 		foreach ( $hfe_templates as $template ) {
 			if ( get_post_meta( absint( $template['id'] ), 'ehf_template_type', true ) === $type ) {
 				if ( function_exists( 'pll_current_language' ) ) {
-					if ( pll_current_language( 'slug' ) == pll_get_post_language( $template['id'], 'slug' ) ) {
+					$current_language  = pll_current_language( 'slug' );
+					$template_language = pll_get_post_language( $template['id'], 'slug' );
+
+					if ( empty( $template_language ) || $current_language == $template_language ) {
 						return $template['id'];
 					}
 				} else {
