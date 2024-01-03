@@ -2032,4 +2032,3 @@ class Navigation_Menu extends Widget_Base {
 		}
 	}
 }
-
