@@ -704,12 +704,12 @@ class Retina extends Widget_Base {
 		}
 
 		?>
-		<div <?php echo ( $this->get_render_attribute_string( 'wrapper' ) ); ?>>
+		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'wrapper' ) ); ?>>
 			<?php if ( $has_caption ) : ?>
 				<figure class="wp-caption">
 			<?php endif; ?>
 			<?php if ( $link ) : ?>
-					<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'link' ) ); ?>>
+				<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'link' ) ); ?>>
 			<?php endif; ?>
 			<?php
 			$size = $settings[ 'retina_image' . '_size' ];
