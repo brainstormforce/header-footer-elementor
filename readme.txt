@@ -141,7 +141,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 == Changelog ==
 
 = 1.6.23 =
-This update addressed a security bug. Props to WP.org and Plugin Vulnerabilities team for reporting it to our team. Please make sure you are using the latest version on your website.
+- Fix: This update addressed a security bug. Props to WP.org and Plugin Vulnerabilities team for reporting it to our team. Please make sure you are using the latest version on your website.
 
 = 1.6.22 =
 - Fix: Retina Image - Navigating to custom URL by clicking on images. 
