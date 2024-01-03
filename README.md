@@ -5,7 +5,7 @@
 **Requires at least:** 4.4  
 **Requires PHP:** 5.4  
 **Tested up to:** 6.4.1  
-**Stable tag:** 1.6.18  
+**Stable tag:** 1.6.22  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -139,6 +139,18 @@ This same applies when you are creating your Header/Footer using this plugin.
 5. Default widgets available with Elementor Header & Footer Builder.
 
 ## Changelog ##
+
+### 1.6.22 ###
+- Fix: Retina Image - Navigating to custom URL by clicking on images. 
+
+### 1.6.21 ###
+- Fix: Site Logo - Width and height settings not applying to the logo. 
+
+### 1.6.20 ###
+- Fix: Flyout menu not appearing correctly.
+
+### 1.6.19 ###
+- Fix: Header and Footer layout broken after last update.
 
 ### 1.6.18 ###
 - Improvement: Compatibility with latest Elementor and Elementor Pro 3.18 version.

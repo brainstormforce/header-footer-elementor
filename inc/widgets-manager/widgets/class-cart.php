@@ -630,7 +630,7 @@ class Cart extends Widget_Base {
 						<div class="hfe-cart-menu-wrap-default">
 							<?php if ( null !== WC()->cart ) { ?>
 								<span class="hfe-cart-count">
-									<?php echo esc_html( WC()->cart->get_cart_contents_count() ); ?>
+									<?php echo ( WC()->cart->get_cart_contents_count() ); ?>
 								</span>
 							<?php } ?>
 						</div>
@@ -643,7 +643,7 @@ class Cart extends Widget_Base {
 						<a id="hfe-menu-cart__toggle_button" href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="elementor-button hfe-cart-container">
 							<?php if ( null !== WC()->cart ) { ?>
 								<span class="elementor-button-text hfe-subtotal">
-									<?php echo wp_kses_post( WC()->cart->get_cart_subtotal() ); ?>
+									<?php echo WC()->cart->get_cart_subtotal(); ?>
 								</span>
 							<?php } ?>
 							<span class="elementor-button-icon" data-counter="<?php echo ( null !== WC()->cart ) ? esc_attr( WC()->cart->get_cart_contents_count() ) : ''; ?>">
