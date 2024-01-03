@@ -140,6 +140,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 ## Changelog ##
 
+### 1.6.23 ###
+- Improved codebase for improved security.
+
 ### 1.6.22 ###
 - Fix: Retina Image - Navigating to custom URL by clicking on images. 
 
