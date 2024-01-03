@@ -72,7 +72,9 @@ class HFE_Admin {
 	 */
 	private function __construct() {
 		add_action( 'init', [ $this, 'header_footer_posttype' ] );
-		add_action( 'admin_menu', [ $this, 'register_admin_menu' ], 50 );
+		if ( is_admin() && current_user_can( 'manage_options' ) ) {
+			add_action( 'admin_menu', [ $this, 'register_admin_menu' ], 50 );
+		}
 		add_action( 'add_meta_boxes', [ $this, 'ehf_register_metabox' ] );
 		add_action( 'save_post', [ $this, 'ehf_save_meta' ] );
 		add_action( 'admin_notices', [ $this, 'location_notice' ] );

@@ -746,7 +746,7 @@ class Site_Logo extends Widget_Base {
 			$class = 'elementor-clickable';
 		}
 		?>
-		<div <?php echo ( $this->get_render_attribute_string( 'wrapper' ) ); ?>>
+		<div <?php $this->print_render_attribute_string( 'wrapper' ); ?>>
 		<?php if ( $has_caption ) : ?>
 				<figure class="wp-caption">
 		<?php endif; ?>
@@ -756,7 +756,7 @@ class Site_Logo extends Widget_Base {
 						$class = 'elementor-non-clickable';
 					}
 					?>
-				<a data-elementor-open-lightbox="<?php echo esc_attr( $settings['open_lightbox'] ); ?>"  class='<?php echo  esc_attr( $class ); ?>' <?php echo $this->get_render_attribute_string( 'link' ); ?>>
+				<a data-elementor-open-lightbox="<?php echo esc_attr( $settings['open_lightbox'] ); ?>"  class='<?php echo  esc_attr( $class ); ?>' <?php $this->print_render_attribute_string( 'link' ); ?>>
 		<?php endif; ?>
 		<?php
 		if ( empty( $site_image ) ) {

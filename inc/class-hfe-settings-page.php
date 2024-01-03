@@ -24,7 +24,9 @@ class HFE_Settings_Page {
 	 */
 	public function __construct() {
 		add_action( 'admin_head', [ $this, 'hfe_global_css' ] );
-		add_action( 'admin_menu', [ $this, 'hfe_register_settings_page' ] );
+		if ( is_admin() && current_user_can( 'manage_options' ) ) {
+			add_action( 'admin_menu', [ $this, 'hfe_register_settings_page' ] );
+		}
 		add_action( 'admin_init', [ $this, 'hfe_admin_init' ] );
 		add_filter( 'views_edit-elementor-hf', [ $this, 'hfe_settings' ], 10, 1 );
 		add_filter( 'admin_footer_text', [ $this, 'admin_footer_text' ] );

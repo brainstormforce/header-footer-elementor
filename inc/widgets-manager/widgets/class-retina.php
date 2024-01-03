@@ -704,12 +704,12 @@ class Retina extends Widget_Base {
 		}
 
 		?>
-		<div <?php echo ( $this->get_render_attribute_string( 'wrapper' ) ); ?>>
+		<div <?php $this->print_render_attribute_string( 'wrapper' ); ?>>
 			<?php if ( $has_caption ) : ?>
 				<figure class="wp-caption">
 			<?php endif; ?>
 			<?php if ( $link ) : ?>
-					<a <?php echo ( $this->get_render_attribute_string( 'link' ) ); ?>>
+				<a <?php $this->print_render_attribute_string( 'link' ); ?>>
 			<?php endif; ?>
 			<?php
 			$size = $settings[ 'retina_image' . '_size' ];
@@ -804,7 +804,7 @@ class Retina extends Widget_Base {
 				?>
 				<?php if ( ! empty( $caption_text ) ) : ?>
 					<div class="hfe-caption-width"> 
-						<figcaption class="widget-image-caption wp-caption-text"><?php echo ( $caption_text ); ?></figcaption>
+						<figcaption class="widget-image-caption wp-caption-text"><?php echo esc_html( $caption_text ); ?></figcaption>
 					</div>
 				<?php endif; ?>
 				</figure>
