@@ -1954,7 +1954,7 @@ class Navigation_Menu extends Widget_Base {
 						<div class="hfe-flyout-content push">
 							<nav <?php $this->print_render_attribute_string( 'hfe-nav-menu' ); ?>>
 								<?php
-									// PHPCS - escaped by WordPress with "wp_nav_menu"
+									// PHPCS - escaped by WordPress with "wp_nav_menu".
 									echo $menu_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 								?>
 							</nav>
@@ -2033,9 +2033,9 @@ class Navigation_Menu extends Widget_Base {
 				</div>
 				<nav <?php $this->print_render_attribute_string( 'hfe-nav-menu' ); ?>>
 					<?php
-						// PHPCS - escaped by WordPress with "wp_nav_menu"
+						// PHPCS - escaped by WordPress with "wp_nav_menu".
 						echo $menu_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-					?>	
+					?>
 				</nav>
 			</div>
 			<?php
