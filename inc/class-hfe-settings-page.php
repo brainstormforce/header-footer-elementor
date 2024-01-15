@@ -706,6 +706,14 @@ class HFE_Settings_Page {
 	 */
 	protected function get_bsf_plugins() {
 
+		$theme_author = apply_filters(
+			'astra_theme_author',
+			array(
+				'theme_name'       => esc_html__( 'Astra Theme', 'header-footer-elementor' ),
+				'theme_author_url' => 'https://wpastra.com/',
+			)
+		);
+
 		$images_url = HFE_URL . 'assets/images/settings/';
 
 		return [
@@ -713,11 +721,11 @@ class HFE_Settings_Page {
 			'astra'                                     => [
 				'icon'    => $images_url . 'plugin-astra.png',
 				'type'    => 'theme',
-				'name'    => esc_html__( 'Astra Theme', 'header-footer-elementor' ),
-				'desc'    => esc_html__( 'Powering over 1+ Million websites, Astra is loved for the fast performance and ease of use it offers. It is suitable for all kinds of websites like blogs, portfolios, business, and WooCommerce stores.', 'header-footer-elementor' ),
+				'name'    => $theme_author['theme_name'],
+				'desc'    => esc_html( sprintf( __( 'Powering over 1+ Million websites, %s is loved for the fast performance and ease of use it offers. It is suitable for all kinds of websites like blogs, portfolios, business, and WooCommerce stores.', 'header-footer-elementor' ), esc_html( $theme_author['theme_name'] ) ) ),
 				'wporg'   => 'https://wordpress.org/themes/astra/',
 				'url'     => 'https://downloads.wordpress.org/theme/astra.zip',
-				'siteurl' => 'https://wpastra.com/',
+				'siteurl' => $theme_author['theme_author_url'],
 				'pro'     => false,
 				'slug'    => 'astra',
 			],
