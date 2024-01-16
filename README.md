@@ -140,6 +140,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 ## Changelog ##
 
+### 1.6.24 ###
+Fix: Navigation Menu - Language switcher flags not displaying when using Polylang plugin. 
+
 ### 1.6.23 ###
 - Fix: This update addressed a security bug. Props to WordPress Plugin Review Team and Plugin Vulnerabilities Team for reporting it to our team. Please make sure you are using the latest version on your website.
 
