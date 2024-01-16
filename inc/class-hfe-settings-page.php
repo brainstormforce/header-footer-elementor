@@ -361,7 +361,7 @@ class HFE_Settings_Page {
 		<div class="hfe-admin-about-section hfe-admin-columns hfe-admin-guide-section<?php echo esc_attr( $subscribe_flag ); ?>">
 
 			<div class="hfe-admin-column-50">
-				<div class="hfe-admin-about-section-column">					
+				<div class="hfe-admin-about-section-column">
 					<h2><?php esc_html_e( 'Create Impressive Header and Footer Designs', 'header-footer-elementor' ); ?></h2>
 					<p><?php esc_html_e( 'Elementor Header & Footer Builder plugin lets you build impactful navigation for your website very easily. Before we begin, we would like to know more about you. This will help us to serve you better.', 'header-footer-elementor' ); ?></p>
 				</div>
@@ -508,6 +508,12 @@ class HFE_Settings_Page {
 		$this->output_about_addons();
 	}
 
+	/**
+	 * Function for Astra Pro white labels with defaults.
+	 *
+	 * @since 1.6.24
+	 * @return array
+	 */
 	protected function get_white_label() {
 		$white_labels = is_callable( 'Astra_Admin_Helper::get_admin_settings_option' ) ? \Astra_Admin_Helper::get_admin_settings_option( '_astra_ext_white_label', true ) : array();
 
