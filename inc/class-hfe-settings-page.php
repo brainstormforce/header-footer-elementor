@@ -514,6 +514,11 @@ class HFE_Settings_Page {
 	 * @since 1.6.0
 	 */
 	protected function output_about_info() {
+
+		$white_labels = is_callable( 'Astra_Admin_Helper::get_admin_settings_option' ) ? \Astra_Admin_Helper::get_admin_settings_option( '_astra_ext_white_label', true ) : array();
+
+		$theme_name = ! empty( $white_labels['astra']['name'] ) ? $white_labels['astra']['name'] : esc_html__( 'Astra Theme', 'header-footer-elementor' );
+
 		?>
 
 		<div class="hfe-admin-about-section hfe-admin-columns hfe-admin-about-us">
@@ -527,7 +532,7 @@ class HFE_Settings_Page {
 
 				<p><?php esc_html_e( 'Trusted by more than 1+ Million users, Elementor Header & Footer Builder is a modern way to build advanced navigation for your website.', 'header-footer-elementor' ); ?></p>
 
-				<p><?php esc_html_e( 'This plugin is brought to you by the same team behind the popular WordPress theme Astra and a series of Ultimate Addons plugins.', 'header-footer-elementor' ); ?></p>
+				<p><?php printf( esc_html__( 'This plugin is brought to you by the same team behind the popular WordPress theme %s and a series of Ultimate Addons plugins.', 'header-footer-elementor' ), esc_html( $theme_name ) ); ?>
 
 			</div>
 
@@ -706,26 +711,22 @@ class HFE_Settings_Page {
 	 */
 	protected function get_bsf_plugins() {
 
-		$theme_author = apply_filters(
-			'astra_theme_author',
-			array(
-				'theme_name'       => esc_html__( 'Astra Theme', 'header-footer-elementor' ),
-				'theme_author_url' => 'https://wpastra.com/',
-			)
-		);
+		$white_labels = is_callable( 'Astra_Admin_Helper::get_admin_settings_option' ) ? \Astra_Admin_Helper::get_admin_settings_option( '_astra_ext_white_label', true ) : array();
+
+		$theme_name = ! empty( $white_labels['astra']['name'] ) ? $white_labels['astra']['name'] : esc_html__( 'Astra Theme', 'header-footer-elementor' );
 
 		$images_url = HFE_URL . 'assets/images/settings/';
 
 		return [
 
 			'astra'                                     => [
-				'icon'    => $images_url . 'plugin-astra.png',
+				'icon'    => ! empty( $white_labels['astra']['icon'] ) ? $white_labels['astra']['icon'] : $images_url . 'plugin-astra.png',
 				'type'    => 'theme',
-				'name'    => $theme_author['theme_name'],
-				'desc'    => esc_html( sprintf( __( 'Powering over 1+ Million websites, %s is loved for the fast performance and ease of use it offers. It is suitable for all kinds of websites like blogs, portfolios, business, and WooCommerce stores.', 'header-footer-elementor' ), esc_html( $theme_author['theme_name'] ) ) ),
+				'name'    => ! empty( $theme_name ) ? $theme_name : esc_html__( 'Astra Theme', 'header-footer-elementor' ),
+				'desc'    => esc_html( sprintf( __( 'Powering over 1+ Million websites, %s is loved for the fast performance and ease of use it offers. It is suitable for all kinds of websites like blogs, portfolios, business, and WooCommerce stores.', 'header-footer-elementor' ), esc_html( $theme_name ) ) ),
 				'wporg'   => 'https://wordpress.org/themes/astra/',
 				'url'     => 'https://downloads.wordpress.org/theme/astra.zip',
-				'siteurl' => $theme_author['theme_author_url'],
+				'siteurl' => ! empty( $white_labels['astra']['author_url'] ) ? $white_labels['astra']['author_url'] : 'https://wpastra.com/',
 				'pro'     => false,
 				'slug'    => 'astra',
 			],
