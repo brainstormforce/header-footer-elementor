@@ -2029,7 +2029,7 @@ class Navigation_Menu extends Widget_Base {
 					</div>
 				</div>
 				<nav <?php $this->print_render_attribute_string( 'hfe-nav-menu' ); ?>>
-					<?php echo wp_kses_post( $menu_html ); ?>
+				<?php echo ( $menu_html ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> 
 				</nav>
 			</div>
 			<?php
