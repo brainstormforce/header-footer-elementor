@@ -508,6 +508,19 @@ class HFE_Settings_Page {
 		$this->output_about_addons();
 	}
 
+	protected function get_white_label() {
+		$white_labels = is_callable( 'Astra_Admin_Helper::get_admin_settings_option' ) ? \Astra_Admin_Helper::get_admin_settings_option( '_astra_ext_white_label', true ) : array();
+
+		$theme_name = ! empty( $white_labels['astra']['name'] ) ? $white_labels['astra']['name'] : esc_html__( 'Astra', 'header-footer-elementor' );
+
+		return array(
+			'theme_name'  => $theme_name,
+			'description' => ! empty( $white_labels['astra']['description'] ) ? $white_labels['astra']['description'] : esc_html( sprintf( __( 'Powering over 1+ Million websites, %s is loved for the fast performance and ease of use it offers. It is suitable for all kinds of websites like blogs, portfolios, business, and WooCommerce stores.', 'header-footer-elementor' ), esc_html( $theme_name ) ) ),
+			'theme_icon'  => ! empty( $white_labels['astra']['icon'] ) ? $white_labels['astra']['icon'] : '',
+			'author_url'  => ! empty( $white_labels['astra']['author_url'] ) ? $white_labels['astra']['author_url'] : 'https://wpastra.com/'
+		);
+	}
+
 	/**
 	 * Display the General Info section of About tab.
 	 *
@@ -515,9 +528,7 @@ class HFE_Settings_Page {
 	 */
 	protected function output_about_info() {
 
-		$white_labels = is_callable( 'Astra_Admin_Helper::get_admin_settings_option' ) ? \Astra_Admin_Helper::get_admin_settings_option( '_astra_ext_white_label', true ) : array();
-
-		$theme_name = ! empty( $white_labels['astra']['name'] ) ? $white_labels['astra']['name'] : esc_html__( 'Astra Theme', 'header-footer-elementor' );
+		$white_labels = $this->get_white_label();
 
 		?>
 
@@ -532,7 +543,7 @@ class HFE_Settings_Page {
 
 				<p><?php esc_html_e( 'Trusted by more than 1+ Million users, Elementor Header & Footer Builder is a modern way to build advanced navigation for your website.', 'header-footer-elementor' ); ?></p>
 
-				<p><?php printf( esc_html__( 'This plugin is brought to you by the same team behind the popular WordPress theme %s and a series of Ultimate Addons plugins.', 'header-footer-elementor' ), esc_html( $theme_name ) ); ?>
+				<p><?php printf( esc_html__( 'This plugin is brought to you by the same team behind the popular WordPress theme %s and a series of Ultimate Addons plugins.', 'header-footer-elementor' ), esc_html( $white_labels['theme_name'] ) ); ?>
 
 			</div>
 
@@ -711,22 +722,20 @@ class HFE_Settings_Page {
 	 */
 	protected function get_bsf_plugins() {
 
-		$white_labels = is_callable( 'Astra_Admin_Helper::get_admin_settings_option' ) ? \Astra_Admin_Helper::get_admin_settings_option( '_astra_ext_white_label', true ) : array();
-
-		$theme_name = ! empty( $white_labels['astra']['name'] ) ? $white_labels['astra']['name'] : esc_html__( 'Astra Theme', 'header-footer-elementor' );
+		$white_labels = $this->get_white_label();
 
 		$images_url = HFE_URL . 'assets/images/settings/';
 
 		return [
 
 			'astra'                                     => [
-				'icon'    => ! empty( $white_labels['astra']['icon'] ) ? $white_labels['astra']['icon'] : $images_url . 'plugin-astra.png',
+				'icon'    => ! empty( $white_labels['theme_icon'] ) ? $white_labels['theme_icon'] : $images_url . 'plugin-astra.png',
 				'type'    => 'theme',
-				'name'    => ! empty( $theme_name ) ? $theme_name : esc_html__( 'Astra Theme', 'header-footer-elementor' ),
-				'desc'    => esc_html( sprintf( __( 'Powering over 1+ Million websites, %s is loved for the fast performance and ease of use it offers. It is suitable for all kinds of websites like blogs, portfolios, business, and WooCommerce stores.', 'header-footer-elementor' ), esc_html( $theme_name ) ) ),
+				'name'    => $white_labels['theme_name'],
+				'desc'    => $white_labels['description'],
 				'wporg'   => 'https://wordpress.org/themes/astra/',
 				'url'     => 'https://downloads.wordpress.org/theme/astra.zip',
-				'siteurl' => ! empty( $white_labels['astra']['author_url'] ) ? $white_labels['astra']['author_url'] : 'https://wpastra.com/',
+				'siteurl' => $white_labels['author_url'],
 				'pro'     => false,
 				'slug'    => 'astra',
 			],
