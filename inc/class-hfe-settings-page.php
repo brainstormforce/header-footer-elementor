@@ -517,7 +517,7 @@ class HFE_Settings_Page {
 	protected function get_white_label() {
 		$white_labels = is_callable( 'Astra_Admin_Helper::get_admin_settings_option' ) ? \Astra_Admin_Helper::get_admin_settings_option( '_astra_ext_white_label', true ) : array();
 
-		$theme_name = ! empty( $white_labels['astra']['name'] ) ? $white_labels['astra']['name'] : esc_html__( 'Astra', 'header-footer-elementor' );
+		$theme_name = ! empty( $white_labels['astra']['name'] ) ? $white_labels['astra']['name'] : 'Astra';
 
 		return array(
 			'theme_name'  => $theme_name,
