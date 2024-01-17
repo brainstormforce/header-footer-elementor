@@ -361,7 +361,7 @@ class HFE_Settings_Page {
 		<div class="hfe-admin-about-section hfe-admin-columns hfe-admin-guide-section<?php echo esc_attr( $subscribe_flag ); ?>">
 
 			<div class="hfe-admin-column-50">
-				<div class="hfe-admin-about-section-column">					
+				<div class="hfe-admin-about-section-column">
 					<h2><?php esc_html_e( 'Create Impressive Header and Footer Designs', 'header-footer-elementor' ); ?></h2>
 					<p><?php esc_html_e( 'Elementor Header & Footer Builder plugin lets you build impactful navigation for your website very easily. Before we begin, we would like to know more about you. This will help us to serve you better.', 'header-footer-elementor' ); ?></p>
 				</div>
@@ -509,11 +509,33 @@ class HFE_Settings_Page {
 	}
 
 	/**
+	 * Function for Astra Pro white labels with defaults.
+	 *
+	 * @since 1.6.24
+	 * @return array
+	 */
+	protected function get_white_label() {
+		$white_labels = is_callable( 'Astra_Admin_Helper::get_admin_settings_option' ) ? \Astra_Admin_Helper::get_admin_settings_option( '_astra_ext_white_label', true ) : array();
+
+		$theme_name = ! empty( $white_labels['astra']['name'] ) ? $white_labels['astra']['name'] : 'Astra';
+
+		return array(
+			'theme_name'  => $theme_name,
+			'description' => ! empty( $white_labels['astra']['description'] ) ? $white_labels['astra']['description'] : esc_html( sprintf( __( 'Powering over 1+ Million websites, %s is loved for the fast performance and ease of use it offers. It is suitable for all kinds of websites like blogs, portfolios, business, and WooCommerce stores.', 'header-footer-elementor' ), esc_html( $theme_name ) ) ),
+			'theme_icon'  => ! empty( $white_labels['astra']['icon'] ) ? $white_labels['astra']['icon'] : '',
+			'author_url'  => ! empty( $white_labels['astra']['author_url'] ) ? $white_labels['astra']['author_url'] : 'https://wpastra.com/',
+		);
+	}
+
+	/**
 	 * Display the General Info section of About tab.
 	 *
 	 * @since 1.6.0
 	 */
 	protected function output_about_info() {
+
+		$white_labels = $this->get_white_label();
+
 		?>
 
 		<div class="hfe-admin-about-section hfe-admin-columns hfe-admin-about-us">
@@ -527,7 +549,7 @@ class HFE_Settings_Page {
 
 				<p><?php esc_html_e( 'Trusted by more than 1+ Million users, Elementor Header & Footer Builder is a modern way to build advanced navigation for your website.', 'header-footer-elementor' ); ?></p>
 
-				<p><?php esc_html_e( 'This plugin is brought to you by the same team behind the popular WordPress theme Astra and a series of Ultimate Addons plugins.', 'header-footer-elementor' ); ?></p>
+				<p><?php printf( esc_html__( 'This plugin is brought to you by the same team behind the popular WordPress theme %s and a series of Ultimate Addons plugins.', 'header-footer-elementor' ), esc_html( $white_labels['theme_name'] ) ); ?>
 
 			</div>
 
@@ -706,18 +728,20 @@ class HFE_Settings_Page {
 	 */
 	protected function get_bsf_plugins() {
 
+		$white_labels = $this->get_white_label();
+
 		$images_url = HFE_URL . 'assets/images/settings/';
 
 		return [
 
 			'astra'                                     => [
-				'icon'    => $images_url . 'plugin-astra.png',
+				'icon'    => ! empty( $white_labels['theme_icon'] ) ? $white_labels['theme_icon'] : $images_url . 'plugin-astra.png',
 				'type'    => 'theme',
-				'name'    => esc_html__( 'Astra Theme', 'header-footer-elementor' ),
-				'desc'    => esc_html__( 'Powering over 1+ Million websites, Astra is loved for the fast performance and ease of use it offers. It is suitable for all kinds of websites like blogs, portfolios, business, and WooCommerce stores.', 'header-footer-elementor' ),
+				'name'    => $white_labels['theme_name'],
+				'desc'    => $white_labels['description'],
 				'wporg'   => 'https://wordpress.org/themes/astra/',
 				'url'     => 'https://downloads.wordpress.org/theme/astra.zip',
-				'siteurl' => 'https://wpastra.com/',
+				'siteurl' => $white_labels['author_url'],
 				'pro'     => false,
 				'slug'    => 'astra',
 			],
