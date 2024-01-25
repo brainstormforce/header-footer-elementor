@@ -141,6 +141,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 ## Changelog ##
 
 ### 1.6.24 ###
+- Improvement: Compatibility with latest Elementor and Elementor Pro 3.19 version.
 - Fix: White Label - Astra's theme name does not change when Astra is white-labeled. 
 
 ### 1.6.23 ###
