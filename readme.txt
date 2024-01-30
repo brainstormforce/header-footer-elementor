@@ -5,7 +5,7 @@ Donate link: https://www.paypal.me/BrainstormForce
 Requires at least: 4.4
 Requires PHP: 5.4
 Tested up to: 6.4.1
-Stable tag: 1.6.23.1
+Stable tag: 1.6.24.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -140,8 +140,13 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 
-= 1.6.23.1 =
+= 1.6.24.1 =
 - Fix: Automatic translation support for templates on Specific Pages / Posts / Taxonomies, etc.
+
+= 1.6.24 =
+- Improvement: Compatibility with latest Elementor and Elementor Pro 3.19 version.
+- Fix: White Label - Astra's theme name does not change when Astra is white-labeled. 
+- Fix: Navigation Menu - Language switcher flags not displaying when using Polylang plugin.
 
 = 1.6.23 =
 - Fix: This update addressed a security bug. Props to WordPress Plugin Review Team and Plugin Vulnerabilities Team for reporting it to our team. Please make sure you are using the latest version on your website.
