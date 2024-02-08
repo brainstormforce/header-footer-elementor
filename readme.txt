@@ -141,6 +141,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 == Changelog ==
 
 ### 1.6.24.1 - Development Version ###
+- Improved codebase for improved security
 - Fix: Navigation Menu - Multistep submenu fails to display when a border radius is applied to dropdown.
 
 ### 1.6.24 ###
