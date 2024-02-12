@@ -1266,6 +1266,18 @@ class Astra_Target_Rules_Fields {
 			$current_post_id   = false;
 			$q_obj             = get_queried_object();
 
+			$current_id      = esc_sql( get_the_id() );
+			// Find WPML Object ID for current page.
+			if ( defined( 'ICL_SITEPRESS_VERSION' ) ) {
+				$default_lang = apply_filters( 'wpml_default_language', '' );
+				$current_lang = apply_filters( 'wpml_current_language', '' );
+
+				if( $default_lang !== $current_lang ) {
+					$current_post_type 	= get_post_type( $current_id );
+					$current_id = apply_filters( 'wpml_object_id', $current_id, $current_post_type, true, $default_lang );
+				}
+			}
+
 			$location = isset( $option['location'] ) ? esc_sql( $option['location'] ) : '';
 
 			$query = "SELECT p.ID, pm.meta_value FROM {$wpdb->postmeta} as pm
@@ -1308,14 +1320,12 @@ class Astra_Target_Rules_Fields {
 					$meta_args .= " OR pm.meta_value LIKE '%\"special-blog\"%'";
 					break;
 				case 'is_front_page':
-					$current_id      = esc_sql( get_the_id() );
 					$current_post_id = $current_id;
 					$meta_args      .= " OR pm.meta_value LIKE '%\"special-front\"%'";
 					$meta_args      .= " OR pm.meta_value LIKE '%\"{$current_post_type}|all\"%'";
 					$meta_args      .= " OR pm.meta_value LIKE '%\"post-{$current_id}\"%'";
 					break;
 				case 'is_singular':
-					$current_id      = esc_sql( get_the_id() );
 					$current_post_id = $current_id;
 					$meta_args      .= " OR pm.meta_value LIKE '%\"basic-singulars\"%'";
 					$meta_args      .= " OR pm.meta_value LIKE '%\"{$current_post_type}|all\"%'";
@@ -1333,7 +1343,7 @@ class Astra_Target_Rules_Fields {
 					$meta_args .= " OR pm.meta_value LIKE '%\"special-woo-shop\"%'";
 					break;
 				case '':
-					$current_post_id = get_the_id();
+					$current_post_id = $current_id;
 					break;
 			}
 
