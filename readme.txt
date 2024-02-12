@@ -140,10 +140,11 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 
-= 1.6.24.1 =
+### 1.6.25 ###
 - Fix: Automatic translation support for templates on Specific Pages / Posts / Taxonomies, etc.
+- Fix: Navigation Menu - Multistep submenu fails to display when a border radius is applied to dropdown.
 
-= 1.6.24 =
+### 1.6.24 ###
 - Improvement: Compatibility with latest Elementor and Elementor Pro 3.19 version.
 - Fix: White Label - Astra's theme name does not change when Astra is white-labeled. 
 - Fix: Navigation Menu - Language switcher flags not displaying when using Polylang plugin.
