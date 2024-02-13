@@ -1111,6 +1111,11 @@ div.hfe-nav-menu,
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 }
 
+.hfe-nav-menu .hfe-has-submenu .sub-menu li.menu-item:first-child,
+.hfe-nav-menu .hfe-has-submenu .sub-menu li.menu-item:last-child {
+    overflow: visible !important;
+}
+
 .elementor-widget-navigation-menu:not(.hfe-nav-menu__align-justify):not(.hfe-menu-item-space-between) a.hfe-menu-item.elementor-button {
     display: inline-flex;
 } 

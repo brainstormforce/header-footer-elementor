@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the Elementor Header & Footer Builder package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Elementor Header & Footer Builder 1.6.24\n"
+"Project-Id-Version: Elementor Header & Footer Builder 1.6.25\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/header-footer-elementor\n"
-"POT-Creation-Date: 2024-01-29 06:38:06+00:00\n"
+"POT-Creation-Date: 2024-02-13 04:58:40+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -719,7 +719,7 @@ msgstr ""
 #: inc/lib/target-rule/class-astra-target-rules-fields.php:775
 #: inc/lib/target-rule/class-astra-target-rules-fields.php:1079
 #: inc/lib/target-rule/class-astra-target-rules-fields.php:1109
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:1559
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:1569
 msgid "Select"
 msgstr ""
 
@@ -735,7 +735,7 @@ msgstr ""
 msgid "All %s Archive"
 msgstr ""
 
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:1500
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:1510
 #. translators: %s post title.
 msgid "The same display setting is already exist in %s post/s."
 msgstr ""
