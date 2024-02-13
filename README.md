@@ -140,7 +140,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 ## Changelog ##
 
-### 1.6.24.1 - Development Version ###
+### 1.6.25 ###
 - Security Fix: Hardened the security of the plugin. Props: Wordfence.
 - Fix: Automatic translation support for templates on Specific Pages / Posts / Taxonomies, etc.
 - Fix: Navigation Menu - Multistep submenu fails to display when a border radius is applied to dropdown.
