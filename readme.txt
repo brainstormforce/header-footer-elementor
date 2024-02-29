@@ -140,6 +140,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 
+= 1.6.25.1 =
+- Improvement: Compatibility with PHP 8.2 version.
+
 = 1.6.25 =
 - Security Fix: Hardened the security of the plugin. Props: Wordfence.
 - Fix: Automatic translation support for templates on Specific Pages / Posts / Taxonomies, etc.
