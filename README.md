@@ -141,6 +141,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 ## Changelog ##
 
 ### 1.6.25.1 ###
+- Improvement: Compatibility with latest Elementor and Elementor Pro 3.20 version.
 - Improvement: Compatibility with PHP 8.2 version.
 
 ### 1.6.25 ###
