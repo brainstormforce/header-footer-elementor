@@ -140,6 +140,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 ## Changelog ##
 
+### 1.6.26.1 ###
+- Fix: This update addressed a security bug. Props to Wordfence.
+
 ### 1.6.26 ###
 - Improvement: Compatibility with latest Elementor and Elementor Pro 3.20 version.
 - Improvement: Compatibility with PHP 8.2 version.
