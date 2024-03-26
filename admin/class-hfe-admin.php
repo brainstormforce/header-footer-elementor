@@ -491,8 +491,8 @@ class HFE_Admin {
 
 			// Check if more than one template is selected for current template type.
 			if ( is_array( $templates ) && isset( $templates[1] ) && $post->ID != $templates[0] ) {
-				$post_title        = '<strong>' . get_the_title( $templates[0] ) . '</strong>';
-				$template_location = '<strong>' . $this->template_location( $template_type ) . '</strong>';
+				$post_title        = '<strong>' . esc_html( get_the_title( $templates[0] ) ) . '</strong>';
+				$template_location = '<strong>' . esc_html( $this->template_location( $template_type ) ) . '</strong>';
 				/* Translators: Post title, Template Location */
 				$message = sprintf( __( 'Template %1$s is already assigned to the location %2$s', 'header-footer-elementor' ), $post_title, $template_location );
 
