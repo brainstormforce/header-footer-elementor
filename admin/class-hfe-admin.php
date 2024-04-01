@@ -61,7 +61,7 @@ class HFE_Admin {
 			'hfe-style',
 			esc_url( HFE_URL ) . 'assets/css/style.css',
 			[],
-			esc_attr( HFE_VER )
+			HFE_VER
 		);
 
 		wp_enqueue_style( 'hfe-style' );
