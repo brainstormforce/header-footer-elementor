@@ -59,7 +59,7 @@ class HFE_Admin {
 		// Register the icons styles.
 		wp_register_style(
 			'hfe-style',
-			esc_url( HFE_URL ) . 'assets/css/style.css',
+			HFE_URL . 'assets/css/style.css',
 			[],
 			HFE_VER
 		);
