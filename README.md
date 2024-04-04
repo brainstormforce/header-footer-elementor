@@ -140,11 +140,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 ## Changelog ##
 
-### 1.6.26.2 ###
-- Feature: Enabling the navigation menu to open in a new tab.
-
 ### 1.6.26.1 ###
 - Improvement: Compatibility with PHP 8.3 version.
+- Improvement: Navigation Menu - Open menu in a new tab.
 - Fix: This update addressed a security bug. Props to Wordfence.
 
 ### 1.6.26 ###
