@@ -292,7 +292,7 @@ class HFE_Admin {
 	 */
 	function efh_metabox_render( $post ) {
 		$values            = get_post_custom( $post->ID );
-		$template_type     = isset( $values['ehf_template_type'] ) ? esc_attr( $values['ehf_template_type'][0] ) : '';
+		$template_type     = isset( $values['ehf_template_type'] ) ? esc_attr( sanitize_text_field( $values['ehf_template_type'][0] ) ) : '';
 		$display_on_canvas = isset( $values['display-on-canvas-template'] ) ? true : false;
 
 		// We'll use this nonce field later on when saving.
@@ -448,8 +448,8 @@ class HFE_Admin {
 			return;
 		}
 
-		$target_locations = Astra_Target_Rules_Fields::get_format_rule_value( $_POST, 'bsf-target-rules-location' );
-		$target_exclusion = Astra_Target_Rules_Fields::get_format_rule_value( $_POST, 'bsf-target-rules-exclusion' );
+		$target_locations = array_map( 'sanitize_text_field', Astra_Target_Rules_Fields::get_format_rule_value( $_POST, 'bsf-target-rules-location' ) );
+		$target_exclusion = array_map( 'sanitize_text_field', Astra_Target_Rules_Fields::get_format_rule_value( $_POST, 'bsf-target-rules-exclusion' ) );
 		$target_users     = [];
 
 		if ( isset( $_POST['bsf-target-rules-users'] ) ) {
@@ -491,8 +491,8 @@ class HFE_Admin {
 
 			// Check if more than one template is selected for current template type.
 			if ( is_array( $templates ) && isset( $templates[1] ) && $post->ID != $templates[0] ) {
-				$post_title        = '<strong>' . get_the_title( $templates[0] ) . '</strong>';
-				$template_location = '<strong>' . $this->template_location( $template_type ) . '</strong>';
+				$post_title        = '<strong>' . esc_html( get_the_title( $templates[0] ) ) . '</strong>';
+				$template_location = '<strong>' . esc_html( $this->template_location( $template_type ) ) . '</strong>';
 				/* Translators: Post title, Template Location */
 				$message = sprintf( __( 'Template %1$s is already assigned to the location %2$s', 'header-footer-elementor' ), $post_title, $template_location );
 
