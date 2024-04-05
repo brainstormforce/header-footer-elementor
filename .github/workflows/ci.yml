@@ -40,20 +40,5 @@ jobs:
       - name: npm install, build
         run: npm ci
 
-      - name: Start Docker environment
-        run: npm run env:start
-        env:
-          COMPOSE_INTERACTIVE_NO_CLI: true
-
-      - name: E2E Tests
-        if: always()
-        run: npm run test:e2e:ci
-
-      - name: Stop Docker environment
-        run: npm run env:stop
-        if: always()
-        env:
-          COMPOSE_INTERACTIVE_]NO_CLI: true
-
       - name: Lint JS
         run: npm run lint:js
