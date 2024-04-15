@@ -8,8 +8,8 @@
  * Text Domain: header-footer-elementor
  * Domain Path: /languages
  * Version: 1.6.26.1
- * Elementor tested up to: 3.20
- * Elementor Pro tested up to: 3.20
+ * Elementor tested up to: 3.21
+ * Elementor Pro tested up to: 3.21
  *
  * @package         header-footer-elementor
  */
