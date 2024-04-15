@@ -219,20 +219,20 @@ class HFE_Admin {
 	 */
 	public function header_footer_posttype() {
 		$labels = [
-			'name'               => __( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
-			'singular_name'      => __( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
-			'menu_name'          => __( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
-			'name_admin_bar'     => __( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
-			'add_new'            => __( 'Add New', 'header-footer-elementor' ),
-			'add_new_item'       => __( 'Add New Header or Footer', 'header-footer-elementor' ),
-			'new_item'           => __( 'New Template', 'header-footer-elementor' ),
-			'edit_item'          => __( 'Edit Template', 'header-footer-elementor' ),
-			'view_item'          => __( 'View Template', 'header-footer-elementor' ),
-			'all_items'          => __( 'All Templates', 'header-footer-elementor' ),
-			'search_items'       => __( 'Search Templates', 'header-footer-elementor' ),
-			'parent_item_colon'  => __( 'Parent Templates:', 'header-footer-elementor' ),
-			'not_found'          => __( 'No Templates found.', 'header-footer-elementor' ),
-			'not_found_in_trash' => __( 'No Templates found in Trash.', 'header-footer-elementor' ),
+			'name'               => esc_html__( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
+			'singular_name'      => esc_html__( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
+			'menu_name'          => esc_html__( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
+			'name_admin_bar'     => esc_html__( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
+			'add_new'            => esc_html__( 'Add New', 'header-footer-elementor' ),
+			'add_new_item'       => esc_html__( 'Add New Header or Footer', 'header-footer-elementor' ),
+			'new_item'           => esc_html__( 'New Template', 'header-footer-elementor' ),
+			'edit_item'          => esc_html__( 'Edit Template', 'header-footer-elementor' ),
+			'view_item'          => esc_html__( 'View Template', 'header-footer-elementor' ),
+			'all_items'          => esc_html__( 'All Templates', 'header-footer-elementor' ),
+			'search_items'       => esc_html__( 'Search Templates', 'header-footer-elementor' ),
+			'parent_item_colon'  => esc_html__( 'Parent Templates:', 'header-footer-elementor' ),
+			'not_found'          => esc_html__( 'No Templates found.', 'header-footer-elementor' ),
+			'not_found_in_trash' => esc_html__( 'No Templates found in Trash.', 'header-footer-elementor' ),
 		];
 
 		$args = [
@@ -292,7 +292,7 @@ class HFE_Admin {
 	 */
 	function efh_metabox_render( $post ) {
 		$values            = get_post_custom( $post->ID );
-		$template_type     = isset( $values['ehf_template_type'] ) ? esc_attr( $values['ehf_template_type'][0] ) : '';
+		$template_type     = isset( $values['ehf_template_type'] ) ? esc_attr( sanitize_text_field( $values['ehf_template_type'][0] ) ) : '';
 		$display_on_canvas = isset( $values['display-on-canvas-template'] ) ? true : false;
 
 		// We'll use this nonce field later on when saving.
@@ -448,8 +448,8 @@ class HFE_Admin {
 			return;
 		}
 
-		$target_locations = Astra_Target_Rules_Fields::get_format_rule_value( $_POST, 'bsf-target-rules-location' );
-		$target_exclusion = Astra_Target_Rules_Fields::get_format_rule_value( $_POST, 'bsf-target-rules-exclusion' );
+		$target_locations = array_map( 'sanitize_text_field', Astra_Target_Rules_Fields::get_format_rule_value( $_POST, 'bsf-target-rules-location' ) );
+		$target_exclusion = array_map( 'sanitize_text_field', Astra_Target_Rules_Fields::get_format_rule_value( $_POST, 'bsf-target-rules-exclusion' ) );
 		$target_users     = [];
 
 		if ( isset( $_POST['bsf-target-rules-users'] ) ) {
@@ -491,8 +491,8 @@ class HFE_Admin {
 
 			// Check if more than one template is selected for current template type.
 			if ( is_array( $templates ) && isset( $templates[1] ) && $post->ID != $templates[0] ) {
-				$post_title        = '<strong>' . get_the_title( $templates[0] ) . '</strong>';
-				$template_location = '<strong>' . $this->template_location( $template_type ) . '</strong>';
+				$post_title        = '<strong>' . esc_html( get_the_title( $templates[0] ) ) . '</strong>';
+				$template_location = '<strong>' . esc_html( $this->template_location( $template_type ) ) . '</strong>';
 				/* Translators: Post title, Template Location */
 				$message = sprintf( __( 'Template %1$s is already assigned to the location %2$s', 'header-footer-elementor' ), $post_title, $template_location );
 
