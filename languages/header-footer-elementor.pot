@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the Elementor Header & Footer Builder package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Elementor Header & Footer Builder 1.6.27\n"
+"Project-Id-Version: Elementor Header & Footer Builder 1.6.28\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/header-footer-elementor\n"
-"POT-Creation-Date: 2024-04-15 08:11:23+00:00\n"
+"POT-Creation-Date: 2024-04-16 10:00:51+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -90,7 +90,7 @@ msgstr ""
 msgid "Could not activate theme. Please activate from the Themes page."
 msgstr ""
 
-#: admin/class-hfe-admin.php:138 admin/class-hfe-admin.php:371
+#: admin/class-hfe-admin.php:138 admin/class-hfe-admin.php:373
 msgid "Display Rules"
 msgstr ""
 
@@ -102,140 +102,140 @@ msgstr ""
 msgid "Elementor Header & Footer Builder"
 msgstr ""
 
-#: admin/class-hfe-admin.php:226
+#: admin/class-hfe-admin.php:228
 msgid "Add New"
 msgstr ""
 
-#: admin/class-hfe-admin.php:227
+#: admin/class-hfe-admin.php:229
 msgid "Add New Header or Footer"
 msgstr ""
 
-#: admin/class-hfe-admin.php:228
+#: admin/class-hfe-admin.php:230
 msgid "New Template"
 msgstr ""
 
-#: admin/class-hfe-admin.php:229
+#: admin/class-hfe-admin.php:231
 msgid "Edit Template"
 msgstr ""
 
-#: admin/class-hfe-admin.php:230
+#: admin/class-hfe-admin.php:232
 msgid "View Template"
 msgstr ""
 
-#: admin/class-hfe-admin.php:231 inc/class-hfe-settings-page.php:270
+#: admin/class-hfe-admin.php:233 inc/class-hfe-settings-page.php:270
 msgid "All Templates"
 msgstr ""
 
-#: admin/class-hfe-admin.php:232
+#: admin/class-hfe-admin.php:234
 msgid "Search Templates"
 msgstr ""
 
-#: admin/class-hfe-admin.php:233
+#: admin/class-hfe-admin.php:235
 msgid "Parent Templates:"
 msgstr ""
 
-#: admin/class-hfe-admin.php:234
+#: admin/class-hfe-admin.php:236
 msgid "No Templates found."
 msgstr ""
 
-#: admin/class-hfe-admin.php:235
+#: admin/class-hfe-admin.php:237
 msgid "No Templates found in Trash."
 msgstr ""
 
-#: admin/class-hfe-admin.php:277
+#: admin/class-hfe-admin.php:279
 msgid "Elementor Header & Footer Builder Options"
 msgstr ""
 
-#: admin/class-hfe-admin.php:305
+#: admin/class-hfe-admin.php:307
 msgid "Type of Template"
 msgstr ""
 
-#: admin/class-hfe-admin.php:309
+#: admin/class-hfe-admin.php:311
 msgid "Select Option"
 msgstr ""
 
-#: admin/class-hfe-admin.php:310
+#: admin/class-hfe-admin.php:312
 msgid "Header"
 msgstr ""
 
-#: admin/class-hfe-admin.php:311
+#: admin/class-hfe-admin.php:313
 msgid "Before Footer"
 msgstr ""
 
-#: admin/class-hfe-admin.php:312
+#: admin/class-hfe-admin.php:314
 msgid "Footer"
 msgstr ""
 
-#: admin/class-hfe-admin.php:313
+#: admin/class-hfe-admin.php:315
 msgid "Custom Block"
 msgstr ""
 
-#: admin/class-hfe-admin.php:321 admin/class-hfe-admin.php:566
+#: admin/class-hfe-admin.php:323 admin/class-hfe-admin.php:568
 msgid "Shortcode"
 msgstr ""
 
-#: admin/class-hfe-admin.php:322
+#: admin/class-hfe-admin.php:324
 msgid ""
 "Copy this shortcode and paste it into your post, page, or text widget "
 "content."
 msgstr ""
 
-#: admin/class-hfe-admin.php:334
+#: admin/class-hfe-admin.php:336
 msgid "Enable Layout for Elementor Canvas Template?"
 msgstr ""
 
-#: admin/class-hfe-admin.php:336
+#: admin/class-hfe-admin.php:338
 msgid ""
 "Enabling this option will display this layout on pages using Elementor "
 "Canvas Template."
 msgstr ""
 
-#: admin/class-hfe-admin.php:362
+#: admin/class-hfe-admin.php:364
 msgid "Display On"
 msgstr ""
 
-#: admin/class-hfe-admin.php:364
+#: admin/class-hfe-admin.php:366
 msgid "Add locations for where this template should appear."
 msgstr ""
 
-#: admin/class-hfe-admin.php:375
+#: admin/class-hfe-admin.php:377
 msgid "Add Display Rule"
 msgstr ""
 
-#: admin/class-hfe-admin.php:384
+#: admin/class-hfe-admin.php:386
 msgid "Do Not Display On"
 msgstr ""
 
-#: admin/class-hfe-admin.php:386
+#: admin/class-hfe-admin.php:388
 msgid "Add locations for where this template should not appear."
 msgstr ""
 
-#: admin/class-hfe-admin.php:393
+#: admin/class-hfe-admin.php:395
 msgid "Exclude On"
 msgstr ""
 
-#: admin/class-hfe-admin.php:396
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:846
+#: admin/class-hfe-admin.php:398
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:847
 msgid "Add Exclusion Rule"
 msgstr ""
 
-#: admin/class-hfe-admin.php:406
+#: admin/class-hfe-admin.php:408
 msgid "User Roles"
 msgstr ""
 
-#: admin/class-hfe-admin.php:407
+#: admin/class-hfe-admin.php:409
 msgid "Display custom template based on user role."
 msgstr ""
 
-#: admin/class-hfe-admin.php:414
+#: admin/class-hfe-admin.php:416
 msgid "Users"
 msgstr ""
 
-#: admin/class-hfe-admin.php:417
+#: admin/class-hfe-admin.php:419
 msgid "Add User Rule"
 msgstr ""
 
-#: admin/class-hfe-admin.php:497
+#: admin/class-hfe-admin.php:499
 #. Translators: Post title, Template Location
 msgid "Template %1$s is already assigned to the location %2$s"
 msgstr ""
@@ -711,15 +711,15 @@ msgid "Search pages / post / categories"
 msgstr ""
 
 #: inc/lib/target-rule/class-astra-target-rules-fields.php:654
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:1063
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:1064
 msgid "Add Rule"
 msgstr ""
 
 #: inc/lib/target-rule/class-astra-target-rules-fields.php:670
 #: inc/lib/target-rule/class-astra-target-rules-fields.php:775
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:1079
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:1109
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:1569
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:1080
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:1110
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:1570
 msgid "Select"
 msgstr ""
 
@@ -735,7 +735,7 @@ msgstr ""
 msgid "All %s Archive"
 msgstr ""
 
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:1510
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:1511
 #. translators: %s post title.
 msgid "The same display setting is already exist in %s post/s."
 msgstr ""

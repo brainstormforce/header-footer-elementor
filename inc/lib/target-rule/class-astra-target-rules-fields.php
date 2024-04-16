@@ -765,72 +765,73 @@ class Astra_Target_Rules_Fields {
 		}
 
 		$index = 0;
+		if ( is_array( $saved_values ) && is_array( $saved_values['rule'] ) ) {	
+			foreach ( $saved_values['rule'] as $index => $data ) {
+				$output .= '<div class="astra-target-rule-condition ast-target-rule-' . $index . '" data-rule="' . $index . '" >';
+				/* Condition Selection */
+				$output .= '<span class="target_rule-condition-delete dashicons dashicons-dismiss"></span>';
+				$output .= '<div class="target_rule-condition-wrap" >';
+				$output .= '<select name="' . esc_attr( $input_name ) . '[rule][' . $index . ']" class="target_rule-condition form-control ast-input">';
+				$output .= '<option value="">' . __( 'Select', 'header-footer-elementor' ) . '</option>';
 
-		foreach ( $saved_values['rule'] as $index => $data ) {
-			$output .= '<div class="astra-target-rule-condition ast-target-rule-' . $index . '" data-rule="' . $index . '" >';
-			/* Condition Selection */
-			$output .= '<span class="target_rule-condition-delete dashicons dashicons-dismiss"></span>';
-			$output .= '<div class="target_rule-condition-wrap" >';
-			$output .= '<select name="' . esc_attr( $input_name ) . '[rule][' . $index . ']" class="target_rule-condition form-control ast-input">';
-			$output .= '<option value="">' . __( 'Select', 'header-footer-elementor' ) . '</option>';
+				foreach ( $selection_options as $group => $group_data ) {
+					$output .= '<optgroup label="' . $group_data['label'] . '">';
+					foreach ( $group_data['value'] as $opt_key => $opt_value ) {
 
-			foreach ( $selection_options as $group => $group_data ) {
-				$output .= '<optgroup label="' . $group_data['label'] . '">';
-				foreach ( $group_data['value'] as $opt_key => $opt_value ) {
+						// specific rules.
+						$selected = '';
 
-					// specific rules.
-					$selected = '';
-
-					if ( $data == $opt_key ) {
-						$selected = 'selected="selected"';
-					}
-
-					$output .= '<option value="' . $opt_key . '" ' . $selected . '>' . $opt_value . '</option>';
-				}
-				$output .= '</optgroup>';
-			}
-			$output .= '</select>';
-			$output .= '</div>';
-
-			$output .= '</div>';
-
-			/* Specific page selection */
-			$output .= '<div class="target_rule-specific-page-wrap" style="display:none">';
-			$output .= '<select name="' . esc_attr( $input_name ) . '[specific][]" class="target-rule-select2 target_rule-specific-page form-control ast-input " multiple="multiple">';
-
-			if ( 'specifics' == $data && isset( $saved_values['specific'] ) && null != $saved_values['specific'] && is_array( $saved_values['specific'] ) ) {
-				foreach ( $saved_values['specific'] as $data_key => $sel_value ) {
-					// posts.
-					if ( strpos( $sel_value, 'post-' ) !== false ) {
-						$post_id    = (int) str_replace( 'post-', '', $sel_value );
-						$post_title = get_the_title( $post_id );
-						$output    .= '<option value="post-' . $post_id . '" selected="selected" >' . $post_title . '</option>';
-					}
-
-					// taxonomy options.
-					if ( strpos( $sel_value, 'tax-' ) !== false ) {
-						$tax_data = explode( '-', $sel_value );
-
-						$tax_id    = (int) str_replace( 'tax-', '', $sel_value );
-						$term      = get_term( $tax_id );
-						$term_name = '';
-
-						if ( ! is_wp_error( $term ) ) {
-							$term_taxonomy = ucfirst( str_replace( '_', ' ', $term->taxonomy ) );
-
-							if ( isset( $tax_data[2] ) && 'single' === $tax_data[2] ) {
-								$term_name = 'All singulars from ' . $term->name;
-							} else {
-								$term_name = $term->name . ' - ' . $term_taxonomy;
-							}
+						if ( $data == $opt_key ) {
+							$selected = 'selected="selected"';
 						}
 
-						$output .= '<option value="' . $sel_value . '" selected="selected" >' . $term_name . '</option>';
+						$output .= '<option value="' . $opt_key . '" ' . $selected . '>' . $opt_value . '</option>';
+					}
+					$output .= '</optgroup>';
+				}
+				$output .= '</select>';
+				$output .= '</div>';
+
+				$output .= '</div>';
+
+				/* Specific page selection */
+				$output .= '<div class="target_rule-specific-page-wrap" style="display:none">';
+				$output .= '<select name="' . esc_attr( $input_name ) . '[specific][]" class="target-rule-select2 target_rule-specific-page form-control ast-input " multiple="multiple">';
+
+				if ( 'specifics' == $data && isset( $saved_values['specific'] ) && null != $saved_values['specific'] && is_array( $saved_values['specific'] ) ) {
+					foreach ( $saved_values['specific'] as $data_key => $sel_value ) {
+						// posts.
+						if ( strpos( $sel_value, 'post-' ) !== false ) {
+							$post_id    = (int) str_replace( 'post-', '', $sel_value );
+							$post_title = get_the_title( $post_id );
+							$output    .= '<option value="post-' . $post_id . '" selected="selected" >' . $post_title . '</option>';
+						}
+
+						// taxonomy options.
+						if ( strpos( $sel_value, 'tax-' ) !== false ) {
+							$tax_data = explode( '-', $sel_value );
+
+							$tax_id    = (int) str_replace( 'tax-', '', $sel_value );
+							$term      = get_term( $tax_id );
+							$term_name = '';
+
+							if ( ! is_wp_error( $term ) ) {
+								$term_taxonomy = ucfirst( str_replace( '_', ' ', $term->taxonomy ) );
+
+								if ( isset( $tax_data[2] ) && 'single' === $tax_data[2] ) {
+									$term_name = 'All singulars from ' . $term->name;
+								} else {
+									$term_name = $term->name . ' - ' . $term_taxonomy;
+								}
+							}
+
+							$output .= '<option value="' . $sel_value . '" selected="selected" >' . $term_name . '</option>';
+						}
 					}
 				}
+				$output .= '</select>';
+				$output .= '</div>';
 			}
-			$output .= '</select>';
-			$output .= '</div>';
 		}
 
 		$output .= '</div>';
