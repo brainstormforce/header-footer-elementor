@@ -194,12 +194,12 @@ class HFE_Admin {
 	public function column_display_location_rules( $locations ) {
 
 		$location_label = [];
-		if ( isset( $locations['rule'] ) && is_array( $locations['rule'] ) ) {
+
 			$index = array_search( 'specifics', $locations['rule'] );
 			if ( false !== $index && ! empty( $index ) ) {
 				unset( $locations['rule'][ $index ] );
 			}
-		}
+
 		
 
 		if ( isset( $locations['rule'] ) && is_array( $locations['rule'] ) ) {
@@ -451,8 +451,8 @@ class HFE_Admin {
 			return;
 		}
 
-		$target_locations = array_map( 'sanitize_text_field', Astra_Target_Rules_Fields::get_format_rule_value( $_POST, 'bsf-target-rules-location' ) );
-		$target_exclusion = array_map( 'sanitize_text_field', Astra_Target_Rules_Fields::get_format_rule_value( $_POST, 'bsf-target-rules-exclusion' ) );
+		$target_locations = Astra_Target_Rules_Fields::get_format_rule_value( $_POST, 'bsf-target-rules-location' );
+		$target_exclusion = Astra_Target_Rules_Fields::get_format_rule_value( $_POST, 'bsf-target-rules-exclusion' );
 		$target_users     = [];
 
 		if ( isset( $_POST['bsf-target-rules-users'] ) ) {
