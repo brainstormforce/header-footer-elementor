@@ -194,7 +194,7 @@ class HFE_Admin {
 	public function column_display_location_rules( $locations ) {
 
 		$location_label = [];
-		if ( isset( $locations['rule'] ) && is_array( $locations ) ) {
+		if ( is_array( $locations ) && is_array( $locations['rule'] ) && isset( $locations['rule'] ) ){ 
 			$index = array_search( 'specifics', $locations['rule'] );
 			if ( false !== $index && ! empty( $index ) ) {
 				unset( $locations['rule'][ $index ] );

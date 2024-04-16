@@ -765,7 +765,7 @@ class Astra_Target_Rules_Fields {
 		}
 
 		$index = 0;
-		if ( is_array( $saved_values['rule'] ) ) {	
+		if ( is_array( $saved_values ) && is_array( $saved_values['rule'] ) ) {	
 			foreach ( $saved_values['rule'] as $index => $data ) {
 				$output .= '<div class="astra-target-rule-condition ast-target-rule-' . $index . '" data-rule="' . $index . '" >';
 				/* Condition Selection */
