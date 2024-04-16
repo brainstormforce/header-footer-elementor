@@ -195,12 +195,10 @@ class HFE_Admin {
 
 		$location_label = [];
 
-			$index = array_search( 'specifics', $locations['rule'] );
-			if ( false !== $index && ! empty( $index ) ) {
-				unset( $locations['rule'][ $index ] );
-			}
-
-		
+		$index = array_search( 'specifics', $locations['rule'] );
+		if ( false !== $index && ! empty( $index ) ) {
+			unset( $locations['rule'][ $index ] );
+		}
 
 		if ( isset( $locations['rule'] ) && is_array( $locations['rule'] ) ) {
 			foreach ( $locations['rule'] as $location ) {
