@@ -140,6 +140,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 ## Changelog ##
 
+### 1.6.29 ###
+- Fix: Navigation Menu – The submenu container opens without hovering over the parent menu item.
+
 ### 1.6.28 ###
 - Fix: Error messages appearing for Display rules.
 
