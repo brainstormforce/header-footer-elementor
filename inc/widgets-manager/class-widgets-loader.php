@@ -169,12 +169,12 @@ class Widgets_Loader {
 	 * @return array Modified array of uploaded file information.
 	 */
 	public function sanitize_uploaded_svg( $file ) {
-		if ( $file['type'] === 'image/svg+xml' ) {
+		if ( 'image/svg+xml' === $file['type'] ) {
 			$clean_svg = $this->sanitize_svg( $file['tmp_name'] );
 
-			if ( $clean_svg !== false ) {
+			if ( false !== $clean_svg ) {
 				file_put_contents( $file['tmp_name'], $clean_svg );
-			}
+			}           
 		}
 
 		return $file;
@@ -190,11 +190,11 @@ class Widgets_Loader {
 		$dirty_svg = file_get_contents( $file_path );
 		$clean_svg = $sanitizer->sanitize( $dirty_svg );
 
-		if ( $clean_svg !== false ) {
+		if ( false !== $clean_svg ) {
 			return $clean_svg;
 		} else {
-			return false; 
-		}
+			return false;
+		}       
 	}
 	
 	/**
