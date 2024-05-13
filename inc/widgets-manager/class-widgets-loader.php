@@ -58,6 +58,9 @@ class Widgets_Loader {
 		// Add svg support.
 		add_filter( 'upload_mimes', [ $this, 'hfe_svg_mime_types' ] ); // PHPCS:Ignore WordPressVIPMinimum.Hooks.RestrictedHooks.upload_mimes
 
+		// Add filter to sanitize uploaded SVG files.
+		add_filter( 'wp_handle_upload_prefilter', [ $this, 'sanitize_uploaded_svg' ] );
+
 		// Refresh the cart fragments.
 		if ( class_exists( 'woocommerce' ) ) {
 
@@ -159,6 +162,41 @@ class Widgets_Loader {
 		return $mimes;
 	}
 
+	/**
+	 * Sanitize uploaded SVG files before they are saved.
+	 *
+	 * @param array $file Array of uploaded file information.
+	 * @return array Modified array of uploaded file information.
+	 */
+	public function sanitize_uploaded_svg( $file ) {
+		if ( 'image/svg+xml' === $file['type'] ) {
+			$clean_svg = $this->sanitize_svg( $file['tmp_name'] );
+
+			if ( false !== $clean_svg ) {
+				file_put_contents( $file['tmp_name'], $clean_svg );
+			}           
+		}
+
+		return $file;
+	}
+	/**
+	 * Sanitize SVG content using enshrined\svgSanitize\Sanitizer.
+	 *
+	 * @param string $file_path Path to the SVG file.
+	 * @return string|bool Sanitized SVG content or false on failure.
+	 */
+	public function sanitize_svg( $file_path ) {
+		$sanitizer = new \enshrined\svgSanitize\Sanitizer();
+		$dirty_svg = file_get_contents( $file_path );
+		$clean_svg = $sanitizer->sanitize( $dirty_svg );
+
+		if ( false !== $clean_svg ) {
+			return $clean_svg;
+		} else {
+			return false;
+		}       
+	}
+	
 	/**
 	 * Register Category
 	 *

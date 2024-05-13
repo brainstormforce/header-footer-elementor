@@ -27,6 +27,11 @@ define( 'HFE_DOMAIN', trailingslashit( 'https://ultimateelementor.com' ) );
 require_once HFE_DIR . '/inc/class-header-footer-elementor.php';
 
 /**
+ * Include Composer autoloader.
+ */
+require_once HFE_DIR . 'vendor/autoload.php';
+
+/**
  * Load the Plugin Class.
  */
 function hfe_plugin_activation() {
