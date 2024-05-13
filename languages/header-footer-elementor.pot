@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the Elementor Header & Footer Builder package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Elementor Header & Footer Builder 1.6.28\n"
+"Project-Id-Version: Elementor Header & Footer Builder 1.6.29\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/header-footer-elementor\n"
-"POT-Creation-Date: 2024-04-16 10:00:51+00:00\n"
+"POT-Creation-Date: 2024-05-13 12:38:35+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -387,14 +387,6 @@ msgstr ""
 
 #: inc/class-hfe-settings-page.php:155
 msgid "Method 2"
-msgstr ""
-
-#: inc/class-hfe-settings-page.php:168
-msgid ""
-"Sometimes above methods might not work well with your theme, in this case, "
-"contact your theme author and request them to add support for the <a "
-"href=\"https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-"
-"Header-Footer-Elementor-support-for-your-theme\">plugin.</>"
 msgstr ""
 
 #: inc/class-hfe-settings-page.php:187 inc/class-hfe-settings-page.php:188
