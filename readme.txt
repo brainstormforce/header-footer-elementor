@@ -140,7 +140,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 
-= 1.6.29=
+= 1.6.29 =
 - Fix: Navigation Menu – The submenu container opens without hovering over the parent menu item.
 - Fix: This update addressed a security bug. Props to Wordfence.
 
