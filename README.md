@@ -141,7 +141,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 ## Changelog ##
 
 ### 1.6.31 ###
-- Fix: Error for svg Sanitizer class.
+- Fix: Conflict with WP SVG Images plugin.
 
 ### 1.6.30 ###
 - Fix: Improved error messages during plugin activation.
