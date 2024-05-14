@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Elementor Header & Footer Builder 1.6.29\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/header-footer-elementor\n"
-"POT-Creation-Date: 2024-05-13 12:38:35+00:00\n"
+"POT-Creation-Date: 2024-05-14 05:36:53+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -732,7 +732,7 @@ msgstr ""
 msgid "The same display setting is already exist in %s post/s."
 msgstr ""
 
-#: inc/widgets-manager/class-widgets-loader.php:234
+#: inc/widgets-manager/class-widgets-loader.php:272
 #: inc/widgets-manager/widgets/class-cart.php:51
 #: inc/widgets-manager/widgets/class-cart.php:651
 msgid "Cart"
