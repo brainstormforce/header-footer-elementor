@@ -13,6 +13,7 @@ namespace HFE\WidgetsManager;
 
 use Elementor\Plugin;
 use Elementor\Utils;
+use enshrined\svgSanitize\Sanitizer;
 
 defined( 'ABSPATH' ) or exit;
 
