@@ -25,6 +25,7 @@ wp-cli.local.yml
 yarn.lock
 tests
 vendor
+!vendor/enshrined
 node_modules
 *.sql
 *.tar.gz
