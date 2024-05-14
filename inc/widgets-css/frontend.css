@@ -120,6 +120,13 @@ div.hfe-nav-menu,
     clear: both;
 }
 
+.hfe-nav-menu__layout-horizontal .hfe-nav-menu .sub-menu {
+	display: none;
+}
+
+.hfe-nav-menu__layout-horizontal .hfe-nav-menu li.menu-item:hover > .sub-menu {
+    display: block;
+} 
 
 /* Alignemnt CSS */
 .hfe-nav-menu__align-right .hfe-nav-menu {

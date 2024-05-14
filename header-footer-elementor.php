@@ -7,14 +7,14 @@
  * Author URI:  https://www.brainstormforce.com/
  * Text Domain: header-footer-elementor
  * Domain Path: /languages
- * Version: 1.6.28
+ * Version: 1.6.29
  * Elementor tested up to: 3.21
  * Elementor Pro tested up to: 3.21
  *
  * @package         header-footer-elementor
  */
 
-define( 'HFE_VER', '1.6.28' );
+define( 'HFE_VER', '1.6.29' );
 define( 'HFE_FILE', __FILE__ );
 define( 'HFE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'HFE_URL', plugins_url( '/', __FILE__ ) );
@@ -25,6 +25,11 @@ define( 'HFE_DOMAIN', trailingslashit( 'https://ultimateelementor.com' ) );
  * Load the class loader.
  */
 require_once HFE_DIR . '/inc/class-header-footer-elementor.php';
+
+/**
+ * Include Composer autoloader.
+ */
+require_once HFE_DIR . 'vendor/autoload.php';
 
 /**
  * Load the Plugin Class.
