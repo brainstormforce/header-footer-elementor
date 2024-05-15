@@ -1,6 +1,6 @@
 === Elementor Header & Footer Builder ===
 Contributors: brainstormforce, Nikschavan
-Tags: elementor, header footer builder, header template, footer template, elementor widget, WordPress header, WordPress footer, elementor menu, website header design, footer design, blocks
+Tags: elementor, header footer builder, header template, footer template, elementor widget
 Donate link: https://www.paypal.me/BrainstormForce
 Requires at least: 4.4
 Requires PHP: 5.4
