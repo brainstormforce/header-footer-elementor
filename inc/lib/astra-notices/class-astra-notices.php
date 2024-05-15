@@ -28,7 +28,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @var array Notices.
 		 * @since 1.0.0
 		 */
-		private static $version = '1.1.8';
+		private static $version = '1.1.9';
 
 		/**
 		 * Notices
@@ -116,7 +116,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 			}
 
 			if ( false === wp_verify_nonce( $nonce, 'astra-notices' ) ) {
-				wp_send_json_error( esc_html_e( 'WordPress Nonce not validated.', 'header-footer-elementor' ) );
+				wp_send_json_error( esc_html_e( 'WordPress Nonce not validated.' ) );
 			}
 
 			// Valid inputs?

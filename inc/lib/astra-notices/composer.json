@@ -2,8 +2,7 @@
     "name": "brainstormforce/astra-notices",
     "type": "wordpress-plugin",
     "description": "Easily create admin notices",
-    "version": "1.1.8",
-    "license": "GPL v3",
+    "license": "GPL-3.0-or-later",
     "authors": [
         {
             "name": "Brainstorm Force",
@@ -11,7 +10,7 @@
         }
     ],
     "require": {
-        "composer/installers": "^1.11"
+        "composer/installers": "^2.0"
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",

@@ -14,10 +14,22 @@
   "require-dev": {
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
     "wp-coding-standards/wpcs": "dev-master",
-    "phpcompatibility/phpcompatibility-wp": "*"
+    "phpcompatibility/phpcompatibility-wp": "*",
+    "phpstan/phpstan": "^1.11",
+    "php-stubs/wordpress-stubs": "^6.5",
+    "szepeviktor/phpstan-wordpress": "^1.3",
+    "php-stubs/generator": "^0.8.4"
   },
   "scripts": {
     "format": "phpcbf",
-    "lint": "phpcs"
+    "lint": "phpcs",
+    "gen-stubs": "vendor/bin/generate-stubs artifact/phpstan/header-footer-elementor/ --out=tests/php/stubs/hfe-stubs.php && rm -rf artifact/phpstan",
+    "phpstan": "vendor/bin/phpstan --memory-limit=2048M analyse"
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
   }
 }
