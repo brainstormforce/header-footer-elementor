@@ -174,7 +174,10 @@ class Widgets_Loader {
 			$clean_svg = $this->sanitize_svg( $file['tmp_name'] );
 
 			if ( false !== $clean_svg ) {
-				file_put_contents( $file['tmp_name'], $clean_svg );
+				$upload = wp_upload_bits( basename( $file['tmp_name'] ), null, $clean_svg );   // Use wp_upload_bits() for safer file operations.
+				if ( false === $upload['error'] ) {
+					$file['tmp_name'] = $upload['file'];
+				}
 			}           
 		}
 
@@ -191,7 +194,7 @@ class Widgets_Loader {
 			return;
 		}
 		$sanitizer = new \enshrined\svgSanitize\Sanitizer();
-		$dirty_svg = file_get_contents( $file_path );
+		$dirty_svg = wpcom_vip_file_get_contents( $file_path );
 		$clean_svg = $sanitizer->sanitize( $dirty_svg );
 
 		if ( false !== $clean_svg ) {
