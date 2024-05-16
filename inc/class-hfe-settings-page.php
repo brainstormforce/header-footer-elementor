@@ -521,7 +521,9 @@ class HFE_Settings_Page {
 
 		return [
 			'theme_name'  => $theme_name,
+			// translators: %s is replaced with the theme name.
 			'description' => ! empty( $white_labels['astra']['description'] ) ? $white_labels['astra']['description'] : esc_html( sprintf( __( 'Powering over 1+ Million websites, %s is loved for the fast performance and ease of use it offers. It is suitable for all kinds of websites like blogs, portfolios, business, and WooCommerce stores.', 'header-footer-elementor' ), esc_html( $theme_name ) ) ),
+			// translators: %s is replaced with the theme name.
 			'theme_icon'  => ! empty( $white_labels['astra']['icon'] ) ? $white_labels['astra']['icon'] : '',
 			'author_url'  => ! empty( $white_labels['astra']['author_url'] ) ? $white_labels['astra']['author_url'] : 'https://wpastra.com/',
 		];
@@ -549,7 +551,12 @@ class HFE_Settings_Page {
 
 				<p><?php esc_html_e( 'Trusted by more than 1+ Million users, Elementor Header & Footer Builder is a modern way to build advanced navigation for your website.', 'header-footer-elementor' ); ?></p>
 
-				<p><?php printf( esc_html__( 'This plugin is brought to you by the same team behind the popular WordPress theme %s and a series of Ultimate Addons plugins.', 'header-footer-elementor' ), esc_html( $white_labels['theme_name'] ) ); ?>
+				<p>
+				<?php 
+				// translators: %s is replaced with the theme name.
+					printf( esc_html__( 'This plugin is brought to you by the same team behind the popular WordPress theme %s and a series of Ultimate Addons plugins.', 'header-footer-elementor' ), esc_html( $white_labels['theme_name'] ) ); 
+				?>
+				</p>
 
 			</div>
 
