@@ -29,6 +29,7 @@
   		   
 
 		$search_button.on( 'touchstart click', function(){
+			alert($input);
 			$input.submit();
 		});
 

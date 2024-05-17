@@ -979,7 +979,23 @@ class Search_Button extends Widget_Base {
 			]
 		);
 		?>
-		<form class="hfe-search-button-wrapper" role="search" action="<?php echo esc_url( home_url() ); ?>" method="get">
+		<?php 
+		function is_polylang_active() {
+			return function_exists( 'pll_the_languages' );
+		}
+
+		// Check if Polylang is active
+		if ( is_polylang_active() ) { 
+			var_dump( 'polylang is not active' );
+			$defaultLanguage = pll_default_language();
+			$current_lang    = pll_current_language(); 
+			$action_url      = $current_lang === $defaultLanguage ? home_url( '/' ) : home_url( '/' ) . $current_lang . '/';
+		} else {
+			$action_url = home_url( '/' );
+		}       
+		?>
+		<form class="hfe-search-button-wrapper" role="search" action="<?php echo esc_url( $action_url ); ?>" method="get">
+
 			<?php if ( 'icon' === $settings['layout'] ) { ?>
 			<div class = "hfe-search-icon-toggle">
 				<input <?php $this->print_render_attribute_string( 'input' ); ?>>
