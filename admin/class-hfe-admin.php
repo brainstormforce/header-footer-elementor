@@ -323,8 +323,8 @@ class HFE_Admin {
 				<?php $this->display_rules_tab(); ?>
 				<tr class="hfe-options-row hfe-shortcode">
 					<td class="hfe-options-row-heading">
-						<label for="ehf_template_type"><?php _e( 'Shortcode', 'header-footer-elementor' ); ?></label>
-						<i class="hfe-options-row-heading-help dashicons dashicons-editor-help" title="<?php _e( 'Copy this shortcode and paste it into your post, page, or text widget content.', 'header-footer-elementor' ); ?>">
+						<label for="ehf_template_type"><?php esc_html_e( 'Shortcode', 'header-footer-elementor' ); ?></label>
+						<i class="hfe-options-row-heading-help dashicons dashicons-editor-help" title="<?php esc_html_e( 'Copy this shortcode and paste it into your post, page, or text widget content.', 'header-footer-elementor' ); ?>">
 						</i>
 					</td>
 					<td class="hfe-options-row-content">
@@ -336,9 +336,9 @@ class HFE_Admin {
 				<tr class="hfe-options-row enable-for-canvas">
 					<td class="hfe-options-row-heading">
 						<label for="display-on-canvas-template">
-							<?php _e( 'Enable Layout for Elementor Canvas Template?', 'header-footer-elementor' ); ?>
+							<?php esc_html_e( 'Enable Layout for Elementor Canvas Template?', 'header-footer-elementor' ); ?>
 						</label>
-						<i class="hfe-options-row-heading-help dashicons dashicons-editor-help" title="<?php _e( 'Enabling this option will display this layout on pages using Elementor Canvas Template.', 'header-footer-elementor' ); ?>"></i>
+						<i class="hfe-options-row-heading-help dashicons dashicons-editor-help" title="<?php esc_html_e( 'Enabling this option will display this layout on pages using Elementor Canvas Template.', 'header-footer-elementor' ); ?>"></i>
 					</td>
 					<td class="hfe-options-row-content">
 						<input type="checkbox" id="display-on-canvas-template" name="display-on-canvas-template" value="1" <?php checked( $display_on_canvas, true ); ?> />
