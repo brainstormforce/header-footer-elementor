@@ -131,7 +131,7 @@ class HFE_Settings_Page {
 	 * @return void
 	 */
 	public function hfe_compatibility_callback() {
-		_e( 'The Elementor Header & Footer Builder plugin need compatibility with your current theme to work smoothly.</br></br>Following are two methods that enable theme support for the plugin.</br></br>Method 1 is selected by default and that works fine almost will all themes. In case, you face any issue with the header or footer template, try choosing Method 2.', 'header-footer-elementor' );
+		esc_html_e( 'The Elementor Header & Footer Builder plugin need compatibility with your current theme to work smoothly.</br></br>Following are two methods that enable theme support for the plugin.</br></br>Method 1 is selected by default and that works fine almost will all themes. In case, you face any issue with the header or footer template, try choosing Method 2.', 'header-footer-elementor' );
 	}
 
 	/**
