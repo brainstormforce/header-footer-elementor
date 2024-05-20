@@ -187,7 +187,7 @@ class Widgets_Loader {
 	 * @return string|bool Sanitized SVG content or false on failure.
 	 */
 	public function sanitize_svg( $file_path ) {
-		if ( ! class_exists('\enshrined\svgSanitize\Sanitizer')) {
+		if ( ! class_exists( '\enshrined\svgSanitize\Sanitizer' ) ) {
 			return;
 		}
 		$sanitizer = new \enshrined\svgSanitize\Sanitizer();
