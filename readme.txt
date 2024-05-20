@@ -140,6 +140,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 
+= 1.6.33.1 =
+Fix: Navigation Menu - The Dropdown Submenu no longer disappears when you add a top distance.
+
 = 1.6.33 =
 - Fix: Unable to edit the Header/Footer with Elementor in few cases.
 
