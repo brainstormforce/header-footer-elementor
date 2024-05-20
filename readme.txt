@@ -140,6 +140,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 
+= 1.6.32 =
+- Fix: Navigation Menu - Unable to click on Submenu items.
+
 = 1.6.31 =
 - Fix: Conflict with WP SVG Images plugin.
 
