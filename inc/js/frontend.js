@@ -162,6 +162,18 @@
 
 		});
 
+		/** Top Distance functionality for sub-menu **/
+        var parent = $( '.elementor-element-' + id );
+        var top_value = parent.data('settings').distance_from_menu.size + 'px';
+        var style_tag = document.createElement('style');
+        style_tag.innerHTML = `
+            nav ul li.menu-item ul.sub-menu::before {
+                height: ${top_value};
+                top: -${top_value};
+            }
+        `;
+        document.head.appendChild(style_tag);
+
         // Acessibility functions
 
   		$scope.find( '.parent-has-child .hfe-has-submenu-container a').attr( 'aria-haspopup', 'true' );
