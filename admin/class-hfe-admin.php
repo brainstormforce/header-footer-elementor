@@ -220,7 +220,7 @@ class HFE_Admin {
 	 * Register Post type for Elementor Header & Footer Builder templates
 	 */
 	public function header_footer_posttype() {
-		if ( ! is_admin() && ! current_user_can( 'manage_options' ) ) {
+		if (  ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
 		$labels = [
