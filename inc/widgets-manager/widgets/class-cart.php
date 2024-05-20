@@ -648,7 +648,7 @@ class Cart extends Widget_Base {
 							<span class="elementor-button-icon" data-counter="<?php echo ( null !== WC()->cart ) ? esc_attr( WC()->cart->get_cart_contents_count() ) : ''; ?>">
 								<i class="eicon" aria-hidden="true"></i>
 								<span class="elementor-screen-only">
-									<?php _e( 'Cart', 'header-footer-elementor' ); ?>
+									<?php esc_html_e( 'Cart', 'header-footer-elementor' ); ?>
 								</span>
 							</span>
 						</a>	
