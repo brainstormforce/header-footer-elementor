@@ -141,7 +141,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 ## Changelog ##
 
 ### 1.6.32 ###
-- Fix: This update addressed a security bug. Props to WordPress team.
+- Fix: Improved plugin security.
 
 ### 1.6.31 ###
 - Fix: Conflict with WP SVG Images plugin.
