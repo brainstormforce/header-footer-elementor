@@ -141,7 +141,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 == Changelog ==
 
 = 1.6.33 =
-- Fix: Unable to edit the Header footer with Elementor in few cases.
+- Fix: Unable to edit the Header/Footer with Elementor in few cases.
 
 = 1.6.32 =
 - Fix: Improved plugin security.
