@@ -56,6 +56,7 @@ class Widgets_Loader {
 		// Register widgets.
 		add_action( 'elementor/widgets/register', [ $this, 'register_widgets' ] );
 
+		// Register widgets script.
 		add_action( 'elementor/frontend/after_register_scripts', array( $this, 'register_widget_scripts' ) );
 
 		// Add svg support.
@@ -122,7 +123,6 @@ class Widgets_Loader {
 	 * @access public
 	 */
 	public function include_widgets_files() {
-		// $js_files    = $this->get_widget_script();
 		$widget_list = $this->get_widget_list();
 
 		if ( ! empty( $widget_list ) ) {
@@ -131,32 +131,14 @@ class Widgets_Loader {
 			}
 		}
 
-		// if ( ! empty( $js_files ) ) {
-		// 	foreach ( $js_files as $handle => $data ) {
-		// 		wp_register_script( $handle, HFE_URL . $data['path'], $data['dep'], HFE_VER, $data['in_footer'] );
-		// 	}
-		// }
-
-		// $tag_validation = [ 'article', 'aside', 'div', 'footer', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'header', 'main', 'nav', 'p', 'section', 'span' ];
-
-		// wp_localize_script(
-		// 	'elementor-editor',
-		// 	'HfeWidgetsData',
-		// 	[
-		// 		'allowed_tags' => $tag_validation,
-		// 	]
-		// );
-
-		// // Emqueue the widgets style.
-		// wp_enqueue_style( 'hfe-widgets-style', HFE_URL . 'inc/widgets-css/frontend.css', [], HFE_VER );
 	}
 
 	/**
-	 * Include Widgets files
+	 * Include Widgets JS files
 	 *
-	 * Load widgets files
+	 * Load widgets JS files
 	 *
-	 * @since 1.2.0
+	 * @since x.x.x
 	 * @access public
 	 */
 	public function include_js_files() {
