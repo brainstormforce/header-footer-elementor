@@ -140,12 +140,15 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 ## Changelog ##
 
+### 1.6.33.1 ###
+- Improvement: Changed JS loading order to make it compatible with Elementor's lazy load and optimization options.
+- Fix: Navigation Menu - Unable to click on Submenu items.
+
 ### 1.6.33 ###
 - Fix: Unable to edit the Header/Footer with Elementor in few cases.
 
 ### 1.6.32 ###
 - Fix: Improved plugin security.
-- Fix: Navigation Menu - Unable to click on Submenu items.
 
 ### 1.6.31 ###
 - Fix: Conflict with WP SVG Images plugin.
