@@ -5,7 +5,7 @@
 **Requires at least:** 4.4  
 **Requires PHP:** 5.4  
 **Tested up to:** 6.5  
-**Stable tag:** 1.6.31
+**Stable tag:** 1.6.32  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -139,6 +139,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 5. Default widgets available with Elementor Header & Footer Builder.
 
 ## Changelog ##
+
+### 1.6.32 ###
+- Fix: Improved plugin security.
 
 ### 1.6.31 ###
 - Fix: Conflict with WP SVG Images plugin.
