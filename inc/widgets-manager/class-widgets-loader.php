@@ -142,7 +142,7 @@ class Widgets_Loader {
 	 * @access public
 	 */
 	public function include_js_files() {
-		$js_files    = $this->get_widget_script();
+		$js_files = $this->get_widget_script();
 
 		if ( ! empty( $js_files ) ) {
 			foreach ( $js_files as $handle => $data ) {
