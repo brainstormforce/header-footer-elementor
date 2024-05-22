@@ -5,7 +5,7 @@ Donate link: https://www.paypal.me/BrainstormForce
 Requires at least: 4.4
 Requires PHP: 5.4
 Tested up to: 6.5
-Stable tag: 1.6.33.1
+Stable tag: 1.6.34
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -140,7 +140,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 
-= 1.6.33.1 = 
+= 1.6.34 = 
 - Navigation Menu - Submenus show up for few seconds during the page load
 - Navigation Menu - Huge icon show up for few seconds during the page load
 - Navigation Menu - Unable to click on submenu when top distance is added for dropdown
