@@ -141,8 +141,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 == Changelog ==
 
 = 1.6.33.1 = 
-- Improvement: Changed JS loading order to make it compatible with Elementor's lazy load and optimization options.
-- Fix: Navigation Menu - Unable to click on Submenu items.
+- Navigation Menu - Submenus show up for few seconds during the page load
+- Navigation Menu - Huge icon show up for few seconds during the page load
+- Navigation Menu - Unable to click on submenu when top distance is added for dropdown
 
 = 1.6.33 =
 - Fix: Unable to edit the Header/Footer with Elementor in few cases.
