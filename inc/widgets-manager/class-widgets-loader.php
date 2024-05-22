@@ -57,7 +57,7 @@ class Widgets_Loader {
 		add_action( 'elementor/widgets/register', [ $this, 'register_widgets' ] );
 
 		// Register widgets script.
-		add_action( 'elementor/frontend/after_register_scripts', array( $this, 'register_widget_scripts' ) );
+		add_action( 'elementor/frontend/after_register_scripts', [ $this, 'register_widget_scripts' ] );
 
 		// Add svg support.
 		add_filter( 'upload_mimes', [ $this, 'hfe_svg_mime_types' ] ); // PHPCS:Ignore WordPressVIPMinimum.Hooks.RestrictedHooks.upload_mimes
