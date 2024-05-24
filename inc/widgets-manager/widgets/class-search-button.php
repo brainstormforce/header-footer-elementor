@@ -980,16 +980,22 @@ class Search_Button extends Widget_Base {
 		);
 		?>
 		<?php 
+		/**
+		 * Check if the Polylang plugin is active.
+		 *
+		 * This function checks if the `pll_the_languages` function, provided by the Polylang plugin, exists.
+		 *
+		 * @return bool True if the Polylang plugin is active, false otherwise.
+		 */
 		function is_polylang_active() {
 			return function_exists( 'pll_the_languages' );
 		}
 
-		// Check if Polylang is active
+		// Check if Polylang is active.
 		if ( is_polylang_active() ) { 
-			var_dump( 'polylang is not active' );
-			$defaultLanguage = pll_default_language();
-			$current_lang    = pll_current_language(); 
-			$action_url      = $current_lang === $defaultLanguage ? home_url( '/' ) : home_url( '/' ) . $current_lang . '/';
+			$default_language = pll_default_language();
+			$current_lang     = pll_current_language(); 
+			$action_url       = $current_lang === $default_language ? home_url( '/' ) : home_url( '/' ) . $current_lang . '/';
 		} else {
 			$action_url = home_url( '/' );
 		}       
