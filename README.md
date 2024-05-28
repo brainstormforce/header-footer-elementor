@@ -141,12 +141,12 @@ This same applies when you are creating your Header/Footer using this plugin.
 ## Changelog ##
 
 ### 1.6.34.1 ###
-- Improvement: Replaced SVG sanitizer library with Elementor's inbuilt sanitize function.
+- Improvement: Updated sanitize SVG function.
 
 ### 1.6.34 ###
-- Fix: Navigation Menu - Submenus show up for few seconds during the page load
-- Fix: Navigation Menu - Huge icon show up for few seconds during the page load
-- Fix: Navigation Menu - Unable to click on submenu when top distance is added for dropdown
+- Navigation Menu - Submenus show up for few seconds during the page load
+- Navigation Menu - Huge icon show up for few seconds during the page load
+- Navigation Menu - Unable to click on submenu when top distance is added for dropdown
 
 ### 1.6.33 ###
 - Fix: Unable to edit the Header/Footer with Elementor in few cases.

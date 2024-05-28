@@ -141,7 +141,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 == Changelog ==
 
 = 1.6.34.1 = 
-- Improvement: Replaced SVG sanitizer library with Elementor's inbuilt sanitize function.
+- Improvement: Updated sanitize SVG function.
 
 = 1.6.34 = 
 - Navigation Menu - Submenus show up for few seconds during the page load
