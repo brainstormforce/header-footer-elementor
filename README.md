@@ -5,7 +5,7 @@
 **Requires at least:** 4.4  
 **Requires PHP:** 5.4  
 **Tested up to:** 6.5  
-**Stable tag:** 1.6.34  
+**Stable tag:** 1.6.34.1  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -140,10 +140,13 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 ## Changelog ##
 
+### 1.6.34.1 ###
+- Improvement: Replaced SVG sanitizer library with Elementor's inbuilt sanitize function.
+
 ### 1.6.34 ###
-- Navigation Menu - Submenus show up for few seconds during the page load
-- Navigation Menu - Huge icon show up for few seconds during the page load
-- Navigation Menu - Unable to click on submenu when top distance is added for dropdown
+- Fix: Navigation Menu - Submenus show up for few seconds during the page load
+- Fix: Navigation Menu - Huge icon show up for few seconds during the page load
+- Fix: Navigation Menu - Unable to click on submenu when top distance is added for dropdown
 
 ### 1.6.33 ###
 - Fix: Unable to edit the Header/Footer with Elementor in few cases.
