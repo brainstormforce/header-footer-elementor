@@ -188,8 +188,10 @@ class Widgets_Loader {
 		if ( 'image/svg+xml' === $file['type'] ) {
 
 			/**
-			* @var \Elementor\Core\Files\Assets\Svg\Svg_Handler $svg_handler;
-			*/
+			 * SVG Handler instance.
+			 * 
+			 * @var \Elementor\Core\Files\Assets\Svg\Svg_Handler $svg_handler;
+			 */
 			$svg_handler = Plugin::instance()->assets_manager->get_asset( 'svg-handler' );
 
 			if ( Files_Upload_Handler::file_sanitizer_can_run() && ! $svg_handler->sanitize_svg( $file['tmp_name'] ) ) {
