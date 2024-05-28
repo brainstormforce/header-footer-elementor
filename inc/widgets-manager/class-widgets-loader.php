@@ -13,7 +13,6 @@ namespace HFE\WidgetsManager;
 
 use Elementor\Plugin;
 use Elementor\Utils;
-// use Elementor\Core\Utils\Svg\Svg_Sanitizer;
 use Elementor\Core\Files\Assets\Files_Upload_Handler;
 
 defined( 'ABSPATH' ) or exit;
