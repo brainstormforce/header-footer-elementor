@@ -30,7 +30,6 @@
 
 		$search_button.on( 'touchstart click', function(){
 			$input.submit();
-			alert($input);
 		});
 
 		$toggle_search.css( 'padding-right', $toggle_search.next().outerWidth() + 'px' );
