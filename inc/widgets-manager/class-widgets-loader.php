@@ -13,7 +13,8 @@ namespace HFE\WidgetsManager;
 
 use Elementor\Plugin;
 use Elementor\Utils;
-use enshrined\svgSanitize\Sanitizer;
+// use Elementor\Core\Utils\Svg\Svg_Sanitizer;
+use Elementor\Core\Files\Assets\Files_Upload_Handler;
 
 defined( 'ABSPATH' ) or exit;
 
@@ -186,34 +187,21 @@ class Widgets_Loader {
 	 */
 	public function sanitize_uploaded_svg( $file ) {
 		if ( 'image/svg+xml' === $file['type'] ) {
-			$clean_svg = $this->sanitize_svg( $file['tmp_name'] );
 
-			if ( false !== $clean_svg ) {
-				file_put_contents( $file['tmp_name'], $clean_svg );
-			}           
+			/**
+			* @var \Elementor\Core\Files\Assets\Svg\Svg_Handler $svg_handler;
+			*/
+			$svg_handler = Plugin::instance()->assets_manager->get_asset( 'svg-handler' );
+
+			if ( Files_Upload_Handler::file_sanitizer_can_run() && ! $svg_handler->sanitize_svg( $file['tmp_name'] ) ) {
+
+				$file['error'] = esc_html__( 'Invalid SVG Format, file not uploaded for security reasons', 'header-footer-elementor' );
+			}          
 		}
+
+		error_log( print_r( $file, true ) );
 
 		return $file;
-	}
-	/**
-	 * Sanitize SVG content using enshrined\svgSanitize\Sanitizer.
-	 *
-	 * @param string $file_path Path to the SVG file.
-	 * @return string|bool Sanitized SVG content or false on failure.
-	 */
-	public function sanitize_svg( $file_path ) {
-		if ( ! class_exists( '\enshrined\svgSanitize\Sanitizer' ) ) {
-			return;
-		}
-		$sanitizer = new \enshrined\svgSanitize\Sanitizer();
-		$dirty_svg = file_get_contents( $file_path );
-		$clean_svg = $sanitizer->sanitize( $dirty_svg );
-
-		if ( false !== $clean_svg ) {
-			return $clean_svg;
-		} else {
-			return false;
-		}       
 	}
 	
 	/**
