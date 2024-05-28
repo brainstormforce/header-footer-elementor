@@ -195,11 +195,9 @@ class Widgets_Loader {
 
 			if ( Files_Upload_Handler::file_sanitizer_can_run() && ! $svg_handler->sanitize_svg( $file['tmp_name'] ) ) {
 
-				$file['error'] = esc_html__( 'Invalid SVG Format, file not uploaded for security reasons', 'header-footer-elementor' );
+				$file['error'] = esc_html__( 'Invalid SVG Format, file not uploaded for security reasons!', 'header-footer-elementor' );
 			}          
 		}
-
-		error_log( print_r( $file, true ) );
 
 		return $file;
 	}
