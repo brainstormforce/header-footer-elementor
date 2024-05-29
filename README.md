@@ -140,6 +140,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 ## Changelog ##
 
+### 1.6.35.1 ###
+- Improvement: Compatibility with latest Elementor and Elementor Pro 3.22 version.
+
 ### 1.6.34 ###
 - Navigation Menu - Submenus show up for few seconds during the page load
 - Navigation Menu - Huge icon show up for few seconds during the page load
