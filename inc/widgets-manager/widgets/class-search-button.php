@@ -978,9 +978,9 @@ class Search_Button extends Widget_Base {
 				'role'  => 'tablist',
 			]
 		);
-		?>
-		<?php 
-		// Check if Polylang fucntion is active.
+		
+		/** Check if Polylang fucntion is active with Search widget */ 
+		
 		if ( function_exists( 'pll_the_languages' ) ) { 
 			$default_language = pll_default_language();
 			$current_lang     = pll_current_language(); 
