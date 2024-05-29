@@ -978,21 +978,10 @@ class Search_Button extends Widget_Base {
 				'role'  => 'tablist',
 			]
 		);
-		?>
-		<?php 
-		/**
-		 * Check if the Polylang plugin is active.
-		 *
-		 * This function checks if the `pll_the_languages` function, provided by the Polylang plugin, exists.
-		 *
-		 * @return bool True if the Polylang plugin is active, false otherwise.
-		 */
-		function is_polylang_active() {
-			return function_exists( 'pll_the_languages' );
-		}
-
-		// Check if Polylang is active.
-		if ( is_polylang_active() ) { 
+		
+		/** Check if Polylang fucntion is active with Search widget */ 
+		
+		if ( function_exists( 'pll_the_languages' ) ) { 
 			$default_language = pll_default_language();
 			$current_lang     = pll_current_language(); 
 			$action_url       = $current_lang === $default_language ? home_url( '/' ) : home_url( '/' ) . $current_lang . '/';
