@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the Elementor Header & Footer Builder package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Elementor Header & Footer Builder 1.6.34\n"
+"Project-Id-Version: Elementor Header & Footer Builder 1.6.35\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/header-footer-elementor\n"
-"POT-Creation-Date: 2024-05-22 12:26:06+00:00\n"
+"POT-Creation-Date: 2024-05-29 07:30:13+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -240,66 +240,66 @@ msgstr ""
 msgid "Template %1$s is already assigned to the location %2$s"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:193
+#: inc/class-header-footer-elementor.php:179
 msgid ""
 "Hello! Seems like you have used Elementor Header & Footer Builder to build "
 "this website — Thanks a ton!"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:194
+#: inc/class-header-footer-elementor.php:180
 msgid ""
 "Could you please do us a BIG favor and give it a 5-star rating on "
 "WordPress? This would boost our motivation and help other users make a "
 "comfortable decision while choosing the Elementor Header & Footer Builder."
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:196
+#: inc/class-header-footer-elementor.php:182
 msgid "Ok, you deserve it"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:198
+#: inc/class-header-footer-elementor.php:184
 msgid "Nope, maybe later"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:199
+#: inc/class-header-footer-elementor.php:185
 msgid "I already did"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:262
+#: inc/class-header-footer-elementor.php:248
 #. translators: %s: html tags
 msgid ""
 "The %1$sElementor Header & Footer Builder%2$s plugin requires "
 "%1$sElementor%2$s plugin installed & activated."
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:269
+#: inc/class-header-footer-elementor.php:255
 msgid "Activate Elementor"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:274
-#: inc/class-header-footer-elementor.php:308
+#: inc/class-header-footer-elementor.php:260
+#: inc/class-header-footer-elementor.php:294
 msgid "Install Elementor"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:296
+#: inc/class-header-footer-elementor.php:282
 #. translators: %s: html tags
 msgid ""
 "The %1$sElementor Header & Footer Builder%2$s plugin has stopped working "
 "because you are using an older version of %1$sElementor%2$s plugin."
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:303
+#: inc/class-header-footer-elementor.php:289
 msgid "Update Elementor"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:334
+#: inc/class-header-footer-elementor.php:320
 #. translators: %s: html tags
 msgid ""
 "Thank you for installing %1$s Elementor Header & Footer Builder %2$s "
 "Plugin! Click here to %3$sget started. %4$s"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:493
+#: inc/class-header-footer-elementor.php:479
 #. translators: %s: html tags
 msgid "Theme Support"
 msgstr ""
@@ -734,7 +734,11 @@ msgstr ""
 msgid "The same display setting is already exist in %s post/s."
 msgstr ""
 
-#: inc/widgets-manager/class-widgets-loader.php:300
+#: inc/widgets-manager/class-widgets-loader.php:199
+msgid "Invalid SVG Format, file not uploaded for security reasons!"
+msgstr ""
+
+#: inc/widgets-manager/class-widgets-loader.php:287
 #: inc/widgets-manager/widgets/class-cart.php:51
 #: inc/widgets-manager/widgets/class-cart.php:651
 msgid "Cart"
