@@ -2,8 +2,7 @@
   "name": "nikschavan/header-footer-elementor",
   "description": "Create Header and Footer using Elementor page builder.",
   "require": {
-    "brainstormforce/astra-notices": "^1.1",
-    "enshrined/svg-sanitize": "^0.18.0"
+    "brainstormforce/astra-notices": "^1.1"
   },
   "extra": {
       "installer-paths": {

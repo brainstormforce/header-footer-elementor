@@ -220,6 +220,9 @@ class HFE_Admin {
 	 * Register Post type for Elementor Header & Footer Builder templates
 	 */
 	public function header_footer_posttype() {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
 		$labels = [
 			'name'               => esc_html__( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
 			'singular_name'      => esc_html__( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
@@ -304,15 +307,15 @@ class HFE_Admin {
 			<tbody>
 				<tr class="hfe-options-row type-of-template">
 					<td class="hfe-options-row-heading">
-						<label for="ehf_template_type"><?php _e( 'Type of Template', 'header-footer-elementor' ); ?></label>
+						<label for="ehf_template_type"><?php esc_html_e( 'Type of Template', 'header-footer-elementor' ); ?></label>
 					</td>
 					<td class="hfe-options-row-content">
 						<select name="ehf_template_type" id="ehf_template_type">
-							<option value="" <?php selected( $template_type, '' ); ?>><?php _e( 'Select Option', 'header-footer-elementor' ); ?></option>
-							<option value="type_header" <?php selected( $template_type, 'type_header' ); ?>><?php _e( 'Header', 'header-footer-elementor' ); ?></option>
-							<option value="type_before_footer" <?php selected( $template_type, 'type_before_footer' ); ?>><?php _e( 'Before Footer', 'header-footer-elementor' ); ?></option>
-							<option value="type_footer" <?php selected( $template_type, 'type_footer' ); ?>><?php _e( 'Footer', 'header-footer-elementor' ); ?></option>
-							<option value="custom" <?php selected( $template_type, 'custom' ); ?>><?php _e( 'Custom Block', 'header-footer-elementor' ); ?></option>
+							<option value="" <?php selected( $template_type, '' ); ?>><?php esc_html_e( 'Select Option', 'header-footer-elementor' ); ?></option>
+							<option value="type_header" <?php selected( $template_type, 'type_header' ); ?>><?php esc_html_e( 'Header', 'header-footer-elementor' ); ?></option>
+							<option value="type_before_footer" <?php selected( $template_type, 'type_before_footer' ); ?>><?php esc_html_e( 'Before Footer', 'header-footer-elementor' ); ?></option>
+							<option value="type_footer" <?php selected( $template_type, 'type_footer' ); ?>><?php esc_html_e( 'Footer', 'header-footer-elementor' ); ?></option>
+							<option value="custom" <?php selected( $template_type, 'custom' ); ?>><?php esc_html_e( 'Custom Block', 'header-footer-elementor' ); ?></option>
 						</select>
 					</td>
 				</tr>
@@ -320,8 +323,8 @@ class HFE_Admin {
 				<?php $this->display_rules_tab(); ?>
 				<tr class="hfe-options-row hfe-shortcode">
 					<td class="hfe-options-row-heading">
-						<label for="ehf_template_type"><?php _e( 'Shortcode', 'header-footer-elementor' ); ?></label>
-						<i class="hfe-options-row-heading-help dashicons dashicons-editor-help" title="<?php _e( 'Copy this shortcode and paste it into your post, page, or text widget content.', 'header-footer-elementor' ); ?>">
+						<label for="ehf_template_type"><?php esc_html_e( 'Shortcode', 'header-footer-elementor' ); ?></label>
+						<i class="hfe-options-row-heading-help dashicons dashicons-editor-help" title="<?php esc_attr_e( 'Copy this shortcode and paste it into your post, page, or text widget content.', 'header-footer-elementor' ); ?>">
 						</i>
 					</td>
 					<td class="hfe-options-row-content">
@@ -333,9 +336,9 @@ class HFE_Admin {
 				<tr class="hfe-options-row enable-for-canvas">
 					<td class="hfe-options-row-heading">
 						<label for="display-on-canvas-template">
-							<?php _e( 'Enable Layout for Elementor Canvas Template?', 'header-footer-elementor' ); ?>
+							<?php esc_html_e( 'Enable Layout for Elementor Canvas Template?', 'header-footer-elementor' ); ?>
 						</label>
-						<i class="hfe-options-row-heading-help dashicons dashicons-editor-help" title="<?php _e( 'Enabling this option will display this layout on pages using Elementor Canvas Template.', 'header-footer-elementor' ); ?>"></i>
+						<i class="hfe-options-row-heading-help dashicons dashicons-editor-help" title="<?php esc_attr_e( 'Enabling this option will display this layout on pages using Elementor Canvas Template.', 'header-footer-elementor' ); ?>"></i>
 					</td>
 					<td class="hfe-options-row-content">
 						<input type="checkbox" id="display-on-canvas-template" name="display-on-canvas-template" value="1" <?php checked( $display_on_canvas, true ); ?> />

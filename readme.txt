@@ -5,7 +5,7 @@ Donate link: https://www.paypal.me/BrainstormForce
 Requires at least: 4.4
 Requires PHP: 5.4
 Tested up to: 6.5
-Stable tag: 1.6.31
+Stable tag: 1.6.35
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -139,6 +139,22 @@ This same applies when you are creating your Header/Footer using this plugin.
 5. Default widgets available with Elementor Header & Footer Builder.
 
 == Changelog ==
+
+= 1.6.35 = 
+- Improvement: Compatibility with latest Elementor and Elementor Pro 3.22 version.
+- Improvement: Updated sanitize SVG function.
+- Fix: Search - Compatibility with Polylang switcher.
+
+= 1.6.34 = 
+- Fix: Navigation Menu - Submenus show up for few seconds during the page load
+- Fix: Navigation Menu - Huge icon show up for few seconds during the page load
+- Fix: Navigation Menu - Unable to click on submenu when top distance is added for dropdown
+
+= 1.6.33 =
+- Fix: Unable to edit the Header/Footer with Elementor in few cases.
+
+= 1.6.32 =
+- Fix: Improved plugin security.
 
 = 1.6.31 =
 - Fix: Conflict with WP SVG Images plugin.

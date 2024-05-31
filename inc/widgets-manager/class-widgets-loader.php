@@ -13,7 +13,7 @@ namespace HFE\WidgetsManager;
 
 use Elementor\Plugin;
 use Elementor\Utils;
-use enshrined\svgSanitize\Sanitizer;
+use Elementor\Core\Files\Assets\Files_Upload_Handler;
 
 defined( 'ABSPATH' ) or exit;
 
@@ -55,6 +55,9 @@ class Widgets_Loader {
 
 		// Register widgets.
 		add_action( 'elementor/widgets/register', [ $this, 'register_widgets' ] );
+
+		// Register widgets script.
+		add_action( 'elementor/frontend/after_register_scripts', [ $this, 'register_widget_scripts' ] );
 
 		// Add svg support.
 		add_filter( 'upload_mimes', [ $this, 'hfe_svg_mime_types' ] ); // PHPCS:Ignore WordPressVIPMinimum.Hooks.RestrictedHooks.upload_mimes
@@ -120,7 +123,6 @@ class Widgets_Loader {
 	 * @access public
 	 */
 	public function include_widgets_files() {
-		$js_files    = $this->get_widget_script();
 		$widget_list = $this->get_widget_list();
 
 		if ( ! empty( $widget_list ) ) {
@@ -128,6 +130,19 @@ class Widgets_Loader {
 				require_once HFE_DIR . '/inc/widgets-manager/widgets/class-' . $data . '.php';
 			}
 		}
+
+	}
+
+	/**
+	 * Include Widgets JS files
+	 *
+	 * Load widgets JS files
+	 *
+	 * @since x.x.x
+	 * @access public
+	 */
+	public function include_js_files() {
+		$js_files = $this->get_widget_script();
 
 		if ( ! empty( $js_files ) ) {
 			foreach ( $js_files as $handle => $data ) {
@@ -171,34 +186,21 @@ class Widgets_Loader {
 	 */
 	public function sanitize_uploaded_svg( $file ) {
 		if ( 'image/svg+xml' === $file['type'] ) {
-			$clean_svg = $this->sanitize_svg( $file['tmp_name'] );
 
-			if ( false !== $clean_svg ) {
-				file_put_contents( $file['tmp_name'], $clean_svg );
-			}           
+			/**
+			 * SVG Handler instance.
+			 * 
+			 * @var \Elementor\Core\Files\Assets\Svg\Svg_Handler $svg_handler;
+			 */
+			$svg_handler = Plugin::instance()->assets_manager->get_asset( 'svg-handler' );
+
+			if ( Files_Upload_Handler::file_sanitizer_can_run() && ! $svg_handler->sanitize_svg( $file['tmp_name'] ) ) {
+
+				$file['error'] = esc_html__( 'Invalid SVG Format, file not uploaded for security reasons!', 'header-footer-elementor' );
+			}          
 		}
 
 		return $file;
-	}
-	/**
-	 * Sanitize SVG content using enshrined\svgSanitize\Sanitizer.
-	 *
-	 * @param string $file_path Path to the SVG file.
-	 * @return string|bool Sanitized SVG content or false on failure.
-	 */
-	public function sanitize_svg( $file_path ) {
-		if ( ! class_exists('\enshrined\svgSanitize\Sanitizer')) {
-			return;
-		}
-		$sanitizer = new \enshrined\svgSanitize\Sanitizer();
-		$dirty_svg = file_get_contents( $file_path );
-		$clean_svg = $sanitizer->sanitize( $dirty_svg );
-
-		if ( false !== $clean_svg ) {
-			return $clean_svg;
-		} else {
-			return false;
-		}       
 	}
 	
 	/**
@@ -245,6 +247,15 @@ class Widgets_Loader {
 			Plugin::instance()->widgets_manager->register( new Widgets\Cart() );
 		}
 
+	}
+
+	/**
+	 * Register module required js on elementor's action.
+	 *
+	 * @since 0.0.1
+	 */
+	public function register_widget_scripts() {
+		$this->include_js_files();
 	}
 
 	/**

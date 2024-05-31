@@ -111,20 +111,6 @@ class Header_Footer_Elementor {
 				require_once HFE_DIR . 'admin/bsf-analytics/class-bsf-analytics-loader.php';
 			}
 
-			if ( ! class_exists( 'Sanitizer' ) && ! class_exists( 'enshrined\svgSanitize\Sanitizer' ) ) {
-				require_once HFE_DIR . 'inc/lib/svg-sanitizer/src/Sanitizer.php';
-				require_once HFE_DIR . 'inc/lib/svg-sanitizer/src/data/AttributeInterface.php';
-				require_once HFE_DIR . 'inc/lib/svg-sanitizer/src/data/TagInterface.php';
-				require_once HFE_DIR . 'inc/lib/svg-sanitizer/src/data/AllowedAttributes.php';
-				require_once HFE_DIR . 'inc/lib/svg-sanitizer/src/data/AllowedTags.php';
-				require_once HFE_DIR . 'inc/lib/svg-sanitizer/src/data/XPath.php';
-				require_once HFE_DIR . 'inc/lib/svg-sanitizer/src/ElementReference/Resolver.php';
-				require_once HFE_DIR . 'inc/lib/svg-sanitizer/src/ElementReference/Subject.php';
-				require_once HFE_DIR . 'inc/lib/svg-sanitizer/src/ElementReference/Usage.php';
-				require_once HFE_DIR . 'inc/lib/svg-sanitizer/src/Exceptions/NestingException.php';
-				require_once HFE_DIR . 'inc/lib/svg-sanitizer/src/Helper.php';
-			}
-
 			$bsf_analytics = BSF_Analytics_Loader::get_instance();
 
 			$bsf_analytics->set_entity(
