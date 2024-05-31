@@ -250,6 +250,19 @@ namespace {
         }
     }
 }
+
+namespace Elementor {
+    
+    if (!class_exists('Elementor\Widget_Base')) {
+        abstract class Widget_Base
+        {
+            // Empty class definition for PHPStan
+        }
+    }
+    
+    // Add any other necessary stub definitions below
+    
+}
 namespace HFE\Themes {
     /**
      * Class Settings Page.
@@ -3145,15 +3158,6 @@ namespace {
      * @access public
      */
     function _is_elementor_installed()
-    {
-    }
-    /**
-     * Get timezone string.
-     *
-     * @return string timezone string.
-     * @since 1.0.0
-     */
-    function wp_timezone_string()
     {
     }
     /**

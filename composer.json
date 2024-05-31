@@ -26,7 +26,8 @@
     "format": "phpcbf",
     "lint": "phpcs",
     "gen-stubs": "vendor/bin/generate-stubs artifact/phpstan/header-footer-elementor/ --out=tests/php/stubs/hfe-stubs.php && rm -rf artifact/phpstan",
-    "phpstan": "vendor/bin/phpstan --memory-limit=2048M analyse"
+    "phpstan": "vendor/bin/phpstan --memory-limit=2048M analyse",
+    "update-stubs": "rm -f tests/php/stubs/hfe-stubs.php && bash bin/build-folder-phpstan.sh && composer gen-stubs"
 
   },
   "config": {
