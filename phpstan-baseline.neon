@@ -1,0 +1,544 @@
+parameters:
+	reportUnmatchedIgnoredErrors: false
+	ignoreErrors:
+		-
+			message: "#^Call to static method get_setting() on an unknown class FLTheme\\.$#"
+			count: 1
+			path: themes/bb-theme/class-hfe-bb-theme-compat.php
+
+		-
+			message: "#^Static property CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\AbSteps\\:\\:\\$instance \\(object\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: admin-core/ajax/ab-steps.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:get_error_msg\\(\\)\\.$#"
+			count: 1
+			path: admin-core/ajax/ajax-base.php
+
+		-
+			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\AjaxBase\\:\\:init_ajax_events\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin-core/ajax/ajax-base.php
+
+		-
+			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\AjaxBase\\:\\:init_ajax_events\\(\\) has parameter \\$ajax_events with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: admin-core/ajax/ajax-base.php
+
+		-
+			message: "#^Parameter \\#2 \\$callback of function add_action expects callable\\(\\)\\: mixed, array\\{\\$this\\(CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\AjaxBase\\), mixed\\} given\\.$#"
+			count: 1
+			path: admin-core/ajax/ajax-base.php
+
+		-
+			message: "#^Property CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\AjaxErrors\\:\\:\\$errors type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: admin-core/ajax/ajax-errors.php
+
+		-
+			message: "#^Static property CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\AjaxErrors\\:\\:\\$instance \\(object\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: admin-core/ajax/ajax-errors.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:register_ajax_events\\(\\)\\.$#"
+			count: 1
+			path: admin-core/ajax/ajax-init.php
+
+		-
+			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\AjaxInit\\:\\:register_all_ajax_events\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin-core/ajax/ajax-init.php
+
+		-
+			message: "#^Static property CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\AjaxInit\\:\\:\\$instance \\(object\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: admin-core/ajax/ajax-init.php
+
+		-
+			message: "#^Argument of an invalid type array\\<int, string\\>\\|false supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: admin-core/ajax/common-settings.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:add_cap\\(\\)\\.$#"
+			count: 4
+			path: admin-core/ajax/common-settings.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:remove_cap\\(\\)\\.$#"
+			count: 1
+			path: admin-core/ajax/common-settings.php
+
+		-
+			message: "#^Constant CARTFLOWS_FLOW_PERMALINK_SLUG not found\\.$#"
+			count: 2
+			path: admin-core/ajax/common-settings.php
+
+		-
+			message: "#^Constant CARTFLOWS_STEP_PERMALINK_SLUG not found\\.$#"
+			count: 2
+			path: admin-core/ajax/common-settings.php
+
+		-
+			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\CommonSettings\\:\\:regenerate_css_for_steps\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin-core/ajax/common-settings.php
+
+		-
+			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\CommonSettings\\:\\:sanitize_form_inputs\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin-core/ajax/common-settings.php
+
+		-
+			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\CommonSettings\\:\\:sanitize_form_inputs\\(\\) has parameter \\$input_settings with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: admin-core/ajax/common-settings.php
+
+		-
+			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\CommonSettings\\:\\:user_role_management\\(\\) has parameter \\$new_settings with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: admin-core/ajax/common-settings.php
+
+		-
+			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\CommonSettings\\:\\:user_role_management\\(\\) has parameter \\$old_settings with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: admin-core/ajax/common-settings.php
+
+		-
+			message: "#^Parameter \\#1 \\$input_settings of method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\CommonSettings\\:\\:sanitize_form_inputs\\(\\) expects array, string given\\.$#"
+			count: 6
+			path: admin-core/ajax/common-settings.php
+
+		-
+			message: "#^Parameter \\#2 \\$defaults of function wp_parse_args expects array, mixed given\\.$#"
+			count: 1
+			path: admin-core/ajax/common-settings.php
+
+		-
+			message: "#^Static property CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\CommonSettings\\:\\:\\$instance \\(object\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: admin-core/ajax/common-settings.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:get_log_files\\(\\)\\.$#"
+			count: 1
+			path: admin-core/ajax/debugger.php
+
+		-
+			message: "#^Constant CARTFLOWS_LOG_DIR not found\\.$#"
+			count: 4
+			path: admin-core/ajax/debugger.php
+
+		-
+			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\Debugger\\:\\:delete_cf_log\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin-core/ajax/debugger.php
+
+		-
+			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\Debugger\\:\\:download_cf_log\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin-core/ajax/debugger.php
+
+		-
+			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\Debugger\\:\\:show_cf_log\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin-core/ajax/debugger.php
+
+		-
+			message: "#^Static property CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\Debugger\\:\\:\\$file_deleted \\(object\\) does not accept default value of type false\\.$#"
+			count: 1
+			path: admin-core/ajax/debugger.php
+
+		-
+			message: "#^Static property CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\Debugger\\:\\:\\$file_deleted \\(object\\) does not accept true\\.$#"
+			count: 1
+			path: admin-core/ajax/debugger.php
+
+		-
+			message: "#^Static property CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\Debugger\\:\\:\\$file_deleted is never read, only written\\.$#"
+			count: 1
+			path: admin-core/ajax/debugger.php
+
+		-
+			message: "#^Static property CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\Debugger\\:\\:\\$instance \\(object\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: admin-core/ajax/debugger.php
+
+		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 1
+			path: admin-core/ajax/debugger.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$is_woo_active\\.$#"
+			count: 1
+			path: admin-core/ajax/flows-stats.php
+
+		-
+			message: "#^Argument of an invalid type array\\<WC_Order\\>\\|stdClass supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: admin-core/ajax/flows-stats.php
+
+		-
+			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\FlowsStats\\:\\:get_all_flows_stats\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin-core/ajax/flows-stats.php
+
+		-
+			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\FlowsStats\\:\\:get_recent_orders\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: admin-core/ajax/flows-stats.php
+
+		-
+			message: "#^Parameter \\#2 \\$timestamp of function gmdate expects int, int\\|false given\\.$#"
+			count: 2
+			path: admin-core/ajax/flows-stats.php
+
+		-
+			message: "#^Static property CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\FlowsStats\\:\\:\\$instance \\(object\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: admin-core/ajax/flows-stats.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$options\\.$#"
+			count: 1
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:get_flow_export_data\\(\\)\\.$#"
+			count: 1
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Cannot access property \\$comment_status on WP_Post\\|null\\.$#"
+			count: 1
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Cannot access property \\$menu_order on WP_Post\\|null\\.$#"
+			count: 1
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Cannot access property \\$ping_status on WP_Post\\|null\\.$#"
+			count: 1
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Cannot access property \\$post_content on WP_Post\\|null\\.$#"
+			count: 1
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Cannot access property \\$post_excerpt on WP_Post\\|null\\.$#"
+			count: 1
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Cannot access property \\$post_name on WP_Post\\|null\\.$#"
+			count: 1
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Cannot access property \\$post_parent on WP_Post\\|null\\.$#"
+			count: 1
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Cannot access property \\$post_password on WP_Post\\|null\\.$#"
+			count: 1
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Cannot access property \\$post_status on WP_Post\\|null\\.$#"
+			count: 1
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Cannot access property \\$post_title on WP_Post\\|null\\.$#"
+			count: 2
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Cannot access property \\$post_type on WP_Post\\|null\\.$#"
+			count: 1
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Cannot access property \\$to_ping on WP_Post\\|null\\.$#"
+			count: 1
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Constant CARTFLOWS_TAXONOMY_STEP_FLOW not found\\.$#"
+			count: 10
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Constant CARTFLOWS_TAXONOMY_STEP_TYPE not found\\.$#"
+			count: 1
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Function wp_trash_post invoked with 2 parameters, 0\\-1 required\\.$#"
+			count: 7
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\Flows\\:\\:clone_flow\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\Flows\\:\\:delete_flow\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\Flows\\:\\:delete_flows_permanently\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\Flows\\:\\:export_flows_in_bulk\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\Flows\\:\\:reorder_flow_steps\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\Flows\\:\\:restore_flow\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\Flows\\:\\:save_flow_meta_settings\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\Flows\\:\\:trash_flow\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\Flows\\:\\:trash_flows_in_bulk\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\Flows\\:\\:update_flow_post_status\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\Flows\\:\\:update_flow_title\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\Flows\\:\\:update_status\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Parameter \\#1 \\$post_id of function wp_trash_post expects int, string given\\.$#"
+			count: 3
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Parameter \\#1 \\$post_id of function wp_untrash_post expects int, string given\\.$#"
+			count: 1
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Parameter \\#1 \\$term of function wp_delete_term expects int, string given\\.$#"
+			count: 1
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Parameter \\#2 \\$terms of function wp_set_object_terms expects array\\|int\\|string, array\\<int, string\\>\\|WP_Error given\\.$#"
+			count: 1
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Parameter \\#2 \\$terms of function wp_set_object_terms expects array\\|int\\|string, mixed given\\.$#"
+			count: 1
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Static property CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\Flows\\:\\:\\$instance \\(object\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Strict comparison using \\=\\=\\= between null and WP_Post will always evaluate to false\\.$#"
+			count: 1
+			path: admin-core/ajax/flows.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$global_primary_color\\.$#"
+			count: 2
+			path: admin-core/ajax/importer.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$is_woo_active\\.$#"
+			count: 1
+			path: admin-core/ajax/importer.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$logger\\.$#"
+			count: 20
+			path: admin-core/ajax/importer.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$photo_src\\.$#"
+			count: 2
+			path: admin-core/ajax/importer.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$utils\\.$#"
+			count: 1
+			path: admin-core/ajax/importer.php
+
+		-
+			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: admin-core/ajax/importer.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:create_step\\(\\)\\.$#"
+			count: 2
+			path: admin-core/ajax/importer.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:get_all_flow_export_data\\(\\)\\.$#"
+			count: 1
+			path: admin-core/ajax/importer.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:get_flow\\(\\)\\.$#"
+			count: 3
+			path: admin-core/ajax/importer.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:get_flow_export_data\\(\\)\\.$#"
+			count: 1
+			path: admin-core/ajax/importer.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:get_flows_and_steps\\(\\)\\.$#"
+			count: 1
+			path: admin-core/ajax/importer.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:get_last_export_checksums\\(\\)\\.$#"
+			count: 1
+			path: admin-core/ajax/importer.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:get_meta_keys_to_exclude_from_import\\(\\)\\.$#"
+			count: 1
+			path: admin-core/ajax/importer.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:get_plugin_status\\(\\)\\.$#"
+			count: 3
+			path: admin-core/ajax/importer.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:get_template\\(\\)\\.$#"
+			count: 2
+			path: admin-core/ajax/importer.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:get_total_requests\\(\\)\\.$#"
+			count: 1
+			path: admin-core/ajax/importer.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:import_from_json_data\\(\\)\\.$#"
+			count: 1
+			path: admin-core/ajax/importer.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:import_sites\\(\\)\\.$#"
+			count: 1
+			path: admin-core/ajax/importer.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:process_batch\\(\\)\\.$#"
+			count: 1
+			path: admin-core/ajax/importer.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:test_cron\\(\\)\\.$#"
+			count: 1
+			path: admin-core/ajax/importer.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:update_latest_checksums\\(\\)\\.$#"
+			count: 1
+			path: admin-core/ajax/importer.php
+
+		-
+			message: "#^Call to function is_wp_error\\(\\) with int\\<0, max\\> will always evaluate to false\\.$#"
+			count: 3
+			path: admin-core/ajax/importer.php
+
+		-
+			message: "#^Call to static method get_layout_data\\(\\) on an unknown class FLBuilderModel\\.$#"
+			count: 1
+			path: admin-core/ajax/importer.php
+
+		-
+			message: "#^Cannot access offset 'ID' on mixed\\.$#"
+			count: 3
+			path: admin-core/ajax/importer.php
+
+		-
+			message: "#^Cannot access offset 'steps' on mixed\\.$#"
+			count: 2
+			path: admin-core/ajax/importer.php
+
+		-
+			message: "#^Cannot access offset 'title' on mixed\\.$#"
+			count: 1
+			path: admin-core/ajax/importer.php
+
+		-
+			message: "#^Cannot access offset 'type' on mixed\\.$#"
+			count: 2
+			path: admin-core/ajax/importer.php
+
+		-
+			message: "#^Cannot access property \\$message on mixed\\.$#"
+			count: 1
+			path: admin-core/ajax/importer.php
+
+		-
+			message: "#^Cannot access property \\$post_content on WP_Post\\|null\\.$#"
+			count: 1
+			path: admin-core/ajax/importer.php
+
+		-
+			message: "#^Comparison operation \"\\>\" between int\\<1, max\\> and 0 is always true\\.$#"
+			count: 1
+			path: admin-core/ajax/importer.php
+
+		-
+			message: "#^Constant CARTFLOWS_SLUG not found\\.$#"
+			count: 2
+			path: admin-core/ajax/importer.php
+
+
+		#common errors
+
+		- '#type has no value type specified in iterable type array\.$#'
+		- '#with no value type specified in iterable type array\.$#'
+		- "#^While loop condition is always true\\.$#"

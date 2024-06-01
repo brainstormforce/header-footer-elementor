@@ -21,8 +21,10 @@ class HFE_Default_Compat {
 
 	/**
 	 * Run all the Actions / Filters.
+	 *
+	 * @return void
 	 */
-	public function hooks() {
+	public function hooks(): void {
 		if ( hfe_header_enabled() ) {
 			// Replace header.php template.
 			add_action( 'get_header', [ $this, 'override_header' ] );
@@ -53,7 +55,7 @@ class HFE_Default_Compat {
 	 *
 	 * @return void
 	 */
-	public function override_header() {
+	public function override_header(): void {
 		require HFE_DIR . 'themes/default/hfe-header.php';
 		$templates   = [];
 		$templates[] = 'header.php';
@@ -71,7 +73,7 @@ class HFE_Default_Compat {
 	 *
 	 * @return void
 	 */
-	public function override_footer() {
+	public function override_footer(): void {
 		require HFE_DIR . 'themes/default/hfe-footer.php';
 		$templates   = [];
 		$templates[] = 'footer.php';

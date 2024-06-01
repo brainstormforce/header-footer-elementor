@@ -13,14 +13,16 @@ class HFE_Storefront_Compat {
 	/**
 	 * Instance of HFE_Storefront_Compat.
 	 *
-	 * @var HFE_Storefront_Compat
+	 * @var ?HFE_Storefront_Compat
 	 */
-	private static $instance;
+	private static $instance = null;
 
 	/**
 	 *  Initiator
+	 *
+	 *  @return HFE_Storefront_Compat
 	 */
-	public static function instance() {
+	public static function instance(): HFE_Storefront_Compat {
 		if ( ! isset( self::$instance ) ) {
 			self::$instance = new HFE_Storefront_Compat();
 
@@ -32,8 +34,10 @@ class HFE_Storefront_Compat {
 
 	/**
 	 * Run all the Actions / Filters.
+	 *
+	 * @return void
 	 */
-	public function hooks() {
+	public function hooks(): void {
 		if ( hfe_header_enabled() ) {
 			add_action( 'template_redirect', [ $this, 'setup_header' ], 10 );
 			add_action( 'storefront_before_header', 'hfe_render_header', 500 );
@@ -59,7 +63,7 @@ class HFE_Storefront_Compat {
 	 * @since 1.2.0
 	 * @return void
 	 */
-	public function styles() {
+	public function styles(): void {
 		$css = '';
 
 		if ( true === hfe_header_enabled() ) {
@@ -79,8 +83,10 @@ class HFE_Storefront_Compat {
 
 	/**
 	 * Disable header from the theme.
+	 *
+	 * @return void
 	 */
-	public function setup_header() {
+	public function setup_header(): void {
 		for ( $priority = 0; $priority < 200; $priority ++ ) {
 			remove_all_actions( 'storefront_header', $priority );
 		}
@@ -88,8 +94,10 @@ class HFE_Storefront_Compat {
 
 	/**
 	 * Disable footer from the theme.
+	 *
+	 * @return void
 	 */
-	public function setup_footer() {
+	public function setup_footer(): void {
 		for ( $priority = 0; $priority < 200; $priority ++ ) {
 			remove_all_actions( 'storefront_footer', $priority );
 		}
