@@ -580,7 +580,7 @@
 		if ( $( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).hasClass( 'hfe-active-menu-full-width' ) ){
 
 			$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).next().css( 'left', '0' );
-
+			console.log('no');
 			var width = $( '.elementor-element-' + id ).closest('.elementor-section').outerWidth();
 			var sec_pos = $( '.elementor-element-' + id ).closest('.elementor-section').offset().left - $( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).next().offset().left;
 			$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).next().css( 'width', width + 'px' );
@@ -624,11 +624,10 @@
 
 				if ( 'yes' == full_width ){
 
-					$this.addClass( 'hfe-active-menu-full-width' );
+					$this.removeClass( 'hfe-active-menu-full-width' );
 
 					var width = $( '.elementor-element-' + id ).closest('.elementor-section').outerWidth();
-					var sec_pos = $( '.elementor-element-' + id ).closest('.elementor-section').offset().left - $selector.offset().left;
-				
+					var sec_pos = $( '.elementor-element-' + id ).closest('.elementor-section').offset() - $selector.offset();
 					$selector.css( 'width', width + 'px' );
 					$selector.css( 'left', sec_pos + 'px' );
 					$selector.css( 'z-index', '9999' );
