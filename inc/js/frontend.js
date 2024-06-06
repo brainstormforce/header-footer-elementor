@@ -624,11 +624,10 @@
 
 				if ( 'yes' == full_width ){
 
-					$this.addClass( 'hfe-active-menu-full-width' );
+					$this.removeClass( 'hfe-active-menu-full-width' );
 
 					var width = $( '.elementor-element-' + id ).closest('.elementor-section').outerWidth();
-					var sec_pos = $( '.elementor-element-' + id ).closest('.elementor-section').offset().left - $selector.offset().left;
-				
+					var sec_pos = $( '.elementor-element-' + id ).closest('.elementor-section').offset() - $selector.offset();
 					$selector.css( 'width', width + 'px' );
 					$selector.css( 'left', sec_pos + 'px' );
 					$selector.css( 'z-index', '9999' );
