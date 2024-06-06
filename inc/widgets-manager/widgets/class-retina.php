@@ -443,7 +443,7 @@ class Retina extends Widget_Base {
 			<img src="<?php echo esc_url( $retina_image ); ?>" <?php echo esc_attr( $caption_attrs ); ?> <?php echo esc_attr( $link_attrs ); ?>>
 		</picture>
 		<?php
-		echo esc_html( $caption_html );
+		echo wp_kses_post( $caption_html );
 		?>
 	</div>
 
