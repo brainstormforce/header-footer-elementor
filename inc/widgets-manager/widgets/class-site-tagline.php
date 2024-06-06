@@ -81,7 +81,7 @@ class Site_Tagline extends Widget_Base {
 	 * @return array Widget categories.
 	 */
 	public function get_categories() {
-		return [ 'hfe-widgets' ];
+		return array( 'hfe-widgets' );
 	}
 
 	/**
@@ -89,6 +89,7 @@ class Site_Tagline extends Widget_Base {
 	 *
 	 * @since 1.5.7
 	 * @access protected
+	 * @return void
 	 */
 	protected function register_controls() {
 		$this->register_general_content_controls();
@@ -99,156 +100,157 @@ class Site_Tagline extends Widget_Base {
 	 *
 	 * @since 1.3.0
 	 * @access protected
+	 * @return void
 	 */
 	protected function register_general_content_controls() {
 
 		$this->start_controls_section(
 			'section_general_fields',
-			[
+			array(
 				'label' => __( 'Style', 'header-footer-elementor' ),
-			]
+			)
 		);
 
 		$this->add_control(
 			'before',
-			[
+			array(
 				'label'   => __( 'Before Title Text', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::TEXTAREA,
 				'rows'    => '1',
-				'dynamic' => [
+				'dynamic' => array(
 					'active' => true,
-				],
-			]
+				),
+			)
 		);
 
 		$this->add_control(
 			'after',
-			[
+			array(
 				'label'   => __( 'After Title Text', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::TEXTAREA,
 				'rows'    => '1',
-				'dynamic' => [
+				'dynamic' => array(
 					'active' => true,
-				],
-			]
+				),
+			)
 		);
 
 		$this->add_control(
 			'icon',
-			[
+			array(
 				'label'       => __( 'Icon', 'header-footer-elementor' ),
 				'type'        => Controls_Manager::ICONS,
 				'label_block' => 'true',
-			]
+			)
 		);
 
 		$this->add_control(
 			'icon_indent',
-			[
+			array(
 				'label'     => __( 'Icon Spacing', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::SLIDER,
-				'range'     => [
-					'px' => [
+				'range'     => array(
+					'px' => array(
 						'max' => 50,
-					],
-				],
-				'condition' => [
+					),
+				),
+				'condition' => array(
 					'icon[value]!' => '',
-				],
-				'selectors' => [
+				),
+				'selectors' => array(
 					'{{WRAPPER}} .hfe-icon' => 'margin-right: {{SIZE}}{{UNIT}};',
-				],
-			]
+				),
+			)
 		);
 
 		$this->add_responsive_control(
 			'heading_text_align',
-			[
+			array(
 				'label'              => __( 'Alignment', 'header-footer-elementor' ),
 				'type'               => Controls_Manager::CHOOSE,
-				'options'            => [
-					'left'    => [
+				'options'            => array(
+					'left'    => array(
 						'title' => __( 'Left', 'header-footer-elementor' ),
 						'icon'  => 'fa fa-align-left',
-					],
-					'center'  => [
+					),
+					'center'  => array(
 						'title' => __( 'Center', 'header-footer-elementor' ),
 						'icon'  => 'fa fa-align-center',
-					],
-					'right'   => [
+					),
+					'right'   => array(
 						'title' => __( 'Right', 'header-footer-elementor' ),
 						'icon'  => 'fa fa-align-right',
-					],
-					'justify' => [
+					),
+					'justify' => array(
 						'title' => __( 'Justify', 'header-footer-elementor' ),
 						'icon'  => 'fa fa-align-justify',
-					],
-				],
-				'selectors'          => [
+					),
+				),
+				'selectors'          => array(
 					'{{WRAPPER}} .hfe-site-tagline' => 'text-align: {{VALUE}};',
-				],
+				),
 				'frontend_available' => true,
-			]
+			)
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			[
+			array(
 				'name'     => 'tagline_typography',
-				'global'   => [
+				'global'   => array(
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
-				],
+				),
 				'selector' => '{{WRAPPER}} .hfe-site-tagline',
-			]
+			)
 		);
 		$this->add_control(
 			'tagline_color',
-			[
+			array(
 				'label'     => __( 'Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'global'    => [
+				'global'    => array(
 					'default' => Global_Colors::COLOR_SECONDARY,
-				],
-				'selectors' => [
+				),
+				'selectors' => array(
 					'{{WRAPPER}} .hfe-site-tagline' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .hfe-icon i'       => 'color: {{VALUE}};',
 					'{{WRAPPER}} .hfe-icon svg'     => 'fill: {{VALUE}};',
-				],
-			]
+				),
+			)
 		);
 
 		$this->add_control(
 			'icon_color',
-			[
+			array(
 				'label'     => __( 'Icon Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'global'    => [
+				'global'    => array(
 					'default' => Global_Colors::COLOR_PRIMARY,
-				],
-				'condition' => [
+				),
+				'condition' => array(
 					'icon[value]!' => '',
-				],
+				),
 				'default'   => '',
-				'selectors' => [
+				'selectors' => array(
 					'{{WRAPPER}} .hfe-icon i'   => 'color: {{VALUE}};',
 					'{{WRAPPER}} .hfe-icon svg' => 'fill: {{VALUE}};',
-				],
-			]
+				),
+			)
 		);
 		$this->add_control(
 			'icons_hover_color',
-			[
+			array(
 				'label'     => __( 'Icon Hover Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'condition' => [
+				'condition' => array(
 					'icon[value]!' => '',
-				],
+				),
 				'default'   => '',
-				'selectors' => [
+				'selectors' => array(
 					'{{WRAPPER}} .hfe-icon:hover i'   => 'color: {{VALUE}};',
 					'{{WRAPPER}} .hfe-icon:hover svg' => 'fill: {{VALUE}};',
-				],
-			]
+				),
+			)
 		);
 
 		$this->end_controls_section();
@@ -268,7 +270,7 @@ class Site_Tagline extends Widget_Base {
 		<div class="hfe-site-tagline hfe-site-tagline-wrapper">
 			<?php if ( '' !== $settings['icon']['value'] ) { ?>
 				<span class="hfe-icon">
-					<?php \Elementor\Icons_Manager::render_icon( $settings['icon'], [ 'aria-hidden' => 'true' ] ); ?>					
+					<?php \Elementor\Icons_Manager::render_icon( $settings['icon'], array( 'aria-hidden' => 'true' ) ); ?>					
 				</span>
 			<?php } ?>
 			<span>
@@ -295,6 +297,7 @@ class Site_Tagline extends Widget_Base {
 	 *
 	 * @since 1.3.0
 	 * @access protected
+	 * @return void
 	 */
 	protected function content_template() {
 		?>
