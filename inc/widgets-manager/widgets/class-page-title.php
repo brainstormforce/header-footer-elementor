@@ -84,7 +84,7 @@ class Page_Title extends Widget_Base {
 	 * @return array Widget categories.
 	 */
 	public function get_categories() {
-		return [ 'hfe-widgets' ];
+		return array( 'hfe-widgets' );
 	}
 
 	/**
@@ -92,6 +92,7 @@ class Page_Title extends Widget_Base {
 	 *
 	 * @since 1.5.7
 	 * @access protected
+	 * @return void
 	 */
 	protected function register_controls() {
 		$this->register_content_page_title_controls();
@@ -103,170 +104,171 @@ class Page_Title extends Widget_Base {
 	 *
 	 * @since 1.3.0
 	 * @access protected
+	 * @return void
 	 */
 	protected function register_content_page_title_controls() {
 		$this->start_controls_section(
 			'section_general_fields',
-			[
+			array(
 				'label' => __( 'Title', 'header-footer-elementor' ),
-			]
+			)
 		);
 
 		$this->add_control(
 			'archive_title_note',
-			[
+			array(
 				'type'            => Controls_Manager::RAW_HTML,
 				/* translators: %1$s doc link */
 				'raw'             => sprintf( __( '<b>Note:</b> Archive page title will be visible on frontend.', 'header-footer-elementor' ) ),
 				'content_classes' => 'elementor-panel-alert elementor-panel-alert-warning',
-			]
+			)
 		);
 
 		$this->add_control(
 			'before',
-			[
+			array(
 				'label'   => __( 'Before Title Text', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::TEXT,
-				'dynamic' => [
+				'dynamic' => array(
 					'active' => true,
-				],
-			]
+				),
+			)
 		);
 
 		$this->add_control(
 			'after',
-			[
+			array(
 				'label'   => __( 'After Title Text', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::TEXT,
-				'dynamic' => [
+				'dynamic' => array(
 					'active' => true,
-				],
-			]
+				),
+			)
 		);
 
 		$this->add_control(
 			'new_page_title_select_icon',
-			[
+			array(
 				'label'       => __( 'Select Icon', 'header-footer-elementor' ),
 				'type'        => Controls_Manager::ICONS,
 				'render_type' => 'template',
-			]
+			)
 		);
 
 		$this->add_control(
 			'page_title_icon_indent',
-			[
+			array(
 				'label'     => __( 'Icon Spacing', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::SLIDER,
-				'range'     => [
-					'px' => [
+				'range'     => array(
+					'px' => array(
 						'max' => 50,
-					],
-				],
-				'condition' => [
+					),
+				),
+				'condition' => array(
 					'new_page_title_select_icon[value]!' => '',
-				],
-				'selectors' => [
+				),
+				'selectors' => array(
 					'{{WRAPPER}} .hfe-page-title-icon' => 'margin-right: {{SIZE}}{{UNIT}};',
-				],
-			]
+				),
+			)
 		);
 
 		$this->add_control(
 			'page_custom_link',
-			[
+			array(
 				'label'   => __( 'Link', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::SELECT,
-				'options' => [
+				'options' => array(
 					'custom'  => __( 'Custom URL', 'header-footer-elementor' ),
 					'default' => __( 'Default', 'header-footer-elementor' ),
 					'none'    => __( 'None', 'header-footer-elementor' ),
-				],
+				),
 				'default' => 'default',
-			]
+			)
 		);
 
 		$this->add_control(
 			'page_heading_link',
-			[
+			array(
 				'label'       => __( 'Link', 'header-footer-elementor' ),
 				'type'        => Controls_Manager::URL,
 				'placeholder' => __( 'https://your-link.com', 'header-footer-elementor' ),
-				'dynamic'     => [
+				'dynamic'     => array(
 					'active' => true,
-				],
-				'default'     => [
+				),
+				'default'     => array(
 					'url' => get_home_url(),
-				],
-				'condition'   => [
+				),
+				'condition'   => array(
 					'page_custom_link' => 'custom',
-				],
-			]
+				),
+			)
 		);
 
 		$this->add_control(
 			'heading_tag',
-			[
+			array(
 				'label'   => __( 'HTML Tag', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::SELECT,
-				'options' => [
+				'options' => array(
 					'h1' => __( 'H1', 'header-footer-elementor' ),
 					'h2' => __( 'H2', 'header-footer-elementor' ),
 					'h3' => __( 'H3', 'header-footer-elementor' ),
 					'h4' => __( 'H4', 'header-footer-elementor' ),
 					'h5' => __( 'H5', 'header-footer-elementor' ),
 					'h6' => __( 'H6', 'header-footer-elementor' ),
-				],
+				),
 				'default' => 'h2',
-			]
+			)
 		);
 
 		$this->add_control(
 			'size',
-			[
+			array(
 				'label'   => __( 'Size', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'default',
-				'options' => [
+				'options' => array(
 					'default' => __( 'Default', 'header-footer-elementor' ),
 					'small'   => __( 'Small', 'header-footer-elementor' ),
 					'medium'  => __( 'Medium', 'header-footer-elementor' ),
 					'large'   => __( 'Large', 'header-footer-elementor' ),
 					'xl'      => __( 'XL', 'header-footer-elementor' ),
 					'xxl'     => __( 'XXL', 'header-footer-elementor' ),
-				],
-			]
+				),
+			)
 		);
 
 		$this->add_responsive_control(
 			'align',
-			[
+			array(
 				'label'              => __( 'Alignment', 'header-footer-elementor' ),
 				'type'               => Controls_Manager::CHOOSE,
-				'options'            => [
-					'left'    => [
+				'options'            => array(
+					'left'    => array(
 						'title' => __( 'Left', 'header-footer-elementor' ),
 						'icon'  => 'eicon-text-align-left',
-					],
-					'center'  => [
+					),
+					'center'  => array(
 						'title' => __( 'Center', 'header-footer-elementor' ),
 						'icon'  => 'eicon-text-align-center',
-					],
-					'right'   => [
+					),
+					'right'   => array(
 						'title' => __( 'Right', 'header-footer-elementor' ),
 						'icon'  => 'eicon-text-align-right',
-					],
-					'justify' => [
+					),
+					'justify' => array(
 						'title' => __( 'Justified', 'header-footer-elementor' ),
 						'icon'  => 'eicon-text-align-justify',
-					],
-				],
+					),
+				),
 				'default'            => '',
-				'selectors'          => [
+				'selectors'          => array(
 					'{{WRAPPER}} .hfe-page-title-wrapper' => 'text-align: {{VALUE}};',
-				],
+				),
 				'frontend_available' => true,
-			]
+			)
 		);
 
 		$this->end_controls_section();
@@ -280,53 +282,53 @@ class Page_Title extends Widget_Base {
 	protected function register_page_title_style_controls() {
 		$this->start_controls_section(
 			'section_title_typography',
-			[
+			array(
 				'label' => __( 'Title', 'header-footer-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
-			]
+			)
 		);
 
 			$this->add_group_control(
 				Group_Control_Typography::get_type(),
-				[
+				array(
 					'name'     => 'title_typography',
-					'global'   => [
+					'global'   => array(
 						'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
-					],
+					),
 					'selector' => '{{WRAPPER}} .elementor-heading-title, {{WRAPPER}} .hfe-page-title a',
-				]
+				)
 			);
 
 			$this->add_control(
 				'title_color',
-				[
+				array(
 					'label'     => __( 'Color', 'header-footer-elementor' ),
 					'type'      => Controls_Manager::COLOR,
-					'global'    => [
+					'global'    => array(
 						'default' => Global_Colors::COLOR_PRIMARY,
-					],
-					'selectors' => [
+					),
+					'selectors' => array(
 						'{{WRAPPER}} .elementor-heading-title, {{WRAPPER}} .hfe-page-title a' => 'color: {{VALUE}};',
 						'{{WRAPPER}} .hfe-page-title-icon i'   => 'color: {{VALUE}};',
 						'{{WRAPPER}} .hfe-page-title-icon svg' => 'fill: {{VALUE}};',
-					],
-				]
+					),
+				)
 			);
 
 			$this->add_group_control(
 				Group_Control_Text_Shadow::get_type(),
-				[
+				array(
 					'name'     => 'title_shadow',
 					'selector' => '{{WRAPPER}} .elementor-heading-title',
-				]
+				)
 			);
 
 			$this->add_control(
 				'blend_mode',
-				[
+				array(
 					'label'     => __( 'Blend Mode', 'header-footer-elementor' ),
 					'type'      => Controls_Manager::SELECT,
-					'options'   => [
+					'options'   => array(
 						''            => __( 'Normal', 'header-footer-elementor' ),
 						'multiply'    => 'Multiply',
 						'screen'      => 'Screen',
@@ -340,58 +342,58 @@ class Page_Title extends Widget_Base {
 						'exclusion'   => 'Exclusion',
 						'hue'         => 'Hue',
 						'luminosity'  => 'Luminosity',
-					],
-					'selectors' => [
+					),
+					'selectors' => array(
 						'{{WRAPPER}} .elementor-heading-title' => 'mix-blend-mode: {{VALUE}}',
-					],
-				]
+					),
+				)
 			);
 
 		$this->end_controls_section();
 
 		$this->start_controls_section(
 			'section_icon',
-			[
+			array(
 				'label'     => __( 'Icon', 'header-footer-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
-				'condition' => [
+				'condition' => array(
 					'new_page_title_select_icon[value]!' => '',
-				],
-			]
+				),
+			)
 		);
 
 		$this->add_control(
 			'page_title_icon_color',
-			[
+			array(
 				'label'     => __( 'Icon Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'global'    => [
+				'global'    => array(
 					'default' => Global_Colors::COLOR_PRIMARY,
-				],
-				'condition' => [
+				),
+				'condition' => array(
 					'new_page_title_select_icon[value]!' => '',
-				],
+				),
 				'default'   => '',
-				'selectors' => [
+				'selectors' => array(
 					'{{WRAPPER}} .hfe-page-title-icon i'   => 'color: {{VALUE}};',
 					'{{WRAPPER}} .hfe-page-title-icon svg' => 'fill: {{VALUE}};',
-				],
-			]
+				),
+			)
 		);
 		$this->add_control(
 			'page_title_icons_hover_color',
-			[
+			array(
 				'label'     => __( 'Icon Hover Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'condition' => [
+				'condition' => array(
 					'new_page_title_select_icon[value]!' => '',
-				],
+				),
 				'default'   => '',
-				'selectors' => [
+				'selectors' => array(
 					'{{WRAPPER}} .hfe-page-title-icon:hover i'   => 'color: {{VALUE}};',
 					'{{WRAPPER}} .hfe-page-title-icon:hover svg' => 'fill: {{VALUE}};',
-				],
-			]
+				),
+			)
 		);
 
 		$this->end_controls_section();
@@ -404,6 +406,7 @@ class Page_Title extends Widget_Base {
 	 *
 	 * @since 1.3.0
 	 * @access protected
+	 * @return void
 	 */
 	protected function render() {
 
@@ -423,7 +426,7 @@ class Page_Title extends Widget_Base {
 		$head_link_url    = isset( $settings['page_heading_link']['url'] ) ? $settings['page_heading_link']['url'] : '';
 		$head_custom_link = isset( $settings['page_custom_link'] ) ? $settings['page_custom_link'] : '';
 		?>
-			<?php if ( '' != $head_link_url && 'custom' === $head_custom_link ) { ?>
+			<?php if ( '' !== $head_link_url && 'custom' === $head_custom_link ) { ?>
 						<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'url' ) ); ?>>
 			<?php } elseif ( 'default' === $head_custom_link ) { ?>
 						<a href="<?php echo esc_url( get_home_url() ); ?>">
@@ -431,9 +434,9 @@ class Page_Title extends Widget_Base {
 			<<?php echo esc_attr( $heading_size_tag ); ?> class="elementor-heading-title elementor-size-<?php echo esc_attr( $settings['size'] ); ?>">
 				<?php if ( '' !== $settings['new_page_title_select_icon']['value'] ) { ?>
 						<span class="hfe-page-title-icon">
-							<?php \Elementor\Icons_Manager::render_icon( $settings['new_page_title_select_icon'], [ 'aria-hidden' => 'true' ] ); ?>             </span>
+							<?php \Elementor\Icons_Manager::render_icon( $settings['new_page_title_select_icon'], array( 'aria-hidden' => 'true' ) ); ?>             </span>
 				<?php } ?>				
-				<?php if ( '' != $settings['before'] ) { ?>
+				<?php if ( '' !== $settings['before'] ) { ?>
 					<?php echo wp_kses_post( $settings['before'] ); ?>
 					<?php
 				}
@@ -444,17 +447,16 @@ class Page_Title extends Widget_Base {
 					echo wp_kses_post( get_the_title() );
 				}
 
-				if ( '' != $settings['after'] ) {
+				if ( '' !== $settings['after'] ) {
 					?>
 					<?php echo wp_kses_post( $settings['after'] ); ?>
 				<?php } ?>  
 			</<?php echo esc_attr( $heading_size_tag ); ?> > 
-			<?php if ( ( '' != $head_link_url && 'custom' === $head_custom_link ) || 'default' === $head_custom_link ) { ?>
+			<?php if ( ( '' !== $head_link_url && 'custom' === $head_custom_link ) || 'default' === $head_custom_link ) { ?>
 						</a>
 			<?php } ?>
 		</div>
 		<?php
-
 	}
 
 	/**
@@ -464,6 +466,7 @@ class Page_Title extends Widget_Base {
 	 *
 	 * @since 1.3.0
 	 * @access protected
+	 * @return void
 	 */
 	protected function content_template() {
 
