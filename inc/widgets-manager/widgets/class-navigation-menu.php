@@ -33,9 +33,9 @@ class Navigation_Menu extends Widget_Base {
 	 * Menu index.
 	 *
 	 * @access protected
-	 * @var $nav_menu_index
+	 * @property int $nav_menu_index
 	 */
-	protected $nav_menu_index = 1;
+	protected int $nav_menu_index = 1;
 
 	/**
 	 * Retrieve the widget name.
@@ -116,7 +116,7 @@ class Navigation_Menu extends Widget_Base {
 	 * @since 1.3.0
 	 * @access protected
 	 *
-	 * @return string nav index.
+	 * @return int nav index.
 	 */
 	protected function get_nav_menu_index() {
 		return $this->nav_menu_index++;
@@ -165,6 +165,7 @@ class Navigation_Menu extends Widget_Base {
 	 *
 	 * @since 1.5.7
 	 * @access protected
+	 * @return void
 	 */
 	protected function register_controls() {
 
@@ -178,6 +179,7 @@ class Navigation_Menu extends Widget_Base {
 	 *
 	 * @since 1.3.0
 	 * @access protected
+	 * @return void
 	 */
 	protected function register_general_content_controls() {
 
@@ -1835,6 +1837,7 @@ class Navigation_Menu extends Widget_Base {
 	 * @since 1.5.2
 	 * @param string $atts link attributes.
 	 * @access public
+	 * @return string
 	 */
 	public function handle_link_attrs( $atts ) {
 
@@ -1848,6 +1851,7 @@ class Navigation_Menu extends Widget_Base {
 	 * @since 1.6.0
 	 * @param string $value link attributes.
 	 * @access public
+	 * @return string
 	 */
 	public function handle_li_values( $value ) {
 
@@ -1861,6 +1865,7 @@ class Navigation_Menu extends Widget_Base {
 	 * @since 1.5.2
 	 * @param array $settings Widget settings array.
 	 * @access public
+	 * @return array
 	 */
 	public function get_menu_close_icon( $settings ) {
 		$menu_icon     = '';
@@ -1899,6 +1904,7 @@ class Navigation_Menu extends Widget_Base {
 	 *
 	 * @since 1.3.0
 	 * @access protected
+	 * @return void | false
 	 */
 	protected function render() {
 
