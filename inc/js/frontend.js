@@ -575,14 +575,13 @@
 		}
 	}
 
-	function _toggleClick( id ){
-
+	function _toggleClick(id) {
+		
 		if ( $( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).hasClass( 'hfe-active-menu-full-width' ) ){
-
-			$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).next().css( 'left', '0' );
-			console.log('no');
-			var width = $( '.elementor-element-' + id ).closest('.elementor-section').outerWidth();
-			var sec_pos = $( '.elementor-element-' + id ).closest('.elementor-section').offset().left - $( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).next().offset().left;
+			$('.elementor-element-' + id + ' .hfe-nav-menu__toggle').next().css('left', '0');
+			
+			var width = $('.elementor-element-' + id).closest('*').parent().outerWidth();
+			var sec_pos = $('.elementor-element-' + id).closest('*').parent().offset().left - $( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).next().offset().left;
 			$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).next().css( 'width', width + 'px' );
 			$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).next().css( 'left', sec_pos + 'px' );
 		}
@@ -592,9 +591,9 @@
 			var $this = $( this );
 			var $selector = $this.next();
 
-			if ( $this.hasClass( 'hfe-active-menu' ) ) {
+			if ($this.hasClass('hfe-active-menu')) {
 
-				var layout = $( '.elementor-element-' + id + ' .hfe-nav-menu' ).data( 'layout' );
+				var layout = $('.elementor-element-' + id + ' .hfe-nav-menu').data('layout');
 				var full_width = $selector.data( 'full-width' );
 				var toggle_icon = $( '.elementor-element-' + id + ' nav' ).data( 'toggle-icon' );
 
@@ -603,8 +602,8 @@
 				$this.removeClass( 'hfe-active-menu' );
 				$this.attr( 'aria-expanded', 'false' );
 				
-				if ( 'yes' == full_width ){
-
+				if ('yes' == full_width) {
+				
 					$this.removeClass( 'hfe-active-menu-full-width' );
 				
 					$selector.css( 'width', 'auto' );
@@ -622,15 +621,15 @@
 				$this.addClass( 'hfe-active-menu' );
 				$this.attr( 'aria-expanded', 'true' );
 
-				if ( 'yes' == full_width ){
-
-					$this.removeClass( 'hfe-active-menu-full-width' );
-
-					var width = $( '.elementor-element-' + id ).closest('.elementor-section').outerWidth();
-					var sec_pos = $( '.elementor-element-' + id ).closest('.elementor-section').offset() - $selector.offset();
+				if ('yes' == full_width) {
+					$this.addClass('hfe-active-menu-full-width');
+					
+					// Now if the menu is full width, the menu will have width of parent element as earlier. 
+					var width = $('.elementor-element-' + id).closest('*').parent().outerWidth();
+					var sec_pos = $('.elementor-element-' + id).closest('*').parent().offset().left - $selector.offset().left;
 					$selector.css( 'width', width + 'px' );
 					$selector.css( 'left', sec_pos + 'px' );
-					$selector.css( 'z-index', '9999' );
+					$selector.css('z-index', '9999');
 				}
 			}
 
