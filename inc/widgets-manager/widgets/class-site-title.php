@@ -476,7 +476,7 @@ class Site_Title extends Widget_Base {
 				<# if ( '' != settings.heading_link.url ) { #>
 					<a {{{ view.getRenderAttributeString( 'url' ) }}} > <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 				<# } #>
-				<{{{ headingSizeTag }}} class="hfe-heading elementor-heading-title elementor-size-{{{ settings.size }}}"> <?php //phpcs:ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
+				<{{{ headingSizeTag }}} class="hfe-heading elementor-heading-title elementor-size-{{{ elementor.helpers.sanitize( settings.size ) }}}"> <?php //phpcs:ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 				<# if( '' != settings.icon.value ){ #>
 				<span class="hfe-icon">
 					{{{ iconHTML.value }}}	<?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>			
