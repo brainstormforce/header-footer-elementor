@@ -458,8 +458,8 @@ class Site_Title extends Widget_Base {
 			return;
 		}
 		if ( '' != settings.heading_link.url ) {
-			var sanitizedUrl = encodeURIComponent(settings.heading_link.url);
-			view.addRenderAttribute( 'url', 'href', sanitizedUrl );
+			var sanitizedUrl = elementor.helpers.sanitize( settings.heading_link.url, { ALLOW_DATA_ATTR: false } );
+			view.addRenderAttribute( 'url', 'href', _.escape( sanitizedUrl ) );
 		}
 		var iconHTML = elementor.helpers.renderIcon( view, settings.icon, { 'aria-hidden': true }, 'i' , 'object' );
 
