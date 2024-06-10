@@ -454,7 +454,9 @@ class Site_Title extends Widget_Base {
 		if ( '' == settings.heading_title ) {
 			return;
 		}
-		
+		if ( '' == settings.size ){
+			return;
+		}
 		if ( '' != settings.heading_link.url ) {
 			var sanitizedUrl = _.escape( settings.heading_link.url );
 			view.addRenderAttribute( 'url', 'href', sanitizedUrl );
@@ -474,7 +476,7 @@ class Site_Title extends Widget_Base {
 				<# if ( '' != settings.heading_link.url ) { #>
 					<a {{{ view.getRenderAttributeString( 'url' ) }}} > <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 				<# } #>
-				<{{{ headingSizeTag }}} class="hfe-heading elementor-heading-title elementor-size-<?php echo isset( $settings['size'] ) ? esc_attr( $settings['size'] ) : '{{{ settings.size }}}'; ?>"> <?php //phpcs:ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
+				<{{{ headingSizeTag }}} class="hfe-heading elementor-heading-title elementor-size-{{{ elementor.helpers.sanitize( settings.size ) }}}"> <?php //phpcs:ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 				<# if( '' != settings.icon.value ){ #>
 				<span class="hfe-icon">
 					{{{ iconHTML.value }}}	<?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>			
