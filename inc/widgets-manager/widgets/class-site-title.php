@@ -458,12 +458,11 @@ class Site_Title extends Widget_Base {
 			return;
 		}
 		if ( '' != settings.heading_link.url ) {
-			var sanitizedUrl = <?php echo esc_url( settings . heading_link . url ); ?>;
-			view.addRenderAttribute( 'url', 'href', sanitizedUrl );
+			view.addRenderAttribute( 'url', 'href', settings.heading_link.url );
 		}
 		var iconHTML = elementor.helpers.renderIcon( view, settings.icon, { 'aria-hidden': true }, 'i' , 'object' );
 
-		var headingSizeTag = '<?php echo esc_html( settings.size ); ?>';
+		var headingSizeTag = settings.heading_tag;
 
 		if ( typeof elementor.helpers.validateHTMLTag === "function" ) { 
 			headingSizeTag = elementor.helpers.validateHTMLTag( headingSizeTag );
@@ -476,7 +475,7 @@ class Site_Title extends Widget_Base {
 				<# if ( '' != settings.heading_link.url ) { #>
 					<a {{{ view.getRenderAttributeString( 'url' ) }}} > <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 				<# } #>
-				<{{{ headingSizeTag }}} class="hfe-heading elementor-heading-title elementor-size-<?php echo esc_attr( settings.size ); ?>"> <?php //phpcs:ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
+				<{{{ headingSizeTag }}} class="hfe-heading elementor-heading-title elementor-size-{{{ settings.size }}}"> <?php //phpcs:ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 				<# if( '' != settings.icon.value ){ #>
 				<span class="hfe-icon">
 					{{{ iconHTML.value }}}	<?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>			
@@ -484,11 +483,11 @@ class Site_Title extends Widget_Base {
 				<# } #>
 				<span class="hfe-heading-text  elementor-heading-title" data-elementor-setting-key="heading_title" data-elementor-inline-editing-toolbar="basic" >
 				<#if ( '' != settings.before ){#>
-					{{{ '<?php echo esc_html( settings.before ); ?>' }}}  <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
+					{{{ settings.before }}}  <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 				<#}#>
 				<?php echo wp_kses_post( get_bloginfo( 'name' ) ); ?>
 				<# if ( '' != settings.after ){#>
-					{{{ '<?php echo esc_html( settings.after ); ?>' }}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
+					{{{ settings.after }}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 				<#}#>
 				</span>
 			</{{{ headingSizeTag }}}> <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
