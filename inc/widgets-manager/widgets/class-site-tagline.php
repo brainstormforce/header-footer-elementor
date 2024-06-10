@@ -306,12 +306,14 @@ class Site_Tagline extends Widget_Base {
 				</span>
 			<# } #>
 			<span>
-			<#if ( '' != settings.before ){#>
-				{{{ settings.before}}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
+			<#if ( '' != settings.before ){
+				var before = elementor.helpers.sanitize( settings.before ) #>
+				{{{ before }}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 			<#}#>
 			<?php echo wp_kses_post( get_bloginfo( 'description' ) ); ?>
-			<# if ( '' != settings.after ){#>
-				{{{ settings.after }}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
+			<# if ( '' != settings.after ){
+				var after = elementor.helpers.sanitize( settings.after ) #>
+				{{{ after }}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 			<#}#>
 			</span>
 		</div>
