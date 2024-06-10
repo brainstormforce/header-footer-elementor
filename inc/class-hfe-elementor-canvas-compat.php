@@ -19,12 +19,14 @@ class HFE_Elementor_Canvas_Compat {
 
 	/**
 	 *  Initiator
+	 *
+	 * @return  HFE_Elementor_Canvas_Compat
 	 */
 	public static function instance() {
 		if ( ! isset( self::$instance ) ) {
 			self::$instance = new HFE_Elementor_Canvas_Compat();
 
-			add_action( 'wp', [ self::$instance, 'hooks' ] );
+			add_action( 'wp', array( self::$instance, 'hooks' ) );
 		}
 
 		return self::$instance;
@@ -32,15 +34,17 @@ class HFE_Elementor_Canvas_Compat {
 
 	/**
 	 * Run all the Actions / Filters.
+	 *
+	 * @return void
 	 */
 	public function hooks() {
 		if ( hfe_header_enabled() ) {
 
 			// Action `elementor/page_templates/canvas/before_content` is introduced in Elementor Version 1.4.1.
 			if ( version_compare( ELEMENTOR_VERSION, '1.4.1', '>=' ) ) {
-				add_action( 'elementor/page_templates/canvas/before_content', [ $this, 'render_header' ] );
+				add_action( 'elementor/page_templates/canvas/before_content', array( $this, 'render_header' ) );
 			} else {
-				add_action( 'wp_head', [ $this, 'render_header' ] );
+				add_action( 'wp_head', array( $this, 'render_header' ) );
 			}
 		}
 
@@ -48,9 +52,9 @@ class HFE_Elementor_Canvas_Compat {
 
 			// Action `elementor/page_templates/canvas/after_content` is introduced in Elementor Version 1.9.0.
 			if ( version_compare( ELEMENTOR_VERSION, '1.9.0', '>=' ) ) {
-				add_action( 'elementor/page_templates/canvas/after_content', [ $this, 'render_footer' ] );
+				add_action( 'elementor/page_templates/canvas/after_content', array( $this, 'render_footer' ) );
 			} else {
-				add_action( 'wp_footer', [ $this, 'render_footer' ] );
+				add_action( 'wp_footer', array( $this, 'render_footer' ) );
 			}
 		}
 
@@ -70,6 +74,8 @@ class HFE_Elementor_Canvas_Compat {
 	/**
 	 * Render the header if display template on elementor canvas is enabled
 	 * and current template is Elementor Canvas
+	 *
+	 * @return void
 	 */
 	public function render_header() {
 
@@ -88,6 +94,8 @@ class HFE_Elementor_Canvas_Compat {
 	/**
 	 * Render the footer if display template on elementor canvas is enabled
 	 * and current template is Elementor Canvas
+	 *
+	 * @return void
 	 */
 	public function render_footer() {
 
@@ -102,7 +110,6 @@ class HFE_Elementor_Canvas_Compat {
 			hfe_render_footer();
 		}
 	}
-
 }
 
 HFE_Elementor_Canvas_Compat::instance();
