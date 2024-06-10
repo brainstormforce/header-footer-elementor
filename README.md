@@ -140,6 +140,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 ## Changelog ##
 
+### 1.6.35.1 ###
+- Fix: This update addressed a security bug. Props to Wordfence for privately reporting it privately to our team. Please make sure you are using the latest version on your website. 
+
 ### 1.6.35 ###
 - Improvement: Compatibility with latest Elementor and Elementor Pro 3.22 version.
 - Improvement: Updated sanitize SVG function.
