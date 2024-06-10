@@ -39,6 +39,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * @param string $analytics_path directory path to analytics library.
 		 * @param float  $analytics_version analytics library version.
 		 * @since 1.0.0
+		 * @return void
 		 */
 		public function __construct( $args, $analytics_path, $analytics_version ) {
 
@@ -52,13 +53,13 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 			define( 'BSF_ANALYTICS_VERSION', $analytics_version );
 			define( 'BSF_ANALYTICS_URI', $this->get_analytics_url( $analytics_path ) );
 
-			add_action( 'admin_init', [ $this, 'handle_optin_optout' ] );
-			add_action( 'admin_notices', [ $this, 'option_notice' ] );
-			add_action( 'init', [ $this, 'maybe_track_analytics' ], 99 );
+			add_action( 'admin_init', array( $this, 'handle_optin_optout' ) );
+			add_action( 'admin_notices', array( $this, 'option_notice' ) );
+			add_action( 'init', array( $this, 'maybe_track_analytics' ), 99 );
 
 			$this->set_actions();
 
-			add_action( 'admin_init', [ $this, 'register_usage_tracking_setting' ] );
+			add_action( 'admin_init', array( $this, 'register_usage_tracking_setting' ) );
 
 			$this->includes();
 		}
@@ -67,13 +68,14 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * Setup actions for admin notice style and analytics cron event.
 		 *
 		 * @since 1.0.4
+		 * @return void
 		 */
 		public function set_actions() {
 
 			foreach ( $this->entities as $key => $data ) {
-				add_action( 'astra_notice_before_markup_' . $key . '-optin-notice', [ $this, 'enqueue_assets' ] );
-				add_action( 'update_option_' . $key . '_analytics_optin', [ $this, 'update_analytics_option_callback' ], 10, 3 );
-				add_action( 'add_option_' . $key . '_analytics_optin', [ $this, 'add_analytics_option_callback' ], 10, 2 );
+				add_action( 'astra_notice_before_markup_' . $key . '-optin-notice', array( $this, 'enqueue_assets' ) );
+				add_action( 'update_option_' . $key . '_analytics_optin', array( $this, 'update_analytics_option_callback' ), 10, 3 );
+				add_action( 'add_option_' . $key . '_analytics_optin', array( $this, 'add_analytics_option_callback' ), 10, 2 );
 			}
 		}
 
@@ -81,7 +83,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * BSF Analytics URL
 		 *
 		 * @param string $analytics_path directory path to analytics library.
-		 * @return String URL of bsf-analytics directory.
+		 * @return string URL of bsf-analytics directory.
 		 * @since 1.0.0
 		 */
 		public function get_analytics_url( $analytics_path ) {
@@ -129,15 +131,16 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * Send analytics API call.
 		 *
 		 * @since 1.0.0
+		 * @return void
 		 */
 		public function send() {
 			wp_remote_post(
 				$this->get_api_url() . 'wp-json/bsf-core/v1/analytics/',
-				[
+				array(
 					'body'     => BSF_Analytics_Stats::instance()->get_stats(),
 					'timeout'  => 5,
 					'blocking' => false,
-				]
+				)
 			);
 		}
 
@@ -171,7 +174,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 */
 		public function is_white_label_enabled( $source ) {
 
-			$options    = apply_filters( $source . '_white_label_options', [] );
+			$options    = apply_filters( $source . '_white_label_options', array() );
 			$is_enabled = false;
 
 			if ( is_array( $options ) ) {
@@ -190,6 +193,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * Display admin notice for usage tracking.
 		 *
 		 * @since 1.0.0
+		 * @return void
 		 */
 		public function option_notice() {
 
@@ -222,7 +226,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 				$language_dir = is_rtl() ? 'rtl' : 'ltr';
 
 				Astra_Notices::add_notice(
-					[
+					array(
 						'id'                         => $key . '-optin-notice',
 						'type'                       => '',
 						'message'                    => sprintf(
@@ -242,19 +246,19 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 							/* translators: %s usage doc link */
 							sprintf( $notice_string . '<span dir="%2s"><a href="%3s" target="_blank" rel="noreferrer noopener">%4s</a><span>', esc_html( $data['product_name'] ), $language_dir, esc_url( $usage_doc_link ), __( ' Know More.', 'header-footer-elementor' ) ),
 							add_query_arg(
-								[
+								array(
 									$key . '_analytics_optin' => 'yes',
 									$key . '_analytics_nonce' => wp_create_nonce( $key . '_analytics_optin' ),
 									'bsf_analytics_source' => $key,
-								]
+								)
 							),
 							__( 'Yes! Allow it', 'header-footer-elementor' ),
 							add_query_arg(
-								[
+								array(
 									$key . '_analytics_optin' => 'no',
 									$key . '_analytics_nonce' => wp_create_nonce( $key . '_analytics_optin' ),
 									'bsf_analytics_source' => $key,
-								]
+								)
 							),
 							MONTH_IN_SECONDS,
 							__( 'No Thanks', 'header-footer-elementor' )
@@ -263,7 +267,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 						'repeat-notice-after'        => false,
 						'priority'                   => 18,
 						'display-with-other-notices' => true,
-					]
+					)
 				);
 			}
 		}
@@ -272,6 +276,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * Process usage tracking opt out.
 		 *
 		 * @since 1.0.0
+		 * @return void
 		 */
 		public function handle_optin_optout() {
 
@@ -299,11 +304,11 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 			wp_safe_redirect(
 				remove_query_arg(
-					[
+					array(
 						$source . '_analytics_optin',
 						$source . '_analytics_nonce',
 						'bsf_analytics_source',
-					]
+					)
 				)
 			);
 		}
@@ -313,6 +318,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 *
 		 * @param string $source source of analytics.
 		 * @since 1.0.0
+		 * @return void
 		 */
 		private function optin( $source ) {
 			update_site_option( $source . '_analytics_optin', 'yes' );
@@ -323,6 +329,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 *
 		 * @param string $source source of analytics.
 		 * @since 1.0.0
+		 * @return void
 		 */
 		private function optout( $source ) {
 			update_site_option( $source . '_analytics_optin', 'no' );
@@ -332,6 +339,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * Load analytics stat class.
 		 *
 		 * @since 1.0.0
+		 * @return void
 		 */
 		private function includes() {
 			require_once __DIR__ . '/class-bsf-analytics-stats.php';
@@ -341,6 +349,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * Register usage tracking option in General settings page.
 		 *
 		 * @since 1.0.0
+		 * @return void
 		 */
 		public function register_usage_tracking_setting() {
 
@@ -356,23 +365,23 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 				register_setting(
 					'general',             // Options group.
 					$key . '_analytics_optin',      // Option name/database.
-					[ 'sanitize_callback' => [ $this, 'sanitize_option' ] ] // sanitize callback function.
+					array( 'sanitize_callback' => array( $this, 'sanitize_option' ) ) // sanitize callback function.
 				);
 
 				add_settings_field(
 					$key . '-analytics-optin',       // Field ID.
 					__( 'Usage Tracking', 'header-footer-elementor' ),       // Field title.
-					[ $this, 'render_settings_field_html' ], // Field callback function.
+					array( $this, 'render_settings_field_html' ), // Field callback function.
 					'general',
 					'default',                   // Settings page slug.
-					[
+					array(
 						'type'           => 'checkbox',
 						'title'          => $author,
 						'name'           => $key . '_analytics_optin',
 						'label_for'      => $key . '-analytics-optin',
 						'id'             => $key . '-analytics-optin',
 						'usage_doc_link' => $usage_doc_link,
-					]
+					)
 				);
 			}
 		}
@@ -382,6 +391,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 *
 		 * @param bool $input Option value.
 		 * @since 1.0.0
+		 * @return string
 		 */
 		public function sanitize_option( $input ) {
 
@@ -397,6 +407,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 *
 		 * @param array $args arguments to field.
 		 * @since 1.0.0
+		 * @return void
 		 */
 		public function render_settings_field_html( $args ) {
 			?>
@@ -423,7 +434,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * Set analytics installed time in option.
 		 *
 		 * @param string $source source of analytics.
-		 * @return string $time analytics installed time.
+		 * @return string | mixed $time analytics installed time.
 		 * @since 1.0.0
 		 */
 		private function get_analytics_install_time( $source ) {
@@ -445,6 +456,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * @param string $value value of option.
 		 * @param string $option Option name.
 		 * @since 1.0.0
+		 * @return void
 		 */
 		public function update_analytics_option_callback( $old_value, $value, $option ) {
 			if ( is_multisite() ) {
@@ -458,6 +470,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * @param string $option Option name.
 		 * @param string $value value of option.
 		 * @since 1.0.0
+		 * @return void
 		 */
 		public function add_analytics_option_callback( $option, $value ) {
 			if ( is_multisite() ) {
@@ -469,6 +482,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * Send analaytics track event if tracking is enabled.
 		 *
 		 * @since 1.0.0
+		 * @return void
 		 */
 		public function maybe_track_analytics() {
 
@@ -490,6 +504,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 *
 		 * @param string $option name of option.
 		 * @param string $value value of option.
+		 * @return void
 		 * @since 1.0.0
 		 */
 		public function add_option_to_network( $option, $value ) {
