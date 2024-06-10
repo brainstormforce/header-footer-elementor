@@ -463,7 +463,7 @@ class Site_Title extends Widget_Base {
 		}
 		var iconHTML = elementor.helpers.renderIcon( view, settings.icon, { 'aria-hidden': true }, 'i' , 'object' );
 
-		var headingSizeTag = settings.heading_tag;
+		var headingSizeTag = elementor.helpers.validateHTMLTag( settings.heading_tag );
 
 		if ( typeof elementor.helpers.validateHTMLTag === "function" ) { 
 			headingSizeTag = elementor.helpers.validateHTMLTag( headingSizeTag );
