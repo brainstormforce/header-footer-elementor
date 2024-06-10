@@ -232,7 +232,7 @@ if ( ! function_exists( 'wp_timezone_string' ) ) {
 	/**
 	 * Get timezone string.
 	 *
-	 * @return string timezone string.
+	 * @return string | mixed timezone string.
 	 * @since 1.0.0
 	 */
 	function wp_timezone_string() {
