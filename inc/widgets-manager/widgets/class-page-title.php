@@ -474,7 +474,8 @@ class Page_Title extends Widget_Base {
 		}
 
 		if ( '' != settings.page_heading_link.url ) {
-			view.addRenderAttribute( 'url', 'href', settings.page_heading_link.url );
+			var sanitizedPgUrl = _.escape( settings.page_heading_link.url );
+			view.addRenderAttribute( 'url', 'href', sanitizedPgUrl );
 		}
 		var iconHTML = elementor.helpers.renderIcon( view, settings.new_page_title_select_icon, { 'aria-hidden': true }, 'i' , 'object' );
 
