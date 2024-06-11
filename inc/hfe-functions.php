@@ -75,6 +75,7 @@ function get_hfe_footer_id() {
  * Display header markup.
  *
  * @since  1.0.2
+ * @return void
  */
 function hfe_render_header() {
 
@@ -89,13 +90,13 @@ function hfe_render_header() {
 		</header>
 
 	<?php
-
 }
 
 /**
  * Display footer markup.
  *
  * @since  1.0.2
+ * @return void
  */
 function hfe_render_footer() {
 
@@ -108,7 +109,6 @@ function hfe_render_footer() {
 			<?php Header_Footer_Elementor::get_footer_content(); ?>
 		</footer>
 	<?php
-
 }
 
 
@@ -151,6 +151,7 @@ function hfe_is_before_footer_enabled() {
  * Display before footer markup.
  *
  * @since  1.0.2
+ * @return void
  */
 function hfe_render_before_footer() {
 
@@ -163,5 +164,4 @@ function hfe_render_before_footer() {
 			<?php Header_Footer_Elementor::get_before_footer_content(); ?>
 		</div>
 	<?php
-
 }
