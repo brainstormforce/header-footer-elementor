@@ -621,7 +621,7 @@
 				
 				$this.addClass( 'hfe-active-menu' );
 				$this.attr( 'aria-expanded', 'true' );
-				
+
 				if ( 'yes' == full_width ){
 
 					$this.addClass( 'hfe-active-menu-full-width' );
