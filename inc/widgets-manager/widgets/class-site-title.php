@@ -458,9 +458,11 @@ class Site_Title extends Widget_Base {
 			return;
 		}
 		if ( '' != settings.heading_link.url ) {
-			var sanitizedUrl = _.escape( settings.heading_link.url );
-			sanitizedUrl = encodeURIComponent( sanitizedUrl );
-			view.addRenderAttribute( 'url', 'href', sanitizedUrl );
+			var urlPattern = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/;
+			if ( urlPattern.test( settings.heading_link.url ) ) {
+				var sanitizedUrl = _.escape( settings.heading_link.url );
+				view.addRenderAttribute( 'url', 'href', sanitizedUrl );
+			}
 		}
 		var iconHTML = elementor.helpers.renderIcon( view, settings.icon, { 'aria-hidden': true }, 'i' , 'object' );
 
