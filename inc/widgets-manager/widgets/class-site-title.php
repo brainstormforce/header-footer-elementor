@@ -486,7 +486,7 @@ class Site_Title extends Widget_Base {
 				</span>
 				<# } #>
 				<span class="hfe-heading-text  elementor-heading-title" data-elementor-setting-key="heading_title" data-elementor-inline-editing-toolbar="basic" >
-				<#if ( '' != settings.before ){
+				<# if ( '' != settings.before ){
 					var before = elementor.helpers.sanitize( settings.before )#>
 					{{{ before }}}  <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 				<#}#>
