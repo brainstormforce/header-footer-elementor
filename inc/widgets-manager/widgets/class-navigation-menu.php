@@ -1925,7 +1925,7 @@ class Navigation_Menu extends Widget_Base {
 
 		if ( 'yes' === $settings['schema_support'] ) {
 			$this->add_render_attribute( 'hfe-nav-menu', 'itemscope', 'itemscope' );
-			$this->add_render_attribute( 'hfe-nav-menu', 'itemtype', 'http://schema.org/SiteNavigationElement' );
+			$this->add_render_attribute( 'hfe-nav-menu', 'itemtype', 'https://schema.org/SiteNavigationElement' );
 
 			add_filter( 'hfe_nav_menu_attrs', [ $this, 'handle_link_attrs' ] );
 			add_filter( 'nav_menu_li_values', [ $this, 'handle_li_values' ] );
