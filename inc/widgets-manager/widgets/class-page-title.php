@@ -474,11 +474,15 @@ class Page_Title extends Widget_Base {
 		}
 
 		if ( '' != settings.page_heading_link.url ) {
-			view.addRenderAttribute( 'url', 'href', settings.page_heading_link.url );
+			var urlPattern = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$|^www\.[^\s/$.?#].[^\s]*$/;
+			if( urlPattern.test( settings.page_heading_link.url ) ){
+				var sanitizedPgUrl = _.escape( settings.page_heading_link.url );
+				view.addRenderAttribute( 'url', 'href', sanitizedPgUrl );
+			}
 		}
 		var iconHTML = elementor.helpers.renderIcon( view, settings.new_page_title_select_icon, { 'aria-hidden': true }, 'i' , 'object' );
 
-		var headingSizeTag = settings.heading_tag;
+		var headingSizeTag = elementor.helpers.validateHTMLTag( settings.heading_tag );
 
 		if ( typeof elementor.helpers.validateHTMLTag === "function" ) { 
 			headingSizeTag = elementor.helpers.validateHTMLTag( settings.heading_tag );
@@ -497,8 +501,9 @@ class Page_Title extends Widget_Base {
 						{{{iconHTML.value}}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>                    
 					</span>
 				<# } #>
-					<# if ( '' != settings.before ) { #>
-						{{{ settings.before }}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
+					<# if ( '' != settings.before ) {
+						var before = elementor.helpers.sanitize( settings.before ) #>
+						{{{ before }}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 					<# } #>
 					<?php
 					if ( is_archive() || is_home() ) {
@@ -507,8 +512,9 @@ class Page_Title extends Widget_Base {
 						echo wp_kses_post( get_the_title() );
 					}
 					?>
-					<# if ( '' != settings.after ) { #>
-						{{{ settings.after }}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
+					<# if ( '' != settings.after ) { 
+						var after = elementor.helpers.sanitize( settings.after )#>
+						{{{ after }}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 					<# } #>				
 			</{{{ headingSizeTag }}}> <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 			<# if ( '' != settings.page_heading_link.url ) { #>
