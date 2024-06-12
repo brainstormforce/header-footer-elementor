@@ -140,6 +140,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 ## Changelog ##
 
+### 1.6.35.1 ###
+- Fix: Navigation Menu - Throwing Console error when full-width is turned on. 
+
 ### 1.6.35 ###
 - Improvement: Compatibility with latest Elementor and Elementor Pro 3.22 version.
 - Improvement: Updated sanitize SVG function.
