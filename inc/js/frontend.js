@@ -582,7 +582,7 @@
 			$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).next().css( 'left', '0' );
 
 			var width = $('.elementor-element-' + id).closest('*').parent().outerWidth();
-			var sec_pos = $('.elementor-element-' + id).closest('*').parent().offset().left - $('.elementor-element-' + id + ' .hfe-nav-menu__toggle').next().offset().left;
+			var sec_pos = (($('.elementor-element-' + id).closest('*').parent().offset().left - $('.elementor-element-' + id + ' .hfe-nav-menu__toggle').next().offset().left) <= 0) ? 0 : $('.elementor-element-' + id).closest('*').parent().offset().left - $('.elementor-element-' + id + ' .hfe-nav-menu__toggle').next().offset().left;
 			$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).next().css( 'width', width + 'px' );
 			$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).next().css( 'left', sec_pos + 'px' );
 		}
@@ -627,7 +627,7 @@
 					$this.addClass( 'hfe-active-menu-full-width' );
 					// Now if the menu is full width, the menu will have width of parent element as earlier. 
 					var width = $('.elementor-element-' + id).closest('*').parent().outerWidth();
-					var sec_pos = $('.elementor-element-' + id).closest('*').parent().offset().left - $selector.offset().left;
+					var sec_pos = ($('.elementor-element-' + id).closest('*').parent().offset().left - $selector.offset().left <= 0) ? 0 : $('.elementor-element-' + id).closest('*').parent().offset().left - $selector.offset().left;
 					$selector.css('width', width + 'px');
 					$selector.css('left', sec_pos + 'px');
 					$selector.css('z-index', '9999');
