@@ -323,7 +323,7 @@ class Astra_Target_Rules_Fields {
 		$operator   = 'and'; // also supports 'or'.
 		$post_types = get_post_types( $args, $output, $operator );
 
-		unset( $post_types['elementor-hf'] ); //Exclude EHF templates.
+		unset( $post_types['elementor-hf'] ); // Exclude EHF templates.
 
 		$post_types['Posts'] = 'post';
 		$post_types['Pages'] = 'page';
@@ -451,6 +451,7 @@ class Astra_Target_Rules_Fields {
 	/**
 	 * Function Name: admin_styles.
 	 * Function Description: admin_styles.
+	 *
 	 * @return void
 	 */
 	public function admin_styles() {
@@ -770,7 +771,7 @@ class Astra_Target_Rules_Fields {
 		}
 
 		$index = 0;
-		if ( is_array( $saved_values ) && is_array( $saved_values['rule'] ) ) {	
+		if ( is_array( $saved_values ) && is_array( $saved_values['rule'] ) ) {
 			foreach ( $saved_values['rule'] as $index => $data ) {
 				$output .= '<div class="astra-target-rule-condition ast-target-rule-' . $index . '" data-rule="' . $index . '" >';
 				/* Condition Selection */
@@ -985,22 +986,20 @@ class Astra_Target_Rules_Fields {
 							if ( false !== $post_id && $current_post_type == $post_type ) {
 								$display = true;
 							}
-						} else {
-							if ( is_archive() ) {
+						} elseif ( is_archive() ) {
 								$current_post_type = get_post_type();
-								if ( $current_post_type == $post_type ) {
-									if ( 'archive' == $archieve_type ) {
-										$display = true;
-									} elseif ( 'taxarchive' == $archieve_type ) {
-										$obj              = get_queried_object();
-										$current_taxonomy = '';
-										if ( '' !== $obj && null !== $obj ) {
-											$current_taxonomy = $obj->taxonomy;
-										}
+							if ( $current_post_type == $post_type ) {
+								if ( 'archive' == $archieve_type ) {
+									$display = true;
+								} elseif ( 'taxarchive' == $archieve_type ) {
+									$obj              = get_queried_object();
+									$current_taxonomy = '';
+									if ( '' !== $obj && null !== $obj ) {
+										$current_taxonomy = $obj->taxonomy;
+									}
 
-										if ( $current_taxonomy == $taxonomy ) {
-											$display = true;
-										}
+									if ( $current_taxonomy == $taxonomy ) {
+										$display = true;
 									}
 								}
 							}
@@ -1273,15 +1272,15 @@ class Astra_Target_Rules_Fields {
 			$current_post_id   = false;
 			$q_obj             = get_queried_object();
 
-			$current_id      = esc_sql( get_the_id() );
+			$current_id = esc_sql( get_the_id() );
 			// Find WPML Object ID for current page.
 			if ( defined( 'ICL_SITEPRESS_VERSION' ) ) {
 				$default_lang = apply_filters( 'wpml_default_language', '' );
 				$current_lang = apply_filters( 'wpml_current_language', '' );
 
-				if( $default_lang !== $current_lang ) {
-					$current_post_type 	= get_post_type( $current_id );
-					$current_id = apply_filters( 'wpml_object_id', $current_id, $current_post_type, true, $default_lang );
+				if ( $default_lang !== $current_lang ) {
+					$current_post_type = get_post_type( $current_id );
+					$current_id        = apply_filters( 'wpml_object_id', $current_id, $current_post_type, true, $default_lang );
 				}
 			}
 
@@ -1513,7 +1512,7 @@ class Astra_Target_Rules_Fields {
 		if ( ! empty( $already_set_rule ) ) {
 			add_action(
 				'admin_notices',
-				function() use ( $already_set_rule ) {
+				function () use ( $already_set_rule ) {
 					$rule_set_titles = '<strong>' . implode( ',', $already_set_rule ) . '</strong>';
 
 					/* translators: %s post title. */
