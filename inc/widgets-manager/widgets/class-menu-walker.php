@@ -26,8 +26,9 @@ class Menu_Walker extends \Walker_Nav_Menu {
 	 * @param array  $args Arguments array.
 	 * @param int    $id Menu ID.
 	 * @access public
+	 * @return void
 	 */
-	public function start_el( &$output, $item, $depth = 0, $args = [], $id = 0 ) {
+	public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 
 		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 		$args   = (object) $args;
@@ -37,7 +38,7 @@ class Menu_Walker extends \Walker_Nav_Menu {
 		$rel_xfn     = '';
 		$rel_blank   = '';
 
-		$classes = empty( $item->classes ) ? [] : (array) $item->classes;
+		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 		$submenu = $args->has_children ? ' hfe-has-submenu' : '';
 
 		if ( 0 === $depth ) {
@@ -98,6 +99,7 @@ class Menu_Walker extends \Walker_Nav_Menu {
 	 * @param array  $args Arguments array.
 	 * @param string $output Output HTML.
 	 * @access public
+	 * @return void | null
 	 */
 	function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {
 
@@ -109,4 +111,3 @@ class Menu_Walker extends \Walker_Nav_Menu {
 		return parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
 	}
 }
-
