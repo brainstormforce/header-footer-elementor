@@ -7,14 +7,14 @@ parameters:
 			path: themes/bb-theme/class-hfe-bb-theme-compat.php
 
 		-
-			message: "#^Static property CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\AbSteps\\:\\:\\$instance \\(object\\) in isset\\(\\) is not nullable\\.$#"
-			count: 1
-			path: admin-core/ajax/ab-steps.php
+			message: "#^Function WC not found.$#"
+			count: 7
+			path: inc/widgets-manager/widgets/class-cart.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:get_error_msg\\(\\)\\.$#"
-			count: 1
-			path: admin-core/ajax/ajax-base.php
+			message: '#^Call to an undefined method HFE\\WidgetsManager\\Widgets\\Cart\:\:add_control\(\)$#'
+			count: 10
+			path: inc/widgets-manager/widgets/class-cart.php
 
 		-
 			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\AjaxBase\\:\\:init_ajax_events\\(\\) has no return type specified\\.$#"
