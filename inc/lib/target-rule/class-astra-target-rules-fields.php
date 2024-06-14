@@ -18,7 +18,7 @@ class Astra_Target_Rules_Fields {
 	 *
 	 * @since  1.0.0
 	 *
-	 * @var $instance
+	 * @var Astra_Target_Rules_Fields
 	 */
 	private static $instance;
 
@@ -27,7 +27,7 @@ class Astra_Target_Rules_Fields {
 	 *
 	 * @since  1.0.0
 	 *
-	 * @var $meta_option
+	 * @var mixed $meta_option
 	 */
 	private static $meta_option;
 
@@ -36,7 +36,7 @@ class Astra_Target_Rules_Fields {
 	 *
 	 * @since  1.0.0
 	 *
-	 * @var $current_page_type
+	 * @var string $current_page_type
 	 */
 	private static $current_page_type = null;
 
@@ -54,7 +54,7 @@ class Astra_Target_Rules_Fields {
 	 *
 	 * @since  1.0.0
 	 *
-	 * @var $user_selection
+	 * @var array $user_selection
 	 */
 	private static $user_selection;
 
@@ -71,6 +71,7 @@ class Astra_Target_Rules_Fields {
 	 * Initiator
 	 *
 	 * @since  1.0.0
+	 * @return Astra_Target_Rules_Fields $instance
 	 */
 	public static function get_instance() {
 		if ( ! isset( self::$instance ) ) {
@@ -303,6 +304,7 @@ class Astra_Target_Rules_Fields {
 	 * When searching for the post/pages only titles are searched for.
 	 *
 	 * @since  1.0.0
+	 * @return void
 	 */
 	function hfe_get_posts_by_query() {
 
@@ -449,6 +451,7 @@ class Astra_Target_Rules_Fields {
 	/**
 	 * Function Name: admin_styles.
 	 * Function Description: admin_styles.
+	 * @return void
 	 */
 	public function admin_styles() {
 		wp_enqueue_script( 'astra-select2', AST_TARGET_RULE_URI . 'select2.js', array( 'jquery' ), AST_TARGET_RULE_VER, true );
@@ -645,6 +648,7 @@ class Astra_Target_Rules_Fields {
 	 * @param string $name string parameter.
 	 * @param string $settings string parameter.
 	 * @param string $value string parameter.
+	 * @return void
 	 */
 	public static function target_rule_settings_field( $name, $settings, $value ) {
 		$input_name     = $name;
@@ -709,6 +713,7 @@ class Astra_Target_Rules_Fields {
 	 *
 	 * @param object $post_type post type parameter.
 	 * @param object $taxonomy taxonomy for creating the target rule markup.
+	 * @return array
 	 */
 	public static function get_post_target_rule_options( $post_type, $taxonomy ) {
 		$post_key    = str_replace( ' ', '-', strtolower( $post_type->label ) );
@@ -747,13 +752,13 @@ class Astra_Target_Rules_Fields {
 	 * Generate markup for rendering the location selction.
 	 *
 	 * @since  1.0.0
-	 * @param  String $type                 Rule type display|exclude.
-	 * @param  Array  $selection_options     Array for available selection fields.
-	 * @param  String $input_name           Input name for the settings.
-	 * @param  Array  $saved_values          Array of saved valued.
-	 * @param  String $add_rule_label       Label for the Add rule button.
+	 * @param  string $type                 Rule type display|exclude.
+	 * @param  array  $selection_options     Array for available selection fields.
+	 * @param  string $input_name           Input name for the settings.
+	 * @param  array  $saved_values          Array of saved valued.
+	 * @param  string $add_rule_label       Label for the Add rule button.
 	 *
-	 * @return HTML Markup for for the location settings.
+	 * @return string Markup for for the location settings.
 	 */
 	public static function generate_target_rule_selector( $type, $selection_options, $input_name, $saved_values, $add_rule_label ) {
 		$output = '<div class="target_rule-builder-wrap">';
@@ -1055,6 +1060,7 @@ class Astra_Target_Rules_Fields {
 	 * @param string $name string parameter.
 	 * @param string $settings string parameter.
 	 * @param string $value string parameter.
+	 * @return void
 	 */
 	public static function target_user_role_settings_field( $name, $settings, $value ) {
 		$input_name     = $name;
@@ -1136,7 +1142,7 @@ class Astra_Target_Rules_Fields {
 	 *
 	 * @since  1.0.0
 	 * @param  int   $post_id Post ID.
-	 * @param  Array $rules   Current user rules.
+	 * @param  array $rules   Current user rules.
 	 *
 	 * @return boolean  True = user condition passes. False = User condition does not pass.
 	 */
@@ -1375,6 +1381,7 @@ class Astra_Target_Rules_Fields {
 	 * @since  1.0.0
 	 * @param  string $post_type Post Type.
 	 * @param  array  $option meta option name.
+	 * @return void
 	 */
 	public function remove_exclusion_rule_posts( $post_type, $option ) {
 		$exclusion       = isset( $option['exclusion'] ) ? $option['exclusion'] : '';
@@ -1396,6 +1403,7 @@ class Astra_Target_Rules_Fields {
 	 * @since  1.0.0
 	 * @param  int   $post_type Post Type.
 	 * @param  array $option meta option name.
+	 * @return void
 	 */
 	public function remove_user_rule_posts( $post_type, $option ) {
 		$users           = isset( $option['users'] ) ? $option['users'] : '';
@@ -1417,6 +1425,7 @@ class Astra_Target_Rules_Fields {
 	 * @since  1.0.0
 	 * @param  int   $post_type Post Type.
 	 * @param  array $option meta option name.
+	 * @return void
 	 */
 	public static function same_display_on_notice( $post_type, $option ) {
 		global $wpdb;
@@ -1553,7 +1562,7 @@ class Astra_Target_Rules_Fields {
 	 * @since  1.0.0
 	 * @param  string $post_type Post Type.
 	 *
-	 * @return object  Posts.
+	 * @return array  Posts.
 	 */
 	public static function get_post_selection( $post_type ) {
 		$query_args = array(
