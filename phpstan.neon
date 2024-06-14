@@ -22,7 +22,10 @@ parameters:
 		- languages
 		- themes
 
+
 	ignoreErrors:
+		- '#^Call to an undefined method [a-zA-Z0-9\\_]+\:\:add_control\(\).$#'
+		- '#Access to constant [^\s]+ on an unknown class Elementor\\Controls_Manager\.$#'
 		# Uses func_get_args()
 		# - '#^Function apply_filters invoked with [34567] parameters, 2 required\.$#'
 		# - '#^Function do_action invoked with [3456] parameters, 1-2 required\.$#'
