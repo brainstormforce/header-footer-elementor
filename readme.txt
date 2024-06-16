@@ -140,7 +140,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 
-= 1.6.37 =
+= 1.6.36.1 =
 - Fix: Navigation Menu - Left not found console error when full-width is turned on.
 
 = 1.6.36 = 
