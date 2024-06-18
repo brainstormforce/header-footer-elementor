@@ -26,7 +26,7 @@ class HFE_Storefront_Compat {
 		if ( ! isset( self::$instance ) ) {
 			self::$instance = new HFE_Storefront_Compat();
 
-			add_action( 'wp', [ self::$instance, 'hooks' ] );
+			add_action( 'wp', array( self::$instance, 'hooks' ) );
 		}
 
 		return self::$instance;
@@ -39,12 +39,12 @@ class HFE_Storefront_Compat {
 	 */
 	public function hooks(): void {
 		if ( hfe_header_enabled() ) {
-			add_action( 'template_redirect', [ $this, 'setup_header' ], 10 );
+			add_action( 'template_redirect', array( $this, 'setup_header' ), 10 );
 			add_action( 'storefront_before_header', 'hfe_render_header', 500 );
 		}
 
 		if ( hfe_footer_enabled() ) {
-			add_action( 'template_redirect', [ $this, 'setup_footer' ], 10 );
+			add_action( 'template_redirect', array( $this, 'setup_footer' ), 10 );
 			add_action( 'storefront_after_footer', 'hfe_render_footer', 500 );
 		}
 
@@ -53,7 +53,7 @@ class HFE_Storefront_Compat {
 		}
 
 		if ( hfe_header_enabled() || hfe_footer_enabled() ) {
-			add_action( 'wp_enqueue_scripts', [ $this, 'styles' ] );
+			add_action( 'wp_enqueue_scripts', array( $this, 'styles' ) );
 		}
 	}
 
@@ -87,7 +87,7 @@ class HFE_Storefront_Compat {
 	 * @return void
 	 */
 	public function setup_header(): void {
-		for ( $priority = 0; $priority < 200; $priority ++ ) {
+		for ( $priority = 0; $priority < 200; $priority++ ) {
 			remove_all_actions( 'storefront_header', $priority );
 		}
 	}
@@ -98,11 +98,10 @@ class HFE_Storefront_Compat {
 	 * @return void
 	 */
 	public function setup_footer(): void {
-		for ( $priority = 0; $priority < 200; $priority ++ ) {
+		for ( $priority = 0; $priority < 200; $priority++ ) {
 			remove_all_actions( 'storefront_footer', $priority );
 		}
 	}
-
 }
 
 HFE_Storefront_Compat::instance();
