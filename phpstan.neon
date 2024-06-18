@@ -13,6 +13,7 @@ parameters:
 	scanFiles:
 	bootstrapFiles:
 		- vendor/php-stubs/wordpress-stubs/wordpress-stubs.php
+		- stubs/___elementor-stubs.php
 		- tests/php/stubs/hfe-stubs.php
 	paths:
 		- header-footer-elementor.php
@@ -29,4 +30,5 @@ parameters:
 		- '#Access to static property [^\s]+ on an unknown class Elementor\\Plugin\.$#'
 		- '#Access to constant [^\s]+ on an unknown class Elementor\\[^\s]+\.$#'
 		- '#Call to static method [^\s]+ on an unknown class Elementor\\[^\s]+\.$#'
+		- '#Call to method [^\s]+ on an unknown class Elementor\\[^\s]+\.$#'
 
