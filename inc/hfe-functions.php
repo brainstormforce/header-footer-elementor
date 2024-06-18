@@ -79,7 +79,7 @@ function get_hfe_footer_id() {
  */
 function hfe_render_header() {
 
-	if ( false == apply_filters( 'enable_hfe_render_header', true ) ) {
+	if ( false === apply_filters( 'enable_hfe_render_header', true ) ) {
 		return;
 	}
 
@@ -100,7 +100,7 @@ function hfe_render_header() {
  */
 function hfe_render_footer() {
 
-	if ( false == apply_filters( 'enable_hfe_render_footer', true ) ) {
+	if ( false === apply_filters( 'enable_hfe_render_footer', true ) ) {
 		return;
 	}
 
@@ -155,7 +155,7 @@ function hfe_is_before_footer_enabled() {
  */
 function hfe_render_before_footer() {
 
-	if ( false == apply_filters( 'enable_hfe_render_before_footer', true ) ) {
+	if ( false === apply_filters( 'enable_hfe_render_before_footer', true ) ) {
 		return;
 	}
 
