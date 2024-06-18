@@ -334,13 +334,11 @@ class Search_Button extends Widget_Base {
 				),
 				'condition' => array(
 					'border_style!' => 'none',
+					'layout!'       => 'icon',
 				),
 				'default'   => '',
 				'selectors' => array(
 					'{{WRAPPER}} .hfe-search-form__container, {{WRAPPER}} .hfe-search-icon-toggle .hfe-search-form__input,{{WRAPPER}} .hfe-input-focus .hfe-search-icon-toggle .hfe-search-form__input' => 'border-color: {{VALUE}};',
-				),
-				'condition' => array(
-					'layout!' => 'icon',
 				),
 			)
 		);
@@ -360,12 +358,10 @@ class Search_Button extends Widget_Base {
 				),
 				'condition'  => array(
 					'border_style!' => 'none',
+					'layout!'       => 'icon',
 				),
 				'selectors'  => array(
 					'{{WRAPPER}} .hfe-search-form__container, {{WRAPPER}} .hfe-search-icon-toggle .hfe-search-form__input,{{WRAPPER}} .hfe-input-focus .hfe-search-icon-toggle .hfe-search-form__input' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-				'condition'  => array(
-					'layout!' => 'icon',
 				),
 			)
 		);
