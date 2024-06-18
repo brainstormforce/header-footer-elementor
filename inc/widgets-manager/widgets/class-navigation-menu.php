@@ -33,7 +33,7 @@ class Navigation_Menu extends Widget_Base {
 	 * Menu index.
 	 *
 	 * @access protected
-	 * @property int $nav_menu_index
+	 * @var int $nav_menu_index
 	 */
 	protected int $nav_menu_index = 1;
 
@@ -629,6 +629,7 @@ class Navigation_Menu extends Widget_Base {
 	 *
 	 * @since 1.3.0
 	 * @access protected
+	 * @return void
 	 */
 	protected function register_style_content_controls() {
 
@@ -1107,6 +1108,7 @@ class Navigation_Menu extends Widget_Base {
 	 *
 	 * @since 1.3.0
 	 * @access protected
+	 * @return void
 	 */
 	protected function register_dropdown_content_controls() {
 
@@ -1904,7 +1906,7 @@ class Navigation_Menu extends Widget_Base {
 	 *
 	 * @since 1.3.0
 	 * @access protected
-	 * @return void | false
+	 * @return (void | false)
 	 */
 	protected function render() {
 
