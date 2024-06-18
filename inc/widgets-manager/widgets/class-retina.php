@@ -397,6 +397,7 @@ class Retina extends Widget_Base {
 	 * @since 1.2.0
 	 *
 	 * @access protected
+	 * @return void
 	 */
 	protected function render() {
 		$settings       = $this->get_settings_for_display();
