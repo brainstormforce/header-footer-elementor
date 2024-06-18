@@ -22,7 +22,7 @@ class Header_Footer_Elementor {
 	/**
 	 * Instance of Elemenntor Frontend class.
 	 *
-	 * @var \Elementor\Frontend()
+	 * @var object \Elementor\Frontend()
 	 */
 	private static $elementor_instance;
 
@@ -48,7 +48,7 @@ class Header_Footer_Elementor {
 	/**
 	 * Constructor
 	 */
-	function __construct() {
+	public function __construct() {
 		$this->template = get_template();
 
 		$is_elementor_callable = ( defined( 'ELEMENTOR_VERSION' ) && is_callable( 'Elementor\Plugin::instance' ) ) ? true : false;
