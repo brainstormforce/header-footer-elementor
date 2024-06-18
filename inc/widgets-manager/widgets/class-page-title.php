@@ -278,6 +278,7 @@ class Page_Title extends Widget_Base {
 	 *
 	 * @since 1.3.0
 	 * @access protected
+	 * @return void
 	 */
 	protected function register_page_title_style_controls() {
 		$this->start_controls_section(
