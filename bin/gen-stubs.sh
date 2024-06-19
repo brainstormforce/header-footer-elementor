@@ -6,7 +6,7 @@ DIRECTORIES=(
 )
 
 # Output directory for stubs
-OUTPUT_DIR="tests"
+OUTPUT_DIR="stubs"
 
 # Create the output directory if it doesn't exist
 mkdir -p $OUTPUT_DIR
