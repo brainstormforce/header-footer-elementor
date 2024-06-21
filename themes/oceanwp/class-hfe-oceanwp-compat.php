@@ -23,7 +23,7 @@ class HFE_OceanWP_Compat {
 	 * @return HFE_OceanWP_Compat
 	 */
 	public static function instance(): HFE_OceanWP_Compat {
-		if ( self::$instance === null ) {
+		if ( null === self::$instance ) {
 			self::$instance = new HFE_OceanWP_Compat();
 			add_action( 'wp', array( self::$instance, 'hooks' ) );
 		}
