@@ -45,7 +45,7 @@ class Astra_Target_Rules_Fields {
 	 *
 	 * @since  1.0.0
 	 *
-	 * @var $current_page_data
+	 * @var array $current_page_data
 	 */
 	private static $current_page_data = array();
 
@@ -63,7 +63,7 @@ class Astra_Target_Rules_Fields {
 	 *
 	 * @since  1.0.0
 	 *
-	 * @var $location_selection
+	 * @var array $location_selection
 	 */
 	private static $location_selection;
 
@@ -306,11 +306,11 @@ class Astra_Target_Rules_Fields {
 	 * @since  1.0.0
 	 * @return void
 	 */
-	function hfe_get_posts_by_query() {
+	public function hfe_get_posts_by_query() {
 
 		check_ajax_referer( 'hfe-get-posts-by-query', 'nonce' );
 
-		$search_string = isset( $_POST['q'] ) ? sanitize_text_field( $_POST['q'] ) : '';
+		$search_string = isset( $_POST['q'] ) ? sanitize_text_field( wp_unslash( $_POST['q'] ) ) : '';
 		$data          = array();
 		$result        = array();
 
@@ -376,8 +376,8 @@ class Astra_Target_Rules_Fields {
 
 		foreach ( $taxonomies as $taxonomy ) {
 			$terms = get_terms(
-				$taxonomy->name,
 				array(
+					$taxonomy->name,
 					'orderby'    => 'count',
 					'hide_empty' => 0,
 					'name__like' => $search_string,
@@ -425,7 +425,7 @@ class Astra_Target_Rules_Fields {
 	 *
 	 * @return (string) The Modified Search SQL for WHERE clause.
 	 */
-	function search_only_titles( $search, $wp_query ) {
+	public function search_only_titles( $search, $wp_query ) {
 		if ( ! empty( $search ) && ! empty( $wp_query->query_vars['search_terms'] ) ) {
 			global $wpdb;
 
@@ -704,7 +704,7 @@ class Astra_Target_Rules_Fields {
 		/* Wrapper end */
 		$output .= '</div>';
 
-		echo $output;
+		echo esc_html( $output );
 	}
 
 	/**
@@ -1133,7 +1133,7 @@ class Astra_Target_Rules_Fields {
 			$output     .= '</div>';
 		$output         .= '</div>';
 
-		echo $output;
+		echo esc_html( $output );
 	}
 
 	/**
@@ -1519,7 +1519,7 @@ class Astra_Target_Rules_Fields {
 					$notice = sprintf( __( 'The same display setting is already exist in %s post/s.', 'header-footer-elementor' ), $rule_set_titles );
 
 					echo '<div class="error">';
-					echo '<p>' . $notice . '</p>';
+					echo '<p>' . esc_html( $notice ) . '</p>';
 					echo '</div>';
 				}
 			);
