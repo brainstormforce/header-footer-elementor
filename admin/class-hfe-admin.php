@@ -286,7 +286,7 @@ class HFE_Admin {
 	 *
 	 * @return void
 	 */
-	function ehf_register_metabox() {
+	public function ehf_register_metabox() {
 		add_meta_box(
 			'ehf-meta-box',
 			__( 'Elementor Header & Footer Builder Options', 'header-footer-elementor' ),
@@ -306,7 +306,7 @@ class HFE_Admin {
 	 * @param array $post Currennt post object which is being displayed.
 	 * @return void
 	 */
-	function efh_metabox_render( $post ) {
+	public function efh_metabox_render( $post ) {
 		$values            = get_post_custom( $post->ID );
 		$template_type     = isset( $values['ehf_template_type'] ) ? esc_attr( sanitize_text_field( $values['ehf_template_type'][0] ) ) : '';
 		$display_on_canvas = isset( $values['display-on-canvas-template'] ) ? true : false;
@@ -456,7 +456,7 @@ class HFE_Admin {
 		}
 
 		// if our nonce isn't there, or we can't verify it, bail.
-		if ( ! isset( $_POST['ehf_meta_nounce'] ) || ! wp_verify_nonce( sanitize_text_field( $_POST['ehf_meta_nounce'] ), 'ehf_meta_nounce' ) ) {
+		if ( ! isset( $_POST['ehf_meta_nounce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['ehf_meta_nounce'] ) ), 'ehf_meta_nounce' ) ) {
 			return;
 		}
 
@@ -470,7 +470,7 @@ class HFE_Admin {
 		$target_users     = array();
 
 		if ( isset( $_POST['bsf-target-rules-users'] ) ) {
-			$target_users = array_map( 'sanitize_text_field', $_POST['bsf-target-rules-users'] );
+			$target_users = array_map( 'sanitize_text_field', wp_unslash( $_POST['bsf-target-rules-users'] ) );
 		}
 
 		update_post_meta( $post_id, 'ehf_target_include_locations', $target_locations );
@@ -478,11 +478,11 @@ class HFE_Admin {
 		update_post_meta( $post_id, 'ehf_target_user_roles', $target_users );
 
 		if ( isset( $_POST['ehf_template_type'] ) ) {
-			update_post_meta( $post_id, 'ehf_template_type', sanitize_text_field( $_POST['ehf_template_type'] ) );
+			update_post_meta( $post_id, 'ehf_template_type', sanitize_text_field( wp_unslash( $_POST['ehf_template_type'] ) ) );
 		}
 
 		if ( isset( $_POST['display-on-canvas-template'] ) ) {
-			update_post_meta( $post_id, 'display-on-canvas-template', sanitize_text_field( $_POST['display-on-canvas-template'] ) );
+			update_post_meta( $post_id, 'display-on-canvas-template', sanitize_text_field( wp_unslash( $_POST['display-on-canvas-template'] ) ) );
 		} else {
 			delete_post_meta( $post_id, 'display-on-canvas-template' );
 		}
@@ -557,7 +557,7 @@ class HFE_Admin {
 	 * @param  string $single_template Single template.
 	 * @return string
 	 */
-	function load_canvas_template( $single_template ) {
+	public function load_canvas_template( $single_template ) {
 		global $post;
 
 		if ( 'elementor-hf' == $post->post_type ) {
@@ -579,7 +579,7 @@ class HFE_Admin {
 	 * @param array $columns template list columns.
 	 * @return array
 	 */
-	function set_shortcode_columns( $columns ) {
+	public function set_shortcode_columns( $columns ) {
 		$date_column = $columns['date'];
 
 		unset( $columns['date'] );
@@ -597,7 +597,7 @@ class HFE_Admin {
 	 * @param int   $post_id post id.
 	 * @return void
 	 */
-	function render_shortcode_column( $column, $post_id ) {
+	public function render_shortcode_column( $column, $post_id ) {
 		switch ( $column ) {
 			case 'shortcode':
 				ob_start();
