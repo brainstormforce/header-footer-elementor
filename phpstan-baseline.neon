@@ -12,19 +12,19 @@ parameters:
 			path: inc/widgets-manager/widgets/class-cart.php
 
 		-
-			message: '#^Call to an undefined method HFE\\WidgetsManager\\Widgets\\Cart\:\:add_control\(\)$#'
-			count: 10
-			path: inc/widgets-manager/widgets/class-cart.php
+			message: "#^Function WC not found.$#"
+			count: 6
+			path: inc/widgets-manager/class-widgets-loader.php
 
 		-
-			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\AjaxBase\\:\\:init_ajax_events\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: admin-core/ajax/ajax-base.php
+			message: "#^Constant AST_TARGET_RULE_URI not found\\.$#"
+			count: 6
+			path: inc/lib/target-rule/class-astra-target-rules-fields.php   
 
 		-
-			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\AjaxBase\\:\\:init_ajax_events\\(\\) has parameter \\$ajax_events with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: admin-core/ajax/ajax-base.php
+			message: "#^Constant AST_TARGET_RULE_VER not found.$#"
+			count: 7
+			path: inc/lib/target-rule/class-astra-target-rules-fields.php   
 
 		-
 			message: "#^Parameter \\#2 \\$callback of function add_action expects callable\\(\\)\\: mixed, array\\{\\$this\\(CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\AjaxBase\\), mixed\\} given\\.$#"
