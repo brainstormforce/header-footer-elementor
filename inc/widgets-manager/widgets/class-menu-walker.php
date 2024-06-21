@@ -99,9 +99,9 @@ class Menu_Walker extends \Walker_Nav_Menu {
 	 * @param array  $args Arguments array.
 	 * @param string $output Output HTML.
 	 * @access public
-	 * @return void | null
+	 * @return (void | null)
 	 */
-	function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {
+	public function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {
 
 		$id_field = $this->db_fields['id'];
 
