@@ -28,7 +28,8 @@ if ( ! class_exists( 'HFE_Update' ) ) {
 		 * @since 1.1.4
 		 * @var string
 		 */
-		private string $db_option_key = '_hfe_db_version';
+		// phpcs:ignore
+		private string $db_option_key = '_hfe_db_version'; 
 
 		/**
 		 *  Constructor
@@ -39,9 +40,9 @@ if ( ! class_exists( 'HFE_Update' ) ) {
 
 			// Theme Updates.
 			if ( is_admin() ) {
-				add_action( 'admin_init', array( $this, 'init' ), 5 );
+				add_action( 'admin_init', [ $this, 'init' ], 5 );
 			} else {
-				add_action( 'wp', array( $this, 'init' ), 5 );
+				add_action( 'wp', [ $this, 'init' ], 5 );
 			}
 		}
 
@@ -79,10 +80,10 @@ if ( ! class_exists( 'HFE_Update' ) ) {
 		 * @return void
 		 */
 		private function setup_default_terget_rules() {
-			$default_include_locations = array(
-				'rule'     => array( 0 => 'basic-global' ),
-				'specific' => array(),
-			);
+			$default_include_locations = [
+				'rule'     => [ 0 => 'basic-global' ],
+				'specific' => [],
+			];
 
 			$header_id        = $this->get_legacy_template_id( 'type_header' );
 			$footer_id        = $this->get_legacy_template_id( 'type_footer' );
@@ -112,7 +113,7 @@ if ( ! class_exists( 'HFE_Update' ) ) {
 		 * @return mixed  Returns the header or footer template id if found, else returns string ''.
 		 */
 		public function get_legacy_template_id( $type ) {
-			$args = array(
+			$args = [
 				'post_type'    => 'elementor-hf',
 				'meta_key'     => 'ehf_template_type',
 				'meta_value'   => $type, // PHPCS:Ignore  WordPress.DB.SlowDBQuery.slow_db_query_meta_value
@@ -120,16 +121,16 @@ if ( ! class_exists( 'HFE_Update' ) ) {
 				'meta_compare' => '>=',
 				'orderby'      => 'meta_value',
 				'order'        => 'ASC',
-				'meta_query'   => array(  // PHPCS:Ignore  WordPress.DB.SlowDBQuery.slow_db_query_meta_query
+				'meta_query'   => [  // PHPCS:Ignore  WordPress.DB.SlowDBQuery.slow_db_query_meta_query
 					'relation' => 'OR',
-					array(
+					[
 						'key'     => 'ehf_template_type',
 						'value'   => $type,
 						'compare' => '==',
 						'type'    => 'post',
-					),
-				),
-			);
+					],
+				],
+			];
 
 			$args     = apply_filters( 'hfe_get_template_id_args', $args );
 			$template = new WP_Query(

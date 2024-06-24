@@ -89,7 +89,7 @@ class Site_Logo extends Widget_Base {
 	 * @return array Widget categories.
 	 */
 	public function get_categories() {
-		return array( 'hfe-widgets' );
+		return [ 'hfe-widgets' ];
 	}
 
 	/**
@@ -115,160 +115,160 @@ class Site_Logo extends Widget_Base {
 	protected function register_content_site_logo_controls() {
 		$this->start_controls_section(
 			'section_site_image',
-			array(
+			[
 				'label' => __( 'Site Logo', 'header-footer-elementor' ),
-			)
+			]
 		);
 
 		$this->add_control(
 			'site_logo_fallback',
-			array(
+			[
 				'label'       => __( 'Custom Image', 'header-footer-elementor' ),
 				'type'        => Controls_Manager::SWITCHER,
 				'yes'         => __( 'Yes', 'header-footer-elementor' ),
 				'no'          => __( 'No', 'header-footer-elementor' ),
 				'default'     => 'no',
 				'render_type' => 'template',
-			)
+			]
 		);
 
 		$this->add_control(
 			'custom_image',
-			array(
+			[
 				'label'     => __( 'Add Image', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::MEDIA,
-				'dynamic'   => array(
+				'dynamic'   => [
 					'active' => true,
-				),
-				'default'   => array(
+				],
+				'default'   => [
 					'url' => Utils::get_placeholder_image_src(),
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'site_logo_fallback' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Image_Size::get_type(),
-			array(
+			[
 				'name'    => 'site_logo_size',
 				'label'   => __( 'Image Size', 'header-footer-elementor' ),
 				'default' => 'medium',
-			)
+			]
 		);
 		$this->add_responsive_control(
 			'align',
-			array(
+			[
 				'label'              => __( 'Alignment', 'header-footer-elementor' ),
 				'type'               => Controls_Manager::CHOOSE,
-				'options'            => array(
-					'left'   => array(
+				'options'            => [
+					'left'   => [
 						'title' => __( 'Left', 'header-footer-elementor' ),
 						'icon'  => 'eicon-text-align-left',
-					),
-					'center' => array(
+					],
+					'center' => [
 						'title' => __( 'Center', 'header-footer-elementor' ),
 						'icon'  => 'eicon-text-align-center',
-					),
-					'right'  => array(
+					],
+					'right'  => [
 						'title' => __( 'Right', 'header-footer-elementor' ),
 						'icon'  => 'eicon-text-align-right',
-					),
-				),
+					],
+				],
 				'default'            => 'center',
-				'selectors'          => array(
+				'selectors'          => [
 					'{{WRAPPER}} .hfe-site-logo-container, {{WRAPPER}} .hfe-caption-width figcaption' => 'text-align: {{VALUE}};',
-				),
+				],
 				'frontend_available' => true,
-			)
+			]
 		);
 
 		$this->add_control(
 			'caption_source',
-			array(
+			[
 				'label'   => __( 'Caption', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::SELECT,
-				'options' => array(
+				'options' => [
 					'no'  => __( 'No', 'header-footer-elementor' ),
 					'yes' => __( 'Yes', 'header-footer-elementor' ),
-				),
+				],
 				'default' => 'no',
-			)
+			]
 		);
 
 		$this->add_control(
 			'caption',
-			array(
+			[
 				'label'       => __( 'Custom Caption', 'header-footer-elementor' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => '',
 				'placeholder' => __( 'Enter caption', 'header-footer-elementor' ),
-				'condition'   => array(
+				'condition'   => [
 					'caption_source' => 'yes',
-				),
-				'dynamic'     => array(
+				],
+				'dynamic'     => [
 					'active' => true,
-				),
+				],
 				'label_block' => true,
-			)
+			]
 		);
 
 		$this->add_control(
 			'link_to',
-			array(
+			[
 				'label'   => __( 'Link', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'default',
-				'options' => array(
+				'options' => [
 					'default' => __( 'Default', 'header-footer-elementor' ),
 					'none'    => __( 'None', 'header-footer-elementor' ),
 					'file'    => __( 'Media File', 'header-footer-elementor' ),
 					'custom'  => __( 'Custom URL', 'header-footer-elementor' ),
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'link',
-			array(
+			[
 				'label'       => __( 'Link', 'header-footer-elementor' ),
 				'type'        => Controls_Manager::URL,
-				'dynamic'     => array(
+				'dynamic'     => [
 					'active' => true,
-				),
+				],
 				'placeholder' => __( 'https://your-link.com', 'header-footer-elementor' ),
-				'condition'   => array(
+				'condition'   => [
 					'link_to' => 'custom',
-				),
+				],
 				'show_label'  => false,
-			)
+			]
 		);
 
 		$this->add_control(
 			'open_lightbox',
-			array(
+			[
 				'label'     => __( 'Lightbox', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'default',
-				'options'   => array(
+				'options'   => [
 					'default' => __( 'Default', 'header-footer-elementor' ),
 					'yes'     => __( 'Yes', 'header-footer-elementor' ),
 					'no'      => __( 'No', 'header-footer-elementor' ),
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'link_to' => 'file',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'view',
-			array(
+			[
 				'label'   => __( 'View', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::HIDDEN,
 				'default' => 'traditional',
-			)
+			]
 		);
 		$this->end_controls_section();
 	}
@@ -282,269 +282,269 @@ class Site_Logo extends Widget_Base {
 	protected function register_site_logo_styling_controls() {
 		$this->start_controls_section(
 			'section_style_site_logo_image',
-			array(
+			[
 				'label' => __( 'Site logo', 'header-footer-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
-			)
+			]
 		);
 
 		$this->add_responsive_control(
 			'width',
-			array(
+			[
 				'label'              => __( 'Width', 'header-footer-elementor' ),
 				'type'               => Controls_Manager::SLIDER,
-				'default'            => array(
+				'default'            => [
 					'unit' => '%',
-				),
-				'tablet_default'     => array(
+				],
+				'tablet_default'     => [
 					'unit' => '%',
-				),
-				'mobile_default'     => array(
+				],
+				'mobile_default'     => [
 					'unit' => '%',
-				),
-				'size_units'         => array( '%', 'px', 'vw' ),
-				'range'              => array(
-					'%'  => array(
+				],
+				'size_units'         => [ '%', 'px', 'vw' ],
+				'range'              => [
+					'%'  => [
 						'min' => 1,
 						'max' => 100,
-					),
-					'px' => array(
+					],
+					'px' => [
 						'min' => 1,
 						'max' => 1000,
-					),
-					'vw' => array(
+					],
+					'vw' => [
 						'min' => 1,
 						'max' => 100,
-					),
-				),
-				'selectors'          => array(
+					],
+				],
+				'selectors'          => [
 					'{{WRAPPER}} .hfe-site-logo .hfe-site-logo-container img' => 'width: {{SIZE}}{{UNIT}};',
-				),
+				],
 				'frontend_available' => true,
-			)
+			]
 		);
 
 		$this->add_responsive_control(
 			'space',
-			array(
+			[
 				'label'              => __( 'Max Width', 'header-footer-elementor' ) . ' (%)',
 				'type'               => Controls_Manager::SLIDER,
-				'default'            => array(
+				'default'            => [
 					'unit' => '%',
-				),
-				'tablet_default'     => array(
+				],
+				'tablet_default'     => [
 					'unit' => '%',
-				),
-				'mobile_default'     => array(
+				],
+				'mobile_default'     => [
 					'unit' => '%',
-				),
-				'size_units'         => array( '%' ),
-				'range'              => array(
-					'%' => array(
+				],
+				'size_units'         => [ '%' ],
+				'range'              => [
+					'%' => [
 						'min' => 1,
 						'max' => 100,
-					),
-				),
-				'selectors'          => array(
+					],
+				],
+				'selectors'          => [
 					'{{WRAPPER}} .hfe-site-logo img' => 'max-width: {{SIZE}}{{UNIT}};',
-				),
+				],
 				'frontend_available' => true,
-			)
+			]
 		);
 
 		$this->add_control(
 			'separator_panel_style',
-			array(
+			[
 				'type'  => Controls_Manager::DIVIDER,
 				'style' => 'thick',
-			)
+			]
 		);
 
 		$this->add_control(
 			'site_logo_background_color',
-			array(
+			[
 				'label'     => __( 'Background Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .hfe-site-logo-set .hfe-site-logo-container' => 'background-color: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'site_logo_image_border',
-			array(
+			[
 				'label'       => __( 'Border Style', 'header-footer-elementor' ),
 				'type'        => Controls_Manager::SELECT,
 				'default'     => 'none',
 				'label_block' => false,
-				'options'     => array(
+				'options'     => [
 					'none'   => __( 'None', 'header-footer-elementor' ),
 					'solid'  => __( 'Solid', 'header-footer-elementor' ),
 					'double' => __( 'Double', 'header-footer-elementor' ),
 					'dotted' => __( 'Dotted', 'header-footer-elementor' ),
 					'dashed' => __( 'Dashed', 'header-footer-elementor' ),
-				),
-				'selectors'   => array(
+				],
+				'selectors'   => [
 					'{{WRAPPER}} .hfe-site-logo-container .hfe-site-logo-img' => 'border-style: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 		$this->add_control(
 			'site_logo_image_border_size',
-			array(
+			[
 				'label'      => __( 'Border Width', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px' ),
-				'default'    => array(
+				'size_units' => [ 'px' ],
+				'default'    => [
 					'top'    => '1',
 					'bottom' => '1',
 					'left'   => '1',
 					'right'  => '1',
 					'unit'   => 'px',
-				),
-				'condition'  => array(
+				],
+				'condition'  => [
 					'site_logo_image_border!' => 'none',
-				),
-				'selectors'  => array(
+				],
+				'selectors'  => [
 					'{{WRAPPER}} .hfe-site-logo-container .hfe-site-logo-img' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'site_logo_image_border_color',
-			array(
+			[
 				'label'     => __( 'Border Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'global'    => array(
+				'global'    => [
 					'default' => Global_Colors::COLOR_PRIMARY,
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'site_logo_image_border!' => 'none',
-				),
+				],
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .hfe-site-logo-container .hfe-site-logo-img' => 'border-color: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'image_border_radius',
-			array(
+			[
 				'label'              => __( 'Border Radius', 'header-footer-elementor' ),
 				'type'               => Controls_Manager::DIMENSIONS,
-				'size_units'         => array( 'px', '%' ),
-				'selectors'          => array(
+				'size_units'         => [ 'px', '%' ],
+				'selectors'          => [
 					'{{WRAPPER}} .hfe-site-logo img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
+				],
 				'frontend_available' => true,
-			)
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
-			array(
+			[
 				'name'     => 'image_box_shadow',
-				'exclude'  => array(
+				'exclude'  => [
 					'box_shadow_position',
-				),
+				],
 				'selector' => '{{WRAPPER}} .hfe-site-logo img',
-			)
+			]
 		);
 
 		$this->start_controls_tabs( 'image_effects' );
 
 		$this->start_controls_tab(
 			'normal',
-			array(
+			[
 				'label' => __( 'Normal', 'header-footer-elementor' ),
-			)
+			]
 		);
 
 		$this->add_control(
 			'opacity',
-			array(
+			[
 				'label'     => __( 'Opacity', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::SLIDER,
-				'range'     => array(
-					'px' => array(
+				'range'     => [
+					'px' => [
 						'max'  => 1,
 						'min'  => 0.10,
 						'step' => 0.01,
-					),
-				),
-				'selectors' => array(
+					],
+				],
+				'selectors' => [
 					'{{WRAPPER}} .hfe-site-logo img' => 'opacity: {{SIZE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Css_Filter::get_type(),
-			array(
+			[
 				'name'     => 'css_filters',
 				'selector' => '{{WRAPPER}} .hfe-site-logo img',
-			)
+			]
 		);
 
 		$this->end_controls_tab();
 
 		$this->start_controls_tab(
 			'hover',
-			array(
+			[
 				'label' => __( 'Hover', 'header-footer-elementor' ),
-			)
+			]
 		);
 		$this->add_control(
 			'opacity_hover',
-			array(
+			[
 				'label'     => __( 'Opacity', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::SLIDER,
-				'range'     => array(
-					'px' => array(
+				'range'     => [
+					'px' => [
 						'max'  => 1,
 						'min'  => 0.10,
 						'step' => 0.01,
-					),
-				),
-				'selectors' => array(
+					],
+				],
+				'selectors' => [
 					'{{WRAPPER}} .hfe-site-logo:hover img' => 'opacity: {{SIZE}};',
-				),
-			)
+				],
+			]
 		);
 		$this->add_control(
 			'background_hover_transition',
-			array(
+			[
 				'label'     => __( 'Transition Duration', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::SLIDER,
-				'range'     => array(
-					'px' => array(
+				'range'     => [
+					'px' => [
 						'max'  => 3,
 						'step' => 0.1,
-					),
-				),
-				'selectors' => array(
+					],
+				],
+				'selectors' => [
 					'{{WRAPPER}} .hfe-site-logo img' => 'transition-duration: {{SIZE}}s',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Css_Filter::get_type(),
-			array(
+			[
 				'name'     => 'css_filters_hover',
 				'selector' => '{{WRAPPER}} .hfe-site-logo:hover img',
-			)
+			]
 		);
 
 		$this->add_control(
 			'hover_animation',
-			array(
+			[
 				'label' => __( 'Hover Animation', 'header-footer-elementor' ),
 				'type'  => Controls_Manager::HOVER_ANIMATION,
-			)
+			]
 		);
 
 		$this->end_controls_tab();
@@ -563,92 +563,92 @@ class Site_Logo extends Widget_Base {
 	protected function register_site_logo_caption_styling_controls() {
 		$this->start_controls_section(
 			'section_style_caption',
-			array(
+			[
 				'label'     => __( 'Caption', 'header-footer-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
-				'condition' => array(
+				'condition' => [
 					'caption_source!' => 'none',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'text_color',
-			array(
+			[
 				'label'     => __( 'Text Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .widget-image-caption' => 'color: {{VALUE}};',
-				),
-				'global'    => array(
+				],
+				'global'    => [
 					'default' => Global_Colors::COLOR_TEXT,
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'caption_background_color',
-			array(
+			[
 				'label'     => __( 'Background Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .widget-image-caption' => 'background-color: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
+			[
 				'name'     => 'caption_typography',
 				'selector' => '{{WRAPPER}} .widget-image-caption',
-				'global'   => array(
+				'global'   => [
 					'default' => Global_Typography::TYPOGRAPHY_TEXT,
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Text_Shadow::get_type(),
-			array(
+			[
 				'name'     => 'caption_text_shadow',
 				'selector' => '{{WRAPPER}} .widget-image-caption',
-			)
+			]
 		);
 
 		$this->add_responsive_control(
 			'caption_padding',
-			array(
+			[
 				'label'              => __( 'Padding', 'header-footer-elementor' ),
 				'type'               => Controls_Manager::DIMENSIONS,
-				'size_units'         => array( 'px', 'em', '%' ),
-				'selectors'          => array(
+				'size_units'         => [ 'px', 'em', '%' ],
+				'selectors'          => [
 					'{{WRAPPER}} .widget-image-caption' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
+				],
 				'frontend_available' => true,
-			)
+			]
 		);
 		$this->add_responsive_control(
 			'caption_space',
-			array(
+			[
 				'label'              => __( 'Spacing', 'header-footer-elementor' ),
 				'type'               => Controls_Manager::SLIDER,
-				'range'              => array(
-					'px' => array(
+				'range'              => [
+					'px' => [
 						'min' => 0,
 						'max' => 100,
-					),
-				),
-				'default'            => array(
+					],
+				],
+				'default'            => [
 					'size' => 0,
 					'unit' => 'px',
-				),
-				'selectors'          => array(
+				],
+				'selectors'          => [
 					'{{WRAPPER}} .widget-image-caption' => 'margin-top: {{SIZE}}{{UNIT}}; margin-bottom: 0px;',
-				),
+				],
 				'frontend_available' => true,
-			)
+			]
 		);
 
 		$this->end_controls_section();
@@ -777,14 +777,14 @@ class Site_Logo extends Widget_Base {
 
 			$image_dimension = $settings['site_logo_size_custom_dimension'];
 
-			$image_size = array(
+			$image_size = [
 				// Defaults sizes.
 				0           => null, // Width.
 				1           => null, // Height.
 
 				'bfi_thumb' => true,
 				'crop'      => true,
-			);
+			];
 
 			$has_custom_size = false;
 			if ( ! empty( $image_dimension['width'] ) ) {

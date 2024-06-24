@@ -79,7 +79,7 @@ class Cart extends Widget_Base {
 	 * @return array Widget categories.
 	 */
 	public function get_categories() {
-		return array( 'hfe-widgets' );
+		return [ 'hfe-widgets' ];
 	}
 
 	/**
@@ -106,62 +106,62 @@ class Cart extends Widget_Base {
 
 		$this->start_controls_section(
 			'section_general_fields',
-			array(
+			[
 				'label' => __( 'Menu Cart', 'header-footer-elementor' ),
-			)
+			]
 		);
 
 		$this->add_control(
 			'hfe_cart_type',
-			array(
+			[
 				'label'   => __( 'Type', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'default',
-				'options' => array(
+				'options' => [
 					'default' => __( 'Default', 'header-footer-elementor' ),
 					'custom'  => __( 'Custom', 'header-footer-elementor' ),
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'icon',
-			array(
+			[
 				'label'        => __( 'Icon', 'header-footer-elementor' ),
 				'type'         => Controls_Manager::SELECT,
-				'options'      => array(
+				'options'      => [
 					'bag-light'  => __( 'Bag Light', 'header-footer-elementor' ),
 					'bag-medium' => __( 'Bag Medium', 'header-footer-elementor' ),
 					'bag-solid'  => __( 'Bag Solid', 'header-footer-elementor' ),
-				),
+				],
 				'default'      => 'bag-light',
 				'prefix_class' => 'toggle-icon--',
-				'condition'    => array(
+				'condition'    => [
 					'hfe_cart_type' => 'custom',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'items_indicator',
-			array(
+			[
 				'label'        => __( 'Items Count', 'header-footer-elementor' ),
 				'type'         => Controls_Manager::SELECT,
-				'options'      => array(
+				'options'      => [
 					'none'   => __( 'None', 'header-footer-elementor' ),
 					'bubble' => __( 'Bubble', 'header-footer-elementor' ),
-				),
+				],
 				'prefix_class' => 'hfe-menu-cart--items-indicator-',
 				'default'      => 'bubble',
-				'condition'    => array(
+				'condition'    => [
 					'hfe_cart_type' => 'custom',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'show_subtotal',
-			array(
+			[
 				'label'        => __( 'Show Total Price', 'header-footer-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'label_on'     => __( 'Yes', 'header-footer-elementor' ),
@@ -169,15 +169,15 @@ class Cart extends Widget_Base {
 				'return_value' => 'yes',
 				'default'      => 'yes',
 				'prefix_class' => 'hfe-menu-cart--show-subtotal-',
-				'condition'    => array(
+				'condition'    => [
 					'hfe_cart_type' => 'custom',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'hide_empty_indicator',
-			array(
+			[
 				'label'        => __( 'Hide Empty', 'header-footer-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'label_on'     => __( 'Yes', 'header-footer-elementor' ),
@@ -185,36 +185,36 @@ class Cart extends Widget_Base {
 				'return_value' => 'hide',
 				'prefix_class' => 'hfe-menu-cart--empty-indicator-',
 				'description'  => __( 'This will hide the items count until the cart is empty', 'header-footer-elementor' ),
-				'condition'    => array(
+				'condition'    => [
 					'items_indicator!' => 'none',
 					'hfe_cart_type'    => 'custom',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'align',
-			array(
+			[
 				'label'              => __( 'Alignment', 'header-footer-elementor' ),
 				'type'               => Controls_Manager::CHOOSE,
-				'options'            => array(
-					'left'   => array(
+				'options'            => [
+					'left'   => [
 						'title' => __( 'Left', 'header-footer-elementor' ),
 						'icon'  => 'eicon-text-align-left',
-					),
-					'center' => array(
+					],
+					'center' => [
 						'title' => __( 'Center', 'header-footer-elementor' ),
 						'icon'  => 'eicon-text-align-center',
-					),
-					'right'  => array(
+					],
+					'right'  => [
 						'title' => __( 'Right', 'header-footer-elementor' ),
 						'icon'  => 'eicon-text-align-right',
-					),
-				),
+					],
+				],
 				'frontend_available' => true,
 				'prefix_class'       => 'elementor%s-align-',
 				'default'            => '',
-			)
+			]
 		);
 
 		$this->end_controls_section();
@@ -231,209 +231,209 @@ class Cart extends Widget_Base {
 	protected function register_cart_typo_content_controls() {
 		$this->start_controls_section(
 			'section_heading_typography',
-			array(
+			[
 				'label' => __( 'Menu Cart', 'header-footer-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
-			)
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
+			[
 				'name'      => 'toggle_button_typography',
-				'global'    => array(
+				'global'    => [
 					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
-				),
+				],
 				'selector'  => '{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button',
-				'condition' => array(
+				'condition' => [
 					'hfe_cart_type' => 'custom',
-				),
-			)
+				],
+			]
 		);
 		$this->add_control(
 			'icon_size',
-			array(
+			[
 				'label'     => __( 'Size', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::SLIDER,
-				'range'     => array(
-					'px' => array(
+				'range'     => [
+					'px' => [
 						'min' => 15,
 						'max' => 30,
-					),
-				),
-				'selectors' => array(
+					],
+				],
+				'selectors' => [
 					'{{WRAPPER}} .hfe-masthead-custom-menu-items .hfe-site-header-cart .hfe-site-header-cart-li ' => 'font-size: {{SIZE}}{{UNIT}};',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'hfe_cart_type' => 'default',
-				),
-			)
+				],
+			]
 		);
 		$this->add_control(
 			'toggle_button_border_width',
-			array(
+			[
 				'label'      => __( 'Border Width', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px' ),
-				'default'    => array(
+				'size_units' => [ 'px' ],
+				'default'    => [
 					'top'    => '1',
 					'bottom' => '1',
 					'left'   => '1',
 					'right'  => '1',
 					'unit'   => 'px',
-				),
-				'selectors'  => array(
+				],
+				'selectors'  => [
 					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button,{{WRAPPER}} .hfe-cart-menu-wrap-default .hfe-cart-count:after, {{WRAPPER}} .hfe-cart-menu-wrap-default .hfe-cart-count' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'toggle_button_border_radius',
-			array(
+			[
 				'label'      => __( 'Border Radius', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'default'    => array(
+				'default'    => [
 					'top'    => '',
 					'bottom' => '',
 					'left'   => '',
 					'right'  => '',
 					'unit'   => 'px',
-				),
-				'size_units' => array( 'px', 'em', '%' ),
-				'selectors'  => array(
+				],
+				'size_units' => [ 'px', 'em', '%' ],
+				'selectors'  => [
 					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button,{{WRAPPER}} .hfe-cart-menu-wrap-default .hfe-cart-count:after, {{WRAPPER}} .hfe-cart-menu-wrap-default .hfe-cart-count' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
+				],
 
-			)
+			]
 		);
 
 		$this->add_responsive_control(
 			'toggle_button_padding',
-			array(
+			[
 				'label'              => __( 'Padding', 'header-footer-elementor' ),
 				'type'               => Controls_Manager::DIMENSIONS,
-				'size_units'         => array( 'px', 'em' ),
-				'selectors'          => array(
+				'size_units'         => [ 'px', 'em' ],
+				'selectors'          => [
 					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
-				),
-				'condition'          => array(
+				],
+				'condition'          => [
 					'hfe_cart_type' => 'custom',
-				),
+				],
 				'frontend_available' => true,
-			)
+			]
 		);
 
 		$this->start_controls_tabs( 'toggle_button_colors' );
 
 		$this->start_controls_tab(
 			'toggle_button_normal_colors',
-			array(
+			[
 				'label' => __( 'Normal', 'header-footer-elementor' ),
-			)
+			]
 		);
 
 		$this->add_control(
 			'toggle_button_text_color',
-			array(
+			[
 				'label'     => __( 'Text Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button,{{WRAPPER}} .hfe-cart-menu-wrap-default span.hfe-cart-count' => 'color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'toggle_button_icon_color',
-			array(
+			[
 				'label'     => __( 'Icon Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button-icon' => 'color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'hfe_cart_type' => 'custom',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'toggle_button_background_color',
-			array(
+			[
 				'label'     => __( 'Background Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button,{{WRAPPER}} .hfe-cart-menu-wrap-default span.hfe-cart-count' => 'background-color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'toggle_button_border_color',
-			array(
+			[
 				'label'     => __( 'Border Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button,{{WRAPPER}} .hfe-cart-menu-wrap-default .hfe-cart-count:after, {{WRAPPER}} .hfe-masthead-custom-menu-items .hfe-cart-menu-wrap-default .hfe-cart-count' => 'border-color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_tab();
 
 		$this->start_controls_tab(
 			'toggle_button_hover_colors',
-			array(
+			[
 				'label' => __( 'Hover', 'header-footer-elementor' ),
-			)
+			]
 		);
 
 		$this->add_control(
 			'toggle_button_hover_text_color',
-			array(
+			[
 				'label'     => __( 'Text Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button:hover,{{WRAPPER}} .hfe-cart-menu-wrap-default span.hfe-cart-count:hover' => 'color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'toggle_button_hover_icon_color',
-			array(
+			[
 				'label'     => __( 'Icon Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button:hover .elementor-button-icon' => 'color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'hfe_cart_type' => 'custom',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'toggle_button_hover_background_color',
-			array(
+			[
 				'label'     => __( 'Background Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button:hover,{{WRAPPER}} .hfe-cart-menu-wrap-default span.hfe-cart-count:hover' => 'background-color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'toggle_button_hover_border_color',
-			array(
+			[
 				'label'     => __( 'Border Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button:hover,{{WRAPPER}} .hfe-cart-menu-wrap-default:hover .hfe-cart-count:after, {{WRAPPER}} .hfe-cart-menu-wrap-default:hover .hfe-cart-count' => 'border-color: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_tab();
@@ -441,159 +441,159 @@ class Cart extends Widget_Base {
 		$this->end_controls_tabs();
 		$this->add_control(
 			'toggle_icon_size',
-			array(
+			[
 				'label'      => __( 'Icon Size', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
-				'range'      => array(
-					'px' => array(
+				'range'      => [
+					'px' => [
 						'min' => 0,
 						'max' => 50,
-					),
-				),
-				'size_units' => array( 'px', 'em' ),
-				'selectors'  => array(
+					],
+				],
+				'size_units' => [ 'px', 'em' ],
+				'selectors'  => [
 					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button-icon' => 'font-size: {{SIZE}}{{UNIT}}',
-				),
-				'condition'  => array(
+				],
+				'condition'  => [
 					'hfe_cart_type' => 'custom',
-				),
+				],
 				'separator'  => 'before',
-			)
+			]
 		);
 
 		$this->add_control(
 			'toggle_icon_spacing',
-			array(
+			[
 				'label'      => __( 'Icon Spacing', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
-				'range'      => array(
-					'px' => array(
+				'range'      => [
+					'px' => [
 						'min' => 0,
 						'max' => 50,
-					),
-				),
-				'size-units' => array( 'px', 'em' ),
-				'selectors'  => array(
+					],
+				],
+				'size-units' => [ 'px', 'em' ],
+				'selectors'  => [
 					'body:not(.rtl) {{WRAPPER}} .hfe-menu-cart__toggle .elementor-button-text' => 'margin-right: {{SIZE}}{{UNIT}}',
 					'body.rtl {{WRAPPER}} .hfe-menu-cart__toggle .elementor-button-text' => 'margin-left: {{SIZE}}{{UNIT}}',
-				),
-				'condition'  => array(
+				],
+				'condition'  => [
 					'hfe_cart_type' => 'custom',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_section();
 
 		$this->start_controls_section(
 			'section_icon',
-			array(
+			[
 				'label'     => __( 'Items Count', 'header-footer-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
-				'condition' => array(
+				'condition' => [
 					'icon[value]!'     => '',
 					'items_indicator!' => 'none',
 					'hfe_cart_type'    => 'custom',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'items_indicator_distance',
-			array(
+			[
 				'label'     => __( 'Distance', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::SLIDER,
-				'default'   => array(
+				'default'   => [
 					'unit' => 'em',
-				),
-				'range'     => array(
-					'em' => array(
+				],
+				'range'     => [
+					'em' => [
 						'min'  => 0,
 						'max'  => 4,
 						'step' => 0.1,
-					),
-				),
-				'selectors' => array(
+					],
+				],
+				'selectors' => [
 					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button-icon[data-counter]:before' => 'right: -{{SIZE}}{{UNIT}}; top: -{{SIZE}}{{UNIT}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'items_indicator' => 'bubble',
-				),
-			)
+				],
+			]
 		);
 
 		$this->start_controls_tabs( 'count_colors' );
 
 		$this->start_controls_tab(
 			'count_normal_colors',
-			array(
+			[
 				'label' => __( 'Normal', 'header-footer-elementor' ),
-			)
+			]
 		);
 
 		$this->add_control(
 			'items_indicator_text_color',
-			array(
+			[
 				'label'     => __( 'Text Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button-icon[data-counter]:before' => 'color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'items_indicator!' => 'none',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'items_indicator_background_color',
-			array(
+			[
 				'label'     => __( 'Background Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .hfe-menu-cart__toggle .elementor-button-icon[data-counter]:before' => 'background-color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'items_indicator' => 'bubble',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_tab();
 
 		$this->start_controls_tab(
 			'count_hover_colors',
-			array(
+			[
 				'label' => __( 'Hover', 'header-footer-elementor' ),
-			)
+			]
 		);
 
 		$this->add_control(
 			'items_indicator_text_hover_color',
-			array(
+			[
 				'label'     => __( 'Text Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .hfe-menu-cart__toggle:hover .elementor-button-icon[data-counter]:before' => 'color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'items_indicator!' => 'none',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'items_indicator_background_hover_color',
-			array(
+			[
 				'label'     => __( 'Background Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .hfe-menu-cart__toggle:hover .elementor-button-icon[data-counter]:before' => 'background-color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'items_indicator' => 'bubble',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_tab();

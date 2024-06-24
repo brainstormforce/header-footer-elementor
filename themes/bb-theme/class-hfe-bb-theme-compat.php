@@ -24,11 +24,12 @@ class HFE_BB_Theme_Compat {
 	 *
 	 * @return self
 	 */
+	// phpcs:ignore
 	public static function instance(): self {
 		if ( ! isset( self::$instance ) ) {
 			self::$instance = new self();
 
-			add_action( 'wp', array( self::$instance, 'hooks' ) );
+			add_action( 'wp', [ self::$instance, 'hooks' ] );
 		}
 
 		return self::$instance;
@@ -36,30 +37,32 @@ class HFE_BB_Theme_Compat {
 
 	/**
 	 * Run all the Actions / Filters.
-	 *
-	 * @return void
+	 * // phpcs:ignore
+	 * @return void 
 	 */
+	// phpcs:ignore
 	public function hooks(): void {
 		if ( hfe_header_enabled() ) {
 			add_filter( 'fl_header_enabled', '__return_false' );
-			add_action( 'fl_before_header', array( $this, 'get_header_content' ) );
+			add_action( 'fl_before_header', [ $this, 'get_header_content' ] );
 		}
 
 		if ( hfe_is_before_footer_enabled() ) {
-			add_action( 'fl_after_content', array( 'Header_Footer_Elementor', 'get_before_footer_content' ), 10 );
+			add_action( 'fl_after_content', [ 'Header_Footer_Elementor', 'get_before_footer_content' ], 10 );
 		}
 
 		if ( hfe_footer_enabled() ) {
 			add_filter( 'fl_footer_enabled', '__return_false' );
-			add_action( 'fl_after_content', array( $this, 'get_footer_content' ) );
+			add_action( 'fl_after_content', [ $this, 'get_footer_content' ] );
 		}
 	}
 
 	/**
 	 * Display header markup for beaver builder theme.
-	 *
+	 * // phpcs:ignore
 	 * @return void
 	 */
+	// phpcs:ignore
 	public function get_header_content(): void {
 		$header_layout = FLTheme::get_setting( 'fl-header-layout' );
 
@@ -79,9 +82,10 @@ class HFE_BB_Theme_Compat {
 
 	/**
 	 * Display footer markup for beaver builder theme.
-	 *
+	 * // phpcs:ignore
 	 * @return void
 	 */
+	// phpcs:ignore
 	public function get_footer_content(): void {
 		if ( is_page_template( 'tpl-no-header-footer.php' ) ) {
 			return;

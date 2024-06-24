@@ -41,9 +41,9 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		 *  Constructor
 		 */
 		public function __construct() {
-			add_action( 'wp_ajax_hfe_admin_modal', array( $this, 'hfe_admin_modal' ) );
-			add_action( 'wp_ajax_hfe-update-subscription', array( $this, 'update_subscription' ) );
-			add_action( 'wp_ajax_hfe_activate_addon', array( $this, 'hfe_activate_addon' ) );
+			add_action( 'wp_ajax_hfe_admin_modal', [ $this, 'hfe_admin_modal' ] );
+			add_action( 'wp_ajax_hfe-update-subscription', [ $this, 'update_subscription' ] );
+			add_action( 'wp_ajax_hfe_activate_addon', [ $this, 'hfe_activate_addon' ] );
 		}
 
 		/**
@@ -76,11 +76,11 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 
 			$api_domain = trailingslashit( $this->get_api_domain() );
 			// PHPCS:Ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-			$arguments = isset( $_POST['data'] ) ? array_map( 'sanitize_text_field', json_decode( stripslashes( wp_unslash( $_POST['data'] ) ), true ) ) : array();
+			$arguments = isset( $_POST['data'] ) ? array_map( 'sanitize_text_field', json_decode( stripslashes( wp_unslash( $_POST['data'] ) ), true ) ) : [];
 
 			$url = add_query_arg( $arguments, $api_domain . 'wp-json/starter-templates/v1/subscribe/' ); // add URL of your site or mail API.
 
-			$response = wp_remote_post( $url, array( 'timeout' => 60 ) );
+			$response = wp_remote_post( $url, [ 'timeout' => 60 ] );
 
 			if ( ! is_wp_error( $response ) || wp_remote_retrieve_response_code( $response ) === 200 ) {
 				$response = json_decode( wp_remote_retrieve_body( $response ), true );

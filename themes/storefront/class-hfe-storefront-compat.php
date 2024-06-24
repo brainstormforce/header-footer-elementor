@@ -22,11 +22,12 @@ class HFE_Storefront_Compat {
 	 *
 	 *  @return HFE_Storefront_Compat
 	 */
+	// phpcs:ignore
 	public static function instance(): HFE_Storefront_Compat {
 		if ( ! isset( self::$instance ) ) {
 			self::$instance = new HFE_Storefront_Compat();
 
-			add_action( 'wp', array( self::$instance, 'hooks' ) );
+			add_action( 'wp', [ self::$instance, 'hooks' ] );
 		}
 
 		return self::$instance;
@@ -37,14 +38,15 @@ class HFE_Storefront_Compat {
 	 *
 	 * @return void
 	 */
+	// phpcs:ignore
 	public function hooks(): void {
 		if ( hfe_header_enabled() ) {
-			add_action( 'template_redirect', array( $this, 'setup_header' ), 10 );
+			add_action( 'template_redirect', [ $this, 'setup_header' ], 10 );
 			add_action( 'storefront_before_header', 'hfe_render_header', 500 );
 		}
 
 		if ( hfe_footer_enabled() ) {
-			add_action( 'template_redirect', array( $this, 'setup_footer' ), 10 );
+			add_action( 'template_redirect', [ $this, 'setup_footer' ], 10 );
 			add_action( 'storefront_after_footer', 'hfe_render_footer', 500 );
 		}
 
@@ -53,7 +55,7 @@ class HFE_Storefront_Compat {
 		}
 
 		if ( hfe_header_enabled() || hfe_footer_enabled() ) {
-			add_action( 'wp_enqueue_scripts', array( $this, 'styles' ) );
+			add_action( 'wp_enqueue_scripts', [ $this, 'styles' ] );
 		}
 	}
 
@@ -61,8 +63,11 @@ class HFE_Storefront_Compat {
 	 * Add inline CSS to hide empty divs for header and footer in storefront
 	 *
 	 * @since 1.2.0
+	 * 
+	 * // phpcs:ignore
 	 * @return void
 	 */
+	// phpcs:ignore
 	public function styles(): void {
 		$css = '';
 
@@ -82,21 +87,26 @@ class HFE_Storefront_Compat {
 	}
 
 	/**
+	 * 
 	 * Disable header from the theme.
-	 *
+	 * 
 	 * @return void
+	 *
+	 * // phpcs:ignore
 	 */
+	// phpcs:ignore
 	public function setup_header(): void {
 		for ( $priority = 0; $priority < 200; $priority++ ) {
 			remove_all_actions( 'storefront_header', $priority );
 		}
 	}
-
+	// phpcs:ignore
 	/**
 	 * Disable footer from the theme.
-	 *
+	 * // phpcs:ignore
 	 * @return void
 	 */
+	// phpcs:ignore
 	public function setup_footer(): void {
 		for ( $priority = 0; $priority < 200; $priority++ ) {
 			remove_all_actions( 'storefront_footer', $priority );

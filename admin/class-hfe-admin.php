@@ -63,7 +63,7 @@ class HFE_Admin {
 		wp_register_style(
 			'hfe-style',
 			HFE_URL . 'assets/css/style.css',
-			array(),
+			[],
 			HFE_VER
 		);
 
@@ -76,24 +76,24 @@ class HFE_Admin {
 	 * @return void
 	 */
 	private function __construct() {
-		add_action( 'init', array( $this, 'header_footer_posttype' ) );
+		add_action( 'init', [ $this, 'header_footer_posttype' ] );
 		if ( is_admin() && current_user_can( 'manage_options' ) ) {
-			add_action( 'admin_menu', array( $this, 'register_admin_menu' ), 50 );
+			add_action( 'admin_menu', [ $this, 'register_admin_menu' ], 50 );
 		}
-		add_action( 'add_meta_boxes', array( $this, 'ehf_register_metabox' ) );
-		add_action( 'save_post', array( $this, 'ehf_save_meta' ) );
-		add_action( 'admin_notices', array( $this, 'location_notice' ) );
-		add_action( 'template_redirect', array( $this, 'block_template_frontend' ) );
-		add_filter( 'single_template', array( $this, 'load_canvas_template' ) );
-		add_filter( 'manage_elementor-hf_posts_columns', array( $this, 'set_shortcode_columns' ) );
-		add_action( 'manage_elementor-hf_posts_custom_column', array( $this, 'render_shortcode_column' ), 10, 2 );
+		add_action( 'add_meta_boxes', [ $this, 'ehf_register_metabox' ] );
+		add_action( 'save_post', [ $this, 'ehf_save_meta' ] );
+		add_action( 'admin_notices', [ $this, 'location_notice' ] );
+		add_action( 'template_redirect', [ $this, 'block_template_frontend' ] );
+		add_filter( 'single_template', [ $this, 'load_canvas_template' ] );
+		add_filter( 'manage_elementor-hf_posts_columns', [ $this, 'set_shortcode_columns' ] );
+		add_action( 'manage_elementor-hf_posts_custom_column', [ $this, 'render_shortcode_column' ], 10, 2 );
 		if ( defined( 'ELEMENTOR_PRO_VERSION' ) && ELEMENTOR_PRO_VERSION > 2.8 ) {
-			add_action( 'elementor/editor/footer', array( $this, 'register_hfe_epro_script' ), 99 );
+			add_action( 'elementor/editor/footer', [ $this, 'register_hfe_epro_script' ], 99 );
 		}
 
 		if ( is_admin() ) {
-			add_action( 'manage_elementor-hf_posts_custom_column', array( $this, 'column_content' ), 10, 2 );
-			add_filter( 'manage_elementor-hf_posts_columns', array( $this, 'column_headings' ) );
+			add_action( 'manage_elementor-hf_posts_custom_column', [ $this, 'column_content' ], 10, 2 );
+			add_filter( 'manage_elementor-hf_posts_columns', [ $this, 'column_headings' ] );
 			require_once HFE_DIR . 'admin/class-hfe-addons-actions.php';
 		}
 	}
@@ -105,29 +105,29 @@ class HFE_Admin {
 	 * @return void
 	 */
 	public function register_hfe_epro_script() {
-		$ids_array = array(
-			array(
+		$ids_array = [
+			[
 				'id'    => get_hfe_header_id(),
 				'value' => 'Header',
-			),
-			array(
+			],
+			[
 				'id'    => get_hfe_footer_id(),
 				'value' => 'Footer',
-			),
-			array(
+			],
+			[
 				'id'    => hfe_get_before_footer_id(),
 				'value' => 'Before Footer',
-			),
-		);
+			],
+		];
 
-		wp_enqueue_script( 'hfe-elementor-pro-compatibility', HFE_URL . 'inc/js/hfe-elementor-pro-compatibility.js', array( 'jquery' ), HFE_VER, true );
+		wp_enqueue_script( 'hfe-elementor-pro-compatibility', HFE_URL . 'inc/js/hfe-elementor-pro-compatibility.js', [ 'jquery' ], HFE_VER, true );
 
 		wp_localize_script(
 			'hfe-elementor-pro-compatibility',
 			'hfe_admin',
-			array(
+			[
 				'ids_array' => wp_json_encode( $ids_array ),
-			)
+			]
 		);
 	}
 
@@ -177,7 +177,7 @@ class HFE_Admin {
 			$users = get_post_meta( $post_id, 'ehf_target_user_roles', true );
 			if ( isset( $users ) && is_array( $users ) ) {
 				if ( isset( $users[0] ) && ! empty( $users[0] ) ) {
-					$user_label = array();
+					$user_label = [];
 					foreach ( $users as $user ) {
 						$user_label[] = Astra_Target_Rules_Fields::get_user_by_key( $user );
 					}
@@ -198,7 +198,7 @@ class HFE_Admin {
 	 */
 	public function column_display_location_rules( $locations ) {
 
-		$location_label = array();
+		$location_label = [];
 		if ( is_array( $locations ) && is_array( $locations['rule'] ) && isset( $locations['rule'] ) ) {
 			$index = array_search( 'specifics', $locations['rule'] );
 			if ( false !== $index && ! empty( $index ) ) {
@@ -230,7 +230,7 @@ class HFE_Admin {
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
-		$labels = array(
+		$labels = [
 			'name'               => esc_html__( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
 			'singular_name'      => esc_html__( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
 			'menu_name'          => esc_html__( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
@@ -245,9 +245,9 @@ class HFE_Admin {
 			'parent_item_colon'  => esc_html__( 'Parent Templates:', 'header-footer-elementor' ),
 			'not_found'          => esc_html__( 'No Templates found.', 'header-footer-elementor' ),
 			'not_found_in_trash' => esc_html__( 'No Templates found in Trash.', 'header-footer-elementor' ),
-		);
+		];
 
-		$args = array(
+		$args = [
 			'labels'              => $labels,
 			'public'              => true,
 			'show_ui'             => true,
@@ -257,8 +257,8 @@ class HFE_Admin {
 			'capability_type'     => 'post',
 			'hierarchical'        => false,
 			'menu_icon'           => 'dashicons-editor-kitchensink',
-			'supports'            => array( 'title', 'thumbnail', 'elementor' ),
-		);
+			'supports'            => [ 'title', 'thumbnail', 'elementor' ],
+		];
 
 		register_post_type( 'elementor-hf', $args );
 	}
@@ -290,10 +290,10 @@ class HFE_Admin {
 		add_meta_box(
 			'ehf-meta-box',
 			__( 'Elementor Header & Footer Builder Options', 'header-footer-elementor' ),
-			array(
+			[
 				$this,
 				'efh_metabox_render',
-			),
+			],
 			'elementor-hf',
 			'normal',
 			'high'
@@ -384,13 +384,13 @@ class HFE_Admin {
 				<?php
 				Astra_Target_Rules_Fields::target_rule_settings_field(
 					'bsf-target-rules-location',
-					array(
+					[
 						'title'          => __( 'Display Rules', 'header-footer-elementor' ),
 						'value'          => '[{"type":"basic-global","specific":null}]',
 						'tags'           => 'site,enable,target,pages',
 						'rule_type'      => 'display',
 						'add_rule_label' => __( 'Add Display Rule', 'header-footer-elementor' ),
-					),
+					],
 					$include_locations
 				);
 				?>
@@ -406,13 +406,13 @@ class HFE_Admin {
 				<?php
 				Astra_Target_Rules_Fields::target_rule_settings_field(
 					'bsf-target-rules-exclusion',
-					array(
+					[
 						'title'          => __( 'Exclude On', 'header-footer-elementor' ),
 						'value'          => '[]',
 						'tags'           => 'site,enable,target,pages',
 						'add_rule_label' => __( 'Add Exclusion Rule', 'header-footer-elementor' ),
 						'rule_type'      => 'exclude',
-					),
+					],
 					$exclude_locations
 				);
 				?>
@@ -427,12 +427,12 @@ class HFE_Admin {
 				<?php
 				Astra_Target_Rules_Fields::target_user_role_settings_field(
 					'bsf-target-rules-users',
-					array(
+					[
 						'title'          => __( 'Users', 'header-footer-elementor' ),
 						'value'          => '[]',
 						'tags'           => 'site,enable,target,pages',
 						'add_rule_label' => __( 'Add User Rule', 'header-footer-elementor' ),
-					),
+					],
 					$users
 				);
 				?>
@@ -467,7 +467,7 @@ class HFE_Admin {
 
 		$target_locations = Astra_Target_Rules_Fields::get_format_rule_value( $_POST, 'bsf-target-rules-location' );
 		$target_exclusion = Astra_Target_Rules_Fields::get_format_rule_value( $_POST, 'bsf-target-rules-exclusion' );
-		$target_users     = array();
+		$target_users     = [];
 
 		if ( isset( $_POST['bsf-target-rules-users'] ) ) {
 			$target_users = array_map( 'sanitize_text_field', wp_unslash( $_POST['bsf-target-rules-users'] ) );

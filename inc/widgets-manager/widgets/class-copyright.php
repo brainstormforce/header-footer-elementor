@@ -78,7 +78,7 @@ class Copyright extends Widget_Base {
 	 * @return array Widget categories.
 	 */
 	public function get_categories() {
-		return array( 'hfe-widgets' );
+		return [ 'hfe-widgets' ];
 	}
 
 	/**
@@ -101,82 +101,82 @@ class Copyright extends Widget_Base {
 	protected function register_content_copy_right_controls() {
 		$this->start_controls_section(
 			'section_title',
-			array(
+			[
 				'label' => __( 'Copyright', 'header-footer-elementor' ),
-			)
+			]
 		);
 
 		$this->add_control(
 			'shortcode',
-			array(
+			[
 				'label'   => __( 'Copyright Text', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::TEXTAREA,
-				'dynamic' => array(
+				'dynamic' => [
 					'active' => true,
-				),
+				],
 				'default' => __( 'Copyright © [hfe_current_year] [hfe_site_title] | Powered by [hfe_site_title]', 'header-footer-elementor' ),
-			)
+			]
 		);
 
 		$this->add_control(
 			'link',
-			array(
+			[
 				'label'       => __( 'Link', 'header-footer-elementor' ),
 				'type'        => Controls_Manager::URL,
 				'placeholder' => __( 'https://your-link.com', 'header-footer-elementor' ),
-			)
+			]
 		);
 
 		$this->add_responsive_control(
 			'align',
-			array(
+			[
 				'label'              => __( 'Alignment', 'header-footer-elementor' ),
 				'type'               => Controls_Manager::CHOOSE,
-				'options'            => array(
-					'left'   => array(
+				'options'            => [
+					'left'   => [
 						'title' => __( 'Left', 'header-footer-elementor' ),
 						'icon'  => 'fa fa-align-left',
-					),
-					'center' => array(
+					],
+					'center' => [
 						'title' => __( 'Center', 'header-footer-elementor' ),
 						'icon'  => 'fa fa-align-center',
-					),
-					'right'  => array(
+					],
+					'right'  => [
 						'title' => __( 'Right', 'header-footer-elementor' ),
 						'icon'  => 'fa fa-align-right',
-					),
-				),
-				'selectors'          => array(
+					],
+				],
+				'selectors'          => [
 					'{{WRAPPER}} .hfe-copyright-wrapper' => 'text-align: {{VALUE}};',
-				),
+				],
 				'frontend_available' => true,
-			)
+			]
 		);
 
 		$this->add_control(
 			'title_color',
-			array(
+			[
 				'label'     => __( 'Text Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'global'    => array(
+				'global'    => [
 					'default' => Global_Colors::COLOR_TEXT,
-				),
-				'selectors' => array(
+				],
+				'selectors' => [
 					// Stronger selector to avoid section style from overwriting.
 					'{{WRAPPER}} .hfe-copyright-wrapper a, {{WRAPPER}} .hfe-copyright-wrapper' => 'color: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
+			[
 				'name'     => 'caption_typography',
 				'selector' => '{{WRAPPER}} .hfe-copyright-wrapper, {{WRAPPER}} .hfe-copyright-wrapper a',
-				'global'   => array(
+				'global'   => [
 					'default' => Global_Typography::TYPOGRAPHY_TEXT,
-				),
-			)
+				],
+			]
 		);
 	}
 

@@ -23,15 +23,15 @@ class HFE_Settings_Page {
 	 * @since 1.6.0
 	 */
 	public function __construct() {
-		add_action( 'admin_head', array( $this, 'hfe_global_css' ) );
+		add_action( 'admin_head', [ $this, 'hfe_global_css' ] );
 		if ( is_admin() && current_user_can( 'manage_options' ) ) {
-			add_action( 'admin_menu', array( $this, 'hfe_register_settings_page' ) );
+			add_action( 'admin_menu', [ $this, 'hfe_register_settings_page' ] );
 		}
-		add_action( 'admin_init', array( $this, 'hfe_admin_init' ) );
-		add_filter( 'views_edit-elementor-hf', array( $this, 'hfe_settings' ), 10, 1 );
-		add_filter( 'admin_footer_text', array( $this, 'admin_footer_text' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
-		add_filter( 'plugin_action_links_' . HFE_PATH, array( $this, 'settings_link' ) );
+		add_action( 'admin_init', [ $this, 'hfe_admin_init' ] );
+		add_filter( 'views_edit-elementor-hf', [ $this, 'hfe_settings' ], 10, 1 );
+		add_filter( 'admin_footer_text', [ $this, 'admin_footer_text' ] );
+		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
+		add_filter( 'plugin_action_links_' . HFE_PATH, [ $this, 'settings_link' ] );
 	}
 
 	/**
@@ -48,7 +48,7 @@ class HFE_Settings_Page {
 	 * @return void
 	 */
 	public function hfe_global_css() {
-		wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'admin/assets/css/ehf-admin.css', array(), HFE_VER );
+		wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'admin/assets/css/ehf-admin.css', [], HFE_VER );
 	}
 
 	/**
@@ -57,11 +57,11 @@ class HFE_Settings_Page {
 	 * @return void
 	 */
 	public function enqueue_admin_scripts() {
-		wp_enqueue_script( 'hfe-admin-script', HFE_URL . 'admin/assets/js/ehf-admin.js', array( 'jquery', 'updates' ), HFE_VER, true );
+		wp_enqueue_script( 'hfe-admin-script', HFE_URL . 'admin/assets/js/ehf-admin.js', [ 'jquery', 'updates' ], HFE_VER, true );
 
 		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
 
-		$strings = array(
+		$strings = [
 			'addon_activate'    => esc_html__( 'Activate', 'header-footer-elementor' ),
 			'addon_activated'   => esc_html__( 'Activated', 'header-footer-elementor' ),
 			'addon_active'      => esc_html__( 'Active', 'header-footer-elementor' ),
@@ -80,7 +80,7 @@ class HFE_Settings_Page {
 			'nonce'             => wp_create_nonce( 'hfe-admin-nonce' ),
 			'popup_dismiss'     => false,
 			'data_source'       => 'HFE',
-		);
+		];
 
 		$strings = apply_filters( 'hfe_admin_strings', $strings );
 
@@ -114,8 +114,8 @@ class HFE_Settings_Page {
 	 */
 	public function hfe_admin_init() {
 		register_setting( 'hfe-plugin-options', 'hfe_compatibility_option' );
-		add_settings_section( 'hfe-options', __( 'Add Theme Support', 'header-footer-elementor' ), array( $this, 'hfe_compatibility_callback' ), 'Settings' );
-		add_settings_field( 'hfe-way', 'Methods to Add Theme Support', array( $this, 'hfe_compatibility_option_callback' ), 'Settings', 'hfe-options' );
+		add_settings_section( 'hfe-options', __( 'Add Theme Support', 'header-footer-elementor' ), [ $this, 'hfe_compatibility_callback' ], 'Settings' );
+		add_settings_field( 'hfe-way', 'Methods to Add Theme Support', [ $this, 'hfe_compatibility_option_callback' ], 'Settings', 'hfe-options' );
 
 		register_setting( 'hfe-plugin-guide', 'hfe_guide_email' );
 		register_setting( 'hfe-plugin-guide', 'hfe_guide_fname' );
@@ -143,7 +143,7 @@ class HFE_Settings_Page {
 	 */
 	public function hfe_compatibility_option_callback() {
 		$hfe_radio_button = get_option( 'hfe_compatibility_option', '1' );
-		wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'admin/assets/css/ehf-admin.css', array(), HFE_VER );
+		wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'admin/assets/css/ehf-admin.css', [], HFE_VER );
 		?>
 
 		<label>
@@ -187,7 +187,7 @@ class HFE_Settings_Page {
 			__( 'Settings', 'header-footer-elementor' ),
 			'manage_options',
 			'hfe-settings',
-			array( $this, 'hfe_settings_page' )
+			[ $this, 'hfe_settings_page' ]
 		);
 
 		add_submenu_page(
@@ -196,7 +196,7 @@ class HFE_Settings_Page {
 			__( 'About Us', 'header-footer-elementor' ),
 			'manage_options',
 			'hfe-about',
-			array( $this, 'hfe_settings_page' )
+			[ $this, 'hfe_settings_page' ]
 		);
 	}
 
@@ -243,7 +243,7 @@ class HFE_Settings_Page {
 	 * @return (void | bool)
 	 */
 	public function hfe_modal() {
-		$is_dismissed = array();
+		$is_dismissed = [];
 		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
 
 		$is_subscribed   = get_user_meta( get_current_user_ID(), 'hfe-subscribed' );
@@ -267,16 +267,16 @@ class HFE_Settings_Page {
 		<div class="nav-tab-wrapper">
 			<?php
 			if ( ! isset( self::$hfe_settings_tabs ) ) {
-				self::$hfe_settings_tabs['hfe_templates'] = array(
+				self::$hfe_settings_tabs['hfe_templates'] = [
 					'name' => __( 'All Templates', 'header-footer-elementor' ),
 					'url'  => admin_url( 'edit.php?post_type=elementor-hf' ),
-				);
+				];
 			}
 
-			self::$hfe_settings_tabs['hfe_about'] = array(
+			self::$hfe_settings_tabs['hfe_about'] = [
 				'name' => __( 'About Us', 'header-footer-elementor' ),
 				'url'  => admin_url( 'themes.php?page=hfe-about' ),
-			);
+			];
 
 			$tabs = apply_filters( 'hfe_settings_tabs', self::$hfe_settings_tabs );
 
@@ -516,17 +516,17 @@ class HFE_Settings_Page {
 	 * @return array
 	 */
 	protected function get_white_label() {
-		$white_labels = is_callable( 'Astra_Admin_Helper::get_admin_settings_option' ) ? \Astra_Admin_Helper::get_admin_settings_option( '_astra_ext_white_label', true ) : array();
+		$white_labels = is_callable( 'Astra_Admin_Helper::get_admin_settings_option' ) ? \Astra_Admin_Helper::get_admin_settings_option( '_astra_ext_white_label', true ) : [];
 
 		$theme_name = ! empty( $white_labels['astra']['name'] ) ? $white_labels['astra']['name'] : 'Astra';
 
-		return array(
+		return [
 			'theme_name'  => $theme_name,
 			/* translators: %s: theme name */
 			'description' => ! empty( $white_labels['astra']['description'] ) ? $white_labels['astra']['description'] : esc_html( sprintf( __( 'Powering over 1+ Million websites, %s is loved for the fast performance and ease of use it offers. It is suitable for all kinds of websites like blogs, portfolios, business, and WooCommerce stores.', 'header-footer-elementor' ), esc_html( $theme_name ) ) ),
 			'theme_icon'  => ! empty( $white_labels['astra']['icon'] ) ? $white_labels['astra']['icon'] : '',
 			'author_url'  => ! empty( $white_labels['astra']['author_url'] ) ? $white_labels['astra']['author_url'] : 'https://wpastra.com/',
-		);
+		];
 	}
 
 	/**
@@ -675,7 +675,7 @@ class HFE_Settings_Page {
 
 		$theme = wp_get_theme();
 
-		$plugin_data = array();
+		$plugin_data = [];
 
 		$is_plugin = ( 'plugin' === $details['type'] ) ? true : false;
 		$is_theme  = ( 'theme' === $details['type'] ) ? true : false;
@@ -737,9 +737,9 @@ class HFE_Settings_Page {
 
 		$images_url = HFE_URL . 'assets/images/settings/';
 
-		return array(
+		return [
 
-			'astra'                                     => array(
+			'astra'                                     => [
 				'icon'    => ! empty( $white_labels['theme_icon'] ) ? $white_labels['theme_icon'] : $images_url . 'plugin-astra.png',
 				'type'    => 'theme',
 				'name'    => $white_labels['theme_name'],
@@ -749,9 +749,9 @@ class HFE_Settings_Page {
 				'siteurl' => $white_labels['author_url'],
 				'pro'     => false,
 				'slug'    => 'astra',
-			),
+			],
 
-			'astra-sites/astra-sites.php'               => array(
+			'astra-sites/astra-sites.php'               => [
 				'icon'    => $images_url . 'plugin-st.png',
 				'type'    => 'plugin',
 				'name'    => esc_html__( 'Starter Templates', 'header-footer-elementor' ),
@@ -761,9 +761,9 @@ class HFE_Settings_Page {
 				'siteurl' => 'https://startertemplates.com/',
 				'pro'     => false,
 				'slug'    => 'astra-sites',
-			),
+			],
 
-			'ultimate-elementor/ultimate-elementor.php' => array(
+			'ultimate-elementor/ultimate-elementor.php' => [
 				'icon'    => $images_url . 'plugin-uae.png',
 				'type'    => 'plugin',
 				'name'    => esc_html__( 'Ultimate Addons for Elementor', 'header-footer-elementor' ),
@@ -773,8 +773,8 @@ class HFE_Settings_Page {
 				'siteurl' => 'https://ultimateelementor.com/',
 				'pro'     => true,
 				'slug'    => 'ultimate-elementor',
-			),
-		);
+			],
+		];
 	}
 
 	/**
@@ -786,7 +786,7 @@ class HFE_Settings_Page {
 	 */
 	public function hfe_can_install( $type ) {
 
-		if ( ! in_array( $type, array( 'plugin', 'theme' ), true ) ) {
+		if ( ! in_array( $type, [ 'plugin', 'theme' ], true ) ) {
 			return false;
 		}
 
@@ -828,9 +828,9 @@ class HFE_Settings_Page {
 			'<a href="%s" aria-label="%s">%s</a>',
 			esc_url(
 				add_query_arg(
-					array(
+					[
 						'post_type' => 'elementor-hf',
-					),
+					],
 					admin_url( 'edit.php' )
 				)
 			),

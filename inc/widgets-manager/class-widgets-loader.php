@@ -52,24 +52,24 @@ class Widgets_Loader {
 	 */
 	private function __construct() {
 		// Register category.
-		add_action( 'elementor/elements/categories_registered', array( $this, 'register_widget_category' ) );
+		add_action( 'elementor/elements/categories_registered', [ $this, 'register_widget_category' ] );
 
 		// Register widgets.
-		add_action( 'elementor/widgets/register', array( $this, 'register_widgets' ) );
+		add_action( 'elementor/widgets/register', [ $this, 'register_widgets' ] );
 
 		// Register widgets script.
-		add_action( 'elementor/frontend/after_register_scripts', array( $this, 'register_widget_scripts' ) );
+		add_action( 'elementor/frontend/after_register_scripts', [ $this, 'register_widget_scripts' ] );
 
 		// Add svg support.
-		add_filter( 'upload_mimes', array( $this, 'hfe_svg_mime_types' ) ); // PHPCS:Ignore WordPressVIPMinimum.Hooks.RestrictedHooks.upload_mimes
+		add_filter( 'upload_mimes', [ $this, 'hfe_svg_mime_types' ] ); // PHPCS:Ignore WordPressVIPMinimum.Hooks.RestrictedHooks.upload_mimes
 
 		// Add filter to sanitize uploaded SVG files.
-		add_filter( 'wp_handle_upload_prefilter', array( $this, 'sanitize_uploaded_svg' ) );
+		add_filter( 'wp_handle_upload_prefilter', [ $this, 'sanitize_uploaded_svg' ] );
 
 		// Refresh the cart fragments.
 		if ( class_exists( 'woocommerce' ) ) {
 
-			add_filter( 'woocommerce_add_to_cart_fragments', array( $this, 'wc_refresh_mini_cart_count' ) );
+			add_filter( 'woocommerce_add_to_cart_fragments', [ $this, 'wc_refresh_mini_cart_count' ] );
 		}
 	}
 
@@ -80,13 +80,13 @@ class Widgets_Loader {
 	 * @since 1.3.0
 	 */
 	public static function get_widget_script() {
-		$js_files = array(
-			'hfe-frontend-js' => array(
+		$js_files = [
+			'hfe-frontend-js' => [
 				'path'      => 'inc/js/frontend.js',
-				'dep'       => array( 'jquery' ),
+				'dep'       => [ 'jquery' ],
 				'in_footer' => true,
-			),
-		);
+			],
+		];
 
 		return $js_files;
 	}
@@ -98,7 +98,7 @@ class Widgets_Loader {
 	 * @since 1.3.0
 	 */
 	public static function get_widget_list() {
-		$widget_list = array(
+		$widget_list = [
 			'retina',
 			'copyright',
 			'copyright-shortcode',
@@ -110,7 +110,7 @@ class Widgets_Loader {
 			'site-logo',
 			'cart',
 			'search-button',
-		);
+		];
 
 		return $widget_list;
 	}
@@ -152,18 +152,18 @@ class Widgets_Loader {
 			}
 		}
 
-		$tag_validation = array( 'article', 'aside', 'div', 'footer', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'header', 'main', 'nav', 'p', 'section', 'span' );
+		$tag_validation = [ 'article', 'aside', 'div', 'footer', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'header', 'main', 'nav', 'p', 'section', 'span' ];
 
 		wp_localize_script(
 			'elementor-editor',
 			'HfeWidgetsData',
-			array(
+			[
 				'allowed_tags' => $tag_validation,
-			)
+			]
 		);
 
 		// Emqueue the widgets style.
-		wp_enqueue_style( 'hfe-widgets-style', HFE_URL . 'inc/widgets-css/frontend.css', array(), HFE_VER );
+		wp_enqueue_style( 'hfe-widgets-style', HFE_URL . 'inc/widgets-css/frontend.css', [], HFE_VER );
 	}
 
 	/**
@@ -217,10 +217,10 @@ class Widgets_Loader {
 
 		$this_cat->add_category(
 			'hfe-widgets',
-			array(
+			[
 				'title' => $category,
 				'icon'  => 'eicon-font',
-			)
+			]
 		);
 
 		return $this_cat;
@@ -309,7 +309,7 @@ class Widgets_Loader {
 		if ( method_exists( 'Elementor\Utils', 'validate_html_tag' ) ) {
 			return Utils::validate_html_tag( $tag );
 		} else {
-			$allowed_tags = array( 'article', 'aside', 'div', 'footer', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'header', 'main', 'nav', 'p', 'section', 'span' );
+			$allowed_tags = [ 'article', 'aside', 'div', 'footer', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'header', 'main', 'nav', 'p', 'section', 'span' ];
 			return in_array( strtolower( $tag ), $allowed_tags ) ? $tag : 'div';
 		}
 	}
