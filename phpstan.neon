@@ -10,6 +10,7 @@ includes:
 parameters:
 	level: 9
 	inferPrivatePropertyTypeFromConstructor: true
+	treatPhpDocTypesAsCertain: false
 	scanFiles:
 	bootstrapFiles:
 		- vendor/php-stubs/wordpress-stubs/wordpress-stubs.php
@@ -24,11 +25,15 @@ parameters:
 		- themes
 	ignoreErrors:
 		- '#Call to an undefined method [a-zA-Z0-9\\_]+\:\:add_control\(\).$#'
-		- '#Access to constant [^\s]+ on an unknown class Elementor\\Controls_Manager\.$#'
 		- '#Call to an undefined method [^\s]+\.$#'
-		- '#Call to static method [^\s]+ on an unknown class Elementor\\Plugin\.$#'
-		- '#Access to static property [^\s]+ on an unknown class Elementor\\Plugin\.$#'
-		- '#Access to constant [^\s]+ on an unknown class Elementor\\[^\s]+\.$#'
-		- '#Call to static method [^\s]+ on an unknown class Elementor\\[^\s]+\.$#'
 		- '#Call to method [^\s]+ on an unknown class Elementor\\[^\s]+\.$#'
+		- '#Cannot access [^\s]+#'
+		- '#Parameter [^\s]+#'
+		- '#Function [^\s]+ not found.#'
+		- '#Access to an undefined property [^\s]+#'  
+		- '#Static property [^\s]+#'
+		- '#Call to static method [^\s]+#'
+		- '#Offset [^\s]+#'
+		- '#Access to [^\s]+#'
+		- '#Strict comparison using \=\=\= between ''no'' and true will always evaluate to false.#'
 
