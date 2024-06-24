@@ -1253,6 +1253,10 @@ class Astra_Target_Rules_Fields {
 		global $wpdb;
 		global $post;
 
+		/**
+		 * @var string $post_type
+		 */
+
 		$post_type = $post_type ? esc_sql( $post_type ) : esc_sql( $post->post_type );
 
 		if ( is_array( self::$current_page_data ) && isset( self::$current_page_data[ $post_type ] ) ) {
@@ -1283,6 +1287,9 @@ class Astra_Target_Rules_Fields {
 					$current_id        = apply_filters( 'wpml_object_id', $current_id, $current_post_type, true, $default_lang );
 				}
 			}
+			/**
+			 * @var string $location
+			 */
 
 			$location = isset( $option['location'] ) ? esc_sql( $option['location'] ) : '';
 
