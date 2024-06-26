@@ -14,7 +14,7 @@ parameters:
 	scanFiles:
 	bootstrapFiles:
 		- vendor/php-stubs/wordpress-stubs/wordpress-stubs.php
-		- stubs/___elementor-stubs.php
+		- tests/php/stubs/___elementor-stubs.php
 		- tests/php/stubs/hfe-stubs.php
 	paths:
 		- header-footer-elementor.php
