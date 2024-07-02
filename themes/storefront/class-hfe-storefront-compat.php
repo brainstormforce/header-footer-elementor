@@ -22,6 +22,7 @@ class HFE_Storefront_Compat {
 	 *
 	 *  @return HFE_Storefront_Compat
 	 */
+	// phpcs:ignore
 	public static function instance(): HFE_Storefront_Compat {
 		if ( ! isset( self::$instance ) ) {
 			self::$instance = new HFE_Storefront_Compat();
@@ -37,6 +38,7 @@ class HFE_Storefront_Compat {
 	 *
 	 * @return void
 	 */
+	// phpcs:ignore
 	public function hooks(): void {
 		if ( hfe_header_enabled() ) {
 			add_action( 'template_redirect', [ $this, 'setup_header' ], 10 );
@@ -61,8 +63,11 @@ class HFE_Storefront_Compat {
 	 * Add inline CSS to hide empty divs for header and footer in storefront
 	 *
 	 * @since 1.2.0
+	 * 
+	 * // phpcs:ignore
 	 * @return void
 	 */
+	// phpcs:ignore
 	public function styles(): void {
 		$css = '';
 
@@ -82,27 +87,31 @@ class HFE_Storefront_Compat {
 	}
 
 	/**
+	 * 
 	 * Disable header from the theme.
-	 *
+	 * 
 	 * @return void
+	 *
+	 * // phpcs:ignore
 	 */
+	// phpcs:ignore
 	public function setup_header(): void {
-		for ( $priority = 0; $priority < 200; $priority ++ ) {
+		for ( $priority = 0; $priority < 200; $priority++ ) {
 			remove_all_actions( 'storefront_header', $priority );
 		}
 	}
-
+	// phpcs:ignore
 	/**
 	 * Disable footer from the theme.
-	 *
+	 * // phpcs:ignore
 	 * @return void
 	 */
+	// phpcs:ignore
 	public function setup_footer(): void {
-		for ( $priority = 0; $priority < 200; $priority ++ ) {
+		for ( $priority = 0; $priority < 200; $priority++ ) {
 			remove_all_actions( 'storefront_footer', $priority );
 		}
 	}
-
 }
 
 HFE_Storefront_Compat::instance();

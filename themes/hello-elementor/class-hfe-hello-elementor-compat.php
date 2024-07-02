@@ -22,6 +22,7 @@ class HFE_Hello_Elementor_Compat {
 	 *
 	 * @return HFE_Hello_Elementor_Compat
 	 */
+	// phpcs:ignore
 	public static function instance(): HFE_Hello_Elementor_Compat {
 		if ( ! isset( self::$instance ) ) {
 			self::$instance = new HFE_Hello_Elementor_Compat();

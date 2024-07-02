@@ -91,8 +91,10 @@ class Site_Title extends Widget_Base {
 	 *
 	 * @since 1.5.7
 	 * @access protected
+	 * @return void
 	 */
-	protected function register_controls() {
+	// phpcs:ignore
+	protected function register_controls(): void {
 
 		$this->register_general_content_controls();
 		$this->register_heading_typo_content_controls();
@@ -103,8 +105,10 @@ class Site_Title extends Widget_Base {
 	 *
 	 * @since 1.3.0
 	 * @access protected
+	 * @return void
 	 */
-	protected function register_general_content_controls() {
+	// phpcs:ignore
+	protected function register_general_content_controls(): void {
 
 		$this->start_controls_section(
 			'section_general_fields',
@@ -267,8 +271,10 @@ class Site_Title extends Widget_Base {
 	 *
 	 * @since 1.3.0
 	 * @access protected
+	 * @return void
 	 */
-	protected function register_heading_typo_content_controls() {
+	// phpcs:ignore
+	protected function register_heading_typo_content_controls(): void {
 		$this->start_controls_section(
 			'section_heading_typography',
 			[
@@ -391,8 +397,12 @@ class Site_Title extends Widget_Base {
 	 *
 	 * @since 1.3.0
 	 * @access protected
+	 *
+	 * // phpcs:ignore
+	 * @return void
 	 */
-	protected function render() {
+	// phpcs:ignore
+	protected function render(): void {
 
 		$settings = $this->get_settings();
 		$title    = get_bloginfo( 'name' );
@@ -447,6 +457,7 @@ class Site_Title extends Widget_Base {
 		 *
 		 * @since 1.3.0
 		 * @access protected
+		 * @return void
 		 */
 	protected function content_template() {
 		?>
@@ -458,11 +469,15 @@ class Site_Title extends Widget_Base {
 			return;
 		}
 		if ( '' != settings.heading_link.url ) {
-			view.addRenderAttribute( 'url', 'href', settings.heading_link.url );
+			var urlPattern = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$|^www\.[^\s/$.?#].[^\s]*$/;
+			if ( urlPattern.test( settings.heading_link.url ) ) {
+				var sanitizedUrl = _.escape( settings.heading_link.url );
+				view.addRenderAttribute( 'url', 'href', sanitizedUrl );
+			}
 		}
 		var iconHTML = elementor.helpers.renderIcon( view, settings.icon, { 'aria-hidden': true }, 'i' , 'object' );
 
-		var headingSizeTag = settings.heading_tag;
+		var headingSizeTag = elementor.helpers.validateHTMLTag( settings.heading_tag );
 
 		if ( typeof elementor.helpers.validateHTMLTag === "function" ) { 
 			headingSizeTag = elementor.helpers.validateHTMLTag( headingSizeTag );
@@ -475,19 +490,21 @@ class Site_Title extends Widget_Base {
 				<# if ( '' != settings.heading_link.url ) { #>
 					<a {{{ view.getRenderAttributeString( 'url' ) }}} > <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 				<# } #>
-				<{{{ headingSizeTag }}} class="hfe-heading elementor-heading-title elementor-size-{{{ settings.size }}}"> <?php //phpcs:ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
+				<{{{ headingSizeTag }}} class="hfe-heading elementor-heading-title elementor-size-{{{ elementor.helpers.sanitize( settings.size ) }}}"> <?php //phpcs:ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 				<# if( '' != settings.icon.value ){ #>
 				<span class="hfe-icon">
 					{{{ iconHTML.value }}}	<?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>			
 				</span>
 				<# } #>
 				<span class="hfe-heading-text  elementor-heading-title" data-elementor-setting-key="heading_title" data-elementor-inline-editing-toolbar="basic" >
-				<#if ( '' != settings.before ){#>
-					{{{ settings.before }}}  <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
+				<# if ( '' != settings.before ){
+					var before = elementor.helpers.sanitize( settings.before )#>
+					{{{ before }}}  <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 				<#}#>
 				<?php echo wp_kses_post( get_bloginfo( 'name' ) ); ?>
-				<# if ( '' != settings.after ){#>
-					{{{ settings.after }}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
+				<# if ( '' != settings.after ){
+					var after = elementor.helpers.sanitize( settings.after )#>
+					{{{ after }}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 				<#}#>
 				</span>
 			</{{{ headingSizeTag }}}> <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>

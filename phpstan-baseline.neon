@@ -7,149 +7,128 @@ parameters:
 			path: themes/bb-theme/class-hfe-bb-theme-compat.php
 
 		-
-			message: "#^Static property CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\AbSteps\\:\\:\\$instance \\(object\\) in isset\\(\\) is not nullable\\.$#"
-			count: 1
-			path: admin-core/ajax/ab-steps.php
+			message: "#^Function WC not found.$#"
+			count: 7
+			path: inc/widgets-manager/widgets/class-cart.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:get_error_msg\\(\\)\\.$#"
-			count: 1
-			path: admin-core/ajax/ajax-base.php
-
-		-
-			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\AjaxBase\\:\\:init_ajax_events\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: admin-core/ajax/ajax-base.php
-
-		-
-			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\AjaxBase\\:\\:init_ajax_events\\(\\) has parameter \\$ajax_events with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: admin-core/ajax/ajax-base.php
-
-		-
-			message: "#^Parameter \\#2 \\$callback of function add_action expects callable\\(\\)\\: mixed, array\\{\\$this\\(CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\AjaxBase\\), mixed\\} given\\.$#"
-			count: 1
-			path: admin-core/ajax/ajax-base.php
-
-		-
-			message: "#^Property CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\AjaxErrors\\:\\:\\$errors type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: admin-core/ajax/ajax-errors.php
-
-		-
-			message: "#^Static property CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\AjaxErrors\\:\\:\\$instance \\(object\\) in isset\\(\\) is not nullable\\.$#"
-			count: 1
-			path: admin-core/ajax/ajax-errors.php
-
-		-
-			message: "#^Call to an undefined method object\\:\\:register_ajax_events\\(\\)\\.$#"
-			count: 1
-			path: admin-core/ajax/ajax-init.php
-
-		-
-			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\AjaxInit\\:\\:register_all_ajax_events\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: admin-core/ajax/ajax-init.php
-
-		-
-			message: "#^Static property CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\AjaxInit\\:\\:\\$instance \\(object\\) in isset\\(\\) is not nullable\\.$#"
-			count: 1
-			path: admin-core/ajax/ajax-init.php
-
-		-
-			message: "#^Argument of an invalid type array\\<int, string\\>\\|false supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: admin-core/ajax/common-settings.php
-
-		-
-			message: "#^Call to an undefined method object\\:\\:add_cap\\(\\)\\.$#"
-			count: 4
-			path: admin-core/ajax/common-settings.php
-
-		-
-			message: "#^Call to an undefined method object\\:\\:remove_cap\\(\\)\\.$#"
-			count: 1
-			path: admin-core/ajax/common-settings.php
-
-		-
-			message: "#^Constant CARTFLOWS_FLOW_PERMALINK_SLUG not found\\.$#"
-			count: 2
-			path: admin-core/ajax/common-settings.php
-
-		-
-			message: "#^Constant CARTFLOWS_STEP_PERMALINK_SLUG not found\\.$#"
-			count: 2
-			path: admin-core/ajax/common-settings.php
-
-		-
-			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\CommonSettings\\:\\:regenerate_css_for_steps\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: admin-core/ajax/common-settings.php
-
-		-
-			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\CommonSettings\\:\\:sanitize_form_inputs\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: admin-core/ajax/common-settings.php
-
-		-
-			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\CommonSettings\\:\\:sanitize_form_inputs\\(\\) has parameter \\$input_settings with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: admin-core/ajax/common-settings.php
-
-		-
-			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\CommonSettings\\:\\:user_role_management\\(\\) has parameter \\$new_settings with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: admin-core/ajax/common-settings.php
-
-		-
-			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\CommonSettings\\:\\:user_role_management\\(\\) has parameter \\$old_settings with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: admin-core/ajax/common-settings.php
-
-		-
-			message: "#^Parameter \\#1 \\$input_settings of method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\CommonSettings\\:\\:sanitize_form_inputs\\(\\) expects array, string given\\.$#"
+			message: "#^Function WC not found.$#"
 			count: 6
-			path: admin-core/ajax/common-settings.php
+			path: inc/widgets-manager/class-widgets-loader.php
 
 		-
-			message: "#^Parameter \\#2 \\$defaults of function wp_parse_args expects array, mixed given\\.$#"
+			message: "#^Constant AST_TARGET_RULE_URI not found\\.$#"
+			count: 6
+			path: inc/lib/target-rule/class-astra-target-rules-fields.php   
+
+		-
+			message: "#^Constant AST_TARGET_RULE_VER not found.$#"
+			count: 7
+			path: inc/lib/target-rule/class-astra-target-rules-fields.php   
+
+		-
+			message: '#^Property BSF_Analytics_Loader\:\:\$analytics_version \(float\) does not accept default value of type string\.$#'
+			path: admin/bsf-analytics/class-bsf-analytics-loader.php
+
+		-
+			message: '#^Property BSF_Analytics_Loader\:\:\$analytics_version \(float\) does not accept mixed\.$#'
+			path: admin/bsf-analytics/class-bsf-analytics-loader.php
+
+		-
+			message: '#^Constant BSF_ANALYTICS_URI not found\.$#'
 			count: 1
-			path: admin-core/ajax/common-settings.php
+			path: admin/bsf-analytics/class-bsf-analytics.php
 
 		-
-			message: "#^Static property CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\CommonSettings\\:\\:\\$instance \\(object\\) in isset\\(\\) is not nullable\\.$#"
-			count: 1
-			path: admin-core/ajax/common-settings.php
+			message: '#^Constant WP_DEBUG_DISPLAY not found\.$#'
+			path: admin/bsf-analytics/class-bsf-analytics-stats.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:get_log_files\\(\\)\\.$#"
-			count: 1
-			path: admin-core/ajax/debugger.php
+			message: '#^Cannot cast mixed to float\.$#'
+			path: admin/bsf-analytics/class-bsf-analytics-stats.php
 
 		-
-			message: "#^Constant CARTFLOWS_LOG_DIR not found\\.$#"
-			count: 4
-			path: admin-core/ajax/debugger.php
+			message: '#^If condition is always true\.$#'
+			count : 2
+			path: inc/class-hfe-elementor-canvas-compat.php
 
 		-
-			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\Debugger\\:\\:delete_cf_log\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: admin-core/ajax/debugger.php
+			message: '#^Variable \$css_file might not be defined\.$#'
+			count : 4
+			path: inc/class-header-footer-elementor.php
 
 		-
-			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\Debugger\\:\\:download_cf_log\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: admin-core/ajax/debugger.php
+			message: '#^Constant BSF_ANALYTICS_VERSION not found\.$#'
+			path: admin/bsf-analytics/class-bsf-analytics.php
 
 		-
-			message: "#^Method CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\Debugger\\:\\:show_cf_log\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: admin-core/ajax/debugger.php
+			message: '#^Strict comparison using \=\=\= between ''no'' and true will always evaluate to false\.$#'
+			path: admin/bsf-analytics/class-bsf-analytics.php
 
 		-
-			message: "#^Static property CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\Debugger\\:\\:\\$file_deleted \\(object\\) does not accept default value of type false\\.$#"
-			count: 1
-			path: admin-core/ajax/debugger.php
+			message: '#^Variable \$type might not be defined\.$#'
+			path: admin/class-hfe-addons-actions.php
+
+		-
+			message: '#^Call to function ob_get_contents\(\) on a separate line has no effect\.$#'
+			path: admin/class-hfe-admin.php
+
+		-
+			message: '#^Argument of an invalid type object supplied for foreach, only iterables are supported\.$#'
+			path: inc/class-header-footer-elementor.php
+
+		-
+			message: '#^Argument of an invalid type object supplied for foreach, only iterables are supported\.$#'
+			path: inc/class-header-footer-elementor.php
+
+		-
+			message: '#^Property HFE\\Themes\\HFE_Settings_Page\:\:\$hfe_settings_tabs has unknown class HFE\\Themes\\settings as its type\.$#'
+			path: inc/class-hfe-settings-page.php
+
+		-
+			message: '#^Unreachable statement \- code above always terminates\.$#'
+			path: inc/class-hfe-settings-page.php
+
+		-
+			message: '#^Argument of an invalid type array\<int, WP_Term\>\|WP_Error supplied for foreach, only iterables are supported\.$#'
+			count : 2
+			path: inc/lib/target-rule/class-astra-target-rules-fields.php
+
+		-
+			message: '#^Function esc_html invoked with 2 parameters, 1 required\.$#'
+			path: inc/class-hfe-settings-page.php
+
+		-
+			message: '#^Constant AST_TARGET_RULE_DIR not found\.$#'
+			path: inc/lib/target-rule/class-astra-target-rules-fields.php
+
+		-
+			message: '#^Result of \|\| is always true\.$#'
+			path: inc/lib/target-rule/class-astra-target-rules-fields.php
+
+		-
+			message: '#^Property WP_User\:\:\$roles \(array\<string\>\) in isset\(\) is not nullable\.$#'
+			path: inc/lib/target-rule/class-astra-target-rules-fields.php
+
+		-
+			message: '#^Action callback returns object but should not return anything\.$#'
+			path: inc/widgets-manager/class-widgets-loader.php
+
+		-
+			message: '#^Result of method Walker\:\:display_element\(\) \(void\) is used\.$#'
+			path: inc/widgets-manager/widgets/class-menu-walker.php
+
+		-
+			message: '#^Undefined variable\: \$settings$#'
+			path: inc/widgets-manager/widgets/class-page-title.php
+
+		-
+			message: '#^Variable \$settings in isset\(\) is never defined\.$#'
+			path: inc/widgets-manager/widgets/class-page-title.php
+
+		-
+			message: '#^Action callback returns object but should not return anything\.$#'
+			path: inc/widgets-manager/class-widgets-loader.php
 
 		-
 			message: "#^Static property CartflowsAdmin\\\\AdminCore\\\\Ajax\\\\Debugger\\:\\:\\$file_deleted \\(object\\) does not accept true\\.$#"

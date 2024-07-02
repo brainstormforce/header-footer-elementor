@@ -39,4 +39,5 @@
 	<exclude-pattern>*/vendor/*</exclude-pattern>
 	<exclude-pattern>*/inc/lib/**</exclude-pattern>
 	<exclude-pattern>*/admin/bsf-analytics/*</exclude-pattern>
+	<exclude-pattern>*/stubs/*</exclude-pattern>
 </ruleset>

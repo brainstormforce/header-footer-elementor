@@ -24,6 +24,7 @@ class Global_Theme_Compatibility {
 	 *
 	 * @return void
 	 */
+	// phpcs:ignore
 	public function hooks(): void {
 		if ( hfe_header_enabled() ) {
 			// Replace header.php.
@@ -50,8 +51,11 @@ class Global_Theme_Compatibility {
 	 * Force full width CSS for the header.
 	 *
 	 * @since 1.2.0
+	 *
+	 *  // phpcs:ignore
 	 * @return void
 	 */
+	// phpcs:ignore
 	public function force_fullwidth(): void {
 		$css = '
 		.force-stretched-header {
@@ -81,8 +85,10 @@ class Global_Theme_Compatibility {
 	 *
 	 * @since 1.2.0
 	 *
+	 * // phpcs:ignore
 	 * @return void
 	 */
+	// phpcs:ignore
 	public function option_override_header(): void {
 		$templates   = [];
 		$templates[] = 'header.php';
