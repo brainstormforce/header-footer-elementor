@@ -13,14 +13,17 @@ class HFE_Hello_Elementor_Compat {
 	/**
 	 * Instance of HFE_Hello_Elementor_Compat.
 	 *
-	 * @var HFE_Hello_Elementor_Compat
+	 * @var HFE_Hello_Elementor_Compat|null
 	 */
-	private static $instance;
+	private static $instance = null;
 
 	/**
 	 *  Initiator
+	 *
+	 * @return HFE_Hello_Elementor_Compat
 	 */
-	public static function instance() {
+	// phpcs:ignore
+	public static function instance(): HFE_Hello_Elementor_Compat {
 		if ( ! isset( self::$instance ) ) {
 			self::$instance = new HFE_Hello_Elementor_Compat();
 

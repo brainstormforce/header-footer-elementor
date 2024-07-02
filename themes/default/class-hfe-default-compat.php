@@ -21,8 +21,13 @@ class HFE_Default_Compat {
 
 	/**
 	 * Run all the Actions / Filters.
+	 *
+	 * @return void
+	 *
+	 * // phpcs:ignore
 	 */
-	public function hooks() {
+	// phpcs:ignore
+	public function hooks(): void {
 		if ( hfe_header_enabled() ) {
 			// Replace header.php template.
 			add_action( 'get_header', [ $this, 'override_header' ] );
@@ -51,9 +56,11 @@ class HFE_Default_Compat {
 	 *
 	 * @since 1.2.0
 	 *
+	 * // phpcs:ignore
 	 * @return void
-	 */
-	public function override_header() {
+	 */ 
+	// phpcs:ignore
+	public function override_header(): void {
 		require HFE_DIR . 'themes/default/hfe-header.php';
 		$templates   = [];
 		$templates[] = 'header.php';
@@ -70,8 +77,11 @@ class HFE_Default_Compat {
 	 * @since 1.2.0
 	 *
 	 * @return void
-	 */
-	public function override_footer() {
+	 *
+	 * // phpcs:ignore
+	 */ 
+	// phpcs:ignore
+	public function override_footer(): void {
 		require HFE_DIR . 'themes/default/hfe-footer.php';
 		$templates   = [];
 		$templates[] = 'footer.php';
@@ -81,7 +91,6 @@ class HFE_Default_Compat {
 		locate_template( $templates, true );
 		ob_get_clean();
 	}
-
 }
 
 new HFE_Default_Compat();

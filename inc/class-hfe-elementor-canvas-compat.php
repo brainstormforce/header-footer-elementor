@@ -19,6 +19,8 @@ class HFE_Elementor_Canvas_Compat {
 
 	/**
 	 *  Initiator
+	 *
+	 * @return  HFE_Elementor_Canvas_Compat
 	 */
 	public static function instance() {
 		if ( ! isset( self::$instance ) ) {
@@ -32,6 +34,8 @@ class HFE_Elementor_Canvas_Compat {
 
 	/**
 	 * Run all the Actions / Filters.
+	 *
+	 * @return void
 	 */
 	public function hooks() {
 		if ( hfe_header_enabled() ) {
@@ -70,6 +74,8 @@ class HFE_Elementor_Canvas_Compat {
 	/**
 	 * Render the header if display template on elementor canvas is enabled
 	 * and current template is Elementor Canvas
+	 *
+	 * @return void
 	 */
 	public function render_header() {
 
@@ -88,6 +94,8 @@ class HFE_Elementor_Canvas_Compat {
 	/**
 	 * Render the footer if display template on elementor canvas is enabled
 	 * and current template is Elementor Canvas
+	 *
+	 * @return void
 	 */
 	public function render_footer() {
 
@@ -102,7 +110,6 @@ class HFE_Elementor_Canvas_Compat {
 			hfe_render_footer();
 		}
 	}
-
 }
 
 HFE_Elementor_Canvas_Compat::instance();
