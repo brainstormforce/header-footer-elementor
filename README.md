@@ -140,6 +140,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 ## Changelog ##
 
+### 1.6.36.1 ###
+- Improvement: - Added support for PHPStan for improved code quality checks.
+
 ### 1.6.36 ###
 - Fix: This update addressed a security bug. Props to Wordfence for privately reporting it to our team. Please make sure you are using the latest version on your website. 
 
