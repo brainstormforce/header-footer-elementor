@@ -18,7 +18,7 @@ class Astra_Target_Rules_Fields {
 	 *
 	 * @since  1.0.0
 	 *
-	 * @var Astra_Target_Rules_Fields
+	 * @var $instance
 	 */
 	private static $instance;
 
@@ -27,7 +27,7 @@ class Astra_Target_Rules_Fields {
 	 *
 	 * @since  1.0.0
 	 *
-	 * @var mixed $meta_option
+	 * @var $meta_option
 	 */
 	private static $meta_option;
 
@@ -36,7 +36,7 @@ class Astra_Target_Rules_Fields {
 	 *
 	 * @since  1.0.0
 	 *
-	 * @var string $current_page_type
+	 * @var $current_page_type
 	 */
 	private static $current_page_type = null;
 
@@ -45,7 +45,7 @@ class Astra_Target_Rules_Fields {
 	 *
 	 * @since  1.0.0
 	 *
-	 * @var array $current_page_data
+	 * @var $current_page_data
 	 */
 	private static $current_page_data = array();
 
@@ -54,7 +54,7 @@ class Astra_Target_Rules_Fields {
 	 *
 	 * @since  1.0.0
 	 *
-	 * @var array $user_selection
+	 * @var $user_selection
 	 */
 	private static $user_selection;
 
@@ -63,7 +63,7 @@ class Astra_Target_Rules_Fields {
 	 *
 	 * @since  1.0.0
 	 *
-	 * @var array $location_selection
+	 * @var $location_selection
 	 */
 	private static $location_selection;
 
@@ -71,7 +71,6 @@ class Astra_Target_Rules_Fields {
 	 * Initiator
 	 *
 	 * @since  1.0.0
-	 * @return Astra_Target_Rules_Fields $instance
 	 */
 	public static function get_instance() {
 		if ( ! isset( self::$instance ) ) {
@@ -304,13 +303,12 @@ class Astra_Target_Rules_Fields {
 	 * When searching for the post/pages only titles are searched for.
 	 *
 	 * @since  1.0.0
-	 * @return void
 	 */
-	public function hfe_get_posts_by_query() {
+	function hfe_get_posts_by_query() {
 
 		check_ajax_referer( 'hfe-get-posts-by-query', 'nonce' );
 
-		$search_string = isset( $_POST['q'] ) ? sanitize_text_field( wp_unslash( $_POST['q'] ) ) : '';
+		$search_string = isset( $_POST['q'] ) ? sanitize_text_field( $_POST['q'] ) : '';
 		$data          = array();
 		$result        = array();
 
@@ -323,7 +321,7 @@ class Astra_Target_Rules_Fields {
 		$operator   = 'and'; // also supports 'or'.
 		$post_types = get_post_types( $args, $output, $operator );
 
-		unset( $post_types['elementor-hf'] ); // Exclude EHF templates.
+		unset( $post_types['elementor-hf'] ); //Exclude EHF templates.
 
 		$post_types['Posts'] = 'post';
 		$post_types['Pages'] = 'page';
@@ -376,8 +374,8 @@ class Astra_Target_Rules_Fields {
 
 		foreach ( $taxonomies as $taxonomy ) {
 			$terms = get_terms(
+				$taxonomy->name,
 				array(
-					$taxonomy->name,
 					'orderby'    => 'count',
 					'hide_empty' => 0,
 					'name__like' => $search_string,
@@ -425,7 +423,7 @@ class Astra_Target_Rules_Fields {
 	 *
 	 * @return (string) The Modified Search SQL for WHERE clause.
 	 */
-	public function search_only_titles( $search, $wp_query ) {
+	function search_only_titles( $search, $wp_query ) {
 		if ( ! empty( $search ) && ! empty( $wp_query->query_vars['search_terms'] ) ) {
 			global $wpdb;
 
@@ -451,8 +449,6 @@ class Astra_Target_Rules_Fields {
 	/**
 	 * Function Name: admin_styles.
 	 * Function Description: admin_styles.
-	 *
-	 * @return void
 	 */
 	public function admin_styles() {
 		wp_enqueue_script( 'astra-select2', AST_TARGET_RULE_URI . 'select2.js', array( 'jquery' ), AST_TARGET_RULE_VER, true );
@@ -649,7 +645,6 @@ class Astra_Target_Rules_Fields {
 	 * @param string $name string parameter.
 	 * @param string $settings string parameter.
 	 * @param string $value string parameter.
-	 * @return void
 	 */
 	public static function target_rule_settings_field( $name, $settings, $value ) {
 		$input_name     = $name;
@@ -704,7 +699,7 @@ class Astra_Target_Rules_Fields {
 		/* Wrapper end */
 		$output .= '</div>';
 
-		echo esc_html( $output );
+		echo $output;
 	}
 
 	/**
@@ -714,7 +709,6 @@ class Astra_Target_Rules_Fields {
 	 *
 	 * @param object $post_type post type parameter.
 	 * @param object $taxonomy taxonomy for creating the target rule markup.
-	 * @return array
 	 */
 	public static function get_post_target_rule_options( $post_type, $taxonomy ) {
 		$post_key    = str_replace( ' ', '-', strtolower( $post_type->label ) );
@@ -753,13 +747,13 @@ class Astra_Target_Rules_Fields {
 	 * Generate markup for rendering the location selction.
 	 *
 	 * @since  1.0.0
-	 * @param  string $type                 Rule type display|exclude.
-	 * @param  array  $selection_options     Array for available selection fields.
-	 * @param  string $input_name           Input name for the settings.
-	 * @param  array  $saved_values          Array of saved valued.
-	 * @param  string $add_rule_label       Label for the Add rule button.
+	 * @param  String $type                 Rule type display|exclude.
+	 * @param  Array  $selection_options     Array for available selection fields.
+	 * @param  String $input_name           Input name for the settings.
+	 * @param  Array  $saved_values          Array of saved valued.
+	 * @param  String $add_rule_label       Label for the Add rule button.
 	 *
-	 * @return string Markup for for the location settings.
+	 * @return HTML Markup for for the location settings.
 	 */
 	public static function generate_target_rule_selector( $type, $selection_options, $input_name, $saved_values, $add_rule_label ) {
 		$output = '<div class="target_rule-builder-wrap">';
@@ -771,7 +765,7 @@ class Astra_Target_Rules_Fields {
 		}
 
 		$index = 0;
-		if ( is_array( $saved_values ) && is_array( $saved_values['rule'] ) ) {
+		if ( is_array( $saved_values ) && is_array( $saved_values['rule'] ) ) {	
 			foreach ( $saved_values['rule'] as $index => $data ) {
 				$output .= '<div class="astra-target-rule-condition ast-target-rule-' . $index . '" data-rule="' . $index . '" >';
 				/* Condition Selection */
@@ -986,20 +980,22 @@ class Astra_Target_Rules_Fields {
 							if ( false !== $post_id && $current_post_type == $post_type ) {
 								$display = true;
 							}
-						} elseif ( is_archive() ) {
+						} else {
+							if ( is_archive() ) {
 								$current_post_type = get_post_type();
-							if ( $current_post_type == $post_type ) {
-								if ( 'archive' == $archieve_type ) {
-									$display = true;
-								} elseif ( 'taxarchive' == $archieve_type ) {
-									$obj              = get_queried_object();
-									$current_taxonomy = '';
-									if ( '' !== $obj && null !== $obj ) {
-										$current_taxonomy = $obj->taxonomy;
-									}
-
-									if ( $current_taxonomy == $taxonomy ) {
+								if ( $current_post_type == $post_type ) {
+									if ( 'archive' == $archieve_type ) {
 										$display = true;
+									} elseif ( 'taxarchive' == $archieve_type ) {
+										$obj              = get_queried_object();
+										$current_taxonomy = '';
+										if ( '' !== $obj && null !== $obj ) {
+											$current_taxonomy = $obj->taxonomy;
+										}
+
+										if ( $current_taxonomy == $taxonomy ) {
+											$display = true;
+										}
 									}
 								}
 							}
@@ -1059,7 +1055,6 @@ class Astra_Target_Rules_Fields {
 	 * @param string $name string parameter.
 	 * @param string $settings string parameter.
 	 * @param string $value string parameter.
-	 * @return void
 	 */
 	public static function target_user_role_settings_field( $name, $settings, $value ) {
 		$input_name     = $name;
@@ -1133,7 +1128,7 @@ class Astra_Target_Rules_Fields {
 			$output     .= '</div>';
 		$output         .= '</div>';
 
-		echo esc_html( $output );
+		echo $output;
 	}
 
 	/**
@@ -1141,7 +1136,7 @@ class Astra_Target_Rules_Fields {
 	 *
 	 * @since  1.0.0
 	 * @param  int   $post_id Post ID.
-	 * @param  array $rules   Current user rules.
+	 * @param  Array $rules   Current user rules.
 	 *
 	 * @return boolean  True = user condition passes. False = User condition does not pass.
 	 */
@@ -1253,10 +1248,6 @@ class Astra_Target_Rules_Fields {
 		global $wpdb;
 		global $post;
 
-		/**
-		 * @var string $post_type
-		 */
-
 		$post_type = $post_type ? esc_sql( $post_type ) : esc_sql( $post->post_type );
 
 		if ( is_array( self::$current_page_data ) && isset( self::$current_page_data[ $post_type ] ) ) {
@@ -1276,20 +1267,17 @@ class Astra_Target_Rules_Fields {
 			$current_post_id   = false;
 			$q_obj             = get_queried_object();
 
-			$current_id = esc_sql( get_the_id() );
+			$current_id      = esc_sql( get_the_id() );
 			// Find WPML Object ID for current page.
 			if ( defined( 'ICL_SITEPRESS_VERSION' ) ) {
 				$default_lang = apply_filters( 'wpml_default_language', '' );
 				$current_lang = apply_filters( 'wpml_current_language', '' );
 
-				if ( $default_lang !== $current_lang ) {
-					$current_post_type = get_post_type( $current_id );
-					$current_id        = apply_filters( 'wpml_object_id', $current_id, $current_post_type, true, $default_lang );
+				if( $default_lang !== $current_lang ) {
+					$current_post_type 	= get_post_type( $current_id );
+					$current_id = apply_filters( 'wpml_object_id', $current_id, $current_post_type, true, $default_lang );
 				}
 			}
-			/**
-			 * @var string $location
-			 */
 
 			$location = isset( $option['location'] ) ? esc_sql( $option['location'] ) : '';
 
@@ -1387,7 +1375,6 @@ class Astra_Target_Rules_Fields {
 	 * @since  1.0.0
 	 * @param  string $post_type Post Type.
 	 * @param  array  $option meta option name.
-	 * @return void
 	 */
 	public function remove_exclusion_rule_posts( $post_type, $option ) {
 		$exclusion       = isset( $option['exclusion'] ) ? $option['exclusion'] : '';
@@ -1409,7 +1396,6 @@ class Astra_Target_Rules_Fields {
 	 * @since  1.0.0
 	 * @param  int   $post_type Post Type.
 	 * @param  array $option meta option name.
-	 * @return void
 	 */
 	public function remove_user_rule_posts( $post_type, $option ) {
 		$users           = isset( $option['users'] ) ? $option['users'] : '';
@@ -1431,7 +1417,6 @@ class Astra_Target_Rules_Fields {
 	 * @since  1.0.0
 	 * @param  int   $post_type Post Type.
 	 * @param  array $option meta option name.
-	 * @return void
 	 */
 	public static function same_display_on_notice( $post_type, $option ) {
 		global $wpdb;
@@ -1519,14 +1504,14 @@ class Astra_Target_Rules_Fields {
 		if ( ! empty( $already_set_rule ) ) {
 			add_action(
 				'admin_notices',
-				function () use ( $already_set_rule ) {
+				function() use ( $already_set_rule ) {
 					$rule_set_titles = '<strong>' . implode( ',', $already_set_rule ) . '</strong>';
 
 					/* translators: %s post title. */
 					$notice = sprintf( __( 'The same display setting is already exist in %s post/s.', 'header-footer-elementor' ), $rule_set_titles );
 
 					echo '<div class="error">';
-					echo '<p>' . esc_html( $notice ) . '</p>';
+					echo '<p>' . $notice . '</p>';
 					echo '</div>';
 				}
 			);
@@ -1568,7 +1553,7 @@ class Astra_Target_Rules_Fields {
 	 * @since  1.0.0
 	 * @param  string $post_type Post Type.
 	 *
-	 * @return array  Posts.
+	 * @return object  Posts.
 	 */
 	public static function get_post_selection( $post_type ) {
 		$query_args = array(
