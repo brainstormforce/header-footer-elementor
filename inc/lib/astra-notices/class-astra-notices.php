@@ -25,7 +25,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * Notices
 		 *
 		 * @access private
-		 * @var string $version.
+		 * @var array Notices.
 		 * @since 1.0.0
 		 */
 		private static $version = '1.1.11';
@@ -159,7 +159,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @since 1.5.2
 		 * @param array $notice_1 First notice.
 		 * @param array $notice_2 Second Notice.
-		 * @return array | float | int
+		 * @return array
 		 */
 		public function sort_notices( $notice_1, $notice_2 ) {
 			if ( ! isset( $notice_1['priority'] ) ) {
@@ -176,7 +176,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * Get all registered notices.
 		 * Since v1.1.8 it is recommended to register the notices on
 		 *
-		 * @return array Notices.
+		 * @return array|null
 		 */
 		private function get_notices() {
 			usort( self::$notices, array( $this, 'sort_notices' ) );
@@ -258,6 +258,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 					}
 				}
 			}
+
 		}
 
 		/**
@@ -295,7 +296,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @since 1.0.0
 		 *
 		 * @param  array $notice Notice arguments.
-		 * @return string Notice wrapper classes.
+		 * @return array       Notice wrapper classes.
 		 */
 		private static function get_wrap_classes( $notice ) {
 			$classes = array( 'astra-notice', 'notice' );
@@ -370,7 +371,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @return mixed URL.
 		 */
 		public static function get_url() {
-			$path      = wp_normalize_path( __DIR__ );
+			$path      = wp_normalize_path( dirname( __FILE__ ) );
 			$theme_dir = wp_normalize_path( get_template_directory() );
 
 			if ( strpos( $path, $theme_dir ) !== false ) {
@@ -379,6 +380,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 				return plugin_dir_url( __FILE__ );
 			}
 		}
+
 	}
 
 	/**

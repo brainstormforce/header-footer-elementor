@@ -13,7 +13,7 @@ class HFE_Storefront_Compat {
 	/**
 	 * Instance of HFE_Storefront_Compat.
 	 *
-	 * @var ?HFE_Storefront_Compat
+	 * @var $HFE_Storefront_Compat
 	 */
 	private static $instance = null;
 

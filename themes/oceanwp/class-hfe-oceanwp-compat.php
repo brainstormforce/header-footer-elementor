@@ -13,19 +13,17 @@ class HFE_OceanWP_Compat {
 	/**
 	 * Instance of HFE_OceanWP_Compat.
 	 *
-	 * @var HFE_OceanWP_Compat|null
+	 * @var HFE_OceanWP_Compat
 	 */
-	private static $instance = null;
+	private static $instance;
 
 	/**
-	 * Initiator
-	 *
-	 * @return HFE_OceanWP_Compat
+	 *  Initiator
 	 */
-	// phpcs:ignore
-	public static function instance(): HFE_OceanWP_Compat {
-		if ( null === self::$instance ) {
+	public static function instance() {
+		if ( ! isset( self::$instance ) ) {
 			self::$instance = new HFE_OceanWP_Compat();
+
 			add_action( 'wp', [ self::$instance, 'hooks' ] );
 		}
 
@@ -34,11 +32,8 @@ class HFE_OceanWP_Compat {
 
 	/**
 	 * Run all the Actions / Filters.
-	 *
-	 * @return void
 	 */
-	// phpcs:ignore
-	public function hooks(): void {
+	public function hooks() {
 		if ( hfe_header_enabled() ) {
 			add_action( 'template_redirect', [ $this, 'setup_header' ], 10 );
 			add_action( 'ocean_header', 'hfe_render_header' );
@@ -56,11 +51,8 @@ class HFE_OceanWP_Compat {
 
 	/**
 	 * Disable header from the theme.
-	 * // phpcs:ignore
-	 * @return void
 	 */
-	// phpcs:ignore
-	public function setup_header(): void {
+	public function setup_header() {
 		remove_action( 'ocean_top_bar', 'oceanwp_top_bar_template' );
 		remove_action( 'ocean_header', 'oceanwp_header_template' );
 		remove_action( 'ocean_page_header', 'oceanwp_page_header_template' );
@@ -68,13 +60,11 @@ class HFE_OceanWP_Compat {
 
 	/**
 	 * Disable footer from the theme.
-	 * // phpcs:ignore
-	 * @return void
 	 */
-	// phpcs:ignore
-	public function setup_footer(): void {
+	public function setup_footer() {
 		remove_action( 'ocean_footer', 'oceanwp_footer_template' );
 	}
+
 }
 
 HFE_OceanWP_Compat::instance();

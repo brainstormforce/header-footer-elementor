@@ -165,9 +165,17 @@ class HFE_Settings_Page {
 		</label>
 		<p class="description">
 			<?php
+			/* translators: %s: URL to the plugin support page */
 			printf(
-				wp_kses( 'Sometimes above methods might not work well with your theme, in this case, contact your theme author and request them to add support for the <a href="https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme">plugin.</a>', 'header-footer-elementor' ),
-				'<br>'
+				wp_kses(
+					__( 'Sometimes above methods might not work well with your theme, in this case, contact your theme author and request them to add support for the <a href="%s">plugin.</a>', 'header-footer-elementor' ),
+					[
+						'a' => [
+							'href' => [],
+						],
+					]
+				),
+				'https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme'
 			);
 			?>
 		</p>
