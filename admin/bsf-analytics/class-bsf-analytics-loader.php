@@ -22,7 +22,7 @@ class BSF_Analytics_Loader {
 	 * @access private
 	 * @var array Entities array.
 	 */
-	private $entities = [];
+	private $entities = array();
 
 	/**
 	 * Analytics Version.
@@ -65,7 +65,7 @@ class BSF_Analytics_Loader {
 	 * Constructor
 	 */
 	public function __construct() {
-		add_action( 'init', [ $this, 'load_analytics' ] );
+		add_action( 'init', array( $this, 'load_analytics' ) );
 	}
 
 	/**
@@ -84,7 +84,7 @@ class BSF_Analytics_Loader {
 	 * @return void
 	 */
 	public function load_analytics() {
-		$unique_entities = [];
+		$unique_entities = array();
 
 		if ( ! empty( $this->entities ) ) {
 			foreach ( $this->entities as $entity ) {

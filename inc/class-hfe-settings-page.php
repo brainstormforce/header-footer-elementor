@@ -53,6 +53,8 @@ class HFE_Settings_Page {
 
 	/**
 	 * Load admin styles on header footer elementor edit screen.
+	 *
+	 * @return void
 	 */
 	public function enqueue_admin_scripts() {
 		wp_enqueue_script( 'hfe-admin-script', HFE_URL . 'admin/assets/js/ehf-admin.js', [ 'jquery', 'updates' ], HFE_VER, true );
@@ -87,7 +89,6 @@ class HFE_Settings_Page {
 			'hfe_admin_data',
 			$strings
 		);
-
 	}
 
 	/**
@@ -103,7 +104,6 @@ class HFE_Settings_Page {
 		$this->hfe_tabs();
 		$this->hfe_modal();
 		return $views;
-
 	}
 
 	/**
@@ -119,7 +119,6 @@ class HFE_Settings_Page {
 
 		register_setting( 'hfe-plugin-guide', 'hfe_guide_email' );
 		register_setting( 'hfe-plugin-guide', 'hfe_guide_fname' );
-
 	}
 
 	/**
@@ -157,7 +156,7 @@ class HFE_Settings_Page {
 			<input type="radio" name="hfe_compatibility_option" value= 2 <?php checked( $hfe_radio_button, 2 ); ?> > <div class="hfe_radio_options"><?php esc_html_e( 'Method 2', 'header-footer-elementor' ); ?></div>
 			<p class="description">
 				<?php
-				echo sprintf(
+				printf(
 					esc_html( "This method hides your theme's header & footer template with CSS and displays custom templates from the plugin.", 'header-footer-elementor' ),
 					'<br>'
 				);
@@ -166,9 +165,17 @@ class HFE_Settings_Page {
 		</label>
 		<p class="description">
 			<?php
-			echo sprintf(
-				wp_kses( 'Sometimes above methods might not work well with your theme, in this case, contact your theme author and request them to add support for the <a href="https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme">plugin.</a>', 'header-footer-elementor' ),
-				'<br>'
+			/* translators: %s: URL to the plugin support page */
+			printf(
+				wp_kses(
+					__( 'Sometimes above methods might not work well with your theme, in this case, contact your theme author and request them to add support for the <a href="%s">plugin.</a>', 'header-footer-elementor' ),
+					[
+						'a' => [
+							'href' => [],
+						],
+					]
+				),
+				'https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme'
 			);
 			?>
 		</p>
@@ -209,6 +216,7 @@ class HFE_Settings_Page {
 	 * Call back function for add submenu page function.
 	 *
 	 * @since 1.6.0
+	 * @return void
 	 */
 	public function hfe_settings_page() {
 		echo '<h1 class="hfe-heading-inline">';
@@ -242,6 +250,7 @@ class HFE_Settings_Page {
 	 * Call back function for add submenu page function.
 	 *
 	 * @since 1.6.2
+	 * @return (void | bool)
 	 */
 	public function hfe_modal() {
 		$is_dismissed = [];
@@ -534,6 +543,7 @@ class HFE_Settings_Page {
 	 * Display the General Info section of About tab.
 	 *
 	 * @since 1.6.0
+	 * @return void
 	 */
 	protected function output_about_info() {
 
@@ -574,6 +584,7 @@ class HFE_Settings_Page {
 	 * Display the Addons section of About tab.
 	 *
 	 * @since 1.6.0
+	 * @return void
 	 */
 	protected function output_about_addons() {
 
@@ -839,7 +850,6 @@ class HFE_Settings_Page {
 
 		return array_merge( $custom, (array) $links );
 	}
-
 }
 
 new HFE_Settings_Page();

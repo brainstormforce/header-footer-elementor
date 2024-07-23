@@ -15,14 +15,14 @@ class Header_Footer_Elementor {
 	/**
 	 * Current theme template
 	 *
-	 * @var String
+	 * @var string
 	 */
 	public $template;
 
 	/**
 	 * Instance of Elemenntor Frontend class.
 	 *
-	 * @var \Elementor\Frontend()
+	 * @var object \Elementor\Frontend()
 	 */
 	private static $elementor_instance;
 
@@ -48,7 +48,7 @@ class Header_Footer_Elementor {
 	/**
 	 * Constructor
 	 */
-	function __construct() {
+	public function __construct() {
 		$this->template = get_template();
 
 		$is_elementor_callable = ( defined( 'ELEMENTOR_VERSION' ) && is_callable( 'Elementor\Plugin::instance' ) ) ? true : false;
@@ -125,7 +125,6 @@ class Header_Footer_Elementor {
 			);
 
 		}
-
 	}
 
 	/**
@@ -209,6 +208,7 @@ class Header_Footer_Elementor {
 	 * @since 1.5.9
 	 * @param  boolean $is_elementor_callable specifies if elementor is available.
 	 * @param  boolean $is_elementor_outdated specifies if elementor version is old.
+	 * @return void
 	 */
 	public function elementor_not_available( $is_elementor_callable, $is_elementor_outdated ) {
 
@@ -223,11 +223,12 @@ class Header_Footer_Elementor {
 			add_action( 'network_admin_notices', [ $this, 'elementor_outdated' ] );
 			return;
 		}
-
 	}
 
 	/**
 	 * Prints the admin notics when Elementor is not installed or activated.
+	 *
+	 * @return void
 	 */
 	public function elementor_not_installed_activated() {
 
@@ -268,6 +269,8 @@ class Header_Footer_Elementor {
 
 	/**
 	 * Prints the admin notics when Elementor version is outdated.
+	 *
+	 * @return void
 	 */
 	public function elementor_outdated() {
 
@@ -301,6 +304,8 @@ class Header_Footer_Elementor {
 
 	/**
 	 * Prints the admin notics when Elementor is not installed or activated.
+	 *
+	 * @return void
 	 */
 	public function show_setup_wizard() {
 
@@ -341,6 +346,8 @@ class Header_Footer_Elementor {
 
 	/**
 	 * Loads the globally required files for the plugin.
+	 *
+	 * @return void
 	 */
 	public function includes() {
 		require_once HFE_DIR . 'admin/class-hfe-admin.php';
@@ -369,6 +376,8 @@ class Header_Footer_Elementor {
 
 	/**
 	 * Loads textdomain for the plugin.
+	 *
+	 * @return void
 	 */
 	public function load_textdomain() {
 		load_plugin_textdomain( 'header-footer-elementor' );
@@ -376,6 +385,8 @@ class Header_Footer_Elementor {
 
 	/**
 	 * Enqueue styles and scripts.
+	 *
+	 * @return void
 	 */
 	public function enqueue_scripts() {
 		wp_enqueue_style( 'hfe-style', HFE_URL . 'assets/css/header-footer-elementor.css', [], HFE_VER );
@@ -422,6 +433,8 @@ class Header_Footer_Elementor {
 
 	/**
 	 * Load admin styles on header footer elementor edit screen.
+	 *
+	 * @return void
 	 */
 	public function enqueue_admin_scripts() {
 		global $pagenow;
@@ -438,9 +451,9 @@ class Header_Footer_Elementor {
 	/**
 	 * Adds classes to the body tag conditionally.
 	 *
-	 * @param  Array $classes array with class names for the body tag.
+	 * @param  array $classes array with class names for the body tag.
 	 *
-	 * @return Array          array with class names for the body tag.
+	 * @return array          array with class names for the body tag.
 	 */
 	public function body_class( $classes ) {
 		if ( hfe_header_enabled() ) {
@@ -461,6 +474,7 @@ class Header_Footer_Elementor {
 	 * Display Settings Page options
 	 *
 	 * @since 1.6.0
+	 * @return void
 	 */
 	public function setup_settings_page() {
 
@@ -472,6 +486,7 @@ class Header_Footer_Elementor {
 	 *
 	 * @param array $hfe_settings_tabs settings array tabs.
 	 * @since 1.0.3
+	 * @return array
 	 */
 	public function setup_unsupported_theme( $hfe_settings_tabs = [] ) {
 		if ( ! current_theme_supports( 'header-footer-elementor' ) ) {
@@ -487,6 +502,7 @@ class Header_Footer_Elementor {
 	 * Add support for theme if the current theme does add support for 'header-footer-elementor'
 	 *
 	 * @since  1.6.1
+	 * @return void
 	 */
 	public function setup_fallback_support() {
 
@@ -505,6 +521,8 @@ class Header_Footer_Elementor {
 
 	/**
 	 * Prints the Header content.
+	 *
+	 * @return void
 	 */
 	public static function get_header_content() {
 		$header_content = self::$elementor_instance->frontend->get_builder_content_for_display( get_hfe_header_id() );
@@ -513,6 +531,8 @@ class Header_Footer_Elementor {
 
 	/**
 	 * Prints the Footer content.
+	 *
+	 * @return void
 	 */
 	public static function get_footer_content() {
 		echo "<div class='footer-width-fixer'>";
@@ -522,6 +542,8 @@ class Header_Footer_Elementor {
 
 	/**
 	 * Prints the Before Footer content.
+	 *
+	 * @return void
 	 */
 	public static function get_before_footer_content() {
 		echo "<div class='footer-width-fixer'>";
@@ -532,10 +554,10 @@ class Header_Footer_Elementor {
 	/**
 	 * Get option for the plugin settings
 	 *
-	 * @param  mixed $setting Option name.
-	 * @param  mixed $default Default value to be received if the option value is not stored in the option.
+	 * @param  string $setting Option name.
+	 * @param  string $default Default value to be received if the option value is not stored in the option.
 	 *
-	 * @return mixed.
+	 * @return mixed | string
 	 */
 	public static function get_settings( $setting = '', $default = '' ) {
 		if ( 'type_header' == $setting || 'type_footer' == $setting || 'type_before_footer' == $setting ) {
@@ -584,6 +606,7 @@ class Header_Footer_Elementor {
 	 * Callback to shortcode.
 	 *
 	 * @param array $atts attributes for shortcode.
+	 * @return string
 	 */
 	public function render_template( $atts ) {
 		$atts = shortcode_atts(
@@ -610,7 +633,6 @@ class Header_Footer_Elementor {
 
 		return self::$elementor_instance->frontend->get_builder_content_for_display( $id );
 	}
-
 }
 /**
  * Is elementor plugin installed.
@@ -623,6 +645,7 @@ if ( ! function_exists( '_is_elementor_installed' ) ) {
 	 * @since 1.6.0
 	 *
 	 * @access public
+	 * @return bool
 	 */
 	function _is_elementor_installed() {
 		return ( file_exists( WP_PLUGIN_DIR . '/elementor/elementor.php' ) ) ? true : false;

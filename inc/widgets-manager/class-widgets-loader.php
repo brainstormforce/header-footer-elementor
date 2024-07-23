@@ -15,7 +15,7 @@ use Elementor\Plugin;
 use Elementor\Utils;
 use Elementor\Core\Files\Assets\Files_Upload_Handler;
 
-defined( 'ABSPATH' ) or exit;
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Set up Widgets Loader class
@@ -48,6 +48,7 @@ class Widgets_Loader {
 	 * Setup actions and filters.
 	 *
 	 * @since  1.2.0
+	 * @access private
 	 */
 	private function __construct() {
 		// Register category.
@@ -121,6 +122,7 @@ class Widgets_Loader {
 	 *
 	 * @since 1.2.0
 	 * @access public
+	 * @return void
 	 */
 	public function include_widgets_files() {
 		$widget_list = $this->get_widget_list();
@@ -130,7 +132,6 @@ class Widgets_Loader {
 				require_once HFE_DIR . '/inc/widgets-manager/widgets/class-' . $data . '.php';
 			}
 		}
-
 	}
 
 	/**
@@ -140,6 +141,7 @@ class Widgets_Loader {
 	 *
 	 * @since x.x.x
 	 * @access public
+	 * @return void
 	 */
 	public function include_js_files() {
 		$js_files = $this->get_widget_script();
@@ -170,7 +172,7 @@ class Widgets_Loader {
 	 * @param array $mimes which return mime type.
 	 *
 	 * @since  1.2.0
-	 * @return $mimes.
+	 * @return array $mimes.
 	 */
 	public function hfe_svg_mime_types( $mimes ) {
 		// New allowed mime types.
@@ -189,25 +191,26 @@ class Widgets_Loader {
 
 			/**
 			 * SVG Handler instance.
-			 * 
-			 * @var \Elementor\Core\Files\Assets\Svg\Svg_Handler $svg_handler;
+			 *
+			 * @var object $svg_handler;
 			 */
 			$svg_handler = Plugin::instance()->assets_manager->get_asset( 'svg-handler' );
 
 			if ( Files_Upload_Handler::file_sanitizer_can_run() && ! $svg_handler->sanitize_svg( $file['tmp_name'] ) ) {
 
 				$file['error'] = esc_html__( 'Invalid SVG Format, file not uploaded for security reasons!', 'header-footer-elementor' );
-			}          
+			}
 		}
 
 		return $file;
 	}
-	
+
 	/**
 	 * Register Category
 	 *
 	 * @since 1.2.0
 	 * @param object $this_cat class.
+	 * @return object $this_cat class.
 	 */
 	public function register_widget_category( $this_cat ) {
 		$category = __( 'Elementor Header & Footer Builder', 'header-footer-elementor' );
@@ -230,6 +233,7 @@ class Widgets_Loader {
 	 *
 	 * @since 1.2.0
 	 * @access public
+	 * @return void
 	 */
 	public function register_widgets() {
 		// Its is now safe to include Widgets files.
@@ -246,13 +250,14 @@ class Widgets_Loader {
 		if ( class_exists( 'woocommerce' ) ) {
 			Plugin::instance()->widgets_manager->register( new Widgets\Cart() );
 		}
-
 	}
 
 	/**
 	 * Register module required js on elementor's action.
 	 *
 	 * @since 0.0.1
+	 * @access public
+	 * @return void
 	 */
 	public function register_widget_scripts() {
 		$this->include_js_files();
@@ -266,6 +271,7 @@ class Widgets_Loader {
 	 * @since 1.5.0
 	 * @param array $fragments Array of fragments.
 	 * @access public
+	 * @return array $fragments Array of fragments.
 	 */
 	public function wc_refresh_mini_cart_count( $fragments ) {
 
@@ -295,6 +301,7 @@ class Widgets_Loader {
 	 * @since 1.5.8
 	 * @param string $tag specifies the HTML Tag.
 	 * @access public
+	 * @return string $tag specifies the HTML Tag.
 	 */
 	public static function validate_html_tag( $tag ) {
 

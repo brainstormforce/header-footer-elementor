@@ -26,6 +26,7 @@ class Menu_Walker extends \Walker_Nav_Menu {
 	 * @param array  $args Arguments array.
 	 * @param int    $id Menu ID.
 	 * @access public
+	 * @return void
 	 */
 	public function start_el( &$output, $item, $depth = 0, $args = [], $id = 0 ) {
 
@@ -98,8 +99,9 @@ class Menu_Walker extends \Walker_Nav_Menu {
 	 * @param array  $args Arguments array.
 	 * @param string $output Output HTML.
 	 * @access public
+	 * @return (void | null)
 	 */
-	function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {
+	public function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {
 
 		$id_field = $this->db_fields['id'];
 
@@ -109,4 +111,3 @@ class Menu_Walker extends \Walker_Nav_Menu {
 		return parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
 	}
 }
-

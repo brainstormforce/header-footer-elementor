@@ -34,7 +34,7 @@ class Copyright_Shortcode {
 	/**
 	 * Get the hfe_current_year Details.
 	 *
-	 * @return array $hfe_current_year Get Current Year Details.
+	 * @return array | string | void $hfe_current_year Get Current Year Details.
 	 */
 	public function display_current_year() {
 
@@ -48,7 +48,7 @@ class Copyright_Shortcode {
 	/**
 	 * Get site title of Site.
 	 *
-	 * @return string.
+	 * @return string | void.
 	 */
 	public function display_site_title() {
 
@@ -58,7 +58,6 @@ class Copyright_Shortcode {
 			return $hfe_site_title;
 		}
 	}
-
 }
 
 new Copyright_Shortcode();

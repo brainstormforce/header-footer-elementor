@@ -21,12 +21,14 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		/**
 		 * Member Variable
 		 *
-		 * @var instance
+		 * @var HFE_Addons_Actions
 		 */
 		private static $instance;
 
 		/**
 		 *  Initiator
+		 *
+		 * @return HFE_Addons_Actions
 		 */
 		public static function get_instance() {
 			if ( ! isset( self::$instance ) ) {
@@ -48,6 +50,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		 * Open modal popup.
 		 *
 		 * @since 1.6.0
+		 * @return void
 		 */
 		public function hfe_admin_modal() {
 
@@ -61,6 +64,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		 * Update Subscription
 		 *
 		 * @since 1.6.0
+		 * @return void
 		 */
 		public function update_subscription() {
 
@@ -72,7 +76,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 
 			$api_domain = trailingslashit( $this->get_api_domain() );
 			// PHPCS:Ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-			$arguments = isset( $_POST['data'] ) ? array_map( 'sanitize_text_field', json_decode( stripslashes( $_POST['data'] ), true ) ) : [];
+			$arguments = isset( $_POST['data'] ) ? array_map( 'sanitize_text_field', json_decode( stripslashes( wp_unslash( $_POST['data'] ) ), true ) ) : [];
 
 			$url = add_query_arg( $arguments, $api_domain . 'wp-json/starter-templates/v1/subscribe/' ); // add URL of your site or mail API.
 
@@ -89,13 +93,13 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			} else {
 				wp_send_json_error( $response );
 			}
-
 		}
 
 		/**
 		 * Get the API URL.
 		 *
 		 * @since 1.6.0
+		 * @return string
 		 */
 		public function get_api_domain() {
 			return apply_filters( 'hfe_api_domain', 'https://websitedemos.net/' );
@@ -105,6 +109,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		 * Activate addon.
 		 *
 		 * @since 1.6.0
+		 * @return void
 		 */
 		public function hfe_activate_addon() {
 
@@ -118,7 +123,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 					$type = sanitize_key( wp_unslash( $_POST['type'] ) );
 				}
 
-				$plugin = sanitize_text_field( $_POST['plugin'] );
+				$plugin = sanitize_text_field( wp_unslash( $_POST['plugin'] ) );
 
 				if ( 'plugin' === $type ) {
 
@@ -165,7 +170,6 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 				wp_send_json_error( esc_html__( 'Could not activate theme. Please activate from the Themes page.', 'header-footer-elementor' ) );
 			}
 		}
-
 	}
 
 	/**
@@ -174,4 +178,3 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 	HFE_Addons_Actions::get_instance();
 
 }
-

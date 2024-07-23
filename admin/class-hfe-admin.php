@@ -7,7 +7,7 @@
 
 use HFE\Lib\Astra_Target_Rules_Fields;
 
-defined( 'ABSPATH' ) or exit;
+defined( 'ABSPATH' ) || exit;
 
 /**
  * HFE_Admin setup
@@ -42,6 +42,8 @@ class HFE_Admin {
 	 * Load the icons style in editor.
 	 *
 	 * @since 1.3.0
+	 * @access public
+	 * @return void
 	 */
 	public static function load_admin() {
 		add_action( 'elementor/editor/after_enqueue_styles', __CLASS__ . '::hfe_admin_enqueue_scripts' );
@@ -53,6 +55,7 @@ class HFE_Admin {
 	 * @since 1.3.0
 	 * @param string $hook Current page hook.
 	 * @access public
+	 * @return void
 	 */
 	public static function hfe_admin_enqueue_scripts( $hook ) {
 
@@ -69,6 +72,8 @@ class HFE_Admin {
 
 	/**
 	 * Constructor
+	 *
+	 * @return void
 	 */
 	private function __construct() {
 		add_action( 'init', [ $this, 'header_footer_posttype' ] );
@@ -151,7 +156,7 @@ class HFE_Admin {
 	 */
 	public function column_content( $column, $post_id ) {
 
-		if ( 'elementor_hf_display_rules' == $column ) {
+		if ( 'elementor_hf_display_rules' === $column ) {
 
 			$locations = get_post_meta( $post_id, 'ehf_target_include_locations', true );
 			if ( ! empty( $locations ) ) {
@@ -194,7 +199,7 @@ class HFE_Admin {
 	public function column_display_location_rules( $locations ) {
 
 		$location_label = [];
-		if ( is_array( $locations ) && is_array( $locations['rule'] ) && isset( $locations['rule'] ) ) { 
+		if ( is_array( $locations ) && is_array( $locations['rule'] ) && isset( $locations['rule'] ) ) {
 			$index = array_search( 'specifics', $locations['rule'] );
 			if ( false !== $index && ! empty( $index ) ) {
 				unset( $locations['rule'][ $index ] );
@@ -218,6 +223,8 @@ class HFE_Admin {
 
 	/**
 	 * Register Post type for Elementor Header & Footer Builder templates
+	 *
+	 * @return void
 	 */
 	public function header_footer_posttype() {
 		if ( ! current_user_can( 'manage_options' ) ) {
@@ -262,6 +269,7 @@ class HFE_Admin {
 	 * @since  1.0.0
 	 * @since  1.0.1
 	 *         Moved the menu under Appearance -> Elementor Header & Footer Builder
+	 * @return void
 	 */
 	public function register_admin_menu() {
 		add_submenu_page(
@@ -275,8 +283,10 @@ class HFE_Admin {
 
 	/**
 	 * Register meta box(es).
+	 *
+	 * @return void
 	 */
-	function ehf_register_metabox() {
+	public function ehf_register_metabox() {
 		add_meta_box(
 			'ehf-meta-box',
 			__( 'Elementor Header & Footer Builder Options', 'header-footer-elementor' ),
@@ -293,9 +303,10 @@ class HFE_Admin {
 	/**
 	 * Render Meta field.
 	 *
-	 * @param  POST $post Currennt post object which is being displayed.
+	 * @param array $post Currennt post object which is being displayed.
+	 * @return void
 	 */
-	function efh_metabox_render( $post ) {
+	public function efh_metabox_render( $post ) {
 		$values            = get_post_custom( $post->ID );
 		$template_type     = isset( $values['ehf_template_type'] ) ? esc_attr( sanitize_text_field( $values['ehf_template_type'][0] ) ) : '';
 		$display_on_canvas = isset( $values['display-on-canvas-template'] ) ? true : false;
@@ -353,6 +364,7 @@ class HFE_Admin {
 	 * Markup for Display Rules Tabs.
 	 *
 	 * @since  1.0.0
+	 * @return void
 	 */
 	public function display_rules_tab() {
 		// Load Target Rule assets.
@@ -444,7 +456,7 @@ class HFE_Admin {
 		}
 
 		// if our nonce isn't there, or we can't verify it, bail.
-		if ( ! isset( $_POST['ehf_meta_nounce'] ) || ! wp_verify_nonce( sanitize_text_field( $_POST['ehf_meta_nounce'] ), 'ehf_meta_nounce' ) ) {
+		if ( ! isset( $_POST['ehf_meta_nounce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['ehf_meta_nounce'] ) ), 'ehf_meta_nounce' ) ) {
 			return;
 		}
 
@@ -458,7 +470,7 @@ class HFE_Admin {
 		$target_users     = [];
 
 		if ( isset( $_POST['bsf-target-rules-users'] ) ) {
-			$target_users = array_map( 'sanitize_text_field', $_POST['bsf-target-rules-users'] );
+			$target_users = array_map( 'sanitize_text_field', wp_unslash( $_POST['bsf-target-rules-users'] ) );
 		}
 
 		update_post_meta( $post_id, 'ehf_target_include_locations', $target_locations );
@@ -466,11 +478,11 @@ class HFE_Admin {
 		update_post_meta( $post_id, 'ehf_target_user_roles', $target_users );
 
 		if ( isset( $_POST['ehf_template_type'] ) ) {
-			update_post_meta( $post_id, 'ehf_template_type', sanitize_text_field( $_POST['ehf_template_type'] ) );
+			update_post_meta( $post_id, 'ehf_template_type', sanitize_text_field( wp_unslash( $_POST['ehf_template_type'] ) ) );
 		}
 
 		if ( isset( $_POST['display-on-canvas-template'] ) ) {
-			update_post_meta( $post_id, 'display-on-canvas-template', sanitize_text_field( $_POST['display-on-canvas-template'] ) );
+			update_post_meta( $post_id, 'display-on-canvas-template', sanitize_text_field( wp_unslash( $_POST['display-on-canvas-template'] ) ) );
 		} else {
 			delete_post_meta( $post_id, 'display-on-canvas-template' );
 		}
@@ -480,6 +492,7 @@ class HFE_Admin {
 	 * Display notice when editing the header or footer when there is one more of similar layout is active on the site.
 	 *
 	 * @since 1.0.0
+	 * @return void
 	 */
 	public function location_notice() {
 		global $pagenow;
@@ -513,9 +526,9 @@ class HFE_Admin {
 	 *
 	 * @since  1.0.0
 	 *
-	 * @param  String $template_type Template type name.
+	 * @param  string $template_type Template type name.
 	 *
-	 * @return String $template_type Template type name.
+	 * @return string $template_type Template type name.
 	 */
 	public function template_location( $template_type ) {
 		$template_type = ucfirst( str_replace( 'type_', '', $template_type ) );
@@ -527,6 +540,7 @@ class HFE_Admin {
 	 * Don't display the elementor Elementor Header & Footer Builder templates on the frontend for non edit_posts capable users.
 	 *
 	 * @since  1.0.0
+	 * @return void
 	 */
 	public function block_template_frontend() {
 		if ( is_singular( 'elementor-hf' ) && ! current_user_can( 'edit_posts' ) ) {
@@ -540,9 +554,10 @@ class HFE_Admin {
 	 *
 	 * @since  1.0.1
 	 *
-	 * @param  String $single_template Single template.
+	 * @param  string $single_template Single template.
+	 * @return string
 	 */
-	function load_canvas_template( $single_template ) {
+	public function load_canvas_template( $single_template ) {
 		global $post;
 
 		if ( 'elementor-hf' == $post->post_type ) {
@@ -562,8 +577,9 @@ class HFE_Admin {
 	 * Set shortcode column for template list.
 	 *
 	 * @param array $columns template list columns.
+	 * @return array
 	 */
-	function set_shortcode_columns( $columns ) {
+	public function set_shortcode_columns( $columns ) {
 		$date_column = $columns['date'];
 
 		unset( $columns['date'] );
@@ -579,8 +595,9 @@ class HFE_Admin {
 	 *
 	 * @param array $column template list column.
 	 * @param int   $post_id post id.
+	 * @return void
 	 */
-	function render_shortcode_column( $column, $post_id ) {
+	public function render_shortcode_column( $column, $post_id ) {
 		switch ( $column ) {
 			case 'shortcode':
 				ob_start();
