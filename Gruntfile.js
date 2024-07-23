@@ -51,6 +51,17 @@ module.exports = function( grunt ) {
 			file: 'package.json'
 		},
 
+		compress: {
+			main: {
+			  options: {
+				archive: 'release.zip'
+			  },
+			  files: [
+				{src: ['**'], dest: './'}  // includes files in path and its subdirs
+			  ]
+			}
+		  },
+
 		replace: {
 			plugin_readme: {
 				src: ['readme.txt'],
@@ -110,9 +121,11 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-wp-readme-to-markdown' );
 	grunt.loadNpmTasks( 'grunt-bumpup' );
 	grunt.loadNpmTasks( 'grunt-text-replace' );
+	grunt.loadNpmTasks('grunt-contrib-compress');
 	
 	grunt.registerTask( 'i18n', ['addtextdomain', 'makepot'] );
 	grunt.registerTask( 'readme', ['wp_readme_to_markdown'] );
+	grunt.registerTask('release', ['version-bump', 'i18n', 'readme', 'compress']);
 
 	// Bump Version - `grunt version-bump --ver=<version-number>`
     grunt.registerTask('version-bump', function (ver) {
