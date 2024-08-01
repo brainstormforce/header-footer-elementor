@@ -86,6 +86,18 @@ class Page_Title extends Widget_Base {
 	public function get_categories() {
 		return [ 'hfe-widgets' ];
 	}
+	/**
+	 * Check if the content is dynamic.
+	 *
+	 * @since 1.3.0
+	 *
+	 * @access protected
+	 *
+	 * @return bool
+	 */
+	protected function is_dynamic_content() {
+		return true; // Page Title content is dynamic based on the page context.
+	}
 
 	/**
 	 * Register Page Title controls.

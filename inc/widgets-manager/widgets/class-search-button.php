@@ -86,6 +86,18 @@ class Search_Button extends Widget_Base {
 	}
 
 	/**
+	 * Check if the widget supports dynamic content.
+	 *
+	 * @since 1.3.0
+	 * @access protected
+	 *
+	 * @return bool
+	 */
+	protected function is_dynamic_content() {
+		return true; 
+	}
+
+	/**
 	 * Retrieve the list of scripts the navigation menu depended on.
 	 *
 	 * Used to set scripts dependencies required to run the widget.

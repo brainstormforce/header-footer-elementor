@@ -85,6 +85,18 @@ class Site_Tagline extends Widget_Base {
 	}
 
 	/**
+	 * Check if the widget supports dynamic content.
+	 *
+	 * @since 1.3.0
+	 * @access protected
+	 *
+	 * @return bool
+	 */
+	protected function is_dynamic_content() {
+		return true; 
+	}
+
+	/**
 	 * Register site tagline controls.
 	 *
 	 * @since 1.5.7

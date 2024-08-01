@@ -82,6 +82,18 @@ class Copyright extends Widget_Base {
 	}
 
 	/**
+	 * Determine if the widget is dynamic content.
+	 *
+	 * @since 1.0.0
+	 * @access protected
+	 *
+	 * @return bool Whether the widget is dynamic content.
+	 */
+	protected function is_dynamic_content() {
+		return false;
+	}
+
+	/**
 	 * Register Copyright controls.
 	 *
 	 * @since 1.5.7
