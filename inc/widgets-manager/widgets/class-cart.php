@@ -90,7 +90,7 @@ class Cart extends Widget_Base {
 	 *
 	 * @return bool
 	 */
-	protected function is_dynamic_content() {
+	protected function is_dynamic_content(): bool {
 		return true; 
 	}
 

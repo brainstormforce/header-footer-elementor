@@ -89,7 +89,7 @@ class Copyright extends Widget_Base {
 	 *
 	 * @return bool Whether the widget is dynamic content.
 	 */
-	protected function is_dynamic_content() {
+	protected function is_dynamic_content(): bool {
 		return false;
 	}
 
