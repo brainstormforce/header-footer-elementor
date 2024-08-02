@@ -94,7 +94,7 @@ class Search_Button extends Widget_Base {
 	 * @since x.x.x
 	 * @return bool True for dynamic content, false for static content.
 	 */
-	protected function is_dynamic_content(): bool {
+	protected function is_dynamic_content(): bool { // phpcs:ignore
 		return false; 
 	}
 
