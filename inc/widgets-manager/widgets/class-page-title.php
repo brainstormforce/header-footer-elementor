@@ -87,6 +87,15 @@ class Page_Title extends Widget_Base {
 		return [ 'hfe-widgets' ];
 	}
 	
+	/**
+	 * Indicates if the widget's content is dynamic.
+	 *
+	 * This method returns true if the widget's output is dynamic and should not be cached,
+	 * or false if the content is static and can be cached.
+	 *
+	 * @since 1.0.0
+	 * @return bool True for dynamic content, false for static content.
+	 */
 	protected function is_dynamic_content(): bool {
 		return true;
 	}
