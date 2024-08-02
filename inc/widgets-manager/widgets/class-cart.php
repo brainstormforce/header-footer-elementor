@@ -82,14 +82,6 @@ class Cart extends Widget_Base {
 		return [ 'hfe-widgets' ];
 	}
 
-	/**
-	 * Check if the widget supports dynamic content.
-	 *
-	 * @since 1.3.0
-	 * @access protected
-	 *
-	 * @return bool
-	 */
 	protected function is_dynamic_content(): bool {
 		return true; 
 	}
