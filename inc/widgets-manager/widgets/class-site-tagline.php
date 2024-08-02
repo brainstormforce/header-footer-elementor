@@ -94,7 +94,7 @@ class Site_Tagline extends Widget_Base {
 	 * @return bool True for dynamic content, false for static content.
 	 */
 	protected function is_dynamic_content(): bool {
-		return true; 
+		return false;
 	}
 
 	/**
