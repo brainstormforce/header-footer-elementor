@@ -140,6 +140,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 ## Changelog ##
 
+### 1.6.37.1 ###
+- Improvement: Implemented widget output caching to enhance page performance.
+
 ### 1.6.37 ###
 - Improvement: Compatibility with latest Elementor and Elementor Pro 3.23 version.
 
