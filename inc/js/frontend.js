@@ -626,8 +626,9 @@
 
 					$this.addClass( 'hfe-active-menu-full-width' );
 
-					var width = $( '.elementor-element-' + id ).closest('.elementor-section').outerWidth();
-					var sec_pos = $( '.elementor-element-' + id ).closest('.elementor-section').offset().left - $selector.offset().left;
+					var closestElement = $( '.elementor-element-' + id ).closest('.elementor-section, .e-con-boxed');
+					var width = closestElement.outerWidth();
+					var sec_pos = closestElement.offset().left - $selector.offset().left;
 				
 					$selector.css( 'width', width + 'px' );
 					$selector.css( 'left', sec_pos + 'px' );
