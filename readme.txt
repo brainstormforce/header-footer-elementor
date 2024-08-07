@@ -142,6 +142,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 = 1.6.37.1 = 
 - Improvement: Implemented widget output caching to enhance page performance.
+- Improvement: Navigation Menu - The dropdown menu now extends to full width when the navigation menu container is set to full width on smaller screens.
 
 = 1.6.37 = 
 - Improvement: Compatibility with latest Elementor and Elementor Pro 3.23 version.
