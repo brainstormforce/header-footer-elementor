@@ -579,12 +579,20 @@
 
 		if ( $( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).hasClass( 'hfe-active-menu-full-width' ) ){
 
-			$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).next().css( 'left', '0' );
+			var $toggle = $( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' );
+			var $nextElement= $toggle.next();
 
-			var width = $( '.elementor-element-' + id ).closest('.elementor-section').outerWidth();
-			var sec_pos = $( '.elementor-element-' + id ).closest('.elementor-section').offset().left - $( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).next().offset().left;
-			$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).next().css( 'width', width + 'px' );
-			$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).next().css( 'left', sec_pos + 'px' );
+			if( $nextElement.length ){
+				$nextElement.css( 'left', '0' );
+				
+				var $section = $( '.elementor-element-' + id ).closest('.elementor-section');
+				if ( $section.length ) {
+					var width = $section.outerWidth();
+					var sec_pos = $section.offset().left - $toggle.next().offset().left;
+					$nextElement.css( 'width', width + 'px' );
+					$nextElement.css( 'left', sec_pos + 'px' );
+				}
+			}
 		}
 
 		$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).off( 'click keyup' ).on( 'click keyup', function( event ) {
