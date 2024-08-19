@@ -43,3 +43,23 @@ function hfe_init() {
 }
 
 add_action( 'plugins_loaded', 'hfe_init' );
+
+/** Font awesome 5 */
+function uae_enqueue_font_awesome() {
+	if ( defined( 'ELEMENTOR_VERSION' ) ) {
+		if ( ! wp_style_is( 'elementor-icons-fa-solid', 'enqueued' ) ) {
+			wp_enqueue_style( 'uae-fa-solid', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/solid.min.css', [], '5.15.4' );
+		}
+		if ( ! wp_style_is( 'elementor-icons-fa-regular', 'enqueued' ) ) {
+			wp_enqueue_style( 'uae-fa-regular', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/regular.min.css', [], '5.15.4' );
+		}
+		if ( ! wp_style_is( 'elementor-icons-fa-brands', 'enqueued' ) ) {
+			wp_enqueue_style( 'uae-fa-brands', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/brands.min.css', [], '5.15.4' );
+		}
+	} else {
+		wp_enqueue_style( 'uae-fa-all', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css', [], '5.15.4' );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'uae_enqueue_font_awesome', 20 );
+
+
