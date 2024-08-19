@@ -119,6 +119,11 @@ div.hfe-nav-menu,
     display: table;
     clear: both;
 }
+ 
+/** submenu icon style */
+.hfe-menu-toggle i.fas {
+    font-style: normal;
+}
 
 /* Alignemnt CSS */
 .hfe-nav-menu__align-right .hfe-nav-menu {
