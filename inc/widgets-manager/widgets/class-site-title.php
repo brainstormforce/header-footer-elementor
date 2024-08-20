@@ -104,8 +104,10 @@ class Site_Title extends Widget_Base {
 	 *
 	 * @since 1.5.7
 	 * @access protected
+	 * @return void
 	 */
-	protected function register_controls() {
+	// phpcs:ignore
+	protected function register_controls(): void {
 
 		$this->register_general_content_controls();
 		$this->register_heading_typo_content_controls();
@@ -116,8 +118,10 @@ class Site_Title extends Widget_Base {
 	 *
 	 * @since 1.3.0
 	 * @access protected
+	 * @return void
 	 */
-	protected function register_general_content_controls() {
+	// phpcs:ignore
+	protected function register_general_content_controls(): void {
 
 		$this->start_controls_section(
 			'section_general_fields',
@@ -280,8 +284,10 @@ class Site_Title extends Widget_Base {
 	 *
 	 * @since 1.3.0
 	 * @access protected
+	 * @return void
 	 */
-	protected function register_heading_typo_content_controls() {
+	// phpcs:ignore
+	protected function register_heading_typo_content_controls(): void {
 		$this->start_controls_section(
 			'section_heading_typography',
 			[
@@ -404,8 +410,12 @@ class Site_Title extends Widget_Base {
 	 *
 	 * @since 1.3.0
 	 * @access protected
+	 *
+	 * // phpcs:ignore
+	 * @return void
 	 */
-	protected function render() {
+	// phpcs:ignore
+	protected function render(): void {
 
 		$settings = $this->get_settings();
 		$title    = get_bloginfo( 'name' );
@@ -460,6 +470,7 @@ class Site_Title extends Widget_Base {
 		 *
 		 * @since 1.3.0
 		 * @access protected
+		 * @return void
 		 */
 	protected function content_template() {
 		?>
