@@ -78,7 +78,7 @@ class Menu_Walker extends \Walker_Nav_Menu {
 		if ( $args->has_children ) {
 			$item_output .= "<span class='hfe-menu-toggle sub-arrow hfe-menu-child-";
 			$item_output .= $depth;
-			$item_output .= "'><i class='fas fa-chevron-down'></i></span>";
+			$item_output .= "'><i class='fas'></i></span>";
 		}
 		$item_output .= '</a>';
 
