@@ -140,11 +140,13 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 
+= 1.6.38.1 = 
+- Improvement: Support for Font Awesome 5 icons.
+
 = 1.6.38 = 
 - Improvement: Implemented widget output caching to enhance page performance.
 - Improvement: Improved code quality syntax and security checks for better coding standards and practices.
 - Improvement: Navigation Menu - The dropdown menu now extends to full width when the navigation menu container is set to full width on smaller screens.
-- Improvement: Support for Font Awesome 5 icons.
 - Fix: Navigation Menu – Console error for undefined property ‘left’.
 
 = 1.6.37 = 
