@@ -1795,8 +1795,12 @@ div.hfe-nav-menu,
     padding: 10px;
 }
 
-.hfe-search-icon-toggle i:before {
+.hfe-search-icon-toggle i:before,
+.hfe-search-submit i:before {
     vertical-align: middle;
+    content: '\f002'; 
+    font-family: 'Font Awesome 5 Free'; 
+    font-style: normal;
 }
 /*search icon toggle css*/
 
