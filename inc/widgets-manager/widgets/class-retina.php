@@ -228,7 +228,7 @@ class Retina extends Widget_Base {
 				'dynamic'     => [
 					'active' => true,
 				],
-				'placeholder' => __( 'https://', 'header-footer-elementor' ),
+				'placeholder' => __( 'https://your-link.com', 'header-footer-elementor' ),
 				'condition'   => [
 					'link_to' => 'custom',
 				],
