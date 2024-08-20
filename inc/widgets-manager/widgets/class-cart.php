@@ -87,6 +87,7 @@ class Cart extends Widget_Base {
 	 *
 	 * @since 1.5.7
 	 * @access protected
+	 * @return void
 	 */
 	protected function register_controls() {
 
@@ -99,6 +100,7 @@ class Cart extends Widget_Base {
 	 *
 	 * @since 1.4.0
 	 * @access protected
+	 * @return void
 	 */
 	protected function register_general_content_controls() {
 
@@ -224,6 +226,7 @@ class Cart extends Widget_Base {
 	 *
 	 * @since 1.4.0
 	 * @access protected
+	 * @return void
 	 */
 	protected function register_cart_typo_content_controls() {
 		$this->start_controls_section(
@@ -607,6 +610,7 @@ class Cart extends Widget_Base {
 	 *
 	 * @since 1.4.0
 	 * @access protected
+	 * @return void
 	 */
 	protected function render() {
 
@@ -667,6 +671,7 @@ class Cart extends Widget_Base {
 	 *
 	 * @since 1.4.0
 	 * @access protected
+	 * @return void
 	 */
 	protected function content_template() {
 	}
