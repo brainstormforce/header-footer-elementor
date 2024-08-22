@@ -62,7 +62,7 @@ class Menu_Walker extends \Walker_Nav_Menu {
 		$attributes .= ! empty( $item->xfn ) ? ' rel="' . esc_attr( $item->xfn ) . $rel_xfn . '"' : '' . $rel_blank;
 		$attributes .= ! empty( $item->url ) ? ' href="' . esc_url( $item->url ) . '"' : '';
 
-		$atts = apply_filters( 'hfe_nav_menu_attrs', $attributes );
+		$atts = apply_filters( 'hfe_nav_menu_attrs', $attributes, $item ); // Pass $item to the filter.
 
 		$item_output  = $args->has_children ? '<div class="hfe-has-submenu-container">' : '';
 		$item_output .= $args->before;
