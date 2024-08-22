@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Elementor Header & Footer Builder 1.6.38\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/header-footer-elementor\n"
-"POT-Creation-Date: 2024-08-20 07:11:34+00:00\n"
+"POT-Creation-Date: 2024-08-22 07:10:49+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1093,11 +1093,19 @@ msgstr ""
 msgid "Link"
 msgstr ""
 
+<<<<<<< HEAD
 #: inc/widgets-manager/widgets/class-copyright.php:139
 #: inc/widgets-manager/widgets/class-page-title.php:209
 #: inc/widgets-manager/widgets/class-retina.php:244
 #: inc/widgets-manager/widgets/class-site-logo.php:253
 #: inc/widgets-manager/widgets/class-site-title.php:201
+=======
+#: inc/widgets-manager/widgets/class-copyright.php:126
+#: inc/widgets-manager/widgets/class-page-title.php:196
+#: inc/widgets-manager/widgets/class-retina.php:231
+#: inc/widgets-manager/widgets/class-site-logo.php:240
+#: inc/widgets-manager/widgets/class-site-title.php:188
+>>>>>>> 6b5561cdf01360645cec0a7858469e8326809f19
 msgid "https://your-link.com"
 msgstr ""
 
@@ -1593,10 +1601,17 @@ msgstr ""
 msgid "Enter your image caption"
 msgstr ""
 
+<<<<<<< HEAD
 #: inc/widgets-manager/widgets/class-retina.php:271
 #: inc/widgets-manager/widgets/class-search-button.php:228
 #: inc/widgets-manager/widgets/class-search-button.php:777
 #: inc/widgets-manager/widgets/class-site-logo.php:307
+=======
+#: inc/widgets-manager/widgets/class-retina.php:258
+#: inc/widgets-manager/widgets/class-search-button.php:215
+#: inc/widgets-manager/widgets/class-search-button.php:764
+#: inc/widgets-manager/widgets/class-site-logo.php:294
+>>>>>>> 6b5561cdf01360645cec0a7858469e8326809f19
 msgid "Width"
 msgstr ""
 
