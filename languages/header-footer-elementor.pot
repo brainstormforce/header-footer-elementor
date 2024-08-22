@@ -1093,19 +1093,11 @@ msgstr ""
 msgid "Link"
 msgstr ""
 
-<<<<<<< HEAD
 #: inc/widgets-manager/widgets/class-copyright.php:139
 #: inc/widgets-manager/widgets/class-page-title.php:209
 #: inc/widgets-manager/widgets/class-retina.php:244
 #: inc/widgets-manager/widgets/class-site-logo.php:253
 #: inc/widgets-manager/widgets/class-site-title.php:201
-=======
-#: inc/widgets-manager/widgets/class-copyright.php:126
-#: inc/widgets-manager/widgets/class-page-title.php:196
-#: inc/widgets-manager/widgets/class-retina.php:231
-#: inc/widgets-manager/widgets/class-site-logo.php:240
-#: inc/widgets-manager/widgets/class-site-title.php:188
->>>>>>> 6b5561cdf01360645cec0a7858469e8326809f19
 msgid "https://your-link.com"
 msgstr ""
 
@@ -1601,17 +1593,10 @@ msgstr ""
 msgid "Enter your image caption"
 msgstr ""
 
-<<<<<<< HEAD
 #: inc/widgets-manager/widgets/class-retina.php:271
 #: inc/widgets-manager/widgets/class-search-button.php:228
 #: inc/widgets-manager/widgets/class-search-button.php:777
 #: inc/widgets-manager/widgets/class-site-logo.php:307
-=======
-#: inc/widgets-manager/widgets/class-retina.php:258
-#: inc/widgets-manager/widgets/class-search-button.php:215
-#: inc/widgets-manager/widgets/class-search-button.php:764
-#: inc/widgets-manager/widgets/class-site-logo.php:294
->>>>>>> 6b5561cdf01360645cec0a7858469e8326809f19
 msgid "Width"
 msgstr ""
 
