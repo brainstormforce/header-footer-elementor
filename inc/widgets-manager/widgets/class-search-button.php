@@ -6,6 +6,7 @@
  */
 
 namespace HFE\WidgetsManager\Widgets;
+
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Background;
@@ -104,8 +105,10 @@ class Search_Button extends Widget_Base {
 	 *
 	 * @since 1.5.7
 	 * @access protected
+	 * @return void
 	 */
-	protected function register_controls() {
+	// phpcs:ignore
+	protected function register_controls(): void {
 		$this->register_general_content_controls();
 		$this->register_search_style_controls();
 	}
@@ -114,8 +117,10 @@ class Search_Button extends Widget_Base {
 	 *
 	 * @since 1.5.0
 	 * @access protected
+	 * @return void
 	 */
-	protected function register_general_content_controls() {
+	// phpcs:ignore
+	protected function register_general_content_controls(): void {
 		$this->start_controls_section(
 			'section_general_fields',
 			[
@@ -179,8 +184,12 @@ class Search_Button extends Widget_Base {
 	 *
 	 * @since 1.5.0
 	 * @access protected
+	 *
+	 * // phpcs:ignore
+	 * @return void
 	 */
-	protected function register_search_style_controls() {
+	// phpcs:ignore
+	protected function register_search_style_controls(): void {
 		$this->start_controls_section(
 			'section_input_style',
 			[
@@ -330,13 +339,11 @@ class Search_Button extends Widget_Base {
 				],
 				'condition' => [
 					'border_style!' => 'none',
+					'layout!'       => 'icon',
 				],
 				'default'   => '',
 				'selectors' => [
 					'{{WRAPPER}} .hfe-search-form__container, {{WRAPPER}} .hfe-search-icon-toggle .hfe-search-form__input,{{WRAPPER}} .hfe-input-focus .hfe-search-icon-toggle .hfe-search-form__input' => 'border-color: {{VALUE}};',
-				],
-				'condition' => [
-					'layout!' => 'icon',
 				],
 			]
 		);
@@ -356,12 +363,10 @@ class Search_Button extends Widget_Base {
 				],
 				'condition'  => [
 					'border_style!' => 'none',
+					'layout!'       => 'icon',
 				],
 				'selectors'  => [
 					'{{WRAPPER}} .hfe-search-form__container, {{WRAPPER}} .hfe-search-icon-toggle .hfe-search-form__input,{{WRAPPER}} .hfe-input-focus .hfe-search-icon-toggle .hfe-search-form__input' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-				'condition'  => [
-					'layout!' => 'icon',
 				],
 			]
 		);
@@ -945,7 +950,6 @@ class Search_Button extends Widget_Base {
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
-
 	}
 	/**
 	 * Render Search button output on the frontend.
@@ -954,8 +958,12 @@ class Search_Button extends Widget_Base {
 	 *
 	 * @since 1.5.0
 	 * @access protected
+	 *
+	 * // phpcs:ignore
+	 * @return void
 	 */
-	protected function render() {
+	// phpcs:ignore
+	protected function render(): void {
 		$settings = $this->get_settings_for_display();
 
 		$this->add_render_attribute(
@@ -978,16 +986,16 @@ class Search_Button extends Widget_Base {
 				'role'  => 'tablist',
 			]
 		);
-		
-		/** Check if Polylang fucntion is active with Search widget */ 
-		
-		if ( function_exists( 'pll_the_languages' ) ) { 
+
+		/** Check if Polylang fucntion is active with Search widget */
+
+		if ( function_exists( 'pll_the_languages' ) ) {
 			$default_language = pll_default_language();
-			$current_lang     = pll_current_language(); 
+			$current_lang     = pll_current_language();
 			$action_url       = $current_lang === $default_language ? home_url( '/' ) : home_url( '/' ) . $current_lang . '/';
 		} else {
 			$action_url = home_url( '/' );
-		}       
+		}
 		?>
 		<form class="hfe-search-button-wrapper" role="search" action="<?php echo esc_url( $action_url ); ?>" method="get">
 

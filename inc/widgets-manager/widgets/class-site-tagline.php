@@ -89,6 +89,7 @@ class Site_Tagline extends Widget_Base {
 	 *
 	 * @since 1.5.7
 	 * @access protected
+	 * @return void
 	 */
 	protected function register_controls() {
 		$this->register_general_content_controls();
@@ -99,6 +100,7 @@ class Site_Tagline extends Widget_Base {
 	 *
 	 * @since 1.3.0
 	 * @access protected
+	 * @return void
 	 */
 	protected function register_general_content_controls() {
 
@@ -261,6 +263,7 @@ class Site_Tagline extends Widget_Base {
 	 *
 	 * @since 1.3.0
 	 * @access protected
+	 * @return void
 	 */
 	protected function render() {
 		$settings = $this->get_settings_for_display();
@@ -295,6 +298,7 @@ class Site_Tagline extends Widget_Base {
 	 *
 	 * @since 1.3.0
 	 * @access protected
+	 * @return void
 	 */
 	protected function content_template() {
 		?>

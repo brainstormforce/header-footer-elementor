@@ -9,7 +9,7 @@
  * @since       HFE 1.0.9
  */
 
-defined( 'ABSPATH' ) or exit;
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Set up WPML Compatibiblity Class.

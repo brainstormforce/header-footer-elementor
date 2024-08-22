@@ -28,7 +28,8 @@ if ( ! class_exists( 'HFE_Update' ) ) {
 		 * @since 1.1.4
 		 * @var string
 		 */
-		private $db_option_key = '_hfe_db_version';
+		// phpcs:ignore
+		private string $db_option_key = '_hfe_db_version'; 
 
 		/**
 		 *  Constructor
@@ -49,6 +50,7 @@ if ( ! class_exists( 'HFE_Update' ) ) {
 		 * Implement theme update logic.
 		 *
 		 * @since 1.1.4
+		 * @return void
 		 */
 		public function init() {
 			do_action( 'hfe_update_before' );
@@ -106,9 +108,9 @@ if ( ! class_exists( 'HFE_Update' ) ) {
 		/**
 		 * Get header or footer template id based on the meta query.
 		 *
-		 * @param  String $type Type of the template header/footer.
+		 * @param  string $type Type of the template header/footer.
 		 *
-		 * @return Mixed  Returns the header or footer template id if found, else returns string ''.
+		 * @return mixed  Returns the header or footer template id if found, else returns string ''.
 		 */
 		public function get_legacy_template_id( $type ) {
 			$args = [
@@ -147,7 +149,7 @@ if ( ! class_exists( 'HFE_Update' ) ) {
 		 * Check if db upgrade is required.
 		 *
 		 * @since 1.1.4
-		 * @return true|false True if stored database version is lower than constant; false if otherwise.
+		 * @return bool True if stored database version is lower than constant; false if otherwise.
 		 */
 		private function needs_db_update() {
 			$db_version = get_option( $this->db_option_key, false );

@@ -7,14 +7,14 @@
  * Author URI:  https://www.brainstormforce.com/
  * Text Domain: header-footer-elementor
  * Domain Path: /languages
- * Version: 1.6.37
+ * Version: 1.6.38
  * Elementor tested up to: 3.23
  * Elementor Pro tested up to: 3.23
  *
  * @package         header-footer-elementor
  */
 
-define( 'HFE_VER', '1.6.37' );
+define( 'HFE_VER', '1.6.38' );
 define( 'HFE_FILE', __FILE__ );
 define( 'HFE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'HFE_URL', plugins_url( '/', __FILE__ ) );
@@ -28,6 +28,8 @@ require_once HFE_DIR . '/inc/class-header-footer-elementor.php';
 
 /**
  * Load the Plugin Class.
+ *
+ * @return void
  */
 function hfe_plugin_activation() {
 	update_option( 'hfe_plugin_is_activated', 'yes' );
@@ -37,6 +39,8 @@ register_activation_hook( HFE_FILE, 'hfe_plugin_activation' );
 
 /**
  * Load the Plugin Class.
+ *
+ * @return void
  */
 function hfe_init() {
 	Header_Footer_Elementor::instance();

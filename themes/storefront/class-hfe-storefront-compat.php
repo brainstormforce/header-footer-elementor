@@ -13,14 +13,17 @@ class HFE_Storefront_Compat {
 	/**
 	 * Instance of HFE_Storefront_Compat.
 	 *
-	 * @var HFE_Storefront_Compat
+	 * @var $HFE_Storefront_Compat
 	 */
-	private static $instance;
+	private static $instance = null;
 
 	/**
 	 *  Initiator
+	 *
+	 *  @return HFE_Storefront_Compat
 	 */
-	public static function instance() {
+	// phpcs:ignore
+	public static function instance(): HFE_Storefront_Compat {
 		if ( ! isset( self::$instance ) ) {
 			self::$instance = new HFE_Storefront_Compat();
 
@@ -32,8 +35,11 @@ class HFE_Storefront_Compat {
 
 	/**
 	 * Run all the Actions / Filters.
+	 *
+	 * @return void
 	 */
-	public function hooks() {
+	// phpcs:ignore
+	public function hooks(): void {
 		if ( hfe_header_enabled() ) {
 			add_action( 'template_redirect', [ $this, 'setup_header' ], 10 );
 			add_action( 'storefront_before_header', 'hfe_render_header', 500 );
@@ -57,9 +63,12 @@ class HFE_Storefront_Compat {
 	 * Add inline CSS to hide empty divs for header and footer in storefront
 	 *
 	 * @since 1.2.0
+	 * 
+	 * // phpcs:ignore
 	 * @return void
 	 */
-	public function styles() {
+	// phpcs:ignore
+	public function styles(): void {
 		$css = '';
 
 		if ( true === hfe_header_enabled() ) {
@@ -78,23 +87,31 @@ class HFE_Storefront_Compat {
 	}
 
 	/**
+	 * 
 	 * Disable header from the theme.
+	 * 
+	 * @return void
+	 *
+	 * // phpcs:ignore
 	 */
-	public function setup_header() {
-		for ( $priority = 0; $priority < 200; $priority ++ ) {
+	// phpcs:ignore
+	public function setup_header(): void {
+		for ( $priority = 0; $priority < 200; $priority++ ) {
 			remove_all_actions( 'storefront_header', $priority );
 		}
 	}
-
+	// phpcs:ignore
 	/**
 	 * Disable footer from the theme.
+	 * // phpcs:ignore
+	 * @return void
 	 */
-	public function setup_footer() {
-		for ( $priority = 0; $priority < 200; $priority ++ ) {
+	// phpcs:ignore
+	public function setup_footer(): void {
+		for ( $priority = 0; $priority < 200; $priority++ ) {
 			remove_all_actions( 'storefront_footer', $priority );
 		}
 	}
-
 }
 
 HFE_Storefront_Compat::instance();
