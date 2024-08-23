@@ -141,7 +141,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 ## Changelog ##
 
 ### 1.6.38.1 ###
-- Improvement: Updated PHP version number in the README file.
+- Improvement: Updated minimum PHP version requirement to 7.4.
 
 ### 1.6.38 ###
 - Improvement: Improved code quality syntax and security checks for better coding standards and practices.
