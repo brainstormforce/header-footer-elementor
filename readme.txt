@@ -140,7 +140,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 
-= 1.6.38.1 = 
+= 1.6.39 = 
 - Improvement: Updated minimum PHP version requirement to 7.4.
 
 ### 1.6.38 ###
