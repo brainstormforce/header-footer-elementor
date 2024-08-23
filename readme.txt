@@ -143,7 +143,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 = 1.6.39 = 
 - Improvement: Updated minimum PHP version requirement to 7.4.
 
-### 1.6.38 ###
+= 1.6.38 =
 - Improvement: Improved code quality syntax and security checks for better coding standards and practices.
 
 = 1.6.37 = 
