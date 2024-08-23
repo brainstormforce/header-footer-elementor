@@ -3,7 +3,7 @@ Contributors: brainstormforce, Nikschavan
 Tags: elementor, header footer builder, header template, footer template, elementor widget
 Donate link: https://www.paypal.me/BrainstormForce
 Requires at least: 4.4
-Requires PHP: 5.4
+Requires PHP: 7.4
 Tested up to: 6.6
 Stable tag: 1.6.38
 License: GPLv2 or later
@@ -139,6 +139,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 5. Default widgets available with Elementor Header & Footer Builder.
 
 == Changelog ==
+
+= 1.6.38.1 = 
+- Improvement: Updated PHP version number in the README file.
 
 ### 1.6.38 ###
 - Improvement: Improved code quality syntax and security checks for better coding standards and practices.
