@@ -140,8 +140,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 
-= 1.6.38.1 = 
-- Improvement: Implemented widget output caching to enhance page performance.
+= 1.6.39.1 = 
 - Improvement: Navigation Menu - The dropdown menu now extends to full width when the navigation menu container is set to full width on smaller screens.
 - Fix: Navigation Menu – Console error for undefined property ‘left’.
 
