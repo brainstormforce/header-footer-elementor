@@ -94,7 +94,7 @@ class Navigation_Menu extends Widget_Base {
 	public function get_categories() {
 		return [ 'hfe-widgets' ];
 	}
-
+	
 	/**
 	 * Retrieve the list of scripts the navigation menu depended on.
 	 *
