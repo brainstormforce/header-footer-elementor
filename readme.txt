@@ -142,6 +142,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 = 1.6.40.1 =
 - Improvement: Compatibility with latest Elementor and Elementor Pro 3.24 version.
+- Improvement: Implemented widget output caching to enhance page performance.
 - Improvement: Updated the deprecated code in codebase.
 
 = 1.6.40 = 
