@@ -140,6 +140,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 
+= 1.6.40.1 = 
+- Improvement: Compatibility with latest Elementor and Elementor Pro 3.24 version.
+
 = 1.6.40 = 
 - Improvement: Navigation Menu - The dropdown menu now extends to full width when the navigation menu container is set to full width on smaller screens.
 - Fix: Navigation Menu – Console error for undefined property ‘left’.
