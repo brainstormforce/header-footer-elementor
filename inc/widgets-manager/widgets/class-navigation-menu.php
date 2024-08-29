@@ -94,7 +94,20 @@ class Navigation_Menu extends Widget_Base {
 	public function get_categories() {
 		return [ 'hfe-widgets' ];
 	}
-	
+
+	/**
+	 * Indicates if the widget's content is dynamic.
+	 *
+	 * This method returns true if the widget's output is dynamic and should not be cached,
+	 * or false if the content is static and can be cached.
+	 *
+	 * @since 1.6.41
+	 * @return bool True for dynamic content, false for static content.
+	 */
+	protected function is_dynamic_content(): bool { // phpcs:ignore
+		return false; 
+	}
+
 	/**
 	 * Retrieve the list of scripts the navigation menu depended on.
 	 *
