@@ -13,7 +13,7 @@ namespace HFE\WidgetsManager;
 
 use Elementor\Plugin;
 use Elementor\Utils;
-use Elementor\Core\Files\Assets\Files_Upload_Handler;
+use Elementor\Core\Files\Uploads_Manager;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -196,7 +196,7 @@ class Widgets_Loader {
 			 */
 			$svg_handler = Plugin::instance()->assets_manager->get_asset( 'svg-handler' );
 
-			if ( Files_Upload_Handler::file_sanitizer_can_run() && ! $svg_handler->sanitize_svg( $file['tmp_name'] ) ) {
+			if ( Uploads_Manager::file_sanitizer_can_run() && ! $svg_handler->sanitize_svg( $file['tmp_name'] ) ) {
 
 				$file['error'] = esc_html__( 'Invalid SVG Format, file not uploaded for security reasons!', 'header-footer-elementor' );
 			}
