@@ -5,7 +5,7 @@ Donate link: https://www.paypal.me/BrainstormForce
 Requires at least: 4.4
 Requires PHP: 7.4
 Tested up to: 6.6
-Stable tag: 1.6.40
+Stable tag: 1.6.41
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -139,6 +139,11 @@ This same applies when you are creating your Header/Footer using this plugin.
 5. Default widgets available with Elementor Header & Footer Builder.
 
 == Changelog ==
+
+= 1.6.41 =
+- Improvement: Compatibility with latest Elementor and Elementor Pro 3.24 version.
+- Improvement: Implemented widget output caching to enhance page performance.
+- Improvement: Updated the deprecated code in codebase.
 
 = 1.6.40 = 
 - Improvement: Navigation Menu - The dropdown menu now extends to full width when the navigation menu container is set to full width on smaller screens.
