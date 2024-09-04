@@ -234,18 +234,11 @@ class HFE_Settings_Page {
 	 *
 	 * Call back function for add submenu page function.
 	 *
-	 * @since 1.6.0
+	 * @since x.x.x
 	 * @return void
 	 */
 	public function uaelite_settings_page() {
-		?>
-		<div class="wrap">
-			<h1>UA Elementor Settings</h1>
-			<p>Welcome to the settings page for the UA Elementor plugin!</p>
-			<!-- React root element -->
-			<div id="settings-root"></div>
-		</div>
-		<?php
+		include_once HFE_DIR . 'inc/admin-base.php';
 	}
 
 	/**
