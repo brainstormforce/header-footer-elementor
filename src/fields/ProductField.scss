@@ -1,0 +1,15 @@
+.wcf-product-field {
+	.wcf-selection-field {
+		.wcf__control {
+			border: none;
+			box-shadow: none;
+			border-radius: 0;
+			background-color: transparent;
+
+			input[type="text"]:focus {
+				box-shadow: none;
+				outline: none;
+			}
+		}
+	}
+}

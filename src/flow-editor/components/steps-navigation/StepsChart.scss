@@ -1,0 +1,91 @@
+.wcf-steps-chart {
+	border: 1px solid #a5a5a5;
+	height: 100vh;
+	max-height: 70%;
+
+	&.wcf-fullscreen {
+		position: fixed;
+		max-height: unset;
+		width: 100%;
+		left: 0;
+		top: 0;
+		z-index: 999999;
+
+		.wcf-steps-chart__exit-screen-msg {
+			position: absolute;
+			left: 44%;
+			top: 20px;
+			padding: 10px;
+			z-index: 4;
+			text-transform: none;
+			background-color: #636363;
+			color: #fff;
+			text-align: center;
+		}
+	}
+
+	.react-flow {
+		.react-flow__controls {
+			.wcf-full-screen,
+			.wcf-exit-full-screen {
+				font-size: 13px;
+				height: unset;
+			}
+		}
+	}
+
+	// .react-flow__handle-right-a {
+	// 	top: 8px;
+	// 	right: -4px;
+	// 	transform: none;
+	// }
+	// .react-flow__handle-right-b {
+	// 	top: auto;
+	// 	bottom: 110px;
+	// 	right: -4px;
+	// 	transform: none;
+	// }
+
+	.react-flow__renderer.react-flow__zoompane {
+		cursor: move;
+	}
+}
+
+.wcf-steps-chart.loading {
+	background-color: #f4f4f4;
+	position: relative;
+
+	.wcf-step-chart-loader {
+		flex: 0 0 50%;
+		position: absolute;
+		top: 50%;
+		left: 49%;
+		width: 300px;
+		height: 300px;
+		display: flex;
+
+		.dot-loader {
+			height: 20px;
+			width: 20px;
+			border-radius: 50%;
+			background-color: #f44336;
+			position: relative;
+			-webkit-animation: 1.2s grow ease-in-out infinite;
+			animation: 1.2s grow ease-in-out infinite;
+		}
+
+		.dot-loader--2 {
+			-webkit-animation: 1.2s grow ease-in-out infinite 0.15555s;
+			animation: 1.2s grow ease-in-out infinite 0.15555s;
+			margin: 0 20px;
+		}
+		.dot-loader--3 {
+			-webkit-animation: 1.2s grow ease-in-out infinite 0.3s;
+			animation: 1.2s grow ease-in-out infinite 0.3s;
+		}
+	}
+}
+
+.wcf-flow-overview-screen {
+	overflow: hidden;
+}

@@ -1,0 +1,53 @@
+.wcf-tooltip-icon {
+	position: relative;
+
+	.dashicons {
+		display: block;
+		position: relative;
+	}
+
+	.wcf-tooltip-text {
+		visibility: hidden;
+		background-color: #444;
+		color: #fff;
+		padding: 5px 8px;
+		border-radius: 3px;
+		position: absolute;
+		z-index: 1;
+		line-height: 13px;
+
+		/* min-width: 100px; */
+		width: fit-content;
+		white-space: nowrap;
+		left: -20px;
+		font-size: 11px;
+		top: 25px;
+
+		&::after {
+			content: "";
+			margin-left: -5px;
+			border-width: 5px;
+			border-style: solid;
+			border-color: transparent transparent #444 transparent;
+			top: -10px;
+			left: 30px;
+			position: absolute;
+		}
+	}
+
+	&:hover .wcf-tooltip-text {
+		visibility: visible;
+	}
+
+	&.wcf-tooltip-position--right {
+		.wcf-tooltip-text {
+			top: -5px;
+			left: 25px;
+		}
+		.wcf-tooltip-text::after {
+			left: -5px;
+			top: 8px;
+			transform: rotate( 270deg );
+		}
+	}
+}

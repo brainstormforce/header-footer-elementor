@@ -1,0 +1,23 @@
+// .wcf-settings-nav {
+// 	display: flex;
+// }
+
+.wcf-settings-nav__tabs {
+	width: 250px;
+	background: #f7f8fa;
+	padding: 15px;
+}
+
+.wcf-settings-nav__tab {
+	padding: 0 0 10px 0;
+
+	&:last-child {
+		padding: 0;
+	}
+}
+
+.wcf-settings-nav__content {
+	padding: 25px;
+	background: #fff;
+	width: calc( 100% - 250px );
+}

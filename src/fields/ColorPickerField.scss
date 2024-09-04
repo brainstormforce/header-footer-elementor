@@ -1,0 +1,15 @@
+.wcf-color-field {
+	.sketch-picker {
+		font-weight: 400;
+	}
+
+	.wcf-color-picker {
+		input {
+			margin: 0;
+		}
+
+		input[id^="rc-editable-input-"] {
+			width: 100% !important;
+		}
+	}
+}

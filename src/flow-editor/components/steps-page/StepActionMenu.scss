@@ -1,0 +1,78 @@
+/* Dropdown actions */
+.wcf-actions-menu__dropdown {
+	position: absolute;
+	visibility: hidden;
+	opacity: 0;
+	background: #fafafa;
+	border-top: 1px solid rgba( 230, 230, 230, 0.5 );
+	box-shadow: 0 2px 6px rgba( 0, 0, 0, 0.15 );
+	right: -1px;
+	width: 175px;
+	z-index: 1;
+	border-radius: 3px;
+
+	a {
+		padding: 9px 12px;
+		background: #fafafa;
+		text-align: left;
+		text-decoration: none;
+		display: block;
+		border-top: 1px solid rgba( 230, 230, 230, 0.5 );
+		height: auto;
+		color: #666;
+		font-size: 13px;
+		-webkit-transition: all linear 200ms;
+		transition: all linear 200ms;
+
+		&:hover {
+			background: #f2f2f2;
+			color: #1e8cbe;
+		}
+
+		&:first-child {
+			border: none;
+		}
+	}
+
+	&::after {
+		background: #fafafa;
+		height: 14px;
+		-webkit-transform: rotate( 45deg );
+		transform: rotate( 45deg );
+		width: 14px;
+		content: "";
+		position: absolute;
+		right: 19px;
+		z-index: -7;
+		border: none;
+		box-shadow: -2px -1px 3px rgba( 0, 0, 0, 0.07 );
+	}
+
+	&.wcf-edit-show {
+		visibility: visible;
+		opacity: 1;
+	}
+
+	&.wcf-edit-above {
+		&::after {
+			bottom: -7px;
+		}
+		right: 10px;
+		top: 10px;
+		transform: translate( 0, -100% );
+	}
+
+	&.wcf-edit-below {
+		&::after {
+			top: -7px;
+		}
+		right: 10px;
+		bottom: 5px;
+		transform: translate( 0, 100% );
+	}
+
+	.wcf-pro {
+		cursor: not-allowed;
+		opacity: 0.65;
+	}
+}

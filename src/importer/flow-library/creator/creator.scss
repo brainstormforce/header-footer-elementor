@@ -1,0 +1,60 @@
+.wcf-flow-library--other {
+	.wcf-flow-importer__header {
+		padding: 20px 30px;
+		margin: 0;
+	}
+
+	.wcf-items-list {
+		min-height: 550px;
+		margin: 0;
+	}
+
+	.wcf-flow-importer__list .wcf-item.wcf-item__start-from-blank {
+		width: 1000px;
+		margin: 0 auto;
+		align-items: center;
+	}
+
+	.wcf-item__start-from-blank {
+		width: 100%;
+		display: flex;
+
+		.wcf-item__inner {
+			width: 30%;
+			margin-right: 50px;
+		}
+
+		.wcf_item__info {
+			width: 70%;
+
+			.wcf_item__info--title {
+				color: #444;
+				font-size: 22px;
+				font-weight: 500;
+				line-height: 1.4;
+				margin-top: 0;
+			}
+
+			.wcf_item__info--notice {
+				font-size: 16px;
+				font-weight: 400;
+				line-height: 1.5;
+				margin: 1em 0;
+			}
+
+			.wcf_item__info--desc {
+				font-size: 16px;
+				font-weight: 400;
+				line-height: 1.5;
+			}
+
+			.wcf_item__info--doc {
+				display: block;
+				font-size: 16px;
+				font-weight: 400;
+				margin-top: 25px;
+				text-decoration: none;
+			}
+		}
+	}
+}

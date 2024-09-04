@@ -1,0 +1,148 @@
+/**
+* ************************
+* Create Woo Product Start
+* ************************
+*/
+
+.wcf-create-woo-iframe-opened {
+	overflow: hidden;
+}
+
+.wcf-create-woo-product-overlay {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background: #000000ba;
+	visibility: hidden;
+	opacity: 0;
+	z-index: 9999;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-transition: none;
+	transition: none;
+}
+
+.wcf-create-woo-product-overlay.open {
+	visibility: visible;
+	opacity: 1;
+	z-index: 999999;
+}
+
+.wcf-create-woo-product-wrap {
+	max-width: 100%;
+	background-color: transparent;
+	position: relative;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	top: 50%;
+	margin: 0 auto;
+	-ms-transform: translate( -50%, -35% );
+	width: 90%;
+	min-height: 85%;
+	max-height: 85%;
+	height: 85%;
+	transform: translateY( -50% );
+	z-index: 99999;
+}
+
+.wcf-create-woo-product-wrap:not( .product-loaded )::before {
+	content: "";
+	position: absolute;
+	background: none !important;
+	top: 50%;
+	margin: 0 auto;
+	text-align: center;
+	color: #fff;
+	left: 50%;
+	width: 48px;
+	height: 48px;
+	display: block;
+	border: 3px solid #fff;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	border-right-color: transparent;
+	border-left-color: transparent;
+	-webkit-animation: wcf-admin-loader 575ms infinite linear;
+	animation: wcf-admin-loader 575ms infinite linear;
+}
+
+.wcf-woo-product-iframe {
+	max-width: 100%;
+	width: 100%;
+	min-height: 100%;
+	height: 100%;
+	background: #fff;
+}
+
+.wcf-close-create-woo-product {
+	background: #fff;
+	border: 1px #fff solid;
+	border-radius: 50%;
+	color: #000;
+	height: 25px;
+	position: fixed;
+	width: 25px;
+	top: -10px;
+	left: auto;
+	z-index: 100000;
+	cursor: pointer;
+	right: -10px;
+	font-size: 20px;
+	line-height: 1.3;
+	text-align: center;
+}
+
+.wcf-close-create-woo-product::before {
+	content: "\f158";
+	font-family: dashicons;
+}
+
+#wcf-create-woo-product iframe.wcf-create-woo-product-iframe #wpadminbar,
+#wcf-create-woo-product iframe.wcf-create-woo-product-iframe #adminmenumain {
+	display: none;
+}
+
+/**
+* ************************
+* Create Woo Product End
+* ************************
+*/
+
+/* New css */
+.wcf-checkout-product-selection-field__header {
+	display: flex;
+	justify-content: space-between;
+}
+
+.wcf-product-repeater-field__product-image img {
+	width: 55px;
+}
+
+.wcf-product-repeater-field__product-data {
+	display: flex;
+}
+
+.wcf-product-repeater-field__product-details {
+	width: 250px;
+	padding-left: 20px;
+}
+
+.wcf-product-repeater-field__discount {
+	display: flex;
+}
+
+.wcf-product-repeater-field__discount-type {
+	width: 220px;
+}
+
+.wcf-product-repeater-field__discount-value {
+	width: 100px;
+}
+
+.wcf-remove-product-button {
+	margin-left: 20px;
+}

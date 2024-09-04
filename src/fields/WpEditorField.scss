@@ -1,0 +1,34 @@
+.wcf-wp-editor-field {
+	.mce-statusbar {
+		display: none;
+	}
+
+	.wp-editor-wrap {
+		width: 100%;
+
+		.wp-editor-container {
+			border: 1px solid #e5e7eb;
+			box-shadow: none;
+			border-radius: 3px;
+			border-top-right-radius: 0;
+			border-top-left-radius: 3px;
+
+			.mce-panel {
+				box-shadow: none;
+				border: none;
+			}
+			.mce-toolbar-grp {
+				border-bottom: 1px solid #e5e7eb;
+				box-shadow: none;
+			}
+
+			.mce-top-part::before {
+				content: none;
+			}
+		}
+
+		.wp-editor-tabs {
+			display: none;
+		}
+	}
+}

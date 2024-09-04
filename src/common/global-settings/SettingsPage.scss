@@ -1,0 +1,158 @@
+.wcf-global-settings-metabox {
+	font-size: 14px;
+	max-width: 100%;
+
+	table th:first-child {
+		font-weight: 500;
+	}
+
+	// table {
+	// 	width: 100%;
+	// }
+
+	form {
+		margin: 0;
+	}
+
+	h3 {
+		border-bottom: 1px solid #ddd;
+		padding: 0 0 20px;
+		margin: 30px 0 25px;
+	}
+
+	h4 {
+		margin: 25px 0 0;
+	}
+
+	.wcf-select-option label {
+		font-weight: 500;
+	}
+
+	h3:first-child {
+		margin-top: 5px;
+	}
+
+	.wcf-settings-form .wcf-submit-settings {
+		min-width: 165px;
+	}
+
+	.wcf-global-settings-metabox__tabs {
+		position: relative;
+		min-height: 600px;
+		max-height: 600px;
+	}
+
+	.wcf-global-settings-metabox__current-tab {
+		.wcf-select-option select,
+		.wcf-textarea-field textarea {
+			margin-left: 20px;
+			font-weight: 400;
+		}
+
+		.input-field {
+			font-weight: 400;
+			margin-left: 20px;
+		}
+
+		.wcf-setting-select-option {
+			font-weight: 400;
+			padding: 4px 15px;
+			height: 40px;
+			border-color: #ccc;
+		}
+	}
+
+	.wcf-button-style {
+		line-height: 3.14285714;
+		padding: 0 36px;
+		font-size: 14px;
+		min-height: 46px;
+		text-transform: none;
+		margin: 15px 0;
+		box-shadow: none;
+		border: 0;
+
+		&:hover {
+			box-shadow: none;
+			border: 0;
+			background: #ee4710;
+		}
+
+		&:last-child {
+			margin-left: 15px;
+		}
+	}
+
+	h3 {
+		font-weight: 500;
+		color: #444;
+	}
+
+	/* New Css */
+	.wcf-radio-field__option {
+		padding: 0 0 25px;
+	}
+
+	/* Field specific css */
+	.wcf-field-row-ga-event-ini-checkout,
+	.wcf-field-row-ga-event-add-to-cart,
+	.wcf-field-row-ga-event-payment-info,
+	.wcf-field-row-ga-event-purchase-complete,
+	.wcf-field-row-pixel-event-view-content,
+	.wcf-field-row-pixel-event-ini-checkout,
+	.wcf-field-row-pixel-event-payment-info {
+		td {
+			padding: 0;
+		}
+	}
+
+	.wcf-field-row-pixel-event-purchase-complete {
+		td {
+			padding-top: 0;
+		}
+	}
+
+	.wcf-global-settings-metabox .wcf-global-settings-metabox__tabs .wcf-global-settings-metabox__tabs-menu a.wcf-settings-nav__active {
+		color: #444;
+	}
+
+	.wcf-user-role-wrapper {
+		margin-bottom: 30px;
+		.wcf-user-role-main {
+			margin-bottom: 10px;
+		}
+	}
+	.wcf-user-role-management-settings__doc {
+		margin-bottom: 20px;
+	}
+	.wcf-user-role-main {
+		.wcf-user-role-main_name {
+			padding: 12px 15px;
+			border: 1px solid #ddd;
+			box-shadow: 0 1px 1px rgb( 0 0 0 / 4% );
+			font-size: 1em;
+			line-height: 1;
+			cursor: pointer;
+			.wcf-user-role-accordion {
+				display: flex;
+				flex-direction: row-reverse;
+				justify-content: space-between;
+				align-items: center;
+			}
+		}
+		.wcf-user-role-main_access {
+			background: #f9f9f9;
+			padding: 0 20px;
+			.wcf-global-settigs-content-table {
+				line-height: 1;
+			}
+			.wcf-radio-field__option {
+				padding: 10px 0;
+			}
+			.wcf-radio-field__option-desc {
+				margin-top: 10px;
+				margin-bottom: 0;
+			}
+		}
+	}
+}

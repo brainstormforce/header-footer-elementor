@@ -1,0 +1,64 @@
+.wcf-nav-bar-step-line .after {
+	right: 0;
+}
+
+.wcf-nav-bar-step-line .before,
+.wcf-nav-bar-step-line .after {
+	height: 4px;
+	content: "";
+	background: #e2e2e2;
+	display: block;
+	position: absolute;
+	width: 50%;
+	bottom: 8px;
+}
+
+.wcf-progress-nav-step {
+	width: 20px;
+	height: 20px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	margin: auto;
+	position: relative;
+	background: #e2e2e2;
+	vertical-align: middle;
+	text-align: center;
+	z-index: 2;
+	line-height: 17px;
+}
+
+.wcf-pre-checkout-offer-wrapper .wcf-nav-bar-step.active .wcf-nav-bar-step-line .before {
+	background: #f16334;
+}
+
+.wcf-pre-checkout-offer-wrapper .wcf-nav-bar-step.active .wcf-nav-bar-step-line .order-after {
+	height: 4px;
+	content: "";
+	background: #f16334;
+	position: absolute;
+	width: 50%;
+	bottom: 8px;
+}
+
+.wcf-pre-checkout-offer-wrapper .wcf-nav-bar-step.active .wcf-progress-nav-step {
+	background: #f16334;
+}
+
+.wcf-pre-checkout-offer-wrapper .wcf-nav-bar-step.active .wcf-progress-nav-step .before {
+	content: "";
+	margin: 0;
+	color: #fff;
+	display: inline-block;
+	font: normal normal 400 13px/20px cartflows-icon;
+	speak: none;
+	vertical-align: middle;
+	-webkit-font-smoothing: antialiased;
+	border: 1px #fff solid;
+	-webkit-border-radius: 1px;
+	border-radius: 1px;
+	width: 6px;
+	height: 6px;
+	background-color: #fff;
+	line-height: 7px;
+	right: 7px;
+}

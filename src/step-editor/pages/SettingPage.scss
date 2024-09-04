@@ -1,0 +1,46 @@
+.wcf-edit-flow-page-wrapper {
+	.wcf-edit-flow--setting-wrap {
+		display: flex;
+
+		.form-table th {
+			padding: 10px 10px 5px 0;
+		}
+
+		.wcf-setting--menu a {
+			display: block;
+			border-bottom: 1px solid #eee;
+			color: #5f5f5f;
+			cursor: pointer;
+			padding: 23px 10px;
+			text-decoration: none;
+		}
+
+		.wcf-setting--menu a:hover {
+			color: #fff;
+			background: #f06335;
+			box-shadow: none;
+			font-weight: 700;
+		}
+
+		.wcf-setting--menu .wcf-setting-icon {
+			margin: 7px;
+		}
+
+		nav {
+			width: 20%;
+			background: #f7f8fa;
+		}
+
+		a.wcf-settings-nav__active {
+			color: #fff;
+			background: #f06335;
+			font-weight: 700;
+		}
+
+		.wcf-setting--content {
+			width: 80%;
+			background: #fff;
+			padding: 20px 25px;
+		}
+	}
+}

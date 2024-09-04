@@ -1,0 +1,45 @@
+.wcf-flow-library {
+	margin: 8em auto 0 auto;
+	max-width: 800px;
+}
+
+.wcf-flow-library__item {
+	padding: 5em 0;
+	flex: 1;
+	text-align: center;
+	cursor: pointer;
+	background: transparent;
+	margin: 0 1em;
+	border: 5px dashed rgba( 0, 0, 0, 0.1 );
+	height: 250px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	&:first-child:last-child {
+		max-width: 450px;
+		margin: 0 auto;
+	}
+}
+
+.wcf-flow-library__item--readymade {
+	background: #fff;
+	border-color: #fff;
+	box-shadow: 0 1px 3px #ccc;
+	text-decoration: none;
+	color: #444;
+	font-size: 22px;
+
+	&:hover,
+	&:focus {
+		color: #444;
+		outline: none;
+		box-shadow: 0 1px 3px #ccc;
+	}
+}
+
+.wcf-flow-library__item--state-creating {
+	opacity: 0.7;
+	pointer-events: none;
+}

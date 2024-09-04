@@ -1,0 +1,44 @@
+.wcf-custom-field-editor__content {
+	background: #fff;
+	padding: 25px;
+	text-align: left;
+}
+
+.wcf-optin-fields-section {
+	display: inline-block;
+	// margin: 15px;
+	width: 100%;
+	position: relative;
+	vertical-align: top;
+}
+
+#wcf-optin-fields {
+	padding: 0 0 20px;
+}
+
+#wcf-optin-fields li {
+	margin-bottom: 10px;
+	overflow: hidden;
+	touch-action: none;
+}
+
+#wcf-optin-fields div {
+	margin-right: 10px;
+}
+
+.wcf-custom-field-box {
+	border: 1px solid #e5e5e5;
+	padding: 10px 15px;
+	background: #f9f9f9;
+}
+
+.wcf-cpf-row-header {
+	background: #f1f1f1;
+	border-bottom: 1px solid #e5e5e5;
+	padding: 10px;
+	width: 100%;
+}
+
+.wcf-custom-field-editor-buttons {
+	display: flex;
+}

@@ -1,0 +1,15 @@
+/* Convert to Text */
+.wcf-skeleton--text {
+	height: auto;
+	transform: scale( 1, 0.6 );
+	margin-top: 0;
+	border-radius: 4px;
+	margin-bottom: 0;
+	transform-origin: 0 60%;
+	font-size: 12px;
+	line-height: 1.5em;
+}
+
+.wcf-skeleton--text:empty::before {
+	content: "\00a0";
+}

@@ -1,0 +1,132 @@
+/* Analytics [Stats] */
+.wcf-stats {
+	.wcf-metabox__body {
+		padding-top: 0;
+	}
+
+	.wcf-stats--row {
+		align-content: space-between;
+		border-bottom: 1px solid #dfdfdf;
+	}
+
+	.wcf-stats--row:last-child {
+		border: none;
+	}
+
+	.wcf-metabox__header {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+		padding: 0 12px 0;
+	}
+
+	.wcf-stats-box {
+		padding: 25px;
+		box-sizing: border-box;
+		border: 1px solid #ddd;
+		border-right: 0;
+
+		span.wcf-stats-number {
+			display: block;
+
+			font-size: calc( 100% + 12px );
+			font-weight: 500;
+			margin: 0;
+			padding: 12px 0 0;
+			line-height: 1;
+		}
+
+		span.wcf-stats--notice {
+			display: block;
+			margin: 0;
+			padding: 20px 0 0;
+			font-size: 1em;
+
+			.wcf-upgrade-pro {
+				color: var( --primary-color );
+				text-decoration: none;
+			}
+		}
+
+		h3 {
+			margin: 0 0 1em 0;
+			font-weight: 400;
+			font-size: 1.2em;
+		}
+
+		small {
+			font-size: 13px;
+			font-weight: 400;
+			margin-top: 20px;
+		}
+	}
+
+	.wcf-stats-box:first-child {
+		border-radius: 2px 0 0 2px;
+	}
+
+	.wcf-stats-box:last-child {
+		border-right: none;
+		border: 1px solid #ddd;
+		border-radius: 0 2px 2px 0;
+	}
+
+	.wcf-stats--action-buttons {
+		align-items: flex-end;
+
+		button.button {
+			& {
+				align-items: center;
+				border: none;
+				color: #444;
+				font-size: 14px;
+				justify-content: center;
+				padding: 0 22px 15px;
+
+				.wcf-cfe-child::before {
+					color: #ccc;
+					font-family: dashicons;
+					font-weight: 400;
+					left: 7px;
+					margin-right: 0.5em;
+					position: absolute;
+					top: 2px;
+					vertical-align: middle;
+				}
+
+				.wcf-field__data .wcf-cfe-child {
+					padding-left: 27px;
+				}
+
+				.wcf-custom-field-editor__content h3.wcf-custom-field-editor--title {
+					padding-top: 0;
+				}
+				min-width: 100px;
+				margin: 0 0 -1px 0;
+				width: unset;
+				position: relative;
+			}
+
+			&:hover,
+			&:focus {
+				background: #fff;
+				box-shadow: none;
+				color: #f06335;
+				border-bottom: 2px solid #f06335;
+			}
+		}
+		// button.button:focus{
+		//     background: #fff;
+		//     outline: 0;
+		//     box-shadow: inset 0 0 0 1px #0071a1, inset 0 2px 0 0 #0071A1;
+		// }
+		button.is_active {
+			background: #fff;
+			box-shadow: none;
+			color: #f06335;
+			border-bottom: 2px solid #f06335;
+		}
+	}
+}
+
+/* Analytics [Stats] */

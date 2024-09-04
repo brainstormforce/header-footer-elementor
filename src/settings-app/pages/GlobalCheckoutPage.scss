@@ -1,0 +1,81 @@
+.wcf-flows-page-wrapper {
+	background: #fff;
+	position: relative;
+	width: 100%;
+	box-shadow: none;
+	margin-bottom: 20px;
+	padding: 30px 20px;
+	border-radius: 2px;
+
+	.wcf-flows-table {
+		background: #fff;
+		box-shadow: none;
+		border: 1px solid #dfdfdf;
+		margin: 10px;
+
+		.wcf-flows-table__head {
+			padding: 10px 30px;
+			background: #f5f6f7;
+			border-bottom: 1px solid #dfdfdf;
+			display: flex;
+			color: #444;
+			justify-content: unset;
+			align-items: center;
+
+			label {
+				color: #444;
+				font-weight: 500;
+				font-size: 15px;
+			}
+		}
+
+		.wcf-col--checkbox {
+			width: 5%;
+		}
+
+		.wcf-col--flow-title {
+			width: 45%;
+		}
+
+		.wcf-col--flow-status {
+			width: 30%;
+		}
+
+		.wcf-col--flow-action {
+			width: 20%;
+			display: flex;
+			justify-content: flex-end;
+			text-align: right;
+		}
+
+		.wcf-flow-row {
+			justify-content: unset;
+			align-items: center;
+			padding: 15px 30px;
+
+			&:hover {
+				background: #fafafa;
+			}
+
+			.wcf-col {
+				.wcf-flow-row__status,
+				.wcf-flow-row__date {
+					font-size: 14px;
+					margin: 2px 0;
+					color: #555;
+				}
+			}
+		}
+
+		&.wcf-flows-table-trash {
+			.wcf-flow-row__action-btns .wcf-flow-row__action-btn:last-child {
+				margin-right: 0;
+			}
+
+			.wcf-flow-row .wcf-flow-row__title a {
+				pointer-events: none;
+				color: #444;
+			}
+		}
+	}
+}
