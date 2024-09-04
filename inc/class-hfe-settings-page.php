@@ -57,6 +57,14 @@ class HFE_Settings_Page {
 	 * @return void
 	 */
 	public function enqueue_admin_scripts() {
+		wp_enqueue_script(
+			'header-footer-elementor-react-app',
+			HFE_URL . 'dist/bundle.js',
+			array(),
+			HFE_VER,
+			true
+		);
+		
 		wp_enqueue_script( 'hfe-admin-script', HFE_URL . 'admin/assets/js/ehf-admin.js', [ 'jquery', 'updates' ], HFE_VER, true );
 
 		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
@@ -191,6 +199,17 @@ class HFE_Settings_Page {
 	 * @return void
 	 */
 	public function hfe_register_settings_page() {
+
+		add_menu_page(
+			__( 'UA Elementor Settings', 'header-footer-elementor' ),  // Page title
+			__( 'UA Elementor', 'header-footer-elementor' ), // Menu title
+			'manage_options',                        // Capability (who can access)
+			'uaelite-settings-page',                          // Menu slug (unique identifier)
+			[ $this, 'uaelite_settings_page' ],                    // Callback function to display the content
+			'dashicons-admin-generic',               // Icon for the menu item
+			60                                       // Position in the admin menu
+		);
+
 		add_submenu_page(
 			'themes.php',
 			__( 'Settings', 'header-footer-elementor' ),
@@ -208,6 +227,25 @@ class HFE_Settings_Page {
 			'hfe-about',
 			[ $this, 'hfe_settings_page' ]
 		);
+	}
+
+	/**
+	 * Settings page.
+	 *
+	 * Call back function for add submenu page function.
+	 *
+	 * @since 1.6.0
+	 * @return void
+	 */
+	public function uaelite_settings_page() {
+		?>
+		<div class="wrap">
+			<h1>UA Elementor Settings</h1>
+			<p>Welcome to the settings page for the UA Elementor plugin!</p>
+			<!-- React root element -->
+			<div id="settings-root"></div>
+		</div>
+		<?php
 	}
 
 	/**
