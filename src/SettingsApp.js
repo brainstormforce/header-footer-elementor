@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 ReactDOM.render(
 	<React.StrictMode>
-		Sushmaaaaaaaaaaaaa
+		Hello....
 	</React.StrictMode>,
 	document.getElementById( 'hfe-settings-app' )
 );
