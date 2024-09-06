@@ -11,6 +11,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<div id="hfe-settings-app" class="hfe-settings-app">
-    header
-</div>
+<h2 id="hfe-settings-app" class="hfe-settings-app">Settings App</h2>
