@@ -3,9 +3,9 @@
 **Tags:** elementor, header footer builder, header template, footer template, elementor widget  
 **Donate link:** https://www.paypal.me/BrainstormForce  
 **Requires at least:** 4.4  
-**Requires PHP:** 5.4  
+**Requires PHP:** 7.4  
 **Tested up to:** 6.6  
-**Stable tag:** 1.6.38.1  
+**Stable tag:** 1.6.41  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -140,11 +140,20 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 ## Changelog ##
 
-### 1.6.38.1 ###
+### 1.6.41.1 ###
 - Improvement: Support for Font Awesome 5 icons.
+
+### 1.6.41 ###
+- Improvement: Compatibility with latest Elementor and Elementor Pro 3.24 version.
 - Improvement: Implemented widget output caching to enhance page performance.
+- Improvement: Updated the deprecated code in codebase.
+
+### 1.6.40 ###
 - Improvement: Navigation Menu - The dropdown menu now extends to full width when the navigation menu container is set to full width on smaller screens.
 - Fix: Navigation Menu – Console error for undefined property ‘left’.
+
+### 1.6.39 ###
+- Improvement: Updated minimum PHP version requirement to 7.4.
 
 ### 1.6.38 ###
 - Improvement: Improved code quality syntax and security checks for better coding standards and practices.
