@@ -140,6 +140,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 ## Changelog ##
 
+### 1.6.41.1 ###
+- Fix: Navigation Menu – Active color now changes correctly when moving between pages.
+
 ### 1.6.41 ###
 - Improvement: Compatibility with latest Elementor and Elementor Pro 3.24 version.
 - Improvement: Implemented widget output caching to enhance page performance.
