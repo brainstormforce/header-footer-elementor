@@ -119,6 +119,11 @@ div.hfe-nav-menu,
     display: table;
     clear: both;
 }
+ 
+/** submenu icon style */
+.hfe-menu-toggle i.fa {
+    font-style: normal;
+}
 
 /* Alignemnt CSS */
 .hfe-nav-menu__align-right .hfe-nav-menu {
@@ -1601,6 +1606,13 @@ div.hfe-nav-menu,
 
 .hfe-icon {
     display: inline-block;
+    vertical-align: middle; /* Alignment of icon */
+}
+
+/* Icon Svg color*/
+.hfe-icon svg {
+    width: 1em;
+    height: 1em;
 }
 
 /* Menu Cart CSS */
@@ -1783,8 +1795,12 @@ div.hfe-nav-menu,
     padding: 10px;
 }
 
-.hfe-search-icon-toggle i:before {
+.hfe-search-icon-toggle i:before,
+.hfe-search-submit i:before {
     vertical-align: middle;
+    content: '\f002'; 
+    font-family: 'Font Awesome 5 Free'; 
+    font-style: normal;
 }
 /*search icon toggle css*/
 
