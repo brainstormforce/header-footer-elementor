@@ -141,6 +141,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 == Changelog ==
 
 = 1.6.41.1 =
+- Improvement: Support for Font Awesome 5 icons.
 - Fix: Page Title - The icon was showing too big, now it appears the right size.
 
 = 1.6.41 =
