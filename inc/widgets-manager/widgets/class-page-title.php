@@ -448,7 +448,8 @@ class Page_Title extends Widget_Base {
 			<<?php echo esc_attr( $heading_size_tag ); ?> class="elementor-heading-title elementor-size-<?php echo esc_attr( $settings['size'] ); ?>">
 				<?php if ( '' !== $settings['new_page_title_select_icon']['value'] ) { ?>
 						<span class="hfe-icon hfe-page-title-icon">
-							<?php \Elementor\Icons_Manager::render_icon( $settings['new_page_title_select_icon'], [ 'aria-hidden' => 'true' ] ); ?>             </span>
+							<?php \Elementor\Icons_Manager::render_icon( $settings['new_page_title_select_icon'], [ 'aria-hidden' => 'true' ] ); ?>
+						</span>
 				<?php } ?>				
 				<?php if ( '' !== $settings['before'] ) { ?>
 					<?php echo wp_kses_post( $settings['before'] ); ?>
