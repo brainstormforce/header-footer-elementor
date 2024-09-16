@@ -1601,6 +1601,13 @@ div.hfe-nav-menu,
 
 .hfe-icon {
     display: inline-block;
+    vertical-align: middle; /* Alignment of icon */
+}
+
+/* Icon Svg */
+.hfe-icon svg {
+    width: 1em;
+    height: 1em;
 }
 
 /* Menu Cart CSS */
