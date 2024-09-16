@@ -394,25 +394,6 @@ class Header_Footer_Elementor {
 		if ( class_exists( '\Elementor\Plugin' ) ) {
 			$elementor = \Elementor\Plugin::instance();
 			$elementor->frontend->enqueue_styles();
-
-			wp_enqueue_style(
-				'hfe-nav-menu-icons',
-				plugins_url( '/elementor/assets/lib/font-awesome/css/solid.css', 'elementor' ),
-				[],
-				'5.15.3'
-			);
-			wp_enqueue_style(
-				'hfe-icons-brands',
-				plugins_url( '/elementor/assets/lib/font-awesome/css/brands.css', 'elementor' ),
-				[],
-				'5.15.3'
-			);
-			wp_enqueue_style(
-				'hfe-icons-fontawesome',
-				plugins_url( '/elementor/assets/lib/font-awesome/css/fontawesome.css', 'elementor' ),
-				[],
-				'5.15.3'
-			);
 		}
 
 		if ( class_exists( '\ElementorPro\Plugin' ) ) {
