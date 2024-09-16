@@ -157,7 +157,7 @@ class HFE_Settings_Page {
 			<p class="description">
 				<?php
 				printf(
-					esc_html( "This method hides your theme's header & footer template with CSS and displays custom templates from the plugin.", 'header-footer-elementor' ),
+					esc_html__( "This method hides your theme's header & footer template with CSS and displays custom templates from the plugin.", 'header-footer-elementor' ),
 					'<br>'
 				);
 				?>
