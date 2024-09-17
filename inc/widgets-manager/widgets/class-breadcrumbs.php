@@ -161,6 +161,80 @@ class Breadcrumbs extends Widget_Base {
 
 		$settings = $this->get_settings_for_display();
 
+        // Define breadcrumb defaults.
+        $defaults = array(
+            'home'       => __('Home', 'header-footer-elementor'),
+            'delimiter'  => '»',
+            'echo'       => true,
+            'before'     => '<span class="current">',
+            'after'      => '</span>',
+            '404_title'  => __('Error 404: Page not found', 'header-footer-elementor'),
+        );
+
+        // Start the breadcrumbs as an array
+        $breadcrumbs = array();
+        
+        // Add the Home link to the breadcrumbs
+        $breadcrumbs[] = '<a href="' . home_url() . '">' . $defaults['home'] . '</a>';
+
+        // Check if it's not the homepage
+        if (!is_front_page()) {
+            
+            if (is_home()) {
+                // If it's the blog page (for example, in a static front page setup)
+                $breadcrumbs[] = $defaults['before'] . get_the_title(get_option('page_for_posts')) . $defaults['after'];
+            
+            } elseif (is_single()) {
+                // Single post page - fetch categories and post title
+                $category = get_the_category();
+                if ($category) {
+                    $breadcrumbs[] = get_category_parents($category[0], true, ' ' . $defaults['delimiter'] . ' ');
+                }
+                $breadcrumbs[] = $defaults['before'] . get_the_title() . $defaults['after'];
+            
+            } elseif (is_page() && !is_front_page()) {
+                // For normal pages
+                $parents = get_post_ancestors(get_the_ID());
+                foreach (array_reverse($parents) as $parent) {
+                    $breadcrumbs[] = '<a href="' . get_permalink($parent) . '">' . get_the_title($parent) . '</a>';
+                }
+                $breadcrumbs[] = $defaults['before'] . get_the_title() . $defaults['after'];
+            
+            } elseif (is_category()) {
+                // Category archive page
+                $breadcrumbs[] = $defaults['before'] . single_cat_title('', false) . $defaults['after'];
+            
+            } elseif (is_tag()) {
+                // Tag archive page
+                $breadcrumbs[] = $defaults['before'] . single_tag_title('', false) . $defaults['after'];
+            
+            } elseif (is_author()) {
+                // Author archive page
+                $breadcrumbs[] = $defaults['before'] . get_the_author() . $defaults['after'];
+            
+            } elseif (is_search()) {
+                // Search results page
+                $breadcrumbs[] = $defaults['before'] . __('Search results for: ', 'header-footer-elementor') . get_search_query() . $defaults['after'];
+            
+            } elseif (is_404()) {
+                // 404 error page
+                $breadcrumbs[] = $defaults['before'] . $defaults['404_title'] . $defaults['after'];
+            
+            } elseif (is_archive()) {
+                // Generic archive page
+                $breadcrumbs[] = $defaults['before'] . post_type_archive_title('', false) . $defaults['after'];
+            }
+        }
+
+        // Build the breadcrumb output
+        $output = '<div class="custom-breadcrumbs">' . implode(' ' . $defaults['delimiter'] . ' ', $breadcrumbs) . '</div>';
+
+        // Echo or return the breadcrumbs
+        if ($defaults['echo']) {
+            echo wp_kses_post($output);
+        } else {
+            return $output;
+        }
 	}
 
 	/**
