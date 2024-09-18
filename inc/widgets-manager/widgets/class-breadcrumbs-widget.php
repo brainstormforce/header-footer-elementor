@@ -13,6 +13,7 @@ use Elementor\Utils;
 use Elementor\Icons_Manager;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
+use Elementor\Modules\DynamicTags\Module as TagsModule;
 
 use HFE\WidgetsManager\Widgets_Loader;
 
@@ -97,6 +98,7 @@ class Breadcrumbs_Widget extends Widget_Base {
 	protected function register_controls() {
 		$this->register_general_breadcrumbs_controls();
 		$this->register_separator_breadcrumbs_controls();
+		$this->register_breadcrumbs_text_controls();
 	}
 
 	/**
@@ -247,6 +249,65 @@ class Breadcrumbs_Widget extends Widget_Base {
 	}
 
 	/**
+	 * Register Separator Controls.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 * @return void
+	 */
+	protected function register_breadcrumbs_text_controls() {
+		$this->start_controls_section(
+			'section_text',
+			[
+				'label' => __( 'Display Text', 'header-footer-elementor' ),
+			]
+		);
+
+			$this->add_control(
+				'home_text',
+				[
+					'label'                 => __( 'Home Page', 'header-footer-elementor' ),
+					'type'                  => Controls_Manager::TEXT,
+					'default'               => __( 'Home', 'header-footer-elementor' ),
+					'dynamic'               => [
+						'active'        => true,
+						'categories'    => [ TagsModule::POST_META_CATEGORY ]
+					],
+				]
+			);
+
+			$this->add_control(
+				'search_text',
+				[
+					'label'                 => __( 'Search', 'header-footer-elementor' ),
+					'type'                  => Controls_Manager::TEXT,
+					'default'               => __( 'Search results for:', 'header-footer-elementor' ),
+					'dynamic'               => [
+						'active'        => true,
+						'categories'    => [ TagsModule::POST_META_CATEGORY ]
+					],
+				]
+			);
+
+			$this->add_control(
+				'error_text',
+				[
+					'label'                 => __( '404 Page', 'header-footer-elementor' ),
+					'type'                  => Controls_Manager::TEXT,
+					'default'               => __( 'Error 404: Page not found', 'header-footer-elementor' ),
+					'dynamic'               => [
+						'active'        => true,
+						'categories'    => [ TagsModule::POST_META_CATEGORY ]
+					],
+				]
+			);
+
+		
+		$this->end_controls_section();
+
+	}
+
+	/**
 	 * Render page title widget output on the frontend.
 	 *
 	 * Written in PHP and used to generate the final HTML.
@@ -269,12 +330,11 @@ class Breadcrumbs_Widget extends Widget_Base {
 	
 		// Define breadcrumb defaults.
 		$defaults = array(
-			'home'       => __('Home', 'header-footer-elementor'),
+			'home'       => isset( $settings['home_text'] ) ? $settings['home_text'] : __('Home', 'header-footer-elementor'),
 			'delimiter'  => $delimiter,
 			'echo'       => true,
-			'before'     => '<span class="hfe-breadcrumbs-text">',
-			'after'      => '</span>',
-			'404_title'  => __('Error 404: Page not found', 'header-footer-elementor'),
+			'404_title'  => isset( $settings['error_text'] ) ? $settings['error_text'] : __('Error 404: Page not found', 'header-footer-elementor'),
+			'search_title' => isset( $settings['search_text'] ) ? $settings['search_text'] : __('Search results for: ', 'header-footer-elementor'),
 		);
 	
 		// Start the breadcrumbs array
@@ -368,7 +428,7 @@ class Breadcrumbs_Widget extends Widget_Base {
 	
 			} elseif (is_search()) {
 				$breadcrumbs[] = array(
-					'title' => __('Search results for: ', 'header-footer-elementor') . get_search_query(),
+					'title' => $defaults['search_title'] . get_search_query(),
 					'url'   => '',
 					'class' => 'hfe-breadcrumbs-last'
 				);
