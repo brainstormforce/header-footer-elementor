@@ -9,6 +9,10 @@ namespace HFE\WidgetsManager\Widgets;
 
 use Elementor\Controls_Manager;
 use Elementor\Widget_Base;
+use Elementor\Utils;
+use Elementor\Icons_Manager;
+use Elementor\Group_Control_Border;
+use Elementor\Group_Control_Typography;
 
 use HFE\WidgetsManager\Widgets_Loader;
 
@@ -91,44 +95,153 @@ class Breadcrumbs_Widget extends Widget_Base {
 	 * @return void
 	 */
 	protected function register_controls() {
-		$this->register_content_breadcrumbs_controls();
-		$this->register_breadcrumbs_style_controls();
+		$this->register_general_breadcrumbs_controls();
+		$this->register_separator_breadcrumbs_controls();
 	}
 
 	/**
-	 * Register Breadcrumbs General Controls.
+	 * Register general Controls.
 	 *
 	 * @since x.x.x
 	 * @access protected
 	 * @return void
 	 */
-	protected function register_content_breadcrumbs_controls() {
+	protected function register_general_breadcrumbs_controls() {
 		$this->start_controls_section(
-			'section_general_fields',
+			'section_general',
 			[
-				'label' => __( 'Title', 'header-footer-elementor' ),
+				'label' => __( 'General', 'header-footer-elementor' ),
 			]
+		);
+
+		$this->add_control(
+			'show_home',
+			array(
+				'label'        => __( 'Show Home', 'header-footer-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'On', 'header-footer-elementor' ),
+				'label_off'    => __( 'Off', 'header-footer-elementor' ),
+				'default'      => 'yes',
+				'return_value' => 'yes',
+			)
+		);
+
+		$this->add_control(
+			'home_icon',
+			array(
+				'label'            => __( 'Home Icon', 'header-footer-elementor' ),
+				'type'             => Controls_Manager::ICONS,
+				'label_block'      => false,
+				'skin'             => 'inline',
+				'default'          => array(
+					'value'   => 'fas fa-home',
+					'library' => 'fa-solid',
+				),
+				'condition'        => array(
+					'show_home'        => 'yes',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'align',
+			array(
+				'label'                => __( 'Alignment', 'header-footer-elementor' ),
+				'type'                 => Controls_Manager::CHOOSE,
+				'default'              => '',
+				'options'              => array(
+					'left'   => array(
+						'title' => __( 'Left', 'header-footer-elementor' ),
+						'icon'  => 'eicon-h-align-left',
+					),
+					'center' => array(
+						'title' => __( 'Center', 'header-footer-elementor' ),
+						'icon'  => 'eicon-h-align-center',
+					),
+					'right'  => array(
+						'title' => __( 'Right', 'header-footer-elementor' ),
+						'icon'  => 'eicon-h-align-right',
+					),
+				),
+				'separator'            => 'before',
+				'selectors'            => array(
+					'{{WRAPPER}}' => 'text-align: {{VALUE}};',
+				),
+			)
 		);
 
 		$this->end_controls_section();
 	}
+
 	/**
-	 * Register Page Title Style Controls.
+	 * Register Separator Controls.
 	 *
 	 * @since x.x.x
 	 * @access protected
 	 * @return void
 	 */
-	protected function register_breadcrumbs_style_controls() {
+	protected function register_separator_breadcrumbs_controls() {
 		$this->start_controls_section(
-			'section_title_typography',
+			'section_separator',
 			[
-				'label' => __( 'Title', 'header-footer-elementor' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
+				'label' => __( 'Separator', 'header-footer-elementor' ),
 			]
 		);
 
-			
+		$this->add_control(
+			'separator_type',
+			array(
+				'label'     => __( 'Separator Type', 'powerpack' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'icon',
+				'options'   => array(
+					'text' => __( 'Text', 'powerpack' ),
+					'icon' => __( 'Icon', 'powerpack' ),
+				),
+			)
+		);
+
+		$this->add_control(
+			'separator_text',
+			array(
+				'label'     => __( 'Separator', 'powerpack' ),
+				'type'      => Controls_Manager::TEXT,
+				'default'   => __( '>>', 'powerpack' ),
+				'condition' => array(
+					'separator_type'   => 'text',
+				),
+			)
+		);
+
+		$this->add_control(
+			'separator_icon',
+			array(
+				'label'            => __( 'Separator', 'powerpack' ),
+				'type'             => Controls_Manager::ICONS,
+				'label_block'      => false,
+				'skin'             => 'inline',
+				'default'          => array(
+					'value'   => 'fas fa-angle-right',
+					'library' => 'fa-solid',
+				),
+				'recommended'      => array(
+					'fa-solid'   => array(
+						'greater-than',
+						'minus',
+						'angle-right',
+						'angle-double-right',
+						'caret-right',
+						'chevron-right',
+						'genderless',
+						'grip-lines',
+						'grip-lines-vertical',
+					),
+				),
+				'condition'        => array(
+					'separator_type'   => 'icon',
+				),
+			)
+		);
 
 		$this->end_controls_section();
 	}
@@ -233,9 +346,10 @@ class Breadcrumbs_Widget extends Widget_Base {
 	 * @return void
 	 */
 	protected function content_template() {
-        ?>
-        <#
-        #>
-        <?php
+		?>
+		<#
+		
+		#>
+		<?php
 	}
 }
