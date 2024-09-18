@@ -140,6 +140,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 
+= 1.6.42.1 =
+- Improvement: Support for Font Awesome 5 icons.
+
 = 1.6.42 =
 - Fix: Navigation Menu – Active color now changes correctly when moving between pages.
 - Fix: Page Title - The icon was showing too big, now it appears the right size.
