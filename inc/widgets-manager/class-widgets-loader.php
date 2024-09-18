@@ -110,7 +110,7 @@ class Widgets_Loader {
 			'site-logo',
 			'cart',
 			'search-button',
-			'breadcrumbs'
+			'breadcrumbs-widget'
 		];
 
 		return $widget_list;
@@ -248,7 +248,7 @@ class Widgets_Loader {
 		Plugin::instance()->widgets_manager->register( new Widgets\Site_Tagline() );
 		Plugin::instance()->widgets_manager->register( new Widgets\Site_Logo() );
 		Plugin::instance()->widgets_manager->register( new Widgets\Search_Button() );
-		Plugin::instance()->widgets_manager->register( new Widgets\Breadcrumbs() );
+		Plugin::instance()->widgets_manager->register( new Widgets\Breadcrumbs_Widget() );
 		if ( class_exists( 'woocommerce' ) ) {
 			Plugin::instance()->widgets_manager->register( new Widgets\Cart() );
 		}

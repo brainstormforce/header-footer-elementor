@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since x.x.x
  */
-class Breadcrumbs extends Widget_Base {
+class Breadcrumbs_Widget extends Widget_Base {
 
 
 	/**
@@ -36,7 +36,7 @@ class Breadcrumbs extends Widget_Base {
 	 * @return string Widget name.
 	 */
 	public function get_name() {
-		return 'breadcrumbs';
+		return 'breadcrumbs-widget';
 	}
 
 	/**
@@ -84,19 +84,6 @@ class Breadcrumbs extends Widget_Base {
 	}
 
 	/**
-	 * Indicates if the widget's content is dynamic.
-	 *
-	 * This method returns true if the widget's output is dynamic and should not be cached,
-	 * or false if the content is static and can be cached.
-	 *
-	 * @since x.x.x
-	 * @return bool True for dynamic content, false for static content.
-	 */
-	protected function is_dynamic_content(): bool { // phpcs:ignore
-		return false;
-	}
-
-	/**
 	 * Register Breadcrumbs controls.
 	 *
 	 * @since x.x.x
@@ -122,35 +109,6 @@ class Breadcrumbs extends Widget_Base {
 				'label' => __( 'Title', 'header-footer-elementor' ),
 			]
 		);
-
-            $this->add_control(
-                'align',
-                [
-                    'label'              => __( 'Separator', 'header-footer-elementor' ),
-                    'type'               => Controls_Manager::CHOOSE,
-                    'options'            => [
-                        'left'    => [
-                            'title' => __( 'Left', 'header-footer-elementor' ),
-                            'icon'  => 'fa-angle-right',
-                        ],
-                        'center'  => [
-                            'title' => __( 'Center', 'header-footer-elementor' ),
-                            'icon'  => 'fa-angle-double-right',
-                        ],
-                        'right'   => [
-                            'title' => __( 'Right', 'header-footer-elementor' ),
-                            'icon'  => 'fa-caret-right',
-                        ],
-                    ],
-                    'default'            => '',
-                    'selectors'          => [
-                        '{{WRAPPER}} .hfe-page-title-wrapper' => 'text-align: {{VALUE}};',
-                    ],
-                    'frontend_available' => true,
-                ]
-            );
-
-		
 
 		$this->end_controls_section();
 	}
@@ -188,7 +146,7 @@ class Breadcrumbs extends Widget_Base {
 
 		$settings = $this->get_settings_for_display();
 
-        // Define breadcrumb defaults.
+		// Define breadcrumb defaults.
         $defaults = array(
             'home'       => __('Home', 'header-footer-elementor'),
             'delimiter'  => '»',
@@ -200,17 +158,17 @@ class Breadcrumbs extends Widget_Base {
 
         // Start the breadcrumbs as an array
         $breadcrumbs = array();
-        
+
         // Add the Home link to the breadcrumbs
         $breadcrumbs[] = '<a href="' . home_url() . '">' . $defaults['home'] . '</a>';
 
         // Check if it's not the homepage
         if (!is_front_page()) {
-            
+
             if (is_home()) {
                 // If it's the blog page (for example, in a static front page setup)
                 $breadcrumbs[] = $defaults['before'] . get_the_title(get_option('page_for_posts')) . $defaults['after'];
-            
+
             } elseif (is_single()) {
                 // Single post page - fetch categories and post title
                 $category = get_the_category();
@@ -218,7 +176,7 @@ class Breadcrumbs extends Widget_Base {
                     $breadcrumbs[] = get_category_parents($category[0], true, ' ' . $defaults['delimiter'] . ' ');
                 }
                 $breadcrumbs[] = $defaults['before'] . get_the_title() . $defaults['after'];
-            
+
             } elseif (is_page() && !is_front_page()) {
                 // For normal pages
                 $parents = get_post_ancestors(get_the_ID());
@@ -226,27 +184,27 @@ class Breadcrumbs extends Widget_Base {
                     $breadcrumbs[] = '<a href="' . get_permalink($parent) . '">' . get_the_title($parent) . '</a>';
                 }
                 $breadcrumbs[] = $defaults['before'] . get_the_title() . $defaults['after'];
-            
+
             } elseif (is_category()) {
                 // Category archive page
                 $breadcrumbs[] = $defaults['before'] . single_cat_title('', false) . $defaults['after'];
-            
+
             } elseif (is_tag()) {
                 // Tag archive page
                 $breadcrumbs[] = $defaults['before'] . single_tag_title('', false) . $defaults['after'];
-            
+
             } elseif (is_author()) {
                 // Author archive page
                 $breadcrumbs[] = $defaults['before'] . get_the_author() . $defaults['after'];
-            
+
             } elseif (is_search()) {
                 // Search results page
                 $breadcrumbs[] = $defaults['before'] . __('Search results for: ', 'header-footer-elementor') . get_search_query() . $defaults['after'];
-            
+
             } elseif (is_404()) {
                 // 404 error page
                 $breadcrumbs[] = $defaults['before'] . $defaults['404_title'] . $defaults['after'];
-            
+
             } elseif (is_archive()) {
                 // Generic archive page
                 $breadcrumbs[] = $defaults['before'] . post_type_archive_title('', false) . $defaults['after'];
@@ -262,6 +220,7 @@ class Breadcrumbs extends Widget_Base {
         } else {
             return $output;
         }
+
 	}
 
 	/**
