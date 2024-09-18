@@ -1981,6 +1981,9 @@ span.hfe-breadcrumbs-home-icon{
     margin-right:10px;
     align-content: center;
 }
+.hfe-breadcrumbs-first a {
+    align-content: center;
+}
 .hfe-breadcrumbs-separator-icon i, 
 .hfe-breadcrumbs-separator-icon svg,
 .hfe-breadcrumbs-home-icon i,

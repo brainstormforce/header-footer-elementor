@@ -99,6 +99,9 @@ class Breadcrumbs_Widget extends Widget_Base {
 		$this->register_general_breadcrumbs_controls();
 		$this->register_separator_breadcrumbs_controls();
 		$this->register_breadcrumbs_text_controls();
+
+		$this->register_breadcrumbs_general_style_controls();
+
 	}
 
 	/**
@@ -193,12 +196,12 @@ class Breadcrumbs_Widget extends Widget_Base {
 		$this->add_control(
 			'separator_type',
 			array(
-				'label'     => __( 'Separator Type', 'powerpack' ),
+				'label'     => __( 'Separator Type', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'text',
 				'options'   => array(
-					'text' => __( 'Text', 'powerpack' ),
-					'icon' => __( 'Icon', 'powerpack' ),
+					'text' => __( 'Text', 'header-footer-elementor' ),
+					'icon' => __( 'Icon', 'header-footer-elementor' ),
 				),
 			)
 		);
@@ -206,9 +209,9 @@ class Breadcrumbs_Widget extends Widget_Base {
 		$this->add_control(
 			'separator_text',
 			array(
-				'label'     => __( 'Separator', 'powerpack' ),
+				'label'     => __( 'Separator', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::TEXT,
-				'default'   => __( '»', 'powerpack' ),
+				'default'   => __( '»', 'header-footer-elementor' ),
 				'condition' => array(
 					'separator_type'   => 'text',
 				),
@@ -218,7 +221,7 @@ class Breadcrumbs_Widget extends Widget_Base {
 		$this->add_control(
 			'separator_icon',
 			array(
-				'label'            => __( 'Separator', 'powerpack' ),
+				'label'            => __( 'Separator', 'header-footer-elementor' ),
 				'type'             => Controls_Manager::ICONS,
 				'label_block'      => false,
 				'skin'             => 'inline',
@@ -308,6 +311,173 @@ class Breadcrumbs_Widget extends Widget_Base {
 	}
 
 	/**
+	 * Register Separator Controls.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 * @return void
+	 */
+	protected function register_breadcrumbs_general_style_controls() {
+		$this->start_controls_section(
+			'section_general_style',
+			[
+				'label' => __( 'General', 'header-footer-elementor' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'spacing_between_items',
+			array(
+				'label'     => __( 'Spacing between Items', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SLIDER,
+				'default'   => array(
+					'size' => 10,
+				),
+				'range'     => array(
+					'px' => array(
+						'max' => 50,
+					),
+				),
+				'selectors' => array(
+					'{{WRAPPER}} ul.hfe-breadcrumbs li' => 'margin-right: {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'breadcrumbs_padding',
+			array(
+				'label'      => __( 'Padding', 'header-footer-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%' ),
+				'separator'  => 'after',
+				'selectors'  => array(
+					'{{WRAPPER}} .hfe-breadcrumbs-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->start_controls_tabs( 'breadcrumbs_style_tabs' );
+
+			$this->start_controls_tab(
+				'breadcrumbs_normal_tab',
+				array(
+					'label' => __( 'Normal', 'header-footer-elementor' ),
+				)
+			);
+
+				$this->add_control(
+					'breadcrumbs_color',
+					array(
+						'label'     => __( 'Color', 'header-footer-elementor' ),
+						'type'      => Controls_Manager::COLOR,
+						'default'   => '',
+						'selectors' => array(
+							'{{WRAPPER}} .hfe-breadcrumbs, {{WRAPPER}} .hfe-breadcrumbs .hfe-breadcrumbs-text' => 'color: {{VALUE}}',
+							'{{WRAPPER}} .hfe-breadcrumbs svg' => 'fill: {{VALUE}}',
+						),
+					)
+				);
+
+				$this->add_control(
+					'breadcrumbs_background_color',
+					array(
+						'label'     => __( 'Background Color', 'header-footer-elementor' ),
+						'type'      => Controls_Manager::COLOR,
+						'default'   => '',
+						'selectors' => array(
+							'{{WRAPPER}} .hfe-breadcrumbs-item' => 'background-color: {{VALUE}}',
+						),
+					)
+				);
+
+				$this->add_group_control(
+					Group_Control_Typography::get_type(),
+					array(
+						'name'     => 'breadcrumbs_typography',
+						'label'    => __( 'Typography', 'header-footer-elementor' ),
+						'selector' => '{{WRAPPER}} .hfe-breadcrumbs-item',
+					)
+				);
+
+				$this->add_group_control(
+					Group_Control_Border::get_type(),
+					array(
+						'name'        => 'breadcrumbs_border',
+						'label'       => __( 'Border', 'header-footer-elementor' ),
+						'placeholder' => '1px',
+						'default'     => '1px',
+						'selector'    => '{{WRAPPER}} .hfe-breadcrumbs-item',
+					)
+				);
+
+				$this->add_control(
+					'breadcrumbs_border_radius',
+					array(
+						'label'      => __( 'Border Radius', 'header-footer-elementor' ),
+						'type'       => Controls_Manager::DIMENSIONS,
+						'size_units' => array( 'px', '%', 'em' ),
+						'selectors'  => array(
+							'{{WRAPPER}} .hfe-breadcrumbs-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						),
+					)
+				);
+
+			$this->end_controls_tab();
+
+			$this->start_controls_tab(
+				'breadcrumbs_hover_tab',
+				array(
+					'label' => __( 'Hover', 'header-footer-elementor' ),
+				)
+			);
+
+				$this->add_control(
+					'breadcrumbs_color_hover',
+					array(
+						'label'     => __( 'Color', 'header-footer-elementor' ),
+						'type'      => Controls_Manager::COLOR,
+						'default'   => '',
+						'selectors' => array(
+							'{{WRAPPER}} .hfe-breadcrumbs-item:hover a, {{WRAPPER}} .hfe-breadcrumbs-item:hover .hfe-breadcrumbs-text' => 'color: {{VALUE}}',
+							'{{WRAPPER}} .hfe-breadcrumbs-first:hover .hfe-breadcrumbs-home-icon svg' => 'fill: {{VALUE}}',
+						),
+					)
+				);
+
+				$this->add_control(
+					'breadcrumbs_background_color_hover',
+					array(
+						'label'     => __( 'Background Color', 'header-footer-elementor' ),
+						'type'      => Controls_Manager::COLOR,
+						'default'   => '',
+						'selectors' => array(
+							'{{WRAPPER}} .hfe-breadcrumbs-item:hover' => 'background-color: {{VALUE}}',
+						),
+					)
+				);
+
+				$this->add_control(
+					'breadcrumbs_border_color_hover',
+					array(
+						'label'     => __( 'Border Color', 'header-footer-elementor' ),
+						'type'      => Controls_Manager::COLOR,
+						'default'   => '',
+						'selectors' => array(
+							'{{WRAPPER}} .hfe-breadcrumbs-item:hover' => 'border-color: {{VALUE}}',
+						),
+					)
+				);
+
+			$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+		$this->end_controls_section();
+	}
+
+	/**
 	 * Render page title widget output on the frontend.
 	 *
 	 * Written in PHP and used to generate the final HTML.
@@ -387,7 +557,7 @@ class Breadcrumbs_Widget extends Widget_Base {
 				$breadcrumbs[] = array(
 					'title' => get_the_title(), // Get the current page title
 					'url'   => '',              // No URL for the current page
-					'class' => 'ha-breadcrumbs-end' // Optional class for styling the last breadcrumb
+					'class' => 'hfe-breadcrumbs-last' // Optional class for styling the last breadcrumb
 				);
 	
 			} elseif (is_page() && !is_front_page()) {
@@ -456,7 +626,7 @@ class Breadcrumbs_Widget extends Widget_Base {
 
 		foreach ($breadcrumbs as $index => $breadcrumb) {
 			// Open the breadcrumb item
-			$output .= '<li class="ha-breadcrumbs-item ' . esc_attr($breadcrumb['class']) . '">';
+			$output .= '<li class="hfe-breadcrumbs-item ' . esc_attr($breadcrumb['class']) . '">';
 
 			if( 'yes' === $settings['show_home'] && 0 === $index ) {
 				$home_icon = $this->home_icon_html( 'hfe-breadcrumbs-home-icon', $settings['home_icon'] );
