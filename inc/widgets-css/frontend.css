@@ -1961,8 +1961,9 @@ ul.hfe-breadcrumbs {
     list-style:none
 }
 ul.hfe-breadcrumbs li {
-    display:inline-block;
-    margin-right:15px;
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
 }
 ul.hfe-breadcrumbs li:last-child {
     margin:0;
@@ -1978,10 +1979,17 @@ ul.hfe-breadcrumbs li span.hfe-breadcrumbs-text{
 }
 span.hfe-breadcrumbs-home-icon{
     margin-right:10px;
+    align-content: center;
 }
-.hfe-breadcrumbs-separator-icon i, .hfe-breadcrumbs-separator-icon svg {
+.hfe-breadcrumbs-separator-icon i, 
+.hfe-breadcrumbs-separator-icon svg,
+.hfe-breadcrumbs-home-icon i,
+.hfe-breadcrumbs-home-icon svg {
     width: 1em;
     height: 1em;
     position: relative;
     display: block;
+}
+ul.hfe-breadcrumbs-show-home li.hfe-breadcrumbs-first {
+    display: inline-flex;
 }

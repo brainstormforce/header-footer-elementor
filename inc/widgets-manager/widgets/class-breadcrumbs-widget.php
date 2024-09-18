@@ -279,17 +279,19 @@ class Breadcrumbs_Widget extends Widget_Base {
 	
 		// Start the breadcrumbs array
 		$breadcrumbs = array();
-	
-		// Add the Home link to the breadcrumbs
-		$breadcrumbs[] = array(
-			'title' => $defaults['home'],
-			'url'   => home_url(),
-			'class' => 'hfe-breadcrumbs-first'
-		);
+
+		if( 'yes' === $settings['show_home'] ) {
+			// Add the Home link to the breadcrumbs
+			$breadcrumbs[] = array(
+				'title' => $defaults['home'],
+				'url'   => home_url(),
+				'class' => 'hfe-breadcrumbs-first'
+			);
+		}
 	
 		// Add the current page details to breadcrumbs based on conditions
 		if (!is_front_page()) {
-			if (is_home()) {
+			if ( is_home() && 'yes' === $settings['show_home'] ) {
 				$breadcrumbs[] = array(
 					'title' => get_the_title(get_option('page_for_posts')),
 					'url'   => '',
@@ -297,8 +299,6 @@ class Breadcrumbs_Widget extends Widget_Base {
 				);
 	
 			} elseif (is_single()) {
-
-				error_log('is_single');
 
 				$category = get_the_category();
 				if ($category) {
@@ -388,14 +388,21 @@ class Breadcrumbs_Widget extends Widget_Base {
 				);
 			}
 		}
+
+		$home_class = ( 'yes' === $settings['show_home'] ) ? 'hfe-breadcrumbs-show-home' : '';
 	
 		// Build the breadcrumb output
-		$output = '<ul class="hfe-breadcrumbs">';
+		$output = '<ul class="hfe-breadcrumbs ' . esc_attr( $home_class ) . '">';
 
 		foreach ($breadcrumbs as $index => $breadcrumb) {
 			// Open the breadcrumb item
 			$output .= '<li class="ha-breadcrumbs-item ' . esc_attr($breadcrumb['class']) . '">';
-			
+
+			if( 'yes' === $settings['show_home'] && 0 === $index ) {
+				$home_icon = $this->home_icon_html( 'hfe-breadcrumbs-home-icon', $settings['home_icon'] );
+				$output .= $home_icon;
+			}
+
 			if ($breadcrumb['url']) {
 				$output .= '<a href="' . esc_url($breadcrumb['url']) . '"><span class="hfe-breadcrumbs-text">' . wp_kses_post($breadcrumb['title']) . '</span></a>';
 			} else {
@@ -422,22 +429,23 @@ class Breadcrumbs_Widget extends Widget_Base {
 
 		echo $output;
 
-	}	
+	}
 
 	/**
-	 * Render page title output in the editor.
+	 * Sets the home icon.
 	 *
-	 * Written as a Backbone JavaScript template and used to generate the live preview.
-	 *
-	 * @since x.x.x
-	 * @access protected
-	 * @return void
+	 * @access public
+	 * @param string $home_icon
+	 * @param string $home_icon_class
+	 * @return string
 	 */
-	protected function content_template() {
-		?>
-		<#
-		
-		#>
-		<?php
+	public function home_icon_html( $home_class = '', $home_icon = array() ) {
+		$home_icon_html = '<span class="' . esc_attr($home_class) . '">';
+		ob_start();
+		Icons_Manager::render_icon($home_icon, array('aria-hidden' => 'true'));
+		$home_icon_html .= ob_get_clean(); // Store the icon output as delimiter
+		$home_icon_html .= '</span>';
+		return $home_icon_html;
 	}
+
 }
