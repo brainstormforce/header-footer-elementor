@@ -193,7 +193,7 @@ class Breadcrumbs_Widget extends Widget_Base {
 			array(
 				'label'     => __( 'Separator Type', 'powerpack' ),
 				'type'      => Controls_Manager::SELECT,
-				'default'   => 'icon',
+				'default'   => 'text',
 				'options'   => array(
 					'text' => __( 'Text', 'powerpack' ),
 					'icon' => __( 'Icon', 'powerpack' ),
@@ -206,7 +206,7 @@ class Breadcrumbs_Widget extends Widget_Base {
 			array(
 				'label'     => __( 'Separator', 'powerpack' ),
 				'type'      => Controls_Manager::TEXT,
-				'default'   => __( '>>', 'powerpack' ),
+				'default'   => __( '»', 'powerpack' ),
 				'condition' => array(
 					'separator_type'   => 'text',
 				),
@@ -256,85 +256,162 @@ class Breadcrumbs_Widget extends Widget_Base {
 	 * @return void
 	 */
 	protected function render() {
-
 		$settings = $this->get_settings_for_display();
-
+	
+		// Capture the icon output for the delimiter if 'icon' is selected
+		$delimiter = $settings['separator_type'] === 'text' ? $settings['separator_text'] : '';
+	
+		if ($settings['separator_type'] === 'icon') {
+			ob_start();
+			Icons_Manager::render_icon($settings['separator_icon'], array('aria-hidden' => 'true'));
+			$delimiter = ob_get_clean(); // Store the icon output as delimiter
+		}
+	
 		// Define breadcrumb defaults.
-        $defaults = array(
-            'home'       => __('Home', 'header-footer-elementor'),
-            'delimiter'  => '»',
-            'echo'       => true,
-            'before'     => '<span class="current">',
-            'after'      => '</span>',
-            '404_title'  => __('Error 404: Page not found', 'header-footer-elementor'),
-        );
+		$defaults = array(
+			'home'       => __('Home', 'header-footer-elementor'),
+			'delimiter'  => $delimiter,
+			'echo'       => true,
+			'before'     => '<span class="hfe-breadcrumbs-text">',
+			'after'      => '</span>',
+			'404_title'  => __('Error 404: Page not found', 'header-footer-elementor'),
+		);
+	
+		// Start the breadcrumbs array
+		$breadcrumbs = array();
+	
+		// Add the Home link to the breadcrumbs
+		$breadcrumbs[] = array(
+			'title' => $defaults['home'],
+			'url'   => home_url(),
+			'class' => 'hfe-breadcrumbs-first'
+		);
+	
+		// Add the current page details to breadcrumbs based on conditions
+		if (!is_front_page()) {
+			if (is_home()) {
+				$breadcrumbs[] = array(
+					'title' => get_the_title(get_option('page_for_posts')),
+					'url'   => '',
+					'class' => ''
+				);
+	
+			} elseif (is_single()) {
 
-        // Start the breadcrumbs as an array
-        $breadcrumbs = array();
+				$category = get_the_category();
+				if ($category) {
+					$parent_cats = get_ancestors($category[0]->term_id, 'category'); // Get the ancestors of the category
+					$parent_cats = array_reverse($parent_cats); // Reverse the array to get the correct hierarchy
 
-        // Add the Home link to the breadcrumbs
-        $breadcrumbs[] = '<a href="' . home_url() . '">' . $defaults['home'] . '</a>';
+					// Loop through each ancestor and add to breadcrumbs
+					foreach ($parent_cats as $cat_id) {
+						$cat = get_category($cat_id);
+						$breadcrumbs[] = array(
+							'title' => $cat->name,
+							'url'   => get_category_link($cat_id),
+							'class' => ''
+						);
+					}
 
-        // Check if it's not the homepage
-        if (!is_front_page()) {
+					// Add the current category
+					$breadcrumbs[] = array(
+						'title' => $category[0]->name,
+						'url'   => get_category_link($category[0]->term_id),
+						'class' => ''
+					);
+				}
+	
+			} elseif (is_page() && !is_front_page()) {
+				$parents = get_post_ancestors(get_the_ID());
+				foreach (array_reverse($parents) as $parent) {
+					$breadcrumbs[] = array(
+						'title' => get_the_title($parent),
+						'url'   => get_permalink($parent),
+						'class' => ''
+					);
+				}
+				$breadcrumbs[] = array(
+					'title' => get_the_title(),
+					'url'   => '',
+					'class' => 'hfe-breadcrumbs-last'
+				);
+	
+			} elseif (is_category()) {
+				$breadcrumbs[] = array(
+					'title' => single_cat_title('', false),
+					'url'   => '',
+					'class' => 'hfe-breadcrumbs-last'
+				);
+	
+			} elseif (is_tag()) {
+				$breadcrumbs[] = array(
+					'title' => single_tag_title('', false),
+					'url'   => '',
+					'class' => 'hfe-breadcrumbs-last'
+				);
+	
+			} elseif (is_author()) {
+				$breadcrumbs[] = array(
+					'title' => get_the_author(),
+					'url'   => '',
+					'class' => 'hfe-breadcrumbs-last'
+				);
+	
+			} elseif (is_search()) {
+				$breadcrumbs[] = array(
+					'title' => __('Search results for: ', 'header-footer-elementor') . get_search_query(),
+					'url'   => '',
+					'class' => 'hfe-breadcrumbs-last'
+				);
+	
+			} elseif (is_404()) {
+				$breadcrumbs[] = array(
+					'title' => $defaults['404_title'],
+					'url'   => '',
+					'class' => 'hfe-breadcrumbs-last'
+				);
+	
+			} elseif (is_archive()) {
+				$breadcrumbs[] = array(
+					'title' => post_type_archive_title('', false),
+					'url'   => '',
+					'class' => 'hfe-breadcrumbs-last'
+				);
+			}
+		}
+	
+		// Build the breadcrumb output
+		$output = '<ul class="hfe-breadcrumbs">';
 
-            if (is_home()) {
-                // If it's the blog page (for example, in a static front page setup)
-                $breadcrumbs[] = $defaults['before'] . get_the_title(get_option('page_for_posts')) . $defaults['after'];
+		foreach ($breadcrumbs as $index => $breadcrumb) {
+			$output .= '<li class="hfe-breadcrumbs-item">';
+			if ($breadcrumb['url']) {
+				$output .= '<a href="' . esc_url($breadcrumb['url']) . '"><span class="hfe-breadcrumbs-text">' . wp_kses_post($breadcrumb['title']) . '</span></a>';
+			} else {
+				$output .= '<span class="hfe-breadcrumbs-text">' . wp_kses_post($breadcrumb['title']) . '</span>';
+			}
+			$output .= '</li>';
 
-            } elseif (is_single()) {
-                // Single post page - fetch categories and post title
-                $category = get_the_category();
-                if ($category) {
-                    $breadcrumbs[] = get_category_parents($category[0], true, ' ' . $defaults['delimiter'] . ' ');
-                }
-                $breadcrumbs[] = $defaults['before'] . get_the_title() . $defaults['after'];
+			// Add the separator except for the last item
+			if ($index < count($breadcrumbs) - 1) {
+				$output .= '<li class="hfe-breadcrumbs-separator">';
+				if ($settings['separator_type'] === 'icon') {
+					// Render the icon
+					$output .= '<span class="hfe-breadcrumbs-separator-icon">';
+					$output .= $delimiter;
+					$output .= '</span>';
+				} else {
+					// Use text as separator
+					$output .= '<span class="hfe-breadcrumbs-separator-text">' . wp_kses_post($defaults['delimiter']) . '</span>';
+				}
+				$output .= '</li>';
+			}
+		}
+		$output .= '</ul>';
 
-            } elseif (is_page() && !is_front_page()) {
-                // For normal pages
-                $parents = get_post_ancestors(get_the_ID());
-                foreach (array_reverse($parents) as $parent) {
-                    $breadcrumbs[] = '<a href="' . get_permalink($parent) . '">' . get_the_title($parent) . '</a>';
-                }
-                $breadcrumbs[] = $defaults['before'] . get_the_title() . $defaults['after'];
+		echo $output;
 
-            } elseif (is_category()) {
-                // Category archive page
-                $breadcrumbs[] = $defaults['before'] . single_cat_title('', false) . $defaults['after'];
-
-            } elseif (is_tag()) {
-                // Tag archive page
-                $breadcrumbs[] = $defaults['before'] . single_tag_title('', false) . $defaults['after'];
-
-            } elseif (is_author()) {
-                // Author archive page
-                $breadcrumbs[] = $defaults['before'] . get_the_author() . $defaults['after'];
-
-            } elseif (is_search()) {
-                // Search results page
-                $breadcrumbs[] = $defaults['before'] . __('Search results for: ', 'header-footer-elementor') . get_search_query() . $defaults['after'];
-
-            } elseif (is_404()) {
-                // 404 error page
-                $breadcrumbs[] = $defaults['before'] . $defaults['404_title'] . $defaults['after'];
-
-            } elseif (is_archive()) {
-                // Generic archive page
-                $breadcrumbs[] = $defaults['before'] . post_type_archive_title('', false) . $defaults['after'];
-            }
-        }
-
-        // Build the breadcrumb output
-        $output = '<div class="hfe-breadcrumbs">' . implode(' ' . $defaults['delimiter'] . ' ', $breadcrumbs) . '</div>';
-
-        // Echo or return the breadcrumbs
-        if ($defaults['echo']) {
-            echo wp_kses_post($output);
-        } else {
-            return $output;
-        }
-
-	}
+	}	
 
 	/**
 	 * Render page title output in the editor.
