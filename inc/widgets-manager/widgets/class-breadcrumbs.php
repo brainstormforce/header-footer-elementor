@@ -123,6 +123,33 @@ class Breadcrumbs extends Widget_Base {
 			]
 		);
 
+            $this->add_control(
+                'align',
+                [
+                    'label'              => __( 'Separator', 'header-footer-elementor' ),
+                    'type'               => Controls_Manager::CHOOSE,
+                    'options'            => [
+                        'left'    => [
+                            'title' => __( 'Left', 'header-footer-elementor' ),
+                            'icon'  => 'fa-angle-right',
+                        ],
+                        'center'  => [
+                            'title' => __( 'Center', 'header-footer-elementor' ),
+                            'icon'  => 'fa-angle-double-right',
+                        ],
+                        'right'   => [
+                            'title' => __( 'Right', 'header-footer-elementor' ),
+                            'icon'  => 'fa-caret-right',
+                        ],
+                    ],
+                    'default'            => '',
+                    'selectors'          => [
+                        '{{WRAPPER}} .hfe-page-title-wrapper' => 'text-align: {{VALUE}};',
+                    ],
+                    'frontend_available' => true,
+                ]
+            );
+
 		
 
 		$this->end_controls_section();
@@ -227,7 +254,7 @@ class Breadcrumbs extends Widget_Base {
         }
 
         // Build the breadcrumb output
-        $output = '<div class="custom-breadcrumbs">' . implode(' ' . $defaults['delimiter'] . ' ', $breadcrumbs) . '</div>';
+        $output = '<div class="hfe-breadcrumbs">' . implode(' ' . $defaults['delimiter'] . ' ', $breadcrumbs) . '</div>';
 
         // Echo or return the breadcrumbs
         if ($defaults['echo']) {
