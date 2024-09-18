@@ -298,6 +298,8 @@ class Breadcrumbs_Widget extends Widget_Base {
 	
 			} elseif (is_single()) {
 
+				error_log('is_single');
+
 				$category = get_the_category();
 				if ($category) {
 					$parent_cats = get_ancestors($category[0]->term_id, 'category'); // Get the ancestors of the category
@@ -320,6 +322,13 @@ class Breadcrumbs_Widget extends Widget_Base {
 						'class' => ''
 					);
 				}
+
+				// Finally, add the current page title (without a URL)
+				$breadcrumbs[] = array(
+					'title' => get_the_title(), // Get the current page title
+					'url'   => '',              // No URL for the current page
+					'class' => 'ha-breadcrumbs-end' // Optional class for styling the last breadcrumb
+				);
 	
 			} elseif (is_page() && !is_front_page()) {
 				$parents = get_post_ancestors(get_the_ID());
@@ -384,7 +393,9 @@ class Breadcrumbs_Widget extends Widget_Base {
 		$output = '<ul class="hfe-breadcrumbs">';
 
 		foreach ($breadcrumbs as $index => $breadcrumb) {
-			$output .= '<li class="hfe-breadcrumbs-item">';
+			// Open the breadcrumb item
+			$output .= '<li class="ha-breadcrumbs-item ' . esc_attr($breadcrumb['class']) . '">';
+			
 			if ($breadcrumb['url']) {
 				$output .= '<a href="' . esc_url($breadcrumb['url']) . '"><span class="hfe-breadcrumbs-text">' . wp_kses_post($breadcrumb['title']) . '</span></a>';
 			} else {
