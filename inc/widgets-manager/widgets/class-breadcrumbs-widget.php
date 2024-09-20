@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * HFE Page Title widget
+ * HFE Breadcrumbs widget
  *
  * HFE widget for Page Title.
  *
