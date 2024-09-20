@@ -101,6 +101,8 @@ class Breadcrumbs_Widget extends Widget_Base {
 		$this->register_breadcrumbs_text_controls();
 
 		$this->register_breadcrumbs_general_style_controls();
+		$this->register_breadcrumbs_separator_style_controls();
+		$this->register_breadcrumbs_current_style_controls();
 
 	}
 
@@ -311,7 +313,7 @@ class Breadcrumbs_Widget extends Widget_Base {
 	}
 
 	/**
-	 * Register Separator Controls.
+	 * Register General Controls.
 	 *
 	 * @since x.x.x
 	 * @access protected
@@ -475,6 +477,159 @@ class Breadcrumbs_Widget extends Widget_Base {
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
+	}
+
+	/**
+	 * Register Separator Controls.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 * @return void
+	 */
+	protected function register_breadcrumbs_separator_style_controls() {
+		$this->start_controls_section(
+			'section_separator_style',
+			[
+				'label' => __( 'Separator', 'header-footer-elementor' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'separator_color',
+			array(
+				'label'     => __( 'Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => array(
+					'{{WRAPPER}} .hfe-breadcrumbs-separator .hfe-breadcrumbs-separator-text' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .hfe-breadcrumbs-separator-icon svg' => 'fill: {{VALUE}}',
+				),
+			)
+		);
+
+		$this->add_control(
+			'separator_icon_size',
+			array(
+				'label'     => __( 'Size', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => array(
+					'px' => array(
+						'max' => 250,
+					),
+				),
+				'selectors' => array(
+					'{{WRAPPER}} .hfe-breadcrumbs-separator-icon' => 'font-size: {{SIZE}}{{UNIT}};'
+				),
+				'condition' => array(
+					'separator_type' => 'icon',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			array(
+				'name'      => 'separator_typography',
+				'label'     => __( 'Typography', 'header-footer-elementor' ),
+				'selector'  => '{{WRAPPER}} .hfe-breadcrumbs-separator .hfe-breadcrumbs-separator-text',
+				'condition' => array(
+					'separator_type' => 'text',
+				),
+			)
+		);
+
+		$this->end_controls_section();
+
+	}
+
+	/**
+	 * Register current Controls.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 * @return void
+	 */
+	protected function register_breadcrumbs_current_style_controls() {
+		$this->start_controls_section(
+			'section_current_style',
+			[
+				'label' => __( 'Current Item', 'header-footer-elementor' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+			$this->add_control(
+				'current_item_color',
+				array(
+					'label'     => __( 'Color', 'header-footer-elementor' ),
+					'type'      => Controls_Manager::COLOR,
+					'default'   => '',
+					'selectors' => array(
+						'{{WRAPPER}} .hfe-breadcrumbs-last .hfe-breadcrumbs-text, {{WRAPPER}} .hfe-breadcrumbs-last svg' => 'color: {{VALUE}}',
+					),
+				)
+			);
+
+			$this->add_control(
+				'current_item_background_color',
+				array(
+					'label'     => __( 'Background Color', 'header-footer-elementor' ),
+					'type'      => Controls_Manager::COLOR,
+					'default'   => '',
+					'selectors' => array(
+						'{{WRAPPER}} .hfe-breadcrumbs-last' => 'background-color: {{VALUE}}',
+					),
+				)
+			);
+
+			$this->add_group_control(
+				Group_Control_Typography::get_type(),
+				array(
+					'name'      => 'current_item_typography',
+					'label'     => __( 'Typography', 'header-footer-elementor' ),
+					'selector'  => '{{WRAPPER}} .hfe-breadcrumbs-last .hfe-breadcrumbs-text, {{WRAPPER}} .hfe-breadcrumbs-last svg',
+				)
+			);
+
+			$this->add_group_control(
+				Group_Control_Border::get_type(),
+				array(
+					'name'        => 'current_item_border',
+					'label'       => __( 'Border', 'header-footer-elementor' ),
+					'placeholder' => '1px',
+					'default'     => '1px',
+					'selector'    => '{{WRAPPER}} .hfe-breadcrumbs-last',
+				)
+			);
+
+			$this->add_control(
+				'current_item_border_radius',
+				array(
+					'label'      => __( 'Border Radius', 'header-footer-elementor' ),
+					'type'       => Controls_Manager::DIMENSIONS,
+					'size_units' => array( 'px', '%', 'em' ),
+					'selectors'  => array(
+						'{{WRAPPER}} .hfe-breadcrumbs-last' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					),
+				)
+			);
+
+			$this->add_responsive_control(
+				'current_item_padding',
+				array(
+					'label'      => __( 'Padding', 'header-footer-elementor' ),
+					'type'       => Controls_Manager::DIMENSIONS,
+					'size_units' => array( 'px', '%' ),
+					'separator'  => 'after',
+					'selectors'  => array(
+						'{{WRAPPER}} .hfe-breadcrumbs-last' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					),
+				)
+			);
+
+		$this->end_controls_section();
+
 	}
 
 	/**
