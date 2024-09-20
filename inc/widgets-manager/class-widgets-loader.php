@@ -110,7 +110,7 @@ class Widgets_Loader {
 			'site-logo',
 			'cart',
 			'search-button',
-			'breadcrumbs-widget'
+			'breadcrumbs-widget',
 		];
 
 		return $widget_list;
