@@ -820,8 +820,8 @@ class Breadcrumbs_Widget extends Widget_Base {
 	 * Sets the home icon.
 	 *
 	 * @access public
+	 * @param string $home_class
 	 * @param string $home_icon
-	 * @param string $home_icon_class
 	 * @return string
 	 */
 	public function home_icon_html( $home_class = '', $home_icon = array() ) {
