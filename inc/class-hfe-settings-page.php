@@ -873,7 +873,7 @@ class HFE_Settings_Page {
 					'tab'   => \Elementor\Controls_Manager::TAB_SETTINGS,
 				]
 			);
-	
+
 			$element->add_control(
 				'enable_reading_progress_bar',
 				[
@@ -885,7 +885,112 @@ class HFE_Settings_Page {
 					'default'      => 'no',
 				]
 			);
-	
+
+			$element->add_control(
+				'hfe_reading_progress_bar_position',
+				[
+					'label'       => __( 'Position', 'header-footer-elementor' ),
+					'type'        => \Elementor\Controls_Manager::SELECT,
+					'default'     => 'top',
+					'label_block' => false,
+					'options'     => [
+						'top'    => __( 'Top', 'header-footer-elementor' ),
+						'bottom' => __( 'Bottom', 'header-footer-elementor' ),
+					],
+					'separator'   => 'before',
+					'condition'   => [
+						'enable_reading_progress_bar' => 'yes',
+					],
+				]
+			);
+
+			$element->add_control(
+				'hfe_reading_progress_bar_height',
+				[
+					'label'      => __( 'Height', 'header-footer-elementor' ),
+					'type'       => \Elementor\Controls_Manager::SLIDER,
+					'size_units' => [ 'px' ],
+					'range'      => [
+						'px' => [
+							'min'  => 0,
+							'max'  => 100,
+							'step' => 1,
+						],
+					],
+					'default'    => [
+						'unit' => 'px',
+						'size' => 5,
+					],
+					'selectors'  => [
+						'{{WRAPPER}} .hfe-reading-progress-wrap .hfe-reading-progress' => 'height: {{SIZE}}{{UNIT}} !important',
+						'{{WRAPPER}} .hfe-reading-progress-wrap .hfe-reading-progress .hfe-reading-progress-fill' => 'height: {{SIZE}}{{UNIT}} !important',
+					],
+					'separator'  => 'before',
+					'condition'  => [
+						'enable_reading_progress_bar' => 'yes',
+					],
+				]
+			);
+
+			$element->add_control(
+				'hfe_reading_progress_bar_bg_color',
+				[
+					'label'     => __( 'Background Color', 'header-footer-elementor' ),
+					'type'      => \Elementor\Controls_Manager::COLOR,
+					'default'   => '',
+					'selectors' => [
+						'{{WRAPPER}} .hfe-reading-progress' => 'background-color: {{VALUE}}',
+					],
+					'separator' => 'before',
+					'condition' => [
+						'enable_reading_progress_bar' => 'yes',
+					],
+				]
+			);
+
+			$element->add_control(
+				'hfe_reading_progress_bar_fill_color',
+				[
+					'label'     => __( 'Fill Color', 'header-footer-elementor' ),
+					'type'      => \Elementor\Controls_Manager::COLOR,
+					'default'   => '#1fd18e',
+					'selectors' => [
+						'{{WRAPPER}} .hfe-reading-progress-wrap .hfe-reading-progress .hfe-reading-progress-fill' => 'background-color: {{VALUE}}',
+					],
+					'separator' => 'before',
+					'condition' => [
+						'enable_reading_progress_bar' => 'yes',
+					],
+				]
+			);
+
+			$element->add_control(
+				'hfe_reading_progress_bar_animation_speed',
+				[
+					'label'      => __( 'Animation Speed', 'header-footer-elementor' ),
+					'type'       => \Elementor\Controls_Manager::SLIDER,
+					'size_units' => [ 'px' ],
+					'range'      => [
+						'px' => [
+							'min'  => 0,
+							'max'  => 1000,
+							'step' => 1,
+						],
+					],
+					'default'    => [
+						'unit' => 'px',
+						'size' => 50,
+					],
+					'selectors'  => [
+						'{{WRAPPER}} .hfe-reading-progress-wrap .hfe-reading-progress .hfe-reading-progress-fill' => 'transition: width {{SIZE}}ms ease;',
+					],
+					'separator'  => 'before',
+					'condition'  => [
+						'enable_reading_progress_bar' => 'yes',
+					],
+				]
+			);
+
 			$element->end_controls_section();
 		}
 	}
