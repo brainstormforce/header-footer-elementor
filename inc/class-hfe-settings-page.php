@@ -32,6 +32,8 @@ class HFE_Settings_Page {
 		add_filter( 'admin_footer_text', [ $this, 'admin_footer_text' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
 		add_filter( 'plugin_action_links_' . HFE_PATH, [ $this, 'settings_link' ] );
+		add_action( 'elementor/element/after_section_end', [ $this, 'register_reading_progress_bar' ], 10, 3 );
+
 	}
 
 	/**
@@ -849,6 +851,43 @@ class HFE_Settings_Page {
 		);
 
 		return array_merge( $custom, (array) $links );
+	}
+
+	/**
+	 * Registers the Reading Progress Bar setting.
+	 *
+	 * This function adds the Reading Progress Bar setting to the settings page.
+	 *
+	 * @since x.x.x
+	 *
+	 * @param \Elementor\Element_Base $element The element instance.
+	 * @param string                  $section_id The section ID.
+	 * @param array                   $args The arguments.
+	 */
+	public function register_reading_progress_bar( $element, $section_id, $args ) {
+		if ( 'section_page_style' === $section_id || 'container_page_style' === $section_id ) {
+			$element->start_controls_section(
+				'section_reading_progress_bar',
+				[
+					'label' => __( 'Reading Progress Bar', 'header-footer-elementor' ),
+					'tab'   => \Elementor\Controls_Manager::TAB_SETTINGS,
+				]
+			);
+	
+			$element->add_control(
+				'enable_reading_progress_bar',
+				[
+					'label'        => __( 'Enable Reading Progress Bar', 'header-footer-elementor' ),
+					'type'         => \Elementor\Controls_Manager::SWITCHER,
+					'label_on'     => __( 'Yes', 'header-footer-elementor' ),
+					'label_off'    => __( 'No', 'header-footer-elementor' ),
+					'return_value' => 'yes',
+					'default'      => 'no',
+				]
+			);
+	
+			$element->end_controls_section();
+		}
 	}
 }
 
