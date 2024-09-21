@@ -2056,3 +2056,12 @@ li.hfe-post-info-item > a {
 .hfe-post-info-icon svg {
     display: block;
 }
+.hfe-post-info-layout-traditional .hfe-post-info-item:not(:last-child):after {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+}
+.hfe-post-info-layout-traditional .hfe-post-info-item:not(:last-child) {
+    position: relative;
+}
