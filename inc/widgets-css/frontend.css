@@ -1999,12 +1999,12 @@ ul.hfe-breadcrumbs-show-home li.hfe-breadcrumbs-first {
 
 /* Post Info CSS */
 
-ul.ha-icon-list-items {
+ul.hfe-post-info-items {
     list-style: none;
     margin: 0;
     padding: 0;
 }
-ul.ha-inline-items.ha-icon-list-items {
+ul.hfe-post-info-inline.hfe-post-info-items {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -2013,7 +2013,7 @@ ul.ha-inline-items.ha-icon-list-items {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
 }
-li.ha-icon-list-item {
+li.hfe-post-info-item {
     -webkit-align-content: center;
     -ms-flex-line-pack: center;
     align-content: center;
@@ -2030,8 +2030,8 @@ li.ha-icon-list-item {
     -webkit-justify-content: center;
     justify-content: center;
 }
-li.ha-icon-list-item,
-li.ha-icon-list-item > a {
+li.hfe-post-info-item,
+li.hfe-post-info-item > a {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -2041,18 +2041,18 @@ li.ha-icon-list-item > a {
     align-items: center;
     -ms-flex-align: center;
 }
-.ha-inline-items.ha-icon-list-items .ha-icon-list-item {
+.hfe-post-info-inline.hfe-post-info-items .hfe-post-info-item {
     margin-right: 8px;
     margin-left: 8px;
 }
-.ha-inline-items .ha-icon-list-item:not(:last-child):after {
+.hfe-post-info-inline .hfe-post-info-item:not(:last-child):after {
     position: relative;
     right: -8px;
 }
-.ha-inline-items.ha-icon-list-items {
+.hfe-post-info-inline.hfe-post-info-items {
     margin-right: -8px;
     margin-left: -8px;
 }
-.ha-icon-list-icon svg {
+.hfe-post-info-icon svg {
     display: block;
 }
