@@ -276,7 +276,7 @@ class Post_Info_Widget extends Widget_Base {
 				'label' => __( 'Size', 'header-footer-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'selectors' => [
-					'{{WRAPPER}} {{CURRENT_ITEM}} .ha-icon-list-icon' => 'width: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} {{CURRENT_ITEM}} .hfe-post-info-icon' => 'width: {{SIZE}}{{UNIT}}',
 				],
 				'condition' => [
 					'show_avatar' => 'yes',
@@ -379,12 +379,12 @@ class Post_Info_Widget extends Widget_Base {
 		$repeater->add_control(
 			'show_icon',
 			[
-				'label' => __( 'Icon', 'happy-elementor-addons' ),
+				'label' => __( 'Icon', 'header-footer-elementor' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'none' => __( 'None', 'happy-elementor-addons' ),
-					'default' => __( 'Default', 'happy-elementor-addons' ),
-					'custom' => __( 'Custom', 'happy-elementor-addons' ),
+					'none' => __( 'None', 'header-footer-elementor' ),
+					'default' => __( 'Default', 'header-footer-elementor' ),
+					'custom' => __( 'Custom', 'header-footer-elementor' ),
 				],
 				'default' => 'default',
 				'condition' => [
@@ -396,7 +396,7 @@ class Post_Info_Widget extends Widget_Base {
 		$repeater->add_control(
 			'selected_icon',
 			[
-				'label' => __( 'Choose Icon', 'happy-elementor-addons' ),
+				'label' => __( 'Choose Icon', 'header-footer-elementor' ),
 				'type' => Controls_Manager::ICONS,
 				'condition' => [
 					'show_icon' => 'custom',
@@ -467,11 +467,11 @@ class Post_Info_Widget extends Widget_Base {
 						],
 					],
 					'selectors' => [
-						'{{WRAPPER}} .ha-icon-list-items:not(.ha-inline-items) .ha-icon-list-item:not(:last-child)' => 'padding-bottom: calc({{SIZE}}{{UNIT}}/2)',
-						'{{WRAPPER}} .ha-icon-list-items:not(.ha-inline-items) .ha-icon-list-item:not(:first-child)' => 'margin-top: calc({{SIZE}}{{UNIT}}/2)',
-						'{{WRAPPER}} .ha-icon-list-items.ha-inline-items .ha-icon-list-item' => 'margin-right: calc({{SIZE}}{{UNIT}}/2); margin-left: calc({{SIZE}}{{UNIT}}/2)',
-						'{{WRAPPER}} .ha-icon-list-items.ha-inline-items' => 'margin-right: calc(-{{SIZE}}{{UNIT}}/2); margin-left: calc(-{{SIZE}}{{UNIT}}/2)',
-						'{{WRAPPER}} .ha-icon-list-items.ha-inline-items .ha-icon-list-item::after' => 'margin-left: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .hfe-post-info-items:not(.hfe-post-info-inline) .hfe-post-info-item:not(:last-child)' => 'padding-bottom: calc({{SIZE}}{{UNIT}}/2)',
+						'{{WRAPPER}} .hfe-post-info-items:not(.hfe-post-info-inline) .hfe-post-info-item:not(:first-child)' => 'margin-top: calc({{SIZE}}{{UNIT}}/2)',
+						'{{WRAPPER}} .hfe-post-info-items.hfe-post-info-inline .hfe-post-info-item' => 'margin-right: calc({{SIZE}}{{UNIT}}/2); margin-left: calc({{SIZE}}{{UNIT}}/2)',
+						'{{WRAPPER}} .hfe-post-info-items.hfe-post-info-inline' => 'margin-right: calc(-{{SIZE}}{{UNIT}}/2); margin-left: calc(-{{SIZE}}{{UNIT}}/2)',
+						'{{WRAPPER}} .hfe-post-info-items.hfe-post-info-inline .hfe-post-info-item::after' => 'margin-left: {{SIZE}}{{UNIT}};',
 					],
 				]
 			);
@@ -496,7 +496,7 @@ class Post_Info_Widget extends Widget_Base {
 						],
 					],
 					'selectors' => [
-						'{{WRAPPER}} ul.ha-inline-items.ha-icon-list-items, {{WRAPPER}}.hfe-post-info-layout-traditional .ha-icon-list-item' => 'justify-content:{{VALUE}};'
+						'{{WRAPPER}} ul.hfe-post-info-inline.hfe-post-info-items, {{WRAPPER}}.hfe-post-info-layout-traditional .hfe-post-info-item' => 'justify-content:{{VALUE}};'
 					]
 				]
 			);
@@ -509,7 +509,7 @@ class Post_Info_Widget extends Widget_Base {
 					'label_off' => __( 'Off', 'header-footer-elementor' ),
 					'label_on' => __( 'On', 'header-footer-elementor' ),
 					'selectors' => [
-						'{{WRAPPER}} .ha-icon-list-item:not(:last-child):after' => 'content: ""',
+						'{{WRAPPER}} .hfe-post-info-item:not(:last-child):after' => 'content: ""',
 					],
 					'separator' => 'before',
 				]
@@ -531,8 +531,8 @@ class Post_Info_Widget extends Widget_Base {
 						'separator' => 'yes',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .ha-icon-list-items:not(.ha-inline-items) .ha-icon-list-item:not(:last-child):after' => 'border-top-style: {{VALUE}};',
-						'{{WRAPPER}} .ha-icon-list-items.ha-inline-items .ha-icon-list-item:not(:last-child):after' => 'border-left-style: {{VALUE}}',
+						'{{WRAPPER}} .hfe-post-info-items:not(.hfe-post-info-inline) .hfe-post-info-item:not(:last-child):after' => 'border-top-style: {{VALUE}};',
+						'{{WRAPPER}} .hfe-post-info-items.hfe-post-info-inline .hfe-post-info-item:not(:last-child):after' => 'border-left-style: {{VALUE}}',
 					],
 				]
 			);
@@ -555,8 +555,8 @@ class Post_Info_Widget extends Widget_Base {
 						'separator' => 'yes',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .ha-icon-list-items:not(.ha-inline-items) .ha-icon-list-item:not(:last-child):after' => 'border-top-width: {{SIZE}}{{UNIT}}',
-						'{{WRAPPER}} .ha-inline-items .ha-icon-list-item:not(:last-child):after' => 'border-left-width: {{SIZE}}{{UNIT}}',
+						'{{WRAPPER}} .hfe-post-info-items:not(.hfe-post-info-inline) .hfe-post-info-item:not(:last-child):after' => 'border-top-width: {{SIZE}}{{UNIT}}',
+						'{{WRAPPER}} .hfe-post-info-inline .hfe-post-info-item:not(:last-child):after' => 'border-left-width: {{SIZE}}{{UNIT}}',
 					],
 				]
 			);
@@ -585,7 +585,7 @@ class Post_Info_Widget extends Widget_Base {
 						'view!' => 'inline',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .ha-icon-list-item:not(:last-child):after' => 'width: {{SIZE}}{{UNIT}}',
+						'{{WRAPPER}} .hfe-post-info-item:not(:last-child):after' => 'width: {{SIZE}}{{UNIT}}',
 					],
 				]
 			);
@@ -615,7 +615,7 @@ class Post_Info_Widget extends Widget_Base {
 						'view' => 'inline',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .ha-icon-list-item:not(:last-child):after' => 'height: {{SIZE}}{{UNIT}}',
+						'{{WRAPPER}} .hfe-post-info-item:not(:last-child):after' => 'height: {{SIZE}}{{UNIT}}',
 					],
 				]
 			);
@@ -630,7 +630,7 @@ class Post_Info_Widget extends Widget_Base {
 						'separator' => 'yes',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .ha-icon-list-item:not(:last-child):after' => 'border-color: {{VALUE}};',
+						'{{WRAPPER}} .hfe-post-info-item:not(:last-child):after' => 'border-color: {{VALUE}};',
 					],
 				]
 			);
@@ -663,8 +663,8 @@ class Post_Info_Widget extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .ha-icon-list-icon i' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .ha-icon-list-icon svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .hfe-post-info-icon i' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .hfe-post-info-icon svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -683,9 +683,9 @@ class Post_Info_Widget extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ha-icon-list-icon' => 'width: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .ha-icon-list-icon i' => 'font-size: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .ha-icon-list-icon svg' => '--e-icon-list-icon-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .hfe-post-info-icon' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .hfe-post-info-icon i' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .hfe-post-info-icon svg' => '--e-icon-list-icon-size: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -726,8 +726,8 @@ class Post_Info_Widget extends Widget_Base {
 						'unit' => 'px',
 					],
 					'selectors' => [
-						'body:not(.rtl) {{WRAPPER}} .ha-icon-list-text' => 'padding-left: {{SIZE}}{{UNIT}}',
-						'body.rtl {{WRAPPER}} .ha-icon-list-text' => 'padding-right: {{SIZE}}{{UNIT}}',
+						'body:not(.rtl) {{WRAPPER}} .hfe-post-info-text' => 'padding-left: {{SIZE}}{{UNIT}}',
+						'body.rtl {{WRAPPER}} .hfe-post-info-text' => 'padding-right: {{SIZE}}{{UNIT}}',
 					],
 				]
 			);
@@ -739,7 +739,7 @@ class Post_Info_Widget extends Widget_Base {
 					'type' => Controls_Manager::COLOR,
 					'default' => '',
 					'selectors' => [
-						'{{WRAPPER}} .ha-icon-list-text, {{WRAPPER}} .ha-icon-list-text a' => 'color: {{VALUE}}',
+						'{{WRAPPER}} .hfe-post-info-text, {{WRAPPER}} .hfe-post-info-text a' => 'color: {{VALUE}}',
 					]
 				]
 			);
@@ -748,7 +748,7 @@ class Post_Info_Widget extends Widget_Base {
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'icon_typography',
-					'selector' => '{{WRAPPER}} .ha-icon-list-item',
+					'selector' => '{{WRAPPER}} .hfe-post-info-item',
 				]
 			);
 
@@ -1103,14 +1103,14 @@ class Post_Info_Widget extends Widget_Base {
 	
 		// Add base classes to the list item.
 		$this->add_render_attribute( $item_key, 'class', [
-			'ha-icon-list-item',
+			'hfe-post-info-item',
 			'elementor-repeater-item-' . $repeater_item['_id'],
 		]);
 	
 		// Check active settings for inline view.
 		$active_settings = $this->get_active_settings();
 		if ( 'inline' === $active_settings['view'] ) {
-			$this->add_render_attribute( $item_key, 'class', 'ha-inline-item' );
+			$this->add_render_attribute( $item_key, 'class', 'hfe-post-info-inline-item' );
 		}
 	
 		// Add itemprop attribute if available.
@@ -1159,9 +1159,9 @@ class Post_Info_Widget extends Widget_Base {
 	
 		if ( ! empty( $item_data['image'] ) || ! empty( $item_data['selected_icon'] ) ) {
 			?>
-			<span class="ha-icon-list-icon">
+			<span class="hfe-post-info-icon">
 				<?php if ( ! empty( $item_data['image'] ) ) : ?>
-					<img class="ha-avatar" src="<?php echo esc_url( $item_data['image'] ); ?>" alt="<?php echo esc_attr( $item_data['text'] ); ?>">
+					<img class="hfe-post-info-avatar" src="<?php echo esc_url( $item_data['image'] ); ?>" alt="<?php echo esc_attr( $item_data['text'] ); ?>">
 				<?php elseif ( ! empty( $item_data['selected_icon'] ) ) : ?>
 					<?php 
 					Icons_Manager::render_icon( $item_data['selected_icon'], [ 'aria-hidden' => 'true' ] );
@@ -1183,23 +1183,23 @@ class Post_Info_Widget extends Widget_Base {
 		$repeater_setting_key = $this->get_repeater_setting_key( 'text', 'icon_list', $repeater_index );
 	
 		// Add classes for text attributes.
-		$this->add_render_attribute( $repeater_setting_key, 'class', [ 'ha-icon-list-text', 'ha-post-info__item', 'ha-post-info__item--type-' . $item_data['type'] ] );
+		$this->add_render_attribute( $repeater_setting_key, 'class', [ 'hfe-post-info-text', 'hfe-post-info__item', 'hfe-post-info__item--type-' . $item_data['type'] ] );
 		if ( ! empty( $item['terms_list'] ) ) {
-			$this->add_render_attribute( $repeater_setting_key, 'class', 'ha-terms-list' );
+			$this->add_render_attribute( $repeater_setting_key, 'class', 'hfe-terms-list' );
 		}
 	
 		?>
 		<span <?php echo $this->get_render_attribute_string( $repeater_setting_key ); ?>>
 			<?php if ( ! empty( $item_data['text_prefix'] ) ) : ?>
-				<span class="ha-post-info__item-prefix"><?php echo esc_html( $item_data['text_prefix'] ); ?></span>
+				<span class="hfe-post-info__item-prefix"><?php echo esc_html( $item_data['text_prefix'] ); ?></span>
 			<?php endif; ?>
 	
 			<?php if ( ! empty( $item_data['terms_list'] ) ) : ?>
-				<span class="ha-post-info__terms-list">
+				<span class="hfe-post-info__terms-list">
 					<?php
 					$terms_list = array_map(function($term) {
 						$term_text = esc_html($term['text']);
-						return ! empty($term['url']) ? '<a href="' . esc_attr($term['url']) . '" class="ha-post-info__terms-list-item">' . $term_text . '</a>' : '<span class="ha-post-info__terms-list-item">' . $term_text . '</span>';
+						return ! empty($term['url']) ? '<a href="' . esc_attr($term['url']) . '" class="hfe-post-info__terms-list-item">' . $term_text . '</a>' : '<span class="hfe-post-info__terms-list-item">' . $term_text . '</span>';
 					}, $item_data['terms_list']);
 					echo implode(', ', $terms_list);
 					?>
@@ -1245,10 +1245,10 @@ class Post_Info_Widget extends Widget_Base {
 		}
 
 		if ( 'inline' === $settings['view'] ) {
-			$this->add_render_attribute( 'icon_list', 'class', 'ha-inline-items' );
+			$this->add_render_attribute( 'icon_list', 'class', 'hfe-post-info-inline' );
 		}
 
-		$this->add_render_attribute( 'icon_list', 'class', [ 'ha-icon-list-items', 'ha-post-info' ] );
+		$this->add_render_attribute( 'icon_list', 'class', [ 'hfe-post-info-items', 'hfe-post-info' ] );
 		?>
 		<ul <?php echo $this->get_render_attribute_string( 'icon_list' ); ?>>
 			<?php echo $items_html; ?>
