@@ -111,6 +111,7 @@ class Widgets_Loader {
 			'cart',
 			'search-button',
 			'breadcrumbs-widget',
+			'post-info-widget',
 		];
 
 		return $widget_list;
@@ -249,6 +250,7 @@ class Widgets_Loader {
 		Plugin::instance()->widgets_manager->register( new Widgets\Site_Logo() );
 		Plugin::instance()->widgets_manager->register( new Widgets\Search_Button() );
 		Plugin::instance()->widgets_manager->register( new Widgets\Breadcrumbs_Widget() );
+		Plugin::instance()->widgets_manager->register( new Widgets\Post_Info_Widget() );
 		if ( class_exists( 'woocommerce' ) ) {
 			Plugin::instance()->widgets_manager->register( new Widgets\Cart() );
 		}
