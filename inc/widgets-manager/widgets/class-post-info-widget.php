@@ -827,8 +827,6 @@ class Post_Info_Widget extends Widget_Base {
 			$item_data['text_prefix'] = esc_html( $repeater_item['text_prefix'] );
 		}
 
-		error_log( print_r( $item_data, true ) );
-
 		return $item_data;
 
 	}
@@ -847,7 +845,7 @@ class Post_Info_Widget extends Widget_Base {
 				'library'  => 'fa-solid',
 			],
 			'itemprop'     => 'about',
-			'termsList'    => [],
+			'terms_list'    => [],
 		];
 
 		// Ensure taxonomy is set and valid.
@@ -862,13 +860,13 @@ class Post_Info_Widget extends Widget_Base {
 		if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
 			foreach ( $terms as $term ) {
 				$termId = $term->term_id;
-				$termsData['termsList'][ $termId ] = [
+				$termsData['terms_list'][ $termId ] = [
 					'text' => esc_html( $term->name ),
 				];
 
 				// Add term link if the option is enabled.
 				if ( isset( $repeaterItem['link'] ) && 'yes' === $repeaterItem['link'] ) {
-					$termsData['termsList'][ $termId ]['url'] = esc_url( get_term_link( $term ) );
+					$termsData['terms_list'][ $termId ]['url'] = esc_url( get_term_link( $term ) );
 				}
 			}
 		}
