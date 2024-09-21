@@ -415,8 +415,8 @@ class Post_Info_Widget extends Widget_Base {
 					[
 						'type' => 'date',
 						'selected_icon' => [
-							'value' => 'fas fa-calendar',
-							'library' => 'fa-solid',
+							'value' => 'far fa-calendar-alt',
+							'library' => 'fa-regular',
 						],
 					],
 					[
@@ -1017,8 +1017,8 @@ class Post_Info_Widget extends Widget_Base {
 		$date_data = [
 			'text'          => get_the_time( $selected_format ),
 			'selected_icon' => [
-				'value'    => 'fas fa-calendar',
-				'library'  => 'fa-solid',
+				'value'    => 'far fa-calendar-alt',
+				'library'  => 'fa-regular',
 			],
 			'itemprop'      => 'datePublished',
 		];
@@ -1152,17 +1152,24 @@ class Post_Info_Widget extends Widget_Base {
 	 */
 	protected function render_item_icon_or_image( $item_data, $repeater_item, $repeater_index ) {
 		// Determine icon or image settings.
+		if ( 'custom' === $repeater_item['show_icon'] && ! empty( $repeater_item['selected_icon'] ) ) {
+			$item_data['selected_icon'] = $repeater_item['selected_icon'];
+		} elseif ( 'none' === $repeater_item['show_icon'] ) {
+			$item_data['selected_icon'] = [];
+		}
 			
 		if ( empty( $item_data['selected_icon'] ) && empty( $item_data['image'] ) ) {
 			return; // No icon or image to render.
 		}
+
+		$show_icon = 'none' !== $repeater_item['show_icon'];
 	
-		if ( ! empty( $item_data['image'] ) || ! empty( $item_data['selected_icon'] ) ) {
+		if ( ! empty( $item_data['image'] ) || $show_icon ) {
 			?>
 			<span class="hfe-post-info-icon">
 				<?php if ( ! empty( $item_data['image'] ) ) : ?>
 					<img class="hfe-post-info-avatar" src="<?php echo esc_url( $item_data['image'] ); ?>" alt="<?php echo esc_attr( $item_data['text'] ); ?>">
-				<?php elseif ( ! empty( $item_data['selected_icon'] ) ) : ?>
+				<?php elseif ( $show_icon && ! empty( $item_data['selected_icon'] ) ) : ?>
 					<?php 
 					Icons_Manager::render_icon( $item_data['selected_icon'], [ 'aria-hidden' => 'true' ] );
 					?>
