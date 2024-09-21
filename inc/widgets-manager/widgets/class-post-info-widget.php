@@ -809,15 +809,15 @@ class Post_Info_Widget extends Widget_Base {
 				break;
 
 			case 'terms':
-				$itemData = $this->get_post_terms_data( $repeater_item );
+				$item_data = $this->get_post_terms_data( $repeater_item );
 				break;
 
 			case 'comments':
-				$itemData = $this->get_post_comments_data( $repeater_item );
+				$item_data = $this->get_post_comments_data( $repeater_item );
 				break;
 
 			case 'custom':
-				$itemData = $this->get_custom_meta_data( $repeater_item );
+				$item_data = $this->get_custom_meta_data( $repeater_item );
 				break;
 		}
 
