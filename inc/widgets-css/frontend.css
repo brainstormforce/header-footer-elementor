@@ -1996,3 +1996,63 @@ span.hfe-breadcrumbs-home-icon{
 ul.hfe-breadcrumbs-show-home li.hfe-breadcrumbs-first {
     display: inline-flex;
 }
+
+/* Post Info CSS */
+
+ul.ha-icon-list-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+ul.ha-inline-items.ha-icon-list-items {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+li.ha-icon-list-item {
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+li.ha-icon-list-item,
+li.ha-icon-list-item > a {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -ms-flex-align: center;
+}
+.ha-inline-items.ha-icon-list-items .ha-icon-list-item {
+    margin-right: 8px;
+    margin-left: 8px;
+}
+.ha-inline-items .ha-icon-list-item:not(:last-child):after {
+    position: relative;
+    right: -8px;
+}
+.ha-inline-items.ha-icon-list-items {
+    margin-right: -8px;
+    margin-left: -8px;
+}
+.ha-icon-list-icon svg {
+    display: block;
+}
