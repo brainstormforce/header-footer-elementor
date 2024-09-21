@@ -471,7 +471,7 @@ class Post_Info_Widget extends Widget_Base {
 						'{{WRAPPER}} .hfe-post-info-items:not(.hfe-post-info-inline) .hfe-post-info-item:not(:first-child)' => 'margin-top: calc({{SIZE}}{{UNIT}}/2)',
 						'{{WRAPPER}} .hfe-post-info-items.hfe-post-info-inline .hfe-post-info-item' => 'margin-right: calc({{SIZE}}{{UNIT}}/2); margin-left: calc({{SIZE}}{{UNIT}}/2)',
 						'{{WRAPPER}} .hfe-post-info-items.hfe-post-info-inline' => 'margin-right: calc(-{{SIZE}}{{UNIT}}/2); margin-left: calc(-{{SIZE}}{{UNIT}}/2)',
-						'{{WRAPPER}} .hfe-post-info-items.hfe-post-info-inline .hfe-post-info-item::after' => 'margin-left: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .hfe-post-info-items.hfe-post-info-inline .hfe-post-info-item::after' => 'margin-left: {{SIZE}}{{UNIT}}; right:0;',
 					],
 				]
 			);
