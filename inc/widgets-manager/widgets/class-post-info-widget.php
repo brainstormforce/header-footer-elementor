@@ -827,6 +827,8 @@ class Post_Info_Widget extends Widget_Base {
 			$item_data['text_prefix'] = esc_html( $repeater_item['text_prefix'] );
 		}
 
+		error_log( print_r( $item_data, true ) );
+
 		return $item_data;
 
 	}
@@ -840,7 +842,7 @@ class Post_Info_Widget extends Widget_Base {
 	function get_post_terms_data( $repeaterItem ) {
 		// Default icon and icon library for terms.
 		$termsData = [
-			'selectedIcon' => [
+			'selected_icon' => [
 				'value'    => 'fas fa-tags',
 				'library'  => 'fa-solid',
 			],
@@ -884,7 +886,7 @@ class Post_Info_Widget extends Widget_Base {
 		// Default icon and icon library for custom data.
 		$customData = [
 			'text'         => ! empty( $repeaterItem['custom_text'] ) ? sanitize_text_field( $repeaterItem['custom_text'] ) : '',
-			'selectedIcon' => [
+			'selected_icon' => [
 				'value'    => 'far fa-tags',
 				'library'  => 'fa-regular',
 			],
@@ -911,10 +913,10 @@ class Post_Info_Widget extends Widget_Base {
 		}
 
 		// Define default comment strings.
-		$defaultStrings = apply_filters( 'custom_comments_strings', [
-			'stringNoComments'  => __( 'No Comments', 'text-domain' ),
-			'stringOneComment'  => __( 'One Comment', 'text-domain' ),
-			'stringComments'    => __( '%s Comments', 'text-domain' ),
+		$defaultStrings = apply_filters( 'hfe_custom_comments_strings', [
+			'stringNoComments'  => __( 'No Comments', 'header-footer-elementor' ),
+			'stringOneComment'  => __( 'One Comment', 'header-footer-elementor' ),
+			'stringComments'    => __( '%s Comments', 'header-footer-elementor' ),
 		]);
 
 		// Check if custom strings are provided.
@@ -931,13 +933,13 @@ class Post_Info_Widget extends Widget_Base {
 		if ( 0 === $numComments ) {
 			$commentsText = $defaultStrings['stringNoComments'];
 		} else {
-			$commentsText = sprintf( _n( $defaultStrings['stringOneComment'], $defaultStrings['stringComments'], $numComments, 'text-domain' ), $numComments );
+			$commentsText = sprintf( _n( $defaultStrings['stringOneComment'], $defaultStrings['stringComments'], $numComments, 'header-footer-elementor' ), $numComments );
 		}
 
 		// Set up comments data.
 		$commentsData = [
 			'text'          => $commentsText,
-			'selectedIcon'  => [
+			'selected_icon'  => [
 				'value'    => 'far fa-comment-dots',
 				'library'  => 'fa-regular',
 			],
