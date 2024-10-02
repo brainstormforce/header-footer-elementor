@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 /**
  * Plugin Name: Elementor Header & Footer Builder
  * Plugin URI:  https://github.com/Nikschavan/header-footer-elementor
@@ -14,12 +17,12 @@
  * @package         header-footer-elementor
  */
 
-define( 'HFE_VER', '1.6.42' );
-define( 'HFE_FILE', __FILE__ );
-define( 'HFE_DIR', plugin_dir_path( __FILE__ ) );
-define( 'HFE_URL', plugins_url( '/', __FILE__ ) );
-define( 'HFE_PATH', plugin_basename( __FILE__ ) );
-define( 'HFE_DOMAIN', trailingslashit( 'https://ultimateelementor.com' ) );
+define('HFE_VER', '1.6.42');
+define('HFE_FILE', __FILE__);
+define('HFE_DIR', plugin_dir_path(__FILE__));
+define('HFE_URL', plugins_url('/', __FILE__));
+define('HFE_PATH', plugin_basename(__FILE__));
+define('HFE_DOMAIN', trailingslashit('https://ultimateelementor.com'));
 
 /**
  * Load the class loader.
@@ -28,22 +31,20 @@ require_once HFE_DIR . '/inc/class-header-footer-elementor.php';
 
 /**
  * Load the Plugin Class.
- *
- * @return void
  */
-function hfe_plugin_activation() {
-	update_option( 'hfe_plugin_is_activated', 'yes' );
+function hfe_plugin_activation(): void
+{
+    update_option('hfe_plugin_is_activated', 'yes');
 }
 
-register_activation_hook( HFE_FILE, 'hfe_plugin_activation' );
+register_activation_hook(HFE_FILE, 'hfe_plugin_activation');
 
 /**
  * Load the Plugin Class.
- *
- * @return void
  */
-function hfe_init() {
-	Header_Footer_Elementor::instance();
+function hfe_init(): void
+{
+    Header_Footer_Elementor::instance();
 }
 
-add_action( 'plugins_loaded', 'hfe_init' );
+add_action('plugins_loaded', 'hfe_init');

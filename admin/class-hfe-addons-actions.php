@@ -1,180 +1,171 @@
 <?php
+
+declare(strict_types=1);
+
 /**
  * Plugin AJAX functions.
  *
  * @package  header-footer-elementor
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+if (! defined('ABSPATH')) {
+    exit;
 }
 
-if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
+if (! class_exists('HFE_Addons_Actions')) {
+    /**
+     * Initialization
+     *
+     * @since 1.6.0
+     */
+    class HFE_Addons_Actions
+    {
+        /**
+         * Member Variable
+         */
+        private static HFE_Addons_Actions $instance;
 
-	/**
-	 * Initialization
-	 *
-	 * @since 1.6.0
-	 */
-	class HFE_Addons_Actions {
+        /**
+         *  Constructor
+         */
+        public function __construct()
+        {
+            add_action('wp_ajax_hfe_admin_modal', [ $this, 'hfe_admin_modal' ]);
+            add_action('wp_ajax_hfe-update-subscription', [ $this, 'update_subscription' ]);
+            add_action('wp_ajax_hfe_activate_addon', [ $this, 'hfe_activate_addon' ]);
+        }
 
-		/**
-		 * Member Variable
-		 *
-		 * @var HFE_Addons_Actions
-		 */
-		private static $instance;
+        /**
+         *  Initiator
+         */
+        public static function get_instance(): HFE_Addons_Actions
+        {
+            if (! isset(self::$instance)) {
+                self::$instance = new self();
+            }
+            return self::$instance;
+        }
 
-		/**
-		 *  Initiator
-		 *
-		 * @return HFE_Addons_Actions
-		 */
-		public static function get_instance() {
-			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self();
-			}
-			return self::$instance;
-		}
+        /**
+         * Open modal popup.
+         *
+         * @since 1.6.0
+         */
+        public function hfe_admin_modal(): void
+        {
+            // Run a security check.
+            check_ajax_referer('hfe-admin-nonce', 'nonce');
 
-		/**
-		 *  Constructor
-		 */
-		public function __construct() {
-			add_action( 'wp_ajax_hfe_admin_modal', [ $this, 'hfe_admin_modal' ] );
-			add_action( 'wp_ajax_hfe-update-subscription', [ $this, 'update_subscription' ] );
-			add_action( 'wp_ajax_hfe_activate_addon', [ $this, 'hfe_activate_addon' ] );
-		}
+            update_user_meta(get_current_user_id(), 'hfe-popup', 'dismissed');
+        }
 
-		/**
-		 * Open modal popup.
-		 *
-		 * @since 1.6.0
-		 * @return void
-		 */
-		public function hfe_admin_modal() {
+        /**
+         * Update Subscription
+         *
+         * @since 1.6.0
+         */
+        public function update_subscription(): void
+        {
+            check_ajax_referer('hfe-admin-nonce', 'nonce');
 
-			// Run a security check.
-			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
+            if (! current_user_can('manage_options')) {
+                wp_send_json_error('You can\'t perform this action.');
+            }
 
-			update_user_meta( get_current_user_id(), 'hfe-popup', 'dismissed' );
-		}
+            $api_domain = trailingslashit($this->get_api_domain());
+            // PHPCS:Ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+            $arguments = isset($_POST['data']) ? array_map('sanitize_text_field', json_decode(stripslashes(wp_unslash($_POST['data'])), true)) : [];
 
-		/**
-		 * Update Subscription
-		 *
-		 * @since 1.6.0
-		 * @return void
-		 */
-		public function update_subscription() {
+            $url = add_query_arg($arguments, $api_domain . 'wp-json/starter-templates/v1/subscribe/'); // add URL of your site or mail API.
 
-			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
+            $response = wp_remote_post($url, [ 'timeout' => 60 ]);
 
-			if ( ! current_user_can( 'manage_options' ) ) {
-				wp_send_json_error( 'You can\'t perform this action.' );
-			}
+            if (! is_wp_error($response) || wp_remote_retrieve_response_code($response) === 200) {
+                $response = json_decode(wp_remote_retrieve_body($response), true);
 
-			$api_domain = trailingslashit( $this->get_api_domain() );
-			// PHPCS:Ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-			$arguments = isset( $_POST['data'] ) ? array_map( 'sanitize_text_field', json_decode( stripslashes( wp_unslash( $_POST['data'] ) ), true ) ) : [];
+                // Successfully subscribed.
+                if (isset($response['success']) && $response['success']) {
+                    update_user_meta(get_current_user_ID(), 'hfe-subscribed', 'yes');
+                    wp_send_json_success($response);
+                }
+            } else {
+                wp_send_json_error($response);
+            }
+        }
 
-			$url = add_query_arg( $arguments, $api_domain . 'wp-json/starter-templates/v1/subscribe/' ); // add URL of your site or mail API.
+        /**
+         * Get the API URL.
+         *
+         * @since 1.6.0
+         */
+        public function get_api_domain(): string
+        {
+            return apply_filters('hfe_api_domain', 'https://websitedemos.net/');
+        }
 
-			$response = wp_remote_post( $url, [ 'timeout' => 60 ] );
+        /**
+         * Activate addon.
+         *
+         * @since 1.6.0
+         */
+        public function hfe_activate_addon(): void
+        {
+            // Run a security check.
+            check_ajax_referer('hfe-admin-nonce', 'nonce');
 
-			if ( ! is_wp_error( $response ) || wp_remote_retrieve_response_code( $response ) === 200 ) {
-				$response = json_decode( wp_remote_retrieve_body( $response ), true );
+            if (isset($_POST['plugin'])) {
+                $type = '';
+                if (! empty($_POST['type'])) {
+                    $type = sanitize_key(wp_unslash($_POST['type']));
+                }
 
-				// Successfully subscribed.
-				if ( isset( $response['success'] ) && $response['success'] ) {
-					update_user_meta( get_current_user_ID(), 'hfe-subscribed', 'yes' );
-					wp_send_json_success( $response );
-				}
-			} else {
-				wp_send_json_error( $response );
-			}
-		}
+                $plugin = sanitize_text_field(wp_unslash($_POST['plugin']));
 
-		/**
-		 * Get the API URL.
-		 *
-		 * @since 1.6.0
-		 * @return string
-		 */
-		public function get_api_domain() {
-			return apply_filters( 'hfe_api_domain', 'https://websitedemos.net/' );
-		}
+                if ($type === 'plugin') {
+                    // Check for permissions.
+                    if (! current_user_can('activate_plugins')) {
+                        wp_send_json_error(esc_html__('Plugin activation is disabled for you on this site.', 'header-footer-elementor'));
+                    }
 
-		/**
-		 * Activate addon.
-		 *
-		 * @since 1.6.0
-		 * @return void
-		 */
-		public function hfe_activate_addon() {
+                    $activate = activate_plugins($plugin);
 
-			// Run a security check.
-			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
+                    if (! is_wp_error($activate)) {
+                        do_action('hfe_plugin_activated', $plugin);
 
-			if ( isset( $_POST['plugin'] ) ) {
+                        wp_send_json_success(esc_html__('Plugin Activated.', 'header-footer-elementor'));
+                    }
+                }
 
-				$type = '';
-				if ( ! empty( $_POST['type'] ) ) {
-					$type = sanitize_key( wp_unslash( $_POST['type'] ) );
-				}
+                if ($type === 'theme') {
+                    if (isset($_POST['slug'])) {
+                        $slug = sanitize_key(wp_unslash($_POST['slug']));
 
-				$plugin = sanitize_text_field( wp_unslash( $_POST['plugin'] ) );
+                        // Check for permissions.
+                        if (! current_user_can('switch_themes')) {
+                            wp_send_json_error(esc_html__('Theme activation is disabled for you on this site.', 'header-footer-elementor'));
+                        }
 
-				if ( 'plugin' === $type ) {
+                        $activate = switch_theme($slug);
 
-					// Check for permissions.
-					if ( ! current_user_can( 'activate_plugins' ) ) {
-						wp_send_json_error( esc_html__( 'Plugin activation is disabled for you on this site.', 'header-footer-elementor' ) );
-					}
+                        if (! is_wp_error($activate)) {
+                            do_action('hfe_theme_activated', $plugin);
 
-					$activate = activate_plugins( $plugin );
+                            wp_send_json_success(esc_html__('Theme Activated.', 'header-footer-elementor'));
+                        }
+                    }
+                }
+            }
 
-					if ( ! is_wp_error( $activate ) ) {
+            if ($type === 'plugin') {
+                wp_send_json_error(esc_html__('Could not activate plugin. Please activate from the Plugins page.', 'header-footer-elementor'));
+            } elseif ($type === 'theme') {
+                wp_send_json_error(esc_html__('Could not activate theme. Please activate from the Themes page.', 'header-footer-elementor'));
+            }
+        }
+    }
 
-						do_action( 'hfe_plugin_activated', $plugin );
-
-						wp_send_json_success( esc_html__( 'Plugin Activated.', 'header-footer-elementor' ) );
-					}
-				}
-
-				if ( 'theme' === $type ) {
-
-					if ( isset( $_POST['slug'] ) ) {
-						$slug = sanitize_key( wp_unslash( $_POST['slug'] ) );
-
-						// Check for permissions.
-						if ( ! ( current_user_can( 'switch_themes' ) ) ) {
-							wp_send_json_error( esc_html__( 'Theme activation is disabled for you on this site.', 'header-footer-elementor' ) );
-						}
-
-						$activate = switch_theme( $slug );
-
-						if ( ! is_wp_error( $activate ) ) {
-
-							do_action( 'hfe_theme_activated', $plugin );
-
-							wp_send_json_success( esc_html__( 'Theme Activated.', 'header-footer-elementor' ) );
-						}
-					}
-				}
-			}
-
-			if ( 'plugin' === $type ) {
-				wp_send_json_error( esc_html__( 'Could not activate plugin. Please activate from the Plugins page.', 'header-footer-elementor' ) );
-			} elseif ( 'theme' === $type ) {
-				wp_send_json_error( esc_html__( 'Could not activate theme. Please activate from the Themes page.', 'header-footer-elementor' ) );
-			}
-		}
-	}
-
-	/**
-	 *  Kicking this off by calling 'get_instance()' method
-	 */
-	HFE_Addons_Actions::get_instance();
-
+    /**
+     *  Kicking this off by calling 'get_instance()' method
+     */
+    HFE_Addons_Actions::get_instance();
 }
