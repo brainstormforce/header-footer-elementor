@@ -27,13 +27,11 @@ module.exports = {
     ],
   },
   resolve: {
+		...defaultConfig.resolve,
     extensions: ['.js', '.jsx'],
     alias: {
-			...defaultConfig.resolve.alias,
-			'@SettingsApp': path.resolve(
-				__dirname,
-				'./src/settings-app/'
-			),
+			'@SettingsApp': path.resolve( __dirname, './src/settings-app/' ),
+			'@components': path.resolve( __dirname, './src/Components/' ), // Custom alias for components
 		},
   },
 };
