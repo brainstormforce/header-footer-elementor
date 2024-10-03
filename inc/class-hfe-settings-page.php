@@ -887,6 +887,42 @@ class HFE_Settings_Page {
 			);
 
 			$element->add_control(
+				'hfe_reading_progress_global',
+				[
+					'label'        => __( 'Enable Global Display ', 'header-footer-elementor' ),
+					'description'  => __( 'Enabling this option will affect the entire site.', 'header-footer-elementor' ),
+					'type'         => \Elementor\Controls_Manager::SWITCHER,
+					'default'      => 'no',
+					'label_on'     => __( 'Yes', 'header-footer-elementor' ),
+					'label_off'    => __( 'No', 'header-footer-elementor' ),
+					'return_value' => 'yes',
+					'separator'    => 'before',
+					'condition'    => [
+						'enable_reading_progress_bar' => 'yes',
+					],
+				]
+			);
+			
+			$element->add_control(
+				'hfe_reading_progress_global_display_condition',
+				[
+					'label'     => __( 'Display On', 'header-footer-elementor' ),
+					'type'      => \Elementor\Controls_Manager::SELECT,
+					'default'   => 'all',
+					'options'   => [
+						'posts' => __( 'All Posts', 'header-footer-elementor' ),
+						'pages' => __( 'All Pages', 'header-footer-elementor' ),
+						'all'   => __( 'All Posts & Pages', 'header-footer-elementor' ),
+					],
+					'condition' => [
+						'enable_reading_progress_bar' => 'yes',
+						'hfe_reading_progress_global' => 'yes',
+					],
+					'separator' => 'before',
+				]
+			);
+
+			$element->add_control(
 				'hfe_reading_progress_bar_position',
 				[
 					'label'       => __( 'Position', 'header-footer-elementor' ),
@@ -896,6 +932,8 @@ class HFE_Settings_Page {
 					'options'     => [
 						'top'    => __( 'Top', 'header-footer-elementor' ),
 						'bottom' => __( 'Bottom', 'header-footer-elementor' ),
+						'right'  => __( 'Right', 'header-footer-elementor' ),
+						'left'   => __( 'Left', 'header-footer-elementor' ),
 					],
 					'separator'   => 'before',
 					'condition'   => [
@@ -986,6 +1024,25 @@ class HFE_Settings_Page {
 					],
 					'separator'  => 'before',
 					'condition'  => [
+						'enable_reading_progress_bar' => 'yes',
+					],
+				]
+			);
+
+			$element->add_control(
+				'hfe_reading_progress_bar_disable_on',
+				[
+					'label'     => __( 'Responsive', 'header-footer-elementor' ),
+					'type'      => \Elementor\Controls_Manager::SELECT,
+					'multiple'  => true,
+					'options'   => [
+						'desktop' => __( 'Desktop', 'header-footer-elementor' ),
+						'tablet'  => __( 'Tablet', 'header-footer-elementor' ),
+						'mobile'  => __( 'Mobile', 'header-footer-elementor' ),
+					],
+					'default'   => [ 'desktop' ],
+					'separator' => 'before',
+					'condition' => [
 						'enable_reading_progress_bar' => 'yes',
 					],
 				]
