@@ -32,6 +32,9 @@ class HFE_Settings_Page {
 		add_filter( 'admin_footer_text', [ $this, 'admin_footer_text' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
 		add_filter( 'plugin_action_links_' . HFE_PATH, [ $this, 'settings_link' ] );
+
+		/* Flow content view */
+		add_action( 'hfe_render_admin_page_content', array( $this, 'render_content' ), 10, 2 );
 	}
 
 	/**
@@ -57,6 +60,22 @@ class HFE_Settings_Page {
 	 * @return void
 	 */
 	public function enqueue_admin_scripts() {
+
+		wp_enqueue_script(
+			'header-footer-elementor-react-app',
+			HFE_URL . 'build/main.js',
+			array(),
+			HFE_VER,
+			true
+		);
+
+		wp_enqueue_style(
+			'header-footer-elementor-react-styles',
+			HFE_URL . 'build/main.css',
+			[],
+			HFE_VER
+		);
+
 		wp_enqueue_script( 'hfe-admin-script', HFE_URL . 'admin/assets/js/ehf-admin.js', [ 'jquery', 'updates' ], HFE_VER, true );
 
 		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
@@ -104,6 +123,52 @@ class HFE_Settings_Page {
 		$this->hfe_tabs();
 		$this->hfe_modal();
 		return $views;
+	}
+
+	/**
+	 * Renders the admin settings content.
+	 *
+	 * @since x.x.x
+	 * @param sting $menu_page_slug current page name.
+	 * @param sting $page_action current page action.
+	 *
+	 * @return void
+	 */
+	public function render_content() {
+
+		if ( $this->is_current_page( 'uaelite' ) ) {
+			include_once HFE_DIR . 'inc/settings/settings-app.php';
+		}
+	}
+
+	/**
+	 * CHeck if it is current page by parameters
+	 *
+	 * @param string $page_slug Menu name.
+	 * @param string $action Menu name.
+	 *
+	 * @return  string page url
+	 */
+	public function is_current_page( $page_slug = '', $action = '' ) {
+
+		$page_matched = false;
+
+		if ( empty( $page_slug ) ) {
+			return false;
+		}
+
+		$current_page_slug = isset( $_GET['page'] ) ? sanitize_text_field( $_GET['page'] ) : ''; //phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		$current_action    = isset( $_GET['action'] ) ? sanitize_text_field( $_GET['action'] ) : ''; //phpcs:ignore WordPress.Security.NonceVerification.Recommended
+
+		if ( ! is_array( $action ) ) {
+			$action = explode( ' ', $action );
+		}
+
+		if ( $page_slug === $current_page_slug && in_array( $current_action, $action, true ) ) {
+			$page_matched = true;
+		}
+
+		return $page_matched;
 	}
 
 	/**
@@ -191,6 +256,17 @@ class HFE_Settings_Page {
 	 * @return void
 	 */
 	public function hfe_register_settings_page() {
+
+		add_menu_page(
+			__( 'UA Elementor Settings', 'header-footer-elementor' ),  // Page title
+			__( 'UA Elementor', 'header-footer-elementor' ), // Menu title
+			'manage_options',                        // Capability (who can access)
+			'uaelite',                          // Menu slug (unique identifier)
+			[ $this, 'uaelite_settings_page' ],                    // Callback function to display the content
+			'dashicons-admin-generic',               // Icon for the menu item
+			60                                       // Position in the admin menu
+		);
+
 		add_submenu_page(
 			'themes.php',
 			__( 'Settings', 'header-footer-elementor' ),
@@ -208,6 +284,18 @@ class HFE_Settings_Page {
 			'hfe-about',
 			[ $this, 'hfe_settings_page' ]
 		);
+	}
+
+	/**
+	 * Settings page.
+	 *
+	 * Call back function for add submenu page function.
+	 *
+	 * @since x.x.x
+	 * @return void
+	 */
+	public function uaelite_settings_page() {
+		include_once HFE_DIR . 'inc/settings/admin-base.php';
 	}
 
 	/**
