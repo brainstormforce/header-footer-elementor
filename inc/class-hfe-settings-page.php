@@ -64,7 +64,7 @@ class HFE_Settings_Page {
 		wp_enqueue_script(
 			'header-footer-elementor-react-app',
 			HFE_URL . 'build/main.js',
-			array(),
+			array('wp-element', 'wp-dom-ready'),
 			HFE_VER,
 			true
 		);

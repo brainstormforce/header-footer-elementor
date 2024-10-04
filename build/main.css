@@ -1,3 +1,6 @@
+/*!************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/styles.css ***!
+  \************************************************************************************************************/
 *, ::before, ::after {
 	--tw-border-spacing-x: 0;
 	--tw-border-spacing-y: 0;
@@ -3805,5 +3808,3 @@
 	height: 1.5rem;
 }
 
-
-/*# sourceMappingURL=main.css.map*/

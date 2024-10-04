@@ -1,20 +1,13 @@
-// Import createRoot from @wordpress/element instead of render
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { createRoot } from '@wordpress/element'; // Import Redux Provider
-import App from './App.js';
-// import { SettingsProvider } from '@contextapi/SettingsContext.js'; // Import your Redux store
+import { createRoot } from 'react-dom/client'; // Import from react-dom/client for React 18
+import domReady from '@wordpress/dom-ready';
+import App from './App';
 import './styles.css';
 
-// Find the root element
-const rootElement = document.getElementById('hfe-settings-app');
+domReady(() => {
+  const rootElement = document.getElementById('hfe-settings-app');
+  if (rootElement) {
+    const root = createRoot(rootElement); // Use createRoot() for React 18
+    root.render(<App />);
+  } 
+});
 
-// Create a root and render the App component
-const root = createRoot(rootElement);
-
-// Wrap App with Provider to pass the Redux store to the entire app
-root.render(
-	// <SettingsProvider>
-	<App />
-	// </SettingsProvider>
-);

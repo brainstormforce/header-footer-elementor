@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from '@wordpress/element';
 import './styles.css'; // Ensure you have your Tailwind CSS styles imported
 import Test from '@screens/Test.js';
 

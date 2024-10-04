@@ -50,6 +50,7 @@ module.exports = {
 		...defaultConfig.resolve,
 		extensions: ['.js', '.jsx', '.json'],
 		alias: {
+			...defaultConfig.resolve.alias,
 			'@components': path.resolve(__dirname, 'src/Components/'), // Custom alias for components
 			'@screens': path.resolve(__dirname, 'src/Screens/'), // Custom alias for screens
 			'@utils': path.resolve(__dirname, 'src/Utils/'), // Custom alias for utilities
@@ -63,12 +64,7 @@ module.exports = {
 		...defaultConfig.plugins,
 		new MiniCssExtractPlugin({
 			filename: '[name].css', // Output CSS file
-		}),
-		new webpack.DefinePlugin({
-			'process.env.NODE_ENV': JSON.stringify(
-				process.env.NODE_ENV || 'development'
-			),
-		}),
+		})
 	],
 
 	// Add devtool for easier debugging in development mode
