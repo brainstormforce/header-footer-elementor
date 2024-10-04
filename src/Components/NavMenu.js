@@ -1,76 +1,79 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import {
+	Topbar,
+	Button,
+	Badge,
+	Avatar
+} from '@bsf/force-ui';
+import { ArrowUpRight, CircleHelp, Megaphone, User } from 'lucide-react';
 
 const NavMenu = () => {
 	return (
-		<nav className="flex items-center w-full p-4 mb-4 text-gray-700 bg-white rounded-lg shadow-lg">
-			<NavLink to="/" className="flex items-center mr-6">
-				<span className="text-2xl text-blue-600 dashicons dashicons-email"></span>
-				<span className="ml-2 text-xl font-bold text-blue-600">SureEmails</span>
-			</NavLink>
-			<ul className="flex space-x-4 text-lg font-medium">
-				<li>
-					<NavLink
-						to="/connections"
-						className={({ isActive }) =>
-							isActive
-								? 'font-bold text-blue-600'
-								: 'hover:text-blue-600 transition-colors duration-200'
-						}
-					>
-						Connections
-					</NavLink>
-				</li>
-				<li>
-					<NavLink
-						to="/email-logs"
-						className={({ isActive }) =>
-							isActive
-								? 'font-bold text-blue-600'
-								: 'hover:text-blue-600 transition-colors duration-200'
-						}
-					>
-						Email Logs
-					</NavLink>
-				</li>
-				<li>
-					<NavLink
-						to="/send-email"
-						className={({ isActive }) =>
-							isActive
-								? 'font-bold text-blue-600'
-								: 'hover:text-blue-600 transition-colors duration-200'
-						}
-					>
-						Send Email
-					</NavLink>
-				</li>
-				<li>
-					<NavLink
-						to="/sure-triggers-settings"
-						className={({ isActive }) =>
-							isActive
-								? 'font-bold text-blue-600'
-								: 'hover:text-blue-600 transition-colors duration-200'
-						}
-					>
-						SureTriggers Integrations
-					</NavLink>
-				</li>
-				<li>
-					<NavLink
-						to="/about-us"
-						className={({ isActive }) =>
-							isActive
-								? 'font-bold text-blue-600'
-								: 'hover:text-blue-600 transition-colors duration-200'
-						}
-					>
-						About Us
-					</NavLink>
-				</li>
-			</ul>
-		</nav>
+		<Topbar>
+			<Topbar.Left>
+				<Topbar.Item>
+				<svg
+					fill="none"
+					height="24"
+					viewBox="0 0 25 24"
+					width="25"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path
+					clipRule="evenodd"
+					d="M12.5 24C19.1275 24 24.5 18.6273 24.5 11.9999C24.5 5.37255 19.1275 0 12.5 0C5.87259 0 0.5 5.37255 0.5 11.9999C0.5 18.6273 5.87259 24 12.5 24ZM12.5517 5.99996C11.5882 5.99996 10.2547 6.55101 9.5734 7.23073L7.7229 9.07688H16.9465L20.0307 5.99996H12.5517ZM15.4111 16.7692C14.7298 17.4489 13.3964 17.9999 12.4328 17.9999H4.95388L8.03804 14.923H17.2616L15.4111 16.7692ZM18.4089 10.6153H6.18418L5.60673 11.1923C4.23941 12.423 4.64495 13.3846 6.5598 13.3846H18.8176L19.3952 12.8076C20.7492 11.5841 20.3237 10.6153 18.4089 10.6153Z"
+					fill="#0D7EE8"
+					fillRule="evenodd"
+					/>
+				</svg>
+				</Topbar.Item>
+			</Topbar.Left>
+			<Topbar.Middle align="left">
+				<Topbar.Item>
+				<div className="flex gap-2">
+					<div>
+					Nav Item 1
+					</div>
+					<div>
+					Nav Item 2
+					</div>
+					<div>
+					Nav Item 3
+					</div>
+				</div>
+				</Topbar.Item>
+				<Topbar.Item>
+				<Button
+					icon={<ArrowUpRight />}
+					iconPosition="right"
+					variant="ghost"
+				>
+					Upgrade to Pro
+				</Button>
+				</Topbar.Item>
+			</Topbar.Middle>
+			<Topbar.Right>
+				<Topbar.Item>
+				<Badge
+					label="V 0.0 2"
+					size="xs"
+					variant="neutral"
+				/>
+				</Topbar.Item>
+				<Topbar.Item className="gap-2">
+				<CircleHelp />
+				<Megaphone />
+				</Topbar.Item>
+				<Topbar.Item>
+				<Avatar
+					border="ring"
+					size="sm"
+				>
+					<User />
+				</Avatar>
+				</Topbar.Item>
+			</Topbar.Right>
+			</Topbar>
 	);
 };
 
