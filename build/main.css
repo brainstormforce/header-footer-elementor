@@ -2260,10 +2260,23 @@
 }
 
 .hfe-menu-page-wrapper {
-	width: calc( 100% - 55px);
+	width: calc( 100% - 25px);
 }
 #hfe-settings-app .gap-2 {
     gap: 1.2rem;
+}
+.toplevel_page_uaelite #wpcontent {
+    padding-left: 0px;
+    padding-top: 0px;
+}
+div#hfe-settings-app {
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0 4px;
+    line-height: normal;
+}
+#hfe-settings-app .p-5 {
+    padding: 0.5rem 1.25rem;
 }
 #hfe-settings-app .file\:border-0::file-selector-button {
 	border-width: 0px;

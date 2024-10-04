@@ -11,4 +11,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<h2 id="hfe-settings-app" class="hfe-settings-app">UAE Lite Settings</h2>
+<div id="hfe-settings-app" class="hfe-settings-app"></div>
