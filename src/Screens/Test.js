@@ -1,13 +1,17 @@
 import { useState } from '@wordpress/element';
-// import {
-// 	Alert,
-// } from '@bsf/force-ui';
+import {
+	Alert,
+} from '@bsf/force-ui';
 
 const Test = () => {
 
 	return (
 		<div className="pb-4">
-			Hello Sushma
+			<Alert
+				title={'Info alert'}
+				content={'This is a description'}
+				variant="error"
+			/>
 		</div>
 	);
 };
