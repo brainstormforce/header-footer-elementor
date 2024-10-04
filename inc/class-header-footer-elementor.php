@@ -372,6 +372,9 @@ class Header_Footer_Elementor {
 
 		// Load the widgets.
 		require HFE_DIR . 'inc/widgets-manager/class-widgets-loader.php';
+
+		error_log( "Heyyyyyyyyyyyyyyyy" );
+		require HFE_DIR . 'inc/widgets-manager/class-extensions-loader.php';
 	}
 
 	/**
