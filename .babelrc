@@ -1,0 +1,31 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "browsers": [">0.25%", "not dead"]
+        },
+        "useBuiltIns": "usage",
+        "corejs": 3
+      }
+    ],
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-transform-runtime",
+    [
+      "module-resolver",
+      {
+        "root": ["./src"], // Base folder for resolution
+        "alias": {
+          "@screens": "./src/Screens",     // Alias for Screens folder
+          "@components": "./src/Components", // Alias for Components folder
+          "@utils": "./src/Utils",
+          "@routes": "./src/Routes"           // Alias for Utilities folder
+        }
+      }
+    ]
+  ]
+}

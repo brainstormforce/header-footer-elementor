@@ -1,4 +1,6 @@
 // Import createRoot from @wordpress/element instead of render
+import React from 'react';
+import ReactDOM from 'react-dom';
 import { createRoot } from '@wordpress/element'; // Import Redux Provider
 import App from './App.js';
 // import { SettingsProvider } from '@contextapi/SettingsContext.js'; // Import your Redux store

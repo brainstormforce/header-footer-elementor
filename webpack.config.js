@@ -37,6 +37,9 @@ module.exports = {
 				exclude: /node_modules/,
 				use: {
 					loader: 'babel-loader', // Use Babel for JS/JSX transpilation
+					options: {
+						presets: ['@babel/preset-env', '@babel/preset-react']
+					}
 				},
 			},
 		],
@@ -45,13 +48,13 @@ module.exports = {
 	// Path alias configuration for cleaner imports
 	resolve: {
 		...defaultConfig.resolve,
-		extensions: ['.js', '.jsx'],
+		extensions: ['.js', '.jsx', '.json'],
 		alias: {
 			'@components': path.resolve(__dirname, 'src/Components/'), // Custom alias for components
 			'@screens': path.resolve(__dirname, 'src/Screens/'), // Custom alias for screens
 			'@utils': path.resolve(__dirname, 'src/Utils/'), // Custom alias for utilities
 			'@routes': path.resolve(__dirname, 'src/Routes/'), // Custom alias for utilities
-			'@context': path.resolve(__dirname, 'src/Context/'),
+			'@context': path.resolve(__dirname, 'src/Context/')
 		},
 	},
 
