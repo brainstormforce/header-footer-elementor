@@ -10,7 +10,7 @@ import { ArrowUpRight, CircleHelp, Megaphone, User } from 'lucide-react';
 const NavMenu = () => {
 	return (
 		<Topbar>
-			<Topbar.Left>
+			<Topbar.Left gap="xl">
 				<Topbar.Item>
 				<svg
 					fill="none"
@@ -28,17 +28,20 @@ const NavMenu = () => {
 				</svg>
 				</Topbar.Item>
 			</Topbar.Left>
-			<Topbar.Middle align="left">
+			<Topbar.Middle align="left" gap="2xl">
 				<Topbar.Item>
 				<div className="flex gap-2">
 					<div>
-					Nav Item 1
+						Dashboard
 					</div>
 					<div>
-					Nav Item 2
+						Widgets/Features
 					</div>
 					<div>
-					Nav Item 3
+						Settings
+					</div>
+					<div>
+						Free vs Pro
 					</div>
 				</div>
 				</Topbar.Item>
@@ -55,7 +58,7 @@ const NavMenu = () => {
 			<Topbar.Right>
 				<Topbar.Item>
 				<Badge
-					label="V 0.0 2"
+					label="V 1.6.42"
 					size="xs"
 					variant="neutral"
 				/>

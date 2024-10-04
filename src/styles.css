@@ -44,3 +44,10 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
+
+.hfe-menu-page-wrapper {
+	width: calc( 100% - 55px);
+}
+#hfe-settings-app .gap-2 {
+    gap: 1.2rem;
+}
