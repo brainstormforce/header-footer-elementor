@@ -1032,7 +1032,7 @@ class HFE_Settings_Page {
 			$element->add_control(
 				'hfe_reading_progress_bar_disable_on',
 				[
-					'label'     => __( 'Responsive', 'header-footer-elementor' ),
+					'label'     => __( 'Disable On ', 'header-footer-elementor' ),
 					'type'      => \Elementor\Controls_Manager::SELECT,
 					'multiple'  => true,
 					'options'   => [
