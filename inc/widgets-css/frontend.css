@@ -3,7 +3,7 @@
 ul.hfe-nav-menu,
 .hfe-nav-menu li,
 .hfe-nav-menu ul {
-    list-style: none !important;
+    list-style: none !important;    
     margin: 0;
     padding: 0;
 }
@@ -1950,4 +1950,38 @@ div.hfe-nav-menu,
     width:100%;
     opacity:1;
     height:100%;
+}
+
+.hfe-scroll-to-top-button {
+    position:fixed;
+    right:15px;
+    bottom:15px;
+    z-index:9999;
+    display:-webkit-box;
+    display:-webkit-flex;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-align:center;
+    -webkit-align-items:center;
+    align-items:center;
+    -ms-flex-align:center;
+    -webkit-box-pack:center;
+    -ms-flex-pack:center;
+    -webkit-justify-content:center;
+    justify-content:center;
+    width:50px;
+    height:50px;
+    border-radius:50px;
+    background-color:#000000;
+    color:#fff;
+    text-align:center;
+    opacity:1;
+    cursor:pointer;
+    -webkit-transition:all .3s;
+    transition:all .3s;
+}
+
+.hfe-scroll-to-top-button i {
+    color:#fff;
+    font-size:16px;
 }
