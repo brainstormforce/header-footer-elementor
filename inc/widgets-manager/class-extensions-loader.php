@@ -64,6 +64,7 @@ class Extensions_Loader {
 	public static function get_extensions_list() {
 		$extensions_list = [
 			'progress-bar',
+            'scroll-to-top'
 		];
 
 		return $extensions_list;
