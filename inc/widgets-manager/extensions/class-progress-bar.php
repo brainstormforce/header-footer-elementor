@@ -50,7 +50,7 @@ class Progress_Bar {
 	 */
 	private function __construct() {
 
-        add_action( 'elementor/element/after_section_end', [ $this, 'register_reading_progress_bar' ], 10, 3 );
+        add_action( 'elementor/element/after_section_end', [ $this, 'register_extension_controls' ], 10, 3 );
 	}
 
 	/**
@@ -64,7 +64,7 @@ class Progress_Bar {
 	 * @param string                  $section_id The section ID.
 	 * @param array                   $args The arguments.
 	 */
-	public function register_reading_progress_bar( $element, $section_id, $args ) {
+	public function register_extension_controls( $element, $section_id, $args ) {
 		if ( 'section_page_style' === $section_id || 'container_page_style' === $section_id ) {
 			$element->start_controls_section(
 				'section_reading_progress_bar',
