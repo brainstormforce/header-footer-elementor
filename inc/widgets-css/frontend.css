@@ -1952,6 +1952,15 @@ div.hfe-nav-menu,
     height:100%;
 }
 
+.hfe-scroll-to-top-wrap.hfe-scroll-to-top-hide {
+    display: none;
+}
+
+.hfe-scroll-to-top-wrap.edit-mode,
+.hfe-scroll-to-top-wrap.single-page-off {
+    display: none !important;
+}
+
 .hfe-scroll-to-top-button {
     position:fixed;
     right:15px;
