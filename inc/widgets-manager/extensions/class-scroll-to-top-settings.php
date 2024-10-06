@@ -33,7 +33,7 @@ class Scroll_To_Top_Settings extends Tab_Base {
 	}
 
 	public function get_icon() {
-		return 'hm hm-scroll-top';
+		return 'eicon-v-align-top';
 	}
 
 	public function get_help_url() {
