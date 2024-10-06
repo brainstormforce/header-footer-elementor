@@ -70,7 +70,7 @@ class Scroll_To_Top_Settings extends Tab_Base {
 		);
 
 		// TODO: For Pro 3.6.0, convert this to the breakpoints utility method introduced in core 3.5.0.
-		$breakpoints    = ha_elementor()->breakpoints->get_active_breakpoints();
+		$breakpoints    = \Elementor\Plugin::instance()->breakpoints->get_active_breakpoints();
 		$device_default = [];
 		foreach ( $breakpoints as $breakpoint_key => $breakpoint ) {
 			$device_default[ $breakpoint_key . '_default' ] = 'yes';
