@@ -473,6 +473,9 @@
 #hfe-settings-app .mt-auto {
 	margin-top: auto;
 }
+#hfe-settings-app .mt-4 {
+	margin-top: 1rem;
+}
 #hfe-settings-app .box-border {
 	box-sizing: border-box;
 }
@@ -1707,6 +1710,9 @@
 }
 #hfe-settings-app .pt-5 {
 	padding-top: 1.25rem;
+}
+#hfe-settings-app .pt-4 {
+	padding-top: 1rem;
 }
 #hfe-settings-app .text-center {
 	text-align: center;

@@ -69,6 +69,10 @@ class HFE_Settings_Page {
 			true
 		);
 
+		wp_localize_script('header-footer-elementor-react-app', 'hfeSettingsData', array(
+			'templates_url' => HFE_URL . 'assets/images/settings/starter-templates.png',  // Update the path to your assets folder
+		));
+
 		wp_enqueue_style(
 			'header-footer-elementor-react-styles',
 			HFE_URL . 'build/main.css',
