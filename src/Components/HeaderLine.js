@@ -2,6 +2,7 @@ import React from 'react';
 import {
     Title
 } from '@bsf/force-ui';
+import { __ } from '@wordpress/i18n'; 
 
 const HeaderLine = () => {
 	return (
@@ -12,7 +13,7 @@ const HeaderLine = () => {
             iconPosition="right"
             size="xs"
             tag="h6"
-            title="Formerly Elementor Header & Footer Builder"
+            title={__('Formerly Elementor Header & Footer Builder', 'header-footer-elementor')}
         />
 	);
 };
