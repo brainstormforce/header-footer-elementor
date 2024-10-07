@@ -4,6 +4,7 @@ import Test from '@screens/Test.js';
 import NavMenu from '@components/NavMenu.js';
 import HeaderLine from '@components/HeaderLine.js';
 import TemplateSection from '@components/Dashboard/TemplateSection.js';
+import QuickAccess from '@components/Dashboard/QuickAccess.js';
 
 const App = () => {
 	return (
@@ -12,7 +13,8 @@ const App = () => {
 			<div className="hfe-settings-content-wrapper">
 				<HeaderLine />
 				<div className='hfe-settings-dashboard'>
-					<TemplateSection />
+					{/* <TemplateSection /> */}
+					<QuickAccess />
 				</div>
 			</div>
 		</>

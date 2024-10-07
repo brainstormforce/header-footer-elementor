@@ -428,6 +428,9 @@
 #hfe-settings-app .mb-0 {
 	margin-bottom: 0px;
 }
+#hfe-settings-app .mb-2 {
+	margin-bottom: 0.5rem;
+}
 #hfe-settings-app .mb-4 {
 	margin-bottom: 1rem;
 }
@@ -467,14 +470,14 @@
 #hfe-settings-app .mt-2\.5 {
 	margin-top: 0.625rem;
 }
+#hfe-settings-app .mt-4 {
+	margin-top: 1rem;
+}
 #hfe-settings-app .mt-\[2px\] {
 	margin-top: 2px;
 }
 #hfe-settings-app .mt-auto {
 	margin-top: auto;
-}
-#hfe-settings-app .mt-4 {
-	margin-top: 1rem;
 }
 #hfe-settings-app .box-border {
 	box-sizing: border-box;
@@ -1413,6 +1416,10 @@
 	--tw-bg-opacity: 1;
 	background-color: rgb(37 99 235 / var(--tw-bg-opacity));
 }
+#hfe-settings-app .bg-background-gray {
+	--tw-bg-opacity: 1;
+	background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+}
 #hfe-settings-app .bg-background-inverse {
 	--tw-bg-opacity: 1;
 	background-color: rgb(17 24 39 / var(--tw-bg-opacity));
@@ -1710,9 +1717,6 @@
 }
 #hfe-settings-app .pt-5 {
 	padding-top: 1.25rem;
-}
-#hfe-settings-app .pt-4 {
-	padding-top: 1rem;
 }
 #hfe-settings-app .text-center {
 	text-align: center;
@@ -2060,6 +2064,11 @@
 #hfe-settings-app .shadow-soft-shadow-lg {
 	--tw-shadow: 0px 12px 32px -12px rgba(149, 160, 178, 0.24);
 	--tw-shadow-colored: 0px 12px 32px -12px var(--tw-shadow-color);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+#hfe-settings-app .shadow-container-item {
+	--tw-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.05);
+	--tw-shadow-colored: 0px 1px 1px 0px var(--tw-shadow-color);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 #hfe-settings-app .outline-none {
