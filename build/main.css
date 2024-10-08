@@ -1,3 +1,6 @@
+/*!************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/styles.css ***!
+  \************************************************************************************************************/
 *, ::before, ::after {
 	--tw-border-spacing-x: 0;
 	--tw-border-spacing-y: 0;
@@ -398,6 +401,12 @@
 #hfe-settings-app .m-0 {
 	margin: 0px;
 }
+#hfe-settings-app .m-4 {
+	margin: 1rem;
+}
+#hfe-settings-app .m-2 {
+	margin: 0.5rem;
+}
 #hfe-settings-app .mx-0 {
 	margin-left: 0px;
 	margin-right: 0px;
@@ -758,6 +767,9 @@
 }
 #hfe-settings-app .w-full {
 	width: 100%;
+}
+#hfe-settings-app .w-\[500px\] {
+	width: 500px;
 }
 #hfe-settings-app .min-w-\[180px\] {
 	min-width: 180px;
@@ -1222,6 +1234,9 @@
 #hfe-settings-app .border-4 {
 	border-width: 4px;
 }
+#hfe-settings-app .border-\[0\.5px\] {
+	border-width: 0.5px;
+}
 #hfe-settings-app .border-x {
 	border-left-width: 1px;
 	border-right-width: 1px;
@@ -1553,6 +1568,10 @@
 #hfe-settings-app .bg-white {
 	--tw-bg-opacity: 1;
 	background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+#hfe-settings-app .bg-\[\#6005FF\] {
+	--tw-bg-opacity: 1;
+	background-color: rgb(96 5 255 / var(--tw-bg-opacity));
 }
 #hfe-settings-app .bg-cover {
 	background-size: cover;
@@ -3654,5 +3673,3 @@ div#hfe-settings-app {
 	width: 1.5rem;
 	height: 1.5rem;
 }
-
-/*# sourceMappingURL=main.css.map*/
