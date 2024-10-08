@@ -96,11 +96,9 @@ abstract class Module_Base {
 
 		$widget_manager = \Elementor\Plugin::instance()->widgets_manager;
 
-		error_log( "Hieeeeeeeeeeeeee" );
-
 		foreach ( $this->get_widgets() as $widget ) {
 			if ( HFE_Helper::is_widget_active( $widget ) ) {
-				$class_name = $this->reflection->getNamespaceName() . '\Widgets\\' . $widget;
+				$class_name = $this->reflection->getNamespaceName() . '\\' . ucfirst($widget);
 
 				if ( $this->is_widget() ) {
 					$widget_manager->register( new $class_name() );

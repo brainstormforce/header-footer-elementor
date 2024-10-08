@@ -184,6 +184,27 @@ class HFE_Helper {
 	}
 
 	/**
+	 * Returns an option from the database for
+	 * the admin settings page.
+	 *
+	 * @param  string  $key     The option key.
+	 * @param  mixed   $default Option default value if option is not available.
+	 * @param  boolean $network_override Whether to allow the network admin setting to be overridden on subsites.
+	 * @return string           Return the option value
+	 */
+	public static function get_admin_settings_option( $key, $default = false, $network_override = false ) {
+
+		// Get the site-wide option if we're in the network admin.
+		if ( $network_override && is_multisite() ) {
+			$value = get_site_option( $key, $default );
+		} else {
+			$value = get_option( $key, $default );
+		}
+
+		return $value;
+	}
+
+	/**
 	 * Widget Active.
 	 *
 	 * @param string $slug Module slug.

@@ -208,8 +208,6 @@ class Widgets_Loader {
 
 			if ( is_readable( $filename ) ) {
 				include $filename;
-			} else {
-				error_log( "File not found: " . $filename );
 			}
 		}
 	}

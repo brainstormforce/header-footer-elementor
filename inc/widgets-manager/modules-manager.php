@@ -42,7 +42,7 @@ class Modules_Manager {
 	 * @return array()
 	 * @since 1.3.0
 	 */
-	public static function register_modules() {
+	public function register_modules() {
 		$all_modules = [
 			'retina',
 			// 'copyright',
@@ -65,7 +65,7 @@ class Modules_Manager {
 			$class_name = __NAMESPACE__ . '\\Widgets\\' . $class_name . '\Module';
 
 			if ( class_exists($class_name) && $class_name::is_enable() ) {
-				$this->modules[ $module_name ] = $class_name::instance();
+				$this->_modules[ $module_name ] = $class_name::instance();
 			}
 		}
 	}
