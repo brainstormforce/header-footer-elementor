@@ -39,6 +39,13 @@ class Widgets_Loader {
 	private static $widgets_data = null;
 
 	/**
+	 * Member Variable
+	 *
+	 * @var Modules Manager
+	 */
+	public $modules_manager;
+
+	/**
 	 * Get instance of Widgets_Loader
 	 *
 	 * @since  1.2.0
@@ -167,7 +174,63 @@ class Widgets_Loader {
 	 */
 	private function __construct() {
 
-		require HFE_DIR . 'inc/widgets-manager/base/modules-manager.php';
+		spl_autoload_register( array( $this, 'autoload' ) );
+
+		$this->includes();
+
+		$this->setup_actions_filters();
+	}
+
+	/**
+	 * AutoLoad
+	 *
+	 * @since 0.0.1
+	 * @param string $class class.
+	 */
+	public function autoload( $class ) {
+
+		if ( 0 !== strpos( $class, __NAMESPACE__ ) ) {
+			return;
+		}
+
+		$class_to_load = str_replace(__NAMESPACE__ . '\\', '', $class);
+
+		if ( ! class_exists( $class_to_load ) ) {
+			$filename = strtolower(
+				preg_replace(
+					array( '/([a-z])([A-Z])/', '/_/', '/\\\/' ),
+					array( '$1-$2', '-', DIRECTORY_SEPARATOR ),
+					$class_to_load
+				)
+			);
+			
+			$filename = HFE_DIR . 'inc/widgets-manager/' . $filename . '.php'; // Adjusted path.
+
+			if ( is_readable( $filename ) ) {
+				include $filename;
+			} else {
+				error_log( "File not found: " . $filename );
+			}
+		}
+	}
+
+	/**
+	 * Includes.
+	 *
+	 * @since 0.0.1
+	 */
+	private function includes() {
+		require HFE_DIR . 'inc/widgets-manager/modules-manager.php';
+	}
+
+	/**
+	 * Setup Actions Filters.
+	 *
+	 * @since 0.0.1
+	 */
+	private function setup_actions_filters() {
+
+		add_action( 'elementor/init', [ $this, 'elementor_init' ] );
 
 		// Register category.
 		add_action( 'elementor/elements/categories_registered', [ $this, 'register_widget_category' ] );
@@ -189,6 +252,64 @@ class Widgets_Loader {
 
 			add_filter( 'woocommerce_add_to_cart_fragments', [ $this, 'wc_refresh_mini_cart_count' ] );
 		}
+
+	}
+
+	/**
+	 * Elementor Init.
+	 *
+	 * @since 0.0.1
+	 */
+	public function elementor_init() {
+
+		$this->modules_manager = new Modules_Manager();
+
+		$this->init_category();
+
+		do_action( 'header_footer_elementor/init' );
+	}
+
+	/**
+	 * Sections init
+	 *
+	 * @since 0.0.1
+	 *
+	 * @access private
+	 */
+	private function init_category() {
+		$category = __( 'Elementor Header & Footer Builder', 'header-footer-elementor' );
+
+		if ( version_compare( ELEMENTOR_VERSION, '2.0.0' ) < 0 ) {
+
+			\Elementor\Plugin::instance()->elements_manager->add_category(
+				'hfe-widgets',
+				array(
+					'title' => $category,
+				),
+				1
+			);
+		}
+	}
+
+	/**
+	 * Register Category
+	 *
+	 * @since 1.2.0
+	 * @param object $this_cat class.
+	 * @return object $this_cat class.
+	 */
+	public function register_widget_category( $this_cat ) {
+		$category = __( 'Elementor Header & Footer Builder', 'header-footer-elementor' );
+
+		$this_cat->add_category(
+			'hfe-widgets',
+			[
+				'title' => $category,
+				'icon'  => 'eicon-font',
+			]
+		);
+
+		return $this_cat;
 	}
 
 	/**
@@ -321,27 +442,6 @@ class Widgets_Loader {
 		}
 
 		return $file;
-	}
-
-	/**
-	 * Register Category
-	 *
-	 * @since 1.2.0
-	 * @param object $this_cat class.
-	 * @return object $this_cat class.
-	 */
-	public function register_widget_category( $this_cat ) {
-		$category = __( 'Elementor Header & Footer Builder', 'header-footer-elementor' );
-
-		$this_cat->add_category(
-			'hfe-widgets',
-			[
-				'title' => $category,
-				'icon'  => 'eicon-font',
-			]
-		);
-
-		return $this_cat;
 	}
 
 	/**

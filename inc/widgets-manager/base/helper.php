@@ -14,6 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 use Elementor\Plugin;
 use Elementor\Utils;
 use Elementor\Widget_Base;
+use HFE\WidgetsManager\Base\Widgets_Config;
 
 /**
  * Class HFE_Helper.
@@ -47,7 +48,7 @@ class HFE_Helper {
 	public static function get_widget_list() {
 
 		if ( ! isset( self::$widget_list ) ) {
-			self::$widget_list = UAEL_Config::get_widget_list();
+			self::$widget_list = Widgets_Config::get_widget_list();
 		}
 
 		return apply_filters( 'uael_widget_list', self::$widget_list );
@@ -142,8 +143,6 @@ class HFE_Helper {
 		return apply_filters( 'uael_widget_keywords', $widget_keywords );
 	}
 
-	
-
 	/**
 	 * Provide Widget settings.
 	 *
@@ -160,7 +159,7 @@ class HFE_Helper {
 				$widgets = self::$widget_list;
 			}
 
-			$saved_widgets = self::get_admin_settings_option( '_uael_widgets' );
+			$saved_widgets = self::get_admin_settings_option( '_hfe_widgets' );
 
 			if ( is_array( $widgets ) ) {
 
@@ -181,7 +180,7 @@ class HFE_Helper {
 
 			self::$widget_options = $widgets;
 		}
-		return apply_filters( 'uael_enabled_widgets', self::$widget_options );
+		return apply_filters( 'hfe_enabled_widgets', self::$widget_options );
 	}
 
 	/**

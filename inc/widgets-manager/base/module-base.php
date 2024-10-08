@@ -7,7 +7,7 @@
 
 namespace HFE\WidgetsManager\Base;
 
-use UltimateElementor\Classes\UAEL_Helper;
+use HFE\WidgetsManager\Base\HFE_Helper;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -96,8 +96,10 @@ abstract class Module_Base {
 
 		$widget_manager = \Elementor\Plugin::instance()->widgets_manager;
 
+		error_log( "Hieeeeeeeeeeeeee" );
+
 		foreach ( $this->get_widgets() as $widget ) {
-			if ( UAEL_Helper::is_widget_active( $widget ) ) {
+			if ( HFE_Helper::is_widget_active( $widget ) ) {
 				$class_name = $this->reflection->getNamespaceName() . '\Widgets\\' . $widget;
 
 				if ( $this->is_widget() ) {
