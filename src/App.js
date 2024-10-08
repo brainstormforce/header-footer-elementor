@@ -17,10 +17,10 @@ const App = () => {
 				<HeaderLine />
 				<div className='hfe-settings-dashboard m-4'>
 					<Widgets />
-					{/* <TemplateSection />
+					<TemplateSection />
 					<QuickAccess />
 					<WelcomeContainer />
-					<UltimateFeatures /> */}
+					<UltimateFeatures />
 				</div>
 			</div>
 		</>

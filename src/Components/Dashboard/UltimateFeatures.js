@@ -1,56 +1,109 @@
-import React from 'react'
+import React from "react";
 import { Container, Title, Button } from "@bsf/force-ui";
-import { Zap, Plus } from "lucide-react";
+import { Zap, Plus, Check } from "lucide-react";
 const UltimateFeatures = () => {
-  return (
-    <div>
-                <Container
-                align="center"
-                className="bg-background-primary p-4 m-2 border-[0.5px] border-subtle rounded-xl shadow-sm w-fit"
-                containerType="flex"
-                direction="row"
-                gap="lg"
-                style={{
-                    height: "300px",
-                }}
-            >
-                <Container.Item className="w-[500px]">
-                    <Title
-                        description=""
-                        icon={<Zap/>}
-                        iconPosition="left"
-                        size="lg"
-                        tag="h6"
-                        title="Unlock Ultimate Features"
-                    />
-                    <Title
-                        description="Get access to advanced widgets and features to create the website that stands out!"
-                        icon={''}
-                        iconPosition="left"
-                        size="sm"
-                        tag="h6"
-                        title="Create Ultimate Designs with Addons Pro!"
-                    />
-                    <div className="flex items-center gap-4">
-                        <Button
-                            icon={<Plus />}
-                            iconPosition="right"
-                            variant="secondary"
-                            className=""
-                        >
-                            Upgrade Now
-                        </Button>
-                        <Button
-                            icon={""}
-                            iconPosition="right"
-                            variant="ghost"
-                        >
-                            Compare Free vs Pro
-                        </Button>
-                    </div>
-                </Container.Item>
-            </Container>
-    </div>
-  )
-}
-export default UltimateFeatures
+	const featureData = [
+		{
+			id: 1,
+			icon: "",
+			title: "Modal Popup",
+		},
+		{
+			id: 2,
+			icon: "",
+			title: "Advanced Heading",
+		},
+		{
+			id: 1,
+			icon: "",
+			title: "Post Layouts",
+		},
+		{
+			id: 1,
+			icon: "",
+			title: "Info Box",
+		},
+		{
+			id: 1,
+			icon: "",
+			title: "Pricing Cards",
+		},
+		{
+			id: 1,
+			icon: "",
+			title: "Form Stylers and more...",
+		},
+	];
+	return (
+		<div>
+			<Container
+				className="bg-background-primary w-fit p-5 m-2 border-[0.5px] border-subtle rounded-xl shadow-sm"
+				containerType="flex"
+				direction="row"
+				gap="lg"
+			>
+				<Container.Item className=" flex flex-col justify-between">
+					<div>
+						<Title
+							description=""
+							icon={<Zap />}
+							iconPosition="left"
+							size="xs"
+							tag="h6"
+							title="Unlock Ultimate Features"
+							className="text-xs font-semibold text-brand-primary-600"
+						/>
+						<Title
+							description=""
+							icon={""}
+							iconPosition="left"
+							tag="h6"
+							title="Create Ultimate Designs with Addons Pro!"
+							className="py-1 text-sm"
+						/>
+						<p className="text-md m-0 text-text-secondary max-w-xs">
+							Get access to advanced widgets and features to
+							create the website that stands out!
+						</p>
+					</div>
+					<div className="grid grid-cols-2 grid-flow-row gap-1 max-w-xs my-4">
+						{featureData.map((feature) => (
+							<Title
+								description=""
+								icon={
+									<Check className="text-brand-primary-600 mr-1 h-3 w-3" />
+								}
+								iconPosition="left"
+								size="xxs"
+								tag="h6"
+								title={feature.title}
+								className=""
+							/>
+						))}
+					</div>
+					<div className="flex items-center pb-3 gap-4">
+						<Button
+							icon={<Plus />}
+							iconPosition="right"
+							variant="secondary"
+							className=""
+						>
+							Upgrade Now
+						</Button>
+						<Button icon={""} iconPosition="right" variant="ghost">
+							Compare Free vs Pro
+						</Button>
+					</div>
+				</Container.Item>
+				<Container.Item className="w-[300px] flex justify-center items-center">
+					<img
+						src={`${hfeSettingsData.column_url}`}
+						alt="Column Showcase"
+						className="w-full h-auto rounded"
+					/>
+				</Container.Item>
+			</Container>
+		</div>
+	);
+};
+export default UltimateFeatures;
