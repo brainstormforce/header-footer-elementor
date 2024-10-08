@@ -56,11 +56,17 @@
     padding-top: 0px;
 }
 div#hfe-settings-app {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 500;
-    margin: 0 4px;
     line-height: normal;
 }
 #hfe-settings-app .p-5 {
     padding: 0.5rem 1.25rem;
+}
+#hfe-settings-app .hfe-header-title h6 {
+	color: #858484;
+	font-size: 14px;
+}
+.hfe-settings-content-wrapper {
+	padding: 15px 25px;
 }

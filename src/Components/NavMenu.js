@@ -2,10 +2,10 @@ import React from 'react';
 import {
 	Topbar,
 	Button,
-	Badge,
-	Avatar
+	Badge
 } from '@bsf/force-ui';
-import { ArrowUpRight, CircleHelp, Megaphone, User } from 'lucide-react';
+import { ArrowUpRight, CircleHelp, Megaphone } from 'lucide-react';
+import { __ } from '@wordpress/i18n';
 
 const NavMenu = () => {
 	return (
@@ -31,18 +31,10 @@ const NavMenu = () => {
 			<Topbar.Middle align="left" gap="2xl">
 				<Topbar.Item>
 				<div className="flex gap-2">
-					<div>
-						Dashboard
-					</div>
-					<div>
-						Widgets/Features
-					</div>
-					<div>
-						Settings
-					</div>
-					<div>
-						Free vs Pro
-					</div>
+					<div>{__('Dashboard', 'header-footer-elementor')}</div>
+					<div>{__('Widgets/Features', 'header-footer-elementor')}</div>
+					<div>{__('Settings', 'header-footer-elementor')}</div>
+					<div>{__('Free vs Pro', 'header-footer-elementor')}</div>
 				</div>
 				</Topbar.Item>
 				<Topbar.Item>
@@ -51,7 +43,7 @@ const NavMenu = () => {
 					iconPosition="right"
 					variant="ghost"
 				>
-					Upgrade to Pro
+					{__('Upgrade to Pro', 'header-footer-elementor')}
 				</Button>
 				</Topbar.Item>
 			</Topbar.Middle>
@@ -66,14 +58,6 @@ const NavMenu = () => {
 				<Topbar.Item className="gap-2">
 				<CircleHelp />
 				<Megaphone />
-				</Topbar.Item>
-				<Topbar.Item>
-				<Avatar
-					border="ring"
-					size="sm"
-				>
-					<User />
-				</Avatar>
 				</Topbar.Item>
 			</Topbar.Right>
 			</Topbar>
