@@ -132,8 +132,6 @@ class Progress_Bar {
 					'options'     => [
 						'top'    => __( 'Top', 'header-footer-elementor' ),
 						'bottom' => __( 'Bottom', 'header-footer-elementor' ),
-						'right'  => __( 'Right', 'header-footer-elementor' ),
-						'left'   => __( 'Left', 'header-footer-elementor' ),
 					],
 					'separator'   => 'before',
 					'condition'   => [
@@ -151,7 +149,7 @@ class Progress_Bar {
 					'range'      => [
 						'px' => [
 							'min'  => 0,
-							'max'  => 100,
+							'max'  => 50,
 							'step' => 1,
 						],
 					],
@@ -197,33 +195,6 @@ class Progress_Bar {
 					],
 					'separator' => 'before',
 					'condition' => [
-						'enable_reading_progress_bar' => 'yes',
-					],
-				]
-			);
-
-			$element->add_control(
-				'hfe_reading_progress_bar_animation_speed',
-				[
-					'label'      => __( 'Animation Speed', 'header-footer-elementor' ),
-					'type'       => \Elementor\Controls_Manager::SLIDER,
-					'size_units' => [ 'px' ],
-					'range'      => [
-						'px' => [
-							'min'  => 0,
-							'max'  => 1000,
-							'step' => 1,
-						],
-					],
-					'default'    => [
-						'unit' => 'px',
-						'size' => 50,
-					],
-					'selectors'  => [
-						'{{WRAPPER}} .hfe-reading-progress-wrap .hfe-reading-progress .hfe-reading-progress-fill' => 'transition: width {{SIZE}}ms ease;',
-					],
-					'separator'  => 'before',
-					'condition'  => [
 						'enable_reading_progress_bar' => 'yes',
 					],
 				]
