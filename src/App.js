@@ -13,7 +13,7 @@ const App = () => {
 			<div className="hfe-settings-content-wrapper">
 				<HeaderLine />
 				<div className='hfe-settings-dashboard'>
-					{/* <TemplateSection /> */}
+					<TemplateSection />
 					<QuickAccess />
 				</div>
 			</div>

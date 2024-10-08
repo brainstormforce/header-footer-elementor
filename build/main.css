@@ -2036,6 +2036,11 @@
 	--tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+#hfe-settings-app .shadow-container-item {
+	--tw-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.05);
+	--tw-shadow-colored: 0px 1px 1px 0px var(--tw-shadow-color);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
 #hfe-settings-app .shadow-lg {
 	--tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 	--tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
@@ -2064,11 +2069,6 @@
 #hfe-settings-app .shadow-soft-shadow-lg {
 	--tw-shadow: 0px 12px 32px -12px rgba(149, 160, 178, 0.24);
 	--tw-shadow-colored: 0px 12px 32px -12px var(--tw-shadow-color);
-	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-#hfe-settings-app .shadow-container-item {
-	--tw-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.05);
-	--tw-shadow-colored: 0px 1px 1px 0px var(--tw-shadow-color);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 #hfe-settings-app .outline-none {
