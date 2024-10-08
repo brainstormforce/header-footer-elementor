@@ -31,6 +31,14 @@ class Widgets_Loader {
 	private static $_instance = null;
 
 	/**
+	 * Instance of Widgets_Loader.
+	 *
+	 * @since  1.2.0
+	 * @var null
+	 */
+	private static $widgets_data = null;
+
+	/**
 	 * Get instance of Widgets_Loader
 	 *
 	 * @since  1.2.0
@@ -45,17 +53,127 @@ class Widgets_Loader {
 	}
 
 	/**
+	 * Get Widget List.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @return array The Widget List.
+	 */
+	public static function get_all_widgets_list() {
+		if ( null === self::$widgets_data ) {
+			
+			self::$widgets_data = array(
+				'Cart'    => array(
+					'name'      => 'cart',
+					'slug'      => 'hfe-cart',
+					'title'     => __( 'Cart', 'header-footer-elementor' ),
+					'keywords'  => array( 'uael', 'cart', 'woo', 'bag', 'shop' ),
+					'icon'      => 'hfe-icon-menu-cart',
+					'title_url' => '#',
+					'is_active'   => true,
+					'category'  => 'hfe-widgets',
+				),
+                'Copyright'    => array(
+					'name'      => 'copyright',
+					'slug'      => 'copyright',
+					'title'     => __( 'Copyright', 'header-footer-elementor' ),
+					'keywords'  => array( 'uael', 'copyright', 'image' ),
+					'icon'      => 'hfe-icon-copyright-widget',
+					'title_url' => '#',
+					'is_active'   => true,
+					'category'  => 'hfe-widgets',
+				),
+                'Navigation_Menu'    => array(
+					'name'      => 'navigation-menu',
+					'slug'      => 'navigation-menu',
+					'title'     => __( 'Navigation Menu', 'header-footer-elementor' ),
+					'keywords'  => array( 'uael', 'navigation', 'menu', 'dropdown' ),
+					'icon'      => 'hfe-icon-navigation-menu',
+					'title_url' => '#',
+					'is_active'   => true,
+					'category'  => 'hfe-widgets',
+				),
+                'Page_Title'    => array(
+					'name'      => 'page-title',
+					'slug'      => 'page-title',
+					'title'     => __( 'Page Title', 'header-footer-elementor' ),
+					'keywords'  => array( 'uael', 'page', 'title', 'heading' ),
+					'icon'      => 'hfe-icon-page-title',
+					'title_url' => '#', 
+					'is_active'   => true,
+					'category'  => 'hfe-widgets',
+				),
+                'Retina'    => array(
+					'name'      => 'retina',
+					'slug'      => 'retina',
+					'title'     => __( 'Retina Image', 'header-footer-elementor' ),
+					'keywords'  => array( 'uael', 'retina', 'image', 'photo' ),
+					'icon'      => 'hfe-icon-retina-image',
+					'title_url' => '#',
+					'is_active'   => true,
+					'category'  => 'hfe-widgets',
+				),
+                'Search_Button'    => array(
+					'name'      => 'search-button',
+					'slug'      => 'hfe-search-button',
+					'title'     => __( 'Search', 'header-footer-elementor' ),
+					'keywords'  => array( 'uael', 'search', 'button' ),
+					'icon'      => 'hfe-icon-search',
+					'title_url' => '#',
+					'is_active'   => true,
+					'category'  => 'hfe-widgets',
+				),
+                'Site_Logo'    => array(
+					'name'      => 'site-logo',
+					'slug'      => 'site-logo',
+					'title'     => __( 'Site Logo', 'header-footer-elementor' ),
+					'keywords'  => array( 'uael', 'site', 'logo' ),
+					'icon'      => 'hfe-icon-site-logo',
+					'title_url' => '#',
+					'is_active'   => true,
+					'category'  => 'hfe-widgets',
+				),
+                'Site_Tagline'    => array(
+					'name'      => 'site-tagline',
+					'slug'      => 'hfe-site-tagline',
+					'title'     => __( 'Site Tagline', 'header-footer-elementor' ),
+					'keywords'  => array( 'uael', 'site', 'tagline' ),
+					'icon'      => 'hfe-icon-site-tagline',
+					'title_url' => '#',
+					'is_active'   => true,
+					'category'  => 'hfe-widgets',
+				),
+                'Site_Title'    => array(
+					'name'      => 'site-title',
+					'slug'      => 'hfe-icon-site-title',
+					'title'     => __( 'Site Title', 'header-footer-elementor' ),
+					'keywords'  => array( 'uael', 'site', 'title' ),
+					'icon'      => 'hfe-icon-site-title',
+					'title_url' => '#',
+					'is_active'   => false,
+					'category'  => 'hfe-widgets',
+				),
+			);
+		}
+
+		return apply_filters( 'hfe_widgets_data', self::$widgets_data );
+	}
+
+	/**
 	 * Setup actions and filters.
 	 *
 	 * @since  1.2.0
 	 * @access private
 	 */
 	private function __construct() {
+
+		require HFE_DIR . 'inc/widgets-manager/base/modules-manager.php';
+
 		// Register category.
 		add_action( 'elementor/elements/categories_registered', [ $this, 'register_widget_category' ] );
 
 		// Register widgets.
-		add_action( 'elementor/widgets/register', [ $this, 'register_widgets' ] );
+		// add_action( 'elementor/widgets/register', [ $this, 'register_widgets' ] );
 
 		// Register widgets script.
 		add_action( 'elementor/frontend/after_register_scripts', [ $this, 'register_widget_scripts' ] );
@@ -238,18 +356,43 @@ class Widgets_Loader {
 	public function register_widgets() {
 		// Its is now safe to include Widgets files.
 		$this->include_widgets_files();
-		// Register Widgets.
-		Plugin::instance()->widgets_manager->register( new Widgets\Retina() );
-		Plugin::instance()->widgets_manager->register( new Widgets\Copyright() );
-		Plugin::instance()->widgets_manager->register( new Widgets\Navigation_Menu() );
-		Plugin::instance()->widgets_manager->register( new Widgets\Page_Title() );
-		Plugin::instance()->widgets_manager->register( new Widgets\Site_Title() );
-		Plugin::instance()->widgets_manager->register( new Widgets\Site_Tagline() );
-		Plugin::instance()->widgets_manager->register( new Widgets\Site_Logo() );
-		Plugin::instance()->widgets_manager->register( new Widgets\Search_Button() );
-		if ( class_exists( 'woocommerce' ) ) {
-			Plugin::instance()->widgets_manager->register( new Widgets\Cart() );
+		
+		require_once HFE_DIR . '/inc/widgets-manager/base/modules-base.php';
+
+		$widget_manager = \Elementor\Plugin::instance()->widgets_manager;
+
+		foreach ( $this->get_all_widgets_list() as $widget_key => $widget_data ) {
+			if ( $this::is_widget_active( $widget_key ) ) {
+				$class_name = $this->reflection->getNamespaceName() . '\Widgets\\' . $widget_key;
+
+				if ( 'Cart' === $widget_key && class_exists( 'woocommerce' ) ) {
+					$widget_manager->register( new Widgets\Cart() );
+				} elseif ( 'Cart' !== $widget_key ) {
+					$widget_manager->register( new $class_name() );
+				}
+				
+			}
 		}
+
+	}
+
+	/**
+	 * Widget Active.
+	 *
+	 * @param string $slug Module slug.
+	 * @return string
+	 * @since 0.0.1
+	 */
+	public static function is_widget_active( $slug = '' ) {
+
+		$widgets     = self::get_all_widgets_list();
+		$is_activate = false;
+
+		if ( isset( $widgets[ $slug ] ) ) {
+			$is_activate = $widgets[ $slug ]['is_active'];
+		}
+
+		return $is_activate;
 	}
 
 	/**
