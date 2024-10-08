@@ -234,12 +234,11 @@ class Progress_Bar {
 	public function render_progress_bar() {
 		// Fetch the settings from Elementor controls.
 		$position = get_option( 'hfe_reading_progress_bar_position', 'top' );
-	
-		$animation_speed = get_option( 'hfe_reading_progress_bar_animation_speed', 300 );
-	
+		var_dump($position);
+		
 		// Other settings like height, background color, fill color can also be passed via inline styles.
 		?>
-		<div id="hfe-reading-progress-bar" class="hfe-reading-progress-wrap" data-position="<?php echo esc_attr( $position ); ?>" data-animation-speed="<?php echo esc_attr( $animation_speed ); ?>">
+		<div id="hfe-reading-progress-bar" class="hfe-reading-progress-wrap" data-position="<?php echo esc_attr( $position ); ?>" >
 			<div class="hfe-reading-progress">
 				<div class="hfe-reading-progress-fill"></div>
 			</div>
