@@ -15,7 +15,7 @@ module.exports = withTW({
 				'border-interactive': '#2563EB',
 				'border-subtle': '#E5E7EB',
 
-				focus: '#9333EA',
+				'focus': '#9333EA',
 				'focus-border': '#D8B4FE',
 
 				'toggle-on': '#6B21A8',
@@ -33,7 +33,8 @@ module.exports = withTW({
 				'icon-primary': '#111827',
 				'icon-secondary': '#4B5563',
 
-				// SureEmails
+				'background-gray': '#F9FAFB'
+
 			},
 			fontSize: {
 				xxs: '0.6875rem', // 11px
@@ -45,6 +46,7 @@ module.exports = withTW({
 			boxShadow: {
 				'content-wrapper':
 					'0px 1px 1px 0px #0000000F, 0px 1px 2px 0px #0000001A',
+				'container-item': '0px 1px 1px 0px rgba(0, 0, 0, 0.05)', // Custom shadow
 			},
 			spacing: {
 				'slide-over-container': '566px',
