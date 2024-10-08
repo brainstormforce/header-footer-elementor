@@ -4,6 +4,7 @@
  *
  * @package header-footer-elementor
  */
+
 namespace HFE\WidgetsManager\Extensions;
 
 use Elementor\Controls_Manager;
@@ -19,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Progress_Bar {
 
-    /**
+	/**
 	 * Instance of Widgets_Loader.
 	 *
 	 * @since  1.2.0
@@ -28,7 +29,7 @@ class Progress_Bar {
 	private static $_instance = null;
 
 
-    /**
+	/**
 	 * Get instance of Widgets_Loader
 	 *
 	 * @since  1.2.0
@@ -50,7 +51,9 @@ class Progress_Bar {
 	 */
 	private function __construct() {
 
-        add_action( 'elementor/element/after_section_end', [ $this, 'register_extension_controls' ], 10, 3 );
+		add_action( 'elementor/element/after_section_end', [ $this, 'register_extension_controls' ], 10, 3 );
+		add_action( 'wp_footer', [ $this, 'render_progress_bar' ] );
+		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_progress_bar_scripts' ] );
 	}
 
 	/**
@@ -223,6 +226,53 @@ class Progress_Bar {
 		}
 	}
 
+	/**
+	 * Renders the Progress Bar markup in the frontend.
+	 *
+	 * @since x.x.x
+	 */
+	public function render_progress_bar() {
+		// Fetch the settings from Elementor controls.
+		$position = get_option( 'hfe_reading_progress_bar_position', 'top' );
+	
+		$animation_speed = get_option( 'hfe_reading_progress_bar_animation_speed', 300 );
+	
+		// Other settings like height, background color, fill color can also be passed via inline styles.
+		?>
+		<div id="hfe-reading-progress-bar" class="hfe-reading-progress-wrap" data-position="<?php echo esc_attr( $position ); ?>" data-animation-speed="<?php echo esc_attr( $animation_speed ); ?>">
+			<div class="hfe-reading-progress">
+				<div class="hfe-reading-progress-fill"></div>
+			</div>
+		</div>
+		<?php
+	}
+	
+	
+
+	/**
+	 * Enqueue the Progress Bar scripts.
+	 *
+	 * @since x.x.x
+	 */
+	public function enqueue_progress_bar_scripts() {
+		// Corrected path to the JavaScript file.
+		wp_enqueue_script( 
+			'hfe-reading-progress-bar', 
+			plugin_dir_url( __FILE__ ) . '../../js/progress-bar.js', 
+			[], 
+			'1.0.0', 
+			true 
+		);
+	
+		// Corrected path to the CSS file.
+		wp_enqueue_style( 
+			'hfe-reading-progress-bar', 
+			plugin_dir_url( __FILE__ ) . '../../widgets-css/progress-bar.css', 
+			[], 
+			'1.0.0' 
+		);
+	}
+	
 }
 
 Progress_Bar::instance();
