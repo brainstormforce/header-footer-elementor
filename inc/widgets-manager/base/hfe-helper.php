@@ -21,15 +21,12 @@ use HFE\WidgetsManager\Base\Widgets_Config;
  */
 class HFE_Helper {
 
-	
-
 	/**
 	 * Widget Options
 	 *
 	 * @var widget_options
 	 */
 	private static $widget_options = null;
-
 
 	/**
 	 * Widget List
@@ -38,12 +35,18 @@ class HFE_Helper {
 	 */
 	private static $widget_list = null;
 
+	/**
+	 * Widget List
+	 *
+	 * @var widget_list
+	 */
+	private static $all_widget_list = null;
 
 	/**
 	 * Provide General settings array().
 	 *
-	 * @return array()
 	 * @since 0.0.1
+	 * @return array()
 	 */
 	public static function get_widget_list() {
 
@@ -51,9 +54,21 @@ class HFE_Helper {
 			self::$widget_list = Widgets_Config::get_widget_list();
 		}
 
-		return apply_filters( 'uael_widget_list', self::$widget_list );
+		return apply_filters( 'hfe_widget_list', self::$widget_list );
 	}
 
+	/**
+	 * Provide General settings array().
+	 *
+	 * @since 0.0.1
+	 * @return array()
+	 */
+	public static function get_all_widgets_list() {
+		if ( ! isset( self::$all_widgets_list ) ) {
+			self::$all_widgets_list = Widgets_Config::get_all_widgets();
+		}
+		return apply_filters( 'hfe_all_widgets_list', self::$all_widgets_list );
+	}
 
 	/**
 	 * Provide Widget Name

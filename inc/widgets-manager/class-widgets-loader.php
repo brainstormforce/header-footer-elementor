@@ -440,25 +440,6 @@ class Widgets_Loader {
 	}
 
 	/**
-	 * Widget Active.
-	 *
-	 * @param string $slug Module slug.
-	 * @return string
-	 * @since 0.0.1
-	 */
-	public static function is_widget_active( $slug = '' ) {
-
-		$widgets     = self::get_all_widgets_list();
-		$is_activate = false;
-
-		if ( isset( $widgets[ $slug ] ) ) {
-			$is_activate = $widgets[ $slug ]['is_active'];
-		}
-
-		return $is_activate;
-	}
-
-	/**
 	 * Register module required js on elementor's action.
 	 *
 	 * @since 0.0.1

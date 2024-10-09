@@ -46,9 +46,7 @@ class Modules_Manager {
 		$all_modules = [
 			'retina',
 			'copyright',
-			// 'copyright-shortcode',
 			'navigation-menu',
-			// 'menu-walker',
 			'site-title',
 			'page-title',
 			'site-tagline',
@@ -95,22 +93,6 @@ class Modules_Manager {
 
 		return $this->_modules;
 	}
-
-	/**
-	 * Required Files.
-	 *
-	 * @since 0.0.1
-	 */
-	// private function register_modules() {
-	// 	$_modules = $this->get_widget_list();
-
-	// 	if ( ! empty( $_modules ) ) {
-	// 		foreach ( $_modules as $handle => $data ) {
-	// 			require_once HFE_DIR . '/inc/widgets-manager/widgets/class-' . $data . '.php';
-	// 		}
-	// 	}
-
-	// }
 
 	/**
 	 * Required Files.
