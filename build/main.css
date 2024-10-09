@@ -404,9 +404,6 @@
 #hfe-settings-app .m-4 {
 	margin: 1rem;
 }
-#hfe-settings-app .m-2 {
-	margin: 0.5rem;
-}
 #hfe-settings-app .mx-0 {
 	margin-left: 0px;
 	margin-right: 0px;
@@ -771,9 +768,6 @@
 }
 #hfe-settings-app .w-full {
 	width: 100%;
-}
-#hfe-settings-app .w-\[90\%\] {
-	width: 90%;
 }
 #hfe-settings-app .min-w-\[180px\] {
 	min-width: 180px;
@@ -2060,8 +2054,8 @@
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 #hfe-settings-app .shadow-container-item {
-	--tw-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.05);
-	--tw-shadow-colored: 0px 1px 1px 0px var(--tw-shadow-color);
+	--tw-shadow: 0px 1.5px 1px 0px rgba(0, 0, 0, 0.05);
+	--tw-shadow-colored: 0px 1.5px 1px 0px var(--tw-shadow-color);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 #hfe-settings-app .shadow-lg {

@@ -1,5 +1,6 @@
 import React from 'react'
 import WidgetItem from './WidgetItem'
+import { Container } from "@bsf/force-ui";
 import { MoreHorizontalIcon, Plus } from "lucide-react";
 
 const widgetData = [
@@ -184,14 +185,25 @@ const Widgets = () => {
                         <MoreHorizontalIcon />
                     </div>
                 </div>
-            <div className='w-fit flex bg-black flex-col rounded-lg p-4'>
-                <div className='flex items-start gap-1 flex-wrap m-3 bg-gray-600 rounded-md' style={
-                    { backgroundColor: 'lightgray', padding: '4px', width: "838px" }
-                }>
-                    {widgetData.map((widget) => (
-                        <WidgetItem widget={widget} key={widget.id} />
-                    ))}
-                </div>
+            <div className='flex bg-black flex-col rounded-lg p-4'>
+                
+                <Container
+                    align="stretch"
+                    className="bg-background-gray p-1 gap-1.5"
+                    cols={4}
+                    containerType="grid"
+                    gap=""
+                    justify="start"
+                    >
+                        {widgetData.map((widget) => (
+                            <Container.Item
+                             alignSelf="auto"
+                             className="text-wrap rounded-md shadow-container-item bg-background-primary p-4"
+                           >
+                                <WidgetItem widget={widget} key={widget.id} />
+                            </Container.Item>
+                        ))}
+                    </Container>
             </div>
         </div>
     )
