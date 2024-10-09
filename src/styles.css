@@ -45,9 +45,9 @@
 	text-overflow: ellipsis;
 }
 
-.hfe-menu-page-wrapper {
+/* .hfe-menu-page-wrapper {
 	width: calc( 100% - 25px);
-}
+} */
 #hfe-settings-app .gap-2 {
     gap: 1.2rem;
 }

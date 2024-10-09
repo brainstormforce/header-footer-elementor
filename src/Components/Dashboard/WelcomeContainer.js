@@ -6,17 +6,19 @@ const WelcomeContainer = () => {
 		<div>
 			<Container
 				align="center"
-				className="bg-background-primary p-4 border-[0.5px] border-subtle rounded-xl shadow-sm w-full"
+				className="bg-background-primary border-[0.5px] border-subtle rounded-xl shadow-sm mb-4 p-4"
 				containerType="flex"
 				direction="row"
-				gap="2xl"
+				gap="sm"
 			>
-				<Container.Item className="w-[500px]">
+				<Container.Item
+					shrink={1}
+				>
 					<Title
 						description=""
 						icon={null}
 						iconPosition="right"
-						size="lg"
+						size="md"
 						tag="h3"
 						title="Welcome to Ultimate Addons for Elementor!"
 					/>
@@ -30,7 +32,7 @@ const WelcomeContainer = () => {
 						features. To get started,watch the video or check our
 						comprehensive documentation for more details.
 					</p>
-					<div className="flex items-center gap-4">
+					<div className="flex items-center gap-2">
 						<Button
 							icon={<Plus />}
 							iconPosition="right"
@@ -48,7 +50,9 @@ const WelcomeContainer = () => {
 						</Button>
 					</div>
 				</Container.Item>
-				<Container.Item className="">
+				<Container.Item 
+					className="p-2"
+				>
 					<iframe
 						width="280"
 						height="160"

@@ -9,7 +9,11 @@ import { __ } from '@wordpress/i18n';
 
 const NavMenu = () => {
 	return (
-		<Topbar>
+		<Topbar
+			style={{
+				width: "unset"
+			}}
+		>
 			<Topbar.Left gap="xl">
 				<Topbar.Item>
 				<svg

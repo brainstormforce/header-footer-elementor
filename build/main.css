@@ -401,12 +401,6 @@
 #hfe-settings-app .m-0 {
 	margin: 0px;
 }
-#hfe-settings-app .m-2 {
-	margin: 0.5rem;
-}
-#hfe-settings-app .m-4 {
-	margin: 1rem;
-}
 #hfe-settings-app .mx-0 {
 	margin-left: 0px;
 	margin-right: 0px;
@@ -753,14 +747,8 @@
 #hfe-settings-app .w-\[22\.5rem\] {
 	width: 22.5rem;
 }
-#hfe-settings-app .w-\[300px\] {
-	width: 300px;
-}
 #hfe-settings-app .w-\[40px\] {
 	width: 40px;
-}
-#hfe-settings-app .w-\[500px\] {
-	width: 500px;
 }
 #hfe-settings-app .w-\[648px\] {
 	width: 648px;
@@ -2300,9 +2288,9 @@
 	text-overflow: ellipsis;
 }
 
-.hfe-menu-page-wrapper {
+/* .hfe-menu-page-wrapper {
 	width: calc( 100% - 25px);
-}
+} */
 #hfe-settings-app .gap-2 {
     gap: 1.2rem;
 }
