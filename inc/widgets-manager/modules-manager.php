@@ -45,16 +45,16 @@ class Modules_Manager {
 	public function register_modules() {
 		$all_modules = [
 			'retina',
-			// 'copyright',
+			'copyright',
 			// 'copyright-shortcode',
-			// 'navigation-menu',
+			'navigation-menu',
 			// 'menu-walker',
-			// 'site-title',
-			// 'page-title',
-			// 'site-tagline',
-			// 'site-logo',
-			// 'cart',
-			// 'search-button',
+			'site-title',
+			'page-title',
+			'site-tagline',
+			'site-logo',
+			'cart',
+			'search-button',
 		];
 
 		foreach ( $all_modules as $module_name ) {

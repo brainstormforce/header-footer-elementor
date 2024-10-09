@@ -5,7 +5,7 @@
  * @package header-footer-elementor
  */
 
-namespace HFE\WidgetsManager\Widgets;
+namespace HFE\WidgetsManager\Widgets\SiteTagline;
 
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;

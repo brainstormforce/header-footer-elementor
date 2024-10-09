@@ -6,7 +6,7 @@
  * @author Brainstorm Force
  */
 
-namespace HFE\WidgetsManager\Widgets;
+namespace HFE\WidgetsManager\Widgets\Copyright;
 
 /**
  * Exit if accessed directly.
