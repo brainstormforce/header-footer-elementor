@@ -140,7 +140,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 ## Changelog ##
 
-### 1.6.43 ###
+### 1.6.42.1 ###
 - Improvement: Icons displaying correctly on frontend.
 
 ### 1.6.42 ###
