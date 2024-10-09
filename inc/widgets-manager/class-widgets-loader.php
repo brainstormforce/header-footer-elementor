@@ -233,9 +233,6 @@ class Widgets_Loader {
 		// Register category.
 		add_action( 'elementor/elements/categories_registered', [ $this, 'register_widget_category' ] );
 
-		// Register widgets.
-		// add_action( 'elementor/widgets/register', [ $this, 'register_widgets' ] );
-
 		// Register widgets script.
 		add_action( 'elementor/frontend/after_register_scripts', [ $this, 'register_widget_scripts' ] );
 
@@ -440,38 +437,6 @@ class Widgets_Loader {
 		}
 
 		return $file;
-	}
-
-	/**
-	 * Register Widgets
-	 *
-	 * Register new Elementor widgets.
-	 *
-	 * @since 1.2.0
-	 * @access public
-	 * @return void
-	 */
-	public function register_widgets() {
-		// Its is now safe to include Widgets files.
-		$this->include_widgets_files();
-		
-		require_once HFE_DIR . '/inc/widgets-manager/base/modules-base.php';
-
-		$widget_manager = \Elementor\Plugin::instance()->widgets_manager;
-
-		foreach ( $this->get_all_widgets_list() as $widget_key => $widget_data ) {
-			if ( $this::is_widget_active( $widget_key ) ) {
-				$class_name = $this->reflection->getNamespaceName() . '\Widgets\\' . $widget_key;
-
-				if ( 'Cart' === $widget_key && class_exists( 'woocommerce' ) ) {
-					$widget_manager->register( new Widgets\Cart() );
-				} elseif ( 'Cart' !== $widget_key ) {
-					$widget_manager->register( new $class_name() );
-				}
-				
-			}
-		}
-
 	}
 
 	/**
