@@ -20,7 +20,8 @@ use Elementor\Repeater;
 use Elementor\Group_Control_Css_Filter;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Plugin;
-use Elementor\Widget_Base;
+
+use HFE\WidgetsManager\Base\Common_Widget;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;   // Exit if accessed directly.
@@ -33,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.3.0
  */
-class Site_Logo extends Widget_Base {
+class Site_Logo extends Common_Widget {
 
 	/**
 	 * Retrieve the widget name.
@@ -45,7 +46,7 @@ class Site_Logo extends Widget_Base {
 	 * @return string Widget name.
 	 */
 	public function get_name() {
-		return 'site-logo';
+		return parent::get_widget_slug( 'Site_Logo' );
 	}
 
 	/**
@@ -58,7 +59,7 @@ class Site_Logo extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Site Logo', 'header-footer-elementor' );
+		return parent::get_widget_title( 'Site_Logo' );
 	}
 
 	/**
@@ -71,7 +72,7 @@ class Site_Logo extends Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'hfe-icon-site-logo';
+		return parent::get_widget_icon( 'Site_Logo' );
 	}
 
 	/**

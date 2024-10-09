@@ -19,7 +19,7 @@ use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Css_Filter;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Plugin;
-use Elementor\Widget_Base;
+use HFE\WidgetsManager\Base\Common_Widget;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;   // Exit if accessed directly.
@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.2.0
  */
-class Retina extends Widget_Base {
+class Retina extends Common_Widget {
 	/**
 	 * Retrieve the widget name.
 	 *
@@ -43,7 +43,7 @@ class Retina extends Widget_Base {
 	 * @return string Widget name.
 	 */
 	public function get_name() {
-		return 'retina';
+		return parent::get_widget_slug( 'Retina' );
 	}
 
 	/**
@@ -56,7 +56,7 @@ class Retina extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Retina Image', 'header-footer-elementor' );
+		return parent::get_widget_title( 'Retina' );
 	}
 
 	/**
@@ -69,25 +69,7 @@ class Retina extends Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'hfe-icon-retina-image';
-	}
-
-	/**
-	 * Retrieve the list of categories the widget belongs to.
-	 *
-	 * Used to determine where to display the widget in the editor.
-	 *
-	 * Note that currently Elementor supports only one category.
-	 * When multiple categories passed, Elementor uses the first one.
-	 *
-	 * @since 1.2.0
-	 *
-	 * @access public
-	 *
-	 * @return array Widget categories.
-	 */
-	public function get_categories() {
-		return [ 'hfe-widgets' ];
+		return parent::get_widget_icon( 'Retina' );
 	}
 
 	/**

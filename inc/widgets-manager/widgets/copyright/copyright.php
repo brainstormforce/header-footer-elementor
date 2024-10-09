@@ -12,7 +12,8 @@ use Elementor\Utils;
 use Elementor\Group_Control_Typography;
 use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
-use Elementor\Widget_Base;
+
+use HFE\WidgetsManager\Base\Common_Widget;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;   // Exit if accessed directly.
@@ -25,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.2.0
  */
-class Copyright extends Widget_Base {
+class Copyright extends Common_Widget {
 
 	/**
 	 * Retrieve the widget name.
@@ -37,7 +38,7 @@ class Copyright extends Widget_Base {
 	 * @return string Widget name.
 	 */
 	public function get_name() {
-		return 'copyright';
+		return parent::get_widget_slug( 'Copyright' );
 	}
 	/**
 	 * Retrieve the widget title.
@@ -49,7 +50,7 @@ class Copyright extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Copyright', 'header-footer-elementor' );
+		return parent::get_widget_title( 'Copyright' );
 	}
 	/**
 	 * Retrieve the widget icon.
@@ -61,24 +62,7 @@ class Copyright extends Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'hfe-icon-copyright-widget';
-	}
-	/**
-	 * Retrieve the list of categories the widget belongs to.
-	 *
-	 * Used to determine where to display the widget in the editor.
-	 *
-	 * Note that currently Elementor supports only one category.
-	 * When multiple categories passed, Elementor uses the first one.
-	 *
-	 * @since 1.2.0
-	 *
-	 * @access public
-	 *
-	 * @return array Widget categories.
-	 */
-	public function get_categories() {
-		return [ 'hfe-widgets' ];
+		return parent::get_widget_icon( 'Copyright' );
 	}
 
 	/**

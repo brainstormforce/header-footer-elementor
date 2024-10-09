@@ -10,9 +10,10 @@ namespace HFE\WidgetsManager\Widgets\Cart;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
 use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
-use Elementor\Widget_Base;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Border;
+
+use HFE\WidgetsManager\Base\Common_Widget;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;   // Exit if accessed directly.
@@ -23,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.4.0
  */
-class Cart extends Widget_Base {
+class Cart extends Common_Widget {
 
 	/**
 	 * Retrieve the widget name.
@@ -35,7 +36,7 @@ class Cart extends Widget_Base {
 	 * @return string Widget name.
 	 */
 	public function get_name() {
-		return 'hfe-cart';
+		return parent::get_widget_slug( 'Cart' );
 	}
 
 	/**
@@ -48,7 +49,7 @@ class Cart extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Cart', 'header-footer-elementor' );
+		return parent::get_widget_title( 'Cart' );
 	}
 
 	/**
@@ -61,25 +62,7 @@ class Cart extends Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'hfe-icon-menu-cart';
-	}
-
-	/**
-	 * Retrieve the list of categories the widget belongs to.
-	 *
-	 * Used to determine where to display the widget in the editor.
-	 *
-	 * Note that currently Elementor supports only one category.
-	 * When multiple categories passed, Elementor uses the first one.
-	 *
-	 * @since 1.4.0
-	 *
-	 * @access public
-	 *
-	 * @return array Widget categories.
-	 */
-	public function get_categories() {
-		return [ 'hfe-widgets' ];
+		return parent::get_widget_icon( 'Cart' );
 	}
 
 	/**

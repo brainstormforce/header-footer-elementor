@@ -8,7 +8,7 @@
 namespace HFE\WidgetsManager\Base;
 
 use Elementor\Widget_Base;
-namespace HFE\WidgetsManager\Base\HFE_Helper;
+use HFE\WidgetsManager\Base\HFE_Helper;
 use Elementor\Controls_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) {
