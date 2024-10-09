@@ -37,12 +37,13 @@ const UltimateFeatures = () => {
 	return (
 		<div>
 			<Container
-				className="bg-background-primary w-full p-5  border-[0.5px] border-subtle rounded-xl shadow-sm"
+				className="bg-background-primary p-4 border-[0.5px] border-subtle rounded-xl shadow-sm"
 				containerType="flex"
 				direction="row"
 				justify="between"
+				gap="xs"
 			>
-				<Container.Item className="flex flex-col justify-between">
+				<Container.Item className="flex flex-col justify-between" style={{width:"65%"}}>
 					<div>
 						<Title
 							description=""
@@ -61,12 +62,12 @@ const UltimateFeatures = () => {
 							title="Create Ultimate Designs with Addons Pro!"
 							className="py-1 text-sm"
 						/>
-						<p className="text-md m-0 text-text-secondary max-w-xs">
+						<p className="text-md m-0 text-text-secondary">
 							Get access to advanced widgets and features to
 							create the website that stands out!
 						</p>
 					</div>
-					<div className="grid grid-cols-2 grid-flow-row gap-1 max-w-xs my-4">
+					<div className="grid grid-cols-2 grid-flow-row gap-1 my-4">
 						{featureData.map((feature) => (
 							<Title
 								description=""
@@ -95,7 +96,7 @@ const UltimateFeatures = () => {
 						</Button>
 					</div>
 				</Container.Item>
-				<Container.Item className="flex justify-center items-center">
+				<Container.Item className="flex justify-center items-center" style={{width:"34%"}}>
 					<img
 						src={`${hfeSettingsData.column_url}`}
 						alt="Column Showcase"

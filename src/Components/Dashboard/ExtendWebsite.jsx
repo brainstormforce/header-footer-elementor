@@ -47,7 +47,7 @@ const ExtendWebsiteData = [
 
 const ExtendWebsite = () => {
   return (
-    <div className="grid grid-cols-2 gap-1 max-w-fit">
+    <div className="grid grid-cols-2 gap-1 max-w-fit mb-4">
     {ExtendWebsiteData.map((widget) => (
         <ExtendWebsiteWidget widget={widget} key={widget.id} />
     ))}

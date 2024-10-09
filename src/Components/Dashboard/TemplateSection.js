@@ -8,7 +8,7 @@ import { __ } from '@wordpress/i18n';
 const TemplateSection = () => {
 	return (
         <div
-            className="hfe-dashboard-templates p-6 bg-white rounded-lg shadow-md"
+            className="hfe-dashboard-templates p-6 bg-white rounded-lg shadow-md mb-4"
         >
             <div className="mb-4">
                 <img

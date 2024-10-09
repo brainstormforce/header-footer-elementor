@@ -173,7 +173,7 @@ const widgetData = [
 
 const Widgets = () => {
     return (
-        <div className='rounded-lg bg-white w-full'>
+        <div className='rounded-lg bg-white w-full mb-4'>
             <div className='flex items-center justify-between' style={{
                 paddingTop: '12px',
                 paddingInline: '16px'

@@ -7,7 +7,7 @@ import { __ } from '@wordpress/i18n';
 const HeaderLine = () => {
 	return (
         <Title
-            className="hfe-header-title"
+            className="hfe-header-title m-4"
             description=""
             icon={null}
             iconPosition="right"
