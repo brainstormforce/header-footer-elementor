@@ -47,3 +47,47 @@ function hfe_init() {
 }
 
 add_action( 'plugins_loaded', 'hfe_init' );
+
+/** Function for FA5, Social Icons, Icon List */
+function hfe_enqueue_font_awesome() {
+
+	if ( class_exists( 'Elementor\Plugin' ) ) {
+		
+		$upload_dir     = wp_upload_dir(); // Get the upload directory.
+		$custom_css_url = $upload_dir['baseurl'] . '/elementor/css/custom-widget-icon-list.min.css';
+		wp_enqueue_style(
+			'hfe-icon-list',
+			$custom_css_url,
+			[],
+			'3.24.0'
+		);
+		wp_enqueue_style(
+			'hfe-social-icons',
+			plugins_url( '/elementor/assets/css/widget-social-icons.min.css', 'elementor' ),
+			[],
+			'3.24.0'
+		);
+		wp_enqueue_style(
+			'hfe-social-share-icons-brands',
+			plugins_url( '/elementor/assets/lib/font-awesome/css/brands.css', 'elementor' ),
+			[],
+			'5.15.3'
+		);
+
+		wp_enqueue_style(
+			'hfe-social-share-icons-fontawesome',
+			plugins_url( '/elementor/assets/lib/font-awesome/css/fontawesome.css', 'elementor' ),
+			[],
+			'5.15.3'
+		);
+		wp_enqueue_style(
+			'hfe-nav-menu-icons',
+			plugins_url( '/elementor/assets/lib/font-awesome/css/solid.css', 'elementor' ),
+			[],
+			'5.15.3'
+		);
+
+		
+	}
+}
+add_action( 'wp_enqueue_scripts', 'hfe_enqueue_font_awesome', 20 );
