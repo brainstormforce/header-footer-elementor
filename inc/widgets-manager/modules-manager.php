@@ -66,6 +66,12 @@ class Modules_Manager {
 
 			if ( class_exists($class_name) && $class_name::is_enable() ) {
 				$this->_modules[ $module_name ] = $class_name::instance();
+
+				if( 'copyright' === $module_name ) {
+					require HFE_DIR . '/inc/widgets-manager/widgets/copyright/copyright-shortcode.php';
+					$copyright_shortcode = new \HFE\WidgetsManager\Widgets\Copyright\Copyright_Shortcode();
+				}
+
 			}
 		}
 	}
