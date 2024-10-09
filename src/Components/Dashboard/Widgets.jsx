@@ -1,6 +1,6 @@
 import React from 'react'
 import WidgetItem from './WidgetItem'
-import { Plus } from "lucide-react";
+import { MoreHorizontalIcon, Plus } from "lucide-react";
 
 const widgetData = [
     {
@@ -173,10 +173,26 @@ const widgetData = [
 
 const Widgets = () => {
     return (
-        <div className='flex items-start gap-1 flex-wrap max-w-[632px]'>
-            {widgetData.map((widget) => (
-                <WidgetItem widget={widget} key={widget.id} />
-            ))}
+        <div className='rounded-lg bg-white w-full'>
+            <div className='flex items-center justify-between' style={{
+                paddingTop: '12px',
+                paddingInline: '16px'
+            }}>
+                    <p className='m-0 text-sm font-semibold text-text-primary'>Widgets / Features</p>
+                    <div className='flex items-center gap-x-2 mr-7'>
+                        <p className='m-0 text-xs font-semibold text-text-primary'>View all</p>
+                        <MoreHorizontalIcon />
+                    </div>
+                </div>
+            <div className='w-fit flex bg-black flex-col rounded-lg p-4'>
+                <div className='flex items-start gap-1 flex-wrap m-3 bg-gray-600 rounded-md' style={
+                    { backgroundColor: 'lightgray', padding: '4px', width: "838px" }
+                }>
+                    {widgetData.map((widget) => (
+                        <WidgetItem widget={widget} key={widget.id} />
+                    ))}
+                </div>
+            </div>
         </div>
     )
 }

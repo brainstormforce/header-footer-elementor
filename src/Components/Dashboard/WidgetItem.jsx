@@ -25,7 +25,7 @@ const WidgetItem = ({
             gap="lg"
             style={{
                 height: '98px',
-                width: '200px'
+                width: '190px'
             }}
         >
             <div className='flex items-center justify-between w-full'>

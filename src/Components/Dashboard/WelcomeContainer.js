@@ -6,13 +6,10 @@ const WelcomeContainer = () => {
 		<div>
 			<Container
 				align="center"
-				className="bg-background-primary p-4 m-4 border-[0.5px] border-subtle rounded-xl shadow-sm w-fit"
+				className="bg-background-primary p-4 border-[0.5px] border-subtle rounded-xl shadow-sm w-full"
 				containerType="flex"
 				direction="row"
 				gap="2xl"
-				style={{
-					height: "240px",
-				}}
 			>
 				<Container.Item className="w-[500px]">
 					<Title

@@ -37,12 +37,12 @@ const UltimateFeatures = () => {
 	return (
 		<div>
 			<Container
-				className="bg-background-primary w-fit p-5 m-2 border-[0.5px] border-subtle rounded-xl shadow-sm"
+				className="bg-background-primary w-full p-5  border-[0.5px] border-subtle rounded-xl shadow-sm"
 				containerType="flex"
 				direction="row"
-				gap="lg"
+				justify="between"
 			>
-				<Container.Item className=" flex flex-col justify-between">
+				<Container.Item className="flex flex-col justify-between">
 					<div>
 						<Title
 							description=""
@@ -95,7 +95,7 @@ const UltimateFeatures = () => {
 						</Button>
 					</div>
 				</Container.Item>
-				<Container.Item className="w-[300px] flex justify-center items-center">
+				<Container.Item className="flex justify-center items-center">
 					<img
 						src={`${hfeSettingsData.column_url}`}
 						alt="Column Showcase"

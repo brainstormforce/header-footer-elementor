@@ -9,22 +9,27 @@ import UltimateFeatures from './UltimateFeatures'
 import ExtendWebsite from './ExtendWebsite'
 
 const Dashboard = () => {
-  return (
-    <>
-    <NavMenu />
-    <div className="hfe-settings-content-wrapper">
-        <HeaderLine />
-        <div className='hfe-settings-dashboard m-4'>
-            <Widgets />
-            <TemplateSection />
-            <QuickAccess />
-            <WelcomeContainer />
-            <UltimateFeatures />
-            <ExtendWebsite />
-        </div>
-    </div>
-</>
-  )
+    return (
+        <>
+            <NavMenu />
+            <div className="">
+                <HeaderLine />
+                <div className='grid grid-cols-7 gap-x-4'>
+                    <div className='col-span-5 flex flex-col items-start gap-y-4'>
+                        <WelcomeContainer />
+                        <Widgets />
+                        <UltimateFeatures />
+                    </div>
+                    <div className='col-span-2 flex flex-col items-start gap-y-4'>
+                        <ExtendWebsite />
+                        <TemplateSection />
+                        <QuickAccess />
+                    </div>
+
+                </div>
+            </div>
+        </>
+    )
 }
 
 export default Dashboard
