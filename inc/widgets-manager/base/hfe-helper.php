@@ -1,8 +1,8 @@
 <?php
 /**
- * UAEL Helper.
+ * HFEHelper.
  *
- * @package UAEL
+ * @package header-footer-elementor
  */
 
 namespace HFE\WidgetsManager\Base;
@@ -89,7 +89,7 @@ class HFE_Helper {
 			$widget_slug = self::$widget_list[ $slug ]['slug'];
 		}
 
-		return apply_filters( 'uael_widget_slug', $widget_slug );
+		return apply_filters( 'hfe_widget_slug', $widget_slug );
 	}
 
 	/**
@@ -111,7 +111,7 @@ class HFE_Helper {
 			$widget_name = self::$widget_list[ $slug ]['title'];
 		}
 
-		return apply_filters( 'uael_widget_name', $widget_name );
+		return apply_filters( 'hfe_widget_name', $widget_name );
 	}
 
 	/**
@@ -133,7 +133,7 @@ class HFE_Helper {
 			$widget_icon = self::$widget_list[ $slug ]['icon'];
 		}
 
-		return apply_filters( 'uael_widget_icon', $widget_icon );
+		return apply_filters( 'hfe_widget_icon', $widget_icon );
 	}
 
 	/**
@@ -155,7 +155,7 @@ class HFE_Helper {
 			$widget_keywords = self::$widget_list[ $slug ]['keywords'];
 		}
 
-		return apply_filters( 'uael_widget_keywords', $widget_keywords );
+		return apply_filters( 'hfe_widget_keywords', $widget_keywords );
 	}
 
 	/**

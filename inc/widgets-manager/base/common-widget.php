@@ -1,8 +1,8 @@
 <?php
 /**
- * UAEL Common Widget.
+ * HFECommon Widget.
  *
- * @package UAEL
+ * @package header-footer-elementor
  */
 
 namespace HFE\WidgetsManager\Base;

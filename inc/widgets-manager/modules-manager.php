@@ -1,8 +1,8 @@
 <?php
 /**
- * UAEL Module Manager.
+ * HFE Module Manager.
  *
- * @package UAEL
+ * @package header-footer-elementor
  */
 
 namespace HFE\WidgetsManager;

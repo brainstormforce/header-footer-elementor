@@ -1,8 +1,8 @@
 <?php
 /**
- * UAEL WpfStyler Module.
+ * HFEWpfStyler Module.
  *
- * @package UAEL
+ * @package header-footer-elementor
  */
 
 namespace HFE\WidgetsManager\Widgets\Cart;
