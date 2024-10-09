@@ -41,7 +41,7 @@ class Widgets_Config {
 		self::$widget_list = array(
 			'Retina'    => array(
 				'slug'      => 'retina',
-				'title'     => __( 'Retina Image', 'uael' ),
+				'title'     => __( 'Retina Image', 'header-footer-elementor' ),
 				'keywords'  => array( 'uael', 'retina', 'image', 'logo' ),
 				'icon'      => 'hfe-icon-retina-image',
 				'title_url' => '#',
@@ -51,7 +51,7 @@ class Widgets_Config {
 			),
 			'Cart'    => array(
 				'slug'      => 'hfe-cart',
-				'title'     => __( 'Cart', 'uael' ),
+				'title'     => __( 'Cart', 'header-footer-elementor' ),
 				'keywords'  => array( 'uael', 'cart', 'shop', 'bag' ),
 				'icon'      => 'hfe-icon-menu-cart',
 				'title_url' => '#',
@@ -61,7 +61,7 @@ class Widgets_Config {
 			),
 			'Copyright'    => array(
 				'slug'      => 'copyright',
-				'title'     => __( 'Copyright', 'uael' ),
+				'title'     => __( 'Copyright', 'header-footer-elementor' ),
 				'keywords'  => array( 'uael', 'copyright', 'date' ),
 				'icon'      => 'hfe-icon-copyright-widget',
 				'title_url' => '#',
@@ -71,7 +71,7 @@ class Widgets_Config {
 			),
 			'Navigation_Menu'    => array(
 				'slug'      => 'navigation-menu',
-				'title'     => __( 'Navigation Menu', 'uael' ),
+				'title'     => __( 'Navigation Menu', 'header-footer-elementor' ),
 				'keywords'  => array( 'uael', 'navigation', 'menu', 'nav' ),
 				'icon'      => 'hfe-icon-navigation-menu',
 				'title_url' => '#',
@@ -81,7 +81,7 @@ class Widgets_Config {
 			),
 			'Page_Title'    => array(
 				'slug'      => 'page-title',
-				'title'     => __( 'Page Title', 'uael' ),
+				'title'     => __( 'Page Title', 'header-footer-elementor' ),
 				'keywords'  => array( 'uael', 'title', 'dynamic' ),
 				'icon'      => 'hfe-icon-page-title',
 				'title_url' => '#',
@@ -91,7 +91,7 @@ class Widgets_Config {
 			),
 			'Search_Button'    => array(
 				'slug'      => 'hfe-search-button',
-				'title'     => __( 'Search', 'uael' ),
+				'title'     => __( 'Search', 'header-footer-elementor' ),
 				'keywords'  => array( 'uael', 'title', 'dynamic' ),
 				'icon'      => 'hfe-icon-search',
 				'title_url' => '#',
@@ -101,7 +101,7 @@ class Widgets_Config {
 			),
 			'Site_Logo'    => array(
 				'slug'      => 'site-logo',
-				'title'     => __( 'Site Logo', 'uael' ),
+				'title'     => __( 'Site Logo', 'header-footer-elementor' ),
 				'keywords'  => array( 'uael', 'site', 'logo', 'image' ),
 				'icon'      => 'hfe-icon-site-logo',
 				'title_url' => '#',
@@ -111,7 +111,7 @@ class Widgets_Config {
 			),
 			'Site_Tagline'    => array(
 				'slug'      => 'hfe-site-tagline',
-				'title'     => __( 'Site Tagline', 'uael' ),
+				'title'     => __( 'Site Tagline', 'header-footer-elementor' ),
 				'keywords'  => array( 'uael', 'site', 'tagline', 'tag' ),
 				'icon'      => 'hfe-icon-site-tagline',
 				'title_url' => '#',
@@ -121,7 +121,7 @@ class Widgets_Config {
 			),
 			'Site_Title'    => array(
 				'slug'      => 'hfe-site-title',
-				'title'     => __( 'Site Title', 'uael' ),
+				'title'     => __( 'Site Title', 'header-footer-elementor' ),
 				'keywords'  => array( 'uael', 'site', 'title', 'tag' ),
 				'icon'      => 'hfe-icon-site-title',
 				'title_url' => '#',
@@ -169,7 +169,7 @@ class Widgets_Config {
 			self::$pro_widget_list =  array(
 				'Advanced_Heading'    => array(
 					'slug'      => 'uael-advanced-heading',
-					'title'     => __( 'Advanced Heading', 'uael' ),
+					'title'     => __( 'Advanced Heading', 'header-footer-elementor' ),
 					'keywords'  => array( 'uael', 'heading', 'advanced' ),
 					'icon'      => 'uael-icon-advanced-heading',
 					'title_url' => '#',
@@ -181,7 +181,7 @@ class Widgets_Config {
 				),
 				'BaSlider'            => array(
 					'slug'      => 'uael-ba-slider',
-					'title'     => __( 'Before After Slider', 'uael' ),
+					'title'     => __( 'Before After Slider', 'header-footer-elementor' ),
 					'keywords'  => array( 'uael', 'slider', 'before', 'after' ),
 					'icon'      => 'uael-icon-before-after-slider',
 					'title_url' => '#',
@@ -192,7 +192,7 @@ class Widgets_Config {
 				),
 				'Business_Hours'      => array(
 					'slug'      => 'uael-business-hours',
-					'title'     => __( 'Business Hours', 'uael' ),
+					'title'     => __( 'Business Hours', 'header-footer-elementor' ),
 					'keywords'  => array( 'uael', 'business', 'hours', 'schedule' ),
 					'icon'      => 'uael-icon-business-hour',
 					'title_url' => '#',
@@ -205,19 +205,19 @@ class Widgets_Config {
 				'Business_Reviews'    => array(
 					'slug'         => 'uael-business-reviews',
 					'keywords'     => array( 'uael', 'reviews', 'wp reviews', 'business', 'wp business', 'google', 'rating', 'social', 'yelp' ),
-					'title'        => __( 'Business Reviews', 'uael' ),
+					'title'        => __( 'Business Reviews', 'header-footer-elementor' ),
 					'icon'         => 'uael-icon-business-review',
 					'title_url'    => '#',
 					'default'      => true,
 					'doc_url'      => HFE_DOMAIN . 'docs-category/widgets/business-reviews/?utm_source=uael-pro-dashboard&utm_medium=uael-menu-page&utm_campaign=uael-pro-plugin',
 					'setting_url'  => $integration_url,
-					'setting_text' => __( 'Settings', 'uael' ),
+					'setting_text' => __( 'Settings', 'header-footer-elementor' ),
 					'is_pro'   	=> true,
 					'category'     => 'seo',
 				),
 				'CfStyler'            => array(
 					'slug'      => 'uael-cf7-styler',
-					'title'     => __( 'Contact Form 7 Styler', 'uael' ),
+					'title'     => __( 'Contact Form 7 Styler', 'header-footer-elementor' ),
 					'keywords'  => array( 'uael', 'form', 'cf7', 'contact', 'styler' ),
 					'icon'      => 'uael-icon-contact-form-7',
 					'title_url' => '#',
@@ -228,7 +228,7 @@ class Widgets_Config {
 				),
 				'ContentToggle'       => array(
 					'slug'      => 'uael-content-toggle',
-					'title'     => __( 'Content Toggle', 'uael' ),
+					'title'     => __( 'Content Toggle', 'header-footer-elementor' ),
 					'keywords'  => array( 'uael', 'toggle', 'content', 'show', 'hide' ),
 					'icon'      => 'uael-icon-content-toggle',
 					'title_url' => '#',
@@ -239,7 +239,7 @@ class Widgets_Config {
 				),
 				'Countdown'           => array(
 					'slug'      => 'uael-countdown',
-					'title'     => __( 'Countdown Timer', 'uael' ),
+					'title'     => __( 'Countdown Timer', 'header-footer-elementor' ),
 					'keywords'  => array( 'uael', 'count', 'timer', 'countdown' ),
 					'icon'      => 'uael-icon-countdown-timer',
 					'title_url' => '#',
@@ -251,7 +251,7 @@ class Widgets_Config {
 				),
 				'Dual_Heading'        => array(
 					'slug'      => 'uael-dual-color-heading',
-					'title'     => __( 'Dual Color Heading', 'uael' ),
+					'title'     => __( 'Dual Color Heading', 'header-footer-elementor' ),
 					'keywords'  => array( 'uael', 'dual', 'heading', 'color' ),
 					'icon'      => 'uael-icon-dual-color-heading',
 					'title_url' => '#',
@@ -263,7 +263,7 @@ class Widgets_Config {
 				),
 				'Fancy_Heading'       => array(
 					'slug'      => 'uael-fancy-heading',
-					'title'     => __( 'Fancy Heading', 'uael' ),
+					'title'     => __( 'Fancy Heading', 'header-footer-elementor' ),
 					'keywords'  => array( 'uael', 'fancy', 'heading', 'ticking', 'animate' ),
 					'icon'      => 'uael-icon-fancy-heading',
 					'title_url' => '#',
@@ -275,7 +275,7 @@ class Widgets_Config {
 				),
 				'FAQ'                 => array(
 					'slug'      => 'uael-faq',
-					'title'     => __( 'FAQ Schema', 'uael' ),
+					'title'     => __( 'FAQ Schema', 'header-footer-elementor' ),
 					'keywords'  => array( 'uael', 'faq', 'schema', 'question', 'answer', 'accordion', 'toggle' ),
 					'icon'      => 'uael-icon-faq-schema',
 					'title_url' => '#',
@@ -287,20 +287,20 @@ class Widgets_Config {
 				),
 				'GoogleMap'           => array(
 					'slug'         => 'uael-google-map',
-					'title'        => __( 'Google Map', 'uael' ),
+					'title'        => __( 'Google Map', 'header-footer-elementor' ),
 					'keywords'     => array( 'uael', 'google', 'map', 'location', 'address' ),
 					'icon'         => 'uael-icon-google-map',
 					'title_url'    => '#',
 					'default'      => true,
 					'setting_url'  => $integration_url,
-					'setting_text' => __( 'Settings', 'uael' ),
+					'setting_text' => __( 'Settings', 'header-footer-elementor' ),
 					'doc_url'      => HFE_DOMAIN . 'docs-category/widgets/google-maps/?utm_source=uael-pro-dashboard&utm_medium=uael-menu-page&utm_campaign=uael-pro-plugin',
 					'category'     => 'content',
 					'is_pro'   	=> true,
 				),
 				'GfStyler'            => array(
 					'slug'      => 'uael-gf-styler',
-					'title'     => __( 'Gravity Form Styler', 'uael' ),
+					'title'     => __( 'Gravity Form Styler', 'header-footer-elementor' ),
 					'keywords'  => array( 'uael', 'form', 'gravity', 'gf', 'styler' ),
 					'icon'      => 'uael-icon-gravity-form-styler',
 					'title_url' => '#',
@@ -311,7 +311,7 @@ class Widgets_Config {
 				),
 				'Hotspot'             => array(
 					'slug'      => 'uael-hotspot',
-					'title'     => __( 'Hotspot', 'uael' ),
+					'title'     => __( 'Hotspot', 'header-footer-elementor' ),
 					'keywords'  => array( 'uael', 'hotspot', 'tour' ),
 					'icon'      => 'uael-icon-hotspot',
 					'title_url' => '#',
@@ -322,7 +322,7 @@ class Widgets_Config {
 				),
 				'HowTo'               => array(
 					'slug'      => 'uael-how-to',
-					'title'     => __( 'How-to Schema', 'uael' ),
+					'title'     => __( 'How-to Schema', 'header-footer-elementor' ),
 					'keywords'  => array( 'uael', 'how-to', 'howto', 'schema', 'steps', 'supply', 'tools', 'steps', 'cost' ),
 					'icon'      => 'uael-icon-how-to-schema',
 					'title_url' => '#',
@@ -333,7 +333,7 @@ class Widgets_Config {
 				),
 				'Image_Gallery'       => array(
 					'slug'      => 'uael-image-gallery',
-					'title'     => __( 'Image Gallery', 'uael' ),
+					'title'     => __( 'Image Gallery', 'header-footer-elementor' ),
 					'keywords'  => array( 'uael', 'image', 'gallery', 'carousel', 'slider', 'layout' ),
 					'icon'      => 'uael-icon-image-gallery',
 					'title_url' => '#',
@@ -344,7 +344,7 @@ class Widgets_Config {
 				),
 				'Infobox'             => array(
 					'slug'      => 'uael-infobox',
-					'title'     => __( 'Info Box', 'uael' ),
+					'title'     => __( 'Info Box', 'header-footer-elementor' ),
 					'keywords'  => array( 'uael', 'info', 'box', 'bar' ),
 					'icon'      => 'uael-icon-info-box',
 					'title_url' => '#',
@@ -356,12 +356,12 @@ class Widgets_Config {
 				),
 				'Instagram_Feed'      => array(
 					'slug'         => 'uael-instagram-feed',
-					'title'        => __( 'Instagram Feed', 'uael' ),
+					'title'        => __( 'Instagram Feed', 'header-footer-elementor' ),
 					'keywords'     => array( 'insta', 'instagram', 'feed', 'social' ),
 					'icon'         => 'uael-icon-instagram-feed',
 					'title_url'    => '#',
 					'default'      => true,
-					'setting_text' => __( 'Settings', 'uael' ),
+					'setting_text' => __( 'Settings', 'header-footer-elementor' ),
 					'setting_url'  => $integration_url,
 					'is_pro'   	=> true,
 					'doc_url'      => HFE_DOMAIN . 'docs-category/widgets/instagram-feed/?utm_source=uael-pro-dashboard&utm_medium=uael-menu-page&utm_campaign=uael-pro-plugin',
@@ -370,12 +370,12 @@ class Widgets_Config {
 				),
 				'LoginForm'           => array(
 					'slug'         => 'uael-login-form',
-					'title'        => __( 'Login Form', 'uael' ),
+					'title'        => __( 'Login Form', 'header-footer-elementor' ),
 					'keywords'     => array( 'uael', 'form', 'login', 'facebook', 'google', 'user', 'fblogin' ),
 					'icon'         => 'uael-icon-login-form',
 					'title_url'    => '#',
 					'default'      => true,
-					'setting_text' => __( 'Settings', 'uael' ),
+					'setting_text' => __( 'Settings', 'header-footer-elementor' ),
 					'setting_url'  => $integration_url,
 					'doc_url'      => HFE_DOMAIN . 'docs-category/widgets/login-form/?utm_source=uael-pro-dashboard&utm_medium=uael-menu-page&utm_campaign=uael-pro-plugin',
 					'preset'       => '5',
@@ -384,7 +384,7 @@ class Widgets_Config {
 				),
 				'Marketing_Button'    => array(
 					'slug'      => 'uael-marketing-button',
-					'title'     => __( 'Marketing Button', 'uael' ),
+					'title'     => __( 'Marketing Button', 'header-footer-elementor' ),
 					'keywords'  => array( 'uael', 'button', 'marketing', 'call to action', 'cta' ),
 					'icon'      => 'uael-icon-marketing-button',
 					'title_url' => '#',
@@ -396,7 +396,7 @@ class Widgets_Config {
 				),
 				'Modal_Popup'         => array(
 					'slug'      => 'uael-modal-popup',
-					'title'     => __( 'Modal Popup', 'uael' ),
+					'title'     => __( 'Modal Popup', 'header-footer-elementor' ),
 					'keywords'  => array( 'uael', 'modal', 'popup', 'lighbox' ),
 					'icon'      => 'uael-icon-modal-popup',
 					'title_url' => '#',
@@ -407,7 +407,7 @@ class Widgets_Config {
 				),
 				'Buttons'             => array(
 					'slug'      => 'uael-buttons',
-					'title'     => __( 'Multi Buttons', 'uael' ),
+					'title'     => __( 'Multi Buttons', 'header-footer-elementor' ),
 					'keywords'  => array( 'uael', 'buttons', 'multi', 'call to action', 'cta' ),
 					'icon'      => 'uael-icon-multi-button',
 					'title_url' => '#',
@@ -419,7 +419,7 @@ class Widgets_Config {
 				),
 				'Nav_Menu'            => array(
 					'slug'      => 'uael-nav-menu',
-					'title'     => __( 'Navigation Menu', 'uael' ),
+					'title'     => __( 'Navigation Menu', 'header-footer-elementor' ),
 					'keywords'  => array( 'uael', 'menu', 'nav', 'navigation', 'mega' ),
 					'icon'      => 'uael-icon-navigation-menu',
 					'title_url' => '#',
@@ -430,7 +430,7 @@ class Widgets_Config {
 				),
 				'Offcanvas'           => array(
 					'slug'      => 'uael-offcanvas',
-					'title'     => __( 'Off - Canvas', 'uael' ),
+					'title'     => __( 'Off - Canvas', 'header-footer-elementor' ),
 					'keywords'  => array( 'uael', 'off', 'offcanvas', 'off-canvas', 'canvas', 'template', 'floating' ),
 					'icon'      => 'uael-icon-off-canvas',
 					'title_url' => '#',
@@ -441,20 +441,20 @@ class Widgets_Config {
 				),
 				'Posts'               => array(
 					'slug'         => 'uael-posts',
-					'title'        => __( 'Posts', 'uael' ),
+					'title'        => __( 'Posts', 'header-footer-elementor' ),
 					'keywords'     => array( 'uael', 'post', 'grid', 'masonry', 'carousel', 'content grid', 'content' ),
 					'icon'         => 'uael-icon-posts',
 					'title_url'    => '#',
 					'default'      => true,
 					'setting_url'  => $post_url,
-					'setting_text' => __( 'Settings', 'uael' ),
+					'setting_text' => __( 'Settings', 'header-footer-elementor' ),
 					'doc_url'      => HFE_DOMAIN . 'docs-category/widgets/posts/?utm_source=uael-pro-dashboard&utm_medium=uael-menu-page&utm_campaign=uael-pro-plugin',
 					'category'     => 'content',
 					'is_pro'   	=> true,
 				),
 				'Price_Table'         => array(
 					'slug'      => 'uael-price-table',
-					'title'     => __( 'Price Box', 'uael' ),
+					'title'     => __( 'Price Box', 'header-footer-elementor' ),
 					'keywords'  => array( 'uael', 'price', 'table', 'box', 'pricing' ),
 					'icon'      => 'uael-icon-price-box',
 					'title_url' => '#',
@@ -466,7 +466,7 @@ class Widgets_Config {
 				),
 				'Price_List'          => array(
 					'slug'      => 'uael-price-list',
-					'title'     => __( 'Price List', 'uael' ),
+					'title'     => __( 'Price List', 'header-footer-elementor' ),
 					'keywords'  => array( 'uael', 'price', 'list', 'pricing' ),
 					'icon'      => 'uael-icon-price-list',
 					'title_url' => '#',
@@ -478,7 +478,7 @@ class Widgets_Config {
 				),
 				'Retina_Image'        => array(
 					'slug'      => 'uael-retina-image',
-					'title'     => __( 'Retina Image', 'uael' ),
+					'title'     => __( 'Retina Image', 'header-footer-elementor' ),
 					'keywords'  => array( 'uael', 'retina', 'image', '2ximage' ),
 					'icon'      => 'uael-icon-retina-image',
 					'title_url' => '#',
@@ -490,12 +490,12 @@ class Widgets_Config {
 				),
 				'SocialShare'         => array(
 					'slug'         => 'uael-social-share',
-					'title'        => __( 'Social Share', 'uael' ),
+					'title'        => __( 'Social Share', 'header-footer-elementor' ),
 					'keywords'     => array( 'uael', 'sharing', 'social', 'icon', 'button', 'like' ),
 					'icon'         => 'uael-icon-social-share',
 					'title_url'    => '#',
 					'default'      => true,
-					'setting_text' => __( 'Settings', 'uael' ),
+					'setting_text' => __( 'Settings', 'header-footer-elementor' ),
 					'setting_url'  => admin_url( 'options-general.php?page=' . UAEL_SLUG . '&action=integration' ),
 					'doc_url'      => HFE_DOMAIN . 'docs-category/widgets/social-share/?utm_source=uael-pro-dashboard&utm_medium=uael-menu-page&utm_campaign=uael-pro-plugin',
 					'preset'       => '5',
@@ -504,7 +504,7 @@ class Widgets_Config {
 				),
 				'Table'               => array(
 					'slug'      => 'uael-table',
-					'title'     => __( 'Table', 'uael' ),
+					'title'     => __( 'Table', 'header-footer-elementor' ),
 					'keywords'  => array( 'uael', 'table', 'sort', 'search' ),
 					'icon'      => 'uael-icon-table',
 					'title_url' => '#',
@@ -515,7 +515,7 @@ class Widgets_Config {
 				),
 				'Table_of_Contents'   => array(
 					'slug'      => 'uael-table-of-contents',
-					'title'     => __( 'Table of Contents', 'uael' ),
+					'title'     => __( 'Table of Contents', 'header-footer-elementor' ),
 					'keywords'  => array( 'uael', 'table of contents', 'content', 'list', 'toc', 'index' ),
 					'icon'      => 'uael-icon-table-of-content',
 					'title_url' => '#',
@@ -526,7 +526,7 @@ class Widgets_Config {
 				),
 				'Team_Member'         => array(
 					'slug'      => 'uael-team-member',
-					'title'     => __( 'Team Member', 'uael' ),
+					'title'     => __( 'Team Member', 'header-footer-elementor' ),
 					'keywords'  => array( 'uael', 'team', 'member' ),
 					'icon'      => 'uael-icon-team-member',
 					'title_url' => '#',
@@ -538,7 +538,7 @@ class Widgets_Config {
 				),
 				'Timeline'            => array(
 					'slug'      => 'uael-timeline',
-					'title'     => __( 'Timeline', 'uael' ),
+					'title'     => __( 'Timeline', 'header-footer-elementor' ),
 					'keywords'  => array( 'uael', 'timeline', 'history', 'scroll', 'post', 'content timeline' ),
 					'icon'      => 'uael-icon-timeline',
 					'title_url' => '#',
@@ -550,12 +550,12 @@ class Widgets_Config {
 				),
 				'Twitter'             => array(
 					'slug'         => 'uael-twitter',
-					'title'        => __( 'Twitter Feed', 'uael' ),
+					'title'        => __( 'Twitter Feed', 'header-footer-elementor' ),
 					'keywords'     => array( 'uael', 'twitter' ),
 					'icon'         => 'uael-icon-twitter-feed-icon',
 					'title_url'    => '#',
 					'setting_url'  => $integration_url,
-					'setting_text' => __( 'Settings', 'uael' ),
+					'setting_text' => __( 'Settings', 'header-footer-elementor' ),
 					'default'      => true,
 					'doc_url'      => HFE_DOMAIN . 'docs-category/widgets/twitter-feed/?utm_source=uael-pro-dashboard&utm_medium=uael-menu-page&utm_campaign=uael-pro-plugin',
 					'category'     => 'creative',
@@ -563,13 +563,13 @@ class Widgets_Config {
 				),
 				'RegistrationForm'    => array(
 					'slug'         => 'uael-registration-form',
-					'title'        => __( 'User Registration Form', 'uael' ),
+					'title'        => __( 'User Registration Form', 'header-footer-elementor' ),
 					'keywords'     => array( 'uael', 'form', 'register', 'registration', 'user' ),
 					'icon'         => 'uael-icon-registration-form',
 					'title_url'    => '#',
 					'default'      => true,
 					'setting_url'  => $integration_url,
-					'setting_text' => __( 'Settings', 'uael' ),
+					'setting_text' => __( 'Settings', 'header-footer-elementor' ),
 					'doc_url'      => HFE_DOMAIN . 'docs-category/widgets/user-registration-form/?utm_source=uael-pro-dashboard&utm_medium=uael-menu-page&utm_campaign=uael-pro-plugin',
 					'preset'       => '5',
 					'is_pro'   	=> true,
@@ -577,7 +577,7 @@ class Widgets_Config {
 				),
 				'Video'               => array(
 					'slug'      => 'uael-video',
-					'title'     => __( 'Video', 'uael' ),
+					'title'     => __( 'Video', 'header-footer-elementor' ),
 					'keywords'  => array( 'uael', 'video', 'youtube', 'vimeo', 'wistia', 'sticky', 'drag', 'float', 'subscribe' ),
 					'icon'      => 'uael-icon-video',
 					'title_url' => '#',
@@ -588,7 +588,7 @@ class Widgets_Config {
 				),
 				'Video_Gallery'       => array(
 					'slug'      => 'uael-video-gallery',
-					'title'     => __( 'Video Gallery', 'uael' ),
+					'title'     => __( 'Video Gallery', 'header-footer-elementor' ),
 					'keywords'  => array( 'uael', 'video', 'youtube', 'wistia', 'gallery', 'vimeo' ),
 					'icon'      => 'uael-icon-video-gallery',
 					'title_url' => '#',
@@ -599,7 +599,7 @@ class Widgets_Config {
 				),
 				'Welcome_Music'       => array(
 					'slug'      => 'uael-welcome-music',
-					'title'     => __( 'Welcome Music', 'uael' ),
+					'title'     => __( 'Welcome Music', 'header-footer-elementor' ),
 					'keywords'  => array( 'uael', 'christmas', 'music', 'background', 'audio', 'welcome' ),
 					'icon'      => 'uael-icon-welcome-music',
 					'title_url' => '#',
@@ -610,7 +610,7 @@ class Widgets_Config {
 				),
 				'Woo_Add_To_Cart'     => array(
 					'slug'      => 'uael-woo-add-to-cart',
-					'title'     => __( 'Woo - Add To Cart', 'uael' ),
+					'title'     => __( 'Woo - Add To Cart', 'header-footer-elementor' ),
 					'keywords'  => array( 'uael', 'woo', 'cart', 'add to cart', 'products' ),
 					'icon'      => 'uael-icon-woo-add-to-cart',
 					'title_url' => '#',
@@ -621,7 +621,7 @@ class Widgets_Config {
 				),
 				'Woo_Categories'      => array(
 					'slug'      => 'uael-woo-categories',
-					'title'     => __( 'Woo - Categories', 'uael' ),
+					'title'     => __( 'Woo - Categories', 'header-footer-elementor' ),
 					'keywords'  => array( 'uael', 'woo', 'categories', 'taxomonies', 'products' ),
 					'icon'      => 'uael-icon-woo-category',
 					'title_url' => '#',
@@ -632,7 +632,7 @@ class Widgets_Config {
 				),
 				'Woo_Checkout'        => array(
 					'slug'      => 'uael-woo-checkout',
-					'title'     => __( 'Woo - Checkout', 'uael' ),
+					'title'     => __( 'Woo - Checkout', 'header-footer-elementor' ),
 					'keywords'  => array( 'uael', 'woo', 'checkout', 'page', 'check' ),
 					'icon'      => 'uael-icon-woo-checkout-1',
 					'title_url' => '#',
@@ -643,7 +643,7 @@ class Widgets_Config {
 				),
 				'Woo_Mini_Cart'       => array(
 					'slug'      => 'uael-mini-cart',
-					'title'     => __( 'Woo - Mini Cart', 'uael' ),
+					'title'     => __( 'Woo - Mini Cart', 'header-footer-elementor' ),
 					'keywords'  => array( 'woo', 'woocommerce', 'cart', 'mini', 'minicart' ),
 					'icon'      => 'uael-icon-woo-mini-cart',
 					'title_url' => '#',
@@ -654,7 +654,7 @@ class Widgets_Config {
 				),
 				'Woo_Products'        => array(
 					'slug'      => 'uael-woo-products',
-					'title'     => __( 'Woo - Products', 'uael' ),
+					'title'     => __( 'Woo - Products', 'header-footer-elementor' ),
 					'keywords'  => array( 'uael', 'woo', 'products' ),
 					'icon'      => 'uael-icon-woo-product',
 					'title_url' => '#',
@@ -665,7 +665,7 @@ class Widgets_Config {
 				),
 				'FfStyler'            => array(
 					'slug'      => 'uael-ff-styler',
-					'title'     => __( 'WP Fluent Forms Styler', 'uael' ),
+					'title'     => __( 'WP Fluent Forms Styler', 'header-footer-elementor' ),
 					'keywords'  => array( 'uael', 'fluent', 'forms', 'wp' ),
 					'icon'      => 'uael-icon-fluent-form-styler',
 					'title_url' => '#',
@@ -676,7 +676,7 @@ class Widgets_Config {
 				),
 				'WpfStyler'           => array(
 					'slug'      => 'uael-wpf-styler',
-					'title'     => __( 'WPForms Styler', 'uael' ),
+					'title'     => __( 'WPForms Styler', 'header-footer-elementor' ),
 					'keywords'  => array( 'uael', 'form', 'wp', 'wpform', 'styler' ),
 					'icon'      => 'uael-icon-wp-form-styler',
 					'title_url' => '#',
@@ -687,12 +687,12 @@ class Widgets_Config {
 				),
 				'DisplayConditions'   => array(
 					'slug'         => 'uael-display-conditions',
-					'title'        => __( 'Display Conditions', 'uael' ),
+					'title'        => __( 'Display Conditions', 'header-footer-elementor' ),
 					'keywords'     => array(),
 					'icon'         => '',
 					'title_url'    => '#',
 					'default'      => true,
-					'setting_text' => __( 'Settings', 'uael' ),
+					'setting_text' => __( 'Settings', 'header-footer-elementor' ),
 					'setting_url'  => $integration_url,
 					'doc_url'      => HFE_DOMAIN . 'docs-category/widgets/display-conditions/?utm_source=uael-pro-dashboard&utm_medium=uael-menu-page&utm_campaign=uael-pro-plugin',
 					'category'     => 'extension',
@@ -700,7 +700,7 @@ class Widgets_Config {
 				),
 				'Particles'           => array(
 					'slug'      => 'uael-particles',
-					'title'     => __( 'Particles Background', 'uael' ),
+					'title'     => __( 'Particles Background', 'header-footer-elementor' ),
 					'keywords'  => array(),
 					'icon'      => '',
 					'title_url' => '#',
@@ -711,7 +711,7 @@ class Widgets_Config {
 				),
 				'PartyPropzExtension' => array(
 					'slug'      => 'uael-party-propz-extension',
-					'title'     => __( 'Party Propz', 'uael' ),
+					'title'     => __( 'Party Propz', 'header-footer-elementor' ),
 					'keywords'  => array(),
 					'icon'      => '',
 					'title_url' => '#',
@@ -722,7 +722,7 @@ class Widgets_Config {
 				),
 				'SectionDivider'      => array(
 					'slug'      => 'uael-section-divider',
-					'title'     => __( 'Shape Divider', 'uael' ),
+					'title'     => __( 'Shape Divider', 'header-footer-elementor' ),
 					'keywords'  => array(),
 					'icon'      => '',
 					'title_url' => '#',
@@ -733,7 +733,7 @@ class Widgets_Config {
 				),
 				'Cross_Domain'        => array(
 					'slug'      => 'uael-cross-domain-copy-paste',
-					'title'     => __( 'Cross-Site Copy Paste', 'uael' ),
+					'title'     => __( 'Cross-Site Copy Paste', 'header-footer-elementor' ),
 					'keywords'  => array(),
 					'icon'      => '',
 					'title_url' => '#',
@@ -744,7 +744,7 @@ class Widgets_Config {
 				),
 				'Presets'             => array(
 					'slug'      => 'uael-presets',
-					'title'     => __( 'Presets', 'uael' ),
+					'title'     => __( 'Presets', 'header-footer-elementor' ),
 					'keywords'  => array(),
 					'icon'      => '',
 					'title_url' => '#',
