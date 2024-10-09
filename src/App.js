@@ -8,6 +8,7 @@ import QuickAccess from '@components/Dashboard/QuickAccess.js';
 import WelcomeContainer from '@components/Dashboard/WelcomeContainer';
 import UltimateFeatures from '@components/Dashboard/UltimateFeatures';
 import Widgets from '@components/Dashboard/Widgets';
+import ExtendWebsite from '@components/Dashboard/ExtendWebsite';
 
 const App = () => {
 	return (
@@ -16,11 +17,12 @@ const App = () => {
 			<div className="hfe-settings-content-wrapper">
 				<HeaderLine />
 				<div className='hfe-settings-dashboard m-4'>
-					<Widgets />
+					{/* <Widgets />
 					<TemplateSection />
 					<QuickAccess />
 					<WelcomeContainer />
-					<UltimateFeatures />
+					<UltimateFeatures /> */}
+					<ExtendWebsite />
 				</div>
 			</div>
 		</>

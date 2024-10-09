@@ -16,10 +16,6 @@ const WidgetItem = ({
         isNew,
         isPro, } = widget
 
-
-
-    console.log({ widget })
-
     return (
         <Container align="center"
             className="bg-background-primary p-2 rounded-md shadow-sm"
