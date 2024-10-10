@@ -14,6 +14,7 @@ const Widgets = () => {
     }, []);
 
     console.log( window.hfeWidgetsList );
+    console.log( allWidgetsData );
 
     function convertToWidgetsArray(data) {
         const widgets = [];
