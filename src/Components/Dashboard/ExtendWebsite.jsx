@@ -1,6 +1,7 @@
 import React from 'react'
 import ExtendWebsiteWidget from './ExtendWebsiteWidget';
-import { Plus } from 'lucide-react';
+import { Container } from "@bsf/force-ui";
+import { Plus, ArrowUpRight } from 'lucide-react';
 
 const ExtendWebsiteData = [
     {
@@ -46,13 +47,42 @@ const ExtendWebsiteData = [
 ];
 
 const ExtendWebsite = () => {
-  return (
-    <div className="grid grid-cols-2 gap-1 max-w-fit mb-4">
-    {ExtendWebsiteData.map((widget) => (
-        <ExtendWebsiteWidget widget={widget} key={widget.id} />
-    ))}
-</div>
-  )
+    return (
+
+
+        <div className='rounded-lg bg-white w-full mb-4'>
+            <div className='flex items-center justify-between' style={{
+                paddingTop: '12px',
+                paddingInline: '16px'
+            }}>
+                <p className='m-0 text-sm font-semibold text-text-primary'>Extend Your Website</p>
+                <div className='flex items-center gap-x-2 mr-7'>
+
+                    <ArrowUpRight />
+                </div>
+            </div>
+            <div className='flex bg-black flex-col rounded-lg p-4'>
+
+                <Container
+                    align="stretch"
+                    className="bg-background-gray gap-1 p-1"
+                    cols={2}
+                    containerType="grid"
+                    gap=""
+                    justify="start"
+                >
+                    {ExtendWebsiteData.map((widget) => (
+                        <Container.Item
+                            alignSelf="auto"
+                            className="text-wrap rounded-md shadow-container-item bg-background-primary p-4"
+                        >
+                            <ExtendWebsiteWidget widget={widget} key={widget.id} />
+                        </Container.Item>
+                    ))}
+                </Container>
+            </div>
+        </div>
+    )
 }
 
 export default ExtendWebsite
