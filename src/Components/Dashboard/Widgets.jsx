@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'; 
 import WidgetItem from './WidgetItem'
 import { Container } from "@bsf/force-ui";
 import { MoreHorizontalIcon, Plus } from "lucide-react";
@@ -171,8 +171,16 @@ const widgetData = [
     // }
 ];
 
-
 const Widgets = () => {
+
+    const [allWidgetsData, setAllWidgetsData] = useState(null); // Initialize state.
+
+    useEffect(() => {
+        setAllWidgetsData(JSON.parse(window.hfeWidgetsList));
+    }, []);
+
+    console.log( window.hfeWidgetsList );
+
     return (
         <div className='rounded-lg bg-white w-full mb-4'>
             <div className='flex items-center justify-between' style={{
@@ -195,8 +203,9 @@ const Widgets = () => {
                     gap=""
                     justify="start"
                     >
-                        {widgetData.map((widget) => (
+                        {allWidgetsData.map((widget) => (
                             <Container.Item
+                             key={widget.id}
                              alignSelf="auto"
                              className="text-wrap rounded-md shadow-container-item bg-background-primary p-4"
                            >
