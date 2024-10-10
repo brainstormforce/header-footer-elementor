@@ -5,7 +5,7 @@
  * @package header-footer-elementor
  */
 
-namespace HFE\WidgetsManager\Widgets;
+namespace HFE\WidgetsManager\Widgets\NavigationMenu;
 
 // Elementor Classes.
 use Elementor\Controls_Manager;
@@ -16,8 +16,9 @@ use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Background;
-use Elementor\Widget_Base;
 use Elementor\Plugin;
+use HFE\WidgetsManager\Widgets\NavigationMenu\MenuWalker;
+use HFE\WidgetsManager\Base\Common_Widget;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;   // Exit if accessed directly.
@@ -26,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Class Nav Menu.
  */
-class Navigation_Menu extends Widget_Base {
+class Navigation_Menu extends Common_Widget {
 
 
 	/**
@@ -48,7 +49,7 @@ class Navigation_Menu extends Widget_Base {
 	 * @return string Widget name.
 	 */
 	public function get_name() {
-		return 'navigation-menu';
+		return parent::get_widget_slug( 'Navigation_Menu' );
 	}
 
 	/**
@@ -61,7 +62,7 @@ class Navigation_Menu extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Navigation Menu', 'header-footer-elementor' );
+		return parent::get_widget_title( 'Navigation_Menu' );
 	}
 
 	/**
@@ -74,25 +75,7 @@ class Navigation_Menu extends Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'hfe-icon-navigation-menu';
-	}
-
-	/**
-	 * Retrieve the list of categories the widget belongs to.
-	 *
-	 * Used to determine where to display the widget in the editor.
-	 *
-	 * Note that currently Elementor supports only one category.
-	 * When multiple categories passed, Elementor uses the first one.
-	 *
-	 * @since 1.3.0
-	 *
-	 * @access public
-	 *
-	 * @return array Widget categories.
-	 */
-	public function get_categories() {
-		return [ 'hfe-widgets' ];
+		return parent::get_widget_icon( 'Navigation_Menu' );
 	}
 
 	/**

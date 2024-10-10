@@ -31,6 +31,21 @@ class Widgets_Loader {
 	private static $_instance = null;
 
 	/**
+	 * Instance of Widgets_Loader.
+	 *
+	 * @since  1.2.0
+	 * @var null
+	 */
+	private static $widgets_data = null;
+
+	/**
+	 * Member Variable
+	 *
+	 * @var Modules Manager
+	 */
+	public $modules_manager;
+
+	/**
 	 * Get instance of Widgets_Loader
 	 *
 	 * @since  1.2.0
@@ -45,17 +60,178 @@ class Widgets_Loader {
 	}
 
 	/**
+	 * Get Widget List.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @return array The Widget List.
+	 */
+	public static function get_all_widgets_list() {
+		if ( null === self::$widgets_data ) {
+			
+			self::$widgets_data = array(
+				'Cart'    => array(
+					'name'      => 'cart',
+					'slug'      => 'hfe-cart',
+					'title'     => __( 'Cart', 'header-footer-elementor' ),
+					'keywords'  => array( 'uae', 'cart', 'woo', 'bag', 'shop' ),
+					'icon'      => 'hfe-icon-menu-cart',
+					'title_url' => '#',
+					'is_active'   => true,
+					'category'  => 'hfe-widgets',
+				),
+                'Copyright'    => array(
+					'name'      => 'copyright',
+					'slug'      => 'copyright',
+					'title'     => __( 'Copyright', 'header-footer-elementor' ),
+					'keywords'  => array( 'uae', 'copyright', 'image' ),
+					'icon'      => 'hfe-icon-copyright-widget',
+					'title_url' => '#',
+					'is_active'   => true,
+					'category'  => 'hfe-widgets',
+				),
+                'Navigation_Menu'    => array(
+					'name'      => 'navigation-menu',
+					'slug'      => 'navigation-menu',
+					'title'     => __( 'Navigation Menu', 'header-footer-elementor' ),
+					'keywords'  => array( 'uae', 'navigation', 'menu', 'dropdown' ),
+					'icon'      => 'hfe-icon-navigation-menu',
+					'title_url' => '#',
+					'is_active'   => true,
+					'category'  => 'hfe-widgets',
+				),
+                'Page_Title'    => array(
+					'name'      => 'page-title',
+					'slug'      => 'page-title',
+					'title'     => __( 'Page Title', 'header-footer-elementor' ),
+					'keywords'  => array( 'uae', 'page', 'title', 'heading' ),
+					'icon'      => 'hfe-icon-page-title',
+					'title_url' => '#', 
+					'is_active'   => true,
+					'category'  => 'hfe-widgets',
+				),
+                'Retina'    => array(
+					'name'      => 'retina',
+					'slug'      => 'retina',
+					'title'     => __( 'Retina Image', 'header-footer-elementor' ),
+					'keywords'  => array( 'uae', 'retina', 'image', 'photo' ),
+					'icon'      => 'hfe-icon-retina-image',
+					'title_url' => '#',
+					'is_active'   => true,
+					'category'  => 'hfe-widgets',
+				),
+                'Search_Button'    => array(
+					'name'      => 'search-button',
+					'slug'      => 'hfe-search-button',
+					'title'     => __( 'Search', 'header-footer-elementor' ),
+					'keywords'  => array( 'uae', 'search', 'button' ),
+					'icon'      => 'hfe-icon-search',
+					'title_url' => '#',
+					'is_active'   => true,
+					'category'  => 'hfe-widgets',
+				),
+                'Site_Logo'    => array(
+					'name'      => 'site-logo',
+					'slug'      => 'site-logo',
+					'title'     => __( 'Site Logo', 'header-footer-elementor' ),
+					'keywords'  => array( 'uae', 'site', 'logo' ),
+					'icon'      => 'hfe-icon-site-logo',
+					'title_url' => '#',
+					'is_active'   => true,
+					'category'  => 'hfe-widgets',
+				),
+                'Site_Tagline'    => array(
+					'name'      => 'site-tagline',
+					'slug'      => 'hfe-site-tagline',
+					'title'     => __( 'Site Tagline', 'header-footer-elementor' ),
+					'keywords'  => array( 'uae', 'site', 'tagline' ),
+					'icon'      => 'hfe-icon-site-tagline',
+					'title_url' => '#',
+					'is_active'   => true,
+					'category'  => 'hfe-widgets',
+				),
+                'Site_Title'    => array(
+					'name'      => 'site-title',
+					'slug'      => 'hfe-icon-site-title',
+					'title'     => __( 'Site Title', 'header-footer-elementor' ),
+					'keywords'  => array( 'uae', 'site', 'title' ),
+					'icon'      => 'hfe-icon-site-title',
+					'title_url' => '#',
+					'is_active'   => false,
+					'category'  => 'hfe-widgets',
+				),
+			);
+		}
+
+		return apply_filters( 'hfe_widgets_data', self::$widgets_data );
+	}
+
+	/**
 	 * Setup actions and filters.
 	 *
 	 * @since  1.2.0
 	 * @access private
 	 */
 	private function __construct() {
+
+		spl_autoload_register( array( $this, 'autoload' ) );
+
+		$this->includes();
+
+		$this->setup_actions_filters();
+	}
+
+	/**
+	 * AutoLoad
+	 *
+	 * @since 0.0.1
+	 * @param string $class class.
+	 */
+	public function autoload( $class ) {
+
+		if ( 0 !== strpos( $class, __NAMESPACE__ ) ) {
+			return;
+		}
+
+		$class_to_load = str_replace(__NAMESPACE__ . '\\', '', $class);
+
+		if ( ! class_exists( $class_to_load ) ) {
+			$filename = strtolower(
+				preg_replace(
+					array( '/([a-z])([A-Z])/', '/_/', '/\\\/' ),
+					array( '$1-$2', '-', DIRECTORY_SEPARATOR ),
+					$class_to_load
+				)
+			);
+			
+			$filename = HFE_DIR . 'inc/widgets-manager/' . $filename . '.php'; // Adjusted path.
+
+			if ( is_readable( $filename ) ) {
+				include $filename;
+			}
+		}
+	}
+
+	/**
+	 * Includes.
+	 *
+	 * @since 0.0.1
+	 */
+	private function includes() {
+		require HFE_DIR . 'inc/widgets-manager/modules-manager.php';
+	}
+
+	/**
+	 * Setup Actions Filters.
+	 *
+	 * @since 0.0.1
+	 */
+	private function setup_actions_filters() {
+
+		add_action( 'elementor/init', [ $this, 'elementor_init' ] );
+
 		// Register category.
 		add_action( 'elementor/elements/categories_registered', [ $this, 'register_widget_category' ] );
-
-		// Register widgets.
-		add_action( 'elementor/widgets/register', [ $this, 'register_widgets' ] );
 
 		// Register widgets script.
 		add_action( 'elementor/frontend/after_register_scripts', [ $this, 'register_widget_scripts' ] );
@@ -71,6 +247,64 @@ class Widgets_Loader {
 
 			add_filter( 'woocommerce_add_to_cart_fragments', [ $this, 'wc_refresh_mini_cart_count' ] );
 		}
+
+	}
+
+	/**
+	 * Elementor Init.
+	 *
+	 * @since 0.0.1
+	 */
+	public function elementor_init() {
+
+		$this->modules_manager = new Modules_Manager();
+
+		$this->init_category();
+
+		do_action( 'header_footer_elementor/init' );
+	}
+
+	/**
+	 * Sections init
+	 *
+	 * @since 0.0.1
+	 *
+	 * @access private
+	 */
+	private function init_category() {
+		$category = __( 'Elementor Header & Footer Builder', 'header-footer-elementor' );
+
+		if ( version_compare( ELEMENTOR_VERSION, '2.0.0' ) < 0 ) {
+
+			\Elementor\Plugin::instance()->elements_manager->add_category(
+				'hfe-widgets',
+				array(
+					'title' => $category,
+				),
+				1
+			);
+		}
+	}
+
+	/**
+	 * Register Category
+	 *
+	 * @since 1.2.0
+	 * @param object $this_cat class.
+	 * @return object $this_cat class.
+	 */
+	public function register_widget_category( $this_cat ) {
+		$category = __( 'Elementor Header & Footer Builder', 'header-footer-elementor' );
+
+		$this_cat->add_category(
+			'hfe-widgets',
+			[
+				'title' => $category,
+				'icon'  => 'eicon-font',
+			]
+		);
+
+		return $this_cat;
 	}
 
 	/**
@@ -203,53 +437,6 @@ class Widgets_Loader {
 		}
 
 		return $file;
-	}
-
-	/**
-	 * Register Category
-	 *
-	 * @since 1.2.0
-	 * @param object $this_cat class.
-	 * @return object $this_cat class.
-	 */
-	public function register_widget_category( $this_cat ) {
-		$category = __( 'Elementor Header & Footer Builder', 'header-footer-elementor' );
-
-		$this_cat->add_category(
-			'hfe-widgets',
-			[
-				'title' => $category,
-				'icon'  => 'eicon-font',
-			]
-		);
-
-		return $this_cat;
-	}
-
-	/**
-	 * Register Widgets
-	 *
-	 * Register new Elementor widgets.
-	 *
-	 * @since 1.2.0
-	 * @access public
-	 * @return void
-	 */
-	public function register_widgets() {
-		// Its is now safe to include Widgets files.
-		$this->include_widgets_files();
-		// Register Widgets.
-		Plugin::instance()->widgets_manager->register( new Widgets\Retina() );
-		Plugin::instance()->widgets_manager->register( new Widgets\Copyright() );
-		Plugin::instance()->widgets_manager->register( new Widgets\Navigation_Menu() );
-		Plugin::instance()->widgets_manager->register( new Widgets\Page_Title() );
-		Plugin::instance()->widgets_manager->register( new Widgets\Site_Title() );
-		Plugin::instance()->widgets_manager->register( new Widgets\Site_Tagline() );
-		Plugin::instance()->widgets_manager->register( new Widgets\Site_Logo() );
-		Plugin::instance()->widgets_manager->register( new Widgets\Search_Button() );
-		if ( class_exists( 'woocommerce' ) ) {
-			Plugin::instance()->widgets_manager->register( new Widgets\Cart() );
-		}
 	}
 
 	/**
