@@ -526,6 +526,7 @@ const FeatureWidgets = () => {
         >
             {widgetData.map((widget) => (
                 <Container.Item
+                key={widget.id}
                     alignSelf="auto"
                     className="text-wrap rounded-md shadow-container-item bg-background-primary p-4"
                 >

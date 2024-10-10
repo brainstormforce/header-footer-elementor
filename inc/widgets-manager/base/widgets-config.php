@@ -496,7 +496,7 @@ class Widgets_Config {
 					'title_url'    => '#',
 					'default'      => true,
 					'setting_text' => __( 'Settings', 'header-footer-elementor' ),
-					'setting_url'  => admin_url( 'options-general.php?page=' . UAEL_SLUG . '&action=integration' ),
+					'setting_url'  => admin_url( 'options-general.php?page=uae&action=integration' ),
 					'doc_url'      => HFE_DOMAIN . 'docs-category/widgets/social-share/?utm_source=uael-pro-dashboard&utm_medium=uael-menu-page&utm_campaign=uael-pro-plugin',
 					'preset'       => '5',
 					'is_pro'   	=> true,
