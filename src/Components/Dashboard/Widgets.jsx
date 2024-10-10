@@ -176,10 +176,35 @@ const Widgets = () => {
     const [allWidgetsData, setAllWidgetsData] = useState(null); // Initialize state.
 
     useEffect(() => {
-        setAllWidgetsData(JSON.parse(window.hfeWidgetsList));
+        const widgetsData =  convertToWidgetsArray(window.hfeWidgetsList)
+        console.log({widgetsData})
+        setAllWidgetsData(widgetsData);
     }, []);
 
     console.log( window.hfeWidgetsList );
+
+    function convertToWidgetsArray(data) {
+        const widgets = [];
+    
+        for (const key in data) {
+            if (data.hasOwnProperty(key)) {
+                const widget = data[key];
+                widgets.push({
+                    widgetTitle: key, // Using the key as 'widgetTitle'
+                    slug: widget.slug,
+                    title: widget.title,
+                    keywords: widget.keywords,
+                    icon: widget.icon,
+                    title_url: widget.title_url,
+                    default: widget.default,
+                    doc_url: widget.doc_url,
+                    is_pro: widget.is_pro
+                });
+            }
+        }
+    
+        return widgets;
+    }
 
     return (
         <div className='rounded-lg bg-white w-full mb-4'>
@@ -203,7 +228,7 @@ const Widgets = () => {
                     gap=""
                     justify="start"
                     >
-                        {allWidgetsData.map((widget) => (
+                        {allWidgetsData?.slice(0,12).map((widget) => (
                             <Container.Item
                              key={widget.id}
                              alignSelf="auto"

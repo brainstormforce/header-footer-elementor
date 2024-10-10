@@ -1,21 +1,19 @@
 import React from 'react'
 import { Container, Title, Button, Switch, Tooltip, Badge } from "@bsf/force-ui";
 import { InfoIcon } from 'lucide-react';
-import { Link } from 'react-dom/client';
 
-const WidgetItem = ({
+const FeatureWidgetItems = ({
     widget
 }) => {
-    const { 
+    const { id,
         icon,
+        enabled,
         title,
+        demoLink,
         viewDemo,
         infoText,
-        is_pro, } = widget
-
-        
-
-        console.log({widget})
+        isNew,
+        isPro, } = widget
 
     return (
         <Container align="center"
@@ -30,16 +28,16 @@ const WidgetItem = ({
                 </div>
 
                 <div className='flex items-center gap-x-2'>
-                    {/* {isNew && (
+                    {isNew && (
                         <Badge
                             label="New"
                             size="xs"
                             type="pill"
                             variant="blue"
                         />
-                    )} */}
+                    )}
 
-                    {is_pro ? (
+                    {isPro ? (
                         <Badge
                             label="PRO"
                             size="xs"
@@ -79,4 +77,4 @@ const WidgetItem = ({
     )
 }
 
-export default WidgetItem
+export default FeatureWidgetItems
