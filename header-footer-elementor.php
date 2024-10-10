@@ -53,13 +53,11 @@ function hfe_enqueue_font_awesome() {
 
 	if ( class_exists( 'Elementor\Plugin' ) ) {
 		
-		$upload_dir     = wp_upload_dir(); // Get the upload directory.
-		$custom_css_url = $upload_dir['baseurl'] . '/elementor/css/custom-widget-icon-list.min.css';
 		wp_enqueue_style(
-			'hfe-icon-list',
-			$custom_css_url,
+			'hfe-icons-list',
+			plugins_url( '/elementor/assets/css/widget-icon-list.min.css', 'elementor' ),
 			[],
-			'3.24.0'
+			'3.24.3'
 		);
 		wp_enqueue_style(
 			'hfe-social-icons',
