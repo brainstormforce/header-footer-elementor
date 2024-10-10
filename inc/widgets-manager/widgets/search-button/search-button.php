@@ -5,17 +5,18 @@
  * @package header-footer-elementor
  */
 
-namespace HFE\WidgetsManager\Widgets;
+namespace HFE\WidgetsManager\Widgets\SearchButton;
 
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Background;
 use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
-use Elementor\Widget_Base;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use Elementor\Group_Control_Border;
+
+use HFE\WidgetsManager\Base\Common_Widget;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;   // Exit if accessed directly.
@@ -28,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.5.0
  */
-class Search_Button extends Widget_Base {
+class Search_Button extends Common_Widget {
 	/**
 	 * Retrieve the widget name.
 	 *
@@ -39,7 +40,7 @@ class Search_Button extends Widget_Base {
 	 * @return string Widget name.
 	 */
 	public function get_name() {
-		return 'hfe-search-button';
+		return parent::get_widget_slug( 'Search_Button' );
 	}
 
 	/**
@@ -52,7 +53,7 @@ class Search_Button extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Search', 'header-footer-elementor' );
+		return parent::get_widget_title( 'Search_Button' );
 	}
 
 	/**
@@ -65,7 +66,7 @@ class Search_Button extends Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'hfe-icon-search';
+		return parent::get_widget_icon( 'Search_Button' );
 	}
 
 	/**

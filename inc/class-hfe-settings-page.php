@@ -70,7 +70,8 @@ class HFE_Settings_Page {
 		);
 
 		wp_localize_script('header-footer-elementor-react-app', 'hfeSettingsData', array(
-			'templates_url' => HFE_URL . 'assets/images/settings/starter-templates.png',  // Update the path to your assets folder
+			'templates_url' => HFE_URL . 'assets/images/settings/starter-templates.png',
+			'column_url' => HFE_URL . 'assets/images/settings/column.png',  // Update the path to your assets folder
 		));
 
 		wp_enqueue_style(

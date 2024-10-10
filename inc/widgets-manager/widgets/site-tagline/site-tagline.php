@@ -5,14 +5,15 @@
  * @package header-footer-elementor
  */
 
-namespace HFE\WidgetsManager\Widgets;
+namespace HFE\WidgetsManager\Widgets\SiteTagline;
 
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
 use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
-use Elementor\Widget_Base;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
+
+use HFE\WidgetsManager\Base\Common_Widget;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;   // Exit if accessed directly.
@@ -25,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.3.0
  */
-class Site_Tagline extends Widget_Base {
+class Site_Tagline extends Common_Widget {
 
 	/**
 	 * Retrieve the widget name.
@@ -37,7 +38,7 @@ class Site_Tagline extends Widget_Base {
 	 * @return string Widget name.
 	 */
 	public function get_name() {
-		return 'hfe-site-tagline';
+		return parent::get_widget_slug( 'Site_Tagline' );
 	}
 
 	/**
@@ -50,7 +51,7 @@ class Site_Tagline extends Widget_Base {
 	 * @return string Widget tagline.
 	 */
 	public function get_title() {
-		return __( 'Site Tagline', 'header-footer-elementor' );
+		return parent::get_widget_title( 'Site_Tagline' );
 	}
 
 	/**
@@ -63,25 +64,7 @@ class Site_Tagline extends Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'hfe-icon-site-tagline';
-	}
-
-	/**
-	 * Retrieve the list of categories the widget belongs to.
-	 *
-	 * Used to determine where to display the widget in the editor.
-	 *
-	 * Note that currently Elementor supports only one category.
-	 * When multiple categories passed, Elementor uses the first one.
-	 *
-	 * @since 1.3.0
-	 *
-	 * @access public
-	 *
-	 * @return array Widget categories.
-	 */
-	public function get_categories() {
-		return [ 'hfe-widgets' ];
+		return parent::get_widget_icon( 'Site_Tagline' );
 	}
 
 	/**

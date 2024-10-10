@@ -1,3 +1,6 @@
+/*!************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/styles.css ***!
+  \************************************************************************************************************/
 *, ::before, ::after {
 	--tw-border-spacing-x: 0;
 	--tw-border-spacing-y: 0;
@@ -398,6 +401,9 @@
 #hfe-settings-app .m-0 {
 	margin: 0px;
 }
+#hfe-settings-app .m-4 {
+	margin: 1rem;
+}
 #hfe-settings-app .mx-0 {
 	margin-left: 0px;
 	margin-right: 0px;
@@ -417,6 +423,10 @@
 #hfe-settings-app .my-0 {
 	margin-top: 0px;
 	margin-bottom: 0px;
+}
+#hfe-settings-app .my-4 {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
 }
 #hfe-settings-app .my-5 {
 	margin-top: 1.25rem;
@@ -1222,6 +1232,9 @@
 #hfe-settings-app .border-4 {
 	border-width: 4px;
 }
+#hfe-settings-app .border-\[0\.5px\] {
+	border-width: 0.5px;
+}
 #hfe-settings-app .border-x {
 	border-left-width: 1px;
 	border-right-width: 1px;
@@ -1388,6 +1401,10 @@
 }
 #hfe-settings-app .border-transparent {
 	border-color: transparent;
+}
+#hfe-settings-app .bg-\[\#6005FF\] {
+	--tw-bg-opacity: 1;
+	background-color: rgb(96 5 255 / var(--tw-bg-opacity));
 }
 #hfe-settings-app .bg-alert-background-danger {
 	--tw-bg-opacity: 1;
@@ -1669,6 +1686,9 @@
 }
 #hfe-settings-app .pb-1 {
 	padding-bottom: 0.25rem;
+}
+#hfe-settings-app .pb-3 {
+	padding-bottom: 0.75rem;
 }
 #hfe-settings-app .pb-4 {
 	padding-bottom: 1rem;
@@ -2034,8 +2054,8 @@
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 #hfe-settings-app .shadow-container-item {
-	--tw-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.05);
-	--tw-shadow-colored: 0px 1px 1px 0px var(--tw-shadow-color);
+	--tw-shadow: 0px 1.5px 1px 0px rgba(0, 0, 0, 0.05);
+	--tw-shadow-colored: 0px 1.5px 1px 0px var(--tw-shadow-color);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 #hfe-settings-app .shadow-lg {
@@ -2271,9 +2291,9 @@
 	text-overflow: ellipsis;
 }
 
-.hfe-menu-page-wrapper {
+/* .hfe-menu-page-wrapper {
 	width: calc( 100% - 25px);
-}
+} */
 #hfe-settings-app .gap-2 {
     gap: 1.2rem;
 }
@@ -3654,5 +3674,3 @@ div#hfe-settings-app {
 	width: 1.5rem;
 	height: 1.5rem;
 }
-
-/*# sourceMappingURL=main.css.map*/
