@@ -770,4 +770,67 @@ class Widgets_Config {
         return self::get_widget_list() + self::get_pro_widget_list(); // Use + operator to merge associative arrays
    }
 
+   
+	/**
+	 * Function for Astra Pro white labels with defaults.
+	 *
+	 * @since x.x.x
+	 * @return array
+	 */
+	public static function get_white_label() {
+		$white_labels = is_callable( 'Astra_Admin_Helper::get_admin_settings_option' ) ? \Astra_Admin_Helper::get_admin_settings_option( '_astra_ext_white_label', true ) : [];
+
+		$theme_name = ! empty( $white_labels['astra']['name'] ) ? $white_labels['astra']['name'] : 'Astra';
+
+		return [
+			'theme_name'  => $theme_name,
+			/* translators: %s: theme name */
+			'description' => ! empty( $white_labels['astra']['description'] ) ? $white_labels['astra']['description'] : esc_html( sprintf( __( 'Powering over 1+ Million websites, %s is loved for the fast performance and ease of use it offers. It is suitable for all kinds of websites like blogs, portfolios, business, and WooCommerce stores.', 'header-footer-elementor' ), esc_html( $theme_name ) ) ),
+			'theme_icon'  => ! empty( $white_labels['astra']['icon'] ) ? $white_labels['astra']['icon'] : '',
+			'author_url'  => ! empty( $white_labels['astra']['author_url'] ) ? $white_labels['astra']['author_url'] : 'https://wpastra.com/',
+		];
+	}
+
+	/**
+	 * List of plugins that we propose to install.
+	 *
+	 * @since 1.6.0
+	 *
+	 * @return array
+	 */
+	public static function get_bsf_plugins() {
+
+		$white_labels = self::get_white_label();
+
+		$images_url = HFE_URL . 'assets/images/settings/';
+
+		return [
+
+			'astra'                                     => [
+				'icon'    => ! empty( $white_labels['theme_icon'] ) ? $white_labels['theme_icon'] : $images_url . 'plugin-astra.png',
+				'type'    => 'theme',
+				'name'    => $white_labels['theme_name'],
+				'desc'    => $white_labels['description'],
+				'wporg'   => 'https://wordpress.org/themes/astra/',
+				'url'     => 'https://downloads.wordpress.org/theme/astra.zip',
+				'siteurl' => $white_labels['author_url'],
+				'slug'    => 'astra',
+				'isree' => true,
+			],
+
+			'astra-sites/astra-sites.php'               => [
+				'icon'    => $images_url . 'plugin-st.png',
+				'type'    => 'plugin',
+				'name'    => esc_html__( 'Starter Templates', 'header-footer-elementor' ),
+				'desc'    => esc_html__( 'A popular templates plugin that provides an extensive library of professional and fully customizable 600+ ready website and templates. More than 1+ Million websites have built with this plugin.', 'header-footer-elementor' ),
+				'wporg'   => 'https://wordpress.org/plugins/astra-sites/',
+				'url'     => 'https://downloads.wordpress.org/plugin/astra-sites.zip',
+				'siteurl' => 'https://startertemplates.com/',
+				'slug'    => 'astra-sites',
+				'isFree' => true,
+			],
+
+		];
+	}
+
 }

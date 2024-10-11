@@ -1,55 +1,72 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import ExtendWebsiteWidget from './ExtendWebsiteWidget';
 import { Container } from "@bsf/force-ui";
 import { Plus, ArrowUpRight } from 'lucide-react';
-
-const ExtendWebsiteData = [
-    {
-        id: '1',
-        icon: <Plus className='h-5 w-5' />,
-        activated: true,
-        title: 'Astra Theme',
-        demoLink: 'https://www.youtube.com/embed/JGwWNGJdvx8',
-        infoText: 'Free WordPress Page Builder Plugin.',
-        isInstalled: true,
-        isFree: true,
-    },
-    {
-        id: '2',
-        icon: <Plus className='h-5 w-5' />,
-        activated: true,
-        title: 'Starter Templates',
-        demoLink: 'https://www.youtube.com/embed/JGwWNGJdvx8',
-        infoText: 'Build your dream website in minutes with AI.',
-        isInstall: true,
-        isFree: true,
-    },
-    {
-        id: '3',
-        icon: <Plus className='h-5 w-5' />,
-        activated: true,
-        title: 'SureCart',
-        demoLink: 'https://www.youtube.com/embed/JGwWNGJdvx8',
-        infoText: 'The new way to sell on WordPress.',
-        isInstall: true,
-        isFree: true,
-    },
-    {
-        id: '4',
-        icon: <Plus className='h-5 w-5' />,
-        activated: true,
-        title: 'Presto Player',
-        demoLink: 'https://www.youtube.com/embed/JGwWNGJdvx8',
-        infoText: 'Automate your WordPress setup.',
-        isInstall: true,
-        isFree: true,
-    },
-];
+import apiFetch from '@wordpress/api-fetch'; // Import apiFetch for AJAX calls
 
 const ExtendWebsite = () => {
+
+    const [plugins, setPlugins] = useState(null); // State to manage plugin data
+
+    useEffect(() => {
+        const pluginsData =  convertToPluginsArray( window.hfePluginsData );
+        setPlugins(pluginsData);
+    }, []);
+
+    console.log(window.hfePluginsData);
+    console.log( "===========================================================" );
+    console.log( plugins );
+
+    function convertToPluginsArray(data) {
+        const plugins = [];
+    
+        for (const key in data) {
+            if (data.hasOwnProperty(key)) {
+                const plugin = data[key];
+                plugins.push({
+                    path: key,
+                    slug: plugin.slug,
+                    siteUrl: plugin.siteurl,
+                    icon: plugin.icon,
+                    type: plugin.type,
+                    name: plugin.name,
+                    zipUrl: plugin.url,
+                    desc: plugin.desc,
+                    wporg: plugin.wporg, 
+                    isFree: plugin.isFree
+                });
+            }
+        }
+    
+        return plugins;
+    }
+
+    const handlePluginAction = (id, action) => {
+        const formData = new window.FormData();
+        formData.append('action', `hfe_recommended_plugin_${action}`);
+        formData.append('plugin_id', id); // Pass the plugin ID
+
+        apiFetch({
+            url: hfe_admin_data.ajax_url, // Use the appropriate AJAX URL
+            method: 'POST',
+            body: formData,
+        }).then((response) => {
+            if (response.success) {
+                // Update the plugin state based on the action
+                setPlugins((prevPlugins) =>
+                    prevPlugins.map((plugin) =>
+                        plugin.id === id ? { ...plugin, activated: !plugin.activated } : plugin
+                    )
+                );
+            } else {
+                alert('Plugin action failed, please try again later.');
+            }
+        }).catch((error) => {
+            console.error('Error during plugin action:', error);
+        });
+    };
+
     return (
-
-
         <div className='rounded-lg bg-white w-full mb-4'>
             <div className='flex items-center justify-between' style={{
                 paddingTop: '12px',
@@ -71,13 +88,13 @@ const ExtendWebsite = () => {
                     gap=""
                     justify="start"
                 >
-                    {ExtendWebsiteData.map((widget) => (
+                    {plugins?.map((plugin) => (
                         <Container.Item
-                        key={widget.id}
+                            key={plugin.slug}
                             alignSelf="auto"
                             className="text-wrap rounded-md shadow-container-item bg-background-primary p-4"
                         >
-                            <ExtendWebsiteWidget widget={widget} key={widget.id} />
+                            <ExtendWebsiteWidget plugin={plugin} onPluginAction={handlePluginAction} />
                         </Container.Item>
                     ))}
                 </Container>

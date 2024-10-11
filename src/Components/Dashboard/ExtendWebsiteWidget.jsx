@@ -1,18 +1,29 @@
 import React from 'react'
 import { Container, Title, Button, Switch, Tooltip, Badge, Label } from "@bsf/force-ui";
 import { InfoIcon } from 'lucide-react';
+import apiFetch from '@wordpress/api-fetch';
 
 const ExtendWebsiteWidget = ({
-    widget
+    plugin,
+    onPluginAction
 }) => {
-    const { id,
+    const {  
+        path,
+        slug,
+        siteUrl,
         icon,
-        activated,
-        title,
-        demoLink,
-        infoText,
-        isInstalled,
-        isFree } = widget
+        type,
+        name,
+        zipUrl,
+        desc,
+        wporg,
+        isFree
+    } = plugin
+
+    const handlePluginAction = () => {
+        const action = activated ? 'deactivate' : 'activate'; // Determine action based on current state
+        onPluginAction(id, action); // Call the passed function with the plugin ID and action
+    };
 
     return (
         <Container align="center"
@@ -21,14 +32,14 @@ const ExtendWebsiteWidget = ({
             direction="column"
             justify="between"
             gap="lg"
-        // style={{
-        //     height: '118px',
-        //     width: '190px'
-        // }}
         >
             <div className='flex items-center justify-between w-full'>
                 <div className='h-5 w-5'>
-                    {icon}
+                    <img
+                        src={icon}
+                        alt="Recommended Plugins/Themes"
+                        className="w-full h-auto rounded"
+                    />
                 </div>
 
                 <div className='flex items-center gap-x-2'>
@@ -41,35 +52,26 @@ const ExtendWebsiteWidget = ({
                         />
                     )}
 
-                    {isInstalled ? (
-                        <Label
-                            size="xs"
-                            tag="label"
-                            variant="neutral"
-                            className="cursor-pointer text-link-primary"
-                        >
-                            Activate
-                        </Label>
-                    ) : (
-                        <Label
-                            size="xs"
-                            tag="label"
-                            variant="neutral"
-                            className="cursor-pointer text-link-primary"
-                        >
-                            Install
-                        </Label>
-                    )}
+                    <Button
+                        size="xs"
+                        variant="link"
+                        className="cursor-pointer text-link-primary"
+                        onClick={handlePluginAction} // Trigger action on click
+                        data-plugin={zipUrl}
+                        data-type={type}
+                        data-slug={slug} 
+                        data-site={siteUrl}
+                    >
+                        {activated ? 'Deactivate' : 'Activate'}
+                    </Button>
                 </div>
-
-
             </div>
 
             <div className='flex flex-col w-full'>
                 <p className='text-sm font-medium text-text-primary pb-1 m-0'>{title}</p>
                 <p className='text-sm font-medium text-text-tertiary text-wrap m-0'>{infoText}</p>
                 <div className='flex items-center justify-between w-full'>
-                    <p className='text-sm text-text-tertiary m-0'>{activated}</p>
+                <p className='text-sm text-text-tertiary m-0'>{activated ? 'Active' : 'Inactive'}</p>
                     {/* <Tooltip
                 arrow
                 content={infoText}
