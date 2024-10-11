@@ -6,15 +6,16 @@ import { Link } from 'react-dom/client';
 const WidgetItem = ({
     widget
 }) => {
-    const { id,
+    const { 
         icon,
-        enabled,
         title,
-        demoLink,
         viewDemo,
         infoText,
-        isNew,
-        isPro, } = widget
+        is_pro, } = widget
+
+        
+
+        console.log({widget})
 
     return (
         <Container align="center"
@@ -24,21 +25,21 @@ const WidgetItem = ({
             gap=""
         >
             <div className='flex items-center justify-between w-full'>
-                <div className='h-5 w-5 mb-5'>
+                <div  className={`h-5 w-5 mb-5 ${icon?.props}`}>
                     {icon}
                 </div>
 
                 <div className='flex items-center gap-x-2'>
-                    {isNew && (
+                    {/* {isNew && (
                         <Badge
                             label="New"
                             size="xs"
                             type="pill"
                             variant="blue"
                         />
-                    )}
+                    )} */}
 
-                    {isPro ? (
+                    {is_pro ? (
                         <Badge
                             label="PRO"
                             size="xs"
