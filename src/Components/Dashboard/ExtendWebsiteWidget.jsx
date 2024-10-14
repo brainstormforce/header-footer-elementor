@@ -80,10 +80,10 @@ const ExtendWebsiteWidget = ({
             </div>
 
             <div className='flex flex-col w-full'>
-                <p className='text-sm font-medium text-text-primary pb-1 m-0'>{title}</p>
-                <p className='text-sm font-medium text-text-tertiary text-wrap m-0'>{infoText}</p>
+                <p className='text-sm font-medium text-text-primary pb-1 m-0'>{name}</p>
+                <p className='text-sm font-medium text-text-tertiary text-wrap m-0'>{desc}</p>
                 <div className='flex items-center justify-between w-full'>
-                <p className='text-sm text-text-tertiary m-0'>{activated ? 'Active' : 'Inactive'}</p>
+                <p className='text-sm text-text-tertiary m-0'>{status}</p>
                     {/* <Tooltip
                 arrow
                 content={infoText}

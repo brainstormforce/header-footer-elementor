@@ -810,7 +810,7 @@ class Widgets_Config {
 				'icon'    => ! empty( $white_labels['theme_icon'] ) ? $white_labels['theme_icon'] : $images_url . 'plugin-astra.png',
 				'type'    => 'theme',
 				'name'    => $white_labels['theme_name'],
-				'desc'    => $white_labels['description'],
+				'desc'    => __( 'Free & Fastest WordPress Theme', 'header-footer-elementor' ),
 				'wporg'   => 'https://wordpress.org/themes/astra/',
 				'url'     => 'https://downloads.wordpress.org/theme/astra.zip',
 				'siteurl' => $white_labels['author_url'],
@@ -823,7 +823,7 @@ class Widgets_Config {
 				'icon'    => $images_url . 'plugin-st.png',
 				'type'    => 'plugin',
 				'name'    => esc_html__( 'Starter Templates', 'header-footer-elementor' ),
-				'desc'    => esc_html__( 'A popular templates plugin that provides an extensive library of professional and fully customizable 600+ ready website and templates. More than 1+ Million websites have built with this plugin.', 'header-footer-elementor' ),
+				'desc'    => esc_html__( 'Build you dream website in minutes with AI.', 'header-footer-elementor' ),
 				'wporg'   => 'https://wordpress.org/plugins/astra-sites/',
 				'url'     => 'https://downloads.wordpress.org/plugin/astra-sites.zip',
 				'siteurl' => 'https://startertemplates.com/',
@@ -854,5 +854,32 @@ class Widgets_Config {
 			return 'Installed';
 		}
 	}
+
+	/**
+	 * Get theme status
+	 *
+	 * @since 0.0.1
+	 *
+	 * @param  string $plugin_init_file Plugin init file.
+	 * @return string
+	 */
+	public static function get_theme_status( $theme_slug ) {
+        $installed_themes = wp_get_themes();
+        
+        // Check if the theme is installed
+        if ( isset( $installed_themes[ $theme_slug ] ) ) {
+            $current_theme = wp_get_theme();
+            
+            // Check if the current theme slug matches the provided theme slug
+            if ( $current_theme->get_stylesheet() === $theme_slug ) {
+                return 'Activated'; // Theme is active
+            } else {
+                return 'Installed'; // Theme is installed but not active
+            }
+        } else {
+            return 'Not Installed'; // Theme is not installed at all
+        }
+    }
+
 
 }
