@@ -58,7 +58,7 @@ const ExtendWebsiteWidget = ({
 				);
 				formData.append( 'slug', e.target.dataset.slug );
 
-				e.target.innerText = "Installing...";
+				e.target.innerText = __( 'Installing...', 'header-footer-elementor' )
 
 				apiFetch( {
 					url: hfe_admin_data.ajax_url,
@@ -66,14 +66,14 @@ const ExtendWebsiteWidget = ({
 					body: formData,
 				} ).then( ( data ) => {
 					if ( data.success ) {
-						e.target.innerText = "Installed";
+						e.target.innerText = __( 'Installed', 'header-footer-elementor' );
                         activatePlugin( e );
 					} else {
-						e.target.innerText = __( 'Install', 'sureforms' );
+						e.target.innerText = __( 'Install', 'header-footer-elementor' );
                         if( 'theme' == e.target.dataset.type ) {
-                            alert( __( `Theme Installation failed, Please try again later.`, 'sureforms' ) );
+                            alert( __( `Theme Installation failed, Please try again later.`, 'header-footer-elementor' ) );
                         } else {
-                            alert( __( `Plugin Installation failed, Please try again later.`, 'sureforms' ) );
+                            alert( __( `Plugin Installation failed, Please try again later.`, 'header-footer-elementor' ) );
                         }
 						
 					}
@@ -93,7 +93,7 @@ const ExtendWebsiteWidget = ({
 		formData.append( 'plugin', e.target.dataset.init );
 		formData.append( 'type', e.target.dataset.type );
 		formData.append( 'slug', e.target.dataset.slug );
-		e.target.innerText = "Activating...";
+		e.target.innerText = __( 'Activating...', 'header-footer-elementor' );
 
 		apiFetch( {
 			url: hfe_admin_data.ajax_url,
@@ -102,14 +102,14 @@ const ExtendWebsiteWidget = ({
 		} ).then( ( data ) => {
 			if ( data.success ) {
 				e.target.style.color = '#16A34A';
-				e.target.innerText = "Activated";
+				e.target.innerText = __( 'Activated', 'header-footer-elementor' );
 			} else {
 				if( 'theme' == e.target.dataset.type ) {
-                    alert( __( `Theme Activation failed, Please try again later.`, 'sureforms' ) );
+                    alert( __( `Theme Activation failed, Please try again later.`, 'header-footer-elementor' ) );
                 } else {
-                    alert( __( `Plugin Activation failed, Please try again later.`, 'sureforms' ) );
+                    alert( __( `Plugin Activation failed, Please try again later.`, 'header-footer-elementor' ) );
                 }
-				e.target.innerText = "Activate";
+				e.target.innerText = __( 'Activate', 'header-footer-elementor' );
 			}
 		} );
 	};

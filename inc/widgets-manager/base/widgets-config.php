@@ -810,7 +810,7 @@ class Widgets_Config {
 				'icon'    => ! empty( $white_labels['theme_icon'] ) ? $white_labels['theme_icon'] : $images_url . 'plugin-astra.png',
 				'type'    => 'theme',
 				'name'    => $white_labels['theme_name'],
-				'desc'    => __( 'Free & Fastest WordPress Theme', 'header-footer-elementor' ),
+				'desc'    => esc_html__( 'Free & Fastest WordPress Theme', 'header-footer-elementor' ),
 				'wporg'   => 'https://wordpress.org/themes/astra/',
 				'url'     => 'https://downloads.wordpress.org/theme/astra.zip',
 				'siteurl' => $white_labels['author_url'],

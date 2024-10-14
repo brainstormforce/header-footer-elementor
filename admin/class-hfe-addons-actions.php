@@ -46,52 +46,6 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			add_action( 'wp_ajax_hfe_recommended_theme_install', 'wp_ajax_install_theme' );
 			add_action( 'wp_ajax_hfe_admin_modal', [ $this, 'hfe_admin_modal' ] );
 			add_action( 'wp_ajax_hfe-update-subscription', [ $this, 'update_subscription' ] );
-			add_action( 'wp_ajax_hfe_activate_addon', [ $this, 'hfe_activate_addon' ] );
-		}
-
-		/**
-		 * Install Theme
-		 */
-		public function install_theme() {
-			// Run a security check.
-			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
-	
-			if ( ! current_user_can( 'install_themes' ) ) {
-				wp_send_json_error( esc_html__( 'Theme installation is disabled for you on this site.', 'header-footer-elementor' ) );
-			}
-	
-			if ( isset( $_POST['theme'] ) ) {
-				$theme = sanitize_text_field( wp_unslash( $_POST['theme'] ) );
-	
-				// Install the theme.
-				$result = wp_install_theme( $theme );
-	
-				if ( is_wp_error( $result ) ) {
-					wp_send_json_error( $result->get_error_message() );
-				} else {
-					wp_send_json_success( esc_html__( 'Theme installed successfully.', 'header-footer-elementor' ) );
-				}
-			} else {
-				wp_send_json_error( esc_html__( 'No theme specified.', 'header-footer-elementor' ) );
-			}
-		}
-
-		/**
-		 * Get ajax error message.
-		 *
-		 * @param string $type Message type.
-		 * @return string
-		 * @since 0.0.2
-		 */
-		public function get_error_msg( $type ) {
-
-			if ( ! isset( $this->errors[ $type ] ) ) {
-				$type = 'default';
-			}
-			if ( ! isset( $this->errors ) ) {
-				return '';
-			}
-			return $this->errors[ $type ];
 		}
 
 		/**
