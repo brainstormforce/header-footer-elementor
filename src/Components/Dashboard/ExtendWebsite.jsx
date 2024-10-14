@@ -42,31 +42,6 @@ const ExtendWebsite = () => {
         return plugins;
     }
 
-    const handlePluginAction = (id, action) => {
-        const formData = new window.FormData();
-        formData.append('action', `hfe_recommended_plugin_${action}`);
-        formData.append('plugin_id', id); // Pass the plugin ID
-
-        apiFetch({
-            url: hfe_admin_data.ajax_url, // Use the appropriate AJAX URL
-            method: 'POST',
-            body: formData,
-        }).then((response) => {
-            if (response.success) {
-                // Update the plugin state based on the action
-                setPlugins((prevPlugins) =>
-                    prevPlugins.map((plugin) =>
-                        plugin.id === id ? { ...plugin, activated: !plugin.activated } : plugin
-                    )
-                );
-            } else {
-                alert('Plugin action failed, please try again later.');
-            }
-        }).catch((error) => {
-            console.error('Error during plugin action:', error);
-        });
-    };
-
     return (
         <div className='rounded-lg bg-white w-full mb-4'>
             <div className='flex items-center justify-between' style={{
@@ -100,7 +75,7 @@ const ExtendWebsite = () => {
                             alignSelf="auto"
                             className="text-wrap rounded-md shadow-container-item bg-background-primary p-4"
                         >
-                            <ExtendWebsiteWidget plugin={plugin} onPluginAction={handlePluginAction} />
+                            <ExtendWebsiteWidget plugin={plugin} />
                         </Container.Item>
                     ))}
                 </Container>

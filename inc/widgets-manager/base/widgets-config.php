@@ -874,10 +874,10 @@ class Widgets_Config {
             if ( $current_theme->get_stylesheet() === $theme_slug ) {
                 return 'Activated'; // Theme is active
             } else {
-                return 'Installed'; // Theme is installed but not active
+                return 'Activate'; // Theme is installed but not active
             }
         } else {
-            return 'Not Installed'; // Theme is not installed at all
+            return 'Install'; // Theme is not installed at all
         }
     }
 
