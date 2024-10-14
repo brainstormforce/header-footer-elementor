@@ -780,12 +780,12 @@ class Widgets_Config {
 	public static function get_white_label() {
 		$white_labels = is_callable( 'Astra_Admin_Helper::get_admin_settings_option' ) ? \Astra_Admin_Helper::get_admin_settings_option( '_astra_ext_white_label', true ) : [];
 
-		$theme_name = ! empty( $white_labels['astra']['name'] ) ? $white_labels['astra']['name'] : 'Astra';
+		$theme_name = ! empty( $white_labels['astra']['name'] ) ? $white_labels['astra']['name'] : 'Astra Theme';
 
 		return [
 			'theme_name'  => $theme_name,
 			/* translators: %s: theme name */
-			'description' => ! empty( $white_labels['astra']['description'] ) ? $white_labels['astra']['description'] : esc_html( sprintf( __( 'Powering over 1+ Million websites, %s is loved for the fast performance and ease of use it offers. It is suitable for all kinds of websites like blogs, portfolios, business, and WooCommerce stores.', 'header-footer-elementor' ), esc_html( $theme_name ) ) ),
+			'description' => ! empty( $white_labels['astra']['description'] ) ? $white_labels['astra']['description'] : esc_html( sprintf( __( 'Free & Fastest WordPress Theme.', 'header-footer-elementor' ), esc_html( $theme_name ) ) ),
 			'theme_icon'  => ! empty( $white_labels['astra']['icon'] ) ? $white_labels['astra']['icon'] : '',
 			'author_url'  => ! empty( $white_labels['astra']['author_url'] ) ? $white_labels['astra']['author_url'] : 'https://wpastra.com/',
 		];
@@ -810,7 +810,7 @@ class Widgets_Config {
 				'icon'    => ! empty( $white_labels['theme_icon'] ) ? $white_labels['theme_icon'] : $images_url . 'plugin-astra.png',
 				'type'    => 'theme',
 				'name'    => $white_labels['theme_name'],
-				'desc'    => esc_html__( 'Free & Fastest WordPress Theme', 'header-footer-elementor' ),
+				'desc'    => esc_html__( 'Free and Fastest WordPress Theme', 'header-footer-elementor' ),
 				'wporg'   => 'https://wordpress.org/themes/astra/',
 				'url'     => 'https://downloads.wordpress.org/theme/astra.zip',
 				'siteurl' => $white_labels['author_url'],
@@ -820,7 +820,7 @@ class Widgets_Config {
 			],
 
 			'astra-sites/astra-sites.php'               => [
-				'icon'    => $images_url . 'plugin-st.png',
+				'icon'    => $images_url . 'stemplates.png',
 				'type'    => 'plugin',
 				'name'    => esc_html__( 'Starter Templates', 'header-footer-elementor' ),
 				'desc'    => esc_html__( 'Build you dream website in minutes with AI.', 'header-footer-elementor' ),
@@ -828,7 +828,34 @@ class Widgets_Config {
 				'url'     => 'https://downloads.wordpress.org/plugin/astra-sites.zip',
 				'siteurl' => 'https://startertemplates.com/',
 				'slug'    => 'astra-sites',
+				'isFree'  => true,
 				'status'  => self::get_plugin_status( 'astra-sites/astra-sites.php' ),
+			],
+
+			'surecart/surecart.php'               => [
+				'icon'    => $images_url . 'surecart.png',
+				'type'    => 'plugin',
+				'name'    => esc_html__( 'Surecart', 'header-footer-elementor' ),
+				'desc'    => esc_html__( 'The new way to sell on WordPress.', 'header-footer-elementor' ),
+				'wporg'   => 'https://wordpress.org/plugins/surecart/',
+				'url'     => 'https://downloads.wordpress.org/plugin/surecart.zip',
+				'siteurl' => 'https://surecart.com/',
+				'isFree'  => true,
+				'slug'    => 'surecart',
+				'status'  => self::get_plugin_status( 'surecart/surecart.php' ),
+			],
+
+			'presto-player/presto-player.php'               => [
+				'icon'    => $images_url . 'pplayer.png',
+				'type'    => 'plugin',
+				'name'    => esc_html__( 'Presto Player', 'header-footer-elementor' ),
+				'desc'    => esc_html__( 'Automate your WordPress setup.', 'header-footer-elementor' ),
+				'wporg'   => 'https://wordpress.org/plugins/presto-player/',
+				'url'     => 'https://downloads.wordpress.org/plugin/presto-player.zip',
+				'siteurl' => 'https://prestoplayer.com/',
+				'slug'    => 'presto-player',
+				'isFree'  => true,
+				'status'  => self::get_plugin_status( 'presto-player/presto-player.php' ),
 			],
 
 		];
