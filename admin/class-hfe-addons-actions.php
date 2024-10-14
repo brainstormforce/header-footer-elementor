@@ -41,9 +41,11 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		 *  Constructor
 		 */
 		public function __construct() {
+			add_action( 'wp_ajax_hfe_recommended_plugin_activate', [ $this, 'hfe_activate_addon' ] );
+			add_action( 'wp_ajax_hfe_recommended_plugin_install', 'wp_ajax_install_plugin' );
+			add_action( 'wp_ajax_hfe_recommended_theme_install', 'wp_ajax_install_theme' );
 			add_action( 'wp_ajax_hfe_admin_modal', [ $this, 'hfe_admin_modal' ] );
 			add_action( 'wp_ajax_hfe-update-subscription', [ $this, 'update_subscription' ] );
-			add_action( 'wp_ajax_hfe_activate_addon', [ $this, 'hfe_activate_addon' ] );
 		}
 
 		/**

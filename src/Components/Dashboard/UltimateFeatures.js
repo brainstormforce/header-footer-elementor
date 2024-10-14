@@ -70,6 +70,7 @@ const UltimateFeatures = () => {
 					<div className="grid grid-cols-2 grid-flow-row gap-1 my-4">
 						{featureData.map((feature) => (
 							<Title
+							key={feature.id}
 								description=""
 								icon={
 									<Check className="text-brand-primary-600 mr-1 h-3 w-3" />
