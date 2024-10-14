@@ -33,7 +33,8 @@ const ExtendWebsite = () => {
                     zipUrl: plugin.url,
                     desc: plugin.desc,
                     wporg: plugin.wporg, 
-                    isFree: plugin.isFree
+                    isFree: plugin.isFree,
+                    status: plugin.status
                 });
             }
         }
@@ -91,6 +92,11 @@ const ExtendWebsite = () => {
                     {plugins?.map((plugin) => (
                         <Container.Item
                             key={plugin.slug}
+                            statusText={
+                                'Installed' === plugin.status
+                                    ? 'Activate'
+                                    : plugin.status
+                            }
                             alignSelf="auto"
                             className="text-wrap rounded-md shadow-container-item bg-background-primary p-4"
                         >

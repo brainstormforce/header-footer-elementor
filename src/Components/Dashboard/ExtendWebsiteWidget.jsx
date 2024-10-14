@@ -17,13 +17,24 @@ const ExtendWebsiteWidget = ({
         zipUrl,
         desc,
         wporg,
-        isFree
+        isFree,
+        action,
+        status
     } = plugin
 
     const handlePluginAction = () => {
-        const action = activated ? 'deactivate' : 'activate'; // Determine action based on current state
-        onPluginAction(id, action); // Call the passed function with the plugin ID and action
+        const action = getAction( status );// Determine action based on current state
+        onPluginAction( slug, action ); // Call the passed function with the plugin ID and action
     };
+
+    const getAction = ( status ) => {
+		if ( status === 'Activated' ) {
+			return '';
+		} else if ( status === 'Installed' ) {
+			return 'hfe_recommended_plugin_activate';
+		}
+		return 'hfe_recommended_plugin_install';
+	};
 
     return (
         <Container align="center"
@@ -61,8 +72,9 @@ const ExtendWebsiteWidget = ({
                         data-type={type}
                         data-slug={slug} 
                         data-site={siteUrl}
+                        data-action={ action }
                     >
-                        {activated ? 'Deactivate' : 'Activate'}
+                        { 'Installed' === status ? 'Activate' : status }
                     </Button>
                 </div>
             </div>

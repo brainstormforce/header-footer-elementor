@@ -815,7 +815,8 @@ class Widgets_Config {
 				'url'     => 'https://downloads.wordpress.org/theme/astra.zip',
 				'siteurl' => $white_labels['author_url'],
 				'slug'    => 'astra',
-				'isree' => true,
+				'isFree'  => true,
+				'status'  => self::get_theme_status( 'astra' ),
 			],
 
 			'astra-sites/astra-sites.php'               => [
@@ -827,10 +828,31 @@ class Widgets_Config {
 				'url'     => 'https://downloads.wordpress.org/plugin/astra-sites.zip',
 				'siteurl' => 'https://startertemplates.com/',
 				'slug'    => 'astra-sites',
-				'isFree' => true,
+				'status'  => self::get_plugin_status( 'astra-sites/astra-sites.php' ),
 			],
 
 		];
+	}
+
+	/**
+	 * Get plugin status
+	 *
+	 * @since 0.0.1
+	 *
+	 * @param  string $plugin_init_file Plugin init file.
+	 * @return string
+	 */
+	public static function get_plugin_status( $plugin_init_file ) {
+
+		$installed_plugins = get_plugins();
+
+		if ( ! isset( $installed_plugins[ $plugin_init_file ] ) ) {
+			return 'Install';
+		} elseif ( is_plugin_active( $plugin_init_file ) ) {
+			return 'Activated';
+		} else {
+			return 'Installed';
+		}
 	}
 
 }
