@@ -3,12 +3,11 @@ import NavMenu from '@components/NavMenu'
 import { Container } from "@bsf/force-ui";
 import React from 'react'
 import WelcomeContainer from '@components/Dashboard/WelcomeContainer';
-import Widgets from '@components/Dashboard/Widgets';
 import UltimateFeatures from '@components/Dashboard/UltimateFeatures';
 import ExtendWebsite from '@components/Dashboard/ExtendWebsite';
 import TemplateSection from '@components/Dashboard/TemplateSection';
 import QuickAccess from '@components/Dashboard/QuickAccess';
-import FeatureWidgets from './Features/FeatureWidgets';
+import Widgets from '@components/Dashboard/Widgets';
 import UltimateWidgets from './UltimateWidgets';
 
 const Features = () => {
@@ -37,7 +36,7 @@ const Features = () => {
                     width: "65%",
                 }}
             >
-                <FeatureWidgets />
+                <Widgets />
             </Container.Item>
             <Container.Item 
                 className="p-2"

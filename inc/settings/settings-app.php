@@ -10,8 +10,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use HFE\WidgetsManager\Base\Widgets_Config;
+use HFE\WidgetsManager\Base\HFE_Helper;
 
-$all_widgets = Widgets_Config::get_all_widgets();
+$all_widgets = HFE_Helper::get_all_widgets_list();
 $plugins_data = Widgets_Config::get_bsf_plugins();
 
 $json_widgets_data = json_encode( $all_widgets );

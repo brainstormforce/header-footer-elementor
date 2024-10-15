@@ -9,12 +9,8 @@ const Widgets = () => {
 
     useEffect(() => {
         const widgetsData =  convertToWidgetsArray(window.hfeWidgetsList)
-        console.log({widgetsData})
         setAllWidgetsData(widgetsData);
     }, []);
-
-    console.log( window.hfeWidgetsList );
-    console.log( allWidgetsData );
 
     function convertToWidgetsArray(data) {
         const widgets = [];
@@ -31,7 +27,8 @@ const Widgets = () => {
                     title_url: widget.title_url,
                     default: widget.default,
                     doc_url: widget.doc_url,
-                    is_pro: widget.is_pro
+                    is_pro: widget.is_pro,
+                    is_active: widget.is_activate !== undefined ? widget.is_activate : true, // Check if is_activate is set
                 });
             }
         }

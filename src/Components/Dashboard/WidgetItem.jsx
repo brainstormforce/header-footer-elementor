@@ -11,11 +11,11 @@ const WidgetItem = ({
         title,
         viewDemo,
         infoText,
-        is_pro, } = widget
+        is_pro,
+        is_active
+    } = widget
 
-        
-
-        console.log({widget})
+    console.log({widget})
 
     return (
         <Container align="center"
@@ -46,8 +46,17 @@ const WidgetItem = ({
                             type="pill"
                             variant="inverse"
                         />
+                    ) : is_active ? ( // Corrected this line
+                        <Switch 
+                            onChange={() => {}} // Add your onChange logic here
+                            size='sm' 
+                            value={is_active} // Pass is_active as value to the Switch
+                        />
                     ) : (
-                        <Switch size='sm' />
+                        <Switch 
+                            onChange={() => {}} // Add your onChange logic here
+                            size='sm' // Pass is_active as value to the Switch
+                        />
                     )}
                 </div>
 

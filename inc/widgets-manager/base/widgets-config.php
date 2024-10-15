@@ -6,6 +6,9 @@
  */
 namespace HFE\WidgetsManager\Base;
 
+
+use HFE\WidgetsManager\Base\Widgets_Config;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
@@ -131,7 +134,7 @@ class Widgets_Config {
 			),
 		);
 
-		return self::$widget_list;
+		return apply_filters( 'hfe_widgets_data', self::$widget_list );
 	}
 
 	/**
