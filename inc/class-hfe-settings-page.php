@@ -365,7 +365,7 @@ class HFE_Settings_Page {
 public function render_content( $menu_page_slug, $page_action ) {
 
     if ( $this->menu_slug === $menu_page_slug ) {
-        include_once HFE_DIR . 'inc/settings/admin-base.php';
+        include_once HFE_DIR . 'inc/settings/settings-app.php';
     }
 }
    
