@@ -16,6 +16,15 @@ namespace HFE\Themes;
  * @since 1.6.0
  */
 class HFE_Settings_Page {
+	
+	    /**
+     * Instance
+     *z
+     * @access private
+     * @var string Class object.
+     * @since 1.0.0
+     */
+    private $menu_slug = 'hfe';
 
 	/**
 	 * Constructor.
@@ -33,8 +42,28 @@ class HFE_Settings_Page {
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
 		add_filter( 'plugin_action_links_' . HFE_PATH, [ $this, 'settings_link' ] );
 
+		/* Add the Action Links */
+		add_filter( 'plugin_action_links_' . HFE_PATH, array( $this, 'add_action_links' ) );
+
 		/* Flow content view */
 		add_action( 'hfe_render_admin_page_content', array( $this, 'render_content' ), 10, 2 );
+	}
+
+		/**
+	 * Show action on plugin page.
+	 *
+	 * @param  array $links links.
+	 * @return array
+	 */
+	public function add_action_links( $links ) {
+
+		$default_url = admin_url( 'admin.php?page=' . $this->menu_slug );
+
+		$mylinks = array(
+			'<a href="' . $default_url . '">' . __( 'Settings', 'Elementor Header & Footer Builder' ) . '</a>',
+		);
+
+		return array_merge( $mylinks, $links );
 	}
 
 	/**
@@ -129,22 +158,6 @@ class HFE_Settings_Page {
 		$this->hfe_tabs();
 		$this->hfe_modal();
 		return $views;
-	}
-
-	/**
-	 * Renders the admin settings content.
-	 *
-	 * @since x.x.x
-	 * @param sting $menu_page_slug current page name.
-	 * @param sting $page_action current page action.
-	 *
-	 * @return void
-	 */
-	public function render_content() {
-
-		if ( $this->is_current_page( 'uaelite' ) ) {
-			include_once HFE_DIR . 'inc/settings/settings-app.php';
-		}
 	}
 
 	/**
@@ -263,46 +276,99 @@ class HFE_Settings_Page {
 	 */
 	public function hfe_register_settings_page() {
 
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+
+		$menu_slug  = $this->menu_slug;
+		$capability = 'manage_options';
+
 		add_menu_page(
-			__( 'UA Elementor Settings', 'header-footer-elementor' ),  // Page title
-			__( 'UA Elementor', 'header-footer-elementor' ), // Menu title
-			'manage_options',                        // Capability (who can access)
-			'uaelite',                          // Menu slug (unique identifier)
-			[ $this, 'uaelite_settings_page' ],                    // Callback function to display the content
-			'dashicons-admin-generic',               // Icon for the menu item
-			60                                       // Position in the admin menu
+			__( 'UA Elementor Settings', 'header-footer-elementor' ),  
+			__( 'UA Elementor', 'header-footer-elementor' ),                         
+			$capability,
+			$menu_slug,
+			[ $this, 'render' ],                    
+			'dashicons-admin-generic',               
+			60                                       
+		);
+
+		// Add the Dashboard Submenu.
+		add_submenu_page(
+			$menu_slug,
+			__( 'UA Elementor Settings', 'header-footer-elementor' ),
+			__( 'Dashboard', 'header-footer-elementor' ),
+			$capability,
+			$menu_slug,
+			array( $this, 'render' )
+		);
+	
+		add_submenu_page(
+			$this->menu_slug, // Parent slug
+			__( 'Widgets & Features', 'header-footer-elementor' ), 
+			__( 'Widgets & Features', 'header-footer-elementor' ), 
+			$capability,
+			$this->menu_slug . '&path=widgets',
+			[ $this, 'render' ] 
 		);
 
 		add_submenu_page(
-			'themes.php',
+			$menu_slug,
+			__( 'Templates', 'header-footer-elementor' ),
+			__( 'Templates', 'header-footer-elementor' ),
+			$capability,
+			$menu_slug . '&path=templates',
+			[ $this, 'render' ]
+		);
+		
+		// Add the Settings Submenu.
+		add_submenu_page(
+			$menu_slug,
 			__( 'Settings', 'header-footer-elementor' ),
 			__( 'Settings', 'header-footer-elementor' ),
-			'manage_options',
-			'hfe-settings',
-			[ $this, 'hfe_settings_page' ]
+			$capability,
+			$menu_slug . '&path=settings',
+			[ $this, 'render' ]
 		);
 
-		add_submenu_page(
-			'themes.php',
-			__( 'About Us', 'header-footer-elementor' ),
-			__( 'About Us', 'header-footer-elementor' ),
-			'manage_options',
-			'hfe-about',
-			[ $this, 'hfe_settings_page' ]
-		);
 	}
-
 	/**
-	 * Settings page.
-	 *
-	 * Call back function for add submenu page function.
-	 *
-	 * @since x.x.x
-	 * @return void
-	 */
-	public function uaelite_settings_page() {
-		include_once HFE_DIR . 'inc/settings/admin-base.php';
-	}
+	* Settings page.
+	*
+	* Call back function for add submenu page function.
+	*
+	* @since x.x.x
+	* @return void
+	*/
+   public function render() {
+
+	   $menu_page_slug = ( ! empty( $_GET['page'] ) ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : $this->menu_slug; //phpcs:ignore WordPress.Security.NonceVerification.Recommended
+	   $page_action    = '';
+   
+	   if ( isset( $_GET['action'] ) ) { //phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		   $page_action = sanitize_text_field( wp_unslash( $_GET['action'] ) ); //phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		   $page_action = str_replace( '_', '-', $page_action );
+	   }
+   
+	   include_once HFE_DIR . 'inc/settings/admin-base.php';
+   }
+
+   /**
+ * Renders the admin settings content.
+ *
+ * @since 1.0.0
+ * @param sting $menu_page_slug current page name.
+ * @param sting $page_action current page action.
+ *
+ * @return void
+ */
+public function render_content( $menu_page_slug, $page_action ) {
+
+    if ( $this->menu_slug === $menu_page_slug ) {
+        include_once HFE_DIR . 'inc/settings/admin-base.php';
+    }
+}
+   
 
 	/**
 	 * Settings page.

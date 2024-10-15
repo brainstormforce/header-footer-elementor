@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
 	Topbar,
 	Button,
@@ -35,10 +36,9 @@ const NavMenu = () => {
 			<Topbar.Middle align="left" gap="2xl">
 				<Topbar.Item>
 				<div className="flex gap-2">
-					<div>{__('Dashboard', 'header-footer-elementor')}</div>
-					<div>{__('Widgets/Features', 'header-footer-elementor')}</div>
-					<div>{__('Settings', 'header-footer-elementor')}</div>
-					<div>{__('Free vs Pro', 'header-footer-elementor')}</div>
+				<Link to="/dyfhgtrashboard">{__('Dashboard', 'header-footer-elementor')}</Link>
+    <Link to="/widgets-features">{__('Widgets/Features', 'header-footer-elementor')}</Link>
+    <Link to="/settings">{__('Settings', 'header-footer-elementor')}</Link>
 				</div>
 				</Topbar.Item>
 				<Topbar.Item>
