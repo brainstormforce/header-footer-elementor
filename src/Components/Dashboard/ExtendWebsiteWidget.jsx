@@ -46,7 +46,8 @@ const ExtendWebsiteWidget = ({
                             size="xs"
                             tag="label"
                             variant="neutral"
-                            className="cursor-pointer text-link-primary"
+                            className="cursor-pointer"
+                            style={{color: '#6005FF'}}
                         >
                             Activate
                         </Label>
@@ -55,7 +56,8 @@ const ExtendWebsiteWidget = ({
                             size="xs"
                             tag="label"
                             variant="neutral"
-                            className="cursor-pointer text-link-primary"
+                            className="cursor-pointer"
+                            style={{color: '#6005FF'}}
                         >
                             Install
                         </Label>

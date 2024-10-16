@@ -61,7 +61,7 @@ const Widgets = () => {
                     gap=""
                     justify="start"
                     >
-                        {allWidgetsData?.slice(0,12).map((widget) => (
+                        {allWidgetsData?.slice(0, 9).map((widget) => (
                             <Container.Item
                              key={widget.id}
                              alignSelf="auto"
