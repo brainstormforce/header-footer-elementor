@@ -51,11 +51,6 @@ return [
     */
 
     'exclude' => [
-        'vendor/',
-        'node_modules/',
-        'tests',
-        '*/vendor/',
-        'vendor/symfony/cache/',
         'assets/*',
         'phpinsights.php'
     ],
