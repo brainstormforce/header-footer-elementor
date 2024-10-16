@@ -19,7 +19,7 @@ const Widgets = () => {
             if (data.hasOwnProperty(key)) {
                 const widget = data[key];
                 widgets.push({
-                    widgetTitle: key, // Using the key as 'widgetTitle'
+                    id: key, // Using the key as 'widgetTitle'
                     slug: widget.slug,
                     title: widget.title,
                     keywords: widget.keywords,

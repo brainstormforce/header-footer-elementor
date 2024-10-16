@@ -221,6 +221,26 @@ class HFE_Helper {
 		return apply_filters( 'hfe_enabled_widgets', self::$widget_options );
 	}
 
+	
+	/**
+	 * Updates an option from the admin settings page.
+	 *
+	 * @param string $key       The option key.
+	 * @param mixed  $value     The value to update.
+	 * @param bool   $network   Whether to allow the network admin setting to be overridden on subsites.
+	 * @return mixed
+	 */
+	public static function update_admin_settings_option( $key, $value, $network = false ) {
+
+		// Update the site-wide option since we're in the network admin.
+		if ( $network && is_multisite() ) {
+			update_site_option( $key, $value );
+		} else {
+			update_option( $key, $value );
+		}
+
+	}
+
 	/**
 	 * Returns an option from the database for
 	 * the admin settings page.
