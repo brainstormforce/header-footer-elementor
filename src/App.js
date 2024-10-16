@@ -1,19 +1,31 @@
-import { useState } from '@wordpress/element';
-import './styles.css'; // Ensure you have your Tailwind CSS styles imported
-import Test from '@screens/Test.js';
-import Dashboard from '@components/Dashboard/Dashboard';
-import Features from '@components/Widgets/Features';
-import Templates from '@components/Templates/Templates';
-import { BrowserRouter as Router } from 'react-router-dom'; 
+import { useState, useEffect } from 'react';
+import './styles.css'; 
+import CustomRouter from 'router/customRouter';
 
 const App = () => {
-	return (
-		<Router>
-			{/* <Dashboard/> */}
-			<Features/>
-			{/* <Templates/> */}
-		</Router>
-	);
+  const [loaded, setLoaded] = useState(false);
+
+  // scroll top on route change
+  window.onhashchange = () => {
+    window.scrollTo(0, 0);
+  };
+
+  // Simulate loading (replace with actual loading logic if needed)
+  useEffect(() => {
+    setTimeout(() => {
+      setLoaded(true);
+    }, 1000); // Simulating a load delay of 1 second
+  }, []);
+
+  if (!loaded) {
+    return <div className="loading-spinner">Loading...</div>;
+  }
+
+  return (
+    <div className="app-container">
+      <CustomRouter />
+    </div>
+  );
 };
 
 export default App;

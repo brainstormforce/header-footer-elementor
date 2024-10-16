@@ -43,54 +43,54 @@ class HFE_Settings_Page {
 		add_filter( 'plugin_action_links_' . HFE_PATH, [ $this, 'settings_link' ] );
 
 		/* Add the Action Links */
-		add_filter( 'plugin_action_links_' . HFE_PATH, array( $this, 'add_action_links' ) );
+		// add_filter( 'plugin_action_links_' . HFE_PATH, array( $this, 'add_action_links' ) );
 
 		/* Flow content view */
 		add_action( 'hfe_render_admin_page_content', array( $this, 'render_content' ), 10, 2 );
 
-		add_action('rest_api_init', array($this, 'register_menu_links_route'));
+		// add_action('rest_api_init', array($this, 'register_menu_links_route'));
 	}
 
-	public function register_menu_links_route() {
-        register_rest_route('myplugin/v1', '/links', array(
-            'methods' => 'GET',
-            'callback' => array($this, 'get_menu_links'),
-        ));
-    }
+	// public function register_menu_links_route() {
+    //     register_rest_route('myplugin/v1', '/links', array(
+    //         'methods' => 'GET',
+    //         'callback' => array($this, 'get_menu_links'),
+    //     ));
+    // }
 
 
-    public function get_menu_links() {
-        $menu_slug = 'hfe';
+    // public function get_menu_links() {
+    //     $menu_slug = 'hfe';
 
-        return array(
-            array(
-				'id' => 1,
-                'label' => __('Dashboard', 'header-footer-elementor'),
-                'url' => admin_url('admin.php?page=' . $menu_slug . '&path=dashboard'),
-                'path' => '/dashboard',
-            ),
-            array(
-				'id' => 2,
-                'label' => __('Widgets & Features', 'header-footer-elementor'),
-                'url' => admin_url('admin.php?page=' . $menu_slug . '&path=widgets'),
-                'path' => '/widgets-features',
-            ),
-            array(
-				'id' => 3,
-                'label' => __('Templates', 'header-footer-elementor'),
-                'url' => admin_url('admin.php?page=' . $menu_slug . '&path=templates'),
-                'path' => '/templates',
-            ),
-            array(
-				'id' => 4,
-                'label' => __('Settings', 'header-footer-elementor'),
-                'url' => admin_url('admin.php?page=' . $menu_slug . '&path=settings'),
-                'path' => '/settings',
-            ),
-        );
-    }
+    //     return array(
+    //         array(
+	// 			'id' => 1,
+    //             'label' => __('Dashboard', 'header-footer-elementor'),
+    //             'url' => admin_url('admin.php?page=' . $menu_slug . '&path=dashboard'),
+    //             'path' => '/dashboard',
+    //         ),
+    //         array(
+	// 			'id' => 2,
+    //             'label' => __('Widgets & Features', 'header-footer-elementor'),
+    //             'url' => admin_url('admin.php?page=' . $menu_slug . '&path=widgets'),
+    //             'path' => '/widgets-features',
+    //         ),
+    //         array(
+	// 			'id' => 3,
+    //             'label' => __('Templates', 'header-footer-elementor'),
+    //             'url' => admin_url('admin.php?page=' . $menu_slug . '&path=templates'),
+    //             'path' => '/templates',
+    //         ),
+    //         array(
+	// 			'id' => 4,
+    //             'label' => __('Settings', 'header-footer-elementor'),
+    //             'url' => admin_url('admin.php?page=' . $menu_slug . '&path=settings'),
+    //             'path' => '/settings',
+    //         ),
+    //     );
+    // }
 
-		/**
+	/**
 	 * Show action on plugin page.
 	 *
 	 * @param  array $links links.
@@ -340,7 +340,7 @@ class HFE_Settings_Page {
 			__( 'UA Elementor Settings', 'header-footer-elementor' ),
 			__( 'Dashboard', 'header-footer-elementor' ),
 			$capability,
-			$menu_slug . '&path=dashboard',
+			$menu_slug,
 			array( $this, 'render' )
 		);
 	
@@ -349,7 +349,7 @@ class HFE_Settings_Page {
 			__( 'Widgets & Features', 'header-footer-elementor' ), 
 			__( 'Widgets & Features', 'header-footer-elementor' ), 
 			$capability,
-			$this->menu_slug . '&path=widgets',
+			$this->menu_slug,
 			[ $this, 'render' ] 
 		);
 
@@ -358,7 +358,7 @@ class HFE_Settings_Page {
 			__( 'Templates', 'header-footer-elementor' ),
 			__( 'Templates', 'header-footer-elementor' ),
 			$capability,
-			$menu_slug . '&path=templates',
+			$menu_slug,
 			[ $this, 'render' ]
 		);
 		
@@ -368,7 +368,7 @@ class HFE_Settings_Page {
 			__( 'Settings', 'header-footer-elementor' ),
 			__( 'Settings', 'header-footer-elementor' ),
 			$capability,
-			$menu_slug . '&path=settings',
+			$menu_slug,
 			[ $this, 'render' ]
 		);
 

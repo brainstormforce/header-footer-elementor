@@ -1,28 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { useLocation, Link } from "react-router-dom";
+import React from "react";
 import { Topbar, Button, Badge } from "@bsf/force-ui";
 import { ArrowUpRight, CircleHelp, Megaphone } from "lucide-react";
 import { __ } from "@wordpress/i18n";
+import { routes } from "../admin/settings/routes";
+import { Link } from '../router/index'
 
 const NavMenu = () => {
-	const location = useLocation();
-	const [currentPath, setCurrentPath] = useState(location.pathname);
-	const [links, setLinks] = useState([]);
-
-	useEffect(() => {
-		setCurrentPath(location.pathname);
-	}, [location]);
-
-	// Fetch data from the REST API
-	useEffect(() => {
-		fetch("/wp-json/myplugin/v1/links")
-			.then((response) => response.json())
-			.then((data) => {
-				console.log(data); // Log the data to the console
-				setLinks(data);
-			});
-	}, []);
-
 	return (
 		<Topbar
 			style={{
@@ -49,17 +32,38 @@ const NavMenu = () => {
 			</Topbar.Left>
 			<Topbar.Middle align="left" gap="2xl">
 				<Topbar.Item>
-					<div className="flex gap-2">
-						{links?.map((link) => (
-							<Link
-								key={link.id}
-								to={link.url} // Corrected the path for routing
-								className={currentPath === link.path ? 'active-link' : ''} // Optional active class
-							>
-								{link.label}
-							</Link>
-						))}
-					</div>
+					{/* <div className="flex gap-2">
+					<div>{__('Dashboard', 'header-footer-elementor')}</div>
+					<div>{__('Widgets/Features', 'header-footer-elementor')}</div>
+					<div>{__('Settings', 'header-footer-elementor')}</div>
+					<div>{__('Free vs Pro', 'header-footer-elementor')}</div>
+				</div> */}
+					<nav className="flex gap-2 cursor-pointer">
+						<Link
+							to={routes.dashboard.path}
+							activeClassName="active-link"
+						>
+							Dashboard
+						</Link>
+						<Link
+							to={routes.widgets.path}
+							activeClassName="active-link"
+						>
+							Widgets
+						</Link>
+						<Link
+							to={routes.templates.path}
+							activeClassName="active-link"
+						>
+							Templates
+						</Link>
+						<Link
+							to={routes.settings.path}
+							activeClassName="active-link"
+						>
+							Settings
+						</Link>
+					</nav>
 				</Topbar.Item>
 				<Topbar.Item>
 					<Button
