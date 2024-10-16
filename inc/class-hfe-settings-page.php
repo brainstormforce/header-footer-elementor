@@ -47,7 +47,48 @@ class HFE_Settings_Page {
 
 		/* Flow content view */
 		add_action( 'hfe_render_admin_page_content', array( $this, 'render_content' ), 10, 2 );
+
+		add_action('rest_api_init', array($this, 'register_menu_links_route'));
 	}
+
+	public function register_menu_links_route() {
+        register_rest_route('myplugin/v1', '/links', array(
+            'methods' => 'GET',
+            'callback' => array($this, 'get_menu_links'),
+        ));
+    }
+
+
+    public function get_menu_links() {
+        $menu_slug = 'hfe';
+
+        return array(
+            array(
+				'id' => 1,
+                'label' => __('Dashboard', 'header-footer-elementor'),
+                'url' => admin_url('admin.php?page=' . $menu_slug . '&path=dashboard'),
+                'path' => '/dashboard',
+            ),
+            array(
+				'id' => 2,
+                'label' => __('Widgets & Features', 'header-footer-elementor'),
+                'url' => admin_url('admin.php?page=' . $menu_slug . '&path=widgets'),
+                'path' => '/widgets-features',
+            ),
+            array(
+				'id' => 3,
+                'label' => __('Templates', 'header-footer-elementor'),
+                'url' => admin_url('admin.php?page=' . $menu_slug . '&path=templates'),
+                'path' => '/templates',
+            ),
+            array(
+				'id' => 4,
+                'label' => __('Settings', 'header-footer-elementor'),
+                'url' => admin_url('admin.php?page=' . $menu_slug . '&path=settings'),
+                'path' => '/settings',
+            ),
+        );
+    }
 
 		/**
 	 * Show action on plugin page.
@@ -299,7 +340,7 @@ class HFE_Settings_Page {
 			__( 'UA Elementor Settings', 'header-footer-elementor' ),
 			__( 'Dashboard', 'header-footer-elementor' ),
 			$capability,
-			$menu_slug,
+			$menu_slug . '&path=dashboard',
 			array( $this, 'render' )
 		);
 	
@@ -331,7 +372,9 @@ class HFE_Settings_Page {
 			[ $this, 'render' ]
 		);
 
+
 	}
+
 	/**
 	* Settings page.
 	*
@@ -368,7 +411,6 @@ public function render_content( $menu_page_slug, $page_action ) {
         include_once HFE_DIR . 'inc/settings/settings-app.php';
     }
 }
-   
 
 	/**
 	 * Settings page.
@@ -982,6 +1024,8 @@ public function render_content( $menu_page_slug, $page_action ) {
 
 		return false;
 	}
+
+	
 
 	/**
 	 * Add settings link to the Plugins page.

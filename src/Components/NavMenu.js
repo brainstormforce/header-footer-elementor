@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { Topbar, Button, Badge } from "@bsf/force-ui";
 import { ArrowUpRight, CircleHelp, Megaphone } from "lucide-react";
 import { __ } from "@wordpress/i18n";
@@ -8,10 +7,21 @@ import { __ } from "@wordpress/i18n";
 const NavMenu = () => {
 	const location = useLocation();
 	const [currentPath, setCurrentPath] = useState(location.pathname);
+	const [links, setLinks] = useState([]);
 
 	useEffect(() => {
 		setCurrentPath(location.pathname);
 	}, [location]);
+
+	// Fetch data from the REST API
+	useEffect(() => {
+		fetch("/wp-json/myplugin/v1/links")
+			.then((response) => response.json())
+			.then((data) => {
+				console.log(data); // Log the data to the console
+				setLinks(data);
+			});
+	}, []);
 
 	return (
 		<Topbar
@@ -40,32 +50,15 @@ const NavMenu = () => {
 			<Topbar.Middle align="left" gap="2xl">
 				<Topbar.Item>
 					<div className="flex gap-2">
-						<a
-							href="http://mainhfe.local/wp-admin/admin.php?page=hfe"
-							className={
-								currentPath === "/dashboard" ? "active" : ""
-							}
-						>
-							{__("Dashboard", "header-footer-elementor")}
-						</a>
-						<a
-							href="http://mainhfe.local/wp-admin/admin.php?page=hfe&path=widgets"
-							className={
-								currentPath === "/widgets-features"
-									? "active"
-									: ""
-							}
-						>
-							{__("Widgets/Features", "header-footer-elementor")}
-						</a>
-						<a
-							href="http://mainhfe.local/wp-admin/admin.php?page=hfe&path=settings"
-							className={
-								currentPath === "/settings" ? "active" : ""
-							}
-						>
-							{__("Settings", "header-footer-elementor")}
-						</a>
+						{links?.map((link) => (
+							<Link
+								key={link.id}
+								to={link.url} // Corrected the path for routing
+								className={currentPath === link.path ? 'active-link' : ''} // Optional active class
+							>
+								{link.label}
+							</Link>
+						))}
 					</div>
 				</Topbar.Item>
 				<Topbar.Item>
