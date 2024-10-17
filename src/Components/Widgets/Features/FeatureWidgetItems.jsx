@@ -5,15 +5,14 @@ import { InfoIcon } from 'lucide-react';
 const FeatureWidgetItems = ({
     widget
 }) => {
-    const { id,
+    const { 
         icon,
-        enabled,
         title,
-        demoLink,
         viewDemo,
         infoText,
-        isNew,
         isPro, } = widget
+
+        console.log({widget})
 
     return (
         <Container align="center"
@@ -28,14 +27,14 @@ const FeatureWidgetItems = ({
                 </div>
 
                 <div className='flex items-center gap-x-2'>
-                    {isNew && (
+                    {/* {isNew && (
                         <Badge
                             label="New"
                             size="xs"
                             type="pill"
                             variant="blue"
                         />
-                    )}
+                    )} */}
 
                     {isPro ? (
                         <Badge

@@ -140,26 +140,25 @@ const ExtendWebsiteWidget = ({
                             variant="green"
                         />
                     )}
-
-                    <Button
-                        size="xs"
-                        variant="link"
-                        className="cursor-pointer text-link-primary"
-                        onClick={handlePluginAction} // Trigger action on click
-                        data-plugin={zipUrl}
-                        data-type={type}
-                        data-slug={slug} 
-                        data-site={siteUrl}
-                        data-init={path}
-                        data-action={ getAction( status ) }
-                        style={{ 
-                            color: status === 'Activated' ? '#16A34A' : 'auto',
-                            pointerEvents: status === 'Activated' ? 'none' : 'auto'
-                        }}
-                    >
-                        { 'Installed' === status ? 'Activate' : status }
-                    </Button>
-                </div>
+                        <Button
+                            size="xs"
+                            variant="link"
+                            className="cursor-pointer text-link-primary"
+                            onClick={handlePluginAction} // Trigger action on click
+                            data-plugin={zipUrl}
+                            data-type={type}
+                            data-slug={slug} 
+                            data-site={siteUrl}
+                            data-init={path}
+                            data-action={ getAction( status ) }
+                            style={{ 
+                                color: status === 'Activated' ? '#16A34A' : 'auto',
+                                pointerEvents: status === 'Activated' ? 'none' : 'auto'
+                            }}
+                        >
+                            { 'Installed' === status ? 'Activate' : status }
+                        </Button>
+                    </div>
             </div>
 
             <div className='flex flex-col w-full'>
