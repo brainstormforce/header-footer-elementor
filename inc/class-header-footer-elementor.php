@@ -629,7 +629,7 @@ class Header_Footer_Elementor {
 			$post_status = get_post_status( $id );
 	
 			// Prevent access to drafts, private, and pending posts for unauthorized users.
-			if ( in_array( $post_status, ['draft', 'private', 'pending'], true ) ) {
+			if ( in_array( $post_status, [ 'draft', 'private', 'pending' ], true ) ) {
 				return ''; // Prevent access to restricted posts.
 			}
 		}
