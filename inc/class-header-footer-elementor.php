@@ -623,6 +623,17 @@ class Header_Footer_Elementor {
 			return '';
 		}
 
+		// Check if the current user can edit posts.
+		if ( ! current_user_can( 'edit_posts' ) ) {
+			// Get the post status.
+			$post_status = get_post_status( $id );
+	
+			// Prevent access to drafts, private, and pending posts for unauthorized users.
+			if ( in_array( $post_status, ['draft', 'private', 'pending'], true ) ) {
+				return ''; // Prevent access to restricted posts.
+			}
+		}
+
 		if ( class_exists( '\Elementor\Core\Files\CSS\Post' ) ) {
 			$css_file = new \Elementor\Core\Files\CSS\Post( $id );
 		} elseif ( class_exists( '\Elementor\Post_CSS_File' ) ) {
