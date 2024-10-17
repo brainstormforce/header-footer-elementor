@@ -623,13 +623,11 @@ class Header_Footer_Elementor {
 			return '';
 		}
 
-		// Check if the current user can edit posts.
-		if ( ! current_user_can( 'edit_posts' ) ) {
-			// Get the post status.
+		// Check if the current user has permission to edit posts.
+		if ( ! current_user_can( 'edit_post', $id ) ) {
 			$post_status = get_post_status( $id );
-	
-			// Prevent access to drafts, private, and pending posts for unauthorized users.
-			if ( in_array( $post_status, [ 'draft', 'private', 'pending' ], true ) ) {
+			// Prevent access to drafts, private, pending, and password-protected posts for unauthorized users.
+			if ( in_array( $post_status, [ 'draft', 'private', 'pending' ], true ) || post_password_required( $id ) ) {
 				return ''; // Prevent access to restricted posts.
 			}
 		}
