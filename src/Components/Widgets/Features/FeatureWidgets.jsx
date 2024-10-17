@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'; 
 import { Container, Button } from "@bsf/force-ui";
 import { MoreHorizontalIcon, Plus, Map, House, SearchIcon } from "lucide-react";
-import FeatureWidgetItems from './FeatureWidgetItems';
+import WidgetItem from '@components/Dashboard/WidgetItem'
 
 const FeatureWidgets = () => {
 
@@ -12,9 +12,6 @@ const FeatureWidgets = () => {
         console.log({widgetsData})
         setAllWidgetsData(widgetsData);
     }, []);
-
-    console.log( window.hfeWidgetsList );
-    console.log( allWidgetsData );
 
     function convertToWidgetsArray(data) {
         const widgets = [];
@@ -91,7 +88,7 @@ const FeatureWidgets = () => {
                             alignSelf="auto"
                             className="text-wrap rounded-md shadow-container-item bg-background-primary p-4"
                         >
-                            <FeatureWidgetItems widget={widget} key={widget.id} />
+                            <WidgetItem widget={widget} key={widget.id} />
                         </Container.Item>
                     ))}
                 </Container>
