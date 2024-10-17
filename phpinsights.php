@@ -1,6 +1,12 @@
 <?php
+/**
+ * This file is part of the Header Footer Elementor plugin.
+ * 
+ * @package HeaderFooterElementor
+ * @file /phpinsights.php
+ */
 
-declare(strict_types=1);
+declare(strict_types=1); // phpcs:ignore
 
 return [
 
@@ -64,137 +70,147 @@ return [
 		 * Globals accesses detected
 		 * ToDo: Remove this rule after fixing the issue
 		 */
-		NunoMaduro\PhpInsights\Domain\Insights\ForbiddenGlobals::class,
+		'NunoMaduro\PhpInsights\Domain\Insights\ForbiddenGlobals',
 
 		/**
 		 * Global keyword
 		 * ToDo: Remove this rule after fixing the issue
 		 */
-		PHP_CodeSniffer\Standards\Squiz\Sniffs\PHP\GlobalKeywordSniff::class,
+		'PHP_CodeSniffer\Standards\Squiz\Sniffs\PHP\GlobalKeywordSniff',
 
 		/**
 		 * Defining global helpers is prohibited
 		 * ToDo: Remove this rule after fixing the issue
 		 */
-		NunoMaduro\PhpInsights\Domain\Insights\ForbiddenDefineFunctions::class,
+		'NunoMaduro\PhpInsights\Domain\Insights\ForbiddenDefineFunctions',
 
 		/**
 		 * Return, Property, Parameter type hint
 		 */
-		SlevomatCodingStandard\Sniffs\TypeHints\ReturnTypeHintSniff::class,
-		SlevomatCodingStandard\Sniffs\TypeHints\PropertyTypeHintSniff::class,
-		SlevomatCodingStandard\Sniffs\TypeHints\ParameterTypeHintSniff::class,
+		'SlevomatCodingStandard\Sniffs\TypeHints\ReturnTypeHintSniff',
+		'SlevomatCodingStandard\Sniffs\TypeHints\PropertyTypeHintSniff',
+		'SlevomatCodingStandard\Sniffs\TypeHints\ParameterTypeHintSniff',
 
 		/**
 		 * Disallow mixed type hint
 		 */
-		SlevomatCodingStandard\Sniffs\TypeHints\DisallowMixedTypeHintSniff::class,
+		'SlevomatCodingStandard\Sniffs\TypeHints\DisallowMixedTypeHintSniff',
 
 		/**
 		 * Disallow empty
 		 */
-		SlevomatCodingStandard\Sniffs\ControlStructures\DisallowEmptySniff::class,
+		'SlevomatCodingStandard\Sniffs\ControlStructures\DisallowEmptySniff',
 
 		/**
 		 * Forbidden public property
 		 */
-		SlevomatCodingStandard\Sniffs\Classes\ForbiddenPublicPropertySniff::class,
+		'SlevomatCodingStandard\Sniffs\Classes\ForbiddenPublicPropertySniff',
 
 		/**
 		 * Having `classes` with more than 5 cyclomatic complexity is prohibited - Consider refactoring.
 		 */
-		NunoMaduro\PhpInsights\Domain\Insights\CyclomaticComplexityIsHigh::class,
+		'NunoMaduro\PhpInsights\Domain\Insights\CyclomaticComplexityIsHigh',
 
 		/**
 		 * Function length
 		 */
-		SlevomatCodingStandard\Sniffs\Functions\FunctionLengthSniff::class,
+		'SlevomatCodingStandard\Sniffs\Functions\FunctionLengthSniff',
 
 		/**
 		 * Valid class name, not in PascalCase format.
 		 */
-		PHP_CodeSniffer\Standards\Squiz\Sniffs\Classes\ValidClassNameSniff::class,
+		'PHP_CodeSniffer\Standards\Squiz\Sniffs\Classes\ValidClassNameSniff',
 
 		/**
 		 * No spaces around offset.
 		 */
-		PhpCsFixer\Fixer\Whitespace\NoSpacesAroundOffsetFixer::class,
+		'PhpCsFixer\Fixer\Whitespace\NoSpacesAroundOffsetFixer',
 
 		/**
 		 * Side effects.
 		 */
-		PHP_CodeSniffer\Standards\PSR1\Sniffs\Files\SideEffectsSniff::class,
+		'PHP_CodeSniffer\Standards\PSR1\Sniffs\Files\SideEffectsSniff',
 
 		/**
 		 * Arbitrary parentheses spacing
 		 */
-		PHP_CodeSniffer\Standards\Generic\Sniffs\WhiteSpace\ArbitraryParenthesesSpacingSniff::class,
+		'PHP_CodeSniffer\Standards\Generic\Sniffs\WhiteSpace\ArbitraryParenthesesSpacingSniff',
 
 		/**
 		 * Character before PHP opening tag
 		 */
-		PHP_CodeSniffer\Standards\Generic\Sniffs\PHP\CharacterBeforePHPOpeningTagSniff::class,
+		'PHP_CodeSniffer\Standards\Generic\Sniffs\PHP\CharacterBeforePHPOpeningTagSniff',
 
 		/**
 		 * Disallow tab indent
 		 */
-		PHP_CodeSniffer\Standards\Generic\Sniffs\WhiteSpace\DisallowTabIndentSniff::class,
+		'PHP_CodeSniffer\Standards\Generic\Sniffs\WhiteSpace\DisallowTabIndentSniff',
 
 		/**
 		 * Line length
 		 */
-		PHP_CodeSniffer\Standards\Generic\Sniffs\Files\LineLengthSniff::class,
+		'PHP_CodeSniffer\Standards\Generic\Sniffs\Files\LineLengthSniff',
 
 		/**
 		 * Binary operator spaces.
 		 */
-		PhpCsFixer\Fixer\Operator\BinaryOperatorSpacesFixer::class,
+		'PhpCsFixer\Fixer\Operator\BinaryOperatorSpacesFixer',
 
 		/**
 		 * No spaces inside parenthesis
 		 */
-		PhpCsFixer\Fixer\Whitespace\NoSpacesInsideParenthesisFixer::class,
+		'PhpCsFixer\Fixer\Whitespace\NoSpacesInsideParenthesisFixer',
 
 		/**
 		 * No spaces after function name
 		 */
-		PhpCsFixer\Fixer\FunctionNotation\FunctionDeclarationFixer::class,
+		'PhpCsFixer\Fixer\FunctionNotation\FunctionDeclarationFixer',
 
 		/**
 		 * Class definition
 		 */
-		PhpCsFixer\Fixer\ClassNotation\ClassDefinitionFixer::class,
+		'PhpCsFixer\Fixer\ClassNotation\ClassDefinitionFixer',
 
 		/**
 		 * Method argument space
 		 */
-		PhpCsFixer\Fixer\FunctionNotation\MethodArgumentSpaceFixer::class,
+		'PhpCsFixer\Fixer\FunctionNotation\MethodArgumentSpaceFixer',
 
 		/**
 		 * Braces fixer
 		 */
-		PhpCsFixer\Fixer\Basic\BracesFixer::class,
+		'PhpCsFixer\Fixer\Basic\BracesFixer',
 
 		/**
 		 * Declare strict types.
 		 */
-		SlevomatCodingStandard\Sniffs\TypeHints\DeclareStrictTypesSniff::class,
+		'SlevomatCodingStandard\Sniffs\TypeHints\DeclareStrictTypesSniff',
 
 		/**
 		 * DOC comment spacing
 		 */
-		SlevomatCodingStandard\Sniffs\Commenting\DocCommentSpacingSniff::class,
+		'SlevomatCodingStandard\Sniffs\Commenting\DocCommentSpacingSniff',
 
 		/**
 		 * Camel caps method name
 		 */
-		PHP_CodeSniffer\Standards\PSR1\Sniffs\Methods\CamelCapsMethodNameSniff::class,
+		'PHP_CodeSniffer\Standards\PSR1\Sniffs\Methods\CamelCapsMethodNameSniff',
 
 		/**
 		 * Normal classes are forbidden. Classes must be final or abstract
 		 * Todo: Remove this rule after fixing the issue
 		 */
-		NunoMaduro\PhpInsights\Domain\Insights\ForbiddenNormalClasses::class,
+		'NunoMaduro\PhpInsights\Domain\Insights\ForbiddenNormalClasses',
+
+		/**
+		 * Magic class constant not available in PHP 5.4 or earlier
+		 */
+		'PHPCompatibility\Sniffs\Constants\NewMagicClassConstantSniff',
+
+		/**
+		 * Strict_types directive not available in PHP 5.6 or earlier
+		 */
+		'PHPCompatibility\Sniffs\ControlStructures\NewExecutionDirectivesSniff',
 	],
 
 	'config'       => [],
