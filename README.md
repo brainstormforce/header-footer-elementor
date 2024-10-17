@@ -140,6 +140,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 ## Changelog ##
 
+### 1.6.44.1 ###
+- Fix: Addressed issues identified by PHP Insights during analysis.
+
 ### 1.6.43 ###
 - Improvement: Icons displaying correctly on frontend.
 
