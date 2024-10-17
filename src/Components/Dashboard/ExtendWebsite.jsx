@@ -6,7 +6,7 @@ import { Plus, ArrowUpRight } from 'lucide-react';
 const ExtendWebsiteData = [
     {
         id: '1',
-        icon: <Plus className='h-5 w-5' />,
+        icon: <img src={`${hfeSettingsData.astra_url}`} alt="Icon 1" className='h-5 w-5' />,
         activated: true,
         title: 'Astra Theme',
         demoLink: 'https://www.youtube.com/embed/JGwWNGJdvx8',
@@ -16,7 +16,7 @@ const ExtendWebsiteData = [
     },
     {
         id: '2',
-        icon: <Plus className='h-5 w-5' />,
+        icon: <img src={`${hfeSettingsData.starter_url}`} alt="Icon 1" className='h-5 w-5' />,
         activated: true,
         title: 'Starter Templates',
         demoLink: 'https://www.youtube.com/embed/JGwWNGJdvx8',
@@ -26,7 +26,7 @@ const ExtendWebsiteData = [
     },
     {
         id: '3',
-        icon: <Plus className='h-5 w-5' />,
+        icon: <img src={`${hfeSettingsData.surecart_url}`} alt="Icon 1" className='h-5 w-5' />,
         activated: true,
         title: 'SureCart',
         demoLink: 'https://www.youtube.com/embed/JGwWNGJdvx8',
@@ -36,7 +36,7 @@ const ExtendWebsiteData = [
     },
     {
         id: '4',
-        icon: <Plus className='h-5 w-5' />,
+        icon: <img src={`${hfeSettingsData.suretriggers_url}`} alt="Icon 1" className='h-5 w-5' />,
         activated: true,
         title: 'Presto Player',
         demoLink: 'https://www.youtube.com/embed/JGwWNGJdvx8',
