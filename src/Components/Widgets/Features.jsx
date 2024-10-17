@@ -9,6 +9,7 @@ import TemplateSection from '@components/Dashboard/TemplateSection';
 import QuickAccess from '@components/Dashboard/QuickAccess';
 import Widgets from '@components/Dashboard/Widgets';
 import UltimateWidgets from './UltimateWidgets';
+import FeatureWidgets from './Features/FeatureWidgets'
 
 const Features = () => {
   return (
@@ -36,7 +37,7 @@ const Features = () => {
                     width: "65%",
                 }}
             >
-                <Widgets />
+                <FeatureWidgets />
             </Container.Item>
             <Container.Item 
                 className="p-2"
