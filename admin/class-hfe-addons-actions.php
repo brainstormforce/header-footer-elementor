@@ -28,6 +28,13 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		private static $instance;
 
 		/**
+		 * Widget list variable
+		 * 
+		 * @var HFE_Addons_Actions
+		 */
+		private static $widget_list;
+
+		/**
 		 *  Initiator
 		 *
 		 * @return HFE_Addons_Actions
@@ -78,7 +85,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			$new_widgets = array_map( 'esc_attr', $new_widgets );
 
 			// Update new_extensions.
-			HFE_Helper::update_admin_settings_option( '_uael_widgets', $new_widgets );
+			HFE_Helper::update_admin_settings_option( '_hfe_widgets', $new_widgets );
 
 			echo 'success';
 
@@ -107,7 +114,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			$new_widgets = array_map( 'esc_attr', $new_widgets );
 
 			// Update new_extensions.
-			HFE_Helper::update_admin_settings_option( '_uael_widgets', $new_widgets );
+			HFE_Helper::update_admin_settings_option( '_hfe_widgets', $new_widgets );
 
 			echo 'success';
 

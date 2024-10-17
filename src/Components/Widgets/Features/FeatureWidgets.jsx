@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'; 
 import { Container, Button } from "@bsf/force-ui";
 import { MoreHorizontalIcon, Plus, Map, House, SearchIcon } from "lucide-react";
-import WidgetItem from '@components/Dashboard/WidgetItem'
+import WidgetItem from '@components/Dashboard/WidgetItem';
+import apiFetch from '@wordpress/api-fetch';
 
 const FeatureWidgets = () => {
 
@@ -12,6 +13,45 @@ const FeatureWidgets = () => {
         console.log({widgetsData})
         setAllWidgetsData(widgetsData);
     }, []);
+
+    const handleActivateAll = async () => {
+
+        const formData = new window.FormData();
+		formData.append( 'action', 'hfe_bulk_activate_widgets');
+		formData.append( 'nonce', hfe_admin_data.nonce );
+
+        apiFetch({
+            url: hfe_admin_data.ajax_url,
+            method: 'POST',
+            body: formData,
+        } ).then( ( data ) => {
+            if ( data.success ) {
+                console.log("Activated all widgets.");
+            } else if( data.error ) {
+                console.error('AJAX request failed:', err);
+            }
+        });
+    };
+
+    
+    const handleDeactivateAll = async () => {
+
+        const formData = new window.FormData();
+		formData.append( 'action', 'hfe_bulk_deactivate_widgets');
+		formData.append( 'nonce', hfe_admin_data.nonce );
+
+        apiFetch({
+            url: hfe_admin_data.ajax_url,
+            method: 'POST',
+            body: formData,
+        } ).then( ( data ) => {
+            if ( data.success ) {
+                console.log("Deactivated all widgets.");
+            } else if( data.error ) {
+                console.error('AJAX request failed:', err);
+            }
+        });
+    };
 
     function convertToWidgetsArray(data) {
         const widgets = [];
@@ -58,15 +98,17 @@ const FeatureWidgets = () => {
                     <Button
                         iconPosition="left"
                         variant="outline"
+                        onClick={handleActivateAll} // Attach the onClick event
                     >
-                        Activate all
+                        Activate All
                     </Button>
 
                     <Button
                         iconPosition="left"
                         variant="outline"
+                        onClick={handleDeactivateAll}
                     >
-                        Deactivate all
+                        Deactivate All
                     </Button>
 
                     <MoreHorizontalIcon />
