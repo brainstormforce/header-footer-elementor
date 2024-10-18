@@ -851,18 +851,6 @@
 #hfe-settings-app .max-w-xs{
 	max-width: 20rem;
 }
-#hfe-settings-app .max-w-3{
-	max-width: 0.75rem;
-}
-#hfe-settings-app .max-w-24{
-	max-width: 6rem;
-}
-#hfe-settings-app .max-w-44{
-	max-width: 11rem;
-}
-#hfe-settings-app .max-w-md{
-	max-width: 28rem;
-}
 #hfe-settings-app .max-w-lg{
 	max-width: 32rem;
 }
@@ -1145,11 +1133,6 @@
 	--tw-space-y-reverse: 0;
 	margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
 	margin-bottom: calc(1rem * var(--tw-space-y-reverse));
-}
-#hfe-settings-app :is(.space-x-2 > :not([hidden]) ~ :not([hidden])){
-	--tw-space-x-reverse: 0;
-	margin-right: calc(0.5rem * var(--tw-space-x-reverse));
-	margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 #hfe-settings-app :is(.space-y-reverse > :not([hidden]) ~ :not([hidden])){
 	--tw-space-y-reverse: 1;
@@ -1825,12 +1808,6 @@
 #hfe-settings-app .pt-5{
 	padding-top: 1.25rem;
 }
-#hfe-settings-app .pt-6{
-	padding-top: 1.5rem;
-}
-#hfe-settings-app .pt-2{
-	padding-top: 0.5rem;
-}
 #hfe-settings-app .pt-1{
 	padding-top: 0.25rem;
 }
@@ -1839,6 +1816,9 @@
 }
 #hfe-settings-app .pt-4{
 	padding-top: 1rem;
+}
+#hfe-settings-app .pt-6{
+	padding-top: 1.5rem;
 }
 #hfe-settings-app .text-center{
 	text-align: center;
@@ -2405,18 +2385,17 @@
 #hfe-settings-app .gap-2 {
     gap: 1.2rem;
 }
-.toplevel_page_uaelite #wpcontent {
-    padding-left: 0px;
-    padding-top: 0px;
+.toplevel_page_hfe #wpcontent {
+    padding-left: 0;
 }
 div#hfe-settings-app {
     font-size: 15px;
     font-weight: 500;
     line-height: normal;
 }
-#hfe-settings-app .p-5 {
+/* #hfe-settings-app .p-5 {
     padding: 0.5rem 1.25rem;
-}
+} */
 #hfe-settings-app .hfe-header-title h6 {
 	color: #858484;
 	font-size: 14px;

@@ -331,19 +331,19 @@ class HFE_Settings_Page {
 		$capability = 'manage_options';
 
 		add_menu_page(
-			__( 'UA Elementor Settings', 'header-footer-elementor' ),  
-			__( 'UA Elementor', 'header-footer-elementor' ),                         
+			__( 'UA Elementor', 'header-footer-elementor' ),  
+			__( 'UA Elementor', 'header-footer-elementor' ),
 			$capability,
 			$menu_slug,
-			[ $this, 'render' ],                    
-			'dashicons-admin-generic',               
-			60                                       
+			[ $this, 'render' ],
+			'dashicons-admin-generic',
+			60
 		);
 
 		// Add the Dashboard Submenu.
 		add_submenu_page(
 			$menu_slug,
-			__( 'UA Elementor Settings', 'header-footer-elementor' ),
+			__( 'UA Elementor', 'header-footer-elementor' ),
 			__( 'Dashboard', 'header-footer-elementor' ),
 			$capability,
 			$menu_slug,
@@ -351,11 +351,11 @@ class HFE_Settings_Page {
 		);
 	
 		add_submenu_page(
-			$this->menu_slug, // Parent slug
-			__( 'Widgets & Features', 'header-footer-elementor' ), 
-			__( 'Widgets & Features', 'header-footer-elementor' ), 
+			$menu_slug, // Parent slug
+			__( 'Widgets & Features', 'header-footer-elementor' ),
+			__( 'Widgets & Features', 'header-footer-elementor' ),
 			$capability,
-			$this->menu_slug,
+			$menu_slug . '#widgets',
 			[ $this, 'render' ] 
 		);
 
@@ -364,7 +364,7 @@ class HFE_Settings_Page {
 			__( 'Templates', 'header-footer-elementor' ),
 			__( 'Templates', 'header-footer-elementor' ),
 			$capability,
-			$menu_slug,
+			$menu_slug . '#templates',
 			[ $this, 'render' ]
 		);
 		
@@ -374,7 +374,7 @@ class HFE_Settings_Page {
 			__( 'Settings', 'header-footer-elementor' ),
 			__( 'Settings', 'header-footer-elementor' ),
 			$capability,
-			$menu_slug,
+			$menu_slug . '#settings',
 			[ $this, 'render' ]
 		);
 

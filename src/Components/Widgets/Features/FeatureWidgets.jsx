@@ -7,12 +7,24 @@ import apiFetch from '@wordpress/api-fetch';
 const FeatureWidgets = () => {
 
     const [allWidgetsData, setAllWidgetsData] = useState(null); // Initialize state.
+    const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(() => {
         const widgetsData =  convertToWidgetsArray(window.hfeWidgetsList)
         console.log({widgetsData})
         setAllWidgetsData(widgetsData);
     }, []);
+
+    // New function to handle search input change
+    const handleSearchChange = (event) => {
+        setSearchTerm(event.target.value.toLowerCase());
+    };
+
+    // Filter widgets based on search term
+    const filteredWidgets = allWidgetsData?.filter(widget => 
+        widget.title.toLowerCase().includes(searchTerm) || 
+        widget.keywords?.some(keyword => keyword.toLowerCase().includes(searchTerm))
+    );
 
     const handleActivateAll = async () => {
 
@@ -32,7 +44,6 @@ const FeatureWidgets = () => {
             }
         });
     };
-
     
     const handleDeactivateAll = async () => {
 
@@ -94,6 +105,7 @@ const FeatureWidgets = () => {
                         icon={<Plus />}
                         className="mr-2 pl-10"
                         style={{ height: '40px', backgroundColor: '#F9FAFB', }}
+                        onChange={handleSearchChange}
                     />
                     <Button
                         iconPosition="left"
@@ -124,7 +136,7 @@ const FeatureWidgets = () => {
                     gap=""
                     justify="start"
                 >
-                    {allWidgetsData?.map((widget) => (
+                    {filteredWidgets?.map((widget) => (
                         <Container.Item
                             key={widget.id}
                             alignSelf="auto"
