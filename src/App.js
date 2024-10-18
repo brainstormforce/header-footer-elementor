@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
-import './styles.css'; 
+import './styles.css';
+import "@fontsource/figtree"; // Defaults to weight 400
+import "@fontsource/figtree/400.css"; // Specify weight
+import "@fontsource/figtree/400-italic.css"; // Specify weight and style 
 import CustomRouter from 'router/customRouter';
 
 const App = () => {
@@ -22,7 +25,7 @@ const App = () => {
   }
 
   return (
-    <div className="app-container">
+    <div className="app-container font-figtree">
       <CustomRouter />
     </div>
   );

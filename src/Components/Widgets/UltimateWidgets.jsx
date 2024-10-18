@@ -38,7 +38,8 @@ const UltimateWidgets = () => {
 	];
     
   return (
-    <div>
+    
+    <div className="py-4">
     <Container
         className="bg-background-primary gap-1 p-4 border-[0.5px] border-subtle rounded-xl shadow-sm"
         containerType="flex"

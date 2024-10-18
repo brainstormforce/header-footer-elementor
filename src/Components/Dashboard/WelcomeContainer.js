@@ -11,9 +11,7 @@ const WelcomeContainer = () => {
 				direction="row"
 				gap="sm"
 			>
-				<Container.Item
-					shrink={1}
-				>
+				<Container.Item shrink={1}>
 					<Title
 						description=""
 						icon={null}
@@ -26,7 +24,10 @@ const WelcomeContainer = () => {
 						We’re excited to help you supercharge your
 						website-building experience
 					</p>
-					<p className="text-sm text-text-secondary">
+					<p
+						className="text-sm font-figtree text-text-secondary"
+						style={{ fontFamily: "Figtree, serif" }}
+					>
 						Effortlessly design stunning websites with our
 						comprehensive range of free and premium widgets and
 						features. To get started,watch the video or check our
@@ -50,9 +51,7 @@ const WelcomeContainer = () => {
 						</Button>
 					</div>
 				</Container.Item>
-				<Container.Item 
-					className="p-2"
-				>
+				<Container.Item className="p-2">
 					<iframe
 						width="280"
 						height="160"

@@ -116,7 +116,7 @@ const ExtendWebsiteWidget = ({
 
     return (
         <Container align="center"
-            className="bg-background-primary p-4 rounded-md shadow-sm"
+            className="bg-background-primary rounded-md shadow-sm"
             containerType="flex"
             direction="column"
             justify="between"

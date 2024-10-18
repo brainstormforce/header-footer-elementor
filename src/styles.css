@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
 
 /* Add to your main CSS file (e.g., index.css) */
 

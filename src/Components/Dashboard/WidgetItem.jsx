@@ -59,7 +59,7 @@ const WidgetItem = ({
         viewDemo,
         infoText,
         is_pro,
-        is_active: initialActiveState
+        is_active
     } = widget
 
     // Track the active state of the widget using React state
@@ -129,30 +129,21 @@ const WidgetItem = ({
                         />
                     )} */}
 
-                    {/* {is_pro ? (
+
+                    {/* {is_pro && (
                         <Badge
                             label="PRO"
                             size="xs"
                             type="pill"
                             variant="inverse"
-                        />
-                    ) : isActive ? (
-                        <Switch 
-                            onChange={handleSwitchChange} // Updated to use the new function
-                            size='sm' 
-                            value={isActive} // Pass is_active as value to the Switch
-                        />
-                    ) : (
-                        <Switch 
-                            onChange={handleSwitchChange} // Updated to use the new function
-                            size='sm' // Pass is_active as value to the Switch
-                        />
-                    )} */}
+                            className="!text-[10px]"
+                            style={{ fontSize: '10px' }}
+
+                        />)} */}
                     <Switch
                         onChange={handleSwitchChange} // Updated to use the new function
                         size='sm'
                         value={isActive}
-                    // onChange={() => setIsActive(!isActive)}
                     />
                 </div>
 
@@ -162,7 +153,8 @@ const WidgetItem = ({
             <div className='flex flex-col w-full'>
                 <p className='text-sm font-medium text-text-primary m-0 mb-2'>{title}</p>
                 <div className='flex items-center justify-between w-full'>
-                    <p className='text-sm text-text-tertiary m-0'>{viewDemo}</p>
+                    <p className='text-sm text-text-tertiary m-0'>View Demo</p>
+                    {/* <p className='text-sm text-text-tertiary m-0'>{viewDemo}</p> */}
                     <Tooltip
                         arrow
                         content={infoText}

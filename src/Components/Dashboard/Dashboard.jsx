@@ -32,7 +32,7 @@ const Dashboard = () => {
                         order="none"
                         shrink={1}
                         style={{
-                            width: "65%",
+                            width: "64%",
                         }}
                     >
                         <WelcomeContainer />
