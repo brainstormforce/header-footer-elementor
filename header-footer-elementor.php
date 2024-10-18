@@ -51,7 +51,7 @@ add_action( 'plugins_loaded', 'hfe_init' );
 /** Function for FA5, Social Icons, Icon List */
 function hfe_enqueue_font_awesome() {
 
-	if ( class_exists( 'Elementor\Plugin' ) ) {
+	if ( class_exists( 'Elementor\Plugin' ) && class_exists( '\ElementorPro\Plugin' ) ) {
 		
 		wp_enqueue_style(
 			'hfe-icons-list',
@@ -89,7 +89,7 @@ function hfe_enqueue_font_awesome() {
 			'hfe-widget-blockquote',
 			plugins_url( '/elementor-pro/assets/css/widget-blockquote.min.css', 'elementor' ),
 			[],
-			'5.15.3'
+			'3.25.0'
 		);
 	}
 }
