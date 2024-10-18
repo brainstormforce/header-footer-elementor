@@ -16,16 +16,17 @@ const WelcomeContainer = () => {
 						description=""
 						icon={null}
 						iconPosition="right"
+						className="pt-6 max-w-lg"
 						size="md"
 						tag="h3"
 						title="Welcome to Ultimate Addons for Elementor!"
 					/>
-					<p className="font-semibold">
+					<p className="font-semibold text-sm pt-1">
 						We’re excited to help you supercharge your
 						website-building experience
 					</p>
 					<p
-						className="text-sm font-figtree text-text-secondary"
+						className="text-sm font-figtree pt-3 text-text-secondary"
 						style={{ fontFamily: "Figtree, serif" }}
 					>
 						Effortlessly design stunning websites with our
@@ -33,7 +34,7 @@ const WelcomeContainer = () => {
 						features. To get started,watch the video or check our
 						comprehensive documentation for more details.
 					</p>
-					<div className="flex items-center gap-2">
+					<div className="flex items-center pt-4 gap-2">
 						<Button
 							icon={<Plus />}
 							iconPosition="right"

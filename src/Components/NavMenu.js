@@ -22,7 +22,7 @@ const NavMenu = () => {
                     <img src={`${hfeSettingsData.icon_url}`} alt="My Icon" className=""/>
                 </Topbar.Item>
             </Topbar.Left>
-            <Topbar.Middle align="left" gap="2xl">
+            <Topbar.Middle align="left" gap="20px">
                 <Topbar.Item>
                     <nav className="flex gap-2 cursor-pointer text-text-secondary">
                         <Link
@@ -78,11 +78,11 @@ const NavMenu = () => {
                     </Button>
                 </Topbar.Item>
             </Topbar.Middle>
-            <Topbar.Right>
+            <Topbar.Right className="gap-4">
                 <Topbar.Item>
                     <Badge label="Free" size="xs" variant="neutral" />
                 </Topbar.Item>
-                <Topbar.Item className="gap-2">
+                <Topbar.Item className="gap-4">
                     <CircleHelp />
                     <Megaphone />
                 </Topbar.Item>
