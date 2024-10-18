@@ -87,19 +87,6 @@ class Search_Button extends Widget_Base {
 	}
 
 	/**
-	 * Indicates if the widget's content is dynamic.
-	 *
-	 * This method returns true if the widget's output is dynamic and should not be cached,
-	 * or false if the content is static and can be cached.
-	 *
-	 * @since 1.6.41
-	 * @return bool True for dynamic content, false for static content.
-	 */
-	protected function is_dynamic_content(): bool { // phpcs:ignore
-		return false; 
-	}
-
-	/**
 	 * Retrieve the list of scripts the navigation menu depended on.
 	 *
 	 * Used to set scripts dependencies required to run the widget.
@@ -111,6 +98,19 @@ class Search_Button extends Widget_Base {
 	 */
 	public function get_script_depends() {
 		return [ 'hfe-frontend-js' ];
+	}
+
+	/**
+	 * Indicates if the widget's content is dynamic.
+	 *
+	 * This method returns true if the widget's output is dynamic and should not be cached,
+	 * or false if the content is static and can be cached.
+	 *
+	 * @since 1.6.41
+	 * @return bool True for dynamic content, false for static content.
+	 */
+	protected function is_dynamic_content(): bool { // phpcs:ignore
+		return false;
 	}
 
 	/**
@@ -472,8 +472,7 @@ class Search_Button extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'           => 'input_box_shadow_focus',
-				'selector'       =>
-				'{{WRAPPER}} .hfe-search-button-wrapper.hfe-input-focus .hfe-search-form__container,
+				'selector'       => '{{WRAPPER}} .hfe-search-button-wrapper.hfe-input-focus .hfe-search-form__container,
 				 {{WRAPPER}} .hfe-search-button-wrapper.hfe-input-focus input.hfe-search-form__input',
 				'fields_options' => [
 					'box_shadow_type' => [
@@ -539,8 +538,7 @@ class Search_Button extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'           => 'icon_box_shadow_focus',
-				'selector'       =>
-				'{{WRAPPER}} .hfe-search-button-wrapper.hfe-input-focus .hfe-search-form__container,
+				'selector'       => '{{WRAPPER}} .hfe-search-button-wrapper.hfe-input-focus .hfe-search-form__container,
 				 {{WRAPPER}} .hfe-search-button-wrapper.hfe-input-focus input.hfe-search-form__input',
 				'fields_options' => [
 					'box_shadow_type' => [
@@ -1012,14 +1010,14 @@ class Search_Button extends Widget_Base {
 		?>
 		<form class="hfe-search-button-wrapper" role="search" action="<?php echo esc_url( $action_url ); ?>" method="get">
 
-			<?php if ( 'icon' === $settings['layout'] ) { ?>
+			<?php if ( $settings['layout'] === 'icon' ) { ?>
 			<div class = "hfe-search-icon-toggle">
 				<input <?php $this->print_render_attribute_string( 'input' ); ?>>
 				<i class="fas fa-search" aria-hidden="true"></i>
 			</div>
 			<?php } else { ?>
 			<div <?php $this->print_render_attribute_string( 'container' ); ?>>
-				<?php if ( 'text' === $settings['layout'] ) { ?>
+				<?php if ( $settings['layout'] === 'text' ) { ?>
 					<input <?php $this->print_render_attribute_string( 'input' ); ?>>
 						<button id="clear" type="reset">
 							<i class="fas fa-times clearable__clear" aria-hidden="true"></i>
@@ -1034,7 +1032,7 @@ class Search_Button extends Widget_Base {
 					</button>
 				<?php } ?>
 			</div>
-		<?php } ?>
+            <?php } ?>
 		</form>
 		<?php
 	}

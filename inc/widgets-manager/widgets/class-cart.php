@@ -24,7 +24,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.4.0
  */
 class Cart extends Widget_Base {
-
 	/**
 	 * Retrieve the widget name.
 	 *
@@ -89,7 +88,7 @@ class Cart extends Widget_Base {
 	 * @access protected
 	 * @return void
 	 */
-	protected function register_controls() {
+	protected function register_controls(): void {
 
 		$this->register_general_content_controls();
 		$this->register_cart_typo_content_controls();
@@ -102,7 +101,7 @@ class Cart extends Widget_Base {
 	 * @access protected
 	 * @return void
 	 */
-	protected function register_general_content_controls() {
+	protected function register_general_content_controls(): void {
 
 		$this->start_controls_section(
 			'section_general_fields',
@@ -220,7 +219,6 @@ class Cart extends Widget_Base {
 		$this->end_controls_section();
 	}
 
-
 	/**
 	 * Register Menu Cart Typography Controls.
 	 *
@@ -228,7 +226,7 @@ class Cart extends Widget_Base {
 	 * @access protected
 	 * @return void
 	 */
-	protected function register_cart_typo_content_controls() {
+	protected function register_cart_typo_content_controls(): void {
 		$this->start_controls_section(
 			'section_heading_typography',
 			[
@@ -612,9 +610,9 @@ class Cart extends Widget_Base {
 	 * @access protected
 	 * @return void
 	 */
-	protected function render() {
+	protected function render(): void {
 
-		if ( null === WC()->cart ) {
+		if ( WC()->cart === null ) {
 			return;
 		}
 
@@ -627,12 +625,12 @@ class Cart extends Widget_Base {
 			<div id="hfe-site-header-cart" class="hfe-site-header-cart hfe-menu-cart-with-border">
 				<div class="hfe-site-header-cart-li current-menu-item">
 				<?php
-				if ( 'default' === $cart_type ) {
+				if ( $cart_type === 'default' ) {
 					?>
 
 					<a class="hfe-cart-container" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="View your shopping cart">
 						<div class="hfe-cart-menu-wrap-default">
-							<?php if ( null !== WC()->cart ) { ?>
+							<?php if ( WC()->cart !== null ) { ?>
 								<span class="hfe-cart-count">
 									<?php echo esc_html( WC()->cart->get_cart_contents_count() ); ?>
 								</span>
@@ -644,12 +642,12 @@ class Cart extends Widget_Base {
 					?>
 					<div class="hfe-menu-cart__toggle elementor-button-wrapper">
 						<a id="hfe-menu-cart__toggle_button" href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="elementor-button hfe-cart-container">
-							<?php if ( null !== WC()->cart ) { ?>
+							<?php if ( WC()->cart !== null ) { ?>
 								<span class="elementor-button-text hfe-subtotal">
 									<?php echo wp_kses_post( WC()->cart->get_cart_subtotal() ); ?>
 								</span>
 							<?php } ?>
-							<span class="elementor-button-icon" data-counter="<?php echo ( null !== WC()->cart ) ? esc_attr( WC()->cart->get_cart_contents_count() ) : ''; ?>">
+							<span class="elementor-button-icon" data-counter="<?php echo WC()->cart !== null ? esc_attr( WC()->cart->get_cart_contents_count() ) : ''; ?>">
 								<i class="eicon" aria-hidden="true"></i>
 								<span class="elementor-screen-only">
 									<?php esc_html_e( 'Cart', 'header-footer-elementor' ); ?>
@@ -673,6 +671,6 @@ class Cart extends Widget_Base {
 	 * @access protected
 	 * @return void
 	 */
-	protected function content_template() {
+	protected function content_template(): void {
 	}
 }
