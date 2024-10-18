@@ -84,8 +84,14 @@ function hfe_enqueue_font_awesome() {
 			[],
 			'5.15.3'
 		);
-
-		
+	}
+	if ( class_exists( '\ElementorPro\Plugin' ) ) {
+		wp_enqueue_style(
+			'hfe-widget-blockquote',
+			plugins_url( '/elementor-pro/assets/css/widget-blockquote.min.css', 'elementor' ),
+			[],
+			'3.25.0'
+		);
 	}
 }
 add_action( 'wp_enqueue_scripts', 'hfe_enqueue_font_awesome', 20 );
