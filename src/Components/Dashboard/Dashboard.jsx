@@ -32,7 +32,7 @@ const Dashboard = () => {
                         order="none"
                         shrink={1}
                         style={{
-                            width: "64%",
+                            width: "63%",
                         }}
                     >
                         <WelcomeContainer />
@@ -42,7 +42,7 @@ const Dashboard = () => {
                     <Container.Item 
                         className="p-2"
                         style={{
-                            width: "34%",
+                            width: "35%",
                         }}
                     >
                         <ExtendWebsite />

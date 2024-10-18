@@ -851,6 +851,9 @@
 #hfe-settings-app .max-w-xs{
 	max-width: 20rem;
 }
+#hfe-settings-app .max-w-lg{
+	max-width: 32rem;
+}
 #hfe-settings-app .flex-1{
 	flex: 1 1 0%;
 }
@@ -1804,6 +1807,18 @@
 }
 #hfe-settings-app .pt-5{
 	padding-top: 1.25rem;
+}
+#hfe-settings-app .pt-1{
+	padding-top: 0.25rem;
+}
+#hfe-settings-app .pt-3{
+	padding-top: 0.75rem;
+}
+#hfe-settings-app .pt-4{
+	padding-top: 1rem;
+}
+#hfe-settings-app .pt-6{
+	padding-top: 1.5rem;
 }
 #hfe-settings-app .text-center{
 	text-align: center;
