@@ -33,7 +33,6 @@ const ExploreTemplates = () => {
 				className="bg-background-primary p-4 border-[0.5px] border-subtle rounded-xl shadow-sm"
 				containerType="flex"
 				direction="row"
-				justify="between"
 				gap="xs"
 			>
 				<Container.Item className="flex flex-col justify-between" style={{width:"40%"}}>
@@ -91,11 +90,15 @@ const ExploreTemplates = () => {
 						</Button>
 					</div>
 				</Container.Item>
-				<Container.Item className="flex justify-center items-center" style={{width:"60%"}}>
+				<Container.Item className="">
 					<img
 						src={`${hfeSettingsData.template_url}`}
 						alt="Column Showcase"
-						className="w-full h-auto rounded"
+						className="object-contain"
+						style={{
+							width: "90%",
+							height: "auto",
+						}}
 					/>
 				</Container.Item>
 			</Container>

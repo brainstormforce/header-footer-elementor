@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div id="hfe-menu-page">
 		<div class="hfe-menu-page-content hfe-clear">
             <?php
-                do_action( 'hfe_render_admin_page_content' );
+                do_action( 'hfe_render_admin_page_content', $menu_page_slug, $page_action );
             ?>
 		</div>
 	</div>
