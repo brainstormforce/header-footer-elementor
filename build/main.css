@@ -229,9 +229,6 @@
 #hfe-settings-app .pointer-events-none{
 	pointer-events: none;
 }
-#hfe-settings-app .pointer-events-auto{
-	pointer-events: auto;
-}
 #hfe-settings-app .visible{
 	visibility: visible;
 }
@@ -279,17 +276,11 @@
 #hfe-settings-app .bottom-1{
 	bottom: 0.25rem;
 }
-#hfe-settings-app .bottom-1\.5{
-	bottom: 0.375rem;
-}
 #hfe-settings-app .left-0{
 	left: 0px;
 }
 #hfe-settings-app .left-1{
 	left: 0.25rem;
-}
-#hfe-settings-app .left-1\/2{
-	left: 50%;
 }
 #hfe-settings-app .left-2\/4{
 	left: 50%;
@@ -305,9 +296,6 @@
 }
 #hfe-settings-app .right-0{
 	right: 0px;
-}
-#hfe-settings-app .right-1\/2{
-	right: 50%;
 }
 #hfe-settings-app .right-3{
 	right: 0.75rem;
@@ -506,10 +494,6 @@
 	margin-top: 0px;
 	margin-bottom: 0px;
 }
-#hfe-settings-app .my-12{
-	margin-top: 3rem;
-	margin-bottom: 3rem;
-}
 #hfe-settings-app .my-4{
 	margin-top: 1rem;
 	margin-bottom: 1rem;
@@ -520,9 +504,6 @@
 }
 #hfe-settings-app .mb-0{
 	margin-bottom: 0px;
-}
-#hfe-settings-app .mb-1{
-	margin-bottom: 0.25rem;
 }
 #hfe-settings-app .mb-2{
 	margin-bottom: 0.5rem;
@@ -539,17 +520,11 @@
 #hfe-settings-app .ml-10{
 	margin-left: 2.5rem;
 }
-#hfe-settings-app .ml-2{
-	margin-left: 0.5rem;
+#hfe-settings-app .ml-3{
+	margin-left: 0.75rem;
 }
 #hfe-settings-app .ml-4{
 	margin-left: 1rem;
-}
-#hfe-settings-app .mr-0{
-	margin-right: 0px;
-}
-#hfe-settings-app .mr-0\.5{
-	margin-right: 0.125rem;
 }
 #hfe-settings-app .mr-1{
 	margin-right: 0.25rem;
@@ -560,14 +535,11 @@
 #hfe-settings-app .mr-2{
 	margin-right: 0.5rem;
 }
-#hfe-settings-app .mr-3{
-	margin-right: 0.75rem;
+#hfe-settings-app .mr-\[2px\]{
+	margin-right: 2px;
 }
 #hfe-settings-app .mt-1{
 	margin-top: 0.25rem;
-}
-#hfe-settings-app .mt-1\.5{
-	margin-top: 0.375rem;
 }
 #hfe-settings-app .mt-2{
 	margin-top: 0.5rem;
@@ -577,9 +549,6 @@
 }
 #hfe-settings-app .mt-4{
 	margin-top: 1rem;
-}
-#hfe-settings-app .mt-\[0\.5px\]{
-	margin-top: 0.5px;
 }
 #hfe-settings-app .mt-\[2px\]{
 	margin-top: 2px;
@@ -665,10 +634,6 @@
 	width: 2.5rem;
 	height: 2.5rem;
 }
-#hfe-settings-app .size-12{
-	width: 3rem;
-	height: 3rem;
-}
 #hfe-settings-app .size-2{
 	width: 0.5rem;
 	height: 0.5rem;
@@ -701,15 +666,8 @@
 	width: 1.75rem;
 	height: 1.75rem;
 }
-#hfe-settings-app .size-8{
-	width: 2rem;
-	height: 2rem;
-}
 #hfe-settings-app .h-0{
 	height: 0px;
-}
-#hfe-settings-app .h-1{
-	height: 0.25rem;
 }
 #hfe-settings-app .h-10{
 	height: 2.5rem;
@@ -720,17 +678,11 @@
 #hfe-settings-app .h-3{
 	height: 0.75rem;
 }
-#hfe-settings-app .h-4{
-	height: 1rem;
-}
 #hfe-settings-app .h-5{
 	height: 1.25rem;
 }
 #hfe-settings-app .h-6{
 	height: 1.5rem;
-}
-#hfe-settings-app .h-7{
-	height: 1.75rem;
 }
 #hfe-settings-app .h-8{
 	height: 2rem;
@@ -766,17 +718,17 @@
 #hfe-settings-app .max-h-\[13\.5rem\]{
 	max-height: 13.5rem;
 }
-#hfe-settings-app .max-h-\[8\.75rem\]{
-	max-height: 8.75rem;
-}
 #hfe-settings-app .min-h-16{
 	min-height: 4rem;
 }
+#hfe-settings-app .min-h-\[1\.625rem\]{
+	min-height: 1.625rem;
+}
+#hfe-settings-app .min-h-\[2\.25rem\]{
+	min-height: 2.25rem;
+}
 #hfe-settings-app .min-h-\[2\.5rem\]{
 	min-height: 2.5rem;
-}
-#hfe-settings-app .min-h-\[2rem\]{
-	min-height: 2rem;
 }
 #hfe-settings-app .min-h-\[3rem\]{
 	min-height: 3rem;
@@ -789,9 +741,6 @@
 }
 #hfe-settings-app .w-0{
 	width: 0px;
-}
-#hfe-settings-app .w-1{
-	width: 0.25rem;
 }
 #hfe-settings-app .w-1\/10{
 	width: 10%;
@@ -844,26 +793,32 @@
 #hfe-settings-app .w-4{
 	width: 1rem;
 }
+#hfe-settings-app .w-5{
+	width: 1.25rem;
+}
+#hfe-settings-app .w-6{
+	width: 1.5rem;
+}
+#hfe-settings-app .w-64{
+	width: 16rem;
+}
 #hfe-settings-app .w-72{
 	width: 18rem;
 }
 #hfe-settings-app .w-8{
 	width: 2rem;
 }
+#hfe-settings-app .w-9{
+	width: 2.25rem;
+}
 #hfe-settings-app .w-96{
 	width: 24rem;
-}
-#hfe-settings-app .w-\[18\.5rem\]{
-	width: 18.5rem;
 }
 #hfe-settings-app .w-\[200px\]{
 	width: 200px;
 }
 #hfe-settings-app .w-\[22\.5rem\]{
 	width: 22.5rem;
-}
-#hfe-settings-app .w-\[4\.375rem\]{
-	width: 4.375rem;
 }
 #hfe-settings-app .w-\[40px\]{
 	width: 40px;
@@ -877,18 +832,12 @@
 #hfe-settings-app .w-\[696px\]{
 	width: 696px;
 }
-#hfe-settings-app .w-auto{
-	width: auto;
-}
 #hfe-settings-app .w-fit{
 	width: -moz-fit-content;
 	width: fit-content;
 }
 #hfe-settings-app .w-full{
 	width: 100%;
-}
-#hfe-settings-app .min-w-10{
-	min-width: 2.5rem;
 }
 #hfe-settings-app .min-w-\[180px\]{
 	min-width: 180px;
@@ -911,9 +860,6 @@
 #hfe-settings-app .shrink-0{
 	flex-shrink: 0;
 }
-#hfe-settings-app .flex-grow{
-	flex-grow: 1;
-}
 #hfe-settings-app .grow{
 	flex-grow: 1;
 }
@@ -922,19 +868,6 @@
 }
 #hfe-settings-app .border-collapse{
 	border-collapse: collapse;
-}
-#hfe-settings-app .border-separate{
-	border-collapse: separate;
-}
-#hfe-settings-app .border-spacing-0{
-	--tw-border-spacing-x: 0px;
-	--tw-border-spacing-y: 0px;
-	border-spacing: var(--tw-border-spacing-x) var(--tw-border-spacing-y);
-}
-#hfe-settings-app .border-spacing-\[0_0\.25rem\]{
-	--tw-border-spacing-x: 0 0.25rem;
-	--tw-border-spacing-y: 0 0.25rem;
-	border-spacing: var(--tw-border-spacing-x) var(--tw-border-spacing-y);
 }
 #hfe-settings-app .origin-left{
 	transform-origin: left;
@@ -965,9 +898,6 @@
 }
 #hfe-settings-app .animate-spin{
 	animation: spin 1s linear infinite;
-}
-#hfe-settings-app .cursor-auto{
-	cursor: auto;
 }
 #hfe-settings-app .cursor-not-allowed{
 	cursor: not-allowed;
@@ -1073,9 +1003,6 @@
 }
 #hfe-settings-app .flex-nowrap{
 	flex-wrap: nowrap;
-}
-#hfe-settings-app .content-center{
-	align-content: center;
 }
 #hfe-settings-app .items-start{
 	align-items: flex-start;
@@ -1312,6 +1239,9 @@
 #hfe-settings-app .rounded-none{
 	border-radius: 0px;
 }
+#hfe-settings-app .rounded-sm{
+	border-radius: 0.125rem;
+}
 #hfe-settings-app .rounded-xl{
 	border-radius: 0.75rem;
 }
@@ -1342,14 +1272,8 @@
 #hfe-settings-app .rounded-bl{
 	border-bottom-left-radius: 0.25rem;
 }
-#hfe-settings-app .rounded-bl-md{
-	border-bottom-left-radius: 0.375rem;
-}
 #hfe-settings-app .rounded-br{
 	border-bottom-right-radius: 0.25rem;
-}
-#hfe-settings-app .rounded-br-md{
-	border-bottom-right-radius: 0.375rem;
 }
 #hfe-settings-app .rounded-ee{
 	border-end-end-radius: 0.25rem;
@@ -1366,26 +1290,17 @@
 #hfe-settings-app .rounded-tl{
 	border-top-left-radius: 0.25rem;
 }
-#hfe-settings-app .rounded-tl-md{
-	border-top-left-radius: 0.375rem;
-}
-#hfe-settings-app .rounded-tl-none{
-	border-top-left-radius: 0px;
-}
 #hfe-settings-app .rounded-tr{
 	border-top-right-radius: 0.25rem;
-}
-#hfe-settings-app .rounded-tr-md{
-	border-top-right-radius: 0.375rem;
-}
-#hfe-settings-app .rounded-tr-none{
-	border-top-right-radius: 0px;
 }
 #hfe-settings-app .border{
 	border-width: 1px;
 }
 #hfe-settings-app .border-0{
 	border-width: 0px;
+}
+#hfe-settings-app .border-4{
+	border-width: 4px;
 }
 #hfe-settings-app .border-\[0\.5px\]{
 	border-width: 0.5px;
@@ -1503,21 +1418,44 @@
 	--tw-border-opacity: 1;
 	border-color: rgb(229 231 235 / var(--tw-border-opacity));
 }
+#hfe-settings-app .border-border-transparent-subtle{
+	border-color: #37415114;
+}
+#hfe-settings-app .border-border-white{
+	--tw-border-opacity: 1;
+	border-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
 #hfe-settings-app .border-brand-primary-600{
 	--tw-border-opacity: 1;
 	border-color: rgb(147 51 234 / var(--tw-border-opacity));
+}
+#hfe-settings-app .border-button-danger{
+	--tw-border-opacity: 1;
+	border-color: rgb(220 38 38 / var(--tw-border-opacity));
+}
+#hfe-settings-app .border-button-danger-hover{
+	--tw-border-opacity: 1;
+	border-color: rgb(185 28 28 / var(--tw-border-opacity));
+}
+#hfe-settings-app .border-button-disabled{
+	--tw-border-opacity: 1;
+	border-color: rgb(243 244 246 / var(--tw-border-opacity));
 }
 #hfe-settings-app .border-button-primary{
 	--tw-border-opacity: 1;
 	border-color: rgb(37 99 235 / var(--tw-border-opacity));
 }
+#hfe-settings-app .border-button-secondary{
+	--tw-border-opacity: 1;
+	border-color: rgb(31 41 55 / var(--tw-border-opacity));
+}
+#hfe-settings-app .border-field-border{
+	--tw-border-opacity: 1;
+	border-color: rgb(229 231 235 / var(--tw-border-opacity));
+}
 #hfe-settings-app .border-field-border-disabled{
 	--tw-border-opacity: 1;
 	border-color: rgb(243 244 246 / var(--tw-border-opacity));
-}
-#hfe-settings-app .border-focus-error-border{
-	--tw-border-opacity: 1;
-	border-color: rgb(254 202 202 / var(--tw-border-opacity));
 }
 #hfe-settings-app .border-tab-border{
 	--tw-border-opacity: 1;
@@ -1652,10 +1590,6 @@
 	--tw-bg-opacity: 1;
 	background-color: rgb(254 242 242 / var(--tw-bg-opacity));
 }
-#hfe-settings-app .bg-field-primary-background{
-	--tw-bg-opacity: 1;
-	background-color: rgb(249 250 251 / var(--tw-bg-opacity));
-}
 #hfe-settings-app .bg-field-secondary-background{
 	--tw-bg-opacity: 1;
 	background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -1667,10 +1601,6 @@
 #hfe-settings-app .bg-gray-200{
 	--tw-bg-opacity: 1;
 	background-color: rgb(229 231 235 / var(--tw-bg-opacity));
-}
-#hfe-settings-app .bg-icon-interactive{
-	--tw-bg-opacity: 1;
-	background-color: rgb(37 99 235 / var(--tw-bg-opacity));
 }
 #hfe-settings-app .bg-misc-progress-background{
 	--tw-bg-opacity: 1;
@@ -1720,14 +1650,14 @@
 #hfe-settings-app .bg-repeat{
 	background-repeat: repeat;
 }
+#hfe-settings-app .bg-no-repeat{
+	background-repeat: no-repeat;
+}
 #hfe-settings-app .fill-current{
 	fill: currentColor;
 }
 #hfe-settings-app .p-0{
 	padding: 0px;
-}
-#hfe-settings-app .p-0\.5{
-	padding: 0.125rem;
 }
 #hfe-settings-app .p-1{
 	padding: 0.25rem;
@@ -1747,9 +1677,6 @@
 #hfe-settings-app .p-3{
 	padding: 0.75rem;
 }
-#hfe-settings-app .p-3\.5{
-	padding: 0.875rem;
-}
 #hfe-settings-app .p-4{
 	padding: 1rem;
 }
@@ -1758,10 +1685,6 @@
 }
 #hfe-settings-app .p-6{
 	padding: 1.5rem;
-}
-#hfe-settings-app .px-0\.5{
-	padding-left: 0.125rem;
-	padding-right: 0.125rem;
 }
 #hfe-settings-app .px-1{
 	padding-left: 0.25rem;
@@ -1798,10 +1721,6 @@
 #hfe-settings-app .px-6{
 	padding-left: 1.5rem;
 	padding-right: 1.5rem;
-}
-#hfe-settings-app .py-0{
-	padding-top: 0px;
-	padding-bottom: 0px;
 }
 #hfe-settings-app .py-0\.5{
 	padding-top: 0.125rem;
@@ -1895,9 +1814,6 @@
 #hfe-settings-app .text-2xl{
 	font-size: 1.5rem;
 	line-height: 2rem;
-}
-#hfe-settings-app .text-\[0\.8rem\]{
-	font-size: 0.8rem;
 }
 #hfe-settings-app .text-base{
 	font-size: 1rem;
@@ -2043,16 +1959,9 @@
 	--tw-text-opacity: 1;
 	color: rgb(37 99 235 / var(--tw-text-opacity));
 }
-#hfe-settings-app .text-button-secondary{
-	--tw-text-opacity: 1;
-	color: rgb(31 41 55 / var(--tw-text-opacity));
-}
 #hfe-settings-app .text-button-tertiary-color{
 	--tw-text-opacity: 1;
 	color: rgb(17 24 39 / var(--tw-text-opacity));
-}
-#hfe-settings-app .text-current{
-	color: currentColor;
 }
 #hfe-settings-app .text-field-color-disabled{
 	--tw-text-opacity: 1;
@@ -2204,9 +2113,6 @@
 #hfe-settings-app .opacity-100{
 	opacity: 1;
 }
-#hfe-settings-app .opacity-40{
-	opacity: 0.4;
-}
 #hfe-settings-app .opacity-50{
 	opacity: 0.5;
 }
@@ -2262,42 +2168,6 @@
 #hfe-settings-app .outline{
 	outline-style: solid;
 }
-#hfe-settings-app .outline-1{
-	outline-width: 1px;
-}
-#hfe-settings-app .outline-border-disabled{
-	outline-color: #E5E7EB;
-}
-#hfe-settings-app .outline-border-strong{
-	outline-color: #6B7280;
-}
-#hfe-settings-app .outline-border-subtle{
-	outline-color: #E5E7EB;
-}
-#hfe-settings-app .outline-button-danger{
-	outline-color: #DC2626;
-}
-#hfe-settings-app .outline-button-danger-hover{
-	outline-color: #B91C1C;
-}
-#hfe-settings-app .outline-button-disabled{
-	outline-color: #F3F4F6;
-}
-#hfe-settings-app .outline-button-primary{
-	outline-color: #2563EB;
-}
-#hfe-settings-app .outline-button-secondary{
-	outline-color: #1F2937;
-}
-#hfe-settings-app .outline-field-border{
-	outline-color: #E5E7EB;
-}
-#hfe-settings-app .outline-focus-error-border{
-	outline-color: #FECACA;
-}
-#hfe-settings-app .outline-transparent{
-	outline-color: transparent;
-}
 #hfe-settings-app .ring{
 	--tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
 	--tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
@@ -2316,30 +2186,6 @@
 #hfe-settings-app .ring-inset{
 	--tw-ring-inset: inset;
 }
-#hfe-settings-app .ring-alert-border-danger{
-	--tw-ring-opacity: 1;
-	--tw-ring-color: rgb(254 202 202 / var(--tw-ring-opacity));
-}
-#hfe-settings-app .ring-alert-border-green{
-	--tw-ring-opacity: 1;
-	--tw-ring-color: rgb(187 247 208 / var(--tw-ring-opacity));
-}
-#hfe-settings-app .ring-alert-border-info{
-	--tw-ring-opacity: 1;
-	--tw-ring-color: rgb(186 230 253 / var(--tw-ring-opacity));
-}
-#hfe-settings-app .ring-alert-border-neutral{
-	--tw-ring-opacity: 1;
-	--tw-ring-color: rgb(229 231 235 / var(--tw-ring-opacity));
-}
-#hfe-settings-app .ring-alert-border-warning{
-	--tw-ring-opacity: 1;
-	--tw-ring-color: rgb(254 240 138 / var(--tw-ring-opacity));
-}
-#hfe-settings-app .ring-background-inverse{
-	--tw-ring-opacity: 1;
-	--tw-ring-color: rgb(17 24 39 / var(--tw-ring-opacity));
-}
 #hfe-settings-app .ring-border-interactive{
 	--tw-ring-opacity: 1;
 	--tw-ring-color: rgb(37 99 235 / var(--tw-ring-opacity));
@@ -2348,20 +2194,17 @@
 	--tw-ring-opacity: 1;
 	--tw-ring-color: rgb(229 231 235 / var(--tw-ring-opacity));
 }
-#hfe-settings-app .ring-border-transparent-subtle{
-	--tw-ring-color: #37415114;
-}
 #hfe-settings-app .ring-brand-primary-600{
 	--tw-ring-opacity: 1;
 	--tw-ring-color: rgb(147 51 234 / var(--tw-ring-opacity));
 }
+#hfe-settings-app .ring-field-color-error{
+	--tw-ring-opacity: 1;
+	--tw-ring-color: rgb(220 38 38 / var(--tw-ring-opacity));
+}
 #hfe-settings-app .ring-focus{
 	--tw-ring-opacity: 1;
 	--tw-ring-color: rgb(147 51 234 / var(--tw-ring-opacity));
-}
-#hfe-settings-app .ring-tab-border{
-	--tw-ring-opacity: 1;
-	--tw-ring-color: rgb(229 231 235 / var(--tw-ring-opacity));
 }
 #hfe-settings-app .ring-offset-0{
 	--tw-ring-offset-width: 0px;
@@ -2563,14 +2406,6 @@ div#hfe-settings-app {
 	--tw-text-opacity: 1;
 	color: rgb(107 114 128 / var(--tw-text-opacity));
 }
-#hfe-settings-app .placeholder\:text-text-disabled::-moz-placeholder{
-	--tw-text-opacity: 1;
-	color: rgb(209 213 219 / var(--tw-text-opacity));
-}
-#hfe-settings-app .placeholder\:text-text-disabled::placeholder{
-	--tw-text-opacity: 1;
-	color: rgb(209 213 219 / var(--tw-text-opacity));
-}
 #hfe-settings-app .before\:absolute::before{
 	content: var(--tw-content);
 	position: absolute;
@@ -2691,18 +2526,6 @@ div#hfe-settings-app {
 	--tw-border-opacity: 1 !important;
 	border-color: rgb(216 180 254 / var(--tw-border-opacity)) !important;
 }
-#hfe-settings-app .focus-within\:border-focus-border:focus-within{
-	--tw-border-opacity: 1;
-	border-color: rgb(216 180 254 / var(--tw-border-opacity));
-}
-#hfe-settings-app .focus-within\:text-field-input:focus-within{
-	--tw-text-opacity: 1;
-	color: rgb(17 24 39 / var(--tw-text-opacity));
-}
-#hfe-settings-app .focus-within\:outline-none:focus-within{
-	outline: 2px solid transparent;
-	outline-offset: 2px;
-}
 #hfe-settings-app .focus-within\:ring-2:focus-within{
 	--tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
 	--tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
@@ -2727,9 +2550,29 @@ div#hfe-settings-app {
 	--tw-border-opacity: 1;
 	border-color: rgb(107 114 128 / var(--tw-border-opacity));
 }
+#hfe-settings-app .hover\:border-border-subtle:hover{
+	--tw-border-opacity: 1;
+	border-color: rgb(229 231 235 / var(--tw-border-opacity));
+}
+#hfe-settings-app .hover\:border-button-danger:hover{
+	--tw-border-opacity: 1;
+	border-color: rgb(220 38 38 / var(--tw-border-opacity));
+}
+#hfe-settings-app .hover\:border-button-danger-hover:hover{
+	--tw-border-opacity: 1;
+	border-color: rgb(185 28 28 / var(--tw-border-opacity));
+}
 #hfe-settings-app .hover\:border-button-primary:hover{
 	--tw-border-opacity: 1;
 	border-color: rgb(37 99 235 / var(--tw-border-opacity));
+}
+#hfe-settings-app .hover\:border-button-primary-hover:hover{
+	--tw-border-opacity: 1;
+	border-color: rgb(29 78 216 / var(--tw-border-opacity));
+}
+#hfe-settings-app .hover\:border-button-secondary-hover:hover{
+	--tw-border-opacity: 1;
+	border-color: rgb(55 65 81 / var(--tw-border-opacity));
 }
 #hfe-settings-app .hover\:border-field-border-disabled:hover{
 	--tw-border-opacity: 1;
@@ -2738,10 +2581,6 @@ div#hfe-settings-app {
 #hfe-settings-app .hover\:border-text-inverse:hover{
 	--tw-border-opacity: 1;
 	border-color: rgb(255 255 255 / var(--tw-border-opacity));
-}
-#hfe-settings-app .hover\:bg-background-brand:hover{
-	--tw-bg-opacity: 1;
-	background-color: rgb(37 99 235 / var(--tw-bg-opacity));
 }
 #hfe-settings-app .hover\:bg-background-secondary:hover{
 	--tw-bg-opacity: 1;
@@ -2802,10 +2641,6 @@ div#hfe-settings-app {
 	--tw-bg-opacity: 1;
 	background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
-#hfe-settings-app .hover\:text-black:hover{
-	--tw-text-opacity: 1;
-	color: rgb(0 0 0 / var(--tw-text-opacity));
-}
 #hfe-settings-app .hover\:text-button-danger-secondary:hover{
 	--tw-text-opacity: 1;
 	color: rgb(220 38 38 / var(--tw-text-opacity));
@@ -2833,27 +2668,6 @@ div#hfe-settings-app {
 #hfe-settings-app .hover\:underline:hover{
 	text-decoration-line: underline;
 }
-#hfe-settings-app .hover\:outline-border-disabled:hover{
-	outline-color: #E5E7EB;
-}
-#hfe-settings-app .hover\:outline-border-strong:hover{
-	outline-color: #6B7280;
-}
-#hfe-settings-app .hover\:outline-border-subtle:hover{
-	outline-color: #E5E7EB;
-}
-#hfe-settings-app .hover\:outline-button-danger:hover{
-	outline-color: #DC2626;
-}
-#hfe-settings-app .hover\:outline-button-danger-hover:hover{
-	outline-color: #B91C1C;
-}
-#hfe-settings-app .hover\:outline-button-primary-hover:hover{
-	outline-color: #1D4ED8;
-}
-#hfe-settings-app .hover\:outline-button-secondary-hover:hover{
-	outline-color: #374151;
-}
 #hfe-settings-app .hover\:ring-2:hover{
 	--tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
 	--tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
@@ -2871,17 +2685,9 @@ div#hfe-settings-app {
 	--tw-border-opacity: 1;
 	border-color: rgb(168 85 247 / var(--tw-border-opacity));
 }
-#hfe-settings-app .checked\:hover\:bg-toggle-on:hover:checked{
-	--tw-bg-opacity: 1;
-	background-color: rgb(107 33 168 / var(--tw-bg-opacity));
-}
 #hfe-settings-app .checked\:hover\:bg-toggle-on-hover:hover:checked{
 	--tw-bg-opacity: 1;
 	background-color: rgb(168 85 247 / var(--tw-bg-opacity));
-}
-#hfe-settings-app .focus-within\:hover\:border-focus-border:hover:focus-within{
-	--tw-border-opacity: 1;
-	border-color: rgb(216 180 254 / var(--tw-border-opacity));
 }
 #hfe-settings-app .focus\:rounded-sm:focus{
 	border-radius: 0.125rem;
@@ -2902,14 +2708,6 @@ div#hfe-settings-app {
 	--tw-border-opacity: 1;
 	border-color: rgb(209 213 219 / var(--tw-border-opacity));
 }
-#hfe-settings-app .focus\:bg-background-secondary:focus{
-	--tw-bg-opacity: 1;
-	background-color: rgb(243 244 246 / var(--tw-bg-opacity));
-}
-#hfe-settings-app .focus\:bg-button-tertiary-hover:focus{
-	--tw-bg-opacity: 1;
-	background-color: rgb(249 250 251 / var(--tw-bg-opacity));
-}
 #hfe-settings-app .focus\:shadow-none:focus{
 	--tw-shadow: 0 0 #0000;
 	--tw-shadow-colored: 0 0 #0000;
@@ -2918,21 +2716,6 @@ div#hfe-settings-app {
 #hfe-settings-app .focus\:outline-none:focus{
 	outline: 2px solid transparent;
 	outline-offset: 2px;
-}
-#hfe-settings-app .focus\:outline:focus{
-	outline-style: solid;
-}
-#hfe-settings-app .focus\:outline-1:focus{
-	outline-width: 1px;
-}
-#hfe-settings-app .focus\:outline-border-subtle:focus{
-	outline-color: #E5E7EB;
-}
-#hfe-settings-app .focus\:outline-focus-border:focus{
-	outline-color: #D8B4FE;
-}
-#hfe-settings-app .focus\:outline-focus-error-border:focus{
-	outline-color: #FECACA;
 }
 #hfe-settings-app .focus\:ring:focus{
 	--tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
@@ -2970,9 +2753,6 @@ div#hfe-settings-app {
 	--tw-ring-opacity: 1;
 	--tw-ring-color: rgb(107 33 168 / var(--tw-ring-opacity));
 }
-#hfe-settings-app .focus\:ring-transparent:focus{
-	--tw-ring-color: transparent;
-}
 #hfe-settings-app .focus\:ring-offset-0:focus{
 	--tw-ring-offset-width: 0px;
 }
@@ -2990,10 +2770,6 @@ div#hfe-settings-app {
 	outline: 2px solid transparent;
 	outline-offset: 2px;
 }
-#hfe-settings-app .active\:text-button-primary:active{
-	--tw-text-opacity: 1;
-	color: rgb(37 99 235 / var(--tw-text-opacity));
-}
 #hfe-settings-app .active\:outline-none:active{
 	outline: 2px solid transparent;
 	outline-offset: 2px;
@@ -3004,6 +2780,10 @@ div#hfe-settings-app {
 #hfe-settings-app .disabled\:border-border-disabled:disabled{
 	--tw-border-opacity: 1;
 	border-color: rgb(229 231 235 / var(--tw-border-opacity));
+}
+#hfe-settings-app .disabled\:border-button-disabled:disabled{
+	--tw-border-opacity: 1;
+	border-color: rgb(243 244 246 / var(--tw-border-opacity));
 }
 #hfe-settings-app .disabled\:border-field-border-disabled:disabled{
 	--tw-border-opacity: 1;
@@ -3028,15 +2808,6 @@ div#hfe-settings-app {
 	--tw-text-opacity: 1;
 	color: rgb(209 213 219 / var(--tw-text-opacity));
 }
-#hfe-settings-app .disabled\:outline-border-disabled:disabled{
-	outline-color: #E5E7EB;
-}
-#hfe-settings-app .disabled\:outline-button-disabled:disabled{
-	outline-color: #F3F4F6;
-}
-#hfe-settings-app .disabled\:outline-field-border-disabled:disabled{
-	outline-color: #F3F4F6;
-}
 #hfe-settings-app .checked\:disabled\:border-border-disabled:disabled:checked{
 	--tw-border-opacity: 1;
 	border-color: rgb(229 231 235 / var(--tw-border-opacity));
@@ -3044,18 +2815,6 @@ div#hfe-settings-app {
 #hfe-settings-app .checked\:disabled\:bg-white:disabled:checked{
 	--tw-bg-opacity: 1;
 	background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-#hfe-settings-app :is(.group:focus-within .group-focus-within\:text-icon-primary){
-	--tw-text-opacity: 1;
-	color: rgb(17 24 39 / var(--tw-text-opacity));
-}
-#hfe-settings-app :is(.group:hover .group-hover\:text-field-input){
-	--tw-text-opacity: 1;
-	color: rgb(17 24 39 / var(--tw-text-opacity));
-}
-#hfe-settings-app :is(.group:hover .group-hover\:text-icon-primary){
-	--tw-text-opacity: 1;
-	color: rgb(17 24 39 / var(--tw-text-opacity));
 }
 #hfe-settings-app :is(.group:hover .group-hover\:text-text-primary){
 	--tw-text-opacity: 1;
@@ -3069,8 +2828,8 @@ div#hfe-settings-app {
 	--tw-text-opacity: 1;
 	color: rgb(209 213 219 / var(--tw-text-opacity));
 }
-#hfe-settings-app :is(.peer:checked ~ .peer-checked\:translate-x-3\.5){
-	--tw-translate-x: 0.875rem;
+#hfe-settings-app :is(.peer:checked ~ .peer-checked\:translate-x-4){
+	--tw-translate-x: 1rem;
 	transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 #hfe-settings-app :is(.peer:checked ~ .peer-checked\:translate-x-5){
@@ -3805,11 +3564,13 @@ div#hfe-settings-app {
 		justify-self: stretch;
 	}
 }
-#hfe-settings-app .\[\&\:hover\:has\(\:disabled\)\]\:outline-field-border-disabled:hover:has(:disabled){
-	outline-color: #F3F4F6;
+#hfe-settings-app .\[\&\:hover\:has\(\:disabled\)\]\:border-field-border-disabled:hover:has(:disabled){
+	--tw-border-opacity: 1;
+	border-color: rgb(243 244 246 / var(--tw-border-opacity));
 }
-#hfe-settings-app .\[\&\:hover\:not\(\:focus\)\:not\(\:disabled\)\]\:outline-border-strong:hover:not(:focus):not(:disabled){
-	outline-color: #6B7280;
+#hfe-settings-app .\[\&\:hover\:not\(\:focus\)\:not\(\:disabled\)\]\:border-border-strong:hover:not(:focus):not(:disabled){
+	--tw-border-opacity: 1;
+	border-color: rgb(107 114 128 / var(--tw-border-opacity));
 }
 #hfe-settings-app :is(.\[\&\>\*\:not\(svg\)\]\:m-1>*:not(svg)){
 	margin: 0.25rem;
@@ -3886,14 +3647,6 @@ div#hfe-settings-app {
 #hfe-settings-app :is(.\[\&\>svg\]\:block>svg){
 	display: block;
 }
-#hfe-settings-app :is(.\[\&\>svg\]\:size-12>svg){
-	width: 3rem;
-	height: 3rem;
-}
-#hfe-settings-app :is(.\[\&\>svg\]\:size-3>svg){
-	width: 0.75rem;
-	height: 0.75rem;
-}
 #hfe-settings-app :is(.\[\&\>svg\]\:size-3\.5>svg){
 	width: 0.875rem;
 	height: 0.875rem;
@@ -3957,35 +3710,18 @@ div#hfe-settings-app {
 #hfe-settings-app :is(.\[\&_\*\]\:leading-5 *){
 	line-height: 1.25rem;
 }
-#hfe-settings-app :is(.\[\&_\.editor-content\>p\]\:text-base .editor-content>p){
-	font-size: 1rem;
-	line-height: 1.5rem;
-}
 #hfe-settings-app :is(.\[\&_\.editor-content\>p\]\:text-sm .editor-content>p){
 	font-size: 0.875rem;
 	line-height: 1.25rem;
 }
-#hfe-settings-app :is(.\[\&_\.editor-content\>p\]\:text-xs .editor-content>p){
-	font-size: 0.75rem;
-	line-height: 1rem;
+#hfe-settings-app :is(.\[\&_\.editor-content\>p\]\:font-medium .editor-content>p){
+	font-weight: 500;
 }
-#hfe-settings-app :is(.\[\&_\.editor-content\>p\]\:font-normal .editor-content>p){
-	font-weight: 400;
+#hfe-settings-app :is(.\[\&_\.editor-content\>p\]\:leading-\[1\.625rem\] .editor-content>p){
+	line-height: 1.625rem;
 }
-#hfe-settings-app :is(.\[\&_\.pointer-events-none\]\:text-base .pointer-events-none){
-	font-size: 1rem;
-	line-height: 1.5rem;
-}
-#hfe-settings-app :is(.\[\&_\.pointer-events-none\]\:text-sm .pointer-events-none){
-	font-size: 0.875rem;
-	line-height: 1.25rem;
-}
-#hfe-settings-app :is(.\[\&_\.pointer-events-none\]\:text-xs .pointer-events-none){
-	font-size: 0.75rem;
-	line-height: 1rem;
-}
-#hfe-settings-app :is(.\[\&_\.pointer-events-none\]\:font-normal .pointer-events-none){
-	font-weight: 400;
+#hfe-settings-app :is(.\[\&_\.editor-content\>p\]\:leading-\[1\.6875rem\] .editor-content>p){
+	line-height: 1.6875rem;
 }
 #hfe-settings-app :is(.\[\&_p\]\:m-0 p){
 	margin: 0px;
