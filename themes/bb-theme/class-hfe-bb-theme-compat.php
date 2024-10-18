@@ -11,7 +11,6 @@
  * @since 1.0
  */
 class HFE_BB_Theme_Compat {
-
 	/**
 	 * Instance of HFE_BB_Theme_Compat
 	 *
@@ -38,7 +37,7 @@ class HFE_BB_Theme_Compat {
 	/**
 	 * Run all the Actions / Filters.
 	 * // phpcs:ignore
-	 * @return void 
+	 * @return void
 	 */
 	// phpcs:ignore
 	public function hooks(): void {
@@ -66,7 +65,7 @@ class HFE_BB_Theme_Compat {
 	public function get_header_content(): void {
 		$header_layout = FLTheme::get_setting( 'fl-header-layout' );
 
-		if ( 'none' == $header_layout || is_page_template( 'tpl-no-header-footer.php' ) ) {
+		if ( $header_layout === 'none' || is_page_template( 'tpl-no-header-footer.php' ) ) {
 			return;
 		}
 

@@ -9,7 +9,6 @@
  * OceanWP theme compatibility.
  */
 class HFE_OceanWP_Compat {
-
 	/**
 	 * Instance of HFE_OceanWP_Compat.
 	 *
@@ -33,7 +32,7 @@ class HFE_OceanWP_Compat {
 	/**
 	 * Run all the Actions / Filters.
 	 */
-	public function hooks() {
+	public function hooks(): void {
 		if ( hfe_header_enabled() ) {
 			add_action( 'template_redirect', [ $this, 'setup_header' ], 10 );
 			add_action( 'ocean_header', 'hfe_render_header' );
@@ -52,7 +51,7 @@ class HFE_OceanWP_Compat {
 	/**
 	 * Disable header from the theme.
 	 */
-	public function setup_header() {
+	public function setup_header(): void {
 		remove_action( 'ocean_top_bar', 'oceanwp_top_bar_template' );
 		remove_action( 'ocean_header', 'oceanwp_header_template' );
 		remove_action( 'ocean_page_header', 'oceanwp_page_header_template' );
@@ -61,7 +60,7 @@ class HFE_OceanWP_Compat {
 	/**
 	 * Disable footer from the theme.
 	 */
-	public function setup_footer() {
+	public function setup_footer(): void {
 		remove_action( 'ocean_footer', 'oceanwp_footer_template' );
 	}
 

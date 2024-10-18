@@ -17,7 +17,6 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 	 * BSF analytics
 	 */
 	class BSF_Analytics {
-
 		/**
 		 * Member Variable
 		 *

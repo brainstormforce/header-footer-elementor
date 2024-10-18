@@ -1,6 +1,5 @@
 <?php
 /**
- * 
  * This file contains the implementation of the add function.
  *
  * @package header-footer-elementor
