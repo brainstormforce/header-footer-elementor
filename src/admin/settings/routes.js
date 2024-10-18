@@ -1,14 +1,14 @@
 export const routes = {
     dashboard: {
-        path: "/dashboard",
+        path: "dashboard",
     },
     widgets: {
-        path: "/widgets",
+        path: "widgets",
     },
     templates: {
-        path: "/templates",
+        path: "templates",
     },
     settings: {
-        path: "/settings",
+        path: "settings",
     }
 }

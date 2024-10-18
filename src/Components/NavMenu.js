@@ -27,9 +27,9 @@ const NavMenu = () => {
                     <nav className="flex gap-2 cursor-pointer text-text-secondary">
                         <Link
                             to={routes.dashboard.path}
-                            className={`text-text-primary ${isActive('/dashboard') ? 'active-link' : ''}`}
+                            className={`text-text-primary ${isActive('dashboard') ? 'active-link' : ''}`}
                             style={{
-                                borderBottom: isActive('/dashboard') ? '2px solid #6005FF' : 'none',
+                                borderBottom: isActive('dashboard') ? '2px solid #6005FF' : 'none',
                                 paddingBottom: '4px',
                             }}
                         >
@@ -37,9 +37,9 @@ const NavMenu = () => {
                         </Link>
                         <Link
                             to={routes.widgets.path}
-                            className={`text-text-primary ${isActive('/widgets') ? 'active-link' : ''}`}
+                            className={`text-text-primary ${isActive('widgets') ? 'active-link' : ''}`}
                             style={{
-                                borderBottom: isActive('/widgets') ? '2px solid #6005FF' : 'none',
+                                borderBottom: isActive('widgets') ? '2px solid #6005FF' : 'none',
                                 paddingBottom: '4px',
                             }}
                         >
@@ -47,9 +47,9 @@ const NavMenu = () => {
                         </Link>
                         <Link
                             to={routes.templates.path}
-                            className={`text-text-primary ${isActive('/templates') ? 'active-link' : ''}`}
+                            className={`text-text-primary ${isActive('templates') ? 'active-link' : ''}`}
                             style={{
-                                borderBottom: isActive('/templates') ? '2px solid #6005FF' : 'none',
+                                borderBottom: isActive('templates') ? '2px solid #6005FF' : 'none',
                                 paddingBottom: '4px',
                             }}
                         >
@@ -57,9 +57,9 @@ const NavMenu = () => {
                         </Link>
                         <Link
                             to={routes.settings.path}
-                            className={`text-text-primary ${isActive('/settings') ? 'active-link' : ''}`}
+                            className={`text-text-primary ${isActive('settings') ? 'active-link' : ''}`}
                             style={{
-                                borderBottom: isActive('/settings') ? '2px solid #6005FF' : 'none',
+                                borderBottom: isActive('settings') ? '2px solid #6005FF' : 'none',
                                 paddingBottom: '4px',
                             }}
                         >
