@@ -26,7 +26,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.2.0
  */
 class Copyright extends Widget_Base {
-
 	/**
 	 * Retrieve the widget name.
 	 *
@@ -82,6 +81,20 @@ class Copyright extends Widget_Base {
 	}
 
 	/**
+	 * Render shortcode widget as plain content.
+	 *
+	 * Override the default behavior by printing the shortcode instead of rendering it.
+	 *
+	 * @since 1.2.0
+	 * @access public
+	 * @return void
+	 */
+	public function render_plain_content(): void {
+		// In plain mode, render without shortcode.
+		echo esc_attr( $this->get_settings( 'shortcode' ) );
+	}
+
+	/**
 	 * Indicates if the widget's content is dynamic.
 	 *
 	 * This method returns true if the widget's output is dynamic and should not be cached,
@@ -101,7 +114,7 @@ class Copyright extends Widget_Base {
 	 * @access protected
 	 * @return void
 	 */
-	protected function register_controls() {
+	protected function register_controls(): void {
 		$this->register_content_copy_right_controls();
 	}
 	/**
@@ -111,7 +124,7 @@ class Copyright extends Widget_Base {
 	 * @access protected
 	 * @return void
 	 */
-	protected function register_content_copy_right_controls() {
+	protected function register_content_copy_right_controls(): void {
 		$this->start_controls_section(
 			'section_title',
 			[
@@ -202,9 +215,9 @@ class Copyright extends Widget_Base {
 	 * @access protected
 	 * @return void
 	 */
-	protected function render() {
+	protected function render(): void {
 		$settings = $this->get_settings_for_display();
-		$link     = isset( $settings['link']['url'] ) ? $settings['link']['url'] : '';
+		$link     = $settings['link']['url'] ?? '';
 
 		if ( ! empty( $link ) ) {
 			$this->add_link_attributes( 'link', $settings['link'] );
@@ -224,20 +237,6 @@ class Copyright extends Widget_Base {
 	}
 
 	/**
-	 * Render shortcode widget as plain content.
-	 *
-	 * Override the default behavior by printing the shortcode instead of rendering it.
-	 *
-	 * @since 1.2.0
-	 * @access public
-	 * @return void
-	 */
-	public function render_plain_content() {
-		// In plain mode, render without shortcode.
-		echo esc_attr( $this->get_settings( 'shortcode' ) );
-	}
-
-	/**
 	 * Render shortcode widget output in the editor.
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
@@ -246,5 +245,6 @@ class Copyright extends Widget_Base {
 	 * @access protected
 	 * @return void
 	 */
-	protected function content_template() {}
+	protected function content_template(): void {
+    }
 }

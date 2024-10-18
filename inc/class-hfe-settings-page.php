@@ -257,9 +257,9 @@ class HFE_Settings_Page {
 		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
 
 		$is_subscribed   = get_user_meta( get_current_user_ID(), 'hfe-subscribed' );
-		$subscribe_valid = ( is_array( $is_subscribed ) && isset( $is_subscribed[0] ) && 'yes' === $is_subscribed[0] ) ? 'yes' : false;
+		$subscribe_valid = is_array( $is_subscribed ) && isset( $is_subscribed[0] ) && $is_subscribed[0] === 'yes' ? 'yes' : false;
 
-		if ( ( ! empty( $is_dismissed ) && 'dismissed' === $is_dismissed[0] ) || 'yes' === $subscribe_valid ) {
+		if ( ( ! empty( $is_dismissed ) && $is_dismissed[0] === 'dismissed' ) || $subscribe_valid === 'yes' ) {
 			return false;
 		} else {
 			$this->get_guide_modal();
@@ -294,9 +294,9 @@ class HFE_Settings_Page {
 
 				$tab_slug = str_replace( '_', '-', $tab_id );
 
-				$active_tab = ( ( isset( $_GET['page'] ) && $tab_slug == $_GET['page'] ) || ( ! isset( $_GET['page'] ) && 'hfe_templates' == $tab_id ) ) ? $tab_id : ''; // PHPCS:Ignore WordPress.Security.NonceVerification.Recommended
+				$active_tab = ( isset( $_GET['page'] ) && $tab_slug === $_GET['page'] ) || ( ! isset( $_GET['page'] ) && $tab_id === 'hfe_templates' ) ? $tab_id : ''; // PHPCS:Ignore WordPress.Security.NonceVerification.Recommended
 
-				$active = ( $active_tab == $tab_id ) ? ' nav-tab-active' : '';
+				$active = $active_tab === $tab_id ? ' nav-tab-active' : '';
 
 				echo '<a href="' . esc_url( $tab['url'] ) . '" class="nav-tab' . esc_attr( $active ) . '">';
 				echo esc_html( $tab['name'] );
@@ -325,7 +325,7 @@ class HFE_Settings_Page {
 	public function admin_footer_text( $footer_text ) {
 		$current_screen = get_current_screen();
 
-		$is_elementor_screen = ( $current_screen && ( 'elementor-hf' === $current_screen->post_type || 'appearance_page_hfe-guide' === $current_screen->id || 'appearance_page_hfe-about' === $current_screen->id || 'appearance_page_hfe-settings' === $current_screen->id ) );
+		$is_elementor_screen = ( $current_screen && ( $current_screen->post_type === 'elementor-hf' || $current_screen->id === 'appearance_page_hfe-guide' || $current_screen->id === 'appearance_page_hfe-about' || $current_screen->id === 'appearance_page_hfe-settings' ) );
 
 		if ( $is_elementor_screen ) {
 			$footer_text = sprintf(
@@ -365,8 +365,8 @@ class HFE_Settings_Page {
 	public function get_guide_html() {
 
 		$is_subscribed   = get_user_meta( get_current_user_ID(), 'hfe-subscribed' );
-		$subscribe_valid = ( is_array( $is_subscribed ) && isset( $is_subscribed[0] ) && 'yes' === $is_subscribed[0] ) ? 'yes' : false;
-		$subscribe_flag  = ( 'yes' === $subscribe_valid ) ? ' hfe-user-subscribed' : ' hfe-user-unsubscribed';
+		$subscribe_valid = is_array( $is_subscribed ) && isset( $is_subscribed[0] ) && $is_subscribed[0] === 'yes' ? 'yes' : false;
+		$subscribe_flag  = $subscribe_valid === 'yes' ? ' hfe-user-subscribed' : ' hfe-user-unsubscribed';
 		?>
 
 		<div class="hfe-admin-about-section hfe-admin-columns hfe-admin-guide-section<?php echo esc_attr( $subscribe_flag ); ?>">
@@ -377,7 +377,7 @@ class HFE_Settings_Page {
 					<p><?php esc_html_e( 'Elementor Header & Footer Builder plugin lets you build impactful navigation for your website very easily. Before we begin, we would like to know more about you. This will help us to serve you better.', 'header-footer-elementor' ); ?></p>
 				</div>
 			</div>
-			<?php if ( 'yes' !== $subscribe_valid ) { ?>
+			<?php if ( $subscribe_valid !== 'yes' ) { ?>
 				<div class="hfe-admin-column-50 hfe-admin-column-last">
 					<div class="hfe-guide-content hfe-subscription-step-1-active">
 						<div class="hfe-guide-content-header hfe-admin-columns">
@@ -640,13 +640,13 @@ class HFE_Settings_Page {
 									</strong>
 								</div>
 								<div class="action-button">
-									<?php if ( 'Visit Website' === $plugin_data['action_text'] ) { ?>
+									<?php if ( $plugin_data['action_text'] === 'Visit Website' ) { ?>
 										<a href="<?php echo esc_url( $plugin_data['plugin_src'] ); ?>" target="_blank" rel="noopener noreferrer" class="pro-plugin button button-primary"><?php echo wp_kses_post( $plugin_data['action_text'] ); ?></a>
-									<?php } elseif ( 'theme' === $details['type'] && $can_install_themes ) { ?>
+									<?php } elseif ( $details['type'] === 'theme' && $can_install_themes ) { ?>
 										<button class="<?php echo esc_attr( $plugin_data['action_class'] ); ?>" data-plugin="<?php echo esc_attr( $plugin_data['plugin_src'] ); ?>" data-type="theme" data-slug="<?php echo esc_attr( $details['slug'] ); ?>" data-site="<?php echo esc_url( $details['url'] ); ?>">
 											<span><?php echo wp_kses_post( $plugin_data['action_text'] ); ?></span>
 										</button>
-									<?php } elseif ( 'plugin' === $details['type'] && $can_install_plugins ) { ?>
+									<?php } elseif ( $details['type'] === 'plugin' && $can_install_plugins ) { ?>
 										<button class="<?php echo esc_attr( $plugin_data['action_class'] ); ?>" data-plugin="<?php echo esc_attr( $plugin_data['plugin_src'] ); ?>" data-type="plugin" data-slug="<?php echo esc_attr( $details['slug'] ); ?>" data-site="<?php echo esc_url( $details['url'] ); ?>" data-file="<?php echo esc_attr( $plugin ); ?>">
 											<span><?php echo wp_kses_post( $plugin_data['action_text'] ); ?></span>
 										</button>
@@ -680,19 +680,19 @@ class HFE_Settings_Page {
 	 */
 	protected function get_plugin_data( $addon, $details, $all_plugins, $all_themes ) {
 
-		$have_pro = ( ! empty( $details['pro'] ) );
+		$have_pro = ! empty( $details['pro'] );
 		$show_pro = false;
 
 		$theme = wp_get_theme();
 
 		$plugin_data = [];
 
-		$is_plugin = ( 'plugin' === $details['type'] ) ? true : false;
-		$is_theme  = ( 'theme' === $details['type'] ) ? true : false;
+		$is_plugin = $details['type'] === 'plugin' ? true : false;
+		$is_theme  = $details['type'] === 'theme' ? true : false;
 
 		if ( ( $is_plugin && array_key_exists( $addon, $all_plugins ) ) || ( $is_theme && array_key_exists( $addon, $all_themes ) ) ) {
 
-			if ( ( $is_plugin && is_plugin_active( $addon ) ) || ( $is_theme && ( 'Astra' === $theme->name || 'Astra' === $theme->parent_theme ) ) ) {
+			if ( ( $is_plugin && is_plugin_active( $addon ) ) || ( $is_theme && ( $theme->name === 'Astra' || $theme->parent_theme === 'Astra' ) ) ) {
 
 				// Status text/status.
 				$plugin_data['status_class'] = 'status-active';
@@ -714,7 +714,7 @@ class HFE_Settings_Page {
 			// install if already doesn't exists.
 			// Status text/status.
 			$plugin_data['status_class'] = 'status-download';
-			if ( isset( $details['act'] ) && 'go-to-url' === $details['act'] ) {
+			if ( isset( $details['act'] ) && $details['act'] === 'go-to-url' ) {
 				$plugin_data['status_class'] = 'status-go-to-url';
 			}
 			$plugin_data['status_text'] = esc_html__( 'Not Installed', 'header-footer-elementor' );
@@ -805,14 +805,14 @@ class HFE_Settings_Page {
 			return false;
 		}
 
-		if ( 'theme' === $type ) {
+		if ( $type === 'theme' ) {
 			if ( ! current_user_can( 'install_themes' ) ) {
 				return false;
 			}
 
 			return true;
 
-		} elseif ( 'plugin' === $type ) {
+		} elseif ( $type === 'plugin' ) {
 			if ( ! current_user_can( 'install_plugins' ) ) {
 				return false;
 			}

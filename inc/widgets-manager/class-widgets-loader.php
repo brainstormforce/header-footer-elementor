@@ -21,7 +21,6 @@ defined( 'ABSPATH' ) || exit;
  * Set up Widgets Loader class
  */
 class Widgets_Loader {
-
 	/**
 	 * Instance of Widgets_Loader.
 	 *
@@ -29,20 +28,6 @@ class Widgets_Loader {
 	 * @var null
 	 */
 	private static $_instance = null;
-
-	/**
-	 * Get instance of Widgets_Loader
-	 *
-	 * @since  1.2.0
-	 * @return Widgets_Loader
-	 */
-	public static function instance() {
-		if ( ! isset( self::$_instance ) ) {
-			self::$_instance = new self();
-		}
-
-		return self::$_instance;
-	}
 
 	/**
 	 * Setup actions and filters.
@@ -71,6 +56,20 @@ class Widgets_Loader {
 
 			add_filter( 'woocommerce_add_to_cart_fragments', [ $this, 'wc_refresh_mini_cart_count' ] );
 		}
+	}
+
+	/**
+	 * Get instance of Widgets_Loader
+	 *
+	 * @since  1.2.0
+	 * @return Widgets_Loader
+	 */
+	public static function instance() {
+		if ( ! isset( self::$_instance ) ) {
+			self::$_instance = new self();
+		}
+
+		return self::$_instance;
 	}
 
 	/**
@@ -124,7 +123,7 @@ class Widgets_Loader {
 	 * @access public
 	 * @return void
 	 */
-	public function include_widgets_files() {
+	public function include_widgets_files(): void {
 		$widget_list = $this->get_widget_list();
 
 		if ( ! empty( $widget_list ) ) {
@@ -143,7 +142,7 @@ class Widgets_Loader {
 	 * @access public
 	 * @return void
 	 */
-	public function include_js_files() {
+	public function include_js_files(): void {
 		$js_files = $this->get_widget_script();
 
 		if ( ! empty( $js_files ) ) {
@@ -187,7 +186,7 @@ class Widgets_Loader {
 	 * @return array Modified array of uploaded file information.
 	 */
 	public function sanitize_uploaded_svg( $file ) {
-		if ( 'image/svg+xml' === $file['type'] ) {
+		if ( $file['type'] === 'image/svg+xml' ) {
 
 			/**
 			 * SVG Handler instance.
@@ -235,7 +234,7 @@ class Widgets_Loader {
 	 * @access public
 	 * @return void
 	 */
-	public function register_widgets() {
+	public function register_widgets(): void {
 		// Its is now safe to include Widgets files.
 		$this->include_widgets_files();
 		// Register Widgets.
@@ -259,7 +258,7 @@ class Widgets_Loader {
 	 * @access public
 	 * @return void
 	 */
-	public function register_widget_scripts() {
+	public function register_widget_scripts(): void {
 		$this->include_js_files();
 	}
 
@@ -281,9 +280,9 @@ class Widgets_Loader {
 			return $fragments;
 		}
 
-		$cart_badge_count = ( null !== WC()->cart ) ? WC()->cart->get_cart_contents_count() : '';
+		$cart_badge_count = WC()->cart !== null ? WC()->cart->get_cart_contents_count() : '';
 
-		if ( null !== WC()->cart ) {
+		if ( WC()->cart !== null ) {
 
 			$fragments['span.hfe-cart-count'] = '<span class="hfe-cart-count">' . WC()->cart->get_cart_contents_count() . '</span>';
 
@@ -308,10 +307,9 @@ class Widgets_Loader {
 		// Check if Elementor method exists, else we will run custom validation code.
 		if ( method_exists( 'Elementor\Utils', 'validate_html_tag' ) ) {
 			return Utils::validate_html_tag( $tag );
-		} else {
+		}
 			$allowed_tags = [ 'article', 'aside', 'div', 'footer', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'header', 'main', 'nav', 'p', 'section', 'span' ];
 			return in_array( strtolower( $tag ), $allowed_tags ) ? $tag : 'div';
-		}
 	}
 }
 

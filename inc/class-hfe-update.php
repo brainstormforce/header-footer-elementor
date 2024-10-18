@@ -21,7 +21,6 @@ if ( ! class_exists( 'HFE_Update' ) ) {
 	 * @since 1.1.4
 	 */
 	class HFE_Update {
-
 		/**
 		 * Option key for stored version number.
 		 *
@@ -29,7 +28,7 @@ if ( ! class_exists( 'HFE_Update' ) ) {
 		 * @var string
 		 */
 		// phpcs:ignore
-		private string $db_option_key = '_hfe_db_version'; 
+		private string $db_option_key = '_hfe_db_version';
 
 		/**
 		 *  Constructor
@@ -52,7 +51,7 @@ if ( ! class_exists( 'HFE_Update' ) ) {
 		 * @since 1.1.4
 		 * @return void
 		 */
-		public function init() {
+		public function init(): void {
 			do_action( 'hfe_update_before' );
 
 			if ( ! $this->needs_db_update() ) {
@@ -71,38 +70,6 @@ if ( ! class_exists( 'HFE_Update' ) ) {
 			$this->update_db_version();
 
 			do_action( 'hfe_update_after' );
-		}
-
-		/**
-		 * Set default target rules for header, footer, before footers being used before target rules were added to the plugin.
-		 *
-		 * @since 1.2.0-beta.1
-		 * @return void
-		 */
-		private function setup_default_terget_rules() {
-			$default_include_locations = [
-				'rule'     => [ 0 => 'basic-global' ],
-				'specific' => [],
-			];
-
-			$header_id        = $this->get_legacy_template_id( 'type_header' );
-			$footer_id        = $this->get_legacy_template_id( 'type_footer' );
-			$before_footer_id = $this->get_legacy_template_id( 'type_before_footer' );
-
-			// Header.
-			if ( ! empty( $header_id ) ) {
-				update_post_meta( $header_id, 'ehf_target_include_locations', $default_include_locations );
-			}
-
-			// Footer.
-			if ( ! empty( $footer_id ) ) {
-				update_post_meta( $footer_id, 'ehf_target_include_locations', $default_include_locations );
-			}
-
-			// Before Footer.
-			if ( ! empty( $before_footer_id ) ) {
-				update_post_meta( $before_footer_id, 'ehf_target_include_locations', $default_include_locations );
-			}
 		}
 
 		/**
@@ -146,6 +113,38 @@ if ( ! class_exists( 'HFE_Update' ) ) {
 		}
 
 		/**
+		 * Set default target rules for header, footer, before footers being used before target rules were added to the plugin.
+		 *
+		 * @since 1.2.0-beta.1
+		 * @return void
+		 */
+		private function setup_default_terget_rules(): void {
+			$default_include_locations = [
+				'rule'     => [ 0 => 'basic-global' ],
+				'specific' => [],
+			];
+
+			$header_id        = $this->get_legacy_template_id( 'type_header' );
+			$footer_id        = $this->get_legacy_template_id( 'type_footer' );
+			$before_footer_id = $this->get_legacy_template_id( 'type_before_footer' );
+
+			// Header.
+			if ( ! empty( $header_id ) ) {
+				update_post_meta( $header_id, 'ehf_target_include_locations', $default_include_locations );
+			}
+
+			// Footer.
+			if ( ! empty( $footer_id ) ) {
+				update_post_meta( $footer_id, 'ehf_target_include_locations', $default_include_locations );
+			}
+
+			// Before Footer.
+			if ( ! empty( $before_footer_id ) ) {
+				update_post_meta( $before_footer_id, 'ehf_target_include_locations', $default_include_locations );
+			}
+		}
+
+		/**
 		 * Check if db upgrade is required.
 		 *
 		 * @since 1.1.4
@@ -154,7 +153,7 @@ if ( ! class_exists( 'HFE_Update' ) ) {
 		private function needs_db_update() {
 			$db_version = get_option( $this->db_option_key, false );
 
-			if ( false === $db_version || version_compare( $db_version, HFE_VER ) ) {
+			if ( $db_version === false || version_compare( $db_version, HFE_VER ) ) {
 				return true;
 			}
 
@@ -167,7 +166,7 @@ if ( ! class_exists( 'HFE_Update' ) ) {
 		 * @since 1.1.4
 		 * @return void
 		 */
-		private function update_db_version() {
+		private function update_db_version(): void {
 			update_option( $this->db_option_key, HFE_VER );
 		}
 	}

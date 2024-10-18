@@ -27,8 +27,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Class Nav Menu.
  */
 class Navigation_Menu extends Widget_Base {
-
-
 	/**
 	 * Menu index.
 	 *
@@ -110,6 +108,86 @@ class Navigation_Menu extends Widget_Base {
 	}
 
 	/**
+	 * Check if the Elementor is updated.
+	 *
+	 * @since 1.3.0
+	 *
+	 * @return bool if Elementor updated.
+	 */
+	public static function is_elementor_updated() {
+		if ( class_exists( 'Elementor\Icons_Manager' ) ) {
+			return true;
+		}
+			return false;
+	}
+
+	/**
+	 * Add itemprop for Navigation Schema.
+	 *
+	 * @since 1.5.2
+	 * @param string $atts link attributes.
+	 * @access public
+	 * @return string
+	 */
+	public function handle_link_attrs( $atts ) {
+
+		$atts .= ' itemprop="url"';
+		return $atts;
+	}
+
+	/**
+	 * Add itemprop to the li tag of Navigation Schema.
+	 *
+	 * @since 1.6.0
+	 * @param string $value link attributes.
+	 * @access public
+	 * @return string
+	 */
+	public function handle_li_values( $value ) {
+
+		$value .= ' itemprop="name"';
+		return $value;
+	}
+
+	/**
+	 * Get the menu and close icon HTML.
+	 *
+	 * @since 1.5.2
+	 * @param array $settings Widget settings array.
+	 * @access public
+	 * @return array
+	 */
+	public function get_menu_close_icon( $settings ) {
+		$menu_icon     = '';
+		$close_icon    = '';
+		$icons         = [];
+		$icon_settings = [
+			$settings['dropdown_icon'],
+			$settings['dropdown_close_icon'],
+		];
+
+		foreach ( $icon_settings as $icon ) {
+			if ( $this->is_elementor_updated() ) {
+				ob_start();
+				\Elementor\Icons_Manager::render_icon(
+					$icon,
+					[
+						'aria-hidden' => 'true',
+						'tabindex'    => '0',
+					]
+				);
+				$menu_icon = ob_get_clean();
+			} else {
+				$menu_icon = '<i class="' . esc_attr( $icon ) . '" aria-hidden="true" tabindex="0"></i>';
+			}
+
+			array_push( $icons, $menu_icon );
+		}
+
+		return $icons;
+	}
+
+	/**
 	 * Retrieve the menu index.
 	 *
 	 * Used to get index of nav menu.
@@ -124,51 +202,13 @@ class Navigation_Menu extends Widget_Base {
 	}
 
 	/**
-	 * Retrieve the list of available menus.
-	 *
-	 * Used to get the list of available menus.
-	 *
-	 * @since 1.3.0
-	 * @access private
-	 *
-	 * @return array get WordPress menus list.
-	 */
-	private function get_available_menus() {
-
-		$menus = wp_get_nav_menus();
-
-		$options = [];
-
-		foreach ( $menus as $menu ) {
-			$options[ $menu->slug ] = $menu->name;
-		}
-
-		return $options;
-	}
-
-	/**
-	 * Check if the Elementor is updated.
-	 *
-	 * @since 1.3.0
-	 *
-	 * @return boolean if Elementor updated.
-	 */
-	public static function is_elementor_updated() {
-		if ( class_exists( 'Elementor\Icons_Manager' ) ) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	/**
 	 * Register Nav Menu controls.
 	 *
 	 * @since 1.5.7
 	 * @access protected
 	 * @return void
 	 */
-	protected function register_controls() {
+	protected function register_controls(): void {
 
 		$this->register_general_content_controls();
 		$this->register_style_content_controls();
@@ -182,7 +222,7 @@ class Navigation_Menu extends Widget_Base {
 	 * @access protected
 	 * @return void
 	 */
-	protected function register_general_content_controls() {
+	protected function register_general_content_controls(): void {
 
 		$this->start_controls_section(
 			'section_menu',
@@ -250,7 +290,7 @@ class Navigation_Menu extends Widget_Base {
 
 		$current_theme = wp_get_theme();
 
-		if ( 'Twenty Twenty-One' === $current_theme->get( 'Name' ) ) {
+		if ( $current_theme->get( 'Name' ) === 'Twenty Twenty-One' ) {
 			$this->add_control(
 				'hide_theme_icons',
 				[
@@ -632,7 +672,7 @@ class Navigation_Menu extends Widget_Base {
 	 * @access protected
 	 * @return void
 	 */
-	protected function register_style_content_controls() {
+	protected function register_style_content_controls(): void {
 
 		$this->start_controls_section(
 			'section_style_main-menu',
@@ -1111,7 +1151,7 @@ class Navigation_Menu extends Widget_Base {
 	 * @access protected
 	 * @return void
 	 */
-	protected function register_dropdown_content_controls() {
+	protected function register_dropdown_content_controls(): void {
 
 		$this->start_controls_section(
 			'section_style_dropdown',
@@ -1835,72 +1875,6 @@ class Navigation_Menu extends Widget_Base {
 	}
 
 	/**
-	 * Add itemprop for Navigation Schema.
-	 *
-	 * @since 1.5.2
-	 * @param string $atts link attributes.
-	 * @access public
-	 * @return string
-	 */
-	public function handle_link_attrs( $atts ) {
-
-		$atts .= ' itemprop="url"';
-		return $atts;
-	}
-
-	/**
-	 * Add itemprop to the li tag of Navigation Schema.
-	 *
-	 * @since 1.6.0
-	 * @param string $value link attributes.
-	 * @access public
-	 * @return string
-	 */
-	public function handle_li_values( $value ) {
-
-		$value .= ' itemprop="name"';
-		return $value;
-	}
-
-	/**
-	 * Get the menu and close icon HTML.
-	 *
-	 * @since 1.5.2
-	 * @param array $settings Widget settings array.
-	 * @access public
-	 * @return array
-	 */
-	public function get_menu_close_icon( $settings ) {
-		$menu_icon     = '';
-		$close_icon    = '';
-		$icons         = [];
-		$icon_settings = [
-			$settings['dropdown_icon'],
-			$settings['dropdown_close_icon'],
-		];
-
-		foreach ( $icon_settings as $icon ) {
-			if ( $this->is_elementor_updated() ) {
-				ob_start();
-				\Elementor\Icons_Manager::render_icon(
-					$icon,
-					[
-						'aria-hidden' => 'true',
-						'tabindex'    => '0',
-					]
-				);
-				$menu_icon = ob_get_clean();
-			} else {
-				$menu_icon = '<i class="' . esc_attr( $icon ) . '" aria-hidden="true" tabindex="0"></i>';
-			}
-
-			array_push( $icons, $menu_icon );
-		}
-
-		return $icons;
-	}
-
-	/**
 	 * Render Nav Menu output on the frontend.
 	 *
 	 * Written in PHP and used to generate the final HTML.
@@ -1932,7 +1906,7 @@ class Navigation_Menu extends Widget_Base {
 			'walker'      => new Menu_Walker(),
 		];
 
-		if ( 'yes' === $settings['schema_support'] ) {
+		if ( $settings['schema_support'] === 'yes' ) {
 			$this->add_render_attribute( 'hfe-nav-menu', 'itemscope', 'itemscope' );
 			$this->add_render_attribute( 'hfe-nav-menu', 'itemtype', 'https://schema.org/SiteNavigationElement' );
 
@@ -1940,10 +1914,10 @@ class Navigation_Menu extends Widget_Base {
 			add_filter( 'nav_menu_li_values', [ $this, 'handle_li_values' ] );
 		}
 
-		if ( 'flyout' === $settings['layout'] ) {
+		if ( $settings['layout'] === 'flyout' ) {
 
 			$this->add_render_attribute( 'hfe-flyout', 'class', 'hfe-flyout-wrapper' );
-			if ( 'cta' === $settings['menu_last_item'] ) {
+			if ( $settings['menu_last_item'] === 'cta' ) {
 
 				$this->add_render_attribute( 'hfe-flyout', 'data-last-item', $settings['menu_last_item'] );
 			}
@@ -1951,7 +1925,7 @@ class Navigation_Menu extends Widget_Base {
 			?>
 			<div class="hfe-nav-menu__toggle elementor-clickable hfe-flyout-trigger" tabindex="0">
 					<div class="hfe-nav-menu-icon">
-						<?php echo isset( $menu_close_icons[0] ) ? $menu_close_icons[0] : ''; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						<?php echo $menu_close_icons[0] ?? ''; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped?>
 					</div>
 				</div>
 			<div <?php $this->print_render_attribute_string( 'hfe-flyout' ); ?> >
@@ -1963,7 +1937,7 @@ class Navigation_Menu extends Widget_Base {
 								<?php echo wp_nav_menu( $args ); ?>
 							</nav>
 							<div class="elementor-clickable hfe-flyout-close" tabindex="0">
-								<?php echo isset( $menu_close_icons[1] ) ? $menu_close_icons[1] : ''; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+								<?php echo $menu_close_icons[1] ?? ''; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped?>
 							</div>
 						</div>
 					</div>
@@ -1986,26 +1960,26 @@ class Navigation_Menu extends Widget_Base {
 
 			$this->add_render_attribute( 'hfe-main-menu', 'data-layout', $settings['layout'] );
 
-			if ( 'cta' === $settings['menu_last_item'] ) {
+			if ( $settings['menu_last_item'] === 'cta' ) {
 
 				$this->add_render_attribute( 'hfe-main-menu', 'data-last-item', $settings['menu_last_item'] );
 			}
 
 			if ( $settings['pointer'] ) {
-				if ( 'horizontal' === $settings['layout'] || 'vertical' === $settings['layout'] ) {
+				if ( $settings['layout'] === 'horizontal' || $settings['layout'] === 'vertical' ) {
 					$this->add_render_attribute( 'hfe-main-menu', 'class', 'hfe-pointer__' . $settings['pointer'] );
 
 					if ( in_array( $settings['pointer'], [ 'double-line', 'underline', 'overline' ], true ) ) {
 						$key = 'animation_line';
 						$this->add_render_attribute( 'hfe-main-menu', 'class', 'hfe-animation__' . $settings[ $key ] );
-					} elseif ( 'framed' === $settings['pointer'] || 'text' === $settings['pointer'] ) {
+					} elseif ( $settings['pointer'] === 'framed' || $settings['pointer'] === 'text' ) {
 						$key = 'animation_' . $settings['pointer'];
 						$this->add_render_attribute( 'hfe-main-menu', 'class', 'hfe-animation__' . $settings[ $key ] );
 					}
 				}
 			}
 
-			if ( 'expandible' === $settings['layout'] ) {
+			if ( $settings['layout'] === 'expandible' ) {
 				$this->add_render_attribute( 'hfe-nav-menu', 'class', 'hfe-dropdown-expandible' );
 			}
 
@@ -2031,7 +2005,7 @@ class Navigation_Menu extends Widget_Base {
 					<div class="hfe-nav-menu-icon">
 						<?php
 						$menu_close_icons[0] = str_replace( 'tabindex="0"', '', $menu_close_icons[0] );
-						echo isset( $menu_close_icons[0] ) ? $menu_close_icons[0] : ''; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						echo $menu_close_icons[0] ?? ''; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 						?>
 					</div>
 				</div>
@@ -2041,5 +2015,28 @@ class Navigation_Menu extends Widget_Base {
 			</div>
 			<?php
 		}
+	}
+
+	/**
+	 * Retrieve the list of available menus.
+	 *
+	 * Used to get the list of available menus.
+	 *
+	 * @since 1.3.0
+	 * @access private
+	 *
+	 * @return array get WordPress menus list.
+	 */
+	private function get_available_menus() {
+
+		$menus = wp_get_nav_menus();
+
+		$options = [];
+
+		foreach ( $menus as $menu ) {
+			$options[ $menu->slug ] = $menu->name;
+		}
+
+		return $options;
 	}
 }
