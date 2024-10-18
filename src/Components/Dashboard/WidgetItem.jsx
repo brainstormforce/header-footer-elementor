@@ -1,21 +1,98 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Container, Title, Button, Switch, Tooltip, Badge } from "@bsf/force-ui";
 import { InfoIcon } from 'lucide-react';
 import { Link } from 'react-dom/client';
+import apiFetch from '@wordpress/api-fetch';
+import { __ } from '@wordpress/i18n';
+
+class AjaxQueue {
+    constructor() {
+        this.queue = [];
+        this.processing = false;
+    }
+
+    add(request) {
+        this.queue.push(request);
+        this.processNext();
+    }
+
+    processNext() {
+        if (this.processing || this.queue.length === 0) {
+            return;
+        }
+
+        this.processing = true;
+        const { url, type, data, success, error } = this.queue.shift(); // Get the first request
+
+        apiFetch({
+            url: url,
+            method: type,
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+            .then(response => response.json())
+            .then(result => {
+                success(result); // Call the success handler
+                this.processing = false;
+                this.processNext(); // Process the next request in the queue
+            })
+            .catch(err => {
+                if (error) error(err); // Optional error handling
+                this.processing = false;
+                this.processNext(); // Process the next request in the queue
+            });
+    }
+}
+
+// Create an instance of the queue
+const UaelAjaxQueue = new AjaxQueue();
 
 const WidgetItem = ({
     widget
 }) => {
     const { 
+        id,
         icon,
         title,
         viewDemo,
         infoText,
-        is_pro, } = widget
+        is_pro,
+        is_active: initialActiveState
+    } = widget
 
-        
+    // Track the active state of the widget using React state
+    const [isActive, setIsActive] = useState(widget.is_active);
+    const [isLoading, setIsLoading] = useState(false); 
 
-        console.log({widget})
+    const handleSwitchChange = async () => {
+        if (isLoading) return;
+
+        setIsLoading(true);
+
+        const action = isActive ? 'hfe_deactivate_widget' : 'hfe_activate_widget';
+
+        const formData = new window.FormData();
+		formData.append( 'action', action );
+		formData.append( 'nonce', hfe_admin_data.nonce );
+		formData.append( 'module_id', id );
+
+        apiFetch({
+            url: hfe_admin_data.ajax_url,
+            method: 'POST',
+            body: formData,
+        } ).then( ( data ) => {
+            if ( data.success ) {
+                console.log(`Widget ${isActive ? 'deactivated' : 'activated'}:`, result);
+                setIsActive(!isActive);
+                setIsLoading(false);
+            } else if( data.error ) {
+                console.error('AJAX request failed:', err);
+                setIsLoading(false);
+            }
+        });
+    };
 
     return (
         <Container align="center"
@@ -46,8 +123,17 @@ const WidgetItem = ({
                             type="pill"
                             variant="inverse"
                         />
+                    ) : isActive ? (
+                        <Switch 
+                            onChange={handleSwitchChange} // Updated to use the new function
+                            size='sm' 
+                            value={isActive} // Pass is_active as value to the Switch
+                        />
                     ) : (
-                        <Switch size='sm' />
+                        <Switch 
+                            onChange={handleSwitchChange} // Updated to use the new function
+                            size='sm' // Pass is_active as value to the Switch
+                        />
                     )}
                 </div>
 

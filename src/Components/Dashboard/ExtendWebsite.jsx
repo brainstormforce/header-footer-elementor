@@ -1,55 +1,48 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import ExtendWebsiteWidget from './ExtendWebsiteWidget';
 import { Container } from "@bsf/force-ui";
 import { Plus, ArrowUpRight } from 'lucide-react';
-
-const ExtendWebsiteData = [
-    {
-        id: '1',
-        icon: <img src={`${hfeSettingsData.astra_url}`} alt="Icon 1" className='h-5 w-5' />,
-        activated: true,
-        title: 'Astra Theme',
-        demoLink: 'https://www.youtube.com/embed/JGwWNGJdvx8',
-        infoText: 'Free WordPress Page Builder Plugin.',
-        isInstalled: true,
-        isFree: true,
-    },
-    {
-        id: '2',
-        icon: <img src={`${hfeSettingsData.starter_url}`} alt="Icon 1" className='h-5 w-5' />,
-        activated: true,
-        title: 'Starter Templates',
-        demoLink: 'https://www.youtube.com/embed/JGwWNGJdvx8',
-        infoText: 'Build your dream website in minutes with AI.',
-        isInstall: true,
-        isFree: true,
-    },
-    {
-        id: '3',
-        icon: <img src={`${hfeSettingsData.surecart_url}`} alt="Icon 1" className='h-5 w-5' />,
-        activated: true,
-        title: 'SureCart',
-        demoLink: 'https://www.youtube.com/embed/JGwWNGJdvx8',
-        infoText: 'The new way to sell on WordPress.',
-        isInstall: true,
-        isFree: true,
-    },
-    {
-        id: '4',
-        icon: <img src={`${hfeSettingsData.suretriggers_url}`} alt="Icon 1" className='h-5 w-5' />,
-        activated: true,
-        title: 'Presto Player',
-        demoLink: 'https://www.youtube.com/embed/JGwWNGJdvx8',
-        infoText: 'Automate your WordPress setup.',
-        isInstall: true,
-        isFree: true,
-    },
-];
+import apiFetch from '@wordpress/api-fetch'; // Import apiFetch for AJAX calls
 
 const ExtendWebsite = () => {
+
+    const [plugins, setPlugins] = useState(null); // State to manage plugin data
+
+    useEffect(() => {
+        const pluginsData =  convertToPluginsArray( window.hfePluginsData );
+        setPlugins(pluginsData);
+    }, []);
+
+    console.log(window.hfePluginsData);
+    console.log( "===========================================================" );
+    console.log( plugins );
+
+    function convertToPluginsArray(data) {
+        const plugins = [];
+    
+        for (const key in data) {
+            if (data.hasOwnProperty(key)) {
+                const plugin = data[key];
+                plugins.push({
+                    path: key,
+                    slug: plugin.slug,
+                    siteUrl: plugin.siteurl,
+                    icon: plugin.icon,
+                    type: plugin.type,
+                    name: plugin.name,
+                    zipUrl: plugin.url,
+                    desc: plugin.desc,
+                    wporg: plugin.wporg, 
+                    isFree: plugin.isFree,
+                    status: plugin.status
+                });
+            }
+        }
+    
+        return plugins;
+    }
+
     return (
-
-
         <div className='rounded-lg bg-white w-full mb-4'>
             <div className='flex items-center justify-between' style={{
                 paddingTop: '12px',
@@ -71,13 +64,18 @@ const ExtendWebsite = () => {
                     gap=""
                     justify="start"
                 >
-                    {ExtendWebsiteData.map((widget) => (
+                    {plugins?.map((plugin) => (
                         <Container.Item
-                        key={widget.id}
+                            key={plugin.slug}
+                            statusText={
+                                'Installed' === plugin.status
+                                    ? 'Activate'
+                                    : plugin.status
+                            }
                             alignSelf="auto"
                             className="text-wrap rounded-md shadow-container-item bg-background-primary p-4"
                         >
-                            <ExtendWebsiteWidget widget={widget} key={widget.id} />
+                            <ExtendWebsiteWidget plugin={plugin} />
                         </Container.Item>
                     ))}
                 </Container>

@@ -6,6 +6,9 @@
  */
 namespace HFE\WidgetsManager\Base;
 
+
+use HFE\WidgetsManager\Base\Widgets_Config;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
@@ -131,7 +134,7 @@ class Widgets_Config {
 			),
 		);
 
-		return self::$widget_list;
+		return apply_filters( 'hfe_widgets_data', self::$widget_list );
 	}
 
 	/**
@@ -769,5 +772,144 @@ class Widgets_Config {
     public static function get_all_widgets() {
         return self::get_widget_list() + self::get_pro_widget_list(); // Use + operator to merge associative arrays
    }
+
+   
+	/**
+	 * Function for Astra Pro white labels with defaults.
+	 *
+	 * @since x.x.x
+	 * @return array
+	 */
+	public static function get_white_label() {
+		$white_labels = is_callable( 'Astra_Admin_Helper::get_admin_settings_option' ) ? \Astra_Admin_Helper::get_admin_settings_option( '_astra_ext_white_label', true ) : [];
+
+		$theme_name = ! empty( $white_labels['astra']['name'] ) ? $white_labels['astra']['name'] : 'Astra Theme';
+
+		return [
+			'theme_name'  => $theme_name,
+			/* translators: %s: theme name */
+			'description' => ! empty( $white_labels['astra']['description'] ) ? $white_labels['astra']['description'] : esc_html( sprintf( __( 'Free & Fastest WordPress Theme.', 'header-footer-elementor' ), esc_html( $theme_name ) ) ),
+			'theme_icon'  => ! empty( $white_labels['astra']['icon'] ) ? $white_labels['astra']['icon'] : '',
+			'author_url'  => ! empty( $white_labels['astra']['author_url'] ) ? $white_labels['astra']['author_url'] : 'https://wpastra.com/',
+		];
+	}
+
+	/**
+	 * List of plugins that we propose to install.
+	 *
+	 * @since 1.6.0
+	 *
+	 * @return array
+	 */
+	public static function get_bsf_plugins() {
+
+		$white_labels = self::get_white_label();
+
+		$images_url = HFE_URL . 'assets/images/settings/';
+
+		return [
+
+			'astra'                                     => [
+				'icon'    => ! empty( $white_labels['theme_icon'] ) ? $white_labels['theme_icon'] : $images_url . 'plugin-astra.png',
+				'type'    => 'theme',
+				'name'    => $white_labels['theme_name'],
+				'desc'    => esc_html__( 'Free and Fastest WordPress Theme', 'header-footer-elementor' ),
+				'wporg'   => 'https://wordpress.org/themes/astra/',
+				'url'     => 'https://downloads.wordpress.org/theme/astra.zip',
+				'siteurl' => $white_labels['author_url'],
+				'slug'    => 'astra',
+				'isFree'  => true,
+				'status'  => self::get_theme_status( 'astra' ),
+			],
+
+			'astra-sites/astra-sites.php'               => [
+				'icon'    => $images_url . 'stemplates.png',
+				'type'    => 'plugin',
+				'name'    => esc_html__( 'Starter Templates', 'header-footer-elementor' ),
+				'desc'    => esc_html__( 'Build you dream website in minutes with AI.', 'header-footer-elementor' ),
+				'wporg'   => 'https://wordpress.org/plugins/astra-sites/',
+				'url'     => 'https://downloads.wordpress.org/plugin/astra-sites.zip',
+				'siteurl' => 'https://startertemplates.com/',
+				'slug'    => 'astra-sites',
+				'isFree'  => true,
+				'status'  => self::get_plugin_status( 'astra-sites/astra-sites.php' ),
+			],
+
+			'surecart/surecart.php'               => [
+				'icon'    => $images_url . 'surecart.png',
+				'type'    => 'plugin',
+				'name'    => esc_html__( 'Surecart', 'header-footer-elementor' ),
+				'desc'    => esc_html__( 'The new way to sell on WordPress.', 'header-footer-elementor' ),
+				'wporg'   => 'https://wordpress.org/plugins/surecart/',
+				'url'     => 'https://downloads.wordpress.org/plugin/surecart.zip',
+				'siteurl' => 'https://surecart.com/',
+				'isFree'  => true,
+				'slug'    => 'surecart',
+				'status'  => self::get_plugin_status( 'surecart/surecart.php' ),
+			],
+
+			'presto-player/presto-player.php'               => [
+				'icon'    => $images_url . 'pplayer.png',
+				'type'    => 'plugin',
+				'name'    => esc_html__( 'Presto Player', 'header-footer-elementor' ),
+				'desc'    => esc_html__( 'Automate your WordPress setup.', 'header-footer-elementor' ),
+				'wporg'   => 'https://wordpress.org/plugins/presto-player/',
+				'url'     => 'https://downloads.wordpress.org/plugin/presto-player.zip',
+				'siteurl' => 'https://prestoplayer.com/',
+				'slug'    => 'presto-player',
+				'isFree'  => true,
+				'status'  => self::get_plugin_status( 'presto-player/presto-player.php' ),
+			],
+
+		];
+	}
+
+	/**
+	 * Get plugin status
+	 *
+	 * @since 0.0.1
+	 *
+	 * @param  string $plugin_init_file Plugin init file.
+	 * @return string
+	 */
+	public static function get_plugin_status( $plugin_init_file ) {
+
+		$installed_plugins = get_plugins();
+
+		if ( ! isset( $installed_plugins[ $plugin_init_file ] ) ) {
+			return 'Install';
+		} elseif ( is_plugin_active( $plugin_init_file ) ) {
+			return 'Activated';
+		} else {
+			return 'Installed';
+		}
+	}
+
+	/**
+	 * Get theme status
+	 *
+	 * @since 0.0.1
+	 *
+	 * @param  string $plugin_init_file Plugin init file.
+	 * @return string
+	 */
+	public static function get_theme_status( $theme_slug ) {
+        $installed_themes = wp_get_themes();
+        
+        // Check if the theme is installed
+        if ( isset( $installed_themes[ $theme_slug ] ) ) {
+            $current_theme = wp_get_theme();
+            
+            // Check if the current theme slug matches the provided theme slug
+            if ( $current_theme->get_stylesheet() === $theme_slug ) {
+                return 'Activated'; // Theme is active
+            } else {
+                return 'Activate'; // Theme is installed but not active
+            }
+        } else {
+            return 'Install'; // Theme is not installed at all
+        }
+    }
+
 
 }

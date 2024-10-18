@@ -178,6 +178,7 @@ class HFE_Settings_Page {
 			'subscribe_error'   => esc_html__( 'Encountered an error while performing your request.', 'header-footer-elementor' ),
 			'ajax_url'          => admin_url( 'admin-ajax.php' ),
 			'nonce'             => wp_create_nonce( 'hfe-admin-nonce' ),
+			'installer_nonce'   => wp_create_nonce( 'updates' ),
 			'popup_dismiss'     => false,
 			'data_source'       => 'HFE',
 		];
