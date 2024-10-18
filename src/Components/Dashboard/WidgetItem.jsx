@@ -157,14 +157,14 @@ const WidgetItem = ({
                     {/* <p className='text-sm text-text-tertiary m-0'>{viewDemo}</p> */}
                     <Tooltip
                         arrow
-                        content={infoText}
-                        placement="top"
+                        content={title}
+                        placement="bottom"
                         title=""
                         triggers={[
                             'hover',
                             'focus'
                         ]}
-                        variant="light"
+                        variant="dark"
                         width="100px"
                     >
                         <InfoIcon className='h-5 w-5' />
