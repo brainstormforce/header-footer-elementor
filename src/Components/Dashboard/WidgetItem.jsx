@@ -52,7 +52,7 @@ const UaelAjaxQueue = new AjaxQueue();
 const WidgetItem = ({
     widget
 }) => {
-    const { 
+    const {
         id,
         icon,
         title,
@@ -64,35 +64,48 @@ const WidgetItem = ({
 
     // Track the active state of the widget using React state
     const [isActive, setIsActive] = useState(widget.is_active);
-    const [isLoading, setIsLoading] = useState(false); 
+    const [isLoading, setIsLoading] = useState(false);
 
-    const handleSwitchChange = async () => {
+    const apiCall = async () => {
+        const action = isActive ? 'hfe_activate_widget' : 'hfe_deactivate_widget';
+
+        const formData = new window.FormData();
+        formData.append('action', action);
+        formData.append('nonce', hfe_admin_data.nonce);
+        formData.append('module_id', id);
+
+        try {
+            const data = await apiFetch({
+                url: hfe_admin_data.ajax_url,
+                method: 'POST',
+                body: formData,
+            });
+
+            if (data.success) {
+                console.log(`Widget ${isActive ? 'activated' : 'deactivated'}`);
+                setIsActive(isActive);  // Update the active state after the request
+            } else if (data.error) {
+                console.error('AJAX request failed:', data.error);
+            }
+        } catch (err) {
+            console.error('AJAX request error:', err);
+        } finally {
+            setIsLoading(false);  // Always stop the loading spinner
+        }
+    }
+
+    const handleSwitchChange = () => {
         if (isLoading) return;
 
         setIsLoading(true);
 
-        const action = isActive ? 'hfe_deactivate_widget' : 'hfe_activate_widget';
+        setIsActive(!isActive);  // Update the active state immediately
 
-        const formData = new window.FormData();
-		formData.append( 'action', action );
-		formData.append( 'nonce', hfe_admin_data.nonce );
-		formData.append( 'module_id', id );
-
-        apiFetch({
-            url: hfe_admin_data.ajax_url,
-            method: 'POST',
-            body: formData,
-        } ).then( ( data ) => {
-            if ( data.success ) {
-                console.log(`Widget ${isActive ? 'deactivated' : 'activated'}:`, result);
-                setIsActive(!isActive);
-                setIsLoading(false);
-            } else if( data.error ) {
-                console.error('AJAX request failed:', err);
-                setIsLoading(false);
-            }
-        });
+        apiCall()
     };
+
+
+    console.log({ isActive })
 
     return (
         <Container align="center"
@@ -102,7 +115,7 @@ const WidgetItem = ({
             gap=""
         >
             <div className='flex items-center justify-between w-full'>
-                <div  className={`h-5 w-5 mb-5 ${icon?.props}`}>
+                <div className={`h-5 w-5 mb-5 ${icon?.props}`}>
                     {icon}
                 </div>
 
@@ -116,7 +129,7 @@ const WidgetItem = ({
                         />
                     )} */}
 
-                    {is_pro ? (
+                    {/* {is_pro ? (
                         <Badge
                             label="PRO"
                             size="xs"
@@ -134,7 +147,13 @@ const WidgetItem = ({
                             onChange={handleSwitchChange} // Updated to use the new function
                             size='sm' // Pass is_active as value to the Switch
                         />
-                    )}
+                    )} */}
+                    <Switch
+                        onChange={handleSwitchChange} // Updated to use the new function
+                        size='sm'
+                        value={isActive}
+                    // onChange={() => setIsActive(!isActive)}
+                    />
                 </div>
 
 
