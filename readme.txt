@@ -4,7 +4,7 @@ Tags: elementor, header footer builder, header template, footer template, elemen
 Donate link: https://www.paypal.me/BrainstormForce
 Requires at least: 4.4
 Requires PHP: 7.4
-Tested up to: 6.6
+Tested up to: 6.7
 Stable tag: 1.6.43
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -139,6 +139,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 5. Default widgets available with Elementor Header & Footer Builder.
 
 == Changelog ==
+
+= 1.6.43.1 = 
+- Improvement: Compatibility with latest Elementor and Elementor Pro 3.25 version.
 
 = 1.6.43 =
 - Improvement: Icons displaying correctly on frontend.
