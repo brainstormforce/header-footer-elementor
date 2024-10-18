@@ -15,6 +15,7 @@ const NavMenu = () => {
         <Topbar
             style={{
                 width: "unset",
+                padding: "0 15px 0 0"
             }}
         >
             <Topbar.Left gap="xl">
