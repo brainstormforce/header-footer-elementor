@@ -11,9 +11,8 @@
 
 namespace HFE\WidgetsManager;
 
-use Elementor\Plugin;
-use Elementor\Utils;
 use Elementor\Core\Files\File_Types\Svg;
+use Elementor\Plugin;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -79,15 +78,13 @@ class Widgets_Loader {
 	 * @since 1.3.0
 	 */
 	public static function get_widget_script() {
-		$js_files = [
+		return [
 			'hfe-frontend-js' => [
 				'path'      => 'inc/js/frontend.js',
 				'dep'       => [ 'jquery' ],
 				'in_footer' => true,
 			],
 		];
-
-		return $js_files;
 	}
 
 	/**
@@ -97,7 +94,7 @@ class Widgets_Loader {
 	 * @since 1.3.0
 	 */
 	public static function get_widget_list() {
-		$widget_list = [
+		return [
 			'retina',
 			'copyright',
 			'copyright-shortcode',
@@ -110,8 +107,6 @@ class Widgets_Loader {
 			'cart',
 			'search-button',
 		];
-
-		return $widget_list;
 	}
 
 	/**

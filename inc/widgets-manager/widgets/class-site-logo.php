@@ -7,19 +7,17 @@
 
 namespace HFE\WidgetsManager\Widgets;
 
-use Elementor\Controls_Manager;
 use Elementor\Control_Media;
-use Elementor\Utils;
-use Elementor\Group_Control_Border;
-use Elementor\Group_Control_Typography;
-use Elementor\Group_Control_Box_Shadow;
-use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
+use Elementor\Controls_Manager;
 use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
-use Elementor\Group_Control_Image_Size;
-use Elementor\Repeater;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
+use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Css_Filter;
+use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Text_Shadow;
+use Elementor\Group_Control_Typography;
 use Elementor\Plugin;
+use Elementor\Utils;
 use Elementor\Widget_Base;
 
 if ( ! defined( 'ABSPATH' ) ) {

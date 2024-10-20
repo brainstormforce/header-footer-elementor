@@ -9,15 +9,13 @@ namespace HFE\WidgetsManager\Widgets;
 
 // Elementor Classes.
 use Elementor\Controls_Manager;
-use Elementor\Utils;
-use Elementor\Group_Control_Typography;
-use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
+use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
-use Elementor\Group_Control_Background;
+use Elementor\Group_Control_Typography;
 use Elementor\Widget_Base;
-use Elementor\Plugin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;   // Exit if accessed directly.
