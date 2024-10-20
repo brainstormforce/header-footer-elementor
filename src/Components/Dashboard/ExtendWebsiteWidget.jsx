@@ -127,7 +127,7 @@ const ExtendWebsiteWidget = ({
                     <img
                         src={icon}
                         alt="Recommended Plugins/Themes"
-                        className="w-full h-auto rounded"
+                        className="w-full  h-auto rounded"
                     />
                 </div>
 
@@ -143,7 +143,7 @@ const ExtendWebsiteWidget = ({
                         <Button
                             size="xs"
                             variant="link"
-                            className="cursor-pointer text-link-primary"
+                            className="cursor-pointer"
                             onClick={handlePluginAction} // Trigger action on click
                             data-plugin={zipUrl}
                             data-type={type}
@@ -152,7 +152,7 @@ const ExtendWebsiteWidget = ({
                             data-init={path}
                             data-action={ getAction( status ) }
                             style={{ 
-                                color: status === 'Activated' ? '#16A34A' : 'auto',
+                                color: status === 'Activated' ? '#16A34A' : '#6005FF',
                                 pointerEvents: status === 'Activated' ? 'none' : 'auto'
                             }}
                         >

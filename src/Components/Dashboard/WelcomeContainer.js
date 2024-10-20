@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Title, Button } from "@bsf/force-ui";
-import { Share, Plus } from "lucide-react";
+import { ExternalLink, Plus } from "lucide-react";
 const WelcomeContainer = () => {
 	return (
 		<div>
@@ -40,11 +40,23 @@ const WelcomeContainer = () => {
 							iconPosition="right"
 							variant="primary"
 							className="bg-[#6005FF]"
+							style={{
+								backgroundColor: "#6005FF",
+								transition: "background-color 0.3s ease",
+							}}
+							onMouseEnter={(e) =>
+								(e.currentTarget.style.backgroundColor =
+									"#4B00CC")
+							}
+							onMouseLeave={(e) =>
+								(e.currentTarget.style.backgroundColor =
+									"#6005FF")
+							}
 						>
 							Create New Page
 						</Button>
 						<Button
-							icon={<Share />}
+							icon={<ExternalLink />}
 							iconPosition="right"
 							variant="ghost"
 						>

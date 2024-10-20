@@ -9,17 +9,17 @@ const ExtendWebsite = () => {
     const [plugins, setPlugins] = useState(null); // State to manage plugin data
 
     useEffect(() => {
-        const pluginsData =  convertToPluginsArray( window.hfePluginsData );
+        const pluginsData = convertToPluginsArray(window.hfePluginsData);
         setPlugins(pluginsData);
     }, []);
 
     console.log(window.hfePluginsData);
-    console.log( "===========================================================" );
-    console.log( plugins );
+    console.log("===========================================================");
+    console.log(plugins);
 
     function convertToPluginsArray(data) {
         const plugins = [];
-    
+
         for (const key in data) {
             if (data.hasOwnProperty(key)) {
                 const plugin = data[key];
@@ -32,13 +32,13 @@ const ExtendWebsite = () => {
                     name: plugin.name,
                     zipUrl: plugin.url,
                     desc: plugin.desc,
-                    wporg: plugin.wporg, 
+                    wporg: plugin.wporg,
                     isFree: plugin.isFree,
                     status: plugin.status
                 });
             }
         }
-    
+
         return plugins;
     }
 
@@ -51,7 +51,9 @@ const ExtendWebsite = () => {
                 <p className='m-0 text-sm font-semibold text-text-primary'>Extend Your Website</p>
                 <div className='flex items-center gap-x-2 mr-7'>
 
-                    <ArrowUpRight />
+                    <a href="https://ultimateelementor.com/" target="_blank" rel="noopener noreferrer">
+                        <ArrowUpRight style={{ color: '#6B7280' }} />
+                    </a>
                 </div>
             </div>
             <div className='flex bg-black flex-col rounded-lg p-4'>

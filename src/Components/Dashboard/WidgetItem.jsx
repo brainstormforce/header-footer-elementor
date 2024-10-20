@@ -130,16 +130,14 @@ const WidgetItem = ({
                     )} */}
 
 
-                    {/* {is_pro && (
+                    {is_pro && (
                         <Badge
                             label="PRO"
                             size="xs"
                             type="pill"
                             variant="inverse"
-                            className="!text-[10px]"
-                            style={{ fontSize: '10px' }}
 
-                        />)} */}
+                        />)}
                     <Switch
                         onChange={handleSwitchChange} // Updated to use the new function
                         size='sm'
@@ -151,19 +149,19 @@ const WidgetItem = ({
             </div>
 
             <div className='flex flex-col w-full'>
-                <p className='text-sm font-medium text-text-primary m-0 mb-2'>{title}</p>
+                <p className='text-sm font-medium text-text-primary pt-3 m-0 pb-1'>{title}</p>
                 <div className='flex items-center justify-between w-full'>
-                    <p className='text-sm text-text-tertiary m-0'>View Demo</p>
+                    <p className='text-sm text-text-tertiary m-0 mb-1'>View Demo</p>
                     {/* <p className='text-sm text-text-tertiary m-0'>{viewDemo}</p> */}
                     <Tooltip
                         arrow
-                        content={title}
+                        // content={title}
                         placement="bottom"
                         title=""
-                        triggers={[
-                            'hover',
-                            'focus'
-                        ]}
+                        // triggers={[
+                        //     'hover',
+                        //     'focus'
+                        // ]}
                         variant="dark"
                         width="100px"
                     >

@@ -43,7 +43,7 @@ const UltimateFeatures = () => {
 				justify="between"
 				gap="xs"
 			>
-				<Container.Item className="flex flex-col justify-between" style={{width:"65%"}}>
+				<Container.Item className="flex flex-col pt-6 pb-3 justify-between" style={{width:"65%"}}>
 					<div>
 						<Title
 							description=""
@@ -60,9 +60,9 @@ const UltimateFeatures = () => {
 							iconPosition="left"
 							tag="h6"
 							title="Create Ultimate Designs with Addons Pro!"
-							className="py-1 text-sm"
+							className="py-1 text-[12px]"
 						/>
-						<p className="text-md m-0 text-text-secondary">
+						<p className="text-sm m-0 text-text-secondary">
 							Get access to advanced widgets and features to
 							create the website that stands out!
 						</p>
@@ -76,17 +76,16 @@ const UltimateFeatures = () => {
 									<Check className="text-brand-primary-600 mr-1 h-3 w-3" />
 								}
 								iconPosition="left"
-								size="xxs"
+								size="xs"
 								tag="h6"
 								title={feature.title}
-								className=""
+								className="text-[14px]"
 							/>
 						))}
 					</div>
 					<div className="flex items-center pb-3 gap-4">
 						<Button
-							icon={<Plus />}
-							iconPosition="right"
+							// iconPosition="right"
 							variant="secondary"
 							className=""
 						>

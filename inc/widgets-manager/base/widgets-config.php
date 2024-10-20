@@ -852,7 +852,7 @@ class Widgets_Config {
 				'icon'    => $images_url . 'pplayer.png',
 				'type'    => 'plugin',
 				'name'    => esc_html__( 'Presto Player', 'header-footer-elementor' ),
-				'desc'    => esc_html__( 'Automate your WordPress setup.', 'header-footer-elementor' ),
+				'desc'    => esc_html__( 'Automate your WordPress setup with Presto Player.', 'header-footer-elementor' ),
 				'wporg'   => 'https://wordpress.org/plugins/presto-player/',
 				'url'     => 'https://downloads.wordpress.org/plugin/presto-player.zip',
 				'siteurl' => 'https://prestoplayer.com/',
