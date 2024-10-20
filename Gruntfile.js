@@ -102,7 +102,19 @@ module.exports = function( grunt ) {
 					}
 				]
 			}
+		},
+
+		copy: {
+			main: {
+				options: {
+					mode: true
+				},
+				src: [
+					'!phpinsights.php',
+				],
+				dest: 'header-footer-elementor/'
 		}
+		},
 
 	} );
 	
