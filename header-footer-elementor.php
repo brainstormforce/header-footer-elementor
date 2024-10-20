@@ -31,7 +31,7 @@ require_once HFE_DIR . '/inc/class-header-footer-elementor.php';
  *
  * @return void
  */
-function hfe_plugin_activation() {
+function hfe_plugin_activation(): void {
 	update_option( 'hfe_plugin_is_activated', 'yes' );
 }
 
@@ -42,17 +42,17 @@ register_activation_hook( HFE_FILE, 'hfe_plugin_activation' );
  *
  * @return void
  */
-function hfe_init() {
+function hfe_init(): void {
 	Header_Footer_Elementor::instance();
 }
 
 add_action( 'plugins_loaded', 'hfe_init' );
 
 /** Function for FA5, Social Icons, Icon List */
-function hfe_enqueue_font_awesome() {
+function hfe_enqueue_font_awesome(): void {
 
 	if ( class_exists( 'Elementor\Plugin' ) ) {
-		
+
 		wp_enqueue_style(
 			'hfe-icons-list',
 			plugins_url( '/elementor/assets/css/widget-icon-list.min.css', 'elementor' ),
@@ -85,7 +85,6 @@ function hfe_enqueue_font_awesome() {
 			'5.15.3'
 		);
 
-		
 	}
 }
 add_action( 'wp_enqueue_scripts', 'hfe_enqueue_font_awesome', 20 );

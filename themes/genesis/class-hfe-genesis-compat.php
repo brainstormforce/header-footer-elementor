@@ -9,7 +9,6 @@
  * Genesis theme compatibility.
  */
 class HFE_Genesis_Compat {
-
 	/**
 	 * Instance of HFE_Genesis_Compat.
 	 *
@@ -37,7 +36,7 @@ class HFE_Genesis_Compat {
 	 *
 	 * @return void
 	 */
-	public function hooks() {
+	public function hooks(): void {
 		if ( hfe_header_enabled() ) {
 			add_action( 'template_redirect', [ $this, 'genesis_setup_header' ] );
 			add_action( 'genesis_header', [ $this, 'genesis_header_markup_open' ], 16 );
@@ -62,7 +61,7 @@ class HFE_Genesis_Compat {
 	 *
 	 * @return void
 	 */
-	public function genesis_setup_header() {
+	public function genesis_setup_header(): void {
 		for ( $priority = 0; $priority < 16; $priority++ ) {
 			remove_all_actions( 'genesis_header', $priority );
 		}
@@ -73,7 +72,7 @@ class HFE_Genesis_Compat {
 	 *
 	 * @return void
 	 */
-	public function genesis_setup_footer() {
+	public function genesis_setup_footer(): void {
 		for ( $priority = 0; $priority < 16; $priority++ ) {
 			remove_all_actions( 'genesis_footer', $priority );
 		}
@@ -84,7 +83,7 @@ class HFE_Genesis_Compat {
 	 *
 	 * @return void
 	 */
-	public function genesis_header_markup_open() {
+	public function genesis_header_markup_open(): void {
 		genesis_markup(
 			[
 				'html5'   => '<header %s>',
@@ -101,7 +100,7 @@ class HFE_Genesis_Compat {
 	 *
 	 * @return void
 	 */
-	public function genesis_header_markup_close() {
+	public function genesis_header_markup_close(): void {
 		genesis_structural_wrap( 'header', 'close' );
 		genesis_markup(
 			[
@@ -116,7 +115,7 @@ class HFE_Genesis_Compat {
 	 *
 	 * @return void
 	 */
-	public function genesis_footer_markup_open() {
+	public function genesis_footer_markup_open(): void {
 		genesis_markup(
 			[
 				'html5'   => '<footer %s>',
@@ -132,7 +131,7 @@ class HFE_Genesis_Compat {
 	 *
 	 * @return void
 	 */
-	public function genesis_footer_markup_close() {
+	public function genesis_footer_markup_close(): void {
 		genesis_structural_wrap( 'footer', 'close' );
 		genesis_markup(
 			[

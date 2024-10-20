@@ -9,7 +9,6 @@
  * Astra theme compatibility.
  */
 class HFE_Storefront_Compat {
-
 	/**
 	 * Instance of HFE_Storefront_Compat.
 	 *
@@ -63,7 +62,7 @@ class HFE_Storefront_Compat {
 	 * Add inline CSS to hide empty divs for header and footer in storefront
 	 *
 	 * @since 1.2.0
-	 * 
+	 *
 	 * // phpcs:ignore
 	 * @return void
 	 */
@@ -71,13 +70,13 @@ class HFE_Storefront_Compat {
 	public function styles(): void {
 		$css = '';
 
-		if ( true === hfe_header_enabled() ) {
+		if ( hfe_header_enabled() === true ) {
 			$css .= '.site-header {
 				display: none;
 			}';
 		}
 
-		if ( true === hfe_footer_enabled() ) {
+		if ( hfe_footer_enabled() === true ) {
 			$css .= '.site-footer {
 				display: none;
 			}';
@@ -87,9 +86,8 @@ class HFE_Storefront_Compat {
 	}
 
 	/**
-	 * 
 	 * Disable header from the theme.
-	 * 
+	 *
 	 * @return void
 	 *
 	 * // phpcs:ignore
