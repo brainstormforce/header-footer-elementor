@@ -7,7 +7,7 @@
  * Author URI:  https://www.brainstormforce.com/
  * Text Domain: header-footer-elementor
  * Domain Path: /languages
- * Version: 1.6.43
+ * Version: 1.6.43.1
  * Elementor tested up to: 3.25
  * Elementor Pro tested up to: 3.25
  *
