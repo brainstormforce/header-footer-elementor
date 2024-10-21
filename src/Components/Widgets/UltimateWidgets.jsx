@@ -98,7 +98,6 @@ const UltimateWidgets = () => {
             </div>
             <div className="flex items-center pb-3 gap-4">
                 <Button
-                    icon={<Plus />}
                     iconPosition="right"
                     variant="secondary"
                     className=""
