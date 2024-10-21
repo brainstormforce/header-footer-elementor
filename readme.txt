@@ -140,6 +140,8 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 
+= 1.6.44.1 =
+- Fix: Navigation Menu - Anchor links now correctly scroll to sections/container when submenu items with IDs are clicked.
 
 = 1.6.43.1 =
 - Improvement: Compatibility with latest Elementor and Elementor Pro 3.25 version.
