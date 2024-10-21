@@ -9,6 +9,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+use HFE\WidgetsManager\Base\HFE_Helper;
+
 if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 
 	/**
@@ -26,6 +28,13 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		private static $instance;
 
 		/**
+		 * Widget list variable
+		 * 
+		 * @var HFE_Addons_Actions
+		 */
+		private static $widget_list;
+
+		/**
 		 *  Initiator
 		 *
 		 * @return HFE_Addons_Actions
@@ -41,9 +50,111 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		 *  Constructor
 		 */
 		public function __construct() {
+			add_action( 'wp_ajax_hfe_recommended_plugin_activate', [ $this, 'hfe_activate_addon' ] );
+			add_action( 'wp_ajax_hfe_recommended_plugin_install', 'wp_ajax_install_plugin' );
+			add_action( 'wp_ajax_hfe_recommended_theme_install', 'wp_ajax_install_theme' );
 			add_action( 'wp_ajax_hfe_admin_modal', [ $this, 'hfe_admin_modal' ] );
 			add_action( 'wp_ajax_hfe-update-subscription', [ $this, 'update_subscription' ] );
-			add_action( 'wp_ajax_hfe_activate_addon', [ $this, 'hfe_activate_addon' ] );
+
+			add_action( 'wp_ajax_hfe_activate_widget', [ $this, 'activate_widget' ] );
+			add_action( 'wp_ajax_hfe_deactivate_widget', [ $this, 'deactivate_widget' ] );
+
+			add_action( 'wp_ajax_hfe_bulk_activate_widgets', [ $this, 'bulk_activate_widgets' ] );
+			add_action( 'wp_ajax_hfe_bulk_deactivate_widgets', [ $this, 'bulk_deactivate_widgets' ] );
+		}
+
+		/**
+		 * Activate all module
+		 */
+		public static function bulk_activate_widgets() {
+
+			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
+
+			if ( ! isset( self::$widget_list ) ) {
+				self::$widget_list = HFE_Helper::get_widget_list();
+			}
+
+			$new_widgets = array();
+
+			// Set all extension to enabled.
+			foreach ( self::$widget_list  as $slug => $value ) {
+				$new_widgets[ $slug ] = $slug;
+			}
+
+			// Escape attrs.
+			$new_widgets = array_map( 'esc_attr', $new_widgets );
+
+			// Update new_extensions.
+			HFE_Helper::update_admin_settings_option( '_hfe_widgets', $new_widgets );
+
+			echo 'success';
+
+			die();
+		}
+
+		/**
+		 * Deactivate all module
+		 */
+		public static function bulk_deactivate_widgets() {
+
+			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
+
+			if ( ! isset( self::$widget_list ) ) {
+				self::$widget_list = HFE_Helper::get_widget_list();
+			}
+
+			$new_widgets = array();
+
+			// Set all extension to enabled.
+			foreach ( self::$widget_list as $slug => $value ) {
+				$new_widgets[ $slug ] = 'disabled';
+			}
+
+			// Escape attrs.
+			$new_widgets = array_map( 'esc_attr', $new_widgets );
+
+			// Update new_extensions.
+			HFE_Helper::update_admin_settings_option( '_hfe_widgets', $new_widgets );
+
+			echo 'success';
+
+			die();
+		}
+
+		/**
+		 * Deactivate module
+		 */
+		public static function deactivate_widget() {
+
+			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
+
+			$module_id             = isset( $_POST['module_id'] ) ? sanitize_text_field( $_POST['module_id'] ) : '';
+			$widgets               = HFE_Helper::get_admin_settings_option( '_hfe_widgets', array() );
+			$widgets[ $module_id ] = 'disabled';
+			$widgets               = array_map( 'esc_attr', $widgets );
+
+			// Update widgets.
+			HFE_Helper::update_admin_settings_option( '_hfe_widgets', $widgets );
+
+			wp_send_json( $module_id );
+		}
+
+		/**
+		 * Activate module
+		 */
+		public static function activate_widget() {
+
+			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
+
+			$module_id             = isset( $_POST['module_id'] ) ? sanitize_text_field( $_POST['module_id'] ) : '';
+			$widgets               = HFE_Helper::get_admin_settings_option( '_hfe_widgets', array() );
+			$widgets[ $module_id ] = $module_id;
+			$widgets               = array_map( 'esc_attr', $widgets );
+
+			// Update widgets.
+			HFE_Helper::update_admin_settings_option( '_hfe_widgets', $widgets );
+
+			wp_send_json( $module_id );
 		}
 
 		/**

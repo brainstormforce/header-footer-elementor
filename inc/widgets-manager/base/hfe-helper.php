@@ -40,7 +40,14 @@ class HFE_Helper {
 	 *
 	 * @var widget_list
 	 */
-	private static $all_widget_list = null;
+	private static $pro_widget_list = null;
+
+	/**
+	 * Widget List
+	 *
+	 * @var widget_list
+	 */
+	private static $all_widgets_list = null;
 
 	/**
 	 * Provide General settings array().
@@ -54,7 +61,22 @@ class HFE_Helper {
 			self::$widget_list = Widgets_Config::get_widget_list();
 		}
 
-		return apply_filters( 'hfe_widget_list', self::$widget_list );
+		return apply_filters( 'hfe_widgets_list', self::$widget_list );
+	}
+	
+	/**
+	 * Provide General settings array().
+	 *
+	 * @since 0.0.1
+	 * @return array()
+	 */
+	public static function get_pro_widget_list() {
+
+		if ( ! isset( self::$pro_widget_list ) ) {
+			self::$pro_widget_list = Widgets_Config::get_pro_widget_list();
+		}
+
+		return apply_filters( 'hfe_pro_widgets_list', self::$pro_widget_list );
 	}
 
 	/**
@@ -65,7 +87,7 @@ class HFE_Helper {
 	 */
 	public static function get_all_widgets_list() {
 		if ( ! isset( self::$all_widgets_list ) ) {
-			self::$all_widgets_list = Widgets_Config::get_all_widgets();
+			self::$all_widgets_list = self::get_widget_options() + self::get_pro_widget_list();
 		}
 		return apply_filters( 'hfe_all_widgets_list', self::$all_widgets_list );
 	}
@@ -195,7 +217,28 @@ class HFE_Helper {
 
 			self::$widget_options = $widgets;
 		}
+
 		return apply_filters( 'hfe_enabled_widgets', self::$widget_options );
+	}
+
+	
+	/**
+	 * Updates an option from the admin settings page.
+	 *
+	 * @param string $key       The option key.
+	 * @param mixed  $value     The value to update.
+	 * @param bool   $network   Whether to allow the network admin setting to be overridden on subsites.
+	 * @return mixed
+	 */
+	public static function update_admin_settings_option( $key, $value, $network = false ) {
+
+		// Update the site-wide option since we're in the network admin.
+		if ( $network && is_multisite() ) {
+			update_site_option( $key, $value );
+		} else {
+			update_option( $key, $value );
+		}
+
 	}
 
 	/**
