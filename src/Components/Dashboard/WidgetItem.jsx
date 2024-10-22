@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Container, Title, Button, Switch, Tooltip, Badge } from "@bsf/force-ui";
 import { InfoIcon } from 'lucide-react';
 import { Link } from 'react-dom/client';
 import apiFetch from '@wordpress/api-fetch';
 import { __ } from '@wordpress/i18n';
+import { useWidgetContext } from './WidgetContext'; 
 
 // Create a queue to manage AJAX requests
 const requestQueue = [];
@@ -29,12 +30,19 @@ const WidgetItem = ({
         is_active
     } = widget
 
-    // Track the active state of the widget using React state
-    const [isActive, setIsActive] = useState(widget.is_active);
-    const [isLoading, setIsLoading] = useState(false);
+    const { updateWidgetState } = useWidgetContext(); // Use context
 
-    const apiCall = async () => {
-        const action = isActive ? 'hfe_deactivate_widget' : 'hfe_activate_widget';
+    // Ensure the switch reflects the current active state
+    const [activeState, setActiveState] = useState(is_active);
+
+    // Effect to update local state when widget prop changes
+    useEffect(() => {
+        console.log("Widget prop updated:", widget); // Debugging log
+        setActiveState(is_active); // Update local state when widget prop changes
+    }, [is_active, widget]);
+
+    const apiCall = async (newActiveState) => {
+        const action = newActiveState ? 'hfe_activate_widget' : 'hfe_deactivate_widget';
 
         const formData = new window.FormData();
         formData.append('action', action);
@@ -49,33 +57,22 @@ const WidgetItem = ({
             });
 
             if (data.success) {
-                console.log(`Widget ${isActive ? 'activated' : 'deactivated'}`);
-                setIsActive(isActive);  // Update the active state after the request
+                console.log(`Widget ${newActiveState ? 'activated' : 'dectivated'}`);
+                updateWidgetState(id, newActiveState);
             } else if (data.error) {
                 console.error('AJAX request failed:', data.error);
             }
         } catch (err) {
             console.error('AJAX request error:', err);
         } finally {
-            setIsLoading(false);  // Always stop the loading spinner
             processQueue();
         }
     }
 
     const handleSwitchChange = () => {
-        if (isLoading) return;
-
-        setIsLoading(true);
-
-        setIsActive(!isActive);  // Update the active state immediately
-
-        // Add the request to the queue
-        requestQueue.push(apiCall);
-
-        if (requestQueue.length === 1) {
-            // Start processing the queue if no other request is being processed
-            processQueue();
-        }
+        const newActiveState = !activeState; // Toggle the active state
+        console.log(`Switch toggled: ${newActiveState}`);
+        apiCall(newActiveState);
     };
 
     return (
@@ -110,11 +107,18 @@ const WidgetItem = ({
 
                         />)}
                     { !is_pro && (
-                        <Switch
-                            onChange={handleSwitchChange} // Updated to use the new function
-                            size='sm'
-                            value={isActive}
-                        />)}
+                        <div>
+                        {is_active ? ( 
+                            <Switch
+                                onChange={handleSwitchChange} // Updated to use the new function
+                                size='sm'
+                                value={activeState}
+                            />
+                        ) : (
+                            <p className="text-sm text-text-tertiary">inactive</p> // Message when inactive
+                        )}
+                        </div>
+                    )}
                 </div>
 
 

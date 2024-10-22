@@ -9,7 +9,7 @@ import TemplateSection from '@components/Dashboard/TemplateSection';
 import QuickAccess from '@components/Dashboard/QuickAccess';
 import Widgets from '@components/Dashboard/Widgets';
 import UltimateWidgets from './UltimateWidgets';
-import FeatureWidgets from './Features/FeatureWidgets'
+import FeatureWidgets from './FeatureWidgets'
 
 const Features = () => {
   return (

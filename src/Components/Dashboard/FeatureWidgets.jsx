@@ -3,17 +3,18 @@ import { Container, Button } from "@bsf/force-ui";
 import { MoreHorizontalIcon, Plus, Map, House, SearchIcon } from "lucide-react";
 import WidgetItem from '@components/Dashboard/WidgetItem';
 import apiFetch from '@wordpress/api-fetch';
+import { useWidgetContext } from './WidgetContext';
 
 const FeatureWidgets = () => {
 
-    const [allWidgetsData, setAllWidgetsData] = useState(null); // Initialize state.
-    const [searchTerm, setSearchTerm] = useState('');
+    const { setAllWidgetsData, allWidgetsData, updateWidgetState } = useWidgetContext();
 
+    const [searchTerm, setSearchTerm] = useState('');
+    
     useEffect(() => {
         const widgetsData =  convertToWidgetsArray(window.hfeWidgetsList)
-        // console.log({widgetsData})
         setAllWidgetsData(widgetsData);
-    }, []);
+    }, [setAllWidgetsData]);
 
     // New function to handle search input change
     const handleSearchChange = (event) => {
@@ -25,8 +26,6 @@ const FeatureWidgets = () => {
         widget.title.toLowerCase().includes(searchTerm) || 
         widget.keywords?.some(keyword => keyword.toLowerCase().includes(searchTerm))
     );
-
-    console.log( filteredWidgets );
 
     const handleActivateAll = async () => {
 
@@ -41,6 +40,8 @@ const FeatureWidgets = () => {
         } ).then( ( data ) => {
             if ( data.success ) {
                 console.log("Activated all widgets.");
+                // Update the state for all widgets
+                allWidgetsData.forEach(widget => updateWidgetState(widget.id, true));
             } else if( data.error ) {
                 console.error('AJAX request failed:', err);
             }
@@ -59,7 +60,9 @@ const FeatureWidgets = () => {
             body: formData,
         } ).then( ( data ) => {
             if ( data.success ) {
-                console.log("Deactivated all widgets.");
+                console.log("Deactivated all widgets."); 
+                // Update the state for all widgets
+                allWidgetsData.forEach(widget => updateWidgetState(widget.id, false));
             } else if( data.error ) {
                 console.error('AJAX request failed:', err);
             }
