@@ -37,44 +37,71 @@ const QuickAccess = () => {
 					order="none"
 					shrink={1}
 				>
-					<Button
-						className="text-black"
-						icon={<Headphones />}
-						iconPosition="left"
-						variant="link"
+					<a
+						href="https://wordpress.org/support/plugin/header-footer-elementor/"
+						target="_blank"
+						rel="noopener noreferrer"
 					>
-						{__("Contact Us", "header-footer-elementor")}
-					</Button>
+						<Button
+							className="text-black"
+							icon={<Headphones />}
+							iconPosition="left"
+							variant="link"
+						>
+							{__("Contact Us", "header-footer-elementor")}
+						</Button>
+					</a>
 				</Container.Item>
 				<Container.Item className="p-4 bg-white rounded-lg shadow-container-item">
-					<Button
-						className="text-black"
-						icon={<Star />}
-						iconPosition="left"
-						variant="link"
+					<a
+						href="https://wordpress.org/support/plugin/header-footer-elementor/reviews/"
+						target="_blank"
+						rel="noopener noreferrer"
 					>
-						{__("Rate Us", "header-footer-elementor")}
-					</Button>
+						<Button
+							className="text-black"
+							icon={<Star />}
+							iconPosition="left"
+							variant="link"
+						>
+							{__("Rate Us", "header-footer-elementor")}
+						</Button>
+					</a>
 				</Container.Item>
 				<Container.Item className="p-4 bg-white rounded-lg shadow-container-item">
-					<Button
-						className="text-black"
-						icon={<HelpCircle />}
-						iconPosition="left"
-						variant="link"
+					<a
+						href="https://make.wordpress.org/"
+						target="_blank"
+						rel="noopener noreferrer"
 					>
-						{__("Request a Feature", "header-footer-elementor")}
-					</Button>
+						<Button
+							className="text-black"
+							icon={<HelpCircle />}
+							iconPosition="left"
+							variant="link"
+						>
+							{__("Request a Feature", "header-footer-elementor")}
+						</Button>
+					</a>
 				</Container.Item>
 				<Container.Item className="p-4 bg-white rounded-lg shadow-container-item">
-					<Button
-						className="text-black"
-						icon={<MessageCircle />}
-						iconPosition="left"
-						variant="link"
+					<a
+						href="https://make.wordpress.org/"
+						target="_blank"
+						rel="noopener noreferrer"
 					>
-						{__("Join the Community", "header-footer-elementor")}
-					</Button>
+						<Button
+							className="text-black"
+							icon={<MessageCircle />}
+							iconPosition="left"
+							variant="link"
+						>
+							{__(
+								"Join the Community",
+								"header-footer-elementor"
+							)}
+						</Button>
+					</a>
 				</Container.Item>
 			</Container>
 		</div>
