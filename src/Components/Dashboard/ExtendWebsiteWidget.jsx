@@ -32,7 +32,8 @@ const ExtendWebsiteWidget = ({
 	};
 
 	const handlePluginAction = ( e ) => {
-		const action = e.target.dataset.action;
+        console.log( e.currentTarget );
+		const action = e.currentTarget.dataset.action;
 		const formData = new window.FormData();
 		switch ( action ) {
 			case 'hfe_recommended_plugin_activate':
@@ -40,7 +41,7 @@ const ExtendWebsiteWidget = ({
 				break;
 
 			case 'hfe_recommended_plugin_install':
-                if( 'theme' == e.target.dataset.type ) {
+                if( 'theme' == e.currentTarget.dataset.type ) {
                     formData.append(
                         'action',
                         'hfe_recommended_theme_install'
@@ -56,9 +57,9 @@ const ExtendWebsiteWidget = ({
 					'_ajax_nonce',
 					hfe_admin_data.installer_nonce
 				);
-				formData.append( 'slug', e.target.dataset.slug );
+				formData.append( 'slug', e.currentTarget.dataset.slug );
 
-				e.target.innerText = __( 'Installing...', 'header-footer-elementor' )
+				e.currentTarget.innerText = __( 'Installing...', 'header-footer-elementor' )
 
 				apiFetch( {
 					url: hfe_admin_data.ajax_url,
@@ -66,11 +67,11 @@ const ExtendWebsiteWidget = ({
 					body: formData,
 				} ).then( ( data ) => {
 					if ( data.success ) {
-						e.target.innerText = __( 'Installed', 'header-footer-elementor' );
+						e.currentTarget.innerText = __( 'Installed', 'header-footer-elementor' );
                         activatePlugin( e );
 					} else {
-						e.target.innerText = __( 'Install', 'header-footer-elementor' );
-                        if( 'theme' == e.target.dataset.type ) {
+						e.currentTarget.innerText = __( 'Install', 'header-footer-elementor' );
+                        if( 'theme' == e.currentTarget.dataset.type ) {
                             alert( __( `Theme Installation failed, Please try again later.`, 'header-footer-elementor' ) );
                         } else {
                             alert( __( `Plugin Installation failed, Please try again later.`, 'header-footer-elementor' ) );
@@ -90,10 +91,10 @@ const ExtendWebsiteWidget = ({
 		const formData = new window.FormData();
 		formData.append( 'action', 'hfe_recommended_plugin_activate' );
 		formData.append( 'nonce', hfe_admin_data.nonce );
-		formData.append( 'plugin', e.target.dataset.init );
-		formData.append( 'type', e.target.dataset.type );
-		formData.append( 'slug', e.target.dataset.slug );
-		e.target.innerText = __( 'Activating...', 'header-footer-elementor' );
+		formData.append( 'plugin', e.currentTarget.dataset.init );
+		formData.append( 'type', e.currentTarget.dataset.type );
+		formData.append( 'slug', e.currentTarget.dataset.slug );
+		e.currentTarget.innerText = __( 'Activating...', 'header-footer-elementor' );
 
 		apiFetch( {
 			url: hfe_admin_data.ajax_url,
@@ -101,15 +102,15 @@ const ExtendWebsiteWidget = ({
 			body: formData,
 		} ).then( ( data ) => {
 			if ( data.success ) {
-				e.target.style.color = '#16A34A';
-				e.target.innerText = __( 'Activated', 'header-footer-elementor' );
+				e.currentTarget.style.color = '#16A34A';
+				e.currentTarget.innerText = __( 'Activated', 'header-footer-elementor' );
 			} else {
-				if( 'theme' == e.target.dataset.type ) {
+				if( 'theme' == e.currentTarget.dataset.type ) {
                     alert( __( `Theme Activation failed, Please try again later.`, 'header-footer-elementor' ) );
                 } else {
                     alert( __( `Plugin Activation failed, Please try again later.`, 'header-footer-elementor' ) );
                 }
-				e.target.innerText = __( 'Activate', 'header-footer-elementor' );
+				e.currentTarget.innerText = __( 'Activate', 'header-footer-elementor' );
 			}
 		} );
 	};
