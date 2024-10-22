@@ -141,13 +141,16 @@ class HFE_Settings_Page {
 
 		wp_localize_script('header-footer-elementor-react-app', 'hfeSettingsData', array(
 			'templates_url' => HFE_URL . 'assets/images/settings/starter-templates.png',
-			'column_url' => HFE_URL . 'assets/images/settings/column.png',
+			'' => HFE_URL . 'assets/images/settings/column.png',
 			'template_url' => HFE_URL . 'assets/images/settings/template.png',
 			'icon_url' => HFE_URL . 'assets/images/settings/logo.svg',
 			'astra_url' => HFE_URL . 'assets/images/settings/astra.svg',
 			'starter_url' => HFE_URL . 'assets/images/settings/starter-templates.svg',
 			'surecart_url' => HFE_URL . 'assets/images/settings/surecart.svg',
-			'suretriggers_url' => HFE_URL . 'assets/images/settings/sure-triggers.svg',  // Update the path to your assets folder
+			'suretriggers_url' => HFE_URL . 'assets/images/settings/sure-triggers.svg',
+			'theme_url' => HFE_URL . 'assets/images/settings/theme.svg',
+			'version_url' => HFE_URL . 'assets/images/settings/version.svg',
+			'integrations_url' => HFE_URL . 'assets/images/settings/integrations.svg',  // Update the path to your assets folder
 		));
 
 		wp_enqueue_style(

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Title, Label } from "@bsf/force-ui";
+import { max } from 'lodash';
 
 const radioData = [
     {
@@ -45,6 +46,7 @@ const ThemeSupport = () => {
                 justify="start"
                 style={{
                     marginTop: "24px",
+                    maxWidth: "696px",
                 }}
             >
                 <Container.Item className="flex flex-col space-y-1">
@@ -57,7 +59,7 @@ const ThemeSupport = () => {
                     order="none"
                 >
                     {radioData.map((item) => (
-                        <div key={item.id} className='flex items-start justify-center cursor-pointer'>
+                        <div key={item.id} className='flex items-start gap-1 justify-center cursor-pointer'>
                             <input
                                 id={item.id}
                                 value={item.value}
@@ -82,9 +84,9 @@ const ThemeSupport = () => {
                     ))}
                 </Container.Item>
 
-                <div className='flex items-center px-4 border border-brand-200 rounded-md text-start' style={{
+                <div className='flex items-center px-4 border  rounded-md text-start' style={{
                     height: "44px",
-                    backgroundColor: "#FEE2E2",
+                    backgroundColor: "#F3F0FF",
                 }}>
                     <p className='m-0'><strong>Note:</strong> If neither option works, please contact your theme author to add support for this plugin.</p>
                 </div>

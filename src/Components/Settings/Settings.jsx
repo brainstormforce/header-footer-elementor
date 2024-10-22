@@ -5,18 +5,74 @@ import Content from './Content';
 import NavMenu from '@components/NavMenu';
 import HeaderLine from '@components/HeaderLine';
 import { Plus } from 'lucide-react';
+import ThemeSupport from './ThemeSupport';
 
 const Settings = () => {
     const [selectedItem, setSelectedItem] = useState({
         title: 'Select an item',
-        content: 'Content will appear here when you select an item.'
+        content: <ThemeSupport />
     });
 
     const items = [
-        { id: 1, icon: <Plus/> , main: 'Editor', title: 'Theme Support', content: 'This is the content for Home.' },
-        { id: 2, icon: <Plus/>, main: 'Utilities', title: 'Version Control', content: 'This is the content for About.' },
-        { id: 3, icon: <Plus/>, main: 'Preferences', title: 'Integrations', content: 'This is the content for Services.' },
-        // { id: 4, icon: <Plus/> ,title: 'Contact', content: 'This is the content for Contact.' }
+        {
+            id: 1,
+            icon: (
+                <img
+                    src={`${hfeSettingsData.theme_url}`}
+                    alt="Custom SVG"
+                    className="object-contain"
+                />
+            ),
+            main: 'Editor',
+            title: 'Theme Support',
+            content: <ThemeSupport />
+        },
+        {
+            id: 2,
+            icon: (
+                <img
+                    src={`${hfeSettingsData.version_url}`}
+                    alt="Custom SVG"
+                    className="object-contain"
+                />
+            ),
+            main: 'Utilities',
+            title: 'Version Control',
+            content: 'This is the content for About.'
+        },
+        {
+            id: 3,
+            icon: (
+                <img
+                    src={`${hfeSettingsData.integrations_url}`}
+                    alt="Custom SVG"
+                    className="object-contain"
+                    style={{
+                        width: "90%",
+                        height: "auto",
+                    }}
+                />
+            ),
+            main: 'Preferences',
+            title: 'Integrations',
+            content: 'This is the content for Services.'
+        },
+        // {
+        //     id: 4,
+        //     icon: (
+        //         <img
+        //             src={`${hfeSettingsData.template_url}`}
+        //             alt="Custom SVG"
+        //             className="object-contain"
+        //             style={{
+        //                 width: "90%",
+        //                 height: "auto",
+        //             }}
+        //         />
+        //     ),
+        //     title: 'Contact',
+        //     content: 'This is the content for Contact.'
+        // }
     ];
 
     return (
@@ -26,7 +82,7 @@ const Settings = () => {
                 <HeaderLine />
                 <Container
                     align="stretch"
-                    className="p-2"
+                    className="p-1"
                     containerType="flex"
                     direction="row"
                     gap="sm"
@@ -44,7 +100,7 @@ const Settings = () => {
                         style={{
                             width: "20%",
                             height: "100vh",
-                            backgroundColor: "red",
+                            backgroundColor: "white",
                         }}
                     >
                         <Sidebar items={items} onSelectItem={setSelectedItem} />
