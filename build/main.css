@@ -2572,6 +2572,9 @@ div#hfe-settings-app {
 .hfe-settings-content-wrapper {
 	padding: 15px 25px;
 }
+button.hfe-plugin-activated {
+	color: #16A34A;
+}
 #hfe-settings-app .file\:border-0::file-selector-button{
 	border-width: 0px;
 }
