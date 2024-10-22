@@ -5,6 +5,16 @@ import { Link } from 'react-dom/client';
 import apiFetch from '@wordpress/api-fetch';
 import { __ } from '@wordpress/i18n';
 
+// Create a queue to manage AJAX requests
+const requestQueue = [];
+
+const processQueue = () => {
+    if (requestQueue.length === 0) return;
+
+    // Take the first item from the queue and run it
+    const currentRequest = requestQueue.shift();
+    currentRequest();
+};
 
 const WidgetItem = ({
     widget
@@ -48,6 +58,7 @@ const WidgetItem = ({
             console.error('AJAX request error:', err);
         } finally {
             setIsLoading(false);  // Always stop the loading spinner
+            processQueue();
         }
     }
 
@@ -58,7 +69,13 @@ const WidgetItem = ({
 
         setIsActive(!isActive);  // Update the active state immediately
 
-        apiCall();
+        // Add the request to the queue
+        requestQueue.push(apiCall);
+
+        if (requestQueue.length === 1) {
+            // Start processing the queue if no other request is being processed
+            processQueue();
+        }
     };
 
     return (
