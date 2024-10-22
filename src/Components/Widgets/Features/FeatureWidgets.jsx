@@ -95,10 +95,7 @@ const FeatureWidgets = () => {
                 paddingInline: '16px'
             }}>
                 <p className='m-0 text-sm font-semibold text-text-primary'>Widgets / Features</p>
-                <div className='flex items-center gap-x-2 mr-7'>
-                    <SearchIcon
-                        className="absolute pl-2 left-1/2 top-1/2"
-                    />
+                <div className='flex items-center gap-x-2 mr-7'> 
                     <input
                         type="search"
                         placeholder="Search..."
