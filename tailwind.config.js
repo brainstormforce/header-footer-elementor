@@ -51,6 +51,9 @@ module.exports = withTW({
 			spacing: {
 				'slide-over-container': '566px',
 			},
+			fontFamily: {
+                figtree: ['Figtree', 'sans-serif'],
+            },
 		},
 	},
 	plugins: [],

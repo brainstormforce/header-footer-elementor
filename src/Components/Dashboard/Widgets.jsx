@@ -9,12 +9,8 @@ const Widgets = () => {
 
     useEffect(() => {
         const widgetsData =  convertToWidgetsArray(window.hfeWidgetsList)
-        console.log({widgetsData})
         setAllWidgetsData(widgetsData);
     }, []);
-
-    console.log( window.hfeWidgetsList );
-    console.log( allWidgetsData );
 
     function convertToWidgetsArray(data) {
         const widgets = [];
@@ -23,7 +19,7 @@ const Widgets = () => {
             if (data.hasOwnProperty(key)) {
                 const widget = data[key];
                 widgets.push({
-                    widgetTitle: key, // Using the key as 'widgetTitle'
+                    id: key, // Using the key as 'widgetTitle'
                     slug: widget.slug,
                     title: widget.title,
                     keywords: widget.keywords,
@@ -31,7 +27,8 @@ const Widgets = () => {
                     title_url: widget.title_url,
                     default: widget.default,
                     doc_url: widget.doc_url,
-                    is_pro: widget.is_pro
+                    is_pro: widget.is_pro,
+                    is_active: widget.is_activate !== undefined ? widget.is_activate : true, // Check if is_activate is set
                 });
             }
         }
@@ -45,23 +42,23 @@ const Widgets = () => {
                 paddingTop: '12px',
                 paddingInline: '16px'
             }}>
-                    <p className='m-0 text-sm font-semibold text-text-primary'>Widgets / Features</p>
+                    <p className='m-0 text-sm pt-5 font-semibold text-text-primary'>Widgets / Features</p>
                     <div className='flex items-center gap-x-2 mr-7'>
-                        <p className='m-0 text-xs font-semibold text-text-primary'>View all</p>
-                        <MoreHorizontalIcon />
+                        <p className='m-0 text-xs font-semibold text-text-primary'>View All</p>
+                        {/* <MoreHorizontalIcon /> */}
                     </div>
                 </div>
             <div className='flex bg-black flex-col rounded-lg p-4'>
                 
                 <Container
                     align="stretch"
-                    className="bg-background-gray p-1 gap-1.5"
+                    className="bg-background-gray p-2 gap-1.5"
                     cols={4}
                     containerType="grid"
                     gap=""
                     justify="start"
                     >
-                        {allWidgetsData?.slice(0,12).map((widget) => (
+                        {allWidgetsData?.slice(0, 12).map((widget) => (
                             <Container.Item
                              key={widget.id}
                              alignSelf="auto"

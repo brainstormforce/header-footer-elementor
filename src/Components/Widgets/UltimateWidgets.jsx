@@ -38,7 +38,8 @@ const UltimateWidgets = () => {
 	];
     
   return (
-    <div>
+    
+    <div className="py-4">
     <Container
         className="bg-background-primary gap-1 p-4 border-[0.5px] border-subtle rounded-xl shadow-sm"
         containerType="flex"
@@ -97,7 +98,6 @@ const UltimateWidgets = () => {
             </div>
             <div className="flex items-center pb-3 gap-4">
                 <Button
-                    icon={<Plus />}
                     iconPosition="right"
                     variant="secondary"
                     className=""
