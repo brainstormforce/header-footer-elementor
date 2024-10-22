@@ -130,6 +130,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 
 			$module_id             = isset( $_POST['module_id'] ) ? sanitize_text_field( $_POST['module_id'] ) : '';
 			$widgets               = HFE_Helper::get_admin_settings_option( '_hfe_widgets', array() );
+
 			$widgets[ $module_id ] = 'disabled';
 			$widgets               = array_map( 'esc_attr', $widgets );
 

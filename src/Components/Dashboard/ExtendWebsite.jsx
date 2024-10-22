@@ -13,9 +13,9 @@ const ExtendWebsite = () => {
         setPlugins(pluginsData);
     }, []);
 
-    console.log(window.hfePluginsData);
-    console.log("===========================================================");
-    console.log(plugins);
+    // console.log(window.hfePluginsData);
+    // console.log("===========================================================");
+    // console.log(plugins);
 
     function convertToPluginsArray(data) {
         const plugins = [];

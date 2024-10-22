@@ -11,7 +11,7 @@ const FeatureWidgets = () => {
 
     useEffect(() => {
         const widgetsData =  convertToWidgetsArray(window.hfeWidgetsList)
-        console.log({widgetsData})
+        // console.log({widgetsData})
         setAllWidgetsData(widgetsData);
     }, []);
 
@@ -25,6 +25,8 @@ const FeatureWidgets = () => {
         widget.title.toLowerCase().includes(searchTerm) || 
         widget.keywords?.some(keyword => keyword.toLowerCase().includes(searchTerm))
     );
+
+    console.log( filteredWidgets );
 
     const handleActivateAll = async () => {
 

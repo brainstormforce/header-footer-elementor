@@ -5,49 +5,6 @@ import { Link } from 'react-dom/client';
 import apiFetch from '@wordpress/api-fetch';
 import { __ } from '@wordpress/i18n';
 
-class AjaxQueue {
-    constructor() {
-        this.queue = [];
-        this.processing = false;
-    }
-
-    add(request) {
-        this.queue.push(request);
-        this.processNext();
-    }
-
-    processNext() {
-        if (this.processing || this.queue.length === 0) {
-            return;
-        }
-
-        this.processing = true;
-        const { url, type, data, success, error } = this.queue.shift(); // Get the first request
-
-        apiFetch({
-            url: url,
-            method: type,
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        })
-            .then(response => response.json())
-            .then(result => {
-                success(result); // Call the success handler
-                this.processing = false;
-                this.processNext(); // Process the next request in the queue
-            })
-            .catch(err => {
-                if (error) error(err); // Optional error handling
-                this.processing = false;
-                this.processNext(); // Process the next request in the queue
-            });
-    }
-}
-
-// Create an instance of the queue
-const UaelAjaxQueue = new AjaxQueue();
 
 const WidgetItem = ({
     widget
@@ -67,7 +24,7 @@ const WidgetItem = ({
     const [isLoading, setIsLoading] = useState(false);
 
     const apiCall = async () => {
-        const action = isActive ? 'hfe_activate_widget' : 'hfe_deactivate_widget';
+        const action = isActive ? 'hfe_deactivate_widget' : 'hfe_activate_widget';
 
         const formData = new window.FormData();
         formData.append('action', action);
@@ -101,11 +58,8 @@ const WidgetItem = ({
 
         setIsActive(!isActive);  // Update the active state immediately
 
-        apiCall()
+        apiCall();
     };
-
-
-    console.log({ isActive })
 
     return (
         <Container align="center"
