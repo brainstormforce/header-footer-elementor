@@ -1,10 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Container, Menu } from "@bsf/force-ui";
+import Sidebar from './Sidebar';
+import Content from './Content';
 import NavMenu from '@components/NavMenu';
 import HeaderLine from '@components/HeaderLine';
-import { Bell, ChartNoAxesColumnIncreasing, CloudUpload, CreditCard, Layers, MousePointer, PenTool, ShoppingBag, Store } from 'lucide-react';
+import { Plus } from 'lucide-react';
 
 const Settings = () => {
+    const [selectedItem, setSelectedItem] = useState({
+        title: 'Select an item',
+        content: 'Content will appear here when you select an item.'
+    });
+
+    const items = [
+        { id: 1, icon: <Plus/> , main: 'Editor', title: 'Theme Support', content: 'This is the content for Home.' },
+        { id: 2, icon: <Plus/>, main: 'Utilities', title: 'Version Control', content: 'This is the content for About.' },
+        { id: 3, icon: <Plus/>, main: 'Preferences', title: 'Integrations', content: 'This is the content for Services.' },
+        // { id: 4, icon: <Plus/> ,title: 'Contact', content: 'This is the content for Contact.' }
+    ];
+
     return (
         <>
             <NavMenu />
@@ -16,9 +30,10 @@ const Settings = () => {
                     containerType="flex"
                     direction="row"
                     gap="sm"
-                    justify="center"
+                    justify="start"
                     style={{
                         width: "100%",
+                        height: "100%"
                     }}
                 >
                     <Container.Item
@@ -27,60 +42,17 @@ const Settings = () => {
                         order="none"
                         shrink={1}
                         style={{
-                            width: "100%",
+                            width: "20%",
+                            height: "100vh",
+                            backgroundColor: "red",
                         }}
                     >
-                        <Menu size="md">
-                            <Menu.List
-                                arrow
-                                heading="Editor"
-                                open
-                            >
-                                <Menu.Item
-                                >
-                                    <Store />
-                                    <div>
-                                        Theme Support
-                                    </div>
-                                </Menu.Item>
-                            </Menu.List>
-                            <Menu.List
-                                arrow
-                                heading="Utilities"
-                                open
-                            >
-                                <Menu.Item>
-                                    <ShoppingBag />
-                                    <div>
-                                       Version Control 
-                                    </div>
-                                </Menu.Item>
-                            </Menu.List>
-                            {/* <No Display Name /> */}
-                            <Menu.List
-                                arrow
-                                heading="Preferences"
-                                open
-                            >
-                                <Menu.Item>
-                                    <MousePointer />
-                                    <div>
-                                    Integrations
-                                    </div>
-                                </Menu.Item>
-                            </Menu.List>
-                        </Menu>
+                        <Sidebar items={items} onSelectItem={setSelectedItem} />
                     </Container.Item>
                     <Container.Item
                         className="p-2"
-                        alignSelf="auto"
-                        order="none"
-                        shrink={1}
-                        style={{
-                            width: "90%",
-                        }}
                     >
-                        <h1>Settings</h1>
+                        <Content selectedItem={selectedItem} />
                     </Container.Item>
                 </Container>
             </div>
@@ -89,3 +61,4 @@ const Settings = () => {
 }
 
 export default Settings
+

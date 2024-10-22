@@ -675,6 +675,9 @@
 #hfe-settings-app .h-2{
 	height: 0.5rem;
 }
+#hfe-settings-app .h-24{
+	height: 6rem;
+}
 #hfe-settings-app .h-3{
 	height: 0.75rem;
 }
@@ -711,15 +714,6 @@
 }
 #hfe-settings-app .h-screen{
 	height: 100vh;
-}
-#hfe-settings-app .h-7{
-	height: 1.75rem;
-}
-#hfe-settings-app .h-24{
-	height: 6rem;
-}
-#hfe-settings-app .h-40{
-	height: 10rem;
 }
 #hfe-settings-app .max-h-\[10\.75rem\]{
 	max-height: 10.75rem;
@@ -796,6 +790,9 @@
 #hfe-settings-app .w-16{
 	width: 4rem;
 }
+#hfe-settings-app .w-24{
+	width: 6rem;
+}
 #hfe-settings-app .w-3{
 	width: 0.75rem;
 }
@@ -847,15 +844,6 @@
 }
 #hfe-settings-app .w-full{
 	width: 100%;
-}
-#hfe-settings-app .w-7{
-	width: 1.75rem;
-}
-#hfe-settings-app .w-24{
-	width: 6rem;
-}
-#hfe-settings-app .w-40{
-	width: 10rem;
 }
 #hfe-settings-app .min-w-\[180px\]{
 	min-width: 180px;
@@ -1662,9 +1650,6 @@
 	--tw-bg-opacity: 1;
 	background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
-#hfe-settings-app .bg-none{
-	background-image: none;
-}
 #hfe-settings-app .bg-cover{
 	background-size: cover;
 }
@@ -1851,6 +1836,12 @@
 	font-size: 1.5rem;
 	line-height: 2rem;
 }
+#hfe-settings-app .text-\[12px\]{
+	font-size: 12px;
+}
+#hfe-settings-app .text-\[14px\]{
+	font-size: 14px;
+}
 #hfe-settings-app .text-base{
 	font-size: 1rem;
 	line-height: 1.5rem;
@@ -1873,16 +1864,6 @@
 #hfe-settings-app .text-xs{
 	font-size: 0.75rem;
 	line-height: 1rem;
-}
-#hfe-settings-app .\!text-sm{
-	font-size: 0.875rem !important;
-	line-height: 1.25rem !important;
-}
-#hfe-settings-app .text-\[14px\]{
-	font-size: 14px;
-}
-#hfe-settings-app .text-\[12px\]{
-	font-size: 12px;
 }
 #hfe-settings-app .font-bold{
 	font-weight: 700;
