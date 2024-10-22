@@ -7,14 +7,14 @@
  * Author URI:  https://www.brainstormforce.com/
  * Text Domain: header-footer-elementor
  * Domain Path: /languages
- * Version: 1.6.43
- * Elementor tested up to: 3.24
- * Elementor Pro tested up to: 3.24
+ * Version: 1.6.44
+ * Elementor tested up to: 3.25
+ * Elementor Pro tested up to: 3.25
  *
  * @package         header-footer-elementor
  */
 
-define( 'HFE_VER', '1.6.43' );
+define( 'HFE_VER', '1.6.44' );
 define( 'HFE_FILE', __FILE__ );
 define( 'HFE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'HFE_URL', plugins_url( '/', __FILE__ ) );
@@ -84,8 +84,14 @@ function hfe_enqueue_font_awesome() {
 			[],
 			'5.15.3'
 		);
-
-		
+	}
+	if ( class_exists( '\ElementorPro\Plugin' ) ) {
+		wp_enqueue_style(
+			'hfe-widget-blockquote',
+			plugins_url( '/elementor-pro/assets/css/widget-blockquote.min.css', 'elementor' ),
+			[],
+			'3.25.0'
+		);
 	}
 }
 add_action( 'wp_enqueue_scripts', 'hfe_enqueue_font_awesome', 20 );
