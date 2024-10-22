@@ -138,11 +138,12 @@ const WidgetItem = ({
                             variant="inverse"
 
                         />)}
-                    <Switch
-                        onChange={handleSwitchChange} // Updated to use the new function
-                        size='sm'
-                        value={isActive}
-                    />
+                    { !is_pro && (
+                        <Switch
+                            onChange={handleSwitchChange} // Updated to use the new function
+                            size='sm'
+                            value={isActive}
+                        />)}
                 </div>
 
 
