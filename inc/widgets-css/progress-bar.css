@@ -1,0 +1,30 @@
+.hfe-reading-progress-wrap {
+    position: fixed; 
+    z-index: 9999; 
+    left: 0; 
+    width: 100%; 
+    transition: top 0.3s ease, bottom 0.3s ease; 
+}
+
+/* Positioning options: */
+.hfe-reading-progress-wrap[data-position="top"] {
+    top: 0; 
+}
+
+.hfe-reading-progress-wrap[data-position="bottom"] {
+    bottom: 0; 
+}
+
+
+.hfe-reading-progress {
+    background-color: var(--progress-bar-bg-color, #eee); 
+    position: relative; 
+    width: 100%;
+}
+
+.hfe-reading-progress-fill {
+    background-color: var(--progress-bar-fill-color, #1fd18e); 
+    height: 5px; 
+    transition: width 0.5s ease; 
+}
+

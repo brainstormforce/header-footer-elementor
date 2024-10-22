@@ -32,6 +32,7 @@ class HFE_Settings_Page {
 		add_filter( 'admin_footer_text', [ $this, 'admin_footer_text' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
 		add_filter( 'plugin_action_links_' . HFE_PATH, [ $this, 'settings_link' ] );
+
 	}
 
 	/**
@@ -850,6 +851,7 @@ class HFE_Settings_Page {
 
 		return array_merge( $custom, (array) $links );
 	}
+
 }
 
 new HFE_Settings_Page();
