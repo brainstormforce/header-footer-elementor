@@ -52,10 +52,10 @@ const WidgetItem = ({
                 console.log(`Widget ${isActive ? 'activated' : 'deactivated'}`);
                 setIsActive(isActive);  // Update the active state after the request
             } else if (data.error) {
-                console.error('AJAX request failed:', data.error);
+                console.log('AJAX request failed');
             }
         } catch (err) {
-            console.error('AJAX request error:', err);
+            console.log("Error during AJAX request");
         } finally {
             setIsLoading(false);  // Always stop the loading spinner
             processQueue();
