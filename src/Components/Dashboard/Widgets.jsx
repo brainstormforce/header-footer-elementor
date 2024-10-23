@@ -2,17 +2,25 @@ import React, { useState, useEffect } from 'react';
 import WidgetItem from './WidgetItem'
 import { Container } from "@bsf/force-ui";
 import { MoreHorizontalIcon, Plus } from "lucide-react";
+import { useWidgetContext } from './WidgetContext';
 
 const Widgets = () => {
 
-    const [allWidgetsData, setAllWidgetsData] = useState(null); // Initialize state.
-
+    const [allWidgetsData, setAllWidgetsData] = useWidgetContext(); // Initialize state.
     useEffect(() => {
-        const widgetsData =  convertToWidgetsArray(window.hfeWidgetsList)
+        const widgetsData = convertToWidgetsArray(window.hfeWidgetsList)
         setAllWidgetsData(widgetsData);
-    }, []);
+    }, [setAllWidgetsData]);
+
+    console.log( "This is the list of normal widgets on dashboard......................." );;
+    console.log( allWidgetsData );
 
     function convertToWidgetsArray(data) {
+
+        if (!data || typeof data !== 'object') {
+            return [];  // Ensure it returns an empty array if the data is not valid
+        }
+        
         const widgets = [];
     
         for (const key in data) {

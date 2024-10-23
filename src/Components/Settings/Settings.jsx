@@ -6,6 +6,7 @@ import NavMenu from '@components/NavMenu';
 import HeaderLine from '@components/HeaderLine';
 import { Plus } from 'lucide-react';
 import ThemeSupport from './ThemeSupport';
+import VersionControl from './VersionControl';
 
 const Settings = () => {
     const [selectedItem, setSelectedItem] = useState({
@@ -38,7 +39,7 @@ const Settings = () => {
             ),
             main: 'Utilities',
             title: 'Version Control',
-            content: 'This is the content for About.'
+            content: <VersionControl/>
         },
         {
             id: 3,

@@ -3,10 +3,11 @@ import { Container, Button } from "@bsf/force-ui";
 import { MoreHorizontalIcon, Plus, LoaderCircle, Map, House, SearchIcon } from "lucide-react";
 import WidgetItem from '@components/Dashboard/WidgetItem';
 import apiFetch from '@wordpress/api-fetch';
+import { useWidgetContext } from '@components/Dashboard/WidgetContext';
 
 const FeatureWidgets = () => {
 
-    const [allWidgetsData, setAllWidgetsData] = useState(null); // Initialize state.
+    const [allWidgetsData, setAllWidgetsData] = useWidgetContext(); // Initialize state.
     const [searchTerm, setSearchTerm] = useState('');
     const [loadingActivate, setLoadingActivate] = useState(false); // Loading state for activate button
     const [loadingDeactivate, setLoadingDeactivate] = useState(false);
@@ -15,7 +16,7 @@ const FeatureWidgets = () => {
         const widgetsData =  convertToWidgetsArray(window.hfeWidgetsList)
         // console.log({widgetsData})
         setAllWidgetsData(widgetsData);
-    }, []);
+    }, [setAllWidgetsData]);
 
     // New function to handle search input change
     const handleSearchChange = (event) => {
@@ -28,7 +29,8 @@ const FeatureWidgets = () => {
         widget.keywords?.some(keyword => keyword.toLowerCase().includes(searchTerm))
     );
 
-    // console.log( filteredWidgets );
+    console.log( "This is the list of filtered widgets......................." );;
+    console.log( filteredWidgets );
 
     const handleActivateAll = async () => {
 

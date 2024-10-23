@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Container, Title, Label } from "@bsf/force-ui";
-import { max } from 'lodash';
 
 const radioData = [
     {
