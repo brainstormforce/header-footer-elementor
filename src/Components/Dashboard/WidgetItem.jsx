@@ -4,6 +4,7 @@ import { InfoIcon } from 'lucide-react';
 import { Link } from 'react-dom/client';
 import apiFetch from '@wordpress/api-fetch';
 import { __ } from '@wordpress/i18n';
+import { useWidgetContext } from './WidgetContext';
 
 // Create a queue to manage AJAX requests
 const requestQueue = [];
@@ -25,16 +26,24 @@ const WidgetItem = ({
         title,
         viewDemo,
         infoText,
-        is_pro,
-        is_active
+        is_pro
     } = widget
 
+    const [allWidgetsData, setAllWidgetsData] = useWidgetContext(); 
+
+    const widgetInContext = allWidgetsData ? allWidgetsData.find(w => w.id === widget.id) : null;
+
+    const isActive = widgetInContext ? widgetInContext.is_active : widget.is_active;
+
     // Track the active state of the widget using React state
-    const [isActive, setIsActive] = useState(widget.is_active);
+    // const [isActive, setIsActive] = useState(widget.is_active);
     const [isLoading, setIsLoading] = useState(false);
 
     const apiCall = async () => {
         const action = isActive ? 'hfe_deactivate_widget' : 'hfe_activate_widget';
+
+        console.log( isActive );
+        console.log( "===================================================" );
 
         const formData = new window.FormData();
         formData.append('action', action);
@@ -48,12 +57,18 @@ const WidgetItem = ({
                 body: formData,
             });
 
-            if (data.success) {
-                console.log(`Widget ${isActive ? 'activated' : 'deactivated'}`);
-                setIsActive(isActive);  // Update the active state after the request
-            } else if (data.error) {
-                console.error('AJAX request failed:', data.error);
+            console.log(`Widget ${isActive ? 'deactivated' : 'activated'}`);
+        
+            const index = allWidgetsData.findIndex(w => w.id === widget.id);
+            
+            if (index !== -1) {
+                const updatedWidgets = [...allWidgetsData];
+                updatedWidgets[index] = { ...updatedWidgets[index], is_active: !isActive };
+                setAllWidgetsData(updatedWidgets);
             }
+            const newIsActive = !isActive; // This is the new state
+            console.log('New isActive:', newIsActive);
+           
         } catch (err) {
             console.error('AJAX request error:', err);
         } finally {
@@ -63,11 +78,12 @@ const WidgetItem = ({
     }
 
     const handleSwitchChange = () => {
+        
         if (isLoading) return;
 
         setIsLoading(true);
 
-        setIsActive(!isActive);  // Update the active state immediately
+        // setIsActive(!isActive);  // Update the active state immediately
 
         // Add the request to the queue
         requestQueue.push(apiCall);

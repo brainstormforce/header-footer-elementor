@@ -5,6 +5,7 @@ import "@fontsource/figtree/400-italic.css"; // Specify weight and style
 import CustomRouter from "router/customRouter";
 import { LoaderPinwheel } from "lucide-react";
 import { Loader } from "@bsf/force-ui";
+import { WidgetProvider } from '@components/Dashboard/WidgetContext';
 
 const App = () => {
     const [loaded, setLoaded] = useState(false);
@@ -37,7 +38,9 @@ const App = () => {
 
     return (
         <div className="app-container font-figtree">
-            <CustomRouter />
+            <WidgetProvider>
+                <CustomRouter />
+            </WidgetProvider>
         </div>
     );
 };
