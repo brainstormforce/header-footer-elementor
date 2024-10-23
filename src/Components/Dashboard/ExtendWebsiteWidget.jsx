@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react';
 import { Container, Title, Button, Switch, Tooltip, Badge, Label } from "@bsf/force-ui";
 import { InfoIcon } from 'lucide-react';
 import apiFetch from '@wordpress/api-fetch';
@@ -22,6 +22,8 @@ const ExtendWebsiteWidget = ({
         status
     } = plugin
 
+    const buttonRef = useRef(null);
+
     const getAction = ( status ) => {
 		if ( status === 'Activated' ) {
 			return '';
@@ -32,15 +34,21 @@ const ExtendWebsiteWidget = ({
 	};
 
 	const handlePluginAction = ( e ) => {
-		const action = e.target.dataset.action;
+		const action = e.currentTarget.dataset.action;
 		const formData = new window.FormData();
+        const pluginData = {
+            init: e.currentTarget.dataset.init,
+            type: e.currentTarget.dataset.type,
+            slug: e.currentTarget.dataset.slug,
+        };
+
 		switch ( action ) {
 			case 'hfe_recommended_plugin_activate':
-				activatePlugin( e );
+				activatePlugin( pluginData );
 				break;
 
 			case 'hfe_recommended_plugin_install':
-                if( 'theme' == e.target.dataset.type ) {
+                if( 'theme' == pluginData.type ) {
                     formData.append(
                         'action',
                         'hfe_recommended_theme_install'
@@ -56,7 +64,7 @@ const ExtendWebsiteWidget = ({
 					'_ajax_nonce',
 					hfe_admin_data.installer_nonce
 				);
-				formData.append( 'slug', e.target.dataset.slug );
+				formData.append( 'slug', pluginData.slug );
 
 				e.target.innerText = __( 'Installing...', 'header-footer-elementor' )
 
@@ -67,10 +75,10 @@ const ExtendWebsiteWidget = ({
 				} ).then( ( data ) => {
 					if ( data.success ) {
 						e.target.innerText = __( 'Installed', 'header-footer-elementor' );
-                        activatePlugin( e );
+                        activatePlugin( pluginData );
 					} else {
 						e.target.innerText = __( 'Install', 'header-footer-elementor' );
-                        if( 'theme' == e.target.dataset.type ) {
+                        if( 'theme' == e.currentTarget.dataset.type ) {
                             alert( __( `Theme Installation failed, Please try again later.`, 'header-footer-elementor' ) );
                         } else {
                             alert( __( `Plugin Installation failed, Please try again later.`, 'header-footer-elementor' ) );
@@ -85,15 +93,19 @@ const ExtendWebsiteWidget = ({
 				break;
 		}
 	};
-	const activatePlugin = ( e ) => {
+
+	const activatePlugin = ( pluginData ) => {
 
 		const formData = new window.FormData();
 		formData.append( 'action', 'hfe_recommended_plugin_activate' );
 		formData.append( 'nonce', hfe_admin_data.nonce );
-		formData.append( 'plugin', e.target.dataset.init );
-		formData.append( 'type', e.target.dataset.type );
-		formData.append( 'slug', e.target.dataset.slug );
-		e.target.innerText = __( 'Activating...', 'header-footer-elementor' );
+		formData.append( 'plugin', pluginData.init );
+		formData.append( 'type', pluginData.type );
+		formData.append( 'slug', pluginData.slug );
+		
+        const buttonElement = document.querySelector(`[data-slug="${pluginData.slug}"]`);
+        const spanElement = buttonElement.querySelector('span');
+        spanElement.innerText = __('Activating...', 'header-footer-elementor');
 
 		apiFetch( {
 			url: hfe_admin_data.ajax_url,
@@ -101,15 +113,16 @@ const ExtendWebsiteWidget = ({
 			body: formData,
 		} ).then( ( data ) => {
 			if ( data.success ) {
-				e.target.style.color = '#16A34A';
-				e.target.innerText = __( 'Activated', 'header-footer-elementor' );
+				// e.target.style.color = '#16A34A';
+                buttonElement.classList.add('hfe-plugin-activated'); 
+				spanElement.innerText = __( 'Activated', 'header-footer-elementor' );
 			} else {
-				if( 'theme' == e.target.dataset.type ) {
+				if( 'theme' == pluginData.type ) {
                     alert( __( `Theme Activation failed, Please try again later.`, 'header-footer-elementor' ) );
                 } else {
                     alert( __( `Plugin Activation failed, Please try again later.`, 'header-footer-elementor' ) );
                 }
-				e.target.innerText = __( 'Activate', 'header-footer-elementor' );
+				spanElement.innerText = __( 'Activate', 'header-footer-elementor' );
 			}
 		} );
 	};

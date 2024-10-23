@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'; 
 import { Container, Button } from "@bsf/force-ui";
-import { MoreHorizontalIcon, Plus, Map, House, SearchIcon } from "lucide-react";
+import { MoreHorizontalIcon, Plus, LoaderCircle, Map, House, SearchIcon } from "lucide-react";
 import WidgetItem from '@components/Dashboard/WidgetItem';
 import apiFetch from '@wordpress/api-fetch';
 
@@ -8,10 +8,12 @@ const FeatureWidgets = () => {
 
     const [allWidgetsData, setAllWidgetsData] = useState(null); // Initialize state.
     const [searchTerm, setSearchTerm] = useState('');
+    const [loadingActivate, setLoadingActivate] = useState(false); // Loading state for activate button
+    const [loadingDeactivate, setLoadingDeactivate] = useState(false);
 
     useEffect(() => {
         const widgetsData =  convertToWidgetsArray(window.hfeWidgetsList)
-        console.log({widgetsData})
+        // console.log({widgetsData})
         setAllWidgetsData(widgetsData);
     }, []);
 
@@ -26,7 +28,11 @@ const FeatureWidgets = () => {
         widget.keywords?.some(keyword => keyword.toLowerCase().includes(searchTerm))
     );
 
+    // console.log( filteredWidgets );
+
     const handleActivateAll = async () => {
+
+        setLoadingActivate(true);
 
         const formData = new window.FormData();
 		formData.append( 'action', 'hfe_bulk_activate_widgets');
@@ -37,15 +43,20 @@ const FeatureWidgets = () => {
             method: 'POST',
             body: formData,
         } ).then( ( data ) => {
+            setLoadingActivate(false);
             if ( data.success ) {
                 console.log("Activated all widgets.");
             } else if( data.error ) {
-                console.error('AJAX request failed:', err);
+                console.error('AJAX request failed:', data.error);
             }
+        }).catch((error) => {
+            setLoadingActivate(false);
+            console.error('Error during AJAX request:', error);
         });
     };
     
     const handleDeactivateAll = async () => {
+        setLoadingDeactivate(true);
 
         const formData = new window.FormData();
 		formData.append( 'action', 'hfe_bulk_deactivate_widgets');
@@ -56,11 +67,15 @@ const FeatureWidgets = () => {
             method: 'POST',
             body: formData,
         } ).then( ( data ) => {
+            setLoadingDeactivate(false);
             if ( data.success ) {
                 console.log("Deactivated all widgets.");
             } else if( data.error ) {
                 console.error('AJAX request failed:', err);
             }
+        }).catch((error) => {
+            setLoadingActivate(false);
+            console.error('Error during AJAX request:', error);
         });
     };
 
@@ -95,10 +110,7 @@ const FeatureWidgets = () => {
                 paddingInline: '16px'
             }}>
                 <p className='m-0 text-sm font-semibold text-text-primary'>Widgets / Features</p>
-                <div className='flex items-center gap-x-2 mr-7'>
-                    <SearchIcon
-                        className="absolute pl-2 left-1/2 top-1/2"
-                    />
+                <div className='flex items-center gap-x-2 mr-7'> 
                     <input
                         type="search"
                         placeholder="Search..."
@@ -108,26 +120,29 @@ const FeatureWidgets = () => {
                         onChange={handleSearchChange}
                     />
                     <Button
+                        icon={loadingActivate ? <LoaderCircle className="animate-spin" /> : null}
                         iconPosition="left"
                         variant="outline"
+                        className="uae-bulk-action-button"
                         onClick={handleActivateAll} // Attach the onClick event
                     >
-                        Activate All
+                        {loadingActivate ? 'Activating...' : 'Activate All'}
                     </Button>
 
                     <Button
+                        icon={loadingDeactivate ? <LoaderCircle className="animate-spin" /> : null} // Loader for deactivate button
                         iconPosition="left"
                         variant="outline"
                         onClick={handleDeactivateAll}
+                        className="uae-bulk-action-button"
                     >
-                        Deactivate All
+                        {loadingDeactivate ? 'Deactivating...' : 'Deactivate All'}
                     </Button>
 
                     <MoreHorizontalIcon />
                 </div>
             </div>
             <div className='flex bg-black flex-col rounded-lg p-4'>
-
                 <Container
                     align="stretch"
                     className="bg-background-gray p-1 gap-1.5"
