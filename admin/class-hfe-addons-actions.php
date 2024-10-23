@@ -87,9 +87,8 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			// Update new_extensions.
 			HFE_Helper::update_admin_settings_option( '_hfe_widgets', $new_widgets );
 
-			echo 'success';
-
-			die();
+			// Send a JSON response
+			wp_send_json_success( 'Widgets activated successfully.' );
 		}
 
 		/**
@@ -116,9 +115,8 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			// Update new_extensions.
 			HFE_Helper::update_admin_settings_option( '_hfe_widgets', $new_widgets );
 
-			echo 'success';
-
-			die();
+			// Send a JSON response
+			wp_send_json_success( 'Widgets deactivated successfully.' );
 		}
 
 		/**

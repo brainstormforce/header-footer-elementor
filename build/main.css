@@ -2575,6 +2575,9 @@ div#hfe-settings-app {
 button.hfe-plugin-activated {
 	color: #16A34A;
 }
+button.uae-bulk-action-button {
+	width: 150px;
+}
 #hfe-settings-app .file\:border-0::file-selector-button{
 	border-width: 0px;
 }
