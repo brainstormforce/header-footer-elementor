@@ -30,7 +30,7 @@ const ExploreTemplates = () => {
   return (
     <div>
 			<Container
-				className="bg-background-primary p-4 border-[0.5px] border-subtle rounded-xl shadow-sm"
+				className="bg-background-primary p-10 border-[0.5px] border-subtle rounded-xl shadow-sm"
 				containerType="flex"
 				direction="row"
 				gap="xs"
@@ -56,7 +56,7 @@ const ExploreTemplates = () => {
 						/>
 						<p className="text-md m-0 text-text-secondary">
                         Stop building your site from scratch. Use our professional templates for your stunning website.
-                        It’s easy to customize and completely responsive. Explore hundreds of designs and bring your vision to life in no time.
+                        It's easy to customize and completely responsive. Explore hundreds of designs and bring your vision to life in no time.
 						</p>
 					</div>
 					<div className="grid grid-cols-1 grid-flow-row gap-1 my-4">

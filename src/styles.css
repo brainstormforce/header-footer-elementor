@@ -73,3 +73,6 @@ div#hfe-settings-app {
 button.hfe-plugin-activated {
 	color: #16A34A;
 }
+button.uae-bulk-action-button {
+	width: 150px;
+}

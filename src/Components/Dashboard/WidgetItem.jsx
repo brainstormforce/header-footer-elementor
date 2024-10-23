@@ -70,7 +70,7 @@ const WidgetItem = ({
             console.log('New isActive:', newIsActive);
            
         } catch (err) {
-            console.error('AJAX request error:', err);
+            console.log("Error during AJAX request");
         } finally {
             setIsLoading(false);  // Always stop the loading spinner
             processQueue();
