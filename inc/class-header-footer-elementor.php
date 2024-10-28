@@ -393,12 +393,13 @@ class Header_Footer_Elementor {
 
 		if ( class_exists( '\Elementor\Plugin' ) ) {
 			$elementor = \Elementor\Plugin::instance();
-			$elementor->frontend->enqueue_styles();
+			if ( method_exists( $elementor->frontend, 'enqueue_styles' ) ) {
+				$elementor->frontend->enqueue_styles();
+			}
 		}
 
 		if ( class_exists( '\ElementorPro\Plugin' ) ) {
 			$elementor_pro = \ElementorPro\Plugin::instance();
-			$elementor_pro->enqueue_styles();
 		}
 
 		if ( hfe_header_enabled() ) {
@@ -408,7 +409,9 @@ class Header_Footer_Elementor {
 				$css_file = new \Elementor\Post_CSS_File( get_hfe_header_id() );
 			}
 
-			$css_file->enqueue();
+			if ( isset( $css_file ) ) {
+				$css_file->enqueue();
+			}
 		}
 
 		if ( hfe_footer_enabled() ) {
@@ -418,7 +421,9 @@ class Header_Footer_Elementor {
 				$css_file = new \Elementor\Post_CSS_File( get_hfe_footer_id() );
 			}
 
-			$css_file->enqueue();
+			if ( isset( $css_file ) ) {
+				$css_file->enqueue();
+			}
 		}
 
 		if ( hfe_is_before_footer_enabled() ) {
@@ -427,7 +432,9 @@ class Header_Footer_Elementor {
 			} elseif ( class_exists( '\Elementor\Post_CSS_File' ) ) {
 				$css_file = new \Elementor\Post_CSS_File( hfe_get_before_footer_id() );
 			}
-			$css_file->enqueue();
+			if ( isset( $css_file ) ) {
+				$css_file->enqueue();
+			}
 		}
 	}
 
