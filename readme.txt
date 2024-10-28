@@ -141,7 +141,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 == Changelog ==
 
 = 1.6.45 =
-- Improvement: Enhanced the enqueue_styles method with checks to ensure styles load safely.
+- Improvement: Enhanced the enqueue_scripts method with checks to ensure styles load safely.
 
 = 1.6.44 =
 - Improvement: Compatibility with latest Elementor and Elementor Pro 3.25 version.
