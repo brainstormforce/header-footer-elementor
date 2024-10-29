@@ -212,7 +212,7 @@ class Widgets_Loader {
 			}
 	
 			// SVG Handler instance.
-			$svg_handler = Plugin::instance()->assets_manager->get_asset( 'svg' );
+			$svg_handler = Plugin::instance()->assets_manager->get_asset( 'svg-handler' );
 	
 			// Perform sanitation.
 			if ( Svg::file_sanitizer_can_run() && ! $svg_handler->sanitize_svg( $file['tmp_name'] ) ) {
