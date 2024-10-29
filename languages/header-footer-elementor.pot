@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the Elementor Header & Footer Builder package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Elementor Header & Footer Builder 1.6.45\n"
+"Project-Id-Version: Elementor Header & Footer Builder 1.6.45.1\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/header-footer-elementor\n"
-"POT-Creation-Date: 2024-10-28 15:46:42+00:00\n"
+"POT-Creation-Date: 2024-10-29 06:20:40+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -748,11 +748,19 @@ msgstr ""
 msgid "The same display setting is already exist in %s post/s."
 msgstr ""
 
-#: inc/widgets-manager/class-widgets-loader.php:201
+#: inc/widgets-manager/class-widgets-loader.php:198
+msgid "The uploaded file exceeds the maximum allowed size of 500 KB."
+msgstr ""
+
+#: inc/widgets-manager/class-widgets-loader.php:209
+msgid "Invalid SVG content, file not uploaded for security reasons!"
+msgstr ""
+
+#: inc/widgets-manager/class-widgets-loader.php:219
 msgid "Invalid SVG Format, file not uploaded for security reasons!"
 msgstr ""
 
-#: inc/widgets-manager/class-widgets-loader.php:293
+#: inc/widgets-manager/class-widgets-loader.php:311
 #: inc/widgets-manager/widgets/class-cart.php:51
 #: inc/widgets-manager/widgets/class-cart.php:655
 msgid "Cart"
