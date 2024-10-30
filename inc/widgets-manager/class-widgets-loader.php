@@ -189,39 +189,21 @@ class Widgets_Loader {
 	public function sanitize_uploaded_svg( $file ) {
 		if ( 'image/svg+xml' === $file['type'] ) {
 
-			// Sanitize filename.
-			$file['name'] = preg_replace( '/[^a-zA-Z0-9_\-\.]/', '', basename( $file['name'] ) );
-	
-			// Set a size limit for the SVG file.
-			$max_size = 500 * 1024; 
-			if ( $file['size'] > $max_size ) {
-				$file['error'] = esc_html__( 'The uploaded file exceeds the maximum allowed size of 500 KB.', 'header-footer-elementor' );
-				return $file;
-			}
-	
-			// Ensure the SVG content is valid.
-			$svg_content = file_get_contents( $file['tmp_name'] );
-			
-			// Check for dangerous tags.
-			$exploit_tags = [ 'script', 'iframe', 'embed', 'object', 'form', 'link', 'style' ];
-			foreach ( $exploit_tags as $tag ) {
-				if ( stripos( $svg_content, '<' . $tag ) !== false ) {
-					$file['error'] = esc_html__( 'Invalid SVG content, file not uploaded for security reasons!', 'header-footer-elementor' );
-					return $file;
-				}
-			}
-	
-			// SVG Handler instance.
+			/**
+			 * SVG Handler instance.
+			 *
+			 * @var object $svg_handler;
+			 */
 			$svg_handler = Plugin::instance()->assets_manager->get_asset( 'svg-handler' );
-	
-			// Perform sanitation.
+
 			if ( Svg::file_sanitizer_can_run() && ! $svg_handler->sanitize_svg( $file['tmp_name'] ) ) {
+
 				$file['error'] = esc_html__( 'Invalid SVG Format, file not uploaded for security reasons!', 'header-footer-elementor' );
 			}
 		}
-	
+
 		return $file;
-	}   
+	}  
 
 	/**
 	 * Register Category
