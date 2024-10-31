@@ -140,6 +140,9 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 
+= 1.6.45.1 =
+- Fix: Deprecated constant FILTER_SANITIZE_STRING replaced to ensure compatibility with PHP
+
 = 1.6.45 =
 - Improvement: Enhanced the enqueue_scripts method with checks to ensure styles load safely.
 
