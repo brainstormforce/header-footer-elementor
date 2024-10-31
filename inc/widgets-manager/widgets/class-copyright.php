@@ -245,5 +245,5 @@ class Copyright extends Widget_Base {
 	 * @return void
 	 */
 	protected function content_template(): void {
-    }
+	}
 }

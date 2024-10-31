@@ -433,9 +433,9 @@ class Site_Title extends Widget_Base {
 		<div class="hfe-module-content hfe-heading-wrapper elementor-widget-heading">
 		<?php if ( ! empty( $settings['heading_link']['url'] ) && $settings['custom_link'] === 'custom' ) { ?>
 					<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'url' ) ); ?>>
-        <?php } else { ?>
+		<?php } else { ?>
 					<a href="<?php echo esc_url( get_home_url() ); ?>">
-        <?php } ?>
+		<?php } ?>
 			<<?php echo esc_attr( $heading_size_tag ); ?> class="hfe-heading elementor-heading-title elementor-size-<?php echo esc_attr( $settings['size'] ); ?>">
 				<?php if ( $settings['icon']['value'] !== '' ) { ?>
 					<span class="hfe-icon">
@@ -498,26 +498,26 @@ class Site_Title extends Widget_Base {
 		#>
 		<div class="hfe-module-content hfe-heading-wrapper elementor-widget-heading">
 				<# if ( '' != settings.heading_link.url ) { #>
-					<a {{{ view.getRenderAttributeString( 'url' ) }}} > <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation?>
+					<a {{{ view.getRenderAttributeString( 'url' ) }}} > <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 				<# } #>
-				<{{{ headingSizeTag }}} class="hfe-heading elementor-heading-title elementor-size-{{{ elementor.helpers.sanitize( settings.size ) }}}"> <?php //phpcs:ignore WordPressVIPMinimum.Security.Mustache.OutputNotation?>
+				<{{{ headingSizeTag }}} class="hfe-heading elementor-heading-title elementor-size-{{{ elementor.helpers.sanitize( settings.size ) }}}"> <?php //phpcs:ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 				<# if( '' != settings.icon.value ){ #>
 				<span class="hfe-icon">
-					{{{ iconHTML.value }}}	<?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation?>			
+					{{{ iconHTML.value }}}	<?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>			
 				</span>
 				<# } #>
 				<span class="hfe-heading-text  elementor-heading-title" data-elementor-setting-key="heading_title" data-elementor-inline-editing-toolbar="basic" >
 				<# if ( '' != settings.before ){
 					var before = elementor.helpers.sanitize( settings.before )#>
-					{{{ before }}}  <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation?>
+					{{{ before }}}  <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 				<#}#>
 				<?php echo wp_kses_post( get_bloginfo( 'name' ) ); ?>
 				<# if ( '' != settings.after ){
 					var after = elementor.helpers.sanitize( settings.after )#>
-					{{{ after }}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation?>
+					{{{ after }}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 				<#}#>
 				</span>
-			</{{{ headingSizeTag }}}> <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation?>
+			</{{{ headingSizeTag }}}> <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 			<# if ( '' != settings.heading_link.url ) { #>
 				</a>
 			<# } #>

@@ -765,8 +765,8 @@ class Retina extends Widget_Base {
 
 			// PHPCS:Ignore WordPressVIPMinimum.Variables.RestrictedVariables.cache_constraints___SERVER__HTTP_USER_AGENT__
 			if ( isset( $_SERVER['HTTP_USER_AGENT'] ) && strpos( sanitize_text_field( $_SERVER['HTTP_USER_AGENT'] ), 'Chrome' ) !== false ) {
-				$date             = new \DateTime();
-				$timestam         = $date->getTimestamp();
+				$date              = new \DateTime();
+				$timestam          = $date->getTimestamp();
 				$image_url        .= '?' . $timestam;
 				$retina_image_url .= '?' . $timestam;
 			}
@@ -805,7 +805,7 @@ class Retina extends Widget_Base {
 	 * @return bool
 	 */
 	private function has_caption( $settings ) {
-		return  ! empty( $settings['caption_source'] ) && $settings['caption_source'] !== 'none';
+		return ! empty( $settings['caption_source'] ) && $settings['caption_source'] !== 'none';
 	}
 
 	/**

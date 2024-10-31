@@ -1030,7 +1030,7 @@ class Search_Button extends Widget_Base {
 					</button>
 				<?php } ?>
 			</div>
-            <?php } ?>
+			<?php } ?>
 		</form>
 		<?php
 	}

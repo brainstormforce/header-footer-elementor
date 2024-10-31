@@ -851,7 +851,7 @@ class Site_Logo extends Widget_Base {
 	 * @return bool
 	 */
 	private function has_caption( $settings ) {
-		return  ! empty( $settings['caption_source'] ) && $settings['caption_source'] !== 'no';
+		return ! empty( $settings['caption_source'] ) && $settings['caption_source'] !== 'no';
 	}
 
 	/**
