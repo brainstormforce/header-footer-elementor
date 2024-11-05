@@ -898,7 +898,7 @@ class HFE_Settings_Page {
 	 * Real Mime Type
 	 *
 	 * This function checks if the file is an SVG and sanitizes it accordingly. 
- 	 * PHPCS rules are disabled selectively to allow necessary file operations that are essential for handling SVG files safely.
+	 * PHPCS rules are disabled selectively to allow necessary file operations that are essential for handling SVG files safely.
 	 *
 	 * @since 1.2.15
 	 *
