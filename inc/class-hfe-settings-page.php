@@ -1087,7 +1087,7 @@ class HFE_Settings_Page {
 		// phpcs:disable WordPress.PHP.YodaConditions.NotYoda
 		if ( $is_encoded ) {
 			$original_content = gzdecode( $original_content );
-			if ( $original_content === false ) {
+			if ( false === $original_content ) {
 				return '';
 			}
 		}
@@ -1155,11 +1155,11 @@ class HFE_Settings_Page {
 		}
 
 		// Sanitize elements.
-		// phpcs:disable WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase, WordPress.PHP.StrictInArray
+		// phpcs:disable WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
 		$elements = $dom->getElementsByTagName( '*' );
 		for ( $index = $elements->length - 1; $index >= 0; $index-- ) {
 			$current_element = $elements->item( $index );
-			if ( ! in_array( strtolower( $current_element->tagName ), $allowed_tags ) ) {
+			if ( ! in_array( strtolower( $current_element->tagName ), $allowed_tags, true ) ) {
 				$current_element->parentNode->removeChild( $current_element );
 				// phpcs:enable WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
 				continue;
@@ -1210,7 +1210,7 @@ class HFE_Settings_Page {
 		if ( $php_version_under_eight && isset( $libxml_disable_entity_loader ) ) {
 			// phpcs:disable Generic.PHP.DeprecatedFunctions.Deprecated
 			libxml_disable_entity_loader( $libxml_disable_entity_loader );
-			// phpcs:enable Generic.PHP.DeprecatedFunctions.Deprecated, WordPress.PHP.StrictInArray
+			// phpcs:enable Generic.PHP.DeprecatedFunctions.Deprecated
 		}
 		libxml_use_internal_errors( $libxml_use_internal_errors );
 
