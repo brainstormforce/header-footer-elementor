@@ -1134,11 +1134,9 @@ class HFE_Settings_Page {
 
 		// Create DOMDocument instance.
 		$dom = new \DOMDocument();
-		// phpcs:disable WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
 		$dom->formatOutput        = false;
 		$dom->preserveWhiteSpace  = false;
 		$dom->strictErrorChecking = false;
-		// phpcs:enable WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
 
 		$open_svg = ! ! $content ? $dom->loadXML( $content ) : false;
 		if ( ! $open_svg ) {
@@ -1146,22 +1144,18 @@ class HFE_Settings_Page {
 		}
 
 		// Strip Doctype.
-		// phpcs:disable WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
 		foreach ( $dom->childNodes as $child ) {
 			if ( XML_DOCUMENT_TYPE_NODE === $child->nodeType && ! ! $child->parentNode ) {
 				$child->parentNode->removeChild( $child );
-		// phpcs:enable WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
 			}
 		}
 
 		// Sanitize elements.
-		// phpcs:disable WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
 		$elements = $dom->getElementsByTagName( '*' );
 		for ( $index = $elements->length - 1; $index >= 0; $index-- ) {
 			$current_element = $elements->item( $index );
 			if ( ! in_array( strtolower( $current_element->tagName ), $allowed_tags, true ) ) {
 				$current_element->parentNode->removeChild( $current_element );
-				// phpcs:enable WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
 				continue;
 			}
 
@@ -1192,19 +1186,15 @@ class HFE_Settings_Page {
 			}
 
 			// Strip use tag with external references.
-			// phpcs:disable WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
 			if ( strtolower( $current_element->tagName ) === 'use' ) {
 				$xlink_href = $current_element->getAttributeNS( 'http://www.w3.org/1999/xlink', 'href' );
 				if ( $current_element->parentNode && $xlink_href && strpos( $xlink_href, '#' ) !== 0 ) {
 					$current_element->parentNode->removeChild( $current_element );
-					// phpcs:enable WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
 				}
 			}
 		}
 
-		// phpcs:disable WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
 		$sanitized = $dom->saveXML( $dom->documentElement, LIBXML_NOEMPTYTAG );
-		// phpcs:enable WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
 
 		// Restore defaults.
 		if ( $php_version_under_eight && isset( $libxml_disable_entity_loader ) ) {
