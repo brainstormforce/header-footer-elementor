@@ -897,6 +897,9 @@ class HFE_Settings_Page {
 	/**
 	 * Real Mime Type
 	 *
+	 * This function checks if the file is an SVG and sanitizes it accordingly. 
+ 	 * PHPCS rules are disabled selectively to allow necessary file operations that are essential for handling SVG files safely.
+	 *
 	 * @since 1.2.15
 	 *
 	 * @param array  $defaults File data array containing 'ext', 'type', and
@@ -925,6 +928,13 @@ class HFE_Settings_Page {
 	/**
 	 * Sanitizes SVG Code string.
 	 *
+	 * This function performs sanitization on SVG code to ensure that only safe tags and attributes are retained. 
+	 * PHPCS rules are selectively disabled in specific areas to accommodate necessary file operations, compatibility with different PHP versions, and to enhance code readability:
+	 * 
+	 * - File operations are required for reading and writing SVG content.
+	 * - PHP version compatibility is maintained by selectively disabling PHPCS rules for PHP version-specific functions.
+	 * - Code readability is enhanced by selectively disabling PHPCS rules for specific areas.
+	 * 
 	 * @param string $original_content SVG code to sanitize.
 	 * @return string|bool
 	 * @since 1.0.7
