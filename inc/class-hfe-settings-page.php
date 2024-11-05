@@ -1131,7 +1131,7 @@ class HFE_Settings_Page {
 		$libxml_use_internal_errors = libxml_use_internal_errors( true );
 
 		// Create DOMDocument instance.
-		$dom = new \DOMDocument();
+		$dom                      = new \DOMDocument();
 		$dom->formatOutput        = false;
 		$dom->preserveWhiteSpace  = false;
 		$dom->strictErrorChecking = false;
