@@ -1084,14 +1084,12 @@ class HFE_Settings_Page {
 		}
 		// phpcs:enable PHPCompatibility.ParameterValues.NewIconvMbstringCharsetDefault.NotSet
 
-		// phpcs:disable WordPress.PHP.YodaConditions.NotYoda
 		if ( $is_encoded ) {
 			$original_content = gzdecode( $original_content );
 			if ( false === $original_content ) {
 				return '';
 			}
 		}
-		// phpcs:enable WordPress.PHP.YodaConditions.NotYoda
 
 		// Strip php tags.
 		$content = preg_replace( '/<\?(=|php)(.+?)\?>/i', '', $original_content );
@@ -1197,7 +1195,7 @@ class HFE_Settings_Page {
 		$sanitized = $dom->saveXML( $dom->documentElement, LIBXML_NOEMPTYTAG );
 
 		// Restore defaults.
-		if ( $php_version_under_eight && isset( $libxml_disable_entity_loader ) ) {
+		if ( $php_version_under_eight && isset( $libxml_disable_entity_loader ) && function_exists( 'libxml_disable_entity_loader' ) ) {
 			// phpcs:disable Generic.PHP.DeprecatedFunctions.Deprecated
 			libxml_disable_entity_loader( $libxml_disable_entity_loader );
 			// phpcs:enable Generic.PHP.DeprecatedFunctions.Deprecated
