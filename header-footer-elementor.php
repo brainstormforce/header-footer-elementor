@@ -7,14 +7,14 @@
  * Author URI:  https://www.brainstormforce.com/
  * Text Domain: header-footer-elementor
  * Domain Path: /languages
- * Version: 1.6.42
- * Elementor tested up to: 3.24
- * Elementor Pro tested up to: 3.24
+ * Version: 1.6.46
+ * Elementor tested up to: 3.25
+ * Elementor Pro tested up to: 3.25
  *
  * @package         header-footer-elementor
  */
 
-define( 'HFE_VER', '1.6.42' );
+define( 'HFE_VER', '1.6.46' );
 define( 'HFE_FILE', __FILE__ );
 define( 'HFE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'HFE_URL', plugins_url( '/', __FILE__ ) );
@@ -48,3 +48,51 @@ function hfe_init() {
 }
 
 add_action( 'plugins_loaded', 'hfe_init' );
+
+/** Function for FA5, Social Icons, Icon List */
+function hfe_enqueue_font_awesome() {
+
+	if ( class_exists( 'Elementor\Plugin' ) ) {
+		
+		wp_enqueue_style(
+			'hfe-icons-list',
+			plugins_url( '/elementor/assets/css/widget-icon-list.min.css', 'elementor' ),
+			[],
+			'3.24.3'
+		);
+		wp_enqueue_style(
+			'hfe-social-icons',
+			plugins_url( '/elementor/assets/css/widget-social-icons.min.css', 'elementor' ),
+			[],
+			'3.24.0'
+		);
+		wp_enqueue_style(
+			'hfe-social-share-icons-brands',
+			plugins_url( '/elementor/assets/lib/font-awesome/css/brands.css', 'elementor' ),
+			[],
+			'5.15.3'
+		);
+
+		wp_enqueue_style(
+			'hfe-social-share-icons-fontawesome',
+			plugins_url( '/elementor/assets/lib/font-awesome/css/fontawesome.css', 'elementor' ),
+			[],
+			'5.15.3'
+		);
+		wp_enqueue_style(
+			'hfe-nav-menu-icons',
+			plugins_url( '/elementor/assets/lib/font-awesome/css/solid.css', 'elementor' ),
+			[],
+			'5.15.3'
+		);
+	}
+	if ( class_exists( '\ElementorPro\Plugin' ) ) {
+		wp_enqueue_style(
+			'hfe-widget-blockquote',
+			plugins_url( '/elementor-pro/assets/css/widget-blockquote.min.css', 'elementor' ),
+			[],
+			'3.25.0'
+		);
+	}
+}
+add_action( 'wp_enqueue_scripts', 'hfe_enqueue_font_awesome', 20 );
