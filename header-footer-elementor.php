@@ -20,6 +20,7 @@ define( 'HFE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'HFE_URL', plugins_url( '/', __FILE__ ) );
 define( 'HFE_PATH', plugin_basename( __FILE__ ) );
 define( 'HFE_DOMAIN', trailingslashit( 'https://ultimateelementor.com' ) );
+define( 'UAE_LITE', true );
 
 /**
  * Load the class loader.
