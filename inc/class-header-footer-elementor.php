@@ -504,8 +504,6 @@ class Header_Footer_Elementor {
 	 * @return array
 	 */
 	public function setup_unsupported_theme( $hfe_settings_tabs = [] ) {
-		error_log( "**************************************************************" );
-		error_log( current_theme_supports( 'header-footer-elementor' ) );
 
 		if ( ! current_theme_supports( 'header-footer-elementor' ) ) {
 			$hfe_settings_tabs['hfe_settings'] = [
