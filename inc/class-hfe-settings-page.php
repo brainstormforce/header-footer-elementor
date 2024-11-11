@@ -290,6 +290,7 @@ class HFE_Settings_Page {
 			}
 
 			self::$hfe_settings_tabs['hfe_about'] = [
+				
 				'name' => __( 'About Us', 'header-footer-elementor' ),
 				'url'  => admin_url( 'themes.php?page=hfe-about' ),
 			];
