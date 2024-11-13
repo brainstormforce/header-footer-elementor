@@ -203,7 +203,7 @@ class Widgets_Loader {
 		}
 
 		return $file;
-	}
+	}  
 
 	/**
 	 * Register Category
