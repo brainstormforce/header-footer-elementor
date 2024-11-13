@@ -211,6 +211,12 @@ return [
 		 * Strict_types directive not available in PHP 5.6 or earlier
 		 */
 		'PHPCompatibility\Sniffs\ControlStructures\NewExecutionDirectivesSniff',
+		
+		/**
+		 * Disallow Yoda conditions
+		 */
+		'PHP_CodeSniffer\Standards\Generic\Sniffs\ControlStructures\DisallowYodaConditionsSniff',
+		
 	],
 
 	'config'       => [],
