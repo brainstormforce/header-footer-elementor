@@ -1923,7 +1923,7 @@ class Navigation_Menu extends Widget_Base {
 			?>
 			<div class="hfe-nav-menu__toggle elementor-clickable hfe-flyout-trigger" tabindex="0">
 					<div class="hfe-nav-menu-icon">
-						<?php echo $menu_close_icons[0] ?? ''; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						<?php echo $menu_close_icons[0] ?? ''; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped?>
 					</div>
 				</div>
 			<div <?php $this->print_render_attribute_string( 'hfe-flyout' ); ?> >
@@ -1935,7 +1935,7 @@ class Navigation_Menu extends Widget_Base {
 								<?php echo wp_nav_menu( $args ); ?>
 							</nav>
 							<div class="elementor-clickable hfe-flyout-close" tabindex="0">
-								<?php echo $menu_close_icons[1] ?? ''; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+								<?php echo $menu_close_icons[1] ?? ''; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped?>
 							</div>
 						</div>
 					</div>
