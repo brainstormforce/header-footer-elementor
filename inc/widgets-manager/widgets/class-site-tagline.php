@@ -317,18 +317,18 @@ class Site_Tagline extends Widget_Base {
 		<div class="hfe-site-tagline hfe-site-tagline-wrapper">
 			<# if( '' != settings.icon.value ){ #>
 				<span class="hfe-icon">
-					{{{iconHTML.value}}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation?>
+					{{{iconHTML.value}}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 				</span>
 			<# } #>
 			<span>
 			<#if ( '' != settings.before ){
 				var before = elementor.helpers.sanitize( settings.before ) #>
-				{{{ before }}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation?>
+				{{{ before }}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 			<#}#>
 			<?php echo wp_kses_post( get_bloginfo( 'description' ) ); ?>
 			<# if ( '' != settings.after ){
 				var after = elementor.helpers.sanitize( settings.after ) #>
-				{{{ after }}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation?>
+				{{{ after }}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 			<#}#>
 			</span>
 		</div>
