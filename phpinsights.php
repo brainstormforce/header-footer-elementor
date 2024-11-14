@@ -88,8 +88,8 @@ return [
 		 * Return, Property, Parameter type hint
 		 */
 		SlevomatCodingStandard\Sniffs\TypeHints\ReturnTypeHintSniff::class,
-        SlevomatCodingStandard\Sniffs\TypeHints\PropertyTypeHintSniff::class,
-        SlevomatCodingStandard\Sniffs\TypeHints\ParameterTypeHintSniff::class,
+		SlevomatCodingStandard\Sniffs\TypeHints\PropertyTypeHintSniff::class,
+		SlevomatCodingStandard\Sniffs\TypeHints\ParameterTypeHintSniff::class,
 
 		/**
 		 * Disallow mixed type hint
