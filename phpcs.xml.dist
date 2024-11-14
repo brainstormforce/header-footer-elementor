@@ -9,6 +9,7 @@
 		<exclude name="WordPress.PHP.StrictComparisons.LooseComparison" />
 		<exclude name="WordPress.PHP.StrictInArray.MissingTrueStrict" />
 		<exclude name="Generic.Arrays.DisallowShortArraySyntax.Found" />
+		<exclude name="WordPress.PHP.YodaConditions.NotYoda"/>
 	</rule>
 	<rule ref="WordPress-Docs" />
 	<rule ref="WordPress-VIP-Go">
