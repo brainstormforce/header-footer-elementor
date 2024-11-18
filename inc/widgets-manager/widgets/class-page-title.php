@@ -491,6 +491,10 @@ class Page_Title extends Widget_Base {
 			return;
 		}
 
+		if ( '' == settings.size ){
+			return;
+		}
+
 		if ( '' != settings.page_heading_link.url ) {
 			var urlPattern = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$|^www\.[^\s/$.?#].[^\s]*$/;
 			if( urlPattern.test( settings.page_heading_link.url ) ){
@@ -513,7 +517,7 @@ class Page_Title extends Widget_Base {
 			<# if ( '' != settings.page_heading_link.url ) { #>
 					<a {{{ view.getRenderAttributeString( 'url' ) }}} > <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 			<# } #>
-			<{{{ headingSizeTag }}} class="elementor-heading-title elementor-size-<?php echo isset( $settings['size'] ) ? esc_attr( $settings['size'] ) : '{{{ settings.size }}}'; ?>"> <?php //phpcs:ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
+			<{{{ headingSizeTag }}} class="elementor-heading-title elementor-size-{{{ elementor.helpers.sanitize( settings.size ) }}}"> <?php //phpcs:ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>	
 				<# if( '' != settings.new_page_title_select_icon.value ){ #>
 					<span class="hfe-icon hfe-page-title-icon" data-elementor-setting-key="page_title" data-elementor-inline-editing-toolbar="basic">
 						{{{iconHTML.value}}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>                    
