@@ -358,6 +358,7 @@ class Header_Footer_Elementor {
 		require_once HFE_DIR . 'admin/class-hfe-admin.php';
 
 		require_once HFE_DIR . 'inc/hfe-functions.php';
+		require_once HFE_DIR . 'inc/class-hfe-rollback.php';
 
 		// Load Elementor Canvas Compatibility.
 		require_once HFE_DIR . 'inc/class-hfe-elementor-canvas-compat.php';
