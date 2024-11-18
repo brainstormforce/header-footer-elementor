@@ -69,6 +69,8 @@ class Header_Footer_Elementor {
 
 			add_action( 'init', [ $this, 'setup_settings_page' ] );
 
+			$is_theme_supported = true;
+
 			if ( 'genesis' == $this->template ) {
 				require HFE_DIR . 'themes/genesis/class-hfe-genesis-compat.php';
 			} elseif ( 'astra' == $this->template ) {
@@ -85,9 +87,12 @@ class Header_Footer_Elementor {
 			} elseif ( 'hello-elementor' == $this->template ) {
 				require HFE_DIR . 'themes/hello-elementor/class-hfe-hello-elementor-compat.php';
 			} else {
+				$is_theme_supported = false;
 				add_filter( 'hfe_settings_tabs', [ $this, 'setup_unsupported_theme' ] );
 				add_action( 'init', [ $this, 'setup_fallback_support' ] );
 			}
+
+			update_option( 'hfe_is_theme_supported', $is_theme_supported );
 
 			if ( 'yes' === get_option( 'hfe_plugin_is_activated' ) ) {
 				add_action( 'admin_init', [ $this, 'show_setup_wizard' ] );
@@ -499,6 +504,7 @@ class Header_Footer_Elementor {
 	 * @return array
 	 */
 	public function setup_unsupported_theme( $hfe_settings_tabs = [] ) {
+
 		if ( ! current_theme_supports( 'header-footer-elementor' ) ) {
 			$hfe_settings_tabs['hfe_settings'] = [
 				'name' => __( 'Theme Support', 'header-footer-elementor' ),

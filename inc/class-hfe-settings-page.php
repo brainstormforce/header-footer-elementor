@@ -501,6 +501,7 @@ public function render_content( $menu_page_slug, $page_action ) {
 			}
 
 			self::$hfe_settings_tabs['hfe_about'] = [
+				
 				'name' => __( 'About Us', 'header-footer-elementor' ),
 				'url'  => admin_url( 'themes.php?page=hfe-about' ),
 			];
