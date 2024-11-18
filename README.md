@@ -5,7 +5,7 @@
 **Requires at least:** 4.4  
 **Requires PHP:** 7.4  
 **Tested up to:** 6.7  
-**Stable tag:** 1.6.47  
+**Stable tag:** 1.6.46.1  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -140,7 +140,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 ## Changelog ##
 
-### 1.6.47 ###
+### 1.6.46.1 ###
 - Fix: This update addressed a security bug. Props to Wordfence for privately reporting it to our team. Please make sure you are using the latest version on your website.
 
 ### 1.6.46 ###
