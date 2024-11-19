@@ -32,6 +32,12 @@ class HFE_Settings_Page {
 		add_filter( 'admin_footer_text', [ $this, 'admin_footer_text' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
 		add_filter( 'plugin_action_links_' . HFE_PATH, [ $this, 'settings_link' ] );
+
+		if ( version_compare( get_bloginfo( 'version' ), '5.1.0', '>=' ) ) {
+			add_filter( 'wp_check_filetype_and_ext', [ $this, 'real_mime_types_5_1_0' ], 10, 5 );
+		} else {
+			add_filter( 'wp_check_filetype_and_ext', [ $this, 'real_mime_types' ], 10, 4 );
+		}
 	}
 
 	/**
@@ -849,6 +855,354 @@ class HFE_Settings_Page {
 		);
 
 		return array_merge( $custom, (array) $links );
+	}
+
+	/**
+	 * Different MIME type of different PHP version
+	 *
+	 * Filters the "real" file type of the given file.
+	 *
+	 * @since 1.2.9
+	 *
+	 * @param array  $defaults File data array containing 'ext', 'type', and
+	 *                                          'proper_filename' keys.
+	 * @param string $file                      Full path to the file.
+	 * @param string $filename                  The name of the file (may differ from $file due to
+	 *                                          $file being in a tmp directory).
+	 * @param array  $mimes                     Key is the file extension with value as the mime type.
+	 * @param string $real_mime                Real MIME type of the uploaded file.
+	 */
+	public function real_mime_types_5_1_0( $defaults, $file, $filename, $mimes, $real_mime ) {
+		return $this->real_mimes( $defaults, $filename, $file );
+	}
+
+	/**
+	 * Different MIME type of different PHP version
+	 *
+	 * Filters the "real" file type of the given file.
+	 *
+	 * @since 1.2.9
+	 *
+	 * @param array  $defaults File data array containing 'ext', 'type', and
+	 *                                          'proper_filename' keys.
+	 * @param string $file                      Full path to the file.
+	 * @param string $filename                  The name of the file (may differ from $file due to
+	 *                                          $file being in a tmp directory).
+	 * @param array  $mimes                     Key is the file extension with value as the mime type.
+	 */
+	public function real_mime_types( $defaults, $file, $filename, $mimes ) {
+		return $this->real_mimes( $defaults, $filename, $file );
+	}
+
+	/**
+	 * Real Mime Type
+	 *
+	 * This function checks if the file is an SVG and sanitizes it accordingly. 
+	 * PHPCS rules are disabled selectively to allow necessary file operations that are essential for handling SVG files safely.
+	 *
+	 * @since 1.2.15
+	 *
+	 * @param array  $defaults File data array containing 'ext', 'type', and
+	 *                                          'proper_filename' keys.
+	 * @param string $filename                  The name of the file (may differ from $file due to
+	 *                                          $file being in a tmp directory).
+	 * @param string $file file content.
+	 */
+	public function real_mimes( $defaults, $filename, $file ) {
+
+		if ( 'svg' === pathinfo( $filename, PATHINFO_EXTENSION ) ) {
+			// Perform SVG sanitization using the sanitize_svg function.
+			$svg_content           = file_get_contents( $file ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+			$sanitized_svg_content = $this->sanitize_svg( $svg_content );
+			// phpcs:disable WordPress.WP.AlternativeFunctions.file_system_read_file_put_contents
+			file_put_contents( $file, $sanitized_svg_content );
+			// phpcs:enable WordPress.WP.AlternativeFunctions.file_system_read_file_put_contents
+
+			// Update mime type and extension.
+			$defaults['type'] = 'image/svg+xml';
+			$defaults['ext']  = 'svg';
+		}
+
+		return $defaults;
+	}
+	/**
+	 * Sanitizes SVG Code string.
+	 *
+	 * This function performs sanitization on SVG code to ensure that only safe tags and attributes are retained. 
+	 * PHPCS rules are selectively disabled in specific areas to accommodate necessary file operations, compatibility with different PHP versions, and to enhance code readability:
+	 * 
+	 * - File operations are required for reading and writing SVG content.
+	 * - PHP version compatibility is maintained by selectively disabling PHPCS rules for PHP version-specific functions.
+	 * - Code readability is enhanced by selectively disabling PHPCS rules for specific areas.
+	 * 
+	 * @param string $original_content SVG code to sanitize.
+	 * @return string|bool
+	 * @since 1.0.7
+	 * @phpstan-ignore-next-line
+	 * */
+	public function sanitize_svg( $original_content ) {
+
+		if ( ! $original_content ) {
+			return '';
+		}
+
+		// Define allowed tags and attributes.
+		$allowed_tags = [
+			'a',
+			'circle',
+			'clippath',
+			'defs',
+			'style',
+			'desc',
+			'ellipse',
+			'fegaussianblur',
+			'filter',
+			'foreignobject',
+			'g',
+			'image',
+			'line',
+			'lineargradient',
+			'marker',
+			'mask',
+			'metadata',
+			'path',
+			'pattern',
+			'polygon',
+			'polyline',
+			'radialgradient',
+			'rect',
+			'stop',
+			'svg',
+			'switch',
+			'symbol',
+			'text',
+			'textpath',
+			'title',
+			'tspan',
+			'use',
+		];
+
+		$allowed_attributes = [
+			'class',
+			'clip-path',
+			'clip-rule',
+			'fill',
+			'fill-opacity',
+			'fill-rule',
+			'filter',
+			'id',
+			'mask',
+			'opacity',
+			'stroke',
+			'stroke-dasharray',
+			'stroke-dashoffset',
+			'stroke-linecap',
+			'stroke-linejoin',
+			'stroke-miterlimit',
+			'stroke-opacity',
+			'stroke-width',
+			'style',
+			'systemlanguage',
+			'transform',
+			'href',
+			'xlink:href',
+			'xlink:title',
+			'cx',
+			'cy',
+			'r',
+			'requiredfeatures',
+			'clippathunits',
+			'type',
+			'rx',
+			'ry',
+			'color-interpolation-filters',
+			'stddeviation',
+			'filterres',
+			'filterunits',
+			'height',
+			'primitiveunits',
+			'width',
+			'x',
+			'y',
+			'font-size',
+			'display',
+			'font-family',
+			'font-style',
+			'font-weight',
+			'text-anchor',
+			'marker-end',
+			'marker-mid',
+			'marker-start',
+			'x1',
+			'x2',
+			'y1',
+			'y2',
+			'gradienttransform',
+			'gradientunits',
+			'spreadmethod',
+			'markerheight',
+			'markerunits',
+			'markerwidth',
+			'orient',
+			'preserveaspectratio',
+			'refx',
+			'refy',
+			'viewbox',
+			'maskcontentunits',
+			'maskunits',
+			'd',
+			'patterncontentunits',
+			'patterntransform',
+			'patternunits',
+			'points',
+			'fx',
+			'fy',
+			'offset',
+			'stop-color',
+			'stop-opacity',
+			'xmlns',
+			'xmlns:se',
+			'xmlns:xlink',
+			'xml:space',
+			'method',
+			'spacing',
+			'startoffset',
+			'dx',
+			'dy',
+			'rotate',
+			'textlength',
+		];
+
+		$is_encoded = false;
+
+		$needle = "\x1f\x8b\x08";
+		// phpcs:disable PHPCompatibility.ParameterValues.NewIconvMbstringCharsetDefault.NotSet
+		if ( function_exists( 'mb_strpos' ) ) {
+			$is_encoded = 0 === mb_strpos( $original_content, $needle );
+		} else {
+			$is_encoded = 0 === strpos( $original_content, $needle );
+		}
+		// phpcs:enable PHPCompatibility.ParameterValues.NewIconvMbstringCharsetDefault.NotSet
+
+		if ( $is_encoded ) {
+			$original_content = gzdecode( $original_content );
+			if ( false === $original_content ) {
+				return '';
+			}
+		}
+
+		// Strip php tags.
+		$content = preg_replace( '/<\?(=|php)(.+?)\?>/i', '', $original_content );
+		$content = preg_replace( '/<\?(.*)\?>/Us', '', $content );
+		$content = preg_replace( '/<\%(.*)\%>/Us', '', $content );
+
+		if ( ( false !== strpos( $content, '<?' ) ) || ( false !== strpos( $content, '<%' ) ) ) {
+			return '';
+		}
+
+		// Strip comments.
+		$content = preg_replace( '/<!--(.*)-->/Us', '', $content );
+		$content = preg_replace( '/\/\*(.*)\*\//Us', '', $content );
+
+		if ( ( false !== strpos( $content, '<!--' ) ) || ( false !== strpos( $content, '/*' ) ) ) {
+			return '';
+		}
+
+		// Strip line breaks.
+		$content = preg_replace( '/\r|\n/', '', $content );
+
+		// Find the start and end tags so we can cut out miscellaneous garbage.
+		$start = strpos( $content, '<svg' );
+		$end   = strrpos( $content, '</svg>' );
+		if ( false === $start || false === $end ) {
+			return '';
+		}
+
+		$content = substr( $content, $start, ( $end - $start + 6 ) );
+
+		// If the server's PHP version is 8 or up, make sure to disable the ability to load external entities.
+		$php_version_under_eight = version_compare( PHP_VERSION, '8.0.0', '<' );
+		if ( $php_version_under_eight ) {
+			// phpcs:disable Generic.PHP.DeprecatedFunctions.Deprecated
+			$libxml_disable_entity_loader = libxml_disable_entity_loader( true );
+			// phpcs:enable Generic.PHP.DeprecatedFunctions.Deprecated
+		}
+		// Suppress the errors.
+		$libxml_use_internal_errors = libxml_use_internal_errors( true );
+
+		// Create DOMDocument instance.
+		$dom                      = new \DOMDocument();
+		$dom->formatOutput        = false;
+		$dom->preserveWhiteSpace  = false;
+		$dom->strictErrorChecking = false;
+
+		$open_svg = ! ! $content ? $dom->loadXML( $content ) : false;
+		if ( ! $open_svg ) {
+			return '';
+		}
+
+		// Strip Doctype.
+		foreach ( $dom->childNodes as $child ) {
+			if ( XML_DOCUMENT_TYPE_NODE === $child->nodeType && ! ! $child->parentNode ) {
+				$child->parentNode->removeChild( $child );
+			}
+		}
+
+		// Sanitize elements.
+		$elements = $dom->getElementsByTagName( '*' );
+		for ( $index = $elements->length - 1; $index >= 0; $index-- ) {
+			$current_element = $elements->item( $index );
+			if ( ! in_array( strtolower( $current_element->tagName ), $allowed_tags, true ) ) {
+				$current_element->parentNode->removeChild( $current_element );
+				continue;
+			}
+
+			// Validate allowed attributes.
+			for ( $i = $current_element->attributes->length - 1; $i >= 0; $i-- ) {
+				$attr_name           = $current_element->attributes->item( $i )->name;
+				$attr_name_lowercase = strtolower( $attr_name );
+				if ( ! in_array( $attr_name_lowercase, $allowed_attributes ) &&
+					! preg_match( '/^aria-/', $attr_name_lowercase ) &&
+					! preg_match( '/^data-/', $attr_name_lowercase ) ) {
+					$current_element->removeAttribute( $attr_name );
+					continue;
+				}
+
+				$attr_value = $current_element->attributes->item( $i )->value;
+				if ( ! empty( $attr_value ) &&
+					( preg_match( '/^((https?|ftp|file):)?\/\//i', $attr_value ) ||
+					preg_match( '/base64|data|(?:java)?script|alert\(|window\.|document/i', $attr_value ) ) ) {
+					$current_element->removeAttribute( $attr_name );
+					continue;
+				}
+			}
+
+			// Strip xlink:href.
+			$xlink_href = $current_element->getAttributeNS( 'http://www.w3.org/1999/xlink', 'href' );
+			if ( $xlink_href && strpos( $xlink_href, '#' ) !== 0 ) {
+				$current_element->removeAttributeNS( 'http://www.w3.org/1999/xlink', 'href' );
+			}
+
+			// Strip use tag with external references.
+			if ( strtolower( $current_element->tagName ) === 'use' ) {
+				$xlink_href = $current_element->getAttributeNS( 'http://www.w3.org/1999/xlink', 'href' );
+				if ( $current_element->parentNode && $xlink_href && strpos( $xlink_href, '#' ) !== 0 ) {
+					$current_element->parentNode->removeChild( $current_element );
+				}
+			}
+		}
+
+		$sanitized = $dom->saveXML( $dom->documentElement, LIBXML_NOEMPTYTAG );
+
+		// Restore defaults.
+		if ( $php_version_under_eight && isset( $libxml_disable_entity_loader ) && function_exists( 'libxml_disable_entity_loader' ) ) {
+			// phpcs:disable Generic.PHP.DeprecatedFunctions.Deprecated
+			libxml_disable_entity_loader( $libxml_disable_entity_loader );
+			// phpcs:enable Generic.PHP.DeprecatedFunctions.Deprecated
+		}
+		libxml_use_internal_errors( $libxml_use_internal_errors );
+
+		return $sanitized;
 	}
 }
 
