@@ -136,25 +136,28 @@ class HFE_Settings_Page {
 		}
 
 		$plugin_slug = basename( HFE_FILE, '.php' );
+		
+		if ( class_exists( 'HFE_Rollback' ) ) {
+			$rollback = new \HFE_Rollback(
+				array(
+					'version'     => $update_version,
+					'plugin_name' => HFE_PATH,
+					'plugin_slug' => $plugin_slug,
+					'package_url' => sprintf( 'https://downloads.wordpress.org/plugin/%s.%s.zip', $plugin_slug, $update_version ),
+				)
+			);
 
-		$rollback = new HFE_Rollback(
-			array(
-				'version'     => $update_version,
-				'plugin_name' => HFE_PATH,
-				'plugin_slug' => $plugin_slug,
-				'package_url' => sprintf( 'https://downloads.wordpress.org/plugin/%s.%s.zip', $plugin_slug, $update_version ),
-			)
-		);
+			$rollback->run();
 
-		$rollback->run();
-
-		wp_die(
-			'',
-			esc_html__( 'Rollback to Previous Version', 'header-footer-elementor' ),
-			array(
-				'response' => 200,
-			)
-		);
+			wp_die(
+				'',
+				esc_html__( 'Rollback to Previous Version', 'header-footer-elementor' ),
+				array(
+					'response' => 200,
+				)
+			);
+		}
+		wp_die();
 	}
 
 	/**
