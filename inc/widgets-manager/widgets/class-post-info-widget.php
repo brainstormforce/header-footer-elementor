@@ -892,7 +892,7 @@ class Post_Info_Widget extends Widget_Base {
 
 		// Add custom URL if the option is enabled and the URL is not empty.
 		if ( isset( $repeaterItem['link'] ) && 'yes' === $repeaterItem['link'] && ! empty( $repeaterItem['custom_url'] ) ) {
-			$customData['url'] = esc_url( $repeaterItem['custom_url'] );
+			$customData['url'] = $repeaterItem['custom_url'];
 		}
 
 		return $customData;
