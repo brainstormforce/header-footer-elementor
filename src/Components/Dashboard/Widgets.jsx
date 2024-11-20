@@ -14,8 +14,27 @@ const Widgets = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const widgetsData = convertToWidgetsArray(window.hfeWidgetsList)
-        setAllWidgetsData(widgetsData);
+        const fetchSettings = () => {
+            setLoading(true);
+            apiFetch({
+                path: '/hfe/v1/widgets',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-WP-Nonce': hfeSettingsData.hfe_nonce_action, // Use the correct nonce
+                },
+            })
+                .then((data) => {
+                    const widgetsData = convertToWidgetsArray(data)
+                    console.log( widgetsData );
+                    setAllWidgetsData(widgetsData);
+                    setLoading(false); // Stop loading
+                })
+                .catch((err) => {
+                    setLoading(false); // Stop loading
+                });
+        };
+
+        fetchSettings();
     }, []);
 
     function convertToWidgetsArray(data) {

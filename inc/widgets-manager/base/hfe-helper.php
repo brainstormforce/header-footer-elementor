@@ -50,6 +50,13 @@ class HFE_Helper {
 	private static $all_widgets_list = null;
 
 	/**
+	 * Plugins List
+	 *
+	 * @var get_bsf_plugins_list
+	 */
+	private static $get_bsf_plugins_list = null;
+
+	/**
 	 * Provide General settings array().
 	 *
 	 * @since 0.0.1
@@ -90,6 +97,21 @@ class HFE_Helper {
 			self::$all_widgets_list = self::get_widget_options() + self::get_pro_widget_list();
 		}
 		return apply_filters( 'hfe_all_widgets_list', self::$all_widgets_list );
+	}
+
+	/**
+	 * Provide General settings array().
+	 *
+	 * @since x.x.x
+	 * @return array()
+	 */
+	public static function get_bsf_plugins_list() {
+
+		if ( ! isset( self::$get_bsf_plugins_list ) ) {
+			self::$get_bsf_plugins_list = Widgets_Config::get_bsf_plugins();
+		}
+
+		return apply_filters( 'uael_plugins_list', self::$get_bsf_plugins_list );
 	}
 
 	/**

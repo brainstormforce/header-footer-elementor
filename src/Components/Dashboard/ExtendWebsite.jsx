@@ -17,13 +17,14 @@ const ExtendWebsite = () => {
             setLoading(true);
             try {
                 const data = await apiFetch({
-                    path: '/wp-json/hfe/v1/widgets',
+                    path: '/hfe/v1/plugins',
                     headers: {
                         'Content-Type': 'application/json',
                         'X-WP-Nonce': hfeSettingsData.hfe_nonce_action,
                     },
                 });
                 const pluginsData = convertToPluginsArray(data);
+                console.log( pluginsData );
                 setPlugins(pluginsData);
 
                 // Check if all plugins are installed

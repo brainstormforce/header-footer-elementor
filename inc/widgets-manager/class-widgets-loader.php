@@ -330,7 +330,7 @@ class Widgets_Loader {
 		}
 
 		return $file;
-	}
+	}  
 
 	/**
 	 * Register module required js on elementor's action.
