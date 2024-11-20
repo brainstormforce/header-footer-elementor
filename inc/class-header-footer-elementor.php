@@ -103,8 +103,6 @@ class Header_Footer_Elementor {
 
 			add_shortcode( 'hfe_template', [ $this, 'render_template' ] );
 
-			add_action( 'plugins_loaded', array( $this, 'load_plugin' ) );
-
 			add_action( 'astra_notice_before_markup_header-footer-elementor-rating', [ $this, 'rating_notice_css' ] );
 			add_action( 'admin_init', [ $this, 'register_notices' ] );
 
@@ -127,11 +125,6 @@ class Header_Footer_Elementor {
 			);
 
 		}
-	}
-
-	public function load_plugin() {
-		
-		require_once HFE_DIR . 'inc/settings/settings-api.php';
 	}
 
 	/**
@@ -380,7 +373,7 @@ class Header_Footer_Elementor {
 		// Load the widgets.
 		require HFE_DIR . 'inc/widgets-manager/class-widgets-loader.php';
 
-		require_once HFE_DIR . 'inc/settings/settings-api.php';
+		require_once HFE_DIR . 'inc/settings/hfe-settings-api.php';
 	}
 
 	/**
