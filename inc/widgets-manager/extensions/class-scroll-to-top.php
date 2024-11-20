@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Scroll_To_Top {
 
-    /**
+	/**
 	 * Instance of Widgets_Loader.
 	 *
 	 * @since  1.2.0
@@ -28,7 +28,7 @@ class Scroll_To_Top {
 	private static $_instance = null;
 
 
-    /**
+	/**
 	 * Get instance of Widgets_Loader
 	 *
 	 * @since  1.2.0
@@ -55,22 +55,22 @@ class Scroll_To_Top {
 		add_action( 'elementor/kit/register_tabs', [ $this, 'register_extension_tab' ], 1, 40 );
 		add_action( 'elementor/documents/register_controls', [ $this, 'page_scroll_to_top_controls' ], 10 );
 
-		add_action( 'wp_footer', [$this, 'render_scroll_to_top_html'] );
+		add_action( 'wp_footer', [ $this, 'render_scroll_to_top_html' ] );
 
 		// Enqueue jQuery and add inline script
-        add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
+		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
 	}
 
 	public function enqueue_scripts() {
-        // Ensure jQuery is enqueued
-        wp_enqueue_script( 'jquery' );
+		// Ensure jQuery is enqueued
+		wp_enqueue_script( 'jquery' );
 
-        // Add inline script
+		// Add inline script
 		wp_add_inline_script(
 			'jquery',
 			'!function($){"use strict";$(document).ready(function(){$(this).scrollTop()>100&&$(".hfe-scroll-to-top-wrap").removeClass("hfe-scroll-to-top-hide"),$(window).scroll(function(){$(this).scrollTop()<100?$(".hfe-scroll-to-top-wrap").fadeOut(300):$(".hfe-scroll-to-top-wrap").fadeIn(300)}),$(".hfe-scroll-to-top-wrap").on("click",function(){$("html, body").animate({scrollTop:0},300);return!1})})}(jQuery);'
 		);
-    }
+	}
 
 	/**
 	 * Register extension tab
@@ -133,10 +133,9 @@ class Scroll_To_Top {
 			$scroll_to_top_html = "<div class='hfe-scroll-to-top-wrap hfe-scroll-to-top-hide'><span class='hfe-scroll-to-top-button'>$scrolltop_icon_html</span></div>";
 
 			$elementor_page = get_post_meta( get_the_ID(), '_elementor_edit_mode', true );
-			if( (bool)$elementor_page ) {
+			if ( (bool) $elementor_page ) {
 				printf( '%1$s', $scroll_to_top_html );
-			}
-
+			}       
 		}
 
 		if ( \Elementor\Plugin::instance()->preview->is_preview_mode() ) {
@@ -156,7 +155,7 @@ class Scroll_To_Top {
 				$scroll_to_top_html = "<div class='hfe-scroll-to-top-wrap hfe-scroll-to-top-hide'><span class='hfe-scroll-to-top-button'>$scrolltop_icon_html</span></div>";
 
 				$elementor_page = get_post_meta( get_the_ID(), '_elementor_edit_mode', true );
-				if( (bool)$elementor_page ) {
+				if ( (bool) $elementor_page ) {
 					printf( '%1$s', $scroll_to_top_html );
 				}
 			}
@@ -263,7 +262,7 @@ class Scroll_To_Top {
 	 */
 	public function get_elementor_settings( $setting_id ) {
 
-		$return = '';
+		$return              = '';
 		$extensions_settings = [];
 
 		if ( ! isset( $extensions_settings['kit_settings'] ) ) {

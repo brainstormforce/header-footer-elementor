@@ -150,7 +150,7 @@ class Scroll_To_Top_Settings extends Tab_Base {
 			[
 				'label'      => __( 'Bottom', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
-				'size_units' => ['px', 'em', '%'],
+				'size_units' => [ 'px', 'em', '%' ],
 				'range'      => [
 					'px' => [
 						'min'  => 0,
@@ -182,7 +182,7 @@ class Scroll_To_Top_Settings extends Tab_Base {
 			[
 				'label'      => __( 'Left', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
-				'size_units' => ['px', 'em', '%'],
+				'size_units' => [ 'px', 'em', '%' ],
 				'range'      => [
 					'px' => [
 						'min'  => 0,
@@ -216,7 +216,7 @@ class Scroll_To_Top_Settings extends Tab_Base {
 			[
 				'label'      => __( 'Right', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
-				'size_units' => ['px', 'em', '%'],
+				'size_units' => [ 'px', 'em', '%' ],
 				'range'      => [
 					'px' => [
 						'min'  => 0,
@@ -249,7 +249,7 @@ class Scroll_To_Top_Settings extends Tab_Base {
 			[
 				'label'      => __( 'Height', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
-				'size_units' => ['px'],
+				'size_units' => [ 'px' ],
 				'range'      => [
 					'px' => [
 						'min'  => 0,
@@ -272,7 +272,7 @@ class Scroll_To_Top_Settings extends Tab_Base {
 			[
 				'label'      => __( 'Width', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
-				'size_units' => ['px'],
+				'size_units' => [ 'px' ],
 				'range'      => [
 					'px' => [
 						'min'  => 0,
@@ -294,7 +294,7 @@ class Scroll_To_Top_Settings extends Tab_Base {
 			[
 				'label'      => __( 'Z Index', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
-				'size_units' => ['px'],
+				'size_units' => [ 'px' ],
 				'range'      => [
 					'px' => [
 						'min'  => 0,
@@ -415,7 +415,7 @@ class Scroll_To_Top_Settings extends Tab_Base {
 			[
 				'label'      => __( 'Size', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
-				'size_units' => ['px'],
+				'size_units' => [ 'px' ],
 				'range'      => [
 					'px' => [
 						'min'  => 0,
@@ -438,7 +438,7 @@ class Scroll_To_Top_Settings extends Tab_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'hfe_scroll_to_top_button_text_typo',
-				'global' => [
+				'global'    => [
 					'default' => Global_Typography::TYPOGRAPHY_TEXT,
 				],
 				'selector'  => '.hfe-scroll-to-top-wrap .hfe-scroll-to-top-button span',
@@ -453,7 +453,7 @@ class Scroll_To_Top_Settings extends Tab_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'      => 'hfe_scroll_to_top_button_border',
-				'exclude'   => ['color'], //remove border color
+				'exclude'   => [ 'color' ], // remove border color
 				'selector'  => '{{WRAPPER}} .hfe-scroll-to-top-wrap .hfe-scroll-to-top-button',
 				'condition' => [
 					'hfe_scroll_to_top_global' => 'yes',
@@ -591,7 +591,7 @@ class Scroll_To_Top_Settings extends Tab_Base {
 			[
 				'label'      => __( 'Border Radius', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => ['px'],
+				'size_units' => [ 'px' ],
 				'selectors'  => [
 					'.hfe-scroll-to-top-wrap .hfe-scroll-to-top-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
