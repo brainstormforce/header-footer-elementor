@@ -287,7 +287,7 @@ class HFE_Admin {
 	}
 
 	/**
-	 * Check if UAE Pro is active
+	 * Check if UAE Pro is active.
 	 *
 	 * @return void
 	 */
