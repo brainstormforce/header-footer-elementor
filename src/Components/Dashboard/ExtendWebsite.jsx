@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import ExtendWebsiteWidget from './ExtendWebsiteWidget';
-import { Container } from "@bsf/force-ui";
-import { Plus, ArrowUpRight } from 'lucide-react';
-import apiFetch from '@wordpress/api-fetch'; // Import apiFetch for AJAX calls
+import { Container, Skeleton } from "@bsf/force-ui";
+import apiFetch from '@wordpress/api-fetch';
+import { __ } from '@wordpress/i18n';
+import { ArrowUpRight } from 'lucide-react';
 
 const ExtendWebsite = () => {
 
-    const [plugins, setPlugins] = useState(null); // State to manage plugin data
+    const [plugins, setPlugins] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [updateCounter, setUpdateCounter] = useState(0);
+    const [allInstalled, setAllInstalled] = useState(false);
 
     useEffect(() => {
         const pluginsData = convertToPluginsArray(window.hfePluginsData);

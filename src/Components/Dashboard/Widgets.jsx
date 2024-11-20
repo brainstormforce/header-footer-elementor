@@ -1,20 +1,26 @@
-import React, { useState, useEffect } from 'react'; 
+import React, { useState, useEffect } from 'react';
 import WidgetItem from './WidgetItem'
-import { Container } from "@bsf/force-ui";
+import { ArrowUpRight } from 'lucide-react';
+import { Container, Skeleton } from "@bsf/force-ui";
 import { MoreHorizontalIcon, Plus } from "lucide-react";
+import apiFetch from '@wordpress/api-fetch';
+import { __ } from '@wordpress/i18n';
+import { routes } from '../../admin/settings/routes';
+import { Link } from "../../router/index";
 
 const Widgets = () => {
 
     const [allWidgetsData, setAllWidgetsData] = useState(null); // Initialize state.
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const widgetsData =  convertToWidgetsArray(window.hfeWidgetsList)
+        const widgetsData = convertToWidgetsArray(window.hfeWidgetsList)
         setAllWidgetsData(widgetsData);
     }, []);
 
     function convertToWidgetsArray(data) {
         const widgets = [];
-    
+
         for (const key in data) {
             if (data.hasOwnProperty(key)) {
                 const widget = data[key];
@@ -32,42 +38,71 @@ const Widgets = () => {
                 });
             }
         }
-    
+
         return widgets;
     }
 
     return (
-        <div className='rounded-lg bg-white w-full mb-4'>
-            <div className='flex items-center justify-between' style={{
-                paddingTop: '12px',
-                paddingInline: '16px'
+        <div className='rounded-lg bg-white w-full mb-6'>
+            <div className='flex items-center justify-between p-4' style={{
+                paddingBottom: '0',
             }}>
-                    <p className='m-0 text-sm pt-5 font-semibold text-text-primary'>Widgets / Features</p>
-                    <div className='flex items-center gap-x-2 mr-7'>
-                        <p className='m-0 text-xs font-semibold text-text-primary'>View All</p>
-                        {/* <MoreHorizontalIcon /> */}
-                    </div>
+                <p className='m-0 text-sm font-semibold text-text-primary'>Widgets / Features</p>
+                <div className='flex items-center gap-x-2 mr-7'>
+                    {/* <p className='m-0 text-xs font-semibold text-text-primary'>View All</p> */}
+                    {/* <MoreHorizontalIcon /> */}
+                    <Link to={routes.widgets.path} className='text-sm text-text-primary cursor-pointer' style={{ lineHeight: '1rem' }}>
+                        View All
+                        <ArrowUpRight className='ml-1' size={13} />
+                    </Link>
                 </div>
+            </div>
             <div className='flex bg-black flex-col rounded-lg p-4'>
-                
-                <Container
-                    align="stretch"
-                    className="bg-background-gray p-2 gap-1.5"
-                    cols={4}
-                    containerType="grid"
-                    gap=""
-                    justify="start"
+                {!loading ? (
+                    <Container
+                        align="stretch"
+                        className="p-2 gap-1.5 grid grid-cols-2 md:grid-cols-4"
+                        style={{
+                            backgroundColor: "#F9FAFB"
+                        }}
+                        containerType="grid"
+                        gap=""
+                        justify="start"
                     >
-                        {allWidgetsData?.slice(0, 12).map((widget) => (
+                        {[...Array(20)].map((_, index) => (
                             <Container.Item
-                             key={widget.id}
-                             alignSelf="auto"
-                             className="text-wrap rounded-md shadow-container-item bg-background-primary p-4"
-                           >
-                                <WidgetItem widget={widget} key={widget.id} />
+                                key={index}
+                                alignSelf="auto"
+                                className="text-wrap rounded-md shadow-container-item bg-background-primary p-6 space-y-2"
+                            >
+                                <Skeleton className='w-12 h-2 rounded-md' />
+                                <Skeleton className='w-16 h-2 rounded-md' />
+                                <Skeleton className='w-12 h-2 rounded-md' />
                             </Container.Item>
                         ))}
                     </Container>
+                ) : (
+                    <Container
+                        align="stretch"
+                        className="p-2 gap-1.5 grid grid-cols-2 md:grid-cols-4"
+                        style={{
+                            backgroundColor: "#F9FAFB"
+                        }}
+                        containerType="grid"
+                        gap=""
+                        justify="start"
+                    >
+                        {allWidgetsData?.slice(0, 20).map((widget) => (
+                            <Container.Item
+                                key={widget.id}
+                                alignSelf="auto"
+                                className="text-wrap rounded-md shadow-container-item bg-background-primary p-4"
+                            >
+                                <WidgetItem widget={widget} key={widget.id} updateCounter={0} />
+                            </Container.Item>
+                        ))}
+                    </Container>
+                )}
             </div>
         </div>
     )

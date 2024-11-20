@@ -530,6 +530,9 @@
 #hfe-settings-app .mb-4{
 	margin-bottom: 1rem;
 }
+#hfe-settings-app .mb-6{
+	margin-bottom: 1.5rem;
+}
 #hfe-settings-app .ml-0{
 	margin-left: 0px;
 }
@@ -586,9 +589,6 @@
 }
 #hfe-settings-app .mt-auto{
 	margin-top: auto;
-}
-#hfe-settings-app .mb-6{
-	margin-bottom: 1.5rem;
 }
 #hfe-settings-app .box-border{
 	box-sizing: border-box;
@@ -1571,10 +1571,6 @@
 	--tw-bg-opacity: 1;
 	background-color: rgb(37 99 235 / var(--tw-bg-opacity));
 }
-#hfe-settings-app .bg-background-gray{
-	--tw-bg-opacity: 1;
-	background-color: rgb(249 250 251 / var(--tw-bg-opacity));
-}
 #hfe-settings-app .bg-background-inverse{
 	--tw-bg-opacity: 1;
 	background-color: rgb(17 24 39 / var(--tw-bg-opacity));
@@ -1894,9 +1890,6 @@
 }
 #hfe-settings-app .pr-9{
 	padding-right: 2.25rem;
-}
-#hfe-settings-app .pt-1{
-	padding-top: 0.25rem;
 }
 #hfe-settings-app .pt-3{
 	padding-top: 0.75rem;
@@ -2517,6 +2510,21 @@
 	width: 40px;
 	height: 40px;
 	animation: spin 2s linear infinite;
+}
+
+.hfe-subheading h2 {
+	font-size: 1.1rem !important;
+}
+.hfe-subheading .text-text-secondary {
+	font-size: 0.98rem !important;
+}
+
+.hfe-remove-ring input[type="checkbox"],
+.hfe-remove-ring a,
+.hfe-remove-ring {
+	outline: none;
+	--tw-ring-inset: auto;
+	box-shadow: unset;
 }
 
 @keyframes spin {
