@@ -211,6 +211,11 @@
 	clip: auto;
 	white-space: normal;
 }
+
+#e-admin-top-bar-root.e-admin-top-bar--active {
+    display: none!important;
+  }
+  
 #hfe-settings-app .pointer-events-none{
 	pointer-events: none;
 }
