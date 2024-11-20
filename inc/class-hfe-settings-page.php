@@ -275,8 +275,8 @@ class HFE_Settings_Page {
 	 */
 	public function hfe_settings( $views ) {
 
-		$this->hfe_tabs();
-		$this->hfe_modal();
+		// $this->hfe_tabs();
+		// $this->hfe_modal();
 		return $views;
 	}
 
