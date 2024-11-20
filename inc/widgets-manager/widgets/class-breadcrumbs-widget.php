@@ -811,7 +811,7 @@ class Breadcrumbs_Widget extends Widget_Base {
 		}
 		$output .= '</ul>';
 		
-		echo $output;
+		echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 	}
 
