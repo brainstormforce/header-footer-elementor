@@ -59,36 +59,26 @@ class HFE_Settings_Page {
     // }
 
 
-    // public function get_menu_links() {
-    //     $menu_slug = 'hfe';
+/**
+		 * Get Elementor edit page link
+		 */
+		public static function get_elementor_new_page_url() {
 
-    //     return array(
-    //         array(
-	// 			'id' => 1,
-    //             'label' => __('Dashboard', 'header-footer-elementor'),
-    //             'url' => admin_url('admin.php?page=' . $menu_slug . '&path=dashboard'),
-    //             'path' => '/dashboard',
-    //         ),
-    //         array(
-	// 			'id' => 2,
-    //             'label' => __('Widgets & Features', 'header-footer-elementor'),
-    //             'url' => admin_url('admin.php?page=' . $menu_slug . '&path=widgets'),
-    //             'path' => '/widgets-features',
-    //         ),
-    //         array(
-	// 			'id' => 3,
-    //             'label' => __('Templates', 'header-footer-elementor'),
-    //             'url' => admin_url('admin.php?page=' . $menu_slug . '&path=templates'),
-    //             'path' => '/templates',
-    //         ),
-    //         array(
-	// 			'id' => 4,
-    //             'label' => __('Settings', 'header-footer-elementor'),
-    //             'url' => admin_url('admin.php?page=' . $menu_slug . '&path=settings'),
-    //             'path' => '/settings',
-    //         ),
-    //     );
-    // }
+			if ( class_exists( '\Elementor\Plugin' ) && current_user_can( 'edit_pages' ) ) {
+				// Ensure Elementor is loaded.
+				$query_args = array(
+					'action'    => 'elementor_new_post',
+					'post_type' => 'page',
+				);
+		
+				$new_post_url = add_query_arg( $query_args, admin_url( 'edit.php' ) );
+		
+				$new_post_url = add_query_arg( '_wpnonce', wp_create_nonce( 'elementor_action_new_post' ), $new_post_url );
+		
+				return $new_post_url;
+			}
+			return '';
+		}
 
 	/**
 	 * Show action on plugin page.
@@ -144,6 +134,7 @@ class HFE_Settings_Page {
 			'' => HFE_URL . 'assets/images/settings/column.png',
 			'template_url' => HFE_URL . 'assets/images/settings/template.png',
 			'icon_url' => HFE_URL . 'assets/images/settings/logo.svg',
+			'elementor_page_url'                  => self::get_elementor_new_page_url(),
 			'astra_url' => HFE_URL . 'assets/images/settings/astra.svg',
 			'starter_url' => HFE_URL . 'assets/images/settings/starter-templates.svg',
 			'surecart_url' => HFE_URL . 'assets/images/settings/surecart.svg',

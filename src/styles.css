@@ -37,6 +37,9 @@
 		height: 100% !important;
 		border-radius: 0 !important;
 	}
+	.hfe-nav-menu {
+		border-bottom: 1px solid #e5e7eb;
+	}
 }
 
 .subject-cell {
