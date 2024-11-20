@@ -2,7 +2,7 @@
 /**
  * Scroll to top settings
  *
- * @since 1.4.0
+ * @since x.x.x
  */
 namespace HFE\WidgetsManager\Extensions;
 
@@ -17,12 +17,12 @@ use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 /**
  * HFE Scroll to top extension
  *
- * @since 1.4.0
+ * @since x.x.x
  */
 class Scroll_To_Top_Settings extends Tab_Base {
 
 	/**
-	 * Get tab id
+	 * Get Elementor Tab ID
 	 */
 	public function get_id() {
 		return 'hfe-scroll-to-top-settings';
@@ -47,7 +47,7 @@ class Scroll_To_Top_Settings extends Tab_Base {
 	/**
 	 * Register tab controls
 	 *
-	 * @since 1.4.0
+	 * @since x.x.x
 	 */
 	protected function register_tab_controls() {
 		$this->start_controls_section(
@@ -81,7 +81,7 @@ class Scroll_To_Top_Settings extends Tab_Base {
 			array_merge(
 				[
 					'type'                 => Controls_Manager::SWITCHER,
-					'label'                => __( 'Responsive Visibility', 'header-footer-elementor' ),
+					'label'                => __( 'Responsive Support', 'header-footer-elementor' ),
 					'default'              => 'yes',
 					'return_value'         => 'yes',
 					'label_on'             => __( 'Show', 'header-footer-elementor' ),
@@ -245,6 +245,29 @@ class Scroll_To_Top_Settings extends Tab_Base {
 		);
 
 		$this->add_control(
+			'hfe_scroll_to_top_button_height',
+			[
+				'label'      => __( 'Height', 'header-footer-elementor' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => ['px'],
+				'range'      => [
+					'px' => [
+						'min'  => 0,
+						'max'  => 1000,
+						'step' => 1,
+					],
+				],
+				'separator'  => 'before',
+				'selectors'  => [
+					'.hfe-scroll-to-top-wrap .hfe-scroll-to-top-button' => 'height: {{SIZE}}{{UNIT}};',
+				],
+				'condition'  => [
+					'hfe_scroll_to_top_global' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
 			'hfe_scroll_to_top_button_width',
 			[
 				'label'      => __( 'Width', 'header-footer-elementor' ),
@@ -259,29 +282,6 @@ class Scroll_To_Top_Settings extends Tab_Base {
 				],
 				'selectors'  => [
 					'.hfe-scroll-to-top-wrap .hfe-scroll-to-top-button' => 'width: {{SIZE}}{{UNIT}};',
-				],
-				'separator'  => 'before',
-				'condition'  => [
-					'hfe_scroll_to_top_global' => 'yes',
-				],
-			]
-		);
-
-		$this->add_control(
-			'hfe_scroll_to_top_button_height',
-			[
-				'label'      => __( 'Height', 'header-footer-elementor' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => ['px'],
-				'range'      => [
-					'px' => [
-						'min'  => 0,
-						'max'  => 1000,
-						'step' => 1,
-					],
-				],
-				'selectors'  => [
-					'.hfe-scroll-to-top-wrap .hfe-scroll-to-top-button' => 'height: {{SIZE}}{{UNIT}};',
 				],
 				'condition'  => [
 					'hfe_scroll_to_top_global' => 'yes',
@@ -402,7 +402,7 @@ class Scroll_To_Top_Settings extends Tab_Base {
 				'type'        => Controls_Manager::TEXT,
 				'show_label'  => false,
 				'label_block' => true,
-				'default'     => 'Top',
+				'default'     => 'Up',
 				'condition'   => [
 					'hfe_scroll_to_top_global'     => 'yes',
 					'hfe_scroll_to_top_media_type' => 'text',

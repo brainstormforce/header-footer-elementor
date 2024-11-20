@@ -56,13 +56,27 @@ class Scroll_To_Top {
 		add_action( 'elementor/documents/register_controls', [ $this, 'page_scroll_to_top_controls' ], 10 );
 
 		add_action( 'wp_footer', [$this, 'render_scroll_to_top_html'] );
+
+		// Enqueue jQuery and add inline script
+        add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
 	}
+
+	public function enqueue_scripts() {
+        // Ensure jQuery is enqueued
+        wp_enqueue_script( 'jquery' );
+
+        // Add inline script
+		wp_add_inline_script(
+			'jquery',
+			'!function($){"use strict";$(document).ready(function(){$(this).scrollTop()>100&&$(".hfe-scroll-to-top-wrap").removeClass("hfe-scroll-to-top-hide"),$(window).scroll(function(){$(this).scrollTop()<100?$(".hfe-scroll-to-top-wrap").fadeOut(300):$(".hfe-scroll-to-top-wrap").fadeIn(300)}),$(".hfe-scroll-to-top-wrap").on("click",function(){$("html, body").animate({scrollTop:0},300);return!1})})}(jQuery);'
+		);
+    }
 
 	/**
 	 * Register extension tab
 	 *
 	 * @param \Elementor\Core\Kits\Documents\Kit $kit
-	 * @since 1.4.0
+	 * @since x.x.x
 	 */
 	public function register_extension_tab( \Elementor\Core\Kits\Documents\Kit $kit ) {
 		$kit->register_tab( 'hfe-scroll-to-top-settings', Scroll_To_Top_Settings::class );
@@ -71,7 +85,7 @@ class Scroll_To_Top {
 	/**
 	 * Render scroll to top html
 	 *
-	 * @since 1.4.0
+	 * @since x.x.x
 	 */
 	public function render_scroll_to_top_html() {
 
@@ -103,48 +117,43 @@ class Scroll_To_Top {
 
 		if ( ! \Elementor\Plugin::instance()->preview->is_preview_mode() && $scroll_to_top ) {
 
-			$stt_media_type = ! empty( $this->get_elementor_settings( 'hfe_scroll_to_top_media_type' ) ) ? $this->get_elementor_settings( 'hfe_scroll_to_top_media_type' ) : 'icon';
-			$stt_icon_html  = '';
-			if ( 'icon' == $stt_media_type ) {
-				$stt_icon      = ! empty( $this->get_elementor_settings( 'hfe_scroll_to_top_button_icon' ) ) ? $this->get_elementor_settings( 'hfe_scroll_to_top_button_icon' )['value'] : 'fas fa-chevron-up';
-				$stt_icon_html = "<i class='$stt_icon'></i>";
-			} elseif ( 'image' == $stt_media_type ) {
-				$stt_image     = ! empty( $this->get_elementor_settings( 'hfe_scroll_to_top_button_image' ) ) ? $this->get_elementor_settings( 'hfe_scroll_to_top_button_image' )['url'] : '';
-				$stt_icon_html = "<img src='$stt_image'>";
-			} elseif ( 'text' == $stt_media_type ) {
-				$stt_text      = ! empty( $this->get_elementor_settings( 'hfe_scroll_to_top_button_text' ) ) ? $this->get_elementor_settings( 'hfe_scroll_to_top_button_text' ) : '';
-				$stt_icon_html = "<span>$stt_text</span>";
+			$scrolltop_media_type = ! empty( $this->get_elementor_settings( 'hfe_scroll_to_top_media_type' ) ) ? $this->get_elementor_settings( 'hfe_scroll_to_top_media_type' ) : 'icon';
+			$scrolltop_icon_html  = '';
+			if ( 'icon' == $scrolltop_media_type ) {
+				$scrolltop_icon      = ! empty( $this->get_elementor_settings( 'hfe_scroll_to_top_button_icon' ) ) ? $this->get_elementor_settings( 'hfe_scroll_to_top_button_icon' )['value'] : 'fas fa-chevron-up';
+				$scrolltop_icon_html = "<i class='$scrolltop_icon'></i>";
+			} elseif ( 'image' == $scrolltop_media_type ) {
+				$scrolltop_image     = ! empty( $this->get_elementor_settings( 'hfe_scroll_to_top_button_image' ) ) ? $this->get_elementor_settings( 'hfe_scroll_to_top_button_image' )['url'] : '';
+				$scrolltop_icon_html = "<img src='$scrolltop_image'>";
+			} elseif ( 'text' == $scrolltop_media_type ) {
+				$scrolltop_text      = ! empty( $this->get_elementor_settings( 'hfe_scroll_to_top_button_text' ) ) ? $this->get_elementor_settings( 'hfe_scroll_to_top_button_text' ) : '';
+				$scrolltop_icon_html = "<span>$scrolltop_text</span>";
 			}
 
-			$scroll_to_top_html = "<div class='hfe-scroll-to-top-wrap hfe-scroll-to-top-hide'><span class='hfe-scroll-to-top-button'>$stt_icon_html</span></div>";
+			$scroll_to_top_html = "<div class='hfe-scroll-to-top-wrap hfe-scroll-to-top-hide'><span class='hfe-scroll-to-top-button'>$scrolltop_icon_html</span></div>";
 
 			$elementor_page = get_post_meta( get_the_ID(), '_elementor_edit_mode', true );
 			if( (bool)$elementor_page ) {
 				printf( '%1$s', $scroll_to_top_html );
 			}
 
-			wp_add_inline_script(
-				'hfe-frontend-js',
-				'!function(o){"use strict";o((function(){o(this).scrollTop()>100&&o(".hfe-scroll-to-top-wrap").removeClass("hfe-scroll-to-top-hide"),o(window).scroll((function(){o(this).scrollTop()<100?o(".hfe-scroll-to-top-wrap").fadeOut(300):o(".hfe-scroll-to-top-wrap").fadeIn(300)})),o(".hfe-scroll-to-top-wrap").on("click",(function(){return o("html, body").animate({scrollTop:0},300),!1}))}))}(jQuery);'
-			);
-
 		}
 
 		if ( \Elementor\Plugin::instance()->preview->is_preview_mode() ) {
 			if ( $scroll_to_top ) {
-				$stt_media_type = ! empty( $this->get_elementor_settings( 'hfe_scroll_to_top_media_type' ) ) ? $this->get_elementor_settings( 'hfe_scroll_to_top_media_type' ) : 'icon';
-				$stt_icon_html  = '';
-				if ( 'icon' == $stt_media_type ) {
-					$stt_icon      = ! empty( $this->get_elementor_settings( 'hfe_scroll_to_top_button_icon' ) ) ? $this->get_elementor_settings( 'hfe_scroll_to_top_button_icon' )['value'] : 'fas fa-chevron-up';
-					$stt_icon_html = "<i class='$stt_icon'></i>";
-				} elseif ( 'image' == $stt_media_type ) {
-					$stt_image     = ! empty( $this->get_elementor_settings( 'hfe_scroll_to_top_button_image' ) ) ? $this->get_elementor_settings( 'hfe_scroll_to_top_button_image' )['url'] : '';
-					$stt_icon_html = "<img src='$stt_image'>";
-				} elseif ( 'text' == $stt_media_type ) {
-					$stt_text      = ! empty( $this->get_elementor_settings( 'hfe_scroll_to_top_button_text' ) ) ? $this->get_elementor_settings( 'hfe_scroll_to_top_button_text' ) : '';
-					$stt_icon_html = "<span>$stt_text</span>";
+				$scrolltop_media_type = ! empty( $this->get_elementor_settings( 'hfe_scroll_to_top_media_type' ) ) ? $this->get_elementor_settings( 'hfe_scroll_to_top_media_type' ) : 'icon';
+				$scrolltop_icon_html  = '';
+				if ( 'icon' == $scrolltop_media_type ) {
+					$scrolltop_icon      = ! empty( $this->get_elementor_settings( 'hfe_scroll_to_top_button_icon' ) ) ? $this->get_elementor_settings( 'hfe_scroll_to_top_button_icon' )['value'] : 'fas fa-chevron-up';
+					$scrolltop_icon_html = "<i class='$scrolltop_icon'></i>";
+				} elseif ( 'image' == $scrolltop_media_type ) {
+					$scrolltop_image     = ! empty( $this->get_elementor_settings( 'hfe_scroll_to_top_button_image' ) ) ? $this->get_elementor_settings( 'hfe_scroll_to_top_button_image' )['url'] : '';
+					$scrolltop_icon_html = "<img src='$scrolltop_image'>";
+				} elseif ( 'text' == $scrolltop_media_type ) {
+					$scrolltop_text      = ! empty( $this->get_elementor_settings( 'hfe_scroll_to_top_button_text' ) ) ? $this->get_elementor_settings( 'hfe_scroll_to_top_button_text' ) : '';
+					$scrolltop_icon_html = "<span>$scrolltop_text</span>";
 				}
-				$scroll_to_top_html = "<div class='hfe-scroll-to-top-wrap hfe-scroll-to-top-hide'><span class='hfe-scroll-to-top-button'>$stt_icon_html</span></div>";
+				$scroll_to_top_html = "<div class='hfe-scroll-to-top-wrap hfe-scroll-to-top-hide'><span class='hfe-scroll-to-top-button'>$scrolltop_icon_html</span></div>";
 
 				$elementor_page = get_post_meta( get_the_ID(), '_elementor_edit_mode', true );
 				if( (bool)$elementor_page ) {
@@ -156,9 +165,9 @@ class Scroll_To_Top {
 				;(function($) {
 					'use strict';
 					var markup = '<div class="hfe-scroll-to-top-wrap edit-mode hfe-scroll-to-top-hide"><span class="hfe-scroll-to-top-button"><i class="fas fa-chevron-up"></i></span></div>';
-					var stt = jQuery('.hfe-scroll-to-top-wrap');
+					var scrolltop = jQuery('.hfe-scroll-to-top-wrap');
 
-					if ( ! stt.length ) {
+					if ( ! scrolltop.length ) {
 						jQuery('body').append(markup);
 					}
 
@@ -186,8 +195,8 @@ class Scroll_To_Top {
 							if (e.source.location.href != window.parent.location.href) {
 								return;
 							}
-							var sttWrap = jQuery('.hfe-scroll-to-top-wrap');
-							var button = sttWrap.find('.hfe-scroll-to-top-button');
+							var scrolltopWrap = jQuery('.hfe-scroll-to-top-wrap');
+							var button = scrolltopWrap.find('.hfe-scroll-to-top-button');
 							var changeValue = data.changeValue;
 							var changeItem = data.changeItem;
 
@@ -222,18 +231,18 @@ class Scroll_To_Top {
 									button.html(text);
 								}
 
-								if( 'yes' == items.enable_global_hfe && sttWrap.hasClass("edit-mode") ) {
-									sttWrap.removeClass("edit-mode");
-								} else if( '' == changeValue && !sttWrap.hasClass("edit-mode") ) {
-									sttWrap.addClass("edit-mode");
+								if( 'yes' == items.enable_global_hfe && scrolltopWrap.hasClass("edit-mode") ) {
+									scrolltopWrap.removeClass("edit-mode");
+								} else if( '' == changeValue && !scrolltopWrap.hasClass("edit-mode") ) {
+									scrolltopWrap.addClass("edit-mode");
 								}
 							}
 
 							if( 'hfe_scroll_to_top_single_disable' == changeItem[0] ) {
-								if( 'yes' == changeValue && !sttWrap.hasClass("single-page-off") ) {
-									sttWrap.addClass("single-page-off");
-								} else if( '' == changeValue && sttWrap.hasClass("single-page-off") ) {
-									sttWrap.removeClass("single-page-off");
+								if( 'yes' == changeValue && !scrolltopWrap.hasClass("single-page-off") ) {
+									scrolltopWrap.addClass("single-page-off");
+								} else if( '' == changeValue && scrolltopWrap.hasClass("single-page-off") ) {
+									scrolltopWrap.removeClass("single-page-off");
 								}
 							}
 						}
