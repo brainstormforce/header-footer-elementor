@@ -10,6 +10,8 @@
 
 namespace HFE\Themes;
 
+use HFE\WidgetsManager\Base\HFE_Helper;
+
 /**
  * Class Settings Page.
  *
@@ -17,7 +19,7 @@ namespace HFE\Themes;
  */
 class HFE_Settings_Page {
 	
-	    /**
+	/**
      * Instance
      *z
      * @access private
@@ -37,6 +39,7 @@ class HFE_Settings_Page {
 			add_action( 'admin_menu', [ $this, 'hfe_register_settings_page' ] );
 		}
 		add_action( 'admin_init', [ $this, 'hfe_admin_init' ] );
+		add_action( 'admin_post_uaelite_rollback', [ $this, 'post_uaelite_rollback' ] );
 		add_filter( 'views_edit-elementor-hf', [ $this, 'hfe_settings' ], 10, 1 );
 		add_filter( 'admin_footer_text', [ $this, 'admin_footer_text' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
@@ -95,6 +98,67 @@ class HFE_Settings_Page {
     //         ),
     //     );
     // }
+
+	
+
+	/**
+	 * UAELite version rollback.
+	 *
+	 * Rollback to previous version.
+	 *
+	 * Fired by `admin_post_uaelite_rollback` action.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 */
+	public function post_uaelite_rollback() {
+
+		if ( ! current_user_can( 'install_plugins' ) ) {
+			wp_die(
+				esc_html__( 'You do not have permission to access this page.', 'header-footer-elementor' ),
+				esc_html__( 'Rollback to Previous Version', 'header-footer-elementor' ),
+				array(
+					'response' => 200,
+				)
+			);
+		}
+
+		check_admin_referer( 'uaelite_rollback' );
+
+		$rollback_versions = HFE_Helper::get_rollback_versions_options();
+		$update_version    = isset( $_GET['version'] ) ? sanitize_text_field( $_GET['version'] ) : '';
+
+		// Extract version values from the rollback_versions array
+		$version_values = array_column( $rollback_versions, 'value' );
+
+		if ( empty( $update_version ) || ! in_array( $update_version, $version_values, true ) ) {
+			wp_die( esc_html__( 'Error occurred, The version selected is invalid. Try selecting different version.', 'header-footer-elementor' ) );
+		}
+
+		$plugin_slug = basename( HFE_FILE, '.php' );
+		
+		if ( class_exists( 'HFE_Rollback' ) ) {
+			$rollback = new \HFE_Rollback(
+				array(
+					'version'     => $update_version,
+					'plugin_name' => HFE_PATH,
+					'plugin_slug' => $plugin_slug,
+					'package_url' => sprintf( 'https://downloads.wordpress.org/plugin/%s.%s.zip', $plugin_slug, $update_version ),
+				)
+			);
+
+			$rollback->run();
+
+			wp_die(
+				'',
+				esc_html__( 'Rollback to Previous Version', 'header-footer-elementor' ),
+				array(
+					'response' => 200,
+				)
+			);
+		}
+		wp_die();
+	}
 
 	/**
 	 * Show action on plugin page.

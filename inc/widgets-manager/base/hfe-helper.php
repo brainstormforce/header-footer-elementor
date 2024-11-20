@@ -281,4 +281,100 @@ class HFE_Helper {
 		return $is_activate;
 	}
 
+	/**
+	 * Get Rollback versions.
+	 *
+	 * @since 1.23.0
+	 * @return array
+	 * @access public
+	 */
+	public static function get_rollback_versions_options() {
+
+		$rollback_versions = self::get_rollback_versions();
+
+		$rollback_versions_options = array();
+
+		foreach ( $rollback_versions as $version ) {
+
+			$version = array(
+				'label' => $version,
+				'value' => $version,
+
+			);
+
+			$rollback_versions_options[] = $version;
+		}
+
+		return $rollback_versions_options;
+	}
+
+	/**
+	 * Get Rollback versions.
+	 *
+	 * @since x.x.x
+	 * @return array
+	 * @access public
+	 */
+	public static function get_rollback_versions() {
+
+		$rollback_versions = get_transient( 'hfe_rollback_versions_' . HFE_VER );
+
+		if ( empty( $rollback_versions ) ) {
+
+			$max_versions = 10;
+
+			require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
+
+			$plugin_information = plugins_api(
+				'plugin_information',
+				array(
+					'slug' => 'header-footer-elementor',
+				)
+			);
+
+			if ( empty( $plugin_information->versions ) || ! is_array( $plugin_information->versions ) ) {
+				return array();
+			}
+
+			krsort( $plugin_information->versions );
+
+			$rollback_versions = array();
+
+			foreach ( $plugin_information->versions as $version => $download_link ) {
+
+				$lowercase_version = strtolower( $version );
+
+				$is_valid_rollback_version = ! preg_match( '/(trunk|beta|rc|dev)/i', $lowercase_version );
+
+				if ( ! $is_valid_rollback_version ) {
+					continue;
+				}
+
+				if ( version_compare( $version, HFE_VER, '>=' ) ) {
+					continue;
+				}
+
+				$rollback_versions[] = $version;
+			}
+
+			usort( $rollback_versions, function( $prev, $next ) {
+				if ( version_compare( $prev, $next, '==' ) ) {
+					return 0;
+				}
+		
+				if ( version_compare( $prev, $next, '>' ) ) {
+					return -1;
+				}
+		
+				return 1;
+			} );
+
+			$rollback_versions = array_slice( $rollback_versions, 0, $max_versions, true );
+
+			set_transient( 'hfe_rollback_versions_' . HFE_VER, $rollback_versions, WEEK_IN_SECONDS );
+		}
+
+		return $rollback_versions;
+	}
+
 }
