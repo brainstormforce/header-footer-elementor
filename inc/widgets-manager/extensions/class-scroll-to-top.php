@@ -179,7 +179,7 @@ class Scroll_To_Top {
 
 					window.addEventListener('message',function(e) {
 						var data = e.data;
-						if( 'sttMessage' == data.check ) {
+						if( 'hfeMessage' == data.check ) {
 							if (e.origin != window.origin) {
 								return;
 							}
@@ -196,7 +196,7 @@ class Scroll_To_Top {
 								var image = '';
 								var text = '';
 								var items = {
-									'enable_global_stt' : ('hfe_scroll_to_top_global' == changeItem[0]) ? changeValue : data.enable_global_stt,
+									'enable_global_hfe' : ('hfe_scroll_to_top_global' == changeItem[0]) ? changeValue : data.enable_global_hfe,
 									'media_type' : ('hfe_scroll_to_top_media_type' == changeItem[0]) ? changeValue : data.media_type,
 									'icon' : ('hfe_scroll_to_top_button_icon' == changeItem[0]) ? changeValue : data.icon,
 									'image' : ('hfe_scroll_to_top_button_image' == changeItem[0]) ? changeValue : data.image,
@@ -222,7 +222,7 @@ class Scroll_To_Top {
 									button.html(text);
 								}
 
-								if( 'yes' == items.enable_global_stt && sttWrap.hasClass("edit-mode") ) {
+								if( 'yes' == items.enable_global_hfe && sttWrap.hasClass("edit-mode") ) {
 									sttWrap.removeClass("edit-mode");
 								} else if( '' == changeValue && !sttWrap.hasClass("edit-mode") ) {
 									sttWrap.addClass("edit-mode");
