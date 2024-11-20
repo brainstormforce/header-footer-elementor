@@ -70,9 +70,6 @@ class HFE_Admin {
 
 		wp_enqueue_style( 'hfe-style' );
 
-    // Add the admin top bar root div
-    echo '<div id="hfe-admin-top-bar-root"></div>';
-
 	}
    /**
      * Enqueue admin nav menu script

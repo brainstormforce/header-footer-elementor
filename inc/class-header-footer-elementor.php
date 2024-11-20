@@ -76,6 +76,15 @@ class Header_Footer_Elementor {
 				return $is_active;
 			}, 10, 2);
 
+			add_action( 'current_screen', function () {
+				$current_screen = get_current_screen();
+				if ( $current_screen && $current_screen->id === 'edit-elementor-hf' ) {
+					add_action( 'in_admin_header', function () {
+						$this->render_admin_top_bar();
+					} );
+				}
+			} );
+
 			$is_theme_supported = true;
 
 			if ( 'genesis' == $this->template ) {
@@ -137,6 +146,13 @@ class Header_Footer_Elementor {
 			);
 
 		}
+	}
+
+	private function render_admin_top_bar() {
+		?>
+		<div id="hfe-admin-top-bar-root">
+		</div>
+		<?php
 	}
 
 	/**
