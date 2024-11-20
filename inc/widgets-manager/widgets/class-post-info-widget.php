@@ -327,6 +327,7 @@ class Post_Info_Widget extends Widget_Base {
 			[
 				'label'       => __( 'Comments', 'header-footer-elementor' ),
 				'type'        => Controls_Manager::TEXT,
+				/* translators: %s: Number of comments. */
 				'placeholder' => __( '%s Comments', 'header-footer-elementor' ),
 				'condition'   => [
 					'comments_custom_strings' => 'yes',
@@ -787,8 +788,8 @@ class Post_Info_Widget extends Widget_Base {
 	 * 
 	 * @since x.x.x
 	 * @access protected
-	 * @param array $repeater_item
-	 * @return array
+	 * @param array $repeater_item An array of repeater item options for custom strings and link.
+	 * @return array An array of rendered post meta fields.
 	 */
 	protected function get_meta_data( $repeater_item ) {
 
@@ -916,6 +917,7 @@ class Post_Info_Widget extends Widget_Base {
 			[
 				'stringNoComments' => __( 'No Comments', 'header-footer-elementor' ),
 				'stringOneComment' => __( 'One Comment', 'header-footer-elementor' ),
+				/* translators: %s: Number of comments. */
 				'stringComments'   => __( '%s Comments', 'header-footer-elementor' ),
 			]
 		);
@@ -1143,12 +1145,12 @@ class Post_Info_Widget extends Widget_Base {
 			<?php if ( $has_link ) : ?>
 				<a <?php echo $this->get_render_attribute_string( $link_key ); ?>>
 			<?php endif; ?>
-	
+
 			<?php
 			$this->render_item_icon_or_image( $item_data, $repeater_item, $repeater_index );
 			$this->render_item_text( $item_data, $repeater_index );
 			?>
-	
+
 			<?php if ( $has_link ) : ?>
 				</a>
 			<?php endif; ?>
@@ -1160,7 +1162,7 @@ class Post_Info_Widget extends Widget_Base {
 	 * Render the text for the item in the icon list.
 	 *
 	 * @param array $item_data      The data for the item.
-	 * @param int   $repeater_index The index of the repeater item.
+	 * @param array $repeater_item  The repeater item data.
 	 * @param int   $repeater_index The index of the repeater item.
 	 * @return void
 	 */
@@ -1214,14 +1216,14 @@ class Post_Info_Widget extends Widget_Base {
 			<?php if ( ! empty( $item_data['text_prefix'] ) ) : ?>
 				<span class="hfe-post-info__item-prefix"><?php echo esc_html( $item_data['text_prefix'] ); ?></span>
 			<?php endif; ?>
-	
+
 			<?php if ( ! empty( $item_data['terms_list'] ) ) : ?>
 				<span class="hfe-post-info__terms-list">
 					<?php
 					$terms_list = array_map(
 						function( $term ) {
 							$term_text = esc_html( $term['text'] );
-							return ! empty( $term['url'] ) ? '<a href="' . esc_attr( $term['url'] ) . '" class="hfe-post-info__terms-list-item">' . $term_text . '</a>' : '<span class="hfe-post-info__terms-list-item">' . $term_text . '</span>';
+							return ! empty( $term['url'] ) ? '<a href="' . esc_url( $term['url'] ) . '" class="hfe-post-info__terms-list-item">' . $term_text . '</a>' : '<span class="hfe-post-info__terms-list-item">' . $term_text . '</span>';
 						},
 						$item_data['terms_list']
 					);
