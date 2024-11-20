@@ -121,20 +121,20 @@ class Post_Info_Widget extends Widget_Base {
 		$this->add_control(
 			'view',
 			[
-				'label' => __( 'Layout', 'header-footer-elementor' ),
-				'type' => Controls_Manager::CHOOSE,
-				'default' => 'inline',
-				'options' => [
-					'inline' => [
+				'label'        => __( 'Layout', 'header-footer-elementor' ),
+				'type'         => Controls_Manager::CHOOSE,
+				'default'      => 'inline',
+				'options'      => [
+					'inline'      => [
 						'title' => __( 'Inline', 'header-footer-elementor' ),
-						'icon' => 'eicon-ellipsis-h',
+						'icon'  => 'eicon-ellipsis-h',
 					],
 					'traditional' => [
 						'title' => __( 'Default', 'header-footer-elementor' ),
-						'icon' => 'eicon-editor-list-ul',
+						'icon'  => 'eicon-editor-list-ul',
 					],
 				],
-				'render_type' => 'template',
+				'render_type'  => 'template',
 				'prefix_class' => 'hfe-post-info-layout-',
 			]
 		);
@@ -144,16 +144,16 @@ class Post_Info_Widget extends Widget_Base {
 		$repeater->add_control(
 			'type',
 			[
-				'label' => __( 'Type', 'header-footer-elementor' ),
-				'type' => Controls_Manager::SELECT,
+				'label'   => __( 'Type', 'header-footer-elementor' ),
+				'type'    => Controls_Manager::SELECT,
 				'default' => 'date',
 				'options' => [
-					'author' => __( 'Author', 'header-footer-elementor' ),
-					'time' => __( 'Time', 'header-footer-elementor' ),
-					'date' => __( 'Date', 'header-footer-elementor' ),
-					'terms' => __( 'Terms', 'header-footer-elementor' ),
+					'author'   => __( 'Author', 'header-footer-elementor' ),
+					'time'     => __( 'Time', 'header-footer-elementor' ),
+					'date'     => __( 'Date', 'header-footer-elementor' ),
+					'terms'    => __( 'Terms', 'header-footer-elementor' ),
 					'comments' => __( 'Comments', 'header-footer-elementor' ),
-					'custom' => __( 'Custom', 'header-footer-elementor' ),
+					'custom'   => __( 'Custom', 'header-footer-elementor' ),
 				],
 			]
 		);
@@ -161,16 +161,16 @@ class Post_Info_Widget extends Widget_Base {
 		$repeater->add_control(
 			'date_format',
 			[
-				'label' => __( 'Date Format', 'header-footer-elementor' ),
-				'type' => Controls_Manager::SELECT,
-				'default' => 'default',
-				'options' => [
+				'label'     => __( 'Date Format', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'default',
+				'options'   => [
 					'default' => 'Default',
-					'0' => _x( 'June 1, 2024 (F j, Y)', 'Date Format', 'header-footer-elementor' ),
-					'1' => '06/01/2024 (d/m/Y)',
-					'2' => '2024-01-06 (Y-m-d)',
-					'3' => '01/06/2024 (m/d/Y)',
-					'custom' => __( 'Custom', 'header-footer-elementor' ),
+					'0'       => _x( 'June 1, 2024 (F j, Y)', 'Date Format', 'header-footer-elementor' ),
+					'1'       => '06/01/2024 (d/m/Y)',
+					'2'       => '2024-01-06 (Y-m-d)',
+					'3'       => '01/06/2024 (m/d/Y)',
+					'custom'  => __( 'Custom', 'header-footer-elementor' ),
 				],
 				'condition' => [
 					'type' => 'date',
@@ -182,11 +182,11 @@ class Post_Info_Widget extends Widget_Base {
 		$repeater->add_control(
 			'custom_date_format',
 			[
-				'label' => __( 'Custom Date Format', 'header-footer-elementor' ),
-				'type' => Controls_Manager::TEXT,
-				'default' => 'F j, Y',
-				'condition' => [
-					'type' => 'date',
+				'label'       => __( 'Custom Date Format', 'header-footer-elementor' ),
+				'type'        => Controls_Manager::TEXT,
+				'default'     => 'F j, Y',
+				'condition'   => [
+					'type'        => 'date',
 					'date_format' => 'custom',
 				],
 				'description' => sprintf(
@@ -200,15 +200,15 @@ class Post_Info_Widget extends Widget_Base {
 		$repeater->add_control(
 			'time_format',
 			[
-				'label' => __( 'Time Format', 'header-footer-elementor' ),
-				'type' => Controls_Manager::SELECT,
-				'default' => 'default',
-				'options' => [
+				'label'     => __( 'Time Format', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'default',
+				'options'   => [
 					'default' => 'Default',
-					'0' => '3:31 pm (g:i a)',
-					'1' => '3:31 PM (g:i A)',
-					'2' => '15:31 (H:i)',
-					'custom' => __( 'Custom', 'header-footer-elementor' ),
+					'0'       => '3:31 pm (g:i a)',
+					'1'       => '3:31 PM (g:i A)',
+					'2'       => '15:31 (H:i)',
+					'custom'  => __( 'Custom', 'header-footer-elementor' ),
 				],
 				'condition' => [
 					'type' => 'time',
@@ -218,12 +218,12 @@ class Post_Info_Widget extends Widget_Base {
 		$repeater->add_control(
 			'custom_time_format',
 			[
-				'label' => __( 'Custom Time Format', 'header-footer-elementor' ),
-				'type' => Controls_Manager::TEXT,
-				'default' => 'g:i a',
+				'label'       => __( 'Custom Time Format', 'header-footer-elementor' ),
+				'type'        => Controls_Manager::TEXT,
+				'default'     => 'g:i a',
 				'placeholder' => 'g:i a',
-				'condition' => [
-					'type' => 'time',
+				'condition'   => [
+					'type'        => 'time',
 					'time_format' => 'custom',
 				],
 				'description' => sprintf(
@@ -237,12 +237,12 @@ class Post_Info_Widget extends Widget_Base {
 		$repeater->add_control(
 			'taxonomy',
 			[
-				'label' => __( 'Taxonomy', 'header-footer-elementor' ),
-				'type' => Controls_Manager::SELECT2,
+				'label'       => __( 'Taxonomy', 'header-footer-elementor' ),
+				'type'        => Controls_Manager::SELECT2,
 				'label_block' => true,
-				'default' => [],
-				'options' => $this->get_taxonomies(),
-				'condition' => [
+				'default'     => [],
+				'options'     => $this->get_taxonomies(),
+				'condition'   => [
 					'type' => 'terms',
 				],
 			]
@@ -251,8 +251,8 @@ class Post_Info_Widget extends Widget_Base {
 		$repeater->add_control(
 			'text_prefix',
 			[
-				'label' => __( 'Before', 'header-footer-elementor' ),
-				'type' => Controls_Manager::TEXT,
+				'label'     => __( 'Before', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::TEXT,
 				'condition' => [
 					'type!' => 'custom',
 				],
@@ -262,8 +262,8 @@ class Post_Info_Widget extends Widget_Base {
 		$repeater->add_control(
 			'show_avatar',
 			[
-				'label' => __( 'Avatar', 'header-footer-elementor' ),
-				'type' => Controls_Manager::SWITCHER,
+				'label'     => __( 'Avatar', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SWITCHER,
 				'condition' => [
 					'type' => 'author',
 				],
@@ -273,8 +273,8 @@ class Post_Info_Widget extends Widget_Base {
 		$repeater->add_responsive_control(
 			'avatar_size',
 			[
-				'label' => __( 'Size', 'header-footer-elementor' ),
-				'type' => Controls_Manager::SLIDER,
+				'label'     => __( 'Size', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SLIDER,
 				'selectors' => [
 					'{{WRAPPER}} {{CURRENT_ITEM}} .hfe-post-info-icon' => 'width: {{SIZE}}{{UNIT}}',
 				],
@@ -287,9 +287,9 @@ class Post_Info_Widget extends Widget_Base {
 		$repeater->add_control(
 			'comments_custom_strings',
 			[
-				'label' => __( 'Custom Format', 'header-footer-elementor' ),
-				'type' => Controls_Manager::SWITCHER,
-				'default' => false,
+				'label'     => __( 'Custom Format', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SWITCHER,
+				'default'   => false,
 				'condition' => [
 					'type' => 'comments',
 				],
@@ -299,12 +299,12 @@ class Post_Info_Widget extends Widget_Base {
 		$repeater->add_control(
 			'string_no_comments',
 			[
-				'label' => __( 'No Comments', 'header-footer-elementor' ),
-				'type' => Controls_Manager::TEXT,
+				'label'       => __( 'No Comments', 'header-footer-elementor' ),
+				'type'        => Controls_Manager::TEXT,
 				'placeholder' => __( 'No Comments', 'header-footer-elementor' ),
-				'condition' => [
+				'condition'   => [
 					'comments_custom_strings' => 'yes',
-					'type' => 'comments',
+					'type'                    => 'comments',
 				],
 			]
 		);
@@ -312,12 +312,12 @@ class Post_Info_Widget extends Widget_Base {
 		$repeater->add_control(
 			'string_one_comment',
 			[
-				'label' => __( 'One Comment', 'header-footer-elementor' ),
-				'type' => Controls_Manager::TEXT,
+				'label'       => __( 'One Comment', 'header-footer-elementor' ),
+				'type'        => Controls_Manager::TEXT,
 				'placeholder' => __( 'One Comment', 'header-footer-elementor' ),
-				'condition' => [
+				'condition'   => [
 					'comments_custom_strings' => 'yes',
-					'type' => 'comments',
+					'type'                    => 'comments',
 				],
 			]
 		);
@@ -325,12 +325,12 @@ class Post_Info_Widget extends Widget_Base {
 		$repeater->add_control(
 			'string_comments',
 			[
-				'label' => __( 'Comments', 'header-footer-elementor' ),
-				'type' => Controls_Manager::TEXT,
+				'label'       => __( 'Comments', 'header-footer-elementor' ),
+				'type'        => Controls_Manager::TEXT,
 				'placeholder' => __( '%s Comments', 'header-footer-elementor' ),
-				'condition' => [
+				'condition'   => [
 					'comments_custom_strings' => 'yes',
-					'type' => 'comments',
+					'type'                    => 'comments',
 				],
 			]
 		);
@@ -338,13 +338,13 @@ class Post_Info_Widget extends Widget_Base {
 		$repeater->add_control(
 			'custom_text',
 			[
-				'label' => __( 'Custom', 'header-footer-elementor' ),
-				'type' => Controls_Manager::TEXT,
-				'dynamic' => [
+				'label'       => __( 'Custom', 'header-footer-elementor' ),
+				'type'        => Controls_Manager::TEXT,
+				'dynamic'     => [
 					'active' => true,
 				],
 				'label_block' => true,
-				'condition' => [
+				'condition'   => [
 					'type' => 'custom',
 				],
 			]
@@ -353,9 +353,9 @@ class Post_Info_Widget extends Widget_Base {
 		$repeater->add_control(
 			'link',
 			[
-				'label' => __( 'Link', 'header-footer-elementor' ),
-				'type' => Controls_Manager::SWITCHER,
-				'default' => 'yes',
+				'label'     => __( 'Link', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SWITCHER,
+				'default'   => 'yes',
 				'condition' => [
 					'type!' => 'time',
 				],
@@ -365,9 +365,9 @@ class Post_Info_Widget extends Widget_Base {
 		$repeater->add_control(
 			'custom_url',
 			[
-				'label' => __( 'Custom URL', 'header-footer-elementor' ),
-				'type' => Controls_Manager::URL,
-				'dynamic' => [
+				'label'     => __( 'Custom URL', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::URL,
+				'dynamic'   => [
 					'active' => true,
 				],
 				'condition' => [
@@ -379,14 +379,14 @@ class Post_Info_Widget extends Widget_Base {
 		$repeater->add_control(
 			'show_icon',
 			[
-				'label' => __( 'Icon', 'header-footer-elementor' ),
-				'type' => Controls_Manager::SELECT,
-				'options' => [
-					'none' => __( 'None', 'header-footer-elementor' ),
+				'label'     => __( 'Icon', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SELECT,
+				'options'   => [
+					'none'    => __( 'None', 'header-footer-elementor' ),
 					'default' => __( 'Default', 'header-footer-elementor' ),
-					'custom' => __( 'Custom', 'header-footer-elementor' ),
+					'custom'  => __( 'Custom', 'header-footer-elementor' ),
 				],
-				'default' => 'default',
+				'default'   => 'default',
 				'condition' => [
 					'show_avatar!' => 'yes',
 				],
@@ -396,10 +396,10 @@ class Post_Info_Widget extends Widget_Base {
 		$repeater->add_control(
 			'selected_icon',
 			[
-				'label' => __( 'Choose Icon', 'header-footer-elementor' ),
-				'type' => Controls_Manager::ICONS,
+				'label'     => __( 'Choose Icon', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::ICONS,
 				'condition' => [
-					'show_icon' => 'custom',
+					'show_icon'    => 'custom',
 					'show_avatar!' => 'yes',
 				],
 			]
@@ -408,28 +408,28 @@ class Post_Info_Widget extends Widget_Base {
 		$this->add_control(
 			'icon_list',
 			[
-				'label' => '',
-				'type' => Controls_Manager::REPEATER,
-				'fields' => $repeater->get_controls(),
-				'default' => [
+				'label'       => '',
+				'type'        => Controls_Manager::REPEATER,
+				'fields'      => $repeater->get_controls(),
+				'default'     => [
 					[
-						'type' => 'date',
+						'type'          => 'date',
 						'selected_icon' => [
-							'value' => 'far fa-calendar-alt',
+							'value'   => 'far fa-calendar-alt',
 							'library' => 'fa-regular',
 						],
 					],
 					[
-						'type' => 'author',
+						'type'          => 'author',
 						'selected_icon' => [
-							'value' => 'far fa-user-circle',
+							'value'   => 'far fa-user-circle',
 							'library' => 'fa-regular',
 						],
 					],
 					[
-						'type' => 'time',
+						'type'          => 'time',
 						'selected_icon' => [
-							'value' => 'far fa-clock',
+							'value'   => 'far fa-clock',
 							'library' => 'fa-regular',
 						],
 					],
@@ -450,18 +450,18 @@ class Post_Info_Widget extends Widget_Base {
 	 */
 	protected function register_style_post_info_meta_controls() {
 		$this->start_controls_section(
-            'section_style_list_items',
-            [
-                'label' => __( 'List Items', 'header-footer-elementor' ),
-                'tab' => Controls_Manager::TAB_STYLE,
-            ]
-        );
+			'section_style_list_items',
+			[
+				'label' => __( 'List Items', 'header-footer-elementor' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
 			$this->add_responsive_control(
 				'space_between',
 				[
-					'label' => __( 'Space Between', 'header-footer-elementor' ),
-					'type' => Controls_Manager::SLIDER,
-					'range' => [
+					'label'     => __( 'Space Between', 'header-footer-elementor' ),
+					'type'      => Controls_Manager::SLIDER,
+					'range'     => [
 						'px' => [
 							'max' => 50,
 						],
@@ -479,35 +479,35 @@ class Post_Info_Widget extends Widget_Base {
 			$this->add_responsive_control(
 				'icon_align',
 				[
-					'label' => __( 'Alignment', 'header-footer-elementor' ),
-					'type' => Controls_Manager::CHOOSE,
-					'options' => [
+					'label'     => __( 'Alignment', 'header-footer-elementor' ),
+					'type'      => Controls_Manager::CHOOSE,
+					'options'   => [
 						'flex-start' => [
 							'title' => __( 'Start', 'header-footer-elementor' ),
-							'icon' => 'eicon-h-align-left',
+							'icon'  => 'eicon-h-align-left',
 						],
-						'center' => [
+						'center'     => [
 							'title' => __( 'Center', 'header-footer-elementor' ),
-							'icon' => 'eicon-h-align-center',
+							'icon'  => 'eicon-h-align-center',
 						],
-						'flex-end' => [
+						'flex-end'   => [
 							'title' => __( 'End', 'header-footer-elementor' ),
-							'icon' => 'eicon-h-align-right',
+							'icon'  => 'eicon-h-align-right',
 						],
 					],
 					'selectors' => [
-						'{{WRAPPER}} ul.hfe-post-info-inline.hfe-post-info-items, {{WRAPPER}}.hfe-post-info-layout-traditional .hfe-post-info-item' => 'justify-content:{{VALUE}};'
-					]
+						'{{WRAPPER}} ul.hfe-post-info-inline.hfe-post-info-items, {{WRAPPER}}.hfe-post-info-layout-traditional .hfe-post-info-item' => 'justify-content:{{VALUE}};',
+					],
 				]
 			);
 
 			$this->add_control(
 				'separator',
 				[
-					'label' => __( 'Separator', 'header-footer-elementor' ),
-					'type' => Controls_Manager::SWITCHER,
+					'label'     => __( 'Separator', 'header-footer-elementor' ),
+					'type'      => Controls_Manager::SWITCHER,
 					'label_off' => __( 'Off', 'header-footer-elementor' ),
-					'label_on' => __( 'On', 'header-footer-elementor' ),
+					'label_on'  => __( 'On', 'header-footer-elementor' ),
 					'selectors' => [
 						'{{WRAPPER}} .hfe-post-info-item:not(:last-child):after' => 'content: ""',
 					],
@@ -518,15 +518,15 @@ class Post_Info_Widget extends Widget_Base {
 			$this->add_control(
 				'separator_style',
 				[
-					'label' => __( 'Style', 'header-footer-elementor' ),
-					'type' => Controls_Manager::SELECT,
-					'options' => [
-						'solid' => __( 'Solid', 'header-footer-elementor' ),
+					'label'     => __( 'Style', 'header-footer-elementor' ),
+					'type'      => Controls_Manager::SELECT,
+					'options'   => [
+						'solid'  => __( 'Solid', 'header-footer-elementor' ),
 						'double' => __( 'Double', 'header-footer-elementor' ),
 						'dotted' => __( 'Dotted', 'header-footer-elementor' ),
 						'dashed' => __( 'Dashed', 'header-footer-elementor' ),
 					],
-					'default' => 'solid',
+					'default'   => 'solid',
 					'condition' => [
 						'separator' => 'yes',
 					],
@@ -540,12 +540,12 @@ class Post_Info_Widget extends Widget_Base {
 			$this->add_control(
 				'separator_weight',
 				[
-					'label' => __( 'Weight', 'header-footer-elementor' ),
-					'type' => Controls_Manager::SLIDER,
-					'default' => [
+					'label'     => __( 'Weight', 'header-footer-elementor' ),
+					'type'      => Controls_Manager::SLIDER,
+					'default'   => [
 						'size' => 1,
 					],
-					'range' => [
+					'range'     => [
 						'px' => [
 							'min' => 1,
 							'max' => 20,
@@ -564,27 +564,27 @@ class Post_Info_Widget extends Widget_Base {
 			$this->add_control(
 				'separator_width',
 				[
-					'label' => __( 'Width', 'header-footer-elementor' ),
-					'type' => Controls_Manager::SLIDER,
+					'label'      => __( 'Width', 'header-footer-elementor' ),
+					'type'       => Controls_Manager::SLIDER,
 					'size_units' => [ '%', 'px' ],
-					'default' => [
+					'default'    => [
 						'unit' => '%',
 					],
-					'range' => [
+					'range'      => [
 						'px' => [
 							'min' => 1,
 							'max' => 100,
 						],
-						'%' => [
+						'%'  => [
 							'min' => 1,
 							'max' => 100,
 						],
 					],
-					'condition' => [
+					'condition'  => [
 						'separator' => 'yes',
-						'view!' => 'inline',
+						'view!'     => 'inline',
 					],
-					'selectors' => [
+					'selectors'  => [
 						'{{WRAPPER}} .hfe-post-info-item:not(:last-child):after' => 'width: {{SIZE}}{{UNIT}}',
 					],
 				]
@@ -593,28 +593,28 @@ class Post_Info_Widget extends Widget_Base {
 			$this->add_control(
 				'separator_height',
 				[
-					'label' => __( 'Height', 'header-footer-elementor' ),
-					'type' => Controls_Manager::SLIDER,
+					'label'      => __( 'Height', 'header-footer-elementor' ),
+					'type'       => Controls_Manager::SLIDER,
 					'size_units' => [ '%', 'px' ],
-					'default' => [
+					'default'    => [
 						'size' => 100,
 						'unit' => '%',
 					],
-					'range' => [
+					'range'      => [
 						'px' => [
 							'min' => 1,
 							'max' => 100,
 						],
-						'%' => [
+						'%'  => [
 							'min' => 1,
 							'max' => 100,
 						],
 					],
-					'condition' => [
+					'condition'  => [
 						'separator' => 'yes',
-						'view' => 'inline',
+						'view'      => 'inline',
 					],
-					'selectors' => [
+					'selectors'  => [
 						'{{WRAPPER}} .hfe-post-info-item:not(:last-child):after' => 'height: {{SIZE}}{{UNIT}}',
 					],
 				]
@@ -623,9 +623,9 @@ class Post_Info_Widget extends Widget_Base {
 			$this->add_control(
 				'separator_color',
 				[
-					'label' => __( 'Color', 'header-footer-elementor' ),
-					'type' => Controls_Manager::COLOR,
-					'default' => '#ddd',
+					'label'     => __( 'Color', 'header-footer-elementor' ),
+					'type'      => Controls_Manager::COLOR,
+					'default'   => '#ddd',
 					'condition' => [
 						'separator' => 'yes',
 					],
@@ -652,18 +652,18 @@ class Post_Info_Widget extends Widget_Base {
 			'section_style_icon',
 			[
 				'label' => __( 'Icon', 'header-footer-elementor' ),
-				'tab' => Controls_Manager::TAB_STYLE,
+				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
 
 		$this->add_control(
 			'icon_color',
 			[
-				'label' => __( 'Color', 'header-footer-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				'label'     => __( 'Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
 				'selectors' => [
-					'{{WRAPPER}} .hfe-post-info-icon i' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .hfe-post-info-icon i'   => 'color: {{VALUE}};',
 					'{{WRAPPER}} .hfe-post-info-icon svg' => 'fill: {{VALUE}};',
 				],
 			]
@@ -672,19 +672,19 @@ class Post_Info_Widget extends Widget_Base {
 		$this->add_responsive_control(
 			'icon_size',
 			[
-				'label' => __( 'Size', 'header-footer-elementor' ),
-				'type' => Controls_Manager::SLIDER,
-				'default' => [
+				'label'     => __( 'Size', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SLIDER,
+				'default'   => [
 					'size' => 14,
 				],
-				'range' => [
+				'range'     => [
 					'px' => [
 						'min' => 6,
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .hfe-post-info-icon' => 'width: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .hfe-post-info-icon i' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .hfe-post-info-icon'     => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .hfe-post-info-icon i'   => 'font-size: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .hfe-post-info-icon svg' => '--e-icon-list-icon-size: {{SIZE}}{{UNIT}};',
 				],
 			]
@@ -707,21 +707,21 @@ class Post_Info_Widget extends Widget_Base {
 			'section_style_text',
 			[
 				'label' => __( 'Text', 'header-footer-elementor' ),
-				'tab' => Controls_Manager::TAB_STYLE,
+				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
 
 			$this->add_control(
 				'text_indent',
 				[
-					'label' => __( 'Spacing between Icon & Text', 'header-footer-elementor' ),
-					'type' => Controls_Manager::SLIDER,
-					'range' => [
+					'label'     => __( 'Spacing between Icon & Text', 'header-footer-elementor' ),
+					'type'      => Controls_Manager::SLIDER,
+					'range'     => [
 						'px' => [
 							'max' => 50,
 						],
 					],
-					'default' => [
+					'default'   => [
 						'size' => 10,
 						'unit' => 'px',
 					],
@@ -735,19 +735,19 @@ class Post_Info_Widget extends Widget_Base {
 			$this->add_control(
 				'text_color',
 				[
-					'label' => __( 'Text Color', 'header-footer-elementor' ),
-					'type' => Controls_Manager::COLOR,
-					'default' => '',
+					'label'     => __( 'Text Color', 'header-footer-elementor' ),
+					'type'      => Controls_Manager::COLOR,
+					'default'   => '',
 					'selectors' => [
 						'{{WRAPPER}} .hfe-post-info-text, {{WRAPPER}} .hfe-post-info-text a' => 'color: {{VALUE}}',
-					]
+					],
 				]
 			);
 
 			$this->add_group_control(
 				Group_Control_Typography::get_type(),
 				[
-					'name' => 'icon_typography',
+					'name'     => 'icon_typography',
 					'selector' => '{{WRAPPER}} .hfe-post-info-item',
 				]
 			);
@@ -764,7 +764,8 @@ class Post_Info_Widget extends Widget_Base {
 	 * @return array
 	 */
 	protected function get_taxonomies() {
-		$taxonomies = get_taxonomies( [
+		$taxonomies = get_taxonomies(
+			[
 				'show_in_nav_menus' => true,
 			],
 			'objects'
@@ -788,7 +789,6 @@ class Post_Info_Widget extends Widget_Base {
 	 * @access protected
 	 * @param array $repeater_item
 	 * @return array
-	 * 
 	 */
 	protected function get_meta_data( $repeater_item ) {
 
@@ -841,10 +841,10 @@ class Post_Info_Widget extends Widget_Base {
 		// Default icon and icon library for terms.
 		$termsData = [
 			'selected_icon' => [
-				'value'    => 'fas fa-tags',
-				'library'  => 'fa-solid',
+				'value'   => 'fas fa-tags',
+				'library' => 'fa-solid',
 			],
-			'itemprop'     => 'about',
+			'itemprop'      => 'about',
 			'terms_list'    => [],
 		];
 
@@ -853,13 +853,13 @@ class Post_Info_Widget extends Widget_Base {
 			return $termsData; // Return default data if no taxonomy is defined.
 		}
 
-		$taxonomy  = sanitize_text_field( $repeaterItem['taxonomy'] );
-		$terms     = wp_get_post_terms( get_the_ID(), $taxonomy );
+		$taxonomy = sanitize_text_field( $repeaterItem['taxonomy'] );
+		$terms    = wp_get_post_terms( get_the_ID(), $taxonomy );
 
 		// Loop through terms and collect term data.
 		if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
 			foreach ( $terms as $term ) {
-				$termId = $term->term_id;
+				$termId                             = $term->term_id;
 				$termsData['terms_list'][ $termId ] = [
 					'text' => esc_html( $term->name ),
 				];
@@ -883,10 +883,10 @@ class Post_Info_Widget extends Widget_Base {
 	function get_custom_meta_data( $repeaterItem ) {
 		// Default icon and icon library for custom data.
 		$customData = [
-			'text'         => ! empty( $repeaterItem['custom_text'] ) ? sanitize_text_field( $repeaterItem['custom_text'] ) : '',
+			'text'          => ! empty( $repeaterItem['custom_text'] ) ? sanitize_text_field( $repeaterItem['custom_text'] ) : '',
 			'selected_icon' => [
-				'value'    => 'far fa-tags',
-				'library'  => 'fa-regular',
+				'value'   => 'far fa-tags',
+				'library' => 'fa-regular',
 			],
 		];
 
@@ -911,11 +911,14 @@ class Post_Info_Widget extends Widget_Base {
 		}
 
 		// Define default comment strings.
-		$defaultStrings = apply_filters( 'hfe_custom_comments_strings', [
-			'stringNoComments'  => __( 'No Comments', 'header-footer-elementor' ),
-			'stringOneComment'  => __( 'One Comment', 'header-footer-elementor' ),
-			'stringComments'    => __( '%s Comments', 'header-footer-elementor' ),
-		]);
+		$defaultStrings = apply_filters(
+			'hfe_custom_comments_strings',
+			[
+				'stringNoComments' => __( 'No Comments', 'header-footer-elementor' ),
+				'stringOneComment' => __( 'One Comment', 'header-footer-elementor' ),
+				'stringComments'   => __( '%s Comments', 'header-footer-elementor' ),
+			]
+		);
 
 		// Check if custom strings are provided.
 		if ( isset( $repeaterItem['comments_custom_strings'] ) && 'yes' === $repeaterItem['comments_custom_strings'] ) {
@@ -937,9 +940,9 @@ class Post_Info_Widget extends Widget_Base {
 		// Set up comments data.
 		$commentsData = [
 			'text'          => $commentsText,
-			'selected_icon'  => [
-				'value'    => 'far fa-comment-dots',
-				'library'  => 'fa-regular',
+			'selected_icon' => [
+				'value'   => 'far fa-comment-dots',
+				'library' => 'fa-regular',
 			],
 			'itemprop'      => 'commentCount',
 		];
@@ -962,17 +965,20 @@ class Post_Info_Widget extends Widget_Base {
 	 */
 	function get_post_time_data( $repeater_item ) {
 		// Define default and custom time formats.
-		$default_format = 'g:i a';
+		$default_format     = 'g:i a';
 		$custom_time_format = ! empty( $repeater_item['custom_time_format'] ) ? $repeater_item['custom_time_format'] : $default_format;
 
 		// Available time formats.
-		$format_options = apply_filters( 'hfe_time_format_options', [
-			'default' => $default_format,
-			'0'       => 'g:i a',
-			'1'       => 'g:i A',
-			'2'       => 'H:i',
-			'custom'  => $custom_time_format,
-		]);
+		$format_options = apply_filters(
+			'hfe_time_format_options',
+			[
+				'default' => $default_format,
+				'0'       => 'g:i a',
+				'1'       => 'g:i A',
+				'2'       => 'H:i',
+				'custom'  => $custom_time_format,
+			]
+		);
 
 		// Select appropriate format or fallback to default.
 		$selected_format = isset( $format_options[ $repeater_item['time_format'] ] ) ? $format_options[ $repeater_item['time_format'] ] : $default_format;
@@ -981,8 +987,8 @@ class Post_Info_Widget extends Widget_Base {
 		$time_data = [
 			'text'          => get_the_time( $selected_format ),
 			'selected_icon' => [
-				'value'    => 'far fa-clock',
-				'library'  => 'fa-regular',
+				'value'   => 'far fa-clock',
+				'library' => 'fa-regular',
 			],
 		];
 
@@ -998,18 +1004,21 @@ class Post_Info_Widget extends Widget_Base {
 	 */
 	function get_post_date_data( $repeater_item ) {
 		// Define default and custom date formats.
-		$default_format = 'F j, Y';
+		$default_format     = 'F j, Y';
 		$custom_date_format = ! empty( $repeater_item['custom_date_format'] ) ? $repeater_item['custom_date_format'] : $default_format;
 
 		// Available date formats.
-		$format_options = apply_filters( 'custom_date_format_options', [
-			'default' => $default_format,
-			'0'       => 'F j, Y',
-			'1'       => 'd/m/Y',
-			'2'       => 'Y-m-d',
-			'3'       => 'm/d/Y',
-			'custom'  => $custom_date_format,
-		]);
+		$format_options = apply_filters(
+			'custom_date_format_options',
+			[
+				'default' => $default_format,
+				'0'       => 'F j, Y',
+				'1'       => 'd/m/Y',
+				'2'       => 'Y-m-d',
+				'3'       => 'm/d/Y',
+				'custom'  => $custom_date_format,
+			]
+		);
 
 		// Select appropriate format or fallback to default.
 		$selected_format = isset( $format_options[ $repeater_item['date_format'] ] ) ? $format_options[ $repeater_item['date_format'] ] : $default_format;
@@ -1018,8 +1027,8 @@ class Post_Info_Widget extends Widget_Base {
 		$date_data = [
 			'text'          => get_the_time( $selected_format ),
 			'selected_icon' => [
-				'value'    => 'far fa-calendar-alt',
-				'library'  => 'fa-regular',
+				'value'   => 'far fa-calendar-alt',
+				'library' => 'fa-regular',
 			],
 			'itemprop'      => 'datePublished',
 		];
@@ -1046,12 +1055,12 @@ class Post_Info_Widget extends Widget_Base {
 
 		// Author Name and Default Icon.
 		$author_data = [
-			'text'       => get_the_author_meta( 'display_name', $user_id ),
+			'text'          => get_the_author_meta( 'display_name', $user_id ),
 			'selected_icon' => [
-				'value'    => 'far fa-user-circle',
-				'library'  => 'fa-regular',
+				'value'   => 'far fa-user-circle',
+				'library' => 'fa-regular',
 			],
-			'itemprop'   => 'author',
+			'itemprop'      => 'author',
 		];
 
 		// Conditional link to author posts.
@@ -1090,7 +1099,7 @@ class Post_Info_Widget extends Widget_Base {
 	 * @return void
 	 */
 	protected function render_item( $repeater_item ) {
-		$item_data = $this->get_meta_data( $repeater_item );
+		$item_data      = $this->get_meta_data( $repeater_item );
 		$repeater_index = $repeater_item['_id'];
 	
 		// Bail early if both text and terms list are empty.
@@ -1103,10 +1112,14 @@ class Post_Info_Widget extends Widget_Base {
 		$has_link = false;
 	
 		// Add base classes to the list item.
-		$this->add_render_attribute( $item_key, 'class', [
-			'hfe-post-info-item',
-			'elementor-repeater-item-' . $repeater_item['_id'],
-		]);
+		$this->add_render_attribute(
+			$item_key,
+			'class',
+			[
+				'hfe-post-info-item',
+				'elementor-repeater-item-' . $repeater_item['_id'],
+			]
+		);
 	
 		// Check active settings for inline view.
 		$active_settings = $this->get_active_settings();
@@ -1205,22 +1218,28 @@ class Post_Info_Widget extends Widget_Base {
 			<?php if ( ! empty( $item_data['terms_list'] ) ) : ?>
 				<span class="hfe-post-info__terms-list">
 					<?php
-					$terms_list = array_map(function($term) {
-						$term_text = esc_html($term['text']);
-						return ! empty($term['url']) ? '<a href="' . esc_attr($term['url']) . '" class="hfe-post-info__terms-list-item">' . $term_text . '</a>' : '<span class="hfe-post-info__terms-list-item">' . $term_text . '</span>';
-					}, $item_data['terms_list']);
-					echo implode(', ', $terms_list);
+					$terms_list = array_map(
+						function( $term ) {
+							$term_text = esc_html( $term['text'] );
+							return ! empty( $term['url'] ) ? '<a href="' . esc_attr( $term['url'] ) . '" class="hfe-post-info__terms-list-item">' . $term_text . '</a>' : '<span class="hfe-post-info__terms-list-item">' . $term_text . '</span>';
+						},
+						$item_data['terms_list']
+					);
+					echo implode( ', ', $terms_list );
 					?>
 				</span>
 			<?php else : ?>
 				<?php
-				echo wp_kses($item_data['text'], [
-					'a' => [
-						'href' => [],
-						'title' => [],
-						'rel' => [],
-					],
-				]);
+				echo wp_kses(
+					$item_data['text'],
+					[
+						'a' => [
+							'href'  => [],
+							'title' => [],
+							'rel'   => [],
+						],
+					]
+				);
 				?>
 			<?php endif; ?>
 		</span>
