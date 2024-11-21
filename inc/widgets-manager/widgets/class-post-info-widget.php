@@ -867,7 +867,10 @@ class Post_Info_Widget extends Widget_Base {
 
 				// Add term link if the option is enabled.
 				if ( isset( $repeaterItem['link'] ) && 'yes' === $repeaterItem['link'] ) {
-					$termsData['terms_list'][ $termId ]['url'] = esc_url( get_term_link( $term ) );
+					$term_link = get_term_link( $term );
+					if ( ! is_wp_error( $term_link ) ) {
+						$termsData['terms_list'][ $termId ]['url'] = esc_url( $term_link );
+					}
 				}
 			}
 		}
