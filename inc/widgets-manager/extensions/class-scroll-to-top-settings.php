@@ -2,8 +2,10 @@
 /**
  * Scroll to top settings
  *
+ * @package header-footer-elementor
  * @since x.x.x
  */
+
 namespace HFE\WidgetsManager\Extensions;
 
 use Elementor\Controls_Manager;
@@ -22,24 +24,66 @@ use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 class Scroll_To_Top_Settings extends Tab_Base {
 
 	/**
-	 * Get Elementor Tab ID
+	 * Retrieve the widget name.
+	 *
+	 * @since x.x.x
+	 *
+	 * @access public
+	 *
+	 * @return string Widget name.
 	 */
 	public function get_id() {
 		return 'hfe-scroll-to-top-settings';
 	}
 
+	/**
+	 * Retrieves the widget name title.
+	 *
+	 * @since x.x.x
+	 *
+	 * @access public
+	 *
+	 * @return string Widget title.
+	 */
 	public function get_title() {
 		return __( 'Scroll to Top', 'header-footer-elementor' );
 	}
 
+	/**
+	 * Retrieve the widget icon.
+	 *
+	 * @since x.x.x
+	 *
+	 * @access public
+	 *
+	 * @return string Widget icon.
+	 */
 	public function get_icon() {
 		return 'eicon-v-align-top';
 	}
 
+	/**
+	 * Retrieves the help URL.
+	 * 
+	 * @since x.x.x
+	 *
+	 * @access public
+	 *
+	 * @return string The complete URL to the help page for the widget.
+	 */
 	public function get_help_url() {
 		return '';
 	}
 
+	/**
+	 * Retrieves the widget keywords.
+	 * 
+	 * @since x.x.x
+	 *
+	 * @access public
+	 *
+	 * @return string The keywords for the widget.
+	 */
 	public function get_group() {
 		return 'settings';
 	}
@@ -48,6 +92,8 @@ class Scroll_To_Top_Settings extends Tab_Base {
 	 * Register tab controls
 	 *
 	 * @since x.x.x
+	 * @access protected
+	 * @return void
 	 */
 	protected function register_tab_controls() {
 		$this->start_controls_section(
@@ -453,7 +499,7 @@ class Scroll_To_Top_Settings extends Tab_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'      => 'hfe_scroll_to_top_button_border',
-				'exclude'   => [ 'color' ], // remove border color
+				'exclude'   => [ 'color' ], // remove border color.
 				'selector'  => '{{WRAPPER}} .hfe-scroll-to-top-wrap .hfe-scroll-to-top-button',
 				'condition' => [
 					'hfe_scroll_to_top_global' => 'yes',
