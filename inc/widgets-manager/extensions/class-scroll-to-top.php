@@ -4,6 +4,7 @@
  *
  * @package header-footer-elementor
  */
+
 namespace HFE\WidgetsManager\Extensions;
 
 use Elementor\Controls_Manager;
@@ -57,15 +58,23 @@ class Scroll_To_Top {
 
 		add_action( 'wp_footer', [ $this, 'render_scroll_to_top_html' ] );
 
-		// Enqueue jQuery and add inline script
+		// Enqueue jQuery and add inline script.
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
 	}
 
+	/**
+	 * Enqueues the necessary scripts for the Scroll to Top functionality.
+	 *
+	 * This function is responsible for adding the required JavaScript and CSS files
+	 * to the WordPress site to enable the Scroll to Top feature.
+	 *
+	 * @return void
+	 */
 	public function enqueue_scripts() {
-		// Ensure jQuery is enqueued
+		// Ensure jQuery is enqueued.
 		wp_enqueue_script( 'jquery' );
 
-		// Add inline script
+		// Add inline script.
 		wp_add_inline_script(
 			'jquery',
 			'!function($){"use strict";$(document).ready(function(){$(this).scrollTop()>100&&$(".hfe-scroll-to-top-wrap").removeClass("hfe-scroll-to-top-hide"),$(window).scroll(function(){$(this).scrollTop()<100?$(".hfe-scroll-to-top-wrap").fadeOut(300):$(".hfe-scroll-to-top-wrap").fadeIn(300)}),$(".hfe-scroll-to-top-wrap").on("click",function(){$("html, body").animate({scrollTop:0},300);return!1})})}(jQuery);'
@@ -75,7 +84,7 @@ class Scroll_To_Top {
 	/**
 	 * Register extension tab
 	 *
-	 * @param \Elementor\Core\Kits\Documents\Kit $kit
+	 * @param \Elementor\Core\Kits\Documents\Kit $kit The Elementor Kit document.
 	 * @since x.x.x
 	 */
 	public function register_extension_tab( \Elementor\Core\Kits\Documents\Kit $kit ) {
@@ -94,7 +103,7 @@ class Scroll_To_Top {
 		$document_settings_data = [];
 
 		if ( \Elementor\Plugin::instance()->preview->is_preview_mode() ) {
-			// get auto save data
+			// get auto save data.
 			$document = \Elementor\Plugin::$instance->documents->get_doc_for_frontend( $post_id );
 		} else {
 			$document = \Elementor\Plugin::$instance->documents->get( $post_id, false );
@@ -267,7 +276,7 @@ class Scroll_To_Top {
 
 		if ( ! isset( $extensions_settings['kit_settings'] ) ) {
 			if ( \Elementor\Plugin::instance()->preview->is_preview_mode() ) {
-				// get auto save data
+				// get auto save data.
 				$kit = \Elementor\Plugin::$instance->documents->get_doc_for_frontend( \Elementor\Plugin::$instance->kits_manager->get_active_id() );
 			} else {
 				$kit = \Elementor\Plugin::$instance->documents->get( \Elementor\Plugin::$instance->kits_manager->get_active_id(), true );
