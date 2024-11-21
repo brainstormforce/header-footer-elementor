@@ -69,6 +69,13 @@ class Header_Footer_Elementor {
 
 			add_action( 'init', [ $this, 'setup_settings_page' ] );
 
+			add_filter('elementor/admin-top-bar/is-active', function($is_active, $current_screen) {
+				if (strpos($current_screen->id, 'elementor-hf') !== false) {
+					return false;
+				}
+				return $is_active;
+			}, 10, 2);
+
 			$is_theme_supported = true;
 
 			if ( 'genesis' == $this->template ) {
