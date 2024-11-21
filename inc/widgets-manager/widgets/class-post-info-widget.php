@@ -435,7 +435,7 @@ class Post_Info_Widget extends Widget_Base {
 						],
 					],
 				],
-				'title_field' => '{{{ elementor.helpers.renderIcon( this, selected_icon, {}, "i", "panel" ) || \'<i class="{{ icon }}" aria-hidden="true"></i>\' }}} <span style="text-transform: capitalize;">{{{ type }}}</span>',
+				'title_field' => '{{{ elementor.helpers.renderIcon( this, selected_icon, {}, "i", "panel" ) || \'<i class="{{ icon }}" aria-hidden="true"></i>\' }}} <span style="text-transform: capitalize;">{{{ type }}}</span>',    // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation
 			]
 		);
 
@@ -936,7 +936,10 @@ class Post_Info_Widget extends Widget_Base {
 		if ( 0 === $numComments ) {
 			$commentsText = $defaultStrings['stringNoComments'];
 		} else {
-			$commentsText = sprintf( _n( $defaultStrings['stringOneComment'], $defaultStrings['stringComments'], $numComments, 'header-footer-elementor' ), $numComments );
+			$commentsText = sprintf( 
+				_n( '%s comment', '%s comments', $numComments, 'header-footer-elementor' ), 
+				$numComments 
+			);
 		}
 
 		// Set up comments data.
