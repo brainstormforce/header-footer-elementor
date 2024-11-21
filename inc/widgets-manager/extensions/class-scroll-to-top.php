@@ -143,7 +143,7 @@ class Scroll_To_Top {
 
 			$elementor_page = get_post_meta( get_the_ID(), '_elementor_edit_mode', true );
 			if ( (bool) $elementor_page ) {
-				printf( '%1$s', $scroll_to_top_html );
+				printf( '%1$s', wp_kses_post( $scroll_to_top_html ) );
 			}       
 		}
 
@@ -165,7 +165,7 @@ class Scroll_To_Top {
 
 				$elementor_page = get_post_meta( get_the_ID(), '_elementor_edit_mode', true );
 				if ( (bool) $elementor_page ) {
-					printf( '%1$s', $scroll_to_top_html );
+					printf( '%1$s', wp_kses_post( $scroll_to_top_html ) );
 				}
 			}
 			?>

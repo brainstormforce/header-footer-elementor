@@ -25,6 +25,9 @@
                 }, 1000 );
             });
 
+            /**
+             * Scroll to Top.
+             */
 			elementor.on("panel:init", function() {
 
                 function scrollToTop( changedValue ) {
