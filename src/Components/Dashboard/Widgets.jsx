@@ -25,7 +25,6 @@ const Widgets = () => {
             })
                 .then((data) => {
                     const widgetsData = convertToWidgetsArray(data)
-                    console.log( widgetsData );
                     setAllWidgetsData(widgetsData);
                     setLoading(false); // Stop loading
                 })
@@ -53,7 +52,9 @@ const Widgets = () => {
                     default: widget.default,
                     doc_url: widget.doc_url,
                     is_pro: widget.is_pro,
+                    description: widget.description,
                     is_active: widget.is_activate !== undefined ? widget.is_activate : true, // Check if is_activate is set
+                    demo_url: widget.demo_url !== undefined ? widget.demo_url : widget.doc_url
                 });
             }
         }
@@ -77,7 +78,7 @@ const Widgets = () => {
                 </div>
             </div>
             <div className='flex bg-black flex-col rounded-lg p-4'>
-                {!loading ? (
+                {loading ? (
                     <Container
                         align="stretch"
                         className="p-2 gap-1.5 grid grid-cols-2 md:grid-cols-4"
