@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Switch, Tooltip, Skeleton, Badge } from "@bsf/force-ui";
+import { Container, Switch, Tooltip, Badge } from "@bsf/force-ui";
 import { InfoIcon, FileText } from 'lucide-react';
-import { Link } from 'react-dom/client';
 import apiFetch from '@wordpress/api-fetch';
 import { __ } from '@wordpress/i18n';
-import { use } from '@wordpress/data';
-
 
 // Create a queue to manage AJAX requests
 const requestQueue = [];
@@ -26,12 +23,12 @@ const WidgetItem = ({
         id,
         icon,
         title,
-        viewDemo,
         infoText,
         is_pro,
         is_active,
-        doc_url,
+        slug,
         demo_url,
+        doc_url,
         description
     } = widget
 
@@ -51,6 +48,7 @@ const WidgetItem = ({
         formData.append('action', action);
         formData.append('nonce', hfe_admin_data.nonce);
         formData.append('module_id', id);
+        formData.append('is_pro', is_pro);
 
         try {
             const data = apiFetch({
@@ -106,15 +104,6 @@ const WidgetItem = ({
                 </div>
 
                 <div className='flex items-center gap-x-2'>
-                    {/* {isNew && (
-                        <Badge
-                            label="New"
-                            size="xs"
-                            type="pill"
-                            variant="blue"
-                        />
-                    )} */}
-
 
                     {is_pro && (
                         <Badge
@@ -140,7 +129,7 @@ const WidgetItem = ({
                 <p className='text-sm font-medium text-text-primary pt-3 m-0 pb-1'>{title}</p>
                 <div className='flex items-center justify-between w-full'>
                     <a href={demo_url} target="_blank" rel="noopener noreferrer" className='text-sm text-text-tertiary m-0 mb-1 uael-remove-ring cursor-pointer' style={{ textDecoration: 'none', lineHeight: '1.5rem' }}>
-                        View Demo
+                        {__('View Demo', 'uael')}
                     </a>
                     {/* <p className='text-sm text-text-tertiary m-0'>{viewDemo}</p> */}
                     <Tooltip
