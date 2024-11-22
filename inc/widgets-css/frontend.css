@@ -1994,3 +1994,80 @@ div.hfe-nav-menu,
     color:#fff;
     font-size:16px;
 }
+
+/* Progress Bar */
+
+.hfe-progress-bar-container {
+    width: 100%;
+    background: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 8px;
+    max-height: 100px;
+    z-index: 999999;
+}
+
+.hfe-progress-bar {
+    position: relative;
+    height: 100%;
+    background-color: #e2498a;
+    font-size: 14px;
+    font-weight: 500;
+    color: #FFFFFF;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.hfe-progress-bar .hfe-tool-tip {
+    right: -28px;
+    margin-left: 15px;
+    position: absolute;
+    padding: 3px 0;
+    width: 60px;
+    border-radius: 5px;
+    background: #444;
+    color: #fff;
+    font-size: 13px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.hfe-progress-bar .hfe-tool-tip:after {
+    content: '';
+    border-width: 5px;
+    position: absolute;
+    border-style: solid;
+    right: 40%;
+}
+
+.hfe-progress-bar .hfe-tool-tip-top {
+    bottom: -30px;
+}
+
+.hfe-progress-bar .hfe-tool-tip-top:after {
+    bottom: 100%;
+    border-color: transparent transparent #444 transparent;
+}
+
+.hfe-progress-bar .hfe-tool-tip-bottom {
+    top: -31px;
+}
+
+.hfe-progress-bar .hfe-tool-tip-bottom:after {
+    bottom: -10px;
+    border-color: #444 transparent transparent transparent;
+}
+
+body.no-scroll {
+    scrollbar-width: 0px;
+}
+
+body.no-scroll::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}

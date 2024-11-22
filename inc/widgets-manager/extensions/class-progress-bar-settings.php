@@ -574,7 +574,7 @@ class Progress_Bar_Settings extends Tab_Base {
         );
 
 		$this->add_control(
-			'hm_rpb_percentage_heading',
+			'hfe_progress_bar_percentage_heading',
 			[
 				'label' => __( 'Percentage', 'header-footer-elementor' ),
 				'type' => Controls_Manager::HEADING,
@@ -611,7 +611,7 @@ class Progress_Bar_Settings extends Tab_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'hm_rpb_circle_percentage_typography',
+				'name' => 'hfe_progress_bar_circle_percentage_typography',
 				'label' => __('Typography', 'header-footer-elementor'),
 				'selector' => '{{WRAPPER}} .hm-crp-wrapper .hm-progress-percent-text',
 				'condition' => [
@@ -622,7 +622,7 @@ class Progress_Bar_Settings extends Tab_Base {
 			]
 		);
 		$this->add_control(
-			'chm_rpb_percentage_typography_color',
+			'hfe_progress_bar_percentage_typography_color',
 			[
 				'label' => __('Color', 'header-footer-elementor'),
 				'type' => Controls_Manager::COLOR,
@@ -782,7 +782,7 @@ class Progress_Bar_Settings extends Tab_Base {
         );
 
 		$this->add_control(
-			'hm_rpb_horizontal_fill_heading',
+			'hfe_progress_bar_horizontal_fill_heading',
 			[
 				'label' => __( 'Fill Color', 'header-footer-elementor' ),
 				'type' => Controls_Manager::HEADING,
@@ -825,7 +825,7 @@ class Progress_Bar_Settings extends Tab_Base {
 		);
 
 		$this->add_control(
-			'hm_rpb_horizontal_bar_heading',
+			'hfe_progress_bar_horizontal_bar_heading',
 			[
 				'label' => __( 'Bar Color', 'header-footer-elementor' ),
 				'type' => Controls_Manager::HEADING,
@@ -852,7 +852,7 @@ class Progress_Bar_Settings extends Tab_Base {
 		); 
 		
 		$this->add_control(
-			'hm_rpb_horizontal_percentage_heading',
+			'hfe_progress_bar_horizontal_percentage_heading',
 			[
 				'label' => __( 'Percentage Tool Tip', 'header-footer-elementor' ),
 				'type' => Controls_Manager::HEADING,
@@ -997,7 +997,7 @@ class Progress_Bar_Settings extends Tab_Base {
 			]
         );
 		$this->add_control(
-			'hm_rpb_vertical_fill_heading',
+			'hfe_progress_bar_vertical_fill_heading',
 			[
 				'label' => __( 'Fill Color', 'header-footer-elementor' ),
 				'type' => Controls_Manager::HEADING,
@@ -1040,7 +1040,7 @@ class Progress_Bar_Settings extends Tab_Base {
 		);
 
 		$this->add_control(
-			'hm_rpb_vertical_bar_heading',
+			'hfe_progress_bar_vertical_bar_heading',
 			[
 				'label' => __( 'Bar Color', 'header-footer-elementor' ),
 				'type' => Controls_Manager::HEADING,

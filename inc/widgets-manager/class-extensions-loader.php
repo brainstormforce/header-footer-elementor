@@ -49,11 +49,8 @@ class Extensions_Loader {
 	 * @access private
 	 */
 	private function __construct() {
-
 		$this->include_extensions_files();
-
 	}
-
 
 	/**
 	 * Returns Script array.
@@ -64,7 +61,7 @@ class Extensions_Loader {
 	public static function get_extensions_list() {
 		$extensions_list = [
 			'scroll-to-top',
-			// 'progress-bar'
+			'progress-bar'
 		];
 
 		return $extensions_list;
