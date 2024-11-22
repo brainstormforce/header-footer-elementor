@@ -16,6 +16,7 @@
 		<exclude name="WordPressVIPMinimum.Performance.RemoteRequestTimeout.timeout_timeout" />
 		<exclude name="WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude" />
 		<exclude name="WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase" />
+		<exclude name="WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase" />
 	</rule>
 
 	<rule ref="Generic.Arrays.DisallowLongArraySyntax.Found">
