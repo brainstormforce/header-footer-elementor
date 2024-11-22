@@ -19,6 +19,11 @@ const radioData = [
 ];
 
 const ThemeSupport = () => {
+
+    if ( ! hfeSettingsData.show_theme_support ) {
+        return null;
+    }
+
     // State to store the selected radio option
     const [selectedOption, setSelectedOption] = useState( hfeSettingsData.theme_option );
     const [isInitialLoad, setIsInitialLoad] = useState(true);

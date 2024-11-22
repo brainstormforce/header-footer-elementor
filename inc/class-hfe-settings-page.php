@@ -191,7 +191,7 @@ class HFE_Settings_Page {
 		$show_theme_support = false;
 		$hfe_theme_status   = get_option( 'hfe_is_theme_supported', true );
 
-		if ( ! current_theme_supports( 'header-footer-elementor' ) && ! $hfe_theme_status ) {
+		if ( ( ! current_theme_supports( 'header-footer-elementor' ) ) && ! $hfe_theme_status ) {
 			$show_theme_support = true;
 		}
 		$theme_option = get_option( 'hfe_compatibility_option', '1' );
