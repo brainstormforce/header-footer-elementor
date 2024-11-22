@@ -2063,6 +2063,9 @@ div.hfe-nav-menu,
     border-color: #444 transparent transparent transparent;
 }
 
+.admin-bar .hfe-progress-bar-wrapper {
+    top: 32px;
+}
 body.no-scroll {
     scrollbar-width: 0px;
 }

@@ -73,7 +73,71 @@ class Progress_Bar {
 		// Add inline script
 		wp_add_inline_script(
 			'jquery',
-			'"use strict";(function($,window){"use strict";var $window=window,progress_bar_El=$(".ha-reading-progress-bar");if(progress_bar_El.length<=0)return;var progress_bar_settings={};progress_bar_settings=JSON.parse(progress_bar_El.attr("data-pbar-settings"));if(progress_bar_settings.hfe_progress_bar_enable!=="yes")return;$($window).scroll(function(){var scrollPercent=0,scroll_top=$(window).scrollTop()||0,doc_height=$(document).height()||1,window_height=$(window).height()||1;scrollPercent=scroll_top/(doc_height-window_height)*100;var position=scrollPercent.toFixed(0);scrollPercent>100&&(scrollPercent=100);$(".hfe-progress-bar").css({display:"flex"}),$(".hfe-progress-bar").width(position+"%"),position>1&&scrollPercent>0?($(".hfe-tool-tip").css({opacity:1,transition:"opacity 0.3s"}),$(".hfe-tool-tip").text(position+"%"),position>=98?$(".hfe-tool-tip").css({right:"5px"}):$(".hfe-tool-tip").css({right:"-28px"})):($(".hfe-tool-tip").css({opacity:0,transition:"opacity 0.3s"}),$(".hfe-tool-tip").text("0%"))})})(jQuery,window);'
+			'"use strict";
+                ;
+                (function ($, window) {
+                "use strict";
+
+                console.log( "This js is loading................................" );
+
+                var $window = window;
+                var progress_bar_El = $(".hfe-progress-bar");
+                 console.log(progress_bar_El);
+                if (progress_bar_El.length <= 0) {
+                    return;
+                }
+
+                console.log( progress_bar_El );
+
+                var progress_bar_settings = {};
+                progress_bar_settings = JSON.parse(progress_bar_El.attr("data-pbar-settings"));
+                console.log( progress_bar_settings.hfe_progress_bar_enable  );
+                if (progress_bar_settings.hfe_progress_bar_enable !== "yes") return;
+
+
+
+                $($window).scroll(function () {
+
+                    var scrollPercent = 0;
+                    var scroll_top = $(window).scrollTop() || 0,
+                    doc_height = $(document).height() || 1,
+                    window_height = $(window).height() || 1;
+                    scrollPercent = ( scroll_top / (doc_height - window_height) ) * 100;
+                    var position = scrollPercent.toFixed(0);
+
+                    if (scrollPercent > 100) {
+                    scrollPercent = 100;
+                    }
+
+                    $(".hfe-progress-bar").css({
+                        "display": "flex"
+                    });
+                    $(".hfe-progress-bar").width(position + "%");
+                    if (position > 1 && scrollPercent > 0) {
+                    $(".hfe-tool-tip").css({
+                        "opacity": 1,
+                        "transition": "opacity 0.3s"
+                    });
+                    $(".hfe-tool-tip").text(position + "%");
+                    if (position >= 98) {
+                        $(".hfe-tool-tip").css({
+                        "right": "5px"
+                        });
+                    } else {
+                        $(".hfe-tool-tip").css({
+                        "right": "-28px"
+                        });
+                    }
+                    } else {
+                    $(".hfe-tool-tip").css({
+                        "opacity": 0,
+                        "transition": "opacity 0.3s"
+                    });
+                    $(".hfe-tool-tip").text("0%");
+                    }
+                
+                });
+                })(jQuery, window);'
 		);
 	}
 
@@ -175,8 +239,8 @@ class Progress_Bar {
 			$document_settings_data = $document->get_settings();
 		}
 
-		$progress_bar_enable = $this->elementor_get_setting('hfe_progress_bar_enable');
-		$global_enable = $this->elementor_get_setting('hfe_progress_bar_apply_globally');
+		$progress_bar_enable = $this->get_elementor_settings('hfe_progress_bar_enable');
+		$global_enable = $this->get_elementor_settings('hfe_progress_bar_apply_globally');
 
 		$single_enable = isset( $document_settings_data['hfe_progress_bar_single_enable'] ) ? $document_settings_data['hfe_progress_bar_single_enable'] : 'no' ;
 		$single_disable = isset( $document_settings_data['hfe_progress_bar_single_disable'] ) ? $document_settings_data['hfe_progress_bar_single_disable'] : 'no' ;
@@ -186,7 +250,7 @@ class Progress_Bar {
 		if ( 'yes' === $progress_bar_enable ) {
 			
 			if ('globally' === $global_enable ) {
-				$display_condition = $this->elementor_get_setting('hfe_progress_bar_global_display_condition');
+				$display_condition = $this->get_elementor_settings('hfe_progress_bar_global_display_condition');
 
 				$current_post_type = get_post_type();
 				
@@ -204,11 +268,11 @@ class Progress_Bar {
 			}
 		}
 
-        $progress_bar_type = $this->elementor_get_setting('hfe_progress_bar_type');
-        $horizontal_position = $this->elementor_get_setting('hfe_progress_bar_horizontal_position');
-        $enable_horizontal_percentage = $this->elementor_get_setting('hfe_progress_bar_enable_horizontal_percentage');
+        $progress_bar_type = 'horizontal';
+        $horizontal_position = $this->get_elementor_settings('hfe_progress_bar_horizontal_position');
+        $enable_horizontal_percentage = $this->get_elementor_settings('hfe_progress_bar_enable_horizontal_percentage');
         $settings_data = [
-			'hfe_progress_bar_enable' => $this->elementor_get_setting('hfe_progress_bar_enable'),
+			'hfe_progress_bar_enable' => $this->get_elementor_settings('hfe_progress_bar_enable'),
 		];
         
         if ( Plugin::instance()->preview->is_preview_mode() ) {
@@ -298,12 +362,6 @@ class Progress_Bar {
 									}
 								} 
 								
-							}
-
-							// Check type
-							if ( changeItem[0] == 'hfe_progress_bar_type' ) {
-								rpbDefaultType = changeValue;
-								$('.hfe-progress-bar-container').css({'opacity':1, 'transition':'opacity 0.3s'});
 							}
 
 							// Start scrolling
