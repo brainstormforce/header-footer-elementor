@@ -668,7 +668,7 @@ class Breadcrumbs_Widget extends Widget_Base {
 			// Add the Home link to the breadcrumbs.
 			$breadcrumbs[] = [
 				'title' => $defaults['home'],
-				'url'   => home_url(),
+				'url'   => esc_url( home_url() ),
 				'class' => 'hfe-breadcrumbs-first',
 			];
 		}
@@ -694,7 +694,7 @@ class Breadcrumbs_Widget extends Widget_Base {
 						$cat           = get_category( $cat_id );
 						$breadcrumbs[] = [
 							'title' => $cat->name,
-							'url'   => get_category_link( $cat_id ),
+							'url'   => esc_url( get_category_link( $cat_id ) ),
 							'class' => '',
 						];
 					}
@@ -702,7 +702,7 @@ class Breadcrumbs_Widget extends Widget_Base {
 					// Add the current category.
 					$breadcrumbs[] = [
 						'title' => $category[0]->name,
-						'url'   => get_category_link( $category[0]->term_id ),
+						'url'   => esc_url( get_category_link( $category[0]->term_id ) ),
 						'class' => '',
 					];
 				}
@@ -719,7 +719,7 @@ class Breadcrumbs_Widget extends Widget_Base {
 				foreach ( array_reverse( $parents ) as $parent ) {
 					$breadcrumbs[] = [
 						'title' => get_the_title( $parent ),
-						'url'   => get_permalink( $parent ),
+						'url'   => esc_url( get_permalink( $parent ) ),
 						'class' => '',
 					];
 				}
@@ -811,7 +811,7 @@ class Breadcrumbs_Widget extends Widget_Base {
 		}
 		$output .= '</ul>';
 		
-		echo $output;
+		echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 	}
 
