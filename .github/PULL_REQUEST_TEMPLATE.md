@@ -1,5 +1,5 @@
 ### Description
-<!-- Please describe what you have changed or added -->
+[BSF-PR-SUMMARY]
 
 ### Screenshots
 <!-- if applicable -->
