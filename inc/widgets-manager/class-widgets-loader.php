@@ -51,6 +51,7 @@ class Widgets_Loader {
 	 * @access private
 	 */
 	private function __construct() {
+		
 		// Register category.
 		add_action( 'elementor/elements/categories_registered', [ $this, 'register_widget_category' ] );
 
@@ -71,6 +72,7 @@ class Widgets_Loader {
 
 			add_filter( 'woocommerce_add_to_cart_fragments', [ $this, 'wc_refresh_mini_cart_count' ] );
 		}
+
 	}
 
 	/**
