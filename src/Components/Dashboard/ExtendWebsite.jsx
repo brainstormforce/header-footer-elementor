@@ -24,7 +24,6 @@ const ExtendWebsite = () => {
                     },
                 });
                 const pluginsData = convertToPluginsArray(data);
-                console.log( pluginsData );
                 setPlugins(pluginsData);
 
                 // Check if all plugins are installed
