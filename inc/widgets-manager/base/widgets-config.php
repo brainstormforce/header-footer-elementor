@@ -914,61 +914,123 @@ class Widgets_Config {
 
 		$images_url = HFE_URL . 'assets/images/settings/';
 
-		return [
+		$plugins = array(
 
-			'astra'                                     => [
-				'icon'    => ! empty( $white_labels['theme_icon'] ) ? $white_labels['theme_icon'] : $images_url . 'plugin-astra.png',
-				'type'    => 'theme',
-				'name'    => $white_labels['theme_name'],
-				'desc'    => esc_html__( 'Free and Fastest WordPress Theme', 'header-footer-elementor' ),
-				'wporg'   => 'https://wordpress.org/themes/astra/',
-				'url'     => 'https://downloads.wordpress.org/theme/astra.zip',
-				'siteurl' => $white_labels['author_url'],
-				'slug'    => 'astra',
-				'isFree'  => true,
-				'status'  => self::get_theme_status( 'astra' ),
-			],
+			'astra'                                        => array(
+				'icon'         => ! empty( $white_labels['theme_icon'] ) ? $white_labels['theme_icon'] : $images_url . 'astra.svg',
+				'type'         => 'theme',
+				'name'         => $white_labels['theme_name'],
+				'desc'         => esc_html__( 'Fast and customizable theme for your website.', 'uael' ),
+				'wporg'        => 'https://wordpress.org/themes/astra/',
+				'url'          => 'https://downloads.wordpress.org/theme/astra.zip',
+				'siteurl'      => $white_labels['author_url'],
+				'slug'         => 'astra',
+				'isFree'       => true,
+				'status'       => self::get_theme_status( 'astra' ),
+				'settings_url' => admin_url( 'admin.php?page=astra' ),
+			),
 
-			'astra-sites/astra-sites.php'               => [
-				'icon'    => $images_url . 'stemplates.png',
-				'type'    => 'plugin',
-				'name'    => esc_html__( 'Starter Templates', 'header-footer-elementor' ),
-				'desc'    => esc_html__( 'Build you dream website in minutes with AI.', 'header-footer-elementor' ),
-				'wporg'   => 'https://wordpress.org/plugins/astra-sites/',
-				'url'     => 'https://downloads.wordpress.org/plugin/astra-sites.zip',
-				'siteurl' => 'https://startertemplates.com/',
-				'slug'    => 'astra-sites',
-				'isFree'  => true,
-				'status'  => self::get_plugin_status( 'astra-sites/astra-sites.php' ),
-			],
+			'astra-sites/astra-sites.php'                  => array(
+				'icon'         => $images_url . 'stemplates.svg',
+				'type'         => 'plugin',
+				'name'         => esc_html__( 'Starter Templates', 'uael' ),
+				'desc'         => esc_html__( 'Launch websites with AI or ready-made templates.', 'uael' ),
+				'wporg'        => 'https://wordpress.org/plugins/astra-sites/',
+				'url'          => 'https://downloads.wordpress.org/plugin/astra-sites.zip',
+				'siteurl'      => 'https://startertemplates.com/',
+				'slug'         => 'astra-sites',
+				'isFree'       => true,
+				'status'       => self::get_plugin_status( 'astra-sites/astra-sites.php' ),
+				'settings_url' => admin_url( 'admin.php?page=starter-templates' ),
+			),
 
-			'surecart/surecart.php'               => [
-				'icon'    => $images_url . 'surecart.png',
-				'type'    => 'plugin',
-				'name'    => esc_html__( 'Surecart', 'header-footer-elementor' ),
-				'desc'    => esc_html__( 'The new way to sell on WordPress.', 'header-footer-elementor' ),
-				'wporg'   => 'https://wordpress.org/plugins/surecart/',
-				'url'     => 'https://downloads.wordpress.org/plugin/surecart.zip',
-				'siteurl' => 'https://surecart.com/',
-				'isFree'  => true,
-				'slug'    => 'surecart',
-				'status'  => self::get_plugin_status( 'surecart/surecart.php' ),
-			],
+			'surecart/surecart.php'                        => array(
+				'icon'         => $images_url . 'surecart.svg',
+				'type'         => 'plugin',
+				'name'         => esc_html__( 'SureCart', 'uael' ),
+				'desc'         => esc_html__( 'Sell your products easily on WordPress.', 'uael' ),
+				'wporg'        => 'https://wordpress.org/plugins/surecart/',
+				'url'          => 'https://downloads.wordpress.org/plugin/surecart.zip',
+				'siteurl'      => 'https://surecart.com/',
+				'isFree'       => true,
+				'slug'         => 'surecart',
+				'status'       => self::get_plugin_status( 'surecart/surecart.php' ),
+				'settings_url' => admin_url( 'admin.php?page=sc-getting-started' ),
+			),
 
-			'presto-player/presto-player.php'               => [
-				'icon'    => $images_url . 'pplayer.png',
-				'type'    => 'plugin',
-				'name'    => esc_html__( 'Presto Player', 'header-footer-elementor' ),
-				'desc'    => esc_html__( 'Automate your WordPress setup with Presto Player.', 'header-footer-elementor' ),
-				'wporg'   => 'https://wordpress.org/plugins/presto-player/',
-				'url'     => 'https://downloads.wordpress.org/plugin/presto-player.zip',
-				'siteurl' => 'https://prestoplayer.com/',
-				'slug'    => 'presto-player',
-				'isFree'  => true,
-				'status'  => self::get_plugin_status( 'presto-player/presto-player.php' ),
-			],
+			'presto-player/presto-player.php'              => array(
+				'icon'         => $images_url . 'pplayer.svg',
+				'type'         => 'plugin',
+				'name'         => esc_html__( 'Presto Player', 'uael' ),
+				'desc'         => html_entity_decode( esc_html__( 'Display seamless & interactive videos.', 'uael' ) ),
+				'wporg'        => 'https://wordpress.org/plugins/presto-player/',
+				'url'          => 'https://downloads.wordpress.org/plugin/presto-player.zip',
+				'siteurl'      => 'https://prestoplayer.com/',
+				'slug'         => 'presto-player',
+				'isFree'       => true,
+				'status'       => self::get_plugin_status( 'presto-player/presto-player.php' ),
+				'settings_url' => admin_url( 'edit.php?post_type=pp_video_block' ),
+			),
 
-		];
+			'sureforms/sureforms.php'                      => array(
+				'icon'         => $images_url . 'sureforms.svg',
+				'type'         => 'plugin',
+				'name'         => esc_html__( 'SureForms', 'uael' ),
+				'desc'         => esc_html__( 'Create high-converting forms with ease.', 'uael' ),
+				'wporg'        => 'https://wordpress.org/plugins/sureforms/',
+				'url'          => 'https://downloads.wordpress.org/plugin/sureforms.zip',
+				'siteurl'      => 'https://sureforms.com/',
+				'slug'         => 'sureforms',
+				'isFree'       => true,
+				'status'       => self::get_plugin_status( 'sureforms/sureforms.php' ),
+				'settings_url' => admin_url( 'admin.php?page=sureforms_menu' ),
+			),
+
+			'suretriggers/suretriggers.php'                => array(
+				'icon'         => $images_url . 'suretriggers.svg',
+				'type'         => 'plugin',
+				'name'         => esc_html__( 'SureTriggers', 'uael' ),
+				'desc'         => esc_html__( 'Automate WordPress tasks effortlessly.', 'uael' ),
+				'wporg'        => 'https://wordpress.org/plugins/suretriggers/',
+				'url'          => 'https://downloads.wordpress.org/plugin/suretriggers.zip',
+				'siteurl'      => 'https://suretriggers.com/',
+				'slug'         => 'suretriggers',
+				'isFree'       => true,
+				'status'       => self::get_plugin_status( 'suretriggers/suretriggers.php' ),
+				'settings_url' => admin_url( 'admin.php?page=suretriggers' ),
+			),
+
+			'all-in-one-schemaorg-rich-snippets/index.php' => array(
+				'icon'         => $images_url . 'aiosrs.svg',
+				'type'         => 'plugin',
+				'name'         => html_entity_decode( esc_html__( 'Schema – All In One Schema Rich Snippets', 'uael' ) ),
+				'desc'         => html_entity_decode( esc_html__( 'Boost SEO with rich results & structured data.', 'uael' ) ),
+				'wporg'        => 'https://wordpress.org/plugins/all-in-one-schemaorg-rich-snippets/',
+				'url'          => 'https://downloads.wordpress.org/plugin/all-in-one-schemaorg-rich-snippets.zip',
+				'siteurl'      => 'https://wordpress.org/plugins/all-in-one-schemaorg-rich-snippets/',
+				'slug'         => 'all-in-one-schemaorg-rich-snippets',
+				'isFree'       => true,
+				'status'       => self::get_plugin_status( 'all-in-one-schemaorg-rich-snippets/index.php' ),
+				'settings_url' => admin_url( 'admin.php?page=rich_snippet_dashboard' ),
+			),
+
+		);
+
+		foreach ( $plugins as $key => $plugin ) {
+			// Check if it's a plugin and is active.
+			if ( 'plugin' === $plugin['type'] && is_plugin_active( $key ) ) {
+				unset( $plugins[ $key ] );
+			}
+
+			if ( 'theme' === $plugin['type'] ) {
+				$current_theme = wp_get_theme();
+				if ( $current_theme->get_stylesheet() === $plugin['slug'] ) {
+					unset( $plugins[ $key ] );
+				}
+			}
+		}
+
+		return $plugins;
 	}
 
 	/**
@@ -1007,14 +1069,14 @@ class Widgets_Config {
         if ( isset( $installed_themes[ $theme_slug ] ) ) {
             $current_theme = wp_get_theme();
             
-            // Check if the current theme slug matches the provided theme slug
+            // Check if the current theme slug matches the provided theme slug.
             if ( $current_theme->get_stylesheet() === $theme_slug ) {
                 return 'Activated'; // Theme is active
             } else {
-                return 'Activate'; // Theme is installed but not active
+                return 'Installed'; // Theme is installed but not active.
             }
         } else {
-            return 'Install'; // Theme is not installed at all
+            return 'Install'; // Theme is not installed at all.
         }
     }
 
