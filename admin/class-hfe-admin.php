@@ -274,13 +274,28 @@ class HFE_Admin {
 	 * @return void
 	 */
 	public function register_admin_menu() {
+
+		$setting_location = $this->is_pro_active() ? 'uaepro' : 'hfe';
+
 		add_submenu_page(
-			'themes.php',
-			__( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
-			__( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
+			$setting_location,
+			__( 'Header & Footer Builder', 'header-footer-elementor' ),
+			__( 'Header & Footer Builder', 'header-footer-elementor' ),
 			'edit_pages',
 			'edit.php?post_type=elementor-hf'
 		);
+	}
+
+	/**
+	 * Check if UAE Pro is active
+	 *
+	 * @return void
+	 */
+	public function is_pro_active() {
+		if ( is_plugin_active( 'ultimate-elementor/ultimate-elementor.php' ) && defined( 'UAEL_PRO' ) && UAEL_PRO ) {
+			return true;
+		}
+		return false;
 	}
 
 	/**
