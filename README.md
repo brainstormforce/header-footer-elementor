@@ -141,6 +141,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 ## Changelog ##
 
 ### 1.7.0.1 ###
+- New: Scroll to Top extension.
 - New: Post Info widget.
 - New: Breadcrumbs widget 
 

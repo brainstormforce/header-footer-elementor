@@ -1952,6 +1952,48 @@ div.hfe-nav-menu,
     height:100%;
 }
 
+.hfe-scroll-to-top-wrap.hfe-scroll-to-top-hide {
+    display: none;
+}
+
+.hfe-scroll-to-top-wrap.edit-mode,
+.hfe-scroll-to-top-wrap.single-page-off {
+    display: none !important;
+}
+
+.hfe-scroll-to-top-button {
+    position:fixed;
+    right:15px;
+    bottom:15px;
+    z-index:9999;
+    display:-webkit-box;
+    display:-webkit-flex;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-align:center;
+    -webkit-align-items:center;
+    align-items:center;
+    -ms-flex-align:center;
+    -webkit-box-pack:center;
+    -ms-flex-pack:center;
+    -webkit-justify-content:center;
+    justify-content:center;
+    width:50px;
+    height:50px;
+    border-radius:50px;
+    background-color:#000000;
+    color:#fff;
+    text-align:center;
+    opacity:1;
+    cursor:pointer;
+    -webkit-transition:all .3s;
+    transition:all .3s;
+}
+
+.hfe-scroll-to-top-button i {
+    color:#fff;
+    font-size:16px;
+}
 /* Breadcrumbs CSS */
 
 ul.hfe-breadcrumbs {
