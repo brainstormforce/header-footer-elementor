@@ -6,9 +6,6 @@
  */
 namespace HFE\WidgetsManager\Base;
 
-
-use HFE\WidgetsManager\Base\Widgets_Config;
-
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
@@ -874,7 +871,7 @@ class Widgets_Config {
 	 */
 	public static function get_plugin_status( $plugin_init_file ) {
 
-		$installed_plugins = get_plugins();
+		$installed_plugins = get_bsf_plugins();
 
 		if ( ! isset( $installed_plugins[ $plugin_init_file ] ) ) {
 			return 'Install';
