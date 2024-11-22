@@ -61,6 +61,8 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 
 			add_action( 'wp_ajax_hfe_bulk_activate_widgets', [ $this, 'bulk_activate_widgets' ] );
 			add_action( 'wp_ajax_hfe_bulk_deactivate_widgets', [ $this, 'bulk_deactivate_widgets' ] );
+
+			add_action( 'wp_ajax_save_theme_compatibility_option', [ $this, 'save_hfe_compatibility_option_callback' ] );
 		}
 
 		/**
@@ -280,6 +282,30 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 				wp_send_json_error( esc_html__( 'Could not activate theme. Please activate from the Themes page.', 'header-footer-elementor' ) );
 			}
 		}
+
+		/**
+		 * Save HFE compatibility option via AJAX.
+		 *
+		 * @since x.x.x
+		 * @return void
+		 */
+		public function save_hfe_compatibility_option_callback() {
+			// Check nonce for security.
+			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
+
+			if ( isset( $_POST['hfe_compatibility_option'] ) ) {
+				// Sanitize and update option.
+				$option = sanitize_text_field( $_POST['hfe_compatibility_option'] );
+				update_option( 'hfe_compatibility_option', $option );
+
+				// Return a success response.
+				wp_send_json_success( 'Option saved successfully!' );
+			} else {
+				// Return an error response if the option is not set.
+				wp_send_json_error( 'Option not set.' );
+			}
+		}
+
 	}
 
 	/**

@@ -188,6 +188,13 @@ class HFE_Settings_Page {
 	public function enqueue_admin_scripts() {
 
 		$rollback_versions = HFE_Helper::get_rollback_versions_options();
+		$show_theme_support = false;
+		$hfe_theme_status   = get_option( 'hfe_is_theme_supported', true );
+
+		if ( ! current_theme_supports( 'header-footer-elementor' ) && ! $hfe_theme_status ) {
+			$show_theme_support = true;
+		}
+		$theme_option = get_option( 'hfe_compatibility_option', '1' );
 
 		wp_enqueue_script(
 			'header-footer-elementor-react-app',
@@ -198,8 +205,8 @@ class HFE_Settings_Page {
 		);
 
 		wp_localize_script(
-			'header-footer-elementor-react-app', 
-			'hfeSettingsData', 
+			'header-footer-elementor-react-app',
+			'hfeSettingsData',
 			array(
 				'hfe_nonce_action'                   => wp_create_nonce( 'wp_rest' ),
 				'installer_nonce'                     => wp_create_nonce( 'updates' ),
@@ -221,6 +228,8 @@ class HFE_Settings_Page {
 				'uaelite_versions'                    => $rollback_versions,
 				'uaelite_rollback_url'                => esc_url( add_query_arg( 'version', 'VERSION', wp_nonce_url( admin_url( 'admin-post.php?action=uaelite_rollback' ), 'uaelite_rollback' ) ) ),
 				'uaelite_current_version'             => defined( 'HFE_VER' ) ? HFE_VER : '',
+				'show_theme_support'                  => $show_theme_support,
+				'theme_option'                        => $theme_option,
 			)
 		);
 

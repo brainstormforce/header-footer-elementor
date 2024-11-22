@@ -40,41 +40,14 @@ const Settings = () => {
             main: 'Utilities',
             title: 'Version Control',
             content: <VersionControl/>
-        },
-        {
-            id: 3,
-            icon: (
-                <img
-                    src={`${hfeSettingsData.integrations_url}`}
-                    alt="Custom SVG"
-                    className="object-contain"
-                    style={{
-                        width: "90%",
-                        height: "auto",
-                    }}
-                />
-            ),
-            main: 'Preferences',
-            title: 'Integrations',
-            content: 'This is the content for Services.'
-        },
-        // {
-        //     id: 4,
-        //     icon: (
-        //         <img
-        //             src={`${hfeSettingsData.template_url}`}
-        //             alt="Custom SVG"
-        //             className="object-contain"
-        //             style={{
-        //                 width: "90%",
-        //                 height: "auto",
-        //             }}
-        //         />
-        //     ),
-        //     title: 'Contact',
-        //     content: 'This is the content for Contact.'
-        // }
-    ];
+        }
+    ].filter(item => {
+        if ( (! hfeSettingsData.show_theme_support ) && item.id === 1 ) {
+            return false;
+        }
+       
+        return true;
+    });
 
     return (
         <>
