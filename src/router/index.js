@@ -35,6 +35,7 @@ class Router extends Component {
   }
 
   handleRouteChange = (location) => {
+    localStorage.setItem('hfeSelectedItemId', '1');
     const route = locationToRoute(location?.location);
     this.setState({ route: route });
   };

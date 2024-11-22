@@ -399,4 +399,17 @@ class HFE_Helper {
 		return $rollback_versions;
 	}
 
+	/**
+	 * Provide General settings array().
+	 *
+	 * @since x.x.x
+	 * @return array()
+	 */
+	public static function starter_templates_status() {
+
+		$status = Widgets_Config::get_plugin_status( 'astra-sites/astra-sites.php' );
+
+		return $status;
+	}
+
 }

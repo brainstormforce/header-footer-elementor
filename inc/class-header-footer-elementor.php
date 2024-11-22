@@ -67,8 +67,6 @@ class Header_Footer_Elementor {
 			$this->includes();
 			$this->load_textdomain();
 
-			add_action( 'init', [ $this, 'setup_settings_page' ] );
-
 			add_filter('elementor/admin-top-bar/is-active', function($is_active, $current_screen) {
 				if (strpos($current_screen->id, 'elementor-hf') !== false) {
 					return false;
@@ -100,6 +98,8 @@ class Header_Footer_Elementor {
 			}
 
 			update_option( 'hfe_is_theme_supported', $is_theme_supported );
+			
+			add_action( 'init', [ $this, 'setup_settings_page' ] );
 
 			if ( 'yes' === get_option( 'hfe_plugin_is_activated' ) ) {
 				add_action( 'admin_init', [ $this, 'show_setup_wizard' ] );

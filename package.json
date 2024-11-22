@@ -41,11 +41,13 @@
 				"react": "^18.3.1",
 				"react-chartjs-2": "^5.2.0",
 				"react-dom": "^18.2.0",
+				"react-hot-toast": "^2.4.1",
 				"react-redux": "^9.1.2",
 				"react-router": "^6.0.0",
 				"react-router-dom": "^6.27.0",
 				"react-select": "^5.8.0",
 				"react-virtualized": "^9.22.3",
+				"whats-new-rss": "github:brainstormforce/whats-new-rss",
 				"webfontloader": "^1.6.28"
 		},
 		"devDependencies": {

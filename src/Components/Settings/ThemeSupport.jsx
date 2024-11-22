@@ -1,29 +1,72 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Title, Label } from "@bsf/force-ui";
+import { __ } from '@wordpress/i18n';
+import toast, { Toaster } from 'react-hot-toast';
 
 const radioData = [
     {
         id: "1",
-        title: 'Option 1 (Recommended)',
-        description: "This option will automatically replace your theme’s header and footer files with custom templates from the plugin. It works with most themes and is selected by default.",
-        value: "option1"
+        title: __( 'Option 1 (Recommended)', 'uael' ),
+        description: __( "This option will automatically replace your theme's header and footer files with custom templates from the plugin. It works with most themes and is selected by default.", "uael" ),
+        value: "1"
     },
     {
         id: "2",
-        title: 'Option 2',
-        description: "This option will automatically replace your theme’s header and footer files with custom templates from the plugin. It works with most themes and is selected by default.",
-        value: "option2"
+        title: __( 'Option 2', 'uael' ),
+        description: __( "This option will automatically replace your theme's header and footer files with custom templates from the plugin. It works with most themes and is selected by default.", "uael" ),
+        value: "2"
     }
 ];
 
 const ThemeSupport = () => {
-    // State to store the selected radio option
-    const [selectedOption, setSelectedOption] = useState(radioData[0].value);
 
-    // Handle the radio button change
+    if ( ! hfeSettingsData.show_theme_support ) {
+        return null;
+    }
+
+    // State to store the selected radio option
+    const [selectedOption, setSelectedOption] = useState( hfeSettingsData.theme_option );
+    const [isInitialLoad, setIsInitialLoad] = useState(true);
+
+    useEffect(() => {
+        setIsInitialLoad(false);
+    }, []);
+
     const handleRadioChange = (event) => {
-        setSelectedOption(event.target.value); // Update the selected option in state
-        console.log("Selected Option:", event.target.value); // You can log it for debugging
+        const newValue = event.target.value;
+        setSelectedOption(newValue); // Update the selected option in state.
+
+        // Only send the AJAX call if this is not the initial load.
+        if (!isInitialLoad) {
+            saveOption(newValue);
+        }
+    };
+
+    // Function to save the selected option.
+    const saveOption = async (option) => {
+        try {
+            const response = await fetch( hfe_admin_data.ajax_url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    action: 'save_theme_compatibility_option', // WordPress action for your AJAX handler.
+                    hfe_compatibility_option: option,
+                    nonce: hfe_admin_data.nonce // Nonce for security.
+                })
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                toast.success("Settings saved successfully!");
+            } else {
+                toast.error("Failed to save settings");
+            }
+        } catch (error) {
+            toast.error("Error saving settings");
+        }
     };
 
     return (
@@ -49,8 +92,13 @@ const ThemeSupport = () => {
                 }}
             >
                 <Container.Item className="flex flex-col space-y-1">
-                    <p className='text-base font-semibold m-0'>Select Option to Add Theme Support</p>
-                    <p className='text-sm font-normal m-0'>To ensure compatibility between the Elementor Header & Footer Builder plugin and your theme, please choose one of the following options to enable theme support:</p>
+                    <p className='text-base font-semibold m-0'>{__( 'Select Option to Add Theme Support', 'uael' )}</p>
+                    <p className='text-sm font-normal m-0'>
+                    {__(
+                        `To ensure compatibility between the header/footer and your theme, please choose one of the following options to enable theme support:`,
+                        'uael'
+                    )}
+                    </p>
                 </Container.Item>
                 <Container.Item
                     className="p-2 space-y-4"
@@ -83,13 +131,42 @@ const ThemeSupport = () => {
                     ))}
                 </Container.Item>
 
-                <div className='flex items-center px-4 border  rounded-md text-start' style={{
+                <div className='flex items-center p-4 border rounded-md text-start' style={{
                     height: "44px",
                     backgroundColor: "#F3F0FF",
                 }}>
-                    <p className='m-0'><strong>Note:</strong> If neither option works, please contact your theme author to add support for this plugin.</p>
+                   <p className='m-0'>
+                        <strong>{__('Note:', 'uael')}</strong> {__('If neither option works, please contact your theme author to add support for this plugin.', 'uael')}
+                    </p>
                 </div>
             </Container>
+
+            <Toaster
+                position="top-right"
+                reverseOrder={false}
+                gutter={8}
+                containerStyle={{
+                    top: 20,
+                    right: 20,
+                    marginTop: '80px',
+                }}
+                toastOptions={{
+                    duration: 5000,
+                    style: {
+                        background: 'white',
+                    },
+                    success: {
+                        duration: 3000,
+                        style: {
+                            color: '',
+                        },
+                        iconTheme: {
+                            primary: '#6005ff',
+                            secondary: '#fff',
+                        },
+                    },
+                }}
+            />
         </>
     );
 };
