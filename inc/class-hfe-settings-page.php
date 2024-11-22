@@ -10,6 +10,8 @@
 
 namespace HFE\Themes;
 
+use HFE\WidgetsManager\Base\HFE_Helper;
+
 /**
  * Class Settings Page.
  *
@@ -117,6 +119,8 @@ class HFE_Settings_Page {
 	 */
 	public function enqueue_admin_scripts() {
 
+		$free_versions = $this->lite_get_rollback_versions();
+
 		wp_enqueue_script(
 			'header-footer-elementor-react-app',
 			HFE_URL . 'build/main.js',
@@ -125,24 +129,32 @@ class HFE_Settings_Page {
 			true
 		);
 
-		wp_localize_script('header-footer-elementor-react-app', 'hfeSettingsData', array(
-			'hfe_nonce_action'                   => wp_create_nonce( 'wp_rest' ),
-			'installer_nonce'                     => wp_create_nonce( 'updates' ),
-			'ajax_url'                            => admin_url( 'admin-ajax.php' ),
-			'ajax_nonce'                          => wp_create_nonce( 'hfe-widget-nonce' ),
-			'templates_url' => HFE_URL . 'assets/images/settings/starter-templates.png',
-			'column_url' => HFE_URL . 'assets/images/settings/column.png',
-			'template_url' => HFE_URL . 'assets/images/settings/template.png',
-			'icon_url' => HFE_URL . 'assets/images/settings/logo.svg',
-			'elementor_page_url'                  => self::get_elementor_new_page_url(),
-			'astra_url' => HFE_URL . 'assets/images/settings/astra.svg',
-			'starter_url' => HFE_URL . 'assets/images/settings/starter-templates.svg',
-			'surecart_url' => HFE_URL . 'assets/images/settings/surecart.svg',
-			'suretriggers_url' => HFE_URL . 'assets/images/settings/sure-triggers.svg',
-			'theme_url' => HFE_URL . 'assets/images/settings/theme.svg',
-			'version_url' => HFE_URL . 'assets/images/settings/version.svg',
-			'integrations_url' => HFE_URL . 'assets/images/settings/integrations.svg',  // Update the path to your assets folder
-		));
+		wp_localize_script(
+			'header-footer-elementor-react-app', 
+			'hfeSettingsData', 
+			array(
+				'hfe_nonce_action'                   => wp_create_nonce( 'wp_rest' ),
+				'installer_nonce'                     => wp_create_nonce( 'updates' ),
+				'ajax_url'                            => admin_url( 'admin-ajax.php' ),
+				'ajax_nonce'                          => wp_create_nonce( 'hfe-widget-nonce' ),
+				'templates_url' => HFE_URL . 'assets/images/settings/starter-templates.png',
+				'column_url' => HFE_URL . 'assets/images/settings/column.png',
+				'template_url' => HFE_URL . 'assets/images/settings/template.png',
+				'icon_url' => HFE_URL . 'assets/images/settings/logo.svg',
+				'elementor_page_url'                  => self::get_elementor_new_page_url(),
+				'astra_url' => HFE_URL . 'assets/images/settings/astra.svg',
+				'starter_url' => HFE_URL . 'assets/images/settings/starter-templates.svg',
+				'surecart_url' => HFE_URL . 'assets/images/settings/surecart.svg',
+				'suretriggers_url' => HFE_URL . 'assets/images/settings/sure-triggers.svg',
+				'theme_url' => HFE_URL . 'assets/images/settings/theme.svg',
+				'version_url' => HFE_URL . 'assets/images/settings/version.svg',
+				'integrations_url' => HFE_URL . 'assets/images/settings/integrations.svg',  // Update the path to your assets folder.
+				'uaelite_previous_version'            => isset( $free_versions[0]['value'] ) ? $free_versions[0]['value'] : '',
+				'uaelite_versions'                    => $free_versions,
+				'uaelite_rollback_url'                => esc_url( add_query_arg( 'version', 'VERSION', wp_nonce_url( admin_url( 'admin-post.php?action=uaelite_rollback' ), 'uaelite_rollback' ) ) ),
+				'uaelite_current_version'             => defined( 'HFE_VER' ) ? HFE_VER : '',
+			)
+		);
 
 		wp_enqueue_style(
 			'header-footer-elementor-react-styles',
@@ -199,6 +211,23 @@ class HFE_Settings_Page {
 		$this->hfe_tabs();
 		$this->hfe_modal();
 		return $views;
+	}
+
+	/**
+	 * Get UAE Lite Rollback versions.
+	 *
+	 * @return array
+	 * @since x.x.x
+	 */
+	public function lite_get_rollback_versions() {
+		
+		if ( class_exists( 'HFE_Helper' ) ) { // phpcs:ignore WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase
+
+			$hfe_helper = new HFE_Helper();
+			return $hfe_helper::get_rollback_versions_options();
+		}
+
+		return '';
 	}
 
 	/**

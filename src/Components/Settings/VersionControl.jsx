@@ -1,17 +1,39 @@
-import React, { useState } from 'react'
-import { Container, Title, Button, Select, SelectButton, SelectOptions, SelectItem, Label } from "@bsf/force-ui";
-import { Plus } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Container, Title, Switch, Button, Dialog } from "@bsf/force-ui";
+import apiFetch from '@wordpress/api-fetch';
+import { __ } from '@wordpress/i18n';
 
 const VersionControl = () => {
-    const [selectedOption, setSelectedOption] = useState('');
+    
+    const previousLiteVersions = uaelSettingsData.uaelite_versions;
 
-    const handleSelectChange = (event) => {
-      setSelectedOption(event.target.value);
+    const liteVersionRef = useRef(previousLiteVersions ? previousLiteVersions[0].value : '');
+
+    const [liteVersionSelect, setLiteVersionSelect] = useState(previousLiteVersions ? previousLiteVersions[0].value : '');
+
+    const [freeproductSelect, setFreeproductSelect] = useState('elementor-header-footer');
+
+    const [openLitePopup, setOpenLitePopup] = useState(false);
+
+    useEffect(() => {
+    }, [openLitePopup]);
+
+    const onLiteCancelClick = () => {
+        setOpenLitePopup(false);
     };
-  
-    const handleButtonClick = () => {
-      alert(`You selected: ${selectedOption}`);
+
+    const onLiteContinueClick = () => {
+        const rollbackUrl = uaelSettingsData.uaelite_rollback_url.replace(
+            'VERSION',
+            liteVersionSelect
+        );
+        setOpenLitePopup(false);
+        window.location.href = rollbackUrl;
     };
+
+    const handleLiteVersionChange = (event) => {
+        setLiteVersionSelect(event.target.value);
+    }
   
     return (
         <>
@@ -21,53 +43,101 @@ const VersionControl = () => {
                 iconPosition="right"
                 size="sm"
                 tag="h2"
-                title="Version Control"
+                title={__('Version Control', 'uael')}
             />
-            <Container
-                align="stretch"
-                className="bg-background-primary p-6 flex flex-row rounded-lg"
-                containerType="flex"
-                direction="column"
-                gap="sm"
-                justify="start"
+            <div
+                className="box-border bg-background-primary p-6 rounded-lg"
                 style={{
                     marginTop: "24px",
-                    // maxWidth: "696px",
                 }}
             >
-                <Container.Item className="flex flex-col space-y-1">
-                    <p className='text-base font-semibold m-0'>Rollback to Previous Version</p>
-                    <p className='text-sm font-normal m-0'>Experiencing an issue with Spectra version 2.15.2? Roll back to a previous version to help troubleshoot the issue.</p>
-                </Container.Item>
-                <Container.Item
-                    className="p-2 flex space-y-4"
-                    alignSelf="auto"
-                    order="none"
+                <Container
+                    align="stretch"
+                    className="flex flex-col lg:flex-row"
+                    containerType="flex"
+                    direction="column"
+                    gap="sm"
+                    justify="start"
                 >
-                    {/* Dropdown */}
-                    <select
-                        value={selectedOption}
-                        onChange={handleSelectChange}
-                        style={{ padding: '8px', marginRight: '10px', marginTop: '16px', cursor: 'pointer', borderRadius: '4px', height: '44px', width: '100px' }}
+                    <Container.Item className="shrink flex flex-col space-y-1">
+                        <p className="text-base font-semibold m-0">
+                            {__(`Rollback to Previous Version`, 'uael')}
+                        </p>
+                        <p className="text-sm font-normal m-0">
+                            {__('Experiencing an issue with current version? Roll back to a previous version to help troubleshoot the issue.', 'uael')}
+                        </p>
+                    </Container.Item>
+                    <Container.Item
+                        className="p-2 flex space-y-4"
+                        alignSelf="auto"
+                        order="none"
                     >
-                        <option value="" disabled>2.15.1</option>
-                        <option value="Option 1">Option 1</option>
-                        <option value="Option 2">Option 2</option>
-                        <option value="Option 3">Option 3</option>
-                    </select>
-                    <div className='flex flex-col cursor-pointer'>
-                        <Button
-                            // icon={<Plus />}
-                            iconPosition="left"
-                            variant="primary"
-                        >
-                            Rollback
-                        </Button>
-                    </div>
-                </Container.Item>
-            </Container>
+                        <div className="bsf-rollback-version">
+                            <input type="hidden" name="product-name" id="bsf-product-name" value={'uael'} />
+                            <select
+                                id="uaeliteVersionRollback"
+                                ref={liteVersionRef}
+                                onBlur={() => {
+                                    setFreeproductSelect('elementor-header-footer');
+                                }}
+                                onChange={handleLiteVersionChange}
+                                style={{
+                                    padding: '8px',
+                                    marginRight: '10px',
+                                    marginTop: '16px',
+                                    cursor: 'pointer',
+                                    borderRadius: '4px',
+                                    height: '44px',
+                                    width: '100px',
+                                }}
+                            >
+                                {previousLiteVersions.map((version) => (
+                                    <option key={version.value} value={version.value}>
+                                        {version.label}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                        
+                        <div className="flex flex-col cursor-pointer">
+                            <Dialog
+                                design="simple"
+                                exitOnEsc
+                                scrollLock
+                                open={openLitePopup} // Ensure Dialog is controlled by state
+                                setOpen={setOpenLitePopup} // Synchronize state
+                                trigger={<Button>{__('Rollback', 'uael')}</Button>}
+                            >
+                                <Dialog.Backdrop />
+                                <Dialog.Panel>
+                                    <Dialog.Header>
+                                        <div className="flex items-center justify-between">
+                                            <Dialog.Title>
+                                                {__('Rollback to Previous Version', 'uael')}
+                                            </Dialog.Title>
+                                            <Dialog.CloseButton />
+                                        </div>
+                                    </Dialog.Header>
+                                    <Dialog.Body>
+                                        {__(`Are you sure you want to rollback to UAE Lite v${liteVersionSelect}?`, 'uael')}
+                                    </Dialog.Body>
+                                    <Dialog.Footer>
+                                        <Button onClick={onLiteContinueClick}>
+                                            {__('Rollback', 'uael')}
+                                        </Button>
+                                        <Button onClick={onLiteCancelClick}>
+                                            {__('Cancel', 'uael')}
+                                        </Button>
+                                    </Dialog.Footer>
+                                </Dialog.Panel>
+                            </Dialog>
+                        </div>
+                    </Container.Item>
+                </Container>
+
+            </div>
         </>
-    )
+    );
 }
 
 export default VersionControl
