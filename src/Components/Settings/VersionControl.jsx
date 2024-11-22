@@ -5,7 +5,7 @@ import { __ } from '@wordpress/i18n';
 
 const VersionControl = () => {
     
-    const previousLiteVersions = uaelSettingsData.uaelite_versions;
+    const previousLiteVersions = hfeSettingsData.uaelite_versions;
 
     const liteVersionRef = useRef(previousLiteVersions ? previousLiteVersions[0].value : '');
 
@@ -23,7 +23,7 @@ const VersionControl = () => {
     };
 
     const onLiteContinueClick = () => {
-        const rollbackUrl = uaelSettingsData.uaelite_rollback_url.replace(
+        const rollbackUrl = hfeSettingsData.uaelite_rollback_url.replace(
             'VERSION',
             liteVersionSelect
         );

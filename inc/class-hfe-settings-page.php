@@ -19,7 +19,7 @@ use HFE\WidgetsManager\Base\HFE_Helper;
  */
 class HFE_Settings_Page {
 	
-	    /**
+	/**
      * Instance
      *z
      * @access private
@@ -39,10 +39,17 @@ class HFE_Settings_Page {
 			add_action( 'admin_menu', [ $this, 'hfe_register_settings_page' ] );
 		}
 		add_action( 'admin_init', [ $this, 'hfe_admin_init' ] );
+		add_action( 'admin_post_uaelite_rollback', [ $this, 'post_uaelite_rollback' ] );
 		add_filter( 'views_edit-elementor-hf', [ $this, 'hfe_settings' ], 10, 1 );
 		add_filter( 'admin_footer_text', [ $this, 'admin_footer_text' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
 		add_filter( 'plugin_action_links_' . HFE_PATH, [ $this, 'settings_link' ] );
+
+		if ( version_compare( get_bloginfo( 'version' ), '5.1.0', '>=' ) ) {
+			add_filter( 'wp_check_filetype_and_ext', [ $this, 'real_mime_types_5_1_0' ], 10, 5 );
+		} else {
+			add_filter( 'wp_check_filetype_and_ext', [ $this, 'real_mime_types' ], 10, 4 );
+		}
 
 		/* Add the Action Links */
 		// add_filter( 'plugin_action_links_' . HFE_PATH, array( $this, 'add_action_links' ) );
@@ -77,6 +84,67 @@ class HFE_Settings_Page {
 			}
 			return '';
 		}
+
+	
+
+	/**
+	 * UAELite version rollback.
+	 *
+	 * Rollback to previous version.
+	 *
+	 * Fired by `admin_post_uaelite_rollback` action.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 */
+	public function post_uaelite_rollback() {
+
+		if ( ! current_user_can( 'install_plugins' ) ) {
+			wp_die(
+				esc_html__( 'You do not have permission to access this page.', 'header-footer-elementor' ),
+				esc_html__( 'Rollback to Previous Version', 'header-footer-elementor' ),
+				array(
+					'response' => 200,
+				)
+			);
+		}
+
+		check_admin_referer( 'uaelite_rollback' );
+
+		$rollback_versions = HFE_Helper::get_rollback_versions_options();
+		$update_version    = isset( $_GET['version'] ) ? sanitize_text_field( $_GET['version'] ) : '';
+
+		// Extract version values from the rollback_versions array
+		$version_values = array_column( $rollback_versions, 'value' );
+
+		if ( empty( $update_version ) || ! in_array( $update_version, $version_values, true ) ) {
+			wp_die( esc_html__( 'Error occurred, The version selected is invalid. Try selecting different version.', 'header-footer-elementor' ) );
+		}
+
+		$plugin_slug = basename( HFE_FILE, '.php' );
+		
+		if ( class_exists( 'HFE_Rollback' ) ) {
+			$rollback = new \HFE_Rollback(
+				array(
+					'version'     => $update_version,
+					'plugin_name' => HFE_PATH,
+					'plugin_slug' => $plugin_slug,
+					'package_url' => sprintf( 'https://downloads.wordpress.org/plugin/%s.%s.zip', $plugin_slug, $update_version ),
+				)
+			);
+
+			$rollback->run();
+
+			wp_die(
+				'',
+				esc_html__( 'Rollback to Previous Version', 'header-footer-elementor' ),
+				array(
+					'response' => 200,
+				)
+			);
+		}
+		wp_die();
+	}
 
 	/**
 	 * Show action on plugin page.
@@ -119,7 +187,7 @@ class HFE_Settings_Page {
 	 */
 	public function enqueue_admin_scripts() {
 
-		$free_versions = $this->lite_get_rollback_versions();
+		$rollback_versions = HFE_Helper::get_rollback_versions_options();
 
 		wp_enqueue_script(
 			'header-footer-elementor-react-app',
@@ -149,8 +217,8 @@ class HFE_Settings_Page {
 				'theme_url' => HFE_URL . 'assets/images/settings/theme.svg',
 				'version_url' => HFE_URL . 'assets/images/settings/version.svg',
 				'integrations_url' => HFE_URL . 'assets/images/settings/integrations.svg',  // Update the path to your assets folder.
-				'uaelite_previous_version'            => isset( $free_versions[0]['value'] ) ? $free_versions[0]['value'] : '',
-				'uaelite_versions'                    => $free_versions,
+				'uaelite_previous_version'            => isset( $rollback_versions[0]['value'] ) ? $rollback_versions[0]['value'] : '',
+				'uaelite_versions'                    => $rollback_versions,
 				'uaelite_rollback_url'                => esc_url( add_query_arg( 'version', 'VERSION', wp_nonce_url( admin_url( 'admin-post.php?action=uaelite_rollback' ), 'uaelite_rollback' ) ) ),
 				'uaelite_current_version'             => defined( 'HFE_VER' ) ? HFE_VER : '',
 			)
@@ -208,26 +276,9 @@ class HFE_Settings_Page {
 	 */
 	public function hfe_settings( $views ) {
 
-		$this->hfe_tabs();
-		$this->hfe_modal();
+		// $this->hfe_tabs();
+		// $this->hfe_modal();
 		return $views;
-	}
-
-	/**
-	 * Get UAE Lite Rollback versions.
-	 *
-	 * @return array
-	 * @since x.x.x
-	 */
-	public function lite_get_rollback_versions() {
-		
-		if ( class_exists( 'HFE_Helper' ) ) { // phpcs:ignore WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase
-
-			$hfe_helper = new HFE_Helper();
-			return $hfe_helper::get_rollback_versions_options();
-		}
-
-		return '';
 	}
 
 	/**
@@ -515,6 +566,7 @@ public function render_content( $menu_page_slug, $page_action ) {
 			}
 
 			self::$hfe_settings_tabs['hfe_about'] = [
+				
 				'name' => __( 'About Us', 'header-footer-elementor' ),
 				'url'  => admin_url( 'themes.php?page=hfe-about' ),
 			];
