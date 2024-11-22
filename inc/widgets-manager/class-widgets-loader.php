@@ -51,6 +51,7 @@ class Widgets_Loader {
 	 * @access private
 	 */
 	private function __construct() {
+		
 		// Register category.
 		add_action( 'elementor/elements/categories_registered', [ $this, 'register_widget_category' ] );
 
@@ -71,6 +72,7 @@ class Widgets_Loader {
 
 			add_filter( 'woocommerce_add_to_cart_fragments', [ $this, 'wc_refresh_mini_cart_count' ] );
 		}
+
 	}
 
 	/**
@@ -110,6 +112,8 @@ class Widgets_Loader {
 			'site-logo',
 			'cart',
 			'search-button',
+			'breadcrumbs-widget',
+			'post-info-widget',
 		];
 
 		return $widget_list;
@@ -247,6 +251,8 @@ class Widgets_Loader {
 		Plugin::instance()->widgets_manager->register( new Widgets\Site_Tagline() );
 		Plugin::instance()->widgets_manager->register( new Widgets\Site_Logo() );
 		Plugin::instance()->widgets_manager->register( new Widgets\Search_Button() );
+		Plugin::instance()->widgets_manager->register( new Widgets\Breadcrumbs_Widget() );
+		Plugin::instance()->widgets_manager->register( new Widgets\Post_Info_Widget() );
 		if ( class_exists( 'woocommerce' ) ) {
 			Plugin::instance()->widgets_manager->register( new Widgets\Cart() );
 		}
