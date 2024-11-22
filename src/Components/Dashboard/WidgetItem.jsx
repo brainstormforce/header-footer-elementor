@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
-import { Container, Title, Button, Switch, Tooltip, Badge } from "@bsf/force-ui";
-import { InfoIcon } from 'lucide-react';
-import { Link } from 'react-dom/client';
+import React, { useEffect, useState } from 'react'
+import { Container, Switch, Tooltip, Badge } from "@bsf/force-ui";
+import { InfoIcon, FileText } from 'lucide-react';
 import apiFetch from '@wordpress/api-fetch';
 import { __ } from '@wordpress/i18n';
 
@@ -17,32 +16,42 @@ const processQueue = () => {
 };
 
 const WidgetItem = ({
-    widget
+    widget,
+    updateCounter
 }) => {
     const {
         id,
         icon,
         title,
-        viewDemo,
         infoText,
         is_pro,
-        is_active
+        is_active,
+        slug,
+        demo_url,
+        doc_url,
+        description
     } = widget
 
     // Track the active state of the widget using React state
     const [isActive, setIsActive] = useState(widget.is_active);
     const [isLoading, setIsLoading] = useState(false);
 
-    const apiCall = async () => {
-        const action = isActive ? 'hfe_deactivate_widget' : 'hfe_activate_widget';
+    useEffect(() => {
+        // Update local state when the widget prop changes
+        setIsActive(widget.is_active);
+    }, [widget.is_active, updateCounter]);
+
+    const apiCall = (activateWidget) => {
+        const action = activateWidget ? 'hfe_deactivate_widget' : 'hfe_activate_widget';
 
         const formData = new window.FormData();
         formData.append('action', action);
         formData.append('nonce', hfe_admin_data.nonce);
         formData.append('module_id', id);
+        formData.append('is_pro', is_pro);
 
         try {
-            const data = await apiFetch({
+            const data = apiFetch({
                 url: hfe_admin_data.ajax_url,
                 method: 'POST',
                 body: formData,
@@ -67,11 +76,15 @@ const WidgetItem = ({
 
         setIsLoading(true);
 
-        setIsActive(!isActive);  // Update the active state immediately
-
-        // Add the request to the queue
-        requestQueue.push(apiCall);
-
+        if (isActive) {
+            // Add the request to the queue
+            setIsActive(false);
+            requestQueue.push(() => apiCall(isActive));
+        } else {
+            // Add the request to the queue
+            setIsActive(true);
+            requestQueue.push(() => apiCall(isActive));
+        }
         if (requestQueue.length === 1) {
             // Start processing the queue if no other request is being processed
             processQueue();
@@ -86,20 +99,11 @@ const WidgetItem = ({
             gap=""
         >
             <div className='flex items-center justify-between w-full'>
-                <div className={`h-5 w-5 mb-5 ${icon?.props}`}>
+                <div className={`h-10 w-10 mb-5 ${icon?.props}`} style={{ fontSize: '22px' }}>
                     {icon}
                 </div>
 
                 <div className='flex items-center gap-x-2'>
-                    {/* {isNew && (
-                        <Badge
-                            label="New"
-                            size="xs"
-                            type="pill"
-                            variant="blue"
-                        />
-                    )} */}
-
 
                     {is_pro && (
                         <Badge
@@ -109,11 +113,12 @@ const WidgetItem = ({
                             variant="inverse"
 
                         />)}
-                    { !is_pro && (
+                    {!is_pro && (
                         <Switch
                             onChange={handleSwitchChange} // Updated to use the new function
                             size='sm'
                             value={isActive}
+                            className="hfe-remove-ring"
                         />)}
                 </div>
 
@@ -123,21 +128,31 @@ const WidgetItem = ({
             <div className='flex flex-col w-full'>
                 <p className='text-sm font-medium text-text-primary pt-3 m-0 pb-1'>{title}</p>
                 <div className='flex items-center justify-between w-full'>
-                    <p className='text-sm text-text-tertiary m-0 mb-1'>View Demo</p>
+                    <a href={demo_url} target="_blank" rel="noopener noreferrer" className='text-sm text-text-tertiary m-0 mb-1 uael-remove-ring cursor-pointer' style={{ textDecoration: 'none', lineHeight: '1.5rem' }}>
+                        {__('View Demo', 'uael')}
+                    </a>
                     {/* <p className='text-sm text-text-tertiary m-0'>{viewDemo}</p> */}
                     <Tooltip
                         arrow
-                        // content={title}
+                        content={
+                            <div>
+                                <span className='font-semibold block mb-2'>{title}</span>
+                                <span className='block mb-2'>{description}</span>
+                                <a href={doc_url} target="_blank" rel="noopener noreferrer" className='cursor-pointer' style={{ color: '#6005ff', textDecoration: 'none' }}>
+                                    <FileText style={{ color: '#6005ff', width: '11px', height: '11px', marginRight: '3px' }} />
+                                    {__('Read Documentation', 'uael')}
+                                </a>
+                            </div>
+                        }
                         placement="bottom"
                         title=""
-                        // triggers={[
-                        //     'hover',
-                        //     'focus'
-                        // ]}
+                        triggers={[
+                            'click'
+                        ]}
                         variant="dark"
-                        width="100px"
+                        size="xs"
                     >
-                        <InfoIcon className='h-5 w-5' />
+                        <InfoIcon className='h-5 w-5' size={18} color="#A0A5B2" />
                     </Tooltip>
 
                 </div>

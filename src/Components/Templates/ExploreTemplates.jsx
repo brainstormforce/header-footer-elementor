@@ -1,6 +1,8 @@
 import React from "react";
 import { Container, Title, Button } from "@bsf/force-ui";
 import { Zap, Plus, Check } from "lucide-react";
+import apiFetch from '@wordpress/api-fetch';
+import { __ } from "@wordpress/i18n";
 
 const ExploreTemplates = () => {
 

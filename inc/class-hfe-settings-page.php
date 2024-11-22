@@ -45,59 +45,39 @@ class HFE_Settings_Page {
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
 		add_filter( 'plugin_action_links_' . HFE_PATH, [ $this, 'settings_link' ] );
 
-		if ( version_compare( get_bloginfo( 'version' ), '5.1.0', '>=' ) ) {
-			add_filter( 'wp_check_filetype_and_ext', [ $this, 'real_mime_types_5_1_0' ], 10, 5 );
-		} else {
-			add_filter( 'wp_check_filetype_and_ext', [ $this, 'real_mime_types' ], 10, 4 );
-		}
-
 		/* Add the Action Links */
 		// add_filter( 'plugin_action_links_' . HFE_PATH, array( $this, 'add_action_links' ) );
 
 		/* Flow content view */
 		add_action( 'hfe_render_admin_page_content', array( $this, 'render_content' ), 10, 2 );
 
-		// add_action('rest_api_init', array($this, 'register_menu_links_route'));
+		if ( version_compare( get_bloginfo( 'version' ), '5.1.0', '>=' ) ) {
+			add_filter( 'wp_check_filetype_and_ext', [ $this, 'real_mime_types_5_1_0' ], 10, 5 );
+		} else {
+			add_filter( 'wp_check_filetype_and_ext', [ $this, 'real_mime_types' ], 10, 4 );
+		}
 	}
 
-	// public function register_menu_links_route() {
-    //     register_rest_route('myplugin/v1', '/links', array(
-    //         'methods' => 'GET',
-    //         'callback' => array($this, 'get_menu_links'),
-    //     ));
-    // }
+		/**
+		 * Get Elementor edit page link
+		 */
+		public static function get_elementor_new_page_url() {
 
-
-    // public function get_menu_links() {
-    //     $menu_slug = 'hfe';
-
-    //     return array(
-    //         array(
-	// 			'id' => 1,
-    //             'label' => __('Dashboard', 'header-footer-elementor'),
-    //             'url' => admin_url('admin.php?page=' . $menu_slug . '&path=dashboard'),
-    //             'path' => '/dashboard',
-    //         ),
-    //         array(
-	// 			'id' => 2,
-    //             'label' => __('Widgets & Features', 'header-footer-elementor'),
-    //             'url' => admin_url('admin.php?page=' . $menu_slug . '&path=widgets'),
-    //             'path' => '/widgets-features',
-    //         ),
-    //         array(
-	// 			'id' => 3,
-    //             'label' => __('Templates', 'header-footer-elementor'),
-    //             'url' => admin_url('admin.php?page=' . $menu_slug . '&path=templates'),
-    //             'path' => '/templates',
-    //         ),
-    //         array(
-	// 			'id' => 4,
-    //             'label' => __('Settings', 'header-footer-elementor'),
-    //             'url' => admin_url('admin.php?page=' . $menu_slug . '&path=settings'),
-    //             'path' => '/settings',
-    //         ),
-    //     );
-    // }
+			if ( class_exists( '\Elementor\Plugin' ) && current_user_can( 'edit_pages' ) ) {
+				// Ensure Elementor is loaded.
+				$query_args = array(
+					'action'    => 'elementor_new_post',
+					'post_type' => 'page',
+				);
+		
+				$new_post_url = add_query_arg( $query_args, admin_url( 'edit.php' ) );
+		
+				$new_post_url = add_query_arg( '_wpnonce', wp_create_nonce( 'elementor_action_new_post' ), $new_post_url );
+		
+				return $new_post_url;
+			}
+			return '';
+		}
 
 	
 
@@ -204,16 +184,21 @@ class HFE_Settings_Page {
 		wp_enqueue_script(
 			'header-footer-elementor-react-app',
 			HFE_URL . 'build/main.js',
-			array('wp-element', 'wp-dom-ready'),
+			array('wp-element', 'wp-dom-ready', 'wp-api-fetch'),
 			HFE_VER,
 			true
 		);
 
 		wp_localize_script('header-footer-elementor-react-app', 'hfeSettingsData', array(
+			'hfe_nonce_action'                   => wp_create_nonce( 'wp_rest' ),
+			'installer_nonce'                     => wp_create_nonce( 'updates' ),
+			'ajax_url'                            => admin_url( 'admin-ajax.php' ),
+			'ajax_nonce'                          => wp_create_nonce( 'hfe-widget-nonce' ),
 			'templates_url' => HFE_URL . 'assets/images/settings/starter-templates.png',
-			'' => HFE_URL . 'assets/images/settings/column.png',
+			'column_url' => HFE_URL . 'assets/images/settings/column.png',
 			'template_url' => HFE_URL . 'assets/images/settings/template.png',
 			'icon_url' => HFE_URL . 'assets/images/settings/logo.svg',
+			'elementor_page_url'                  => self::get_elementor_new_page_url(),
 			'astra_url' => HFE_URL . 'assets/images/settings/astra.svg',
 			'starter_url' => HFE_URL . 'assets/images/settings/starter-templates.svg',
 			'surecart_url' => HFE_URL . 'assets/images/settings/surecart.svg',

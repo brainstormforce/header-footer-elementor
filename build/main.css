@@ -515,6 +515,9 @@
 #hfe-settings-app .mb-4{
 	margin-bottom: 1rem;
 }
+#hfe-settings-app .mb-6{
+	margin-bottom: 1.5rem;
+}
 #hfe-settings-app .ml-0{
 	margin-left: 0px;
 }
@@ -702,9 +705,6 @@
 #hfe-settings-app .h-2{
 	height: 0.5rem;
 }
-#hfe-settings-app .h-24{
-	height: 6rem;
-}
 #hfe-settings-app .h-3{
 	height: 0.75rem;
 }
@@ -826,14 +826,14 @@
 #hfe-settings-app .w-16{
 	width: 4rem;
 }
-#hfe-settings-app .w-24{
-	width: 6rem;
-}
 #hfe-settings-app .w-3{
 	width: 0.75rem;
 }
 #hfe-settings-app .w-4{
 	width: 1rem;
+}
+#hfe-settings-app .w-60{
+	width: 15rem;
 }
 #hfe-settings-app .w-72{
 	width: 18rem;
@@ -1556,10 +1556,6 @@
 	--tw-bg-opacity: 1;
 	background-color: rgb(37 99 235 / var(--tw-bg-opacity));
 }
-#hfe-settings-app .bg-background-gray{
-	--tw-bg-opacity: 1;
-	background-color: rgb(249 250 251 / var(--tw-bg-opacity));
-}
 #hfe-settings-app .bg-background-inverse{
 	--tw-bg-opacity: 1;
 	background-color: rgb(17 24 39 / var(--tw-bg-opacity));
@@ -1753,6 +1749,9 @@
 #hfe-settings-app .p-6{
 	padding: 1.5rem;
 }
+#hfe-settings-app .p-8{
+	padding: 2rem;
+}
 #hfe-settings-app .px-0\.5{
 	padding-left: 0.125rem;
 	padding-right: 0.125rem;
@@ -1876,9 +1875,6 @@
 }
 #hfe-settings-app .pr-9{
 	padding-right: 2.25rem;
-}
-#hfe-settings-app .pt-1{
-	padding-top: 0.25rem;
 }
 #hfe-settings-app .pt-3{
 	padding-top: 0.75rem;
@@ -2501,6 +2497,21 @@
 	animation: spin 2s linear infinite;
 }
 
+.hfe-subheading h2 {
+	font-size: 1.1rem !important;
+}
+.hfe-subheading .text-text-secondary {
+	font-size: 0.98rem !important;
+}
+
+.hfe-remove-ring input[type="checkbox"],
+.hfe-remove-ring a,
+.hfe-remove-ring {
+	outline: none;
+	--tw-ring-inset: auto;
+	box-shadow: unset;
+}
+
 @keyframes spin {
 	0% {
 		transform: rotate(0deg);
@@ -2523,6 +2534,9 @@
 		width: 100% !important;
 		height: 100% !important;
 		border-radius: 0 !important;
+	}
+	.hfe-nav-menu {
+		border-bottom: 1px solid #e5e7eb;
 	}
 }
 
@@ -3222,6 +3236,9 @@ button.uae-bulk-action-button {
 	}
 	#hfe-settings-app .md\:col-start-9{
 		grid-column-start: 9;
+	}
+	#hfe-settings-app .md\:mt-0{
+		margin-top: 0px;
 	}
 	#hfe-settings-app .md\:w-1\/10{
 		width: 10%;

@@ -385,6 +385,8 @@ class Header_Footer_Elementor {
 
 		// Load the widgets.
 		require HFE_DIR . 'inc/widgets-manager/class-widgets-loader.php';
+
+		require_once HFE_DIR . 'inc/settings/hfe-settings-api.php';
 	}
 
 	/**
