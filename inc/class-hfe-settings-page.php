@@ -45,6 +45,12 @@ class HFE_Settings_Page {
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
 		add_filter( 'plugin_action_links_' . HFE_PATH, [ $this, 'settings_link' ] );
 
+		if ( version_compare( get_bloginfo( 'version' ), '5.1.0', '>=' ) ) {
+			add_filter( 'wp_check_filetype_and_ext', [ $this, 'real_mime_types_5_1_0' ], 10, 5 );
+		} else {
+			add_filter( 'wp_check_filetype_and_ext', [ $this, 'real_mime_types' ], 10, 4 );
+		}
+
 		/* Add the Action Links */
 		// add_filter( 'plugin_action_links_' . HFE_PATH, array( $this, 'add_action_links' ) );
 
@@ -181,6 +187,8 @@ class HFE_Settings_Page {
 	 */
 	public function enqueue_admin_scripts() {
 
+		$rollback_versions = HFE_Helper::get_rollback_versions_options();
+
 		wp_enqueue_script(
 			'header-footer-elementor-react-app',
 			HFE_URL . 'build/main.js',
@@ -189,24 +197,32 @@ class HFE_Settings_Page {
 			true
 		);
 
-		wp_localize_script('header-footer-elementor-react-app', 'hfeSettingsData', array(
-			'hfe_nonce_action'                   => wp_create_nonce( 'wp_rest' ),
-			'installer_nonce'                     => wp_create_nonce( 'updates' ),
-			'ajax_url'                            => admin_url( 'admin-ajax.php' ),
-			'ajax_nonce'                          => wp_create_nonce( 'hfe-widget-nonce' ),
-			'templates_url' => HFE_URL . 'assets/images/settings/starter-templates.png',
-			'column_url' => HFE_URL . 'assets/images/settings/column.png',
-			'template_url' => HFE_URL . 'assets/images/settings/template.png',
-			'icon_url' => HFE_URL . 'assets/images/settings/logo.svg',
-			'elementor_page_url'                  => self::get_elementor_new_page_url(),
-			'astra_url' => HFE_URL . 'assets/images/settings/astra.svg',
-			'starter_url' => HFE_URL . 'assets/images/settings/starter-templates.svg',
-			'surecart_url' => HFE_URL . 'assets/images/settings/surecart.svg',
-			'suretriggers_url' => HFE_URL . 'assets/images/settings/sure-triggers.svg',
-			'theme_url' => HFE_URL . 'assets/images/settings/theme.svg',
-			'version_url' => HFE_URL . 'assets/images/settings/version.svg',
-			'integrations_url' => HFE_URL . 'assets/images/settings/integrations.svg',  // Update the path to your assets folder
-		));
+		wp_localize_script(
+			'header-footer-elementor-react-app', 
+			'hfeSettingsData', 
+			array(
+				'hfe_nonce_action'                   => wp_create_nonce( 'wp_rest' ),
+				'installer_nonce'                     => wp_create_nonce( 'updates' ),
+				'ajax_url'                            => admin_url( 'admin-ajax.php' ),
+				'ajax_nonce'                          => wp_create_nonce( 'hfe-widget-nonce' ),
+				'templates_url' => HFE_URL . 'assets/images/settings/starter-templates.png',
+				'column_url' => HFE_URL . 'assets/images/settings/column.png',
+				'template_url' => HFE_URL . 'assets/images/settings/template.png',
+				'icon_url' => HFE_URL . 'assets/images/settings/logo.svg',
+				'elementor_page_url'                  => self::get_elementor_new_page_url(),
+				'astra_url' => HFE_URL . 'assets/images/settings/astra.svg',
+				'starter_url' => HFE_URL . 'assets/images/settings/starter-templates.svg',
+				'surecart_url' => HFE_URL . 'assets/images/settings/surecart.svg',
+				'suretriggers_url' => HFE_URL . 'assets/images/settings/sure-triggers.svg',
+				'theme_url' => HFE_URL . 'assets/images/settings/theme.svg',
+				'version_url' => HFE_URL . 'assets/images/settings/version.svg',
+				'integrations_url' => HFE_URL . 'assets/images/settings/integrations.svg',  // Update the path to your assets folder.
+				'uaelite_previous_version'            => isset( $rollback_versions[0]['value'] ) ? $rollback_versions[0]['value'] : '',
+				'uaelite_versions'                    => $rollback_versions,
+				'uaelite_rollback_url'                => esc_url( add_query_arg( 'version', 'VERSION', wp_nonce_url( admin_url( 'admin-post.php?action=uaelite_rollback' ), 'uaelite_rollback' ) ) ),
+				'uaelite_current_version'             => defined( 'HFE_VER' ) ? HFE_VER : '',
+			)
+		);
 
 		wp_enqueue_style(
 			'header-footer-elementor-react-styles',
