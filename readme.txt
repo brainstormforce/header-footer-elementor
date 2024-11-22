@@ -141,6 +141,7 @@ This same applies when you are creating your Header/Footer using this plugin.
 == Changelog ==
 
 = 1.7.0.1 =
+- New: Post Info widget.
 - New: Breadcrumbs widget 
 
 = 1.6.47 =
