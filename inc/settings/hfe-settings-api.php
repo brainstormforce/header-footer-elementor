@@ -16,7 +16,7 @@ class HFE_Settings_Api {
      *
      * @access private
      * @var object Class object.
-     * @since 1.0.0
+     * @since x.x.x
      */
     private static $instance;
 
@@ -35,7 +35,7 @@ class HFE_Settings_Api {
     /**
      * Initialize hooks.
      *
-     * @since 1.0.0
+     * @since x.x.x
      * @return void
      */
     private function __construct() {
@@ -47,7 +47,7 @@ class HFE_Settings_Api {
     /**
      * Register REST API routes.
      *
-     * @since 1.0.0
+     * @since x.x.x
      * @return void
      */
     public function register_routes() {
@@ -71,6 +71,16 @@ class HFE_Settings_Api {
                 'permission_callback' => array( $this, 'get_items_permissions_check' ),
             )
         );
+
+        register_rest_route(
+            'hfe/v1',
+            '/templates',
+            array(
+                'methods'             => 'GET',
+                'callback'            => array( $this, 'get_templates_status' ),
+                'permission_callback' => array( $this, 'get_items_permissions_check' ),
+            )
+        );
     }
 
     /**
@@ -86,6 +96,29 @@ class HFE_Settings_Api {
         }
 
 		return true;
+	}
+
+    /**
+	 * Get Starter Templates Status.
+	 */
+	public function get_templates_status( WP_REST_Request $request ) {
+		$nonce = $request->get_header( 'X-WP-Nonce' );
+
+		if ( ! wp_verify_nonce( $nonce, 'wp_rest' ) ) {
+			return new WP_Error( 'invalid_nonce', __( 'Invalid nonce', 'uael' ), array( 'status' => 403 ) );
+		}
+
+		$templates_status = HFE_Helper::starter_templates_status();
+
+		$response_data = array(
+			'templates_status' => $templates_status,
+		);
+	
+		if ( 'Activated' === $templates_status ) {
+			$response_data['redirect_url'] = admin_url( 'admin.php?page=starter-templates' );
+		}
+
+		return new WP_REST_Response( $response_data, 200 );
 	}
 
     /**
