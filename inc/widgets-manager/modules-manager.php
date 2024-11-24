@@ -53,6 +53,8 @@ class Modules_Manager {
 			'site-logo',
 			'cart',
 			'search-button',
+			'breadcrumbs-widget',
+			'post-info',
 		];
 
 		foreach ( $all_modules as $module_name ) {
