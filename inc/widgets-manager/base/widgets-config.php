@@ -163,6 +163,20 @@ class Widgets_Config {
 				'demo_url'    => '',
 				'category'    => 'content',
 			),
+			'Scroll_To_Top'           => array(
+				'slug'      => 'scroll-to-top',
+				'title'     => __( 'Scroll to Top', 'header-footer-elementor' ),
+				'keywords'  => array( 'uael', 'scroll', 'top', 'extension' ),
+				'icon'      => 'hfe-icon-scroll-to-top',
+				'title_url' => '#',
+				'default'   => true,
+				'doc_url'   => '',
+				'is_pro'   => false,
+				'description' => __( 'Add a customizable button for quick, one-click top scrolling.', 'uael' ),
+				'demo_url'    => '',
+				'category'    => 'extension',
+				'demo_url'    => '',
+			),
 		);
 
 		return apply_filters( 'hfe_widgets_data', self::$widget_list );
