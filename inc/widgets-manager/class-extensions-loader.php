@@ -55,7 +55,6 @@ class Extensions_Loader {
 
 	}
 
-
 	/**
 	 * Returns Script array.
 	 *

@@ -23,7 +23,7 @@ class Scroll_To_Top {
 	/**
 	 * Instance of Widgets_Loader.
 	 *
-	 * @since  1.2.0
+	 * @since  x.x.x
 	 * @var null
 	 */
 	private static $_instance = null;
@@ -31,7 +31,7 @@ class Scroll_To_Top {
 	/**
 	 * Get instance of Widgets_Loader
 	 *
-	 * @since  1.2.0
+	 * @since  x.x.x
 	 * @return Widgets_Loader
 	 */
 	public static function instance() {
@@ -45,7 +45,7 @@ class Scroll_To_Top {
 	/**
 	 * Setup actions and filters.
 	 *
-	 * @since  1.2.0
+	 * @since  x.x.x
 	 * @access private
 	 */
 	private function __construct() {
