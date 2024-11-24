@@ -78,7 +78,7 @@ const ExploreTemplates = () => {
 			
 			if( buttonElement && templatesStatus === 'Install' ) {
 
-				buttonElement.innerText = __('Installing Starter Templates...', 'uael');
+				buttonElement.innerText = __('Installing Starter Templates...', 'header-footer-elementor');
 
 				// AJAX call to install the starter template.
 				apiFetch({
@@ -87,16 +87,16 @@ const ExploreTemplates = () => {
 					body: formData,
 				}).then((data) => {
 					if (data.success || data.errorCode === 'folder_exists' ) {
-						buttonElement.innerText = __('Installed Starter Templates', 'uael');
+						buttonElement.innerText = __('Installed Starter Templates', 'header-footer-elementor');
 						activatePlugin();
 					} else {
-						buttonElement.innerText = __('Install Starter Templates', 'uael');
+						buttonElement.innerText = __('Install Starter Templates', 'header-footer-elementor');
 					}
 				});
 			}
 
 			if( buttonElement && templatesStatus === 'Installed' ) {
-				buttonElement.innerText = __('Activating Starter Templates...', 'uael');
+				buttonElement.innerText = __('Activating Starter Templates...', 'header-footer-elementor');
 				activatePlugin();
 			}
 		}
@@ -121,9 +121,9 @@ const ExploreTemplates = () => {
                 if (buttonElement) { // Check if buttonElement is not null
                     const spanElement = buttonElement.querySelector('span');
                     if (spanElement) { // Check if spanElement is not null
-                        spanElement.innerText = __('Activating Starter Templates...', 'uael');
+                        spanElement.innerText = __('Activating Starter Templates...', 'header-footer-elementor');
                         buttonElement.classList.add('uae-plugin-activated');
-                        spanElement.innerText = __('Activated Starter Templates', 'uael');
+                        spanElement.innerText = __('Activated Starter Templates', 'header-footer-elementor');
                         location.reload();
                     }
                 }
@@ -132,7 +132,7 @@ const ExploreTemplates = () => {
                 if (buttonElement) { // Check if buttonElement is not null
                     const spanElement = buttonElement.querySelector('span');
                     if (spanElement) { // Check if spanElement is not null
-                        spanElement.innerText = __('Activate Starter Templates', 'uael');
+                        spanElement.innerText = __('Activate Starter Templates', 'header-footer-elementor');
                     }
                 }
             }

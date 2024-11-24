@@ -92,7 +92,7 @@ class HFE_Settings_Api {
 	public function get_items_permissions_check() {
 
 		if ( ! current_user_can( 'manage_options' ) ) {
-            return new \WP_Error( 'uae_rest_not_allowed', __( 'Sorry, you are not authorized to perform this action.', 'uael' ), array( 'status' => 403 ) );
+            return new \WP_Error( 'uae_rest_not_allowed', __( 'Sorry, you are not authorized to perform this action.', 'header-footer-elementor' ), array( 'status' => 403 ) );
         }
 
 		return true;
@@ -105,7 +105,7 @@ class HFE_Settings_Api {
 		$nonce = $request->get_header( 'X-WP-Nonce' );
 
 		if ( ! wp_verify_nonce( $nonce, 'wp_rest' ) ) {
-			return new WP_Error( 'invalid_nonce', __( 'Invalid nonce', 'uael' ), array( 'status' => 403 ) );
+			return new WP_Error( 'invalid_nonce', __( 'Invalid nonce', 'header-footer-elementor' ), array( 'status' => 403 ) );
 		}
 
 		$templates_status = HFE_Helper::starter_templates_status();
@@ -131,14 +131,14 @@ class HFE_Settings_Api {
         $nonce = $request->get_header( 'X-WP-Nonce' );
 
         if ( ! wp_verify_nonce( $nonce, 'wp_rest' ) ) {
-            return new WP_Error( 'invalid_nonce', __( 'Invalid nonce', 'uael' ), array( 'status' => 403 ) );
+            return new WP_Error( 'invalid_nonce', __( 'Invalid nonce', 'header-footer-elementor' ), array( 'status' => 403 ) );
         }
 
         // Fetch branding settings
         $plugins_list = HFE_Helper::get_bsf_plugins_list();
 
         if ( ! is_array( $plugins_list ) ) {
-            return new WP_REST_Response( array( 'message' => __( 'Plugins list not found', 'uael' ) ), 404 );
+            return new WP_REST_Response( array( 'message' => __( 'Plugins list not found', 'header-footer-elementor' ) ), 404 );
         }
 
         return new WP_REST_Response( $plugins_list, 200 );
@@ -155,14 +155,14 @@ class HFE_Settings_Api {
         $nonce = $request->get_header( 'X-WP-Nonce' );
 
         if ( ! wp_verify_nonce( $nonce, 'wp_rest' ) ) {
-            return new WP_Error( 'invalid_nonce', __( 'Invalid nonce', 'uael' ), array( 'status' => 403 ) );
+            return new WP_Error( 'invalid_nonce', __( 'Invalid nonce', 'header-footer-elementor' ), array( 'status' => 403 ) );
         }
 
         // Fetch widgets settings
         $widgets_list = HFE_Helper::get_all_widgets_list();
 
         if ( ! is_array( $widgets_list ) ) {
-            return new WP_REST_Response( array( 'message' => __( 'Widgets list not found', 'uael' ) ), 404 );
+            return new WP_REST_Response( array( 'message' => __( 'Widgets list not found', 'header-footer-elementor' ) ), 404 );
         }
 
         return new WP_REST_Response( $widgets_list, 200 );

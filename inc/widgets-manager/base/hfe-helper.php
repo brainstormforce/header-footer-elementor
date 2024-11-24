@@ -57,6 +57,19 @@ class HFE_Helper {
 	private static $get_bsf_plugins_list = null;
 
 	/**
+	 * Check if UAE Pro is active.
+	 *
+	 * @since x.x.x
+	 * @return bool
+	 */
+	public static function is_pro_active() {
+		if ( is_plugin_active( 'ultimate-elementor/ultimate-elementor.php' ) && defined( 'UAEL_PRO' ) && UAEL_PRO ) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
 	 * Provide General settings array().
 	 *
 	 * @since 0.0.1
