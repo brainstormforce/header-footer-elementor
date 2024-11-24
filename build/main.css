@@ -893,6 +893,9 @@
 #hfe-settings-app .w-full{
 	width: 100%;
 }
+#hfe-settings-app .w-52{
+	width: 13rem;
+}
 #hfe-settings-app .min-w-10{
 	min-width: 2.5rem;
 }
@@ -1303,6 +1306,9 @@
 #hfe-settings-app .text-clip{
 	text-overflow: clip;
 }
+#hfe-settings-app .whitespace-nowrap{
+	white-space: nowrap;
+}
 #hfe-settings-app .text-wrap{
 	text-wrap: wrap;
 }
@@ -1543,6 +1549,10 @@
 #hfe-settings-app .border-transparent{
 	border-color: transparent;
 }
+#hfe-settings-app .border-slate-200{
+	--tw-border-opacity: 1;
+	border-color: rgb(226 232 240 / var(--tw-border-opacity));
+}
 #hfe-settings-app .bg-\[\#6005FF\]{
 	--tw-bg-opacity: 1;
 	background-color: rgb(96 5 255 / var(--tw-bg-opacity));
@@ -1715,6 +1725,17 @@
 #hfe-settings-app .bg-white{
 	--tw-bg-opacity: 1;
 	background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+#hfe-settings-app .bg-gradient-to-r{
+	background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+#hfe-settings-app .from-\[\#A78BFA\]{
+	--tw-gradient-from: #A78BFA var(--tw-gradient-from-position);
+	--tw-gradient-to: rgb(167 139 250 / 0) var(--tw-gradient-to-position);
+	--tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+#hfe-settings-app .to-\[\#6005FF\]{
+	--tw-gradient-to: #6005FF var(--tw-gradient-to-position);
 }
 #hfe-settings-app .bg-cover{
 	background-size: cover;
@@ -3134,6 +3155,14 @@ button.uae-bulk-action-button {
 	--tw-text-opacity: 1;
 	color: rgb(229 231 235 / var(--tw-text-opacity));
 }
+@media (min-width: 640px){
+	#hfe-settings-app .sm\:h-10{
+		height: 2.5rem;
+	}
+	#hfe-settings-app .sm\:w-8{
+		width: 2rem;
+	}
+}
 @media (min-width: 768px){
 	#hfe-settings-app .md\:order-1{
 		order: 1;
@@ -3254,6 +3283,9 @@ button.uae-bulk-action-button {
 	}
 	#hfe-settings-app .md\:mt-0{
 		margin-top: 0px;
+	}
+	#hfe-settings-app .md\:flex{
+		display: flex;
 	}
 	#hfe-settings-app .md\:w-1\/10{
 		width: 10%;

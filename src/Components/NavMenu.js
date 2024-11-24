@@ -1,14 +1,47 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Topbar, Button, Badge, DropdownMenu } from "@bsf/force-ui";
 import { ArrowUpRight, CircleHelp, FileText, Headset, Megaphone, User } from "lucide-react";
 import { __ } from "@wordpress/i18n";
 import { routes } from "../admin/settings/routes";
 import { Link } from "../router/index";
+import useWhatsNewRSS from "whats-new-rss";
+
+function updateNavMenuActiveState() {
+	const currentPath = window.location.hash;
+	const menuItems = document.querySelectorAll(
+		"#adminmenu #toplevel_page_hfe a"
+	);
+
+	menuItems.forEach((item) => {
+		const href = item.getAttribute("href");
+		const parentLi = item.closest("li");
+		const itemText = item.textContent.trim();
+
+		if (
+			href &&
+			(currentPath.includes(href.split("#")[1]) ||
+				("#dashboard" === currentPath && itemText === "Dashboard"))
+		) {
+			parentLi.classList.add("current");
+		} else {
+			parentLi.classList.remove("current");
+		}
+	});
+}
 
 const NavMenu = () => {
 	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-	// Get the current URL's hash part (after the #)
+	useEffect(() => {
+		updateNavMenuActiveState();
+		window.addEventListener("hashchange", updateNavMenuActiveState);
+
+		return () => {
+			window.removeEventListener("hashchange", updateNavMenuActiveState);
+		};
+	}, []);
+
+	// Get the current URL's hash part (after the #).
 	const currentPath = window.location.hash;
 
 	const isActive = (path) => currentPath.includes(path);
@@ -25,6 +58,32 @@ const NavMenu = () => {
 		setIsDropdownOpen(false);
 	};
 
+	useWhatsNewRSS({
+		rssFeedURL: "https://ultimateelementor.com/whats-new/feed/",
+		selector: "#uae-whats-new",
+		triggerButton: {
+			beforeBtn:
+				'<div class="w-4 sm:w-8 h-8 sm:h-10 flex items-center whitespace-nowrap justify-center cursor-pointer rounded-full border border-slate-200">',
+			icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#434141" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-megaphone"><path d="m3 11 18-5v12L3 14v-3z"></path><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path></svg>',
+			afterBtn: "</div>",
+		},
+		flyout: {
+			title: __("What's New?", "astra-sites"),
+			formatDate: (date) => {
+				const dayOfWeek = date.toLocaleDateString("en-US", {
+					weekday: "long",
+				});
+				const month = date.toLocaleDateString("en-US", {
+					month: "long",
+				});
+				const day = date.getDate();
+				const year = date.getFullYear();
+
+				return `${dayOfWeek} ${month} ${day}, ${year}`;
+			},
+		},
+	});
+
 	return (
 		<Topbar
 			className="hfe-nav-menu relative"
@@ -38,7 +97,7 @@ const NavMenu = () => {
 							<Link to={routes.dashboard.path}>
 								<img
 									src={`${hfeSettingsData.icon_url}`}
-									alt="My Icon"
+									alt="Icon"
 									className="ml-4 cursor-pointer"
 									style={{ height: "35px", width: "35px" }}
 								/>
@@ -101,6 +160,11 @@ const NavMenu = () => {
 									color: "#6005FF",
 									paddingBottom: "15px",
 								}}
+								onClick={() =>
+									handleRedirect(
+										"https://ultimateelementor.com/pricing/"
+									)
+								}
 							>
 								{__(
 									"Get Ultimate Addons",
@@ -111,7 +175,33 @@ const NavMenu = () => {
 					</Topbar.Middle>
 					<Topbar.Right className="gap-4">
 						<Topbar.Item>
-							<Badge label="Free" size="xs" variant="neutral" />
+							<DropdownMenu
+								placement="bottom-start"
+								isOpen={isDropdownOpen}
+								onOpenChange={setIsDropdownOpen}
+							>
+								<DropdownMenu.Trigger>
+									<Badge
+										label={__("Free", "uael")}
+										size="xs"
+										variant="neutral"
+									/>
+								</DropdownMenu.Trigger>
+								<DropdownMenu.Content className="w-52">
+									<DropdownMenu.List>
+										<DropdownMenu.Item>
+											{__("Version", "uael")}
+										</DropdownMenu.Item>
+										{
+											<DropdownMenu.Item>
+												<div className="flex justify-between w-full">
+													{`${hfeSettingsData.uaelite_current_version}`}
+												</div>
+											</DropdownMenu.Item>
+										}
+									</DropdownMenu.List>
+								</DropdownMenu.Content>
+							</DropdownMenu>
 						</Topbar.Item>
 						<Topbar.Item className="gap-4 cursor-pointer">
 							<DropdownMenu
@@ -125,7 +215,7 @@ const NavMenu = () => {
 								<DropdownMenu.Content className="w-60">
 									<DropdownMenu.List>
 										<DropdownMenu.Item>
-											Useful Resources
+										{__("Useful Resources", "uael")}
 										</DropdownMenu.Item>
 										<DropdownMenu.Item
 											className="text-text-primary"
@@ -139,7 +229,7 @@ const NavMenu = () => {
 											<FileText
 												style={{ color: "black" }}
 											/>
-											Getting Started
+											{__("Getting Started", "uael")}
 										</DropdownMenu.Item>
 										<DropdownMenu.Item
 											onClick={() =>
@@ -149,7 +239,10 @@ const NavMenu = () => {
 											}
 										>
 											<FileText />
-											How to use widgets
+											{__(
+													"How to use widgets",
+													"uael"
+												)}
 										</DropdownMenu.Item>
 										<DropdownMenu.Item
 											onClick={() =>
@@ -159,7 +252,10 @@ const NavMenu = () => {
 											}
 										>
 											<FileText />
-											How to use features
+											{__(
+													"How to use features",
+													"uael"
+												)}
 										</DropdownMenu.Item>
 										<DropdownMenu.Item
 											onClick={() =>
@@ -169,7 +265,10 @@ const NavMenu = () => {
 											}
 										>
 											<FileText />
-											How to use templates
+											{__(
+													"How to use templates",
+													"uael"
+												)}
 										</DropdownMenu.Item>
 										<DropdownMenu.Item
 											onClick={() =>
@@ -184,8 +283,7 @@ const NavMenu = () => {
 									</DropdownMenu.List>
 								</DropdownMenu.Content>
 							</DropdownMenu>
-							<Megaphone />
-							<User />
+							<div className="pb-1" id="uae-whats-new"></div>
 						</Topbar.Item>
 					</Topbar.Right>
 				</div>
