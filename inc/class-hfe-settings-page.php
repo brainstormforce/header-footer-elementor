@@ -191,6 +191,24 @@ class HFE_Settings_Page {
 	 */
 	public function enqueue_admin_scripts() {
 
+		$uae_logo      = HFE_URL . 'assets/images/settings/dashboard-logo.svg';
+		$white_logo    = HFE_URL . 'assets/images/settings/white-logo.svg';
+
+		if ( '' !== $uae_logo && '' !== $white_logo ) {
+			echo '<style>
+				#toplevel_page_hfe .wp-menu-image {
+					background-image: url( ' . esc_url( $uae_logo ) . ' ) !important;
+					background-size: 23px 34px !important;
+					background-repeat: no-repeat;
+					background-position: center;
+				}
+				#toplevel_page_hfe.wp-menu-open .wp-menu-image,
+				#toplevel_page_hfe .wp-has-current-submenu .wp-menu-image {
+					background-image: url( ' . esc_url( $white_logo ) . ' ) !important;
+				}
+			</style>';
+		}
+
 		$rollback_versions = HFE_Helper::get_rollback_versions_options();
 		$show_theme_support = false;
 		$hfe_theme_status   = get_option( 'hfe_is_theme_supported', true );
@@ -418,13 +436,13 @@ class HFE_Settings_Page {
 		$capability = 'manage_options';
 
 		add_menu_page(
-			__( 'UAE Lite', 'header-footer-elementor' ),  
+			__( 'UAE Lite', 'header-footer-elementor' ),
 			__( 'UAE Lite', 'header-footer-elementor' ),
 			$capability,
 			$menu_slug,
 			[ $this, 'render' ],
-			'dashicons-admin-generic',
-			60
+			'none',
+			'59'
 		);
 
 		// Add the Dashboard Submenu.
