@@ -11,6 +11,7 @@ const FeatureWidgets = () => {
     const [loadingActivate, setLoadingActivate] = useState(false); // Loading state for activate button
     const [loadingDeactivate, setLoadingDeactivate] = useState(false);
     const [loading, setLoading] = useState(true);
+    const [updateCounter, setUpdateCounter] = useState(0);
 
 
     useEffect(() => {
@@ -61,10 +62,14 @@ const FeatureWidgets = () => {
             body: formData,
         } ).then( ( data ) => {
             setLoadingActivate(false);
-            if ( data.success ) {
-                console.log("Activated all widgets.");
-            } else if( data.error ) {
-                console.error('AJAX request failed:', data.error);
+            if (data.success) {
+                setAllWidgetsData(prevWidgets =>
+                    prevWidgets.map(widget => ({ ...widget, is_active: true }))
+                );
+                setUpdateCounter(prev => prev + 1);
+            } else if (data.error) {
+                setLoadingActivate(false);
+                console.error('Error during AJAX request:', error);
             }
         }).catch((error) => {
             setLoadingActivate(false);
@@ -85,13 +90,16 @@ const FeatureWidgets = () => {
             body: formData,
         } ).then( ( data ) => {
             setLoadingDeactivate(false);
-            if ( data.success ) {
-                console.log("Deactivated all widgets.");
-            } else if( data.error ) {
-                console.error('AJAX request failed:', err);
+            if (data.success) {
+                setAllWidgetsData(prevWidgets =>
+                    prevWidgets.map(widget => ({ ...widget, is_active: false }))
+                );
+                setUpdateCounter(prev => prev + 1);
+            } else if (data.error) {
+                console.error('AJAX request failed:', data.error);
             }
         }).catch((error) => {
-            setLoadingActivate(false);
+            setLoadingDeactivate(false);
             console.error('Error during AJAX request:', error);
         });
     };
@@ -200,7 +208,7 @@ const FeatureWidgets = () => {
                                 alignSelf="auto"
                                 className="text-wrap rounded-md shadow-container-item bg-background-primary p-4"
                             >
-                                <WidgetItem widget={widget} key={widget.id} />
+                               <WidgetItem widget={{ ...widget, updateCounter }} key={widget.id} updateCounter={updateCounter} />
                             </Container.Item>
                         ))}
                     </Container>
