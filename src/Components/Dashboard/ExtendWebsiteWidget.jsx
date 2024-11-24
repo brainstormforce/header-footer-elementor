@@ -69,7 +69,7 @@ const ExtendWebsiteWidget = ({
                 formData.append('_ajax_nonce', hfe_admin_data.installer_nonce);
                 formData.append('slug', currentPluginData.slug);
 
-                e.target.innerText = __('Installing..', 'uael');
+                e.target.innerText = __('Installing..', 'header-footer-elementor');
 
                 apiFetch({
                     url: hfe_admin_data.ajax_url,
@@ -77,18 +77,18 @@ const ExtendWebsiteWidget = ({
                     body: formData,
                 }).then((data) => {
                     if (data.success || data.errorCode === 'folder_exists') {
-                        e.target.innerText = __('Installed', 'uael');
+                        e.target.innerText = __('Installed', 'header-footer-elementor');
                         callAnalyticsWebhook(currentPluginData);
                         if( currentPluginData.type === 'theme' ) {
                             // Change button state to "Activate" after successful installation
                             const buttonElement = document.querySelector(`[data-slug="${currentPluginData.slug}"]`);
                             buttonElement.dataset.action = 'hfe_recommended_plugin_activate';
-                            e.target.innerText = __('Activate', 'uael');
+                            e.target.innerText = __('Activate', 'header-footer-elementor');
                         } else {
                             activatePlugin(currentPluginData);
                         }
                     } else {
-                        e.target.innerText = __('Install', 'uael');
+                        e.target.innerText = __('Install', 'header-footer-elementor');
                         alert(
                             currentPluginData.type === 'theme'
                                 ? __('Theme Installation failed, Please try again later.', 'uael')
@@ -141,7 +141,7 @@ const ExtendWebsiteWidget = ({
         const buttonElement = document.querySelector(`[data-slug="${pluginData.slug}"]`);
         const spanElement = buttonElement.querySelector('span');
 
-        spanElement.innerText = __('Activating..', 'uael');
+        spanElement.innerText = __('Activating..', 'header-footer-elementor');
 
         apiFetch({
             url: hfe_admin_data.ajax_url,
@@ -153,7 +153,7 @@ const ExtendWebsiteWidget = ({
                     buttonElement.style.color = '#16A34A';
                     buttonElement.dataset.action = 'site_redirect';
                     buttonElement.classList.add('hfe-plugin-activated');
-                    spanElement.innerText = __('Activated', 'uael');
+                    spanElement.innerText = __('Activated', 'header-footer-elementor');
                     window.open(settings_url, '_blank');
                     setTimeout(() => {
                         // Reload the section or recall the REST API
@@ -170,7 +170,7 @@ const ExtendWebsiteWidget = ({
                 if (buttonElement) { // Check if buttonElement is not null
                     const spanElement = buttonElement.querySelector('span');
                     if (spanElement) { // Check if spanElement is not null
-                        spanElement.innerText = __('Activate', 'uael');
+                        spanElement.innerText = __('Activate', 'header-footer-elementor');
                     }
                 }
             }

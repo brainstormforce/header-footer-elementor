@@ -6,13 +6,13 @@ import toast, { Toaster } from 'react-hot-toast';
 const radioData = [
     {
         id: "1",
-        title: __( 'Option 1 (Recommended)', 'uael' ),
+        title: __( 'Option 1 (Recommended)', 'header-footer-elementor' ),
         description: __( "This option will automatically replace your theme's header and footer files with custom templates from the plugin. It works with most themes and is selected by default.", "uael" ),
         value: "1"
     },
     {
         id: "2",
-        title: __( 'Option 2', 'uael' ),
+        title: __( 'Option 2', 'header-footer-elementor' ),
         description: __( "This option will automatically replace your theme's header and footer files with custom templates from the plugin. It works with most themes and is selected by default.", "uael" ),
         value: "2"
     }
@@ -92,7 +92,7 @@ const ThemeSupport = () => {
                 }}
             >
                 <Container.Item className="flex flex-col space-y-1">
-                    <p className='text-base font-semibold m-0'>{__( 'Select Option to Add Theme Support', 'uael' )}</p>
+                    <p className='text-base font-semibold m-0'>{__( 'Select Option to Add Theme Support', 'header-footer-elementor' )}</p>
                     <p className='text-sm font-normal m-0'>
                     {__(
                         `To ensure compatibility between the header/footer and your theme, please choose one of the following options to enable theme support:`,
