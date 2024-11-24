@@ -224,23 +224,23 @@ class Widgets_Loader {
 	 * @return array()
 	 * @since 1.3.0
 	 */
-	public static function get_widget_list() {
-		$widget_list = [
-			'retina',
-			'copyright',
-			'copyright-shortcode',
-			'navigation-menu',
-			'menu-walker',
-			'site-title',
-			'page-title',
-			'site-tagline',
-			'site-logo',
-			'cart',
-			'search-button',
-		];
+	// public static function get_widget_list() {
+	// 	$widget_list = [
+	// 		'retina',
+	// 		'copyright',
+	// 		'copyright-shortcode',
+	// 		'navigation-menu',
+	// 		'menu-walker',
+	// 		'site-title',
+	// 		'page-title',
+	// 		'site-tagline',
+	// 		'site-logo',
+	// 		'cart',
+	// 		'search-button',
+	// 	];
 
-		return $widget_list;
-	}
+	// 	return $widget_list;
+	// }
 
 	/**
 	 * Include Widgets files
@@ -251,15 +251,15 @@ class Widgets_Loader {
 	 * @access public
 	 * @return void
 	 */
-	public function include_widgets_files() {
-		$widget_list = $this->get_widget_list();
+	// public function include_widgets_files() {
+	// 	$widget_list = $this->get_widget_list();
 
-		if ( ! empty( $widget_list ) ) {
-			foreach ( $widget_list as $handle => $data ) {
-				require_once HFE_DIR . '/inc/widgets-manager/widgets/class-' . $data . '.php';
-			}
-		}
-	}
+	// 	if ( ! empty( $widget_list ) ) {
+	// 		foreach ( $widget_list as $handle => $data ) {
+	// 			require_once HFE_DIR . '/inc/widgets-manager/widgets/class-' . $data . '.php';
+	// 		}
+	// 	}
+	// }
 
 	/**
 	 * Include Widgets JS files

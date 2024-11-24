@@ -137,6 +137,32 @@ class Widgets_Config {
 				'doc_url'   => '',
 				'is_pro'   => false
 			),
+			'Breadcrumbs_Widget'    => array(
+				'slug'      => 'hfe-breadcrumbs-widget',
+				'title'     => __( 'Breadcrumbs', 'header-footer-elementor' ),
+				'keywords'  => array( 'uael', 'breadcrumbs', 'links', 'path' ),
+				'icon'      => 'hfe-icon-breadcrumbs',
+				'title_url' => '#',
+				'default'   => true,
+				'doc_url'   => '',
+				'is_pro'   => false,
+				'description' => __( 'Add navigation links to guide visitors across your site.', 'uael' ),
+				'demo_url'    => '',
+				'category'    => 'content',
+			),
+			'Post_Info'    => array(
+				'slug'      => 'post-info-widget',
+				'title'     => __( 'Post Info', 'header-footer-elementor' ),
+				'keywords'  => array( 'uael', 'post', 'info', 'meta', 'author', 'comments' ),
+				'icon'      => 'hfe-icon-post-info',
+				'title_url' => '#',
+				'default'   => true,
+				'doc_url'   => '',
+				'is_pro'   => false,
+				'description' => __( 'Show author, dates, and reading time with customizable styles.', 'uael' ),
+				'demo_url'    => '',
+				'category'    => 'content',
+			),
 		);
 
 		return apply_filters( 'hfe_widgets_data', self::$widget_list );
