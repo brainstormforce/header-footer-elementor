@@ -89,7 +89,7 @@ const Widgets = () => {
                         gap=""
                         justify="start"
                     >
-                        {[...Array(20)].map((_, index) => (
+                        {[...Array(16)].map((_, index) => (
                             <Container.Item
                                 key={index}
                                 alignSelf="auto"
@@ -112,7 +112,7 @@ const Widgets = () => {
                         gap=""
                         justify="start"
                     >
-                        {allWidgetsData?.slice(0, 20).map((widget) => (
+                        {allWidgetsData?.slice(0, 16).map((widget) => (
                             <Container.Item
                                 key={widget.id}
                                 alignSelf="auto"

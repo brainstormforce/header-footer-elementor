@@ -6,12 +6,32 @@ import NavMenu from '@components/NavMenu';
 import HeaderLine from '@components/HeaderLine';
 import ThemeSupport from './ThemeSupport';
 import VersionControl from './VersionControl';
+import MyAccount from '@components/Dashboard/MyAccount';
 
 const Settings = () => {
 
     const items = [
         {
             id: 1,
+            icon: (
+                <img
+                    src={`${hfeSettingsData.user_url}`}
+                    alt="Custom SVG"
+                    className="object-contain"
+                />
+            ),
+            selected: (
+                <img
+                    src={`${hfeSettingsData.user__selected_url}`}
+                    alt="Custom SVG"
+                    className="object-contain"
+                />
+            ),
+            title: 'My Account',
+            content: <MyAccount />
+        },
+        {
+            id: 2,
             icon: (
                 <img
                     src={`${hfeSettingsData.theme_url}`}
@@ -24,7 +44,7 @@ const Settings = () => {
             content: <ThemeSupport />
         },
         {
-            id: 2,
+            id: 3,
             icon: (
                 <img
                     src={`${hfeSettingsData.version_url}`}
@@ -36,13 +56,7 @@ const Settings = () => {
             title: 'Version Control',
             content: <VersionControl/>
         }
-    ].filter(item => {
-        if ( (! hfeSettingsData.show_theme_support ) && item.id === 1 ) {
-            return false;
-        }
-       
-        return true;
-    });
+    ];
 
     // Default state: Set 'My Account' (first item) as the default when the settings tab is clicked
     const [selectedItem, setSelectedItem] = useState(() => {

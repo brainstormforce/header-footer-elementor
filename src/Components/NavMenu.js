@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Topbar, Button, Badge, DropdownMenu } from "@bsf/force-ui";
-import { ArrowUpRight, CircleHelp, FileText, Headset, Megaphone, User } from "lucide-react";
+import {
+	ArrowUpRight,
+	CircleHelp,
+	FileText,
+	Headset,
+	Megaphone,
+	User,
+} from "lucide-react";
 import { __ } from "@wordpress/i18n";
 import { routes } from "../admin/settings/routes";
 import { Link } from "../router/index";
@@ -215,7 +222,7 @@ const NavMenu = () => {
 								<DropdownMenu.Content className="w-60">
 									<DropdownMenu.List>
 										<DropdownMenu.Item>
-										{__("Useful Resources", "uael")}
+											{__("Useful Resources", "uael")}
 										</DropdownMenu.Item>
 										<DropdownMenu.Item
 											className="text-text-primary"
@@ -239,10 +246,7 @@ const NavMenu = () => {
 											}
 										>
 											<FileText />
-											{__(
-													"How to use widgets",
-													"uael"
-												)}
+											{__("How to use widgets", "uael")}
 										</DropdownMenu.Item>
 										<DropdownMenu.Item
 											onClick={() =>
@@ -252,10 +256,7 @@ const NavMenu = () => {
 											}
 										>
 											<FileText />
-											{__(
-													"How to use features",
-													"uael"
-												)}
+											{__("How to use features", "uael")}
 										</DropdownMenu.Item>
 										<DropdownMenu.Item
 											onClick={() =>
@@ -265,10 +266,7 @@ const NavMenu = () => {
 											}
 										>
 											<FileText />
-											{__(
-													"How to use templates",
-													"uael"
-												)}
+											{__("How to use templates", "uael")}
 										</DropdownMenu.Item>
 										<DropdownMenu.Item
 											onClick={() =>
@@ -285,6 +283,12 @@ const NavMenu = () => {
 							</DropdownMenu>
 							<div className="pb-1" id="uae-whats-new"></div>
 						</Topbar.Item>
+						<Link to={routes.settings.path}>
+							<User
+								className="cursor-pointer"
+								style={{ color: "black" }}
+							/>
+						</Link>
 					</Topbar.Right>
 				</div>
 			</div>

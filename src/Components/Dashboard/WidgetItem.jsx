@@ -103,7 +103,7 @@ const WidgetItem = ({
                     {icon}
                 </div>
 
-                <div className='flex items-center gap-x-2'>
+                <div className='flex items-center gap-x-2' style={{ marginBottom: '15px' }}>
 
                     {is_pro && (
                         <Badge

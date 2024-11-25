@@ -245,6 +245,8 @@ class HFE_Settings_Page {
 				'suretriggers_url' => HFE_URL . 'assets/images/settings/sure-triggers.svg',
 				'theme_url' => HFE_URL . 'assets/images/settings/theme.svg',
 				'version_url' => HFE_URL . 'assets/images/settings/version.svg',
+				'user_url' => HFE_URL . 'assets/images/settings/user.svg',
+				'user__selected_url' => HFE_URL . 'assets/images/settings/user-selected.svg',
 				'integrations_url' => HFE_URL . 'assets/images/settings/integrations.svg',  // Update the path to your assets folder.
 				'uaelite_previous_version'            => isset( $rollback_versions[0]['value'] ) ? $rollback_versions[0]['value'] : '',
 				'uaelite_versions'                    => $rollback_versions,
