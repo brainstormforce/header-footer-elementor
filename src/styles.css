@@ -39,6 +39,33 @@
 }
 
 @media (max-width: 768px) {
+
+	.uae-sticky-outer-wrapper {
+		/* position: absolute;
+		height: -webkit-fill-available;
+		top: inherit; */
+		width: 23%;
+		border-right: 1px solid #e5e7eb;
+	}
+	.uae-sticky-sidebar {
+		position: sticky;
+		top: 0;
+	}
+	.uae-settings-page:before {
+		animation-fill-mode: both;
+		background: #fff;
+		content: " ";
+		height: 100%;
+		position: fixed;
+		left: 0;
+		top: 0;
+		transform-origin: right;
+		border-right: 1px solid #e5e7eb;
+		width: 30%;
+	}
+	.uae-nav-menu {
+		border-bottom: 1px solid #e5e7eb;
+	}
 	.container {
 		padding: 0 1rem;
 	}
