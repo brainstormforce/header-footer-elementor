@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'; 
+import React, { useState, useEffect } from 'react';
 import { Container, Button, Skeleton } from "@bsf/force-ui";
 import { MoreHorizontalIcon, Plus, LoaderCircle, Map, House, SearchIcon } from "lucide-react";
 import WidgetItem from '@components/Dashboard/WidgetItem';
@@ -43,8 +43,8 @@ const FeatureWidgets = () => {
     };
 
     // Filter widgets based on search term
-    const filteredWidgets = allWidgetsData?.filter(widget => 
-        widget.title.toLowerCase().includes(searchTerm) || 
+    const filteredWidgets = allWidgetsData?.filter(widget =>
+        widget.title.toLowerCase().includes(searchTerm) ||
         widget.keywords?.some(keyword => keyword.toLowerCase().includes(searchTerm))
     );
 
@@ -53,14 +53,14 @@ const FeatureWidgets = () => {
         setLoadingActivate(true);
 
         const formData = new window.FormData();
-		formData.append( 'action', 'hfe_bulk_activate_widgets');
-		formData.append( 'nonce', hfe_admin_data.nonce );
+        formData.append('action', 'hfe_bulk_activate_widgets');
+        formData.append('nonce', hfe_admin_data.nonce);
 
         apiFetch({
             url: hfe_admin_data.ajax_url,
             method: 'POST',
             body: formData,
-        } ).then( ( data ) => {
+        }).then((data) => {
             setLoadingActivate(false);
             if (data.success) {
                 setAllWidgetsData(prevWidgets =>
@@ -76,19 +76,19 @@ const FeatureWidgets = () => {
             console.error('Error during AJAX request:', error);
         });
     };
-    
+
     const handleDeactivateAll = async () => {
         setLoadingDeactivate(true);
 
         const formData = new window.FormData();
-		formData.append( 'action', 'hfe_bulk_deactivate_widgets');
-		formData.append( 'nonce', hfe_admin_data.nonce );
+        formData.append('action', 'hfe_bulk_deactivate_widgets');
+        formData.append('nonce', hfe_admin_data.nonce);
 
         apiFetch({
             url: hfe_admin_data.ajax_url,
             method: 'POST',
             body: formData,
-        } ).then( ( data ) => {
+        }).then((data) => {
             setLoadingDeactivate(false);
             if (data.success) {
                 setAllWidgetsData(prevWidgets =>
@@ -106,7 +106,7 @@ const FeatureWidgets = () => {
 
     function convertToWidgetsArray(data) {
         const widgets = [];
-    
+
         for (const key in data) {
             if (data.hasOwnProperty(key)) {
                 const widget = data[key];
@@ -126,7 +126,7 @@ const FeatureWidgets = () => {
                 });
             }
         }
-    
+
         return widgets;
     }
 
@@ -137,13 +137,21 @@ const FeatureWidgets = () => {
                 paddingInline: '16px'
             }}>
                 <p className='m-0 text-sm font-semibold text-text-primary'>Widgets / Features</p>
-                <div className='flex items-center gap-x-2 mr-7'> 
+                <div className='flex items-center gap-x-2 mr-7'>
                     <input
                         type="search"
                         placeholder="Search..."
                         icon={<Plus />}
                         className="mr-2 pl-10"
-                        style={{ height: '40px', backgroundColor: '#F9FAFB', }}
+                        style={{
+                            height: '40px',
+                            borderColor: '#e0e0e0', // Default border color
+                            outline: 'none',       // Removes the default outline
+                            boxShadow: 'none',
+                            backgroundColor: '#F9FAFB',    // Removes the default box shadow
+                        }}
+                        onFocus={(e) => e.target.style.borderColor = '#6005FF'} // Apply focus color
+                        onBlur={(e) => e.target.style.borderColor = '#e0e0e0'}  // Revert to default color
                         onChange={handleSearchChange}
                     />
                     <Button
@@ -165,12 +173,10 @@ const FeatureWidgets = () => {
                     >
                         {loadingDeactivate ? 'Deactivating...' : 'Deactivate All'}
                     </Button>
-
-                    <MoreHorizontalIcon />
                 </div>
             </div>
             <div className='flex bg-black flex-col rounded-lg p-4'>
-            {loading ? (
+                {loading ? (
                     <Container
                         align="stretch"
                         className="p-2 gap-1.5 grid grid-cols-2 md:grid-cols-4"
@@ -193,7 +199,7 @@ const FeatureWidgets = () => {
                             </Container.Item>
                         ))}
                     </Container>
-                ) : (    
+                ) : (
                     <Container
                         align="stretch"
                         className="bg-background-gray p-1 gap-1.5"
@@ -208,7 +214,7 @@ const FeatureWidgets = () => {
                                 alignSelf="auto"
                                 className="text-wrap rounded-md shadow-container-item bg-background-primary p-4"
                             >
-                               <WidgetItem widget={{ ...widget, updateCounter }} key={widget.id} updateCounter={updateCounter} />
+                                <WidgetItem widget={{ ...widget, updateCounter }} key={widget.id} updateCounter={updateCounter} />
                             </Container.Item>
                         ))}
                     </Container>

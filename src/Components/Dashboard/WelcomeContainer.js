@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Title, Button } from "@bsf/force-ui";
 import { ExternalLink, Plus } from "lucide-react";
-import { __ } from '@wordpress/i18n';
+import { __ } from "@wordpress/i18n";
 
 const WelcomeContainer = () => {
 	return (
@@ -25,20 +25,11 @@ const WelcomeContainer = () => {
 					/>
 					<p className="text-sm font-medium text-text-tertiary m-0 mt-2">
 						We’re excited to help you supercharge your
-						website-building experience.Effortlessly design stunning websites with our
-						comprehensive range of free and premium widgets and
-						features.
+						website-building experience.Effortlessly design stunning
+						websites with our comprehensive range of free and
+						premium widgets and features.
 					</p>
-					{/* <p
-						className="text-sm font-figtree pt-3 text-text-secondary"
-						style={{ fontFamily: "Figtree, serif" }}
-					>
-						Effortlessly design stunning websites with our
-						comprehensive range of free and premium widgets and
-						features. To get started,watch the video or check our
-						comprehensive documentation for more details.
-					</p> */}
-					<div className="flex items-center pt-4 gap-2">
+					<div className="flex items-center pt-6 gap-2">
 						<Button
 							icon={<Plus />}
 							iconPosition="right"
@@ -57,22 +48,44 @@ const WelcomeContainer = () => {
 									"#6005FF")
 							}
 							onClick={() => {
-                                window.open(hfeSettingsData.elementor_page_url, '_blank');
-                            }}
+								window.open(
+									uaelSettingsData.elementor_page_url,
+									"_blank"
+								);
+							}}
 						>
-							Create New Page
+							{__("Create New Page", "header-footer-elementor")}
 						</Button>
-						<Button
-							icon={<ExternalLink />}
-							iconPosition="right"
-							variant="ghost"
-							className="uael-remove-ring"
+						<div
+							style={{
+								color: "black",
+								background: "none",
+								border: "none",
+								padding: 0,
+								cursor: "pointer",
+							}}
+							onMouseEnter={(e) =>
+								(e.currentTarget.style.color = "#6005ff")
+							}
+							onMouseLeave={(e) =>
+								(e.currentTarget.style.color = "black")
+							}
 							onClick={() => {
-                                window.open("https://wordpress.org/plugins/header-footer-elementor/", '_blank');
-                            }}
+								window.open(
+									"https://ultimateelementor.com/docs/getting-started-uael/",
+									"_blank"
+								);
+							}}
 						>
-							Read full guide
-						</Button>
+							<Button
+								icon={<ExternalLink />}
+								iconPosition="right"
+								variant="link"
+								className="uael-remove-ring text-black"
+							>
+								{__("Read full guide", "header-footer-elementor")}
+							</Button>
+						</div>
 					</div>
 				</Container.Item>
 				{/* <Container.Item className="md:mt-0 mt-4">
