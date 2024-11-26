@@ -20,7 +20,12 @@
 .hfe-subheading .text-text-secondary {
 	font-size: 0.98rem !important;
 }
-
+.hfe-loader-icon {
+	top: -15%;
+}
+#hfe-settings-app .gap-2 {
+    gap: 1.2rem;
+}
 .hfe-remove-ring input[type="checkbox"],
 .hfe-remove-ring a,
 .hfe-remove-ring {
@@ -28,6 +33,55 @@
 	--tw-ring-inset: auto;
 	box-shadow: unset;
 }
+.hfe-settings-page h2 {
+	margin-bottom: 0.3rem !important;
+}
+.hfe-link-color,
+.hfe-link-color span {
+	color: rgb(96, 5, 255);
+}
+#hfe-settings-app .hfe-header-title h6 {
+	color: #858484;
+	font-size: 14px;
+}
+.hfe-settings-content-wrapper {
+	padding: 15px 25px;
+}
+button.hfe-plugin-activated {
+	color: #16A34A;
+}
+button.hfe-bulk-action-button {
+	width: 150px;
+}
+.hfe-subtitle h2 {
+	font-size: 0.90rem;
+}
+.hfe-65-width {
+	width: 65%;
+}
+.hfe-35-width {
+	width: 35%;
+}
+.hfe-78-width {
+	width: 78%;
+}
+
+.subject-cell {
+	max-width: 200px; /* Adjust this width based on your layout */
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.toplevel_page_hfe #wpcontent {
+	padding-left: 0;
+}
+div#hfe-settings-app {
+	font-size: 15px;
+	font-weight: 500;
+	line-height: normal;
+}
+
 
 @keyframes spin {
 	0% {
@@ -35,6 +89,31 @@
 	}
 	100% {
 		transform: rotate(360deg);
+	}
+}
+@media (min-width: 769px) {
+	.hfe-sticky-outer-wrapper {
+		width: 23%;
+		border-right: 1px solid #e5e7eb;
+	}
+	.hfe-sticky-sidebar {
+		position: sticky;
+		top: 0;
+	}
+	.hfe-settings-page:before {
+		animation-fill-mode: both;
+		background: #fff;
+		content: " ";
+		height: 100%;
+		position: fixed;
+		left: 0;
+		top: 0;
+		transform-origin: right;
+		border-right: 1px solid #e5e7eb;
+		width: 30%;
+	}
+	.hfe-nav-menu {
+		border-bottom: 1px solid #e5e7eb;
 	}
 }
 
@@ -52,101 +131,23 @@
 		height: 100% !important;
 		border-radius: 0 !important;
 	}
-	.hfe-nav-menu {
-		border-bottom: 1px solid #e5e7eb;
-	}
-
-	.hfe-sticky-sidebar {
-		position: -webkit-sticky;
-		position: sticky;
-		top: 0;
-	}
-
-	.hfe-settings-page:before {
-		-webkit-animation-fill-mode: both;
-		animation-fill-mode: both;
-		background: #fff;
-		content: " ";
-		height: 100%;
-		position: fixed;
-		left: 0;
-		top: 0;
-		-webkit-transform-origin: right;
-		-ms-transform-origin: right;
-		transform-origin: right;
-		border-right: 1px solid #e5e7eb;
-		width: 30%;
-	}
-
-	.hfe-remove-ring input[type="checkbox"],
-	.hfe-remove-ring a,
-	.hfe-remove-ring {
-		outline: none; /* Removes the outline */
-		-webkit-box-shadow: none !important;
-		box-shadow: none !important; /* Ensures no shadow on focus */
-		--tw-ring-inset: auto; /* Tailwind-specific variable, keep if needed */
-	}
-	.hfe-remove-ring a:focus,
-	.hfe-remove-ring input[type="checkbox"]:focus {
-		outline: none; /* Ensures focus does not trigger the outline */
-		-webkit-box-shadow: none !important;
-		box-shadow: none !important; /* Safeguards against custom focus shadows */
-	}
-
-	.hfe-sticky-outer-wrapper {
-		/* position: absolute;
-		height: -webkit-fill-available;
-		top: inherit; */
-		width: 23%;
-		border-right: 1px solid #e5e7eb;
-	}
-
-	.hfe-hide-scrollbar {
-		overflow: hidden; /* Hide scrollbar */
-	}
-	.hfe-hide-scrollbar::-webkit-scrollbar {
-		display: none; /* Hide scrollbar for WebKit browsers */
-	}
-	.hfe-hide-scrollbar {
-		-ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
-		scrollbar-width: none; /* Hide scrollbar for Firefox */
-	}
 }
 
-.subject-cell {
-	max-width: 200px; /* Adjust this width based on your layout */
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
+@media (max-width: 1024px) {
+	.hfe-65-width,
+	.hfe-35-width,
+	.hfe-78-width {
+		width: 100%;
+	}
 }
-
-/* .hfe-menu-page-wrapper {
-	width: calc( 100% - 25px);
-} */
-#hfe-settings-app .gap-2 {
-	gap: 1.2rem;
-}
-.toplevel_page_hfe #wpcontent {
-	padding-left: 0;
-}
-div#hfe-settings-app {
-	font-size: 15px;
-	font-weight: 500;
-	line-height: normal;
-}
-/* #hfe-settings-app .p-5 {
-    padding: 0.5rem 1.25rem;
-} */
-#hfe-settings-app .hfe-header-title h6 {
-	color: #858484;
-	font-size: 14px;
-}
-.hfe-settings-content-wrapper {
-	padding: 15px 25px;
-}
-button.hfe-plugin-activated {
-	color: #16a34a;
-}
-button.uae-bulk-action-button {
-	width: 150px;
+@media screen and (max-width: 782px) {
+	.hfe-radio-option {
+		width: 1rem !important;
+		height: 1rem !important;
+	}
+	.hfe-radio-option:checked:before {
+		width: 0.5rem !important;
+        height: 0.5rem !important;
+        margin: 0.18rem !important;
+	}
 }

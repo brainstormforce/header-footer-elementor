@@ -100,13 +100,13 @@ const Settings = () => {
             <div className="">
                 <HeaderLine />
                 <Container align="stretch" className="p-1 flex-col lg:flex-row hfe-settings-page" containerType="flex" direction="row" gap="sm" justify="start" style={{ height: "100%" }}>
-                    <Container.Item className="p-2 uae-sticky-outer-wrapper" alignSelf="auto" order="none" shrink={1} style={{ backgroundColor: "#ffffff" }}>
+                    <Container.Item className="p-2 hfe-sticky-outer-wrapper" alignSelf="auto" order="none" shrink={1} style={{ backgroundColor: "#ffffff" }}>
                         <div className='hfe-sticky-sidebar'>
                             <Sidebar items={items} onSelectItem={handleSelectItem} selectedItemId={selectedItem.id} />
                         </div>
                     </Container.Item>
                     <Container.Item className="p-2 flex w-full justify-center items-start hfe-hide-scrollbar" alignSelf="auto" order="none" shrink={1} style={{ height: "calc(100vh - 1px)", overflowY: "auto" }}>
-                        <div className="uael-78-width">
+                        <div className="hfe-78-width">
                             <Content selectedItem={selectedItem} />
                         </div>
                     </Container.Item>

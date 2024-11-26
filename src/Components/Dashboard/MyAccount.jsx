@@ -19,7 +19,7 @@ const MyAccount = () => {
             />
             <Container
                 align="stretch"
-                className="bg-background-primary p-6 rounded-lg uael-78-width"
+                className="bg-background-primary p-6 rounded-lg"
                 containerType="flex"
                 direction="column"
                 gap="sm"
@@ -46,7 +46,7 @@ const MyAccount = () => {
                                 borderColor: '#6005FF',
                                 transition: 'color 0.3s ease, border-color 0.3s ease',
                             }}
-                            className="uael-remove-ring text-[#6005FF]"
+                            className="hfe-remove-ring text-[#6005FF]"
                             onClick={() => {
                                 window.open("https://ultimateelementor.com/pricing/?utm_source=uae-lite-settings&utm_medium=My-accounts&utm_campaign=uae-lite-upgrade", '_blank');
                             }}

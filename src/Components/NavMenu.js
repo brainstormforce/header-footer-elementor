@@ -67,7 +67,7 @@ const NavMenu = () => {
 
 	useWhatsNewRSS({
 		rssFeedURL: "https://ultimateelementor.com/whats-new/feed/",
-		selector: "#uae-whats-new",
+		selector: "#hfe-whats-new",
 		triggerButton: {
 			beforeBtn:
 				'<div class="w-4 sm:w-8 h-8 sm:h-10 flex items-center whitespace-nowrap justify-center cursor-pointer rounded-full border border-slate-200">',
@@ -123,7 +123,7 @@ const NavMenu = () => {
 									}`}
 									style={linkStyle("dashboard")}
 								>
-									Dashboard
+									{__("Dashboard", "header-footer-elementor")}
 								</Link>
 								<Link
 									to={routes.widgets.path}
@@ -132,7 +132,7 @@ const NavMenu = () => {
 									}`}
 									style={linkStyle("widgets")}
 								>
-									Widgets / Features
+									{__("Widgets / Features", "header-footer-elementor")}
 								</Link>
 								<Link
 									to={routes.templates.path}
@@ -143,7 +143,7 @@ const NavMenu = () => {
 									}`}
 									style={linkStyle("templates")}
 								>
-									Templates
+									{__("Templates", "header-footer-elementor")}
 								</Link>
 								<Link
 									to={routes.settings.path}
@@ -154,7 +154,7 @@ const NavMenu = () => {
 									}`}
 									style={linkStyle("settings")}
 								>
-									Settings
+									{__("Settings", "header-footer-elementor")}
 								</Link>
 							</nav>
 						</Topbar.Item>
@@ -194,7 +194,7 @@ const NavMenu = () => {
 							>
 								<DropdownMenu.Trigger>
 									<Badge
-										label={__("Free", "uael")}
+										label={__("Free", "header-footer-elementor")}
 										size="xs"
 										variant="neutral"
 									/>
@@ -202,23 +202,21 @@ const NavMenu = () => {
 								<DropdownMenu.Content className="w-52">
 									<DropdownMenu.List>
 										<DropdownMenu.Item>
-											{__("Version", "uael")}
+											{__("Version", "header-footer-elementor")}
 										</DropdownMenu.Item>
-										{
-											<DropdownMenu.Item>
-												<div className="flex justify-between w-full">
-													{`${hfeSettingsData.uaelite_current_version}`}
-													<Badge
-														label={__(
-															"Core",
-															"header-footer-elementor"
-														)}
-														size="xs"
-														variant="neutral"
-													/>
-												</div>
-											</DropdownMenu.Item>
-										}
+										<DropdownMenu.Item>
+											<div className="flex justify-between w-full">
+												{`${hfeSettingsData.uaelite_current_version}`}
+												<Badge
+													label={__(
+														"Core",
+														"header-footer-elementor"
+													)}
+													size="xs"
+													variant="neutral"
+												/>
+											</div>
+										</DropdownMenu.Item>
 									</DropdownMenu.List>
 								</DropdownMenu.Content>
 							</DropdownMenu>
@@ -235,7 +233,7 @@ const NavMenu = () => {
 								<DropdownMenu.Content className="w-60">
 									<DropdownMenu.List>
 										<DropdownMenu.Item>
-											{__("Useful Resources", "uael")}
+											{__("Useful Resources", "header-footer-elementor")}
 										</DropdownMenu.Item>
 										<DropdownMenu.Item
 											className="text-text-primary"
@@ -249,7 +247,7 @@ const NavMenu = () => {
 											<FileText
 												style={{ color: "black" }}
 											/>
-											{__("Getting Started", "uael")}
+											{__("Getting Started", "header-footer-elementor")}
 										</DropdownMenu.Item>
 										<DropdownMenu.Item
 											onClick={() =>
@@ -259,7 +257,7 @@ const NavMenu = () => {
 											}
 										>
 											<FileText />
-											{__("How to use widgets", "uael")}
+											{__("How to use widgets", "header-footer-elementor")}
 										</DropdownMenu.Item>
 										<DropdownMenu.Item
 											onClick={() =>
@@ -269,7 +267,7 @@ const NavMenu = () => {
 											}
 										>
 											<FileText />
-											{__("How to use features", "uael")}
+											{__("How to use features", "header-footer-elementor")}
 										</DropdownMenu.Item>
 										<DropdownMenu.Item
 											onClick={() =>
@@ -279,7 +277,7 @@ const NavMenu = () => {
 											}
 										>
 											<FileText />
-											{__("How to use templates", "uael")}
+											{__("How to use templates", "header-footer-elementor")}
 										</DropdownMenu.Item>
 										<DropdownMenu.Item
 											onClick={() =>
@@ -289,12 +287,12 @@ const NavMenu = () => {
 											}
 										>
 											<Headset />
-											{__("Contact us", "uael")}
+											{__("Contact us", "header-footer-elementor")}
 										</DropdownMenu.Item>
 									</DropdownMenu.List>
 								</DropdownMenu.Content>
 							</DropdownMenu>
-							<div className="pb-1" id="uae-whats-new"></div>
+							<div className="pb-1" id="hfe-whats-new"></div>
 						</Topbar.Item>
 						<Link to={routes.settings.path}>
 							<User

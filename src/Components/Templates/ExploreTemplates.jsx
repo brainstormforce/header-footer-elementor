@@ -122,7 +122,7 @@ const ExploreTemplates = () => {
                     const spanElement = buttonElement.querySelector('span');
                     if (spanElement) { // Check if spanElement is not null
                         spanElement.innerText = __('Activating Starter Templates...', 'header-footer-elementor');
-                        buttonElement.classList.add('uae-plugin-activated');
+                        buttonElement.classList.add('hfe-plugin-activated');
                         spanElement.innerText = __('Activated Starter Templates', 'header-footer-elementor');
                         location.reload();
                     }
@@ -209,7 +209,7 @@ const ExploreTemplates = () => {
 							icon=""
 							iconPosition="right"
 							variant="ghost"
-							className="w-auto uael-link-color hfe-remove-ring"
+							className="w-auto hfe-link-color hfe-remove-ring"
 							onClick={() => {
                                 window.open('https://startertemplates.com/', '_blank');
                             }}

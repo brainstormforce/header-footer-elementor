@@ -93,12 +93,30 @@ class HFE_Admin {
 			add_action( 'elementor/editor/footer', [ $this, 'register_hfe_epro_script' ], 99 );
 		}
 
+		add_action( 'admin_notices', [ $this, 'hide_admin_notices'], 1 );
+		add_action( 'all_admin_notices', [ $this, 'hide_admin_notices'], 1 );
+
 		if ( is_admin() ) {
 			add_action( 'manage_elementor-hf_posts_custom_column', [ $this, 'column_content' ], 10, 2 );
 			add_filter( 'manage_elementor-hf_posts_columns', [ $this, 'column_headings' ] );
 			require_once HFE_DIR . 'admin/class-hfe-addons-actions.php';
 		}
 	}
+
+	/**
+	 * Hide admin notices on the custom settings page.
+	 *
+	 * @since x.x.x
+	 * @return void
+	 */
+	public static function hide_admin_notices() {
+		$screen = get_current_screen();
+		if ( 'toplevel_page_hfe' === $screen->id ) {
+			remove_all_actions( 'admin_notices' );
+			remove_all_actions( 'all_admin_notices' );
+		}
+	}
+	
 	/**
 	 * Script for Elementor Pro full site editing support.
 	 *
