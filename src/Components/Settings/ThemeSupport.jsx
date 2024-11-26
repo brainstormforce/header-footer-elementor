@@ -96,7 +96,7 @@ const ThemeSupport = () => {
                     <p className='text-sm font-normal m-0'>
                     {__(
                         `To ensure compatibility between the header/footer and your theme, please choose one of the following options to enable theme support:`,
-                        'uael'
+                        'header-footer-elementor'
                     )}
                     </p>
                 </Container.Item>
@@ -136,7 +136,7 @@ const ThemeSupport = () => {
                     backgroundColor: "#F3F0FF",
                 }}>
                    <p className='m-0'>
-                        <strong>{__('Note:', 'uael')}</strong> {__('If neither option works, please contact your theme author to add support for this plugin.', 'uael')}
+                        <strong>{__('Note:', 'header-footer-elementor')}</strong> {__('If neither option works, please contact your theme author to add support for this plugin.', 'header-footer-elementor')}
                     </p>
                 </div>
             </Container>

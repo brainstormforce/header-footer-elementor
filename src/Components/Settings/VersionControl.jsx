@@ -43,7 +43,7 @@ const VersionControl = () => {
                 iconPosition="right"
                 size="sm"
                 tag="h2"
-                title={__('Version Control', 'uael')}
+                title={__('Version Control', 'header-footer-elementor')}
             />
             <div
                 className="box-border bg-background-primary p-6 rounded-lg"
@@ -61,10 +61,10 @@ const VersionControl = () => {
                 >
                     <Container.Item className="shrink flex flex-col space-y-1">
                         <p className="text-base font-semibold m-0">
-                            {__(`Rollback to Previous Version`, 'uael')}
+                            {__(`Rollback to Previous Version`, 'header-footer-elementor')}
                         </p>
                         <p className="text-sm font-normal m-0">
-                            {__('Experiencing an issue with current version? Roll back to a previous version to help troubleshoot the issue.', 'uael')}
+                            {__('Experiencing an issue with current version? Roll back to a previous version to help troubleshoot the issue.', 'header-footer-elementor')}
                         </p>
                     </Container.Item>
                     <Container.Item
@@ -73,7 +73,7 @@ const VersionControl = () => {
                         order="none"
                     >
                         <div className="bsf-rollback-version">
-                            <input type="hidden" name="product-name" id="bsf-product-name" value={'uael'} />
+                            <input type="hidden" name="product-name" id="bsf-product-name" value={'header-footer-elementor'} />
                             <select
                                 id="uaeliteVersionRollback"
                                 ref={liteVersionRef}
@@ -106,27 +106,27 @@ const VersionControl = () => {
                                 scrollLock
                                 open={openLitePopup} // Ensure Dialog is controlled by state
                                 setOpen={setOpenLitePopup} // Synchronize state
-                                trigger={<Button style={{ backgroundColor: '#6005ff' }}>{__('Rollback', 'uael')}</Button>}
+                                trigger={<Button style={{ backgroundColor: '#6005ff' }}>{__('Rollback', 'header-footer-elementor')}</Button>}
                             >
                                 <Dialog.Backdrop />
                                 <Dialog.Panel>
                                     <Dialog.Header>
                                         <div className="flex items-center justify-between">
                                             <Dialog.Title>
-                                                {__('Rollback to Previous Version', 'uael')}
+                                                {__('Rollback to Previous Version', 'header-footer-elementor')}
                                             </Dialog.Title>
                                             <Dialog.CloseButton />
                                         </div>
                                     </Dialog.Header>
                                     <Dialog.Body>
-                                        {__(`Are you sure you want to rollback to UAE Lite v${liteVersionSelect}?`, 'uael')}
+                                        {__(`Are you sure you want to rollback to UAE Lite v${liteVersionSelect}?`, 'header-footer-elementor')}
                                     </Dialog.Body>
                                     <Dialog.Footer>
                                         <Button onClick={onLiteContinueClick}>
-                                            {__('Rollback', 'uael')}
+                                            {__('Rollback', 'header-footer-elementor')}
                                         </Button>
                                         <Button onClick={onLiteCancelClick}>
-                                            {__('Cancel', 'uael')}
+                                            {__('Cancel', 'header-footer-elementor')}
                                         </Button>
                                     </Dialog.Footer>
                                 </Dialog.Panel>
