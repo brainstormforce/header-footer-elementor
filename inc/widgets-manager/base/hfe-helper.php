@@ -72,6 +72,63 @@ class HFE_Helper {
 	/**
 	 * Provide General settings array().
 	 *
+	 * @since x.x.x
+	 * @return array()
+	 */
+	public static function premium_starter_templates_status() {
+
+		$st_pro_status = Widgets_Config::get_plugin_status( 'astra-pro-sites/astra-pro-sites.php' );
+
+		return $st_pro_status;
+	}
+
+	/**
+	 * Provide General settings array().
+	 *
+	 * @since x.x.x
+	 * @return array()
+	 */
+	public static function free_starter_templates_status() {
+		$free_status = Widgets_Config::get_plugin_status( 'astra-sites/astra-sites.php' );
+		return $free_status;
+	}
+
+	/**
+	 * Provide General settings array().
+	 *
+	 * @since x.x.x
+	 * @return array()
+	 */
+	public static function starter_templates_status() {
+
+		$st_pro_status = self::premium_starter_templates_status();
+		$free_status   = self::free_starter_templates_status();
+
+		if ( 'Activated' !== $free_status && ( 'Installed' === $st_pro_status || 'Activated' === $st_pro_status ) ) {
+			return $st_pro_status;
+		}
+
+		return $free_status;
+	}
+
+	/**
+	 * Provide General settings array().
+	 *
+	 * @since x.x.x
+	 * @return array()
+	 */
+	public static function starter_templates_link() {
+
+		if ( is_plugin_active( 'astra-sites/astra-sites.php' ) || is_plugin_active( 'astra-pro-sites/astra-pro-sites.php' ) ) {
+			return admin_url( 'themes.php?page=starter-templates' );
+		}
+
+		return '';
+	}
+
+	/**
+	 * Provide General settings array().
+	 *
 	 * @since 0.0.1
 	 * @return array()
 	 */
@@ -410,19 +467,6 @@ class HFE_Helper {
 		}
 
 		return $rollback_versions;
-	}
-
-	/**
-	 * Provide General settings array().
-	 *
-	 * @since x.x.x
-	 * @return array()
-	 */
-	public static function starter_templates_status() {
-
-		$status = Widgets_Config::get_plugin_status( 'astra-sites/astra-sites.php' );
-
-		return $status;
 	}
 
 }

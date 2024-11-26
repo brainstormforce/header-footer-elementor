@@ -91,8 +91,8 @@ const ExtendWebsiteWidget = ({
                         e.target.innerText = __('Install', 'header-footer-elementor');
                         alert(
                             currentPluginData.type === 'theme'
-                                ? __('Theme Installation failed, Please try again later.', 'uael')
-                                : __('Plugin Installation failed, Please try again later.', 'uael')
+                                ? __('Theme Installation failed, Please try again later.', 'header-footer-elementor')
+                                : __('Plugin Installation failed, Please try again later.', 'header-footer-elementor')
                         );
                     }
                 });
@@ -162,9 +162,9 @@ const ExtendWebsiteWidget = ({
                 }
             } else {
                 if ('theme' == pluginData.type) {
-                    // console.log(__(`Theme Activation failed, Please try again later.`, 'uael'));
+                    // console.log(__(`Theme Activation failed, Please try again later.`, 'header-footer-elementor'));
                 } else {
-                    // console.log(__(`Plugin Activation failed, Please try again later.`, 'uael'));
+                    // console.log(__(`Plugin Activation failed, Please try again later.`, 'header-footer-elementor'));
                 }
                 const buttonElement = document.querySelector(`[data-slug="${pluginData.slug}"]`);
                 if (buttonElement) { // Check if buttonElement is not null
@@ -219,7 +219,7 @@ const ExtendWebsiteWidget = ({
                             color: status === 'Activated' ? '#16A34A' : '#6005FF',
                         }}
                     >
-                        {status === 'Activated' ? __('Visit Site', 'uael') : ('Installed' === status ? 'Activate' : status)}
+                        {status === 'Activated' ? __('Visit Site', 'header-footer-elementor') : ('Installed' === status ? 'Activate' : status)}
                     </Button>
                         <Dialog
                             design="simple"
@@ -231,19 +231,19 @@ const ExtendWebsiteWidget = ({
                                 <Dialog.Header>
                                     <div className="flex items-center justify-between">
                                         <Dialog.Title>
-                                        {__('Activate Theme', 'uael')}
+                                        {__('Activate Theme', 'header-footer-elementor')}
                                         </Dialog.Title>
                                     </div>
                                     <Dialog.Description>
-                                        {__('Are you sure you want to switch your current theme to Astra?', 'uael')}
+                                        {__('Are you sure you want to switch your current theme to Astra?', 'header-footer-elementor')}
                                     </Dialog.Description>
                                 </Dialog.Header>
                                 <Dialog.Footer>
                                     <Button onClick={() => activatePlugin(pluginData)}>
-                                        {__('Yes', 'uael')}
+                                        {__('Yes', 'header-footer-elementor')}
                                     </Button>
                                     <Button variant='outline' onClick={() => setIsDialogOpen(false)}>
-                                        {__('Close', 'uael')}
+                                        {__('Close', 'header-footer-elementor')}
                                     </Button>
                                 </Dialog.Footer>
                             </Dialog.Panel>
@@ -255,8 +255,8 @@ const ExtendWebsiteWidget = ({
                 <p
                     className='text-sm font-medium text-text-primary pb-1 m-0 cursor-pointer'
                     onClick={() => window.open(plugin.siteurl, '_blank')}
-                >{__(name, 'uael')}</p>
-                <p className='text-sm font-medium text-text-tertiary m-0'>{__(desc, 'uael')}</p>
+                >{__(name, 'header-footer-elementor')}</p>
+                <p className='text-sm font-medium text-text-tertiary m-0'>{__(desc, 'header-footer-elementor')}</p>
             </div>
         </Container>
     )

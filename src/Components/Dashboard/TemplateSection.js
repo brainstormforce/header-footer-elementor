@@ -82,7 +82,7 @@ const TemplateSection = () => {
                             size="md"
                             variant="secondary"
                         >
-                            {__('View Templates', 'uael')}
+                            {__('View Templates', 'header-footer-elementor')}
                         </Button>
                     </Link>
 			) : (
@@ -94,7 +94,7 @@ const TemplateSection = () => {
 					variant="secondary"
 					onClick={handleButtonClick}
 				>
-					{__('View Templates', 'uael')}
+					{__('View Templates', 'header-footer-elementor')}
 				</Button>
 			)}
 		</div>

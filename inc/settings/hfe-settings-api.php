@@ -115,7 +115,7 @@ class HFE_Settings_Api {
 		);
 	
 		if ( 'Activated' === $templates_status ) {
-			$response_data['redirect_url'] = admin_url( 'admin.php?page=starter-templates' );
+			$response_data['redirect_url'] = HFE_Helper::starter_templates_link();
 		}
 
 		return new WP_REST_Response( $response_data, 200 );

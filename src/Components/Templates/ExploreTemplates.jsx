@@ -62,7 +62,7 @@ const ExploreTemplates = () => {
 		return;
 	}
 
-	const button_text = 'Install' === templatesStatus ? __('Install Starter Templates', 'uael') : ( 'Installed' ? __('Activate Starter Templates', 'uael') : '');
+	const button_text = 'Install' === templatesStatus ? __('Install Starter Templates', 'header-footer-elementor') : ( 'Installed' ? __('Activate Starter Templates', 'header-footer-elementor') : '');
 
 	const handleButtonClick = (e) => {
 
@@ -105,11 +105,21 @@ const ExploreTemplates = () => {
 	const activatePlugin = () => {
 
         const formData = new window.FormData();
+
+		const st_pro_status = hfeSettingsData.st_pro_status;
+		var plugin_file = 'astra-sites/astra-sites.php';
+		var plugin_slug = 'astra-sites';
+
+		if( 'Installed' === st_pro_status && ( 'Install' === hfeSettingsData.st_status || 'Installed' === hfeSettingsData.st_status ) ) {
+			plugin_file = 'astra-pro-sites/astra-pro-sites.php';
+			plugin_slug = 'astra-pro-sites';
+		}
+
         formData.append('action', 'hfe_recommended_plugin_activate');
         formData.append('nonce', hfe_admin_data.nonce);
-        formData.append('plugin', 'astra-sites/astra-sites.php');
+        formData.append('plugin', plugin_file );
         formData.append('type', 'plugin');
-        formData.append('slug', 'astra-sites');
+        formData.append('slug', plugin_slug);
 
         apiFetch({
             url: hfe_admin_data.ajax_url,
@@ -170,7 +180,7 @@ const ExploreTemplates = () => {
 						/>
 						{/* Paragraph Description */}
 						<p className="text-sm md:text-md m-0 text-text-secondary text-text-tertiary">
-							{__('Stop building your site from scratch. Use our professional templates for your stunning website.It is easy to customize and completely responsive. Explore hundreds of designs and bring your vision to life in no time.', 'uael')}
+							{__('Stop building your site from scratch. Use our professional templates for your stunning website.It is easy to customize and completely responsive. Explore hundreds of designs and bring your vision to life in no time.', 'header-footer-elementor')}
 						</p>
 					</div>
 					{/* Template List */}
@@ -183,7 +193,7 @@ const ExploreTemplates = () => {
 								iconPosition="left"
 								size="xs"
 								tag="h6"
-								title={__(template.title, 'uael')}
+								title={__(template.title, 'header-footer-elementor')}
 								className=""
 							/>
 						))}
@@ -203,7 +213,7 @@ const ExploreTemplates = () => {
 							className="w-auto hfe-starter-template-button hfe-remove-ring cursor-pointer"
 							onClick={handleButtonClick}
 						>
-							{ ( 'Activated' === templatesStatus ) ? __('Explore Templates', 'uael') : button_text }
+							{ ( 'Activated' === templatesStatus ) ? __('Explore Templates', 'header-footer-elementor') : button_text }
 						</Button>
 						<Button
 							icon=""
@@ -214,7 +224,7 @@ const ExploreTemplates = () => {
                                 window.open('https://startertemplates.com/', '_blank');
                             }}
 						>
-							{__('Learn More', 'uael')}
+							{__('Learn More', 'header-footer-elementor')}
 						</Button>
 					</div>
 				</Container.Item>
