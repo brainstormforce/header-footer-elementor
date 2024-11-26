@@ -299,10 +299,10 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 				update_option( 'hfe_compatibility_option', $option );
 
 				// Return a success response.
-				wp_send_json_success( 'Option saved successfully!' );
+				wp_send_json_success( 'Settings saved successfully!' );
 			} else {
 				// Return an error response if the option is not set.
-				wp_send_json_error( 'Option not set.' );
+				wp_send_json_error( 'Unable to save settings.' );
 			}
 		}
 

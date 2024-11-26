@@ -62,10 +62,10 @@ const ThemeSupport = () => {
             if (result.success) {
                 toast.success("Settings saved successfully!");
             } else {
-                toast.error("Failed to save settings");
+                toast.error("Failed to save settings!");
             }
         } catch (error) {
-            toast.error("Error saving settings");
+            toast.error("Failed to save settings!");
         }
     };
 
