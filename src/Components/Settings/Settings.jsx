@@ -39,6 +39,13 @@ const Settings = () => {
                     className="object-contain"
                 />
             ),
+            selected: (
+                <img
+                    src={`${hfeSettingsData.theme_url_selected}`}
+                    alt="Custom SVG"
+                    className="object-contain"
+                />
+            ),
             main: 'Editor',
             title: 'Theme Support',
             content: <ThemeSupport />
@@ -52,11 +59,20 @@ const Settings = () => {
                     className="object-contain"
                 />
             ),
+            selected: (
+                <img
+                    src={`${hfeSettingsData.version__selected_url}`}
+                    alt="Custom SVG"
+                    className="object-contain"
+                />
+            ),
             main: 'Utilities',
             title: 'Version Control',
-            content: <VersionControl/>
+            content: <VersionControl />
         }
-    ];
+    ].filter(item => {
+        return !((!hfeSettingsData.show_theme_support) && item.id === 1);
+    });
 
     // Default state: Set 'My Account' (first item) as the default when the settings tab is clicked
     const [selectedItem, setSelectedItem] = useState(() => {
@@ -83,35 +99,16 @@ const Settings = () => {
             <NavMenu onSettingsTabClick={handleSettingsTabClick} />
             <div className="">
                 <HeaderLine />
-                <Container
-                    align="stretch"
-                    className="p-1"
-                    containerType="flex"
-                    direction="row"
-                    gap="sm"
-                    justify="start"
-                    style={{
-                        width: "100%",
-                        height: "100%"
-                    }}
-                >
-                    <Container.Item
-                        className="p-2"
-                        alignSelf="auto"
-                        order="none"
-                        shrink={1}
-                        style={{
-                            width: "20%",
-                            height: "100vh",
-                            backgroundColor: "white",
-                        }}
-                    >
-                        <Sidebar items={items} onSelectItem={handleSelectItem} selectedItemId={selectedItem.id}/>
+                <Container align="stretch" className="p-1 flex-col lg:flex-row hfe-settings-page" containerType="flex" direction="row" gap="sm" justify="start" style={{ height: "100%" }}>
+                    <Container.Item className="p-2 uae-sticky-outer-wrapper" alignSelf="auto" order="none" shrink={1} style={{ backgroundColor: "#ffffff" }}>
+                        <div className='hfe-sticky-sidebar'>
+                            <Sidebar items={items} onSelectItem={handleSelectItem} selectedItemId={selectedItem.id} />
+                        </div>
                     </Container.Item>
-                    <Container.Item
-                        className="p-2"
-                    >
-                        <Content selectedItem={selectedItem} />
+                    <Container.Item className="p-2 flex w-full justify-center items-start hfe-hide-scrollbar" alignSelf="auto" order="none" shrink={1} style={{ height: "calc(100vh - 1px)", overflowY: "auto" }}>
+                        <div className="uael-78-width">
+                            <Content selectedItem={selectedItem} />
+                        </div>
                     </Container.Item>
                 </Container>
             </div>

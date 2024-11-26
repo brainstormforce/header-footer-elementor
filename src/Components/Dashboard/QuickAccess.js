@@ -45,7 +45,7 @@ const QuickAccess = () => {
 						variant="link"
 						onClick={() => {
 							window.open(
-								"https://wordpress.org/support/plugin/header-footer-elementor/",
+								"https://ultimateelementor.com/contact/",
 								"_blank"
 							);
 						}}
@@ -61,7 +61,7 @@ const QuickAccess = () => {
 						variant="link"
 						onClick={() => {
 							window.open(
-								"https://wordpress.org/support/plugin/header-footer-elementor/reviews/",
+								"https://wordpress.org/support/plugin/header-footer-elementor/reviews/#new-post",
 								"_blank"
 							);
 						}}
@@ -93,7 +93,7 @@ const QuickAccess = () => {
 						variant="link"
 						onClick={() => {
 							window.open(
-								"https://make.wordpress.org/",
+								"https://ideas.ultimateelementor.com/boards/feature-requests",
 								"_blank"
 							);
 						}}
@@ -101,7 +101,7 @@ const QuickAccess = () => {
 						{__("Request a Feature", "header-footer-elementor")}
 					</Button>
 				</Container.Item>
-				<Container.Item className="p-4 bg-white rounded-lg shadow-container-item">
+				{/* <Container.Item className="p-4 bg-white rounded-lg shadow-container-item">
 					<Button
 						className="text-black uael-remove-ring"
 						icon={<MessagesSquareIcon />}
@@ -116,7 +116,7 @@ const QuickAccess = () => {
 					>
 						{__("Join the Community", "header-footer-elementor")}
 					</Button>
-				</Container.Item>
+				</Container.Item> */}
 			</Container>
 		</div>
 	);

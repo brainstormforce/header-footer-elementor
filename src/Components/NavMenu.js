@@ -163,13 +163,18 @@ const NavMenu = () => {
 								icon={<ArrowUpRight />}
 								iconPosition="right"
 								variant="ghost"
+								className="hfe-remove-ring mb-2"
 								style={{
 									color: "#6005FF",
-									paddingBottom: "15px",
+									// paddingBottom: "10px",
+									background: "none",
+									border: "none",
+									padding: 0,
+									cursor: "pointer",
 								}}
 								onClick={() =>
 									handleRedirect(
-										"https://ultimateelementor.com/pricing/"
+										"https://ultimateelementor.com/pricing/?utm_source=uae-lite-dashboard&utm_medium=navigation-bar&utm_campaign=uae-lite-upgrade"
 									)
 								}
 							>
@@ -203,6 +208,14 @@ const NavMenu = () => {
 											<DropdownMenu.Item>
 												<div className="flex justify-between w-full">
 													{`${hfeSettingsData.uaelite_current_version}`}
+													<Badge
+														label={__(
+															"Core",
+															"header-footer-elementor"
+														)}
+														size="xs"
+														variant="neutral"
+													/>
 												</div>
 											</DropdownMenu.Item>
 										}

@@ -128,8 +128,8 @@ const WidgetItem = ({
             <div className='flex flex-col w-full'>
                 <p className='text-sm font-medium text-text-primary pt-3 m-0 pb-1'>{title}</p>
                 <div className='flex items-center justify-between w-full'>
-                    <a href={demo_url} target="_blank" rel="noopener noreferrer" className='text-sm text-text-tertiary m-0 mb-1 uael-remove-ring cursor-pointer' style={{ textDecoration: 'none', lineHeight: '1.5rem' }}>
-                        {__('View Demo', 'uael')}
+                    <a href={demo_url} target="_blank" rel="noopener noreferrer" className='text-sm text-text-tertiary m-0 mb-1 uael-remove-ring' style={{ textDecoration: 'none', lineHeight: '1.5rem' }}>
+                        {__('View Demo', 'header-footer-elementor')}
                     </a>
                     {/* <p className='text-sm text-text-tertiary m-0'>{viewDemo}</p> */}
                     <Tooltip

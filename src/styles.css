@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
 
 /* Add to your main CSS file (e.g., index.css) */
 
@@ -55,6 +55,62 @@
 	.hfe-nav-menu {
 		border-bottom: 1px solid #e5e7eb;
 	}
+
+	.hfe-sticky-sidebar {
+		position: -webkit-sticky;
+		position: sticky;
+		top: 0;
+	}
+
+	.hfe-settings-page:before {
+		-webkit-animation-fill-mode: both;
+		animation-fill-mode: both;
+		background: #fff;
+		content: " ";
+		height: 100%;
+		position: fixed;
+		left: 0;
+		top: 0;
+		-webkit-transform-origin: right;
+		-ms-transform-origin: right;
+		transform-origin: right;
+		border-right: 1px solid #e5e7eb;
+		width: 30%;
+	}
+
+	.hfe-remove-ring input[type="checkbox"],
+	.hfe-remove-ring a,
+	.hfe-remove-ring {
+		outline: none; /* Removes the outline */
+		-webkit-box-shadow: none !important;
+		box-shadow: none !important; /* Ensures no shadow on focus */
+		--tw-ring-inset: auto; /* Tailwind-specific variable, keep if needed */
+	}
+	.hfe-remove-ring a:focus,
+	.hfe-remove-ring input[type="checkbox"]:focus {
+		outline: none; /* Ensures focus does not trigger the outline */
+		-webkit-box-shadow: none !important;
+		box-shadow: none !important; /* Safeguards against custom focus shadows */
+	}
+
+	.hfe-sticky-outer-wrapper {
+		/* position: absolute;
+		height: -webkit-fill-available;
+		top: inherit; */
+		width: 23%;
+		border-right: 1px solid #e5e7eb;
+	}
+
+	.hfe-hide-scrollbar {
+		overflow: hidden; /* Hide scrollbar */
+	}
+	.hfe-hide-scrollbar::-webkit-scrollbar {
+		display: none; /* Hide scrollbar for WebKit browsers */
+	}
+	.hfe-hide-scrollbar {
+		-ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+		scrollbar-width: none; /* Hide scrollbar for Firefox */
+	}
 }
 
 .subject-cell {
@@ -68,15 +124,15 @@
 	width: calc( 100% - 25px);
 } */
 #hfe-settings-app .gap-2 {
-    gap: 1.2rem;
+	gap: 1.2rem;
 }
 .toplevel_page_hfe #wpcontent {
-    padding-left: 0;
+	padding-left: 0;
 }
 div#hfe-settings-app {
-    font-size: 15px;
-    font-weight: 500;
-    line-height: normal;
+	font-size: 15px;
+	font-weight: 500;
+	line-height: normal;
 }
 /* #hfe-settings-app .p-5 {
     padding: 0.5rem 1.25rem;
@@ -89,7 +145,7 @@ div#hfe-settings-app {
 	padding: 15px 25px;
 }
 button.hfe-plugin-activated {
-	color: #16A34A;
+	color: #16a34a;
 }
 button.uae-bulk-action-button {
 	width: 150px;
