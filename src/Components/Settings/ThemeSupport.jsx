@@ -6,26 +6,26 @@ import toast, { Toaster } from 'react-hot-toast';
 const radioData = [
     {
         id: "1",
-        title: __( 'Option 1 (Recommended)', 'header-footer-elementor' ),
-        description: __( "This option will automatically replace your theme's header and footer files with custom templates from the plugin. It works with most themes and is selected by default.", "uael" ),
+        title: __('Option 1 (Recommended)', 'header-footer-elementor'),
+        description: __("This option will automatically replace your theme's header and footer files with custom templates from the plugin. It works with most themes and is selected by default.", "uael"),
         value: "1"
     },
     {
         id: "2",
-        title: __( 'Option 2', 'header-footer-elementor' ),
-        description: __( "This option will automatically replace your theme's header and footer files with custom templates from the plugin. It works with most themes and is selected by default.", "uael" ),
+        title: __('Option 2', 'header-footer-elementor'),
+        description: __("This option will automatically replace your theme's header and footer files with custom templates from the plugin. It works with most themes and is selected by default.", "uael"),
         value: "2"
     }
 ];
 
 const ThemeSupport = () => {
 
-    if ( ! hfeSettingsData.show_theme_support ) {
+    if (!hfeSettingsData.show_theme_support) {
         return null;
     }
 
     // State to store the selected radio option
-    const [selectedOption, setSelectedOption] = useState( hfeSettingsData.theme_option );
+    const [selectedOption, setSelectedOption] = useState(hfeSettingsData.theme_option);
     const [isInitialLoad, setIsInitialLoad] = useState(true);
 
     useEffect(() => {
@@ -45,7 +45,7 @@ const ThemeSupport = () => {
     // Function to save the selected option.
     const saveOption = async (option) => {
         try {
-            const response = await fetch( hfe_admin_data.ajax_url, {
+            const response = await fetch(hfe_admin_data.ajax_url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
@@ -92,12 +92,12 @@ const ThemeSupport = () => {
                 }}
             >
                 <Container.Item className="flex flex-col space-y-1">
-                    <p className='text-base font-semibold m-0'>{__( 'Select Option to Add Theme Support', 'header-footer-elementor' )}</p>
+                    <p className='text-base font-semibold m-0'>{__('Select Option to Add Theme Support', 'header-footer-elementor')}</p>
                     <p className='text-sm font-normal m-0'>
-                    {__(
-                        `To ensure compatibility between the header/footer and your theme, please choose one of the following options to enable theme support:`,
-                        'uael'
-                    )}
+                        {__(
+                            `To ensure compatibility between the header/footer and your theme, please choose one of the following options to enable theme support:`,
+                            'uael'
+                        )}
                     </p>
                 </Container.Item>
                 <Container.Item
@@ -111,8 +111,10 @@ const ThemeSupport = () => {
                                 id={item.id}
                                 value={item.value}
                                 type='radio'
-                                className='mt-1 cursor-pointer'
+                                // className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 checked:bg-center checked:border-indigo-500 checked:bg-indigo-100"
+                                className="radio-input"
                                 name="theme-support-option" // Group radio buttons
+                                // className='hidden checked:bg-no-repeat checked:bg-center checked:border-indigo-500 checked:bg-indigo-100'
                                 onChange={handleRadioChange} // Track the change
                                 checked={selectedOption === item.value} // Controlled input
                             />
@@ -135,7 +137,7 @@ const ThemeSupport = () => {
                     height: "44px",
                     backgroundColor: "#F3F0FF",
                 }}>
-                   <p className='m-0'>
+                    <p className='m-0'>
                         <strong>{__('Note:', 'uael')}</strong> {__('If neither option works, please contact your theme author to add support for this plugin.', 'uael')}
                     </p>
                 </div>
