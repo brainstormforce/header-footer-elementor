@@ -15,11 +15,11 @@ const Features = () => {
   return (
     <>
     <NavMenu />
-    <div className="">
+    <div>
         <HeaderLine />
         <Container
             align="stretch"
-            className="p-2"
+            className="p-6 flex flex-col lg:flex-row box-border"
             containerType="flex"
             direction="row"
             gap="sm"
@@ -29,21 +29,16 @@ const Features = () => {
             }}
         >
             <Container.Item
-                className="p-2"
+                className="p-2 hfe-65-width"
                 alignSelf="auto"
                 order="none"
                 shrink={1}
-                style={{
-                    width: "64%",
-                }}
             >
                 <FeatureWidgets />
             </Container.Item>
             <Container.Item 
-                className="p-2"
-                style={{
-                    width: "34%",
-                }}
+                className="p-2 hfe-35-width"
+                shrink={1}
             >
                 <ExtendWebsite />
                 <TemplateSection />

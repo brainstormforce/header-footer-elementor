@@ -39,7 +39,7 @@ const QuickAccess = () => {
 					shrink={1}
 				>
 					<Button
-						className="text-black uael-remove-ring"
+						className="text-black hfe-remove-ring"
 						icon={<Headphones />}
 						iconPosition="left"
 						variant="link"
@@ -55,7 +55,7 @@ const QuickAccess = () => {
 				</Container.Item>
 				<Container.Item className="p-4 bg-white rounded-lg shadow-container-item">
 					<Button
-						className="text-black uael-remove-ring"
+						className="text-black hfe-remove-ring"
 						icon={<StarIcon />}
 						iconPosition="left"
 						variant="link"
@@ -71,7 +71,7 @@ const QuickAccess = () => {
 				</Container.Item>
 				<Container.Item className="p-4 bg-white rounded-lg shadow-container-item">
 					<Button
-						className="text-black uael-remove-ring"
+						className="text-black hfe-remove-ring"
 						icon={<HelpCircle />}
 						iconPosition="left"
 						variant="link"
@@ -87,7 +87,7 @@ const QuickAccess = () => {
 				</Container.Item>
 				<Container.Item className="p-4 bg-white rounded-lg shadow-container-item">
 					<Button
-						className="text-black uael-remove-ring"
+						className="text-black hfe-remove-ring"
 						icon={<NotepadText />}
 						iconPosition="left"
 						variant="link"
@@ -103,7 +103,7 @@ const QuickAccess = () => {
 				</Container.Item>
 				{/* <Container.Item className="p-4 bg-white rounded-lg shadow-container-item">
 					<Button
-						className="text-black uael-remove-ring"
+						className="text-black hfe-remove-ring"
 						icon={<MessagesSquareIcon />}
 						iconPosition="left"
 						variant="link"

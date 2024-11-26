@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Button, Skeleton } from "@bsf/force-ui";
-import { MoreHorizontalIcon, Plus, LoaderCircle, Map, House, SearchIcon } from "lucide-react";
+import { LoaderCircle, SearchIcon } from "lucide-react";
 import WidgetItem from '@components/Dashboard/WidgetItem';
 import apiFetch from '@wordpress/api-fetch';
+import { __ } from "@wordpress/i18n";
 
 const FeatureWidgets = () => {
 
@@ -132,17 +133,24 @@ const FeatureWidgets = () => {
 
     return (
         <div className='rounded-lg bg-white w-full mb-4'>
-            <div className='flex items-center justify-between' style={{
-                paddingTop: '12px',
-                paddingInline: '16px'
+            <div className='flex flex-col md:flex-row md:items-center md:justify-between p-4'
+            style={{
+                paddingBottom: '0'
             }}>
-                <p className='m-0 text-sm font-semibold text-text-primary'>Widgets / Features</p>
-                <div className='flex items-center gap-x-2 mr-7'>
+                <p className='m-0 text-sm font-semibold text-text-primary mb-2 md:mb-0'>{__("Widgets / Features", "header-footer-elementor")}</p>
+                <div className='flex flex-col md:flex-row items-center gap-y-2 md:gap-x-2 md:mr-7 relative'>
+                    <SearchIcon
+                        className="absolute top-1/2 transform -translate-y-1/2 text-gray-400"
+                        style={{
+                            backgroundColor: '#F9FAFB',
+                            left: '2%',
+                            width: '18px',
+                            height: '18px'
+                        }} />
                     <input
                         type="search"
-                        placeholder="Search..."
-                        icon={<Plus />}
-                        className="mr-2 pl-10"
+                        placeholder={__('Search...', 'header-footer-elementor')}
+                        className="mr-2 pl-10 w-full md:w-auto"
                         style={{
                             height: '40px',
                             borderColor: '#e0e0e0', // Default border color
@@ -154,28 +162,32 @@ const FeatureWidgets = () => {
                         onBlur={(e) => e.target.style.borderColor = '#e0e0e0'}  // Revert to default color
                         onChange={handleSearchChange}
                     />
-                    <Button
-                        icon={loadingActivate ? <LoaderCircle className="animate-spin" /> : null}
-                        iconPosition="left"
-                        variant="outline"
-                        className="uae-bulk-action-button"
-                        onClick={handleActivateAll} // Attach the onClick event
-                    >
-                        {loadingActivate ? 'Activating...' : 'Activate All'}
-                    </Button>
+                    <div className="flex flex-row gap-2 w-full md:w-auto">
+                        <Button
+                            icon={loadingActivate ? <LoaderCircle className="animate-spin" /> : null}
+                            iconPosition="left"
+                            variant="outline"
+                            className="hfe-bulk-action-button"
+                            onClick={handleActivateAll} // Attach the onClick event.
+                            disabled={!!searchTerm}
+                        >
+                            {loadingActivate ? __('Activating...', 'header-footer-elementor') : __('Activate All', 'header-footer-elementor')}
+                        </Button>
 
-                    <Button
-                        icon={loadingDeactivate ? <LoaderCircle className="animate-spin" /> : null} // Loader for deactivate button
-                        iconPosition="left"
-                        variant="outline"
-                        onClick={handleDeactivateAll}
-                        className="uae-bulk-action-button"
-                    >
-                        {loadingDeactivate ? 'Deactivating...' : 'Deactivate All'}
-                    </Button>
+                        <Button
+                            icon={loadingDeactivate ? <LoaderCircle className="animate-spin" /> : null} // Loader for deactivate button.
+                            iconPosition="left"
+                            variant="outline"
+                            onClick={handleDeactivateAll}
+                            className="hfe-bulk-action-button"
+                            disabled={!!searchTerm}
+                        >
+                            {loadingDeactivate ? __('Deactivating...', 'header-footer-elementor') : __('Deactivate All', 'header-footer-elementor')}
+                        </Button>
+                    </div>
                 </div>
             </div>
-            <div className='flex bg-black flex-col rounded-lg p-4'>
+            <div className='flex bg-black flex-col rounded-lg p-4' style={{ minHeight: "800px" }}>
                 {loading ? (
                     <Container
                         align="stretch"
@@ -187,7 +199,7 @@ const FeatureWidgets = () => {
                         gap=""
                         justify="start"
                     >
-                        {[...Array(20)].map((_, index) => (
+                        {[...Array(30)].map((_, index) => (
                             <Container.Item
                                 key={index}
                                 alignSelf="auto"
@@ -202,11 +214,13 @@ const FeatureWidgets = () => {
                 ) : (
                     <Container
                         align="stretch"
-                        className="bg-background-gray p-1 gap-1.5"
-                        cols={4}
+                        className="p-1 gap-1.5 grid-cols-2 md:grid-cols-4"
                         containerType="grid"
                         gap=""
                         justify="start"
+                        style={{
+                            backgroundColor: '#F9FAFB'
+                        }}
                     >
                         {filteredWidgets?.map((widget) => (
                             <Container.Item

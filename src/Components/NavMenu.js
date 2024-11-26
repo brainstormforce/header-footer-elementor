@@ -67,7 +67,7 @@ const NavMenu = () => {
 
 	useWhatsNewRSS({
 		rssFeedURL: "https://ultimateelementor.com/whats-new/feed/",
-		selector: "#uae-whats-new",
+		selector: "#hfe-whats-new",
 		triggerButton: {
 			beforeBtn:
 				'<div class="w-4 sm:w-8 h-8 sm:h-10 flex items-center whitespace-nowrap justify-center cursor-pointer rounded-full border border-slate-200">',
@@ -292,7 +292,7 @@ const NavMenu = () => {
 									</DropdownMenu.List>
 								</DropdownMenu.Content>
 							</DropdownMenu>
-							<div className="pb-1" id="uae-whats-new"></div>
+							<div className="pb-1" id="hfe-whats-new"></div>
 						</Topbar.Item>
 						<Link to={routes.settings.path}>
 							<User
