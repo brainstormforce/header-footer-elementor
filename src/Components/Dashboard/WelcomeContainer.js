@@ -34,7 +34,7 @@ const WelcomeContainer = () => {
 							icon={<Plus />}
 							iconPosition="right"
 							variant="primary"
-							className="bg-[#6005FF]"
+							className="bg-[#6005FF] hfe-remove-ring"
 							style={{
 								backgroundColor: "#6005FF",
 								transition: "background-color 0.3s ease",
@@ -49,7 +49,7 @@ const WelcomeContainer = () => {
 							}
 							onClick={() => {
 								window.open(
-									uaelSettingsData.elementor_page_url,
+									hfeSettingsData.elementor_page_url,
 									"_blank"
 								);
 							}}
