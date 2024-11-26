@@ -71,7 +71,12 @@ const Settings = () => {
             content: <VersionControl />
         }
     ].filter(item => {
-        return !((!hfeSettingsData.show_theme_support) && item.id === 2);
+
+        if ( (! hfeSettingsData.show_theme_support ) && item.id === 2 ) {
+            return false;
+        }
+
+        return true;
     });
 
     // Default state: Set 'My Account' (first item) as the default when the settings tab is clicked
