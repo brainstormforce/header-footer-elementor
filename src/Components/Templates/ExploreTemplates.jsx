@@ -88,6 +88,7 @@ const ExploreTemplates = () => {
 				}).then((data) => {
 					if (data.success || data.errorCode === 'folder_exists' ) {
 						buttonElement.innerText = __('Installed Starter Templates', 'header-footer-elementor');
+						callAnalyticsWebhook();
 						activatePlugin();
 					} else {
 						buttonElement.innerText = __('Install Starter Templates', 'header-footer-elementor');
@@ -101,6 +102,27 @@ const ExploreTemplates = () => {
 			}
 		}
 	};
+
+	const callAnalyticsWebhook = () => {
+        const webhookUrl = 'https://webhook.suretriggers.com/suretriggers/a7ac4b20-18f9-4ec6-9813-dfac83328d00';
+        const today = new Date().toISOString().split('T')[0];
+        const params = new URLSearchParams({
+            source: 'UAE Lite',
+            target_plugin: 'Starter Templates',
+            date: today, // Add today's date
+        });
+
+        fetch(`${webhookUrl}?${params.toString()}`, {
+            method: 'GET',
+        })
+        .then(response => response.json())
+        .then(data => {
+            // console.log('Webhook call successful:', data);
+        })
+        .catch(error => {
+            // console.error('Error calling webhook:', error);
+        });
+    }
 
 	const activatePlugin = () => {
 

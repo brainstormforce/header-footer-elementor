@@ -55,7 +55,10 @@ class Widgets_Config {
 				'title_url' => '#',
 				'default'   => true,
 				'doc_url'   => '',
-				'is_pro'   	=> false
+				'is_pro'   => false,
+				'description' => __( 'Add a high-quality logo that looks sharp on any screen.', 'header-footer-elementor' ),
+				'demo_url'    => '',
+				'category'    => 'content',
 			),
 			'Cart'    => array(
 				'slug'      => 'hfe-cart',
@@ -64,8 +67,11 @@ class Widgets_Config {
 				'icon'      => 'hfe-icon-menu-cart',
 				'title_url' => '#',
 				'default'   => true,
+				'is_pro'   => false,
 				'doc_url'   => '',
-				'is_pro'   => false
+				'description' => __( 'Show cart for seamless shopping experiences.', 'header-footer-elementor' ),
+				'demo_url'    => '',
+				'category'    => 'content',
 			),
 			'Copyright'    => array(
 				'slug'      => 'copyright',
@@ -75,7 +81,10 @@ class Widgets_Config {
 				'title_url' => '#',
 				'default'   => true,
 				'doc_url'   => '',
-				'is_pro'   => false
+				'is_pro'   => false,
+				'description' => __( 'Display customizable copyright text for your site\'s footer.', 'header-footer-elementor' ),
+				'demo_url'    => '',
+				'category'    => 'content',
 			),
 			'Navigation_Menu'    => array(
 				'slug'      => 'navigation-menu',
@@ -85,7 +94,10 @@ class Widgets_Config {
 				'title_url' => '#',
 				'default'   => true,
 				'doc_url'   => '',
-				'is_pro'   => false
+				'is_pro'   => false,
+				'description' => __( 'Add stylish and functional menus for seamless site navigation.', 'header-footer-elementor' ),
+				'demo_url'    => '',
+				'category'    => 'content',
 			),
 			'Page_Title'    => array(
 				'slug'      => 'page-title',
@@ -94,8 +106,11 @@ class Widgets_Config {
 				'icon'      => 'hfe-icon-page-title',
 				'title_url' => '#',
 				'default'   => true,
+				'is_pro'   => false,
 				'doc_url'   => '',
-				'is_pro'   => false
+				'description' => __( 'Display the title of the current page dynamically.', 'header-footer-elementor' ),
+				'demo_url'    => '',
+				'category'    => 'content',
 			),
 			'Search_Button'    => array(
 				'slug'      => 'hfe-search-button',
@@ -104,8 +119,11 @@ class Widgets_Config {
 				'icon'      => 'hfe-icon-search',
 				'title_url' => '#',
 				'default'   => true,
+				'is_pro'   => false,
 				'doc_url'   => '',
-				'is_pro'   => false
+				'description' => __( 'Add a search bar to help visitors find content easily.', 'header-footer-elementor' ),
+				'demo_url'    => '',
+				'category'    => 'content',
 			),
 			'Site_Logo'    => array(
 				'slug'      => 'site-logo',
@@ -114,8 +132,11 @@ class Widgets_Config {
 				'icon'      => 'hfe-icon-site-logo',
 				'title_url' => '#',
 				'default'   => true,
+				'is_pro'   => false,
 				'doc_url'   => '',
-				'is_pro'   => false
+				'description' => __( 'Add your site\'s primary logo with flexible customization options.', 'header-footer-elementor' ),
+				'demo_url'    => '',
+				'category'    => 'content',
 			),
 			'Site_Tagline'    => array(
 				'slug'      => 'hfe-site-tagline',
@@ -124,8 +145,11 @@ class Widgets_Config {
 				'icon'      => 'hfe-icon-site-tagline',
 				'title_url' => '#',
 				'default'   => true,
+				'is_pro'   => false,
 				'doc_url'   => '',
-				'is_pro'   => false
+				'description' => __( 'Display your site\'s tagline to enhance brand identity.', 'header-footer-elementor' ),
+				'demo_url'    => '',
+				'category'    => 'content',
 			),
 			'Site_Title'    => array(
 				'slug'      => 'hfe-site-title',
@@ -135,7 +159,10 @@ class Widgets_Config {
 				'title_url' => '#',
 				'default'   => true,
 				'doc_url'   => '',
-				'is_pro'   => false
+				'is_pro'   => false,
+				'description' => __( 'Show your site’s name in a customizable style.', 'header-footer-elementor' ),
+				'demo_url'    => '',
+				'category'    => 'content',
 			),
 			'Breadcrumbs_Widget'    => array(
 				'slug'      => 'hfe-breadcrumbs-widget',
