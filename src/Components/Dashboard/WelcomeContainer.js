@@ -81,7 +81,7 @@ const WelcomeContainer = () => {
 								icon={<ExternalLink />}
 								iconPosition="right"
 								variant="link"
-								className="uael-remove-ring text-black"
+								className="hfe-remove-ring text-black"
 							>
 								{__("Read full guide", "header-footer-elementor")}
 							</Button>

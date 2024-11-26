@@ -163,9 +163,14 @@ const NavMenu = () => {
 								icon={<ArrowUpRight />}
 								iconPosition="right"
 								variant="ghost"
+								className="hfe-remove-ring mb-2"
 								style={{
 									color: "#6005FF",
-									paddingBottom: "15px",
+									// paddingBottom: "10px",
+									background: "none",
+									border: "none",
+									padding: 0,
+									cursor: "pointer",
 								}}
 								onClick={() =>
 									handleRedirect(

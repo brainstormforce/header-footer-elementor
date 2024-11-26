@@ -78,6 +78,21 @@
 		width: 30%;
 	}
 
+	.hfe-remove-ring input[type="checkbox"],
+	.hfe-remove-ring a,
+	.hfe-remove-ring {
+		outline: none; /* Removes the outline */
+		-webkit-box-shadow: none !important;
+		box-shadow: none !important; /* Ensures no shadow on focus */
+		--tw-ring-inset: auto; /* Tailwind-specific variable, keep if needed */
+	}
+	.hfe-remove-ring a:focus,
+	.hfe-remove-ring input[type="checkbox"]:focus {
+		outline: none; /* Ensures focus does not trigger the outline */
+		-webkit-box-shadow: none !important;
+		box-shadow: none !important; /* Safeguards against custom focus shadows */
+	}
+
 	.hfe-sticky-outer-wrapper {
 		/* position: absolute;
 		height: -webkit-fill-available;

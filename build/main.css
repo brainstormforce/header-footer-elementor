@@ -1907,6 +1907,9 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .pt-6{
 	padding-top: 1.5rem;
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .pb-2{
+	padding-bottom: 0.5rem;
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .text-center{
 	text-align: center;
 }
@@ -2574,6 +2577,19 @@
 		transform-origin: right;
 		border-right: 1px solid #e5e7eb;
 		width: 30%;
+	}
+
+	.hfe-remove-ring input[type="checkbox"],
+	.hfe-remove-ring a,
+	.hfe-remove-ring {
+		outline: none; /* Removes the outline */
+		box-shadow: none !important; /* Ensures no shadow on focus */
+		--tw-ring-inset: auto; /* Tailwind-specific variable, keep if needed */
+	}
+	.hfe-remove-ring a:focus,
+	.hfe-remove-ring input[type="checkbox"]:focus {
+		outline: none; /* Ensures focus does not trigger the outline */
+		box-shadow: none !important; /* Safeguards against custom focus shadows */
 	}
 
 	.hfe-sticky-outer-wrapper {
