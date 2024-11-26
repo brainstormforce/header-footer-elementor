@@ -150,3 +150,44 @@ button.hfe-plugin-activated {
 button.uae-bulk-action-button {
 	width: 150px;
 }
+
+/* Reset browser styles for radio inputs */
+input[type="radio"] {
+	-webkit-appearance: none; /* Remove default styling for WebKit browsers */
+	-moz-appearance: none; /* Remove default styling for Mozilla browsers */
+	appearance: none; /* Remove default styling for all browsers */
+	outline: none; /* Remove outline on focus */
+	width: 30px; /* Set custom width */
+	height: 19px; /* Set custom height */
+	border: 2px solid #ccc; /* Add a border */
+	border-radius: 50%; /* Make it circular */
+	background-color: #fff; /* Default background */
+	cursor: pointer; /* Pointer cursor for better UX */
+	transition: background-color 0.3s, border-color 0.3s; /* Smooth transitions */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  }
+  
+  /* Change appearance when checked */
+  input[type="radio"]:checked {
+	background-color: #6005FF; /* Blue background for checked state */
+	border: none; /* Remove border for checked state */
+  }
+  
+  /* Add a custom "dot" for checked state */
+  input[type="radio"]:checked::before {
+	content: "";
+	display: block;
+	width: 10px; /* Smaller than the radio size */
+	height: 10px; /* Smaller than the radio size */
+	background-color: #fff; /* White dot */
+	border-radius: 50%; /* Circular dot */
+	margin: auto; /* Center the dot */
+  }
+  
+  /* Focus state */
+  input[type="radio"]:focus {
+	border-color: none;
+  }
+  
