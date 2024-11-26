@@ -169,7 +169,7 @@ const NavMenu = () => {
 								}}
 								onClick={() =>
 									handleRedirect(
-										"https://ultimateelementor.com/pricing/"
+										"https://ultimateelementor.com/pricing/?utm_source=uae-lite-dashboard&utm_medium=navigation-bar&utm_campaign=uae-lite-upgrade"
 									)
 								}
 							>
@@ -205,8 +205,8 @@ const NavMenu = () => {
 													{`${hfeSettingsData.uaelite_current_version}`}
 													<Badge
 														label={__(
-															"Free",
-															"uael"
+															"Core",
+															"header-footer-elementor"
 														)}
 														size="xs"
 														variant="neutral"

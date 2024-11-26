@@ -48,7 +48,7 @@ const MyAccount = () => {
                             }}
                             className="uael-remove-ring text-[#6005FF]"
                             onClick={() => {
-                                window.open("https://wordpress.org/plugins/header-footer-elementor/", '_blank');
+                                window.open("https://ultimateelementor.com/pricing/?utm_source=uae-lite-settings&utm_medium=My-accounts&utm_campaign=uae-lite-upgrade", '_blank');
                             }}
                         >
                             Upgrade now
