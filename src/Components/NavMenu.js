@@ -203,6 +203,14 @@ const NavMenu = () => {
 											<DropdownMenu.Item>
 												<div className="flex justify-between w-full">
 													{`${hfeSettingsData.uaelite_current_version}`}
+													<Badge
+														label={__(
+															"Free",
+															"uael"
+														)}
+														size="xs"
+														variant="neutral"
+													/>
 												</div>
 											</DropdownMenu.Item>
 										}

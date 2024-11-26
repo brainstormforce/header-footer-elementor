@@ -1901,12 +1901,6 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .pr-9{
 	padding-right: 2.25rem;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .pt-3{
-	padding-top: 0.75rem;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .pt-4{
-	padding-top: 1rem;
-}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .pt-5{
 	padding-top: 1.25rem;
 }
