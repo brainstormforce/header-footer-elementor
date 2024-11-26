@@ -2563,6 +2563,43 @@
 	.hfe-nav-menu {
 		border-bottom: 1px solid #e5e7eb;
 	}
+
+	.hfe-sticky-sidebar {
+		position: sticky;
+		top: 0;
+	}
+
+	.hfe-settings-page:before {
+		animation-fill-mode: both;
+		background: #fff;
+		content: " ";
+		height: 100%;
+		position: fixed;
+		left: 0;
+		top: 0;
+		transform-origin: right;
+		border-right: 1px solid #e5e7eb;
+		width: 30%;
+	}
+
+	.hfe-sticky-outer-wrapper {
+		/* position: absolute;
+		height: -webkit-fill-available;
+		top: inherit; */
+		width: 23%;
+		border-right: 1px solid #e5e7eb;
+	}
+
+	.hfe-hide-scrollbar {
+		overflow: hidden; /* Hide scrollbar */
+	}
+	.hfe-hide-scrollbar::-webkit-scrollbar {
+		display: none; /* Hide scrollbar for WebKit browsers */
+	}
+	.hfe-hide-scrollbar {
+		-ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+		scrollbar-width: none; /* Hide scrollbar for Firefox */
+	}
 }
 
 .subject-cell {
@@ -2576,15 +2613,15 @@
 	width: calc( 100% - 25px);
 } */
 #hfe-settings-app .gap-2 {
-    gap: 1.2rem;
+	gap: 1.2rem;
 }
 .toplevel_page_hfe #wpcontent {
-    padding-left: 0;
+	padding-left: 0;
 }
 div#hfe-settings-app {
-    font-size: 15px;
-    font-weight: 500;
-    line-height: normal;
+	font-size: 15px;
+	font-weight: 500;
+	line-height: normal;
 }
 /* #hfe-settings-app .p-5 {
     padding: 0.5rem 1.25rem;
@@ -2597,7 +2634,7 @@ div#hfe-settings-app {
 	padding: 15px 25px;
 }
 button.hfe-plugin-activated {
-	color: #16A34A;
+	color: #16a34a;
 }
 button.uae-bulk-action-button {
 	width: 150px;
@@ -4078,3 +4115,4 @@ button.uae-bulk-action-button {
 	width: 1.5rem;
 	height: 1.5rem;
 }
+

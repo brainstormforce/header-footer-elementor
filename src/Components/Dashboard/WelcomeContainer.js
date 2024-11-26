@@ -75,7 +75,7 @@ const WelcomeContainer = () => {
 						</Button>
 					</div>
 				</Container.Item>
-				<Container.Item className="md:mt-0 mt-4">
+				{/* <Container.Item className="md:mt-0 mt-4">
 				<iframe
 						width="280"
 						height="160"
@@ -85,7 +85,7 @@ const WelcomeContainer = () => {
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 						allowFullScreen
 					/>
-				</Container.Item>
+				</Container.Item> */}
 			</Container>
 		</div>
 	);

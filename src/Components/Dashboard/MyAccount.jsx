@@ -9,29 +9,6 @@ const MyAccount = () => {
 
     return (
         <>
-            <Toaster
-                position="top-right"
-                reverseOrder={false}
-                gutter={8}
-                containerStyle={{
-                    top: 20,
-                    right: 20,
-                    marginTop: '40px',
-                }}
-                toastOptions={{
-                    duration: 5000,
-                    style: {
-                        background: 'white',
-                    },
-                    success: {
-                        duration: 3000,
-                        iconTheme: {
-                            primary: '#6005ff',
-                            secondary: '#fff',
-                        },
-                    },
-                }}
-            />
             <Title
                 description=""
                 icon={null}
@@ -55,15 +32,15 @@ const MyAccount = () => {
                     <p className='text-base font-semibold m-0'>{__('License Key', 'uael')}</p>
                     <p className='text-sm font-normal m-0'>{__('You are using UAE Free version, no license key needed. ')}</p>
                 </Container.Item>
-                <div className='flex items-center px-4 rounded-md' style={{paddingTop: '12px' , paddingBottom: '12px', backgroundColor: "#D6CDFF"}}>
-                    <span className="flex items-center gap-x-2">
+                <div className='flex items-center gap-x-4 px-4 rounded-xl' style={{paddingTop: '6px' , paddingBottom: '6px', backgroundColor: "#F3F0FF"}}>
+                    <span className="flex items-center gap-x-2 text-sm font-semibold">
                         Unlock Pro Features
-                        <p>Get access to advanced blocks and premium features.</p>
+                        <p className='text-sm font-normal'>Get access to advanced blocks and premium features.</p>
                     </span>
                     <Button
                             icon={<ArrowUpRight />}
                             iconPosition="right"
-                            variant="ghost"
+                            variant="link"
                             style={{
                                 color: '#6005FF',
                                 borderColor: '#6005FF',

@@ -52,7 +52,7 @@ const VersionControl = () => {
                 }}
             >
                 <Container
-                    align="stretch"
+                    align="center"
                     className="flex flex-col lg:flex-row"
                     containerType="flex"
                     direction="column"
@@ -87,7 +87,7 @@ const VersionControl = () => {
                                     marginTop: '16px',
                                     cursor: 'pointer',
                                     borderRadius: '4px',
-                                    height: '44px',
+                                    height: '40px',
                                     width: '100px',
                                 }}
                             >
@@ -106,7 +106,7 @@ const VersionControl = () => {
                                 scrollLock
                                 open={openLitePopup} // Ensure Dialog is controlled by state
                                 setOpen={setOpenLitePopup} // Synchronize state
-                                trigger={<Button>{__('Rollback', 'uael')}</Button>}
+                                trigger={<Button style={{ backgroundColor: '#6005ff' }}>{__('Rollback', 'uael')}</Button>}
                             >
                                 <Dialog.Backdrop />
                                 <Dialog.Panel>

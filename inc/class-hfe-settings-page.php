@@ -243,8 +243,10 @@ class HFE_Settings_Page {
 				'starter_url' => HFE_URL . 'assets/images/settings/starter-templates.svg',
 				'surecart_url' => HFE_URL . 'assets/images/settings/surecart.svg',
 				'suretriggers_url' => HFE_URL . 'assets/images/settings/sure-triggers.svg',
-				'theme_url' => HFE_URL . 'assets/images/settings/theme.svg',
+				'theme_url_selected' => HFE_URL . 'assets/images/settings/theme.svg',
+				'theme_url' => HFE_URL . 'assets/images/settings/layout-template.svg',
 				'version_url' => HFE_URL . 'assets/images/settings/version.svg',
+				'version__selected_url'               => HFE_URL . 'assets/images/settings/git-compare.svg',
 				'user_url' => HFE_URL . 'assets/images/settings/user.svg',
 				'user__selected_url' => HFE_URL . 'assets/images/settings/user-selected.svg',
 				'integrations_url' => HFE_URL . 'assets/images/settings/integrations.svg',  // Update the path to your assets folder.
