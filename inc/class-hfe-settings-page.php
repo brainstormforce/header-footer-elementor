@@ -209,7 +209,11 @@ class HFE_Settings_Page {
 			</style>';
 		}
 
-		$rollback_versions = HFE_Helper::get_rollback_versions_options();
+		$rollback_versions 	= HFE_Helper::get_rollback_versions_options();
+		$st_status          = HFE_Helper::free_starter_templates_status();
+		$stpro_status       = HFE_Helper::premium_starter_templates_status();
+		$st_link 			= HFE_Helper::starter_templates_link();
+		
 		$show_theme_support = false;
 		$hfe_theme_status   = get_option( 'hfe_is_theme_supported', true );
 
@@ -256,6 +260,9 @@ class HFE_Settings_Page {
 				'uaelite_current_version'             => defined( 'HFE_VER' ) ? HFE_VER : '',
 				'show_theme_support'                  => $show_theme_support,
 				'theme_option'                        => $theme_option,
+				'st_status' 						=> $st_status,
+				'st_pro_status' 					=> $stpro_status,
+				'st_link'                             => $st_link,
 			)
 		);
 

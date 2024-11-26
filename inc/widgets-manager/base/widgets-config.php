@@ -1062,6 +1062,13 @@ class Widgets_Config {
 				unset( $plugins[ $key ] );
 			}
 
+			if ( 'plugin' === $plugin['type'] && 'astra-sites/astra-sites.php' === $key ) {
+				$st_pro_status = self::get_plugin_status( 'astra-pro-sites/astra-pro-sites.php' );
+				if ( 'Installed' === $st_pro_status || 'Activated' === $st_pro_status ) {
+					unset( $plugins[ $key ] );
+				}
+			}
+
 			if ( 'theme' === $plugin['type'] ) {
 				$current_theme = wp_get_theme();
 				if ( $current_theme->get_stylesheet() === $plugin['slug'] ) {

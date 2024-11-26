@@ -105,11 +105,21 @@ const ExploreTemplates = () => {
 	const activatePlugin = () => {
 
         const formData = new window.FormData();
+
+		const st_pro_status = hfeSettingsData.st_pro_status;
+		var plugin_file = 'astra-sites/astra-sites.php';
+		var plugin_slug = 'astra-sites';
+
+		if( 'Installed' === st_pro_status && ( 'Install' === hfeSettingsData.st_status || 'Installed' === hfeSettingsData.st_status ) ) {
+			plugin_file = 'astra-pro-sites/astra-pro-sites.php';
+			plugin_slug = 'astra-pro-sites';
+		}
+
         formData.append('action', 'hfe_recommended_plugin_activate');
         formData.append('nonce', hfe_admin_data.nonce);
-        formData.append('plugin', 'astra-sites/astra-sites.php');
+        formData.append('plugin', plugin_file );
         formData.append('type', 'plugin');
-        formData.append('slug', 'astra-sites');
+        formData.append('slug', plugin_slug);
 
         apiFetch({
             url: hfe_admin_data.ajax_url,
