@@ -140,6 +140,11 @@ This same applies when you are creating your Header/Footer using this plugin.
 
 == Changelog ==
 
+= 1.7.0 =
+- New: Post Info Widget
+- New: Breadcrumbs Widget
+- New: Scroll to Top extension added
+
 = 1.6.47 =
 - Fix: This update addressed a security bug. Props to Wordfence for privately reporting it to our team. Please make sure you are using the latest version on your website.
 
