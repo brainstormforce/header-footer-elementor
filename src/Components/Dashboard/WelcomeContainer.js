@@ -21,13 +21,13 @@ const WelcomeContainer = () => {
 						className="max-w-lg"
 						size="lg"
 						tag="h3"
-						title="Hello,"
+						title={__("Hello,", "header-footer-elementor")}
 					/>
 					<p className="text-sm font-medium text-text-tertiary m-0 mt-2">
-						We’re excited to help you supercharge your
-						website-building experience.Effortlessly design stunning
-						websites with our comprehensive range of free and
-						premium widgets and features.
+						{__(
+							"We're excited to help you supercharge your website-building experience.Effortlessly design stunning websites with our comprehensive range of free and premium widgets and features.",
+							"header-footer-elementor"
+						)}
 					</p>
 					<div className="flex items-center pt-6 gap-2">
 						<Button
