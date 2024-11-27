@@ -1,4 +1,3 @@
-import HeaderLine from '@components/HeaderLine'
 import NavMenu from '@components/NavMenu'
 import UpgradeNotice from '@components/UpgradeNotice'
 import { Container } from "@bsf/force-ui";
@@ -15,7 +14,6 @@ const Features = () => {
     <UpgradeNotice />
     <NavMenu />
     <div>
-        <HeaderLine />
         <Container
             align="stretch"
             className="p-6 flex flex-col lg:flex-row box-border"
