@@ -65,7 +65,7 @@ class HFE_Helper {
 	public static function is_pro_active() {
 		// if ( is_plugin_active( 'ultimate-elementor/ultimate-elementor.php' ) && defined( 'UAEL_PRO' ) && UAEL_PRO ) {
 		// return true;
-		// }
+		// }.
 		return false;
 	}
 

@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-// Include the necessary file to use get_plugins() function
+// Include the necessary file to use get_plugins() function.
 if ( ! function_exists( 'get_plugins' ) ) {
 	require_once ABSPATH . 'wp-admin/includes/plugin.php';
 }
@@ -1139,13 +1139,13 @@ class Widgets_Config {
 	public static function get_theme_status( $theme_slug ) {
 		$installed_themes = wp_get_themes();
 		
-		// Check if the theme is installed
+		// Check if the theme is installed.
 		if ( isset( $installed_themes[ $theme_slug ] ) ) {
 			$current_theme = wp_get_theme();
 			
 			// Check if the current theme slug matches the provided theme slug.
 			if ( $current_theme->get_stylesheet() === $theme_slug ) {
-				return 'Activated'; // Theme is active
+				return 'Activated'; // Theme is active.
 			} else {
 				return 'Installed'; // Theme is installed but not active.
 			}

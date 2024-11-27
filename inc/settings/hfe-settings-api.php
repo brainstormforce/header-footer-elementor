@@ -134,7 +134,7 @@ class HFE_Settings_Api {
 			return new WP_Error( 'invalid_nonce', __( 'Invalid nonce', 'header-footer-elementor' ), [ 'status' => 403 ] );
 		}
 
-		// Fetch branding settings
+		// Fetch branding settings.
 		$plugins_list = HFE_Helper::get_bsf_plugins_list();
 
 		if ( ! is_array( $plugins_list ) ) {
@@ -158,7 +158,7 @@ class HFE_Settings_Api {
 			return new WP_Error( 'invalid_nonce', __( 'Invalid nonce', 'header-footer-elementor' ), [ 'status' => 403 ] );
 		}
 
-		// Fetch widgets settings
+		// Fetch widgets settings.
 		$widgets_list = HFE_Helper::get_all_widgets_list();
 
 		if ( ! is_array( $widgets_list ) ) {
@@ -172,5 +172,5 @@ class HFE_Settings_Api {
 
 }
 
-// Initialize the HFE_Settings_Api class
+// Initialize the HFE_Settings_Api class.
 HFE_Settings_Api::get_instance();

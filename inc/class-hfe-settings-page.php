@@ -58,7 +58,7 @@ class HFE_Settings_Page {
 
 		/*
 		 Add the Action Links */
-		// add_filter( 'plugin_action_links_' . HFE_PATH, array( $this, 'add_action_links' ) );
+		// add_filter( 'plugin_action_links_' . HFE_PATH, array( $this, 'add_action_links' ) );.
 
 		/* Flow content view */
 		add_action( 'hfe_render_admin_page_content', [ $this, 'render_content' ], 10, 2 );
@@ -120,7 +120,7 @@ class HFE_Settings_Page {
 		$rollback_versions = HFE_Helper::get_rollback_versions_options();
 		$update_version    = isset( $_GET['version'] ) ? sanitize_text_field( $_GET['version'] ) : '';
 
-		// Extract version values from the rollback_versions array
+		// Extract version values from the rollback_versions array.
 		$version_values = array_column( $rollback_versions, 'value' );
 
 		if ( empty( $update_version ) || ! in_array( $update_version, $version_values, true ) ) {

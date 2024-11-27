@@ -237,10 +237,10 @@ class Widgets_Loader {
 	// 'site-logo',
 	// 'cart',
 	// 'search-button',
-	// ];
+	// ];.
 
 	// return $widget_list;
-	// }
+	// }.
 
 	/**
 	 * Include Widgets files
@@ -251,15 +251,15 @@ class Widgets_Loader {
 	 * @access public
 	 * @return void
 	 */
-	// public function include_widgets_files() {
-	// $widget_list = $this->get_widget_list();
+	// public function include_widgets_files() {.
+	// $widget_list = $this->get_widget_list();.
 
-	// if ( ! empty( $widget_list ) ) {
+	// if ( ! empty( $widget_list ) ) {.
 	// foreach ( $widget_list as $handle => $data ) {
 	// require_once HFE_DIR . '/inc/widgets-manager/widgets/class-' . $data . '.php';
 	// }
 	// }
-	// }
+	// }.
 
 	/**
 	 * Include Widgets JS files
