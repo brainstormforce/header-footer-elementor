@@ -1,4 +1,10 @@
 <?php
+/**
+ * HFE Settings API.
+ *
+ * @package HFE
+ */
+
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -86,7 +92,7 @@ class HFE_Settings_Api {
 	/**
 	 * Check whether a given request has permission to read notes.
 	 *
-	 * @param  WP_REST_Request $request Full details about the request.
+	 * @since x.x.x
 	 * @return WP_Error|boolean
 	 */
 	public function get_items_permissions_check() {
@@ -100,6 +106,8 @@ class HFE_Settings_Api {
 
 	/**
 	 * Get Starter Templates Status.
+	 * 
+	 * @param WP_REST_Request $request Request object.
 	 */
 	public function get_templates_status( WP_REST_Request $request ) {
 		$nonce = $request->get_header( 'X-WP-Nonce' );
@@ -124,6 +132,7 @@ class HFE_Settings_Api {
 	/**
 	 * Callback function to return plugins list.
 	 *
+	 * @param WP_REST_Request $request Request object.
 	 * @return WP_REST_Response
 	 */
 	public function get_plugins_list( $request ) {
@@ -146,7 +155,10 @@ class HFE_Settings_Api {
 	}
 
 	/**
+	 * 
 	 * Callback function to return widgets list.
+	 * 
+	 * @param WP_REST_Request $request Request object.
 	 *
 	 * @return WP_REST_Response
 	 */

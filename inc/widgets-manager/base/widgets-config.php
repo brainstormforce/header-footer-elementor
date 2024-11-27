@@ -4,6 +4,7 @@
  *
  * @package header-footer-elementor
  */
+
 namespace HFE\WidgetsManager\Base;
 
 
@@ -944,7 +945,7 @@ class Widgets_Config {
 	 * @return array The combined Widget List.
 	 */
 	public static function get_all_widgets() {
-		return self::get_widget_list() + self::get_pro_widget_list(); // Use + operator to merge associative arrays
+		return self::get_widget_list() + self::get_pro_widget_list(); // Use + operator to merge associative arrays.
 	}
 
    
@@ -1127,22 +1128,21 @@ class Widgets_Config {
 			return 'Installed';
 		}
 	}
-
 	/**
-	 * Get theme status
+	 * Get the status of a theme.
+	 *
+	 * @param string $theme_slug The slug of the theme.
+	 * @return string The theme status: 'Activated', 'Installed', or 'Install'.
 	 *
 	 * @since 0.0.1
-	 *
-	 * @param  string $plugin_init_file Plugin init file.
-	 * @return string
 	 */
 	public static function get_theme_status( $theme_slug ) {
 		$installed_themes = wp_get_themes();
-		
+	
 		// Check if the theme is installed.
 		if ( isset( $installed_themes[ $theme_slug ] ) ) {
 			$current_theme = wp_get_theme();
-			
+		
 			// Check if the current theme slug matches the provided theme slug.
 			if ( $current_theme->get_stylesheet() === $theme_slug ) {
 				return 'Activated'; // Theme is active.
@@ -1153,6 +1153,7 @@ class Widgets_Config {
 			return 'Install'; // Theme is not installed at all.
 		}
 	}
+
 
 
 }

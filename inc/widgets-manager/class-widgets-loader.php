@@ -154,7 +154,7 @@ class Widgets_Loader {
 
 		$this->init_category();
 
-		do_action( 'header_footer_elementor/init' );
+		do_action( 'header_footer_elementor/init' );    //phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
 	}
 
 	/**
@@ -217,49 +217,6 @@ class Widgets_Loader {
 
 		return $js_files;
 	}
-
-	/**
-	 * Returns Script array.
-	 *
-	 * @return array()
-	 * @since 1.3.0
-	 */
-	// public static function get_widget_list() {
-	// $widget_list = [
-	// 'retina',
-	// 'copyright',
-	// 'copyright-shortcode',
-	// 'navigation-menu',
-	// 'menu-walker',
-	// 'site-title',
-	// 'page-title',
-	// 'site-tagline',
-	// 'site-logo',
-	// 'cart',
-	// 'search-button',
-	// ];.
-
-	// return $widget_list;
-	// }.
-
-	/**
-	 * Include Widgets files
-	 *
-	 * Load widgets files
-	 *
-	 * @since 1.2.0
-	 * @access public
-	 * @return void
-	 */
-	// public function include_widgets_files() {.
-	// $widget_list = $this->get_widget_list();.
-
-	// if ( ! empty( $widget_list ) ) {.
-	// foreach ( $widget_list as $handle => $data ) {
-	// require_once HFE_DIR . '/inc/widgets-manager/widgets/class-' . $data . '.php';
-	// }
-	// }
-	// }.
 
 	/**
 	 * Include Widgets JS files

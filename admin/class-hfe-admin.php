@@ -305,11 +305,12 @@ class HFE_Admin {
 	}
 
 	/**
-	 * Check if UAE Pro is active
+	 * Check if UAE Pro is active.
 	 *
-	 * @return void
+	 * @return bool True if UAE Pro is active, false otherwise.
 	 */
 	public function is_pro_active() {
+		// Uncomment and use the following code to check if the plugin is active:
 		// if ( is_plugin_active( 'ultimate-elementor/ultimate-elementor.php' ) && defined( 'UAEL_PRO' ) && UAEL_PRO ) {
 		// return true;
 		// }.
