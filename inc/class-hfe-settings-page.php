@@ -56,9 +56,9 @@ class HFE_Settings_Page {
 			add_filter( 'wp_check_filetype_and_ext', [ $this, 'real_mime_types' ], 10, 4 );
 		}
 
-		/*
-		 Add the Action Links */
-		// add_filter( 'plugin_action_links_' . HFE_PATH, array( $this, 'add_action_links' ) );.
+		// Add the Action Links.
+		// phpcs:ignore Squiz.PHP.CommentedOutCode.Found, Squiz.Commenting.InlineComment.InvalidEndChar
+		// add_filter( 'plugin_action_links_' . HFE_PATH, array( $this, 'add_action_links' ) );
 
 		/* Flow content view */
 		add_action( 'hfe_render_admin_page_content', [ $this, 'render_content' ], 10, 2 );
@@ -163,7 +163,7 @@ class HFE_Settings_Page {
 		$default_url = admin_url( 'admin.php?page=' . $this->menu_slug );
 
 		$mylinks = [
-			'<a href="' . $default_url . '">' . __( 'Settings', 'Elementor Header & Footer Builder' ) . '</a>',
+			'<a href="' . $default_url . '">' . __( 'Settings', 'Elementor Header & Footer Builder' ) . '</a>', //phpcs:ignore WordPress.WP.I18n.TextDomainMismatch
 		];
 
 		return array_merge( $mylinks, $links );
@@ -319,9 +319,9 @@ class HFE_Settings_Page {
 	 * @return mixed
 	 */
 	public function hfe_settings( $views ) {
-
+		// The following methods are currently disabled but may be used in the future.
 		// $this->hfe_tabs();
-		// $this->hfe_modal();
+		// $this->hfe_modal();.
 		return $views;
 	}
 
@@ -469,7 +469,7 @@ class HFE_Settings_Page {
 		);
 	
 		add_submenu_page(
-			$menu_slug, // Parent slug
+			$menu_slug, // Parent slug.
 			__( 'Widgets & Features', 'header-footer-elementor' ),
 			__( 'Widgets & Features', 'header-footer-elementor' ),
 			$capability,

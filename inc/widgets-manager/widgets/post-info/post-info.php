@@ -1130,9 +1130,9 @@ class Post_Info extends Common_Widget {
 		}
 	
 		?>
-		<li <?php echo $this->get_render_attribute_string( $item_key ); ?>>
+		<li <?php echo $this->get_render_attribute_string( $item_key ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>> 
 			<?php if ( $has_link ) : ?>
-				<a <?php echo $this->get_render_attribute_string( $link_key ); ?>>
+				<a <?php echo $this->get_render_attribute_string( $link_key ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 			<?php endif; ?>
 
 			<?php
@@ -1201,7 +1201,7 @@ class Post_Info extends Common_Widget {
 		}
 	
 		?>
-		<span <?php echo $this->get_render_attribute_string( $repeater_setting_key ); ?>>
+		<span <?php echo $this->get_render_attribute_string( $repeater_setting_key ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 			<?php if ( ! empty( $item_data['text_prefix'] ) ) : ?>
 				<span class="hfe-post-info__item-prefix"><?php echo esc_html( $item_data['text_prefix'] ); ?></span>
 			<?php endif; ?>
@@ -1216,7 +1216,7 @@ class Post_Info extends Common_Widget {
 						},
 						$item_data['terms_list']
 					);
-					echo implode( ', ', $terms_list );
+					echo implode( ', ', $terms_list ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					?>
 				</span>
 			<?php else : ?>
@@ -1268,8 +1268,8 @@ class Post_Info extends Common_Widget {
 
 		$this->add_render_attribute( 'icon_list', 'class', [ 'hfe-post-info-items', 'hfe-post-info' ] );
 		?>
-		<ul <?php echo $this->get_render_attribute_string( 'icon_list' ); ?>>
-			<?php echo $items_html; ?>
+		<ul <?php echo $this->get_render_attribute_string( 'icon_list' ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+			<?php echo $items_html; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		</ul>
 		<?php
 	}
