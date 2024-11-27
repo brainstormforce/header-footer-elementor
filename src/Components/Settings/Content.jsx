@@ -1,5 +1,4 @@
 import React from 'react'
-import ThemeSupport from './ThemeSupport'
 
 const Content = ({ selectedItem }) => {
   return (

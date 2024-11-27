@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Container, Title, Switch, Button, Dialog } from "@bsf/force-ui";
-import apiFetch from '@wordpress/api-fetch';
+import { Container, Title, Button, Dialog } from "@bsf/force-ui";
 import { __ } from '@wordpress/i18n';
 
 const VersionControl = () => {

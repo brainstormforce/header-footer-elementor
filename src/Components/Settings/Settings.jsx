@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Container, Menu } from "@bsf/force-ui";
+import { Container } from "@bsf/force-ui";
 import Sidebar from './Sidebar';
 import Content from './Content';
 import NavMenu from '@components/NavMenu';

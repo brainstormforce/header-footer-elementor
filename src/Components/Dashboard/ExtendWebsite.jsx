@@ -3,7 +3,7 @@ import ExtendWebsiteWidget from './ExtendWebsiteWidget';
 import { Container, Skeleton } from "@bsf/force-ui";
 import apiFetch from '@wordpress/api-fetch';
 import { __ } from '@wordpress/i18n';
-import { ArrowUpRight } from 'lucide-react';
+
 
 const ExtendWebsite = () => {
 

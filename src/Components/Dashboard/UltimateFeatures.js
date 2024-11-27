@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Title, Button } from "@bsf/force-ui";
-import { Zap, Plus, Check } from "lucide-react";
+import { Zap, Check } from "lucide-react";
 const UltimateFeatures = () => {
 	const featureData = [
 		{

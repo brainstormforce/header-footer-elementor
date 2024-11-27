@@ -5,7 +5,6 @@ import {
 	CircleHelp,
 	FileText,
 	Headset,
-	Megaphone,
 	User,
 } from "lucide-react";
 import { __ } from "@wordpress/i18n";

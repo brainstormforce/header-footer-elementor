@@ -5,8 +5,8 @@ import HeaderLine from '@components/HeaderLine';
 import ExploreTemplates from './ExploreTemplates';
 
 const Templates = () => {
-  return (
-    <>
+    return (
+        <>
             <NavMenu />
             <div className="">
                 <HeaderLine />
@@ -37,7 +37,7 @@ const Templates = () => {
                 </Container>
             </div>
         </>
-  )
+    )
 }
 
 export default Templates

@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { __ } from '@wordpress/i18n';
-import apiFetch from '@wordpress/api-fetch';
 import { Container, Title, Button } from "@bsf/force-ui";
-import { ArrowUpRight, LoaderCircle, Plus } from "lucide-react";
-import { Toaster, toast } from 'react-hot-toast';
+import { ArrowUpRight } from "lucide-react";
 
 const MyAccount = () => {
 

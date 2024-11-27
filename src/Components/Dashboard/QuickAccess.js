@@ -1,6 +1,6 @@
 import React from "react";
 import { Title, Container, Button } from "@bsf/force-ui";
-import { Headphones, Star, HelpCircle, MessageCircle, StarIcon, NotepadText, MessagesSquareIcon } from "lucide-react";
+import { Headphones, HelpCircle, StarIcon, NotepadText } from "lucide-react";
 import { __ } from "@wordpress/i18n";
 
 const QuickAccess = () => {

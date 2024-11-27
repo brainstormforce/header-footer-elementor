@@ -18,7 +18,7 @@ const Sidebar = ({ items, onSelectItem }) => {
             <p className="text-sm text-text-tertiary font-normal mb-2">
               {item.main}
             </p>
-          )}    
+          )}
 
           {/* Each item with icon and title */}
           <div
@@ -28,7 +28,7 @@ const Sidebar = ({ items, onSelectItem }) => {
             }}
             onClick={() => handleSelectItem(item)}
           >
-             <span>
+            <span>
               {selectedItemId === item.id ? item.selected : item.icon}
             </span>
             <p className="m-0 text-base font-normal">{item.title}</p>

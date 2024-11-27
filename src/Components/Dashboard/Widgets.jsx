@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import WidgetItem from './WidgetItem'
 import { ArrowUpRight } from 'lucide-react';
 import { Container, Skeleton } from "@bsf/force-ui";
-import { MoreHorizontalIcon, Plus } from "lucide-react";
 import apiFetch from '@wordpress/api-fetch';
 import { __ } from '@wordpress/i18n';
 import { routes } from '../../admin/settings/routes';
