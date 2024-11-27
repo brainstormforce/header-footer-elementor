@@ -1,7 +1,6 @@
 <?php
 /**
  * Single page settings page
- *
  */
 
 // Exit if accessed directly.
@@ -10,5 +9,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 <div id="hfe-settings-app" class="hfe-settings-app">
-    
+	
 </div>

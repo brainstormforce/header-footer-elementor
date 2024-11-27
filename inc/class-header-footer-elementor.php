@@ -67,12 +67,17 @@ class Header_Footer_Elementor {
 			$this->includes();
 			$this->load_textdomain();
 
-			add_filter('elementor/admin-top-bar/is-active', function($is_active, $current_screen) {
-				if (strpos($current_screen->id, 'elementor-hf') !== false) {
-					return false;
-				}
-				return $is_active;
-			}, 10, 2);
+			add_filter(
+				'elementor/admin-top-bar/is-active',
+				function( $is_active, $current_screen ) {
+					if ( strpos( $current_screen->id, 'elementor-hf' ) !== false ) {
+						return false;
+					}
+					return $is_active;
+				},
+				10,
+				2
+			);
 
 			$is_theme_supported = true;
 

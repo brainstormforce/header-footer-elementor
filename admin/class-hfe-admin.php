@@ -93,8 +93,8 @@ class HFE_Admin {
 			add_action( 'elementor/editor/footer', [ $this, 'register_hfe_epro_script' ], 99 );
 		}
 
-		add_action( 'admin_notices', [ $this, 'hide_admin_notices'], 1 );
-		add_action( 'all_admin_notices', [ $this, 'hide_admin_notices'], 1 );
+		add_action( 'admin_notices', [ $this, 'hide_admin_notices' ], 1 );
+		add_action( 'all_admin_notices', [ $this, 'hide_admin_notices' ], 1 );
 
 		if ( is_admin() ) {
 			add_action( 'manage_elementor-hf_posts_custom_column', [ $this, 'column_content' ], 10, 2 );
@@ -311,7 +311,7 @@ class HFE_Admin {
 	 */
 	public function is_pro_active() {
 		// if ( is_plugin_active( 'ultimate-elementor/ultimate-elementor.php' ) && defined( 'UAEL_PRO' ) && UAEL_PRO ) {
-		// 	return true;
+		// return true;
 		// }
 		return false;
 	}
