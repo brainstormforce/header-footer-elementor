@@ -4,6 +4,7 @@
  *
  * @package header-footer-elementor
  */
+
 namespace HFE\WidgetsManager\Base;
 
 
@@ -13,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-// Include the necessary file to use get_plugins() function
+// Include the necessary file to use get_plugins() function.
 if ( ! function_exists( 'get_plugins' ) ) {
-    require_once ABSPATH . 'wp-admin/includes/plugin.php';
+	require_once ABSPATH . 'wp-admin/includes/plugin.php';
 }
 
 /**
@@ -46,165 +47,165 @@ class Widgets_Config {
 	 */
 	public static function get_widget_list() {
 
-		self::$widget_list = array(
-			'Retina'    => array(
-				'slug'      => 'retina',
-				'title'     => __( 'Retina Logo', 'header-footer-elementor' ),
-				'keywords'  => array( 'uael', 'retina', 'image', 'logo' ),
-				'icon'      => 'hfe-icon-retina-logo',
-				'title_url' => '#',
-				'default'   => true,
-				'doc_url'   => '',
-				'is_pro'   => false,
+		self::$widget_list = [
+			'Retina'             => [
+				'slug'        => 'retina',
+				'title'       => __( 'Retina Logo', 'header-footer-elementor' ),
+				'keywords'    => [ 'uael', 'retina', 'image', 'logo' ],
+				'icon'        => 'hfe-icon-retina-logo',
+				'title_url'   => '#',
+				'default'     => true,
+				'doc_url'     => '',
+				'is_pro'      => false,
 				'description' => __( 'Add a high-quality logo that looks sharp on any screen.', 'header-footer-elementor' ),
 				'demo_url'    => '',
 				'category'    => 'content',
-			),
-			'Cart'    => array(
-				'slug'      => 'hfe-cart',
-				'title'     => __( 'Cart', 'header-footer-elementor' ),
-				'keywords'  => array( 'uael', 'cart', 'shop', 'bag' ),
-				'icon'      => 'hfe-icon-menu-cart',
-				'title_url' => '#',
-				'default'   => true,
-				'is_pro'   => false,
-				'doc_url'   => '',
+			],
+			'Cart'               => [
+				'slug'        => 'hfe-cart',
+				'title'       => __( 'Cart', 'header-footer-elementor' ),
+				'keywords'    => [ 'uael', 'cart', 'shop', 'bag' ],
+				'icon'        => 'hfe-icon-menu-cart',
+				'title_url'   => '#',
+				'default'     => true,
+				'is_pro'      => false,
+				'doc_url'     => '',
 				'description' => __( 'Show cart for seamless shopping experiences.', 'header-footer-elementor' ),
 				'demo_url'    => '',
 				'category'    => 'content',
-			),
-			'Copyright'    => array(
-				'slug'      => 'copyright',
-				'title'     => __( 'Copyright', 'header-footer-elementor' ),
-				'keywords'  => array( 'uael', 'copyright', 'date' ),
-				'icon'      => 'hfe-icon-copyright-widget',
-				'title_url' => '#',
-				'default'   => true,
-				'doc_url'   => '',
-				'is_pro'   => false,
+			],
+			'Copyright'          => [
+				'slug'        => 'copyright',
+				'title'       => __( 'Copyright', 'header-footer-elementor' ),
+				'keywords'    => [ 'uael', 'copyright', 'date' ],
+				'icon'        => 'hfe-icon-copyright-widget',
+				'title_url'   => '#',
+				'default'     => true,
+				'doc_url'     => '',
+				'is_pro'      => false,
 				'description' => __( 'Display customizable copyright text for your site\'s footer.', 'header-footer-elementor' ),
 				'demo_url'    => '',
 				'category'    => 'content',
-			),
-			'Navigation_Menu'    => array(
-				'slug'      => 'navigation-menu',
-				'title'     => __( 'Navigation Menu', 'header-footer-elementor' ),
-				'keywords'  => array( 'uael', 'navigation', 'menu', 'nav' ),
-				'icon'      => 'hfe-icon-navigation-menu',
-				'title_url' => '#',
-				'default'   => true,
-				'doc_url'   => '',
-				'is_pro'   => false,
+			],
+			'Navigation_Menu'    => [
+				'slug'        => 'navigation-menu',
+				'title'       => __( 'Navigation Menu', 'header-footer-elementor' ),
+				'keywords'    => [ 'uael', 'navigation', 'menu', 'nav' ],
+				'icon'        => 'hfe-icon-navigation-menu',
+				'title_url'   => '#',
+				'default'     => true,
+				'doc_url'     => '',
+				'is_pro'      => false,
 				'description' => __( 'Add stylish and functional menus for seamless site navigation.', 'header-footer-elementor' ),
 				'demo_url'    => '',
 				'category'    => 'content',
-			),
-			'Page_Title'    => array(
-				'slug'      => 'page-title',
-				'title'     => __( 'Page Title', 'header-footer-elementor' ),
-				'keywords'  => array( 'uael', 'title', 'dynamic' ),
-				'icon'      => 'hfe-icon-page-title',
-				'title_url' => '#',
-				'default'   => true,
-				'is_pro'   => false,
-				'doc_url'   => '',
+			],
+			'Page_Title'         => [
+				'slug'        => 'page-title',
+				'title'       => __( 'Page Title', 'header-footer-elementor' ),
+				'keywords'    => [ 'uael', 'title', 'dynamic' ],
+				'icon'        => 'hfe-icon-page-title',
+				'title_url'   => '#',
+				'default'     => true,
+				'is_pro'      => false,
+				'doc_url'     => '',
 				'description' => __( 'Display the title of the current page dynamically.', 'header-footer-elementor' ),
 				'demo_url'    => '',
 				'category'    => 'content',
-			),
-			'Search_Button'    => array(
-				'slug'      => 'hfe-search-button',
-				'title'     => __( 'Search', 'header-footer-elementor' ),
-				'keywords'  => array( 'uael', 'title', 'dynamic' ),
-				'icon'      => 'hfe-icon-search',
-				'title_url' => '#',
-				'default'   => true,
-				'is_pro'   => false,
-				'doc_url'   => '',
+			],
+			'Search_Button'      => [
+				'slug'        => 'hfe-search-button',
+				'title'       => __( 'Search', 'header-footer-elementor' ),
+				'keywords'    => [ 'uael', 'title', 'dynamic' ],
+				'icon'        => 'hfe-icon-search',
+				'title_url'   => '#',
+				'default'     => true,
+				'is_pro'      => false,
+				'doc_url'     => '',
 				'description' => __( 'Add a search bar to help visitors find content easily.', 'header-footer-elementor' ),
 				'demo_url'    => '',
 				'category'    => 'content',
-			),
-			'Site_Logo'    => array(
-				'slug'      => 'site-logo',
-				'title'     => __( 'Site Logo', 'header-footer-elementor' ),
-				'keywords'  => array( 'uael', 'site', 'logo', 'image' ),
-				'icon'      => 'hfe-icon-site-logo',
-				'title_url' => '#',
-				'default'   => true,
-				'is_pro'   => false,
-				'doc_url'   => '',
+			],
+			'Site_Logo'          => [
+				'slug'        => 'site-logo',
+				'title'       => __( 'Site Logo', 'header-footer-elementor' ),
+				'keywords'    => [ 'uael', 'site', 'logo', 'image' ],
+				'icon'        => 'hfe-icon-site-logo',
+				'title_url'   => '#',
+				'default'     => true,
+				'is_pro'      => false,
+				'doc_url'     => '',
 				'description' => __( 'Add your site\'s primary logo with flexible customization options.', 'header-footer-elementor' ),
 				'demo_url'    => '',
 				'category'    => 'content',
-			),
-			'Site_Tagline'    => array(
-				'slug'      => 'hfe-site-tagline',
-				'title'     => __( 'Site Tagline', 'header-footer-elementor' ),
-				'keywords'  => array( 'uael', 'site', 'tagline', 'tag' ),
-				'icon'      => 'hfe-icon-site-tagline',
-				'title_url' => '#',
-				'default'   => true,
-				'is_pro'   => false,
-				'doc_url'   => '',
+			],
+			'Site_Tagline'       => [
+				'slug'        => 'hfe-site-tagline',
+				'title'       => __( 'Site Tagline', 'header-footer-elementor' ),
+				'keywords'    => [ 'uael', 'site', 'tagline', 'tag' ],
+				'icon'        => 'hfe-icon-site-tagline',
+				'title_url'   => '#',
+				'default'     => true,
+				'is_pro'      => false,
+				'doc_url'     => '',
 				'description' => __( 'Display your site\'s tagline to enhance brand identity.', 'header-footer-elementor' ),
 				'demo_url'    => '',
 				'category'    => 'content',
-			),
-			'Site_Title'    => array(
-				'slug'      => 'hfe-site-title',
-				'title'     => __( 'Site Title', 'header-footer-elementor' ),
-				'keywords'  => array( 'uael', 'site', 'title', 'tag' ),
-				'icon'      => 'hfe-icon-site-title',
-				'title_url' => '#',
-				'default'   => true,
-				'doc_url'   => '',
-				'is_pro'   => false,
+			],
+			'Site_Title'         => [
+				'slug'        => 'hfe-site-title',
+				'title'       => __( 'Site Title', 'header-footer-elementor' ),
+				'keywords'    => [ 'uael', 'site', 'title', 'tag' ],
+				'icon'        => 'hfe-icon-site-title',
+				'title_url'   => '#',
+				'default'     => true,
+				'doc_url'     => '',
+				'is_pro'      => false,
 				'description' => __( 'Show your site’s name in a customizable style.', 'header-footer-elementor' ),
 				'demo_url'    => '',
 				'category'    => 'content',
-			),
-			'Breadcrumbs_Widget'    => array(
-				'slug'      => 'hfe-breadcrumbs-widget',
-				'title'     => __( 'Breadcrumbs', 'header-footer-elementor' ),
-				'keywords'  => array( 'uael', 'breadcrumbs', 'links', 'path' ),
-				'icon'      => 'hfe-icon-breadcrumbs',
-				'title_url' => '#',
-				'default'   => true,
-				'doc_url'   => '',
-				'is_pro'   => false,
+			],
+			'Breadcrumbs_Widget' => [
+				'slug'        => 'hfe-breadcrumbs-widget',
+				'title'       => __( 'Breadcrumbs', 'header-footer-elementor' ),
+				'keywords'    => [ 'uael', 'breadcrumbs', 'links', 'path' ],
+				'icon'        => 'hfe-icon-breadcrumbs',
+				'title_url'   => '#',
+				'default'     => true,
+				'doc_url'     => '',
+				'is_pro'      => false,
 				'description' => __( 'Add navigation links to guide visitors across your site.', 'header-footer-elementor' ),
 				'demo_url'    => '',
 				'category'    => 'content',
-			),
-			'Post_Info'    => array(
-				'slug'      => 'post-info-widget',
-				'title'     => __( 'Post Info', 'header-footer-elementor' ),
-				'keywords'  => array( 'uael', 'post', 'info', 'meta', 'author', 'comments' ),
-				'icon'      => 'hfe-icon-post-info',
-				'title_url' => '#',
-				'default'   => true,
-				'doc_url'   => '',
-				'is_pro'   => false,
+			],
+			'Post_Info'          => [
+				'slug'        => 'post-info-widget',
+				'title'       => __( 'Post Info', 'header-footer-elementor' ),
+				'keywords'    => [ 'uael', 'post', 'info', 'meta', 'author', 'comments' ],
+				'icon'        => 'hfe-icon-post-info',
+				'title_url'   => '#',
+				'default'     => true,
+				'doc_url'     => '',
+				'is_pro'      => false,
 				'description' => __( 'Show author, dates, and reading time with customizable styles.', 'header-footer-elementor' ),
 				'demo_url'    => '',
 				'category'    => 'content',
-			),
-			'Scroll_To_Top'           => array(
-				'slug'      => 'scroll-to-top',
-				'title'     => __( 'Scroll to Top', 'header-footer-elementor' ),
-				'keywords'  => array( 'uael', 'scroll', 'top', 'extension' ),
-				'icon'      => 'hfe-icon-scroll-to-top',
-				'title_url' => '#',
-				'default'   => true,
-				'doc_url'   => '',
-				'is_pro'   => false,
+			],
+			'Scroll_To_Top'      => [
+				'slug'        => 'scroll-to-top',
+				'title'       => __( 'Scroll to Top', 'header-footer-elementor' ),
+				'keywords'    => [ 'uael', 'scroll', 'top', 'extension' ],
+				'icon'        => 'hfe-icon-scroll-to-top',
+				'title_url'   => '#',
+				'default'     => true,
+				'doc_url'     => '',
+				'is_pro'      => false,
 				'description' => __( 'Add a customizable button for quick, one-click top scrolling.', 'header-footer-elementor' ),
 				'demo_url'    => '',
 				'category'    => 'extension',
 				'demo_url'    => '',
-			),
-		);
+			],
+		];
 
 		return apply_filters( 'hfe_widgets_data', self::$widget_list );
 	}
@@ -221,14 +222,14 @@ class Widgets_Config {
 		if ( null === self::$pro_widget_list ) {
 
 			$integration_url = '';
-			$post_url = '';
+			$post_url        = '';
 
-			self::$pro_widget_list =  array(
-				'Advanced_Heading'    => array(
+			self::$pro_widget_list = [
+				'Advanced_Heading'    => [
 					'slug'        => 'uael-advanced-heading',
 					'title'       => __( 'Advanced Heading', 'header-footer-elementor' ),
 					'description' => __( 'Create engaging and customizable headings for your pages.', 'header-footer-elementor' ),
-					'keywords'    => array( 'uael', 'heading', 'advanced' ),
+					'keywords'    => [ 'uael', 'heading', 'advanced' ],
 					'icon'        => 'hfe-icon-advanced-heading',
 					'title_url'   => '#',
 					'default'     => true,
@@ -237,12 +238,12 @@ class Widgets_Config {
 					'category'    => 'content',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/advanced-heading/',
-				),
-				'BaSlider'            => array(
+				],
+				'BaSlider'            => [
 					'slug'        => 'uael-ba-slider',
 					'title'       => __( 'Before After Slider', 'header-footer-elementor' ),
 					'description' => __( 'Display the before and after versions of an image.', 'header-footer-elementor' ),
-					'keywords'    => array( 'uael', 'slider', 'before', 'after' ),
+					'keywords'    => [ 'uael', 'slider', 'before', 'after' ],
 					'icon'        => 'hfe-icon-before-after-slider',
 					'title_url'   => '#',
 					'default'     => true,
@@ -250,12 +251,12 @@ class Widgets_Config {
 					'category'    => 'creative',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/before-after-slider/',
-				),
-				'Business_Hours'      => array(
+				],
+				'Business_Hours'      => [
 					'slug'        => 'uael-business-hours',
 					'title'       => __( 'Business Hours', 'header-footer-elementor' ),
 					'description' => __( 'Customize and display your business hours stylishly.', 'header-footer-elementor' ),
-					'keywords'    => array( 'uael', 'business', 'hours', 'schedule' ),
+					'keywords'    => [ 'uael', 'business', 'hours', 'schedule' ],
 					'icon'        => 'hfe-icon-business-hour',
 					'title_url'   => '#',
 					'default'     => true,
@@ -264,10 +265,10 @@ class Widgets_Config {
 					'category'    => 'content',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/business-hours/',
-				),
-				'Business_Reviews'    => array(
+				],
+				'Business_Reviews'    => [
 					'slug'         => 'uael-business-reviews',
-					'keywords'     => array( 'uael', 'reviews', 'wp reviews', 'business', 'wp business', 'google', 'rating', 'social', 'yelp' ),
+					'keywords'     => [ 'uael', 'reviews', 'wp reviews', 'business', 'wp business', 'google', 'rating', 'social', 'yelp' ],
 					'title'        => __( 'Business Reviews', 'header-footer-elementor' ),
 					'description'  => __( 'Display verified reviews from Google and Yelp directly.', 'header-footer-elementor' ),
 					'icon'         => 'hfe-icon-business-review',
@@ -279,12 +280,12 @@ class Widgets_Config {
 					'category'     => 'seo',
 					'is_pro'       => true,
 					'demo_url'     => HFE_DOMAIN . 'widgets/business-reviews/',
-				),
-				'CfStyler'            => array(
+				],
+				'CfStyler'            => [
 					'slug'        => 'uael-cf7-styler',
 					'title'       => __( 'Contact Form 7 Styler', 'header-footer-elementor' ),
 					'description' => __( 'Style and enhance Contact Form 7 to fit your site.', 'header-footer-elementor' ),
-					'keywords'    => array( 'uael', 'form', 'cf7', 'contact', 'styler' ),
+					'keywords'    => [ 'uael', 'form', 'cf7', 'contact', 'styler' ],
 					'icon'        => 'hfe-icon-contact-form-7',
 					'title_url'   => '#',
 					'default'     => true,
@@ -292,12 +293,12 @@ class Widgets_Config {
 					'category'    => 'form',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/contact-form-7/',
-				),
-				'ContentToggle'       => array(
+				],
+				'ContentToggle'       => [
 					'slug'        => 'uael-content-toggle',
 					'title'       => __( 'Content Toggle', 'header-footer-elementor' ),
 					'description' => __( 'Let users easily switch between two types of content.', 'header-footer-elementor' ),
-					'keywords'    => array( 'uael', 'toggle', 'content', 'show', 'hide' ),
+					'keywords'    => [ 'uael', 'toggle', 'content', 'show', 'hide' ],
 					'icon'        => 'hfe-icon-content-toggle',
 					'title_url'   => '#',
 					'default'     => true,
@@ -305,12 +306,12 @@ class Widgets_Config {
 					'category'    => 'content',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/content-toggle/',
-				),
-				'Countdown'           => array(
+				],
+				'Countdown'           => [
 					'slug'        => 'uael-countdown',
 					'title'       => __( 'Countdown Timer', 'header-footer-elementor' ),
 					'description' => __( 'Create urgency with fixed or recurring countdowns.', 'header-footer-elementor' ),
-					'keywords'    => array( 'uael', 'count', 'timer', 'countdown' ),
+					'keywords'    => [ 'uael', 'count', 'timer', 'countdown' ],
 					'icon'        => 'hfe-icon-countdown-timer',
 					'title_url'   => '#',
 					'default'     => true,
@@ -319,12 +320,12 @@ class Widgets_Config {
 					'category'    => 'creative',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/countdown-timer/',
-				),
-				'Dual_Heading'        => array(
+				],
+				'Dual_Heading'        => [
 					'slug'        => 'uael-dual-color-heading',
 					'title'       => __( 'Dual Color Heading', 'header-footer-elementor' ),
 					'description' => __( 'Style headings with dual colours and customizable typography.', 'header-footer-elementor' ),
-					'keywords'    => array( 'uael', 'dual', 'heading', 'color' ),
+					'keywords'    => [ 'uael', 'dual', 'heading', 'color' ],
 					'icon'        => 'hfe-icon-dual-color-heading',
 					'title_url'   => '#',
 					'default'     => true,
@@ -333,12 +334,12 @@ class Widgets_Config {
 					'category'    => 'creative',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/dual-color-heading/',
-				),
-				'Fancy_Heading'       => array(
+				],
+				'Fancy_Heading'       => [
 					'slug'        => 'uael-fancy-heading',
 					'title'       => __( 'Fancy Heading', 'header-footer-elementor' ),
 					'description' => __( 'Add animated text for more engaging page titles.', 'header-footer-elementor' ),
-					'keywords'    => array( 'uael', 'fancy', 'heading', 'ticking', 'animate' ),
+					'keywords'    => [ 'uael', 'fancy', 'heading', 'ticking', 'animate' ],
 					'icon'        => 'hfe-icon-fancy-heading',
 					'title_url'   => '#',
 					'default'     => true,
@@ -347,12 +348,12 @@ class Widgets_Config {
 					'category'    => 'creative',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/fancy-heading/',
-				),
-				'FAQ'                 => array(
+				],
+				'FAQ'                 => [
 					'slug'        => 'uael-faq',
 					'title'       => __( 'FAQ Schema', 'header-footer-elementor' ),
 					'description' => __( 'Add SEO-friendly FAQ sections to pages.', 'header-footer-elementor' ),
-					'keywords'    => array( 'uael', 'faq', 'schema', 'question', 'answer', 'accordion', 'toggle' ),
+					'keywords'    => [ 'uael', 'faq', 'schema', 'question', 'answer', 'accordion', 'toggle' ],
 					'icon'        => 'hfe-icon-faq-schema',
 					'title_url'   => '#',
 					'default'     => true,
@@ -361,12 +362,12 @@ class Widgets_Config {
 					'category'    => 'seo',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/faq/',
-				),
-				'GoogleMap'           => array(
+				],
+				'GoogleMap'           => [
 					'slug'         => 'uael-google-map',
 					'title'        => __( 'Google Map', 'header-footer-elementor' ),
 					'description'  => __( 'Add customizable, multi-location maps with custom markers.', 'header-footer-elementor' ),
-					'keywords'     => array( 'uael', 'google', 'map', 'location', 'address' ),
+					'keywords'     => [ 'uael', 'google', 'map', 'location', 'address' ],
 					'icon'         => 'hfe-icon-google-map',
 					'title_url'    => '#',
 					'default'      => true,
@@ -376,12 +377,12 @@ class Widgets_Config {
 					'category'     => 'content',
 					'is_pro'       => true,
 					'demo_url'     => HFE_DOMAIN . 'widgets/google-maps/',
-				),
-				'GfStyler'            => array(
+				],
+				'GfStyler'            => [
 					'slug'        => 'uael-gf-styler',
 					'title'       => __( 'Gravity Form Styler', 'header-footer-elementor' ),
 					'description' => __( 'Customize Gravity Forms with advanced styling options.', 'header-footer-elementor' ),
-					'keywords'    => array( 'uael', 'form', 'gravity', 'gf', 'styler' ),
+					'keywords'    => [ 'uael', 'form', 'gravity', 'gf', 'styler' ],
 					'icon'        => 'hfe-icon-gravity-form-styler',
 					'title_url'   => '#',
 					'default'     => true,
@@ -389,12 +390,12 @@ class Widgets_Config {
 					'category'    => 'form',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/gravity-form-styler/',
-				),
-				'Hotspot'             => array(
+				],
+				'Hotspot'             => [
 					'slug'        => 'uael-hotspot',
 					'title'       => __( 'Hotspot', 'header-footer-elementor' ),
 					'description' => __( 'Add interactive points on images for detailed visual tours.', 'header-footer-elementor' ),
-					'keywords'    => array( 'uael', 'hotspot', 'tour' ),
+					'keywords'    => [ 'uael', 'hotspot', 'tour' ],
 					'icon'        => 'hfe-icon-hotspot',
 					'title_url'   => '#',
 					'default'     => true,
@@ -402,12 +403,12 @@ class Widgets_Config {
 					'category'    => 'creative',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/hotspots/',
-				),
-				'HowTo'               => array(
+				],
+				'HowTo'               => [
 					'slug'        => 'uael-how-to',
 					'title'       => __( 'How-to Schema', 'header-footer-elementor' ),
 					'description' => __( 'Create structured how-to pages with automatic schema markup.', 'header-footer-elementor' ),
-					'keywords'    => array( 'uael', 'how-to', 'howto', 'schema', 'steps', 'supply', 'tools', 'steps', 'cost' ),
+					'keywords'    => [ 'uael', 'how-to', 'howto', 'schema', 'steps', 'supply', 'tools', 'steps', 'cost' ],
 					'icon'        => 'hfe-icon-how-to-schema',
 					'title_url'   => '#',
 					'default'     => true,
@@ -415,12 +416,12 @@ class Widgets_Config {
 					'category'    => 'seo',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/how-to-schema/',
-				),
-				'Image_Gallery'       => array(
+				],
+				'Image_Gallery'       => [
 					'slug'        => 'uael-image-gallery',
 					'title'       => __( 'Image Gallery', 'header-footer-elementor' ),
 					'description' => __( 'Build attractive, feature-rich galleries with advanced options.', 'header-footer-elementor' ),
-					'keywords'    => array( 'uael', 'image', 'gallery', 'carousel', 'slider', 'layout' ),
+					'keywords'    => [ 'uael', 'image', 'gallery', 'carousel', 'slider', 'layout' ],
 					'icon'        => 'hfe-icon-image-gallery',
 					'title_url'   => '#',
 					'default'     => true,
@@ -428,12 +429,12 @@ class Widgets_Config {
 					'category'    => 'content',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/image-gallery/',
-				),
-				'Infobox'             => array(
+				],
+				'Infobox'             => [
 					'slug'        => 'uael-infobox',
 					'title'       => __( 'Info Box', 'header-footer-elementor' ),
 					'description' => __( 'Add headings, icons, and descriptions in one flexible widget.', 'header-footer-elementor' ),
-					'keywords'    => array( 'uael', 'info', 'box', 'bar' ),
+					'keywords'    => [ 'uael', 'info', 'box', 'bar' ],
 					'icon'        => 'hfe-icon-info-box',
 					'title_url'   => '#',
 					'default'     => true,
@@ -442,12 +443,12 @@ class Widgets_Config {
 					'category'    => 'content',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/info-box/',
-				),
-				'Instagram_Feed'      => array(
+				],
+				'Instagram_Feed'      => [
 					'slug'         => 'uael-instagram-feed',
 					'title'        => __( 'Instagram Feed', 'header-footer-elementor' ),
 					'description'  => __( 'Display an attractive, customizable Instagram feed.', 'header-footer-elementor' ),
-					'keywords'     => array( 'insta', 'instagram', 'feed', 'social' ),
+					'keywords'     => [ 'insta', 'instagram', 'feed', 'social' ],
 					'icon'         => 'hfe-icon-instagram-feed',
 					'title_url'    => '#',
 					'default'      => true,
@@ -457,12 +458,12 @@ class Widgets_Config {
 					'category'     => 'creative',
 					'is_pro'       => true,
 					'demo_url'     => HFE_DOMAIN . 'widgets/instagram-feed/',
-				),
-				'LoginForm'           => array(
+				],
+				'LoginForm'           => [
 					'slug'         => 'uael-login-form',
 					'title'        => __( 'Login Form', 'header-footer-elementor' ),
 					'description'  => __( 'Design beautiful, customizable WordPress login forms.', 'header-footer-elementor' ),
-					'keywords'     => array( 'uael', 'form', 'login', 'facebook', 'google', 'user', 'fblogin' ),
+					'keywords'     => [ 'uael', 'form', 'login', 'facebook', 'google', 'user', 'fblogin' ],
 					'icon'         => 'hfe-icon-login-form',
 					'title_url'    => '#',
 					'default'      => true,
@@ -473,12 +474,12 @@ class Widgets_Config {
 					'category'     => 'form',
 					'is_pro'       => true,
 					'demo_url'     => HFE_DOMAIN . 'widgets/login-form/',
-				),
-				'Marketing_Button'    => array(
+				],
+				'Marketing_Button'    => [
 					'slug'        => 'uael-marketing-button',
 					'title'       => __( 'Marketing Button', 'header-footer-elementor' ),
 					'description' => __( 'Create High-impact, customizable CTA for promotions and conversions.', 'header-footer-elementor' ),
-					'keywords'    => array( 'uael', 'button', 'marketing', 'call to action', 'cta' ),
+					'keywords'    => [ 'uael', 'button', 'marketing', 'call to action', 'cta' ],
 					'icon'        => 'hfe-icon-marketing-button',
 					'title_url'   => '#',
 					'default'     => true,
@@ -487,12 +488,12 @@ class Widgets_Config {
 					'category'    => 'creative',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/marketing-button/',
-				),
-				'Modal_Popup'         => array(
+				],
+				'Modal_Popup'         => [
 					'slug'        => 'uael-modal-popup',
 					'title'       => __( 'Modal Popup', 'header-footer-elementor' ),
 					'description' => __( 'Design engaging popups with interactive animations and content.', 'header-footer-elementor' ),
-					'keywords'    => array( 'uael', 'modal', 'popup', 'lighbox' ),
+					'keywords'    => [ 'uael', 'modal', 'popup', 'lighbox' ],
 					'icon'        => 'hfe-icon-modal-popup',
 					'title_url'   => '#',
 					'default'     => true,
@@ -500,12 +501,12 @@ class Widgets_Config {
 					'category'    => 'content',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/modal-popup/',
-				),
-				'Buttons'             => array(
+				],
+				'Buttons'             => [
 					'slug'        => 'uael-buttons',
 					'title'       => __( 'Multi Buttons', 'header-footer-elementor' ),
 					'description' => __( 'Create a versatile dual-button setup for navigation and interactive web elements.', 'header-footer-elementor' ),
-					'keywords'    => array( 'uael', 'buttons', 'multi', 'call to action', 'cta' ),
+					'keywords'    => [ 'uael', 'buttons', 'multi', 'call to action', 'cta' ],
 					'icon'        => 'hfe-icon-multi-button',
 					'title_url'   => '#',
 					'default'     => true,
@@ -514,12 +515,12 @@ class Widgets_Config {
 					'category'    => 'creative',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/multi-buttons/',
-				),
-				'Nav_Menu'            => array(
+				],
+				'Nav_Menu'            => [
 					'slug'        => 'uael-nav-menu',
 					'title'       => __( 'Navigation Menu', 'header-footer-elementor' ),
 					'description' => __( 'Build easy-to-navigate, visually appealing site menus.', 'header-footer-elementor' ),
-					'keywords'    => array( 'uael', 'menu', 'nav', 'navigation', 'mega' ),
+					'keywords'    => [ 'uael', 'menu', 'nav', 'navigation', 'mega' ],
 					'icon'        => 'hfe-icon-navigation-menu',
 					'title_url'   => '#',
 					'default'     => true,
@@ -527,12 +528,12 @@ class Widgets_Config {
 					'category'    => 'creative',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/navigation-menu/',
-				),
-				'Offcanvas'           => array(
+				],
+				'Offcanvas'           => [
 					'slug'        => 'uael-offcanvas',
 					'title'       => __( 'Off - Canvas', 'header-footer-elementor' ),
 					'description' => __( 'Create sliding panels for navigation or extra content.', 'header-footer-elementor' ),
-					'keywords'    => array( 'uael', 'off', 'offcanvas', 'off-canvas', 'canvas', 'template', 'floating' ),
+					'keywords'    => [ 'uael', 'off', 'offcanvas', 'off-canvas', 'canvas', 'template', 'floating' ],
 					'icon'        => 'hfe-icon-off-canvas',
 					'title_url'   => '#',
 					'default'     => true,
@@ -540,12 +541,12 @@ class Widgets_Config {
 					'category'    => 'creative',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/off-canvas/',
-				),
-				'Posts'               => array(
+				],
+				'Posts'               => [
 					'slug'         => 'uael-posts',
 					'title'        => __( 'Posts', 'header-footer-elementor' ),
 					'description'  => __( 'Display and customize blog posts beautifully on your site.', 'header-footer-elementor' ),
-					'keywords'     => array( 'uael', 'post', 'grid', 'masonry', 'carousel', 'content grid', 'content' ),
+					'keywords'     => [ 'uael', 'post', 'grid', 'masonry', 'carousel', 'content grid', 'content' ],
 					'icon'         => 'hfe-icon-posts',
 					'title_url'    => '#',
 					'default'      => true,
@@ -555,12 +556,12 @@ class Widgets_Config {
 					'category'     => 'content',
 					'is_pro'       => true,
 					'demo_url'     => HFE_DOMAIN . 'widgets/posts/',
-				),
-				'Price_Table'         => array(
+				],
+				'Price_Table'         => [
 					'slug'        => 'uael-price-table',
 					'title'       => __( 'Price Box', 'header-footer-elementor' ),
 					'description' => __( 'Showcase prices and features in customizable layouts.', 'header-footer-elementor' ),
-					'keywords'    => array( 'uael', 'price', 'table', 'box', 'pricing' ),
+					'keywords'    => [ 'uael', 'price', 'table', 'box', 'pricing' ],
 					'icon'        => 'hfe-icon-price-box',
 					'title_url'   => '#',
 					'default'     => true,
@@ -569,12 +570,12 @@ class Widgets_Config {
 					'category'    => 'creative',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/price-box/',
-				),
-				'Price_List'          => array(
+				],
+				'Price_List'          => [
 					'slug'        => 'uael-price-list',
 					'title'       => __( 'Price List', 'header-footer-elementor' ),
 					'description' => __( 'Create elegant, customizable lists for menus or product catalogues.', 'header-footer-elementor' ),
-					'keywords'    => array( 'uael', 'price', 'list', 'pricing' ),
+					'keywords'    => [ 'uael', 'price', 'list', 'pricing' ],
 					'icon'        => 'hfe-icon-price-list',
 					'title_url'   => '#',
 					'default'     => true,
@@ -583,12 +584,12 @@ class Widgets_Config {
 					'category'    => 'content',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/price-list/',
-				),
-				'Retina_Image'        => array(
+				],
+				'Retina_Image'        => [
 					'slug'        => 'uael-retina-image',
 					'title'       => __( 'Retina Image', 'header-footer-elementor' ),
 					'description' => __( 'Ensure images look crisp on high-resolution screens.', 'header-footer-elementor' ),
-					'keywords'    => array( 'uael', 'retina', 'image', '2ximage' ),
+					'keywords'    => [ 'uael', 'retina', 'image', '2ximage' ],
 					'icon'        => 'hfe-icon-retina-image',
 					'title_url'   => '#',
 					'default'     => true,
@@ -596,12 +597,12 @@ class Widgets_Config {
 					'category'    => 'creative',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/retina-image/',
-				),
-				'SocialShare'         => array(
+				],
+				'SocialShare'         => [
 					'slug'         => 'uael-social-share',
 					'title'        => __( 'Social Share', 'header-footer-elementor' ),
 					'description'  => __( 'Enable quick content sharing with social media buttons.', 'header-footer-elementor' ),
-					'keywords'     => array( 'uael', 'sharing', 'social', 'icon', 'button', 'like' ),
+					'keywords'     => [ 'uael', 'sharing', 'social', 'icon', 'button', 'like' ],
 					'icon'         => 'hfe-icon-social-share',
 					'title_url'    => '#',
 					'default'      => true,
@@ -612,12 +613,12 @@ class Widgets_Config {
 					'category'     => 'creative',
 					'is_pro'       => true,
 					'demo_url'     => HFE_DOMAIN . 'widgets/social-share/',
-				),
-				'Table'               => array(
+				],
+				'Table'               => [
 					'slug'        => 'uael-table',
 					'title'       => __( 'Table', 'header-footer-elementor' ),
 					'description' => __( 'Build responsive, styled tables to display data.', 'header-footer-elementor' ),
-					'keywords'    => array( 'uael', 'table', 'sort', 'search' ),
+					'keywords'    => [ 'uael', 'table', 'sort', 'search' ],
 					'icon'        => 'hfe-icon-table',
 					'title_url'   => '#',
 					'default'     => true,
@@ -625,12 +626,12 @@ class Widgets_Config {
 					'category'    => 'content',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/table/',
-				),
-				'Table_of_Contents'   => array(
+				],
+				'Table_of_Contents'   => [
 					'slug'        => 'uael-table-of-contents',
 					'title'       => __( 'Table of Contents', 'header-footer-elementor' ),
 					'description' => __( 'Improve page readability with automatic, customizable TOCs.', 'header-footer-elementor' ),
-					'keywords'    => array( 'uael', 'table of contents', 'content', 'list', 'toc', 'index' ),
+					'keywords'    => [ 'uael', 'table of contents', 'content', 'list', 'toc', 'index' ],
 					'icon'        => 'hfe-icon-table-of-content',
 					'title_url'   => '#',
 					'default'     => true,
@@ -638,12 +639,12 @@ class Widgets_Config {
 					'category'    => 'seo',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/table-of-contents/',
-				),
-				'Team_Member'         => array(
+				],
+				'Team_Member'         => [
 					'slug'        => 'uael-team-member',
 					'title'       => __( 'Team Member', 'header-footer-elementor' ),
 					'description' => __( 'Highlight team members with customizable layouts.', 'header-footer-elementor' ),
-					'keywords'    => array( 'uael', 'team', 'member' ),
+					'keywords'    => [ 'uael', 'team', 'member' ],
 					'icon'        => 'hfe-icon-team-member',
 					'title_url'   => '#',
 					'default'     => true,
@@ -652,12 +653,12 @@ class Widgets_Config {
 					'category'    => 'creative',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/team-member/',
-				),
-				'Timeline'            => array(
+				],
+				'Timeline'            => [
 					'slug'        => 'uael-timeline',
 					'title'       => __( 'Timeline', 'header-footer-elementor' ),
 					'description' => __( 'Display timelines or roadmaps with advanced styling options.', 'header-footer-elementor' ),
-					'keywords'    => array( 'uael', 'timeline', 'history', 'scroll', 'post', 'content timeline' ),
+					'keywords'    => [ 'uael', 'timeline', 'history', 'scroll', 'post', 'content timeline' ],
 					'icon'        => 'hfe-icon-timeline',
 					'title_url'   => '#',
 					'default'     => true,
@@ -666,12 +667,12 @@ class Widgets_Config {
 					'category'    => 'creative',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/timeline/',
-				),
-				'Twitter'             => array(
+				],
+				'Twitter'             => [
 					'slug'         => 'uael-twitter',
 					'title'        => __( 'Twitter Feed', 'header-footer-elementor' ),
 					'description'  => __( 'Embed Twitter feeds to show real-time content updates.', 'header-footer-elementor' ),
-					'keywords'     => array( 'uael', 'twitter' ),
+					'keywords'     => [ 'uael', 'twitter' ],
 					'icon'         => 'hfe-icon-twitter-feed-icon',
 					'title_url'    => '#',
 					'setting_url'  => $integration_url,
@@ -681,12 +682,12 @@ class Widgets_Config {
 					'category'     => 'creative',
 					'is_pro'       => true,
 					'demo_url'     => HFE_DOMAIN . 'widgets/twitter-feed/',
-				),
-				'RegistrationForm'    => array(
+				],
+				'RegistrationForm'    => [
 					'slug'         => 'uael-registration-form',
 					'title'        => __( 'User Registration Form', 'header-footer-elementor' ),
 					'description'  => __( 'Create beautiful, custom registration forms for users.', 'header-footer-elementor' ),
-					'keywords'     => array( 'uael', 'form', 'register', 'registration', 'user' ),
+					'keywords'     => [ 'uael', 'form', 'register', 'registration', 'user' ],
 					'icon'         => 'hfe-icon-registration-form',
 					'title_url'    => '#',
 					'default'      => true,
@@ -697,12 +698,12 @@ class Widgets_Config {
 					'category'     => 'form',
 					'is_pro'       => true,
 					'demo_url'     => HFE_DOMAIN . 'widgets/user-registration-form/',
-				),
-				'Video'               => array(
+				],
+				'Video'               => [
 					'slug'        => 'uael-video',
 					'title'       => __( 'Video', 'header-footer-elementor' ),
 					'description' => __( 'Embed optimized videos with customizable thumbnails and play buttons.', 'header-footer-elementor' ),
-					'keywords'    => array( 'uael', 'video', 'youtube', 'vimeo', 'wistia', 'sticky', 'drag', 'float', 'subscribe' ),
+					'keywords'    => [ 'uael', 'video', 'youtube', 'vimeo', 'wistia', 'sticky', 'drag', 'float', 'subscribe' ],
 					'icon'        => 'hfe-icon-video',
 					'title_url'   => '#',
 					'default'     => true,
@@ -710,12 +711,12 @@ class Widgets_Config {
 					'category'    => 'content',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/video/',
-				),
-				'Video_Gallery'       => array(
+				],
+				'Video_Gallery'       => [
 					'slug'        => 'uael-video-gallery',
 					'title'       => __( 'Video Gallery', 'header-footer-elementor' ),
 					'description' => __( 'Showcase multiple videos without impacting load times.', 'header-footer-elementor' ),
-					'keywords'    => array( 'uael', 'video', 'youtube', 'wistia', 'gallery', 'vimeo' ),
+					'keywords'    => [ 'uael', 'video', 'youtube', 'wistia', 'gallery', 'vimeo' ],
 					'icon'        => 'hfe-icon-video-gallery',
 					'title_url'   => '#',
 					'default'     => true,
@@ -723,12 +724,12 @@ class Widgets_Config {
 					'category'    => 'content',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/video-gallery/',
-				),
-				'Welcome_Music'       => array(
+				],
+				'Welcome_Music'       => [
 					'slug'        => 'uael-welcome-music',
 					'title'       => __( 'Welcome Music', 'header-footer-elementor' ),
 					'description' => __( 'Play background audio to engage visitors upon page load.', 'header-footer-elementor' ),
-					'keywords'    => array( 'uael', 'christmas', 'music', 'background', 'audio', 'welcome' ),
+					'keywords'    => [ 'uael', 'christmas', 'music', 'background', 'audio', 'welcome' ],
 					'icon'        => 'hfe-icon-welcome-music',
 					'title_url'   => '#',
 					'default'     => false,
@@ -736,12 +737,12 @@ class Widgets_Config {
 					'category'    => 'creative',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/welcome-music/',
-				),
-				'Woo_Add_To_Cart'     => array(
+				],
+				'Woo_Add_To_Cart'     => [
 					'slug'        => 'uael-woo-add-to-cart',
 					'title'       => __( 'Woo - Add To Cart', 'header-footer-elementor' ),
 					'description' => __( 'Let users add items to cart with one click.', 'header-footer-elementor' ),
-					'keywords'    => array( 'uael', 'woo', 'cart', 'add to cart', 'products' ),
+					'keywords'    => [ 'uael', 'woo', 'cart', 'add to cart', 'products' ],
 					'icon'        => 'hfe-icon-woo-add-to-cart',
 					'title_url'   => '#',
 					'default'     => true,
@@ -749,12 +750,12 @@ class Widgets_Config {
 					'category'    => 'woo',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/woo-add-to-cart/',
-				),
-				'Woo_Categories'      => array(
+				],
+				'Woo_Categories'      => [
 					'slug'        => 'uael-woo-categories',
 					'title'       => __( 'Woo - Categories', 'header-footer-elementor' ),
 					'description' => __( 'Display product categories beautifully.', 'header-footer-elementor' ),
-					'keywords'    => array( 'uael', 'woo', 'categories', 'taxomonies', 'products' ),
+					'keywords'    => [ 'uael', 'woo', 'categories', 'taxomonies', 'products' ],
 					'icon'        => 'hfe-icon-woo-category',
 					'title_url'   => '#',
 					'default'     => true,
@@ -762,12 +763,12 @@ class Widgets_Config {
 					'category'    => 'woo',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/woo-categories/',
-				),
-				'Woo_Checkout'        => array(
+				],
+				'Woo_Checkout'        => [
 					'slug'        => 'uael-woo-checkout',
 					'title'       => __( 'Woo - Checkout', 'header-footer-elementor' ),
 					'description' => __( 'Design optimized checkout pages for better conversions.', 'header-footer-elementor' ),
-					'keywords'    => array( 'uael', 'woo', 'checkout', 'page', 'check' ),
+					'keywords'    => [ 'uael', 'woo', 'checkout', 'page', 'check' ],
 					'icon'        => 'hfe-icon-woo-checkout-1',
 					'title_url'   => '#',
 					'default'     => true,
@@ -775,12 +776,12 @@ class Widgets_Config {
 					'category'    => 'woo',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/woo-checkout/',
-				),
-				'Woo_Mini_Cart'       => array(
+				],
+				'Woo_Mini_Cart'       => [
 					'slug'        => 'uael-mini-cart',
 					'title'       => __( 'Woo - Mini Cart', 'header-footer-elementor' ),
 					'description' => __( 'Show a mini-cart for seamless shopping experiences.', 'header-footer-elementor' ),
-					'keywords'    => array( 'woo', 'woocommerce', 'cart', 'mini', 'minicart' ),
+					'keywords'    => [ 'woo', 'woocommerce', 'cart', 'mini', 'minicart' ],
 					'icon'        => 'hfe-icon-woo-mini-cart',
 					'title_url'   => '#',
 					'default'     => true,
@@ -788,12 +789,12 @@ class Widgets_Config {
 					'category'    => 'woo',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/woo-mini-cart/',
-				),
-				'Woo_Products'        => array(
+				],
+				'Woo_Products'        => [
 					'slug'        => 'uael-woo-products',
 					'title'       => __( 'Woo - Products', 'header-footer-elementor' ),
 					'description' => __( 'Present products with detailed, customizable layouts.', 'header-footer-elementor' ),
-					'keywords'    => array( 'uael', 'woo', 'products' ),
+					'keywords'    => [ 'uael', 'woo', 'products' ],
 					'icon'        => 'hfe-icon-woo-product',
 					'title_url'   => '#',
 					'default'     => true,
@@ -801,12 +802,12 @@ class Widgets_Config {
 					'category'    => 'woo',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/woo-products/',
-				),
-				'FfStyler'            => array(
+				],
+				'FfStyler'            => [
 					'slug'        => 'uael-ff-styler',
 					'title'       => __( 'WP Fluent Forms Styler', 'header-footer-elementor' ),
 					'description' => __( 'Style WP Fluent Forms for an attractive, cohesive look.', 'header-footer-elementor' ),
-					'keywords'    => array( 'uael', 'fluent', 'forms', 'wp' ),
+					'keywords'    => [ 'uael', 'fluent', 'forms', 'wp' ],
 					'icon'        => 'hfe-icon-fluent-form-styler',
 					'title_url'   => '#',
 					'default'     => true,
@@ -814,12 +815,12 @@ class Widgets_Config {
 					'category'    => 'form',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/wp-fluent-forms-styler/',
-				),
-				'WpfStyler'           => array(
+				],
+				'WpfStyler'           => [
 					'slug'        => 'uael-wpf-styler',
 					'title'       => __( 'WPForms Styler', 'header-footer-elementor' ),
 					'description' => __( 'Upgrade WPForms with customizable design and layout options.', 'header-footer-elementor' ),
-					'keywords'    => array( 'uael', 'form', 'wp', 'wpform', 'styler' ),
+					'keywords'    => [ 'uael', 'form', 'wp', 'wpform', 'styler' ],
 					'icon'        => 'hfe-icon-wp-form-styler',
 					'title_url'   => '#',
 					'default'     => true,
@@ -827,12 +828,12 @@ class Widgets_Config {
 					'category'    => 'form',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/wpforms-styler/',
-				),
-				'DisplayConditions'   => array(
+				],
+				'DisplayConditions'   => [
 					'slug'         => 'uael-display-conditions',
 					'title'        => __( 'Display Conditions', 'header-footer-elementor' ),
 					'description'  => __( 'Show or hide content based on user interactions.', 'header-footer-elementor' ),
-					'keywords'     => array(),
+					'keywords'     => [],
 					'icon'         => 'hfe-icon-display-conditions',
 					'title_url'    => '#',
 					'default'      => true,
@@ -842,12 +843,12 @@ class Widgets_Config {
 					'category'     => 'extension',
 					'is_pro'       => true,
 					'demo_url'     => HFE_DOMAIN . 'widgets/display-conditions/',
-				),
-				'Particles'           => array(
+				],
+				'Particles'           => [
 					'slug'        => 'uael-particles',
 					'title'       => __( 'Particle Backgrounds', 'header-footer-elementor' ),
 					'description' => __( 'Add dynamic, animated backgrounds to sections and columns.', 'header-footer-elementor' ),
-					'keywords'    => array(),
+					'keywords'    => [],
 					'icon'        => 'hfe-icon-particles',
 					'title_url'   => '#',
 					'default'     => true,
@@ -855,12 +856,12 @@ class Widgets_Config {
 					'category'    => 'extension',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/particle-backgrounds/',
-				),
-				'PartyPropzExtension' => array(
+				],
+				'PartyPropzExtension' => [
 					'slug'        => 'uael-party-propz-extension',
 					'title'       => __( 'Party Propz', 'header-footer-elementor' ),
 					'description' => __( 'Decorate your site with festive seasonal elements easily.', 'header-footer-elementor' ),
-					'keywords'    => array(),
+					'keywords'    => [],
 					'icon'        => 'hfe-icon-party-propz',
 					'title_url'   => '#',
 					'default'     => false,
@@ -868,12 +869,12 @@ class Widgets_Config {
 					'category'    => 'extension',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/party-propz/',
-				),
-				'SectionDivider'      => array(
+				],
+				'SectionDivider'      => [
 					'slug'        => 'uael-section-divider',
 					'title'       => __( 'Shape Divider', 'header-footer-elementor' ),
 					'description' => __( 'Add new attractive shape dividers to Elementor sections.', 'header-footer-elementor' ),
-					'keywords'    => array(),
+					'keywords'    => [],
 					'icon'        => 'hfe-icon-shape-divider',
 					'title_url'   => '#',
 					'default'     => false,
@@ -881,12 +882,12 @@ class Widgets_Config {
 					'category'    => 'extension',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/uae-shape-dividers/',
-				),
-				'Cross_Domain'        => array(
+				],
+				'Cross_Domain'        => [
 					'slug'        => 'uael-cross-domain-copy-paste',
 					'title'       => __( 'Cross-Site Copy Paste', 'header-footer-elementor' ),
 					'description' => __( 'Copy and paste Elementor content between websites.', 'header-footer-elementor' ),
-					'keywords'    => array(),
+					'keywords'    => [],
 					'icon'        => 'hfe-icon-cdcp',
 					'title_url'   => '#',
 					'default'     => true,
@@ -894,12 +895,12 @@ class Widgets_Config {
 					'category'    => 'feature',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/cross-site-copy-paste/',
-				),
-				'Presets'             => array(
+				],
+				'Presets'             => [
 					'slug'        => 'uael-presets',
 					'title'       => __( 'Presets', 'header-footer-elementor' ),
 					'description' => __( 'Use pre-made widget templates to accelerate your design process.', 'header-footer-elementor' ),
-					'keywords'    => array(),
+					'keywords'    => [],
 					'icon'        => 'hfe-icon-presets',
 					'title_url'   => '#',
 					'default'     => true,
@@ -907,26 +908,26 @@ class Widgets_Config {
 					'category'    => 'feature',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/presets/',
-				),
-			);
+				],
+			];
 
 			if ( class_exists( 'Caldera_Forms' ) || class_exists( 'Caldera_Forms_Forms' ) ) {
 				$forms = \Caldera_Forms_Forms::get_forms( true );
 				if ( ! empty( $forms ) ) {
-					$caldera = array(
-						'CafStyler' => array(
+					$caldera = [
+						'CafStyler' => [
 							'slug'        => 'uael-caf-styler',
 							'title'       => __( 'Caldera Form Styler', 'header-footer-elementor' ),
 							'description' => __( 'Style and enhance Caldera Forms to fit your site.', 'header-footer-elementor' ),
-							'keywords'    => array( 'uael', 'caldera', 'form', 'styler' ),
+							'keywords'    => [ 'uael', 'caldera', 'form', 'styler' ],
 							'icon'        => 'hfe-icon-wp-form-styler',
 							'title_url'   => '#',
 							'default'     => true,
 							'doc_url'     => HFE_DOMAIN . 'docs-category/widgets/caldera-form-styler/?utm_source=uael-pro-dashboard&utm_medium=uael-menu-page&utm_campaign=uael-pro-plugin',
 							'category'    => 'form',
 							'is_pro'      => true,
-						),
-					);
+						],
+					];
 	
 					self::$pro_widget_list = array_merge_recursive( self::$pro_widget_list, $caldera );
 				}
@@ -937,15 +938,15 @@ class Widgets_Config {
 	}
 
 	/**
-     * Get All Widgets.
-     *
-     * @since 0.0.1
-     *
-     * @return array The combined Widget List.
-     */
-    public static function get_all_widgets() {
-        return self::get_widget_list() + self::get_pro_widget_list(); // Use + operator to merge associative arrays
-   }
+	 * Get All Widgets.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @return array The combined Widget List.
+	 */
+	public static function get_all_widgets() {
+		return self::get_widget_list() + self::get_pro_widget_list(); // Use + operator to merge associative arrays.
+	}
 
    
 	/**
@@ -981,9 +982,9 @@ class Widgets_Config {
 
 		$images_url = HFE_URL . 'assets/images/settings/';
 
-		$plugins = array(
+		$plugins = [
 
-			'astra'                                        => array(
+			'astra'                                        => [
 				'icon'         => ! empty( $white_labels['theme_icon'] ) ? $white_labels['theme_icon'] : $images_url . 'astra.svg',
 				'type'         => 'theme',
 				'name'         => $white_labels['theme_name'],
@@ -995,9 +996,9 @@ class Widgets_Config {
 				'isFree'       => true,
 				'status'       => self::get_theme_status( 'astra' ),
 				'settings_url' => admin_url( 'admin.php?page=astra' ),
-			),
+			],
 
-			'astra-sites/astra-sites.php'                  => array(
+			'astra-sites/astra-sites.php'                  => [
 				'icon'         => $images_url . 'stemplates.svg',
 				'type'         => 'plugin',
 				'name'         => esc_html__( 'Starter Templates', 'header-footer-elementor' ),
@@ -1009,9 +1010,9 @@ class Widgets_Config {
 				'isFree'       => true,
 				'status'       => self::get_plugin_status( 'astra-sites/astra-sites.php' ),
 				'settings_url' => admin_url( 'admin.php?page=starter-templates' ),
-			),
+			],
 
-			'surecart/surecart.php'                        => array(
+			'surecart/surecart.php'                        => [
 				'icon'         => $images_url . 'surecart.svg',
 				'type'         => 'plugin',
 				'name'         => esc_html__( 'SureCart', 'header-footer-elementor' ),
@@ -1023,9 +1024,9 @@ class Widgets_Config {
 				'slug'         => 'surecart',
 				'status'       => self::get_plugin_status( 'surecart/surecart.php' ),
 				'settings_url' => admin_url( 'admin.php?page=sc-getting-started' ),
-			),
+			],
 
-			'presto-player/presto-player.php'              => array(
+			'presto-player/presto-player.php'              => [
 				'icon'         => $images_url . 'pplayer.svg',
 				'type'         => 'plugin',
 				'name'         => esc_html__( 'Presto Player', 'header-footer-elementor' ),
@@ -1037,9 +1038,9 @@ class Widgets_Config {
 				'isFree'       => true,
 				'status'       => self::get_plugin_status( 'presto-player/presto-player.php' ),
 				'settings_url' => admin_url( 'edit.php?post_type=pp_video_block' ),
-			),
+			],
 
-			'sureforms/sureforms.php'                      => array(
+			'sureforms/sureforms.php'                      => [
 				'icon'         => $images_url . 'sureforms.svg',
 				'type'         => 'plugin',
 				'name'         => esc_html__( 'SureForms', 'header-footer-elementor' ),
@@ -1051,9 +1052,9 @@ class Widgets_Config {
 				'isFree'       => true,
 				'status'       => self::get_plugin_status( 'sureforms/sureforms.php' ),
 				'settings_url' => admin_url( 'admin.php?page=sureforms_menu' ),
-			),
+			],
 
-			'suretriggers/suretriggers.php'                => array(
+			'suretriggers/suretriggers.php'                => [
 				'icon'         => $images_url . 'suretriggers.svg',
 				'type'         => 'plugin',
 				'name'         => esc_html__( 'SureTriggers', 'header-footer-elementor' ),
@@ -1065,9 +1066,9 @@ class Widgets_Config {
 				'isFree'       => true,
 				'status'       => self::get_plugin_status( 'suretriggers/suretriggers.php' ),
 				'settings_url' => admin_url( 'admin.php?page=suretriggers' ),
-			),
+			],
 
-			'all-in-one-schemaorg-rich-snippets/index.php' => array(
+			'all-in-one-schemaorg-rich-snippets/index.php' => [
 				'icon'         => $images_url . 'aiosrs.svg',
 				'type'         => 'plugin',
 				'name'         => html_entity_decode( esc_html__( 'Schema – All In One Schema Rich Snippets', 'header-footer-elementor' ) ),
@@ -1079,9 +1080,9 @@ class Widgets_Config {
 				'isFree'       => true,
 				'status'       => self::get_plugin_status( 'all-in-one-schemaorg-rich-snippets/index.php' ),
 				'settings_url' => admin_url( 'admin.php?page=rich_snippet_dashboard' ),
-			),
+			],
 
-		);
+		];
 
 		foreach ( $plugins as $key => $plugin ) {
 			// Check if it's a plugin and is active.
@@ -1127,32 +1128,32 @@ class Widgets_Config {
 			return 'Installed';
 		}
 	}
-
 	/**
-	 * Get theme status
+	 * Get the status of a theme.
+	 *
+	 * @param string $theme_slug The slug of the theme.
+	 * @return string The theme status: 'Activated', 'Installed', or 'Install'.
 	 *
 	 * @since 0.0.1
-	 *
-	 * @param  string $plugin_init_file Plugin init file.
-	 * @return string
 	 */
 	public static function get_theme_status( $theme_slug ) {
-        $installed_themes = wp_get_themes();
-        
-        // Check if the theme is installed
-        if ( isset( $installed_themes[ $theme_slug ] ) ) {
-            $current_theme = wp_get_theme();
-            
-            // Check if the current theme slug matches the provided theme slug.
-            if ( $current_theme->get_stylesheet() === $theme_slug ) {
-                return 'Activated'; // Theme is active
-            } else {
-                return 'Installed'; // Theme is installed but not active.
-            }
-        } else {
-            return 'Install'; // Theme is not installed at all.
-        }
-    }
+		$installed_themes = wp_get_themes();
+	
+		// Check if the theme is installed.
+		if ( isset( $installed_themes[ $theme_slug ] ) ) {
+			$current_theme = wp_get_theme();
+		
+			// Check if the current theme slug matches the provided theme slug.
+			if ( $current_theme->get_stylesheet() === $theme_slug ) {
+				return 'Activated'; // Theme is active.
+			} else {
+				return 'Installed'; // Theme is installed but not active.
+			}
+		} else {
+			return 'Install'; // Theme is not installed at all.
+		}
+	}
+
 
 
 }

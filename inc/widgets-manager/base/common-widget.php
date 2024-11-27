@@ -28,7 +28,7 @@ abstract class Common_Widget extends Widget_Base {
 	 * @since 0.0.1
 	 */
 	public function get_categories() {
-		return array( 'hfe-widgets' );
+		return [ 'hfe-widgets' ];
 	}
 
 	/**

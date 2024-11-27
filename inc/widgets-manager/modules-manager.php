@@ -11,6 +11,7 @@ use HFE\WidgetsManager\Base\Module_Base;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
+	return $this->_modules;
 }
 
 /**
@@ -25,7 +26,7 @@ class Modules_Manager {
 	 *
 	 * @var modules.
 	 */
-	private $_modules = array(); // phpcs:ignore PSR2.Classes.PropertyDeclaration.Underscore
+	private $_modules = []; // phpcs:ignore PSR2.Classes.PropertyDeclaration.Underscore
 
 	/**
 	 * Constructor.
@@ -64,14 +65,13 @@ class Modules_Manager {
 
 			$class_name = __NAMESPACE__ . '\\Widgets\\' . $class_name . '\Module';
 
-			if ( class_exists($class_name) && $class_name::is_enable() ) {
+			if ( class_exists( $class_name ) && $class_name::is_enable() ) {
 				$this->_modules[ $module_name ] = $class_name::instance();
 
-				if( 'copyright' === $module_name ) {
+				if ( 'copyright' === $module_name ) {
 					require HFE_DIR . '/inc/widgets-manager/widgets/copyright/copyright-shortcode.php';
 					$copyright_shortcode = new \HFE\WidgetsManager\Widgets\Copyright\Copyright_Shortcode();
-				}
-
+				}           
 			}
 		}
 	}

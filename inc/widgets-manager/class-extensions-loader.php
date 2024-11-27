@@ -63,8 +63,8 @@ class Extensions_Loader {
 	 */
 	public static function get_extensions_list() {
 		$extensions_list = [
-            'Scroll_To_Top' => 'scroll-to-top',
-        ];
+			'Scroll_To_Top' => 'scroll-to-top',
+		];
 
 		return $extensions_list;
 	}

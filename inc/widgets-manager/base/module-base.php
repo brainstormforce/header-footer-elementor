@@ -32,7 +32,7 @@ abstract class Module_Base {
 	 *
 	 * @var instances
 	 */
-	protected static $instances = array();
+	protected static $instances = [];
 
 	/**
 	 * Get Name
@@ -84,7 +84,7 @@ abstract class Module_Base {
 	public function __construct() {
 		$this->reflection = new \ReflectionClass( $this );
 
-		add_action( 'elementor/widgets/register', array( $this, 'init_widgets' ) );
+		add_action( 'elementor/widgets/register', [ $this, 'init_widgets' ] );
 	}
 
 	/**
@@ -98,7 +98,7 @@ abstract class Module_Base {
 
 		foreach ( $this->get_widgets() as $widget ) {
 			if ( HFE_Helper::is_widget_active( $widget ) ) {
-				$class_name = $this->reflection->getNamespaceName() . '\\' . ucfirst($widget);
+				$class_name = $this->reflection->getNamespaceName() . '\\' . ucfirst( $widget );
 
 				if ( $this->is_widget() ) {
 					$widget_manager->register( new $class_name() );
@@ -115,6 +115,6 @@ abstract class Module_Base {
 	 * @return array
 	 */
 	public function get_widgets() {
-		return array();
+		return [];
 	}
 }

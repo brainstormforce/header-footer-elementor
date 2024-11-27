@@ -384,15 +384,15 @@ class HFE_Helper {
 
 		$rollback_versions = self::get_rollback_versions();
 
-		$rollback_versions_options = array();
+		$rollback_versions_options = [];
 
 		foreach ( $rollback_versions as $version ) {
 
-			$version = array(
+			$version = [
 				'label' => $version,
 				'value' => $version,
 
-			);
+			];
 
 			$rollback_versions_options[] = $version;
 		}
@@ -419,18 +419,18 @@ class HFE_Helper {
 
 			$plugin_information = plugins_api(
 				'plugin_information',
-				array(
+				[
 					'slug' => 'header-footer-elementor',
-				)
+				]
 			);
 
 			if ( empty( $plugin_information->versions ) || ! is_array( $plugin_information->versions ) ) {
-				return array();
+				return [];
 			}
 
 			krsort( $plugin_information->versions );
 
-			$rollback_versions = array();
+			$rollback_versions = [];
 
 			foreach ( $plugin_information->versions as $version => $download_link ) {
 
@@ -449,17 +449,20 @@ class HFE_Helper {
 				$rollback_versions[] = $version;
 			}
 
-			usort( $rollback_versions, function( $prev, $next ) {
-				if ( version_compare( $prev, $next, '==' ) ) {
-					return 0;
-				}
+			usort(
+				$rollback_versions,
+				function( $prev, $next ) {
+					if ( version_compare( $prev, $next, '==' ) ) {
+						return 0;
+					}
 		
-				if ( version_compare( $prev, $next, '>' ) ) {
-					return -1;
-				}
+					if ( version_compare( $prev, $next, '>' ) ) {
+						return -1;
+					}
 		
-				return 1;
-			} );
+					return 1;
+				} 
+			);
 
 			$rollback_versions = array_slice( $rollback_versions, 0, $max_versions, true );
 

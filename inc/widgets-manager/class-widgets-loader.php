@@ -67,7 +67,7 @@ class Widgets_Loader {
 	 */
 	private function __construct() {
 
-		spl_autoload_register( array( $this, 'autoload' ) );
+		spl_autoload_register( [ $this, 'autoload' ] );
 
 		$this->includes();
 
@@ -86,13 +86,13 @@ class Widgets_Loader {
 			return;
 		}
 
-		$class_to_load = str_replace(__NAMESPACE__ . '\\', '', $class);
+		$class_to_load = str_replace( __NAMESPACE__ . '\\', '', $class );
 
 		if ( ! class_exists( $class_to_load ) ) {
 			$filename = strtolower(
 				preg_replace(
-					array( '/([a-z])([A-Z])/', '/_/', '/\\\/' ),
-					array( '$1-$2', '-', DIRECTORY_SEPARATOR ),
+					[ '/([a-z])([A-Z])/', '/_/', '/\\\/' ],
+					[ '$1-$2', '-', DIRECTORY_SEPARATOR ],
 					$class_to_load
 				)
 			);
@@ -154,7 +154,7 @@ class Widgets_Loader {
 
 		$this->init_category();
 
-		do_action( 'header_footer_elementor/init' );
+		do_action( 'header_footer_elementor/init' );    //phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
 	}
 
 	/**
@@ -165,15 +165,15 @@ class Widgets_Loader {
 	 * @access private
 	 */
 	private function init_category() {
-		$category = defined('UAEL_PLUGIN_SHORT_NAME') ? UAEL_PLUGIN_SHORT_NAME . ' Lite' : __( 'UAE Lite', 'header-footer-elementor' );
+		$category = defined( 'UAEL_PLUGIN_SHORT_NAME' ) ? UAEL_PLUGIN_SHORT_NAME . ' Lite' : __( 'UAE Lite', 'header-footer-elementor' );
 
 		if ( version_compare( ELEMENTOR_VERSION, '2.0.0' ) < 0 ) {
 
 			\Elementor\Plugin::instance()->elements_manager->add_category(
 				'hfe-widgets',
-				array(
+				[
 					'title' => $category,
-				),
+				],
 				1
 			);
 		}
@@ -187,7 +187,7 @@ class Widgets_Loader {
 	 * @return object $this_cat class.
 	 */
 	public function register_widget_category( $this_cat ) {
-		$category = defined('UAEL_PLUGIN_SHORT_NAME') ? UAEL_PLUGIN_SHORT_NAME . ' Lite' : __( 'UAE Lite', 'header-footer-elementor' );
+		$category = defined( 'UAEL_PLUGIN_SHORT_NAME' ) ? UAEL_PLUGIN_SHORT_NAME . ' Lite' : __( 'UAE Lite', 'header-footer-elementor' );
 
 		$this_cat->add_category(
 			'hfe-widgets',
@@ -217,49 +217,6 @@ class Widgets_Loader {
 
 		return $js_files;
 	}
-
-	/**
-	 * Returns Script array.
-	 *
-	 * @return array()
-	 * @since 1.3.0
-	 */
-	// public static function get_widget_list() {
-	// 	$widget_list = [
-	// 		'retina',
-	// 		'copyright',
-	// 		'copyright-shortcode',
-	// 		'navigation-menu',
-	// 		'menu-walker',
-	// 		'site-title',
-	// 		'page-title',
-	// 		'site-tagline',
-	// 		'site-logo',
-	// 		'cart',
-	// 		'search-button',
-	// 	];
-
-	// 	return $widget_list;
-	// }
-
-	/**
-	 * Include Widgets files
-	 *
-	 * Load widgets files
-	 *
-	 * @since 1.2.0
-	 * @access public
-	 * @return void
-	 */
-	// public function include_widgets_files() {
-	// 	$widget_list = $this->get_widget_list();
-
-	// 	if ( ! empty( $widget_list ) ) {
-	// 		foreach ( $widget_list as $handle => $data ) {
-	// 			require_once HFE_DIR . '/inc/widgets-manager/widgets/class-' . $data . '.php';
-	// 		}
-	// 	}
-	// }
 
 	/**
 	 * Include Widgets JS files
