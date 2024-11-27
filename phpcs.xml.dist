@@ -3,7 +3,7 @@
 	<description>Generally-applicable sniffs for WordPress plugins</description>
 
 	<rule ref="PHPCompatibility"/>
-	<config name="testVersion" value="5.4-"/>
+	<config name="testVersion" value="7.4-"/>
 
 	<rule ref="WordPress-Core" >
 		<exclude name="WordPress.PHP.StrictComparisons.LooseComparison" />
@@ -16,6 +16,7 @@
 		<exclude name="WordPressVIPMinimum.Performance.RemoteRequestTimeout.timeout_timeout" />
 		<exclude name="WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude" />
 		<exclude name="WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase" />
+		<exclude name="WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase" />
 	</rule>
 
 	<rule ref="Generic.Arrays.DisallowLongArraySyntax.Found">
