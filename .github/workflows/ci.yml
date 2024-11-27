@@ -40,5 +40,8 @@ jobs:
       - name: npm install
         run: npm ci
 
+      - name: Build project
+      run: npm run build
+
       - name: Lint JS
         run: npm run lint:js
