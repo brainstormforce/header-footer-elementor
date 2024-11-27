@@ -215,6 +215,7 @@ class HFE_Settings_Page {
 		$st_status         = HFE_Helper::free_starter_templates_status();
 		$stpro_status      = HFE_Helper::premium_starter_templates_status();
 		$st_link           = HFE_Helper::starter_templates_link();
+		$hfe_post_url 		= admin_url( 'post-new.php?post_type=elementor-hf' );
 		
 		$show_theme_support = 'no';
 		$hfe_theme_status   = get_option( 'hfe_is_theme_supported', false );
@@ -265,6 +266,7 @@ class HFE_Settings_Page {
 				'st_status'                => $st_status,
 				'st_pro_status'            => $stpro_status,
 				'st_link'                  => $st_link,
+				'hfe_post_url'             => $hfe_post_url,
 			]
 		);
 

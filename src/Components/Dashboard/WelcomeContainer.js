@@ -31,7 +31,6 @@ const WelcomeContainer = () => {
 					</p>
 					<div className="flex items-center pt-6 gap-2">
 						<Button
-							icon={<Plus />}
 							iconPosition="right"
 							variant="primary"
 							className="bg-[#6005FF] hfe-remove-ring"
@@ -45,6 +44,36 @@ const WelcomeContainer = () => {
 							}
 							onMouseLeave={(e) =>
 								(e.currentTarget.style.backgroundColor =
+									"#6005FF")
+							}
+							onClick={() => {
+								window.open(
+									hfeSettingsData.hfe_post_url,
+									"_blank"
+								);
+							}}
+						>
+							{__("Create Header/Footer", "header-footer-elementor")}
+						</Button>
+						<Button
+							icon={<Plus />}
+							iconPosition="right"
+							variant="outline"
+							className="hfe-remove-ring"
+							style={{
+								color: "#6005FF",
+								borderColor: "#6005FF",
+							}}
+							onMouseEnter={(e) =>
+								(e.currentTarget.style.color =
+									"#000000") &&
+								(e.currentTarget.style.borderColor =
+									"#000000")
+							}
+							onMouseLeave={(e) =>
+								(e.currentTarget.style.color =
+									"#6005FF") &&
+								(e.currentTarget.style.borderColor =
 									"#6005FF")
 							}
 							onClick={() => {
