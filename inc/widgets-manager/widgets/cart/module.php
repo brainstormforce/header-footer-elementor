@@ -27,7 +27,7 @@ class Module extends Module_Base {
 	 * @return bool true|false.
 	 */
 	public static function is_enable() {
-		return true;
+		return class_exists( 'woocommerce' );
 	}
 
 	/**
