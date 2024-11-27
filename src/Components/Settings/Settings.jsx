@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Container } from "@bsf/force-ui";
+import UpgradeNotice from '@components/UpgradeNotice'
 import Sidebar from './Sidebar';
 import Content from './Content';
 import NavMenu from '@components/NavMenu';
@@ -101,6 +102,7 @@ const Settings = () => {
 
     return (
         <>
+            <UpgradeNotice />
             <NavMenu onSettingsTabClick={handleSettingsTabClick} />
             <div className="">
                 <HeaderLine />

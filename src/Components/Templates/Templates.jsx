@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container } from "@bsf/force-ui";
+import UpgradeNotice from '@components/UpgradeNotice'
 import NavMenu from '@components/NavMenu';
 import HeaderLine from '@components/HeaderLine';
 import ExploreTemplates from './ExploreTemplates';
@@ -7,6 +8,7 @@ import ExploreTemplates from './ExploreTemplates';
 const Templates = () => {
     return (
         <>
+            <UpgradeNotice />
             <NavMenu />
             <div className="">
                 <HeaderLine />

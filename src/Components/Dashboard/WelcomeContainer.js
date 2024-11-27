@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Title, Button } from "@bsf/force-ui";
 import { ExternalLink, Plus } from "lucide-react";
+import HeaderLine from '@components/HeaderLine'
 import { __ } from "@wordpress/i18n";
 
 const WelcomeContainer = () => {
@@ -21,11 +22,12 @@ const WelcomeContainer = () => {
 						className="max-w-lg"
 						size="lg"
 						tag="h3"
-						title={__("Hello,", "header-footer-elementor")}
+						title={__("Welcome to Ultimate Addons for Elementor!", "header-footer-elementor")}
 					/>
+                	<HeaderLine />
 					<p className="text-sm font-medium text-text-tertiary m-0 mt-2">
 						{__(
-							"We're excited to help you supercharge your website-building experience.Effortlessly design stunning websites with our comprehensive range of free and premium widgets and features.",
+							"Effortlessly design stunning websites with our comprehensive range of widgets and features.",
 							"header-footer-elementor"
 						)}
 					</p>
@@ -61,20 +63,18 @@ const WelcomeContainer = () => {
 							variant="outline"
 							className="hfe-remove-ring"
 							style={{
-								color: "#6005FF",
-								borderColor: "#6005FF",
+								color: "#7D4CDB",
+								borderColor: "#E9DFFC",
 							}}
 							onMouseEnter={(e) =>
 								(e.currentTarget.style.color =
-									"#000000") &&
-								(e.currentTarget.style.borderColor =
 									"#000000")
 							}
 							onMouseLeave={(e) =>
 								(e.currentTarget.style.color =
-									"#6005FF") &&
+									"#7D4CDB") &&
 								(e.currentTarget.style.borderColor =
-									"#6005FF")
+									"#E9DFFC")
 							}
 							onClick={() => {
 								window.open(

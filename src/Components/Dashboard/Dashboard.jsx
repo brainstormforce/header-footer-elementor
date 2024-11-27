@@ -1,5 +1,5 @@
 import { Container } from "@bsf/force-ui";
-import HeaderLine from '@components/HeaderLine'
+import UpgradeNotice from '@components/UpgradeNotice'
 import NavMenu from '@components/NavMenu'
 import React from 'react'
 import Widgets from './Widgets'
@@ -12,9 +12,9 @@ import ExtendWebsite from './ExtendWebsite'
 const Dashboard = () => {
     return (
         <>
+            <UpgradeNotice />
             <NavMenu />
             <div>
-                <HeaderLine />
                 <Container
                     align="stretch"
                     className="p-6 flex-col lg:flex-row box-border"
