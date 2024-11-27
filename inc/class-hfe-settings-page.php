@@ -68,6 +68,20 @@ class HFE_Settings_Page {
 		} else {
 			add_filter( 'wp_check_filetype_and_ext', [ $this, 'real_mime_types' ], 10, 4 );
 		}
+
+		add_action('admin_footer', function() {
+			?>
+			<script type="text/javascript">
+				document.addEventListener('DOMContentLoaded', function() {
+					var menuItem = document.querySelector('a[href="ultimate-addons-pricing"]');
+					if (menuItem) {
+						menuItem.setAttribute('target', '_blank');
+						menuItem.setAttribute('href', 'https://ultimateelementor.com/pricing');
+					}
+				});
+			</script>
+			<?php
+		});
 	}
 
 		/**
@@ -502,6 +516,15 @@ class HFE_Settings_Page {
 			9
 		);
 
+		add_submenu_page(
+			$menu_slug,
+			__( 'Get Ultimate Addons', 'header-footer-elementor' ),
+			__( 'Get Ultimate Addons', 'header-footer-elementor' ),
+			$capability,
+			'ultimate-addons-pricing',
+			'',
+			11
+		);
 
 	}
 
