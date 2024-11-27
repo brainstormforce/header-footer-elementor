@@ -72,7 +72,7 @@ const Settings = () => {
         }
     ].filter(item => {
 
-        if ( (! hfeSettingsData.show_theme_support ) && item.id === 2 ) {
+        if ( ( "no" === hfeSettingsData.show_theme_support ) && item.id === 2 ) {
             return false;
         }
 

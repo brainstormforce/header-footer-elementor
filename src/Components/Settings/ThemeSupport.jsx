@@ -7,20 +7,20 @@ const radioData = [
     {
         id: "1",
         title: __( 'Option 1 (Recommended)', 'header-footer-elementor' ),
-        description: __( "This option will automatically replace your theme's header and footer files with custom templates from the plugin. It works with most themes and is selected by default.", "uael" ),
+        description: __( "This option will automatically replace your theme's header and footer files with custom templates from the plugin. It works with most themes and is selected by default.", "header-footer-elementor" ),
         value: "1"
     },
     {
         id: "2",
         title: __( 'Option 2', 'header-footer-elementor' ),
-        description: __( "This option will automatically replace your theme's header and footer files with custom templates from the plugin. It works with most themes and is selected by default.", "uael" ),
+        description: __( "This option will automatically replace your theme's header and footer files with custom templates from the plugin. It works with most themes and is selected by default.", "header-footer-elementor" ),
         value: "2"
     }
 ];
 
 const ThemeSupport = () => {
 
-    if ( ! hfeSettingsData.show_theme_support ) {
+    if ( "no" === hfeSettingsData.show_theme_support ) {
         return null;
     }
 
