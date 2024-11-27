@@ -2583,7 +2583,15 @@ div#hfe-settings-app {
 	font-weight: 500;
 	line-height: normal;
 }
-
+#toplevel_page_hfe .wp-submenu li.wp-first-item::after,
+#toplevel_page_hfe .wp-submenu li:nth-last-child(2)::after {
+    content: "";
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
+    display: block;
+    float: left;
+    margin: 8px 0;
+    width: 100%;
+}
 
 @keyframes spin {
 	0% {

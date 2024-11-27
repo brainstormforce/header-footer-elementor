@@ -467,7 +467,8 @@ class HFE_Settings_Page {
 			__( 'Dashboard', 'header-footer-elementor' ),
 			$capability,
 			$menu_slug,
-			[ $this, 'render' ]
+			[ $this, 'render' ],
+			1
 		);
 	
 		add_submenu_page(
@@ -476,7 +477,8 @@ class HFE_Settings_Page {
 			__( 'Widgets & Features', 'header-footer-elementor' ),
 			$capability,
 			$menu_slug . '#widgets',
-			[ $this, 'render' ] 
+			[ $this, 'render' ],
+			2
 		);
 
 		add_submenu_page(
@@ -485,7 +487,8 @@ class HFE_Settings_Page {
 			__( 'Templates', 'header-footer-elementor' ),
 			$capability,
 			$menu_slug . '#templates',
-			[ $this, 'render' ]
+			[ $this, 'render' ],
+			8
 		);
 		
 		// Add the Settings Submenu.
@@ -495,7 +498,8 @@ class HFE_Settings_Page {
 			__( 'Settings', 'header-footer-elementor' ),
 			$capability,
 			$menu_slug . '#settings',
-			[ $this, 'render' ]
+			[ $this, 'render' ],
+			9
 		);
 
 
