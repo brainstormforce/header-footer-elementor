@@ -1,5 +1,4 @@
 import NavMenu from '@components/NavMenu'
-import UpgradeNotice from '@components/UpgradeNotice'
 import { Container } from "@bsf/force-ui";
 import React from 'react'
 import ExtendWebsite from '@components/Dashboard/ExtendWebsite';
@@ -11,7 +10,6 @@ import FeatureWidgets from './Features/FeatureWidgets'
 const Features = () => {
     return (
         <>
-            <UpgradeNotice />
             <NavMenu />
             <div>
                 <Container
