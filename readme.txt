@@ -145,6 +145,7 @@ Absolutely! You can design custom headers, footers, and other sections for WooCo
 - New: Post Info Widget
 - New: Breadcrumbs Widget
 - New: Scroll to Top extension added
+- Improvement: Revamped settings page UI/UX. A redesigned interface for better usability and seamless navigation.
 
 = 1.6.47 =
 - Fix: This update addressed a security bug. Props to Wordfence for privately reporting it to our team. Please make sure you are using the latest version on your website.
