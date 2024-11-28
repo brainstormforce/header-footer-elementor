@@ -9,32 +9,32 @@ const UltimateCompare = () => {
         {
             id: 1,
             icon: "",
-            title: "Modal Popup",
+            title: __("Modal Popup", "header-footer-elementor"),
         },
         {
             id: 2,
             icon: "",
-            title: "Advanced Heading",
+            title: __("Advanced Heading", "header-footer-elementor"),
         },
         {
-            id: 1,
+            id: 3,
             icon: "",
-            title: "Post Layouts",
+            title: __("Post Layouts", "header-footer-elementor"),
         },
         {
-            id: 1,
+            id: 4,
             icon: "",
-            title: "Info Box",
+            title: __("Info Box", "header-footer-elementor"),
         },
         {
-            id: 1,
+            id: 5,
             icon: "",
-            title: "Pricing Cards",
+            title: __("Pricing Cards", "header-footer-elementor"),
         },
         {
-            id: 1,
+            id: 6,
             icon: "",
-            title: "Form Stylers and more...",
+            title: __("Form Stylers and more...", "header-footer-elementor"),
         },
     ];
 
@@ -52,7 +52,7 @@ const UltimateCompare = () => {
                 <Container.Item className="flex flex-col justify-center items-center">
                     <img
                         src={`${hfeSettingsData.column_url}`}
-                        alt="Column Showcase"
+                        alt={__("Column Showcase", "header-footer-elementor")}
                         className="h-auto rounded w-1/2"
                     />
                 </Container.Item>
@@ -65,7 +65,7 @@ const UltimateCompare = () => {
                             iconPosition="left"
                             size="xs"
                             tag="h6"
-                            title="Unlock Ultimate Features"
+                            title={__("Unlock Ultimate Features", "header-footer-elementor")}
                             className="text-xs font-semibold text-brand-primary-600"
                         />
                         <Title
@@ -73,11 +73,11 @@ const UltimateCompare = () => {
                             icon={""}
                             iconPosition="left"
                             tag="h6"
-                            title="Create Ultimate Designs with Addons Pro!"
+                            title={__("Create Ultimate Designs with Addons Pro!", "header-footer-elementor")}
                             className="py-1 text-sm"
                         />
                         <p className="text-md m-0 text-text-secondary">
-                            {__('Get access to advanced widgets and features to create the website that stands out!', 'uael')}
+                            {__('Get access to advanced widgets and features to create the website that stands out!', 'header-footer-elementor')}
                         </p>
                     </div>
                     <div className="grid grid-cols-2 grid-flow-row gap-1 my-4">
@@ -101,12 +101,12 @@ const UltimateCompare = () => {
                             iconPosition="right"
                             variant="secondary"
                             className="hfe-remove-ring"
-                            style={{width: "100%"}}
+                            style={{ width: "100%" }}
                             onClick={() => {
                                 window.open("https://ultimateelementor.com/pricing/?utm_source=uae-lite-free-vs-pro&utm_medium=My-accounts&utm_campaign=uae-lite-upgrade", '_blank');
                             }}
                         >
-                            {__('Upgrade Now', 'uael')}
+                            {__('Upgrade Now', 'header-footer-elementor')}
                         </Button>
                     </div>
                 </Container.Item>
@@ -115,4 +115,4 @@ const UltimateCompare = () => {
     )
 }
 
-export default UltimateCompare
+export default UltimateCompare;
