@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Container } from "@bsf/force-ui";
+import UpgradeNotice from '@components/UpgradeNotice'
 import Sidebar from './Sidebar';
 import Content from './Content';
 import NavMenu from '@components/NavMenu';
-import HeaderLine from '@components/HeaderLine';
 import ThemeSupport from './ThemeSupport';
 import VersionControl from './VersionControl';
 import MyAccount from '@components/Dashboard/MyAccount';
@@ -101,9 +101,9 @@ const Settings = () => {
 
     return (
         <>
+            <UpgradeNotice />
             <NavMenu onSettingsTabClick={handleSettingsTabClick} />
             <div className="">
-                <HeaderLine />
                 <Container align="stretch" className="p-1 flex-col lg:flex-row hfe-settings-page" containerType="flex" direction="row" gap="sm" justify="start" style={{ height: "100%" }}>
                     <Container.Item className="p-2 hfe-sticky-outer-wrapper" alignSelf="auto" order="none" shrink={1} style={{ backgroundColor: "#ffffff" }}>
                         <div className='hfe-sticky-sidebar'>

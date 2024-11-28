@@ -68,6 +68,20 @@ class HFE_Settings_Page {
 		} else {
 			add_filter( 'wp_check_filetype_and_ext', [ $this, 'real_mime_types' ], 10, 4 );
 		}
+
+		add_action('admin_footer', function() {
+			?>
+			<script type="text/javascript">
+				document.addEventListener('DOMContentLoaded', function() {
+					var menuItem = document.querySelector('a[href="ultimate-addons-pricing"]');
+					if (menuItem) {
+						menuItem.setAttribute('target', '_blank');
+						menuItem.setAttribute('href', 'https://ultimateelementor.com/pricing');
+					}
+				});
+			</script>
+			<?php
+		});
 	}
 
 		/**
@@ -467,7 +481,8 @@ class HFE_Settings_Page {
 			__( 'Dashboard', 'header-footer-elementor' ),
 			$capability,
 			$menu_slug,
-			[ $this, 'render' ]
+			[ $this, 'render' ],
+			1
 		);
 	
 		add_submenu_page(
@@ -476,7 +491,8 @@ class HFE_Settings_Page {
 			__( 'Widgets & Features', 'header-footer-elementor' ),
 			$capability,
 			$menu_slug . '#widgets',
-			[ $this, 'render' ] 
+			[ $this, 'render' ],
+			2
 		);
 
 		add_submenu_page(
@@ -485,7 +501,8 @@ class HFE_Settings_Page {
 			__( 'Templates', 'header-footer-elementor' ),
 			$capability,
 			$menu_slug . '#templates',
-			[ $this, 'render' ]
+			[ $this, 'render' ],
+			8
 		);
 		
 		// Add the Settings Submenu.
@@ -495,9 +512,30 @@ class HFE_Settings_Page {
 			__( 'Settings', 'header-footer-elementor' ),
 			$capability,
 			$menu_slug . '#settings',
-			[ $this, 'render' ]
+			[ $this, 'render' ],
+			9
 		);
 
+			// Add the Settings Submenu.
+			add_submenu_page(
+				$menu_slug,
+				__( 'Upgrade', 'header-footer-elementor' ),
+				__( 'Upgrade', 'header-footer-elementor' ),
+				$capability,
+				$menu_slug . '#upgrade',
+				[ $this, 'render' ],
+				9
+			);
+
+		add_submenu_page(
+			$menu_slug,
+			__( 'Get Ultimate Addons', 'header-footer-elementor' ),
+			__( 'Get Ultimate Addons', 'header-footer-elementor' ),
+			$capability,
+			'ultimate-addons-pricing',
+			'',
+			11
+		);
 
 	}
 

@@ -10,5 +10,8 @@ export const routes = {
     },
     settings: {
         path: "settings",
+    },
+    upgrade: {
+        path: "upgrade",
     }
 }
