@@ -39,7 +39,8 @@ Save time with built-in widgets designed to handle common design needs. From log
 - **Navigation Menu**: Pick from multiple menu layouts (horizontal, vertical, expanded, flyout) with extensive customization options.  
 - **Copyright Notice**: Use handy constants like `[hfe_current_year]` to keep your footer info up to date.  
 - **Site Title**: The site name will be automatically inherited from the customizer. You can add a prefix, suffix, icon, and link to it.
-- **Site Tagline**: It will show a tagline from the customizer, with options for prefix, suffix, icon, and link.- **Page Title**: Shows the title of your current post or page and provides options for prefix, suffix, icon, link, and alignment.
+- **Site Tagline**: It will show a tagline from the customizer, with options for prefix, suffix, icon, and link.
+- **Page Title**: Shows the title of your current post or page and provides options for prefix, suffix, icon, link, and alignment.
 - **Retina Logo**: You can upload a high-definition retina image for your logo.
 - **WooCommerce Menu Cart**: You can show the current number of products in the cart and the total price.
 - **Search**: Add a search box to your design with various layout and styling options.
