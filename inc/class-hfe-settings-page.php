@@ -519,8 +519,8 @@ class HFE_Settings_Page {
 			// Add the Settings Submenu.
 			add_submenu_page(
 				$menu_slug,
-				__( 'Upgrade', 'header-footer-elementor' ),
-				__( 'Upgrade', 'header-footer-elementor' ),
+				__( 'Free vs Pro', 'header-footer-elementor' ),
+				__( 'Free vs Pro', 'header-footer-elementor' ),
 				$capability,
 				$menu_slug . '#upgrade',
 				[ $this, 'render' ],

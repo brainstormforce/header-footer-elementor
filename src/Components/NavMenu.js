@@ -164,7 +164,7 @@ const NavMenu = () => {
 									}`}
 									style={linkStyle("upgrade")}
 								>
-									{__("Upgrade", "header-footer-elementor")}
+									{__("Free vs Pro", "header-footer-elementor")}
 								</Link>
 							</nav>
 						</Topbar.Item>
@@ -189,7 +189,7 @@ const NavMenu = () => {
 								}
 							>
 								{__(
-									"Get Ultimate Addons",
+									"Get Ultimate Elementor",
 									"header-footer-elementor"
 								)}
 							</Button>

@@ -31,9 +31,15 @@ const MyAccount = () => {
                     <p className='text-sm font-normal m-0'>{__('You are using UAE Free version, no license key needed. ')}</p>
                 </Container.Item>
                 <div className='flex items-center justify-between px-4 rounded-xl' style={{paddingTop: '6px' , paddingBottom: '6px', backgroundColor: "#F3F0FF"}}>
+<<<<<<< Updated upstream
                     <span className="flex items-center gap-x-2 text-sm font-semibold">
                         Unlock Pro Features
                         <p className='text-sm font-normal'>Get access to advanced widgets and premium features.</p>
+=======
+                    <span className="flex items-center gap-x-2 text-base font-semibold">
+                        Unlock Pro Features
+                        <p className='text-base font-normal'>Get access to advanced blocks and premium features.</p>
+>>>>>>> Stashed changes
                     </span>
                     <Button
                             icon={<ArrowUpRight />}

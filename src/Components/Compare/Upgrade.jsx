@@ -11,6 +11,7 @@ import UltimateWidgets from "@components/Widgets/UltimateWidgets";
 
 import React from 'react'
 import FreevsPro from "./FreevsPro";
+import UltimateCompare from "./UltimateCompare";
 
 
 const Upgrade = () => {
@@ -42,7 +43,7 @@ const Upgrade = () => {
                         className="p-2 w-full hfe-35-width"
                         shrink={1}
                     >
-                        <UltimateWidgets />
+                        <UltimateCompare />
                         <ExtendWebsite />
                         <QuickAccess />
                     </Container.Item>
