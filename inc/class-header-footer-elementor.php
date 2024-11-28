@@ -67,7 +67,19 @@ class Header_Footer_Elementor {
 			$this->includes();
 			$this->load_textdomain();
 
-			add_action( 'init', [ $this, 'setup_settings_page' ] );
+			add_filter(
+				'elementor/admin-top-bar/is-active',
+				function( $is_active, $current_screen ) {
+					if ( strpos( $current_screen->id, 'elementor-hf' ) !== false ) {
+						return false;
+					}
+					return $is_active;
+				},
+				10,
+				2
+			);
+
+			$is_theme_supported = true;
 
 			if ( 'genesis' == $this->template ) {
 				require HFE_DIR . 'themes/genesis/class-hfe-genesis-compat.php';
@@ -85,9 +97,14 @@ class Header_Footer_Elementor {
 			} elseif ( 'hello-elementor' == $this->template ) {
 				require HFE_DIR . 'themes/hello-elementor/class-hfe-hello-elementor-compat.php';
 			} else {
+				$is_theme_supported = false;
 				add_filter( 'hfe_settings_tabs', [ $this, 'setup_unsupported_theme' ] );
 				add_action( 'init', [ $this, 'setup_fallback_support' ] );
 			}
+
+			update_option( 'hfe_is_theme_supported', $is_theme_supported );
+			
+			add_action( 'init', [ $this, 'setup_settings_page' ] );
 
 			if ( 'yes' === get_option( 'hfe_plugin_is_activated' ) ) {
 				add_action( 'admin_init', [ $this, 'show_setup_wizard' ] );
@@ -116,7 +133,7 @@ class Header_Footer_Elementor {
 			$bsf_analytics->set_entity(
 				[
 					'bsf' => [
-						'product_name'    => 'Elementor Header & Footer builder',
+						'product_name'    => 'Ultimate Addons for Elementor Lite',
 						'path'            => HFE_DIR . 'admin/bsf-analytics',
 						'author'          => 'Brainstorm Force',
 						'time_to_display' => '+24 hours',
@@ -353,6 +370,7 @@ class Header_Footer_Elementor {
 		require_once HFE_DIR . 'admin/class-hfe-admin.php';
 
 		require_once HFE_DIR . 'inc/hfe-functions.php';
+		require_once HFE_DIR . 'inc/class-hfe-rollback.php';
 
 		// Load Elementor Canvas Compatibility.
 		require_once HFE_DIR . 'inc/class-hfe-elementor-canvas-compat.php';
@@ -372,6 +390,11 @@ class Header_Footer_Elementor {
 
 		// Load the widgets.
 		require HFE_DIR . 'inc/widgets-manager/class-widgets-loader.php';
+
+		// Load the extensions.
+		require HFE_DIR . 'inc/widgets-manager/class-extensions-loader.php';
+
+		require_once HFE_DIR . 'inc/settings/hfe-settings-api.php';
 	}
 
 	/**
@@ -499,6 +522,7 @@ class Header_Footer_Elementor {
 	 * @return array
 	 */
 	public function setup_unsupported_theme( $hfe_settings_tabs = [] ) {
+
 		if ( ! current_theme_supports( 'header-footer-elementor' ) ) {
 			$hfe_settings_tabs['hfe_settings'] = [
 				'name' => __( 'Theme Support', 'header-footer-elementor' ),

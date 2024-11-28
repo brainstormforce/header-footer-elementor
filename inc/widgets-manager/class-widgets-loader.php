@@ -31,6 +31,21 @@ class Widgets_Loader {
 	private static $_instance = null;
 
 	/**
+	 * Instance of Widgets_Loader.
+	 *
+	 * @since  1.2.0
+	 * @var null
+	 */
+	private static $widgets_data = null;
+
+	/**
+	 * Member Variable
+	 *
+	 * @var Modules Manager
+	 */
+	public $modules_manager;
+
+	/**
 	 * Get instance of Widgets_Loader
 	 *
 	 * @since  1.2.0
@@ -51,11 +66,65 @@ class Widgets_Loader {
 	 * @access private
 	 */
 	private function __construct() {
+
+		spl_autoload_register( [ $this, 'autoload' ] );
+
+		$this->includes();
+
+		$this->setup_actions_filters();
+	}
+
+	/**
+	 * AutoLoad
+	 *
+	 * @since 0.0.1
+	 * @param string $class class.
+	 */
+	public function autoload( $class ) {
+
+		if ( 0 !== strpos( $class, __NAMESPACE__ ) ) {
+			return;
+		}
+
+		$class_to_load = str_replace( __NAMESPACE__ . '\\', '', $class );
+
+		if ( ! class_exists( $class_to_load ) ) {
+			$filename = strtolower(
+				preg_replace(
+					[ '/([a-z])([A-Z])/', '/_/', '/\\\/' ],
+					[ '$1-$2', '-', DIRECTORY_SEPARATOR ],
+					$class_to_load
+				)
+			);
+			
+			$filename = HFE_DIR . 'inc/widgets-manager/' . $filename . '.php'; // Adjusted path.
+
+			if ( is_readable( $filename ) ) {
+				include $filename;
+			}
+		}
+	}
+
+	/**
+	 * Includes.
+	 *
+	 * @since 0.0.1
+	 */
+	private function includes() {
+		require HFE_DIR . 'inc/widgets-manager/modules-manager.php';
+	}
+
+	/**
+	 * Setup Actions Filters.
+	 *
+	 * @since 0.0.1
+	 */
+	private function setup_actions_filters() {
+
+		add_action( 'elementor/init', [ $this, 'elementor_init' ] );
+
 		// Register category.
 		add_action( 'elementor/elements/categories_registered', [ $this, 'register_widget_category' ] );
-
-		// Register widgets.
-		add_action( 'elementor/widgets/register', [ $this, 'register_widgets' ] );
 
 		// Register widgets script.
 		add_action( 'elementor/frontend/after_register_scripts', [ $this, 'register_widget_scripts' ] );
@@ -71,6 +140,64 @@ class Widgets_Loader {
 
 			add_filter( 'woocommerce_add_to_cart_fragments', [ $this, 'wc_refresh_mini_cart_count' ] );
 		}
+
+	}
+
+	/**
+	 * Elementor Init.
+	 *
+	 * @since 0.0.1
+	 */
+	public function elementor_init() {
+
+		$this->modules_manager = new Modules_Manager();
+
+		$this->init_category();
+
+		do_action( 'header_footer_elementor/init' );    //phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+	}
+
+	/**
+	 * Sections init
+	 *
+	 * @since 0.0.1
+	 *
+	 * @access private
+	 */
+	private function init_category() {
+		$category = defined( 'UAEL_PLUGIN_SHORT_NAME' ) ? UAEL_PLUGIN_SHORT_NAME . ' Lite' : __( 'UAE Lite', 'header-footer-elementor' );
+
+		if ( version_compare( ELEMENTOR_VERSION, '2.0.0' ) < 0 ) {
+
+			\Elementor\Plugin::instance()->elements_manager->add_category(
+				'hfe-widgets',
+				[
+					'title' => $category,
+				],
+				1
+			);
+		}
+	}
+
+	/**
+	 * Register Category
+	 *
+	 * @since 1.2.0
+	 * @param object $this_cat class.
+	 * @return object $this_cat class.
+	 */
+	public function register_widget_category( $this_cat ) {
+		$category = defined( 'UAEL_PLUGIN_SHORT_NAME' ) ? UAEL_PLUGIN_SHORT_NAME . ' Lite' : __( 'UAE Lite', 'header-footer-elementor' );
+
+		$this_cat->add_category(
+			'hfe-widgets',
+			[
+				'title' => $category,
+				'icon'  => 'eicon-font',
+			]
+		);
+
+		return $this_cat;
 	}
 
 	/**
@@ -89,49 +216,6 @@ class Widgets_Loader {
 		];
 
 		return $js_files;
-	}
-
-	/**
-	 * Returns Script array.
-	 *
-	 * @return array()
-	 * @since 1.3.0
-	 */
-	public static function get_widget_list() {
-		$widget_list = [
-			'retina',
-			'copyright',
-			'copyright-shortcode',
-			'navigation-menu',
-			'menu-walker',
-			'site-title',
-			'page-title',
-			'site-tagline',
-			'site-logo',
-			'cart',
-			'search-button',
-		];
-
-		return $widget_list;
-	}
-
-	/**
-	 * Include Widgets files
-	 *
-	 * Load widgets files
-	 *
-	 * @since 1.2.0
-	 * @access public
-	 * @return void
-	 */
-	public function include_widgets_files() {
-		$widget_list = $this->get_widget_list();
-
-		if ( ! empty( $widget_list ) ) {
-			foreach ( $widget_list as $handle => $data ) {
-				require_once HFE_DIR . '/inc/widgets-manager/widgets/class-' . $data . '.php';
-			}
-		}
 	}
 
 	/**
@@ -204,53 +288,6 @@ class Widgets_Loader {
 
 		return $file;
 	}  
-
-	/**
-	 * Register Category
-	 *
-	 * @since 1.2.0
-	 * @param object $this_cat class.
-	 * @return object $this_cat class.
-	 */
-	public function register_widget_category( $this_cat ) {
-		$category = __( 'Elementor Header & Footer Builder', 'header-footer-elementor' );
-
-		$this_cat->add_category(
-			'hfe-widgets',
-			[
-				'title' => $category,
-				'icon'  => 'eicon-font',
-			]
-		);
-
-		return $this_cat;
-	}
-
-	/**
-	 * Register Widgets
-	 *
-	 * Register new Elementor widgets.
-	 *
-	 * @since 1.2.0
-	 * @access public
-	 * @return void
-	 */
-	public function register_widgets() {
-		// Its is now safe to include Widgets files.
-		$this->include_widgets_files();
-		// Register Widgets.
-		Plugin::instance()->widgets_manager->register( new Widgets\Retina() );
-		Plugin::instance()->widgets_manager->register( new Widgets\Copyright() );
-		Plugin::instance()->widgets_manager->register( new Widgets\Navigation_Menu() );
-		Plugin::instance()->widgets_manager->register( new Widgets\Page_Title() );
-		Plugin::instance()->widgets_manager->register( new Widgets\Site_Title() );
-		Plugin::instance()->widgets_manager->register( new Widgets\Site_Tagline() );
-		Plugin::instance()->widgets_manager->register( new Widgets\Site_Logo() );
-		Plugin::instance()->widgets_manager->register( new Widgets\Search_Button() );
-		if ( class_exists( 'woocommerce' ) ) {
-			Plugin::instance()->widgets_manager->register( new Widgets\Cart() );
-		}
-	}
 
 	/**
 	 * Register module required js on elementor's action.

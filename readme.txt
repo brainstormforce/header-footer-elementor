@@ -1,144 +1,155 @@
-=== Elementor Header & Footer Builder ===
-Contributors: brainstormforce, Nikschavan
-Tags: elementor, header footer builder, header template, footer template, elementor widget
-Donate link: https://www.paypal.me/BrainstormForce
+=== Ultimate Addons for Elementor Lite (UAE Lite) ===
+Contributors: @brainstormforce, @nikschavan, @pratikchaskar
+Tags: elementor, header footer builder, breadcrumbs, post meta, widgets, scroll to top
 Requires at least: 4.4
 Requires PHP: 7.4
 Tested up to: 6.7
-Stable tag: 1.6.47
+Stable tag: 2.0.0
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Create Header, Footer and Blocks for your WordPress website using Elementor Page Builder for free.
+
+Elevate your Elementor designs with UAE Lite! Create custom headers, footers, and eye-catching posts/pages easily with powerful widgets and features.
+
 
 ## Description ##
+Building and managing WordPress websites shouldn’t be overwhelming. That’s why we created **Ultimate Addons for Elementor Lite (UAE Lite)** – a free plugin that adds powerful features to Elementor, giving you complete control over your site’s design and functionality.  
 
-Have you ever imagined you could create your website header and footer with <a href="https://elementor.com/">Elementor</a> for FREE?
 
-Elementor Header & Footer Builder is a simple yet powerful WordPress plugin that allows you to create a layout with Elementor and set it as
-- Header
-- Footer
-- Block (anywhere on the website)
+From crafting custom headers and footers to adding interactive design elements like breadcrumbs and metadata, UAE Lite is packed with features that make your website **look and perform better**. And best of all? You can do it all with Elementor’s intuitive drag-and-drop editor!  
+
 
 [Try it out on a free dummy site](https://bsf.io/hfe-demo)
+---
 
-= Create Attractive Designs =
 
-Elementor editor gives you the flexibility to design beautiful sections. Using it you can create out of the box header and footer designs.
+### **What Can UAE Lite Do for You?**  
 
-= Pick Display Locations =
 
-Want to display a custom header template only on the homepage or on the blog archive page or on the entire website? Well, this plugin allows choosing a specific target location to display header and footer on.
+#### ** Design Eye-Catching Headers and Footers**  
+Easily create custom headers and footers that perfectly match your brand. Use Elementor’s drag-and-drop builder to add logos, menus, and design elements, and **choose where they appear** – on the homepage, blog pages, or across your entire site.  
 
-= Add Elementor Blocks Anywhere =
 
-Apart from header and footer, you can design custom templates with Elementor and set it at any place on the website with a shortcode.
+#### ** Inbuilt Widgets for Speedy Design That Visitors Love**  
+Save time with built-in widgets designed to handle common design needs. From logos and navigation menus to copyright notices and search bars, UAE Lite has you covered:  
+- **Post Info**: Automatically display key post details like author, publish date, time, and categories – a must-have for blogs and SEO optimization.  
+- **Breadcrumbs**: Help visitors navigate your site with a dynamic path display.  
+- **Scroll to Top**: Make your site more user-friendly with this handy button for easy navigation.
+- **Site Logo**: Automatically pull your site’s logo or set a custom one with a link and caption.  
+- **Navigation Menu**: Pick from multiple menu layouts (horizontal, vertical, expanded, flyout) with extensive customization options.  
+- **Copyright Notice**: Use handy constants like `[hfe_current_year]` to keep your footer info up to date.  
+- **Site Title**: The site name will be automatically inherited from the customizer. You can add a prefix, suffix, icon, and link to it.
+- **Site Tagline**: It will show a tagline from the customizer, with options for prefix, suffix, icon, and link.- **Page Title**: Shows the title of your current post or page and provides options for prefix, suffix, icon, link, and alignment.
+- **Retina Logo**: You can upload a high-definition retina image for your logo.
+- **WooCommerce Menu Cart**: You can show the current number of products in the cart and the total price.
+- **Search**: Add a search box to your design with various layout and styling options.
 
-= ‘Before Footer’ Template =
 
-Along with the main footer, the plugin gives the additional area - above the footer - where you can append your custom template. This gives great flexibility in footer design.
+#### ** Place Elementor Templates Anywhere**  
+Want to add a unique section, call-to-action, or custom block anywhere on your site? UAE Lite lets you design templates with Elementor and place them wherever you like with simple shortcodes.  
 
-= Available With Elementor Canvas Template =
 
-Your custom header/footer layout can be easily displayed on the pages where Elementor Canvas Template is enabled.
+#### ** Go Beyond with the ‘Before Footer’ Template**  
+Enhance your footer designs with an extra section above the footer! Use it to showcase announcements, promotions, or newsletter signups.  
 
-= Comes With Inbuilt Widgets =
 
-The plugin offers inbuilt widgets that help to create header/footer layouts. These widgets offer basic required features so you don’t have to look for extra plugins.
+---
 
-<ul>
-	<li><strong>Site Logo</strong> - Automatically inherits a logo from the customizer. You can even set a custom image as a logo with a custom link and caption.</li>
-	<li><strong>Site Title</strong> - Site name will be automatically inherited from the customizer. You can add prefix, suffix, icon, and link with it.</li>
-	<li><strong>Site Tagline</strong> - It will display a tagline from the customizer. You get an option for prefix, suffix, icon, and link with it.</li>
-	<li><strong>Navigation Menu</strong> - Offers you list of already created menus on your website. You just need to choose the required one. If offers 4 layouts for the menu - horizontal, vertical, expanded and flyout. With many other options, you can even set custom icons to open and close the menu.</li>
-	<li><strong>Page Title</strong> - Displays your current post/page title and offers additional options for prefix, suffix, icon, link, and alignment.</li>
-	<li><strong>Retina Image</strong> - You can upload the retina image for high definition screens.</li>
-	<li><strong>WooCommerce Menu Cart</strong> - You can display current number of products in the cart along with the total price.</li>
-	<li><strong>Copyright</strong> - It offers constants to display copyright notice - [hfe_current_year] and [hfe_site_title].</li>
-	<li><strong>Search</strong> - Add a search form to your with different layout and styling options.</li>
-</ul>
 
-= WORKS WITH ALL THEMES =
+### **Who Is UAE Lite For?**  
+UAE Lite is perfect for:  
+- **Bloggers**: Showcase posts beautifully with Post Info and custom headers.  
+- **Small Business Owners**: Build a professional-looking website without hiring a designer.  
+- **Designers & Agencies**: Save time and wow clients with advanced layouts in minutes.  
 
-Elementor Header & Footer Builder plugin works with all WordPress themes. Few of the themes have direct support while for few you can choose a method to add theme support.
 
-In case you face any difficulty displaying header/footer, manually choose the theme support method. Visit Appearance > Elementor Header & Footer Builder > Theme Support. Select a method to suit your current theme and you are good to go!
+---
 
-= STEPS TO USE THE PLUGIN =
 
-Step 1 - Visit Appearance > Elementor Header & Footer Builder and click on the ‘Add New’.
+== Installation ==  
+1. Install the plugin through the WordPress plugin directory or by uploading the ZIP file in your WordPress dashboard.  
+2. Activate the plugin via the "Plugins" menu.  
+3. Start creating your header, footer, and other templates under UAE > Dashboard.  
 
-Step 2 - Select ‘Type of Template’ (header/footer/block). Set its display location and user roles.
 
-Step 3 - Publish it.
+---
 
-Step 4 - Edit it with Elementor and design a section.
 
-Step 5 - Save it and you are done!
+Loved what UAE Lite offers? Wait till you see what UAE Pro can do!  
 
-You can refer to our step-by-step article that will help you [set Elementor headers and footers](https://ultimateelementor.com/header-footer-with-elementor/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description) quickly.
 
-= LOOKING FOR PREMIUM ELEMENTOR ADDONS AND WIDGETS? =
+Here’s what makes it worth upgrading:  
 
-Check [Ultimate Addons for Elementor](https://ultimateelementor.com/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description). It is a library of creative and unique Elementor widgets that add more functionality and flexibility to your favorite page builder.
 
-= HAVE YOU TRIED ASTRA WITH ELEMENTOR? =
+From WooCommerce tools to advanced sliders, create anything your site needs like
+- **Premium Templates**- Speed up your workflow with pre-designed layouts.  
+- **Cross Domain copy-paste** - Copy and paste Elementor content between websites.
+- **Welcome Music**- Play background audio to engage visitors upon page load.
+- **Advanced Heading**- Create engaging and customizable headings for your pages.
+- **Business Hours**- Customize and display your business hours stylishly.
+- **Toggle Button**- Let users easily switch between two types of content.
+- **Google map**- Add customizable, multi-location maps with custom markers.
+- **Image Gallery**- Build attractive, feature-rich galleries with advanced options.
+- **Info box**- Add headings, icons, and descriptions in one flexible widget.
+- **Modal Popup**- Design engaging popups with interactive animations and content.
+- **Post Layout**- Display and customize blog posts beautifully on your site.
+- **Price List**- Create elegant, customizable lists for menus or product catalogues.
+many more that you’d love.
 
-Powering over 1+ Million WordPress websites, Astra is loved for the performance and ease-of-use it offers.
 
-People love Astra for -
+[UAE Pro](https://ultimateelementor.com/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description) unlocks unlimited possibilities, helping you design websites that are not just functional but extraordinary.
 
-**Better Performance** - Optimized code and modular architecture make Astra the most lightweight theme for a faster loading website!
 
-**Page Builder's Best Friend** - Astra works great with all page builders. Its support for custom layouts, Elementor templates, and ready-made starter sites makes it the best [theme for Elementor](https://wpastra.com/theme-for-elementor/?utm_source=wp-repo&utm_medium=astra_desc&utm_campaign=header_footer_elementor).
+---
 
-**Ready-to-use complete website templates** - Astra offers free ready-made website demos built with Elementor. You can choose any of the [Elementor Templates](https://wpastra.com/elementor-templates-free-downloads/ "Elementor Templates"), tweak them as you want and go live in minutes!
 
-= SUPPORTED & ACTIVELY DEVELOPED =
-Need help with something? Have an issue to report? Visit [Plugin’s Forum](https://wordpress.org/plugins/header-footer-elementor/ "Plugin’s Forum").
+### **More Tools to Enhance Your WordPress Website**  
+If you love UAE Lite, you’ll love our other products too:  
+- **Astra**: The fastest, most flexible WordPress theme – perfect for any type of website.  
+- **Starter Templates**: Choose from hundreds of ready-to-use website designs or use AI to build a site tailored to your needs.  
+- **SureTriggers**: Automate repetitive tasks and connect your favorite apps for ultimate efficiency.  
+- **SureForms**: Create stunning forms, quizzes, or surveys in minutes.  
+- **SureCart**: The ultimate plugin for effortless eCommerce – perfect for online sellers.  
 
-[Get in touch](https://github.com/Nikschavan/header-footer-elementor "Elementor Header & Footer Builder on GitHub") with us on GitHub.
 
-Made with love at [Brainstorm Force](https://www.brainstormforce.com/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description "Brainstorm Force")!
+---
 
-== Installation ==
 
-1. Go to `Plugins -> Add New` and search for Elementor Header & Footer Builder.
-2. Activate the plugin through the 'Plugins' screen in WordPress.
-3. Go to `Appearance -> Elementor Header & Footer Builder` to build a header or footer layout using Elementor.
-4. After the layout is ready assign it as header or footer using the option `Select the type of template this is` (<a href="https://cloudup.com/clK2sPg9nXK+">screenshot</a>)
+== Frequently Asked Questions ==  
+### **1. Can I use UAE Lite with any WordPress theme?**  
+Yes! UAE Lite works seamlessly with all themes. If needed, you can enable theme support manually under UAE > Theme Support.  
 
-== Frequently Asked Questions ==
 
-= How Does This Plugin Work? =
+### **2. What’s the difference between UAE Lite and UAE Pro?**  
+UAE Lite offers essential tools to get started, while UAE Pro unlocks advanced widgets, dynamic content, and premium features for professionals.  
 
-1. Go to Appearance -> Elementor Header & Footer Builder to build a header or footer layout using Elementor.
-2. Click on “Add New” and design a template with Elementor.
-3. Once the template is ready, set is as a header/footer/block using options “Type of Template” (<a href="https://share.getcloudapp.com/geurz2JR">screenshot</a>).
-4.
 
-	a) For Header/Footer - Select the target location with the option “Display On”. With this Header/Footer will be visible only on selected locations for selected “User Roles”.
+### **3. Can I use UAE Lite with WooCommerce?**  
+Absolutely! You can design custom headers, footers, and other sections for WooCommerce pages with UAE Lite.  
 
-	b) For Custom Block - Just copy the shortcode and add it anywhere on the website. Your designed template will display automatically. Display conditions or user roles will not be effective with shortcodes.
 
-= Can You Create a Mobile Responsive Header/Footer Using This Plugin? =
+---
 
-Yes, You can create the mobile responsive layout of your header using the plugin.
 
-The Elementor Header & Footer Builder plugin just gives you a container where you can completely design the header using Elementor Page Builder, So the process of creating the mobile responsive layout is exactly the same as you would create a responsive layout of your other Elementor page.
-
-Here is a documentation by Elementor Page builder which explains how you can create mobile responsive layouts using Elementor - [https://elementor.com/introducing-mobile-editing/](https://elementor.com/introducing-mobile-editing/)
-This same applies when you are creating your Header/Footer using this plugin.
-
-== Screenshots ==
-
-1. Go to Appearance -> Elementor Header & Footer Builder to create a new template.
-2. Assign template to be a header/footer and select display rules.
-3. 3. For blocks, select the type of template as Custom Blocks. You can copy the shortcode and use it anywhere.
-4. Methods to add Theme Support.
-5. Default widgets available with Elementor Header & Footer Builder.
+== Screenshots ==  
+1. **Widget Dashboard**: Easily manage features and settings.  
+2. **Header/Footer Builder**: Create stunning designs in Elementor.  
+3. **Post Info Widget**: Showcase metadata dynamically.  
+4. **Scroll to Top**: Add easy navigation to your site.  
+5. **Theme Compatibility**: Works flawlessly with any theme.  
 
 == Changelog ==
+
+= 2.0.0 =
+- New Feature: Scroll to Top Button. 
+  Add a dynamic "Scroll to Top" button to enhance navigation and improve user experience on long pages.
+- New Widget: Post Info Widget.
+  Display metadata like author name, publish date, categories, tags, and more dynamically on your posts or pages.
+- New Widget: Breadcrumbs Widget.
+  Add navigational breadcrumbs to improve site navigation and guide users through your content hierarchy.
+- Improvement: Revamped User Interface.
+  Introduced a new, user-friendly UI similar to UAE Pro for easier management of widgets and features.
+- Improvement: Rebranded as UAE Lite from Elementor Header & Footer Builder: Packed with all your favorite features plus new widgets, functionality, and a sleek UI.
 
 = 1.6.47 =
 - Fix: This update addressed a security bug. Props to Wordfence for privately reporting it to our team. Please make sure you are using the latest version on your website.
