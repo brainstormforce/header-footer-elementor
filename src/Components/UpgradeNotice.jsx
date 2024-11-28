@@ -17,13 +17,18 @@ const UpgradeNotice = ({ onClose }) => {
                 onClick={onClose} // Call the passed onClose function when clicked
                 style={{
                     position: "absolute",
-                    top: "8px",
+                    top: "5px",
                     right: "10px",
                     background: "none",
                     border: "none",
                     fontSize: "24px",
                     cursor: "pointer",
                     color: "#000",
+                    width: "32px", // Explicit width
+                    height: "32px", // Explicit height for square dimensions
+                    display: "flex", // Flexbox for centering
+                    alignItems: "center", // Vertical centering
+                    justifyContent: "center", // Horizontal centering
                 }}
                 aria-label={__("Close Upgrade Notice", "header-footer-elementor")}
             >
