@@ -6,42 +6,40 @@ import { routes } from "../../admin/settings/routes";
 import { __ } from "@wordpress/i18n";
 
 const UltimateWidgets = () => {
-
     const featureData = [
         {
             id: 1,
             icon: "",
-            title: "Modal Popup",
+            title: __("Modal Popup", "header-footer-elementor"),
         },
         {
             id: 2,
             icon: "",
-            title: "Advanced Heading",
+            title: __("Advanced Heading", "header-footer-elementor"),
         },
         {
             id: 1,
             icon: "",
-            title: "Post Layouts",
+            title: __("Post Layouts", "header-footer-elementor"),
         },
         {
             id: 1,
             icon: "",
-            title: "Info Box",
+            title: __("Info Box", "header-footer-elementor"),
         },
         {
             id: 1,
             icon: "",
-            title: "Pricing Cards",
+            title: __("Pricing Cards", "header-footer-elementor"),
         },
         {
             id: 1,
             icon: "",
-            title: "Form Stylers and more...",
+            title: __("Form Stylers and more...", "header-footer-elementor"),
         },
     ];
 
     return (
-
         <div className="py-4">
             <Container
                 className="bg-background-primary gap-1 p-4 border-[0.5px] border-subtle rounded-xl shadow-sm"
@@ -50,11 +48,10 @@ const UltimateWidgets = () => {
                 justify="between"
                 gap="xs"
             >
-
                 <Container.Item className="flex flex-col justify-center items-center">
                     <img
                         src={`${hfeSettingsData.column_url}`}
-                        alt="Column Showcase"
+                        alt={__("Column Showcase", "header-footer-elementor")}
                         className="h-auto rounded w-1/2"
                     />
                 </Container.Item>
@@ -67,7 +64,7 @@ const UltimateWidgets = () => {
                             iconPosition="left"
                             size="xs"
                             tag="h6"
-                            title="Unlock Ultimate Features"
+                            title={__("Unlock Ultimate Features", "header-footer-elementor")}
                             className="text-xs font-semibold text-brand-primary-600"
                         />
                         <Title
@@ -75,12 +72,17 @@ const UltimateWidgets = () => {
                             icon={""}
                             iconPosition="left"
                             tag="h6"
-                            title="Create Ultimate Designs with Addons Pro!"
+                            title={__(
+                                "Create Ultimate Designs with Addons Pro!",
+                                "header-footer-elementor"
+                            )}
                             className="py-1 text-sm"
                         />
                         <p className="text-md m-0 text-text-secondary">
-                            Get access to advanced widgets and features to
-                            create the website that stands out!
+                            {__(
+                                "Get access to advanced widgets and features to create the website that stands out!",
+                                "header-footer-elementor"
+                            )}
                         </p>
                     </div>
                     <div className="grid grid-cols-2 grid-flow-row gap-1 my-4">
@@ -105,13 +107,13 @@ const UltimateWidgets = () => {
                             variant="secondary"
                             className="hfe-remove-ring"
                             onClick={() => {
-								window.open(
-									"https://ultimateelementor.com/pricing/?utm_source=uae-lite-FreevsPro&utm_medium=unlock-ultimate-feature&utm_campaign=uae-lite-upgrade",
-									"_blank"
-								);
-							}}
+                                window.open(
+                                    "https://ultimateelementor.com/pricing/?utm_source=uae-lite-FreevsPro&utm_medium=unlock-ultimate-feature&utm_campaign=uae-lite-upgrade",
+                                    "_blank"
+                                );
+                            }}
                         >
-                            Upgrade Now
+                            {__("Upgrade Now", "header-footer-elementor")}
                         </Button>
                         <Link className="text-black cursor-pointer" to={routes.upgrade.path}>
                             {__(
@@ -123,7 +125,7 @@ const UltimateWidgets = () => {
                 </Container.Item>
             </Container>
         </div>
-    )
-}
+    );
+};
 
-export default UltimateWidgets
+export default UltimateWidgets;
