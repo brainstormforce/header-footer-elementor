@@ -17,11 +17,11 @@ const UpgradeNotice = ({ onClose }) => {
                 onClick={onClose} // Call the passed onClose function when clicked
                 style={{
                     position: "absolute",
-                    top: "10px",
+                    top: "8px",
                     right: "10px",
                     background: "none",
                     border: "none",
-                    fontSize: "16px",
+                    fontSize: "24px",
                     cursor: "pointer",
                     color: "#000",
                 }}
