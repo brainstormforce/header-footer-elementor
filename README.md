@@ -141,11 +141,15 @@ Absolutely! You can design custom headers, footers, and other sections for WooCo
 ## Changelog ##
 
 ### 2.0.0 ###
-- New: Renamed the plugin to Ultimate Addons for Elementor Lite ( UAE Lite).
-- New: Post Info Widget
-- New: Breadcrumbs Widget
-- New: Scroll to Top extension added
-- Improvement: Revamped settings page UI/UX. A redesigned interface for better usability and seamless navigation.
+- New Feature: Scroll to Top Button. 
+  Add a dynamic "Scroll to Top" button to enhance navigation and improve user experience on long pages.
+- New Widget: Post Info Widget.
+  Display metadata like author name, publish date, categories, tags, and more dynamically on your posts or pages.
+- New Widget: Breadcrumbs Widget.
+  Add navigational breadcrumbs to improve site navigation and guide users through your content hierarchy.
+- Improvement: Revamped User Interface.
+  Introduced a new, user-friendly UI similar to UAE Pro for easier management of widgets and features.
+- Improvement: Rebranded as UAE Lite from Elementor Header & Footer Builder: Packed with all your favorite features plus new widgets, functionality, and a sleek UI.
 
 ### 1.6.47 ###
 - Fix: This update addressed a security bug. Props to Wordfence for privately reporting it to our team. Please make sure you are using the latest version on your website.
