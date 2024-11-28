@@ -1,70 +1,71 @@
 import React from "react";
 import { Container, Button } from "@bsf/force-ui";
 import { Check, X } from "lucide-react";
+import { __ } from "@wordpress/i18n";
 
 const FreevsPro = () => {
     const sections = [
         {
-            title: "Content Widgets",
+            title: __("Content Widgets", "header-footer-elementor"),
             items: [
-                { id: 1, content: "Breadcrumbs", iconFree: true, iconPro: true },
-                { id: 2, content: "Price List", iconFree: false, iconPro: true },
-                { id: 3, content: "Advanced Headings", iconFree: false, iconPro: true },
-                { id: 4, content: "Toggle Button", iconFree: false, iconPro: true },
-                { id: 5, content: "Business Hours", iconFree: false, iconPro: true },
-                { id: 6, content: "Google Map", iconFree: false, iconPro: true },
-                { id: 7, content: "Modal Popup", iconFree: false, iconPro: true },
-                { id: 8, content: "Image Gallery", iconFree: false, iconPro: true },
-                { id: 9, content: "Video Gallery", iconFree: false, iconPro: true },
+                { id: 1, content: __("Breadcrumbs", "header-footer-elementor"), iconFree: true, iconPro: true },
+                { id: 2, content: __("Price List", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 3, content: __("Advanced Headings", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 4, content: __("Toggle Button", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 5, content: __("Business Hours", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 6, content: __("Google Map", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 7, content: __("Modal Popup", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 8, content: __("Image Gallery", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 9, content: __("Video Gallery", "header-footer-elementor"), iconFree: false, iconPro: true },
             ],
         },
         {
-            title: "SEO Widgets",
+            title: __("SEO Widgets", "header-footer-elementor"),
             items: [
-                { id: 1, content: "Post Info", iconFree: true, iconPro: true },
-                { id: 2, content: "Business Reviews", iconFree: false, iconPro: true },
-                { id: 3, content: "How to", iconFree: false, iconPro: true },
-                { id: 4, content: "FAQ", iconFree: false, iconPro: true },
-                { id: 5, content: "Table of Contents", iconFree: false, iconPro: true },
+                { id: 1, content: __("Post Info", "header-footer-elementor"), iconFree: true, iconPro: true },
+                { id: 2, content: __("Business Reviews", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 3, content: __("How to", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 4, content: __("FAQ", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 5, content: __("Table of Contents", "header-footer-elementor"), iconFree: false, iconPro: true },
             ],
         },
         {
-            title: "Creative Features & Widgets",
+            title: __("Creative Features & Widgets", "header-footer-elementor"),
             items: [
-                { id: 1, content: "Scroll to Top", iconFree: true, iconPro: true },
-                { id: 2, content: "Image Hotspot", iconFree: false, iconPro: true },
-                { id: 3, content: "Content Timeline", iconFree: false, iconPro: true },
-                { id: 4, content: "Countdown Timer", iconFree: false, iconPro: true },
-                { id: 5, content: "Cross-site Copy Paste", iconFree: false, iconPro: true },
-                { id: 6, content: "Welcome Music", iconFree: false, iconPro: true },
-                { id: 7, content: "Conditional Display", iconFree: false, iconPro: true },
+                { id: 1, content: __("Scroll to Top", "header-footer-elementor"), iconFree: true, iconPro: true },
+                { id: 2, content: __("Image Hotspot", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 3, content: __("Content Timeline", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 4, content: __("Countdown Timer", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 5, content: __("Cross-site Copy Paste", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 6, content: __("Welcome Music", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 7, content: __("Conditional Display", "header-footer-elementor"), iconFree: false, iconPro: true },
             ],
         },
         {
-            title: "Form Integrations",
+            title: __("Form Integrations", "header-footer-elementor"),
             items: [
-                { id: 1, content: "Contact Form 7", iconFree: false, iconPro: true },
-                { id: 2, content: "Gravity Forms", iconFree: false, iconPro: true },
-                { id: 3, content: "WP Fluent", iconFree: false, iconPro: true },
-                { id: 4, content: "WP Forms", iconFree: false, iconPro: true },
+                { id: 1, content: __("Contact Form 7", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 2, content: __("Gravity Forms", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 3, content: __("WP Fluent", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 4, content: __("WP Forms", "header-footer-elementor"), iconFree: false, iconPro: true },
             ],
         },
         {
-            title: "Social Widgets",
+            title: __("Social Widgets", "header-footer-elementor"),
             items: [
-                { id: 1, content: "Instagram", iconFree: false, iconPro: true },
-                { id: 2, content: "X (Twitter)", iconFree: false, iconPro: true },
-                { id: 3, content: "Social Share", iconFree: false, iconPro: true },
+                { id: 1, content: __("Instagram", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 2, content: __("X (Twitter)", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 3, content: __("Social Share", "header-footer-elementor"), iconFree: false, iconPro: true },
             ],
         },
         {
-            title: "WooCommerce Widgets",
+            title: __("WooCommerce Widgets", "header-footer-elementor"),
             items: [
-                { id: 1, content: "Add To Cart", iconFree: false, iconPro: true },
-                { id: 2, content: "Categories", iconFree: false, iconPro: true },
-                { id: 3, content: "Checkout", iconFree: false, iconPro: true },
-                { id: 4, content: "Mini Cart", iconFree: false, iconPro: true },
-                { id: 5, content: "Products", iconFree: false, iconPro: true },
+                { id: 1, content: __("Add To Cart", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 2, content: __("Categories", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 3, content: __("Checkout", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 4, content: __("Mini Cart", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 5, content: __("Products", "header-footer-elementor"), iconFree: false, iconPro: true },
             ],
         },
     ];
@@ -78,7 +79,9 @@ const FreevsPro = () => {
                 key={item.id}
                 className="flex fle-row py-4 px-5 items-center h-4 justify-between rounded-lg shadow-container-item"
             >
-                <p className="text-sm text-text-secondary font-medium">{item.content}</p>
+                <p className="text-sm text-text-secondary font-medium">
+                    {item.content}
+                </p>
                 <div className="flex flex-row items-center" style={{ gap: "12rem" }}>
                     <p className="text-sm text-text-primary font-medium">
                         {renderIcon(item.iconFree)}
@@ -101,14 +104,16 @@ const FreevsPro = () => {
             >
                 <div className="flex flex-col">
                     <p className="m-0 text-xl font-semibold pt-4 text-text-primary">
-                        Free Vs Pro
+                        {__("Free Vs Pro", "header-footer-elementor")}
                     </p>
                     <p className="m-0 text-sm font-normal pt-1 text-text-secondary">
-                        UAE Pro offers 50+ widgets and features!
+                        {__("UAE Pro offers 50+ widgets and features!", "header-footer-elementor")}
                     </p>
                     <p className="m-0 text-sm font-normal pt-1 text-text-secondary">
-                        Compare the popular features/widgets to find the best option for
-                        your website.
+                        {__(
+                            "Compare the popular features/widgets to find the best option for your website.",
+                            "header-footer-elementor"
+                        )}
                     </p>
                 </div>
                 <div className="flex items-center gap-x-2 mr-7">
@@ -129,7 +134,7 @@ const FreevsPro = () => {
                             );
                         }}
                     >
-                        Get UAE Pro Now
+                        {__("Get UAE Pro Now", "header-footer-elementor")}
                     </Button>
                 </div>
             </div>
@@ -148,12 +153,14 @@ const FreevsPro = () => {
                                     className="flex flex-row items-center"
                                     style={{ gap: "12rem" }}
                                 >
-                                    <p className="text-sm text-text-primary font-medium">Free</p>
+                                    <p className="text-sm text-text-primary font-medium">
+                                        {__("Free", "header-footer-elementor")}
+                                    </p>
                                     <p
                                         className="text-sm text-text-primary font-medium"
                                         style={{ marginRight: "50px" }}
                                     >
-                                        Pro
+                                        {__("Pro", "header-footer-elementor")}
                                     </p>
                                 </div>
                             </div>

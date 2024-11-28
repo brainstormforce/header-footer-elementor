@@ -14,22 +14,22 @@ const ExploreTemplates = () => {
 		{
 			id: 1,
 			icon: "",
-			title: __( "250+ templates for every niche", "uael" ),
+			title: __( "250+ templates for every niche", "header-footer-elementor" ),
 		},
 		{
 			id: 2,
 			icon: "",
-			title: __( "Modern, timeless designs", "uael" ),
+			title: __( "Modern, timeless designs", "header-footer-elementor" ),
 		},
 		{
 			id: 3,
 			icon: "",
-			title: __( "Full design flexibility for easy customization", "uael" ),
+			title: __( "Full design flexibility for easy customization", "header-footer-elementor" ),
 		},
 		{
 			id: 4,
 			icon: "",
-			title: __( "100% responsive across all devices", "uael" ),
+			title: __( "100% responsive across all devices", "header-footer-elementor" ),
 		}
 	];
 
@@ -188,7 +188,7 @@ const ExploreTemplates = () => {
 							iconPosition="left"
 							size="xs"
 							tag="h6"
-							title={__("Design Your Website in Minutes", "uael")}
+							title={__("Design Your Website in Minutes", "header-footer-elementor")}
 							className="text-xs font-semibold text-brand-primary-600 mb-2"
 						/>
 						{/* Subtitle */}
@@ -197,7 +197,7 @@ const ExploreTemplates = () => {
 							icon=""
 							iconPosition="left"
 							tag="h6"
-							title={__("Build your website faster using our prebuilt templates", "uael")}
+							title={__("Build your website faster using our prebuilt templates", "header-footer-elementor")}
 							className="py-1 text-sm mb-2"
 						/>
 						{/* Paragraph Description */}

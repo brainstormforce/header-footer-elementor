@@ -66,7 +66,7 @@ const TemplateSection = () => {
 					"header-footer-elementor"
 				)}
 			/>
-			<p className="text-text-secondary text-text-tertiary mt-2 mb-2 text-sm">
+			<p className="text-text-secondary mt-2 mb-2 text-sm">
 				{__(
 					"Choose from our professionally designed websites to build your site faster, with easy customization options.",
 					"header-footer-elementor"

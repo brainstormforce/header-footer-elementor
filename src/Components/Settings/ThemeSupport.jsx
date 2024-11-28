@@ -60,12 +60,12 @@ const ThemeSupport = () => {
             const result = await response.json();
 
             if (result.success) {
-                toast.success("Settings saved successfully!");
+                toast.success(__('Settings saved successfully!', 'header-footer-elementor'));
             } else {
-                toast.error("Failed to save settings!");
+                toast.error(__('Failed to save settings!', 'header-footer-elementor'));
             }
         } catch (error) {
-            toast.error("Failed to save settings!");
+            toast.error(__('Failed to save settings!', 'header-footer-elementor'));
         }
     };
 
@@ -77,7 +77,7 @@ const ThemeSupport = () => {
                 iconPosition="right"
                 size="sm"
                 tag="h2"
-                title="Theme Support"
+                title={__('Theme Support', 'header-footer-elementor')}
             />
             <Container
                 align="stretch"
