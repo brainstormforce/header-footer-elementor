@@ -4,7 +4,6 @@ import { Container, Skeleton } from "@bsf/force-ui";
 import apiFetch from '@wordpress/api-fetch';
 import { __ } from '@wordpress/i18n';
 
-
 const ExtendWebsite = () => {
 
     const [plugins, setPlugins] = useState([]);
@@ -51,12 +50,11 @@ const ExtendWebsite = () => {
         return null;
     }
 
-
     return (
         <div className="rounded-lg bg-white w-full mb-6">
             <div className="flex items-center justify-between p-4" style={{ paddingBottom: '0' }}>
                 <p className="m-0 text-sm font-semibold text-text-primary">
-                    {__("Extend Your Website", "uael")}
+                    {__("Extend Your Website", "header-footer-elementor")}
                 </p>
                 <div className="flex items-center gap-x-2 mr-7"></div>
             </div>
@@ -106,4 +104,4 @@ const ExtendWebsite = () => {
     )
 }
 
-export default ExtendWebsite
+export default ExtendWebsite;
