@@ -3,7 +3,7 @@ import { Container, Title, Button, Dialog } from "@bsf/force-ui";
 import { __ } from '@wordpress/i18n';
 
 const VersionControl = () => {
-    
+
     const previousLiteVersions = hfeSettingsData.uaelite_versions;
 
     const liteVersionRef = useRef(previousLiteVersions ? previousLiteVersions[0].value : '');
@@ -37,7 +37,7 @@ const VersionControl = () => {
         try {
             // Parse the URL to ensure it's valid
             const url = new URL(rollbackUrl);
-            
+
             // Check if the URL's hostname matches your expected domain
             if (url.hostname === 'expected-domain.com') {
                 setOpenLitePopup(false);
@@ -108,7 +108,12 @@ const VersionControl = () => {
                                     borderRadius: '4px',
                                     height: '40px',
                                     width: '100px',
+                                    outline: 'none',       // Removes the default outline
+                                    boxShadow: 'none',
+                                    // marginTop: '16px'     // Removes the default box shadow
                                 }}
+                                onFocus={(e) => e.target.style.borderColor = '#6005FF'} // Apply focus color
+                                onBlur={(e) => e.target.style.borderColor = '#e0e0e0'}
                             >
                                 {previousLiteVersions.map((version) => (
                                     <option key={version.value} value={version.value}>
@@ -117,7 +122,7 @@ const VersionControl = () => {
                                 ))}
                             </select>
                         </div>
-                        
+
                         <div className="flex flex-col cursor-pointer">
                             <Dialog
                                 design="simple"
