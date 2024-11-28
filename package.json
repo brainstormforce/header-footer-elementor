@@ -1,6 +1,6 @@
 {
 		"name": "header-footer-elementor",
-		"version": "1.7.0",
+		"version": "2.0.0",
 		"main": "index.js",
 		"author": "Nikhil Chavan",
 		"volta": {
@@ -105,7 +105,9 @@
 				"env:stop": "wp-env stop",
 				"env:destroy": "wp-env destroy",
 				"env:reset-site": "wp-env clean all",
-				"env": "wp-env"
+				"env": "wp-env",
+				"build-package": "npm run build && grunt",
+				"release": "rm -rf header-footer-elementor && npm run build-package && grunt release"
 		},
 		"repository": {
 				"type": "git",
