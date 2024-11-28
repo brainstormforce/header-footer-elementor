@@ -76,7 +76,7 @@ class HFE_Settings_Page {
 					var menuItem = document.querySelector('a[href="ultimate-addons-pricing"]');
 					if (menuItem) {
 						menuItem.setAttribute('target', '_blank');
-						menuItem.setAttribute('href', 'https://ultimateelementor.com/pricing');
+						menuItem.setAttribute('href', 'https://ultimateelementor.com/pricing/?utm_source=uae-lite-settings&utm_medium=My-accounts&utm_campaign=uae-lite-upgrade');
 					}
 				});
 			</script>
