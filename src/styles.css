@@ -72,7 +72,10 @@ button.hfe-bulk-action-button {
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
-
+.hfe-tooltip-wrap {
+	width: 100%;
+    text-align: right;
+}
 .toplevel_page_hfe #wpcontent {
 	padding-left: 0;
 }
