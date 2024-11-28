@@ -156,7 +156,7 @@ const NavMenu = () => {
 									{__("Settings", "header-footer-elementor")}
 								</Link>
 								<Link
-									to={routes.settings.path}
+									to={routes.upgrade.path}
 									className={`${
 										isActive("upgrade")
 											? "active-link"
