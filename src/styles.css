@@ -113,6 +113,10 @@ input[type="radio"].hfe-radio-field:focus {
 	border-color: #6005ff;
 	box-shadow: 0 0 0 1px #6005ff;
 }
+.hfe-compare-section h6 {
+	font-size: 0.9rem !important;
+	font-weight: 500 !important;
+}
 @keyframes spin {
 	0% {
 		transform: rotate(0deg);

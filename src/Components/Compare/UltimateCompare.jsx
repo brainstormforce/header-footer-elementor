@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Title, Button } from "@bsf/force-ui";
 import { Zap, Check } from "lucide-react";
+import { __ } from '@wordpress/i18n';
 
 const UltimateCompare = () => {
 
@@ -76,8 +77,7 @@ const UltimateCompare = () => {
                             className="py-1 text-sm"
                         />
                         <p className="text-md m-0 text-text-secondary">
-                            Get access to advanced widgets and features to
-                            create the website that stands out!
+                            {__('Get access to advanced widgets and features to create the website that stands out!', 'uael')}
                         </p>
                     </div>
                     <div className="grid grid-cols-2 grid-flow-row gap-1 my-4">
@@ -89,10 +89,10 @@ const UltimateCompare = () => {
                                     <Check className="text-brand-primary-600 mr-1 h-3 w-3" />
                                 }
                                 iconPosition="left"
-                                size="xxs"
+                                size="xs"
                                 tag="h6"
                                 title={feature.title}
-                                className=""
+                                className="text-md m-0 text-text-secondary hfe-compare-section"
                             />
                         ))}
                     </div>
@@ -101,8 +101,12 @@ const UltimateCompare = () => {
                             iconPosition="right"
                             variant="secondary"
                             className=""
+                            style={{width: "100%"}}
+                            onClick={() => {
+                                window.open("https://ultimateelementor.com/pricing/?utm_source=uae-lite-free-vs-pro&utm_medium=My-accounts&utm_campaign=uae-lite-upgrade", '_blank');
+                            }}
                         >
-                            Upgrade Now
+                            {__('Upgrade Now', 'uael')}
                         </Button>
                     </div>
                 </Container.Item>

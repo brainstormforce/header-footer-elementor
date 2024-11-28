@@ -32,8 +32,8 @@ const MyAccount = () => {
                 </Container.Item>
                 <div className='flex items-center justify-between px-4 rounded-xl' style={{paddingTop: '6px' , paddingBottom: '6px', backgroundColor: "#F3F0FF"}}>
                     <span className="flex items-center gap-x-2 text-base font-semibold">
-                        Unlock Pro Features
-                        <p className='text-base font-normal'>Get access to advanced blocks and premium features.</p>
+                        {__('Unlock Pro Features', 'uael')}
+                        <p className='text-base font-normal'>{__('Get access to advanced blocks and premium features.', 'uael')}</p>
                     </span>
                     <Button
                             icon={<ArrowUpRight />}
@@ -50,7 +50,7 @@ const MyAccount = () => {
                                 window.open("https://ultimateelementor.com/pricing/?utm_source=uae-lite-settings&utm_medium=My-accounts&utm_campaign=uae-lite-upgrade", '_blank');
                             }}
                         >
-                            Upgrade now
+                            {__('Upgrade Now', 'uael')}
                         </Button>
                 </div>
             </Container>
