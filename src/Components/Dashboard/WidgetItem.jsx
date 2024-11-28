@@ -29,7 +29,7 @@ const WidgetItem = ({
         slug,
         demo_url,
         doc_url,
-        description
+        description,
         is_new
     } = widget
 

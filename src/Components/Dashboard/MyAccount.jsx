@@ -30,10 +30,10 @@ const MyAccount = () => {
                     <p className='text-base font-semibold m-0'>{__('License Key', 'header-footer-elementor')}</p>
                     <p className='text-sm font-normal m-0'>{__('You are using UAE Free version, no license key needed. ')}</p>
                 </Container.Item>
-                <div className='flex items-center gap-x-4 px-4 rounded-xl' style={{paddingTop: '6px' , paddingBottom: '6px', backgroundColor: "#F3F0FF"}}>
+                <div className='flex items-center justify-between px-4 rounded-xl' style={{paddingTop: '6px' , paddingBottom: '6px', backgroundColor: "#F3F0FF"}}>
                     <span className="flex items-center gap-x-2 text-sm font-semibold">
                         Unlock Pro Features
-                        <p className='text-sm font-normal'>Get access to advanced blocks and premium features.</p>
+                        <p className='text-sm font-normal'>Get access to advanced widgets and premium features.</p>
                     </span>
                     <Button
                             icon={<ArrowUpRight />}
@@ -43,6 +43,7 @@ const MyAccount = () => {
                                 color: '#6005FF',
                                 borderColor: '#6005FF',
                                 transition: 'color 0.3s ease, border-color 0.3s ease',
+                                fontSize: '16px',
                             }}
                             className="hfe-remove-ring text-[#6005FF]"
                             onClick={() => {
