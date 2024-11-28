@@ -2563,6 +2563,15 @@ div#hfe-settings-app {
     margin-top: 5px;
     color: #FFFFFF;
 }
+.hfe-radio-field:checked::before {
+	content: "";
+    border-radius: 50%;
+    width: 0.5rem;
+    height: 0.55rem;
+    margin: 0.1875rem;
+    background-color: #6005FF;
+    line-height: 1.14285714;
+}
 
 @keyframes spin {
 	0% {
