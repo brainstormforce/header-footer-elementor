@@ -93,7 +93,7 @@ const NavMenu = () => {
 	return (
 		<Topbar
 			className="hfe-nav-menu relative"
-			style={{ width: "unset", padding: "0.5rem", zIndex: "9" }}
+			style={{ width: "unset", padding: "0.5rem", zIndex: "9", paddingTop: "1rem" }}
 		>
 			<div className="flex flex-col lg:flex-row items-start md:items-center w-full">
 				{/* Top row on mobile: Logo and Nav menu */}
@@ -156,7 +156,7 @@ const NavMenu = () => {
 									{__("Settings", "header-footer-elementor")}
 								</Link>
 								<Link
-									to={routes.settings.path}
+									to={routes.upgrade.path}
 									className={`${
 										isActive("upgrade")
 											? "active-link"
@@ -306,7 +306,7 @@ const NavMenu = () => {
 						</Topbar.Item>
 						<Link to={routes.settings.path}>
 							<User
-								className="cursor-pointer"
+								className="cursor-pointer hfe-user-icon"
 								style={{ color: "black" }}
 							/>
 						</Link>

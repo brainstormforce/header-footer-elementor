@@ -91,6 +91,18 @@ const Settings = () => {
         localStorage.setItem('hfeSelectedItemId', selectedItem.id.toString());
     }, [selectedItem]);
 
+    useEffect(() => {
+        const params = new URLSearchParams(window.location.search);
+        const tab = params.get('tab');
+        if (tab) {
+            const itemId = Number(tab);
+            const item = items.find(item => item.id === itemId);
+            if (item) {
+                setSelectedItem(item);
+            }
+        }
+    }, []);
+
     const handleSelectItem = (item) => {
         setSelectedItem(item);
     };
