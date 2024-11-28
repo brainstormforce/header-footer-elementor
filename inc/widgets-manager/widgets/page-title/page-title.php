@@ -79,7 +79,7 @@ class Page_Title extends Common_Widget {
 	 * @return bool True for dynamic content, false for static content.
 	 */
 	protected function is_dynamic_content(): bool { // phpcs:ignore
-		return false;
+		return true;
 	}
 
 	/**
