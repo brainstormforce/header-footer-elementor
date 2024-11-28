@@ -100,7 +100,7 @@ const UltimateCompare = () => {
                         <Button
                             iconPosition="right"
                             variant="secondary"
-                            className=""
+                            className="hfe-remove-ring"
                             style={{width: "100%"}}
                             onClick={() => {
                                 window.open("https://ultimateelementor.com/pricing/?utm_source=uae-lite-free-vs-pro&utm_medium=My-accounts&utm_campaign=uae-lite-upgrade", '_blank');

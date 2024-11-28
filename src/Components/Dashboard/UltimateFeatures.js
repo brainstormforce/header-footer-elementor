@@ -1,6 +1,10 @@
 import React from "react";
 import { Container, Title, Button } from "@bsf/force-ui";
 import { Zap, Check } from "lucide-react";
+import { Link } from "../../router/index";
+import { routes } from "../../admin/settings/routes";
+import { __ } from "@wordpress/i18n";
+
 const UltimateFeatures = () => {
 	const featureData = [
 		{
@@ -43,7 +47,10 @@ const UltimateFeatures = () => {
 				justify="between"
 				gap="xs"
 			>
-				<Container.Item className="flex flex-col pt-6 pb-3 justify-between" style={{width:"65%"}}>
+				<Container.Item
+					className="flex flex-col pt-6 pb-3 justify-between"
+					style={{ width: "65%" }}
+				>
 					<div>
 						<Title
 							description=""
@@ -70,7 +77,7 @@ const UltimateFeatures = () => {
 					<div className="grid grid-cols-2 grid-flow-row gap-1 my-4">
 						{featureData.map((feature) => (
 							<Title
-							key={feature.id}
+								key={feature.id}
 								description=""
 								icon={
 									<Check className="text-brand-primary-600 mr-1 h-3 w-3" />
@@ -87,16 +94,34 @@ const UltimateFeatures = () => {
 						<Button
 							// iconPosition="right"
 							variant="secondary"
-							className=""
+							className="hfe-remove-ring"
+							onClick={() => {
+								window.open(
+									"https://ultimateelementor.com/pricing/?utm_source=uae-lite-dashboard&utm_medium=unlock-ultimate-feature&utm_campaign=uae-lite-upgrade",
+									"_blank"
+								);
+							}}
 						>
 							Upgrade Now
 						</Button>
-						<Button icon={""} iconPosition="right" variant="ghost">
+						<Link
+							className="text-black cursor-pointer"
+							to={routes.upgrade.path}
+						>
+							{__(
+								"Compare Free vs Pro",
+								"header-footer-elementor"
+							)}
+						</Link>
+						{/* <Button icon={""} iconPosition="right" variant="ghost">
 							Compare Free vs Pro
-						</Button>
+						</Button> */}
 					</div>
 				</Container.Item>
-				<Container.Item className="flex justify-center items-center" style={{width:"34%"}}>
+				<Container.Item
+					className="flex justify-center items-center"
+					style={{ width: "34%" }}
+				>
 					<img
 						src={`${hfeSettingsData.column_url}`}
 						alt="Column Showcase"
