@@ -21,19 +21,39 @@ const VersionControl = () => {
         setOpenLitePopup(false);
     };
 
+    const sanitizeInput = (input) => {
+        // Basic example of sanitizing the input to prevent unsafe characters in the URL
+        return encodeURIComponent(input);
+    };
+
     const onLiteContinueClick = () => {
+        // Sanitize the liteVersionSelect to ensure it is safe
+        const sanitizedVersion = sanitizeInput(liteVersionSelect);
         const rollbackUrl = hfeSettingsData.uaelite_rollback_url.replace(
             'VERSION',
-            liteVersionSelect
+            sanitizedVersion
         );
-        setOpenLitePopup(false);
-        window.location.href = rollbackUrl;
+
+        try {
+            // Parse the URL to ensure it's valid
+            const url = new URL(rollbackUrl);
+            
+            // Check if the URL's hostname matches your expected domain
+            if (url.hostname === 'expected-domain.com') {
+                setOpenLitePopup(false);
+                window.location.href = rollbackUrl; // Safe redirection
+            } else {
+                console.error('Invalid redirect URL');
+            }
+        } catch (error) {
+            console.error('Invalid URL format:', error);
+        }
     };
 
     const handleLiteVersionChange = (event) => {
         setLiteVersionSelect(event.target.value);
     }
-  
+
     return (
         <>
             <Title
@@ -139,4 +159,4 @@ const VersionControl = () => {
     );
 }
 
-export default VersionControl
+export default VersionControl;
