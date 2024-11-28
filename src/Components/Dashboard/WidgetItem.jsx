@@ -29,7 +29,8 @@ const WidgetItem = ({
         slug,
         demo_url,
         doc_url,
-        description
+        description,
+        is_new
     } = widget
 
     // Track the active state of the widget using React state
@@ -58,13 +59,11 @@ const WidgetItem = ({
             });
 
             if (data.success) {
-                console.log(`Widget ${isActive ? 'activated' : 'deactivated'}`);
                 setIsActive(isActive);  // Update the active state after the request
             } else if (data.error) {
-                console.log('AJAX request failed');
             }
         } catch (err) {
-            console.log("Error during AJAX request");
+            
         } finally {
             setIsLoading(false);  // Always stop the loading spinner
             processQueue();
@@ -128,33 +127,37 @@ const WidgetItem = ({
             <div className='flex flex-col w-full'>
                 <p className='text-sm font-medium text-text-primary pt-3 m-0 pb-1'>{title}</p>
                 <div className='flex items-center justify-between w-full'>
-                    <a href={demo_url} target="_blank" rel="noopener noreferrer" className='text-sm text-text-tertiary m-0 mb-1 hfe-remove-ring' style={{ textDecoration: 'none', lineHeight: '1.5rem' }}>
-                        {__('View Demo', 'header-footer-elementor')}
-                    </a>
-                    {/* <p className='text-sm text-text-tertiary m-0'>{viewDemo}</p> */}
-                    <Tooltip
-                        arrow
-                        content={
-                            <div>
-                                <span className='font-semibold block mb-2'>{title}</span>
-                                <span className='block mb-2'>{description}</span>
-                                <a href={doc_url} target="_blank" rel="noopener noreferrer" className='cursor-pointer' style={{ color: '#6005ff', textDecoration: 'none' }}>
-                                    <FileText style={{ color: '#6005ff', width: '11px', height: '11px', marginRight: '3px' }} />
-                                    {__('Read Documentation', 'header-footer-elementor')}
-                                </a>
-                            </div>
-                        }
-                        placement="bottom"
-                        title=""
-                        triggers={[
-                            'click'
-                        ]}
-                        variant="dark"
-                        size="xs"
-                    >
-                        <InfoIcon className='h-5 w-5' size={18} color="#A0A5B2" />
-                    </Tooltip>
-
+                    {demo_url && (
+                        <a href={demo_url} target="_blank" rel="noopener noreferrer" className='text-sm text-text-tertiary m-0 mb-1 hfe-remove-ring' style={{ textDecoration: 'none', lineHeight: '1.5rem' }}>
+                            {__('View Demo', 'header-footer-elementor')}
+                        </a>
+                    )}
+                    <div className={`${!demo_url ? 'hfe-tooltip-wrap' : ''}`}>
+                        <Tooltip
+                            arrow
+                            content={
+                                <div>
+                                    <span className='font-semibold block mb-2'>{title}</span>
+                                    <span className='block mb-2'>{description}</span>
+                                    {doc_url && (
+                                        <a href={doc_url} target="_blank" rel="noopener noreferrer" className='cursor-pointer' style={{ color: '#6005ff', textDecoration: 'none' }}>
+                                            <FileText style={{ color: '#6005ff', width: '11px', height: '11px', marginRight: '3px' }} />
+                                            {__('Read Documentation', 'header-footer-elementor')}
+                                        </a>
+                                    )}
+                                </div>
+                            }
+                            placement="bottom"
+                            title=""
+                            triggers={[
+                                'click'
+                            ]}
+                            variant="dark"
+                            size="xs"
+                        >
+                            <InfoIcon className='h-5 w-5' size={18} color="#A0A5B2" />
+                        </Tooltip>
+                    </div>
                 </div>
             </div>
         </Container>

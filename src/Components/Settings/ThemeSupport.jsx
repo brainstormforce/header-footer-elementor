@@ -111,7 +111,7 @@ const ThemeSupport = () => {
                                 id={item.id}
                                 value={item.value}
                                 type='radio'
-                                className='mt-1 cursor-pointer'
+                                className='mt-1 cursor-pointer hfe-radio-field'
                                 name="theme-support-option" // Group radio buttons
                                 onChange={handleRadioChange} // Track the change
                                 checked={selectedOption === item.value} // Controlled input
