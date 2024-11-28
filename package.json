@@ -105,7 +105,9 @@
 				"env:stop": "wp-env stop",
 				"env:destroy": "wp-env destroy",
 				"env:reset-site": "wp-env clean all",
-				"env": "wp-env"
+				"env": "wp-env",
+				"build-package": "npm run build && grunt",
+				"release": "rm -rf header-footer-elementor && npm run build-package && grunt release"
 		},
 		"repository": {
 				"type": "git",

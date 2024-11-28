@@ -37,3 +37,6 @@ package-lock.json
 .wordpress-org
 .eslintrc
 .wp-env.json
+jsconfig.json
+webpack.config.js
+src
