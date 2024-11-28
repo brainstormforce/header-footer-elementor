@@ -197,7 +197,7 @@ const ExtendWebsiteWidget = ({
                 <div className='flex items-center gap-x-2'>
                     {isFree && (
                         <Badge
-                            label={__("Free", "uael")}
+                            label={__("Free", "header-footer-elementor")}
                             size="xs"
                             type="pill"
                             variant="green"
