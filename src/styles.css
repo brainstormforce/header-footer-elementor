@@ -109,7 +109,10 @@ input[type="radio"].hfe-radio-field:checked::before {
     background-color: #6005FF;
     line-height: 1.14285714;
 }
-
+input[type="radio"].hfe-radio-field:focus {
+	border-color: #6005ff;
+	box-shadow: 0 0 0 1px #6005ff;
+}
 @keyframes spin {
 	0% {
 		transform: rotate(0deg);
@@ -176,10 +179,5 @@ input[type="radio"].hfe-radio-field:checked::before {
 		width: 0.5rem !important;
 		height: 0.5rem !important;
 		margin: 0.18rem !important;
-	}
-
-	input[type="radio"].hfe-radio-field:focus {
-		border-color: #6005ff;
-		box-shadow: 0 0 0 1px #6005ff;
 	}
 }
