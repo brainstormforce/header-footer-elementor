@@ -23,10 +23,10 @@ From crafting custom headers and footers to adding interactive design elements l
 ---
 
 
-### What Can UAE Lite Do for You?  
+### **What Can UAE Lite Do for You?**  
 
 
-#### Design Eye-Catching Headers and Footers 
+#### ** Design Eye-Catching Headers and Footers**  
 Easily create custom headers and footers that perfectly match your brand. Use Elementor’s drag-and-drop builder to add logos, menus, and design elements, and **choose where they appear** – on the homepage, blog pages, or across your entire site.  
 
 
@@ -45,18 +45,18 @@ Save time with built-in widgets designed to handle common design needs. From log
 - **Search**: Add a search box to your design with various layout and styling options.
 
 
-#### Place Elementor Templates Anywhere 
+#### ** Place Elementor Templates Anywhere**  
 Want to add a unique section, call-to-action, or custom block anywhere on your site? UAE Lite lets you design templates with Elementor and place them wherever you like with simple shortcodes.  
 
 
-#### Go Beyond with the ‘Before Footer’ Template 
+#### ** Go Beyond with the ‘Before Footer’ Template**  
 Enhance your footer designs with an extra section above the footer! Use it to showcase announcements, promotions, or newsletter signups.  
 
 
 ---
 
 
-### Who Is UAE Lite For?  
+### **Who Is UAE Lite For?**  
 UAE Lite is perfect for:  
 - **Bloggers**: Showcase posts beautifully with Post Info and custom headers.  
 - **Small Business Owners**: Build a professional-looking website without hiring a designer.  
@@ -103,7 +103,7 @@ many more that you’d love.
 ---
 
 
-### More Tools to Enhance Your WordPress Website  
+### **More Tools to Enhance Your WordPress Website**  
 If you love UAE Lite, you’ll love our other products too:  
 - **Astra**: The fastest, most flexible WordPress theme – perfect for any type of website.  
 - **Starter Templates**: Choose from hundreds of ready-to-use website designs or use AI to build a site tailored to your needs.  
@@ -116,15 +116,15 @@ If you love UAE Lite, you’ll love our other products too:
 
 
 ## Frequently Asked Questions ##
-### 1. Can I use UAE Lite with any WordPress theme?  
+### **1. Can I use UAE Lite with any WordPress theme?**  
 Yes! UAE Lite works seamlessly with all themes. If needed, you can enable theme support manually under UAE > Theme Support.  
 
 
-### 2. What’s the difference between UAE Lite and UAE Pro?  
+### **2. What’s the difference between UAE Lite and UAE Pro?**  
 UAE Lite offers essential tools to get started, while UAE Pro unlocks advanced widgets, dynamic content, and premium features for professionals.  
 
 
-### 3. Can I use UAE Lite with WooCommerce?  
+### **3. Can I use UAE Lite with WooCommerce?**  
 Absolutely! You can design custom headers, footers, and other sections for WooCommerce pages with UAE Lite.  
 
 
