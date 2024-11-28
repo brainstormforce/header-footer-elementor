@@ -30,7 +30,7 @@ From crafting custom headers and footers to adding interactive design elements l
 Easily create custom headers and footers that perfectly match your brand. Use Elementor’s drag-and-drop builder to add logos, menus, and design elements, and **choose where they appear** – on the homepage, blog pages, or across your entire site.  
 
 
-#### ** Inbuilt Widgets for Speedy Design That Visitors Love**  
+#### Inbuilt Widgets for Speedy Design That Visitors Love 
 Save time with built-in widgets designed to handle common design needs. From logos and navigation menus to copyright notices and search bars, UAE Lite has you covered:  
 - **Post Info**: Automatically display key post details like author, publish date, time, and categories – a must-have for blogs and SEO optimization.  
 - **Breadcrumbs**: Help visitors navigate your site with a dynamic path display.  
