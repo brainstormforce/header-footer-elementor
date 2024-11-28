@@ -6,26 +6,26 @@ import toast, { Toaster } from 'react-hot-toast';
 const radioData = [
     {
         id: "1",
-        title: __( 'Option 1 (Recommended)', 'header-footer-elementor' ),
-        description: __( "This option will automatically replace your theme's header and footer files with custom templates from the plugin. It works with most themes and is selected by default.", "header-footer-elementor" ),
+        title: __('Option 1 (Recommended)', 'header-footer-elementor'),
+        description: __("This option will automatically replace your theme's header and footer files with custom templates from the plugin. It works with most themes and is selected by default.", "header-footer-elementor"),
         value: "1"
     },
     {
         id: "2",
-        title: __( 'Option 2', 'header-footer-elementor' ),
-        description: __( "This option will automatically replace your theme's header and footer files with custom templates from the plugin. It works with most themes and is selected by default.", "header-footer-elementor" ),
+        title: __('Option 2', 'header-footer-elementor'),
+        description: __("This option will automatically replace your theme's header and footer files with custom templates from the plugin. It works with most themes and is selected by default.", "header-footer-elementor"),
         value: "2"
     }
 ];
 
 const ThemeSupport = () => {
 
-    if ( "no" === hfeSettingsData.show_theme_support ) {
+    if ("no" === hfeSettingsData.show_theme_support) {
         return null;
     }
 
     // State to store the selected radio option
-    const [selectedOption, setSelectedOption] = useState( hfeSettingsData.theme_option );
+    const [selectedOption, setSelectedOption] = useState(hfeSettingsData.theme_option);
     const [isInitialLoad, setIsInitialLoad] = useState(true);
 
     useEffect(() => {
@@ -45,7 +45,7 @@ const ThemeSupport = () => {
     // Function to save the selected option.
     const saveOption = async (option) => {
         try {
-            const response = await fetch( hfe_admin_data.ajax_url, {
+            const response = await fetch(hfe_admin_data.ajax_url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
@@ -92,12 +92,12 @@ const ThemeSupport = () => {
                 }}
             >
                 <Container.Item className="flex flex-col space-y-1">
-                    <p className='text-base font-semibold m-0'>{__( 'Select Option to Add Theme Support', 'header-footer-elementor' )}</p>
+                    <p className='text-base font-semibold m-0'>{__('Select Option to Add Theme Support', 'header-footer-elementor')}</p>
                     <p className='text-sm font-normal m-0'>
-                    {__(
-                        `To ensure compatibility between the header/footer and your theme, please choose one of the following options to enable theme support:`,
-                        'header-footer-elementor'
-                    )}
+                        {__(
+                            `To ensure compatibility between the header/footer and your theme, please choose one of the following options to enable theme support:`,
+                            'header-footer-elementor'
+                        )}
                     </p>
                 </Container.Item>
                 <Container.Item
@@ -131,11 +131,12 @@ const ThemeSupport = () => {
                     ))}
                 </Container.Item>
 
-                <div className='flex items-center p-4 border rounded-md text-start' style={{
-                    height: "44px",
+                <div className='flex items-center p-4 border rounded-lg text-start' style={{
+                    paddingTop: '16px',
+                    paddingBottom: '16px',
                     backgroundColor: "#F3F0FF",
                 }}>
-                   <p className='m-0'>
+                    <p className='m-0 text-sm'>
                         <strong>{__('Note:', 'header-footer-elementor')}</strong> {__('If neither option works, please contact your theme author to add support for this plugin.', 'header-footer-elementor')}
                     </p>
                 </div>

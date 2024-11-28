@@ -519,8 +519,8 @@ class HFE_Settings_Page {
 			// Add the Settings Submenu.
 			add_submenu_page(
 				$menu_slug,
-				__( 'Upgrade', 'header-footer-elementor' ),
-				__( 'Upgrade', 'header-footer-elementor' ),
+				__( 'Free vs Pro', 'header-footer-elementor' ),
+				__( 'Free vs Pro', 'header-footer-elementor' ),
 				$capability,
 				$menu_slug . '#upgrade',
 				[ $this, 'render' ],
@@ -529,8 +529,8 @@ class HFE_Settings_Page {
 
 		add_submenu_page(
 			$menu_slug,
-			__( 'Get Ultimate Addons', 'header-footer-elementor' ),
-			__( 'Get Ultimate Addons', 'header-footer-elementor' ),
+			__( 'Get Ultimate Elementor', 'header-footer-elementor' ),
+			__( 'Get Ultimate Elementor', 'header-footer-elementor' ),
 			$capability,
 			'ultimate-addons-pricing',
 			'',

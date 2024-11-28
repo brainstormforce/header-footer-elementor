@@ -2487,7 +2487,7 @@
 	top: -15%;
 }
 #hfe-settings-app .gap-2 {
-    gap: 1.2rem;
+	gap: 1.2rem;
 }
 .hfe-remove-ring input[type="checkbox"],
 .hfe-remove-ring a,
@@ -2511,13 +2511,13 @@
 	padding: 15px 25px;
 }
 button.hfe-plugin-activated {
-	color: #16A34A;
+	color: #16a34a;
 }
 button.hfe-bulk-action-button {
 	width: 150px;
 }
 .hfe-subtitle h2 {
-	font-size: 0.90rem;
+	font-size: 0.9rem;
 }
 .hfe-65-width {
 	width: 65%;
@@ -2549,30 +2549,33 @@ div#hfe-settings-app {
 }
 #toplevel_page_hfe .wp-submenu li.wp-first-item::after,
 #toplevel_page_hfe .wp-submenu li:nth-last-child(3)::after {
-    content: "";
-    border-bottom: 1px solid rgba(255, 255, 255, .2);
-    display: block;
-    float: left;
-    margin: 8px 0;
-    width: 100%;
+	content: "";
+	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+	display: block;
+	float: left;
+	margin: 8px 0;
+	width: 100%;
 }
 #toplevel_page_hfe .wp-submenu li:last-child a {
-    background: #00A32A;
-    padding-top: 8px;
-    padding-bottom: 10px;
-    margin-top: 5px;
-    color: #FFFFFF;
+	background: #00a32a;
+	padding-top: 8px;
+	padding-bottom: 10px;
+	margin-top: 5px;
+	color: #ffffff;
 }
-.hfe-radio-field:checked::before {
+input[type="radio"].hfe-radio-field:checked::before {
 	content: "";
     border-radius: 50%;
     width: 0.5rem;
-    height: 0.55rem;
+    height: 0.5rem;
     margin: 0.1875rem;
     background-color: #6005FF;
     line-height: 1.14285714;
 }
-
+input[type="radio"].hfe-radio-field:focus {
+	border-color: #6005ff;
+	box-shadow: 0 0 0 1px #6005ff;
+}
 @keyframes spin {
 	0% {
 		transform: rotate(0deg);
@@ -2637,8 +2640,8 @@ div#hfe-settings-app {
 	}
 	.hfe-radio-option:checked:before {
 		width: 0.5rem !important;
-        height: 0.5rem !important;
-        margin: 0.18rem !important;
+		height: 0.5rem !important;
+		margin: 0.18rem !important;
 	}
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .file\:border-0::file-selector-button{
