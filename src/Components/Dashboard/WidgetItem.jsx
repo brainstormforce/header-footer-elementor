@@ -30,6 +30,7 @@ const WidgetItem = ({
         demo_url,
         doc_url,
         description
+        is_new
     } = widget
 
     // Track the active state of the widget using React state
