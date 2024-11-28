@@ -1,15 +1,19 @@
 import { Container } from "@bsf/force-ui";
-import UpgradeNotice from '@components/UpgradeNotice'
-import NavMenu from '@components/NavMenu'
-import React from 'react'
-import Widgets from './Widgets'
-import TemplateSection from './TemplateSection'
-import QuickAccess from './QuickAccess'
-import WelcomeContainer from './WelcomeContainer'
-import UltimateFeatures from './UltimateFeatures'
-import ExtendWebsite from './ExtendWebsite'
+import ExtendWebsite from "@components/Dashboard/ExtendWebsite";
+import QuickAccess from "@components/Dashboard/QuickAccess";
+import TemplateSection from "@components/Dashboard/TemplateSection";
+import UltimateFeatures from "@components/Dashboard/UltimateFeatures";
+import WelcomeContainer from "@components/Dashboard/WelcomeContainer";
+import Widgets from "@components/Dashboard/Widgets";
+import NavMenu from "@components/NavMenu";
+import UpgradeNotice from "@components/UpgradeNotice";
+import UltimateWidgets from "@components/Widgets/UltimateWidgets";
 
-const Dashboard = () => {
+import React from 'react'
+import FreevsPro from "./FreevsPro";
+
+
+const Upgrade = () => {
     return (
         <>
             <UpgradeNotice />
@@ -32,16 +36,14 @@ const Dashboard = () => {
                         order="none"
                         shrink={0}
                     >
-                        <WelcomeContainer />
-                        <Widgets />
-                        <UltimateFeatures />
+                        <FreevsPro/>
                     </Container.Item>
                     <Container.Item 
                         className="p-2 w-full hfe-35-width"
                         shrink={1}
                     >
+                        <UltimateWidgets />
                         <ExtendWebsite />
-                        <TemplateSection />
                         <QuickAccess />
                     </Container.Item>
                 </Container>
@@ -50,4 +52,4 @@ const Dashboard = () => {
     )
 }
 
-export default Dashboard
+export default Upgrade
