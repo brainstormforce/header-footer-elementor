@@ -250,7 +250,7 @@ const NavMenu = () => {
 											style={{ color: "black" }}
 											onClick={() =>
 												handleRedirect(
-													"https://brainstormforce.slack.com/archives/D06EH3FT0S3/p1732795874743949"
+													"https://ultimateelementor.com/docs/getting-started-with-ultimate-addons-for-elementor-lite/"
 												)
 											}
 										>
