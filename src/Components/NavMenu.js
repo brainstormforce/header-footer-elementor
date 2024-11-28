@@ -306,7 +306,7 @@ const NavMenu = () => {
 						</Topbar.Item>
 						<Link to={routes.settings.path}>
 							<User
-								className="cursor-pointer"
+								className="cursor-pointer hfe-user-icon"
 								style={{ color: "black" }}
 							/>
 						</Link>
