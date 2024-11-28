@@ -40,3 +40,6 @@ package-lock.json
 jsconfig.json
 webpack.config.js
 src
+.babelrc
+.eslintrc.js
+.snyk
