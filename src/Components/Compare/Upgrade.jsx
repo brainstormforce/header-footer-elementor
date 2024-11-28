@@ -1,14 +1,8 @@
 import { Container } from "@bsf/force-ui";
 import ExtendWebsite from "@components/Dashboard/ExtendWebsite";
 import QuickAccess from "@components/Dashboard/QuickAccess";
-import TemplateSection from "@components/Dashboard/TemplateSection";
-import UltimateFeatures from "@components/Dashboard/UltimateFeatures";
-import WelcomeContainer from "@components/Dashboard/WelcomeContainer";
-import Widgets from "@components/Dashboard/Widgets";
 import NavMenu from "@components/NavMenu";
 import UpgradeNotice from "@components/UpgradeNotice";
-import UltimateWidgets from "@components/Widgets/UltimateWidgets";
-
 import React from 'react'
 import FreevsPro from "./FreevsPro";
 import UltimateCompare from "./UltimateCompare";
@@ -17,7 +11,6 @@ import UltimateCompare from "./UltimateCompare";
 const Upgrade = () => {
     return (
         <>
-            <UpgradeNotice />
             <NavMenu />
             <div>
                 <Container
@@ -37,9 +30,9 @@ const Upgrade = () => {
                         order="none"
                         shrink={0}
                     >
-                        <FreevsPro/>
+                        <FreevsPro />
                     </Container.Item>
-                    <Container.Item 
+                    <Container.Item
                         className="p-2 w-full hfe-35-width"
                         shrink={1}
                     >

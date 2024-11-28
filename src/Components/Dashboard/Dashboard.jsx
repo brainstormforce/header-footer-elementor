@@ -1,5 +1,4 @@
 import { Container } from "@bsf/force-ui";
-import UpgradeNotice from '@components/UpgradeNotice'
 import NavMenu from '@components/NavMenu'
 import React from 'react'
 import Widgets from './Widgets'
@@ -12,7 +11,6 @@ import ExtendWebsite from './ExtendWebsite'
 const Dashboard = () => {
     return (
         <>
-            <UpgradeNotice />
             <NavMenu />
             <div>
                 <Container
