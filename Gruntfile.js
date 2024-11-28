@@ -187,6 +187,8 @@ module.exports = function( grunt ) {
 	grunt.registerTask( 'readme', ['wp_readme_to_markdown'] );
 	grunt.registerTask( 'release', ['clean:zip', 'copy', 'compress', 'clean:main'] );
 
+	grunt.registerTask('default', ['clean:zip', 'copy', 'compress', 'clean:main']);
+
 	// Bump Version - `grunt version-bump --ver=<version-number>`
     grunt.registerTask('version-bump', function (ver) {
 
