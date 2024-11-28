@@ -93,7 +93,7 @@ const NavMenu = () => {
 	return (
 		<Topbar
 			className="hfe-nav-menu relative"
-			style={{ width: "unset", padding: "0.5rem", zIndex: "9" }}
+			style={{ width: "unset", padding: "0.5rem", zIndex: "9", paddingTop: "1rem" }}
 		>
 			<div className="flex flex-col lg:flex-row items-start md:items-center w-full">
 				{/* Top row on mobile: Logo and Nav menu */}
