@@ -36,6 +36,7 @@ class HFE_Settings_Page {
 	 */
 	public function __construct() {
 
+		add_action( 'admin_post_uaelite_rollback', [ $this, 'post_uaelite_rollback' ] );
 		if ( HFE_Helper::is_pro_active() ) {
 			return;
 		}
@@ -44,7 +45,6 @@ class HFE_Settings_Page {
 			add_action( 'admin_menu', [ $this, 'hfe_register_settings_page' ] );
 		}
 		add_action( 'admin_init', [ $this, 'hfe_admin_init' ] );
-		add_action( 'admin_post_uaelite_rollback', [ $this, 'post_uaelite_rollback' ] );
 		add_filter( 'views_edit-elementor-hf', [ $this, 'hfe_settings' ], 10, 1 );
 		add_filter( 'admin_footer_text', [ $this, 'admin_footer_text' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
