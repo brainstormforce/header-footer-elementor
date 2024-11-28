@@ -4,7 +4,7 @@
 **Requires at least:** 4.4  
 **Requires PHP:** 7.4  
 **Tested up to:** 6.7  
-**Stable tag:** 1.7.0  
+**Stable tag:** 2.0.0  
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -140,10 +140,12 @@ Absolutely! You can design custom headers, footers, and other sections for WooCo
 
 ## Changelog ##
 
-### 1.7.0 ###
+### 2.0.0 ###
+- New: Renamed the plugin to Ultimate Addons for Elementor Lite ( UAE Lite).
 - New: Post Info Widget
 - New: Breadcrumbs Widget
 - New: Scroll to Top extension added
+- Improvement: Revamped settings page UI/UX. A redesigned interface for better usability and seamless navigation.
 
 ### 1.6.47 ###
 - Fix: This update addressed a security bug. Props to Wordfence for privately reporting it to our team. Please make sure you are using the latest version on your website.
