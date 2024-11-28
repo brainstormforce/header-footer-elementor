@@ -1,14 +1,19 @@
-import NavMenu from '@components/NavMenu'
-import UpgradeNotice from '@components/UpgradeNotice'
 import { Container } from "@bsf/force-ui";
-import React from 'react'
-import ExtendWebsite from '@components/Dashboard/ExtendWebsite';
-import TemplateSection from '@components/Dashboard/TemplateSection';
-import QuickAccess from '@components/Dashboard/QuickAccess';
-import UltimateWidgets from './UltimateWidgets';
-import FeatureWidgets from './Features/FeatureWidgets'
+import ExtendWebsite from "@components/Dashboard/ExtendWebsite";
+import QuickAccess from "@components/Dashboard/QuickAccess";
+import TemplateSection from "@components/Dashboard/TemplateSection";
+import UltimateFeatures from "@components/Dashboard/UltimateFeatures";
+import WelcomeContainer from "@components/Dashboard/WelcomeContainer";
+import Widgets from "@components/Dashboard/Widgets";
+import NavMenu from "@components/NavMenu";
+import UpgradeNotice from "@components/UpgradeNotice";
+import UltimateWidgets from "@components/Widgets/UltimateWidgets";
 
-const Features = () => {
+import React from 'react'
+import FreevsPro from "./FreevsPro";
+
+
+const Upgrade = () => {
     return (
         <>
             <UpgradeNotice />
@@ -16,7 +21,7 @@ const Features = () => {
             <div>
                 <Container
                     align="stretch"
-                    className="p-6 flex flex-col lg:flex-row box-border"
+                    className="p-6 flex-col lg:flex-row box-border"
                     containerType="flex"
                     direction="row"
                     gap="sm"
@@ -29,18 +34,17 @@ const Features = () => {
                         className="p-2 hfe-65-width"
                         alignSelf="auto"
                         order="none"
-                        shrink={1}
+                        shrink={0}
                     >
-                        <FeatureWidgets />
+                        <FreevsPro/>
                     </Container.Item>
-                    <Container.Item
-                        className="p-2 hfe-35-width"
+                    <Container.Item 
+                        className="p-2 w-full hfe-35-width"
                         shrink={1}
                     >
-                        <ExtendWebsite />
-                        <TemplateSection />
-                        <QuickAccess />
                         <UltimateWidgets />
+                        <ExtendWebsite />
+                        <QuickAccess />
                     </Container.Item>
                 </Container>
             </div>
@@ -48,4 +52,4 @@ const Features = () => {
     )
 }
 
-export default Features
+export default Upgrade

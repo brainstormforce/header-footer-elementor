@@ -516,6 +516,17 @@ class HFE_Settings_Page {
 			9
 		);
 
+			// Add the Settings Submenu.
+			add_submenu_page(
+				$menu_slug,
+				__( 'Upgrade', 'header-footer-elementor' ),
+				__( 'Upgrade', 'header-footer-elementor' ),
+				$capability,
+				$menu_slug . '#upgrade',
+				[ $this, 'render' ],
+				9
+			);
+
 		add_submenu_page(
 			$menu_slug,
 			__( 'Get Ultimate Addons', 'header-footer-elementor' ),

@@ -155,6 +155,17 @@ const NavMenu = () => {
 								>
 									{__("Settings", "header-footer-elementor")}
 								</Link>
+								<Link
+									to={routes.settings.path}
+									className={`${
+										isActive("upgrade")
+											? "active-link"
+											: ""
+									}`}
+									style={linkStyle("upgrade")}
+								>
+									{__("Upgrade", "header-footer-elementor")}
+								</Link>
 							</nav>
 						</Topbar.Item>
 						<Topbar.Item>
