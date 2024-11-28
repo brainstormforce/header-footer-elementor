@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { Container } from "@bsf/force-ui";
-import UpgradeNotice from '@components/UpgradeNotice'
 import Sidebar from './Sidebar';
 import Content from './Content';
 import NavMenu from '@components/NavMenu';
@@ -113,7 +112,6 @@ const Settings = () => {
 
     return (
         <>
-            <UpgradeNotice />
             <NavMenu onSettingsTabClick={handleSettingsTabClick} />
             <div className="">
                 <Container align="stretch" className="p-1 flex-col lg:flex-row hfe-settings-page" containerType="flex" direction="row" gap="sm" justify="start" style={{ height: "100%" }}>
