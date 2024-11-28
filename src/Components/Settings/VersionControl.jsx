@@ -21,33 +21,13 @@ const VersionControl = () => {
         setOpenLitePopup(false);
     };
 
-    const sanitizeInput = (input) => {
-        // Basic example of sanitizing the input to prevent unsafe characters in the URL
-        return encodeURIComponent(input);
-    };
-
     const onLiteContinueClick = () => {
-        // Sanitize the liteVersionSelect to ensure it is safe
-        const sanitizedVersion = sanitizeInput(liteVersionSelect);
         const rollbackUrl = hfeSettingsData.uaelite_rollback_url.replace(
             'VERSION',
-            sanitizedVersion
+            liteVersionSelect
         );
-
-        try {
-            // Parse the URL to ensure it's valid
-            const url = new URL(rollbackUrl);
-
-            // Check if the URL's hostname matches your expected domain
-            if (url.hostname === 'expected-domain.com') {
-                setOpenLitePopup(false);
-                window.location.href = rollbackUrl; // Safe redirection
-            } else {
-                console.error('Invalid redirect URL');
-            }
-        } catch (error) {
-            console.error('Invalid URL format:', error);
-        }
+        setOpenLitePopup(false);
+        window.location.href = rollbackUrl;
     };
 
     const handleLiteVersionChange = (event) => {
@@ -113,7 +93,6 @@ const VersionControl = () => {
                                     // marginTop: '16px'     // Removes the default box shadow
                                 }}
                                 onFocus={(e) => e.target.style.borderColor = '#6005FF'} // Apply focus color
-                                onBlur={(e) => e.target.style.borderColor = '#e0e0e0'}
                             >
                                 {previousLiteVersions.map((version) => (
                                     <option key={version.value} value={version.value}>
