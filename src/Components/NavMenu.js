@@ -250,7 +250,7 @@ const NavMenu = () => {
 											style={{ color: "black" }}
 											onClick={() =>
 												handleRedirect(
-													"https://ultimateelementor.com/docs/getting-started-uael/"
+													"https://brainstormforce.slack.com/archives/D06EH3FT0S3/p1732795874743949"
 												)
 											}
 										>
