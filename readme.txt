@@ -1,10 +1,10 @@
 === Ultimate Addons for Elementor Lite (UAE Lite) ===
 Contributors: @brainstormforce, @nikschavan, @pratikchaskar
-Tags: elementor, header footer builder, breadcrumbs, post meta, widgets, scroll to top
+Tags: elementor, header footer builder, breadcrumbs, post meta, widgets
 Requires at least: 4.4
 Requires PHP: 7.4
 Tested up to: 6.7
-Stable tag: 2.0.0
+Stable tag: 2.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -140,6 +140,9 @@ Absolutely! You can design custom headers, footers, and other sections for WooCo
 5. **Theme Compatibility**: Works flawlessly with any theme.  
 
 == Changelog ==
+
+= 2.0.1 =
+- Fix: Conflict with site customizer style.
 
 = 2.0.0 =
 - New Feature: Scroll to Top Button. 
