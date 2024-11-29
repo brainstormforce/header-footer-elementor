@@ -210,21 +210,6 @@ class HFE_Settings_Page {
 		$uae_logo   = HFE_URL . 'assets/images/settings/dashboard-logo.svg';
 		$white_logo = HFE_URL . 'assets/images/settings/white-logo.svg';
 
-		if ( '' !== $uae_logo && '' !== $white_logo ) {
-			echo '<style>
-				#toplevel_page_hfe .wp-menu-image {
-					background-image: url( ' . esc_url( $uae_logo ) . ' ) !important;
-					background-size: 23px 34px !important;
-					background-repeat: no-repeat;
-					background-position: center;
-				}
-				#toplevel_page_hfe.wp-menu-open .wp-menu-image,
-				#toplevel_page_hfe .wp-has-current-submenu .wp-menu-image {
-					background-image: url( ' . esc_url( $white_logo ) . ' ) !important;
-				}
-			</style>';
-		}
-
 		$rollback_versions = HFE_Helper::get_rollback_versions_options();
 		$st_status         = HFE_Helper::free_starter_templates_status();
 		$stpro_status      = HFE_Helper::premium_starter_templates_status();
@@ -290,6 +275,23 @@ class HFE_Settings_Page {
 			[],
 			HFE_VER
 		);
+
+		if ( '' !== $uae_logo && '' !== $white_logo ) {
+
+			$custom_css = "
+				#toplevel_page_hfe .wp-menu-image {
+					background-image: url(" . esc_url($uae_logo) . ") !important;
+					background-size: 23px 34px !important;
+					background-repeat: no-repeat !important;
+					background-position: center !important;
+				}
+				#toplevel_page_hfe.wp-menu-open .wp-menu-image,
+				#toplevel_page_hfe .wp-has-current-submenu .wp-menu-image {
+					background-image: url(" . esc_url($white_logo) . ") !important;
+				}
+			";
+			wp_add_inline_style('header-footer-elementor-react-styles', $custom_css);
+		}
 
 		wp_enqueue_script( 'hfe-admin-script', HFE_URL . 'admin/assets/js/ehf-admin.js', [ 'jquery', 'updates' ], HFE_VER, true );
 

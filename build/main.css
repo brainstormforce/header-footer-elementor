@@ -2453,7 +2453,7 @@
 
 /* Add to your main CSS file (e.g., index.css) */
 
-.loader {
+#hfe-settings-app .loader {
 	border: 4px solid #f3f3f3;
 	border-radius: 50%;
 	border-top: 4px solid #3498db;
@@ -2514,7 +2514,7 @@ button.hfe-bulk-action-button {
 	width: 78%;
 }
 
-.subject-cell {
+#hfe-settings-app .subject-cell {
 	max-width: 200px; /* Adjust this width based on your layout */
 	white-space: nowrap;
 	overflow: hidden;
@@ -2600,15 +2600,15 @@ input[type="radio"].hfe-radio-field:focus {
 }
 
 @media (max-width: 768px) {
-	.container {
+	#toplevel_page_hfe .container {
 		padding: 0 1rem;
 	}
 
-	.fixed {
+	#toplevel_page_hfe .fixed {
 		justify-content: flex-start !important;
 	}
 
-	.bg-white {
+	#toplevel_page_hfe .bg-white {
 		width: 100% !important;
 		height: 100% !important;
 		border-radius: 0 !important;
