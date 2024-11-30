@@ -280,10 +280,12 @@ class Scroll_To_Top {
 			} else {
 				$kit = \Elementor\Plugin::$instance->documents->get( \Elementor\Plugin::$instance->kits_manager->get_active_id(), true );
 			}
-			$extensions_settings['kit_settings'] = $kit->get_settings();
+			if ( isset( $kit ) && is_object( $kit ) ) {
+				$extensions_settings['kit_settings'] = $kit->get_settings();
+			}
 		}
 
-		if ( isset( $extensions_settings['kit_settings'][ $setting_id ] ) ) {
+		if ( isset( $extensions_settings) && isset( $extensions_settings['kit_settings'][ $setting_id ] ) ) {
 			$return = $extensions_settings['kit_settings'][ $setting_id ];
 		}
 
