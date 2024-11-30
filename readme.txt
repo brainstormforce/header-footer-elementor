@@ -4,7 +4,7 @@ Tags: elementor, header footer builder, breadcrumbs, post meta, widgets
 Requires at least: 4.4
 Requires PHP: 7.4
 Tested up to: 6.7
-Stable tag: 2.0.1
+Stable tag: 2.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -140,6 +140,10 @@ Absolutely! You can design custom headers, footers, and other sections for WooCo
 5. **Theme Compatibility**: Works flawlessly with any theme.  
 
 == Changelog ==
+
+= 2.0.2 =
+- Fix: Added a class_exists check to prevent critical errors caused by class redeclaration.
+- Fix: Verify Elementor Kit settings before accessing to avoid potential issues.
 
 = 2.0.1 =
 - Fix: Conflict with site customizer style.

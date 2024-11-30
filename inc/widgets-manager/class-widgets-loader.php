@@ -88,7 +88,7 @@ class Widgets_Loader {
 
 		$class_to_load = str_replace( __NAMESPACE__ . '\\', '', $class );
 
-		if ( ! class_exists( $class_to_load ) ) {
+		if ( ! class_exists( $class_to_load ) && ! class_exists( $class ) ) {
 			$filename = strtolower(
 				preg_replace(
 					[ '/([a-z])([A-Z])/', '/_/', '/\\\/' ],
