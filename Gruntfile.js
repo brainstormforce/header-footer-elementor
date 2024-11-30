@@ -7,6 +7,74 @@ module.exports = function( grunt ) {
 
 		pkg: grunt.file.readJSON( 'package.json' ),
 
+		copy: {
+			main: {
+				options: {
+					mode: true
+				},
+				src: [
+					"**",
+					"!node_modules/**",
+					"!.git/**",
+					"!*.sh",
+					"!*.zip",
+					"!eslintrc.json",
+					"!README.md",
+					"!Gruntfile.js",
+					"!package.json",
+					"!package-lock.json",
+					"!.gitignore",
+					"!*.zip",
+					"!Optimization.txt",
+					"!composer.json",
+					"!composer.lock",
+					"!phpcs.xml.dist",
+					"!vendor/**",
+					"!src/**",
+					"!scripts/**",
+					"!config/**",
+					'!admin/bsf-analytics/package.json', //Exclude BSF Analytics package.json and package-lock.json
+					'!admin/bsf-analytics/package-lock.json',
+					'!admin/bsf-analytics/composer.json',
+					'!admin/bsf-analytics/composer.lock',
+					'!webpack.config.js',
+					'!tailwind.config.js',
+					'!postcss.config.js',
+					'!jsconfig.json',
+					'!tests/**',
+					'!bin/**',
+					'!phpstan.neon',
+					'!phpstan-baseline.neon',
+					'!phpunit.xml.dist',
+					'!phpunit.xml.dist',
+					'!stubs-generator.php',
+				],
+				dest: "header-footer-elementor/"
+			}
+		},
+
+		compress: {
+			main: {
+				options: {
+					archive: "header-footer-elementor-<%= pkg.version %>.zip",
+					mode: "zip"
+				},
+				files: [
+					{
+						src: [
+							"./header-footer-elementor/**"
+						]
+
+					}
+				]
+			}
+		},
+
+		clean: {
+			main: ["header-footer-elementor"],
+			zip: ["*.zip"],
+		},
+
 		addtextdomain: {
 			options: {
 				textdomain: 'header-footer-elementor',
@@ -122,9 +190,16 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-wp-readme-to-markdown' );
 	grunt.loadNpmTasks( 'grunt-bumpup' );
 	grunt.loadNpmTasks( 'grunt-text-replace' );
+
+	grunt.loadNpmTasks( "grunt-contrib-copy" );
+	grunt.loadNpmTasks( "grunt-contrib-compress" );
+	grunt.loadNpmTasks( "grunt-contrib-clean" );
 	
 	grunt.registerTask( 'i18n', ['addtextdomain', 'makepot'] );
 	grunt.registerTask( 'readme', ['wp_readme_to_markdown'] );
+	grunt.registerTask( 'release', ['clean:zip', 'copy', 'compress', 'clean:main'] );
+
+	grunt.registerTask('default', ['clean:zip', 'copy', 'compress', 'clean:main']);
 
 	// Bump Version - `grunt version-bump --ver=<version-number>`
     grunt.registerTask('version-bump', function (ver) {

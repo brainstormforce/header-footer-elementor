@@ -10,12 +10,24 @@
 
 namespace HFE\Themes;
 
+use HFE\WidgetsManager\Base\HFE_Helper;
+
 /**
  * Class Settings Page.
  *
  * @since 1.6.0
  */
 class HFE_Settings_Page {
+	
+	/**
+	 * Instance
+	 * z
+	 *
+	 * @access private
+	 * @var string Class object.
+	 * @since 1.0.0
+	 */
+	private $menu_slug = 'hfe';
 
 	/**
 	 * Constructor.
@@ -23,6 +35,11 @@ class HFE_Settings_Page {
 	 * @since 1.6.0
 	 */
 	public function __construct() {
+
+		add_action( 'admin_post_uaelite_rollback', [ $this, 'post_uaelite_rollback' ] );
+		if ( HFE_Helper::is_pro_active() ) {
+			return;
+		}
 		add_action( 'admin_head', [ $this, 'hfe_global_css' ] );
 		if ( is_admin() && current_user_can( 'manage_options' ) ) {
 			add_action( 'admin_menu', [ $this, 'hfe_register_settings_page' ] );
@@ -32,6 +49,138 @@ class HFE_Settings_Page {
 		add_filter( 'admin_footer_text', [ $this, 'admin_footer_text' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
 		add_filter( 'plugin_action_links_' . HFE_PATH, [ $this, 'settings_link' ] );
+
+		if ( version_compare( get_bloginfo( 'version' ), '5.1.0', '>=' ) ) {
+			add_filter( 'wp_check_filetype_and_ext', [ $this, 'real_mime_types_5_1_0' ], 10, 5 );
+		} else {
+			add_filter( 'wp_check_filetype_and_ext', [ $this, 'real_mime_types' ], 10, 4 );
+		}
+
+		// Add the Action Links.
+		// phpcs:ignore Squiz.PHP.CommentedOutCode.Found, Squiz.Commenting.InlineComment.InvalidEndChar
+		// add_filter( 'plugin_action_links_' . HFE_PATH, array( $this, 'add_action_links' ) );
+
+		/* Flow content view */
+		add_action( 'hfe_render_admin_page_content', [ $this, 'render_content' ], 10, 2 );
+
+		if ( version_compare( get_bloginfo( 'version' ), '5.1.0', '>=' ) ) {
+			add_filter( 'wp_check_filetype_and_ext', [ $this, 'real_mime_types_5_1_0' ], 10, 5 );
+		} else {
+			add_filter( 'wp_check_filetype_and_ext', [ $this, 'real_mime_types' ], 10, 4 );
+		}
+
+		add_action('admin_footer', function() {
+			?>
+			<script type="text/javascript">
+				document.addEventListener('DOMContentLoaded', function() {
+					var menuItem = document.querySelector('a[href="ultimate-addons-pricing"]');
+					if (menuItem) {
+						menuItem.setAttribute('target', '_blank');
+						menuItem.setAttribute('href', 'https://ultimateelementor.com/pricing/?utm_source=uae-lite-settings&utm_medium=My-accounts&utm_campaign=uae-lite-upgrade');
+					}
+				});
+			</script>
+			<?php
+		});
+	}
+
+		/**
+		 * Get Elementor edit page link
+		 */
+	public static function get_elementor_new_page_url() {
+
+		if ( class_exists( '\Elementor\Plugin' ) && current_user_can( 'edit_pages' ) ) {
+			// Ensure Elementor is loaded.
+			$query_args = [
+				'action'    => 'elementor_new_post',
+				'post_type' => 'page',
+			];
+		
+			$new_post_url = add_query_arg( $query_args, admin_url( 'edit.php' ) );
+		
+			$new_post_url = add_query_arg( '_wpnonce', wp_create_nonce( 'elementor_action_new_post' ), $new_post_url );
+		
+			return $new_post_url;
+		}
+		return '';
+	}
+
+	
+
+	/**
+	 * UAELite version rollback.
+	 *
+	 * Rollback to previous version.
+	 *
+	 * Fired by `admin_post_uaelite_rollback` action.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 */
+	public function post_uaelite_rollback() {
+
+		if ( ! current_user_can( 'install_plugins' ) ) {
+			wp_die(
+				esc_html__( 'You do not have permission to access this page.', 'header-footer-elementor' ),
+				esc_html__( 'Rollback to Previous Version', 'header-footer-elementor' ),
+				[
+					'response' => 200,
+				]
+			);
+		}
+
+		check_admin_referer( 'uaelite_rollback' );
+
+		$rollback_versions = HFE_Helper::get_rollback_versions_options();
+		$update_version    = isset( $_GET['version'] ) ? sanitize_text_field( $_GET['version'] ) : '';
+
+		// Extract version values from the rollback_versions array.
+		$version_values = array_column( $rollback_versions, 'value' );
+
+		if ( empty( $update_version ) || ! in_array( $update_version, $version_values, true ) ) {
+			wp_die( esc_html__( 'Error occurred, The version selected is invalid. Try selecting different version.', 'header-footer-elementor' ) );
+		}
+
+		$plugin_slug = basename( HFE_FILE, '.php' );
+		
+		if ( class_exists( 'HFE_Rollback' ) ) {
+			$rollback = new \HFE_Rollback(
+				[
+					'version'     => $update_version,
+					'plugin_name' => HFE_PATH,
+					'plugin_slug' => $plugin_slug,
+					'package_url' => sprintf( 'https://downloads.wordpress.org/plugin/%s.%s.zip', $plugin_slug, $update_version ),
+				]
+			);
+
+			$rollback->run();
+
+			wp_die(
+				'',
+				esc_html__( 'Rollback to Previous Version', 'header-footer-elementor' ),
+				[
+					'response' => 200,
+				]
+			);
+		}
+		wp_die();
+	}
+
+	/**
+	 * Show action on plugin page.
+	 *
+	 * @param  array $links links.
+	 * @return array
+	 */
+	public function add_action_links( $links ) {
+
+		$default_url = admin_url( 'admin.php?page=' . $this->menu_slug );
+
+		$mylinks = [
+			'<a href="' . $default_url . '">' . __( 'Settings', 'Elementor Header & Footer Builder' ) . '</a>', //phpcs:ignore WordPress.WP.I18n.TextDomainMismatch
+		];
+
+		return array_merge( $mylinks, $links );
 	}
 
 	/**
@@ -57,6 +206,93 @@ class HFE_Settings_Page {
 	 * @return void
 	 */
 	public function enqueue_admin_scripts() {
+
+		$uae_logo   = HFE_URL . 'assets/images/settings/dashboard-logo.svg';
+		$white_logo = HFE_URL . 'assets/images/settings/white-logo.svg';
+
+		$rollback_versions = HFE_Helper::get_rollback_versions_options();
+		$st_status         = HFE_Helper::free_starter_templates_status();
+		$stpro_status      = HFE_Helper::premium_starter_templates_status();
+		$st_link           = HFE_Helper::starter_templates_link();
+		$hfe_post_url 		= admin_url( 'post-new.php?post_type=elementor-hf' );
+		
+		$show_theme_support = 'no';
+		$hfe_theme_status   = get_option( 'hfe_is_theme_supported', false );
+
+		if ( ( ! current_theme_supports( 'header-footer-elementor' ) ) && ! $hfe_theme_status ) {
+			$show_theme_support = 'yes';
+		}
+		$theme_option = get_option( 'hfe_compatibility_option', '1' );
+
+		wp_enqueue_script(
+			'header-footer-elementor-react-app',
+			HFE_URL . 'build/main.js',
+			[ 'wp-element', 'wp-dom-ready', 'wp-api-fetch' ],
+			HFE_VER,
+			true
+		);
+
+		wp_localize_script(
+			'header-footer-elementor-react-app',
+			'hfeSettingsData',
+			[
+				'hfe_nonce_action'         => wp_create_nonce( 'wp_rest' ),
+				'installer_nonce'          => wp_create_nonce( 'updates' ),
+				'ajax_url'                 => admin_url( 'admin-ajax.php' ),
+				'ajax_nonce'               => wp_create_nonce( 'hfe-widget-nonce' ),
+				'templates_url'            => HFE_URL . 'assets/images/settings/starter-templates.png',
+				'column_url'               => HFE_URL . 'assets/images/settings/column.png',
+				'template_url'             => HFE_URL . 'assets/images/settings/template.png',
+				'icon_url'                 => HFE_URL . 'assets/images/settings/logo.svg',
+				'elementor_page_url'       => self::get_elementor_new_page_url(),
+				'astra_url'                => HFE_URL . 'assets/images/settings/astra.svg',
+				'starter_url'              => HFE_URL . 'assets/images/settings/starter-templates.svg',
+				'surecart_url'             => HFE_URL . 'assets/images/settings/surecart.svg',
+				'suretriggers_url'         => HFE_URL . 'assets/images/settings/sure-triggers.svg',
+				'theme_url_selected'       => HFE_URL . 'assets/images/settings/theme.svg',
+				'theme_url'                => HFE_URL . 'assets/images/settings/layout-template.svg',
+				'version_url'              => HFE_URL . 'assets/images/settings/version.svg',
+				'version__selected_url'    => HFE_URL . 'assets/images/settings/git-compare.svg',
+				'user_url'                 => HFE_URL . 'assets/images/settings/user.svg',
+				'user__selected_url'       => HFE_URL . 'assets/images/settings/user-selected.svg',
+				'integrations_url'         => HFE_URL . 'assets/images/settings/integrations.svg',  // Update the path to your assets folder.
+				'uaelite_previous_version' => isset( $rollback_versions[0]['value'] ) ? $rollback_versions[0]['value'] : '',
+				'uaelite_versions'         => $rollback_versions,
+				'uaelite_rollback_url'     => esc_url( add_query_arg( 'version', 'VERSION', wp_nonce_url( admin_url( 'admin-post.php?action=uaelite_rollback' ), 'uaelite_rollback' ) ) ),
+				'uaelite_current_version'  => defined( 'HFE_VER' ) ? HFE_VER : '',
+				'show_theme_support'       => $show_theme_support,
+				'theme_option'             => $theme_option,
+				'st_status'                => $st_status,
+				'st_pro_status'            => $stpro_status,
+				'st_link'                  => $st_link,
+				'hfe_post_url'             => $hfe_post_url,
+			]
+		);
+
+		wp_enqueue_style(
+			'header-footer-elementor-react-styles',
+			HFE_URL . 'build/main.css',
+			[],
+			HFE_VER
+		);
+
+		if ( '' !== $uae_logo && '' !== $white_logo ) {
+
+			$custom_css = "
+				#toplevel_page_hfe .wp-menu-image {
+					background-image: url(" . esc_url($uae_logo) . ") !important;
+					background-size: 23px 34px !important;
+					background-repeat: no-repeat !important;
+					background-position: center !important;
+				}
+				#toplevel_page_hfe.wp-menu-open .wp-menu-image,
+				#toplevel_page_hfe .wp-has-current-submenu .wp-menu-image {
+					background-image: url(" . esc_url($white_logo) . ") !important;
+				}
+			";
+			wp_add_inline_style('header-footer-elementor-react-styles', $custom_css);
+		}
+
 		wp_enqueue_script( 'hfe-admin-script', HFE_URL . 'admin/assets/js/ehf-admin.js', [ 'jquery', 'updates' ], HFE_VER, true );
 
 		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
@@ -78,6 +314,7 @@ class HFE_Settings_Page {
 			'subscribe_error'   => esc_html__( 'Encountered an error while performing your request.', 'header-footer-elementor' ),
 			'ajax_url'          => admin_url( 'admin-ajax.php' ),
 			'nonce'             => wp_create_nonce( 'hfe-admin-nonce' ),
+			'installer_nonce'   => wp_create_nonce( 'updates' ),
 			'popup_dismiss'     => false,
 			'data_source'       => 'HFE',
 		];
@@ -100,10 +337,40 @@ class HFE_Settings_Page {
 	 * @return mixed
 	 */
 	public function hfe_settings( $views ) {
-
-		$this->hfe_tabs();
-		$this->hfe_modal();
+		// The following methods are currently disabled but may be used in the future.
+		// $this->hfe_tabs();
+		// $this->hfe_modal();.
 		return $views;
+	}
+
+	/**
+	 * CHeck if it is current page by parameters
+	 *
+	 * @param string $page_slug Menu name.
+	 * @param string $action Menu name.
+	 *
+	 * @return  string page url
+	 */
+	public function is_current_page( $page_slug = '', $action = '' ) {
+
+		$page_matched = false;
+
+		if ( empty( $page_slug ) ) {
+			return false;
+		}
+
+		$current_page_slug = isset( $_GET['page'] ) ? sanitize_text_field( $_GET['page'] ) : ''; //phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		$current_action    = isset( $_GET['action'] ) ? sanitize_text_field( $_GET['action'] ) : ''; //phpcs:ignore WordPress.Security.NonceVerification.Recommended
+
+		if ( ! is_array( $action ) ) {
+			$action = explode( ' ', $action );
+		}
+
+		if ( $page_slug === $current_page_slug && in_array( $current_action, $action, true ) ) {
+			$page_matched = true;
+		}
+
+		return $page_matched;
 	}
 
 	/**
@@ -191,23 +458,124 @@ class HFE_Settings_Page {
 	 * @return void
 	 */
 	public function hfe_register_settings_page() {
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+
+		$menu_slug  = $this->menu_slug;
+		$capability = 'manage_options';
+
+		add_menu_page(
+			__( 'UAE Lite', 'header-footer-elementor' ),
+			__( 'UAE Lite', 'header-footer-elementor' ),
+			$capability,
+			$menu_slug,
+			[ $this, 'render' ],
+			'none',
+			'59'
+		);
+
+		// Add the Dashboard Submenu.
 		add_submenu_page(
-			'themes.php',
-			__( 'Settings', 'header-footer-elementor' ),
-			__( 'Settings', 'header-footer-elementor' ),
-			'manage_options',
-			'hfe-settings',
-			[ $this, 'hfe_settings_page' ]
+			$menu_slug,
+			__( 'UAE Lite', 'header-footer-elementor' ),
+			__( 'Dashboard', 'header-footer-elementor' ),
+			$capability,
+			$menu_slug,
+			[ $this, 'render' ],
+			1
+		);
+	
+		add_submenu_page(
+			$menu_slug, // Parent slug.
+			__( 'Widgets & Features', 'header-footer-elementor' ),
+			__( 'Widgets & Features', 'header-footer-elementor' ),
+			$capability,
+			$menu_slug . '#widgets',
+			[ $this, 'render' ],
+			2
 		);
 
 		add_submenu_page(
-			'themes.php',
-			__( 'About Us', 'header-footer-elementor' ),
-			__( 'About Us', 'header-footer-elementor' ),
-			'manage_options',
-			'hfe-about',
-			[ $this, 'hfe_settings_page' ]
+			$menu_slug,
+			__( 'Templates', 'header-footer-elementor' ),
+			__( 'Templates', 'header-footer-elementor' ),
+			$capability,
+			$menu_slug . '#templates',
+			[ $this, 'render' ],
+			8
 		);
+		
+		// Add the Settings Submenu.
+		add_submenu_page(
+			$menu_slug,
+			__( 'Settings', 'header-footer-elementor' ),
+			__( 'Settings', 'header-footer-elementor' ),
+			$capability,
+			$menu_slug . '#settings',
+			[ $this, 'render' ],
+			9
+		);
+
+			// Add the Settings Submenu.
+			add_submenu_page(
+				$menu_slug,
+				__( 'Free vs Pro', 'header-footer-elementor' ),
+				__( 'Free vs Pro', 'header-footer-elementor' ),
+				$capability,
+				$menu_slug . '#upgrade',
+				[ $this, 'render' ],
+				9
+			);
+
+		add_submenu_page(
+			$menu_slug,
+			__( 'Get Ultimate Elementor', 'header-footer-elementor' ),
+			__( 'Get Ultimate Elementor', 'header-footer-elementor' ),
+			$capability,
+			'ultimate-addons-pricing',
+			'',
+			11
+		);
+
+	}
+
+	/**
+	 * Settings page.
+	 *
+	 * Call back function for add submenu page function.
+	 *
+	 * @since x.x.x
+	 * @return void
+	 */
+	public function render() {
+
+		$menu_page_slug = ( ! empty( $_GET['page'] ) ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : $this->menu_slug; //phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		$page_action    = '';
+   
+		if ( isset( $_GET['action'] ) ) { //phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			$page_action = sanitize_text_field( wp_unslash( $_GET['action'] ) ); //phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			$page_action = str_replace( '_', '-', $page_action );
+		}
+   
+		include_once HFE_DIR . 'inc/settings/admin-base.php';
+	}
+
+	/**
+	 * Renders the admin settings content.
+	 *
+	 * @since 1.0.0
+	 * @param sting $menu_page_slug current page name.
+	 * @param sting $page_action current page action.
+	 *
+	 * @return void
+	 */
+	public function render_content( $menu_page_slug, $page_action ) {
+
+		if ( $this->menu_slug === $menu_page_slug ) {
+			include_once HFE_DIR . 'inc/settings/settings-app.php';
+		}
 	}
 
 	/**
@@ -284,6 +652,7 @@ class HFE_Settings_Page {
 			}
 
 			self::$hfe_settings_tabs['hfe_about'] = [
+				
 				'name' => __( 'About Us', 'header-footer-elementor' ),
 				'url'  => admin_url( 'themes.php?page=hfe-about' ),
 			];
@@ -823,6 +1192,8 @@ class HFE_Settings_Page {
 		return false;
 	}
 
+	
+
 	/**
 	 * Add settings link to the Plugins page.
 	 *
@@ -849,6 +1220,354 @@ class HFE_Settings_Page {
 		);
 
 		return array_merge( $custom, (array) $links );
+	}
+
+	/**
+	 * Different MIME type of different PHP version
+	 *
+	 * Filters the "real" file type of the given file.
+	 *
+	 * @since 1.2.9
+	 *
+	 * @param array  $defaults File data array containing 'ext', 'type', and
+	 *                                          'proper_filename' keys.
+	 * @param string $file                      Full path to the file.
+	 * @param string $filename                  The name of the file (may differ from $file due to
+	 *                                          $file being in a tmp directory).
+	 * @param array  $mimes                     Key is the file extension with value as the mime type.
+	 * @param string $real_mime                Real MIME type of the uploaded file.
+	 */
+	public function real_mime_types_5_1_0( $defaults, $file, $filename, $mimes, $real_mime ) {
+		return $this->real_mimes( $defaults, $filename, $file );
+	}
+
+	/**
+	 * Different MIME type of different PHP version
+	 *
+	 * Filters the "real" file type of the given file.
+	 *
+	 * @since 1.2.9
+	 *
+	 * @param array  $defaults File data array containing 'ext', 'type', and
+	 *                                          'proper_filename' keys.
+	 * @param string $file                      Full path to the file.
+	 * @param string $filename                  The name of the file (may differ from $file due to
+	 *                                          $file being in a tmp directory).
+	 * @param array  $mimes                     Key is the file extension with value as the mime type.
+	 */
+	public function real_mime_types( $defaults, $file, $filename, $mimes ) {
+		return $this->real_mimes( $defaults, $filename, $file );
+	}
+
+	/**
+	 * Real Mime Type
+	 *
+	 * This function checks if the file is an SVG and sanitizes it accordingly. 
+	 * PHPCS rules are disabled selectively to allow necessary file operations that are essential for handling SVG files safely.
+	 *
+	 * @since 1.2.15
+	 *
+	 * @param array  $defaults File data array containing 'ext', 'type', and
+	 *                                          'proper_filename' keys.
+	 * @param string $filename                  The name of the file (may differ from $file due to
+	 *                                          $file being in a tmp directory).
+	 * @param string $file file content.
+	 */
+	public function real_mimes( $defaults, $filename, $file ) {
+
+		if ( 'svg' === pathinfo( $filename, PATHINFO_EXTENSION ) ) {
+			// Perform SVG sanitization using the sanitize_svg function.
+			$svg_content           = file_get_contents( $file ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+			$sanitized_svg_content = $this->sanitize_svg( $svg_content );
+			// phpcs:disable WordPress.WP.AlternativeFunctions.file_system_read_file_put_contents
+			file_put_contents( $file, $sanitized_svg_content );
+			// phpcs:enable WordPress.WP.AlternativeFunctions.file_system_read_file_put_contents
+
+			// Update mime type and extension.
+			$defaults['type'] = 'image/svg+xml';
+			$defaults['ext']  = 'svg';
+		}
+
+		return $defaults;
+	}
+	/**
+	 * Sanitizes SVG Code string.
+	 *
+	 * This function performs sanitization on SVG code to ensure that only safe tags and attributes are retained. 
+	 * PHPCS rules are selectively disabled in specific areas to accommodate necessary file operations, compatibility with different PHP versions, and to enhance code readability:
+	 * 
+	 * - File operations are required for reading and writing SVG content.
+	 * - PHP version compatibility is maintained by selectively disabling PHPCS rules for PHP version-specific functions.
+	 * - Code readability is enhanced by selectively disabling PHPCS rules for specific areas.
+	 * 
+	 * @param string $original_content SVG code to sanitize.
+	 * @return string|bool
+	 * @since 1.0.7
+	 * @phpstan-ignore-next-line
+	 * */
+	public function sanitize_svg( $original_content ) {
+
+		if ( ! $original_content ) {
+			return '';
+		}
+
+		// Define allowed tags and attributes.
+		$allowed_tags = [
+			'a',
+			'circle',
+			'clippath',
+			'defs',
+			'style',
+			'desc',
+			'ellipse',
+			'fegaussianblur',
+			'filter',
+			'foreignobject',
+			'g',
+			'image',
+			'line',
+			'lineargradient',
+			'marker',
+			'mask',
+			'metadata',
+			'path',
+			'pattern',
+			'polygon',
+			'polyline',
+			'radialgradient',
+			'rect',
+			'stop',
+			'svg',
+			'switch',
+			'symbol',
+			'text',
+			'textpath',
+			'title',
+			'tspan',
+			'use',
+		];
+
+		$allowed_attributes = [
+			'class',
+			'clip-path',
+			'clip-rule',
+			'fill',
+			'fill-opacity',
+			'fill-rule',
+			'filter',
+			'id',
+			'mask',
+			'opacity',
+			'stroke',
+			'stroke-dasharray',
+			'stroke-dashoffset',
+			'stroke-linecap',
+			'stroke-linejoin',
+			'stroke-miterlimit',
+			'stroke-opacity',
+			'stroke-width',
+			'style',
+			'systemlanguage',
+			'transform',
+			'href',
+			'xlink:href',
+			'xlink:title',
+			'cx',
+			'cy',
+			'r',
+			'requiredfeatures',
+			'clippathunits',
+			'type',
+			'rx',
+			'ry',
+			'color-interpolation-filters',
+			'stddeviation',
+			'filterres',
+			'filterunits',
+			'height',
+			'primitiveunits',
+			'width',
+			'x',
+			'y',
+			'font-size',
+			'display',
+			'font-family',
+			'font-style',
+			'font-weight',
+			'text-anchor',
+			'marker-end',
+			'marker-mid',
+			'marker-start',
+			'x1',
+			'x2',
+			'y1',
+			'y2',
+			'gradienttransform',
+			'gradientunits',
+			'spreadmethod',
+			'markerheight',
+			'markerunits',
+			'markerwidth',
+			'orient',
+			'preserveaspectratio',
+			'refx',
+			'refy',
+			'viewbox',
+			'maskcontentunits',
+			'maskunits',
+			'd',
+			'patterncontentunits',
+			'patterntransform',
+			'patternunits',
+			'points',
+			'fx',
+			'fy',
+			'offset',
+			'stop-color',
+			'stop-opacity',
+			'xmlns',
+			'xmlns:se',
+			'xmlns:xlink',
+			'xml:space',
+			'method',
+			'spacing',
+			'startoffset',
+			'dx',
+			'dy',
+			'rotate',
+			'textlength',
+		];
+
+		$is_encoded = false;
+
+		$needle = "\x1f\x8b\x08";
+		// phpcs:disable PHPCompatibility.ParameterValues.NewIconvMbstringCharsetDefault.NotSet
+		if ( function_exists( 'mb_strpos' ) ) {
+			$is_encoded = 0 === mb_strpos( $original_content, $needle );
+		} else {
+			$is_encoded = 0 === strpos( $original_content, $needle );
+		}
+		// phpcs:enable PHPCompatibility.ParameterValues.NewIconvMbstringCharsetDefault.NotSet
+
+		if ( $is_encoded ) {
+			$original_content = gzdecode( $original_content );
+			if ( false === $original_content ) {
+				return '';
+			}
+		}
+
+		// Strip php tags.
+		$content = preg_replace( '/<\?(=|php)(.+?)\?>/i', '', $original_content );
+		$content = preg_replace( '/<\?(.*)\?>/Us', '', $content );
+		$content = preg_replace( '/<\%(.*)\%>/Us', '', $content );
+
+		if ( ( false !== strpos( $content, '<?' ) ) || ( false !== strpos( $content, '<%' ) ) ) {
+			return '';
+		}
+
+		// Strip comments.
+		$content = preg_replace( '/<!--(.*)-->/Us', '', $content );
+		$content = preg_replace( '/\/\*(.*)\*\//Us', '', $content );
+
+		if ( ( false !== strpos( $content, '<!--' ) ) || ( false !== strpos( $content, '/*' ) ) ) {
+			return '';
+		}
+
+		// Strip line breaks.
+		$content = preg_replace( '/\r|\n/', '', $content );
+
+		// Find the start and end tags so we can cut out miscellaneous garbage.
+		$start = strpos( $content, '<svg' );
+		$end   = strrpos( $content, '</svg>' );
+		if ( false === $start || false === $end ) {
+			return '';
+		}
+
+		$content = substr( $content, $start, ( $end - $start + 6 ) );
+
+		// If the server's PHP version is 8 or up, make sure to disable the ability to load external entities.
+		$php_version_under_eight = version_compare( PHP_VERSION, '8.0.0', '<' );
+		if ( $php_version_under_eight ) {
+			// phpcs:disable Generic.PHP.DeprecatedFunctions.Deprecated
+			$libxml_disable_entity_loader = libxml_disable_entity_loader( true );
+			// phpcs:enable Generic.PHP.DeprecatedFunctions.Deprecated
+		}
+		// Suppress the errors.
+		$libxml_use_internal_errors = libxml_use_internal_errors( true );
+
+		// Create DOMDocument instance.
+		$dom                      = new \DOMDocument();
+		$dom->formatOutput        = false;
+		$dom->preserveWhiteSpace  = false;
+		$dom->strictErrorChecking = false;
+
+		$open_svg = ! ! $content ? $dom->loadXML( $content ) : false;
+		if ( ! $open_svg ) {
+			return '';
+		}
+
+		// Strip Doctype.
+		foreach ( $dom->childNodes as $child ) {
+			if ( XML_DOCUMENT_TYPE_NODE === $child->nodeType && ! ! $child->parentNode ) {
+				$child->parentNode->removeChild( $child );
+			}
+		}
+
+		// Sanitize elements.
+		$elements = $dom->getElementsByTagName( '*' );
+		for ( $index = $elements->length - 1; $index >= 0; $index-- ) {
+			$current_element = $elements->item( $index );
+			if ( ! in_array( strtolower( $current_element->tagName ), $allowed_tags, true ) ) {
+				$current_element->parentNode->removeChild( $current_element );
+				continue;
+			}
+
+			// Validate allowed attributes.
+			for ( $i = $current_element->attributes->length - 1; $i >= 0; $i-- ) {
+				$attr_name           = $current_element->attributes->item( $i )->name;
+				$attr_name_lowercase = strtolower( $attr_name );
+				if ( ! in_array( $attr_name_lowercase, $allowed_attributes ) &&
+					! preg_match( '/^aria-/', $attr_name_lowercase ) &&
+					! preg_match( '/^data-/', $attr_name_lowercase ) ) {
+					$current_element->removeAttribute( $attr_name );
+					continue;
+				}
+
+				$attr_value = $current_element->attributes->item( $i )->value;
+				if ( ! empty( $attr_value ) &&
+					( preg_match( '/^((https?|ftp|file):)?\/\//i', $attr_value ) ||
+					preg_match( '/base64|data|(?:java)?script|alert\(|window\.|document/i', $attr_value ) ) ) {
+					$current_element->removeAttribute( $attr_name );
+					continue;
+				}
+			}
+
+			// Strip xlink:href.
+			$xlink_href = $current_element->getAttributeNS( 'http://www.w3.org/1999/xlink', 'href' );
+			if ( $xlink_href && strpos( $xlink_href, '#' ) !== 0 ) {
+				$current_element->removeAttributeNS( 'http://www.w3.org/1999/xlink', 'href' );
+			}
+
+			// Strip use tag with external references.
+			if ( strtolower( $current_element->tagName ) === 'use' ) {
+				$xlink_href = $current_element->getAttributeNS( 'http://www.w3.org/1999/xlink', 'href' );
+				if ( $current_element->parentNode && $xlink_href && strpos( $xlink_href, '#' ) !== 0 ) {
+					$current_element->parentNode->removeChild( $current_element );
+				}
+			}
+		}
+
+		$sanitized = $dom->saveXML( $dom->documentElement, LIBXML_NOEMPTYTAG );
+
+		// Restore defaults.
+		if ( $php_version_under_eight && isset( $libxml_disable_entity_loader ) && function_exists( 'libxml_disable_entity_loader' ) ) {
+			// phpcs:disable Generic.PHP.DeprecatedFunctions.Deprecated
+			libxml_disable_entity_loader( $libxml_disable_entity_loader );
+			// phpcs:enable Generic.PHP.DeprecatedFunctions.Deprecated
+		}
+		libxml_use_internal_errors( $libxml_use_internal_errors );
+
+		return $sanitized;
 	}
 }
 

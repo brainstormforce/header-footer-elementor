@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
+
+/* Add to your main CSS file (e.g., index.css) */
+
+#hfe-settings-app .loader {
+	border: 4px solid #f3f3f3;
+	border-radius: 50%;
+	border-top: 4px solid #3498db;
+	width: 40px;
+	height: 40px;
+	animation: spin 2s linear infinite;
+}
+
+.hfe-subheading h2 {
+	font-size: 1.1rem !important;
+}
+.hfe-subheading .text-text-secondary {
+	font-size: 0.98rem !important;
+}
+.hfe-loader-icon {
+	top: -15%;
+}
+#hfe-settings-app .gap-2 {
+	gap: 1.2rem;
+}
+.hfe-remove-ring input[type="checkbox"],
+.hfe-remove-ring a,
+.hfe-remove-ring {
+	outline: none;
+	--tw-ring-inset: auto;
+	box-shadow: unset;
+}
+.hfe-settings-page h2 {
+	margin-bottom: 0.3rem !important;
+}
+.hfe-link-color,
+.hfe-link-color span {
+	color: rgb(96, 5, 255);
+}
+#hfe-settings-app .hfe-header-title h6 {
+	color: #858484;
+	font-size: 14px;
+}
+.hfe-settings-content-wrapper {
+	padding: 15px 25px;
+}
+button.hfe-plugin-activated {
+	color: #16a34a;
+}
+button.hfe-bulk-action-button {
+	width: 150px;
+}
+.hfe-subtitle h2 {
+	font-size: 0.9rem;
+}
+.hfe-65-width {
+	width: 65%;
+}
+.hfe-35-width {
+	width: 35%;
+}
+.hfe-78-width {
+	width: 78%;
+}
+
+#hfe-settings-app .subject-cell {
+	max-width: 200px; /* Adjust this width based on your layout */
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.hfe-tooltip-wrap {
+	width: 100%;
+    text-align: right;
+}
+.toplevel_page_hfe #wpcontent {
+	padding-left: 0;
+}
+div#hfe-settings-app {
+	font-size: 15px;
+	font-weight: 500;
+	line-height: normal;
+}
+#toplevel_page_hfe .wp-submenu li.wp-first-item::after,
+#toplevel_page_hfe .wp-submenu li:nth-last-child(3)::after {
+	content: "";
+	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+	display: block;
+	float: left;
+	margin: 8px 0;
+	width: 100%;
+}
+#toplevel_page_hfe .wp-submenu li:last-child a {
+	background: #00a32a;
+	padding-top: 8px;
+	padding-bottom: 10px;
+	margin-top: 5px;
+	color: #ffffff;
+}
+input[type="radio"].hfe-radio-field:checked::before {
+	content: "";
+    border-radius: 50%;
+    width: 0.5rem;
+    height: 0.5rem;
+    margin: 0.1875rem;
+    background-color: #6005FF;
+    line-height: 1.14285714;
+}
+input[type="radio"].hfe-radio-field:focus {
+	border-color: #6005ff;
+	box-shadow: 0 0 0 1px #6005ff;
+}
+.hfe-compare-section h6 {
+	font-size: 0.9rem !important;
+	font-weight: 500 !important;
+}
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+@media (min-width: 769px) {
+	.hfe-sticky-outer-wrapper {
+		width: 23%;
+		border-right: 1px solid #e5e7eb;
+	}
+	.hfe-sticky-sidebar {
+		position: sticky;
+		top: 0;
+	}
+	.hfe-settings-page:before {
+		animation-fill-mode: both;
+		background: #fff;
+		content: " ";
+		height: 100%;
+		position: fixed;
+		left: 0;
+		top: 0;
+		transform-origin: right;
+		border-right: 1px solid #e5e7eb;
+		width: 30%;
+	}
+	.hfe-nav-menu {
+		border-bottom: 1px solid #e5e7eb;
+	}
+}
+
+@media (max-width: 768px) {
+	#toplevel_page_hfe .container {
+		padding: 0 1rem;
+	}
+
+	#toplevel_page_hfe .fixed {
+		justify-content: flex-start !important;
+	}
+
+	#toplevel_page_hfe .bg-white {
+		width: 100% !important;
+		height: 100% !important;
+		border-radius: 0 !important;
+	}
+}
+
+@media (max-width: 1024px) {
+	.hfe-65-width,
+	.hfe-35-width,
+	.hfe-78-width {
+		width: 100%;
+	}
+}
+@media screen and (max-width: 782px) {
+	.hfe-radio-option {
+		width: 1rem !important;
+		height: 1rem !important;
+	}
+	.hfe-radio-option:checked:before {
+		width: 0.5rem !important;
+		height: 0.5rem !important;
+		margin: 0.18rem !important;
+	}
+}
