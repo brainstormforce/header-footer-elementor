@@ -9,12 +9,12 @@
 namespace HFE\WidgetsManager\Extensions;
 
 use Elementor\Controls_Manager;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
+use Elementor\Core\Kits\Documents\Tabs\Tab_Base;
 use Elementor\Group_Control_Background;
-use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
-use Elementor\Core\Kits\Documents\Tabs\Tab_Base;
-use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
+use Elementor\Group_Control_Typography;
 
 /**
  * HFE Scroll to top extension
@@ -22,7 +22,6 @@ use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
  * @since x.x.x
  */
 class Scroll_To_Top_Settings extends Tab_Base {
-
 	/**
 	 * Retrieve the widget name.
 	 *
@@ -64,7 +63,7 @@ class Scroll_To_Top_Settings extends Tab_Base {
 
 	/**
 	 * Retrieves the help URL.
-	 * 
+	 *
 	 * @since x.x.x
 	 *
 	 * @access public
@@ -77,7 +76,7 @@ class Scroll_To_Top_Settings extends Tab_Base {
 
 	/**
 	 * Retrieves the widget keywords.
-	 * 
+	 *
 	 * @since x.x.x
 	 *
 	 * @access public
@@ -95,7 +94,7 @@ class Scroll_To_Top_Settings extends Tab_Base {
 	 * @access protected
 	 * @return void
 	 */
-	protected function register_tab_controls() {
+	protected function register_tab_controls(): void {
 		$this->start_controls_section(
 			'hfe_scroll_to_top_section',
 			[

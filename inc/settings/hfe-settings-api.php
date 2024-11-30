@@ -16,7 +16,6 @@ use HFE\WidgetsManager\Base\HFE_Helper;
  * Class HFE_Settings_Api.
  */
 class HFE_Settings_Api {
-
 	/**
 	 * Instance.
 	 *
@@ -25,18 +24,6 @@ class HFE_Settings_Api {
 	 * @since x.x.x
 	 */
 	private static $instance;
-
-	/**
-	 * Get the singleton instance of the class.
-	 *
-	 * @return HFE_Settings_Api
-	 */
-	public static function get_instance() {
-		if ( ! isset( self::$instance ) ) {
-			self::$instance = new self();
-		}
-		return self::$instance;
-	}
 
 	/**
 	 * Initialize hooks.
@@ -51,12 +38,24 @@ class HFE_Settings_Api {
 	}
 
 	/**
+	 * Get the singleton instance of the class.
+	 *
+	 * @return HFE_Settings_Api
+	 */
+	public static function get_instance() {
+		if ( ! isset( self::$instance ) ) {
+			self::$instance = new self();
+		}
+		return self::$instance;
+	}
+
+	/**
 	 * Register REST API routes.
 	 *
 	 * @since x.x.x
 	 * @return void
 	 */
-	public function register_routes() {
+	public function register_routes(): void {
 
 		register_rest_route(
 			'hfe/v1',
@@ -93,7 +92,7 @@ class HFE_Settings_Api {
 	 * Check whether a given request has permission to read notes.
 	 *
 	 * @since x.x.x
-	 * @return WP_Error|boolean
+	 * @return WP_Error|bool
 	 */
 	public function get_items_permissions_check() {
 
@@ -106,7 +105,7 @@ class HFE_Settings_Api {
 
 	/**
 	 * Get Starter Templates Status.
-	 * 
+	 *
 	 * @param WP_REST_Request $request Request object.
 	 */
 	public function get_templates_status( WP_REST_Request $request ) {
@@ -121,8 +120,8 @@ class HFE_Settings_Api {
 		$response_data = [
 			'templates_status' => $templates_status,
 		];
-	
-		if ( 'Activated' === $templates_status ) {
+
+		if ( $templates_status === 'Activated' ) {
 			$response_data['redirect_url'] = HFE_Helper::starter_templates_link();
 		}
 
@@ -151,13 +150,11 @@ class HFE_Settings_Api {
 		}
 
 		return new WP_REST_Response( $plugins_list, 200 );
-		
 	}
 
 	/**
-	 * 
 	 * Callback function to return widgets list.
-	 * 
+	 *
 	 * @param WP_REST_Request $request Request object.
 	 *
 	 * @return WP_REST_Response
@@ -178,9 +175,7 @@ class HFE_Settings_Api {
 		}
 
 		return new WP_REST_Response( $widgets_list, 200 );
-		
 	}
-	
 
 }
 

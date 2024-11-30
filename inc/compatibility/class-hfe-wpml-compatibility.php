@@ -15,7 +15,6 @@ defined( 'ABSPATH' ) || exit;
  * Set up WPML Compatibiblity Class.
  */
 class HFE_WPML_Compatibility {
-
 	/**
 	 * Instance of HFE_WPML_Compatibility.
 	 *
@@ -23,6 +22,18 @@ class HFE_WPML_Compatibility {
 	 * @var null
 	 */
 	private static $_instance = null;
+
+	/**
+	 * Setup actions and filters.
+	 *
+	 * @since  1.0.9
+	 */
+	private function __construct() {
+		add_filter( 'hfe_get_settings_type_header', [ $this, 'get_wpml_object' ] );
+		add_filter( 'hfe_get_settings_type_footer', [ $this, 'get_wpml_object' ] );
+		add_filter( 'hfe_get_settings_type_before_footer', [ $this, 'get_wpml_object' ] );
+		add_filter( 'hfe_render_template_id', [ $this, 'get_wpml_object' ] );
+	}
 
 	/**
 	 * Get instance of HFE_WPML_Compatibility
@@ -39,18 +50,6 @@ class HFE_WPML_Compatibility {
 	}
 
 	/**
-	 * Setup actions and filters.
-	 *
-	 * @since  1.0.9
-	 */
-	private function __construct() {
-		add_filter( 'hfe_get_settings_type_header', [ $this, 'get_wpml_object' ] );
-		add_filter( 'hfe_get_settings_type_footer', [ $this, 'get_wpml_object' ] );
-		add_filter( 'hfe_get_settings_type_before_footer', [ $this, 'get_wpml_object' ] );
-		add_filter( 'hfe_render_template_id', [ $this, 'get_wpml_object' ] );
-	}
-
-	/**
 	 * Pass the final header and footer ID from the WPML's object filter to allow strings to be translated.
 	 *
 	 * @since  1.0.9
@@ -62,18 +61,18 @@ class HFE_WPML_Compatibility {
 
 		if ( defined( 'POLYLANG_BASENAME' ) ) {
 
-			if ( null === $translated_id ) {
+			if ( $translated_id === null ) {
 
 				// The current language is not defined yet or translation is not available.
 				return $id;
-			} else {
+			}
 
 				// Return translated post ID.
 				return $translated_id;
-			}
+
 		}
 
-		if ( null === $translated_id ) {
+		if ( $translated_id === null ) {
 			$translated_id = '';
 		}
 

@@ -8,13 +8,12 @@
 namespace HFE\WidgetsManager\Widgets\SiteTitle;
 
 use Elementor\Controls_Manager;
-use Elementor\Group_Control_Typography;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use Elementor\Group_Control_Text_Shadow;
-use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
-
-use HFE\WidgetsManager\Widgets_Loader;
+use Elementor\Group_Control_Typography;
 use HFE\WidgetsManager\Base\Common_Widget;
+use HFE\WidgetsManager\Widgets_Loader;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;   // Exit if accessed directly.
@@ -28,7 +27,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.3.0
  */
 class Site_Title extends Common_Widget {
-
 	/**
 	 * Retrieve the widget name.
 	 *
@@ -260,7 +258,6 @@ class Site_Title extends Common_Widget {
 		$this->end_controls_section();
 	}
 
-
 	/**
 	 * Register Advanced Heading Typography Controls.
 	 *
@@ -416,26 +413,26 @@ class Site_Title extends Common_Widget {
 		?>
 
 		<div class="hfe-module-content hfe-heading-wrapper elementor-widget-heading">
-		<?php if ( ! empty( $settings['heading_link']['url'] ) && 'custom' === $settings['custom_link'] ) { ?>
+		<?php if ( ! empty( $settings['heading_link']['url'] ) && $settings['custom_link'] === 'custom' ) { ?>
 					<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'url' ) ); ?>>
-				<?php } else { ?>
+		<?php } else { ?>
 					<a href="<?php echo esc_url( get_home_url() ); ?>">
-				<?php } ?>
+		<?php } ?>
 			<<?php echo esc_attr( $heading_size_tag ); ?> class="hfe-heading elementor-heading-title elementor-size-<?php echo esc_attr( $settings['size'] ); ?>">
-				<?php if ( '' !== $settings['icon']['value'] ) { ?>
+				<?php if ( $settings['icon']['value'] !== '' ) { ?>
 					<span class="hfe-icon">
 						<?php \Elementor\Icons_Manager::render_icon( $settings['icon'], [ 'aria-hidden' => 'true' ] ); ?>					
 					</span>
 				<?php } ?>
 					<span class="hfe-heading-text" >
 					<?php
-					if ( '' !== $settings['before'] ) {
+					if ( $settings['before'] !== '' ) {
 						echo wp_kses_post( $settings['before'] );
 					}
 					?>
 					<?php echo wp_kses_post( $title ); ?>
 					<?php
-					if ( '' !== $settings['after'] ) {
+					if ( $settings['after'] !== '' ) {
 						echo wp_kses_post( $settings['after'] );
 					}
 					?>
@@ -445,16 +442,16 @@ class Site_Title extends Common_Widget {
 		</div>
 		<?php
 	}
-		/**
-		 * Render site title output in the editor.
-		 *
-		 * Written as a Backbone JavaScript template and used to generate the live preview.
-		 *
-		 * @since 1.3.0
-		 * @access protected
-		 * @return void
-		 */
-	protected function content_template() {
+	/**
+	 * Render site title output in the editor.
+	 *
+	 * Written as a Backbone JavaScript template and used to generate the live preview.
+	 *
+	 * @since 1.3.0
+	 * @access protected
+	 * @return void
+	 */
+	protected function content_template(): void {
 		?>
 		<#
 		if ( '' == settings.heading_title ) {

@@ -8,8 +8,6 @@
 namespace HFE\WidgetsManager\Base;
 
 use Elementor\Widget_Base;
-use HFE\WidgetsManager\Base\HFE_Helper;
-use Elementor\Controls_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -21,7 +19,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 0.0.1
  */
 abstract class Common_Widget extends Widget_Base {
-
 	/**
 	 * Get categories
 	 *

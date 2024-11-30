@@ -8,13 +8,12 @@
 namespace HFE\WidgetsManager\Widgets\PageTitle;
 
 use Elementor\Controls_Manager;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
-use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
-
-use HFE\WidgetsManager\Widgets_Loader;
 use HFE\WidgetsManager\Base\Common_Widget;
+use HFE\WidgetsManager\Widgets_Loader;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;   // Exit if accessed directly.
@@ -28,8 +27,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.3.0
  */
 class Page_Title extends Common_Widget {
-
-
 	/**
 	 * Retrieve the widget name.
 	 *
@@ -89,7 +86,7 @@ class Page_Title extends Common_Widget {
 	 * @access protected
 	 * @return void
 	 */
-	protected function register_controls() {
+	protected function register_controls(): void {
 		$this->register_content_page_title_controls();
 		$this->register_page_title_style_controls();
 	}
@@ -101,7 +98,7 @@ class Page_Title extends Common_Widget {
 	 * @access protected
 	 * @return void
 	 */
-	protected function register_content_page_title_controls() {
+	protected function register_content_page_title_controls(): void {
 		$this->start_controls_section(
 			'section_general_fields',
 			[
@@ -275,7 +272,7 @@ class Page_Title extends Common_Widget {
 	 * @access protected
 	 * @return void
 	 */
-	protected function register_page_title_style_controls() {
+	protected function register_page_title_style_controls(): void {
 		$this->start_controls_section(
 			'section_title_typography',
 			[
@@ -404,7 +401,7 @@ class Page_Title extends Common_Widget {
 	 * @access protected
 	 * @return void
 	 */
-	protected function render() {
+	protected function render(): void {
 
 		$settings = $this->get_settings_for_display();
 
@@ -419,21 +416,21 @@ class Page_Title extends Common_Widget {
 		<div class="hfe-page-title hfe-page-title-wrapper elementor-widget-heading">
 
 		<?php
-		$head_link_url    = isset( $settings['page_heading_link']['url'] ) ? $settings['page_heading_link']['url'] : '';
-		$head_custom_link = isset( $settings['page_custom_link'] ) ? $settings['page_custom_link'] : '';
+		$head_link_url    = $settings['page_heading_link']['url'] ?? '';
+		$head_custom_link = $settings['page_custom_link'] ?? '';
 		?>
-			<?php if ( '' !== $head_link_url && 'custom' === $head_custom_link ) { ?>
+			<?php if ( $head_link_url !== '' && $head_custom_link === 'custom' ) { ?>
 						<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'url' ) ); ?>>
-			<?php } elseif ( 'default' === $head_custom_link ) { ?>
+			<?php } elseif ( $head_custom_link === 'default' ) { ?>
 						<a href="<?php echo esc_url( get_home_url() ); ?>">
 			<?php } ?>
 			<<?php echo esc_attr( $heading_size_tag ); ?> class="elementor-heading-title elementor-size-<?php echo esc_attr( $settings['size'] ); ?>">
-				<?php if ( '' !== $settings['new_page_title_select_icon']['value'] ) { ?>
+				<?php if ( $settings['new_page_title_select_icon']['value'] !== '' ) { ?>
 						<span class="hfe-icon hfe-page-title-icon">
 							<?php \Elementor\Icons_Manager::render_icon( $settings['new_page_title_select_icon'], [ 'aria-hidden' => 'true' ] ); ?>
 						</span>
 				<?php } ?>				
-				<?php if ( '' !== $settings['before'] ) { ?>
+				<?php if ( $settings['before'] !== '' ) { ?>
 					<?php echo wp_kses_post( $settings['before'] ); ?>
 					<?php
 				}
@@ -444,12 +441,12 @@ class Page_Title extends Common_Widget {
 					echo wp_kses_post( get_the_title() );
 				}
 
-				if ( '' !== $settings['after'] ) {
+				if ( $settings['after'] !== '' ) {
 					?>
 					<?php echo wp_kses_post( $settings['after'] ); ?>
 				<?php } ?>  
 			</<?php echo esc_attr( $heading_size_tag ); ?> > 
-			<?php if ( ( '' !== $head_link_url && 'custom' === $head_custom_link ) || 'default' === $head_custom_link ) { ?>
+			<?php if ( ( $head_link_url !== '' && $head_custom_link === 'custom' ) || $head_custom_link === 'default' ) { ?>
 						</a>
 			<?php } ?>
 		</div>
@@ -465,7 +462,7 @@ class Page_Title extends Common_Widget {
 	 * @access protected
 	 * @return void
 	 */
-	protected function content_template() {
+	protected function content_template(): void {
 
 		?>
 		<#
