@@ -142,7 +142,8 @@ Absolutely! You can design custom headers, footers, and other sections for WooCo
 == Changelog ==
 
 = 2.0.2 =
-- Fix: Added additional class exists check to prevent any critical error.
+- Fix: Added a `class_exists` check to prevent critical errors caused by class redeclaration.
+- Fix: Verify Elementor Kit settings before accessing to avoid potential issues.
 
 = 2.0.1 =
 - Fix: Conflict with site customizer style.
