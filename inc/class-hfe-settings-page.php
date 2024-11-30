@@ -531,8 +531,8 @@ class HFE_Settings_Page {
 
 		add_submenu_page(
 			$menu_slug,
-			__( 'Get Ultimate Elementor', 'header-footer-elementor' ),
-			__( 'Get Ultimate Elementor', 'header-footer-elementor' ),
+			__( 'Get UAE Pro', 'header-footer-elementor' ),
+			__( 'Get UAE Pro', 'header-footer-elementor' ),
 			$capability,
 			'ultimate-addons-pricing',
 			'',
