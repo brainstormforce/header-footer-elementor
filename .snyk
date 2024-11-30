@@ -1,0 +1,10 @@
+{
+  "ignore": {
+    "npm:ansi-regex:*": [
+      {
+        "reason": "Ignoring ansi-regex vulnerability introduced through grunt-rtlcss",
+        "expires": "2024-12-31T23:59:59Z"
+      }
+    ]
+  }
+}

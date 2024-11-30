@@ -67,5 +67,29 @@
 				<field type="Site Title: Custom link">heading_link>url</field>
 			</fields>
 		</widget>
+		<widget name="hfe-breadcrumbs-widget">
+			<conditions>
+				<condition key="widgetType">hfe-breadcrumbs-widget</condition>
+			</conditions>
+			<fields>
+				<field type="Breadcrumbs: Separators text">separator_text</field>
+				<field type="Breadcrumbs: Home text">home_text</field>
+				<field type="Breadcrumbs: Search text">search_text</field>
+				<field type="Breadcrumbs: Custom text">error_text</field>
+			</fields>
+		</widget>
+		<widget name="post-info-widget">
+			<conditions>
+				<condition key="widgetType">post-info-widget</condition>
+			</conditions>
+			<fields>
+				<field type="Post Info: Before Text">text_prefix</field>
+				<field type="Post Info: No Comments">string_no_comments</field>
+				<field type="Post Info: One Comment">string_one_comment</field>
+				<field type="Post Info: Comments">string_comments</field>
+				<field type="Post Info: Custom">custom_text</field>
+				<field type="Post Info: Custom URL">custom_url>url</field>
+			</fields>
+		</widget>
 	</elementor-widgets>
 </wpml-config>

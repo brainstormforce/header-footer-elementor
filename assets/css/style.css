@@ -25,7 +25,7 @@
 }
 
 .elementor-element [class*="hfe-icon-"]:after {
-  content: "HFB";
+  content: "UAE";
   position: absolute;
   top: 0;
   right: 0;
@@ -41,29 +41,198 @@
 }
 
 .hfe-icon-search:before {
-  content: "\e908";
+  content: "\e93c";
 }
 .hfe-icon-site-logo:before {
-  content: "\e900";
+  content: "\e93d";
 }
 .hfe-icon-site-title:before {
-  content: "\e901";
+  content: "\e93f";
 }
 .hfe-icon-site-tagline:before {
-  content: "\e902";
+  content: "\e93e";
 }
 .hfe-icon-page-title:before {
-  content: "\e903";
+  content: "\e937";
 }
 .hfe-icon-navigation-menu:before {
-  content: "\e904";
+  content: "\e936";
 }
 .hfe-icon-menu-cart:before {
-  content: "\e905";
+  content: "\e930";
 }
 .hfe-icon-copyright-widget:before {
-  content: "\e906";
+  content: "\e935";
+}
+.hfe-icon-retina-logo:before {
+  content: "\e93a";
+}
+.hfe-icon-post-info:before {
+  content: "\e938";
+}
+.hfe-icon-progress-bar:before {
+  content: "\e939";
+}
+.hfe-icon-scroll-to-top:before {
+  content: "\e93b";
+}
+.hfe-icon-breadcrumbs:before {
+  content: "\e922";
+}
+
+.hfe-icon-woo-checkout-1:before {
+  content: "\e92f";
+}
+.hfe-icon-woo-mini-cart:before {
+  content: "\e930";
+}
+.hfe-icon-registration-form:before {
+  content: "\e92d";
 }
 .hfe-icon-retina-image:before {
+  content: "\e92a";
+}
+.hfe-icon-table-of-content:before {
+  content: "\e913";
+}
+.hfe-icon-login-form:before {
+  content: "\e934";
+}
+.hfe-icon-navigation-menu:before {
+  content: "\e90e";
+}
+.hfe-icon-social-share:before {
+  content: "\e901";
+}
+.hfe-icon-gravity-form-styler:before {
+  content: "\e932";
+}
+.hfe-icon-woo-category:before {
+  content: "\e91a";
+}
+.hfe-icon-fancy-heading:before {
+  content: "\e908";
+}
+.hfe-icon-info-box:before {
+  content: "\e933";
+}
+.hfe-icon-caldera-form-styler:before {
+  content: "\e91d";
+}
+.hfe-icon-contact-form-7:before {
+  content: "\e91e";
+}
+.hfe-icon-before-after-slider:before {
+  content: "\e91c";
+}
+.hfe-icon-wp-form-styler:before {
+  content: "\e931";
+}
+.hfe-icon-woo-add-to-cart:before {
+  content: "\e919";
+}
+.hfe-icon-woo-product:before {
+  content: "\e91b";
+}
+.hfe-icon-advanced-heading:before {
+  content: "\e902";
+}
+.hfe-icon-image-gallery:before {
+  content: "\e924";
+}
+.hfe-icon-posts:before {
+  content: "\e911";
+}
+.hfe-icon-price-box:before {
+  content: "\e929";
+}
+.hfe-icon-price-list:before {
+  content: "\e900";
+}
+.hfe-icon-table:before {
+  content: "\e912";
+}
+.hfe-icon-hotspot:before {
+  content: "\e923";
+}
+.hfe-icon-timeline:before {
+  content: "\e916";
+}
+.hfe-icon-multi-button:before {
+  content: "\e90d";
+}
+.hfe-icon-business-hour:before {
+  content: "\e903";
+}
+.hfe-icon-content-toggle:before {
+  content: "\e905";
+}
+.hfe-icon-video-gallery:before {
+  content: "\e92e";
+}
+.hfe-icon-video:before {
+  content: "\e917";
+}
+.hfe-icon-team-member:before {
+  content: "\e914";
+}
+.hfe-icon-off-canvas:before {
+  content: "\e90f";
+}
+.hfe-icon-marketing-button:before {
+  content: "\e90b";
+}
+.hfe-icon-business-review:before {
+  content: "\e904";
+}
+.hfe-icon-countdown-timer:before {
+  content: "\e906";
+}
+.hfe-icon-modal-popup:before {
+  content: "\e90c";
+}
+.hfe-icon-google-map:before {
+  content: "\e909";
+}
+.hfe-icon-dual-color-heading:before {
   content: "\e907";
+}
+.hfe-icon-faq-schema:before {
+  content: "\e920";
+}
+.hfe-icon-uae:before {
+  content: "\e939";
+}
+.hfe-icon-how-to-schema:before {
+  content: "\e90a";
+}
+.hfe-icon-fluent-form-styler:before {
+  content: "\e921";
+}
+.hfe-icon-welcome-music:before {
+  content: "\e918";
+}
+.hfe-icon-instagram-feed:before {
+  content: "\e925";
+}
+.hfe-icon-twitter-feed-icon:before {
+  content: "\e92c";
+}
+.hfe-icon-party-propz:before {
+  content: "\e927";
+}
+.hfe-icon-display-conditions:before {
+  content: "\e91f";
+}
+.hfe-icon-particles:before {
+  content: "\e926";
+}
+.hfe-icon-presets:before {
+  content: "\e928";
+}
+.hfe-icon-cdcp:before {
+  content: "\e91d";
+}
+.hfe-icon-shape-divider:before {
+  content: "\e92b";
 }
