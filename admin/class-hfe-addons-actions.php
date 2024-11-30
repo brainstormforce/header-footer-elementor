@@ -28,22 +28,10 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 
 		/**
 		 * Widget list variable
-		 * 
+		 *
 		 * @var HFE_Addons_Actions
 		 */
 		private static $widget_list;
-
-		/**
-		 *  Initiator
-		 *
-		 * @return HFE_Addons_Actions
-		 */
-		public static function get_instance() {
-			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self();
-			}
-			return self::$instance;
-		}
 
 		/**
 		 *  Constructor
@@ -65,9 +53,21 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		}
 
 		/**
+		 *  Initiator
+		 *
+		 * @return HFE_Addons_Actions
+		 */
+		public static function get_instance() {
+			if ( ! isset( self::$instance ) ) {
+				self::$instance = new self();
+			}
+			return self::$instance;
+		}
+
+		/**
 		 * Activate all module
 		 */
-		public static function bulk_activate_widgets() {
+		public static function bulk_activate_widgets(): void {
 
 			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
 
@@ -95,7 +95,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		/**
 		 * Deactivate all module
 		 */
-		public static function bulk_deactivate_widgets() {
+		public static function bulk_deactivate_widgets(): void {
 
 			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
 
@@ -123,7 +123,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		/**
 		 * Deactivate module
 		 */
-		public static function deactivate_widget() {
+		public static function deactivate_widget(): void {
 
 			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
 
@@ -142,7 +142,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		/**
 		 * Activate module
 		 */
-		public static function activate_widget() {
+		public static function activate_widget(): void {
 
 			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
 
@@ -288,7 +288,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		 * @since x.x.x
 		 * @return void
 		 */
-		public function save_hfe_compatibility_option_callback() {
+		public function save_hfe_compatibility_option_callback(): void {
 			// Check nonce for security.
 			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
 

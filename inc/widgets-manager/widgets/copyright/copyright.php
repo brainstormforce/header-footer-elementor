@@ -9,7 +9,6 @@ namespace HFE\WidgetsManager\Widgets\Copyright;
 
 use Elementor\Controls_Manager;
 use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
-
 use HFE\WidgetsManager\Base\Common_Widget;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -24,7 +23,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.2.0
  */
 class Copyright extends Common_Widget {
-
 	/**
 	 * Retrieve the widget name.
 	 *

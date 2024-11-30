@@ -14,8 +14,6 @@ use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
-use Elementor\Plugin;
-use HFE\WidgetsManager\Widgets\NavigationMenu\MenuWalker;
 use HFE\WidgetsManager\Base\Common_Widget;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -26,8 +24,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Class Nav Menu.
  */
 class Navigation_Menu extends Common_Widget {
-
-
 	/**
 	 * Menu index.
 	 *

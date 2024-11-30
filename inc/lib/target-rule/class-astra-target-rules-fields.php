@@ -1331,7 +1331,7 @@ class Astra_Target_Rules_Fields {
 					$meta_args      .= " OR pm.meta_value LIKE '%\"basic-singulars\"%'";
 					$meta_args      .= " OR pm.meta_value LIKE '%\"{$current_post_type}|all\"%'";
 					$meta_args      .= " OR pm.meta_value LIKE '%\"post-{$current_id}\"%'";
-					
+
 					if ( is_object( $q_obj ) ) {
 						$taxonomies = get_object_taxonomies( $q_obj->post_type );
 						$terms      = wp_get_post_terms( $q_obj->ID, $taxonomies );

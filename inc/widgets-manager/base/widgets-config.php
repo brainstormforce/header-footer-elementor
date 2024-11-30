@@ -7,9 +7,6 @@
 
 namespace HFE\WidgetsManager\Base;
 
-
-use HFE\WidgetsManager\Base\Widgets_Config;
-
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
@@ -23,7 +20,6 @@ if ( ! function_exists( 'get_plugins' ) ) {
  * Class Widgets_Config.
  */
 class Widgets_Config {
-
 	/**
 	 * Widget List
 	 *
@@ -222,13 +218,13 @@ class Widgets_Config {
 	 */
 	public static function get_pro_widget_list() {
 
-		if ( null === self::$pro_widget_list ) {
+		if ( self::$pro_widget_list === null ) {
 
 			$integration_url = '';
 			$post_url        = '';
 
 			self::$pro_widget_list = [
-				
+
 				'Advanced_Heading'    => [
 					'slug'        => 'uael-advanced-heading',
 					'title'       => __( 'Advanced Heading', 'header-footer-elementor' ),
@@ -932,7 +928,7 @@ class Widgets_Config {
 							'is_pro'      => true,
 						],
 					];
-	
+
 					self::$pro_widget_list = array_merge_recursive( self::$pro_widget_list, $caldera );
 				}
 			}
@@ -952,7 +948,6 @@ class Widgets_Config {
 		return self::get_widget_list() + self::get_pro_widget_list(); // Use + operator to merge associative arrays.
 	}
 
-   
 	/**
 	 * Function for Astra Pro white labels with defaults.
 	 *
@@ -1090,18 +1085,18 @@ class Widgets_Config {
 
 		foreach ( $plugins as $key => $plugin ) {
 			// Check if it's a plugin and is active.
-			if ( 'plugin' === $plugin['type'] && is_plugin_active( $key ) ) {
+			if ( $plugin['type'] === 'plugin' && is_plugin_active( $key ) ) {
 				unset( $plugins[ $key ] );
 			}
 
-			if ( 'plugin' === $plugin['type'] && 'astra-sites/astra-sites.php' === $key ) {
+			if ( $plugin['type'] === 'plugin' && $key === 'astra-sites/astra-sites.php' ) {
 				$st_pro_status = self::get_plugin_status( 'astra-pro-sites/astra-pro-sites.php' );
-				if ( 'Installed' === $st_pro_status || 'Activated' === $st_pro_status ) {
+				if ( $st_pro_status === 'Installed' || $st_pro_status === 'Activated' ) {
 					unset( $plugins[ $key ] );
 				}
 			}
 
-			if ( 'theme' === $plugin['type'] ) {
+			if ( $plugin['type'] === 'theme' ) {
 				$current_theme = wp_get_theme();
 				if ( $current_theme->get_stylesheet() === $plugin['slug'] ) {
 					unset( $plugins[ $key ] );
@@ -1126,11 +1121,12 @@ class Widgets_Config {
 
 		if ( ! isset( $installed_plugins[ $plugin_init_file ] ) ) {
 			return 'Install';
-		} elseif ( is_plugin_active( $plugin_init_file ) ) {
-			return 'Activated';
-		} else {
-			return 'Installed';
 		}
+		if ( is_plugin_active( $plugin_init_file ) ) {
+			return 'Activated';
+		}
+			return 'Installed';
+
 	}
 	/**
 	 * Get the status of a theme.
@@ -1142,22 +1138,20 @@ class Widgets_Config {
 	 */
 	public static function get_theme_status( $theme_slug ) {
 		$installed_themes = wp_get_themes();
-	
+
 		// Check if the theme is installed.
 		if ( isset( $installed_themes[ $theme_slug ] ) ) {
 			$current_theme = wp_get_theme();
-		
+
 			// Check if the current theme slug matches the provided theme slug.
 			if ( $current_theme->get_stylesheet() === $theme_slug ) {
 				return 'Activated'; // Theme is active.
-			} else {
-				return 'Installed'; // Theme is installed but not active.
 			}
-		} else {
-			return 'Install'; // Theme is not installed at all.
+				return 'Installed'; // Theme is installed but not active.
+
 		}
+			return 'Install'; // Theme is not installed at all.
+
 	}
-
-
 
 }

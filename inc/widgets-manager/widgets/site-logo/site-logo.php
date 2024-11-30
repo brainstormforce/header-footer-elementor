@@ -17,7 +17,6 @@ use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Typography;
 use Elementor\Plugin;
-
 use HFE\WidgetsManager\Base\Common_Widget;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -32,7 +31,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.3.0
  */
 class Site_Logo extends Common_Widget {
-
 	/**
 	 * Retrieve the widget name.
 	 *

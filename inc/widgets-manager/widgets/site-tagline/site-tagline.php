@@ -8,12 +8,9 @@
 namespace HFE\WidgetsManager\Widgets\SiteTagline;
 
 use Elementor\Controls_Manager;
-use Elementor\Group_Control_Typography;
-use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
-use Elementor\Group_Control_Text_Shadow;
 use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
-use Elementor\Widget_Base;
-
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
+use Elementor\Group_Control_Typography;
 use HFE\WidgetsManager\Base\Common_Widget;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -28,7 +25,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.3.0
  */
 class Site_Tagline extends Common_Widget {
-
 	/**
 	 * Retrieve the widget name.
 	 *

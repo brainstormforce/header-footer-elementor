@@ -8,13 +8,12 @@
 namespace HFE\WidgetsManager\Widgets\SiteTitle;
 
 use Elementor\Controls_Manager;
-use Elementor\Group_Control_Typography;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use Elementor\Group_Control_Text_Shadow;
-use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
-use Elementor\Widget_Base;
-use HFE\WidgetsManager\Widgets_Loader;
+use Elementor\Group_Control_Typography;
 use HFE\WidgetsManager\Base\Common_Widget;
+use HFE\WidgetsManager\Widgets_Loader;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;   // Exit if accessed directly.
@@ -28,7 +27,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.3.0
  */
 class Site_Title extends Common_Widget {
-
 	/**
 	 * Retrieve the widget name.
 	 *

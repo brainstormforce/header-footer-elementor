@@ -46,8 +46,8 @@ class HFE_Admin {
 	 * @return void
 	 */
 	public static function load_admin() {
-		add_action( 'elementor/editor/after_enqueue_styles', __CLASS__ . '::hfe_admin_enqueue_scripts' );
-		add_action( 'admin_head', __CLASS__ . '::hfe_admin_enqueue_scripts' );
+		add_action( 'elementor/editor/after_enqueue_styles', self::class . '::hfe_admin_enqueue_scripts' );
+		add_action( 'admin_head', self::class . '::hfe_admin_enqueue_scripts' );
 	}
 
 	/**
@@ -69,7 +69,6 @@ class HFE_Admin {
 		);
 
 		wp_enqueue_style( 'hfe-style' );
-
 	}
 
 	/**
@@ -111,12 +110,12 @@ class HFE_Admin {
 	 */
 	public static function hide_admin_notices() {
 		$screen = get_current_screen();
-		if ( 'toplevel_page_hfe' === $screen->id ) {
+		if ( $screen->id === 'toplevel_page_hfe' ) {
 			remove_all_actions( 'admin_notices' );
 			remove_all_actions( 'all_admin_notices' );
 		}
 	}
-	
+
 	/**
 	 * Script for Elementor Pro full site editing support.
 	 *

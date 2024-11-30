@@ -9,9 +9,6 @@ namespace HFE\WidgetsManager\Widgets\Cart;
 
 use Elementor\Controls_Manager;
 use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
-use Elementor\Group_Control_Text_Shadow;
-use Elementor\Group_Control_Border;
-
 use HFE\WidgetsManager\Base\Common_Widget;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -24,7 +21,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.4.0
  */
 class Cart extends Common_Widget {
-
 	/**
 	 * Retrieve the widget name.
 	 *
@@ -595,7 +591,7 @@ class Cart extends Common_Widget {
 	 */
 	protected function render(): void {
 
-		if ( null === \WC()->cart ) {
+		if ( \WC()->cart === null ) {
 			return;
 		}
 
