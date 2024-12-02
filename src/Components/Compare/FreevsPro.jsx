@@ -34,7 +34,7 @@ const FreevsPro = () => {
                 { id: 2, content: __("Dual Color Heading", "header-footer-elementor"), iconFree: false, iconPro: true },
                 { id: 3, content: __("Fancy Heading", "header-footer-elementor"), iconFree: false, iconPro: true },
                 { id: 4, content: __("Party Propz", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 5, content: __("Image Hotspots", "header-footer-elementor"), iconFree: true, iconPro: false },
+                { id: 5, content: __("Image Hotspots", "header-footer-elementor"), iconFree: false, iconPro: true },
             ],
         },
         {
