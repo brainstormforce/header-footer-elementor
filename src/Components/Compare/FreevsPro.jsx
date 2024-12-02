@@ -127,7 +127,7 @@ const FreevsPro = () => {
                 <p className="text-sm text-text-secondary font-medium">
                     {item.content}
                 </p>
-                <div className="flex flex-row items-center justify-between" style={{ gap: "12rem" }}>
+                <div className="flex flex-row items-center justify-between" style={{ gap: "10.7rem" }}>
                     <p className="text-sm text-text-primary font-medium">
                         {item.id === 10 && item.content === __("Navigation Menu", "header-footer-elementor")
                             ? item.iconPro
@@ -137,7 +137,7 @@ const FreevsPro = () => {
                     </p>
                     <p
                         className="text-sm text-text-primary font-medium"
-                        style={{ marginRight: "50px" }}
+                        style={{ marginRight: "25px" }}
                     >
                         {item.id === 10 && item.content === __("Navigation Menu", "header-footer-elementor")
                             ? item.iconPro
