@@ -40,15 +40,14 @@ class HFE_Settings_Page {
 		
 		add_action( 'admin_head', [ $this, 'hfe_global_css' ] );
 
-		if ( HFE_Helper::is_pro_active() ) {
-			return;
+		if ( ! HFE_Helper::is_pro_active() ) {
+			if ( is_admin() && current_user_can( 'manage_options' ) ) {
+				add_action( 'admin_menu', [ $this, 'hfe_register_settings_page' ] );
+			}
+			add_action( 'admin_init', [ $this, 'hfe_admin_init' ] );
+			add_filter( 'views_edit-elementor-hf', [ $this, 'hfe_settings' ], 10, 1 );
 		}
 		
-		if ( is_admin() && current_user_can( 'manage_options' ) ) {
-			add_action( 'admin_menu', [ $this, 'hfe_register_settings_page' ] );
-		}
-		add_action( 'admin_init', [ $this, 'hfe_admin_init' ] );
-		add_filter( 'views_edit-elementor-hf', [ $this, 'hfe_settings' ], 10, 1 );
 		add_filter( 'admin_footer_text', [ $this, 'admin_footer_text' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
 		add_filter( 'plugin_action_links_' . HFE_PATH, [ $this, 'settings_link' ] );
@@ -71,20 +70,6 @@ class HFE_Settings_Page {
 		} else {
 			add_filter( 'wp_check_filetype_and_ext', [ $this, 'real_mime_types' ], 10, 4 );
 		}
-
-		add_action('admin_footer', function() {
-			?>
-			<script type="text/javascript">
-				document.addEventListener('DOMContentLoaded', function() {
-					var menuItem = document.querySelector('a[href="ultimate-addons-pricing"]');
-					if (menuItem) {
-						menuItem.setAttribute('target', '_blank');
-						menuItem.setAttribute('href', 'https://ultimateelementor.com/pricing/?utm_source=uae-lite-settings&utm_medium=My-accounts&utm_campaign=uae-lite-upgrade');
-					}
-				});
-			</script>
-			<?php
-		});
 	}
 
 		/**
@@ -217,7 +202,7 @@ class HFE_Settings_Page {
 		$show_view_all = ( $post_type === 'elementor-hf' && $pagenow === 'post.php' ) ? "yes" : "no";
 		$hfe_edit_url  = admin_url( 'edit.php?post_type=elementor-hf' );
 
-		if ( self::is_current_page( 'hfe' ) ) {
+		if ( self::is_current_page( 'hfe' ) && ! HFE_Helper::is_pro_active() ) {
 
 			$rollback_versions = HFE_Helper::get_rollback_versions_options();
 			$st_status         = HFE_Helper::free_starter_templates_status();
