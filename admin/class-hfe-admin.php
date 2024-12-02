@@ -298,7 +298,7 @@ class HFE_Admin {
 		add_submenu_page(
 			$setting_location,
 			__( 'Header/Footer Builder', 'header-footer-elementor' ),
-			__( 'Header/Footer Builder', 'header-footer-elementor' ),
+			__( 'Header Footer Builder', 'header-footer-elementor' ),
 			'edit_pages',
 			'edit.php?post_type=elementor-hf',
 			'',
