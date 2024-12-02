@@ -1178,14 +1178,14 @@ class HFE_Settings_Page {
  * @return array $links
  */
 public function settings_link( $links ) {
-    $menu_slug = 'hfe'; // Replace with your actual menu slug
+    $menu_setting = HFE_Helper::is_pro_active() ? 'uaepro' : 'hfe'; // Replace with your actual menu slug
 
     $custom['settings'] = sprintf(
         '<a href="%s" aria-label="%s">%s</a>',
         esc_url(
             add_query_arg(
                 [
-                    'page' => $menu_slug,
+                    'page' => $menu_setting,
                 ],
                 admin_url( 'admin.php' )
             ) . '#dashboard'
