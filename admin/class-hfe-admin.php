@@ -259,7 +259,7 @@ class HFE_Admin {
 			'menu_name'          => esc_html__( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
 			'name_admin_bar'     => esc_html__( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
 			'add_new'            => esc_html__( 'Add New', 'header-footer-elementor' ),
-			'add_new_item'       => esc_html__( 'Add New Header or Footer', 'header-footer-elementor' ),
+			'add_new_item'       => esc_html__( 'Add New', 'header-footer-elementor' ),
 			'new_item'           => esc_html__( 'New Template', 'header-footer-elementor' ),
 			'edit_item'          => esc_html__( 'Edit Template', 'header-footer-elementor' ),
 			'view_item'          => esc_html__( 'View Template', 'header-footer-elementor' ),
