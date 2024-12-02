@@ -37,10 +37,13 @@ class HFE_Settings_Page {
 	public function __construct() {
 
 		add_action( 'admin_post_uaelite_rollback', [ $this, 'post_uaelite_rollback' ] );
+		
+		add_action( 'admin_head', [ $this, 'hfe_global_css' ] );
+
 		if ( HFE_Helper::is_pro_active() ) {
 			return;
 		}
-		add_action( 'admin_head', [ $this, 'hfe_global_css' ] );
+		
 		if ( is_admin() && current_user_can( 'manage_options' ) ) {
 			add_action( 'admin_menu', [ $this, 'hfe_register_settings_page' ] );
 		}
