@@ -25,7 +25,6 @@ const FreevsPro = () => {
                 { id: 8, content: __("Site Logo", "header-footer-elementor"), iconFree: true, iconPro: false },
                 { id: 9, content: __("Search", "header-footer-elementor"), iconFree: true, iconPro: false },
                 { id: 10, content: __("Navigation Menu", "header-footer-elementor"), iconFree: true, iconPro: false },
-                { id: 11, content: __("Advanced Navigation Menu", "header-footer-elementor"), iconFree: false, iconPro: true },
             ],
         },
         {
@@ -35,7 +34,7 @@ const FreevsPro = () => {
                 { id: 2, content: __("Dual Color Heading", "header-footer-elementor"), iconFree: false, iconPro: true },
                 { id: 3, content: __("Fancy Heading", "header-footer-elementor"), iconFree: false, iconPro: true },
                 { id: 4, content: __("Party Propz", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 5, content: __("Image Hotspots", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 5, content: __("Image Hotspots", "header-footer-elementor"), iconFree: true, iconPro: false },
             ],
         },
         {
@@ -128,15 +127,23 @@ const FreevsPro = () => {
                 <p className="text-sm text-text-secondary font-medium">
                     {item.content}
                 </p>
-                <div className="flex flex-row items-center" style={{ gap: "12rem" }}>
+                <div className="flex flex-row items-center justify-between" style={{ gap: "12rem" }}>
                     <p className="text-sm text-text-primary font-medium">
-                        {renderIcon(item.iconFree)}
+                        {item.id === 10 && item.content === __("Navigation Menu", "header-footer-elementor")
+                            ? item.iconPro
+                                ? __("Advanced", "header-footer-elementor")
+                                : __("Basic", "header-footer-elementor")
+                            : renderIcon(item.iconFree)}
                     </p>
                     <p
                         className="text-sm text-text-primary font-medium"
                         style={{ marginRight: "50px" }}
                     >
-                        {renderIcon(item.iconPro)}
+                        {item.id === 10 && item.content === __("Navigation Menu", "header-footer-elementor")
+                            ? item.iconPro
+                                ? __("Basic", "header-footer-elementor")
+                                : __("Advanced", "header-footer-elementor")
+                            : renderIcon(item.iconPro)}
                     </p>
                 </div>
             </div>
