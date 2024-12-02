@@ -1169,34 +1169,34 @@ class HFE_Settings_Page {
 	}
 
 	
+/**
+ * Add settings link to the Plugins page.
+ *
+ * @since 1.6.0
+ *
+ * @param array $links Plugin row links.
+ *
+ * @return array $links
+ */
+public function settings_link( $links ) {
+    $menu_slug = 'hfe'; // Replace with your actual menu slug
 
-	/**
-	 * Add settings link to the Plugins page.
-	 *
-	 * @since 1.6.0
-	 *
-	 * @param array $links Plugin row links.
-	 *
-	 * @return array $links
-	 */
-	public function settings_link( $links ) {
+    $custom['settings'] = sprintf(
+        '<a href="%s" aria-label="%s">%s</a>',
+        esc_url(
+            add_query_arg(
+                [
+                    'page' => $menu_slug,
+                ],
+                admin_url( 'admin.php' )
+            ) . '#dashboard'
+        ),
+        esc_attr__( 'Go to HFE Settings page', 'header-footer-elementor' ),
+        esc_html__( 'Settings', 'header-footer-elementor' )
+    );
 
-		$custom['settings'] = sprintf(
-			'<a href="%s" aria-label="%s">%s</a>',
-			esc_url(
-				add_query_arg(
-					[
-						'post_type' => 'elementor-hf',
-					],
-					admin_url( 'edit.php' )
-				)
-			),
-			esc_attr__( 'Go to HFE Settings page', 'header-footer-elementor' ),
-			esc_html__( 'Settings', 'header-footer-elementor' )
-		);
-
-		return array_merge( $custom, (array) $links );
-	}
+    return array_merge( $custom, (array) $links );
+}
 
 	/**
 	 * Different MIME type of different PHP version
