@@ -207,8 +207,12 @@ class HFE_Settings_Page {
 	 */
 	public function enqueue_admin_scripts() {
 
+		global $pagenow, $post_type;
+
 		$uae_logo   = HFE_URL . 'assets/images/settings/dashboard-logo.svg';
 		$white_logo = HFE_URL . 'assets/images/settings/white-logo.svg';
+		$show_view_all = ( $post_type === 'elementor-hf' && $pagenow === 'post.php' ) ? "yes" : "no";
+		$hfe_edit_url  = admin_url( 'edit.php?post_type=elementor-hf' );
 
 		if ( self::is_current_page( 'hfe' ) ) {
 
@@ -320,6 +324,10 @@ class HFE_Settings_Page {
 			'installer_nonce'   => wp_create_nonce( 'updates' ),
 			'popup_dismiss'     => false,
 			'data_source'       => 'HFE',
+			'show_all_hfe'		=> $show_view_all,
+			'hfe_edit_url'      => $hfe_edit_url,
+			'view_all_text'     => esc_html__( 'View All', 'header-footer-elementor' ),
+
 		];
 
 		$strings = apply_filters( 'hfe_admin_strings', $strings );
