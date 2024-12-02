@@ -163,7 +163,7 @@ class Header_Footer_Elementor {
 	 * @return void
 	 */
 	public function register_notices() {
-		$image_path = HFE_URL . 'assets/images/header-footer-elementor-icon.svg';
+		$image_path = HFE_URL . 'assets/images/settings/uael-icon.svg';
 
 		Astra_Notices::add_notice(
 			[
@@ -192,8 +192,8 @@ class Header_Footer_Elementor {
 							</div>
 						</div>',
 					$image_path,
-					__( 'Hello! Seems like you have used Elementor Header & Footer Builder to build this website — Thanks a ton!', 'header-footer-elementor' ),
-					__( 'Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Elementor Header & Footer Builder.', 'header-footer-elementor' ),
+					__( 'Hello! Seems like you have used UAE Lite - Elementor Header & Footer Builder to build this website — Thanks a ton!', 'header-footer-elementor' ),
+					__( 'Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Ultimate Addons for Elementor.', 'header-footer-elementor' ),
 					'https://wordpress.org/support/plugin/header-footer-elementor/reviews/?filter=5#new-post',
 					__( 'Ok, you deserve it', 'header-footer-elementor' ),
 					MONTH_IN_SECONDS,
