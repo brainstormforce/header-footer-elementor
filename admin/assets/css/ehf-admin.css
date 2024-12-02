@@ -56,8 +56,8 @@ li#toplevel_page_Settings-page,
     color: #ffffff;
     font-weight: 600;
 }
-.toplevel_page_hfe .wp-submenu .wp-first-item a[href ="edit.php?post_type=elementor-hf" ],
-.toplevel_page_uaepro .wp-submenu .wp-first-item a[href ="edit.php?post_type=elementor-hf" ] {
+.toplevel_page_hfe .wp-submenu a[href ="post-new.php?post_type=elementor-hf" ],
+.toplevel_page_uaepro .wp-submenu a[href ="post-new.php?post_type=elementor-hf" ] {
     display: none !important;
 }
 .hfe-heading-inline {

@@ -212,8 +212,6 @@ class HFE_Settings_Page {
 
 		if ( self::is_current_page( 'hfe' ) ) {
 
-			error_log( "Hieeeeeeeeeee" );
-
 			$rollback_versions = HFE_Helper::get_rollback_versions_options();
 			$st_status         = HFE_Helper::free_starter_templates_status();
 			$stpro_status      = HFE_Helper::premium_starter_templates_status();

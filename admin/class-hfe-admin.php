@@ -274,13 +274,14 @@ class HFE_Admin {
 			'labels'              => $labels,
 			'public'              => true,
 			'show_ui'             => true,
-			'show_in_menu'        => $setting_location,
+			'show_in_menu'        => false,
 			'show_in_nav_menus'   => false,
 			'exclude_from_search' => true,
 			'capability_type'     => 'post',
 			'hierarchical'        => false,
 			'menu_icon'           => 'dashicons-editor-kitchensink',
 			'supports'            => [ 'title', 'thumbnail', 'elementor' ],
+			'menu_position'       => 5,
 		];
 
 		register_post_type( 'elementor-hf', $args );
@@ -297,6 +298,16 @@ class HFE_Admin {
 	public function register_admin_menu() {
 
 		$setting_location = $this->is_pro_active() ? 'uaepro' : 'hfe';
+
+		add_submenu_page(
+			$setting_location,
+			__( 'Create New', 'header-footer-elementor' ),
+			__( 'Create New', 'header-footer-elementor' ),
+			'edit_pages',
+			'post-new.php?post_type=elementor-hf',
+			'',
+			1
+		);
 
 		add_submenu_page(
 			$setting_location,
