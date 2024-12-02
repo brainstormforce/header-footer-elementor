@@ -18,7 +18,7 @@ const FreevsPro = () => {
                 { id: 1, content: __("Post Info", "header-footer-elementor"), iconFree: true, iconPro: false },
                 { id: 2, content: __("Scroll to Top", "header-footer-elementor"), iconFree: true, iconPro: false },
                 { id: 3, content: __("Breadcrumbs", "header-footer-elementor"), iconFree: true, iconPro: false },
-                { id: 4, content: __("Retina Logo", "header-footer-elementor"), iconFree: true, iconPro: false },
+                { id: 4, content: __("Retina Logo", "header-footer-elementor"), iconFree: true, iconPro: true },
                 { id: 5, content: __("Copyright", "header-footer-elementor"), iconFree: true, iconPro: false },
                 { id: 6, content: __("Page Title", "header-footer-elementor"), iconFree: true, iconPro: false },
                 { id: 7, content: __("Site Tagline", "header-footer-elementor"), iconFree: true, iconPro: false },
@@ -108,8 +108,7 @@ const FreevsPro = () => {
         {
             title: __("Advanced Features", "header-footer-elementor"),
             items: [
-                { id: 1, content: __("Retina Image", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 2, content: __("Team Member", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 1, content: __("Team Member", "header-footer-elementor"), iconFree: false, iconPro: true },
                 { id: 3, content: __("Post Layout", "header-footer-elementor"), iconFree: false, iconPro: true },
             ],
         },
