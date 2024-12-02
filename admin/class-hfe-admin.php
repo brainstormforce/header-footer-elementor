@@ -250,6 +250,9 @@ class HFE_Admin {
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
+
+		$setting_location = $this->is_pro_active() ? 'uaepro' : 'hfe';
+		
 		$labels = [
 			'name'               => esc_html__( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
 			'singular_name'      => esc_html__( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
@@ -271,7 +274,7 @@ class HFE_Admin {
 			'labels'              => $labels,
 			'public'              => true,
 			'show_ui'             => true,
-			'show_in_menu'        => false,
+			'show_in_menu'        => $setting_location,
 			'show_in_nav_menus'   => false,
 			'exclude_from_search' => true,
 			'capability_type'     => 'post',
@@ -298,7 +301,7 @@ class HFE_Admin {
 		add_submenu_page(
 			$setting_location,
 			__( 'Header/Footer Builder', 'header-footer-elementor' ),
-			__( 'Header/Footer Builder', 'header-footer-elementor' ),
+			__( 'Header Footer Builder', 'header-footer-elementor' ),
 			'edit_pages',
 			'edit.php?post_type=elementor-hf',
 			'',
