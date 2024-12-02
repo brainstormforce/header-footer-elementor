@@ -490,15 +490,15 @@ class HFE_Settings_Page {
 			1
 		);
 	
-		add_submenu_page(
-			$menu_slug, // Parent slug.
-			__( 'Widgets & Features', 'header-footer-elementor' ),
-			__( 'Widgets & Features', 'header-footer-elementor' ),
-			$capability,
-			$menu_slug . '#widgets',
-			[ $this, 'render' ],
-			2
-		);
+		// add_submenu_page(
+		// 	$menu_slug, // Parent slug.
+		// 	__( 'Widgets & Features', 'header-footer-elementor' ),
+		// 	__( 'Widgets & Features', 'header-footer-elementor' ),
+		// 	$capability,
+		// 	$menu_slug . '#widgets',
+		// 	[ $this, 'render' ],
+		// 	2
+		// );
 		
 		// Add the Settings Submenu.
 		add_submenu_page(
