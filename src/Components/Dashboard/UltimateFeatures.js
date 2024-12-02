@@ -120,7 +120,7 @@ const UltimateFeatures = () => {
 							to={routes.upgrade.path}
 						>
 							{__(
-								"Compare Free vs Pro",
+								"Compare Lite vs Pro",
 								"header-footer-elementor"
 							)}
 						</Link>

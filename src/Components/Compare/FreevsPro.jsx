@@ -25,7 +25,6 @@ const FreevsPro = () => {
                 { id: 8, content: __("Site Logo", "header-footer-elementor"), iconFree: true, iconPro: false },
                 { id: 9, content: __("Search", "header-footer-elementor"), iconFree: true, iconPro: false },
                 { id: 10, content: __("Navigation Menu", "header-footer-elementor"), iconFree: true, iconPro: false },
-                { id: 11, content: __("Mega Menu", "header-footer-elementor"), iconFree: false, iconPro: true },
             ],
         },
         {
