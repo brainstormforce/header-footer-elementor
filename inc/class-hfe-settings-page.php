@@ -496,16 +496,6 @@ class HFE_Settings_Page {
 			[ $this, 'render' ],
 			2
 		);
-
-		add_submenu_page(
-			$menu_slug,
-			__( 'Templates', 'header-footer-elementor' ),
-			__( 'Templates', 'header-footer-elementor' ),
-			$capability,
-			$menu_slug . '#templates',
-			[ $this, 'render' ],
-			8
-		);
 		
 		// Add the Settings Submenu.
 		add_submenu_page(
@@ -516,27 +506,6 @@ class HFE_Settings_Page {
 			$menu_slug . '#settings',
 			[ $this, 'render' ],
 			9
-		);
-
-			// Add the Settings Submenu.
-			add_submenu_page(
-				$menu_slug,
-				__( 'Free vs Pro', 'header-footer-elementor' ),
-				__( 'Free vs Pro', 'header-footer-elementor' ),
-				$capability,
-				$menu_slug . '#upgrade',
-				[ $this, 'render' ],
-				9
-			);
-
-		add_submenu_page(
-			$menu_slug,
-			__( 'Get Ultimate Elementor', 'header-footer-elementor' ),
-			__( 'Get Ultimate Elementor', 'header-footer-elementor' ),
-			$capability,
-			'ultimate-addons-pricing',
-			'',
-			11
 		);
 
 	}
@@ -571,9 +540,13 @@ class HFE_Settings_Page {
 	 *
 	 * @return void
 	 */
-	public function render_content( $menu_page_slug, $page_action ) {
+	public function render_content() {
 
-		if ( $this->menu_slug === $menu_page_slug ) {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+
+		if ( self::is_current_page( 'hfe' )  ) {
 			include_once HFE_DIR . 'inc/settings/settings-app.php';
 		}
 	}
