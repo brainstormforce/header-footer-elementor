@@ -350,7 +350,7 @@ class HFE_Settings_Page {
 	 *
 	 * @return  string page url
 	 */
-	public function is_current_page( $page_slug = '', $action = '' ) {
+	public static function is_current_page( $page_slug = '', $action = '' ) {
 
 		$page_matched = false;
 
