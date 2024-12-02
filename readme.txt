@@ -1,4 +1,4 @@
-=== Ultimate Addons for Elementor Lite (UAE Lite) ===
+=== Ultimate Addons for Elementor - Lite (Formerly Elementor Header & Footer Builder) ===
 Contributors: @brainstormforce, @nikschavan, @pratikchaskar
 Tags: elementor, header footer builder, breadcrumbs, post meta, widgets
 Requires at least: 4.4
@@ -13,7 +13,7 @@ Elevate your Elementor designs with UAE Lite! Create custom headers, footers, an
 
 
 ## Description ##
-Building and managing WordPress websites shouldn’t be overwhelming. That’s why we created **Ultimate Addons for Elementor Lite (UAE Lite)** – a free plugin that adds powerful features to Elementor, giving you complete control over your site’s design and functionality.  
+Formerly known as "Elementor Header & Footer Builder," this powerful plugin allows you to create custom headers and footers with Elementor and display them in selected locations. You can also create custom Elementor blocks and place them anywhere on your website using a shortcode.  
 
 
 From crafting custom headers and footers to adding interactive design elements like breadcrumbs and metadata, UAE Lite is packed with features that make your website **look and perform better**. And best of all? You can do it all with Elementor’s intuitive drag-and-drop editor!  
