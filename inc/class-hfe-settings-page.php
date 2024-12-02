@@ -210,71 +210,76 @@ class HFE_Settings_Page {
 		$uae_logo   = HFE_URL . 'assets/images/settings/dashboard-logo.svg';
 		$white_logo = HFE_URL . 'assets/images/settings/white-logo.svg';
 
-		$rollback_versions = HFE_Helper::get_rollback_versions_options();
-		$st_status         = HFE_Helper::free_starter_templates_status();
-		$stpro_status      = HFE_Helper::premium_starter_templates_status();
-		$st_link           = HFE_Helper::starter_templates_link();
-		$hfe_post_url 		= admin_url( 'post-new.php?post_type=elementor-hf' );
-		
-		$show_theme_support = 'no';
-		$hfe_theme_status   = get_option( 'hfe_is_theme_supported', false );
+		if ( self::is_current_page( 'hfe' ) ) {
 
-		if ( ( ! current_theme_supports( 'header-footer-elementor' ) ) && ! $hfe_theme_status ) {
-			$show_theme_support = 'yes';
+			error_log( "Hieeeeeeeeeee" );
+
+			$rollback_versions = HFE_Helper::get_rollback_versions_options();
+			$st_status         = HFE_Helper::free_starter_templates_status();
+			$stpro_status      = HFE_Helper::premium_starter_templates_status();
+			$st_link           = HFE_Helper::starter_templates_link();
+			$hfe_post_url 		= admin_url( 'post-new.php?post_type=elementor-hf' );
+			
+			$show_theme_support = 'no';
+			$hfe_theme_status   = get_option( 'hfe_is_theme_supported', false );
+
+			if ( ( ! current_theme_supports( 'header-footer-elementor' ) ) && ! $hfe_theme_status ) {
+				$show_theme_support = 'yes';
+			}
+			$theme_option = get_option( 'hfe_compatibility_option', '1' );
+
+			wp_enqueue_script(
+				'header-footer-elementor-react-app',
+				HFE_URL . 'build/main.js',
+				[ 'wp-element', 'wp-dom-ready', 'wp-api-fetch' ],
+				HFE_VER,
+				true
+			);
+
+			wp_localize_script(
+				'header-footer-elementor-react-app',
+				'hfeSettingsData',
+				[
+					'hfe_nonce_action'         => wp_create_nonce( 'wp_rest' ),
+					'installer_nonce'          => wp_create_nonce( 'updates' ),
+					'ajax_url'                 => admin_url( 'admin-ajax.php' ),
+					'ajax_nonce'               => wp_create_nonce( 'hfe-widget-nonce' ),
+					'templates_url'            => HFE_URL . 'assets/images/settings/starter-templates.png',
+					'column_url'               => HFE_URL . 'assets/images/settings/column.png',
+					'template_url'             => HFE_URL . 'assets/images/settings/template.png',
+					'icon_url'                 => HFE_URL . 'assets/images/settings/logo.svg',
+					'elementor_page_url'       => self::get_elementor_new_page_url(),
+					'astra_url'                => HFE_URL . 'assets/images/settings/astra.svg',
+					'starter_url'              => HFE_URL . 'assets/images/settings/starter-templates.svg',
+					'surecart_url'             => HFE_URL . 'assets/images/settings/surecart.svg',
+					'suretriggers_url'         => HFE_URL . 'assets/images/settings/sure-triggers.svg',
+					'theme_url_selected'       => HFE_URL . 'assets/images/settings/theme.svg',
+					'theme_url'                => HFE_URL . 'assets/images/settings/layout-template.svg',
+					'version_url'              => HFE_URL . 'assets/images/settings/version.svg',
+					'version__selected_url'    => HFE_URL . 'assets/images/settings/git-compare.svg',
+					'user_url'                 => HFE_URL . 'assets/images/settings/user.svg',
+					'user__selected_url'       => HFE_URL . 'assets/images/settings/user-selected.svg',
+					'integrations_url'         => HFE_URL . 'assets/images/settings/integrations.svg',  // Update the path to your assets folder.
+					'uaelite_previous_version' => isset( $rollback_versions[0]['value'] ) ? $rollback_versions[0]['value'] : '',
+					'uaelite_versions'         => $rollback_versions,
+					'uaelite_rollback_url'     => esc_url( add_query_arg( 'version', 'VERSION', wp_nonce_url( admin_url( 'admin-post.php?action=uaelite_rollback' ), 'uaelite_rollback' ) ) ),
+					'uaelite_current_version'  => defined( 'HFE_VER' ) ? HFE_VER : '',
+					'show_theme_support'       => $show_theme_support,
+					'theme_option'             => $theme_option,
+					'st_status'                => $st_status,
+					'st_pro_status'            => $stpro_status,
+					'st_link'                  => $st_link,
+					'hfe_post_url'             => $hfe_post_url,
+				]
+			);
+
+			wp_enqueue_style(
+				'header-footer-elementor-react-styles',
+				HFE_URL . 'build/main.css',
+				[],
+				HFE_VER
+			);
 		}
-		$theme_option = get_option( 'hfe_compatibility_option', '1' );
-
-		wp_enqueue_script(
-			'header-footer-elementor-react-app',
-			HFE_URL . 'build/main.js',
-			[ 'wp-element', 'wp-dom-ready', 'wp-api-fetch' ],
-			HFE_VER,
-			true
-		);
-
-		wp_localize_script(
-			'header-footer-elementor-react-app',
-			'hfeSettingsData',
-			[
-				'hfe_nonce_action'         => wp_create_nonce( 'wp_rest' ),
-				'installer_nonce'          => wp_create_nonce( 'updates' ),
-				'ajax_url'                 => admin_url( 'admin-ajax.php' ),
-				'ajax_nonce'               => wp_create_nonce( 'hfe-widget-nonce' ),
-				'templates_url'            => HFE_URL . 'assets/images/settings/starter-templates.png',
-				'column_url'               => HFE_URL . 'assets/images/settings/column.png',
-				'template_url'             => HFE_URL . 'assets/images/settings/template.png',
-				'icon_url'                 => HFE_URL . 'assets/images/settings/logo.svg',
-				'elementor_page_url'       => self::get_elementor_new_page_url(),
-				'astra_url'                => HFE_URL . 'assets/images/settings/astra.svg',
-				'starter_url'              => HFE_URL . 'assets/images/settings/starter-templates.svg',
-				'surecart_url'             => HFE_URL . 'assets/images/settings/surecart.svg',
-				'suretriggers_url'         => HFE_URL . 'assets/images/settings/sure-triggers.svg',
-				'theme_url_selected'       => HFE_URL . 'assets/images/settings/theme.svg',
-				'theme_url'                => HFE_URL . 'assets/images/settings/layout-template.svg',
-				'version_url'              => HFE_URL . 'assets/images/settings/version.svg',
-				'version__selected_url'    => HFE_URL . 'assets/images/settings/git-compare.svg',
-				'user_url'                 => HFE_URL . 'assets/images/settings/user.svg',
-				'user__selected_url'       => HFE_URL . 'assets/images/settings/user-selected.svg',
-				'integrations_url'         => HFE_URL . 'assets/images/settings/integrations.svg',  // Update the path to your assets folder.
-				'uaelite_previous_version' => isset( $rollback_versions[0]['value'] ) ? $rollback_versions[0]['value'] : '',
-				'uaelite_versions'         => $rollback_versions,
-				'uaelite_rollback_url'     => esc_url( add_query_arg( 'version', 'VERSION', wp_nonce_url( admin_url( 'admin-post.php?action=uaelite_rollback' ), 'uaelite_rollback' ) ) ),
-				'uaelite_current_version'  => defined( 'HFE_VER' ) ? HFE_VER : '',
-				'show_theme_support'       => $show_theme_support,
-				'theme_option'             => $theme_option,
-				'st_status'                => $st_status,
-				'st_pro_status'            => $stpro_status,
-				'st_link'                  => $st_link,
-				'hfe_post_url'             => $hfe_post_url,
-			]
-		);
-
-		wp_enqueue_style(
-			'header-footer-elementor-react-styles',
-			HFE_URL . 'build/main.css',
-			[],
-			HFE_VER
-		);
 
 		if ( '' !== $uae_logo && '' !== $white_logo ) {
 
@@ -290,7 +295,7 @@ class HFE_Settings_Page {
 					background-image: url(" . esc_url($white_logo) . ") !important;
 				}
 			";
-			wp_add_inline_style('header-footer-elementor-react-styles', $custom_css);
+			wp_add_inline_style('wp-admin', $custom_css);
 		}
 
 		wp_enqueue_script( 'hfe-admin-script', HFE_URL . 'admin/assets/js/ehf-admin.js', [ 'jquery', 'updates' ], HFE_VER, true );
