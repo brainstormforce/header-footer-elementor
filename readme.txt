@@ -121,7 +121,7 @@ If you love UAE Lite, you’ll love our other products too:
 Yes! UAE Lite works seamlessly with all themes. If needed, you can enable theme support manually under UAE > Theme Support.  
 
 
-### 2. Do I need to keep both UAE and UAE Lite plugins active for them to work effectively??  
+### 2. Do I need to keep both UAE and UAE Lite plugins active for them to work effectively?
 Both plugins are independent of each other. You only need to keep them active if you require the functionality of both. Otherwise, you can choose to activate only the one you need.  
 
 
