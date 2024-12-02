@@ -18,14 +18,13 @@ const FreevsPro = () => {
                 { id: 1, content: __("Post Info", "header-footer-elementor"), iconFree: true, iconPro: false },
                 { id: 2, content: __("Scroll to Top", "header-footer-elementor"), iconFree: true, iconPro: false },
                 { id: 3, content: __("Breadcrumbs", "header-footer-elementor"), iconFree: true, iconPro: false },
-                { id: 4, content: __("Retina Logo", "header-footer-elementor"), iconFree: true, iconPro: false },
+                { id: 4, content: __("Retina Logo", "header-footer-elementor"), iconFree: true, iconPro: true },
                 { id: 5, content: __("Copyright", "header-footer-elementor"), iconFree: true, iconPro: false },
                 { id: 6, content: __("Page Title", "header-footer-elementor"), iconFree: true, iconPro: false },
                 { id: 7, content: __("Site Tagline", "header-footer-elementor"), iconFree: true, iconPro: false },
                 { id: 8, content: __("Site Logo", "header-footer-elementor"), iconFree: true, iconPro: false },
                 { id: 9, content: __("Search", "header-footer-elementor"), iconFree: true, iconPro: false },
                 { id: 10, content: __("Navigation Menu", "header-footer-elementor"), iconFree: true, iconPro: false },
-                { id: 11, content: __("Mega Menu", "header-footer-elementor"), iconFree: false, iconPro: false },
             ],
         },
         {
@@ -109,8 +108,7 @@ const FreevsPro = () => {
         {
             title: __("Advanced Features", "header-footer-elementor"),
             items: [
-                { id: 1, content: __("Retina Image", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 2, content: __("Team Member", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 1, content: __("Team Member", "header-footer-elementor"), iconFree: false, iconPro: true },
                 { id: 3, content: __("Post Layout", "header-footer-elementor"), iconFree: false, iconPro: true },
             ],
         },
@@ -128,15 +126,23 @@ const FreevsPro = () => {
                 <p className="text-sm text-text-secondary font-medium">
                     {item.content}
                 </p>
-                <div className="flex flex-row items-center" style={{ gap: "12rem" }}>
+                <div className="flex flex-row items-center justify-between" style={{ gap: item.id === 10 && item.content === __("Navigation Menu", "header-footer-elementor") ? "10.7rem" : "12rem" }}>
                     <p className="text-sm text-text-primary font-medium">
-                        {renderIcon(item.iconFree)}
+                        {item.id === 10 && item.content === __("Navigation Menu", "header-footer-elementor")
+                            ? item.iconPro
+                                ? __("Advanced", "header-footer-elementor")
+                                : __("Basic", "header-footer-elementor")
+                            : renderIcon(item.iconFree)}
                     </p>
                     <p
                         className="text-sm text-text-primary font-medium"
-                        style={{ marginRight: "50px" }}
+                        style={{ marginRight: item.id === 10 && item.content === __("Navigation Menu", "header-footer-elementor") ? "25px" : "50px" }}
                     >
-                        {renderIcon(item.iconPro)}
+                        {item.id === 10 && item.content === __("Navigation Menu", "header-footer-elementor")
+                            ? item.iconPro
+                                ? __("Basic", "header-footer-elementor")
+                                : __("Advanced", "header-footer-elementor")
+                            : renderIcon(item.iconPro)}
                     </p>
                 </div>
             </div>
@@ -150,10 +156,10 @@ const FreevsPro = () => {
             >
                 <div className="flex flex-col">
                     <p className="m-0 text-xl font-semibold pt-4 text-text-primary">
-                        {__("Free Vs Pro", "header-footer-elementor")}
+                        {__("Lite Vs Pro", "header-footer-elementor")}
                     </p>
                     <p className="m-0 text-sm font-normal pt-1 text-text-secondary">
-                        {__("UAE Pro offers 50+ widgets and features!", "header-footer-elementor")}
+                        {__("Ultimate Addons for Elementor Pro offers 50+ widgets and features!", "header-footer-elementor")}
                     </p>
                     <p className="m-0 text-sm font-normal pt-1 text-text-secondary">
                         {__(
@@ -180,7 +186,7 @@ const FreevsPro = () => {
                             );
                         }}
                     >
-                        {__("Get UAE Pro Now", "header-footer-elementor")}
+                        {__("Upgrade Now", "header-footer-elementor")}
                     </Button>
                 </div>
             </div>
@@ -200,7 +206,7 @@ const FreevsPro = () => {
                                     style={{ gap: "12rem" }}
                                 >
                                     <p className="text-sm text-text-primary font-medium">
-                                        {__("Free", "header-footer-elementor")}
+                                        {__("Lite", "header-footer-elementor")}
                                     </p>
                                     <p
                                         className="text-sm text-text-primary font-medium"

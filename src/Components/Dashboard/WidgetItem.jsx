@@ -140,8 +140,8 @@ const WidgetItem = ({
                                     <span className='font-semibold block mb-2'>{title}</span>
                                     <span className='block mb-2'>{description}</span>
                                     {doc_url && (
-                                        <a href={doc_url} target="_blank" rel="noopener noreferrer" className='cursor-pointer' style={{ color: '#6005ff', textDecoration: 'none' }}>
-                                            <FileText style={{ color: '#6005ff', width: '11px', height: '11px', marginRight: '3px' }} />
+                                        <a href={doc_url} target="_blank" rel="noopener noreferrer" className='cursor-pointer' style={{ color: '#B498E5', textDecoration: 'none' }}>
+                                            <FileText style={{ color: '#B498E5', width: '11px', height: '11px', marginRight: '3px' }} />
                                             {__('Read Documentation', 'header-footer-elementor')}
                                         </a>
                                     )}

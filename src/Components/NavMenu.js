@@ -164,7 +164,7 @@ const NavMenu = () => {
 									}`}
 									style={linkStyle("upgrade")}
 								>
-									{__("Free vs Pro", "header-footer-elementor")}
+									{__("Lite vs Pro", "header-footer-elementor")}
 								</Link>
 							</nav>
 						</Topbar.Item>

@@ -73,7 +73,7 @@ const UltimateWidgets = () => {
                             iconPosition="left"
                             tag="h6"
                             title={__(
-                                "Create Ultimate Designs with Addons Pro!",
+                                "Create Stunning Designs with the Pro Version!",
                                 "header-footer-elementor"
                             )}
                             className="py-1 text-sm"
@@ -117,7 +117,7 @@ const UltimateWidgets = () => {
                         </Button>
                         <Link className="text-black cursor-pointer" to={routes.upgrade.path}>
                             {__(
-                                "Compare Free vs Pro",
+                                "Compare Lite vs Pro",
                                 "header-footer-elementor"
                             )}
                         </Link>

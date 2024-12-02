@@ -71,7 +71,7 @@ const UltimateFeatures = () => {
 							iconPosition="left"
 							tag="h6"
 							title={__(
-								"Create Ultimate Designs with Addons Pro!",
+								"Create Stunning Designs with the Pro Version!",
 								"header-footer-elementor"
 							)}
 							className="py-1 text-[12px]"
@@ -120,7 +120,7 @@ const UltimateFeatures = () => {
 							to={routes.upgrade.path}
 						>
 							{__(
-								"Compare Free vs Pro",
+								"Compare Lite vs Pro",
 								"header-footer-elementor"
 							)}
 						</Link>
