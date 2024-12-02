@@ -540,9 +540,13 @@ class HFE_Settings_Page {
 	 *
 	 * @return void
 	 */
-	public function render_content( $menu_page_slug, $page_action ) {
+	public function render_content() {
 
-		if ( $this->menu_slug === $menu_page_slug ) {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+
+		if ( self::is_current_page( 'hfe' )  ) {
 			include_once HFE_DIR . 'inc/settings/settings-app.php';
 		}
 	}
