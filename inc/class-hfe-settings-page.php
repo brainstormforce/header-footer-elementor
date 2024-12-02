@@ -844,14 +844,14 @@ class HFE_Settings_Page {
 	 * @return void
 	 */
 	public function get_guide_modal() {
-		$new_page_url = admin_url( 'post-new.php?post_type=elementor-hf' );
+		$new_page_url = admin_url( 'admin.php?page=' . $this->menu_slug );
 		?>
 		<div class="hfe-guide-modal-popup" data-new-page="<?php echo esc_attr( $new_page_url ); ?>">
 			<div class="hfe-guide-modal-popup-wrapper">
 				<div class="hfe-guide-modal-content">
 					<div class="heading">
-						<img src="<?php echo esc_url( HFE_URL . 'assets/images/header-footer-elementor-icon.svg' ); ?>" class="hfe-logo">
-						<h3><?php esc_html_e( 'Elementor Header & Footer Builder', 'header-footer-elementor' ); ?></h3>
+						<img src="<?php echo esc_url( HFE_URL . 'assets/images/settings/uael-icon.svg' ); ?>" class="hfe-logo">
+						<h3><?php esc_html_e( 'Ultimate Addons for Elementor - Lite', 'header-footer-elementor' ); ?></h3>
 					</div>
 					<?php $this->get_guide_html(); ?>
 				</div>
