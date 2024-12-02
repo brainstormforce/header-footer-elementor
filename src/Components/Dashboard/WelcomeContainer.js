@@ -55,7 +55,7 @@ const WelcomeContainer = () => {
 								);
 							}}
 						>
-							{__("Create Header & Footer", "header-footer-elementor")}
+							{__("Create Header/Footer", "header-footer-elementor")}
 						</Button>
 						<Button
 							icon={<Plus />}
