@@ -47,7 +47,7 @@ class HFE_Admin {
 	 */
 	public static function load_admin() {
 		add_action( 'elementor/editor/after_enqueue_styles', __CLASS__ . '::hfe_admin_enqueue_scripts' );
-		add_action( 'admin_head', __CLASS__ . '::hfe_admin_enqueue_scripts' );
+		add_action( 'admin_head', __CLASS__ . '::hfe_admin_enqueue_scripts' );		
 	}
 
 	/**
@@ -263,7 +263,7 @@ class HFE_Admin {
 			'new_item'           => esc_html__( 'New Template', 'header-footer-elementor' ),
 			'edit_item'          => esc_html__( 'Edit Template', 'header-footer-elementor' ),
 			'view_item'          => esc_html__( 'View Template', 'header-footer-elementor' ),
-			'all_items'          => esc_html__( 'All Templates', 'header-footer-elementor' ),
+			'all_items'          => esc_html__( 'View All', 'header-footer-elementor' ),
 			'search_items'       => esc_html__( 'Search Templates', 'header-footer-elementor' ),
 			'parent_item_colon'  => esc_html__( 'Parent Templates:', 'header-footer-elementor' ),
 			'not_found'          => esc_html__( 'No Templates found.', 'header-footer-elementor' ),
