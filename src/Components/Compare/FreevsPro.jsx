@@ -180,7 +180,7 @@ const FreevsPro = () => {
                             );
                         }}
                     >
-                        {__("Get UAE Pro Now", "header-footer-elementor")}
+                        {__("Upgrade Now", "header-footer-elementor")}
                     </Button>
                 </div>
             </div>
