@@ -71,6 +71,7 @@
 					customButton.href = hfe_admin_data.hfe_edit_url;
 					customButton.textContent = hfe_admin_data.view_all_text;
 					customButton.className = 'page-title-action';
+					customButton.style.marginLeft = '10px';
 					addNewButton.insertAdjacentElement('afterend', customButton);
 				}
 			}
