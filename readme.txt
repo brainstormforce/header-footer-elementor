@@ -9,11 +9,11 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 
-Elevate your Elementor designs with UAE Lite! Create custom headers, footers, and eye-catching posts/pages easily with powerful widgets and features.
+Create dynamic headers & footers with Elementor. Easily set them for specific pages, posts, or templates. Perfect for flexible designs!
 
 
 ## Description ##
-Formerly known as "Elementor Header & Footer Builder," this powerful plugin allows you to create custom headers and footers with Elementor and display them in selected locations. You can also create custom Elementor blocks and place them anywhere on your website using a shortcode.  
+Formerly known as "Elementor Header & Footer Builder", this powerful plugin allows you to create custom headers and footers with Elementor and display them in selected locations. You can also create custom Elementor blocks and place them anywhere on your website using a shortcode.  
 
 
 From crafting custom headers and footers to adding interactive design elements like breadcrumbs and metadata, UAE Lite is packed with features that make your website **look and perform better**. And best of all? You can do it all with Elementor’s intuitive drag-and-drop editor!  
@@ -121,13 +121,12 @@ If you love UAE Lite, you’ll love our other products too:
 Yes! UAE Lite works seamlessly with all themes. If needed, you can enable theme support manually under UAE > Theme Support.  
 
 
-### 2. What’s the difference between UAE Lite and UAE Pro?  
-UAE Lite offers essential tools to get started, while UAE Pro unlocks advanced widgets, dynamic content, and premium features for professionals.  
+### 2. Do I need to keep both UAE and UAE Lite plugins active for them to work effectively??  
+Both plugins are independent of each other. You only need to keep them active if you require the functionality of both. Otherwise, you can choose to activate only the one you need.  
 
 
-### 3. Can I use UAE Lite with WooCommerce?  
-Absolutely! You can design custom headers, footers, and other sections for WooCommerce pages with UAE Lite.  
-
+### 3. How can I access all the features of the Ultimate Addons for Elementor?  
+If you wish to use the advanced features of the Ultimate Addons for elementor, you will have to purchase a copy of the pro version. [Purchase your license now](https://ultimateelementor.com/pricing/?utm_source=uae-lite-description&utm_medium=faq&utm_campaign=uae-lite-wporg)  
 
 ---
 
