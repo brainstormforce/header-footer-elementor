@@ -180,7 +180,7 @@ const NavMenu = () => {
 									}`}
 									style={linkStyle("upgrade")}
 								>
-									{__("Lite vs Pro", "header-footer-elementor")}
+									{__("Free vs Pro", "header-footer-elementor")}
 								</Link>
 							</nav>
 						</Topbar.Item>

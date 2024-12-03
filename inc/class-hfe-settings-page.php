@@ -467,7 +467,7 @@ class HFE_Settings_Page {
 
 		add_menu_page(
 			__( 'UAE Lite', 'header-footer-elementor' ),
-			__( 'UAE Lite', 'header-footer-elementor' ),
+			__( 'UAE', 'header-footer-elementor' ),
 			$capability,
 			$menu_slug,
 			[ $this, 'render' ],
