@@ -37,9 +37,8 @@ const Dashboard = () => {
                     <Container.Item 
                         className="p-2 w-full hfe-35-width"
                         shrink={1}
-                    >
+                    >  <TemplateSection />
                         <ExtendWebsite />
-                        <TemplateSection />
                         <QuickAccess />
                     </Container.Item>
                 </Container>
