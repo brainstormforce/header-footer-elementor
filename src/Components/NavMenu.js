@@ -124,28 +124,22 @@ const NavMenu = () => {
 								>
 									{__("Dashboard", "header-footer-elementor")}
 								</Link>
-								<Button
-								// icon={<ArrowUpRight />}
-								// iconPosition="right"
-								variant="ghost"
-								className="hfe-remove-ring mb-2 text-text-secondary font-medium" 
-								style={{
-									color: "",
-									// paddingBottom: "10px",
-									background: "none",
-									border: "none",
-									padding: 0,
-									cursor: "pointer",
-								}}
-								onClick={() => {
-									window.location.href = hfe_admin_data.show_all_hfe;
-								}}
-							>
-								{__(
-									"Header & Footer Builder",
-									"header-footer-elementor"
-								)}
-							</Button>
+								<a
+									style={{
+										color: "rgb(75, 85, 99)",
+										paddingBottom: "22px",
+										marginBottom: "-16px",
+										cursor: "pointer",
+									}}
+									onClick={() => {
+										window.location.href = hfe_admin_data.hfe_edit_url;
+									}}
+								>
+									{__(
+										"Header & Footer Builder",
+										"header-footer-elementor"
+									)}
+								</a>
 								<Link
 									to={routes.widgets.path}
 									className={`${
