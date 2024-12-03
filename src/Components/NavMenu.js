@@ -235,7 +235,7 @@ const NavMenu = () => {
 												{`${hfeSettingsData.uaelite_current_version}`}
 												<Badge
 													label={__(
-														"Core",
+														"Free",
 														"header-footer-elementor"
 													)}
 													size="xs"
