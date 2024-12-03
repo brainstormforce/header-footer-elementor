@@ -6,66 +6,110 @@ import { __ } from "@wordpress/i18n";
 const FreevsPro = () => {
     const sections = [
         {
-            title: __("Content Widgets", "header-footer-elementor"),
+            title: __("Essentials", "header-footer-elementor"),
             items: [
-                { id: 1, content: __("Breadcrumbs", "header-footer-elementor"), iconFree: true, iconPro: true },
-                { id: 2, content: __("Price List", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 3, content: __("Advanced Headings", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 4, content: __("Toggle Button", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 5, content: __("Business Hours", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 6, content: __("Google Map", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 7, content: __("Modal Popup", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 8, content: __("Image Gallery", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 9, content: __("Video Gallery", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 1, content: __("White Label Option", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 2, content: __("24/7 Premium Support", "header-footer-elementor"), iconFree: false, iconPro: true },
             ],
         },
         {
-            title: __("SEO Widgets", "header-footer-elementor"),
+            title: __("Dynamic Header & Footer Widgets", "header-footer-elementor"),
             items: [
-                { id: 1, content: __("Post Info", "header-footer-elementor"), iconFree: true, iconPro: true },
-                { id: 2, content: __("Business Reviews", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 3, content: __("How to", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 4, content: __("FAQ", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 5, content: __("Table of Contents", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 1, content: __("Post Info", "header-footer-elementor"), iconFree: true, iconPro: false },
+                { id: 2, content: __("Scroll to Top", "header-footer-elementor"), iconFree: true, iconPro: false },
+                { id: 3, content: __("Breadcrumbs", "header-footer-elementor"), iconFree: true, iconPro: false },
+                { id: 4, content: __("Retina Logo", "header-footer-elementor"), iconFree: true, iconPro: true },
+                { id: 5, content: __("Copyright", "header-footer-elementor"), iconFree: true, iconPro: false },
+                { id: 6, content: __("Page Title", "header-footer-elementor"), iconFree: true, iconPro: false },
+                { id: 7, content: __("Site Tagline", "header-footer-elementor"), iconFree: true, iconPro: false },
+                { id: 8, content: __("Site Logo", "header-footer-elementor"), iconFree: true, iconPro: false },
+                { id: 9, content: __("Search", "header-footer-elementor"), iconFree: true, iconPro: false },
+                { id: 10, content: __("Navigation Menu", "header-footer-elementor"), iconFree: true, iconPro: false },
             ],
         },
         {
-            title: __("Creative Features & Widgets", "header-footer-elementor"),
+            title: __("Creative & Advanced Design Widgets", "header-footer-elementor"),
             items: [
-                { id: 1, content: __("Scroll to Top", "header-footer-elementor"), iconFree: true, iconPro: true },
-                { id: 2, content: __("Image Hotspot", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 3, content: __("Content Timeline", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 4, content: __("Countdown Timer", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 5, content: __("Cross-site Copy Paste", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 6, content: __("Welcome Music", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 7, content: __("Conditional Display", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 1, content: __("Advanced Heading", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 2, content: __("Dual Color Heading", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 3, content: __("Fancy Heading", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 4, content: __("Party Propz", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 5, content: __("Image Hotspots", "header-footer-elementor"), iconFree: false, iconPro: true },
             ],
         },
         {
-            title: __("Form Integrations", "header-footer-elementor"),
+            title: __("Content & Media Widgets", "header-footer-elementor"),
+            items: [
+                { id: 1, content: __("Image Gallery", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 2, content: __("Video", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 3, content: __("Video Gallery", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 4, content: __("Table", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 5, content: __("Timeline", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 5, content: __("Image Comparison (Before & After)", "header-footer-elementor"), iconFree: false, iconPro: true },
+            ],
+        },
+        {
+            title: __("Marketing & Engagement Widgets", "header-footer-elementor"),
+            items: [
+                { id: 1, content: __("Marketing Button", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 2, content: __("Pricing Table", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 3, content: __("Countdown Timer", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 4, content: __("Business Hours", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 5, content: __("Modal Popup", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 6, content: __("Notification Bar", "header-footer-elementor"), iconFree: false, iconPro: true },
+            ],
+        },
+        {
+            title: __("E-Commerce Integration", "header-footer-elementor"),
+            items: [
+                { id: 1, content: __("WooCommerce: Add to Cart", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 2, content: __("WooCommerce: Product Category", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 3, content: __("WooCommerce: Mini Cart", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 4, content: __("WooCommerce: Product Display", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 5, content: __("WooCommerce: Checkout", "header-footer-elementor"), iconFree: false, iconPro: true },
+            ],
+        },
+        {
+            title: __("Forms Integration", "header-footer-elementor"),
             items: [
                 { id: 1, content: __("Contact Form 7", "header-footer-elementor"), iconFree: false, iconPro: true },
                 { id: 2, content: __("Gravity Forms", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 3, content: __("WP Fluent", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 4, content: __("WP Forms", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 3, content: __("WPForms", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 4, content: __("Fluent Forms", "header-footer-elementor"), iconFree: false, iconPro: true },
             ],
         },
         {
-            title: __("Social Widgets", "header-footer-elementor"),
+            title: __("Schema & Navigation Widgets", "header-footer-elementor"),
             items: [
-                { id: 1, content: __("Instagram", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 2, content: __("X (Twitter)", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 1, content: __("FAQ/Accordion with Schema", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 2, content: __("How-To Schema", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 3, content: __("Table of Contents", "header-footer-elementor"), iconFree: false, iconPro: true },
+            ],
+        },
+        {
+            title: __("Creative Features", "header-footer-elementor"),
+            items: [
+                { id: 1, content: __("Particles", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 2, content: __("Shape Divider", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 3, content: __("Cross-Domain Copy-Paste", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 4, content: __("Multi-Button", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 5, content: __("Tooltip", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 6, content: __("Off-Canvas", "header-footer-elementor"), iconFree: false, iconPro: true },
+            ],
+        },
+        {
+            title: __("Social Media Integration", "header-footer-elementor"),
+            items: [
+                { id: 1, content: __("Instagram Feed", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 2, content: __("Twitter Feed", "header-footer-elementor"), iconFree: false, iconPro: true },
                 { id: 3, content: __("Social Share", "header-footer-elementor"), iconFree: false, iconPro: true },
             ],
         },
         {
-            title: __("WooCommerce Widgets", "header-footer-elementor"),
+            title: __("Advanced Features", "header-footer-elementor"),
             items: [
-                { id: 1, content: __("Add To Cart", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 2, content: __("Categories", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 3, content: __("Checkout", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 4, content: __("Mini Cart", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 5, content: __("Products", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 1, content: __("Team Member", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 3, content: __("Post Layout", "header-footer-elementor"), iconFree: false, iconPro: true },
             ],
         },
     ];
@@ -82,15 +126,23 @@ const FreevsPro = () => {
                 <p className="text-sm text-text-secondary font-medium">
                     {item.content}
                 </p>
-                <div className="flex flex-row items-center" style={{ gap: "12rem" }}>
+                <div className="flex flex-row items-center justify-between" style={{ gap: item.id === 10 && item.content === __("Navigation Menu", "header-footer-elementor") ? "10.7rem" : "12rem" }}>
                     <p className="text-sm text-text-primary font-medium">
-                        {renderIcon(item.iconFree)}
+                        {item.id === 10 && item.content === __("Navigation Menu", "header-footer-elementor")
+                            ? item.iconPro
+                                ? __("Advanced", "header-footer-elementor")
+                                : __("Basic", "header-footer-elementor")
+                            : renderIcon(item.iconFree)}
                     </p>
                     <p
                         className="text-sm text-text-primary font-medium"
-                        style={{ marginRight: "50px" }}
+                        style={{ marginRight: item.id === 10 && item.content === __("Navigation Menu", "header-footer-elementor") ? "25px" : "50px" }}
                     >
-                        {renderIcon(item.iconPro)}
+                        {item.id === 10 && item.content === __("Navigation Menu", "header-footer-elementor")
+                            ? item.iconPro
+                                ? __("Basic", "header-footer-elementor")
+                                : __("Advanced", "header-footer-elementor")
+                            : renderIcon(item.iconPro)}
                     </p>
                 </div>
             </div>
@@ -107,7 +159,7 @@ const FreevsPro = () => {
                         {__("Free Vs Pro", "header-footer-elementor")}
                     </p>
                     <p className="m-0 text-sm font-normal pt-1 text-text-secondary">
-                        {__("UAE Pro offers 50+ widgets and features!", "header-footer-elementor")}
+                        {__("Ultimate Addons for Elementor Pro offers 50+ widgets and features!", "header-footer-elementor")}
                     </p>
                     <p className="m-0 text-sm font-normal pt-1 text-text-secondary">
                         {__(
@@ -134,7 +186,7 @@ const FreevsPro = () => {
                             );
                         }}
                     >
-                        {__("Get UAE Pro Now", "header-footer-elementor")}
+                        {__("Upgrade Now", "header-footer-elementor")}
                     </Button>
                 </div>
             </div>

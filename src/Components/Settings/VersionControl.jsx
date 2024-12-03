@@ -122,7 +122,7 @@ const VersionControl = () => {
                                         </div>
                                     </Dialog.Header>
                                     <Dialog.Body>
-                                        {__(`Are you sure you want to rollback to UAE Lite v${liteVersionSelect}?`, 'header-footer-elementor')}
+                                        {__(`Are you sure you want to rollback to Ultimate Addons for Elementor v${liteVersionSelect}?`, 'header-footer-elementor')}
                                     </Dialog.Body>
                                     <Dialog.Footer>
                                         <Button onClick={onLiteContinueClick}>

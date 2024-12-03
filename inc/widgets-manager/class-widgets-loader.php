@@ -165,7 +165,7 @@ class Widgets_Loader {
 	 * @access private
 	 */
 	private function init_category() {
-		$category = defined( 'UAEL_PLUGIN_SHORT_NAME' ) ? UAEL_PLUGIN_SHORT_NAME . ' Lite' : __( 'UAE Lite', 'header-footer-elementor' );
+		$category = defined( 'UAEL_PLUGIN_SHORT_NAME' ) ? UAEL_PLUGIN_SHORT_NAME : __( 'UAE', 'header-footer-elementor' );
 
 		if ( version_compare( ELEMENTOR_VERSION, '2.0.0' ) < 0 ) {
 
@@ -187,7 +187,7 @@ class Widgets_Loader {
 	 * @return object $this_cat class.
 	 */
 	public function register_widget_category( $this_cat ) {
-		$category = defined( 'UAEL_PLUGIN_SHORT_NAME' ) ? UAEL_PLUGIN_SHORT_NAME . ' Lite' : __( 'UAE Lite', 'header-footer-elementor' );
+		$category = defined( 'UAEL_PLUGIN_SHORT_NAME' ) ? UAEL_PLUGIN_SHORT_NAME : __( 'UAE', 'header-footer-elementor' );
 
 		$this_cat->add_category(
 			'hfe-widgets',

@@ -47,7 +47,7 @@ class HFE_Admin {
 	 */
 	public static function load_admin() {
 		add_action( 'elementor/editor/after_enqueue_styles', __CLASS__ . '::hfe_admin_enqueue_scripts' );
-		add_action( 'admin_head', __CLASS__ . '::hfe_admin_enqueue_scripts' );
+		add_action( 'admin_head', __CLASS__ . '::hfe_admin_enqueue_scripts' );		
 	}
 
 	/**
@@ -250,17 +250,20 @@ class HFE_Admin {
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
+
+		$setting_location = $this->is_pro_active() ? 'uaepro' : 'hfe';
+		
 		$labels = [
 			'name'               => esc_html__( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
 			'singular_name'      => esc_html__( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
 			'menu_name'          => esc_html__( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
 			'name_admin_bar'     => esc_html__( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
 			'add_new'            => esc_html__( 'Add New', 'header-footer-elementor' ),
-			'add_new_item'       => esc_html__( 'Add New Header or Footer', 'header-footer-elementor' ),
+			'add_new_item'       => esc_html__( 'Add New', 'header-footer-elementor' ),
 			'new_item'           => esc_html__( 'New Template', 'header-footer-elementor' ),
 			'edit_item'          => esc_html__( 'Edit Template', 'header-footer-elementor' ),
 			'view_item'          => esc_html__( 'View Template', 'header-footer-elementor' ),
-			'all_items'          => esc_html__( 'All Templates', 'header-footer-elementor' ),
+			'all_items'          => esc_html__( 'View All', 'header-footer-elementor' ),
 			'search_items'       => esc_html__( 'Search Templates', 'header-footer-elementor' ),
 			'parent_item_colon'  => esc_html__( 'Parent Templates:', 'header-footer-elementor' ),
 			'not_found'          => esc_html__( 'No Templates found.', 'header-footer-elementor' ),
@@ -278,6 +281,7 @@ class HFE_Admin {
 			'hierarchical'        => false,
 			'menu_icon'           => 'dashicons-editor-kitchensink',
 			'supports'            => [ 'title', 'thumbnail', 'elementor' ],
+			'menu_position'       => 5,
 		];
 
 		register_post_type( 'elementor-hf', $args );
@@ -297,8 +301,18 @@ class HFE_Admin {
 
 		add_submenu_page(
 			$setting_location,
+			__( 'Create New', 'header-footer-elementor' ),
+			__( 'Create New', 'header-footer-elementor' ),
+			'edit_pages',
+			'post-new.php?post_type=elementor-hf',
+			'',
+			1
+		);
+
+		add_submenu_page(
+			$setting_location,
 			__( 'Header/Footer Builder', 'header-footer-elementor' ),
-			__( 'Header/Footer Builder', 'header-footer-elementor' ),
+			__( 'Header & Footer Builder', 'header-footer-elementor' ),
 			'edit_pages',
 			'edit.php?post_type=elementor-hf',
 			'',
