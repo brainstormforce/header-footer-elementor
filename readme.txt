@@ -9,7 +9,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html  
 
 
-Create dynamic headers and footers for WordPress websites using Elementor. Assign headers and footers to specific pages, posts, or templates with ease!
+Create dynamic headers, footers, and design blocks effortlessly with Elementor's drag-and-drop builder.
 
 
 == Description ==  
