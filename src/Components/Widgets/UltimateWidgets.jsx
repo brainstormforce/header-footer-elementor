@@ -117,7 +117,7 @@ const UltimateWidgets = () => {
                         </Button>
                         <Link className="text-black cursor-pointer" to={routes.upgrade.path}>
                             {__(
-                                "Compare Lite vs Pro",
+                                "Compare Free vs Pro",
                                 "header-footer-elementor"
                             )}
                         </Link>

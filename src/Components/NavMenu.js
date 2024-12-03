@@ -128,9 +128,9 @@ const NavMenu = () => {
 								// icon={<ArrowUpRight />}
 								// iconPosition="right"
 								variant="ghost"
-								className="hfe-remove-ring mb-2"
+								className="hfe-remove-ring mb-2 text-text-secondary font-medium" 
 								style={{
-									color: "text-text-primary",
+									color: "",
 									// paddingBottom: "10px",
 									background: "none",
 									border: "none",
@@ -186,7 +186,7 @@ const NavMenu = () => {
 									}`}
 									style={linkStyle("upgrade")}
 								>
-									{__("Lite vs Pro", "header-footer-elementor")}
+									{__("Free vs Pro", "header-footer-elementor")}
 								</Link>
 							</nav>
 						</Topbar.Item>

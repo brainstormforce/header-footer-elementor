@@ -156,7 +156,7 @@ const FreevsPro = () => {
             >
                 <div className="flex flex-col">
                     <p className="m-0 text-xl font-semibold pt-4 text-text-primary">
-                        {__("Lite Vs Pro", "header-footer-elementor")}
+                        {__("Free Vs Pro", "header-footer-elementor")}
                     </p>
                     <p className="m-0 text-sm font-normal pt-1 text-text-secondary">
                         {__("Ultimate Addons for Elementor Pro offers 50+ widgets and features!", "header-footer-elementor")}
@@ -206,7 +206,7 @@ const FreevsPro = () => {
                                     style={{ gap: "12rem" }}
                                 >
                                     <p className="text-sm text-text-primary font-medium">
-                                        {__("Lite", "header-footer-elementor")}
+                                        {__("Free", "header-footer-elementor")}
                                     </p>
                                     <p
                                         className="text-sm text-text-primary font-medium"
