@@ -1,10 +1,10 @@
-=== Ultimate Addons for Elementor - Lite (Formerly Elementor Header & Footer Builder) ===  
+=== Ultimate Addons for Elementor (Formerly Elementor Header & Footer) ===  
 Contributors: @brainstormforce, @nikschavan, @pratikchaskar
 Tags: elementor, header footer builder, widgets, header template, footer template
 Requires at least: 5.0  
-Tested up to: 6.7  
+Tested up to: 6.7.1 
 Requires PHP: 7.4  
-Stable tag: 2.0.3  
+Stable tag: 2.0.0  
 License: GPLv2 or later  
 License URI: https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -18,7 +18,7 @@ Create dynamic headers and footers for WordPress websites using Elementor. Assig
 **Formerly known as - Elementor Headers & Footers Builder!**  
 
 
-Ultimate Addons for Elementor - Lite is the improved and redesigned version of the Elementor Header & Footer Builder. It is designed to help you create dynamic headers, footers, and additional design blocks with ease. This plugin leverages Elementor's powerful drag-and-drop editor to give you complete design freedom and it integrates with any WordPress theme.
+Ultimate Addons for Elementor is the improved and redesigned version of the Elementor Header & Footer Builder. It is designed to help you create dynamic headers, footers, and additional design blocks with ease. This plugin leverages Elementor's powerful drag-and-drop editor to give you complete design freedom and it integrates with any WordPress theme.
 
 
 [Try it out on a free dummy site](https://bsf.io/hfe-demo)
@@ -30,12 +30,12 @@ You can refer to our step-by-step article that will help you [set headers and fo
 ---
 
 
-### Widgets & Features  
+### **Widgets & Features**  
 
 
 
 
-Ultimate Addons for Elementor - Lite comes equipped with a suite of Elementor-compatible widgets to enhance your headers, footers, and other site sections:
+Ultimate Addons for Elementor comes equipped with a suite of Elementor-compatible widgets to enhance your headers, footers, and other site sections:
 - **Site Logo & Retina Logo**: Ensure your site logo appears crisp and sharp across all devices.
 - **Site Title & Tagline**: Display your site's name and tagline effortlessly.
 - **Navigation Menu**: Provide an intuitive and responsive navigation experience for your visitors.
@@ -51,7 +51,7 @@ Ultimate Addons for Elementor - Lite comes equipped with a suite of Elementor-co
 ---
 
 
-### Benefits of Using UAE - Lite  
+### **Benefits of Using Ultimate Addons for Elementor**  
 - **Easily Create Header, Footer, and Block Layouts**: Create layouts with Elementor and set them as headers, footers, or design blocks anywhere on your site.
 - **Display Locations**: Customize where headers and footers are displayed — choose specific pages like the homepage, blog archive, or site-wide.
 - **Custom Elementor Blocks**: Create beautiful custom blocks using Elementor and use the shortcodes to place your blocks anywhere on your site, not just headers or footers.
@@ -62,25 +62,25 @@ Ultimate Addons for Elementor - Lite comes equipped with a suite of Elementor-co
 ---
 
 
-### Who Can Benefit from Using UAE Lite? 
-Ultimate Addons for Elementor - Lite (UAE Lite) is designed to cater to a wide range of WordPress users, from beginners to professionals.
+### **Who Can Benefit from Using Ultimate Addons for Elementor?** 
+Ultimate Addons is designed to cater to a wide range of WordPress users, from beginners to professionals.
 
 
 1. **Website Designers and Developers**: Easily create custom headers and footers without needing to code. With ready-to-use widgets like Navigation Menu, Site Logo, and Search Widget, they save time while adding dynamic elements like Breadcrumbs and Post Info for an enhanced user experience. Elementor-designed templates can also be placed anywhere on the website using shortcodes.
-2. **Freelancers and Agencies**: Deliver high-quality websites faster using UAE Lite’s drag-and-drop editor. They can customize headers and footers to meet specific client requirements or branding needs, create unique layouts for pages like blogs, archives, or e-commerce sections, and use features like the Before Footer template to add extra content.
-3. **Bloggers and Content Creators**: Enhance navigation and improve SEO with Page Title and Breadcrumbs widgets. UAE Lite helps them display custom headers and footers to create a unique look, improve performance by disabling unused widgets, and seamlessly integrate Elementor blocks into posts and pages for cohesive design.
+2. **Freelancers and Agencies**: Deliver high-quality websites faster using UAE’s drag-and-drop editor. They can customize headers and footers to meet specific client requirements or branding needs, create unique layouts for pages like blogs, archives, or e-commerce sections, and use features like the Before Footer template to add extra content.
+3. **Bloggers and Content Creators**: Enhance navigation and improve SEO with Page Title and Breadcrumbs widgets. UAE helps them display custom headers and footers to create a unique look, improve performance by disabling unused widgets, and seamlessly integrate Elementor blocks into posts and pages for cohesive design.
 4. **E-commerce Store Owners**: Improve the shopping experience by using the Cart Widget to display cart items and the Search Widget for easy product searches. They can create engaging footers using the Before Footer template to highlight promotions or CTAs and design headers tailored to specific product categories or sales events.
 5. **SEO Professionals**: Use the dynamic widgets like breadcrumbs or post info to improve site structure and boost search engine rankings. By disabling unnecessary widgets, they can optimize site speed and performance. Custom headers and footers can also be designed to highlight essential links and CTAs, improving user engagement.
-6. **Beginner WordPress users**: UAE Lite’s user-friendly interface and pre-designed templates perfect for creating headers and footers effortlessly. With no coding skills needed, comprehensive tutorials make the process even easier.
+6. **Beginner WordPress users**: UAE’s user-friendly interface and pre-designed templates perfect for creating headers and footers effortlessly. With no coding skills needed, comprehensive tutorials make the process even easier.
 
 
 ---
 
 
-**Unlock Stunning Designs with Pro**
+### **Unlock Stunning Designs with Pro**
 
 
-Love what UAE Lite has to offer? You'll be amazed by what [UAE Pro](https://ultimateelementor.com/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description) brings to the table!
+Love what Ultimate Addons  has to offer? You'll be amazed by what [ Pro](https://ultimateelementor.com/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description) brings to the table!
 
 
 
@@ -103,12 +103,24 @@ Love what UAE Lite has to offer? You'll be amazed by what [UAE Pro](https://ulti
 
 
 ### More Tools to Enhance Your WordPress Website  
-If you love UAE Lite, you’ll love our other products too:  
+If you love Ultimate Addons, you’ll love our other products too:  
 - **Astra**: The fastest, most flexible WordPress theme – perfect for any type of website.  
 - **Starter Templates**: Choose from hundreds of ready-to-use website designs or use AI to build a site tailored to your needs.  
 - **SureTriggers**: Automate repetitive tasks and connect your favorite apps for ultimate efficiency.  
 - **SureForms**: Create stunning forms, quizzes, or surveys in minutes.  
 - **SureCart**: The ultimate plugin for effortless eCommerce – perfect for online sellers. 
+
+
+---
+
+
+### Support That Cares!
+
+
+We understand the need for a quality product backed by dedicated support that cares. We are here to listen to all your queries and help you make the most out of our plugin.
+
+
+[Contact us](https://ultimateelementor.com/contact/)
 
 
 == Installation ==  
@@ -126,19 +138,19 @@ If you love UAE Lite, you’ll love our other products too:
 == Frequently Asked Questions ==  
 
 
-### 1. What happened to Elementor Header & Footer Builder? 
-Ultimate Addons for Elementor - Lite is the successor to **Elementor Header & Footer Builder**. This updated plugin offers the same features you love, plus new widgets like Site logo, Site Title, and many more. With a modern interface and an enable/disable switch for widgets, UAE Lite delivers better performance, stability, and ease of use.
+### 1. What happened to Elementor Header & Footer Builder?
+Ultimate Addons for Elementor is the successor to **Elementor Header & Footer Builder**. This updated plugin offers the same features you love, plus new widgets like Site logo, Site Title, and many more. With a modern interface and an enable/disable switch for widgets, UAE delivers better performance, stability, and ease of use.
 
 
-### 2. Can I use UAE Lite with any theme? 
-Yes! UAE Lite works with all WordPress themes. If you face compatibility issues, you can manually choose the theme support method. Visit UAE Lite > Settings > Theme Support. Select a method to suit your current theme and you are good to go!
+### 2. Can I use Ultimate Addons for Elementor with any theme? 
+Yes! UAE works with all WordPress themes. If you face compatibility issues, you can manually choose the theme support method. Visit UAE > Settings > Theme Support. Select a method to suit your current theme and you are good to go!
 
 
-### 3. Can I disable unused widgets? 
-Absolutely. UAE Lite allows you to disable widgets you don’t need to optimize performance.  
+### 3. Can I disable unused widgets?  
+Absolutely. UAE allows you to disable widgets you don’t need to optimize performance.  
 
 
-### 4. Do I need to keep both UAE and UAE Lite plugins active for them to work effectively?
+### 4. Do I need to keep both UAE and UAE - Pro plugins active for them to work effectively?
 No, both plugins are completely independent. You only need to activate both if you want to use features from each plugin. Otherwise, activate only the one that meets your needs.
 
 
@@ -151,8 +163,6 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 
 == Changelog ==
 
-= 2.0.3 =
-- Fix: Load admin dashboard assets conditionally to improve performance.
 
 = 2.0.2 =
 - Fix: Added a class_exists check to prevent critical errors caused by class redeclaration.
@@ -172,7 +182,7 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
   Add navigational breadcrumbs to improve site navigation and guide users through your content hierarchy.
 - Improvement: Revamped User Interface.
   Introduced a new, user-friendly UI similar to UAE Pro for easier management of widgets and features.
-- Improvement: Rebranded as UAE Lite from Elementor Header & Footer Builder: Packed with all your favorite features plus new widgets, functionality, and a sleek UI.
+- Improvement: Rebranded as UAE from Elementor Header & Footer Builder: Packed with all your favorite features plus new widgets, functionality, and a sleek UI.
 
 
 = 1.6.47 =
