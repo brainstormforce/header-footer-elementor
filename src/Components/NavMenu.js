@@ -124,6 +124,28 @@ const NavMenu = () => {
 								>
 									{__("Dashboard", "header-footer-elementor")}
 								</Link>
+								<Button
+								// icon={<ArrowUpRight />}
+								// iconPosition="right"
+								variant="ghost"
+								className="hfe-remove-ring mb-2"
+								style={{
+									color: "text-text-primary",
+									// paddingBottom: "10px",
+									background: "none",
+									border: "none",
+									padding: 0,
+									cursor: "pointer",
+								}}
+								onClick={() => {
+									window.location.href = hfe_admin_data.show_all_hfe;
+								}}
+							>
+								{__(
+									"Header & Footer Builder",
+									"header-footer-elementor"
+								)}
+							</Button>
 								<Link
 									to={routes.widgets.path}
 									className={`${
@@ -131,7 +153,7 @@ const NavMenu = () => {
 									}`}
 									style={linkStyle("widgets")}
 								>
-									{__("Widgets / Features", "header-footer-elementor")}
+									{__("Widgets", "header-footer-elementor")}
 								</Link>
 								<Link
 									to={routes.templates.path}
@@ -189,7 +211,7 @@ const NavMenu = () => {
 								}
 							>
 								{__(
-									"Get Ultimate Elementor",
+									"Get Pro",
 									"header-footer-elementor"
 								)}
 							</Button>

@@ -35,10 +35,10 @@ const Features = () => {
                         className="p-2 hfe-35-width"
                         shrink={1}
                     >
+                         <TemplateSection />
                         <ExtendWebsite />
-                        <TemplateSection />
-                        <QuickAccess />
                         <UltimateWidgets />
+                        <QuickAccess />
                     </Container.Item>
                 </Container>
             </div>
