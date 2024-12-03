@@ -40,7 +40,7 @@ const UltimateWidgets = () => {
     ];
 
     return (
-        <div className="py-4">
+        <div className="pt-4">
             <Container
                 className="bg-background-primary gap-1 p-4 border-[0.5px] border-subtle rounded-xl shadow-sm"
                 containerType="flex"
