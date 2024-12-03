@@ -26,10 +26,10 @@ ul.hfe-nav-menu,
 }
 
 div.hfe-nav-menu,
-div.hfe-nav-menu .hfe-layout-horizontal,
-div.hfe-nav-menu .hfe-layout-vertical,
-div.hfe-nav-menu .hfe-layout-expandible,
-div.hfe-nav-menu .hfe-nav-menu__toggle{
+.hfe-layout-horizontal,
+.hfe-layout-vertical,
+.hfe-layout-expandible,
+.hfe-nav-menu__toggle{
     -js-display: flex;
     display: -webkit-box;
     display: -webkit-flex;
