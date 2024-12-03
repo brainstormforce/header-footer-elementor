@@ -192,7 +192,7 @@ class Header_Footer_Elementor {
 							</div>
 						</div>',
 					$image_path,
-					__( 'Hello! Seems like you have used Ultimate Addons for Elementor - Lite to build this website — Thanks a ton!', 'header-footer-elementor' ),
+					__( 'Hello! Seems like you have used Ultimate Addons for Elementor to build this website — Thanks a ton!', 'header-footer-elementor' ),
 					__( 'Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Ultimate Addons for Elementor.', 'header-footer-elementor' ),
 					'https://wordpress.org/support/plugin/header-footer-elementor/reviews/?filter=5#new-post',
 					__( 'Ok, you deserve it', 'header-footer-elementor' ),
@@ -263,7 +263,7 @@ class Header_Footer_Elementor {
 			/* TO DO */
 			$class = 'notice notice-error';
 			/* translators: %s: html tags */
-			$message = sprintf( __( 'The %1$sUltimate Addons for Elementor - Lite%2$s plugin requires %1$sElementor%2$s plugin installed & activated.', 'header-footer-elementor' ), '<strong>', '</strong>' );
+			$message = sprintf( __( 'The %1$sUltimate Addons for Elementor%2$s plugin requires %1$sElementor%2$s plugin installed & activated.', 'header-footer-elementor' ), '<strong>', '</strong>' );
 
 			$plugin = 'elementor/elementor.php';
 
@@ -299,7 +299,7 @@ class Header_Footer_Elementor {
 		/* TO DO */
 		$class = 'notice notice-error';
 		/* translators: %s: html tags */
-		$message = sprintf( __( 'The %1$sUltimate Addons for Elementor - Lite%2$s plugin has stopped working because you are using an older version of %1$sElementor%2$s plugin.', 'header-footer-elementor' ), '<strong>', '</strong>' );
+		$message = sprintf( __( 'The %1$sUltimate Addons for Elementor%2$s plugin has stopped working because you are using an older version of %1$sElementor%2$s plugin.', 'header-footer-elementor' ), '<strong>', '</strong>' );
 
 		$plugin = 'elementor/elementor.php';
 
@@ -339,7 +339,7 @@ class Header_Footer_Elementor {
 		$image_path  = HFE_URL . 'assets/images/settings/uael-icon.svg';
 
 		/* translators: %s: html tags */
-		$notice_message = sprintf( __( 'Thank you for installing %1$s Ultimate Addons for Elementor - Lite %2$s Plugin! Click here to %3$sget started. %4$s', 'header-footer-elementor' ), '<strong>', '</strong>', '<a href="' . $setting_url . '">', '</a>' );
+		$notice_message = sprintf( __( 'Thank you for installing %1$s Ultimate Addons for Elementor %2$s Plugin! Click here to %3$sget started. %4$s', 'header-footer-elementor' ), '<strong>', '</strong>', '<a href="' . $setting_url . '">', '</a>' );
 
 		Astra_Notices::add_notice(
 			[
