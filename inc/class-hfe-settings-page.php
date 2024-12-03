@@ -396,7 +396,7 @@ class HFE_Settings_Page {
 	 * @return void
 	 */
 	public function hfe_compatibility_callback() {
-		$message      = __( 'The Ultimate Addons for Elementor - Lite plugin need compatibility with your current theme to work smoothly.</br></br>Following are two methods that enable theme support for the plugin.</br></br>Method 1 is selected by default and that works fine almost will all themes. In case, you face any issue with the header or footer template, try choosing Method 2.', 'header-footer-elementor' );
+		$message      = __( 'The Ultimate Addons for Elementor plugin need compatibility with your current theme to work smoothly.</br></br>Following are two methods that enable theme support for the plugin.</br></br>Method 1 is selected by default and that works fine almost will all themes. In case, you face any issue with the header or footer template, try choosing Method 2.', 'header-footer-elementor' );
 		$allowed_html = [ 'br' => [] ];
 		echo wp_kses( $message, $allowed_html );
 	}
@@ -830,7 +830,7 @@ class HFE_Settings_Page {
 				<div class="hfe-guide-modal-content">
 					<div class="heading">
 						<img src="<?php echo esc_url( HFE_URL . 'assets/images/settings/uael-icon.svg' ); ?>" class="hfe-logo">
-						<h3><?php esc_html_e( 'Ultimate Addons for Elementor - Lite', 'header-footer-elementor' ); ?></h3>
+						<h3><?php esc_html_e( 'Ultimate Addons for Elementor', 'header-footer-elementor' ); ?></h3>
 					</div>
 					<?php $this->get_guide_html(); ?>
 				</div>
