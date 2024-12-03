@@ -56,22 +56,6 @@ const QuickAccess = () => {
 				<Container.Item className="p-4 bg-white rounded-lg shadow-container-item">
 					<Button
 						className="text-black hfe-remove-ring"
-						icon={<StarIcon />}
-						iconPosition="left"
-						variant="link"
-						onClick={() => {
-							window.open(
-								"https://wordpress.org/support/plugin/header-footer-elementor/reviews/#new-post",
-								"_blank"
-							);
-						}}
-					>
-						{__("Rate Us", "header-footer-elementor")}
-					</Button>
-				</Container.Item>
-				<Container.Item className="p-4 bg-white rounded-lg shadow-container-item">
-					<Button
-						className="text-black hfe-remove-ring"
 						icon={<HelpCircle />}
 						iconPosition="left"
 						variant="link"
