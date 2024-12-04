@@ -61,6 +61,21 @@
 				} );
 		
 			}
+
+			if( "yes" === hfe_admin_data.show_all_hfe ) {
+				// Add the "View All" button next to the "Add New" button.
+				const addNewButton = document.querySelector('.page-title-action');
+				if ( addNewButton ) {
+					// Create the new button.
+					const customButton = document.createElement('a');
+					customButton.href = hfe_admin_data.hfe_edit_url;
+					customButton.textContent = hfe_admin_data.view_all_text;
+					customButton.className = 'page-title-action';
+					customButton.style.marginLeft = '10px';
+					addNewButton.insertAdjacentElement('afterend', customButton);
+				}
+			}
+			
 		},
 
 		_animate_fields: function ( event ) {
