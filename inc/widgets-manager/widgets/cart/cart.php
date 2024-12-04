@@ -626,7 +626,7 @@ class Cart extends Common_Widget {
 				} else {
 					?>
 					<div class="hfe-menu-cart__toggle elementor-button-wrapper">
-						<a id="hfe-menu-cart__toggle_button" href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="elementor-button hfe-cart-container">
+						<a id="hfe-menu-cart__toggle_button" href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="elementor-button hfe-cart-container" aria-label="<?php esc_attr_e( 'Cart', 'header-footer-elementor' ); ?>">
 							<?php if ( null !== WC()->cart ) { ?>
 								<span class="elementor-button-text hfe-subtotal">
 									<?php echo wp_kses_post( WC()->cart->get_cart_subtotal() ); ?>
@@ -634,9 +634,6 @@ class Cart extends Common_Widget {
 							<?php } ?>
 							<span class="elementor-button-icon" data-counter="<?php echo ( null !== WC()->cart ) ? esc_attr( WC()->cart->get_cart_contents_count() ) : ''; ?>">
 								<i class="eicon" aria-hidden="true"></i>
-								<span class="elementor-screen-only">
-									<?php esc_html_e( 'Cart', 'header-footer-elementor' ); ?>
-								</span>
 							</span>
 						</a>	
 					</div>
