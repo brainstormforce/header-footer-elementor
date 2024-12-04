@@ -128,6 +128,7 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 ---
 
 == Changelog ==
+
 = 2.0.3 =
 * Fix: Load JS & CSS assets conditionally on relevant pages in the editor.
 
