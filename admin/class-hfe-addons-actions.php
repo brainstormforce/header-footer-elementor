@@ -61,6 +61,8 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 
 			add_action( 'wp_ajax_hfe_bulk_activate_widgets', [ $this, 'bulk_activate_widgets' ] );
 			add_action( 'wp_ajax_hfe_bulk_deactivate_widgets', [ $this, 'bulk_deactivate_widgets' ] );
+
+			add_action( 'wp_ajax_save_theme_compatibility_option', [ $this, 'save_hfe_compatibility_option_callback' ] );
 		}
 
 		/**
@@ -74,7 +76,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 				self::$widget_list = HFE_Helper::get_widget_list();
 			}
 
-			$new_widgets = array();
+			$new_widgets = [];
 
 			// Set all extension to enabled.
 			foreach ( self::$widget_list  as $slug => $value ) {
@@ -87,7 +89,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			// Update new_extensions.
 			HFE_Helper::update_admin_settings_option( '_hfe_widgets', $new_widgets );
 
-			// Send a JSON response
+			// Send a JSON response.
 			wp_send_json_success( 'Widgets activated successfully.' );
 		}
 
@@ -102,7 +104,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 				self::$widget_list = HFE_Helper::get_widget_list();
 			}
 
-			$new_widgets = array();
+			$new_widgets = [];
 
 			// Set all extension to enabled.
 			foreach ( self::$widget_list as $slug => $value ) {
@@ -115,7 +117,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			// Update new_extensions.
 			HFE_Helper::update_admin_settings_option( '_hfe_widgets', $new_widgets );
 
-			// Send a JSON response
+			// Send a JSON response.
 			wp_send_json_success( 'Widgets deactivated successfully.' );
 		}
 
@@ -126,8 +128,8 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 
 			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
 
-			$module_id             = isset( $_POST['module_id'] ) ? sanitize_text_field( $_POST['module_id'] ) : '';
-			$widgets               = HFE_Helper::get_admin_settings_option( '_hfe_widgets', array() );
+			$module_id = isset( $_POST['module_id'] ) ? sanitize_text_field( $_POST['module_id'] ) : '';
+			$widgets   = HFE_Helper::get_admin_settings_option( '_hfe_widgets', [] );
 
 			$widgets[ $module_id ] = 'disabled';
 			$widgets               = array_map( 'esc_attr', $widgets );
@@ -146,7 +148,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
 
 			$module_id             = isset( $_POST['module_id'] ) ? sanitize_text_field( $_POST['module_id'] ) : '';
-			$widgets               = HFE_Helper::get_admin_settings_option( '_hfe_widgets', array() );
+			$widgets               = HFE_Helper::get_admin_settings_option( '_hfe_widgets', [] );
 			$widgets[ $module_id ] = $module_id;
 			$widgets               = array_map( 'esc_attr', $widgets );
 
@@ -280,6 +282,30 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 				wp_send_json_error( esc_html__( 'Could not activate theme. Please activate from the Themes page.', 'header-footer-elementor' ) );
 			}
 		}
+
+		/**
+		 * Save HFE compatibility option via AJAX.
+		 *
+		 * @since x.x.x
+		 * @return void
+		 */
+		public function save_hfe_compatibility_option_callback() {
+			// Check nonce for security.
+			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
+
+			if ( isset( $_POST['hfe_compatibility_option'] ) ) {
+				// Sanitize and update option.
+				$option = sanitize_text_field( $_POST['hfe_compatibility_option'] );
+				update_option( 'hfe_compatibility_option', $option );
+
+				// Return a success response.
+				wp_send_json_success( 'Settings saved successfully!' );
+			} else {
+				// Return an error response if the option is not set.
+				wp_send_json_error( 'Unable to save settings.' );
+			}
+		}
+
 	}
 
 	/**

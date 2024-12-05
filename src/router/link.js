@@ -17,18 +17,33 @@ export function Link(props) {
 
   const handleClick = (e) => {
     e.preventDefault();
-    // Dont' navigate if current path
-    if (route.path === to) {
+    
+    if (route.path === to && ! e.target.classList.contains('hfe-user-icon')) {
       return;
     }
-    // Trigger onClick prop manually
+    // Trigger onClick prop manually.
     if (onClick) {
       onClick(e);
     }
+
     const { search } = history.location;
 
-    // Use history API to navigate page
-    history.push(`${search}#${to}`);
+    if (!to.includes('settings')) {
+      // Remove &tab from the URL.
+      const newSearch = search.replace(/&tab=[^&]*/, '');
+      // Use history API to navigate page.
+      history.push(`${newSearch}#${to}`);
+    } else {
+      const changeSearch = search + '&tab=1';
+
+      if (e.target.classList.contains('hfe-user-icon') && window.location.hash.includes('settings')) {
+        window.location.href = `${changeSearch}#${to}`;
+      } else {
+        // Use history API to navigate page.
+        history.push(`${search}#${to}`);
+      }
+    }
+
   };
 
   return (

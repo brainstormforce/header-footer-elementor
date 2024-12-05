@@ -5,7 +5,7 @@
 			"@screens/*": ["Screens/*"],
 			"@components/*": ["Components/*"],
 			"@context/*": ["Context/*"],
-			"@temp/*": ["Temp/*"],
+			// "@temp/*": ["Temp/*"],
 			"@routes/*": ["Routes/*"]
 		}
 	}

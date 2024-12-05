@@ -53,7 +53,7 @@ module.exports = {
 			...defaultConfig.resolve.alias,
 			'@components': path.resolve(__dirname, 'src/Components/'), // Custom alias for components
 			'@screens': path.resolve(__dirname, 'src/Screens/'), // Custom alias for screens
-			'@utils': path.resolve(__dirname, 'src/Utils/'), // Custom alias for utilities
+			// '@utils': path.resolve(__dirname, 'src/Utils/'), // Custom alias for utilities
 			'@routes': path.resolve(__dirname, 'src/Routes/'), // Custom alias for utilities
 			'@context': path.resolve(__dirname, 'src/Context/')
 		},

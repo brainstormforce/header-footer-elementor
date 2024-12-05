@@ -1,121 +1,160 @@
-import React, { useState } from 'react'
-import { Container, Menu } from "@bsf/force-ui";
-import Sidebar from './Sidebar';
-import Content from './Content';
-import NavMenu from '@components/NavMenu';
-import HeaderLine from '@components/HeaderLine';
-import { Plus } from 'lucide-react';
-import ThemeSupport from './ThemeSupport';
-import VersionControl from './VersionControl';
+import React, { useState, useEffect } from "react";
+import { Container } from "@bsf/force-ui";
+import Sidebar from "./Sidebar";
+import Content from "./Content";
+import NavMenu from "@components/NavMenu";
+import ThemeSupport from "./ThemeSupport";
+import VersionControl from "./VersionControl";
+import MyAccount from "@components/Dashboard/MyAccount";
+import { __ } from "@wordpress/i18n";
 
 const Settings = () => {
-    const [selectedItem, setSelectedItem] = useState({
-        title: 'Select an item',
-        content: <ThemeSupport />
-    });
-
     const items = [
         {
             id: 1,
             icon: (
                 <img
-                    src={`${hfeSettingsData.theme_url}`}
-                    alt="Custom SVG"
+                    src={`${hfeSettingsData.user_url}`}
+                    alt={__("Custom SVG", "header-footer-elementor")}
                     className="object-contain"
                 />
             ),
-            main: 'Editor',
-            title: 'Theme Support',
-            content: <ThemeSupport />
+            selected: (
+                <img
+                    src={`${hfeSettingsData.user__selected_url}`}
+                    alt={__("Custom SVG", "header-footer-elementor")}
+                    className="object-contain"
+                />
+            ),
+            title: __("My Account", "header-footer-elementor"),
+            content: <MyAccount />,
         },
         {
             id: 2,
             icon: (
                 <img
-                    src={`${hfeSettingsData.version_url}`}
-                    alt="Custom SVG"
+                    src={`${hfeSettingsData.theme_url}`}
+                    alt={__("Custom SVG", "header-footer-elementor")}
                     className="object-contain"
                 />
             ),
-            main: 'Utilities',
-            title: 'Version Control',
-            content: <VersionControl/>
+            selected: (
+                <img
+                    src={`${hfeSettingsData.theme_url_selected}`}
+                    alt={__("Custom SVG", "header-footer-elementor")}
+                    className="object-contain"
+                />
+            ),
+            main: __("Editor", "header-footer-elementor"),
+            title: __("Theme Support", "header-footer-elementor"),
+            content: <ThemeSupport />,
         },
         {
             id: 3,
             icon: (
                 <img
-                    src={`${hfeSettingsData.integrations_url}`}
-                    alt="Custom SVG"
+                    src={`${hfeSettingsData.version_url}`}
+                    alt={__("Custom SVG", "header-footer-elementor")}
                     className="object-contain"
-                    style={{
-                        width: "90%",
-                        height: "auto",
-                    }}
                 />
             ),
-            main: 'Preferences',
-            title: 'Integrations',
-            content: 'This is the content for Services.'
+            selected: (
+                <img
+                    src={`${hfeSettingsData.version__selected_url}`}
+                    alt={__("Custom SVG", "header-footer-elementor")}
+                    className="object-contain"
+                />
+            ),
+            main: __("Utilities", "header-footer-elementor"),
+            title: __("Version Control", "header-footer-elementor"),
+            content: <VersionControl />,
         },
-        // {
-        //     id: 4,
-        //     icon: (
-        //         <img
-        //             src={`${hfeSettingsData.template_url}`}
-        //             alt="Custom SVG"
-        //             className="object-contain"
-        //             style={{
-        //                 width: "90%",
-        //                 height: "auto",
-        //             }}
-        //         />
-        //     ),
-        //     title: 'Contact',
-        //     content: 'This is the content for Contact.'
-        // }
-    ];
+    ].filter((item) => {
+        if ("no" === hfeSettingsData.show_theme_support && item.id === 2) {
+            return false;
+        }
+
+        return true;
+    });
+
+    // Default state: Set 'My Account' (first item) as the default when the settings tab is clicked
+    const [selectedItem, setSelectedItem] = useState(() => {
+        const savedItemId = localStorage.getItem("hfeSelectedItemId");
+        const savedItem = items.find((item) => item.id === Number(savedItemId));
+        return savedItem || items[0]; // Default to the first item if no saved item is found
+    });
+
+    useEffect(() => {
+        // Store selectedItemId in localStorage (or other persistent storage) to retain selection
+        localStorage.setItem("hfeSelectedItemId", selectedItem.id.toString());
+    }, [selectedItem]);
+
+    useEffect(() => {
+        const params = new URLSearchParams(window.location.search);
+        const tab = params.get("tab");
+        if (tab) {
+            const itemId = Number(tab);
+            const item = items.find((item) => item.id === itemId);
+            if (item) {
+                setSelectedItem(item);
+            }
+        }
+    }, []);
+
+    const handleSelectItem = (item) => {
+        setSelectedItem(item);
+    };
+
+    const handleSettingsTabClick = () => {
+        setSelectedItem(items[0]); // Set "My Account" as the default item when settings tab is clicked
+    };
 
     return (
         <>
-            <NavMenu />
+            <NavMenu onSettingsTabClick={handleSettingsTabClick} />
             <div className="">
-                <HeaderLine />
                 <Container
                     align="stretch"
-                    className="p-1"
+                    className="p-1 flex-col lg:flex-row hfe-settings-page"
                     containerType="flex"
                     direction="row"
                     gap="sm"
                     justify="start"
-                    style={{
-                        width: "100%",
-                        height: "100%"
-                    }}
+                    style={{ height: "100%" }}
                 >
                     <Container.Item
-                        className="p-2"
+                        className="p-2 hfe-sticky-outer-wrapper"
+                        alignSelf="auto"
+                        order="none"
+                        shrink={1}
+                        style={{ backgroundColor: "#ffffff" }}
+                    >
+                        <div className="hfe-sticky-sidebar">
+                            <Sidebar
+                                items={items}
+                                onSelectItem={handleSelectItem}
+                                selectedItemId={selectedItem.id}
+                            />
+                        </div>
+                    </Container.Item>
+                    <Container.Item
+                        className="p-2 flex w-full justify-center items-start hfe-hide-scrollbar"
                         alignSelf="auto"
                         order="none"
                         shrink={1}
                         style={{
-                            width: "20%",
-                            height: "100vh",
-                            backgroundColor: "white",
+                            height: "calc(100vh - 1px)",
+                            overflowY: "auto",
                         }}
                     >
-                        <Sidebar items={items} onSelectItem={setSelectedItem} />
-                    </Container.Item>
-                    <Container.Item
-                        className="p-2"
-                    >
-                        <Content selectedItem={selectedItem} />
+                        <div className="hfe-78-width">
+                            <Content selectedItem={selectedItem} />
+                        </div>
                     </Container.Item>
                 </Container>
             </div>
         </>
-    )
-}
+    );
+};
 
-export default Settings
-
+export default Settings;

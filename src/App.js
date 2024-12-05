@@ -3,11 +3,13 @@ import "@fontsource/figtree"; // Defaults to weight 400
 import "@fontsource/figtree/400.css"; // Specify weight
 import "@fontsource/figtree/400-italic.css"; // Specify weight and style
 import CustomRouter from "router/customRouter";
-import { LoaderPinwheel } from "lucide-react";
 import { Loader } from "@bsf/force-ui";
+import UpgradeNotice from "@components/UpgradeNotice";
+
 
 const App = () => {
     const [loaded, setLoaded] = useState(false);
+    const [showTopBar, setShowTopBar] = useState(true); // State to manage the visibility of the top bar
 
     // scroll top on route change
     window.onhashchange = () => {
@@ -23,20 +25,20 @@ const App = () => {
 
     if (!loaded) {
         return (
-            <div className="loading-spinner flex items-center justify-center h-screen">
-                <Loader
-                    icon={<LoaderPinwheel className="animate-spin" />}
-                    size="md"
-                    variant="primary"
-                    className="flex items-center justify-center"
-                    style={{ background: 'none' }}
-                />
+            <div
+                className="loading-spinner flex items-center justify-center h-screen"
+                style={{ background: "#F9FAFB" }}
+            >
+                <Loader icon={null} size="lg" variant="primary" />
             </div>
         );
     }
 
     return (
         <div className="app-container font-figtree">
+            {/* {showTopBar && (
+                <UpgradeNotice onClose={() => setShowTopBar(false)} /> // Pass a prop to handle closing
+            )} */}
             <CustomRouter />
         </div>
     );

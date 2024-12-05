@@ -27,7 +27,7 @@ class Module extends Module_Base {
 	 * @return bool true|false.
 	 */
 	public static function is_enable() {
-		return true;
+		return class_exists( 'woocommerce' );
 	}
 
 	/**
@@ -51,9 +51,9 @@ class Module extends Module_Base {
 	 * @return array Widgets.
 	 */
 	public function get_widgets() {
-		return array(
+		return [
 			'Cart',
-		);
+		];
 	}
 
 	/**

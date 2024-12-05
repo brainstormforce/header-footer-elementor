@@ -1,12 +1,15 @@
 import React from "react";
 import { Container, Title, Button } from "@bsf/force-ui";
 import { ExternalLink, Plus } from "lucide-react";
+import HeaderLine from '@components/HeaderLine'
+import { __ } from "@wordpress/i18n";
+
 const WelcomeContainer = () => {
 	return (
 		<div>
 			<Container
 				align="center"
-				className="bg-background-primary border-[0.5px] border-subtle rounded-xl shadow-sm mb-4 p-4"
+				className="bg-background-primary border-[0.5px] border-subtle rounded-xl shadow-sm mb-6 p-8 flex flex-col lg:flex-row"
 				containerType="flex"
 				direction="row"
 				gap="sm"
@@ -16,30 +19,23 @@ const WelcomeContainer = () => {
 						description=""
 						icon={null}
 						iconPosition="right"
-						className="pt-6 max-w-lg"
-						size="md"
+						className="max-w-lg"
+						size="lg"
 						tag="h3"
-						title="Welcome to Ultimate Addons for Elementor!"
+						title={__("Welcome to Ultimate Addons for Elementor!", "header-footer-elementor")}
 					/>
-					<p className="font-semibold text-sm pt-1">
-						We’re excited to help you supercharge your
-						website-building experience
+                	<HeaderLine />
+					<p className="text-sm font-medium text-text-tertiary m-0 mt-2">
+						{__(
+							"We're excited to help you supercharge your website-building experience. Effortlessly design stunning websites with our comprehensive range of free and premium widgets and features.",
+							"header-footer-elementor"
+						)}
 					</p>
-					<p
-						className="text-sm font-figtree pt-3 text-text-secondary"
-						style={{ fontFamily: "Figtree, serif" }}
-					>
-						Effortlessly design stunning websites with our
-						comprehensive range of free and premium widgets and
-						features. To get started,watch the video or check our
-						comprehensive documentation for more details.
-					</p>
-					<div className="flex items-center pt-4 gap-2">
+					<div className="flex items-center pt-6 gap-2">
 						<Button
-							icon={<Plus />}
 							iconPosition="right"
 							variant="primary"
-							className="bg-[#6005FF]"
+							className="bg-[#6005FF] hfe-remove-ring"
 							style={{
 								backgroundColor: "#6005FF",
 								transition: "background-color 0.3s ease",
@@ -52,20 +48,77 @@ const WelcomeContainer = () => {
 								(e.currentTarget.style.backgroundColor =
 									"#6005FF")
 							}
+							onClick={() => {
+								window.open(
+									hfeSettingsData.hfe_post_url,
+									"_blank"
+								);
+							}}
 						>
-							Create New Page
+							{__("Create Header/Footer", "header-footer-elementor")}
 						</Button>
 						<Button
-							icon={<ExternalLink />}
+							icon={<Plus />}
 							iconPosition="right"
-							variant="ghost"
+							variant="outline"
+							className="hfe-remove-ring"
+							style={{
+								color: "#7D4CDB",
+								borderColor: "#E9DFFC",
+							}}
+							onMouseEnter={(e) =>
+								(e.currentTarget.style.color =
+									"#000000")
+							}
+							onMouseLeave={(e) =>
+								(e.currentTarget.style.color =
+									"#7D4CDB") &&
+								(e.currentTarget.style.borderColor =
+									"#E9DFFC")
+							}
+							onClick={() => {
+								window.open(
+									hfeSettingsData.elementor_page_url,
+									"_blank"
+								);
+							}}
 						>
-							Read full guide
+							{__("Create New Page", "header-footer-elementor")}
 						</Button>
+						<div
+							style={{
+								color: "black",
+								background: "none",
+								border: "none",
+								padding: 0,
+								cursor: "pointer",
+							}}
+							onMouseEnter={(e) =>
+								(e.currentTarget.style.color = "#6005ff")
+							}
+							onMouseLeave={(e) =>
+								(e.currentTarget.style.color = "black")
+							}
+							onClick={() => {
+								window.open(
+									"https://ultimateelementor.com/docs/getting-started-with-ultimate-addons-for-elementor-lite/",
+									"_blank"
+								);
+							}}
+						>
+							<Button
+								icon={<ExternalLink />}
+								iconPosition="right"
+								variant="link"
+								className="hfe-remove-ring text-black"
+							>
+								{__("Read full guide", "header-footer-elementor")}
+							</Button>
+						</div>
 					</div>
 				</Container.Item>
-				<Container.Item className="p-2">
-					<iframe
+				{/* <Container.Item className="md:mt-0 mt-4">
+				<iframe
 						width="280"
 						height="160"
 						src="https://www.youtube.com/embed/ZeogOxqdKJI"
@@ -74,7 +127,7 @@ const WelcomeContainer = () => {
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 						allowFullScreen
 					/>
-				</Container.Item>
+				</Container.Item> */}
 			</Container>
 		</div>
 	);

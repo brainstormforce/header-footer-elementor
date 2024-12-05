@@ -597,7 +597,7 @@ class Cart extends Common_Widget {
 	 */
 	protected function render() {
 
-		if ( null === WC()->cart ) {
+		if ( null === \WC()->cart ) {
 			return;
 		}
 

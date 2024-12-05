@@ -67,7 +67,17 @@ class Header_Footer_Elementor {
 			$this->includes();
 			$this->load_textdomain();
 
-			add_action( 'init', [ $this, 'setup_settings_page' ] );
+			add_filter(
+				'elementor/admin-top-bar/is-active',
+				function( $is_active, $current_screen ) {
+					if ( strpos( $current_screen->id, 'elementor-hf' ) !== false ) {
+						return false;
+					}
+					return $is_active;
+				},
+				10,
+				2
+			);
 
 			add_filter('elementor/admin-top-bar/is-active', function($is_active, $current_screen) {
 				if (strpos($current_screen->id, 'elementor-hf') !== false) {
@@ -78,7 +88,7 @@ class Header_Footer_Elementor {
 
 			add_action( 'current_screen', function () {
 				$current_screen = get_current_screen();
-				if ( $current_screen && $current_screen->id === 'edit-elementor-hf' ) {
+				if ( $current_screen && ( $current_screen->id === 'edit-elementor-hf' || $current_screen->id === 'elementor-hf' ) ) {
 					add_action( 'in_admin_header', function () {
 						$this->render_admin_top_bar();
 					} );
@@ -109,6 +119,8 @@ class Header_Footer_Elementor {
 			}
 
 			update_option( 'hfe_is_theme_supported', $is_theme_supported );
+			
+			add_action( 'init', [ $this, 'setup_settings_page' ] );
 
 			if ( 'yes' === get_option( 'hfe_plugin_is_activated' ) ) {
 				add_action( 'admin_init', [ $this, 'show_setup_wizard' ] );
@@ -125,7 +137,7 @@ class Header_Footer_Elementor {
 			add_shortcode( 'hfe_template', [ $this, 'render_template' ] );
 
 			add_action( 'astra_notice_before_markup_header-footer-elementor-rating', [ $this, 'rating_notice_css' ] );
-			add_action( 'admin_init', [ $this, 'register_notices' ] );
+			// add_action( 'admin_init', [ $this, 'register_notices' ] );
 
 			// BSF Analytics Tracker.
 			if ( ! class_exists( 'BSF_Analytics_Loader' ) ) {
@@ -137,7 +149,7 @@ class Header_Footer_Elementor {
 			$bsf_analytics->set_entity(
 				[
 					'bsf' => [
-						'product_name'    => 'Elementor Header & Footer builder',
+						'product_name'    => 'Ultimate Addons for Elementor',
 						'path'            => HFE_DIR . 'admin/bsf-analytics',
 						'author'          => 'Brainstorm Force',
 						'time_to_display' => '+24 hours',
@@ -174,7 +186,7 @@ class Header_Footer_Elementor {
 	 * @return void
 	 */
 	public function register_notices() {
-		$image_path = HFE_URL . 'assets/images/header-footer-elementor-icon.svg';
+		$image_path = HFE_URL . 'assets/images/settings/uael-icon.svg';
 
 		Astra_Notices::add_notice(
 			[
@@ -203,8 +215,8 @@ class Header_Footer_Elementor {
 							</div>
 						</div>',
 					$image_path,
-					__( 'Hello! Seems like you have used Elementor Header & Footer Builder to build this website — Thanks a ton!', 'header-footer-elementor' ),
-					__( 'Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Elementor Header & Footer Builder.', 'header-footer-elementor' ),
+					__( 'Hello! Seems like you have used Ultimate Addons for Elementor to build this website — Thanks a ton!', 'header-footer-elementor' ),
+					__( 'Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Ultimate Addons for Elementor.', 'header-footer-elementor' ),
 					'https://wordpress.org/support/plugin/header-footer-elementor/reviews/?filter=5#new-post',
 					__( 'Ok, you deserve it', 'header-footer-elementor' ),
 					MONTH_IN_SECONDS,
@@ -274,7 +286,7 @@ class Header_Footer_Elementor {
 			/* TO DO */
 			$class = 'notice notice-error';
 			/* translators: %s: html tags */
-			$message = sprintf( __( 'The %1$sElementor Header & Footer Builder%2$s plugin requires %1$sElementor%2$s plugin installed & activated.', 'header-footer-elementor' ), '<strong>', '</strong>' );
+			$message = sprintf( __( 'The %1$sUltimate Addons for Elementor%2$s plugin requires %1$sElementor%2$s plugin installed & activated.', 'header-footer-elementor' ), '<strong>', '</strong>' );
 
 			$plugin = 'elementor/elementor.php';
 
@@ -310,7 +322,7 @@ class Header_Footer_Elementor {
 		/* TO DO */
 		$class = 'notice notice-error';
 		/* translators: %s: html tags */
-		$message = sprintf( __( 'The %1$sElementor Header & Footer Builder%2$s plugin has stopped working because you are using an older version of %1$sElementor%2$s plugin.', 'header-footer-elementor' ), '<strong>', '</strong>' );
+		$message = sprintf( __( 'The %1$sUltimate Addons for Elementor%2$s plugin has stopped working because you are using an older version of %1$sElementor%2$s plugin.', 'header-footer-elementor' ), '<strong>', '</strong>' );
 
 		$plugin = 'elementor/elementor.php';
 
@@ -347,10 +359,10 @@ class Header_Footer_Elementor {
 		/* TO DO */
 		$class       = 'notice notice-info is-dismissible';
 		$setting_url = admin_url( 'edit.php?post_type=elementor-hf' );
-		$image_path  = HFE_URL . 'assets/images/header-footer-elementor-icon.svg';
+		$image_path  = HFE_URL . 'assets/images/settings/uael-icon.svg';
 
 		/* translators: %s: html tags */
-		$notice_message = sprintf( __( 'Thank you for installing %1$s Elementor Header & Footer Builder %2$s Plugin! Click here to %3$sget started. %4$s', 'header-footer-elementor' ), '<strong>', '</strong>', '<a href="' . $setting_url . '">', '</a>' );
+		$notice_message = sprintf( __( 'Thank you for installing %1$s Ultimate Addons for Elementor %2$s Plugin! Click here to %3$sget started. %4$s', 'header-footer-elementor' ), '<strong>', '</strong>', '<a href="' . $setting_url . '">', '</a>' );
 
 		Astra_Notices::add_notice(
 			[
@@ -401,6 +413,11 @@ class Header_Footer_Elementor {
 
 		// Load the widgets.
 		require HFE_DIR . 'inc/widgets-manager/class-widgets-loader.php';
+
+		// Load the extensions.
+		require HFE_DIR . 'inc/widgets-manager/class-extensions-loader.php';
+
+		require_once HFE_DIR . 'inc/settings/hfe-settings-api.php';
 	}
 
 	/**

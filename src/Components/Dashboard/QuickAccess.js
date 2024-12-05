@@ -1,12 +1,12 @@
 import React from "react";
 import { Title, Container, Button } from "@bsf/force-ui";
-import { Headphones, Star, HelpCircle, MessageCircle } from "lucide-react";
+import { Headphones, HelpCircle, StarIcon, NotepadText } from "lucide-react";
 import { __ } from "@wordpress/i18n";
 
 const QuickAccess = () => {
 	return (
 		<div
-			className="hfe-dashboard-quick-access p-6 bg-white rounded-lg shadow-md"
+			className="box-border hfe-dashboard-quick-access p-4 bg-white rounded-lg shadow-md"
 			style={{
 				width: "-webkit-fill-available",
 			}}
@@ -22,13 +22,14 @@ const QuickAccess = () => {
 
 			<Container
 				align="stretch"
-				className="p-1 bg-background-gray rounded-lg gap-1"
+				className="p-1 rounded-lg gap-1"
 				containerType="flex"
 				direction="column"
 				gap=""
 				justify="start"
 				style={{
 					width: "100%",
+					backgroundColor: "#F9FAFB",
 				}}
 			>
 				<Container.Item
@@ -37,72 +38,69 @@ const QuickAccess = () => {
 					order="none"
 					shrink={1}
 				>
-					<a
-						href="https://wordpress.org/support/plugin/header-footer-elementor/"
-						target="_blank"
-						rel="noopener noreferrer"
+					<Button
+						className="text-black hfe-remove-ring"
+						icon={<Headphones />}
+						iconPosition="left"
+						variant="link"
+						onClick={() => {
+							window.open(
+								"https://ultimateelementor.com/contact/",
+								"_blank"
+							);
+						}}
 					>
-						<Button
-							className="text-black"
-							icon={<Headphones />}
-							iconPosition="left"
-							variant="link"
-						>
-							{__("Contact Us", "header-footer-elementor")}
-						</Button>
-					</a>
+						{__("Contact Us", "header-footer-elementor")}
+					</Button>
 				</Container.Item>
 				<Container.Item className="p-4 bg-white rounded-lg shadow-container-item">
-					<a
-						href="https://wordpress.org/support/plugin/header-footer-elementor/reviews/"
-						target="_blank"
-						rel="noopener noreferrer"
+					<Button
+						className="text-black hfe-remove-ring"
+						icon={<HelpCircle />}
+						iconPosition="left"
+						variant="link"
+						onClick={() => {
+							window.open(
+								"https://ultimateelementor.com/docs/",
+								"_blank"
+							);
+						}}
 					>
-						<Button
-							className="text-black"
-							icon={<Star />}
-							iconPosition="left"
-							variant="link"
-						>
-							{__("Rate Us", "header-footer-elementor")}
-						</Button>
-					</a>
+						{__("Help Centre", "header-footer-elementor")}
+					</Button>
 				</Container.Item>
 				<Container.Item className="p-4 bg-white rounded-lg shadow-container-item">
-					<a
-						href="https://make.wordpress.org/"
-						target="_blank"
-						rel="noopener noreferrer"
+					<Button
+						className="text-black hfe-remove-ring"
+						icon={<NotepadText />}
+						iconPosition="left"
+						variant="link"
+						onClick={() => {
+							window.open(
+								"https://ideas.ultimateelementor.com/boards/feature-requests",
+								"_blank"
+							);
+						}}
 					>
-						<Button
-							className="text-black"
-							icon={<HelpCircle />}
-							iconPosition="left"
-							variant="link"
-						>
-							{__("Request a Feature", "header-footer-elementor")}
-						</Button>
-					</a>
+						{__("Request a Feature", "header-footer-elementor")}
+					</Button>
 				</Container.Item>
-				<Container.Item className="p-4 bg-white rounded-lg shadow-container-item">
-					<a
-						href="https://make.wordpress.org/"
-						target="_blank"
-						rel="noopener noreferrer"
+				{/* <Container.Item className="p-4 bg-white rounded-lg shadow-container-item">
+					<Button
+						className="text-black hfe-remove-ring"
+						icon={<MessagesSquareIcon />}
+						iconPosition="left"
+						variant="link"
+						onClick={() => {
+							window.open(
+								"https://make.wordpress.org/",
+								"_blank"
+							);
+						}}
 					>
-						<Button
-							className="text-black"
-							icon={<MessageCircle />}
-							iconPosition="left"
-							variant="link"
-						>
-							{__(
-								"Join the Community",
-								"header-footer-elementor"
-							)}
-						</Button>
-					</a>
-				</Container.Item>
+						{__("Join the Community", "header-footer-elementor")}
+					</Button>
+				</Container.Item> */}
 			</Container>
 		</div>
 	);

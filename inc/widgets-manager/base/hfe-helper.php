@@ -50,6 +50,83 @@ class HFE_Helper {
 	private static $all_widgets_list = null;
 
 	/**
+	 * Plugins List
+	 *
+	 * @var get_bsf_plugins_list
+	 */
+	private static $get_bsf_plugins_list = null;
+
+	/**
+	 * Check if UAE Pro is active.
+	 *
+	 * @since x.x.x
+	 * @return bool
+	 */
+	public static function is_pro_active() {
+		if ( is_plugin_active( 'ultimate-elementor/ultimate-elementor.php' ) && defined( 'UAEL_PRO' ) && UAEL_PRO ) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Provide General settings array().
+	 *
+	 * @since x.x.x
+	 * @return array()
+	 */
+	public static function premium_starter_templates_status() {
+
+		$st_pro_status = Widgets_Config::get_plugin_status( 'astra-pro-sites/astra-pro-sites.php' );
+
+		return $st_pro_status;
+	}
+
+	/**
+	 * Provide General settings array().
+	 *
+	 * @since x.x.x
+	 * @return array()
+	 */
+	public static function free_starter_templates_status() {
+		$free_status = Widgets_Config::get_plugin_status( 'astra-sites/astra-sites.php' );
+		return $free_status;
+	}
+
+	/**
+	 * Provide General settings array().
+	 *
+	 * @since x.x.x
+	 * @return array()
+	 */
+	public static function starter_templates_status() {
+
+		$st_pro_status = self::premium_starter_templates_status();
+		$free_status   = self::free_starter_templates_status();
+
+		if ( 'Activated' !== $free_status && ( 'Installed' === $st_pro_status || 'Activated' === $st_pro_status ) ) {
+			return $st_pro_status;
+		}
+
+		return $free_status;
+	}
+
+	/**
+	 * Provide General settings array().
+	 *
+	 * @since x.x.x
+	 * @return array()
+	 */
+	public static function starter_templates_link() {
+
+		if ( is_plugin_active( 'astra-sites/astra-sites.php' ) || is_plugin_active( 'astra-pro-sites/astra-pro-sites.php' ) ) {
+			return admin_url( 'themes.php?page=starter-templates' );
+		}
+
+		return '';
+	}
+
+	/**
 	 * Provide General settings array().
 	 *
 	 * @since 0.0.1
@@ -90,6 +167,21 @@ class HFE_Helper {
 			self::$all_widgets_list = self::get_widget_options() + self::get_pro_widget_list();
 		}
 		return apply_filters( 'hfe_all_widgets_list', self::$all_widgets_list );
+	}
+
+	/**
+	 * Provide General settings array().
+	 *
+	 * @since x.x.x
+	 * @return array()
+	 */
+	public static function get_bsf_plugins_list() {
+
+		if ( ! isset( self::$get_bsf_plugins_list ) ) {
+			self::$get_bsf_plugins_list = Widgets_Config::get_bsf_plugins();
+		}
+
+		return apply_filters( 'uael_plugins_list', self::$get_bsf_plugins_list );
 	}
 
 	/**
@@ -292,15 +384,15 @@ class HFE_Helper {
 
 		$rollback_versions = self::get_rollback_versions();
 
-		$rollback_versions_options = array();
+		$rollback_versions_options = [];
 
 		foreach ( $rollback_versions as $version ) {
 
-			$version = array(
+			$version = [
 				'label' => $version,
 				'value' => $version,
 
-			);
+			];
 
 			$rollback_versions_options[] = $version;
 		}
@@ -327,18 +419,18 @@ class HFE_Helper {
 
 			$plugin_information = plugins_api(
 				'plugin_information',
-				array(
+				[
 					'slug' => 'header-footer-elementor',
-				)
+				]
 			);
 
 			if ( empty( $plugin_information->versions ) || ! is_array( $plugin_information->versions ) ) {
-				return array();
+				return [];
 			}
 
 			krsort( $plugin_information->versions );
 
-			$rollback_versions = array();
+			$rollback_versions = [];
 
 			foreach ( $plugin_information->versions as $version => $download_link ) {
 
@@ -357,17 +449,20 @@ class HFE_Helper {
 				$rollback_versions[] = $version;
 			}
 
-			usort( $rollback_versions, function( $prev, $next ) {
-				if ( version_compare( $prev, $next, '==' ) ) {
-					return 0;
-				}
+			usort(
+				$rollback_versions,
+				function( $prev, $next ) {
+					if ( version_compare( $prev, $next, '==' ) ) {
+						return 0;
+					}
 		
-				if ( version_compare( $prev, $next, '>' ) ) {
-					return -1;
-				}
+					if ( version_compare( $prev, $next, '>' ) ) {
+						return -1;
+					}
 		
-				return 1;
-			} );
+					return 1;
+				} 
+			);
 
 			$rollback_versions = array_slice( $rollback_versions, 0, $max_versions, true );
 

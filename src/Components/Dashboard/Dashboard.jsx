@@ -1,5 +1,4 @@
 import { Container } from "@bsf/force-ui";
-import HeaderLine from '@components/HeaderLine'
 import NavMenu from '@components/NavMenu'
 import React from 'react'
 import Widgets from './Widgets'
@@ -13,11 +12,10 @@ const Dashboard = () => {
     return (
         <>
             <NavMenu />
-            <div className="">
-                <HeaderLine />
+            <div>
                 <Container
                     align="stretch"
-                    className="p-2"
+                    className="p-6 flex-col lg:flex-row box-border"
                     containerType="flex"
                     direction="row"
                     gap="sm"
@@ -27,26 +25,20 @@ const Dashboard = () => {
                     }}
                 >
                     <Container.Item
-                        className="p-2"
+                        className="p-2 hfe-65-width"
                         alignSelf="auto"
                         order="none"
-                        shrink={1}
-                        style={{
-                            width: "63%",
-                        }}
+                        shrink={0}
                     >
                         <WelcomeContainer />
                         <Widgets />
                         <UltimateFeatures />
                     </Container.Item>
                     <Container.Item 
-                        className="p-2"
-                        style={{
-                            width: "35%",
-                        }}
-                    >
+                        className="p-2 w-full hfe-35-width"
+                        shrink={1}
+                    >  <TemplateSection />
                         <ExtendWebsite />
-                        <TemplateSection />
                         <QuickAccess />
                     </Container.Item>
                 </Container>

@@ -56,6 +56,10 @@ li#toplevel_page_Settings-page,
     color: #ffffff;
     font-weight: 600;
 }
+.toplevel_page_hfe .wp-submenu a[href ="post-new.php?post_type=elementor-hf" ],
+.toplevel_page_uaepro .wp-submenu a[href ="post-new.php?post_type=elementor-hf" ] {
+    display: none !important;
+}
 .hfe-heading-inline {
     font-size: 23px;
     font-weight: 400;
