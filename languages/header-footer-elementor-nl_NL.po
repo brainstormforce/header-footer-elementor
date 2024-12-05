@@ -44,7 +44,7 @@ msgstr "Sta %s producten toe om niet-gevoelige gebruikstrackinggegevens te volge
 
 #: admin/bsf-analytics/class-bsf-analytics.php:422
 msgid " This will be applicable for all sites from the network."
-msgstr " Dit is van toepassing op alle sites van het netwerk."
+msgstr "Dit is van toepassing op alle sites van het netwerk."
 
 #: admin/bsf-analytics/class-bsf-analytics.php:427
 msgid "Learn More."
@@ -350,7 +350,7 @@ msgstr "De Elementor Header & Footer Builder plugin heeft compatibiliteit met uw
 
 #: inc/class-hfe-settings-page.php:158
 msgid " Method 1 (Recommended)"
-msgstr " Methode 1 (Aanbevolen)"
+msgstr "Methode 1 (Aanbevolen)"
 
 #: inc/class-hfe-settings-page.php:159
 msgid "This method replaces your theme's header (header.php) & footer (footer.php) template with plugin's custom templates."
@@ -383,7 +383,7 @@ msgstr "Over Ons"
 
 #: inc/class-hfe-settings-page.php:229
 msgid "Elementor Header & Footer Builder "
-msgstr "Elementor Header & Footer Builder "
+msgstr "Elementor Header & Footer Builder"
 
 #. translators: 1: Elementor, 2: Link to plugin review
 #: inc/class-hfe-settings-page.php:339
@@ -1566,11 +1566,11 @@ msgstr "Overgangsduur"
 
 #: inc/widgets-manager/widgets/class-retina.php:602
 msgid "Caption Top Spacing"
-msgstr ""
+msgstr "Bovenmarge van bijschrift"
 
 #: inc/widgets-manager/widgets/class-retina.php:637
 msgid "Helpful Information"
-msgstr ""
+msgstr "Nuttige informatie"
 
 #. translators: %1$s doc link
 #: inc/widgets-manager/widgets/class-retina.php:646
