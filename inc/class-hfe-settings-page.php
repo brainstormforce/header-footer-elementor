@@ -165,7 +165,7 @@ class HFE_Settings_Page {
 		$default_url = admin_url( 'admin.php?page=' . $this->menu_slug );
 
 		$mylinks = [
-			'<a href="' . $default_url . '">' . __( 'Settings', 'Elementor Header & Footer Builder' ) . '</a>', //phpcs:ignore WordPress.WP.I18n.TextDomainMismatch
+			'<a href="' . $default_url . '">' . __( 'Settings', 'Elementor Header & Footer Builder', 'header-footer-elementor' ) . '</a>', //phpcs:ignore WordPress.WP.I18n.TextDomainMismatch
 		];
 
 		return array_merge( $mylinks, $links );
