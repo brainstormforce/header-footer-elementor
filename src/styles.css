@@ -169,9 +169,6 @@ input[type="radio"].hfe-radio-field:focus {
 #hfe-settings-app .gap-2 {
     gap: 1.2rem;
 }
-.toplevel_page_hfe #wpcontent {
-    padding-left: 0;
-}
 div#hfe-settings-app {
     font-size: 15px;
     font-weight: 500;
