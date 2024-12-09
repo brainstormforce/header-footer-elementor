@@ -52,8 +52,8 @@ li#toplevel_page_Settings-page,
 .wp-admin #adminmenu .wp-submenu a[href="themes.php?page=hfe-about"] {
     display: none;
 }
-.appearance_page_hfe-settings #adminmenu .wp-submenu a[href ="edit.php?post_type=elementor-hf" ] {
-    color: #ffffff;
+.post-type-elementor-hf .wp-submenu a[href ="edit.php?post_type=elementor-hf" ] {
+    color: #ffffff !important;
     font-weight: 600;
 }
 .toplevel_page_hfe .wp-submenu a[href ="post-new.php?post_type=elementor-hf" ],

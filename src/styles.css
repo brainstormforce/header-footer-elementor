@@ -152,6 +152,38 @@ input[type="radio"].hfe-radio-field:focus {
 	}
 }
 
+#e-admin-top-bar-root.e-admin-top-bar--active {
+	display: none!important;
+}
+
+#hfe-settings-app .subject-cell {
+	max-width: 200px; /* Adjust this width based on your layout */
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* .hfe-menu-page-wrapper {
+	width: calc( 100% - 25px);
+} */
+#hfe-settings-app .gap-2 {
+    gap: 1.2rem;
+}
+div#hfe-settings-app {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: normal;
+}
+/* #hfe-settings-app .p-5 {
+    padding: 0.5rem 1.25rem;
+} */
+#hfe-settings-app .hfe-header-title h6 {
+	color: #858484;
+	font-size: 14px;
+}
+.hfe-settings-content-wrapper {
+	padding: 15px 25px;
+}
 @media (max-width: 1024px) {
 	.hfe-65-width,
 	.hfe-35-width,

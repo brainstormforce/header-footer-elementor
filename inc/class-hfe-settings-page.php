@@ -202,7 +202,7 @@ class HFE_Settings_Page {
 		$show_view_all = ( $post_type === 'elementor-hf' && $pagenow === 'post.php' ) ? "yes" : "no";
 		$hfe_edit_url  = admin_url( 'edit.php?post_type=elementor-hf' );
 
-		if ( self::is_current_page( 'hfe' ) && ! HFE_Helper::is_pro_active() ) {
+		if ( self::is_current_page( 'hfe' ) && ! HFE_Helper::is_pro_active()) {
 
 			$rollback_versions = HFE_Helper::get_rollback_versions_options();
 			$st_status         = HFE_Helper::free_starter_templates_status();
@@ -315,6 +315,7 @@ class HFE_Settings_Page {
 			'show_all_hfe'		=> $show_view_all,
 			'hfe_edit_url'      => $hfe_edit_url,
 			'view_all_text'     => esc_html__( 'View All', 'header-footer-elementor' ),
+			'header_footer_builder'	=> $hfe_edit_url,
 
 		];
 
