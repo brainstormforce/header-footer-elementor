@@ -72,6 +72,7 @@ class HFE_Admin {
 
 	}
 
+
 	/**
 	 * Constructor
 	 *
@@ -319,6 +320,7 @@ class HFE_Admin {
 			2
 		);
 	}
+
 
 	/**
 	 * Check if UAE Pro is active.
