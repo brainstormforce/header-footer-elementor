@@ -14,7 +14,7 @@ jobs:
         id: check-branch
         run: |
           if [[ ${{ github.base_ref }} == master || ${{ github.base_ref }} == dev || ${{ github.base_ref }} == next-release ]]; then
-              echo ::set-output name=match::true
+              echo "match=true" >> $GITHUB_OUTPUT
           fi
       - uses: tzkhan/pr-update-action@v2
         if: steps.check-branch.outputs.match == 'true'
