@@ -10,6 +10,7 @@ const FreevsPro = () => {
             items: [
                 { id: 1, content: __("White Label Option", "header-footer-elementor"), iconFree: false, iconPro: true },
                 { id: 2, content: __("24/7 Premium Support", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 3, content: __("Cross-Domain Copy-Paste", "header-footer-elementor"), iconFree: false, iconPro: true },
             ],
         },
         {
@@ -18,7 +19,7 @@ const FreevsPro = () => {
                 { id: 1, content: __("Post Info", "header-footer-elementor"), iconFree: true, iconPro: false },
                 { id: 2, content: __("Scroll to Top", "header-footer-elementor"), iconFree: true, iconPro: false },
                 { id: 3, content: __("Breadcrumbs", "header-footer-elementor"), iconFree: true, iconPro: false },
-                { id: 4, content: __("Retina Logo", "header-footer-elementor"), iconFree: true, iconPro: true },
+                { id: 4, content: __("Retina Logo", "header-footer-elementor"), iconFree: true, iconPro: false },
                 { id: 5, content: __("Copyright", "header-footer-elementor"), iconFree: true, iconPro: false },
                 { id: 6, content: __("Page Title", "header-footer-elementor"), iconFree: true, iconPro: false },
                 { id: 7, content: __("Site Tagline", "header-footer-elementor"), iconFree: true, iconPro: false },
@@ -33,19 +34,25 @@ const FreevsPro = () => {
                 { id: 1, content: __("Advanced Heading", "header-footer-elementor"), iconFree: false, iconPro: true },
                 { id: 2, content: __("Dual Color Heading", "header-footer-elementor"), iconFree: false, iconPro: true },
                 { id: 3, content: __("Fancy Heading", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 4, content: __("Party Propz", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 4, content: __("Multi-Button", "header-footer-elementor"), iconFree: false, iconPro: true },
                 { id: 5, content: __("Image Hotspots", "header-footer-elementor"), iconFree: false, iconPro: true },
             ],
         },
         {
             title: __("Content & Media Widgets", "header-footer-elementor"),
             items: [
-                { id: 1, content: __("Image Gallery", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 2, content: __("Video", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 1, content: __("Content Toggle Button", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 2, content: __("Image Gallery", "header-footer-elementor"), iconFree: false, iconPro: true },
                 { id: 3, content: __("Video Gallery", "header-footer-elementor"), iconFree: false, iconPro: true },
                 { id: 4, content: __("Table", "header-footer-elementor"), iconFree: false, iconPro: true },
                 { id: 5, content: __("Timeline", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 5, content: __("Image Comparison (Before & After)", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 6, content: __("Google Map", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 7, content: __("Before & After Slider", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 8, content: __("Info Box", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 9, content: __("Video", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 10, content: __("Conditional Display", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 11, content: __("Login Form", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 12, content: __("User Registeration Form", "header-footer-elementor"), iconFree: false, iconPro: true },
             ],
         },
         {
@@ -53,10 +60,10 @@ const FreevsPro = () => {
             items: [
                 { id: 1, content: __("Marketing Button", "header-footer-elementor"), iconFree: false, iconPro: true },
                 { id: 2, content: __("Pricing Table", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 3, content: __("Countdown Timer", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 4, content: __("Business Hours", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 5, content: __("Modal Popup", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 6, content: __("Notification Bar", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 3, content: __("Price List", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 4, content: __("Countdown Timer", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 5, content: __("Business Hours", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 6, content: __("Modal Popup", "header-footer-elementor"), iconFree: false, iconPro: true },
             ],
         },
         {
@@ -65,7 +72,7 @@ const FreevsPro = () => {
                 { id: 1, content: __("WooCommerce: Add to Cart", "header-footer-elementor"), iconFree: false, iconPro: true },
                 { id: 2, content: __("WooCommerce: Product Category", "header-footer-elementor"), iconFree: false, iconPro: true },
                 { id: 3, content: __("WooCommerce: Mini Cart", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 4, content: __("WooCommerce: Product Display", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 4, content: __("WooCommerce: Product", "header-footer-elementor"), iconFree: false, iconPro: true },
                 { id: 5, content: __("WooCommerce: Checkout", "header-footer-elementor"), iconFree: false, iconPro: true },
             ],
         },
@@ -79,22 +86,22 @@ const FreevsPro = () => {
             ],
         },
         {
-            title: __("Schema & Navigation Widgets", "header-footer-elementor"),
+            title: __("SEO Widgets", "header-footer-elementor"),
             items: [
-                { id: 1, content: __("FAQ/Accordion with Schema", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 2, content: __("How-To Schema", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 1, content: __("FAQ with Schema", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 2, content: __("How-To", "header-footer-elementor"), iconFree: false, iconPro: true },
                 { id: 3, content: __("Table of Contents", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 4, content: __("Business Reviews", "header-footer-elementor"), iconFree: false, iconPro: true },
             ],
         },
         {
             title: __("Creative Features", "header-footer-elementor"),
             items: [
-                { id: 1, content: __("Particles", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 2, content: __("Shape Divider", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 3, content: __("Cross-Domain Copy-Paste", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 4, content: __("Multi-Button", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 5, content: __("Tooltip", "header-footer-elementor"), iconFree: false, iconPro: true },
-                { id: 6, content: __("Off-Canvas", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 1, content: __("Presets", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 2, content: __("Welcome Music", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 3, content: __("Particles", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 4, content: __("Party Propz", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 5, content: __("Shape Divider", "header-footer-elementor"), iconFree: false, iconPro: true }
             ],
         },
         {
@@ -108,8 +115,10 @@ const FreevsPro = () => {
         {
             title: __("Advanced Features", "header-footer-elementor"),
             items: [
-                { id: 1, content: __("Team Member", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 1, content: __("Retina Image", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 2, content: __("Team Member", "header-footer-elementor"), iconFree: false, iconPro: true },
                 { id: 3, content: __("Post Layout", "header-footer-elementor"), iconFree: false, iconPro: true },
+                { id: 4, content: __("Off Canvas", "header-footer-elementor"), iconFree: false, iconPro: true },
             ],
         },
     ];
