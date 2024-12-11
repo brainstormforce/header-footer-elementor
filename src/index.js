@@ -5,21 +5,21 @@ import NavMenu from '@components/NavMenu'
 import "./styles.css";
 
 domReady(() => {
-	const rootElement = document.getElementById("hfe-settings-app");
-	if (rootElement) {
-		const root = createRoot(rootElement); // Use createRoot() for React 18
-		root.render(<App />);
-	}
+    const rootElement = document.getElementById("hfe-settings-app");
+    if (rootElement) {
+        const root = createRoot(rootElement); // Use createRoot() for React 18
+        root.render(<App />);
+    }
 
-	if ( "yes" === hfe_admin_data.show_view_all || window.location.href === hfe_admin_data.header_footer_builder ) {
-		const navMenuElement = document.getElementById("hfe-admin-top-bar-root");
-		if (navMenuElement) {
-			const newDiv = document.createElement("div");
-			newDiv.id = "hfe-settings-app";
-			navMenuElement.appendChild(newDiv);
-	
-			const navMenuRoot = createRoot(newDiv);
-			navMenuRoot.render(<NavMenu />);
-		}
-	}
+    if ( "yes" === hfe_admin_data.show_view_all || window.location.href === hfe_admin_data.header_footer_builder || window.location.href === hfeSettingsData.header_footer_builder || "yes" === hfeSettingsData.is_hfe_post ) {
+        const navMenuElement = document.getElementById("hfe-admin-top-bar-root");
+        if (navMenuElement) {
+            const newDiv = document.createElement("div");
+            newDiv.id = "hfe-settings-app";
+            navMenuElement.appendChild(newDiv);
+    
+            const navMenuRoot = createRoot(newDiv);
+            navMenuRoot.render(<NavMenu />);
+        }
+    }
 });

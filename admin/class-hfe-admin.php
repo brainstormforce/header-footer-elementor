@@ -71,20 +71,7 @@ class HFE_Admin {
 		wp_enqueue_style( 'hfe-style' );
 
 	}
-   /**
-     * Enqueue admin nav menu script
-     *
-     * @return void
-     */
-    public function enqueue_admin_nav_menu_script() {
-        wp_enqueue_script(
-            'admin-nav-menu',
-            plugin_dir_url(__FILE__) . 'admin-nav-menu.js',
-            array('wp-element'), // Ensure React and ReactDOM are loaded
-            '1.0.0',
-            true
-        );
-    }
+
 
 	/**
 	 * Constructor
@@ -101,7 +88,6 @@ class HFE_Admin {
 		add_action( 'admin_notices', [ $this, 'location_notice' ] );
 		add_action( 'template_redirect', [ $this, 'block_template_frontend' ] );
 		add_filter( 'single_template', [ $this, 'load_canvas_template' ] );
-		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_nav_menu_script' ] ); // Corrected this line
 		add_filter( 'manage_elementor-hf_posts_columns', [ $this, 'set_shortcode_columns' ] );
 		add_action( 'manage_elementor-hf_posts_custom_column', [ $this, 'render_shortcode_column' ], 10, 2 );
 		if ( defined( 'ELEMENTOR_PRO_VERSION' ) && ELEMENTOR_PRO_VERSION > 2.8 ) {

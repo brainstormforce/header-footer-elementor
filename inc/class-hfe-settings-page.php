@@ -201,6 +201,7 @@ class HFE_Settings_Page {
 		$white_logo = HFE_URL . 'assets/images/settings/white-logo.svg';
 		$show_view_all = ( $post_type === 'elementor-hf' && $pagenow === 'post.php' ) ? "yes" : "no";
 		$hfe_edit_url  = admin_url( 'edit.php?post_type=elementor-hf' );
+		$is_hfe_post        = ( 'elementor-hf' === $post_type && ( 'post.php' === $pagenow || 'post-new.php' === $pagenow ) ) ? 'yes' : 'no';
 	
 		$additional_condition = ( isset( $_GET['post_type'] ) && 'elementor-hf' === sanitize_text_field( $_GET['post_type'] ) && 
 			( 'edit.php' === $GLOBALS['pagenow'] || 'post.php' === $GLOBALS['pagenow'] || 'post-new.php' === $GLOBALS['pagenow'] ) ) ||
@@ -265,6 +266,7 @@ class HFE_Settings_Page {
 					'st_pro_status'            => $stpro_status,
 					'st_link'                  => $st_link,
 					'hfe_post_url'             => $hfe_post_url,
+					'is_hfe_post'              => $is_hfe_post,
 				]
 			);
 	
