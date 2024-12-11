@@ -5,6 +5,21 @@
 
 /* Add to your main CSS file (e.g., index.css) */
 
+.toplevel_page_hfe #wpcontent,
+.post-type-elementor-hf #wpcontent {
+    padding-left: 0;
+}
+.post-type-elementor-hf #wpbody-content {
+	padding-left: 20px;
+}
+.post-type-elementor-hf .wp-heading-inline {
+	font-size: 18px;
+}
+.post-type-elementor-hf #adminmenu .wp-submenu a[href ="edit.php?post_type=elementor-hf" ] {
+    color: #ffffff;
+    font-weight: 600;
+}
+
 #hfe-settings-app .loader {
 	border: 4px solid #f3f3f3;
 	border-radius: 50%;
