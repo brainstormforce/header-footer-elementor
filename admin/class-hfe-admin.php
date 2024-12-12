@@ -47,7 +47,7 @@ class HFE_Admin {
 	 */
 	public static function load_admin() {
 		add_action( 'elementor/editor/after_enqueue_styles', __CLASS__ . '::hfe_admin_enqueue_scripts' );
-		add_action( 'admin_head', __CLASS__ . '::hfe_admin_enqueue_scripts' );		
+		add_action( 'admin_head', __CLASS__ . '::hfe_admin_enqueue_scripts' );      
 	}
 
 	/**
@@ -79,12 +79,17 @@ class HFE_Admin {
 	 */
 	private function __construct() {
 		add_action( 'init', [ $this, 'header_footer_posttype' ] );
-		if ( is_admin() && current_user_can( 'manage_options' ) ) {
-			add_action( 'admin_menu', [ $this, 'register_admin_menu' ], 50 );
+		if ( is_admin() ) {
+			if ( current_user_can( 'manage_options' ) ) {
+				add_action( 'admin_menu', [ $this, 'register_admin_menu' ], 50 );
+			}
+			add_action( 'add_meta_boxes', [ $this, 'ehf_register_metabox' ] );
+			add_action( 'save_post', [ $this, 'ehf_save_meta' ] );
+			add_action( 'admin_notices', [ $this, 'location_notice' ] );
+			add_action( 'manage_elementor-hf_posts_custom_column', [ $this, 'column_content' ], 10, 2 );
+			add_filter( 'manage_elementor-hf_posts_columns', [ $this, 'column_headings' ] );
+			require_once HFE_DIR . 'admin/class-hfe-addons-actions.php';
 		}
-		add_action( 'add_meta_boxes', [ $this, 'ehf_register_metabox' ] );
-		add_action( 'save_post', [ $this, 'ehf_save_meta' ] );
-		add_action( 'admin_notices', [ $this, 'location_notice' ] );
 		add_action( 'template_redirect', [ $this, 'block_template_frontend' ] );
 		add_filter( 'single_template', [ $this, 'load_canvas_template' ] );
 		add_filter( 'manage_elementor-hf_posts_columns', [ $this, 'set_shortcode_columns' ] );
@@ -95,12 +100,6 @@ class HFE_Admin {
 
 		add_action( 'admin_notices', [ $this, 'hide_admin_notices' ], 1 );
 		add_action( 'all_admin_notices', [ $this, 'hide_admin_notices' ], 1 );
-
-		if ( is_admin() ) {
-			add_action( 'manage_elementor-hf_posts_custom_column', [ $this, 'column_content' ], 10, 2 );
-			add_filter( 'manage_elementor-hf_posts_columns', [ $this, 'column_headings' ] );
-			require_once HFE_DIR . 'admin/class-hfe-addons-actions.php';
-		}
 	}
 
 	/**
@@ -247,12 +246,9 @@ class HFE_Admin {
 	 * @return void
 	 */
 	public function header_footer_posttype() {
-		if ( ! current_user_can( 'manage_options' ) ) {
-			return;
-		}
-
+		// Remove the user capability check here to ensure proper registration.
 		$setting_location = $this->is_pro_active() ? 'uaepro' : 'hfe';
-		
+
 		$labels = [
 			'name'               => esc_html__( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
 			'singular_name'      => esc_html__( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
@@ -269,7 +265,7 @@ class HFE_Admin {
 			'not_found'          => esc_html__( 'No Templates found.', 'header-footer-elementor' ),
 			'not_found_in_trash' => esc_html__( 'No Templates found in Trash.', 'header-footer-elementor' ),
 		];
-
+	
 		$args = [
 			'labels'              => $labels,
 			'public'              => true,
@@ -283,7 +279,7 @@ class HFE_Admin {
 			'supports'            => [ 'title', 'thumbnail', 'elementor' ],
 			'menu_position'       => 5,
 		];
-
+	
 		register_post_type( 'elementor-hf', $args );
 	}
 
