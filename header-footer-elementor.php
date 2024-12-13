@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Ultimate Addons for Elementor - Lite
+ * Plugin Name: Ultimate Addons for Elementor
  * Plugin URI:  https://wordpress.org/plugins/header-footer-elementor/
  * Description: Formerly known as "Elementor Header & Footer Builder", this powerful plugin allows you to create custom headers and footers with Elementor and display them in selected locations. You can also create custom Elementor blocks and place them anywhere on your website using a shortcode.
  * Author:      Brainstorm Force
@@ -8,8 +8,8 @@
  * Text Domain: header-footer-elementor
  * Domain Path: /languages
  * Version: 2.0.3
- * Elementor tested up to: 3.25
- * Elementor Pro tested up to: 3.25
+ * Elementor tested up to: 3.26
+ * Elementor Pro tested up to: 3.26
  *
  * @package         header-footer-elementor
  */
