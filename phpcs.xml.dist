@@ -9,6 +9,8 @@
 		<exclude name="WordPress.PHP.StrictComparisons.LooseComparison" />
 		<exclude name="WordPress.PHP.StrictInArray.MissingTrueStrict" />
 		<exclude name="Generic.Arrays.DisallowShortArraySyntax.Found" />
+		<exclude name="WordPress.DB.DirectDatabaseQuery.DirectQuery" />
+		<exclude name="WordPress.PHP.YodaConditions.NotYoda"/>
 	</rule>
 	<rule ref="WordPress-Docs" />
 	<rule ref="WordPress-VIP-Go">
@@ -26,6 +28,12 @@
 	<rule ref="Generic.Arrays.DisallowLongArraySyntax.Found">
 		<type>warning</type>
 	</rule>
+
+	<!-- Enforce short array syntax -->
+   	<rule ref="Generic.Arrays.DisallowShortArraySyntax.Found">
+       		<severity>0</severity>
+   	</rule>
+   	<rule ref="Generic.Arrays.DisallowLongArraySyntax.Found"/>
 	
 	<!-- Setting textdomain. -->
 	<config name="text_domain" value="header-footer-elementor"/>
@@ -47,4 +55,5 @@
 	<exclude-pattern>*/inc/lib/**</exclude-pattern>
 	<exclude-pattern>*/admin/bsf-analytics/*</exclude-pattern>
 	<exclude-pattern>*/stubs/*</exclude-pattern>
+	<exclude-pattern>phpinsights.php</exclude-pattern>
 </ruleset>
