@@ -73,7 +73,7 @@ const UltimateCompare = () => {
                             icon={""}
                             iconPosition="left"
                             tag="h6"
-                            title={__("Create Ultimate Designs with Addons Pro!", "header-footer-elementor")}
+                            title={__("Create Stunning Designs with the Pro Version!", "header-footer-elementor")}
                             className="py-1 text-sm"
                         />
                         <p className="text-md m-0 text-text-secondary">

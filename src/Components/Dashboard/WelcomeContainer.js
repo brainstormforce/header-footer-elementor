@@ -27,7 +27,7 @@ const WelcomeContainer = () => {
                 	<HeaderLine />
 					<p className="text-sm font-medium text-text-tertiary m-0 mt-2">
 						{__(
-							"We're excited to help you supercharge your website-building experience.Effortlessly design stunning websites with our comprehensive range of free and premium widgets and features.",
+							"We're excited to help you supercharge your website-building experience. Effortlessly design stunning websites with our comprehensive range of free and premium widgets and features.",
 							"header-footer-elementor"
 						)}
 					</p>

@@ -121,7 +121,7 @@ class Header_Footer_Elementor {
 			add_shortcode( 'hfe_template', [ $this, 'render_template' ] );
 
 			add_action( 'astra_notice_before_markup_header-footer-elementor-rating', [ $this, 'rating_notice_css' ] );
-			add_action( 'admin_init', [ $this, 'register_notices' ] );
+			// add_action( 'admin_init', [ $this, 'register_notices' ] );
 
 			// BSF Analytics Tracker.
 			if ( ! class_exists( 'BSF_Analytics_Loader' ) ) {
@@ -133,7 +133,7 @@ class Header_Footer_Elementor {
 			$bsf_analytics->set_entity(
 				[
 					'bsf' => [
-						'product_name'    => 'Ultimate Addons for Elementor Lite',
+						'product_name'    => 'Ultimate Addons for Elementor',
 						'path'            => HFE_DIR . 'admin/bsf-analytics',
 						'author'          => 'Brainstorm Force',
 						'time_to_display' => '+24 hours',
@@ -163,7 +163,7 @@ class Header_Footer_Elementor {
 	 * @return void
 	 */
 	public function register_notices() {
-		$image_path = HFE_URL . 'assets/images/header-footer-elementor-icon.svg';
+		$image_path = HFE_URL . 'assets/images/settings/uael-icon.svg';
 
 		Astra_Notices::add_notice(
 			[
@@ -192,8 +192,8 @@ class Header_Footer_Elementor {
 							</div>
 						</div>',
 					$image_path,
-					__( 'Hello! Seems like you have used Elementor Header & Footer Builder to build this website — Thanks a ton!', 'header-footer-elementor' ),
-					__( 'Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Elementor Header & Footer Builder.', 'header-footer-elementor' ),
+					__( 'Hello! Seems like you have used Ultimate Addons for Elementor to build this website — Thanks a ton!', 'header-footer-elementor' ),
+					__( 'Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Ultimate Addons for Elementor.', 'header-footer-elementor' ),
 					'https://wordpress.org/support/plugin/header-footer-elementor/reviews/?filter=5#new-post',
 					__( 'Ok, you deserve it', 'header-footer-elementor' ),
 					MONTH_IN_SECONDS,
@@ -263,7 +263,7 @@ class Header_Footer_Elementor {
 			/* TO DO */
 			$class = 'notice notice-error';
 			/* translators: %s: html tags */
-			$message = sprintf( __( 'The %1$sElementor Header & Footer Builder%2$s plugin requires %1$sElementor%2$s plugin installed & activated.', 'header-footer-elementor' ), '<strong>', '</strong>' );
+			$message = sprintf( __( 'The %1$sUltimate Addons for Elementor%2$s plugin requires %1$sElementor%2$s plugin installed & activated.', 'header-footer-elementor' ), '<strong>', '</strong>' );
 
 			$plugin = 'elementor/elementor.php';
 
@@ -299,7 +299,7 @@ class Header_Footer_Elementor {
 		/* TO DO */
 		$class = 'notice notice-error';
 		/* translators: %s: html tags */
-		$message = sprintf( __( 'The %1$sElementor Header & Footer Builder%2$s plugin has stopped working because you are using an older version of %1$sElementor%2$s plugin.', 'header-footer-elementor' ), '<strong>', '</strong>' );
+		$message = sprintf( __( 'The %1$sUltimate Addons for Elementor%2$s plugin has stopped working because you are using an older version of %1$sElementor%2$s plugin.', 'header-footer-elementor' ), '<strong>', '</strong>' );
 
 		$plugin = 'elementor/elementor.php';
 
@@ -336,10 +336,10 @@ class Header_Footer_Elementor {
 		/* TO DO */
 		$class       = 'notice notice-info is-dismissible';
 		$setting_url = admin_url( 'edit.php?post_type=elementor-hf' );
-		$image_path  = HFE_URL . 'assets/images/header-footer-elementor-icon.svg';
+		$image_path  = HFE_URL . 'assets/images/settings/uael-icon.svg';
 
 		/* translators: %s: html tags */
-		$notice_message = sprintf( __( 'Thank you for installing %1$s Elementor Header & Footer Builder %2$s Plugin! Click here to %3$sget started. %4$s', 'header-footer-elementor' ), '<strong>', '</strong>', '<a href="' . $setting_url . '">', '</a>' );
+		$notice_message = sprintf( __( 'Thank you for installing %1$s Ultimate Addons for Elementor %2$s Plugin! Click here to %3$sget started. %4$s', 'header-footer-elementor' ), '<strong>', '</strong>', '<a href="' . $setting_url . '">', '</a>' );
 
 		Astra_Notices::add_notice(
 			[
