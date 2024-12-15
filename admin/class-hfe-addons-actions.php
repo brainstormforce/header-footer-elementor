@@ -19,7 +19,6 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 	 * @since 1.6.0
 	 */
 	class HFE_Addons_Actions {
-
 		/**
 		 * Member Variable
 		 *
@@ -29,22 +28,10 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 
 		/**
 		 * Widget list variable
-		 * 
+		 *
 		 * @var HFE_Addons_Actions
 		 */
 		private static $widget_list;
-
-		/**
-		 *  Initiator
-		 *
-		 * @return HFE_Addons_Actions
-		 */
-		public static function get_instance() {
-			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self();
-			}
-			return self::$instance;
-		}
 
 		/**
 		 *  Constructor
@@ -66,9 +53,21 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		}
 
 		/**
+		 *  Initiator
+		 *
+		 * @return HFE_Addons_Actions
+		 */
+		public static function get_instance() {
+			if ( ! isset( self::$instance ) ) {
+				self::$instance = new self();
+			}
+			return self::$instance;
+		}
+
+		/**
 		 * Activate all module
 		 */
-		public static function bulk_activate_widgets() {
+		public static function bulk_activate_widgets(): void {
 
 			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
 
@@ -96,7 +95,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		/**
 		 * Deactivate all module
 		 */
-		public static function bulk_deactivate_widgets() {
+		public static function bulk_deactivate_widgets(): void {
 
 			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
 
@@ -124,7 +123,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		/**
 		 * Deactivate module
 		 */
-		public static function deactivate_widget() {
+		public static function deactivate_widget(): void {
 
 			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
 
@@ -143,7 +142,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		/**
 		 * Activate module
 		 */
-		public static function activate_widget() {
+		public static function activate_widget(): void {
 
 			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
 
@@ -164,7 +163,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		 * @since 1.6.0
 		 * @return void
 		 */
-		public function hfe_admin_modal() {
+		public function hfe_admin_modal(): void {
 
 			// Run a security check.
 			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
@@ -178,7 +177,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		 * @since 1.6.0
 		 * @return void
 		 */
-		public function update_subscription() {
+		public function update_subscription(): void {
 
 			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
 
@@ -223,7 +222,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		 * @since 1.6.0
 		 * @return void
 		 */
-		public function hfe_activate_addon() {
+		public function hfe_activate_addon(): void {
 
 			// Run a security check.
 			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
@@ -237,7 +236,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 
 				$plugin = sanitize_text_field( wp_unslash( $_POST['plugin'] ) );
 
-				if ( 'plugin' === $type ) {
+				if ( $type === 'plugin' ) {
 
 					// Check for permissions.
 					if ( ! current_user_can( 'activate_plugins' ) ) {
@@ -254,13 +253,13 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 					}
 				}
 
-				if ( 'theme' === $type ) {
+				if ( $type === 'theme' ) {
 
 					if ( isset( $_POST['slug'] ) ) {
 						$slug = sanitize_key( wp_unslash( $_POST['slug'] ) );
 
 						// Check for permissions.
-						if ( ! ( current_user_can( 'switch_themes' ) ) ) {
+						if ( ! current_user_can( 'switch_themes' ) ) {
 							wp_send_json_error( esc_html__( 'Theme activation is disabled for you on this site.', 'header-footer-elementor' ) );
 						}
 
@@ -276,9 +275,9 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 				}
 			}
 
-			if ( 'plugin' === $type ) {
+			if ( $type === 'plugin' ) {
 				wp_send_json_error( esc_html__( 'Could not activate plugin. Please activate from the Plugins page.', 'header-footer-elementor' ) );
-			} elseif ( 'theme' === $type ) {
+			} elseif ( $type === 'theme' ) {
 				wp_send_json_error( esc_html__( 'Could not activate theme. Please activate from the Themes page.', 'header-footer-elementor' ) );
 			}
 		}
@@ -289,7 +288,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		 * @since x.x.x
 		 * @return void
 		 */
-		public function save_hfe_compatibility_option_callback() {
+		public function save_hfe_compatibility_option_callback(): void {
 			// Check nonce for security.
 			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
 

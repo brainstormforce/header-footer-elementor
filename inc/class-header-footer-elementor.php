@@ -11,7 +11,6 @@ use HFE\Lib\Astra_Target_Rules_Fields;
  * Class Header_Footer_Elementor
  */
 class Header_Footer_Elementor {
-
 	/**
 	 * Current theme template
 	 *
@@ -32,32 +31,19 @@ class Header_Footer_Elementor {
 	 * @var Header_Footer_Elementor
 	 */
 	private static $_instance = null;
-
-	/**
-	 * Instance of Header_Footer_Elementor
-	 *
-	 * @return Header_Footer_Elementor Instance of Header_Footer_Elementor
-	 */
-	public static function instance() {
-		if ( ! isset( self::$_instance ) ) {
-			self::$_instance = new self();
-		}
-
-		return self::$_instance;
-	}
 	/**
 	 * Constructor
 	 */
 	public function __construct() {
 		$this->template = get_template();
 
-		$is_elementor_callable = ( defined( 'ELEMENTOR_VERSION' ) && is_callable( 'Elementor\Plugin::instance' ) ) ? true : false;
+		$is_elementor_callable = defined( 'ELEMENTOR_VERSION' ) && is_callable( 'Elementor\Plugin::instance' ) ? true : false;
 
 		$required_elementor_version = '3.5.0';
 
-		$is_elementor_outdated = ( $is_elementor_callable && ( ! version_compare( ELEMENTOR_VERSION, $required_elementor_version, '>=' ) ) ) ? true : false;
+		$is_elementor_outdated = $is_elementor_callable && ( ! version_compare( ELEMENTOR_VERSION, $required_elementor_version, '>=' ) ) ? true : false;
 
-		if ( ( ! $is_elementor_callable ) || $is_elementor_outdated ) {
+		if ( ! $is_elementor_callable || $is_elementor_outdated ) {
 			$this->elementor_not_available( $is_elementor_callable, $is_elementor_outdated );
 		}
 
@@ -69,7 +55,7 @@ class Header_Footer_Elementor {
 
 			add_filter(
 				'elementor/admin-top-bar/is-active',
-				function( $is_active, $current_screen ) {
+				static function( $is_active, $current_screen ) {
 					if ( strpos( $current_screen->id, 'elementor-hf' ) !== false ) {
 						return false;
 					}
@@ -81,20 +67,20 @@ class Header_Footer_Elementor {
 
 			$is_theme_supported = true;
 
-			if ( 'genesis' == $this->template ) {
+			if ( $this->template === 'genesis' ) {
 				require HFE_DIR . 'themes/genesis/class-hfe-genesis-compat.php';
-			} elseif ( 'astra' == $this->template ) {
+			} elseif ( $this->template === 'astra' ) {
 				require HFE_DIR . 'themes/astra/class-hfe-astra-compat.php';
-			} elseif ( 'bb-theme' == $this->template || 'beaver-builder-theme' == $this->template ) {
+			} elseif ( $this->template === 'bb-theme' || $this->template === 'beaver-builder-theme' ) {
 				$this->template = 'beaver-builder-theme';
 				require HFE_DIR . 'themes/bb-theme/class-hfe-bb-theme-compat.php';
-			} elseif ( 'generatepress' == $this->template ) {
+			} elseif ( $this->template === 'generatepress' ) {
 				require HFE_DIR . 'themes/generatepress/class-hfe-generatepress-compat.php';
-			} elseif ( 'oceanwp' == $this->template ) {
+			} elseif ( $this->template === 'oceanwp' ) {
 				require HFE_DIR . 'themes/oceanwp/class-hfe-oceanwp-compat.php';
-			} elseif ( 'storefront' == $this->template ) {
+			} elseif ( $this->template === 'storefront' ) {
 				require HFE_DIR . 'themes/storefront/class-hfe-storefront-compat.php';
-			} elseif ( 'hello-elementor' == $this->template ) {
+			} elseif ( $this->template === 'hello-elementor' ) {
 				require HFE_DIR . 'themes/hello-elementor/class-hfe-hello-elementor-compat.php';
 			} else {
 				$is_theme_supported = false;
@@ -103,10 +89,10 @@ class Header_Footer_Elementor {
 			}
 
 			update_option( 'hfe_is_theme_supported', $is_theme_supported );
-			
+
 			add_action( 'init', [ $this, 'setup_settings_page' ] );
 
-			if ( 'yes' === get_option( 'hfe_plugin_is_activated' ) ) {
+			if ( get_option( 'hfe_plugin_is_activated' ) === 'yes' ) {
 				add_action( 'admin_init', [ $this, 'show_setup_wizard' ] );
 			}
 
@@ -145,13 +131,26 @@ class Header_Footer_Elementor {
 	}
 
 	/**
+	 * Instance of Header_Footer_Elementor
+	 *
+	 * @return Header_Footer_Elementor Instance of Header_Footer_Elementor
+	 */
+	public static function instance() {
+		if ( ! isset( self::$_instance ) ) {
+			self::$_instance = new self();
+		}
+
+		return self::$_instance;
+	}
+
+	/**
 	 * Reset the Unsupported theme nnotice after a theme is switched.
 	 *
 	 * @since 1.0.16
 	 *
 	 * @return void
 	 */
-	public function reset_unsupported_theme_notice() {
+	public function reset_unsupported_theme_notice(): void {
 		delete_user_meta( get_current_user_id(), 'unsupported-theme' );
 	}
 
@@ -162,7 +161,7 @@ class Header_Footer_Elementor {
 	 *
 	 * @return void
 	 */
-	public function register_notices() {
+	public function register_notices(): void {
 		$image_path = HFE_URL . 'assets/images/settings/uael-icon.svg';
 
 		Astra_Notices::add_notice(
@@ -200,7 +199,7 @@ class Header_Footer_Elementor {
 					__( 'Nope, maybe later', 'header-footer-elementor' ),
 					__( 'I already did', 'header-footer-elementor' )
 				),
-				'show_if'                    => ( hfe_header_enabled() || hfe_footer_enabled() || hfe_is_before_footer_enabled() ) ? true : false,
+				'show_if'                    => hfe_header_enabled() || hfe_footer_enabled() || hfe_is_before_footer_enabled() ? true : false,
 				'repeat-notice-after'        => MONTH_IN_SECONDS,
 				'display-notice-after'       => 1296000, // Display notice after 15 days.
 				'priority'                   => 18,
@@ -215,7 +214,7 @@ class Header_Footer_Elementor {
 	 * @since 1.2.0
 	 * @return void
 	 */
-	public function rating_notice_css() {
+	public function rating_notice_css(): void {
 		wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'assets/css/admin-header-footer-elementor.css', [], HFE_VER );
 	}
 
@@ -223,11 +222,11 @@ class Header_Footer_Elementor {
 	 * Prints the admin notics when Elementor is not installed or activated or version outdated.
 	 *
 	 * @since 1.5.9
-	 * @param  boolean $is_elementor_callable specifies if elementor is available.
-	 * @param  boolean $is_elementor_outdated specifies if elementor version is old.
+	 * @param  bool $is_elementor_callable specifies if elementor is available.
+	 * @param  bool $is_elementor_outdated specifies if elementor version is old.
 	 * @return void
 	 */
-	public function elementor_not_available( $is_elementor_callable, $is_elementor_outdated ) {
+	public function elementor_not_available( $is_elementor_callable, $is_elementor_outdated ): void {
 
 		if ( ( ! did_action( 'elementor/loaded' ) ) || ( ! $is_elementor_callable ) ) {
 			add_action( 'admin_notices', [ $this, 'elementor_not_installed_activated' ] );
@@ -247,10 +246,10 @@ class Header_Footer_Elementor {
 	 *
 	 * @return void
 	 */
-	public function elementor_not_installed_activated() {
+	public function elementor_not_installed_activated(): void {
 
 		$screen = get_current_screen();
-		if ( isset( $screen->parent_file ) && 'plugins.php' === $screen->parent_file && 'update' === $screen->id ) {
+		if ( isset( $screen->parent_file ) && $screen->parent_file === 'plugins.php' && $screen->id === 'update' ) {
 			return;
 		}
 
@@ -289,7 +288,7 @@ class Header_Footer_Elementor {
 	 *
 	 * @return void
 	 */
-	public function elementor_outdated() {
+	public function elementor_outdated(): void {
 
 		// Check user capability.
 		if ( ! ( current_user_can( 'activate_plugins' ) && current_user_can( 'install_plugins' ) ) ) {
@@ -324,12 +323,12 @@ class Header_Footer_Elementor {
 	 *
 	 * @return void
 	 */
-	public function show_setup_wizard() {
+	public function show_setup_wizard(): void {
 
 		$screen    = get_current_screen();
 		$screen_id = $screen ? $screen->id : '';
 
-		if ( 'plugins' !== $screen_id ) {
+		if ( $screen_id !== 'plugins' ) {
 			return;
 		}
 
@@ -366,7 +365,7 @@ class Header_Footer_Elementor {
 	 *
 	 * @return void
 	 */
-	public function includes() {
+	public function includes(): void {
 		require_once HFE_DIR . 'admin/class-hfe-admin.php';
 
 		require_once HFE_DIR . 'inc/hfe-functions.php';
@@ -402,7 +401,7 @@ class Header_Footer_Elementor {
 	 *
 	 * @return void
 	 */
-	public function load_textdomain() {
+	public function load_textdomain(): void {
 		load_plugin_textdomain( 'header-footer-elementor' );
 	}
 
@@ -411,7 +410,7 @@ class Header_Footer_Elementor {
 	 *
 	 * @return void
 	 */
-	public function enqueue_scripts() {
+	public function enqueue_scripts(): void {
 		wp_enqueue_style( 'hfe-style', HFE_URL . 'assets/css/header-footer-elementor.css', [], HFE_VER );
 
 		if ( class_exists( '\Elementor\Plugin' ) ) {
@@ -469,11 +468,11 @@ class Header_Footer_Elementor {
 	 *
 	 * @return void
 	 */
-	public function enqueue_admin_scripts() {
+	public function enqueue_admin_scripts(): void {
 		global $pagenow;
 		$screen = get_current_screen();
 
-		if ( ( 'elementor-hf' == $screen->id && ( 'post.php' == $pagenow || 'post-new.php' == $pagenow ) ) || ( 'edit.php' == $pagenow && 'edit-elementor-hf' == $screen->id ) ) {
+		if ( ( $screen->id === 'elementor-hf' && ( $pagenow === 'post.php' || $pagenow === 'post-new.php' ) ) || ( $pagenow === 'edit.php' && $screen->id === 'edit-elementor-hf' ) ) {
 
 			wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'admin/assets/css/ehf-admin.css', [], HFE_VER );
 			wp_enqueue_script( 'hfe-admin-script', HFE_URL . 'admin/assets/js/ehf-admin.js', [ 'jquery', 'updates' ], HFE_VER, true );
@@ -509,7 +508,7 @@ class Header_Footer_Elementor {
 	 * @since 1.6.0
 	 * @return void
 	 */
-	public function setup_settings_page() {
+	public function setup_settings_page(): void {
 
 		require_once HFE_DIR . 'inc/class-hfe-settings-page.php';
 	}
@@ -538,16 +537,16 @@ class Header_Footer_Elementor {
 	 * @since  1.6.1
 	 * @return void
 	 */
-	public function setup_fallback_support() {
+	public function setup_fallback_support(): void {
 
 		if ( ! current_theme_supports( 'header-footer-elementor' ) ) {
 			$hfe_compatibility_option = get_option( 'hfe_compatibility_option', '1' );
 
-			if ( '1' === $hfe_compatibility_option ) {
+			if ( $hfe_compatibility_option === '1' ) {
 				if ( ! class_exists( 'HFE_Default_Compat' ) ) {
 					require_once HFE_DIR . 'themes/default/class-hfe-default-compat.php';
 				}
-			} elseif ( '2' === $hfe_compatibility_option ) {
+			} elseif ( $hfe_compatibility_option === '2' ) {
 				require HFE_DIR . 'themes/default/class-global-theme-compatibility.php';
 			}
 		}
@@ -558,7 +557,7 @@ class Header_Footer_Elementor {
 	 *
 	 * @return void
 	 */
-	public static function get_header_content() {
+	public static function get_header_content(): void {
 		$header_content = self::$elementor_instance->frontend->get_builder_content_for_display( get_hfe_header_id() );
 		echo $header_content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
@@ -568,7 +567,7 @@ class Header_Footer_Elementor {
 	 *
 	 * @return void
 	 */
-	public static function get_footer_content() {
+	public static function get_footer_content(): void {
 		echo "<div class='footer-width-fixer'>";
 		echo self::$elementor_instance->frontend->get_builder_content_for_display( get_hfe_footer_id() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		echo '</div>';
@@ -579,7 +578,7 @@ class Header_Footer_Elementor {
 	 *
 	 * @return void
 	 */
-	public static function get_before_footer_content() {
+	public static function get_before_footer_content(): void {
 		echo "<div class='footer-width-fixer'>";
 		echo self::$elementor_instance->frontend->get_builder_content_for_display( hfe_get_before_footer_id() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		echo '</div>';
@@ -594,14 +593,12 @@ class Header_Footer_Elementor {
 	 * @return mixed | string
 	 */
 	public static function get_settings( $setting = '', $default = '' ) {
-		if ( 'type_header' == $setting || 'type_footer' == $setting || 'type_before_footer' == $setting ) {
+		if ( $setting === 'type_header' || $setting === 'type_footer' || $setting === 'type_before_footer' ) {
 			$templates = self::get_template_id( $setting );
 
 			$template = ! is_array( $templates ) ? $templates : $templates[0];
 
-			$template = apply_filters( "hfe_get_settings_{$setting}", $template );
-
-			return $template;
+			return apply_filters( "hfe_get_settings_{$setting}", $template );
 		}
 	}
 
@@ -624,7 +621,7 @@ class Header_Footer_Elementor {
 		foreach ( $hfe_templates as $template ) {
 			if ( get_post_meta( absint( $template['id'] ), 'ehf_template_type', true ) === $type ) {
 				if ( function_exists( 'pll_current_language' ) ) {
-					if ( pll_current_language( 'slug' ) == pll_get_post_language( $template['id'], 'slug' ) ) {
+					if ( pll_current_language( 'slug' ) === pll_get_post_language( $template['id'], 'slug' ) ) {
 						return $template['id'];
 					}
 				} else {

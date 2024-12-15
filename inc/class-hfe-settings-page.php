@@ -18,7 +18,7 @@ use HFE\WidgetsManager\Base\HFE_Helper;
  * @since 1.6.0
  */
 class HFE_Settings_Page {
-	
+
 	/**
 	 * Instance
 	 * z
@@ -37,7 +37,7 @@ class HFE_Settings_Page {
 	public function __construct() {
 
 		add_action( 'admin_post_uaelite_rollback', [ $this, 'post_uaelite_rollback' ] );
-		
+
 		add_action( 'admin_head', [ $this, 'hfe_global_css' ] );
 
 		if ( ! HFE_Helper::is_pro_active() ) {
@@ -47,7 +47,7 @@ class HFE_Settings_Page {
 			add_action( 'admin_init', [ $this, 'hfe_admin_init' ] );
 			add_filter( 'views_edit-elementor-hf', [ $this, 'hfe_settings' ], 10, 1 );
 		}
-		
+
 		// add_filter( 'admin_footer_text', [ $this, 'admin_footer_text' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
 		add_filter( 'plugin_action_links_' . HFE_PATH, [ $this, 'settings_link' ] );
@@ -83,17 +83,17 @@ class HFE_Settings_Page {
 				'action'    => 'elementor_new_post',
 				'post_type' => 'page',
 			];
-		
+
 			$new_post_url = add_query_arg( $query_args, admin_url( 'edit.php' ) );
-		
+
 			$new_post_url = add_query_arg( '_wpnonce', wp_create_nonce( 'elementor_action_new_post' ), $new_post_url );
-		
+
 			return $new_post_url;
 		}
 		return '';
 	}
 
-	
+
 
 	/**
 	 * UAELite version rollback.
@@ -130,7 +130,7 @@ class HFE_Settings_Page {
 		}
 
 		$plugin_slug = basename( HFE_FILE, '.php' );
-		
+
 		if ( class_exists( 'HFE_Rollback' ) ) {
 			$rollback = new \HFE_Rollback(
 				[
@@ -197,9 +197,9 @@ class HFE_Settings_Page {
 
 		global $pagenow, $post_type;
 
-		$uae_logo   = HFE_URL . 'assets/images/settings/dashboard-logo.svg';
-		$white_logo = HFE_URL . 'assets/images/settings/white-logo.svg';
-		$show_view_all = ( $post_type === 'elementor-hf' && $pagenow === 'post.php' ) ? "yes" : "no";
+		$uae_logo      = HFE_URL . 'assets/images/settings/dashboard-logo.svg';
+		$white_logo    = HFE_URL . 'assets/images/settings/white-logo.svg';
+		$show_view_all = $post_type === 'elementor-hf' && $pagenow === 'post.php' ? 'yes' : 'no';
 		$hfe_edit_url  = admin_url( 'edit.php?post_type=elementor-hf' );
 
 		if ( self::is_current_page( 'hfe' ) && ! HFE_Helper::is_pro_active() ) {
@@ -208,8 +208,8 @@ class HFE_Settings_Page {
 			$st_status         = HFE_Helper::free_starter_templates_status();
 			$stpro_status      = HFE_Helper::premium_starter_templates_status();
 			$st_link           = HFE_Helper::starter_templates_link();
-			$hfe_post_url 		= admin_url( 'post-new.php?post_type=elementor-hf' );
-			
+			$hfe_post_url      = admin_url( 'post-new.php?post_type=elementor-hf' );
+
 			$show_theme_support = 'no';
 			$hfe_theme_status   = get_option( 'hfe_is_theme_supported', false );
 
@@ -271,21 +271,21 @@ class HFE_Settings_Page {
 			);
 		}
 
-		if ( '' !== $uae_logo && '' !== $white_logo ) {
+		if ( $uae_logo !== '' && $white_logo !== '' ) {
 
-			$custom_css = "
+			$custom_css = '
 				#toplevel_page_hfe .wp-menu-image {
-					background-image: url(" . esc_url($uae_logo) . ") !important;
+					background-image: url(' . esc_url( $uae_logo ) . ') !important;
 					background-size: 23px 34px !important;
 					background-repeat: no-repeat !important;
 					background-position: center !important;
 				}
 				#toplevel_page_hfe.wp-menu-open .wp-menu-image,
 				#toplevel_page_hfe .wp-has-current-submenu .wp-menu-image {
-					background-image: url(" . esc_url($white_logo) . ") !important;
+					background-image: url(' . esc_url( $white_logo ) . ') !important;
 				}
-			";
-			wp_add_inline_style('wp-admin', $custom_css);
+			';
+			wp_add_inline_style( 'header-footer-elementor-react-styles', $custom_css );
 		}
 
 		wp_enqueue_script( 'hfe-admin-script', HFE_URL . 'admin/assets/js/ehf-admin.js', [ 'jquery', 'updates' ], HFE_VER, true );
@@ -312,7 +312,7 @@ class HFE_Settings_Page {
 			'installer_nonce'   => wp_create_nonce( 'updates' ),
 			'popup_dismiss'     => false,
 			'data_source'       => 'HFE',
-			'show_all_hfe'		=> $show_view_all,
+			'show_all_hfe'      => $show_view_all,
 			'hfe_edit_url'      => $hfe_edit_url,
 			'view_all_text'     => esc_html__( 'View All', 'header-footer-elementor' ),
 
@@ -486,7 +486,26 @@ class HFE_Settings_Page {
 			1
 		);
 
-		
+		add_submenu_page(
+			$menu_slug, // Parent slug.
+			__( 'Widgets & Features', 'header-footer-elementor' ),
+			__( 'Widgets & Features', 'header-footer-elementor' ),
+			$capability,
+			$menu_slug . '#widgets',
+			[ $this, 'render' ],
+			2
+		);
+
+		add_submenu_page(
+			$menu_slug,
+			__( 'Templates', 'header-footer-elementor' ),
+			__( 'Templates', 'header-footer-elementor' ),
+			$capability,
+			$menu_slug . '#templates',
+			[ $this, 'render' ],
+			8
+		);
+
 		// Add the Settings Submenu.
 		add_submenu_page(
 			$menu_slug,
@@ -497,7 +516,6 @@ class HFE_Settings_Page {
 			[ $this, 'render' ],
 			9
 		);
-
 	}
 
 	/**
@@ -510,14 +528,14 @@ class HFE_Settings_Page {
 	 */
 	public function render() {
 
-		$menu_page_slug = ( ! empty( $_GET['page'] ) ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : $this->menu_slug; //phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		$menu_page_slug = ! empty( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : $this->menu_slug; //phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		$page_action    = '';
-   
+
 		if ( isset( $_GET['action'] ) ) { //phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			$page_action = sanitize_text_field( wp_unslash( $_GET['action'] ) ); //phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			$page_action = str_replace( '_', '-', $page_action );
 		}
-   
+
 		include_once HFE_DIR . 'inc/settings/admin-base.php';
 	}
 
@@ -536,7 +554,7 @@ class HFE_Settings_Page {
 			return;
 		}
 
-		if ( self::is_current_page( 'hfe' )  ) {
+		if ( self::is_current_page( 'hfe' ) ) {
 			include_once HFE_DIR . 'inc/settings/settings-app.php';
 		}
 	}
@@ -588,9 +606,9 @@ class HFE_Settings_Page {
 		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
 
 		$is_subscribed   = get_user_meta( get_current_user_ID(), 'hfe-subscribed' );
-		$subscribe_valid = ( is_array( $is_subscribed ) && isset( $is_subscribed[0] ) && 'yes' === $is_subscribed[0] ) ? 'yes' : false;
+		$subscribe_valid = is_array( $is_subscribed ) && isset( $is_subscribed[0] ) && $is_subscribed[0] === 'yes' ? 'yes' : false;
 
-		if ( ( ! empty( $is_dismissed ) && 'dismissed' === $is_dismissed[0] ) || 'yes' === $subscribe_valid ) {
+		if ( ( ! empty( $is_dismissed ) && $is_dismissed[0] === 'dismissed' ) || $subscribe_valid === 'yes' ) {
 			return false;
 		} else {
 			$this->get_guide_modal();
@@ -615,7 +633,7 @@ class HFE_Settings_Page {
 			}
 
 			self::$hfe_settings_tabs['hfe_about'] = [
-				
+
 				'name' => __( 'About Us', 'header-footer-elementor' ),
 				'url'  => admin_url( 'themes.php?page=hfe-about' ),
 			];
@@ -626,9 +644,9 @@ class HFE_Settings_Page {
 
 				$tab_slug = str_replace( '_', '-', $tab_id );
 
-				$active_tab = ( ( isset( $_GET['page'] ) && $tab_slug == $_GET['page'] ) || ( ! isset( $_GET['page'] ) && 'hfe_templates' == $tab_id ) ) ? $tab_id : ''; // PHPCS:Ignore WordPress.Security.NonceVerification.Recommended
+				$active_tab = ( isset( $_GET['page'] ) && $tab_slug === $_GET['page'] ) || ( ! isset( $_GET['page'] ) && $tab_id === 'hfe_templates' ) ? $tab_id : ''; // PHPCS:Ignore WordPress.Security.NonceVerification.Recommended
 
-				$active = ( $active_tab == $tab_id ) ? ' nav-tab-active' : '';
+				$active = $active_tab === $tab_id ? ' nav-tab-active' : '';
 
 				echo '<a href="' . esc_url( $tab['url'] ) . '" class="nav-tab' . esc_attr( $active ) . '">';
 				echo esc_html( $tab['name'] );
@@ -657,7 +675,7 @@ class HFE_Settings_Page {
 	public function admin_footer_text( $footer_text ) {
 		$current_screen = get_current_screen();
 
-		$is_elementor_screen = ( $current_screen && ( 'elementor-hf' === $current_screen->post_type || 'appearance_page_hfe-guide' === $current_screen->id || 'appearance_page_hfe-about' === $current_screen->id || 'appearance_page_hfe-settings' === $current_screen->id ) );
+		$is_elementor_screen = ( $current_screen && ( $current_screen->post_type === 'elementor-hf' || $current_screen->id === 'appearance_page_hfe-guide' || $current_screen->id === 'appearance_page_hfe-about' || $current_screen->id === 'appearance_page_hfe-settings' ) );
 
 		if ( $is_elementor_screen ) {
 			$footer_text = sprintf(
@@ -697,8 +715,8 @@ class HFE_Settings_Page {
 	public function get_guide_html() {
 
 		$is_subscribed   = get_user_meta( get_current_user_ID(), 'hfe-subscribed' );
-		$subscribe_valid = ( is_array( $is_subscribed ) && isset( $is_subscribed[0] ) && 'yes' === $is_subscribed[0] ) ? 'yes' : false;
-		$subscribe_flag  = ( 'yes' === $subscribe_valid ) ? ' hfe-user-subscribed' : ' hfe-user-unsubscribed';
+		$subscribe_valid = is_array( $is_subscribed ) && isset( $is_subscribed[0] ) && $is_subscribed[0] === 'yes' ? 'yes' : false;
+		$subscribe_flag  = $subscribe_valid === 'yes' ? ' hfe-user-subscribed' : ' hfe-user-unsubscribed';
 		?>
 
 		<div class="hfe-admin-about-section hfe-admin-columns hfe-admin-guide-section<?php echo esc_attr( $subscribe_flag ); ?>">
@@ -709,7 +727,7 @@ class HFE_Settings_Page {
 					<p><?php esc_html_e( 'Elementor Header & Footer Builder plugin lets you build impactful navigation for your website very easily. Before we begin, we would like to know more about you. This will help us to serve you better.', 'header-footer-elementor' ); ?></p>
 				</div>
 			</div>
-			<?php if ( 'yes' !== $subscribe_valid ) { ?>
+			<?php if ( $subscribe_valid !== 'yes' ) { ?>
 				<div class="hfe-admin-column-50 hfe-admin-column-last">
 					<div class="hfe-guide-content hfe-subscription-step-1-active">
 						<div class="hfe-guide-content-header hfe-admin-columns">
@@ -972,13 +990,13 @@ class HFE_Settings_Page {
 									</strong>
 								</div>
 								<div class="action-button">
-									<?php if ( 'Visit Website' === $plugin_data['action_text'] ) { ?>
+									<?php if ( $plugin_data['action_text'] === 'Visit Website' ) { ?>
 										<a href="<?php echo esc_url( $plugin_data['plugin_src'] ); ?>" target="_blank" rel="noopener noreferrer" class="pro-plugin button button-primary"><?php echo wp_kses_post( $plugin_data['action_text'] ); ?></a>
-									<?php } elseif ( 'theme' === $details['type'] && $can_install_themes ) { ?>
+									<?php } elseif ( $details['type'] === 'theme' && $can_install_themes ) { ?>
 										<button class="<?php echo esc_attr( $plugin_data['action_class'] ); ?>" data-plugin="<?php echo esc_attr( $plugin_data['plugin_src'] ); ?>" data-type="theme" data-slug="<?php echo esc_attr( $details['slug'] ); ?>" data-site="<?php echo esc_url( $details['url'] ); ?>">
 											<span><?php echo wp_kses_post( $plugin_data['action_text'] ); ?></span>
 										</button>
-									<?php } elseif ( 'plugin' === $details['type'] && $can_install_plugins ) { ?>
+									<?php } elseif ( $details['type'] === 'plugin' && $can_install_plugins ) { ?>
 										<button class="<?php echo esc_attr( $plugin_data['action_class'] ); ?>" data-plugin="<?php echo esc_attr( $plugin_data['plugin_src'] ); ?>" data-type="plugin" data-slug="<?php echo esc_attr( $details['slug'] ); ?>" data-site="<?php echo esc_url( $details['url'] ); ?>" data-file="<?php echo esc_attr( $plugin ); ?>">
 											<span><?php echo wp_kses_post( $plugin_data['action_text'] ); ?></span>
 										</button>
@@ -1012,19 +1030,19 @@ class HFE_Settings_Page {
 	 */
 	protected function get_plugin_data( $addon, $details, $all_plugins, $all_themes ) {
 
-		$have_pro = ( ! empty( $details['pro'] ) );
+		$have_pro = ! empty( $details['pro'] );
 		$show_pro = false;
 
 		$theme = wp_get_theme();
 
 		$plugin_data = [];
 
-		$is_plugin = ( 'plugin' === $details['type'] ) ? true : false;
-		$is_theme  = ( 'theme' === $details['type'] ) ? true : false;
+		$is_plugin = $details['type'] === 'plugin' ? true : false;
+		$is_theme  = $details['type'] === 'theme' ? true : false;
 
 		if ( ( $is_plugin && array_key_exists( $addon, $all_plugins ) ) || ( $is_theme && array_key_exists( $addon, $all_themes ) ) ) {
 
-			if ( ( $is_plugin && is_plugin_active( $addon ) ) || ( $is_theme && ( 'Astra' === $theme->name || 'Astra' === $theme->parent_theme ) ) ) {
+			if ( ( $is_plugin && is_plugin_active( $addon ) ) || ( $is_theme && ( $theme->name === 'Astra' || $theme->parent_theme === 'Astra' ) ) ) {
 
 				// Status text/status.
 				$plugin_data['status_class'] = 'status-active';
@@ -1046,7 +1064,7 @@ class HFE_Settings_Page {
 			// install if already doesn't exists.
 			// Status text/status.
 			$plugin_data['status_class'] = 'status-download';
-			if ( isset( $details['act'] ) && 'go-to-url' === $details['act'] ) {
+			if ( isset( $details['act'] ) && $details['act'] === 'go-to-url' ) {
 				$plugin_data['status_class'] = 'status-go-to-url';
 			}
 			$plugin_data['status_text'] = esc_html__( 'Not Installed', 'header-footer-elementor' );
@@ -1137,14 +1155,14 @@ class HFE_Settings_Page {
 			return false;
 		}
 
-		if ( 'theme' === $type ) {
+		if ( $type === 'theme' ) {
 			if ( ! current_user_can( 'install_themes' ) ) {
 				return false;
 			}
 
 			return true;
 
-		} elseif ( 'plugin' === $type ) {
+		} elseif ( $type === 'plugin' ) {
 			if ( ! current_user_can( 'install_plugins' ) ) {
 				return false;
 			}
@@ -1155,35 +1173,35 @@ class HFE_Settings_Page {
 		return false;
 	}
 
-	
-/**
- * Add settings link to the Plugins page.
- *
- * @since 1.6.0
- *
- * @param array $links Plugin row links.
- *
- * @return array $links
- */
-public function settings_link( $links ) {
-    $menu_setting = HFE_Helper::is_pro_active() ? 'uaepro' : 'hfe'; // Replace with your actual menu slug
 
-    $custom['settings'] = sprintf(
-        '<a href="%s" aria-label="%s">%s</a>',
-        esc_url(
-            add_query_arg(
-                [
-                    'page' => $menu_setting,
-                ],
-                admin_url( 'admin.php' )
-            ) . '#dashboard'
-        ),
-        esc_attr__( 'Go to HFE Settings page', 'header-footer-elementor' ),
-        esc_html__( 'Settings', 'header-footer-elementor' )
-    );
+	/**
+	 * Add settings link to the Plugins page.
+	 *
+	 * @since 1.6.0
+	 *
+	 * @param array $links Plugin row links.
+	 *
+	 * @return array $links
+	 */
+	public function settings_link( $links ) {
+		$menu_setting = HFE_Helper::is_pro_active() ? 'uaepro' : 'hfe'; // Replace with your actual menu slug
 
-    return array_merge( $custom, (array) $links );
-}
+		$custom['settings'] = sprintf(
+			'<a href="%s" aria-label="%s">%s</a>',
+			esc_url(
+				add_query_arg(
+					[
+						'page' => $menu_setting,
+					],
+					admin_url( 'admin.php' )
+				) . '#dashboard'
+			),
+			esc_attr__( 'Go to HFE Settings page', 'header-footer-elementor' ),
+			esc_html__( 'Settings', 'header-footer-elementor' )
+		);
+
+		return array_merge( $custom, (array) $links );
+	}
 
 	/**
 	 * Different MIME type of different PHP version
@@ -1225,7 +1243,7 @@ public function settings_link( $links ) {
 	/**
 	 * Real Mime Type
 	 *
-	 * This function checks if the file is an SVG and sanitizes it accordingly. 
+	 * This function checks if the file is an SVG and sanitizes it accordingly.
 	 * PHPCS rules are disabled selectively to allow necessary file operations that are essential for handling SVG files safely.
 	 *
 	 * @since 1.2.15
@@ -1238,7 +1256,7 @@ public function settings_link( $links ) {
 	 */
 	public function real_mimes( $defaults, $filename, $file ) {
 
-		if ( 'svg' === pathinfo( $filename, PATHINFO_EXTENSION ) ) {
+		if ( pathinfo( $filename, PATHINFO_EXTENSION ) === 'svg' ) {
 			// Perform SVG sanitization using the sanitize_svg function.
 			$svg_content           = file_get_contents( $file ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 			$sanitized_svg_content = $this->sanitize_svg( $svg_content );
@@ -1256,13 +1274,13 @@ public function settings_link( $links ) {
 	/**
 	 * Sanitizes SVG Code string.
 	 *
-	 * This function performs sanitization on SVG code to ensure that only safe tags and attributes are retained. 
+	 * This function performs sanitization on SVG code to ensure that only safe tags and attributes are retained.
 	 * PHPCS rules are selectively disabled in specific areas to accommodate necessary file operations, compatibility with different PHP versions, and to enhance code readability:
-	 * 
+	 *
 	 * - File operations are required for reading and writing SVG content.
 	 * - PHP version compatibility is maintained by selectively disabling PHPCS rules for PHP version-specific functions.
 	 * - Code readability is enhanced by selectively disabling PHPCS rules for specific areas.
-	 * 
+	 *
 	 * @param string $original_content SVG code to sanitize.
 	 * @return string|bool
 	 * @since 1.0.7
@@ -1406,15 +1424,15 @@ public function settings_link( $links ) {
 		$needle = "\x1f\x8b\x08";
 		// phpcs:disable PHPCompatibility.ParameterValues.NewIconvMbstringCharsetDefault.NotSet
 		if ( function_exists( 'mb_strpos' ) ) {
-			$is_encoded = 0 === mb_strpos( $original_content, $needle );
+			$is_encoded = mb_strpos( $original_content, $needle ) === 0;
 		} else {
-			$is_encoded = 0 === strpos( $original_content, $needle );
+			$is_encoded = strpos( $original_content, $needle ) === 0;
 		}
 		// phpcs:enable PHPCompatibility.ParameterValues.NewIconvMbstringCharsetDefault.NotSet
 
 		if ( $is_encoded ) {
 			$original_content = gzdecode( $original_content );
-			if ( false === $original_content ) {
+			if ( $original_content === false ) {
 				return '';
 			}
 		}
@@ -1424,7 +1442,7 @@ public function settings_link( $links ) {
 		$content = preg_replace( '/<\?(.*)\?>/Us', '', $content );
 		$content = preg_replace( '/<\%(.*)\%>/Us', '', $content );
 
-		if ( ( false !== strpos( $content, '<?' ) ) || ( false !== strpos( $content, '<%' ) ) ) {
+		if ( strpos( $content, '<?' ) !== false || ( strpos( $content, '<%' ) !== false ) ) {
 			return '';
 		}
 
@@ -1432,7 +1450,7 @@ public function settings_link( $links ) {
 		$content = preg_replace( '/<!--(.*)-->/Us', '', $content );
 		$content = preg_replace( '/\/\*(.*)\*\//Us', '', $content );
 
-		if ( ( false !== strpos( $content, '<!--' ) ) || ( false !== strpos( $content, '/*' ) ) ) {
+		if ( strpos( $content, '<!--' ) !== false || ( strpos( $content, '/*' ) !== false ) ) {
 			return '';
 		}
 
@@ -1442,7 +1460,7 @@ public function settings_link( $links ) {
 		// Find the start and end tags so we can cut out miscellaneous garbage.
 		$start = strpos( $content, '<svg' );
 		$end   = strrpos( $content, '</svg>' );
-		if ( false === $start || false === $end ) {
+		if ( $start === false || $end === false ) {
 			return '';
 		}
 
@@ -1471,7 +1489,7 @@ public function settings_link( $links ) {
 
 		// Strip Doctype.
 		foreach ( $dom->childNodes as $child ) {
-			if ( XML_DOCUMENT_TYPE_NODE === $child->nodeType && ! ! $child->parentNode ) {
+			if ( $child->nodeType === XML_DOCUMENT_TYPE_NODE && ! ! $child->parentNode ) {
 				$child->parentNode->removeChild( $child );
 			}
 		}

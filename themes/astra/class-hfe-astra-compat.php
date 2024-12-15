@@ -9,7 +9,6 @@
  * Astra theme compatibility.
  */
 class HFE_Astra_Compat {
-
 	/**
 	 * Instance of HFE_Astra_Compat.
 	 *
@@ -37,7 +36,7 @@ class HFE_Astra_Compat {
 	 *
 	 * @return void
 	 */
-	public function hooks() {
+	public function hooks(): void {
 		if ( hfe_header_enabled() ) {
 			add_action( 'template_redirect', [ $this, 'astra_setup_header' ], 10 );
 			add_action( 'astra_header', 'hfe_render_header' );
@@ -58,7 +57,7 @@ class HFE_Astra_Compat {
 	 *
 	 * @return void
 	 */
-	public function astra_setup_header() {
+	public function astra_setup_header(): void {
 		remove_action( 'astra_header', 'astra_header_markup' );
 
 		// Remove the new header builder action.
@@ -72,7 +71,7 @@ class HFE_Astra_Compat {
 	 *
 	 * @return void
 	 */
-	public function astra_setup_footer() {
+	public function astra_setup_footer(): void {
 		remove_action( 'astra_footer', 'astra_footer_markup' );
 
 		// Remove the new footer builder action.

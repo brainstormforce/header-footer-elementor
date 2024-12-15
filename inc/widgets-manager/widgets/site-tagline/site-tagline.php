@@ -8,11 +8,9 @@
 namespace HFE\WidgetsManager\Widgets\SiteTagline;
 
 use Elementor\Controls_Manager;
-use Elementor\Group_Control_Typography;
-use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
-use Elementor\Group_Control_Text_Shadow;
 use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
-
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
+use Elementor\Group_Control_Typography;
 use HFE\WidgetsManager\Base\Common_Widget;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -27,7 +25,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.3.0
  */
 class Site_Tagline extends Common_Widget {
-
 	/**
 	 * Retrieve the widget name.
 	 *
@@ -87,7 +84,7 @@ class Site_Tagline extends Common_Widget {
 	 * @access protected
 	 * @return void
 	 */
-	protected function register_controls() {
+	protected function register_controls(): void {
 		$this->register_general_content_controls();
 	}
 
@@ -98,7 +95,7 @@ class Site_Tagline extends Common_Widget {
 	 * @access protected
 	 * @return void
 	 */
-	protected function register_general_content_controls() {
+	protected function register_general_content_controls(): void {
 
 		$this->start_controls_section(
 			'section_general_fields',
@@ -261,24 +258,24 @@ class Site_Tagline extends Common_Widget {
 	 * @access protected
 	 * @return void
 	 */
-	protected function render() {
+	protected function render(): void {
 		$settings = $this->get_settings_for_display();
 		?>
 		<div class="hfe-site-tagline hfe-site-tagline-wrapper">
-			<?php if ( '' !== $settings['icon']['value'] ) { ?>
+			<?php if ( $settings['icon']['value'] !== '' ) { ?>
 				<span class="hfe-icon">
 					<?php \Elementor\Icons_Manager::render_icon( $settings['icon'], [ 'aria-hidden' => 'true' ] ); ?>					
 				</span>
 			<?php } ?>
 			<span>
 			<?php
-			if ( '' !== $settings['before'] ) {
+			if ( $settings['before'] !== '' ) {
 				echo wp_kses_post( $settings['before'] );
 			}
 			?>
 			<?php echo wp_kses_post( get_bloginfo( 'description' ) ); ?>
 			<?php
-			if ( '' !== $settings['after'] ) {
+			if ( $settings['after'] !== '' ) {
 				echo ' ' . wp_kses_post( $settings['after'] );
 			}
 			?>
@@ -296,7 +293,7 @@ class Site_Tagline extends Common_Widget {
 	 * @access protected
 	 * @return void
 	 */
-	protected function content_template() {
+	protected function content_template(): void {
 		?>
 		<# var iconHTML = elementor.helpers.renderIcon( view, settings.icon, { 'aria-hidden': true }, 'i' , 'object' ); #>
 		<div class="hfe-site-tagline hfe-site-tagline-wrapper">
