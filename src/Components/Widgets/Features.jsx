@@ -35,10 +35,12 @@ const Features = () => {
                         className="p-2 hfe-35-width"
                         shrink={1}
                     >
-                        <ExtendWebsite />
                         <TemplateSection />
-                        <QuickAccess />
+                        <ExtendWebsite />
                         <UltimateWidgets />
+                        <div className='' style={{ paddingTop: '16px' }}>
+                            <QuickAccess />
+                        </div>
                     </Container.Item>
                 </Container>
             </div>

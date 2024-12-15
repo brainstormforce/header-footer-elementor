@@ -124,6 +124,22 @@ const NavMenu = () => {
 								>
 									{__("Dashboard", "header-footer-elementor")}
 								</Link>
+								<a
+									style={{
+										color: "rgb(75, 85, 99)",
+										paddingBottom: "22px",
+										marginBottom: "-16px",
+										cursor: "pointer",
+									}}
+									onClick={() => {
+										window.location.href = hfe_admin_data.hfe_edit_url;
+									}}
+								>
+									{__(
+										"Header & Footer Builder",
+										"header-footer-elementor"
+									)}
+								</a>
 								<Link
 									to={routes.widgets.path}
 									className={`${
@@ -131,7 +147,7 @@ const NavMenu = () => {
 									}`}
 									style={linkStyle("widgets")}
 								>
-									{__("Widgets / Features", "header-footer-elementor")}
+									{__("Widgets", "header-footer-elementor")}
 								</Link>
 								<Link
 									to={routes.templates.path}
@@ -189,7 +205,7 @@ const NavMenu = () => {
 								}
 							>
 								{__(
-									"Get Ultimate Elementor",
+									"Get Pro",
 									"header-footer-elementor"
 								)}
 							</Button>
@@ -219,7 +235,7 @@ const NavMenu = () => {
 												{`${hfeSettingsData.uaelite_current_version}`}
 												<Badge
 													label={__(
-														"Core",
+														"Free",
 														"header-footer-elementor"
 													)}
 													size="xs"

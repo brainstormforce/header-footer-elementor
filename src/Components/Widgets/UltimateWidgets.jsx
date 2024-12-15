@@ -40,7 +40,7 @@ const UltimateWidgets = () => {
     ];
 
     return (
-        <div className="py-4">
+        <div className="pt-4">
             <Container
                 className="bg-background-primary gap-1 p-4 border-[0.5px] border-subtle rounded-xl shadow-sm"
                 containerType="flex"
@@ -73,7 +73,7 @@ const UltimateWidgets = () => {
                             iconPosition="left"
                             tag="h6"
                             title={__(
-                                "Create Ultimate Designs with Addons Pro!",
+                                "Create Stunning Designs with the Pro Version!",
                                 "header-footer-elementor"
                             )}
                             className="py-1 text-sm"
