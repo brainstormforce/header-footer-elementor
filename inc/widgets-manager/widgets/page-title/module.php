@@ -17,7 +17,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Class Module.
  */
 class Module extends Module_Base {
-
 	/**
 	 * Constructor.
 	 */

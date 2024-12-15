@@ -20,7 +20,6 @@ defined( 'ABSPATH' ) || exit;
  * Set up Widgets Loader class
  */
 class Widgets_Loader {
-
 	/**
 	 * Member Variable
 	 *

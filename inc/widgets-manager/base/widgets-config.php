@@ -1126,7 +1126,6 @@ class Widgets_Config {
 			return 'Activated';
 		}
 			return 'Installed';
-
 	}
 	/**
 	 * Get the status of a theme.
@@ -1151,7 +1150,6 @@ class Widgets_Config {
 
 		}
 			return 'Install'; // Theme is not installed at all.
-
 	}
 
 }

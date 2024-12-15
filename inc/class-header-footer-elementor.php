@@ -161,7 +161,7 @@ class Header_Footer_Elementor {
 	 *
 	 * @return void
 	 */
-	public function register_notices() {
+	public function register_notices(): void {
 		$image_path = HFE_URL . 'assets/images/settings/uael-icon.svg';
 
 		Astra_Notices::add_notice(

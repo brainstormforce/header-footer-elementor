@@ -37,7 +37,7 @@ class HFE_Settings_Page {
 	public function __construct() {
 
 		add_action( 'admin_post_uaelite_rollback', [ $this, 'post_uaelite_rollback' ] );
-		
+
 		add_action( 'admin_head', [ $this, 'hfe_global_css' ] );
 
 		if ( ! HFE_Helper::is_pro_active() ) {
@@ -47,7 +47,7 @@ class HFE_Settings_Page {
 			add_action( 'admin_init', [ $this, 'hfe_admin_init' ] );
 			add_filter( 'views_edit-elementor-hf', [ $this, 'hfe_settings' ], 10, 1 );
 		}
-		
+
 		// add_filter( 'admin_footer_text', [ $this, 'admin_footer_text' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
 		add_filter( 'plugin_action_links_' . HFE_PATH, [ $this, 'settings_link' ] );
@@ -197,9 +197,9 @@ class HFE_Settings_Page {
 
 		global $pagenow, $post_type;
 
-		$uae_logo   = HFE_URL . 'assets/images/settings/dashboard-logo.svg';
-		$white_logo = HFE_URL . 'assets/images/settings/white-logo.svg';
-		$show_view_all = ( $post_type === 'elementor-hf' && $pagenow === 'post.php' ) ? "yes" : "no";
+		$uae_logo      = HFE_URL . 'assets/images/settings/dashboard-logo.svg';
+		$white_logo    = HFE_URL . 'assets/images/settings/white-logo.svg';
+		$show_view_all = $post_type === 'elementor-hf' && $pagenow === 'post.php' ? 'yes' : 'no';
 		$hfe_edit_url  = admin_url( 'edit.php?post_type=elementor-hf' );
 
 		if ( self::is_current_page( 'hfe' ) && ! HFE_Helper::is_pro_active() ) {
@@ -208,8 +208,8 @@ class HFE_Settings_Page {
 			$st_status         = HFE_Helper::free_starter_templates_status();
 			$stpro_status      = HFE_Helper::premium_starter_templates_status();
 			$st_link           = HFE_Helper::starter_templates_link();
-			$hfe_post_url 		= admin_url( 'post-new.php?post_type=elementor-hf' );
-			
+			$hfe_post_url      = admin_url( 'post-new.php?post_type=elementor-hf' );
+
 			$show_theme_support = 'no';
 			$hfe_theme_status   = get_option( 'hfe_is_theme_supported', false );
 
@@ -312,7 +312,7 @@ class HFE_Settings_Page {
 			'installer_nonce'   => wp_create_nonce( 'updates' ),
 			'popup_dismiss'     => false,
 			'data_source'       => 'HFE',
-			'show_all_hfe'		=> $show_view_all,
+			'show_all_hfe'      => $show_view_all,
 			'hfe_edit_url'      => $hfe_edit_url,
 			'view_all_text'     => esc_html__( 'View All', 'header-footer-elementor' ),
 
@@ -516,7 +516,6 @@ class HFE_Settings_Page {
 			[ $this, 'render' ],
 			9
 		);
-
 	}
 
 	/**
@@ -555,7 +554,7 @@ class HFE_Settings_Page {
 			return;
 		}
 
-		if ( self::is_current_page( 'hfe' )  ) {
+		if ( self::is_current_page( 'hfe' ) ) {
 			include_once HFE_DIR . 'inc/settings/settings-app.php';
 		}
 	}
@@ -1174,35 +1173,35 @@ class HFE_Settings_Page {
 		return false;
 	}
 
-	
-/**
- * Add settings link to the Plugins page.
- *
- * @since 1.6.0
- *
- * @param array $links Plugin row links.
- *
- * @return array $links
- */
-public function settings_link( $links ) {
-    $menu_setting = HFE_Helper::is_pro_active() ? 'uaepro' : 'hfe'; // Replace with your actual menu slug
 
-    $custom['settings'] = sprintf(
-        '<a href="%s" aria-label="%s">%s</a>',
-        esc_url(
-            add_query_arg(
-                [
-                    'page' => $menu_setting,
-                ],
-                admin_url( 'admin.php' )
-            ) . '#dashboard'
-        ),
-        esc_attr__( 'Go to HFE Settings page', 'header-footer-elementor' ),
-        esc_html__( 'Settings', 'header-footer-elementor' )
-    );
+	/**
+	 * Add settings link to the Plugins page.
+	 *
+	 * @since 1.6.0
+	 *
+	 * @param array $links Plugin row links.
+	 *
+	 * @return array $links
+	 */
+	public function settings_link( $links ) {
+		$menu_setting = HFE_Helper::is_pro_active() ? 'uaepro' : 'hfe'; // Replace with your actual menu slug
 
-    return array_merge( $custom, (array) $links );
-}
+		$custom['settings'] = sprintf(
+			'<a href="%s" aria-label="%s">%s</a>',
+			esc_url(
+				add_query_arg(
+					[
+						'page' => $menu_setting,
+					],
+					admin_url( 'admin.php' )
+				) . '#dashboard'
+			),
+			esc_attr__( 'Go to HFE Settings page', 'header-footer-elementor' ),
+			esc_html__( 'Settings', 'header-footer-elementor' )
+		);
+
+		return array_merge( $custom, (array) $links );
+	}
 
 	/**
 	 * Different MIME type of different PHP version

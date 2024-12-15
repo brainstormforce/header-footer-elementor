@@ -46,8 +46,8 @@ class HFE_Admin {
 	 * @return void
 	 */
 	public static function load_admin() {
-		add_action( 'elementor/editor/after_enqueue_styles', __CLASS__ . '::hfe_admin_enqueue_scripts' );
-		add_action( 'admin_head', __CLASS__ . '::hfe_admin_enqueue_scripts' );		
+		add_action( 'elementor/editor/after_enqueue_styles', self::class . '::hfe_admin_enqueue_scripts' );
+		add_action( 'admin_head', self::class . '::hfe_admin_enqueue_scripts' );
 	}
 
 	/**
@@ -251,7 +251,7 @@ class HFE_Admin {
 		}
 
 		$setting_location = $this->is_pro_active() ? 'uaepro' : 'hfe';
-		
+
 		$labels = [
 			'name'               => esc_html__( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
 			'singular_name'      => esc_html__( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),

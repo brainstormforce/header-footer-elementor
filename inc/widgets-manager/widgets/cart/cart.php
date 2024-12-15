@@ -621,7 +621,7 @@ class Cart extends Common_Widget {
 					?>
 					<div class="hfe-menu-cart__toggle elementor-button-wrapper">
 						<a id="hfe-menu-cart__toggle_button" href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="elementor-button hfe-cart-container" aria-label="<?php esc_attr_e( 'Cart', 'header-footer-elementor' ); ?>">
-							<?php if ( null !== WC()->cart ) { ?>
+							<?php if ( WC()->cart !== null ) { ?>
 								<span class="elementor-button-text hfe-subtotal">
 									<?php echo wp_kses_post( WC()->cart->get_cart_subtotal() ); ?>
 								</span>

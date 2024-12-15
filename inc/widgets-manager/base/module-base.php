@@ -17,7 +17,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since x.x.x
  */
 abstract class Module_Base {
-
 	/**
 	 * Reflection
 	 *
