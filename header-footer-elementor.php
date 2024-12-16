@@ -47,7 +47,7 @@ function hfe_init() {
 	Header_Footer_Elementor::instance();
 }
 
-add_action( 'init', 'hfe_init' );
+add_action( 'plugins_loaded', 'hfe_init' );
 
 /** Function for FA5, Social Icons, Icon List */
 function hfe_enqueue_font_awesome() {

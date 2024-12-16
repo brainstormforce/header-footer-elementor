@@ -64,8 +64,8 @@ class Header_Footer_Elementor {
 		if ( $is_elementor_callable ) {
 			self::$elementor_instance = Elementor\Plugin::instance();
 
-			$this->includes();
 			// Hook load_textdomain to the init action.
+			add_action( 'init', [ $this, 'includes' ] );
 			add_action( 'init', array( $this, 'load_textdomain' ) );
 
 			add_filter(
@@ -368,6 +368,9 @@ class Header_Footer_Elementor {
 	 * @return void
 	 */
 	public function includes() {
+		// Load textdomain first
+		$this->load_textdomain();
+		
 		require_once HFE_DIR . 'admin/class-hfe-admin.php';
 
 		require_once HFE_DIR . 'inc/hfe-functions.php';
