@@ -104,7 +104,8 @@ class HFE_Admin {
 		}
 	}
 
-	/**
+
+/**
  * Hide admin notices on the custom settings page.
  *
  * @since x.x.x
@@ -117,7 +118,7 @@ public static function hide_admin_notices() {
         'elementor-hf',          // New post screen for elementor-hf post type
     );
 
-    if ( in_array( $screen->id, $pages_to_hide_notices ) ) {
+    if ( in_array( $screen->id, $pages_to_hide_notices ) || 'toplevel_page_hfe' === $screen->id ) {
         remove_all_actions( 'admin_notices' );
         remove_all_actions( 'all_admin_notices' );
     }
