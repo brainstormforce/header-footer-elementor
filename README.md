@@ -131,7 +131,6 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 
 ### 2.0.3.1 ###
 - Improvement: Compatibility with latest Elementor and Elementor Pro 3.26 version.
-- Fix: Load textdomain during init action to prevent early translation loading error.
 
 ### 2.0.3 ###
 * Fix: Load JS & CSS assets conditionally on relevant pages in the editor.
