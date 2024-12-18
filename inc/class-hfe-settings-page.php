@@ -268,6 +268,8 @@ class HFE_Settings_Page {
 					'show_theme_support'       => $show_theme_support,
 					'theme_option'             => $theme_option,
 					'st_status'                => $st_status,
+					'hfe_settings_url'      => admin_url( 'admin.php?page=hfe' ),
+					'header_footer_builder'    => admin_url('edit.php?post_type=elementor-hf'),
 					'st_pro_status'            => $stpro_status,
 					'st_link'                  => $st_link,
 					'hfe_post_url'             => $hfe_post_url,

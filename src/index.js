@@ -11,7 +11,7 @@ domReady(() => {
         root.render(<App />);
     }
 
-    if ( "yes" === hfe_admin_data.show_view_all || window.location.href === hfe_admin_data.header_footer_builder || window.location.href === hfeSettingsData.header_footer_builder || "yes" === hfeSettingsData.is_hfe_post ) {
+    if ( "yes" === hfe_admin_data.show_view_all || window.location.href === hfeSettingsData.header_footer_builder || window.location.href === hfeSettingsData.header_footer_builder || "yes" === hfeSettingsData.is_hfe_post ) {
         const navMenuElement = document.getElementById("hfe-admin-top-bar-root");
         if (navMenuElement) {
             const newDiv = document.createElement("div");
