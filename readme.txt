@@ -131,6 +131,7 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 
 = 2.0.3.1 =
 - Improvement: Compatibility with latest Elementor and Elementor Pro 3.26 version.
+- Improvement: Added a navigation bar to the Header and Footer Builder page to improve usability and navigation.
 
 = 2.0.3 =
 * Fix: Load JS & CSS assets conditionally on relevant pages in the editor.

@@ -5,6 +5,21 @@
 
 /* Add to your main CSS file (e.g., index.css) */
 
+.toplevel_page_hfe #wpcontent,
+.post-type-elementor-hf #wpcontent {
+    padding-left: 0;
+}
+.post-type-elementor-hf #wpbody-content {
+	padding-left: 20px;
+}
+.post-type-elementor-hf .wp-heading-inline {
+	font-size: 18px;
+}
+.post-type-elementor-hf #adminmenu .wp-submenu a[href ="edit.php?post_type=elementor-hf" ] {
+    color: #ffffff;
+    font-weight: 600;
+}
+
 #hfe-settings-app .loader {
 	border: 4px solid #f3f3f3;
 	border-radius: 50%;
@@ -152,6 +167,34 @@ input[type="radio"].hfe-radio-field:focus {
 	}
 }
 
+#hfe-settings-app .subject-cell {
+	max-width: 200px; /* Adjust this width based on your layout */
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* .hfe-menu-page-wrapper {
+	width: calc( 100% - 25px);
+} */
+#hfe-settings-app .gap-2 {
+    gap: 1.2rem;
+}
+div#hfe-settings-app {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: normal;
+}
+/* #hfe-settings-app .p-5 {
+    padding: 0.5rem 1.25rem;
+} */
+#hfe-settings-app .hfe-header-title h6 {
+	color: #858484;
+	font-size: 14px;
+}
+.hfe-settings-content-wrapper {
+	padding: 15px 25px;
+}
 @media (max-width: 1024px) {
 	.hfe-65-width,
 	.hfe-35-width,
