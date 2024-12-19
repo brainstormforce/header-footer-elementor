@@ -2457,7 +2457,7 @@
 .post-type-elementor-hf #wpcontent {
     padding-left: 0;
 }
-.post-type-elementor-hf #wpbody-content {
+.post-type-elementor-hf #wpbody-content .wrap {
 	padding-left: 20px;
 }
 .post-type-elementor-hf .wp-heading-inline {
