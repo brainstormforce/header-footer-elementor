@@ -51,7 +51,8 @@ class Extensions_Loader {
 	 */
 	private function __construct() {
 
-		$this->include_extensions_files();
+		//$this->include_extensions_files();
+		add_action( "init", array( $this, "include_extensions_files"));
 
 	}
 
