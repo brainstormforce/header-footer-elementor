@@ -187,7 +187,7 @@ class Widgets_Loader {
 	 * @return object $this_cat class.
 	 */
 	public function register_widget_category( $this_cat ) {
-		$category = defined( 'UAEL_PLUGIN_SHORT_NAME' ) ? UAEL_PLUGIN_SHORT_NAME : __( 'UAE', 'header-footer-elementor' );
+		$category = defined( 'UAEL_PLUGIN_SHORT_NAME' ) ? UAEL_PLUGIN_SHORT_NAME : __( 'Ultimate Addons', 'header-footer-elementor' );
 
 		$this_cat->add_category(
 			'hfe-widgets',
@@ -327,7 +327,7 @@ class Widgets_Loader {
 			$fragments['span.elementor-button-text.hfe-subtotal'] = '<span class="elementor-button-text hfe-subtotal">' . WC()->cart->get_cart_subtotal() . '</span>';
 		}
 
-		$fragments['span.elementor-button-icon[data-counter]'] = '<span class="elementor-button-icon" data-counter="' . $cart_badge_count . '"><i class="eicon" aria-hidden="true"></i><span class="elementor-screen-only">' . __( 'Cart', 'header-footer-elementor' ) . '</span></span>';
+		$fragments['span.elementor-button-icon[data-counter]'] = '<span class="elementor-button-icon" data-counter="' . $cart_badge_count . '" aria-label="' . esc_attr__( 'Cart', 'header-footer-elementor' ) . '"><i class="eicon" aria-hidden="true"></i></span>';
 
 		return $fragments;
 	}
