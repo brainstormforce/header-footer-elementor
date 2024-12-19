@@ -26,7 +26,21 @@ export function Link(props) {
       onClick(e);
     }
 
+    if (to === "elementor-hf" && hfeSettingsData.header_footer_builder ) {
+      window.location.href = hfeSettingsData.header_footer_builder;
+      return;
+    }
+
     const { search } = history.location;
+    const expectedPage = "admin.php?page=hfe";
+    const currentHash = window.location.hash;
+
+      // Verify if the current URL is as expected
+      if (!search.includes(expectedPage) || !currentHash.includes(to)) {
+        // Redirect to the expected URL
+        window.location.href = `${hfeSettingsData.hfe_settings_url}#${to}`;
+        return;
+    }
 
     if (!to.includes('settings')) {
       // Remove &tab from the URL.

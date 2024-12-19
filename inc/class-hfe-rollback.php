@@ -164,7 +164,7 @@ if ( ! class_exists( 'HFE_Rollback' ) ) {
 				'url'    => 'update.php?action=upgrade-plugin&plugin=' . rawurlencode( $this->plugin_name ),
 				'plugin' => $this->plugin_name,
 				'nonce'  => 'upgrade-plugin_' . $this->plugin_name,
-				'title'  => __( 'Ultimate Addons for Elementor - Lite <p>Rollback to Previous Version</p>', 'header-footer-elementor' ),
+				'title'  => __( 'Ultimate Addons for Elementor <p>Rollback to Previous Version</p>', 'header-footer-elementor' ),
 			];
 
 			$this->print_inline_style();
