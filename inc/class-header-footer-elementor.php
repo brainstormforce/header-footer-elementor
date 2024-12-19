@@ -78,13 +78,7 @@ class Header_Footer_Elementor {
 				10,
 				2
 			);
-
-			add_filter('elementor/admin-top-bar/is-active', function($is_active, $current_screen) {
-				if (strpos($current_screen->id, 'elementor-hf') !== false) {
-					return false;
-				}
-				return $is_active;
-			}, 10, 2);
+			
 
 			add_action( 'current_screen', function () {
 				$current_screen = get_current_screen();
