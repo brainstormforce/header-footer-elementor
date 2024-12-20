@@ -129,6 +129,9 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 
 == Changelog ==
 
+= 2.0.4.1 =
+- Fix: Load text domain during init action to prevent early translation loading error.
+
 = 2.0.4 =
 - Improvement: Compatibility with latest Elementor and Elementor Pro 3.26 version.
 - Improvement: Added a navigation bar to the Header and Footer Builder page to improve usability and navigation.
