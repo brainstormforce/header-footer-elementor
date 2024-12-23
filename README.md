@@ -4,7 +4,7 @@
 **Requires at least:** 5.0    
 **Tested up to:** 6.7.1   
 **Requires PHP:** 7.4    
-**Stable tag:** 2.0.4  
+**Stable tag:** 2.0.5  
 **License:** GPLv2 or later    
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html    
 
@@ -129,8 +129,11 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 
 ## Changelog ##
 
-### 2.0.4.1 ###
+### 2.0.5.1 ###
 - Fix: Load text domain during init action to prevent early translation loading error.
+
+### 2.0.5 ###
+- Fix: Conflict with pro version update notice.
 
 ### 2.0.4 ###
 - Improvement: Compatibility with latest Elementor and Elementor Pro 3.26 version.
