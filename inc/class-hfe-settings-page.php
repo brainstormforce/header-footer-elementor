@@ -196,14 +196,25 @@ class HFE_Settings_Page {
 	public function enqueue_admin_scripts() {
 
 		global $pagenow, $post_type;
-
+	
 		$uae_logo   = HFE_URL . 'assets/images/settings/dashboard-logo.svg';
 		$white_logo = HFE_URL . 'assets/images/settings/white-logo.svg';
 		$show_view_all = ( $post_type === 'elementor-hf' && $pagenow === 'post.php' ) ? "yes" : "no";
 		$hfe_edit_url  = admin_url( 'edit.php?post_type=elementor-hf' );
-
-		if ( self::is_current_page( 'hfe' ) && ! HFE_Helper::is_pro_active() ) {
-
+		$is_hfe_post        = ( 'elementor-hf' === $post_type && ( 'post.php' === $pagenow || 'post-new.php' === $pagenow ) ) ? 'yes' : 'no';
+	
+		$additional_condition = ( isset( $_GET['post_type'] ) && 'elementor-hf' === sanitize_text_field( $_GET['post_type'] ) && 
+			( 'edit.php' === $GLOBALS['pagenow'] || 'post.php' === $GLOBALS['pagenow'] || 'post-new.php' === $GLOBALS['pagenow'] ) ) ||
+			( isset( $_GET['post'] ) && 'post.php' === $GLOBALS['pagenow'] && isset( $_GET['action'] ) && 'edit' === sanitize_text_field( $_GET['action'] ) && 'elementor-hf' === get_post_type( sanitize_text_field( $_GET['post'] ) ) ) ||
+			( 'post-new.php' === $GLOBALS['pagenow'] && isset( $_GET['post_type'] ) && 'elementor-hf' === sanitize_text_field( $_GET['post_type'] ) );
+	
+		if ( ( 
+				self::is_current_page( 'hfe' ) || 
+				$additional_condition 
+			) && 
+			! HFE_Helper::is_pro_active() 
+		) {
+	
 			$rollback_versions = HFE_Helper::get_rollback_versions_options();
 			$st_status         = HFE_Helper::free_starter_templates_status();
 			$stpro_status      = HFE_Helper::premium_starter_templates_status();
@@ -212,12 +223,12 @@ class HFE_Settings_Page {
 			
 			$show_theme_support = 'no';
 			$hfe_theme_status   = get_option( 'hfe_is_theme_supported', false );
-
+	
 			if ( ( ! current_theme_supports( 'header-footer-elementor' ) ) && ! $hfe_theme_status ) {
 				$show_theme_support = 'yes';
 			}
 			$theme_option = get_option( 'hfe_compatibility_option', '1' );
-
+	
 			wp_enqueue_script(
 				'header-footer-elementor-react-app',
 				HFE_URL . 'build/main.js',
@@ -225,7 +236,7 @@ class HFE_Settings_Page {
 				HFE_VER,
 				true
 			);
-
+	
 			wp_localize_script(
 				'header-footer-elementor-react-app',
 				'hfeSettingsData',
@@ -257,12 +268,15 @@ class HFE_Settings_Page {
 					'show_theme_support'       => $show_theme_support,
 					'theme_option'             => $theme_option,
 					'st_status'                => $st_status,
+					'hfe_settings_url'      => admin_url( 'admin.php?page=hfe' ),
+					'header_footer_builder'    => admin_url('edit.php?post_type=elementor-hf'),
 					'st_pro_status'            => $stpro_status,
 					'st_link'                  => $st_link,
 					'hfe_post_url'             => $hfe_post_url,
+					'is_hfe_post'              => $is_hfe_post,
 				]
 			);
-
+	
 			wp_enqueue_style(
 				'header-footer-elementor-react-styles',
 				HFE_URL . 'build/main.css',
@@ -270,9 +284,9 @@ class HFE_Settings_Page {
 				HFE_VER
 			);
 		}
-
+	
 		if ( '' !== $uae_logo && '' !== $white_logo ) {
-
+	
 			$custom_css = "
 				#toplevel_page_hfe .wp-menu-image {
 					background-image: url(" . esc_url($uae_logo) . ") !important;
@@ -287,11 +301,11 @@ class HFE_Settings_Page {
 			";
 			wp_add_inline_style('wp-admin', $custom_css);
 		}
-
+	
 		wp_enqueue_script( 'hfe-admin-script', HFE_URL . 'admin/assets/js/ehf-admin.js', [ 'jquery', 'updates' ], HFE_VER, true );
-
+	
 		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
-
+	
 		$strings = [
 			'addon_activate'    => esc_html__( 'Activate', 'header-footer-elementor' ),
 			'addon_activated'   => esc_html__( 'Activated', 'header-footer-elementor' ),
@@ -315,17 +329,19 @@ class HFE_Settings_Page {
 			'show_all_hfe'		=> $show_view_all,
 			'hfe_edit_url'      => $hfe_edit_url,
 			'view_all_text'     => esc_html__( 'View All', 'header-footer-elementor' ),
-
+			'header_footer_builder'	=> $hfe_edit_url
+	
 		];
-
+	
 		$strings = apply_filters( 'hfe_admin_strings', $strings );
-
+	
 		wp_localize_script(
 			'hfe-admin-script',
 			'hfe_admin_data',
 			$strings
 		);
 	}
+
 
 	/**
 	 * Adds a tab in plugin submenu page.

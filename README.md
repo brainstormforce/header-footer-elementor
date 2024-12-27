@@ -4,7 +4,7 @@
 **Requires at least:** 5.0    
 **Tested up to:** 6.7.1   
 **Requires PHP:** 7.4    
-**Stable tag:** 2.0.3  
+**Stable tag:** 2.0.5  
 **License:** GPLv2 or later    
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html    
 
@@ -128,6 +128,13 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 ---
 
 ## Changelog ##
+
+### 2.0.5 ###
+- Fix: Conflict with pro version update notice.
+
+### 2.0.4 ###
+- Improvement: Compatibility with latest Elementor and Elementor Pro 3.26 version.
+- Improvement: Added a navigation bar to the Header and Footer Builder page to improve usability and navigation.
 
 ### 2.0.3 ###
 * Fix: Load JS & CSS assets conditionally on relevant pages in the editor.

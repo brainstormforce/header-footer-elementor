@@ -24,8 +24,9 @@ ul.hfe-nav-menu,
 .hfe-nav-menu__theme-icon-yes button.sub-menu-toggle {
     display: none;
 }
+
 div.hfe-nav-menu,
-.elementor-widget-hfe-nav-menu .elementor-widget-container {
+.elementor-widget-hfe-nav-menu .elementor-widget-container{
     -js-display: flex;
     display: -webkit-box;
     display: -webkit-flex;

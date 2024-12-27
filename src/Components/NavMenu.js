@@ -93,7 +93,12 @@ const NavMenu = () => {
 	return (
 		<Topbar
 			className="hfe-nav-menu relative"
-			style={{ width: "unset", padding: "0.5rem", zIndex: "9", paddingTop: "1rem" }}
+			style={{
+				width: "unset",
+				padding: "0.5rem",
+				zIndex: "9",
+				paddingTop: "1rem",
+			}}
 		>
 			<div className="flex flex-col lg:flex-row items-start md:items-center w-full">
 				{/* Top row on mobile: Logo and Nav menu */}
@@ -124,22 +129,29 @@ const NavMenu = () => {
 								>
 									{__("Dashboard", "header-footer-elementor")}
 								</Link>
-								<a
-									style={{
-										color: "rgb(75, 85, 99)",
-										paddingBottom: "22px",
-										marginBottom: "-16px",
-										cursor: "pointer",
-									}}
+								<Link
+									to={routes.headerFooterBuilder.path}
+									className={`${
+										isActive(
+											"edit.php?post_type=elementor-hf"
+										)
+											? "active-link"
+											: ""
+									}`}
+									style={linkStyle(
+										"edit.php?post_type=elementor-hf"
+									)}
 									onClick={() => {
-										window.location.href = hfe_admin_data.hfe_edit_url;
+										console.log(
+											"Navigating to Header & Footer Builder"
+										);
 									}}
 								>
 									{__(
 										"Header & Footer Builder",
 										"header-footer-elementor"
 									)}
-								</a>
+								</Link>
 								<Link
 									to={routes.widgets.path}
 									className={`${
@@ -174,13 +186,14 @@ const NavMenu = () => {
 								<Link
 									to={routes.upgrade.path}
 									className={`${
-										isActive("upgrade")
-											? "active-link"
-											: ""
+										isActive("upgrade") ? "active-link" : ""
 									}`}
 									style={linkStyle("upgrade")}
 								>
-									{__("Free vs Pro", "header-footer-elementor")}
+									{__(
+										"Free vs Pro",
+										"header-footer-elementor"
+									)}
 								</Link>
 							</nav>
 						</Topbar.Item>
@@ -204,10 +217,7 @@ const NavMenu = () => {
 									)
 								}
 							>
-								{__(
-									"Get Pro",
-									"header-footer-elementor"
-								)}
+								{__("Get Pro", "header-footer-elementor")}
 							</Button>
 						</Topbar.Item>
 					</Topbar.Middle>
@@ -220,7 +230,10 @@ const NavMenu = () => {
 							>
 								<DropdownMenu.Trigger>
 									<Badge
-										label={__("Free", "header-footer-elementor")}
+										label={__(
+											"Free",
+											"header-footer-elementor"
+										)}
 										size="xs"
 										variant="neutral"
 									/>
@@ -228,7 +241,10 @@ const NavMenu = () => {
 								<DropdownMenu.Content className="w-52">
 									<DropdownMenu.List>
 										<DropdownMenu.Item>
-											{__("Version", "header-footer-elementor")}
+											{__(
+												"Version",
+												"header-footer-elementor"
+											)}
 										</DropdownMenu.Item>
 										<DropdownMenu.Item>
 											<div className="flex justify-between w-full">
@@ -259,7 +275,10 @@ const NavMenu = () => {
 								<DropdownMenu.Content className="w-60">
 									<DropdownMenu.List>
 										<DropdownMenu.Item>
-											{__("Useful Resources", "header-footer-elementor")}
+											{__(
+												"Useful Resources",
+												"header-footer-elementor"
+											)}
 										</DropdownMenu.Item>
 										<DropdownMenu.Item
 											className="text-text-primary"
@@ -273,7 +292,10 @@ const NavMenu = () => {
 											<FileText
 												style={{ color: "black" }}
 											/>
-											{__("Getting Started", "header-footer-elementor")}
+											{__(
+												"Getting Started",
+												"header-footer-elementor"
+											)}
 										</DropdownMenu.Item>
 										<DropdownMenu.Item
 											onClick={() =>
@@ -283,7 +305,10 @@ const NavMenu = () => {
 											}
 										>
 											<FileText />
-											{__("How to use widgets", "header-footer-elementor")}
+											{__(
+												"How to use widgets",
+												"header-footer-elementor"
+											)}
 										</DropdownMenu.Item>
 										<DropdownMenu.Item
 											onClick={() =>
@@ -293,7 +318,10 @@ const NavMenu = () => {
 											}
 										>
 											<FileText />
-											{__("How to use features", "header-footer-elementor")}
+											{__(
+												"How to use features",
+												"header-footer-elementor"
+											)}
 										</DropdownMenu.Item>
 										<DropdownMenu.Item
 											onClick={() =>
@@ -303,7 +331,10 @@ const NavMenu = () => {
 											}
 										>
 											<FileText />
-											{__("How to use templates", "header-footer-elementor")}
+											{__(
+												"How to use templates",
+												"header-footer-elementor"
+											)}
 										</DropdownMenu.Item>
 										<DropdownMenu.Item
 											onClick={() =>
@@ -313,7 +344,10 @@ const NavMenu = () => {
 											}
 										>
 											<Headset />
-											{__("Contact us", "header-footer-elementor")}
+											{__(
+												"Contact us",
+												"header-footer-elementor"
+											)}
 										</DropdownMenu.Item>
 									</DropdownMenu.List>
 								</DropdownMenu.Content>
