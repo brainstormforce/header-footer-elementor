@@ -65,7 +65,8 @@ class Header_Footer_Elementor {
 			self::$elementor_instance = Elementor\Plugin::instance();
 
 			$this->includes();
-			$this->load_textdomain();
+			
+			add_action( 'init', [ $this, 'load_textdomain' ] );
 
 			add_filter(
 				'elementor/admin-top-bar/is-active',
