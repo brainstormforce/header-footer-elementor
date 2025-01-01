@@ -51,8 +51,18 @@ class Extensions_Loader {
 	 */
 	private function __construct() {
 
-		$this->include_extensions_files();
+		add_action( 'elementor/init', [ $this, 'elementor_init' ] );
 
+	}
+
+	/**
+	 * Elementor Init.
+	 *
+	 * @since x.x.x
+	 */
+	public function elementor_init() {
+
+		$this->include_extensions_files();
 	}
 
 	/**
