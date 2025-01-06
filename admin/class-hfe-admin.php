@@ -79,7 +79,7 @@ class HFE_Admin {
 	 * @return void
 	 */
 	private function __construct() {
-		add_action( 'init', [ $this, 'header_footer_posttype' ], 0 );
+		add_action( 'init', [ $this, 'header_footer_posttype' ] );
 		if ( is_admin() && current_user_can( 'manage_options' ) ) {
 			add_action( 'admin_menu', [ $this, 'register_admin_menu' ], 50 );
 		}
@@ -256,9 +256,6 @@ public static function hide_admin_notices() {
 	 * @return void
 	 */
 	public function header_footer_posttype() {
-		// if ( ! current_user_can( 'manage_options' ) ) {
-		// 	return;
-		// }
 
 		$setting_location = $this->is_pro_active() ? 'uaepro' : 'hfe';
 		
