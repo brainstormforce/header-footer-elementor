@@ -79,7 +79,7 @@ class HFE_Admin {
 	 * @return void
 	 */
 	private function __construct() {
-		add_action( 'init', [ $this, 'header_footer_posttype' ] );
+		add_action( 'init', [ $this, 'header_footer_posttype' ], 0 );
 		if ( is_admin() && current_user_can( 'manage_options' ) ) {
 			add_action( 'admin_menu', [ $this, 'register_admin_menu' ], 50 );
 		}
@@ -103,6 +103,8 @@ class HFE_Admin {
 			require_once HFE_DIR . 'admin/class-hfe-addons-actions.php';
 		}
 	}
+
+
 
 
 /**
@@ -254,9 +256,9 @@ public static function hide_admin_notices() {
 	 * @return void
 	 */
 	public function header_footer_posttype() {
-		if ( ! current_user_can( 'manage_options' ) ) {
-			return;
-		}
+		// if ( ! current_user_can( 'manage_options' ) ) {
+		// 	return;
+		// }
 
 		$setting_location = $this->is_pro_active() ? 'uaepro' : 'hfe';
 		
@@ -289,6 +291,15 @@ public static function hide_admin_notices() {
 			'menu_icon'           => 'dashicons-editor-kitchensink',
 			'supports'            => [ 'title', 'thumbnail', 'elementor' ],
 			'menu_position'       => 5,
+			'capabilities'        => array(
+				'edit_post'          => 'manage_options',
+				'read_post'          => 'read',
+				'delete_post'        => 'manage_options',
+				'edit_posts'         => 'manage_options',
+				'edit_others_posts'  => 'manage_options',
+				'publish_posts'      => 'manage_options',
+				'read_private_posts' => 'manage_options',
+			),
 		];
 
 		register_post_type( 'elementor-hf', $args );
