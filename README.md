@@ -129,6 +129,9 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 
 ## Changelog ##
 
+### 2.0.6.1 ###
+- New: Added NPS Survey to gather your valuable feedback!
+
 ### 2.0.6 ###
 - Fix: Load text domain PHP warning when Loco Translate plugin is active.
 
