@@ -413,6 +413,12 @@ class Header_Footer_Elementor {
 		require HFE_DIR . 'inc/widgets-manager/class-extensions-loader.php';
 
 		require_once HFE_DIR . 'inc/settings/hfe-settings-api.php';
+
+					// Load the NPS Survey library.
+					if ( ! class_exists( 'Uabb_Pro_Nps_Survey' ) ) {
+						require_once HFE_DIR . 'inc/lib/class-uae-nps-survey.php';
+					}
+					
 	}
 
 	/**

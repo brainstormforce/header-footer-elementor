@@ -65,12 +65,46 @@ class HFE_Settings_Page {
 		/* Flow content view */
 		add_action( 'hfe_render_admin_page_content', [ $this, 'render_content' ], 10, 2 );
 
+		add_action( 'admin_footer', __CLASS__. '::show_nps_notice' );
+
 		if ( version_compare( get_bloginfo( 'version' ), '5.1.0', '>=' ) ) {
 			add_filter( 'wp_check_filetype_and_ext', [ $this, 'real_mime_types_5_1_0' ], 10, 5 );
 		} else {
 			add_filter( 'wp_check_filetype_and_ext', [ $this, 'real_mime_types' ], 10, 4 );
 		}
 	}
+
+	/**
+     * Render UAE NPS Survey Notice.
+     *
+     * @since x.x.x
+     * @return void
+     */
+    public static function show_nps_notice() {
+		$uae_logo = HFE_URL . 'assets/images/settings/logo.svg';
+        \Nps_Survey::show_nps_notice(
+            'nps-survey-hfe',
+            array(
+                'show_if'          => true, // Add your display conditions.
+                'dismiss_timespan' => 2 * WEEK_IN_SECONDS,
+                'display_after'    => 0,
+                'plugin_slug'      => 'hfe',
+                'show_on_screens'  => array( 'toplevel_page_hfe' ),
+                'message'          => array(
+                    // Step 1 i.e rating input.
+                    'logo' => esc_url( $uae_logo ),
+                    'plugin_name'           => __( 'Ultimate Addons for Elementor', 'hfe' ),
+                    'nps_rating_message'    => __( 'How likely are you to recommend Ultimate Addons for Elementor to your friends or colleagues?', 'hfe' ),
+                    // Step 2A i.e. positive.
+                    'feedback_content'      => __( 'Could you please do us a favor and give us a 5-star rating on WordPress? It would help others choose Ultimate Addons for Beaver Builder with confidence. Thank you!', 'hfe' ),
+                    'plugin_rating_link'    => esc_url( 'https://www.trustpilot.com/review/brainstormforce.com' ),
+                    // Step 2B i.e. negative.
+                    'plugin_rating_title'   => __( 'Thank you for your feedback', 'hfe' ),
+                    'plugin_rating_content' => __( 'We value your input. How can we improve your experience?', 'hfe' ),
+                ),
+            )
+        );
+    }
 
 		/**
 		 * Get Elementor edit page link
