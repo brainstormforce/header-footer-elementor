@@ -112,6 +112,7 @@
 				"i18n:mo": "wp i18n make-mo languages",
 				"i18n:json": "wp i18n make-json languages --no-purge",
 				"i18n:gptpo:nl": "gpt-po translate --po languages/header-footer-elementor-nl_NL.po --lang nl --verbose",
+				"i18n:gptpo:fr": "gpt-po translate --po languages/header-footer-elementor-fr_FR.po --lang fr --verbose",
 				"build-package": "npm run build && grunt",
 				"release": "rm -rf header-footer-elementor && npm run build-package && grunt release"
 		},
