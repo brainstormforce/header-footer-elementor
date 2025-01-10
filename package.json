@@ -113,6 +113,7 @@
 				"i18n:json": "wp i18n make-json languages --no-purge",
 				"i18n:gptpo:nl": "gpt-po translate --po languages/header-footer-elementor-nl_NL.po --lang nl --verbose",
 				"i18n:gptpo:fr": "gpt-po translate --po languages/header-footer-elementor-fr_FR.po --lang fr --verbose",
+				"i18n:gptpo:es": "gpt-po translate --po languages/header-footer-elementor-es_ES.po --lang es --verbose",
 				"build-package": "npm run build && grunt",
 				"release": "rm -rf header-footer-elementor && npm run build-package && grunt release"
 		},
