@@ -51,7 +51,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		 */
 		public function __construct() {
 			add_action( 'wp_ajax_hfe_recommended_plugin_activate', [ $this, 'hfe_activate_addon' ] );
-			add_action( 'wp_ajax_hfe_recommended_plugin_install', 'wp_ajax_install_plugin' );
+			add_action( 'wp_ajax_hfe_recommended_plugin_install', [ $this, 'required_plugin_install' ] );
 			add_action( 'wp_ajax_hfe_recommended_theme_install', 'wp_ajax_install_theme' );
 			add_action( 'wp_ajax_hfe_admin_modal', [ $this, 'hfe_admin_modal' ] );
 			add_action( 'wp_ajax_hfe-update-subscription', [ $this, 'update_subscription' ] );
@@ -63,6 +63,51 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			add_action( 'wp_ajax_hfe_bulk_deactivate_widgets', [ $this, 'bulk_deactivate_widgets' ] );
 
 			add_action( 'wp_ajax_save_theme_compatibility_option', [ $this, 'save_hfe_compatibility_option_callback' ] );
+		}
+
+		/**
+		 * Handles the installation and saving of required plugins.
+		 *
+		 * This function is responsible for installing and saving required plugins for the Astra theme.
+		 * It checks for the plugin slug in the AJAX request, verifies the nonce, and initiates the plugin installation process.
+		 * If the plugin is successfully installed, it schedules a database update to map the plugin slug to a custom key for analytics tracking.
+		 *
+		 * @since x.x.x
+		 */
+		public function required_plugin_install() {
+
+			check_ajax_referer( 'updates', '_ajax_nonce' );
+
+			// Fetching the plugin slug from the AJAX request.
+			// @psalm-suppress PossiblyInvalidArgument
+			$plugin_slug = isset( $_POST['slug'] ) && is_string( $_POST['slug'] ) ? sanitize_text_field( wp_unslash( $_POST['slug'] ) ) : '';
+
+			if ( empty( $plugin_slug ) ) {
+				wp_send_json_error( array( 'message' => __( 'Plugin slug is missing.', 'header-footer-elementor' ) ) );
+			}
+
+			// Schedule the database update if the plugin is installed successfully.
+			add_action(
+				'shutdown',
+				function () use ( $plugin_slug ) {
+					// Iterate through all plugins to check if the installed plugin matches the current plugin slug.
+					$all_plugins = get_plugins();
+					foreach ( $all_plugins as $plugin_file => $_ ) {
+						if ( is_callable( '\BSF_UTM_Analytics\Inc\Utils::update_referer' ) && strpos( $plugin_file, $plugin_slug . '/' ) === 0 ) {
+							// If the plugin is found and the update_referer function is callable, update the referer with the corresponding product slug.
+							\BSF_UTM_Analytics\Inc\Utils::update_referer( 'header-footer-elementor', $plugin_slug );
+							return;
+						}
+					}
+				}
+			);
+
+			if ( function_exists( 'wp_ajax_install_plugin' ) ) {
+				// @psalm-suppress NoValue
+				wp_ajax_install_plugin();
+			} else {
+				wp_send_json_error( array( 'message' => __( 'Plugin installation function not found.', 'header-footer-elementor' ) ) );
+			}
 		}
 
 		/**

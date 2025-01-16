@@ -2,12 +2,14 @@
   "name": "nikschavan/header-footer-elementor",
   "description": "Create Header and Footer using Elementor page builder.",
   "require": {
-    "brainstormforce/astra-notices": "^1.1"
+    "brainstormforce/astra-notices": "^1.1",
+    "brainstormforce/utm-analytics": "*"
   },
   "extra": {
       "installer-paths": {
         "inc/lib/{$name}/": [
-          "brainstormforce/astra-notices"
+          "brainstormforce/astra-notices",
+          "brainstormforce/utm-analytics"
         ]
       }
   },
@@ -35,5 +37,12 @@
       "composer/installers": true,
       "dealerdirect/phpcodesniffer-composer-installer": true
     }
-  }
+  },
+  "repositories": [
+    {
+        "name": "brainstormforce/utm-analytics",
+        "type": "vcs",
+        "url": "git@github.com:brainstormforce/utm-analytics.git"
+    }
+  ]
 }
