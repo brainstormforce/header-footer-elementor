@@ -140,7 +140,7 @@ class Header_Footer_Elementor {
 			}
 
 			if ( ! class_exists( 'HFE_Utm_Analytics' ) ) {
-				require_once HFE_DIR . 'class-hfe-utm-analytics.php';
+				require_once HFE_DIR . 'inc/class-hfe-utm-analytics.php';
 			}
 
 			$bsf_analytics = BSF_Analytics_Loader::get_instance();
