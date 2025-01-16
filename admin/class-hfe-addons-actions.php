@@ -10,6 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use HFE\WidgetsManager\Base\HFE_Helper;
+use BSF_UTM_Analytics\Inc\Utils;
 
 if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 
@@ -51,8 +52,8 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		 */
 		public function __construct() {
 			add_action( 'wp_ajax_hfe_recommended_plugin_activate', [ $this, 'hfe_activate_addon' ] );
-			add_action( 'wp_ajax_hfe_recommended_plugin_install', [ $this, 'required_plugin_install' ] );
-			add_action( 'wp_ajax_hfe_recommended_theme_install', 'wp_ajax_install_theme' );
+			add_action( 'wp_ajax_hfe_recommended_plugin_install', [ $this, 'hfe_plugin_install' ] );
+			add_action( 'wp_ajax_hfe_recommended_theme_install', [ $this, 'hfe_theme_install' ] );
 			add_action( 'wp_ajax_hfe_admin_modal', [ $this, 'hfe_admin_modal' ] );
 			add_action( 'wp_ajax_hfe-update-subscription', [ $this, 'update_subscription' ] );
 
@@ -63,18 +64,19 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			add_action( 'wp_ajax_hfe_bulk_deactivate_widgets', [ $this, 'bulk_deactivate_widgets' ] );
 
 			add_action( 'wp_ajax_save_theme_compatibility_option', [ $this, 'save_hfe_compatibility_option_callback' ] );
+
 		}
 
 		/**
 		 * Handles the installation and saving of required plugins.
 		 *
-		 * This function is responsible for installing and saving required plugins for the Astra theme.
+		 * This function is responsible for installing and saving required plugins.
 		 * It checks for the plugin slug in the AJAX request, verifies the nonce, and initiates the plugin installation process.
 		 * If the plugin is successfully installed, it schedules a database update to map the plugin slug to a custom key for analytics tracking.
 		 *
 		 * @since x.x.x
 		 */
-		public function required_plugin_install() {
+		public function hfe_plugin_install() {
 
 			check_ajax_referer( 'updates', '_ajax_nonce' );
 
@@ -93,7 +95,8 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 					// Iterate through all plugins to check if the installed plugin matches the current plugin slug.
 					$all_plugins = get_plugins();
 					foreach ( $all_plugins as $plugin_file => $_ ) {
-						if ( is_callable( '\BSF_UTM_Analytics\Inc\Utils::update_referer' ) && strpos( $plugin_file, $plugin_slug . '/' ) === 0 ) {
+						if ( class_exists( '\BSF_UTM_Analytics\Inc\Utils' ) && is_callable( '\BSF_UTM_Analytics\Inc\Utils::update_referer' ) && strpos( $plugin_file, $plugin_slug . '/' ) === 0 ) {
+							error_log( "Calling referrer function............!!!!!!!!!!!!!!!!" );
 							// If the plugin is found and the update_referer function is callable, update the referer with the corresponding product slug.
 							\BSF_UTM_Analytics\Inc\Utils::update_referer( 'header-footer-elementor', $plugin_slug );
 							return;
@@ -107,6 +110,54 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 				wp_ajax_install_plugin();
 			} else {
 				wp_send_json_error( array( 'message' => __( 'Plugin installation function not found.', 'header-footer-elementor' ) ) );
+			}
+		}
+
+		
+		/**
+		 * Handles the installation and saving of required theme.
+		 *
+		 * This function is responsible for installing and saving required plugins.
+		 * It checks for the plugin slug in the AJAX request, verifies the nonce, and initiates the plugin installation process.
+		 * If the theme is successfully installed, it schedules a database update to map the plugin slug to a custom key for analytics tracking.
+		 *
+		 * @since x.x.x
+		 */
+		public function hfe_theme_install() {
+
+			check_ajax_referer( 'updates', '_ajax_nonce' );
+
+			// Fetching the plugin slug from the AJAX request.
+			// @psalm-suppress PossiblyInvalidArgument
+			$theme_slug = isset( $_POST['slug'] ) && is_string( $_POST['slug'] ) ? sanitize_text_field( wp_unslash( $_POST['slug'] ) ) : '';
+
+			if ( empty( $theme_slug ) ) {
+				wp_send_json_error( array( 'message' => __( 'Theme slug is missing.', 'header-footer-elementor' ) ) );
+			}
+
+			// Schedule the database update if the theme is installed successfully.
+			// add_action(
+			// 	'shutdown',
+			// 	function () use ( $theme_slug ) {
+			// 		// Iterate through all themes to check if the installed theme matches the current theme slug.
+			// 		$all_themes = wp_get_themes();
+			// 		foreach ( $all_themes as $theme_file => $_ ) {
+			// 			error_log( "So the theme is found............" );
+			// 			if ( class_exists( '\BSF_UTM_Analytics\Inc\Utils' ) && is_callable( '\BSF_UTM_Analytics\Inc\Utils::update_referer' ) && strpos( $theme_file, $theme_slug . '/' ) === 0 ) {
+			// 				error_log( "Calling referrer function............!!!!!!!!!!!!!!!!" );
+			// 				// If the theme is found and the update_referer function is callable, update the referer with the corresponding product slug.
+			// 				\BSF_UTM_Analytics\Inc\Utils::update_referer( 'header-footer-elementor', $theme_slug );
+			// 				return;
+			// 			}
+			// 		}
+			// 	}
+			// );
+
+			if ( function_exists( 'wp_ajax_install_theme' ) ) {
+				// @psalm-suppress NoValue
+				wp_ajax_install_theme();
+			} else {
+				wp_send_json_error( array( 'message' => __( 'Theme installation function not found.', 'header-footer-elementor' ) ) );
 			}
 		}
 
