@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-01-17T09:07:50+00:00\n"
+"POT-Creation-Date: 2025-01-17T09:19:09+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: header-footer-elementor\n"
@@ -167,8 +167,6 @@ msgid "Header/Footer Builder"
 msgstr ""
 
 #: admin/class-hfe-admin.php:322
-#: build/Components/NavMenu.js:115
-#: build/main.js:194
 #: src/Components/NavMenu.js:150
 msgid "Header & Footer Builder"
 msgstr ""
@@ -317,10 +315,6 @@ msgid "Thank you for installing %1$s Ultimate Addons for Elementor %2$s Plugin! 
 msgstr ""
 
 #: inc/class-header-footer-elementor.php:593
-#: build/Components/Settings/Settings.js:47
-#: build/Components/Settings/ThemeSupport.js:76
-#: build/main.js:216
-#: build/main.js:238
 #: src/Components/Settings/Settings.jsx:49
 #: src/Components/Settings/ThemeSupport.jsx:80
 msgid "Theme Support"
@@ -336,9 +330,6 @@ msgstr ""
 
 #: inc/class-hfe-settings-page.php:113
 #: inc/class-hfe-settings-page.php:148
-#: build/Components/Settings/VersionControl.js:53
-#: build/Components/Settings/VersionControl.js:107
-#: build/main.js:249
 #: src/Components/Settings/VersionControl.jsx:63
 #: src/Components/Settings/VersionControl.jsx:119
 msgid "Rollback to Previous Version"
@@ -350,9 +341,6 @@ msgstr ""
 
 #: inc/class-hfe-settings-page.php:310
 #: inc/class-hfe-settings-page.php:1058
-#: build/Components/Dashboard/ExtendWebsiteWidget.js:83
-#: build/Components/Dashboard/ExtendWebsiteWidget.js:158
-#: build/main.js:95
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:86
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:173
 msgid "Activate"
@@ -360,8 +348,6 @@ msgstr ""
 
 #: inc/class-hfe-settings-page.php:311
 #: inc/class-hfe-settings-page.php:1050
-#: build/Components/Dashboard/ExtendWebsiteWidget.js:139
-#: build/main.js:95
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:156
 msgid "Activated"
 msgstr ""
@@ -384,8 +370,6 @@ msgstr ""
 
 #: inc/class-hfe-settings-page.php:315
 #: inc/class-hfe-settings-page.php:1071
-#: build/Components/Dashboard/ExtendWebsiteWidget.js:88
-#: build/main.js:95
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:91
 msgid "Install"
 msgstr ""
@@ -462,8 +446,6 @@ msgid "UAE"
 msgstr ""
 
 #: inc/class-hfe-settings-page.php:498
-#: build/Components/NavMenu.js:108
-#: build/main.js:194
 #: src/Components/NavMenu.js:130
 msgid "Dashboard"
 msgstr ""
@@ -480,8 +462,6 @@ msgstr ""
 #: inc/widgets-manager/base/widgets-config.php:683
 #: inc/widgets-manager/base/widgets-config.php:699
 #: inc/widgets-manager/base/widgets-config.php:844
-#: build/Components/NavMenu.js:127
-#: build/main.js:194
 #: src/Components/NavMenu.js:184
 msgid "Settings"
 msgstr ""
@@ -686,9 +666,6 @@ msgstr ""
 
 #: inc/lib/target-rule/class-astra-target-rules-fields.php:141
 #: inc/lib/target-rule/class-astra-target-rules-fields.php:213
-#: build/Components/Compare/FreevsPro.js:369
-#: build/Components/Compare/FreevsPro.js:374
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:143
 #: src/Components/Compare/FreevsPro.jsx:152
 msgid "Basic"
@@ -731,9 +708,6 @@ msgid "Logged Out"
 msgstr ""
 
 #: inc/lib/target-rule/class-astra-target-rules-fields.php:222
-#: build/Components/Compare/FreevsPro.js:369
-#: build/Components/Compare/FreevsPro.js:374
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:142
 #: src/Components/Compare/FreevsPro.jsx:153
 msgid "Advanced"
@@ -836,8 +810,6 @@ msgid "Widgets list not found"
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:53
-#: build/Components/Compare/FreevsPro.js:35
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:19
 msgid "Post Info"
 msgstr ""
@@ -847,8 +819,6 @@ msgid "Show author, dates, and reading time with customizable styles."
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:67
-#: build/Components/Compare/FreevsPro.js:45
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:21
 msgid "Breadcrumbs"
 msgstr ""
@@ -859,8 +829,6 @@ msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:81
 #: inc/widgets-manager/widgets/site-logo/site-logo.php:133
-#: build/Components/Compare/FreevsPro.js:70
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:26
 msgid "Site Logo"
 msgstr ""
@@ -871,12 +839,6 @@ msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:94
 #: inc/widgets-manager/base/widgets-config.php:525
-#: build/Components/Compare/FreevsPro.js:80
-#: build/Components/Compare/FreevsPro.js:365
-#: build/Components/Compare/FreevsPro.js:369
-#: build/Components/Compare/FreevsPro.js:372
-#: build/Components/Compare/FreevsPro.js:374
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:28
 #: src/Components/Compare/FreevsPro.jsx:138
 #: src/Components/Compare/FreevsPro.jsx:140
@@ -893,8 +855,6 @@ msgstr ""
 #: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:49
 #: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:103
 #: inc/widgets-manager/extensions/class-scroll-to-top.php:310
-#: build/Components/Compare/FreevsPro.js:40
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:20
 msgid "Scroll to Top"
 msgstr ""
@@ -912,8 +872,6 @@ msgid "Show your site’s name in a customizable style."
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:135
-#: build/Components/Compare/FreevsPro.js:65
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:25
 msgid "Site Tagline"
 msgstr ""
@@ -925,8 +883,6 @@ msgstr ""
 #: inc/widgets-manager/base/widgets-config.php:148
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:285
 #: inc/widgets-manager/widgets/search-button/search-button.php:990
-#: build/Components/Compare/FreevsPro.js:75
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:27
 msgid "Search"
 msgstr ""
@@ -936,8 +892,6 @@ msgid "Add a search bar to help visitors find content easily."
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:161
-#: build/Components/Compare/FreevsPro.js:60
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:24
 msgid "Page Title"
 msgstr ""
@@ -947,8 +901,6 @@ msgid "Display the title of the current page dynamically."
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:174
-#: build/Components/Compare/FreevsPro.js:50
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:22
 msgid "Retina Logo"
 msgstr ""
@@ -969,8 +921,6 @@ msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:200
 #: inc/widgets-manager/widgets/copyright/copyright.php:102
-#: build/Components/Compare/FreevsPro.js:55
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:23
 msgid "Copyright"
 msgstr ""
@@ -980,14 +930,6 @@ msgid "Display customizable copyright text for your site's footer."
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:234
-#: build/Components/Compare/FreevsPro.js:88
-#: build/Components/Compare/UltimateCompare.js:20
-#: build/Components/Dashboard/UltimateFeatures.js:22
-#: build/Components/Widgets/UltimateWidgets.js:22
-#: build/main.js:40
-#: build/main.js:51
-#: build/main.js:139
-#: build/main.js:315
 #: src/Components/Compare/FreevsPro.jsx:34
 #: src/Components/Compare/UltimateCompare.jsx:17
 #: src/Components/Dashboard/UltimateFeatures.js:18
@@ -1000,14 +942,6 @@ msgid "Create engaging and customizable headings for your pages."
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:248
-#: build/Components/Compare/FreevsPro.js:204
-#: build/Components/Compare/UltimateCompare.js:16
-#: build/Components/Dashboard/UltimateFeatures.js:18
-#: build/Components/Widgets/UltimateWidgets.js:18
-#: build/main.js:40
-#: build/main.js:51
-#: build/main.js:139
-#: build/main.js:315
 #: src/Components/Compare/FreevsPro.jsx:66
 #: src/Components/Compare/UltimateCompare.jsx:12
 #: src/Components/Dashboard/UltimateFeatures.js:13
@@ -1036,8 +970,6 @@ msgid "Display the before and after versions of an image."
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:287
-#: build/Components/Compare/FreevsPro.js:199
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:65
 msgid "Business Hours"
 msgstr ""
@@ -1047,8 +979,6 @@ msgid "Customize and display your business hours stylishly."
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:302
-#: build/Components/Compare/FreevsPro.js:278
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:94
 msgid "Business Reviews"
 msgstr ""
@@ -1066,8 +996,6 @@ msgid "Style and enhance Contact Form 7 to fit your site."
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:329
-#: build/Components/Compare/FreevsPro.js:194
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:64
 msgid "Countdown Timer"
 msgstr ""
@@ -1077,8 +1005,6 @@ msgid "Create urgency with fixed or recurring countdowns."
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:343
-#: build/Components/Compare/FreevsPro.js:93
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:35
 msgid "Dual Color Heading"
 msgstr ""
@@ -1088,8 +1014,6 @@ msgid "Style headings with dual colours and customizable typography."
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:357
-#: build/Components/Compare/FreevsPro.js:98
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:36
 msgid "Fancy Heading"
 msgstr ""
@@ -1107,8 +1031,6 @@ msgid "Add SEO-friendly FAQ sections to pages."
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:385
-#: build/Components/Compare/FreevsPro.js:141
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:49
 msgid "Google Map"
 msgstr ""
@@ -1142,8 +1064,6 @@ msgid "Create structured how-to pages with automatic schema markup."
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:439
-#: build/Components/Compare/FreevsPro.js:121
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:45
 msgid "Image Gallery"
 msgstr ""
@@ -1153,14 +1073,6 @@ msgid "Build attractive, feature-rich galleries with advanced options."
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:452
-#: build/Components/Compare/FreevsPro.js:151
-#: build/Components/Compare/UltimateCompare.js:28
-#: build/Components/Dashboard/UltimateFeatures.js:30
-#: build/Components/Widgets/UltimateWidgets.js:30
-#: build/main.js:40
-#: build/main.js:51
-#: build/main.js:139
-#: build/main.js:315
 #: src/Components/Compare/FreevsPro.jsx:51
 #: src/Components/Compare/UltimateCompare.jsx:27
 #: src/Components/Dashboard/UltimateFeatures.js:28
@@ -1173,8 +1085,6 @@ msgid "Add headings, icons, and descriptions in one flexible widget."
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:466
-#: build/Components/Compare/FreevsPro.js:314
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:110
 msgid "Instagram Feed"
 msgstr ""
@@ -1184,8 +1094,6 @@ msgid "Display an attractive, customizable Instagram feed."
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:481
-#: build/Components/Compare/FreevsPro.js:166
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:54
 msgid "Login Form"
 msgstr ""
@@ -1195,8 +1103,6 @@ msgid "Design beautiful, customizable WordPress login forms."
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:497
-#: build/Components/Compare/FreevsPro.js:179
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:61
 msgid "Marketing Button"
 msgstr ""
@@ -1242,8 +1148,6 @@ msgid "Showcase prices and features in customizable layouts."
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:580
-#: build/Components/Compare/FreevsPro.js:189
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:63
 msgid "Price List"
 msgstr ""
@@ -1255,8 +1159,6 @@ msgstr ""
 #: inc/widgets-manager/base/widgets-config.php:594
 #: inc/widgets-manager/widgets/retina/retina.php:111
 #: inc/widgets-manager/widgets/retina/retina.php:245
-#: build/Components/Compare/FreevsPro.js:332
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:118
 msgid "Retina Image"
 msgstr ""
@@ -1266,8 +1168,6 @@ msgid "Ensure images look crisp on high-resolution screens."
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:607
-#: build/Components/Compare/FreevsPro.js:324
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:112
 msgid "Social Share"
 msgstr ""
@@ -1277,8 +1177,6 @@ msgid "Enable quick content sharing with social media buttons."
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:623
-#: build/Components/Compare/FreevsPro.js:131
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:47
 msgid "Table"
 msgstr ""
@@ -1288,8 +1186,6 @@ msgid "Build responsive, styled tables to display data."
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:636
-#: build/Components/Compare/FreevsPro.js:273
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:93
 msgid "Table of Contents"
 msgstr ""
@@ -1299,8 +1195,6 @@ msgid "Improve page readability with automatic, customizable TOCs."
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:649
-#: build/Components/Compare/FreevsPro.js:337
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:119
 msgid "Team Member"
 msgstr ""
@@ -1310,8 +1204,6 @@ msgid "Highlight team members with customizable layouts."
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:663
-#: build/Components/Compare/FreevsPro.js:136
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:48
 msgid "Timeline"
 msgstr ""
@@ -1321,8 +1213,6 @@ msgid "Display timelines or roadmaps with advanced styling options."
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:677
-#: build/Components/Compare/FreevsPro.js:319
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:111
 msgid "Twitter Feed"
 msgstr ""
@@ -1340,8 +1230,6 @@ msgid "Create beautiful, custom registration forms for users."
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:708
-#: build/Components/Compare/FreevsPro.js:156
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:52
 msgid "Video"
 msgstr ""
@@ -1351,8 +1239,6 @@ msgid "Embed optimized videos with customizable thumbnails and play buttons."
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:721
-#: build/Components/Compare/FreevsPro.js:126
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:46
 msgid "Video Gallery"
 msgstr ""
@@ -1362,8 +1248,6 @@ msgid "Showcase multiple videos without impacting load times."
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:734
-#: build/Components/Compare/FreevsPro.js:291
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:101
 msgid "Welcome Music"
 msgstr ""
@@ -1445,8 +1329,6 @@ msgid "Add dynamic, animated backgrounds to sections and columns."
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:866
-#: build/Components/Compare/FreevsPro.js:301
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:103
 msgid "Party Propz"
 msgstr ""
@@ -1456,8 +1338,6 @@ msgid "Decorate your site with festive seasonal elements easily."
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:879
-#: build/Components/Compare/FreevsPro.js:306
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:104
 msgid "Shape Divider"
 msgstr ""
@@ -1475,8 +1355,6 @@ msgid "Copy and paste Elementor content between websites."
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:905
-#: build/Components/Compare/FreevsPro.js:286
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:100
 msgid "Presets"
 msgstr ""
@@ -1568,8 +1446,6 @@ msgstr ""
 #: inc/widgets-manager/widgets/site-logo/site-logo.php:142
 #: inc/widgets-manager/widgets/site-logo/site-logo.php:208
 #: inc/widgets-manager/widgets/site-logo/site-logo.php:270
-#: build/Components/Dashboard/ExtendWebsiteWidget.js:213
-#: build/main.js:95
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:243
 msgid "Yes"
 msgstr ""
@@ -2808,244 +2684,158 @@ msgstr ""
 msgid "Spacing"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:14
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:9
 msgid "Essentials"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:17
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:11
 msgid "White Label Option"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:22
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:12
 msgid "24/7 Premium Support"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:27
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:13
 msgid "Cross-Domain Copy-Paste"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:32
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:17
 msgid "Dynamic Header & Footer Widgets"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:85
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:32
 msgid "Creative & Advanced Design Widgets"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:103
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:37
 msgid "Multi-Button"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:108
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:38
 msgid "Image Hotspots"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:113
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:42
 msgid "Content & Media Widgets"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:116
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:44
 msgid "Content Toggle Button"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:146
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:50
 msgid "Before & After Slider"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:161
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:53
 msgid "Conditional Display"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:171
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:55
 msgid "User Registeration Form"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:176
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:59
 msgid "Marketing & Engagement Widgets"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:184
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:62
 msgid "Pricing Table"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:209
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:70
 msgid "E-Commerce Integration"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:212
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:72
 msgid "WooCommerce: Add to Cart"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:217
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:73
 msgid "WooCommerce: Product Category"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:222
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:74
 msgid "WooCommerce: Mini Cart"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:227
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:75
 msgid "WooCommerce: Product"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:232
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:76
 msgid "WooCommerce: Checkout"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:237
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:80
 msgid "Forms Integration"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:240
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:82
 msgid "Contact Form 7"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:245
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:83
 msgid "Gravity Forms"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:250
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:84
 msgid "WPForms"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:255
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:85
 msgid "Fluent Forms"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:260
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:89
 msgid "SEO Widgets"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:263
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:91
 msgid "FAQ with Schema"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:268
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:92
 msgid "How-To"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:283
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:98
 msgid "Creative Features"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:296
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:102
 msgid "Particles"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:311
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:108
 msgid "Social Media Integration"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:329
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:116
 msgid "Advanced Features"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:342
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:120
 msgid "Post Layout"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:347
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:121
 msgid "Off Canvas"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:386
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:168
 msgid "Free Vs Pro"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:388
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:171
 msgid "Ultimate Addons for Elementor Pro offers 50+ widgets and features!"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:390
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:174
 msgid "Compare the popular features/widgets to find the best option for your website."
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:405
-#: build/Components/Compare/UltimateCompare.js:99
-#: build/Components/Dashboard/MyAccount.js:62
-#: build/Components/Dashboard/UltimateFeatures.js:89
-#: build/Components/Widgets/UltimateWidgets.js:95
-#: build/main.js:40
-#: build/main.js:51
-#: build/main.js:106
-#: build/main.js:139
-#: build/main.js:315
 #: src/Components/Compare/FreevsPro.jsx:198
 #: src/Components/Compare/UltimateCompare.jsx:109
 #: src/Components/Dashboard/MyAccount.jsx:53
@@ -3054,13 +2844,6 @@ msgstr ""
 msgid "Upgrade Now"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:425
-#: build/Components/Dashboard/ExtendWebsiteWidget.js:185
-#: build/Components/NavMenu.js:152
-#: build/Components/NavMenu.js:160
-#: build/main.js:40
-#: build/main.js:95
-#: build/main.js:194
 #: src/Components/Compare/FreevsPro.jsx:218
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:200
 #: src/Components/NavMenu.js:233
@@ -3068,357 +2851,219 @@ msgstr ""
 msgid "Free"
 msgstr ""
 
-#: build/Components/Compare/FreevsPro.js:430
-#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:224
 msgid "Pro"
 msgstr ""
 
-#: build/Components/Compare/UltimateCompare.js:24
-#: build/Components/Dashboard/UltimateFeatures.js:26
-#: build/Components/Widgets/UltimateWidgets.js:26
-#: build/main.js:51
-#: build/main.js:139
-#: build/main.js:315
 #: src/Components/Compare/UltimateCompare.jsx:22
 #: src/Components/Dashboard/UltimateFeatures.js:23
 #: src/Components/Widgets/UltimateWidgets.jsx:23
 msgid "Post Layouts"
 msgstr ""
 
-#: build/Components/Compare/UltimateCompare.js:32
-#: build/Components/Dashboard/UltimateFeatures.js:34
-#: build/Components/Widgets/UltimateWidgets.js:34
-#: build/main.js:51
-#: build/main.js:139
-#: build/main.js:315
 #: src/Components/Compare/UltimateCompare.jsx:32
 #: src/Components/Dashboard/UltimateFeatures.js:33
 #: src/Components/Widgets/UltimateWidgets.jsx:33
 msgid "Pricing Cards"
 msgstr ""
 
-#: build/Components/Compare/UltimateCompare.js:36
-#: build/Components/Dashboard/UltimateFeatures.js:38
-#: build/Components/Widgets/UltimateWidgets.js:38
-#: build/main.js:51
-#: build/main.js:139
-#: build/main.js:315
 #: src/Components/Compare/UltimateCompare.jsx:37
 #: src/Components/Dashboard/UltimateFeatures.js:38
 #: src/Components/Widgets/UltimateWidgets.jsx:38
 msgid "Form Stylers and more..."
 msgstr ""
 
-#: build/Components/Compare/UltimateCompare.js:53
-#: build/Components/Dashboard/UltimateFeatures.js:99
-#: build/Components/Widgets/UltimateWidgets.js:52
-#: build/main.js:51
-#: build/main.js:139
-#: build/main.js:315
 #: src/Components/Compare/UltimateCompare.jsx:55
 #: src/Components/Dashboard/UltimateFeatures.js:135
 #: src/Components/Widgets/UltimateWidgets.jsx:54
 msgid "Column Showcase"
 msgstr ""
 
-#: build/Components/Compare/UltimateCompare.js:63
-#: build/Components/Dashboard/UltimateFeatures.js:57
-#: build/Components/Widgets/UltimateWidgets.js:62
-#: build/main.js:51
-#: build/main.js:139
-#: build/main.js:315
 #: src/Components/Compare/UltimateCompare.jsx:68
 #: src/Components/Dashboard/UltimateFeatures.js:62
 #: src/Components/Widgets/UltimateWidgets.jsx:67
 msgid "Unlock Ultimate Features"
 msgstr ""
 
-#: build/Components/Compare/UltimateCompare.js:70
-#: build/Components/Dashboard/UltimateFeatures.js:64
-#: build/Components/Widgets/UltimateWidgets.js:69
-#: build/main.js:51
-#: build/main.js:139
-#: build/main.js:315
 #: src/Components/Compare/UltimateCompare.jsx:76
 #: src/Components/Dashboard/UltimateFeatures.js:73
 #: src/Components/Widgets/UltimateWidgets.jsx:75
 msgid "Create Stunning Designs with the Pro Version!"
 msgstr ""
 
-#: build/Components/Compare/UltimateCompare.js:74
-#: build/Components/Dashboard/UltimateFeatures.js:68
-#: build/Components/Widgets/UltimateWidgets.js:73
-#: build/main.js:51
-#: build/main.js:139
-#: build/main.js:315
 #: src/Components/Compare/UltimateCompare.jsx:80
 #: src/Components/Dashboard/UltimateFeatures.js:80
 #: src/Components/Widgets/UltimateWidgets.jsx:82
 msgid "Get access to advanced widgets and features to create the website that stands out!"
 msgstr ""
 
-#: build/Components/Dashboard/ExtendWebsite.js:65
-#: build/main.js:84
 #: src/Components/Dashboard/ExtendWebsite.jsx:57
 msgid "Extend Your Website"
 msgstr ""
 
-#: build/Components/Dashboard/ExtendWebsiteWidget.js:70
-#: build/main.js:95
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:72
 msgid "Installing.."
 msgstr ""
 
-#: build/Components/Dashboard/ExtendWebsiteWidget.js:77
-#: build/main.js:95
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:80
 msgid "Installed"
 msgstr ""
 
-#: build/Components/Dashboard/ExtendWebsiteWidget.js:89
-#: build/main.js:95
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:94
 msgid "Theme Installation failed, Please try again later."
 msgstr ""
 
-#: build/Components/Dashboard/ExtendWebsiteWidget.js:89
-#: build/main.js:95
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:95
 msgid "Plugin Installation failed, Please try again later."
 msgstr ""
 
-#: build/Components/Dashboard/ExtendWebsiteWidget.js:127
-#: build/main.js:95
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:144
 msgid "Activating.."
 msgstr ""
 
-#: build/Components/Dashboard/ExtendWebsiteWidget.js:205
-#: build/main.js:95
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:222
 msgid "Visit Site"
 msgstr ""
 
-#: build/Components/Dashboard/ExtendWebsiteWidget.js:211
-#: build/main.js:95
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:234
 msgid "Activate Theme"
 msgstr ""
 
-#: build/Components/Dashboard/ExtendWebsiteWidget.js:211
-#: build/main.js:95
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:238
 msgid "Are you sure you want to switch your current theme to Astra?"
 msgstr ""
 
-#: build/Components/Dashboard/ExtendWebsiteWidget.js:216
-#: build/main.js:95
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:246
 msgid "Close"
 msgstr ""
 
-#: build/Components/Dashboard/MyAccount.js:20
-#: build/Components/Settings/Settings.js:32
-#: build/main.js:106
-#: build/main.js:216
 #: src/Components/Dashboard/MyAccount.jsx:16
 #: src/Components/Settings/Settings.jsx:29
 msgid "My Account"
 msgstr ""
 
-#: build/Components/Dashboard/MyAccount.js:35
-#: build/main.js:106
 #: src/Components/Dashboard/MyAccount.jsx:30
 msgid "License Key"
 msgstr ""
 
-#: build/Components/Dashboard/MyAccount.js:46
-#: build/main.js:106
 #: src/Components/Dashboard/MyAccount.jsx:35
 msgid "Unlock Pro Features"
 msgstr ""
 
-#: build/Components/Dashboard/MyAccount.js:48
-#: build/main.js:106
 #: src/Components/Dashboard/MyAccount.jsx:36
 msgid "Get access to advanced blocks and premium features."
 msgstr ""
 
-#: build/Components/Dashboard/QuickAccess.js:24
-#: build/main.js:117
 #: src/Components/Dashboard/QuickAccess.js:20
 msgid "Quick Access"
 msgstr ""
 
-#: build/Components/Dashboard/QuickAccess.js:49
-#: build/main.js:117
 #: src/Components/Dashboard/QuickAccess.js:53
 msgid "Contact Us"
 msgstr ""
 
-#: build/Components/Dashboard/QuickAccess.js:59
-#: build/main.js:117
 #: src/Components/Dashboard/QuickAccess.js:69
 msgid "Help Centre"
 msgstr ""
 
-#: build/Components/Dashboard/QuickAccess.js:69
-#: build/main.js:117
 #: src/Components/Dashboard/QuickAccess.js:85
 msgid "Request a Feature"
 msgstr ""
 
-#: build/Components/Dashboard/TemplateSection.js:66
-#: build/main.js:128
 #: src/Components/Dashboard/TemplateSection.js:64
 msgid "Build Websites 10x Faster with Templates"
 msgstr ""
 
-#: build/Components/Dashboard/TemplateSection.js:69
-#: build/main.js:128
 #: src/Components/Dashboard/TemplateSection.js:70
 msgid "Choose from our professionally designed websites to build your site faster, with easy customization options."
 msgstr ""
 
-#: build/Components/Dashboard/TemplateSection.js:78
-#: build/Components/Dashboard/TemplateSection.js:85
-#: build/main.js:128
 #: src/Components/Dashboard/TemplateSection.js:85
 #: src/Components/Dashboard/TemplateSection.js:97
 msgid "View Templates"
 msgstr ""
 
-#: build/Components/Dashboard/UltimateFeatures.js:92
-#: build/Components/Widgets/UltimateWidgets.js:98
-#: build/main.js:139
-#: build/main.js:315
 #: src/Components/Dashboard/UltimateFeatures.js:122
 #: src/Components/Widgets/UltimateWidgets.jsx:119
 msgid "Compare Free vs Pro"
 msgstr ""
 
-#: build/Components/Dashboard/WelcomeContainer.js:29
-#: build/main.js:150
 #: src/Components/Dashboard/WelcomeContainer.js:25
 msgid "Welcome to Ultimate Addons for Elementor!"
 msgstr ""
 
-#: build/Components/Dashboard/WelcomeContainer.js:32
-#: build/main.js:150
 #: src/Components/Dashboard/WelcomeContainer.js:29
 msgid "We're excited to help you supercharge your website-building experience. Effortlessly design stunning websites with our comprehensive range of free and premium widgets and features."
 msgstr ""
 
-#: build/Components/Dashboard/WelcomeContainer.js:47
-#: build/main.js:150
 #: src/Components/Dashboard/WelcomeContainer.js:58
 msgid "Create Header/Footer"
 msgstr ""
 
-#: build/Components/Dashboard/WelcomeContainer.js:61
-#: build/main.js:150
 #: src/Components/Dashboard/WelcomeContainer.js:86
 msgid "Create New Page"
 msgstr ""
 
-#: build/Components/Dashboard/WelcomeContainer.js:79
-#: build/main.js:150
 #: src/Components/Dashboard/WelcomeContainer.js:115
 msgid "Read full guide"
 msgstr ""
 
-#: build/Components/Dashboard/WidgetItem.js:132
-#: build/main.js:161
 #: src/Components/Dashboard/WidgetItem.jsx:132
 msgid "View Demo"
 msgstr ""
 
-#: build/Components/Dashboard/WidgetItem.js:156
-#: build/main.js:161
 #: src/Components/Dashboard/WidgetItem.jsx:145
 msgid "Read Documentation"
 msgstr ""
 
-#: build/Components/HeaderLine.js:19
-#: build/main.js:183
 #: src/Components/HeaderLine.js:16
 msgid "Formerly Elementor Header & Footer Builder"
 msgstr ""
 
-#: build/Components/NavMenu.js:119
-#: build/main.js:194
 #: src/Components/NavMenu.js:162
 msgid "Widgets"
 msgstr ""
 
-#: build/Components/NavMenu.js:123
-#: build/main.js:194
 #: src/Components/NavMenu.js:173
 msgid "Templates"
 msgstr ""
 
-#: build/Components/NavMenu.js:131
-#: build/main.js:194
 #: src/Components/NavMenu.js:193
 msgid "Free vs Pro"
 msgstr ""
 
-#: build/Components/NavMenu.js:145
-#: build/main.js:194
 #: src/Components/NavMenu.js:220
 msgid "Get Pro"
 msgstr ""
 
-#: build/Components/NavMenu.js:157
-#: build/main.js:194
 #: src/Components/NavMenu.js:244
 msgid "Version"
 msgstr ""
 
-#: build/Components/NavMenu.js:171
-#: build/main.js:194
 #: src/Components/NavMenu.js:278
 msgid "Useful Resources"
 msgstr ""
 
-#: build/Components/NavMenu.js:181
-#: build/main.js:194
 #: src/Components/NavMenu.js:295
 msgid "Getting Started"
 msgstr ""
 
-#: build/Components/NavMenu.js:183
-#: build/main.js:194
 #: src/Components/NavMenu.js:308
 msgid "How to use widgets"
 msgstr ""
 
-#: build/Components/NavMenu.js:185
-#: build/main.js:194
 #: src/Components/NavMenu.js:321
 msgid "How to use features"
 msgstr ""
 
-#: build/Components/NavMenu.js:187
-#: build/main.js:194
 #: src/Components/NavMenu.js:334
 msgid "How to use templates"
 msgstr ""
 
-#: build/Components/NavMenu.js:189
-#: build/main.js:194
 #: src/Components/NavMenu.js:347
 msgid "Contact us"
 msgstr ""
 
-#: build/Components/Settings/Settings.js:24
-#: build/Components/Settings/Settings.js:29
-#: build/Components/Settings/Settings.js:38
-#: build/Components/Settings/Settings.js:43
-#: build/Components/Settings/Settings.js:53
-#: build/Components/Settings/Settings.js:58
-#: build/main.js:216
 #: src/Components/Settings/Settings.jsx:18
 #: src/Components/Settings/Settings.jsx:25
 #: src/Components/Settings/Settings.jsx:37
@@ -3428,257 +3073,169 @@ msgstr ""
 msgid "Custom SVG"
 msgstr ""
 
-#: build/Components/Settings/Settings.js:46
-#: build/main.js:216
 #: src/Components/Settings/Settings.jsx:48
 msgid "Editor"
 msgstr ""
 
-#: build/Components/Settings/Settings.js:61
-#: build/main.js:216
 #: src/Components/Settings/Settings.jsx:68
 msgid "Utilities"
 msgstr ""
 
-#: build/Components/Settings/Settings.js:62
-#: build/Components/Settings/VersionControl.js:36
-#: build/main.js:216
-#: build/main.js:249
 #: src/Components/Settings/Settings.jsx:69
 #: src/Components/Settings/VersionControl.jsx:45
 msgid "Version Control"
 msgstr ""
 
-#: build/Components/Settings/ThemeSupport.js:15
-#: build/main.js:238
 #: src/Components/Settings/ThemeSupport.jsx:9
 msgid "Option 1 (Recommended)"
 msgstr ""
 
-#: build/Components/Settings/ThemeSupport.js:16
-#: build/Components/Settings/ThemeSupport.js:21
-#: build/main.js:238
 #: src/Components/Settings/ThemeSupport.jsx:10
 #: src/Components/Settings/ThemeSupport.jsx:16
 msgid "This option will automatically replace your theme's header and footer files with custom templates from the plugin. It works with most themes and is selected by default."
 msgstr ""
 
-#: build/Components/Settings/ThemeSupport.js:20
-#: build/main.js:238
 #: src/Components/Settings/ThemeSupport.jsx:15
 msgid "Option 2"
 msgstr ""
 
-#: build/Components/Settings/ThemeSupport.js:62
-#: build/main.js:238
 #: src/Components/Settings/ThemeSupport.jsx:63
 msgid "Settings saved successfully!"
 msgstr ""
 
-#: build/Components/Settings/ThemeSupport.js:64
-#: build/Components/Settings/ThemeSupport.js:67
-#: build/main.js:238
 #: src/Components/Settings/ThemeSupport.jsx:65
 #: src/Components/Settings/ThemeSupport.jsx:68
 msgid "Failed to save settings!"
 msgstr ""
 
-#: build/Components/Settings/ThemeSupport.js:92
-#: build/main.js:238
 #: src/Components/Settings/ThemeSupport.jsx:95
 msgid "Select Option to Add Theme Support"
 msgstr ""
 
-#: build/Components/Settings/ThemeSupport.js:94
-#: build/main.js:238
 #: src/Components/Settings/ThemeSupport.jsx:97
 msgid "To ensure compatibility between the header/footer and your theme, please choose one of the following options to enable theme support:"
 msgstr ""
 
-#: build/Components/Settings/ThemeSupport.js:129
-#: build/main.js:238
 #: src/Components/Settings/ThemeSupport.jsx:140
 msgid "Note:"
 msgstr ""
 
-#: build/Components/Settings/ThemeSupport.js:129
-#: build/main.js:238
 #: src/Components/Settings/ThemeSupport.jsx:140
 msgid "If neither option works, please contact your theme author to add support for this plugin."
 msgstr ""
 
-#: build/Components/Settings/VersionControl.js:55
-#: build/main.js:249
 #: src/Components/Settings/VersionControl.jsx:66
 msgid "Experiencing an issue with current version? Roll back to a previous version to help troubleshoot the issue."
 msgstr ""
 
-#: build/Components/Settings/VersionControl.js:104
-#: build/Components/Settings/VersionControl.js:109
-#: build/main.js:249
 #: src/Components/Settings/VersionControl.jsx:112
 #: src/Components/Settings/VersionControl.jsx:129
 msgid "Rollback"
 msgstr ""
 
-#: build/Components/Settings/VersionControl.js:111
-#: build/main.js:249
 #: src/Components/Settings/VersionControl.jsx:132
 msgid "Cancel"
 msgstr ""
 
-#: build/Components/Templates/ExploreTemplates.js:22
-#: build/main.js:260
 #: src/Components/Templates/ExploreTemplates.jsx:17
 msgid "250+ templates for every niche"
 msgstr ""
 
-#: build/Components/Templates/ExploreTemplates.js:26
-#: build/main.js:260
 #: src/Components/Templates/ExploreTemplates.jsx:22
 msgid "Modern, timeless designs"
 msgstr ""
 
-#: build/Components/Templates/ExploreTemplates.js:30
-#: build/main.js:260
 #: src/Components/Templates/ExploreTemplates.jsx:27
 msgid "Full design flexibility for easy customization"
 msgstr ""
 
-#: build/Components/Templates/ExploreTemplates.js:34
-#: build/main.js:260
 #: src/Components/Templates/ExploreTemplates.jsx:32
 msgid "100% responsive across all devices"
 msgstr ""
 
-#: build/Components/Templates/ExploreTemplates.js:60
-#: build/Components/Templates/ExploreTemplates.js:84
-#: build/main.js:260
 #: src/Components/Templates/ExploreTemplates.jsx:65
 #: src/Components/Templates/ExploreTemplates.jsx:94
 msgid "Install Starter Templates"
 msgstr ""
 
-#: build/Components/Templates/ExploreTemplates.js:60
-#: build/Components/Templates/ExploreTemplates.js:149
-#: build/main.js:260
 #: src/Components/Templates/ExploreTemplates.jsx:65
 #: src/Components/Templates/ExploreTemplates.jsx:167
 msgid "Activate Starter Templates"
 msgstr ""
 
-#: build/Components/Templates/ExploreTemplates.js:71
-#: build/main.js:260
 #: src/Components/Templates/ExploreTemplates.jsx:81
 msgid "Installing Starter Templates..."
 msgstr ""
 
-#: build/Components/Templates/ExploreTemplates.js:80
-#: build/main.js:260
 #: src/Components/Templates/ExploreTemplates.jsx:90
 msgid "Installed Starter Templates"
 msgstr ""
 
-#: build/Components/Templates/ExploreTemplates.js:89
-#: build/Components/Templates/ExploreTemplates.js:136
-#: build/main.js:260
 #: src/Components/Templates/ExploreTemplates.jsx:100
 #: src/Components/Templates/ExploreTemplates.jsx:156
 msgid "Activating Starter Templates..."
 msgstr ""
 
-#: build/Components/Templates/ExploreTemplates.js:138
-#: build/main.js:260
 #: src/Components/Templates/ExploreTemplates.jsx:158
 msgid "Activated Starter Templates"
 msgstr ""
 
-#: build/Components/Templates/ExploreTemplates.js:167
-#: build/main.js:260
 #: src/Components/Templates/ExploreTemplates.jsx:191
 msgid "Design Your Website in Minutes"
 msgstr ""
 
-#: build/Components/Templates/ExploreTemplates.js:174
-#: build/main.js:260
 #: src/Components/Templates/ExploreTemplates.jsx:200
 msgid "Build your website faster using our prebuilt templates"
 msgstr ""
 
-#: build/Components/Templates/ExploreTemplates.js:178
-#: build/main.js:260
 #: src/Components/Templates/ExploreTemplates.jsx:205
 msgid "Stop building your site from scratch. Use our professional templates for your stunning website.It is easy to customize and completely responsive. Explore hundreds of designs and bring your vision to life in no time."
 msgstr ""
 
-#: build/Components/Templates/ExploreTemplates.js:206
-#: build/main.js:260
 #: src/Components/Templates/ExploreTemplates.jsx:238
 msgid "Explore Templates"
 msgstr ""
 
-#: build/Components/Templates/ExploreTemplates.js:214
-#: build/main.js:260
 #: src/Components/Templates/ExploreTemplates.jsx:249
 msgid "Learn More"
 msgstr ""
 
-#: build/Components/UpgradeNotice.js:45
-#: build/main.js:282
 #: src/Components/UpgradeNotice.jsx:33
 msgid "Close Upgrade Notice"
 msgstr ""
 
-#: build/Components/UpgradeNotice.js:46
-#: build/main.js:282
 #: src/Components/UpgradeNotice.jsx:38
 msgid "Unlock Ultimate Addons For Elementor!  "
 msgstr ""
 
-#: build/Components/UpgradeNotice.js:46
-#: build/main.js:282
 #: src/Components/UpgradeNotice.jsx:44
 msgid "Get exclusive features and unbeatable performance.  "
 msgstr ""
 
-#: build/Components/UpgradeNotice.js:52
-#: build/main.js:282
 #: src/Components/UpgradeNotice.jsx:53
 msgid "Upgrade now"
 msgstr ""
 
-#: build/Components/Widgets/Features/FeatureWidgets.js:137
-#: build/main.js:304
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:140
 msgid "Widgets / Features"
 msgstr ""
 
-#: build/Components/Widgets/Features/FeatureWidgets.js:149
-#: build/main.js:304
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:152
 msgid "Search..."
 msgstr ""
 
-#: build/Components/Widgets/Features/FeatureWidgets.js:177
-#: build/main.js:304
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:174
 msgid "Activating..."
 msgstr ""
 
-#: build/Components/Widgets/Features/FeatureWidgets.js:177
-#: build/main.js:304
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:174
 msgid "Activate All"
 msgstr ""
 
-#: build/Components/Widgets/Features/FeatureWidgets.js:187
-#: build/main.js:304
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:185
 msgid "Deactivating..."
 msgstr ""
 
-#: build/Components/Widgets/Features/FeatureWidgets.js:187
-#: build/main.js:304
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:185
 msgid "Deactivate All"
 msgstr ""
