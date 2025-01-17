@@ -1,0 +1,54 @@
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _react = _interopRequireDefault(require("react"));
+var _i18n = require("@wordpress/i18n");
+const UpgradeNotice = _ref => {
+  let {
+    onClose
+  } = _ref;
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "uae-upgrade p-3 d font-medium",
+    style: {
+      backgroundColor: "#E9E4FF",
+      textAlign: "center",
+      fontSize: "0.82rem",
+      zIndex: "9",
+      position: "relative"
+    }
+  }, /*#__PURE__*/_react.default.createElement("button", {
+    onClick: onClose // Call the passed onClose function when clicked
+    ,
+    style: {
+      position: "absolute",
+      top: "5px",
+      right: "10px",
+      background: "none",
+      border: "none",
+      fontSize: "24px",
+      cursor: "pointer",
+      color: "#000",
+      width: "32px",
+      // Explicit width
+      height: "32px",
+      // Explicit height for square dimensions
+      display: "flex",
+      // Flexbox for centering
+      alignItems: "center",
+      // Vertical centering
+      justifyContent: "center" // Horizontal centering
+    },
+    "aria-label": (0, _i18n.__)("Close Upgrade Notice", "header-footer-elementor")
+  }, "\xD7"), /*#__PURE__*/_react.default.createElement("strong", null, (0, _i18n.__)("Unlock Ultimate Addons For Elementor!  ", "header-footer-elementor")), /*#__PURE__*/_react.default.createElement("span", null, (0, _i18n.__)("Get exclusive features and unbeatable performance.  ", "header-footer-elementor"), " ", /*#__PURE__*/_react.default.createElement("a", {
+    href: "https://ultimateelementor.com/pricing/?utm_source=uae-lite-navbar&utm_medium=upgrade-now&utm_campaign=uae-lite-upgrade",
+    target: "_blank",
+    style: {
+      color: "#000000"
+    }
+  }, (0, _i18n.__)("Upgrade now", "header-footer-elementor"))));
+};
+var _default = exports.default = UpgradeNotice;
