@@ -421,7 +421,54 @@ class Header_Footer_Elementor {
 	 * @return void
 	 */
 	public function load_textdomain() {
-		load_plugin_textdomain( 'header-footer-elementor' );
+		// load_plugin_textdomain( 'header-footer-elementor' );
+
+		// Default languages directory.
+		$lang_dir = HFE_DIR . 'languages/';
+
+		/**
+		 * Filters the languages directory path to use for plugin.
+		 *
+		 * @param string $lang_dir The languages directory path.
+		 */
+		$lang_dir = apply_filters( 'hfe_languages_directory', $lang_dir );
+
+		// Traditional WordPress plugin locale filter.
+		global $wp_version;
+
+		$get_locale = get_locale();
+
+		if ( $wp_version >= 4.7 ) {
+			$get_locale = get_user_locale();
+		}
+
+		/**
+		 * Language Locale for plugin
+		 *
+		 * @var $get_locale The locale to use.
+		 * Uses get_user_locale()` in WordPress 4.7 or greater,
+		 * otherwise uses `get_locale()`.
+		 */
+		$locale = apply_filters( 'plugin_locale', $get_locale, 'header-footer-elementor' );
+		$mofile = sprintf( '%1$s-%2$s.mo', 'header-footer-elementor', $locale );
+
+		// Setup paths to current locale file.
+		$mofile_global = WP_LANG_DIR . '/plugins/' . $mofile;
+		$mofile_local  = $lang_dir . $mofile;
+
+		error_log( 'mofile_global: ' . $mofile_global );
+		error_log( 'mofile_local: ' . $mofile_local );
+
+		if ( file_exists( $mofile_global ) ) {
+			// Look in global /wp-content/languages/header-footer-elementor/ folder.
+			load_textdomain( 'header-footer-elementor', $mofile_global );
+		} elseif ( file_exists( $mofile_local ) ) {
+			// Look in local /wp-content/plugins/header-footer-elementor/languages/ folder.
+			load_textdomain( 'header-footer-elementor', $mofile_local );
+		} else {
+			// Load the default language files.
+			load_plugin_textdomain( 'header-footer-elementor' );
+		}
 	}
 
 	/**
