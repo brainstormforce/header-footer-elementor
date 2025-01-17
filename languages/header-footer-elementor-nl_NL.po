@@ -248,7 +248,7 @@ msgstr "Installeer Elementor"
 msgid "Update Elementor"
 msgstr "Update Elementor"
 
-#: inc/class-header-footer-elementor.php:546
+#: inc/class-header-footer-elementor.php:593
 #: build/main.js:216
 #: build/main.js:238
 #: src/Components/Settings/Settings.jsx:49
@@ -2607,7 +2607,7 @@ msgstr "Huidig item"
 
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:662
 msgid "Search results for: "
-msgstr "Zoekresultaten voor: "
+msgstr "Zoekresultaten voor:"
 
 #: inc/widgets-manager/widgets/post-info/post-info.php:112
 msgid "Inline"
@@ -2988,52 +2988,52 @@ msgstr "Weet je zeker dat je je huidige thema wilt wijzigen naar Astra?"
 #: build/main.js:95
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:246
 msgid "Close"
-msgstr ""
+msgstr "Sluiten"
 
 #: build/main.js:84
 #: src/Components/Dashboard/ExtendWebsite.jsx:57
 msgid "Extend Your Website"
-msgstr ""
+msgstr "Breid uw website uit"
 
 #: build/main.js:304
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:140
 msgid "Widgets / Features"
-msgstr ""
+msgstr "Widgets / Functies"
 
 #: build/main.js:304
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:152
 msgid "Search..."
-msgstr ""
+msgstr "Zoeken..."
 
 #: build/main.js:304
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:174
 msgid "Activating..."
-msgstr ""
+msgstr "Activeren..."
 
 #: build/main.js:304
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:174
 msgid "Activate All"
-msgstr ""
+msgstr "Activeer alles"
 
 #: build/main.js:304
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:185
 msgid "Deactivating..."
-msgstr ""
+msgstr "Deactiveren..."
 
 #: build/main.js:304
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:185
 msgid "Deactivate All"
-msgstr ""
+msgstr "Deactiveer alles"
 
 #: build/main.js:260
 #: src/Components/Templates/ExploreTemplates.jsx:17
 msgid "250+ templates for every niche"
-msgstr ""
+msgstr "250+ sjablonen voor elke niche"
 
 #: build/main.js:260
 #: src/Components/Templates/ExploreTemplates.jsx:22
 msgid "Modern, timeless designs"
-msgstr ""
+msgstr "Moderne, tijdloze ontwerpen"
 
 #: build/main.js:260
 #: src/Components/Templates/ExploreTemplates.jsx:27
@@ -3385,65 +3385,65 @@ msgstr "Krijg exclusieve functies en ongeëvenaarde prestaties."
 msgid "Upgrade now"
 msgstr "Upgrade nu"
 
-#: inc/widgets-manager/widgets/post-info/post-info.php:152
-msgctxt "Date Format"
-msgid "June 1, 2024 (F j, Y)"
-msgstr "1 juni 2024 (F j, Y)"
-
 #. Plugin Name of the plugin
 #: header-footer-elementor.php
 msgid "Ultimate Addons for Elementor Lite"
-msgstr ""
+msgstr "Ultimate Addons voor Elementor Lite"
 
 #: inc/class-hfe-rollback.php:167
 msgid "Ultimate Addons for Elementor Lite <p>Rollback to Previous Version</p>"
-msgstr ""
+msgstr "Ultimate Addons voor Elementor Lite <p>Terugrollen naar vorige versie</p>"
 
 #: inc/widgets-manager/class-widgets-loader.php:190
 msgid "Ultimate Addons"
-msgstr ""
+msgstr "Ultimate Addons"
 
 #: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:44
 msgid "Content Toggle Button"
-msgstr ""
+msgstr "Inhoud Toggle-knop"
 
 #: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:50
 msgid "Before & After Slider"
-msgstr ""
+msgstr "Voor & Na Slider"
 
 #: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:53
 msgid "Conditional Display"
-msgstr ""
+msgstr "Voorwaardelijke weergave"
 
 #: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:55
 msgid "User Registeration Form"
-msgstr ""
+msgstr "Gebruikersregistratieformulier"
 
 #: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:75
 msgid "WooCommerce: Product"
-msgstr ""
+msgstr "WooCommerce: Product"
 
 #: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:89
 msgid "SEO Widgets"
-msgstr ""
+msgstr "SEO Widgets"
 
 #: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:91
 msgid "FAQ with Schema"
-msgstr ""
+msgstr "FAQ met Schema"
 
 #: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:92
 msgid "How-To"
-msgstr ""
+msgstr "Hoe-te"
 
 #: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:121
 msgid "Off Canvas"
-msgstr ""
+msgstr "Off Canvas"
+
+#: inc/widgets-manager/widgets/post-info/post-info.php:152
+msgctxt "Date Format"
+msgid "June 1, 2024 (F j, Y)"
+msgstr "1 juni 2024 (F j, Y)"

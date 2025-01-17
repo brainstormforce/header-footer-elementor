@@ -312,7 +312,7 @@ msgstr "Actualizar Elementor"
 msgid "Thank you for installing %1$s Ultimate Addons for Elementor %2$s Plugin! Click here to %3$sget started. %4$s"
 msgstr "¡Gracias por instalar el plugin %1$s Ultimate Addons for Elementor %2$s! Haz clic aquí para %3$scomenzar. %4$s"
 
-#: inc/class-header-footer-elementor.php:546
+#: inc/class-header-footer-elementor.php:593
 #: build/main.js:216
 #: build/main.js:238
 #: src/Components/Settings/Settings.jsx:49

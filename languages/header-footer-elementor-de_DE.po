@@ -11,52 +11,42 @@ msgstr ""
 "PO-Revision-Date: 2025-01-10T11:57:03+00:00\n"
 "Language: \n"
 
-#: header-footer-elementor.php
 #. Plugin Name of the plugin
+#: header-footer-elementor.php
 msgid "Ultimate Addons for Elementor Lite"
 msgstr "Ultimate Addons für Elementor Lite"
 
-#: header-footer-elementor.php
 #. Plugin URI of the plugin
+#: header-footer-elementor.php
 msgid "https://wordpress.org/plugins/header-footer-elementor/"
 msgstr "https://wordpress.org/plugins/header-footer-elementor/"
 
-#: header-footer-elementor.php
 #. Description of the plugin
-msgid ""
-"Formerly known as \"Elementor Header & Footer Builder\", this powerful plugin allows you to create custom headers and "
-"footers with Elementor and display them in selected locations. You can also create custom Elementor blocks and place "
-"them anywhere on your website using a shortcode."
-msgstr ""
-"Ehemals bekannt als \"Elementor Header & Footer Builder\", ermöglicht dieses leistungsstarke Plugin das Erstellen von "
-"benutzerdefinierten Kopf- und Fußzeilen mit Elementor und deren Anzeige an ausgewählten Orten. Sie können auch "
-"benutzerdefinierte Elementor-Blöcke erstellen und diese überall auf Ihrer Website mit einem Shortcode platzieren."
-
 #: header-footer-elementor.php
+msgid "Formerly known as \"Elementor Header & Footer Builder\", this powerful plugin allows you to create custom headers and footers with Elementor and display them in selected locations. You can also create custom Elementor blocks and place them anywhere on your website using a shortcode."
+msgstr "Ehemals bekannt als \"Elementor Header & Footer Builder\", ermöglicht dieses leistungsstarke Plugin das Erstellen von benutzerdefinierten Kopf- und Fußzeilen mit Elementor und deren Anzeige an ausgewählten Orten. Sie können auch benutzerdefinierte Elementor-Blöcke erstellen und diese überall auf Ihrer Website mit einem Shortcode platzieren."
+
 #. Author of the plugin
+#: header-footer-elementor.php
 msgid "Brainstorm Force"
 msgstr "Brainstorm Force"
 
-#: header-footer-elementor.php
 #. Author URI of the plugin
+#: header-footer-elementor.php
 msgid "https://www.brainstormforce.com/"
 msgstr "https://www.brainstormforce.com/"
 
-#: admin/bsf-analytics/class-bsf-analytics.php:220
 #. translators: %s product name
-msgid ""
-"Want to help make <strong>%1s</strong> even more awesome? Allow us to collect non-sensitive diagnostic data and usage "
-"information. "
-msgstr ""
-"Möchten Sie helfen, <strong>%1s</strong> noch großartiger zu machen? Erlauben Sie uns, nicht sensible Diagnosedaten und "
-"Nutzungsinformationen zu sammeln."
+#: admin/bsf-analytics/class-bsf-analytics.php:220
+msgid "Want to help make <strong>%1s</strong> even more awesome? Allow us to collect non-sensitive diagnostic data and usage information. "
+msgstr "Möchten Sie helfen, <strong>%1s</strong> noch großartiger zu machen? Erlauben Sie uns, nicht sensible Diagnosedaten und Nutzungsinformationen zu sammeln."
 
 #: admin/bsf-analytics/class-bsf-analytics.php:223
 msgid "This will be applicable for all sites from the network."
 msgstr "Dies gilt für alle Seiten im Netzwerk."
 
-#: admin/bsf-analytics/class-bsf-analytics.php:247
 #. translators: %s usage doc link
+#: admin/bsf-analytics/class-bsf-analytics.php:247
 msgid " Know More."
 msgstr "Mehr erfahren."
 
@@ -72,8 +62,8 @@ msgstr "Nein danke"
 msgid "Usage Tracking"
 msgstr "Nutzungsverfolgung"
 
-#: admin/bsf-analytics/class-bsf-analytics.php:419
 #. translators: %s Product title
+#: admin/bsf-analytics/class-bsf-analytics.php:419
 msgid "Allow %s products to track non-sensitive usage tracking data."
 msgstr "Erlauben Sie %s Produkten, nicht sensible Nutzungsverfolgungsdaten zu verfolgen."
 
@@ -269,8 +259,8 @@ msgstr "Benutzer"
 msgid "Add User Rule"
 msgstr "Benutzerregel hinzufügen"
 
-#: admin/class-hfe-admin.php:574
 #. Translators: Post title, Template Location
+#: admin/class-hfe-admin.php:574
 msgid "Template %1$s is already assigned to the location %2$s"
 msgstr "Vorlage %1$s ist bereits dem Standort %2$s zugewiesen"
 
@@ -279,9 +269,7 @@ msgid "Hello! Seems like you have used Ultimate Addons for Elementor to build th
 msgstr "Hallo! Es scheint, dass Sie Ultimate Addons für Elementor verwendet haben, um diese Website zu erstellen – Vielen Dank!"
 
 #: inc/class-header-footer-elementor.php:214
-msgid ""
-"Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help "
-"other users make a comfortable decision while choosing the Ultimate Addons for Elementor."
+msgid "Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Ultimate Addons for Elementor."
 msgstr ""
 
 #: inc/class-header-footer-elementor.php:216
@@ -296,8 +284,8 @@ msgstr ""
 msgid "I already did"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:284
 #. translators: %s: html tags
+#: inc/class-header-footer-elementor.php:284
 msgid "The %1$sUltimate Addons for Elementor%2$s plugin requires %1$sElementor%2$s plugin installed & activated."
 msgstr ""
 
@@ -310,27 +298,21 @@ msgstr "Aktivieren Sie Elementor"
 msgid "Install Elementor"
 msgstr "Elementor installieren"
 
-#: inc/class-header-footer-elementor.php:320
 #. translators: %s: html tags
-msgid ""
-"The %1$sUltimate Addons for Elementor%2$s plugin has stopped working because you are using an older version of "
-"%1$sElementor%2$s plugin."
-msgstr ""
-"Das %1$sUltimate Addons für Elementor%2$s-Plugin funktioniert nicht mehr, da Sie eine ältere Version des "
-"%1$sElementor%2$s-Plugins verwenden."
+#: inc/class-header-footer-elementor.php:320
+msgid "The %1$sUltimate Addons for Elementor%2$s plugin has stopped working because you are using an older version of %1$sElementor%2$s plugin."
+msgstr "Das %1$sUltimate Addons für Elementor%2$s-Plugin funktioniert nicht mehr, da Sie eine ältere Version des %1$sElementor%2$s-Plugins verwenden."
 
 #: inc/class-header-footer-elementor.php:327
 msgid "Update Elementor"
 msgstr "Elementor aktualisieren"
 
-#: inc/class-header-footer-elementor.php:360
 #. translators: %s: html tags
+#: inc/class-header-footer-elementor.php:360
 msgid "Thank you for installing %1$s Ultimate Addons for Elementor %2$s Plugin! Click here to %3$sget started. %4$s"
-msgstr ""
-"Vielen Dank, dass Sie das %1$s Ultimate Addons für Elementor %2$s-Plugin installiert haben! Klicken Sie hier, um %3$szu "
-"beginnen.%4$s"
+msgstr "Vielen Dank, dass Sie das %1$s Ultimate Addons für Elementor %2$s-Plugin installiert haben! Klicken Sie hier, um %3$szu beginnen.%4$s"
 
-#: inc/class-header-footer-elementor.php:546
+#: inc/class-header-footer-elementor.php:593
 #: build/main.js:216
 #: build/main.js:238
 #: src/Components/Settings/Settings.jsx:49
@@ -434,16 +416,8 @@ msgid "Add Theme Support"
 msgstr "Theme-Support hinzufügen"
 
 #: inc/class-hfe-settings-page.php:415
-msgid ""
-"The Ultimate Addons for Elementor plugin need compatibility with your current theme to work "
-"smoothly.</br></br>Following are two methods that enable theme support for the plugin.</br></br>Method 1 is selected by "
-"default and that works fine almost will all themes. In case, you face any issue with the header or footer template, try "
-"choosing Method 2."
-msgstr ""
-"Das Ultimate Addons für Elementor-Plugin benötigt Kompatibilität mit Ihrem aktuellen Theme, um reibungslos zu "
-"funktionieren.</br></br>Folgend sind zwei Methoden aufgeführt, die den Theme-Support für das Plugin "
-"aktivieren.</br></br>Methode 1 ist standardmäßig ausgewählt und funktioniert fast mit allen Themes. Falls Sie Probleme "
-"mit der Kopf- oder Fußzeile haben, versuchen Sie, Methode 2 auszuwählen."
+msgid "The Ultimate Addons for Elementor plugin need compatibility with your current theme to work smoothly.</br></br>Following are two methods that enable theme support for the plugin.</br></br>Method 1 is selected by default and that works fine almost will all themes. In case, you face any issue with the header or footer template, try choosing Method 2."
+msgstr "Das Ultimate Addons für Elementor-Plugin benötigt Kompatibilität mit Ihrem aktuellen Theme, um reibungslos zu funktionieren.</br></br>Folgend sind zwei Methoden aufgeführt, die den Theme-Support für das Plugin aktivieren.</br></br>Methode 1 ist standardmäßig ausgewählt und funktioniert fast mit allen Themes. Falls Sie Probleme mit der Kopf- oder Fußzeile haben, versuchen Sie, Methode 2 auszuwählen."
 
 #: inc/class-hfe-settings-page.php:434
 msgid " Method 1 (Recommended)"
@@ -451,9 +425,7 @@ msgstr " Methode 1 (Empfohlen)"
 
 #: inc/class-hfe-settings-page.php:435
 msgid "This method replaces your theme's header (header.php) & footer (footer.php) template with plugin's custom templates."
-msgstr ""
-"Diese Methode ersetzt die Kopfzeile (header.php) und die Fußzeile (footer.php) Ihres Themes durch benutzerdefinierte "
-"Vorlagen des Plugins."
+msgstr "Diese Methode ersetzt die Kopfzeile (header.php) und die Fußzeile (footer.php) Ihres Themes durch benutzerdefinierte Vorlagen des Plugins."
 
 #: inc/class-hfe-settings-page.php:438
 msgid "Method 2"
@@ -461,18 +433,11 @@ msgstr "Methode 2"
 
 #: inc/class-hfe-settings-page.php:442
 msgid "This method hides your theme's header & footer template with CSS and displays custom templates from the plugin."
-msgstr ""
-"Diese Methode blendet die Kopfzeile und die Fußzeile Ihres Themes mit CSS aus und zeigt benutzerdefinierte Vorlagen des "
-"Plugins an."
+msgstr "Diese Methode blendet die Kopfzeile und die Fußzeile Ihres Themes mit CSS aus und zeigt benutzerdefinierte Vorlagen des Plugins an."
 
 #: inc/class-hfe-settings-page.php:453
-msgid ""
-"Sometimes above methods might not work well with your theme, in this case, contact your theme author and request them "
-"to add support for the <a href=\"%s\">plugin.</a>"
-msgstr ""
-"Manchmal funktionieren die oben genannten Methoden möglicherweise nicht gut mit Ihrem Theme. In diesem Fall "
-"kontaktieren Sie den Autor Ihres Themes und bitten Sie ihn, Unterstützung für das <a href=\"%s\">Plugin.</a> "
-"hinzuzufügen."
+msgid "Sometimes above methods might not work well with your theme, in this case, contact your theme author and request them to add support for the <a href=\"%s\">plugin.</a>"
+msgstr "Manchmal funktionieren die oben genannten Methoden möglicherweise nicht gut mit Ihrem Theme. In diesem Fall kontaktieren Sie den Autor Ihres Themes und bitten Sie ihn, Unterstützung für das <a href=\"%s\">Plugin.</a> hinzuzufügen."
 
 #: inc/class-hfe-settings-page.php:485
 #: inc/class-hfe-settings-page.php:497
@@ -519,30 +484,21 @@ msgstr "Alle Vorlagen"
 msgid "About Us"
 msgstr "Über uns"
 
-#: inc/class-hfe-settings-page.php:681
 #. translators: 1: Elementor, 2: Link to plugin review
-msgid ""
-"Help us spread the word about the plugin by leaving %2$s %1$s %3$s ratings on %2$s WordPress.org %3$s. Thank you from "
-"the Brainstorm Force team!"
-msgstr ""
-"Helfen Sie uns, das Wort über das Plugin zu verbreiten, indem Sie %2$s %1$s %3$s Bewertungen auf %2$s WordPress.org "
-"%3$s hinterlassen. Vielen Dank vom Brainstorm Force-Team!"
+#: inc/class-hfe-settings-page.php:681
+msgid "Help us spread the word about the plugin by leaving %2$s %1$s %3$s ratings on %2$s WordPress.org %3$s. Thank you from the Brainstorm Force team!"
+msgstr "Helfen Sie uns, das Wort über das Plugin zu verbreiten, indem Sie %2$s %1$s %3$s Bewertungen auf %2$s WordPress.org %3$s hinterlassen. Vielen Dank vom Brainstorm Force-Team!"
 
 #: inc/class-hfe-settings-page.php:724
 msgid "Create Impressive Header and Footer Designs"
 msgstr "Erstellen Sie beeindruckende Kopf- und Fußzeilen-Designs"
 
 #: inc/class-hfe-settings-page.php:725
-msgid ""
-"Elementor Header & Footer Builder plugin lets you build impactful navigation for your website very easily. Before we "
-"begin, we would like to know more about you. This will help us to serve you better."
-msgstr ""
-"Das Elementor Header & Footer Builder-Plugin ermöglicht es Ihnen, eine wirkungsvolle Navigation für Ihre Website sehr "
-"einfach zu erstellen. Bevor wir beginnen, möchten wir mehr über Sie erfahren. Dies wird uns helfen, Ihnen besser zu "
-"dienen."
+msgid "Elementor Header & Footer Builder plugin lets you build impactful navigation for your website very easily. Before we begin, we would like to know more about you. This will help us to serve you better."
+msgstr "Das Elementor Header & Footer Builder-Plugin ermöglicht es Ihnen, eine wirkungsvolle Navigation für Ihre Website sehr einfach zu erstellen. Bevor wir beginnen, möchten wir mehr über Sie erfahren. Dies wird uns helfen, Ihnen besser zu dienen."
 
-#: inc/class-hfe-settings-page.php:739
 #. translators: %1$s and %3$s are opening anchor tags, and %2$s and %4$s is closing anchor tags.
+#: inc/class-hfe-settings-page.php:739
 msgid "By submitting, you agree to our %1$sTerms%2$s and %3$sPrivacy Policy%4$s."
 msgstr "Durch das Einreichen stimmen Sie unseren %1$sNutzungsbedingungen%2$s und %3$sDatenschutzrichtlinien%4$s zu."
 
@@ -612,54 +568,31 @@ msgstr "Einreichen"
 msgid "Ultimate Addons for Elementor"
 msgstr "Ultimate Addons für Elementor"
 
-#: inc/class-hfe-settings-page.php:884
 #. translators: %s: theme name
-msgid ""
-"Powering over 1+ Million websites, %s is loved for the fast performance and ease of use it offers. It is suitable for "
-"all kinds of websites like blogs, portfolios, business, and WooCommerce stores."
-msgstr ""
-"Mit über 1+ Million Websites wird %s für die schnelle Leistung und Benutzerfreundlichkeit geschätzt, die es bietet. Es "
-"eignet sich für alle Arten von Websites wie Blogs, Portfolios, Unternehmen und WooCommerce-Shops."
+#: inc/class-hfe-settings-page.php:884
+msgid "Powering over 1+ Million websites, %s is loved for the fast performance and ease of use it offers. It is suitable for all kinds of websites like blogs, portfolios, business, and WooCommerce stores."
+msgstr "Mit über 1+ Million Websites wird %s für die schnelle Leistung und Benutzerfreundlichkeit geschätzt, die es bietet. Es eignet sich für alle Arten von Websites wie Blogs, Portfolios, Unternehmen und WooCommerce-Shops."
 
 #: inc/class-hfe-settings-page.php:905
 msgid "Welcome to Elementor Header & Footer Builder!"
 msgstr "Willkommen beim Elementor Header & Footer Builder!"
 
 #: inc/class-hfe-settings-page.php:907
-msgid ""
-"With this awesome plugin, experience the easiest way to create a customized header and footer for your website with "
-"Elementor. That too 100% FREE!"
-msgstr ""
-"Erleben Sie mit diesem großartigen Plugin die einfachste Möglichkeit, einen benutzerdefinierten Header und Footer für "
-"Ihre Website mit Elementor zu erstellen. Und das 100% KOSTENLOS!"
+msgid "With this awesome plugin, experience the easiest way to create a customized header and footer for your website with Elementor. That too 100% FREE!"
+msgstr "Erleben Sie mit diesem großartigen Plugin die einfachste Möglichkeit, einen benutzerdefinierten Header und Footer für Ihre Website mit Elementor zu erstellen. Und das 100% KOSTENLOS!"
 
 #: inc/class-hfe-settings-page.php:909
-msgid ""
-"Design beautiful layouts with simple drag & drop and display them at desired location with powerful target controls. "
-"The plugin comes with inbuilt Elementor widgets that offer essential features to build header and footer. It's a "
-"lightweight plugin that works seamlessly with all themes and backed up by 24/7 support."
-msgstr ""
-"Gestalten Sie wunderschöne Layouts mit einfachem Drag & Drop und zeigen Sie sie an gewünschter Stelle mit "
-"leistungsstarken Zielsteuerungen an. Das Plugin kommt mit integrierten Elementor-Widgets, die wesentliche Funktionen "
-"zum Erstellen von Header und Footer bieten. Es ist ein leichtgewichtiges Plugin, das nahtlos mit allen Themen "
-"funktioniert und von 24/7 Support unterstützt wird."
+msgid "Design beautiful layouts with simple drag & drop and display them at desired location with powerful target controls. The plugin comes with inbuilt Elementor widgets that offer essential features to build header and footer. It's a lightweight plugin that works seamlessly with all themes and backed up by 24/7 support."
+msgstr "Gestalten Sie wunderschöne Layouts mit einfachem Drag & Drop und zeigen Sie sie an gewünschter Stelle mit leistungsstarken Zielsteuerungen an. Das Plugin kommt mit integrierten Elementor-Widgets, die wesentliche Funktionen zum Erstellen von Header und Footer bieten. Es ist ein leichtgewichtiges Plugin, das nahtlos mit allen Themen funktioniert und von 24/7 Support unterstützt wird."
 
 #: inc/class-hfe-settings-page.php:911
-msgid ""
-"Trusted by more than 1+ Million users, Elementor Header & Footer Builder is a modern way to build advanced navigation "
-"for your website."
-msgstr ""
-"Vertraut von mehr als 1+ Million Nutzern ist der Elementor Header & Footer Builder eine moderne Möglichkeit, eine "
-"erweiterte Navigation für Ihre Website zu erstellen."
+msgid "Trusted by more than 1+ Million users, Elementor Header & Footer Builder is a modern way to build advanced navigation for your website."
+msgstr "Vertraut von mehr als 1+ Million Nutzern ist der Elementor Header & Footer Builder eine moderne Möglichkeit, eine erweiterte Navigation für Ihre Website zu erstellen."
 
-#: inc/class-hfe-settings-page.php:914
 #. translators: %s: theme name
-msgid ""
-"This plugin is brought to you by the same team behind the popular WordPress theme %s and a series of Ultimate Addons "
-"plugins."
-msgstr ""
-"Dieses Plugin wird Ihnen von demselben Team angeboten, das das beliebte WordPress-Theme %s und eine Reihe von Ultimate "
-"Addons-Plugins entwickelt hat."
+#: inc/class-hfe-settings-page.php:914
+msgid "This plugin is brought to you by the same team behind the popular WordPress theme %s and a series of Ultimate Addons plugins."
+msgstr "Dieses Plugin wird Ihnen von demselben Team angeboten, das das beliebte WordPress-Theme %s und eine Reihe von Ultimate Addons-Plugins entwickelt hat."
 
 #: inc/class-hfe-settings-page.php:920
 msgid "Team photo"
@@ -669,13 +602,13 @@ msgstr "Teamfoto"
 msgid "Brainstorm Force Team"
 msgstr "Brainstorm Force Team"
 
-#: inc/class-hfe-settings-page.php:967
 #. translators: %s - addon status label.
+#: inc/class-hfe-settings-page.php:967
 msgid "%1$s %3$s %2$s"
 msgstr "%1$s %3$s %2$s"
 
-#: inc/class-hfe-settings-page.php:984
 #. translators: %s - addon status label.
+#: inc/class-hfe-settings-page.php:984
 msgid "Status: %s"
 msgstr "Status: %s"
 
@@ -693,20 +626,12 @@ msgid "Starter Templates"
 msgstr "Starter-Vorlagen"
 
 #: inc/class-hfe-settings-page.php:1116
-msgid ""
-"A popular templates plugin that provides an extensive library of professional and fully customizable 600+ ready website "
-"and templates. More than 1+ Million websites have built with this plugin."
-msgstr ""
-"Ein beliebtes Vorlagen-Plugin, das eine umfangreiche Bibliothek von professionellen und vollständig anpassbaren 600+ "
-"fertigen Websites und Vorlagen bietet. Mehr als 1+ Million Websites wurden mit diesem Plugin erstellt."
+msgid "A popular templates plugin that provides an extensive library of professional and fully customizable 600+ ready website and templates. More than 1+ Million websites have built with this plugin."
+msgstr "Ein beliebtes Vorlagen-Plugin, das eine umfangreiche Bibliothek von professionellen und vollständig anpassbaren 600+ fertigen Websites und Vorlagen bietet. Mehr als 1+ Million Websites wurden mit diesem Plugin erstellt."
 
 #: inc/class-hfe-settings-page.php:1128
-msgid ""
-"It’s a collection of 40+ unique, creative, and optimized Elementor widgets with 100+ readymade templates. Trusted by "
-"more than 600+ K web professionals. It’s a #1 toolkit for Elementor Page Builder."
-msgstr ""
-"Es ist eine Sammlung von 40+ einzigartigen, kreativen und optimierten Elementor-Widgets mit 100+ fertigen Vorlagen. "
-"Vertraut von mehr als 600+ K Web-Profis. Es ist das #1 Toolkit für den Elementor Page Builder."
+msgid "It’s a collection of 40+ unique, creative, and optimized Elementor widgets with 100+ readymade templates. Trusted by more than 600+ K web professionals. It’s a #1 toolkit for Elementor Page Builder."
+msgstr "Es ist eine Sammlung von 40+ einzigartigen, kreativen und optimierten Elementor-Widgets mit 100+ fertigen Vorlagen. Vertraut von mehr als 600+ K Web-Profis. Es ist das #1 Toolkit für den Elementor Page Builder."
 
 #: inc/class-hfe-settings-page.php:1197
 msgid "Go to HFE Settings page"
@@ -857,20 +782,20 @@ msgstr "Regel hinzufügen"
 msgid "Select"
 msgstr "Auswählen"
 
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:720
 #. translators: %s post label
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:720
 msgid "All %s"
 msgstr "Alle %s"
 
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:725
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:734
 #. translators: %s post label
 #. translators: %s taxonomy label
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:725
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:734
 msgid "All %s Archive"
 msgstr "Alle %s Archive"
 
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:1513
 #. translators: %s post title.
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:1513
 msgid "The same display setting is already exist in %s post/s."
 msgstr "Die gleiche Anzeigeeinstellung existiert bereits in %s Beitrag/en."
 
@@ -1500,8 +1425,8 @@ msgstr "Caldera Form Styler"
 msgid "Style and enhance Caldera Forms to fit your site."
 msgstr "Stylen und verbessern Sie Caldera Forms, um zu Ihrer Website zu passen."
 
-#: inc/widgets-manager/base/widgets-config.php:970
 #. translators: %s: theme name
+#: inc/widgets-manager/base/widgets-config.php:970
 msgid "Free & Fastest WordPress Theme."
 msgstr "Kostenloses & schnellstes WordPress-Theme."
 
@@ -2145,19 +2070,15 @@ msgstr "https://your-link.com"
 msgid "Menu"
 msgstr "Menü"
 
-#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:189
 #. translators: %s Nav menu URL
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:189
 msgid "Go to the <a href=\"%s\" target=\"_blank\">Menus screen</a> to manage your menus."
 msgstr "Gehen Sie zum <a href=\"%s\" target=\"_blank\">Menübildschirm</a>, um Ihre Menüs zu verwalten."
 
-#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:198
 #. translators: %s Nav menu URL
-msgid ""
-"<strong>There are no menus in your site.</strong><br>Go to the <a href=\"%s\" target=\"_blank\">Menus screen</a> to "
-"create one."
-msgstr ""
-"<strong>Es gibt keine Menüs auf Ihrer Website.</strong><br>Gehen Sie zum <a href=\"%s\" "
-"target=\"_blank\">Menübildschirm</a>, um eines zu erstellen."
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:198
+msgid "<strong>There are no menus in your site.</strong><br>Go to the <a href=\"%s\" target=\"_blank\">Menus screen</a> to create one."
+msgstr "<strong>Es gibt keine Menüs auf Ihrer Website.</strong><br>Gehen Sie zum <a href=\"%s\" target=\"_blank\">Menübildschirm</a>, um eines zu erstellen."
 
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:207
 msgid "Last Menu Item"
@@ -2464,8 +2385,8 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: inc/widgets-manager/widgets/page-title/page-title.php:117
 #. translators: %1$s doc link
+#: inc/widgets-manager/widgets/page-title/page-title.php:117
 msgid "<b>Note:</b> Archive page title will be visible on frontend."
 msgstr ""
 
@@ -2597,10 +2518,10 @@ msgstr ""
 msgid "Custom Date Format"
 msgstr ""
 
-#: inc/widgets-manager/widgets/post-info/post-info.php:177
-#: inc/widgets-manager/widgets/post-info/post-info.php:214
 #. translators: %s: Allowed data letters (see: http://php.net/manual/en/function.date.php).
 #. translators: %s: Allowed time letters (see: http://php.net/manual/en/function.time.php).
+#: inc/widgets-manager/widgets/post-info/post-info.php:177
+#: inc/widgets-manager/widgets/post-info/post-info.php:214
 msgid "Use the letters: %s"
 msgstr ""
 
@@ -2640,9 +2561,9 @@ msgstr ""
 msgid "One Comment"
 msgstr ""
 
+#. translators: %s: Number of comments.
 #: inc/widgets-manager/widgets/post-info/post-info.php:314
 #: inc/widgets-manager/widgets/post-info/post-info.php:907
-#. translators: %s: Number of comments.
 msgid "%s Comments"
 msgstr ""
 
@@ -2738,8 +2659,8 @@ msgstr ""
 msgid "Helpful Information"
 msgstr ""
 
-#: inc/widgets-manager/widgets/retina/retina.php:628
 #. translators: %1$s doc link
+#: inc/widgets-manager/widgets/retina/retina.php:628
 msgid "%1$s Getting started article » %2$s"
 msgstr ""
 
@@ -3194,9 +3115,7 @@ msgstr "Erstellen Sie Websites 10x schneller mit Vorlagen"
 #: build/main.js:128
 #: src/Components/Dashboard/TemplateSection.js:70
 msgid "Choose from our professionally designed websites to build your site faster, with easy customization options."
-msgstr ""
-"Wählen Sie aus unseren professionell gestalteten Websites, um Ihre Seite schneller zu erstellen, mit einfachen "
-"Anpassungsoptionen."
+msgstr "Wählen Sie aus unseren professionell gestalteten Websites, um Ihre Seite schneller zu erstellen, mit einfachen Anpassungsoptionen."
 
 #: build/main.js:128
 #: src/Components/Dashboard/TemplateSection.js:85
@@ -3218,12 +3137,8 @@ msgstr "Willkommen bei Ultimate Addons für Elementor!"
 
 #: build/main.js:150
 #: src/Components/Dashboard/WelcomeContainer.js:29
-msgid ""
-"We're excited to help you supercharge your website-building experience. Effortlessly design stunning websites with our "
-"comprehensive range of free and premium widgets and features."
-msgstr ""
-"Wir freuen uns, Ihnen zu helfen, Ihr Website-Erlebnis zu verbessern. Gestalten Sie mühelos atemberaubende Websites mit "
-"unserem umfassenden Angebot an kostenlosen und Premium-Widgets und Funktionen."
+msgid "We're excited to help you supercharge your website-building experience. Effortlessly design stunning websites with our comprehensive range of free and premium widgets and features."
+msgstr "Wir freuen uns, Ihnen zu helfen, Ihr Website-Erlebnis zu verbessern. Gestalten Sie mühelos atemberaubende Websites mit unserem umfassenden Angebot an kostenlosen und Premium-Widgets und Funktionen."
 
 #: build/main.js:150
 #: src/Components/Dashboard/WelcomeContainer.js:58
@@ -3345,12 +3260,8 @@ msgstr "Option 1 (Empfohlen)"
 #: build/main.js:238
 #: src/Components/Settings/ThemeSupport.jsx:10
 #: src/Components/Settings/ThemeSupport.jsx:16
-msgid ""
-"This option will automatically replace your theme's header and footer files with custom templates from the plugin. It "
-"works with most themes and is selected by default."
-msgstr ""
-"Diese Option ersetzt automatisch die Header- und Footer-Dateien Ihres Themas durch benutzerdefinierte Vorlagen des "
-"Plugins. Es funktioniert mit den meisten Themen und ist standardmäßig ausgewählt."
+msgid "This option will automatically replace your theme's header and footer files with custom templates from the plugin. It works with most themes and is selected by default."
+msgstr "Diese Option ersetzt automatisch die Header- und Footer-Dateien Ihres Themas durch benutzerdefinierte Vorlagen des Plugins. Es funktioniert mit den meisten Themen und ist standardmäßig ausgewählt."
 
 #: build/main.js:238
 #: src/Components/Settings/ThemeSupport.jsx:15
@@ -3375,12 +3286,8 @@ msgstr "Option auswählen, um die Unterstützung des Themas hinzuzufügen"
 
 #: build/main.js:238
 #: src/Components/Settings/ThemeSupport.jsx:97
-msgid ""
-"To ensure compatibility between the header/footer and your theme, please choose one of the following options to enable "
-"theme support:"
-msgstr ""
-"Um die Kompatibilität zwischen Header/Fußzeile und Ihrem Thema sicherzustellen, wählen Sie bitte eine der folgenden "
-"Optionen, um die Unterstützung des Themas zu aktivieren:"
+msgid "To ensure compatibility between the header/footer and your theme, please choose one of the following options to enable theme support:"
+msgstr "Um die Kompatibilität zwischen Header/Fußzeile und Ihrem Thema sicherzustellen, wählen Sie bitte eine der folgenden Optionen, um die Unterstützung des Themas zu aktivieren:"
 
 #: build/main.js:238
 #: src/Components/Settings/ThemeSupport.jsx:140
@@ -3390,9 +3297,7 @@ msgstr "Hinweis:"
 #: build/main.js:238
 #: src/Components/Settings/ThemeSupport.jsx:140
 msgid "If neither option works, please contact your theme author to add support for this plugin."
-msgstr ""
-"Wenn keine der Optionen funktioniert, wenden Sie sich bitte an den Autor Ihres Themas, um die Unterstützung für dieses "
-"Plugin hinzuzufügen."
+msgstr "Wenn keine der Optionen funktioniert, wenden Sie sich bitte an den Autor Ihres Themas, um die Unterstützung für dieses Plugin hinzuzufügen."
 
 #: build/main.js:249
 #: src/Components/Settings/VersionControl.jsx:66
@@ -3475,13 +3380,8 @@ msgstr "Erstellen Sie Ihre Website schneller mit unseren vorgefertigten Vorlagen
 
 #: build/main.js:260
 #: src/Components/Templates/ExploreTemplates.jsx:205
-msgid ""
-"Stop building your site from scratch. Use our professional templates for your stunning website.It is easy to customize "
-"and completely responsive. Explore hundreds of designs and bring your vision to life in no time."
-msgstr ""
-"Hören Sie auf, Ihre Seite von Grund auf neu zu erstellen. Verwenden Sie unsere professionellen Vorlagen für Ihre "
-"atemberaubende Website. Es ist einfach anzupassen und vollständig responsiv. Entdecken Sie Hunderte von Designs und "
-"bringen Sie Ihre Vision in kürzester Zeit zum Leben."
+msgid "Stop building your site from scratch. Use our professional templates for your stunning website.It is easy to customize and completely responsive. Explore hundreds of designs and bring your vision to life in no time."
+msgstr "Hören Sie auf, Ihre Seite von Grund auf neu zu erstellen. Verwenden Sie unsere professionellen Vorlagen für Ihre atemberaubende Website. Es ist einfach anzupassen und vollständig responsiv. Entdecken Sie Hunderte von Designs und bringen Sie Ihre Vision in kürzester Zeit zum Leben."
 
 #: build/main.js:260
 #: src/Components/Templates/ExploreTemplates.jsx:238
