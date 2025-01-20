@@ -130,6 +130,7 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 == Changelog ==
 
 = 2.0.6.1 =
+- Improvement: Compatibility with latest Elementor and Elementor Pro 3.27 version.
 - Fix: Resolved issue where icons were displaying too large on page load for the Elementor and Wordpress menu widget.
 - Fix: Resolved an issue where icons were not displaying correctly for logged-out users.
 
