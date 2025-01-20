@@ -65,7 +65,10 @@ class HFE_Settings_Page {
 		/* Flow content view */
 		add_action( 'hfe_render_admin_page_content', [ $this, 'render_content' ], 10, 2 );
 
-		add_action( 'admin_footer', __CLASS__. '::show_nps_notice' );
+
+		if ( ! HFE_Helper::is_pro_active() ) {
+			add_action( 'admin_footer', __CLASS__ . '::show_nps_notice' );
+		}
 
 		if ( version_compare( get_bloginfo( 'version' ), '5.1.0', '>=' ) ) {
 			add_filter( 'wp_check_filetype_and_ext', [ $this, 'real_mime_types_5_1_0' ], 10, 5 );
@@ -73,6 +76,8 @@ class HFE_Settings_Page {
 			add_filter( 'wp_check_filetype_and_ext', [ $this, 'real_mime_types' ], 10, 4 );
 		}
 	}
+
+	
 
 	/**
      * Render UAE NPS Survey Notice.
@@ -87,7 +92,7 @@ class HFE_Settings_Page {
             array(
                 'show_if'          => true, // Add your display conditions.
                 'dismiss_timespan' => 2 * WEEK_IN_SECONDS,
-                'display_after'    => 0,
+                'display_after'    => 2 * WEEK_IN_SECONDS,
                 'plugin_slug'      => 'hfe',
                 'show_on_screens'  => array( 'toplevel_page_hfe' ),
                 'message'          => array(
