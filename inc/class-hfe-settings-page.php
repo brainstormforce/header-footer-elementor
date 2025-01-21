@@ -80,36 +80,38 @@ class HFE_Settings_Page {
 	
 
 	/**
-     * Render UAE NPS Survey Notice.
-     *
-     * @since x.x.x
-     * @return void
-     */
-    public static function show_nps_notice() {
-		$uae_logo = HFE_URL . 'assets/images/settings/logo.svg';
+ * Render UAE NPS Survey Notice.
+ *
+ * @since x.x.x
+ * @return void
+ */
+public static function show_nps_notice() {
+    if (class_exists('Nps_Survey')) {
+        $uae_logo = HFE_URL . 'assets/images/settings/logo.svg';
         \Nps_Survey::show_nps_notice(
             'nps-survey-hfe',
             array(
                 'show_if'          => true, // Add your display conditions.
                 'dismiss_timespan' => 2 * WEEK_IN_SECONDS,
-                'display_after'    => 2 * WEEK_IN_SECONDS,
+                'display_after'    => 0,
                 'plugin_slug'      => 'hfe',
                 'show_on_screens'  => array( 'toplevel_page_hfe' ),
                 'message'          => array(
                     // Step 1 i.e rating input.
                     'logo' => esc_url( $uae_logo ),
-                    'plugin_name'           => __( 'Ultimate Addons for Elementor', 'hfe' ),
-                    'nps_rating_message'    => __( 'How likely are you to recommend Ultimate Addons for Elementor to your friends or colleagues?', 'hfe' ),
+                    'plugin_name'           => __( 'Ultimate Addons for Elementor', 'header-footer-elementor' ),
+                    'nps_rating_message'    => __( 'How likely are you to recommend Ultimate Addons for Elementor to your friends or colleagues?', 'header-footer-elementor' ),
                     // Step 2A i.e. positive.
-                    'feedback_content'      => __( 'Could you please do us a favor and give us a 5-star rating on WordPress? It would help others choose Ultimate Addons for Beaver Builder with confidence. Thank you!', 'hfe' ),
+                    'feedback_content'      => __( 'Could you please do us a favor and give us a 5-star rating on WordPress? It would help others choose Ultimate Addons for Beaver Builder with confidence. Thank you!', 'header-footer-elementor' ),
                     'plugin_rating_link'    => esc_url( 'https://www.trustpilot.com/review/brainstormforce.com' ),
                     // Step 2B i.e. negative.
-                    'plugin_rating_title'   => __( 'Thank you for your feedback', 'hfe' ),
-                    'plugin_rating_content' => __( 'We value your input. How can we improve your experience?', 'hfe' ),
+                    'plugin_rating_title'   => __( 'Thank you for your feedback', 'header-footer-elementor' ),
+                    'plugin_rating_content' => __( 'We value your input. How can we improve your experience?', 'header-footer-elementor' ),
                 ),
             )
         );
     }
+}
 
 		/**
 		 * Get Elementor edit page link
