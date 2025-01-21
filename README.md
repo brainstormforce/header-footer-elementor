@@ -16,7 +16,7 @@ Create dynamic headers, footers, and design blocks effortlessly with Elementor's
 
 Ultimate Addons for Elementor is the improved and redesigned version of the Elementor Header & Footer Builder. It is designed to help you create dynamic headers, footers, and additional design blocks with ease. This plugin leverages Elementor's powerful drag-and-drop editor to give you complete design freedom and it integrates with any WordPress theme.
 
-[Try it out on a free dummy site](https://bsf.io/hfe-demo)
+[Try it out on a free dummy site](https://zipwp.org/plugins/header-footer-elementor/)
 
 You can refer to our step-by-step article that will help you [set headers and footers](https://ultimateelementor.com/header-footer-with-elementor/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description) quickly.
 
