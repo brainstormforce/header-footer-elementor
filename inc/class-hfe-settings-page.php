@@ -103,7 +103,7 @@ public static function show_nps_notice() {
                     'nps_rating_message'    => __( 'How likely are you to recommend Ultimate Addons for Elementor to your friends or colleagues?', 'header-footer-elementor' ),
                     // Step 2A i.e. positive.
                     'feedback_content'      => __( 'Could you please do us a favor and give us a 5-star rating on WordPress? It would help others choose Ultimate Addons for Elementor with confidence. Thank you!', 'header-footer-elementor' ),
-                    'plugin_rating_link'    => esc_url( 'https://www.trustpilot.com/review/brainstormforce.com' ),
+                    'plugin_rating_link'    => esc_url( 'https://www.trustpilot.com/review/ultimateelementor.com' ),
                     // Step 2B i.e. negative.
                     'plugin_rating_title'   => __( 'Thank you for your feedback', 'header-footer-elementor' ),
                     'plugin_rating_content' => __( 'We value your input. How can we improve your experience?', 'header-footer-elementor' ),
