@@ -79,7 +79,7 @@ class HFE_Settings_Page {
 
 	
 
-	/**
+/**
  * Render UAE NPS Survey Notice.
  *
  * @since x.x.x
@@ -93,7 +93,7 @@ public static function show_nps_notice() {
             array(
                 'show_if'          => true, // Add your display conditions.
                 'dismiss_timespan' => 2 * WEEK_IN_SECONDS,
-                'display_after'    => 0,
+                'display_after'    => 2 * WEEK_IN_SECONDS,
                 'plugin_slug'      => 'hfe',
                 'show_on_screens'  => array( 'toplevel_page_hfe' ),
                 'message'          => array(
