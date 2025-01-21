@@ -131,6 +131,7 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 
 ### 2.0.6.1 ###
 - Fix: Resolved issue where icons were displaying too large on page load for the Elementor and Wordpress menu widget.
+- New: Added NPS Survey to gather your valuable feedback for UAE Pro!
 
 ### 2.0.6 ###
 - Fix: Load text domain PHP warning when Loco Translate plugin is active.
