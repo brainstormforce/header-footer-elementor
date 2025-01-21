@@ -89,7 +89,7 @@ public static function show_nps_notice() {
     if (class_exists('Nps_Survey')) {
         $uae_logo = HFE_URL . 'assets/images/settings/logo.svg';
         \Nps_Survey::show_nps_notice(
-            'nps-survey-hfe',
+            'nps-survey-header-footer-elementor',
             array(
                 'show_if'          => true, // Add your display conditions.
                 'dismiss_timespan' => 2 * WEEK_IN_SECONDS,
