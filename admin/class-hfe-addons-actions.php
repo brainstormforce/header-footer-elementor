@@ -136,22 +136,22 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			}
 
 			// Schedule the database update if the theme is installed successfully.
-			// add_action(
-			// 	'shutdown',
-			// 	function () use ( $theme_slug ) {
-			// 		// Iterate through all themes to check if the installed theme matches the current theme slug.
-			// 		$all_themes = wp_get_themes();
-			// 		foreach ( $all_themes as $theme_file => $_ ) {
-			// 			error_log( "So the theme is found............" );
-			// 			if ( class_exists( '\BSF_UTM_Analytics\Inc\Utils' ) && is_callable( '\BSF_UTM_Analytics\Inc\Utils::update_referer' ) && strpos( $theme_file, $theme_slug . '/' ) === 0 ) {
-			// 				error_log( "Calling referrer function............!!!!!!!!!!!!!!!!" );
-			// 				// If the theme is found and the update_referer function is callable, update the referer with the corresponding product slug.
-			// 				\BSF_UTM_Analytics\Inc\Utils::update_referer( 'header-footer-elementor', $theme_slug );
-			// 				return;
-			// 			}
-			// 		}
-			// 	}
-			// );
+			add_action(
+				'shutdown',
+				function () use ( $theme_slug ) {
+					// Iterate through all themes to check if the installed theme matches the current theme slug.
+					$all_themes = wp_get_themes();
+					foreach ( $all_themes as $theme_file => $_ ) {
+						error_log( "So the theme is found............" );
+						if ( class_exists( '\BSF_UTM_Analytics\Inc\Utils' ) && is_callable( '\BSF_UTM_Analytics\Inc\Utils::update_referer' ) && strpos( $theme_file, $theme_slug . '/' ) === 0 ) {
+							error_log( "Calling referrer function............!!!!!!!!!!!!!!!!" );
+							// If the theme is found and the update_referer function is callable, update the referer with the corresponding product slug.
+							\BSF_UTM_Analytics\Inc\Utils::update_referer( 'header-footer-elementor', $theme_slug );
+							return;
+						}
+					}
+				}
+			);
 
 			if ( function_exists( 'wp_ajax_install_theme' ) ) {
 				// @psalm-suppress NoValue

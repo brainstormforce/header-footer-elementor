@@ -108,7 +108,7 @@ const UltimateWidgets = () => {
                             className="hfe-remove-ring"
                             onClick={() => {
                                 window.open(
-                                    "https://ultimateelementor.com/pricing/?utm_source=uae-lite-FreevsPro&utm_medium=unlock-ultimate-feature&utm_campaign=uae-lite-upgrade",
+                                    hfeSettingsData.upgrade_url,
                                     "_blank"
                                 );
                             }}

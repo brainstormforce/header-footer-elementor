@@ -213,7 +213,7 @@ const NavMenu = () => {
 								}}
 								onClick={() =>
 									handleRedirect(
-										"https://ultimateelementor.com/pricing/?utm_source=uae-lite-dashboard&utm_medium=navigation-bar&utm_campaign=uae-lite-upgrade"
+										hfeSettingsData.upgrade_url
 									)
 								}
 							>

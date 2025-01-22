@@ -103,7 +103,7 @@ const UltimateCompare = () => {
                             className="hfe-remove-ring"
                             style={{ width: "100%" }}
                             onClick={() => {
-                                window.open("https://ultimateelementor.com/pricing/?utm_source=uae-lite-free-vs-pro&utm_medium=My-accounts&utm_campaign=uae-lite-upgrade", '_blank');
+                                window.open(hfeSettingsData.upgrade_url, '_blank');
                             }}
                         >
                             {__('Upgrade Now', 'header-footer-elementor')}

@@ -126,6 +126,26 @@ class HFE_Helper {
 		return '';
 	}
 
+	
+	/**
+	 * Provide General settings array().
+	 *
+	 * @since x.x.x
+	 * @return array()
+	 */
+	public static function upgrade_link( $page = 'pricing', $custom_url = '' ) {
+
+		$base_url = HFE_DOMAIN . $page . '/';
+		$url      = empty( $custom_url ) ? $base_url : esc_url( $custom_url );
+
+		// Modify the utm_source parameter using the UTM ready link function to include tracking information.
+		if ( class_exists( '\BSF_UTM_Analytics\Inc\Utils' ) && is_callable( '\BSF_UTM_Analytics\Inc\Utils::get_utm_ready_link' ) ) {
+			$url = \BSF_UTM_Analytics\Inc\Utils::get_utm_ready_link( $url, 'header-footer-elementor' );
+		}
+
+		return esc_url( $url );
+	}
+
 	/**
 	 * Provide General settings array().
 	 *

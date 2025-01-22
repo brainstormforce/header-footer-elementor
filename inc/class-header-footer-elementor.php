@@ -139,10 +139,6 @@ class Header_Footer_Elementor {
 				require_once HFE_DIR . 'admin/bsf-analytics/class-bsf-analytics-loader.php';
 			}
 
-			if ( ! class_exists( 'HFE_Utm_Analytics' ) ) {
-				require_once HFE_DIR . 'inc/class-hfe-utm-analytics.php';
-			}
-
 			$bsf_analytics = BSF_Analytics_Loader::get_instance();
 
 			$bsf_analytics->set_entity(
@@ -155,6 +151,10 @@ class Header_Footer_Elementor {
 					],
 				]
 			);
+
+			if ( ! class_exists( 'HFE_Utm_Analytics' ) ) {
+				require_once HFE_DIR . 'inc/lib/class-hfe-utm-analytics.php';
+			}
 
 		}
 	}

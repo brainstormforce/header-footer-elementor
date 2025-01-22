@@ -60,7 +60,7 @@ if ( ! class_exists( 'HFE_Utm_Analytics' ) ) :
 		 */
 		public function version_check() {
 
-			$file = realpath( dirname( __FILE__ ) . '/lib/utm-analytics/version.json' );
+			$file = realpath( dirname( __FILE__ ) . '/utm-analytics/version.json' );
 
 			// Is file exist?
 			if ( is_file( $file ) ) {
@@ -68,7 +68,7 @@ if ( ! class_exists( 'HFE_Utm_Analytics' ) ) :
 				$file_data = json_decode( file_get_contents( $file ), true );
 				// @codingStandardsIgnoreEnd
 				global $utm_analytics_version, $utm_analytics_init;
-				$path = realpath( dirname( __FILE__ ) . '/lib/utm-analytics/bsf-utm-analytics.php' );
+				$path = realpath( dirname( __FILE__ ) . '/utm-analytics/bsf-utm-analytics.php' );
 				$version = isset( $file_data['bsf-utm-analytics'] ) ? $file_data['bsf-utm-analytics'] : 0;
 
 				if ( null === $utm_analytics_version ) {

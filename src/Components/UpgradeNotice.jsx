@@ -46,7 +46,7 @@ const UpgradeNotice = ({ onClose }) => {
                     "header-footer-elementor"
                 )}{" "}
                 <a
-                    href="https://ultimateelementor.com/pricing/?utm_source=uae-lite-navbar&utm_medium=upgrade-now&utm_campaign=uae-lite-upgrade"
+                    href={hfeSettingsData.upgrade_url}
                     target="_blank"
                     style={{ color: "#000000" }}
                 >
