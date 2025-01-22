@@ -65,12 +65,53 @@ class HFE_Settings_Page {
 		/* Flow content view */
 		add_action( 'hfe_render_admin_page_content', [ $this, 'render_content' ], 10, 2 );
 
+
+		if ( ! HFE_Helper::is_pro_active() ) {
+			add_action( 'admin_footer', __CLASS__ . '::show_nps_notice' );
+		}
+
 		if ( version_compare( get_bloginfo( 'version' ), '5.1.0', '>=' ) ) {
 			add_filter( 'wp_check_filetype_and_ext', [ $this, 'real_mime_types_5_1_0' ], 10, 5 );
 		} else {
 			add_filter( 'wp_check_filetype_and_ext', [ $this, 'real_mime_types' ], 10, 4 );
 		}
 	}
+
+	
+
+/**
+ * Render UAE NPS Survey Notice.
+ *
+ * @since x.x.x
+ * @return void
+ */
+public static function show_nps_notice() {
+    if (class_exists('Nps_Survey')) {
+        $uae_logo = HFE_URL . 'assets/images/settings/logo.svg';
+        \Nps_Survey::show_nps_notice(
+            'nps-survey-header-footer-elementor',
+            array(
+                'show_if'          => true, // Add your display conditions.
+                'dismiss_timespan' => 2 * WEEK_IN_SECONDS,
+                'display_after'    => 2 * WEEK_IN_SECONDS,
+                'plugin_slug'      => 'header-footer-elementor',
+                'show_on_screens'  => array( 'toplevel_page_hfe' ),
+                'message'          => array(
+                    // Step 1 i.e rating input.
+                    'logo' => esc_url( $uae_logo ),
+                    'plugin_name'           => __( 'Ultimate Addons for Elementor', 'header-footer-elementor' ),
+                    'nps_rating_message'    => __( 'How likely are you to recommend Ultimate Addons for Elementor to your friends or colleagues?', 'header-footer-elementor' ),
+                    // Step 2A i.e. positive.
+                    'feedback_content'      => __( 'Could you please do us a favor and give us a 5-star rating on Trustpilot? It would help others choose Ultimate Addons for Elementor with confidence. Thank you!', 'header-footer-elementor' ),
+                    'plugin_rating_link'    => esc_url( 'https://www.trustpilot.com/review/ultimateelementor.com' ),
+                    // Step 2B i.e. negative.
+                    'plugin_rating_title'   => __( 'Thank you for your feedback', 'header-footer-elementor' ),
+                    'plugin_rating_content' => __( 'We value your input. How can we improve your experience?', 'header-footer-elementor' ),
+                ),
+            )
+        );
+    }
+}
 
 		/**
 		 * Get Elementor edit page link
