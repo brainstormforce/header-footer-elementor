@@ -140,7 +140,9 @@ class HFE_Helper {
 
 		// Modify the utm_source parameter using the UTM ready link function to include tracking information.
 		if ( class_exists( '\BSF_UTM_Analytics\Inc\Utils' ) && is_callable( '\BSF_UTM_Analytics\Inc\Utils::get_utm_ready_link' ) ) {
+			error_log( "This is calling UTM library function" );
 			$url = \BSF_UTM_Analytics\Inc\Utils::get_utm_ready_link( $url, 'header-footer-elementor' );
+			error_log( $url );
 		}
 
 		return esc_url( $url );

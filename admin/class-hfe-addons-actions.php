@@ -10,7 +10,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use HFE\WidgetsManager\Base\HFE_Helper;
-use BSF_UTM_Analytics\Inc\Utils;
 
 if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 
