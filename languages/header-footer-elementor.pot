@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Ultimate Addons for Elementor Lite package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Ultimate Addons for Elementor Lite 2.0.7\n"
+"Project-Id-Version: Ultimate Addons for Elementor Lite 2.1.0\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/header-footer-elementor\n"
 "POT-Creation-Date: 2025-01-20 12:18:01+00:00\n"
