@@ -82,7 +82,7 @@ class HFE_Settings_Page {
 	/**
 	 * Render UAE NPS Survey Notice.
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @return void
 	 */
 	public static function show_nps_notice() {
