@@ -4,7 +4,7 @@ Tags: elementor, header footer builder, widgets, header template, footer templat
 Requires at least: 5.0  
 Tested up to: 6.7.1 
 Requires PHP: 7.4  
-Stable tag: 2.0.7
+Stable tag: 2.1.0
 License: GPLv2 or later  
 License URI: https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -130,10 +130,8 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 == Changelog ==
 
 
-= 2.0.7.1 =
+= 2.1.0 =
 - New: Added NPS Survey to gather your valuable feedback for UAE Pro!
-
-= 2.0.7 =
 - Improvement: Compatibility with latest Elementor and Elementor Pro 3.27 version.
 - Fix: Resolved issue where icons were displaying too large on page load for the Elementor and WordPress menu widget.
 - Fix: Resolved an issue where icons were not displaying correctly for logged-out users.
