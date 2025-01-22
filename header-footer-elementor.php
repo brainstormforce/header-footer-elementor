@@ -101,13 +101,13 @@ function hfe_enqueue_font_awesome() {
 			'3.25.0'
 		);
 		wp_enqueue_style(
-			'mega-menu',
+			'hfe-mega-menu',
 			plugins_url( '/elementor-pro/assets/css/widget-mega-menu.min.css', 'elementor' ),
 			[],
 			'3.26.2'
 		);
 		wp_enqueue_style(
-			'nav-menu-widget',
+			'hfe-nav-menu-widget',
 			plugins_url( '/elementor-pro/assets/css/widget-nav-menu.min.css', 'elementor' ),
 			[],
 			'3.26.0'
