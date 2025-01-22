@@ -2,15 +2,29 @@
   "name": "nikschavan/header-footer-elementor",
   "description": "Create Header and Footer using Elementor page builder.",
   "require": {
-    "brainstormforce/astra-notices": "^1.1"
+    "brainstormforce/astra-notices": "^1.1",
+    "brainstormforce/nps-survey": "^1"
   },
   "extra": {
       "installer-paths": {
         "inc/lib/{$name}/": [
-          "brainstormforce/astra-notices"
+          "brainstormforce/astra-notices",
+          "brainstormforce/nps-survey"
         ]
       }
   },
+  "repositories": [
+      {
+        "name": "brainstormforce/bsf-core",
+        "type": "vcs",
+        "url": "git@github.com:brainstormforce/bsf-core.git"
+      },
+      {
+        "name": "brainstormforce/nps-survey",
+        "type": "vcs",
+        "url": "git@github.com:brainstormforce/nps-survey.git"
+    }
+  ],
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.7",
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
