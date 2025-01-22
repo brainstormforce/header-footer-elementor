@@ -131,7 +131,7 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 
 
 ### 2.1.0 ###
-- New: Added NPS Survey to gather your valuable feedback for UAE Lite!
+- New: Added NPS Survey to gather your valuable feedback for Ultimate Addons for Elementor.
 - Improvement: Compatibility with latest Elementor and Elementor Pro 3.27 version.
 - Fix: Resolved issue where icons were displaying too large on page load for the Elementor and WordPress menu widget.
 - Fix: Resolved an issue where icons were not displaying correctly for logged-out users.
