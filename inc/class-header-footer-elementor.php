@@ -66,6 +66,8 @@ class Header_Footer_Elementor {
 
 			$this->includes();
 
+			add_action( 'init', [ $this, 'load_hfe_textdomain' ] );
+
 			add_filter(
 				'elementor/admin-top-bar/is-active',
 				function( $is_active, $current_screen ) {
@@ -423,6 +425,58 @@ class Header_Footer_Elementor {
 			require_once HFE_DIR . 'inc/lib/class-uae-nps-survey.php';
 		}
 					
+	}
+
+	/**
+	* Loads textdomain for the plugin.
+	*
+	* @return void
+	*/
+	public function load_hfe_textdomain() {
+	
+		// Default languages directory for "header-footer-elementor".
+		$lang_dir = HFE_DIR . 'languages/';
+	
+		/**
+		 * Filters the languages directory path to use for AffiliateWP.
+		 *
+		 * @param string $lang_dir The languages directory path.
+		 */
+		$lang_dir = apply_filters( 'hfe_languages_directory', $lang_dir );
+	
+		// Traditional WordPress plugin locale filter.
+		global $wp_version;
+	
+		$get_locale = get_locale();
+	
+		if ( $wp_version >= 4.7 ) {
+			$get_locale = get_user_locale();
+		}
+	
+		/**
+		 * Language Locale for Ultimate Elementor
+		 *
+		 * @var $get_locale The locale to use. Uses get_user_locale()` in WordPress 4.7 or greater,
+		 *                  otherwise uses `get_locale()`.
+		 */
+		$locale = apply_filters( 'plugin_locale', $get_locale, 'header-footer-elementor' );
+		$mofile = sprintf( '%1$s-%2$s.mo', 'header-footer-elementor', $locale );
+	
+		// Setup paths to current locale file.
+		$mofile_local  = $lang_dir . $mofile;
+		$mofile_global = WP_LANG_DIR . '/header-footer-elementor/' . $mofile;
+	
+		if ( file_exists( $mofile_global ) ) {
+			// Look in global /wp-content/languages/header-footer-elementor/ folder.
+			load_textdomain( 'header-footer-elementor', $mofile_global );
+		} elseif ( file_exists( $mofile_local ) ) {
+
+			// Look in local /wp-content/plugins/header-footer-elementor/languages/ folder.
+			load_textdomain( 'header-footer-elementor', $mofile_local );
+		} else {
+			// Load the default language files.
+			load_plugin_textdomain( 'header-footer-elementor', false, $lang_dir );
+		}
 	}
 
 	/**

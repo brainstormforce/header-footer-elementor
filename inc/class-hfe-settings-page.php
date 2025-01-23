@@ -93,7 +93,7 @@ class HFE_Settings_Page {
 				[
 					'show_if'          => true, // Add your display conditions.
 					'dismiss_timespan' => 2 * WEEK_IN_SECONDS,
-					'display_after'    => 0,
+					'display_after'    => 2 * WEEK_IN_SECONDS,
 					'plugin_slug'      => 'header-footer-elementor',
 					'show_on_screens'  => [ 'toplevel_page_hfe' ],
 					'message'          => [
