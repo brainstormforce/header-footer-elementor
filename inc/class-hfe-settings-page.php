@@ -274,7 +274,6 @@ class HFE_Settings_Page {
 					'st_link'                  => $st_link,
 					'hfe_post_url'             => $hfe_post_url,
 					'is_hfe_post'              => $is_hfe_post,
-					'upgrade_url'              => HFE_Helper::upgrade_link(),
 				]
 			);
 	

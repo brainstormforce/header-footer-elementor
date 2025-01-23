@@ -190,7 +190,7 @@ const FreevsPro = () => {
                         className="hfe-remove-ring text-[#6005FF]"
                         onClick={() => {
                             window.open(
-                                hfeSettingsData.upgrade_url,
+                                "https://ultimateelementor.com/pricing/?utm_source=uae-lite-FreevsPro&utm_medium=get-uae-pro&utm_campaign=uae-lite-upgrade",
                                 "_blank"
                             );
                         }}

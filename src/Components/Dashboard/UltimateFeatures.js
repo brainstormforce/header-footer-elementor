@@ -108,7 +108,7 @@ const UltimateFeatures = () => {
 							className="hfe-remove-ring"
 							onClick={() => {
 								window.open(
-									hfeSettingsData.upgrade_url,
+									"https://ultimateelementor.com/pricing/?utm_source=uae-lite-dashboard&utm_medium=unlock-ultimate-feature&utm_campaign=uae-lite-upgrade",
 									"_blank"
 								);
 							}}
