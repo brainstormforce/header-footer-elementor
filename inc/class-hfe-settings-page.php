@@ -93,7 +93,7 @@ class HFE_Settings_Page {
 				[
 					'show_if'          => true, // Add your display conditions.
 					'dismiss_timespan' => 2 * WEEK_IN_SECONDS,
-					'display_after'    => 2 * WEEK_IN_SECONDS,
+					'display_after'    => 0,
 					'plugin_slug'      => 'header-footer-elementor',
 					'show_on_screens'  => [ 'toplevel_page_hfe' ],
 					'message'          => [
@@ -277,6 +277,8 @@ class HFE_Settings_Page {
 				HFE_VER,
 				true
 			);
+
+			wp_set_script_translations( 'header-footer-elementor-react-app', 'header-footer-elementor', HFE_DIR . 'languages'  );
 	
 			wp_localize_script(
 				'header-footer-elementor-react-app',

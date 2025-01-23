@@ -65,8 +65,6 @@ class Header_Footer_Elementor {
 			self::$elementor_instance = Elementor\Plugin::instance();
 
 			$this->includes();
-			
-			add_action( 'init', [ $this, 'load_textdomain' ] );
 
 			add_filter(
 				'elementor/admin-top-bar/is-active',
@@ -425,15 +423,6 @@ class Header_Footer_Elementor {
 			require_once HFE_DIR . 'inc/lib/class-uae-nps-survey.php';
 		}
 					
-	}
-
-	/**
-	 * Loads textdomain for the plugin.
-	 *
-	 * @return void
-	 */
-	public function load_textdomain() {
-		load_plugin_textdomain( 'header-footer-elementor' );
 	}
 
 	/**
