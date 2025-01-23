@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ec4286dbaede5fec435faffcc7094018",
+    "content-hash": "289c6550aaede4f73d8e16bde6708e8e",
     "packages": [
         {
             "name": "brainstormforce/astra-notices",
@@ -52,17 +52,77 @@
             "time": "2022-02-09T09:14:49+00:00"
         },
         {
-            "name": "brainstormforce/utm-analytics",
-            "version": "0.0.3",
+            "name": "brainstormforce/nps-survey",
+            "version": "1.0.7",
             "source": {
                 "type": "git",
-                "url": "git@github.com:brainstormforce/utm-analytics.git",
-                "reference": "b7594cabe3ef954d6dc2e715b4e7c883069397b7"
+                "url": "git@github.com:brainstormforce/nps-survey.git",
+                "reference": "544b2b5afdd11bd2f4bfb6cdfa8a692c23502664"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/brainstormforce/utm-analytics/zipball/b7594cabe3ef954d6dc2e715b4e7c883069397b7",
-                "reference": "b7594cabe3ef954d6dc2e715b4e7c883069397b7",
+                "url": "https://api.github.com/repos/brainstormforce/nps-survey/zipball/544b2b5afdd11bd2f4bfb6cdfa8a692c23502664",
+                "reference": "544b2b5afdd11bd2f4bfb6cdfa8a692c23502664",
+                "shasum": ""
+            },
+            "require-dev": {
+                "automattic/vipwpcs": "^2.3",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+                "nunomaduro/phpinsights": "^2.10",
+                "php-stubs/generator": "^0.8.2",
+                "php-stubs/wordpress-stubs": "^6.1",
+                "phpcompatibility/php-compatibility": "^9.3",
+                "phpstan/phpstan": "^1.9",
+                "squizlabs/php_codesniffer": "^3.5",
+                "szepeviktor/phpstan-wordpress": "^1.1",
+                "wp-coding-standards/wpcs": "^2.2"
+            },
+            "type": "wordpress-plugin",
+            "scripts": {
+                "format": [
+                    "vendor/bin/phpcbf"
+                ],
+                "lint": [
+                    "vendor/bin/phpcs"
+                ],
+                "test": [
+                    "vendor/bin/phpunit"
+                ],
+                "phpstan": [
+                    "vendor/bin/phpstan --memory-limit=2048M analyse"
+                ],
+                "insights": [
+                    "./vendor/bin/phpinsights analyse -v --no-interaction"
+                ],
+                "insights:fix": [
+                    "./vendor/bin/phpinsights analyse --fix --no-interaction"
+                ],
+                "gen-stubs": [
+                    "vendor/bin/generate-stubs artifact/phpstan/nps-survey/ --out=tests/php/stubs/nps-survey-stubs.php && rm -rf artifact/phpstan"
+                ],
+                "update-stubs": [
+                    "rm -f tests/php/stubs/nps-survey-stubs.php && bash bin/build-folder-phpstan.sh && composer gen-stubs"
+                ]
+            },
+            "description": "NPS Survey Plugin",
+            "support": {
+                "source": "https://github.com/brainstormforce/nps-survey/tree/1.0.7",
+                "issues": "https://github.com/brainstormforce/nps-survey/issues"
+            },
+            "time": "2025-01-14T06:03:52+00:00"
+        },
+        {
+            "name": "brainstormforce/utm-analytics",
+            "version": "0.0.4",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:brainstormforce/utm-analytics.git",
+                "reference": "f2d9e760b9849c9b9d20d911107574ea2777a608"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/brainstormforce/utm-analytics/zipball/f2d9e760b9849c9b9d20d911107574ea2777a608",
+                "reference": "f2d9e760b9849c9b9d20d911107574ea2777a608",
                 "shasum": ""
             },
             "require-dev": {
@@ -99,10 +159,10 @@
             },
             "description": "This library helps in managing utm analytics for bsf products",
             "support": {
-                "source": "https://github.com/brainstormforce/utm-analytics/tree/0.0.3",
+                "source": "https://github.com/brainstormforce/utm-analytics/tree/0.0.4",
                 "issues": "https://github.com/brainstormforce/utm-analytics/issues"
             },
-            "time": "2025-01-10T13:37:37+00:00"
+            "time": "2025-01-16T09:51:57+00:00"
         },
         {
             "name": "composer/installers",
@@ -677,16 +737,16 @@
         },
         {
             "name": "phpcompatibility/phpcompatibility-wp",
-            "version": "2.1.5",
+            "version": "2.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCompatibility/PHPCompatibilityWP.git",
-                "reference": "01c1ff2704a58e46f0cb1ca9d06aee07b3589082"
+                "reference": "80ccb1a7640995edf1b87a4409fa584cd5869469"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCompatibility/PHPCompatibilityWP/zipball/01c1ff2704a58e46f0cb1ca9d06aee07b3589082",
-                "reference": "01c1ff2704a58e46f0cb1ca9d06aee07b3589082",
+                "url": "https://api.github.com/repos/PHPCompatibility/PHPCompatibilityWP/zipball/80ccb1a7640995edf1b87a4409fa584cd5869469",
+                "reference": "80ccb1a7640995edf1b87a4409fa584cd5869469",
                 "shasum": ""
             },
             "require": {
@@ -743,20 +803,20 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2024-04-24T21:37:59+00:00"
+            "time": "2025-01-16T22:34:19+00:00"
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.12.15",
+            "version": "1.12.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "c91d4e8bc056f46cf653656e6f71004b254574d1"
+                "reference": "e0bb5cb78545aae631220735aa706eac633a6be9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/c91d4e8bc056f46cf653656e6f71004b254574d1",
-                "reference": "c91d4e8bc056f46cf653656e6f71004b254574d1",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/e0bb5cb78545aae631220735aa706eac633a6be9",
+                "reference": "e0bb5cb78545aae631220735aa706eac633a6be9",
                 "shasum": ""
             },
             "require": {
@@ -801,7 +861,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-01-05T16:40:22+00:00"
+            "time": "2025-01-21T14:50:05+00:00"
         },
         {
             "name": "psr/container",

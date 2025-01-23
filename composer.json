@@ -3,16 +3,35 @@
   "description": "Create Header and Footer using Elementor page builder.",
   "require": {
     "brainstormforce/astra-notices": "^1.1",
-    "brainstormforce/utm-analytics": "*"
+    "brainstormforce/utm-analytics": "*",
+    "brainstormforce/nps-survey": "^1"
   },
   "extra": {
       "installer-paths": {
         "inc/lib/{$name}/": [
           "brainstormforce/astra-notices",
-          "brainstormforce/utm-analytics"
+          "brainstormforce/utm-analytics",
+          "brainstormforce/nps-survey"
         ]
       }
   },
+  "repositories": [
+      {
+        "name": "brainstormforce/bsf-core",
+        "type": "vcs",
+        "url": "git@github.com:brainstormforce/bsf-core.git"
+      },
+      {
+        "name": "brainstormforce/nps-survey",
+        "type": "vcs",
+        "url": "git@github.com:brainstormforce/nps-survey.git"
+      },
+      {
+        "name": "brainstormforce/utm-analytics",
+        "type": "vcs",
+        "url": "git@github.com:brainstormforce/utm-analytics.git"
+      }
+  ],
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.7",
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
@@ -37,12 +56,5 @@
       "composer/installers": true,
       "dealerdirect/phpcodesniffer-composer-installer": true
     }
-  },
-  "repositories": [
-    {
-        "name": "brainstormforce/utm-analytics",
-        "type": "vcs",
-        "url": "git@github.com:brainstormforce/utm-analytics.git"
-    }
-  ]
+  }
 }
