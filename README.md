@@ -4,7 +4,7 @@
 **Requires at least:** 5.0    
 **Tested up to:** 6.7.1   
 **Requires PHP:** 7.4    
-**Stable tag:** 2.1.0  
+**Stable tag:** 2.1.1  
 **License:** GPLv2 or later    
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html    
 
@@ -129,7 +129,7 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 
 ## Changelog ##
 
-### 2.1.0.1 ###
+### 2.1.1 ###
 - Fix: Navigation Menu - Anchor links now correctly scroll to sections/container when submenu items with IDs are clicked.
 - Fix: "Function map_meta_cap called incorrectly" notice appearing for logged out users when shortcode executed manually.
 - Fix: Deprecated constant FILTER_SANITIZE_STRING replaced to ensure compatibility with PHP.
