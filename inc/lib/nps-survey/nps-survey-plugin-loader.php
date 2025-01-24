@@ -8,90 +8,93 @@
 
 namespace NPS_Survey;
 
-/**
- * Plugin_Loader
- *
- * @since 2.1.0
- */
-class NPS_Survey_Plugin_Loader {
+if ( ! class_exists( 'NPS_Survey_Plugin_Loader' ) ) {
 
 	/**
-	 * Instance
+	 * Plugin_Loader
 	 *
-	 * @access private
-	 * @var object Class Instance.
-	 * @since 2.1.0
+	 * @since X.X.X
 	 */
-	private static $instance;
+	class NPS_Survey_Plugin_Loader {
+		/**
+		 * Instance
+		 *
+		 * @access private
+		 * @var object Class Instance.
+		 * @since X.X.X
+		 */
+		private static $instance;
 
-	/**
-	 * Initiator
-	 *
-	 * @since 2.1.0
-	 * @return object initialized object of class.
-	 */
-	public static function get_instance() {
-		if ( null === self::$instance ) {
-			self::$instance = new self();
-		}
-		return self::$instance;
-	}
+		/**
+		 * Constructor
+		 *
+		 * @since X.X.X
+		 */
+		public function __construct() {
 
-	/**
-	 * Constructor
-	 *
-	 * @since 2.1.0
-	 */
-	public function __construct() {
-
-		spl_autoload_register( [ $this, 'autoload' ] );
-		add_action( 'wp_loaded', [ $this, 'load_files' ] );
-	}
-
-	/**
-	 * Autoload classes.
-	 *
-	 * @param string $class class name.
-	 * @return void
-	 */
-	public function autoload( $class ) {
-		if ( 0 !== strpos( $class, __NAMESPACE__ ) ) {
-			return;
+			spl_autoload_register( [ $this, 'autoload' ] );
+			add_action( 'wp_loaded', [ $this, 'load_files' ] );
 		}
 
-		$class_to_load = $class;
+		/**
+		 * Initiator
+		 *
+		 * @since X.X.X
+		 * @return object initialized object of class.
+		 */
+		public static function get_instance() {
+			if ( null === self::$instance ) {
+				self::$instance = new self();
+			}
+			return self::$instance;
+		}
 
-		$filename = strtolower(
-			strval(
-				preg_replace(
-					[ '/^' . __NAMESPACE__ . '\\\/', '/([a-z])([A-Z])/', '/_/', '/\\\/' ],
-					[ '', '$1-$2', '-', DIRECTORY_SEPARATOR ],
-					$class_to_load
+		/**
+		 * Autoload classes.
+		 *
+		 * @param string $class class name.
+		 * @return void
+		 */
+		public function autoload( $class ): void {
+			if ( 0 !== strpos( $class, __NAMESPACE__ ) ) {
+				return;
+			}
+
+			$class_to_load = $class;
+
+			$filename = strtolower(
+				strval(
+					preg_replace(
+						[ '/^' . __NAMESPACE__ . '\\\/', '/([a-z])([A-Z])/', '/_/', '/\\\/' ],
+						[ '', '$1-$2', '-', DIRECTORY_SEPARATOR ],
+						$class_to_load
+					)
 				)
-			)
-		);
+			);
 
-		$file = NPS_SURVEY_DIR . $filename . '.php';
+			$file = NPS_SURVEY_DIR . $filename . '.php';
 
-		// if the file redable, include it.
-		if ( is_readable( $file ) ) {
-			require_once $file;
+			// if the file redable, include it.
+			if ( is_readable( $file ) ) {
+				require_once $file;
+			}
+		}
+
+		/**
+		 * Load Files
+		 *
+		 * @since 1.0.0
+		 *
+		 * @return void
+		 */
+		public function load_files(): void {
+			require_once NPS_SURVEY_DIR . 'classes/nps-survey-script.php';
 		}
 	}
 
 	/**
-	 * Load Files
-	 *
-	 * @since 1.0.0
-	 *
-	 * @return void
+	 * Kicking this off by calling 'get_instance()' method
 	 */
-	public function load_files() {
-		require_once NPS_SURVEY_DIR . 'classes/nps-survey-script.php';
-	}
-}
+	NPS_Survey_Plugin_Loader::get_instance();
 
-/**
- * Kicking this off by calling 'get_instance()' method
- */
-NPS_Survey_Plugin_Loader::get_instance();
+}
