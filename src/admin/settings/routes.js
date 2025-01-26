@@ -13,5 +13,8 @@ export const routes = {
     },
     upgrade: {
         path: "upgrade",
+    },
+    headerFooterBuilder: { 
+        path: "elementor-hf" 
     }
 }

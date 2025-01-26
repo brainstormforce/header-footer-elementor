@@ -53,6 +53,28 @@ class Extensions_Loader {
 	}
 
 	/**
+	 * Setup actions and filters.
+	 *
+	 * @since  x.x.x
+	 * @access private
+	 */
+	private function __construct() {
+
+		add_action( 'elementor/init', [ $this, 'elementor_init' ] );
+
+	}
+
+	/**
+	 * Elementor Init.
+	 *
+	 * @since x.x.x
+	 */
+	public function elementor_init() {
+
+		$this->include_extensions_files();
+	}
+
+	/**
 	 * Returns Script array.
 	 *
 	 * @return array()
