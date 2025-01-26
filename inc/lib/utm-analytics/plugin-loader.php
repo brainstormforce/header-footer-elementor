@@ -14,7 +14,6 @@ namespace BSF_UTM_Analytics;
  * @since 0.0.1
  */
 class Plugin_Loader {
-
 	/**
 	 * Instance
 	 *
@@ -23,6 +22,18 @@ class Plugin_Loader {
 	 * @since 0.0.1
 	 */
 	private static $instance;
+
+	/**
+	 * Constructor
+	 *
+	 * @since 0.0.1
+	 */
+	public function __construct() {
+
+		spl_autoload_register( [ $this, 'autoload' ] );
+
+		add_action( 'plugins_loaded', [ $this, 'load_textdomain' ] );
+	}
 
 	/**
 	 * Initiator
@@ -42,8 +53,8 @@ class Plugin_Loader {
 	 *
 	 * @param string $class class name.
 	 */
-	public function autoload( $class ) {
-		if ( 0 !== strpos( $class, __NAMESPACE__ ) ) {
+	public function autoload( $class ): void {
+		if ( strpos( $class, __NAMESPACE__ ) !== 0 ) {
 			return;
 		}
 
@@ -66,18 +77,6 @@ class Plugin_Loader {
 	}
 
 	/**
-	 * Constructor
-	 *
-	 * @since 0.0.1
-	 */
-	public function __construct() {
-
-		spl_autoload_register( [ $this, 'autoload' ] );
-
-		add_action( 'plugins_loaded', [ $this, 'load_textdomain' ] );
-	}
-
-	/**
 	 * Load Plugin Text Domain.
 	 * This will load the translation textdomain depending on the file priorities.
 	 *      1. Global Languages /wp-content/languages/bsf-utm-analytics/ folder
@@ -86,7 +85,7 @@ class Plugin_Loader {
 	 * @since 0.0.1
 	 * @return void
 	 */
-	public function load_textdomain() {
+	public function load_textdomain(): void {
 		// Default languages directory.
 		$lang_dir = BSF_UTM_ANALYTICS_DIR . 'languages/';
 
@@ -109,7 +108,7 @@ class Plugin_Loader {
 		/**
 		 * Language Locale for plugin
 		 *
-		 * @var $get_locale The locale to use.
+		 * @var The $get_locale locale to use.
 		 * Uses get_user_locale()` in WordPress 4.7 or greater,
 		 * otherwise uses `get_locale()`.
 		 */

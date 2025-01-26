@@ -17,7 +17,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 0.0.1
  */
 class Utils {
-
 	/**
 	 * List of slugs of all the bsf products that will be referer, referring another product.
 	 *
@@ -48,14 +47,13 @@ class Utils {
 		'zipwp',
 	];
 
-
 	/**
 	 * This function will help to determine if provided slug is a valid bsf product or not,
 	 * This way we will maintain consistency through out all our products.
 	 *
 	 * @param string $slug unique slug of the product which can be used for referer, product.
 	 * @since 0.0.1
-	 * @return boolean
+	 * @return bool
 	 */
 	public static function is_valid_bsf_product_slug( $slug ) {
 		if ( empty( $slug ) || ! is_string( $slug ) ) {
@@ -74,7 +72,7 @@ class Utils {
 	 * @since 0.0.1
 	 * @return void
 	 */
-	public static function update_referer( $referer, $product ) {
+	public static function update_referer( $referer, $product ): void {
 
 		$slugs       = [
 			'referer' => $referer,
@@ -117,7 +115,7 @@ class Utils {
 	 */
 	public static function get_utm_ready_link( $link, $product, $utm_args = [] ) {
 
-		if ( false === wp_http_validate_url( $link ) ) {
+		if ( wp_http_validate_url( $link ) === false ) {
 			error_log( 'Invalid url passed to get_utm_ready_link function' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log -- adding logs in case of failure will help in debugging.
 			return $link;
 		}
@@ -143,11 +141,9 @@ class Utils {
 
 		$utm_args['utm_source'] = $bsf_product_referers[ $product ];
 
-		$link = add_query_arg(
+		return add_query_arg(
 			$utm_args,
 			$link
 		);
-
-		return $link;
 	}
 }

@@ -43,7 +43,7 @@ if ( ! class_exists( 'NPS_Survey_Plugin_Loader' ) ) {
 		 * @return object initialized object of class.
 		 */
 		public static function get_instance() {
-			if ( null === self::$instance ) {
+			if ( self::$instance === null ) {
 				self::$instance = new self();
 			}
 			return self::$instance;
@@ -56,7 +56,7 @@ if ( ! class_exists( 'NPS_Survey_Plugin_Loader' ) ) {
 		 * @return void
 		 */
 		public function autoload( $class ): void {
-			if ( 0 !== strpos( $class, __NAMESPACE__ ) ) {
+			if ( strpos( $class, __NAMESPACE__ ) !== 0 ) {
 				return;
 			}
 

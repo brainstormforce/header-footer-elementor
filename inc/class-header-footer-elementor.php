@@ -51,7 +51,7 @@ class Header_Footer_Elementor {
 			self::$elementor_instance = Elementor\Plugin::instance();
 
 			$this->includes();
-			
+
 			add_action( 'init', [ $this, 'load_textdomain' ] );
 
 			add_filter(
@@ -65,21 +65,20 @@ class Header_Footer_Elementor {
 				10,
 				2
 			);
-			
 
 			add_action(
 				'current_screen',
-				function () {
+				function (): void {
 					$current_screen = get_current_screen();
 					if ( $current_screen && ( $current_screen->id === 'edit-elementor-hf' || $current_screen->id === 'elementor-hf' ) ) {
 						add_action(
 							'in_admin_header',
-							function () {
+							function (): void {
 								$this->render_admin_top_bar();
-							} 
+							}
 						);
 					}
-				} 
+				}
 			);
 
 			$is_theme_supported = true;
@@ -146,16 +145,8 @@ class Header_Footer_Elementor {
 
 			if ( ! class_exists( 'HFE_Utm_Analytics' ) ) {
 				require_once HFE_DIR . 'inc/lib/class-hfe-utm-analytics.php';
-			}
-
+			}       
 		}
-	}
-
-	private function render_admin_top_bar() {
-		?>
-		<div id="hfe-admin-top-bar-root">
-		</div>
-		<?php
 	}
 
 	/**
@@ -427,7 +418,6 @@ class Header_Footer_Elementor {
 		if ( ! class_exists( 'Uae_Nps_Survey' ) ) {
 			require_once HFE_DIR . 'inc/lib/class-uae-nps-survey.php';
 		}
-					
 	}
 
 	/**
@@ -706,6 +696,13 @@ class Header_Footer_Elementor {
 			$css_file->enqueue();
 
 		return self::$elementor_instance->frontend->get_builder_content_for_display( $id );
+	}
+
+	private function render_admin_top_bar(): void {
+		?>
+		<div id="hfe-admin-top-bar-root">
+		</div>
+		<?php
 	}
 }
 /**

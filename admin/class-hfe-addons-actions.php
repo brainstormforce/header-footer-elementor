@@ -50,7 +50,6 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			add_action( 'wp_ajax_hfe_bulk_deactivate_widgets', [ $this, 'bulk_deactivate_widgets' ] );
 
 			add_action( 'wp_ajax_save_theme_compatibility_option', [ $this, 'save_hfe_compatibility_option_callback' ] );
-
 		}
 
 		/**
@@ -62,7 +61,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		 *
 		 * @since x.x.x
 		 */
-		public function hfe_plugin_install() {
+		public function hfe_plugin_install(): void {
 
 			check_ajax_referer( 'updates', '_ajax_nonce' );
 
@@ -71,13 +70,13 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			$plugin_slug = isset( $_POST['slug'] ) && is_string( $_POST['slug'] ) ? sanitize_text_field( wp_unslash( $_POST['slug'] ) ) : '';
 
 			if ( empty( $plugin_slug ) ) {
-				wp_send_json_error( array( 'message' => __( 'Plugin slug is missing.', 'header-footer-elementor' ) ) );
+				wp_send_json_error( [ 'message' => __( 'Plugin slug is missing.', 'header-footer-elementor' ) ] );
 			}
 
 			// Schedule the database update if the plugin is installed successfully.
 			add_action(
 				'shutdown',
-				function () use ( $plugin_slug ) {
+				static function () use ( $plugin_slug ): void {
 					// Iterate through all plugins to check if the installed plugin matches the current plugin slug.
 					$all_plugins = get_plugins();
 					foreach ( $all_plugins as $plugin_file => $_ ) {
@@ -94,11 +93,10 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 				// @psalm-suppress NoValue
 				wp_ajax_install_plugin();
 			} else {
-				wp_send_json_error( array( 'message' => __( 'Plugin installation function not found.', 'header-footer-elementor' ) ) );
+				wp_send_json_error( [ 'message' => __( 'Plugin installation function not found.', 'header-footer-elementor' ) ] );
 			}
 		}
 
-		
 		/**
 		 * Handles the installation and saving of required theme.
 		 *
@@ -108,7 +106,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		 *
 		 * @since x.x.x
 		 */
-		public function hfe_theme_install() {
+		public function hfe_theme_install(): void {
 
 			check_ajax_referer( 'updates', '_ajax_nonce' );
 
@@ -117,13 +115,13 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			$theme_slug = isset( $_POST['slug'] ) && is_string( $_POST['slug'] ) ? sanitize_text_field( wp_unslash( $_POST['slug'] ) ) : '';
 
 			if ( empty( $theme_slug ) ) {
-				wp_send_json_error( array( 'message' => __( 'Theme slug is missing.', 'header-footer-elementor' ) ) );
+				wp_send_json_error( [ 'message' => __( 'Theme slug is missing.', 'header-footer-elementor' ) ] );
 			}
 
 			// Schedule the database update if the theme is installed successfully.
 			add_action(
 				'shutdown',
-				function () use ( $theme_slug ) {
+				static function () use ( $theme_slug ): void {
 					// Iterate through all themes to check if the installed theme matches the current theme slug.
 					$all_themes = wp_get_themes();
 					foreach ( $all_themes as $theme_file => $_ ) {
@@ -140,7 +138,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 				// @psalm-suppress NoValue
 				wp_ajax_install_theme();
 			} else {
-				wp_send_json_error( array( 'message' => __( 'Theme installation function not found.', 'header-footer-elementor' ) ) );
+				wp_send_json_error( [ 'message' => __( 'Theme installation function not found.', 'header-footer-elementor' ) ] );
 			}
 		}
 

@@ -266,6 +266,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) {
 				return trailingslashit( get_template_directory_uri() . str_replace( $theme_dir, '', $path ) );
 			}
 				return plugin_dir_url( __FILE__ );
+
 		}
 
 		/**

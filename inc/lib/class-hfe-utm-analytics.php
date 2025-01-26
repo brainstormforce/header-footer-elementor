@@ -8,18 +8,16 @@
  * @package UTM Analytics
  */
 
-
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'HFE_Utm_Analytics' ) ) :
+if ( ! class_exists( 'HFE_Utm_Analytics' ) ) {
 
 	/**
 	 * Admin
 	 */
 	class HFE_Utm_Analytics {
-
 		/**
 		 * Instance
 		 *
@@ -27,6 +25,16 @@ if ( ! class_exists( 'HFE_Utm_Analytics' ) ) :
 		 * @var (Object) HFE_Utm_Analytics
 		 */
 		private static $instance = null;
+
+		/**
+		 * Constructor.
+		 *
+		 * @since 1.0.0
+		 */
+		private function __construct() {
+			$this->version_check();
+			add_action( 'init', [ $this, 'load' ], 999 );
+		}
 
 		/**
 		 * Get Instance
@@ -44,21 +52,11 @@ if ( ! class_exists( 'HFE_Utm_Analytics' ) ) :
 		}
 
 		/**
-		 * Constructor.
-		 *
-		 * @since 1.0.0
-		 */
-		private function __construct() {
-			$this->version_check();
-			add_action( 'init', [ $this, 'load' ], 999 );
-		}
-
-		/**
 		 * Version Check
 		 *
 		 * @return void
 		 */
-		public function version_check() {
+		public function version_check(): void {
 
 			$file = realpath( dirname( __FILE__ ) . '/utm-analytics/version.json' );
 
@@ -69,9 +67,9 @@ if ( ! class_exists( 'HFE_Utm_Analytics' ) ) :
 				// @codingStandardsIgnoreEnd
 				global $utm_analytics_version, $utm_analytics_init;
 				$path = realpath( dirname( __FILE__ ) . '/utm-analytics/bsf-utm-analytics.php' );
-				$version = isset( $file_data['bsf-utm-analytics'] ) ? $file_data['bsf-utm-analytics'] : 0;
+				$version = $file_data['bsf-utm-analytics'] ?? 0;
 
-				if ( null === $utm_analytics_version ) {
+				if ( $utm_analytics_version === null ) {
 					$utm_analytics_version = '0.0.1';
 				}
 
@@ -88,7 +86,7 @@ if ( ! class_exists( 'HFE_Utm_Analytics' ) ) :
 		 *
 		 * @return void
 		 */
-		public function load() {
+		public function load(): void {
 
 			global $utm_analytics_version, $utm_analytics_init;
 			if ( is_file( realpath( $utm_analytics_init ) ) ) {
@@ -99,4 +97,4 @@ if ( ! class_exists( 'HFE_Utm_Analytics' ) ) :
 
 	HFE_Utm_Analytics::get_instance();
 
-endif;
+}
