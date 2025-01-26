@@ -1,20 +1,20 @@
 <?php
 /**
- * Plugin Name: Ultimate Addons for Elementor
+ * Plugin Name: Ultimate Addons for Elementor Lite
  * Plugin URI:  https://wordpress.org/plugins/header-footer-elementor/
  * Description: Formerly known as "Elementor Header & Footer Builder", this powerful plugin allows you to create custom headers and footers with Elementor and display them in selected locations. You can also create custom Elementor blocks and place them anywhere on your website using a shortcode.
  * Author:      Brainstorm Force
  * Author URI:  https://www.brainstormforce.com/
  * Text Domain: header-footer-elementor
  * Domain Path: /languages
- * Version: 2.0.3
- * Elementor tested up to: 3.26
- * Elementor Pro tested up to: 3.26
+ * Version: 2.1.0
+ * Elementor tested up to: 3.27
+ * Elementor Pro tested up to: 3.27
  *
  * @package         header-footer-elementor
  */
 
-define( 'HFE_VER', '2.0.3' );
+define( 'HFE_VER', '2.1.0' );
 define( 'HFE_FILE', __FILE__ );
 define( 'HFE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'HFE_URL', plugins_url( '/', __FILE__ ) );
@@ -53,7 +53,14 @@ add_action( 'plugins_loaded', 'hfe_init' );
 function hfe_enqueue_font_awesome() {
 
 	if ( class_exists( 'Elementor\Plugin' ) ) {
-		
+
+		// Ensure Elementor Icons CSS is loaded.
+        wp_enqueue_style(
+            'hfe-elementor-icons',
+            plugins_url( '/elementor/assets/lib/eicons/css/elementor-icons.min.css', 'elementor' ),
+            [],
+            '5.34.0'
+        );
 		wp_enqueue_style(
 			'hfe-icons-list',
 			plugins_url( '/elementor/assets/css/widget-icon-list.min.css', 'elementor' ),
@@ -92,6 +99,18 @@ function hfe_enqueue_font_awesome() {
 			plugins_url( '/elementor-pro/assets/css/widget-blockquote.min.css', 'elementor' ),
 			[],
 			'3.25.0'
+		);
+		wp_enqueue_style(
+			'hfe-mega-menu',
+			plugins_url( '/elementor-pro/assets/css/widget-mega-menu.min.css', 'elementor' ),
+			[],
+			'3.26.2'
+		);
+		wp_enqueue_style(
+			'hfe-nav-menu-widget',
+			plugins_url( '/elementor-pro/assets/css/widget-nav-menu.min.css', 'elementor' ),
+			[],
+			'3.26.0'
 		);
 	}
 }

@@ -72,6 +72,7 @@ class HFE_Admin {
 
 	}
 
+
 	/**
 	 * Constructor
 	 *
@@ -103,19 +104,27 @@ class HFE_Admin {
 		}
 	}
 
-	/**
-	 * Hide admin notices on the custom settings page.
-	 *
-	 * @since x.x.x
-	 * @return void
-	 */
-	public static function hide_admin_notices() {
-		$screen = get_current_screen();
-		if ( 'toplevel_page_hfe' === $screen->id ) {
-			remove_all_actions( 'admin_notices' );
-			remove_all_actions( 'all_admin_notices' );
-		}
-	}
+
+
+
+/**
+ * Hide admin notices on the custom settings page.
+ *
+ * @since x.x.x
+ * @return void
+ */
+public static function hide_admin_notices() {
+    $screen = get_current_screen();
+    $pages_to_hide_notices = array(
+        'edit-elementor-hf',     // Edit screen for elementor-hf post type
+        'elementor-hf',          // New post screen for elementor-hf post type
+    );
+
+    if ( in_array( $screen->id, $pages_to_hide_notices ) || 'toplevel_page_hfe' === $screen->id ) {
+        remove_all_actions( 'admin_notices' );
+        remove_all_actions( 'all_admin_notices' );
+    }
+}
 	
 	/**
 	 * Script for Elementor Pro full site editing support.
@@ -247,9 +256,6 @@ class HFE_Admin {
 	 * @return void
 	 */
 	public function header_footer_posttype() {
-		if ( ! current_user_can( 'manage_options' ) ) {
-			return;
-		}
 
 		$setting_location = $this->is_pro_active() ? 'uaepro' : 'hfe';
 		
@@ -282,6 +288,15 @@ class HFE_Admin {
 			'menu_icon'           => 'dashicons-editor-kitchensink',
 			'supports'            => [ 'title', 'thumbnail', 'elementor' ],
 			'menu_position'       => 5,
+			'capabilities'        => array(
+				'edit_post'          => 'manage_options',
+				'read_post'          => 'read',
+				'delete_post'        => 'manage_options',
+				'edit_posts'         => 'manage_options',
+				'edit_others_posts'  => 'manage_options',
+				'publish_posts'      => 'manage_options',
+				'read_private_posts' => 'manage_options',
+			),
 		];
 
 		register_post_type( 'elementor-hf', $args );
@@ -319,6 +334,7 @@ class HFE_Admin {
 			2
 		);
 	}
+
 
 	/**
 	 * Check if UAE Pro is active.
