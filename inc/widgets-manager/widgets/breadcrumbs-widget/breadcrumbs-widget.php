@@ -8,14 +8,10 @@
 namespace HFE\WidgetsManager\Widgets\BreadcrumbsWidget;
 
 use Elementor\Controls_Manager;
-use Elementor\Widget_Base;
-use Elementor\Utils;
-use Elementor\Icons_Manager;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
+use Elementor\Icons_Manager;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
-
-use HFE\WidgetsManager\Widgets_Loader;
 use HFE\WidgetsManager\Base\Common_Widget;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -30,7 +26,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since x.x.x
  */
 class Breadcrumbs_Widget extends Common_Widget {
-
 	/**
 	 * Retrieve the widget name.
 	 *
@@ -71,6 +66,23 @@ class Breadcrumbs_Widget extends Common_Widget {
 	}
 
 	/**
+	 * Sets the home icon.
+	 *
+	 * @access public
+	 * @param string $home_class home icon class.
+	 * @param string $home_icon home icon.
+	 * @return string
+	 */
+	public function home_icon_html( $home_class = '', $home_icon = [] ) {
+		$home_icon_html = '<span class="' . esc_attr( $home_class ) . '">';
+		ob_start();
+		Icons_Manager::render_icon( $home_icon, [ 'aria-hidden' => 'true' ] );
+		$home_icon_html .= ob_get_clean(); // Store the icon output as delimiter.
+		$home_icon_html .= '</span>';
+		return $home_icon_html;
+	}
+
+	/**
 	 * Indicates if the widget's content is dynamic.
 	 *
 	 * This method returns true if the widget's output is dynamic and should not be cached,
@@ -101,8 +113,6 @@ class Breadcrumbs_Widget extends Common_Widget {
 		$this->register_breadcrumbs_separator_style_controls();
 		$this->register_breadcrumbs_current_style_controls();
 	}
-
-	
 
 	/**
 	 * Register general Controls.
@@ -305,9 +315,7 @@ class Breadcrumbs_Widget extends Common_Widget {
 				]
 			);
 
-		
 		$this->end_controls_section();
-
 	}
 
 	/**
@@ -538,7 +546,6 @@ class Breadcrumbs_Widget extends Common_Widget {
 		);
 
 		$this->end_controls_section();
-
 	}
 
 	/**
@@ -627,7 +634,6 @@ class Breadcrumbs_Widget extends Common_Widget {
 			);
 
 		$this->end_controls_section();
-
 	}
 
 	/**
@@ -642,30 +648,30 @@ class Breadcrumbs_Widget extends Common_Widget {
 	 * @return void
 	 */
 	// phpcs:ignore
-	protected function render():void {
+	protected function render(): void {
 		$settings = $this->get_settings_for_display();
-	
-		$delimiter = 'text' === $settings['separator_type'] ? $settings['separator_text'] : '';
-	
-		if ( 'icon' === $settings['separator_type'] ) {
+
+		$delimiter = $settings['separator_type'] === 'text' ? $settings['separator_text'] : '';
+
+		if ( $settings['separator_type'] === 'icon' ) {
 			ob_start();
 			Icons_Manager::render_icon( $settings['separator_icon'], [ 'aria-hidden' => 'true' ] );
 			$delimiter = ob_get_clean(); // Store the icon output as delimiter.
 		}
-	
+
 		// Define breadcrumb defaults.
 		$defaults = [
-			'home'         => isset( $settings['home_text'] ) ? $settings['home_text'] : __( 'Home', 'header-footer-elementor' ),
+			'home'         => $settings['home_text'] ?? __( 'Home', 'header-footer-elementor' ),
 			'delimiter'    => $delimiter,
 			'echo'         => true,
-			'404_title'    => isset( $settings['error_text'] ) ? $settings['error_text'] : __( 'Error 404: Page not found', 'header-footer-elementor' ),
-			'search_title' => isset( $settings['search_text'] ) ? $settings['search_text'] : __( 'Search results for: ', 'header-footer-elementor' ),
+			'404_title'    => $settings['error_text'] ?? __( 'Error 404: Page not found', 'header-footer-elementor' ),
+			'search_title' => $settings['search_text'] ?? __( 'Search results for: ', 'header-footer-elementor' ),
 		];
-	
+
 		// Start the breadcrumbs array.
 		$breadcrumbs = [];
 
-		if ( 'yes' === $settings['show_home'] ) {
+		if ( $settings['show_home'] === 'yes' ) {
 			// Add the Home link to the breadcrumbs.
 			$breadcrumbs[] = [
 				'title' => $defaults['home'],
@@ -673,16 +679,16 @@ class Breadcrumbs_Widget extends Common_Widget {
 				'class' => 'hfe-breadcrumbs-first',
 			];
 		}
-	
+
 		// Add the current page details to breadcrumbs based on conditions.
 		if ( ! is_front_page() ) {
-			if ( is_home() && 'yes' === $settings['show_home'] ) {
+			if ( is_home() && $settings['show_home'] === 'yes' ) {
 				$breadcrumbs[] = [
 					'title' => get_the_title( get_option( 'page_for_posts' ) ),
 					'url'   => '',
 					'class' => '',
 				];
-	
+
 			} elseif ( is_single() ) {
 
 				$category = get_the_category();
@@ -714,7 +720,7 @@ class Breadcrumbs_Widget extends Common_Widget {
 					'url'   => '',              // No URL for the current page.
 					'class' => 'hfe-breadcrumbs-last', // Optional class for styling the last breadcrumb.
 				];
-	
+
 			} elseif ( is_page() && ! is_front_page() ) {
 				$parents = get_post_ancestors( get_the_ID() );
 				foreach ( array_reverse( $parents ) as $parent ) {
@@ -729,42 +735,42 @@ class Breadcrumbs_Widget extends Common_Widget {
 					'url'   => '',
 					'class' => 'hfe-breadcrumbs-last',
 				];
-	
+
 			} elseif ( is_category() ) {
 				$breadcrumbs[] = [
 					'title' => single_cat_title( '', false ),
 					'url'   => '',
 					'class' => 'hfe-breadcrumbs-last',
 				];
-	
+
 			} elseif ( is_tag() ) {
 				$breadcrumbs[] = [
 					'title' => single_tag_title( '', false ),
 					'url'   => '',
 					'class' => 'hfe-breadcrumbs-last',
 				];
-	
+
 			} elseif ( is_author() ) {
 				$breadcrumbs[] = [
 					'title' => get_the_author(),
 					'url'   => '',
 					'class' => 'hfe-breadcrumbs-last',
 				];
-	
+
 			} elseif ( is_search() ) {
 				$breadcrumbs[] = [
 					'title' => $defaults['search_title'] . get_search_query(),
 					'url'   => '',
 					'class' => 'hfe-breadcrumbs-last',
 				];
-	
+
 			} elseif ( is_404() ) {
 				$breadcrumbs[] = [
 					'title' => $defaults['404_title'],
 					'url'   => '',
 					'class' => 'hfe-breadcrumbs-last',
 				];
-	
+
 			} elseif ( is_archive() ) {
 				$breadcrumbs[] = [
 					'title' => post_type_archive_title( '', false ),
@@ -774,8 +780,8 @@ class Breadcrumbs_Widget extends Common_Widget {
 			}
 		}
 
-		$home_class = ( 'yes' === $settings['show_home'] ) ? 'hfe-breadcrumbs-show-home' : '';
-	
+		$home_class = $settings['show_home'] === 'yes' ? 'hfe-breadcrumbs-show-home' : '';
+
 		// Build the breadcrumb output.
 		$output = '<ul class="hfe-breadcrumbs ' . esc_attr( $home_class ) . '">';
 
@@ -783,7 +789,7 @@ class Breadcrumbs_Widget extends Common_Widget {
 			// Open the breadcrumb item.
 			$output .= '<li class="hfe-breadcrumbs-item ' . esc_attr( $breadcrumb['class'] ) . '">';
 
-			if ( 'yes' === $settings['show_home'] && 0 === $index ) {
+			if ( $settings['show_home'] === 'yes' && $index === 0 ) {
 				$home_icon = $this->home_icon_html( 'hfe-breadcrumbs-home-icon', $settings['home_icon'] );
 				$output   .= $home_icon;
 			}
@@ -798,7 +804,7 @@ class Breadcrumbs_Widget extends Common_Widget {
 			// Add the separator except for the last item.
 			if ( $index < count( $breadcrumbs ) - 1 ) {
 				$output .= '<li class="hfe-breadcrumbs-separator">';
-				if ( 'icon' === $settings['separator_type'] ) {
+				if ( $settings['separator_type'] === 'icon' ) {
 					// Render the icon.
 					$output .= '<span class="hfe-breadcrumbs-separator-icon">';
 					$output .= $delimiter;
@@ -811,26 +817,8 @@ class Breadcrumbs_Widget extends Common_Widget {
 			}
 		}
 		$output .= '</ul>';
-		
+
 		echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
-	}
-
-	/**
-	 * Sets the home icon.
-	 *
-	 * @access public
-	 * @param string $home_class home icon class.
-	 * @param string $home_icon home icon.
-	 * @return string
-	 */
-	public function home_icon_html( $home_class = '', $home_icon = [] ) {
-		$home_icon_html = '<span class="' . esc_attr( $home_class ) . '">';
-		ob_start();
-		Icons_Manager::render_icon( $home_icon, [ 'aria-hidden' => 'true' ] );
-		$home_icon_html .= ob_get_clean(); // Store the icon output as delimiter.
-		$home_icon_html .= '</span>';
-		return $home_icon_html;
 	}
 
 	/**
@@ -842,6 +830,6 @@ class Breadcrumbs_Widget extends Common_Widget {
 	 * @access protected
 	 * @return void
 	 */
-	protected function content_template() {
+	protected function content_template(): void {
 	}
 }

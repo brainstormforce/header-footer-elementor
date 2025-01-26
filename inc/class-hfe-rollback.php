@@ -20,7 +20,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! class_exists( 'HFE_Rollback' ) ) {
 
 	class HFE_Rollback {
-
 		/**
 		 * Package URL.
 		 *
@@ -86,6 +85,71 @@ if ( ! class_exists( 'HFE_Rollback' ) ) {
 		}
 
 		/**
+		 * Run.
+		 *
+		 * Rollback HFE to previous versions.
+		 *
+		 * @since x.x.x
+		 * @access public
+		 */
+		public function run(): void {
+			$this->apply_package();
+			$this->upgrade();
+		}
+
+		/**
+		 * Apply package.
+		 *
+		 * Change the plugin data when WordPress checks for updates. This method
+		 * modifies package data to update the plugin from a specific URL containing
+		 * the version package.
+		 *
+		 * @since x.x.x
+		 * @access protected
+		 */
+		protected function apply_package(): void {
+			$update_plugins = get_site_transient( 'update_plugins' );
+			if ( ! is_object( $update_plugins ) ) {
+				$update_plugins = new \stdClass();
+			}
+
+			$plugin_info              = new \stdClass();
+			$plugin_info->new_version = $this->version;
+			$plugin_info->slug        = $this->plugin_slug;
+			$plugin_info->package     = $this->package_url;
+			$plugin_info->url         = 'https://wordpress.org/plugins/header-footer-elementor/';
+
+			$update_plugins->response[ $this->plugin_name ] = $plugin_info;
+
+			set_site_transient( 'update_plugins', $update_plugins );
+		}
+
+		/**
+		 * Upgrade.
+		 *
+		 * Run WordPress upgrade to HFE Rollback to previous version.
+		 *
+		 * @since x.x.x
+		 * @access protected
+		 */
+		protected function upgrade(): void {
+
+			require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
+
+			$upgrader_args = [
+				'url'    => 'update.php?action=upgrade-plugin&plugin=' . rawurlencode( $this->plugin_name ),
+				'plugin' => $this->plugin_name,
+				'nonce'  => 'upgrade-plugin_' . $this->plugin_name,
+				'title'  => __( 'UAE Lite <p>Rollback to Previous Version</p>', 'header-footer-elementor' ),
+			];
+
+			$this->print_inline_style();
+
+			$upgrader = new \Plugin_Upgrader( new \Plugin_Upgrader_Skin( $upgrader_args ) );
+			$upgrader->upgrade( $this->plugin_name );
+		}
+
+		/**
 		 * Print inline style.
 		 *
 		 * Add an inline CSS to the HFE Rollback page.
@@ -93,7 +157,7 @@ if ( ! class_exists( 'HFE_Rollback' ) ) {
 		 * @since x.x.x
 		 * @access private
 		 */
-		private function print_inline_style() {
+		private function print_inline_style(): void {
 			?>
 			<style>
 				.wrap {

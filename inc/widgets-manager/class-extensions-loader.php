@@ -11,7 +11,6 @@
 
 namespace HFE\WidgetsManager;
 
-use Elementor\Plugin;
 use HFE\WidgetsManager\Base\HFE_Helper;
 
 defined( 'ABSPATH' ) || exit;
@@ -20,7 +19,6 @@ defined( 'ABSPATH' ) || exit;
  * Set up Extensions Loader class
  */
 class Extensions_Loader {
-
 	/**
 	 * Instance of Extensions_Loader.
 	 *
@@ -28,6 +26,17 @@ class Extensions_Loader {
 	 * @var null
 	 */
 	private static $_instance = null;
+
+	/**
+	 * Setup actions and filters.
+	 *
+	 * @since  x.x.x
+	 * @access private
+	 */
+	private function __construct() {
+
+		$this->include_extensions_files();
+	}
 
 	/**
 	 * Get instance of Extensions_Loader
@@ -72,11 +81,9 @@ class Extensions_Loader {
 	 * @since 1.3.0
 	 */
 	public static function get_extensions_list() {
-		$extensions_list = [
+		return [
 			'Scroll_To_Top' => 'scroll-to-top',
 		];
-
-		return $extensions_list;
 	}
 
 	/**
@@ -88,7 +95,7 @@ class Extensions_Loader {
 	 * @access public
 	 * @return void
 	 */
-	public function include_extensions_files() {
+	public function include_extensions_files(): void {
 		$extensions_list = $this->get_extensions_list();
 
 		if ( ! empty( $extensions_list ) ) {

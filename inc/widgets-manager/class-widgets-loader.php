@@ -11,9 +11,8 @@
 
 namespace HFE\WidgetsManager;
 
-use Elementor\Plugin;
-use Elementor\Utils;
 use Elementor\Core\Files\File_Types\Svg;
+use Elementor\Plugin;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -21,7 +20,12 @@ defined( 'ABSPATH' ) || exit;
  * Set up Widgets Loader class
  */
 class Widgets_Loader {
-
+	/**
+	 * Member Variable
+	 *
+	 * @var Modules Manager
+	 */
+	public $modules_manager;
 	/**
 	 * Instance of Widgets_Loader.
 	 *
@@ -39,11 +43,19 @@ class Widgets_Loader {
 	private static $widgets_data = null;
 
 	/**
-	 * Member Variable
+	 * Setup actions and filters.
 	 *
-	 * @var Modules Manager
+	 * @since  1.2.0
+	 * @access private
 	 */
-	public $modules_manager;
+	private function __construct() {
+
+		spl_autoload_register( [ $this, 'autoload' ] );
+
+		$this->includes();
+
+		$this->setup_actions_filters();
+	}
 
 	/**
 	 * Get instance of Widgets_Loader
@@ -60,29 +72,14 @@ class Widgets_Loader {
 	}
 
 	/**
-	 * Setup actions and filters.
-	 *
-	 * @since  1.2.0
-	 * @access private
-	 */
-	private function __construct() {
-
-		spl_autoload_register( [ $this, 'autoload' ] );
-
-		$this->includes();
-
-		$this->setup_actions_filters();
-	}
-
-	/**
 	 * AutoLoad
 	 *
 	 * @since 0.0.1
 	 * @param string $class class.
 	 */
-	public function autoload( $class ) {
+	public function autoload( $class ): void {
 
-		if ( 0 !== strpos( $class, __NAMESPACE__ ) ) {
+		if ( strpos( $class, __NAMESPACE__ ) !== 0 ) {
 			return;
 		}
 
@@ -96,7 +93,7 @@ class Widgets_Loader {
 					$class_to_load
 				)
 			);
-			
+
 			$filename = HFE_DIR . 'inc/widgets-manager/' . $filename . '.php'; // Adjusted path.
 
 			if ( is_readable( $filename ) ) {
@@ -106,77 +103,17 @@ class Widgets_Loader {
 	}
 
 	/**
-	 * Includes.
-	 *
-	 * @since 0.0.1
-	 */
-	private function includes() {
-		require HFE_DIR . 'inc/widgets-manager/modules-manager.php';
-	}
-
-	/**
-	 * Setup Actions Filters.
-	 *
-	 * @since 0.0.1
-	 */
-	private function setup_actions_filters() {
-
-		add_action( 'elementor/init', [ $this, 'elementor_init' ] );
-
-		// Register category.
-		add_action( 'elementor/elements/categories_registered', [ $this, 'register_widget_category' ] );
-
-		// Register widgets script.
-		add_action( 'elementor/frontend/after_register_scripts', [ $this, 'register_widget_scripts' ] );
-
-		// Add svg support.
-		add_filter( 'upload_mimes', [ $this, 'hfe_svg_mime_types' ] ); // PHPCS:Ignore WordPressVIPMinimum.Hooks.RestrictedHooks.upload_mimes
-
-		// Add filter to sanitize uploaded SVG files.
-		add_filter( 'wp_handle_upload_prefilter', [ $this, 'sanitize_uploaded_svg' ] );
-
-		// Refresh the cart fragments.
-		if ( class_exists( 'woocommerce' ) ) {
-
-			add_filter( 'woocommerce_add_to_cart_fragments', [ $this, 'wc_refresh_mini_cart_count' ] );
-		}
-
-	}
-
-	/**
 	 * Elementor Init.
 	 *
 	 * @since 0.0.1
 	 */
-	public function elementor_init() {
+	public function elementor_init(): void {
 
 		$this->modules_manager = new Modules_Manager();
 
 		$this->init_category();
 
 		do_action( 'header_footer_elementor/init' );    //phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
-	}
-
-	/**
-	 * Sections init
-	 *
-	 * @since 0.0.1
-	 *
-	 * @access private
-	 */
-	private function init_category() {
-		$category = defined( 'UAEL_PLUGIN_SHORT_NAME' ) ? UAEL_PLUGIN_SHORT_NAME : __( 'UAE', 'header-footer-elementor' );
-
-		if ( version_compare( ELEMENTOR_VERSION, '2.0.0' ) < 0 ) {
-
-			\Elementor\Plugin::instance()->elements_manager->add_category(
-				'hfe-widgets',
-				[
-					'title' => $category,
-				],
-				1
-			);
-		}
 	}
 
 	/**
@@ -207,15 +144,13 @@ class Widgets_Loader {
 	 * @since 1.3.0
 	 */
 	public static function get_widget_script() {
-		$js_files = [
+		return [
 			'hfe-frontend-js' => [
 				'path'      => 'inc/js/frontend.js',
 				'dep'       => [ 'jquery' ],
 				'in_footer' => true,
 			],
 		];
-
-		return $js_files;
 	}
 
 	/**
@@ -227,7 +162,7 @@ class Widgets_Loader {
 	 * @access public
 	 * @return void
 	 */
-	public function include_js_files() {
+	public function include_js_files(): void {
 		$js_files = $this->get_widget_script();
 
 		if ( ! empty( $js_files ) ) {
@@ -271,7 +206,7 @@ class Widgets_Loader {
 	 * @return array Modified array of uploaded file information.
 	 */
 	public function sanitize_uploaded_svg( $file ) {
-		if ( 'image/svg+xml' === $file['type'] ) {
+		if ( $file['type'] === 'image/svg+xml' ) {
 
 			/**
 			 * SVG Handler instance.
@@ -287,7 +222,7 @@ class Widgets_Loader {
 		}
 
 		return $file;
-	}  
+	}
 
 	/**
 	 * Register module required js on elementor's action.
@@ -296,7 +231,7 @@ class Widgets_Loader {
 	 * @access public
 	 * @return void
 	 */
-	public function register_widget_scripts() {
+	public function register_widget_scripts(): void {
 		$this->include_js_files();
 	}
 
@@ -318,9 +253,9 @@ class Widgets_Loader {
 			return $fragments;
 		}
 
-		$cart_badge_count = ( null !== WC()->cart ) ? WC()->cart->get_cart_contents_count() : '';
+		$cart_badge_count = WC()->cart !== null ? WC()->cart->get_cart_contents_count() : '';
 
-		if ( null !== WC()->cart ) {
+		if ( WC()->cart !== null ) {
 
 			$fragments['span.hfe-cart-count'] = '<span class="hfe-cart-count">' . WC()->cart->get_cart_contents_count() . '</span>';
 
@@ -345,9 +280,67 @@ class Widgets_Loader {
 		// Check if Elementor method exists, else we will run custom validation code.
 		if ( method_exists( 'Elementor\Utils', 'validate_html_tag' ) ) {
 			return Utils::validate_html_tag( $tag );
-		} else {
+		}
 			$allowed_tags = [ 'article', 'aside', 'div', 'footer', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'header', 'main', 'nav', 'p', 'section', 'span' ];
 			return in_array( strtolower( $tag ), $allowed_tags ) ? $tag : 'div';
+	}
+
+	/**
+	 * Includes.
+	 *
+	 * @since 0.0.1
+	 */
+	private function includes(): void {
+		require HFE_DIR . 'inc/widgets-manager/modules-manager.php';
+	}
+
+	/**
+	 * Setup Actions Filters.
+	 *
+	 * @since 0.0.1
+	 */
+	private function setup_actions_filters(): void {
+
+		add_action( 'elementor/init', [ $this, 'elementor_init' ] );
+
+		// Register category.
+		add_action( 'elementor/elements/categories_registered', [ $this, 'register_widget_category' ] );
+
+		// Register widgets script.
+		add_action( 'elementor/frontend/after_register_scripts', [ $this, 'register_widget_scripts' ] );
+
+		// Add svg support.
+		add_filter( 'upload_mimes', [ $this, 'hfe_svg_mime_types' ] ); // PHPCS:Ignore WordPressVIPMinimum.Hooks.RestrictedHooks.upload_mimes
+
+		// Add filter to sanitize uploaded SVG files.
+		add_filter( 'wp_handle_upload_prefilter', [ $this, 'sanitize_uploaded_svg' ] );
+
+		// Refresh the cart fragments.
+		if ( class_exists( 'woocommerce' ) ) {
+
+			add_filter( 'woocommerce_add_to_cart_fragments', [ $this, 'wc_refresh_mini_cart_count' ] );
+		}
+	}
+
+	/**
+	 * Sections init
+	 *
+	 * @since 0.0.1
+	 *
+	 * @access private
+	 */
+	private function init_category(): void {
+		$category = defined( 'UAEL_PLUGIN_SHORT_NAME' ) ? UAEL_PLUGIN_SHORT_NAME . ' Lite' : __( 'UAE Lite', 'header-footer-elementor' );
+
+		if ( version_compare( ELEMENTOR_VERSION, '2.0.0' ) < 0 ) {
+
+			\Elementor\Plugin::instance()->elements_manager->add_category(
+				'hfe-widgets',
+				[
+					'title' => $category,
+				],
+				1
+			);
 		}
 	}
 }

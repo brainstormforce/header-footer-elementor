@@ -33,7 +33,7 @@ class HFE_Admin {
 			self::$_instance = new self();
 		}
 
-		add_action( 'elementor/init', __CLASS__ . '::load_admin', 0 );
+		add_action( 'elementor/init', self::class . '::load_admin', 0 );
 
 		return self::$_instance;
 	}
@@ -46,8 +46,8 @@ class HFE_Admin {
 	 * @return void
 	 */
 	public static function load_admin() {
-		add_action( 'elementor/editor/after_enqueue_styles', __CLASS__ . '::hfe_admin_enqueue_scripts' );
-		add_action( 'admin_head', __CLASS__ . '::hfe_admin_enqueue_scripts' );		
+		add_action( 'elementor/editor/after_enqueue_styles', self::class . '::hfe_admin_enqueue_scripts' );
+		add_action( 'admin_head', self::class . '::hfe_admin_enqueue_scripts' );
 	}
 
 	/**
@@ -69,7 +69,6 @@ class HFE_Admin {
 		);
 
 		wp_enqueue_style( 'hfe-style' );
-
 	}
 
 
@@ -107,25 +106,25 @@ class HFE_Admin {
 
 
 
-/**
- * Hide admin notices on the custom settings page.
- *
- * @since x.x.x
- * @return void
- */
-public static function hide_admin_notices() {
-    $screen = get_current_screen();
-    $pages_to_hide_notices = array(
-        'edit-elementor-hf',     // Edit screen for elementor-hf post type
-        'elementor-hf',          // New post screen for elementor-hf post type
-    );
+	/**
+	 * Hide admin notices on the custom settings page.
+	 *
+	 * @since x.x.x
+	 * @return void
+	 */
+	public static function hide_admin_notices() {
+		$screen                = get_current_screen();
+		$pages_to_hide_notices = [
+			'edit-elementor-hf',     // Edit screen for elementor-hf post type
+			'elementor-hf',          // New post screen for elementor-hf post type
+		];
 
-    if ( in_array( $screen->id, $pages_to_hide_notices ) || 'toplevel_page_hfe' === $screen->id ) {
-        remove_all_actions( 'admin_notices' );
-        remove_all_actions( 'all_admin_notices' );
-    }
-}
-	
+		if ( in_array( $screen->id, $pages_to_hide_notices ) || $screen->id === 'toplevel_page_hfe' ) {
+			remove_all_actions( 'admin_notices' );
+			remove_all_actions( 'all_admin_notices' );
+		}
+	}
+
 	/**
 	 * Script for Elementor Pro full site editing support.
 	 *
@@ -185,7 +184,7 @@ public static function hide_admin_notices() {
 	 */
 	public function column_content( $column, $post_id ) {
 
-		if ( 'elementor_hf_display_rules' === $column ) {
+		if ( $column === 'elementor_hf_display_rules' ) {
 
 			$locations = get_post_meta( $post_id, 'ehf_target_include_locations', true );
 			if ( ! empty( $locations ) ) {
@@ -230,7 +229,7 @@ public static function hide_admin_notices() {
 		$location_label = [];
 		if ( is_array( $locations ) && is_array( $locations['rule'] ) && isset( $locations['rule'] ) ) {
 			$index = array_search( 'specifics', $locations['rule'] );
-			if ( false !== $index && ! empty( $index ) ) {
+			if ( $index !== false && ! empty( $index ) ) {
 				unset( $locations['rule'][ $index ] );
 			}
 		}
@@ -258,7 +257,7 @@ public static function hide_admin_notices() {
 	public function header_footer_posttype() {
 
 		$setting_location = $this->is_pro_active() ? 'uaepro' : 'hfe';
-		
+
 		$labels = [
 			'name'               => esc_html__( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
 			'singular_name'      => esc_html__( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
@@ -288,7 +287,7 @@ public static function hide_admin_notices() {
 			'menu_icon'           => 'dashicons-editor-kitchensink',
 			'supports'            => [ 'title', 'thumbnail', 'elementor' ],
 			'menu_position'       => 5,
-			'capabilities'        => array(
+			'capabilities'        => [
 				'edit_post'          => 'manage_options',
 				'read_post'          => 'read',
 				'delete_post'        => 'manage_options',
@@ -296,7 +295,7 @@ public static function hide_admin_notices() {
 				'edit_others_posts'  => 'manage_options',
 				'publish_posts'      => 'manage_options',
 				'read_private_posts' => 'manage_options',
-			),
+			],
 		];
 
 		register_post_type( 'elementor-hf', $args );
@@ -565,17 +564,17 @@ public static function hide_admin_notices() {
 		global $pagenow;
 		global $post;
 
-		if ( 'post.php' != $pagenow || ! is_object( $post ) || 'elementor-hf' != $post->post_type ) {
+		if ( $pagenow !== 'post.php' || ! is_object( $post ) || $post->post_type !== 'elementor-hf' ) {
 			return;
 		}
 
 		$template_type = get_post_meta( $post->ID, 'ehf_template_type', true );
 
-		if ( '' !== $template_type ) {
+		if ( $template_type !== '' ) {
 			$templates = Header_Footer_Elementor::get_template_id( $template_type );
 
 			// Check if more than one template is selected for current template type.
-			if ( is_array( $templates ) && isset( $templates[1] ) && $post->ID != $templates[0] ) {
+			if ( is_array( $templates ) && isset( $templates[1] ) && $post->ID !== $templates[0] ) {
 				$post_title        = '<strong>' . esc_html( get_the_title( $templates[0] ) ) . '</strong>';
 				$template_location = '<strong>' . esc_html( $this->template_location( $template_type ) ) . '</strong>';
 				/* Translators: Post title, Template Location */
@@ -627,7 +626,7 @@ public static function hide_admin_notices() {
 	public function load_canvas_template( $single_template ) {
 		global $post;
 
-		if ( 'elementor-hf' == $post->post_type ) {
+		if ( $post->post_type === 'elementor-hf' ) {
 			$elementor_2_0_canvas = ELEMENTOR_PATH . '/modules/page-templates/templates/canvas.php';
 
 			if ( file_exists( $elementor_2_0_canvas ) ) {

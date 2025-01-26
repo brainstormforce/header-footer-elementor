@@ -7,17 +7,15 @@
 
 namespace HFE\WidgetsManager\Widgets\Retina;
 
-use Elementor\Controls_Manager;
 use Elementor\Control_Media;
-use Elementor\Utils;
-use Elementor\Group_Control_Border;
-use Elementor\Group_Control_Typography;
-use Elementor\Group_Control_Box_Shadow;
-use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
+use Elementor\Controls_Manager;
 use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
-use Elementor\Group_Control_Image_Size;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
+use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Css_Filter;
+use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Text_Shadow;
+use Elementor\Group_Control_Typography;
 use Elementor\Plugin;
 use HFE\WidgetsManager\Base\Common_Widget;
 
@@ -91,7 +89,7 @@ class Retina extends Common_Widget {
 	 * @since 1.5.7
 	 * @access protected
 	 */
-	protected function register_controls() {
+	protected function register_controls(): void {
 		$this->register_content_retina_image_controls();
 		$this->register_retina_image_styling_controls();
 		$this->register_retina_caption_styling_controls();
@@ -104,7 +102,7 @@ class Retina extends Common_Widget {
 	 * @since 1.2.0
 	 * @access protected
 	 */
-	protected function register_content_retina_image_controls() {
+	protected function register_content_retina_image_controls(): void {
 		$this->start_controls_section(
 			'section_retina_image',
 			[
@@ -238,7 +236,7 @@ class Retina extends Common_Widget {
 	 * @since 1.2.0
 	 * @access protected
 	 */
-	protected function register_retina_image_styling_controls() {
+	protected function register_retina_image_styling_controls(): void {
 		$this->start_controls_section(
 			'section_style_retina_image',
 			[
@@ -509,7 +507,7 @@ class Retina extends Common_Widget {
 	 * @since 1.2.0
 	 * @access protected
 	 */
-	protected function register_retina_caption_styling_controls() {
+	protected function register_retina_caption_styling_controls(): void {
 		$this->start_controls_section(
 			'section_style_caption',
 			[
@@ -609,7 +607,7 @@ class Retina extends Common_Widget {
 	 * @since 1.2.0
 	 * @access protected
 	 */
-	protected function register_helpful_information() {
+	protected function register_helpful_information(): void {
 
 			$help_link_1 = HFE_DOMAIN . 'docs/introducing-retina-image-widget';
 
@@ -634,37 +632,6 @@ class Retina extends Common_Widget {
 	}
 
 	/**
-	 * Check if the current widget has caption
-	 *
-	 * @access private
-	 * @since 1.2.0
-	 *
-	 * @param array $settings returns settings.
-	 *
-	 * @return boolean
-	 */
-	private function has_caption( $settings ) {
-		return ( ! empty( $settings['caption_source'] ) && 'none' !== $settings['caption_source'] );
-	}
-
-	/**
-	 * Get the caption for current widget.
-	 *
-	 * @access private
-	 * @since 1.2.0
-	 * @param array $settings returns the caption.
-	 *
-	 * @return string
-	 */
-	private function get_caption( $settings ) {
-		$caption = '';
-		if ( 'custom' === $settings['caption_source'] ) {
-			$caption = ! empty( $settings['caption'] ) ? $settings['caption'] : '';
-		}
-		return $caption;
-	}
-
-	/**
 	 * Render Retina Image output on the frontend.
 	 *
 	 * Written in PHP and used to generate the final HTML.
@@ -672,7 +639,7 @@ class Retina extends Common_Widget {
 	 * @since 1.2.0
 	 * @access protected
 	 */
-	protected function render() {
+	protected function render(): void {
 		$settings = $this->get_settings_for_display();
 
 		if ( empty( $settings['retina_image']['url'] ) ) {
@@ -700,17 +667,17 @@ class Retina extends Common_Widget {
 
 		?>
 		<div <?php $this->print_render_attribute_string( 'wrapper' ); ?>>
-			<?php if ( $has_caption ) : ?>
+			<?php if ( $has_caption ) { ?>
 				<figure class="wp-caption">
-			<?php endif; ?>
-			<?php if ( $link ) : ?>
+			<?php } ?>
+			<?php if ( $link ) { ?>
 				<a <?php $this->print_render_attribute_string( 'link' ); ?>>
-			<?php endif; ?>
+			<?php } ?>
 			<?php
 			$size = $settings[ 'retina_image' . '_size' ];
 			$demo = '';
 
-			if ( 'custom' !== $size ) {
+			if ( $size !== 'custom' ) {
 				$image_size = $size;
 			} else {
 				require_once ELEMENTOR_PATH . 'includes/libraries/bfi-thumb/bfi-thumb.php';
@@ -779,10 +746,10 @@ class Retina extends Common_Widget {
 
 			// PHPCS:Ignore WordPressVIPMinimum.Variables.RestrictedVariables.cache_constraints___SERVER__HTTP_USER_AGENT__
 			if ( isset( $_SERVER['HTTP_USER_AGENT'] ) && strpos( sanitize_text_field( $_SERVER['HTTP_USER_AGENT'] ), 'Chrome' ) !== false ) {
-				$date             = new \DateTime();
-				$timestam         = $date->getTimestamp();
-				$image_url        = $image_url . '?' . $timestam;
-				$retina_image_url = $retina_image_url . '?' . $timestam;
+				$date              = new \DateTime();
+				$timestam          = $date->getTimestamp();
+				$image_url        .= '?' . $timestam;
+				$retina_image_url .= '?' . $timestam;
 			}
 			?>
 				<div class="hfe-retina-image-set">
@@ -790,22 +757,53 @@ class Retina extends Common_Widget {
 						<img class="hfe-retina-img <?php echo esc_attr( $class_animation ); ?>"  src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( Control_Media::get_image_alt( $settings['retina_image'] ) ); ?>" srcset="<?php echo esc_url( $image_url ) . ' 1x' . ',' . esc_url( $retina_image_url ) . ' 2x'; ?>"/>
 					</div>
 				</div>
-			<?php if ( $link ) : ?>
+			<?php if ( $link ) { ?>
 					</a>
-			<?php endif; ?>
+			<?php } ?>
 			<?php
-			if ( $has_caption ) :
+			if ( $has_caption ) {
 				$caption_text = $this->get_caption( $settings );
 				?>
-				<?php if ( ! empty( $caption_text ) ) : ?>
+				<?php if ( ! empty( $caption_text ) ) { ?>
 					<div class="hfe-caption-width"> 
 						<figcaption class="widget-image-caption wp-caption-text"><?php echo esc_html( $caption_text ); ?></figcaption>
 					</div>
-				<?php endif; ?>
+				<?php } ?>
 				</figure>
-			<?php endif; ?>
+			<?php } ?>
 		</div> 
 		<?php
+	}
+
+	/**
+	 * Check if the current widget has caption
+	 *
+	 * @access private
+	 * @since 1.2.0
+	 *
+	 * @param array $settings returns settings.
+	 *
+	 * @return bool
+	 */
+	private function has_caption( $settings ) {
+		return ! empty( $settings['caption_source'] ) && $settings['caption_source'] !== 'none';
+	}
+
+	/**
+	 * Get the caption for current widget.
+	 *
+	 * @access private
+	 * @since 1.2.0
+	 * @param array $settings returns the caption.
+	 *
+	 * @return string
+	 */
+	private function get_caption( $settings ) {
+		$caption = '';
+		if ( $settings['caption_source'] === 'custom' ) {
+			$caption = ! empty( $settings['caption'] ) ? $settings['caption'] : '';
+		}
+		return $caption;
 	}
 
 	/**
@@ -818,11 +816,11 @@ class Retina extends Common_Widget {
 	 * @return array|string|false An array/string containing the link URL, or false if no link.
 	 */
 	private function get_link_url( $settings ) {
-		if ( 'none' === $settings['link_to'] ) {
+		if ( $settings['link_to'] === 'none' ) {
 			return false;
 		}
 
-		if ( 'custom' === $settings['link_to'] ) {
+		if ( $settings['link_to'] === 'custom' ) {
 			if ( empty( $settings['link']['url'] ) ) {
 				return false;
 			}

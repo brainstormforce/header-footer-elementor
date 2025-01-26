@@ -7,20 +7,16 @@
 
 namespace HFE\WidgetsManager\Widgets\SiteLogo;
 
-use Elementor\Controls_Manager;
 use Elementor\Control_Media;
-use Elementor\Utils;
-use Elementor\Group_Control_Border;
-use Elementor\Group_Control_Typography;
-use Elementor\Group_Control_Box_Shadow;
-use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
+use Elementor\Controls_Manager;
 use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
-use Elementor\Group_Control_Image_Size;
-use Elementor\Repeater;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
+use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Css_Filter;
+use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Text_Shadow;
+use Elementor\Group_Control_Typography;
 use Elementor\Plugin;
-
 use HFE\WidgetsManager\Base\Common_Widget;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -35,7 +31,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.3.0
  */
 class Site_Logo extends Common_Widget {
-
 	/**
 	 * Retrieve the widget name.
 	 *
@@ -94,6 +89,26 @@ class Site_Logo extends Common_Widget {
 	}
 
 	/**
+	 * Render Site Image output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @since 1.3.0
+	 * @param array $size returns the size of an image.
+	 * @access public
+	 * @return string
+	 */
+	public function site_image_url( $size ) {
+		$settings = $this->get_settings_for_display();
+		if ( ! empty( $settings['custom_image']['url'] ) ) {
+			$logo = wp_get_attachment_image_src( $settings['custom_image']['id'], $size, true );
+		} else {
+			$logo = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), $size, true );
+		}
+		return $logo[0];
+	}
+
+	/**
 	 * Indicates if the widget's content is dynamic.
 	 *
 	 * This method returns true if the widget's output is dynamic and should not be cached,
@@ -113,7 +128,7 @@ class Site_Logo extends Common_Widget {
 	 * @access protected
 	 * @return void
 	 */
-	protected function register_controls() {
+	protected function register_controls(): void {
 		$this->register_content_site_logo_controls();
 		$this->register_site_logo_styling_controls();
 		$this->register_site_logo_caption_styling_controls();
@@ -126,7 +141,7 @@ class Site_Logo extends Common_Widget {
 	 * @access protected
 	 * @return void
 	 */
-	protected function register_content_site_logo_controls() {
+	protected function register_content_site_logo_controls(): void {
 		$this->start_controls_section(
 			'section_site_image',
 			[
@@ -293,7 +308,7 @@ class Site_Logo extends Common_Widget {
 	 * @access protected
 	 * @return void
 	 */
-	protected function register_site_logo_styling_controls() {
+	protected function register_site_logo_styling_controls(): void {
 		$this->start_controls_section(
 			'section_style_site_logo_image',
 			[
@@ -574,7 +589,7 @@ class Site_Logo extends Common_Widget {
 	 * @access protected
 	 * @return void
 	 */
-	protected function register_site_logo_caption_styling_controls() {
+	protected function register_site_logo_caption_styling_controls(): void {
 		$this->start_controls_section(
 			'section_style_caption',
 			[
@@ -669,57 +684,6 @@ class Site_Logo extends Common_Widget {
 	}
 
 	/**
-	 * Check if the current widget has caption
-	 *
-	 * @access private
-	 * @since 1.3.0
-	 *
-	 * @param array $settings returns settings.
-	 *
-	 * @return boolean
-	 */
-	private function has_caption( $settings ) {
-		return ( ! empty( $settings['caption_source'] ) && 'no' !== $settings['caption_source'] );
-	}
-
-	/**
-	 * Get the caption for current widget.
-	 *
-	 * @access private
-	 * @since 1.3.0
-	 * @param array $settings returns the caption.
-	 *
-	 * @return string
-	 */
-	private function get_caption( $settings ) {
-		$caption = '';
-		if ( 'yes' === $settings['caption_source'] ) {
-			$caption = ! empty( $settings['caption'] ) ? $settings['caption'] : '';
-		}
-		return $caption;
-	}
-
-	/**
-	 * Render Site Image output on the frontend.
-	 *
-	 * Written in PHP and used to generate the final HTML.
-	 *
-	 * @since 1.3.0
-	 * @param array $size returns the size of an image.
-	 * @access public
-	 * @return string
-	 */
-	public function site_image_url( $size ) {
-		$settings = $this->get_settings_for_display();
-		if ( ! empty( $settings['custom_image']['url'] ) ) {
-			$logo = wp_get_attachment_image_src( $settings['custom_image']['id'], $size, true );
-		} else {
-			$logo = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), $size, true );
-		}
-		return $logo[0];
-	}
-
-	/**
 	 * Render Site Image output on the frontend.
 	 *
 	 * Written in PHP and used to generate the final HTML.
@@ -728,7 +692,7 @@ class Site_Logo extends Common_Widget {
 	 * @access protected
 	 * @return void
 	 */
-	protected function render() {
+	protected function render(): void {
 		$link     = '';
 		$settings = $this->get_settings_for_display();
 
@@ -746,10 +710,10 @@ class Site_Logo extends Common_Widget {
 			$site_image = $site_image;
 		}
 
-		if ( 'file' === $settings['link_to'] ) {
+		if ( $settings['link_to'] === 'file' ) {
 				$link = $site_image;
 				$this->add_render_attribute( 'link', 'href', $link );
-		} elseif ( 'default' === $settings['link_to'] ) {
+		} elseif ( $settings['link_to'] === 'default' ) {
 			$link = site_url();
 			$this->add_render_attribute( 'link', 'href', $link );
 		} else {
@@ -767,24 +731,24 @@ class Site_Logo extends Common_Widget {
 		}
 		?>
 		<div <?php $this->print_render_attribute_string( 'wrapper' ); ?>>
-		<?php if ( $has_caption ) : ?>
+		<?php if ( $has_caption ) { ?>
 				<figure class="wp-caption">
-		<?php endif; ?>
-		<?php if ( $link ) : ?>
+		<?php } ?>
+		<?php if ( $link ) { ?>
 					<?php
-					if ( 'no' === $settings['open_lightbox'] ) {
+					if ( $settings['open_lightbox'] === 'no' ) {
 						$class = 'elementor-non-clickable';
 					}
 					?>
 				<a data-elementor-open-lightbox="<?php echo esc_attr( $settings['open_lightbox'] ); ?>"  class='<?php echo esc_attr( $class ); ?>' <?php $this->print_render_attribute_string( 'link' ); ?>>
-		<?php endif; ?>
+		<?php } ?>
 		<?php
 		if ( empty( $site_image ) ) {
 			return;
 		}
 		$img_animation = '';
 
-		if ( 'custom' !== $size ) {
+		if ( $size !== 'custom' ) {
 			$image_size = $size;
 		} else {
 			require_once ELEMENTOR_PATH . 'includes/libraries/bfi-thumb/bfi-thumb.php';
@@ -857,22 +821,53 @@ class Site_Logo extends Common_Widget {
 					<img class="hfe-site-logo-img <?php echo esc_attr( $class_animation ); ?>"  src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $alt_text ); ?>"/>
 				</div>
 			</div>
-		<?php if ( $link ) : ?>
+		<?php if ( $link ) { ?>
 					</a>
-		<?php endif; ?>
+		<?php } ?>
 		<?php
-		if ( $has_caption ) :
+		if ( $has_caption ) {
 			$caption_text = $this->get_caption( $settings );
 			?>
-			<?php if ( ! empty( $caption_text ) ) : ?>
+			<?php if ( ! empty( $caption_text ) ) { ?>
 					<div class="hfe-caption-width"> 
 						<figcaption class="widget-image-caption wp-caption-text"><?php echo wp_kses_post( $caption_text ); ?></figcaption>
 					</div>
-			<?php endif; ?>
+			<?php } ?>
 				</figure>
-		<?php endif; ?>
+		<?php } ?>
 		</div>  
 			<?php
+	}
+
+	/**
+	 * Check if the current widget has caption
+	 *
+	 * @access private
+	 * @since 1.3.0
+	 *
+	 * @param array $settings returns settings.
+	 *
+	 * @return bool
+	 */
+	private function has_caption( $settings ) {
+		return ! empty( $settings['caption_source'] ) && $settings['caption_source'] !== 'no';
+	}
+
+	/**
+	 * Get the caption for current widget.
+	 *
+	 * @access private
+	 * @since 1.3.0
+	 * @param array $settings returns the caption.
+	 *
+	 * @return string
+	 */
+	private function get_caption( $settings ) {
+		$caption = '';
+		if ( $settings['caption_source'] === 'yes' ) {
+			$caption = ! empty( $settings['caption'] ) ? $settings['caption'] : '';
+		}
+		return $caption;
 	}
 
 	/**
@@ -885,18 +880,18 @@ class Site_Logo extends Common_Widget {
 	 * @return array|string|false|void An array/string containing the link URL, or false if no link.
 	 */
 	private function get_link_url( $settings ) {
-		if ( 'none' === $settings['link_to'] ) {
+		if ( $settings['link_to'] === 'none' ) {
 			return false;
 		}
 
-		if ( 'custom' === $settings['link_to'] ) {
+		if ( $settings['link_to'] === 'custom' ) {
 			if ( empty( $settings['link']['url'] ) ) {
 				return false;
 			}
 			return $settings['link'];
 		}
 
-		if ( 'default' === $settings['link_to'] ) {
+		if ( $settings['link_to'] === 'default' ) {
 			if ( empty( $settings['link']['url'] ) ) {
 				return false;
 			}

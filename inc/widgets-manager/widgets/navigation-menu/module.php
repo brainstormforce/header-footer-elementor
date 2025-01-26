@@ -17,7 +17,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Class Module.
  */
 class Module extends Module_Base {
-
+	/**
+	 * Constructor.
+	 */
+	public function __construct() { // phpcs:ignore Generic.CodeAnalysis.UselessOverridingMethod.Found
+		parent::__construct();
+	}
 	/**
 	 * Module should load or not.
 	 *
@@ -54,12 +59,5 @@ class Module extends Module_Base {
 		return [
 			'Navigation_Menu',
 		];
-	}
-
-	/**
-	 * Constructor.
-	 */
-	public function __construct() { // phpcs:ignore Generic.CodeAnalysis.UselessOverridingMethod.Found
-		parent::__construct();
 	}
 }

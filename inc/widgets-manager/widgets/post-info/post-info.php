@@ -8,15 +8,9 @@
 namespace HFE\WidgetsManager\Widgets\PostInfo;
 
 use Elementor\Controls_Manager;
-use Elementor\Widget_Base;
-use Elementor\Utils;
-use Elementor\Icons_Manager;
-use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
+use Elementor\Icons_Manager;
 use Elementor\Repeater;
-use Elementor\Modules\DynamicTags\Module as TagsModule;
-
-use HFE\WidgetsManager\Widgets_Loader;
 use HFE\WidgetsManager\Base\Common_Widget;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -85,7 +79,7 @@ class Post_Info extends Common_Widget {
 		$this->register_style_post_info_text_controls();
 	}
 
-	
+
 	/**
 	 * Register general Controls.
 	 *
@@ -123,7 +117,7 @@ class Post_Info extends Common_Widget {
 		);
 
 		$repeater = new Repeater();
-		
+
 		$repeater->add_control(
 			'type',
 			[
@@ -161,7 +155,6 @@ class Post_Info extends Common_Widget {
 			]
 		);
 
-		
 		$repeater->add_control(
 			'custom_date_format',
 			[
@@ -619,7 +612,6 @@ class Post_Info extends Common_Widget {
 				]
 			);
 
-
 		$this->end_controls_section();
 	}
 
@@ -675,7 +667,6 @@ class Post_Info extends Common_Widget {
 		);
 
 		$this->end_controls_section();
-
 	}
 
 	/**
@@ -737,7 +728,6 @@ class Post_Info extends Common_Widget {
 			);
 
 		$this->end_controls_section();
-
 	}
 
 	/**
@@ -768,7 +758,7 @@ class Post_Info extends Common_Widget {
 
 	/**
 	 * Render Post meta fields
-	 * 
+	 *
 	 * @since x.x.x
 	 * @access protected
 	 * @param array $repeater_item An array of repeater item options for custom strings and link.
@@ -812,7 +802,6 @@ class Post_Info extends Common_Widget {
 		}
 
 		return $item_data;
-
 	}
 
 	/**
@@ -849,7 +838,7 @@ class Post_Info extends Common_Widget {
 				];
 
 				// Add term link if the option is enabled.
-				if ( isset( $repeaterItem['link'] ) && 'yes' === $repeaterItem['link'] ) {
+				if ( isset( $repeaterItem['link'] ) && $repeaterItem['link'] === 'yes' ) {
 					$term_link = get_term_link( $term );
 					if ( ! is_wp_error( $term_link ) ) {
 						$termsData['terms_list'][ $termId ]['url'] = esc_url( $term_link );
@@ -878,7 +867,7 @@ class Post_Info extends Common_Widget {
 		];
 
 		// Add custom URL if the option is enabled and the URL is not empty.
-		if ( isset( $repeaterItem['link'] ) && 'yes' === $repeaterItem['link'] && ! empty( $repeaterItem['custom_url'] ) ) {
+		if ( isset( $repeaterItem['link'] ) && $repeaterItem['link'] === 'yes' && ! empty( $repeaterItem['custom_url'] ) ) {
 			$customData['url'] = $repeaterItem['custom_url'];
 		}
 
@@ -909,7 +898,7 @@ class Post_Info extends Common_Widget {
 		);
 
 		// Check if custom strings are provided.
-		if ( isset( $repeaterItem['comments_custom_strings'] ) && 'yes' === $repeaterItem['comments_custom_strings'] ) {
+		if ( isset( $repeaterItem['comments_custom_strings'] ) && $repeaterItem['comments_custom_strings'] === 'yes' ) {
 			$defaultStrings['stringNoComments'] = ! empty( $repeaterItem['string_no_comments'] ) ? $repeaterItem['string_no_comments'] : $defaultStrings['stringNoComments'];
 			$defaultStrings['stringOneComment'] = ! empty( $repeaterItem['string_one_comment'] ) ? $repeaterItem['string_one_comment'] : $defaultStrings['stringOneComment'];
 			$defaultStrings['stringComments']   = ! empty( $repeaterItem['string_comments'] ) ? $repeaterItem['string_comments'] : $defaultStrings['stringComments'];
@@ -919,12 +908,12 @@ class Post_Info extends Common_Widget {
 		$numComments = (int) get_comments_number();
 
 		// Choose appropriate comment text.
-		if ( 0 === $numComments ) {
+		if ( $numComments === 0 ) {
 			$commentsText = $defaultStrings['stringNoComments'];
 		} else {
-			$commentsText = sprintf( 
-				_n( '%s comment', '%s comments', $numComments, 'header-footer-elementor' ), 
-				$numComments 
+			$commentsText = sprintf(
+				_n( '%s comment', '%s comments', $numComments, 'header-footer-elementor' ),
+				$numComments
 			);
 		}
 
@@ -939,7 +928,7 @@ class Post_Info extends Common_Widget {
 		];
 
 		// Conditional link to comments.
-		if ( isset( $repeaterItem['link'] ) && 'yes' === $repeaterItem['link'] ) {
+		if ( isset( $repeaterItem['link'] ) && $repeaterItem['link'] === 'yes' ) {
 			$commentsData['url'] = [
 				'url' => get_comments_link(),
 			];
@@ -1025,7 +1014,7 @@ class Post_Info extends Common_Widget {
 		];
 
 		// Optional link to date archive.
-		if ( isset( $repeater_item['link'] ) && 'yes' === $repeater_item['link'] ) {
+		if ( isset( $repeater_item['link'] ) && $repeater_item['link'] === 'yes' ) {
 			$date_data['url'] = [
 				'url' => get_day_link( get_post_time( 'Y' ), get_post_time( 'm' ), get_post_time( 'j' ) ),
 			];
@@ -1055,14 +1044,14 @@ class Post_Info extends Common_Widget {
 		];
 
 		// Conditional link to author posts.
-		if ( isset( $repeater_item['link'] ) && 'yes' === $repeater_item['link'] ) {
+		if ( isset( $repeater_item['link'] ) && $repeater_item['link'] === 'yes' ) {
 			$author_data['url'] = [
 				'url' => get_author_posts_url( $user_id ),
 			];
 		}
 
 		// Conditional avatar inclusion.
-		if ( isset( $repeater_item['show_avatar'] ) && 'yes' === $repeater_item['show_avatar'] ) {
+		if ( isset( $repeater_item['show_avatar'] ) && $repeater_item['show_avatar'] === 'yes' ) {
 			$author_data['image'] = get_avatar_url( $user_id, 96 );
 		}
 
@@ -1092,16 +1081,16 @@ class Post_Info extends Common_Widget {
 	protected function render_item( $repeater_item ) {
 		$item_data      = $this->get_meta_data( $repeater_item );
 		$repeater_index = $repeater_item['_id'];
-	
+
 		// Bail early if both text and terms list are empty.
 		if ( empty( $item_data['text'] ) && empty( $item_data['terms_list'] ) ) {
 			return;
 		}
-	
+
 		$item_key = 'item_' . $repeater_index;
 		$link_key = 'link_' . $repeater_index;
 		$has_link = false;
-	
+
 		// Add base classes to the list item.
 		$this->add_render_attribute(
 			$item_key,
@@ -1111,24 +1100,24 @@ class Post_Info extends Common_Widget {
 				'elementor-repeater-item-' . $repeater_item['_id'],
 			]
 		);
-	
+
 		// Check active settings for inline view.
 		$active_settings = $this->get_active_settings();
-		if ( 'inline' === $active_settings['view'] ) {
+		if ( $active_settings['view'] === 'inline' ) {
 			$this->add_render_attribute( $item_key, 'class', 'hfe-post-info-inline-item' );
 		}
-	
+
 		// Add itemprop attribute if available.
 		if ( ! empty( $item_data['itemprop'] ) ) {
 			$this->add_render_attribute( $item_key, 'itemprop', $item_data['itemprop'] );
 		}
-	
+
 		// Check if the item has a link.
 		if ( ! empty( $item_data['url']['url'] ) ) {
 			$has_link = true;
 			$this->add_link_attributes( $link_key, $item_data['url'] );
 		}
-	
+
 		?>
 		<li <?php echo $this->get_render_attribute_string( $item_key ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>> 
 			<?php if ( $has_link ) : ?>
@@ -1157,25 +1146,25 @@ class Post_Info extends Common_Widget {
 	 */
 	protected function render_item_icon_or_image( $item_data, $repeater_item, $repeater_index ) {
 		// Determine icon or image settings.
-		if ( 'custom' === $repeater_item['show_icon'] && ! empty( $repeater_item['selected_icon'] ) ) {
+		if ( $repeater_item['show_icon'] === 'custom' && ! empty( $repeater_item['selected_icon'] ) ) {
 			$item_data['selected_icon'] = $repeater_item['selected_icon'];
-		} elseif ( 'none' === $repeater_item['show_icon'] ) {
+		} elseif ( $repeater_item['show_icon'] === 'none' ) {
 			$item_data['selected_icon'] = [];
 		}
-			
+
 		if ( empty( $item_data['selected_icon'] ) && empty( $item_data['image'] ) ) {
 			return; // No icon or image to render.
 		}
 
-		$show_icon = 'none' !== $repeater_item['show_icon'];
-	
+		$show_icon = $repeater_item['show_icon'] !== 'none';
+
 		if ( ! empty( $item_data['image'] ) || $show_icon ) {
 			?>
 			<span class="hfe-post-info-icon">
 				<?php if ( ! empty( $item_data['image'] ) ) : ?>
 					<img class="hfe-post-info-avatar" src="<?php echo esc_url( $item_data['image'] ); ?>" alt="<?php echo esc_attr( $item_data['text'] ); ?>">
 				<?php elseif ( $show_icon && ! empty( $item_data['selected_icon'] ) ) : ?>
-					<?php 
+					<?php
 					Icons_Manager::render_icon( $item_data['selected_icon'], [ 'aria-hidden' => 'true' ] );
 					?>
 				<?php endif; ?>
@@ -1183,7 +1172,7 @@ class Post_Info extends Common_Widget {
 			<?php
 		}
 	}
-	
+
 	/**
 	 * Render the text for the item in the icon list.
 	 *
@@ -1193,13 +1182,13 @@ class Post_Info extends Common_Widget {
 	 */
 	protected function render_item_text( $item_data, $repeater_index ) {
 		$repeater_setting_key = $this->get_repeater_setting_key( 'text', 'icon_list', $repeater_index );
-	
+
 		// Add classes for text attributes.
 		$this->add_render_attribute( $repeater_setting_key, 'class', [ 'hfe-post-info-text', 'hfe-post-info__item', 'hfe-post-info__item--type-' . $item_data['type'] ] );
 		if ( ! empty( $item['terms_list'] ) ) {
 			$this->add_render_attribute( $repeater_setting_key, 'class', 'hfe-terms-list' );
 		}
-	
+
 		?>
 		<span <?php echo $this->get_render_attribute_string( $repeater_setting_key ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 			<?php if ( ! empty( $item_data['text_prefix'] ) ) : ?>
@@ -1210,7 +1199,7 @@ class Post_Info extends Common_Widget {
 				<span class="hfe-post-info__terms-list">
 					<?php
 					$terms_list = array_map(
-						function( $term ) {
+						static function( $term ) {
 							$term_text = esc_html( $term['text'] );
 							return ! empty( $term['url'] ) ? '<a href="' . esc_url( $term['url'] ) . '" class="hfe-post-info__terms-list-item">' . $term_text . '</a>' : '<span class="hfe-post-info__terms-list-item">' . $term_text . '</span>';
 						},
@@ -1236,7 +1225,7 @@ class Post_Info extends Common_Widget {
 		</span>
 		<?php
 	}
-	
+
 
 	/**
 	 * Render Post Info widget output on the frontend.
@@ -1262,7 +1251,7 @@ class Post_Info extends Common_Widget {
 			return;
 		}
 
-		if ( 'inline' === $settings['view'] ) {
+		if ( $settings['view'] === 'inline' ) {
 			$this->add_render_attribute( 'icon_list', 'class', 'hfe-post-info-inline' );
 		}
 

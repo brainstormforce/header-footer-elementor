@@ -19,7 +19,6 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 	 * @since 1.6.0
 	 */
 	class HFE_Addons_Actions {
-
 		/**
 		 * Member Variable
 		 *
@@ -29,22 +28,10 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 
 		/**
 		 * Widget list variable
-		 * 
+		 *
 		 * @var HFE_Addons_Actions
 		 */
 		private static $widget_list;
-
-		/**
-		 *  Initiator
-		 *
-		 * @return HFE_Addons_Actions
-		 */
-		public static function get_instance() {
-			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self();
-			}
-			return self::$instance;
-		}
 
 		/**
 		 *  Constructor
@@ -63,7 +50,6 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			add_action( 'wp_ajax_hfe_bulk_deactivate_widgets', [ $this, 'bulk_deactivate_widgets' ] );
 
 			add_action( 'wp_ajax_save_theme_compatibility_option', [ $this, 'save_hfe_compatibility_option_callback' ] );
-
 		}
 
 		/**
@@ -75,7 +61,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		 *
 		 * @since x.x.x
 		 */
-		public function hfe_plugin_install() {
+		public function hfe_plugin_install(): void {
 
 			check_ajax_referer( 'updates', '_ajax_nonce' );
 
@@ -84,13 +70,13 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			$plugin_slug = isset( $_POST['slug'] ) && is_string( $_POST['slug'] ) ? sanitize_text_field( wp_unslash( $_POST['slug'] ) ) : '';
 
 			if ( empty( $plugin_slug ) ) {
-				wp_send_json_error( array( 'message' => __( 'Plugin slug is missing.', 'header-footer-elementor' ) ) );
+				wp_send_json_error( [ 'message' => __( 'Plugin slug is missing.', 'header-footer-elementor' ) ] );
 			}
 
 			// Schedule the database update if the plugin is installed successfully.
 			add_action(
 				'shutdown',
-				function () use ( $plugin_slug ) {
+				static function () use ( $plugin_slug ): void {
 					// Iterate through all plugins to check if the installed plugin matches the current plugin slug.
 					$all_plugins = get_plugins();
 					foreach ( $all_plugins as $plugin_file => $_ ) {
@@ -107,11 +93,10 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 				// @psalm-suppress NoValue
 				wp_ajax_install_plugin();
 			} else {
-				wp_send_json_error( array( 'message' => __( 'Plugin installation function not found.', 'header-footer-elementor' ) ) );
+				wp_send_json_error( [ 'message' => __( 'Plugin installation function not found.', 'header-footer-elementor' ) ] );
 			}
 		}
 
-		
 		/**
 		 * Handles the installation and saving of required theme.
 		 *
@@ -121,7 +106,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		 *
 		 * @since x.x.x
 		 */
-		public function hfe_theme_install() {
+		public function hfe_theme_install(): void {
 
 			check_ajax_referer( 'updates', '_ajax_nonce' );
 
@@ -130,13 +115,13 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			$theme_slug = isset( $_POST['slug'] ) && is_string( $_POST['slug'] ) ? sanitize_text_field( wp_unslash( $_POST['slug'] ) ) : '';
 
 			if ( empty( $theme_slug ) ) {
-				wp_send_json_error( array( 'message' => __( 'Theme slug is missing.', 'header-footer-elementor' ) ) );
+				wp_send_json_error( [ 'message' => __( 'Theme slug is missing.', 'header-footer-elementor' ) ] );
 			}
 
 			// Schedule the database update if the theme is installed successfully.
 			add_action(
 				'shutdown',
-				function () use ( $theme_slug ) {
+				static function () use ( $theme_slug ): void {
 					// Iterate through all themes to check if the installed theme matches the current theme slug.
 					$all_themes = wp_get_themes();
 					foreach ( $all_themes as $theme_file => $_ ) {
@@ -153,14 +138,26 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 				// @psalm-suppress NoValue
 				wp_ajax_install_theme();
 			} else {
-				wp_send_json_error( array( 'message' => __( 'Theme installation function not found.', 'header-footer-elementor' ) ) );
+				wp_send_json_error( [ 'message' => __( 'Theme installation function not found.', 'header-footer-elementor' ) ] );
 			}
+		}
+
+		/**
+		 *  Initiator
+		 *
+		 * @return HFE_Addons_Actions
+		 */
+		public static function get_instance() {
+			if ( ! isset( self::$instance ) ) {
+				self::$instance = new self();
+			}
+			return self::$instance;
 		}
 
 		/**
 		 * Activate all module
 		 */
-		public static function bulk_activate_widgets() {
+		public static function bulk_activate_widgets(): void {
 
 			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
 
@@ -188,7 +185,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		/**
 		 * Deactivate all module
 		 */
-		public static function bulk_deactivate_widgets() {
+		public static function bulk_deactivate_widgets(): void {
 
 			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
 
@@ -216,7 +213,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		/**
 		 * Deactivate module
 		 */
-		public static function deactivate_widget() {
+		public static function deactivate_widget(): void {
 
 			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
 
@@ -235,7 +232,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		/**
 		 * Activate module
 		 */
-		public static function activate_widget() {
+		public static function activate_widget(): void {
 
 			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
 
@@ -256,7 +253,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		 * @since 1.6.0
 		 * @return void
 		 */
-		public function hfe_admin_modal() {
+		public function hfe_admin_modal(): void {
 
 			// Run a security check.
 			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
@@ -270,7 +267,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		 * @since 1.6.0
 		 * @return void
 		 */
-		public function update_subscription() {
+		public function update_subscription(): void {
 
 			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
 
@@ -315,7 +312,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		 * @since 1.6.0
 		 * @return void
 		 */
-		public function hfe_activate_addon() {
+		public function hfe_activate_addon(): void {
 
 			// Run a security check.
 			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
@@ -329,7 +326,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 
 				$plugin = sanitize_text_field( wp_unslash( $_POST['plugin'] ) );
 
-				if ( 'plugin' === $type ) {
+				if ( $type === 'plugin' ) {
 
 					// Check for permissions.
 					if ( ! current_user_can( 'activate_plugins' ) ) {
@@ -346,13 +343,13 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 					}
 				}
 
-				if ( 'theme' === $type ) {
+				if ( $type === 'theme' ) {
 
 					if ( isset( $_POST['slug'] ) ) {
 						$slug = sanitize_key( wp_unslash( $_POST['slug'] ) );
 
 						// Check for permissions.
-						if ( ! ( current_user_can( 'switch_themes' ) ) ) {
+						if ( ! current_user_can( 'switch_themes' ) ) {
 							wp_send_json_error( esc_html__( 'Theme activation is disabled for you on this site.', 'header-footer-elementor' ) );
 						}
 
@@ -368,9 +365,9 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 				}
 			}
 
-			if ( 'plugin' === $type ) {
+			if ( $type === 'plugin' ) {
 				wp_send_json_error( esc_html__( 'Could not activate plugin. Please activate from the Plugins page.', 'header-footer-elementor' ) );
-			} elseif ( 'theme' === $type ) {
+			} elseif ( $type === 'theme' ) {
 				wp_send_json_error( esc_html__( 'Could not activate theme. Please activate from the Themes page.', 'header-footer-elementor' ) );
 			}
 		}
@@ -381,7 +378,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		 * @since x.x.x
 		 * @return void
 		 */
-		public function save_hfe_compatibility_option_callback() {
+		public function save_hfe_compatibility_option_callback(): void {
 			// Check nonce for security.
 			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
 

@@ -25,7 +25,7 @@ class Nps_Survey {
 	 * @since 1.0.0
 	 */
 	public function __construct() {
-		add_action( 'rest_api_init', array( $this, 'register_route' ) );
+		add_action( 'rest_api_init', [ $this, 'register_route' ] );
 	}
 
 	/**
@@ -35,7 +35,7 @@ class Nps_Survey {
 	 * @return object initialized object of class.
 	 */
 	public static function get_instance() {
-		if ( null === self::$instance ) {
+		if ( self::$instance === null ) {
 			self::$instance = new self();
 		}
 		return self::$instance;
@@ -87,14 +87,14 @@ class Nps_Survey {
 	 */
 	public static function google_fonts_url() {
 
-		$font_families = array(
+		$font_families = [
 			'Figtree:400,500,600,700',
-		);
+		];
 
-		$query_args = array(
+		$query_args = [
 			'family' => rawurlencode( implode( '|', $font_families ) ),
 			'subset' => rawurlencode( 'latin,latin-ext' ),
-		);
+		];
 
 		return add_query_arg( $query_args, '//fonts.googleapis.com/css' );
 	}
@@ -129,12 +129,12 @@ class Nps_Survey {
 
 		$script_info = file_exists( $script_asset_path )
 			? include $script_asset_path
-			: array(
-				'dependencies' => array(),
+			: [
+				'dependencies' => [],
 				'version'      => NPS_SURVEY_VER,
-			);
+			];
 
-		$script_dep = array_merge( $script_info['dependencies'], array( 'jquery' ) );
+		$script_dep = array_merge( $script_info['dependencies'], [ 'jquery' ] );
 
 		wp_enqueue_script(
 			$handle,
@@ -160,9 +160,9 @@ class Nps_Survey {
 			$data
 		);
 
-		wp_enqueue_style( 'nps-survey-style', $build_url . '/style-main.css', array(), NPS_SURVEY_VER );
+		wp_enqueue_style( 'nps-survey-style', $build_url . '/style-main.css', [], NPS_SURVEY_VER );
 		wp_style_add_data( 'nps-survey-style', 'rtl', 'replace' );
-		wp_enqueue_style( 'nps-survey-google-fonts', self::google_fonts_url(), array(), 'all' );
+		wp_enqueue_style( 'nps-survey-google-fonts', self::google_fonts_url(), [], 'all' );
 	}
 
 	/**
@@ -176,27 +176,27 @@ class Nps_Survey {
 		register_rest_route(
 			self::get_api_namespace(),
 			'/rating/',
-			array(
-				array(
+			[
+				[
 					'methods'             => \WP_REST_Server::CREATABLE,
-					'callback'            => array( self::class, 'submit_rating' ),
-					'permission_callback' => array( self::class, 'get_item_permissions_check' ),
-					'args'                => array(),
-				),
-			)
+					'callback'            => [ self::class, 'submit_rating' ],
+					'permission_callback' => [ self::class, 'get_item_permissions_check' ],
+					'args'                => [],
+				],
+			]
 		);
 
 		register_rest_route(
 			self::get_api_namespace(),
 			'/dismiss-nps-survey/',
-			array(
-				array(
+			[
+				[
 					'methods'             => \WP_REST_Server::CREATABLE,
-					'callback'            => array( self::class, 'dismiss_nps_survey_panel' ),
-					'permission_callback' => array( self::class, 'get_item_permissions_check' ),
-					'args'                => array(),
-				),
-			)
+					'callback'            => [ self::class, 'dismiss_nps_survey_panel' ],
+					'permission_callback' => [ self::class, 'get_item_permissions_check' ],
+					'args'                => [],
+				],
+			]
 		);
 	}
 
@@ -228,10 +228,10 @@ class Nps_Survey {
 	 * @return array<string, string>
 	 */
 	public static function get_api_headers() {
-		return array(
+		return [
 			'Content-Type' => 'application/json',
 			'Accept'       => 'application/json',
-		);
+		];
 	}
 
 	/**
@@ -246,7 +246,7 @@ class Nps_Survey {
 			return new \WP_Error(
 				'gt_rest_cannot_access',
 				__( 'Sorry, you are not allowed to do that.', 'nps-survey' ),
-				array( 'status' => rest_authorization_required_code() )
+				[ 'status' => rest_authorization_required_code() ]
 			);
 		}
 		return true;
@@ -259,18 +259,18 @@ class Nps_Survey {
 	 * @return void
 	 * @phpstan-ignore-next-line
 	 */
-	public static function submit_rating( $request ) {
+	public static function submit_rating( $request ): void {
 
 		$nonce = $request->get_header( 'X-WP-Nonce' );
 
 		// Verify the nonce.
 		if ( ! wp_verify_nonce( sanitize_text_field( (string) $nonce ), 'wp_rest' ) ) {
 			wp_send_json_error(
-				array(
+				[
 					'data'   => __( 'Nonce verification failed.', 'nps-survey' ),
 					'status' => false,
 
-				)
+				]
 			);
 		}
 
@@ -285,7 +285,7 @@ class Nps_Survey {
 		 */
 		$post_data = apply_filters(
 			'nps_survey_post_data',
-			array(
+			[
 				'rating'      => ! empty( $request['rating'] ) ? sanitize_text_field( strval( $request['rating'] ) ) : '',
 				'comment'     => ! empty( $request['comment'] ) ? sanitize_text_field( strval( $request['comment'] ) ) : '',
 				'email'       => $current_user->user_email,
@@ -293,7 +293,7 @@ class Nps_Survey {
 				'last_name'   => $current_user->last_name ?? '',
 				'source'      => ! empty( $request['plugin_slug'] ) ? sanitize_text_field( strval( $request['plugin_slug'] ) ) : '',
 				'plugin_slug' => ! empty( $request['plugin_slug'] ) ? sanitize_text_field( strval( $request['plugin_slug'] ) ) : '',
-			)
+			]
 		);
 
 		/**
@@ -311,49 +311,49 @@ class Nps_Survey {
 		);
 
 		$post_data_in_json = wp_json_encode( $post_data );
-		$request_args      = array(
+		$request_args      = [
 			'body'    => $post_data_in_json ? $post_data_in_json : '',
 			'headers' => self::get_api_headers(),
 			'timeout' => 60,
-		);
+		];
 
 		$response = wp_safe_remote_post( $api_endpoint, $request_args );
 
 		if ( is_wp_error( $response ) ) {
 			// There was an error in the request.
 			wp_send_json_error(
-				array(
+				[
 					'data'   => 'Failed ' . $response->get_error_message(),
 					'status' => false,
 
-				)
+				]
 			);
 		}
 
 		$response_code = wp_remote_retrieve_response_code( $response );
 
-		if ( 200 === $response_code ) {
+		if ( $response_code === 200 ) {
 
-			$nps_form_status = array(
+			$nps_form_status = [
 				'dismiss_count'       => 0,
 				'dismiss_permanently' => true,
 				'dismiss_step'        => '',
-			);
+			];
 
 			update_option( self::get_nps_id( strval( $request['plugin_slug'] ) ), $nps_form_status, false );
 
 			wp_send_json_success(
-				array(
+				[
 					'status' => true,
-				)
+				]
 			);
 
 		} else {
 			wp_send_json_error(
-				array(
+				[
 					'status' => false,
 
-				)
+				]
 			);
 		}
 	}
@@ -365,18 +365,18 @@ class Nps_Survey {
 	 * @return void
 	 * @phpstan-ignore-next-line
 	 */
-	public static function dismiss_nps_survey_panel( $request ) {
+	public static function dismiss_nps_survey_panel( $request ): void {
 
 		$nonce = $request->get_header( 'X-WP-Nonce' );
 
 		// Verify the nonce.
 		if ( ! wp_verify_nonce( sanitize_text_field( (string) $nonce ), 'wp_rest' ) ) {
 			wp_send_json_error(
-				array(
+				[
 					'data'   => __( 'Nonce verification failed.', 'nps-survey' ),
 					'status' => false,
 
-				)
+				]
 			);
 		}
 
@@ -400,9 +400,9 @@ class Nps_Survey {
 		update_option( self::get_nps_id( strval( $request['plugin_slug'] ) ), $nps_form_status );
 
 		wp_send_json_success(
-			array(
+			[
 				'status' => true,
-			)
+			]
 		);
 	}
 
@@ -416,28 +416,28 @@ class Nps_Survey {
 
 		$default_status = get_option(
 			self::get_nps_id( $plugin_slug ),
-			array(
+			[
 				'dismiss_count'       => 0,
 				'dismiss_permanently' => false,
 				'dismiss_step'        => '',
 				'dismiss_time'        => '',
 				'dismiss_timespan'    => null,
 				'first_render_time'   => null,
-			)
+			]
 		);
 
 		if ( ! is_array( $default_status ) ) {
-			return array();
+			return [];
 		}
 
-		return array(
+		return [
 			'dismiss_count'       => ! empty( $default_status['dismiss_count'] ) ? $default_status['dismiss_count'] : 0,
 			'dismiss_permanently' => ! empty( $default_status['dismiss_permanently'] ) ? $default_status['dismiss_permanently'] : false,
 			'dismiss_step'        => ! empty( $default_status['dismiss_step'] ) ? $default_status['dismiss_step'] : '',
 			'dismiss_time'        => ! empty( $default_status['dismiss_time'] ) ? $default_status['dismiss_time'] : '',
 			'dismiss_timespan'    => ! empty( $default_status['dismiss_timespan'] ) ? $default_status['dismiss_timespan'] : null,
 			'first_render_time'   => ! empty( $default_status['first_render_time'] ) ? $default_status['first_render_time'] : null,
-		);
+		];
 	}
 
 	/**
@@ -458,8 +458,8 @@ class Nps_Survey {
 
 		$first_render_time = $status['first_render_time'];
 
-		if ( 0 !== $display_after ) {
-			if ( null === $first_render_time ) {
+		if ( $display_after !== 0 ) {
+			if ( $first_render_time === null ) {
 				$status['first_render_time'] = $current_time;
 				update_option( self::get_nps_id( $plugin_slug ), $status );
 				$status = self::get_nps_survey_dismiss_status( $plugin_slug );

@@ -47,7 +47,7 @@ class Astra_Target_Rules_Fields {
 	 *
 	 * @var $current_page_data
 	 */
-	private static $current_page_data = array();
+	private static $current_page_data = [];
 
 	/**
 	 * User Selection Option
@@ -90,8 +90,8 @@ class Astra_Target_Rules_Fields {
 		define( 'AST_TARGET_RULE_VER', '1.0.0' );
 		define( 'AST_TARGET_RULE_DIR', plugin_dir_path( __FILE__ ) );
 
-		add_action( 'admin_action_edit', array( $this, 'initialize_options' ) );
-		add_action( 'wp_ajax_hfe_get_posts_by_query', array( $this, 'hfe_get_posts_by_query' ) );
+		add_action( 'admin_action_edit', [ $this, 'initialize_options' ] );
+		add_action( 'wp_ajax_hfe_get_posts_by_query', [ $this, 'hfe_get_posts_by_query' ] );
 	}
 
 	/**
@@ -110,10 +110,10 @@ class Astra_Target_Rules_Fields {
 	 * @return array
 	 */
 	public static function get_location_selections() {
-		$args = array(
+		$args = [
 			'public'   => true,
 			'_builtin' => true,
-		);
+		];
 
 		$post_types = get_post_types( $args, 'objects' );
 		unset( $post_types['attachment'] );
@@ -123,38 +123,38 @@ class Astra_Target_Rules_Fields {
 
 		$post_types = apply_filters( 'astra_location_rule_post_types', array_merge( $post_types, $custom_post_type ) );
 
-		$special_pages = array(
+		$special_pages = [
 			'special-404'    => __( '404 Page', 'header-footer-elementor' ),
 			'special-search' => __( 'Search Page', 'header-footer-elementor' ),
 			'special-blog'   => __( 'Blog / Posts Page', 'header-footer-elementor' ),
 			'special-front'  => __( 'Front Page', 'header-footer-elementor' ),
 			'special-date'   => __( 'Date Archive', 'header-footer-elementor' ),
 			'special-author' => __( 'Author Archive', 'header-footer-elementor' ),
-		);
+		];
 
 		if ( class_exists( 'WooCommerce' ) ) {
 			$special_pages['special-woo-shop'] = __( 'WooCommerce Shop Page', 'header-footer-elementor' );
 		}
 
-		$selection_options = array(
-			'basic'         => array(
+		$selection_options = [
+			'basic'         => [
 				'label' => __( 'Basic', 'header-footer-elementor' ),
-				'value' => array(
+				'value' => [
 					'basic-global'    => __( 'Entire Website', 'header-footer-elementor' ),
 					'basic-singulars' => __( 'All Singulars', 'header-footer-elementor' ),
 					'basic-archives'  => __( 'All Archives', 'header-footer-elementor' ),
-				),
-			),
+				],
+			],
 
-			'special-pages' => array(
+			'special-pages' => [
 				'label' => __( 'Special Pages', 'header-footer-elementor' ),
 				'value' => $special_pages,
-			),
-		);
+			],
+		];
 
-		$args = array(
+		$args = [
 			'public' => true,
-		);
+		];
 
 		$taxonomies = get_taxonomies( $args, 'objects' );
 
@@ -162,7 +162,7 @@ class Astra_Target_Rules_Fields {
 			foreach ( $taxonomies as $taxonomy ) {
 
 				// skip post format taxonomy.
-				if ( 'post_format' == $taxonomy->name ) {
+				if ( $taxonomy->name === 'post_format' ) {
 					continue;
 				}
 
@@ -178,21 +178,21 @@ class Astra_Target_Rules_Fields {
 							}
 						}
 					} else {
-						$selection_options[ $post_opt['post_key'] ] = array(
+						$selection_options[ $post_opt['post_key'] ] = [
 							'label' => $post_opt['label'],
 							'value' => $post_opt['value'],
-						);
+						];
 					}
 				}
 			}
 		}
 
-		$selection_options['specific-target'] = array(
+		$selection_options['specific-target'] = [
 			'label' => __( 'Specific Target', 'header-footer-elementor' ),
-			'value' => array(
+			'value' => [
 				'specifics' => __( 'Specific Pages / Posts / Taxonomies, etc.', 'header-footer-elementor' ),
-			),
-		);
+			],
+		];
 
 		/**
 		 * Filter options displayed in the display conditions select field of Display conditions.
@@ -208,21 +208,21 @@ class Astra_Target_Rules_Fields {
 	 * @return array
 	 */
 	public static function get_user_selections() {
-		$selection_options = array(
-			'basic'    => array(
+		$selection_options = [
+			'basic'    => [
 				'label' => __( 'Basic', 'header-footer-elementor' ),
-				'value' => array(
+				'value' => [
 					'all'        => __( 'All', 'header-footer-elementor' ),
 					'logged-in'  => __( 'Logged In', 'header-footer-elementor' ),
 					'logged-out' => __( 'Logged Out', 'header-footer-elementor' ),
-				),
-			),
+				],
+			],
 
-			'advanced' => array(
+			'advanced' => [
 				'label' => __( 'Advanced', 'header-footer-elementor' ),
-				'value' => array(),
-			),
-		);
+				'value' => [],
+			],
+		];
 
 		/* User roles */
 		$roles = get_editable_roles();
@@ -309,13 +309,13 @@ class Astra_Target_Rules_Fields {
 		check_ajax_referer( 'hfe-get-posts-by-query', 'nonce' );
 
 		$search_string = isset( $_POST['q'] ) ? sanitize_text_field( $_POST['q'] ) : '';
-		$data          = array();
-		$result        = array();
+		$data          = [];
+		$result        = [];
 
-		$args = array(
+		$args = [
 			'public'   => true,
 			'_builtin' => false,
-		);
+		];
 
 		$output     = 'names'; // names or objects, note names is the default.
 		$operator   = 'and'; // also supports 'or'.
@@ -327,46 +327,46 @@ class Astra_Target_Rules_Fields {
 		$post_types['Pages'] = 'page';
 
 		foreach ( $post_types as $key => $post_type ) {
-			$data = array();
+			$data = [];
 
-			add_filter( 'posts_search', array( $this, 'search_only_titles' ), 10, 2 );
+			add_filter( 'posts_search', [ $this, 'search_only_titles' ], 10, 2 );
 
 			$query = new \WP_Query(
-				array(
+				[
 					's'              => $search_string,
 					'post_type'      => $post_type,
 					'posts_per_page' => - 1,
-				)
+				]
 			);
 
 			if ( $query->have_posts() ) {
 				while ( $query->have_posts() ) {
 					$query->the_post();
 					$title  = get_the_title();
-					$title .= ( 0 != $query->post->post_parent ) ? ' (' . get_the_title( $query->post->post_parent ) . ')' : '';
+					$title .= $query->post->post_parent !== 0 ? ' (' . get_the_title( $query->post->post_parent ) . ')' : '';
 					$id     = get_the_id();
-					$data[] = array(
+					$data[] = [
 						'id'   => 'post-' . $id,
 						'text' => $title,
-					);
+					];
 				}
 			}
 
 			if ( is_array( $data ) && ! empty( $data ) ) {
-				$result[] = array(
+				$result[] = [
 					'text'     => $key,
 					'children' => $data,
-				);
+				];
 			}
 		}
 
-		$data = array();
+		$data = [];
 
 		wp_reset_postdata();
 
-		$args = array(
+		$args = [
 			'public' => true,
-		);
+		];
 
 		$output     = 'objects'; // names or objects, note names is the default.
 		$operator   = 'and'; // also supports 'or'.
@@ -375,14 +375,14 @@ class Astra_Target_Rules_Fields {
 		foreach ( $taxonomies as $taxonomy ) {
 			$terms = get_terms(
 				$taxonomy->name,
-				array(
+				[
 					'orderby'    => 'count',
 					'hide_empty' => 0,
 					'name__like' => $search_string,
-				)
+				]
 			);
 
-			$data = array();
+			$data = [];
 
 			$label = ucwords( $taxonomy->label );
 
@@ -390,23 +390,23 @@ class Astra_Target_Rules_Fields {
 				foreach ( $terms as $term ) {
 					$term_taxonomy_name = ucfirst( str_replace( '_', ' ', $taxonomy->name ) );
 
-					$data[] = array(
+					$data[] = [
 						'id'   => 'tax-' . $term->term_id,
 						'text' => $term->name . ' archive page',
-					);
+					];
 
-					$data[] = array(
+					$data[] = [
 						'id'   => 'tax-' . $term->term_id . '-single-' . $taxonomy->name,
 						'text' => 'All singulars from ' . $term->name,
-					);
+					];
 				}
 			}
 
 			if ( is_array( $data ) && ! empty( $data ) ) {
-				$result[] = array(
+				$result[] = [
 					'text'     => $label,
 					'children' => $data,
-				);
+				];
 			}
 		}
 
@@ -430,7 +430,7 @@ class Astra_Target_Rules_Fields {
 			$q = $wp_query->query_vars;
 			$n = ! empty( $q['exact'] ) ? '' : '%';
 
-			$search = array();
+			$search = [];
 
 			foreach ( (array) $q['search_terms'] as $term ) {
 				$search[] = $wpdb->prepare( "$wpdb->posts.post_title LIKE %s", $n . $wpdb->esc_like( $term ) . $n );
@@ -451,12 +451,12 @@ class Astra_Target_Rules_Fields {
 	 * Function Description: admin_styles.
 	 */
 	public function admin_styles() {
-		wp_enqueue_script( 'astra-select2', AST_TARGET_RULE_URI . 'select2.js', array( 'jquery' ), AST_TARGET_RULE_VER, true );
+		wp_enqueue_script( 'astra-select2', AST_TARGET_RULE_URI . 'select2.js', [ 'jquery' ], AST_TARGET_RULE_VER, true );
 
 		$wp_lang  = get_locale();
 		$ast_lang = '';
-		if ( '' !== $wp_lang ) {
-			$select2_lang = array(
+		if ( $wp_lang !== '' ) {
+			$select2_lang = [
 				''               => 'en',
 				'hi_IN'          => 'hi',
 				'mr'             => 'mr',
@@ -569,17 +569,17 @@ class Astra_Target_Rules_Fields {
 				'zh_CN'          => 'zh',
 				'zh_TW'          => 'zh',
 				'zh_HK'          => 'zh',
-			);
+			];
 
 			if ( isset( $select2_lang[ $wp_lang ] ) && file_exists( AST_TARGET_RULE_DIR . 'i18n/' . $select2_lang[ $wp_lang ] . '.js' ) ) {
 				$ast_lang = $select2_lang[ $wp_lang ];
 				wp_enqueue_script(
 					'astra-select2-lang',
 					AST_TARGET_RULE_URI . 'i18n/' . $select2_lang[ $wp_lang ] . '.js',
-					array(
+					[
 						'jquery',
 						'astra-select2',
-					),
+					],
 					AST_TARGET_RULE_VER,
 					true
 				);
@@ -589,10 +589,10 @@ class Astra_Target_Rules_Fields {
 		wp_register_script(
 			'astra-target-rule',
 			AST_TARGET_RULE_URI . 'target-rule.js',
-			array(
+			[
 				'jquery',
 				'astra-select2',
-			),
+			],
 			AST_TARGET_RULE_VER,
 			true
 		);
@@ -602,9 +602,9 @@ class Astra_Target_Rules_Fields {
 		wp_register_script(
 			'astra-user-role',
 			AST_TARGET_RULE_URI . 'user-role.js',
-			array(
+			[
 				'jquery',
-			),
+			],
 			AST_TARGET_RULE_VER,
 			true
 		);
@@ -619,7 +619,7 @@ class Astra_Target_Rules_Fields {
 		/**
 		 * Registered localize vars
 		 */
-		$localize_vars = array(
+		$localize_vars = [
 			'ast_lang'      => $ast_lang,
 			'please_enter'  => __( 'Please enter', 'header-footer-elementor' ),
 			'please_delete' => __( 'Please delete', 'header-footer-elementor' ),
@@ -634,7 +634,7 @@ class Astra_Target_Rules_Fields {
 			'not_loader'    => __( 'The results could not be loaded.', 'header-footer-elementor' ),
 			'search'        => __( 'Search pages / post / categories', 'header-footer-elementor' ),
 			'ajax_nonce'    => wp_create_nonce( 'hfe-get-posts-by-query' ),
-		);
+		];
 		wp_localize_script( 'astra-select2', 'astRules', $localize_vars );
 	}
 
@@ -714,13 +714,13 @@ class Astra_Target_Rules_Fields {
 		$post_key    = str_replace( ' ', '-', strtolower( $post_type->label ) );
 		$post_label  = ucwords( $post_type->label );
 		$post_name   = $post_type->name;
-		$post_option = array();
+		$post_option = [];
 
 		/* translators: %s post label */
 		$all_posts                          = sprintf( __( 'All %s', 'header-footer-elementor' ), $post_label );
 		$post_option[ $post_name . '|all' ] = $all_posts;
 
-		if ( 'pages' != $post_key ) {
+		if ( $post_key !== 'pages' ) {
 			/* translators: %s post label */
 			$all_archive                                = sprintf( __( 'All %s Archive', 'header-footer-elementor' ), $post_label );
 			$post_option[ $post_name . '|all|archive' ] = $all_archive;
@@ -759,13 +759,13 @@ class Astra_Target_Rules_Fields {
 		$output = '<div class="target_rule-builder-wrap">';
 
 		if ( ! is_array( $saved_values ) || ( is_array( $saved_values ) && empty( $saved_values ) ) ) {
-			$saved_values                = array();
+			$saved_values                = [];
 			$saved_values['rule'][0]     = '';
 			$saved_values['specific'][0] = '';
 		}
 
 		$index = 0;
-		if ( is_array( $saved_values ) && is_array( $saved_values['rule'] ) ) {	
+		if ( is_array( $saved_values ) && is_array( $saved_values['rule'] ) ) {
 			foreach ( $saved_values['rule'] as $index => $data ) {
 				$output .= '<div class="astra-target-rule-condition ast-target-rule-' . $index . '" data-rule="' . $index . '" >';
 				/* Condition Selection */
@@ -781,7 +781,7 @@ class Astra_Target_Rules_Fields {
 						// specific rules.
 						$selected = '';
 
-						if ( $data == $opt_key ) {
+						if ( $data === $opt_key ) {
 							$selected = 'selected="selected"';
 						}
 
@@ -798,7 +798,7 @@ class Astra_Target_Rules_Fields {
 				$output .= '<div class="target_rule-specific-page-wrap" style="display:none">';
 				$output .= '<select name="' . esc_attr( $input_name ) . '[specific][]" class="target-rule-select2 target_rule-specific-page form-control ast-input " multiple="multiple">';
 
-				if ( 'specifics' == $data && isset( $saved_values['specific'] ) && null != $saved_values['specific'] && is_array( $saved_values['specific'] ) ) {
+				if ( $data === 'specifics' && isset( $saved_values['specific'] ) && $saved_values['specific'] !== null && is_array( $saved_values['specific'] ) ) {
 					foreach ( $saved_values['specific'] as $data_key => $sel_value ) {
 						// posts.
 						if ( strpos( $sel_value, 'post-' ) !== false ) {
@@ -818,7 +818,7 @@ class Astra_Target_Rules_Fields {
 							if ( ! is_wp_error( $term ) ) {
 								$term_taxonomy = ucfirst( str_replace( '_', ' ', $term->taxonomy ) );
 
-								if ( isset( $tax_data[2] ) && 'single' === $tax_data[2] ) {
+								if ( isset( $tax_data[2] ) && $tax_data[2] === 'single' ) {
 									$term_name = 'All singulars from ' . $term->name;
 								} else {
 									$term_name = $term->name . ' - ' . $term_taxonomy;
@@ -841,7 +841,7 @@ class Astra_Target_Rules_Fields {
 		$output .= '<a href="#" class="button" data-rule-id="' . absint( $index ) . '" data-rule-type="' . $type . '">' . $add_rule_label . '</a>';
 		$output .= '</div>';
 
-		if ( 'display' == $type ) {
+		if ( $type === 'display' ) {
 			/* Add new rule */
 			$output .= '<div class="target_rule-add-exclusion-rule">';
 			$output .= '<a href="#" class="button">' . __( 'Add Exclusion Rule', 'header-footer-elementor' ) . '</a>';
@@ -852,16 +852,16 @@ class Astra_Target_Rules_Fields {
 	}
 
 	/**
-	 * Get current layout.
-	 * Checks of the passed post id of the layout is to be displayed in the page.
-	 *
-	 * @param int    $layout_id Layout ID.
-	 * @param string $option Option prefix.
-	 *
-	 * @return int|boolean If the current layout is to be displayed it will be returned back else a boolean will be passed.
-	 */
+     * Get current layout.
+     * Checks of the passed post id of the layout is to be displayed in the page.
+     *
+     * @param int    $layout_id Layout ID.
+     * @param string $option Option prefix.
+     *
+     * @return int|bool If the current layout is to be displayed it will be returned back else a boolean will be passed.
+     */
 	public function get_current_layout( $layout_id, $option ) {
-		$post_id        = ( ! is_404() && ! is_search() && ! is_archive() && ! is_home() ) ? get_the_id() : false;
+		$post_id        = ! is_404() && ! is_search() && ! is_archive() && ! is_home() ? get_the_id() : false;
 		$current_layout = false;
 		$is_exclude     = false;
 		$is_user_role   = false;
@@ -872,7 +872,7 @@ class Astra_Target_Rules_Fields {
 		/* Parse Display On Condition */
 		$is_display = $this->parse_layout_display_condition( $post_id, $display_on );
 
-		if ( true == $is_display ) {
+		if ( $is_display === true ) {
 			/* Parse Exclude On Condition */
 			$is_exclude = $this->parse_layout_display_condition( $post_id, $exclude_on );
 			/* Parse User Role Condition */
@@ -890,13 +890,13 @@ class Astra_Target_Rules_Fields {
 	}
 
 	/**
-	 * Checks for the display condition for the current page/
-	 *
-	 * @param  int   $post_id Current post ID.
-	 * @param  array $rules   Array of rules Display on | Exclude on.
-	 *
-	 * @return boolean      Returns true or false depending on if the $rules match for the current page and the layout is to be displayed.
-	 */
+     * Checks for the display condition for the current page/
+     *
+     * @param  int   $post_id Current post ID.
+     * @param  array $rules   Array of rules Display on | Exclude on.
+     *
+     * @return bool      Returns true or false depending on if the $rules match for the current page and the layout is to be displayed.
+     */
 	public function parse_layout_display_condition( $post_id, $rules ) {
 		$display           = false;
 		$current_post_type = get_post_type( $post_id );
@@ -974,26 +974,26 @@ class Astra_Target_Rules_Fields {
 						$post_type     = isset( $rule_data[0] ) ? $rule_data[0] : false;
 						$archieve_type = isset( $rule_data[2] ) ? $rule_data[2] : false;
 						$taxonomy      = isset( $rule_data[3] ) ? $rule_data[3] : false;
-						if ( false === $archieve_type ) {
+						if ( $archieve_type === false ) {
 							$current_post_type = get_post_type( $post_id );
 
-							if ( false !== $post_id && $current_post_type == $post_type ) {
+							if ( $post_id !== false && $current_post_type === $post_type ) {
 								$display = true;
 							}
 						} else {
 							if ( is_archive() ) {
 								$current_post_type = get_post_type();
-								if ( $current_post_type == $post_type ) {
-									if ( 'archive' == $archieve_type ) {
+								if ( $current_post_type === $post_type ) {
+									if ( $archieve_type === 'archive' ) {
 										$display = true;
-									} elseif ( 'taxarchive' == $archieve_type ) {
+									} elseif ( $archieve_type === 'taxarchive' ) {
 										$obj              = get_queried_object();
 										$current_taxonomy = '';
-										if ( '' !== $obj && null !== $obj ) {
+										if ( $obj !== '' && $obj !== null ) {
 											$current_taxonomy = $obj->taxonomy;
 										}
 
-										if ( $current_taxonomy == $taxonomy ) {
+										if ( $current_taxonomy === $taxonomy ) {
 											$display = true;
 										}
 									}
@@ -1009,11 +1009,11 @@ class Astra_Target_Rules_Fields {
 
 								$specific_post_type = isset( $specific_data[0] ) ? $specific_data[0] : false;
 								$specific_post_id   = isset( $specific_data[1] ) ? $specific_data[1] : false;
-								if ( 'post' == $specific_post_type ) {
-									if ( $specific_post_id == $post_id ) {
+								if ( $specific_post_type === 'post' ) {
+									if ( $specific_post_id === $post_id ) {
 										$display = true;
 									}
-								} elseif ( isset( $specific_data[2] ) && ( 'single' == $specific_data[2] ) && 'tax' == $specific_post_type ) {
+								} elseif ( isset( $specific_data[2] ) && ( $specific_data[2] === 'single' ) && $specific_post_type === 'tax' ) {
 									if ( is_singular() ) {
 										$term_details = get_term( $specific_post_id );
 
@@ -1025,9 +1025,9 @@ class Astra_Target_Rules_Fields {
 											}
 										}
 									}
-								} elseif ( 'tax' == $specific_post_type ) {
+								} elseif ( $specific_post_type === 'tax' ) {
 									$tax_id = get_queried_object_id();
-									if ( $specific_post_id == $tax_id ) {
+									if ( $specific_post_id === $tax_id ) {
 										$display = true;
 									}
 								}
@@ -1092,7 +1092,7 @@ class Astra_Target_Rules_Fields {
 		$output             .= '</script>';
 
 		if ( ! is_array( $saved_values ) || ( is_array( $saved_values ) && empty( $saved_values ) ) ) {
-			$saved_values    = array();
+			$saved_values    = [];
 			$saved_values[0] = '';
 		}
 
@@ -1132,14 +1132,14 @@ class Astra_Target_Rules_Fields {
 	}
 
 	/**
-	 * Parse user role condition.
-	 *
-	 * @since  1.0.0
-	 * @param  int   $post_id Post ID.
-	 * @param  Array $rules   Current user rules.
-	 *
-	 * @return boolean  True = user condition passes. False = User condition does not pass.
-	 */
+     * Parse user role condition.
+     *
+     * @since  1.0.0
+     * @param  int   $post_id Post ID.
+     * @param  Array $rules   Current user rules.
+     *
+     * @return bool  True = user condition passes. False = User condition does not pass.
+     */
 	public function parse_user_role_condition( $post_id, $rules ) {
 		$show_popup = true;
 
@@ -1196,7 +1196,7 @@ class Astra_Target_Rules_Fields {
 	 * @return string Page Type.
 	 */
 	public function get_current_page_type() {
-		if ( null === self::$current_page_type ) {
+		if ( self::$current_page_type === null ) {
 			$page_type  = '';
 			$current_id = false;
 
@@ -1256,13 +1256,13 @@ class Astra_Target_Rules_Fields {
 
 		$current_page_type = $this->get_current_page_type();
 
-		self::$current_page_data[ $post_type ] = array();
+		self::$current_page_data[ $post_type ] = [];
 
 		$option['current_post_id'] = self::$current_page_data['ID'];
 		$meta_header               = self::get_meta_option_post( $post_type, $option );
 
 		/* Meta option is enabled */
-		if ( false === $meta_header ) {
+		if ( $meta_header === false ) {
 			$current_post_type = esc_sql( get_post_type() );
 			$current_post_id   = false;
 			$q_obj             = get_queried_object();
@@ -1306,14 +1306,14 @@ class Astra_Target_Rules_Fields {
 					$meta_args .= " OR pm.meta_value LIKE '%\"basic-archives\"%'";
 					$meta_args .= " OR pm.meta_value LIKE '%\"{$current_post_type}|all|archive\"%'";
 
-					if ( 'is_tax' == $current_page_type && ( is_category() || is_tag() || is_tax() ) ) {
+					if ( $current_page_type === 'is_tax' && ( is_category() || is_tag() || is_tax() ) ) {
 						if ( is_object( $q_obj ) ) {
 							$meta_args .= " OR pm.meta_value LIKE '%\"{$current_post_type}|all|taxarchive|{$q_obj->taxonomy}\"%'";
 							$meta_args .= " OR pm.meta_value LIKE '%\"tax-{$q_obj->term_id}\"%'";
 						}
-					} elseif ( 'is_date' == $current_page_type ) {
+					} elseif ( $current_page_type === 'is_date' ) {
 						$meta_args .= " OR pm.meta_value LIKE '%\"special-date\"%'";
-					} elseif ( 'is_author' == $current_page_type ) {
+					} elseif ( $current_page_type === 'is_author' ) {
 						$meta_args .= " OR pm.meta_value LIKE '%\"special-author\"%'";
 					}
 					break;
@@ -1331,7 +1331,7 @@ class Astra_Target_Rules_Fields {
 					$meta_args      .= " OR pm.meta_value LIKE '%\"basic-singulars\"%'";
 					$meta_args      .= " OR pm.meta_value LIKE '%\"{$current_post_type}|all\"%'";
 					$meta_args      .= " OR pm.meta_value LIKE '%\"post-{$current_id}\"%'";
-					
+
 					if ( is_object( $q_obj ) ) {
 						$taxonomies = get_object_taxonomies( $q_obj->post_type );
 						$terms      = wp_get_post_terms( $q_obj->ID, $taxonomies );
@@ -1356,10 +1356,10 @@ class Astra_Target_Rules_Fields {
 			// @codingStandardsIgnoreEnd
 
 			foreach ( $posts as $local_post ) {
-				self::$current_page_data[ $post_type ][ $local_post->ID ] = array(
+				self::$current_page_data[ $post_type ][ $local_post->ID ] = [
 					'id'       => $local_post->ID,
 					'location' => unserialize( $local_post->meta_value ),
-				);
+				];
 			}
 
 			$option['current_post_id'] = $current_post_id;
@@ -1424,8 +1424,8 @@ class Astra_Target_Rules_Fields {
 		global $wpdb;
 		global $post;
 
-		$all_rules        = array();
-		$already_set_rule = array();
+		$all_rules        = [];
+		$already_set_rule = [];
 
 		$location = isset( $option['location'] ) ? $option['location'] : '';
 
@@ -1447,21 +1447,21 @@ class Astra_Target_Rules_Fields {
 			if ( is_array( $location_rules ) && isset( $location_rules['rule'] ) ) {
 				foreach ( $location_rules['rule'] as $key => $rule ) {
 					if ( ! isset( $all_rules[ $rule ] ) ) {
-						$all_rules[ $rule ] = array();
+						$all_rules[ $rule ] = [];
 					}
 
-					if ( 'specifics' == $rule && isset( $location_rules['specific'] ) && is_array( $location_rules['specific'] ) ) {
+					if ( $rule === 'specifics' && isset( $location_rules['specific'] ) && is_array( $location_rules['specific'] ) ) {
 						foreach ( $location_rules['specific'] as $s_index => $s_value ) {
-							$all_rules[ $rule ][ $s_value ][ $header->ID ] = array(
+							$all_rules[ $rule ][ $s_value ][ $header->ID ] = [
 								'ID'   => $header->ID,
 								'name' => $header->post_title,
-							);
+							];
 						}
 					} else {
-						$all_rules[ $rule ][ $header->ID ] = array(
+						$all_rules[ $rule ][ $header->ID ] = [
 							'ID'   => $header->ID,
 							'name' => $header->post_title,
-						);
+						];
 					}
 				}
 			}
@@ -1477,14 +1477,14 @@ class Astra_Target_Rules_Fields {
 					continue;
 				}
 
-				if ( 'specifics' === $c_rule ) {
+				if ( $c_rule === 'specifics' ) {
 					foreach ( $current_post_data['specific'] as $s_index => $s_id ) {
 						if ( ! isset( $all_rules[ $c_rule ][ $s_id ] ) ) {
 							continue;
 						}
 
 						foreach ( $all_rules[ $c_rule ][ $s_id ] as $p_id => $data ) {
-							if ( $p_id == $post->ID ) {
+							if ( $p_id === $post->ID ) {
 								continue;
 							}
 
@@ -1493,7 +1493,7 @@ class Astra_Target_Rules_Fields {
 					}
 				} else {
 					foreach ( $all_rules[ $c_rule ] as $p_id => $data ) {
-						if ( $p_id == $post->ID ) {
+						if ( $p_id === $post->ID ) {
 							continue;
 						}
 
@@ -1506,7 +1506,7 @@ class Astra_Target_Rules_Fields {
 		if ( ! empty( $already_set_rule ) ) {
 			add_action(
 				'admin_notices',
-				function() use ( $already_set_rule ) {
+				static function() use ( $already_set_rule ) {
 					$rule_set_titles = '<strong>' . implode( ',', $already_set_rule ) . '</strong>';
 
 					/* translators: %s post title. */
@@ -1530,17 +1530,17 @@ class Astra_Target_Rules_Fields {
 	 * @return false | object
 	 */
 	public static function get_meta_option_post( $post_type, $option ) {
-		$page_meta = ( isset( $option['page_meta'] ) && '' != $option['page_meta'] ) ? $option['page_meta'] : false;
+		$page_meta = isset( $option['page_meta'] ) && $option['page_meta'] !== '' ? $option['page_meta'] : false;
 
-		if ( false !== $page_meta ) {
+		if ( $page_meta !== false ) {
 			$current_post_id = isset( $option['current_post_id'] ) ? $option['current_post_id'] : false;
 			$meta_id         = get_post_meta( $current_post_id, $option['page_meta'], true );
 
-			if ( false !== $meta_id && '' != $meta_id ) {
-				self::$current_page_data[ $post_type ][ $meta_id ] = array(
+			if ( $meta_id !== false && $meta_id !== '' ) {
+				self::$current_page_data[ $post_type ][ $meta_id ] = [
 					'id'       => $meta_id,
 					'location' => '',
-				);
+				];
 
 				return self::$current_page_data[ $post_type ];
 			}
@@ -1558,19 +1558,19 @@ class Astra_Target_Rules_Fields {
 	 * @return object  Posts.
 	 */
 	public static function get_post_selection( $post_type ) {
-		$query_args = array(
+		$query_args = [
 			'post_type'      => $post_type,
 			'posts_per_page' => -1,
 			'post_status'    => 'publish',
-		);
+		];
 
 		$all_headers = get_posts( $query_args );
-		$headers     = array();
+		$headers     = [];
 
 		if ( ! empty( $all_headers ) ) {
-			$headers = array(
+			$headers = [
 				'' => __( 'Select', 'header-footer-elementor' ),
-			);
+			];
 
 			foreach ( $all_headers as $i => $data ) {
 				$headers[ $data->ID ] = $data->post_title;
@@ -1590,7 +1590,7 @@ class Astra_Target_Rules_Fields {
 	 * @return array Rule data.
 	 */
 	public static function get_format_rule_value( $save_data, $key ) {
-		$meta_value = array();
+		$meta_value = [];
 
 		if ( isset( $save_data[ $key ]['rule'] ) ) {
 			$save_data[ $key ]['rule'] = array_unique( $save_data[ $key ]['rule'] );
@@ -1600,11 +1600,11 @@ class Astra_Target_Rules_Fields {
 
 			// Unset the specifics from rule. This will be readded conditionally in next condition.
 			$index = array_search( '', $save_data[ $key ]['rule'] );
-			if ( false !== $index ) {
+			if ( $index !== false ) {
 				unset( $save_data[ $key ]['rule'][ $index ] );
 			}
 			$index = array_search( 'specifics', $save_data[ $key ]['rule'] );
-			if ( false !== $index ) {
+			if ( $index !== false ) {
 				unset( $save_data[ $key ]['rule'][ $index ] );
 
 				// Only re-add the specifics key if there are specific rules added.
@@ -1619,11 +1619,11 @@ class Astra_Target_Rules_Fields {
 				}
 			}
 			if ( ! isset( $meta_value['rule'] ) || ! in_array( 'specifics', $meta_value['rule'] ) ) {
-				$meta_value['specific'] = array();
+				$meta_value['specific'] = [];
 			}
 
 			if ( empty( $meta_value['rule'] ) ) {
-				$meta_value = array();
+				$meta_value = [];
 			}
 		}
 

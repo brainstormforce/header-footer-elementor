@@ -7,8 +7,6 @@
 
 namespace HFE\WidgetsManager\Base;
 
-use HFE\WidgetsManager\Base\HFE_Helper;
-
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
@@ -19,7 +17,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since x.x.x
  */
 abstract class Module_Base {
-
+	/**
+	 * Reflection
+	 *
+	 * @var instances
+	 */
+	protected static $instances = [];
 	/**
 	 * Reflection
 	 *
@@ -28,11 +31,13 @@ abstract class Module_Base {
 	private $reflection;
 
 	/**
-	 * Reflection
-	 *
-	 * @var instances
+	 * Constructor
 	 */
-	protected static $instances = [];
+	public function __construct() {
+		$this->reflection = new \ReflectionClass( $this );
+
+		add_action( 'elementor/widgets/register', [ $this, 'init_widgets' ] );
+	}
 
 	/**
 	 * Get Name
@@ -47,7 +52,7 @@ abstract class Module_Base {
 	 * @since x.x.x
 	 */
 	public static function class_name() {
-		return get_called_class();
+		return static::class;
 	}
 
 	/**
@@ -79,20 +84,11 @@ abstract class Module_Base {
 	}
 
 	/**
-	 * Constructor
-	 */
-	public function __construct() {
-		$this->reflection = new \ReflectionClass( $this );
-
-		add_action( 'elementor/widgets/register', [ $this, 'init_widgets' ] );
-	}
-
-	/**
 	 * Init Widgets
 	 *
 	 * @since x.x.x
 	 */
-	public function init_widgets() {
+	public function init_widgets(): void {
 
 		$widget_manager = \Elementor\Plugin::instance()->widgets_manager;
 
