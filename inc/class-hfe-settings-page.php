@@ -277,6 +277,8 @@ class HFE_Settings_Page {
 				HFE_VER,
 				true
 			);
+
+			wp_set_script_translations( 'header-footer-elementor-react-app', 'header-footer-elementor', HFE_DIR . 'languages' );
 	
 			wp_localize_script(
 				'header-footer-elementor-react-app',
