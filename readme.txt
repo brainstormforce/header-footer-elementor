@@ -4,7 +4,7 @@ Tags: elementor, header footer builder, widgets, header template, footer templat
 Requires at least: 5.0  
 Tested up to: 6.7.1 
 Requires PHP: 7.4  
-Stable tag: 2.0.6
+Stable tag: 2.1.0
 License: GPLv2 or later  
 License URI: https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -16,7 +16,7 @@ Create dynamic headers, footers, and design blocks effortlessly with Elementor's
 
 Ultimate Addons for Elementor is the improved and redesigned version of the Elementor Header & Footer Builder. It is designed to help you create dynamic headers, footers, and additional design blocks with ease. This plugin leverages Elementor's powerful drag-and-drop editor to give you complete design freedom and it integrates with any WordPress theme.
 
-[Try it out on a free dummy site](https://bsf.io/hfe-demo)
+[Try it out on a free dummy site](https://zipwp.org/plugins/header-footer-elementor/)
 
 You can refer to our step-by-step article that will help you [set headers and footers](https://ultimateelementor.com/header-footer-with-elementor/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description) quickly.
 
@@ -128,6 +128,13 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 ---
 
 == Changelog ==
+
+
+= 2.1.0 =
+- New: Added NPS Survey to gather your valuable feedback for Ultimate Addons for Elementor.
+- Improvement: Compatibility with latest Elementor and Elementor Pro 3.27 version.
+- Fix: Resolved issue where icons were displaying too large on page load for the Elementor and WordPress menu widget.
+- Fix: Cart - Resolved an issue where icons were not displaying correctly for logged-out users.
 
 = 2.0.6 =
 - Fix: Load text domain PHP warning when Loco Translate plugin is active.

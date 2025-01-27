@@ -81,14 +81,20 @@ class Header_Footer_Elementor {
 			);
 			
 
-			add_action( 'current_screen', function () {
-				$current_screen = get_current_screen();
-				if ( $current_screen && ( $current_screen->id === 'edit-elementor-hf' || $current_screen->id === 'elementor-hf' ) ) {
-					add_action( 'in_admin_header', function () {
-						$this->render_admin_top_bar();
-					} );
-				}
-			} );
+			add_action(
+				'current_screen',
+				function () {
+					$current_screen = get_current_screen();
+					if ( $current_screen && ( $current_screen->id === 'edit-elementor-hf' || $current_screen->id === 'elementor-hf' ) ) {
+						add_action(
+							'in_admin_header',
+							function () {
+								$this->render_admin_top_bar();
+							} 
+						);
+					}
+				} 
+			);
 
 			$is_theme_supported = true;
 
@@ -413,6 +419,12 @@ class Header_Footer_Elementor {
 		require HFE_DIR . 'inc/widgets-manager/class-extensions-loader.php';
 
 		require_once HFE_DIR . 'inc/settings/hfe-settings-api.php';
+
+		// Load the NPS Survey library.
+		if ( ! class_exists( 'Uae_Nps_Survey' ) ) {
+			require_once HFE_DIR . 'inc/lib/class-uae-nps-survey.php';
+		}
+					
 	}
 
 	/**
