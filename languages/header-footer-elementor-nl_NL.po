@@ -74,291 +74,286 @@ msgstr "Kon de plugin niet activeren. Activeer deze vanaf de pagina Plugins."
 msgid "Could not activate theme. Please activate from the Themes page."
 msgstr "Kon het thema niet activeren. Activeer dit vanaf de pagina Thema's."
 
-#: admin/class-hfe-admin.php:163
-#: admin/class-hfe-admin.php:439
+#: admin/class-hfe-admin.php:170
+#: admin/class-hfe-admin.php:447
 msgid "Display Rules"
 msgstr "Weergaveregels"
 
-#: admin/class-hfe-admin.php:164
+#: admin/class-hfe-admin.php:171
 #: inc/widgets-manager/widgets/post-info/post-info.php:136
 msgid "Date"
 msgstr "Datum"
 
-#: admin/class-hfe-admin.php:257
-#: admin/class-hfe-admin.php:258
-#: admin/class-hfe-admin.php:259
-#: admin/class-hfe-admin.php:260
+#: admin/class-hfe-admin.php:264
+#: admin/class-hfe-admin.php:265
+#: admin/class-hfe-admin.php:266
+#: admin/class-hfe-admin.php:267
 msgid "Elementor Header & Footer Builder"
 msgstr "Elementor Header & Footer Builder"
 
-#: admin/class-hfe-admin.php:261
-#: admin/class-hfe-admin.php:262
+#: admin/class-hfe-admin.php:268
+#: admin/class-hfe-admin.php:269
 msgid "Add New"
 msgstr "Nieuwe toevoegen"
 
-#: admin/class-hfe-admin.php:263
+#: admin/class-hfe-admin.php:270
 msgid "New Template"
 msgstr "Nieuw sjabloon"
 
-#: admin/class-hfe-admin.php:264
+#: admin/class-hfe-admin.php:271
 msgid "Edit Template"
 msgstr "Sjabloon bewerken"
 
-#: admin/class-hfe-admin.php:265
+#: admin/class-hfe-admin.php:272
 msgid "View Template"
 msgstr "Sjabloon bekijken"
 
-#: inc/class-hfe-settings-page.php:612
+#: inc/class-hfe-settings-page.php:628
 msgid "All Templates"
 msgstr "Alle sjablonen"
 
-#: admin/class-hfe-admin.php:267
+#: admin/class-hfe-admin.php:274
 msgid "Search Templates"
 msgstr "Sjablonen zoeken"
 
-#: admin/class-hfe-admin.php:268
+#: admin/class-hfe-admin.php:275
 msgid "Parent Templates:"
 msgstr "Oudersjablonen:"
 
-#: admin/class-hfe-admin.php:269
+#: admin/class-hfe-admin.php:276
 msgid "No Templates found."
 msgstr "Geen sjablonen gevonden."
 
-#: admin/class-hfe-admin.php:270
+#: admin/class-hfe-admin.php:277
 msgid "No Templates found in Trash."
 msgstr "Geen sjablonen gevonden in de prullenbak."
 
-#: admin/class-hfe-admin.php:343
+#: admin/class-hfe-admin.php:351
 msgid "Elementor Header & Footer Builder Options"
 msgstr "Opties voor Elementor Header & Footer Builder"
 
-#: admin/class-hfe-admin.php:372
+#: admin/class-hfe-admin.php:380
 msgid "Type of Template"
 msgstr "Type sjabloon"
 
-#: admin/class-hfe-admin.php:376
+#: admin/class-hfe-admin.php:384
 msgid "Select Option"
 msgstr "Selecteer optie"
 
-#: admin/class-hfe-admin.php:377
+#: admin/class-hfe-admin.php:385
 msgid "Header"
 msgstr "Header"
 
-#: admin/class-hfe-admin.php:378
+#: admin/class-hfe-admin.php:386
 msgid "Before Footer"
 msgstr "Voor de footer"
 
-#: admin/class-hfe-admin.php:379
+#: admin/class-hfe-admin.php:387
 msgid "Footer"
 msgstr "Footer"
 
-#: admin/class-hfe-admin.php:380
+#: admin/class-hfe-admin.php:388
 msgid "Custom Block"
 msgstr "Aangepast blok"
 
-#: admin/class-hfe-admin.php:388
-#: admin/class-hfe-admin.php:638
+#: admin/class-hfe-admin.php:396
+#: admin/class-hfe-admin.php:646
 msgid "Shortcode"
 msgstr "Shortcode"
 
-#: admin/class-hfe-admin.php:389
+#: admin/class-hfe-admin.php:397
 msgid "Copy this shortcode and paste it into your post, page, or text widget content."
 msgstr "Kopieer deze shortcode en plak deze in de inhoud van je bericht, pagina of tekstwidget."
 
-#: admin/class-hfe-admin.php:401
+#: admin/class-hfe-admin.php:409
 msgid "Enable Layout for Elementor Canvas Template?"
 msgstr "Lay-out inschakelen voor Elementor Canvas-sjabloon?"
 
-#: admin/class-hfe-admin.php:403
+#: admin/class-hfe-admin.php:411
 msgid "Enabling this option will display this layout on pages using Elementor Canvas Template."
 msgstr "Het inschakelen van deze optie toont deze lay-out op pagina's die het Elementor Canvas-sjabloon gebruiken."
 
-#: admin/class-hfe-admin.php:430
+#: admin/class-hfe-admin.php:438
 msgid "Display On"
 msgstr "Weergeven op"
 
-#: admin/class-hfe-admin.php:432
+#: admin/class-hfe-admin.php:440
 msgid "Add locations for where this template should appear."
 msgstr "Voeg locaties toe waar dit sjabloon moet verschijnen."
 
-#: admin/class-hfe-admin.php:443
+#: admin/class-hfe-admin.php:451
 msgid "Add Display Rule"
 msgstr "Weergaveregel toevoegen"
 
-#: admin/class-hfe-admin.php:452
+#: admin/class-hfe-admin.php:460
 msgid "Do Not Display On"
 msgstr "Niet weergeven op"
 
-#: admin/class-hfe-admin.php:454
+#: admin/class-hfe-admin.php:462
 msgid "Add locations for where this template should not appear."
 msgstr "Voeg locaties toe waar dit sjabloon niet moet verschijnen."
 
-#: admin/class-hfe-admin.php:461
+#: admin/class-hfe-admin.php:469
 msgid "Exclude On"
 msgstr "Uitsluiten op"
 
-#: admin/class-hfe-admin.php:464
+#: admin/class-hfe-admin.php:472
 #: inc/lib/target-rule/class-astra-target-rules-fields.php:847
 msgid "Add Exclusion Rule"
 msgstr "Uitsluitregel toevoegen"
 
-#: admin/class-hfe-admin.php:474
+#: admin/class-hfe-admin.php:482
 msgid "User Roles"
 msgstr "Gebruikersrollen"
 
-#: admin/class-hfe-admin.php:475
+#: admin/class-hfe-admin.php:483
 msgid "Display custom template based on user role."
 msgstr "Toon aangepast sjabloon op basis van gebruikersrol."
 
-#: admin/class-hfe-admin.php:482
+#: admin/class-hfe-admin.php:490
 msgid "Users"
 msgstr "Gebruikers"
 
-#: admin/class-hfe-admin.php:485
+#: admin/class-hfe-admin.php:493
 msgid "Add User Rule"
 msgstr "Gebruikersregel toevoegen"
 
 #. Translators: Post title, Template Location
-#: admin/class-hfe-admin.php:566
+#: admin/class-hfe-admin.php:574
 msgid "Template %1$s is already assigned to the location %2$s"
 msgstr "Sjabloon %1$s is al toegewezen aan de locatie %2$s"
 
-#: inc/class-header-footer-elementor.php:198
+#: inc/class-header-footer-elementor.php:216
 msgid "Ok, you deserve it"
 msgstr "Oké, je verdient het"
 
-#: inc/class-header-footer-elementor.php:200
+#: inc/class-header-footer-elementor.php:218
 msgid "Nope, maybe later"
 msgstr "Nee, misschien later"
 
-#: inc/class-header-footer-elementor.php:201
+#: inc/class-header-footer-elementor.php:219
 msgid "I already did"
 msgstr "Ik heb het al gedaan"
 
-#: inc/class-header-footer-elementor.php:273
+#: inc/class-header-footer-elementor.php:291
 msgid "Activate Elementor"
 msgstr "Activeer Elementor"
 
-#: inc/class-header-footer-elementor.php:278
-#: inc/class-header-footer-elementor.php:314
+#: inc/class-header-footer-elementor.php:296
+#: inc/class-header-footer-elementor.php:332
 msgid "Install Elementor"
 msgstr "Installeer Elementor"
 
-#: inc/class-header-footer-elementor.php:309
+#: inc/class-header-footer-elementor.php:327
 msgid "Update Elementor"
 msgstr "Update Elementor"
 
-#: inc/class-header-footer-elementor.php:528
-#: build/main.js:172
+#: inc/class-header-footer-elementor.php:593
+#: build/main.js:216
+#: build/main.js:238
 #: src/Components/Settings/Settings.jsx:49
 #: src/Components/Settings/ThemeSupport.jsx:80
-#: build/main.js:5749
-#: build/main.js:6103
 msgid "Theme Support"
 msgstr "Thema Ondersteuning"
 
-#: inc/class-hfe-settings-page.php:296
-#: inc/class-hfe-settings-page.php:1042
-#: build/main.js:2
+#: inc/class-hfe-settings-page.php:310
+#: inc/class-hfe-settings-page.php:1058
+#: build/main.js:95
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:86
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:173
-#: build/main.js:4325
-#: build/main.js:4412
 msgid "Activate"
 msgstr "Activeren"
 
-#: inc/class-hfe-settings-page.php:297
-#: inc/class-hfe-settings-page.php:1034
-#: build/main.js:2
+#: inc/class-hfe-settings-page.php:311
+#: inc/class-hfe-settings-page.php:1050
+#: build/main.js:95
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:156
-#: build/main.js:4395
 msgid "Activated"
 msgstr "Geactiveerd"
 
-#: inc/class-hfe-settings-page.php:298
-#: inc/class-hfe-settings-page.php:1031
+#: inc/class-hfe-settings-page.php:312
+#: inc/class-hfe-settings-page.php:1047
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1030
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1213
 msgid "Active"
 msgstr "Actief"
 
-#: inc/class-hfe-settings-page.php:299
+#: inc/class-hfe-settings-page.php:313
 msgid "Deactivate"
 msgstr "Deactiveren"
 
-#: inc/class-hfe-settings-page.php:300
-#: inc/class-hfe-settings-page.php:1039
+#: inc/class-hfe-settings-page.php:314
+#: inc/class-hfe-settings-page.php:1055
 msgid "Inactive"
 msgstr "Inactief"
 
-#: inc/class-hfe-settings-page.php:301
-#: inc/class-hfe-settings-page.php:1055
-#: build/main.js:2
+#: inc/class-hfe-settings-page.php:315
+#: inc/class-hfe-settings-page.php:1071
+#: build/main.js:95
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:91
-#: build/main.js:4330
 msgid "Install"
 msgstr "Installeren"
 
-#: inc/class-hfe-settings-page.php:302
+#: inc/class-hfe-settings-page.php:316
 msgid "Theme Installed"
 msgstr "Thema Geïnstalleerd"
 
-#: inc/class-hfe-settings-page.php:303
+#: inc/class-hfe-settings-page.php:317
 msgid "Plugin Installed"
 msgstr "Plugin Geïnstalleerd"
 
-#: inc/class-hfe-settings-page.php:304
+#: inc/class-hfe-settings-page.php:318
 msgid "Download"
 msgstr "Downloaden"
 
-#: inc/class-hfe-settings-page.php:305
+#: inc/class-hfe-settings-page.php:319
 msgid "Already Exists."
 msgstr "Bestaat al."
 
-#: inc/class-hfe-settings-page.php:306
-#: inc/class-hfe-settings-page.php:1060
+#: inc/class-hfe-settings-page.php:320
+#: inc/class-hfe-settings-page.php:1076
 msgid "Visit Website"
 msgstr "Bezoek Website"
 
-#: inc/class-hfe-settings-page.php:307
+#: inc/class-hfe-settings-page.php:321
 msgid "Could not install. Please download from WordPress.org and install manually."
 msgstr "Kon niet installeren. Download alstublieft van WordPress.org en installeer handmatig."
 
-#: inc/class-hfe-settings-page.php:308
+#: inc/class-hfe-settings-page.php:322
 msgid "Your details are submitted successfully."
 msgstr "Uw gegevens zijn succesvol ingediend."
 
-#: inc/class-hfe-settings-page.php:309
+#: inc/class-hfe-settings-page.php:323
 msgid "Encountered an error while performing your request."
 msgstr "Er is een fout opgetreden tijdens het uitvoeren van uw verzoek."
 
-#: inc/class-hfe-settings-page.php:383
+#: inc/class-hfe-settings-page.php:399
 msgid "Add Theme Support"
 msgstr "Voeg Thema Ondersteuning Toe"
 
-#: inc/class-hfe-settings-page.php:418
+#: inc/class-hfe-settings-page.php:434
 msgid " Method 1 (Recommended)"
 msgstr "Methode 1 (Aanbevolen)"
 
-#: inc/class-hfe-settings-page.php:419
+#: inc/class-hfe-settings-page.php:435
 msgid "This method replaces your theme's header (header.php) & footer (footer.php) template with plugin's custom templates."
 msgstr "Deze methode vervangt de header (header.php) & footer (footer.php) sjablonen van uw thema door de aangepaste sjablonen van de plugin."
 
-#: inc/class-hfe-settings-page.php:422
+#: inc/class-hfe-settings-page.php:438
 msgid "Method 2"
 msgstr "Methode 2"
 
-#: inc/class-hfe-settings-page.php:426
+#: inc/class-hfe-settings-page.php:442
 msgid "This method hides your theme's header & footer template with CSS and displays custom templates from the plugin."
 msgstr "Deze methode verbergt de header- & footer-sjablonen van uw thema met CSS en toont aangepaste sjablonen van de plugin."
 
-#: inc/class-hfe-settings-page.php:437
+#: inc/class-hfe-settings-page.php:453
 msgid "Sometimes above methods might not work well with your theme, in this case, contact your theme author and request them to add support for the <a href=\"%s\">plugin.</a>"
 msgstr "Soms werken bovenstaande methoden mogelijk niet goed met uw thema, in dat geval kunt u contact opnemen met de auteur van uw thema en hen vragen ondersteuning toe te voegen voor de <a href=\"%s\">plugin.</a>"
 
-#: inc/class-hfe-settings-page.php:493
-#: inc/class-hfe-settings-page.php:494
-#: inc/class-hfe-settings-page.php:1182
+#: inc/class-hfe-settings-page.php:509
+#: inc/class-hfe-settings-page.php:510
+#: inc/class-hfe-settings-page.php:1198
 #: inc/widgets-manager/base/widgets-config.php:309
 #: inc/widgets-manager/base/widgets-config.php:392
 #: inc/widgets-manager/base/widgets-config.php:472
@@ -368,170 +363,169 @@ msgstr "Soms werken bovenstaande methoden mogelijk niet goed met uw thema, in da
 #: inc/widgets-manager/base/widgets-config.php:683
 #: inc/widgets-manager/base/widgets-config.php:699
 #: inc/widgets-manager/base/widgets-config.php:844
-#: build/main.js:2
-#: src/Components/NavMenu.js:172
-#: build/main.js:3075
+#: build/main.js:194
+#: src/Components/NavMenu.js:184
 msgid "Settings"
 msgstr "Instellingen"
 
-#: inc/class-hfe-settings-page.php:619
+#: inc/class-hfe-settings-page.php:635
 msgid "About Us"
 msgstr "Over Ons"
 
-#: inc/class-hfe-settings-page.php:554
+#: inc/class-hfe-settings-page.php:570
 msgid "Elementor Header & Footer Builder "
 msgstr "Elementor Header & Footer Builder"
 
 #. translators: 1: Elementor, 2: Link to plugin review
-#: inc/class-hfe-settings-page.php:665
+#: inc/class-hfe-settings-page.php:681
 msgid "Help us spread the word about the plugin by leaving %2$s %1$s %3$s ratings on %2$s WordPress.org %3$s. Thank you from the Brainstorm Force team!"
 msgstr "Help ons het woord over de plugin te verspreiden door %2$s %1$s %3$s beoordelingen achter te laten op %2$s WordPress.org %3$s. Bedankt namens het Brainstorm Force-team!"
 
-#: inc/class-hfe-settings-page.php:708
+#: inc/class-hfe-settings-page.php:724
 msgid "Create Impressive Header and Footer Designs"
 msgstr "Creëer Indrukwekkende Header- en Footer-ontwerpen"
 
-#: inc/class-hfe-settings-page.php:709
+#: inc/class-hfe-settings-page.php:725
 msgid "Elementor Header & Footer Builder plugin lets you build impactful navigation for your website very easily. Before we begin, we would like to know more about you. This will help us to serve you better."
 msgstr "De Elementor Header & Footer Builder plugin stelt u in staat om impactvolle navigatie voor uw website zeer eenvoudig te bouwen. Voordat we beginnen, willen we graag meer over u weten. Dit zal ons helpen u beter van dienst te zijn."
 
 #. translators: %1$s and %3$s are opening anchor tags, and %2$s and %4$s is closing anchor tags.
-#: inc/class-hfe-settings-page.php:723
+#: inc/class-hfe-settings-page.php:739
 msgid "By submitting, you agree to our %1$sTerms%2$s and %3$sPrivacy Policy%4$s."
 msgstr "Door in te dienen, gaat u akkoord met onze %1$sVoorwaarden%2$s en %3$sPrivacybeleid%4$s."
 
-#: inc/class-hfe-settings-page.php:741
+#: inc/class-hfe-settings-page.php:757
 msgid "Skip"
 msgstr "Overslaan"
 
-#: inc/class-hfe-settings-page.php:759
+#: inc/class-hfe-settings-page.php:775
 msgid "Beginner"
 msgstr "Beginner"
 
-#: inc/class-hfe-settings-page.php:760
+#: inc/class-hfe-settings-page.php:776
 msgid "Intermediate"
 msgstr "Gemiddeld"
 
-#: inc/class-hfe-settings-page.php:761
+#: inc/class-hfe-settings-page.php:777
 msgid "Expert"
 msgstr "Expert"
 
-#: inc/class-hfe-settings-page.php:763
-#: inc/class-hfe-settings-page.php:772
+#: inc/class-hfe-settings-page.php:779
+#: inc/class-hfe-settings-page.php:788
 msgid "Field is required"
 msgstr "Veld is verplicht"
 
-#: inc/class-hfe-settings-page.php:764
+#: inc/class-hfe-settings-page.php:780
 msgid "I'm a WordPress:"
 msgstr "Ik ben een WordPress:"
 
-#: inc/class-hfe-settings-page.php:769
+#: inc/class-hfe-settings-page.php:785
 msgid "Myself/My company"
 msgstr "Ikzelf/Mijn bedrijf"
 
-#: inc/class-hfe-settings-page.php:770
+#: inc/class-hfe-settings-page.php:786
 msgid "My client"
 msgstr "Mijn klant"
 
-#: inc/class-hfe-settings-page.php:773
+#: inc/class-hfe-settings-page.php:789
 msgid "I'm building website for:"
 msgstr "Ik bouw een website voor:"
 
-#: inc/class-hfe-settings-page.php:796
+#: inc/class-hfe-settings-page.php:812
 msgid "First name is required"
 msgstr "Voornaam is verplicht"
 
-#: inc/class-hfe-settings-page.php:797
+#: inc/class-hfe-settings-page.php:813
 msgid "Your First Name"
 msgstr "Uw Voornaam"
 
-#: inc/class-hfe-settings-page.php:801
+#: inc/class-hfe-settings-page.php:817
 msgid "Email address is required"
 msgstr "E-mailadres is verplicht"
 
-#: inc/class-hfe-settings-page.php:802
+#: inc/class-hfe-settings-page.php:818
 msgid "Your Work Email"
 msgstr "Uw Werk E-mailadres"
 
-#: inc/class-hfe-settings-page.php:806
+#: inc/class-hfe-settings-page.php:822
 msgid "I agree to receive your newsletters and accept the data privacy statement."
 msgstr "Ik ga akkoord met het ontvangen van uw nieuwsbrieven en accepteer de verklaring inzake gegevensprivacy."
 
-#: inc/class-hfe-settings-page.php:811
+#: inc/class-hfe-settings-page.php:827
 msgid "Submit"
 msgstr "Indienen"
 
 #. translators: %s: theme name
-#: inc/class-hfe-settings-page.php:868
+#: inc/class-hfe-settings-page.php:884
 msgid "Powering over 1+ Million websites, %s is loved for the fast performance and ease of use it offers. It is suitable for all kinds of websites like blogs, portfolios, business, and WooCommerce stores."
 msgstr "Met meer dan 1+ miljoen websites, wordt %s gewaardeerd om de snelle prestaties en gebruiksgemak die het biedt. Het is geschikt voor alle soorten websites zoals blogs, portfolio's, bedrijven en WooCommerce-winkels."
 
-#: inc/class-hfe-settings-page.php:889
+#: inc/class-hfe-settings-page.php:905
 msgid "Welcome to Elementor Header & Footer Builder!"
 msgstr "Welkom bij Elementor Header & Footer Builder!"
 
-#: inc/class-hfe-settings-page.php:891
+#: inc/class-hfe-settings-page.php:907
 msgid "With this awesome plugin, experience the easiest way to create a customized header and footer for your website with Elementor. That too 100% FREE!"
 msgstr "Met deze geweldige plugin ervaart u de gemakkelijkste manier om een aangepaste header en footer voor uw website te maken met Elementor. Dat ook nog eens 100% GRATIS!"
 
-#: inc/class-hfe-settings-page.php:893
+#: inc/class-hfe-settings-page.php:909
 msgid "Design beautiful layouts with simple drag & drop and display them at desired location with powerful target controls. The plugin comes with inbuilt Elementor widgets that offer essential features to build header and footer. It's a lightweight plugin that works seamlessly with all themes and backed up by 24/7 support."
 msgstr "Ontwerp prachtige lay-outs met eenvoudige slepen en neerzetten en toon ze op de gewenste locatie met krachtige doelbedieningen. De plugin wordt geleverd met ingebouwde Elementor-widgets die essentiële functies bieden om header en footer te bouwen. Het is een lichte plugin die naadloos werkt met alle thema's en wordt ondersteund door 24/7 ondersteuning."
 
-#: inc/class-hfe-settings-page.php:895
+#: inc/class-hfe-settings-page.php:911
 msgid "Trusted by more than 1+ Million users, Elementor Header & Footer Builder is a modern way to build advanced navigation for your website."
 msgstr "Vertrouwd door meer dan 1+ miljoen gebruikers, is Elementor Header & Footer Builder een moderne manier om geavanceerde navigatie voor uw website te bouwen."
 
 #. translators: %s: theme name
-#: inc/class-hfe-settings-page.php:898
+#: inc/class-hfe-settings-page.php:914
 msgid "This plugin is brought to you by the same team behind the popular WordPress theme %s and a series of Ultimate Addons plugins."
 msgstr "Deze plugin is ontwikkeld door hetzelfde team achter het populaire WordPress-thema %s en een reeks Ultimate Addons-plugins."
 
-#: inc/class-hfe-settings-page.php:904
+#: inc/class-hfe-settings-page.php:920
 msgid "Team photo"
 msgstr "Teamfoto"
 
-#: inc/class-hfe-settings-page.php:906
+#: inc/class-hfe-settings-page.php:922
 msgid "Brainstorm Force Team"
 msgstr "Brainstorm Force Team"
 
 #. translators: %s - addon status label.
-#: inc/class-hfe-settings-page.php:951
+#: inc/class-hfe-settings-page.php:967
 msgid "%1$s %3$s %2$s"
 msgstr "%1$s %3$s %2$s"
 
 #. translators: %s - addon status label.
-#: inc/class-hfe-settings-page.php:968
+#: inc/class-hfe-settings-page.php:984
 msgid "Status: %s"
 msgstr "Status: %s"
 
-#: inc/class-hfe-settings-page.php:987
+#: inc/class-hfe-settings-page.php:1003
 msgid "WordPress.org"
 msgstr "WordPress.org"
 
-#: inc/class-hfe-settings-page.php:1052
+#: inc/class-hfe-settings-page.php:1068
 msgid "Not Installed"
 msgstr "Niet Geïnstalleerd"
 
-#: inc/class-hfe-settings-page.php:1099
+#: inc/class-hfe-settings-page.php:1115
 #: inc/widgets-manager/base/widgets-config.php:1008
 msgid "Starter Templates"
 msgstr "Starter Templates"
 
-#: inc/class-hfe-settings-page.php:1100
+#: inc/class-hfe-settings-page.php:1116
 msgid "A popular templates plugin that provides an extensive library of professional and fully customizable 600+ ready website and templates. More than 1+ Million websites have built with this plugin."
 msgstr "Een populaire templates-plugin die een uitgebreide bibliotheek biedt van professionele en volledig aanpasbare 600+ kant-en-klare websites en sjablonen. Meer dan 1+ miljoen websites zijn met deze plugin gebouwd."
 
-#: inc/class-hfe-settings-page.php:833
-#: inc/class-hfe-settings-page.php:1111
+#: inc/class-hfe-settings-page.php:849
+#: inc/class-hfe-settings-page.php:1127
 msgid "Ultimate Addons for Elementor"
 msgstr "Ultimate Addons voor Elementor"
 
-#: inc/class-hfe-settings-page.php:1112
+#: inc/class-hfe-settings-page.php:1128
 msgid "It’s a collection of 40+ unique, creative, and optimized Elementor widgets with 100+ readymade templates. Trusted by more than 600+ K web professionals. It’s a #1 toolkit for Elementor Page Builder."
 msgstr "Het is een verzameling van 40+ unieke, creatieve en geoptimaliseerde Elementor-widgets met 100+ kant-en-klare sjablonen. Vertrouwd door meer dan 600+ K webprofessionals. Het is een #1 toolkit voor Elementor Page Builder."
 
-#: inc/class-hfe-settings-page.php:1181
+#: inc/class-hfe-settings-page.php:1197
 msgid "Go to HFE Settings page"
 msgstr "Ga naar de HFE-instellingenpagina"
 
@@ -570,11 +564,9 @@ msgstr "WooCommerce Winkelpagina"
 
 #: inc/lib/target-rule/class-astra-target-rules-fields.php:141
 #: inc/lib/target-rule/class-astra-target-rules-fields.php:213
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:134
+#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:143
-#: build/main.js:6366
-#: build/main.js:6375
+#: src/Components/Compare/FreevsPro.jsx:152
 msgid "Basic"
 msgstr "Basis"
 
@@ -615,11 +607,9 @@ msgid "Logged Out"
 msgstr "Uitgelogd"
 
 #: inc/lib/target-rule/class-astra-target-rules-fields.php:222
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:133
-#: src/Components/Compare/FreevsPro.jsx:144
-#: build/main.js:6365
-#: build/main.js:6376
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:142
+#: src/Components/Compare/FreevsPro.jsx:153
 msgid "Advanced"
 msgstr "Geavanceerd"
 
@@ -707,7 +697,7 @@ msgstr "Ongeldig SVG-formaat, bestand niet geüpload om veiligheidsredenen!"
 
 #: inc/widgets-manager/base/widgets-config.php:187
 #: inc/widgets-manager/class-widgets-loader.php:330
-#: inc/widgets-manager/widgets/cart/cart.php:638
+#: inc/widgets-manager/widgets/cart/cart.php:629
 msgid "Cart"
 msgstr "Winkelwagentje"
 
@@ -811,9 +801,8 @@ msgstr "Toon Totale Prijs"
 #: inc/widgets-manager/widgets/site-logo/site-logo.php:142
 #: inc/widgets-manager/widgets/site-logo/site-logo.php:208
 #: inc/widgets-manager/widgets/site-logo/site-logo.php:270
-#: build/main.js:2
+#: build/main.js:95
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:243
-#: build/main.js:4482
 msgid "Yes"
 msgstr "Ja"
 
@@ -1076,9 +1065,8 @@ msgstr "Afstand"
 
 #: inc/widgets-manager/base/widgets-config.php:200
 #: inc/widgets-manager/widgets/copyright/copyright.php:102
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:22
-#: build/main.js:6254
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:23
 msgid "Copyright"
 msgstr "Copyright"
 
@@ -1113,17 +1101,12 @@ msgstr "https://your-link.com"
 
 #: inc/widgets-manager/base/widgets-config.php:94
 #: inc/widgets-manager/base/widgets-config.php:525
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:27
-#: src/Components/Compare/FreevsPro.jsx:129
-#: src/Components/Compare/FreevsPro.jsx:131
-#: src/Components/Compare/FreevsPro.jsx:139
-#: src/Components/Compare/FreevsPro.jsx:141
-#: build/main.js:6259
-#: build/main.js:6361
-#: build/main.js:6363
-#: build/main.js:6371
-#: build/main.js:6373
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:28
+#: src/Components/Compare/FreevsPro.jsx:138
+#: src/Components/Compare/FreevsPro.jsx:140
+#: src/Components/Compare/FreevsPro.jsx:148
+#: src/Components/Compare/FreevsPro.jsx:150
 msgid "Navigation Menu"
 msgstr "Navigatiemenu"
 
@@ -1484,9 +1467,8 @@ msgid "Border Hover Color"
 msgstr "Rand Hover Kleur"
 
 #: inc/widgets-manager/base/widgets-config.php:161
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:23
-#: build/main.js:6255
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:24
 msgid "Page Title"
 msgstr "Pagina Titel"
 
@@ -1603,6 +1585,8 @@ msgstr "Icoon Hover Kleur"
 #: inc/widgets-manager/base/widgets-config.php:594
 #: inc/widgets-manager/widgets/retina/retina.php:111
 #: inc/widgets-manager/widgets/retina/retina.php:245
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:118
 msgid "Retina Image"
 msgstr "Retina Afbeelding"
 
@@ -1684,9 +1668,8 @@ msgstr "%1$s Aan de slag artikel » %2$s"
 #: inc/widgets-manager/base/widgets-config.php:148
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:285
 #: inc/widgets-manager/widgets/search-button/search-button.php:990
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:26
-#: build/main.js:6258
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:27
 msgid "Search"
 msgstr "Zoeken"
 
@@ -1730,9 +1713,8 @@ msgstr "Achtergrond"
 
 #: inc/widgets-manager/base/widgets-config.php:81
 #: inc/widgets-manager/widgets/site-logo/site-logo.php:133
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:25
-#: build/main.js:6257
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:26
 msgid "Site Logo"
 msgstr "Site-logo"
 
@@ -1769,9 +1751,8 @@ msgid "Spacing"
 msgstr "Spatiëring"
 
 #: inc/widgets-manager/base/widgets-config.php:135
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:24
-#: build/main.js:6256
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:25
 msgid "Site Tagline"
 msgstr "Site-tagline"
 
@@ -1796,11 +1777,6 @@ msgstr "Algemeen"
 msgid "https://www.brainstormforce.com/"
 msgstr "https://www.brainstormforce.com/"
 
-#. Plugin Name of the plugin
-#: header-footer-elementor.php
-msgid "Ultimate Addons for Elementor - Lite"
-msgstr "Ultimate Addons voor Elementor - Lite"
-
 #. Plugin URI of the plugin
 #: header-footer-elementor.php
 msgid "https://wordpress.org/plugins/header-footer-elementor/"
@@ -1816,53 +1792,48 @@ msgstr "Voorheen bekend als \"Elementor Header & Footer Builder\", stelt deze kr
 msgid "Brainstorm Force"
 msgstr "Brainstorm Force"
 
-#: admin/class-hfe-admin.php:266
-#: inc/class-hfe-settings-page.php:317
+#: admin/class-hfe-admin.php:273
+#: inc/class-hfe-settings-page.php:331
 msgid "View All"
 msgstr "Bekijk alles"
 
-#: admin/class-hfe-admin.php:304
-#: admin/class-hfe-admin.php:305
+#: admin/class-hfe-admin.php:311
+#: admin/class-hfe-admin.php:312
 msgid "Create New"
 msgstr "Nieuwe maken"
 
-#: admin/class-hfe-admin.php:314
+#: admin/class-hfe-admin.php:321
 msgid "Header/Footer Builder"
 msgstr "Kop-/Voettekst Builder"
 
-#: admin/class-hfe-admin.php:315
-#: build/main.js:2
-#: src/Components/NavMenu.js:138
-#: build/main.js:3041
+#: admin/class-hfe-admin.php:322
+#: build/main.js:194
+#: src/Components/NavMenu.js:150
 msgid "Header & Footer Builder"
 msgstr "Kop & Voettekst Builder"
 
-#: inc/class-header-footer-elementor.php:195
+#: inc/class-header-footer-elementor.php:213
 msgid "Hello! Seems like you have used Ultimate Addons for Elementor to build this website — Thanks a ton!"
 msgstr "Hallo! Het lijkt erop dat je Ultimate Addons voor Elementor hebt gebruikt om deze website te bouwen — Hartelijk dank!"
 
-#: inc/class-header-footer-elementor.php:196
+#: inc/class-header-footer-elementor.php:214
 msgid "Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Ultimate Addons for Elementor."
 msgstr "Zou je ons een GROTE gunst kunnen doen en het een 5-sterren beoordeling op WordPress kunnen geven? Dit zou onze motivatie verhogen en andere gebruikers helpen een comfortabele beslissing te nemen bij het kiezen van de Ultimate Addons voor Elementor."
 
 #. translators: %s: html tags
-#: inc/class-header-footer-elementor.php:266
+#: inc/class-header-footer-elementor.php:284
 msgid "The %1$sUltimate Addons for Elementor%2$s plugin requires %1$sElementor%2$s plugin installed & activated."
 msgstr "De %1$sUltimate Addons voor Elementor%2$s plugin vereist dat de %1$sElementor%2$s plugin is geïnstalleerd en geactiveerd."
 
 #. translators: %s: html tags
-#: inc/class-header-footer-elementor.php:302
+#: inc/class-header-footer-elementor.php:320
 msgid "The %1$sUltimate Addons for Elementor%2$s plugin has stopped working because you are using an older version of %1$sElementor%2$s plugin."
 msgstr "De %1$sUltimate Addons voor Elementor%2$s plugin is gestopt met werken omdat je een oudere versie van de %1$sElementor%2$s plugin gebruikt."
 
 #. translators: %s: html tags
-#: inc/class-header-footer-elementor.php:342
+#: inc/class-header-footer-elementor.php:360
 msgid "Thank you for installing %1$s Ultimate Addons for Elementor %2$s Plugin! Click here to %3$sget started. %4$s"
 msgstr "Bedankt voor het installeren van de %1$s Ultimate Addons voor Elementor %2$s Plugin! Klik hier om %3$saan de slag te gaan. %4$s"
-
-#: inc/class-hfe-rollback.php:167
-msgid "Ultimate Addons for Elementor - Lite <p>Rollback to Previous Version</p>"
-msgstr "Ultimate Addons voor Elementor - Lite <p>Terugrollen naar Vorige Versie</p>"
 
 #: inc/class-hfe-settings-page.php:112
 msgid "You do not have permission to access this page."
@@ -1870,11 +1841,9 @@ msgstr "Je hebt geen toestemming om deze pagina te openen."
 
 #: inc/class-hfe-settings-page.php:113
 #: inc/class-hfe-settings-page.php:148
-#: build/main.js:172
+#: build/main.js:249
 #: src/Components/Settings/VersionControl.jsx:63
 #: src/Components/Settings/VersionControl.jsx:119
-#: build/main.js:5908
-#: build/main.js:5964
 msgid "Rollback to Previous Version"
 msgstr "Terugrollen naar Vorige Versie"
 
@@ -1882,25 +1851,23 @@ msgstr "Terugrollen naar Vorige Versie"
 msgid "Error occurred, The version selected is invalid. Try selecting different version."
 msgstr "Er is een fout opgetreden, de geselecteerde versie is ongeldig. Probeer een andere versie te selecteren."
 
-#: inc/class-hfe-settings-page.php:399
+#: inc/class-hfe-settings-page.php:415
 msgid "The Ultimate Addons for Elementor plugin need compatibility with your current theme to work smoothly.</br></br>Following are two methods that enable theme support for the plugin.</br></br>Method 1 is selected by default and that works fine almost will all themes. In case, you face any issue with the header or footer template, try choosing Method 2."
 msgstr "De Ultimate Addons voor Elementor plugin heeft compatibiliteit met je huidige thema nodig om soepel te werken.</br></br>Hieronder staan twee methoden die thema-ondersteuning voor de plugin mogelijk maken.</br></br>Methode 1 is standaard geselecteerd en werkt goed met bijna alle thema's. Als je problemen ondervindt met de kop- of voetteksttemplate, probeer dan Methode 2 te kiezen."
 
-#: inc/class-hfe-settings-page.php:469
-#: inc/class-hfe-settings-page.php:481
+#: inc/class-hfe-settings-page.php:485
+#: inc/class-hfe-settings-page.php:497
 msgid "UAE Lite"
 msgstr "VAE Lite"
 
-#: inc/class-hfe-settings-page.php:470
+#: inc/class-hfe-settings-page.php:486
 #: inc/widgets-manager/class-widgets-loader.php:168
-#: inc/widgets-manager/class-widgets-loader.php:190
 msgid "UAE"
 msgstr "VAE"
 
-#: inc/class-hfe-settings-page.php:482
-#: build/main.js:2
-#: src/Components/NavMenu.js:125
-#: build/main.js:3028
+#: inc/class-hfe-settings-page.php:498
+#: build/main.js:194
+#: src/Components/NavMenu.js:130
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -1923,9 +1890,8 @@ msgid "Widgets list not found"
 msgstr "Widgetslijst niet gevonden"
 
 #: inc/widgets-manager/base/widgets-config.php:53
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:18
-#: build/main.js:6250
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:19
 msgid "Post Info"
 msgstr "Berichtinfo"
 
@@ -1934,9 +1900,8 @@ msgid "Show author, dates, and reading time with customizable styles."
 msgstr "Toon auteur, data en leestijd met aanpasbare stijlen."
 
 #: inc/widgets-manager/base/widgets-config.php:67
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:20
-#: build/main.js:6252
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:21
 msgid "Breadcrumbs"
 msgstr "Broodkruimels"
 
@@ -1956,9 +1921,8 @@ msgstr "Voeg stijlvolle en functionele menu's toe voor naadloze navigatie op de 
 #: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:49
 #: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:103
 #: inc/widgets-manager/extensions/class-scroll-to-top.php:310
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:19
-#: build/main.js:6251
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:20
 msgid "Scroll to Top"
 msgstr "Scroll naar boven"
 
@@ -1983,9 +1947,8 @@ msgid "Display the title of the current page dynamically."
 msgstr "Toon de titel van de huidige pagina dynamisch."
 
 #: inc/widgets-manager/base/widgets-config.php:174
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:21
-#: build/main.js:6253
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:22
 msgid "Retina Logo"
 msgstr "Retina-logo"
 
@@ -2002,16 +1965,14 @@ msgid "Display customizable copyright text for your site's footer."
 msgstr "Toon aanpasbare copyrighttekst voor de footer van je site."
 
 #: inc/widgets-manager/base/widgets-config.php:234
-#: build/main.js:2
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:33
+#: build/main.js:40
+#: build/main.js:51
+#: build/main.js:139
+#: build/main.js:315
+#: src/Components/Compare/FreevsPro.jsx:34
 #: src/Components/Compare/UltimateCompare.jsx:17
 #: src/Components/Dashboard/UltimateFeatures.js:18
 #: src/Components/Widgets/UltimateWidgets.jsx:18
-#: build/main.js:4085
-#: build/main.js:4682
-#: build/main.js:6265
-#: build/main.js:6478
 msgid "Advanced Heading"
 msgstr "Geavanceerde kop"
 
@@ -2020,16 +1981,14 @@ msgid "Create engaging and customizable headings for your pages."
 msgstr "Creëer boeiende en aanpasbare koppen voor je pagina's."
 
 #: inc/widgets-manager/base/widgets-config.php:248
-#: build/main.js:2
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:58
+#: build/main.js:40
+#: build/main.js:51
+#: build/main.js:139
+#: build/main.js:315
+#: src/Components/Compare/FreevsPro.jsx:66
 #: src/Components/Compare/UltimateCompare.jsx:12
 #: src/Components/Dashboard/UltimateFeatures.js:13
 #: src/Components/Widgets/UltimateWidgets.jsx:13
-#: build/main.js:4080
-#: build/main.js:4677
-#: build/main.js:6290
-#: build/main.js:6473
 msgid "Modal Popup"
 msgstr "Modale popup"
 
@@ -2054,9 +2013,8 @@ msgid "Display the before and after versions of an image."
 msgstr "Toon de voor- en na-versies van een afbeelding."
 
 #: inc/widgets-manager/base/widgets-config.php:287
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:57
-#: build/main.js:6289
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:65
 msgid "Business Hours"
 msgstr "Openingstijden"
 
@@ -2065,6 +2023,8 @@ msgid "Customize and display your business hours stylishly."
 msgstr "Pas je openingstijden stijlvol aan en toon ze."
 
 #: inc/widgets-manager/base/widgets-config.php:302
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:94
 msgid "Business Reviews"
 msgstr "Bedrijfsbeoordelingen"
 
@@ -2081,9 +2041,8 @@ msgid "Style and enhance Contact Form 7 to fit your site."
 msgstr "Stijl en verbeter Contactformulier 7 om bij je site te passen."
 
 #: inc/widgets-manager/base/widgets-config.php:329
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:56
-#: build/main.js:6288
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:64
 msgid "Countdown Timer"
 msgstr "Afteltimer"
 
@@ -2092,9 +2051,8 @@ msgid "Create urgency with fixed or recurring countdowns."
 msgstr "Creëer urgentie met vaste of terugkerende aftellingen."
 
 #: inc/widgets-manager/base/widgets-config.php:343
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:34
-#: build/main.js:6266
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:35
 msgid "Dual Color Heading"
 msgstr "Dubbele kleurkop"
 
@@ -2103,9 +2061,8 @@ msgid "Style headings with dual colours and customizable typography."
 msgstr "Stijl koppen met dubbele kleuren en aanpasbare typografie."
 
 #: inc/widgets-manager/base/widgets-config.php:357
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:35
-#: build/main.js:6267
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:36
 msgid "Fancy Heading"
 msgstr "Fancy kop"
 
@@ -2122,6 +2079,8 @@ msgid "Add SEO-friendly FAQ sections to pages."
 msgstr "Voeg SEO-vriendelijke FAQ-secties toe aan pagina's."
 
 #: inc/widgets-manager/base/widgets-config.php:385
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:49
 msgid "Google Map"
 msgstr "Google Map"
 
@@ -2154,9 +2113,8 @@ msgid "Create structured how-to pages with automatic schema markup."
 msgstr "Creëer gestructureerde hoe-te pagina's met automatische schema markup."
 
 #: inc/widgets-manager/base/widgets-config.php:439
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:43
-#: build/main.js:6275
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:45
 msgid "Image Gallery"
 msgstr "Afbeeldingengalerij"
 
@@ -2165,14 +2123,14 @@ msgid "Build attractive, feature-rich galleries with advanced options."
 msgstr "Bouw aantrekkelijke, feature-rijke galerijen met geavanceerde opties."
 
 #: inc/widgets-manager/base/widgets-config.php:452
-#: build/main.js:2
-#: build/main.js:172
+#: build/main.js:40
+#: build/main.js:51
+#: build/main.js:139
+#: build/main.js:315
+#: src/Components/Compare/FreevsPro.jsx:51
 #: src/Components/Compare/UltimateCompare.jsx:27
 #: src/Components/Dashboard/UltimateFeatures.js:28
 #: src/Components/Widgets/UltimateWidgets.jsx:28
-#: build/main.js:4095
-#: build/main.js:4692
-#: build/main.js:6488
 msgid "Info Box"
 msgstr "Info Box"
 
@@ -2181,9 +2139,8 @@ msgid "Add headings, icons, and descriptions in one flexible widget."
 msgstr "Voeg koppen, iconen en beschrijvingen toe in één flexibele widget."
 
 #: inc/widgets-manager/base/widgets-config.php:466
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:103
-#: build/main.js:6335
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:110
 msgid "Instagram Feed"
 msgstr "Instagram-feed"
 
@@ -2192,6 +2149,8 @@ msgid "Display an attractive, customizable Instagram feed."
 msgstr "Toon een aantrekkelijke, aanpasbare Instagram-feed."
 
 #: inc/widgets-manager/base/widgets-config.php:481
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:54
 msgid "Login Form"
 msgstr "Inlogformulier"
 
@@ -2200,9 +2159,8 @@ msgid "Design beautiful, customizable WordPress login forms."
 msgstr "Ontwerp mooie, aanpasbare WordPress-inlogformulieren."
 
 #: inc/widgets-manager/base/widgets-config.php:497
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:54
-#: build/main.js:6286
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:61
 msgid "Marketing Button"
 msgstr "Marketingknop"
 
@@ -2247,6 +2205,8 @@ msgid "Showcase prices and features in customizable layouts."
 msgstr "Toon prijzen en functies in aanpasbare indelingen."
 
 #: inc/widgets-manager/base/widgets-config.php:580
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:63
 msgid "Price List"
 msgstr "Prijslijst"
 
@@ -2259,9 +2219,8 @@ msgid "Ensure images look crisp on high-resolution screens."
 msgstr "Zorg ervoor dat afbeeldingen scherp zijn op schermen met hoge resolutie."
 
 #: inc/widgets-manager/base/widgets-config.php:607
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:105
-#: build/main.js:6337
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:112
 msgid "Social Share"
 msgstr "Sociale Delen"
 
@@ -2270,9 +2229,8 @@ msgid "Enable quick content sharing with social media buttons."
 msgstr "Schakel snelle inhoudsdeling in met sociale media knoppen."
 
 #: inc/widgets-manager/base/widgets-config.php:623
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:46
-#: build/main.js:6278
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:47
 msgid "Table"
 msgstr "Tabel"
 
@@ -2281,9 +2239,8 @@ msgid "Build responsive, styled tables to display data."
 msgstr "Bouw responsieve, gestylede tabellen om gegevens weer te geven."
 
 #: inc/widgets-manager/base/widgets-config.php:636
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:86
-#: build/main.js:6318
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:93
 msgid "Table of Contents"
 msgstr "Inhoudsopgave"
 
@@ -2292,9 +2249,8 @@ msgid "Improve page readability with automatic, customizable TOCs."
 msgstr "Verbeter de leesbaarheid van pagina's met automatische, aanpasbare TOC's."
 
 #: inc/widgets-manager/base/widgets-config.php:649
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:111
-#: build/main.js:6343
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:119
 msgid "Team Member"
 msgstr "Teamlid"
 
@@ -2303,9 +2259,8 @@ msgid "Highlight team members with customizable layouts."
 msgstr "Benadruk teamleden met aanpasbare indelingen."
 
 #: inc/widgets-manager/base/widgets-config.php:663
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:47
-#: build/main.js:6279
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:48
 msgid "Timeline"
 msgstr "Tijdlijn"
 
@@ -2314,9 +2269,8 @@ msgid "Display timelines or roadmaps with advanced styling options."
 msgstr "Toon tijdlijnen of roadmaps met geavanceerde stijlopties."
 
 #: inc/widgets-manager/base/widgets-config.php:677
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:104
-#: build/main.js:6336
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:111
 msgid "Twitter Feed"
 msgstr "Twitter Feed"
 
@@ -2333,9 +2287,8 @@ msgid "Create beautiful, custom registration forms for users."
 msgstr "Maak mooie, aangepaste registratieformulieren voor gebruikers."
 
 #: inc/widgets-manager/base/widgets-config.php:708
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:44
-#: build/main.js:6276
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:52
 msgid "Video"
 msgstr "Video"
 
@@ -2344,9 +2297,8 @@ msgid "Embed optimized videos with customizable thumbnails and play buttons."
 msgstr "Inbedden van geoptimaliseerde video's met aanpasbare miniaturen en afspeelknoppen."
 
 #: inc/widgets-manager/base/widgets-config.php:721
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:45
-#: build/main.js:6277
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:46
 msgid "Video Gallery"
 msgstr "Video Galerij"
 
@@ -2355,6 +2307,8 @@ msgid "Showcase multiple videos without impacting load times."
 msgstr "Toon meerdere video's zonder de laadtijden te beïnvloeden."
 
 #: inc/widgets-manager/base/widgets-config.php:734
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:101
 msgid "Welcome Music"
 msgstr "Welkomstmuziek"
 
@@ -2435,9 +2389,8 @@ msgid "Add dynamic, animated backgrounds to sections and columns."
 msgstr "Voeg dynamische, geanimeerde achtergronden toe aan secties en kolommen."
 
 #: inc/widgets-manager/base/widgets-config.php:866
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:36
-#: build/main.js:6268
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:103
 msgid "Party Propz"
 msgstr "Feestelijke Decoraties"
 
@@ -2446,9 +2399,8 @@ msgid "Decorate your site with festive seasonal elements easily."
 msgstr "Versier uw site eenvoudig met feestelijke seizoenselementen."
 
 #: inc/widgets-manager/base/widgets-config.php:879
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:93
-#: build/main.js:6325
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:104
 msgid "Shape Divider"
 msgstr "Vormverdeler"
 
@@ -2465,6 +2417,8 @@ msgid "Copy and paste Elementor content between websites."
 msgstr "Kopieer en plak Elementor-inhoud tussen websites."
 
 #: inc/widgets-manager/base/widgets-config.php:905
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:100
 msgid "Presets"
 msgstr "Voorinstellingen"
 
@@ -2653,7 +2607,7 @@ msgstr "Huidig item"
 
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:662
 msgid "Search results for: "
-msgstr "Zoekresultaten voor: "
+msgstr "Zoekresultaten voor:"
 
 #: inc/widgets-manager/widgets/post-info/post-info.php:112
 msgid "Inline"
@@ -2767,852 +2721,727 @@ msgid_plural "%s comments"
 msgstr[0] "%s reactie"
 msgstr[1] ""
 
-#: build/main.js:2
-#: src/Components/NavMenu.js:150
-#: build/main.js:3053
+#: build/main.js:194
+#: src/Components/NavMenu.js:162
 msgid "Widgets"
 msgstr "Widgets"
 
-#: build/main.js:2
-#: src/Components/NavMenu.js:161
-#: build/main.js:3064
+#: build/main.js:194
+#: src/Components/NavMenu.js:173
 msgid "Templates"
 msgstr "Sjablonen"
 
-#: build/main.js:2
-#: src/Components/NavMenu.js:183
-#: build/main.js:3086
+#: build/main.js:194
+#: src/Components/NavMenu.js:193
 msgid "Free vs Pro"
 msgstr "Gratis vs Pro"
 
-#: build/main.js:2
-#: src/Components/NavMenu.js:207
-#: build/main.js:3110
+#: build/main.js:194
+#: src/Components/NavMenu.js:220
 msgid "Get Pro"
 msgstr "Krijg Pro"
 
-#: build/main.js:2
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:209
+#: build/main.js:40
+#: build/main.js:95
+#: build/main.js:194
+#: src/Components/Compare/FreevsPro.jsx:218
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:200
-#: src/Components/NavMenu.js:223
-#: src/Components/NavMenu.js:237
-#: build/main.js:3126
-#: build/main.js:3140
-#: build/main.js:4439
-#: build/main.js:6441
+#: src/Components/NavMenu.js:233
+#: src/Components/NavMenu.js:253
 msgid "Free"
 msgstr "Gratis"
 
-#: build/main.js:2
-#: src/Components/NavMenu.js:231
-#: build/main.js:3134
+#: build/main.js:194
+#: src/Components/NavMenu.js:244
 msgid "Version"
 msgstr "Versie"
 
-#: build/main.js:2
-#: src/Components/NavMenu.js:262
-#: build/main.js:3165
+#: build/main.js:194
+#: src/Components/NavMenu.js:278
 msgid "Useful Resources"
 msgstr "Nuttige bronnen"
 
-#: build/main.js:2
-#: src/Components/NavMenu.js:276
-#: build/main.js:3179
+#: build/main.js:194
+#: src/Components/NavMenu.js:295
 msgid "Getting Started"
 msgstr "Aan de slag"
 
-#: build/main.js:2
-#: src/Components/NavMenu.js:286
-#: build/main.js:3189
+#: build/main.js:194
+#: src/Components/NavMenu.js:308
 msgid "How to use widgets"
 msgstr "Hoe widgets te gebruiken"
 
-#: build/main.js:2
-#: src/Components/NavMenu.js:296
-#: build/main.js:3199
+#: build/main.js:194
+#: src/Components/NavMenu.js:321
 msgid "How to use features"
 msgstr "Hoe functies te gebruiken"
 
-#: build/main.js:2
-#: src/Components/NavMenu.js:306
-#: build/main.js:3209
+#: build/main.js:194
+#: src/Components/NavMenu.js:334
 msgid "How to use templates"
 msgstr "Hoe sjablonen te gebruiken"
 
-#: build/main.js:2
-#: src/Components/NavMenu.js:316
-#: build/main.js:3219
+#: build/main.js:194
+#: src/Components/NavMenu.js:347
 msgid "Contact us"
 msgstr "Neem contact met ons op"
 
-#: build/main.js:2
+#: build/main.js:161
 #: src/Components/Dashboard/WidgetItem.jsx:132
-#: build/main.js:3412
 msgid "View Demo"
 msgstr "Bekijk demo"
 
-#: build/main.js:2
+#: build/main.js:161
 #: src/Components/Dashboard/WidgetItem.jsx:145
-#: build/main.js:3425
 msgid "Read Documentation"
 msgstr "Lees documentatie"
 
-#: build/main.js:2
+#: build/main.js:128
 #: src/Components/Dashboard/TemplateSection.js:64
-#: build/main.js:3643
 msgid "Build Websites 10x Faster with Templates"
 msgstr "Bouw websites 10x sneller met sjablonen"
 
-#: build/main.js:2
+#: build/main.js:128
 #: src/Components/Dashboard/TemplateSection.js:70
-#: build/main.js:3649
 msgid "Choose from our professionally designed websites to build your site faster, with easy customization options."
 msgstr "Kies uit onze professioneel ontworpen websites om je site sneller te bouwen, met eenvoudige aanpassingsopties."
 
-#: build/main.js:2
+#: build/main.js:128
 #: src/Components/Dashboard/TemplateSection.js:85
 #: src/Components/Dashboard/TemplateSection.js:97
-#: build/main.js:3664
-#: build/main.js:3676
 msgid "View Templates"
 msgstr "Bekijk sjablonen"
 
-#: build/main.js:2
+#: build/main.js:117
 #: src/Components/Dashboard/QuickAccess.js:20
-#: build/main.js:3748
 msgid "Quick Access"
 msgstr "Snelle toegang"
 
-#: build/main.js:2
+#: build/main.js:117
 #: src/Components/Dashboard/QuickAccess.js:53
-#: build/main.js:3781
 msgid "Contact Us"
 msgstr "Neem contact met ons op"
 
-#: build/main.js:2
+#: build/main.js:117
 #: src/Components/Dashboard/QuickAccess.js:69
-#: build/main.js:3797
 msgid "Help Centre"
 msgstr "Helpcentrum"
 
-#: build/main.js:2
+#: build/main.js:117
 #: src/Components/Dashboard/QuickAccess.js:85
-#: build/main.js:3813
 msgid "Request a Feature"
 msgstr "Vraag een functie aan"
 
-#: build/main.js:2
+#: build/main.js:183
 #: src/Components/HeaderLine.js:16
-#: build/main.js:3889
 msgid "Formerly Elementor Header & Footer Builder"
 msgstr "Voorheen Elementor Header & Footer Builder"
 
-#: build/main.js:2
+#: build/main.js:150
 #: src/Components/Dashboard/WelcomeContainer.js:25
-#: build/main.js:3920
 msgid "Welcome to Ultimate Addons for Elementor!"
 msgstr "Welkom bij Ultimate Addons voor Elementor!"
 
-#: build/main.js:2
+#: build/main.js:150
 #: src/Components/Dashboard/WelcomeContainer.js:29
-#: build/main.js:3924
 msgid "We're excited to help you supercharge your website-building experience. Effortlessly design stunning websites with our comprehensive range of free and premium widgets and features."
 msgstr "We zijn enthousiast om je te helpen je website-bouwervaring te verbeteren. Ontwerp moeiteloos verbluffende websites met ons uitgebreide assortiment gratis en premium widgets en functies."
 
-#: build/main.js:2
+#: build/main.js:150
 #: src/Components/Dashboard/WelcomeContainer.js:58
-#: build/main.js:3953
 msgid "Create Header/Footer"
 msgstr "Maak Header/Footer"
 
-#: build/main.js:2
+#: build/main.js:150
 #: src/Components/Dashboard/WelcomeContainer.js:86
-#: build/main.js:3981
 msgid "Create New Page"
 msgstr "Maak nieuwe pagina"
 
-#: build/main.js:2
+#: build/main.js:150
 #: src/Components/Dashboard/WelcomeContainer.js:115
-#: build/main.js:4010
 msgid "Read full guide"
 msgstr "Lees volledige gids"
 
-#: build/main.js:2
-#: build/main.js:172
+#: build/main.js:51
+#: build/main.js:139
+#: build/main.js:315
 #: src/Components/Compare/UltimateCompare.jsx:22
 #: src/Components/Dashboard/UltimateFeatures.js:23
 #: src/Components/Widgets/UltimateWidgets.jsx:23
-#: build/main.js:4090
-#: build/main.js:4687
-#: build/main.js:6483
 msgid "Post Layouts"
 msgstr "Berichtindelingen"
 
-#: build/main.js:2
-#: build/main.js:172
+#: build/main.js:51
+#: build/main.js:139
+#: build/main.js:315
 #: src/Components/Compare/UltimateCompare.jsx:32
 #: src/Components/Dashboard/UltimateFeatures.js:33
 #: src/Components/Widgets/UltimateWidgets.jsx:33
-#: build/main.js:4100
-#: build/main.js:4697
-#: build/main.js:6493
 msgid "Pricing Cards"
 msgstr "Prijskaarten"
 
-#: build/main.js:2
-#: build/main.js:172
+#: build/main.js:51
+#: build/main.js:139
+#: build/main.js:315
 #: src/Components/Compare/UltimateCompare.jsx:37
 #: src/Components/Dashboard/UltimateFeatures.js:38
 #: src/Components/Widgets/UltimateWidgets.jsx:38
-#: build/main.js:4105
-#: build/main.js:4702
-#: build/main.js:6498
 msgid "Form Stylers and more..."
 msgstr "Formulierstyling en meer..."
 
-#: build/main.js:2
-#: build/main.js:172
+#: build/main.js:51
+#: build/main.js:139
+#: build/main.js:315
 #: src/Components/Compare/UltimateCompare.jsx:68
 #: src/Components/Dashboard/UltimateFeatures.js:62
 #: src/Components/Widgets/UltimateWidgets.jsx:67
-#: build/main.js:4129
-#: build/main.js:4731
-#: build/main.js:6529
 msgid "Unlock Ultimate Features"
 msgstr "Ontgrendel ultieme functies"
 
-#: build/main.js:2
-#: build/main.js:172
+#: build/main.js:51
+#: build/main.js:139
+#: build/main.js:315
 #: src/Components/Compare/UltimateCompare.jsx:76
 #: src/Components/Dashboard/UltimateFeatures.js:73
 #: src/Components/Widgets/UltimateWidgets.jsx:75
-#: build/main.js:4140
-#: build/main.js:4739
-#: build/main.js:6537
 msgid "Create Stunning Designs with the Pro Version!"
 msgstr "Creëer verbluffende ontwerpen met de Pro-versie!"
 
-#: build/main.js:2
-#: build/main.js:172
+#: build/main.js:51
+#: build/main.js:139
+#: build/main.js:315
 #: src/Components/Compare/UltimateCompare.jsx:80
 #: src/Components/Dashboard/UltimateFeatures.js:80
 #: src/Components/Widgets/UltimateWidgets.jsx:82
-#: build/main.js:4147
-#: build/main.js:4746
-#: build/main.js:6541
 msgid "Get access to advanced widgets and features to create the website that stands out!"
 msgstr "Krijg toegang tot geavanceerde widgets en functies om de website te creëren die opvalt!"
 
-#: build/main.js:2
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:189
+#: build/main.js:40
+#: build/main.js:51
+#: build/main.js:106
+#: build/main.js:139
+#: build/main.js:315
+#: src/Components/Compare/FreevsPro.jsx:198
 #: src/Components/Compare/UltimateCompare.jsx:109
 #: src/Components/Dashboard/MyAccount.jsx:53
 #: src/Components/Dashboard/UltimateFeatures.js:116
 #: src/Components/Widgets/UltimateWidgets.jsx:116
-#: build/main.js:4183
-#: build/main.js:4780
-#: build/main.js:6045
-#: build/main.js:6421
-#: build/main.js:6570
 msgid "Upgrade Now"
 msgstr "Upgrade nu"
 
-#: build/main.js:2
+#: build/main.js:139
+#: build/main.js:315
 #: src/Components/Dashboard/UltimateFeatures.js:122
 #: src/Components/Widgets/UltimateWidgets.jsx:119
-#: build/main.js:4189
-#: build/main.js:4783
 msgid "Compare Free vs Pro"
 msgstr "Vergelijk gratis vs pro"
 
-#: build/main.js:2
-#: build/main.js:172
+#: build/main.js:51
+#: build/main.js:139
+#: build/main.js:315
 #: src/Components/Compare/UltimateCompare.jsx:55
 #: src/Components/Dashboard/UltimateFeatures.js:135
 #: src/Components/Widgets/UltimateWidgets.jsx:54
-#: build/main.js:4202
-#: build/main.js:4718
-#: build/main.js:6516
 msgid "Column Showcase"
 msgstr "Kolom Showcase"
 
-#: build/main.js:2
+#: build/main.js:95
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:144
-#: build/main.js:4383
 msgid "Activating.."
 msgstr "Activeren.."
 
-#: build/main.js:2
+#: build/main.js:95
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:72
-#: build/main.js:4311
 msgid "Installing.."
 msgstr "Installeren.."
 
-#: build/main.js:2
+#: build/main.js:95
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:80
-#: build/main.js:4319
 msgid "Installed"
 msgstr "Geïnstalleerd"
 
-#: build/main.js:2
+#: build/main.js:95
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:94
-#: build/main.js:4333
 msgid "Theme Installation failed, Please try again later."
 msgstr "Thema-installatie mislukt, probeer het later opnieuw."
 
-#: build/main.js:2
+#: build/main.js:95
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:95
-#: build/main.js:4334
 msgid "Plugin Installation failed, Please try again later."
 msgstr "Plugin-installatie mislukt, probeer het later opnieuw."
 
-#: build/main.js:2
+#: build/main.js:95
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:222
-#: build/main.js:4461
 msgid "Visit Site"
 msgstr "Bezoek site"
 
-#: build/main.js:2
+#: build/main.js:95
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:234
-#: build/main.js:4473
 msgid "Activate Theme"
 msgstr "Thema activeren"
 
-#: build/main.js:2
+#: build/main.js:95
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:238
-#: build/main.js:4477
 msgid "Are you sure you want to switch your current theme to Astra?"
 msgstr "Weet je zeker dat je je huidige thema wilt wijzigen naar Astra?"
 
-#: build/main.js:2
+#: build/main.js:95
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:246
-#: build/main.js:4485
 msgid "Close"
-msgstr ""
+msgstr "Sluiten"
 
-#: build/main.js:2
+#: build/main.js:84
 #: src/Components/Dashboard/ExtendWebsite.jsx:57
-#: build/main.js:4562
 msgid "Extend Your Website"
-msgstr ""
+msgstr "Breid uw website uit"
 
-#: build/main.js:2
+#: build/main.js:304
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:140
-#: build/main.js:4969
 msgid "Widgets / Features"
-msgstr ""
+msgstr "Widgets / Functies"
 
-#: build/main.js:2
+#: build/main.js:304
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:152
-#: build/main.js:4981
 msgid "Search..."
-msgstr ""
+msgstr "Zoeken..."
 
-#: build/main.js:2
+#: build/main.js:304
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:174
-#: build/main.js:5003
 msgid "Activating..."
-msgstr ""
+msgstr "Activeren..."
 
-#: build/main.js:2
+#: build/main.js:304
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:174
-#: build/main.js:5003
 msgid "Activate All"
-msgstr ""
+msgstr "Activeer alles"
 
-#: build/main.js:2
+#: build/main.js:304
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:185
-#: build/main.js:5014
 msgid "Deactivating..."
-msgstr ""
+msgstr "Deactiveren..."
 
-#: build/main.js:2
+#: build/main.js:304
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:185
-#: build/main.js:5014
 msgid "Deactivate All"
-msgstr ""
+msgstr "Deactiveer alles"
 
-#: build/main.js:2
+#: build/main.js:260
 #: src/Components/Templates/ExploreTemplates.jsx:17
-#: build/main.js:5139
 msgid "250+ templates for every niche"
-msgstr ""
+msgstr "250+ sjablonen voor elke niche"
 
-#: build/main.js:2
+#: build/main.js:260
 #: src/Components/Templates/ExploreTemplates.jsx:22
-#: build/main.js:5144
 msgid "Modern, timeless designs"
-msgstr ""
+msgstr "Moderne, tijdloze ontwerpen"
 
-#: build/main.js:2
+#: build/main.js:260
 #: src/Components/Templates/ExploreTemplates.jsx:27
-#: build/main.js:5149
 msgid "Full design flexibility for easy customization"
 msgstr "Volledige ontwerpflexibiliteit voor eenvoudige aanpassing"
 
-#: build/main.js:2
+#: build/main.js:260
 #: src/Components/Templates/ExploreTemplates.jsx:32
-#: build/main.js:5154
 msgid "100% responsive across all devices"
 msgstr "100% responsief op alle apparaten"
 
-#: build/main.js:2
+#: build/main.js:260
 #: src/Components/Templates/ExploreTemplates.jsx:65
 #: src/Components/Templates/ExploreTemplates.jsx:94
-#: build/main.js:5187
-#: build/main.js:5216
 msgid "Install Starter Templates"
 msgstr "Installeer Starter Templates"
 
-#: build/main.js:2
+#: build/main.js:260
 #: src/Components/Templates/ExploreTemplates.jsx:65
 #: src/Components/Templates/ExploreTemplates.jsx:167
-#: build/main.js:5187
-#: build/main.js:5289
 msgid "Activate Starter Templates"
 msgstr "Activeer Starter Templates"
 
-#: build/main.js:2
+#: build/main.js:260
 #: src/Components/Templates/ExploreTemplates.jsx:100
 #: src/Components/Templates/ExploreTemplates.jsx:156
-#: build/main.js:5222
-#: build/main.js:5278
 msgid "Activating Starter Templates..."
 msgstr "Starter Templates activeren..."
 
-#: build/main.js:2
+#: build/main.js:260
 #: src/Components/Templates/ExploreTemplates.jsx:158
-#: build/main.js:5280
 msgid "Activated Starter Templates"
 msgstr "Starter Templates geactiveerd"
 
-#: build/main.js:2
+#: build/main.js:260
 #: src/Components/Templates/ExploreTemplates.jsx:191
-#: build/main.js:5313
 msgid "Design Your Website in Minutes"
 msgstr "Ontwerp uw website in enkele minuten"
 
-#: build/main.js:2
+#: build/main.js:260
 #: src/Components/Templates/ExploreTemplates.jsx:200
-#: build/main.js:5322
 msgid "Build your website faster using our prebuilt templates"
 msgstr "Bouw uw website sneller met onze vooraf gebouwde sjablonen"
 
-#: build/main.js:2
+#: build/main.js:260
 #: src/Components/Templates/ExploreTemplates.jsx:205
-#: build/main.js:5327
 msgid "Stop building your site from scratch. Use our professional templates for your stunning website.It is easy to customize and completely responsive. Explore hundreds of designs and bring your vision to life in no time."
 msgstr "Stop met het bouwen van uw site vanaf nul. Gebruik onze professionele sjablonen voor uw verbluffende website. Het is eenvoudig aan te passen en volledig responsief. Verken honderden ontwerpen en breng uw visie in een mum van tijd tot leven."
 
-#: build/main.js:2
+#: build/main.js:260
 #: src/Components/Templates/ExploreTemplates.jsx:81
-#: build/main.js:5203
 msgid "Installing Starter Templates..."
 msgstr "Starter Templates installeren..."
 
-#: build/main.js:2
+#: build/main.js:260
 #: src/Components/Templates/ExploreTemplates.jsx:90
-#: build/main.js:5212
 msgid "Installed Starter Templates"
 msgstr "Starter Templates geïnstalleerd"
 
-#: build/main.js:2
+#: build/main.js:260
 #: src/Components/Templates/ExploreTemplates.jsx:238
-#: build/main.js:5360
 msgid "Explore Templates"
 msgstr "Verken sjablonen"
 
-#: build/main.js:2
+#: build/main.js:260
 #: src/Components/Templates/ExploreTemplates.jsx:249
-#: build/main.js:5371
 msgid "Learn More"
 msgstr "Leer meer"
 
-#: build/main.js:172
+#: build/main.js:238
 #: src/Components/Settings/ThemeSupport.jsx:9
-#: build/main.js:5678
 msgid "Option 1 (Recommended)"
 msgstr "Optie 1 (Aanbevolen)"
 
-#: build/main.js:172
+#: build/main.js:238
 #: src/Components/Settings/ThemeSupport.jsx:10
 #: src/Components/Settings/ThemeSupport.jsx:16
-#: build/main.js:5679
-#: build/main.js:5685
 msgid "This option will automatically replace your theme's header and footer files with custom templates from the plugin. It works with most themes and is selected by default."
 msgstr "Deze optie vervangt automatisch de header- en footerbestanden van uw thema door aangepaste sjablonen van de plugin. Het werkt met de meeste thema's en is standaard geselecteerd."
 
-#: build/main.js:172
+#: build/main.js:238
 #: src/Components/Settings/ThemeSupport.jsx:15
-#: build/main.js:5684
 msgid "Option 2"
 msgstr "Optie 2"
 
-#: build/main.js:172
+#: build/main.js:238
 #: src/Components/Settings/ThemeSupport.jsx:63
-#: build/main.js:5732
 msgid "Settings saved successfully!"
 msgstr "Instellingen succesvol opgeslagen!"
 
-#: build/main.js:172
+#: build/main.js:238
 #: src/Components/Settings/ThemeSupport.jsx:65
 #: src/Components/Settings/ThemeSupport.jsx:68
-#: build/main.js:5734
-#: build/main.js:5737
 msgid "Failed to save settings!"
 msgstr "Instellingen opslaan mislukt!"
 
-#: build/main.js:172
+#: build/main.js:238
 #: src/Components/Settings/ThemeSupport.jsx:95
-#: build/main.js:5764
 msgid "Select Option to Add Theme Support"
 msgstr "Selecteer optie om thema-ondersteuning toe te voegen"
 
-#: build/main.js:172
+#: build/main.js:238
 #: src/Components/Settings/ThemeSupport.jsx:97
-#: build/main.js:5766
 msgid "To ensure compatibility between the header/footer and your theme, please choose one of the following options to enable theme support:"
 msgstr "Om compatibiliteit tussen de header/footer en uw thema te waarborgen, kies een van de volgende opties om thema-ondersteuning in te schakelen:"
 
-#: build/main.js:172
+#: build/main.js:238
 #: src/Components/Settings/ThemeSupport.jsx:140
-#: build/main.js:5809
 msgid "Note:"
 msgstr "Opmerking:"
 
-#: build/main.js:172
+#: build/main.js:238
 #: src/Components/Settings/ThemeSupport.jsx:140
-#: build/main.js:5809
 msgid "If neither option works, please contact your theme author to add support for this plugin."
 msgstr "Als geen van beide opties werkt, neem dan contact op met uw thema-auteur om ondersteuning voor deze plugin toe te voegen."
 
-#: build/main.js:172
+#: build/main.js:216
+#: build/main.js:249
 #: src/Components/Settings/Settings.jsx:69
 #: src/Components/Settings/VersionControl.jsx:45
-#: build/main.js:5890
-#: build/main.js:6123
 msgid "Version Control"
 msgstr "Versiebeheer"
 
-#: build/main.js:172
+#: build/main.js:249
 #: src/Components/Settings/VersionControl.jsx:66
-#: build/main.js:5911
 msgid "Experiencing an issue with current version? Roll back to a previous version to help troubleshoot the issue."
 msgstr "Ervaar je een probleem met de huidige versie? Rol terug naar een vorige versie om het probleem op te lossen."
 
-#: build/main.js:172
+#: build/main.js:249
 #: src/Components/Settings/VersionControl.jsx:112
 #: src/Components/Settings/VersionControl.jsx:129
-#: build/main.js:5957
-#: build/main.js:5974
 msgid "Rollback"
 msgstr "Terugrollen"
 
-#: build/main.js:172
+#: build/main.js:249
 #: src/Components/Settings/VersionControl.jsx:132
-#: build/main.js:5977
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: build/main.js:172
+#: build/main.js:106
+#: build/main.js:216
 #: src/Components/Dashboard/MyAccount.jsx:16
 #: src/Components/Settings/Settings.jsx:29
-#: build/main.js:6008
-#: build/main.js:6083
 msgid "My Account"
 msgstr "Mijn account"
 
-#: build/main.js:172
+#: build/main.js:106
 #: src/Components/Dashboard/MyAccount.jsx:30
-#: build/main.js:6022
 msgid "License Key"
 msgstr "Licentiesleutel"
 
-#: build/main.js:172
+#: build/main.js:106
 #: src/Components/Dashboard/MyAccount.jsx:35
-#: build/main.js:6027
 msgid "Unlock Pro Features"
 msgstr "Ontgrendel Pro-functies"
 
-#: build/main.js:172
+#: build/main.js:106
 #: src/Components/Dashboard/MyAccount.jsx:36
-#: build/main.js:6028
 msgid "Get access to advanced blocks and premium features."
 msgstr "Krijg toegang tot geavanceerde blokken en premium functies."
 
-#: build/main.js:172
+#: build/main.js:216
 #: src/Components/Settings/Settings.jsx:18
 #: src/Components/Settings/Settings.jsx:25
 #: src/Components/Settings/Settings.jsx:37
 #: src/Components/Settings/Settings.jsx:44
 #: src/Components/Settings/Settings.jsx:57
 #: src/Components/Settings/Settings.jsx:64
-#: build/main.js:6072
-#: build/main.js:6079
-#: build/main.js:6091
-#: build/main.js:6098
-#: build/main.js:6111
-#: build/main.js:6118
 msgid "Custom SVG"
 msgstr "Aangepaste SVG"
 
-#: build/main.js:172
+#: build/main.js:216
 #: src/Components/Settings/Settings.jsx:48
-#: build/main.js:6102
 msgid "Editor"
 msgstr "Editor"
 
-#: build/main.js:172
+#: build/main.js:216
 #: src/Components/Settings/Settings.jsx:68
-#: build/main.js:6122
 msgid "Utilities"
 msgstr "Hulpmiddelen"
 
-#: build/main.js:172
+#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:9
-#: build/main.js:6241
 msgid "Essentials"
 msgstr "Essentials"
 
-#: build/main.js:172
+#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:11
-#: build/main.js:6243
 msgid "White Label Option"
 msgstr "White Label-optie"
 
-#: build/main.js:172
+#: build/main.js:40
 #: src/Components/Compare/FreevsPro.jsx:12
-#: build/main.js:6244
 msgid "24/7 Premium Support"
 msgstr "24/7 Premium ondersteuning"
 
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:16
-#: build/main.js:6248
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:17
 msgid "Dynamic Header & Footer Widgets"
 msgstr "Dynamische header- en footer-widgets"
 
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:31
-#: build/main.js:6263
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:32
 msgid "Creative & Advanced Design Widgets"
 msgstr "Creatieve en geavanceerde ontwerpwidgets"
 
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:37
-#: build/main.js:6269
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:38
 msgid "Image Hotspots"
 msgstr "Afbeelding hotspots"
 
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:41
-#: build/main.js:6273
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:42
 msgid "Content & Media Widgets"
 msgstr "Inhoud- en mediawidgets"
 
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:48
-#: build/main.js:6280
-msgid "Image Comparison (Before & After)"
-msgstr "Afbeeldingsvergelijking (Voor & Na)"
-
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:52
-#: build/main.js:6284
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:59
 msgid "Marketing & Engagement Widgets"
 msgstr "Marketing- en betrokkenheidswidgets"
 
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:55
-#: build/main.js:6287
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:62
 msgid "Pricing Table"
 msgstr "Prijs tabel"
 
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:59
-#: build/main.js:6291
-msgid "Notification Bar"
-msgstr "Meldingsbalk"
-
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:63
-#: build/main.js:6295
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:70
 msgid "E-Commerce Integration"
 msgstr "E-commerce-integratie"
 
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:65
-#: build/main.js:6297
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:72
 msgid "WooCommerce: Add to Cart"
 msgstr "WooCommerce: Voeg toe aan winkelwagentje"
 
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:66
-#: build/main.js:6298
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:73
 msgid "WooCommerce: Product Category"
 msgstr "WooCommerce: Productcategorie"
 
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:67
-#: build/main.js:6299
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:74
 msgid "WooCommerce: Mini Cart"
 msgstr "WooCommerce: Mini winkelwagentje"
 
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:68
-#: build/main.js:6300
-msgid "WooCommerce: Product Display"
-msgstr "WooCommerce: Productweergave"
-
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:69
-#: build/main.js:6301
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:76
 msgid "WooCommerce: Checkout"
 msgstr "WooCommerce: Afrekenen"
 
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:73
-#: build/main.js:6305
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:80
 msgid "Forms Integration"
 msgstr "Formulierenintegratie"
 
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:75
-#: build/main.js:6307
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:82
 msgid "Contact Form 7"
 msgstr "Contactformulier 7"
 
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:76
-#: build/main.js:6308
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:83
 msgid "Gravity Forms"
 msgstr "Gravity Forms"
 
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:77
-#: build/main.js:6309
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:84
 msgid "WPForms"
 msgstr "WPForms"
 
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:78
-#: build/main.js:6310
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:85
 msgid "Fluent Forms"
 msgstr "Fluent Forms"
 
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:82
-#: build/main.js:6314
-msgid "Schema & Navigation Widgets"
-msgstr "Schema- en navigatiewidgets"
-
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:84
-#: build/main.js:6316
-msgid "FAQ/Accordion with Schema"
-msgstr "FAQ/Accordion met Schema"
-
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:85
-#: build/main.js:6317
-msgid "How-To Schema"
-msgstr "Hoe-te-schema"
-
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:90
-#: build/main.js:6322
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:98
 msgid "Creative Features"
 msgstr "Creatieve functies"
 
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:92
-#: build/main.js:6324
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:102
 msgid "Particles"
 msgstr "Deeltjes"
 
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:94
-#: build/main.js:6326
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:13
 msgid "Cross-Domain Copy-Paste"
 msgstr "Cross-Domain Kopiëren en Plakken"
 
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:95
-#: build/main.js:6327
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:37
 msgid "Multi-Button"
 msgstr "Multi-knop"
 
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:96
-#: build/main.js:6328
-msgid "Tooltip"
-msgstr "Tooltip"
-
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:97
-#: build/main.js:6329
-msgid "Off-Canvas"
-msgstr "Off-Canvas"
-
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:101
-#: build/main.js:6333
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:108
 msgid "Social Media Integration"
 msgstr "Social media-integratie"
 
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:109
-#: build/main.js:6341
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:116
 msgid "Advanced Features"
 msgstr "Geavanceerde functies"
 
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:112
-#: build/main.js:6344
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:120
 msgid "Post Layout"
 msgstr "Berichtlay-out"
 
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:159
-#: build/main.js:6391
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:168
 msgid "Free Vs Pro"
 msgstr "Gratis vs Pro"
 
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:162
-#: build/main.js:6394
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:171
 msgid "Ultimate Addons for Elementor Pro offers 50+ widgets and features!"
 msgstr "Ultimate Addons voor Elementor Pro biedt 50+ widgets en functies!"
 
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:165
-#: build/main.js:6397
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:174
 msgid "Compare the popular features/widgets to find the best option for your website."
 msgstr "Vergelijk de populaire functies/widgets om de beste optie voor uw website te vinden."
 
-#: build/main.js:172
-#: src/Components/Compare/FreevsPro.jsx:215
-#: build/main.js:6447
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:224
 msgid "Pro"
 msgstr "Pro"
 
+#: build/main.js:282
 #: src/Components/UpgradeNotice.jsx:33
 msgid "Close Upgrade Notice"
 msgstr "Sluit Upgrade-melding"
 
+#: build/main.js:282
 #: src/Components/UpgradeNotice.jsx:38
 msgid "Unlock Ultimate Addons For Elementor!  "
 msgstr "Ontgrendel Ultimate Addons Voor Elementor!"
 
+#: build/main.js:282
 #: src/Components/UpgradeNotice.jsx:44
 msgid "Get exclusive features and unbeatable performance.  "
 msgstr "Krijg exclusieve functies en ongeëvenaarde prestaties."
 
+#: build/main.js:282
 #: src/Components/UpgradeNotice.jsx:53
 msgid "Upgrade now"
 msgstr "Upgrade nu"
+
+#. Plugin Name of the plugin
+#: header-footer-elementor.php
+msgid "Ultimate Addons for Elementor Lite"
+msgstr "Ultimate Addons voor Elementor Lite"
+
+#: inc/class-hfe-rollback.php:167
+msgid "Ultimate Addons for Elementor Lite <p>Rollback to Previous Version</p>"
+msgstr "Ultimate Addons voor Elementor Lite <p>Terugrollen naar vorige versie</p>"
+
+#: inc/widgets-manager/class-widgets-loader.php:190
+msgid "Ultimate Addons"
+msgstr "Ultimate Addons"
+
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:44
+msgid "Content Toggle Button"
+msgstr "Inhoud Toggle-knop"
+
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:50
+msgid "Before & After Slider"
+msgstr "Voor & Na Slider"
+
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:53
+msgid "Conditional Display"
+msgstr "Voorwaardelijke weergave"
+
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:55
+msgid "User Registeration Form"
+msgstr "Gebruikersregistratieformulier"
+
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:75
+msgid "WooCommerce: Product"
+msgstr "WooCommerce: Product"
+
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:89
+msgid "SEO Widgets"
+msgstr "SEO Widgets"
+
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:91
+msgid "FAQ with Schema"
+msgstr "FAQ met Schema"
+
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:92
+msgid "How-To"
+msgstr "Hoe-te"
+
+#: build/main.js:40
+#: src/Components/Compare/FreevsPro.jsx:121
+msgid "Off Canvas"
+msgstr "Off Canvas"
 
 #: inc/widgets-manager/widgets/post-info/post-info.php:152
 msgctxt "Date Format"

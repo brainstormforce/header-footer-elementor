@@ -470,7 +470,6 @@ class Header_Footer_Elementor {
 			// Look in global /wp-content/languages/header-footer-elementor/ folder.
 			load_textdomain( 'header-footer-elementor', $mofile_global );
 		} elseif ( file_exists( $mofile_local ) ) {
-
 			// Look in local /wp-content/plugins/header-footer-elementor/languages/ folder.
 			load_textdomain( 'header-footer-elementor', $mofile_local );
 		} else {
