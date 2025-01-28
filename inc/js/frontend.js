@@ -121,7 +121,7 @@
 		});
 
 		if( ( 'cta' == last_item || 'cta' == last_item_flyout ) && 'expandible' != layout ){
-			$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).parent().addClass( 'elementor-button-wrapper' );
+			$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).parent().addClass( 'hfe-button-wrapper' );
 			$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).addClass( 'elementor-button' );			
 		}
 
