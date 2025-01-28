@@ -61,7 +61,7 @@
 				"@wordpress/babel-plugin-makepot": "^6.16.0",
 				"@wordpress/e2e-test-utils": "^7.5.0",
 				"@wordpress/env": "^10.13.0",
-				"@wordpress/eslint-plugin": "^9.3.0",
+				"@wordpress/eslint-plugin": "^22.2.0",
 				"@wordpress/i18n": "^4.2.4",
 				"@wordpress/jest-puppeteer-axe": "^4.0.1",
 				"@wordpress/scripts": "^19.2.3",
