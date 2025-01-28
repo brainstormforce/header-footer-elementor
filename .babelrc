@@ -26,6 +26,12 @@
           "@routes": "./src/Routes"           // Alias for Utilities folder
         }
       }
+    ],
+    [
+      "@wordpress/babel-plugin-makepot", 
+      {
+        "domain": "header-footer-elementor"
+      }
     ]
   ]
 }

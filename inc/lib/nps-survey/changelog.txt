@@ -1,3 +1,11 @@
+Version 1.0.7 - 13-01-2025
+- Improvement:
+  - Enhanced core loading mechanism to prevent potential plugin conflicts.
+	-	Refactored codebase to adhere to core coding standards, improving overall readability and maintainability.
+	-	Updated popup UI to prevent external overlapping issues, ensuring better user experience.
+- New:
+  - Introduced internal filters to provide flexibility in customizing rating submission data.
+
 Version 1.0.6 - 31-12-2024
 - Improvement:
   - Optimized performance by preventing unnecessary markup loading on screens where specific screen IDs are provided.

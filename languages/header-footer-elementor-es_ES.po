@@ -1,0 +1,3783 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: gpt-po v1.2.0\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-01-09T20:01:27+00:00\n"
+"PO-Revision-Date: 2025-01-09T20:01:27+00:00\n"
+"Language: \n"
+
+#: header-footer-elementor.php
+#. Plugin Name of the plugin
+msgid "Ultimate Addons for Elementor Lite"
+msgstr "Ultimate Addons para Elementor Lite"
+
+#: header-footer-elementor.php
+#. Plugin URI of the plugin
+msgid "https://wordpress.org/plugins/header-footer-elementor/"
+msgstr "https://wordpress.org/plugins/header-footer-elementor/"
+
+#: header-footer-elementor.php
+#. Description of the plugin
+msgid ""
+"Formerly known as \"Elementor Header & Footer Builder\", this powerful plugin allows you to create custom headers and "
+"footers with Elementor and display them in selected locations. You can also create custom Elementor blocks and place "
+"them anywhere on your website using a shortcode."
+msgstr ""
+"Anteriormente conocido como \"Constructor de Encabezados y Pies de Página de Elementor\", este potente plugin te "
+"permite crear encabezados y pies de página personalizados con Elementor y mostrarlos en ubicaciones seleccionadas. "
+"También puedes crear bloques personalizados de Elementor y colocarlos en cualquier parte de tu sitio web utilizando un "
+"shortcode."
+
+#: header-footer-elementor.php
+#. Author of the plugin
+msgid "Brainstorm Force"
+msgstr "Brainstorm Force"
+
+#: header-footer-elementor.php
+#. Author URI of the plugin
+msgid "https://www.brainstormforce.com/"
+msgstr "https://www.brainstormforce.com/"
+
+#: admin/bsf-analytics/class-bsf-analytics.php:220
+#. translators: %s product name
+msgid ""
+"Want to help make <strong>%1s</strong> even more awesome? Allow us to collect non-sensitive diagnostic data and usage "
+"information. "
+msgstr ""
+"¿Quieres ayudar a hacer que <strong>%1s</strong> sea aún más increíble? Permítenos recopilar datos de diagnóstico no "
+"sensibles e información de uso."
+
+#: admin/bsf-analytics/class-bsf-analytics.php:223
+msgid "This will be applicable for all sites from the network."
+msgstr "Esto será aplicable para todos los sitios de la red."
+
+#: admin/bsf-analytics/class-bsf-analytics.php:247
+#. translators: %s usage doc link
+msgid " Know More."
+msgstr "Saber más."
+
+#: admin/bsf-analytics/class-bsf-analytics.php:255
+msgid "Yes! Allow it"
+msgstr "¡Sí! Permitirlo"
+
+#: admin/bsf-analytics/class-bsf-analytics.php:264
+msgid "No Thanks"
+msgstr "No, gracias"
+
+#: admin/bsf-analytics/class-bsf-analytics.php:373
+msgid "Usage Tracking"
+msgstr "Seguimiento de Uso"
+
+#: admin/bsf-analytics/class-bsf-analytics.php:419
+#. translators: %s Product title
+msgid "Allow %s products to track non-sensitive usage tracking data."
+msgstr "Permitir que los productos %s rastreen datos de seguimiento de uso no sensibles."
+
+#: admin/bsf-analytics/class-bsf-analytics.php:422
+msgid " This will be applicable for all sites from the network."
+msgstr "Esto será aplicable para todos los sitios de la red."
+
+#: admin/bsf-analytics/class-bsf-analytics.php:427
+msgid "Learn More."
+msgstr "Aprender más."
+
+#: admin/class-hfe-addons-actions.php:336
+msgid "Plugin activation is disabled for you on this site."
+msgstr "La activación del plugin está deshabilitada para ti en este sitio."
+
+#: admin/class-hfe-addons-actions.php:345
+msgid "Plugin Activated."
+msgstr "Plugin Activado."
+
+#: admin/class-hfe-addons-actions.php:356
+msgid "Theme activation is disabled for you on this site."
+msgstr "La activación del tema está deshabilitada para ti en este sitio."
+
+#: admin/class-hfe-addons-actions.php:365
+msgid "Theme Activated."
+msgstr "Tema Activado."
+
+#: admin/class-hfe-addons-actions.php:372
+msgid "Could not activate plugin. Please activate from the Plugins page."
+msgstr "No se pudo activar el plugin. Por favor, actívalo desde la página de Plugins."
+
+#: admin/class-hfe-addons-actions.php:374
+msgid "Could not activate theme. Please activate from the Themes page."
+msgstr "No se pudo activar el tema. Por favor, actívalo desde la página de Temas."
+
+#: admin/class-hfe-admin.php:172
+#: admin/class-hfe-admin.php:455
+msgid "Display Rules"
+msgstr "Reglas de Visualización"
+
+#: admin/class-hfe-admin.php:173
+#: inc/widgets-manager/widgets/post-info/post-info.php:136
+msgid "Date"
+msgstr "Fecha"
+
+#: admin/class-hfe-admin.php:263
+#: admin/class-hfe-admin.php:264
+#: admin/class-hfe-admin.php:265
+#: admin/class-hfe-admin.php:266
+msgid "Elementor Header & Footer Builder"
+msgstr "Constructor de Encabezados y Pies de Página de Elementor"
+
+#: admin/class-hfe-admin.php:267
+#: admin/class-hfe-admin.php:268
+msgid "Add New"
+msgstr "Agregar Nuevo"
+
+#: admin/class-hfe-admin.php:269
+msgid "New Template"
+msgstr "Nueva Plantilla"
+
+#: admin/class-hfe-admin.php:270
+msgid "Edit Template"
+msgstr "Editar Plantilla"
+
+#: admin/class-hfe-admin.php:271
+msgid "View Template"
+msgstr "Ver Plantilla"
+
+#: admin/class-hfe-admin.php:272
+#: inc/class-hfe-settings-page.php:372
+msgid "View All"
+msgstr "Ver Todo"
+
+#: admin/class-hfe-admin.php:273
+msgid "Search Templates"
+msgstr "Buscar Plantillas"
+
+#: admin/class-hfe-admin.php:274
+msgid "Parent Templates:"
+msgstr "Plantillas Padre:"
+
+#: admin/class-hfe-admin.php:275
+msgid "No Templates found."
+msgstr "No se encontraron Plantillas."
+
+#: admin/class-hfe-admin.php:276
+msgid "No Templates found in Trash."
+msgstr "No se encontraron Plantillas en la Papelera."
+
+#: admin/class-hfe-admin.php:319
+#: admin/class-hfe-admin.php:320
+msgid "Create New"
+msgstr "Crear Nuevo"
+
+#: admin/class-hfe-admin.php:329
+msgid "Header/Footer Builder"
+msgstr "Constructor de Encabezados/Pies de Página"
+
+#: admin/class-hfe-admin.php:330
+#: build/main.js:2
+#: src/Components/NavMenu.js:150
+#: build/main.js:51025
+msgid "Header & Footer Builder"
+msgstr "Constructor de Encabezados y Pies de Página"
+
+#: admin/class-hfe-admin.php:359
+msgid "Elementor Header & Footer Builder Options"
+msgstr "Opciones del Constructor de Encabezados y Pies de Página de Elementor"
+
+#: admin/class-hfe-admin.php:388
+msgid "Type of Template"
+msgstr "Tipo de Plantilla"
+
+#: admin/class-hfe-admin.php:392
+msgid "Select Option"
+msgstr "Seleccionar Opción"
+
+#: admin/class-hfe-admin.php:393
+msgid "Header"
+msgstr "Encabezado"
+
+#: admin/class-hfe-admin.php:394
+msgid "Before Footer"
+msgstr "Antes del Pie de Página"
+
+#: admin/class-hfe-admin.php:395
+msgid "Footer"
+msgstr "Pie de Página"
+
+#: admin/class-hfe-admin.php:396
+msgid "Custom Block"
+msgstr "Bloque Personalizado"
+
+#: admin/class-hfe-admin.php:404
+#: admin/class-hfe-admin.php:654
+msgid "Shortcode"
+msgstr "Shortcode"
+
+#: admin/class-hfe-admin.php:405
+msgid "Copy this shortcode and paste it into your post, page, or text widget content."
+msgstr "Copia este shortcode y pégalo en el contenido de tu publicación, página o widget de texto."
+
+#: admin/class-hfe-admin.php:417
+msgid "Enable Layout for Elementor Canvas Template?"
+msgstr "¿Habilitar diseño para la plantilla de Elementor Canvas?"
+
+#: admin/class-hfe-admin.php:419
+msgid "Enabling this option will display this layout on pages using Elementor Canvas Template."
+msgstr "Habilitar esta opción mostrará este diseño en páginas que utilizan la plantilla de Elementor Canvas."
+
+#: admin/class-hfe-admin.php:446
+msgid "Display On"
+msgstr "Mostrar En"
+
+#: admin/class-hfe-admin.php:448
+msgid "Add locations for where this template should appear."
+msgstr "Agregar ubicaciones donde esta plantilla debería aparecer."
+
+#: admin/class-hfe-admin.php:459
+msgid "Add Display Rule"
+msgstr "Agregar Regla de Visualización"
+
+#: admin/class-hfe-admin.php:468
+msgid "Do Not Display On"
+msgstr "No Mostrar En"
+
+#: admin/class-hfe-admin.php:470
+msgid "Add locations for where this template should not appear."
+msgstr "Agregar ubicaciones donde esta plantilla no debería aparecer."
+
+#: admin/class-hfe-admin.php:477
+msgid "Exclude On"
+msgstr "Excluir En"
+
+#: admin/class-hfe-admin.php:480
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:847
+msgid "Add Exclusion Rule"
+msgstr "Agregar Regla de Exclusión"
+
+#: admin/class-hfe-admin.php:490
+msgid "User Roles"
+msgstr "Roles de Usuario"
+
+#: admin/class-hfe-admin.php:491
+msgid "Display custom template based on user role."
+msgstr "Mostrar plantilla personalizada según el rol del usuario."
+
+#: admin/class-hfe-admin.php:498
+msgid "Users"
+msgstr "Usuarios"
+
+#: admin/class-hfe-admin.php:501
+msgid "Add User Rule"
+msgstr "Agregar Regla de Usuario"
+
+#: admin/class-hfe-admin.php:582
+#. Translators: Post title, Template Location
+msgid "Template %1$s is already assigned to the location %2$s"
+msgstr "La plantilla %1$s ya está asignada a la ubicación %2$s"
+
+#: inc/class-header-footer-elementor.php:223
+msgid "Hello! Seems like you have used Ultimate Addons for Elementor to build this website — Thanks a ton!"
+msgstr "¡Hola! Parece que has utilizado Ultimate Addons para Elementor para construir este sitio web — ¡Muchas gracias!"
+
+#: inc/class-header-footer-elementor.php:224
+msgid ""
+"Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help "
+"other users make a comfortable decision while choosing the Ultimate Addons for Elementor."
+msgstr ""
+"¿Podrías hacernos un GRAN favor y darle una calificación de 5 estrellas en WordPress? Esto aumentaría nuestra "
+"motivación y ayudaría a otros usuarios a tomar una decisión cómoda al elegir los Ultimate Addons para Elementor."
+
+#: inc/class-header-footer-elementor.php:226
+msgid "Ok, you deserve it"
+msgstr "Está bien, te lo mereces"
+
+#: inc/class-header-footer-elementor.php:228
+msgid "Nope, maybe later"
+msgstr "No, tal vez más tarde"
+
+#: inc/class-header-footer-elementor.php:229
+msgid "I already did"
+msgstr "Ya lo hice"
+
+#: inc/class-header-footer-elementor.php:294
+#. translators: %s: html tags
+msgid "The %1$sUltimate Addons for Elementor%2$s plugin requires %1$sElementor%2$s plugin installed & activated."
+msgstr "El plugin %1$sUltimate Addons for Elementor%2$s requiere que el plugin %1$sElementor%2$s esté instalado y activado."
+
+#: inc/class-header-footer-elementor.php:301
+msgid "Activate Elementor"
+msgstr "Activar Elementor"
+
+#: inc/class-header-footer-elementor.php:306
+#: inc/class-header-footer-elementor.php:342
+msgid "Install Elementor"
+msgstr "Instalar Elementor"
+
+#: inc/class-header-footer-elementor.php:330
+#. translators: %s: html tags
+msgid ""
+"The %1$sUltimate Addons for Elementor%2$s plugin has stopped working because you are using an older version of "
+"%1$sElementor%2$s plugin."
+msgstr ""
+"El plugin %1$sUltimate Addons for Elementor%2$s ha dejado de funcionar porque estás usando una versión anterior del "
+"plugin %1$sElementor%2$s."
+
+#: inc/class-header-footer-elementor.php:337
+msgid "Update Elementor"
+msgstr "Actualizar Elementor"
+
+#: inc/class-header-footer-elementor.php:370
+#. translators: %s: html tags
+msgid "Thank you for installing %1$s Ultimate Addons for Elementor %2$s Plugin! Click here to %3$sget started. %4$s"
+msgstr "¡Gracias por instalar el plugin %1$s Ultimate Addons for Elementor %2$s! Haz clic aquí para %3$scomenzar. %4$s"
+
+#: inc/class-header-footer-elementor.php:562
+#: build/main.js:172
+#: src/Components/Settings/Settings.jsx:49
+#: src/Components/Settings/ThemeSupport.jsx:80
+#: build/main.js:53755
+#: build/main.js:54109
+msgid "Theme Support"
+msgstr "Soporte del Tema"
+
+#: inc/class-hfe-rollback.php:167
+msgid "Ultimate Addons for Elementor Lite <p>Rollback to Previous Version</p>"
+msgstr "Ultimate Addons for Elementor Lite <p>Revertir a la Versión Anterior</p>"
+
+#: inc/class-hfe-settings-page.php:153
+msgid "You do not have permission to access this page."
+msgstr "No tienes permiso para acceder a esta página."
+
+#: inc/class-hfe-settings-page.php:154
+#: inc/class-hfe-settings-page.php:189
+#: build/main.js:172
+#: src/Components/Settings/VersionControl.jsx:63
+#: src/Components/Settings/VersionControl.jsx:119
+#: build/main.js:53914
+#: build/main.js:53970
+msgid "Rollback to Previous Version"
+msgstr "Revertir a la Versión Anterior"
+
+#: inc/class-hfe-settings-page.php:170
+msgid "Error occurred, The version selected is invalid. Try selecting different version."
+msgstr "Ocurrió un error, la versión seleccionada es inválida. Intenta seleccionar una versión diferente."
+
+#: inc/class-hfe-settings-page.php:351
+#: inc/class-hfe-settings-page.php:1099
+#: build/main.js:2
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:86
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:173
+#: build/main.js:52331
+#: build/main.js:52418
+msgid "Activate"
+msgstr "Activar"
+
+#: inc/class-hfe-settings-page.php:352
+#: inc/class-hfe-settings-page.php:1091
+#: build/main.js:2
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:156
+#: build/main.js:52401
+msgid "Activated"
+msgstr "Activado"
+
+#: inc/class-hfe-settings-page.php:353
+#: inc/class-hfe-settings-page.php:1088
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1030
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1213
+msgid "Active"
+msgstr "Activo"
+
+#: inc/class-hfe-settings-page.php:354
+msgid "Deactivate"
+msgstr "Desactivar"
+
+#: inc/class-hfe-settings-page.php:355
+#: inc/class-hfe-settings-page.php:1096
+msgid "Inactive"
+msgstr "Inactivo"
+
+#: inc/class-hfe-settings-page.php:356
+#: inc/class-hfe-settings-page.php:1112
+#: build/main.js:2
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:91
+#: build/main.js:52336
+msgid "Install"
+msgstr "Instalar"
+
+#: inc/class-hfe-settings-page.php:357
+msgid "Theme Installed"
+msgstr "Tema Instalado"
+
+#: inc/class-hfe-settings-page.php:358
+msgid "Plugin Installed"
+msgstr "Plugin Instalado"
+
+#: inc/class-hfe-settings-page.php:359
+msgid "Download"
+msgstr "Descargar"
+
+#: inc/class-hfe-settings-page.php:360
+msgid "Already Exists."
+msgstr "Ya existe."
+
+#: inc/class-hfe-settings-page.php:361
+#: inc/class-hfe-settings-page.php:1117
+msgid "Visit Website"
+msgstr "Visitar Sitio Web"
+
+#: inc/class-hfe-settings-page.php:362
+msgid "Could not install. Please download from WordPress.org and install manually."
+msgstr "No se pudo instalar. Por favor, descarga desde WordPress.org e instálalo manualmente."
+
+#: inc/class-hfe-settings-page.php:363
+msgid "Your details are submitted successfully."
+msgstr "Tus detalles se han enviado con éxito."
+
+#: inc/class-hfe-settings-page.php:364
+msgid "Encountered an error while performing your request."
+msgstr "Se encontró un error al realizar tu solicitud."
+
+#: inc/class-hfe-settings-page.php:440
+msgid "Add Theme Support"
+msgstr "Agregar Soporte para el Tema"
+
+#: inc/class-hfe-settings-page.php:456
+msgid ""
+"The Ultimate Addons for Elementor plugin need compatibility with your current theme to work "
+"smoothly.</br></br>Following are two methods that enable theme support for the plugin.</br></br>Method 1 is selected by "
+"default and that works fine almost will all themes. In case, you face any issue with the header or footer template, try "
+"choosing Method 2."
+msgstr ""
+"El plugin Ultimate Addons for Elementor necesita compatibilidad con tu tema actual para funcionar sin "
+"problemas.</br></br>Los siguientes son dos métodos que habilitan el soporte del tema para el plugin.</br></br>El Método "
+"1 está seleccionado por defecto y funciona bien con casi todos los temas. En caso de que enfrentes algún problema con "
+"la plantilla de encabezado o pie de página, intenta elegir el Método 2."
+
+#: inc/class-hfe-settings-page.php:475
+msgid " Method 1 (Recommended)"
+msgstr "Método 1 (Recomendado)"
+
+#: inc/class-hfe-settings-page.php:476
+msgid "This method replaces your theme's header (header.php) & footer (footer.php) template with plugin's custom templates."
+msgstr ""
+"Este método reemplaza la plantilla de encabezado (header.php) y pie de página (footer.php) de tu tema con las "
+"plantillas personalizadas del plugin."
+
+#: inc/class-hfe-settings-page.php:479
+msgid "Method 2"
+msgstr "Método 2"
+
+#: inc/class-hfe-settings-page.php:483
+msgid "This method hides your theme's header & footer template with CSS and displays custom templates from the plugin."
+msgstr ""
+"Este método oculta la plantilla de encabezado y pie de página de tu tema con CSS y muestra plantillas personalizadas "
+"del plugin."
+
+#: inc/class-hfe-settings-page.php:494
+msgid ""
+"Sometimes above methods might not work well with your theme, in this case, contact your theme author and request them "
+"to add support for the <a href=\"%s\">plugin.</a>"
+msgstr ""
+"A veces, los métodos anteriores pueden no funcionar bien con tu tema, en este caso, contacta al autor de tu tema y "
+"pídeles que agreguen soporte para el <a href=\"%s\">plugin.</a>"
+
+#: inc/class-hfe-settings-page.php:526
+#: inc/class-hfe-settings-page.php:538
+msgid "UAE Lite"
+msgstr "UAE Lite"
+
+#: inc/class-hfe-settings-page.php:527
+#: inc/widgets-manager/class-widgets-loader.php:168
+msgid "UAE"
+msgstr "UAE"
+
+#: inc/class-hfe-settings-page.php:539
+#: build/main.js:2
+#: src/Components/NavMenu.js:130
+#: build/main.js:51005
+msgid "Dashboard"
+msgstr "Tablero"
+
+#: inc/class-hfe-settings-page.php:550
+#: inc/class-hfe-settings-page.php:551
+#: inc/class-hfe-settings-page.php:1239
+#: inc/widgets-manager/base/widgets-config.php:309
+#: inc/widgets-manager/base/widgets-config.php:392
+#: inc/widgets-manager/base/widgets-config.php:472
+#: inc/widgets-manager/base/widgets-config.php:487
+#: inc/widgets-manager/base/widgets-config.php:558
+#: inc/widgets-manager/base/widgets-config.php:613
+#: inc/widgets-manager/base/widgets-config.php:683
+#: inc/widgets-manager/base/widgets-config.php:699
+#: inc/widgets-manager/base/widgets-config.php:844
+#: build/main.js:2
+#: src/Components/NavMenu.js:184
+#: build/main.js:51059
+msgid "Settings"
+msgstr "Configuraciones"
+
+#: inc/class-hfe-settings-page.php:611
+msgid "Elementor Header & Footer Builder "
+msgstr "Constructor de Encabezado y Pie de Página de Elementor"
+
+#: inc/class-hfe-settings-page.php:669
+msgid "All Templates"
+msgstr "Todas las plantillas"
+
+#: inc/class-hfe-settings-page.php:676
+msgid "About Us"
+msgstr "Sobre nosotros"
+
+#: inc/class-hfe-settings-page.php:722
+#. translators: 1: Elementor, 2: Link to plugin review
+msgid ""
+"Help us spread the word about the plugin by leaving %2$s %1$s %3$s ratings on %2$s WordPress.org %3$s. Thank you from "
+"the Brainstorm Force team!"
+msgstr ""
+"¡Ayúdanos a difundir la palabra sobre el plugin dejando %2$s %1$s %3$s valoraciones en %2$s WordPress.org %3$s! Gracias "
+"del equipo de Brainstorm Force."
+
+#: inc/class-hfe-settings-page.php:765
+msgid "Create Impressive Header and Footer Designs"
+msgstr "Crea diseños impresionantes de encabezado y pie de página"
+
+#: inc/class-hfe-settings-page.php:766
+msgid ""
+"Elementor Header & Footer Builder plugin lets you build impactful navigation for your website very easily. Before we "
+"begin, we would like to know more about you. This will help us to serve you better."
+msgstr ""
+"El plugin Elementor Header & Footer Builder te permite construir una navegación impactante para tu sitio web de manera "
+"muy fácil. Antes de comenzar, nos gustaría saber más sobre ti. Esto nos ayudará a servirte mejor."
+
+#: inc/class-hfe-settings-page.php:780
+#. translators: %1$s and %3$s are opening anchor tags, and %2$s and %4$s is closing anchor tags.
+msgid "By submitting, you agree to our %1$sTerms%2$s and %3$sPrivacy Policy%4$s."
+msgstr "Al enviar, aceptas nuestros %1$sTérminos%2$s y %3$sPolítica de privacidad%4$s."
+
+#: inc/class-hfe-settings-page.php:798
+msgid "Skip"
+msgstr "Saltar"
+
+#: inc/class-hfe-settings-page.php:816
+msgid "Beginner"
+msgstr "Principiante"
+
+#: inc/class-hfe-settings-page.php:817
+msgid "Intermediate"
+msgstr "Intermedio"
+
+#: inc/class-hfe-settings-page.php:818
+msgid "Expert"
+msgstr "Experto"
+
+#: inc/class-hfe-settings-page.php:820
+#: inc/class-hfe-settings-page.php:829
+msgid "Field is required"
+msgstr "El campo es obligatorio"
+
+#: inc/class-hfe-settings-page.php:821
+msgid "I'm a WordPress:"
+msgstr "Soy un WordPress:"
+
+#: inc/class-hfe-settings-page.php:826
+msgid "Myself/My company"
+msgstr "Yo mismo/Mi empresa"
+
+#: inc/class-hfe-settings-page.php:827
+msgid "My client"
+msgstr "Mi cliente"
+
+#: inc/class-hfe-settings-page.php:830
+msgid "I'm building website for:"
+msgstr "Estoy construyendo un sitio web para:"
+
+#: inc/class-hfe-settings-page.php:853
+msgid "First name is required"
+msgstr "Se requiere el nombre"
+
+#: inc/class-hfe-settings-page.php:854
+msgid "Your First Name"
+msgstr "Tu nombre"
+
+#: inc/class-hfe-settings-page.php:858
+msgid "Email address is required"
+msgstr "Se requiere la dirección de correo electrónico"
+
+#: inc/class-hfe-settings-page.php:859
+msgid "Your Work Email"
+msgstr "Tu correo electrónico de trabajo"
+
+#: inc/class-hfe-settings-page.php:863
+msgid "I agree to receive your newsletters and accept the data privacy statement."
+msgstr "Acepto recibir tus boletines y acepto la declaración de privacidad de datos."
+
+#: inc/class-hfe-settings-page.php:868
+msgid "Submit"
+msgstr "Enviar"
+
+#: inc/class-hfe-settings-page.php:102
+#: inc/class-hfe-settings-page.php:890
+#: inc/class-hfe-settings-page.php:1168
+msgid "Ultimate Addons for Elementor"
+msgstr "Ultimate Addons para Elementor"
+
+#: inc/class-hfe-settings-page.php:925
+#. translators: %s: theme name
+msgid ""
+"Powering over 1+ Million websites, %s is loved for the fast performance and ease of use it offers. It is suitable for "
+"all kinds of websites like blogs, portfolios, business, and WooCommerce stores."
+msgstr ""
+"Impulsando más de 1+ millón de sitios web, %s es amado por el rendimiento rápido y la facilidad de uso que ofrece. Es "
+"adecuado para todo tipo de sitios web como blogs, portafolios, negocios y tiendas WooCommerce."
+
+#: inc/class-hfe-settings-page.php:946
+msgid "Welcome to Elementor Header & Footer Builder!"
+msgstr "¡Bienvenido a Elementor Header & Footer Builder!"
+
+#: inc/class-hfe-settings-page.php:948
+msgid ""
+"With this awesome plugin, experience the easiest way to create a customized header and footer for your website with "
+"Elementor. That too 100% FREE!"
+msgstr ""
+"Con este increíble plugin, experimenta la forma más fácil de crear un encabezado y pie de página personalizados para tu "
+"sitio web con Elementor. ¡Y todo 100% GRATIS!"
+
+#: inc/class-hfe-settings-page.php:950
+msgid ""
+"Design beautiful layouts with simple drag & drop and display them at desired location with powerful target controls. "
+"The plugin comes with inbuilt Elementor widgets that offer essential features to build header and footer. It's a "
+"lightweight plugin that works seamlessly with all themes and backed up by 24/7 support."
+msgstr ""
+"Diseña hermosos diseños con un simple arrastrar y soltar y muéstralos en la ubicación deseada con potentes controles de "
+"destino. El plugin viene con widgets de Elementor integrados que ofrecen características esenciales para construir "
+"encabezados y pies de página. Es un plugin ligero que funciona sin problemas con todos los temas y respaldado por "
+"soporte 24/7."
+
+#: inc/class-hfe-settings-page.php:952
+msgid ""
+"Trusted by more than 1+ Million users, Elementor Header & Footer Builder is a modern way to build advanced navigation "
+"for your website."
+msgstr ""
+"Confiado por más de 1+ millón de usuarios, Elementor Header & Footer Builder es una forma moderna de construir "
+"navegación avanzada para tu sitio web."
+
+#: inc/class-hfe-settings-page.php:955
+#. translators: %s: theme name
+msgid ""
+"This plugin is brought to you by the same team behind the popular WordPress theme %s and a series of Ultimate Addons "
+"plugins."
+msgstr ""
+"Este plugin es traído a ti por el mismo equipo detrás del popular tema de WordPress %s y una serie de plugins Ultimate "
+"Addons."
+
+#: inc/class-hfe-settings-page.php:961
+msgid "Team photo"
+msgstr "Foto del equipo"
+
+#: inc/class-hfe-settings-page.php:963
+msgid "Brainstorm Force Team"
+msgstr "Equipo de Brainstorm Force"
+
+#: inc/class-hfe-settings-page.php:1008
+#. translators: %s - addon status label.
+msgid "%1$s %3$s %2$s"
+msgstr "%1$s %3$s %2$s"
+
+#: inc/class-hfe-settings-page.php:1025
+#. translators: %s - addon status label.
+msgid "Status: %s"
+msgstr "Estado: %s"
+
+#: inc/class-hfe-settings-page.php:1044
+msgid "WordPress.org"
+msgstr "WordPress.org"
+
+#: inc/class-hfe-settings-page.php:1109
+msgid "Not Installed"
+msgstr "No instalado"
+
+#: inc/class-hfe-settings-page.php:1156
+#: inc/widgets-manager/base/widgets-config.php:1008
+msgid "Starter Templates"
+msgstr "Plantillas de inicio"
+
+#: inc/class-hfe-settings-page.php:1157
+msgid ""
+"A popular templates plugin that provides an extensive library of professional and fully customizable 600+ ready website "
+"and templates. More than 1+ Million websites have built with this plugin."
+msgstr ""
+"Un popular plugin de plantillas que proporciona una extensa biblioteca de 600+ sitios web y plantillas profesionales y "
+"completamente personalizables. Más de 1+ millón de sitios web se han construido con este plugin."
+
+#: inc/class-hfe-settings-page.php:1169
+msgid ""
+"It’s a collection of 40+ unique, creative, and optimized Elementor widgets with 100+ readymade templates. Trusted by "
+"more than 600+ K web professionals. It’s a #1 toolkit for Elementor Page Builder."
+msgstr ""
+"Es una colección de más de 40 widgets únicos, creativos y optimizados para Elementor con más de 100 plantillas listas "
+"para usar. Confiado por más de 600 K profesionales web. Es un kit de herramientas número 1 para Elementor Page Builder."
+
+#: inc/class-hfe-settings-page.php:1238
+msgid "Go to HFE Settings page"
+msgstr "Ir a la página de configuración de HFE"
+
+#: inc/lib/astra-notices/class-astra-notices.php:119
+msgid "WordPress Nonce not validated."
+msgstr "Nonce de WordPress no validado."
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:127
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:298
+msgid "404 Page"
+msgstr "Página 404"
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:128
+msgid "Search Page"
+msgstr "Página de búsqueda"
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:129
+msgid "Blog / Posts Page"
+msgstr "Página de blog / publicaciones"
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:130
+msgid "Front Page"
+msgstr "Página principal"
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:131
+msgid "Date Archive"
+msgstr "Archivo de fechas"
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:132
+msgid "Author Archive"
+msgstr "Archivo de autor"
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:136
+msgid "WooCommerce Shop Page"
+msgstr "Página de tienda de WooCommerce"
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:141
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:213
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:143
+#: src/Components/Compare/FreevsPro.jsx:152
+#: build/main.js:54381
+#: build/main.js:54390
+msgid "Basic"
+msgstr "Básico"
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:143
+msgid "Entire Website"
+msgstr "Todo el sitio web"
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:144
+msgid "All Singulars"
+msgstr "Todos los singulares"
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:145
+msgid "All Archives"
+msgstr "Todos los archivos"
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:150
+msgid "Special Pages"
+msgstr "Páginas especiales"
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:191
+msgid "Specific Target"
+msgstr "Objetivo específico"
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:193
+msgid "Specific Pages / Posts / Taxonomies, etc."
+msgstr "Páginas / publicaciones / taxonomías específicas, etc."
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:215
+msgid "All"
+msgstr "Todo"
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:216
+msgid "Logged In"
+msgstr "Conectado"
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:217
+msgid "Logged Out"
+msgstr "Desconectado"
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:222
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:142
+#: src/Components/Compare/FreevsPro.jsx:153
+#: build/main.js:54380
+#: build/main.js:54391
+msgid "Advanced"
+msgstr "Avanzado"
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:624
+msgid "Please enter"
+msgstr "Por favor ingrese"
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:625
+msgid "Please delete"
+msgstr "Por favor elimine"
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:626
+msgid "or more characters"
+msgstr "o más caracteres"
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:627
+msgid "character"
+msgstr "carácter"
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:628
+msgid "Loading more results…"
+msgstr "Cargando más resultados…"
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:629
+msgid "You can only select"
+msgstr "Solo puede seleccionar"
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:630
+msgid "item"
+msgstr "elemento"
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:631
+msgid "s"
+msgstr "s"
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:632
+msgid "No results found"
+msgstr "No se encontraron resultados"
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:633
+msgid "Searching…"
+msgstr "Buscando…"
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:634
+msgid "The results could not be loaded."
+msgstr "No se pudieron cargar los resultados."
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:635
+msgid "Search pages / post / categories"
+msgstr "Buscar páginas / publicaciones / categorías"
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:654
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:1064
+msgid "Add Rule"
+msgstr "Agregar regla"
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:670
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:775
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:1080
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:1110
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:1572
+msgid "Select"
+msgstr "Seleccionar"
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:720
+#. translators: %s post label
+msgid "All %s"
+msgstr "Todos %s"
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:725
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:734
+#. translators: %s post label
+#. translators: %s taxonomy label
+msgid "All %s Archive"
+msgstr "Todo %s Archivo"
+
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:1513
+#. translators: %s post title.
+msgid "The same display setting is already exist in %s post/s."
+msgstr "La misma configuración de visualización ya existe en %s publicación/es."
+
+#: inc/settings/hfe-settings-api.php:101
+msgid "Sorry, you are not authorized to perform this action."
+msgstr "Lo siento, no está autorizado para realizar esta acción."
+
+#: inc/settings/hfe-settings-api.php:116
+#: inc/settings/hfe-settings-api.php:143
+#: inc/settings/hfe-settings-api.php:170
+msgid "Invalid nonce"
+msgstr "Nonce inválido"
+
+#: inc/settings/hfe-settings-api.php:150
+msgid "Plugins list not found"
+msgstr "Lista de plugins no encontrada"
+
+#: inc/settings/hfe-settings-api.php:177
+msgid "Widgets list not found"
+msgstr "Lista de widgets no encontrada"
+
+#: inc/widgets-manager/base/widgets-config.php:53
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:19
+#: build/main.js:54257
+msgid "Post Info"
+msgstr "Información de la publicación"
+
+#: inc/widgets-manager/base/widgets-config.php:61
+msgid "Show author, dates, and reading time with customizable styles."
+msgstr "Mostrar autor, fechas y tiempo de lectura con estilos personalizables."
+
+#: inc/widgets-manager/base/widgets-config.php:67
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:21
+#: build/main.js:54259
+msgid "Breadcrumbs"
+msgstr "Migajas de pan"
+
+#: inc/widgets-manager/base/widgets-config.php:75
+msgid "Add navigation links to guide visitors across your site."
+msgstr "Agregar enlaces de navegación para guiar a los visitantes a través de su sitio."
+
+#: inc/widgets-manager/base/widgets-config.php:81
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:133
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:26
+#: build/main.js:54264
+msgid "Site Logo"
+msgstr "Logo del sitio"
+
+#: inc/widgets-manager/base/widgets-config.php:88
+msgid "Add your site's primary logo with flexible customization options."
+msgstr "Agregue el logo principal de su sitio con opciones de personalización flexibles."
+
+#: inc/widgets-manager/base/widgets-config.php:94
+#: inc/widgets-manager/base/widgets-config.php:525
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:28
+#: src/Components/Compare/FreevsPro.jsx:138
+#: src/Components/Compare/FreevsPro.jsx:140
+#: src/Components/Compare/FreevsPro.jsx:148
+#: src/Components/Compare/FreevsPro.jsx:150
+#: build/main.js:54266
+#: build/main.js:54376
+#: build/main.js:54378
+#: build/main.js:54386
+#: build/main.js:54388
+msgid "Navigation Menu"
+msgstr "Menú de navegación"
+
+#: inc/widgets-manager/base/widgets-config.php:101
+msgid "Add stylish and functional menus for seamless site navigation."
+msgstr "Agregue menús elegantes y funcionales para una navegación fluida por el sitio."
+
+#: inc/widgets-manager/base/widgets-config.php:107
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:49
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:103
+#: inc/widgets-manager/extensions/class-scroll-to-top.php:310
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:20
+#: build/main.js:54258
+msgid "Scroll to Top"
+msgstr "Desplazarse hacia arriba"
+
+#: inc/widgets-manager/base/widgets-config.php:115
+msgid "Add a customizable button for quick, one-click top scrolling."
+msgstr "Agregue un botón personalizable para un desplazamiento rápido hacia arriba con un solo clic."
+
+#: inc/widgets-manager/base/widgets-config.php:122
+msgid "Site Title"
+msgstr "Título del sitio"
+
+#: inc/widgets-manager/base/widgets-config.php:129
+msgid "Show your site’s name in a customizable style."
+msgstr "Muestre el nombre de su sitio en un estilo personalizable."
+
+#: inc/widgets-manager/base/widgets-config.php:135
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:25
+#: build/main.js:54263
+msgid "Site Tagline"
+msgstr "Eslogan del sitio"
+
+#: inc/widgets-manager/base/widgets-config.php:142
+msgid "Display your site's tagline to enhance brand identity."
+msgstr "Muestre el eslogan de su sitio para mejorar la identidad de la marca."
+
+#: inc/widgets-manager/base/widgets-config.php:148
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:285
+#: inc/widgets-manager/widgets/search-button/search-button.php:990
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:27
+#: build/main.js:54265
+msgid "Search"
+msgstr "Buscar"
+
+#: inc/widgets-manager/base/widgets-config.php:155
+msgid "Add a search bar to help visitors find content easily."
+msgstr "Agregue una barra de búsqueda para ayudar a los visitantes a encontrar contenido fácilmente."
+
+#: inc/widgets-manager/base/widgets-config.php:161
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:24
+#: build/main.js:54262
+msgid "Page Title"
+msgstr "Título de la página"
+
+#: inc/widgets-manager/base/widgets-config.php:168
+msgid "Display the title of the current page dynamically."
+msgstr "Muestre el título de la página actual de forma dinámica."
+
+#: inc/widgets-manager/base/widgets-config.php:174
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:22
+#: build/main.js:54260
+msgid "Retina Logo"
+msgstr "Logo Retina"
+
+#: inc/widgets-manager/base/widgets-config.php:181
+msgid "Add a high-quality logo that looks sharp on any screen."
+msgstr "Agregue un logo de alta calidad que se vea nítido en cualquier pantalla."
+
+#: inc/widgets-manager/base/widgets-config.php:187
+#: inc/widgets-manager/class-widgets-loader.php:330
+#: inc/widgets-manager/widgets/cart/cart.php:629
+msgid "Cart"
+msgstr "Carrito"
+
+#: inc/widgets-manager/base/widgets-config.php:194
+msgid "Show cart for seamless shopping experiences."
+msgstr "Mostrar carrito para experiencias de compra sin problemas."
+
+#: inc/widgets-manager/base/widgets-config.php:200
+#: inc/widgets-manager/widgets/copyright/copyright.php:102
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:23
+#: build/main.js:54261
+msgid "Copyright"
+msgstr "Derechos de autor"
+
+#: inc/widgets-manager/base/widgets-config.php:207
+msgid "Display customizable copyright text for your site's footer."
+msgstr "Mostrar texto de derechos de autor personalizable para el pie de página de su sitio."
+
+#: inc/widgets-manager/base/widgets-config.php:234
+#: build/main.js:2
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:34
+#: src/Components/Compare/UltimateCompare.jsx:17
+#: src/Components/Dashboard/UltimateFeatures.js:18
+#: src/Components/Widgets/UltimateWidgets.jsx:18
+#: build/main.js:52091
+#: build/main.js:52688
+#: build/main.js:54272
+#: build/main.js:54493
+msgid "Advanced Heading"
+msgstr "Encabezado avanzado"
+
+#: inc/widgets-manager/base/widgets-config.php:235
+msgid "Create engaging and customizable headings for your pages."
+msgstr "Cree encabezados atractivos y personalizables para sus páginas."
+
+#: inc/widgets-manager/base/widgets-config.php:248
+#: build/main.js:2
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:66
+#: src/Components/Compare/UltimateCompare.jsx:12
+#: src/Components/Dashboard/UltimateFeatures.js:13
+#: src/Components/Widgets/UltimateWidgets.jsx:13
+#: build/main.js:52086
+#: build/main.js:52683
+#: build/main.js:54304
+#: build/main.js:54488
+msgid "Modal Popup"
+msgstr "Popup modal"
+
+#: inc/widgets-manager/base/widgets-config.php:249
+msgid "Design engaging popups with interactive animations and content."
+msgstr "Diseñe popups atractivos con animaciones interactivas y contenido."
+
+#: inc/widgets-manager/base/widgets-config.php:261
+msgid "Content Toggle"
+msgstr "Alternar contenido"
+
+#: inc/widgets-manager/base/widgets-config.php:262
+msgid "Let users easily switch between two types of content."
+msgstr "Permita que los usuarios cambien fácilmente entre dos tipos de contenido."
+
+#: inc/widgets-manager/base/widgets-config.php:274
+msgid "Before After Slider"
+msgstr "Deslizador de antes y después"
+
+#: inc/widgets-manager/base/widgets-config.php:275
+msgid "Display the before and after versions of an image."
+msgstr "Muestre las versiones de antes y después de una imagen."
+
+#: inc/widgets-manager/base/widgets-config.php:287
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:65
+#: build/main.js:54303
+msgid "Business Hours"
+msgstr "Horas de atención"
+
+#: inc/widgets-manager/base/widgets-config.php:288
+msgid "Customize and display your business hours stylishly."
+msgstr "Personalice y muestre sus horas de atención de manera elegante."
+
+#: inc/widgets-manager/base/widgets-config.php:302
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:94
+#: build/main.js:54332
+msgid "Business Reviews"
+msgstr "Reseñas de Negocios"
+
+#: inc/widgets-manager/base/widgets-config.php:303
+msgid "Display verified reviews from Google and Yelp directly."
+msgstr "Muestra reseñas verificadas de Google y Yelp directamente."
+
+#: inc/widgets-manager/base/widgets-config.php:316
+msgid "Contact Form 7 Styler"
+msgstr "Estilizador de Contact Form 7"
+
+#: inc/widgets-manager/base/widgets-config.php:317
+msgid "Style and enhance Contact Form 7 to fit your site."
+msgstr "Estiliza y mejora Contact Form 7 para que se ajuste a tu sitio."
+
+#: inc/widgets-manager/base/widgets-config.php:329
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:64
+#: build/main.js:54302
+msgid "Countdown Timer"
+msgstr "Temporizador de Cuenta Regresiva"
+
+#: inc/widgets-manager/base/widgets-config.php:330
+msgid "Create urgency with fixed or recurring countdowns."
+msgstr "Crea urgencia con cuentas regresivas fijas o recurrentes."
+
+#: inc/widgets-manager/base/widgets-config.php:343
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:35
+#: build/main.js:54273
+msgid "Dual Color Heading"
+msgstr "Encabezado de Doble Color"
+
+#: inc/widgets-manager/base/widgets-config.php:344
+msgid "Style headings with dual colours and customizable typography."
+msgstr "Estiliza encabezados con colores duales y tipografía personalizable."
+
+#: inc/widgets-manager/base/widgets-config.php:357
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:36
+#: build/main.js:54274
+msgid "Fancy Heading"
+msgstr "Encabezado Elegante"
+
+#: inc/widgets-manager/base/widgets-config.php:358
+msgid "Add animated text for more engaging page titles."
+msgstr "Agrega texto animado para títulos de página más atractivos."
+
+#: inc/widgets-manager/base/widgets-config.php:371
+msgid "FAQ Schema"
+msgstr "Esquema de Preguntas Frecuentes"
+
+#: inc/widgets-manager/base/widgets-config.php:372
+msgid "Add SEO-friendly FAQ sections to pages."
+msgstr "Agrega secciones de preguntas frecuentes amigables con SEO a las páginas."
+
+#: inc/widgets-manager/base/widgets-config.php:385
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:49
+#: build/main.js:54287
+msgid "Google Map"
+msgstr "Mapa de Google"
+
+#: inc/widgets-manager/base/widgets-config.php:386
+msgid "Add customizable, multi-location maps with custom markers."
+msgstr "Agrega mapas personalizables de múltiples ubicaciones con marcadores personalizados."
+
+#: inc/widgets-manager/base/widgets-config.php:400
+msgid "Gravity Form Styler"
+msgstr "Estilizador de Gravity Form"
+
+#: inc/widgets-manager/base/widgets-config.php:401
+msgid "Customize Gravity Forms with advanced styling options."
+msgstr "Personaliza Gravity Forms con opciones de estilo avanzadas."
+
+#: inc/widgets-manager/base/widgets-config.php:413
+msgid "Hotspot"
+msgstr "Punto de Interés"
+
+#: inc/widgets-manager/base/widgets-config.php:414
+msgid "Add interactive points on images for detailed visual tours."
+msgstr "Agrega puntos interactivos en imágenes para recorridos visuales detallados."
+
+#: inc/widgets-manager/base/widgets-config.php:426
+msgid "How-to Schema"
+msgstr "Esquema de Cómo Hacer"
+
+#: inc/widgets-manager/base/widgets-config.php:427
+msgid "Create structured how-to pages with automatic schema markup."
+msgstr "Crea páginas estructuradas de cómo hacer con marcado de esquema automático."
+
+#: inc/widgets-manager/base/widgets-config.php:439
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:45
+#: build/main.js:54283
+msgid "Image Gallery"
+msgstr "Galería de Imágenes"
+
+#: inc/widgets-manager/base/widgets-config.php:440
+msgid "Build attractive, feature-rich galleries with advanced options."
+msgstr "Construye galerías atractivas y ricas en funciones con opciones avanzadas."
+
+#: inc/widgets-manager/base/widgets-config.php:452
+#: build/main.js:2
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:51
+#: src/Components/Compare/UltimateCompare.jsx:27
+#: src/Components/Dashboard/UltimateFeatures.js:28
+#: src/Components/Widgets/UltimateWidgets.jsx:28
+#: build/main.js:52101
+#: build/main.js:52698
+#: build/main.js:54289
+#: build/main.js:54503
+msgid "Info Box"
+msgstr "Caja de Información"
+
+#: inc/widgets-manager/base/widgets-config.php:453
+msgid "Add headings, icons, and descriptions in one flexible widget."
+msgstr "Agrega encabezados, íconos y descripciones en un widget flexible."
+
+#: inc/widgets-manager/base/widgets-config.php:466
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:110
+#: build/main.js:54348
+msgid "Instagram Feed"
+msgstr "Feed de Instagram"
+
+#: inc/widgets-manager/base/widgets-config.php:467
+msgid "Display an attractive, customizable Instagram feed."
+msgstr "Muestra un feed de Instagram atractivo y personalizable."
+
+#: inc/widgets-manager/base/widgets-config.php:481
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:54
+#: build/main.js:54292
+msgid "Login Form"
+msgstr "Formulario de Inicio de Sesión"
+
+#: inc/widgets-manager/base/widgets-config.php:482
+msgid "Design beautiful, customizable WordPress login forms."
+msgstr "Diseña hermosos formularios de inicio de sesión de WordPress personalizables."
+
+#: inc/widgets-manager/base/widgets-config.php:497
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:61
+#: build/main.js:54299
+msgid "Marketing Button"
+msgstr "Botón de Marketing"
+
+#: inc/widgets-manager/base/widgets-config.php:498
+msgid "Create High-impact, customizable CTA for promotions and conversions."
+msgstr "Crea CTA personalizables de alto impacto para promociones y conversiones."
+
+#: inc/widgets-manager/base/widgets-config.php:511
+msgid "Multi Buttons"
+msgstr "Múltiples Botones"
+
+#: inc/widgets-manager/base/widgets-config.php:512
+msgid "Create a versatile dual-button setup for navigation and interactive web elements."
+msgstr "Crea una configuración versátil de botones duales para navegación y elementos web interactivos."
+
+#: inc/widgets-manager/base/widgets-config.php:526
+msgid "Build easy-to-navigate, visually appealing site menus."
+msgstr "Construye menús de sitio fáciles de navegar y visualmente atractivos."
+
+#: inc/widgets-manager/base/widgets-config.php:538
+msgid "Off - Canvas"
+msgstr "Fuera de Canvas"
+
+#: inc/widgets-manager/base/widgets-config.php:539
+msgid "Create sliding panels for navigation or extra content."
+msgstr "Crea paneles deslizantes para navegación o contenido adicional."
+
+#: inc/widgets-manager/base/widgets-config.php:551
+msgid "Posts"
+msgstr "Publicaciones"
+
+#: inc/widgets-manager/base/widgets-config.php:552
+msgid "Display and customize blog posts beautifully on your site."
+msgstr "Muestra y personaliza publicaciones de blog de manera hermosa en tu sitio."
+
+#: inc/widgets-manager/base/widgets-config.php:566
+msgid "Price Box"
+msgstr "Caja de Precios"
+
+#: inc/widgets-manager/base/widgets-config.php:567
+msgid "Showcase prices and features in customizable layouts."
+msgstr "Muestra precios y características en diseños personalizables."
+
+#: inc/widgets-manager/base/widgets-config.php:580
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:63
+#: build/main.js:54301
+msgid "Price List"
+msgstr "Lista de Precios"
+
+#: inc/widgets-manager/base/widgets-config.php:581
+msgid "Create elegant, customizable lists for menus or product catalogues."
+msgstr "Crea listas elegantes y personalizables para menús o catálogos de productos."
+
+#: inc/widgets-manager/base/widgets-config.php:594
+#: inc/widgets-manager/widgets/retina/retina.php:111
+#: inc/widgets-manager/widgets/retina/retina.php:245
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:118
+#: build/main.js:54356
+msgid "Retina Image"
+msgstr "Imagen Retina"
+
+#: inc/widgets-manager/base/widgets-config.php:595
+msgid "Ensure images look crisp on high-resolution screens."
+msgstr "Asegúrate de que las imágenes se vean nítidas en pantallas de alta resolución."
+
+#: inc/widgets-manager/base/widgets-config.php:607
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:112
+#: build/main.js:54350
+msgid "Social Share"
+msgstr "Compartir en Redes Sociales"
+
+#: inc/widgets-manager/base/widgets-config.php:608
+msgid "Enable quick content sharing with social media buttons."
+msgstr "Habilita el rápido compartir contenido con botones de redes sociales."
+
+#: inc/widgets-manager/base/widgets-config.php:623
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:47
+#: build/main.js:54285
+msgid "Table"
+msgstr "Tabla"
+
+#: inc/widgets-manager/base/widgets-config.php:624
+msgid "Build responsive, styled tables to display data."
+msgstr "Construye tablas estilizadas y responsivas para mostrar datos."
+
+#: inc/widgets-manager/base/widgets-config.php:636
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:93
+#: build/main.js:54331
+msgid "Table of Contents"
+msgstr "Tabla de Contenidos"
+
+#: inc/widgets-manager/base/widgets-config.php:637
+msgid "Improve page readability with automatic, customizable TOCs."
+msgstr "Mejora la legibilidad de la página con TOCs automáticos y personalizables."
+
+#: inc/widgets-manager/base/widgets-config.php:649
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:119
+#: build/main.js:54357
+msgid "Team Member"
+msgstr "Miembro del Equipo"
+
+#: inc/widgets-manager/base/widgets-config.php:650
+msgid "Highlight team members with customizable layouts."
+msgstr "Destaca a los miembros del equipo con diseños personalizables."
+
+#: inc/widgets-manager/base/widgets-config.php:663
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:48
+#: build/main.js:54286
+msgid "Timeline"
+msgstr "Línea de Tiempo"
+
+#: inc/widgets-manager/base/widgets-config.php:664
+msgid "Display timelines or roadmaps with advanced styling options."
+msgstr "Muestra líneas de tiempo o hojas de ruta con opciones de estilo avanzadas."
+
+#: inc/widgets-manager/base/widgets-config.php:677
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:111
+#: build/main.js:54349
+msgid "Twitter Feed"
+msgstr "Feed de Twitter"
+
+#: inc/widgets-manager/base/widgets-config.php:678
+msgid "Embed Twitter feeds to show real-time content updates."
+msgstr "Incorpora feeds de Twitter para mostrar actualizaciones de contenido en tiempo real."
+
+#: inc/widgets-manager/base/widgets-config.php:692
+msgid "User Registration Form"
+msgstr "Formulario de Registro de Usuario"
+
+#: inc/widgets-manager/base/widgets-config.php:693
+msgid "Create beautiful, custom registration forms for users."
+msgstr "Crea hermosos formularios de registro personalizados para usuarios."
+
+#: inc/widgets-manager/base/widgets-config.php:708
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:52
+#: build/main.js:54290
+msgid "Video"
+msgstr "Video"
+
+#: inc/widgets-manager/base/widgets-config.php:709
+msgid "Embed optimized videos with customizable thumbnails and play buttons."
+msgstr "Incorpora videos optimizados con miniaturas y botones de reproducción personalizables."
+
+#: inc/widgets-manager/base/widgets-config.php:721
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:46
+#: build/main.js:54284
+msgid "Video Gallery"
+msgstr "Galería de Videos"
+
+#: inc/widgets-manager/base/widgets-config.php:722
+msgid "Showcase multiple videos without impacting load times."
+msgstr "Muestra múltiples videos sin afectar los tiempos de carga."
+
+#: inc/widgets-manager/base/widgets-config.php:734
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:101
+#: build/main.js:54339
+msgid "Welcome Music"
+msgstr "Bienvenido Música"
+
+#: inc/widgets-manager/base/widgets-config.php:735
+msgid "Play background audio to engage visitors upon page load."
+msgstr "Reproduce audio de fondo para atraer a los visitantes al cargar la página."
+
+#: inc/widgets-manager/base/widgets-config.php:747
+msgid "Woo - Add To Cart"
+msgstr "Woo - Agregar al carrito"
+
+#: inc/widgets-manager/base/widgets-config.php:748
+msgid "Let users add items to cart with one click."
+msgstr "Permite a los usuarios agregar artículos al carrito con un clic."
+
+#: inc/widgets-manager/base/widgets-config.php:760
+msgid "Woo - Categories"
+msgstr "Woo - Categorías"
+
+#: inc/widgets-manager/base/widgets-config.php:761
+msgid "Display product categories beautifully."
+msgstr "Muestra las categorías de productos de manera hermosa."
+
+#: inc/widgets-manager/base/widgets-config.php:773
+msgid "Woo - Checkout"
+msgstr "Woo - Pago"
+
+#: inc/widgets-manager/base/widgets-config.php:774
+msgid "Design optimized checkout pages for better conversions."
+msgstr "Diseña páginas de pago optimizadas para mejores conversiones."
+
+#: inc/widgets-manager/base/widgets-config.php:786
+msgid "Woo - Mini Cart"
+msgstr "Woo - Mini carrito"
+
+#: inc/widgets-manager/base/widgets-config.php:787
+msgid "Show a mini-cart for seamless shopping experiences."
+msgstr "Muestra un mini-carrito para experiencias de compra sin interrupciones."
+
+#: inc/widgets-manager/base/widgets-config.php:799
+msgid "Woo - Products"
+msgstr "Woo - Productos"
+
+#: inc/widgets-manager/base/widgets-config.php:800
+msgid "Present products with detailed, customizable layouts."
+msgstr "Presenta productos con diseños detallados y personalizables."
+
+#: inc/widgets-manager/base/widgets-config.php:812
+msgid "WP Fluent Forms Styler"
+msgstr "Estilizador de WP Fluent Forms"
+
+#: inc/widgets-manager/base/widgets-config.php:813
+msgid "Style WP Fluent Forms for an attractive, cohesive look."
+msgstr "Estiliza WP Fluent Forms para un aspecto atractivo y cohesivo."
+
+#: inc/widgets-manager/base/widgets-config.php:825
+msgid "WPForms Styler"
+msgstr "Estilizador de WPForms"
+
+#: inc/widgets-manager/base/widgets-config.php:826
+msgid "Upgrade WPForms with customizable design and layout options."
+msgstr "Mejora WPForms con opciones de diseño y disposición personalizables."
+
+#: inc/widgets-manager/base/widgets-config.php:838
+msgid "Display Conditions"
+msgstr "Condiciones de visualización"
+
+#: inc/widgets-manager/base/widgets-config.php:839
+msgid "Show or hide content based on user interactions."
+msgstr "Muestra u oculta contenido según las interacciones del usuario."
+
+#: inc/widgets-manager/base/widgets-config.php:853
+msgid "Particle Backgrounds"
+msgstr "Fondos de partículas"
+
+#: inc/widgets-manager/base/widgets-config.php:854
+msgid "Add dynamic, animated backgrounds to sections and columns."
+msgstr "Agrega fondos dinámicos y animados a secciones y columnas."
+
+#: inc/widgets-manager/base/widgets-config.php:866
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:103
+#: build/main.js:54341
+msgid "Party Propz"
+msgstr "Accesorios de fiesta"
+
+#: inc/widgets-manager/base/widgets-config.php:867
+msgid "Decorate your site with festive seasonal elements easily."
+msgstr "Decora tu sitio con elementos festivos de temporada fácilmente."
+
+#: inc/widgets-manager/base/widgets-config.php:879
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:104
+#: build/main.js:54342
+msgid "Shape Divider"
+msgstr "Divisor de forma"
+
+#: inc/widgets-manager/base/widgets-config.php:880
+msgid "Add new attractive shape dividers to Elementor sections."
+msgstr "Agrega nuevos divisores de forma atractivos a las secciones de Elementor."
+
+#: inc/widgets-manager/base/widgets-config.php:892
+msgid "Cross-Site Copy Paste"
+msgstr "Copiar y pegar entre sitios"
+
+#: inc/widgets-manager/base/widgets-config.php:893
+msgid "Copy and paste Elementor content between websites."
+msgstr "Copia y pega contenido de Elementor entre sitios web."
+
+#: inc/widgets-manager/base/widgets-config.php:905
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:100
+#: build/main.js:54338
+msgid "Presets"
+msgstr "Preajustes"
+
+#: inc/widgets-manager/base/widgets-config.php:906
+msgid "Use pre-made widget templates to accelerate your design process."
+msgstr "Usa plantillas de widgets prehechas para acelerar tu proceso de diseño."
+
+#: inc/widgets-manager/base/widgets-config.php:924
+msgid "Caldera Form Styler"
+msgstr "Estilizador de Caldera Forms"
+
+#: inc/widgets-manager/base/widgets-config.php:925
+msgid "Style and enhance Caldera Forms to fit your site."
+msgstr "Estiliza y mejora Caldera Forms para que se ajusten a tu sitio."
+
+#: inc/widgets-manager/base/widgets-config.php:970
+#. translators: %s: theme name
+msgid "Free & Fastest WordPress Theme."
+msgstr "Tema de WordPress gratuito y más rápido."
+
+#: inc/widgets-manager/base/widgets-config.php:995
+msgid "Fast and customizable theme for your website."
+msgstr "Tema rápido y personalizable para tu sitio web."
+
+#: inc/widgets-manager/base/widgets-config.php:1009
+msgid "Launch websites with AI or ready-made templates."
+msgstr "Lanza sitios web con IA o plantillas listas para usar."
+
+#: inc/widgets-manager/base/widgets-config.php:1022
+msgid "SureCart"
+msgstr "SureCart"
+
+#: inc/widgets-manager/base/widgets-config.php:1023
+msgid "Sell your products easily on WordPress."
+msgstr "Vende tus productos fácilmente en WordPress."
+
+#: inc/widgets-manager/base/widgets-config.php:1036
+msgid "Presto Player"
+msgstr "Presto Player"
+
+#: inc/widgets-manager/base/widgets-config.php:1037
+msgid "Display seamless & interactive videos."
+msgstr "Muestra videos interactivos y sin interrupciones."
+
+#: inc/widgets-manager/base/widgets-config.php:1050
+msgid "SureForms"
+msgstr "SureForms"
+
+#: inc/widgets-manager/base/widgets-config.php:1051
+msgid "Create high-converting forms with ease."
+msgstr "Crea formularios de alta conversión con facilidad."
+
+#: inc/widgets-manager/base/widgets-config.php:1064
+msgid "SureTriggers"
+msgstr "SureTriggers"
+
+#: inc/widgets-manager/base/widgets-config.php:1065
+msgid "Automate WordPress tasks effortlessly."
+msgstr "Automatiza tareas de WordPress sin esfuerzo."
+
+#: inc/widgets-manager/base/widgets-config.php:1078
+msgid "Schema – All In One Schema Rich Snippets"
+msgstr "Schema – Todos en uno Schema Rich Snippets"
+
+#: inc/widgets-manager/base/widgets-config.php:1079
+msgid "Boost SEO with rich results & structured data."
+msgstr "Mejora el SEO con resultados enriquecidos y datos estructurados."
+
+#: inc/widgets-manager/class-widgets-loader.php:190
+msgid "Ultimate Addons"
+msgstr "Complementos definitivos"
+
+#: inc/widgets-manager/class-widgets-loader.php:285
+msgid "Invalid SVG Format, file not uploaded for security reasons!"
+msgstr "¡Formato SVG no válido, archivo no subido por razones de seguridad!"
+
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:111
+msgid "Enable Scroll To Top"
+msgstr "Habilitar desplazamiento hacia arriba"
+
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:113
+#: inc/widgets-manager/extensions/class-scroll-to-top.php:321
+#: inc/widgets-manager/widgets/cart/cart.php:150
+#: inc/widgets-manager/widgets/cart/cart.php:166
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:225
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:242
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:534
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:142
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:208
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:270
+#: build/main.js:2
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:243
+#: build/main.js:52488
+msgid "Yes"
+msgstr "Sí"
+
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:114
+#: inc/widgets-manager/extensions/class-scroll-to-top.php:322
+#: inc/widgets-manager/widgets/cart/cart.php:151
+#: inc/widgets-manager/widgets/cart/cart.php:167
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:226
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:243
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:535
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:143
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:207
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:271
+msgid "No"
+msgstr "No"
+
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:130
+msgid "Responsive Support"
+msgstr "Soporte responsivo"
+
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:133
+msgid "Show"
+msgstr "Mostrar"
+
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:134
+msgid "Hide"
+msgstr "Ocultar"
+
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:179
+msgid "Position"
+msgstr "Posición"
+
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:184
+msgid "Bottom Left"
+msgstr "Inferior Izquierda"
+
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:185
+msgid "Bottom Right"
+msgstr "Inferior Derecha"
+
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:197
+msgid "Bottom"
+msgstr "Inferior"
+
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:229
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:159
+#: inc/widgets-manager/widgets/cart/cart.php:185
+#: inc/widgets-manager/widgets/copyright/copyright.php:134
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:282
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:313
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:348
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:384
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:499
+#: inc/widgets-manager/widgets/page-title/page-title.php:245
+#: inc/widgets-manager/widgets/retina/retina.php:155
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:181
+#: inc/widgets-manager/widgets/site-tagline/site-tagline.php:169
+#: inc/widgets-manager/widgets/site-title/site-title.php:237
+msgid "Left"
+msgstr "Izquierda"
+
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:263
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:167
+#: inc/widgets-manager/widgets/cart/cart.php:193
+#: inc/widgets-manager/widgets/copyright/copyright.php:142
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:290
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:314
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:356
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:392
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:507
+#: inc/widgets-manager/widgets/page-title/page-title.php:253
+#: inc/widgets-manager/widgets/retina/retina.php:163
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:189
+#: inc/widgets-manager/widgets/site-tagline/site-tagline.php:177
+#: inc/widgets-manager/widgets/site-title/site-title.php:245
+msgid "Right"
+msgstr "Derecha"
+
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:296
+#: inc/widgets-manager/widgets/post-info/post-info.php:580
+msgid "Height"
+msgstr "Altura"
+
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:319
+#: inc/widgets-manager/widgets/post-info/post-info.php:551
+#: inc/widgets-manager/widgets/retina/retina.php:253
+#: inc/widgets-manager/widgets/search-button/search-button.php:229
+#: inc/widgets-manager/widgets/search-button/search-button.php:778
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:308
+msgid "Width"
+msgstr "Ancho"
+
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:341
+msgid "Z Index"
+msgstr "Índice Z"
+
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:363
+#: inc/widgets-manager/widgets/retina/retina.php:419
+#: inc/widgets-manager/widgets/retina/retina.php:453
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:483
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:517
+msgid "Opacity"
+msgstr "Opacidad"
+
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:384
+msgid "Media Type"
+msgstr "Tipo de medio"
+
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:389
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:414
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:204
+#: inc/widgets-manager/widgets/cart/cart.php:113
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:566
+#: inc/widgets-manager/widgets/page-title/page-title.php:353
+#: inc/widgets-manager/widgets/post-info/post-info.php:366
+#: inc/widgets-manager/widgets/post-info/post-info.php:638
+#: inc/widgets-manager/widgets/search-button/search-button.php:153
+#: inc/widgets-manager/widgets/search-button/search-button.php:803
+#: inc/widgets-manager/widgets/site-tagline/site-tagline.php:137
+#: inc/widgets-manager/widgets/site-title/site-title.php:140
+#: inc/widgets-manager/widgets/site-title/site-title.php:345
+msgid "Icon"
+msgstr "Ícono"
+
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:393
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:431
+msgid "Image"
+msgstr "Imagen"
+
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:397
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:447
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:203
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:827
+#: inc/widgets-manager/widgets/post-info/post-info.php:693
+msgid "Text"
+msgstr "Texto"
+
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:462
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:512
+#: inc/widgets-manager/widgets/cart/cart.php:239
+#: inc/widgets-manager/widgets/page-title/page-title.php:224
+#: inc/widgets-manager/widgets/post-info/post-info.php:259
+#: inc/widgets-manager/widgets/post-info/post-info.php:659
+#: inc/widgets-manager/widgets/search-button/search-button.php:176
+#: inc/widgets-manager/widgets/search-button/search-button.php:894
+#: inc/widgets-manager/widgets/site-title/site-title.php:199
+msgid "Size"
+msgstr "Tamaño"
+
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:523
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:366
+#: inc/widgets-manager/widgets/cart/cart.php:315
+#: inc/widgets-manager/widgets/cart/cart.php:513
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:923
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1127
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1500
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1693
+#: inc/widgets-manager/widgets/page-title/page-title.php:328
+#: inc/widgets-manager/widgets/retina/retina.php:412
+#: inc/widgets-manager/widgets/search-button/search-button.php:255
+#: inc/widgets-manager/widgets/search-button/search-button.php:661
+#: inc/widgets-manager/widgets/search-button/search-button.php:816
+#: inc/widgets-manager/widgets/search-button/search-button.php:921
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:476
+#: inc/widgets-manager/widgets/site-title/site-title.php:320
+msgid "Normal"
+msgstr "Normal"
+
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:533
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:590
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:373
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:439
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:499
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:563
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1507
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1539
+#: inc/widgets-manager/widgets/page-title/page-title.php:301
+#: inc/widgets-manager/widgets/post-info/post-info.php:610
+#: inc/widgets-manager/widgets/post-info/post-info.php:646
+#: inc/widgets-manager/widgets/search-button/search-button.php:823
+#: inc/widgets-manager/widgets/search-button/search-button.php:843
+#: inc/widgets-manager/widgets/search-button/search-button.php:927
+#: inc/widgets-manager/widgets/search-button/search-button.php:952
+#: inc/widgets-manager/widgets/site-tagline/site-tagline.php:205
+#: inc/widgets-manager/widgets/site-title/site-title.php:293
+msgid "Color"
+msgstr "Color"
+
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:563
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:620
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:464
+#: inc/widgets-manager/widgets/cart/cart.php:358
+#: inc/widgets-manager/widgets/cart/cart.php:414
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1446
+#: inc/widgets-manager/widgets/retina/retina.php:368
+#: inc/widgets-manager/widgets/search-button/search-button.php:349
+#: inc/widgets-manager/widgets/search-button/search-button.php:493
+#: inc/widgets-manager/widgets/search-button/search-button.php:583
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:432
+msgid "Border Color"
+msgstr "Color del borde"
+
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:580
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:432
+#: inc/widgets-manager/widgets/cart/cart.php:371
+#: inc/widgets-manager/widgets/cart/cart.php:550
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:962
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1170
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1532
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1760
+#: inc/widgets-manager/widgets/retina/retina.php:447
+#: inc/widgets-manager/widgets/search-button/search-button.php:701
+#: inc/widgets-manager/widgets/search-button/search-button.php:836
+#: inc/widgets-manager/widgets/search-button/search-button.php:945
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:511
+msgid "Hover"
+msgstr "Hover"
+
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:638
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:418
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:607
+#: inc/widgets-manager/widgets/cart/cart.php:277
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1285
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1603
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1738
+#: inc/widgets-manager/widgets/retina/retina.php:386
+#: inc/widgets-manager/widgets/search-button/search-button.php:391
+#: inc/widgets-manager/widgets/search-button/search-button.php:622
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:450
+msgid "Border Radius"
+msgstr "Radio del borde"
+
+#: inc/widgets-manager/extensions/class-scroll-to-top.php:318
+msgid "Disable Scroll to Top For This Page"
+msgstr "Deshabilitar desplazamiento hacia arriba para esta página"
+
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:118
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:324
+#: inc/widgets-manager/widgets/post-info/post-info.php:100
+#: inc/widgets-manager/widgets/site-title/site-title.php:111
+msgid "General"
+msgstr "General"
+
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:125
+msgid "Show Home"
+msgstr "Mostrar inicio"
+
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:127
+#: inc/widgets-manager/widgets/post-info/post-info.php:494
+msgid "On"
+msgstr "Activado"
+
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:128
+#: inc/widgets-manager/widgets/post-info/post-info.php:493
+msgid "Off"
+msgstr "Desactivado"
+
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:137
+msgid "Home Icon"
+msgstr "Ícono de inicio"
+
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:154
+#: inc/widgets-manager/widgets/cart/cart.php:181
+#: inc/widgets-manager/widgets/copyright/copyright.php:130
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:278
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:495
+#: inc/widgets-manager/widgets/page-title/page-title.php:241
+#: inc/widgets-manager/widgets/post-info/post-info.php:466
+#: inc/widgets-manager/widgets/retina/retina.php:151
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:177
+#: inc/widgets-manager/widgets/site-tagline/site-tagline.php:165
+#: inc/widgets-manager/widgets/site-title/site-title.php:233
+msgid "Alignment"
+msgstr "Alineación"
+
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:163
+#: inc/widgets-manager/widgets/cart/cart.php:189
+#: inc/widgets-manager/widgets/copyright/copyright.php:138
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:286
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:352
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:388
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:503
+#: inc/widgets-manager/widgets/page-title/page-title.php:249
+#: inc/widgets-manager/widgets/post-info/post-info.php:474
+#: inc/widgets-manager/widgets/retina/retina.php:159
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:185
+#: inc/widgets-manager/widgets/site-tagline/site-tagline.php:173
+#: inc/widgets-manager/widgets/site-title/site-title.php:241
+msgid "Center"
+msgstr "Centro"
+
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:192
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:212
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:224
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:491
+#: inc/widgets-manager/widgets/post-info/post-info.php:491
+msgid "Separator"
+msgstr "Separador"
+
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:199
+msgid "Separator Type"
+msgstr "Tipo de separador"
+
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:214
+msgid "»"
+msgstr "»"
+
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:265
+msgid "Display Text"
+msgstr "Texto de visualización"
+
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:272
+msgid "Home Page"
+msgstr "Página de inicio"
+
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:274
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:658
+msgid "Home"
+msgstr "Inicio"
+
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:287
+msgid "Search results for:"
+msgstr "Resultados de búsqueda para:"
+
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:300
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:661
+msgid "Error 404: Page not found"
+msgstr "Error 404: Página no encontrada"
+
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:332
+msgid "Spacing between Items"
+msgstr "Espaciado entre elementos"
+
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:351
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:619
+#: inc/widgets-manager/widgets/cart/cart.php:297
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1678
+#: inc/widgets-manager/widgets/retina/retina.php:572
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:637
+msgid "Padding"
+msgstr "Relleno"
+
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:386
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:452
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:575
+#: inc/widgets-manager/widgets/cart/cart.php:347
+#: inc/widgets-manager/widgets/cart/cart.php:403
+#: inc/widgets-manager/widgets/cart/cart.php:534
+#: inc/widgets-manager/widgets/cart/cart.php:571
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:803
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:945
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:987
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1050
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1151
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1194
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1237
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1519
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1552
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1713
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1779
+#: inc/widgets-manager/widgets/retina/retina.php:542
+#: inc/widgets-manager/widgets/search-button/search-button.php:300
+#: inc/widgets-manager/widgets/search-button/search-button.php:460
+#: inc/widgets-manager/widgets/search-button/search-button.php:527
+#: inc/widgets-manager/widgets/search-button/search-button.php:719
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:380
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:607
+msgid "Background Color"
+msgstr "Color de fondo"
+
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:399
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:532
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:588
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1668
+msgid "Typography"
+msgstr "Tipografía"
+
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:408
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:597
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1730
+msgid "Border"
+msgstr "Borde"
+
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:555
+msgid "Current Item"
+msgstr "Elemento actual"
+
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:662
+msgid "Search results for: "
+msgstr "Resultados de búsqueda para:"
+
+#: inc/widgets-manager/widgets/cart/cart.php:93
+#: inc/widgets-manager/widgets/cart/cart.php:218
+msgid "Menu Cart"
+msgstr "Carrito de Menú"
+
+#: inc/widgets-manager/widgets/cart/cart.php:100
+#: inc/widgets-manager/widgets/post-info/post-info.php:130
+msgid "Type"
+msgstr "Tipo"
+
+#: inc/widgets-manager/widgets/cart/cart.php:104
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:210
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:436
+#: inc/widgets-manager/widgets/page-title/page-title.php:179
+#: inc/widgets-manager/widgets/page-title/page-title.php:228
+#: inc/widgets-manager/widgets/post-info/post-info.php:116
+#: inc/widgets-manager/widgets/post-info/post-info.php:370
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:238
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:269
+#: inc/widgets-manager/widgets/site-title/site-title.php:172
+#: inc/widgets-manager/widgets/site-title/site-title.php:203
+msgid "Default"
+msgstr "Predeterminado"
+
+#: inc/widgets-manager/widgets/cart/cart.php:105
+#: inc/widgets-manager/widgets/post-info/post-info.php:139
+#: inc/widgets-manager/widgets/post-info/post-info.php:156
+#: inc/widgets-manager/widgets/post-info/post-info.php:194
+#: inc/widgets-manager/widgets/post-info/post-info.php:325
+#: inc/widgets-manager/widgets/post-info/post-info.php:371
+msgid "Custom"
+msgstr "Personalizado"
+
+#: inc/widgets-manager/widgets/cart/cart.php:116
+msgid "Bag Light"
+msgstr "Bolsa Ligera"
+
+#: inc/widgets-manager/widgets/cart/cart.php:117
+msgid "Bag Medium"
+msgstr "Bolsa Mediana"
+
+#: inc/widgets-manager/widgets/cart/cart.php:118
+msgid "Bag Solid"
+msgstr "Bolsa Sólida"
+
+#: inc/widgets-manager/widgets/cart/cart.php:131
+#: inc/widgets-manager/widgets/cart/cart.php:474
+msgid "Items Count"
+msgstr "Conteo de Artículos"
+
+#: inc/widgets-manager/widgets/cart/cart.php:134
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:482
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:822
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1430
+#: inc/widgets-manager/widgets/page-title/page-title.php:180
+#: inc/widgets-manager/widgets/post-info/post-info.php:369
+#: inc/widgets-manager/widgets/retina/retina.php:181
+#: inc/widgets-manager/widgets/retina/retina.php:212
+#: inc/widgets-manager/widgets/retina/retina.php:332
+#: inc/widgets-manager/widgets/search-button/search-button.php:331
+#: inc/widgets-manager/widgets/search-button/search-button.php:565
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:239
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:396
+msgid "None"
+msgstr "Ninguno"
+
+#: inc/widgets-manager/widgets/cart/cart.php:135
+msgid "Bubble"
+msgstr "Burbuja"
+
+#: inc/widgets-manager/widgets/cart/cart.php:148
+msgid "Show Total Price"
+msgstr "Mostrar Precio Total"
+
+#: inc/widgets-manager/widgets/cart/cart.php:164
+msgid "Hide Empty"
+msgstr "Ocultar Vacío"
+
+#: inc/widgets-manager/widgets/cart/cart.php:170
+msgid "This will hide the items count until the cart is empty"
+msgstr "Esto ocultará el conteo de artículos hasta que el carrito esté vacío"
+
+#: inc/widgets-manager/widgets/cart/cart.php:258
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1463
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1586
+#: inc/widgets-manager/widgets/retina/retina.php:346
+#: inc/widgets-manager/widgets/search-button/search-button.php:368
+#: inc/widgets-manager/widgets/search-button/search-button.php:599
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:410
+msgid "Border Width"
+msgstr "Ancho del Borde"
+
+#: inc/widgets-manager/widgets/cart/cart.php:322
+#: inc/widgets-manager/widgets/cart/cart.php:378
+#: inc/widgets-manager/widgets/cart/cart.php:520
+#: inc/widgets-manager/widgets/cart/cart.php:557
+#: inc/widgets-manager/widgets/copyright/copyright.php:156
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:930
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:969
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1037
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1134
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1177
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1220
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1700
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1767
+#: inc/widgets-manager/widgets/post-info/post-info.php:722
+#: inc/widgets-manager/widgets/retina/retina.php:527
+#: inc/widgets-manager/widgets/search-button/search-button.php:265
+#: inc/widgets-manager/widgets/search-button/search-button.php:428
+#: inc/widgets-manager/widgets/search-button/search-button.php:512
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:592
+msgid "Text Color"
+msgstr "Color del Texto"
+
+#: inc/widgets-manager/widgets/cart/cart.php:333
+#: inc/widgets-manager/widgets/cart/cart.php:389
+#: inc/widgets-manager/widgets/page-title/page-title.php:364
+#: inc/widgets-manager/widgets/search-button/search-button.php:668
+#: inc/widgets-manager/widgets/search-button/search-button.php:708
+#: inc/widgets-manager/widgets/site-tagline/site-tagline.php:221
+#: inc/widgets-manager/widgets/site-title/site-title.php:355
+msgid "Icon Color"
+msgstr "Color del Icono"
+
+#: inc/widgets-manager/widgets/cart/cart.php:428
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1567
+#: inc/widgets-manager/widgets/search-button/search-button.php:751
+#: inc/widgets-manager/widgets/search-button/search-button.php:858
+msgid "Icon Size"
+msgstr "Tamaño del Icono"
+
+#: inc/widgets-manager/widgets/cart/cart.php:450
+#: inc/widgets-manager/widgets/page-title/page-title.php:156
+#: inc/widgets-manager/widgets/site-tagline/site-tagline.php:146
+#: inc/widgets-manager/widgets/site-title/site-title.php:149
+msgid "Icon Spacing"
+msgstr "Espaciado del Icono"
+
+#: inc/widgets-manager/widgets/cart/cart.php:487
+msgid "Distance"
+msgstr "Distancia"
+
+#: inc/widgets-manager/widgets/copyright/copyright.php:109
+msgid "Copyright Text"
+msgstr "Texto de Copyright"
+
+#: inc/widgets-manager/widgets/copyright/copyright.php:114
+msgid "Copyright © [hfe_current_year] [hfe_site_title] | Powered by [hfe_site_title]"
+msgstr "Copyright © [hfe_current_year] [hfe_site_title] | Desarrollado por [hfe_site_title]"
+
+#: inc/widgets-manager/widgets/copyright/copyright.php:121
+#: inc/widgets-manager/widgets/page-title/page-title.php:175
+#: inc/widgets-manager/widgets/page-title/page-title.php:189
+#: inc/widgets-manager/widgets/post-info/post-info.php:340
+#: inc/widgets-manager/widgets/retina/retina.php:208
+#: inc/widgets-manager/widgets/retina/retina.php:221
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:234
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:249
+#: inc/widgets-manager/widgets/site-title/site-title.php:168
+#: inc/widgets-manager/widgets/site-title/site-title.php:181
+msgid "Link"
+msgstr "Enlace"
+
+#: inc/widgets-manager/widgets/copyright/copyright.php:123
+#: inc/widgets-manager/widgets/page-title/page-title.php:191
+#: inc/widgets-manager/widgets/retina/retina.php:226
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:254
+#: inc/widgets-manager/widgets/site-title/site-title.php:183
+msgid "https://your-link.com"
+msgstr "https://your-link.com"
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:173
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:183
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:2013
+msgid "Menu"
+msgstr "Me"
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:189
+#. translators: %s Nav menu URL
+msgid "Go to the <a href=\"%s\" target=\"_blank\">Menus screen</a> to manage your menus."
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:198
+#. translators: %s Nav menu URL
+msgid ""
+"<strong>There are no menus in your site.</strong><br>Go to the <a href=\"%s\" target=\"_blank\">Menus screen</a> to "
+"create one."
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:207
+msgid "Last Menu Item"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:211
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1656
+#: inc/widgets-manager/widgets/search-button/search-button.php:648
+msgid "Button"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:223
+msgid "Enable Schema Support"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:240
+msgid "Hide + & - Sign"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:256
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:263
+#: inc/widgets-manager/widgets/post-info/post-info.php:107
+#: inc/widgets-manager/widgets/search-button/search-button.php:148
+msgid "Layout"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:267
+msgid "Horizontal"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:268
+msgid "Vertical"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:269
+msgid "Expanded"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:270
+msgid "Flyout"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:294
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:396
+#: inc/widgets-manager/widgets/site-tagline/site-tagline.php:181
+#: inc/widgets-manager/widgets/site-title/site-title.php:249
+msgid "Justify"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:309
+msgid "Flyout Orientation"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:325
+msgid "Appear Effect"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:330
+msgid "Slide"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:331
+msgid "Push"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:343
+msgid "Hamburger Align"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:380
+msgid "Menu Items Align"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:417
+msgid "Submenu Icon"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:421
+msgid "Arrows"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:422
+msgid "Plus Sign"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:423
+msgid "Classic"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:432
+msgid "Submenu Animation"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:437
+msgid "Slide Up"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:449
+msgid "Action On Menu Click"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:452
+msgid "For Horizontal layout, this will affect on the selected breakpoint"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:454
+msgid "Open Submenu"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:455
+msgid "Redirect To Self Link"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:465
+msgid "Responsive"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:476
+msgid "Breakpoint"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:480
+msgid "Mobile (768px >)"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:481
+msgid "Tablet (1025px >)"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:512
+msgid "This is the alignement of menu icon on selected responsive breakpoints."
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:531
+msgid "Full Width"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:532
+msgid "Enable this option to stretch the Sub Menu to Full Width."
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:550
+msgid "Menu Icon"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:581
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:597
+#: inc/widgets-manager/widgets/search-button/search-button.php:883
+msgid "Close Icon"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:623
+msgid "Main Menu"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:634
+msgid "Flyout Box Width"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:662
+msgid "Flyout Box Padding"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:686
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1345
+msgid "Horizontal Padding"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:712
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1368
+msgid "Vertical Padding"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:734
+#: inc/widgets-manager/widgets/post-info/post-info.php:446
+msgid "Space Between"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:761
+msgid "Row Spacing"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:782
+msgid "Menu Item Top Spacing"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:818
+msgid "Link Hover Effect"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:823
+msgid "Underline"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:824
+msgid "Overline"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:825
+msgid "Double Line"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:826
+msgid "Framed"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:838
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:880
+msgid "Animation"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:859
+msgid "Frame Animation"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1005
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1066
+msgid "Link Hover Effect Color"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1102
+msgid "Dropdown"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1110
+msgid "<b>Note:</b> On desktop, below style options will apply to the submenu. On mobile, this will apply to the entire menu."
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1320
+msgid "Dropdown Width (px)"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1394
+msgid "Top Distance"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1416
+msgid "Divider"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1425
+#: inc/widgets-manager/widgets/retina/retina.php:327
+#: inc/widgets-manager/widgets/search-button/search-button.php:326
+#: inc/widgets-manager/widgets/search-button/search-button.php:560
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:391
+msgid "Border Style"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1431
+#: inc/widgets-manager/widgets/post-info/post-info.php:508
+#: inc/widgets-manager/widgets/retina/retina.php:333
+#: inc/widgets-manager/widgets/search-button/search-button.php:332
+#: inc/widgets-manager/widgets/search-button/search-button.php:566
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:397
+msgid "Solid"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1432
+#: inc/widgets-manager/widgets/post-info/post-info.php:509
+#: inc/widgets-manager/widgets/retina/retina.php:334
+#: inc/widgets-manager/widgets/search-button/search-button.php:333
+#: inc/widgets-manager/widgets/search-button/search-button.php:567
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:398
+msgid "Double"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1433
+#: inc/widgets-manager/widgets/post-info/post-info.php:510
+#: inc/widgets-manager/widgets/retina/retina.php:335
+#: inc/widgets-manager/widgets/search-button/search-button.php:334
+#: inc/widgets-manager/widgets/search-button/search-button.php:568
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:399
+msgid "Dotted"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1434
+#: inc/widgets-manager/widgets/post-info/post-info.php:511
+#: inc/widgets-manager/widgets/retina/retina.php:336
+#: inc/widgets-manager/widgets/search-button/search-button.php:335
+#: inc/widgets-manager/widgets/search-button/search-button.php:569
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:400
+msgid "Dashed"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1490
+msgid "Menu Trigger & Close Icon"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1616
+msgid "Close Icon Color"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1634
+msgid "Close Icon Size"
+msgstr ""
+
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1795
+msgid "Border Hover Color"
+msgstr ""
+
+#: inc/widgets-manager/widgets/page-title/page-title.php:108
+#: inc/widgets-manager/widgets/page-title/page-title.php:282
+#: inc/widgets-manager/widgets/site-title/site-title.php:276
+msgid "Title"
+msgstr ""
+
+#: inc/widgets-manager/widgets/page-title/page-title.php:117
+#. translators: %1$s doc link
+msgid "<b>Note:</b> Archive page title will be visible on frontend."
+msgstr ""
+
+#: inc/widgets-manager/widgets/page-title/page-title.php:125
+#: inc/widgets-manager/widgets/site-tagline/site-tagline.php:113
+#: inc/widgets-manager/widgets/site-title/site-title.php:118
+msgid "Before Title Text"
+msgstr ""
+
+#: inc/widgets-manager/widgets/page-title/page-title.php:136
+#: inc/widgets-manager/widgets/site-tagline/site-tagline.php:125
+#: inc/widgets-manager/widgets/site-title/site-title.php:129
+msgid "After Title Text"
+msgstr ""
+
+#: inc/widgets-manager/widgets/page-title/page-title.php:147
+msgid "Select Icon"
+msgstr ""
+
+#: inc/widgets-manager/widgets/page-title/page-title.php:178
+#: inc/widgets-manager/widgets/post-info/post-info.php:352
+#: inc/widgets-manager/widgets/retina/retina.php:213
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:241
+#: inc/widgets-manager/widgets/site-title/site-title.php:171
+msgid "Custom URL"
+msgstr ""
+
+#: inc/widgets-manager/widgets/page-title/page-title.php:207
+#: inc/widgets-manager/widgets/site-title/site-title.php:216
+msgid "HTML Tag"
+msgstr ""
+
+#: inc/widgets-manager/widgets/page-title/page-title.php:210
+#: inc/widgets-manager/widgets/site-title/site-title.php:219
+msgid "H1"
+msgstr ""
+
+#: inc/widgets-manager/widgets/page-title/page-title.php:211
+#: inc/widgets-manager/widgets/site-title/site-title.php:220
+msgid "H2"
+msgstr ""
+
+#: inc/widgets-manager/widgets/page-title/page-title.php:212
+#: inc/widgets-manager/widgets/site-title/site-title.php:221
+msgid "H3"
+msgstr ""
+
+#: inc/widgets-manager/widgets/page-title/page-title.php:213
+#: inc/widgets-manager/widgets/site-title/site-title.php:222
+msgid "H4"
+msgstr ""
+
+#: inc/widgets-manager/widgets/page-title/page-title.php:214
+#: inc/widgets-manager/widgets/site-title/site-title.php:223
+msgid "H5"
+msgstr ""
+
+#: inc/widgets-manager/widgets/page-title/page-title.php:215
+#: inc/widgets-manager/widgets/site-title/site-title.php:224
+msgid "H6"
+msgstr ""
+
+#: inc/widgets-manager/widgets/page-title/page-title.php:229
+#: inc/widgets-manager/widgets/site-title/site-title.php:204
+msgid "Small"
+msgstr ""
+
+#: inc/widgets-manager/widgets/page-title/page-title.php:230
+#: inc/widgets-manager/widgets/site-title/site-title.php:205
+msgid "Medium"
+msgstr ""
+
+#: inc/widgets-manager/widgets/page-title/page-title.php:231
+#: inc/widgets-manager/widgets/site-title/site-title.php:206
+msgid "Large"
+msgstr ""
+
+#: inc/widgets-manager/widgets/page-title/page-title.php:232
+#: inc/widgets-manager/widgets/site-title/site-title.php:207
+msgid "XL"
+msgstr ""
+
+#: inc/widgets-manager/widgets/page-title/page-title.php:233
+#: inc/widgets-manager/widgets/site-title/site-title.php:208
+msgid "XXL"
+msgstr ""
+
+#: inc/widgets-manager/widgets/page-title/page-title.php:257
+msgid "Justified"
+msgstr ""
+
+#: inc/widgets-manager/widgets/page-title/page-title.php:325
+#: inc/widgets-manager/widgets/site-title/site-title.php:317
+msgid "Blend Mode"
+msgstr ""
+
+#: inc/widgets-manager/widgets/page-title/page-title.php:382
+#: inc/widgets-manager/widgets/site-tagline/site-tagline.php:239
+#: inc/widgets-manager/widgets/site-title/site-title.php:373
+msgid "Icon Hover Color"
+msgstr ""
+
+#: inc/widgets-manager/widgets/post-info/post-info.php:112
+msgid "Inline"
+msgstr ""
+
+#: inc/widgets-manager/widgets/post-info/post-info.php:134
+msgid "Author"
+msgstr ""
+
+#: inc/widgets-manager/widgets/post-info/post-info.php:135
+msgid "Time"
+msgstr ""
+
+#: inc/widgets-manager/widgets/post-info/post-info.php:137
+msgid "Terms"
+msgstr ""
+
+#: inc/widgets-manager/widgets/post-info/post-info.php:138
+#: inc/widgets-manager/widgets/post-info/post-info.php:311
+msgid "Comments"
+msgstr ""
+
+#: inc/widgets-manager/widgets/post-info/post-info.php:147
+msgid "Date Format"
+msgstr ""
+
+#: inc/widgets-manager/widgets/post-info/post-info.php:168
+msgid "Custom Date Format"
+msgstr ""
+
+#: inc/widgets-manager/widgets/post-info/post-info.php:177
+#: inc/widgets-manager/widgets/post-info/post-info.php:214
+#. translators: %s: Allowed data letters (see: http://php.net/manual/en/function.date.php).
+#. translators: %s: Allowed time letters (see: http://php.net/manual/en/function.time.php).
+msgid "Use the letters: %s"
+msgstr ""
+
+#: inc/widgets-manager/widgets/post-info/post-info.php:186
+msgid "Time Format"
+msgstr ""
+
+#: inc/widgets-manager/widgets/post-info/post-info.php:204
+msgid "Custom Time Format"
+msgstr ""
+
+#: inc/widgets-manager/widgets/post-info/post-info.php:223
+msgid "Taxonomy"
+msgstr ""
+
+#: inc/widgets-manager/widgets/post-info/post-info.php:237
+msgid "Before"
+msgstr ""
+
+#: inc/widgets-manager/widgets/post-info/post-info.php:248
+msgid "Avatar"
+msgstr ""
+
+#: inc/widgets-manager/widgets/post-info/post-info.php:273
+msgid "Custom Format"
+msgstr ""
+
+#: inc/widgets-manager/widgets/post-info/post-info.php:285
+#: inc/widgets-manager/widgets/post-info/post-info.php:287
+#: inc/widgets-manager/widgets/post-info/post-info.php:904
+msgid "No Comments"
+msgstr ""
+
+#: inc/widgets-manager/widgets/post-info/post-info.php:298
+#: inc/widgets-manager/widgets/post-info/post-info.php:300
+#: inc/widgets-manager/widgets/post-info/post-info.php:905
+msgid "One Comment"
+msgstr ""
+
+#: inc/widgets-manager/widgets/post-info/post-info.php:314
+#: inc/widgets-manager/widgets/post-info/post-info.php:907
+#. translators: %s: Number of comments.
+msgid "%s Comments"
+msgstr ""
+
+#: inc/widgets-manager/widgets/post-info/post-info.php:383
+msgid "Choose Icon"
+msgstr ""
+
+#: inc/widgets-manager/widgets/post-info/post-info.php:439
+msgid "List Items"
+msgstr ""
+
+#: inc/widgets-manager/widgets/post-info/post-info.php:470
+msgid "Start"
+msgstr ""
+
+#: inc/widgets-manager/widgets/post-info/post-info.php:478
+msgid "End"
+msgstr ""
+
+#: inc/widgets-manager/widgets/post-info/post-info.php:505
+#: inc/widgets-manager/widgets/site-tagline/site-tagline.php:106
+msgid "Style"
+msgstr ""
+
+#: inc/widgets-manager/widgets/post-info/post-info.php:527
+msgid "Weight"
+msgstr ""
+
+#: inc/widgets-manager/widgets/post-info/post-info.php:701
+msgid "Spacing between Icon & Text"
+msgstr ""
+
+#: inc/widgets-manager/widgets/post-info/post-info.php:759
+msgid "Choose"
+msgstr ""
+
+#: inc/widgets-manager/widgets/post-info/post-info.php:926
+msgid "%s comment"
+msgid_plural "%s comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/widgets-manager/widgets/retina/retina.php:117
+msgid "Choose Default Image"
+msgstr ""
+
+#: inc/widgets-manager/widgets/retina/retina.php:130
+msgid "Choose Retina Image"
+msgstr ""
+
+#: inc/widgets-manager/widgets/retina/retina.php:144
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:170
+msgid "Image Size"
+msgstr ""
+
+#: inc/widgets-manager/widgets/retina/retina.php:178
+#: inc/widgets-manager/widgets/retina/retina.php:516
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:204
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:581
+msgid "Caption"
+msgstr ""
+
+#: inc/widgets-manager/widgets/retina/retina.php:182
+#: inc/widgets-manager/widgets/retina/retina.php:191
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:217
+msgid "Custom Caption"
+msgstr ""
+
+#: inc/widgets-manager/widgets/retina/retina.php:194
+msgid "Enter your image caption"
+msgstr ""
+
+#: inc/widgets-manager/widgets/retina/retina.php:290
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:344
+msgid "Max Width"
+msgstr ""
+
+#: inc/widgets-manager/widgets/retina/retina.php:479
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:559
+msgid "Hover Animation"
+msgstr ""
+
+#: inc/widgets-manager/widgets/retina/retina.php:486
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:534
+msgid "Transition Duration"
+msgstr ""
+
+#: inc/widgets-manager/widgets/retina/retina.php:584
+msgid "Caption Top Spacing"
+msgstr ""
+
+#: inc/widgets-manager/widgets/retina/retina.php:619
+msgid "Helpful Information"
+msgstr ""
+
+#: inc/widgets-manager/widgets/retina/retina.php:628
+#. translators: %1$s doc link
+msgid "%1$s Getting started article » %2$s"
+msgstr ""
+
+#: inc/widgets-manager/widgets/search-button/search-button.php:141
+msgid "Search Box"
+msgstr ""
+
+#: inc/widgets-manager/widgets/search-button/search-button.php:152
+msgid "Input Box"
+msgstr ""
+
+#: inc/widgets-manager/widgets/search-button/search-button.php:154
+msgid "Input Box With Button"
+msgstr ""
+
+#: inc/widgets-manager/widgets/search-button/search-button.php:164
+msgid "Placeholder"
+msgstr ""
+
+#: inc/widgets-manager/widgets/search-button/search-button.php:166
+msgid "Type & Hit Enter"
+msgstr ""
+
+#: inc/widgets-manager/widgets/search-button/search-button.php:210
+msgid "Input"
+msgstr ""
+
+#: inc/widgets-manager/widgets/search-button/search-button.php:282
+#: inc/widgets-manager/widgets/search-button/search-button.php:443
+msgid "Placeholder Color"
+msgstr ""
+
+#: inc/widgets-manager/widgets/search-button/search-button.php:418
+msgid "Focus"
+msgstr ""
+
+#: inc/widgets-manager/widgets/search-button/search-button.php:681
+#: inc/widgets-manager/widgets/search-button/search-button.php:734
+msgid "Background"
+msgstr ""
+
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:140
+msgid "Custom Image"
+msgstr "Imagen personalizada"
+
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:152
+msgid "Add Image"
+msgstr "Agregar imagen"
+
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:220
+msgid "Enter caption"
+msgstr "Ingrese el pie de foto"
+
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:240
+msgid "Media File"
+msgstr "Archivo multimedia"
+
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:265
+msgid "Lightbox"
+msgstr "Lightbox"
+
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:282
+msgid "View"
+msgstr "Ver"
+
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:300
+msgid "Site logo"
+msgstr "Logo del sitio"
+
+#: inc/widgets-manager/widgets/site-logo/site-logo.php:649
+msgid "Spacing"
+msgstr "Espaciado"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:9
+#: build/main.js:54247
+msgid "Essentials"
+msgstr "Esenciales"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:11
+#: build/main.js:54249
+msgid "White Label Option"
+msgstr "Opción de etiqueta blanca"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:12
+#: build/main.js:54250
+msgid "24/7 Premium Support"
+msgstr "Soporte premium 24/7"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:13
+#: build/main.js:54251
+msgid "Cross-Domain Copy-Paste"
+msgstr "Copiar y pegar entre dominios"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:17
+#: build/main.js:54255
+msgid "Dynamic Header & Footer Widgets"
+msgstr "Widgets dinámicos de encabezado y pie de página"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:32
+#: build/main.js:54270
+msgid "Creative & Advanced Design Widgets"
+msgstr "Widgets de diseño creativos y avanzados"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:37
+#: build/main.js:54275
+msgid "Multi-Button"
+msgstr "Multi-botón"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:38
+#: build/main.js:54276
+msgid "Image Hotspots"
+msgstr "Puntos calientes de imagen"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:42
+#: build/main.js:54280
+msgid "Content & Media Widgets"
+msgstr "Widgets de contenido y multimedia"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:44
+#: build/main.js:54282
+msgid "Content Toggle Button"
+msgstr "Botón de alternancia de contenido"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:50
+#: build/main.js:54288
+msgid "Before & After Slider"
+msgstr "Deslizador de antes y después"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:53
+#: build/main.js:54291
+msgid "Conditional Display"
+msgstr "Visualización condicional"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:55
+#: build/main.js:54293
+msgid "User Registeration Form"
+msgstr "Formulario de registro de usuario"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:59
+#: build/main.js:54297
+msgid "Marketing & Engagement Widgets"
+msgstr "Widgets de marketing y compromiso"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:62
+#: build/main.js:54300
+msgid "Pricing Table"
+msgstr "Tabla de precios"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:70
+#: build/main.js:54308
+msgid "E-Commerce Integration"
+msgstr "Integración de comercio electrónico"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:72
+#: build/main.js:54310
+msgid "WooCommerce: Add to Cart"
+msgstr "WooCommerce: Agregar al carrito"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:73
+#: build/main.js:54311
+msgid "WooCommerce: Product Category"
+msgstr "WooCommerce: Categoría de producto"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:74
+#: build/main.js:54312
+msgid "WooCommerce: Mini Cart"
+msgstr "WooCommerce: Mini carrito"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:75
+#: build/main.js:54313
+msgid "WooCommerce: Product"
+msgstr "WooCommerce: Producto"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:76
+#: build/main.js:54314
+msgid "WooCommerce: Checkout"
+msgstr "WooCommerce: Pago"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:80
+#: build/main.js:54318
+msgid "Forms Integration"
+msgstr "Integración de formularios"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:82
+#: build/main.js:54320
+msgid "Contact Form 7"
+msgstr "Formulario de contacto 7"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:83
+#: build/main.js:54321
+msgid "Gravity Forms"
+msgstr "Gravity Forms"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:84
+#: build/main.js:54322
+msgid "WPForms"
+msgstr "WPForms"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:85
+#: build/main.js:54323
+msgid "Fluent Forms"
+msgstr "Formas fluidas"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:89
+#: build/main.js:54327
+msgid "SEO Widgets"
+msgstr "Widgets de SEO"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:91
+#: build/main.js:54329
+msgid "FAQ with Schema"
+msgstr "FAQ con esquema"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:92
+#: build/main.js:54330
+msgid "How-To"
+msgstr "Cómo hacer"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:98
+#: build/main.js:54336
+msgid "Creative Features"
+msgstr "Características creativas"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:102
+#: build/main.js:54340
+msgid "Particles"
+msgstr "Partículas"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:108
+#: build/main.js:54346
+msgid "Social Media Integration"
+msgstr "Integración de redes sociales"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:116
+#: build/main.js:54354
+msgid "Advanced Features"
+msgstr "Características avanzadas"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:120
+#: build/main.js:54358
+msgid "Post Layout"
+msgstr "Diseño de publicaciones"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:121
+#: build/main.js:54359
+msgid "Off Canvas"
+msgstr "Fuera de canvas"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:168
+#: build/main.js:54406
+msgid "Free Vs Pro"
+msgstr "Gratis vs Pro"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:171
+#: build/main.js:54409
+msgid "Ultimate Addons for Elementor Pro offers 50+ widgets and features!"
+msgstr "¡Ultimate Addons para Elementor Pro ofrece más de 50 widgets y características!"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:174
+#: build/main.js:54412
+msgid "Compare the popular features/widgets to find the best option for your website."
+msgstr "Compara las características/widgets populares para encontrar la mejor opción para tu sitio web."
+
+#: build/main.js:2
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:198
+#: src/Components/Compare/UltimateCompare.jsx:109
+#: src/Components/Dashboard/MyAccount.jsx:53
+#: src/Components/Dashboard/UltimateFeatures.js:116
+#: src/Components/Widgets/UltimateWidgets.jsx:116
+#: build/main.js:52189
+#: build/main.js:52786
+#: build/main.js:54051
+#: build/main.js:54436
+#: build/main.js:54585
+msgid "Upgrade Now"
+msgstr "Actualizar ahora"
+
+#: build/main.js:2
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:218
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:200
+#: src/Components/NavMenu.js:233
+#: src/Components/NavMenu.js:253
+#: build/main.js:51108
+#: build/main.js:51128
+#: build/main.js:52445
+#: build/main.js:54456
+msgid "Free"
+msgstr "Gratis"
+
+#: build/main.js:172
+#: src/Components/Compare/FreevsPro.jsx:224
+#: build/main.js:54462
+msgid "Pro"
+msgstr "Pro"
+
+#: build/main.js:2
+#: build/main.js:172
+#: src/Components/Compare/UltimateCompare.jsx:22
+#: src/Components/Dashboard/UltimateFeatures.js:23
+#: src/Components/Widgets/UltimateWidgets.jsx:23
+#: build/main.js:52096
+#: build/main.js:52693
+#: build/main.js:54498
+msgid "Post Layouts"
+msgstr "Diseños de publicaciones"
+
+#: build/main.js:2
+#: build/main.js:172
+#: src/Components/Compare/UltimateCompare.jsx:32
+#: src/Components/Dashboard/UltimateFeatures.js:33
+#: src/Components/Widgets/UltimateWidgets.jsx:33
+#: build/main.js:52106
+#: build/main.js:52703
+#: build/main.js:54508
+msgid "Pricing Cards"
+msgstr "Tarjetas de precios"
+
+#: build/main.js:2
+#: build/main.js:172
+#: src/Components/Compare/UltimateCompare.jsx:37
+#: src/Components/Dashboard/UltimateFeatures.js:38
+#: src/Components/Widgets/UltimateWidgets.jsx:38
+#: build/main.js:52111
+#: build/main.js:52708
+#: build/main.js:54513
+msgid "Form Stylers and more..."
+msgstr "Estilizadores de formularios y más..."
+
+#: build/main.js:2
+#: build/main.js:172
+#: src/Components/Compare/UltimateCompare.jsx:55
+#: src/Components/Dashboard/UltimateFeatures.js:135
+#: src/Components/Widgets/UltimateWidgets.jsx:54
+#: build/main.js:52208
+#: build/main.js:52724
+#: build/main.js:54531
+msgid "Column Showcase"
+msgstr "Vitrina de columnas"
+
+#: build/main.js:2
+#: build/main.js:172
+#: src/Components/Compare/UltimateCompare.jsx:68
+#: src/Components/Dashboard/UltimateFeatures.js:62
+#: src/Components/Widgets/UltimateWidgets.jsx:67
+#: build/main.js:52135
+#: build/main.js:52737
+#: build/main.js:54544
+msgid "Unlock Ultimate Features"
+msgstr "Desbloquear características definitivas"
+
+#: build/main.js:2
+#: build/main.js:172
+#: src/Components/Compare/UltimateCompare.jsx:76
+#: src/Components/Dashboard/UltimateFeatures.js:73
+#: src/Components/Widgets/UltimateWidgets.jsx:75
+#: build/main.js:52146
+#: build/main.js:52745
+#: build/main.js:54552
+msgid "Create Stunning Designs with the Pro Version!"
+msgstr "¡Crea diseños impresionantes con la versión Pro!"
+
+#: build/main.js:2
+#: build/main.js:172
+#: src/Components/Compare/UltimateCompare.jsx:80
+#: src/Components/Dashboard/UltimateFeatures.js:80
+#: src/Components/Widgets/UltimateWidgets.jsx:82
+#: build/main.js:52153
+#: build/main.js:52752
+#: build/main.js:54556
+msgid "Get access to advanced widgets and features to create the website that stands out!"
+msgstr "¡Obtén acceso a widgets y características avanzadas para crear un sitio web que destaque!"
+
+#: build/main.js:2
+#: src/Components/Dashboard/ExtendWebsite.jsx:57
+#: build/main.js:52568
+msgid "Extend Your Website"
+msgstr "Extiende tu sitio web"
+
+#: build/main.js:2
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:72
+#: build/main.js:52317
+msgid "Installing.."
+msgstr "Instalando.."
+
+#: build/main.js:2
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:80
+#: build/main.js:52325
+msgid "Installed"
+msgstr "Instalado"
+
+#: build/main.js:2
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:94
+#: build/main.js:52339
+msgid "Theme Installation failed, Please try again later."
+msgstr "La instalación del tema falló, por favor intenta de nuevo más tarde."
+
+#: build/main.js:2
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:95
+#: build/main.js:52340
+msgid "Plugin Installation failed, Please try again later."
+msgstr "La instalación del plugin falló, por favor intenta de nuevo más tarde."
+
+#: build/main.js:2
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:144
+#: build/main.js:52389
+msgid "Activating.."
+msgstr "Activando.."
+
+#: build/main.js:2
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:222
+#: build/main.js:52467
+msgid "Visit Site"
+msgstr "Visitar sitio"
+
+#: build/main.js:2
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:234
+#: build/main.js:52479
+msgid "Activate Theme"
+msgstr "Activar tema"
+
+#: build/main.js:2
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:238
+#: build/main.js:52483
+msgid "Are you sure you want to switch your current theme to Astra?"
+msgstr "¿Estás seguro de que deseas cambiar tu tema actual a Astra?"
+
+#: build/main.js:2
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:246
+#: build/main.js:52491
+msgid "Close"
+msgstr "Cerrar"
+
+#: build/main.js:172
+#: src/Components/Dashboard/MyAccount.jsx:16
+#: src/Components/Settings/Settings.jsx:29
+#: build/main.js:54014
+#: build/main.js:54089
+msgid "My Account"
+msgstr "Mi cuenta"
+
+#: build/main.js:172
+#: src/Components/Dashboard/MyAccount.jsx:30
+#: build/main.js:54028
+msgid "License Key"
+msgstr "Clave de licencia"
+
+#: build/main.js:172
+#: src/Components/Dashboard/MyAccount.jsx:35
+#: build/main.js:54033
+msgid "Unlock Pro Features"
+msgstr "Desbloquear características Pro"
+
+#: build/main.js:172
+#: src/Components/Dashboard/MyAccount.jsx:36
+#: build/main.js:54034
+msgid "Get access to advanced blocks and premium features."
+msgstr "Obtén acceso a bloques avanzados y características premium."
+
+#: build/main.js:2
+#: src/Components/Dashboard/QuickAccess.js:20
+#: build/main.js:51754
+msgid "Quick Access"
+msgstr "Acceso rápido"
+
+#: build/main.js:2
+#: src/Components/Dashboard/QuickAccess.js:53
+#: build/main.js:51787
+msgid "Contact Us"
+msgstr "Contáctanos"
+
+#: build/main.js:2
+#: src/Components/Dashboard/QuickAccess.js:69
+#: build/main.js:51803
+msgid "Help Centre"
+msgstr "Centro de ayuda"
+
+#: build/main.js:2
+#: src/Components/Dashboard/QuickAccess.js:85
+#: build/main.js:51819
+msgid "Request a Feature"
+msgstr "Solicitar una característica"
+
+#: build/main.js:2
+#: src/Components/Dashboard/TemplateSection.js:64
+#: build/main.js:51649
+msgid "Build Websites 10x Faster with Templates"
+msgstr "Construye sitios web 10 veces más rápido con plantillas"
+
+#: build/main.js:2
+#: src/Components/Dashboard/TemplateSection.js:70
+#: build/main.js:51655
+msgid "Choose from our professionally designed websites to build your site faster, with easy customization options."
+msgstr ""
+"Elige entre nuestros sitios web diseñados profesionalmente para construir tu sitio más rápido, con opciones de "
+"personalización fáciles."
+
+#: build/main.js:2
+#: src/Components/Dashboard/TemplateSection.js:85
+#: src/Components/Dashboard/TemplateSection.js:97
+#: build/main.js:51670
+#: build/main.js:51682
+msgid "View Templates"
+msgstr "Ver plantillas"
+
+#: build/main.js:2
+#: src/Components/Dashboard/UltimateFeatures.js:122
+#: src/Components/Widgets/UltimateWidgets.jsx:119
+#: build/main.js:52195
+#: build/main.js:52789
+msgid "Compare Free vs Pro"
+msgstr "Comparar gratis vs pro"
+
+#: build/main.js:2
+#: src/Components/Dashboard/WelcomeContainer.js:25
+#: build/main.js:51926
+msgid "Welcome to Ultimate Addons for Elementor!"
+msgstr "¡Bienvenido a Ultimate Addons para Elementor!"
+
+#: build/main.js:2
+#: src/Components/Dashboard/WelcomeContainer.js:29
+#: build/main.js:51930
+msgid ""
+"We're excited to help you supercharge your website-building experience. Effortlessly design stunning websites with our "
+"comprehensive range of free and premium widgets and features."
+msgstr ""
+"Estamos emocionados de ayudarte a potenciar tu experiencia de creación de sitios web. Diseña sitios web impresionantes "
+"sin esfuerzo con nuestra amplia gama de widgets y características gratuitas y premium."
+
+#: build/main.js:2
+#: src/Components/Dashboard/WelcomeContainer.js:58
+#: build/main.js:51959
+msgid "Create Header/Footer"
+msgstr "Crear encabezado/pie de página"
+
+#: build/main.js:2
+#: src/Components/Dashboard/WelcomeContainer.js:86
+#: build/main.js:51987
+msgid "Create New Page"
+msgstr "Crear nueva página"
+
+#: build/main.js:2
+#: src/Components/Dashboard/WelcomeContainer.js:115
+#: build/main.js:52016
+msgid "Read full guide"
+msgstr "Leer guía completa"
+
+#: build/main.js:2
+#: src/Components/Dashboard/WidgetItem.jsx:132
+#: build/main.js:51418
+msgid "View Demo"
+msgstr "Ver demostración"
+
+#: build/main.js:2
+#: src/Components/Dashboard/WidgetItem.jsx:145
+#: build/main.js:51431
+msgid "Read Documentation"
+msgstr "Leer documentación"
+
+#: build/main.js:2
+#: src/Components/HeaderLine.js:16
+#: build/main.js:51895
+msgid "Formerly Elementor Header & Footer Builder"
+msgstr "Anteriormente Constructor de encabezados y pies de página de Elementor"
+
+#: build/main.js:2
+#: src/Components/NavMenu.js:162
+#: build/main.js:51037
+msgid "Widgets"
+msgstr "Widgets"
+
+#: build/main.js:2
+#: src/Components/NavMenu.js:173
+#: build/main.js:51048
+msgid "Templates"
+msgstr ""
+
+#: build/main.js:2
+#: src/Components/NavMenu.js:193
+#: build/main.js:51068
+msgid "Free vs Pro"
+msgstr ""
+
+#: build/main.js:2
+#: src/Components/NavMenu.js:220
+#: build/main.js:51095
+msgid "Get Pro"
+msgstr "Obtener Pro"
+
+#: build/main.js:2
+#: src/Components/NavMenu.js:244
+#: build/main.js:51119
+msgid "Version"
+msgstr "Versión"
+
+#: build/main.js:2
+#: src/Components/NavMenu.js:278
+#: build/main.js:51153
+msgid "Useful Resources"
+msgstr "Recursos útiles"
+
+#: build/main.js:2
+#: src/Components/NavMenu.js:295
+#: build/main.js:51170
+msgid "Getting Started"
+msgstr "Comenzando"
+
+#: build/main.js:2
+#: src/Components/NavMenu.js:308
+#: build/main.js:51183
+msgid "How to use widgets"
+msgstr "Cómo usar widgets"
+
+#: build/main.js:2
+#: src/Components/NavMenu.js:321
+#: build/main.js:51196
+msgid "How to use features"
+msgstr "Cómo usar características"
+
+#: build/main.js:2
+#: src/Components/NavMenu.js:334
+#: build/main.js:51209
+msgid "How to use templates"
+msgstr "Cómo usar plantillas"
+
+#: build/main.js:2
+#: src/Components/NavMenu.js:347
+#: build/main.js:51222
+msgid "Contact us"
+msgstr "Contáctanos"
+
+#: build/main.js:172
+#: src/Components/Settings/Settings.jsx:18
+#: src/Components/Settings/Settings.jsx:25
+#: src/Components/Settings/Settings.jsx:37
+#: src/Components/Settings/Settings.jsx:44
+#: src/Components/Settings/Settings.jsx:57
+#: src/Components/Settings/Settings.jsx:64
+#: build/main.js:54078
+#: build/main.js:54085
+#: build/main.js:54097
+#: build/main.js:54104
+#: build/main.js:54117
+#: build/main.js:54124
+msgid "Custom SVG"
+msgstr "SVG personalizado"
+
+#: build/main.js:172
+#: src/Components/Settings/Settings.jsx:48
+#: build/main.js:54108
+msgid "Editor"
+msgstr "Editor"
+
+#: build/main.js:172
+#: src/Components/Settings/Settings.jsx:68
+#: build/main.js:54128
+msgid "Utilities"
+msgstr "Utilidades"
+
+#: build/main.js:172
+#: src/Components/Settings/Settings.jsx:69
+#: src/Components/Settings/VersionControl.jsx:45
+#: build/main.js:53896
+#: build/main.js:54129
+msgid "Version Control"
+msgstr "Control de versiones"
+
+#: build/main.js:172
+#: src/Components/Settings/ThemeSupport.jsx:9
+#: build/main.js:53684
+msgid "Option 1 (Recommended)"
+msgstr "Opción 1 (Recomendada)"
+
+#: build/main.js:172
+#: src/Components/Settings/ThemeSupport.jsx:10
+#: src/Components/Settings/ThemeSupport.jsx:16
+#: build/main.js:53685
+#: build/main.js:53691
+msgid ""
+"This option will automatically replace your theme's header and footer files with custom templates from the plugin. It "
+"works with most themes and is selected by default."
+msgstr ""
+"Esta opción reemplazará automáticamente los archivos de encabezado y pie de página de tu tema con plantillas "
+"personalizadas del plugin. Funciona con la mayoría de los temas y está seleccionada por defecto."
+
+#: build/main.js:172
+#: src/Components/Settings/ThemeSupport.jsx:15
+#: build/main.js:53690
+msgid "Option 2"
+msgstr "Opción 2"
+
+#: build/main.js:172
+#: src/Components/Settings/ThemeSupport.jsx:63
+#: build/main.js:53738
+msgid "Settings saved successfully!"
+msgstr "¡Configuraciones guardadas con éxito!"
+
+#: build/main.js:172
+#: src/Components/Settings/ThemeSupport.jsx:65
+#: src/Components/Settings/ThemeSupport.jsx:68
+#: build/main.js:53740
+#: build/main.js:53743
+msgid "Failed to save settings!"
+msgstr "¡Error al guardar configuraciones!"
+
+#: build/main.js:172
+#: src/Components/Settings/ThemeSupport.jsx:95
+#: build/main.js:53770
+msgid "Select Option to Add Theme Support"
+msgstr "Selecciona una opción para agregar soporte de tema"
+
+#: build/main.js:172
+#: src/Components/Settings/ThemeSupport.jsx:97
+#: build/main.js:53772
+msgid ""
+"To ensure compatibility between the header/footer and your theme, please choose one of the following options to enable "
+"theme support:"
+msgstr ""
+"Para asegurar la compatibilidad entre el encabezado/pie de página y tu tema, por favor elige una de las siguientes "
+"opciones para habilitar el soporte de tema:"
+
+#: build/main.js:172
+#: src/Components/Settings/ThemeSupport.jsx:140
+#: build/main.js:53815
+msgid "Note:"
+msgstr "Nota:"
+
+#: build/main.js:172
+#: src/Components/Settings/ThemeSupport.jsx:140
+#: build/main.js:53815
+msgid "If neither option works, please contact your theme author to add support for this plugin."
+msgstr "Si ninguna opción funciona, por favor contacta al autor de tu tema para agregar soporte para este plugin."
+
+#: build/main.js:172
+#: src/Components/Settings/VersionControl.jsx:66
+#: build/main.js:53917
+msgid "Experiencing an issue with current version? Roll back to a previous version to help troubleshoot the issue."
+msgstr "¿Tienes un problema con la versión actual? Vuelve a una versión anterior para ayudar a solucionar el problema."
+
+#: build/main.js:172
+#: src/Components/Settings/VersionControl.jsx:112
+#: src/Components/Settings/VersionControl.jsx:129
+#: build/main.js:53963
+#: build/main.js:53980
+msgid "Rollback"
+msgstr "Revertir"
+
+#: build/main.js:172
+#: src/Components/Settings/VersionControl.jsx:132
+#: build/main.js:53983
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: build/main.js:2
+#: src/Components/Templates/ExploreTemplates.jsx:17
+#: build/main.js:53145
+msgid "250+ templates for every niche"
+msgstr "250+ plantillas para cada nicho"
+
+#: build/main.js:2
+#: src/Components/Templates/ExploreTemplates.jsx:22
+#: build/main.js:53150
+msgid "Modern, timeless designs"
+msgstr "Diseños modernos y atemporales"
+
+#: build/main.js:2
+#: src/Components/Templates/ExploreTemplates.jsx:27
+#: build/main.js:53155
+msgid "Full design flexibility for easy customization"
+msgstr "Flexibilidad total de diseño para una fácil personalización"
+
+#: build/main.js:2
+#: src/Components/Templates/ExploreTemplates.jsx:32
+#: build/main.js:53160
+msgid "100% responsive across all devices"
+msgstr "100% responsivo en todos los dispositivos"
+
+#: build/main.js:2
+#: src/Components/Templates/ExploreTemplates.jsx:65
+#: src/Components/Templates/ExploreTemplates.jsx:94
+#: build/main.js:53193
+#: build/main.js:53222
+msgid "Install Starter Templates"
+msgstr "Instalar plantillas iniciales"
+
+#: build/main.js:2
+#: src/Components/Templates/ExploreTemplates.jsx:65
+#: src/Components/Templates/ExploreTemplates.jsx:167
+#: build/main.js:53193
+#: build/main.js:53295
+msgid "Activate Starter Templates"
+msgstr "Activar plantillas iniciales"
+
+#: build/main.js:2
+#: src/Components/Templates/ExploreTemplates.jsx:81
+#: build/main.js:53209
+msgid "Installing Starter Templates..."
+msgstr "Instalando plantillas iniciales..."
+
+#: build/main.js:2
+#: src/Components/Templates/ExploreTemplates.jsx:90
+#: build/main.js:53218
+msgid "Installed Starter Templates"
+msgstr "Plantillas iniciales instaladas"
+
+#: build/main.js:2
+#: src/Components/Templates/ExploreTemplates.jsx:100
+#: src/Components/Templates/ExploreTemplates.jsx:156
+#: build/main.js:53228
+#: build/main.js:53284
+msgid "Activating Starter Templates..."
+msgstr "Activando plantillas iniciales..."
+
+#: build/main.js:2
+#: src/Components/Templates/ExploreTemplates.jsx:158
+#: build/main.js:53286
+msgid "Activated Starter Templates"
+msgstr "Plantillas iniciales activadas"
+
+#: build/main.js:2
+#: src/Components/Templates/ExploreTemplates.jsx:191
+#: build/main.js:53319
+msgid "Design Your Website in Minutes"
+msgstr "Diseña tu sitio web en minutos"
+
+#: build/main.js:2
+#: src/Components/Templates/ExploreTemplates.jsx:200
+#: build/main.js:53328
+msgid "Build your website faster using our prebuilt templates"
+msgstr "Construye tu sitio web más rápido usando nuestras plantillas preconstruidas"
+
+#: build/main.js:2
+#: src/Components/Templates/ExploreTemplates.jsx:205
+#: build/main.js:53333
+msgid ""
+"Stop building your site from scratch. Use our professional templates for your stunning website.It is easy to customize "
+"and completely responsive. Explore hundreds of designs and bring your vision to life in no time."
+msgstr ""
+"Deja de construir tu sitio desde cero. Usa nuestras plantillas profesionales para tu impresionante sitio web. Es fácil "
+"de personalizar y completamente responsivo. Explora cientos de diseños y da vida a tu visión en poco tiempo."
+
+#: build/main.js:2
+#: src/Components/Templates/ExploreTemplates.jsx:238
+#: build/main.js:53366
+msgid "Explore Templates"
+msgstr "Explorar plantillas"
+
+#: build/main.js:2
+#: src/Components/Templates/ExploreTemplates.jsx:249
+#: build/main.js:53377
+msgid "Learn More"
+msgstr "Aprender más"
+
+#: src/Components/UpgradeNotice.jsx:33
+msgid "Close Upgrade Notice"
+msgstr "Cerrar aviso de actualización"
+
+#: src/Components/UpgradeNotice.jsx:38
+msgid "Unlock Ultimate Addons For Elementor!  "
+msgstr "¡Desbloquea los complementos definitivos para Elementor!"
+
+#: src/Components/UpgradeNotice.jsx:44
+msgid "Get exclusive features and unbeatable performance.  "
+msgstr "Obtén características exclusivas y un rendimiento inigualable."
+
+#: src/Components/UpgradeNotice.jsx:53
+msgid "Upgrade now"
+msgstr "Actualiza ahora"
+
+#: build/main.js:2
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:140
+#: build/main.js:52975
+msgid "Widgets / Features"
+msgstr "Widgets / Características"
+
+#: build/main.js:2
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:152
+#: build/main.js:52987
+msgid "Search..."
+msgstr "Buscar..."
+
+#: build/main.js:2
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:174
+#: build/main.js:53009
+msgid "Activating..."
+msgstr "Activando..."
+
+#: build/main.js:2
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:174
+#: build/main.js:53009
+msgid "Activate All"
+msgstr "Activar todo"
+
+#: build/main.js:2
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:185
+#: build/main.js:53020
+msgid "Deactivating..."
+msgstr "Desactivando..."
+
+#: build/main.js:2
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:185
+#: build/main.js:53020
+msgid "Deactivate All"
+msgstr "Desactivar todo"
+
+#: admin/class-hfe-addons-actions.php:87
+msgid "Plugin slug is missing."
+msgstr "Falta el slug del plugin."
+
+#: admin/class-hfe-addons-actions.php:110
+msgid "Plugin installation function not found."
+msgstr "Función de instalación del plugin no encontrada."
+
+#: admin/class-hfe-addons-actions.php:133
+msgid "Theme slug is missing."
+msgstr "Falta el slug del tema."
+
+#: admin/class-hfe-addons-actions.php:156
+msgid "Theme installation function not found."
+msgstr "Función de instalación del tema no encontrada."
+
+#: inc/class-hfe-settings-page.php:103
+msgid "How likely are you to recommend Ultimate Addons for Elementor to your friends or colleagues?"
+msgstr "¿Qué tan probable es que recomiendes los complementos definitivos para Elementor a tus amigos o colegas?"
+
+#: inc/class-hfe-settings-page.php:105
+msgid ""
+"Could you please do us a favor and give us a 5-star rating on Trustpilot? It would help others choose Ultimate Addons "
+"for Elementor with confidence. Thank you!"
+msgstr ""
+"¿Podrías hacernos un favor y darnos una calificación de 5 estrellas en Trustpilot? Ayudaría a otros a elegir los "
+"complementos definitivos para Elementor con confianza. ¡Gracias!"
+
+#: inc/class-hfe-settings-page.php:108
+msgid "Thank you for your feedback"
+msgstr "Gracias por tus comentarios"
+
+#: inc/class-hfe-settings-page.php:109
+msgid "We value your input. How can we improve your experience?"
+msgstr "Valoramos su opinión. ¿Cómo podemos mejorar su experiencia?"
+
+#: inc/widgets-manager/widgets/post-info/post-info.php:152
+msgctxt "Date Format"
+msgid "June 1, 2024 (F j, Y)"
+msgstr "1 de junio de 2024 (j F, Y)"
