@@ -63,7 +63,7 @@
 				"@wordpress/env": "^10.13.0",
 				"@wordpress/eslint-plugin": "^9.3.0",
 				"@wordpress/i18n": "^4.2.4",
-				"@wordpress/jest-puppeteer-axe": "^4.0.1",
+				"@wordpress/jest-puppeteer-axe": "^7.16.0",
 				"@wordpress/scripts": "^19.2.3",
 				"ajv": "^8.17.1",
 				"autoprefixer": "^10.4.19",
