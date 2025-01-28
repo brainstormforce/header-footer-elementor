@@ -134,6 +134,7 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 - Fix: Navigation Menu - Anchor links now correctly scroll to sections/container when submenu items with IDs are clicked.
 - Fix: "Function map_meta_cap called incorrectly" notice appearing for logged out users when shortcode executed manually.
 - Fix: Deprecated constant FILTER_SANITIZE_STRING replaced to ensure compatibility with PHP.
+- Fix: Resolved PHP error with NPS library.
 
 = 2.1.0 =
 - New: Added NPS Survey to gather your valuable feedback for Ultimate Addons for Elementor.
