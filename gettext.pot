@@ -1,0 +1,780 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"X-Generator: babel-plugin-makepot\n"
+
+#: src/Components/Compare/FreevsPro.jsx:100
+msgid "Presets"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:101
+msgid "Welcome Music"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:102
+msgid "Particles"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:103
+msgid "Party Propz"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:104
+msgid "Shape Divider"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:108
+msgid "Social Media Integration"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:11
+msgid "White Label Option"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:110
+msgid "Instagram Feed"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:111
+msgid "Twitter Feed"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:112
+msgid "Social Share"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:116
+msgid "Advanced Features"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:118
+msgid "Retina Image"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:119
+msgid "Team Member"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:12
+msgid "24/7 Premium Support"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:120
+msgid "Post Layout"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:121
+msgid "Off Canvas"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:13
+msgid "Cross-Domain Copy-Paste"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:150
+msgid "Navigation Menu"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:152
+msgid "Basic"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:153
+msgid "Advanced"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:168
+msgid "Free Vs Pro"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:17
+msgid "Dynamic Header & Footer Widgets"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:171
+msgid "Ultimate Addons for Elementor Pro offers 50+ widgets and features!"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:174
+msgid ""
+"Compare the popular features/widgets to find the best option for your "
+"website."
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:19
+msgid "Post Info"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:198
+#: src/Components/Compare/UltimateCompare.jsx:109
+#: src/Components/Dashboard/MyAccount.jsx:53
+#: src/Components/Dashboard/UltimateFeatures.js:116
+#: src/Components/Widgets/UltimateWidgets.jsx:116
+msgid "Upgrade Now"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:20
+msgid "Scroll to Top"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:21
+msgid "Breadcrumbs"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:218
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:200
+#: src/Components/NavMenu.js:253
+msgid "Free"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:22
+msgid "Retina Logo"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:224
+msgid "Pro"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:23
+msgid "Copyright"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:24
+msgid "Page Title"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:25
+msgid "Site Tagline"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:26
+msgid "Site Logo"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:27
+msgid "Search"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:32
+msgid "Creative & Advanced Design Widgets"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:34
+#: src/Components/Compare/UltimateCompare.jsx:17
+#: src/Components/Dashboard/UltimateFeatures.js:18
+#: src/Components/Widgets/UltimateWidgets.jsx:18
+msgid "Advanced Heading"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:35
+msgid "Dual Color Heading"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:36
+msgid "Fancy Heading"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:37
+msgid "Multi-Button"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:38
+msgid "Image Hotspots"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:42
+msgid "Content & Media Widgets"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:44
+msgid "Content Toggle Button"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:45
+msgid "Image Gallery"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:46
+msgid "Video Gallery"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:47
+msgid "Table"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:48
+msgid "Timeline"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:49
+msgid "Google Map"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:50
+msgid "Before & After Slider"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:51
+#: src/Components/Compare/UltimateCompare.jsx:27
+#: src/Components/Dashboard/UltimateFeatures.js:28
+#: src/Components/Widgets/UltimateWidgets.jsx:28
+msgid "Info Box"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:52
+msgid "Video"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:53
+msgid "Conditional Display"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:54
+msgid "Login Form"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:55
+msgid "User Registeration Form"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:59
+msgid "Marketing & Engagement Widgets"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:61
+msgid "Marketing Button"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:62
+msgid "Pricing Table"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:63
+msgid "Price List"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:64
+msgid "Countdown Timer"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:65
+msgid "Business Hours"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:66
+#: src/Components/Compare/UltimateCompare.jsx:12
+#: src/Components/Dashboard/UltimateFeatures.js:13
+#: src/Components/Widgets/UltimateWidgets.jsx:13
+msgid "Modal Popup"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:70
+msgid "E-Commerce Integration"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:72
+msgid "WooCommerce: Add to Cart"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:73
+msgid "WooCommerce: Product Category"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:74
+msgid "WooCommerce: Mini Cart"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:75
+msgid "WooCommerce: Product"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:76
+msgid "WooCommerce: Checkout"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:80
+msgid "Forms Integration"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:82
+msgid "Contact Form 7"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:83
+msgid "Gravity Forms"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:84
+msgid "WPForms"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:85
+msgid "Fluent Forms"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:89
+msgid "SEO Widgets"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:9
+msgid "Essentials"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:91
+msgid "FAQ with Schema"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:92
+msgid "How-To"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:93
+msgid "Table of Contents"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:94
+msgid "Business Reviews"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:98
+msgid "Creative Features"
+msgstr ""
+
+#: src/Components/Compare/UltimateCompare.jsx:22
+#: src/Components/Dashboard/UltimateFeatures.js:23
+#: src/Components/Widgets/UltimateWidgets.jsx:23
+msgid "Post Layouts"
+msgstr ""
+
+#: src/Components/Compare/UltimateCompare.jsx:32
+#: src/Components/Dashboard/UltimateFeatures.js:33
+#: src/Components/Widgets/UltimateWidgets.jsx:33
+msgid "Pricing Cards"
+msgstr ""
+
+#: src/Components/Compare/UltimateCompare.jsx:37
+#: src/Components/Dashboard/UltimateFeatures.js:38
+#: src/Components/Widgets/UltimateWidgets.jsx:38
+msgid "Form Stylers and more..."
+msgstr ""
+
+#: src/Components/Compare/UltimateCompare.jsx:55
+#: src/Components/Dashboard/UltimateFeatures.js:135
+#: src/Components/Widgets/UltimateWidgets.jsx:54
+msgid "Column Showcase"
+msgstr ""
+
+#: src/Components/Compare/UltimateCompare.jsx:68
+#: src/Components/Dashboard/UltimateFeatures.js:62
+#: src/Components/Widgets/UltimateWidgets.jsx:67
+msgid "Unlock Ultimate Features"
+msgstr ""
+
+#: src/Components/Compare/UltimateCompare.jsx:76
+#: src/Components/Dashboard/UltimateFeatures.js:73
+#: src/Components/Widgets/UltimateWidgets.jsx:75
+msgid "Create Stunning Designs with the Pro Version!"
+msgstr ""
+
+#: src/Components/Compare/UltimateCompare.jsx:80
+#: src/Components/Dashboard/UltimateFeatures.js:80
+#: src/Components/Widgets/UltimateWidgets.jsx:82
+msgid ""
+"Get access to advanced widgets and features to create the website that "
+"stands out!"
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsite.jsx:57
+msgid "Extend Your Website"
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:144
+msgid "Activating.."
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:156
+msgid "Activated"
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:173
+msgid "Activate"
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:222
+msgid "Visit Site"
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:234
+msgid "Activate Theme"
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:238
+msgid "Are you sure you want to switch your current theme to Astra?"
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:243
+msgid "Yes"
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:246
+msgid "Close"
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:72
+msgid "Installing.."
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:80
+msgid "Installed"
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:91
+msgid "Install"
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:94
+msgid "Theme Installation failed, Please try again later."
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:95
+msgid "Plugin Installation failed, Please try again later."
+msgstr ""
+
+#: src/Components/Dashboard/MyAccount.jsx:16
+#: src/Components/Settings/Settings.jsx:29
+msgid "My Account"
+msgstr ""
+
+#: src/Components/Dashboard/MyAccount.jsx:30
+msgid "License Key"
+msgstr ""
+
+#: src/Components/Dashboard/MyAccount.jsx:31
+msgid ""
+"You are using the free version of Ultimate Addons for Elementor, no license "
+"key is needed.. "
+msgstr ""
+
+#: src/Components/Dashboard/MyAccount.jsx:35
+msgid "Unlock Pro Features"
+msgstr ""
+
+#: src/Components/Dashboard/MyAccount.jsx:36
+msgid "Get access to advanced blocks and premium features."
+msgstr ""
+
+#: src/Components/Dashboard/QuickAccess.js:20
+msgid "Quick Access"
+msgstr ""
+
+#: src/Components/Dashboard/QuickAccess.js:53
+msgid "Contact Us"
+msgstr ""
+
+#: src/Components/Dashboard/QuickAccess.js:69
+msgid "Help Centre"
+msgstr ""
+
+#: src/Components/Dashboard/QuickAccess.js:85
+msgid "Request a Feature"
+msgstr ""
+
+#: src/Components/Dashboard/TemplateSection.js:64
+msgid "Build Websites 10x Faster with Templates"
+msgstr ""
+
+#: src/Components/Dashboard/TemplateSection.js:70
+msgid ""
+"Choose from our professionally designed websites to build your site faster, "
+"with easy customization options."
+msgstr ""
+
+#: src/Components/Dashboard/TemplateSection.js:97
+msgid "View Templates"
+msgstr ""
+
+#: src/Components/Dashboard/UltimateFeatures.js:122
+#: src/Components/Widgets/UltimateWidgets.jsx:119
+msgid "Compare Free vs Pro"
+msgstr ""
+
+#: src/Components/Dashboard/WelcomeContainer.js:115
+msgid "Read full guide"
+msgstr ""
+
+#: src/Components/Dashboard/WelcomeContainer.js:25
+msgid "Welcome to Ultimate Addons for Elementor!"
+msgstr ""
+
+#: src/Components/Dashboard/WelcomeContainer.js:29
+msgid ""
+"We're excited to help you supercharge your website-building experience. "
+"Effortlessly design stunning websites with our comprehensive range of free "
+"and premium widgets and features."
+msgstr ""
+
+#: src/Components/Dashboard/WelcomeContainer.js:58
+msgid "Create Header/Footer"
+msgstr ""
+
+#: src/Components/Dashboard/WelcomeContainer.js:86
+msgid "Create New Page"
+msgstr ""
+
+#: src/Components/Dashboard/WidgetItem.jsx:132
+msgid "View Demo"
+msgstr ""
+
+#: src/Components/Dashboard/WidgetItem.jsx:145
+msgid "Read Documentation"
+msgstr ""
+
+#: src/Components/HeaderLine.js:16
+msgid "Formerly Elementor Header & Footer Builder"
+msgstr ""
+
+#: src/Components/NavMenu.js:130
+msgid "Dashboard"
+msgstr ""
+
+#: src/Components/NavMenu.js:150
+msgid "Header & Footer Builder"
+msgstr ""
+
+#: src/Components/NavMenu.js:162
+msgid "Widgets"
+msgstr ""
+
+#: src/Components/NavMenu.js:173
+msgid "Templates"
+msgstr ""
+
+#: src/Components/NavMenu.js:184
+msgid "Settings"
+msgstr ""
+
+#: src/Components/NavMenu.js:193
+msgid "Free vs Pro"
+msgstr ""
+
+#: src/Components/NavMenu.js:220
+msgid "Get Pro"
+msgstr ""
+
+#: src/Components/NavMenu.js:244
+msgid "Version"
+msgstr ""
+
+#: src/Components/NavMenu.js:278
+msgid "Useful Resources"
+msgstr ""
+
+#: src/Components/NavMenu.js:295
+msgid "Getting Started"
+msgstr ""
+
+#: src/Components/NavMenu.js:308
+msgid "How to use widgets"
+msgstr ""
+
+#: src/Components/NavMenu.js:321
+msgid "How to use features"
+msgstr ""
+
+#: src/Components/NavMenu.js:334
+msgid "How to use templates"
+msgstr ""
+
+#: src/Components/NavMenu.js:347
+msgid "Contact us"
+msgstr ""
+
+#: src/Components/NavMenu.js:77
+msgid "What's New?"
+msgstr ""
+
+#: src/Components/Settings/Settings.jsx:48
+msgid "Editor"
+msgstr ""
+
+#: src/Components/Settings/Settings.jsx:49
+#: src/Components/Settings/ThemeSupport.jsx:80
+msgid "Theme Support"
+msgstr ""
+
+#: src/Components/Settings/Settings.jsx:64
+msgid "Custom SVG"
+msgstr ""
+
+#: src/Components/Settings/Settings.jsx:68
+msgid "Utilities"
+msgstr ""
+
+#: src/Components/Settings/Settings.jsx:69
+#: src/Components/Settings/VersionControl.jsx:45
+msgid "Version Control"
+msgstr ""
+
+#: src/Components/Settings/ThemeSupport.jsx:140
+msgid "Note:"
+msgstr ""
+
+#: src/Components/Settings/ThemeSupport.jsx:140
+msgid ""
+"If neither option works, please contact your theme author to add support "
+"for this plugin."
+msgstr ""
+
+#: src/Components/Settings/ThemeSupport.jsx:15
+msgid "Option 2"
+msgstr ""
+
+#: src/Components/Settings/ThemeSupport.jsx:16
+msgid ""
+"This option will automatically replace your theme's header and footer files "
+"with custom templates from the plugin. It works with most themes and is "
+"selected by default."
+msgstr ""
+
+#: src/Components/Settings/ThemeSupport.jsx:63
+msgid "Settings saved successfully!"
+msgstr ""
+
+#: src/Components/Settings/ThemeSupport.jsx:68
+msgid "Failed to save settings!"
+msgstr ""
+
+#: src/Components/Settings/ThemeSupport.jsx:9
+msgid "Option 1 (Recommended)"
+msgstr ""
+
+#: src/Components/Settings/ThemeSupport.jsx:95
+msgid "Select Option to Add Theme Support"
+msgstr ""
+
+#: src/Components/Settings/ThemeSupport.jsx:97
+msgid ""
+"To ensure compatibility between the header/footer and your theme, please "
+"choose one of the following options to enable theme support:"
+msgstr ""
+
+#: src/Components/Settings/VersionControl.jsx:119
+msgid "Rollback to Previous Version"
+msgstr ""
+
+#: src/Components/Settings/VersionControl.jsx:129
+msgid "Rollback"
+msgstr ""
+
+#: src/Components/Settings/VersionControl.jsx:132
+msgid "Cancel"
+msgstr ""
+
+#: src/Components/Settings/VersionControl.jsx:66
+msgid ""
+"Experiencing an issue with current version? Roll back to a previous version "
+"to help troubleshoot the issue."
+msgstr ""
+
+#: src/Components/Templates/ExploreTemplates.jsx:156
+msgid "Activating Starter Templates..."
+msgstr ""
+
+#: src/Components/Templates/ExploreTemplates.jsx:158
+msgid "Activated Starter Templates"
+msgstr ""
+
+#: src/Components/Templates/ExploreTemplates.jsx:167
+msgid "Activate Starter Templates"
+msgstr ""
+
+#: src/Components/Templates/ExploreTemplates.jsx:17
+msgid "250+ templates for every niche"
+msgstr ""
+
+#: src/Components/Templates/ExploreTemplates.jsx:191
+msgid "Design Your Website in Minutes"
+msgstr ""
+
+#: src/Components/Templates/ExploreTemplates.jsx:200
+msgid "Build your website faster using our prebuilt templates"
+msgstr ""
+
+#: src/Components/Templates/ExploreTemplates.jsx:205
+msgid ""
+"Stop building your site from scratch. Use our professional templates for "
+"your stunning website.It is easy to customize and completely responsive. "
+"Explore hundreds of designs and bring your vision to life in no time."
+msgstr ""
+
+#: src/Components/Templates/ExploreTemplates.jsx:22
+msgid "Modern, timeless designs"
+msgstr ""
+
+#: src/Components/Templates/ExploreTemplates.jsx:238
+msgid "Explore Templates"
+msgstr ""
+
+#: src/Components/Templates/ExploreTemplates.jsx:249
+msgid "Learn More"
+msgstr ""
+
+#: src/Components/Templates/ExploreTemplates.jsx:27
+msgid "Full design flexibility for easy customization"
+msgstr ""
+
+#: src/Components/Templates/ExploreTemplates.jsx:32
+msgid "100% responsive across all devices"
+msgstr ""
+
+#: src/Components/Templates/ExploreTemplates.jsx:81
+msgid "Installing Starter Templates..."
+msgstr ""
+
+#: src/Components/Templates/ExploreTemplates.jsx:90
+msgid "Installed Starter Templates"
+msgstr ""
+
+#: src/Components/Templates/ExploreTemplates.jsx:94
+msgid "Install Starter Templates"
+msgstr ""
+
+#: src/Components/UpgradeNotice.jsx:33
+msgid "Close Upgrade Notice"
+msgstr ""
+
+#: src/Components/UpgradeNotice.jsx:38
+msgid "Unlock Ultimate Addons For Elementor!  "
+msgstr ""
+
+#: src/Components/UpgradeNotice.jsx:44
+msgid "Get exclusive features and unbeatable performance.  "
+msgstr ""
+
+#: src/Components/UpgradeNotice.jsx:53
+msgid "Upgrade now"
+msgstr ""
+
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:140
+msgid "Widgets / Features"
+msgstr ""
+
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:152
+msgid "Search..."
+msgstr ""
+
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:174
+msgid "Activating..."
+msgstr ""
+
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:174
+msgid "Activate All"
+msgstr ""
+
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:185
+msgid "Deactivating..."
+msgstr ""
+
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:185
+msgid "Deactivate All"
+msgstr ""

@@ -160,8 +160,7 @@ class Header_Footer_Elementor {
 
 			if ( ! class_exists( 'HFE_Utm_Analytics' ) ) {
 				require_once HFE_DIR . 'inc/lib/class-hfe-utm-analytics.php';
-			}
-
+			}       
 		}
 	}
 
@@ -432,10 +431,10 @@ class Header_Footer_Elementor {
 	}
 
 	/**
-	* Loads textdomain for the plugin.
-	*
-	* @return void
-	*/
+	 * Loads textdomain for the plugin.
+	 *
+	 * @return void
+	 */
 	public function load_hfe_textdomain() {
 	
 		// Default languages directory for "header-footer-elementor".
