@@ -55,12 +55,12 @@ function hfe_enqueue_font_awesome() {
 	if ( class_exists( 'Elementor\Plugin' ) ) {
 
 		// Ensure Elementor Icons CSS is loaded.
-        wp_enqueue_style(
-            'hfe-elementor-icons',
-            plugins_url( '/elementor/assets/lib/eicons/css/elementor-icons.min.css', 'elementor' ),
-            [],
-            '5.34.0'
-        );
+		wp_enqueue_style(
+			'hfe-elementor-icons',
+			plugins_url( '/elementor/assets/lib/eicons/css/elementor-icons.min.css', 'elementor' ),
+			[],
+			'5.34.0'
+		);
 		wp_enqueue_style(
 			'hfe-icons-list',
 			plugins_url( '/elementor/assets/css/widget-icon-list.min.css', 'elementor' ),
