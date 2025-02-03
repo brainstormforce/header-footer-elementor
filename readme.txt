@@ -129,13 +129,15 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 
 == Changelog ==
 
+= 2.2.0.1 =
+- Improvement: Removed 'elementor-button-wrapper' to enhance performance and optimize the DOM structure.
+
 = 2.2.0 =
 - New: Ultimate Addons for Elementor now includes translations for Dutch, French, Spanish, and German enhancing multilingual accessibility.
 - Fix: Navigation Menu - Anchor links now correctly scroll to sections/container when submenu items with IDs are clicked.
 - Fix: "Function map_meta_cap called incorrectly" notice appearing for logged out users when shortcode executed manually.
 - Fix: Deprecated constant FILTER_SANITIZE_STRING replaced to ensure compatibility with PHP.
 - Fix: Resolved PHP error with NPS library.
-- Improvement: Removed 'elementor-button-wrapper' to enhance performance and optimize the DOM structure.
 
 = 2.1.0 =
 - New: Added NPS Survey to gather your valuable feedback for Ultimate Addons for Elementor.
