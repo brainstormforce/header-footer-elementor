@@ -73,7 +73,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		 * It checks for the plugin slug in the AJAX request, verifies the nonce, and initiates the plugin installation process.
 		 * If the plugin is successfully installed, it schedules a database update to map the plugin slug to a custom key for analytics tracking.
 		 *
-		 * @since x.x.x
+		 * @since 2.2.0
 		 */
 		public function hfe_plugin_install() {
 
@@ -119,7 +119,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		 * It checks for the plugin slug in the AJAX request, verifies the nonce, and initiates the plugin installation process.
 		 * If the theme is successfully installed, it schedules a database update to map the plugin slug to a custom key for analytics tracking.
 		 *
-		 * @since x.x.x
+		 * @since 2.2.0
 		 */
 		public function hfe_theme_install() {
 
@@ -378,7 +378,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		/**
 		 * Save HFE compatibility option via AJAX.
 		 *
-		 * @since x.x.x
+		 * @since 2.2.0
 		 * @return void
 		 */
 		public function save_hfe_compatibility_option_callback() {
