@@ -4,7 +4,7 @@ Tags: elementor, header footer builder, widgets, header template, footer templat
 Requires at least: 5.0  
 Tested up to: 6.7.1 
 Requires PHP: 7.4  
-Stable tag: 2.1.0
+Stable tag: 2.2.0
 License: GPLv2 or later  
 License URI: https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -129,6 +129,12 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 
 == Changelog ==
 
+= 2.2.0 =
+- New: Ultimate Addons for Elementor now includes translations for Dutch, French, Spanish, and German enhancing multilingual accessibility.
+- Fix: Navigation Menu - Anchor links now correctly scroll to sections/container when submenu items with IDs are clicked.
+- Fix: "Function map_meta_cap called incorrectly" notice appearing for logged out users when shortcode executed manually.
+- Fix: Deprecated constant FILTER_SANITIZE_STRING replaced to ensure compatibility with PHP.
+- Fix: Resolved PHP error with NPS library.
 
 = 2.1.0 =
 - New: Added NPS Survey to gather your valuable feedback for Ultimate Addons for Elementor.
