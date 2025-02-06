@@ -777,6 +777,15 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .h-screen{
     height: 100vh;
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .h-20{
+    height: 5rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .h-36{
+    height: 9rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .h-24{
+    height: 6rem;
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .max-h-\[10\.75rem\]{
     max-height: 10.75rem;
 }
@@ -900,6 +909,18 @@
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .w-full{
     width: 100%;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .w-20{
+    width: 5rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .w-36{
+    width: 9rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .w-24{
+    width: 6rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .w-12{
+    width: 3rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .min-w-10{
     min-width: 2.5rem;

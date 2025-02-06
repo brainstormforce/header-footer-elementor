@@ -28,7 +28,7 @@ const Onboarding = () => {
 								{hfeSettingsData.uae_logo && (
 									<Link to={routes.dashboard.path}>
 										<img
-											src={`${hfeSettingsData.uae_logo}`}
+											src={`${hfeSettingsData.icon_url}`}
 											alt="Logo"
 											className="ml-4 cursor-pointer"
 										/>

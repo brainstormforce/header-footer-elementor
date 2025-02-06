@@ -9,6 +9,7 @@ import {
 import FeatureWidgets from '@components/Widgets/Features/FeatureWidgets';
 import { __ } from "@wordpress/i18n";
 import { MoveLeft, MoveRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import FeatureWidgetsOnboarding from '@components/Widgets/Features/FeatureWidgetsOnboarding';
 
 const Configure = ({ setCurrentStep }) => {
   return (
@@ -30,7 +31,7 @@ const Configure = ({ setCurrentStep }) => {
           )}
         </p>
       </div>
-      <FeatureWidgets />
+      <FeatureWidgetsOnboarding />
       <div className='flex items-center justify-between p-10'>
         <Button
           icon={<ChevronLeft />}
