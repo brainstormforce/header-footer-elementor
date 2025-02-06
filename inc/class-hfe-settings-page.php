@@ -557,6 +557,17 @@ class HFE_Settings_Page {
 			9
 		);
 
+		// Add the Settings Submenu.
+		add_submenu_page(
+			$menu_slug,
+			__( 'Onboarding', 'header-footer-elementor' ),
+			__( 'Onboarding', 'header-footer-elementor' ),
+			$capability,
+			$menu_slug . '#onboarding',
+			[ $this, 'render' ],
+			9
+		);
+
 	}
 
 	/**
