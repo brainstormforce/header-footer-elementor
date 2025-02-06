@@ -10,16 +10,16 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                 {/* Left Content */}
                 <div className="flex flex-col items-start w-1/2">
                     <p className="font-bold text-text-primary m-0 mt-2" style={{ fontSize: '30px'}}>
-                        {__("You’re all set! 🚀", "uael")}
+                        {__("You’re all set! 🚀", "header-footer-elementor")}
                     </p>
                     <p className="font-medium text-text-tertiary m-0 mt-2 text-base w-[350px]">
                         {__(
                             "Start creating headers, footers, or pages with UAE and take your website to the next level",
-                            "uael"
+                            "header-footer-elementor"
                         )}
                     </p>
                     <p className="font-bold text-text-primary m-0 mt-2 text-base">
-                        {__("Here’s What UAE Will Do for You Now:", "uael")}
+                        {__("Here’s What UAE Will Do for You Now:", "header-footer-elementor")}
                     </p>
                     <ul className="list-none pl-0 space-y-2">
                         <li className="flex items-start gap-x-2 text-field-label text-sm font-medium">
@@ -76,7 +76,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                         );
                     }}
                 >
-                    {__("Create Header/Footer", "uael")}
+                    {__("Create Header/Footer", "header-footer-elementor")}
                 </Button>
 
                 <Button
@@ -106,7 +106,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                         );
                     }}
                 >
-                    {__("Go to Dashboard", "uael")}
+                    {__("Go to Dashboard", "header-footer-elementor")}
                 </Button>
             </div>
             <div className="flex items-start justify-start" style={{ marginTop: '40px' }}>
@@ -126,7 +126,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                         value=""
                         className=""
                     />
-                    <Title size="xs" tag="h3" title={__('Help make UAE Better', 'uael')} />
+                    <Title size="xs" tag="h3" title={__('Help make UAE Better', 'header-footer-elementor')} />
                 </div>
                 <p className='text-base font-medium text-[#64748B]'>Help us improve by sharing anonymous data about your website setup. This includes non-sensitive info about plugins, themes, and settings, so we can create a better product for you. Your privacy is always our top priority. Learn more in our privacy policy.</p>
             </div>

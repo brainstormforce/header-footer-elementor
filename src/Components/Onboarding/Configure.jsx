@@ -21,12 +21,12 @@ const Configure = ({ setCurrentStep }) => {
           className="max-w-lg"
           size="lg"
           tag="h3"
-          title={__("Customize your UAE setup", "uael")}
+          title={__("Customize your UAE setup", "header-footer-elementor")}
         />
         <p className="text-sm font-medium text-text-tertiary m-0 mt-2">
           {__(
             "Activate only what you need to keep your website fast and optimised.",
-            "uael"
+            "header-footer-elementor"
           )}
         </p>
       </div>
@@ -51,7 +51,7 @@ const Configure = ({ setCurrentStep }) => {
           }
           onClick={() => setCurrentStep(1)}
         >
-          {__("Back", "uael")}
+          {__("Back", "header-footer-elementor")}
         </Button>
         <div className='flex gap-3'>
           <Button
@@ -70,7 +70,7 @@ const Configure = ({ setCurrentStep }) => {
                 "#6005FF")
             }
           >
-            {__("Skip", "uael")}
+            {__("Skip", "header-footer-elementor")}
           </Button>
           <Button
             icon={<ChevronRight />}
@@ -91,7 +91,7 @@ const Configure = ({ setCurrentStep }) => {
             }
             onClick={() => setCurrentStep(3)}
           >
-            {__("Next", "uael")}
+            {__("Next", "header-footer-elementor")}
           </Button>
         </div>
       </div>

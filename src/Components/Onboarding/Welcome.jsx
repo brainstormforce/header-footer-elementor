@@ -10,13 +10,13 @@ const Welcome = ({ setCurrentStep }) => {
                     <p className="text-4xl font-bold text-text-primary m-0 mt-2" style={{ fontSize: '40px', width: '622px' }}>
                         {__(
                             "Thank you for choosing Ultimate Addons for Elementor.",
-                            "uael"
+                            "header-footer-elementor"
                         )}
                     </p>
                     <p className="text-md font-medium text-text-tertiary m-0 mt-2" style={{ fontSize: '16px', width: '700px' }}>
                         {__(
                             "We're excited to have you onboard. Get ready to create stunning headers, footers, and custom blocks with ease while keeping your website lightweight and fast. Refer the video for a quick tour.",
-                            "uael"
+                            "header-footer-elementor"
                         )}
                     </p>
                 </Container>
@@ -46,7 +46,7 @@ const Welcome = ({ setCurrentStep }) => {
                         }
                         onClick={() => setCurrentStep(2)}
                     >
-                        {__("Let’s Get Started", "uael")}
+                        {__("Let’s Get Started", "header-footer-elementor")}
                     </Button>
                 </div>
             </div>
