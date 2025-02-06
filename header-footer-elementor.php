@@ -33,7 +33,8 @@ require_once HFE_DIR . '/inc/class-header-footer-elementor.php';
  * @return void
  */
 function hfe_plugin_activation() {
-	update_option( 'hfe_plugin_is_activated', 'yes' );
+	// update_option( 'hfe_plugin_is_activated', 'yes' );
+	update_option( 'hfe_start_onboarding', true );
 }
 
 register_activation_hook( HFE_FILE, 'hfe_plugin_activation' );
@@ -115,3 +116,16 @@ function hfe_enqueue_font_awesome() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'hfe_enqueue_font_awesome', 20 );
+add_action( 'admin_init', 'hfe_redirect_to_onboarding' );
+
+function hfe_redirect_to_onboarding() {
+	if ( ! get_option( 'hfe_start_onboarding', false ) ) {
+		return;
+	}
+
+	delete_option( 'hfe_start_onboarding' );
+	if ( ! defined( 'WP_CLI' ) || ! WP_CLI ) {
+		wp_safe_redirect( admin_url( 'admin.php?page=hfe#onboarding' ) );
+		exit();
+	}
+};
