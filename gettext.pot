@@ -514,6 +514,7 @@ msgid ""
 msgstr ""
 
 #: src/Components/Dashboard/WelcomeContainer.js:58
+#: src/Components/Onboarding/Build.jsx:79
 msgid "Create Header/Footer"
 msgstr ""
 
@@ -591,6 +592,48 @@ msgstr ""
 
 #: src/Components/NavMenu.js:77
 msgid "What's New?"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:109
+msgid "Go to Dashboard"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:129
+msgid "Help make UAE Better"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:13
+msgid "You’re all set! 🚀"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:16
+msgid ""
+"Start creating headers, footers, or pages with UAE and take your website to "
+"the next level"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:22
+msgid "Here’s What UAE Will Do for You Now:"
+msgstr ""
+
+#: src/Components/Onboarding/Configure.jsx:24
+msgid "Customize your UAE setup"
+msgstr ""
+
+#: src/Components/Onboarding/Configure.jsx:27
+msgid "Activate only what you need to keep your website fast and optimised."
+msgstr ""
+
+#: src/Components/Onboarding/Configure.jsx:54
+msgid "Back"
+msgstr ""
+
+#: src/Components/Onboarding/Configure.jsx:73
+msgid "Skip"
+msgstr ""
+
+#: src/Components/Onboarding/Configure.jsx:94
+msgid "Next"
 msgstr ""
 
 #: src/Components/Onboarding/Welcome.jsx:11
