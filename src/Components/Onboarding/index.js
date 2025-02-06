@@ -25,10 +25,10 @@ const Onboarding = () => {
 					<Topbar className="bg-background-primary">
 						<Topbar.Left>
 							<Topbar.Item>
-								{hfeSettingsData.icon_url && (
+								{hfeSettingsData.uae_logo && (
 									<Link to={routes.dashboard.path}>
 										<img
-											src={`${hfeSettingsData.icon_url}`}
+											src={`${hfeSettingsData.uae_logo}`}
 											alt="Logo"
 											className="ml-4 cursor-pointer"
 										/>
