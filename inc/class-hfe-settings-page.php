@@ -40,8 +40,6 @@ class HFE_Settings_Page {
 		
 		add_action( 'admin_head', [ $this, 'hfe_global_css' ] );
 
-		add_action( 'init', [$this, 'toggle_onboarding_fullscreen' ]);
-
 		if ( ! HFE_Helper::is_pro_active() ) {
 			if ( is_admin() && current_user_can( 'manage_options' ) ) {
 				add_action( 'admin_menu', [ $this, 'hfe_register_settings_page' ] );
@@ -78,45 +76,6 @@ class HFE_Settings_Page {
 			add_filter( 'wp_check_filetype_and_ext', [ $this, 'real_mime_types' ], 10, 4 );
 		}
 
-	}
-
-	public static function toggle_onboarding_fullscreen() {
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Nonce verification not required for public facing pages
-		if ( isset( $_GET['page'] ) && 'hfe' === sanitize_text_field( $_GET['page'] ) ) {
-			add_action(
-				'admin_head',
-				function() {
-					?>
-				<script>
-				document.addEventListener('DOMContentLoaded', function() {
-					function toggleAdminElements() {
-						const isOnboarding = window.location.hash === '#onboarding';
-						const styles = `
-							#wpcontent { margin-left: ${isOnboarding ? '0' : '160px'} !important; }
-							#adminmenumain { display: ${isOnboarding ? 'none' : 'block'} !important; }
-							#wpadminbar { display: ${isOnboarding ? 'none' : 'block'} !important; }
-							#wpfooter { display: ${isOnboarding ? 'none' : 'block'} !important; }
-							html.wp-toolbar { padding-top: ${isOnboarding ? '0' : '32px'} !important; }
-						`;
-						// Update or create style element
-						let styleElement = document.getElementById('hfe-admin-styles');
-						if (!styleElement) {
-							styleElement = document.createElement('style');
-							styleElement.id = 'hfe-admin-styles';
-							document.head.appendChild(styleElement);
-						}
-						styleElement.textContent = styles;
-					}
-					// Initial check
-					toggleAdminElements();
-					// Listen for hash changes
-					window.addEventListener('hashchange', toggleAdminElements);
-				});
-				</script>
-					<?php
-				}
-			);
-		}
 	}
 
 	/**
