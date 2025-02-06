@@ -593,6 +593,21 @@ msgstr ""
 msgid "What's New?"
 msgstr ""
 
+#: src/Components/Onboarding/Welcome.jsx:11
+msgid "Thank you for choosing Ultimate Addons for Elementor."
+msgstr ""
+
+#: src/Components/Onboarding/Welcome.jsx:17
+msgid ""
+"We're excited to have you onboard. Get ready to create stunning headers, "
+"footers, and custom blocks with ease while keeping your website lightweight "
+"and fast. Refer the video for a quick tour."
+msgstr ""
+
+#: src/Components/Onboarding/Welcome.jsx:49
+msgid "Let’s Get Started"
+msgstr ""
+
 #: src/Components/Settings/Settings.jsx:48
 msgid "Editor"
 msgstr ""
