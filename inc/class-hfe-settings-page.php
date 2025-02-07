@@ -307,7 +307,7 @@ class HFE_Settings_Page {
 					'uae_logo'        	 	   => HFE_URL . 'assets/images/settings/uae-logo.png',
 					'welcome_banner'           => HFE_URL . 'assets/images/settings/welcome-banner.png',
 					'build_banner'             => HFE_URL . 'assets/images/settings/build_banner.png',
-					'special_reward'           => HFE_URL . 'assets/images/settings/special_reward.png',  
+					'special_reward'           => HFE_URL . 'assets/images/settings/build_bg.png',  
 					'uaelite_previous_version' => isset( $rollback_versions[0]['value'] ) ? $rollback_versions[0]['value'] : '',
 					'uaelite_versions'         => $rollback_versions,
 					'uaelite_rollback_url'     => esc_url( add_query_arg( 'version', 'VERSION', wp_nonce_url( admin_url( 'admin-post.php?action=uaelite_rollback' ), 'uaelite_rollback' ) ) ),
