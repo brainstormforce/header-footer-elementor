@@ -130,7 +130,7 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 == Changelog ==
 
 = 2.2.0.1 =
-- Fix: Navigation Menu -  Full width option in hamburger menu works correctly while resizing the screen.
+- Fix: Navigation Menu - Full-width dropdown menu now stays correctly positioned when resizing in responsive mode.
 
 = 2.2.0 =
 - New: Ultimate Addons for Elementor now includes translations for Dutch, French, Spanish, and German enhancing multilingual accessibility.
