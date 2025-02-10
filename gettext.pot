@@ -559,6 +559,7 @@ msgid "Free vs Pro"
 msgstr ""
 
 #: src/Components/NavMenu.js:220
+#: src/Components/Onboarding/Success.jsx:75
 msgid "Get Pro"
 msgstr ""
 
@@ -643,6 +644,7 @@ msgid "Activate only what you need to keep your website fast and optimised."
 msgstr ""
 
 #: src/Components/Onboarding/Configure.jsx:55
+#: src/Components/Onboarding/Success.jsx:97
 msgid "Back"
 msgstr ""
 
@@ -654,6 +656,31 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
+#: src/Components/Onboarding/Success.jsx:28
+msgid "Congratulations!"
+msgstr ""
+
+#: src/Components/Onboarding/Success.jsx:34
+msgid "You’ve unlocked a 20% discount on UAE Pro. We’ve sent a discount"
+msgstr ""
+
+#: src/Components/Onboarding/Success.jsx:40
+msgid "coupon just for you to your email address."
+msgstr ""
+
+#: src/Components/Onboarding/Success.jsx:46
+msgid ""
+"* Use your exclusive discount code within the next 2 hours to claim your "
+"reward!”"
+msgstr ""
+
+#: src/Components/Onboarding/Success.jsx:73
+#: src/Components/Onboarding/Success.jsx:74
+#: src/Components/Onboarding/Success.jsx:75
+#: src/Components/Onboarding/Welcome.jsx:49
+msgid "Let’s Get Started"
+msgstr ""
+
 #: src/Components/Onboarding/Welcome.jsx:11
 msgid "Thank you for choosing Ultimate Addons for Elementor."
 msgstr ""
@@ -663,10 +690,6 @@ msgid ""
 "We're excited to have you onboard. Get ready to create stunning headers, "
 "footers, and custom blocks with ease while keeping your website lightweight "
 "and fast. Refer the video for a quick tour."
-msgstr ""
-
-#: src/Components/Onboarding/Welcome.jsx:49
-msgid "Let’s Get Started"
 msgstr ""
 
 #: src/Components/Settings/Settings.jsx:48
