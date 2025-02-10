@@ -12,8 +12,8 @@ import Success from "./Success";
 const steps = [
 	{ label: "Welcome", component: Welcome },
 	{ label: "Configure", component: Configure },
-	// { label: "Create", component: Build },
-	{ label: "Create", component: Success },
+	{ label: "Create", component: Build },
+	// { label: "Create", component: Success },
 ];
 
 const Onboarding = () => {

@@ -674,13 +674,6 @@ msgid ""
 "reward!”"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:73
-#: src/Components/Onboarding/Success.jsx:74
-#: src/Components/Onboarding/Success.jsx:75
-#: src/Components/Onboarding/Welcome.jsx:49
-msgid "Let’s Get Started"
-msgstr ""
-
 #: src/Components/Onboarding/Welcome.jsx:11
 msgid "Thank you for choosing Ultimate Addons for Elementor."
 msgstr ""
@@ -690,6 +683,10 @@ msgid ""
 "We're excited to have you onboard. Get ready to create stunning headers, "
 "footers, and custom blocks with ease while keeping your website lightweight "
 "and fast. Refer the video for a quick tour."
+msgstr ""
+
+#: src/Components/Onboarding/Welcome.jsx:49
+msgid "Let’s Get Started"
 msgstr ""
 
 #: src/Components/Settings/Settings.jsx:48
