@@ -22,7 +22,7 @@ const Onboarding = () => {
 
 	return (
 		<div>
-			<div className="bg-background-secondary w-full pb-10">
+			<div className="w-full pb-10">
 				<div className="flex flex-col items-center justify-center">
 					<Topbar className="bg-background-primary">
 						<Topbar.Left>
@@ -42,7 +42,7 @@ const Onboarding = () => {
 							<Topbar.Item>
 								<ProgressSteps currentStep={currentStep} variant="number">
 									{steps.map((step, index) => (
-										<ProgressSteps.Step key={index} labelText={step.label} size="md" />
+										<ProgressSteps.Step key={index} className="font-bold" labelText={step.label} size="md" />
 									))}
 								</ProgressSteps>
 							</Topbar.Item>

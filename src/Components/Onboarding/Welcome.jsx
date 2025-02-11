@@ -4,16 +4,16 @@ import { __ } from "@wordpress/i18n";
 
 const Welcome = ({ setCurrentStep }) => {
     return (
-        <div className="bg-background-secondary">
-            <div className="bg-background-primary border-[0.5px] items-start justify-center border-subtle rounded-xl shadow-sm mb-6 p-8 flex flex-col" style={{ width: '921px'}}>
+        <div className="">
+            <div className="bg-background-primary border-[0.5px] items-start justify-center border-subtle rounded-xl shadow-sm mb-6 p-8 flex flex-col">
                 <Container className="flex flex-col">
-                    <p className="text-4xl font-bold text-text-primary m-0 mt-2" style={{ fontSize: '40px', width: '622px' }}>
+                    <p className="text-4xl font-bold text-text-primary m-0" style={{ fontSize: '30px', width: '622px' }}>
                         {__(
                             "Thank you for choosing Ultimate Addons for Elementor.",
                             "header-footer-elementor"
                         )}
                     </p>
-                    <p className="text-md font-medium text-text-tertiary m-0 mt-2" style={{ fontSize: '16px', width: '700px' }}>
+                    <p className="text-md font-medium text-text-tertiary m-0" style={{ fontSize: '14px', width: '700px' }}>
                         {__(
                             "We're excited to have you onboard. Get ready to create stunning headers, footers, and custom blocks with ease while keeping your website lightweight and fast. Refer the video for a quick tour.",
                             "header-footer-elementor"
@@ -24,10 +24,11 @@ const Welcome = ({ setCurrentStep }) => {
                     <img
                         alt="Welcome"
                         className=""
+                        style={{ width: '100%', height: '300px' }}
                         src={`${hfeSettingsData.welcome_banner}`}
                     />
                 </div>
-                <div style={{ paddingTop: '30px' }}>
+                <div style={{ paddingTop: '20px' }}>
                     <Button
                         iconPosition="right"
                         variant="primary"

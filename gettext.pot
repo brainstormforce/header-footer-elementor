@@ -685,7 +685,7 @@ msgid ""
 "and fast. Refer the video for a quick tour."
 msgstr ""
 
-#: src/Components/Onboarding/Welcome.jsx:49
+#: src/Components/Onboarding/Welcome.jsx:50
 msgid "Let’s Get Started"
 msgstr ""
 
