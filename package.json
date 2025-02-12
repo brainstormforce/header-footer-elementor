@@ -46,7 +46,9 @@
 				"react-router": "^6.28.0",
 				"react-router-dom": "^6.27.0",
 				"react-select": "^5.8.0",
+				"react-slick": "^0.30.3",
 				"react-virtualized": "^9.22.3",
+				"slick-carousel": "^1.8.1",
 				"webfontloader": "^1.6.28",
 				"whats-new-rss": "github:brainstormforce/whats-new-rss"
 		},

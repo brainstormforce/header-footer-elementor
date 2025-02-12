@@ -635,27 +635,6 @@ msgstr ""
 msgid "Here’s how to get started:"
 msgstr ""
 
-#: src/Components/Onboarding/Configure.jsx:25
-msgid "Customize your UAE setup"
-msgstr ""
-
-#: src/Components/Onboarding/Configure.jsx:28
-msgid "Activate only what you need to keep your website fast and optimised."
-msgstr ""
-
-#: src/Components/Onboarding/Configure.jsx:55
-#: src/Components/Onboarding/Success.jsx:97
-msgid "Back"
-msgstr ""
-
-#: src/Components/Onboarding/Configure.jsx:74
-msgid "Skip"
-msgstr ""
-
-#: src/Components/Onboarding/Configure.jsx:95
-msgid "Next"
-msgstr ""
-
 #: src/Components/Onboarding/Success.jsx:28
 msgid "Congratulations!"
 msgstr ""
@@ -672,6 +651,10 @@ msgstr ""
 msgid ""
 "* Use your exclusive discount code within the next 2 hours to claim your "
 "reward!”"
+msgstr ""
+
+#: src/Components/Onboarding/Success.jsx:97
+msgid "Back"
 msgstr ""
 
 #: src/Components/Onboarding/Welcome.jsx:11
@@ -852,7 +835,7 @@ msgid "Upgrade now"
 msgstr ""
 
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:140
-#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:140
+#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:142
 msgid "Widgets / Features"
 msgstr ""
 
@@ -861,21 +844,21 @@ msgid "Search..."
 msgstr ""
 
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:174
-#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:174
+#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:176
 msgid "Activating..."
 msgstr ""
 
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:174
-#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:174
+#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:176
 msgid "Activate All"
 msgstr ""
 
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:185
-#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:185
+#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:187
 msgid "Deactivating..."
 msgstr ""
 
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:185
-#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:185
+#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:187
 msgid "Deactivate All"
 msgstr ""

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Button, Skeleton } from "@bsf/force-ui";
-import { LoaderCircle, SearchIcon } from "lucide-react";
+import { Container, Button, Skeleton, Title, Label, RadioButton, Badge, Switch } from "@bsf/force-ui";
+import { ChevronLeft, ChevronRight, LoaderCircle, SearchIcon } from "lucide-react";
 import WidgetItem from '@components/Dashboard/WidgetItem';
 import apiFetch from '@wordpress/api-fetch';
 import { __ } from "@wordpress/i18n";
+import WidgetItemOnboarding from '@components/Dashboard/WidgetItemOnboarding';
+import WidgetsOnboarding from '@components/Dashboard/WidgetsOnboarding';
 
-const FeatureWidgetsOnboarding = () => {
+const FeatureWidgetsOnboarding = ({ setCurrentStep }) => {
 
     const [allWidgetsData, setAllWidgetsData] = useState(null); // Initialize state.
     const [searchTerm, setSearchTerm] = useState('');
@@ -132,11 +134,11 @@ const FeatureWidgetsOnboarding = () => {
     }
 
     return (
-        <div className='rounded-lg bg-white w-full mb-4'>
+        <div className='rounded-lg bg-white  mb-4' style={{ width: '60%' }}>
             <div className='flex flex-col md:flex-row md:items-center md:justify-between p-4'
-            style={{
-                paddingBottom: '0'
-            }}>
+                style={{
+                    paddingBottom: '0'
+                }}>
                 <p className='m-0 text-sm font-semibold text-text-primary mb-2 md:mb-0'>{__("Widgets / Features", "header-footer-elementor")}</p>
                 <div className='flex flex-col md:flex-row items-center gap-y-2 md:gap-x-2 md:mr-7 relative'>
                     {/* <SearchIcon
@@ -187,7 +189,7 @@ const FeatureWidgetsOnboarding = () => {
                     </div>
                 </div>
             </div>
-            <div className='flex bg-black flex-col rounded-lg p-4' style={{ minHeight: "800px" }}>
+            <div className='flex bg-black flex-col rounded-lg p-4'>
                 {loading ? (
                     <Container
                         align="stretch"
@@ -214,24 +216,141 @@ const FeatureWidgetsOnboarding = () => {
                 ) : (
                     <Container
                         align="stretch"
-                        className="p-1 gap-1.5 grid-cols-2 md:grid-cols-4"
-                        containerType="grid"
-                        gap=""
-                        justify="start"
-                        style={{
-                            backgroundColor: '#F9FAFB'
-                        }}
+                    // className="p-1 gap-1.5 grid-cols-2 md:grid-cols-4"
+                    // containerType="grid"
+                    // gap=""
+                    // justify="start"
+                    // style={{
+                    //     backgroundColor: '#F9FAFB'
+                    // }}
                     >
-                        {filteredWidgets?.map((widget) => (
-                            <Container.Item
-                                key={widget.id}
-                                alignSelf="auto"
-                                className="text-wrap rounded-md shadow-container-item bg-background-primary p-4"
-                            >
-                                <WidgetItem widget={{ ...widget, updateCounter }} key={widget.id} updateCounter={updateCounter} />
-                            </Container.Item>
-                        ))}
+                        <WidgetsOnboarding setCurrentStep={setCurrentStep} widgets={filteredWidgets} updateCounter={updateCounter} />
                     </Container>
+                    //     <div className="bg-background-secondary min-h-screen w-full pb-10">
+                    //     <form onSubmit={function Ki() { }}>
+                    //         <div className="md:w-[47rem] box-border mx-auto p-8 mt-10 border border-solid border-border-subtle bg-background-primary rounded-xl shadow-sm space-y-4">
+                    //             <div>
+                    //                 <Title
+                    //                     className="text-text-primary"
+                    //                     size="md"
+                    //                     tag="h4"
+                    //                     title="Add More Power to Your Website"
+                    //                 />
+                    //                 <Label className="text-text-secondary mt-1 text-sm max-w-[41rem] font-normal">
+                    //                     These tools can help you build your website faster and easier. Try them out and see how they can help your website grow.
+                    //                 </Label>
+                    //             </div>
+                    //             <div className="bg-background-secondary p-1 rounded-lg max-h-80 overflow-auto">
+                    //                 <RadioButton.Group
+                    //                     columns={2}
+                    //                     gapClassname="gap-1"
+                    //                     multiSelection
+                    //                     size="sm"
+                    //                 >
+                    //                     <RadioButton.Button
+                    //                         badgeItem={<Badge label="Free" size="xxs" type="pill" variant="green" />}
+                    //                         borderOn
+                    //                         buttonWrapperClasses="bg-white border-0"
+                    //                         // icon={<PrestoPlayerLogo />}
+                    //                         label={{
+                    //                             description: 'Fast, customizable & beautiful WordPress theme.',
+                    //                             heading: 'Astra Theme'
+                    //                         }}
+                    //                         onChange={function Ki() { }}
+                    //                         useSwitch
+                    //                         value="Astra"
+                    //                     />
+                    //                     <RadioButton.Button
+                    //                         badgeItem={<Badge label="Free" size="xxs" type="pill" variant="green" />}
+                    //                         borderOn
+                    //                         buttonWrapperClasses="bg-white border-0"
+                    //                         // icon={<PrestoPlayerLogo />}
+                    //                         label={{
+                    //                             description: 'Build your dream website in minutes with AI.',
+                    //                             heading: 'Starter Templates'
+                    //                         }}
+                    //                         onChange={function Ki() { }}
+                    //                         useSwitch
+                    //                         value="Starter"
+                    //                     />
+                    //                     <RadioButton.Button
+                    //                         badgeItem={<Badge label="Free" size="xxs" type="pill" variant="green" />}
+                    //                         borderOn
+                    //                         buttonWrapperClasses="bg-white border-0"
+                    //                         // icon={<PrestoPlayerLogo />}
+                    //                         label={{
+                    //                             description: 'The new way to sell on WordPress.',
+                    //                             heading: 'SureCart'
+                    //                         }}
+                    //                         onChange={function Ki() { }}
+                    //                         useSwitch
+                    //                         value="SureCart"
+                    //                     />
+                    //                     <RadioButton.Button
+                    //                         badgeItem={<Badge label="Free" size="xxs" type="pill" variant="green" />}
+                    //                         borderOn
+                    //                         buttonWrapperClasses="bg-white border-0"
+                    //                         // icon={<PrestoPlayerLogo />}
+                    //                         label={{
+                    //                             description: 'Automate your WordPress setup.',
+                    //                             heading: 'Presto Player'
+                    //                         }}
+                    //                         onChange={function Ki() { }}
+                    //                         useSwitch
+                    //                         value="Presto"
+                    //                     />
+                    //                     <RadioButton.Button
+                    //                         badgeItem={<Badge label="Free" size="xxs" type="pill" variant="green" />}
+                    //                         borderOn
+                    //                         buttonWrapperClasses="bg-white border-0"
+                    //                         // icon={<PrestoPlayerLogo />}
+                    //                         label={{
+                    //                             description: 'Fast, customizable & beautiful WordPress theme.',
+                    //                             heading: 'Astra Theme'
+                    //                         }}
+                    //                         onChange={function Ki() { }}
+                    //                         useSwitch
+                    //                         value="Astra2"
+                    //                     />
+                    //                     <RadioButton.Button
+                    //                         badgeItem={<Badge label="Free" size="xxs" type="pill" variant="green" />}
+                    //                         borderOn
+                    //                         buttonWrapperClasses="bg-white border-0"
+                    //                         // icon={<PrestoPlayerLogo />}
+                    //                         label={{
+                    //                             description: 'Build your dream website in minutes with AI.',
+                    //                             heading: 'Starter Templates'
+                    //                         }}
+                    //                         onChange={function Ki() { }}
+                    //                         useSwitch
+                    //                         value="Starter2"
+                    //                     />
+                    //                 </RadioButton.Group>
+                    //             </div>
+                    //             <div className="flex justify-between items-center pt-2 gap-4">
+                    //                 <Button
+                    //                     className="flex items-center gap-2"
+                    //                     icon={<ChevronLeft />}
+                    //                     variant="outline"
+                    //                 >
+                    //                     Back
+                    //                 </Button>
+                    //                 <div className="flex justify-end items-center gap-3">
+                    //                     <Button variant="ghost">
+                    //                         {' '}Skip
+                    //                     </Button>
+                    //                     <Button
+                    //                         className="flex items-center gap-2"
+                    //                         icon={<ChevronRight />}
+                    //                         iconPosition="right"
+                    //                     >
+                    //                         Continue Setup
+                    //                     </Button>
+                    //                 </div>
+                    //             </div>
+                    //         </div>
+                    //     </form>
+                    // </div>
                 )}
             </div>
         </div>
