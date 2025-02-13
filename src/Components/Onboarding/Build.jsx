@@ -7,11 +7,9 @@ import { __ } from "@wordpress/i18n";
 import { Navigate } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Success from './Success.jsx';
-import { routes } from "../admin/settings/routes";
-import { Link } from "../router/index";
+import { routes } from "../../admin/settings/routes";
 
 const OnboardingBuild = ({ setCurrentStep }) => {
-    const navigate = useNavigate();
     const [isDialogOpen, setIsDialogOpen] = useState(false);
     const [email, setEmail] = useState('');
     const [isSubmitted, setIsSubmitted] = useState(false);

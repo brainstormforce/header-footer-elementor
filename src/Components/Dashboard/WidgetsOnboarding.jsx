@@ -4,117 +4,87 @@ import { Container, Button, Title, Label, RadioButton, Badge } from "@bsf/force-
 import apiFetch from '@wordpress/api-fetch';
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-// Create a queue to manage AJAX requests
-const requestQueue = [];
 
-const processQueue = () => {
-    if (requestQueue.length === 0) return;
 
-    // Take the first item from the queue and run it
-    const currentRequest = requestQueue.shift();
-    currentRequest();
-};
 
 const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
-    const [allWidgetsData, setAllWidgetsData] = useState(null); // Initialize state.
-    const [loading, setLoading] = useState(true);
+    const [allWidgetsData, setAllWidgetsData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
-    useEffect(() => {
-        const fetchSettings = () => {
-            setLoading(true);
-            apiFetch({
-                path: '/hfe/v1/widgets',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-WP-Nonce': hfeSettingsData.hfe_nonce_action, // Use the correct nonce
-                },
-            })
-                .then((data) => {
-                    const widgetsData = convertToWidgetsArray(data);
-                    setAllWidgetsData(widgetsData);
-                    setLoading(false); // Stop loading
-                })
-                .catch((err) => {
-                    setLoading(false); // Stop loading
-                });
-        };
+    // Queue for managing requests
+    const requestQueue = [];
 
+    const processQueue = async () => {
+        while (requestQueue.length > 0) {
+            const currentRequest = requestQueue.shift();
+            await currentRequest();
+        }
+        setIsLoading(false);
+    };
+
+    
+
+    useEffect(() => {
+        const fetchSettings = async () => {
+            try {
+                setIsLoading(true);
+                const data = await apiFetch({
+                    path: '/hfe/v1/widgets',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-WP-Nonce': hfeSettingsData.hfe_nonce_action,
+                    },
+                });
+                setAllWidgetsData(convertToWidgetsArray(data));
+            } catch (error) {
+                console.error('Failed to fetch widgets:', error);
+            } finally {
+                setIsLoading(false);
+            }
+        };
         fetchSettings();
     }, []);
 
-    const apiCall = (widget, activateWidget) => {
-        const { id, is_pro } = widget;
-        const action = activateWidget ? 'hfe_activate_widget' : 'hfe_deactivate_widget';
-
-        const formData = new window.FormData();
-        formData.append('action', action);
-        formData.append('nonce', hfe_admin_data.nonce);
-        formData.append('module_id', id);
-        formData.append('is_pro', is_pro);
-
+    const apiCall = async (widget, activateWidget) => {
         try {
-            const data = apiFetch({
+            const formData = new window.FormData();
+            formData.append('action', activateWidget ? 'hfe_activate_widget' : 'hfe_deactivate_widget');
+            formData.append('nonce', hfe_admin_data.nonce);
+            formData.append('module_id', widget.id);
+            formData.append('is_pro', widget.is_pro);
+
+            const response = await apiFetch({
                 url: hfe_admin_data.ajax_url,
                 method: 'POST',
                 body: formData,
             });
 
-            if (data.success) {
-                widget.is_active = activateWidget;  // Update the active state after the request
+            console.log({response})
+
+            if (response.success) {
+                widget.is_active = activateWidget;
+                setAllWidgetsData([...allWidgetsData]);
             }
-        } catch (err) {
-            // Handle error
-        } finally {
-            setIsLoading(false);  // Always stop the loading spinner
-            processQueue();
+        } catch (error) {
+            console.error('API request failed:', error);
         }
     };
 
     const handleSwitchChange = (widget) => {
         if (isLoading) return;
-
-        setIsLoading(true);
-
-        if (widget.is_active) {
-            // Add the request to the queue
-            requestQueue.push(() => apiCall(widget, false));
-        } else {
-            // Add the request to the queue
-            requestQueue.push(() => apiCall(widget, true));
-        }
+        requestQueue.push(() => apiCall(widget, !widget.is_active));
         if (requestQueue.length === 1) {
-            // Start processing the queue if no other request is being processed
             processQueue();
         }
     };
 
-    function convertToWidgetsArray(data) {
-        const widgets = [];
-
-        for (const key in data) {
-            if (data.hasOwnProperty(key)) {
-                const widget = data[key];
-                widgets.push({
-                    id: key, // Using the key as 'widgetTitle'
-                    slug: widget.slug,
-                    title: widget.title,
-                    keywords: widget.keywords,
-                    icon: <i className={widget.icon}></i>,
-                    title_url: widget.title_url,
-                    default: widget.default,
-                    doc_url: widget.doc_url,
-                    is_pro: widget.is_pro,
-                    description: widget.description,
-                    is_active: widget.is_activate !== undefined ? widget.is_activate : true, // Check if is_activate is set
-                    demo_url: widget.demo_url !== undefined ? widget.demo_url : widget.doc_url
-                });
-            }
-        }
-
-        return widgets;
-    }
-
+    const convertToWidgetsArray = (data) => {
+        return Object.entries(data).map(([key, widget]) => ({
+            id: key,
+            ...widget,
+            is_active: widget.is_activate !== undefined ? widget.is_activate : true,
+        }));
+    };
     return (
         <div className="bg-background-secondary">
             <form onSubmit={function Ki() { }}>
