@@ -514,7 +514,6 @@ msgid ""
 msgstr ""
 
 #: src/Components/Dashboard/WelcomeContainer.js:58
-#: src/Components/Onboarding/Build.jsx:89
 msgid "Create Header/Footer"
 msgstr ""
 
@@ -593,46 +592,6 @@ msgstr ""
 
 #: src/Components/NavMenu.js:77
 msgid "What's New?"
-msgstr ""
-
-#: src/Components/Onboarding/Build.jsx:119
-msgid "Go to Dashboard"
-msgstr ""
-
-#: src/Components/Onboarding/Build.jsx:168
-msgid "Help make UAE Better"
-msgstr ""
-
-#: src/Components/Onboarding/Build.jsx:185
-msgid "We have a special Reward just for you! 🎁"
-msgstr ""
-
-#: src/Components/Onboarding/Build.jsx:199
-msgid ""
-"Enter your email address to get special offer that we have for you and stay "
-"updated on UAE’s latest news and updates."
-msgstr ""
-
-#: src/Components/Onboarding/Build.jsx:208
-msgid "Enter host details"
-msgstr ""
-
-#: src/Components/Onboarding/Build.jsx:218
-msgid "Submit Email"
-msgstr ""
-
-#: src/Components/Onboarding/Build.jsx:22
-msgid "You’re all set! 🚀"
-msgstr ""
-
-#: src/Components/Onboarding/Build.jsx:25
-msgid ""
-"Start creating amazing designs with UAE and take your website to the next "
-"level"
-msgstr ""
-
-#: src/Components/Onboarding/Build.jsx:31
-msgid "Here’s how to get started:"
 msgstr ""
 
 #: src/Components/Onboarding/Success.jsx:28

@@ -1,16 +1,38 @@
 import React, { useState } from 'react';
 import { Container, Button, Switch, Title, Dialog, Input } from '@bsf/force-ui';
 import { X, Check, Plus, MoveRight, Package } from 'lucide-react';
+import { Link } from "../../router/index"
 import { __ } from "@wordpress/i18n";
+// import { routes } from "../admin/settings/routes";
+import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import Success from './Success.jsx';
+import { routes } from "../admin/settings/routes";
+import { Link } from "../router/index";
 
 const OnboardingBuild = ({ setCurrentStep }) => {
-
+    const navigate = useNavigate();
     const [isDialogOpen, setIsDialogOpen] = useState(false);
     const [email, setEmail] = useState('');
+    const [isSubmitted, setIsSubmitted] = useState(false);
 
     const activatePlugin = (pluginData) => {
         // Your activation logic here
         setIsDialogOpen(false);
+    };
+
+
+    const handleSubmit = () => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (emailRegex.test(email)) {
+            setIsSubmitted(true);
+            <Link
+                to={routes.success.path}
+            >
+            </Link>
+        } else {
+            alert(__('Please enter a valid email address', 'header-footer-elementor'));
+        }
     };
 
     return (
@@ -27,7 +49,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                             "header-footer-elementor"
                         )}
                     </p>
-                    <p className="font-bold text-text-primary m-0 mt-1 text-lg" style={{ paddingTop: '8px'}}>
+                    <p className="font-bold text-text-primary m-0 mt-1 text-lg" style={{ paddingTop: '8px' }}>
                         {__("Here’s how to get started:", "header-footer-elementor")}
                     </p>
                     <ul className="list-none">
@@ -57,7 +79,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                     <img
                         alt="Build"
                         className="w-full object-contain"
-                        style={{ height: '250px' }} 
+                        style={{ height: '250px' }}
                         src={`${hfeSettingsData.build_banner}`}
                     />
                 </div>
@@ -164,7 +186,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                         value=""
                         className=""
                     />
-                     <p className="font-bold text-text-primary m-0" style={{ fontSize: '16px' }}>
+                    <p className="font-bold text-text-primary m-0" style={{ fontSize: '16px' }}>
                         {__("Help make UAE Better", "header-footer-elementor")}
                     </p>
                 </div>
@@ -178,10 +200,10 @@ const OnboardingBuild = ({ setCurrentStep }) => {
             >
                 <Dialog.Backdrop />
                 <Dialog.Panel>
-                    <Dialog.Header>
+                    <Dialog.Header style={{ padding: '30px' }}>
                         <div className="flex items-center justify-between">
                             <div className="flex items-center">
-                                <Dialog.Title style={{ fontSize: '25px', width: '350px' }}>
+                                <Dialog.Title style={{ fontSize: '25px', width: '80%', lineHeight: '36px' }}>
                                     {__('We have a special Reward just for you! 🎁', 'header-footer-elementor')}
                                 </Dialog.Title>
                                 <Button
@@ -195,29 +217,55 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                                 />
                             </div>
                         </div>
-                        <Dialog.Description style={{ fontSize: '14px', width: '377px', fontWeight: '400', color: '#64748B' }}>
+                        <Dialog.Description style={{ fontSize: '14px', width: '90%', fontWeight: '400', color: '#64748B' }}>
                             {__('Enter your email address to get special offer that we have for you and stay updated on UAE’s latest news and updates.', 'header-footer-elementor')}
                         </Dialog.Description>
+
+                        <p className="text-md font-bold py-2 text-field-label m-0 gap-0" style={{ fontSize: '14px' }}>
+                            {__(
+                                "Email Address",
+                                "header-footer-elementor"
+                            )}
+                        </p>
+
+                        <div className='flex flex-row gap-2'>
+                            <input
+                                type="email"
+                                placeholder={__('Enter host details', 'header-footer-elementor')}
+                                value={email}
+                                className='h-12'
+                                style={{ width: '282px' }}
+                                onChange={(e) => {
+                                    if (e && e.target) {
+                                        console.log('Input changed:', e.target.value);
+                                        setEmail(e.target.value);
+                                    } else {
+                                        console.error('Event or event target is undefined');
+                                    }
+                                }}
+                            />
+                            <Button
+                                iconPosition="right"
+                                variant="primary"
+                                className="bg-[#6005FF] uael-remove-ring"
+                                style={{
+                                    backgroundColor: "#6005FF",
+                                    transition: "background-color 0.3s ease",
+                                }}
+                                onMouseEnter={(e) =>
+                                (e.currentTarget.style.backgroundColor =
+                                    "#4B00CC")
+                                }
+                                onMouseLeave={(e) =>
+                                (e.currentTarget.style.backgroundColor =
+                                    "#6005FF")
+                                }
+                                onClick={handleSubmit}
+                            >
+                                {__('Submit Email', "header-footer-elementor")}
+                            </Button>
+                        </div>
                     </Dialog.Header>
-                    {/* <Dialog.Title style={{ fontSize: '16px', mar }}>
-                        {__('Email Address', 'header-footer-elementor')}
-                    </Dialog.Title> */}
-                    <Dialog.Footer>
-                        <Input
-                            type="email"
-                            placeholder={__('Enter host details', 'header-footer-elementor')}
-                            value={email}
-                            className='h-12'
-                            style={{ width: '310px' }}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                        <Button variant='outline' onChange={(e) => setEmail(e.target.value)} style={{
-                            color: "#6005FF",
-                            borderColor: "#6005FF",
-                        }}>
-                            {__('Submit Email', 'header-footer-elementor')}
-                        </Button>
-                    </Dialog.Footer>
                 </Dialog.Panel>
             </Dialog>
         </div>

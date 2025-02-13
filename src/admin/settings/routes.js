@@ -19,5 +19,8 @@ export const routes = {
     },
     headerFooterBuilder: { 
         path: "elementor-hf" 
+    },
+    success: { 
+        path: "success" 
     }
 }
