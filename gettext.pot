@@ -844,21 +844,21 @@ msgid "Search..."
 msgstr ""
 
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:174
-#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:176
+#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:153
 msgid "Activating..."
 msgstr ""
 
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:174
-#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:176
+#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:153
 msgid "Activate All"
 msgstr ""
 
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:185
-#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:187
+#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:164
 msgid "Deactivating..."
 msgstr ""
 
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:185
-#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:187
+#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:164
 msgid "Deactivate All"
 msgstr ""

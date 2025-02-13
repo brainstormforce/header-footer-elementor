@@ -1,19 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import WidgetItem from './WidgetItem'
-import { ArrowUpRight } from 'lucide-react';
-import { Container, Button, Skeleton, Title, Label, RadioButton, Badge, Switch } from "@bsf/force-ui";
-import apiFetch from '@wordpress/api-fetch';
-import { __ } from '@wordpress/i18n';
-import { routes } from '../../admin/settings/routes';
-import { Link } from "../../router/index";
-import { InfoIcon, FileText } from 'lucide-react';
-import { ChevronLeft, ChevronRight, LoaderCircle, SearchIcon } from "lucide-react";
 import WidgetItemOnboarding from './WidgetItemOnboarding';
+import { Container, Button, Title, Label, RadioButton, Badge } from "@bsf/force-ui";
+import apiFetch from '@wordpress/api-fetch';
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
+// Create a queue to manage AJAX requests
+const requestQueue = [];
+
+const processQueue = () => {
+    if (requestQueue.length === 0) return;
+
+    // Take the first item from the queue and run it
+    const currentRequest = requestQueue.shift();
+    currentRequest();
+};
 
 const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
-
     const [allWidgetsData, setAllWidgetsData] = useState(null); // Initialize state.
     const [loading, setLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         const fetchSettings = () => {
@@ -26,7 +31,7 @@ const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
                 },
             })
                 .then((data) => {
-                    const widgetsData = convertToWidgetsArray(data)
+                    const widgetsData = convertToWidgetsArray(data);
                     setAllWidgetsData(widgetsData);
                     setLoading(false); // Stop loading
                 })
@@ -37,6 +42,52 @@ const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
 
         fetchSettings();
     }, []);
+
+    const apiCall = (widget, activateWidget) => {
+        const { id, is_pro } = widget;
+        const action = activateWidget ? 'hfe_activate_widget' : 'hfe_deactivate_widget';
+
+        const formData = new window.FormData();
+        formData.append('action', action);
+        formData.append('nonce', hfe_admin_data.nonce);
+        formData.append('module_id', id);
+        formData.append('is_pro', is_pro);
+
+        try {
+            const data = apiFetch({
+                url: hfe_admin_data.ajax_url,
+                method: 'POST',
+                body: formData,
+            });
+
+            if (data.success) {
+                widget.is_active = activateWidget;  // Update the active state after the request
+            }
+        } catch (err) {
+            // Handle error
+        } finally {
+            setIsLoading(false);  // Always stop the loading spinner
+            processQueue();
+        }
+    };
+
+    const handleSwitchChange = (widget) => {
+        if (isLoading) return;
+
+        setIsLoading(true);
+
+        if (widget.is_active) {
+            // Add the request to the queue
+            requestQueue.push(() => apiCall(widget, false));
+        } else {
+            // Add the request to the queue
+            requestQueue.push(() => apiCall(widget, true));
+        }
+        if (requestQueue.length === 1) {
+            // Start processing the queue if no other request is being processed
+            processQueue();
+        }
+    };
 
     function convertToWidgetsArray(data) {
         const widgets = [];
@@ -65,68 +116,6 @@ const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
     }
 
     return (
-        // <div className='rounded-lg bg-white w-full mb-6'>
-        //     <div className='flex items-center justify-between p-4' style={{
-        //         paddingBottom: '0',
-        //     }}>
-        //         <p className='m-0 text-sm font-semibold text-text-primary'>Widgets / Features</p>
-        //         <div className='flex items-center gap-x-2 mr-7'>
-        //             {/* <p className='m-0 text-xs font-semibold text-text-primary'>View All</p> */}
-        //             {/* <MoreHorizontalIcon /> */}
-        //             <Link to={routes.widgets.path} className='text-sm text-text-primary cursor-pointer' style={{ lineHeight: '1rem' }}>
-        //                 View All
-        //                 <ArrowUpRight className='ml-1' size={13} />
-        //             </Link>
-        //         </div>
-        //     </div>
-        //     <div className='flex bg-black flex-col rounded-lg p-4'>
-        //         {loading ? (
-        //             <Container
-        //                 align="stretch"
-        //                 className="p-2 gap-1.5 grid grid-cols-2 md:grid-cols-4"
-        //                 style={{
-        //                     backgroundColor: "#F9FAFB"
-        //                 }}
-        //                 containerType="grid"
-        //                 gap=""
-        //                 justify="start"
-        //             >
-        //                 {[...Array(16)].map((_, index) => (
-        //                     <Container.Item
-        //                         key={index}
-        //                         alignSelf="auto"
-        //                         className="text-wrap rounded-md shadow-container-item bg-background-primary p-6 space-y-2"
-        //                     >
-        //                         <Skeleton className='w-12 h-2 rounded-md' />
-        //                         <Skeleton className='w-16 h-2 rounded-md' />
-        //                         <Skeleton className='w-12 h-2 rounded-md' />
-        //                     </Container.Item>
-        //                 ))}
-        //             </Container>
-        //         ) : (
-        //             <Container
-        //                 align="stretch"
-        //                 className="p-2 gap-1.5 grid grid-cols-2 md:grid-cols-4"
-        //                 style={{
-        //                     backgroundColor: "#F9FAFB"
-        //                 }}
-        //                 containerType="grid"
-        //                 gap=""
-        //                 justify="start"
-        //             >
-        //                 {allWidgetsData?.slice(0, 1).map((widget) => (
-        //                     <Container.Item
-        //                         key={widget.id}
-        //                         alignSelf="auto"
-        //                         className="text-wrap rounded-md shadow-container-item bg-background-primary p-4"
-        //                     >
-        //                         <WidgetItemOnboarding widget={widget} key={widget.id} updateCounter={0} />
-        //                     </Container.Item>
-        //                 ))}
-        //             </Container>
-        //         )}
-        //     </div>
-        // </div>
         <div className="bg-background-secondary">
             <form onSubmit={function Ki() { }}>
                 <div className="md:w-[47rem] box-border mx-auto p-8 mt-10 border border-solid border-border-subtle bg-background-primary rounded-xl shadow-sm space-y-4">
@@ -148,19 +137,36 @@ const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
                             multiSelection
                             size="sm"
                         >
-                            {widgets?.map((widget) => (
+                            {allWidgetsData?.map((widget) => (
                                 <RadioButton.Button
                                     key={widget.id}
-                                    badgeItem={<Badge label="Free" size="xxs" type="pill" variant="green" />}
+                                    icon={widget.icon}
+                                    badgeItem={
+                                        widget.is_pro ? (
+                                            <Badge
+                                                label="PRO"
+                                                size="xs"
+                                                type="pill"
+                                                variant="inverse"
+                                            />
+                                        ) : (
+                                            <Badge
+                                                label="Free"
+                                                size="xxs"
+                                                type="pill"
+                                                variant="green"
+                                            />
+                                        )
+                                    }
                                     borderOn
+                                    useSwitch={!widget.is_pro} // Conditionally render the switch
                                     buttonWrapperClasses="bg-white border-0"
                                     label={{
                                         description: widget.description,
                                         heading: widget.title
                                     }}
-                                    onChange={function Ki() { }}
-                                    useSwitch
-                                    value={widget.slug}
+                                    onChange={() => handleSwitchChange(widget)}
+                                    value={widget.is_active}
                                 />
                             ))}
                         </RadioButton.Group>
@@ -191,7 +197,7 @@ const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
                 </div>
             </form>
         </div>
-    )
-}
+    );
+};
 
-export default WidgetsOnboarding
+export default WidgetsOnboarding;
