@@ -232,19 +232,19 @@ class HFE_Settings_Page {
 	}
 
 	/**
-     * Fetch and display the user's email.
-     *
-     * @since 1.6.0
-     * @return void
-     */
-    public function myplugin_fetch_user_email() {
-		$current_user = wp_get_current_user();
-		if ( $current_user->ID !== 0 ) {
-			error_log( 'User email: ' . $current_user->user_email );
-		} else {
-			error_log( 'No user logged in.' );
-		}
-	}
+ * Fetch and return the user's email.
+ *
+ * @since 1.6.0
+ * @return string|null The user's email if logged in, null otherwise.
+ */
+public function myplugin_fetch_user_email() {
+    $current_user = wp_get_current_user();
+    if ( $current_user->ID !== 0 ) {
+        return $current_user->user_email;
+    } else {
+        return null;
+    }
+}
 
 	/**
 	 * Load admin styles on header footer elementor edit screen.

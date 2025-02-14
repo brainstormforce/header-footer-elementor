@@ -25,11 +25,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (emailRegex.test(email)) {
             setIsSubmitted(true);
-            callValidatedEmailWebhook();
-            <Link
-                to={routes.success.path}
-            >
-            </Link>
+            callValidatedEmailWebhook(email);
         } else {
             alert(__('Please enter a valid email address', 'header-footer-elementor'));
         }
