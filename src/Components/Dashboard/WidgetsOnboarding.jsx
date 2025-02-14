@@ -72,6 +72,14 @@ const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
 
     const handleSwitchChange = (widget) => {
         if (isLoading) return;
+    
+        // Optimistically update the state
+        const updatedWidgets = allWidgetsData.map(w => 
+            w.id === widget.id ? { ...w, is_active: !w.is_active } : w
+        );
+        setAllWidgetsData(updatedWidgets);
+    
+        // Add the API call to the request queue
         requestQueue.push(() => apiCall(widget, !widget.is_active));
         if (requestQueue.length === 1) {
             processQueue();
@@ -87,7 +95,7 @@ const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
     };
     return (
         <div className="bg-background-secondary">
-            <form onSubmit={handleSwitchChange}>
+            <form>
                 <div className="md:w-[47rem] box-border mx-auto p-8 mt-10 border border-solid border-border-subtle bg-background-primary rounded-xl shadow-sm space-y-4">
                     <div>
                         <Title
@@ -135,8 +143,8 @@ const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
                                         description: widget.description,
                                         heading: widget.title
                                     }}
-                                    onChange={(widget) => handleSwitchChange(widget)}
-                                    value={widget.is_active}
+                                    onChange={() => handleSwitchChange(widget)}
+                                    checked={widget.is_active}
                                 />
                             ))}
                         </RadioButton.Group>
