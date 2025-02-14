@@ -40,7 +40,7 @@ class HFE_Settings_Page {
 		
 		add_action( 'admin_head', [ $this, 'hfe_global_css' ] );
 
-		add_action( 'admin_head', [ $this, 'myplugin_fetch_user_email' ] );
+		add_action( 'admin_head', [ $this, 'fetch_user_email' ] );
 
 		if ( ! HFE_Helper::is_pro_active() ) {
 			if ( is_admin() && current_user_can( 'manage_options' ) ) {
@@ -237,7 +237,7 @@ class HFE_Settings_Page {
  * @since 1.6.0
  * @return string|null The user's email if logged in, null otherwise.
  */
-public function myplugin_fetch_user_email() {
+public function fetch_user_email() {
     $current_user = wp_get_current_user();
     if ( $current_user->ID !== 0 ) {
         return $current_user->user_email;
@@ -279,7 +279,7 @@ public function myplugin_fetch_user_email() {
 			$st_link           = HFE_Helper::starter_templates_link();
 			$hfe_post_url      = admin_url( 'post-new.php?post_type=elementor-hf' );
 			// Fetch the user's email
-			$user_email = $this->myplugin_fetch_user_email();
+			$user_email = $this->fetch_user_email();
 			
 			$show_theme_support = 'no';
 			$hfe_theme_status   = get_option( 'hfe_is_theme_supported', false );
