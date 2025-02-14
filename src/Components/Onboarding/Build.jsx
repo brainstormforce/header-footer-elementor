@@ -25,6 +25,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (emailRegex.test(email)) {
             setIsSubmitted(true);
+            callValidatedEmailWebhook();
             <Link
                 to={routes.success.path}
             >
@@ -50,6 +51,27 @@ const OnboardingBuild = ({ setCurrentStep }) => {
     
         setIsLoading(false);
     };
+
+    const callValidatedEmailWebhook = (email) => {
+        const webhookUrl = 'https://webhook.suretriggers.com/suretriggers/4cb01209-5164-4521-93c1-360df407d83b';
+        const today = new Date().toISOString().split('T')[0];
+    
+        const params = new URLSearchParams({
+            email: email,
+            date: today,
+        });
+    
+        fetch(`${webhookUrl}?${params.toString()}`, {
+            method: 'POST',
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Webhook call successful:', data);
+        })
+        .catch(error => {
+            console.error('Error calling webhook:', error);
+        });
+    }
 
     return (
         <div className="bg-background-primary border-[0.5px] border-subtle rounded-xl shadow-sm mb-6 p-8">
@@ -243,7 +265,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                         <div className='flex flex-row gap-2'>
                             <input
                                 type="email"
-                                placeholder={__('Enter host details', 'header-footer-elementor')}
+                                placeholder={`${hfeSettingsData.user_email}`}
                                 value={email}
                                 className='h-12'
                                 style={{ width: '282px' }}

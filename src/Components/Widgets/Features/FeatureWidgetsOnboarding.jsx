@@ -52,59 +52,63 @@ const FeatureWidgetsOnboarding = ({ setCurrentStep }) => {
     );
 
     const handleActivateAll = async () => {
-
         setLoadingActivate(true);
-
+    
         const formData = new window.FormData();
         formData.append('action', 'hfe_bulk_activate_widgets');
         formData.append('nonce', hfe_admin_data.nonce);
-
-        apiFetch({
-            url: hfe_admin_data.ajax_url,
-            method: 'POST',
-            body: formData,
-        }).then((data) => {
+    
+        try {
+            const data = await apiFetch({
+                url: hfe_admin_data.ajax_url,
+                method: 'POST',
+                body: formData,
+            });
+    
             setLoadingActivate(false);
+    
             if (data.success) {
                 setAllWidgetsData(prevWidgets =>
                     prevWidgets.map(widget => ({ ...widget, is_active: true }))
                 );
                 setUpdateCounter(prev => prev + 1);
-            } else if (data.error) {
-                setLoadingActivate(false);
-                console.error('Error during AJAX request:', error);
+            } else {
+                console.error('Error during AJAX request:', data.error);
             }
-        }).catch((error) => {
+        } catch (error) {
             setLoadingActivate(false);
             console.error('Error during AJAX request:', error);
-        });
+        }
     };
-
+    
     const handleDeactivateAll = async () => {
         setLoadingDeactivate(true);
-
+    
         const formData = new window.FormData();
         formData.append('action', 'hfe_bulk_deactivate_widgets');
         formData.append('nonce', hfe_admin_data.nonce);
-
-        apiFetch({
-            url: hfe_admin_data.ajax_url,
-            method: 'POST',
-            body: formData,
-        }).then((data) => {
+    
+        try {
+            const data = await apiFetch({
+                url: hfe_admin_data.ajax_url,
+                method: 'POST',
+                body: formData,
+            });
+    
             setLoadingDeactivate(false);
+    
             if (data.success) {
                 setAllWidgetsData(prevWidgets =>
                     prevWidgets.map(widget => ({ ...widget, is_active: false }))
                 );
                 setUpdateCounter(prev => prev + 1);
-            } else if (data.error) {
-                console.error('AJAX request failed:', data.error);
+            } else {
+                console.error('Error during AJAX request:', data.error);
             }
-        }).catch((error) => {
+        } catch (error) {
             setLoadingDeactivate(false);
             console.error('Error during AJAX request:', error);
-        });
+        }
     };
 
     function convertToWidgetsArray(data) {

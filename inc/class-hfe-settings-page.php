@@ -40,6 +40,8 @@ class HFE_Settings_Page {
 		
 		add_action( 'admin_head', [ $this, 'hfe_global_css' ] );
 
+		add_action( 'admin_head', [ $this, 'myplugin_fetch_user_email' ] );
+
 		if ( ! HFE_Helper::is_pro_active() ) {
 			if ( is_admin() && current_user_can( 'manage_options' ) ) {
 				add_action( 'admin_menu', [ $this, 'hfe_register_settings_page' ] );
@@ -230,6 +232,21 @@ class HFE_Settings_Page {
 	}
 
 	/**
+     * Fetch and display the user's email.
+     *
+     * @since 1.6.0
+     * @return void
+     */
+    public function myplugin_fetch_user_email() {
+		$current_user = wp_get_current_user();
+		if ( $current_user->ID !== 0 ) {
+			error_log( 'User email: ' . $current_user->user_email );
+		} else {
+			error_log( 'No user logged in.' );
+		}
+	}
+
+	/**
 	 * Load admin styles on header footer elementor edit screen.
 	 *
 	 * @return void
@@ -261,6 +278,8 @@ class HFE_Settings_Page {
 			$stpro_status      = HFE_Helper::premium_starter_templates_status();
 			$st_link           = HFE_Helper::starter_templates_link();
 			$hfe_post_url      = admin_url( 'post-new.php?post_type=elementor-hf' );
+			// Fetch the user's email
+			$user_email = $this->myplugin_fetch_user_email();
 			
 			$show_theme_support = 'no';
 			$hfe_theme_status   = get_option( 'hfe_is_theme_supported', false );
@@ -279,6 +298,7 @@ class HFE_Settings_Page {
 			);
 
 			wp_set_script_translations( 'header-footer-elementor-react-app', 'header-footer-elementor', HFE_DIR . 'languages' );
+
 	
 			wp_localize_script(
 				'header-footer-elementor-react-app',
@@ -323,6 +343,7 @@ class HFE_Settings_Page {
 					'st_link'                  => $st_link,
 					'hfe_post_url'             => $hfe_post_url,
 					'is_hfe_post'              => $is_hfe_post,
+					'user_email'               => $user_email,
 				]
 			);
 	

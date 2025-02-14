@@ -514,7 +514,7 @@ msgid ""
 msgstr ""
 
 #: src/Components/Dashboard/WelcomeContainer.js:58
-#: src/Components/Onboarding/Build.jsx:127
+#: src/Components/Onboarding/Build.jsx:149
 msgid "Create Header/Footer"
 msgstr ""
 
@@ -595,51 +595,47 @@ msgstr ""
 msgid "What's New?"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:153
+#: src/Components/Onboarding/Build.jsx:175
 msgid "Go to Dashboard"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:202
+#: src/Components/Onboarding/Build.jsx:224
 msgid "Help make UAE Better"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:219
+#: src/Components/Onboarding/Build.jsx:241
 msgid "We have a special Reward just for you! 🎁"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:233
+#: src/Components/Onboarding/Build.jsx:255
 msgid ""
 "Enter your email address to get special offer that we have for you and stay "
 "updated on UAE’s latest news and updates."
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:237
+#: src/Components/Onboarding/Build.jsx:259
 msgid "Email Address"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:246
-msgid "Enter host details"
-msgstr ""
-
-#: src/Components/Onboarding/Build.jsx:277
+#: src/Components/Onboarding/Build.jsx:299
 msgid "Submit Email"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:33
+#: src/Components/Onboarding/Build.jsx:34
 msgid "Please enter a valid email address"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:60
+#: src/Components/Onboarding/Build.jsx:82
 msgid "You’re all set! 🚀"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:63
+#: src/Components/Onboarding/Build.jsx:85
 msgid ""
 "Start creating amazing designs with UAE and take your website to the next "
 "level"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:69
+#: src/Components/Onboarding/Build.jsx:91
 msgid "Here’s how to get started:"
 msgstr ""
 
@@ -843,7 +839,7 @@ msgid "Upgrade now"
 msgstr ""
 
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:140
-#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:142
+#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:146
 msgid "Widgets / Features"
 msgstr ""
 
@@ -852,21 +848,21 @@ msgid "Search..."
 msgstr ""
 
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:174
-#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:153
+#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:157
 msgid "Activating..."
 msgstr ""
 
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:174
-#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:153
+#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:157
 msgid "Activate All"
 msgstr ""
 
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:185
-#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:164
+#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:168
 msgid "Deactivating..."
 msgstr ""
 
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:185
-#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:164
+#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:168
 msgid "Deactivate All"
 msgstr ""
