@@ -158,6 +158,10 @@ const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
                                 className="flex items-center gap-2"
                                 icon={<ChevronRight />}
                                 iconPosition="right"
+                                style={{
+                                    backgroundColor: "#6005FF",
+                                    transition: "background-color 0.3s ease",
+                                }}
                                 onClick={() => setCurrentStep(3)}
                             >
                                 Continue Setup

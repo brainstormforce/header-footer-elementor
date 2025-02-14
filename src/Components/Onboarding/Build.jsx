@@ -13,6 +13,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
     const [isDialogOpen, setIsDialogOpen] = useState(false);
     const [email, setEmail] = useState('');
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isActive, setIsActive] = useState(true);
 
     const activatePlugin = (pluginData) => {
         // Your activation logic here
@@ -31,6 +32,23 @@ const OnboardingBuild = ({ setCurrentStep }) => {
         } else {
             alert(__('Please enter a valid email address', 'header-footer-elementor'));
         }
+    };
+    
+    const handleSwitchChange = () => {
+        if (isLoading) return;
+    
+        setIsLoading(true);
+    
+        // Directly set isActive to true or false
+        if (isActive) {
+            setIsActive(false);
+            console.log("Switch is now inactive");
+        } else {
+            setIsActive(true);
+            console.log("Switch is now active");
+        }
+    
+        setIsLoading(false);
     };
 
     return (
@@ -175,16 +193,16 @@ const OnboardingBuild = ({ setCurrentStep }) => {
             <div className="bg-badge-background-gray border-[0.5px] border-subtle rounded-xl p-2 shadow-sm flex flex-col w-full space-y-1 space-x-2" style={{ width: '820px' }}>
                 <div className='flex flex-row items-center justify-start px-1 gap-3'>
                     <Switch
-                        onChange=""
+                        onChange={handleSwitchChange} 
                         size='sm'
-                        value=""
-                        className=""
+                        value={isActive}
+                        className="hfe-remove-ring"
                     />
-                    <p className="font-bold text-text-primary m-0" style={{ fontSize: '16px' }}>
+                    <p className="font-bold text-text-primary m-0" style={{ fontSize: '20px' }}>
                         {__("Help make UAE Better", "header-footer-elementor")}
                     </p>
                 </div>
-                <p className='text-sm font-medium text-[#64748B]'>Help us improve by sharing anonymous data about your website setup. This includes non-sensitive info about plugins, themes, and settings, so we can create a better product for you. Your privacy is always our top priority. Learn more in our privacy policy.</p>
+                <p className='font-medium text-[#64748B]' style={{ fontSize: '16px' }}>Help us improve by sharing anonymous data about your website setup. This includes non-sensitive info about plugins, themes, and settings, so we can create a better product for you. Your privacy is always our top priority. Learn more in our privacy policy.</p>
             </div>
 
             <Dialog
