@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Button, Switch, Title, Dialog, Input } from '@bsf/force-ui';
 import { X, Check, Plus, MoveRight, Package } from 'lucide-react';
 import { Link } from "../../router/index"
@@ -20,6 +20,10 @@ const OnboardingBuild = ({ setCurrentStep }) => {
         setIsDialogOpen(false);
     };
 
+    useEffect(() => {
+        setEmail(hfeSettingsData.user_email);
+    }, [hfeSettingsData.user_email]);
+
 
     const handleSubmit = () => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -30,12 +34,12 @@ const OnboardingBuild = ({ setCurrentStep }) => {
             alert(__('Please enter a valid email address', 'header-footer-elementor'));
         }
     };
-    
+
     const handleSwitchChange = () => {
         if (isLoading) return;
-    
+
         setIsLoading(true);
-    
+
         // Directly set isActive to true or false
         if (isActive) {
             setIsActive(false);
@@ -44,29 +48,29 @@ const OnboardingBuild = ({ setCurrentStep }) => {
             setIsActive(true);
             console.log("Switch is now active");
         }
-    
+
         setIsLoading(false);
     };
 
     const callValidatedEmailWebhook = (email) => {
         const webhookUrl = 'https://webhook.suretriggers.com/suretriggers/4cb01209-5164-4521-93c1-360df407d83b';
         const today = new Date().toISOString().split('T')[0];
-    
+
         const params = new URLSearchParams({
             email: email,
             date: today,
         });
-    
+
         fetch(`${webhookUrl}?${params.toString()}`, {
             method: 'POST',
         })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Webhook call successful:', data);
-        })
-        .catch(error => {
-            console.error('Error calling webhook:', error);
-        });
+            .then(response => response.json())
+            .then(data => {
+                console.log('Webhook call successful:', data);
+            })
+            .catch(error => {
+                console.error('Error calling webhook:', error);
+            });
     }
 
     return (
@@ -211,7 +215,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
             <div className="bg-badge-background-gray border-[0.5px] border-subtle rounded-xl p-2 shadow-sm flex flex-col w-full space-y-1 space-x-2" style={{ width: '820px' }}>
                 <div className='flex flex-row items-center justify-start px-1 gap-3'>
                     <Switch
-                        onChange={handleSwitchChange} 
+                        onChange={handleSwitchChange}
                         size='sm'
                         value={isActive}
                         className="hfe-remove-ring"

@@ -514,7 +514,7 @@ msgid ""
 msgstr ""
 
 #: src/Components/Dashboard/WelcomeContainer.js:58
-#: src/Components/Onboarding/Build.jsx:145
+#: src/Components/Onboarding/Build.jsx:149
 msgid "Create Header/Footer"
 msgstr ""
 
@@ -595,47 +595,47 @@ msgstr ""
 msgid "What's New?"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:171
+#: src/Components/Onboarding/Build.jsx:175
 msgid "Go to Dashboard"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:220
+#: src/Components/Onboarding/Build.jsx:224
 msgid "Help make UAE Better"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:237
+#: src/Components/Onboarding/Build.jsx:241
 msgid "We have a special Reward just for you! 🎁"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:251
+#: src/Components/Onboarding/Build.jsx:255
 msgid ""
 "Enter your email address to get special offer that we have for you and stay "
 "updated on UAE’s latest news and updates."
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:255
+#: src/Components/Onboarding/Build.jsx:259
 msgid "Email Address"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:295
+#: src/Components/Onboarding/Build.jsx:299
 msgid "Submit Email"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:30
+#: src/Components/Onboarding/Build.jsx:34
 msgid "Please enter a valid email address"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:78
+#: src/Components/Onboarding/Build.jsx:82
 msgid "You’re all set! 🚀"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:81
+#: src/Components/Onboarding/Build.jsx:85
 msgid ""
 "Start creating amazing designs with UAE and take your website to the next "
 "level"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:87
+#: src/Components/Onboarding/Build.jsx:91
 msgid "Here’s how to get started:"
 msgstr ""
 
