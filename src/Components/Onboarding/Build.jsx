@@ -38,10 +38,10 @@ const OnboardingBuild = ({ setCurrentStep }) => {
             <div className="flex items-center">
                 {/* Left Content */}
                 <div className="flex flex-col items-start">
-                    <p className="font-bold text-text-primary m-0" style={{ fontSize: '20px' }}>
+                    <p className="font-bold text-text-primary m-0" style={{ fontSize: '25px' }}>
                         {__("You’re all set! 🚀", "header-footer-elementor")}
                     </p>
-                    <p className="font-medium text-text-tertiary m-0 text-sm">
+                    <p className="font-medium text-text-tertiary m-0" style={{ fontSize: '18px' }}>
                         {__(
                             "Start creating amazing designs with UAE and take your website to the next level",
                             "header-footer-elementor"
@@ -114,10 +114,6 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                     iconPosition="right"
                     variant="ghost"
                     className="uael-remove-ring"
-                    style={{
-                        color: "#6005FF",
-                        borderColor: "#6005FF",
-                    }}
                     onMouseEnter={(e) =>
                         (e.currentTarget.style.color =
                             "#000000") &&

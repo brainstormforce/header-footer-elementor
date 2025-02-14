@@ -24,7 +24,7 @@ const Onboarding = () => {
 		<div>
 			<div className="w-full pb-10">
 				<div className="flex flex-col items-center justify-center">
-					<Topbar className="bg-background-primary">
+					<Topbar className="bg-none" style={{ background: "none" }}>
 						<Topbar.Left>
 							<Topbar.Item>
 								{hfeSettingsData.uae_logo && (

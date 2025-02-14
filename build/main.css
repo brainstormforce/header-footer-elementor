@@ -1799,6 +1799,9 @@
     --tw-bg-opacity: 1;
     background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .bg-none{
+    background-image: none;
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .bg-repeat{
     background-repeat: repeat;
 }

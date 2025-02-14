@@ -595,33 +595,33 @@ msgstr ""
 msgid "What's New?"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:139
+#: src/Components/Onboarding/Build.jsx:135
 msgid "Go to Dashboard"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:188
+#: src/Components/Onboarding/Build.jsx:184
 msgid "Help make UAE Better"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:205
+#: src/Components/Onboarding/Build.jsx:201
 msgid "We have a special Reward just for you! 🎁"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:219
+#: src/Components/Onboarding/Build.jsx:215
 msgid ""
 "Enter your email address to get special offer that we have for you and stay "
 "updated on UAE’s latest news and updates."
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:223
+#: src/Components/Onboarding/Build.jsx:219
 msgid "Email Address"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:232
+#: src/Components/Onboarding/Build.jsx:228
 msgid "Enter host details"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:263
+#: src/Components/Onboarding/Build.jsx:259
 msgid "Submit Email"
 msgstr ""
 
@@ -673,7 +673,7 @@ msgstr ""
 msgid ""
 "We're excited to have you onboard. Get ready to create stunning headers, "
 "footers, and custom blocks with ease while keeping your website lightweight "
-"and fast. Refer the video for a quick tour."
+"and fast."
 msgstr ""
 
 #: src/Components/Onboarding/Welcome.jsx:50

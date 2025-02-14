@@ -87,7 +87,7 @@ const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
     };
     return (
         <div className="bg-background-secondary">
-            <form onSubmit={function Ki() { }}>
+            <form onSubmit={handleSwitchChange}>
                 <div className="md:w-[47rem] box-border mx-auto p-8 mt-10 border border-solid border-border-subtle bg-background-primary rounded-xl shadow-sm space-y-4">
                     <div>
                         <Title
@@ -135,7 +135,7 @@ const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
                                         description: widget.description,
                                         heading: widget.title
                                     }}
-                                    onChange={() => handleSwitchChange(widget)}
+                                    onChange={(widget) => handleSwitchChange(widget)}
                                     value={widget.is_active}
                                 />
                             ))}
