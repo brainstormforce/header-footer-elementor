@@ -30,9 +30,10 @@ const Onboarding = () => {
 								{hfeSettingsData.uae_logo && (
 									<Link to={routes.dashboard.path}>
 										<img
-											src={`${hfeSettingsData.icon_url}`}
+											src={`${hfeSettingsData.icon_svg}`}
 											alt="Logo"
-											className="ml-4 cursor-pointer"
+											className="cursor-pointer"
+											style={{ height: '35px' }}
 										/>
 									</Link>
 								)}
