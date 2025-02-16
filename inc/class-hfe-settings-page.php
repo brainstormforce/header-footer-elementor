@@ -283,6 +283,7 @@ public function fetch_user_email() {
 			
 			$show_theme_support = 'no';
 			$hfe_theme_status   = get_option( 'hfe_is_theme_supported', false );
+			$analytics_status	= get_option( 'bsf_analytics_optin', false );
 	
 			if ( ( ! current_theme_supports( 'header-footer-elementor' ) ) && ! $hfe_theme_status ) {
 				$show_theme_support = 'yes';
@@ -345,6 +346,7 @@ public function fetch_user_email() {
 					'hfe_post_url'             => $hfe_post_url,
 					'is_hfe_post'              => $is_hfe_post,
 					'user_email'               => $user_email,
+					'analytics_status'			=> $analytics_status
 				]
 			);
 	
