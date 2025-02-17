@@ -4,10 +4,6 @@ import { X, Check, Plus, MoveRight, Package } from 'lucide-react';
 import toast, { Toaster } from 'react-hot-toast';
 import { Link } from "../../router/index"
 import { __ } from "@wordpress/i18n";
-// import { routes } from "../admin/settings/routes";
-import { Navigate } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-import Success from './Success.jsx';
 import { routes } from "../../admin/settings/routes";
 
 const OnboardingBuild = ({ setCurrentStep }) => {
@@ -26,6 +22,8 @@ const OnboardingBuild = ({ setCurrentStep }) => {
         if (emailRegex.test(email)) {
             setIsSubmitted(true);
             callValidatedEmailWebhook(email);
+            <Link to={routes.Onboardingsuccess.path}>
+            </Link>
         } else {
             toast.error(__('Please enter a valid email address', 'header-footer-elementor'));
         }
@@ -38,7 +36,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
         console.log(`Switch is now ${newIsActive ? 'active' : 'inactive'}`);
 
         try {
-            const response = fetch( hfe_admin_data.ajax_url, {
+            const response = fetch(hfe_admin_data.ajax_url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
@@ -49,9 +47,9 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                     nonce: hfe_admin_data.nonce // Nonce for security.
                 })
             });
-    
+
             const result = response.json();
-    
+
             if (result.success) {
                 toast.success(__('Settings saved successfully!', 'header-footer-elementor'));
             } else {
@@ -60,7 +58,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
         } catch (error) {
             toast.error(__('Failed to save settings!', 'header-footer-elementor'));
         }
-    
+
         // setIsLoading(false);
     };
 
@@ -161,31 +159,32 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                     {__("Create Header/Footer", "header-footer-elementor")}
                 </Button>
 
-                <Button
-                    icon={<MoveRight />}
-                    iconPosition="right"
-                    variant="ghost"
-                    className="uael-remove-ring"
-                    onMouseEnter={(e) =>
-                        (e.currentTarget.style.color =
-                            "#000000") &&
-                        (e.currentTarget.style.borderColor =
-                            "#000000")
-                    }
-                    onMouseLeave={(e) =>
-                        (e.currentTarget.style.color =
-                            "#6005FF") &&
-                        (e.currentTarget.style.borderColor =
-                            "#6005FF")
-                    }
-                    onClick={() => {
-                        window.open(
-                            dashboard,
-                        );
-                    }}
+                <Link
+                    to={routes.dashboard.path}
+
                 >
-                    {__("Go to Dashboard", "header-footer-elementor")}
-                </Button>
+                    <Button
+                        icon={<MoveRight />}
+                        iconPosition="right"
+                        variant="ghost"
+                        className="uael-remove-ring"
+                        onMouseEnter={(e) =>
+                            (e.currentTarget.style.color =
+                                "#000000") &&
+                            (e.currentTarget.style.borderColor =
+                                "#000000")
+                        }
+                        onMouseLeave={(e) =>
+                            (e.currentTarget.style.color =
+                                "#6005FF") &&
+                            (e.currentTarget.style.borderColor =
+                                "#6005FF")
+                        }
+                    >
+                        {__("Go to Dashboard", "header-footer-elementor")}
+                    </Button>
+                </Link>
+
             </div>
             <div
                 className="flex items-start justify-start"
@@ -248,7 +247,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                 <Dialog.Panel>
                     <Dialog.Header style={{ padding: '30px' }}>
                         <div className="flex items-center justify-between">
-                            <div className="flex items-center">
+                            <div className="flex items-center justify-center">
                                 <Dialog.Title style={{ fontSize: '25px', width: '80%', lineHeight: '36px' }}>
                                     {__('We have a special Reward just for you! 🎁', 'header-footer-elementor')}
                                 </Dialog.Title>
@@ -267,7 +266,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                             {__('Enter your email address to get special offer that we have for you and stay updated on UAE’s latest news and updates.', 'header-footer-elementor')}
                         </Dialog.Description>
 
-                        <p className="text-md font-bold py-2 text-field-label m-0 gap-0" style={{ fontSize: '14px' }}>
+                        <p className="text-md font-bold text-field-label m-0 gap-0" style={{ fontSize: '14px' }}>
                             {__(
                                 "Email Address",
                                 "header-footer-elementor"
