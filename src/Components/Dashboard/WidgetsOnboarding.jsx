@@ -4,9 +4,6 @@ import { Container, Button, Title, Label, RadioButton, Badge } from "@bsf/force-
 import apiFetch from '@wordpress/api-fetch';
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-
-
-
 const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
     const [allWidgetsData, setAllWidgetsData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -21,8 +18,6 @@ const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
         }
         setIsLoading(false);
     };
-
-    
 
     useEffect(() => {
         const fetchSettings = async () => {
@@ -43,7 +38,7 @@ const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
             }
         };
         fetchSettings();
-    }, []);
+    }, [updateCounter]);
 
     const apiCall = async (widget, activateWidget) => {
         try {

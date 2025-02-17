@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Button, Switch, Title, Dialog, Input } from '@bsf/force-ui';
 import { X, Check, Plus, MoveRight, Package } from 'lucide-react';
+import toast, { Toaster } from 'react-hot-toast';
 import { Link } from "../../router/index"
 import { __ } from "@wordpress/i18n";
 // import { routes } from "../admin/settings/routes";
@@ -15,15 +16,10 @@ const OnboardingBuild = ({ setCurrentStep }) => {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isActive, setIsActive] = useState(true);
 
-    const activatePlugin = (pluginData) => {
-        // Your activation logic here
-        setIsDialogOpen(false);
-    };
-
     useEffect(() => {
         setEmail(hfeSettingsData.user_email);
+        setIsActive(hfeSettingsData.analytics_status === 'yes');
     }, [hfeSettingsData.user_email]);
-
 
     const handleSubmit = () => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -31,25 +27,41 @@ const OnboardingBuild = ({ setCurrentStep }) => {
             setIsSubmitted(true);
             callValidatedEmailWebhook(email);
         } else {
-            alert(__('Please enter a valid email address', 'header-footer-elementor'));
+            toast.error(__('Please enter a valid email address', 'header-footer-elementor'));
         }
     };
 
     const handleSwitchChange = () => {
-        if (isLoading) return;
 
-        setIsLoading(true);
+        const newIsActive = !isActive;
+        setIsActive(newIsActive);
+        console.log(`Switch is now ${newIsActive ? 'active' : 'inactive'}`);
 
-        // Directly set isActive to true or false
-        if (isActive) {
-            setIsActive(false);
-            console.log("Switch is now inactive");
-        } else {
-            setIsActive(true);
-            console.log("Switch is now active");
+        try {
+            const response = fetch( hfe_admin_data.ajax_url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    action: 'save_analytics_option', // WordPress action for your AJAX handler.
+                    bsf_analytics_optin: newIsActive ? 'yes' : 'no',
+                    nonce: hfe_admin_data.nonce // Nonce for security.
+                })
+            });
+    
+            const result = response.json();
+    
+            if (result.success) {
+                toast.success(__('Settings saved successfully!', 'header-footer-elementor'));
+            } else {
+                toast.error(__('Failed to save settings!', 'header-footer-elementor'));
+            }
+        } catch (error) {
+            toast.error(__('Failed to save settings!', 'header-footer-elementor'));
         }
-
-        setIsLoading(false);
+    
+        // setIsLoading(false);
     };
 
     const callValidatedEmailWebhook = (email) => {
@@ -298,6 +310,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                             >
                                 {__('Submit Email', "header-footer-elementor")}
                             </Button>
+                            <Toaster />
                         </div>
                     </Dialog.Header>
                 </Dialog.Panel>

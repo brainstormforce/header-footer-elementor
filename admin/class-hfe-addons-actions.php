@@ -63,6 +63,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			add_action( 'wp_ajax_hfe_bulk_deactivate_widgets', [ $this, 'bulk_deactivate_widgets' ] );
 
 			add_action( 'wp_ajax_save_theme_compatibility_option', [ $this, 'save_hfe_compatibility_option_callback' ] );
+			add_action( 'wp_ajax_save_analytics_option', [ $this, 'save_analytics_option' ] );
 
 		}
 
@@ -391,10 +392,33 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 				update_option( 'hfe_compatibility_option', $option );
 
 				// Return a success response.
-				wp_send_json_success( 'Settings saved successfully!' );
+				wp_send_json_success( esc_html__( 'Settings saved successfully!', 'header-footer-elementor' ) );
 			} else {
 				// Return an error response if the option is not set.
-				wp_send_json_error( 'Unable to save settings.' );
+				wp_send_json_error( esc_html__( 'Unable to save settings.', 'header-footer-elementor' ) );
+			}
+		}
+
+		/**
+		 * Save HFE analytics compatibility option via AJAX.
+		 *
+		 * @since x.x.x
+		 * @return void
+		 */
+		public function save_analytics_option() {
+			// Check nonce for security.
+			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
+
+			if ( isset( $_POST['bsf_analytics_optin'] ) ) {
+				// Sanitize and update option.
+				$option = sanitize_text_field( $_POST['bsf_analytics_optin'] );
+				update_option( 'bsf_analytics_optin', $option );
+
+				// Return a success response.
+				wp_send_json_success( esc_html__( 'Settings saved successfully!', 'header-footer-elementor' ) );
+			} else {
+				// Return an error response if the option is not set.
+				wp_send_json_error( esc_html__( 'Unable to save settings.', 'header-footer-elementor' ) );
 			}
 		}
 
