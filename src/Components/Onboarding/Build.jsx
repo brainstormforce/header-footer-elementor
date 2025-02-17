@@ -247,7 +247,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                 <Dialog.Panel>
                     <Dialog.Header style={{ padding: '30px' }}>
                         <div className="flex items-center justify-between">
-                            <div className="flex items-center">
+                            <div className="flex items-center justify-center">
                                 <Dialog.Title style={{ fontSize: '25px', width: '80%', lineHeight: '36px' }}>
                                     {__('We have a special Reward just for you! 🎁', 'header-footer-elementor')}
                                 </Dialog.Title>
@@ -266,7 +266,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                             {__('Enter your email address to get special offer that we have for you and stay updated on UAE’s latest news and updates.', 'header-footer-elementor')}
                         </Dialog.Description>
 
-                        <p className="text-md font-bold py-2 text-field-label m-0 gap-0" style={{ fontSize: '14px' }}>
+                        <p className="text-md font-bold text-field-label m-0 gap-0" style={{ fontSize: '14px' }}>
                             {__(
                                 "Email Address",
                                 "header-footer-elementor"
