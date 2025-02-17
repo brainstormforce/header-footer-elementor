@@ -15,6 +15,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
     useEffect(() => {
         setEmail(hfeSettingsData.user_email);
         setIsActive(hfeSettingsData.analytics_status === 'yes');
+        
     }, [hfeSettingsData.user_email]);
 
     const handleSubmit = () => {
@@ -22,8 +23,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
         if (emailRegex.test(email)) {
             setIsSubmitted(true);
             callValidatedEmailWebhook(email);
-            <Link to={routes.Onboardingsuccess.path}>
-            </Link>
+            window.location.href = hfeSettingsData.onboarding_success_url;
         } else {
             toast.error(__('Please enter a valid email address', 'header-footer-elementor'));
         }
@@ -84,7 +84,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
     }
 
     return (
-        <div className="bg-background-primary border-[0.5px] border-subtle rounded-xl shadow-sm mb-6 p-8">
+        <div className="bg-background-primary border-[0.5px] border-subtle rounded-xl shadow-sm mb-6 p-8" style={{ width: '820px' }}>
             <div className="flex items-center">
                 {/* Left Content */}
                 <div className="flex flex-col items-start">
@@ -193,7 +193,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                     backgroundImage: `url(${hfeSettingsData.special_reward})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
-                    width: '95%', // Adjust width as needed
+                    // width: '95%', // Adjust width as needed
                     height: '150px' // Adjust height as needed
                 }}
             >
@@ -223,7 +223,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
             </div>
             <hr className="w-full border-b-0 border-x-0 border-t  border-solid border-t-border-subtle" style={{ marginTop: '34px', marginBottom: '34px' }} />
 
-            <div className="bg-badge-background-gray border-[0.5px] border-subtle rounded-xl p-2 shadow-sm flex flex-col w-full space-y-1 space-x-2" style={{ width: '820px' }}>
+            <div className="bg-badge-background-gray border-[0.5px] border-subtle rounded-xl p-2">
                 <div className='flex flex-row items-center justify-start px-1 gap-3'>
                     <Switch
                         onChange={handleSwitchChange}

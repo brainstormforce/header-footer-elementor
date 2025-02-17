@@ -630,17 +630,13 @@ msgid "Submit Email"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:54
-#: src/Components/Onboarding/Build.jsx:60
 #: src/Components/Onboarding/Build.jsx:52
-#: src/Components/Onboarding/Build.jsx:56
 #: src/Components/Settings/ThemeSupport.jsx:63
 msgid "Settings saved successfully!"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:59
-#: src/Components/Onboarding/Build.jsx:65
 #: src/Components/Onboarding/Build.jsx:57
-#: src/Components/Onboarding/Build.jsx:61
 #: src/Components/Settings/ThemeSupport.jsx:68
 msgid "Failed to save settings!"
 msgstr ""
@@ -847,7 +843,7 @@ msgid "Upgrade now"
 msgstr ""
 
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:140
-#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:146
+#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:157
 msgid "Widgets / Features"
 msgstr ""
 
@@ -856,21 +852,21 @@ msgid "Search..."
 msgstr ""
 
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:174
-#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:157
+#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:168
 msgid "Activating..."
 msgstr ""
 
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:174
-#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:157
+#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:168
 msgid "Activate All"
 msgstr ""
 
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:185
-#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:168
+#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:179
 msgid "Deactivating..."
 msgstr ""
 
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:185
-#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:168
+#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:179
 msgid "Deactivate All"
 msgstr ""

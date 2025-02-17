@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import WidgetItemOnboarding from './WidgetItemOnboarding';
 import { Container, Button, Title, Label, RadioButton, Badge } from "@bsf/force-ui";
 import apiFetch from '@wordpress/api-fetch';
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { Link } from "../../router/index";
 import { routes } from "../../admin/settings/routes";
 
@@ -94,20 +94,9 @@ const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
         <div className="bg-background-secondary">
             <form>
                 <div className="md:w-[47rem] box-border mx-auto p-8 mt-10 border border-solid border-border-subtle bg-background-primary rounded-xl shadow-sm space-y-4">
-                    <div>
-                        <Title
-                            className="text-text-primary"
-                            size="md"
-                            tag="h4"
-                            title="Add More Power to Your Website"
-                        />
-                        <Label className="text-text-secondary mt-1 text-sm max-w-[41rem] font-normal">
-                            These tools can help you build your website faster and easier. Try them out and see how they can help your website grow.
-                        </Label>
-                    </div>
                     <div className="bg-background-secondary p-1 rounded-lg max-h-80" style={{ overflow: 'auto', maxHeight: '20rem' }}>
                         <RadioButton.Group
-                            columns={2}
+                            columns={3}
                             gapClassname="gap-1"
                             multiSelection
                             size="sm"
@@ -148,7 +137,7 @@ const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
                     </div>
                     <div className="flex justify-between items-center pt-2 gap-4">
                         <Button
-                            className="flex items-center gap-2"
+                            className="flex items-center gap-1"
                             icon={<ChevronLeft />}
                             variant="outline"
                             onClick={() => setCurrentStep(1)}
@@ -160,19 +149,20 @@ const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
                                 to={routes.dashboard.path}
 
                             >
-                                <Button 
-                                className="hfe-remove-ring"
-                                variant="ghost">
+                                <Button
+                                    className="hfe-remove-ring"
+                                    variant="ghost">
                                     {' '}Skip
                                 </Button>
                             </Link>
                             <Button
                                 className="flex items-center gap-2"
-                                icon={<ChevronRight />}
+                                icon={<ArrowRight />}
                                 iconPosition="right"
                                 style={{
                                     backgroundColor: "#6005FF",
                                     transition: "background-color 0.3s ease",
+                                    padding: "14px"
                                 }}
                                 onClick={() => setCurrentStep(3)}
                             >
