@@ -559,7 +559,7 @@ msgid "Free vs Pro"
 msgstr ""
 
 #: src/Components/NavMenu.js:220
-#: src/Components/Onboarding/Success.jsx:76
+#: src/Components/Onboarding/Success.jsx:159
 msgid "Get Pro"
 msgstr ""
 
@@ -630,13 +630,11 @@ msgid "Submit Email"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:54
-#: src/Components/Onboarding/Build.jsx:52
 #: src/Components/Settings/ThemeSupport.jsx:63
 msgid "Settings saved successfully!"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:59
-#: src/Components/Onboarding/Build.jsx:57
 #: src/Components/Settings/ThemeSupport.jsx:68
 msgid "Failed to save settings!"
 msgstr ""
@@ -651,26 +649,26 @@ msgid ""
 "level"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:103
-msgid "Go the the Dashboard"
-msgstr ""
-
-#: src/Components/Onboarding/Success.jsx:29
+#: src/Components/Onboarding/Success.jsx:112
 msgid "Congratulations!"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:35
+#: src/Components/Onboarding/Success.jsx:118
 msgid "You’ve unlocked a 20% discount on UAE Pro. We’ve sent a discount"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:41
+#: src/Components/Onboarding/Success.jsx:124
 msgid "coupon just for you to your email address."
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:47
+#: src/Components/Onboarding/Success.jsx:130
 msgid ""
 "* Use your exclusive discount code within the next 2 hours to claim your "
 "reward!”"
+msgstr ""
+
+#: src/Components/Onboarding/Success.jsx:186
+msgid "Go the the Dashboard"
 msgstr ""
 
 #: src/Components/Onboarding/Welcome.jsx:11

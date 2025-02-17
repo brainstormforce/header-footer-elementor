@@ -92,7 +92,7 @@ const Onboarding = () => {
 
             <div className="flex items-center justify-center">
                 {StepComponent && (
-                    <StepComponent setCurrentStep={setCurrentStep} />
+                    <StepComponent currentStep={currentStep} setCurrentStep={setCurrentStep} />
                 )}
             </div>
         </div>
