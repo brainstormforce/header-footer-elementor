@@ -59,6 +59,7 @@ const Onboarding = () => {
                             <Topbar.Item>
                                 <ProgressSteps
                                     currentStep={currentStep}
+									className="uae-steps"
                                     variant="number"
                                 >
                                     {steps.map((step, index) => (

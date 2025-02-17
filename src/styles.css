@@ -20,6 +20,13 @@
     font-weight: 600;
 }
 
+.uae-steps span.absolute {
+	font-size: 13px;
+}
+.uae-steps .ring-border-subtle {
+	--tw-ring-color: #64748B;
+}
+
 #hfe-settings-app .loader {
 	border: 4px solid #f3f3f3;
 	border-radius: 50%;
