@@ -144,10 +144,13 @@ const FeatureWidgetsOnboarding = ({ setCurrentStep }) => {
                     className="text-text-primary"
                     size="md"
                     tag="h4"
-                    title="Customize your UAE setup"
+                    title={__("Customize your UAE setup", "header-footer-elementor")}
                 />
                 <Label className="text-text-secondary mt-1 text-sm max-w-[41rem] font-normal">
-                    Activate only what you need to keep your website fast and optimised.
+                    {__(
+                        "Activate only what you need to keep your website fast and optimised.",
+                        "header-footer-elementor"
+                    )}
                 </Label>
             </div>
             <div className='flex flex-col md:flex-row md:items-center md:justify-between p-4'
