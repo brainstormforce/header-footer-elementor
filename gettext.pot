@@ -599,25 +599,25 @@ msgstr ""
 msgid "Here’s how to get started:"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:187
+#: src/Components/Onboarding/Build.jsx:186
 msgid "Go to Dashboard"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:236
+#: src/Components/Onboarding/Build.jsx:237
 msgid "Help make UAE Better"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:253
+#: src/Components/Onboarding/Build.jsx:254
 msgid "We have a special Reward just for you! 🎁"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:267
+#: src/Components/Onboarding/Build.jsx:268
 msgid ""
 "Enter your email address to get special offer that we have for you and stay "
 "updated on UAE’s latest news and updates."
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:271
+#: src/Components/Onboarding/Build.jsx:272
 msgid "Email Address"
 msgstr ""
 
@@ -625,7 +625,7 @@ msgstr ""
 msgid "Please enter a valid email address"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:311
+#: src/Components/Onboarding/Build.jsx:312
 msgid "Submit Email"
 msgstr ""
 

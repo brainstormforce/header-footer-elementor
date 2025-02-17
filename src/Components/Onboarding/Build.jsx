@@ -38,7 +38,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
         console.log(`Switch is now ${newIsActive ? 'active' : 'inactive'}`);
 
         try {
-            const response = fetch( hfe_admin_data.ajax_url, {
+            const response = fetch(hfe_admin_data.ajax_url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
@@ -49,9 +49,9 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                     nonce: hfe_admin_data.nonce // Nonce for security.
                 })
             });
-    
+
             const result = response.json();
-    
+
             if (result.success) {
                 toast.success(__('Settings saved successfully!', 'header-footer-elementor'));
             } else {
@@ -60,7 +60,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
         } catch (error) {
             toast.error(__('Failed to save settings!', 'header-footer-elementor'));
         }
-    
+
         // setIsLoading(false);
     };
 
@@ -161,31 +161,32 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                     {__("Create Header/Footer", "header-footer-elementor")}
                 </Button>
 
-                <Button
-                    icon={<MoveRight />}
-                    iconPosition="right"
-                    variant="ghost"
-                    className="uael-remove-ring"
-                    onMouseEnter={(e) =>
-                        (e.currentTarget.style.color =
-                            "#000000") &&
-                        (e.currentTarget.style.borderColor =
-                            "#000000")
-                    }
-                    onMouseLeave={(e) =>
-                        (e.currentTarget.style.color =
-                            "#6005FF") &&
-                        (e.currentTarget.style.borderColor =
-                            "#6005FF")
-                    }
-                    onClick={() => {
-                        window.open(
-                            dashboard,
-                        );
-                    }}
+                <Link
+                    to={routes.dashboard.path}
+
                 >
-                    {__("Go to Dashboard", "header-footer-elementor")}
-                </Button>
+                    <Button
+                        icon={<MoveRight />}
+                        iconPosition="right"
+                        variant="ghost"
+                        className="uael-remove-ring"
+                        onMouseEnter={(e) =>
+                            (e.currentTarget.style.color =
+                                "#000000") &&
+                            (e.currentTarget.style.borderColor =
+                                "#000000")
+                        }
+                        onMouseLeave={(e) =>
+                            (e.currentTarget.style.color =
+                                "#6005FF") &&
+                            (e.currentTarget.style.borderColor =
+                                "#6005FF")
+                        }
+                    >
+                        {__("Go to Dashboard", "header-footer-elementor")}
+                    </Button>
+                </Link>
+
             </div>
             <div
                 className="flex items-start justify-start"

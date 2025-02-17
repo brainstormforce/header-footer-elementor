@@ -3,6 +3,8 @@ import WidgetItemOnboarding from './WidgetItemOnboarding';
 import { Container, Button, Title, Label, RadioButton, Badge } from "@bsf/force-ui";
 import apiFetch from '@wordpress/api-fetch';
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Link } from "../../router/index";
+import { routes } from "../../admin/settings/routes";
 
 const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
     const [allWidgetsData, setAllWidgetsData] = useState([]);
@@ -54,7 +56,7 @@ const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
                 body: formData,
             });
 
-            console.log({response})
+            console.log({ response })
 
             if (response.success) {
                 widget.is_active = activateWidget;
@@ -67,13 +69,13 @@ const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
 
     const handleSwitchChange = (widget) => {
         if (isLoading) return;
-    
+
         // Optimistically update the state
-        const updatedWidgets = allWidgetsData.map(w => 
+        const updatedWidgets = allWidgetsData.map(w =>
             w.id === widget.id ? { ...w, is_active: !w.is_active } : w
         );
         setAllWidgetsData(updatedWidgets);
-    
+
         // Add the API call to the request queue
         requestQueue.push(() => apiCall(widget, !widget.is_active));
         if (requestQueue.length === 1) {
@@ -154,9 +156,16 @@ const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
                             Back
                         </Button>
                         <div className="flex justify-end items-center gap-3">
-                            <Button variant="ghost">
-                                {' '}Skip
-                            </Button>
+                            <Link
+                                to={routes.dashboard.path}
+
+                            >
+                                <Button 
+                                className="hfe-remove-ring"
+                                variant="ghost">
+                                    {' '}Skip
+                                </Button>
+                            </Link>
                             <Button
                                 className="flex items-center gap-2"
                                 icon={<ChevronRight />}

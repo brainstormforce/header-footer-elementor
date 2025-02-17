@@ -33,7 +33,7 @@ const Onboarding = () => {
 											src={`${hfeSettingsData.icon_svg}`}
 											alt="Logo"
 											className="cursor-pointer"
-											style={{ height: '35px' }}
+											style={{ height: "35px" }}
 										/>
 									</Link>
 								)}
@@ -41,17 +41,33 @@ const Onboarding = () => {
 						</Topbar.Left>
 						<Topbar.Middle>
 							<Topbar.Item>
-								<ProgressSteps currentStep={currentStep} variant="number">
+								<ProgressSteps
+									currentStep={currentStep}
+									variant="number"
+								>
 									{steps.map((step, index) => (
-										<ProgressSteps.Step key={index} className="font-bold" labelText={step.label} size="md" />
+										<ProgressSteps.Step
+											key={index}
+											className="font-bold"
+											labelText={step.label}
+											size="md"
+										/>
 									))}
 								</ProgressSteps>
 							</Topbar.Item>
 						</Topbar.Middle>
 						<Topbar.Right>
 							<Topbar.Item>
-								<Button icon={<X className="size-4" />} iconPosition="right" size="xs" variant="ghost">
-								</Button>
+								<Link  className="uael-remove-ring"  to={routes.dashboard.path}>
+									{" "}
+									<Button
+										icon={<X className="size-4" />}
+										iconPosition="right"
+										size="xs"
+										variant="ghost"
+										className="uael-remove-ring"
+									></Button>
+								</Link>
 							</Topbar.Item>
 						</Topbar.Right>
 					</Topbar>
@@ -59,7 +75,9 @@ const Onboarding = () => {
 			</div>
 
 			<div className="flex items-center justify-center">
-				{StepComponent && <StepComponent setCurrentStep={setCurrentStep} />}
+				{StepComponent && (
+					<StepComponent setCurrentStep={setCurrentStep} />
+				)}
 			</div>
 		</div>
 	);
