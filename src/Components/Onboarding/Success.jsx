@@ -7,7 +7,7 @@ import { MoveRight } from 'lucide-react';
 
 const Success = ({ setCurrentStep }) => {
     return (
-        <div className="bg-background-primary border-[0.5px] border-subtle rounded-xl shadow-sm" style={{ height: '600px' }}>
+        <div className="bg-background-primary border-[0.5px] border-subtle rounded-xl shadow-sm" style={{ height: '600px', width: '45%', position: 'absolute', left: '30%', top: '80%' }}>
             <div className="bg-background-primary items-start justify-center p-8 flex flex-col">
                 <div style={{
                     backgroundImage: `url(${hfeSettingsData.success_banner})`,
