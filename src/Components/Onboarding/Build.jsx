@@ -27,7 +27,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
             setIsSubmitted(true);
             callValidatedEmailWebhook(email);
         } else {
-            alert(__('Please enter a valid email address', 'header-footer-elementor'));
+            toast.error(__('Please enter a valid email address', 'header-footer-elementor'));
         }
     };
 
@@ -310,6 +310,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                             >
                                 {__('Submit Email', "header-footer-elementor")}
                             </Button>
+                            <Toaster />
                         </div>
                     </Dialog.Header>
                 </Dialog.Panel>
