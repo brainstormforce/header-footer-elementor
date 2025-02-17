@@ -20,11 +20,18 @@
     font-weight: 600;
 }
 
-.uae-steps span.absolute {
+:is(#hfe-settings-app, [data-floating-ui-portal]) .uae-steps span.absolute {
 	font-size: 13px;
 }
-.uae-steps .ring-border-subtle {
+:is(#hfe-settings-app, [data-floating-ui-portal]) .uae-steps .ring-border-subtle {
 	--tw-ring-color: #64748B;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .uae-steps .border-border-subtle {
+	border-color: #64748B;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .uae-steps .min-w-10.border-y {
+	min-width: 9rem;
+	border-bottom-width: 0.5px;
 }
 
 #hfe-settings-app .loader {
