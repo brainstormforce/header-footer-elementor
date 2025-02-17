@@ -17,8 +17,11 @@ const steps = [
     // { label: "Create", component: Success },
 ];
 
-const Success = ({ setCurrentStep, currentStep }) => {
-
+const Success = () => {
+    const [currentStep, setCurrentStep] = React.useState(() => {
+        const savedStep = localStorage.getItem("currentStep");
+        return savedStep ? parseInt(savedStep, 10) : 3;
+    });
 
 
     useEffect(() => {

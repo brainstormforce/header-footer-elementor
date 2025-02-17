@@ -559,7 +559,7 @@ msgid "Free vs Pro"
 msgstr ""
 
 #: src/Components/NavMenu.js:220
-#: src/Components/Onboarding/Success.jsx:159
+#: src/Components/Onboarding/Success.jsx:162
 msgid "Get Pro"
 msgstr ""
 
@@ -649,25 +649,25 @@ msgid ""
 "level"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:112
+#: src/Components/Onboarding/Success.jsx:115
 msgid "Congratulations!"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:118
+#: src/Components/Onboarding/Success.jsx:121
 msgid "You’ve unlocked a 20% discount on UAE Pro. We’ve sent a discount"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:124
+#: src/Components/Onboarding/Success.jsx:127
 msgid "coupon just for you to your email address."
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:130
+#: src/Components/Onboarding/Success.jsx:133
 msgid ""
 "* Use your exclusive discount code within the next 2 hours to claim your "
 "reward!”"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:186
+#: src/Components/Onboarding/Success.jsx:189
 msgid "Go the the Dashboard"
 msgstr ""
 
