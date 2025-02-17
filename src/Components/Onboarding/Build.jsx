@@ -4,10 +4,6 @@ import { X, Check, Plus, MoveRight, Package } from 'lucide-react';
 import toast, { Toaster } from 'react-hot-toast';
 import { Link } from "../../router/index"
 import { __ } from "@wordpress/i18n";
-// import { routes } from "../admin/settings/routes";
-import { Navigate } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-import Success from './Success.jsx';
 import { routes } from "../../admin/settings/routes";
 
 const OnboardingBuild = ({ setCurrentStep }) => {
@@ -26,6 +22,8 @@ const OnboardingBuild = ({ setCurrentStep }) => {
         if (emailRegex.test(email)) {
             setIsSubmitted(true);
             callValidatedEmailWebhook(email);
+            <Link to={routes.Onboardingsuccess.path}>
+            </Link>
         } else {
             toast.error(__('Please enter a valid email address', 'header-footer-elementor'));
         }
