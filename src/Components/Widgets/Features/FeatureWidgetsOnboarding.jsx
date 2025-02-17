@@ -53,20 +53,20 @@ const FeatureWidgetsOnboarding = ({ setCurrentStep }) => {
 
     const handleActivateAll = async () => {
         setLoadingActivate(true);
-    
+
         const formData = new window.FormData();
         formData.append('action', 'hfe_bulk_activate_widgets');
         formData.append('nonce', hfe_admin_data.nonce);
-    
+
         try {
             const data = await apiFetch({
                 url: hfe_admin_data.ajax_url,
                 method: 'POST',
                 body: formData,
             });
-    
+
             setLoadingActivate(false);
-    
+
             if (data.success) {
                 setAllWidgetsData(prevWidgets =>
                     prevWidgets.map(widget => ({ ...widget, is_active: true }))
@@ -80,23 +80,23 @@ const FeatureWidgetsOnboarding = ({ setCurrentStep }) => {
             console.error('Error during AJAX request:', error);
         }
     };
-    
+
     const handleDeactivateAll = async () => {
         setLoadingDeactivate(true);
-    
+
         const formData = new window.FormData();
         formData.append('action', 'hfe_bulk_deactivate_widgets');
         formData.append('nonce', hfe_admin_data.nonce);
-    
+
         try {
             const data = await apiFetch({
                 url: hfe_admin_data.ajax_url,
                 method: 'POST',
                 body: formData,
             });
-    
+
             setLoadingDeactivate(false);
-    
+
             if (data.success) {
                 setAllWidgetsData(prevWidgets =>
                     prevWidgets.map(widget => ({ ...widget, is_active: false }))
@@ -138,7 +138,21 @@ const FeatureWidgetsOnboarding = ({ setCurrentStep }) => {
     }
 
     return (
-        <div className='rounded-lg bg-white  mb-4' style={{ width: '60%' }}>
+        <div className='rounded-lg bg-white  mb-4' style={{ width: '70%' }}>
+            <div className='mt-4 px-4'>
+                <Title
+                    className="text-text-primary"
+                    size="md"
+                    tag="h4"
+                    title={__("Customize your UAE setup", "header-footer-elementor")}
+                />
+                <Label className="text-text-secondary mt-1 text-sm max-w-[41rem] font-normal">
+                    {__(
+                        "Activate only what you need to keep your website fast and optimised.",
+                        "header-footer-elementor"
+                    )}
+                </Label>
+            </div>
             <div className='flex flex-col md:flex-row md:items-center md:justify-between p-4'
                 style={{
                     paddingBottom: '0'

@@ -2667,6 +2667,20 @@
     font-weight: 600;
 }
 
+:is(#hfe-settings-app, [data-floating-ui-portal]) .uae-steps span.absolute {
+	font-size: 13px;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .uae-steps .ring-border-subtle {
+	--tw-ring-color: #64748B;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .uae-steps .border-border-subtle {
+	border-color: #64748B;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .uae-steps .min-w-10.border-y {
+	min-width: 9rem;
+	border-bottom-width: 0.5px;
+}
+
 #hfe-settings-app .loader {
 	border: 4px solid #f3f3f3;
 	border-radius: 50%;
