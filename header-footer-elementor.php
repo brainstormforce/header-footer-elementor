@@ -116,16 +116,3 @@ function hfe_enqueue_font_awesome() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'hfe_enqueue_font_awesome', 20 );
-add_action( 'admin_init', 'hfe_redirect_to_onboarding' );
-
-function hfe_redirect_to_onboarding() {
-	if ( ! get_option( 'hfe_start_onboarding', false ) ) {
-		return;
-	}
-
-	delete_option( 'hfe_start_onboarding' );
-	if ( ! defined( 'WP_CLI' ) || ! WP_CLI ) {
-		wp_safe_redirect( admin_url( 'admin.php?page=hfe#onboarding' ) );
-		exit();
-	}
-};

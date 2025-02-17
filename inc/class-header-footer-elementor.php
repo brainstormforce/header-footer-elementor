@@ -65,6 +65,8 @@ class Header_Footer_Elementor {
 			self::$elementor_instance = Elementor\Plugin::instance();
 
 			$this->includes();
+
+			add_action( 'admin_init', [ $this, 'hfe_redirect_to_onboarding' ] );
 			
 			add_action( 'init', [ $this, 'load_hfe_textdomain' ] );
 
@@ -162,6 +164,30 @@ class Header_Footer_Elementor {
 				require_once HFE_DIR . 'inc/lib/class-hfe-utm-analytics.php';
 			}
 
+		}
+	}
+
+	
+	public function hfe_redirect_to_onboarding() {
+		if ( ! get_option( 'hfe_start_onboarding', false ) ) {
+			return;
+		}
+
+		$is_old_user = ( 'yes' === get_option( 'hfe_plugin_is_activated' ) ) ? true : false;
+		$is_onboarding_triggered = ( 'yes' === get_option( 'hfe_onboarding_triggered' ) ) ? true : false;
+		$is_uaepro_active = ( is_plugin_active( 'ultimate-elementor/ultimate-elementor.php' ) && defined( 'UAEL_PRO' ) && UAEL_PRO ) ? true : false;
+
+		// IMPORTANT: Comment out this code before release - Show onboarding only for new users only once.
+		// if( $is_old_user || $is_onboarding_triggered || $is_uaepro_active ) {
+		// 	return;
+		// }
+
+		delete_option( 'hfe_start_onboarding' );
+
+		if ( ! defined( 'WP_CLI' ) || ! WP_CLI ) {
+			update_option( 'hfe_onboarding_triggered', 'yes' );
+			wp_safe_redirect( admin_url( 'admin.php?page=hfe#onboarding' ) );
+			exit();
 		}
 	}
 
