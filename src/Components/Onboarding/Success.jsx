@@ -1,14 +1,15 @@
 import React from 'react'
 import { Container, Button } from '@bsf/force-ui';
+import { Link } from "../../router/index"
 import { __ } from "@wordpress/i18n";
+import { routes } from "../../admin/settings/routes";
 import { MoveRight } from 'lucide-react';
 
 const Success = ({ setCurrentStep }) => {
     return (
-        <div className="bg-background-primary border-[0.5px] border-subtle rounded-xl shadow-sm" style={{ height: '630px' }}>
+        <div className="bg-background-primary border-[0.5px] border-subtle rounded-xl shadow-sm" style={{ height: '600px' }}>
             <div className="bg-background-primary items-start justify-center p-8 flex flex-col">
                 <div style={{
-                    // marginTop: '40px',
                     backgroundImage: `url(${hfeSettingsData.success_banner})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
@@ -23,8 +24,8 @@ const Success = ({ setCurrentStep }) => {
                         />
                     </div>
 
-                    <Container className="flex flex-col items-center justify-center">
-                        <p className="text-4xl font-bold text-text-primary m-0 mt-2" style={{ fontSize: '30px' }}>
+                    <div className="flex flex-col items-center justify-center gap-1">
+                        <p className="text-4xl font-bold text-text-primary m-0 mt-2" style={{ fontSize: '25px' }}>
                             {__(
                                 "Congratulations!",
                                 "header-footer-elementor"
@@ -42,17 +43,17 @@ const Success = ({ setCurrentStep }) => {
                                 "header-footer-elementor"
                             )}
                         </p>
-                        <p className="text-md font-medium text-text-primary m-0 mt-2" style={{ fontSize: '14px' }}>
+                        <p className="text-md font-medium italic text-text-primary m-0 mt-2" style={{ fontSize: '14px' }}>
                             {__(
                                 "* Use your exclusive discount code within the next 2 hours to claim your reward!”",
                                 "header-footer-elementor"
                             )}
                         </p>
-                    </Container>
+                    </div>
 
-                    <hr className="w-full border-b-0 border-x-0 border-t  border-solid border-t-border-subtle" style={{ marginTop: '44px' }} />
+                    <hr className="w-full border-b-0 border-x-0 border-t  border-solid border-t-border-subtle" style={{ marginTop: '34px' }} />
 
-                    <div className='flex flex-col items-center' style={{ paddingTop: '30px' }}>
+                    <div className='flex flex-col items-center' style={{ paddingTop: '25px' }}>
                         <Button
                             icon={<MoveRight />}
                             iconPosition="right"
@@ -75,27 +76,35 @@ const Success = ({ setCurrentStep }) => {
                             {__("Get Pro", "header-footer-elementor")}
                         </Button>
 
-                        <Button
-                            iconPosition="left"
-                            variant="link"
-                            style={{ paddingTop: '40px' }}
-                            className="uael-remove-ring text-text-primary"
-                            onMouseEnter={(e) =>
-                                (e.currentTarget.style.color =
-                                    "#000000") &&
-                                (e.currentTarget.style.borderColor =
-                                    "#000000")
-                            }
-                            onMouseLeave={(e) =>
-                                (e.currentTarget.style.color =
-                                    "#6005FF") &&
-                                (e.currentTarget.style.borderColor =
-                                    "#6005FF")
-                            }
-                            onClick={() => setCurrentStep(2)}
+
+                        <Link
+                            to={routes.dashboard.path}
+
                         >
-                            {__("Back", "header-footer-elementor")}
-                        </Button>
+                            <Button
+                                iconPosition="left"
+                                variant="link"
+                                style={{ paddingTop: '40px' }}
+                                className="uael-remove-ring text-text-primary"
+                                onMouseEnter={(e) =>
+                                    (e.currentTarget.style.color =
+                                        "#000000") &&
+                                    (e.currentTarget.style.borderColor =
+                                        "#000000")
+                                }
+                                onMouseLeave={(e) =>
+                                    (e.currentTarget.style.color =
+                                        "#6005FF") &&
+                                    (e.currentTarget.style.borderColor =
+                                        "#6005FF")
+                                }
+
+                            >
+                                {__("Go the the Dashboard", "header-footer-elementor")}
+                            </Button>
+                        </Link>
+
+
                     </div>
 
                 </div>
