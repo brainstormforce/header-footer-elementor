@@ -514,7 +514,7 @@ msgid ""
 msgstr ""
 
 #: src/Components/Dashboard/WelcomeContainer.js:58
-#: src/Components/Onboarding/Build.jsx:149
+#: src/Components/Onboarding/Build.jsx:161
 msgid "Create Header/Footer"
 msgstr ""
 
@@ -595,48 +595,58 @@ msgstr ""
 msgid "What's New?"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:175
+#: src/Components/Onboarding/Build.jsx:103
+msgid "Here’s how to get started:"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:187
 msgid "Go to Dashboard"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:224
+#: src/Components/Onboarding/Build.jsx:236
 msgid "Help make UAE Better"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:241
+#: src/Components/Onboarding/Build.jsx:253
 msgid "We have a special Reward just for you! 🎁"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:255
+#: src/Components/Onboarding/Build.jsx:267
 msgid ""
 "Enter your email address to get special offer that we have for you and stay "
 "updated on UAE’s latest news and updates."
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:259
+#: src/Components/Onboarding/Build.jsx:271
 msgid "Email Address"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:299
-msgid "Submit Email"
-msgstr ""
-
-#: src/Components/Onboarding/Build.jsx:34
+#: src/Components/Onboarding/Build.jsx:30
 msgid "Please enter a valid email address"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:82
+#: src/Components/Onboarding/Build.jsx:311
+msgid "Submit Email"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:56
+#: src/Components/Settings/ThemeSupport.jsx:63
+msgid "Settings saved successfully!"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:61
+#: src/Components/Settings/ThemeSupport.jsx:68
+msgid "Failed to save settings!"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:94
 msgid "You’re all set! 🚀"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:85
+#: src/Components/Onboarding/Build.jsx:97
 msgid ""
 "Start creating amazing designs with UAE and take your website to the next "
 "level"
-msgstr ""
-
-#: src/Components/Onboarding/Build.jsx:91
-msgid "Here’s how to get started:"
 msgstr ""
 
 #: src/Components/Onboarding/Success.jsx:28
@@ -717,14 +727,6 @@ msgid ""
 "This option will automatically replace your theme's header and footer files "
 "with custom templates from the plugin. It works with most themes and is "
 "selected by default."
-msgstr ""
-
-#: src/Components/Settings/ThemeSupport.jsx:63
-msgid "Settings saved successfully!"
-msgstr ""
-
-#: src/Components/Settings/ThemeSupport.jsx:68
-msgid "Failed to save settings!"
 msgstr ""
 
 #: src/Components/Settings/ThemeSupport.jsx:9
