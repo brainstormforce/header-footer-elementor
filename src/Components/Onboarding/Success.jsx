@@ -61,6 +61,7 @@ const Success = () => {
                             <Topbar.Item>
                                 <ProgressSteps
                                     currentStep={currentStep}
+									className="uae-steps"
                                     variant="number"
                                 >
                                     {steps.map((step, index) => (
@@ -76,7 +77,8 @@ const Success = () => {
                         </Topbar.Middle>
                         <Topbar.Right>
                             <Topbar.Item>
-                                <Link className="hfe-remove-ring" to={routes.dashboard.path}>
+                                <Link className="uael-remove-ring" to={routes.dashboard.path}
+                                style={{ marginLeft: '125px'}}>
                                     {" "}
                                     <Button
                                         icon={<X className="size-4" />}
@@ -146,9 +148,9 @@ const Success = () => {
                                     </p>
                                 </div>
 
-                                <hr className="w-full border-b-0 border-x-0 border-t  border-solid border-t-border-subtle" style={{ marginTop: '34px' }} />
+                                <hr className="w-full border-b-0 border-x-0 border-t  border-solid border-t-border-subtle" style={{ marginTop: '2rem' }} />
 
-                                <div className='flex flex-col items-center' style={{ paddingTop: '2rem', paddingBottom: '1rem' }}>
+                                <div className='flex flex-col items-center' style={{ paddingTop: '2rem' }}>
                                     <Button
                                         icon={<ArrowRight />}
                                         iconPosition="right"
@@ -171,8 +173,6 @@ const Success = () => {
                                     >
                                         {__("Get Pro Now", "header-footer-elementor")}
                                     </Button>
-
-
                                     <Link
                                         to={routes.dashboard.path}
                                     >
