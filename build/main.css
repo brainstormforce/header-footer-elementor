@@ -2714,6 +2714,9 @@
 .hfe-loader-icon {
 	top: -15%;
 }
+.hfe-remove-ring.hfe-span span {
+	padding-left: 0px;
+}
 #hfe-settings-app .gap-2 {
 	gap: 1.2rem;
 }

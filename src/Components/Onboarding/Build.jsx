@@ -119,7 +119,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                     />
                 </div>
             </div>
-            <div className='flex flex-row gap-1 pt-2'>
+            <div className='flex flex-row gap-1 pt-2 pb-4'>
                 <Button
                     icon={<ArrowRight/>}
                     iconPosition="right"
@@ -175,43 +175,41 @@ const OnboardingBuild = ({ setCurrentStep }) => {
 
             </div>
             <div
-                className="flex items-start justify-start"
+                className="flex items-start justify-start mt-4"
                 style={{
-                    marginTop: '25px',
                     backgroundImage: `url(${hfeSettingsData.special_reward})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
-                    // width: '95%', // Adjust width as needed
-                    height: '150px' // Adjust height as needed
+                    borderRadius: '5px'
                 }}
             >
-                <div className='flex flex-col'>
-                    <span className='font-bold text-text-primary' style={{ fontSize: '16px', marginTop: '34px', marginLeft: '34px' }}>
-                        We have a special reward just for you!
-                    </span>
+                <div className='flex flex-col p-6'>
+                    <h3 className='font-bold text-text-primary mt-0 mb-1'>
+                        We Have A Special Reward Just For You!
+                    </h3>
 
-                    <span className='font-medium text-text-secondary' style={{ fontSize: '14px', marginTop: '8px', marginLeft: '34px' }}>
+                    <span className='font-medium text-text-secondary mt-2 mb-6'>
                         Unlock your surprise now
                     </span>
 
                     <Button
-                        className="uael-remove-ring"
+                        className="hfe-remove-ring hfe-span"
                         icon={<Package aria-label="icon" role="img" />}
                         iconPosition="right"
                         size="md"
                         tag="button"
                         type="button"
                         variant="link"
-                        style={{ marginTop: '16px', marginRight: '100px', color: "#6005FF" }}
+                        style={{ alignItems: 'center', justifyContent: 'flex-start' }}
                         onClick={() => setIsDialogOpen(true)}
                     >
                         Unlock My Surprise
                     </Button>
                 </div>
             </div>
-            <hr className="w-full border-b-0 border-x-0 border-t  border-solid border-t-border-subtle" style={{ marginTop: '34px', marginBottom: '34px' }} />
+            <hr className="w-full border-b-0 border-x-0 border-t border-solid border-t-border-subtle" style={{ marginTop: '34px', marginBottom: '34px', borderColor: '#E5E7EB' }} />
 
-            <div className="bg-badge-background-gray border-[0.5px] border-subtle rounded-xl p-2">
+            <div className="bg-badge-background-gray border-[0.5px] border-subtle p-6" style={{ borderRadius: '5px' }}>
                 <div className='flex flex-row items-center justify-start px-1 gap-3'>
                     <Switch
                         onChange={handleSwitchChange}
@@ -219,11 +217,11 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                         value={isActive}
                         className="hfe-remove-ring"
                     />
-                    <p className="font-bold text-text-primary m-0" style={{ fontSize: '20px' }}>
+                    <span className="font-bold text-text-primary m-0">
                         {__("Help make UAE Better", "header-footer-elementor")}
-                    </p>
+                    </span>
                 </div>
-                <p className='font-medium text-[#64748B]' style={{ fontSize: '16px' }}>Help us improve by sharing anonymous data about your website setup. This includes non-sensitive info about plugins, themes, and settings, so we can create a better product for you. Your privacy is always our top priority. Learn more in our privacy policy.</p>
+                <span className='flex flex-row items-center justify-start pb-4 gap-3' style={{ lineHeight: '1.5em', fontSize: '0.95em' }}>Help us improve by sharing anonymous data about your website setup. This includes non-sensitive info about plugins, themes, and settings, so we can create a better product for you. Your privacy is always our top priority. Learn more in our privacy policy.</span>
             </div>
 
             <Dialog
@@ -244,7 +242,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                                     iconPosition="right"
                                     size="md"
                                     variant="ghost"
-                                    className='uael-remove-ring'
+                                    className='hfe-remove-ring'
                                     onClick={() => setIsDialogOpen(false)}
                                     style={{ marginLeft: '60px', marginBottom: '20px' }}
                                 />
