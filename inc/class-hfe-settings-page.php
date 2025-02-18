@@ -347,7 +347,7 @@ public function fetch_user_email() {
 					'is_hfe_post'              => $is_hfe_post,
 					'user_email'               => $user_email,
 					'analytics_status'			=> $analytics_status,
-					'onboarding_success_url'   => admin_url( 'admin.php?page=hfe' . $menu_slug . '#Onboardingsuccess' )
+					'onboarding_success_url'   => admin_url( 'admin.php?page=hfe#Onboardingsuccess' )
 				]
 			);
 	
