@@ -84,7 +84,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
     }
 
     return (
-        <div className="bg-background-primary border-[0.5px] border-subtle rounded-xl shadow-sm mb-6 p-8" style={{ width: '55%' }}>
+        <div className="bg-background-primary border-[0.5px] border-subtle rounded-xl shadow-sm mb-6 p-8" style={{ maxWidth: '55%' }}>
             <div className="flex items-start">
                 {/* Left Content */}
                 <div className="flex flex-col items-start">
