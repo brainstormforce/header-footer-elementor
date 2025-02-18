@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import WidgetItemOnboarding from './WidgetItemOnboarding';
-import { Container, Button, Title, Label, RadioButton, Badge } from "@bsf/force-ui";
+import { Button } from "@bsf/force-ui";
 import apiFetch from '@wordpress/api-fetch';
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { Link } from "../../router/index";
 import { routes } from "../../admin/settings/routes";
-import Widgets from './Widgets';
+import { __ } from "@wordpress/i18n";
 import OnboardingWidgets from './OnboardingWidgets';
 
 const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
@@ -97,46 +96,7 @@ const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
             <form>
                 <div className="md:w-[47rem] box-border mx-auto mt-10 border border-solid border-border-subtle bg-background-primary rounded-xl shadow-sm space-y-4" style={{ height: '400px' }}>
                     <div className="bg-background-secondary p-1 rounded-lg max-h-80" style={{ overflow: 'auto', maxHeight: '20rem' }}>
-                        {/* <RadioButton.Group
-                            columns={3}
-                            gapClassname="gap-1"
-                            multiSelection
-                            size="sm"
-                        >
-                            {allWidgetsData?.map((widget) => (
-                                <RadioButton.Button
-                                    key={widget.id}
-                                    icon={widget.icon}
-                                    badgeItem={
-                                        widget.is_pro ? (
-                                            <Badge
-                                                label="PRO"
-                                                size="xs"
-                                                type="pill"
-                                                variant="inverse"
-                                            />
-                                        ) : (
-                                            <Badge
-                                                label="Free"
-                                                size="xxs"
-                                                type="pill"
-                                                variant="green"
-                                            />
-                                        )
-                                    }
-                                    borderOn
-                                    useSwitch={!widget.is_pro} // Conditionally render the switch
-                                    buttonWrapperClasses="bg-white border-0"
-                                    label={{
-                                        // description: widget.description,
-                                        heading: widget.title
-                                    }}
-                                    onChange={() => handleSwitchChange(widget)}
-                                    checked={widget.is_active}
-                                />
-                            ))}
-                        </RadioButton.Group> */}
-                            <OnboardingWidgets/>
+                        <OnboardingWidgets />
                     </div>
                     <div className="flex justify-between items-center pt-1 px-4 gap-4">
                         <Button
@@ -145,7 +105,7 @@ const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
                             variant="outline"
                             onClick={() => setCurrentStep(1)}
                         >
-                            Back
+                            {__("Back", "header-footer-elementor")}
                         </Button>
                         <div className="flex justify-end items-center gap-3">
                             <Link
@@ -155,7 +115,8 @@ const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
                                 <Button
                                     className="hfe-remove-ring"
                                     variant="ghost">
-                                    {' '}Skip
+                                    {' '}
+                                    {__("Skip", "header-footer-elementor")}
                                 </Button>
                             </Link>
                             <Button
@@ -169,7 +130,7 @@ const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
                                 }}
                                 onClick={() => setCurrentStep(3)}
                             >
-                                Continue Setup
+                                {__(" Continue Setup", "header-footer-elementor")}
                             </Button>
                         </div>
                     </div>
