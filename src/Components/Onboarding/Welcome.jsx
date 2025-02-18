@@ -7,7 +7,7 @@ const Welcome = ({ setCurrentStep }) => {
         <div className="bg-background-primary border-[0.5px] items-start justify-center border-subtle rounded-xl shadow-sm mb-6 p-8 flex flex-col" style={{ width: '55%' }}>
             <div className="px-1">
                 <div className="flex flex-col">
-                    <h1 className="text-text-primary m-0 mb-2 hfe-65-width" style={{ lineHeight: '1.3em' }}>
+                    <h1 className="text-text-primary m-0 mb-2 hfe-65-width" style={{ fontSize: '1.6rem', lineHeight: '1.3em' }}>
                     {__(
                         "Thank You For Choosing Ultimate Addons for Elementor",
                         "header-footer-elementor"
