@@ -161,7 +161,8 @@ const FeatureWidgetsOnboarding = ({ setCurrentStep }) => {
                             <Container.Item
                                 key={index}
                                 alignSelf="auto"
-                                className="text-wrap rounded-md shadow-container-item bg-background-primary p-6 space-y-2"
+                                style={{ padding: '3.5rem' }}
+                                className="text-wrap rounded-md shadow-container-item bg-background-primary space-y-2"
                             >
                                 <Skeleton className='w-12 h-2 rounded-md' />
                                 <Skeleton className='w-16 h-2 rounded-md' />

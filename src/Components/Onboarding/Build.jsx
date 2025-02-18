@@ -139,7 +139,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                     }
                     onClick={() => {
                         window.open(
-                            hfeSettingsData.uael_hfe_post_url,
+                            hfeSettingsData.hfe_post_url,
                             "_blank"
                         );
                     }}
