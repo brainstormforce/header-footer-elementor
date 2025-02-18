@@ -558,11 +558,11 @@ msgstr ""
 msgid "Back"
 msgstr ""
 
-#: src/Components/Dashboard/WidgetsOnboarding.jsx:121
+#: src/Components/Dashboard/WidgetsOnboarding.jsx:120
 msgid "Skip"
 msgstr ""
 
-#: src/Components/Dashboard/WidgetsOnboarding.jsx:135
+#: src/Components/Dashboard/WidgetsOnboarding.jsx:133
 msgid " Continue Setup"
 msgstr ""
 

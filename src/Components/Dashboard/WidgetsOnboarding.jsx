@@ -110,17 +110,15 @@ const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
                     {__("Back", "header-footer-elementor")}
                 </Button>
                 <div className="flex justify-end items-center gap-3">
-                    <Link
-                        to={routes.dashboard.path}
-
+                    
+                    <Button
+                        className="hfe-remove-ring"
+                        variant="ghost"
+                        onClick={() => setCurrentStep(3)}
                     >
-                        <Button
-                            className="hfe-remove-ring"
-                            variant="ghost">
-                            {' '}
-                            {__("Skip", "header-footer-elementor")}
-                        </Button>
-                    </Link>
+                        {' '}
+                        {__("Skip", "header-footer-elementor")}
+                    </Button>
                     <Button
                         className="flex items-center gap-1 hfe-remove-ring"
                         icon={<ArrowRight />}
