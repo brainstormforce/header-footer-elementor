@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Button, Skeleton, Title, Label, RadioButton, Badge, Switch } from "@bsf/force-ui";
-import { ChevronLeft, ChevronRight, LoaderCircle, SearchIcon } from "lucide-react";
-import WidgetItem from '@components/Dashboard/WidgetItem';
+import { Container, Skeleton, Title, Label } from "@bsf/force-ui";
 import apiFetch from '@wordpress/api-fetch';
 import { __ } from "@wordpress/i18n";
-import WidgetItemOnboarding from '@components/Dashboard/WidgetItemOnboarding';
 import WidgetsOnboarding from '@components/Dashboard/WidgetsOnboarding';
 
 const FeatureWidgetsOnboarding = ({ setCurrentStep }) => {

@@ -15,7 +15,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
     useEffect(() => {
         setEmail(hfeSettingsData.user_email);
         setIsActive(hfeSettingsData.analytics_status === 'yes');
-        
+
     }, [hfeSettingsData.user_email]);
 
     const handleSubmit = () => {
@@ -103,20 +103,22 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                     <ul className="list-none">
                         <li className="flex items-start gap-x-1 text-text-tertiary text-md font-medium">
                             <span className="text-text-tertiary">
-                                1. Click on “Create New Page” button
+                                {__("1. Click on “Create New Page” button", "header-footer-elementor")}
                             </span>
                         </li>
                         <li className="flex items-start gap-x-1 text-text-tertiary text-md font-medium">
-                            <span>2. Use the Elementor editor to customize your page/post according to your preferences</span>
-                        </li>
-                        <li className="flex items-start gap-x-1 text-text-tertiary text-md font-medium">
-                            <span className="text-text-tertiary">
-                                3. Use UAE widgets to design your pages.
+                            <span>
+                                {__("2. Use the Elementor editor to customize your page/post according to your preferences", "header-footer-elementor")}
                             </span>
                         </li>
                         <li className="flex items-start gap-x-1 text-text-tertiary text-md font-medium">
                             <span className="text-text-tertiary">
-                                4. Click “Publish” to make it live
+                                {__("3. Use UAE widgets to design your pages.", "header-footer-elementor")}
+                            </span>
+                        </li>
+                        <li className="flex items-start gap-x-1 text-text-tertiary text-md font-medium">
+                            <span className="text-text-tertiary">
+                                {__("4. Click “Publish” to make it live", "header-footer-elementor")}
                             </span>
                         </li>
                     </ul>
@@ -199,15 +201,15 @@ const OnboardingBuild = ({ setCurrentStep }) => {
             >
                 <div className='flex flex-col'>
                     <span className='font-bold text-text-primary' style={{ fontSize: '16px', marginTop: '34px', marginLeft: '34px' }}>
-                        We have a special reward just for you!
+                        {__("We have a special reward just for you!", "header-footer-elementor")}
                     </span>
 
                     <span className='font-medium text-text-secondary' style={{ fontSize: '14px', marginTop: '8px', marginLeft: '34px' }}>
-                        Unlock your surprise now
+                        {__("Unlock your surprise now", "header-footer-elementor")}
                     </span>
 
                     <Button
-                        className="uael-remove-ring"
+                        className='hfe-remove-ring'
                         icon={<Package aria-label="icon" role="img" />}
                         iconPosition="right"
                         size="md"
@@ -217,7 +219,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                         style={{ marginTop: '16px', marginRight: '100px', color: "#6005FF" }}
                         onClick={() => setIsDialogOpen(true)}
                     >
-                        Unlock My Surprise
+                        {__("Unlock My Surprise", "header-footer-elementor")}
                     </Button>
                 </div>
             </div>
@@ -235,7 +237,9 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                         {__("Help make UAE Better", "header-footer-elementor")}
                     </p>
                 </div>
-                <p className='font-medium text-[#64748B]' style={{ fontSize: '16px' }}>Help us improve by sharing anonymous data about your website setup. This includes non-sensitive info about plugins, themes, and settings, so we can create a better product for you. Your privacy is always our top priority. Learn more in our privacy policy.</p>
+                <p className='font-medium text-[#64748B]' style={{ fontSize: '16px' }}>
+                    {__("Help us improve by sharing anonymous data about your website setup. This includes non-sensitive info about plugins, themes, and settings, so we can create a better product for you. Your privacy is always our top priority. Learn more in our privacy policy.", "header-footer-elementor")}
+                </p>
             </div>
 
             <Dialog
@@ -256,7 +260,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                                     iconPosition="right"
                                     size="md"
                                     variant="ghost"
-                                    className='uael-remove-ring'
+                                    className='hfe-remove-ring'
                                     onClick={() => setIsDialogOpen(false)}
                                     style={{ marginLeft: '60px', marginBottom: '20px' }}
                                 />
@@ -282,10 +286,10 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                                 style={{ width: '282px' }}
                                 onChange={(e) => {
                                     if (e && e.target) {
-                                        console.log('Input changed:', e.target.value);
+                                        // console.log('Input changed:', e.target.value);
                                         setEmail(e.target.value);
                                     } else {
-                                        console.error('Event or event target is undefined');
+                                        // console.error('Event or event target is undefined');
                                     }
                                 }}
                             />
