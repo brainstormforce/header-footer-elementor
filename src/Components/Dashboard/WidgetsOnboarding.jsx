@@ -92,50 +92,50 @@ const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
         }));
     };
     return (
-        <div className="bg-background-secondary">
-            <form>
-                <div className="md:w-[47rem] box-border mx-auto mt-10 border border-solid border-border-subtle bg-background-primary rounded-xl shadow-sm space-y-4" style={{ height: '400px' }}>
-                    <div className="bg-background-secondary p-1 rounded-lg max-h-80" style={{ overflow: 'auto', maxHeight: '20rem' }}>
-                        <OnboardingWidgets />
+        <div className="flex flex-col gap-4">
+            <div className="bg-background-secondary" style={{ minWidth: '900px' }}>
+                <form>
+                    <div className="md:w-[47rem] box-border mx-auto space-y-4">
+                        <OnboardingWidgets/>
                     </div>
-                    <div className="flex justify-between items-center pt-1 px-4 gap-4">
-                        <Button
-                            className="flex items-center gap-1"
-                            icon={<ChevronLeft />}
-                            variant="outline"
-                            onClick={() => setCurrentStep(1)}
-                        >
-                            {__("Back", "header-footer-elementor")}
-                        </Button>
-                        <div className="flex justify-end items-center gap-3">
-                            <Link
-                                to={routes.dashboard.path}
+                </form>
+            </div>
+            <div className="flex justify-between items-center pt-1 px-4 gap-4">
+                <Button
+                    className="flex items-center gap-1 hfe-remove-ring"
+                    icon={<ChevronLeft />}
+                    variant="outline"
+                    onClick={() => setCurrentStep(1)}
+                >
+                    {__("Back", "header-footer-elementor")}
+                </Button>
+                <div className="flex justify-end items-center gap-3">
+                    <Link
+                        to={routes.dashboard.path}
 
-                            >
-                                <Button
-                                    className="hfe-remove-ring"
-                                    variant="ghost">
-                                    {' '}
-                                    {__("Skip", "header-footer-elementor")}
-                                </Button>
-                            </Link>
-                            <Button
-                                className="flex items-center gap-1"
-                                icon={<ArrowRight />}
-                                iconPosition="right"
-                                style={{
-                                    backgroundColor: "#6005FF",
-                                    transition: "background-color 0.3s ease",
-                                    padding: "12px"
-                                }}
-                                onClick={() => setCurrentStep(3)}
-                            >
-                                {__(" Continue Setup", "header-footer-elementor")}
-                            </Button>
-                        </div>
-                    </div>
+                    >
+                        <Button
+                            className="hfe-remove-ring"
+                            variant="ghost">
+                            {' '}
+                            {__("Skip", "header-footer-elementor")}
+                        </Button>
+                    </Link>
+                    <Button
+                        className="flex items-center gap-1 hfe-remove-ring"
+                        icon={<ArrowRight />}
+                        iconPosition="right"
+                        style={{
+                            backgroundColor: "#6005FF",
+                            transition: "background-color 0.3s ease",
+                            padding: "12px"
+                        }}
+                        onClick={() => setCurrentStep(3)}
+                    >
+                        {__(" Continue Setup", "header-footer-elementor")}
+                    </Button>
                 </div>
-            </form>
+            </div>
         </div>
     );
 };

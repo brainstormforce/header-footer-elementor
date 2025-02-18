@@ -4,52 +4,47 @@ import { __ } from "@wordpress/i18n";
 
 const Welcome = ({ setCurrentStep }) => {
     return (
-        <div className="">
-            <div className=" bg-background-primary border-[0.5px] items-start justify-center border-subtle rounded-xl shadow-sm mb-6 p-8 flex flex-col">
+        <div className="bg-background-primary border-[0.5px] items-start justify-center border-subtle rounded-xl shadow-sm mb-6 p-8 flex flex-col" style={{ width: '55%' }}>
+            <div className="px-1">
                 <div className="flex flex-col">
-                    <p className="text-4xl font-bold text-text-primary m-0" style={{ fontSize: '30px', width: '58%', lineHeight:'38px' }}>
-                        {__(
-                            "Thank you for choosing Ultimate Addons for Elementor.",
-                            "header-footer-elementor"
-                        )}
-                    </p>
-                    <p className="text-md font-medium text-text-tertiary m-0" style={{ fontSize: '14px', width: '700px', lineHeight:'23px', paddingTop: '4px' }}>
+                    <h1 className="text-text-primary m-0 mb-2 hfe-65-width" style={{ fontSize: '1.6rem', lineHeight: '1.3em' }}>
+                    {__(
+                        "Thank You For Choosing Ultimate Addons for Elementor",
+                        "header-footer-elementor"
+                    )}
+                    </h1>
+                    <span className="text-md font-medium text-text-tertiary m-0 mb-6 hfe-88-width" style={{ lineHeight: '1.5em' }}>
                         {__(
                             "We're excited to have you onboard. Get ready to create stunning headers, footers, and custom blocks with ease while keeping your website lightweight and fast.",
                             "header-footer-elementor"
                         )}
-                    </p>
+                    </span>
                 </div>
-                <div className='' style={{ paddingTop: '30px' }}>
-                    <img
-                        alt="Welcome"
-                        className=""
-                        style={{ width: '100%', height: '300px' }}
-                        src={`${hfeSettingsData.welcome_banner}`}
-                    />
-                </div>
-                <div style={{ paddingTop: '30px' }}>
-                    <Button
-                        iconPosition="right"
-                        variant="primary"
-                        className="bg-[#6005FF] uael-remove-ring p-3 font-bold"
-                        style={{
-                            backgroundColor: "#6005FF",
-                            transition: "background-color 0.3s ease",
-                        }}
-                        onMouseEnter={(e) =>
-                        (e.currentTarget.style.backgroundColor =
-                            "#4B00CC")
-                        }
-                        onMouseLeave={(e) =>
-                        (e.currentTarget.style.backgroundColor =
-                            "#6005FF")
-                        }
-                        onClick={() => setCurrentStep(2)}
-                    >
-                        {__("Let’s Get Started", "header-footer-elementor")}
-                    </Button>
-                </div>
+                <img
+                    alt="Welcome"
+                    className="w-full h-auto mb-6 mt-2"
+                    src={`${hfeSettingsData.welcome_banner}`}
+                />
+                <Button
+                    iconPosition="right"
+                    variant="primary"
+                    className="bg-[#6005FF] hfe-remove-ring p-3 px-5 font-bold mt-2"
+                    style={{
+                        backgroundColor: "#6005FF",
+                        transition: "background-color 0.3s ease",
+                    }}
+                    onMouseEnter={(e) =>
+                    (e.currentTarget.style.backgroundColor =
+                        "#4B00CC")
+                    }
+                    onMouseLeave={(e) =>
+                    (e.currentTarget.style.backgroundColor =
+                        "#6005FF")
+                    }
+                    onClick={() => setCurrentStep(2)}
+                >
+                    {__("Let's Get Started", "header-footer-elementor")}
+                </Button>
             </div>
         </div>
     );

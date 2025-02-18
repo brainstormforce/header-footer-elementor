@@ -42,6 +42,23 @@
 	height: 40px;
 	animation: spin 2s linear infinite;
 }
+.hfe-custom-scrollbar::-webkit-scrollbar {
+	width: 10px;
+}  
+/* Track */
+.hfe-custom-scrollbar::-webkit-scrollbar-track {
+	background: #f1f1f1; 
+}
+   
+/* Handle */
+.hfe-custom-scrollbar::-webkit-scrollbar-thumb {
+	background: #888; 
+}
+  
+/* Handle on hover */
+.hfe-custom-scrollbar::-webkit-scrollbar-thumb:hover {
+	background: #555; 
+}
 
 .hfe-subheading h2 {
 	font-size: 1.1rem !important;
@@ -51,6 +68,9 @@
 }
 .hfe-loader-icon {
 	top: -15%;
+}
+.hfe-remove-ring.hfe-span span {
+	padding-left: 0px;
 }
 #hfe-settings-app .gap-2 {
 	gap: 1.2rem;
@@ -64,6 +84,14 @@
 }
 .hfe-settings-page h2 {
 	margin-bottom: 0.3rem !important;
+}
+:is(#hfe-settings-app) .hfe-remove-ring svg.lucide-arrow-right {
+	width: 1rem;
+	height: 1rem;
+}
+.hfe-popup-button,
+.hfe-popup-button svg {
+	padding: 0;
 }
 .hfe-link-color,
 .hfe-link-color span {
@@ -94,7 +122,9 @@ button.hfe-bulk-action-button {
 .hfe-78-width {
 	width: 78%;
 }
-
+.hfe-88-width {
+	width: 88%;
+}
 #hfe-settings-app .subject-cell {
 	max-width: 200px; /* Adjust this width based on your layout */
 	white-space: nowrap;
@@ -212,7 +242,8 @@ div#hfe-settings-app {
 @media (max-width: 1024px) {
 	.hfe-65-width,
 	.hfe-35-width,
-	.hfe-78-width {
+	.hfe-78-width,
+	.hfe-88-width {
 		width: 100%;
 	}
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Button, Switch, Title, Dialog, Input } from '@bsf/force-ui';
-import { X, Check, Plus, MoveRight, Package } from 'lucide-react';
+import { X, Check, Plus, ArrowRight, Package } from 'lucide-react';
 import toast, { Toaster } from 'react-hot-toast';
 import { Link } from "../../router/index"
 import { __ } from "@wordpress/i18n";
@@ -84,61 +84,47 @@ const OnboardingBuild = ({ setCurrentStep }) => {
     }
 
     return (
-        <div className="bg-background-primary border-[0.5px] border-subtle rounded-xl shadow-sm mb-6 p-8" style={{ width: '820px' }}>
-            <div className="flex items-center">
+        <div className="bg-background-primary border-[0.5px] border-subtle rounded-xl shadow-sm mb-6 p-8" style={{ width: '55%' }}>
+            <div className="flex items-start">
                 {/* Left Content */}
                 <div className="flex flex-col items-start">
-                    <p className="font-bold text-text-primary m-0" style={{ fontSize: '25px' }}>
-                        {__("You’re all set! 🚀", "header-footer-elementor")}
-                    </p>
-                    <p className="font-medium text-text-tertiary m-0" style={{ fontSize: '18px' }}>
+                    <h1 className="text-text-primary m-0 mb-2" style={{ fontSize: '1.6rem', lineHeight: '1.3em' }}>
+                        {__("You're all set!🚀", "header-footer-elementor")}
+                    </h1>
+                    <span className="text-md font-medium text-text-tertiary m-0 mb-4 hfe-88-width" style={{ lineHeight: '1.6em' }}>
                         {__(
                             "Start creating amazing designs with UAE and take your website to the next level",
                             "header-footer-elementor"
                         )}
-                    </p>
-                    <p className="font-bold text-text-primary m-0 mt-1 text-lg" style={{ paddingTop: '8px' }}>
-                        {__("Here’s how to get started:", "header-footer-elementor")}
-                    </p>
-                    <ul className="list-none">
-                        <li className="flex items-start gap-x-1 text-text-tertiary text-md font-medium">
-                            <span className="text-text-tertiary">
-                                {__("1. Click on “Create New Page” button", "header-footer-elementor")}
-                            </span>
-                        </li>
-                        <li className="flex items-start gap-x-1 text-text-tertiary text-md font-medium">
-                            <span>
-                                {__("2. Use the Elementor editor to customize your page/post according to your preferences", "header-footer-elementor")}
-                            </span>
-                        </li>
-                        <li className="flex items-start gap-x-1 text-text-tertiary text-md font-medium">
-                            <span className="text-text-tertiary">
-                                {__("3. Use UAE widgets to design your pages.", "header-footer-elementor")}
-                            </span>
-                        </li>
-                        <li className="flex items-start gap-x-1 text-text-tertiary text-md font-medium">
-                            <span className="text-text-tertiary">
-                                {__("4. Click “Publish” to make it live", "header-footer-elementor")}
-                            </span>
-                        </li>
-                    </ul>
+                    </span>
+                    <span className="font-bold m-0 pt-2">
+                        {__("Here's How To Get Started:", "header-footer-elementor")}
+                    </span>
+
+                    <ol className="list-decimal text-text-tertiary text-sm" style={{ marginLeft: '1.4em' }}>
+                        <li>{__('Click on “Create New Page” button', 'header-footer-elementor')}</li>
+                        <li>{__('Use the Elementor editor to customize your page/post according to your preferences', 'header-footer-elementor')}</li>
+                        <li>{__('Use UAE widgets to design your pages.', 'header-footer-elementor')}</li>
+                        <li>{__('Click “Publish” to make it live', 'header-footer-elementor')}</li>
+                    </ol>
                 </div>
 
                 {/* Right Content - Image */}
-                <div className="w-1/2 flex justify-center">
+                <div className="w-1/2" style={{ textAlign: 'end' }}>
                     <img
                         alt="Build"
                         className="w-full object-contain"
-                        style={{ height: '250px' }}
+                        style={{ height: '255px', width: 'auto' }}
                         src={`${hfeSettingsData.build_banner}`}
                     />
                 </div>
             </div>
-            <div className='flex flex-row gap-2' style={{ marginTop: '15px' }}>
+            <div className='flex flex-row gap-1 pt-2 pb-4'>
                 <Button
+                    icon={<ArrowRight/>}
                     iconPosition="right"
                     variant="primary"
-                    className="bg-[#6005FF] uael-remove-ring"
+                    className="bg-[#6005FF] hfe-remove-ring"
                     style={{
                         backgroundColor: "#6005FF",
                         transition: "background-color 0.3s ease",
@@ -166,66 +152,63 @@ const OnboardingBuild = ({ setCurrentStep }) => {
 
                 >
                     <Button
-                        icon={<MoveRight />}
+                        icon={<ArrowRight/>}
                         iconPosition="right"
                         variant="ghost"
-                        className="uael-remove-ring"
-                        onMouseEnter={(e) =>
+                        className="hfe-remove-ring"
+                        onMouseLeave={(e) =>
                             (e.currentTarget.style.color =
                                 "#000000") &&
                             (e.currentTarget.style.borderColor =
                                 "#000000")
                         }
-                        onMouseLeave={(e) =>
+                        onMouseEnter={(e) =>
                             (e.currentTarget.style.color =
                                 "#6005FF") &&
                             (e.currentTarget.style.borderColor =
                                 "#6005FF")
                         }
                     >
-                        {__("Go to Dashboard", "header-footer-elementor")}
+                        {__("Go To Dashboard", "header-footer-elementor")}
                     </Button>
                 </Link>
 
             </div>
             <div
-                className="flex items-start justify-start"
+                className="flex items-start justify-start mt-4"
                 style={{
-                    marginTop: '25px',
                     backgroundImage: `url(${hfeSettingsData.special_reward})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
-                    // width: '95%', // Adjust width as needed
-                    height: '150px' // Adjust height as needed
+                    borderRadius: '5px'
                 }}
             >
-                <div className='flex flex-col'>
-                    <span className='font-bold text-text-primary' style={{ fontSize: '16px', marginTop: '34px', marginLeft: '34px' }}>
+                <div className='flex flex-col p-6 items-start'>
+                    <h3 className='font-bold text-text-primary mt-0 mb-1' style={{ fontSize: '1.6rem', lineHeight: '1.3em' }}>
                         {__("We have a special reward just for you!", "header-footer-elementor")}
-                    </span>
-
-                    <span className='font-medium text-text-secondary' style={{ fontSize: '14px', marginTop: '8px', marginLeft: '34px' }}>
+                    </h3>
+                    <span className='font-medium text-text-secondary mt-2 mb-6'>
                         {__("Unlock your surprise now", "header-footer-elementor")}
                     </span>
 
                     <Button
-                        className='hfe-remove-ring'
+                        className="hfe-remove-ring hfe-span hfe-popup-button"
                         icon={<Package aria-label="icon" role="img" />}
                         iconPosition="right"
                         size="md"
                         tag="button"
                         type="button"
                         variant="link"
-                        style={{ marginTop: '16px', marginRight: '100px', color: "#6005FF" }}
+                        style={{ alignItems: 'center', justifyContent: 'flex-start' }}
                         onClick={() => setIsDialogOpen(true)}
                     >
                         {__("Unlock My Surprise", "header-footer-elementor")}
                     </Button>
                 </div>
             </div>
-            <hr className="w-full border-b-0 border-x-0 border-t  border-solid border-t-border-subtle" style={{ marginTop: '34px', marginBottom: '34px' }} />
+            <hr className="w-full border-b-0 border-x-0 border-t border-solid border-t-border-subtle" style={{ marginTop: '34px', marginBottom: '34px', borderColor: '#E5E7EB' }} />
 
-            <div className="bg-badge-background-gray border-[0.5px] border-subtle rounded-xl p-2">
+            <div className="bg-badge-background-gray border-[0.5px] border-subtle p-6" style={{ borderRadius: '5px' }}>
                 <div className='flex flex-row items-center justify-start px-1 gap-3'>
                     <Switch
                         onChange={handleSwitchChange}
@@ -233,13 +216,11 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                         value={isActive}
                         className="hfe-remove-ring"
                     />
-                    <p className="font-bold text-text-primary m-0" style={{ fontSize: '20px' }}>
+                    <span className="font-bold text-text-primary m-0">
                         {__("Help make UAE Better", "header-footer-elementor")}
-                    </p>
+                    </span>
                 </div>
-                <p className='font-medium text-[#64748B]' style={{ fontSize: '16px' }}>
-                    {__("Help us improve by sharing anonymous data about your website setup. This includes non-sensitive info about plugins, themes, and settings, so we can create a better product for you. Your privacy is always our top priority. Learn more in our privacy policy.", "header-footer-elementor")}
-                </p>
+                <span className='flex flex-row items-center justify-start mt-4 gap-3' style={{ lineHeight: '1.5em', fontSize: '0.95em' }}>{__("Help us improve by sharing anonymous data about your website setup. This includes non-sensitive info about plugins, themes, and settings, so we can create a better product for you. Your privacy is always our top priority. Learn more in our privacy policy.", "header-footer-elementor")}</span>
             </div>
 
             <Dialog
@@ -249,10 +230,10 @@ const OnboardingBuild = ({ setCurrentStep }) => {
             >
                 <Dialog.Backdrop />
                 <Dialog.Panel>
-                    <Dialog.Header style={{ padding: '30px' }}>
+                    <Dialog.Header style={{ padding: '30px', marginBottom: '0.5rem' }}>
                         <div className="flex items-center justify-between">
                             <div className="flex items-center justify-center">
-                                <Dialog.Title style={{ fontSize: '25px', width: '80%', lineHeight: '36px' }}>
+                                <Dialog.Title style={{ fontSize: '1.6rem', width: '80%', lineHeight: '1.3em' }}>
                                     {__('We have a special Reward just for you! 🎁', 'header-footer-elementor')}
                                 </Dialog.Title>
                                 <Button
@@ -266,11 +247,11 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                                 />
                             </div>
                         </div>
-                        <Dialog.Description style={{ fontSize: '14px', width: '90%', fontWeight: '400', color: '#64748B' }}>
+                        <Dialog.Description style={{ width: '90%', color: '#64748B' }}>
                             {__('Enter your email address to get special offer that we have for you and stay updated on UAE’s latest news and updates.', 'header-footer-elementor')}
                         </Dialog.Description>
 
-                        <p className="text-md font-bold text-field-label m-0 gap-0" style={{ fontSize: '14px' }}>
+                        <p className="text-md font-bold text-field-label m-0 gap-0" style={{ fontSize: '14px', marginTop: '1.5em' }}>
                             {__(
                                 "Email Address",
                                 "header-footer-elementor"
@@ -296,7 +277,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                             <Button
                                 iconPosition="right"
                                 variant="primary"
-                                className="bg-[#6005FF] uael-remove-ring"
+                                className="bg-[#6005FF] hfe-remove-ring"
                                 style={{
                                     backgroundColor: "#6005FF",
                                     transition: "background-color 0.3s ease",
