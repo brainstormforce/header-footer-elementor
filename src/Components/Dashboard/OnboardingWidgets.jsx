@@ -164,7 +164,7 @@ const FeatureWidgets = () => {
                     </div>
                 </div>
             </div>
-            <div className='flex bg-black flex-col rounded-lg p-4' style={{ minHeight: "800px" }}>
+            <div className='flex bg-black flex-col rounded-lg p-10' style={{ minHeight: "800px" }}>
                 {loading ? (
                     <Container
                         align="stretch"
@@ -180,7 +180,7 @@ const FeatureWidgets = () => {
                             <Container.Item
                                 key={index}
                                 alignSelf="auto"
-                                className="text-wrap rounded-md shadow-container-item bg-background-primary p-6 space-y-2"
+                                className="text-wrap rounded-md shadow-container-item bg-background-primary p-8 space-y-2"
                             >
                                 <Skeleton className='w-12 h-2 rounded-md' />
                                 <Skeleton className='w-16 h-2 rounded-md' />
