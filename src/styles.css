@@ -42,6 +42,23 @@
 	height: 40px;
 	animation: spin 2s linear infinite;
 }
+.hfe-custom-scrollbar::-webkit-scrollbar {
+	width: 10px;
+}  
+/* Track */
+.hfe-custom-scrollbar::-webkit-scrollbar-track {
+	background: #f1f1f1; 
+}
+   
+/* Handle */
+.hfe-custom-scrollbar::-webkit-scrollbar-thumb {
+	background: #888; 
+}
+  
+/* Handle on hover */
+.hfe-custom-scrollbar::-webkit-scrollbar-thumb:hover {
+	background: #555; 
+}
 
 .hfe-subheading h2 {
 	font-size: 1.1rem !important;
@@ -68,7 +85,7 @@
 .hfe-settings-page h2 {
 	margin-bottom: 0.3rem !important;
 }
-.hfe-remove-ring svg.lucide-arrow-right {
+:is(#hfe-settings-app) .hfe-remove-ring svg.lucide-arrow-right {
 	width: 1rem;
 	height: 1rem;
 }

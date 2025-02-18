@@ -5,7 +5,7 @@ import WidgetItem from '@components/Dashboard/WidgetItem';
 import apiFetch from '@wordpress/api-fetch';
 import { __ } from "@wordpress/i18n";
 
-const FeatureWidgets = () => {
+const OnboardingWidgets = () => {
 
     const [allWidgetsData, setAllWidgetsData] = useState(null); // Initialize state.
     const [searchTerm, setSearchTerm] = useState('');
@@ -132,21 +132,19 @@ const FeatureWidgets = () => {
     }
 
     return (
-        <div className='rounded-lg bg-white w-full mb-4 ' >
-            <div className='flex flex-col md:flex-row md:items-center md:justify-between p-4'
-                style={{
-                    paddingBottom: '0'
-                }}>
-                <p className='m-0 text-sm font-semibold text-text-primary mb-2 md:mb-0'>{__("Widgets / Features", "header-footer-elementor")}</p>
+        <div className='rounded-lg w-full mb-4' >
+            <div className='flex flex-col md:flex-row md:items-center md:justify-between p-4'>
+                <h4 className='m-0 font-semibold text-text-primary mb-2 md:mb-0'>{__("WIDGETS", "header-footer-elementor")}</h4>
                 <div className='flex flex-col md:flex-row items-center gap-y-2 md:gap-x-2 md:mr-7 relative'>
-                    <div className="flex flex-row gap-2 w-full md:w-auto">
+                    <div className="flex flex-row w-full md:w-auto">
                         <Button
                             icon={loadingActivate ? <LoaderCircle className="animate-spin" /> : null}
                             iconPosition="left"
                             variant="outline"
-                            className="hfe-bulk-action-button"
+                            className="hfe-bulk-action-button hfe-remove-ring"
                             onClick={handleActivateAll} // Attach the onClick event.
                             disabled={!!searchTerm}
+                            style={{ borderTopRightRadius: '0px', borderBottomRightRadius: '0px', borderRight: '0px', fontSize: '0.9em' }}
                         >
                             {loadingActivate ? __('Activating...', 'header-footer-elementor') : __('Activate All', 'header-footer-elementor')}
                         </Button>
@@ -156,8 +154,9 @@ const FeatureWidgets = () => {
                             iconPosition="left"
                             variant="outline"
                             onClick={handleDeactivateAll}
-                            className="hfe-bulk-action-button"
+                            className="hfe-bulk-action-button hfe-remove-ring"
                             disabled={!!searchTerm}
+                            style={{ borderTopLeftRadius: '0px', borderBottomLeftRadius: '0px', fontSize: '0.9em' }}
                         >
                             {loadingDeactivate ? __('Deactivating...', 'header-footer-elementor') : __('Deactivate All', 'header-footer-elementor')}
                         </Button>
@@ -165,7 +164,7 @@ const FeatureWidgets = () => {
                 </div>
             </div>
             <div
-                className="bg-background-secondary p-1 mt-2 rounded-lg max-h-80" style={{ overflow: 'auto', maxHeight: '20rem' }}>
+                className="hfe-custom-scrollbar bg-background-secondary p-1 rounded-lg max-h-80" style={{ overflow: 'auto', maxHeight: '20rem' }}>
                 <div className='flex bg-black flex-col p-3' style={{ minHeight: "800px" }}>
                     {loading ? (
                         <Container
@@ -218,4 +217,4 @@ const FeatureWidgets = () => {
     )
 }
 
-export default FeatureWidgets
+export default OnboardingWidgets
