@@ -95,8 +95,8 @@ const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
     return (
         <div className="bg-background-secondary">
             <form>
-                <div className="md:w-[47rem] box-border mx-auto mt-10 border border-solid border-border-subtle bg-background-primary rounded-xl shadow-sm space-y-4" style={{ height: '400px' }}>
-                    <div className="bg-background-secondary p-1 rounded-lg max-h-80" style={{ overflow: 'auto', maxHeight: '20rem' }}>
+                <div className="md:w-[47rem] box-border mx-auto  bg-background-primary  space-y-4" style={{ height: '470px' }}>
+                    <div>
                         {/* <RadioButton.Group
                             columns={3}
                             gapClassname="gap-1"
