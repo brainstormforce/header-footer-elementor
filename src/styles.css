@@ -161,6 +161,7 @@ input[type="radio"].hfe-radio-field:focus {
 	font-size: 0.9rem !important;
 	font-weight: 500 !important;
 }
+
 @keyframes spin {
 	0% {
 		transform: rotate(0deg);
@@ -210,7 +211,9 @@ input[type="radio"].hfe-radio-field:focus {
 		border-radius: 0 !important;
 	}
 }
-
+.hfe-min-900 {
+	min-width: 900px;
+}
 #hfe-settings-app .subject-cell {
 	max-width: 200px; /* Adjust this width based on your layout */
 	white-space: nowrap;
@@ -248,6 +251,9 @@ div#hfe-settings-app {
 	}
 }
 @media screen and (max-width: 782px) {
+	:is(#hfe-settings-app, [data-floating-ui-portal]) .hfe-display-flex {
+		display: block;
+	}
 	.hfe-radio-option {
 		width: 1rem !important;
 		height: 1rem !important;
@@ -256,5 +262,24 @@ div#hfe-settings-app {
 		width: 0.5rem !important;
 		height: 0.5rem !important;
 		margin: 0.18rem !important;
+	}
+	:is(#hfe-settings-app, [data-floating-ui-portal]) .uae-steps,
+	#hfe-settings-app img {
+		display: none;
+	}
+	.hfe-onboarding-customize {
+		margin-left: 20px;
+    	margin-right: 20px;
+	}
+	.hfe-min-900 {
+		min-width: unset;
+	}
+	.hfe-onboarding-customize .hfe-custom-scrollbar {
+		overflow: scroll;
+		max-width: fit-content;
+	}
+	.hfe-onboarding-bottom {
+		display: grid !important;
+		max-width: fit-content;
 	}
 }

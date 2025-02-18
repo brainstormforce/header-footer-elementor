@@ -84,8 +84,8 @@ const OnboardingBuild = ({ setCurrentStep }) => {
     }
 
     return (
-        <div className="bg-background-primary border-[0.5px] border-subtle rounded-xl shadow-sm mb-6 p-8" style={{ width: '55%' }}>
-            <div className="flex items-start">
+        <div className="bg-background-primary border-[0.5px] border-subtle rounded-xl shadow-sm mb-6 p-8" style={{ maxWidth: '55%' }}>
+            <div className="flex items-start hfe-display-flex">
                 {/* Left Content */}
                 <div className="flex flex-col items-start">
                     <h1 className="text-text-primary m-0 mb-2" style={{ fontSize: '1.6rem', lineHeight: '1.3em' }}>
@@ -119,7 +119,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                     />
                 </div>
             </div>
-            <div className='flex flex-row gap-1 pt-2 pb-4'>
+            <div className='flex flex-row gap-1 pt-2 pb-4 hfe-display-flex'>
                 <Button
                     icon={<ArrowRight/>}
                     iconPosition="right"

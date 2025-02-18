@@ -93,14 +93,14 @@ const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
     };
     return (
         <div className="flex flex-col gap-4">
-            <div className="bg-background-secondary" style={{ minWidth: '900px' }}>
+            <div className="bg-background-secondary hfe-min-900" >
                 <form>
                     <div className="md:w-[47rem] box-border mx-auto space-y-4">
                         <OnboardingWidgets/>
                     </div>
                 </form>
             </div>
-            <div className="flex justify-between items-center pt-1 px-4 gap-4">
+            <div className="flex justify-between items-center pt-1 px-4 gap-4 hfe-onboarding-bottom">
                 <Button
                     className="flex items-center gap-1 hfe-remove-ring"
                     icon={<ChevronLeft />}
