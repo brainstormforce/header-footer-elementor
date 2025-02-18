@@ -2742,7 +2742,9 @@ button.hfe-bulk-action-button {
 .hfe-78-width {
 	width: 78%;
 }
-
+.hfe-88-width {
+	width: 88%;
+}
 #hfe-settings-app .subject-cell {
 	max-width: 200px; /* Adjust this width based on your layout */
 	white-space: nowrap;
@@ -2860,7 +2862,8 @@ div#hfe-settings-app {
 @media (max-width: 1024px) {
 	.hfe-65-width,
 	.hfe-35-width,
-	.hfe-78-width {
+	.hfe-78-width,
+	.hfe-88-width {
 		width: 100%;
 	}
 }

@@ -6,13 +6,13 @@ const Welcome = ({ setCurrentStep }) => {
     return (
         <div className="bg-background-primary border-[0.5px] items-start justify-center border-subtle rounded-xl shadow-sm mb-6 p-8 flex flex-col" style={{ width: '55%' }}>
             <div className="flex flex-col">
-                <h1 className="text-text-primary m-0 mb-2" style={{ width: '62%', lineHeight: '1.3em' }}>
+                <h1 className="text-text-primary m-0 mb-2 hfe-65-width" style={{ lineHeight: '1.3em' }}>
                 {__(
                     "Thank You For Choosing Ultimate Addons for Elementor",
                     "header-footer-elementor"
                 )}
                 </h1>
-                <span className="text-md font-medium text-text-tertiary m-0 mb-6" style={{ width: '88%', lineHeight: '1.5em' }}>
+                <span className="text-md font-medium text-text-tertiary m-0 mb-6 hfe-88-width" style={{ lineHeight: '1.5em' }}>
                     {__(
                         "We're excited to have you onboard. Get ready to create stunning headers, footers, and custom blocks with ease while keeping your website lightweight and fast.",
                         "header-footer-elementor"
@@ -27,7 +27,7 @@ const Welcome = ({ setCurrentStep }) => {
             <Button
                 iconPosition="right"
                 variant="primary"
-                className="bg-[#6005FF] uael-remove-ring p-3 px-5 font-bold mt-2"
+                className="bg-[#6005FF] hfe-remove-ring p-3 px-5 font-bold mt-2"
                 style={{
                     backgroundColor: "#6005FF",
                     transition: "background-color 0.3s ease",
