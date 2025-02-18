@@ -2858,9 +2858,6 @@ input[type="radio"].hfe-radio-field:focus {
 	.hfe-nav-menu {
 		border-bottom: 1px solid #e5e7eb;
 	}
-	.hfe-flex-inline {
-		display: inline;
-	}
 }
 
 @media (max-width: 768px) {
