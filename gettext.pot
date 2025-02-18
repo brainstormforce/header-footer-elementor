@@ -671,19 +671,19 @@ msgstr ""
 msgid "Go the the Dashboard"
 msgstr ""
 
-#: src/Components/Onboarding/Welcome.jsx:11
-msgid "Thank you for choosing Ultimate Addons for Elementor."
+#: src/Components/Onboarding/Welcome.jsx:10
+msgid "Thank You For Choosing Ultimate Addons for Elementor"
 msgstr ""
 
-#: src/Components/Onboarding/Welcome.jsx:17
+#: src/Components/Onboarding/Welcome.jsx:16
 msgid ""
 "We're excited to have you onboard. Get ready to create stunning headers, "
 "footers, and custom blocks with ease while keeping your website lightweight "
 "and fast."
 msgstr ""
 
-#: src/Components/Onboarding/Welcome.jsx:50
-msgid "Let’s Get Started"
+#: src/Components/Onboarding/Welcome.jsx:45
+msgid "Let's Get Started"
 msgstr ""
 
 #: src/Components/Settings/Settings.jsx:48
