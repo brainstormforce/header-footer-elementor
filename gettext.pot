@@ -587,7 +587,6 @@ msgid "Free vs Pro"
 msgstr ""
 
 #: src/Components/NavMenu.js:220
-#: src/Components/Onboarding/Success.jsx:170
 msgid "Get Pro"
 msgstr ""
 
@@ -695,30 +694,34 @@ msgid ""
 "level"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:117
+#: src/Components/Onboarding/Success.jsx:120
 msgid "Congratulations!"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:123
+#: src/Components/Onboarding/Success.jsx:126
 msgid "You’ve unlocked a "
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:128
+#: src/Components/Onboarding/Success.jsx:131
 msgid " discount on UAE Pro. We’ve sent a discount"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:134
-msgid "coupon just for you to your email address."
+#: src/Components/Onboarding/Success.jsx:137
+msgid " coupon just for you to your email address."
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:141
+#: src/Components/Onboarding/Success.jsx:144
 msgid ""
-" Use your exclusive discount code within the next 2 hours to claim your "
+" Use your exclusive discount code within the next 2 days to claim your "
 "reward!”"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:197
-msgid "Go the the Dashboard"
+#: src/Components/Onboarding/Success.jsx:174
+msgid "Get Pro Now"
+msgstr ""
+
+#: src/Components/Onboarding/Success.jsx:198
+msgid "Go To The Dashboard"
 msgstr ""
 
 #: src/Components/Onboarding/Welcome.jsx:11
