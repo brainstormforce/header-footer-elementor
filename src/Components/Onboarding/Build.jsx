@@ -114,7 +114,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                     <img
                         alt="Build"
                         className="w-full object-contain"
-                        style={{ height: 'auto', width: '95%' }}
+                        style={{ height: '255px', width: 'auto' }}
                         src={`${hfeSettingsData.build_banner}`}
                     />
                 </div>

@@ -469,21 +469,31 @@ msgid "Widgets / Features"
 msgstr ""
 
 #: src/Components/Dashboard/OnboardingWidgets.jsx:151
+#: src/Components/Dashboard/OnboardingWidgets.jsx:149
+#: src/Components/Dashboard/OnboardingWidgets.jsx:152
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:174
 msgid "Activating..."
 msgstr ""
 
 #: src/Components/Dashboard/OnboardingWidgets.jsx:151
+#: src/Components/Dashboard/OnboardingWidgets.jsx:149
+#: src/Components/Dashboard/OnboardingWidgets.jsx:152
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:174
 msgid "Activate All"
 msgstr ""
 
 #: src/Components/Dashboard/OnboardingWidgets.jsx:162
+#: src/Components/Dashboard/OnboardingWidgets.jsx:161
+#: src/Components/Dashboard/OnboardingWidgets.jsx:164
+#: src/Components/Dashboard/OnboardingWidgets.jsx:163
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:185
 msgid "Deactivating..."
 msgstr ""
 
 #: src/Components/Dashboard/OnboardingWidgets.jsx:162
+#: src/Components/Dashboard/OnboardingWidgets.jsx:161
+#: src/Components/Dashboard/OnboardingWidgets.jsx:164
+#: src/Components/Dashboard/OnboardingWidgets.jsx:163
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:185
 msgid "Deactivate All"
 msgstr ""
