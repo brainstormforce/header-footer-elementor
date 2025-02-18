@@ -2751,6 +2751,10 @@
 	width: 1rem;
 	height: 1rem;
 }
+.hfe-popup-button,
+.hfe-popup-button svg {
+	padding: 0;
+}
 .hfe-link-color,
 .hfe-link-color span {
 	color: rgb(96, 5, 255);

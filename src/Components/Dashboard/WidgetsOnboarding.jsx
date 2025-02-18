@@ -94,7 +94,7 @@ const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
     };
     return (
         <div className="flex flex-col gap-4">
-            <div className="bg-background-secondary">
+            <div className="bg-background-secondary" style={{ minWidth: '900px' }}>
                 <form>
                     <div className="md:w-[47rem] box-border mx-auto space-y-4">
                         <OnboardingWidgets/>

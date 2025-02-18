@@ -93,11 +93,11 @@ const Success = () => {
             </div>
             <div className='flex items-center justify-center'>
 
-                <div className="bg-background-primary border-[0.5px] border-subtle rounded-xl shadow-sm" style={{ height: '600px', width: '45%' }}>
+                <div className="bg-background-primary border-[0.5px] border-subtle rounded-xl shadow-sm" style={{ height: '65vh', width: '40%' }}>
                     <div className="bg-background-primary items-start justify-center p-8 flex flex-col">
                         <div style={{
                             backgroundImage: `url(${hfeSettingsData.success_banner})`,
-                            backgroundSize: 'cover',
+                            backgroundSize: 'contain',
                             backgroundPosition: 'center',
                             width: '100%', // Adjust width as needed
                             height: '150px' // Adjust height as needed
@@ -111,15 +111,20 @@ const Success = () => {
                             </div>
 
                             <div className="flex flex-col items-center justify-center gap-1">
-                                <p className="text-4xl font-bold text-text-primary m-0 mt-2" style={{ fontSize: '25px' }}>
+                                <p className="text-4xl font-bold text-text-primary m-0" style={{ fontSize: '25px', paddingTop: '30px' }}>
                                     {__(
                                         "Congratulations!",
                                         "header-footer-elementor"
                                     )}
                                 </p>
-                                <p className="text-md font-medium text-text-tertiary m-0" style={{ fontSize: '16px' }}>
+                                <p className="text-md font-medium text-text-tertiary m-0" style={{ fontSize: '16px', paddingTop: '16px' }}>
                                     {__(
-                                        "You’ve unlocked a 20% discount on UAE Pro. We’ve sent a discount",
+                                        "You’ve unlocked a ",
+                                        "header-footer-elementor"
+                                    )}
+                                    <span className='italic' style={{ color: '#6005FF', fontWeight: 'bold' }}>20%</span>
+                                    {__(
+                                        " discount on UAE Pro. We’ve sent a discount",
                                         "header-footer-elementor"
                                     )}
                                 </p>
@@ -130,21 +135,22 @@ const Success = () => {
                                     )}
                                 </p>
                                 <p className="text-md font-medium italic text-text-primary m-0 mt-2" style={{ fontSize: '14px' }}>
+                                    <span style={{ color: 'red' }}>*</span>
                                     {__(
-                                        "* Use your exclusive discount code within the next 2 hours to claim your reward!”",
+                                        " Use your exclusive discount code within the next 2 hours to claim your reward!”",
                                         "header-footer-elementor"
                                     )}
                                 </p>
                             </div>
 
-                            <hr className="w-full border-b-0 border-x-0 border-t  border-solid border-t-border-subtle" style={{ marginTop: '34px' }} />
+                            <hr className="w-full border-b-0 border-x-0 border-t  border-solid border-t-border-subtle" style={{ marginTop: '40px' }} />
 
-                            <div className='flex flex-col items-center' style={{ paddingTop: '25px' }}>
+                            <div className='flex flex-col items-center' style={{ paddingTop: '40px' }}>
                                 <Button
                                     icon={<MoveRight />}
                                     iconPosition="right"
                                     variant="primary"
-                                    className="bg-[#6005FF] uael-remove-ring w-full"
+                                    className="bg-[#6005FF] p-4 uael-remove-ring w-full"
                                     style={{
                                         backgroundColor: "#6005FF",
                                         transition: "background-color 0.3s ease",
