@@ -132,11 +132,11 @@ const FeatureWidgets = () => {
     }
 
     return (
-        <div className='rounded-lg bg-white w-full mb-4'>
+        <div className='rounded-lg bg-white w-full mb-4 ' >
             <div className='flex flex-col md:flex-row md:items-center md:justify-between p-4'
-            style={{
-                paddingBottom: '0'
-            }}>
+                style={{
+                    paddingBottom: '0'
+                }}>
                 <p className='m-0 text-sm font-semibold text-text-primary mb-2 md:mb-0'>{__("Widgets / Features", "header-footer-elementor")}</p>
                 <div className='flex flex-col md:flex-row items-center gap-y-2 md:gap-x-2 md:mr-7 relative'>
                     <div className="flex flex-row gap-2 w-full md:w-auto">
@@ -164,52 +164,55 @@ const FeatureWidgets = () => {
                     </div>
                 </div>
             </div>
-            <div className='flex bg-black flex-col rounded-lg p-10' style={{ minHeight: "800px" }}>
-                {loading ? (
-                    <Container
-                        align="stretch"
-                        className="p-2 gap-1.5 grid grid-cols-2 md:grid-cols-4"
-                        style={{
-                            backgroundColor: "#F9FAFB"
-                        }}
-                        containerType="grid"
-                        gap=""
-                        justify="start"
-                    >
-                        {[...Array(30)].map((_, index) => (
-                            <Container.Item
-                                key={index}
-                                alignSelf="auto"
-                                className="text-wrap rounded-md shadow-container-item bg-background-primary p-8 space-y-2"
-                            >
-                                <Skeleton className='w-12 h-2 rounded-md' />
-                                <Skeleton className='w-16 h-2 rounded-md' />
-                                <Skeleton className='w-12 h-2 rounded-md' />
-                            </Container.Item>
-                        ))}
-                    </Container>
-                ) : (
-                    <Container
-                        align="stretch"
-                        className="p-1 gap-1.5 grid-cols-2 md:grid-cols-4"
-                        containerType="grid"
-                        gap=""
-                        justify="start"
-                        style={{
-                            backgroundColor: '#F9FAFB'
-                        }}
-                    >
-                        {filteredWidgets?.map((widget) => (
-                            <Container.Item
-                                key={widget.id}
-                                alignSelf="auto"
-                                className="text-wrap rounded-md shadow-container-item bg-background-primary p-4"
-                            >
-                                <WidgetItem widget={{ ...widget, updateCounter }} key={widget.id} updateCounter={updateCounter} />
-                            </Container.Item>
-                        ))}
-                    </Container>
-                )}
+            <div
+                className="bg-background-secondary p-1 mt-2 rounded-lg max-h-80" style={{ overflow: 'auto', maxHeight: '20rem' }}>
+                <div className='flex bg-black flex-col p-3' style={{ minHeight: "800px" }}>
+                    {loading ? (
+                        <Container
+                            align="stretch"
+                            className="p-2 gap-1.5 grid grid-cols-2 md:grid-cols-4"
+                            style={{
+                                backgroundColor: "#F9FAFB"
+                            }}
+                            containerType="grid"
+                            gap=""
+                            justify="start"
+                        >
+                            {[...Array(30)].map((_, index) => (
+                                <Container.Item
+                                    key={index}
+                                    alignSelf="auto"
+                                    className="text-wrap rounded-md shadow-container-item bg-background-primary p-8 space-y-2"
+                                >
+                                    <Skeleton className='w-12 h-2 rounded-md' />
+                                    <Skeleton className='w-16 h-2 rounded-md' />
+                                    <Skeleton className='w-12 h-2 rounded-md' />
+                                </Container.Item>
+                            ))}
+                        </Container>
+                    ) : (
+                        <Container
+                            align="stretch"
+                            className="p-1 gap-1.5 grid-cols-2 md:grid-cols-4"
+                            containerType="grid"
+                            gap=""
+                            justify="start"
+                            // style={{
+                            //     backgroundColor: '#F9FAFB'
+                            // }}
+                        >
+                            {filteredWidgets?.map((widget) => (
+                                <Container.Item
+                                    key={widget.id}
+                                    alignSelf="auto"
+                                    className="text-wrap rounded-md shadow-container-item bg-background-primary p-4"
+                                >
+                                    <WidgetItem widget={{ ...widget, updateCounter }} key={widget.id} updateCounter={updateCounter} />
+                                </Container.Item>
+                            ))}
+                        </Container>
+                    )}
+                </div>
             </div>
         </div>
     )
