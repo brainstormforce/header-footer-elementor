@@ -211,6 +211,9 @@ input[type="radio"].hfe-radio-field:focus {
 		border-radius: 0 !important;
 	}
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .uae-steps .text-xs {
+	font-size: 0.77rem;
+}
 .hfe-min-900 {
 	min-width: 900px;
 }

@@ -8,10 +8,16 @@ const Welcome = ({ setCurrentStep }) => {
             <div className="px-1">
                 <div className="flex flex-col">
                     <h1 className="text-text-primary m-0 mb-2 hfe-65-width" style={{ fontSize: '1.6rem', lineHeight: '1.3em' }}>
-                    {__(
-                        "Thank You For Choosing Ultimate Addons for Elementor",
-                        "header-footer-elementor"
-                    )}
+                        <span className="block">{__(
+                            "Thank You For Choosing",
+                            "header-footer-elementor"
+                        )}
+                        </span>
+                        <span className="block">{__(
+                            "Ultimate Addons for Elementor",
+                            "header-footer-elementor"
+                        )}
+                    </span>
                     </h1>
                     <span className="text-md font-medium text-text-tertiary m-0 mb-6 hfe-88-width" style={{ lineHeight: '1.5em' }}>
                         {__(
