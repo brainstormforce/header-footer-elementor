@@ -95,7 +95,7 @@ const Success = () => {
             </div>
             <div className='flex items-center justify-center'>
 
-                <div className="bg-background-primary border-[0.5px] border-subtle rounded-xl shadow-sm" style={{ height: '65vh', width: '40%' }}>
+                <div className="bg-background-primary border-[0.5px] border-subtle rounded-xl shadow-sm" style={{ height: '650px', width: '45%' }}>
                     <div className="bg-background-primary items-start justify-center p-8 flex flex-col">
                         <div style={{
                             backgroundImage: `url(${hfeSettingsData.success_banner})`,
