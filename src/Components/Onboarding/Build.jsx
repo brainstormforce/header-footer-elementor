@@ -221,7 +221,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                         {__("Help make UAE Better", "header-footer-elementor")}
                     </span>
                 </div>
-                <span className='flex flex-row items-center justify-start pb-4 gap-3' style={{ lineHeight: '1.5em', fontSize: '0.95em' }}>Help us improve by sharing anonymous data about your website setup. This includes non-sensitive info about plugins, themes, and settings, so we can create a better product for you. Your privacy is always our top priority. Learn more in our privacy policy.</span>
+                <span className='flex flex-row items-center justify-start mt-4 gap-3' style={{ lineHeight: '1.5em', fontSize: '0.95em' }}>Help us improve by sharing anonymous data about your website setup. This includes non-sensitive info about plugins, themes, and settings, so we can create a better product for you. Your privacy is always our top priority. Learn more in our privacy policy.</span>
             </div>
 
             <Dialog

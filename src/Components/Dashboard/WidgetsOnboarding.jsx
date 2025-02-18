@@ -93,88 +93,49 @@ const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
         }));
     };
     return (
-        <div className="bg-background-secondary">
-            <form>
-                <div className="md:w-[47rem] box-border mx-auto  bg-background-primary  space-y-4" style={{ height: '470px' }}>
-                    <div>
-                        {/* <RadioButton.Group
-                            columns={3}
-                            gapClassname="gap-1"
-                            multiSelection
-                            size="sm"
-                        >
-                            {allWidgetsData?.map((widget) => (
-                                <RadioButton.Button
-                                    key={widget.id}
-                                    icon={widget.icon}
-                                    badgeItem={
-                                        widget.is_pro ? (
-                                            <Badge
-                                                label="PRO"
-                                                size="xs"
-                                                type="pill"
-                                                variant="inverse"
-                                            />
-                                        ) : (
-                                            <Badge
-                                                label="Free"
-                                                size="xxs"
-                                                type="pill"
-                                                variant="green"
-                                            />
-                                        )
-                                    }
-                                    borderOn
-                                    useSwitch={!widget.is_pro} // Conditionally render the switch
-                                    buttonWrapperClasses="bg-white border-0"
-                                    label={{
-                                        // description: widget.description,
-                                        heading: widget.title
-                                    }}
-                                    onChange={() => handleSwitchChange(widget)}
-                                    checked={widget.is_active}
-                                />
-                            ))}
-                        </RadioButton.Group> */}
-                            <OnboardingWidgets/>
+        <div className="flex flex-col gap-4">
+            <div className="bg-background-secondary">
+                <form>
+                    <div className="md:w-[47rem] box-border mx-auto space-y-4">
+                        <OnboardingWidgets/>
                     </div>
-                    <div className="flex justify-between items-center pt-1 px-4 gap-4">
-                        <Button
-                            className="flex items-center gap-1"
-                            icon={<ChevronLeft />}
-                            variant="outline"
-                            onClick={() => setCurrentStep(1)}
-                        >
-                            Back
-                        </Button>
-                        <div className="flex justify-end items-center gap-3">
-                            <Link
-                                to={routes.dashboard.path}
+                </form>
+            </div>
+            <div className="flex justify-between items-center pt-1 px-4 gap-4">
+                <Button
+                    className="flex items-center gap-1 hfe-remove-ring"
+                    icon={<ChevronLeft />}
+                    variant="outline"
+                    onClick={() => setCurrentStep(1)}
+                >
+                    Back
+                </Button>
+                <div className="flex justify-end items-center gap-3">
+                    <Link
+                        to={routes.dashboard.path}
 
-                            >
-                                <Button
-                                    className="hfe-remove-ring"
-                                    variant="ghost">
-                                    {' '}Skip
-                                </Button>
-                            </Link>
-                            <Button
-                                className="flex items-center gap-1"
-                                icon={<ArrowRight />}
-                                iconPosition="right"
-                                style={{
-                                    backgroundColor: "#6005FF",
-                                    transition: "background-color 0.3s ease",
-                                    padding: "12px"
-                                }}
-                                onClick={() => setCurrentStep(3)}
-                            >
-                                Continue Setup
-                            </Button>
-                        </div>
-                    </div>
+                    >
+                        <Button
+                            className="hfe-remove-ring"
+                            variant="ghost">
+                            {' '}Skip
+                        </Button>
+                    </Link>
+                    <Button
+                        className="flex items-center gap-1 hfe-remove-ring"
+                        icon={<ArrowRight />}
+                        iconPosition="right"
+                        style={{
+                            backgroundColor: "#6005FF",
+                            transition: "background-color 0.3s ease",
+                            padding: "12px"
+                        }}
+                        onClick={() => setCurrentStep(3)}
+                    >
+                        Continue Setup
+                    </Button>
                 </div>
-            </form>
+            </div>
         </div>
     );
 };

@@ -138,22 +138,17 @@ const FeatureWidgetsOnboarding = ({ setCurrentStep }) => {
     }
 
     return (
-        <div className='rounded-lg bg-white  mb-4' >
-            <div className='mt-4 px-4'>
-                <Title
-                    className="text-text-primary"
-                    size="md"
-                    tag="h4"
-                    title={__("Customize your UAE setup", "header-footer-elementor")}
-                />
-                <Label className="text-text-secondary mt-1 text-sm max-w-[41rem] font-normal">
-                    {__(
-                        "Activate only what you need to keep your website fast and optimised.",
-                        "header-footer-elementor"
-                    )}
-                </Label>
-            </div>
-            <div className='flex bg-black flex-col rounded-lg p-4'>
+        <div className='rounded-lg bg-white p-6'>
+            <h1 className="text-text-primary m-0 mb-2" style={{ fontSize: '1.6rem', lineHeight: '1.3em' }}>
+                {__("Customize Your UAE Setup", "header-footer-elementor")}
+            </h1>
+            <span className="text-md font-medium text-text-tertiary m-0" style={{ lineHeight: '1.6em'}}>
+                {__(
+                    "Activate only what you need to keep your website fast and optimized.",
+                    "header-footer-elementor"
+                )}
+            </span>
+            <div className='flex bg-black flex-col rounded-lg' style={{ marginTop: '2rem' }}>
                 {loading ? (
                     <Container
                         align="stretch"

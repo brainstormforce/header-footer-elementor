@@ -463,26 +463,29 @@ msgstr ""
 msgid "Get access to advanced blocks and premium features."
 msgstr ""
 
-#: src/Components/Dashboard/OnboardingWidgets.jsx:140
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:140
-msgid "Widgets / Features"
+#: src/Components/Dashboard/OnboardingWidgets.jsx:137
+msgid "WIDGETS"
 msgstr ""
 
+#: src/Components/Dashboard/OnboardingWidgets.jsx:149
 #: src/Components/Dashboard/OnboardingWidgets.jsx:151
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:174
 msgid "Activating..."
 msgstr ""
 
+#: src/Components/Dashboard/OnboardingWidgets.jsx:149
 #: src/Components/Dashboard/OnboardingWidgets.jsx:151
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:174
 msgid "Activate All"
 msgstr ""
 
+#: src/Components/Dashboard/OnboardingWidgets.jsx:161
 #: src/Components/Dashboard/OnboardingWidgets.jsx:162
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:185
 msgid "Deactivating..."
 msgstr ""
 
+#: src/Components/Dashboard/OnboardingWidgets.jsx:161
 #: src/Components/Dashboard/OnboardingWidgets.jsx:162
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:185
 msgid "Deactivate All"
@@ -887,14 +890,19 @@ msgstr ""
 msgid "Upgrade now"
 msgstr ""
 
+#: src/Components/Dashboard/OnboardingWidgets.jsx:140
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:140
+msgid "Widgets / Features"
+msgstr ""
+
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:152
 msgid "Search..."
 msgstr ""
 
-#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:147
-msgid "Customize your UAE setup"
+#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:143
+msgid "Customize Your UAE Setup"
 msgstr ""
 
-#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:150
-msgid "Activate only what you need to keep your website fast and optimised."
+#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:146
+msgid "Activate only what you need to keep your website fast and optimized."
 msgstr ""
