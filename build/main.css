@@ -2823,9 +2823,6 @@ input[type="radio"].hfe-radio-field:focus {
 	font-size: 0.9rem !important;
 	font-weight: 500 !important;
 }
-.hfe-flex-inline {
-	display: flex;
-}
 @keyframes spin {
 	0% {
 		transform: rotate(0deg);
