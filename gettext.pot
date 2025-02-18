@@ -514,7 +514,7 @@ msgid ""
 msgstr ""
 
 #: src/Components/Dashboard/WelcomeContainer.js:58
-#: src/Components/Onboarding/Build.jsx:159
+#: src/Components/Onboarding/Build.jsx:147
 msgid "Create Header/Footer"
 msgstr ""
 
@@ -596,28 +596,46 @@ msgid "What's New?"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:101
-msgid "Here’s how to get started:"
+msgid "Here's How To Get Started:"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:184
-msgid "Go to Dashboard"
+#: src/Components/Onboarding/Build.jsx:105
+msgid "Click on “Create New Page” button"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:235
+#: src/Components/Onboarding/Build.jsx:106
+msgid ""
+"Use the Elementor editor to customize your page/post according to your "
+"preferences"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:107
+msgid "Use UAE widgets to design your pages."
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:108
+msgid "Click “Publish” to make it live"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:172
+msgid "Go To Dashboard"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:223
 msgid "Help make UAE Better"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:252
+#: src/Components/Onboarding/Build.jsx:240
 msgid "We have a special Reward just for you! 🎁"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:266
+#: src/Components/Onboarding/Build.jsx:254
 msgid ""
 "Enter your email address to get special offer that we have for you and stay "
 "updated on UAE’s latest news and updates."
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:270
+#: src/Components/Onboarding/Build.jsx:258
 msgid "Email Address"
 msgstr ""
 
@@ -625,7 +643,7 @@ msgstr ""
 msgid "Please enter a valid email address"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:310
+#: src/Components/Onboarding/Build.jsx:298
 msgid "Submit Email"
 msgstr ""
 
@@ -640,7 +658,7 @@ msgid "Failed to save settings!"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:92
-msgid "You’re all set! 🚀"
+msgid "You're all set!🚀"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:95
@@ -671,18 +689,18 @@ msgstr ""
 msgid "Go the the Dashboard"
 msgstr ""
 
-#: src/Components/Onboarding/Welcome.jsx:10
+#: src/Components/Onboarding/Welcome.jsx:11
 msgid "Thank You For Choosing Ultimate Addons for Elementor"
 msgstr ""
 
-#: src/Components/Onboarding/Welcome.jsx:16
+#: src/Components/Onboarding/Welcome.jsx:17
 msgid ""
 "We're excited to have you onboard. Get ready to create stunning headers, "
 "footers, and custom blocks with ease while keeping your website lightweight "
 "and fast."
 msgstr ""
 
-#: src/Components/Onboarding/Welcome.jsx:45
+#: src/Components/Onboarding/Welcome.jsx:46
 msgid "Let's Get Started"
 msgstr ""
 

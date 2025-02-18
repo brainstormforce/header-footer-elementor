@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Button, Switch, Title, Dialog, Input } from '@bsf/force-ui';
-import { X, Check, Plus, MoveRight, Package } from 'lucide-react';
+import { X, Check, Plus, ArrowRight, Package } from 'lucide-react';
 import toast, { Toaster } from 'react-hot-toast';
 import { Link } from "../../router/index"
 import { __ } from "@wordpress/i18n";
@@ -84,59 +84,47 @@ const OnboardingBuild = ({ setCurrentStep }) => {
     }
 
     return (
-        <div className="bg-background-primary border-[0.5px] border-subtle rounded-xl shadow-sm mb-6 p-8" style={{ width: '820px' }}>
-            <div className="flex items-center">
+        <div className="bg-background-primary border-[0.5px] border-subtle rounded-xl shadow-sm mb-6 p-8" style={{ width: '55%' }}>
+            <div className="flex items-start">
                 {/* Left Content */}
                 <div className="flex flex-col items-start">
-                    <p className="font-bold text-text-primary m-0" style={{ fontSize: '25px' }}>
-                        {__("You’re all set! 🚀", "header-footer-elementor")}
-                    </p>
-                    <p className="font-medium text-text-tertiary m-0" style={{ fontSize: '18px' }}>
+                    <h1 className="text-text-primary m-0 mb-2" style={{ fontSize: '1.6rem', lineHeight: '1.3em' }}>
+                        {__("You're all set!🚀", "header-footer-elementor")}
+                    </h1>
+                    <span className="text-md font-medium text-text-tertiary m-0 mb-4 hfe-88-width" style={{ lineHeight: '1.6em' }}>
                         {__(
                             "Start creating amazing designs with UAE and take your website to the next level",
                             "header-footer-elementor"
                         )}
-                    </p>
-                    <p className="font-bold text-text-primary m-0 mt-1 text-lg" style={{ paddingTop: '8px' }}>
-                        {__("Here’s how to get started:", "header-footer-elementor")}
-                    </p>
-                    <ul className="list-none">
-                        <li className="flex items-start gap-x-1 text-text-tertiary text-md font-medium">
-                            <span className="text-text-tertiary">
-                                1. Click on “Create New Page” button
-                            </span>
-                        </li>
-                        <li className="flex items-start gap-x-1 text-text-tertiary text-md font-medium">
-                            <span>2. Use the Elementor editor to customize your page/post according to your preferences</span>
-                        </li>
-                        <li className="flex items-start gap-x-1 text-text-tertiary text-md font-medium">
-                            <span className="text-text-tertiary">
-                                3. Use UAE widgets to design your pages.
-                            </span>
-                        </li>
-                        <li className="flex items-start gap-x-1 text-text-tertiary text-md font-medium">
-                            <span className="text-text-tertiary">
-                                4. Click “Publish” to make it live
-                            </span>
-                        </li>
-                    </ul>
+                    </span>
+                    <span className="font-bold m-0 pt-2">
+                        {__("Here's How To Get Started:", "header-footer-elementor")}
+                    </span>
+
+                    <ol className="list-decimal text-text-tertiary text-sm" style={{ marginLeft: '1.4em' }}>
+                        <li>{__('Click on “Create New Page” button', 'header-footer-elementor')}</li>
+                        <li>{__('Use the Elementor editor to customize your page/post according to your preferences', 'header-footer-elementor')}</li>
+                        <li>{__('Use UAE widgets to design your pages.', 'header-footer-elementor')}</li>
+                        <li>{__('Click “Publish” to make it live', 'header-footer-elementor')}</li>
+                    </ol>
                 </div>
 
                 {/* Right Content - Image */}
-                <div className="w-1/2 flex justify-center">
+                <div className="w-1/2" style={{ textAlign: 'end' }}>
                     <img
                         alt="Build"
                         className="w-full object-contain"
-                        style={{ height: '250px' }}
+                        style={{ height: 'auto', width: '95%' }}
                         src={`${hfeSettingsData.build_banner}`}
                     />
                 </div>
             </div>
-            <div className='flex flex-row gap-2' style={{ marginTop: '15px' }}>
+            <div className='flex flex-row gap-1 pt-2'>
                 <Button
+                    icon={<ArrowRight/>}
                     iconPosition="right"
                     variant="primary"
-                    className="bg-[#6005FF] uael-remove-ring"
+                    className="bg-[#6005FF] hfe-remove-ring"
                     style={{
                         backgroundColor: "#6005FF",
                         transition: "background-color 0.3s ease",
@@ -164,24 +152,24 @@ const OnboardingBuild = ({ setCurrentStep }) => {
 
                 >
                     <Button
-                        icon={<MoveRight />}
+                        icon={<ArrowRight/>}
                         iconPosition="right"
                         variant="ghost"
                         className="uael-remove-ring"
-                        onMouseEnter={(e) =>
+                        onMouseLeave={(e) =>
                             (e.currentTarget.style.color =
                                 "#000000") &&
                             (e.currentTarget.style.borderColor =
                                 "#000000")
                         }
-                        onMouseLeave={(e) =>
+                        onMouseEnter={(e) =>
                             (e.currentTarget.style.color =
                                 "#6005FF") &&
                             (e.currentTarget.style.borderColor =
                                 "#6005FF")
                         }
                     >
-                        {__("Go to Dashboard", "header-footer-elementor")}
+                        {__("Go To Dashboard", "header-footer-elementor")}
                     </Button>
                 </Link>
 
@@ -292,7 +280,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                             <Button
                                 iconPosition="right"
                                 variant="primary"
-                                className="bg-[#6005FF] uael-remove-ring"
+                                className="bg-[#6005FF] hfe-remove-ring"
                                 style={{
                                     backgroundColor: "#6005FF",
                                     transition: "background-color 0.3s ease",
