@@ -184,7 +184,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                 }}
             >
                 <div className='flex flex-col p-6 items-start'>
-                    <h3 className='font-bold text-text-primary mt-0 mb-1' style={{ fontSize: '1.6rem', lineHeight: '1.3em' }}>
+                    <h3 className='font-bold text-text-primary mt-0 mb-1' style={{ lineHeight: '1.3em' }}>
                         We Have A Special Reward Just For You!
                     </h3>
                     <span className='font-medium text-text-secondary mt-2 mb-6'>
