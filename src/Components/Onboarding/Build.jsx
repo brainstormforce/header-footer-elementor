@@ -155,7 +155,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                         icon={<ArrowRight/>}
                         iconPosition="right"
                         variant="ghost"
-                        className="uael-remove-ring"
+                        className="hfe-remove-ring"
                         onMouseLeave={(e) =>
                             (e.currentTarget.style.color =
                                 "#000000") &&

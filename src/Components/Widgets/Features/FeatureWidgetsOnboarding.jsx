@@ -138,7 +138,7 @@ const FeatureWidgetsOnboarding = ({ setCurrentStep }) => {
     }
 
     return (
-        <div className='rounded-lg bg-white  mb-4' style={{ width: '70%' }}>
+        <div className='rounded-lg bg-white  mb-4' >
             <div className='mt-4 px-4'>
                 <Title
                     className="text-text-primary"
@@ -152,37 +152,6 @@ const FeatureWidgetsOnboarding = ({ setCurrentStep }) => {
                         "header-footer-elementor"
                     )}
                 </Label>
-            </div>
-            <div className='flex flex-col md:flex-row md:items-center md:justify-between p-4'
-                style={{
-                    paddingBottom: '0'
-                }}>
-                <p className='m-0 text-sm font-semibold text-text-primary mb-2 md:mb-0'>{__("Widgets / Features", "header-footer-elementor")}</p>
-                <div className='flex flex-col md:flex-row items-center gap-y-2 md:gap-x-2 md:mr-7 relative'>
-                    <div className="flex flex-row gap-2 w-full md:w-auto">
-                        <Button
-                            icon={loadingActivate ? <LoaderCircle className="animate-spin" /> : null}
-                            iconPosition="left"
-                            variant="outline"
-                            className="hfe-bulk-action-button"
-                            onClick={handleActivateAll} // Attach the onClick event.
-                            disabled={!!searchTerm}
-                        >
-                            {loadingActivate ? __('Activating...', 'header-footer-elementor') : __('Activate All', 'header-footer-elementor')}
-                        </Button>
-
-                        <Button
-                            icon={loadingDeactivate ? <LoaderCircle className="animate-spin" /> : null} // Loader for deactivate button.
-                            iconPosition="left"
-                            variant="outline"
-                            onClick={handleDeactivateAll}
-                            className="hfe-bulk-action-button"
-                            disabled={!!searchTerm}
-                        >
-                            {loadingDeactivate ? __('Deactivating...', 'header-footer-elementor') : __('Deactivate All', 'header-footer-elementor')}
-                        </Button>
-                    </div>
-                </div>
             </div>
             <div className='flex bg-black flex-col rounded-lg p-4'>
                 {loading ? (

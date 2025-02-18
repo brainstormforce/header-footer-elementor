@@ -5,6 +5,8 @@ import apiFetch from '@wordpress/api-fetch';
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { Link } from "../../router/index";
 import { routes } from "../../admin/settings/routes";
+import Widgets from './Widgets';
+import OnboardingWidgets from './OnboardingWidgets';
 
 const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
     const [allWidgetsData, setAllWidgetsData] = useState([]);
@@ -93,9 +95,9 @@ const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
     return (
         <div className="bg-background-secondary">
             <form>
-                <div className="md:w-[47rem] box-border mx-auto p-8 mt-10 border border-solid border-border-subtle bg-background-primary rounded-xl shadow-sm space-y-4">
+                <div className="md:w-[47rem] box-border mx-auto mt-10 border border-solid border-border-subtle bg-background-primary rounded-xl shadow-sm space-y-4" style={{ height: '400px' }}>
                     <div className="bg-background-secondary p-1 rounded-lg max-h-80" style={{ overflow: 'auto', maxHeight: '20rem' }}>
-                        <RadioButton.Group
+                        {/* <RadioButton.Group
                             columns={3}
                             gapClassname="gap-1"
                             multiSelection
@@ -126,16 +128,17 @@ const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
                                     useSwitch={!widget.is_pro} // Conditionally render the switch
                                     buttonWrapperClasses="bg-white border-0"
                                     label={{
-                                        description: widget.description,
+                                        // description: widget.description,
                                         heading: widget.title
                                     }}
                                     onChange={() => handleSwitchChange(widget)}
                                     checked={widget.is_active}
                                 />
                             ))}
-                        </RadioButton.Group>
+                        </RadioButton.Group> */}
+                            <OnboardingWidgets/>
                     </div>
-                    <div className="flex justify-between items-center pt-2 gap-4">
+                    <div className="flex justify-between items-center pt-1 px-4 gap-4">
                         <Button
                             className="flex items-center gap-1"
                             icon={<ChevronLeft />}
@@ -156,13 +159,13 @@ const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
                                 </Button>
                             </Link>
                             <Button
-                                className="flex items-center gap-2"
+                                className="flex items-center gap-1"
                                 icon={<ArrowRight />}
                                 iconPosition="right"
                                 style={{
                                     backgroundColor: "#6005FF",
                                     transition: "background-color 0.3s ease",
-                                    padding: "14px"
+                                    padding: "12px"
                                 }}
                                 onClick={() => setCurrentStep(3)}
                             >
