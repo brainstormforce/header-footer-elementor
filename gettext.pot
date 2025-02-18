@@ -468,31 +468,21 @@ msgid "WIDGETS"
 msgstr ""
 
 #: src/Components/Dashboard/OnboardingWidgets.jsx:149
-#: src/Components/Dashboard/OnboardingWidgets.jsx:151
-#: src/Components/Dashboard/OnboardingWidgets.jsx:152
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:174
 msgid "Activating..."
 msgstr ""
 
 #: src/Components/Dashboard/OnboardingWidgets.jsx:149
-#: src/Components/Dashboard/OnboardingWidgets.jsx:151
-#: src/Components/Dashboard/OnboardingWidgets.jsx:152
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:174
 msgid "Activate All"
 msgstr ""
 
 #: src/Components/Dashboard/OnboardingWidgets.jsx:161
-#: src/Components/Dashboard/OnboardingWidgets.jsx:162
-#: src/Components/Dashboard/OnboardingWidgets.jsx:164
-#: src/Components/Dashboard/OnboardingWidgets.jsx:163
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:185
 msgid "Deactivating..."
 msgstr ""
 
 #: src/Components/Dashboard/OnboardingWidgets.jsx:161
-#: src/Components/Dashboard/OnboardingWidgets.jsx:162
-#: src/Components/Dashboard/OnboardingWidgets.jsx:164
-#: src/Components/Dashboard/OnboardingWidgets.jsx:163
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:185
 msgid "Deactivate All"
 msgstr ""
@@ -593,7 +583,7 @@ msgid "Free vs Pro"
 msgstr ""
 
 #: src/Components/NavMenu.js:220
-#: src/Components/Onboarding/Success.jsx:168
+#: src/Components/Onboarding/Success.jsx:170
 msgid "Get Pro"
 msgstr ""
 
@@ -701,29 +691,29 @@ msgid ""
 "level"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:115
+#: src/Components/Onboarding/Success.jsx:117
 msgid "Congratulations!"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:121
+#: src/Components/Onboarding/Success.jsx:123
 msgid "You’ve unlocked a "
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:126
+#: src/Components/Onboarding/Success.jsx:128
 msgid " discount on UAE Pro. We’ve sent a discount"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:132
+#: src/Components/Onboarding/Success.jsx:134
 msgid "coupon just for you to your email address."
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:139
+#: src/Components/Onboarding/Success.jsx:141
 msgid ""
 " Use your exclusive discount code within the next 2 hours to claim your "
 "reward!”"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:195
+#: src/Components/Onboarding/Success.jsx:197
 msgid "Go the the Dashboard"
 msgstr ""
 
@@ -896,7 +886,6 @@ msgstr ""
 msgid "Upgrade now"
 msgstr ""
 
-#: src/Components/Dashboard/OnboardingWidgets.jsx:140
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:140
 msgid "Widgets / Features"
 msgstr ""
