@@ -463,6 +463,31 @@ msgstr ""
 msgid "Get access to advanced blocks and premium features."
 msgstr ""
 
+#: src/Components/Dashboard/OnboardingWidgets.jsx:140
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:140
+msgid "Widgets / Features"
+msgstr ""
+
+#: src/Components/Dashboard/OnboardingWidgets.jsx:151
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:174
+msgid "Activating..."
+msgstr ""
+
+#: src/Components/Dashboard/OnboardingWidgets.jsx:151
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:174
+msgid "Activate All"
+msgstr ""
+
+#: src/Components/Dashboard/OnboardingWidgets.jsx:162
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:185
+msgid "Deactivating..."
+msgstr ""
+
+#: src/Components/Dashboard/OnboardingWidgets.jsx:162
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:185
+msgid "Deactivate All"
+msgstr ""
+
 #: src/Components/Dashboard/QuickAccess.js:20
 msgid "Quick Access"
 msgstr ""
@@ -559,7 +584,7 @@ msgid "Free vs Pro"
 msgstr ""
 
 #: src/Components/NavMenu.js:220
-#: src/Components/Onboarding/Success.jsx:76
+#: src/Components/Onboarding/Success.jsx:162
 msgid "Get Pro"
 msgstr ""
 
@@ -649,26 +674,26 @@ msgid ""
 "level"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:103
-msgid "Go the the Dashboard"
-msgstr ""
-
-#: src/Components/Onboarding/Success.jsx:29
+#: src/Components/Onboarding/Success.jsx:115
 msgid "Congratulations!"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:35
+#: src/Components/Onboarding/Success.jsx:121
 msgid "You’ve unlocked a 20% discount on UAE Pro. We’ve sent a discount"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:41
+#: src/Components/Onboarding/Success.jsx:127
 msgid "coupon just for you to your email address."
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:47
+#: src/Components/Onboarding/Success.jsx:133
 msgid ""
 "* Use your exclusive discount code within the next 2 hours to claim your "
 "reward!”"
+msgstr ""
+
+#: src/Components/Onboarding/Success.jsx:189
+msgid "Go the the Dashboard"
 msgstr ""
 
 #: src/Components/Onboarding/Welcome.jsx:11
@@ -840,33 +865,8 @@ msgstr ""
 msgid "Upgrade now"
 msgstr ""
 
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:140
-#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:160
-msgid "Widgets / Features"
-msgstr ""
-
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:152
 msgid "Search..."
-msgstr ""
-
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:174
-#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:171
-msgid "Activating..."
-msgstr ""
-
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:174
-#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:171
-msgid "Activate All"
-msgstr ""
-
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:185
-#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:182
-msgid "Deactivating..."
-msgstr ""
-
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:185
-#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:182
-msgid "Deactivate All"
 msgstr ""
 
 #: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:147

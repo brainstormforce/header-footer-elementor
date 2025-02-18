@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Button, Skeleton, Title, Label, RadioButton, Badge, Switch } from "@bsf/force-ui";
-import { ChevronLeft, ChevronRight, LoaderCircle, SearchIcon } from "lucide-react";
+import { Container, Button, Skeleton } from "@bsf/force-ui";
+import { LoaderCircle, SearchIcon } from "lucide-react";
 import WidgetItem from '@components/Dashboard/WidgetItem';
 import apiFetch from '@wordpress/api-fetch';
 import { __ } from "@wordpress/i18n";
-import WidgetItemOnboarding from '@components/Dashboard/WidgetItemOnboarding';
-import WidgetsOnboarding from '@components/Dashboard/WidgetsOnboarding';
 
-const FeatureWidgetsOnboarding = ({ setCurrentStep }) => {
+const FeatureWidgets = () => {
 
     const [allWidgetsData, setAllWidgetsData] = useState(null); // Initialize state.
     const [searchTerm, setSearchTerm] = useState('');
@@ -52,33 +50,32 @@ const FeatureWidgetsOnboarding = ({ setCurrentStep }) => {
     );
 
     const handleActivateAll = async () => {
+
         setLoadingActivate(true);
 
         const formData = new window.FormData();
         formData.append('action', 'hfe_bulk_activate_widgets');
         formData.append('nonce', hfe_admin_data.nonce);
 
-        try {
-            const data = await apiFetch({
-                url: hfe_admin_data.ajax_url,
-                method: 'POST',
-                body: formData,
-            });
-
+        apiFetch({
+            url: hfe_admin_data.ajax_url,
+            method: 'POST',
+            body: formData,
+        }).then((data) => {
             setLoadingActivate(false);
-
             if (data.success) {
                 setAllWidgetsData(prevWidgets =>
                     prevWidgets.map(widget => ({ ...widget, is_active: true }))
                 );
                 setUpdateCounter(prev => prev + 1);
-            } else {
-                console.error('Error during AJAX request:', data.error);
+            } else if (data.error) {
+                setLoadingActivate(false);
+                console.error('Error during AJAX request:', error);
             }
-        } catch (error) {
+        }).catch((error) => {
             setLoadingActivate(false);
             console.error('Error during AJAX request:', error);
-        }
+        });
     };
 
     const handleDeactivateAll = async () => {
@@ -88,27 +85,24 @@ const FeatureWidgetsOnboarding = ({ setCurrentStep }) => {
         formData.append('action', 'hfe_bulk_deactivate_widgets');
         formData.append('nonce', hfe_admin_data.nonce);
 
-        try {
-            const data = await apiFetch({
-                url: hfe_admin_data.ajax_url,
-                method: 'POST',
-                body: formData,
-            });
-
+        apiFetch({
+            url: hfe_admin_data.ajax_url,
+            method: 'POST',
+            body: formData,
+        }).then((data) => {
             setLoadingDeactivate(false);
-
             if (data.success) {
                 setAllWidgetsData(prevWidgets =>
                     prevWidgets.map(widget => ({ ...widget, is_active: false }))
                 );
                 setUpdateCounter(prev => prev + 1);
-            } else {
-                console.error('Error during AJAX request:', data.error);
+            } else if (data.error) {
+                console.error('AJAX request failed:', data.error);
             }
-        } catch (error) {
+        }).catch((error) => {
             setLoadingDeactivate(false);
             console.error('Error during AJAX request:', error);
-        }
+        });
     };
 
     function convertToWidgetsArray(data) {
@@ -138,22 +132,39 @@ const FeatureWidgetsOnboarding = ({ setCurrentStep }) => {
     }
 
     return (
-        <div className='rounded-lg bg-white  mb-4' >
-            <div className='mt-4 px-4'>
-                <Title
-                    className="text-text-primary"
-                    size="md"
-                    tag="h4"
-                    title={__("Customize your UAE setup", "header-footer-elementor")}
-                />
-                <Label className="text-text-secondary mt-1 text-sm max-w-[41rem] font-normal">
-                    {__(
-                        "Activate only what you need to keep your website fast and optimised.",
-                        "header-footer-elementor"
-                    )}
-                </Label>
+        <div className='rounded-lg bg-white w-full mb-4'>
+            <div className='flex flex-col md:flex-row md:items-center md:justify-between p-4'
+            style={{
+                paddingBottom: '0'
+            }}>
+                <p className='m-0 text-sm font-semibold text-text-primary mb-2 md:mb-0'>{__("Widgets / Features", "header-footer-elementor")}</p>
+                <div className='flex flex-col md:flex-row items-center gap-y-2 md:gap-x-2 md:mr-7 relative'>
+                    <div className="flex flex-row gap-2 w-full md:w-auto">
+                        <Button
+                            icon={loadingActivate ? <LoaderCircle className="animate-spin" /> : null}
+                            iconPosition="left"
+                            variant="outline"
+                            className="hfe-bulk-action-button"
+                            onClick={handleActivateAll} // Attach the onClick event.
+                            disabled={!!searchTerm}
+                        >
+                            {loadingActivate ? __('Activating...', 'header-footer-elementor') : __('Activate All', 'header-footer-elementor')}
+                        </Button>
+
+                        <Button
+                            icon={loadingDeactivate ? <LoaderCircle className="animate-spin" /> : null} // Loader for deactivate button.
+                            iconPosition="left"
+                            variant="outline"
+                            onClick={handleDeactivateAll}
+                            className="hfe-bulk-action-button"
+                            disabled={!!searchTerm}
+                        >
+                            {loadingDeactivate ? __('Deactivating...', 'header-footer-elementor') : __('Deactivate All', 'header-footer-elementor')}
+                        </Button>
+                    </div>
+                </div>
             </div>
-            <div className='flex bg-black flex-col rounded-lg p-4'>
+            <div className='flex bg-black flex-col rounded-lg p-10' style={{ minHeight: "800px" }}>
                 {loading ? (
                     <Container
                         align="stretch"
@@ -169,7 +180,7 @@ const FeatureWidgetsOnboarding = ({ setCurrentStep }) => {
                             <Container.Item
                                 key={index}
                                 alignSelf="auto"
-                                className="text-wrap rounded-md shadow-container-item bg-background-primary p-6 space-y-2"
+                                className="text-wrap rounded-md shadow-container-item bg-background-primary p-8 space-y-2"
                             >
                                 <Skeleton className='w-12 h-2 rounded-md' />
                                 <Skeleton className='w-16 h-2 rounded-md' />
@@ -180,8 +191,23 @@ const FeatureWidgetsOnboarding = ({ setCurrentStep }) => {
                 ) : (
                     <Container
                         align="stretch"
+                        className="p-1 gap-1.5 grid-cols-2 md:grid-cols-4"
+                        containerType="grid"
+                        gap=""
+                        justify="start"
+                        style={{
+                            backgroundColor: '#F9FAFB'
+                        }}
                     >
-                        <WidgetsOnboarding setCurrentStep={setCurrentStep} widgets={filteredWidgets} updateCounter={updateCounter} />
+                        {filteredWidgets?.map((widget) => (
+                            <Container.Item
+                                key={widget.id}
+                                alignSelf="auto"
+                                className="text-wrap rounded-md shadow-container-item bg-background-primary p-4"
+                            >
+                                <WidgetItem widget={{ ...widget, updateCounter }} key={widget.id} updateCounter={updateCounter} />
+                            </Container.Item>
+                        ))}
                     </Container>
                 )}
             </div>
@@ -189,4 +215,4 @@ const FeatureWidgetsOnboarding = ({ setCurrentStep }) => {
     )
 }
 
-export default FeatureWidgetsOnboarding
+export default FeatureWidgets
