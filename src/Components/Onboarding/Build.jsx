@@ -114,7 +114,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                     <img
                         alt="Build"
                         className="w-full object-contain"
-                        style={{ height: 'auto', width: '95%' }}
+                        style={{ height: '255px', width: 'auto' }}
                         src={`${hfeSettingsData.build_banner}`}
                     />
                 </div>
@@ -183,17 +183,16 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                     borderRadius: '5px'
                 }}
             >
-                <div className='flex flex-col p-6'>
-                    <h3 className='font-bold text-text-primary mt-0 mb-1'>
+                <div className='flex flex-col p-6 items-start'>
+                    <h3 className='font-bold text-text-primary mt-0 mb-1' style={{ fontSize: '1.6rem', lineHeight: '1.3em' }}>
                         We Have A Special Reward Just For You!
                     </h3>
-
                     <span className='font-medium text-text-secondary mt-2 mb-6'>
                         Unlock your surprise now
                     </span>
 
                     <Button
-                        className="hfe-remove-ring hfe-span"
+                        className="hfe-remove-ring hfe-span hfe-popup-button"
                         icon={<Package aria-label="icon" role="img" />}
                         iconPosition="right"
                         size="md"
@@ -231,10 +230,10 @@ const OnboardingBuild = ({ setCurrentStep }) => {
             >
                 <Dialog.Backdrop />
                 <Dialog.Panel>
-                    <Dialog.Header style={{ padding: '30px' }}>
+                    <Dialog.Header style={{ padding: '30px', marginBottom: '0.5rem' }}>
                         <div className="flex items-center justify-between">
                             <div className="flex items-center justify-center">
-                                <Dialog.Title style={{ fontSize: '25px', width: '80%', lineHeight: '36px' }}>
+                                <Dialog.Title style={{ fontSize: '1.6rem', width: '80%', lineHeight: '1.3em' }}>
                                     {__('We have a special Reward just for you! 🎁', 'header-footer-elementor')}
                                 </Dialog.Title>
                                 <Button
@@ -248,11 +247,11 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                                 />
                             </div>
                         </div>
-                        <Dialog.Description style={{ fontSize: '14px', width: '90%', fontWeight: '400', color: '#64748B' }}>
+                        <Dialog.Description style={{ width: '90%', color: '#64748B' }}>
                             {__('Enter your email address to get special offer that we have for you and stay updated on UAE’s latest news and updates.', 'header-footer-elementor')}
                         </Dialog.Description>
 
-                        <p className="text-md font-bold text-field-label m-0 gap-0" style={{ fontSize: '14px' }}>
+                        <p className="text-md font-bold text-field-label m-0 gap-0" style={{ fontSize: '14px', marginTop: '1.5em' }}>
                             {__(
                                 "Email Address",
                                 "header-footer-elementor"

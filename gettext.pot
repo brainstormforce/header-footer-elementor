@@ -644,21 +644,21 @@ msgstr ""
 msgid "Go To Dashboard"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:221
+#: src/Components/Onboarding/Build.jsx:220
 msgid "Help make UAE Better"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:238
+#: src/Components/Onboarding/Build.jsx:237
 msgid "We have a special Reward just for you! 🎁"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:252
+#: src/Components/Onboarding/Build.jsx:251
 msgid ""
 "Enter your email address to get special offer that we have for you and stay "
 "updated on UAE’s latest news and updates."
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:256
+#: src/Components/Onboarding/Build.jsx:255
 msgid "Email Address"
 msgstr ""
 
@@ -666,7 +666,7 @@ msgstr ""
 msgid "Please enter a valid email address"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:296
+#: src/Components/Onboarding/Build.jsx:295
 msgid "Submit Email"
 msgstr ""
 
