@@ -4,7 +4,7 @@ import { Link } from "../../router/index"
 import { X } from "lucide-react";
 import { __ } from "@wordpress/i18n";
 import { routes } from "../../admin/settings/routes";
-import { MoveRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Welcome from "./Welcome";
 import Build from "./Build";
 import Configure from "./Configure";
@@ -76,14 +76,14 @@ const Success = () => {
                         </Topbar.Middle>
                         <Topbar.Right>
                             <Topbar.Item>
-                                <Link className="uael-remove-ring" to={routes.dashboard.path}>
+                                <Link className="hfe-remove-ring" to={routes.dashboard.path}>
                                     {" "}
                                     <Button
                                         icon={<X className="size-4" />}
                                         iconPosition="right"
                                         size="xs"
                                         variant="ghost"
-                                        className="uael-remove-ring"
+                                        className="hfe-remove-ring"
                                     ></Button>
                                 </Link>
                             </Topbar.Item>
@@ -93,106 +93,113 @@ const Success = () => {
             </div>
             <div className='flex items-center justify-center'>
 
-                <div className="bg-background-primary border-[0.5px] border-subtle rounded-xl shadow-sm" style={{ height: '600px', width: '45%' }}>
-                    <div className="bg-background-primary items-start justify-center p-8 flex flex-col">
-                        <div style={{
-                            backgroundImage: `url(${hfeSettingsData.success_banner})`,
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center',
-                            width: '100%', // Adjust width as needed
-                            height: '150px' // Adjust height as needed
-                        }} >
-                            <div className='flex justify-center items-center'>
+                <div className="bg-background-primary border-[0.5px] border-subtle rounded-xl shadow-sm" style={{ borderRadius: '4px' }}>
+                    <div className="bg-background-primary items-start justify-center flex flex-col" style={{ borderRadius: '4px' }}>
+                        <div>
+                            <div className='flex justify-center items-center' 
+                            style={{
+                                backgroundImage: `url(${hfeSettingsData.success_banner})`,
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                                width: '100%', // Adjust width as needed
+                                height: '215px', // Adjust height as needed
+                                borderRadius: '4px'
+                            }}>
                                 <img
                                     alt="Success"
                                     className="flex"
+                                    style={{ paddingTop: '3.5rem' }}
                                     src={`${hfeSettingsData.success_badge}`}
                                 />
                             </div>
+                            <div className="p-6" style={{ paddingLeft: '2rem', paddingRight: '2rem' }}>
+                                <div className="flex flex-col items-center justify-center gap-1">
+                                    <p className="text-4xl font-bold text-text-primary m-0 mt-2" style={{ fontSize: '25px', paddingTop: '1.5rem', paddingBottom: '1rem' }}>
+                                        {__(
+                                            "Congratulations!",
+                                            "header-footer-elementor"
+                                        )}
+                                    </p>
+                                    <span className="block text-md font-medium text-text-tertiary m-0">
+                                        {__(
+                                            "You’ve unlocked a ",
+                                            "header-footer-elementor"
+                                        )}
+                                        <span style={{ color: '#6005FF' }}>20%</span> {/* Apply color to 20% */}
+                                        {__(
+                                            " discount on UAE Pro. We’ve sent a discount",
+                                            "header-footer-elementor"
+                                        )}
+                                    </span>
+                                    <span className="block text-md font-medium text-text-tertiary m-0">
+                                        {__(
+                                            " coupon just for you to your email address.",
+                                            "header-footer-elementor"
+                                        )}
+                                    </span>
+                                    <p className="text-md font-medium italic text-text-primary m-0 mt-4" style={{ fontSize: '14px' }}>
+                                        <span style={{ color: 'red' }}>*</span>
+                                        {__(
+                                            " Use your exclusive discount code within the next 2 days to claim your reward!”",
+                                            "header-footer-elementor"
+                                        )}
+                                    </p>
+                                </div>
 
-                            <div className="flex flex-col items-center justify-center gap-1">
-                                <p className="text-4xl font-bold text-text-primary m-0 mt-2" style={{ fontSize: '25px' }}>
-                                    {__(
-                                        "Congratulations!",
-                                        "header-footer-elementor"
-                                    )}
-                                </p>
-                                <p className="text-md font-medium text-text-tertiary m-0" style={{ fontSize: '16px' }}>
-                                    {__(
-                                        "You’ve unlocked a 20% discount on UAE Pro. We’ve sent a discount",
-                                        "header-footer-elementor"
-                                    )}
-                                </p>
-                                <p className="text-md font-medium text-text-tertiary m-0" style={{ fontSize: '16px' }}>
-                                    {__(
-                                        "coupon just for you to your email address.",
-                                        "header-footer-elementor"
-                                    )}
-                                </p>
-                                <p className="text-md font-medium italic text-text-primary m-0 mt-2" style={{ fontSize: '14px' }}>
-                                    {__(
-                                        "* Use your exclusive discount code within the next 2 hours to claim your reward!”",
-                                        "header-footer-elementor"
-                                    )}
-                                </p>
-                            </div>
+                                <hr className="w-full border-b-0 border-x-0 border-t  border-solid border-t-border-subtle" style={{ marginTop: '34px' }} />
 
-                            <hr className="w-full border-b-0 border-x-0 border-t  border-solid border-t-border-subtle" style={{ marginTop: '34px' }} />
-
-                            <div className='flex flex-col items-center' style={{ paddingTop: '25px' }}>
-                                <Button
-                                    icon={<MoveRight />}
-                                    iconPosition="right"
-                                    variant="primary"
-                                    className="bg-[#6005FF] uael-remove-ring w-full"
-                                    style={{
-                                        backgroundColor: "#6005FF",
-                                        transition: "background-color 0.3s ease",
-                                    }}
-                                    onMouseEnter={(e) =>
-                                    (e.currentTarget.style.backgroundColor =
-                                        "#4B00CC")
-                                    }
-                                    onMouseLeave={(e) =>
-                                    (e.currentTarget.style.backgroundColor =
-                                        "#6005FF")
-                                    }
-                                    onClick={() => setCurrentStep(2)}
-                                >
-                                    {__("Get Pro", "header-footer-elementor")}
-                                </Button>
-
-
-                                <Link
-                                    to={routes.dashboard.path}
-
-                                >
+                                <div className='flex flex-col items-center' style={{ paddingTop: '2rem', paddingBottom: '1rem' }}>
                                     <Button
-                                        iconPosition="left"
-                                        variant="link"
-                                        style={{ paddingTop: '40px' }}
-                                        className="uael-remove-ring text-text-primary"
+                                        icon={<ArrowRight />}
+                                        iconPosition="right"
+                                        variant="primary"
+                                        className="bg-[#6005FF] hfe-remove-ring w-full"
+                                        style={{
+                                            backgroundColor: "#6005FF",
+                                            transition: "background-color 0.3s ease",
+                                            padding: "0.8rem"
+                                        }}
                                         onMouseEnter={(e) =>
-                                            (e.currentTarget.style.color =
-                                                "#000000") &&
-                                            (e.currentTarget.style.borderColor =
-                                                "#000000")
+                                        (e.currentTarget.style.backgroundColor =
+                                            "#4B00CC")
                                         }
                                         onMouseLeave={(e) =>
-                                            (e.currentTarget.style.color =
-                                                "#6005FF") &&
-                                            (e.currentTarget.style.borderColor =
-                                                "#6005FF")
+                                        (e.currentTarget.style.backgroundColor =
+                                            "#6005FF")
                                         }
-
+                                        onClick={() => setCurrentStep(2)}
                                     >
-                                        {__("Go the the Dashboard", "header-footer-elementor")}
+                                        {__("Get Pro Now", "header-footer-elementor")}
                                     </Button>
-                                </Link>
 
 
+                                    <Link
+                                        to={routes.dashboard.path}
+                                    >
+                                        <Button
+                                            iconPosition="left"
+                                            variant="link"
+                                            style={{ paddingTop: '2rem', paddingBottom: '1rem' }}
+                                            className="hfe-remove-ring text-text-primary"
+                                            onMouseEnter={(e) =>
+                                                (e.currentTarget.style.color =
+                                                    "#000000") &&
+                                                (e.currentTarget.style.borderColor =
+                                                    "#000000")
+                                            }
+                                            onMouseLeave={(e) =>
+                                                (e.currentTarget.style.color =
+                                                    "#6005FF") &&
+                                                (e.currentTarget.style.borderColor =
+                                                    "#6005FF")
+                                            }
+
+                                        >
+                                            {__("Go To The Dashboard", "header-footer-elementor")}
+                                        </Button>
+                                    </Link>
+                                </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
