@@ -167,7 +167,9 @@ const Success = () => {
                                         (e.currentTarget.style.backgroundColor =
                                             "#6005FF")
                                         }
-                                        onClick={() => setCurrentStep(2)}
+                                        onClick={() => {
+                                            window.open("https://ultimateelementor.com/pricing/?utm_source=uae-lite-settings&utm_medium=My-accounts&utm_campaign=uae-lite-upgrade", '_blank');
+                                        }}
                                     >
                                         {__("Get Pro Now", "header-footer-elementor")}
                                     </Button>

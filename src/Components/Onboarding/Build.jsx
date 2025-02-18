@@ -15,7 +15,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
     useEffect(() => {
         setEmail(hfeSettingsData.user_email);
         setIsActive(hfeSettingsData.analytics_status === 'yes');
-        
+
     }, [hfeSettingsData.user_email]);
 
     const handleSubmit = () => {
@@ -185,10 +185,10 @@ const OnboardingBuild = ({ setCurrentStep }) => {
             >
                 <div className='flex flex-col p-6 items-start'>
                     <h3 className='font-bold text-text-primary mt-0 mb-1' style={{ fontSize: '1.6rem', lineHeight: '1.3em' }}>
-                        We Have A Special Reward Just For You!
+                        {__("We have a special reward just for you!", "header-footer-elementor")}
                     </h3>
                     <span className='font-medium text-text-secondary mt-2 mb-6'>
-                        Unlock your surprise now
+                        {__("Unlock your surprise now", "header-footer-elementor")}
                     </span>
 
                     <Button
@@ -202,7 +202,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                         style={{ alignItems: 'center', justifyContent: 'flex-start' }}
                         onClick={() => setIsDialogOpen(true)}
                     >
-                        Unlock My Surprise
+                        {__("Unlock My Surprise", "header-footer-elementor")}
                     </Button>
                 </div>
             </div>
@@ -220,7 +220,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                         {__("Help make UAE Better", "header-footer-elementor")}
                     </span>
                 </div>
-                <span className='flex flex-row items-center justify-start mt-4 gap-3' style={{ lineHeight: '1.5em', fontSize: '0.95em' }}>Help us improve by sharing anonymous data about your website setup. This includes non-sensitive info about plugins, themes, and settings, so we can create a better product for you. Your privacy is always our top priority. Learn more in our privacy policy.</span>
+                <span className='flex flex-row items-center justify-start mt-4 gap-3' style={{ lineHeight: '1.5em', fontSize: '0.95em' }}>{__("Help us improve by sharing anonymous data about your website setup. This includes non-sensitive info about plugins, themes, and settings, so we can create a better product for you. Your privacy is always our top priority. Learn more in our privacy policy.", "header-footer-elementor")}</span>
             </div>
 
             <Dialog
@@ -267,10 +267,10 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                                 style={{ width: '282px' }}
                                 onChange={(e) => {
                                     if (e && e.target) {
-                                        console.log('Input changed:', e.target.value);
+                                        // console.log('Input changed:', e.target.value);
                                         setEmail(e.target.value);
                                     } else {
-                                        console.error('Event or event target is undefined');
+                                        // console.error('Event or event target is undefined');
                                     }
                                 }}
                             />

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Button } from '@bsf/force-ui';
+import { Button } from '@bsf/force-ui';
 import { __ } from "@wordpress/i18n";
 
 const Welcome = ({ setCurrentStep }) => {
