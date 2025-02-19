@@ -116,8 +116,8 @@ class HFE_Admin {
 	public static function hide_admin_notices() {
 		$screen                = get_current_screen();
 		$pages_to_hide_notices = [
-			'edit-elementor-hf',     // Edit screen for elementor-hf post type
-			'elementor-hf',          // New post screen for elementor-hf post type
+			'edit-elementor-hf',     // Edit screen for elementor-hf post type.
+			'elementor-hf',          // New post screen for elementor-hf post type.
 		];
 
 		if ( in_array( $screen->id, $pages_to_hide_notices ) || 'toplevel_page_hfe' === $screen->id ) {

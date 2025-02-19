@@ -81,7 +81,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			check_ajax_referer( 'updates', '_ajax_nonce' );
 
 			// Fetching the plugin slug from the AJAX request.
-			// @psalm-suppress PossiblyInvalidArgument
+			// @psalm-suppress PossiblyInvalidArgument.
 			$plugin_slug = isset( $_POST['slug'] ) && is_string( $_POST['slug'] ) ? sanitize_text_field( wp_unslash( $_POST['slug'] ) ) : '';
 
 			if ( empty( $plugin_slug ) ) {
@@ -127,7 +127,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			check_ajax_referer( 'updates', '_ajax_nonce' );
 
 			// Fetching the plugin slug from the AJAX request.
-			// @psalm-suppress PossiblyInvalidArgument
+			// @psalm-suppress PossiblyInvalidArgument.
 			$theme_slug = isset( $_POST['slug'] ) && is_string( $_POST['slug'] ) ? sanitize_text_field( wp_unslash( $_POST['slug'] ) ) : '';
 
 			if ( empty( $theme_slug ) ) {

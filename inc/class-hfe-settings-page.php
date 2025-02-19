@@ -50,7 +50,6 @@ class HFE_Settings_Page {
 			add_filter( 'views_edit-elementor-hf', [ $this, 'hfe_settings' ], 10, 1 );
 		}
 		
-		// add_filter( 'admin_footer_text', [ $this, 'admin_footer_text' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
 		add_filter( 'plugin_action_links_' . HFE_PATH, [ $this, 'settings_link' ] );
 
@@ -59,10 +58,6 @@ class HFE_Settings_Page {
 		} else {
 			add_filter( 'wp_check_filetype_and_ext', [ $this, 'real_mime_types' ], 10, 4 );
 		}
-
-		// Add the Action Links.
-		// phpcs:ignore Squiz.PHP.CommentedOutCode.Found, Squiz.Commenting.InlineComment.InvalidEndChar
-		// add_filter( 'plugin_action_links_' . HFE_PATH, array( $this, 'add_action_links' ) );
 
 		/* Flow content view */
 		add_action( 'hfe_render_admin_page_content', [ $this, 'render_content' ], 10, 2 );
@@ -198,23 +193,6 @@ class HFE_Settings_Page {
 	}
 
 	/**
-	 * Show action on plugin page.
-	 *
-	 * @param  array $links links.
-	 * @return array
-	 */
-	public function add_action_links( $links ) {
-
-		$default_url = admin_url( 'admin.php?page=' . $this->menu_slug );
-
-		$mylinks = [
-			'<a href="' . $default_url . '">' . __( 'Settings', 'Elementor Header & Footer Builder', 'header-footer-elementor' ) . '</a>', //phpcs:ignore WordPress.WP.I18n.TextDomainMismatch
-		];
-
-		return array_merge( $mylinks, $links );
-	}
-
-	/**
 	 * Settings tab array
 	 *
 	 * @var settings tabs
@@ -278,7 +256,7 @@ class HFE_Settings_Page {
 			$stpro_status      = HFE_Helper::premium_starter_templates_status();
 			$st_link           = HFE_Helper::starter_templates_link();
 			$hfe_post_url      = admin_url( 'post-new.php?post_type=elementor-hf' );
-			// Fetch the user's email
+			// Fetch the user's email.
 			$user_email = $this->fetch_user_email();
 			
 			$show_theme_support = 'no';
@@ -638,8 +616,8 @@ class HFE_Settings_Page {
 	 * Renders the admin settings content.
 	 *
 	 * @since 1.0.0
-	 * @param sting $menu_page_slug current page name.
-	 * @param sting $page_action current page action.
+	 * @param string $menu_page_slug current page name.
+	 * @param string $page_action current page action.
 	 *
 	 * @return void
 	 */
@@ -1279,7 +1257,7 @@ class HFE_Settings_Page {
 	 * @return array $links
 	 */
 	public function settings_link( $links ) {
-		$menu_setting = HFE_Helper::is_pro_active() ? 'uaepro' : 'hfe'; // Replace with your actual menu slug
+		$menu_setting = HFE_Helper::is_pro_active() ? 'uaepro' : 'hfe'; // Replace with your actual menu slug.
 
 		$custom['settings'] = sprintf(
 			'<a href="%s" aria-label="%s">%s</a>',
@@ -1291,7 +1269,7 @@ class HFE_Settings_Page {
 					admin_url( 'admin.php' )
 				) . '#dashboard'
 			),
-			esc_attr__( 'Go to HFE Settings page', 'header-footer-elementor' ),
+			esc_attr__( 'Go to UAE Settings page', 'header-footer-elementor' ),
 			esc_html__( 'Settings', 'header-footer-elementor' )
 		);
 
