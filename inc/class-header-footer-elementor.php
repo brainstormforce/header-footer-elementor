@@ -125,7 +125,7 @@ class Header_Footer_Elementor {
 			
 			add_action( 'init', [ $this, 'setup_settings_page' ] );
 
-			if ( 'yes' === get_option( 'hfe_plugin_is_activated' ) ) {
+			if ( 'yes' === get_option( 'uae_lite_is_activated' ) ) {
 				add_action( 'admin_init', [ $this, 'show_setup_wizard' ] );
 			}
 
@@ -374,45 +374,21 @@ class Header_Footer_Elementor {
 	}
 
 	/**
-	 * Prints the admin notics when Elementor is not installed or activated.
+	 * Plugin version tracking.
 	 *
 	 * @return void
 	 */
 	public function show_setup_wizard() {
 
-		$screen    = get_current_screen();
-		$screen_id = $screen ? $screen->id : '';
+		$hfe_old_version = get_option('hfe_plugin_version');
+		$old_version = $hfe_old_version ? $hfe_old_version : HFE_VER;
+		$new_version = HFE_VER;
 
-		if ( 'plugins' !== $screen_id ) {
-			return;
+		if ( ! $hfe_old_version || ( $old_version !== $new_version ) ) {
+			// Store previous version
+			update_option('hfe_plugin_previous_version', $old_version);
+			update_option('hfe_plugin_version', $new_version);
 		}
-
-		/* TO DO */
-		$class       = 'notice notice-info is-dismissible';
-		$setting_url = admin_url( 'edit.php?post_type=elementor-hf' );
-		$image_path  = HFE_URL . 'assets/images/settings/uael-icon.svg';
-
-		/* translators: %s: html tags */
-		$notice_message = sprintf( __( 'Thank you for installing %1$s Ultimate Addons for Elementor %2$s Plugin! Click here to %3$sget started. %4$s', 'header-footer-elementor' ), '<strong>', '</strong>', '<a href="' . $setting_url . '">', '</a>' );
-
-		Astra_Notices::add_notice(
-			[
-				'id'                         => 'header-footer-install-notice',
-				'type'                       => 'info',
-				/* translators: %s: html tags */
-				'message'                    => sprintf(
-					'<img src="%1$s" class="custom-logo" alt="HFE" itemprop="logo">
-					<div class="notice-content">
-						<p>%2$s</p>
-					</div>',
-					$image_path,
-					$notice_message
-				),
-				'repeat-notice-after'        => false,
-				'priority'                   => 18,
-				'display-with-other-notices' => false,
-			]
-		);
 	}
 
 	/**
