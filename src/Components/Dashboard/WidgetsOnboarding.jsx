@@ -93,7 +93,7 @@ const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
     };
     return (
         <div className="flex flex-col gap-4">
-            <div className="bg-background-secondary hfe-min-900" >
+            <div className="bg-background-secondary hfe-min-700" >
                 <form>
                     <div className="md:w-[47rem] box-border mx-auto space-y-4">
                         <OnboardingWidgets/>
@@ -110,17 +110,15 @@ const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
                     {__("Back", "header-footer-elementor")}
                 </Button>
                 <div className="flex justify-end items-center gap-3">
-                    <Link
-                        to={routes.dashboard.path}
-
+                    
+                    <Button
+                        className="hfe-remove-ring"
+                        variant="ghost"
+                        onClick={() => setCurrentStep(3)}
                     >
-                        <Button
-                            className="hfe-remove-ring"
-                            variant="ghost">
-                            {' '}
-                            {__("Skip", "header-footer-elementor")}
-                        </Button>
-                    </Link>
+                        {' '}
+                        {__("Skip", "header-footer-elementor")}
+                    </Button>
                     <Button
                         className="flex items-center gap-1 hfe-remove-ring"
                         icon={<ArrowRight />}

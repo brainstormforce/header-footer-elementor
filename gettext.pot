@@ -558,11 +558,11 @@ msgstr ""
 msgid "Back"
 msgstr ""
 
-#: src/Components/Dashboard/WidgetsOnboarding.jsx:121
+#: src/Components/Dashboard/WidgetsOnboarding.jsx:120
 msgid "Skip"
 msgstr ""
 
-#: src/Components/Dashboard/WidgetsOnboarding.jsx:135
+#: src/Components/Dashboard/WidgetsOnboarding.jsx:133
 msgid " Continue Setup"
 msgstr ""
 
@@ -631,21 +631,23 @@ msgid "What's New?"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:101
-msgid "Here's How To Get Started:"
+msgid "Here’s how to get started:"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:105
-msgid "Click on “Create New Page” button"
+msgid "Click on “Create” button"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:106
 msgid ""
-"Use the Elementor editor to customize your page/post according to your "
-"preferences"
+"Choose the type of template you want to create and customize the selected "
+"option"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:107
-msgid "Use UAE widgets to design your pages."
+msgid ""
+"Use the Elementor editor to customize your template according to your "
+"preferences using UAE widgets"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:108
@@ -718,8 +720,8 @@ msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:95
 msgid ""
-"Start creating amazing designs with UAE and take your website to the next "
-"level"
+"Start creating headers, footers, or pages with UAE and take your website to "
+"the next level"
 msgstr ""
 
 #: src/Components/Onboarding/Success.jsx:142
@@ -753,17 +755,21 @@ msgid "Go To The Dashboard"
 msgstr ""
 
 #: src/Components/Onboarding/Welcome.jsx:11
-msgid "Thank You For Choosing Ultimate Addons for Elementor"
+msgid "Thank You For Choosing"
 msgstr ""
 
-#: src/Components/Onboarding/Welcome.jsx:17
+#: src/Components/Onboarding/Welcome.jsx:16
+msgid "Ultimate Addons for Elementor"
+msgstr ""
+
+#: src/Components/Onboarding/Welcome.jsx:23
 msgid ""
 "We're excited to have you onboard. Get ready to create stunning headers, "
 "footers, and custom blocks with ease while keeping your website lightweight "
 "and fast."
 msgstr ""
 
-#: src/Components/Onboarding/Welcome.jsx:46
+#: src/Components/Onboarding/Welcome.jsx:52
 msgid "Let's Get Started"
 msgstr ""
 

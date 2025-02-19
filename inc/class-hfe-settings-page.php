@@ -330,7 +330,7 @@ public function fetch_user_email() {
 					'build_banner'             => HFE_URL . 'assets/images/settings/build_banner.png',
 					'special_reward'           => HFE_URL . 'assets/images/settings/build_bg.png',
 					'success_banner'           => HFE_URL . 'assets/images/settings/success_bg.png',
-					'success_badge'           	=> HFE_URL . 'assets/images/settings/success_badge.png',
+					'success_badge'           	=> HFE_URL . 'assets/images/settings/success_badge.svg',
 					'icon_svg'           		=> HFE_URL . 'assets/images/settings/uae-logo-svg.svg',
 					'uaelite_previous_version' => isset( $rollback_versions[0]['value'] ) ? $rollback_versions[0]['value'] : '',
 					'uaelite_versions'         => $rollback_versions,

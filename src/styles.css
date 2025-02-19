@@ -43,7 +43,7 @@
 	animation: spin 2s linear infinite;
 }
 .hfe-custom-scrollbar::-webkit-scrollbar {
-	width: 10px;
+	width: 4px;
 }  
 /* Track */
 .hfe-custom-scrollbar::-webkit-scrollbar-track {
@@ -92,6 +92,9 @@
 .hfe-popup-button,
 .hfe-popup-button svg {
 	padding: 0;
+}
+.hfe-popup-button span {
+	padding-left: 0;
 }
 .hfe-link-color,
 .hfe-link-color span {
@@ -211,8 +214,11 @@ input[type="radio"].hfe-radio-field:focus {
 		border-radius: 0 !important;
 	}
 }
-.hfe-min-900 {
-	min-width: 900px;
+:is(#hfe-settings-app, [data-floating-ui-portal]) .uae-steps .text-xs {
+	font-size: 0.77rem;
+}
+.hfe-min-700 {
+	min-width: 700px;
 }
 #hfe-settings-app .subject-cell {
 	max-width: 200px; /* Adjust this width based on your layout */
@@ -271,7 +277,7 @@ div#hfe-settings-app {
 		margin-left: 20px;
     	margin-right: 20px;
 	}
-	.hfe-min-900 {
+	.hfe-min-700 {
 		min-width: unset;
 	}
 	.hfe-onboarding-customize .hfe-custom-scrollbar {
