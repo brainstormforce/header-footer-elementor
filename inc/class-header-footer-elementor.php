@@ -150,15 +150,27 @@ class Header_Footer_Elementor {
 			$bsf_analytics = BSF_Analytics_Loader::get_instance();
 
 			$bsf_analytics->set_entity(
-				[
-					'bsf' => [
+				array(
+					'bsf' => array(
 						'product_name'    => 'Ultimate Addons for Elementor',
 						'path'            => HFE_DIR . 'admin/bsf-analytics',
 						'author'          => 'Brainstorm Force',
 						'time_to_display' => '+24 hours',
-					],
-				]
-			);
+						'deactivation_survey' => array(
+							array(
+								'id'                => 'deactivation-survey-header-footer-elementor', // 'deactivation-survey-<your-plugin-slug>'
+								'popup_logo'        => HFE_URL . 'assets/images/settings/logo.svg',
+								'plugin_slug'       => 'header-footer-elementor', // <your-plugin-slug>
+								'plugin_version'    => HFE_VER,
+								'popup_title'       => __( 'Quick Feedback', 'header-footer-elementor' ),
+								'support_url'       => 'https://ultimateelementor.com/contact/',
+								'popup_description' => __( 'If you have a moment, please share why you are deactivating Ultimate Addons for Elementor:', 'header-footer-elementor' ),
+								'show_on_screens'   => array( 'plugins' ),
+							),
+						),
+					),
+			)
+		);
 
 			if ( ! class_exists( 'HFE_Utm_Analytics' ) ) {
 				require_once HFE_DIR . 'inc/lib/class-hfe-utm-analytics.php';
