@@ -2876,8 +2876,8 @@ input[type="radio"].hfe-radio-field:focus {
 :is(#hfe-settings-app, [data-floating-ui-portal]) .uae-steps .text-xs {
 	font-size: 0.77rem;
 }
-.hfe-min-900 {
-	min-width: 900px;
+.hfe-min-700 {
+	min-width: 700px;
 }
 #hfe-settings-app .subject-cell {
 	max-width: 200px; /* Adjust this width based on your layout */
@@ -2936,7 +2936,7 @@ div#hfe-settings-app {
 		margin-left: 20px;
     	margin-right: 20px;
 	}
-	.hfe-min-900 {
+	.hfe-min-700 {
 		min-width: unset;
 	}
 	.hfe-onboarding-customize .hfe-custom-scrollbar {

@@ -87,24 +87,24 @@ const OnboardingBuild = ({ setCurrentStep }) => {
         <div className="bg-background-primary border-[0.5px] border-subtle rounded-xl shadow-sm mb-6 p-8" style={{ maxWidth: '55%' }}>
             <div className="flex items-start hfe-display-flex">
                 {/* Left Content */}
-                <div className="flex flex-col items-start">
+                <div className="flex flex-col items-start" style={{ paddingRight: '35px' }}>
                     <h1 className="text-text-primary m-0 mb-2" style={{ fontSize: '1.6rem', lineHeight: '1.3em' }}>
                         {__("You're all set!🚀", "header-footer-elementor")}
                     </h1>
-                    <span className="text-md font-medium text-text-tertiary m-0 mb-4 hfe-88-width" style={{ lineHeight: '1.6em' }}>
+                    <span className="text-md font-medium text-text-tertiary m-0 mb-6 hfe-88-width" style={{ lineHeight: '1.6em' }}>
                         {__(
-                            "Start creating amazing designs with UAE and take your website to the next level",
+                            "Start creating headers, footers, or pages with UAE and take your website to the next level",
                             "header-footer-elementor"
                         )}
                     </span>
                     <span className="font-bold m-0 pt-2">
-                        {__("Here's How To Get Started:", "header-footer-elementor")}
+                        {__("Here’s how to get started:", "header-footer-elementor")}
                     </span>
 
-                    <ol className="list-decimal text-text-tertiary text-sm" style={{ marginLeft: '1.4em' }}>
-                        <li>{__('Click on “Create New Page” button', 'header-footer-elementor')}</li>
-                        <li>{__('Use the Elementor editor to customize your page/post according to your preferences', 'header-footer-elementor')}</li>
-                        <li>{__('Use UAE widgets to design your pages.', 'header-footer-elementor')}</li>
+                    <ol className="list-decimal text-text-tertiary text-sm" style={{ marginLeft: '1.4em', lineHeight: '1.6em', paddingBottom: '1rem' }}>
+                        <li>{__('Click on “Create” button', 'header-footer-elementor')}</li>
+                        <li>{__('Choose the type of template you want to create and customize the selected option', 'header-footer-elementor')}</li>
+                        <li>{__('Use the Elementor editor to customize your template according to your preferences using UAE widgets', 'header-footer-elementor')}</li>
                         <li>{__('Click “Publish” to make it live', 'header-footer-elementor')}</li>
                     </ol>
                 </div>
@@ -119,7 +119,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                     />
                 </div>
             </div>
-            <div className='flex flex-row gap-1 pt-2 pb-4 hfe-display-flex'>
+            <div className='flex flex-row gap-1 pb-4 hfe-display-flex'>
                 <Button
                     icon={<ArrowRight/>}
                     iconPosition="right"
@@ -140,7 +140,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                     onClick={() => {
                         window.open(
                             hfeSettingsData.hfe_post_url,
-                            "_blank"
+                            "_self"
                         );
                     }}
                 >
