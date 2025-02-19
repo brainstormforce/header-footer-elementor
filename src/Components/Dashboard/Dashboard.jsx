@@ -9,27 +9,29 @@ import UltimateFeatures from './UltimateFeatures'
 import ExtendWebsite from './ExtendWebsite'
 
 const Dashboard = () => {
-
     useEffect(() => {
-        // Completely reset history state
-        window.history.pushState(null, "", window.location.href);
-        window.history.replaceState(null, "", window.location.href);
+        const dashboardURL = "admin.php?page=hfe#dashboard";
 
-        const preventBackNavigation = () => {
-            // Keep pushing the state every time user presses back
+        // Push the dashboard URL to history and prevent going back
+        window.history.pushState(null, "", dashboardURL);
+        window.history.replaceState(null, "", dashboardURL);
+
+        const forceStayOnDashboard = () => {
             setTimeout(() => {
-                window.history.pushState(null, "", window.location.href);
+                window.history.pushState(null, "", dashboardURL);
+                window.location.href = dashboardURL; // Force redirect to dashboard
             }, 0);
         };
 
         // Call function immediately and on every back attempt
-        preventBackNavigation();
-        window.addEventListener("popstate", preventBackNavigation);
+        forceStayOnDashboard();
+        window.addEventListener("popstate", forceStayOnDashboard);
 
         return () => {
-            window.removeEventListener("popstate", preventBackNavigation);
+            window.removeEventListener("popstate", forceStayOnDashboard);
         };
     }, []);
+
     return (
         <>
             <NavMenu />
@@ -58,14 +60,15 @@ const Dashboard = () => {
                     <Container.Item 
                         className="p-2 w-full hfe-35-width"
                         shrink={1}
-                    >  <TemplateSection />
+                    >  
+                        <TemplateSection />
                         <ExtendWebsite />
                         <QuickAccess />
                     </Container.Item>
                 </Container>
             </div>
         </>
-    )
+    );
 }
 
-export default Dashboard
+export default Dashboard;

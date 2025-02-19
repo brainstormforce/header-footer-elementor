@@ -24,25 +24,26 @@ const Success = () => {
     });
 
     useEffect(() => {
-        // Completely replace history
-        window.history.pushState(null, "", window.location.href);
-        window.history.replaceState(null, "", window.location.href);
+        const targetUrl = "admin.php?page=hfe#dashboard";
     
-        const blockBack = () => {
-            // Keep pushing a new history state every time back is pressed
-            setTimeout(() => {
-                window.history.pushState(null, "", window.location.href);
-            }, 0);
+        // Replace the current state with targetUrl (so back button goes there)
+        window.history.replaceState(null, "", targetUrl);
+    
+        // Push another history state so that forward doesn't come back here
+        window.history.pushState(null, "", window.location.href);
+    
+        const handlePopState = () => {
+            // If the user tries to go back, send them to the dashboard
+            window.location.href = targetUrl;
         };
     
-        // Call function immediately and on every back attempt
-        blockBack();
-        window.addEventListener("popstate", blockBack);
+        window.addEventListener("popstate", handlePopState);
     
         return () => {
-            window.removeEventListener("popstate", blockBack);
+            window.removeEventListener("popstate", handlePopState);
         };
     }, []);
+    
     
 
 

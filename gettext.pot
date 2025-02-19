@@ -468,21 +468,25 @@ msgid "WIDGETS"
 msgstr ""
 
 #: src/Components/Dashboard/OnboardingWidgets.jsx:149
+#: src/Components/Dashboard/OnboardingWidgets.jsx:150
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:174
 msgid "Activating..."
 msgstr ""
 
 #: src/Components/Dashboard/OnboardingWidgets.jsx:149
+#: src/Components/Dashboard/OnboardingWidgets.jsx:150
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:174
 msgid "Activate All"
 msgstr ""
 
 #: src/Components/Dashboard/OnboardingWidgets.jsx:161
+#: src/Components/Dashboard/OnboardingWidgets.jsx:162
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:185
 msgid "Deactivating..."
 msgstr ""
 
 #: src/Components/Dashboard/OnboardingWidgets.jsx:161
+#: src/Components/Dashboard/OnboardingWidgets.jsx:162
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:185
 msgid "Deactivate All"
 msgstr ""
@@ -724,33 +728,33 @@ msgid ""
 "the next level"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:142
+#: src/Components/Onboarding/Success.jsx:143
 msgid "Congratulations!"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:148
+#: src/Components/Onboarding/Success.jsx:149
 msgid "You’ve unlocked a "
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:153
+#: src/Components/Onboarding/Success.jsx:154
 msgid " discount on UAE Pro. We’ve sent a discount"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:159
+#: src/Components/Onboarding/Success.jsx:160
 msgid " coupon just for you to your email address."
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:166
+#: src/Components/Onboarding/Success.jsx:167
 msgid ""
 " Use your exclusive discount code within the next 2 days to claim your "
 "reward!”"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:198
+#: src/Components/Onboarding/Success.jsx:199
 msgid "Get Pro Now"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:224
+#: src/Components/Onboarding/Success.jsx:225
 msgid "Go To The Dashboard"
 msgstr ""
 
