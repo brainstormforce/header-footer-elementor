@@ -269,7 +269,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                                     variant="ghost"
                                     className='hfe-remove-ring'
                                     onClick={() => setIsDialogOpen(false)}
-                                    style={{ marginLeft: '60px', marginBottom: '20px' }}
+                                    style={{ marginLeft: '60px', marginBottom: '20px', paddingTop: '0' }}
                                 />
                             </div>
                         </div>
