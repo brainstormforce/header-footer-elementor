@@ -118,6 +118,7 @@
 				"i18n:gptpo:es": "gpt-po translate --po languages/header-footer-elementor-es_ES.po --lang es --verbose",
 				"i18n:gptpo:de": "gpt-po translate --po languages/header-footer-elementor-de_DE.po --lang de --verbose",
 				"i18n:gptpo:pt": "gpt-po translate --po languages/header-footer-elementor-pt_PT.po --lang pt --verbose",
+				"i18n:gptpo:it": "gpt-po translate --po languages/header-footer-elementor-it_IT.po --lang it --verbose",
 				"build-package": "npm run build && grunt",
 				"release": "rm -rf header-footer-elementor && npm run build-package && grunt release",
 				"build:babel": "babel src --out-dir build"
