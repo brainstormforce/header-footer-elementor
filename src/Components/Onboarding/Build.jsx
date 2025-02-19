@@ -1,71 +1,129 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Button, Switch, Title, Dialog, Input } from '@bsf/force-ui';
-import { X, Check, Plus, MoveRight, Package } from 'lucide-react';
+import { X, Check, Plus, ArrowRight, Package } from 'lucide-react';
+import toast, { Toaster } from 'react-hot-toast';
+import { Link } from "../../router/index"
 import { __ } from "@wordpress/i18n";
+import { routes } from "../../admin/settings/routes";
 
 const OnboardingBuild = ({ setCurrentStep }) => {
-
     const [isDialogOpen, setIsDialogOpen] = useState(false);
     const [email, setEmail] = useState('');
+    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isActive, setIsActive] = useState(true);
 
-    const activatePlugin = (pluginData) => {
-        // Your activation logic here
-        setIsDialogOpen(false);
+    useEffect(() => {
+        setEmail(hfeSettingsData.user_email);
+        setIsActive(hfeSettingsData.analytics_status === 'yes');
+
+    }, [hfeSettingsData.user_email]);
+
+    const handleSubmit = () => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (emailRegex.test(email)) {
+            setIsSubmitted(true);
+            callValidatedEmailWebhook(email);
+            window.location.href = hfeSettingsData.onboarding_success_url;
+        } else {
+            toast.error(__('Please enter a valid email address', 'header-footer-elementor'));
+        }
     };
 
+    const handleSwitchChange = async () => {
+        const newIsActive = !isActive;
+        setIsActive(newIsActive);
+        console.log(`Switch is now ${newIsActive ? 'active' : 'inactive'}`);
+
+        try {
+            const response = await fetch(hfe_admin_data.ajax_url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    action: 'save_analytics_option', // WordPress action for your AJAX handler.
+                    bsf_analytics_optin: newIsActive ? 'yes' : 'no',
+                    nonce: hfe_admin_data.nonce // Nonce for security.
+                })
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                toast.success(__('Settings saved successfully!', 'header-footer-elementor'));
+            } else {
+                toast.error(__('Failed to save settings!', 'header-footer-elementor'));
+            }
+        } catch (error) {
+            toast.error(__('Failed to save settings!', 'header-footer-elementor'));
+        }
+
+        // setIsLoading(false);
+    };
+
+    const callValidatedEmailWebhook = (email) => {
+        const webhookUrl = 'https://webhook.suretriggers.com/suretriggers/4cb01209-5164-4521-93c1-360df407d83b';
+        const today = new Date().toISOString().split('T')[0];
+
+        const params = new URLSearchParams({
+            email: email,
+            date: today,
+        });
+
+        fetch(`${webhookUrl}?${params.toString()}`, {
+            method: 'POST',
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Webhook call successful:', data);
+            })
+            .catch(error => {
+                console.error('Error calling webhook:', error);
+            });
+    }
+
     return (
-        <div className="bg-background-primary border-[0.5px] border-subtle ml-10 rounded-xl shadow-sm mb-6 p-8">
-            <div className="flex items-center justify-between w-full">
+        <div className="bg-background-primary border-[0.5px] border-subtle rounded-xl shadow-sm mb-6 p-8" style={{ maxWidth: '55%' }}>
+            <div className="flex items-start hfe-display-flex">
                 {/* Left Content */}
-                <div className="flex flex-col items-start w-1/2">
-                    <p className="font-bold text-text-primary m-0 mt-2" style={{ fontSize: '30px' }}>
-                        {__("You’re all set! 🚀", "header-footer-elementor")}
-                    </p>
-                    <p className="font-medium text-text-tertiary m-0 mt-2 text-base w-[350px]">
+                <div className="flex flex-col items-start" style={{ paddingRight: '35px' }}>
+                    <h1 className="text-text-primary m-0 mb-2" style={{ fontSize: '1.6rem', lineHeight: '1.3em' }}>
+                        {__("You're all set!🚀", "header-footer-elementor")}
+                    </h1>
+                    <span className="text-md font-medium text-text-tertiary m-0 mb-4 hfe-88-width" style={{ lineHeight: '1.6em' }}>
                         {__(
                             "Start creating headers, footers, or pages with UAE and take your website to the next level",
                             "header-footer-elementor"
                         )}
-                    </p>
-                    <p className="font-bold text-text-primary m-0 mt-2 text-base">
-                        {__("Here’s What UAE Will Do for You Now:", "header-footer-elementor")}
-                    </p>
-                    <ul className="list-none pl-0 space-y-2">
-                        <li className="flex items-start gap-x-2 text-field-label text-sm font-medium">
-                            <Check className="size-4 text-[#6005ff]" />
-                            <span className="text-text-primary w-[340px]">
-                                Design the headers and footers, UAE will automatically place it in your desired location.
-                            </span>
-                        </li>
-                        <li className="flex items-start gap-x-2 text-field-label text-sm font-medium">
-                            <Check className="size-4 text-icon-primary" />
-                            <span>Create before footer, custom blocks etc</span>
-                        </li>
-                        <li className="flex items-start gap-x-2 text-field-label text-sm font-medium">
-                            <Check className="size-4 text-icon-primary" />
-                            <span className="text-text-primary w-[330px]">
-                                Work with any theme in your website, UAE can handle everything with ease.
-                            </span>
-                        </li>
-                    </ul>
+                    </span>
+                    <span className="font-bold m-0 pt-2">
+                        {__("Here’s how to get started:", "header-footer-elementor")}
+                    </span>
+
+                    <ol className="list-decimal text-text-tertiary text-sm" style={{ marginLeft: '1.4em', lineHeight: '1.6em', paddingBottom: '0.5rem' }}>
+                        <li>{__('Click on “Create” button', 'header-footer-elementor')}</li>
+                        <li>{__('Choose the type of template you want to create and customize the selected option', 'header-footer-elementor')}</li>
+                        <li>{__('Use the Elementor editor to customize your template according to your preferences using UAE widgets', 'header-footer-elementor')}</li>
+                        <li>{__('Click “Publish” to make it live', 'header-footer-elementor')}</li>
+                    </ol>
                 </div>
 
                 {/* Right Content - Image */}
-                <div className="w-1/2 flex justify-center">
+                <div className="w-1/2" style={{ textAlign: 'end' }}>
                     <img
                         alt="Build"
-                        className="w-full max-w-[400px] object-contain"
+                        className="w-full object-contain"
+                        style={{ height: '255px', width: 'auto' }}
                         src={`${hfeSettingsData.build_banner}`}
                     />
                 </div>
             </div>
-
-            <hr className="mt-6 w-full border-b-0 border-x-0 border-t border-solid border-t-border-subtle" />
-            <div className='flex flex-row gap-2' style={{ marginTop: '40px' }}>
+            <div className='flex flex-row gap-1 pb-4 hfe-display-flex'>
                 <Button
+                    icon={<ArrowRight />}
                     iconPosition="right"
                     variant="primary"
-                    className="bg-[#6005FF] uael-remove-ring"
+                    className="bg-[#6005FF] hfe-remove-ring"
                     style={{
                         backgroundColor: "#6005FF",
                         transition: "background-color 0.3s ease",
@@ -80,93 +138,116 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                     }
                     onClick={() => {
                         window.open(
-                            hfeSettingsData.uael_hfe_post_url,
-                            "_blank"
+                            hfeSettingsData.hfe_post_url,
+                            "_self"
                         );
                     }}
                 >
                     {__("Create Header/Footer", "header-footer-elementor")}
                 </Button>
 
-                <Button
-                    icon={<MoveRight />}
-                    iconPosition="right"
-                    variant="ghost"
-                    className="uael-remove-ring"
-                    style={{
-                        color: "#6005FF",
-                        borderColor: "#6005FF",
-                    }}
-                    onMouseEnter={(e) =>
-                        (e.currentTarget.style.color =
-                            "#000000") &&
-                        (e.currentTarget.style.borderColor =
-                            "#000000")
-                    }
-                    onMouseLeave={(e) =>
-                        (e.currentTarget.style.color =
-                            "#6005FF") &&
-                        (e.currentTarget.style.borderColor =
-                            "#6005FF")
-                    }
-                    onClick={() => {
-                        window.open(
-                            dashboard,
-                        );
-                    }}
+                <Link
+                    to={routes.dashboard.path}
+
                 >
-                    {__("Go to Dashboard", "header-footer-elementor")}
-                </Button>
+                    <Button
+                        icon={<ArrowRight />}
+                        iconPosition="right"
+                        variant="ghost"
+                        className="hfe-remove-ring"
+                        onMouseLeave={(e) =>
+                            (e.currentTarget.style.color =
+                                "#000000") &&
+                            (e.currentTarget.style.borderColor =
+                                "#000000")
+                        }
+                        onMouseEnter={(e) =>
+                            (e.currentTarget.style.color =
+                                "#6005FF") &&
+                            (e.currentTarget.style.borderColor =
+                                "#6005FF")
+                        }
+                    >
+                        {__("Go To Dashboard", "header-footer-elementor")}
+                    </Button>
+                </Link>
+
             </div>
             <div
-                className="flex items-start justify-start"
+                className="flex items-start justify-start mt-4"
                 style={{
-                    marginTop: '40px',
                     backgroundImage: `url(${hfeSettingsData.special_reward})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
-                    width: '100%', // Adjust width as needed
-                    height: '150px' // Adjust height as needed
+                    borderRadius: '5px'
                 }}
             >
-                <div className='flex flex-col'>
-                    <span className='font-bold text-text-primary' style={{ fontSize: '20px', marginTop: '34px', marginLeft: '34px' }}>
-                        We have a special reward just for you!
-                    </span>
-
-                    <span className='font-medium text-text-secondary' style={{ fontSize: '16px', marginTop: '8px', marginLeft: '34px' }}>
-                        Unlock your surprise now
+                <div className='flex flex-col p-6 items-start'>
+                    <h3 className='font-bold text-text-primary mt-0 mb-1' style={{ lineHeight: '1.3em' }}>
+                        {__("We have a special reward just for you!", "header-footer-elementor")}
+                    </h3>
+                    <span className='font-medium text-text-secondary mt-2 mb-6'>
+                        {__("Unlock your surprise now", "header-footer-elementor")}
                     </span>
 
                     <Button
-                        className="uael-remove-ring"
+                        className="hfe-remove-ring hfe-span hfe-popup-button"
                         icon={<Package aria-label="icon" role="img" />}
                         iconPosition="right"
                         size="md"
                         tag="button"
                         type="button"
                         variant="link"
-                        style={{ marginTop: '16px', marginRight: '168px', color: "#6005FF" }}
+                        style={{ alignItems: 'center', justifyContent: 'flex-start', color: "#6005FF", }}
                         onClick={() => setIsDialogOpen(true)}
                     >
-                        Unlock My Surprise
+                        {__("Unlock My Surprise", "header-footer-elementor")}
                     </Button>
                 </div>
             </div>
-            <hr className="w-full border-b-0 border-x-0 border-t  border-solid border-t-border-subtle" style={{ marginTop: '44px', marginBottom: '44px' }} />
+            <hr className="w-full border-b-0 border-x-0 border-t border-solid border-t-border-subtle" style={{ marginTop: '34px', marginBottom: '34px', borderColor: '#E5E7EB' }} />
 
-            <div className="bg-background-secondary border-[0.5px] border-subtle rounded-xl p-5 shadow-sm flex flex-col w-full space-y-1 space-x-2" style={{ width: '820px' }}>
+            <div className="bg-badge-background-gray border-[0.5px] border-subtle p-6" style={{ borderRadius: '5px' }}>
                 <div className='flex flex-row items-center justify-start px-1 gap-3'>
                     <Switch
-                        onChange=""
-                        size='md'
-                        value=""
-                        className=""
+                        onChange={handleSwitchChange}
+                        size='sm'
+                        value={isActive}
+                        className="hfe-remove-ring"
                     />
-                    <Title size="xs" tag="h3" title={__('Help make UAE Better', 'header-footer-elementor')} />
+                    <span className="font-bold text-text-primary m-0">
+                        {__("Help make UAE Better", "header-footer-elementor")}
+                    </span>
                 </div>
-                <p className='text-base font-medium text-[#64748B]'>Help us improve by sharing anonymous data about your website setup. This includes non-sensitive info about plugins, themes, and settings, so we can create a better product for you. Your privacy is always our top priority. Learn more in our privacy policy.</p>
+                <Toaster
+                    position="top-right"
+                    reverseOrder={false}
+                    gutter={8}
+                    containerStyle={{
+                        top: 20,
+                        right: 20,
+                        marginTop: '40px',
+                    }}
+                    toastOptions={{
+                        duration: 1000,
+                        style: {
+                            background: 'white',
+                        },
+                        success: {
+                            duration: 2000,
+                            style: {
+                                color: '',
+                            },
+                            iconTheme: {
+                                primary: '#6005ff',
+                                secondary: '#fff',
+                            },
+                        },
+                    }}
+                />
+                <span className='flex flex-row items-center justify-start mt-4 gap-3' style={{ lineHeight: '1.5em', fontSize: '0.95em' }}>{__("Help us improve by sharing anonymous data about your website setup. This includes non-sensitive info about plugins, themes, and settings, so we can create a better product for you. Your privacy is always our top priority. Learn more in our privacy policy.", "header-footer-elementor")}</span>
             </div>
+
 
             <Dialog
                 design="simple"
@@ -175,10 +256,10 @@ const OnboardingBuild = ({ setCurrentStep }) => {
             >
                 <Dialog.Backdrop />
                 <Dialog.Panel>
-                    <Dialog.Header>
+                    <Dialog.Header style={{ padding: '30px', marginBottom: '0.5rem' }}>
                         <div className="flex items-center justify-between">
-                            <div className="flex items-center">
-                                <Dialog.Title style={{ fontSize: '25px', width: '350px' }}>
+                            <div className="flex items-center justify-center">
+                                <Dialog.Title style={{ fontSize: '1.6rem', width: '80%', lineHeight: '1.3em' }}>
                                     {__('We have a special Reward just for you! 🎁', 'header-footer-elementor')}
                                 </Dialog.Title>
                                 <Button
@@ -186,35 +267,87 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                                     iconPosition="right"
                                     size="md"
                                     variant="ghost"
-                                    className='uael-remove-ring'
+                                    className='hfe-remove-ring'
                                     onClick={() => setIsDialogOpen(false)}
-                                    style={{ marginLeft: '60px', marginBottom: '20px' }}
+                                    style={{ marginLeft: '60px', marginBottom: '20px', paddingTop: '0' }}
                                 />
                             </div>
                         </div>
-                        <Dialog.Description style={{ fontSize: '14px', width: '377px', fontWeight: '400', color: '#64748B' }}>
+                        <Dialog.Description style={{ width: '90%', color: '#64748B' }}>
                             {__('Enter your email address to get special offer that we have for you and stay updated on UAE’s latest news and updates.', 'header-footer-elementor')}
                         </Dialog.Description>
+
+                        <p className="text-md font-bold text-field-label m-0 gap-0" style={{ fontSize: '14px', marginTop: '1.5em' }}>
+                            {__(
+                                "Email Address",
+                                "header-footer-elementor"
+                            )}
+                        </p>
+
+                        <div className='flex flex-row gap-2'>
+                            <input
+                                type="email"
+                                placeholder={`${hfeSettingsData.user_email}`}
+                                value={email}
+                                className='h-12'
+                                style={{ width: '282px' }}
+                                onChange={(e) => {
+                                    if (e && e.target) {
+                                        // console.log('Input changed:', e.target.value);
+                                        setEmail(e.target.value);
+                                    } else {
+                                        // console.error('Event or event target is undefined');
+                                    }
+                                }}
+                            />
+                            <Button
+                                iconPosition="right"
+                                variant="primary"
+                                className="bg-[#6005FF] hfe-remove-ring"
+                                style={{
+                                    backgroundColor: "#6005FF",
+                                    transition: "background-color 0.3s ease",
+                                }}
+                                onMouseEnter={(e) =>
+                                (e.currentTarget.style.backgroundColor =
+                                    "#4B00CC")
+                                }
+                                onMouseLeave={(e) =>
+                                (e.currentTarget.style.backgroundColor =
+                                    "#6005FF")
+                                }
+                                onClick={handleSubmit}
+                            >
+                                {__('Submit Email', "header-footer-elementor")}
+                            </Button>
+                        </div>
                     </Dialog.Header>
-                    {/* <Dialog.Title style={{ fontSize: '16px', mar }}>
-                        {__('Email Address', 'header-footer-elementor')}
-                    </Dialog.Title> */}
-                    <Dialog.Footer>
-                        <Input
-                            type="email"
-                            placeholder={__('Enter host details', 'header-footer-elementor')}
-                            value={email}
-                            className='h-12'
-                            style={{ width: '310px' }}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                        <Button variant='outline' onChange={(e) => setEmail(e.target.value)} style={{
-                            color: "#6005FF",
-                            borderColor: "#6005FF",
-                        }}>
-                            {__('Submit Email', 'header-footer-elementor')}
-                        </Button>
-                    </Dialog.Footer>
+                    <Toaster
+                        position="top-right"
+                        reverseOrder={false}
+                        gutter={8}
+                        containerStyle={{
+                            top: 20,
+                            right: 20,
+                            marginTop: '40px',
+                        }}
+                        toastOptions={{
+                            duration: 1000,
+                            style: {
+                                background: 'white',
+                            },
+                            success: {
+                                duration: 2000,
+                                style: {
+                                    color: '',
+                                },
+                                iconTheme: {
+                                    primary: '#6005ff',
+                                    secondary: '#fff',
+                                },
+                            },
+                        }}
+                    />
                 </Dialog.Panel>
             </Dialog>
         </div>

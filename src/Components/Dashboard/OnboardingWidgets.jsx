@@ -5,7 +5,7 @@ import WidgetItem from '@components/Dashboard/WidgetItem';
 import apiFetch from '@wordpress/api-fetch';
 import { __ } from "@wordpress/i18n";
 
-const FeatureWidgets = () => {
+const OnboardingWidgets = () => {
 
     const [allWidgetsData, setAllWidgetsData] = useState(null); // Initialize state.
     const [searchTerm, setSearchTerm] = useState('');
@@ -13,8 +13,6 @@ const FeatureWidgets = () => {
     const [loadingDeactivate, setLoadingDeactivate] = useState(false);
     const [loading, setLoading] = useState(true);
     const [updateCounter, setUpdateCounter] = useState(0);
-    const [showTooltip, setShowTooltip] = useState(true); // Add state for showTooltip
-    
 
 
     useEffect(() => {
@@ -134,44 +132,19 @@ const FeatureWidgets = () => {
     }
 
     return (
-        <div className='rounded-lg bg-white w-full mb-4'>
-            <div className='flex flex-col md:flex-row md:items-center md:justify-between p-4'
-            style={{
-                paddingBottom: '0'
-            }}>
-                <p className='m-0 text-sm font-semibold text-text-primary mb-2 md:mb-0'>{__("Widgets / Features", "header-footer-elementor")}</p>
-                <div className='flex flex-col md:flex-row items-center gap-y-2 md:gap-x-2 md:mr-7 relative'>
-                    <SearchIcon
-                        className="absolute top-1/2 transform -translate-y-1/2 text-gray-400"
-                        style={{
-                            backgroundColor: '#F9FAFB',
-                            left: '2%',
-                            width: '18px',
-                            height: '18px'
-                        }} />
-                    <input
-                        type="search"
-                        placeholder={__('Search...', 'header-footer-elementor')}
-                        className="mr-2 pl-10 w-full md:w-auto"
-                        style={{
-                            height: '40px',
-                            borderColor: '#e0e0e0', // Default border color
-                            outline: 'none',       // Removes the default outline
-                            boxShadow: 'none',
-                            backgroundColor: '#F9FAFB',    // Removes the default box shadow
-                        }}
-                        onFocus={(e) => e.target.style.borderColor = '#6005FF'} // Apply focus color
-                        onBlur={(e) => e.target.style.borderColor = '#e0e0e0'}  // Revert to default color
-                        onChange={handleSearchChange}
-                    />
-                    <div className="flex flex-row gap-2 w-full md:w-auto">
+        <div className='rounded-lg w-full mb-4' >
+            <div className='flex flex-col md:flex-row md:items-center md:justify-between p-4' style={{ paddingTop: '1.5rem' }}>
+                <h4 className='m-0 font-semibold text-text-primary mb-2 md:mb-0'>{__("WIDGETS", "header-footer-elementor")}</h4>
+                <div className='flex flex-col md:flex-row items-center gap-y-2 md:gap-x-2 md:mr-7 relative' style={{ paddingRight: '0.75rem' }}>
+                    <div className="flex flex-row w-full md:w-auto">
                         <Button
                             icon={loadingActivate ? <LoaderCircle className="animate-spin" /> : null}
                             iconPosition="left"
                             variant="outline"
-                            className="hfe-bulk-action-button"
+                            className="hfe-bulk-action-button hfe-remove-ring"
                             onClick={handleActivateAll} // Attach the onClick event.
                             disabled={!!searchTerm}
+                            style={{ borderTopRightRadius: '0px', borderBottomRightRadius: '0px', borderRight: '0px', fontSize: '0.9em' }}
                         >
                             {loadingActivate ? __('Activating...', 'header-footer-elementor') : __('Activate All', 'header-footer-elementor')}
                         </Button>
@@ -181,63 +154,67 @@ const FeatureWidgets = () => {
                             iconPosition="left"
                             variant="outline"
                             onClick={handleDeactivateAll}
-                            className="hfe-bulk-action-button"
+                            className="hfe-bulk-action-button hfe-remove-ring"
                             disabled={!!searchTerm}
+                            style={{ borderTopLeftRadius: '0px', borderBottomLeftRadius: '0px', fontSize: '0.9em' }}
                         >
                             {loadingDeactivate ? __('Deactivating...', 'header-footer-elementor') : __('Deactivate All', 'header-footer-elementor')}
                         </Button>
                     </div>
                 </div>
             </div>
-            <div className='flex bg-black flex-col rounded-lg p-4' style={{ minHeight: "800px" }}>
-                {loading ? (
-                    <Container
-                        align="stretch"
-                        className="p-2 gap-1.5 grid grid-cols-2 md:grid-cols-4"
-                        style={{
-                            backgroundColor: "#F9FAFB"
-                        }}
-                        containerType="grid"
-                        gap=""
-                        justify="start"
-                    >
-                        {[...Array(30)].map((_, index) => (
-                            <Container.Item
-                                key={index}
-                                alignSelf="auto"
-                                className="text-wrap rounded-md shadow-container-item bg-background-primary p-6 space-y-2"
-                            >
-                                <Skeleton className='w-12 h-2 rounded-md' />
-                                <Skeleton className='w-16 h-2 rounded-md' />
-                                <Skeleton className='w-12 h-2 rounded-md' />
-                            </Container.Item>
-                        ))}
-                    </Container>
-                ) : (
-                    <Container
-                        align="stretch"
-                        className="p-1 gap-1.5 grid-cols-2 md:grid-cols-4"
-                        containerType="grid"
-                        gap=""
-                        justify="start"
-                        style={{
-                            backgroundColor: '#F9FAFB'
-                        }}
-                    >
-                        {filteredWidgets?.map((widget) => (
-                            <Container.Item
-                                key={widget.id}
-                                alignSelf="auto"
-                                className="text-wrap rounded-md shadow-container-item bg-background-primary p-4"
-                            >
-                                <WidgetItem widget={{ ...widget, updateCounter }} showTooltip={showTooltip} key={widget.id} updateCounter={updateCounter} />
-                            </Container.Item>
-                        ))}
-                    </Container>
-                )}
+            <div
+                className="hfe-custom-scrollbar bg-background-secondary p-1 rounded-lg max-h-80" style={{ overflow: 'auto', maxHeight: '20rem', paddingTop: '0' }}>
+                <div className='flex bg-black flex-col p-3' style={{ minHeight: "800px", paddingTop: '0' }}>
+                    {loading ? (
+                        <Container
+                            align="stretch"
+                            className="p-2 gap-1.5 grid grid-cols-2 md:grid-cols-4"
+                            style={{
+                                backgroundColor: "#F9FAFB"
+                            }}
+                            containerType="grid"
+                            gap=""
+                            justify="start"
+                        >
+                            {[...Array(30)].map((_, index) => (
+                                <Container.Item
+                                    key={index}
+                                    alignSelf="auto"
+                                    className="text-wrap rounded-md shadow-container-item bg-background-primary p-8 space-y-2"
+                                >
+                                    <Skeleton className='w-12 h-2 rounded-md' />
+                                    <Skeleton className='w-16 h-2 rounded-md' />
+                                    <Skeleton className='w-12 h-2 rounded-md' />
+                                </Container.Item>
+                            ))}
+                        </Container>
+                    ) : (
+                        <Container
+                            align="stretch"
+                            className="p-1 gap-1.5 grid-cols-2 md:grid-cols-4"
+                            containerType="grid"
+                            gap=""
+                            justify="start"
+                            style={{
+                                paddingTop: '0'
+                            }}
+                        >
+                            {filteredWidgets?.map((widget) => (
+                                <Container.Item
+                                    key={widget.id}
+                                    alignSelf="auto"
+                                    className="text-wrap rounded-md shadow-container-item bg-background-primary p-4"
+                                >
+                                    <WidgetItem widget={{ ...widget, updateCounter }} key={widget.id} updateCounter={updateCounter} />
+                                </Container.Item>
+                            ))}
+                        </Container>
+                    )}
+                </div>
             </div>
         </div>
     )
 }
 
-export default FeatureWidgets
+export default OnboardingWidgets

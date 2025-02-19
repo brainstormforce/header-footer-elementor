@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Button, Skeleton } from "@bsf/force-ui";
-import { LoaderCircle, SearchIcon } from "lucide-react";
-import WidgetItem from '@components/Dashboard/WidgetItem';
+import { Container, Skeleton, Title, Label } from "@bsf/force-ui";
 import apiFetch from '@wordpress/api-fetch';
 import { __ } from "@wordpress/i18n";
+import WidgetsOnboarding from '@components/Dashboard/WidgetsOnboarding';
 
-const FeatureWidgetsOnboarding = () => {
+const FeatureWidgetsOnboarding = ({ setCurrentStep }) => {
 
     const [allWidgetsData, setAllWidgetsData] = useState(null); // Initialize state.
     const [searchTerm, setSearchTerm] = useState('');
@@ -50,32 +49,33 @@ const FeatureWidgetsOnboarding = () => {
     );
 
     const handleActivateAll = async () => {
-
         setLoadingActivate(true);
 
         const formData = new window.FormData();
         formData.append('action', 'hfe_bulk_activate_widgets');
         formData.append('nonce', hfe_admin_data.nonce);
 
-        apiFetch({
-            url: hfe_admin_data.ajax_url,
-            method: 'POST',
-            body: formData,
-        }).then((data) => {
+        try {
+            const data = await apiFetch({
+                url: hfe_admin_data.ajax_url,
+                method: 'POST',
+                body: formData,
+            });
+
             setLoadingActivate(false);
+
             if (data.success) {
                 setAllWidgetsData(prevWidgets =>
                     prevWidgets.map(widget => ({ ...widget, is_active: true }))
                 );
                 setUpdateCounter(prev => prev + 1);
-            } else if (data.error) {
-                setLoadingActivate(false);
-                console.error('Error during AJAX request:', error);
+            } else {
+                console.error('Error during AJAX request:', data.error);
             }
-        }).catch((error) => {
+        } catch (error) {
             setLoadingActivate(false);
             console.error('Error during AJAX request:', error);
-        });
+        }
     };
 
     const handleDeactivateAll = async () => {
@@ -85,24 +85,27 @@ const FeatureWidgetsOnboarding = () => {
         formData.append('action', 'hfe_bulk_deactivate_widgets');
         formData.append('nonce', hfe_admin_data.nonce);
 
-        apiFetch({
-            url: hfe_admin_data.ajax_url,
-            method: 'POST',
-            body: formData,
-        }).then((data) => {
+        try {
+            const data = await apiFetch({
+                url: hfe_admin_data.ajax_url,
+                method: 'POST',
+                body: formData,
+            });
+
             setLoadingDeactivate(false);
+
             if (data.success) {
                 setAllWidgetsData(prevWidgets =>
                     prevWidgets.map(widget => ({ ...widget, is_active: false }))
                 );
                 setUpdateCounter(prev => prev + 1);
-            } else if (data.error) {
-                console.error('AJAX request failed:', data.error);
+            } else {
+                console.error('Error during AJAX request:', data.error);
             }
-        }).catch((error) => {
+        } catch (error) {
             setLoadingDeactivate(false);
             console.error('Error during AJAX request:', error);
-        });
+        }
     };
 
     function convertToWidgetsArray(data) {
@@ -132,62 +135,17 @@ const FeatureWidgetsOnboarding = () => {
     }
 
     return (
-        <div className='rounded-lg bg-white w-full mb-4'>
-            <div className='flex flex-col md:flex-row md:items-center md:justify-between p-4'
-            style={{
-                paddingBottom: '0'
-            }}>
-                <p className='m-0 text-sm font-semibold text-text-primary mb-2 md:mb-0'>{__("Widgets / Features", "header-footer-elementor")}</p>
-                <div className='flex flex-col md:flex-row items-center gap-y-2 md:gap-x-2 md:mr-7 relative'>
-                    {/* <SearchIcon
-                        className="absolute top-1/2 transform -translate-y-1/2 text-gray-400"
-                        style={{
-                            backgroundColor: '#F9FAFB',
-                            left: '2%',
-                            width: '18px',
-                            height: '18px'
-                        }} />
-                    <input
-                        type="search"
-                        placeholder={__('Search...', 'header-footer-elementor')}
-                        className="mr-2 pl-10 w-full md:w-auto"
-                        style={{
-                            height: '40px',
-                            borderColor: '#e0e0e0', // Default border color
-                            outline: 'none',       // Removes the default outline
-                            boxShadow: 'none',
-                            backgroundColor: '#F9FAFB',    // Removes the default box shadow
-                        }}
-                        onFocus={(e) => e.target.style.borderColor = '#6005FF'} // Apply focus color
-                        onBlur={(e) => e.target.style.borderColor = '#e0e0e0'}  // Revert to default color
-                        onChange={handleSearchChange}
-                    /> */}
-                    <div className="flex flex-row gap-2 w-full md:w-auto">
-                        <Button
-                            icon={loadingActivate ? <LoaderCircle className="animate-spin" /> : null}
-                            iconPosition="left"
-                            variant="outline"
-                            className="hfe-bulk-action-button"
-                            onClick={handleActivateAll} // Attach the onClick event.
-                            disabled={!!searchTerm}
-                        >
-                            {loadingActivate ? __('Activating...', 'header-footer-elementor') : __('Activate All', 'header-footer-elementor')}
-                        </Button>
-
-                        <Button
-                            icon={loadingDeactivate ? <LoaderCircle className="animate-spin" /> : null} // Loader for deactivate button.
-                            iconPosition="left"
-                            variant="outline"
-                            onClick={handleDeactivateAll}
-                            className="hfe-bulk-action-button"
-                            disabled={!!searchTerm}
-                        >
-                            {loadingDeactivate ? __('Deactivating...', 'header-footer-elementor') : __('Deactivate All', 'header-footer-elementor')}
-                        </Button>
-                    </div>
-                </div>
-            </div>
-            <div className='flex bg-black flex-col rounded-lg p-4' style={{ minHeight: "800px" }}>
+        <div className='rounded-lg bg-white p-6 hfe-onboarding-customize'>
+            <h1 className="text-text-primary m-0 mb-2" style={{ fontSize: '1.4rem', lineHeight: '1.3em' }}>
+                {__("Customize Your UAE Setup", "header-footer-elementor")}
+            </h1>
+            <span className="text-md font-medium text-text-tertiary m-0" style={{ lineHeight: '1.6em'}}>
+                {__(
+                    "Activate only what you need to keep your website fast and optimized.",
+                    "header-footer-elementor"
+                )}
+            </span>
+            <div className='flex bg-black flex-col rounded-lg' style={{ marginTop: '2rem' }}>
                 {loading ? (
                     <Container
                         align="stretch"
@@ -203,7 +161,8 @@ const FeatureWidgetsOnboarding = () => {
                             <Container.Item
                                 key={index}
                                 alignSelf="auto"
-                                className="text-wrap rounded-md shadow-container-item bg-background-primary p-6 space-y-2"
+                                style={{ padding: '3.5rem' }}
+                                className="text-wrap rounded-md shadow-container-item bg-background-primary space-y-2"
                             >
                                 <Skeleton className='w-12 h-2 rounded-md' />
                                 <Skeleton className='w-16 h-2 rounded-md' />
@@ -214,23 +173,8 @@ const FeatureWidgetsOnboarding = () => {
                 ) : (
                     <Container
                         align="stretch"
-                        className="p-1 gap-1.5 grid-cols-2 md:grid-cols-4"
-                        containerType="grid"
-                        gap=""
-                        justify="start"
-                        style={{
-                            backgroundColor: '#F9FAFB'
-                        }}
                     >
-                        {filteredWidgets?.map((widget) => (
-                            <Container.Item
-                                key={widget.id}
-                                alignSelf="auto"
-                                className="text-wrap rounded-md shadow-container-item bg-background-primary p-4"
-                            >
-                                <WidgetItem widget={{ ...widget, updateCounter }} key={widget.id} updateCounter={updateCounter} />
-                            </Container.Item>
-                        ))}
+                        <WidgetsOnboarding setCurrentStep={setCurrentStep} widgets={filteredWidgets} updateCounter={updateCounter} />
                     </Container>
                 )}
             </div>

@@ -20,6 +20,20 @@
     font-weight: 600;
 }
 
+:is(#hfe-settings-app, [data-floating-ui-portal]) .uae-steps span.absolute {
+	font-size: 13px;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .uae-steps .ring-border-subtle {
+	--tw-ring-color: #64748B;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .uae-steps .border-border-subtle {
+	border-color: #64748B;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .uae-steps .min-w-10.border-y {
+	min-width: 9rem;
+	border-bottom-width: 0.5px;
+}
+
 #hfe-settings-app .loader {
 	border: 4px solid #f3f3f3;
 	border-radius: 50%;
@@ -27,6 +41,23 @@
 	width: 40px;
 	height: 40px;
 	animation: spin 2s linear infinite;
+}
+.hfe-custom-scrollbar::-webkit-scrollbar {
+	width: 4px;
+}  
+/* Track */
+.hfe-custom-scrollbar::-webkit-scrollbar-track {
+	background: #f1f1f1; 
+}
+   
+/* Handle */
+.hfe-custom-scrollbar::-webkit-scrollbar-thumb {
+	background: #888; 
+}
+  
+/* Handle on hover */
+.hfe-custom-scrollbar::-webkit-scrollbar-thumb:hover {
+	background: #555; 
 }
 
 .hfe-subheading h2 {
@@ -37,6 +68,9 @@
 }
 .hfe-loader-icon {
 	top: -15%;
+}
+.hfe-remove-ring.hfe-span span {
+	padding-left: 0px;
 }
 #hfe-settings-app .gap-2 {
 	gap: 1.2rem;
@@ -50,6 +84,17 @@
 }
 .hfe-settings-page h2 {
 	margin-bottom: 0.3rem !important;
+}
+:is(#hfe-settings-app) .hfe-remove-ring svg.lucide-arrow-right {
+	width: 1rem;
+	height: 1rem;
+}
+.hfe-popup-button,
+.hfe-popup-button svg {
+	padding: 0;
+}
+.hfe-popup-button span {
+	padding-left: 0;
 }
 .hfe-link-color,
 .hfe-link-color span {
@@ -80,7 +125,9 @@ button.hfe-bulk-action-button {
 .hfe-78-width {
 	width: 78%;
 }
-
+.hfe-88-width {
+	width: 88%;
+}
 #hfe-settings-app .subject-cell {
 	max-width: 200px; /* Adjust this width based on your layout */
 	white-space: nowrap;
@@ -117,6 +164,7 @@ input[type="radio"].hfe-radio-field:focus {
 	font-size: 0.9rem !important;
 	font-weight: 500 !important;
 }
+
 @keyframes spin {
 	0% {
 		transform: rotate(0deg);
@@ -166,7 +214,12 @@ input[type="radio"].hfe-radio-field:focus {
 		border-radius: 0 !important;
 	}
 }
-
+:is(#hfe-settings-app, [data-floating-ui-portal]) .uae-steps .text-xs {
+	font-size: 0.77rem;
+}
+.hfe-min-700 {
+	min-width: 700px;
+}
 #hfe-settings-app .subject-cell {
 	max-width: 200px; /* Adjust this width based on your layout */
 	white-space: nowrap;
@@ -198,11 +251,15 @@ div#hfe-settings-app {
 @media (max-width: 1024px) {
 	.hfe-65-width,
 	.hfe-35-width,
-	.hfe-78-width {
+	.hfe-78-width,
+	.hfe-88-width {
 		width: 100%;
 	}
 }
 @media screen and (max-width: 782px) {
+	:is(#hfe-settings-app, [data-floating-ui-portal]) .hfe-display-flex {
+		display: block;
+	}
 	.hfe-radio-option {
 		width: 1rem !important;
 		height: 1rem !important;
@@ -211,5 +268,24 @@ div#hfe-settings-app {
 		width: 0.5rem !important;
 		height: 0.5rem !important;
 		margin: 0.18rem !important;
+	}
+	:is(#hfe-settings-app, [data-floating-ui-portal]) .uae-steps,
+	#hfe-settings-app img {
+		display: none;
+	}
+	.hfe-onboarding-customize {
+		margin-left: 20px;
+    	margin-right: 20px;
+	}
+	.hfe-min-700 {
+		min-width: unset;
+	}
+	.hfe-onboarding-customize .hfe-custom-scrollbar {
+		overflow: scroll;
+		max-width: fit-content;
+	}
+	.hfe-onboarding-bottom {
+		display: grid !important;
+		max-width: fit-content;
 	}
 }

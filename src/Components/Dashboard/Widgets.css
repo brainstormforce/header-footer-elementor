@@ -1,0 +1,16 @@
+.vertical-scroll-container {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: y mandatory;
+}
+
+.vertical-scroll-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for WebKit browsers */
+}
+
+.vertical-scroll-container > * {
+    scroll-snap-align: start;
+    margin-bottom: 1rem; /* Adjust the gap between items */
+}
