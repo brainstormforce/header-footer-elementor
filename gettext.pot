@@ -468,26 +468,22 @@ msgid "WIDGETS"
 msgstr ""
 
 #: src/Components/Dashboard/OnboardingWidgets.jsx:149
-#: src/Components/Dashboard/OnboardingWidgets.jsx:150
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:174
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:176
 msgid "Activating..."
 msgstr ""
 
 #: src/Components/Dashboard/OnboardingWidgets.jsx:149
-#: src/Components/Dashboard/OnboardingWidgets.jsx:150
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:174
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:176
 msgid "Activate All"
 msgstr ""
 
 #: src/Components/Dashboard/OnboardingWidgets.jsx:161
-#: src/Components/Dashboard/OnboardingWidgets.jsx:162
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:185
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:187
 msgid "Deactivating..."
 msgstr ""
 
 #: src/Components/Dashboard/OnboardingWidgets.jsx:161
-#: src/Components/Dashboard/OnboardingWidgets.jsx:162
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:185
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:187
 msgid "Deactivate All"
 msgstr ""
 
@@ -550,11 +546,11 @@ msgstr ""
 msgid "Create New Page"
 msgstr ""
 
-#: src/Components/Dashboard/WidgetItem.jsx:132
+#: src/Components/Dashboard/WidgetItem.jsx:133
 msgid "View Demo"
 msgstr ""
 
-#: src/Components/Dashboard/WidgetItem.jsx:145
+#: src/Components/Dashboard/WidgetItem.jsx:147
 msgid "Read Documentation"
 msgstr ""
 
@@ -931,11 +927,11 @@ msgstr ""
 msgid "Upgrade now"
 msgstr ""
 
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:140
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:142
 msgid "Widgets / Features"
 msgstr ""
 
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:152
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:154
 msgid "Search..."
 msgstr ""
 

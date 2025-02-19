@@ -12,23 +12,23 @@ const Dashboard = () => {
     useEffect(() => {
         const dashboardURL = "admin.php?page=hfe#dashboard";
 
-        // Push the dashboard URL to history and prevent going back
-        window.history.pushState(null, "", dashboardURL);
-        window.history.replaceState(null, "", dashboardURL);
+        // If the user lands on the dashboard, reset history
+        if (window.location.href.includes(dashboardURL)) {
+            window.history.pushState(null, "", dashboardURL);
+        }
 
-        const forceStayOnDashboard = () => {
-            setTimeout(() => {
+        const preventBackNavigation = (event) => {
+            if (window.location.href.includes(dashboardURL)) {
+                event.preventDefault();
                 window.history.pushState(null, "", dashboardURL);
-                window.location.href = dashboardURL; // Force redirect to dashboard
-            }, 0);
+            }
         };
 
-        // Call function immediately and on every back attempt
-        forceStayOnDashboard();
-        window.addEventListener("popstate", forceStayOnDashboard);
+        // Prevent back navigation only on the dashboard
+        window.addEventListener("popstate", preventBackNavigation);
 
         return () => {
-            window.removeEventListener("popstate", forceStayOnDashboard);
+            window.removeEventListener("popstate", preventBackNavigation);
         };
     }, []);
 
