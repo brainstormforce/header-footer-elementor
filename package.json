@@ -64,7 +64,7 @@
 				"@wordpress/eslint-plugin": "^9.3.0",
 				"@wordpress/i18n": "^4.2.4",
 				"@wordpress/jest-puppeteer-axe": "^4.0.1",
-				"@wordpress/scripts": "^19.2.3",
+				"@wordpress/scripts": "^30.11.0",
 				"ajv": "^8.17.1",
 				"autoprefixer": "^10.4.19",
 				"babel-loader": "^9.2.1",
