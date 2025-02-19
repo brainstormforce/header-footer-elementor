@@ -43,7 +43,7 @@
 	animation: spin 2s linear infinite;
 }
 .hfe-custom-scrollbar::-webkit-scrollbar {
-	width: 10px;
+	width: 4px;
 }  
 /* Track */
 .hfe-custom-scrollbar::-webkit-scrollbar-track {
