@@ -186,7 +186,7 @@ class Header_Footer_Elementor {
 
 		$is_old_user             = ( 'yes' === get_option( 'hfe_plugin_is_activated' ) ) ? true : false;
 		$is_onboarding_triggered = ( 'yes' === get_option( 'hfe_onboarding_triggered' ) ) ? true : false;
-		$is_uaepro_active        = ( is_plugin_active( 'ultimate-elementor/ultimate-elementor.php' ) && defined( 'UAEL_PRO' ) && UAEL_PRO ) ? true : false;
+		$is_uaepro_active        = ( defined( 'UAEL_PRO' ) && UAEL_PRO ) ? true : false;
 
 		// IMPORTANT: Comment out this code before release - Show onboarding only for new users only once.
 		if ( $is_old_user || $is_onboarding_triggered || $is_uaepro_active ) {

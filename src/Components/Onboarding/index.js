@@ -43,7 +43,7 @@ const Onboarding = () => {
                     <Topbar className="bg-none" style={{ background: "none" }}>
                         <Topbar.Left>
                             <Topbar.Item>
-                                {hfeSettingsData.uae_logo && (
+                                {hfeSettingsData.icon_svg && (
                                     <Link to={routes.dashboard.path}>
                                         <img
                                             src={`${hfeSettingsData.icon_svg}`}
