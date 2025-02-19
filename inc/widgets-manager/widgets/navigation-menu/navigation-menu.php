@@ -358,9 +358,9 @@ class Navigation_Menu extends Common_Widget {
 						],
 					],
 					'selectors_dictionary' => [
-						'left'   => 'margin-right: auto',
-						'center' => 'margin: 0 auto',
-						'right'  => 'margin-left: auto',
+						'left'   => 'margin-right: auto; margin-left: 0; justify-content: flex-start;',
+						'center' => 'margin: 0 auto; justify-content: center;',
+						'right'  => 'margin-left: auto; margin-right: 0; justify-content: flex-end;',
 					],
 					'selectors'            => [
 						'{{WRAPPER}} .hfe-nav-menu__toggle,
@@ -403,8 +403,8 @@ class Navigation_Menu extends Common_Widget {
 					],
 					'selectors'          => [
 						'{{WRAPPER}} li.menu-item a' => 'justify-content: {{VALUE}};',
-						'{{WRAPPER}} li .elementor-button-wrapper' => 'text-align: {{VALUE}};',
-						'{{WRAPPER}}.hfe-menu-item-flex-end li .elementor-button-wrapper' => 'text-align: right;',
+						'{{WRAPPER}} li .hfe-button-wrapper' => 'text-align: {{VALUE}};',
+						'{{WRAPPER}}.hfe-menu-item-flex-end li.hfe-button-wrapper' => 'text-align: right;',
 					],
 					'prefix_class'       => 'hfe-menu-item-',
 					'frontend_available' => true,
