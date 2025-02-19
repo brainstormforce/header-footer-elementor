@@ -35,6 +35,21 @@ const FeatureWidgetsOnboarding = ({ setCurrentStep }) => {
         };
 
         fetchSettings();
+
+        history.pushState(null, "", window.location.href);
+
+        const handleBackButton = (event) => {
+            event.preventDefault();
+            localStorage.setItem('currentStep', '1');
+            window.location.reload();
+        };
+    
+        window.addEventListener('popstate', handleBackButton);
+    
+        return () => {
+            window.removeEventListener('popstate', handleBackButton);
+        };
+        
     }, []);
 
     // New function to handle search input change

@@ -935,10 +935,10 @@ msgstr ""
 msgid "Search..."
 msgstr ""
 
-#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:140
+#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:155
 msgid "Customize Your UAE Setup"
 msgstr ""
 
-#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:143
+#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:158
 msgid "Activate only what you need to keep your website fast and optimized."
 msgstr ""
