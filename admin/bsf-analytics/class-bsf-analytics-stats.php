@@ -68,7 +68,7 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 				'graupi_version'         => defined( 'BSF_UPDATER_VERSION' ) ? BSF_UPDATER_VERSION : false,
 				'domain_name'            => get_site_url(),
 				'php_os'                 => PHP_OS,
-				'server_software'        => isset( $_SERVER['SERVER_SOFTWARE'] ) ? filter_var( wp_unslash( $_SERVER['SERVER_SOFTWARE'] ), FILTER_SANITIZE_STRING ) : '',
+				'server_software'        => isset( $_SERVER['SERVER_SOFTWARE'] ) ? filter_var( wp_unslash( $_SERVER['SERVER_SOFTWARE'] ), FILTER_SANITIZE_SPECIAL_CHARS ) : '',
 				'mysql_version'          => $this->get_mysql_version(),
 				'php_version'            => $this->get_php_version(),
 				'php_max_input_vars'     => ini_get( 'max_input_vars' ), // phpcs:ignore:PHPCompatibility.IniDirectives.NewIniDirectives.max_input_varsFound

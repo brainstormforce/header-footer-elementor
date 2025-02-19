@@ -105,6 +105,8 @@ class HFE_Admin {
 	}
 
 
+
+
 /**
  * Hide admin notices on the custom settings page.
  *
@@ -254,9 +256,6 @@ public static function hide_admin_notices() {
 	 * @return void
 	 */
 	public function header_footer_posttype() {
-		if ( ! current_user_can( 'manage_options' ) ) {
-			return;
-		}
 
 		$setting_location = $this->is_pro_active() ? 'uaepro' : 'hfe';
 		
@@ -289,6 +288,19 @@ public static function hide_admin_notices() {
 			'menu_icon'           => 'dashicons-editor-kitchensink',
 			'supports'            => [ 'title', 'thumbnail', 'elementor' ],
 			'menu_position'       => 5,
+			'capabilities'        => array(
+				'edit_post'          		=> 'manage_options',
+				'read_post'          		=> 'read',
+				'delete_post'        		=> 'manage_options',
+				'edit_posts'         		=> 'manage_options',
+				'edit_others_posts'  		=> 'manage_options',
+				'publish_posts'      		=> 'manage_options',
+				'read_private_posts' 		=> 'manage_options',
+				'delete_posts'       		=> 'manage_options',
+				'delete_others_posts'		=> 'manage_options',
+				'delete_private_posts' 		=> 'manage_options',
+				'delete_published_posts' 	=> 'manage_options',
+			),
 		];
 
 		register_post_type( 'elementor-hf', $args );

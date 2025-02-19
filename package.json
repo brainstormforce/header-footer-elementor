@@ -1,6 +1,6 @@
 {
 		"name": "header-footer-elementor",
-		"version": "2.0.5",
+		"version": "2.2.0",
 		"main": "index.js",
 		"author": "Nikhil Chavan",
 		"volta": {
@@ -11,7 +11,7 @@
 				"node": ">=18.15.0 <19.0.0"
 		},
 		"dependencies": {
-				"@bsf/force-ui": "git+ssh://git@github.com/brainstormforce/force-ui.git#1.0.0",
+				"@bsf/force-ui": "git+https://github.com/brainstormforce/force-ui#1.3.3",
 				"@fontsource/figtree": "^5.1.1",
 				"@headlessui/react": "^2.2.0",
 				"@heroicons/react": "^2.1.3",
@@ -25,7 +25,7 @@
 				"axios": "^1.7.8",
 				"chart.js": "^4.4.3",
 				"classnames": "^2.5.1",
-				"dompurify": "^3.1.6",
+				"dompurify": "^3.2.4",
 				"grunt-bumpup": "^0.6.3",
 				"grunt-contrib-cssmin": "^5.0.0",
 				"grunt-contrib-uglify": "^5.2.2",
@@ -51,18 +51,20 @@
 				"whats-new-rss": "github:brainstormforce/whats-new-rss"
 		},
 		"devDependencies": {
+				"@babel/cli": "^7.26.4",
 				"@babel/core": "^7.25.7",
 				"@babel/plugin-proposal-class-properties": "^7.18.6",
 				"@babel/plugin-transform-runtime": "^7.25.4",
 				"@babel/preset-env": "^7.25.7",
 				"@babel/preset-react": "^7.24.7",
 				"@bsf/force-ui": "git+ssh://git@github.com/brainstormforce/force-ui.git#1.0.0",
+				"@wordpress/babel-plugin-makepot": "^6.16.0",
 				"@wordpress/e2e-test-utils": "^7.5.0",
-				"@wordpress/env": "^4.7.0",
+				"@wordpress/env": "^10.13.0",
 				"@wordpress/eslint-plugin": "^9.3.0",
 				"@wordpress/i18n": "^4.2.4",
 				"@wordpress/jest-puppeteer-axe": "^4.0.1",
-				"@wordpress/scripts": "^19.2.3",
+				"@wordpress/scripts": "^30.11.0",
 				"ajv": "^8.17.1",
 				"autoprefixer": "^10.4.19",
 				"babel-loader": "^9.2.1",
@@ -70,6 +72,7 @@
 				"core-js": "^3.38.1",
 				"cross-env": "^7.0.3",
 				"eslint-plugin-eslint-comments": "^3.2.0",
+				"gpt-po": "^1.2.0",
 				"grunt": "^1.6.1",
 				"grunt-bumpup": "^0.6.3",
 				"grunt-cli": "^1.4.3",
@@ -106,8 +109,17 @@
 				"env:destroy": "wp-env destroy",
 				"env:reset-site": "wp-env clean all",
 				"env": "wp-env",
+				"i18n": "grunt i18n && wp i18n make-pot . --exclude='node_modules,vendor,tests,artifact' languages/header-footer-elementor.pot --domain=header-footer-elementor --debug",
+				"i18n:po": "wp i18n update-po languages/header-footer-elementor.pot",
+				"i18n:mo": "wp i18n make-mo languages",
+				"i18n:json": "wp i18n make-json languages --no-purge",
+				"i18n:gptpo:nl": "gpt-po translate --po languages/header-footer-elementor-nl_NL.po --lang nl --verbose",
+				"i18n:gptpo:fr": "gpt-po translate --po languages/header-footer-elementor-fr_FR.po --lang fr --verbose",
+				"i18n:gptpo:es": "gpt-po translate --po languages/header-footer-elementor-es_ES.po --lang es --verbose",
+				"i18n:gptpo:de": "gpt-po translate --po languages/header-footer-elementor-de_DE.po --lang de --verbose",
 				"build-package": "npm run build && grunt",
-				"release": "rm -rf header-footer-elementor && npm run build-package && grunt release"
+				"release": "rm -rf header-footer-elementor && npm run build-package && grunt release",
+				"build:babel": "babel src --out-dir build"
 		},
 		"repository": {
 				"type": "git",
