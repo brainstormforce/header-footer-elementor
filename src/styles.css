@@ -93,6 +93,9 @@
 .hfe-popup-button svg {
 	padding: 0;
 }
+.hfe-popup-button span {
+	padding-left: 0;
+}
 .hfe-link-color,
 .hfe-link-color span {
 	color: rgb(96, 5, 255);

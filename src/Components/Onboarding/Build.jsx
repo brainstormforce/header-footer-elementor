@@ -91,7 +91,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                     <h1 className="text-text-primary m-0 mb-2" style={{ fontSize: '1.6rem', lineHeight: '1.3em' }}>
                         {__("You're all set!🚀", "header-footer-elementor")}
                     </h1>
-                    <span className="text-md font-medium text-text-tertiary m-0 mb-6 hfe-88-width" style={{ lineHeight: '1.6em' }}>
+                    <span className="text-md font-medium text-text-tertiary m-0 mb-4 hfe-88-width" style={{ lineHeight: '1.6em' }}>
                         {__(
                             "Start creating headers, footers, or pages with UAE and take your website to the next level",
                             "header-footer-elementor"
@@ -101,7 +101,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                         {__("Here’s how to get started:", "header-footer-elementor")}
                     </span>
 
-                    <ol className="list-decimal text-text-tertiary text-sm" style={{ marginLeft: '1.4em', lineHeight: '1.6em', paddingBottom: '1rem' }}>
+                    <ol className="list-decimal text-text-tertiary text-sm" style={{ marginLeft: '1.4em', lineHeight: '1.6em', paddingBottom: '0.5rem' }}>
                         <li>{__('Click on “Create” button', 'header-footer-elementor')}</li>
                         <li>{__('Choose the type of template you want to create and customize the selected option', 'header-footer-elementor')}</li>
                         <li>{__('Use the Elementor editor to customize your template according to your preferences using UAE widgets', 'header-footer-elementor')}</li>
@@ -199,7 +199,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                         tag="button"
                         type="button"
                         variant="link"
-                        style={{ alignItems: 'center', justifyContent: 'flex-start' }}
+                        style={{ alignItems: 'center', justifyContent: 'flex-start', color: "#6005FF", }}
                         onClick={() => setIsDialogOpen(true)}
                     >
                         {__("Unlock My Surprise", "header-footer-elementor")}
