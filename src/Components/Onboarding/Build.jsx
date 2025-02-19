@@ -16,6 +16,20 @@ const OnboardingBuild = ({ setCurrentStep }) => {
         setEmail(hfeSettingsData.user_email);
         setIsActive(hfeSettingsData.analytics_status === 'yes');
 
+        history.pushState(null, "", window.location.href);
+
+        const handleBackButton = (event) => {
+            event.preventDefault();
+            localStorage.setItem('currentStep', '2');
+            window.location.reload();
+        };
+    
+        window.addEventListener('popstate', handleBackButton);
+    
+        return () => {
+            window.removeEventListener('popstate', handleBackButton);
+        };
+
     }, [hfeSettingsData.user_email]);
 
     const handleSubmit = () => {

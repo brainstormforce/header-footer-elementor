@@ -75,7 +75,7 @@ const Onboarding = () => {
                         </Topbar.Middle>
                         <Topbar.Right>
                             <Topbar.Item>
-                                <Link className="uael-remove-ring" to={routes.dashboard.path}
+                                <Link className="hfe-remove-ring" to={routes.dashboard.path}
                                 style={{ marginLeft: '125px'}}>
                                     {" "}
                                     <Button
@@ -83,7 +83,7 @@ const Onboarding = () => {
                                         iconPosition="right"
                                         size="xs"
                                         variant="ghost"
-                                        className="uael-remove-ring"
+                                        className="hfe-remove-ring"
                                     ></Button>
                                 </Link>
                             </Topbar.Item>

@@ -100,7 +100,7 @@ const Success = () => {
                         </Topbar.Middle>
                         <Topbar.Right>
                             <Topbar.Item>
-                                <Link className="uael-remove-ring" to={routes.dashboard.path}
+                                <Link className="hfe-remove-ring" to={routes.dashboard.path}
                                     style={{ marginLeft: '125px' }}>
                                     {" "}
                                     <Button
