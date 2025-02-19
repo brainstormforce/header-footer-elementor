@@ -232,19 +232,19 @@ class HFE_Settings_Page {
 	}
 
 	/**
- * Fetch and return the user's email.
- *
- * @since 1.6.0
- * @return string|null The user's email if logged in, null otherwise.
- */
-public function fetch_user_email() {
-    $current_user = wp_get_current_user();
-    if ( $current_user->ID !== 0 ) {
-        return $current_user->user_email;
-    } else {
-        return null;
-    }
-}
+	 * Fetch and return the user's email.
+	 *
+	 * @since 1.6.0
+	 * @return string|null The user's email if logged in, null otherwise.
+	 */
+	public function fetch_user_email() {
+		$current_user = wp_get_current_user();
+		if ( $current_user->ID !== 0 ) {
+			return $current_user->user_email;
+		} else {
+			return null;
+		}
+	}
 
 	/**
 	 * Load admin styles on header footer elementor edit screen.
@@ -283,7 +283,7 @@ public function fetch_user_email() {
 			
 			$show_theme_support = 'no';
 			$hfe_theme_status   = get_option( 'hfe_is_theme_supported', false );
-			$analytics_status	= get_option( 'bsf_analytics_optin', false );
+			$analytics_status   = get_option( 'bsf_analytics_optin', false );
 	
 			if ( ( ! current_theme_supports( 'header-footer-elementor' ) ) && ! $hfe_theme_status ) {
 				$show_theme_support = 'yes';
@@ -325,13 +325,13 @@ public function fetch_user_email() {
 					'user_url'                 => HFE_URL . 'assets/images/settings/user.svg',
 					'user__selected_url'       => HFE_URL . 'assets/images/settings/user-selected.svg',
 					'integrations_url'         => HFE_URL . 'assets/images/settings/integrations.svg', // Update the path to your assets folder.
-					'uae_logo'        	 	   => HFE_URL . 'assets/images/settings/uae-logo.png',
+					'uae_logo'                 => HFE_URL . 'assets/images/settings/uae-logo.png',
 					'welcome_banner'           => HFE_URL . 'assets/images/settings/welcome-banner.png',
 					'build_banner'             => HFE_URL . 'assets/images/settings/build_banner.png',
 					'special_reward'           => HFE_URL . 'assets/images/settings/build_bg.png',
 					'success_banner'           => HFE_URL . 'assets/images/settings/success_bg.png',
-					'success_badge'           	=> HFE_URL . 'assets/images/settings/success_badge.svg',
-					'icon_svg'           		=> HFE_URL . 'assets/images/settings/uae-logo-svg.svg',
+					'success_badge'            => HFE_URL . 'assets/images/settings/success_badge.svg',
+					'icon_svg'                 => HFE_URL . 'assets/images/settings/uae-logo-svg.svg',
 					'uaelite_previous_version' => isset( $rollback_versions[0]['value'] ) ? $rollback_versions[0]['value'] : '',
 					'uaelite_versions'         => $rollback_versions,
 					'uaelite_rollback_url'     => esc_url( add_query_arg( 'version', 'VERSION', wp_nonce_url( admin_url( 'admin-post.php?action=uaelite_rollback' ), 'uaelite_rollback' ) ) ),
@@ -346,8 +346,8 @@ public function fetch_user_email() {
 					'hfe_post_url'             => $hfe_post_url,
 					'is_hfe_post'              => $is_hfe_post,
 					'user_email'               => $user_email,
-					'analytics_status'			=> $analytics_status,
-					'onboarding_success_url'   => admin_url( 'admin.php?page=hfe#Onboardingsuccess' )
+					'analytics_status'         => $analytics_status,
+					'onboarding_success_url'   => admin_url( 'admin.php?page=hfe#Onboardingsuccess' ),
 				]
 			);
 	

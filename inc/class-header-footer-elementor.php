@@ -162,8 +162,7 @@ class Header_Footer_Elementor {
 
 			if ( ! class_exists( 'HFE_Utm_Analytics' ) ) {
 				require_once HFE_DIR . 'inc/lib/class-hfe-utm-analytics.php';
-			}
-
+			}       
 		}
 	}
 
@@ -173,12 +172,12 @@ class Header_Footer_Elementor {
 			return;
 		}
 
-		$is_old_user = ( 'yes' === get_option( 'hfe_plugin_is_activated' ) ) ? true : false;
+		$is_old_user             = ( 'yes' === get_option( 'hfe_plugin_is_activated' ) ) ? true : false;
 		$is_onboarding_triggered = ( 'yes' === get_option( 'hfe_onboarding_triggered' ) ) ? true : false;
-		$is_uaepro_active = ( is_plugin_active( 'ultimate-elementor/ultimate-elementor.php' ) && defined( 'UAEL_PRO' ) && UAEL_PRO ) ? true : false;
+		$is_uaepro_active        = ( is_plugin_active( 'ultimate-elementor/ultimate-elementor.php' ) && defined( 'UAEL_PRO' ) && UAEL_PRO ) ? true : false;
 
 		// IMPORTANT: Comment out this code before release - Show onboarding only for new users only once.
-		if( $is_old_user || $is_onboarding_triggered || $is_uaepro_active ) {
+		if ( $is_old_user || $is_onboarding_triggered || $is_uaepro_active ) {
 			return;
 		}
 
@@ -380,14 +379,14 @@ class Header_Footer_Elementor {
 	 */
 	public function get_plugin_version() {
 
-		$hfe_old_version = get_option('hfe_plugin_version');
-		$old_version = $hfe_old_version ? $hfe_old_version : HFE_VER;
-		$new_version = HFE_VER;
+		$hfe_old_version = get_option( 'hfe_plugin_version' );
+		$old_version     = $hfe_old_version ? $hfe_old_version : HFE_VER;
+		$new_version     = HFE_VER;
 
 		if ( ! $hfe_old_version || ( $old_version !== $new_version ) ) {
 			// Store previous version
-			update_option('hfe_plugin_previous_version', $old_version);
-			update_option('hfe_plugin_version', $new_version);
+			update_option( 'hfe_plugin_previous_version', $old_version );
+			update_option( 'hfe_plugin_version', $new_version );
 		}
 	}
 
@@ -434,10 +433,10 @@ class Header_Footer_Elementor {
 	}
 
 	/**
-	* Loads textdomain for the plugin.
-	*
-	* @return void
-	*/
+	 * Loads textdomain for the plugin.
+	 *
+	 * @return void
+	 */
 	public function load_hfe_textdomain() {
 	
 		// Default languages directory for "header-footer-elementor".
