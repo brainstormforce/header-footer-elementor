@@ -226,15 +226,15 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                     containerStyle={{
                         top: 20,
                         right: 20,
-                        marginTop: '80px',
+                        marginTop: '40px',
                     }}
                     toastOptions={{
-                        duration: 5000,
+                        duration: 1000,
                         style: {
                             background: 'white',
                         },
                         success: {
-                            duration: 3000,
+                            duration: 2000,
                             style: {
                                 color: '',
                             },
@@ -322,6 +322,32 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                             </Button>
                         </div>
                     </Dialog.Header>
+                    <Toaster
+                        position="top-right"
+                        reverseOrder={false}
+                        gutter={8}
+                        containerStyle={{
+                            top: 20,
+                            right: 20,
+                            marginTop: '40px',
+                        }}
+                        toastOptions={{
+                            duration: 1000,
+                            style: {
+                                background: 'white',
+                            },
+                            success: {
+                                duration: 2000,
+                                style: {
+                                    color: '',
+                                },
+                                iconTheme: {
+                                    primary: '#6005ff',
+                                    secondary: '#fff',
+                                },
+                            },
+                        }}
+                    />
                 </Dialog.Panel>
             </Dialog>
         </div>
