@@ -165,7 +165,7 @@ const OnboardingWidgets = () => {
             </div>
             <div
                 className="hfe-custom-scrollbar bg-background-secondary p-1 rounded-lg max-h-80" style={{ overflow: 'auto', maxHeight: '20rem', paddingTop: '0' }}>
-                <div className='flex bg-black flex-col p-3' style={{ minHeight: "800px", paddingTop: '0' }}>
+                <div className='flex bg-black flex-col p-3 hfe-min-700' style={{ minHeight: "800px", paddingTop: '0' }}>
                     {loading ? (
                         <Container
                             align="stretch"
