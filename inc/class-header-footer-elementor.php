@@ -87,7 +87,7 @@ class Header_Footer_Elementor {
 				'current_screen',
 				function () {
 					$current_screen = get_current_screen();
-					if ( $current_screen && ( $current_screen->id === 'edit-elementor-hf' || $current_screen->id === 'elementor-hf' ) ) {
+					if ( $current_screen && ( 'edit-elementor-hf' === $current_screen->id || 'elementor-hf' === $current_screen->id ) ) {
 						add_action(
 							'in_admin_header',
 							function () {
@@ -140,7 +140,6 @@ class Header_Footer_Elementor {
 			add_shortcode( 'hfe_template', [ $this, 'render_template' ] );
 
 			add_action( 'astra_notice_before_markup_header-footer-elementor-rating', [ $this, 'rating_notice_css' ] );
-			// add_action( 'admin_init', [ $this, 'register_notices' ] );
 
 			// BSF Analytics Tracker.
 			if ( ! class_exists( 'BSF_Analytics_Loader' ) ) {
@@ -150,14 +149,14 @@ class Header_Footer_Elementor {
 			$bsf_analytics = BSF_Analytics_Loader::get_instance();
 
 			$bsf_analytics->set_entity(
-				array(
-					'bsf' => array(
-						'product_name'    => 'Ultimate Addons for Elementor',
-						'path'            => HFE_DIR . 'admin/bsf-analytics',
-						'author'          => 'Brainstorm Force',
-						'time_to_display' => '+24 hours',
-						'deactivation_survey' => array(
-							array(
+				[
+					'bsf' => [
+						'product_name'        => 'Ultimate Addons for Elementor',
+						'path'                => HFE_DIR . 'admin/bsf-analytics',
+						'author'              => 'Brainstorm Force',
+						'time_to_display'     => '+24 hours',
+						'deactivation_survey' => [
+							[
 								'id'                => 'deactivation-survey-header-footer-elementor', // 'deactivation-survey-<your-plugin-slug>'
 								'popup_logo'        => HFE_URL . 'assets/images/settings/logo.svg',
 								'plugin_slug'       => 'header-footer-elementor', // <your-plugin-slug>
@@ -165,12 +164,12 @@ class Header_Footer_Elementor {
 								'popup_title'       => __( 'Quick Feedback', 'header-footer-elementor' ),
 								'support_url'       => 'https://ultimateelementor.com/contact/',
 								'popup_description' => __( 'If you have a moment, please share why you are deactivating Ultimate Addons for Elementor:', 'header-footer-elementor' ),
-								'show_on_screens'   => array( 'plugins' ),
-							),
-						),
-					),
-			)
-		);
+								'show_on_screens'   => [ 'plugins' ],
+							],
+						],
+					],
+				]
+			);
 
 			if ( ! class_exists( 'HFE_Utm_Analytics' ) ) {
 				require_once HFE_DIR . 'inc/lib/class-hfe-utm-analytics.php';
@@ -178,7 +177,9 @@ class Header_Footer_Elementor {
 		}
 	}
 
-	
+	/**
+	 * Onboarding redirect function.
+	 */
 	public function hfe_redirect_to_onboarding() {
 		if ( ! get_option( 'hfe_start_onboarding', false ) ) {
 			return;
@@ -202,6 +203,9 @@ class Header_Footer_Elementor {
 		}
 	}
 
+	/**
+	 * Render admin top bar
+	 */
 	private function render_admin_top_bar() {
 		?>
 		<div id="hfe-admin-top-bar-root">
@@ -396,7 +400,7 @@ class Header_Footer_Elementor {
 		$new_version     = HFE_VER;
 
 		if ( ! $hfe_old_version || ( $old_version !== $new_version ) ) {
-			// Store previous version
+			// Store previous version.
 			update_option( 'hfe_plugin_previous_version', $old_version );
 			update_option( 'hfe_plugin_version', $new_version );
 		}
