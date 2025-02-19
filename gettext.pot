@@ -722,33 +722,33 @@ msgid ""
 "level"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:120
+#: src/Components/Onboarding/Success.jsx:142
 msgid "Congratulations!"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:126
+#: src/Components/Onboarding/Success.jsx:148
 msgid "You’ve unlocked a "
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:131
+#: src/Components/Onboarding/Success.jsx:153
 msgid " discount on UAE Pro. We’ve sent a discount"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:137
+#: src/Components/Onboarding/Success.jsx:159
 msgid " coupon just for you to your email address."
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:144
+#: src/Components/Onboarding/Success.jsx:166
 msgid ""
 " Use your exclusive discount code within the next 2 days to claim your "
 "reward!”"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:176
+#: src/Components/Onboarding/Success.jsx:198
 msgid "Get Pro Now"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:200
+#: src/Components/Onboarding/Success.jsx:224
 msgid "Go To The Dashboard"
 msgstr ""
 
