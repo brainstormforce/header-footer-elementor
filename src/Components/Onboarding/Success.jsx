@@ -23,6 +23,29 @@ const Success = () => {
         return savedStep ? parseInt(savedStep, 10) : 3;
     });
 
+    useEffect(() => {
+        const targetUrl = "admin.php?page=hfe#dashboard";
+    
+        // Replace the current state with targetUrl (so back button goes there)
+        window.history.replaceState(null, "", targetUrl);
+    
+        // Push another history state so that forward doesn't come back here
+        window.history.pushState(null, "", window.location.href);
+    
+        const handlePopState = () => {
+            // If the user tries to go back, send them to the dashboard
+            window.location.href = targetUrl;
+        };
+    
+        window.addEventListener("popstate", handlePopState);
+    
+        return () => {
+            window.removeEventListener("popstate", handlePopState);
+        };
+    }, []);
+    
+    
+
 
     useEffect(() => {
         localStorage.setItem("currentStep", currentStep);
@@ -61,7 +84,7 @@ const Success = () => {
                             <Topbar.Item>
                                 <ProgressSteps
                                     currentStep={currentStep}
-									className="uae-steps"
+                                    className="uae-steps"
                                     variant="number"
                                 >
                                     {steps.map((step, index) => (
@@ -78,7 +101,7 @@ const Success = () => {
                         <Topbar.Right>
                             <Topbar.Item>
                                 <Link className="uael-remove-ring" to={routes.dashboard.path}
-                                style={{ marginLeft: '125px'}}>
+                                    style={{ marginLeft: '125px' }}>
                                     {" "}
                                     <Button
                                         icon={<X className="size-4" />}
@@ -98,15 +121,15 @@ const Success = () => {
                 <div className="bg-background-primary border-[0.5px] border-subtle rounded-xl shadow-sm" style={{ borderRadius: '4px' }}>
                     <div className="bg-background-primary items-start justify-center flex flex-col" style={{ borderRadius: '4px' }}>
                         <div>
-                            <div className='flex justify-center items-center' 
-                            style={{
-                                backgroundImage: `url(${hfeSettingsData.success_banner})`,
-                                backgroundSize: 'cover',
-                                backgroundPosition: 'center',
-                                width: '100%', // Adjust width as needed
-                                height: '215px', // Adjust height as needed
-                                borderRadius: '4px'
-                            }}>
+                            <div className='flex justify-center items-center'
+                                style={{
+                                    backgroundImage: `url(${hfeSettingsData.success_banner})`,
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center',
+                                    width: '100%', // Adjust width as needed
+                                    height: '215px', // Adjust height as needed
+                                    borderRadius: '4px'
+                                }}>
                                 <img
                                     alt="Success"
                                     className="flex"
@@ -177,29 +200,32 @@ const Success = () => {
                                     </Button>
                                     <Link
                                         to={routes.dashboard.path}
+                                        onClick={(e) => {
+                                            e.preventDefault(); // Prevent default navigation behavior
+
+                                            // Completely wipe out history
+                                            window.history.pushState(null, "", "admin.php?page=hfe#dashboard");
+                                            window.history.replaceState(null, "", "admin.php?page=hfe#dashboard");
+
+                                            // Push multiple history states to bury the previous ones
+                                            for (let i = 0; i < 10; i++) {
+                                                window.history.pushState(null, "", "admin.php?page=hfe#dashboard");
+                                            }
+
+                                            // Redirect to the dashboard
+                                            window.location.href = "admin.php?page=hfe#dashboard";
+                                        }}
                                     >
                                         <Button
                                             iconPosition="left"
                                             variant="link"
                                             style={{ paddingTop: '2rem', paddingBottom: '1rem' }}
                                             className="hfe-remove-ring text-text-primary"
-                                            onMouseEnter={(e) =>
-                                                (e.currentTarget.style.color =
-                                                    "#000000") &&
-                                                (e.currentTarget.style.borderColor =
-                                                    "#000000")
-                                            }
-                                            onMouseLeave={(e) =>
-                                                (e.currentTarget.style.color =
-                                                    "#6005FF") &&
-                                                (e.currentTarget.style.borderColor =
-                                                    "#6005FF")
-                                            }
-
                                         >
                                             {__("Go To The Dashboard", "header-footer-elementor")}
                                         </Button>
                                     </Link>
+
                                 </div>
                             </div>
                         </div>

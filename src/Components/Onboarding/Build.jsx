@@ -29,14 +29,13 @@ const OnboardingBuild = ({ setCurrentStep }) => {
         }
     };
 
-    const handleSwitchChange = () => {
-
+    const handleSwitchChange = async () => {
         const newIsActive = !isActive;
         setIsActive(newIsActive);
         console.log(`Switch is now ${newIsActive ? 'active' : 'inactive'}`);
 
         try {
-            const response = fetch(hfe_admin_data.ajax_url, {
+            const response = await fetch(hfe_admin_data.ajax_url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
@@ -48,7 +47,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                 })
             });
 
-            const result = response.json();
+            const result = await response.json();
 
             if (result.success) {
                 toast.success(__('Settings saved successfully!', 'header-footer-elementor'));
@@ -84,27 +83,27 @@ const OnboardingBuild = ({ setCurrentStep }) => {
     }
 
     return (
-        <div className="bg-background-primary border-[0.5px] border-subtle rounded-xl shadow-sm mb-6 p-8" style={{ width: '55%' }}>
-            <div className="flex items-start">
+        <div className="bg-background-primary border-[0.5px] border-subtle rounded-xl shadow-sm mb-6 p-8" style={{ maxWidth: '55%' }}>
+            <div className="flex items-start hfe-display-flex">
                 {/* Left Content */}
-                <div className="flex flex-col items-start">
+                <div className="flex flex-col items-start" style={{ paddingRight: '35px' }}>
                     <h1 className="text-text-primary m-0 mb-2" style={{ fontSize: '1.6rem', lineHeight: '1.3em' }}>
                         {__("You're all set!🚀", "header-footer-elementor")}
                     </h1>
                     <span className="text-md font-medium text-text-tertiary m-0 mb-4 hfe-88-width" style={{ lineHeight: '1.6em' }}>
                         {__(
-                            "Start creating amazing designs with UAE and take your website to the next level",
+                            "Start creating headers, footers, or pages with UAE and take your website to the next level",
                             "header-footer-elementor"
                         )}
                     </span>
                     <span className="font-bold m-0 pt-2">
-                        {__("Here's How To Get Started:", "header-footer-elementor")}
+                        {__("Here’s how to get started:", "header-footer-elementor")}
                     </span>
 
-                    <ol className="list-decimal text-text-tertiary text-sm" style={{ marginLeft: '1.4em' }}>
-                        <li>{__('Click on “Create New Page” button', 'header-footer-elementor')}</li>
-                        <li>{__('Use the Elementor editor to customize your page/post according to your preferences', 'header-footer-elementor')}</li>
-                        <li>{__('Use UAE widgets to design your pages.', 'header-footer-elementor')}</li>
+                    <ol className="list-decimal text-text-tertiary text-sm" style={{ marginLeft: '1.4em', lineHeight: '1.6em', paddingBottom: '0.5rem' }}>
+                        <li>{__('Click on “Create” button', 'header-footer-elementor')}</li>
+                        <li>{__('Choose the type of template you want to create and customize the selected option', 'header-footer-elementor')}</li>
+                        <li>{__('Use the Elementor editor to customize your template according to your preferences using UAE widgets', 'header-footer-elementor')}</li>
                         <li>{__('Click “Publish” to make it live', 'header-footer-elementor')}</li>
                     </ol>
                 </div>
@@ -119,9 +118,9 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                     />
                 </div>
             </div>
-            <div className='flex flex-row gap-1 pt-2 pb-4'>
+            <div className='flex flex-row gap-1 pb-4 hfe-display-flex'>
                 <Button
-                    icon={<ArrowRight/>}
+                    icon={<ArrowRight />}
                     iconPosition="right"
                     variant="primary"
                     className="bg-[#6005FF] hfe-remove-ring"
@@ -140,7 +139,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                     onClick={() => {
                         window.open(
                             hfeSettingsData.hfe_post_url,
-                            "_blank"
+                            "_self"
                         );
                     }}
                 >
@@ -152,7 +151,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
 
                 >
                     <Button
-                        icon={<ArrowRight/>}
+                        icon={<ArrowRight />}
                         iconPosition="right"
                         variant="ghost"
                         className="hfe-remove-ring"
@@ -184,7 +183,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                 }}
             >
                 <div className='flex flex-col p-6 items-start'>
-                    <h3 className='font-bold text-text-primary mt-0 mb-1' style={{ fontSize: '1.6rem', lineHeight: '1.3em' }}>
+                    <h3 className='font-bold text-text-primary mt-0 mb-1' style={{ lineHeight: '1.3em' }}>
                         {__("We have a special reward just for you!", "header-footer-elementor")}
                     </h3>
                     <span className='font-medium text-text-secondary mt-2 mb-6'>
@@ -199,7 +198,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                         tag="button"
                         type="button"
                         variant="link"
-                        style={{ alignItems: 'center', justifyContent: 'flex-start' }}
+                        style={{ alignItems: 'center', justifyContent: 'flex-start', color: "#6005FF", }}
                         onClick={() => setIsDialogOpen(true)}
                     >
                         {__("Unlock My Surprise", "header-footer-elementor")}
@@ -220,8 +219,35 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                         {__("Help make UAE Better", "header-footer-elementor")}
                     </span>
                 </div>
+                <Toaster
+                    position="top-right"
+                    reverseOrder={false}
+                    gutter={8}
+                    containerStyle={{
+                        top: 20,
+                        right: 20,
+                        marginTop: '40px',
+                    }}
+                    toastOptions={{
+                        duration: 1000,
+                        style: {
+                            background: 'white',
+                        },
+                        success: {
+                            duration: 2000,
+                            style: {
+                                color: '',
+                            },
+                            iconTheme: {
+                                primary: '#6005ff',
+                                secondary: '#fff',
+                            },
+                        },
+                    }}
+                />
                 <span className='flex flex-row items-center justify-start mt-4 gap-3' style={{ lineHeight: '1.5em', fontSize: '0.95em' }}>{__("Help us improve by sharing anonymous data about your website setup. This includes non-sensitive info about plugins, themes, and settings, so we can create a better product for you. Your privacy is always our top priority. Learn more in our privacy policy.", "header-footer-elementor")}</span>
             </div>
+
 
             <Dialog
                 design="simple"
@@ -243,7 +269,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                                     variant="ghost"
                                     className='hfe-remove-ring'
                                     onClick={() => setIsDialogOpen(false)}
-                                    style={{ marginLeft: '60px', marginBottom: '20px' }}
+                                    style={{ marginLeft: '60px', marginBottom: '20px', paddingTop: '0' }}
                                 />
                             </div>
                         </div>
@@ -294,9 +320,34 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                             >
                                 {__('Submit Email', "header-footer-elementor")}
                             </Button>
-                            <Toaster />
                         </div>
                     </Dialog.Header>
+                    <Toaster
+                        position="top-right"
+                        reverseOrder={false}
+                        gutter={8}
+                        containerStyle={{
+                            top: 20,
+                            right: 20,
+                            marginTop: '40px',
+                        }}
+                        toastOptions={{
+                            duration: 1000,
+                            style: {
+                                background: 'white',
+                            },
+                            success: {
+                                duration: 2000,
+                                style: {
+                                    color: '',
+                                },
+                                iconTheme: {
+                                    primary: '#6005ff',
+                                    secondary: '#fff',
+                                },
+                            },
+                        }}
+                    />
                 </Dialog.Panel>
             </Dialog>
         </div>

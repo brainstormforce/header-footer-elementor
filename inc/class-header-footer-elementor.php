@@ -126,7 +126,7 @@ class Header_Footer_Elementor {
 			add_action( 'init', [ $this, 'setup_settings_page' ] );
 
 			if ( 'yes' === get_option( 'uae_lite_is_activated' ) ) {
-				add_action( 'admin_init', [ $this, 'show_setup_wizard' ] );
+				add_action( 'admin_init', [ $this, 'get_plugin_version' ] );
 			}
 
 			// Scripts and styles.
@@ -378,7 +378,7 @@ class Header_Footer_Elementor {
 	 *
 	 * @return void
 	 */
-	public function show_setup_wizard() {
+	public function get_plugin_version() {
 
 		$hfe_old_version = get_option('hfe_plugin_version');
 		$old_version = $hfe_old_version ? $hfe_old_version : HFE_VER;

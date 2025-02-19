@@ -2690,7 +2690,7 @@
 	animation: spin 2s linear infinite;
 }
 .hfe-custom-scrollbar::-webkit-scrollbar {
-	width: 10px;
+	width: 4px;
 }  
 /* Track */
 .hfe-custom-scrollbar::-webkit-scrollbar-track {
@@ -2739,6 +2739,9 @@
 .hfe-popup-button,
 .hfe-popup-button svg {
 	padding: 0;
+}
+.hfe-popup-button span {
+	padding-left: 0;
 }
 .hfe-link-color,
 .hfe-link-color span {
@@ -2808,6 +2811,7 @@ input[type="radio"].hfe-radio-field:focus {
 	font-size: 0.9rem !important;
 	font-weight: 500 !important;
 }
+
 @keyframes spin {
 	0% {
 		transform: rotate(0deg);
@@ -2857,7 +2861,12 @@ input[type="radio"].hfe-radio-field:focus {
 		border-radius: 0 !important;
 	}
 }
-
+:is(#hfe-settings-app, [data-floating-ui-portal]) .uae-steps .text-xs {
+	font-size: 0.77rem;
+}
+.hfe-min-700 {
+	min-width: 700px;
+}
 #hfe-settings-app .subject-cell {
 	max-width: 200px; /* Adjust this width based on your layout */
 	white-space: nowrap;
@@ -2895,6 +2904,9 @@ div#hfe-settings-app {
 	}
 }
 @media screen and (max-width: 782px) {
+	:is(#hfe-settings-app, [data-floating-ui-portal]) .hfe-display-flex {
+		display: block;
+	}
 	.hfe-radio-option {
 		width: 1rem !important;
 		height: 1rem !important;
@@ -2903,6 +2915,27 @@ div#hfe-settings-app {
 		width: 0.5rem !important;
 		height: 0.5rem !important;
 		margin: 0.18rem !important;
+	}
+	:is(#hfe-settings-app, [data-floating-ui-portal]) .uae-steps,
+	#hfe-settings-app img {
+		display: none;
+	}
+	.hfe-onboarding-customize {
+		margin-left: 20px;
+    	margin-right: 20px;
+	}
+	.hfe-min-700 {
+		min-width: unset;
+	}
+	.hfe-onboarding-customize .hfe-custom-scrollbar {
+		overflow: scroll;
+		max-width: -moz-fit-content;
+		max-width: fit-content;
+	}
+	.hfe-onboarding-bottom {
+		display: grid !important;
+		max-width: -moz-fit-content;
+		max-width: fit-content;
 	}
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .file\:border-0::file-selector-button{

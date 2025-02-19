@@ -133,9 +133,9 @@ const OnboardingWidgets = () => {
 
     return (
         <div className='rounded-lg w-full mb-4' >
-            <div className='flex flex-col md:flex-row md:items-center md:justify-between p-4'>
+            <div className='flex flex-col md:flex-row md:items-center md:justify-between p-4' style={{ paddingTop: '1.5rem' }}>
                 <h4 className='m-0 font-semibold text-text-primary mb-2 md:mb-0'>{__("WIDGETS", "header-footer-elementor")}</h4>
-                <div className='flex flex-col md:flex-row items-center gap-y-2 md:gap-x-2 md:mr-7 relative'>
+                <div className='flex flex-col md:flex-row items-center gap-y-2 md:gap-x-2 md:mr-7 relative' style={{ paddingRight: '0.75rem' }}>
                     <div className="flex flex-row w-full md:w-auto">
                         <Button
                             icon={loadingActivate ? <LoaderCircle className="animate-spin" /> : null}
@@ -164,8 +164,8 @@ const OnboardingWidgets = () => {
                 </div>
             </div>
             <div
-                className="hfe-custom-scrollbar bg-background-secondary p-1 rounded-lg max-h-80" style={{ overflow: 'auto', maxHeight: '20rem' }}>
-                <div className='flex bg-black flex-col p-3' style={{ minHeight: "800px" }}>
+                className="hfe-custom-scrollbar bg-background-secondary p-1 rounded-lg max-h-80" style={{ overflow: 'auto', maxHeight: '20rem', paddingTop: '0' }}>
+                <div className='flex bg-black flex-col p-3' style={{ minHeight: "800px", paddingTop: '0' }}>
                     {loading ? (
                         <Container
                             align="stretch"
@@ -196,9 +196,9 @@ const OnboardingWidgets = () => {
                             containerType="grid"
                             gap=""
                             justify="start"
-                            // style={{
-                            //     backgroundColor: '#F9FAFB'
-                            // }}
+                            style={{
+                                paddingTop: '0'
+                            }}
                         >
                             {filteredWidgets?.map((widget) => (
                                 <Container.Item

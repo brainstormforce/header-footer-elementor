@@ -135,8 +135,8 @@ const FeatureWidgetsOnboarding = ({ setCurrentStep }) => {
     }
 
     return (
-        <div className='rounded-lg bg-white p-6'>
-            <h1 className="text-text-primary m-0 mb-2" style={{ fontSize: '1.5rem', lineHeight: '1.3em' }}>
+        <div className='rounded-lg bg-white p-6 hfe-onboarding-customize'>
+            <h1 className="text-text-primary m-0 mb-2" style={{ fontSize: '1.4rem', lineHeight: '1.3em' }}>
                 {__("Customize Your UAE Setup", "header-footer-elementor")}
             </h1>
             <span className="text-md font-medium text-text-tertiary m-0" style={{ lineHeight: '1.6em'}}>
