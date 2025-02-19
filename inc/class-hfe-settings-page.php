@@ -303,7 +303,6 @@ class HFE_Settings_Page {
 					'user_url'                 => HFE_URL . 'assets/images/settings/user.svg',
 					'user__selected_url'       => HFE_URL . 'assets/images/settings/user-selected.svg',
 					'integrations_url'         => HFE_URL . 'assets/images/settings/integrations.svg', // Update the path to your assets folder.
-					'uae_logo'                 => HFE_URL . 'assets/images/settings/uae-logo.png',
 					'welcome_banner'           => HFE_URL . 'assets/images/settings/welcome-banner.png',
 					'build_banner'             => HFE_URL . 'assets/images/settings/build_banner.png',
 					'special_reward'           => HFE_URL . 'assets/images/settings/build_bg.png',
