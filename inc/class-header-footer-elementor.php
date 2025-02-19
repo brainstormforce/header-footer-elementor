@@ -157,7 +157,7 @@ class Header_Footer_Elementor {
 						'deactivation_survey' => array(
 							array(
 								'id'                => 'deactivation-survey-header-footer-elementor', // 'deactivation-survey-<your-plugin-slug>'
-								'popup_logo'        => HFE_URL . 'assets/images/header-footer-elementor-icon.svg',
+								'popup_logo'        => HFE_URL . 'assets/images/settings/logo.svg',
 								'plugin_slug'       => 'header-footer-elementor', // <your-plugin-slug>
 								'plugin_version'    => HFE_VER,
 								'popup_title'       => __( 'Quick Feedback', 'header-footer-elementor' ),
