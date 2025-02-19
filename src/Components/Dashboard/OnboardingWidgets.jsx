@@ -166,7 +166,7 @@ const OnboardingWidgets = () => {
             <div
                 className="hfe-custom-scrollbar bg-background-secondary p-1 rounded-lg max-h-80" style={{ overflow: 'auto', maxHeight: '20rem', paddingTop: '0' }}>
                 <div className='flex bg-black flex-col p-3' style={{ minHeight: "800px", paddingTop: '0' }}>
-                    {loading ? (
+                    {!loading ? (
                         <Container
                             align="stretch"
                             className="p-2 gap-1.5 grid grid-cols-2 md:grid-cols-4"
@@ -182,6 +182,7 @@ const OnboardingWidgets = () => {
                                     key={index}
                                     alignSelf="auto"
                                     className="text-wrap rounded-md shadow-container-item bg-background-primary p-8 space-y-2"
+                                    style={{ overflow: 'auto', maxHeight: '20rem', paddingTop: '0' }}
                                 >
                                     <Skeleton className='w-12 h-2 rounded-md' />
                                     <Skeleton className='w-16 h-2 rounded-md' />
