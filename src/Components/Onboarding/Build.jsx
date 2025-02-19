@@ -29,14 +29,13 @@ const OnboardingBuild = ({ setCurrentStep }) => {
         }
     };
 
-    const handleSwitchChange = () => {
-
+    const handleSwitchChange = async () => {
         const newIsActive = !isActive;
         setIsActive(newIsActive);
         console.log(`Switch is now ${newIsActive ? 'active' : 'inactive'}`);
 
         try {
-            const response = fetch(hfe_admin_data.ajax_url, {
+            const response = await fetch(hfe_admin_data.ajax_url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
@@ -48,7 +47,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                 })
             });
 
-            const result = response.json();
+            const result = await response.json();
 
             if (result.success) {
                 toast.success(__('Settings saved successfully!', 'header-footer-elementor'));
@@ -121,7 +120,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
             </div>
             <div className='flex flex-row gap-1 pb-4 hfe-display-flex'>
                 <Button
-                    icon={<ArrowRight/>}
+                    icon={<ArrowRight />}
                     iconPosition="right"
                     variant="primary"
                     className="bg-[#6005FF] hfe-remove-ring"
@@ -152,7 +151,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
 
                 >
                     <Button
-                        icon={<ArrowRight/>}
+                        icon={<ArrowRight />}
                         iconPosition="right"
                         variant="ghost"
                         className="hfe-remove-ring"
@@ -220,8 +219,35 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                         {__("Help make UAE Better", "header-footer-elementor")}
                     </span>
                 </div>
+                <Toaster
+                    position="top-right"
+                    reverseOrder={false}
+                    gutter={8}
+                    containerStyle={{
+                        top: 20,
+                        right: 20,
+                        marginTop: '80px',
+                    }}
+                    toastOptions={{
+                        duration: 5000,
+                        style: {
+                            background: 'white',
+                        },
+                        success: {
+                            duration: 3000,
+                            style: {
+                                color: '',
+                            },
+                            iconTheme: {
+                                primary: '#6005ff',
+                                secondary: '#fff',
+                            },
+                        },
+                    }}
+                />
                 <span className='flex flex-row items-center justify-start mt-4 gap-3' style={{ lineHeight: '1.5em', fontSize: '0.95em' }}>{__("Help us improve by sharing anonymous data about your website setup. This includes non-sensitive info about plugins, themes, and settings, so we can create a better product for you. Your privacy is always our top priority. Learn more in our privacy policy.", "header-footer-elementor")}</span>
             </div>
+
 
             <Dialog
                 design="simple"
@@ -294,7 +320,6 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                             >
                                 {__('Submit Email', "header-footer-elementor")}
                             </Button>
-                            <Toaster />
                         </div>
                     </Dialog.Header>
                 </Dialog.Panel>
