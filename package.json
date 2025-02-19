@@ -72,7 +72,7 @@
 				"core-js": "^3.38.1",
 				"cross-env": "^7.0.3",
 				"eslint-plugin-eslint-comments": "^3.2.0",
-				"gpt-po": "^1.2.0",
+				"gpt-po": "^1.2.3",
 				"grunt": "^1.6.1",
 				"grunt-bumpup": "^0.6.3",
 				"grunt-cli": "^1.4.3",
@@ -117,6 +117,7 @@
 				"i18n:gptpo:fr": "gpt-po translate --po languages/header-footer-elementor-fr_FR.po --lang fr --verbose",
 				"i18n:gptpo:es": "gpt-po translate --po languages/header-footer-elementor-es_ES.po --lang es --verbose",
 				"i18n:gptpo:de": "gpt-po translate --po languages/header-footer-elementor-de_DE.po --lang de --verbose",
+				"i18n:gptpo:pt": "gpt-po translate --po languages/header-footer-elementor-pt_PT.po --lang pt --verbose",
 				"build-package": "npm run build && grunt",
 				"release": "rm -rf header-footer-elementor && npm run build-package && grunt release",
 				"build:babel": "babel src --out-dir build"

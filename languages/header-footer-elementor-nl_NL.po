@@ -11,21 +11,17 @@ msgstr ""
 "PO-Revision-Date: 2024-12-05T10:53:31+00:00\n"
 "Language: \n"
 
-#: admin/bsf-analytics/class-bsf-analytics.php:220
 #. translators: %s product name
-msgid ""
-"Want to help make <strong>%1s</strong> even more awesome? Allow us to collect non-sensitive diagnostic data and usage "
-"information. "
-msgstr ""
-"Wil je helpen om <strong>%1s</strong> nog geweldig te maken? Laat ons niet-gevoelige diagnostische gegevens en "
-"gebruiksinformatie verzamelen."
+#: admin/bsf-analytics/class-bsf-analytics.php:220
+msgid "Want to help make <strong>%1s</strong> even more awesome? Allow us to collect non-sensitive diagnostic data and usage information. "
+msgstr "Wil je helpen om <strong>%1s</strong> nog geweldig te maken? Laat ons niet-gevoelige diagnostische gegevens en gebruiksinformatie verzamelen."
 
 #: admin/bsf-analytics/class-bsf-analytics.php:223
 msgid "This will be applicable for all sites from the network."
 msgstr "Dit is van toepassing op alle sites van het netwerk."
 
-#: admin/bsf-analytics/class-bsf-analytics.php:247
 #. translators: %s usage doc link
+#: admin/bsf-analytics/class-bsf-analytics.php:247
 msgid " Know More."
 msgstr "Meer weten."
 
@@ -41,8 +37,8 @@ msgstr "Nee bedankt"
 msgid "Usage Tracking"
 msgstr "Gebruikstracking"
 
-#: admin/bsf-analytics/class-bsf-analytics.php:419
 #. translators: %s Product title
+#: admin/bsf-analytics/class-bsf-analytics.php:419
 msgid "Allow %s products to track non-sensitive usage tracking data."
 msgstr "Sta %s producten toe om niet-gevoelige gebruikstrackinggegevens te volgen."
 
@@ -79,7 +75,7 @@ msgid "Could not activate theme. Please activate from the Themes page."
 msgstr "Kon het thema niet activeren. Activeer dit vanaf de pagina Thema's."
 
 #: admin/class-hfe-admin.php:172
-#: admin/class-hfe-admin.php:455
+#: admin/class-hfe-admin.php:459
 msgid "Display Rules"
 msgstr "Weergaveregels"
 
@@ -112,7 +108,7 @@ msgstr "Sjabloon bewerken"
 msgid "View Template"
 msgstr "Sjabloon bekijken"
 
-#: inc/class-hfe-settings-page.php:669
+#: inc/class-hfe-settings-page.php:671
 msgid "All Templates"
 msgstr "Alle sjablonen"
 
@@ -132,98 +128,98 @@ msgstr "Geen sjablonen gevonden."
 msgid "No Templates found in Trash."
 msgstr "Geen sjablonen gevonden in de prullenbak."
 
-#: admin/class-hfe-admin.php:359
+#: admin/class-hfe-admin.php:363
 msgid "Elementor Header & Footer Builder Options"
 msgstr "Opties voor Elementor Header & Footer Builder"
 
-#: admin/class-hfe-admin.php:388
+#: admin/class-hfe-admin.php:392
 msgid "Type of Template"
 msgstr "Type sjabloon"
 
-#: admin/class-hfe-admin.php:392
+#: admin/class-hfe-admin.php:396
 msgid "Select Option"
 msgstr "Selecteer optie"
 
-#: admin/class-hfe-admin.php:393
+#: admin/class-hfe-admin.php:397
 msgid "Header"
 msgstr "Header"
 
-#: admin/class-hfe-admin.php:394
+#: admin/class-hfe-admin.php:398
 msgid "Before Footer"
 msgstr "Voor de footer"
 
-#: admin/class-hfe-admin.php:395
+#: admin/class-hfe-admin.php:399
 msgid "Footer"
 msgstr "Footer"
 
-#: admin/class-hfe-admin.php:396
+#: admin/class-hfe-admin.php:400
 msgid "Custom Block"
 msgstr "Aangepast blok"
 
-#: admin/class-hfe-admin.php:404
-#: admin/class-hfe-admin.php:654
+#: admin/class-hfe-admin.php:408
+#: admin/class-hfe-admin.php:658
 msgid "Shortcode"
 msgstr "Shortcode"
 
-#: admin/class-hfe-admin.php:405
+#: admin/class-hfe-admin.php:409
 msgid "Copy this shortcode and paste it into your post, page, or text widget content."
 msgstr "Kopieer deze shortcode en plak deze in de inhoud van je bericht, pagina of tekstwidget."
 
-#: admin/class-hfe-admin.php:417
+#: admin/class-hfe-admin.php:421
 msgid "Enable Layout for Elementor Canvas Template?"
 msgstr "Lay-out inschakelen voor Elementor Canvas-sjabloon?"
 
-#: admin/class-hfe-admin.php:419
+#: admin/class-hfe-admin.php:423
 msgid "Enabling this option will display this layout on pages using Elementor Canvas Template."
 msgstr "Het inschakelen van deze optie toont deze lay-out op pagina's die het Elementor Canvas-sjabloon gebruiken."
 
-#: admin/class-hfe-admin.php:446
+#: admin/class-hfe-admin.php:450
 msgid "Display On"
 msgstr "Weergeven op"
 
-#: admin/class-hfe-admin.php:448
+#: admin/class-hfe-admin.php:452
 msgid "Add locations for where this template should appear."
 msgstr "Voeg locaties toe waar dit sjabloon moet verschijnen."
 
-#: admin/class-hfe-admin.php:459
+#: admin/class-hfe-admin.php:463
 msgid "Add Display Rule"
 msgstr "Weergaveregel toevoegen"
 
-#: admin/class-hfe-admin.php:468
+#: admin/class-hfe-admin.php:472
 msgid "Do Not Display On"
 msgstr "Niet weergeven op"
 
-#: admin/class-hfe-admin.php:470
+#: admin/class-hfe-admin.php:474
 msgid "Add locations for where this template should not appear."
 msgstr "Voeg locaties toe waar dit sjabloon niet moet verschijnen."
 
-#: admin/class-hfe-admin.php:477
+#: admin/class-hfe-admin.php:481
 msgid "Exclude On"
 msgstr "Uitsluiten op"
 
-#: admin/class-hfe-admin.php:480
+#: admin/class-hfe-admin.php:484
 #: inc/lib/target-rule/class-astra-target-rules-fields.php:847
 msgid "Add Exclusion Rule"
 msgstr "Uitsluitregel toevoegen"
 
-#: admin/class-hfe-admin.php:490
+#: admin/class-hfe-admin.php:494
 msgid "User Roles"
 msgstr "Gebruikersrollen"
 
-#: admin/class-hfe-admin.php:491
+#: admin/class-hfe-admin.php:495
 msgid "Display custom template based on user role."
 msgstr "Toon aangepast sjabloon op basis van gebruikersrol."
 
-#: admin/class-hfe-admin.php:498
+#: admin/class-hfe-admin.php:502
 msgid "Users"
 msgstr "Gebruikers"
 
-#: admin/class-hfe-admin.php:501
+#: admin/class-hfe-admin.php:505
 msgid "Add User Rule"
 msgstr "Gebruikersregel toevoegen"
 
-#: admin/class-hfe-admin.php:582
 #. Translators: Post title, Template Location
+#: admin/class-hfe-admin.php:586
 msgid "Template %1$s is already assigned to the location %2$s"
 msgstr "Sjabloon %1$s is al toegewezen aan de locatie %2$s"
 
@@ -252,7 +248,7 @@ msgstr "Installeer Elementor"
 msgid "Update Elementor"
 msgstr "Update Elementor"
 
-#: inc/class-header-footer-elementor.php:562
+#: inc/class-header-footer-elementor.php:604
 #: build/main.js:172
 #: src/Components/Settings/Settings.jsx:49
 #: src/Components/Settings/ThemeSupport.jsx:80
@@ -261,8 +257,8 @@ msgstr "Update Elementor"
 msgid "Theme Support"
 msgstr "Thema Ondersteuning"
 
-#: inc/class-hfe-settings-page.php:351
-#: inc/class-hfe-settings-page.php:1099
+#: inc/class-hfe-settings-page.php:353
+#: inc/class-hfe-settings-page.php:1101
 #: build/main.js:2
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:86
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:173
@@ -271,104 +267,98 @@ msgstr "Thema Ondersteuning"
 msgid "Activate"
 msgstr "Activeren"
 
-#: inc/class-hfe-settings-page.php:352
-#: inc/class-hfe-settings-page.php:1091
+#: inc/class-hfe-settings-page.php:354
+#: inc/class-hfe-settings-page.php:1093
 #: build/main.js:2
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:156
 #: build/main.js:52401
 msgid "Activated"
 msgstr "Geactiveerd"
 
-#: inc/class-hfe-settings-page.php:353
-#: inc/class-hfe-settings-page.php:1088
+#: inc/class-hfe-settings-page.php:355
+#: inc/class-hfe-settings-page.php:1090
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1030
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1213
 msgid "Active"
 msgstr "Actief"
 
-#: inc/class-hfe-settings-page.php:354
+#: inc/class-hfe-settings-page.php:356
 msgid "Deactivate"
 msgstr "Deactiveren"
 
-#: inc/class-hfe-settings-page.php:355
-#: inc/class-hfe-settings-page.php:1096
+#: inc/class-hfe-settings-page.php:357
+#: inc/class-hfe-settings-page.php:1098
 msgid "Inactive"
 msgstr "Inactief"
 
-#: inc/class-hfe-settings-page.php:356
-#: inc/class-hfe-settings-page.php:1112
+#: inc/class-hfe-settings-page.php:358
+#: inc/class-hfe-settings-page.php:1114
 #: build/main.js:2
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:91
 #: build/main.js:52336
 msgid "Install"
 msgstr "Installeren"
 
-#: inc/class-hfe-settings-page.php:357
+#: inc/class-hfe-settings-page.php:359
 msgid "Theme Installed"
 msgstr "Thema Geïnstalleerd"
 
-#: inc/class-hfe-settings-page.php:358
+#: inc/class-hfe-settings-page.php:360
 msgid "Plugin Installed"
 msgstr "Plugin Geïnstalleerd"
 
-#: inc/class-hfe-settings-page.php:359
+#: inc/class-hfe-settings-page.php:361
 msgid "Download"
 msgstr "Downloaden"
 
-#: inc/class-hfe-settings-page.php:360
+#: inc/class-hfe-settings-page.php:362
 msgid "Already Exists."
 msgstr "Bestaat al."
 
-#: inc/class-hfe-settings-page.php:361
-#: inc/class-hfe-settings-page.php:1117
+#: inc/class-hfe-settings-page.php:363
+#: inc/class-hfe-settings-page.php:1119
 msgid "Visit Website"
 msgstr "Bezoek Website"
 
-#: inc/class-hfe-settings-page.php:362
+#: inc/class-hfe-settings-page.php:364
 msgid "Could not install. Please download from WordPress.org and install manually."
 msgstr "Kon niet installeren. Download alstublieft van WordPress.org en installeer handmatig."
 
-#: inc/class-hfe-settings-page.php:363
+#: inc/class-hfe-settings-page.php:365
 msgid "Your details are submitted successfully."
 msgstr "Uw gegevens zijn succesvol ingediend."
 
-#: inc/class-hfe-settings-page.php:364
+#: inc/class-hfe-settings-page.php:366
 msgid "Encountered an error while performing your request."
 msgstr "Er is een fout opgetreden tijdens het uitvoeren van uw verzoek."
 
-#: inc/class-hfe-settings-page.php:440
+#: inc/class-hfe-settings-page.php:442
 msgid "Add Theme Support"
 msgstr "Voeg Thema Ondersteuning Toe"
 
-#: inc/class-hfe-settings-page.php:475
+#: inc/class-hfe-settings-page.php:477
 msgid " Method 1 (Recommended)"
 msgstr "Methode 1 (Aanbevolen)"
 
-#: inc/class-hfe-settings-page.php:476
+#: inc/class-hfe-settings-page.php:478
 msgid "This method replaces your theme's header (header.php) & footer (footer.php) template with plugin's custom templates."
-msgstr ""
-"Deze methode vervangt de header (header.php) & footer (footer.php) sjablonen van uw thema door de aangepaste sjablonen "
-"van de plugin."
+msgstr "Deze methode vervangt de header (header.php) & footer (footer.php) sjablonen van uw thema door de aangepaste sjablonen van de plugin."
 
-#: inc/class-hfe-settings-page.php:479
+#: inc/class-hfe-settings-page.php:481
 msgid "Method 2"
 msgstr "Methode 2"
 
-#: inc/class-hfe-settings-page.php:483
+#: inc/class-hfe-settings-page.php:485
 msgid "This method hides your theme's header & footer template with CSS and displays custom templates from the plugin."
 msgstr "Deze methode verbergt de header- & footer-sjablonen van uw thema met CSS en toont aangepaste sjablonen van de plugin."
 
-#: inc/class-hfe-settings-page.php:494
-msgid ""
-"Sometimes above methods might not work well with your theme, in this case, contact your theme author and request them "
-"to add support for the <a href=\"%s\">plugin.</a>"
-msgstr ""
-"Soms werken bovenstaande methoden mogelijk niet goed met uw thema, in dat geval kunt u contact opnemen met de auteur "
-"van uw thema en hen vragen ondersteuning toe te voegen voor de <a href=\"%s\">plugin.</a>"
+#: inc/class-hfe-settings-page.php:496
+msgid "Sometimes above methods might not work well with your theme, in this case, contact your theme author and request them to add support for the <a href=\"%s\">plugin.</a>"
+msgstr "Soms werken bovenstaande methoden mogelijk niet goed met uw thema, in dat geval kunt u contact opnemen met de auteur van uw thema en hen vragen ondersteuning toe te voegen voor de <a href=\"%s\">plugin.</a>"
 
-#: inc/class-hfe-settings-page.php:550
-#: inc/class-hfe-settings-page.php:551
-#: inc/class-hfe-settings-page.php:1239
+#: inc/class-hfe-settings-page.php:552
+#: inc/class-hfe-settings-page.php:553
+#: inc/class-hfe-settings-page.php:1241
 #: inc/widgets-manager/base/widgets-config.php:309
 #: inc/widgets-manager/base/widgets-config.php:392
 #: inc/widgets-manager/base/widgets-config.php:472
@@ -384,204 +374,165 @@ msgstr ""
 msgid "Settings"
 msgstr "Instellingen"
 
-#: inc/class-hfe-settings-page.php:676
+#: inc/class-hfe-settings-page.php:678
 msgid "About Us"
 msgstr "Over Ons"
 
-#: inc/class-hfe-settings-page.php:611
+#: inc/class-hfe-settings-page.php:613
 msgid "Elementor Header & Footer Builder "
 msgstr "Elementor Header & Footer Builder"
 
-#: inc/class-hfe-settings-page.php:722
 #. translators: 1: Elementor, 2: Link to plugin review
-msgid ""
-"Help us spread the word about the plugin by leaving %2$s %1$s %3$s ratings on %2$s WordPress.org %3$s. Thank you from "
-"the Brainstorm Force team!"
-msgstr ""
-"Help ons het woord over de plugin te verspreiden door %2$s %1$s %3$s beoordelingen achter te laten op %2$s "
-"WordPress.org %3$s. Bedankt namens het Brainstorm Force-team!"
+#: inc/class-hfe-settings-page.php:724
+msgid "Help us spread the word about the plugin by leaving %2$s %1$s %3$s ratings on %2$s WordPress.org %3$s. Thank you from the Brainstorm Force team!"
+msgstr "Help ons het woord over de plugin te verspreiden door %2$s %1$s %3$s beoordelingen achter te laten op %2$s WordPress.org %3$s. Bedankt namens het Brainstorm Force-team!"
 
-#: inc/class-hfe-settings-page.php:765
+#: inc/class-hfe-settings-page.php:767
 msgid "Create Impressive Header and Footer Designs"
 msgstr "Creëer Indrukwekkende Header- en Footer-ontwerpen"
 
-#: inc/class-hfe-settings-page.php:766
-msgid ""
-"Elementor Header & Footer Builder plugin lets you build impactful navigation for your website very easily. Before we "
-"begin, we would like to know more about you. This will help us to serve you better."
-msgstr ""
-"De Elementor Header & Footer Builder plugin stelt u in staat om impactvolle navigatie voor uw website zeer eenvoudig te "
-"bouwen. Voordat we beginnen, willen we graag meer over u weten. Dit zal ons helpen u beter van dienst te zijn."
+#: inc/class-hfe-settings-page.php:768
+msgid "Elementor Header & Footer Builder plugin lets you build impactful navigation for your website very easily. Before we begin, we would like to know more about you. This will help us to serve you better."
+msgstr "De Elementor Header & Footer Builder plugin stelt u in staat om impactvolle navigatie voor uw website zeer eenvoudig te bouwen. Voordat we beginnen, willen we graag meer over u weten. Dit zal ons helpen u beter van dienst te zijn."
 
-#: inc/class-hfe-settings-page.php:780
 #. translators: %1$s and %3$s are opening anchor tags, and %2$s and %4$s is closing anchor tags.
+#: inc/class-hfe-settings-page.php:782
 msgid "By submitting, you agree to our %1$sTerms%2$s and %3$sPrivacy Policy%4$s."
 msgstr "Door in te dienen, gaat u akkoord met onze %1$sVoorwaarden%2$s en %3$sPrivacybeleid%4$s."
 
-#: inc/class-hfe-settings-page.php:798
+#: inc/class-hfe-settings-page.php:800
 msgid "Skip"
 msgstr "Overslaan"
 
-#: inc/class-hfe-settings-page.php:816
+#: inc/class-hfe-settings-page.php:818
 msgid "Beginner"
 msgstr "Beginner"
 
-#: inc/class-hfe-settings-page.php:817
+#: inc/class-hfe-settings-page.php:819
 msgid "Intermediate"
 msgstr "Gemiddeld"
 
-#: inc/class-hfe-settings-page.php:818
+#: inc/class-hfe-settings-page.php:820
 msgid "Expert"
 msgstr "Expert"
 
-#: inc/class-hfe-settings-page.php:820
-#: inc/class-hfe-settings-page.php:829
+#: inc/class-hfe-settings-page.php:822
+#: inc/class-hfe-settings-page.php:831
 msgid "Field is required"
 msgstr "Veld is verplicht"
 
-#: inc/class-hfe-settings-page.php:821
+#: inc/class-hfe-settings-page.php:823
 msgid "I'm a WordPress:"
 msgstr "Ik ben een WordPress:"
 
-#: inc/class-hfe-settings-page.php:826
+#: inc/class-hfe-settings-page.php:828
 msgid "Myself/My company"
 msgstr "Ikzelf/Mijn bedrijf"
 
-#: inc/class-hfe-settings-page.php:827
+#: inc/class-hfe-settings-page.php:829
 msgid "My client"
 msgstr "Mijn klant"
 
-#: inc/class-hfe-settings-page.php:830
+#: inc/class-hfe-settings-page.php:832
 msgid "I'm building website for:"
 msgstr "Ik bouw een website voor:"
 
-#: inc/class-hfe-settings-page.php:853
+#: inc/class-hfe-settings-page.php:855
 msgid "First name is required"
 msgstr "Voornaam is verplicht"
 
-#: inc/class-hfe-settings-page.php:854
+#: inc/class-hfe-settings-page.php:856
 msgid "Your First Name"
 msgstr "Uw Voornaam"
 
-#: inc/class-hfe-settings-page.php:858
+#: inc/class-hfe-settings-page.php:860
 msgid "Email address is required"
 msgstr "E-mailadres is verplicht"
 
-#: inc/class-hfe-settings-page.php:859
+#: inc/class-hfe-settings-page.php:861
 msgid "Your Work Email"
 msgstr "Uw Werk E-mailadres"
 
-#: inc/class-hfe-settings-page.php:863
+#: inc/class-hfe-settings-page.php:865
 msgid "I agree to receive your newsletters and accept the data privacy statement."
 msgstr "Ik ga akkoord met het ontvangen van uw nieuwsbrieven en accepteer de verklaring inzake gegevensprivacy."
 
-#: inc/class-hfe-settings-page.php:868
+#: inc/class-hfe-settings-page.php:870
 msgid "Submit"
 msgstr "Indienen"
 
-#: inc/class-hfe-settings-page.php:925
 #. translators: %s: theme name
-msgid ""
-"Powering over 1+ Million websites, %s is loved for the fast performance and ease of use it offers. It is suitable for "
-"all kinds of websites like blogs, portfolios, business, and WooCommerce stores."
-msgstr ""
-"Met meer dan 1+ miljoen websites, wordt %s gewaardeerd om de snelle prestaties en gebruiksgemak die het biedt. Het is "
-"geschikt voor alle soorten websites zoals blogs, portfolio's, bedrijven en WooCommerce-winkels."
+#: inc/class-hfe-settings-page.php:927
+msgid "Powering over 1+ Million websites, %s is loved for the fast performance and ease of use it offers. It is suitable for all kinds of websites like blogs, portfolios, business, and WooCommerce stores."
+msgstr "Met meer dan 1+ miljoen websites, wordt %s gewaardeerd om de snelle prestaties en gebruiksgemak die het biedt. Het is geschikt voor alle soorten websites zoals blogs, portfolio's, bedrijven en WooCommerce-winkels."
 
-#: inc/class-hfe-settings-page.php:946
+#: inc/class-hfe-settings-page.php:948
 msgid "Welcome to Elementor Header & Footer Builder!"
 msgstr "Welkom bij Elementor Header & Footer Builder!"
 
-#: inc/class-hfe-settings-page.php:948
-msgid ""
-"With this awesome plugin, experience the easiest way to create a customized header and footer for your website with "
-"Elementor. That too 100% FREE!"
-msgstr ""
-"Met deze geweldige plugin ervaart u de gemakkelijkste manier om een aangepaste header en footer voor uw website te "
-"maken met Elementor. Dat ook nog eens 100% GRATIS!"
-
 #: inc/class-hfe-settings-page.php:950
-msgid ""
-"Design beautiful layouts with simple drag & drop and display them at desired location with powerful target controls. "
-"The plugin comes with inbuilt Elementor widgets that offer essential features to build header and footer. It's a "
-"lightweight plugin that works seamlessly with all themes and backed up by 24/7 support."
-msgstr ""
-"Ontwerp prachtige lay-outs met eenvoudige slepen en neerzetten en toon ze op de gewenste locatie met krachtige "
-"doelbedieningen. De plugin wordt geleverd met ingebouwde Elementor-widgets die essentiële functies bieden om header en "
-"footer te bouwen. Het is een lichte plugin die naadloos werkt met alle thema's en wordt ondersteund door 24/7 "
-"ondersteuning."
+msgid "With this awesome plugin, experience the easiest way to create a customized header and footer for your website with Elementor. That too 100% FREE!"
+msgstr "Met deze geweldige plugin ervaart u de gemakkelijkste manier om een aangepaste header en footer voor uw website te maken met Elementor. Dat ook nog eens 100% GRATIS!"
 
 #: inc/class-hfe-settings-page.php:952
-msgid ""
-"Trusted by more than 1+ Million users, Elementor Header & Footer Builder is a modern way to build advanced navigation "
-"for your website."
-msgstr ""
-"Vertrouwd door meer dan 1+ miljoen gebruikers, is Elementor Header & Footer Builder een moderne manier om geavanceerde "
-"navigatie voor uw website te bouwen."
+msgid "Design beautiful layouts with simple drag & drop and display them at desired location with powerful target controls. The plugin comes with inbuilt Elementor widgets that offer essential features to build header and footer. It's a lightweight plugin that works seamlessly with all themes and backed up by 24/7 support."
+msgstr "Ontwerp prachtige lay-outs met eenvoudige slepen en neerzetten en toon ze op de gewenste locatie met krachtige doelbedieningen. De plugin wordt geleverd met ingebouwde Elementor-widgets die essentiële functies bieden om header en footer te bouwen. Het is een lichte plugin die naadloos werkt met alle thema's en wordt ondersteund door 24/7 ondersteuning."
 
-#: inc/class-hfe-settings-page.php:955
+#: inc/class-hfe-settings-page.php:954
+msgid "Trusted by more than 1+ Million users, Elementor Header & Footer Builder is a modern way to build advanced navigation for your website."
+msgstr "Vertrouwd door meer dan 1+ miljoen gebruikers, is Elementor Header & Footer Builder een moderne manier om geavanceerde navigatie voor uw website te bouwen."
+
 #. translators: %s: theme name
-msgid ""
-"This plugin is brought to you by the same team behind the popular WordPress theme %s and a series of Ultimate Addons "
-"plugins."
-msgstr ""
-"Deze plugin is ontwikkeld door hetzelfde team achter het populaire WordPress-thema %s en een reeks Ultimate "
-"Addons-plugins."
+#: inc/class-hfe-settings-page.php:957
+msgid "This plugin is brought to you by the same team behind the popular WordPress theme %s and a series of Ultimate Addons plugins."
+msgstr "Deze plugin is ontwikkeld door hetzelfde team achter het populaire WordPress-thema %s en een reeks Ultimate Addons-plugins."
 
-#: inc/class-hfe-settings-page.php:961
+#: inc/class-hfe-settings-page.php:963
 msgid "Team photo"
 msgstr "Teamfoto"
 
-#: inc/class-hfe-settings-page.php:963
+#: inc/class-hfe-settings-page.php:965
 msgid "Brainstorm Force Team"
 msgstr "Brainstorm Force Team"
 
-#: inc/class-hfe-settings-page.php:1008
 #. translators: %s - addon status label.
+#: inc/class-hfe-settings-page.php:1010
 msgid "%1$s %3$s %2$s"
 msgstr "%1$s %3$s %2$s"
 
-#: inc/class-hfe-settings-page.php:1025
 #. translators: %s - addon status label.
+#: inc/class-hfe-settings-page.php:1027
 msgid "Status: %s"
 msgstr "Status: %s"
 
-#: inc/class-hfe-settings-page.php:1044
+#: inc/class-hfe-settings-page.php:1046
 msgid "WordPress.org"
 msgstr "WordPress.org"
 
-#: inc/class-hfe-settings-page.php:1109
+#: inc/class-hfe-settings-page.php:1111
 msgid "Not Installed"
 msgstr "Niet Geïnstalleerd"
 
-#: inc/class-hfe-settings-page.php:1156
+#: inc/class-hfe-settings-page.php:1158
 #: inc/widgets-manager/base/widgets-config.php:1008
 msgid "Starter Templates"
 msgstr "Starter Templates"
 
-#: inc/class-hfe-settings-page.php:1157
-msgid ""
-"A popular templates plugin that provides an extensive library of professional and fully customizable 600+ ready website "
-"and templates. More than 1+ Million websites have built with this plugin."
-msgstr ""
-"Een populaire templates-plugin die een uitgebreide bibliotheek biedt van professionele en volledig aanpasbare 600+ "
-"kant-en-klare websites en sjablonen. Meer dan 1+ miljoen websites zijn met deze plugin gebouwd."
+#: inc/class-hfe-settings-page.php:1159
+msgid "A popular templates plugin that provides an extensive library of professional and fully customizable 600+ ready website and templates. More than 1+ Million websites have built with this plugin."
+msgstr "Een populaire templates-plugin die een uitgebreide bibliotheek biedt van professionele en volledig aanpasbare 600+ kant-en-klare websites en sjablonen. Meer dan 1+ miljoen websites zijn met deze plugin gebouwd."
 
 #: inc/class-hfe-settings-page.php:102
-#: inc/class-hfe-settings-page.php:890
-#: inc/class-hfe-settings-page.php:1168
+#: inc/class-hfe-settings-page.php:892
+#: inc/class-hfe-settings-page.php:1170
 msgid "Ultimate Addons for Elementor"
 msgstr "Ultimate Addons voor Elementor"
 
-#: inc/class-hfe-settings-page.php:1169
-msgid ""
-"It’s a collection of 40+ unique, creative, and optimized Elementor widgets with 100+ readymade templates. Trusted by "
-"more than 600+ K web professionals. It’s a #1 toolkit for Elementor Page Builder."
-msgstr ""
-"Het is een verzameling van 40+ unieke, creatieve en geoptimaliseerde Elementor-widgets met 100+ kant-en-klare "
-"sjablonen. Vertrouwd door meer dan 600+ K webprofessionals. Het is een #1 toolkit voor Elementor Page Builder."
+#: inc/class-hfe-settings-page.php:1171
+msgid "It’s a collection of 40+ unique, creative, and optimized Elementor widgets with 100+ readymade templates. Trusted by more than 600+ K web professionals. It’s a #1 toolkit for Elementor Page Builder."
+msgstr "Het is een verzameling van 40+ unieke, creatieve en geoptimaliseerde Elementor-widgets met 100+ kant-en-klare sjablonen. Vertrouwd door meer dan 600+ K webprofessionals. Het is een #1 toolkit voor Elementor Page Builder."
 
-#: inc/class-hfe-settings-page.php:1238
+#: inc/class-hfe-settings-page.php:1240
 msgid "Go to HFE Settings page"
 msgstr "Ga naar de HFE-instellingenpagina"
 
@@ -734,20 +685,20 @@ msgstr "Regel Toevoegen"
 msgid "Select"
 msgstr "Selecteer"
 
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:720
 #. translators: %s post label
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:720
 msgid "All %s"
 msgstr "Alle %s"
 
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:725
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:734
 #. translators: %s post label
 #. translators: %s taxonomy label
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:725
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:734
 msgid "All %s Archive"
 msgstr "Alle %s Archief"
 
-#: inc/lib/target-rule/class-astra-target-rules-fields.php:1513
 #. translators: %s post title.
+#: inc/lib/target-rule/class-astra-target-rules-fields.php:1513
 msgid "The same display setting is already exist in %s post/s."
 msgstr "Dezelfde weergave-instelling bestaat al in %s bericht(en)."
 
@@ -1183,19 +1134,15 @@ msgstr "Navigatiemenu"
 msgid "Menu"
 msgstr "Menu"
 
-#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:189
 #. translators: %s Nav menu URL
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:189
 msgid "Go to the <a href=\"%s\" target=\"_blank\">Menus screen</a> to manage your menus."
 msgstr "Ga naar het <a href=\"%s\" target=\"_blank\">Menu scherm</a> om je menu's te beheren."
 
-#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:198
 #. translators: %s Nav menu URL
-msgid ""
-"<strong>There are no menus in your site.</strong><br>Go to the <a href=\"%s\" target=\"_blank\">Menus screen</a> to "
-"create one."
-msgstr ""
-"<strong>Er zijn geen menu's op je site.</strong><br>Ga naar het <a href=\"%s\" target=\"_blank\">Menu scherm</a> om er "
-"een te maken."
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:198
+msgid "<strong>There are no menus in your site.</strong><br>Go to the <a href=\"%s\" target=\"_blank\">Menus screen</a> to create one."
+msgstr "<strong>Er zijn geen menu's op je site.</strong><br>Ga naar het <a href=\"%s\" target=\"_blank\">Menu scherm</a> om er een te maken."
 
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:207
 msgid "Last Menu Item"
@@ -1430,9 +1377,7 @@ msgstr "Dropdown"
 
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1110
 msgid "<b>Note:</b> On desktop, below style options will apply to the submenu. On mobile, this will apply to the entire menu."
-msgstr ""
-"<b>Opmerking:</b> Op desktop zullen onderstaande stijlopties van toepassing zijn op het submenu. Op mobiel zal dit van "
-"toepassing zijn op het gehele menu."
+msgstr "<b>Opmerking:</b> Op desktop zullen onderstaande stijlopties van toepassing zijn op het submenu. Op mobiel zal dit van toepassing zijn op het gehele menu."
 
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1320
 msgid "Dropdown Width (px)"
@@ -1552,8 +1497,8 @@ msgstr "Pagina Titel"
 msgid "Title"
 msgstr "Titel"
 
-#: inc/widgets-manager/widgets/page-title/page-title.php:117
 #. translators: %1$s doc link
+#: inc/widgets-manager/widgets/page-title/page-title.php:117
 msgid "<b>Note:</b> Archive page title will be visible on frontend."
 msgstr "<b>Opmerking:</b> Archiefpagina titel zal zichtbaar zijn op de frontend."
 
@@ -1735,8 +1680,8 @@ msgstr "Bovenmarge van bijschrift"
 msgid "Helpful Information"
 msgstr "Nuttige informatie"
 
-#: inc/widgets-manager/widgets/retina/retina.php:628
 #. translators: %1$s doc link
+#: inc/widgets-manager/widgets/retina/retina.php:628
 msgid "%1$s Getting started article » %2$s"
 msgstr "%1$s Aan de slag artikel » %2$s"
 
@@ -1850,47 +1795,41 @@ msgstr "Site-titel"
 msgid "General"
 msgstr "Algemeen"
 
-#: header-footer-elementor.php
 #. Author URI of the plugin
+#: header-footer-elementor.php
 msgid "https://www.brainstormforce.com/"
 msgstr "https://www.brainstormforce.com/"
 
-#: header-footer-elementor.php
 #. Plugin URI of the plugin
+#: header-footer-elementor.php
 msgid "https://wordpress.org/plugins/header-footer-elementor/"
 msgstr "https://wordpress.org/plugins/header-footer-elementor/"
 
-#: header-footer-elementor.php
 #. Description of the plugin
-msgid ""
-"Formerly known as \"Elementor Header & Footer Builder\", this powerful plugin allows you to create custom headers and "
-"footers with Elementor and display them in selected locations. You can also create custom Elementor blocks and place "
-"them anywhere on your website using a shortcode."
-msgstr ""
-"Voorheen bekend als \"Elementor Header & Footer Builder\", stelt deze krachtige plugin je in staat om aangepaste kop- "
-"en voetteksten te maken met Elementor en deze op geselecteerde locaties weer te geven. Je kunt ook aangepaste "
-"Elementor-blokken maken en deze overal op je website plaatsen met behulp van een shortcode."
-
 #: header-footer-elementor.php
+msgid "Formerly known as \"Elementor Header & Footer Builder\", this powerful plugin allows you to create custom headers and footers with Elementor and display them in selected locations. You can also create custom Elementor blocks and place them anywhere on your website using a shortcode."
+msgstr "Voorheen bekend als \"Elementor Header & Footer Builder\", stelt deze krachtige plugin je in staat om aangepaste kop- en voetteksten te maken met Elementor en deze op geselecteerde locaties weer te geven. Je kunt ook aangepaste Elementor-blokken maken en deze overal op je website plaatsen met behulp van een shortcode."
+
 #. Author of the plugin
+#: header-footer-elementor.php
 msgid "Brainstorm Force"
 msgstr "Brainstorm Force"
 
 #: admin/class-hfe-admin.php:272
-#: inc/class-hfe-settings-page.php:372
+#: inc/class-hfe-settings-page.php:374
 msgid "View All"
 msgstr "Bekijk alles"
 
-#: admin/class-hfe-admin.php:319
-#: admin/class-hfe-admin.php:320
+#: admin/class-hfe-admin.php:323
+#: admin/class-hfe-admin.php:324
 msgid "Create New"
 msgstr "Nieuwe maken"
 
-#: admin/class-hfe-admin.php:329
+#: admin/class-hfe-admin.php:333
 msgid "Header/Footer Builder"
 msgstr "Kop-/Voettekst Builder"
 
-#: admin/class-hfe-admin.php:330
+#: admin/class-hfe-admin.php:334
 #: build/main.js:2
 #: src/Components/NavMenu.js:150
 #: build/main.js:51025
@@ -1902,36 +1841,23 @@ msgid "Hello! Seems like you have used Ultimate Addons for Elementor to build th
 msgstr "Hallo! Het lijkt erop dat je Ultimate Addons voor Elementor hebt gebruikt om deze website te bouwen — Hartelijk dank!"
 
 #: inc/class-header-footer-elementor.php:224
-msgid ""
-"Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help "
-"other users make a comfortable decision while choosing the Ultimate Addons for Elementor."
-msgstr ""
-"Zou je ons een GROTE gunst kunnen doen en het een 5-sterren beoordeling op WordPress kunnen geven? Dit zou onze "
-"motivatie verhogen en andere gebruikers helpen een comfortabele beslissing te nemen bij het kiezen van de Ultimate "
-"Addons voor Elementor."
+msgid "Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Ultimate Addons for Elementor."
+msgstr "Zou je ons een GROTE gunst kunnen doen en het een 5-sterren beoordeling op WordPress kunnen geven? Dit zou onze motivatie verhogen en andere gebruikers helpen een comfortabele beslissing te nemen bij het kiezen van de Ultimate Addons voor Elementor."
 
+#. translators: %s: html tags
 #: inc/class-header-footer-elementor.php:294
-#. translators: %s: html tags
 msgid "The %1$sUltimate Addons for Elementor%2$s plugin requires %1$sElementor%2$s plugin installed & activated."
-msgstr ""
-"De %1$sUltimate Addons voor Elementor%2$s plugin vereist dat de %1$sElementor%2$s plugin is geïnstalleerd en "
-"geactiveerd."
+msgstr "De %1$sUltimate Addons voor Elementor%2$s plugin vereist dat de %1$sElementor%2$s plugin is geïnstalleerd en geactiveerd."
 
+#. translators: %s: html tags
 #: inc/class-header-footer-elementor.php:330
-#. translators: %s: html tags
-msgid ""
-"The %1$sUltimate Addons for Elementor%2$s plugin has stopped working because you are using an older version of "
-"%1$sElementor%2$s plugin."
-msgstr ""
-"De %1$sUltimate Addons voor Elementor%2$s plugin is gestopt met werken omdat je een oudere versie van de "
-"%1$sElementor%2$s plugin gebruikt."
+msgid "The %1$sUltimate Addons for Elementor%2$s plugin has stopped working because you are using an older version of %1$sElementor%2$s plugin."
+msgstr "De %1$sUltimate Addons voor Elementor%2$s plugin is gestopt met werken omdat je een oudere versie van de %1$sElementor%2$s plugin gebruikt."
 
-#: inc/class-header-footer-elementor.php:370
 #. translators: %s: html tags
+#: inc/class-header-footer-elementor.php:370
 msgid "Thank you for installing %1$s Ultimate Addons for Elementor %2$s Plugin! Click here to %3$sget started. %4$s"
-msgstr ""
-"Bedankt voor het installeren van de %1$s Ultimate Addons voor Elementor %2$s Plugin! Klik hier om %3$saan de slag te "
-"gaan. %4$s"
+msgstr "Bedankt voor het installeren van de %1$s Ultimate Addons voor Elementor %2$s Plugin! Klik hier om %3$saan de slag te gaan. %4$s"
 
 #: inc/class-hfe-settings-page.php:153
 msgid "You do not have permission to access this page."
@@ -1951,29 +1877,21 @@ msgstr "Terugrollen naar Vorige Versie"
 msgid "Error occurred, The version selected is invalid. Try selecting different version."
 msgstr "Er is een fout opgetreden, de geselecteerde versie is ongeldig. Probeer een andere versie te selecteren."
 
-#: inc/class-hfe-settings-page.php:456
-msgid ""
-"The Ultimate Addons for Elementor plugin need compatibility with your current theme to work "
-"smoothly.</br></br>Following are two methods that enable theme support for the plugin.</br></br>Method 1 is selected by "
-"default and that works fine almost will all themes. In case, you face any issue with the header or footer template, try "
-"choosing Method 2."
-msgstr ""
-"De Ultimate Addons voor Elementor plugin heeft compatibiliteit met je huidige thema nodig om soepel te "
-"werken.</br></br>Hieronder staan twee methoden die thema-ondersteuning voor de plugin mogelijk maken.</br></br>Methode "
-"1 is standaard geselecteerd en werkt goed met bijna alle thema's. Als je problemen ondervindt met de kop- of "
-"voetteksttemplate, probeer dan Methode 2 te kiezen."
+#: inc/class-hfe-settings-page.php:458
+msgid "The Ultimate Addons for Elementor plugin need compatibility with your current theme to work smoothly.</br></br>Following are two methods that enable theme support for the plugin.</br></br>Method 1 is selected by default and that works fine almost will all themes. In case, you face any issue with the header or footer template, try choosing Method 2."
+msgstr "De Ultimate Addons voor Elementor plugin heeft compatibiliteit met je huidige thema nodig om soepel te werken.</br></br>Hieronder staan twee methoden die thema-ondersteuning voor de plugin mogelijk maken.</br></br>Methode 1 is standaard geselecteerd en werkt goed met bijna alle thema's. Als je problemen ondervindt met de kop- of voetteksttemplate, probeer dan Methode 2 te kiezen."
 
-#: inc/class-hfe-settings-page.php:526
-#: inc/class-hfe-settings-page.php:538
+#: inc/class-hfe-settings-page.php:528
+#: inc/class-hfe-settings-page.php:540
 msgid "UAE Lite"
 msgstr "VAE Lite"
 
-#: inc/class-hfe-settings-page.php:527
+#: inc/class-hfe-settings-page.php:529
 #: inc/widgets-manager/class-widgets-loader.php:168
 msgid "UAE"
 msgstr "VAE"
 
-#: inc/class-hfe-settings-page.php:539
+#: inc/class-hfe-settings-page.php:541
 #: build/main.js:2
 #: src/Components/NavMenu.js:130
 #: build/main.js:51005
@@ -2576,8 +2494,8 @@ msgstr "Caldera Form Styler"
 msgid "Style and enhance Caldera Forms to fit your site."
 msgstr "Stijl en verbeter Caldera Forms om bij uw site te passen."
 
-#: inc/widgets-manager/base/widgets-config.php:970
 #. translators: %s: theme name
+#: inc/widgets-manager/base/widgets-config.php:970
 msgid "Free & Fastest WordPress Theme."
 msgstr "Gratis & Snelste WordPress Thema."
 
@@ -2780,10 +2698,10 @@ msgstr "Datumformaat"
 msgid "Custom Date Format"
 msgstr "Aangepast datumformaat"
 
-#: inc/widgets-manager/widgets/post-info/post-info.php:177
-#: inc/widgets-manager/widgets/post-info/post-info.php:214
 #. translators: %s: Allowed data letters (see: http://php.net/manual/en/function.date.php).
 #. translators: %s: Allowed time letters (see: http://php.net/manual/en/function.time.php).
+#: inc/widgets-manager/widgets/post-info/post-info.php:177
+#: inc/widgets-manager/widgets/post-info/post-info.php:214
 msgid "Use the letters: %s"
 msgstr "Gebruik de letters: %s"
 
@@ -2823,9 +2741,9 @@ msgstr "Geen reacties"
 msgid "One Comment"
 msgstr "Één reactie"
 
+#. translators: %s: Number of comments.
 #: inc/widgets-manager/widgets/post-info/post-info.php:314
 #: inc/widgets-manager/widgets/post-info/post-info.php:907
-#. translators: %s: Number of comments.
 msgid "%s Comments"
 msgstr "%s reacties"
 
@@ -3013,12 +2931,8 @@ msgstr "Welkom bij Ultimate Addons voor Elementor!"
 #: build/main.js:2
 #: src/Components/Dashboard/WelcomeContainer.js:29
 #: build/main.js:51930
-msgid ""
-"We're excited to help you supercharge your website-building experience. Effortlessly design stunning websites with our "
-"comprehensive range of free and premium widgets and features."
-msgstr ""
-"We zijn enthousiast om je te helpen je website-bouwervaring te verbeteren. Ontwerp moeiteloos verbluffende websites met "
-"ons uitgebreide assortiment gratis en premium widgets en functies."
+msgid "We're excited to help you supercharge your website-building experience. Effortlessly design stunning websites with our comprehensive range of free and premium widgets and features."
+msgstr "We zijn enthousiast om je te helpen je website-bouwervaring te verbeteren. Ontwerp moeiteloos verbluffende websites met ons uitgebreide assortiment gratis en premium widgets en functies."
 
 #: build/main.js:2
 #: src/Components/Dashboard/WelcomeContainer.js:58
@@ -3303,13 +3217,8 @@ msgstr "Bouw uw website sneller met onze vooraf gebouwde sjablonen"
 #: build/main.js:2
 #: src/Components/Templates/ExploreTemplates.jsx:205
 #: build/main.js:53333
-msgid ""
-"Stop building your site from scratch. Use our professional templates for your stunning website.It is easy to customize "
-"and completely responsive. Explore hundreds of designs and bring your vision to life in no time."
-msgstr ""
-"Stop met het bouwen van uw site vanaf nul. Gebruik onze professionele sjablonen voor uw verbluffende website. Het is "
-"eenvoudig aan te passen en volledig responsief. Verken honderden ontwerpen en breng uw visie in een mum van tijd tot "
-"leven."
+msgid "Stop building your site from scratch. Use our professional templates for your stunning website.It is easy to customize and completely responsive. Explore hundreds of designs and bring your vision to life in no time."
+msgstr "Stop met het bouwen van uw site vanaf nul. Gebruik onze professionele sjablonen voor uw verbluffende website. Het is eenvoudig aan te passen en volledig responsief. Verken honderden ontwerpen en breng uw visie in een mum van tijd tot leven."
 
 #: build/main.js:2
 #: src/Components/Templates/ExploreTemplates.jsx:81
@@ -3346,12 +3255,8 @@ msgstr "Optie 1 (Aanbevolen)"
 #: src/Components/Settings/ThemeSupport.jsx:16
 #: build/main.js:53685
 #: build/main.js:53691
-msgid ""
-"This option will automatically replace your theme's header and footer files with custom templates from the plugin. It "
-"works with most themes and is selected by default."
-msgstr ""
-"Deze optie vervangt automatisch de header- en footerbestanden van uw thema door aangepaste sjablonen van de plugin. Het "
-"werkt met de meeste thema's en is standaard geselecteerd."
+msgid "This option will automatically replace your theme's header and footer files with custom templates from the plugin. It works with most themes and is selected by default."
+msgstr "Deze optie vervangt automatisch de header- en footerbestanden van uw thema door aangepaste sjablonen van de plugin. Het werkt met de meeste thema's en is standaard geselecteerd."
 
 #: build/main.js:172
 #: src/Components/Settings/ThemeSupport.jsx:15
@@ -3382,12 +3287,8 @@ msgstr "Selecteer optie om thema-ondersteuning toe te voegen"
 #: build/main.js:172
 #: src/Components/Settings/ThemeSupport.jsx:97
 #: build/main.js:53772
-msgid ""
-"To ensure compatibility between the header/footer and your theme, please choose one of the following options to enable "
-"theme support:"
-msgstr ""
-"Om compatibiliteit tussen de header/footer en uw thema te waarborgen, kies een van de volgende opties om "
-"thema-ondersteuning in te schakelen:"
+msgid "To ensure compatibility between the header/footer and your theme, please choose one of the following options to enable theme support:"
+msgstr "Om compatibiliteit tussen de header/footer en uw thema te waarborgen, kies een van de volgende opties om thema-ondersteuning in te schakelen:"
 
 #: build/main.js:172
 #: src/Components/Settings/ThemeSupport.jsx:140
@@ -3399,9 +3300,7 @@ msgstr "Opmerking:"
 #: src/Components/Settings/ThemeSupport.jsx:140
 #: build/main.js:53815
 msgid "If neither option works, please contact your theme author to add support for this plugin."
-msgstr ""
-"Als geen van beide opties werkt, neem dan contact op met uw thema-auteur om ondersteuning voor deze plugin toe te "
-"voegen."
+msgstr "Als geen van beide opties werkt, neem dan contact op met uw thema-auteur om ondersteuning voor deze plugin toe te voegen."
 
 #: build/main.js:172
 #: src/Components/Settings/Settings.jsx:69
@@ -3681,8 +3580,8 @@ msgstr "Krijg exclusieve functies en ongeëvenaarde prestaties."
 msgid "Upgrade now"
 msgstr "Upgrade nu"
 
-#: header-footer-elementor.php
 #. Plugin Name of the plugin
+#: header-footer-elementor.php
 msgid "Ultimate Addons for Elementor Lite"
 msgstr "Ultimate Addons voor Elementor Lite"
 
@@ -3769,12 +3668,8 @@ msgid "How likely are you to recommend Ultimate Addons for Elementor to your fri
 msgstr "Hoe waarschijnlijk is het dat u Ultimate Addons voor Elementor aanbeveelt aan uw vrienden of collega's?"
 
 #: inc/class-hfe-settings-page.php:105
-msgid ""
-"Could you please do us a favor and give us a 5-star rating on Trustpilot? It would help others choose Ultimate Addons "
-"for Elementor with confidence. Thank you!"
-msgstr ""
-"Zou u ons een plezier willen doen en ons een 5-sterrenbeoordeling op Trustpilot willen geven? Het zou anderen helpen om "
-"Ultimate Addons voor Elementor met vertrouwen te kiezen. Dank u!"
+msgid "Could you please do us a favor and give us a 5-star rating on Trustpilot? It would help others choose Ultimate Addons for Elementor with confidence. Thank you!"
+msgstr "Zou u ons een plezier willen doen en ons een 5-sterrenbeoordeling op Trustpilot willen geven? Het zou anderen helpen om Ultimate Addons voor Elementor met vertrouwen te kiezen. Dank u!"
 
 #: inc/class-hfe-settings-page.php:108
 msgid "Thank you for your feedback"
