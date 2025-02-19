@@ -657,15 +657,26 @@
 	function _handleSinglePageMenu( id, layout ) {
 		$( '.elementor-element-' + id + ' ul.hfe-nav-menu li a' ).on(
 			'click',
-			function () {
+			function ( event ) {
 				var $this = $( this );
 				var link  = $this.attr( 'href' );
 				var linkValue = '';
-				if ( link.includes( '#' ) ) {
+				
+				// Optimized code to redirect to submenu-ids on traverse.
+				if ( link.includes( '#' )  && link.charAt(0) === '#' ) { // Check if the link is an anchor link.
+					event.preventDefault();
 					var index     = link.indexOf( '#' );
 					linkValue = link.slice( index + 1 );
 				}
 				if ( linkValue.length > 0 ) {
+					var targetSection = $( '#' + linkValue );
+
+					if ( targetSection.length ) {	// Check if the target section exists.
+						$('html, body').animate({
+							scrollTop: targetSection.offset().top
+						}, 800); 
+					}
+
 					if ( 'expandible' == layout ) {
 						$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).trigger( "click" );
 						if ($this.hasClass( 'hfe-sub-menu-item' )) {
