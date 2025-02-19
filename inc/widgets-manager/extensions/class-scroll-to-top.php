@@ -285,7 +285,7 @@ class Scroll_To_Top {
 			}
 		}
 
-		if ( isset( $extensions_settings) && isset( $extensions_settings['kit_settings'][ $setting_id ] ) ) {
+		if ( isset( $extensions_settings ) && isset( $extensions_settings['kit_settings'][ $setting_id ] ) ) {
 			$return = $extensions_settings['kit_settings'][ $setting_id ];
 		}
 
