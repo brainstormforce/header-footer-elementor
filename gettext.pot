@@ -122,7 +122,7 @@ msgid "Breadcrumbs"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:218
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:200
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:178
 #: src/Components/NavMenu.js:253
 msgid "Free"
 msgstr ""
@@ -388,35 +388,35 @@ msgstr ""
 msgid "Extend Your Website"
 msgstr ""
 
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:144
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:122
 msgid "Activating.."
 msgstr ""
 
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:156
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:134
 msgid "Activated"
 msgstr ""
 
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:173
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:151
 msgid "Activate"
 msgstr ""
 
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:222
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:200
 msgid "Visit Site"
 msgstr ""
 
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:234
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:212
 msgid "Activate Theme"
 msgstr ""
 
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:238
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:216
 msgid "Are you sure you want to switch your current theme to Astra?"
 msgstr ""
 
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:243
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:221
 msgid "Yes"
 msgstr ""
 
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:246
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:224
 msgid "Close"
 msgstr ""
 
@@ -428,15 +428,15 @@ msgstr ""
 msgid "Installed"
 msgstr ""
 
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:91
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:90
 msgid "Install"
 msgstr ""
 
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:94
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:93
 msgid "Theme Installation failed, Please try again later."
 msgstr ""
 
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:95
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:94
 msgid "Plugin Installation failed, Please try again later."
 msgstr ""
 
@@ -538,7 +538,7 @@ msgid ""
 msgstr ""
 
 #: src/Components/Dashboard/WelcomeContainer.js:58
-#: src/Components/Onboarding/Build.jsx:160
+#: src/Components/Onboarding/Build.jsx:159
 msgid "Create Header/Footer"
 msgstr ""
 
@@ -554,15 +554,15 @@ msgstr ""
 msgid "Read Documentation"
 msgstr ""
 
-#: src/Components/Dashboard/WidgetsOnboarding.jsx:110
+#: src/Components/Dashboard/WidgetsOnboarding.jsx:108
 msgid "Back"
 msgstr ""
 
-#: src/Components/Dashboard/WidgetsOnboarding.jsx:120
+#: src/Components/Dashboard/WidgetsOnboarding.jsx:118
 msgid "Skip"
 msgstr ""
 
-#: src/Components/Dashboard/WidgetsOnboarding.jsx:133
+#: src/Components/Dashboard/WidgetsOnboarding.jsx:131
 msgid " Continue Setup"
 msgstr ""
 
@@ -630,61 +630,61 @@ msgstr ""
 msgid "What's New?"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:105
+#: src/Components/Onboarding/Build.jsx:104
 msgid "You're all set!🚀"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:108
+#: src/Components/Onboarding/Build.jsx:107
 msgid ""
 "Start creating headers, footers, or pages with UAE and take your website to "
 "the next level"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:114
+#: src/Components/Onboarding/Build.jsx:113
 msgid "Here’s how to get started:"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:118
+#: src/Components/Onboarding/Build.jsx:117
 msgid "Click on “Create” button"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:119
+#: src/Components/Onboarding/Build.jsx:118
 msgid ""
 "Choose the type of template you want to create and customize the selected "
 "option"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:120
+#: src/Components/Onboarding/Build.jsx:119
 msgid ""
 "Use the Elementor editor to customize your template according to your "
 "preferences using UAE widgets"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:121
+#: src/Components/Onboarding/Build.jsx:120
 msgid "Click “Publish” to make it live"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:185
+#: src/Components/Onboarding/Build.jsx:184
 msgid "Go To Dashboard"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:201
+#: src/Components/Onboarding/Build.jsx:200
 msgid "We have a special reward just for you!"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:204
+#: src/Components/Onboarding/Build.jsx:203
 msgid "Unlock your surprise now"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:218
+#: src/Components/Onboarding/Build.jsx:217
 msgid "Unlock My Surprise"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:233
+#: src/Components/Onboarding/Build.jsx:232
 msgid "Help make UAE Better"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:262
+#: src/Components/Onboarding/Build.jsx:261
 msgid ""
 "Help us improve by sharing anonymous data about your website setup. This "
 "includes non-sensitive info about plugins, themes, and settings, so we can "
@@ -692,21 +692,21 @@ msgid ""
 "Learn more in our privacy policy."
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:277
+#: src/Components/Onboarding/Build.jsx:276
 msgid "We have a special Reward just for you! 🎁"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:291
+#: src/Components/Onboarding/Build.jsx:290
 msgid ""
 "Enter your email address to get special offer that we have for you and stay "
 "updated on UAE’s latest news and updates."
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:295
+#: src/Components/Onboarding/Build.jsx:294
 msgid "Email Address"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:335
+#: src/Components/Onboarding/Build.jsx:334
 msgid "Submit Email"
 msgstr ""
 
@@ -714,12 +714,12 @@ msgstr ""
 msgid "Please enter a valid email address"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:67
+#: src/Components/Onboarding/Build.jsx:66
 #: src/Components/Settings/ThemeSupport.jsx:63
 msgid "Settings saved successfully!"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:72
+#: src/Components/Onboarding/Build.jsx:71
 #: src/Components/Settings/ThemeSupport.jsx:68
 msgid "Failed to save settings!"
 msgstr ""
@@ -848,46 +848,46 @@ msgid ""
 "to help troubleshoot the issue."
 msgstr ""
 
-#: src/Components/Templates/ExploreTemplates.jsx:156
+#: src/Components/Templates/ExploreTemplates.jsx:134
 msgid "Activating Starter Templates..."
 msgstr ""
 
-#: src/Components/Templates/ExploreTemplates.jsx:158
+#: src/Components/Templates/ExploreTemplates.jsx:136
 msgid "Activated Starter Templates"
 msgstr ""
 
-#: src/Components/Templates/ExploreTemplates.jsx:167
+#: src/Components/Templates/ExploreTemplates.jsx:145
 msgid "Activate Starter Templates"
+msgstr ""
+
+#: src/Components/Templates/ExploreTemplates.jsx:169
+msgid "Design Your Website in Minutes"
 msgstr ""
 
 #: src/Components/Templates/ExploreTemplates.jsx:17
 msgid "250+ templates for every niche"
 msgstr ""
 
-#: src/Components/Templates/ExploreTemplates.jsx:191
-msgid "Design Your Website in Minutes"
-msgstr ""
-
-#: src/Components/Templates/ExploreTemplates.jsx:200
+#: src/Components/Templates/ExploreTemplates.jsx:178
 msgid "Build your website faster using our prebuilt templates"
 msgstr ""
 
-#: src/Components/Templates/ExploreTemplates.jsx:205
+#: src/Components/Templates/ExploreTemplates.jsx:183
 msgid ""
 "Stop building your site from scratch. Use our professional templates for "
 "your stunning website.It is easy to customize and completely responsive. "
 "Explore hundreds of designs and bring your vision to life in no time."
 msgstr ""
 
+#: src/Components/Templates/ExploreTemplates.jsx:216
+msgid "Explore Templates"
+msgstr ""
+
 #: src/Components/Templates/ExploreTemplates.jsx:22
 msgid "Modern, timeless designs"
 msgstr ""
 
-#: src/Components/Templates/ExploreTemplates.jsx:238
-msgid "Explore Templates"
-msgstr ""
-
-#: src/Components/Templates/ExploreTemplates.jsx:249
+#: src/Components/Templates/ExploreTemplates.jsx:227
 msgid "Learn More"
 msgstr ""
 
@@ -907,7 +907,7 @@ msgstr ""
 msgid "Installed Starter Templates"
 msgstr ""
 
-#: src/Components/Templates/ExploreTemplates.jsx:94
+#: src/Components/Templates/ExploreTemplates.jsx:93
 msgid "Install Starter Templates"
 msgstr ""
 

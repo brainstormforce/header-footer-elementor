@@ -57,8 +57,6 @@ const WidgetsOnboarding = ({ widgets, updateCounter, setCurrentStep }) => {
                 body: formData,
             });
 
-            console.log({ response })
-
             if (response.success) {
                 widget.is_active = activateWidget;
                 setAllWidgetsData([...allWidgetsData]);

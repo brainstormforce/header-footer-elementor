@@ -46,7 +46,6 @@ const OnboardingBuild = ({ setCurrentStep }) => {
     const handleSwitchChange = async () => {
         const newIsActive = !isActive;
         setIsActive(newIsActive);
-        console.log(`Switch is now ${newIsActive ? 'active' : 'inactive'}`);
 
         try {
             const response = await fetch(hfe_admin_data.ajax_url, {
