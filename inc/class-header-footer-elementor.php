@@ -161,8 +161,65 @@ class Header_Footer_Elementor {
 			if ( ! class_exists( 'HFE_Utm_Analytics' ) ) {
 				require_once HFE_DIR . 'inc/lib/class-hfe-utm-analytics.php';
 			}
+			
+			add_filter( 'bsf_core_stats', [ $this, 'add_uae_analytics_data' ] );
+
+			$this->add_uae_analytics_data( [] );
 
 		}
+	}
+
+	/**
+	 * Callback function to add specific analytics data.
+	 *
+	 * @param array $stats_data existing stats_data.
+	 * @since x.x.x
+	 * @return array
+	 */
+	public function add_uae_analytics_data( $stats_data ) {
+		$stats_data['plugin_data']['header-footer-elementor']		= [
+			'free_version'  => HFE_VER,
+			'pro_version' => ( defined( 'UAEL_VERSION' ) ? UAEL_VERSION : '' ),
+			'site_language' => get_locale(),
+			'elementor_version' => ( defined( 'ELEMENTOR_VERSION' ) ? ELEMENTOR_VERSION : '' ),
+			'elementor_pro_version' => ( defined( 'ELEMENTOR_PRO_VERSION' ) ? ELEMENTOR_PRO_VERSION : '' ),
+		];
+
+		$hfe_posts = get_posts( [
+			'post_type'   => 'elementor-hf',
+			'post_status' => 'publish',
+			'numberposts' => -1
+		] );
+
+		$stats_data['plugin_data']['header-footer-elementor']['numeric_values'] = [
+			'total_hfe_posts'            => count( $hfe_posts ),
+		];
+
+		return $stats_data;
+	}
+
+	/**
+	 * Runs custom WP_Query to fetch data as per requirement
+	 *
+	 * @param array $meta_query meta query array for WP_Query.
+	 * @since x.x.x
+	 * @return int
+	 */
+	private function custom_wp_query_total_posts( $meta_query ) {
+
+		$args = [
+			'post_type'      => 'elementor-hf',
+			'post_status'    => 'publish',
+			'posts_per_page' => -1,
+			'meta_query'     => $meta_query, //phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query -- Meta query required as we need to fetch count of nested data.
+		];
+
+		$query       = new \WP_Query( $args );
+		$posts_count = $query->found_posts;
+
+		wp_reset_postdata();
+
+		return $posts_count;
 	}
 
 	private function render_admin_top_bar() {
