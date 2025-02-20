@@ -135,6 +135,7 @@ const Success = () => {
                                     className="flex"
                                     style={{ paddingTop: '3.5rem' }}
                                     src={`${hfeSettingsData.success_badge}`}
+                                    loading="lazy"
                                 />
                             </div>
                             <div className="p-6" style={{ paddingLeft: '2rem', paddingRight: '2rem' }}>

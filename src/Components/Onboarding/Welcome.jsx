@@ -30,6 +30,7 @@ const Welcome = ({ setCurrentStep }) => {
                     alt="Welcome"
                     className="w-full h-auto mb-6 mt-2"
                     src={`${hfeSettingsData.welcome_banner}`}
+                    loading="lazy"
                 />
                 <Button
                     iconPosition="right"
