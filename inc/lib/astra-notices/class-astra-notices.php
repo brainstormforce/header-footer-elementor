@@ -116,7 +116,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 			}
 
 			if ( false === wp_verify_nonce( $nonce, 'astra-notices' ) ) {
-				wp_send_json_error( esc_html_e( 'WordPress Nonce not validated.', 'header-footer-elementor' ) );
+				wp_send_json_error( esc_html_e( 'WordPress Nonce not validated.' ) );
 			}
 
 			// Valid inputs?

@@ -11,6 +11,7 @@ const Widgets = () => {
 
     const [allWidgetsData, setAllWidgetsData] = useState(null); // Initialize state.
     const [loading, setLoading] = useState(true);
+    const [showTooltip, setShowTooltip] = useState(true); // Add state for showTooltip
 
     useEffect(() => {
         const fetchSettings = () => {
@@ -117,7 +118,7 @@ const Widgets = () => {
                                 alignSelf="auto"
                                 className="text-wrap rounded-md shadow-container-item bg-background-primary p-4"
                             >
-                                <WidgetItem widget={widget} key={widget.id} updateCounter={0} />
+                                <WidgetItem widget={widget} showTooltip={showTooltip} key={widget.id} updateCounter={0} />
                             </Container.Item>
                         ))}
                     </Container>

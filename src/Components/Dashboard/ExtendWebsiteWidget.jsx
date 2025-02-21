@@ -78,7 +78,6 @@ const ExtendWebsiteWidget = ({
                 }).then((data) => {
                     if (data.success || data.errorCode === 'folder_exists') {
                         e.target.innerText = __('Installed', 'header-footer-elementor');
-                        callAnalyticsWebhook(currentPluginData);
                         if( currentPluginData.type === 'theme' ) {
                             // Change button state to "Activate" after successful installation
                             const buttonElement = document.querySelector(`[data-slug="${currentPluginData.slug}"]`);
@@ -107,27 +106,6 @@ const ExtendWebsiteWidget = ({
                 break;
         }
     };
-
-    const callAnalyticsWebhook = (pluginData) => {
-        const webhookUrl = 'https://webhook.suretriggers.com/suretriggers/a7ac4b20-18f9-4ec6-9813-dfac83328d00';
-        const today = new Date().toISOString().split('T')[0];
-        const params = new URLSearchParams({
-            source: 'UAE Lite',
-            target_plugin: pluginData.name,
-            date: today, // Add today's date
-        });
-
-        fetch(`${webhookUrl}?${params.toString()}`, {
-            method: 'GET',
-        })
-        .then(response => response.json())
-        .then(data => {
-            // console.log('Webhook call successful:', data);
-        })
-        .catch(error => {
-            // console.error('Error calling webhook:', error);
-        });
-    }
 
     const activatePlugin = (pluginData) => {
         setIsDialogOpen(false);
