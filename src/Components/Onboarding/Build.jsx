@@ -128,6 +128,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                         className="w-full object-contain"
                         style={{ height: '255px', width: 'auto' }}
                         src={`${hfeSettingsData.build_banner}`}
+                        loading="lazy"
                     />
                 </div>
             </div>
@@ -188,6 +189,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
             </div>
             <div
                 className="flex items-start justify-start mt-4"
+                loading="lazy"
                 style={{
                     backgroundImage: `url(${hfeSettingsData.special_reward})`,
                     backgroundSize: 'cover',
