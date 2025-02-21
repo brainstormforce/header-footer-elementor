@@ -192,7 +192,7 @@ class Header_Footer_Elementor {
 		] );
 
 		$stats_data['plugin_data']['header-footer-elementor']['numeric_values'] = [
-			'total_hfe_posts'            => count( $hfe_posts ),
+			'total_hfe_templates'            => count( $hfe_posts ),
 		];
 
 		return $stats_data;
