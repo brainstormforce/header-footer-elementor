@@ -47,7 +47,7 @@ class HFE_Admin {
 	 */
 	public static function load_admin() {
 		add_action( 'elementor/editor/after_enqueue_styles', __CLASS__ . '::hfe_admin_enqueue_scripts' );
-		add_action( 'admin_head', __CLASS__ . '::hfe_admin_enqueue_scripts' );		
+		add_action( 'admin_head', __CLASS__ . '::hfe_admin_enqueue_scripts' );      
 	}
 
 	/**
@@ -107,24 +107,24 @@ class HFE_Admin {
 
 
 
-/**
- * Hide admin notices on the custom settings page.
- *
- * @since x.x.x
- * @return void
- */
-public static function hide_admin_notices() {
-    $screen = get_current_screen();
-    $pages_to_hide_notices = array(
-        'edit-elementor-hf',     // Edit screen for elementor-hf post type
-        'elementor-hf',          // New post screen for elementor-hf post type
-    );
+	/**
+	 * Hide admin notices on the custom settings page.
+	 *
+	 * @since x.x.x
+	 * @return void
+	 */
+	public static function hide_admin_notices() {
+		$screen                = get_current_screen();
+		$pages_to_hide_notices = [
+			'edit-elementor-hf',     // Edit screen for elementor-hf post type.
+			'elementor-hf',          // New post screen for elementor-hf post type.
+		];
 
-    if ( in_array( $screen->id, $pages_to_hide_notices ) || 'toplevel_page_hfe' === $screen->id ) {
-        remove_all_actions( 'admin_notices' );
-        remove_all_actions( 'all_admin_notices' );
-    }
-}
+		if ( in_array( $screen->id, $pages_to_hide_notices ) || 'toplevel_page_hfe' === $screen->id ) {
+			remove_all_actions( 'admin_notices' );
+			remove_all_actions( 'all_admin_notices' );
+		}
+	}
 	
 	/**
 	 * Script for Elementor Pro full site editing support.
@@ -288,19 +288,19 @@ public static function hide_admin_notices() {
 			'menu_icon'           => 'dashicons-editor-kitchensink',
 			'supports'            => [ 'title', 'thumbnail', 'elementor' ],
 			'menu_position'       => 5,
-			'capabilities'        => array(
-				'edit_post'          		=> 'manage_options',
-				'read_post'          		=> 'read',
-				'delete_post'        		=> 'manage_options',
-				'edit_posts'         		=> 'manage_options',
-				'edit_others_posts'  		=> 'manage_options',
-				'publish_posts'      		=> 'manage_options',
-				'read_private_posts' 		=> 'manage_options',
-				'delete_posts'       		=> 'manage_options',
-				'delete_others_posts'		=> 'manage_options',
-				'delete_private_posts' 		=> 'manage_options',
-				'delete_published_posts' 	=> 'manage_options',
-			),
+			'capabilities'        => [
+				'edit_post'              => 'manage_options',
+				'read_post'              => 'read',
+				'delete_post'            => 'manage_options',
+				'edit_posts'             => 'manage_options',
+				'edit_others_posts'      => 'manage_options',
+				'publish_posts'          => 'manage_options',
+				'read_private_posts'     => 'manage_options',
+				'delete_posts'           => 'manage_options',
+				'delete_others_posts'    => 'manage_options',
+				'delete_private_posts'   => 'manage_options',
+				'delete_published_posts' => 'manage_options',
+			],
 		];
 
 		register_post_type( 'elementor-hf', $args );

@@ -17,7 +17,8 @@ const processQueue = () => {
 
 const WidgetItem = ({
     widget,
-    updateCounter
+    updateCounter,
+    showTooltip
 }) => {
     const {
         id,
@@ -63,7 +64,7 @@ const WidgetItem = ({
             } else if (data.error) {
             }
         } catch (err) {
-            
+
         } finally {
             setIsLoading(false);  // Always stop the loading spinner
             processQueue();
@@ -132,32 +133,34 @@ const WidgetItem = ({
                             {__('View Demo', 'header-footer-elementor')}
                         </a>
                     )}
-                    <div className={`${!demo_url ? 'hfe-tooltip-wrap' : ''}`}>
-                        <Tooltip
-                            arrow
-                            content={
-                                <div>
-                                    <span className='font-semibold block mb-2'>{title}</span>
-                                    <span className='block mb-2'>{description}</span>
-                                    {doc_url && (
-                                        <a href={doc_url} target="_blank" rel="noopener noreferrer" className='cursor-pointer' style={{ color: '#B498E5', textDecoration: 'none' }}>
-                                            <FileText style={{ color: '#B498E5', width: '11px', height: '11px', marginRight: '3px' }} />
-                                            {__('Read Documentation', 'header-footer-elementor')}
-                                        </a>
-                                    )}
-                                </div>
-                            }
-                            placement="bottom"
-                            title=""
-                            triggers={[
-                                'click'
-                            ]}
-                            variant="dark"
-                            size="xs"
-                        >
-                            <InfoIcon className='h-5 w-5' size={18} color="#A0A5B2" />
-                        </Tooltip>
-                    </div>
+                    {showTooltip && (
+                        <div className={`${!demo_url ? 'hfe-tooltip-wrap' : ''}`}>
+                            <Tooltip
+                                arrow
+                                content={
+                                    <div>
+                                        <span className='font-semibold block mb-2'>{title}</span>
+                                        <span className='block mb-2'>{description}</span>
+                                        {doc_url && (
+                                            <a href={doc_url} target="_blank" rel="noopener noreferrer" className='cursor-pointer' style={{ color: '#B498E5', textDecoration: 'none' }}>
+                                                <FileText style={{ color: '#B498E5', width: '11px', height: '11px', marginRight: '3px' }} />
+                                                {__('Read Documentation', 'header-footer-elementor')}
+                                            </a>
+                                        )}
+                                    </div>
+                                }
+                                placement="bottom"
+                                title=""
+                                triggers={[
+                                    'click'
+                                ]}
+                                variant="dark"
+                                size="xs"
+                            >
+                                <InfoIcon className='h-5 w-5' size={18} color="#A0A5B2" />
+                            </Tooltip>
+                        </div>
+                    )}
                 </div>
             </div>
         </Container>
