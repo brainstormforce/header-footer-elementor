@@ -63,6 +63,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			add_action( 'wp_ajax_hfe_bulk_deactivate_widgets', [ $this, 'bulk_deactivate_widgets' ] );
 
 			add_action( 'wp_ajax_save_theme_compatibility_option', [ $this, 'save_hfe_compatibility_option_callback' ] );
+			add_action( 'wp_ajax_save_analytics_option', [ $this, 'save_analytics_option' ] );
 
 		}
 
@@ -73,14 +74,14 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		 * It checks for the plugin slug in the AJAX request, verifies the nonce, and initiates the plugin installation process.
 		 * If the plugin is successfully installed, it schedules a database update to map the plugin slug to a custom key for analytics tracking.
 		 *
-		 * @since x.x.x
+		 * @since 2.2.0
 		 */
 		public function hfe_plugin_install() {
 
 			check_ajax_referer( 'updates', '_ajax_nonce' );
 
 			// Fetching the plugin slug from the AJAX request.
-			// @psalm-suppress PossiblyInvalidArgument
+			// @psalm-suppress PossiblyInvalidArgument.
 			$plugin_slug = isset( $_POST['slug'] ) && is_string( $_POST['slug'] ) ? sanitize_text_field( wp_unslash( $_POST['slug'] ) ) : '';
 
 			if ( empty( $plugin_slug ) ) {
@@ -119,14 +120,14 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		 * It checks for the plugin slug in the AJAX request, verifies the nonce, and initiates the plugin installation process.
 		 * If the theme is successfully installed, it schedules a database update to map the plugin slug to a custom key for analytics tracking.
 		 *
-		 * @since x.x.x
+		 * @since 2.2.0
 		 */
 		public function hfe_theme_install() {
 
 			check_ajax_referer( 'updates', '_ajax_nonce' );
 
 			// Fetching the plugin slug from the AJAX request.
-			// @psalm-suppress PossiblyInvalidArgument
+			// @psalm-suppress PossiblyInvalidArgument.
 			$theme_slug = isset( $_POST['slug'] ) && is_string( $_POST['slug'] ) ? sanitize_text_field( wp_unslash( $_POST['slug'] ) ) : '';
 
 			if ( empty( $theme_slug ) ) {
@@ -395,7 +396,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		/**
 		 * Save HFE compatibility option via AJAX.
 		 *
-		 * @since x.x.x
+		 * @since 2.2.0
 		 * @return void
 		 */
 		public function save_hfe_compatibility_option_callback() {
@@ -408,10 +409,33 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 				update_option( 'hfe_compatibility_option', $option );
 
 				// Return a success response.
-				wp_send_json_success( 'Settings saved successfully!' );
+				wp_send_json_success( esc_html__( 'Settings saved successfully!', 'header-footer-elementor' ) );
 			} else {
 				// Return an error response if the option is not set.
-				wp_send_json_error( 'Unable to save settings.' );
+				wp_send_json_error( esc_html__( 'Unable to save settings.', 'header-footer-elementor' ) );
+			}
+		}
+
+		/**
+		 * Save HFE analytics compatibility option via AJAX.
+		 *
+		 * @since x.x.x
+		 * @return void
+		 */
+		public function save_analytics_option() {
+			// Check nonce for security.
+			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
+
+			if ( isset( $_POST['bsf_analytics_optin'] ) ) {
+				// Sanitize and update option.
+				$option = sanitize_text_field( $_POST['bsf_analytics_optin'] );
+				update_option( 'bsf_analytics_optin', $option );
+
+				// Return a success response.
+				wp_send_json_success( esc_html__( 'Settings saved successfully!', 'header-footer-elementor' ) );
+			} else {
+				// Return an error response if the option is not set.
+				wp_send_json_error( esc_html__( 'Unable to save settings.', 'header-footer-elementor' ) );
 			}
 		}
 
