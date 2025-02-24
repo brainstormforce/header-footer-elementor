@@ -500,35 +500,24 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		}
 
 		/**
- * Save analytics option to network.
- *
- * @param string $option Name of the option.
- * @param string $value Value of the option.
- * @return void
- * @since 1.0.0
- */
-public function add_option_to_network( $option, $value ) {
+		 * Save analytics option to network.
+		 *
+		 * @param string $option name of option.
+		 * @param string $value value of option.
+		 * @return void
+		 * @since 1.0.0
+		 */
+		public function add_option_to_network( $option, $value ) {
 
-    // Verify nonce to prevent CSRF attacks.
-    if ( ! isset( $_POST['_wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_wpnonce'] ) ), 'general-options' ) ) {
-        return; // Stop execution if nonce is invalid.
-    }
+			// If action coming from general settings page.
+			if ( isset( $_POST['option_page'] ) && 'general' === $_POST['option_page'] ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing
 
-    // Ensure request is coming from the general settings page.
-    if ( isset( $_POST['option_page'] ) && 'general' === sanitize_text_field( wp_unslash( $_POST['option_page'] ) ) ) {
-
-        // Sanitize the option name and value
-        $option = sanitize_key( $option ); // Ensures the option name is safe
-        $value  = sanitize_text_field( $value ); // Ensures the value is safe
-
-        // Save the option securely
-        if ( get_site_option( $option ) ) {
-            update_site_option( $option, $value );
-        } else {
-            add_site_option( $option, $value );
-        }
-    }
-}
-
+				if ( get_site_option( $option ) ) {
+					update_site_option( $option, $value );
+				} else {
+					add_site_option( $option, $value );
+				}
+			}
+		}
 	}
 }
