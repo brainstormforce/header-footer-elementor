@@ -131,6 +131,7 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 
 ### 2.2.1 ###
 - Fix: Navigation Menu - Full-width dropdown menu now stays correctly positioned when resizing in responsive mode.
+- Improvement: Enhanced the codebase to strengthen security measures.
 
 ### 2.2.0 ###
 - New: Ultimate Addons for Elementor now includes translations for Dutch, French, Spanish, and German enhancing multilingual accessibility.
