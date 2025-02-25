@@ -190,9 +190,9 @@ class Header_Footer_Elementor {
 		$is_uaepro_active        = ( defined( 'UAEL_PRO' ) && UAEL_PRO ) ? true : false;
 
 		// IMPORTANT: Comment out this code before release - Show onboarding only for new users only once.
-		// if ( $is_old_user || $is_onboarding_triggered || $is_uaepro_active ) {
-		// 	return;
-		// }
+		if ( $is_old_user || $is_onboarding_triggered || $is_uaepro_active ) {
+			return;
+		}
 
 		delete_option( 'hfe_start_onboarding' );
 
