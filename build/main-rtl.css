@@ -263,8 +263,8 @@
     inset: 0px;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .inset-x-0{
-    left: 0px;
     right: 0px;
+    left: 0px;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .inset-y-0{
     top: 0px;
@@ -283,46 +283,46 @@
     bottom: 0.375rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .left-0{
-    left: 0px;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .left-1{
-    left: 0.25rem;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .left-1\/2{
-    left: 50%;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .left-2\/4{
-    left: 50%;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .left-\[calc\(50\%\+10px\)\]{
-    left: calc(50% + 10px);
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .left-\[calc\(50\%\+12px\)\]{
-    left: calc(50% + 12px);
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .left-\[calc\(50\%\+14px\)\]{
-    left: calc(50% + 14px);
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .right-0{
     right: 0px;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .right-1\/2{
+:is(#hfe-settings-app, [data-floating-ui-portal]) .left-1{
+    right: 0.25rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .left-1\/2{
     right: 50%;
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .left-2\/4{
+    right: 50%;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .left-\[calc\(50\%\+10px\)\]{
+    right: calc(50% + 10px);
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .left-\[calc\(50\%\+12px\)\]{
+    right: calc(50% + 12px);
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .left-\[calc\(50\%\+14px\)\]{
+    right: calc(50% + 14px);
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .right-0{
+    left: 0px;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .right-1\/2{
+    left: 50%;
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .right-3{
-    right: 0.75rem;
+    left: 0.75rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .right-4{
-    right: 1rem;
+    left: 1rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .right-\[calc\(-50\%\+10px\)\]{
-    right: calc(-50% + 10px);
+    left: calc(-50% + 10px);
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .right-\[calc\(-50\%\+12px\)\]{
-    right: calc(-50% + 12px);
+    left: calc(-50% + 12px);
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .right-\[calc\(-50\%\+14px\)\]{
-    right: calc(-50% + 14px);
+    left: calc(-50% + 14px);
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .top-0{
     top: 0px;
@@ -484,20 +484,20 @@
     margin: 0px;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .mx-0{
-    margin-left: 0px;
     margin-right: 0px;
+    margin-left: 0px;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .mx-1{
-    margin-left: 0.25rem;
     margin-right: 0.25rem;
+    margin-left: 0.25rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .mx-2{
-    margin-left: 0.5rem;
     margin-right: 0.5rem;
+    margin-left: 0.5rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .mx-auto{
-    margin-left: auto;
     margin-right: auto;
+    margin-left: auto;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .my-0{
     margin-top: 0px;
@@ -531,37 +531,37 @@
     margin-bottom: 1.5rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .ml-0{
-    margin-left: 0px;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .ml-1{
-    margin-left: 0.25rem;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .ml-10{
-    margin-left: 2.5rem;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .ml-2{
-    margin-left: 0.5rem;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .ml-4{
-    margin-left: 1rem;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .mr-0{
     margin-right: 0px;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .mr-0\.5{
-    margin-right: 0.125rem;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .mr-1{
+:is(#hfe-settings-app, [data-floating-ui-portal]) .ml-1{
     margin-right: 0.25rem;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .mr-10{
+:is(#hfe-settings-app, [data-floating-ui-portal]) .ml-10{
     margin-right: 2.5rem;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .mr-2{
+:is(#hfe-settings-app, [data-floating-ui-portal]) .ml-2{
     margin-right: 0.5rem;
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .ml-4{
+    margin-right: 1rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .mr-0{
+    margin-left: 0px;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .mr-0\.5{
+    margin-left: 0.125rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .mr-1{
+    margin-left: 0.25rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .mr-10{
+    margin-left: 2.5rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .mr-2{
+    margin-left: 0.5rem;
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .mr-3{
-    margin-right: 0.75rem;
+    margin-left: 0.75rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .mt-1{
     margin-top: 0.25rem;
@@ -928,7 +928,7 @@
     border-spacing: var(--tw-border-spacing-x) var(--tw-border-spacing-y);
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .origin-left{
-    transform-origin: left;
+    transform-origin: right;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .-translate-x-2\/4{
     --tw-translate-x: -50%;
@@ -951,7 +951,7 @@
 }
 @keyframes spin{
     to{
-        transform: rotate(360deg);
+        transform: rotate(-360deg);
     }
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .animate-spin{
@@ -1177,8 +1177,8 @@
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.space-x-1 > :not([hidden]) ~ :not([hidden])){
     --tw-space-x-reverse: 0;
-    margin-right: calc(0.25rem * var(--tw-space-x-reverse));
-    margin-left: calc(0.25rem * calc(1 - var(--tw-space-x-reverse)));
+    margin-left: calc(0.25rem * var(--tw-space-x-reverse));
+    margin-right: calc(0.25rem * calc(1 - var(--tw-space-x-reverse)));
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.space-y-1\.5 > :not([hidden]) ~ :not([hidden])){
     --tw-space-y-reverse: 0;
@@ -1203,13 +1203,13 @@
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.divide-x > :not([hidden]) ~ :not([hidden])){
     --tw-divide-x-reverse: 0;
-    border-right-width: calc(1px * var(--tw-divide-x-reverse));
-    border-left-width: calc(1px * calc(1 - var(--tw-divide-x-reverse)));
+    border-left-width: calc(1px * var(--tw-divide-x-reverse));
+    border-right-width: calc(1px * calc(1 - var(--tw-divide-x-reverse)));
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.divide-x-0 > :not([hidden]) ~ :not([hidden])){
     --tw-divide-x-reverse: 0;
-    border-right-width: calc(0px * var(--tw-divide-x-reverse));
-    border-left-width: calc(0px * calc(1 - var(--tw-divide-x-reverse)));
+    border-left-width: calc(0px * var(--tw-divide-x-reverse));
+    border-right-width: calc(0px * calc(1 - var(--tw-divide-x-reverse)));
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.divide-y > :not([hidden]) ~ :not([hidden])){
     --tw-divide-y-reverse: 0;
@@ -1310,40 +1310,40 @@
     border-radius: 0.75rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-b{
-    border-bottom-right-radius: 0.25rem;
     border-bottom-left-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-e{
     border-start-end-radius: 0.25rem;
     border-end-end-radius: 0.25rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-l{
-    border-top-left-radius: 0.25rem;
-    border-bottom-left-radius: 0.25rem;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-r{
     border-top-right-radius: 0.25rem;
     border-bottom-right-radius: 0.25rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-r{
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-s{
     border-start-start-radius: 0.25rem;
     border-end-start-radius: 0.25rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-t{
-    border-top-left-radius: 0.25rem;
     border-top-right-radius: 0.25rem;
+    border-top-left-radius: 0.25rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-bl{
-    border-bottom-left-radius: 0.25rem;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-bl-md{
-    border-bottom-left-radius: 0.375rem;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-br{
     border-bottom-right-radius: 0.25rem;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-br-md{
+:is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-bl-md{
     border-bottom-right-radius: 0.375rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-br{
+    border-bottom-left-radius: 0.25rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-br-md{
+    border-bottom-left-radius: 0.375rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-ee{
     border-end-end-radius: 0.25rem;
@@ -1358,22 +1358,22 @@
     border-start-start-radius: 0.25rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-tl{
-    border-top-left-radius: 0.25rem;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-tl-md{
-    border-top-left-radius: 0.375rem;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-tl-none{
-    border-top-left-radius: 0px;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-tr{
     border-top-right-radius: 0.25rem;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-tr-md{
+:is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-tl-md{
     border-top-right-radius: 0.375rem;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-tr-none{
+:is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-tl-none{
     border-top-right-radius: 0px;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-tr{
+    border-top-left-radius: 0.25rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-tr-md{
+    border-top-left-radius: 0.375rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-tr-none{
+    border-top-left-radius: 0px;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .border{
     border-width: 1px;
@@ -1385,8 +1385,8 @@
     border-width: 0.5px;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .border-x{
-    border-left-width: 1px;
     border-right-width: 1px;
+    border-left-width: 1px;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .border-y{
     border-top-width: 1px;
@@ -1399,16 +1399,16 @@
     border-inline-end-width: 1px;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .border-l{
-    border-left-width: 1px;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .border-l-0{
-    border-left-width: 0px;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .border-r{
     border-right-width: 1px;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .border-r-0{
+:is(#hfe-settings-app, [data-floating-ui-portal]) .border-l-0{
     border-right-width: 0px;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .border-r{
+    border-left-width: 1px;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .border-r-0{
+    border-left-width: 0px;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .border-s{
     border-inline-start-width: 1px;
@@ -1760,40 +1760,40 @@
     padding: 2rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .px-0\.5{
-    padding-left: 0.125rem;
     padding-right: 0.125rem;
+    padding-left: 0.125rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .px-1{
-    padding-left: 0.25rem;
     padding-right: 0.25rem;
+    padding-left: 0.25rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .px-1\.5{
-    padding-left: 0.375rem;
     padding-right: 0.375rem;
+    padding-left: 0.375rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .px-2{
-    padding-left: 0.5rem;
     padding-right: 0.5rem;
+    padding-left: 0.5rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .px-2\.5{
-    padding-left: 0.625rem;
     padding-right: 0.625rem;
+    padding-left: 0.625rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .px-3{
-    padding-left: 0.75rem;
     padding-right: 0.75rem;
+    padding-left: 0.75rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .px-3\.5{
-    padding-left: 0.875rem;
     padding-right: 0.875rem;
+    padding-left: 0.875rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .px-4{
-    padding-left: 1rem;
     padding-right: 1rem;
+    padding-left: 1rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .px-5{
-    padding-left: 1.25rem;
     padding-right: 1.25rem;
+    padding-left: 1.25rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .py-0{
     padding-top: 0px;
@@ -1837,43 +1837,43 @@
     padding-bottom: 0.75rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .pl-10{
-    padding-left: 2.5rem;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .pl-2{
-    padding-left: 0.5rem;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .pl-2\.5{
-    padding-left: 0.625rem;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .pl-3{
-    padding-left: 0.75rem;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .pl-8{
-    padding-left: 2rem;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .pl-9{
-    padding-left: 2.25rem;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .pr-10{
     padding-right: 2.5rem;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .pr-12{
-    padding-right: 3rem;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .pr-2{
+:is(#hfe-settings-app, [data-floating-ui-portal]) .pl-2{
     padding-right: 0.5rem;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .pr-2\.5{
+:is(#hfe-settings-app, [data-floating-ui-portal]) .pl-2\.5{
     padding-right: 0.625rem;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .pr-3{
+:is(#hfe-settings-app, [data-floating-ui-portal]) .pl-3{
     padding-right: 0.75rem;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .pr-8{
+:is(#hfe-settings-app, [data-floating-ui-portal]) .pl-8{
     padding-right: 2rem;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .pr-9{
+:is(#hfe-settings-app, [data-floating-ui-portal]) .pl-9{
     padding-right: 2.25rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .pr-10{
+    padding-left: 2.5rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .pr-12{
+    padding-left: 3rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .pr-2{
+    padding-left: 0.5rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .pr-2\.5{
+    padding-left: 0.625rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .pr-3{
+    padding-left: 0.75rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .pr-8{
+    padding-left: 2rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .pr-9{
+    padding-left: 2.25rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .pt-5{
     padding-top: 1.25rem;
@@ -2476,10 +2476,10 @@
 
 .toplevel_page_hfe #wpcontent,
 .post-type-elementor-hf #wpcontent {
-    padding-left: 0;
+    padding-right: 0;
 }
 .post-type-elementor-hf #wpbody-content .wrap {
-	padding-left: 20px;
+	padding-right: 20px;
 }
 .post-type-elementor-hf .wp-heading-inline {
 	font-size: 18px;
@@ -2539,7 +2539,7 @@
 	top: -15%;
 }
 .hfe-remove-ring.hfe-span span {
-	padding-left: 0px;
+	padding-right: 0px;
 }
 #hfe-settings-app .gap-2 {
 	gap: 1.2rem;
@@ -2563,7 +2563,7 @@
 	padding: 0;
 }
 .hfe-popup-button span {
-	padding-left: 0;
+	padding-right: 0;
 }
 .hfe-link-color,
 .hfe-link-color span {
@@ -2605,10 +2605,10 @@ button.hfe-bulk-action-button {
 }
 .hfe-tooltip-wrap {
 	width: 100%;
-    text-align: right;
+    text-align: left;
 }
 .toplevel_page_hfe #wpcontent {
-	padding-left: 0;
+	padding-right: 0;
 }
 div#hfe-settings-app {
 	font-size: 15px;
@@ -2639,13 +2639,13 @@ input[type="radio"].hfe-radio-field:focus {
 		transform: rotate(0deg);
 	}
 	100% {
-		transform: rotate(360deg);
+		transform: rotate(-360deg);
 	}
 }
 @media (min-width: 769px) {
 	.hfe-sticky-outer-wrapper {
 		width: 23%;
-		border-right: 1px solid #e5e7eb;
+		border-left: 1px solid #e5e7eb;
 	}
 	.hfe-sticky-sidebar {
 		position: sticky;
@@ -2657,10 +2657,10 @@ input[type="radio"].hfe-radio-field:focus {
 		content: " ";
 		height: 100%;
 		position: fixed;
-		left: 0;
+		right: 0;
 		top: 0;
-		transform-origin: right;
-		border-right: 1px solid #e5e7eb;
+		transform-origin: left;
+		border-left: 1px solid #e5e7eb;
 		width: 30%;
 	}
 	.hfe-nav-menu {
@@ -2743,8 +2743,8 @@ div#hfe-settings-app {
 		display: none;
 	}
 	.hfe-onboarding-customize {
-		margin-left: 20px;
-    	margin-right: 20px;
+		margin-right: 20px;
+    	margin-left: 20px;
 	}
 	.hfe-min-700 {
 		min-width: unset;
@@ -2792,7 +2792,7 @@ div#hfe-settings-app {
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .before\:left-2\/4::before{
     content: var(--tw-content);
-    left: 50%;
+    right: 50%;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .before\:top-2\/4::before{
     content: var(--tw-content);
@@ -2840,7 +2840,7 @@ div#hfe-settings-app {
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .after\:ml-0\.5::after{
     content: var(--tw-content);
-    margin-left: 0.125rem;
+    margin-right: 0.125rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .after\:text-field-required::after{
     content: var(--tw-content);
@@ -2852,26 +2852,26 @@ div#hfe-settings-app {
     content: var(--tw-content);
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .first\:rounded-bl:first-child{
-    border-bottom-left-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .first\:rounded-tl:first-child{
-    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .first\:border-0:first-child{
     border-width: 0px;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .first\:border-r:first-child{
-    border-right-width: 1px;
+    border-left-width: 1px;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .first\:border-border-subtle:first-child{
     --tw-border-opacity: 1;
     border-color: rgb(229 231 235 / var(--tw-border-opacity, 1));
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .last\:rounded-br:last-child{
-    border-bottom-right-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .last\:rounded-tr:last-child{
-    border-top-right-radius: 0.25rem;
+    border-top-left-radius: 0.25rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .last\:border-0:last-child{
     border-width: 0px;
@@ -3639,8 +3639,8 @@ div#hfe-settings-app {
     }
     :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.md\:space-x-1 > :not([hidden]) ~ :not([hidden])){
         --tw-space-x-reverse: 0;
-        margin-right: calc(0.25rem * var(--tw-space-x-reverse));
-        margin-left: calc(0.25rem * calc(1 - var(--tw-space-x-reverse)));
+        margin-left: calc(0.25rem * var(--tw-space-x-reverse));
+        margin-right: calc(0.25rem * calc(1 - var(--tw-space-x-reverse)));
     }
     :is(#hfe-settings-app, [data-floating-ui-portal]) .md\:self-start{
         align-self: flex-start;
@@ -4041,8 +4041,8 @@ div#hfe-settings-app {
     margin: 0.25rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>\*\:not\(svg\)\]\:mx-1>*:not(svg)){
-    margin-left: 0.25rem;
     margin-right: 0.25rem;
+    margin-left: 0.25rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>\*\:not\(svg\)\]\:my-0\.5>*:not(svg)){
     margin-top: 0.125rem;
