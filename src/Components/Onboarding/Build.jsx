@@ -50,7 +50,10 @@ const OnboardingBuild = ({ setCurrentStep }) => {
         const checkStatus = () => {
             fetch(`/wp-json/hfe/v1/email-validation/`, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-WP-Nonce': hfeSettingsData.hfe_nonce_action, // Use the correct nonce.
+                },
                 body: JSON.stringify({ email }),
             })
                 .then((response) => response.json())
