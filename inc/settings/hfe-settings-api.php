@@ -135,6 +135,13 @@ class HFE_Settings_Api {
 	 * Handle Email Validation Response.
 	 */
 	public function handle_email_validation_response( WP_REST_Request $request ) {
+
+		$nonce = $request->get_header( 'X-WP-Nonce' );
+
+		if ( ! wp_verify_nonce( $nonce, 'wp_rest' ) ) {
+			return new WP_Error( 'invalid_nonce', __( 'Invalid nonce', 'header-footer-elementor' ), [ 'status' => 403 ] );
+		}
+		
 		$params = $request->get_json_params();
 		$email  = isset($params['email']) ? sanitize_email($params['email']) : '';
 	
@@ -164,13 +171,6 @@ class HFE_Settings_Api {
 	 * @return WP_Error|boolean
 	 */
 	public function get_items_permissions_check() {
-		
-		$nonce = $request->get_header( 'X-WP-Nonce' );
-
-		if ( ! wp_verify_nonce( $nonce, 'wp_rest' ) ) {
-			return new WP_Error( 'invalid_nonce', __( 'Invalid nonce', 'header-footer-elementor' ), [ 'status' => 403 ] );
-		}
-
 
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return new \WP_Error( 'uae_rest_not_allowed', __( 'Sorry, you are not authorized to perform this action.', 'header-footer-elementor' ), [ 'status' => 403 ] );

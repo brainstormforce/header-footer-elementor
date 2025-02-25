@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Button, Switch, Title, Dialog, Input } from '@bsf/force-ui';
-import { X, Check, Plus, ArrowRight, Package } from 'lucide-react';
+import { X, Check, LoaderCircle, ArrowRight, Package } from 'lucide-react';
 import toast, { Toaster } from 'react-hot-toast';
 import { Link } from "../../router/index"
 import { __ } from "@wordpress/i18n";
@@ -12,6 +12,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isActive, setIsActive] = useState(true);
     const [errors, setErrors] = useState('');
+    const [loading, setLoading] = useState(false); 
 
     useEffect(() => {
         setEmail(hfeSettingsData.user_email);
@@ -34,6 +35,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
     }, [hfeSettingsData.user_email]);
 
     const handleSubmit = () => {
+        setLoading(true);
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if ( ! emailRegex.test(email) ) {
             setErrors(__('Please enter a valid email address', 'header-footer-elementor'));
@@ -59,16 +61,20 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                 .then((response) => response.json())
                 .then((data) => {
                     if ( data.status === 'valid' ) {
+                        setLoading(false);
                         setIsSubmitted(true);
                     } else if ( data.status === 'invalid') {
                         setErrors(__('Entered email ID is invalid!', 'header-footer-elementor'));
+                        setLoading(false);
                     } else if ( data.status === 'exists') {
                         setErrors(__('Entered email ID already exists, try a different one.', 'header-footer-elementor'));
+                        setLoading(false);
                     } else if ( data.status === 'pending' && attempts < maxAttempts) {
                         attempts++;
                         setTimeout(checkStatus, 5000); // Try again after 5 sec.
                     } else {
                         setErrors(__('Something went wrong!', 'header-footer-elementor'));
+                        setLoading(false);
                     }
                 })
                 .catch((error) => console.error('Error checking validation:', error));
@@ -333,13 +339,13 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                             )}
                         </p>
 
-                        <div className='flex flex-row gap-2'>
+                        <div className='flex flex-row'>
                             <input
                                 type="email"
                                 placeholder={`${hfeSettingsData.user_email}`}
                                 value={email}
-                                className='h-12'
-                                style={{ width: '282px' }}
+                                className='h-12 shrink-0 mr-2'
+                                style={{ width: '265px' }}
                                 onChange={(e) => {
                                     if (e && e.target) {
                                         setErrors('');
@@ -348,9 +354,10 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                                 }}
                             />
                             <Button
+                                icon={loading ? <LoaderCircle className="animate-spin" /> : null}
                                 iconPosition="right"
                                 variant="primary"
-                                className="bg-[#6005FF] hfe-remove-ring"
+                                className="bg-[#6005FF] hfe-remove-ring w-full shrink-1"
                                 style={{
                                     backgroundColor: "#6005FF",
                                     transition: "background-color 0.3s ease",
