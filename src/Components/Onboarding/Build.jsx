@@ -35,12 +35,12 @@ const OnboardingBuild = ({ setCurrentStep }) => {
     }, [hfeSettingsData.user_email]);
 
     const handleSubmit = () => {
-        setLoading(true);
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if ( ! emailRegex.test(email) ) {
             setErrors(__('Please enter a valid email address', 'header-footer-elementor'));
             return;
         }
+        setLoading(true);
         callValidatedEmailWebhook(email);
         pollForValidationStatus(email);
     };
@@ -63,18 +63,19 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                     if ( data.status === 'valid' ) {
                         setLoading(false);
                         setIsSubmitted(true);
+                        window.location.href = hfeSettingsData.onboarding_success_url;
                     } else if ( data.status === 'invalid') {
+                        setLoading(false);
                         setErrors(__('Entered email ID is invalid!', 'header-footer-elementor'));
-                        setLoading(false);
                     } else if ( data.status === 'exists') {
-                        setErrors(__('Entered email ID already exists, try a different one.', 'header-footer-elementor'));
                         setLoading(false);
+                        setErrors(__('Entered email ID already exists, try a different one.', 'header-footer-elementor'));
                     } else if ( data.status === 'pending' && attempts < maxAttempts) {
                         attempts++;
                         setTimeout(checkStatus, 5000); // Try again after 5 sec.
                     } else {
-                        setErrors(__('Something went wrong!', 'header-footer-elementor'));
                         setLoading(false);
+                        setErrors(__('Something went wrong!', 'header-footer-elementor'));
                     }
                 })
                 .catch((error) => console.error('Error checking validation:', error));
