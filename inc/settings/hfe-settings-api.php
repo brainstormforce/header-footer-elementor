@@ -123,7 +123,7 @@ class HFE_Settings_Api {
 		}
 
 		// Store validation result for later retrieval
-		set_transient('uaelite_email_validation_' . md5($email), $status, 5 * MINUTE_IN_SECONDS);
+		set_transient('uae_email_validation_' . md5($email), $status, 5 * MINUTE_IN_SECONDS);
 
 		return new WP_REST_Response([
 			'message' => 'Validation received',
@@ -152,7 +152,7 @@ class HFE_Settings_Api {
 	 */
 	private function check_email_validation_status($email) {
 		$hash = md5($email);
-		$status = get_transient('uaelite_email_validation_' . $hash);
+		$status = get_transient('uae_email_validation_' . $hash);
 		
 		return $status ? $status : 'pending'; // Return 'pending' instead of waiting.
 	}
