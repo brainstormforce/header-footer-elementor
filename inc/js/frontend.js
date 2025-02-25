@@ -155,6 +155,14 @@
 				}else if ( window.matchMedia( "( max-width: 1024px )" ).matches && $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-tablet') ) {
 					
 					_toggleClick( id );
+				}else{
+					var $toggle = $( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' );
+                    var $nextElement= $toggle.next();
+                    var width = $nextElement.parent().width();
+                    if( $nextElement.length ){
+						$nextElement.css( 'width', width + 'px' );
+						$nextElement.css( 'left', '0' );
+					}
 				}
 			}
 
@@ -585,7 +593,7 @@
 			if( $nextElement.length ){
 				$nextElement.css( 'left', '0' );
 				
-				var $section = $( '.elementor-element-' + id ).closest('.elementor-section');
+				var $section = $( '.elementor-element-' + id ).closest('.elementor-section, .e-con-boxed');
 				if ( $section.length ) {
 					var width = $section.outerWidth();
 					var sec_pos = $section.offset().left - $toggle.next().offset().left;

@@ -4,7 +4,8 @@
   "require": {
     "brainstormforce/astra-notices": "^1.1",
     "brainstormforce/utm-analytics": "*",
-    "brainstormforce/nps-survey": "^1"
+    "brainstormforce/nps-survey": "^1",
+    "brainstormforce/bsf-analytics": "^1"
   },
   "extra": {
       "installer-paths": {
@@ -12,6 +13,9 @@
           "brainstormforce/astra-notices",
           "brainstormforce/utm-analytics",
           "brainstormforce/nps-survey"
+        ],
+        "admin/{$name}/": [
+			      "brainstormforce/bsf-analytics"
         ]
       }
   },
@@ -30,6 +34,11 @@
         "name": "brainstormforce/utm-analytics",
         "type": "vcs",
         "url": "git@github.com:brainstormforce/utm-analytics.git"
+      },
+      {
+        "name": "brainstormforce/bsf-analytics",
+        "type": "vcs",
+        "url": "git@github.com:brainstormforce/bsf-analytics.git"
       }
   ],
   "require-dev": {

@@ -1,6 +1,6 @@
 import { Container } from "@bsf/force-ui";
 import NavMenu from '@components/NavMenu'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Widgets from './Widgets'
 import TemplateSection from './TemplateSection'
 import QuickAccess from './QuickAccess'
@@ -9,6 +9,29 @@ import UltimateFeatures from './UltimateFeatures'
 import ExtendWebsite from './ExtendWebsite'
 
 const Dashboard = () => {
+    useEffect(() => {
+        const dashboardURL = "admin.php?page=hfe#dashboard";
+
+        // If the user lands on the dashboard, reset history
+        if (window.location.href.includes(dashboardURL)) {
+            window.history.pushState(null, "", dashboardURL);
+        }
+
+        const preventBackNavigation = (event) => {
+            if (window.location.href.includes(dashboardURL)) {
+                event.preventDefault();
+                window.history.pushState(null, "", dashboardURL);
+            }
+        };
+
+        // Prevent back navigation only on the dashboard
+        window.addEventListener("popstate", preventBackNavigation);
+
+        return () => {
+            window.removeEventListener("popstate", preventBackNavigation);
+        };
+    }, []);
+
     return (
         <>
             <NavMenu />
@@ -37,14 +60,15 @@ const Dashboard = () => {
                     <Container.Item 
                         className="p-2 w-full hfe-35-width"
                         shrink={1}
-                    >  <TemplateSection />
+                    >  
+                        <TemplateSection />
                         <ExtendWebsite />
                         <QuickAccess />
                     </Container.Item>
                 </Container>
             </div>
         </>
-    )
+    );
 }
 
-export default Dashboard
+export default Dashboard;
