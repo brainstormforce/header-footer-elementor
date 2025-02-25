@@ -11,6 +11,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
     const [email, setEmail] = useState('');
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isActive, setIsActive] = useState(true);
+    const [errors, setErrors] = useState('');
 
     useEffect(() => {
         setEmail(hfeSettingsData.user_email);
@@ -34,13 +35,43 @@ const OnboardingBuild = ({ setCurrentStep }) => {
 
     const handleSubmit = () => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (emailRegex.test(email)) {
-            setIsSubmitted(true);
-            callValidatedEmailWebhook(email);
-            window.location.href = hfeSettingsData.onboarding_success_url;
-        } else {
-            toast.error(__('Please enter a valid email address', 'header-footer-elementor'));
+        if ( ! emailRegex.test(email) ) {
+            setErrors(__('Please enter a valid email address', 'header-footer-elementor'));
+            return;
         }
+        callValidatedEmailWebhook(email);
+        pollForValidationStatus(email);
+    };
+
+    const pollForValidationStatus = (email) => {
+        let attempts = 0;
+        const maxAttempts = 10; // Poll up to 10 times (~50 sec).
+    
+        const checkStatus = () => {
+            fetch(`/wp-json/hfe/v1/email-validation/`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email }),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    if ( data.status === 'valid' ) {
+                        setIsSubmitted(true);
+                    } else if ( data.status === 'invalid') {
+                        setErrors(__('Entered email ID is invalid!', 'header-footer-elementor'));
+                    } else if ( data.status === 'exists') {
+                        setErrors(__('Entered email ID already exists, try a different one.', 'header-footer-elementor'));
+                    } else if ( data.status === 'pending' && attempts < maxAttempts) {
+                        attempts++;
+                        setTimeout(checkStatus, 5000); // Try again after 5 sec.
+                    } else {
+                        setErrors(__('Something went wrong!', 'header-footer-elementor'));
+                    }
+                })
+                .catch((error) => console.error('Error checking validation:', error));
+        };
+
+        checkStatus();
     };
 
     const handleSwitchChange = async () => {
@@ -308,10 +339,8 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                                 style={{ width: '282px' }}
                                 onChange={(e) => {
                                     if (e && e.target) {
-                                        // console.log('Input changed:', e.target.value);
+                                        setErrors('');
                                         setEmail(e.target.value);
-                                    } else {
-                                        // console.error('Event or event target is undefined');
                                     }
                                 }}
                             />
@@ -336,33 +365,11 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                                 {__('Submit Email', "header-footer-elementor")}
                             </Button>
                         </div>
+                        {
+                            errors && 
+                            <p className="color-text-danger text-xs mt-4 text-sm font-normal" style={{ color: '#FF0000' }}>{errors}</p>
+                        }
                     </Dialog.Header>
-                    <Toaster
-                        position="top-right"
-                        reverseOrder={false}
-                        gutter={8}
-                        containerStyle={{
-                            top: 20,
-                            right: 20,
-                            marginTop: '40px',
-                        }}
-                        toastOptions={{
-                            duration: 1000,
-                            style: {
-                                background: 'white',
-                            },
-                            success: {
-                                duration: 2000,
-                                style: {
-                                    color: '',
-                                },
-                                iconTheme: {
-                                    primary: '#6005ff',
-                                    secondary: '#fff',
-                                },
-                            },
-                        }}
-                    />
                 </Dialog.Panel>
             </Dialog>
         </div>

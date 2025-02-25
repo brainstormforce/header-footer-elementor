@@ -87,6 +87,74 @@ class HFE_Settings_Api {
 				'permission_callback' => [ $this, 'get_items_permissions_check' ],
 			]
 		);
+
+		register_rest_route(
+			'hfe/v1',
+			'/email-response',
+			[
+				'methods'             => 'POST',
+				'callback'            => [ $this, 'get_email_validation_response' ],
+				'permission_callback' => '__return_true',
+			]
+		);
+
+		register_rest_route(
+			'hfe/v1',
+			'/email-validation',
+			[
+				'methods'             => 'POST',
+				'callback'            => [ $this, 'handle_email_validation_response' ],
+				'permission_callback' => '__return_true',
+			]
+		);
+	}
+
+	/**
+	 * Email Validation Response.
+	 */
+	public function get_email_validation_response( WP_REST_Request $request ) {
+
+		$body = $request->get_json_params(); // Get JSON body
+		$email = isset($body['email']) ? sanitize_email($body['email']) : '';
+		$status = isset($body['status']) ? sanitize_text_field($body['status']) : '';
+
+		if (!$email || !$status) {
+			return new WP_REST_Response(['message' => 'Invalid request'], 400);
+		}
+
+		// Store validation result for later retrieval
+		set_transient('uaelite_email_validation_' . md5($email), $status, 5 * MINUTE_IN_SECONDS);
+
+		return new WP_REST_Response([
+			'message' => 'Validation received',
+			'status' => $status,
+		], 200);
+	}
+
+	/**
+	 * Handle Email Validation Response.
+	 */
+	public function handle_email_validation_response( WP_REST_Request $request ) {
+		$params = $request->get_json_params();
+		$email  = isset($params['email']) ? sanitize_email($params['email']) : '';
+	
+		if (empty($email)) {
+			return new WP_REST_Response([ 'status' => 'error', 'message' => 'Invalid email address' ], 400);
+		}
+	
+		$status = $this->check_email_validation_status($email);
+	
+		return new WP_REST_Response([ 'status' => $status ], 200);
+	}
+
+	/**
+	 * Check Email Validation Status.
+	 */
+	private function check_email_validation_status($email) {
+		$hash = md5($email);
+		$status = get_transient('uaelite_email_validation_' . $hash);
+		
+		return $status ? $status : 'pending'; // Return 'pending' instead of waiting.
 	}
 
 	/**
