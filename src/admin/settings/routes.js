@@ -11,10 +11,16 @@ export const routes = {
     settings: {
         path: "settings",
     },
+    onboarding: {
+        path: "onboarding",
+    },
     upgrade: {
         path: "upgrade",
     },
     headerFooterBuilder: { 
         path: "elementor-hf" 
+    },
+    Onboardingsuccess: { 
+        path: "Onboardingsuccess" 
     }
 }

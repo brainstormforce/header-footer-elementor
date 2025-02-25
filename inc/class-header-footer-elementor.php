@@ -65,6 +65,8 @@ class Header_Footer_Elementor {
 			self::$elementor_instance = Elementor\Plugin::instance();
 
 			$this->includes();
+
+			add_action( 'admin_init', [ $this, 'hfe_redirect_to_onboarding' ] );
 			
 			add_action( 'init', [ $this, 'load_hfe_textdomain' ] );
 
@@ -85,7 +87,7 @@ class Header_Footer_Elementor {
 				'current_screen',
 				function () {
 					$current_screen = get_current_screen();
-					if ( $current_screen && ( $current_screen->id === 'edit-elementor-hf' || $current_screen->id === 'elementor-hf' ) ) {
+					if ( $current_screen && ( 'edit-elementor-hf' === $current_screen->id || 'elementor-hf' === $current_screen->id ) ) {
 						add_action(
 							'in_admin_header',
 							function () {
@@ -123,8 +125,8 @@ class Header_Footer_Elementor {
 			
 			add_action( 'init', [ $this, 'setup_settings_page' ] );
 
-			if ( 'yes' === get_option( 'hfe_plugin_is_activated' ) ) {
-				add_action( 'admin_init', [ $this, 'show_setup_wizard' ] );
+			if ( 'yes' === get_option( 'uae_lite_is_activated' ) ) {
+				add_action( 'admin_init', [ $this, 'get_plugin_version' ] );
 			}
 
 			// Scripts and styles.
@@ -138,7 +140,6 @@ class Header_Footer_Elementor {
 			add_shortcode( 'hfe_template', [ $this, 'render_template' ] );
 
 			add_action( 'astra_notice_before_markup_header-footer-elementor-rating', [ $this, 'rating_notice_css' ] );
-			// add_action( 'admin_init', [ $this, 'register_notices' ] );
 
 			// BSF Analytics Tracker.
 			if ( ! class_exists( 'BSF_Analytics_Loader' ) ) {
@@ -150,21 +151,61 @@ class Header_Footer_Elementor {
 			$bsf_analytics->set_entity(
 				[
 					'bsf' => [
-						'product_name'    => 'Ultimate Addons for Elementor',
-						'path'            => HFE_DIR . 'admin/bsf-analytics',
-						'author'          => 'Brainstorm Force',
-						'time_to_display' => '+24 hours',
+						'product_name'        => 'Ultimate Addons for Elementor',
+						'path'                => HFE_DIR . 'admin/bsf-analytics',
+						'author'              => 'Brainstorm Force',
+						'time_to_display'     => '+24 hours',
+						'deactivation_survey' => [
+							[
+								'id'                => 'deactivation-survey-header-footer-elementor', // 'deactivation-survey-<your-plugin-slug>'
+								'popup_logo'        => HFE_URL . 'assets/images/settings/logo.svg',
+								'plugin_slug'       => 'header-footer-elementor', // <your-plugin-slug>
+								'plugin_version'    => HFE_VER,
+								'popup_title'       => __( 'Quick Feedback', 'header-footer-elementor' ),
+								'support_url'       => 'https://ultimateelementor.com/contact/',
+								'popup_description' => __( 'If you have a moment, please share why you are deactivating Ultimate Addons for Elementor:', 'header-footer-elementor' ),
+								'show_on_screens'   => [ 'plugins' ],
+							],
+						],
 					],
 				]
 			);
 
 			if ( ! class_exists( 'HFE_Utm_Analytics' ) ) {
 				require_once HFE_DIR . 'inc/lib/class-hfe-utm-analytics.php';
-			}
-
+			}       
 		}
 	}
 
+	/**
+	 * Onboarding redirect function.
+	 */
+	public function hfe_redirect_to_onboarding() {
+		if ( ! get_option( 'hfe_start_onboarding', false ) ) {
+			return;
+		}
+
+		$is_old_user             = ( 'yes' === get_option( 'hfe_plugin_is_activated' ) ) ? true : false;
+		$is_onboarding_triggered = ( 'yes' === get_option( 'hfe_onboarding_triggered' ) ) ? true : false;
+		$is_uaepro_active        = ( defined( 'UAEL_PRO' ) && UAEL_PRO ) ? true : false;
+
+		// IMPORTANT: Comment out this code before release - Show onboarding only for new users only once.
+		if ( $is_old_user || $is_onboarding_triggered || $is_uaepro_active ) {
+			return;
+		}
+
+		delete_option( 'hfe_start_onboarding' );
+
+		if ( ! defined( 'WP_CLI' ) || ! WP_CLI ) {
+			update_option( 'hfe_onboarding_triggered', 'yes' );
+			wp_safe_redirect( admin_url( 'admin.php?page=hfe#onboarding' ) );
+			exit();
+		}
+	}
+
+	/**
+	 * Render admin top bar
+	 */
 	private function render_admin_top_bar() {
 		?>
 		<div id="hfe-admin-top-bar-root">
@@ -348,45 +389,21 @@ class Header_Footer_Elementor {
 	}
 
 	/**
-	 * Prints the admin notics when Elementor is not installed or activated.
+	 * Plugin version tracking.
 	 *
 	 * @return void
 	 */
-	public function show_setup_wizard() {
+	public function get_plugin_version() {
 
-		$screen    = get_current_screen();
-		$screen_id = $screen ? $screen->id : '';
+		$hfe_old_version = get_option( 'hfe_plugin_version' );
+		$old_version     = $hfe_old_version ? $hfe_old_version : HFE_VER;
+		$new_version     = HFE_VER;
 
-		if ( 'plugins' !== $screen_id ) {
-			return;
+		if ( ! $hfe_old_version || ( $old_version !== $new_version ) ) {
+			// Store previous version.
+			update_option( 'hfe_plugin_previous_version', $old_version );
+			update_option( 'hfe_plugin_version', $new_version );
 		}
-
-		/* TO DO */
-		$class       = 'notice notice-info is-dismissible';
-		$setting_url = admin_url( 'edit.php?post_type=elementor-hf' );
-		$image_path  = HFE_URL . 'assets/images/settings/uael-icon.svg';
-
-		/* translators: %s: html tags */
-		$notice_message = sprintf( __( 'Thank you for installing %1$s Ultimate Addons for Elementor %2$s Plugin! Click here to %3$sget started. %4$s', 'header-footer-elementor' ), '<strong>', '</strong>', '<a href="' . $setting_url . '">', '</a>' );
-
-		Astra_Notices::add_notice(
-			[
-				'id'                         => 'header-footer-install-notice',
-				'type'                       => 'info',
-				/* translators: %s: html tags */
-				'message'                    => sprintf(
-					'<img src="%1$s" class="custom-logo" alt="HFE" itemprop="logo">
-					<div class="notice-content">
-						<p>%2$s</p>
-					</div>',
-					$image_path,
-					$notice_message
-				),
-				'repeat-notice-after'        => false,
-				'priority'                   => 18,
-				'display-with-other-notices' => false,
-			]
-		);
 	}
 
 	/**
@@ -432,10 +449,10 @@ class Header_Footer_Elementor {
 	}
 
 	/**
-	* Loads textdomain for the plugin.
-	*
-	* @return void
-	*/
+	 * Loads textdomain for the plugin.
+	 *
+	 * @return void
+	 */
 	public function load_hfe_textdomain() {
 	
 		// Default languages directory for "header-footer-elementor".

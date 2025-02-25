@@ -13,6 +13,8 @@ const FeatureWidgets = () => {
     const [loadingDeactivate, setLoadingDeactivate] = useState(false);
     const [loading, setLoading] = useState(true);
     const [updateCounter, setUpdateCounter] = useState(0);
+    const [showTooltip, setShowTooltip] = useState(true); // Add state for showTooltip
+    
 
 
     useEffect(() => {
@@ -228,7 +230,7 @@ const FeatureWidgets = () => {
                                 alignSelf="auto"
                                 className="text-wrap rounded-md shadow-container-item bg-background-primary p-4"
                             >
-                                <WidgetItem widget={{ ...widget, updateCounter }} key={widget.id} updateCounter={updateCounter} />
+                                <WidgetItem widget={{ ...widget, updateCounter }} showTooltip={showTooltip} key={widget.id} updateCounter={updateCounter} />
                             </Container.Item>
                         ))}
                     </Container>
