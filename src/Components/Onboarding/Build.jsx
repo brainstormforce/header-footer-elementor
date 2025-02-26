@@ -6,6 +6,9 @@ import { Link } from "../../router/index"
 import { __ } from "@wordpress/i18n";
 import { routes } from "../../admin/settings/routes";
 
+let attempts = 0;
+const maxAttempts = 7; // Poll up to 7 times.
+
 const OnboardingBuild = ({ setCurrentStep }) => {
     const [isDialogOpen, setIsDialogOpen] = useState(false);
     const [email, setEmail] = useState('');
@@ -42,12 +45,11 @@ const OnboardingBuild = ({ setCurrentStep }) => {
         }
         setErrors('');
         setLoading(true);
+        attempts = 0;
         callValidatedEmailWebhook(email);
     };
 
     const pollForValidationStatus = (email) => {
-        let attempts = 0;
-        const maxAttempts = 7; // Poll up to 7 times.
     
         const checkStatus = () => {
 
@@ -76,7 +78,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                         setTimeout(checkStatus, 5000); // Try again after 5 sec.
                     } else {
                         setLoading(false);
-                        setErrors(__('Something went wrong!', 'header-footer-elementor'));
+                        setErrors(__('Something went wrong. Try again', 'header-footer-elementor'));
                     }
                 })
                 .catch((error) => console.error('Error checking validation:', error));
@@ -332,6 +334,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                                     onClick={() => {
                                         setIsDialogOpen(false);
                                         setLoading(false);
+                                        attempts = 7;
                                     }}
                                     style={{ marginLeft: '60px', marginBottom: '20px', paddingTop: '0' }}
                                 />
