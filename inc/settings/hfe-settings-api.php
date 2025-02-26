@@ -133,7 +133,7 @@ class HFE_Settings_Api {
 		if ( ! $session_id ) {
 			$session_id = md5( wp_generate_uuid4() . microtime( true ) );
 			if ( ! headers_sent() ) {
-				setcookie( 'hfe_custom_user_session_id', $session_id, 0, '/' );
+				setcookie( 'hfe_custom_user_session_id', $session_id, time() + (20 * MINUTE_IN_SECONDS), '/' );
 			}
 		}
 
@@ -240,6 +240,7 @@ class HFE_Settings_Api {
 
 		if ( 'pending' !== $status ) {
 			delete_transient( "uae_validation_data_{$session_id}" );
+			// setcookie( 'hfe_custom_user_session_id', '', time() - 3600, '/' );
 		}
 	
 		return new WP_REST_Response([ 'status' => $status ], 200);
