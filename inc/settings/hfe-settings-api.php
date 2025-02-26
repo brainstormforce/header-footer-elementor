@@ -100,6 +100,16 @@ class HFE_Settings_Api {
 
 		register_rest_route(
 			'hfe/v1',
+			'/email-webhook',
+			[
+				'methods'             => 'POST',
+				'callback'            => [ $this, 'send_email_to_webhook' ],
+				'permission_callback' => [ $this, 'get_items_permissions_check' ],
+			]
+		);
+
+		register_rest_route(
+			'hfe/v1',
 			'/email-validation',
 			[
 				'methods'             => 'POST',
@@ -110,16 +120,62 @@ class HFE_Settings_Api {
 	}
 
 	/**
+	 * Send Email to Webhook.
+	 */
+	public function send_email_to_webhook( WP_REST_Request $request ) {
+		$nonce = $request->get_header( 'X-WP-Nonce' );
+
+		if ( ! wp_verify_nonce( $nonce, 'wp_rest' ) ) {
+			return new WP_Error( 'invalid_nonce', __( 'Invalid nonce', 'header-footer-elementor' ), [ 'status' => 403 ] );
+		}
+
+		$email = sanitize_email( $request->get_param( 'email' ) );
+    	$date = sanitize_text_field( $request->get_param( 'date' ) );
+
+		if ( empty( $email ) || empty( $date ) ) {
+			return new WP_Error( 'missing_parameters', __( 'Missing email or date parameter', 'header-footer-elementor' ), [ 'status' => 400 ] );
+		}
+		
+        $webhookUrl = 'https://webhook.suretriggers.com/suretriggers/4cb01209-5164-4521-93c1-360df407d83b';
+		
+		$webhookUrl = add_query_arg( [
+			'email' => $email,
+			'date' => $date,
+		], $webhookUrl );
+
+		$response = wp_remote_post( $webhookUrl, [
+			'method' => 'POST',
+			'headers' => [
+				'Content-Type' => 'application/json',
+			],
+		]);
+	
+		if ( is_wp_error( $response ) ) {
+			return new WP_Error( 'webhook_error', __( 'Error calling webhook', 'header-footer-elementor' ), [ 'status' => 500 ] );
+		}
+	
+		return new WP_REST_Response( [ 'message' => 'Webhook call successful' ], 200 );
+	}
+
+	/**
 	 * Email Validation Response.
 	 */
 	public function get_email_validation_response( WP_REST_Request $request ) {
 
-		$body = $request->get_json_params(); // Get JSON body
+		$body = $request->get_json_params(); // Get JSON body.
+		
 		$email = isset($body['email']) ? sanitize_email($body['email']) : '';
+		$token = isset($body['token']) ? sanitize_text_field($body['token']) : '';
 		$status = isset($body['status']) ? sanitize_text_field($body['status']) : '';
 
-		if (!$email || !$status) {
+		if ( ! $email || ! $status || ! $token ) {
 			return new WP_REST_Response(['message' => 'Invalid request'], 400);
+		}
+
+		$expected_token = wp_hash($email . time());
+
+		if ($expected_token !== $token) {
+			return new WP_REST_Response(['message' => 'Invalid token'], 403);
 		}
 
 		// Store validation result for later retrieval

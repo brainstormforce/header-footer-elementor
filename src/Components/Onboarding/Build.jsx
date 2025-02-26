@@ -116,7 +116,6 @@ const OnboardingBuild = ({ setCurrentStep }) => {
     };
 
     const callValidatedEmailWebhook = (email) => {
-        const webhookUrl = 'https://webhook.suretriggers.com/suretriggers/4cb01209-5164-4521-93c1-360df407d83b';
         const today = new Date().toISOString().split('T')[0];
 
         const params = new URLSearchParams({
@@ -124,16 +123,21 @@ const OnboardingBuild = ({ setCurrentStep }) => {
             date: today,
         });
 
-        fetch(`${webhookUrl}?${params.toString()}`, {
+        fetch(`/wp-json/hfe/v1/email-webhook/?${params.toString()}`, {
             method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-WP-Nonce': hfeSettingsData.hfe_nonce_action, // Use the correct nonce.
+            },
         })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Webhook call successful:', data);
-            })
-            .catch(error => {
-                console.error('Error calling webhook:', error);
-            });
+        .then((response) => response.json())
+        .then(data => {
+            console.log('Webhook call successful:', data);
+        })
+        .catch(error => {
+            console.error('Error calling webhook:', error);
+        });
+
     }
 
     return (
