@@ -538,7 +538,7 @@ msgid ""
 msgstr ""
 
 #: src/Components/Dashboard/WelcomeContainer.js:58
-#: src/Components/Onboarding/Build.jsx:205
+#: src/Components/Onboarding/Build.jsx:217
 msgid "Create Header/Footer"
 msgstr ""
 
@@ -630,71 +630,71 @@ msgstr ""
 msgid "What's New?"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:107
+#: src/Components/Onboarding/Build.jsx:119
 #: src/Components/Settings/ThemeSupport.jsx:63
 msgid "Settings saved successfully!"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:112
+#: src/Components/Onboarding/Build.jsx:124
 #: src/Components/Settings/ThemeSupport.jsx:68
 msgid "Failed to save settings!"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:149
+#: src/Components/Onboarding/Build.jsx:161
 msgid "You're all set!🚀"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:152
+#: src/Components/Onboarding/Build.jsx:164
 msgid ""
 "Start creating headers, footers, or pages with UAE and take your website to "
 "the next level"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:158
+#: src/Components/Onboarding/Build.jsx:170
 msgid "Here’s how to get started:"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:162
+#: src/Components/Onboarding/Build.jsx:174
 msgid "Click on “Create” button"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:163
+#: src/Components/Onboarding/Build.jsx:175
 msgid ""
 "Choose the type of template you want to create and customize the selected "
 "option"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:164
+#: src/Components/Onboarding/Build.jsx:176
 msgid ""
 "Use the Elementor editor to customize your template according to your "
 "preferences using UAE widgets"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:165
+#: src/Components/Onboarding/Build.jsx:177
 msgid "Click “Publish” to make it live"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:230
+#: src/Components/Onboarding/Build.jsx:242
 msgid "Go To Dashboard"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:247
+#: src/Components/Onboarding/Build.jsx:259
 msgid "We have a special reward just for you!"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:250
+#: src/Components/Onboarding/Build.jsx:262
 msgid "Unlock your surprise now"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:264
+#: src/Components/Onboarding/Build.jsx:276
 msgid "Unlock My Surprise"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:279
+#: src/Components/Onboarding/Build.jsx:291
 msgid "Help make UAE Better"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:308
+#: src/Components/Onboarding/Build.jsx:320
 msgid ""
 "Help us improve by sharing anonymous data about your website setup. This "
 "includes non-sensitive info about plugins, themes, and settings, so we can "
@@ -702,37 +702,37 @@ msgid ""
 "Learn more in our privacy policy."
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:323
+#: src/Components/Onboarding/Build.jsx:335
 msgid "We have a special Reward just for you! 🎁"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:337
+#: src/Components/Onboarding/Build.jsx:352
 msgid ""
 "Enter your email address to get special offer that we have for you and stay "
 "updated on UAE’s latest news and updates."
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:341
+#: src/Components/Onboarding/Build.jsx:356
 msgid "Email Address"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:380
+#: src/Components/Onboarding/Build.jsx:396
 msgid "Submit Email"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:40
+#: src/Components/Onboarding/Build.jsx:46
 msgid "Please enter a valid email address"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:69
+#: src/Components/Onboarding/Build.jsx:78
 msgid "Entered email ID is invalid!"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:72
+#: src/Components/Onboarding/Build.jsx:81
 msgid "Entered email ID already exists, try a different one."
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:78
+#: src/Components/Onboarding/Build.jsx:87
 msgid "Something went wrong!"
 msgstr ""
 
