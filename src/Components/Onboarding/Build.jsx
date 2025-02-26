@@ -13,8 +13,6 @@ const OnboardingBuild = ({ setCurrentStep }) => {
     const [isActive, setIsActive] = useState(true);
     const [errors, setErrors] = useState('');
     const [loading, setLoading] = useState(false); 
-    const [attempts, setAttempts] = useState(0);
-    const maxAttempts = 10;
 
     useEffect(() => {
         setEmail(hfeSettingsData.user_email);
@@ -36,10 +34,6 @@ const OnboardingBuild = ({ setCurrentStep }) => {
 
     }, [hfeSettingsData.user_email]);
 
-    useEffect(() => {
-        console.log("Loading State Changed:", loading);
-    }, [loading]);
-
     const handleSubmit = () => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if ( ! emailRegex.test(email) ) {
@@ -51,50 +45,45 @@ const OnboardingBuild = ({ setCurrentStep }) => {
         callValidatedEmailWebhook(email);
     };
 
-    const pollForValidationStatus = async (email) => {
-        let attempts = 0; // Initialize attempts locally
-        
-        const checkStatus = async () => {
-            if (!loading || attempts >= maxAttempts) return; // Prevent unnecessary calls
+    const pollForValidationStatus = (email) => {
+        let attempts = 0;
+        const maxAttempts = 10; // Poll up to 10 times (~50 sec).
     
-            try {
-                const response = await fetch(`/wp-json/hfe/v1/email-validation/`, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "X-WP-Nonce": hfeSettingsData.hfe_nonce_action,
-                    },
-                    body: JSON.stringify({ email }),
-                });
-    
-                const data = await response.json();
-    
-                if (data.status === "valid") {
-                    setLoading(false);
-                    setIsSubmitted(true);
-                    window.location.href = hfeSettingsData.onboarding_success_url;
-                } else if (data.status === "invalid") {
-                    setLoading(false);
-                    setErrors(__("Entered email ID is invalid!", "header-footer-elementor"));
-                } else if (data.status === "exists") {
-                    setLoading(false);
-                    setErrors(__("Entered email ID already exists, try a different one.", "header-footer-elementor"));
-                } else if (data.status === "pending" && attempts < maxAttempts) {
-                    attempts++;  // Increment attempts
-                    setTimeout(checkStatus, 5000); // Retry after 5 seconds
-                } else {
-                    setLoading(false);
-                    setErrors(__("Something went wrong!", "header-footer-elementor"));
-                }
-            } catch (error) {
-                console.error("Error checking validation:", error);
-                setLoading(false);
-            }
+        const checkStatus = () => {
+
+            fetch(`/wp-json/hfe/v1/email-validation/`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-WP-Nonce': hfeSettingsData.hfe_nonce_action, // Use the correct nonce.
+                },
+                body: JSON.stringify({ email }),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    if ( data.status === 'valid' ) {
+                        setLoading(false);
+                        setIsSubmitted(true);
+                        window.location.href = hfeSettingsData.onboarding_success_url;
+                    } else if ( data.status === 'invalid') {
+                        setLoading(false);
+                        setErrors(__('Entered email ID is invalid!', 'header-footer-elementor'));
+                    } else if ( data.status === 'exists') {
+                        setLoading(false);
+                        setErrors(__('Entered email ID already exists, try a different one.', 'header-footer-elementor'));
+                    } else if ( data.status === 'pending' && attempts < maxAttempts) {
+                        attempts++;
+                        setTimeout(checkStatus, 5000); // Try again after 5 sec.
+                    } else {
+                        setLoading(false);
+                        setErrors(__('Something went wrong!', 'header-footer-elementor'));
+                    }
+                })
+                .catch((error) => console.error('Error checking validation:', error));
         };
-    
-        checkStatus(); // Start polling
+        
+        checkStatus();
     };
-    
 
     const handleSwitchChange = async () => {
         const newIsActive = !isActive;
