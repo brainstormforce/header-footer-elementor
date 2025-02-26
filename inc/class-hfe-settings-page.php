@@ -217,7 +217,7 @@ class HFE_Settings_Page {
 	 */
 	public function fetch_user_email() {
 		$current_user = wp_get_current_user();
-		if ( $current_user->ID !== 0 ) {
+		if ( 0 !== $current_user->ID ) {
 			return $current_user->user_email;
 		} else {
 			return null;
@@ -235,7 +235,7 @@ class HFE_Settings_Page {
 	
 		$uae_logo      = HFE_URL . 'assets/images/settings/dashboard-logo.svg';
 		$white_logo    = HFE_URL . 'assets/images/settings/white-logo.svg';
-		$show_view_all = ( $post_type === 'elementor-hf' && $pagenow === 'post.php' ) ? 'yes' : 'no';
+		$show_view_all = ( 'elementor-hf' === $post_type && 'post.php' === $pagenow ) ? 'yes' : 'no';
 		$hfe_edit_url  = admin_url( 'edit.php?post_type=elementor-hf' );
 		$is_hfe_post   = ( 'elementor-hf' === $post_type && ( 'post.php' === $pagenow || 'post-new.php' === $pagenow ) ) ? 'yes' : 'no';
 	
