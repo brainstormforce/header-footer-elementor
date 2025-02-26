@@ -176,7 +176,7 @@ class HFE_Settings_Api {
 	 */
 	public function get_response_from_suretriggers( WP_REST_Request $request ) {
 
-		$body = $request->get_json_params(); // Get JSON body.
+		$body = $request->get_params();
 		
 		$email = isset($body['email']) ? sanitize_email($body['email']) : '';
 		$status = isset($body['status']) ? sanitize_text_field($body['status']) : '';
