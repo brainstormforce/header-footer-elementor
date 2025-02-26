@@ -47,7 +47,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
 
     const pollForValidationStatus = (email) => {
         let attempts = 0;
-        const maxAttempts = 10; // Poll up to 10 times (~50 sec).
+        const maxAttempts = 7; // Poll up to 7 times.
     
         const checkStatus = () => {
 
