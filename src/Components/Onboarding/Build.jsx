@@ -43,7 +43,6 @@ const OnboardingBuild = ({ setCurrentStep }) => {
         setErrors('');
         setLoading(true);
         callValidatedEmailWebhook(email);
-        pollForValidationStatus(email);
     };
 
     const pollForValidationStatus = (email) => {
@@ -133,7 +132,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
         })
         .then((response) => response.json())
         .then(data => {
-            console.log('Webhook call successful:', data);
+            pollForValidationStatus(email);
         })
         .catch(error => {
             console.error('Error calling webhook:', error);
