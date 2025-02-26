@@ -93,7 +93,7 @@ class HFE_Settings_Api {
 			'/email-response',
 			[
 				'methods'             => 'POST',
-				'callback'            => [ $this, 'get_email_validation_response' ],
+				'callback'            => [ $this, 'get_response_from_suretriggers' ],
 				'permission_callback' => '__return_true',
 			]
 		);
@@ -103,7 +103,7 @@ class HFE_Settings_Api {
 			'/email-webhook',
 			[
 				'methods'             => 'POST',
-				'callback'            => [ $this, 'send_email_to_webhook' ],
+				'callback'            => [ $this, 'send_email_to_webhook_api' ],
 				'permission_callback' => [ $this, 'get_items_permissions_check' ],
 			]
 		);
@@ -113,7 +113,7 @@ class HFE_Settings_Api {
 			'/email-validation',
 			[
 				'methods'             => 'POST',
-				'callback'            => [ $this, 'handle_email_validation_response' ],
+				'callback'            => [ $this, 'get_email_status' ],
 				'permission_callback' => [ $this, 'get_items_permissions_check' ],
 			]
 		);
@@ -122,102 +122,127 @@ class HFE_Settings_Api {
 	/**
 	 * Send Email to Webhook.
 	 */
-	public function send_email_to_webhook( WP_REST_Request $request ) {
+	public function send_email_to_webhook_api( WP_REST_Request $request ) {
 		$nonce = $request->get_header( 'X-WP-Nonce' );
-
 		if ( ! wp_verify_nonce( $nonce, 'wp_rest' ) ) {
 			return new WP_Error( 'invalid_nonce', __( 'Invalid nonce', 'header-footer-elementor' ), [ 'status' => 403 ] );
 		}
 
+		$session_id = isset( $_COOKIE['hfe_custom_user_session_id'] ) ? sanitize_text_field( wp_unslash( $_COOKIE['hfe_custom_user_session_id'] ) ) : '';
+
+		if ( ! $session_id ) {
+			$session_id = md5( wp_generate_uuid4() . microtime( true ) );
+			if ( ! headers_sent() ) {
+				setcookie( 'hfe_custom_user_session_id', $session_id, 0, '/' );
+			}
+		}
+
 		$email = sanitize_email( $request->get_param( 'email' ) );
-    	$date = sanitize_text_field( $request->get_param( 'date' ) );
+		$date = sanitize_text_field( $request->get_param( 'date' ) );
 
 		if ( empty( $email ) || empty( $date ) ) {
 			return new WP_Error( 'missing_parameters', __( 'Missing email or date parameter', 'header-footer-elementor' ), [ 'status' => 400 ] );
 		}
-		
-        $webhookUrl = 'https://webhook.suretriggers.com/suretriggers/4cb01209-5164-4521-93c1-360df407d83b';
-		
-		$webhookUrl = add_query_arg( [
-			'email' => $email,
-			'date' => $date,
-		], $webhookUrl );
 
-		$response = wp_remote_post( $webhookUrl, [
-			'method' => 'POST',
-			'headers' => [
-				'Content-Type' => 'application/json',
-			],
+		// Store the email validation request temporarily
+		set_transient( "hfe_email_validation_{$session_id}", [ 'email' => $email, 'date' => $date ], 10 * MINUTE_IN_SECONDS );
+
+		$webhook_url = 'https://webhook.suretriggers.com/suretriggers/4cb01209-5164-4521-93c1-360df407d83b';
+
+		// Append session_id to track requests
+		$webhook_url = add_query_arg( [
+			'email'      => $email,
+			'date'       => $date,
+			'session_id' => $session_id,
+		], $webhook_url );
+
+		$response = wp_remote_post( $webhook_url, [
+			'method'  => 'POST',
+			'headers' => [ 'Content-Type' => 'application/json' ],
 		]);
-	
+
 		if ( is_wp_error( $response ) ) {
 			return new WP_Error( 'webhook_error', __( 'Error calling webhook', 'header-footer-elementor' ), [ 'status' => 500 ] );
 		}
-	
-		return new WP_REST_Response( [ 'message' => 'Webhook call successful' ], 200 );
+
+		return new WP_REST_Response( [ 'message' => 'Webhook call successful', 'session_id' => $session_id ], 200 );
 	}
 
 	/**
 	 * Email Validation Response.
 	 */
-	public function get_email_validation_response( WP_REST_Request $request ) {
+	public function get_response_from_suretriggers( WP_REST_Request $request ) {
 
 		$body = $request->get_json_params(); // Get JSON body.
 		
 		$email = isset($body['email']) ? sanitize_email($body['email']) : '';
-		$token = isset($body['token']) ? sanitize_text_field($body['token']) : '';
 		$status = isset($body['status']) ? sanitize_text_field($body['status']) : '';
+		$session_id = isset( $body['session_id'] ) ? sanitize_text_field( $body['session_id'] ) : '';
 
-		if ( ! $email || ! $status || ! $token ) {
+		if ( ! $email || ! $status || ! $session_id ) {
 			return new WP_REST_Response(['message' => 'Invalid request'], 400);
 		}
 
-		$expected_token = wp_hash($email . time());
-
-		if ($expected_token !== $token) {
-			return new WP_REST_Response(['message' => 'Invalid token'], 403);
+		$existing_session = get_transient( "hfe_email_validation_{$session_id}" );
+    
+		if ( false === $existing_session ) {
+			return new WP_REST_Response([ 'message' => 'Session expired or invalid.' ], 403);
 		}
 
-		// Store validation result for later retrieval
-		set_transient('uae_email_validation_' . md5($email), $status, 5 * MINUTE_IN_SECONDS);
+		if( $email !== $existing_session['email'] ) {
+			return new WP_REST_Response([ 'message' => 'Email mismatch' ], 400);
+		}
 
-		return new WP_REST_Response([
-			'message' => 'Validation received',
+		// Store validation result.
+		set_transient( "uae_validation_data_{$session_id}", [
+			'email'  => $email,
 			'status' => $status,
-		], 200);
+		], 5 * MINUTE_IN_SECONDS );
+
+		// Invalidate the original transient to prevent reuse.
+		delete_transient( "hfe_email_validation_{$session_id}" );
+	
+		return new WP_REST_Response([
+			'message' => 'Validation received successfully.',
+			'status'  => $status,
+		], 200 );
 	}
 
 	/**
 	 * Handle Email Validation Response.
 	 */
-	public function handle_email_validation_response( WP_REST_Request $request ) {
+	public function get_email_status( WP_REST_Request $request ) {
 
 		$nonce = $request->get_header( 'X-WP-Nonce' );
 
 		if ( ! wp_verify_nonce( $nonce, 'wp_rest' ) ) {
 			return new WP_Error( 'invalid_nonce', __( 'Invalid nonce', 'header-footer-elementor' ), [ 'status' => 403 ] );
 		}
+
+		// Retrieve session ID from cookie.
+		$session_id = isset( $_COOKIE['hfe_custom_user_session_id'] ) ? sanitize_text_field( wp_unslash( $_COOKIE['hfe_custom_user_session_id'] ) ) : '';
+
+		if ( empty( $session_id ) ) {
+			return new WP_REST_Response([ 'status' => 'error', 'message' => 'Session expired or invalid.' ], 403);
+		}
+
+		// Check if session is still valid.
+		$existing_session = get_transient( "uae_validation_data_{$session_id}" );
 		
 		$params = $request->get_json_params();
 		$email  = isset($params['email']) ? sanitize_email($params['email']) : '';
 	
-		if (empty($email)) {
+		if ( empty($email) ) {
 			return new WP_REST_Response([ 'status' => 'error', 'message' => 'Invalid email address' ], 400);
 		}
 	
-		$status = $this->check_email_validation_status($email);
+		$status = isset($existing_session['status']) ? $existing_session['status'] : 'pending';
+
+		if ( 'pending' !== $status ) {
+			delete_transient( "uae_validation_data_{$session_id}" );
+		}
 	
 		return new WP_REST_Response([ 'status' => $status ], 200);
-	}
-
-	/**
-	 * Check Email Validation Status.
-	 */
-	private function check_email_validation_status($email) {
-		$hash = md5($email);
-		$status = get_transient('uae_email_validation_' . $hash);
-		
-		return $status ? $status : 'pending'; // Return 'pending' instead of waiting.
 	}
 
 	/**
