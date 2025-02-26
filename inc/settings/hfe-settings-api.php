@@ -148,17 +148,20 @@ class HFE_Settings_Api {
 		set_transient( "hfe_email_validation_{$session_id}", [ 'email' => $email, 'date' => $date ], 10 * MINUTE_IN_SECONDS );
 
 		$webhook_url = 'https://webhook.suretriggers.com/suretriggers/4cb01209-5164-4521-93c1-360df407d83b';
+		$validation_url = get_site_url() . '/wp-json/hfe/v1/email-response/';
 
-		// Append session_id to track requests
-		$webhook_url = add_query_arg( [
-			'email'      => $email,
-			'date'       => $date,
+		// Append session_id to track requests.
+		$body = json_encode([
+			'email' => $email,
+			'date' => $date,
 			'session_id' => $session_id,
-		], $webhook_url );
+			'validation_url' => $validation_url,
+		]);
 
 		$response = wp_remote_post( $webhook_url, [
 			'method'  => 'POST',
 			'headers' => [ 'Content-Type' => 'application/json' ],
+			'body'    => $body,
 		]);
 
 		if ( is_wp_error( $response ) ) {

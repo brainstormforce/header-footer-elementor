@@ -40,6 +40,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
             setErrors(__('Please enter a valid email address', 'header-footer-elementor'));
             return;
         }
+        setErrors('');
         setLoading(true);
         callValidatedEmailWebhook(email);
         pollForValidationStatus(email);
