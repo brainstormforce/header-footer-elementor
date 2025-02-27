@@ -259,14 +259,14 @@ class Header_Footer_Elementor {
 	<div class="uae-permalink-clear-notice" id="uae-permalink-clear-notice">
 		<?php if ( is_admin() ) { ?>
 			<header>
-				<i class="eicon-notice"></i>
+				<i class="eicon-warning"></i>
 				<h2><?php echo esc_html__( 'Important Notice:', 'header-footer-elementor' ); ?></h2>
 				<button class="permalink-notice-close"><?php echo esc_html__( 'X', 'header-footer-elementor' ); ?></button>
 			</header>
 			<div class="uae-permalink-notice-content">
 				<!-- <?php //echo esc_html__( 'If you’re experiencing any issues while editing your header/footer templates in Elementor after updating, try clearing your site cache or resetting permalinks (Settings > Permalinks > Save Changes).', 'header-footer-elementor' ); ?> -->
 				<?php echo esc_html__( ' Facing issues while editing your header or footer in Elementor? Try clearing your site cache or resetting permalinks by going to Settings > Permalinks and clicking \'Save Changes\'.', 'header-footer-elementor' ); ?>
-				<br/><a href="https://ultimateelementor.com/"><?php echo esc_html__( '👉 Learn more','header-footer-elementor' ) ?></a>
+				<br/><br/><a href="https://ultimateelementor.com/"><?php echo esc_html__( '👉 Learn more','header-footer-elementor' ) ?></a>
 			</div>
 		<?php } ?>
 	</div>
