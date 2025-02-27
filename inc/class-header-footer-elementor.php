@@ -188,8 +188,16 @@ class Header_Footer_Elementor {
 	 * @since 2.2.1
 	 */
 	public function update_permalink_notice_option() {
+		// Check if the current user has the capability to manage options.
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error( 'Unauthorized user' );
+		}
+	
+		// Update the option to true.
 		update_option( 'hfe_permalink_notice_option', 'true' );
-		wp_die();
+	
+		// Send a success response.
+		wp_send_json_success( 'Option updated successfully' );
 	}
 
 	/**
@@ -199,17 +207,22 @@ class Header_Footer_Elementor {
 	 */
 	public function enqueue_permalink_clear_notice_css() {
 
-		if(get_option( 'hfe_permalink_notice_option' ) === 'true' ){
+		if ( get_option( 'hfe_permalink_notice_option' ) === 'true' ) {
 			return;
 		}
-		
+	
 		$current_post_type = get_post_type( self::$elementor_instance->editor->get_post_id() );
-
-		if( $current_post_type !== "elementor-hf" ){
+	
+		if ( $current_post_type !== 'elementor-hf' ) {
 			return;
 		}
-
-		wp_enqueue_style( 'hfe-permalink-clear-notice', HFE_URL . 'inc/widgets-css/permalink-clear-notice.css',array(), HFE_VER );
+	
+		wp_enqueue_style(
+			'hfe-permalink-clear-notice',
+			HFE_URL . 'inc/widgets-css/permalink-clear-notice.css',
+			[],
+			HFE_VER
+		);
 	}
 
 	/**
@@ -219,17 +232,23 @@ class Header_Footer_Elementor {
 	 */
 	public function enqueue_permalink_clear_notice_js() {
 
-		if(get_option( 'hfe_permalink_notice_option' ) === 'true' ){
+		if ( get_option( 'hfe_permalink_notice_option' ) === 'true' ) {
 			return;
 		}
-
+	
 		$current_post_type = get_post_type( self::$elementor_instance->editor->get_post_id() );
-
-		if( $current_post_type !== "elementor-hf" ){
+	
+		if ( $current_post_type !== 'elementor-hf' ) {
 			return;
 		}
-
-		wp_enqueue_script( 'hfe-permalink-clear-notice', HFE_URL . 'inc/js/permalink-clear-notice.js', [ 'jquery' ], HFE_VER );
+	
+		wp_enqueue_script(
+			'hfe-permalink-clear-notice',
+			HFE_URL . 'inc/js/permalink-clear-notice.js',
+			[ 'jquery' ],
+			HFE_VER
+		);
+	
 		wp_localize_script(
 			'hfe-permalink-clear-notice',
 			'hfePermalinkClearNotice',
@@ -261,12 +280,11 @@ class Header_Footer_Elementor {
 			<header>
 				<i class="eicon-warning"></i>
 				<h2><?php echo esc_html__( 'Important Notice:', 'header-footer-elementor' ); ?></h2>
-				<button class="permalink-notice-close"><?php echo esc_html__( 'X', 'header-footer-elementor' ); ?></button>
+				<button class="permalink-notice-close">X</button>
 			</header>
 			<div class="uae-permalink-notice-content">
-				<!-- <?php //echo esc_html__( 'If you’re experiencing any issues while editing your header/footer templates in Elementor after updating, try clearing your site cache or resetting permalinks (Settings > Permalinks > Save Changes).', 'header-footer-elementor' ); ?> -->
 				<?php echo esc_html__( ' Facing issues while editing your header or footer in Elementor? Try clearing your site cache or resetting permalinks by going to Settings > Permalinks and clicking \'Save Changes\'.', 'header-footer-elementor' ); ?>
-				<br/><br/><a href="https://ultimateelementor.com/"><?php echo esc_html__( '👉 Learn more','header-footer-elementor' ) ?></a>
+				<br/><br/><a href="<?php echo esc_url( 'https://wpastra.com/docs/how-to-refresh-wordpress-permalinks/' ); ?>"><?php esc_html_e( '👉 Learn more', 'header-footer-elementor' ); ?></a>
 			</div>
 		<?php } ?>
 	</div>
