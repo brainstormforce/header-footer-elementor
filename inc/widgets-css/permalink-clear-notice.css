@@ -1,0 +1,67 @@
+.uae-permalink-clear-notice {
+    position: absolute;
+    z-index: 10000; /* Over the loading layer */
+    top: 50px;
+    bottom: auto;
+    width: 400px;
+    line-height: 30px;
+    color: var(--e-a-color-txt);
+    background: var(--e-a-bg-default);
+    padding: 20px 25px 25px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    font-family: var(--e-a-font-family);
+}
+
+body.rtl .uae-permalink-clear-notice {
+    left: 10px;
+}
+
+body:not(.rtl) .uae-permalink-clear-notice {
+    right: 10px;
+}
+
+#uae-permalink-clear-notice {
+    display: none;
+}
+
+.uae-permalink-clear-notice .uae-permalink-notice-content {
+    font-size: 13px;
+    line-height: 22px;
+}
+
+.uae-permalink-clear-notice .uae-permalink-notice-content a {
+    color: var(--e-a-color-info);
+}
+
+.uae-permalink-clear-notice .uae-permalink-notice-content hr {
+    margin: 15px auto;
+    border: 0 none;
+    border-block-start: var(--e-a-border);
+}
+
+.uae-permalink-clear-notice header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-block-end: 20px;
+}
+
+.uae-permalink-clear-notice header > * {
+    margin-block-start: 10px;
+}
+
+.uae-permalink-clear-notice header i {
+    font-size: 25px;
+    color: var(--e-a-color-warning);
+}
+
+.uae-permalink-clear-notice header i {
+    margin-inline-end: 10px;
+}
+
+.uae-permalink-clear-notice header h2 {
+    flex-grow: 1;
+    font-size: 18px;
+}

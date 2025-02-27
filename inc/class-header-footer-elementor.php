@@ -141,6 +141,12 @@ class Header_Footer_Elementor {
 
 			add_action( 'astra_notice_before_markup_header-footer-elementor-rating', [ $this, 'rating_notice_css' ] );
 
+			add_action( 'elementor/editor/footer', [ $this, 'print_permalink_clear_notice' ] );
+			add_action( 'elementor/editor/before_enqueue_scripts', [ $this, 'enqueue_permalink_clear_notice_js' ] );
+			add_action( 'elementor/editor/before_enqueue_styles', [ $this, 'enqueue_permalink_clear_notice_css' ] );
+			add_action( 'wp_ajax_update_permalink_notice_option', [ $this, 'update_permalink_notice_option' ] );
+			add_action( 'wp_ajax_nopriv_update_permalink_notice_option', [ $this, 'update_permalink_notice_option' ] );
+
 			// BSF Analytics Tracker.
 			if ( ! class_exists( 'BSF_Analytics_Loader' ) ) {
 				require_once HFE_DIR . 'admin/bsf-analytics/class-bsf-analytics-loader.php';
@@ -175,6 +181,96 @@ class Header_Footer_Elementor {
 				require_once HFE_DIR . 'inc/lib/class-hfe-utm-analytics.php';
 			}       
 		}
+	}
+	/**
+	 * Updated the permalink notice option.
+	 *
+	 * @since 2.2.1
+	 */
+	public function update_permalink_notice_option() {
+		update_option( 'hfe_permalink_notice_option', 'true' );
+		wp_die();
+	}
+
+	/**
+	 * Enqueue notice style based on option and posttype.
+	 *
+	 * @since 2.2.1
+	 */
+	public function enqueue_permalink_clear_notice_css() {
+
+		if(get_option( 'hfe_permalink_notice_option' ) === 'true' ){
+			return;
+		}
+		
+		$current_post_type = get_post_type( self::$elementor_instance->editor->get_post_id() );
+
+		if( $current_post_type !== "elementor-hf" ){
+			return;
+		}
+
+		wp_enqueue_style( 'hfe-permalink-clear-notice', HFE_URL . 'inc/widgets-css/permalink-clear-notice.css',array(), HFE_VER );
+	}
+
+	/**
+	 * Enqueue and localize notice script based on option and posttype.
+	 *
+	 * @since 2.2.1
+	 */
+	public function enqueue_permalink_clear_notice_js() {
+
+		if(get_option( 'hfe_permalink_notice_option' ) === 'true' ){
+			return;
+		}
+
+		$current_post_type = get_post_type( self::$elementor_instance->editor->get_post_id() );
+
+		if( $current_post_type !== "elementor-hf" ){
+			return;
+		}
+
+		wp_enqueue_script( 'hfe-permalink-clear-notice', HFE_URL . 'inc/js/permalink-clear-notice.js', [ 'jquery' ], HFE_VER );
+		wp_localize_script(
+			'hfe-permalink-clear-notice',
+			'hfePermalinkClearNotice',
+			[
+				'ajaxurl' => admin_url( 'admin-ajax.php' ),
+			]
+		);
+	}
+
+	/**
+	 * Creating notice for permaliink reset in Elementor Editor.
+	 * 
+	 * @since 2.2.1
+	 */
+	public function print_permalink_clear_notice() {
+
+		if(get_option( 'hfe_permalink_notice_option' ) === 'true' ){
+			return;
+		}
+
+		$current_post_type = get_post_type( self::$elementor_instance->editor->get_post_id() );
+
+		if( $current_post_type !== "elementor-hf" ){
+			return;
+		}
+?>
+	<div class="uae-permalink-clear-notice" id="uae-permalink-clear-notice">
+		<?php if ( is_admin() ) { ?>
+			<header>
+				<i class="eicon-notice"></i>
+				<h2><?php echo esc_html__( 'Important Notice:', 'header-footer-elementor' ); ?></h2>
+				<button class="permalink-notice-close"><?php echo esc_html__( 'X', 'header-footer-elementor' ); ?></button>
+			</header>
+			<div class="uae-permalink-notice-content">
+				<!-- <?php //echo esc_html__( 'If you’re experiencing any issues while editing your header/footer templates in Elementor after updating, try clearing your site cache or resetting permalinks (Settings > Permalinks > Save Changes).', 'header-footer-elementor' ); ?> -->
+				<?php echo esc_html__( ' Facing issues while editing your header or footer in Elementor? Try clearing your site cache or resetting permalinks by going to Settings > Permalinks and clicking \'Save Changes\'.', 'header-footer-elementor' ); ?>
+				<br/><a href="https://ultimateelementor.com/"><?php echo esc_html__( '👉 Learn more','header-footer-elementor' ) ?></a>
+			</div>
+		<?php } ?>
+	</div>
+<?php	
 	}
 
 	/**
