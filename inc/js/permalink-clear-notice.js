@@ -1,26 +1,24 @@
 var ElementorEditorCheck = function() {
     var isNoticeClosed = function() {
-    
-        jQuery(function($) {
-            $( '.permalink-notice-close' ).on( 'click', function( e ) {
-                var $notice = jQuery( '#uae-permalink-clear-notice' );
-                if ( $notice.data('visible') ) {
-                    $notice.remove();
-                    $.ajax({
-                        url: hfePermalinkClearNotice.ajaxurl,
-                        type: 'POST',
-                        data: {
-                            action: 'update_permalink_notice_option'
-                        },
-                        success: function(response) {
-                            console.log('Option updated successfully');
-                        },
-                        error: function(error) {
-                            console.log('Error updating option');
-                        }
-                    });
-                }
-            });
+
+        jQuery(document).on('click', '.permalink-notice-close', function(e) {
+            var $notice = jQuery('#uae-permalink-clear-notice');
+            if ($notice.data('visible')) {
+                $notice.remove();
+                jQuery.ajax({
+                    url: hfePermalinkClearNotice.ajaxurl,
+                    type: 'POST',
+                    data: {
+                        action: 'update_permalink_notice_option'
+                    },
+                    success: function(response) {
+                        console.log('Option updated successfully');
+                    },
+                    error: function(error) {
+                        console.log('Error updating option');
+                    }
+                });
+            }
         });
     }
 
