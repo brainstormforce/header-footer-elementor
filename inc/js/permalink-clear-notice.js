@@ -12,7 +12,11 @@ var ElementorEditorCheck = function() {
                         action: 'update_permalink_notice_option'
                     },
                     success: function(response) {
-                        console.log('Option updated successfully');
+                        if (response.success) {
+                            console.log('Option updated successfully');
+                        } else {
+                            console.log('Error updating option: ' + response.data);
+                        }
                     },
                     error: function(error) {
                         console.log('Error updating option');
