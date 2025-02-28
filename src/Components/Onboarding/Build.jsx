@@ -140,7 +140,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
             return response.json();
         })
         .then(data => {
-            if ( "Success" === data.message ) {
+            if ( "success" === data.message ) {
                 pollForValidationStatus(email);
             } else {
                 console.warn("Unexpected webhook response:", data);

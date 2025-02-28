@@ -383,7 +383,7 @@ class HFE_Settings_Api {
 	
 		return new WP_REST_Response(
 			[
-				'message'    => 'Success',
+				'message'    => 'success',
 				'session_id' => $session_id,
 			],
 			200
