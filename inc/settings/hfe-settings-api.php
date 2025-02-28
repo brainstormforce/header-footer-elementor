@@ -278,7 +278,7 @@ class HFE_Settings_Api {
 					'status'  => 'error',
 					'message' => 'Invalid email address',
 				],
-				400 
+				400
 			);
 		}
 	
@@ -286,6 +286,10 @@ class HFE_Settings_Api {
 
 		if ( 'pending' !== $status ) {
 			delete_transient( "uae_validation_data_{$session_id}" );
+		}
+
+		if ( 'valid' === $status ) {
+			update_option( "uae_hide_onboarding", true );
 		}
 	
 		return new WP_REST_Response( [ 'status' => $status ], 200 );
