@@ -289,7 +289,7 @@ class HFE_Settings_Api {
 		}
 
 		if ( 'valid' === $status ) {
-			update_option( "uae_hide_onboarding", true );
+			update_option( "uae_onboarding_success", true );
 		}
 	
 		return new WP_REST_Response( [ 'status' => $status ], 200 );
