@@ -5,6 +5,7 @@ import {
 	CircleHelp,
 	FileText,
 	Headset,
+	House,
 	User,
 } from "lucide-react";
 import { __ } from "@wordpress/i18n";
@@ -223,11 +224,7 @@ const NavMenu = () => {
 					</Topbar.Middle>
 					<Topbar.Right className="gap-4">
 						<Topbar.Item>
-							<DropdownMenu
-								placement="bottom-start"
-								isOpen={isDropdownOpen}
-								onOpenChange={setIsDropdownOpen}
-							>
+							<DropdownMenu placement="bottom-end">
 								<DropdownMenu.Trigger>
 									<Badge
 										label={__(
@@ -237,120 +234,121 @@ const NavMenu = () => {
 										size="xs"
 										variant="neutral"
 									/>
+									<span className="sr-only">Open Menu</span>
 								</DropdownMenu.Trigger>
-								<DropdownMenu.Content className="w-52">
-									<DropdownMenu.List>
-										<DropdownMenu.Item>
-											{__(
-												"Version",
-												"header-footer-elementor"
-											)}
-										</DropdownMenu.Item>
-										<DropdownMenu.Item>
-											<div className="flex justify-between w-full">
-												{`${hfeSettingsData.uaelite_current_version}`}
-												<Badge
-													label={__(
-														"Free",
-														"header-footer-elementor"
-													)}
-													size="xs"
-													variant="neutral"
-												/>
-											</div>
-										</DropdownMenu.Item>
-									</DropdownMenu.List>
-								</DropdownMenu.Content>
+								<DropdownMenu.Portal>
+									<DropdownMenu.Content className="w-60">
+										<DropdownMenu.List>
+											<DropdownMenu.Item>
+												{__(
+													"Version",
+													"header-footer-elementor"
+												)}
+											</DropdownMenu.Item>
+											<DropdownMenu.Item>
+												<div className="flex justify-between w-full">
+													{`${hfeSettingsData.uaelite_current_version}`}
+													<Badge
+														label={__(
+															"Free",
+															"header-footer-elementor"
+														)}
+														size="xs"
+														variant="neutral"
+													/>
+												</div>
+											</DropdownMenu.Item>
+										</DropdownMenu.List>
+									</DropdownMenu.Content>
+								</DropdownMenu.Portal>
 							</DropdownMenu>
 						</Topbar.Item>
 						<Topbar.Item className="gap-4 cursor-pointer">
-							<DropdownMenu
-								placement="bottom-start"
-								isOpen={isDropdownOpen}
-								onOpenChange={setIsDropdownOpen}
-							>
+							<DropdownMenu placement="bottom-end">
 								<DropdownMenu.Trigger>
 									<CircleHelp />
 								</DropdownMenu.Trigger>
-								<DropdownMenu.Content className="w-60">
-									<DropdownMenu.List>
-										<DropdownMenu.Item>
-											{__(
-												"Useful Resources",
-												"header-footer-elementor"
-											)}
-										</DropdownMenu.Item>
-										<DropdownMenu.Item
-											className="text-text-primary"
-											style={{ color: "black" }}
-											onClick={() =>
-												handleRedirect(
-													"https://ultimateelementor.com/docs/getting-started-with-ultimate-addons-for-elementor-lite/"
-												)
-											}
-										>
-											<FileText
+								<DropdownMenu.Portal>
+									<DropdownMenu.Content className="w-60">
+										<DropdownMenu.List>
+											<DropdownMenu.Item>
+												{__(
+													"Useful Resources",
+													"header-footer-elementor"
+												)}
+											</DropdownMenu.Item>
+											<DropdownMenu.Item
+												className="text-text-primary"
 												style={{ color: "black" }}
-											/>
-											{__(
-												"Getting Started",
-												"header-footer-elementor"
-											)}
-										</DropdownMenu.Item>
-										<DropdownMenu.Item
-											onClick={() =>
-												handleRedirect(
-													"https://ultimateelementor.com/docs-category/widgets/"
-												)
-											}
-										>
-											<FileText />
-											{__(
-												"How to use widgets",
-												"header-footer-elementor"
-											)}
-										</DropdownMenu.Item>
-										<DropdownMenu.Item
-											onClick={() =>
-												handleRedirect(
-													"https://ultimateelementor.com/docs-category/features/"
-												)
-											}
-										>
-											<FileText />
-											{__(
-												"How to use features",
-												"header-footer-elementor"
-											)}
-										</DropdownMenu.Item>
-										<DropdownMenu.Item
-											onClick={() =>
-												handleRedirect(
-													"https://ultimateelementor.com/docs-category/templates/"
-												)
-											}
-										>
-											<FileText />
-											{__(
-												"How to use templates",
-												"header-footer-elementor"
-											)}
-										</DropdownMenu.Item>
-										<DropdownMenu.Item
-											onClick={() =>
-												handleRedirect(
-													"https://ultimateelementor.com/contact/"
-												)
-											}
-										>
-											<Headset />
-											{__(
-												"Contact us",
-												"header-footer-elementor"
-											)}
-										</DropdownMenu.Item>
-									</DropdownMenu.List>
-								</DropdownMenu.Content>
+												onClick={() =>
+													handleRedirect(
+														"https://ultimateelementor.com/docs/getting-started-with-ultimate-addons-for-elementor-lite/"
+													)
+												}
+											>
+												<FileText
+													style={{ color: "black" }}
+												/>
+												{__(
+													"Getting Started",
+													"header-footer-elementor"
+												)}
+											</DropdownMenu.Item>
+											<DropdownMenu.Item
+												onClick={() =>
+													handleRedirect(
+														"https://ultimateelementor.com/docs-category/widgets/"
+													)
+												}
+											>
+												<FileText />
+												{__(
+													"How to use widgets",
+													"header-footer-elementor"
+												)}
+											</DropdownMenu.Item>
+											<DropdownMenu.Item
+												onClick={() =>
+													handleRedirect(
+														"https://ultimateelementor.com/docs-category/features/"
+													)
+												}
+											>
+												<FileText />
+												{__(
+													"How to use features",
+													"header-footer-elementor"
+												)}
+											</DropdownMenu.Item>
+											<DropdownMenu.Item
+												onClick={() =>
+													handleRedirect(
+														"https://ultimateelementor.com/docs-category/templates/"
+													)
+												}
+											>
+												<FileText />
+												{__(
+													"How to use templates",
+													"header-footer-elementor"
+												)}
+											</DropdownMenu.Item>
+											<DropdownMenu.Item
+												onClick={() =>
+													handleRedirect(
+														"https://ultimateelementor.com/contact/"
+													)
+												}
+											>
+												<Headset />
+												{__(
+													"Contact us",
+													"header-footer-elementor"
+												)}
+											</DropdownMenu.Item>
+										</DropdownMenu.List>
+									</DropdownMenu.Content>
+								</DropdownMenu.Portal>
 							</DropdownMenu>
 							<div className="pb-1" id="hfe-whats-new"></div>
 						</Topbar.Item>

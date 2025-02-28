@@ -123,7 +123,7 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:218
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:178
-#: src/Components/NavMenu.js:253
+#: src/Components/NavMenu.js:252
 msgid "Free"
 msgstr ""
 
@@ -570,63 +570,63 @@ msgstr ""
 msgid "Formerly Elementor Header & Footer Builder"
 msgstr ""
 
-#: src/Components/NavMenu.js:130
+#: src/Components/NavMenu.js:131
 msgid "Dashboard"
 msgstr ""
 
-#: src/Components/NavMenu.js:150
+#: src/Components/NavMenu.js:151
 msgid "Header & Footer Builder"
 msgstr ""
 
-#: src/Components/NavMenu.js:162
+#: src/Components/NavMenu.js:163
 msgid "Widgets"
 msgstr ""
 
-#: src/Components/NavMenu.js:173
+#: src/Components/NavMenu.js:174
 msgid "Templates"
 msgstr ""
 
-#: src/Components/NavMenu.js:184
+#: src/Components/NavMenu.js:185
 msgid "Settings"
 msgstr ""
 
-#: src/Components/NavMenu.js:193
+#: src/Components/NavMenu.js:194
 msgid "Free vs Pro"
 msgstr ""
 
-#: src/Components/NavMenu.js:220
+#: src/Components/NavMenu.js:221
 msgid "Get Pro"
 msgstr ""
 
-#: src/Components/NavMenu.js:244
+#: src/Components/NavMenu.js:243
 msgid "Version"
 msgstr ""
 
-#: src/Components/NavMenu.js:278
+#: src/Components/NavMenu.js:275
 msgid "Useful Resources"
 msgstr ""
 
-#: src/Components/NavMenu.js:295
+#: src/Components/NavMenu.js:292
 msgid "Getting Started"
 msgstr ""
 
-#: src/Components/NavMenu.js:308
+#: src/Components/NavMenu.js:305
 msgid "How to use widgets"
 msgstr ""
 
-#: src/Components/NavMenu.js:321
+#: src/Components/NavMenu.js:318
 msgid "How to use features"
 msgstr ""
 
-#: src/Components/NavMenu.js:334
+#: src/Components/NavMenu.js:331
 msgid "How to use templates"
 msgstr ""
 
-#: src/Components/NavMenu.js:347
+#: src/Components/NavMenu.js:344
 msgid "Contact us"
 msgstr ""
 
-#: src/Components/NavMenu.js:77
+#: src/Components/NavMenu.js:78
 msgid "What's New?"
 msgstr ""
 
