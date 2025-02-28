@@ -538,7 +538,7 @@ msgid ""
 msgstr ""
 
 #: src/Components/Dashboard/WelcomeContainer.js:58
-#: src/Components/Onboarding/Build.jsx:160
+#: src/Components/Onboarding/Build.jsx:208
 msgid "Create Header/Footer"
 msgstr ""
 
@@ -630,61 +630,71 @@ msgstr ""
 msgid "What's New?"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:104
+#: src/Components/Onboarding/Build.jsx:110
+#: src/Components/Settings/ThemeSupport.jsx:63
+msgid "Settings saved successfully!"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:115
+#: src/Components/Settings/ThemeSupport.jsx:68
+msgid "Failed to save settings!"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:152
 msgid "You're all set!🚀"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:107
+#: src/Components/Onboarding/Build.jsx:155
 msgid ""
 "Start creating headers, footers, or pages with UAE and take your website to "
 "the next level"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:113
+#: src/Components/Onboarding/Build.jsx:161
 msgid "Here’s how to get started:"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:117
+#: src/Components/Onboarding/Build.jsx:165
 msgid "Click on “Create” button"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:118
+#: src/Components/Onboarding/Build.jsx:166
 msgid ""
 "Choose the type of template you want to create and customize the selected "
 "option"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:119
+#: src/Components/Onboarding/Build.jsx:167
 msgid ""
 "Use the Elementor editor to customize your template according to your "
 "preferences using UAE widgets"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:120
+#: src/Components/Onboarding/Build.jsx:168
 msgid "Click “Publish” to make it live"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:185
+#: src/Components/Onboarding/Build.jsx:233
 msgid "Go To Dashboard"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:202
+#: src/Components/Onboarding/Build.jsx:250
 msgid "We have a special reward just for you!"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:205
+#: src/Components/Onboarding/Build.jsx:253
 msgid "Unlock your surprise now"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:219
+#: src/Components/Onboarding/Build.jsx:267
 msgid "Unlock My Surprise"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:234
+#: src/Components/Onboarding/Build.jsx:282
 msgid "Help make UAE Better"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:263
+#: src/Components/Onboarding/Build.jsx:311
 msgid ""
 "Help us improve by sharing anonymous data about your website setup. This "
 "includes non-sensitive info about plugins, themes, and settings, so we can "
@@ -692,36 +702,38 @@ msgid ""
 "Learn more in our privacy policy."
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:278
+#: src/Components/Onboarding/Build.jsx:326
 msgid "We have a special Reward just for you! 🎁"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:292
+#: src/Components/Onboarding/Build.jsx:344
 msgid ""
 "Enter your email address to get special offer that we have for you and stay "
 "updated on UAE’s latest news and updates."
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:296
+#: src/Components/Onboarding/Build.jsx:348
 msgid "Email Address"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:336
+#: src/Components/Onboarding/Build.jsx:388
 msgid "Submit Email"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:42
+#: src/Components/Onboarding/Build.jsx:43
 msgid "Please enter a valid email address"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:66
-#: src/Components/Settings/ThemeSupport.jsx:63
-msgid "Settings saved successfully!"
+#: src/Components/Onboarding/Build.jsx:72
+msgid "Entered email ID is invalid!"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:71
-#: src/Components/Settings/ThemeSupport.jsx:68
-msgid "Failed to save settings!"
+#: src/Components/Onboarding/Build.jsx:75
+msgid "Entered email ID already exists, try a different one."
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:81
+msgid "Something went wrong. Try again"
 msgstr ""
 
 #: src/Components/Onboarding/Success.jsx:144
