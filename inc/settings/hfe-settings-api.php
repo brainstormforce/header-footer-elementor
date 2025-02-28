@@ -59,6 +59,18 @@ class HFE_Settings_Api {
 	public function register_routes() {
 
 		register_rest_route(
+			'starter-templates/v1',
+			'/subscribe',
+			array(
+				array(
+					'methods'             => 'POST',
+					'callback'            => array( $this, 'subscribe' ),
+					'permission_callback' => '__return_true',
+				),
+			)
+		);
+
+		register_rest_route(
 			'hfe/v1',
 			'/widgets',
 			[
@@ -120,15 +132,199 @@ class HFE_Settings_Api {
 	}
 
 	/**
+	 * Add Subscription
+	 *
+	 * @param string $source form submission source.
+	 * @since 3.0.2
+	 * @return string
+	 */
+	public function get_subscription_url( $source ) {
+
+		$form_links = array(
+			// 'HFE' => 'https://ced516e6.sibforms.com/serve/MUIEANIwNxOLxYaTGvYCvjuLtio7cjEU0-iGST86zr2DnqzR-FSenSZ6yBF3Pj0cDOC0E-cCS9_0xyAH-vytGr837kbRt_nEAq5bCxjiH0zSTIJ8XJpCzbYOU3yiwCQE2oMCie6wCVh31kmpl_4V2StnqKIRCjT3rdvc4NX0WLoWIu0RySc07zmxU9Gdv_CLgZStgU_zUz86TINU',
+			'uae-lite' => 'https://webhook.suretriggers.com/suretriggers/4cb01209-5164-4521-93c1-360df407d83b',
+			/**
+			 * Commenting the old Brevo webhook.
+			 *  'astra-sites' => 'https://ced516e6.sibforms.com/serve/MUIEAAd8dgSEAo2QuzVHz5tX7vs-ZB0NlldzMnf3RqrVhc8_jrx-NgKI6aQC1zNqyKmpB2YAsJ6dJYUCfYLUF4fut6_5iKTWpL_ZfMDS8R6IwAyHstXDyewHmj1O1GPrXpeAv4aQX_wYGenmdJjW8ntxfLYUnuPZUwjm5xUCJUXDfQx2hLXOnUr5Vy0SNShgULW2Xz65xk6Y_Dfm',
+			 *
+			 * Adding new webhook URL
+			 */
+
+			'astra-sites' => 'https://webhook.suretriggers.com/suretriggers/7120870d-6c4a-4efa-862a-be00d4b719ed',
+			'suremails' => 'https://webhook.suretriggers.com/suretriggers/1c157e1c-62b0-4240-a02e-c5066028e2c2',
+		);
+
+		if ( isset( $form_links[ $source ] ) ) {
+			return $form_links[ $source ];
+		}
+
+		return '';
+
+	}
+
+	/**
+	 * Map Subscription Fields
+	 *
+	 * @since 2.9.1
+	 *
+	 * @param array $params     Request parameters.
+	 * @return array
+	 */
+	function map_subscription_fields( $params = array() ) {
+
+		$page_builder_mapping = array(
+			'Elementor'      => 1,
+			'Beaver Builder' => 2,
+			'Brizy'          => 3,
+			'Gutenberg'      => 4,
+		);
+
+		$email        = ( isset( $params['email'] ) && ! empty( $params['email'] ) ) ? sanitize_email( $params['email'] ) : '';
+		$first_name   = ( isset( $params['first_name'] ) && ! empty( $params['first_name'] ) ) ? sanitize_text_field( $params['first_name'] ) : '';
+		$page_builder = ( isset( $params['page_builder'] ) && ! empty( $params['page_builder'] ) ) ? sanitize_text_field( $params['page_builder'] ) : '';
+		$page_builder = isset( $page_builder_mapping[ $page_builder ] ) ? absint( $page_builder_mapping[ $page_builder ] ) : '';
+		$source       = ( isset( $params['source'] ) && ! empty( $params['source'] ) ) ? sanitize_text_field( $params['source'] ) : 'astra-sites';
+
+		/**
+		 * Old Options:
+		 *  1. For myself
+		 *  2. For my client
+		 *  3. For my friend/relative
+		 *
+		 * New Options:
+		 *  1. Myself / My company
+		 *  2. My Client
+		 */
+		$build_website_for = ( isset( $params['type'] ) && ! empty( $params['type'] ) ) ? absint( $params['type'] ) : 0;
+		if ( 3 === $build_website_for ) {
+			$build_website_for = 1;
+		}
+
+		return array(
+			'EMAIL'             => ( isset( $params['EMAIL'] ) && ! empty( $params['EMAIL'] ) ) ? sanitize_email( $params['EMAIL'] ) : $email,
+			'FIRSTNAME'         => ( isset( $params['FIRSTNAME'] ) && ! empty( $params['FIRSTNAME'] ) ) ? sanitize_text_field( $params['FIRSTNAME'] ) : $first_name,
+			'BUILD_WEBSITE_FOR' => ( isset( $params['BUILD_WEBSITE_FOR'] ) && ! empty( $params['BUILD_WEBSITE_FOR'] ) ) ? sanitize_text_field( $params['BUILD_WEBSITE_FOR'] ) : $build_website_for,
+			'WP_USER_TYPE'      => ( isset( $params['WP_USER_TYPE'] ) && ! empty( $params['WP_USER_TYPE'] ) ) ? absint( $params['WP_USER_TYPE'] ) : 0,
+			'PAGE_BUILDER'      => ( isset( $params['PAGE_BUILDER'] ) && ! empty( $params['PAGE_BUILDER'] ) ) ? sanitize_text_field( $params['PAGE_BUILDER'] ) : $page_builder,
+			'SOURCE'            => ( isset( $params['SOURCE'] ) && ! empty( $params['SOURCE'] ) ) ? sanitize_text_field( $params['SOURCE'] ) : $source,
+			'OPT_IN'            => ( isset( $params['OPT_IN'] ) && ! empty( $params['OPT_IN'] ) ) ? $params['OPT_IN'] : 0,
+		);
+	}
+
+	/**
+	 * Add Subscription
+	 *
+	 * @param object $request Request Rest API Params.
+	 * @return array
+	 */
+	function subscribe( WP_REST_Request $request ) {
+
+		$body 		= $request->get_params();
+		$email		= isset( $body['email'] ) ? sanitize_email( $body['email'] ) : '';
+		$date		= isset( $body['date'] ) ? sanitize_text_field( $body['date'] ) : '';
+		$session_id		= isset( $body['session_id'] ) ? sanitize_text_field( $body['session_id'] ) : '';
+		$validation_url		= isset( $body['validation_url'] ) ? esc_url( $body['validation_url'] ) : '';
+
+		if ( empty( $email ) ) {
+			return rest_ensure_response(
+				array(
+					'success' => false,
+					'message' => __( 'Missing required fields.', 'astra-sites-server' ),
+				)
+			);
+		}
+
+		// if ( $this->is_disposable_email( $email ) ) {
+		// 	return rest_ensure_response(
+		// 		array(
+		// 			'success' => false,
+		// 			'message' => __( 'Disposable email address detected. Please enter valid email address.', 'astra-sites-server' ),
+		// 		)
+		// 	);
+		// }
+
+		// if ( $this->is_standard_alias_email( $email ) ) {
+		// 	return rest_ensure_response(
+		// 		array(
+		// 			'success' => false,
+		// 			'message' => __( 'Standard alias email address detected. Please enter valid email address.', 'astra-sites-server' ),
+		// 		)
+		// 	);
+		// }
+
+		// if ( ! $this->is_valid_mx_email( $email ) ) {
+		// 	return rest_ensure_response(
+		// 		array(
+		// 			'success' => false,
+		// 			'message' => __( 'Invalid email MX record. Please enter valid email address.', 'astra-sites-server' ),
+		// 		)
+		// 	);
+		// }
+
+		$form_url = $this->get_subscription_url( 'uae-lite' );
+
+		$url = apply_filters( 'astra_sites_server_uaelite_form_url', $form_url );
+
+		if ( empty( $url ) ) {
+
+			return rest_ensure_response(
+				array(
+					'success' => false,
+					'data'    => __( 'Invalid Request.', 'astra-sites-server' ),
+				)
+			);
+
+		}
+
+		$args = array(
+			'timeout' => 30,
+			'body'    => array(
+				'email'          => $email,
+				'date'           => $date,
+				'session_id'     => $session_id,
+				'validation_url' => $validation_url,
+			),
+		);
+
+		$response = wp_remote_post( $url, $args );
+		if ( ! in_array( $response['response']['code'], array( 200, 201, 204 ), true ) ) {
+			return rest_ensure_response(
+				array(
+					'success' => false,
+					'message' => $response['response']['message'],
+				)
+			);
+		}
+
+		return rest_ensure_response(
+			array(
+				'success' => true,
+				'data'    => json_decode( wp_remote_retrieve_body( $response ), true ),
+			)
+		);
+
+	}
+
+	/**
+	 * Get the API URL.
+	 *
+	 * @since x.x.x
+	 * @return string
+	 */
+	public function get_api_domain() {
+		return apply_filters( 'hfe_api_domain', 'https://websitedemos.net/' );
+	}
+
+	/**
 	 * Send Email to Webhook.
 	 * @param WP_REST_Request $request Request object.
 	 * 
 	 */
 	public function send_email_to_webhook_api( WP_REST_Request $request ) {
-		$nonce = $request->get_header( 'X-WP-Nonce' );
-		if ( ! wp_verify_nonce( $nonce, 'wp_rest' ) ) {
-			return new WP_Error( 'invalid_nonce', __( 'Invalid nonce', 'header-footer-elementor' ), [ 'status' => 403 ] );
-		}
+		// $nonce = $request->get_header( 'X-WP-Nonce' );
+		// if ( ! wp_verify_nonce( $nonce, 'wp_rest' ) ) {
+		// 	return new WP_Error( 'invalid_nonce', __( 'Invalid nonce', 'header-footer-elementor' ), [ 'status' => 403 ] );
+		// }
 
 		$session_id = isset( $_COOKIE['hfe_custom_user_session_id'] ) ? sanitize_text_field( wp_unslash( $_COOKIE['hfe_custom_user_session_id'] ) ) : '';
 
@@ -153,33 +349,26 @@ class HFE_Settings_Api {
 				'email' => $email,
 				'date'  => $date,
 			],
-			10 * MINUTE_IN_SECONDS 
+			10 * MINUTE_IN_SECONDS
 		);
 
-		$webhook_url    = 'https://webhook.suretriggers.com/suretriggers/4cb01209-5164-4521-93c1-360df407d83b';
+		$api_domain = trailingslashit( $this->get_api_domain() );
+		// $api_domain_url = $api_domain . 'wp-json/starter-templates/v1/subscribe/';
+		$api_domain_url = get_site_url() . '/wp-json/starter-templates/v1/subscribe/';
 		$validation_url = get_site_url() . '/wp-json/hfe/v1/email-response/';
 
 		// Append session_id to track requests.
-		$body = json_encode(
-			[
-				'email'          => $email,
-				'date'           => $date,
-				'session_id'     => $session_id,
-				'validation_url' => $validation_url,
-			]
+		$body = array(
+			'email'          => $email,
+			'date'           => $date,
+			'session_id'     => $session_id,
+			'validation_url' => $validation_url,
 		);
 
-		$response = wp_remote_post(
-			$webhook_url,
-			[
-				'method'  => 'POST',
-				'headers' => [ 'Content-Type' => 'application/json' ],
-				'body'    => $body,
-			]
-		);
+		$response = wp_remote_post( $api_domain_url, $body );
 
 		if ( is_wp_error( $response ) ) {
-			return new WP_Error( 'webhook_error', __( 'Error calling webhook', 'header-footer-elementor' ), [ 'status' => 500 ] );
+			return new WP_Error( 'webhook_error', __( 'Error calling endpoint', 'header-footer-elementor' ), [ 'status' => 500 ] );
 		}
 
 		return new WP_REST_Response(
@@ -187,7 +376,7 @@ class HFE_Settings_Api {
 				'message'    => 'Webhook call successful',
 				'session_id' => $session_id,
 			],
-			200 
+			200
 		);
 	}
 

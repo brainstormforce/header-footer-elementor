@@ -135,6 +135,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
         })
         .then((response) => response.json())
         .then(data => {
+            console.log( data );
             pollForValidationStatus(email);
         })
         .catch(error => {
