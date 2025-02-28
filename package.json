@@ -73,7 +73,7 @@
 				"core-js": "^3.38.1",
 				"cross-env": "^7.0.3",
 				"eslint-plugin-eslint-comments": "^3.2.0",
-				"gpt-po": "^1.2.0",
+				"gpt-po": "^1.2.3",
 				"grunt": "^1.6.1",
 				"grunt-bumpup": "^0.6.3",
 				"grunt-cli": "^1.4.3",
