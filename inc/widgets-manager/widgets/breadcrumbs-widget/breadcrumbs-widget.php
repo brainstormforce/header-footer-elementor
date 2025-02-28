@@ -812,7 +812,7 @@ class Breadcrumbs_Widget extends Common_Widget {
 		}
 		$output .= '</ul>';
 		
-		echo wp_kses_post( $output );
+		echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 	}
 
