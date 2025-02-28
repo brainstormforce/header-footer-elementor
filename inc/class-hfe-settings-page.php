@@ -640,32 +640,28 @@ class HFE_Settings_Page {
 	 * @return void
 	 */
 	public function hfe_settings_page() {
-		echo '<h1 class="hfe-heading-inline">';
-		esc_html_e( 'Elementor Header & Footer Builder', 'header-footer-elementor' );
-		echo '</h1>';
-
-		$this->hfe_tabs();
-
-		// Get option safely
-		$hfe_radio_button = get_option( 'hfe_compatibility_option', '1' );
-
-		// Verify and sanitize `$_GET['page']` before using it
-		if ( isset( $_GET['page'] ) ) {
-			$page = sanitize_text_field( wp_unslash( $_GET['page'] ) );
-
-			switch ( $page ) {
-				case 'hfe-settings':
-					$this->get_themes_support();
-					break;
-
-				case 'hfe-about':
-					$this->get_about_html();
-					break;
-				case 'default':
-					break;
-			}
-		}
-	}
+        echo '<h1 class="hfe-heading-inline">';
+        esc_attr_e( 'Elementor Header & Footer Builder ', 'header-footer-elementor' );
+        echo '</h1>';
+        $this->hfe_tabs();
+        ?>
+        <?php
+        $hfe_radio_button = get_option( 'hfe_compatibility_option', '1' );
+        ?>
+        <?php
+        if ( isset( $_GET['page'] ) ) { // PHPCS:Ignore WordPress.Security.NonceVerification.Recommended
+            switch ( $_GET['page'] ) { // PHPCS:Ignore WordPress.Security.NonceVerification.Recommended
+                case 'hfe-settings':
+                    $this->get_themes_support();
+                    break;
+                case 'hfe-about':
+                    $this->get_about_html();
+                    break;
+                case 'default':
+                    break;
+            }
+        }
+    }
 
 
 	/**
@@ -697,41 +693,32 @@ class HFE_Settings_Page {
 	 * @return void
 	 */
 	public function hfe_tabs() {
-		?>
-	<div class="nav-tab-wrapper">
-		<?php
-		if ( ! isset( self::$hfe_settings_tabs ) ) {
-			self::$hfe_settings_tabs['hfe_templates'] = [
-				'name' => __( 'All Templates', 'header-footer-elementor' ),
-				'url'  => admin_url( 'edit.php?post_type=elementor-hf' ),
-			];
-		}
-
-		self::$hfe_settings_tabs['hfe_about'] = [
-			'name' => __( 'About Us', 'header-footer-elementor' ),
-			'url'  => admin_url( 'themes.php?page=hfe-about' ),
-		];
-
-		$tabs = apply_filters( 'hfe_settings_tabs', self::$hfe_settings_tabs );
-
-		// Sanitize `$_GET['page']`
-		$current_page = isset( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : '';
-
-		foreach ( $tabs as $tab_id => $tab ) {
-			$tab_slug = str_replace( '_', '-', $tab_id );
-
-			$active_tab = ( ( $current_page && $tab_slug === $current_page ) || ( empty( $current_page ) && 'hfe_templates' === $tab_id ) ) ? $tab_id : '';
-
-			$active = ( $active_tab === $tab_id ) ? ' nav-tab-active' : '';
-
-			echo '<a href="' . esc_url( $tab['url'] ) . '" class="nav-tab' . esc_attr( $active ) . '">';
-			echo esc_html( $tab['name'] );
-			echo '</a>';
-		}
-		?>
-	</div>
-		<?php
-	}
+        ?>
+        <div class="nav-tab-wrapper">
+            <?php
+            if ( ! isset( self::$hfe_settings_tabs ) ) {
+                self::$hfe_settings_tabs['hfe_templates'] = [
+                    'name' => __( 'All Templates', 'header-footer-elementor' ),
+                    'url'  => admin_url( 'edit.php?post_type=elementor-hf' ),
+                ];
+            }
+            self::$hfe_settings_tabs['hfe_about'] = [
+                'name' => __( 'About Us', 'header-footer-elementor' ),
+                'url'  => admin_url( 'themes.php?page=hfe-about' ),
+            ];
+            $tabs = apply_filters( 'hfe_settings_tabs', self::$hfe_settings_tabs );
+            foreach ( $tabs as $tab_id => $tab ) {
+                $tab_slug = str_replace( '_', '-', $tab_id );
+                $active_tab = ( ( isset( $_GET['page'] ) && $tab_slug == $_GET['page'] ) || ( ! isset( $_GET['page'] ) && 'hfe_templates' == $tab_id ) ) ? $tab_id : ''; // PHPCS:Ignore WordPress.Security.NonceVerification.Recommended
+                $active = ( $active_tab == $tab_id ) ? ' nav-tab-active' : '';
+                echo '<a href="' . esc_url( $tab['url'] ) . '" class="nav-tab' . esc_attr( $active ) . '">';
+                echo esc_html( $tab['name'] );
+                echo '</a>';
+            }
+            ?>
+        </div>
+        <?php
+    }
 
 
 	/**
@@ -789,49 +776,35 @@ class HFE_Settings_Page {
 	 * @return void
 	 */
 	public function get_guide_html() {
-
-		$is_subscribed   = get_user_meta( get_current_user_ID(), 'hfe-subscribed' );
-		$subscribe_valid = ( is_array( $is_subscribed ) && isset( $is_subscribed[0] ) && 'yes' === $is_subscribed[0] ) ? 'yes' : false;
-		$subscribe_flag  = ( 'yes' === $subscribe_valid ) ? ' hfe-user-subscribed' : ' hfe-user-unsubscribed';
-	
-		?>
-		<div class="hfe-admin-about-section hfe-admin-columns hfe-admin-guide-section<?php echo esc_attr( $subscribe_flag ); ?>">
-	
-			<div class="hfe-admin-column-50">
-				<div class="hfe-admin-about-section-column">
-					<h2><?php esc_html_e( 'Create Impressive Header and Footer Designs', 'header-footer-elementor' ); ?></h2>
-					<p><?php esc_html_e( 'Elementor Header & Footer Builder plugin lets you build impactful navigation for your website very easily. Before we begin, we would like to know more about you. This will help us to serve you better.', 'header-footer-elementor' ); ?></p>
-				</div>
-			</div>
-	
-			<?php if ( 'yes' !== $subscribe_valid ) { ?>
-				<div class="hfe-admin-column-50 hfe-admin-column-last">
-					<div class="hfe-guide-content hfe-subscription-step-1-active">
-						<div class="hfe-guide-content-header hfe-admin-columns">
-						</div>
-						<form action="<?php echo esc_url( admin_url( 'options.php' ) ); ?>" method="post">
-							<?php $this->get_form_html(); ?>
-						</form>
-					</div>
-					<div class="hfe-privacy-policy-container">
-						<p class="hfe-subscription-policy">
-							<?php
-							printf(
-								// translators: %1$s and %3$s are opening anchor tags, and %2$s and %4$s are closing anchor tags.
-								esc_html__( 'By submitting, you agree to our %1$sTerms%2$s and %3$sPrivacy Policy%4$s.', 'header-footer-elementor' ),
-								'<a href="' . esc_url( 'https://store.brainstormforce.com/terms-and-conditions/' ) . '" target="_blank">',
-								'</a>',
-								'<a href="' . esc_url( 'https://store.brainstormforce.com/privacy-policy/' ) . '" target="_blank">',
-								'</a>'
-							);
-							?>
-						</p>
-					</div>
-				</div>
-			<?php } ?>
-		</div>
-		<?php
-	}
+        $is_subscribed   = get_user_meta( get_current_user_ID(), 'hfe-subscribed' );
+        $subscribe_valid = ( is_array( $is_subscribed ) && isset( $is_subscribed[0] ) && 'yes' === $is_subscribed[0] ) ? 'yes' : false;
+        $subscribe_flag  = ( 'yes' === $subscribe_valid ) ? ' hfe-user-subscribed' : ' hfe-user-unsubscribed';
+        ?>
+        <div class="hfe-admin-about-section hfe-admin-columns hfe-admin-guide-section<?php echo esc_attr( $subscribe_flag ); ?>">
+            <div class="hfe-admin-column-50">
+                <div class="hfe-admin-about-section-column">
+                    <h2><?php esc_html_e( 'Create Impressive Header and Footer Designs', 'header-footer-elementor' ); ?></h2>
+                    <p><?php esc_html_e( 'Elementor Header & Footer Builder plugin lets you build impactful navigation for your website very easily. Before we begin, we would like to know more about you. This will help us to serve you better.', 'header-footer-elementor' ); ?></p>
+                </div>
+            </div>
+            <?php if ( 'yes' !== $subscribe_valid ) { ?>
+                <div class="hfe-admin-column-50 hfe-admin-column-last">
+                    <div class="hfe-guide-content hfe-subscription-step-1-active">
+                        <div class="hfe-guide-content-header hfe-admin-columns">
+                        </div>
+                        <form action="options.php" method="post">
+                            <?php $this->get_form_html(); ?>
+                        </form>
+                    </div>
+                    <div class="hfe-privacy-policy-container">
+                        <?php /* translators: %1$s and %3$s are opening anchor tags, and %2$s and %4$s is closing anchor tags. */ ?>
+                        <p class="hfe-subscription-policy"><?php printf( __( 'By submitting, you agree to our %1$sTerms%2$s and %3$sPrivacy Policy%4$s.', 'header-footer-elementor' ), '<a href="https://store.brainstormforce.com/terms-and-conditions/" target="_blank">', '</a>', '<a href="https://store.brainstormforce.com/privacy-policy/" target="_blank">', '</a>' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+                    </div>
+                </div>
+            <?php } ?>
+        </div>
+        <?php
+    }
 
 	/**
 	 * Function for form HTML
