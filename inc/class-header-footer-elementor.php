@@ -653,10 +653,7 @@ class Header_Footer_Elementor {
 	 */
 	public static function get_header_content() {
 		$header_content = self::$elementor_instance->frontend->get_builder_content_for_display( get_hfe_header_id() );
-
-		if ( ! empty( $header_content ) ) {
-			echo wp_kses_post( $header_content ); // Properly escaped output
-		}
+		echo $header_content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped.
 	}
 
 
@@ -666,13 +663,9 @@ class Header_Footer_Elementor {
 	 * @return void
 	 */
 	public static function get_footer_content() {
-		$footer_content = self::$elementor_instance->frontend->get_builder_content_for_display( get_hfe_footer_id() );
-
-		if ( ! empty( $footer_content ) ) {
-			echo "<div class='footer-width-fixer'>";
-			echo wp_kses_post( $footer_content ); // Properly escaped output
-			echo '</div>';
-		}
+		echo "<div class='footer-width-fixer'>";
+        echo self::$elementor_instance->frontend->get_builder_content_for_display( get_hfe_footer_id() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+        echo '</div>';
 	}
 
 
@@ -682,13 +675,9 @@ class Header_Footer_Elementor {
 	 * @return void
 	 */
 	public static function get_before_footer_content() {
-		$before_footer_content = self::$elementor_instance->frontend->get_builder_content_for_display( hfe_get_before_footer_id() );
-
-		if ( ! empty( $before_footer_content ) ) {
-			echo "<div class='footer-width-fixer'>";
-			echo wp_kses_post( $before_footer_content ); // Properly escaped output
-			echo '</div>';
-		}
+		echo "<div class='footer-width-fixer'>";
+        echo self::$elementor_instance->frontend->get_builder_content_for_display( get_hfe_footer_id() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+        echo '</div>';
 	}
 
 
