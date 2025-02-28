@@ -116,7 +116,8 @@ class HFE_Settings_Api {
 			[
 				'methods'             => 'POST',
 				'callback'            => [ $this, 'send_email_to_webhook_api' ],
-				'permission_callback' => [ $this, 'get_items_permissions_check' ],
+				// 'permission_callback' => [ $this, 'get_items_permissions_check' ],
+				'permission_callback' => '__return_true',
 			]
 		);
 
@@ -287,20 +288,17 @@ class HFE_Settings_Api {
 		);
 
 		$response = wp_remote_post( $url, $args );
-		if ( ! in_array( $response['response']['code'], array( 200, 201, 204 ), true ) ) {
-			return rest_ensure_response(
-				array(
-					'success' => false,
-					'message' => $response['response']['message'],
-				)
-			);
+
+		if ( is_wp_error( $response ) ) {
+			return new WP_Error( 'webhook_error', __( 'Error calling webhook', 'header-footer-elementor' ), [ 'status' => 500 ] );
 		}
 
-		return rest_ensure_response(
-			array(
-				'success' => true,
-				'data'    => json_decode( wp_remote_retrieve_body( $response ), true ),
-			)
+		return new WP_REST_Response(
+			[
+				'message'    => 'Webhook call successful',
+				'session_id' => $session_id,
+			],
+			200 
 		);
 
 	}
@@ -355,7 +353,7 @@ class HFE_Settings_Api {
 		$api_domain = trailingslashit( $this->get_api_domain() );
 		// $api_domain_url = $api_domain . 'wp-json/starter-templates/v1/subscribe/';
 		$api_domain_url = get_site_url() . '/wp-json/starter-templates/v1/subscribe/';
-		$validation_url = get_site_url() . '/wp-json/hfe/v1/email-response/';
+		$validation_url = esc_url_raw( get_site_url() . '/wp-json/hfe/v1/email-response/' );
 
 		// Append session_id to track requests.
 		$body = array(
@@ -365,15 +363,27 @@ class HFE_Settings_Api {
 			'validation_url' => $validation_url,
 		);
 
-		$response = wp_remote_post( $api_domain_url, $body );
+		$args = array(
+			'body'    => $body,
+			'timeout' => 30,
+		);
+
+		$response = wp_remote_post( $api_domain_url, $args );
 
 		if ( is_wp_error( $response ) ) {
 			return new WP_Error( 'webhook_error', __( 'Error calling endpoint', 'header-footer-elementor' ), [ 'status' => 500 ] );
 		}
-
+	
+		$response_code = wp_remote_retrieve_response_code( $response );
+		$response_body = json_decode( wp_remote_retrieve_body( $response ), true );
+	
+		if ( ! in_array( $response_code, [ 200, 201, 204 ], true ) ) {
+			return new WP_Error( 'webhook_error', __( 'Error in API response: ' . ( $response_body['message'] ?? 'Unknown error' ), 'header-footer-elementor' ), [ 'status' => $response_code ] );
+		}
+	
 		return new WP_REST_Response(
 			[
-				'message'    => 'Webhook call successful',
+				'message'    => 'Success',
 				'session_id' => $session_id,
 			],
 			200

@@ -133,10 +133,18 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                 'X-WP-Nonce': hfeSettingsData.hfe_nonce_action, // Use the correct nonce.
             },
         })
-        .then((response) => response.json())
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
         .then(data => {
-            console.log( data );
-            pollForValidationStatus(email);
+            if ( "Success" === data.message ) {
+                pollForValidationStatus(email);
+            } else {
+                console.warn("Unexpected webhook response:", data);
+            }
         })
         .catch(error => {
             console.error('Error calling webhook:', error);
