@@ -45,7 +45,7 @@
 				"react-redux": "^9.1.2",
 				"react-router": "^6.28.0",
 				"react-router-dom": "^6.29.0",
-				"react-select": "^5.8.0",
+				"react-select": "^5.10.0",
 				"react-virtualized": "^9.22.3",
 				"webfontloader": "^1.6.28",
 				"whats-new-rss": "github:brainstormforce/whats-new-rss"
