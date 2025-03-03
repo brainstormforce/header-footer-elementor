@@ -120,6 +120,16 @@ class HFE_Settings_Api {
 	}
 
 	/**
+	 * Get the API URL.
+	 *
+	 * @since x.x.x
+	 * @return string
+	 */
+	public function get_api_domain() {
+		return apply_filters( 'hfe_api_domain', 'https://websitedemos.net/' );
+	}
+
+	/**
 	 * Send Email to Webhook.
 	 * @param WP_REST_Request $request Request object.
 	 * 
@@ -153,41 +163,48 @@ class HFE_Settings_Api {
 				'email' => $email,
 				'date'  => $date,
 			],
-			10 * MINUTE_IN_SECONDS 
+			10 * MINUTE_IN_SECONDS
 		);
 
-		$webhook_url    = 'https://webhook.suretriggers.com/suretriggers/4cb01209-5164-4521-93c1-360df407d83b';
-		$validation_url = get_site_url() . '/wp-json/hfe/v1/email-response/';
+		$api_domain = trailingslashit( $this->get_api_domain() );
+		$api_domain_url = $api_domain . 'wp-json/uaelite/v1/subscribe/';
+		$validation_url = esc_url_raw( get_site_url() . '/wp-json/hfe/v1/email-response/' );
 
 		// Append session_id to track requests.
-		$body = json_encode(
-			[
-				'email'          => $email,
-				'date'           => $date,
-				'session_id'     => $session_id,
-				'validation_url' => $validation_url,
-			]
+		$body = array(
+			'email'          => $email,
+			'date'           => $date,
+			'session_id'     => $session_id,
+			'validation_url' => $validation_url,
 		);
 
-		$response = wp_remote_post(
-			$webhook_url,
-			[
-				'method'  => 'POST',
-				'headers' => [ 'Content-Type' => 'application/json' ],
-				'body'    => $body,
-			]
+		$args = array(
+			'body'    => $body,
+
+
+			'timeout' => 30,
 		);
+
+		$response = wp_remote_post( $api_domain_url, $args );
 
 		if ( is_wp_error( $response ) ) {
-			return new WP_Error( 'webhook_error', __( 'Error calling webhook', 'header-footer-elementor' ), [ 'status' => 500 ] );
+			return new WP_Error( 'webhook_error', __( 'Error calling endpoint', 'header-footer-elementor' ), [ 'status' => 500 ] );
 		}
-
+	
+		$response_code = wp_remote_retrieve_response_code( $response );
+		$response_body = json_decode( wp_remote_retrieve_body( $response ), true );
+	
+		if ( ! in_array( $response_code, [ 200, 201, 204 ], true ) ) {
+			return new WP_Error( 'webhook_error', __( 'Error in API response: ' . ( $response_body['message'] ?? 'Unknown error' ), 'header-footer-elementor' ), [ 'status' => $response_code ] );
+		}
+	
 		return new WP_REST_Response(
 			[
-				'message'    => 'Webhook call successful',
+				'message'    => 'success',
+
 				'session_id' => $session_id,
 			],
-			200 
+			200
 		);
 	}
 
