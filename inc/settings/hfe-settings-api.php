@@ -104,8 +104,8 @@ class HFE_Settings_Api {
 			[
 				'methods'             => 'POST',
 				'callback'            => [ $this, 'send_email_to_webhook_api' ],
-				// 'permission_callback' => [ $this, 'get_items_permissions_check' ],
-				'permission_callback' => '__return_true',
+				'permission_callback' => [ $this, 'get_items_permissions_check' ],
+				// 'permission_callback' => '__return_true',
 			]
 		);
 
@@ -181,6 +181,8 @@ class HFE_Settings_Api {
 
 		$args = array(
 			'body'    => $body,
+
+
 			'timeout' => 30,
 		);
 
@@ -200,6 +202,7 @@ class HFE_Settings_Api {
 		return new WP_REST_Response(
 			[
 				'message'    => 'success',
+
 				'session_id' => $session_id,
 			],
 			200
