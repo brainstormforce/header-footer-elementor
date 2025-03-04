@@ -280,7 +280,7 @@ class Header_Footer_Elementor {
 			<header>
 				<i class="eicon-warning"></i>
 				<h2><?php echo esc_html__( 'Important Notice:', 'header-footer-elementor' ); ?></h2>
-				<button class="permalink-notice-close">X</button>
+				<button class="permalink-notice-close"><i class="eicon-close"></i></button>
 			</header>
 			<div class="uae-permalink-notice-content">
 				<?php echo esc_html__( ' Facing issues while editing your header or footer in Elementor? Try clearing your site cache or resetting permalinks by going to Settings > Permalinks and clicking \'Save Changes\'.', 'header-footer-elementor' ); ?>

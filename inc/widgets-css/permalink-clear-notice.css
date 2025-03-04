@@ -34,27 +34,32 @@ body:not(.rtl) .uae-permalink-clear-notice {
     color: var(--e-a-color-info);
 }
 
-.uae-permalink-clear-notice .uae-permalink-notice-content hr {
-    margin: 15px auto;
-    border: 0 none;
-    border-block-start: var(--e-a-border);
-}
-
 .uae-permalink-clear-notice header {
     display: flex;
-    align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
     margin-block-end: 20px;
 }
 
-.uae-permalink-clear-notice header > * {
+/* .uae-permalink-clear-notice header > * {
     margin-block-start: 10px;
-}
+} */
 
-.uae-permalink-clear-notice header i {
+.uae-permalink-clear-notice header i.eicon-warning {
     font-size: 25px;
     color: var(--e-a-color-warning);
+}
+
+.uae-permalink-clear-notice header i.eicon-close {
+    font-size: 25px;
+    color: var(--e-a-color-txt);
+}
+.uae-permalink-clear-notice header button {
+    border: none;
+    background-color: var(--e-a-bg-default);
+    position: absolute;
+    top: 12px;
+    right: 5px;
 }
 
 .uae-permalink-clear-notice header i {
