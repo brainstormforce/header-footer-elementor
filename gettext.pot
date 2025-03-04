@@ -121,17 +121,18 @@ msgstr ""
 msgid "Breadcrumbs"
 msgstr ""
 
+#: src/Components/Compare/FreevsPro.jsx:22
+msgid "Retina Logo"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:220
 #: src/Components/Compare/FreevsPro.jsx:218
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:178
 #: src/Components/NavMenu.js:252
 msgid "Free"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:22
-msgid "Retina Logo"
-msgstr ""
-
-#: src/Components/Compare/FreevsPro.jsx:224
+#: src/Components/Compare/FreevsPro.jsx:226
 msgid "Pro"
 msgstr ""
 

@@ -159,78 +159,81 @@ const FreevsPro = () => {
 
     return (
         <div className="rounded-lg bg-white w-full mb-6">
-            <div
-                className="flex items-center justify-between p-5"
-                style={{ paddingBottom: "0" }}
-            >
-                <div className="flex flex-col">
-                    <p className="m-0 text-xl font-semibold pt-4 text-text-primary">
-                        {__("Free Vs Pro", "header-footer-elementor")}
-                    </p>
-                    <p className="m-0 text-sm font-normal pt-1 text-text-secondary">
-                        {__("Ultimate Addons for Elementor Pro offers 50+ widgets and features!", "header-footer-elementor")}
-                    </p>
-                    <p className="m-0 text-sm font-normal pt-1 text-text-secondary">
-                        {__(
-                            "Compare the popular features/widgets to find the best option for your website.",
-                            "header-footer-elementor"
-                        )}
-                    </p>
-                </div>
-                <div className="flex items-center gap-x-2 mr-7">
-                    <Button
-                        iconPosition="right"
-                        variant="primary"
-                        style={{
-                            color: "white",
-                            borderColor: "#6005FF",
-                            transition: "color 0.3s ease, border-color 0.3s ease",
-                            backgroundColor: "#6005ff",
-                        }}
-                        className="hfe-remove-ring text-[#6005FF]"
-                        onClick={() => {
-                            window.open(
-                                "https://ultimateelementor.com/pricing/?utm_source=uae-lite-FreevsPro&utm_medium=get-uae-pro&utm_campaign=uae-lite-upgrade",
-                                "_blank"
-                            );
-                        }}
-                    >
-                        {__("Upgrade Now", "header-footer-elementor")}
-                    </Button>
-                </div>
-            </div>
-            <div className="px-4">
-                <div className="flex flex-col space-y-2 pt-5">
-                    {sections.map((section) => (
-                        <React.Fragment key={section.title}>
-                            <div
-                                className="flex fle-row py-4 px-5 items-center h-4 justify-between rounded-lg shadow-container-item"
-                                style={{ backgroundColor: "#F9FAFB" }}
-                            >
-                                <p className="text-sm text-text-primary font-medium">
-                                    {section.title}
-                                </p>
-                                <div
-                                    className="flex flex-row items-center"
-                                    style={{ gap: "12rem" }}
-                                >
-                                    <p className="text-sm text-text-primary font-medium">
-                                        {__("Free", "header-footer-elementor")}
-                                    </p>
-                                    <p
-                                        className="text-sm text-text-primary font-medium"
-                                        style={{ marginRight: "50px" }}
-                                    >
-                                        {__("Pro", "header-footer-elementor")}
-                                    </p>
-                                </div>
-                            </div>
-                            {renderItems(section.items)}
-                        </React.Fragment>
-                    ))}
-                </div>
-            </div>
+    <div
+        className="flex items-center justify-between p-5 overflow-auto"
+        style={{ paddingBottom: "0" }}
+    >
+        <div className="flex flex-col">
+            <p className="m-0 text-xl font-semibold pt-4 text-text-primary">
+                {__("Free Vs Pro", "header-footer-elementor")}
+            </p>
+            <p className="m-0 text-sm font-normal pt-1 text-text-secondary">
+                {__("Ultimate Addons for Elementor Pro offers 50+ widgets and features!", "header-footer-elementor")}
+            </p>
+            <p className="m-0 text-sm font-normal pt-1 text-text-secondary">
+                {__(
+                    "Compare the popular features/widgets to find the best option for your website.",
+                    "header-footer-elementor"
+                )}
+            </p>
         </div>
+        <div className="flex items-center gap-x-2 mr-7">
+            <Button
+                iconPosition="right"
+                variant="primary"
+                style={{
+                    color: "white",
+                    borderColor: "#6005FF",
+                    transition: "color 0.3s ease, border-color 0.3s ease",
+                    backgroundColor: "#6005ff",
+                }}
+                className="hfe-remove-ring text-[#6005FF]"
+                onClick={() => {
+                    window.open(
+                        "https://ultimateelementor.com/pricing/?utm_source=uae-lite-FreevsPro&utm_medium=get-uae-pro&utm_campaign=uae-lite-upgrade",
+                        "_blank"
+                    );
+                }}
+            >
+                {__("Upgrade Now", "header-footer-elementor")}
+            </Button>
+        </div>
+    </div>
+    
+    {/* Scrollable content */}
+    <div className="px-4" style={{ maxHeight: '580px', overflowY: 'auto' }}>
+        <div className="flex flex-col space-y-2 pt-5">
+            {sections.map((section) => (
+                <React.Fragment key={section.title}>
+                    <div
+                        className="flex flex-row py-4 px-5 items-center h-4 justify-between rounded-lg shadow-container-item"
+                        style={{ backgroundColor: "#F9FAFB" }}
+                    >
+                        <p className="text-sm text-text-primary font-medium">
+                            {section.title}
+                        </p>
+                        <div
+                            className="flex flex-row items-center"
+                            style={{ gap: "12rem" }}
+                        >
+                            <p className="text-sm text-text-primary font-medium">
+                                {__("Free", "header-footer-elementor")}
+                            </p>
+                            <p
+                                className="text-sm text-text-primary font-medium"
+                                style={{ marginRight: "50px" }}
+                            >
+                                {__("Pro", "header-footer-elementor")}
+                            </p>
+                        </div>
+                    </div>
+                    {renderItems(section.items)}
+                </React.Fragment>
+            ))}
+        </div>
+    </div>
+</div>
+
     );
 };
 

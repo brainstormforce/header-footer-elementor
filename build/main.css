@@ -874,9 +874,6 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .w-4{
     width: 1rem;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .w-52{
-    width: 13rem;
-}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .w-60{
     width: 15rem;
 }
