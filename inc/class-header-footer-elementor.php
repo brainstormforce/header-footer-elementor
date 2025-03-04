@@ -271,7 +271,7 @@ class Header_Footer_Elementor {
 
 		$current_post_type = get_post_type( self::$elementor_instance->editor->get_post_id() );
 
-		if( $current_post_type !== "elementor-hf" ){
+		if( $current_post_type !== 'elementor-hf' ){
 			return;
 		}
 ?>
