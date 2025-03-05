@@ -97,16 +97,6 @@ class HFE_Settings_Api {
 				'permission_callback' => [ $this, 'get_items_permissions_check' ],
 			]
 		);
-
-		register_rest_route(
-			'hfe/v1',
-			'/email-validation',
-			[
-				'methods'             => 'POST',
-				'callback'            => [ $this, 'get_email_status' ],
-				'permission_callback' => [ $this, 'get_items_permissions_check' ],
-			]
-		);
 	}
 
 	/**
