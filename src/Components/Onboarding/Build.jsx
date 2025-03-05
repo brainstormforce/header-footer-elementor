@@ -98,7 +98,11 @@ const OnboardingBuild = ({ setCurrentStep }) => {
             return response.json();
         })
         .then(data => {
-            if ( "success" === data.message ) {
+
+            if (data.success === false) {
+                // Show toast error message for validation failures
+                showToastError(data.message || "An error occurred. Please try again.");
+            } else if ( "success" === data.message ) {
                 setLoading(false);
                 setIsSubmitted(true);
                 window.location.href = hfeSettingsData.onboarding_success_url;
