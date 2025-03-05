@@ -91,31 +91,26 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                 'X-WP-Nonce': hfeSettingsData.hfe_nonce_action, // Use the correct nonce.
             },
         })
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(({ status, data }) => {
-            if (status !== 200 || data.success === false) {
-                // Show toast error message for validation failures
-                if (data.message) {
-                    toast.error(__(data.message, 'header-footer-elementor'));
-                } else {
-                    toast.error(__('Something went wrong! Please try again.', 'header-footer-elementor'));
-                }
-            } else if (status === 200 && data.message === "success") {
-                setLoading(false);
+        .then((response) => response.json())
+        .then((data) => {
+            setLoading(false);
+            if (data.message === "success") {
                 setIsSubmitted(true);
                 window.location.href = hfeSettingsData.onboarding_success_url;
+            } else if ( data.success === false || "api_error" === data.code ) {
+                // Show toast error message for validation failures.
+                if (data.message) {
+                    setErrors(__(data.message, 'header-footer-elementor'));
+                } else {
+                    setErrors(__('Something went wrong! Please try again.', 'header-footer-elementor'));
+                }
             } else {
                 console.warn("Unexpected webhook response:", data);
-                toast.error(__('Something went wrong! Please try again.', 'header-footer-elementor'));
+                setErrors(__('Something went wrong! Please try again.', 'header-footer-elementor'));
             }
         })
         .catch(error => {
-            toast.error(__('An error occurred. Please try again.', 'header-footer-elementor'));
+            setErrors(__('An error occurred. Please try again.', 'header-footer-elementor'));
         });
 
     }

@@ -538,7 +538,7 @@ msgid ""
 msgstr ""
 
 #: src/Components/Dashboard/WelcomeContainer.js:58
-#: src/Components/Onboarding/Build.jsx:217
+#: src/Components/Onboarding/Build.jsx:180
 msgid "Create Header/Footer"
 msgstr ""
 
@@ -630,71 +630,69 @@ msgstr ""
 msgid "What's New?"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:110
-#: src/Components/Settings/ThemeSupport.jsx:63
-msgid "Settings saved successfully!"
+#: src/Components/Onboarding/Build.jsx:109
+msgid "Something went wrong! Please try again."
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:115
-#: src/Components/Settings/ThemeSupport.jsx:68
-msgid "Failed to save settings!"
+#: src/Components/Onboarding/Build.jsx:113
+msgid "An error occurred. Please try again."
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:161
+#: src/Components/Onboarding/Build.jsx:124
 msgid "You're all set!🚀"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:164
+#: src/Components/Onboarding/Build.jsx:127
 msgid ""
 "Start creating headers, footers, or pages with UAE and take your website to "
 "the next level"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:170
+#: src/Components/Onboarding/Build.jsx:133
 msgid "Here’s how to get started:"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:174
+#: src/Components/Onboarding/Build.jsx:137
 msgid "Click on “Create” button"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:175
+#: src/Components/Onboarding/Build.jsx:138
 msgid ""
 "Choose the type of template you want to create and customize the selected "
 "option"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:176
+#: src/Components/Onboarding/Build.jsx:139
 msgid ""
 "Use the Elementor editor to customize your template according to your "
 "preferences using UAE widgets"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:177
+#: src/Components/Onboarding/Build.jsx:140
 msgid "Click “Publish” to make it live"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:242
+#: src/Components/Onboarding/Build.jsx:205
 msgid "Go To Dashboard"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:259
+#: src/Components/Onboarding/Build.jsx:222
 msgid "We have a special reward just for you!"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:262
+#: src/Components/Onboarding/Build.jsx:225
 msgid "Unlock your surprise now"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:276
+#: src/Components/Onboarding/Build.jsx:239
 msgid "Unlock My Surprise"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:291
+#: src/Components/Onboarding/Build.jsx:254
 msgid "Help make UAE Better"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:320
+#: src/Components/Onboarding/Build.jsx:283
 msgid ""
 "Help us improve by sharing anonymous data about your website setup. This "
 "includes non-sensitive info about plugins, themes, and settings, so we can "
@@ -702,38 +700,36 @@ msgid ""
 "Learn more in our privacy policy."
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:335
+#: src/Components/Onboarding/Build.jsx:298
 msgid "We have a special Reward just for you! 🎁"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:353
+#: src/Components/Onboarding/Build.jsx:315
 msgid ""
 "Enter your email address to get special offer that we have for you and stay "
 "updated on UAE’s latest news and updates."
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:357
+#: src/Components/Onboarding/Build.jsx:319
 msgid "Email Address"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:397
+#: src/Components/Onboarding/Build.jsx:359
 msgid "Submit Email"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:43
+#: src/Components/Onboarding/Build.jsx:40
 msgid "Please enter a valid email address"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:72
-msgid "Entered email ID is invalid!"
+#: src/Components/Onboarding/Build.jsx:68
+#: src/Components/Settings/ThemeSupport.jsx:63
+msgid "Settings saved successfully!"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:75
-msgid "Entered email ID already exists, try a different one."
-msgstr ""
-
-#: src/Components/Onboarding/Build.jsx:81
-msgid "Something went wrong. Try again"
+#: src/Components/Onboarding/Build.jsx:73
+#: src/Components/Settings/ThemeSupport.jsx:68
+msgid "Failed to save settings!"
 msgstr ""
 
 #: src/Components/Onboarding/Success.jsx:144
