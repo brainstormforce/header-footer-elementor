@@ -100,8 +100,12 @@ const OnboardingBuild = ({ setCurrentStep }) => {
         .then(data => {
 
             if (data.success === false) {
-                // Show toast error message for validation failures
-                showToastError(data.message || "An error occurred. Please try again.");
+                // Show toast error message for validation failures.
+                if( data.message ) {
+                    toast.error(__('Settings saved successfully!', 'header-footer-elementor'));
+                } else {
+                    toast.error(__('An error occurred. Please try again.', 'header-footer-elementor'));
+                }
             } else if ( "success" === data.message ) {
                 setLoading(false);
                 setIsSubmitted(true);
@@ -111,7 +115,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
             }
         })
         .catch(error => {
-            console.error('Error calling webhook:', error);
+            toast.error(__('An error occurred. Please try again.', 'header-footer-elementor'));
         });
 
     }
