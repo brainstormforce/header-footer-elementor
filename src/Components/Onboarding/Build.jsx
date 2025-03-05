@@ -97,16 +97,15 @@ const OnboardingBuild = ({ setCurrentStep }) => {
             }
             return response.json();
         })
-        .then(data => {
-
-            if (data.success === false) {
-                // Show toast error message for validation failures.
-                if( data.message ) {
-                    toast.error(__('Settings saved successfully!', 'header-footer-elementor'));
+        .then(({ status, data }) => {
+            if (status !== 200 || data.success === false) {
+                // Show toast error message for validation failures
+                if (data.message) {
+                    toast.error(__(data.message, 'header-footer-elementor'));
                 } else {
-                    toast.error(__('An error occurred. Please try again.', 'header-footer-elementor'));
+                    toast.error(__('Something went wrong! Please try again.', 'header-footer-elementor'));
                 }
-            } else if ( "success" === data.message ) {
+            } else if (status === 200 && data.message === "Webhook call successful") {
                 setLoading(false);
                 setIsSubmitted(true);
                 window.location.href = hfeSettingsData.onboarding_success_url;
