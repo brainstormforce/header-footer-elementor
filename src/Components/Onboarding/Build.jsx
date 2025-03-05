@@ -6,9 +6,6 @@ import { Link } from "../../router/index"
 import { __ } from "@wordpress/i18n";
 import { routes } from "../../admin/settings/routes";
 
-let attempts = 0;
-const maxAttempts = 7; // Poll up to 7 times.
-
 const OnboardingBuild = ({ setCurrentStep }) => {
     const [isDialogOpen, setIsDialogOpen] = useState(false);
     const [email, setEmail] = useState('');
@@ -45,46 +42,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
         }
         setErrors('');
         setLoading(true);
-        attempts = 0;
         callValidatedEmailWebhook(email);
-    };
-
-    const pollForValidationStatus = (email) => {
-    
-        const checkStatus = () => {
-
-            fetch(`/wp-json/hfe/v1/email-validation/`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-WP-Nonce': hfeSettingsData.hfe_nonce_action, // Use the correct nonce.
-                },
-                body: JSON.stringify({ email }),
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    if ( data.status === 'valid' ) {
-                        setLoading(false);
-                        setIsSubmitted(true);
-                        window.location.href = hfeSettingsData.onboarding_success_url;
-                    } else if ( data.status === 'invalid') {
-                        setLoading(false);
-                        setErrors(__('Entered email ID is invalid!', 'header-footer-elementor'));
-                    } else if ( data.status === 'exists') {
-                        setLoading(false);
-                        setErrors(__('Entered email ID already exists, try a different one.', 'header-footer-elementor'));
-                    } else if ( data.status === 'pending' && attempts < maxAttempts) {
-                        attempts++;
-                        setTimeout(checkStatus, 5000); // Try again after 5 sec.
-                    } else {
-                        setLoading(false);
-                        setErrors(__('Something went wrong. Try again', 'header-footer-elementor'));
-                    }
-                })
-                .catch((error) => console.error('Error checking validation:', error));
-        };
-        
-        checkStatus();
     };
 
     const handleSwitchChange = async () => {
@@ -141,7 +99,9 @@ const OnboardingBuild = ({ setCurrentStep }) => {
         })
         .then(data => {
             if ( "success" === data.message ) {
-                pollForValidationStatus(email);
+                setLoading(false);
+                setIsSubmitted(true);
+                window.location.href = hfeSettingsData.onboarding_success_url;
             } else {
                 console.warn("Unexpected webhook response:", data);
             }
@@ -343,7 +303,6 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                                     onClick={() => {
                                         setIsDialogOpen(false);
                                         setLoading(false);
-                                        attempts = 7;
                                     }}
                                     style={{ marginLeft: '60px', marginBottom: '20px', paddingTop: '0' }}
                                 />
