@@ -105,12 +105,13 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                 } else {
                     toast.error(__('Something went wrong! Please try again.', 'header-footer-elementor'));
                 }
-            } else if (status === 200 && data.message === "Webhook call successful") {
+            } else if (status === 200 && data.message === "success") {
                 setLoading(false);
                 setIsSubmitted(true);
                 window.location.href = hfeSettingsData.onboarding_success_url;
             } else {
                 console.warn("Unexpected webhook response:", data);
+                toast.error(__('Something went wrong! Please try again.', 'header-footer-elementor'));
             }
         })
         .catch(error => {

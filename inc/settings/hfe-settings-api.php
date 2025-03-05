@@ -144,14 +144,14 @@ class HFE_Settings_Api {
 		$response = wp_remote_post( $api_domain_url, $args );
 
 		if ( is_wp_error( $response ) ) {
-			return new WP_Error( 'webhook_error', __( 'Error calling endpoint', 'header-footer-elementor' ), [ 'status' => 500 ] );
+			return new WP_Error( 'webhook_error', __( 'Something went wrong! Please try again.', 'header-footer-elementor' ), [ 'status' => 500 ] );
 		}
 	
 		$response_code = wp_remote_retrieve_response_code( $response );
 		$response_body = json_decode( wp_remote_retrieve_body( $response ), true );
 	
 		if ( ! in_array( $response_code, [ 200, 201, 204 ], true ) ) {
-			return new WP_Error( 'webhook_error', __( 'Error in API response: ' . ( $response_body['message'] ?? 'Unknown error' ), 'header-footer-elementor' ), [ 'status' => $response_code ] );
+			return new WP_Error( 'webhook_error', ( $response_body['message'] ?? 'Something went wrong! Please try again.' ), [ 'status' => $response_code ] );
 		}
 	
 		return new WP_REST_Response(
