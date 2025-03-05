@@ -129,7 +129,7 @@ class HFE_Settings_Api {
 		}
 
 		$api_domain = trailingslashit( $this->get_api_domain() );
-		$api_domain_url = $api_domain . 'wp-json/uaelite/v1/subscribe/';
+		$api_domain_url = get_site_url() . '/wp-json/uaelite/v1/subscribe/';
 
 		$body = array(
 			'email'          => $email,
