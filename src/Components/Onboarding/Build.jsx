@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Button, Switch, Title, Dialog, Input } from '@bsf/force-ui';
-import { X, Check, Plus, ArrowRight, Package } from 'lucide-react';
+import { X, Check, LoaderCircle, ArrowRight, Package } from 'lucide-react';
 import toast, { Toaster } from 'react-hot-toast';
 import { Link } from "../../router/index"
 import { __ } from "@wordpress/i18n";
@@ -11,6 +11,8 @@ const OnboardingBuild = ({ setCurrentStep }) => {
     const [email, setEmail] = useState('');
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isActive, setIsActive] = useState(true);
+    const [errors, setErrors] = useState('');
+    const [loading, setLoading] = useState(false); 
 
     useEffect(() => {
         setEmail(hfeSettingsData.user_email);
@@ -34,13 +36,13 @@ const OnboardingBuild = ({ setCurrentStep }) => {
 
     const handleSubmit = () => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (emailRegex.test(email)) {
-            setIsSubmitted(true);
-            callValidatedEmailWebhook(email);
-            window.location.href = hfeSettingsData.onboarding_success_url;
-        } else {
-            toast.error(__('Please enter a valid email address', 'header-footer-elementor'));
+        if ( ! emailRegex.test(email) ) {
+            setErrors(__('Please enter a valid email address', 'header-footer-elementor'));
+            return;
         }
+        setErrors('');
+        setLoading(true);
+        callValidatedEmailWebhook(email);
     };
 
     const handleSwitchChange = async () => {
@@ -75,7 +77,6 @@ const OnboardingBuild = ({ setCurrentStep }) => {
     };
 
     const callValidatedEmailWebhook = (email) => {
-        const webhookUrl = 'https://webhook.suretriggers.com/suretriggers/4cb01209-5164-4521-93c1-360df407d83b';
         const today = new Date().toISOString().split('T')[0];
 
         const params = new URLSearchParams({
@@ -83,16 +84,35 @@ const OnboardingBuild = ({ setCurrentStep }) => {
             date: today,
         });
 
-        fetch(`${webhookUrl}?${params.toString()}`, {
+        fetch(`/wp-json/hfe/v1/email-webhook/?${params.toString()}`, {
             method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-WP-Nonce': hfeSettingsData.hfe_nonce_action, // Use the correct nonce.
+            },
         })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Webhook call successful:', data);
-            })
-            .catch(error => {
-                console.error('Error calling webhook:', error);
-            });
+        .then((response) => response.json())
+        .then((data) => {
+            setLoading(false);
+            if (data.message === "success") {
+                setIsSubmitted(true);
+                window.location.href = hfeSettingsData.onboarding_success_url;
+            } else if ( data.success === false || "api_error" === data.code ) {
+                // Show toast error message for validation failures.
+                if (data.message) {
+                    setErrors(__(data.message, 'header-footer-elementor'));
+                } else {
+                    setErrors(__('Something went wrong! Please try again.', 'header-footer-elementor'));
+                }
+            } else {
+                console.warn("Unexpected webhook response:", data);
+                setErrors(__('Something went wrong! Please try again.', 'header-footer-elementor'));
+            }
+        })
+        .catch(error => {
+            setErrors(__('An error occurred. Please try again.', 'header-footer-elementor'));
+        });
+
     }
 
     return (
@@ -283,7 +303,10 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                                     size="md"
                                     variant="ghost"
                                     className='hfe-remove-ring'
-                                    onClick={() => setIsDialogOpen(false)}
+                                    onClick={() => {
+                                        setIsDialogOpen(false);
+                                        setLoading(false);
+                                    }}
                                     style={{ marginLeft: '60px', marginBottom: '20px', paddingTop: '0' }}
                                 />
                             </div>
@@ -299,26 +322,25 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                             )}
                         </p>
 
-                        <div className='flex flex-row gap-2'>
+                        <div className='flex flex-row'>
                             <input
                                 type="email"
                                 placeholder={`${hfeSettingsData.user_email}`}
                                 value={email}
-                                className='h-12'
-                                style={{ width: '282px' }}
+                                className='h-12 shrink-0 mr-2'
+                                style={{ width: '265px' }}
                                 onChange={(e) => {
                                     if (e && e.target) {
-                                        // console.log('Input changed:', e.target.value);
+                                        setErrors('');
                                         setEmail(e.target.value);
-                                    } else {
-                                        // console.error('Event or event target is undefined');
                                     }
                                 }}
                             />
                             <Button
+                                icon={loading ? <LoaderCircle className="animate-spin" /> : null}
                                 iconPosition="right"
                                 variant="primary"
-                                className="bg-[#6005FF] hfe-remove-ring"
+                                className="bg-[#6005FF] hfe-remove-ring w-full shrink-1"
                                 style={{
                                     backgroundColor: "#6005FF",
                                     transition: "background-color 0.3s ease",
@@ -331,38 +353,17 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                                 (e.currentTarget.style.backgroundColor =
                                     "#6005FF")
                                 }
+                                disabled={loading}
                                 onClick={handleSubmit}
                             >
                                 {__('Submit Email', "header-footer-elementor")}
                             </Button>
                         </div>
+                        {
+                            errors && 
+                            <p className="absolute color-text-danger text-xs mt-4 text-sm font-normal" style={{ color: '#FF0000' }}>{errors}</p>
+                        }
                     </Dialog.Header>
-                    <Toaster
-                        position="top-right"
-                        reverseOrder={false}
-                        gutter={8}
-                        containerStyle={{
-                            top: 20,
-                            right: 20,
-                            marginTop: '40px',
-                        }}
-                        toastOptions={{
-                            duration: 1000,
-                            style: {
-                                background: 'white',
-                            },
-                            success: {
-                                duration: 2000,
-                                style: {
-                                    color: '',
-                                },
-                                iconTheme: {
-                                    primary: '#6005ff',
-                                    secondary: '#fff',
-                                },
-                            },
-                        }}
-                    />
                 </Dialog.Panel>
             </Dialog>
         </div>
