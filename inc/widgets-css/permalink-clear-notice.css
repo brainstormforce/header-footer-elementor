@@ -51,7 +51,7 @@ body:not(.rtl) .uae-permalink-clear-notice {
 }
 
 .uae-permalink-clear-notice header i.eicon-close {
-    font-size: 25px;
+    font-size: 18px;
     color: var(--e-a-color-txt);
 }
 .uae-permalink-clear-notice header button {
@@ -59,7 +59,8 @@ body:not(.rtl) .uae-permalink-clear-notice {
     background-color: var(--e-a-bg-default);
     position: absolute;
     top: 12px;
-    right: 5px;
+    right: 2px;
+    z-index: 9999;
 }
 
 .uae-permalink-clear-notice header i {
