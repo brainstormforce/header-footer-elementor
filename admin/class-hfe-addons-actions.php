@@ -272,50 +272,26 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		 * @return void
 		 */
 		public function update_subscription() {
-
-			// Verify the nonce for security
-			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
-		
-			// Check if the user has the required capability
-			if ( ! current_user_can( 'manage_options' ) ) {
-				wp_send_json_error( __( 'You can\'t perform this action.', 'header-footer-elementor' ) );
-			}
-		
-			// Get API domain and ensure it is valid
-			$api_domain = esc_url( trailingslashit( $this->get_api_domain() ) );
-		
-			// Sanitize and validate the input data
-			$arguments = [];
-			if ( isset( $_POST['data'] ) ) {
-				$decoded_data = json_decode( stripslashes( wp_unslash( $_POST['data'] ) ), true );
-		
-				if ( is_array( $decoded_data ) ) {
-					$arguments = array_map( 'sanitize_text_field', $decoded_data );
-				}
-			}
-		
-			// Ensure API endpoint is safe
-			$url = esc_url( add_query_arg( $arguments, $api_domain . 'wp-json/starter-templates/v1/subscribe/' ) ); // add URL of your site or mail API.
-		
-			// Make the request with error handling
-			$response = wp_remote_post( $url, [ 'timeout' => 60 ] );
-		
-			if ( is_wp_error( $response ) ) {
-				wp_send_json_error( [ 'error' => $response->get_error_message() ] );
-			}
-		
-			$response_code = wp_remote_retrieve_response_code( $response );
-			$response_body = json_decode( wp_remote_retrieve_body( $response ), true );
-		
-			// Check for a valid response
-			if ( $response_code === 200 && isset( $response_body['success'] ) && $response_body['success'] ) {
-				update_user_meta( get_current_user_ID(), 'hfe-subscribed', 'yes' );
-				wp_send_json_success( $response_body );
-			} else {
-				wp_send_json_error( $response_body );
-			}
-		}
-		
+            check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
+            if ( ! current_user_can( 'manage_options' ) ) {
+                wp_send_json_error( 'You can\'t perform this action.' );
+            }
+            $api_domain = trailingslashit( $this->get_api_domain() );
+            // PHPCS:Ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+            $arguments = isset( $_POST['data'] ) ? array_map( 'sanitize_text_field', json_decode( stripslashes( wp_unslash( $_POST['data'] ) ), true ) ) : [];
+            $url = add_query_arg( $arguments, $api_domain . 'wp-json/starter-templates/v1/subscribe/' ); // add URL of your site or mail API.
+            $response = wp_remote_post( $url, [ 'timeout' => 60 ] );
+            if ( ! is_wp_error( $response ) || wp_remote_retrieve_response_code( $response ) === 200 ) {
+                $response = json_decode( wp_remote_retrieve_body( $response ), true );
+                // Successfully subscribed.
+                if ( isset( $response['success'] ) && $response['success'] ) {
+                    update_user_meta( get_current_user_ID(), 'hfe-subscribed', 'yes' );
+                    wp_send_json_success( $response );
+                }
+            } else {
+                wp_send_json_error( $response );
+            }
+        }
 
 		/**
 		 * Get the API URL.
