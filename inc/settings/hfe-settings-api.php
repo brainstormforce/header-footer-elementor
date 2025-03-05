@@ -110,6 +110,16 @@ class HFE_Settings_Api {
 	}
 
 	/**
+	 * Get the API URL.
+	 *
+	 * @since x.x.x
+	 * @return string
+	 */
+	public function get_api_domain() {
+		return apply_filters( 'hfe_api_domain', 'https://websitedemos.net/' );
+	}
+
+	/**
 	 * Send Email to Webhook.
 	 * @param WP_REST_Request $request Request object.
 	 * 
