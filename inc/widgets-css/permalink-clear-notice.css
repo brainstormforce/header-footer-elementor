@@ -1,8 +1,8 @@
 .uae-permalink-clear-notice {
     position: absolute;
     z-index: 10000; /* Over the loading layer */
-    top: 50px;
-    bottom: auto;
+    top: auto;
+    bottom: 165px;
     width: 400px;
     line-height: 30px;
     color: var(--e-a-color-txt);
