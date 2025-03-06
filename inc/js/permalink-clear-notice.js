@@ -1,7 +1,7 @@
 var ElementorEditorCheck = function() {
     var isNoticeClosed = function() {
 
-        jQuery(document).on('click', '.permalink-notice-close', function(e) {
+        jQuery(document).on('click', '.uae_permalink-notice-close', function(e) {
             var $notice = jQuery('#uae-permalink-clear-notice');
             if ($notice.data('visible')) {
                 $notice.remove();

@@ -65,8 +65,34 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			add_action( 'wp_ajax_save_theme_compatibility_option', [ $this, 'save_hfe_compatibility_option_callback' ] );
 			add_action( 'wp_ajax_save_analytics_option', [ $this, 'save_analytics_option' ] );
 
+			add_action( 'wp_ajax_update_permalink_notice_option', [ $this, 'update_permalink_notice_option' ] );
+			add_action( 'wp_ajax_nopriv_update_permalink_notice_option', [ $this, 'update_permalink_notice_option' ] );
+
 		}
 
+		/**
+		 * Updated the permalink notice option.
+		 *
+		 * @since 2.2.1
+		 */
+		public function update_permalink_notice_option() {
+			// Verify the nonce.
+			if ( ! isset( $_POST['nonce'] ) || ! check_ajax_referer( 'hfe_permalink_clear_notice_nonce', 'nonce', false ) ) {
+				wp_send_json_error( 'Invalid nonce' );
+			}
+			
+			// Check if the current user has the capability to manage options.
+			if ( ! current_user_can( 'manage_options' ) ) {
+				wp_send_json_error( 'Unauthorized user' );
+			}
+
+			// Update the option to true.
+			update_user_meta( get_current_user_id(), 'hfe_permalink_notice_option', 'notice-dismissed' );
+		
+			// Send a success response.
+			wp_send_json_success( 'Option updated successfully' );
+		}
+		
 		/**
 		 * Handles the installation and saving of required plugins.
 		 *
