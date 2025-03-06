@@ -130,7 +130,7 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 == Changelog ==
 
 = 2.2.1.1 = Development Version
-- Improvement: Notice in the Elementor editor when it gets stuck after updating the plugin, prompting users to flush permalinks for resolution.
+- Improvement: Added a notice in the Elementor editor to prompt users to flush permalinks if it gets stuck after a plugin update.
 
 = 2.2.1 =
 - Fix: Navigation Menu - Full-width dropdown menu now stays correctly positioned when resizing in responsive mode.
