@@ -129,7 +129,7 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 
 ## Changelog ##
 
-### 2.2.1 ###
+= 2.2.1 = Developement version
 - Fix: Navigation Menu - Full-width dropdown menu now stays correctly positioned when resizing in responsive mode.
 
 ### 2.2.0 ###
