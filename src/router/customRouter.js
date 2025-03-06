@@ -6,7 +6,7 @@ import Settings from '@components/Settings/Settings';
 import { routes } from 'admin/settings/routes';
 import Upgrade from '@components/Compare/Upgrade';
 import Onboarding from '@components/Onboarding/Onboarding';
-import Success from '@components/Onboarding/Success';
+
 
 const CustomRouter = () => (
   <Router routes={routes} defaultRoute={routes?.dashboard?.path}>
