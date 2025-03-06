@@ -10,7 +10,6 @@ const OnboardingBuild = ({ setCurrentStep }) => {
     const [isActive, setIsActive] = useState(true);
 
     useEffect(() => {
-        setEmail(hfeSettingsData.user_email);
         setIsActive(hfeSettingsData.analytics_status === 'yes');
 
         history.pushState(null, "", window.location.href);
