@@ -9,7 +9,8 @@ var ElementorEditorCheck = function() {
                     url: hfePermalinkClearNotice.ajaxurl,
                     type: 'POST',
                     data: {
-                        action: 'update_permalink_notice_option'
+                        action: 'update_permalink_notice_option',
+                        nonce: hfePermalinkClearNotice.nonce,
                     },
                     success: function(response) {
                         if (response.success) {

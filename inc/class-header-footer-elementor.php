@@ -188,13 +188,18 @@ class Header_Footer_Elementor {
 	 * @since 2.2.1
 	 */
 	public function update_permalink_notice_option() {
+		// Verify the nonce.
+		if ( ! isset( $_POST['nonce'] ) || ! check_ajax_referer( 'hfe_permalink_clear_notice_nonce', 'nonce', false ) ) {
+			wp_send_json_error( 'Invalid nonce' );
+		}
+		
 		// Check if the current user has the capability to manage options.
 		if ( ! current_user_can( 'manage_options' ) ) {
 			wp_send_json_error( 'Unauthorized user' );
 		}
-	
+
 		// Update the option to true.
-		update_option( 'hfe_permalink_notice_option', 'true' );
+		update_user_meta( get_current_user_id(), 'hfe_permalink_notice_option', 'notice-dismissed' );
 	
 		// Send a success response.
 		wp_send_json_success( 'Option updated successfully' );
@@ -207,14 +212,16 @@ class Header_Footer_Elementor {
 	 */
 	public function enqueue_permalink_clear_notice_css() {
 
-		if ( get_option( 'hfe_permalink_notice_option' ) === 'true' ) {
+		if ( get_user_meta( get_current_user_id(), 'hfe_permalink_notice_option', true ) === 'notice-dismissed' ) {
 			return;
 		}
 	
-		$current_post_type = get_post_type( self::$elementor_instance->editor->get_post_id() );
-	
-		if ( $current_post_type !== 'elementor-hf' ) {
-			return;
+		if(isset(self::$elementor_instance)){
+			$current_post_type = get_post_type( self::$elementor_instance->editor->get_post_id() );
+			
+			if ( $current_post_type !== 'elementor-hf' ) {
+				return;
+			}
 		}
 	
 		wp_enqueue_style(
@@ -232,16 +239,18 @@ class Header_Footer_Elementor {
 	 */
 	public function enqueue_permalink_clear_notice_js() {
 
-		if ( get_option( 'hfe_permalink_notice_option' ) === 'true' ) {
+		if ( get_user_meta( get_current_user_id(), 'hfe_permalink_notice_option', true ) === 'notice-dismissed' ) {
 			return;
 		}
-	
-		$current_post_type = get_post_type( self::$elementor_instance->editor->get_post_id() );
-	
-		if ( $current_post_type !== 'elementor-hf' ) {
-			return;
+		
+		if(isset(self::$elementor_instance)){
+			$current_post_type = get_post_type( self::$elementor_instance->editor->get_post_id() );
+
+			if ( $current_post_type !== 'elementor-hf' ) {
+				return;
+			}
 		}
-	
+
 		wp_enqueue_script(
 			'hfe-permalink-clear-notice',
 			HFE_URL . 'inc/js/permalink-clear-notice.js',
@@ -254,6 +263,7 @@ class Header_Footer_Elementor {
 			'hfePermalinkClearNotice',
 			[
 				'ajaxurl' => admin_url( 'admin-ajax.php' ),
+				'nonce'   => wp_create_nonce( 'hfe_permalink_clear_notice_nonce' ),
 			]
 		);
 	}
@@ -265,14 +275,16 @@ class Header_Footer_Elementor {
 	 */
 	public function print_permalink_clear_notice() {
 
-		if(get_option( 'hfe_permalink_notice_option' ) === 'true' ){
+		if ( get_user_meta( get_current_user_id(), 'hfe_permalink_notice_option', true ) === 'notice-dismissed' ) {
 			return;
 		}
 
-		$current_post_type = get_post_type( self::$elementor_instance->editor->get_post_id() );
-
-		if( $current_post_type !== 'elementor-hf' ){
-			return;
+		if(isset(self::$elementor_instance)){
+			$current_post_type = get_post_type( self::$elementor_instance->editor->get_post_id() );
+			
+			if ( $current_post_type !== 'elementor-hf' ) {
+				return;
+			}
 		}
 ?>
 	<div class="uae-permalink-clear-notice" id="uae-permalink-clear-notice">
