@@ -668,23 +668,11 @@ msgstr ""
 msgid "Go To Dashboard"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:202
-msgid "We have a special reward just for you!"
-msgstr ""
-
-#: src/Components/Onboarding/Build.jsx:205
-msgid "Unlock your surprise now"
-msgstr ""
-
-#: src/Components/Onboarding/Build.jsx:219
-msgid "Unlock My Surprise"
-msgstr ""
-
-#: src/Components/Onboarding/Build.jsx:234
+#: src/Components/Onboarding/Build.jsx:201
 msgid "Help make UAE Better"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:263
+#: src/Components/Onboarding/Build.jsx:230
 msgid ""
 "Help us improve by sharing anonymous data about your website setup. This "
 "includes non-sensitive info about plugins, themes, and settings, so we can "
@@ -692,21 +680,21 @@ msgid ""
 "Learn more in our privacy policy."
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:278
+#: src/Components/Onboarding/Build.jsx:245
 msgid "We have a special Reward just for you! 🎁"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:292
+#: src/Components/Onboarding/Build.jsx:259
 msgid ""
 "Enter your email address to get special offer that we have for you and stay "
 "updated on UAE’s latest news and updates."
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:296
+#: src/Components/Onboarding/Build.jsx:263
 msgid "Email Address"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:336
+#: src/Components/Onboarding/Build.jsx:303
 msgid "Submit Email"
 msgstr ""
 
