@@ -285,7 +285,7 @@ class Header_Footer_Elementor {
 			<div class="uae-permalink-notice-content">
 				<b><?php echo esc_html__( 'Having trouble editing your header or footer in Elementor?', 'header-footer-elementor' ); ?></b><br/>
 				<?php echo esc_html__( 'Try clearing your site cache or resetting your permalinks by going to Settings > Permalinks in your WordPress dashboard and click on Save Changes without modifying anything.', 'header-footer-elementor' ); ?>
-				<a href="<?php echo esc_url( 'https://wpastra.com/docs/how-to-refresh-wordpress-permalinks/' ); ?>"><?php echo esc_html_e( 'Learn More', 'header-footer-elementor' ); ?></a>
+				<a href="<?php echo esc_url( 'https://ultimateelementor.com/docs/elementor-header-footer-template-not-loading-or-stuck-on-loading/' ); ?>"><?php echo esc_html_e( 'Learn More', 'header-footer-elementor' ); ?></a>
 			</div>
 		<?php } ?>
 	</div>
