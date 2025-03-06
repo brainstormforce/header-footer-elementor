@@ -295,9 +295,9 @@ class Header_Footer_Elementor {
 				<button class="permalink-notice-close"><i class="eicon-close"></i></button>
 			</header>
 			<div class="uae-permalink-notice-content">
-				<b><?php echo esc_html__( 'Having trouble editing your header or footer in Elementor?', 'header-footer-elementor' ); ?></b><br/>
-				<?php echo esc_html__( 'Try clearing your site cache or resetting your permalinks by going to Settings > Permalinks in your WordPress dashboard and click on Save Changes without modifying anything.', 'header-footer-elementor' ); ?>
-				<a href="<?php echo esc_url( 'https://ultimateelementor.com/docs/elementor-header-footer-template-not-loading-or-stuck-on-loading/' ); ?>"><?php echo esc_html_e( 'Learn More', 'header-footer-elementor' ); ?></a>
+				<b><?php echo esc_html__( 'Can\'t edit your header or footer?', 'header-footer-elementor' ); ?></b><br/>
+				<?php echo esc_html__( 'Try clearing your cache or resetting permalinks (Settings > Permalinks > Save Changes).', 'header-footer-elementor' ); ?>
+				<a href="<?php echo esc_url( 'https://ultimateelementor.com/docs/elementor-header-footer-template-not-loading-or-stuck-on-loading/' ); ?>" target="_blank"><?php echo esc_html_e( 'Learn More', 'header-footer-elementor' ); ?></a>
 			</div>
 		<?php } ?>
 	</div>
