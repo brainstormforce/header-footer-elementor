@@ -7,13 +7,9 @@ import { __ } from "@wordpress/i18n";
 import { routes } from "../../admin/settings/routes";
 
 const OnboardingBuild = ({ setCurrentStep }) => {
-    const [isDialogOpen, setIsDialogOpen] = useState(false);
-    const [email, setEmail] = useState('');
-    const [isSubmitted, setIsSubmitted] = useState(false);
     const [isActive, setIsActive] = useState(true);
 
     useEffect(() => {
-        setEmail(hfeSettingsData.user_email);
         setIsActive(hfeSettingsData.analytics_status === 'yes');
 
         history.pushState(null, "", window.location.href);
@@ -23,25 +19,14 @@ const OnboardingBuild = ({ setCurrentStep }) => {
             localStorage.setItem('currentStep', '2');
             window.location.reload();
         };
-    
+
         window.addEventListener('popstate', handleBackButton);
-    
+
         return () => {
             window.removeEventListener('popstate', handleBackButton);
         };
 
     }, [hfeSettingsData.user_email]);
-
-    const handleSubmit = () => {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (emailRegex.test(email)) {
-            setIsSubmitted(true);
-            callValidatedEmailWebhook(email);
-            window.location.href = hfeSettingsData.onboarding_success_url;
-        } else {
-            toast.error(__('Please enter a valid email address', 'header-footer-elementor'));
-        }
-    };
 
     const handleSwitchChange = async () => {
         const newIsActive = !isActive;
@@ -74,26 +59,6 @@ const OnboardingBuild = ({ setCurrentStep }) => {
         // setIsLoading(false);
     };
 
-    const callValidatedEmailWebhook = (email) => {
-        const webhookUrl = 'https://webhook.suretriggers.com/suretriggers/4cb01209-5164-4521-93c1-360df407d83b';
-        const today = new Date().toISOString().split('T')[0];
-
-        const params = new URLSearchParams({
-            email: email,
-            date: today,
-        });
-
-        fetch(`${webhookUrl}?${params.toString()}`, {
-            method: 'POST',
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Webhook call successful:', data);
-            })
-            .catch(error => {
-                console.error('Error calling webhook:', error);
-            });
-    }
 
     return (
         <div className="bg-background-primary border-[0.5px] border-subtle rounded-xl shadow-sm mb-6 p-8" style={{ maxWidth: '55%' }}>
@@ -187,39 +152,6 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                 </Link>
 
             </div>
-            <div
-                className="flex items-start justify-start mt-4"
-                loading="lazy"
-                style={{
-                    backgroundImage: `url(${hfeSettingsData.special_reward})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    borderRadius: '5px'
-                }}
-            >
-                <div className='flex flex-col p-6 items-start'>
-                    <h3 className='font-bold text-text-primary mt-0 mb-1' style={{ lineHeight: '1.3em' }}>
-                        {__("We have a special reward just for you!", "header-footer-elementor")}
-                    </h3>
-                    <span className='font-medium text-text-secondary mt-2 mb-6'>
-                        {__("Unlock your surprise now", "header-footer-elementor")}
-                    </span>
-
-                    <Button
-                        className="hfe-remove-ring hfe-span hfe-popup-button"
-                        icon={<Package aria-label="icon" role="img" />}
-                        iconPosition="right"
-                        size="md"
-                        tag="button"
-                        type="button"
-                        variant="link"
-                        style={{ alignItems: 'center', justifyContent: 'flex-start', color: "#6005FF", }}
-                        onClick={() => setIsDialogOpen(true)}
-                    >
-                        {__("Unlock My Surprise", "header-footer-elementor")}
-                    </Button>
-                </div>
-            </div>
             <hr className="w-full border-b-0 border-x-0 border-t border-solid border-t-border-subtle" style={{ marginTop: '34px', marginBottom: '34px', borderColor: '#E5E7EB' }} />
 
             <div className="bg-badge-background-gray border-[0.5px] border-subtle p-6" style={{ borderRadius: '5px' }}>
@@ -262,109 +194,6 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                 />
                 <span className='flex flex-row items-center justify-start mt-4 gap-3' style={{ lineHeight: '1.5em', fontSize: '0.95em' }}>{__("Help us improve by sharing anonymous data about your website setup. This includes non-sensitive info about plugins, themes, and settings, so we can create a better product for you. Your privacy is always our top priority. Learn more in our privacy policy.", "header-footer-elementor")}</span>
             </div>
-
-
-            <Dialog
-                design="simple"
-                open={isDialogOpen}
-                setOpen={setIsDialogOpen}
-            >
-                <Dialog.Backdrop />
-                <Dialog.Panel>
-                    <Dialog.Header style={{ padding: '30px', marginBottom: '0.5rem' }}>
-                        <div className="flex items-center justify-between">
-                            <div className="flex items-center justify-center">
-                                <Dialog.Title style={{ fontSize: '1.6rem', width: '80%', lineHeight: '1.3em' }}>
-                                    {__('We have a special Reward just for you! 🎁', 'header-footer-elementor')}
-                                </Dialog.Title>
-                                <Button
-                                    icon={<X className="size-10" />}
-                                    iconPosition="right"
-                                    size="md"
-                                    variant="ghost"
-                                    className='hfe-remove-ring'
-                                    onClick={() => setIsDialogOpen(false)}
-                                    style={{ marginLeft: '60px', marginBottom: '20px', paddingTop: '0' }}
-                                />
-                            </div>
-                        </div>
-                        <Dialog.Description style={{ width: '90%', color: '#64748B' }}>
-                            {__('Enter your email address to get special offer that we have for you and stay updated on UAE’s latest news and updates.', 'header-footer-elementor')}
-                        </Dialog.Description>
-
-                        <p className="text-md font-bold text-field-label m-0 gap-0" style={{ fontSize: '14px', marginTop: '1.5em' }}>
-                            {__(
-                                "Email Address",
-                                "header-footer-elementor"
-                            )}
-                        </p>
-
-                        <div className='flex flex-row gap-2'>
-                            <input
-                                type="email"
-                                placeholder={`${hfeSettingsData.user_email}`}
-                                value={email}
-                                className='h-12'
-                                style={{ width: '282px' }}
-                                onChange={(e) => {
-                                    if (e && e.target) {
-                                        // console.log('Input changed:', e.target.value);
-                                        setEmail(e.target.value);
-                                    } else {
-                                        // console.error('Event or event target is undefined');
-                                    }
-                                }}
-                            />
-                            <Button
-                                iconPosition="right"
-                                variant="primary"
-                                className="bg-[#6005FF] hfe-remove-ring"
-                                style={{
-                                    backgroundColor: "#6005FF",
-                                    transition: "background-color 0.3s ease",
-                                }}
-                                onMouseEnter={(e) =>
-                                (e.currentTarget.style.backgroundColor =
-                                    "#4B00CC")
-                                }
-                                onMouseLeave={(e) =>
-                                (e.currentTarget.style.backgroundColor =
-                                    "#6005FF")
-                                }
-                                onClick={handleSubmit}
-                            >
-                                {__('Submit Email', "header-footer-elementor")}
-                            </Button>
-                        </div>
-                    </Dialog.Header>
-                    <Toaster
-                        position="top-right"
-                        reverseOrder={false}
-                        gutter={8}
-                        containerStyle={{
-                            top: 20,
-                            right: 20,
-                            marginTop: '40px',
-                        }}
-                        toastOptions={{
-                            duration: 1000,
-                            style: {
-                                background: 'white',
-                            },
-                            success: {
-                                duration: 2000,
-                                style: {
-                                    color: '',
-                                },
-                                iconTheme: {
-                                    primary: '#6005ff',
-                                    secondary: '#fff',
-                                },
-                            },
-                        }}
-                    />
-                </Dialog.Panel>
-            </Dialog>
         </div>
     )
 }
