@@ -210,7 +210,7 @@ class HFE_Admin {
 	/**
 	 * Hide admin notices on the custom settings page.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @return void
 	 */
 	public static function hide_admin_notices() {

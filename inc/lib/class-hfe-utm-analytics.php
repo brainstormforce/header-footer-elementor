@@ -4,7 +4,7 @@
  *
  * Loads latest UTM Analytics library in environment.
  *
- * @since x.x.x
+ * @since 2.2.1
  * @package UTM Analytics
  */
 
@@ -23,7 +23,7 @@ if ( ! class_exists( 'HFE_Utm_Analytics' ) ) :
 		/**
 		 * Instance
 		 *
-		 * @since x.x.x
+		 * @since 2.2.1
 		 * @var (Object) HFE_Utm_Analytics
 		 */
 		private static $instance = null;
@@ -31,7 +31,7 @@ if ( ! class_exists( 'HFE_Utm_Analytics' ) ) :
 		/**
 		 * Get Instance
 		 *
-		 * @since x.x.x
+		 * @since 2.2.1
 		 *
 		 * @return object Class object.
 		 */

@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the Ultimate Addons for Elementor Lite package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Ultimate Addons for Elementor Lite 2.2.0\n"
+"Project-Id-Version: Ultimate Addons for Elementor Lite 2.2.1\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/header-footer-elementor\n"
-"POT-Creation-Date: 2025-01-28 06:44:52+00:00\n"
+"POT-Creation-Date: 2025-03-07 06:29:06+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,308 +25,426 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: admin/bsf-analytics/class-bsf-analytics.php:220
+#: admin/bsf-analytics/class-bsf-analytics.php:228
 #. translators: %s product name
 msgid ""
-"Want to help make <strong>%1s</strong> even more awesome? Allow us to "
-"collect non-sensitive diagnostic data and usage information. "
+"Want to help make %1s even more awesome? Allow us to collect non-sensitive "
+"diagnostic data and usage information. "
 msgstr ""
 
-#: admin/bsf-analytics/class-bsf-analytics.php:223
+#: admin/bsf-analytics/class-bsf-analytics.php:231
 msgid "This will be applicable for all sites from the network."
 msgstr ""
 
-#: admin/bsf-analytics/class-bsf-analytics.php:247
+#: admin/bsf-analytics/class-bsf-analytics.php:255
 #. translators: %s usage doc link
 msgid " Know More."
 msgstr ""
 
-#: admin/bsf-analytics/class-bsf-analytics.php:255
+#: admin/bsf-analytics/class-bsf-analytics.php:265
 msgid "Yes! Allow it"
 msgstr ""
 
-#: admin/bsf-analytics/class-bsf-analytics.php:264
+#: admin/bsf-analytics/class-bsf-analytics.php:276
 msgid "No Thanks"
 msgstr ""
 
-#: admin/bsf-analytics/class-bsf-analytics.php:373
+#: admin/bsf-analytics/class-bsf-analytics.php:386
 msgid "Usage Tracking"
 msgstr ""
 
-#: admin/bsf-analytics/class-bsf-analytics.php:419
+#: admin/bsf-analytics/class-bsf-analytics.php:430
 #. translators: %s Product title
 msgid "Allow %s products to track non-sensitive usage tracking data."
 msgstr ""
 
-#: admin/bsf-analytics/class-bsf-analytics.php:422
+#: admin/bsf-analytics/class-bsf-analytics.php:433
 msgid " This will be applicable for all sites from the network."
 msgstr ""
 
-#: admin/bsf-analytics/class-bsf-analytics.php:427
+#: admin/bsf-analytics/class-bsf-analytics.php:438
 msgid "Learn More."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:87
+#: admin/bsf-analytics/classes/class-bsf-analytics-helper.php:28
+msgid "Oops! Something went wrong. Please refresh the page and try again."
+msgstr ""
+
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:80
+#: inc/class-header-footer-elementor.php:164
+msgid "Quick Feedback"
+msgstr ""
+
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:83
+msgid "If you have a moment, please share why you are deactivating the plugin."
+msgstr ""
+
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:109
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:389
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:414
+#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:204
+#: inc/widgets-manager/widgets/cart/cart.php:113
+#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:566
+#: inc/widgets-manager/widgets/page-title/page-title.php:353
+#: inc/widgets-manager/widgets/post-info/post-info.php:366
+#: inc/widgets-manager/widgets/post-info/post-info.php:638
+#: inc/widgets-manager/widgets/search-button/search-button.php:153
+#: inc/widgets-manager/widgets/search-button/search-button.php:803
+#: inc/widgets-manager/widgets/site-tagline/site-tagline.php:137
+#: inc/widgets-manager/widgets/site-title/site-title.php:140
+#: inc/widgets-manager/widgets/site-title/site-title.php:345
+msgid "Icon"
+msgstr ""
+
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:134
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:309
+msgid "Please tell us more details."
+msgstr ""
+
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:143
+#. translators: %1$s: link html start, %2$s: link html end
+msgid "Need help from our experts? %1$sClick here to contact us.%2$s"
+msgstr ""
+
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:154
+msgid "Submit & Deactivate"
+msgstr ""
+
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:155
+msgid "Skip & Deactivate"
+msgstr ""
+
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:224
+msgid "Sorry, you are not allowed to do this operation."
+msgstr ""
+
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:237
+msgid "Nonce validation failed"
+msgstr ""
+
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:284
+msgid "This is a temporary deactivation for testing."
+msgstr ""
+
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:285
+msgid "How can we assist you?"
+msgstr ""
+
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:290
+msgid "The plugin isn't working properly."
+msgstr ""
+
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:291
+msgid "Please tell us more about what went wrong?"
+msgstr ""
+
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:296
+msgid "I found a better alternative plugin."
+msgstr ""
+
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:297
+msgid "Could you please specify which plugin?"
+msgstr ""
+
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:302
+msgid "It's missing a specific feature."
+msgstr ""
+
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:303
+msgid "Please tell us more about the feature."
+msgstr ""
+
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:308
+msgid "Other"
+msgstr ""
+
+#: admin/class-hfe-addons-actions.php:114
 msgid "Plugin slug is missing."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:110
+#: admin/class-hfe-addons-actions.php:137
 msgid "Plugin installation function not found."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:133
+#: admin/class-hfe-addons-actions.php:160
 msgid "Theme slug is missing."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:156
+#: admin/class-hfe-addons-actions.php:183
 msgid "Theme installation function not found."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:336
+#: admin/class-hfe-addons-actions.php:363
 msgid "Plugin activation is disabled for you on this site."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:345
+#: admin/class-hfe-addons-actions.php:372
 msgid "Plugin Activated."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:356
+#: admin/class-hfe-addons-actions.php:383
 msgid "Theme activation is disabled for you on this site."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:365
+#: admin/class-hfe-addons-actions.php:392
 msgid "Theme Activated."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:372
+#: admin/class-hfe-addons-actions.php:399
 msgid "Could not activate plugin. Please activate from the Plugins page."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:374
+#: admin/class-hfe-addons-actions.php:401
 msgid "Could not activate theme. Please activate from the Themes page."
 msgstr ""
 
-#: admin/class-hfe-admin.php:172 admin/class-hfe-admin.php:455
+#: admin/class-hfe-addons-actions.php:421
+#: admin/class-hfe-addons-actions.php:444
+msgid "Settings saved successfully!"
+msgstr ""
+
+#: admin/class-hfe-addons-actions.php:424
+#: admin/class-hfe-addons-actions.php:447
+msgid "Unable to save settings."
+msgstr ""
+
+#: admin/class-hfe-admin.php:196
+msgid "Important Notice:"
+msgstr ""
+
+#: admin/class-hfe-admin.php:200
+msgid "Can't edit your header or footer?"
+msgstr ""
+
+#: admin/class-hfe-admin.php:201
+msgid ""
+"Try clearing your cache or resetting permalinks (Settings > Permalinks > "
+"Save Changes)."
+msgstr ""
+
+#: admin/class-hfe-admin.php:202
+msgid "Learn More"
+msgstr ""
+
+#: admin/class-hfe-admin.php:272 admin/class-hfe-admin.php:559
 msgid "Display Rules"
 msgstr ""
 
-#: admin/class-hfe-admin.php:173
+#: admin/class-hfe-admin.php:273
 #: inc/widgets-manager/widgets/post-info/post-info.php:136
 msgid "Date"
 msgstr ""
 
-#: admin/class-hfe-admin.php:263 admin/class-hfe-admin.php:264
-#: admin/class-hfe-admin.php:265 admin/class-hfe-admin.php:266
+#: admin/class-hfe-admin.php:363 admin/class-hfe-admin.php:364
+#: admin/class-hfe-admin.php:365 admin/class-hfe-admin.php:366
 msgid "Elementor Header & Footer Builder"
 msgstr ""
 
-#: admin/class-hfe-admin.php:267 admin/class-hfe-admin.php:268
+#: admin/class-hfe-admin.php:367 admin/class-hfe-admin.php:368
 msgid "Add New"
 msgstr ""
 
-#: admin/class-hfe-admin.php:269
+#: admin/class-hfe-admin.php:369
 msgid "New Template"
 msgstr ""
 
-#: admin/class-hfe-admin.php:270
+#: admin/class-hfe-admin.php:370
 msgid "Edit Template"
 msgstr ""
 
-#: admin/class-hfe-admin.php:271
+#: admin/class-hfe-admin.php:371
 msgid "View Template"
 msgstr ""
 
-#: admin/class-hfe-admin.php:272 inc/class-hfe-settings-page.php:374
+#: admin/class-hfe-admin.php:372 inc/class-hfe-settings-page.php:381
 msgid "View All"
 msgstr ""
 
-#: admin/class-hfe-admin.php:273
+#: admin/class-hfe-admin.php:373
 msgid "Search Templates"
 msgstr ""
 
-#: admin/class-hfe-admin.php:274
+#: admin/class-hfe-admin.php:374
 msgid "Parent Templates:"
 msgstr ""
 
-#: admin/class-hfe-admin.php:275
+#: admin/class-hfe-admin.php:375
 msgid "No Templates found."
 msgstr ""
 
-#: admin/class-hfe-admin.php:276
+#: admin/class-hfe-admin.php:376
 msgid "No Templates found in Trash."
 msgstr ""
 
-#: admin/class-hfe-admin.php:319 admin/class-hfe-admin.php:320
+#: admin/class-hfe-admin.php:423 admin/class-hfe-admin.php:424
 msgid "Create New"
 msgstr ""
 
-#: admin/class-hfe-admin.php:329
+#: admin/class-hfe-admin.php:433
 msgid "Header/Footer Builder"
 msgstr ""
 
-#: admin/class-hfe-admin.php:330
+#: admin/class-hfe-admin.php:434
 msgid "Header & Footer Builder"
 msgstr ""
 
-#: admin/class-hfe-admin.php:359
+#: admin/class-hfe-admin.php:463
 msgid "Elementor Header & Footer Builder Options"
 msgstr ""
 
-#: admin/class-hfe-admin.php:388
+#: admin/class-hfe-admin.php:492
 msgid "Type of Template"
 msgstr ""
 
-#: admin/class-hfe-admin.php:392
+#: admin/class-hfe-admin.php:496
 msgid "Select Option"
 msgstr ""
 
-#: admin/class-hfe-admin.php:393
+#: admin/class-hfe-admin.php:497
 msgid "Header"
 msgstr ""
 
-#: admin/class-hfe-admin.php:394
+#: admin/class-hfe-admin.php:498
 msgid "Before Footer"
 msgstr ""
 
-#: admin/class-hfe-admin.php:395
+#: admin/class-hfe-admin.php:499
 msgid "Footer"
 msgstr ""
 
-#: admin/class-hfe-admin.php:396
+#: admin/class-hfe-admin.php:500
 msgid "Custom Block"
 msgstr ""
 
-#: admin/class-hfe-admin.php:404 admin/class-hfe-admin.php:654
+#: admin/class-hfe-admin.php:508 admin/class-hfe-admin.php:758
 msgid "Shortcode"
 msgstr ""
 
-#: admin/class-hfe-admin.php:405
+#: admin/class-hfe-admin.php:509
 msgid ""
 "Copy this shortcode and paste it into your post, page, or text widget "
 "content."
 msgstr ""
 
-#: admin/class-hfe-admin.php:417
+#: admin/class-hfe-admin.php:521
 msgid "Enable Layout for Elementor Canvas Template?"
 msgstr ""
 
-#: admin/class-hfe-admin.php:419
+#: admin/class-hfe-admin.php:523
 msgid ""
 "Enabling this option will display this layout on pages using Elementor "
 "Canvas Template."
 msgstr ""
 
-#: admin/class-hfe-admin.php:446
+#: admin/class-hfe-admin.php:550
 msgid "Display On"
 msgstr ""
 
-#: admin/class-hfe-admin.php:448
+#: admin/class-hfe-admin.php:552
 msgid "Add locations for where this template should appear."
 msgstr ""
 
-#: admin/class-hfe-admin.php:459
+#: admin/class-hfe-admin.php:563
 msgid "Add Display Rule"
 msgstr ""
 
-#: admin/class-hfe-admin.php:468
+#: admin/class-hfe-admin.php:572
 msgid "Do Not Display On"
 msgstr ""
 
-#: admin/class-hfe-admin.php:470
+#: admin/class-hfe-admin.php:574
 msgid "Add locations for where this template should not appear."
 msgstr ""
 
-#: admin/class-hfe-admin.php:477
+#: admin/class-hfe-admin.php:581
 msgid "Exclude On"
 msgstr ""
 
-#: admin/class-hfe-admin.php:480
+#: admin/class-hfe-admin.php:584
 #: inc/lib/target-rule/class-astra-target-rules-fields.php:847
 msgid "Add Exclusion Rule"
 msgstr ""
 
-#: admin/class-hfe-admin.php:490
+#: admin/class-hfe-admin.php:594
 msgid "User Roles"
 msgstr ""
 
-#: admin/class-hfe-admin.php:491
+#: admin/class-hfe-admin.php:595
 msgid "Display custom template based on user role."
 msgstr ""
 
-#: admin/class-hfe-admin.php:498
+#: admin/class-hfe-admin.php:602
 msgid "Users"
 msgstr ""
 
-#: admin/class-hfe-admin.php:501
+#: admin/class-hfe-admin.php:605
 msgid "Add User Rule"
 msgstr ""
 
-#: admin/class-hfe-admin.php:582
+#: admin/class-hfe-admin.php:686
 #. Translators: Post title, Template Location
 msgid "Template %1$s is already assigned to the location %2$s"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:223
+#: inc/class-header-footer-elementor.php:166
+msgid ""
+"If you have a moment, please share why you are deactivating Ultimate Addons "
+"for Elementor:"
+msgstr ""
+
+#: inc/class-header-footer-elementor.php:264
 msgid ""
 "Hello! Seems like you have used Ultimate Addons for Elementor to build this "
 "website — Thanks a ton!"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:224
+#: inc/class-header-footer-elementor.php:265
 msgid ""
 "Could you please do us a BIG favor and give it a 5-star rating on "
 "WordPress? This would boost our motivation and help other users make a "
 "comfortable decision while choosing the Ultimate Addons for Elementor."
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:226
+#: inc/class-header-footer-elementor.php:267
 msgid "Ok, you deserve it"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:228
+#: inc/class-header-footer-elementor.php:269
 msgid "Nope, maybe later"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:229
+#: inc/class-header-footer-elementor.php:270
 msgid "I already did"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:294
+#: inc/class-header-footer-elementor.php:335
 #. translators: %s: html tags
 msgid ""
 "The %1$sUltimate Addons for Elementor%2$s plugin requires %1$sElementor%2$s "
 "plugin installed & activated."
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:301
+#: inc/class-header-footer-elementor.php:342
 msgid "Activate Elementor"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:306
-#: inc/class-header-footer-elementor.php:342
+#: inc/class-header-footer-elementor.php:347
+#: inc/class-header-footer-elementor.php:383
 msgid "Install Elementor"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:330
+#: inc/class-header-footer-elementor.php:371
 #. translators: %s: html tags
 msgid ""
 "The %1$sUltimate Addons for Elementor%2$s plugin has stopped working "
 "because you are using an older version of %1$sElementor%2$s plugin."
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:337
+#: inc/class-header-footer-elementor.php:378
 msgid "Update Elementor"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:370
-#. translators: %s: html tags
-msgid ""
-"Thank you for installing %1$s Ultimate Addons for Elementor %2$s Plugin! "
-"Click here to %3$sget started. %4$s"
-msgstr ""
-
-#: inc/class-header-footer-elementor.php:604
-#. translators: %s: html tags
+#: inc/class-header-footer-elementor.php:621
 msgid "Theme Support"
 msgstr ""
 
@@ -334,123 +452,109 @@ msgstr ""
 msgid "Ultimate Addons for Elementor Lite <p>Rollback to Previous Version</p>"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:102 inc/class-hfe-settings-page.php:892
-#: inc/class-hfe-settings-page.php:1170
+#: inc/class-hfe-settings-page.php:99 inc/class-hfe-settings-page.php:910
+#: inc/class-hfe-settings-page.php:1188
 msgid "Ultimate Addons for Elementor"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:103
+#: inc/class-hfe-settings-page.php:100
 msgid ""
 "How likely are you to recommend Ultimate Addons for Elementor to your "
 "friends or colleagues?"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:105
+#: inc/class-hfe-settings-page.php:102
 msgid ""
 "Could you please do us a favor and give us a 5-star rating on Trustpilot? "
 "It would help others choose Ultimate Addons for Elementor with confidence. "
 "Thank you!"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:108
+#: inc/class-hfe-settings-page.php:105
 msgid "Thank you for your feedback"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:109
+#: inc/class-hfe-settings-page.php:106
 msgid "We value your input. How can we improve your experience?"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:153
+#: inc/class-hfe-settings-page.php:150
 msgid "You do not have permission to access this page."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:154 inc/class-hfe-settings-page.php:189
+#: inc/class-hfe-settings-page.php:151 inc/class-hfe-settings-page.php:186
 msgid "Rollback to Previous Version"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:170
+#: inc/class-hfe-settings-page.php:167
 msgid ""
 "Error occurred, The version selected is invalid. Try selecting different "
 "version."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:209 inc/class-hfe-settings-page.php:552
-#: inc/class-hfe-settings-page.php:553 inc/class-hfe-settings-page.php:1241
-#: inc/widgets-manager/base/widgets-config.php:309
-#: inc/widgets-manager/base/widgets-config.php:392
-#: inc/widgets-manager/base/widgets-config.php:472
-#: inc/widgets-manager/base/widgets-config.php:487
-#: inc/widgets-manager/base/widgets-config.php:558
-#: inc/widgets-manager/base/widgets-config.php:613
-#: inc/widgets-manager/base/widgets-config.php:683
-#: inc/widgets-manager/base/widgets-config.php:699
-#: inc/widgets-manager/base/widgets-config.php:844
-msgid "Settings"
-msgstr ""
-
-#: inc/class-hfe-settings-page.php:353 inc/class-hfe-settings-page.php:1101
+#: inc/class-hfe-settings-page.php:360 inc/class-hfe-settings-page.php:1119
 msgid "Activate"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:354 inc/class-hfe-settings-page.php:1093
+#: inc/class-hfe-settings-page.php:361 inc/class-hfe-settings-page.php:1111
 msgid "Activated"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:355 inc/class-hfe-settings-page.php:1090
+#: inc/class-hfe-settings-page.php:362 inc/class-hfe-settings-page.php:1108
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1030
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1213
 msgid "Active"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:356
+#: inc/class-hfe-settings-page.php:363
 msgid "Deactivate"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:357 inc/class-hfe-settings-page.php:1098
+#: inc/class-hfe-settings-page.php:364 inc/class-hfe-settings-page.php:1116
 msgid "Inactive"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:358 inc/class-hfe-settings-page.php:1114
+#: inc/class-hfe-settings-page.php:365 inc/class-hfe-settings-page.php:1132
 msgid "Install"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:359
+#: inc/class-hfe-settings-page.php:366
 msgid "Theme Installed"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:360
+#: inc/class-hfe-settings-page.php:367
 msgid "Plugin Installed"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:361
+#: inc/class-hfe-settings-page.php:368
 msgid "Download"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:362
+#: inc/class-hfe-settings-page.php:369
 msgid "Already Exists."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:363 inc/class-hfe-settings-page.php:1119
+#: inc/class-hfe-settings-page.php:370 inc/class-hfe-settings-page.php:1137
 msgid "Visit Website"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:364
+#: inc/class-hfe-settings-page.php:371
 msgid "Could not install. Please download from WordPress.org and install manually."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:365
+#: inc/class-hfe-settings-page.php:372
 msgid "Your details are submitted successfully."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:366
+#: inc/class-hfe-settings-page.php:373
 msgid "Encountered an error while performing your request."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:442
+#: inc/class-hfe-settings-page.php:449
 msgid "Add Theme Support"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:458
+#: inc/class-hfe-settings-page.php:465
 msgid ""
 "The Ultimate Addons for Elementor plugin need compatibility with your "
 "current theme to work smoothly.</br></br>Following are two methods that "
@@ -459,27 +563,27 @@ msgid ""
 "issue with the header or footer template, try choosing Method 2."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:477
+#: inc/class-hfe-settings-page.php:484
 msgid " Method 1 (Recommended)"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:478
+#: inc/class-hfe-settings-page.php:485
 msgid ""
 "This method replaces your theme's header (header.php) & footer (footer.php) "
 "template with plugin's custom templates."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:481
+#: inc/class-hfe-settings-page.php:488
 msgid "Method 2"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:485
+#: inc/class-hfe-settings-page.php:492
 msgid ""
 "This method hides your theme's header & footer template with CSS and "
 "displays custom templates from the plugin."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:496
+#: inc/class-hfe-settings-page.php:503
 #. translators: %s: URL to the plugin support page
 msgid ""
 "Sometimes above methods might not work well with your theme, in this case, "
@@ -487,116 +591,134 @@ msgid ""
 "href=\"%s\">plugin.</a>"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:528 inc/class-hfe-settings-page.php:540
+#: inc/class-hfe-settings-page.php:535 inc/class-hfe-settings-page.php:547
 msgid "UAE Lite"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:529
+#: inc/class-hfe-settings-page.php:536
 #: inc/widgets-manager/class-widgets-loader.php:168
 msgid "UAE"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:541
+#: inc/class-hfe-settings-page.php:548
 msgid "Dashboard"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:613
+#: inc/class-hfe-settings-page.php:559 inc/class-hfe-settings-page.php:560
+#: inc/class-hfe-settings-page.php:1259
+#: inc/widgets-manager/base/widgets-config.php:308
+#: inc/widgets-manager/base/widgets-config.php:391
+#: inc/widgets-manager/base/widgets-config.php:471
+#: inc/widgets-manager/base/widgets-config.php:486
+#: inc/widgets-manager/base/widgets-config.php:557
+#: inc/widgets-manager/base/widgets-config.php:612
+#: inc/widgets-manager/base/widgets-config.php:682
+#: inc/widgets-manager/base/widgets-config.php:698
+#: inc/widgets-manager/base/widgets-config.php:843
+msgid "Settings"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:570 inc/class-hfe-settings-page.php:571
+msgid "Onboarding"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:631
 msgid "Elementor Header & Footer Builder "
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:671
+#: inc/class-hfe-settings-page.php:689
 msgid "All Templates"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:678
+#: inc/class-hfe-settings-page.php:696
 msgid "About Us"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:724
+#: inc/class-hfe-settings-page.php:742
 #. translators: 1: Elementor, 2: Link to plugin review
 msgid ""
 "Help us spread the word about the plugin by leaving %2$s %1$s %3$s ratings "
 "on %2$s WordPress.org %3$s. Thank you from the Brainstorm Force team!"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:767
+#: inc/class-hfe-settings-page.php:785
 msgid "Create Impressive Header and Footer Designs"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:768
+#: inc/class-hfe-settings-page.php:786
 msgid ""
 "Elementor Header & Footer Builder plugin lets you build impactful "
 "navigation for your website very easily. Before we begin, we would like to "
 "know more about you. This will help us to serve you better."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:782
+#: inc/class-hfe-settings-page.php:800
 #. translators: %1$s and %3$s are opening anchor tags, and %2$s and %4$s is
 #. closing anchor tags.
 msgid "By submitting, you agree to our %1$sTerms%2$s and %3$sPrivacy Policy%4$s."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:800
+#: inc/class-hfe-settings-page.php:818
 msgid "Skip"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:818
+#: inc/class-hfe-settings-page.php:836
 msgid "Beginner"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:819
+#: inc/class-hfe-settings-page.php:837
 msgid "Intermediate"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:820
+#: inc/class-hfe-settings-page.php:838
 msgid "Expert"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:822 inc/class-hfe-settings-page.php:831
+#: inc/class-hfe-settings-page.php:840 inc/class-hfe-settings-page.php:849
 msgid "Field is required"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:823
+#: inc/class-hfe-settings-page.php:841
 msgid "I'm a WordPress:"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:828
+#: inc/class-hfe-settings-page.php:846
 msgid "Myself/My company"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:829
+#: inc/class-hfe-settings-page.php:847
 msgid "My client"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:832
+#: inc/class-hfe-settings-page.php:850
 msgid "I'm building website for:"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:855
+#: inc/class-hfe-settings-page.php:873
 msgid "First name is required"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:856
+#: inc/class-hfe-settings-page.php:874
 msgid "Your First Name"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:860
+#: inc/class-hfe-settings-page.php:878
 msgid "Email address is required"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:861
+#: inc/class-hfe-settings-page.php:879
 msgid "Your Work Email"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:865
+#: inc/class-hfe-settings-page.php:883
 msgid "I agree to receive your newsletters and accept the data privacy statement."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:870
+#: inc/class-hfe-settings-page.php:888
 msgid "Submit"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:927
+#: inc/class-hfe-settings-page.php:945
 #. translators: %s: theme name
 msgid ""
 "Powering over 1+ Million websites, %s is loved for the fast performance and "
@@ -604,17 +726,17 @@ msgid ""
 "portfolios, business, and WooCommerce stores."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:948
+#: inc/class-hfe-settings-page.php:966
 msgid "Welcome to Elementor Header & Footer Builder!"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:950
+#: inc/class-hfe-settings-page.php:968
 msgid ""
 "With this awesome plugin, experience the easiest way to create a customized "
 "header and footer for your website with Elementor. That too 100% FREE!"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:952
+#: inc/class-hfe-settings-page.php:970
 msgid ""
 "Design beautiful layouts with simple drag & drop and display them at "
 "desired location with powerful target controls. The plugin comes with "
@@ -623,66 +745,66 @@ msgid ""
 "backed up by 24/7 support."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:954
+#: inc/class-hfe-settings-page.php:972
 msgid ""
 "Trusted by more than 1+ Million users, Elementor Header & Footer Builder is "
 "a modern way to build advanced navigation for your website."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:957
+#: inc/class-hfe-settings-page.php:975
 #. translators: %s: theme name
 msgid ""
 "This plugin is brought to you by the same team behind the popular WordPress "
 "theme %s and a series of Ultimate Addons plugins."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:963
+#: inc/class-hfe-settings-page.php:981
 msgid "Team photo"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:965
+#: inc/class-hfe-settings-page.php:983
 msgid "Brainstorm Force Team"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1010
+#: inc/class-hfe-settings-page.php:1028
 #. translators: %s - addon status label.
 msgid "%1$s %3$s %2$s"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1027
+#: inc/class-hfe-settings-page.php:1045
 #. translators: %s - addon status label.
 msgid "Status: %s"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1046
+#: inc/class-hfe-settings-page.php:1064
 msgid "WordPress.org"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1111
+#: inc/class-hfe-settings-page.php:1129
 msgid "Not Installed"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1158
-#: inc/widgets-manager/base/widgets-config.php:1008
+#: inc/class-hfe-settings-page.php:1176
+#: inc/widgets-manager/base/widgets-config.php:1007
 msgid "Starter Templates"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1159
+#: inc/class-hfe-settings-page.php:1177
 msgid ""
 "A popular templates plugin that provides an extensive library of "
 "professional and fully customizable 600+ ready website and templates. More "
 "than 1+ Million websites have built with this plugin."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1171
+#: inc/class-hfe-settings-page.php:1189
 msgid ""
 "It’s a collection of 40+ unique, creative, and optimized Elementor widgets "
 "with 100+ readymade templates. Trusted by more than 600+ K web "
 "professionals. It’s a #1 toolkit for Elementor Page Builder."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1240
-msgid "Go to HFE Settings page"
+#: inc/class-hfe-settings-page.php:1258
+msgid "Go to UAE Settings page"
 msgstr ""
 
 #: inc/lib/astra-notices/class-astra-notices.php:119
@@ -893,7 +1015,7 @@ msgid "Add your site's primary logo with flexible customization options."
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:94
-#: inc/widgets-manager/base/widgets-config.php:525
+#: inc/widgets-manager/base/widgets-config.php:524
 msgid "Navigation Menu"
 msgstr ""
 
@@ -912,525 +1034,525 @@ msgstr ""
 msgid "Add a customizable button for quick, one-click top scrolling."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:122
+#: inc/widgets-manager/base/widgets-config.php:121
 msgid "Site Title"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:129
+#: inc/widgets-manager/base/widgets-config.php:128
 msgid "Show your site’s name in a customizable style."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:135
+#: inc/widgets-manager/base/widgets-config.php:134
 msgid "Site Tagline"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:142
+#: inc/widgets-manager/base/widgets-config.php:141
 msgid "Display your site's tagline to enhance brand identity."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:148
+#: inc/widgets-manager/base/widgets-config.php:147
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:285
 #: inc/widgets-manager/widgets/search-button/search-button.php:990
 msgid "Search"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:155
+#: inc/widgets-manager/base/widgets-config.php:154
 msgid "Add a search bar to help visitors find content easily."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:161
+#: inc/widgets-manager/base/widgets-config.php:160
 msgid "Page Title"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:168
+#: inc/widgets-manager/base/widgets-config.php:167
 msgid "Display the title of the current page dynamically."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:174
+#: inc/widgets-manager/base/widgets-config.php:173
 msgid "Retina Logo"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:181
+#: inc/widgets-manager/base/widgets-config.php:180
 msgid "Add a high-quality logo that looks sharp on any screen."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:187
+#: inc/widgets-manager/base/widgets-config.php:186
 #: inc/widgets-manager/class-widgets-loader.php:330
 #: inc/widgets-manager/widgets/cart/cart.php:629
 msgid "Cart"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:194
+#: inc/widgets-manager/base/widgets-config.php:193
 msgid "Show cart for seamless shopping experiences."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:200
+#: inc/widgets-manager/base/widgets-config.php:199
 #: inc/widgets-manager/widgets/copyright/copyright.php:102
 msgid "Copyright"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:207
+#: inc/widgets-manager/base/widgets-config.php:206
 msgid "Display customizable copyright text for your site's footer."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:234
+#: inc/widgets-manager/base/widgets-config.php:233
 msgid "Advanced Heading"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:235
+#: inc/widgets-manager/base/widgets-config.php:234
 msgid "Create engaging and customizable headings for your pages."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:248
+#: inc/widgets-manager/base/widgets-config.php:247
 msgid "Modal Popup"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:249
+#: inc/widgets-manager/base/widgets-config.php:248
 msgid "Design engaging popups with interactive animations and content."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:261
+#: inc/widgets-manager/base/widgets-config.php:260
 msgid "Content Toggle"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:262
+#: inc/widgets-manager/base/widgets-config.php:261
 msgid "Let users easily switch between two types of content."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:274
+#: inc/widgets-manager/base/widgets-config.php:273
 msgid "Before After Slider"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:275
+#: inc/widgets-manager/base/widgets-config.php:274
 msgid "Display the before and after versions of an image."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:287
+#: inc/widgets-manager/base/widgets-config.php:286
 msgid "Business Hours"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:288
+#: inc/widgets-manager/base/widgets-config.php:287
 msgid "Customize and display your business hours stylishly."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:302
+#: inc/widgets-manager/base/widgets-config.php:301
 msgid "Business Reviews"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:303
+#: inc/widgets-manager/base/widgets-config.php:302
 msgid "Display verified reviews from Google and Yelp directly."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:316
+#: inc/widgets-manager/base/widgets-config.php:315
 msgid "Contact Form 7 Styler"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:317
+#: inc/widgets-manager/base/widgets-config.php:316
 msgid "Style and enhance Contact Form 7 to fit your site."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:329
+#: inc/widgets-manager/base/widgets-config.php:328
 msgid "Countdown Timer"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:330
+#: inc/widgets-manager/base/widgets-config.php:329
 msgid "Create urgency with fixed or recurring countdowns."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:343
+#: inc/widgets-manager/base/widgets-config.php:342
 msgid "Dual Color Heading"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:344
+#: inc/widgets-manager/base/widgets-config.php:343
 msgid "Style headings with dual colours and customizable typography."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:357
+#: inc/widgets-manager/base/widgets-config.php:356
 msgid "Fancy Heading"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:358
+#: inc/widgets-manager/base/widgets-config.php:357
 msgid "Add animated text for more engaging page titles."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:371
+#: inc/widgets-manager/base/widgets-config.php:370
 msgid "FAQ Schema"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:372
+#: inc/widgets-manager/base/widgets-config.php:371
 msgid "Add SEO-friendly FAQ sections to pages."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:385
+#: inc/widgets-manager/base/widgets-config.php:384
 msgid "Google Map"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:386
+#: inc/widgets-manager/base/widgets-config.php:385
 msgid "Add customizable, multi-location maps with custom markers."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:400
+#: inc/widgets-manager/base/widgets-config.php:399
 msgid "Gravity Form Styler"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:401
+#: inc/widgets-manager/base/widgets-config.php:400
 msgid "Customize Gravity Forms with advanced styling options."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:413
+#: inc/widgets-manager/base/widgets-config.php:412
 msgid "Hotspot"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:414
+#: inc/widgets-manager/base/widgets-config.php:413
 msgid "Add interactive points on images for detailed visual tours."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:426
+#: inc/widgets-manager/base/widgets-config.php:425
 msgid "How-to Schema"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:427
+#: inc/widgets-manager/base/widgets-config.php:426
 msgid "Create structured how-to pages with automatic schema markup."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:439
+#: inc/widgets-manager/base/widgets-config.php:438
 msgid "Image Gallery"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:440
+#: inc/widgets-manager/base/widgets-config.php:439
 msgid "Build attractive, feature-rich galleries with advanced options."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:452
+#: inc/widgets-manager/base/widgets-config.php:451
 msgid "Info Box"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:453
+#: inc/widgets-manager/base/widgets-config.php:452
 msgid "Add headings, icons, and descriptions in one flexible widget."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:466
+#: inc/widgets-manager/base/widgets-config.php:465
 msgid "Instagram Feed"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:467
+#: inc/widgets-manager/base/widgets-config.php:466
 msgid "Display an attractive, customizable Instagram feed."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:481
+#: inc/widgets-manager/base/widgets-config.php:480
 msgid "Login Form"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:482
+#: inc/widgets-manager/base/widgets-config.php:481
 msgid "Design beautiful, customizable WordPress login forms."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:497
+#: inc/widgets-manager/base/widgets-config.php:496
 msgid "Marketing Button"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:498
+#: inc/widgets-manager/base/widgets-config.php:497
 msgid "Create High-impact, customizable CTA for promotions and conversions."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:511
+#: inc/widgets-manager/base/widgets-config.php:510
 msgid "Multi Buttons"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:512
+#: inc/widgets-manager/base/widgets-config.php:511
 msgid ""
 "Create a versatile dual-button setup for navigation and interactive web "
 "elements."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:526
+#: inc/widgets-manager/base/widgets-config.php:525
 msgid "Build easy-to-navigate, visually appealing site menus."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:538
+#: inc/widgets-manager/base/widgets-config.php:537
 msgid "Off - Canvas"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:539
+#: inc/widgets-manager/base/widgets-config.php:538
 msgid "Create sliding panels for navigation or extra content."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:551
+#: inc/widgets-manager/base/widgets-config.php:550
 msgid "Posts"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:552
+#: inc/widgets-manager/base/widgets-config.php:551
 msgid "Display and customize blog posts beautifully on your site."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:566
+#: inc/widgets-manager/base/widgets-config.php:565
 msgid "Price Box"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:567
+#: inc/widgets-manager/base/widgets-config.php:566
 msgid "Showcase prices and features in customizable layouts."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:580
+#: inc/widgets-manager/base/widgets-config.php:579
 msgid "Price List"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:581
+#: inc/widgets-manager/base/widgets-config.php:580
 msgid "Create elegant, customizable lists for menus or product catalogues."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:594
+#: inc/widgets-manager/base/widgets-config.php:593
 #: inc/widgets-manager/widgets/retina/retina.php:111
 #: inc/widgets-manager/widgets/retina/retina.php:245
 msgid "Retina Image"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:595
+#: inc/widgets-manager/base/widgets-config.php:594
 msgid "Ensure images look crisp on high-resolution screens."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:607
+#: inc/widgets-manager/base/widgets-config.php:606
 msgid "Social Share"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:608
+#: inc/widgets-manager/base/widgets-config.php:607
 msgid "Enable quick content sharing with social media buttons."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:623
+#: inc/widgets-manager/base/widgets-config.php:622
 msgid "Table"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:624
+#: inc/widgets-manager/base/widgets-config.php:623
 msgid "Build responsive, styled tables to display data."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:636
+#: inc/widgets-manager/base/widgets-config.php:635
 msgid "Table of Contents"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:637
+#: inc/widgets-manager/base/widgets-config.php:636
 msgid "Improve page readability with automatic, customizable TOCs."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:649
+#: inc/widgets-manager/base/widgets-config.php:648
 msgid "Team Member"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:650
+#: inc/widgets-manager/base/widgets-config.php:649
 msgid "Highlight team members with customizable layouts."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:663
+#: inc/widgets-manager/base/widgets-config.php:662
 msgid "Timeline"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:664
+#: inc/widgets-manager/base/widgets-config.php:663
 msgid "Display timelines or roadmaps with advanced styling options."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:677
+#: inc/widgets-manager/base/widgets-config.php:676
 msgid "Twitter Feed"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:678
+#: inc/widgets-manager/base/widgets-config.php:677
 msgid "Embed Twitter feeds to show real-time content updates."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:692
+#: inc/widgets-manager/base/widgets-config.php:691
 msgid "User Registration Form"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:693
+#: inc/widgets-manager/base/widgets-config.php:692
 msgid "Create beautiful, custom registration forms for users."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:708
+#: inc/widgets-manager/base/widgets-config.php:707
 msgid "Video"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:709
+#: inc/widgets-manager/base/widgets-config.php:708
 msgid "Embed optimized videos with customizable thumbnails and play buttons."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:721
+#: inc/widgets-manager/base/widgets-config.php:720
 msgid "Video Gallery"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:722
+#: inc/widgets-manager/base/widgets-config.php:721
 msgid "Showcase multiple videos without impacting load times."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:734
+#: inc/widgets-manager/base/widgets-config.php:733
 msgid "Welcome Music"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:735
+#: inc/widgets-manager/base/widgets-config.php:734
 msgid "Play background audio to engage visitors upon page load."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:747
+#: inc/widgets-manager/base/widgets-config.php:746
 msgid "Woo - Add To Cart"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:748
+#: inc/widgets-manager/base/widgets-config.php:747
 msgid "Let users add items to cart with one click."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:760
+#: inc/widgets-manager/base/widgets-config.php:759
 msgid "Woo - Categories"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:761
+#: inc/widgets-manager/base/widgets-config.php:760
 msgid "Display product categories beautifully."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:773
+#: inc/widgets-manager/base/widgets-config.php:772
 msgid "Woo - Checkout"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:774
+#: inc/widgets-manager/base/widgets-config.php:773
 msgid "Design optimized checkout pages for better conversions."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:786
+#: inc/widgets-manager/base/widgets-config.php:785
 msgid "Woo - Mini Cart"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:787
+#: inc/widgets-manager/base/widgets-config.php:786
 msgid "Show a mini-cart for seamless shopping experiences."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:799
+#: inc/widgets-manager/base/widgets-config.php:798
 msgid "Woo - Products"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:800
+#: inc/widgets-manager/base/widgets-config.php:799
 msgid "Present products with detailed, customizable layouts."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:812
+#: inc/widgets-manager/base/widgets-config.php:811
 msgid "WP Fluent Forms Styler"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:813
+#: inc/widgets-manager/base/widgets-config.php:812
 msgid "Style WP Fluent Forms for an attractive, cohesive look."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:825
+#: inc/widgets-manager/base/widgets-config.php:824
 msgid "WPForms Styler"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:826
+#: inc/widgets-manager/base/widgets-config.php:825
 msgid "Upgrade WPForms with customizable design and layout options."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:838
+#: inc/widgets-manager/base/widgets-config.php:837
 msgid "Display Conditions"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:839
+#: inc/widgets-manager/base/widgets-config.php:838
 msgid "Show or hide content based on user interactions."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:853
+#: inc/widgets-manager/base/widgets-config.php:852
 msgid "Particle Backgrounds"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:854
+#: inc/widgets-manager/base/widgets-config.php:853
 msgid "Add dynamic, animated backgrounds to sections and columns."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:866
+#: inc/widgets-manager/base/widgets-config.php:865
 msgid "Party Propz"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:867
+#: inc/widgets-manager/base/widgets-config.php:866
 msgid "Decorate your site with festive seasonal elements easily."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:879
+#: inc/widgets-manager/base/widgets-config.php:878
 msgid "Shape Divider"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:880
+#: inc/widgets-manager/base/widgets-config.php:879
 msgid "Add new attractive shape dividers to Elementor sections."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:892
+#: inc/widgets-manager/base/widgets-config.php:891
 msgid "Cross-Site Copy Paste"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:893
+#: inc/widgets-manager/base/widgets-config.php:892
 msgid "Copy and paste Elementor content between websites."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:905
+#: inc/widgets-manager/base/widgets-config.php:904
 msgid "Presets"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:906
+#: inc/widgets-manager/base/widgets-config.php:905
 msgid "Use pre-made widget templates to accelerate your design process."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:924
+#: inc/widgets-manager/base/widgets-config.php:923
 msgid "Caldera Form Styler"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:925
+#: inc/widgets-manager/base/widgets-config.php:924
 msgid "Style and enhance Caldera Forms to fit your site."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:970
+#: inc/widgets-manager/base/widgets-config.php:969
 #. translators: %s: theme name
 msgid "Free & Fastest WordPress Theme."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:995
+#: inc/widgets-manager/base/widgets-config.php:994
 msgid "Fast and customizable theme for your website."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:1009
+#: inc/widgets-manager/base/widgets-config.php:1008
 msgid "Launch websites with AI or ready-made templates."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:1022
+#: inc/widgets-manager/base/widgets-config.php:1021
 msgid "SureCart"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:1023
+#: inc/widgets-manager/base/widgets-config.php:1022
 msgid "Sell your products easily on WordPress."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:1036
+#: inc/widgets-manager/base/widgets-config.php:1035
 msgid "Presto Player"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:1037
+#: inc/widgets-manager/base/widgets-config.php:1036
 msgid "Display seamless & interactive videos."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:1050
+#: inc/widgets-manager/base/widgets-config.php:1049
 msgid "SureForms"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:1051
+#: inc/widgets-manager/base/widgets-config.php:1050
 msgid "Create high-converting forms with ease."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:1064
+#: inc/widgets-manager/base/widgets-config.php:1063
 msgid "SureTriggers"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:1065
+#: inc/widgets-manager/base/widgets-config.php:1064
 msgid "Automate WordPress tasks effortlessly."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:1078
+#: inc/widgets-manager/base/widgets-config.php:1077
 msgid "Schema – All In One Schema Rich Snippets"
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:1079
+#: inc/widgets-manager/base/widgets-config.php:1078
 msgid "Boost SEO with rich results & structured data."
 msgstr ""
 
@@ -1562,22 +1684,6 @@ msgstr ""
 
 #: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:384
 msgid "Media Type"
-msgstr ""
-
-#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:389
-#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:414
-#: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:204
-#: inc/widgets-manager/widgets/cart/cart.php:113
-#: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:566
-#: inc/widgets-manager/widgets/page-title/page-title.php:353
-#: inc/widgets-manager/widgets/post-info/post-info.php:366
-#: inc/widgets-manager/widgets/post-info/post-info.php:638
-#: inc/widgets-manager/widgets/search-button/search-button.php:153
-#: inc/widgets-manager/widgets/search-button/search-button.php:803
-#: inc/widgets-manager/widgets/site-tagline/site-tagline.php:137
-#: inc/widgets-manager/widgets/site-title/site-title.php:140
-#: inc/widgets-manager/widgets/site-title/site-title.php:345
-msgid "Icon"
 msgstr ""
 
 #: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:393
