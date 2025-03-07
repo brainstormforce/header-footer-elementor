@@ -140,7 +140,7 @@ class HFE_Settings_Page {
 	 *
 	 * Fired by `admin_post_uaelite_rollback` action.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @access public
 	 */
 	public function post_uaelite_rollback() {
@@ -582,7 +582,7 @@ class HFE_Settings_Page {
 	 *
 	 * Call back function for add submenu page function.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @return void
 	 */
 	public function render() {
