@@ -47,7 +47,7 @@ class HFE_Admin {
 	 */
 	public static function load_admin() {
 		add_action( 'elementor/editor/after_enqueue_styles', __CLASS__ . '::hfe_admin_enqueue_scripts' );
-		add_action( 'admin_head', __CLASS__ . '::hfe_admin_enqueue_scripts' );		
+		add_action( 'admin_head', __CLASS__ . '::hfe_admin_enqueue_scripts' );      
 	}
 
 	/**
@@ -102,29 +102,129 @@ class HFE_Admin {
 			add_filter( 'manage_elementor-hf_posts_columns', [ $this, 'column_headings' ] );
 			require_once HFE_DIR . 'admin/class-hfe-addons-actions.php';
 		}
+		add_action( 'elementor/editor/footer', [ $this, 'print_permalink_clear_notice' ] );
+		add_action( 'elementor/editor/before_enqueue_scripts', [ $this, 'enqueue_permalink_clear_notice_js' ] );
+		add_action( 'elementor/editor/before_enqueue_styles', [ $this, 'enqueue_permalink_clear_notice_css' ] );
+	}
+
+	/**
+	 * Enqueue notice style based on option and posttype.
+	 *
+	 * @since 2.2.1
+	 */
+	public function enqueue_permalink_clear_notice_css() {
+
+		if ( get_user_meta( get_current_user_id(), 'hfe_permalink_notice_option', true ) === 'notice-dismissed' ) {
+			return;
+		}
+	
+		if(isset(self::$elementor_instance)){
+			$current_post_type = get_post_type( self::$elementor_instance->editor->get_post_id() );
+			
+			if ( $current_post_type !== 'elementor-hf' ) {
+				return;
+			}
+		}
+	
+		wp_enqueue_style(
+			'hfe-permalink-clear-notice',
+			HFE_URL . 'inc/widgets-css/permalink-clear-notice.css',
+			[],
+			HFE_VER
+		);
+	}
+
+	/**
+	 * Enqueue and localize notice script based on option and posttype.
+	 *
+	 * @since 2.2.1
+	 */
+	public function enqueue_permalink_clear_notice_js() {
+
+		if ( get_user_meta( get_current_user_id(), 'hfe_permalink_notice_option', true ) === 'notice-dismissed' ) {
+			return;
+		}
+		
+		if(isset(self::$elementor_instance)){
+			$current_post_type = get_post_type( self::$elementor_instance->editor->get_post_id() );
+
+			if ( $current_post_type !== 'elementor-hf' ) {
+				return;
+			}
+		}
+
+		wp_enqueue_script(
+			'hfe-permalink-clear-notice',
+			HFE_URL . 'inc/js/permalink-clear-notice.js',
+			[ 'jquery' ],
+			HFE_VER
+		);
+	
+		wp_localize_script(
+			'hfe-permalink-clear-notice',
+			'hfePermalinkClearNotice',
+			[
+				'ajaxurl' => admin_url( 'admin-ajax.php' ),
+				'nonce'   => wp_create_nonce( 'hfe_permalink_clear_notice_nonce' ),
+			]
+		);
+	}
+
+	/**
+	 * Creating notice for permaliink reset in Elementor Editor.
+	 * 
+	 * @since 2.2.1
+	 */
+	public function print_permalink_clear_notice() {
+
+		if ( get_user_meta( get_current_user_id(), 'hfe_permalink_notice_option', true ) === 'notice-dismissed' ) {
+			return;
+		}
+
+		if(isset(self::$elementor_instance)){
+			$current_post_type = get_post_type( self::$elementor_instance->editor->get_post_id() );
+			
+			if ( $current_post_type !== 'elementor-hf' ) {
+				return;
+			}
+		}
+?>
+	<div class="uae-permalink-clear-notice" id="uae-permalink-clear-notice">
+		<?php if ( is_admin() ) { ?>
+			<header>
+				<i class="eicon-warning"></i>
+				<h2><?php echo esc_html__( 'Important Notice:', 'header-footer-elementor' ); ?></h2>
+				<button class="uae_permalink-notice-close"><i class="eicon-close"></i></button>
+			</header>
+			<div class="uae-permalink-notice-content">
+				<b><?php echo esc_html__( 'Can\'t edit your header or footer?', 'header-footer-elementor' ); ?></b><br/>
+				<?php echo esc_html__( 'Try clearing your cache or resetting permalinks (Settings > Permalinks > Save Changes).', 'header-footer-elementor' ); ?>
+				<a href="<?php echo esc_url( 'https://ultimateelementor.com/docs/elementor-header-footer-template-not-loading-or-stuck-on-loading/' ); ?>" target="_blank"><?php echo esc_html_e( 'Learn More', 'header-footer-elementor' ); ?></a>
+			</div>
+		<?php } ?>
+	</div>
+<?php	
 	}
 
 
+	/**
+	 * Hide admin notices on the custom settings page.
+	 *
+	 * @since x.x.x
+	 * @return void
+	 */
+	public static function hide_admin_notices() {
+		$screen                = get_current_screen();
+		$pages_to_hide_notices = [
+			'edit-elementor-hf',     // Edit screen for elementor-hf post type.
+			'elementor-hf',          // New post screen for elementor-hf post type.
+		];
 
-
-/**
- * Hide admin notices on the custom settings page.
- *
- * @since x.x.x
- * @return void
- */
-public static function hide_admin_notices() {
-    $screen = get_current_screen();
-    $pages_to_hide_notices = array(
-        'edit-elementor-hf',     // Edit screen for elementor-hf post type
-        'elementor-hf',          // New post screen for elementor-hf post type
-    );
-
-    if ( in_array( $screen->id, $pages_to_hide_notices ) || 'toplevel_page_hfe' === $screen->id ) {
-        remove_all_actions( 'admin_notices' );
-        remove_all_actions( 'all_admin_notices' );
-    }
-}
+		if ( in_array( $screen->id, $pages_to_hide_notices ) || 'toplevel_page_hfe' === $screen->id ) {
+			remove_all_actions( 'admin_notices' );
+			remove_all_actions( 'all_admin_notices' );
+		}
+	}
 	
 	/**
 	 * Script for Elementor Pro full site editing support.
@@ -288,19 +388,19 @@ public static function hide_admin_notices() {
 			'menu_icon'           => 'dashicons-editor-kitchensink',
 			'supports'            => [ 'title', 'thumbnail', 'elementor' ],
 			'menu_position'       => 5,
-			'capabilities'        => array(
-				'edit_post'          		=> 'manage_options',
-				'read_post'          		=> 'read',
-				'delete_post'        		=> 'manage_options',
-				'edit_posts'         		=> 'manage_options',
-				'edit_others_posts'  		=> 'manage_options',
-				'publish_posts'      		=> 'manage_options',
-				'read_private_posts' 		=> 'manage_options',
-				'delete_posts'       		=> 'manage_options',
-				'delete_others_posts'		=> 'manage_options',
-				'delete_private_posts' 		=> 'manage_options',
-				'delete_published_posts' 	=> 'manage_options',
-			),
+			'capabilities'        => [
+				'edit_post'              => 'manage_options',
+				'read_post'              => 'read',
+				'delete_post'            => 'manage_options',
+				'edit_posts'             => 'manage_options',
+				'edit_others_posts'      => 'manage_options',
+				'publish_posts'          => 'manage_options',
+				'read_private_posts'     => 'manage_options',
+				'delete_posts'           => 'manage_options',
+				'delete_others_posts'    => 'manage_options',
+				'delete_private_posts'   => 'manage_options',
+				'delete_published_posts' => 'manage_options',
+			],
 		];
 
 		register_post_type( 'elementor-hf', $args );
