@@ -3,7 +3,7 @@
  * Scroll to top settings
  *
  * @package header-footer-elementor
- * @since x.x.x
+ * @since 2.2.1
  */
 
 namespace HFE\WidgetsManager\Extensions;
@@ -19,14 +19,14 @@ use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 /**
  * HFE Scroll to top extension
  *
- * @since x.x.x
+ * @since 2.2.1
  */
 class Scroll_To_Top_Settings extends Tab_Base {
 
 	/**
 	 * Retrieve the widget name.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 *
 	 * @access public
 	 *
@@ -39,7 +39,7 @@ class Scroll_To_Top_Settings extends Tab_Base {
 	/**
 	 * Retrieves the widget name title.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 *
 	 * @access public
 	 *
@@ -52,7 +52,7 @@ class Scroll_To_Top_Settings extends Tab_Base {
 	/**
 	 * Retrieve the widget icon.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 *
 	 * @access public
 	 *
@@ -65,7 +65,7 @@ class Scroll_To_Top_Settings extends Tab_Base {
 	/**
 	 * Retrieves the help URL.
 	 * 
-	 * @since x.x.x
+	 * @since 2.2.1
 	 *
 	 * @access public
 	 *
@@ -78,7 +78,7 @@ class Scroll_To_Top_Settings extends Tab_Base {
 	/**
 	 * Retrieves the widget keywords.
 	 * 
-	 * @since x.x.x
+	 * @since 2.2.1
 	 *
 	 * @access public
 	 *
@@ -91,7 +91,7 @@ class Scroll_To_Top_Settings extends Tab_Base {
 	/**
 	 * Register tab controls
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @access protected
 	 * @return void
 	 */

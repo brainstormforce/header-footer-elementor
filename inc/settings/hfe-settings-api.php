@@ -22,7 +22,7 @@ class HFE_Settings_Api {
 	 *
 	 * @access private
 	 * @var object Class object.
-	 * @since x.x.x
+	 * @since 2.2.1
 	 */
 	private static $instance;
 
@@ -41,7 +41,7 @@ class HFE_Settings_Api {
 	/**
 	 * Initialize hooks.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @return void
 	 */
 	private function __construct() {
@@ -53,7 +53,7 @@ class HFE_Settings_Api {
 	/**
 	 * Register REST API routes.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @return void
 	 */
 	public function register_routes() {
@@ -92,7 +92,7 @@ class HFE_Settings_Api {
 	/**
 	 * Check whether a given request has permission to read notes.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @return WP_Error|boolean
 	 */
 	public function get_items_permissions_check() {

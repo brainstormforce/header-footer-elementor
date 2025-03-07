@@ -6,7 +6,7 @@
  * @author      HFE
  * @copyright   Copyright (c) 2018, HFE
  * @link        http://brainstormforce.com/
- * @since       HFE x.x.x
+ * @since       HFE 2.2.1
  */
 
 namespace HFE\WidgetsManager;
@@ -24,7 +24,7 @@ class Extensions_Loader {
 	/**
 	 * Instance of Extensions_Loader.
 	 *
-	 * @since  x.x.x
+	 * @since  2.2.1
 	 * @var null
 	 */
 	private static $_instance = null;
@@ -32,7 +32,7 @@ class Extensions_Loader {
 	/**
 	 * Get instance of Extensions_Loader
 	 *
-	 * @since  x.x.x
+	 * @since  2.2.1
 	 * @return Extensions_Loader
 	 */
 	public static function instance() {
@@ -46,7 +46,7 @@ class Extensions_Loader {
 	/**
 	 * Setup actions and filters.
 	 *
-	 * @since  x.x.x
+	 * @since  2.2.1
 	 * @access private
 	 */
 	private function __construct() {
@@ -58,7 +58,7 @@ class Extensions_Loader {
 	/**
 	 * Elementor Init.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 */
 	public function elementor_init() {
 
@@ -84,7 +84,7 @@ class Extensions_Loader {
 	 *
 	 * Load Extensions files
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @access public
 	 * @return void
 	 */

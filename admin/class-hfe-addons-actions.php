@@ -428,7 +428,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		/**
 		 * Save HFE analytics compatibility option via AJAX.
 		 *
-		 * @since x.x.x
+		 * @since 2.2.1
 		 * @return void
 		 */
 		public function save_analytics_option() {

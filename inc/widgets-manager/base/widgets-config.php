@@ -955,7 +955,7 @@ class Widgets_Config {
 	/**
 	 * Function for Astra Pro white labels with defaults.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @return array
 	 */
 	public static function get_white_label() {
