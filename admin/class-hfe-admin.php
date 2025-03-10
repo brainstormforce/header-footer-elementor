@@ -200,6 +200,8 @@ class HFE_Admin {
 				<b><?php echo esc_html__( 'Can\'t edit your header or footer?', 'header-footer-elementor' ); ?></b><br/>
 				<?php echo esc_html__( 'Try clearing your cache or resetting permalinks (Settings > Permalinks > Save Changes).', 'header-footer-elementor' ); ?>
 				<a href="<?php echo esc_url( 'https://ultimateelementor.com/docs/elementor-header-footer-template-not-loading-or-stuck-on-loading/' ); ?>" target="_blank"><?php echo esc_html_e( 'Learn More', 'header-footer-elementor' ); ?></a>
+				<br>
+				<button class="uae_permalink-flush-btn"><b>Flush Permalink</b></button>
 			</div>
 		<?php } ?>
 	</div>

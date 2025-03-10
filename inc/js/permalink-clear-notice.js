@@ -27,6 +27,32 @@ var ElementorEditorCheck = function() {
         });
     }
 
+    var isPermalinkFlushed = function() {
+
+        jQuery(document).on('click', '.uae_permalink-flush-btn', function(e) {
+                jQuery.ajax({
+                    url: hfePermalinkClearNotice.ajaxurl,
+                    type: 'POST',
+                    data: {
+                        action: 'hfe_flush_permalink_notice',
+                        nonce: hfePermalinkClearNotice.nonce,
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            console.log('Refresh Permalink successfully');
+                            location.reload(true);
+                        } else {
+                            console.log('Error updating option: ' + response.data);
+                        }
+                    },
+                    error: function(error) {
+                        console.log('Error updating option');
+                    }
+                });
+            });
+    }
+
+
     var isElementorLoadedCheck = function() {
         if ( 'undefined' === typeof elementor ) {
             return false;
@@ -62,6 +88,7 @@ var ElementorEditorCheck = function() {
     var init = function() {
         setTimeout( permalinkNoticeCheck, 30000 );
         isNoticeClosed();
+        isPermalinkFlushed();
     };
 
     init();

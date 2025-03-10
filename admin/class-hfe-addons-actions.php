@@ -67,6 +67,8 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 
 			add_action( 'wp_ajax_update_permalink_notice_option', [ $this, 'update_permalink_notice_option' ] );
 			add_action( 'wp_ajax_nopriv_update_permalink_notice_option', [ $this, 'update_permalink_notice_option' ] );
+			add_action( 'wp_ajax_hfe_flush_permalink_notice', [ $this, 'hfe_flush_permalink_notice' ] );
+			add_action( 'wp_ajax_nopriv_hfe_flush_permalink_notice', [ $this, 'hfe_flush_permalink_notice' ] );
 
 		}
 
@@ -91,6 +93,32 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		
 			// Send a success response.
 			wp_send_json_success( 'Option updated successfully' );
+		}
+
+		/**
+		 * Updated the permalink notice option.
+		 *
+		 * @since 2.2.1
+		 */
+		public function hfe_flush_permalink_notice() {
+			// Verify the nonce.
+			if ( ! isset( $_POST['nonce'] ) || ! check_ajax_referer( 'hfe_permalink_clear_notice_nonce', 'nonce', false ) ) {
+				wp_send_json_error( 'Invalid nonce' );
+			}
+			
+			// Check if the current user has the capability to manage options.
+			if ( ! current_user_can( 'manage_options' ) ) {
+				wp_send_json_error( 'Unauthorized user' );
+			}
+
+			if (get_option('permalink_structure') != '') 
+			{ 
+				update_option('permalink_structure', get_option('permalink_structure'));
+				flush_rewrite_rules(); 
+			} 
+
+			// Send a success response.
+			wp_send_json_success( 'Permalink Flushed successfully' );
 		}
 		
 		/**

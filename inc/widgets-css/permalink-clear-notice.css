@@ -61,6 +61,7 @@ body:not(.rtl) .uae-permalink-clear-notice {
     top: 12px;
     right: 2px;
     z-index: 9999;
+    cursor: pointer;
 }
 
 .uae-permalink-clear-notice header i {
@@ -70,4 +71,21 @@ body:not(.rtl) .uae-permalink-clear-notice {
 .uae-permalink-clear-notice header h2 {
     flex-grow: 1;
     font-size: 18px;
+}
+
+.uae_permalink-flush-btn{
+    background-color: var(--e-a-btn-bg-primary);
+    color: #000;
+    font-size: 12px;
+    font-weight: 500;
+    border: none;
+    border-radius: 3px;
+    padding: 8px 16px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.uae_permalink-flush-btn:hover {
+    background-color: var(--e-a-btn-bg-primary-hover);
+    color: var(--e-a-btn-color);
 }
