@@ -115,6 +115,9 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			{ 
 				update_option('permalink_structure', get_option('permalink_structure'));
 				flush_rewrite_rules(); 
+				// Update the option to true.
+				update_user_meta( get_current_user_id(), 'hfe_permalink_notice_option', 'notice-dismissed' );
+		
 			} 
 
 			// Send a success response.

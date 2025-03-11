@@ -80,7 +80,7 @@ body:not(.rtl) .uae-permalink-clear-notice {
     font-weight: 500;
     border: none;
     border-radius: 3px;
-    padding: 8px 16px;
+    padding: 16px 16px;
     margin-top: 10px;
     cursor: pointer;
 }
@@ -88,4 +88,30 @@ body:not(.rtl) .uae-permalink-clear-notice {
 .uae_permalink-flush-btn:hover {
     background-color: var(--e-a-btn-bg-primary-hover);
     color: var(--e-a-btn-color);
+}
+
+.uae-notice-loader {
+    display: none;
+}
+
+/* Add a small spinning animation inside notice */
+.uae-notice-loader::after {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-left: 8px;
+    border: 2px solid #000;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.uae-btn-main-text{
+    font-weight: bold;
 }
