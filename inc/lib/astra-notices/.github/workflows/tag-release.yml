@@ -1,0 +1,40 @@
+name: Create a tag
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+          coverage: none
+          tools: composer, cs2pr
+
+      - name: Maybe create a tag
+        run: bash bin/release.sh
+
+      - name: Install Dependencies
+        run: composer install
+
+      - name: Build the release
+        run: vendor/bin/wp dist-archive . astra-notices.zip
+      
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ env.BRAINSTORM_FORCE_RELEASE }}
+          body: ''
+          name: v${{ env.BRAINSTORM_FORCE_RELEASE }}
+          draft: true
+          files: astra-notices.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

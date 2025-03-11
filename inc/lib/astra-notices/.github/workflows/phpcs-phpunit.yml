@@ -1,0 +1,62 @@
+
+name: PHPUnit + PHPCS
+
+on: pull_request
+
+jobs:
+  phpunit:
+    name: PHPUnit (PHP ${{ matrix.php }} with WordPress ${{ matrix.wordpress }}) + PHPCS
+    runs-on: ubuntu-latest
+
+    env:
+      DB_HOST: 127.0.0.1
+      DB_NAME: local
+      DB_USER: root
+      DB_PASS: root
+
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+           MYSQL_ALLOW_EMPTY_PASSWORD: yes
+           MYSQL_DATABASE: local
+           MYSQL_ROOT_PASSWORD: root
+        ports:
+           - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ['8.2']
+        wordpress: ['trunk']
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+          tools: composer, cs2pr
+
+      - name: Composer Install
+        uses: "ramsey/composer-install@v1"
+
+      - name: Setup problem matchers for PHPUnit
+        run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+
+      - name: Run tests
+        run: composer run test
+        env:
+          WP_DB_NAME: ${{ env.DB_NAME }}
+          WP_DB_USER: ${{ env.DB_USER }}
+          WP_DB_PASS: ${{ env.DB_PASS }}
+          WP_DB_HOST: ${{ env.DB_HOST }}
+
+      - name: PHPCS check
+        if: always()
+        uses: chekalsky/phpcs-action@v1
+        with:
+          phpcs_bin_path: './vendor/bin/phpcs'

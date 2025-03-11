@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "brainstormforce/astra-notices",
-            "version": "1.1.11",
+            "version": "v1.1.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/brainstormforce/astra-notices.git",
-                "reference": "742c8879a3a9154a55fbf628324af96154d2697f"
+                "reference": "b0961b0167b4ca72fe316804bf2645fcc74d028b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/brainstormforce/astra-notices/zipball/742c8879a3a9154a55fbf628324af96154d2697f",
-                "reference": "742c8879a3a9154a55fbf628324af96154d2697f",
+                "url": "https://api.github.com/repos/brainstormforce/astra-notices/zipball/b0961b0167b4ca72fe316804bf2645fcc74d028b",
+                "reference": "b0961b0167b4ca72fe316804bf2645fcc74d028b",
                 "shasum": ""
             },
             "require": {
@@ -25,12 +25,12 @@
             },
             "require-dev": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
-                "phpcompatibility/phpcompatibility-wp": "^2.1",
-                "phpunit/phpunit": "^7",
-                "roots/wordpress": "^5.9",
+                "phpcompatibility/phpcompatibility-wp": "*",
+                "phpunit/phpunit": "^9.0",
+                "roots/wordpress": "^6.0",
                 "wp-cli/dist-archive-command": "^2.0",
                 "wp-coding-standards/wpcs": "^2.3",
-                "wp-phpunit/wp-phpunit": "^5",
+                "wp-phpunit/wp-phpunit": "^6.0",
                 "yoast/phpunit-polyfills": "^1.0"
             },
             "type": "wordpress-plugin",
@@ -47,22 +47,22 @@
             "description": "Easily create admin notices",
             "support": {
                 "issues": "https://github.com/brainstormforce/astra-notices/issues",
-                "source": "https://github.com/brainstormforce/astra-notices/tree/1.1.11"
+                "source": "https://github.com/brainstormforce/astra-notices/tree/v1.1.12"
             },
-            "time": "2022-02-09T09:14:49+00:00"
+            "time": "2025-03-11T09:21:58+00:00"
         },
         {
             "name": "brainstormforce/bsf-analytics",
-            "version": "1.1.9",
+            "version": "1.1.11",
             "source": {
                 "type": "git",
                 "url": "git@github.com:brainstormforce/bsf-analytics.git",
-                "reference": "cdbaa306e409857f4138416a22257daa7b8f5070"
+                "reference": "ce2817c988a1c3e3dce6caef6fc152bc5a6e2e31"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/brainstormforce/bsf-analytics/zipball/cdbaa306e409857f4138416a22257daa7b8f5070",
-                "reference": "cdbaa306e409857f4138416a22257daa7b8f5070",
+                "url": "https://api.github.com/repos/brainstormforce/bsf-analytics/zipball/ce2817c988a1c3e3dce6caef6fc152bc5a6e2e31",
+                "reference": "ce2817c988a1c3e3dce6caef6fc152bc5a6e2e31",
                 "shasum": ""
             },
             "require-dev": {
@@ -96,10 +96,10 @@
             },
             "description": "Library to gather non sensitive analytics data to enhance bsf products.",
             "support": {
-                "source": "https://github.com/brainstormforce/bsf-analytics/tree/1.1.9",
+                "source": "https://github.com/brainstormforce/bsf-analytics/tree/1.1.11",
                 "issues": "https://github.com/brainstormforce/bsf-analytics/issues"
             },
-            "time": "2025-02-05T11:54:40+00:00"
+            "time": "2025-02-27T14:49:51+00:00"
         },
         {
             "name": "brainstormforce/nps-survey",
@@ -609,12 +609,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-stubs/wordpress-stubs.git",
-                "reference": "27f32faacb65a1230d9dac09f1b6c5ce78a6e61a"
+                "reference": "c04f96cb232fab12a3cbcccf5a47767f0665c3f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-stubs/wordpress-stubs/zipball/27f32faacb65a1230d9dac09f1b6c5ce78a6e61a",
-                "reference": "27f32faacb65a1230d9dac09f1b6c5ce78a6e61a",
+                "url": "https://api.github.com/repos/php-stubs/wordpress-stubs/zipball/c04f96cb232fab12a3cbcccf5a47767f0665c3f4",
+                "reference": "c04f96cb232fab12a3cbcccf5a47767f0665c3f4",
                 "shasum": ""
             },
             "require-dev": {
@@ -649,7 +649,7 @@
                 "issues": "https://github.com/php-stubs/wordpress-stubs/issues",
                 "source": "https://github.com/php-stubs/wordpress-stubs/tree/v6.7.2"
             },
-            "time": "2025-02-05T17:57:54+00:00"
+            "time": "2025-02-12T04:51:58+00:00"
         },
         {
             "name": "phpcompatibility/php-compatibility",
@@ -857,16 +857,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.12.16",
+            "version": "1.12.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "e0bb5cb78545aae631220735aa706eac633a6be9"
+                "reference": "14276fdef70575106a3392a4ed553c06a984df28"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/e0bb5cb78545aae631220735aa706eac633a6be9",
-                "reference": "e0bb5cb78545aae631220735aa706eac633a6be9",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/14276fdef70575106a3392a4ed553c06a984df28",
+                "reference": "14276fdef70575106a3392a4ed553c06a984df28",
                 "shasum": ""
             },
             "require": {
@@ -911,7 +911,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-01-21T14:50:05+00:00"
+            "time": "2025-03-09T09:24:50+00:00"
         },
         {
             "name": "psr/container",
@@ -2158,10 +2158,10 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "platform": {},
+    "platform-dev": {},
+    "plugin-api-version": "2.6.0"
 }
