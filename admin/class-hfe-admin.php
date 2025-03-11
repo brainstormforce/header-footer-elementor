@@ -201,8 +201,9 @@ class HFE_Admin {
 				<?php echo esc_html__( 'Try clearing your cache or resetting permalinks (Settings > Permalinks > Save Changes).', 'header-footer-elementor' ); ?>
 				<a href="<?php echo esc_url( 'https://ultimateelementor.com/docs/elementor-header-footer-template-not-loading-or-stuck-on-loading/' ); ?>" target="_blank"><?php echo esc_html_e( 'Learn More', 'header-footer-elementor' ); ?></a>
 				<br>
-				
-				<button class="uae_permalink-flush-btn"><span class="uae-btn-main-text">Flush Permalink</span><span class="uae-notice-loader"></span></button>
+				<?php if(!is_multisite()){ ?>
+					<button class="uae_permalink-flush-btn"><span class="uae-btn-main-text">Flush Permalink</span><span class="uae-notice-loader"></span></button>
+				<?php } ?>
 			</div>
 		<?php } ?>
 	</div>
