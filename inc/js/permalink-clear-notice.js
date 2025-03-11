@@ -1,7 +1,7 @@
 var ElementorEditorCheck = function() {
     var isNoticeClosed = function() {
 
-        jQuery(document).on('click', '.uae_permalink-notice-close', function(e) {
+        jQuery(document).on('click', '.uae-permalink-notice-close', function(e) {
             var $notice = jQuery('#uae-permalink-clear-notice');
             if ($notice.data('visible')) {
                 $notice.remove();
@@ -29,11 +29,11 @@ var ElementorEditorCheck = function() {
 
     var isPermalinkFlushed = function() {
 
-        jQuery(document).on('click', '.uae_permalink-flush-btn', function(e) {
+        jQuery(document).on('click', '.uae-permalink-flush-btn', function(e) {
             
             var $loader = jQuery('.uae-notice-loader');
             var $button = jQuery(this);
-            var $buttonText = jQuery(this).find('.uae-btn-main-text');
+            var $buttonText = $button.find('.uae-btn-main-text');
 
             // Show loader and disable button
             $loader.show();
@@ -52,7 +52,7 @@ var ElementorEditorCheck = function() {
                         $loader.hide();
                         $buttonText.text('Flushed Permalink');
                         if (response.success) {
-                            console.log('Refresh Permalink successfully');
+                            console.log('Permalink refreshed successfully');
                             location.reload(true);
                         } else {
                             console.log('Error updating option: ' + response.data);

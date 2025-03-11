@@ -194,7 +194,7 @@ class HFE_Admin {
 			<header>
 				<i class="eicon-warning"></i>
 				<h2><?php echo esc_html__( 'Important Notice:', 'header-footer-elementor' ); ?></h2>
-				<button class="uae_permalink-notice-close"><i class="eicon-close"></i></button>
+				<button class="uae-permalink-notice-close"><i class="eicon-close"></i></button>
 			</header>
 			<div class="uae-permalink-notice-content">
 				<b><?php echo esc_html__( 'Can\'t edit your header or footer?', 'header-footer-elementor' ); ?></b><br/>
@@ -202,7 +202,10 @@ class HFE_Admin {
 				<a href="<?php echo esc_url( 'https://ultimateelementor.com/docs/elementor-header-footer-template-not-loading-or-stuck-on-loading/' ); ?>" target="_blank"><?php echo esc_html_e( 'Learn More', 'header-footer-elementor' ); ?></a>
 				<br>
 				<?php if(!is_multisite()){ ?>
-					<button class="uae_permalink-flush-btn"><span class="uae-btn-main-text">Flush Permalink</span><span class="uae-notice-loader"></span></button>
+					<button class="uae-permalink-flush-btn" type="button">
+						<span class="uae-btn-main-text">Flush Permalink</span>
+						<span class="uae-notice-loader"></span>
+					</button>
 				<?php } ?>
 			</div>
 		<?php } ?>
