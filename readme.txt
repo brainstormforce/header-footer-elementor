@@ -4,7 +4,7 @@ Tags: elementor, header footer builder, widgets, header template, footer templat
 Requires at least: 5.0  
 Tested up to: 6.7.1 
 Requires PHP: 7.4  
-Stable tag: 2.2.0
+Stable tag: 2.2.1
 License: GPLv2 or later  
 License URI: https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -16,7 +16,7 @@ Create dynamic headers, footers, and design blocks effortlessly with Elementor's
 
 Ultimate Addons for Elementor is the improved and redesigned version of the Elementor Header & Footer Builder. It is designed to help you create dynamic headers, footers, and additional design blocks with ease. This plugin leverages Elementor's powerful drag-and-drop editor to give you complete design freedom and it integrates with any WordPress theme.
 
-[Try it out on a free dummy site](https://zipwp.org/plugins/header-footer-elementor/)
+[Try the live demo of Ultimate Addons for Elementor](https://zipwp.org/plugins/header-footer-elementor/)
 
 You can refer to our step-by-step article that will help you [set headers and footers](https://ultimateelementor.com/header-footer-with-elementor/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description) quickly.
 
@@ -128,6 +128,12 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 ---
 
 == Changelog ==
+
+= 2.2.1 =
+- This update addressed a security bug. Please make sure you are using the latest version on your website.
+- Improvement: Added a notice in the Elementor editor to prompt users to flush permalinks if it gets stuck after a plugin update.
+- Improvement: Removed 'elementor-button-wrapper' to enhance performance and optimize the DOM structure.
+- Fix: Navigation Menu - Full-width dropdown menu now stays correctly positioned when resizing in responsive mode.
 
 = 2.2.0 =
 - New: Ultimate Addons for Elementor now includes translations for Dutch, French, Spanish, and German enhancing multilingual accessibility.

@@ -7,14 +7,14 @@
  * Author URI:  https://www.brainstormforce.com/
  * Text Domain: header-footer-elementor
  * Domain Path: /languages
- * Version: 2.2.0
+ * Version: 2.2.1
  * Elementor tested up to: 3.27
  * Elementor Pro tested up to: 3.27
  *
  * @package         header-footer-elementor
  */
 
-define( 'HFE_VER', '2.2.0' );
+define( 'HFE_VER', '2.2.1' );
 define( 'HFE_FILE', __FILE__ );
 define( 'HFE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'HFE_URL', plugins_url( '/', __FILE__ ) );
@@ -33,7 +33,8 @@ require_once HFE_DIR . '/inc/class-header-footer-elementor.php';
  * @return void
  */
 function hfe_plugin_activation() {
-	update_option( 'hfe_plugin_is_activated', 'yes' );
+	update_option( 'uae_lite_is_activated', 'yes' );
+	update_option( 'hfe_start_onboarding', true );
 }
 
 register_activation_hook( HFE_FILE, 'hfe_plugin_activation' );
@@ -55,12 +56,12 @@ function hfe_enqueue_font_awesome() {
 	if ( class_exists( 'Elementor\Plugin' ) ) {
 
 		// Ensure Elementor Icons CSS is loaded.
-        wp_enqueue_style(
-            'hfe-elementor-icons',
-            plugins_url( '/elementor/assets/lib/eicons/css/elementor-icons.min.css', 'elementor' ),
-            [],
-            '5.34.0'
-        );
+		wp_enqueue_style(
+			'hfe-elementor-icons',
+			plugins_url( '/elementor/assets/lib/eicons/css/elementor-icons.min.css', 'elementor' ),
+			[],
+			'5.34.0'
+		);
 		wp_enqueue_style(
 			'hfe-icons-list',
 			plugins_url( '/elementor/assets/css/widget-icon-list.min.css', 'elementor' ),

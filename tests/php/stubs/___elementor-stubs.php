@@ -9295,8 +9295,8 @@ namespace Elementor\Core\Utils {
 		 */
 		public $patch;
 		/**
-		 * The stage of a version x.x.x-stage.
-		 * e.g: x.x.x-dev1, x.x.x-beta3, x.x.x-rc
+		 * The stage of a version 2.2.1-stage.
+		 * e.g: 2.2.1-dev1, 2.2.1-beta3, 2.2.1-rc
 		 *
 		 * @var string|null
 		 */

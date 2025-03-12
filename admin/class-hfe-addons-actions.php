@@ -63,9 +63,69 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			add_action( 'wp_ajax_hfe_bulk_deactivate_widgets', [ $this, 'bulk_deactivate_widgets' ] );
 
 			add_action( 'wp_ajax_save_theme_compatibility_option', [ $this, 'save_hfe_compatibility_option_callback' ] );
+			add_action( 'wp_ajax_save_analytics_option', [ $this, 'save_analytics_option' ] );
+
+			add_action( 'wp_ajax_update_permalink_notice_option', [ $this, 'update_permalink_notice_option' ] );
+			add_action( 'wp_ajax_nopriv_update_permalink_notice_option', [ $this, 'update_permalink_notice_option' ] );
+			add_action( 'wp_ajax_hfe_flush_permalink_notice', [ $this, 'hfe_flush_permalink_notice' ] );
+			add_action( 'wp_ajax_nopriv_hfe_flush_permalink_notice', [ $this, 'hfe_flush_permalink_notice' ] );
 
 		}
 
+		/**
+		 * Updated the permalink notice option.
+		 *
+		 * @since 2.2.1
+		 */
+		public function update_permalink_notice_option() {
+			// Verify the nonce.
+			if ( ! isset( $_POST['nonce'] ) || ! check_ajax_referer( 'hfe_permalink_clear_notice_nonce', 'nonce', false ) ) {
+				wp_send_json_error( 'Invalid nonce' );
+			}
+			
+			// Check if the current user has the capability to manage options.
+			if ( ! current_user_can( 'manage_options' ) ) {
+				wp_send_json_error( 'Unauthorized user' );
+			}
+
+			// Update the option to true.
+			update_user_meta( get_current_user_id(), 'hfe_permalink_notice_option', 'notice-dismissed' );
+		
+			// Send a success response.
+			wp_send_json_success( 'Option updated successfully' );
+		}
+
+		/**
+		 * Updated the permalink notice option.
+		 *
+		 * @since 2.2.1
+		 */
+		public function hfe_flush_permalink_notice() {
+			// Verify the nonce.
+			if ( ! isset( $_POST['nonce'] ) || ! check_ajax_referer( 'hfe_permalink_clear_notice_nonce', 'nonce', false ) ) {
+				wp_send_json_error( 'Invalid nonce' );
+			}
+			
+			// Check if the current user has the capability to manage options.
+			if ( ! current_user_can( 'manage_options' ) ) {
+				wp_send_json_error( 'Unauthorized user' );
+			}
+
+			$permalink_structure = get_option('permalink_structure');
+			// Check if the permalink structure is not empty.
+			if ( '' !== $permalink_structure )
+			{ 
+				update_option('permalink_structure', $permalink_structure);
+				flush_rewrite_rules(); 
+				// Update the option to true.
+				update_user_meta( get_current_user_id(), 'hfe_permalink_notice_option', 'notice-dismissed' );
+		
+			} 
+
+			// Send a success response.
+			wp_send_json_success( 'Permalink Flushed successfully' );
+		}
+		
 		/**
 		 * Handles the installation and saving of required plugins.
 		 *
@@ -80,11 +140,11 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			check_ajax_referer( 'updates', '_ajax_nonce' );
 
 			// Fetching the plugin slug from the AJAX request.
-			// @psalm-suppress PossiblyInvalidArgument
+			// @psalm-suppress PossiblyInvalidArgument.
 			$plugin_slug = isset( $_POST['slug'] ) && is_string( $_POST['slug'] ) ? sanitize_text_field( wp_unslash( $_POST['slug'] ) ) : '';
 
 			if ( empty( $plugin_slug ) ) {
-				wp_send_json_error( array( 'message' => __( 'Plugin slug is missing.', 'header-footer-elementor' ) ) );
+				wp_send_json_error( [ 'message' => __( 'Plugin slug is missing.', 'header-footer-elementor' ) ] );
 			}
 
 			// Schedule the database update if the plugin is installed successfully.
@@ -107,7 +167,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 				// @psalm-suppress NoValue
 				wp_ajax_install_plugin();
 			} else {
-				wp_send_json_error( array( 'message' => __( 'Plugin installation function not found.', 'header-footer-elementor' ) ) );
+				wp_send_json_error( [ 'message' => __( 'Plugin installation function not found.', 'header-footer-elementor' ) ] );
 			}
 		}
 
@@ -126,11 +186,11 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			check_ajax_referer( 'updates', '_ajax_nonce' );
 
 			// Fetching the plugin slug from the AJAX request.
-			// @psalm-suppress PossiblyInvalidArgument
+			// @psalm-suppress PossiblyInvalidArgument.
 			$theme_slug = isset( $_POST['slug'] ) && is_string( $_POST['slug'] ) ? sanitize_text_field( wp_unslash( $_POST['slug'] ) ) : '';
 
 			if ( empty( $theme_slug ) ) {
-				wp_send_json_error( array( 'message' => __( 'Theme slug is missing.', 'header-footer-elementor' ) ) );
+				wp_send_json_error( [ 'message' => __( 'Theme slug is missing.', 'header-footer-elementor' ) ] );
 			}
 
 			// Schedule the database update if the theme is installed successfully.
@@ -153,7 +213,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 				// @psalm-suppress NoValue
 				wp_ajax_install_theme();
 			} else {
-				wp_send_json_error( array( 'message' => __( 'Theme installation function not found.', 'header-footer-elementor' ) ) );
+				wp_send_json_error( [ 'message' => __( 'Theme installation function not found.', 'header-footer-elementor' ) ] );
 			}
 		}
 
@@ -391,10 +451,33 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 				update_option( 'hfe_compatibility_option', $option );
 
 				// Return a success response.
-				wp_send_json_success( 'Settings saved successfully!' );
+				wp_send_json_success( esc_html__( 'Settings saved successfully!', 'header-footer-elementor' ) );
 			} else {
 				// Return an error response if the option is not set.
-				wp_send_json_error( 'Unable to save settings.' );
+				wp_send_json_error( esc_html__( 'Unable to save settings.', 'header-footer-elementor' ) );
+			}
+		}
+
+		/**
+		 * Save HFE analytics compatibility option via AJAX.
+		 *
+		 * @since 2.2.1
+		 * @return void
+		 */
+		public function save_analytics_option() {
+			// Check nonce for security.
+			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
+
+			if ( isset( $_POST['bsf_analytics_optin'] ) ) {
+				// Sanitize and update option.
+				$option = sanitize_text_field( $_POST['bsf_analytics_optin'] );
+				update_option( 'bsf_analytics_optin', $option );
+
+				// Return a success response.
+				wp_send_json_success( esc_html__( 'Settings saved successfully!', 'header-footer-elementor' ) );
+			} else {
+				// Return an error response if the option is not set.
+				wp_send_json_error( esc_html__( 'Unable to save settings.', 'header-footer-elementor' ) );
 			}
 		}
 

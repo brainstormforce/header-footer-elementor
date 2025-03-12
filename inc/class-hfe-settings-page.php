@@ -40,6 +40,8 @@ class HFE_Settings_Page {
 		
 		add_action( 'admin_head', [ $this, 'hfe_global_css' ] );
 
+		add_action( 'admin_head', [ $this, 'fetch_user_email' ] );
+
 		if ( ! HFE_Helper::is_pro_active() ) {
 			if ( is_admin() && current_user_can( 'manage_options' ) ) {
 				add_action( 'admin_menu', [ $this, 'hfe_register_settings_page' ] );
@@ -48,7 +50,6 @@ class HFE_Settings_Page {
 			add_filter( 'views_edit-elementor-hf', [ $this, 'hfe_settings' ], 10, 1 );
 		}
 		
-		// add_filter( 'admin_footer_text', [ $this, 'admin_footer_text' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
 		add_filter( 'plugin_action_links_' . HFE_PATH, [ $this, 'settings_link' ] );
 
@@ -57,10 +58,6 @@ class HFE_Settings_Page {
 		} else {
 			add_filter( 'wp_check_filetype_and_ext', [ $this, 'real_mime_types' ], 10, 4 );
 		}
-
-		// Add the Action Links.
-		// phpcs:ignore Squiz.PHP.CommentedOutCode.Found, Squiz.Commenting.InlineComment.InvalidEndChar
-		// add_filter( 'plugin_action_links_' . HFE_PATH, array( $this, 'add_action_links' ) );
 
 		/* Flow content view */
 		add_action( 'hfe_render_admin_page_content', [ $this, 'render_content' ], 10, 2 );
@@ -143,7 +140,7 @@ class HFE_Settings_Page {
 	 *
 	 * Fired by `admin_post_uaelite_rollback` action.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @access public
 	 */
 	public function post_uaelite_rollback() {
@@ -196,23 +193,6 @@ class HFE_Settings_Page {
 	}
 
 	/**
-	 * Show action on plugin page.
-	 *
-	 * @param  array $links links.
-	 * @return array
-	 */
-	public function add_action_links( $links ) {
-
-		$default_url = admin_url( 'admin.php?page=' . $this->menu_slug );
-
-		$mylinks = [
-			'<a href="' . $default_url . '">' . __( 'Settings', 'Elementor Header & Footer Builder', 'header-footer-elementor' ) . '</a>', //phpcs:ignore WordPress.WP.I18n.TextDomainMismatch
-		];
-
-		return array_merge( $mylinks, $links );
-	}
-
-	/**
 	 * Settings tab array
 	 *
 	 * @var settings tabs
@@ -227,6 +207,21 @@ class HFE_Settings_Page {
 	 */
 	public function hfe_global_css() {
 		wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'admin/assets/css/ehf-admin.css', [], HFE_VER );
+	}
+
+	/**
+	 * Fetch and return the user's email.
+	 *
+	 * @since 1.6.0
+	 * @return string|null The user's email if logged in, null otherwise.
+	 */
+	public function fetch_user_email() {
+		$current_user = wp_get_current_user();
+		if ( $current_user->ID !== 0 ) {
+			return $current_user->user_email;
+		} else {
+			return null;
+		}
 	}
 
 	/**
@@ -261,9 +256,12 @@ class HFE_Settings_Page {
 			$stpro_status      = HFE_Helper::premium_starter_templates_status();
 			$st_link           = HFE_Helper::starter_templates_link();
 			$hfe_post_url      = admin_url( 'post-new.php?post_type=elementor-hf' );
+			// Fetch the user's email.
+			$user_email = $this->fetch_user_email();
 			
 			$show_theme_support = 'no';
 			$hfe_theme_status   = get_option( 'hfe_is_theme_supported', false );
+			$analytics_status   = get_option( 'bsf_analytics_optin', false );
 	
 			if ( ( ! current_theme_supports( 'header-footer-elementor' ) ) && ! $hfe_theme_status ) {
 				$show_theme_support = 'yes';
@@ -279,6 +277,7 @@ class HFE_Settings_Page {
 			);
 
 			wp_set_script_translations( 'header-footer-elementor-react-app', 'header-footer-elementor', HFE_DIR . 'languages' );
+
 	
 			wp_localize_script(
 				'header-footer-elementor-react-app',
@@ -303,7 +302,13 @@ class HFE_Settings_Page {
 					'version__selected_url'    => HFE_URL . 'assets/images/settings/git-compare.svg',
 					'user_url'                 => HFE_URL . 'assets/images/settings/user.svg',
 					'user__selected_url'       => HFE_URL . 'assets/images/settings/user-selected.svg',
-					'integrations_url'         => HFE_URL . 'assets/images/settings/integrations.svg',  // Update the path to your assets folder.
+					'integrations_url'         => HFE_URL . 'assets/images/settings/integrations.svg', // Update the path to your assets folder.
+					'welcome_banner'           => HFE_URL . 'assets/images/settings/welcome-banner.png',
+					'build_banner'             => HFE_URL . 'assets/images/settings/build_banner.png',
+					'special_reward'           => HFE_URL . 'assets/images/settings/build_bg.png',
+					'success_banner'           => HFE_URL . 'assets/images/settings/success_bg.png',
+					'success_badge'            => HFE_URL . 'assets/images/settings/success_badge.svg',
+					'icon_svg'                 => HFE_URL . 'assets/images/settings/uae-logo-svg.svg',
 					'uaelite_previous_version' => isset( $rollback_versions[0]['value'] ) ? $rollback_versions[0]['value'] : '',
 					'uaelite_versions'         => $rollback_versions,
 					'uaelite_rollback_url'     => esc_url( add_query_arg( 'version', 'VERSION', wp_nonce_url( admin_url( 'admin-post.php?action=uaelite_rollback' ), 'uaelite_rollback' ) ) ),
@@ -317,6 +322,8 @@ class HFE_Settings_Page {
 					'st_link'                  => $st_link,
 					'hfe_post_url'             => $hfe_post_url,
 					'is_hfe_post'              => $is_hfe_post,
+					'user_email'               => $user_email,
+					'analytics_status'         => $analytics_status,
 				]
 			);
 	
@@ -557,14 +564,25 @@ class HFE_Settings_Page {
 			9
 		);
 
+		// Add the Settings Submenu.
+		add_submenu_page(
+			$menu_slug,
+			__( 'Onboarding', 'header-footer-elementor' ),
+			__( 'Onboarding', 'header-footer-elementor' ),
+			$capability,
+			$menu_slug . '#onboarding',
+			[ $this, 'render' ],
+			9
+		);
 	}
+	
 
 	/**
 	 * Settings page.
 	 *
 	 * Call back function for add submenu page function.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @return void
 	 */
 	public function render() {
@@ -584,8 +602,8 @@ class HFE_Settings_Page {
 	 * Renders the admin settings content.
 	 *
 	 * @since 1.0.0
-	 * @param sting $menu_page_slug current page name.
-	 * @param sting $page_action current page action.
+	 * @param string $menu_page_slug current page name.
+	 * @param string $page_action current page action.
 	 *
 	 * @return void
 	 */
@@ -1225,7 +1243,7 @@ class HFE_Settings_Page {
 	 * @return array $links
 	 */
 	public function settings_link( $links ) {
-		$menu_setting = HFE_Helper::is_pro_active() ? 'uaepro' : 'hfe'; // Replace with your actual menu slug
+		$menu_setting = HFE_Helper::is_pro_active() ? 'uaepro' : 'hfe'; // Replace with your actual menu slug.
 
 		$custom['settings'] = sprintf(
 			'<a href="%s" aria-label="%s">%s</a>',
@@ -1237,7 +1255,7 @@ class HFE_Settings_Page {
 					admin_url( 'admin.php' )
 				) . '#dashboard'
 			),
-			esc_attr__( 'Go to HFE Settings page', 'header-footer-elementor' ),
+			esc_attr__( 'Go to UAE Settings page', 'header-footer-elementor' ),
 			esc_html__( 'Settings', 'header-footer-elementor' )
 		);
 

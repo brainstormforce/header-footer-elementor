@@ -57,6 +57,7 @@ li#toplevel_page_Settings-page,
     font-weight: 600;
 }
 .toplevel_page_hfe .wp-submenu a[href ="post-new.php?post_type=elementor-hf" ],
+.toplevel_page_hfe .wp-submenu a[href ="admin.php?page=hfe#onboarding" ],
 .toplevel_page_uaepro .wp-submenu a[href ="post-new.php?post_type=elementor-hf" ] {
     display: none !important;
 }

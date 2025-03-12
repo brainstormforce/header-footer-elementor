@@ -27,14 +27,14 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * HFE widget for site title
  *
- * @since x.x.x
+ * @since 2.2.1
  */
 class Breadcrumbs_Widget extends Common_Widget {
 
 	/**
 	 * Retrieve the widget name.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 *
 	 * @access public
 	 *
@@ -47,7 +47,7 @@ class Breadcrumbs_Widget extends Common_Widget {
 	/**
 	 * Retrieve the widget title.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 *
 	 * @access public
 	 *
@@ -60,7 +60,7 @@ class Breadcrumbs_Widget extends Common_Widget {
 	/**
 	 * Retrieve the widget icon.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 *
 	 * @access public
 	 *
@@ -107,7 +107,7 @@ class Breadcrumbs_Widget extends Common_Widget {
 	/**
 	 * Register general Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @access protected
 	 * @return void
 	 */
@@ -181,7 +181,7 @@ class Breadcrumbs_Widget extends Common_Widget {
 	/**
 	 * Register Separator Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @access protected
 	 * @return void
 	 */
@@ -254,7 +254,7 @@ class Breadcrumbs_Widget extends Common_Widget {
 	/**
 	 * Register Separator Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @access protected
 	 * @return void
 	 */
@@ -313,7 +313,7 @@ class Breadcrumbs_Widget extends Common_Widget {
 	/**
 	 * Register General Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @access protected
 	 * @return void
 	 */
@@ -480,7 +480,7 @@ class Breadcrumbs_Widget extends Common_Widget {
 	/**
 	 * Register Separator Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @access protected
 	 * @return void
 	 */
@@ -544,7 +544,7 @@ class Breadcrumbs_Widget extends Common_Widget {
 	/**
 	 * Register current Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @access protected
 	 * @return void
 	 */
@@ -635,7 +635,7 @@ class Breadcrumbs_Widget extends Common_Widget {
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @access protected
 	 *
 	 * // phpcs:ignore
@@ -838,7 +838,7 @@ class Breadcrumbs_Widget extends Common_Widget {
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @access protected
 	 * @return void
 	 */
