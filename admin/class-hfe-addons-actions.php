@@ -113,7 +113,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 
 			$permalink_structure = get_option('permalink_structure');
 			// Check if the permalink structure is not empty.
-			if ( $permalink_structure != '' ) 
+			if ( '' !== $permalink_structure )
 			{ 
 				update_option('permalink_structure', $permalink_structure);
 				flush_rewrite_rules(); 
