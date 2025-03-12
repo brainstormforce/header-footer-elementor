@@ -203,7 +203,7 @@ class HFE_Admin {
 				<br>
 				<?php if(!is_multisite()){ ?>
 					<button class="uae-permalink-flush-btn" type="button">
-						<span class="uae-btn-main-text">Flush Permalink</span>
+						<span class="uae-btn-main-text"><?php echo esc_html__( 'Flush Permalink', 'header-footer-elementor' ); ?></span>
 						<span class="uae-notice-loader"></span>
 					</button>
 				<?php } ?>
