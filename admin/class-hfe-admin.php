@@ -176,41 +176,40 @@ class HFE_Admin {
 	 * @since 2.2.1
 	 */
 	public function print_permalink_clear_notice() {
-
-		if ( get_user_meta( get_current_user_id(), 'hfe_permalink_notice_option', true ) === 'notice-dismissed' ) {
-			return;
-		}
-
-		if(isset(self::$elementor_instance)){
-			$current_post_type = get_post_type( self::$elementor_instance->editor->get_post_id() );
-			
-			if ( $current_post_type !== 'elementor-hf' ) {
+		if ( is_admin() ) {
+			if ( get_user_meta( get_current_user_id(), 'hfe_permalink_notice_option', true ) === 'notice-dismissed' ) {
 				return;
 			}
-		}
+
+			if(isset(self::$elementor_instance)){
+				$current_post_type = get_post_type( self::$elementor_instance->editor->get_post_id() );
+				
+				if ( $current_post_type !== 'elementor-hf' ) {
+					return;
+				}
+			}
 ?>
-	<div class="uae-permalink-clear-notice" id="uae-permalink-clear-notice">
-		<?php if ( is_admin() ) { ?>
-			<header>
-				<i class="eicon-warning"></i>
-				<h2><?php echo esc_html__( 'Important Notice:', 'header-footer-elementor' ); ?></h2>
-				<button class="uae-permalink-notice-close"><i class="eicon-close"></i></button>
-			</header>
-			<div class="uae-permalink-notice-content">
-				<b><?php echo esc_html__( 'Can\'t edit your header or footer?', 'header-footer-elementor' ); ?></b><br/>
-				<?php echo esc_html__( 'Try clearing your cache or resetting permalinks (Settings > Permalinks > Save Changes).', 'header-footer-elementor' ); ?>
-				<a href="<?php echo esc_url( 'https://ultimateelementor.com/docs/elementor-header-footer-template-not-loading-or-stuck-on-loading/' ); ?>" target="_blank"><?php echo esc_html_e( 'Learn More', 'header-footer-elementor' ); ?></a>
-				<br>
-				<?php if(!is_multisite()){ ?>
-					<button class="uae-permalink-flush-btn" type="button">
-						<span class="uae-btn-main-text">Flush Permalink</span>
-						<span class="uae-notice-loader"></span>
-					</button>
-				<?php } ?>
+			<div class="uae-permalink-clear-notice" id="uae-permalink-clear-notice">
+				<header>
+					<i class="eicon-warning"></i>
+					<h2><?php echo esc_html__( 'Important Notice:', 'header-footer-elementor' ); ?></h2>
+					<button class="uae-permalink-notice-close"><i class="eicon-close"></i></button>
+				</header>
+				<div class="uae-permalink-notice-content">
+					<b><?php echo esc_html__( 'Can\'t edit your header or footer?', 'header-footer-elementor' ); ?></b><br/>
+					<?php echo esc_html__( 'Try clearing your cache or resetting permalinks (Settings > Permalinks > Save Changes).', 'header-footer-elementor' ); ?>
+					<a href="<?php echo esc_url( 'https://ultimateelementor.com/docs/elementor-header-footer-template-not-loading-or-stuck-on-loading/' ); ?>" target="_blank"><?php echo esc_html_e( 'Learn More', 'header-footer-elementor' ); ?></a>
+					<br>
+					<?php if(!is_multisite()){ ?>
+						<button class="uae-permalink-flush-btn" type="button">
+							<span class="uae-btn-main-text"><?php echo esc_html__( 'Flush Permalink', 'header-footer-elementor' ); ?></span>
+							<span class="uae-notice-loader"></span>
+						</button>
+					<?php } ?>
+				</div>
 			</div>
-		<?php } ?>
-	</div>
-<?php	
+<?php 
+		} 
 	}
 
 
