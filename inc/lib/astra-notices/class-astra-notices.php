@@ -28,7 +28,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @var array Notices.
 		 * @since 1.0.0
 		 */
-		private static $version = '1.1.11';
+		private static $version = '1.1.12';
 
 		/**
 		 * Notices
@@ -96,6 +96,12 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 */
 		public static function add_notice( $args = array() ) {
 			self::$notices[] = $args;
+			$notice_id = $args['id']; // Notice ID.
+			$notices = get_option( 'allowed_astra_notices', array() );
+			if(array_search($notice_id, $notices) === false) { 
+				$notices[] = $notice_id; // Add notice id to the array.
+				update_option( 'allowed_astra_notices', $notices ); // Update the option.
+			}
 		}
 
 		/**
@@ -115,12 +121,32 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 				return;
 			}
 
+			$allowed_notices = get_option( 'allowed_astra_notices', array() ); // Get allowed notices.
+
+			 // Define restricted user meta keys
+			 $wp_default_meta_keys = array(
+				'wp_capabilities',
+				'wp_user_level',
+				'wp_user-settings',
+				'account_status',
+				'session_tokens',
+			);
+
+			// Verify that the notice being dismissed is in the list of allowed notices.
+			if(array_search($notice_id, $allowed_notices) === false) { 
+				return;
+			}
+
 			if ( false === wp_verify_nonce( $nonce, 'astra-notices' ) ) {
 				wp_send_json_error( esc_html_e( 'WordPress Nonce not validated.' ) );
 			}
 
 			// Valid inputs?
 			if ( ! empty( $notice_id ) ) {
+
+				if ( in_array( $notice_id, $wp_default_meta_keys, true ) ) {
+					wp_send_json_error( esc_html_e( 'Invalid notice ID.' ) );
+				}
 
 				if ( ! empty( $repeat_notice_after ) ) {
 					set_transient( $notice_id, true, $repeat_notice_after );
