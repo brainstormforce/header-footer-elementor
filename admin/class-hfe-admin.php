@@ -24,6 +24,13 @@ class HFE_Admin {
 	private static $_instance = null;
 
 	/**
+	 * Instance of Elemenntor Frontend class.
+	 *
+	 * @var object \Elementor\Frontend()
+	 */
+	private static $elementor_instance;
+
+	/**
 	 * Instance of HFE_Admin
 	 *
 	 * @return HFE_Admin Instance of HFE_Admin
@@ -83,6 +90,12 @@ class HFE_Admin {
 		if ( is_admin() && current_user_can( 'manage_options' ) ) {
 			add_action( 'admin_menu', [ $this, 'register_admin_menu' ], 50 );
 		}
+
+		$is_elementor_callable = ( defined( 'ELEMENTOR_VERSION' ) && is_callable( 'Elementor\Plugin::instance' ) ) ? true : false;
+		if ( $is_elementor_callable ) {
+			self::$elementor_instance = Elementor\Plugin::instance();
+		}
+
 		add_action( 'add_meta_boxes', [ $this, 'ehf_register_metabox' ] );
 		add_action( 'save_post', [ $this, 'ehf_save_meta' ] );
 		add_action( 'admin_notices', [ $this, 'location_notice' ] );
