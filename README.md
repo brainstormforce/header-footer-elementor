@@ -130,7 +130,7 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 ## Changelog ##
 
 ### 2.2.1 ###
-* This update addressed a security bug. Please make sure you are using the latest version on your website.
+- This update addressed a security bug. Please make sure you are using the latest version on your website.
 - Improvement: Added a notice in the Elementor editor to prompt users to flush permalinks if it gets stuck after a plugin update.
 - Improvement: Removed 'elementor-button-wrapper' to enhance performance and optimize the DOM structure.
 - Fix: Navigation Menu - Full-width dropdown menu now stays correctly positioned when resizing in responsive mode.
