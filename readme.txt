@@ -128,6 +128,8 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 ---
 
 == Changelog ==
+= 2.2.1.1 =
+- Improvement: Compatibility with latest Elementor and Elementor Pro 3.28 version.
 
 = 2.2.1 =
 - This update addressed a security bug. Please make sure you are using the latest version on your website.

@@ -2879,8 +2879,8 @@ namespace {
 	 * Text Domain: header-footer-elementor
 	 * Domain Path: /languages
 	 * Version: 2.0.0
-	 * Elementor tested up to: 3.27
-	 * Elementor Pro tested up to: 3.27
+	 * Elementor tested up to: 3.28
+	 * Elementor Pro tested up to: 3.28
 	 *
 	 * @package header-footer-elementor
 	 */
