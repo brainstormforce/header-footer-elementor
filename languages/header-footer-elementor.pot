@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the Ultimate Addons for Elementor Lite package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Ultimate Addons for Elementor Lite 2.2.1\n"
+"Project-Id-Version: Ultimate Addons for Elementor Lite 2.2.2\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/header-footer-elementor\n"
-"POT-Creation-Date: 2025-03-07 06:29:06+00:00\n"
+"POT-Creation-Date: 2025-03-18 08:26:04+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -158,230 +158,234 @@ msgstr ""
 msgid "Other"
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:114
+#: admin/class-hfe-addons-actions.php:147
 msgid "Plugin slug is missing."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:137
+#: admin/class-hfe-addons-actions.php:170
 msgid "Plugin installation function not found."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:160
+#: admin/class-hfe-addons-actions.php:193
 msgid "Theme slug is missing."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:183
+#: admin/class-hfe-addons-actions.php:216
 msgid "Theme installation function not found."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:363
+#: admin/class-hfe-addons-actions.php:396
 msgid "Plugin activation is disabled for you on this site."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:372
+#: admin/class-hfe-addons-actions.php:405
 msgid "Plugin Activated."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:383
+#: admin/class-hfe-addons-actions.php:416
 msgid "Theme activation is disabled for you on this site."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:392
+#: admin/class-hfe-addons-actions.php:425
 msgid "Theme Activated."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:399
+#: admin/class-hfe-addons-actions.php:432
 msgid "Could not activate plugin. Please activate from the Plugins page."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:401
+#: admin/class-hfe-addons-actions.php:434
 msgid "Could not activate theme. Please activate from the Themes page."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:421
-#: admin/class-hfe-addons-actions.php:444
+#: admin/class-hfe-addons-actions.php:454
+#: admin/class-hfe-addons-actions.php:477
 msgid "Settings saved successfully!"
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:424
-#: admin/class-hfe-addons-actions.php:447
+#: admin/class-hfe-addons-actions.php:457
+#: admin/class-hfe-addons-actions.php:480
 msgid "Unable to save settings."
 msgstr ""
 
-#: admin/class-hfe-admin.php:196
+#: admin/class-hfe-admin.php:208
 msgid "Important Notice:"
 msgstr ""
 
-#: admin/class-hfe-admin.php:200
+#: admin/class-hfe-admin.php:212
 msgid "Can't edit your header or footer?"
 msgstr ""
 
-#: admin/class-hfe-admin.php:201
+#: admin/class-hfe-admin.php:213
 msgid ""
 "Try clearing your cache or resetting permalinks (Settings > Permalinks > "
 "Save Changes)."
 msgstr ""
 
-#: admin/class-hfe-admin.php:202
+#: admin/class-hfe-admin.php:214
 msgid "Learn More"
 msgstr ""
 
-#: admin/class-hfe-admin.php:272 admin/class-hfe-admin.php:559
+#: admin/class-hfe-admin.php:218
+msgid "Flush Permalink"
+msgstr ""
+
+#: admin/class-hfe-admin.php:291 admin/class-hfe-admin.php:578
 msgid "Display Rules"
 msgstr ""
 
-#: admin/class-hfe-admin.php:273
+#: admin/class-hfe-admin.php:292
 #: inc/widgets-manager/widgets/post-info/post-info.php:136
 msgid "Date"
 msgstr ""
 
-#: admin/class-hfe-admin.php:363 admin/class-hfe-admin.php:364
-#: admin/class-hfe-admin.php:365 admin/class-hfe-admin.php:366
+#: admin/class-hfe-admin.php:382 admin/class-hfe-admin.php:383
+#: admin/class-hfe-admin.php:384 admin/class-hfe-admin.php:385
 msgid "Elementor Header & Footer Builder"
 msgstr ""
 
-#: admin/class-hfe-admin.php:367 admin/class-hfe-admin.php:368
+#: admin/class-hfe-admin.php:386 admin/class-hfe-admin.php:387
 msgid "Add New"
 msgstr ""
 
-#: admin/class-hfe-admin.php:369
+#: admin/class-hfe-admin.php:388
 msgid "New Template"
 msgstr ""
 
-#: admin/class-hfe-admin.php:370
+#: admin/class-hfe-admin.php:389
 msgid "Edit Template"
 msgstr ""
 
-#: admin/class-hfe-admin.php:371
+#: admin/class-hfe-admin.php:390
 msgid "View Template"
 msgstr ""
 
-#: admin/class-hfe-admin.php:372 inc/class-hfe-settings-page.php:381
+#: admin/class-hfe-admin.php:391 inc/class-hfe-settings-page.php:381
 msgid "View All"
 msgstr ""
 
-#: admin/class-hfe-admin.php:373
+#: admin/class-hfe-admin.php:392
 msgid "Search Templates"
 msgstr ""
 
-#: admin/class-hfe-admin.php:374
+#: admin/class-hfe-admin.php:393
 msgid "Parent Templates:"
 msgstr ""
 
-#: admin/class-hfe-admin.php:375
+#: admin/class-hfe-admin.php:394
 msgid "No Templates found."
 msgstr ""
 
-#: admin/class-hfe-admin.php:376
+#: admin/class-hfe-admin.php:395
 msgid "No Templates found in Trash."
 msgstr ""
 
-#: admin/class-hfe-admin.php:423 admin/class-hfe-admin.php:424
+#: admin/class-hfe-admin.php:442 admin/class-hfe-admin.php:443
 msgid "Create New"
 msgstr ""
 
-#: admin/class-hfe-admin.php:433
+#: admin/class-hfe-admin.php:452
 msgid "Header/Footer Builder"
 msgstr ""
 
-#: admin/class-hfe-admin.php:434
+#: admin/class-hfe-admin.php:453
 msgid "Header & Footer Builder"
 msgstr ""
 
-#: admin/class-hfe-admin.php:463
+#: admin/class-hfe-admin.php:482
 msgid "Elementor Header & Footer Builder Options"
 msgstr ""
 
-#: admin/class-hfe-admin.php:492
+#: admin/class-hfe-admin.php:511
 msgid "Type of Template"
 msgstr ""
 
-#: admin/class-hfe-admin.php:496
+#: admin/class-hfe-admin.php:515
 msgid "Select Option"
 msgstr ""
 
-#: admin/class-hfe-admin.php:497
+#: admin/class-hfe-admin.php:516
 msgid "Header"
 msgstr ""
 
-#: admin/class-hfe-admin.php:498
+#: admin/class-hfe-admin.php:517
 msgid "Before Footer"
 msgstr ""
 
-#: admin/class-hfe-admin.php:499
+#: admin/class-hfe-admin.php:518
 msgid "Footer"
 msgstr ""
 
-#: admin/class-hfe-admin.php:500
+#: admin/class-hfe-admin.php:519
 msgid "Custom Block"
 msgstr ""
 
-#: admin/class-hfe-admin.php:508 admin/class-hfe-admin.php:758
+#: admin/class-hfe-admin.php:527 admin/class-hfe-admin.php:777
 msgid "Shortcode"
 msgstr ""
 
-#: admin/class-hfe-admin.php:509
+#: admin/class-hfe-admin.php:528
 msgid ""
 "Copy this shortcode and paste it into your post, page, or text widget "
 "content."
 msgstr ""
 
-#: admin/class-hfe-admin.php:521
+#: admin/class-hfe-admin.php:540
 msgid "Enable Layout for Elementor Canvas Template?"
 msgstr ""
 
-#: admin/class-hfe-admin.php:523
+#: admin/class-hfe-admin.php:542
 msgid ""
 "Enabling this option will display this layout on pages using Elementor "
 "Canvas Template."
 msgstr ""
 
-#: admin/class-hfe-admin.php:550
+#: admin/class-hfe-admin.php:569
 msgid "Display On"
 msgstr ""
 
-#: admin/class-hfe-admin.php:552
+#: admin/class-hfe-admin.php:571
 msgid "Add locations for where this template should appear."
 msgstr ""
 
-#: admin/class-hfe-admin.php:563
+#: admin/class-hfe-admin.php:582
 msgid "Add Display Rule"
 msgstr ""
 
-#: admin/class-hfe-admin.php:572
+#: admin/class-hfe-admin.php:591
 msgid "Do Not Display On"
 msgstr ""
 
-#: admin/class-hfe-admin.php:574
+#: admin/class-hfe-admin.php:593
 msgid "Add locations for where this template should not appear."
 msgstr ""
 
-#: admin/class-hfe-admin.php:581
+#: admin/class-hfe-admin.php:600
 msgid "Exclude On"
 msgstr ""
 
-#: admin/class-hfe-admin.php:584
+#: admin/class-hfe-admin.php:603
 #: inc/lib/target-rule/class-astra-target-rules-fields.php:847
 msgid "Add Exclusion Rule"
 msgstr ""
 
-#: admin/class-hfe-admin.php:594
+#: admin/class-hfe-admin.php:613
 msgid "User Roles"
 msgstr ""
 
-#: admin/class-hfe-admin.php:595
+#: admin/class-hfe-admin.php:614
 msgid "Display custom template based on user role."
 msgstr ""
 
-#: admin/class-hfe-admin.php:602
+#: admin/class-hfe-admin.php:621
 msgid "Users"
 msgstr ""
 
-#: admin/class-hfe-admin.php:605
+#: admin/class-hfe-admin.php:624
 msgid "Add User Rule"
 msgstr ""
 
-#: admin/class-hfe-admin.php:686
+#: admin/class-hfe-admin.php:705
 #. Translators: Post title, Template Location
 msgid "Template %1$s is already assigned to the location %2$s"
 msgstr ""
@@ -807,8 +811,12 @@ msgstr ""
 msgid "Go to UAE Settings page"
 msgstr ""
 
-#: inc/lib/astra-notices/class-astra-notices.php:119
+#: inc/lib/astra-notices/class-astra-notices.php:146
 msgid "WordPress Nonce not validated."
+msgstr ""
+
+#: inc/lib/astra-notices/class-astra-notices.php:153
+msgid "Invalid notice ID."
 msgstr ""
 
 #: inc/lib/nps-survey/classes/nps-survey-script.php:248
