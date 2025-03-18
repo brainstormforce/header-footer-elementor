@@ -812,7 +812,7 @@ class Breadcrumbs_Widget extends Common_Widget {
 		}
 		$output .= '</ul>';
 		
-		echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- If escaped the icons are not rendering on frontend.
 
 	}
 
