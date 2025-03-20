@@ -7,13 +7,11 @@ import { __ } from "@wordpress/i18n";
 import Welcome from "./Welcome";
 import Build from "./Build";
 import Configure from "./Configure";
-import Success from "./Success";
 
 const steps = [
     { label: "Welcome", component: Welcome },
     { label: "Configure", component: Configure },
     { label: "Create", component: Build },
-	// { label: "Create", component: Success },
 ];
 
 const Onboarding = () => {

@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * HFE Rollback. handler class is responsible for rolling back HFE to
  * previous version.
  *
- * @since x.x.x
+ * @since 2.2.1
  */
 if ( ! class_exists( 'HFE_Rollback' ) ) {
 
@@ -26,7 +26,7 @@ if ( ! class_exists( 'HFE_Rollback' ) ) {
 		 *
 		 * Holds the package URL.
 		 *
-		 * @since x.x.x
+		 * @since 2.2.1
 		 * @access protected
 		 *
 		 * @var string Package URL.
@@ -38,7 +38,7 @@ if ( ! class_exists( 'HFE_Rollback' ) ) {
 		 *
 		 * Holds the version.
 		 *
-		 * @since x.x.x
+		 * @since 2.2.1
 		 * @access protected
 		 *
 		 * @var string Package URL.
@@ -50,7 +50,7 @@ if ( ! class_exists( 'HFE_Rollback' ) ) {
 		 *
 		 * Holds the plugin name.
 		 *
-		 * @since x.x.x
+		 * @since 2.2.1
 		 * @access protected
 		 *
 		 * @var string Plugin name.
@@ -62,7 +62,7 @@ if ( ! class_exists( 'HFE_Rollback' ) ) {
 		 *
 		 * Holds the plugin slug.
 		 *
-		 * @since x.x.x
+		 * @since 2.2.1
 		 * @access protected
 		 *
 		 * @var string Plugin slug.
@@ -74,7 +74,7 @@ if ( ! class_exists( 'HFE_Rollback' ) ) {
 		 *
 		 * Initializing HFE Rollback.
 		 *
-		 * @since x.x.x
+		 * @since 2.2.1
 		 * @access public
 		 *
 		 * @param array $args Optional. HFE Rollback arguments. Default is an empty array.
@@ -90,7 +90,7 @@ if ( ! class_exists( 'HFE_Rollback' ) ) {
 		 *
 		 * Add an inline CSS to the HFE Rollback page.
 		 *
-		 * @since x.x.x
+		 * @since 2.2.1
 		 * @access private
 		 */
 		private function print_inline_style() {
@@ -128,7 +128,7 @@ if ( ! class_exists( 'HFE_Rollback' ) ) {
 		 * modifies package data to update the plugin from a specific URL containing
 		 * the version package.
 		 *
-		 * @since x.x.x
+		 * @since 2.2.1
 		 * @access protected
 		 */
 		protected function apply_package() {
@@ -153,7 +153,7 @@ if ( ! class_exists( 'HFE_Rollback' ) ) {
 		 *
 		 * Run WordPress upgrade to HFE Rollback to previous version.
 		 *
-		 * @since x.x.x
+		 * @since 2.2.1
 		 * @access protected
 		 */
 		protected function upgrade() {
@@ -178,7 +178,7 @@ if ( ! class_exists( 'HFE_Rollback' ) ) {
 		 *
 		 * Rollback HFE to previous versions.
 		 *
-		 * @since x.x.x
+		 * @since 2.2.1
 		 * @access public
 		 */
 		public function run() {
