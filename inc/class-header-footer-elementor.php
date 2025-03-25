@@ -169,11 +169,7 @@ class Header_Footer_Elementor {
 						],
 					],
 				]
-			);
-
-			if ( ! class_exists( 'HFE_Utm_Analytics' ) ) {
-				require_once HFE_DIR . 'inc/lib/class-hfe-utm-analytics.php';
-			}       
+			);   
 		}
 	}
 
