@@ -593,7 +593,7 @@
 			if( $nextElement.length ){
 				$nextElement.css( 'left', '0' );
 				
-				var $section = $( '.elementor-element-' + id ).closest('.elementor-section, .e-con-boxed');
+				var $section = $( '.elementor-element-' + id ).closest('.elementor-section, .e-con-boxed.e-parent, .e-con-full.e-parent');
 				if ( $section.length ) {
 					var width = $section.outerWidth();
 					var sec_pos = $section.offset().left - $toggle.next().offset().left;
@@ -642,7 +642,7 @@
 
 					$this.addClass( 'hfe-active-menu-full-width' );
 
-					var closestElement = $( '.elementor-element-' + id ).closest('.elementor-section, .e-con-boxed');
+					var closestElement = $( '.elementor-element-' + id ).closest('.elementor-section, .e-con-boxed.e-parent, .e-con-full.e-parent');
 					var width = closestElement.outerWidth();
 					var sec_pos = closestElement.offset().left - $selector.offset().left;
 				

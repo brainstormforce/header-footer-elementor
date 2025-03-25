@@ -128,6 +128,11 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 ---
 
 == Changelog ==
+
+= 2.2.2.1 = Development Version
+- Improvement: Improved accessibility compliance throughout the plugin.
+- Fix: Navigation Menu – The submenu now expands correctly when the "Full Width" option is enabled
+
 = 2.2.2 =
 - Improvement: Compatibility with latest Elementor and Elementor Pro 3.28 version.
 
