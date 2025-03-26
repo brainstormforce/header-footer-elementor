@@ -4,7 +4,7 @@ Tags: elementor, header footer builder, widgets, header template, footer templat
 Requires at least: 5.0  
 Tested up to: 6.7.1 
 Requires PHP: 7.4  
-Stable tag: 2.2.2
+Stable tag: 2.2.3
 License: GPLv2 or later  
 License URI: https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -128,6 +128,11 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 ---
 
 == Changelog ==
+
+= 2.2.3 = 
+- Improvement: Improved accessibility compliance throughout the plugin.
+- Fix: Navigation Menu – The submenu now expands correctly when the "Full Width" option is enabled
+
 = 2.2.2 =
 - Improvement: Compatibility with latest Elementor and Elementor Pro 3.28 version.
 

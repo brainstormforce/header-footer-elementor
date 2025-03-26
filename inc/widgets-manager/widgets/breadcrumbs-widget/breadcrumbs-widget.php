@@ -777,7 +777,7 @@ class Breadcrumbs_Widget extends Common_Widget {
 		$home_class = ( 'yes' === $settings['show_home'] ) ? 'hfe-breadcrumbs-show-home' : '';
 	
 		// Build the breadcrumb output.
-		$output = '<ul class="hfe-breadcrumbs ' . esc_attr( $home_class ) . '">';
+		$output = '<nav aria-label="Breadcrumb"><ul class="hfe-breadcrumbs ' . esc_attr( $home_class ) . '">';
 
 		foreach ( $breadcrumbs as $index => $breadcrumb ) {
 			// Open the breadcrumb item.
@@ -791,7 +791,7 @@ class Breadcrumbs_Widget extends Common_Widget {
 			if ( $breadcrumb['url'] ) {
 				$output .= '<a href="' . esc_url( $breadcrumb['url'] ) . '"><span class="hfe-breadcrumbs-text">' . wp_kses_post( $breadcrumb['title'] ) . '</span></a>';
 			} else {
-				$output .= '<span class="hfe-breadcrumbs-text">' . wp_kses_post( $breadcrumb['title'] ) . '</span>';
+				$output .= '<span class="hfe-breadcrumbs-text" aria-current="page">' . wp_kses_post( $breadcrumb['title'] ) . '</span>';
 			}
 			$output .= '</li>';
 
@@ -810,9 +810,9 @@ class Breadcrumbs_Widget extends Common_Widget {
 				$output .= '</li>';
 			}
 		}
-		$output .= '</ul>';
+		$output .= '</ul></nav>';
 		
-		echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- If escaped the icons are not rendering on frontend.
 
 	}
 

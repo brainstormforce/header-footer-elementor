@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the Ultimate Addons for Elementor Lite package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Ultimate Addons for Elementor Lite 2.2.2\n"
+"Project-Id-Version: Ultimate Addons for Elementor Lite 2.2.3\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/header-footer-elementor\n"
-"POT-Creation-Date: 2025-03-18 08:26:04+00:00\n"
+"POT-Creation-Date: 2025-03-25 08:22:20+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -49,20 +49,20 @@ msgstr ""
 msgid "No Thanks"
 msgstr ""
 
-#: admin/bsf-analytics/class-bsf-analytics.php:386
+#: admin/bsf-analytics/class-bsf-analytics.php:387
 msgid "Usage Tracking"
 msgstr ""
 
-#: admin/bsf-analytics/class-bsf-analytics.php:430
+#: admin/bsf-analytics/class-bsf-analytics.php:431
 #. translators: %s Product title
 msgid "Allow %s products to track non-sensitive usage tracking data."
 msgstr ""
 
-#: admin/bsf-analytics/class-bsf-analytics.php:433
+#: admin/bsf-analytics/class-bsf-analytics.php:434
 msgid " This will be applicable for all sites from the network."
 msgstr ""
 
-#: admin/bsf-analytics/class-bsf-analytics.php:438
+#: admin/bsf-analytics/class-bsf-analytics.php:439
 msgid "Learn More."
 msgstr ""
 
