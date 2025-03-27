@@ -28,7 +28,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @var array Notices.
 		 * @since 1.0.0
 		 */
-		private static $version = '1.1.11';
+		private static $version = '1.1.14';
 
 		/**
 		 * Notices
@@ -81,7 +81,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @since 1.0.0
 		 * @return array
 		 */
-		public function add_data_attributes( $allowedposttags, $context ) {
+		public function add_data_attributes( $allowedposttags, $context ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed
 			$allowedposttags['a']['data-repeat-notice-after'] = true;
 
 			return $allowedposttags;
@@ -96,6 +96,17 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 */
 		public static function add_notice( $args = array() ) {
 			self::$notices[] = $args;
+
+			if ( ! isset( $args['id'] ) ) {
+				return;
+			}
+
+			$notice_id = sanitize_key( $args['id'] ); // Notice ID.
+			$notices   = get_option( 'allowed_astra_notices', array() );
+			if ( ! in_array( $notice_id, $notices, true ) ) {
+				$notices[] = $notice_id; // Add notice id to the array.
+				update_option( 'allowed_astra_notices', $notices ); // Update the option.
+			}
 		}
 
 		/**
@@ -115,12 +126,32 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 				return;
 			}
 
+			$allowed_notices = get_option( 'allowed_astra_notices', array() ); // Get allowed notices.
+
+			// Define restricted user meta keys.
+			$wp_default_meta_keys = array(
+				'wp_capabilities',
+				'wp_user_level',
+				'wp_user-settings',
+				'account_status',
+				'session_tokens',
+			);
+
+			// if $notice_id does not start with astra-notices-id and notice_id is not from the allowed notices, then return.
+			if ( strpos( $notice_id, 'astra-notices-id-' ) !== 0 && ( ! in_array( $notice_id, $allowed_notices, true ) ) ) {
+				return;
+			}
+
 			if ( false === wp_verify_nonce( $nonce, 'astra-notices' ) ) {
 				wp_send_json_error( esc_html_e( 'WordPress Nonce not validated.' ) );
 			}
 
 			// Valid inputs?
 			if ( ! empty( $notice_id ) ) {
+
+				if ( in_array( $notice_id, $wp_default_meta_keys, true ) ) {
+					wp_send_json_error( esc_html_e( 'Invalid notice ID.' ) );
+				}
 
 				if ( ! empty( $repeat_notice_after ) ) {
 					set_transient( $notice_id, true, $repeat_notice_after );
@@ -204,7 +235,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 				)
 			);
 
-			return ! empty( $notice ) ? $notice[0] : array();
+			return ( ! empty( $notice ) && isset( $notice[0] ) ) ? $notice[0] : array();
 		}
 
 		/**
@@ -258,7 +289,6 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 					}
 				}
 			}
-
 		}
 
 		/**
@@ -371,7 +401,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @return mixed URL.
 		 */
 		public static function get_url() {
-			$path      = wp_normalize_path( dirname( __FILE__ ) );
+			$path      = wp_normalize_path( dirname( __FILE__ ) ); // phpcs:ignore Modernize.FunctionCalls.Dirname.FileConstant
 			$theme_dir = wp_normalize_path( get_template_directory() );
 
 			if ( strpos( $path, $theme_dir ) !== false ) {
@@ -380,7 +410,6 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 				return plugin_dir_url( __FILE__ );
 			}
 		}
-
 	}
 
 	/**

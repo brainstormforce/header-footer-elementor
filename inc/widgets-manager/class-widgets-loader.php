@@ -223,7 +223,7 @@ class Widgets_Loader {
 	 *
 	 * Load widgets JS files
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @access public
 	 * @return void
 	 */

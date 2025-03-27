@@ -59,7 +59,7 @@ class HFE_Helper {
 	/**
 	 * Check if UAE Pro is active.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @return bool
 	 */
 	public static function is_pro_active() {
@@ -72,7 +72,7 @@ class HFE_Helper {
 	/**
 	 * Provide General settings array().
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @return array()
 	 */
 	public static function premium_starter_templates_status() {
@@ -85,7 +85,7 @@ class HFE_Helper {
 	/**
 	 * Provide General settings array().
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @return array()
 	 */
 	public static function free_starter_templates_status() {
@@ -96,7 +96,7 @@ class HFE_Helper {
 	/**
 	 * Provide General settings array().
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @return array()
 	 */
 	public static function starter_templates_status() {
@@ -114,7 +114,7 @@ class HFE_Helper {
 	/**
 	 * Provide General settings array().
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @return array()
 	 */
 	public static function starter_templates_link() {
@@ -172,7 +172,7 @@ class HFE_Helper {
 	/**
 	 * Provide General settings array().
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @return array()
 	 */
 	public static function get_bsf_plugins_list() {
@@ -403,7 +403,7 @@ class HFE_Helper {
 	/**
 	 * Get Rollback versions.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @return array
 	 * @access public
 	 */

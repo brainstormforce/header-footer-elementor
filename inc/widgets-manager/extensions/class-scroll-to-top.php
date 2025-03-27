@@ -16,14 +16,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * HFE Progress bar extension
  *
- * @since x.x.x
+ * @since 2.2.1
  */
 class Scroll_To_Top {
 
 	/**
 	 * Instance of Widgets_Loader.
 	 *
-	 * @since  x.x.x
+	 * @since  2.2.1
 	 * @var null
 	 */
 	private static $_instance = null;
@@ -31,7 +31,7 @@ class Scroll_To_Top {
 	/**
 	 * Get instance of Widgets_Loader
 	 *
-	 * @since  x.x.x
+	 * @since  2.2.1
 	 * @return Widgets_Loader
 	 */
 	public static function instance() {
@@ -45,7 +45,7 @@ class Scroll_To_Top {
 	/**
 	 * Setup actions and filters.
 	 *
-	 * @since  x.x.x
+	 * @since  2.2.1
 	 * @access private
 	 */
 	private function __construct() {
@@ -84,7 +84,7 @@ class Scroll_To_Top {
 	 * Register extension tab
 	 *
 	 * @param \Elementor\Core\Kits\Documents\Kit $kit The Elementor Kit document.
-	 * @since x.x.x
+	 * @since 2.2.1
 	 */
 	public function register_extension_tab( \Elementor\Core\Kits\Documents\Kit $kit ) {
 		$kit->register_tab( 'hfe-scroll-to-top-settings', Scroll_To_Top_Settings::class );
@@ -93,7 +93,7 @@ class Scroll_To_Top {
 	/**
 	 * Render scroll to top html
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 */
 	public function render_scroll_to_top_html() {
 
@@ -285,7 +285,7 @@ class Scroll_To_Top {
 			}
 		}
 
-		if ( isset( $extensions_settings) && isset( $extensions_settings['kit_settings'][ $setting_id ] ) ) {
+		if ( isset( $extensions_settings ) && isset( $extensions_settings['kit_settings'][ $setting_id ] ) ) {
 			$return = $extensions_settings['kit_settings'][ $setting_id ];
 		}
 

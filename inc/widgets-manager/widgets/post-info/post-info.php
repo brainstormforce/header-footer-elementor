@@ -28,14 +28,14 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * HFE widget for Post Info.
  *
- * @since x.x.x
+ * @since 2.2.1
  */
 class Post_Info extends Common_Widget {
 
 	/**
 	 * Retrieve the widget name.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 *
 	 * @access public
 	 *
@@ -48,7 +48,7 @@ class Post_Info extends Common_Widget {
 	/**
 	 * Retrieve the widget title.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 *
 	 * @access public
 	 *
@@ -61,7 +61,7 @@ class Post_Info extends Common_Widget {
 	/**
 	 * Retrieve the widget icon.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 *
 	 * @access public
 	 *
@@ -74,7 +74,7 @@ class Post_Info extends Common_Widget {
 	/**
 	 * Register Post Info controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @access protected
 	 * @return void
 	 */
@@ -89,7 +89,7 @@ class Post_Info extends Common_Widget {
 	/**
 	 * Register general Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @access protected
 	 * @return void
 	 */
@@ -428,7 +428,7 @@ class Post_Info extends Common_Widget {
 	/**
 	 * Register style Controls for list items.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @access protected
 	 * @return void
 	 */
@@ -626,7 +626,7 @@ class Post_Info extends Common_Widget {
 	/**
 	 * Register style Controls for icon.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @access protected
 	 * @return void
 	 */
@@ -681,7 +681,7 @@ class Post_Info extends Common_Widget {
 	/**
 	 * Register style Controls for text.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @access protected
 	 * @return void
 	 */
@@ -743,7 +743,7 @@ class Post_Info extends Common_Widget {
 	/**
 	 * Get taxonomies.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @access protected
 	 * @return array
 	 */
@@ -769,7 +769,7 @@ class Post_Info extends Common_Widget {
 	/**
 	 * Render Post meta fields
 	 * 
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @access protected
 	 * @param array $repeater_item An array of repeater item options for custom strings and link.
 	 * @return array An array of rendered post meta fields.
@@ -1243,7 +1243,7 @@ class Post_Info extends Common_Widget {
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @access protected
 	 * @return void
 	 */

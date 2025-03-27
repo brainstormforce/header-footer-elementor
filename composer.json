@@ -3,15 +3,17 @@
   "description": "Create Header and Footer using Elementor page builder.",
   "require": {
     "brainstormforce/astra-notices": "^1.1",
-    "brainstormforce/utm-analytics": "*",
-    "brainstormforce/nps-survey": "^1"
+    "brainstormforce/nps-survey": "^1",
+    "brainstormforce/bsf-analytics": "^1"
   },
   "extra": {
       "installer-paths": {
         "inc/lib/{$name}/": [
           "brainstormforce/astra-notices",
-          "brainstormforce/utm-analytics",
           "brainstormforce/nps-survey"
+        ],
+        "admin/{$name}/": [
+			      "brainstormforce/bsf-analytics"
         ]
       }
   },
@@ -27,9 +29,9 @@
         "url": "git@github.com:brainstormforce/nps-survey.git"
       },
       {
-        "name": "brainstormforce/utm-analytics",
+        "name": "brainstormforce/bsf-analytics",
         "type": "vcs",
-        "url": "git@github.com:brainstormforce/utm-analytics.git"
+        "url": "git@github.com:brainstormforce/bsf-analytics.git"
       }
   ],
   "require-dev": {

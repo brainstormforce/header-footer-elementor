@@ -1,0 +1,117 @@
+.uae-permalink-clear-notice {
+    position: absolute;
+    z-index: 10000; /* Over the loading layer */
+    top: 50px;
+    bottom: auto;
+    width: 400px;
+    line-height: 30px;
+    color: var(--e-a-color-txt);
+    background: var(--e-a-bg-default);
+    padding: 20px 25px 25px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    font-family: var(--e-a-font-family);
+}
+
+body.rtl .uae-permalink-clear-notice {
+    left: 10px;
+}
+
+body:not(.rtl) .uae-permalink-clear-notice {
+    right: 10px;
+}
+
+#uae-permalink-clear-notice {
+    display: none;
+}
+
+.uae-permalink-clear-notice .uae-permalink-notice-content {
+    font-size: 13px;
+    line-height: 22px;
+}
+
+.uae-permalink-clear-notice .uae-permalink-notice-content a {
+    color: var(--e-a-color-info);
+}
+
+.uae-permalink-clear-notice header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-block-end: 20px;
+}
+
+/* .uae-permalink-clear-notice header > * {
+    margin-block-start: 10px;
+} */
+
+.uae-permalink-clear-notice header i.eicon-warning {
+    font-size: 25px;
+    color: var(--e-a-color-warning);
+}
+
+.uae-permalink-clear-notice header i.eicon-close {
+    font-size: 18px;
+    color: var(--e-a-color-txt);
+}
+.uae-permalink-clear-notice header button {
+    border: none;
+    background-color: var(--e-a-bg-default);
+    position: absolute;
+    top: 12px;
+    right: 2px;
+    z-index: 9999;
+    cursor: pointer;
+}
+
+.uae-permalink-clear-notice header i {
+    margin-inline-end: 10px;
+}
+
+.uae-permalink-clear-notice header h2 {
+    flex-grow: 1;
+    font-size: 18px;
+}
+
+.uae-permalink-flush-btn{
+    background-color: var(--e-a-btn-bg-primary);
+    color: #000;
+    font-size: 12px;
+    font-weight: 500;
+    border: none;
+    border-radius: 3px;
+    padding: 16px 16px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.uae-permalink-flush-btn:hover {
+    background-color: var(--e-a-btn-bg-primary-hover);
+    color: var(--e-a-btn-color);
+}
+
+.uae-notice-loader {
+    display: none;
+}
+
+/* Add a small spinning animation inside notice */
+.uae-notice-loader::after {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-left: 8px;
+    border: 2px solid #000;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.uae-btn-main-text{
+    font-weight: bold;
+}

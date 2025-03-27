@@ -27,14 +27,14 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * HFE widget for site title
  *
- * @since x.x.x
+ * @since 2.2.1
  */
 class Breadcrumbs_Widget extends Common_Widget {
 
 	/**
 	 * Retrieve the widget name.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 *
 	 * @access public
 	 *
@@ -47,7 +47,7 @@ class Breadcrumbs_Widget extends Common_Widget {
 	/**
 	 * Retrieve the widget title.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 *
 	 * @access public
 	 *
@@ -60,7 +60,7 @@ class Breadcrumbs_Widget extends Common_Widget {
 	/**
 	 * Retrieve the widget icon.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 *
 	 * @access public
 	 *
@@ -107,7 +107,7 @@ class Breadcrumbs_Widget extends Common_Widget {
 	/**
 	 * Register general Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @access protected
 	 * @return void
 	 */
@@ -181,7 +181,7 @@ class Breadcrumbs_Widget extends Common_Widget {
 	/**
 	 * Register Separator Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @access protected
 	 * @return void
 	 */
@@ -254,7 +254,7 @@ class Breadcrumbs_Widget extends Common_Widget {
 	/**
 	 * Register Separator Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @access protected
 	 * @return void
 	 */
@@ -313,7 +313,7 @@ class Breadcrumbs_Widget extends Common_Widget {
 	/**
 	 * Register General Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @access protected
 	 * @return void
 	 */
@@ -480,7 +480,7 @@ class Breadcrumbs_Widget extends Common_Widget {
 	/**
 	 * Register Separator Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @access protected
 	 * @return void
 	 */
@@ -544,7 +544,7 @@ class Breadcrumbs_Widget extends Common_Widget {
 	/**
 	 * Register current Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @access protected
 	 * @return void
 	 */
@@ -635,7 +635,7 @@ class Breadcrumbs_Widget extends Common_Widget {
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @access protected
 	 *
 	 * // phpcs:ignore
@@ -777,7 +777,7 @@ class Breadcrumbs_Widget extends Common_Widget {
 		$home_class = ( 'yes' === $settings['show_home'] ) ? 'hfe-breadcrumbs-show-home' : '';
 	
 		// Build the breadcrumb output.
-		$output = '<ul class="hfe-breadcrumbs ' . esc_attr( $home_class ) . '">';
+		$output = '<nav aria-label="Breadcrumb"><ul class="hfe-breadcrumbs ' . esc_attr( $home_class ) . '">';
 
 		foreach ( $breadcrumbs as $index => $breadcrumb ) {
 			// Open the breadcrumb item.
@@ -791,7 +791,7 @@ class Breadcrumbs_Widget extends Common_Widget {
 			if ( $breadcrumb['url'] ) {
 				$output .= '<a href="' . esc_url( $breadcrumb['url'] ) . '"><span class="hfe-breadcrumbs-text">' . wp_kses_post( $breadcrumb['title'] ) . '</span></a>';
 			} else {
-				$output .= '<span class="hfe-breadcrumbs-text">' . wp_kses_post( $breadcrumb['title'] ) . '</span>';
+				$output .= '<span class="hfe-breadcrumbs-text" aria-current="page">' . wp_kses_post( $breadcrumb['title'] ) . '</span>';
 			}
 			$output .= '</li>';
 
@@ -810,9 +810,9 @@ class Breadcrumbs_Widget extends Common_Widget {
 				$output .= '</li>';
 			}
 		}
-		$output .= '</ul>';
+		$output .= '</ul></nav>';
 		
-		echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- If escaped the icons are not rendering on frontend.
 
 	}
 
@@ -838,7 +838,7 @@ class Breadcrumbs_Widget extends Common_Widget {
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @access protected
 	 * @return void
 	 */

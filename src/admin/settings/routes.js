@@ -11,6 +11,9 @@ export const routes = {
     settings: {
         path: "settings",
     },
+    onboarding: {
+        path: "onboarding",
+    },
     upgrade: {
         path: "upgrade",
     },
