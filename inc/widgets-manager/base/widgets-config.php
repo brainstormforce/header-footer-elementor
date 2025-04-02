@@ -191,7 +191,7 @@ class Widgets_Config {
 				'is_pro'      => false,
 				'doc_url'     => '',
 				'description' => __( 'Show cart for seamless shopping experiences.', 'header-footer-elementor' ),
-				'demo_url'    => '',
+				'demo_url'    => 'https://ultimateelementor.com/widgets/cart/',
 				'category'    => 'content',
 			],
 			'Copyright'          => [
@@ -955,7 +955,7 @@ class Widgets_Config {
 	/**
 	 * Function for Astra Pro white labels with defaults.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 * @return array
 	 */
 	public static function get_white_label() {

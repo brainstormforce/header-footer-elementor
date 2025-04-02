@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Module Base
  *
- * @since x.x.x
+ * @since 2.2.1
  */
 abstract class Module_Base {
 
@@ -37,14 +37,14 @@ abstract class Module_Base {
 	/**
 	 * Get Name
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 */
 	abstract public function get_name();
 
 	/**
 	 * Class name to Call
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 */
 	public static function class_name() {
 		return get_called_class();
@@ -65,7 +65,7 @@ abstract class Module_Base {
 	/**
 	 * Class instance
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 *
 	 * @return static
 	 */
@@ -90,7 +90,7 @@ abstract class Module_Base {
 	/**
 	 * Init Widgets
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 */
 	public function init_widgets() {
 
@@ -110,7 +110,7 @@ abstract class Module_Base {
 	/**
 	 * Get Widgets
 	 *
-	 * @since x.x.x
+	 * @since 2.2.1
 	 *
 	 * @return array
 	 */
