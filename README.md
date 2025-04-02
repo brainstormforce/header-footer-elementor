@@ -129,6 +129,9 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 
 ## Changelog ##
 
+### 2.2.3.1 ###
+- Fix: Buttons now correctly load the default color and font settings as defined in the Theme Customizer.
+
 ### 2.2.3 ###
 - Improvement: Improved accessibility compliance throughout the plugin.
 - Fix: Navigation Menu – The submenu now expands correctly when the "Full Width" option is enabled
