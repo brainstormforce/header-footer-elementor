@@ -4,8 +4,6 @@
  *
  * @package HFE
  */
-use Elementor\Modules\Usage\Module as Usage_Module;
-
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
@@ -63,10 +61,6 @@ if ( ! class_exists( 'HFE_Analytics' ) ) {
 					],
 				]
 			);
-
-			if ( ! class_exists( 'HFE_Utm_Analytics' ) ) {
-				require_once HFE_DIR . 'inc/lib/class-hfe-utm-analytics.php';
-			}
 			
 			add_filter( 'bsf_core_stats', [ $this, 'add_uae_analytics_data' ] );
 
@@ -100,40 +94,17 @@ if ( ! class_exists( 'HFE_Analytics' ) ) {
                 'total_hfe_templates'            => count( $hfe_posts ),
             ];
 
-			$fetch_elementor_data = $this->ajax_get_widgets_usage();
-
+			$fetch_elementor_data = $this->hfe_get_widgets_usage();
+			$stats_data['plugin_data']['header-footer-elementor']['widgets_usage'] = $fetch_elementor_data;
             return $stats_data;
         }
 
 		/**
 		 * Fetch Elementor data.
 		 */
-		private function ajax_get_widgets_usage() {
-
-			$get_Widgets = get_option( '_elementor_controls_usage', [] );
-			error_log( "--------------------------------");
-			error_log( print_r( $get_Widgets, true ) );
-		
-			/** @var Usage_Module $usage_module */
-			$usage_module = Usage_Module::instance();
-			$usage_module->recalc_usage();
-	
-			$widgets_usage = [];
-			foreach ( $usage_module->get_formatted_usage( 'raw' ) as $data ) {
-
-				// error_log( "--------------------------------");
-				// error_log( print_r( $data, true ) );
-
-				foreach ( $data['elements'] as $element => $count ) {
-					if ( ! isset( $widgets_usage[ $element ] ) ) {
-						$widgets_usage[ $element ] = 0;
-					}
-	
-					$widgets_usage[ $element ] += $count;
-				}
-			}
-		
-			return $widgets_usage;
+		private function hfe_get_widgets_usage() {
+				$get_Widgets = get_option( 'uae_widgets_usage_data_option', [] );
+				return $get_Widgets;
 		}
 
         /**
