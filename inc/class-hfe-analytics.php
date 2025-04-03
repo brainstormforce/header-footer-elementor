@@ -52,9 +52,9 @@ if ( ! class_exists( 'HFE_Analytics' ) ) {
 								'popup_logo'        => HFE_URL . 'assets/images/settings/logo.svg',
 								'plugin_slug'       => 'header-footer-elementor', // <your-plugin-slug>
 								'plugin_version'    => HFE_VER,
-								'popup_title'       => __( 'Quick Feedback', 'header-footer-elementor' ),
+								'popup_title'       => 'Quick Feedback',
 								'support_url'       => 'https://ultimateelementor.com/contact/',
-								'popup_description' => __( 'If you have a moment, please share why you are deactivating Ultimate Addons for Elementor:', 'header-footer-elementor' ),
+								'popup_description' => 'If you have a moment, please share why you are deactivating Ultimate Addons for Elementor:',
 								'show_on_screens'   => [ 'plugins' ],
 							],
 						],
