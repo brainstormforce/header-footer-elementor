@@ -19,7 +19,6 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 	 * @since 1.6.0
 	 */
 	class HFE_Addons_Actions {
-
 		/**
 		 * Member Variable
 		 *
@@ -29,22 +28,10 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 
 		/**
 		 * Widget list variable
-		 * 
+		 *
 		 * @var HFE_Addons_Actions
 		 */
 		private static $widget_list;
-
-		/**
-		 *  Initiator
-		 *
-		 * @return HFE_Addons_Actions
-		 */
-		public static function get_instance() {
-			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self();
-			}
-			return self::$instance;
-		}
 
 		/**
 		 *  Constructor
@@ -69,7 +56,18 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			add_action( 'wp_ajax_nopriv_update_permalink_notice_option', [ $this, 'update_permalink_notice_option' ] );
 			add_action( 'wp_ajax_hfe_flush_permalink_notice', [ $this, 'hfe_flush_permalink_notice' ] );
 			add_action( 'wp_ajax_nopriv_hfe_flush_permalink_notice', [ $this, 'hfe_flush_permalink_notice' ] );
+		}
 
+		/**
+		 *  Initiator
+		 *
+		 * @return HFE_Addons_Actions
+		 */
+		public static function get_instance() {
+			if ( ! isset( self::$instance ) ) {
+				self::$instance = new self();
+			}
+			return self::$instance;
 		}
 
 		/**
@@ -82,7 +80,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			if ( ! isset( $_POST['nonce'] ) || ! check_ajax_referer( 'hfe_permalink_clear_notice_nonce', 'nonce', false ) ) {
 				wp_send_json_error( 'Invalid nonce' );
 			}
-			
+
 			// Check if the current user has the capability to manage options.
 			if ( ! current_user_can( 'manage_options' ) ) {
 				wp_send_json_error( 'Unauthorized user' );
@@ -90,7 +88,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 
 			// Update the option to true.
 			update_user_meta( get_current_user_id(), 'hfe_permalink_notice_option', 'notice-dismissed' );
-		
+
 			// Send a success response.
 			wp_send_json_success( 'Option updated successfully' );
 		}
@@ -105,7 +103,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			if ( ! isset( $_POST['nonce'] ) || ! check_ajax_referer( 'hfe_permalink_clear_notice_nonce', 'nonce', false ) ) {
 				wp_send_json_error( 'Invalid nonce' );
 			}
-			
+
 			// Check if the current user has the capability to manage options.
 			if ( ! current_user_can( 'manage_options' ) ) {
 				wp_send_json_error( 'Unauthorized user' );
@@ -113,19 +111,19 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 
 			$permalink_structure = get_option('permalink_structure');
 			// Check if the permalink structure is not empty.
-			if ( '' !== $permalink_structure )
-			{ 
+			if ( $permalink_structure !== '' )
+			{
 				update_option('permalink_structure', $permalink_structure);
-				flush_rewrite_rules(); 
+				flush_rewrite_rules();
 				// Update the option to true.
 				update_user_meta( get_current_user_id(), 'hfe_permalink_notice_option', 'notice-dismissed' );
-		
-			} 
+
+			}
 
 			// Send a success response.
 			wp_send_json_success( 'Permalink Flushed successfully' );
 		}
-		
+
 		/**
 		 * Handles the installation and saving of required plugins.
 		 *
@@ -150,7 +148,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			// Schedule the database update if the plugin is installed successfully.
 			add_action(
 				'shutdown',
-				function () use ( $plugin_slug ) {
+				static function () use ( $plugin_slug ) {
 					// Iterate through all plugins to check if the installed plugin matches the current plugin slug.
 					$all_plugins = get_plugins();
 					foreach ( $all_plugins as $plugin_file => $_ ) {
@@ -171,7 +169,6 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			}
 		}
 
-		
 		/**
 		 * Handles the installation and saving of required theme.
 		 *
@@ -196,7 +193,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			// Schedule the database update if the theme is installed successfully.
 			add_action(
 				'shutdown',
-				function () use ( $theme_slug ) {
+				static function () use ( $theme_slug ) {
 					// Iterate through all themes to check if the installed theme matches the current theme slug.
 					$all_themes = wp_get_themes();
 					foreach ( $all_themes as $theme_file => $_ ) {
@@ -389,7 +386,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 
 				$plugin = sanitize_text_field( wp_unslash( $_POST['plugin'] ) );
 
-				if ( 'plugin' === $type ) {
+				if ( $type === 'plugin' ) {
 
 					// Check for permissions.
 					if ( ! current_user_can( 'activate_plugins' ) ) {
@@ -406,13 +403,13 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 					}
 				}
 
-				if ( 'theme' === $type ) {
+				if ( $type === 'theme' ) {
 
 					if ( isset( $_POST['slug'] ) ) {
 						$slug = sanitize_key( wp_unslash( $_POST['slug'] ) );
 
 						// Check for permissions.
-						if ( ! ( current_user_can( 'switch_themes' ) ) ) {
+						if ( ! current_user_can( 'switch_themes' ) ) {
 							wp_send_json_error( esc_html__( 'Theme activation is disabled for you on this site.', 'header-footer-elementor' ) );
 						}
 
@@ -428,9 +425,9 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 				}
 			}
 
-			if ( 'plugin' === $type ) {
+			if ( $type === 'plugin' ) {
 				wp_send_json_error( esc_html__( 'Could not activate plugin. Please activate from the Plugins page.', 'header-footer-elementor' ) );
-			} elseif ( 'theme' === $type ) {
+			} elseif ( $type === 'theme' ) {
 				wp_send_json_error( esc_html__( 'Could not activate theme. Please activate from the Themes page.', 'header-footer-elementor' ) );
 			}
 		}
