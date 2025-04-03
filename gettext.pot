@@ -777,11 +777,11 @@ msgstr ""
 msgid "Enable Usage Tracking"
 msgstr ""
 
-#: src/Components/Settings/UsageTracking.jsx:87
+#: src/Components/Settings/UsageTracking.jsx:84
 msgid "Allow Brainstorm Force products to track non-sensitive usage tracking data. "
 msgstr ""
 
-#: src/Components/Settings/UsageTracking.jsx:97
+#: src/Components/Settings/UsageTracking.jsx:94
 #: src/Components/Templates/ExploreTemplates.jsx:227
 msgid "Learn More"
 msgstr ""

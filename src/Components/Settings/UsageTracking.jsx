@@ -80,9 +80,6 @@ const UsageTracking = () => {
                                                     <span className="font-bold text-text-primary m-0">
                                                         {__("Enable Usage Tracking", "header-footer-elementor")}
                                                     </span>
-                                                    {/* <span className="font-normal text-text-primary m-0">
-                                                        {__("Allow Brainstorm Force products to track non-sensitive usage tracking data. Learn More. ", "header-footer-elementor")}
-                                                    </span> */}
                                                     <span className="font-normal text-text-primary m-0">
                                                         {__(
                                                             "Allow Brainstorm Force products to track non-sensitive usage tracking data. ",
@@ -98,6 +95,32 @@ const UsageTracking = () => {
                                                         </a>
                                                     </span>
                                                 </div>
+                                                <Toaster
+                                                                    position="top-right"
+                                                                    reverseOrder={false}
+                                                                    gutter={8}
+                                                                    containerStyle={{
+                                                                        top: 20,
+                                                                        right: 20,
+                                                                        marginTop: '40px',
+                                                                    }}
+                                                                    toastOptions={{
+                                                                        duration: 1000,
+                                                                        style: {
+                                                                            background: 'white',
+                                                                        },
+                                                                        success: {
+                                                                            duration: 2000,
+                                                                            style: {
+                                                                                color: '',
+                                                                            },
+                                                                            iconTheme: {
+                                                                                primary: '#6005ff',
+                                                                                secondary: '#fff',
+                                                                            },
+                                                                        },
+                                                                    }}
+                                                                />
                             </div>
                         </Container.Item>
                     </Container>
