@@ -6,6 +6,7 @@
  */
 
 use HFE\Lib\Astra_Target_Rules_Fields;
+use Elementor\Modules\Usage\Module as Usage_Module;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -118,6 +119,64 @@ class HFE_Admin {
 		add_action( 'elementor/editor/footer', [ $this, 'print_permalink_clear_notice' ] );
 		add_action( 'elementor/editor/before_enqueue_scripts', [ $this, 'enqueue_permalink_clear_notice_js' ] );
 		add_action( 'elementor/editor/before_enqueue_styles', [ $this, 'enqueue_permalink_clear_notice_css' ] );
+		if('yes' === get_option('hfe_analytics_optin')){
+			add_action('admin_init', [ $this, 'hfe_check_widgets_data_usage' ] );
+		}
+	}
+
+	/**
+	 * Handle AJAX request to get widgets usage data.
+	 *
+	 * @since x.x.x
+	 */
+	public function hfe_check_widgets_data_usage() {
+		// Check user permissions
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+
+		$transient_key = 'uae_widgets_usage_data';
+		$widgets_usage = get_transient( $transient_key );
+
+		if ( false === $widgets_usage || false === get_option( 'uae_widgets_usage_data_option' ) ) {
+			/** @var Usage_Module $usage_module */
+			$usage_module = Usage_Module::instance();
+			$usage_module->recalc_usage();
+
+			$widgets_usage = [];
+
+			foreach ( $usage_module->get_formatted_usage( 'raw' ) as $data ) {
+				foreach ( $data['elements'] as $element => $count ) {
+					$widgets_usage[ $element ] = isset( $widgets_usage[ $element ] ) ? $widgets_usage[ $element ] + $count : $count;
+				}
+			}
+
+			$allowed_widgets = array(
+				'hfe-breadcrumbs-widget',
+				'hfe-cart',
+				'copyright',
+				'navigation-menu',
+				'page-title',
+				'post-info-widget',
+				'retina',
+				'hfe-search-button',
+				'site-logo',
+				'hfe-site-tagline',
+				'hfe-site-title',
+			);
+
+			// Filter widgets usage to include only allowed widgets
+			$filtered_widgets_usage = array_filter(
+				$widgets_usage,
+				function ( $key ) use ( $allowed_widgets ) {
+					return in_array( $key, $allowed_widgets, true );
+				},
+				ARRAY_FILTER_USE_KEY
+			);
+
+			set_transient( $transient_key, $filtered_widgets_usage, 5 * MINUTE_IN_SECONDS ); // Store for 5 minutes
+			update_option( 'uae_widgets_usage_data_option', $filtered_widgets_usage );
+		}
 	}
 
 	/**
