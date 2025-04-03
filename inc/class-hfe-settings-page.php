@@ -295,7 +295,7 @@ class HFE_Settings_Page {
 					'astra_url'                => HFE_URL . 'assets/images/settings/astra.svg',
 					'starter_url'              => HFE_URL . 'assets/images/settings/starter-templates.svg',
 					'surecart_url'             => HFE_URL . 'assets/images/settings/surecart.svg',
-					'suretriggers_url'         => HFE_URL . 'assets/images/settings/sure-triggers.svg',
+					'suretriggers_url'         => HFE_URL . 'assets/images/settings/OttoKit-Symbol-Primary.svg',
 					'theme_url_selected'       => HFE_URL . 'assets/images/settings/theme.svg',
 					'theme_url'                => HFE_URL . 'assets/images/settings/layout-template.svg',
 					'version_url'              => HFE_URL . 'assets/images/settings/version.svg',
