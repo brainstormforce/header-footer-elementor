@@ -9,7 +9,6 @@
  * Genesis theme compatibility.
  */
 class HFE_Genesis_Compat {
-
 	/**
 	 * Instance of HFE_Genesis_Compat.
 	 *
