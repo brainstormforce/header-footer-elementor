@@ -88,19 +88,6 @@ class Search_Button extends Common_Widget {
 	}
 
 	/**
-	 * Indicates if the widget's content is dynamic.
-	 *
-	 * This method returns true if the widget's output is dynamic and should not be cached,
-	 * or false if the content is static and can be cached.
-	 *
-	 * @since 1.6.41
-	 * @return bool True for dynamic content, false for static content.
-	 */
-	protected function is_dynamic_content(): bool { // phpcs:ignore
-		return false; 
-	}
-
-	/**
 	 * Retrieve the list of scripts the navigation menu depended on.
 	 *
 	 * Used to set scripts dependencies required to run the widget.
@@ -112,6 +99,19 @@ class Search_Button extends Common_Widget {
 	 */
 	public function get_script_depends() {
 		return [ 'hfe-frontend-js' ];
+	}
+
+	/**
+	 * Indicates if the widget's content is dynamic.
+	 *
+	 * This method returns true if the widget's output is dynamic and should not be cached,
+	 * or false if the content is static and can be cached.
+	 *
+	 * @since 1.6.41
+	 * @return bool True for dynamic content, false for static content.
+	 */
+	protected function is_dynamic_content(): bool { // phpcs:ignore
+		return false;
 	}
 
 	/**
@@ -1013,14 +1013,14 @@ class Search_Button extends Common_Widget {
 		?>
 		<form class="hfe-search-button-wrapper" role="search" action="<?php echo esc_url( $action_url ); ?>" method="get">
 
-			<?php if ( 'icon' === $settings['layout'] ) { ?>
+			<?php if ( $settings['layout'] === 'icon' ) { ?>
 			<div class = "hfe-search-icon-toggle">
 				<input <?php $this->print_render_attribute_string( 'input' ); ?>>
 				<i class="fas fa-search" aria-hidden="true"></i>
 			</div>
 			<?php } else { ?>
 			<div <?php $this->print_render_attribute_string( 'container' ); ?>>
-				<?php if ( 'text' === $settings['layout'] ) { ?>
+				<?php if ( $settings['layout'] === 'text' ) { ?>
 					<input <?php $this->print_render_attribute_string( 'input' ); ?>>
 						<button id="clear" type="reset">
 							<i class="fas fa-times clearable__clear" aria-hidden="true"></i>
@@ -1035,7 +1035,7 @@ class Search_Button extends Common_Widget {
 					</button>
 				<?php } ?>
 			</div>
-		<?php } ?>
+            <?php } ?>
 		</form>
 		<?php
 	}

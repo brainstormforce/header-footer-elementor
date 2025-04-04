@@ -22,7 +22,6 @@ use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
  * @since 2.2.1
  */
 class Scroll_To_Top_Settings extends Tab_Base {
-
 	/**
 	 * Retrieve the widget name.
 	 *
@@ -64,7 +63,7 @@ class Scroll_To_Top_Settings extends Tab_Base {
 
 	/**
 	 * Retrieves the help URL.
-	 * 
+	 *
 	 * @since 2.2.1
 	 *
 	 * @access public
@@ -77,7 +76,7 @@ class Scroll_To_Top_Settings extends Tab_Base {
 
 	/**
 	 * Retrieves the widget keywords.
-	 * 
+	 *
 	 * @since 2.2.1
 	 *
 	 * @access public
