@@ -15,7 +15,7 @@ function hfe_header_enabled() {
 	$header_id = Header_Footer_Elementor::get_settings( 'type_header', '' );
 	$status    = false;
 
-	if ( '' !== $header_id ) {
+	if ( $header_id !== '' ) {
 		$status = true;
 	}
 
@@ -32,7 +32,7 @@ function hfe_footer_enabled() {
 	$footer_id = Header_Footer_Elementor::get_settings( 'type_footer', '' );
 	$status    = false;
 
-	if ( '' !== $footer_id ) {
+	if ( $footer_id !== '' ) {
 		$status = true;
 	}
 
@@ -43,12 +43,12 @@ function hfe_footer_enabled() {
  * Get HFE Header ID
  *
  * @since  1.0.2
- * @return (String|boolean) header id if it is set else returns false.
+ * @return (String|bool) header id if it is set else returns false.
  */
 function get_hfe_header_id() {
 	$header_id = Header_Footer_Elementor::get_settings( 'type_header', '' );
 
-	if ( '' === $header_id ) {
+	if ( $header_id === '' ) {
 		$header_id = false;
 	}
 
@@ -59,12 +59,12 @@ function get_hfe_header_id() {
  * Get HFE Footer ID
  *
  * @since  1.0.2
- * @return (String|boolean) header id if it is set else returns false.
+ * @return (String|bool) header id if it is set else returns false.
  */
 function get_hfe_footer_id() {
 	$footer_id = Header_Footer_Elementor::get_settings( 'type_footer', '' );
 
-	if ( '' === $footer_id ) {
+	if ( $footer_id === '' ) {
 		$footer_id = false;
 	}
 
@@ -79,7 +79,7 @@ function get_hfe_footer_id() {
  */
 function hfe_render_header() {
 
-	if ( false === apply_filters( 'enable_hfe_render_header', true ) ) {
+	if ( apply_filters( 'enable_hfe_render_header', true ) === false ) {
 		return;
 	}
 
@@ -100,7 +100,7 @@ function hfe_render_header() {
  */
 function hfe_render_footer() {
 
-	if ( false === apply_filters( 'enable_hfe_render_footer', true ) ) {
+	if ( apply_filters( 'enable_hfe_render_footer', true ) === false ) {
 		return;
 	}
 
@@ -111,18 +111,17 @@ function hfe_render_footer() {
 	<?php
 }
 
-
 /**
  * Get HFE Before Footer ID
  *
  * @since  1.0.2
- * @return String|boolean before footer id if it is set else returns false.
+ * @return String|bool before footer id if it is set else returns false.
  */
 function hfe_get_before_footer_id() {
 
 	$before_footer_id = Header_Footer_Elementor::get_settings( 'type_before_footer', '' );
 
-	if ( '' === $before_footer_id ) {
+	if ( $before_footer_id === '' ) {
 		$before_footer_id = false;
 	}
 
@@ -140,7 +139,7 @@ function hfe_is_before_footer_enabled() {
 	$before_footer_id = Header_Footer_Elementor::get_settings( 'type_before_footer', '' );
 	$status           = false;
 
-	if ( '' !== $before_footer_id ) {
+	if ( $before_footer_id !== '' ) {
 		$status = true;
 	}
 
@@ -155,7 +154,7 @@ function hfe_is_before_footer_enabled() {
  */
 function hfe_render_before_footer() {
 
-	if ( false === apply_filters( 'enable_hfe_render_before_footer', true ) ) {
+	if ( apply_filters( 'enable_hfe_render_before_footer', true ) === false ) {
 		return;
 	}
 
