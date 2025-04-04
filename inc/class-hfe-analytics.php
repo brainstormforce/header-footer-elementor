@@ -75,7 +75,7 @@ if ( ! class_exists( 'HFE_Analytics' ) ) {
          * @return array
          */
         public function add_uae_analytics_data( $stats_data ) {
-            $stats_data['plugin_data']['header-footer-elementor']		= [
+            $stats_data['plugin_data']['uae']		= [
                 'free_version'  => HFE_VER,
                 'pro_version' => ( defined( 'UAEL_VERSION' ) ? UAEL_VERSION : '' ),
                 'site_language' => get_locale(),
@@ -90,12 +90,16 @@ if ( ! class_exists( 'HFE_Analytics' ) ) {
                 'numberposts' => -1
             ] );
 
-            $stats_data['plugin_data']['header-footer-elementor']['numeric_values'] = [
+            $stats_data['plugin_data']['uae']['numeric_values'] = [
                 'total_hfe_templates'            => count( $hfe_posts ),
             ];
 
 			$fetch_elementor_data = $this->hfe_get_widgets_usage();
-			$stats_data['plugin_data']['header-footer-elementor']['widgets_usage'] = $fetch_elementor_data;
+			foreach ($fetch_elementor_data as $key => $value) {
+				$stats_data['plugin_data']['uae']['numeric_values'][$key] = $value;
+			}
+			var_dump($stats_data['plugin_data']['uae']);
+			die();
             return $stats_data;
         }
 
@@ -106,30 +110,6 @@ if ( ! class_exists( 'HFE_Analytics' ) ) {
 				$get_Widgets = get_option( 'uae_widgets_usage_data_option', [] );
 				return $get_Widgets;
 		}
-
-        /**
-         * Runs custom WP_Query to fetch data as per requirement
-         *
-         * @param array $meta_query meta query array for WP_Query.
-         * @since x.x.x
-         * @return int
-         */
-        private function custom_wp_query_total_posts( $meta_query ) {
-
-            $args = [
-                'post_type'      => 'elementor-hf',
-                'post_status'    => 'publish',
-                'posts_per_page' => -1,
-                'meta_query'     => $meta_query, //phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query -- Meta query required as we need to fetch count of nested data.
-            ];
-
-            $query       = new \WP_Query( $args );
-            $posts_count = $query->found_posts;
-
-            wp_reset_postdata();
-
-            return $posts_count;
-        }
 	}
 }
 new HFE_Analytics();
