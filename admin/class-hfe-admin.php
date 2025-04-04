@@ -76,6 +76,7 @@ class HFE_Admin {
 		);
 
 		wp_enqueue_style( 'hfe-style' );
+
 	}
 
 
@@ -90,7 +91,7 @@ class HFE_Admin {
 			add_action( 'admin_menu', [ $this, 'register_admin_menu' ], 50 );
 		}
 
-		$is_elementor_callable = defined( 'ELEMENTOR_VERSION' ) && is_callable( 'Elementor\Plugin::instance' ) ? true : false;
+		$is_elementor_callable = ( defined( 'ELEMENTOR_VERSION' ) && is_callable( 'Elementor\Plugin::instance' ) ) ? true : false;
 		if ( $is_elementor_callable ) {
 			self::$elementor_instance = Elementor\Plugin::instance();
 		}
@@ -129,15 +130,15 @@ class HFE_Admin {
 		if ( get_user_meta( get_current_user_id(), 'hfe_permalink_notice_option', true ) === 'notice-dismissed' ) {
 			return;
 		}
-
+	
 		if(isset(self::$elementor_instance)){
 			$current_post_type = get_post_type( self::$elementor_instance->editor->get_post_id() );
-
+			
 			if ( $current_post_type !== 'elementor-hf' ) {
 				return;
 			}
 		}
-
+	
 		wp_enqueue_style(
 			'hfe-permalink-clear-notice',
 			HFE_URL . 'inc/widgets-css/permalink-clear-notice.css',
@@ -156,7 +157,7 @@ class HFE_Admin {
 		if ( get_user_meta( get_current_user_id(), 'hfe_permalink_notice_option', true ) === 'notice-dismissed' ) {
 			return;
 		}
-
+		
 		if(isset(self::$elementor_instance)){
 			$current_post_type = get_post_type( self::$elementor_instance->editor->get_post_id() );
 
@@ -171,7 +172,7 @@ class HFE_Admin {
 			[ 'jquery' ],
 			HFE_VER
 		);
-
+	
 		wp_localize_script(
 			'hfe-permalink-clear-notice',
 			'hfePermalinkClearNotice',
@@ -184,7 +185,7 @@ class HFE_Admin {
 
 	/**
 	 * Creating notice for permaliink reset in Elementor Editor.
-	 *
+	 * 
 	 * @since 2.2.1
 	 */
 	public function print_permalink_clear_notice() {
@@ -195,7 +196,7 @@ class HFE_Admin {
 
 			if(isset(self::$elementor_instance)){
 				$current_post_type = get_post_type( self::$elementor_instance->editor->get_post_id() );
-
+				
 				if ( $current_post_type !== 'elementor-hf' ) {
 					return;
 				}
@@ -212,7 +213,7 @@ class HFE_Admin {
 					<?php echo esc_html__( 'Try clearing your cache or resetting permalinks (Settings > Permalinks > Save Changes).', 'header-footer-elementor' ); ?>
 					<a href="<?php echo esc_url( 'https://ultimateelementor.com/docs/elementor-header-footer-template-not-loading-or-stuck-on-loading/' ); ?>" target="_blank"><?php echo esc_html_e( 'Learn More', 'header-footer-elementor' ); ?></a>
 					<br>
-					<?php if(! is_multisite()){ ?>
+					<?php if(!is_multisite()){ ?>
 						<button class="uae-permalink-flush-btn" type="button">
 							<span class="uae-btn-main-text"><?php echo esc_html__( 'Flush Permalink', 'header-footer-elementor' ); ?></span>
 							<span class="uae-notice-loader"></span>
@@ -220,8 +221,8 @@ class HFE_Admin {
 					<?php } ?>
 				</div>
 			</div>
-<?php
-		}
+<?php 
+		} 
 	}
 
 
@@ -238,12 +239,12 @@ class HFE_Admin {
 			'elementor-hf',          // New post screen for elementor-hf post type.
 		];
 
-		if ( in_array( $screen->id, $pages_to_hide_notices ) || $screen->id === 'toplevel_page_hfe' ) {
+		if ( in_array( $screen->id, $pages_to_hide_notices ) || 'toplevel_page_hfe' === $screen->id ) {
 			remove_all_actions( 'admin_notices' );
 			remove_all_actions( 'all_admin_notices' );
 		}
 	}
-
+	
 	/**
 	 * Script for Elementor Pro full site editing support.
 	 *
@@ -303,7 +304,7 @@ class HFE_Admin {
 	 */
 	public function column_content( $column, $post_id ) {
 
-		if ( $column === 'elementor_hf_display_rules' ) {
+		if ( 'elementor_hf_display_rules' === $column ) {
 
 			$locations = get_post_meta( $post_id, 'ehf_target_include_locations', true );
 			if ( ! empty( $locations ) ) {
@@ -348,7 +349,7 @@ class HFE_Admin {
 		$location_label = [];
 		if ( is_array( $locations ) && is_array( $locations['rule'] ) && isset( $locations['rule'] ) ) {
 			$index = array_search( 'specifics', $locations['rule'] );
-			if ( $index !== false && ! empty( $index ) ) {
+			if ( false !== $index && ! empty( $index ) ) {
 				unset( $locations['rule'][ $index ] );
 			}
 		}
@@ -376,7 +377,7 @@ class HFE_Admin {
 	public function header_footer_posttype() {
 
 		$setting_location = $this->is_pro_active() ? 'uaepro' : 'hfe';
-
+		
 		$labels = [
 			'name'               => esc_html__( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
 			'singular_name'      => esc_html__( 'Elementor Header & Footer Builder', 'header-footer-elementor' ),
@@ -687,17 +688,17 @@ class HFE_Admin {
 		global $pagenow;
 		global $post;
 
-		if ( $pagenow !== 'post.php' || ! is_object( $post ) || $post->post_type !== 'elementor-hf' ) {
+		if ( 'post.php' != $pagenow || ! is_object( $post ) || 'elementor-hf' != $post->post_type ) {
 			return;
 		}
 
 		$template_type = get_post_meta( $post->ID, 'ehf_template_type', true );
 
-		if ( $template_type !== '' ) {
+		if ( '' !== $template_type ) {
 			$templates = Header_Footer_Elementor::get_template_id( $template_type );
 
 			// Check if more than one template is selected for current template type.
-			if ( is_array( $templates ) && isset( $templates[1] ) && $post->ID !== $templates[0] ) {
+			if ( is_array( $templates ) && isset( $templates[1] ) && $post->ID != $templates[0] ) {
 				$post_title        = '<strong>' . esc_html( get_the_title( $templates[0] ) ) . '</strong>';
 				$template_location = '<strong>' . esc_html( $this->template_location( $template_type ) ) . '</strong>';
 				/* Translators: Post title, Template Location */
@@ -749,7 +750,7 @@ class HFE_Admin {
 	public function load_canvas_template( $single_template ) {
 		global $post;
 
-		if ( $post->post_type === 'elementor-hf' ) {
+		if ( 'elementor-hf' == $post->post_type ) {
 			$elementor_2_0_canvas = ELEMENTOR_PATH . '/modules/page-templates/templates/canvas.php';
 
 			if ( file_exists( $elementor_2_0_canvas ) ) {
