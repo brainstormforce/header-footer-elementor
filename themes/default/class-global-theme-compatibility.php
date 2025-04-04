@@ -11,7 +11,6 @@ namespace HFE\Themes;
  * Global theme compatibility.
  */
 class Global_Theme_Compatibility {
-
 	/**
 	 *  Initiator
 	 */
@@ -65,13 +64,13 @@ class Global_Theme_Compatibility {
 			left: 50%;
 		}';
 
-		if ( true === hfe_header_enabled() ) {
+		if ( hfe_header_enabled() === true ) {
 			$css .= 'header#masthead {
 				display: none;
 			}';
 		}
 
-		if ( true === hfe_footer_enabled() ) {
+		if ( hfe_footer_enabled() === true ) {
 			$css .= 'footer#colophon {
 				display: none;
 			}';

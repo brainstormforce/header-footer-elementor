@@ -9,7 +9,6 @@
  * Astra theme compatibility.
  */
 class HFE_Astra_Compat {
-
 	/**
 	 * Instance of HFE_Astra_Compat.
 	 *

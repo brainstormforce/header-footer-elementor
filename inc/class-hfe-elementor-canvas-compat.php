@@ -9,7 +9,6 @@
  * Astra theme compatibility.
  */
 class HFE_Elementor_Canvas_Compat {
-
 	/**
 	 * Instance of HFE_Elementor_Canvas_Compat.
 	 *
@@ -61,10 +60,10 @@ class HFE_Elementor_Canvas_Compat {
 		if ( hfe_is_before_footer_enabled() ) {
 
 			// check if current page template is Elemenntor Canvas.
-			if ( 'elementor_canvas' == get_page_template_slug() ) {
+			if ( get_page_template_slug() === 'elementor_canvas' ) {
 				$override_cannvas_template = get_post_meta( hfe_get_before_footer_id(), 'display-on-canvas-template', true );
 
-				if ( '1' == $override_cannvas_template ) {
+				if ( $override_cannvas_template === '1' ) {
 					add_action( 'elementor/page_templates/canvas/after_content', 'hfe_render_before_footer', 9 );
 				}
 			}
@@ -80,13 +79,13 @@ class HFE_Elementor_Canvas_Compat {
 	public function render_header() {
 
 		// bail if current page template is not Elemenntor Canvas.
-		if ( 'elementor_canvas' !== get_page_template_slug() ) {
+		if ( get_page_template_slug() !== 'elementor_canvas' ) {
 			return;
 		}
 
 		$override_cannvas_template = get_post_meta( get_hfe_header_id(), 'display-on-canvas-template', true );
 
-		if ( '1' == $override_cannvas_template ) {
+		if ( $override_cannvas_template === '1' ) {
 			hfe_render_header();
 		}
 	}
@@ -100,13 +99,13 @@ class HFE_Elementor_Canvas_Compat {
 	public function render_footer() {
 
 		// bail if current page template is not Elemenntor Canvas.
-		if ( 'elementor_canvas' !== get_page_template_slug() ) {
+		if ( get_page_template_slug() !== 'elementor_canvas' ) {
 			return;
 		}
 
 		$override_cannvas_template = get_post_meta( get_hfe_footer_id(), 'display-on-canvas-template', true );
 
-		if ( '1' == $override_cannvas_template ) {
+		if ( $override_cannvas_template === '1' ) {
 			hfe_render_footer();
 		}
 	}
