@@ -1,11 +1,11 @@
 <?php
 /**
- * HFE Retina Module.
+ * HFE Infobox Module.
  *
  * @package header-footer-elementor
  */
 
-namespace HFE\WidgetsManager\Widgets\Retina;
+namespace HFE\WidgetsManager\Widgets\Iconbox;
 
 use HFE\WidgetsManager\Base\Module_Base;
 
@@ -21,7 +21,7 @@ class Module extends Module_Base {
 	/**
 	 * Module should load or not.
 	 *
-	 * @since 1.15.0
+	 * @since x.x.x
 	 * @access public
 	 *
 	 * @return bool true|false.
@@ -33,27 +33,27 @@ class Module extends Module_Base {
 	/**
 	 * Get Module Name.
 	 *
-	 * @since 1.15.0
+	 * @since 0.0.1
 	 * @access public
 	 *
 	 * @return string Module name.
 	 */
 	public function get_name() {
-		return 'retina';
+		return 'iconbox';
 	}
 
 	/**
 	 * Get Widgets.
 	 *
-	 * @since 1.15.0
+	 * @since 0.0.1
 	 * @access public
 	 *
 	 * @return array Widgets.
 	 */
 	public function get_widgets() {
-		return [
-			'Retina',
-		];
+		return array(
+			'Iconbox',
+		);
 	}
 
 	/**

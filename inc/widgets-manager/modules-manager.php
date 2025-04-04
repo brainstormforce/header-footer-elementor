@@ -56,6 +56,7 @@ class Modules_Manager {
 			'search-button',
 			'breadcrumbs-widget',
 			'post-info',
+			'iconbox',
 		];
 
 		foreach ( $all_modules as $module_name ) {

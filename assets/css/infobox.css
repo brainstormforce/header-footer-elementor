@@ -1,0 +1,567 @@
+/* Info Box */
+.uael-icon-wrap .uael-icon {
+  display: inline-block;
+}
+.uael-infobox-link-type-module:hover,
+.uael-infobox-link-type-module:hover .uael-icon i,
+.uael-infobox-link-type-module:hover .uael-icon svg {
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
+}
+
+.uael-imgicon-style-circle .uael-icon-wrap .uael-icon,
+.uael-imgicon-style-circle .uael-image .uael-image-content,
+.uael-imgicon-wrap .uael-image-crop-circle img {
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+}
+
+/* Left/Right */
+.uael-infobox-icon-left .uael-infobox-left-right-wrap,
+.uael-infobox-icon-right .uael-infobox-left-right-wrap,
+.uael-infobox-photo-left .uael-infobox-left-right-wrap,
+.uael-infobox-photo-right .uael-infobox-left-right-wrap,
+.uael-infobox-icon-left-title .left-title-image,
+.uael-infobox-icon-right-title .right-title-image,
+.uael-infobox-photo-left-title .left-title-image,
+.uael-infobox-photo-right-title .right-title-image,
+.uael-infobox-photo-left-title .uael-module-content.uael-imgicon-wrap,
+.uael-infobox-photo-right-title .uael-module-content.uael-imgicon-wrap,
+.uael-infobox-photo-left .uael-module-content.uael-imgicon-wrap,
+.uael-infobox-photo-right .uael-module-content.uael-imgicon-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  -js-display: flex;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: flex;
+}
+
+.uael-infobox-photo-left-title .uael-module-content.uael-imgicon-wrap,
+.uael-infobox-photo-right-title .uael-module-content.uael-imgicon-wrap,
+.uael-infobox-photo-left .uael-module-content.uael-imgicon-wrap,
+.uael-infobox-photo-right .uael-module-content.uael-imgicon-wrap {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+.uael-infobox-photo-left-title .uael-infobox-title-wrap,
+.uael-infobox-photo-right-title .uael-infobox-title-wrap,
+.uael-infobox-photo-left .uael-infobox-title-wrap,
+.uael-infobox-photo-right .uael-infobox-title-wrap {
+   -webkit-box-flex: 1;
+   -webkit-flex-grow: 1;
+   -moz-box-flex: 1;
+   -ms-flex-positive: 1;
+   flex-grow: 1;
+}
+
+.uael-infobox-photo-left-title.uael-infobox-image-valign-middle .uael-infobox-title-wrap,
+.uael-infobox-photo-right-title.uael-infobox-image-valign-middle .uael-infobox-title-wrap,
+.uael-infobox-icon-left-title.uael-infobox-image-valign-middle .uael-infobox-title-wrap,
+.uael-infobox-icon-right-title.uael-infobox-image-valign-middle .uael-infobox-title-wrap,
+.uael-infobox-image-valign-middle .uael-imgicon-wrap,
+.uael-infobox-icon-left.uael-infobox-image-valign-middle .uael-infobox-content,
+.uael-infobox-icon-right.uael-infobox-image-valign-middle .uael-infobox-content,
+.uael-infobox-photo-left.uael-infobox-image-valign-middle .uael-infobox-content,
+.uael-infobox-photo-right.uael-infobox-image-valign-middle .uael-infobox-content {
+  -ms-flex-item-align: center;
+      -webkit-align-self: center;
+      align-self: center;
+}
+
+.uael-infobox .uael-infobox-content,
+.uael-infobox-left-right-wrap, 
+.uael-infobox-title-wrap {
+width: 100%;
+}
+
+.uael-infobox-left {
+  text-align: left;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          -webkit-justify-content: flex-start;
+          -moz-box-pack: start;
+          justify-content: flex-start;
+}
+
+.uael-infobox-center {
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          -webkit-justify-content: center;
+          -moz-box-pack: center;
+          justify-content: center;
+}
+
+.uael-infobox-right {
+  text-align: right;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          -webkit-justify-content: flex-end;
+          -moz-box-pack: end;
+          justify-content: flex-end;
+}
+.uael-infobox-icon-above-title .uael-infobox-left-right-wrap,
+.uael-infobox-icon-below-title .uael-infobox-left-right-wrap,
+.uael-infobox-photo-above-title .uael-infobox-left-right-wrap,
+.uael-infobox-photo-below-title .uael-infobox-left-right-wrap {
+  display: block;
+  min-width: 100%;
+  width: 100%;
+}
+
+/* Left/Right of Title */
+.uael-infobox-icon-left-title .uael-icon-wrap,
+.uael-infobox-icon-left .uael-icon-wrap, 
+.uael-infobox-photo-left-title .uael-imgicon-wrap .uael-image-content,
+.uael-infobox-photo-left .uael-imgicon-wrap .uael-image-content {
+  margin-right: 10px;
+}
+
+.uael-infobox-icon-right-title .uael-icon-wrap,
+.uael-infobox-icon-right .uael-icon-wrap,
+.uael-infobox-photo-right-title .uael-imgicon-wrap .uael-image-content,
+.uael-infobox-photo-right .uael-imgicon-wrap .uael-image-content {
+  margin-left: 10px;
+}
+
+.uael-infobox-icon-right .uael-infobox-left-right-wrap,
+.uael-infobox-icon-right-title .right-title-image,
+.uael-infobox-photo-right-title .right-title-image,
+.uael-infobox-photo-right .uael-infobox-left-right-wrap {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          -webkit-justify-content: flex-end;
+          -moz-box-pack: end;
+          justify-content: flex-end;
+}
+
+/* Above/Below Title */
+.uael-infobox-photo-above-title .uael-imgicon-wrap {
+  display: block;
+}
+
+.uael-infobox-photo-below-title .uael-imgicon-wrap {
+  display: block;
+  margin: 10px 0 15px;
+}
+
+.uael-icon-wrap .uael-icon i {
+  height: auto;
+  width: auto;
+  position: relative;
+  display: block;
+}
+.uael-icon-wrap .uael-icon svg {
+height: 100%;
+width: 100%;
+}
+
+  /* Infobox image css */
+.uael-imgicon-wrap .uael-image-content {
+  display: inline-block;
+  line-height: 0;
+  position: relative;
+  max-width: 100%;
+}
+
+.uael-imgicon-wrap .uael-image-content img {
+  display: inline;
+  height: auto !important;
+  max-width: 100%;
+  width: auto;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  -webkit-border-radius: inherit;
+  border-radius: inherit;
+}
+.uael-imgicon-wrap .uael-image-crop-square img {
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+
+/* Info box complete box link css */
+.uael-infobox-module-link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 4;
+}
+
+.elementor-edit-mode .uael-infobox-module-link {
+  z-index: 2;
+}
+
+.uael-infobox-link-icon-after {
+  margin-left: 5px;
+  margin-right: 0;
+}
+
+.uael-infobox-link-icon-before {
+  margin-left: 0;
+  margin-right: 5px;
+}
+
+.uael-infobox-link-icon {
+  -webkit-transition: all 200ms linear;
+          transition: all 200ms linear;
+}
+
+.uael-infobox-link-icon .e-font-icon-svg {
+  height: 1em;
+}
+
+.uael-infobox-link-type-module .uael-infobox {
+  position: relative; 
+}
+
+.uael-infobox-text-wrap .uael-button-wrapper  .elementor-align-icon-left {
+  -webkit-box-ordinal-group: 1;
+  -webkit-order: 0;
+  -moz-box-ordinal-group: 1;
+  -ms-flex-order: 0;
+  order: 0;
+} 
+
+.uael-infobox-text-wrap .uael-button-wrapper .elementor-align-icon-right {
+  -webkit-box-ordinal-group: 16;
+  -webkit-order: 15;
+  -moz-box-ordinal-group: 16;
+  -ms-flex-order: 15;
+  order: 15;
+}
+
+@media only screen and (max-width: 976px) {
+  .uael-infobox-stacked-tablet .uael-infobox-left-right-wrap .uael-imgicon-wrap {
+      padding: 0;
+      margin-bottom: 20px;
+  }
+
+  .uael-infobox-stacked-tablet.uael-reverse-order-tablet .uael-infobox-left-right-wrap {
+      display: -webkit-inline-box;
+      display: -ms-inline-flexbox;
+      -js-display: inline-flex;
+      display: -webkit-inline-flex;
+      display: -moz-inline-box;
+      display: inline-flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: reverse;
+          -ms-flex-direction: column-reverse;
+              -webkit-flex-direction: column-reverse;
+              -moz-box-orient: vertical;
+              -moz-box-direction: reverse;
+              flex-direction: column-reverse;
+  }
+
+  .uael-infobox.uael-infobox-stacked-tablet .uael-infobox-left-right-wrap .uael-infobox-content,
+  .uael-infobox.uael-infobox-stacked-tablet .uael-infobox-left-right-wrap .uael-imgicon-wrap {
+      display: block;
+      width: 100%;
+      text-align: center;
+  }
+
+  .uael-infobox.uael-infobox-stacked-tablet .uael-infobox-left-right-wrap .uael-imgicon-wrap {
+      margin-left: 0px;
+      margin-right: 0px;
+  }
+  .uael-infobox-stacked-tablet .uael-infobox-left-right-wrap {
+      display: inline-block;
+  }
+
+  .uael-infobox-icon-left-title.uael-infobox-stacked-tablet .uael-imgicon-wrap,
+  .uael-infobox-icon-left.uael-infobox-stacked-tablet .uael-imgicon-wrap, 
+  .uael-infobox-photo-left-title.uael-infobox-stacked-tablet .uael-image-content,
+  .uael-infobox-photo-left.uael-infobox-stacked-tablet .uael-image-content {
+      margin-right: 0px;
+  }
+  .uael-infobox-icon-right-title.uael-infobox-stacked-tablet .uael-imgicon-wrap,
+  .uael-infobox-icon-right.uael-infobox-stacked-tablet .uael-imgicon-wrap, 
+  .uael-infobox-photo-right-title.uael-infobox-stacked-tablet .uael-image-content,
+  .uael-infobox-photo-right.uael-infobox-stacked-tablet .uael-image-content {
+      margin-left: 0px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .uael-infobox-stacked-mobile .uael-infobox-left-right-wrap .uael-imgicon-wrap {
+      padding: 0;
+      margin-bottom: 20px;
+  }
+
+  .uael-infobox-stacked-mobile.uael-reverse-order-mobile .uael-infobox-left-right-wrap {
+      display: -webkit-inline-box;
+      display: -ms-inline-flexbox;
+      -js-display: inline-flex;
+      display: -webkit-inline-flex;
+      display: -moz-inline-box;
+      display: inline-flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: reverse;
+          -ms-flex-direction: column-reverse;
+              -webkit-flex-direction: column-reverse;
+              -moz-box-orient: vertical;
+              -moz-box-direction: reverse;
+              flex-direction: column-reverse;
+  }
+
+  .uael-infobox.uael-infobox-stacked-mobile .uael-infobox-left-right-wrap .uael-infobox-content,
+  .uael-infobox.uael-infobox-stacked-mobile .uael-infobox-left-right-wrap .uael-imgicon-wrap {
+      display: block;
+      width: 100%;
+      text-align: center;
+  }
+
+  .uael-infobox.uael-infobox-stacked-mobile .uael-infobox-left-right-wrap .uael-imgicon-wrap {
+      margin-left: 0px;
+      margin-right: 0px;
+  }
+  .uael-infobox-stacked-mobile .uael-infobox-left-right-wrap {
+      display: inline-block;
+  }
+
+  .uael-infobox-icon-left-title.uael-infobox-stacked-mobile .uael-imgicon-wrap,
+  .uael-infobox-icon-left.uael-infobox-stacked-mobile .uael-imgicon-wrap, 
+  .uael-infobox-photo-left-title.uael-infobox-stacked-mobile .uael-image-content,
+  .uael-infobox-photo-left.uael-infobox-stacked-mobile .uael-image-content {
+      margin-right: 0px;
+  }
+  .uael-infobox-icon-right-title.uael-infobox-stacked-mobile .uael-imgicon-wrap,
+  .uael-infobox-icon-right.uael-infobox-stacked-mobile .uael-imgicon-wrap, 
+  .uael-infobox-photo-right-title.uael-infobox-stacked-mobile .uael-image-content,
+  .uael-infobox-photo-right.uael-infobox-stacked-mobile .uael-image-content {
+      margin-left: 0px;
+  }
+}
+
+/* Info Box Image/Icon animation when Complete box link is set */
+
+.uael-infobox-link-type-module:hover .elementor-animation-grow {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.uael-infobox-link-type-module:hover .elementor-animation-shrink {
+  -webkit-transform: scale(0.9);
+  -ms-transform: scale(0.9);
+  transform: scale(0.9);
+}
+.uael-infobox-link-type-module:hover .elementor-animation-pulse {
+  -webkit-animation-name: elementor-animation-pulse;
+  animation-name: elementor-animation-pulse;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+.uael-infobox-link-type-module:hover .elementor-animation-pulse-grow,
+.uael-infobox-link-type-module:hover .elementor-animation-pulse-shrink {
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+}
+.uael-infobox-link-type-module:hover .elementor-animation-pulse-grow {
+  -webkit-animation-name: elementor-animation-pulse-grow;
+  animation-name: elementor-animation-pulse-grow;
+}
+.uael-infobox-link-type-module:hover .elementor-animation-pulse-shrink {
+  -webkit-animation-name: elementor-animation-pulse-shrink;
+  animation-name: elementor-animation-pulse-shrink;
+}
+.uael-infobox-link-type-module:hover .elementor-animation-push,
+.uael-infobox-link-type-module:hover .elementor-animation-pop {
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+.uael-infobox-link-type-module:hover .elementor-animation-push {
+-webkit-animation-name: elementor-animation-push;
+animation-name: elementor-animation-push;
+}
+.uael-infobox-link-type-module:hover .elementor-animation-pop {
+-webkit-animation-name: elementor-animation-pop;
+animation-name: elementor-animation-pop;
+}
+.uael-infobox-link-type-module:hover .elementor-animation-bounce-in {
+-webkit-transform: scale(1.2);
+-ms-transform: scale(1.2);
+transform: scale(1.2);
+-webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+}
+.uael-infobox-link-type-module:hover .elementor-animation-bounce-out {
+-webkit-transform: scale(0.8);
+-ms-transform: scale(0.8);
+transform: scale(0.8);
+-webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+}
+.uael-infobox-link-type-module:hover .elementor-animation-rotate {
+-webkit-transform: rotate(4deg);
+-ms-transform: rotate(4deg);
+transform: rotate(4deg);
+}
+
+.uael-infobox-link-type-module:hover .elementor-animation-grow-rotate {
+-webkit-transform: scale(1.1) rotate(4deg);
+-ms-transform: scale(1.1) rotate(4deg);
+transform: scale(1.1) rotate(4deg);
+}
+.uael-infobox-link-type-module:hover .elementor-animation-float {
+-webkit-transform: translateY(-8px);
+-ms-transform: translateY(-8px);
+transform: translateY(-8px);
+}
+.uael-infobox-link-type-module:hover .elementor-animation-sink {
+-webkit-transform: translateY(8px);
+-ms-transform: translateY(8px);
+transform: translateY(8px);
+} 
+.uael-infobox-link-type-module:hover .elementor-animation-bob,
+.uael-infobox-link-type-module:hover .elementor-animation-hang {
+  -webkit-animation-duration: .3s, 1.5s;
+  animation-duration: .3s, 1.5s;
+  -webkit-animation-delay: 0s, .3s;
+  animation-delay: 0s, .3s;
+  -webkit-animation-timing-function: ease-out, ease-in-out;
+  animation-timing-function: ease-out, ease-in-out;
+  -webkit-animation-iteration-count: 1, infinite;
+  animation-iteration-count: 1, infinite;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-direction: normal, alternate;
+  animation-direction: normal, alternate;
+
+}
+.uael-infobox-link-type-module:hover .elementor-animation-bob {
+-webkit-animation-name: elementor-animation-bob-float, elementor-animation-bob;
+animation-name: elementor-animation-bob-float, elementor-animation-bob;
+}
+.uael-infobox-link-type-module:hover .elementor-animation-hang {
+-webkit-animation-name: elementor-animation-hang-sink, elementor-animation-hang;
+animation-name: elementor-animation-hang-sink, elementor-animation-hang;
+}
+.uael-infobox-link-type-module:hover .elementor-animation-skew,
+.uael-infobox-link-type-module:hover .elementor-animation-skew-forward {
+  -webkit-transform: skew(-10deg);
+  -ms-transform: skew(-10deg);
+  transform: skew(-10deg);
+}
+
+.uael-infobox-link-type-module:hover .elementor-animation-skew-backward {
+  -webkit-transform: skew(10deg);
+  -ms-transform: skew(10deg);
+  transform: skew(10deg);
+}
+
+.uael-infobox-link-type-module:hover .elementor-animation-wobble-vertical,
+.uael-infobox-link-type-module:hover .elementor-animation-wobble-horizontal,
+.uael-infobox-link-type-module:hover .elementor-animation-wobble-to-bottom-right,
+.uael-infobox-link-type-module:hover .elementor-animation-wobble-to-top-right,
+.uael-infobox-link-type-module:hover .elementor-animation-wobble-top,
+.uael-infobox-link-type-module:hover .elementor-animation-wobble-bottom,
+.uael-infobox-link-type-module:hover .elementor-animation-wobble-skew {
+    -webkit-animation-name: elementor-animation-wobble-vertical;
+    animation-name: elementor-animation-wobble-vertical;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+}
+.uael-infobox-link-type-module:hover .elementor-animation-wobble-vertical {
+  -webkit-animation-name: elementor-animation-wobble-vertical;
+  animation-name: elementor-animation-wobble-vertical;
+}
+
+.uael-infobox-link-type-module:hover .elementor-animation-wobble-horizontal {
+-webkit-animation-name: elementor-animation-wobble-horizontal;
+animation-name: elementor-animation-wobble-horizontal;
+}
+.uael-infobox-link-type-module:hover .elementor-animation-wobble-to-bottom-right {
+-webkit-animation-name: elementor-animation-wobble-to-bottom-right;
+animation-name: elementor-animation-wobble-to-bottom-right;
+}
+
+.uael-infobox-link-type-module:hover .elementor-animation-wobble-to-top-right {
+-webkit-animation-name: elementor-animation-wobble-to-top-right;
+animation-name: elementor-animation-wobble-to-top-right;
+}
+
+.uael-infobox-link-type-module:hover .elementor-animation-wobble-top {
+-webkit-animation-name: elementor-animation-wobble-top;
+animation-name: elementor-animation-wobble-top;
+}
+
+.uael-infobox-link-type-module:hover .elementor-animation-wobble-bottom {
+-webkit-animation-name: elementor-animation-wobble-bottom;
+animation-name: elementor-animation-wobble-bottom;
+}
+
+.uael-infobox-link-type-module:hover .elementor-animation-wobble-skew {
+-webkit-animation-name: elementor-animation-wobble-skew;
+animation-name: elementor-animation-wobble-skew;
+}
+
+.uael-infobox-link-type-module:hover .elementor-animation-buzz {
+-webkit-animation-name: elementor-animation-buzz;
+animation-name: elementor-animation-buzz;
+-webkit-animation-duration: 0.15s;
+animation-duration: 0.15s;
+-webkit-animation-timing-function: linear;
+animation-timing-function: linear;
+-webkit-animation-iteration-count: infinite;
+animation-iteration-count: infinite;
+}
+
+.uael-infobox-link-type-module:hover .elementor-animation-buzz-out {
+-webkit-animation-name: elementor-animation-buzz-out;
+animation-name: elementor-animation-buzz-out;
+-webkit-animation-duration: 0.75s;
+animation-duration: 0.75s;
+-webkit-animation-timing-function: linear;
+animation-timing-function: linear;
+-webkit-animation-iteration-count: 1;
+animation-iteration-count: 1;
+}
+
+.uael-icon-wrap .uael-icon i:before {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+/* RTL Alignment fix */
+.rtl .uael-module-content.uael-infobox.uael-infobox-left .uael-infobox-left-right-wrap {
+  text-align:left;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+      -webkit-justify-content: flex-end;
+      -moz-box-pack: end;
+      justify-content: flex-end;
+}
+.rtl .uael-module-content.uael-infobox.uael-infobox-right .uael-infobox-left-right-wrap {
+  text-align:right;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+      -webkit-justify-content: flex-start;
+      -moz-box-pack: start;
+      justify-content: flex-start;
+}
