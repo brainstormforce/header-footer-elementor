@@ -119,7 +119,7 @@ class HFE_Admin {
 		add_action( 'elementor/editor/footer', [ $this, 'print_permalink_clear_notice' ] );
 		add_action( 'elementor/editor/before_enqueue_scripts', [ $this, 'enqueue_permalink_clear_notice_js' ] );
 		add_action( 'elementor/editor/before_enqueue_styles', [ $this, 'enqueue_permalink_clear_notice_css' ] );
-		if('yes' === get_option('hfe_analytics_optin')){
+		if('yes' === get_option('bsf_analytics_optin')){
 			add_action('admin_init', [ $this, 'hfe_check_widgets_data_usage' ] );
 		}
 	}
