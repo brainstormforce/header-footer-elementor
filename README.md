@@ -2,7 +2,7 @@
 **Contributors:** [@brainstormforce](https://profiles.wordpress.org/@brainstormforce/), [@nikschavan](https://profiles.wordpress.org/@nikschavan/), [@pratikchaskar](https://profiles.wordpress.org/@pratikchaskar/)  
 **Tags:** elementor, header footer builder, widgets, header template, footer template  
 **Requires at least:** 5.0    
-**Tested up to:** 6.7.1   
+**Tested up to:** 6.8  
 **Requires PHP:** 7.4    
 **Stable tag:** 2.2.3  
 **License:** GPLv2 or later    
