@@ -72,9 +72,8 @@ class HFE_Settings_Page {
 		} else {
 			add_filter( 'wp_check_filetype_and_ext', [ $this, 'real_mime_types' ], 10, 4 );
 		}
-	}
 
-	
+	}
 
 	/**
 	 * Render UAE NPS Survey Notice.
