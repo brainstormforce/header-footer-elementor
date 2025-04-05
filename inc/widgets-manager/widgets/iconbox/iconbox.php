@@ -676,6 +676,13 @@ class Iconbox extends Common_Widget {
 					'selectors'  => array(
 						'{{WRAPPER}} a.elementor-button, {{WRAPPER}} .elementor-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					),
+					'default'    => array(
+						'top'    => '10',
+						'bottom' => '10',
+						'left'   => '20',
+						'right'  => '20',
+						'unit'   => 'px',
+					),
 					'condition'  => array(
 						'iconbox_cta_type' => 'button',
 					),
