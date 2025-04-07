@@ -121,7 +121,7 @@
 		});
 
 		if( ( 'cta' == last_item || 'cta' == last_item_flyout ) && 'expandible' != layout ){
-			$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).parent().addClass( 'hfe-button-wrapper' );
+			$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).parent().addClass( 'hfe-button-wrapper elementor-widget-button' );
 			$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).addClass( 'elementor-button' );			
 		}
 
@@ -537,14 +537,14 @@
 				
 				$( '.elementor-element-' + id + ' nav').addClass('hfe-dropdown');
 				if( ( 'cta' == last_item || 'cta' == last_item_flyout ) && 'expandible' != layout ){
-					$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).parent().removeClass( 'hfe-button-wrapper' );
+					$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).parent().removeClass( 'hfe-button-wrapper elementor-widget-button' );
 					$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).removeClass( 'elementor-button' );	
 				}	
 			}else{
 				
 				$( '.elementor-element-' + id + ' nav').removeClass('hfe-dropdown');
 				if( ( 'cta' == last_item || 'cta' == last_item_flyout ) && 'expandible' != layout ){
-					$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).parent().addClass( 'hfe-button-wrapper' );
+					$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).parent().addClass( 'hfe-button-wrapper elementor-widget-button' );
 					$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).addClass( 'elementor-button' );	
 				}
 			}
@@ -554,14 +554,14 @@
 				
 				$( '.elementor-element-' + id + ' nav').addClass('hfe-dropdown');
 				if( ( 'cta' == last_item || 'cta' == last_item_flyout ) && 'expandible' != layout ){
-					$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).parent().removeClass( 'hfe-button-wrapper' );
+					$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).parent().removeClass( 'hfe-button-wrapper elementor-widget-button' );
 					$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).removeClass( 'elementor-button' );	
 				}
 			}else{
 				
 				$( '.elementor-element-' + id + ' nav').removeClass('hfe-dropdown');
 				if( ( 'cta' == last_item || 'cta' == last_item_flyout ) && 'expandible' != layout ){
-					$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).parent().addClass( 'hfe-button-wrapper' );
+					$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).parent().addClass( 'hfe-button-wrapper elementor-widget-button' );
 					$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).addClass( 'elementor-button' );
 				}
 			}
@@ -569,7 +569,7 @@
 			var $parent_element = $( '.elementor-element-' + id );
 			$parent_element.find( 'nav').removeClass( 'hfe-dropdown' );
 			if( ( 'cta' == last_item || 'cta' == last_item_flyout ) && 'expandible' != layout ){
-				$parent_element.find( 'li.menu-item:last-child a.hfe-menu-item' ).parent().addClass( 'hfe-button-wrapper' );
+				$parent_element.find( 'li.menu-item:last-child a.hfe-menu-item' ).parent().addClass( 'hfe-button-wrapper elementor-widget-button' );
 				$parent_element.find( 'li.menu-item:last-child a.hfe-menu-item' ).addClass( 'elementor-button' );
 			}
 		}
@@ -577,7 +577,7 @@
 		var layout = $( '.elementor-element-' + id + ' .hfe-nav-menu' ).data( 'layout' );
 		if( 'expandible' == layout ){
 			if( ( 'cta' == last_item || 'cta' == last_item_flyout ) && 'expandible' != layout ){
-				$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).parent().removeClass( 'hfe-button-wrapper' );
+				$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).parent().removeClass( 'hfe-button-wrapper elementor-widget-button' );
 				$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).removeClass( 'elementor-button' );			
 			}			
 		}

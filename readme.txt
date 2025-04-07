@@ -87,7 +87,7 @@ If you love Ultimate Addons, you’ll love our other products too:
 
 * **Astra**: The fastest, most flexible WordPress theme – perfect for any type of website.  
 * **Starter Templates**: Choose from hundreds of ready-to-use website designs or use AI to build a site tailored to your needs.  
-* **SureTriggers**: Automate repetitive tasks and connect your favorite apps for ultimate efficiency.  
+* **OttoKit (Formerly SureTriggers)**: Automate repetitive tasks and connect your favorite apps for ultimate efficiency.  
 * **SureForms**: Create stunning forms, quizzes, or surveys in minutes.  
 * **SureCart**: The ultimate plugin for effortless eCommerce – perfect for online sellers. 
 
@@ -128,6 +128,9 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 ---
 
 == Changelog ==
+
+= 2.2.3.1 = 
+- Fix: Buttons now correctly load the default color and font settings as defined in the Theme Customizer.
 
 = 2.2.3 = 
 - Improvement: Improved accessibility compliance throughout the plugin.
