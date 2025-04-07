@@ -174,7 +174,7 @@ class HFE_Admin {
 				ARRAY_FILTER_USE_KEY
 			);
 
-			set_transient( $transient_key, $filtered_widgets_usage, 5 * MINUTE_IN_SECONDS ); // Store for 5 minutes
+			set_transient( $transient_key, $filtered_widgets_usage, MONTH_IN_SECONDS ); // Store for 5 minutes
 			update_option( 'uae_widgets_usage_data_option', $filtered_widgets_usage );
 		}
 	}
