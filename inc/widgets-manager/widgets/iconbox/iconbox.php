@@ -1,8 +1,8 @@
 <?php
 /**
- * UAEL Infobox.
+ * Iconbox.
  *
- * @package UAEL
+ * @package header-footer-elementor
  */
 
  namespace HFE\WidgetsManager\Widgets\Iconbox;
@@ -21,6 +21,7 @@ use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Css_Filter;
 
 use HFE\WidgetsManager\Base\Common_Widget;
+use HFE\WidgetsManager\Widgets_Loader;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;   // Exit if accessed directly.
@@ -117,32 +118,32 @@ class Iconbox extends Common_Widget {
 		$this->start_controls_section(
 			'section_general_field',
 			array(
-				'label' => __( 'General', 'uael' ),
+				'label' => __( 'General', 'header-footer-elementor' ),
 			)
 		);
 
 		$this->add_control(
 			'iconbox_title',
 			array(
-				'label'    => __( 'Title', 'uael' ),
+				'label'    => __( 'Title', 'header-footer-elementor' ),
 				'type'     => Controls_Manager::TEXT,
 				'selector' => '{{WRAPPER}} .hfe-iconbox-title',
 				'dynamic'  => array(
 					'active' => true,
 				),
-				'default'  => __( 'Icon Box', 'uael' ),
+				'default'  => __( 'Info Card', 'header-footer-elementor' ),
 			)
 		);
 		$this->add_control(
 			'iconbox_description',
 			array(
-				'label'    => __( 'Description', 'uael' ),
+				'label'    => __( 'Description', 'header-footer-elementor' ),
 				'type'     => Controls_Manager::TEXTAREA,
 				'selector' => '{{WRAPPER}} .hfe-iconbox-text',
 				'dynamic'  => array(
 					'active' => true,
 				),
-				'default'  => __( 'Enter description text here.Lorem ipsum dolor sit amet, consectetur adipiscing. Quo incidunt ullamco.​', 'uael' ),
+				'default'  => __( 'Enter description text here.Lorem ipsum dolor sit amet, consectetur adipiscing. Quo incidunt ullamco.', 'header-footer-elementor' ),
 			)
 		);
 
@@ -159,32 +160,32 @@ class Iconbox extends Common_Widget {
 		$this->start_controls_section(
 			'section_icon_field',
 			array(
-				'label' => __( 'Icon', 'uael' ),
+				'label' => __( 'Icon', 'header-footer-elementor' ),
 			)
 		);
 
 		$this->add_responsive_control(
 			'iconbox_overall_align',
 			array(
-				'label'     => __( 'Overall Alignment', 'uael' ),
+				'label'     => __( 'Overall Alignment', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'default'   => 'center',
 				'options'   => array(
 					'left'   => array(
-						'title' => __( 'Left', 'uael' ),
+						'title' => __( 'Left', 'header-footer-elementor' ),
 						'icon'  => 'fa fa-align-left',
 					),
 					'center' => array(
-						'title' => __( 'Center', 'uael' ),
+						'title' => __( 'Center', 'header-footer-elementor' ),
 						'icon'  => 'fa fa-align-center',
 					),
 					'right'  => array(
-						'title' => __( 'Right', 'uael' ),
+						'title' => __( 'Right', 'header-footer-elementor' ),
 						'icon'  => 'fa fa-align-right',
 					),
 				),
 				'selectors' => array(
-					'{{WRAPPER}} .hfe-infobox, {{WRAPPER}} .hfe-separator-parent' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .hfe-iconbox, {{WRAPPER}} .hfe-separator-parent' => 'text-align: {{VALUE}};',
 				),
 			)
 		);
@@ -192,7 +193,7 @@ class Iconbox extends Common_Widget {
 		$this->add_control(
 			'iconbox_select_icon',
 			array(
-				'label'            => __( 'Select Icon', 'uael' ),
+				'label'            => __( 'Select Icon', 'header-footer-elementor' ),
 				'type'             => Controls_Manager::ICONS,
 				'default'          => array(
 					'value'   => 'fa fa-star',
@@ -205,7 +206,7 @@ class Iconbox extends Common_Widget {
 		$this->add_responsive_control(
 			'iconbox_icon_size',
 			array(
-				'label'      => __( 'Size', 'uael' ),
+				'label'      => __( 'Size', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', 'em', 'rem' ),
 				'range'      => array(
@@ -228,12 +229,37 @@ class Iconbox extends Common_Widget {
 			)
 		);
 
+		$this->add_responsive_control(
+			'iconbox_icon_bgsize',
+			array(
+				'label'      => __( 'Background Size', 'header-footer-elementor' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', 'em', 'rem' ),
+				'range'      => array(
+					'px' => array(
+						'min' => 1,
+						'max' => 200,
+					),
+				),
+				'default'    => array(
+					'size' => 0,
+					'unit' => 'px',
+				),
+				'condition' => array(
+					'iconbox_select_icon[value]!'    => '',
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .hfe-icon-wrap .hfe-icon' => 'padding: {{SIZE}}{{UNIT}}; display:inline-block; box-sizing:content-box;',
+				)
+			)
+		);
+
 		$this->start_controls_tabs( 'iconbox_tabs_icon_style' );
 
 			$this->start_controls_tab(
 				'iconbox_icon_normal',
 				array(
-					'label'     => __( 'Normal', 'uael' ),
+					'label'     => __( 'Normal', 'header-footer-elementor' ),
 					'condition' => array(
 						'iconbox_select_icon[value]!'    => '',
 					),
@@ -242,7 +268,7 @@ class Iconbox extends Common_Widget {
 			$this->add_control(
 				'iconbox_icon_color',
 				array(
-					'label'      => __( 'Icon Color', 'uael' ),
+					'label'      => __( 'Icon Color', 'header-footer-elementor' ),
 					'type'       => Controls_Manager::COLOR,
 					'global'     => array(
 						'default' => Global_Colors::COLOR_PRIMARY,
@@ -261,7 +287,7 @@ class Iconbox extends Common_Widget {
 			$this->add_control(
 				'iconbox_icon_bgcolor',
 				array(
-					'label'     => __( 'Background Color', 'uael' ),
+					'label'     => __( 'Background Color', 'header-footer-elementor' ),
 					'type'      => Controls_Manager::COLOR,
 					'global'    => array(
 						'default' => Global_Colors::COLOR_SECONDARY,
@@ -271,7 +297,7 @@ class Iconbox extends Common_Widget {
 					),
 					'default'   => '',
 					'selectors' => array(
-						'{{WRAPPER}} .hfe-infobox:not(.hfe-imgicon-style-normal) .hfe-icon-wrap .hfe-icon, {{WRAPPER}} .hfe-infobox:not(.hfe-imgicon-style-normal) .hfe-image .hfe-image-content img' => 'background-color: {{VALUE}};',
+						'{{WRAPPER}} .hfe-iconbox:not(.hfe-imgicon-style-normal) .hfe-icon-wrap .hfe-icon, {{WRAPPER}} .hfe-iconbox:not(.hfe-imgicon-style-normal) .hfe-image .hfe-image-content img' => 'background-color: {{VALUE}};',
 					),
 				)
 			);
@@ -279,16 +305,16 @@ class Iconbox extends Common_Widget {
 			$this->add_control(
 				'iconbox_icon_border',
 				array(
-					'label'       => __( 'Border Style', 'uael' ),
+					'label'       => __( 'Border Style', 'header-footer-elementor' ),
 					'type'        => Controls_Manager::SELECT,
 					'default'     => 'none',
 					'label_block' => false,
 					'options'     => array(
-						'none'   => __( 'None', 'uael' ),
-						'solid'  => __( 'Solid', 'uael' ),
-						'double' => __( 'Double', 'uael' ),
-						'dotted' => __( 'Dotted', 'uael' ),
-						'dashed' => __( 'Dashed', 'uael' ),
+						'none'   => __( 'None', 'header-footer-elementor' ),
+						'solid'  => __( 'Solid', 'header-footer-elementor' ),
+						'double' => __( 'Double', 'header-footer-elementor' ),
+						'dotted' => __( 'Dotted', 'header-footer-elementor' ),
+						'dashed' => __( 'Dashed', 'header-footer-elementor' ),
 					),
 					'condition' => array(
 						'iconbox_select_icon[value]!'    => '',
@@ -301,7 +327,7 @@ class Iconbox extends Common_Widget {
 			$this->add_control(
 				'iconbox_icon_border_color',
 				array(
-					'label'     => __( 'Border Color', 'uael' ),
+					'label'     => __( 'Border Color', 'header-footer-elementor' ),
 					'type'      => Controls_Manager::COLOR,
 					'global'    => array(
 						'default' => Global_Colors::COLOR_PRIMARY,
@@ -319,7 +345,7 @@ class Iconbox extends Common_Widget {
 			$this->add_control(
 				'iconbox_icon_border_size',
 				array(
-					'label'      => __( 'Border Width', 'uael' ),
+					'label'      => __( 'Border Width', 'header-footer-elementor' ),
 					'type'       => Controls_Manager::DIMENSIONS,
 					'size_units' => array( 'px' ),
 					'default'    => array(
@@ -342,7 +368,7 @@ class Iconbox extends Common_Widget {
 			$this->add_responsive_control(
 				'iconbox_icon_border_radius',
 				array(
-					'label'      => __( 'Rounded Corners', 'uael' ),
+					'label'      => __( 'Rounded Corners', 'header-footer-elementor' ),
 					'type'       => Controls_Manager::DIMENSIONS,
 					'size_units' => array( 'px', '%' ),
 					'default'    => array(
@@ -366,7 +392,7 @@ class Iconbox extends Common_Widget {
 			$this->start_controls_tab(
 				'iconbox_icon_hover',
 				array(
-					'label'     => __( 'Hover', 'uael' ),
+					'label'     => __( 'Hover', 'header-footer-elementor' ),
 					'condition'  => array(
 						'iconbox_select_icon[value]!'    => '',
 					),
@@ -376,7 +402,7 @@ class Iconbox extends Common_Widget {
 				$this->add_control(
 					'iconbox_icon_hover_color',
 					array(
-						'label'      => __( 'Icon Hover Color', 'uael' ),
+						'label'      => __( 'Icon Hover Color', 'header-footer-elementor' ),
 						'type'       => Controls_Manager::COLOR,
 						'default'    => '',
 						'condition'  => array(
@@ -392,14 +418,14 @@ class Iconbox extends Common_Widget {
 				$this->add_control(
 					'iconbox_icon_hover_bgcolor',
 					array(
-						'label'     => __( 'Background Hover Color', 'uael' ),
+						'label'     => __( 'Background Hover Color', 'header-footer-elementor' ),
 						'type'      => Controls_Manager::COLOR,
 						'default'   => '',
 						'condition'  => array(
 							'iconbox_select_icon[value]!'    => '',
 						),
 						'selectors' => array(
-							'{{WRAPPER}} .hfe-icon-wrap .hfe-icon:hover, {{WRAPPER}} .hfe-image-content img:hover, {{WRAPPER}} .hfe-iconbox-link-type-module .hfe-iconbox-module-link:hover ~ .hfe-iconbox-content .hfe-imgicon-wrap .hfe-icon, {{WRAPPER}} .hfe-iconbox-link-type-module .hfe-iconbox-module-link:hover ~ .hfe-imgicon-wrap .hfe-icon, {{WRAPPER}} .hfe-iconbox-link-type-module .hfe-iconbox-module-link:hover ~ .hfe-image .hfe-image-content img, {{WRAPPER}} .hfe-iconbox-link-type-module .hfe-iconbox-module-link:hover ~ .hfe-imgicon-wrap img,{{WRAPPER}} .hfe-infobox:not(.hfe-imgicon-style-normal) .hfe-icon-wrap .hfe-icon:hover,{{WRAPPER}} .hfe-infobox:not(.hfe-imgicon-style-normal) .hfe-image .hfe-image-content img:hover' => 'background-color: {{VALUE}};',
+							'{{WRAPPER}} .hfe-icon-wrap .hfe-icon:hover, {{WRAPPER}} .hfe-image-content img:hover, {{WRAPPER}} .hfe-iconbox-link-type-module .hfe-iconbox-module-link:hover ~ .hfe-iconbox-content .hfe-imgicon-wrap .hfe-icon, {{WRAPPER}} .hfe-iconbox-link-type-module .hfe-iconbox-module-link:hover ~ .hfe-imgicon-wrap .hfe-icon, {{WRAPPER}} .hfe-iconbox-link-type-module .hfe-iconbox-module-link:hover ~ .hfe-image .hfe-image-content img, {{WRAPPER}} .hfe-iconbox-link-type-module .hfe-iconbox-module-link:hover ~ .hfe-imgicon-wrap img,{{WRAPPER}} .hfe-iconbox:not(.hfe-imgicon-style-normal) .hfe-icon-wrap .hfe-icon:hover,{{WRAPPER}} .hfe-iconbox:not(.hfe-imgicon-style-normal) .hfe-image .hfe-image-content img:hover' => 'background-color: {{VALUE}};',
 						),
 					)
 				);
@@ -407,7 +433,7 @@ class Iconbox extends Common_Widget {
 				$this->add_control(
 					'iconbox_icon_hover_border',
 					array(
-						'label'     => __( 'Border Hover Color', 'uael' ),
+						'label'     => __( 'Border Hover Color', 'header-footer-elementor' ),
 						'type'      => Controls_Manager::COLOR,
 						'condition' => array(
 							'iconbox_icon_border!'    => 'none',
@@ -438,21 +464,21 @@ class Iconbox extends Common_Widget {
 		$this->start_controls_section(
 			'section_cta_field',
 			array(
-				'label' => __( 'Call To Action', 'uael' ),
+				'label' => __( 'Call To Action', 'header-footer-elementor' ),
 			)
 		);
 
 		$this->add_control(
 			'iconbox_cta_type',
 			array(
-				'label'       => __( 'Type', 'uael' ),
+				'label'       => __( 'Type', 'header-footer-elementor' ),
 				'type'        => Controls_Manager::SELECT,
 				'default'     => 'none',
 				'label_block' => false,
 				'options'     => array(
-					'none'   => __( 'None', 'uael' ),
-					'link'   => __( 'Text', 'uael' ),
-					'button' => __( 'Button', 'uael' ),
+					'none'   => __( 'None', 'header-footer-elementor' ),
+					'link'   => __( 'Text', 'header-footer-elementor' ),
+					'button' => __( 'Button', 'header-footer-elementor' ),
 				),
 			)
 		);
@@ -460,9 +486,9 @@ class Iconbox extends Common_Widget {
 		$this->add_control(
 			'iconbox_link_text',
 			array(
-				'label'     => __( 'Text', 'uael' ),
+				'label'     => __( 'Text', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::TEXT,
-				'default'   => __( 'Read More', 'uael' ),
+				'default'   => __( 'Read More', 'header-footer-elementor' ),
 				'dynamic'   => array(
 					'active' => true,
 				),
@@ -475,9 +501,9 @@ class Iconbox extends Common_Widget {
 		$this->add_control(
 			'iconbox_button_text',
 			array(
-				'label'     => __( 'Text', 'uael' ),
+				'label'     => __( 'Text', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::TEXT,
-				'default'   => __( 'Click Here', 'uael' ),
+				'default'   => __( 'Click Here', 'header-footer-elementor' ),
 				'dynamic'   => array(
 					'active' => true,
 				),
@@ -490,7 +516,7 @@ class Iconbox extends Common_Widget {
 		$this->add_control(
 			'iconbox_text_link',
 			array(
-				'label'         => __( 'Link', 'uael' ),
+				'label'         => __( 'Link', 'header-footer-elementor' ),
 				'type'          => Controls_Manager::URL,
 				'default'       => array(
 					'url'         => '#',
@@ -510,15 +536,15 @@ class Iconbox extends Common_Widget {
 		$this->add_control(
 			'iconbox_button_size',
 			array(
-				'label'     => __( 'Size', 'uael' ),
+				'label'     => __( 'Size', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'sm',
 				'options'   => array(
-					'xs' => __( 'Extra Small', 'uael' ),
-					'sm' => __( 'Small', 'uael' ),
-					'md' => __( 'Medium', 'uael' ),
-					'lg' => __( 'Large', 'uael' ),
-					'xl' => __( 'Extra Large', 'uael' ),
+					'xs' => __( 'Extra Small', 'header-footer-elementor' ),
+					'sm' => __( 'Small', 'header-footer-elementor' ),
+					'md' => __( 'Medium', 'header-footer-elementor' ),
+					'lg' => __( 'Large', 'header-footer-elementor' ),
+					'xl' => __( 'Extra Large', 'header-footer-elementor' ),
 				),
 				'condition' => array(
 					'iconbox_cta_type' => 'button',
@@ -529,7 +555,7 @@ class Iconbox extends Common_Widget {
 		$this->add_control(
 			'iconbox_button_colors',
 			array(
-				'label'     => __( 'Colors', 'uael' ),
+				'label'     => __( 'Colors', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => array(
@@ -543,7 +569,7 @@ class Iconbox extends Common_Widget {
 			$this->start_controls_tab(
 				'iconbox_button_normal',
 				array(
-					'label'     => __( 'Normal', 'uael' ),
+					'label'     => __( 'Normal', 'header-footer-elementor' ),
 					'condition' => array(
 						'iconbox_cta_type' => 'button',
 					),
@@ -552,7 +578,7 @@ class Iconbox extends Common_Widget {
 			$this->add_control(
 				'iconbox_button_text_color',
 				array(
-					'label'     => __( 'Text Color', 'uael' ),
+					'label'     => __( 'Text Color', 'header-footer-elementor' ),
 					'type'      => Controls_Manager::COLOR,
 					'default'   => '',
 					'condition' => array(
@@ -568,7 +594,7 @@ class Iconbox extends Common_Widget {
 				Group_Control_Background::get_type(),
 				array(
 					'name'           => 'btn_background_color',
-					'label'          => __( 'Background Color', 'uael' ),
+					'label'          => __( 'Background Color', 'header-footer-elementor' ),
 					'types'          => array( 'classic', 'gradient' ),
 					'selector'       => '{{WRAPPER}} .elementor-button',
 					'condition'      => array(
@@ -587,17 +613,17 @@ class Iconbox extends Common_Widget {
 			$this->add_control(
 				'iconbox_button_border',
 				array(
-					'label'       => __( 'Border Style', 'uael' ),
+					'label'       => __( 'Border Style', 'header-footer-elementor' ),
 					'type'        => Controls_Manager::SELECT,
 					'default'     => 'none',
 					'label_block' => false,
 					'options'     => array(
-						'none'    => __( 'None', 'uael' ),
-						'default' => __( 'Default', 'uael' ),
-						'solid'   => __( 'Solid', 'uael' ),
-						'double'  => __( 'Double', 'uael' ),
-						'dotted'  => __( 'Dotted', 'uael' ),
-						'dashed'  => __( 'Dashed', 'uael' ),
+						'none'    => __( 'None', 'header-footer-elementor' ),
+						'default' => __( 'Default', 'header-footer-elementor' ),
+						'solid'   => __( 'Solid', 'header-footer-elementor' ),
+						'double'  => __( 'Double', 'header-footer-elementor' ),
+						'dotted'  => __( 'Dotted', 'header-footer-elementor' ),
+						'dashed'  => __( 'Dashed', 'header-footer-elementor' ),
 					),
 					'condition'   => array(
 						'iconbox_cta_type' => 'button',
@@ -610,7 +636,7 @@ class Iconbox extends Common_Widget {
 			$this->add_control(
 				'iconbox_button_border_color',
 				array(
-					'label'     => __( 'Border Color', 'uael' ),
+					'label'     => __( 'Border Color', 'header-footer-elementor' ),
 					'type'      => Controls_Manager::COLOR,
 					'condition' => array(
 						'iconbox_cta_type'       => 'button',
@@ -625,7 +651,7 @@ class Iconbox extends Common_Widget {
 			$this->add_control(
 				'iconbox_button_border_size',
 				array(
-					'label'      => __( 'Border Width', 'uael' ),
+					'label'      => __( 'Border Width', 'header-footer-elementor' ),
 					'type'       => Controls_Manager::DIMENSIONS,
 					'size_units' => array( 'px' ),
 					'default'    => array(
@@ -648,7 +674,7 @@ class Iconbox extends Common_Widget {
 			$this->add_control(
 				'iconbox_button_radius',
 				array(
-					'label'      => __( 'Rounded Corners', 'uael' ),
+					'label'      => __( 'Rounded Corners', 'header-footer-elementor' ),
 					'type'       => Controls_Manager::DIMENSIONS,
 					'size_units' => array( 'px', '%' ),
 					'default'    => array(
@@ -670,7 +696,7 @@ class Iconbox extends Common_Widget {
 			$this->add_responsive_control(
 				'iconbox_button_custom_padding',
 				array(
-					'label'      => __( 'Padding', 'uael' ),
+					'label'      => __( 'Padding', 'header-footer-elementor' ),
 					'type'       => Controls_Manager::DIMENSIONS,
 					'size_units' => array( 'px', 'em', '%' ),
 					'selectors'  => array(
@@ -694,7 +720,7 @@ class Iconbox extends Common_Widget {
 			$this->start_controls_tab(
 				'iconbox_button_hover',
 				array(
-					'label'     => __( 'Hover', 'uael' ),
+					'label'     => __( 'Hover', 'header-footer-elementor' ),
 					'condition' => array(
 						'iconbox_cta_type' => 'button',
 					),
@@ -703,7 +729,7 @@ class Iconbox extends Common_Widget {
 			$this->add_control(
 				'iconbox_button_hover_color',
 				array(
-					'label'     => __( 'Text Hover Color', 'uael' ),
+					'label'     => __( 'Text Hover Color', 'header-footer-elementor' ),
 					'type'      => Controls_Manager::COLOR,
 					'condition' => array(
 						'iconbox_cta_type' => 'button',
@@ -717,7 +743,7 @@ class Iconbox extends Common_Widget {
 				Group_Control_Background::get_type(),
 				array(
 					'name'           => 'iconbox_button_hover_bgcolor',
-					'label'          => __( 'Background Hover Color', 'uael' ),
+					'label'          => __( 'Background Hover Color', 'header-footer-elementor' ),
 					'types'          => array( 'classic', 'gradient' ),
 					'selector'       => '{{WRAPPER}} a.elementor-button:hover, {{WRAPPER}} .elementor-button:hover',
 					'condition'      => array(
@@ -736,7 +762,7 @@ class Iconbox extends Common_Widget {
 			$this->add_control(
 				'iconbox_button_border_hover_color',
 				array(
-					'label'     => __( 'Border Color', 'uael' ),
+					'label'     => __( 'Border Color', 'header-footer-elementor' ),
 					'type'      => Controls_Manager::COLOR,
 					'condition' => array(
 						'iconbox_cta_type'       => 'button',
@@ -765,7 +791,7 @@ class Iconbox extends Common_Widget {
 		$this->start_controls_section(
 			'section_typography_field',
 			array(
-				'label' => __( 'Typography', 'uael' ),
+				'label' => __( 'Typography', 'header-footer-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -773,7 +799,7 @@ class Iconbox extends Common_Widget {
 		$this->add_control(
 			'iconbox_title_typo',
 			array(
-				'label'     => __( 'Title', 'uael' ),
+				'label'     => __( 'Title', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'condition' => array(
 					'iconbox_title!' => '',
@@ -783,17 +809,17 @@ class Iconbox extends Common_Widget {
 		$this->add_control(
 			'iconbox_title_tag',
 			array(
-				'label'     => __( 'Title Tag', 'uael' ),
+				'label'     => __( 'Title Tag', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'options'   => array(
-					'h1'  => __( 'H1', 'uael' ),
-					'h2'  => __( 'H2', 'uael' ),
-					'h3'  => __( 'H3', 'uael' ),
-					'h4'  => __( 'H4', 'uael' ),
-					'h5'  => __( 'H5', 'uael' ),
-					'h6'  => __( 'H6', 'uael' ),
-					'div' => __( 'div', 'uael' ),
-					'p'   => __( 'p', 'uael' ),
+					'h1'  => __( 'H1', 'header-footer-elementor' ),
+					'h2'  => __( 'H2', 'header-footer-elementor' ),
+					'h3'  => __( 'H3', 'header-footer-elementor' ),
+					'h4'  => __( 'H4', 'header-footer-elementor' ),
+					'h5'  => __( 'H5', 'header-footer-elementor' ),
+					'h6'  => __( 'H6', 'header-footer-elementor' ),
+					'div' => __( 'div', 'header-footer-elementor' ),
+					'p'   => __( 'p', 'header-footer-elementor' ),
 				),
 				'default'   => 'h3',
 				'condition' => array(
@@ -817,7 +843,7 @@ class Iconbox extends Common_Widget {
 		$this->add_control(
 			'iconbox_title_color',
 			array(
-				'label'     => __( 'Color', 'uael' ),
+				'label'     => __( 'Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'global'    => array(
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -835,7 +861,7 @@ class Iconbox extends Common_Widget {
 		$this->add_control(
 			'iconbox_title_hover_color',
 			array(
-				'label'     => __( 'Hover Color', 'uael' ),
+				'label'     => __( 'Hover Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'condition' => array(
@@ -851,7 +877,7 @@ class Iconbox extends Common_Widget {
 		$this->add_control(
 			'iconbox_desc_typo',
 			array(
-				'label'     => __( 'Description', 'uael' ),
+				'label'     => __( 'Description', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => array(
@@ -875,7 +901,7 @@ class Iconbox extends Common_Widget {
 		$this->add_control(
 			'iconbox_desc_color',
 			array(
-				'label'     => __( 'Description Color', 'uael' ),
+				'label'     => __( 'Description Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'global'    => array(
 					'default' => Global_Colors::COLOR_TEXT,
@@ -893,7 +919,7 @@ class Iconbox extends Common_Widget {
 		$this->add_control(
 			'iconbox_link_typo',
 			array(
-				'label'     => __( 'CTA Link Text', 'uael' ),
+				'label'     => __( 'CTA Link Text', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => array(
@@ -905,7 +931,7 @@ class Iconbox extends Common_Widget {
 		$this->add_control(
 			'iconbox_button_typo',
 			array(
-				'label'     => __( 'CTA Button Text', 'uael' ),
+				'label'     => __( 'CTA Button Text', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => array(
@@ -930,7 +956,7 @@ class Iconbox extends Common_Widget {
 		$this->add_control(
 			'iconbox_cta_color',
 			array(
-				'label'     => __( 'Link Color', 'uael' ),
+				'label'     => __( 'Link Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'global'    => array(
 					'default' => Global_Colors::COLOR_ACCENT,
@@ -957,14 +983,14 @@ class Iconbox extends Common_Widget {
 		$this->start_controls_section(
 			'section_margin_field',
 			array(
-				'label' => __( 'Margins', 'uael' ),
+				'label' => __( 'Margins', 'header-footer-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
 		$this->add_responsive_control(
 			'iconbox_title_margin',
 			array(
-				'label'      => __( 'Title Margin', 'uael' ),
+				'label'      => __( 'Title Margin', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px' ),
 				'default'    => array(
@@ -987,11 +1013,11 @@ class Iconbox extends Common_Widget {
 		$this->add_responsive_control(
 			'iconbox_responsive_icon_margin',
 			array(
-				'label'      => __( 'Icon Margin', 'uael' ),
+				'label'      => __( 'Icon Margin', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px' ),
 				'condition'  => array(
-					'uael_iconbox_image_type' => array( 'icon', 'photo' ),
+					'iconbox_select_icon[value]!'    => '',
 				),
 				'selectors'  => array(
 					'{{WRAPPER}} .hfe-imgicon-wrap' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -1002,7 +1028,7 @@ class Iconbox extends Common_Widget {
 		$this->add_responsive_control(
 			'iconbox_desc_margin',
 			array(
-				'label'      => __( 'Description Margins', 'uael' ),
+				'label'      => __( 'Description Margins', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px' ),
 				'default'    => array(
@@ -1025,7 +1051,7 @@ class Iconbox extends Common_Widget {
 		$this->add_responsive_control(
 			'iconbox_cta_margin',
 			array(
-				'label'      => __( 'CTA Margin', 'uael' ),
+				'label'      => __( 'CTA Margin', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px' ),
 				'default'    => array(
@@ -1048,6 +1074,94 @@ class Iconbox extends Common_Widget {
 	}
 
 	/**
+	 * Display Icon.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 * @param object $settings for settings.
+	 */
+	public function render_icon( $settings ) {
+		if ( '' !== $settings['iconbox_select_icon']['value'] ) { ?>
+			<div class="hfe-icon-wrap">
+				<span class="hfe-icon">
+					<?php \Elementor\Icons_Manager::render_icon( $settings['iconbox_select_icon'], [ 'aria-hidden' => 'true' ] ); ?>
+				</span>
+			</div>
+			<?php
+		}
+	}
+
+	/**
+	 * Display Title.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 * @param object $settings for settings.
+	 */
+	public function render_title( $settings ) {
+			
+		if ( ! empty( $settings['iconbox_title'] ) ) {
+			?>
+			<div class="hfe-iconbox-title-wrap">
+				<?php 
+					$heading_size_tag = Widgets_Loader::validate_html_tag( $settings['iconbox_title_tag'] );
+					echo '<' . esc_attr( $heading_size_tag ) . ' class="hfe-iconbox-title elementor-inline-editing" data-elementor-setting-key="iconbox_title" data-elementor-inline-editing-toolbar="basic" >';
+					echo wp_kses_post( $settings['iconbox_title'] );
+					echo '</' . esc_attr( $heading_size_tag ) . '>'; 
+				?>
+			</div>
+			<?php
+		}
+	}
+
+
+	/**
+	 * Display CTA.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 * @param object $settings for settings.
+	 */
+	public function render_link( $settings ) {
+			
+		if ( 'link' === $settings['iconbox_cta_type'] ) {
+			if ( ! empty( $settings['iconbox_text_link']['url'] ) ) {
+				$this->add_link_attributes( 'cta_link', $settings['iconbox_text_link'] );
+			}
+
+			$this->add_render_attribute( 'cta_link', 'class', 'hfe-iconbox-cta-link ' );
+			?>
+			<div class="hfe-iconbox-cta-link-style">
+				<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'cta_link' ) ); ?>> <?php //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					<span class="elementor-inline-editing" data-elementor-setting-key="iconbox_link_text" data-elementor-inline-editing-toolbar="basic"><?php echo wp_kses_post( $settings['iconbox_link_text'] ); ?></span>
+				</a>
+			</div>
+			<?php
+		} elseif ( 'button' === $settings['iconbox_cta_type'] ) {
+			$this->add_render_attribute( 'wrapper', 'class', 'hfe-button-wrapper' );
+			$this->add_render_attribute( 'text', 'class', 'elementor-button-text elementor-inline-editing' );
+
+			if ( ! empty( $settings['iconbox_text_link']['url'] ) ) {
+
+				$this->add_link_attributes( 'button', $settings['iconbox_text_link'] );
+				$this->add_render_attribute( 'button', 'class', 'elementor-button-link' );
+			}
+			$this->add_render_attribute( 'button', 'class', 'elementor-button' );
+
+			if ( ! empty( $settings['iconbox_button_size'] ) ) {
+				$this->add_render_attribute( 'button', 'class', 'elementor-size-' . $settings['iconbox_button_size'] );
+			}
+			?>
+			<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'wrapper' ) ); ?>>
+				<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'button' ) ); ?>>
+					<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'text' ) ); ?>  data-elementor-setting-key="iconbox_button_text" data-elementor-inline-editing-toolbar="none"><?php echo wp_kses_post( $settings['iconbox_button_text'] ); ?></span>
+				</a>
+			</div>
+			<?php
+		}
+	}
+
+	/**
 	 * Render Info Box output on the frontend.
 	 *
 	 * Written in PHP and used to generate the final HTML.
@@ -1059,6 +1173,21 @@ class Iconbox extends Common_Widget {
 		$html     = '';
 		$settings = $this->get_settings_for_display();
 		$node_id  = $this->get_id();
+
+		?>
+
+		<div class="hfe-iconbox">
+			<?php $this->render_icon( $settings ); ?>
+			<?php $this->render_title( $settings ); ?>
+			<div class="hfe-iconbox-text-wrap">
+				<div class="hfe-iconbox-text elementor-inline-editing" data-elementor-setting-key="iconbox_description" data-elementor-inline-editing-toolbar="advanced">
+					<?php echo wp_kses_post( $settings['iconbox_description'] ); ?>
+				</div>
+				<?php $this->render_link( $settings ); ?>
+			</div>
+		</div>
+
+		<?php
 		
 	}
 	/**
@@ -1069,5 +1198,94 @@ class Iconbox extends Common_Widget {
 	 * @since x.x.x
 	 * @access protected
 	 */
-	protected function content_template() {}
+	protected function content_template() {
+
+		?>
+		<#
+		var iconHTML = elementor.helpers.renderIcon( view, settings.iconbox_select_icon, { 'aria-hidden': true }, 'i' , 'object' );
+
+		var headingSizeTag = elementor.helpers.validateHTMLTag( settings.iconbox_title_tag );
+
+		if ( typeof elementor.helpers.validateHTMLTag === "function" ) { 
+			headingSizeTag = elementor.helpers.validateHTMLTag( settings.iconbox_title_tag );
+		} else if( HfeWidgetsData.allowed_tags ) {
+			headingSizeTag = HfeWidgetsData.allowed_tags.includes( headingSizeTag.toLowerCase() ) ? headingSizeTag : 'div';
+		}
+		#>
+		
+		<#
+		function render_link() {
+
+			if ( 'link' == settings.iconbox_cta_type ) {
+				var urlPattern = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$|^www\.[^\s/$.?#].[^\s]*$/;
+				var text_link_url = _.escape( settings.iconbox_text_link.url );
+				if ( urlPattern.test( text_link_url ) ){
+					view.addRenderAttribute( 'link', 'href', text_link_url  );
+				}#>
+				<div class="hfe-iconbox-cta-link-style">
+					<a {{{ view.getRenderAttributeString( 'link' ) }}} class="hfe-iconbox-cta-link"> <?php //phpcs:ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
+						<span class="elementor-inline-editing" data-elementor-setting-key="iconbox_link_text" data-elementor-inline-editing-toolbar="basic">{{ elementor.helpers.sanitize( settings.iconbox_link_text ) }}</span>
+					</a>
+				</div>
+			<# }
+			else if ( 'button' == settings.iconbox_cta_type ) {
+
+				view.addRenderAttribute( 'wrapper', 'class', 'hfe-button-wrapper' );
+				if ( '' != settings.iconbox_text_link.url ) {
+					var urlPattern = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$|^www\.[^\s/$.?#].[^\s]*$/;
+					var btn_link_url = _.escape( settings.iconbox_text_link.url );
+					if( urlPattern.test( btn_link_url ) ){
+						view.addRenderAttribute( 'button', 'href', btn_link_url  );
+					}
+					view.addRenderAttribute( 'button', 'class', 'elementor-button-link' );
+				}
+				view.addRenderAttribute( 'button', 'class', 'elementor-button' );
+
+				if ( '' != settings.iconbox_button_size ) {
+					view.addRenderAttribute( 'button', 'class', 'elementor-size-' + settings.iconbox_button_size );
+				} #>
+				<div {{{ view.getRenderAttributeString( 'wrapper' ) }}}> <?php //phpcs:ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
+					<a  {{{ view.getRenderAttributeString( 'button' ) }}}> <?php //phpcs:ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
+						<#
+						view.addRenderAttribute( 'content-wrapper', 'class', 'elementor-button-content-wrapper' );
+
+						view.addRenderAttribute( 'text', 'class', 'elementor-button-text' );
+
+						view.addRenderAttribute( 'text', 'class', 'elementor-inline-editing' );
+
+						#>
+						<span {{{ view.getRenderAttributeString( 'content-wrapper' ) }}}> <?php //phpcs:ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
+							<span {{{ view.getRenderAttributeString( 'text' ) }}} data-elementor-setting-key="iconbox_button_text" data-elementor-inline-editing-toolbar="none">{{ elementor.helpers.sanitize( settings.iconbox_button_text ) }}</span> <?php //phpcs:ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
+						</span>
+					</a>
+				</div>
+			<#
+			}
+		}
+		#>
+		<div class="hfe-iconbox">
+			<# if( '' != settings.iconbox_select_icon.value ){ #>
+				<div class="hfe-icon-wrap">
+					<span class="hfe-icon">
+						{{{iconHTML.value}}}
+					</span>
+				</div>
+			<# } #>
+				<# if ( '' != settings.iconbox_title ) {
+					var iconbox_title = elementor.helpers.sanitize( settings.iconbox_title ); #>
+					<div class="hfe-iconbox-title-wrap">
+						<{{ headingSizeTag }} class="hfe-iconbox-title">{{{ iconbox_title }}}</{{ headingSizeTag }}>
+					</div>
+				<# } #>
+			<div class="hfe-iconbox-text-wrap">
+				<# if ( '' != settings.iconbox_description ) {
+					var iconbox_description = elementor.helpers.sanitize( settings.iconbox_description ); #>
+					<div class="hfe-iconbox-text elementor-inline-editing" data-elementor-setting-key="iconbox_description" data-elementor-inline-editing-toolbar="advanced">{{{ iconbox_description }}}</div>
+				<# } #>
+				<# render_link(); #>
+			</div>
+		</div>
+		#>
+		<?php
+	}
 }

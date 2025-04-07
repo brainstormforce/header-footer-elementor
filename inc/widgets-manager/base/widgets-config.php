@@ -64,7 +64,7 @@ class Widgets_Config {
 			],
 			'Iconbox'         => [
 				'slug'        => 'hfe-iconbox',
-				'title'       => __( 'Icon Box', 'header-footer-elementor' ),
+				'title'       => __( 'Info Card', 'header-footer-elementor' ),
 				'keywords'    => [ 'uael', 'icon', 'dynamic', 'box', 'card', 'cta' ],
 				'icon'        => 'hfe-icon-page-title',
 				'title_url'   => '#',
