@@ -98,8 +98,6 @@ if ( ! class_exists( 'HFE_Analytics' ) ) {
 			foreach ($fetch_elementor_data as $key => $value) {
 				$stats_data['plugin_data']['uae']['numeric_values'][$key] = $value;
 			}
-			var_dump($stats_data['plugin_data']['uae']);
-			die();
             return $stats_data;
         }
 
