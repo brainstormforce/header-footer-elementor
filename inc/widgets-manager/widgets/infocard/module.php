@@ -5,7 +5,7 @@
  * @package header-footer-elementor
  */
 
-namespace HFE\WidgetsManager\Widgets\Iconbox;
+namespace HFE\WidgetsManager\Widgets\Infocard;
 
 use HFE\WidgetsManager\Base\Module_Base;
 
@@ -39,7 +39,7 @@ class Module extends Module_Base {
 	 * @return string Module name.
 	 */
 	public function get_name() {
-		return 'iconbox';
+		return 'infocard';
 	}
 
 	/**
@@ -52,7 +52,7 @@ class Module extends Module_Base {
 	 */
 	public function get_widgets() {
 		return array(
-			'Iconbox',
+			'Infocard',
 		);
 	}
 

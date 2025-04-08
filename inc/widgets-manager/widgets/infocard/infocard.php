@@ -1,24 +1,18 @@
 <?php
 /**
- * Iconbox.
+ * Infocard.
  *
  * @package header-footer-elementor
  */
 
- namespace HFE\WidgetsManager\Widgets\Iconbox;
+namespace HFE\WidgetsManager\Widgets\Infocard;
 
 // Elementor Classes.
 use Elementor\Controls_Manager;
-use Elementor\Control_Media;
-use Elementor\Utils;
-use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
-use Elementor\Group_Control_Box_Shadow;
 use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use Elementor\Group_Control_Background;
-use Elementor\Group_Control_Image_Size;
-use Elementor\Group_Control_Css_Filter;
 
 use HFE\WidgetsManager\Base\Common_Widget;
 use HFE\WidgetsManager\Widgets_Loader;
@@ -28,12 +22,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Class Iconbox.
+ * Class Infocard.
  */
-class Iconbox extends Common_Widget {
+class Infocard extends Common_Widget {
 
 	/**
-	 * Retrieve Iconbox Widget name.
+	 * Retrieve Infocard Widget name.
 	 *
 	 * @since x.x.x
 	 * @access public
@@ -41,11 +35,11 @@ class Iconbox extends Common_Widget {
 	 * @return string Widget name.
 	 */
 	public function get_name() {
-		return parent::get_widget_slug( 'Iconbox' );
+		return parent::get_widget_slug( 'Infocard' );
 	}
 
 	/**
-	 * Retrieve Iconbox Widget title.
+	 * Retrieve Infocard Widget title.
 	 *
 	 * @since x.x.x
 	 * @access public
@@ -53,11 +47,11 @@ class Iconbox extends Common_Widget {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return parent::get_widget_title( 'Iconbox' );
+		return parent::get_widget_title( 'Infocard' );
 	}
 
 	/**
-	 * Retrieve Iconbox Widget icon.
+	 * Retrieve Infocard Widget icon.
 	 *
 	 * @since x.x.x
 	 * @access public
@@ -65,7 +59,7 @@ class Iconbox extends Common_Widget {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return parent::get_widget_icon( 'Iconbox' );
+		return parent::get_widget_icon( 'Infocard' );
 	}
 
 	/**
@@ -77,7 +71,7 @@ class Iconbox extends Common_Widget {
 	 * @return string Widget keywords.
 	 */
 	public function get_keywords() {
-		return parent::get_widget_keywords( 'Iconbox' );
+		return parent::get_widget_keywords( 'Infocard' );
 	}
 
 	/**
@@ -94,7 +88,7 @@ class Iconbox extends Common_Widget {
 	}
 
 	/**
-	 * Register Iconbox controls.
+	 * Register Infocard controls.
 	 *
 	 * @since x.x.x
 	 * @access protected
@@ -109,7 +103,7 @@ class Iconbox extends Common_Widget {
 	}
 
 	/**
-	 * Register Iconbox General Controls.
+	 * Register Infocard General Controls.
 	 *
 	 * @since x.x.x
 	 * @access protected
@@ -147,23 +141,6 @@ class Iconbox extends Common_Widget {
 			)
 		);
 
-		$this->end_controls_section();
-	}
-
-	/**
-	 * Register Iconbox Icon Controls.
-	 *
-	 * @since x.x.x
-	 * @access protected
-	 */
-	protected function register_icon_content_controls() {
-		$this->start_controls_section(
-			'section_icon_field',
-			array(
-				'label' => __( 'Icon', 'header-footer-elementor' ),
-			)
-		);
-
 		$this->add_responsive_control(
 			'iconbox_overall_align',
 			array(
@@ -187,6 +164,24 @@ class Iconbox extends Common_Widget {
 				'selectors' => array(
 					'{{WRAPPER}} .hfe-iconbox' => 'text-align: {{VALUE}};',
 				),
+			)
+		);
+
+
+		$this->end_controls_section();
+	}
+
+	/**
+	 * Register Iconbox Icon Controls.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function register_icon_content_controls() {
+		$this->start_controls_section(
+			'section_icon_field',
+			array(
+				'label' => __( 'Icon', 'header-footer-elementor' ),
 			)
 		);
 

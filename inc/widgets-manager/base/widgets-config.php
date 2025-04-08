@@ -62,8 +62,8 @@ class Widgets_Config {
 				'demo_url'    => 'https://ultimateelementor.com/widgets/post-info/',
 				'category'    => 'content',
 			],
-			'Iconbox'         => [
-				'slug'        => 'hfe-iconbox',
+			'Infocard'         => [
+				'slug'        => 'hfe-infocard',
 				'title'       => __( 'Info Card', 'header-footer-elementor' ),
 				'keywords'    => [ 'uael', 'icon', 'dynamic', 'box', 'card', 'cta' ],
 				'icon'        => 'hfe-icon-page-title',
@@ -71,7 +71,7 @@ class Widgets_Config {
 				'default'     => true,
 				'is_pro'      => false,
 				'doc_url'     => '',
-				'description' => __( 'Show Call to Action.', 'header-footer-elementor' ),
+				'description' => __( 'Add icon, headings, descriptions & CTA.', 'header-footer-elementor' ),
 				'demo_url'    => '',
 				'category'    => 'content',
 			],
