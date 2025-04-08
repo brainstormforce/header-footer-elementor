@@ -185,7 +185,7 @@ class Iconbox extends Common_Widget {
 					),
 				),
 				'selectors' => array(
-					'{{WRAPPER}} .hfe-iconbox, {{WRAPPER}} .hfe-separator-parent' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .hfe-iconbox' => 'text-align: {{VALUE}};',
 				),
 			)
 		);
@@ -211,8 +211,17 @@ class Iconbox extends Common_Widget {
 				'size_units' => array( 'px', 'em', 'rem' ),
 				'range'      => array(
 					'px' => array(
-						'min' => 1,
-						'max' => 200,
+						'min'  => 0,
+						'max'  => 100,
+						'step' => 1,
+					),
+					'%'  => array(
+						'min' => 0,
+						'max' => 100,
+					),
+					'em' => array(
+						'min' => 0,
+						'max' => 100,
 					),
 				),
 				'default'    => array(
@@ -224,7 +233,7 @@ class Iconbox extends Common_Widget {
 				),
 				'selectors'  => array(
 					'{{WRAPPER}} .hfe-icon-wrap .hfe-icon i' => 'font-size: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};line-height: {{SIZE}}{{UNIT}}; text-align: center;',
-					'{{WRAPPER}} .hfe-icon-wrap .hfe-icon' => ' height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};line-height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .hfe-icon-wrap .hfe-icon' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}; line-height: {{SIZE}}{{UNIT}};',
 				),
 			)
 		);
@@ -237,8 +246,17 @@ class Iconbox extends Common_Widget {
 				'size_units' => array( 'px', 'em', 'rem' ),
 				'range'      => array(
 					'px' => array(
-						'min' => 1,
-						'max' => 200,
+						'min'  => 0,
+						'max'  => 100,
+						'step' => 1,
+					),
+					'%'  => array(
+						'min' => 0,
+						'max' => 100,
+					),
+					'em' => array(
+						'min' => 0,
+						'max' => 100,
 					),
 				),
 				'default'    => array(
@@ -290,14 +308,14 @@ class Iconbox extends Common_Widget {
 					'label'     => __( 'Background Color', 'header-footer-elementor' ),
 					'type'      => Controls_Manager::COLOR,
 					'global'    => array(
-						'default' => Global_Colors::COLOR_SECONDARY,
+						'default' => '',
 					),
 					'condition' => array(
 						'iconbox_select_icon[value]!'    => '',
 					),
 					'default'   => '',
 					'selectors' => array(
-						'{{WRAPPER}} .hfe-iconbox:not(.hfe-imgicon-style-normal) .hfe-icon-wrap .hfe-icon, {{WRAPPER}} .hfe-iconbox:not(.hfe-imgicon-style-normal) .hfe-image .hfe-image-content img' => 'background-color: {{VALUE}};',
+						'{{WRAPPER}} .hfe-iconbox .hfe-icon-wrap .hfe-icon' => 'background-color: {{VALUE}};',
 					),
 				)
 			);
@@ -320,7 +338,7 @@ class Iconbox extends Common_Widget {
 						'iconbox_select_icon[value]!'    => '',
 					),
 					'selectors'   => array(
-						'{{WRAPPER}} .hfe-imgicon-style-custom .hfe-icon-wrap .hfe-icon, {{WRAPPER}} .hfe-imgicon-style-custom .hfe-image .hfe-image-content img' => 'border-style: {{VALUE}};',
+						'{{WRAPPER}} .hfe-icon-wrap .hfe-icon' => 'border-style: {{VALUE}};',
 					),
 				)
 			);
@@ -338,7 +356,7 @@ class Iconbox extends Common_Widget {
 					),
 					'default'   => '',
 					'selectors' => array(
-						'{{WRAPPER}} .hfe-imgicon-style-custom .hfe-icon-wrap .hfe-icon, {{WRAPPER}} .hfe-imgicon-style-custom .hfe-image .hfe-image-content img' => 'border-color: {{VALUE}};',
+						'{{WRAPPER}} .hfe-icon-wrap .hfe-icon' => 'border-color: {{VALUE}};',
 					),
 				)
 			);
@@ -360,7 +378,7 @@ class Iconbox extends Common_Widget {
 						'iconbox_select_icon[value]!'    => '',
 					),
 					'selectors'  => array(
-						'{{WRAPPER}} .hfe-imgicon-style-custom .hfe-icon-wrap .hfe-icon, {{WRAPPER}} .hfe-imgicon-style-custom .hfe-image .hfe-image-content img' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; box-sizing:content-box;',
+						'{{WRAPPER}} .hfe-icon-wrap .hfe-icon' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; box-sizing:content-box;',
 					),
 				)
 			);
@@ -382,7 +400,7 @@ class Iconbox extends Common_Widget {
 						'iconbox_select_icon[value]!'    => '',
 					),
 					'selectors'  => array(
-						'{{WRAPPER}} .hfe-imgicon-style-custom .hfe-icon-wrap .hfe-icon, {{WRAPPER}} .hfe-imgicon-style-custom .hfe-image .hfe-image-content img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; box-sizing:content-box;',
+						'{{WRAPPER}} .hfe-icon-wrap .hfe-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};  box-sizing:content-box;',
 					),
 				)
 			);
@@ -409,8 +427,8 @@ class Iconbox extends Common_Widget {
 							'iconbox_select_icon[value]!'    => '',
 						),
 						'selectors'  => array(
-							'{{WRAPPER}} .hfe-icon-wrap .hfe-icon:hover > i, {{WRAPPER}} .hfe-iconbox-link-type-module .hfe-iconbox-module-link:hover ~ .hfe-iconbox-content .hfe-imgicon-wrap i, {{WRAPPER}} .hfe-iconbox-link-type-module .hfe-iconbox-module-link:hover ~ .hfe-imgicon-wrap i' => 'color: {{VALUE}};',
-							'{{WRAPPER}} .hfe-icon-wrap .hfe-icon:hover > svg, {{WRAPPER}} .hfe-iconbox-link-type-module .hfe-iconbox-module-link:hover ~ .hfe-iconbox-content .hfe-imgicon-wrap svg, {{WRAPPER}} .hfe-iconbox-link-type-module .hfe-iconbox-module-link:hover ~ .hfe-imgicon-wrap svg' => 'fill: {{VALUE}};',
+							'{{WRAPPER}} .hfe-icon-wrap .hfe-icon:hover > i' => 'color: {{VALUE}};',
+							'{{WRAPPER}} .hfe-icon-wrap .hfe-icon:hover > svg' => 'fill: {{VALUE}};',
 						),
 					)
 				);
@@ -425,7 +443,7 @@ class Iconbox extends Common_Widget {
 							'iconbox_select_icon[value]!'    => '',
 						),
 						'selectors' => array(
-							'{{WRAPPER}} .hfe-icon-wrap .hfe-icon:hover, {{WRAPPER}} .hfe-image-content img:hover, {{WRAPPER}} .hfe-iconbox-link-type-module .hfe-iconbox-module-link:hover ~ .hfe-iconbox-content .hfe-imgicon-wrap .hfe-icon, {{WRAPPER}} .hfe-iconbox-link-type-module .hfe-iconbox-module-link:hover ~ .hfe-imgicon-wrap .hfe-icon, {{WRAPPER}} .hfe-iconbox-link-type-module .hfe-iconbox-module-link:hover ~ .hfe-image .hfe-image-content img, {{WRAPPER}} .hfe-iconbox-link-type-module .hfe-iconbox-module-link:hover ~ .hfe-imgicon-wrap img,{{WRAPPER}} .hfe-iconbox:not(.hfe-imgicon-style-normal) .hfe-icon-wrap .hfe-icon:hover,{{WRAPPER}} .hfe-iconbox:not(.hfe-imgicon-style-normal) .hfe-image .hfe-image-content img:hover' => 'background-color: {{VALUE}};',
+							'{{WRAPPER}} .hfe-icon-wrap .hfe-icon:hover' => 'background-color: {{VALUE}};',
 						),
 					)
 				);
@@ -441,7 +459,7 @@ class Iconbox extends Common_Widget {
 						),
 						'default'   => '',
 						'selectors' => array(
-							'{{WRAPPER}} .hfe-icon-wrap .hfe-icon:hover, {{WRAPPER}} .hfe-image-content img:hover,  {{WRAPPER}} .hfe-iconbox-link-type-module .hfe-iconbox-module-link:hover ~ .hfe-iconbox-content .hfe-imgicon-wrap .hfe-icon, {{WRAPPER}} .hfe-iconbox-link-type-module .hfe-iconbox-module-link:hover ~ .hfe-imgicon-wrap .hfe-icon, {{WRAPPER}} .hfe-iconbox-link-type-module .hfe-iconbox-module-link:hover ~ .hfe-image .hfe-image-content img, {{WRAPPER}} .hfe-iconbox-link-type-module .hfe-iconbox-module-link:hover ~ .hfe-imgicon-wrap img ' => 'border-color: {{VALUE}};',
+							'{{WRAPPER}} .hfe-icon-wrap .hfe-icon:hover' => 'border-color: {{VALUE}};',
 						),
 					)
 				);
@@ -473,7 +491,7 @@ class Iconbox extends Common_Widget {
 			array(
 				'label'       => __( 'Type', 'header-footer-elementor' ),
 				'type'        => Controls_Manager::SELECT,
-				'default'     => 'none',
+				'default'     => 'button',
 				'label_block' => false,
 				'options'     => array(
 					'none'   => __( 'None', 'header-footer-elementor' ),
@@ -529,7 +547,6 @@ class Iconbox extends Common_Widget {
 				'condition'     => array(
 					'iconbox_cta_type!' => 'none',
 				),
-				'selector'      => '{{WRAPPER}} a.hfe-iconbox-cta-link',
 			)
 		);
 
@@ -585,8 +602,7 @@ class Iconbox extends Common_Widget {
 						'iconbox_cta_type' => 'button',
 					),
 					'selectors' => array(
-						'{{WRAPPER}} a.elementor-button, {{WRAPPER}} .elementor-button' => 'color: {{VALUE}};',
-						'{{WRAPPER}} a.elementor-button svg, {{WRAPPER}} .elementor-button svg' => 'fill: {{VALUE}};',
+						'{{WRAPPER}} a.elementor-button, {{WRAPPER}} .elementor-button' => 'color: {{VALUE}};'
 					),
 				)
 			);
@@ -859,22 +875,6 @@ class Iconbox extends Common_Widget {
 		);
 
 		$this->add_control(
-			'iconbox_title_hover_color',
-			array(
-				'label'     => __( 'Hover Color', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'condition' => array(
-					'iconbox_title!'   => '',
-					'iconbox_cta_type' => 'module',
-				),
-				'selectors' => array(
-					'{{WRAPPER}} .hfe-iconbox-link-type-module a.hfe-iconbox-module-link:hover + .hfe-iconbox-content .hfe-iconbox-title' => 'color: {{VALUE}};',
-				),
-			)
-		);
-
-		$this->add_control(
 			'iconbox_desc_typo',
 			array(
 				'label'     => __( 'Description', 'header-footer-elementor' ),
@@ -1016,11 +1016,19 @@ class Iconbox extends Common_Widget {
 				'label'      => __( 'Icon Margin', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px' ),
+				'default'    => array(
+					'top'      => '0',
+					'bottom'   => '10',
+					'left'     => '0',
+					'right'    => '0',
+					'unit'     => 'px',
+					'isLinked' => false,
+				),
 				'condition'  => array(
 					'iconbox_select_icon[value]!'    => '',
 				),
 				'selectors'  => array(
-					'{{WRAPPER}} .hfe-imgicon-wrap' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .hfe-icon-wrap' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 			)
 		);
@@ -1129,7 +1137,7 @@ class Iconbox extends Common_Widget {
 				$this->add_link_attributes( 'cta_link', $settings['iconbox_text_link'] );
 			}
 
-			$this->add_render_attribute( 'cta_link', 'class', 'hfe-iconbox-cta-link ' );
+			$this->add_render_attribute( 'cta_link', 'class', 'hfe-iconbox-cta-link' );
 			?>
 			<div class="hfe-iconbox-cta-link-style">
 				<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'cta_link' ) ); ?>> <?php //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
@@ -1138,7 +1146,7 @@ class Iconbox extends Common_Widget {
 			</div>
 			<?php
 		} elseif ( 'button' === $settings['iconbox_cta_type'] ) {
-			$this->add_render_attribute( 'wrapper', 'class', 'hfe-button-wrapper' );
+			$this->add_render_attribute( 'wrapper', 'class', 'hfe-button-wrapper elementor-widget-button' );
 			$this->add_render_attribute( 'text', 'class', 'elementor-button-text elementor-inline-editing' );
 
 			if ( ! empty( $settings['iconbox_text_link']['url'] ) ) {
@@ -1230,7 +1238,7 @@ class Iconbox extends Common_Widget {
 			<# }
 			else if ( 'button' == settings.iconbox_cta_type ) {
 
-				view.addRenderAttribute( 'wrapper', 'class', 'hfe-button-wrapper' );
+				view.addRenderAttribute( 'wrapper', 'class', 'hfe-button-wrapper elementor-widget-button' );
 				if ( '' != settings.iconbox_text_link.url ) {
 					var urlPattern = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$|^www\.[^\s/$.?#].[^\s]*$/;
 					var btn_link_url = _.escape( settings.iconbox_text_link.url );
@@ -1285,7 +1293,6 @@ class Iconbox extends Common_Widget {
 				<# render_link(); #>
 			</div>
 		</div>
-		#>
 		<?php
 	}
 }
