@@ -129,6 +129,8 @@ class Header_Footer_Elementor {
 				add_action( 'admin_init', [ $this, 'get_plugin_version' ] );
 			}
 
+			// Filter to change Astra menu positon.
+			add_filter( 'astra_menu_priority', array( $this, 'update_admin_menu_position' ) );
 			// Scripts and styles.
 			add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
 
@@ -171,6 +173,15 @@ class Header_Footer_Elementor {
 				]
 			);   
 		}
+	}
+
+	/**
+	 * Update Astra's menu priority to show after Dashboard menu.
+	 *
+	 * @param int $menu_priority top level menu priority.
+	 */
+	public function update_admin_menu_position( $menu_priority ) {
+		return 2.1;
 	}
 
 	/**
