@@ -71,7 +71,7 @@ class Widgets_Config {
 				'default'     => true,
 				'is_pro'      => false,
 				'doc_url'     => '',
-				'description' => __( 'Add icon, headings, descriptions & CTA.', 'header-footer-elementor' ),
+				'description' => __( 'Add icon, heading, description & button/link — all in one widget..', 'header-footer-elementor' ),
 				'demo_url'    => '',
 				'category'    => 'content',
 			],
