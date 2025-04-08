@@ -463,7 +463,6 @@ class Infocard extends Common_Widget {
 
 		$this->end_controls_tabs();
 
-		// End of section for Image Background color if custom design enabled.
 		$this->end_controls_section();
 	}
 
@@ -1186,8 +1185,6 @@ class Infocard extends Common_Widget {
 	protected function render() {
 		$html     = '';
 		$settings = $this->get_settings_for_display();
-		$node_id  = $this->get_id();
-
 		?>
 
 		<div class="hfe-infocard">

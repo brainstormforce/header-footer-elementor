@@ -33,7 +33,7 @@ class Module extends Module_Base {
 	/**
 	 * Get Module Name.
 	 *
-	 * @since 0.0.1
+	 * @since x.x.x
 	 * @access public
 	 *
 	 * @return string Module name.
@@ -45,7 +45,7 @@ class Module extends Module_Base {
 	/**
 	 * Get Widgets.
 	 *
-	 * @since 0.0.1
+	 * @since x.x.x
 	 * @access public
 	 *
 	 * @return array Widgets.
