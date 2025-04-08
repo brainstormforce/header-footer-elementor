@@ -718,13 +718,6 @@ class Iconbox extends Common_Widget {
 					'selectors'  => array(
 						'{{WRAPPER}} a.elementor-button, {{WRAPPER}} .elementor-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					),
-					'default'    => array(
-						'top'    => '10',
-						'bottom' => '10',
-						'left'   => '20',
-						'right'  => '20',
-						'unit'   => 'px',
-					),
 					'condition'  => array(
 						'iconbox_cta_type' => 'button',
 					),
@@ -970,6 +963,23 @@ class Iconbox extends Common_Widget {
 			)
 		);
 
+		$this->add_control(
+			'iconbox_cta_hover_color',
+			array(
+				'label'     => __( 'Link Hover Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'global'    => array(
+					'default' => '',
+				),
+				'selectors' => array(
+					'{{WRAPPER}} .hfe-iconbox-cta-link:hover' => 'color: {{VALUE}};',
+				),
+				'condition' => array(
+					'iconbox_cta_type' => 'link',
+				),
+			)
+		);
+
 		$this->end_controls_section();
 	}
 
@@ -985,28 +995,6 @@ class Iconbox extends Common_Widget {
 			array(
 				'label' => __( 'Margins', 'header-footer-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
-			)
-		);
-		$this->add_responsive_control(
-			'iconbox_title_margin',
-			array(
-				'label'      => __( 'Title Margin', 'header-footer-elementor' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px' ),
-				'default'    => array(
-					'top'      => '0',
-					'bottom'   => '10',
-					'left'     => '0',
-					'right'    => '0',
-					'unit'     => 'px',
-					'isLinked' => false,
-				),
-				'selectors'  => array(
-					'{{WRAPPER}} .hfe-iconbox-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-				'condition'  => array(
-					'iconbox_title!' => '',
-				),
 			)
 		);
 
@@ -1029,6 +1017,29 @@ class Iconbox extends Common_Widget {
 				),
 				'selectors'  => array(
 					'{{WRAPPER}} .hfe-icon-wrap' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'iconbox_title_margin',
+			array(
+				'label'      => __( 'Title Margin', 'header-footer-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px' ),
+				'default'    => array(
+					'top'      => '0',
+					'bottom'   => '10',
+					'left'     => '0',
+					'right'    => '0',
+					'unit'     => 'px',
+					'isLinked' => false,
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .hfe-iconbox-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+				'condition'  => array(
+					'iconbox_title!' => '',
 				),
 			)
 		);

@@ -2136,3 +2136,6 @@ li.hfe-post-info-item > a {
 body .elementor .hfe-button-wrapper a {
     text-decoration: none;
 }
+.hfe-button-wrapper {
+    border-radius: 3px;
+}
