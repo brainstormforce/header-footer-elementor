@@ -191,7 +191,7 @@ class Infocard extends Common_Widget {
 				'label'            => __( 'Select Icon', 'header-footer-elementor' ),
 				'type'             => Controls_Manager::ICONS,
 				'default'          => array(
-					'value'   => 'fa fa-star',
+					'value'   => '',
 					'library' => 'fa-solid',
 				),
 				'render_type'      => 'template',
