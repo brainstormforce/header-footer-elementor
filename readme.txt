@@ -130,6 +130,9 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 
 == Changelog ==
 
+= 2.2.4 =
+- New: Info Card widget - Easily create a call-to-action (CTA) by adding an icon, heading, description, and a button or link.
+
 = 2.2.3 = 
 - Improvement: Improved accessibility compliance throughout the plugin.
 - Fix: Navigation Menu – The submenu now expands correctly when the "Full Width" option is enabled
