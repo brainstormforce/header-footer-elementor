@@ -1176,7 +1176,7 @@ class Infocard extends Common_Widget {
 	}
 
 	/**
-	 * Render Info Box output on the frontend.
+	 * Render Info Card output on the frontend.
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
@@ -1205,7 +1205,7 @@ class Infocard extends Common_Widget {
 		
 	}
 	/**
-	 * Render Info Box widget output in the editor.
+	 * Render Info Card widget output in the editor.
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *

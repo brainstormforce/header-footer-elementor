@@ -1,6 +1,6 @@
 <?php
 /**
- * HFE Infobox Module.
+ * HFE Infocard Module.
  *
  * @package header-footer-elementor
  */
