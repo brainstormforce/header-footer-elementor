@@ -120,10 +120,23 @@ class HFE_Admin {
 		add_action( 'elementor/editor/before_enqueue_scripts', [ $this, 'enqueue_permalink_clear_notice_js' ] );
 		add_action( 'elementor/editor/before_enqueue_styles', [ $this, 'enqueue_permalink_clear_notice_css' ] );
 		if('yes' === get_option('bsf_analytics_optin')){
-			add_action('admin_init', [ $this, 'hfe_check_widgets_data_usage' ] );
+			add_action('admin_footer', [ $this, 'maybe_run_hfe_widgets_usage_check' ] );
 		}
 	}
 
+	/**
+	 * Check the page on which Widget check need to be run.
+	 */
+	public function maybe_run_hfe_widgets_usage_check() {
+		// Run only on admin.php?page=hfe
+		if (
+			is_admin() &&
+			isset( $_GET['page'] ) &&
+			( 'uaepro' === $_GET['page'] || 'hfe' === $_GET['page'])
+		) {
+			$this->hfe_check_widgets_data_usage();
+		}
+	}
 	/**
 	 * Handle AJAX request to get widgets usage data.
 	 *
