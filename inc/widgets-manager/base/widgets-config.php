@@ -66,7 +66,7 @@ class Widgets_Config {
 				'slug'        => 'hfe-infocard',
 				'title'       => __( 'Info Card', 'header-footer-elementor' ),
 				'keywords'    => [ 'uael', 'icon', 'dynamic', 'box', 'card', 'cta' ],
-				'icon'        => 'hfe-icon-page-title',
+				'icon'        => 'hfe-icon-infocard',
 				'title_url'   => '#',
 				'default'     => true,
 				'is_pro'      => false,
