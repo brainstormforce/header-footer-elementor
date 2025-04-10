@@ -2126,3 +2126,16 @@ li.hfe-post-info-item > a {
 .hfe-post-info-layout-traditional .hfe-post-info-item:not(:last-child) {
     position: relative;
 }
+
+
+/* Info Card CSS */
+.hfe-icon-wrap .hfe-icon svg {
+    height: 100%;
+    width: 100%;
+}
+body .elementor .hfe-button-wrapper a {
+    text-decoration: none;
+}
+.hfe-button-wrapper {
+    border-radius: 3px;
+}
