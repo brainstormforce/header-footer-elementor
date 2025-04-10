@@ -11,7 +11,6 @@ namespace HFE\Themes;
  * Astra theme compatibility.
  */
 class HFE_Default_Compat {
-
 	/**
 	 *  Initiator
 	 */
@@ -58,7 +57,7 @@ class HFE_Default_Compat {
 	 *
 	 * // phpcs:ignore
 	 * @return void
-	 */ 
+	 */
 	// phpcs:ignore
 	public function override_header(): void {
 		require HFE_DIR . 'themes/default/hfe-header.php';
@@ -79,7 +78,7 @@ class HFE_Default_Compat {
 	 * @return void
 	 *
 	 * // phpcs:ignore
-	 */ 
+	 */
 	// phpcs:ignore
 	public function override_footer(): void {
 		require HFE_DIR . 'themes/default/hfe-footer.php';
