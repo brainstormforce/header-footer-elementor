@@ -176,6 +176,7 @@ class HFE_Admin {
 				'site-logo',
 				'hfe-site-tagline',
 				'hfe-site-title',
+				'hfe-infocard',
 			);
 
 			// Filter widgets usage to include only allowed widgets
