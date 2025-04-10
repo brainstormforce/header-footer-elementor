@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * HFE Analytics. handler class is responsible for rolling back HFE to
  * previous version.
  *
- * @since x.x.x
+ * @since 2.3.0
  */
 if ( ! class_exists( 'HFE_Analytics' ) ) {
 
@@ -25,7 +25,7 @@ if ( ! class_exists( 'HFE_Analytics' ) ) {
 		 *
 		 * Initializing HFE Analytics.
 		 *
-		 * @since x.x.x
+		 * @since 2.3.0
 		 * @access public
 		 *
 		 * @param array $args Optional. HFE Analytics arguments. Default is an empty array.
@@ -71,7 +71,7 @@ if ( ! class_exists( 'HFE_Analytics' ) ) {
          * Callback function to add specific analytics data.
          *
          * @param array $stats_data existing stats_data.
-         * @since x.x.x
+         * @since 2.3.0
          * @return array
          */
         public function add_uae_analytics_data( $stats_data ) {
