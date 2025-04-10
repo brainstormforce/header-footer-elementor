@@ -11,7 +11,6 @@
  * @since 1.0
  */
 class HFE_GeneratePress_Compat {
-
 	/**
 	 * Instance of HFE_GeneratePress_Compat
 	 *

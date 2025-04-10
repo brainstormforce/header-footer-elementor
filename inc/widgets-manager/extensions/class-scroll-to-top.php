@@ -19,7 +19,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 2.2.1
  */
 class Scroll_To_Top {
-
 	/**
 	 * Instance of Widgets_Loader.
 	 *
@@ -27,20 +26,6 @@ class Scroll_To_Top {
 	 * @var null
 	 */
 	private static $_instance = null;
-
-	/**
-	 * Get instance of Widgets_Loader
-	 *
-	 * @since  2.2.1
-	 * @return Widgets_Loader
-	 */
-	public static function instance() {
-		if ( ! isset( self::$_instance ) ) {
-			self::$_instance = new self();
-		}
-
-		return self::$_instance;
-	}
 
 	/**
 	 * Setup actions and filters.
@@ -59,6 +44,20 @@ class Scroll_To_Top {
 
 		// Enqueue jQuery and add inline script.
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
+	}
+
+	/**
+	 * Get instance of Widgets_Loader
+	 *
+	 * @since  2.2.1
+	 * @return Widgets_Loader
+	 */
+	public static function instance() {
+		if ( ! isset( self::$_instance ) ) {
+			self::$_instance = new self();
+		}
+
+		return self::$_instance;
 	}
 
 	/**
@@ -115,11 +114,11 @@ class Scroll_To_Top {
 
 		$scroll_to_top = false;
 
-		if ( 'yes' == $scroll_to_top_global ) {
+		if ( $scroll_to_top_global === 'yes' ) {
 			$scroll_to_top = true;
 		}
 
-		if ( isset( $document_settings_data['hfe_scroll_to_top_single_disable'] ) && 'yes' == $document_settings_data['hfe_scroll_to_top_single_disable'] ) {
+		if ( isset( $document_settings_data['hfe_scroll_to_top_single_disable'] ) && $document_settings_data['hfe_scroll_to_top_single_disable'] === 'yes' ) {
 			$scroll_to_top = false;
 		}
 
@@ -127,13 +126,13 @@ class Scroll_To_Top {
 
 			$scrolltop_media_type = ! empty( $this->get_elementor_settings( 'hfe_scroll_to_top_media_type' ) ) ? $this->get_elementor_settings( 'hfe_scroll_to_top_media_type' ) : 'icon';
 			$scrolltop_icon_html  = '';
-			if ( 'icon' == $scrolltop_media_type ) {
+			if ( $scrolltop_media_type === 'icon' ) {
 				$scrolltop_icon      = ! empty( $this->get_elementor_settings( 'hfe_scroll_to_top_button_icon' ) ) ? $this->get_elementor_settings( 'hfe_scroll_to_top_button_icon' )['value'] : 'fas fa-chevron-up';
 				$scrolltop_icon_html = "<i class='$scrolltop_icon'></i>";
-			} elseif ( 'image' == $scrolltop_media_type ) {
+			} elseif ( $scrolltop_media_type === 'image' ) {
 				$scrolltop_image     = ! empty( $this->get_elementor_settings( 'hfe_scroll_to_top_button_image' ) ) ? $this->get_elementor_settings( 'hfe_scroll_to_top_button_image' )['url'] : '';
 				$scrolltop_icon_html = "<img src='$scrolltop_image'>";
-			} elseif ( 'text' == $scrolltop_media_type ) {
+			} elseif ( $scrolltop_media_type === 'text' ) {
 				$scrolltop_text      = ! empty( $this->get_elementor_settings( 'hfe_scroll_to_top_button_text' ) ) ? $this->get_elementor_settings( 'hfe_scroll_to_top_button_text' ) : '';
 				$scrolltop_icon_html = "<span>$scrolltop_text</span>";
 			}
@@ -143,20 +142,20 @@ class Scroll_To_Top {
 			$elementor_page = get_post_meta( get_the_ID(), '_elementor_edit_mode', true );
 			if ( (bool) $elementor_page ) {
 				printf( '%1$s', wp_kses_post( $scroll_to_top_html ) );
-			}       
+			}
 		}
 
 		if ( \Elementor\Plugin::instance()->preview->is_preview_mode() ) {
 			if ( $scroll_to_top ) {
 				$scrolltop_media_type = ! empty( $this->get_elementor_settings( 'hfe_scroll_to_top_media_type' ) ) ? $this->get_elementor_settings( 'hfe_scroll_to_top_media_type' ) : 'icon';
 				$scrolltop_icon_html  = '';
-				if ( 'icon' == $scrolltop_media_type ) {
+				if ( $scrolltop_media_type === 'icon' ) {
 					$scrolltop_icon      = ! empty( $this->get_elementor_settings( 'hfe_scroll_to_top_button_icon' ) ) ? $this->get_elementor_settings( 'hfe_scroll_to_top_button_icon' )['value'] : 'fas fa-chevron-up';
 					$scrolltop_icon_html = "<i class='$scrolltop_icon'></i>";
-				} elseif ( 'image' == $scrolltop_media_type ) {
+				} elseif ( $scrolltop_media_type === 'image' ) {
 					$scrolltop_image     = ! empty( $this->get_elementor_settings( 'hfe_scroll_to_top_button_image' ) ) ? $this->get_elementor_settings( 'hfe_scroll_to_top_button_image' )['url'] : '';
 					$scrolltop_icon_html = "<img src='$scrolltop_image'>";
-				} elseif ( 'text' == $scrolltop_media_type ) {
+				} elseif ( $scrolltop_media_type === 'text' ) {
 					$scrolltop_text      = ! empty( $this->get_elementor_settings( 'hfe_scroll_to_top_button_text' ) ) ? $this->get_elementor_settings( 'hfe_scroll_to_top_button_text' ) : '';
 					$scrolltop_icon_html = "<span>$scrolltop_text</span>";
 				}
@@ -259,12 +258,11 @@ class Scroll_To_Top {
 			</script>
 			<?php
 		}
-
 	}
 
 	/**
 	 * Get Elementor settings
-	 * 
+	 *
 	 * @param string $setting_id Setting ID.
 	 * @return string
 	 */
@@ -300,7 +298,7 @@ class Scroll_To_Top {
 	public function page_scroll_to_top_controls( $element ) {
 
 		$scroll_to_top_global = $this->get_elementor_settings( 'hfe_scroll_to_top_global' );
-		if ( 'yes' !== $scroll_to_top_global ) {
+		if ( $scroll_to_top_global !== 'yes' ) {
 			return;
 		}
 
@@ -326,7 +324,6 @@ class Scroll_To_Top {
 
 		$element->end_controls_section();
 	}
-
 
 }
 
