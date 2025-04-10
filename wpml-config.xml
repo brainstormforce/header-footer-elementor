@@ -91,5 +91,17 @@
 				<field type="Post Info: Custom URL">custom_url>url</field>
 			</fields>
 		</widget>
+		<widget name="hfe-infocard">
+			<conditions>
+				<condition key="widgetType">hfe-infocard</condition>
+			</conditions>
+			<fields>
+				<field type="Info Card: Title">infocard_title</field>
+				<field type="Info Card: Description">infocard_description</field>
+				<field type="Info Card: Link Text">infocard_link_text</field>
+				<field type="Info Card: Button Text">infocard_button_text</field>
+				<field type="Info Card: CTA URL">infocard_text_link>url</field>
+			</fields>
+		</widget>
 	</elementor-widgets>
 </wpml-config>

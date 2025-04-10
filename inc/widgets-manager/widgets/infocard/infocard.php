@@ -29,7 +29,7 @@ class Infocard extends Common_Widget {
 	/**
 	 * Retrieve Infocard Widget name.
 	 *
-	 * @since x.x.x
+	 * @since 2.3.0
 	 * @access public
 	 *
 	 * @return string Widget name.
@@ -41,7 +41,7 @@ class Infocard extends Common_Widget {
 	/**
 	 * Retrieve Infocard Widget title.
 	 *
-	 * @since x.x.x
+	 * @since 2.3.0
 	 * @access public
 	 *
 	 * @return string Widget title.
@@ -53,7 +53,7 @@ class Infocard extends Common_Widget {
 	/**
 	 * Retrieve Infocard Widget icon.
 	 *
-	 * @since x.x.x
+	 * @since 2.3.0
 	 * @access public
 	 *
 	 * @return string Widget icon.
@@ -65,7 +65,7 @@ class Infocard extends Common_Widget {
 	/**
 	 * Retrieve Widget Keywords.
 	 *
-	 * @since x.x.x
+	 * @since 2.3.0
 	 * @access public
 	 *
 	 * @return string Widget keywords.
@@ -80,7 +80,7 @@ class Infocard extends Common_Widget {
 	 * This method returns true if the widget's output is dynamic and should not be cached,
 	 * or false if the content is static and can be cached.
 	 *
-	 * @since x.x.x
+	 * @since 2.3.0
 	 * @return bool True for dynamic content, false for static content.
 	 */
 	protected function is_dynamic_content(): bool { // phpcs:ignore
@@ -90,7 +90,7 @@ class Infocard extends Common_Widget {
 	/**
 	 * Register Infocard controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.3.0
 	 * @access protected
 	 */
 	protected function register_controls() {
@@ -105,7 +105,7 @@ class Infocard extends Common_Widget {
 	/**
 	 * Register Infocard General Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.3.0
 	 * @access protected
 	 */
 	protected function register_general_content_controls() {
@@ -174,7 +174,7 @@ class Infocard extends Common_Widget {
 	/**
 	 * Register Infocard Icon Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.3.0
 	 * @access protected
 	 */
 	protected function register_icon_content_controls() {
@@ -469,7 +469,7 @@ class Infocard extends Common_Widget {
 	/**
 	 * Register Infocard CTA Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.3.0
 	 * @access protected
 	 */
 	protected function register_cta_content_controls() {
@@ -787,7 +787,7 @@ class Infocard extends Common_Widget {
 	/**
 	 * Register Infocard Typography Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.3.0
 	 * @access protected
 	 */
 	protected function register_typo_content_controls() {
@@ -980,7 +980,7 @@ class Infocard extends Common_Widget {
 	/**
 	 * Register Infocard Margin Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.3.0
 	 * @access protected
 	 */
 	protected function register_margin_content_controls() {
@@ -1089,7 +1089,7 @@ class Infocard extends Common_Widget {
 	/**
 	 * Display Icon.
 	 *
-	 * @since x.x.x
+	 * @since 2.3.0
 	 * @access public
 	 * @param object $settings for settings.
 	 */
@@ -1107,7 +1107,7 @@ class Infocard extends Common_Widget {
 	/**
 	 * Display Title.
 	 *
-	 * @since x.x.x
+	 * @since 2.3.0
 	 * @access public
 	 * @param object $settings for settings.
 	 */
@@ -1131,7 +1131,7 @@ class Infocard extends Common_Widget {
 	/**
 	 * Display CTA.
 	 *
-	 * @since x.x.x
+	 * @since 2.3.0
 	 * @access public
 	 * @param object $settings for settings.
 	 */
@@ -1179,7 +1179,7 @@ class Infocard extends Common_Widget {
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
-	 * @since x.x.x
+	 * @since 2.3.0
 	 * @access protected
 	 */
 	protected function render() {
@@ -1206,7 +1206,7 @@ class Infocard extends Common_Widget {
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
-	 * @since x.x.x
+	 * @since 2.3.0
 	 * @access protected
 	 */
 	protected function content_template() {

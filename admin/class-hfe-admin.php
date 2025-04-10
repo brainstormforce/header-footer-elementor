@@ -140,7 +140,7 @@ class HFE_Admin {
 	/**
 	 * Handle AJAX request to get widgets usage data.
 	 *
-	 * @since x.x.x
+	 * @since 2.3.0
 	 */
 	public function hfe_check_widgets_data_usage() {
 		// Check user permissions
