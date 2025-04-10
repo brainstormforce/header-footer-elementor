@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the Ultimate Addons for Elementor Lite package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Ultimate Addons for Elementor Lite 2.2.3\n"
+"Project-Id-Version: Ultimate Addons for Elementor Lite 2.2.4\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/header-footer-elementor\n"
-"POT-Creation-Date: 2025-03-25 08:22:20+00:00\n"
+"POT-Creation-Date: 2025-04-08 07:52:26+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -71,7 +71,7 @@ msgid "Oops! Something went wrong. Please refresh the page and try again."
 msgstr ""
 
 #: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:80
-#: inc/class-header-footer-elementor.php:164
+#: inc/class-header-footer-elementor.php:166
 msgid "Quick Feedback"
 msgstr ""
 
@@ -390,65 +390,65 @@ msgstr ""
 msgid "Template %1$s is already assigned to the location %2$s"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:166
+#: inc/class-header-footer-elementor.php:168
 msgid ""
 "If you have a moment, please share why you are deactivating Ultimate Addons "
 "for Elementor:"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:264
+#: inc/class-header-footer-elementor.php:271
 msgid ""
 "Hello! Seems like you have used Ultimate Addons for Elementor to build this "
 "website — Thanks a ton!"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:265
+#: inc/class-header-footer-elementor.php:272
 msgid ""
 "Could you please do us a BIG favor and give it a 5-star rating on "
 "WordPress? This would boost our motivation and help other users make a "
 "comfortable decision while choosing the Ultimate Addons for Elementor."
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:267
+#: inc/class-header-footer-elementor.php:274
 msgid "Ok, you deserve it"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:269
+#: inc/class-header-footer-elementor.php:276
 msgid "Nope, maybe later"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:270
+#: inc/class-header-footer-elementor.php:277
 msgid "I already did"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:335
+#: inc/class-header-footer-elementor.php:342
 #. translators: %s: html tags
 msgid ""
 "The %1$sUltimate Addons for Elementor%2$s plugin requires %1$sElementor%2$s "
 "plugin installed & activated."
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:342
+#: inc/class-header-footer-elementor.php:349
 msgid "Activate Elementor"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:347
-#: inc/class-header-footer-elementor.php:383
+#: inc/class-header-footer-elementor.php:354
+#: inc/class-header-footer-elementor.php:390
 msgid "Install Elementor"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:371
+#: inc/class-header-footer-elementor.php:378
 #. translators: %s: html tags
 msgid ""
 "The %1$sUltimate Addons for Elementor%2$s plugin has stopped working "
 "because you are using an older version of %1$sElementor%2$s plugin."
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:378
+#: inc/class-header-footer-elementor.php:385
 msgid "Update Elementor"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:621
+#: inc/class-header-footer-elementor.php:628
 msgid "Theme Support"
 msgstr ""
 
@@ -1549,7 +1549,7 @@ msgid "Create high-converting forms with ease."
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:1063
-msgid "SureTriggers"
+msgid "OttoKit (Formerly SureTriggers)"
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:1064

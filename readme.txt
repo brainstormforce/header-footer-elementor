@@ -2,9 +2,9 @@
 Contributors: @brainstormforce, @nikschavan, @pratikchaskar
 Tags: elementor, header footer builder, widgets, header template, footer template
 Requires at least: 5.0  
-Tested up to: 6.7.1 
+Tested up to: 6.8
 Requires PHP: 7.4  
-Stable tag: 2.2.3
+Stable tag: 2.3.0
 License: GPLv2 or later  
 License URI: https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -88,7 +88,7 @@ If you love Ultimate Addons, you’ll love our other products too:
 
 * **Astra**: The fastest, most flexible WordPress theme – perfect for any type of website.  
 * **Starter Templates**: Choose from hundreds of ready-to-use website designs or use AI to build a site tailored to your needs.  
-* **SureTriggers**: Automate repetitive tasks and connect your favorite apps for ultimate efficiency.  
+* **OttoKit (Formerly SureTriggers)**: Automate repetitive tasks and connect your favorite apps for ultimate efficiency.  
 * **SureForms**: Create stunning forms, quizzes, or surveys in minutes.  
 * **SureCart**: The ultimate plugin for effortless eCommerce – perfect for online sellers. 
 
@@ -130,8 +130,11 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 
 == Changelog ==
 
-= 2.2.4 =
+= 2.3.0 =
 - New: Info Card widget - Easily create a call-to-action (CTA) by adding an icon, heading, description, and a button or link.
+
+= 2.2.4 = 
+- Fix: Buttons now correctly load the default color and font settings as defined in the Theme Customizer.
 
 = 2.2.3 = 
 - Improvement: Improved accessibility compliance throughout the plugin.

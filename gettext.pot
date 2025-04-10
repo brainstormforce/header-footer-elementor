@@ -445,7 +445,7 @@ msgid "Plugin Installation failed, Please try again later."
 msgstr ""
 
 #: src/Components/Dashboard/MyAccount.jsx:16
-#: src/Components/Settings/Settings.jsx:29
+#: src/Components/Settings/Settings.jsx:30
 msgid "My Account"
 msgstr ""
 
@@ -652,11 +652,13 @@ msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:51
 #: src/Components/Settings/ThemeSupport.jsx:63
+#: src/Components/Settings/UsageTracking.jsx:32
 msgid "Settings saved successfully!"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:56
 #: src/Components/Settings/ThemeSupport.jsx:68
+#: src/Components/Settings/UsageTracking.jsx:37
 msgid "Failed to save settings!"
 msgstr ""
 
@@ -713,26 +715,31 @@ msgstr ""
 msgid "Let's Get Started"
 msgstr ""
 
-#: src/Components/Settings/Settings.jsx:48
+#: src/Components/Settings/Settings.jsx:49
 msgid "Editor"
 msgstr ""
 
-#: src/Components/Settings/Settings.jsx:49
+#: src/Components/Settings/Settings.jsx:50
 #: src/Components/Settings/ThemeSupport.jsx:80
 msgid "Theme Support"
 msgstr ""
 
-#: src/Components/Settings/Settings.jsx:64
-msgid "Custom SVG"
-msgstr ""
-
-#: src/Components/Settings/Settings.jsx:68
+#: src/Components/Settings/Settings.jsx:69
 msgid "Utilities"
 msgstr ""
 
-#: src/Components/Settings/Settings.jsx:69
+#: src/Components/Settings/Settings.jsx:70
 #: src/Components/Settings/VersionControl.jsx:45
 msgid "Version Control"
+msgstr ""
+
+#: src/Components/Settings/Settings.jsx:85
+msgid "Custom SVG"
+msgstr ""
+
+#: src/Components/Settings/Settings.jsx:89
+#: src/Components/Settings/UsageTracking.jsx:51
+msgid "Usage Tracking"
 msgstr ""
 
 #: src/Components/Settings/ThemeSupport.jsx:140
@@ -768,6 +775,19 @@ msgstr ""
 msgid ""
 "To ensure compatibility between the header/footer and your theme, please "
 "choose one of the following options to enable theme support:"
+msgstr ""
+
+#: src/Components/Settings/UsageTracking.jsx:81
+msgid "Enable Usage Tracking"
+msgstr ""
+
+#: src/Components/Settings/UsageTracking.jsx:84
+msgid "Allow Brainstorm Force products to track non-sensitive usage tracking data. "
+msgstr ""
+
+#: src/Components/Settings/UsageTracking.jsx:94
+#: src/Components/Templates/ExploreTemplates.jsx:227
+msgid "Learn More"
 msgstr ""
 
 #: src/Components/Settings/VersionControl.jsx:119
@@ -825,10 +845,6 @@ msgstr ""
 
 #: src/Components/Templates/ExploreTemplates.jsx:22
 msgid "Modern, timeless designs"
-msgstr ""
-
-#: src/Components/Templates/ExploreTemplates.jsx:227
-msgid "Learn More"
 msgstr ""
 
 #: src/Components/Templates/ExploreTemplates.jsx:27
