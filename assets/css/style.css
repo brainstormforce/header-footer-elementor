@@ -39,7 +39,9 @@
   border-color: #e0e0e0;
   border-style: solid;
 }
-
+.hfe-icon-infocard:before {
+  content: "\e940";
+}
 .hfe-icon-search:before {
   content: "\e93c";
 }
