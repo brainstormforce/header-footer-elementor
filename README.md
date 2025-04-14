@@ -131,7 +131,7 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 ## Changelog ##
 
 ### 2.3.0 ###
-- New: Info Card widget - Easily create a call-to-action (CTA) by adding an icon, heading, description, and a button or link.
+- New: Info Card Widget – Create engaging and elegant content sections with this customizable widget. Easily configure text, icons, and buttons/links to match your design needs.
 
 ### 2.2.4 ###
 - Fix: Buttons now correctly load the default color and font settings as defined in the Theme Customizer.
