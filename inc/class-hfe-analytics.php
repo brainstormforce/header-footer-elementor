@@ -63,8 +63,6 @@ if ( ! class_exists( 'HFE_Analytics' ) ) {
 			);
 			
 			add_filter( 'bsf_core_stats', [ $this, 'add_uae_analytics_data' ] );
-
-			$this->add_uae_analytics_data( [] );
 		}
         
         /**
