@@ -1,11 +1,11 @@
 <?php
 /**
- * HFE Retina Module.
+ * HFE Infocard Module.
  *
  * @package header-footer-elementor
  */
 
-namespace HFE\WidgetsManager\Widgets\Retina;
+namespace HFE\WidgetsManager\Widgets\Infocard;
 
 use HFE\WidgetsManager\Base\Module_Base;
 
@@ -21,7 +21,7 @@ class Module extends Module_Base {
 	/**
 	 * Module should load or not.
 	 *
-	 * @since 1.15.0
+	 * @since 2.3.0
 	 * @access public
 	 *
 	 * @return bool true|false.
@@ -33,27 +33,27 @@ class Module extends Module_Base {
 	/**
 	 * Get Module Name.
 	 *
-	 * @since 1.15.0
+	 * @since 2.3.0
 	 * @access public
 	 *
 	 * @return string Module name.
 	 */
 	public function get_name() {
-		return 'retina';
+		return 'infocard';
 	}
 
 	/**
 	 * Get Widgets.
 	 *
-	 * @since 1.15.0
+	 * @since 2.3.0
 	 * @access public
 	 *
 	 * @return array Widgets.
 	 */
 	public function get_widgets() {
-		return [
-			'Retina',
-		];
+		return array(
+			'Infocard',
+		);
 	}
 
 	/**

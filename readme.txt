@@ -2,9 +2,9 @@
 Contributors: @brainstormforce, @nikschavan, @pratikchaskar
 Tags: elementor, header footer builder, widgets, header template, footer template
 Requires at least: 5.0  
-Tested up to: 6.7.1 
+Tested up to: 6.8
 Requires PHP: 7.4  
-Stable tag: 2.2.4
+Stable tag: 2.3.0
 License: GPLv2 or later  
 License URI: https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -36,6 +36,7 @@ Ultimate Addons for Elementor comes equipped with a suite of Elementor-compatibl
 * **Breadcrumbs**: Improve site navigation and SEO with breadcrumb trails.
 * **Post Info**: Display important post-related information such as publish date, author, and categories.
 * **Scroll to Top**: Allow users to quickly return to the top of the page for a better user experience.
+* **Info Card**: Add headings, icons, and descriptions with CTA - all in one widget.
 
 ---
 
@@ -128,6 +129,9 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 ---
 
 == Changelog ==
+
+= 2.3.0 =
+- New: Info Card Widget – Create engaging and elegant content sections with this customizable widget. Easily configure text, icons, and buttons/links to match your design needs.
 
 = 2.2.4 = 
 - Fix: Buttons now correctly load the default color and font settings as defined in the Theme Customizer.
