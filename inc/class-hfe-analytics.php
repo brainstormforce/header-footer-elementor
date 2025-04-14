@@ -73,6 +73,11 @@ if ( ! class_exists( 'HFE_Analytics' ) ) {
          * @return array
          */
         public function add_uae_analytics_data( $stats_data ) {
+			 // Check if $stats_data is empty or not an array.
+			 if ( empty( $stats_data ) || ! is_array( $stats_data ) ) {
+				$stats_data = []; // Initialize as an empty array.
+			}
+		
             $stats_data['plugin_data']['uae']		= [
                 'free_version'  => HFE_VER,
                 'pro_version' => ( defined( 'UAEL_VERSION' ) ? UAEL_VERSION : '' ),
