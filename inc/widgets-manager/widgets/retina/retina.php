@@ -710,7 +710,7 @@ class Retina extends Common_Widget {
 			$size = $settings[ 'retina_image' . '_size' ];
 			$demo = '';
 
-			if ( 'custom' !== $size ) {
+			if ( $size !== 'custom' ) {
 				$image_size = $size;
 			} else {
 				require_once ELEMENTOR_PATH . 'includes/libraries/bfi-thumb/bfi-thumb.php';
@@ -818,11 +818,11 @@ class Retina extends Common_Widget {
 	 * @return array|string|false An array/string containing the link URL, or false if no link.
 	 */
 	private function get_link_url( $settings ) {
-		if ( 'none' === $settings['link_to'] ) {
+		if ( $settings['link_to'] === 'none' ) {
 			return false;
 		}
 
-		if ( 'custom' === $settings['link_to'] ) {
+		if ( $settings['link_to'] === 'custom' ) {
 			if ( empty( $settings['link']['url'] ) ) {
 				return false;
 			}

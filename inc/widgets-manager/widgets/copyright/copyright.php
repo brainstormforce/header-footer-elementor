@@ -27,7 +27,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.2.0
  */
 class Copyright extends Common_Widget {
-
 	/**
 	 * Retrieve the widget name.
 	 *
@@ -63,6 +62,20 @@ class Copyright extends Common_Widget {
 	 */
 	public function get_icon() {
 		return parent::get_widget_icon( 'Copyright' );
+	}
+
+	/**
+	 * Render shortcode widget as plain content.
+	 *
+	 * Override the default behavior by printing the shortcode instead of rendering it.
+	 *
+	 * @since 1.2.0
+	 * @access public
+	 * @return void
+	 */
+	public function render_plain_content() {
+		// In plain mode, render without shortcode.
+		echo esc_attr( $this->get_settings( 'shortcode' ) );
 	}
 
 	/**
@@ -208,20 +221,6 @@ class Copyright extends Common_Widget {
 	}
 
 	/**
-	 * Render shortcode widget as plain content.
-	 *
-	 * Override the default behavior by printing the shortcode instead of rendering it.
-	 *
-	 * @since 1.2.0
-	 * @access public
-	 * @return void
-	 */
-	public function render_plain_content() {
-		// In plain mode, render without shortcode.
-		echo esc_attr( $this->get_settings( 'shortcode' ) );
-	}
-
-	/**
 	 * Render shortcode widget output in the editor.
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
@@ -230,5 +229,6 @@ class Copyright extends Common_Widget {
 	 * @access protected
 	 * @return void
 	 */
-	protected function content_template() {}
+	protected function content_template() {
+    }
 }

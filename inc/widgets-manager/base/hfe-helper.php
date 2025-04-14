@@ -20,7 +20,6 @@ use HFE\WidgetsManager\Base\Widgets_Config;
  * Class HFE_Helper.
  */
 class HFE_Helper {
-
 	/**
 	 * Widget Options
 	 *
@@ -104,7 +103,7 @@ class HFE_Helper {
 		$st_pro_status = self::premium_starter_templates_status();
 		$free_status   = self::free_starter_templates_status();
 
-		if ( 'Activated' !== $free_status && ( 'Installed' === $st_pro_status || 'Activated' === $st_pro_status ) ) {
+		if ( $free_status !== 'Activated' && ( $st_pro_status === 'Installed' || $st_pro_status === 'Activated' ) ) {
 			return $st_pro_status;
 		}
 
@@ -140,7 +139,7 @@ class HFE_Helper {
 
 		return apply_filters( 'hfe_widgets_list', self::$widget_list );
 	}
-	
+
 	/**
 	 * Provide General settings array().
 	 *
@@ -280,7 +279,7 @@ class HFE_Helper {
 	 */
 	public static function get_widget_options() {
 
-		if ( null === self::$widget_options ) {
+		if ( self::$widget_options === null ) {
 
 			if ( ! isset( self::$widget_list ) ) {
 				$widgets = self::get_widget_list();
@@ -296,7 +295,7 @@ class HFE_Helper {
 
 					if ( isset( $saved_widgets[ $slug ] ) ) {
 
-						if ( 'disabled' === $saved_widgets[ $slug ] ) {
+						if ( $saved_widgets[ $slug ] === 'disabled' ) {
 							$widgets[ $slug ]['is_activate'] = false;
 						} else {
 							$widgets[ $slug ]['is_activate'] = true;
@@ -313,7 +312,6 @@ class HFE_Helper {
 		return apply_filters( 'hfe_enabled_widgets', self::$widget_options );
 	}
 
-	
 	/**
 	 * Updates an option from the admin settings page.
 	 *
@@ -330,7 +328,6 @@ class HFE_Helper {
 		} else {
 			update_option( $key, $value );
 		}
-
 	}
 
 	/**
@@ -339,7 +336,7 @@ class HFE_Helper {
 	 *
 	 * @param  string  $key     The option key.
 	 * @param  mixed   $default Option default value if option is not available.
-	 * @param  boolean $network_override Whether to allow the network admin setting to be overridden on subsites.
+	 * @param  bool $network_override Whether to allow the network admin setting to be overridden on subsites.
 	 * @return string           Return the option value
 	 */
 	public static function get_admin_settings_option( $key, $default = false, $network_override = false ) {
@@ -451,17 +448,17 @@ class HFE_Helper {
 
 			usort(
 				$rollback_versions,
-				function( $prev, $next ) {
+				static function( $prev, $next ) {
 					if ( version_compare( $prev, $next, '==' ) ) {
 						return 0;
 					}
-		
+
 					if ( version_compare( $prev, $next, '>' ) ) {
 						return -1;
 					}
-		
+
 					return 1;
-				} 
+				}
 			);
 
 			$rollback_versions = array_slice( $rollback_versions, 0, $max_versions, true );

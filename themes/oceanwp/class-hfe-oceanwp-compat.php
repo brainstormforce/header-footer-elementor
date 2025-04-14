@@ -9,7 +9,6 @@
  * OceanWP theme compatibility.
  */
 class HFE_OceanWP_Compat {
-
 	/**
 	 * Instance of HFE_OceanWP_Compat.
 	 *

@@ -15,7 +15,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Class Menu_Walker.
  */
 class Menu_Walker extends \Walker_Nav_Menu {
-
 	/**
 	 * Start element
 	 *
@@ -30,7 +29,7 @@ class Menu_Walker extends \Walker_Nav_Menu {
 	 */
 	public function start_el( &$output, $item, $depth = 0, $args = [], $id = 0 ) {
 
-		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+		$indent = $depth ? str_repeat( "\t", $depth ) : '';
 		$args   = (object) $args;
 
 		$class_names = '';
@@ -41,7 +40,7 @@ class Menu_Walker extends \Walker_Nav_Menu {
 		$classes = empty( $item->classes ) ? [] : (array) $item->classes;
 		$submenu = $args->has_children ? ' hfe-has-submenu' : '';
 
-		if ( 0 === $depth ) {
+		if ( $depth === 0 ) {
 			array_push( $classes, 'parent' );
 		}
 		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args, $depth ) );
@@ -50,10 +49,10 @@ class Menu_Walker extends \Walker_Nav_Menu {
 
 		$output .= $indent . '<li id="menu-item-' . $item->ID . '"' . $value . $class_names . '>';
 
-		if ( isset( $item->target ) && '_blank' === $item->target && isset( $item->xfn ) && false === strpos( $item->xfn, 'noopener' ) ) {
+		if ( isset( $item->target ) && $item->target === '_blank' && isset( $item->xfn ) && strpos( $item->xfn, 'noopener' ) === false ) {
 			$rel_xfn = ' noopener';
 		}
-		if ( isset( $item->target ) && '_blank' === $item->target && isset( $item->xfn ) && empty( $item->xfn ) ) {
+		if ( isset( $item->target ) && $item->target === '_blank' && isset( $item->xfn ) && empty( $item->xfn ) ) {
 			$rel_blank = 'rel="noopener"';
 		}
 
@@ -67,7 +66,7 @@ class Menu_Walker extends \Walker_Nav_Menu {
 		$item_output  = $args->has_children ? '<div class="hfe-has-submenu-container">' : '';
 		$item_output .= $args->before;
 		$item_output .= '<a' . $atts;
-		if ( 0 === $depth ) {
+		if ( $depth === 0 ) {
 			$item_output .= ' class = "hfe-menu-item"';
 		} else {
 			$item_output .= in_array( 'current-menu-item', $item->classes ) ? ' class = "hfe-sub-menu-item hfe-sub-menu-item-active"' : ' class = "hfe-sub-menu-item"';

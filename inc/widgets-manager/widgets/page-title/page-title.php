@@ -28,8 +28,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.3.0
  */
 class Page_Title extends Common_Widget {
-
-
 	/**
 	 * Retrieve the widget name.
 	 *
@@ -422,18 +420,18 @@ class Page_Title extends Common_Widget {
 		$head_link_url    = isset( $settings['page_heading_link']['url'] ) ? $settings['page_heading_link']['url'] : '';
 		$head_custom_link = isset( $settings['page_custom_link'] ) ? $settings['page_custom_link'] : '';
 		?>
-			<?php if ( '' !== $head_link_url && 'custom' === $head_custom_link ) { ?>
+			<?php if ( $head_link_url !== '' && $head_custom_link === 'custom' ) { ?>
 						<a <?php echo wp_kses_post( $this->get_render_attribute_string( 'url' ) ); ?>>
-			<?php } elseif ( 'default' === $head_custom_link ) { ?>
+			<?php } elseif ( $head_custom_link === 'default' ) { ?>
 						<a href="<?php echo esc_url( get_home_url() ); ?>">
 			<?php } ?>
 			<<?php echo esc_attr( $heading_size_tag ); ?> class="elementor-heading-title elementor-size-<?php echo esc_attr( $settings['size'] ); ?>">
-				<?php if ( '' !== $settings['new_page_title_select_icon']['value'] ) { ?>
+				<?php if ( $settings['new_page_title_select_icon']['value'] !== '' ) { ?>
 						<span class="hfe-icon hfe-page-title-icon">
 							<?php \Elementor\Icons_Manager::render_icon( $settings['new_page_title_select_icon'], [ 'aria-hidden' => 'true' ] ); ?>
 						</span>
 				<?php } ?>				
-				<?php if ( '' !== $settings['before'] ) { ?>
+				<?php if ( $settings['before'] !== '' ) { ?>
 					<?php echo wp_kses_post( $settings['before'] ); ?>
 					<?php
 				}
@@ -444,12 +442,12 @@ class Page_Title extends Common_Widget {
 					echo wp_kses_post( get_the_title() );
 				}
 
-				if ( '' !== $settings['after'] ) {
+				if ( $settings['after'] !== '' ) {
 					?>
 					<?php echo wp_kses_post( $settings['after'] ); ?>
 				<?php } ?>  
 			</<?php echo esc_attr( $heading_size_tag ); ?> > 
-			<?php if ( ( '' !== $head_link_url && 'custom' === $head_custom_link ) || 'default' === $head_custom_link ) { ?>
+			<?php if ( ( $head_link_url !== '' && $head_custom_link === 'custom' ) || $head_custom_link === 'default' ) { ?>
 						</a>
 			<?php } ?>
 		</div>
@@ -498,17 +496,17 @@ class Page_Title extends Common_Widget {
 		#>
 		<div class="hfe-page-title hfe-page-title-wrapper elementor-widget-heading">
 			<# if ( '' != settings.page_heading_link.url ) { #>
-					<a {{{ view.getRenderAttributeString( 'url' ) }}} > <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
+					<a {{{ view.getRenderAttributeString( 'url' ) }}} > <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation?>
 			<# } #>
-			<{{{ headingSizeTag }}} class="elementor-heading-title elementor-size-{{{ elementor.helpers.sanitize( sanitizedSize ) }}}"> <?php //phpcs:ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>	
+			<{{{ headingSizeTag }}} class="elementor-heading-title elementor-size-{{{ elementor.helpers.sanitize( sanitizedSize ) }}}"> <?php //phpcs:ignore WordPressVIPMinimum.Security.Mustache.OutputNotation?>	
 				<# if( '' != settings.new_page_title_select_icon.value ){ #>
 					<span class="hfe-icon hfe-page-title-icon" data-elementor-setting-key="page_title" data-elementor-inline-editing-toolbar="basic">
-						{{{iconHTML.value}}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>                    
+						{{{iconHTML.value}}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation?>                    
 					</span>
 				<# } #>
 					<# if ( '' != settings.before ) {
 						var before = elementor.helpers.sanitize( settings.before ) #>
-						{{{ before }}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
+						{{{ before }}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation?>
 					<# } #>
 					<?php
 					if ( is_archive() || is_home() ) {
@@ -519,9 +517,9 @@ class Page_Title extends Common_Widget {
 					?>
 					<# if ( '' != settings.after ) { 
 						var after = elementor.helpers.sanitize( settings.after )#>
-						{{{ after }}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
+						{{{ after }}} <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation?>
 					<# } #>				
-			</{{{ headingSizeTag }}}> <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
+			</{{{ headingSizeTag }}}> <?php // PHPCS:Ignore WordPressVIPMinimum.Security.Mustache.OutputNotation?>
 			<# if ( '' != settings.page_heading_link.url ) { #>
 					</a>
 			<# } #>			

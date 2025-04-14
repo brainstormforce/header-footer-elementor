@@ -23,16 +23,24 @@ abstract class Module_Base {
 	/**
 	 * Reflection
 	 *
+	 * @var instances
+	 */
+	protected static $instances = [];
+	/**
+	 * Reflection
+	 *
 	 * @var reflection
 	 */
 	private $reflection;
 
 	/**
-	 * Reflection
-	 *
-	 * @var instances
+	 * Constructor
 	 */
-	protected static $instances = [];
+	public function __construct() {
+		$this->reflection = new \ReflectionClass( $this );
+
+		add_action( 'elementor/widgets/register', [ $this, 'init_widgets' ] );
+	}
 
 	/**
 	 * Get Name
@@ -76,15 +84,6 @@ abstract class Module_Base {
 		}
 
 		return static::$instances[ $class_name ];
-	}
-
-	/**
-	 * Constructor
-	 */
-	public function __construct() {
-		$this->reflection = new \ReflectionClass( $this );
-
-		add_action( 'elementor/widgets/register', [ $this, 'init_widgets' ] );
 	}
 
 	/**

@@ -21,7 +21,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 0.0.1
  */
 abstract class Common_Widget extends Widget_Base {
-
 	/**
 	 * Get categories
 	 *

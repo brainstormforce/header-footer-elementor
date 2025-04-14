@@ -9,7 +9,6 @@
  * Hello Elementor compatibility.
  */
 class HFE_Hello_Elementor_Compat {
-
 	/**
 	 * Instance of HFE_Hello_Elementor_Compat.
 	 *
