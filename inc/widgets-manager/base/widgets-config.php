@@ -72,7 +72,7 @@ class Widgets_Config {
 				'is_pro'      => false,
 				'doc_url'     => '',
 				'description' => __( 'Add icon, heading, description & button/link — all in one widget.', 'header-footer-elementor' ),
-				'demo_url'    => '',
+				'demo_url'    => 'https://ultimateelementor.com/widgets/info-card/',
 				'category'    => 'content',
 			],
 			'Breadcrumbs_Widget' => [
