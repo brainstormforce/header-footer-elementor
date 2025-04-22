@@ -1,6 +1,6 @@
 === Ultimate Addons for Elementor (Formerly Elementor Header & Footer Builder) ===  
 Contributors: @brainstormforce, @nikschavan, @pratikchaskar
-Tags: elementor, header footer builder, widgets, header template, footer template
+Tags: elementor, elementor addon, elementor widget, elementor template, header footer builder
 Requires at least: 5.0  
 Tested up to: 6.8
 Requires PHP: 7.4  
