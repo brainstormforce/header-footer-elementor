@@ -20,7 +20,6 @@ defined( 'ABSPATH' ) || exit;
  * Set up Extensions Loader class
  */
 class Extensions_Loader {
-
 	/**
 	 * Instance of Extensions_Loader.
 	 *
@@ -28,6 +27,17 @@ class Extensions_Loader {
 	 * @var null
 	 */
 	private static $_instance = null;
+
+	/**
+	 * Setup actions and filters.
+	 *
+	 * @since  2.2.1
+	 * @access private
+	 */
+	private function __construct() {
+
+		add_action( 'elementor/init', [ $this, 'elementor_init' ] );
+	}
 
 	/**
 	 * Get instance of Extensions_Loader
@@ -41,18 +51,6 @@ class Extensions_Loader {
 		}
 
 		return self::$_instance;
-	}
-
-	/**
-	 * Setup actions and filters.
-	 *
-	 * @since  2.2.1
-	 * @access private
-	 */
-	private function __construct() {
-
-		add_action( 'elementor/init', [ $this, 'elementor_init' ] );
-
 	}
 
 	/**
@@ -71,12 +69,12 @@ class Extensions_Loader {
 	 * @return array()
 	 * @since 1.3.0
 	 */
-	public static function get_extensions_list() {
-		$extensions_list = [
+    public static function get_extensions_list() {
+        $extensions_list = [
 			'Scroll_To_Top' => 'scroll-to-top',
 		];
 
-		return $extensions_list;
+        return $extensions_list;
 	}
 
 	/**

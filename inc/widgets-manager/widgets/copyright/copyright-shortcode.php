@@ -12,7 +12,7 @@ namespace HFE\WidgetsManager\Widgets\Copyright;
  * Exit if accessed directly.
  */
 if ( ! defined( 'ABSPATH' ) ) {
-	exit();
+	exit;
 }
 
 /**
@@ -21,7 +21,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.2.0
  */
 class Copyright_Shortcode {
-
 	/**
 	 * Constructor.
 	 */

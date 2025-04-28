@@ -20,7 +20,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 #[\AllowDynamicProperties]
 class Modules_Manager {
-
 	/**
 	 * Member Variable
 	 *
@@ -69,10 +68,10 @@ class Modules_Manager {
 			if ( class_exists( $class_name ) && $class_name::is_enable() ) {
 				$this->_modules[ $module_name ] = $class_name::instance();
 
-				if ( 'copyright' === $module_name ) {
+				if ( $module_name === 'copyright' ) {
 					require HFE_DIR . '/inc/widgets-manager/widgets/copyright/copyright-shortcode.php';
 					$copyright_shortcode = new \HFE\WidgetsManager\Widgets\Copyright\Copyright_Shortcode();
-				}           
+				}
 			}
 		}
 	}
@@ -84,7 +83,7 @@ class Modules_Manager {
 	 *
 	 * @since 0.0.1
 	 *
-	 * @return Module_Base|Module_Base[]
+	 * @return Module_Base|array<Module_Base>
 	 */
 	public function get_modules( $module_name = null ) {
 		if ( $module_name ) {
