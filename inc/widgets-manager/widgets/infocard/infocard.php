@@ -98,6 +98,7 @@ class Infocard extends Common_Widget {
 		$this->register_general_content_controls();
 		$this->register_icon_content_controls();
 		$this->register_cta_content_controls();
+		$this->register_pro_promotion_controls();
 		$this->register_typo_content_controls();
 		$this->register_margin_content_controls();
 	}
@@ -780,6 +781,34 @@ class Infocard extends Common_Widget {
 			$this->end_controls_tab();
 
 		$this->end_controls_tabs();
+
+		$this->end_controls_section();
+	}
+
+	/**
+	 * Register Infocard General Controls.
+	 *
+	 * @since 2.3.0
+	 * @access protected
+	 */
+	protected function register_pro_promotion_controls() {
+		$this->start_controls_section(
+			'section_pro_field',
+			array(
+				'label' => __( 'Pro Features', 'header-footer-elementor' ),
+			)
+		);
+
+		$this->add_control(
+			'pro_promotion_notice',
+			[
+				'type' => \Elementor\Controls_Manager::NOTICE,
+				'notice_type' => 'info',
+				'dismissible' => false,
+				'heading' => esc_html__( 'Need Advanced Styling?', 'textdomain' ),
+				'content' => __( 'Take your designs to the next level with the InfoBox widget in <a href="https://ultimateelementor.com/widgets/info-box/" _target="blank"> Pro  </a> — offering powerful styling options and enhanced flexibility.', 'textdomain' ),
+			]
+		);
 
 		$this->end_controls_section();
 	}
