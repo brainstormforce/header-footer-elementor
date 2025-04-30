@@ -805,8 +805,8 @@ class Infocard extends Common_Widget {
 				'type' => \Elementor\Controls_Manager::NOTICE,
 				'notice_type' => 'info',
 				'dismissible' => false,
-				'heading' => esc_html__( 'Need Advanced Styling?', 'textdomain' ),
-				'content' => __( 'Take your designs to the next level with the InfoBox widget in <a href="https://ultimateelementor.com/widgets/info-box/" _target="blank"> Pro  </a> — offering powerful styling options and enhanced flexibility.', 'textdomain' ),
+				'heading' => esc_html__( 'Need Advanced Styling?', 'header-footer-elementor' ),
+				'content' => __( 'Take your designs to the next level with the InfoBox widget in <a href="https://ultimateelementor.com/widgets/info-box/" _target="blank"> Pro  </a> — offering powerful styling options and enhanced flexibility.', 'header-footer-elementor' ),
 			]
 		);
 
