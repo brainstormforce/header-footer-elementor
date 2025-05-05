@@ -489,7 +489,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		}
 
 		/**
-		 * Send analaytics track event if tracking is enabled.
+		 * Send analytics track event if tracking is enabled.
 		 *
 		 * @since 1.0.0
 		 */
@@ -541,7 +541,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 			if ( class_exists( 'Deactivation_Survey_Feedback' ) ) {
 				foreach ( $this->entities as $key => $data ) {
-					// If the deactibation_survery info in available then only add the form.
+					// If the deactivation_survey info in available then only add the form.
 					if ( ! empty( $data['deactivation_survey'] ) && is_array( $data['deactivation_survey'] ) ) {
 						foreach ( $data['deactivation_survey'] as $key => $survey_args ) {
 							Deactivation_Survey_Feedback::show_feedback_form(
