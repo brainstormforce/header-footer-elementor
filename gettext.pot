@@ -542,7 +542,7 @@ msgid ""
 msgstr ""
 
 #: src/Components/Dashboard/WelcomeContainer.js:58
-#: src/Components/Onboarding/Build.jsx:154
+#: src/Components/Onboarding/Build.jsx:161
 msgid "Create Header/Footer"
 msgstr ""
 
@@ -599,7 +599,6 @@ msgid "Free vs Pro"
 msgstr ""
 
 #: src/Components/NavMenu.js:221
-#: src/Components/Onboarding/Success.jsx:170
 msgid "Get Pro"
 msgstr ""
 
@@ -635,45 +634,61 @@ msgstr ""
 msgid "What's New?"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:101
+#: src/Components/Onboarding/Build.jsx:105
+msgid "You're all set!🚀"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:108
 msgid ""
 "Start creating headers, footers, or pages with UAE and take your website to "
 "the next level"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:107
+#: src/Components/Onboarding/Build.jsx:114
 msgid "Here’s how to get started:"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:111
+#: src/Components/Onboarding/Build.jsx:118
 msgid "Click on “Create” button"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:112
+#: src/Components/Onboarding/Build.jsx:119
 msgid ""
 "Choose the type of template you want to create and customize the selected "
 "option"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:113
+#: src/Components/Onboarding/Build.jsx:120
 msgid ""
 "Use the Elementor editor to customize your template according to your "
 "preferences using UAE widgets"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:114
+#: src/Components/Onboarding/Build.jsx:121
 msgid "Click “Publish” to make it live"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:179
+#: src/Components/Onboarding/Build.jsx:186
 msgid "Go To Dashboard"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:228
+#: src/Components/Onboarding/Build.jsx:202
+msgid "We have a special reward just for you!"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:206
+msgid "Unlock your surprise now"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:220
+msgid "Unlock My Surprise"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:235
 msgid "Help make UAE Better"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:257
+#: src/Components/Onboarding/Build.jsx:264
 msgid ""
 "Help us improve by sharing anonymous data about your website setup. This "
 "includes non-sensitive info about plugins, themes, and settings, so we can "
@@ -681,64 +696,70 @@ msgid ""
 "Learn more in our privacy policy."
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:271
+#: src/Components/Onboarding/Build.jsx:278
 msgid "We have a special Reward just for you! 🎁"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:285
+#: src/Components/Onboarding/Build.jsx:292
 msgid ""
 "Enter your email address to get special offer that we have for you and stay "
 "updated on UAE’s latest news and updates."
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:289
+#: src/Components/Onboarding/Build.jsx:296
 msgid "Email Address"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:329
+#: src/Components/Onboarding/Build.jsx:336
 msgid "Submit Email"
 msgstr ""
 
+#: src/Components/Onboarding/Build.jsx:42
+msgid "Please enter a valid email address"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:67
 #: src/Components/Onboarding/Build.jsx:60
 #: src/Components/Settings/ThemeSupport.jsx:63
 #: src/Components/Settings/UsageTracking.jsx:32
 msgid "Settings saved successfully!"
 msgstr ""
 
+#: src/Components/Onboarding/Build.jsx:72
 #: src/Components/Onboarding/Build.jsx:65
 #: src/Components/Settings/ThemeSupport.jsx:68
 #: src/Components/Settings/UsageTracking.jsx:37
 msgid "Failed to save settings!"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:98
-msgid "You're all set!🚀"
-msgstr ""
-
-#: src/Components/Onboarding/Success.jsx:117
+#: src/Components/Onboarding/Success.jsx:141
 msgid "Congratulations!"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:123
+#: src/Components/Onboarding/Success.jsx:147
 msgid "You’ve unlocked a "
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:128
+#: src/Components/Onboarding/Success.jsx:152
 msgid " discount on UAE Pro. We’ve sent a discount"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:134
-msgid "coupon just for you to your email address."
+#: src/Components/Onboarding/Success.jsx:158
+msgid " coupon just for you to your email address."
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:141
+#: src/Components/Onboarding/Success.jsx:165
 msgid ""
-" Use your exclusive discount code within the next 2 hours to claim your "
+" Use your exclusive discount code within the next 2 days to claim your "
 "reward!”"
 msgstr ""
 
 #: src/Components/Onboarding/Success.jsx:197
-msgid "Go the the Dashboard"
+msgid "Get Pro Now"
+msgstr ""
+
+#: src/Components/Onboarding/Success.jsx:223
+msgid "Go To The Dashboard"
 msgstr ""
 
 #: src/Components/Onboarding/Welcome.jsx:11

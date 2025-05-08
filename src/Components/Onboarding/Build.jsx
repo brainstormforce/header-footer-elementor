@@ -33,7 +33,14 @@ const OnboardingBuild = ({ setCurrentStep }) => {
     }, [hfeSettingsData.user_email]);
 
     const handleSubmit = () => {
-        window.location.href = hfeSettingsData.onboarding_success_url;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (emailRegex.test(email)) {
+            setIsSubmitted(true);
+            callValidatedEmailWebhook(email);
+            window.location.href = hfeSettingsData.onboarding_success_url;
+        } else {
+            toast.error(__('Please enter a valid email address', 'header-footer-elementor'));
+        }
     };
 
     const handleSwitchChange = () => {
@@ -190,27 +197,27 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                     borderRadius: '5px'
                 }}
             >
-                <div className='flex flex-col p-6'>
-                    <h3 className='font-bold text-text-primary mt-0 mb-1'>
-                        We Have A Special Reward Just For You!
+                <div className='flex flex-col p-6 items-start'>
+                    <h3 className='font-bold text-text-primary mt-0 mb-1' style={{ lineHeight: '1.3em' }}>
+                        {__("We have a special reward just for you!", "header-footer-elementor")}
                     </h3>
 
                     <span className='font-medium text-text-secondary mt-2 mb-6'>
-                        Unlock your surprise now
+                         {__("Unlock your surprise now", "header-footer-elementor")}
                     </span>
 
                     <Button
-                        className="hfe-remove-ring hfe-span"
+                        className="hfe-remove-ring hfe-span hfe-popup-button"
                         icon={<Package aria-label="icon" role="img" />}
                         iconPosition="right"
                         size="md"
                         tag="button"
                         type="button"
                         variant="link"
-                        style={{ alignItems: 'center', justifyContent: 'flex-start' }}
+                        style={{ alignItems: 'center', justifyContent: 'flex-start', color: "#6005FF" }}
                         onClick={() => setIsDialogOpen(true)}
                     >
-                        Unlock My Surprise
+                         {__("Unlock My Surprise", "header-footer-elementor")}
                     </Button>
                 </div>
             </div>
@@ -264,10 +271,10 @@ const OnboardingBuild = ({ setCurrentStep }) => {
             >
                 <Dialog.Backdrop />
                 <Dialog.Panel>
-                    <Dialog.Header style={{ padding: '30px' }}>
+                <Dialog.Header style={{ padding: '30px', marginBottom: '0.5rem' }}>
                         <div className="flex items-center justify-between">
                             <div className="flex items-center justify-center">
-                                <Dialog.Title style={{ fontSize: '25px', width: '80%', lineHeight: '36px' }}>
+                                <Dialog.Title style={{ fontSize: '1.6rem', width: '80%', lineHeight: '1.3em' }}>
                                     {__('We have a special Reward just for you! 🎁', 'header-footer-elementor')}
                                 </Dialog.Title>
                                 <Button
@@ -275,17 +282,17 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                                     iconPosition="right"
                                     size="md"
                                     variant="ghost"
-                                    className='hfe-remove-ring'
+                                    className='hfe-remove-ring self-start'
                                     onClick={() => setIsDialogOpen(false)}
                                     style={{ marginLeft: '60px', marginBottom: '20px' }}
                                 />
                             </div>
                         </div>
-                        <Dialog.Description style={{ fontSize: '14px', width: '90%', fontWeight: '400', color: '#64748B' }}>
+                        <Dialog.Description style={{ width: '90%', color: '#64748B' }}>
                             {__('Enter your email address to get special offer that we have for you and stay updated on UAE’s latest news and updates.', 'header-footer-elementor')}
                         </Dialog.Description>
 
-                        <p className="text-md font-bold text-field-label m-0 gap-0" style={{ fontSize: '14px' }}>
+                        <p className="text-md font-bold text-field-label m-0 gap-0" style={{ fontSize: '14px', marginTop: '15px' }}>
                             {__(
                                 "Email Address",
                                 "header-footer-elementor"
@@ -301,10 +308,10 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                                 style={{ width: '282px' }}
                                 onChange={(e) => {
                                     if (e && e.target) {
-                                        console.log('Input changed:', e.target.value);
+                                        // console.log('Input changed:', e.target.value);
                                         setEmail(e.target.value);
                                     } else {
-                                        console.error('Event or event target is undefined');
+                                        // console.error('Event or event target is undefined');
                                     }
                                 }}
                             />
