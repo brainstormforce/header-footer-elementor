@@ -677,7 +677,7 @@ msgid "We have a special reward just for you!"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:206
-msgid "Unlock your surprise now"
+msgid "This special offer is available only on this page and for limited time"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:220
@@ -719,14 +719,12 @@ msgid "Please enter a valid email address"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:67
-#: src/Components/Onboarding/Build.jsx:60
 #: src/Components/Settings/ThemeSupport.jsx:63
 #: src/Components/Settings/UsageTracking.jsx:32
 msgid "Settings saved successfully!"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:72
-#: src/Components/Onboarding/Build.jsx:65
 #: src/Components/Settings/ThemeSupport.jsx:68
 #: src/Components/Settings/UsageTracking.jsx:37
 msgid "Failed to save settings!"

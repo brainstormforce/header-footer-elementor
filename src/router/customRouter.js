@@ -17,7 +17,7 @@ const CustomRouter = () => (
     <Route path={routes.templates.path}><Templates /></Route>
     <Route path={routes.settings.path}><Settings /></Route>
     <Route path={routes.upgrade.path}><Upgrade /></Route>
-    <Route path={routes.Onboardingsuccess.path}><Success /></Route>
+    <Route path={routes.onboardingsuccess.path}><Success /></Route>
   </Router>
 );
 

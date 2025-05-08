@@ -20,7 +20,7 @@ export const routes = {
     headerFooterBuilder: { 
         path: "elementor-hf" 
     },
-    Onboardingsuccess: { 
-        path: "Onboardingsuccess" 
+    onboardingsuccess: { 
+        path: "onboardingsuccess" 
     }
 }

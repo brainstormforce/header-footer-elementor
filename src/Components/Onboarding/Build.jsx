@@ -203,7 +203,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                     </h3>
 
                     <span className='font-medium text-text-secondary mt-2 mb-6'>
-                         {__("Unlock your surprise now", "header-footer-elementor")}
+                         {__("This special offer is available only on this page and for limited time", "header-footer-elementor")}
                     </span>
 
                     <Button

@@ -326,7 +326,7 @@ class HFE_Settings_Page {
 					'is_hfe_post'              => $is_hfe_post,
 					'user_email'               => $user_email,
 					'analytics_status'         => $analytics_status,
-					'onboarding_success_url'   => admin_url( 'admin.php?page=hfe' . $menu_slug . '#Onboardingsuccess' )
+					'onboarding_success_url'   => admin_url( 'admin.php?page=hfe#onboardingsuccess' )
 	
 				]
 			);
@@ -585,7 +585,7 @@ class HFE_Settings_Page {
 				__( 'Onboarding', 'header-footer-elementor' ),
 				__( 'Onboardingsuccess', 'header-footer-elementor' ),
 				$capability,
-				$menu_slug . '#Onboardingsuccess',
+				$menu_slug . '#onboardingsuccess',
 				[ $this, 'render' ],
 				9
 			);
