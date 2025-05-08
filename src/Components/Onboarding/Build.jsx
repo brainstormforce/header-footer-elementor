@@ -19,14 +19,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
     }, [hfeSettingsData.user_email]);
 
     const handleSubmit = () => {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (emailRegex.test(email)) {
-            setIsSubmitted(true);
-            callValidatedEmailWebhook(email);
-            window.location.href = hfeSettingsData.onboarding_success_url;
-        } else {
-            toast.error(__('Please enter a valid email address', 'header-footer-elementor'));
-        }
+        window.location.href = hfeSettingsData.onboarding_success_url;
     };
 
     const handleSwitchChange = () => {

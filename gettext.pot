@@ -542,7 +542,7 @@ msgid ""
 msgstr ""
 
 #: src/Components/Dashboard/WelcomeContainer.js:58
-#: src/Components/Onboarding/Build.jsx:147
+#: src/Components/Onboarding/Build.jsx:140
 msgid "Create Header/Footer"
 msgstr ""
 
@@ -599,6 +599,7 @@ msgid "Free vs Pro"
 msgstr ""
 
 #: src/Components/NavMenu.js:221
+#: src/Components/Onboarding/Success.jsx:170
 msgid "Get Pro"
 msgstr ""
 
@@ -634,58 +635,42 @@ msgstr ""
 msgid "What's New?"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:101
-msgid "Here's How To Get Started:"
-msgstr ""
-
-#: src/Components/Onboarding/Build.jsx:105
-msgid "Click on “Create New Page” button"
-msgstr ""
-
-#: src/Components/Onboarding/Build.jsx:106
-msgid ""
-"Use the Elementor editor to customize your page/post according to your "
-"preferences"
-msgstr ""
-
-#: src/Components/Onboarding/Build.jsx:107
+#: src/Components/Onboarding/Build.jsx:100
 msgid "Use UAE widgets to design your pages."
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:108
+#: src/Components/Onboarding/Build.jsx:101
 msgid "Click “Publish” to make it live"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:172
+#: src/Components/Onboarding/Build.jsx:165
 msgid "Go To Dashboard"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:221
+#: src/Components/Onboarding/Build.jsx:214
 msgid "Help make UAE Better"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:238
+#: src/Components/Onboarding/Build.jsx:231
 msgid "We have a special Reward just for you! 🎁"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:252
+#: src/Components/Onboarding/Build.jsx:245
 msgid ""
 "Enter your email address to get special offer that we have for you and stay "
 "updated on UAE’s latest news and updates."
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:256
+#: src/Components/Onboarding/Build.jsx:249
 msgid "Email Address"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:28
-msgid "Please enter a valid email address"
-msgstr ""
-
-#: src/Components/Onboarding/Build.jsx:296
+#: src/Components/Onboarding/Build.jsx:289
 msgid "Submit Email"
 msgstr ""
 
+#: src/Components/Onboarding/Build.jsx:47
+#: src/Components/Onboarding/Build.jsx:55
 #: src/Components/Onboarding/Build.jsx:54
 #: src/Components/Onboarding/Build.jsx:51
 #: src/Components/Settings/ThemeSupport.jsx:63
@@ -693,6 +678,8 @@ msgstr ""
 msgid "Settings saved successfully!"
 msgstr ""
 
+#: src/Components/Onboarding/Build.jsx:52
+#: src/Components/Onboarding/Build.jsx:60
 #: src/Components/Onboarding/Build.jsx:59
 #: src/Components/Onboarding/Build.jsx:56
 #: src/Components/Settings/ThemeSupport.jsx:68
@@ -700,14 +687,54 @@ msgstr ""
 msgid "Failed to save settings!"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:92
+#: src/Components/Onboarding/Build.jsx:85
 msgid "You're all set!🚀"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:95
+#: src/Components/Onboarding/Build.jsx:88
 msgid ""
 "Start creating amazing designs with UAE and take your website to the next "
 "level"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:94
+msgid "Here's How To Get Started:"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:98
+msgid "Click on “Create New Page” button"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:99
+msgid ""
+"Use the Elementor editor to customize your page/post according to your "
+"preferences"
+msgstr ""
+
+#: src/Components/Onboarding/Success.jsx:117
+msgid "Congratulations!"
+msgstr ""
+
+#: src/Components/Onboarding/Success.jsx:123
+msgid "You’ve unlocked a "
+msgstr ""
+
+#: src/Components/Onboarding/Success.jsx:128
+msgid " discount on UAE Pro. We’ve sent a discount"
+msgstr ""
+
+#: src/Components/Onboarding/Success.jsx:134
+msgid "coupon just for you to your email address."
+msgstr ""
+
+#: src/Components/Onboarding/Success.jsx:141
+msgid ""
+" Use your exclusive discount code within the next 2 hours to claim your "
+"reward!”"
+msgstr ""
+
+#: src/Components/Onboarding/Success.jsx:197
+msgid "Go the the Dashboard"
 msgstr ""
 
 #: src/Components/Onboarding/Welcome.jsx:11
