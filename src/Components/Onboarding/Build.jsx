@@ -204,39 +204,43 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                 </Link>
 
             </div>
-            <div
-                className="flex items-start justify-start mt-4"
-                style={{
-                    backgroundImage: `url(${hfeSettingsData.special_reward})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    borderRadius: '5px'
-                }}
-            >
-                <div className='flex flex-col p-6 items-start'>
-                    <h3 className='font-bold text-text-primary mt-0 mb-1' style={{ lineHeight: '1.3em' }}>
-                        {__("We have a special reward just for you!", "header-footer-elementor")}
-                    </h3>
-
-                    <span className='font-medium text-text-secondary mt-2 mb-6'>
-                         {__("This special offer is available only on this page and for limited time", "header-footer-elementor")}
-                    </span>
-
-                    <Button
-                        className="hfe-remove-ring hfe-span hfe-popup-button"
-                        icon={<Package aria-label="icon" role="img" />}
-                        iconPosition="right"
-                        size="md"
-                        tag="button"
-                        type="button"
-                        variant="link"
-                        style={{ alignItems: 'center', justifyContent: 'flex-start', color: "#6005FF" }}
-                        onClick={() => setIsDialogOpen(true)}
+            {
+                hfeSettingsData.uaelite_subscription !== 'done' && (
+                    <div
+                        className="flex items-start justify-start mt-4"
+                        style={{
+                            backgroundImage: `url(${hfeSettingsData.special_reward})`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            borderRadius: '5px'
+                        }}
                     >
-                         {__("Unlock My Surprise", "header-footer-elementor")}
-                    </Button>
-                </div>
-            </div>
+                        <div className='flex flex-col p-6 items-start'>
+                            <h3 className='font-bold text-text-primary mt-0 mb-1' style={{ lineHeight: '1.3em' }}>
+                                {__("We have a special reward just for you!", "header-footer-elementor")}
+                            </h3>
+
+                            <span className='font-medium text-text-secondary mt-2 mb-6'>
+                                {__("This special offer is available only on this page and for limited time", "header-footer-elementor")}
+                            </span>
+
+                            <Button
+                                className="hfe-remove-ring hfe-span hfe-popup-button"
+                                icon={<Package aria-label="icon" role="img" />}
+                                iconPosition="right"
+                                size="md"
+                                tag="button"
+                                type="button"
+                                variant="link"
+                                style={{ alignItems: 'center', justifyContent: 'flex-start', color: "#6005FF" }}
+                                onClick={() => setIsDialogOpen(true)}
+                            >
+                                {__("Unlock My Surprise", "header-footer-elementor")}
+                            </Button>
+                        </div>
+                    </div>
+                )
+            }
             <hr className="w-full border-b-0 border-x-0 border-t border-solid border-t-border-subtle" style={{ marginTop: '34px', marginBottom: '34px', borderColor: '#E5E7EB' }} />
 
             <div className="bg-badge-background-gray border-[0.5px] border-subtle p-6" style={{ borderRadius: '5px' }}>

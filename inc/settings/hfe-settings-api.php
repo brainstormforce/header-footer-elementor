@@ -247,6 +247,8 @@ class HFE_Settings_Api {
 			return new WP_Error( 'webhook_error', __( 'Error in API response: ' . ( $response_body['message'] ?? 'Unknown error' ), 'header-footer-elementor' ), [ 'status' => $response_code ] );
 		}
 
+		update_option( 'uaelite_subscription', 'done' );
+
 		return new WP_REST_Response(
 			[
 				'message'    => 'success'
