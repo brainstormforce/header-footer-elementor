@@ -786,31 +786,35 @@ class Infocard extends Common_Widget {
 	}
 
 	/**
-	 * Register Infocard General Controls.
+	 * Register Infocard Promotion Controls.
 	 *
-	 * @since 2.3.0
+	 * @since x.x.x
 	 * @access protected
 	 */
 	protected function register_pro_promotion_controls() {
-		$this->start_controls_section(
-			'section_pro_field',
-			array(
-				'label' => __( 'Pro Features', 'header-footer-elementor' ),
-			)
-		);
 
-		$this->add_control(
-			'pro_promotion_notice',
-			[
-				'type' => \Elementor\Controls_Manager::NOTICE,
-				'notice_type' => 'info',
-				'dismissible' => false,
-				'heading' => esc_html__( 'Need Advanced Styling?', 'header-footer-elementor' ),
-				'content' => __( 'Take your designs to the next level with the InfoBox widget in <a href="https://ultimateelementor.com/widgets/info-box/" _target="blank"> Pro  </a> — offering powerful styling options and enhanced flexibility.', 'header-footer-elementor' ),
-			]
-		);
+		if(! defined( 'UAEL_VER' )){
+			$this->start_controls_section(
+				'section_pro_field',
+				array(
+					'label' => __( 'Pro Features', 'header-footer-elementor' ),
+				)
+			);
+			
+			$this->add_control(
+				'pro_promotion_notice',
+				[
+					'type' => Controls_Manager::NOTICE,
+					'notice_type' => 'info',
+					'dismissible' => false,
+					'heading' => esc_html__( 'Need Advanced Styling?', 'header-footer-elementor' ),
+					'content' => __( 'Take your designs to the next level with the InfoBox widget in <a href="https://ultimateelementor.com/widgets/info-box/?utm_source=uae-dashboard&utm_medium=editor&utm_campaign=uae-pro-promotion" target="_blank"> Pro  </a> — offering powerful styling options and enhanced flexibility.', 'header-footer-elementor' ),
+				]
+			);
+		
 
-		$this->end_controls_section();
+			$this->end_controls_section();
+		}
 	}
 
 	/**
