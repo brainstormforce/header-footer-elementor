@@ -15,6 +15,20 @@ const OnboardingBuild = ({ setCurrentStep }) => {
     useEffect(() => {
         setEmail(hfeSettingsData.user_email);
         setIsActive(hfeSettingsData.analytics_status === 'yes');
+
+        history.pushState(null, "", window.location.href);
+        
+        const handleBackButton = (event) => {
+            event.preventDefault();
+            localStorage.setItem('currentStep', '2');
+            window.location.reload();
+        };
+
+        window.addEventListener('popstate', handleBackButton);
+
+        return () => {
+            window.removeEventListener('popstate', handleBackButton);
+        };
         
     }, [hfeSettingsData.user_email]);
 
@@ -26,7 +40,6 @@ const OnboardingBuild = ({ setCurrentStep }) => {
 
         const newIsActive = !isActive;
         setIsActive(newIsActive);
-        console.log(`Switch is now ${newIsActive ? 'active' : 'inactive'}`);
 
         try {
             const response = fetch(hfe_admin_data.ajax_url, {
@@ -77,27 +90,27 @@ const OnboardingBuild = ({ setCurrentStep }) => {
     }
 
     return (
-        <div className="bg-background-primary border-[0.5px] border-subtle rounded-xl shadow-sm mb-6 p-8" style={{ width: '55%' }}>
-            <div className="flex items-start">
+        <div className="bg-background-primary border-[0.5px] border-subtle rounded-xl shadow-sm mb-6 p-8" style={{ maxWidth: '55%' }}>
+            <div className="flex items-start hfe-display-flex">
                 {/* Left Content */}
-                <div className="flex flex-col items-start">
+                <div className="flex flex-col items-start" style={{ paddingRight: '35px' }}>
                     <h1 className="text-text-primary m-0 mb-2" style={{ fontSize: '1.6rem', lineHeight: '1.3em' }}>
                         {__("You're all set!🚀", "header-footer-elementor")}
                     </h1>
                     <span className="text-md font-medium text-text-tertiary m-0 mb-4 hfe-88-width" style={{ lineHeight: '1.6em' }}>
                         {__(
-                            "Start creating amazing designs with UAE and take your website to the next level",
+                            "Start creating headers, footers, or pages with UAE and take your website to the next level",
                             "header-footer-elementor"
                         )}
                     </span>
                     <span className="font-bold m-0 pt-2">
-                        {__("Here's How To Get Started:", "header-footer-elementor")}
+                        {__("Here’s how to get started:", "header-footer-elementor")}
                     </span>
 
-                    <ol className="list-decimal text-text-tertiary text-sm" style={{ marginLeft: '1.4em' }}>
-                        <li>{__('Click on “Create New Page” button', 'header-footer-elementor')}</li>
-                        <li>{__('Use the Elementor editor to customize your page/post according to your preferences', 'header-footer-elementor')}</li>
-                        <li>{__('Use UAE widgets to design your pages.', 'header-footer-elementor')}</li>
+                    <ol className="list-decimal text-text-tertiary text-sm" style={{ marginLeft: '1.4em', lineHeight: '1.6em', paddingBottom: '0.5rem' }}>
+                        <li>{__('Click on “Create” button', 'header-footer-elementor')}</li>
+                        <li>{__('Choose the type of template you want to create and customize the selected option', 'header-footer-elementor')}</li>
+                        <li>{__('Use the Elementor editor to customize your template according to your preferences using UAE widgets', 'header-footer-elementor')}</li>
                         <li>{__('Click “Publish” to make it live', 'header-footer-elementor')}</li>
                     </ol>
                 </div>
@@ -109,10 +122,11 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                         className="w-full object-contain"
                         style={{ height: '255px', width: 'auto' }}
                         src={`${hfeSettingsData.build_banner}`}
+                        loading="lazy"
                     />
                 </div>
             </div>
-            <div className='flex flex-row gap-1 pt-2 pb-4'>
+            <div className='flex flex-row gap-1 pb-4 hfe-display-flex'>
                 <Button
                     icon={<ArrowRight/>}
                     iconPosition="right"
@@ -214,7 +228,33 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                         {__("Help make UAE Better", "header-footer-elementor")}
                     </span>
                 </div>
-                <span className='flex flex-row items-center justify-start mt-4 gap-3' style={{ lineHeight: '1.5em', fontSize: '0.95em' }}>Help us improve by sharing anonymous data about your website setup. This includes non-sensitive info about plugins, themes, and settings, so we can create a better product for you. Your privacy is always our top priority. Learn more in our privacy policy.</span>
+                <Toaster
+                    position="top-right"
+                    reverseOrder={false}
+                    gutter={8}
+                    containerStyle={{
+                        top: 20,
+                        right: 20,
+                        marginTop: '40px',
+                    }}
+                    toastOptions={{
+                        duration: 1000,
+                        style: {
+                            background: 'white',
+                        },
+                        success: {
+                            duration: 2000,
+                            style: {
+                                color: '',
+                            },
+                            iconTheme: {
+                                primary: '#6005ff',
+                                secondary: '#fff',
+                            },
+                        },
+                    }}
+                />
+                <span className='flex flex-row items-center justify-start mt-4 gap-3' style={{ lineHeight: '1.5em', fontSize: '0.95em' }}>{__("Help us improve by sharing anonymous data about your website setup. This includes non-sensitive info about plugins, themes, and settings, so we can create a better product for you. Your privacy is always our top priority. Learn more in our privacy policy.", "header-footer-elementor")}</span>
             </div>
 
             <Dialog

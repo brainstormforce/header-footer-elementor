@@ -542,7 +542,7 @@ msgid ""
 msgstr ""
 
 #: src/Components/Dashboard/WelcomeContainer.js:58
-#: src/Components/Onboarding/Build.jsx:140
+#: src/Components/Onboarding/Build.jsx:154
 msgid "Create Header/Footer"
 msgstr ""
 
@@ -635,80 +635,84 @@ msgstr ""
 msgid "What's New?"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:100
-msgid "Use UAE widgets to design your pages."
+#: src/Components/Onboarding/Build.jsx:101
+msgid ""
+"Start creating headers, footers, or pages with UAE and take your website to "
+"the next level"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:101
+#: src/Components/Onboarding/Build.jsx:107
+msgid "Here’s how to get started:"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:111
+msgid "Click on “Create” button"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:112
+msgid ""
+"Choose the type of template you want to create and customize the selected "
+"option"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:113
+msgid ""
+"Use the Elementor editor to customize your template according to your "
+"preferences using UAE widgets"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:114
 msgid "Click “Publish” to make it live"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:165
+#: src/Components/Onboarding/Build.jsx:179
 msgid "Go To Dashboard"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:214
+#: src/Components/Onboarding/Build.jsx:228
 msgid "Help make UAE Better"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:231
+#: src/Components/Onboarding/Build.jsx:257
+msgid ""
+"Help us improve by sharing anonymous data about your website setup. This "
+"includes non-sensitive info about plugins, themes, and settings, so we can "
+"create a better product for you. Your privacy is always our top priority. "
+"Learn more in our privacy policy."
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:271
 msgid "We have a special Reward just for you! 🎁"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:245
+#: src/Components/Onboarding/Build.jsx:285
 msgid ""
 "Enter your email address to get special offer that we have for you and stay "
 "updated on UAE’s latest news and updates."
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:249
+#: src/Components/Onboarding/Build.jsx:289
 msgid "Email Address"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:289
+#: src/Components/Onboarding/Build.jsx:329
 msgid "Submit Email"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:47
-#: src/Components/Onboarding/Build.jsx:55
-#: src/Components/Onboarding/Build.jsx:54
-#: src/Components/Onboarding/Build.jsx:51
+#: src/Components/Onboarding/Build.jsx:60
 #: src/Components/Settings/ThemeSupport.jsx:63
 #: src/Components/Settings/UsageTracking.jsx:32
 msgid "Settings saved successfully!"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:52
-#: src/Components/Onboarding/Build.jsx:60
-#: src/Components/Onboarding/Build.jsx:59
-#: src/Components/Onboarding/Build.jsx:56
+#: src/Components/Onboarding/Build.jsx:65
 #: src/Components/Settings/ThemeSupport.jsx:68
 #: src/Components/Settings/UsageTracking.jsx:37
 msgid "Failed to save settings!"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:85
-msgid "You're all set!🚀"
-msgstr ""
-
-#: src/Components/Onboarding/Build.jsx:88
-msgid ""
-"Start creating amazing designs with UAE and take your website to the next "
-"level"
-msgstr ""
-
-#: src/Components/Onboarding/Build.jsx:94
-msgid "Here's How To Get Started:"
-msgstr ""
-
 #: src/Components/Onboarding/Build.jsx:98
-msgid "Click on “Create New Page” button"
-msgstr ""
-
-#: src/Components/Onboarding/Build.jsx:99
-msgid ""
-"Use the Elementor editor to customize your page/post according to your "
-"preferences"
+msgid "You're all set!🚀"
 msgstr ""
 
 #: src/Components/Onboarding/Success.jsx:117
