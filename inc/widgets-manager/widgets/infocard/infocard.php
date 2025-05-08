@@ -795,14 +795,14 @@ class Infocard extends Common_Widget {
 
 		if(! defined( 'UAEL_VER' )){
 			$this->start_controls_section(
-				'section_pro_field',
+				'section_pro_features_field',
 				array(
 					'label' => __( 'Pro Features', 'header-footer-elementor' ),
 				)
 			);
 			
 			$this->add_control(
-				'pro_promotion_notice',
+				'uae_pro_promotion_notice',
 				[
 					'type' => Controls_Manager::NOTICE,
 					'notice_type' => 'info',
