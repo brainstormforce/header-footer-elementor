@@ -238,3 +238,10 @@
 .hfe-icon-shape-divider:before {
   content: "\e92b";
 }
+.elementor-control-uae_pro_promotion_notice a {
+  color: #2463eb;
+}
+
+.elementor-control-uae_pro_promotion_notice a:hover {
+  color: #2463eb;
+}
