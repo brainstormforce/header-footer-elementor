@@ -746,17 +746,11 @@ msgstr ""
 msgid " coupon just for you to your email address."
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:125
-msgid ""
-" Use your exclusive discount code within the next 2 days to claim your "
-"reward!”"
-msgstr ""
-
-#: src/Components/Onboarding/Success.jsx:155
+#: src/Components/Onboarding/Success.jsx:190
 msgid "Get Pro Now"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:178
+#: src/Components/Onboarding/Success.jsx:216
 msgid "Go To The Dashboard"
 msgstr ""
 
