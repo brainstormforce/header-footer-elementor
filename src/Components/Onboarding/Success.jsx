@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Button } from "@bsf/force-ui";
+import { Button, ProgressSteps, Topbar } from "@bsf/force-ui";
 import { Link } from "../../router/index";
 import { X, ArrowRight } from "lucide-react";
 import { __ } from "@wordpress/i18n";
@@ -9,14 +9,10 @@ const Success = () => {
     useEffect(() => {
         const targetUrl = "admin.php?page=hfe#dashboard";
 
-        // Replace the current state with targetUrl (so back button goes there)
         window.history.replaceState(null, "", targetUrl);
-
-        // Push another history state so that forward doesn't come back here
         window.history.pushState(null, "", window.location.href);
 
         const handlePopState = () => {
-            // If the user tries to go back, send them to the dashboard
             window.location.href = targetUrl;
         };
 
@@ -31,33 +27,62 @@ const Success = () => {
         <>
             <div className="w-full pb-10">
                 <div className="flex flex-col items-center justify-center">
-                    <div className="flex justify-between w-full max-w-6xl px-6">
-                        {hfeSettingsData.icon_svg && (
-                            <Link to={routes.dashboard.path}>
-                                <img
-                                    src={`${hfeSettingsData.icon_svg}`}
-                                    alt="Logo"
-                                    className="cursor-pointer"
-                                    style={{ height: "35px" }}
-                                />
-                            </Link>
-                        )}
-                        <Link
-                            className="hfe-remove-ring"
-                            to={routes.dashboard.path}
-                            style={{ marginLeft: '125px' }}
-                        >
-                            <Button
-                                icon={<X className="size-4" />}
-                                iconPosition="right"
-                                size="xs"
-                                variant="ghost"
-                                className="hfe-remove-ring"
-                            ></Button>
-                        </Link>
-                    </div>
+                    <Topbar className="bg-none" style={{ background: "none" }}>
+                        <Topbar.Left>
+                            <Topbar.Item>
+                                {hfeSettingsData.icon_svg && (
+                                    <Link to={routes.dashboard.path}>
+                                        <img
+                                            src={`${hfeSettingsData.icon_svg}`}
+                                            alt="Logo"
+                                            className="cursor-pointer"
+                                            style={{ height: "35px" }}
+                                        />
+                                    </Link>
+                                )}
+                            </Topbar.Item>
+                        </Topbar.Left>
+
+                        <Topbar.Middle>
+                            <Topbar.Item>
+                                <ProgressSteps
+                                    currentStep={3}
+                                    className="uae-steps"
+                                    variant="number"
+                                >
+                                    {["Welcome", "Configure", "Create"].map((label, index) => (
+                                        <ProgressSteps.Step
+                                            key={index}
+                                            className="font-bold"
+                                            labelText={label}
+                                            size="md"
+                                        />
+                                    ))}
+                                </ProgressSteps>
+                            </Topbar.Item>
+                        </Topbar.Middle>
+
+                        <Topbar.Right>
+                            <Topbar.Item>
+                                <Link
+                                    className="hfe-remove-ring"
+                                    to={routes.dashboard.path}
+                                    style={{ marginLeft: "125px" }}
+                                >
+                                    <Button
+                                        icon={<X className="size-4" />}
+                                        iconPosition="right"
+                                        size="xs"
+                                        variant="ghost"
+                                        className="hfe-remove-ring"
+                                    ></Button>
+                                </Link>
+                            </Topbar.Item>
+                        </Topbar.Right>
+                    </Topbar>
                 </div>
             </div>
+
             <div className="flex items-center justify-center">
                 <div className="bg-background-primary border-[0.5px] border-subtle rounded-xl shadow-sm" style={{ borderRadius: '4px' }}>
                     <div className="bg-background-primary items-start justify-center flex flex-col" style={{ borderRadius: '4px' }}>
@@ -81,6 +106,7 @@ const Success = () => {
                                     loading="lazy"
                                 />
                             </div>
+
                             <div className="p-6" style={{ paddingLeft: '2rem', paddingRight: '2rem' }}>
                                 <div className="flex flex-col items-center justify-center gap-1">
                                     <p className="text-4xl font-bold text-text-primary m-0 mt-2" style={{ fontSize: '25px', paddingTop: '1.5rem', paddingBottom: '1rem' }}>
@@ -100,7 +126,7 @@ const Success = () => {
                                     </p>
                                 </div>
 
-                                <hr className="w-full border-b-0 border-x-0 border-t  border-solid border-t-border-subtle" style={{ marginTop: '2rem' }} />
+                                <hr className="w-full border-b-0 border-x-0 border-t border-solid border-t-border-subtle" style={{ marginTop: '2rem' }} />
 
                                 <div className='flex flex-col items-center' style={{ paddingTop: '2rem' }}>
                                     <Button
@@ -128,6 +154,7 @@ const Success = () => {
                                     >
                                         {__("Get Pro Now", "header-footer-elementor")}
                                     </Button>
+
                                     <Link
                                         to={routes.dashboard.path}
                                         onClick={(e) => {

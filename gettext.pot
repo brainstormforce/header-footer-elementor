@@ -730,34 +730,34 @@ msgstr ""
 msgid "Failed to save settings!"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:129
-msgid "Get Pro Now"
-msgstr ""
-
-#: src/Components/Onboarding/Success.jsx:151
-msgid "Go To The Dashboard"
-msgstr ""
-
-#: src/Components/Onboarding/Success.jsx:87
+#: src/Components/Onboarding/Success.jsx:113
 msgid "Congratulations!"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:90
+#: src/Components/Onboarding/Success.jsx:116
 msgid "You’ve unlocked a "
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:92
+#: src/Components/Onboarding/Success.jsx:118
 msgid " discount on UAE Pro. We’ve sent a discount"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:95
+#: src/Components/Onboarding/Success.jsx:121
 msgid " coupon just for you to your email address."
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:99
+#: src/Components/Onboarding/Success.jsx:125
 msgid ""
 " Use your exclusive discount code within the next 2 days to claim your "
 "reward!”"
+msgstr ""
+
+#: src/Components/Onboarding/Success.jsx:155
+msgid "Get Pro Now"
+msgstr ""
+
+#: src/Components/Onboarding/Success.jsx:178
+msgid "Go To The Dashboard"
 msgstr ""
 
 #: src/Components/Onboarding/Welcome.jsx:11
