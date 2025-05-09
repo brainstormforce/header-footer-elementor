@@ -9,6 +9,7 @@ import { routes } from "../../admin/settings/routes";
 const OnboardingBuild = ({ setCurrentStep }) => {
     const [isDialogOpen, setIsDialogOpen] = useState(false);
     const [email, setEmail] = useState('');
+    const [fname, setFname] = useState('');
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isActive, setIsActive] = useState(true);
     const [errors, setErrors] = useState('');
@@ -42,7 +43,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
         }
         setErrors('');
         setLoading(true);
-        callValidatedEmailWebhook(email);
+        callValidatedEmailWebhook(email, fname);
     };
 
     const handleSwitchChange = () => {
@@ -77,12 +78,13 @@ const OnboardingBuild = ({ setCurrentStep }) => {
         // setIsLoading(false);
     };
 
-    const callValidatedEmailWebhook = (email) => {
+    const callValidatedEmailWebhook = (email, fname) => {
         const today = new Date().toISOString().split('T')[0];
 
         const params = new URLSearchParams({
             email: email,
             date: today,
+            fname: fname
         });
 
         fetch(`/wp-json/hfe/v1/email-webhook/?${params.toString()}`, {
@@ -204,8 +206,8 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                 </Link>
 
             </div>
-            {
-                hfeSettingsData.uaelite_subscription !== 'done' && (
+            {/* {
+                hfeSettingsData.uaelite_subscription !== 'done' && ( */}
                     <div
                         className="flex items-start justify-start mt-4"
                         style={{
@@ -239,8 +241,8 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                             </Button>
                         </div>
                     </div>
-                )
-            }
+                {/* )
+            } */}
             <hr className="w-full border-b-0 border-x-0 border-t border-solid border-t-border-subtle" style={{ marginTop: '34px', marginBottom: '34px', borderColor: '#E5E7EB' }} />
 
             <div className="bg-badge-background-gray border-[0.5px] border-subtle p-6" style={{ borderRadius: '5px' }}>
@@ -309,9 +311,36 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                             </div>
                         </div>
                         <Dialog.Description style={{ width: '90%', color: '#64748B' }}>
-                            {__('Enter your email address to get special offer that we have for you and stay updated on UAE’s latest news and updates.', 'header-footer-elementor')}
+                            {__('Enter your details to get special offer that we have for you and stay updated on UAE’s latest news and updates.', 'header-footer-elementor')}
                         </Dialog.Description>
+                        <p className="text-md font-bold text-field-label m-0 gap-0" style={{ fontSize: '14px', marginTop: '15px' }}>
+                            {__(
+                                "First Name",
+                                "header-footer-elementor"
+                            )}
+                        </p>
 
+                        <input
+                            type="text"
+                            placeholder={__('Enter Name', 'header-footer-elementor')}
+                            value={fname}
+                            className='h-12 border border-subtle px-2 w-full'
+                            style={{
+                                // height: '48px',
+                                borderColor: '#e0e0e0', // Default border color.
+                                outline: 'none',       // Removes the default outline.
+                                boxShadow: 'none',     // Removes the default box shadow.
+                                marginTop: '5px',
+                            }}
+                            onFocus={(e) => e.target.style.borderColor = '#6005FF'} // Apply focus color.
+                            onBlur={(e) => e.target.style.borderColor = '#e0e0e0'}  // Revert to default color.
+                            onChange={(e) => {
+                                if (e && e.target) {
+                                    setErrors('');
+                                    setFname(e.target.value);
+                                }
+                            }}
+                        />
                         <p className="text-md font-bold text-field-label m-0 gap-0" style={{ fontSize: '14px', marginTop: '15px' }}>
                             {__(
                                 "Email Address",
@@ -319,43 +348,50 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                             )}
                         </p>
 
-                        <div className='flex flex-row'>
-                            <input
-                                type="email"
-                                placeholder={`${hfeSettingsData.user_email}`}
-                                value={email}
-                                className='h-12 shrink-0 mr-2'
-                                style={{ width: '265px' }}
-                                onChange={(e) => {
-                                    if (e && e.target) {
-                                        setErrors('');
-                                        setEmail(e.target.value);
-                                    }
-                                }}
-                            />
-                            <Button
-                                icon={loading ? <LoaderCircle className="animate-spin" /> : null}
-                                iconPosition="right"
-                                variant="primary"
-                                className="bg-[#6005FF] hfe-remove-ring w-full shrink-1"
-                                disabled={loading}
-                                style={{
-                                    backgroundColor: "#6005FF",
-                                    transition: "background-color 0.3s ease",
-                                }}
-                                onMouseEnter={(e) =>
-                                (e.currentTarget.style.backgroundColor =
-                                    "#4B00CC")
+                        <input
+                            type="email"
+                            placeholder={__( 'Enter Email', 'header-footer-elementor')}
+                            value={email}
+                            className='h-12 border border-subtle px-2 w-full'
+                            style={{
+                                // height: '48px',
+                                borderColor: '#e0e0e0', // Default border color
+                                outline: 'none',       // Removes the default outline
+                                boxShadow: 'none',     // Removes the default box shadow
+                                marginTop: '5px',
+                            }}
+                            onFocus={(e) => e.target.style.borderColor = '#6005FF'} // Apply focus color.
+                            onBlur={(e) => e.target.style.borderColor = '#e0e0e0'}  // Revert to default color.
+                            onChange={(e) => {
+                                if (e && e.target) {
+                                    setErrors('');
+                                    setEmail(e.target.value);
                                 }
-                                onMouseLeave={(e) =>
-                                (e.currentTarget.style.backgroundColor =
-                                    "#6005FF")
-                                }
-                                onClick={handleSubmit}
-                            >
-                                {__('Submit Email', "header-footer-elementor")}
-                            </Button>
-                        </div>
+                            }}
+                        />
+                        <Button
+                            icon={loading ? <LoaderCircle className="animate-spin" /> : null}
+                            iconPosition="right"
+                            variant="primary"
+                            className="bg-[#6005FF] hfe-remove-ring w-full mt-2"
+                            disabled={loading}
+                            style={{
+                                backgroundColor: "#6005FF",
+                                transition: "background-color 0.3s ease",
+                                marginTop: "18px"
+                            }}
+                            onMouseEnter={(e) =>
+                            (e.currentTarget.style.backgroundColor =
+                                "#4B00CC")
+                            }
+                            onMouseLeave={(e) =>
+                            (e.currentTarget.style.backgroundColor =
+                                "#6005FF")
+                            }
+                            onClick={handleSubmit}
+                        >
+                            {__('Submit', "header-footer-elementor")}
+                        </Button>
                         {
                             errors && 
                             <p className="absolute color-text-danger text-xs mt-4 text-sm font-normal" style={{ color: '#FF0000' }}>{errors}</p>
