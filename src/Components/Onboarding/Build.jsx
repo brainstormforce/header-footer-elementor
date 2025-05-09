@@ -10,6 +10,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
     const [isDialogOpen, setIsDialogOpen] = useState(false);
     const [email, setEmail] = useState('');
     const [fname, setFname] = useState('');
+    const [lname, setLname] = useState('');
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isActive, setIsActive] = useState(true);
     const [errors, setErrors] = useState('');
@@ -41,9 +42,14 @@ const OnboardingBuild = ({ setCurrentStep }) => {
             setErrors(__('Please enter a valid email address', 'header-footer-elementor'));
             return;
         }
+
+        if (!fname.trim()) {
+            setErrors(__('First Name field is required', 'header-footer-elementor'));
+            return;
+        }
         setErrors('');
         setLoading(true);
-        callValidatedEmailWebhook(email, fname);
+        callValidatedEmailWebhook(email, fname, lname);
     };
 
     const handleSwitchChange = () => {
@@ -78,13 +84,14 @@ const OnboardingBuild = ({ setCurrentStep }) => {
         // setIsLoading(false);
     };
 
-    const callValidatedEmailWebhook = (email, fname) => {
+    const callValidatedEmailWebhook = (email, fname, lname) => {
         const today = new Date().toISOString().split('T')[0];
 
         const params = new URLSearchParams({
             email: email,
             date: today,
-            fname: fname
+            fname: fname,
+            lname: lname
         });
 
         fetch(`/wp-json/hfe/v1/email-webhook/?${params.toString()}`, {
@@ -313,34 +320,73 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                         <Dialog.Description style={{ width: '90%', color: '#64748B' }}>
                             {__('Enter your details to get special offer that we have for you and stay updated on UAE’s latest news and updates.', 'header-footer-elementor')}
                         </Dialog.Description>
-                        <p className="text-md font-bold text-field-label m-0 gap-0" style={{ fontSize: '14px', marginTop: '15px' }}>
-                            {__(
-                                "First Name",
-                                "header-footer-elementor"
-                            )}
-                        </p>
 
-                        <input
-                            type="text"
-                            placeholder={__('Enter Name', 'header-footer-elementor')}
-                            value={fname}
-                            className='h-12 border border-subtle px-2 w-full'
-                            style={{
-                                // height: '48px',
-                                borderColor: '#e0e0e0', // Default border color.
-                                outline: 'none',       // Removes the default outline.
-                                boxShadow: 'none',     // Removes the default box shadow.
-                                marginTop: '5px',
-                            }}
-                            onFocus={(e) => e.target.style.borderColor = '#6005FF'} // Apply focus color.
-                            onBlur={(e) => e.target.style.borderColor = '#e0e0e0'}  // Revert to default color.
-                            onChange={(e) => {
-                                if (e && e.target) {
-                                    setErrors('');
-                                    setFname(e.target.value);
-                                }
-                            }}
-                        />
+                        <div className="flex w-full">
+                            <div className="block" style={{width: '50%', paddingRight: '10px'}}>
+
+                                <p className="text-md font-bold text-field-label m-0 gap-0" style={{ fontSize: '14px', marginTop: '15px' }}>
+                                    {__(
+                                        "First Name",
+                                        "header-footer-elementor"
+                                    )}
+                                </p>
+
+                                <input
+                                    type="text"
+                                    placeholder={__('Enter First Name', 'header-footer-elementor')}
+                                    value={fname}
+                                    className='h-12 border border-subtle px-2 w-full'
+                                    style={{
+                                        // height: '48px',
+                                        borderColor: '#e0e0e0', // Default border color.
+                                        outline: 'none',       // Removes the default outline.
+                                        boxShadow: 'none',     // Removes the default box shadow.
+                                        marginTop: '5px',
+                                    }}
+                                    onFocus={(e) => e.target.style.borderColor = '#6005FF'} // Apply focus color.
+                                    onBlur={(e) => e.target.style.borderColor = '#e0e0e0'}  // Revert to default color.
+                                    onChange={(e) => {
+                                        if (e && e.target) {
+                                            setErrors('');
+                                            setFname(e.target.value);
+                                        }
+                                    }}
+                                />
+
+                            </div>
+                            <div className="block" style={{width: '50%'}}>
+
+                                <p className="text-md font-bold text-field-label m-0 gap-0" style={{ fontSize: '14px', marginTop: '15px' }}>
+                                    {__(
+                                        "Last Name",
+                                        "header-footer-elementor"
+                                    )}
+                                </p>
+
+                                <input
+                                    type="text"
+                                    placeholder={__('Enter Last Name', 'header-footer-elementor')}
+                                    value={lname}
+                                    className='h-12 border border-subtle px-2 w-full'
+                                    style={{
+                                        // height: '48px',
+                                        borderColor: '#e0e0e0', // Default border color.
+                                        outline: 'none',       // Removes the default outline.
+                                        boxShadow: 'none',     // Removes the default box shadow.
+                                        marginTop: '5px',
+                                    }}
+                                    onFocus={(e) => e.target.style.borderColor = '#6005FF'} // Apply focus color.
+                                    onBlur={(e) => e.target.style.borderColor = '#e0e0e0'}  // Revert to default color.
+                                    onChange={(e) => {
+                                        if (e && e.target) {
+                                            setErrors('');
+                                            setLname(e.target.value);
+                                        }
+                                    }}
+                                />
+                            
+                            </div>
+                        </div>
                         <p className="text-md font-bold text-field-label m-0 gap-0" style={{ fontSize: '14px', marginTop: '15px' }}>
                             {__(
                                 "Email Address",
@@ -394,7 +440,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                         </Button>
                         {
                             errors && 
-                            <p className="absolute color-text-danger text-xs mt-4 text-sm font-normal" style={{ color: '#FF0000' }}>{errors}</p>
+                            <p className="absolute color-text-danger text-xs mt-2 text-sm font-normal" style={{ color: '#FF0000' }}>{errors}</p>
                         }
                     </Dialog.Header>
                 </Dialog.Panel>
