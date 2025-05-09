@@ -205,7 +205,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
 
             </div>
             {
-                !hfeSettingsData.uaelite_subscription !== 'done' && (
+                hfeSettingsData.uaelite_subscription !== 'done' && (
                     <div
                         className="flex items-start justify-start mt-4"
                         style={{
