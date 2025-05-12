@@ -214,9 +214,12 @@ class HFE_Settings_Api {
 
 		$email = sanitize_email( $request->get_param( 'email' ) );
 		$date  = sanitize_text_field( $request->get_param( 'date' ) );
+		$fname  = sanitize_text_field( $request->get_param( 'fname' ) );
+		$lname  = sanitize_text_field( $request->get_param( 'lname' ) );
 
-		if ( empty( $email ) || empty( $date ) ) {
-			return new WP_Error( 'missing_parameters', __( 'Missing email or date parameter', 'header-footer-elementor' ), [ 'status' => 400 ] );
+		if ( empty( $email ) || empty( $date ) || empty( $fname ) ) {
+			// Return error response if any of the required parameters are missing.
+			return new WP_Error( 'missing_parameters', __( 'Missing Fields', 'header-footer-elementor' ), [ 'status' => 400 ] );
 		}
 
 		$api_domain = trailingslashit( $this->get_api_domain() );
@@ -226,7 +229,9 @@ class HFE_Settings_Api {
 		// Append session_id to track requests.
 		$body = array(
 			'email'          => $email,
-			'date'           => $date
+			'date'           => $date,
+			'fname'          => $fname,
+			'lname'          => $lname
 		);
 
 		$args = array(
