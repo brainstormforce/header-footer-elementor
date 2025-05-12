@@ -474,10 +474,10 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 				update_option( 'bsf_analytics_optin', $option );
 
 				// Return a success response.
-				wp_send_json_success( esc_html__( 'Settings saved successfully!', 'header-footer-elementor' ) );
+				wp_send_json_success( __( 'Settings saved successfully!', 'header-footer-elementor' ) );
 			} else {
 				// Return an error response if the option is not set.
-				wp_send_json_error( esc_html__( 'Unable to save settings.', 'header-footer-elementor' ) );
+				wp_send_json_error( __( 'Unable to save settings.', 'header-footer-elementor' ) );
 			}
 		}
 

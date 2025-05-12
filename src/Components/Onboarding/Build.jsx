@@ -64,13 +64,13 @@ const OnboardingBuild = ({ setCurrentStep }) => {
         callValidatedEmailWebhook(email, fname, lname);
     };
 
-    const handleSwitchChange = () => {
+    const handleSwitchChange = async () => {
 
         const newIsActive = !isActive;
         setIsActive(newIsActive);
 
         try {
-            const response = fetch(hfe_admin_data.ajax_url, {
+            const response = await fetch(hfe_admin_data.ajax_url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
@@ -82,7 +82,9 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                 })
             });
 
-            const result = response.json();
+            const result = await response.json();
+
+            console.log( result );
 
             if (result.success) {
                 toast.success(__('Settings saved successfully!', 'header-footer-elementor'));
