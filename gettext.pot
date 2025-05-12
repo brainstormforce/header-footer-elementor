@@ -123,7 +123,7 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:219
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:178
-#: src/Components/NavMenu.js:252
+#: src/Components/NavMenu.js:253
 msgid "Free"
 msgstr ""
 
@@ -602,31 +602,31 @@ msgstr ""
 msgid "Get Pro"
 msgstr ""
 
-#: src/Components/NavMenu.js:243
+#: src/Components/NavMenu.js:244
 msgid "Version"
 msgstr ""
 
-#: src/Components/NavMenu.js:275
+#: src/Components/NavMenu.js:278
 msgid "Useful Resources"
 msgstr ""
 
-#: src/Components/NavMenu.js:292
+#: src/Components/NavMenu.js:295
 msgid "Getting Started"
 msgstr ""
 
-#: src/Components/NavMenu.js:305
+#: src/Components/NavMenu.js:308
 msgid "How to use widgets"
 msgstr ""
 
-#: src/Components/NavMenu.js:318
+#: src/Components/NavMenu.js:321
 msgid "How to use features"
 msgstr ""
 
-#: src/Components/NavMenu.js:331
+#: src/Components/NavMenu.js:334
 msgid "How to use templates"
 msgstr ""
 
-#: src/Components/NavMenu.js:344
+#: src/Components/NavMenu.js:347
 msgid "Contact us"
 msgstr ""
 
