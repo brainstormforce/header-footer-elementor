@@ -120,10 +120,6 @@ const Success = () => {
                                     <span className="block text-md font-medium text-text-tertiary m-0">
                                         {__(" coupon just for you to your email address.", "header-footer-elementor")}
                                     </span>
-                                    <p className="text-md font-medium italic text-text-primary m-0 mt-4" style={{ fontSize: '14px' }}>
-                                        <span style={{ color: 'red' }}>*</span>
-                                        {__(" Use your exclusive discount code within the next 2 days to claim your reward!”", "header-footer-elementor")}
-                                    </p>
                                 </div>
 
                                 <hr className="w-full border-b-0 border-x-0 border-t border-solid border-t-border-subtle" style={{ marginTop: '2rem' }} />
