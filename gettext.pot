@@ -719,7 +719,7 @@ msgid "Your Email Address"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:44
-msgid "Entered email address is invalid!"
+msgid "This field is required"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:461
@@ -727,23 +727,16 @@ msgid "Submit"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:51
-msgid "This field is required"
+msgid "Entered email address is invalid!"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:90
-#: src/Components/Onboarding/Build.jsx:92
-#: src/Components/Onboarding/Build.jsx:91
-#: src/Components/Onboarding/Build.jsx:88
 #: src/Components/Settings/ThemeSupport.jsx:63
 #: src/Components/Settings/UsageTracking.jsx:32
 msgid "Settings saved successfully!"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:95
-#: src/Components/Onboarding/Build.jsx:94
-#: src/Components/Onboarding/Build.jsx:92
-#: src/Components/Onboarding/Build.jsx:96
-#: src/Components/Onboarding/Build.jsx:93
 #: src/Components/Settings/ThemeSupport.jsx:68
 #: src/Components/Settings/UsageTracking.jsx:37
 msgid "Failed to save settings!"

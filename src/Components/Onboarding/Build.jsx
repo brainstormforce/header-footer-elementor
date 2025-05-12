@@ -41,14 +41,14 @@ const OnboardingBuild = ({ setCurrentStep }) => {
         let hasError = false;
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if ( !fname.trim() ) {
-            setFnameErrors(__('Entered email address is invalid!', 'header-footer-elementor'));
+            setFnameErrors(__('This field is required', 'header-footer-elementor'));
             hasError = true;
         } else {
             setFnameErrors('');
         }
 
         if ( ! emailRegex.test(email) ) {
-            setErrors(__('This field is required', 'header-footer-elementor'));
+            setErrors(__('Entered email address is invalid!', 'header-footer-elementor'));
             hasError = true;
         } else {
             setErrors('');
