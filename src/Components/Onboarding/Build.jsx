@@ -14,6 +14,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isActive, setIsActive] = useState(true);
     const [errors, setErrors] = useState('');
+    const [fnameerrors, setFnameErrors] = useState('');
     const [loading, setLoading] = useState(false); 
 
     useEffect(() => {
@@ -37,17 +38,28 @@ const OnboardingBuild = ({ setCurrentStep }) => {
     }, [hfeSettingsData.user_email]);
 
     const handleSubmit = () => {
+        let hasError = false;
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if ( ! emailRegex.test(email) ) {
-            setErrors(__('Please enter a valid email address', 'header-footer-elementor'));
-            return;
+        if ( !fname.trim() ) {
+            setFnameErrors(__('Entered email address is invalid!', 'header-footer-elementor'));
+            hasError = true;
+        } else {
+            setFnameErrors('');
         }
 
-        if (!fname.trim()) {
-            setErrors(__('First Name field is required', 'header-footer-elementor'));
+        if ( ! emailRegex.test(email) ) {
+            setErrors(__('This field is required', 'header-footer-elementor'));
+            hasError = true;
+        } else {
+            setErrors('');
+        }
+
+        if ( hasError ) {
             return;
         }
+        
         setErrors('');
+        setFnameErrors('');
         setLoading(true);
         callValidatedEmailWebhook(email, fname, lname);
     };
@@ -317,23 +329,23 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                                 />
                             </div>
                         </div>
-                        <Dialog.Description style={{ width: '90%', color: '#64748B' }}>
+                        <Dialog.Description style={{ width: '90%', color: '#64748B', marginTop: '10px' }}>
                             {__('Enter your details to get special offer that we have for you and stay updated on UAE’s latest news and updates.', 'header-footer-elementor')}
                         </Dialog.Description>
 
-                        <div className="flex w-full">
-                            <div className="block" style={{width: '50%', paddingRight: '10px'}}>
+                        <div className="flex w-full" style={{marginTop: '15px'}}>
+                            <div className="block" style={{width: '50%', paddingRight: '13px'}}>
 
-                                <p className="text-md font-bold text-field-label m-0 gap-0" style={{ fontSize: '14px', marginTop: '15px' }}>
+                                {/* <p className="text-md font-bold text-field-label m-0 gap-0" style={{ fontSize: '14px', marginTop: '15px' }}>
                                     {__(
-                                        "First Name",
+                                        "First Name*",
                                         "header-footer-elementor"
                                     )}
-                                </p>
+                                </p> */}
 
                                 <input
                                     type="text"
-                                    placeholder={__('Enter First Name', 'header-footer-elementor')}
+                                    placeholder={__('First Name', 'header-footer-elementor')}
                                     value={fname}
                                     className='h-12 border border-subtle px-2 w-full'
                                     style={{
@@ -347,25 +359,29 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                                     onBlur={(e) => e.target.style.borderColor = '#e0e0e0'}  // Revert to default color.
                                     onChange={(e) => {
                                         if (e && e.target) {
-                                            setErrors('');
+                                            setFnameErrors('');
                                             setFname(e.target.value);
                                         }
                                     }}
                                 />
+                                {
+                                    fnameerrors && 
+                                    <span className="absolute color-text-danger text-xs text-sm font-normal" style={{ color: '#FF0000', marginTop: '0px' }}>{fnameerrors}</span>
+                                }
 
                             </div>
                             <div className="block" style={{width: '50%'}}>
 
-                                <p className="text-md font-bold text-field-label m-0 gap-0" style={{ fontSize: '14px', marginTop: '15px' }}>
+                                {/* <p className="text-md font-bold text-field-label m-0 gap-0" style={{ fontSize: '14px', marginTop: '15px' }}>
                                     {__(
                                         "Last Name",
                                         "header-footer-elementor"
                                     )}
-                                </p>
+                                </p> */}
 
                                 <input
                                     type="text"
-                                    placeholder={__('Enter Last Name', 'header-footer-elementor')}
+                                    placeholder={__('Last Name', 'header-footer-elementor')}
                                     value={lname}
                                     className='h-12 border border-subtle px-2 w-full'
                                     style={{
@@ -379,7 +395,6 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                                     onBlur={(e) => e.target.style.borderColor = '#e0e0e0'}  // Revert to default color.
                                     onChange={(e) => {
                                         if (e && e.target) {
-                                            setErrors('');
                                             setLname(e.target.value);
                                         }
                                     }}
@@ -387,16 +402,16 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                             
                             </div>
                         </div>
-                        <p className="text-md font-bold text-field-label m-0 gap-0" style={{ fontSize: '14px', marginTop: '15px' }}>
+                        {/* <p className="text-md font-bold text-field-label m-0 gap-0" style={{ fontSize: '14px', marginTop: '19px' }}>
                             {__(
-                                "Email Address",
+                                "Email Address*",
                                 "header-footer-elementor"
                             )}
-                        </p>
+                        </p> */}
 
                         <input
                             type="email"
-                            placeholder={__( 'Enter Email', 'header-footer-elementor')}
+                            placeholder={__( 'Your Email Address', 'header-footer-elementor')}
                             value={email}
                             className='h-12 border border-subtle px-2 w-full'
                             style={{
@@ -404,7 +419,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                                 borderColor: '#e0e0e0', // Default border color
                                 outline: 'none',       // Removes the default outline
                                 boxShadow: 'none',     // Removes the default box shadow
-                                marginTop: '5px',
+                                marginTop: '20px',
                             }}
                             onFocus={(e) => e.target.style.borderColor = '#6005FF'} // Apply focus color.
                             onBlur={(e) => e.target.style.borderColor = '#e0e0e0'}  // Revert to default color.
@@ -415,6 +430,11 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                                 }
                             }}
                         />
+                        {
+                            errors && 
+                            <span className="absolute color-text-danger text-xs text-sm font-normal" style={{ color: '#FF0000', marginTop: '0px' }}>{errors}</span>
+                        }
+
                         <Button
                             icon={loading ? <LoaderCircle className="animate-spin" /> : null}
                             iconPosition="right"
@@ -424,7 +444,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                             style={{
                                 backgroundColor: "#6005FF",
                                 transition: "background-color 0.3s ease",
-                                marginTop: "18px"
+                                marginTop: "20px"
                             }}
                             onMouseEnter={(e) =>
                             (e.currentTarget.style.backgroundColor =
@@ -438,10 +458,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                         >
                             {__('Submit', "header-footer-elementor")}
                         </Button>
-                        {
-                            errors && 
-                            <p className="absolute color-text-danger text-xs mt-2 text-sm font-normal" style={{ color: '#FF0000' }}>{errors}</p>
-                        }
+                        
                     </Dialog.Header>
                 </Dialog.Panel>
             </Dialog>
