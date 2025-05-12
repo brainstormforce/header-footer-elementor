@@ -11,7 +11,6 @@ const OnboardingBuild = ({ setCurrentStep }) => {
     const [email, setEmail] = useState('');
     const [fname, setFname] = useState('');
     const [lname, setLname] = useState('');
-    const [isSubmitted, setIsSubmitted] = useState(false);
     const [isActive, setIsActive] = useState(true);
     const [errors, setErrors] = useState('');
     const [fnameerrors, setFnameErrors] = useState('');
@@ -122,9 +121,9 @@ const OnboardingBuild = ({ setCurrentStep }) => {
         .then(data => {
             if ( "success" === data.message ) {
                 setLoading(false);
-                setIsSubmitted(true);
                 window.location.href = hfeSettingsData.onboarding_success_url;
             } else {
+                setLoading(false);
                 console.warn("Unexpected webhook response:", data);
             }
         })
