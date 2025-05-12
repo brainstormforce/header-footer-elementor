@@ -194,7 +194,7 @@ class HFE_Settings_Api {
 	/**
 	 * Get the API URL.
 	 *
-	 * @since x.x.x
+	 * @since 2.3.1
 	 * @return string
 	 */
 	public function get_api_domain() {
