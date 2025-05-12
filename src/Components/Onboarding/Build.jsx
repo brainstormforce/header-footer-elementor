@@ -189,8 +189,8 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                     }
                     onClick={() => {
                         window.open(
-                            hfeSettingsData.uael_hfe_post_url,
-                            "_blank"
+                            hfeSettingsData.hfe_post_url,
+                            "_self"
                         );
                     }}
                 >
@@ -224,8 +224,8 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                 </Link>
 
             </div>
-            {/* {
-                hfeSettingsData.uaelite_subscription !== 'done' && ( */}
+            {
+                hfeSettingsData.uaelite_subscription !== 'done' && (
                     <div
                         className="flex items-start justify-start mt-4"
                         style={{
@@ -259,8 +259,8 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                             </Button>
                         </div>
                     </div>
-                {/* )
-            } */}
+                )
+            }
             <hr className="w-full border-b-0 border-x-0 border-t border-solid border-t-border-subtle" style={{ marginTop: '34px', marginBottom: '34px', borderColor: '#E5E7EB' }} />
 
             <div className="bg-badge-background-gray border-[0.5px] border-subtle p-6" style={{ borderRadius: '5px' }}>
@@ -335,20 +335,12 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                         <div className="flex w-full" style={{marginTop: '15px'}}>
                             <div className="block" style={{width: '50%', paddingRight: '13px'}}>
 
-                                {/* <p className="text-md font-bold text-field-label m-0 gap-0" style={{ fontSize: '14px', marginTop: '15px' }}>
-                                    {__(
-                                        "First Name*",
-                                        "header-footer-elementor"
-                                    )}
-                                </p> */}
-
                                 <input
                                     type="text"
                                     placeholder={__('First Name', 'header-footer-elementor')}
                                     value={fname}
                                     className='h-12 border border-subtle px-2 w-full'
                                     style={{
-                                        // height: '48px',
                                         borderColor: '#e0e0e0', // Default border color.
                                         outline: 'none',       // Removes the default outline.
                                         boxShadow: 'none',     // Removes the default box shadow.
@@ -370,21 +362,12 @@ const OnboardingBuild = ({ setCurrentStep }) => {
 
                             </div>
                             <div className="block" style={{width: '50%'}}>
-
-                                {/* <p className="text-md font-bold text-field-label m-0 gap-0" style={{ fontSize: '14px', marginTop: '15px' }}>
-                                    {__(
-                                        "Last Name",
-                                        "header-footer-elementor"
-                                    )}
-                                </p> */}
-
                                 <input
                                     type="text"
                                     placeholder={__('Last Name', 'header-footer-elementor')}
                                     value={lname}
                                     className='h-12 border border-subtle px-2 w-full'
                                     style={{
-                                        // height: '48px',
                                         borderColor: '#e0e0e0', // Default border color.
                                         outline: 'none',       // Removes the default outline.
                                         boxShadow: 'none',     // Removes the default box shadow.
@@ -401,12 +384,6 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                             
                             </div>
                         </div>
-                        {/* <p className="text-md font-bold text-field-label m-0 gap-0" style={{ fontSize: '14px', marginTop: '19px' }}>
-                            {__(
-                                "Email Address*",
-                                "header-footer-elementor"
-                            )}
-                        </p> */}
 
                         <input
                             type="email"
@@ -414,7 +391,6 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                             value={email}
                             className='h-12 border border-subtle px-2 w-full'
                             style={{
-                                // height: '48px',
                                 borderColor: '#e0e0e0', // Default border color
                                 outline: 'none',       // Removes the default outline
                                 boxShadow: 'none',     // Removes the default box shadow
