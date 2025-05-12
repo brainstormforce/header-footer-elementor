@@ -7,12 +7,18 @@ import { __ } from "@wordpress/i18n";
 import Welcome from "./Welcome";
 import Build from "./Build";
 import Configure from "./Configure";
+import Success from "./Success";
 
-const steps = [
+// Full steps array including the hidden "Success" step
+const allSteps = [
     { label: "Welcome", component: Welcome },
     { label: "Configure", component: Configure },
     { label: "Create", component: Build },
+    { label: "Success", component: Success }, // Hidden from progress bar
 ];
+
+// Only visible steps for the top progress bar
+const visibleSteps = allSteps.slice(0, 3); // Exclude "Success"
 
 const Onboarding = () => {
     const [currentStep, setCurrentStep] = React.useState(() => {
@@ -27,12 +33,12 @@ const Onboarding = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             localStorage.removeItem("currentStep");
-        }, 180000); // 3 minutes in milliseconds
+        }, 180000); // 3 minutes
 
-        return () => clearTimeout(timer); // Clear the timeout if the component unmounts
+        return () => clearTimeout(timer);
     }, []);
 
-    const StepComponent = steps[currentStep - 1]?.component;
+    const StepComponent = allSteps[currentStep - 1]?.component;
 
     return (
         <div>
@@ -56,11 +62,11 @@ const Onboarding = () => {
                         <Topbar.Middle>
                             <Topbar.Item>
                                 <ProgressSteps
-                                    currentStep={currentStep}
-									className="uae-steps"
+                                    currentStep={Math.min(currentStep, visibleSteps.length)}
+                                    className="uae-steps"
                                     variant="number"
                                 >
-                                    {steps.map((step, index) => (
+                                    {visibleSteps.map((step, index) => (
                                         <ProgressSteps.Step
                                             key={index}
                                             className="font-bold"
@@ -73,9 +79,11 @@ const Onboarding = () => {
                         </Topbar.Middle>
                         <Topbar.Right>
                             <Topbar.Item>
-                                <Link className="hfe-remove-ring" to={routes.dashboard.path}
-                                style={{ marginLeft: '125px'}}>
-                                    {" "}
+                                <Link
+                                    className="hfe-remove-ring"
+                                    to={routes.dashboard.path}
+                                    style={{ marginLeft: "125px" }}
+                                >
                                     <Button
                                         icon={<X className="size-4" />}
                                         iconPosition="right"
@@ -92,7 +100,10 @@ const Onboarding = () => {
 
             <div className="flex items-center justify-center">
                 {StepComponent && (
-                    <StepComponent currentStep={currentStep} setCurrentStep={setCurrentStep} />
+                    <StepComponent
+                        currentStep={currentStep}
+                        setCurrentStep={setCurrentStep}
+                    />
                 )}
             </div>
         </div>
