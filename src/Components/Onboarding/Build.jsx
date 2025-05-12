@@ -84,8 +84,6 @@ const OnboardingBuild = ({ setCurrentStep }) => {
 
             const result = await response.json();
 
-            console.log( result );
-
             if (result.success) {
                 toast.success(__('Settings saved successfully!', 'header-footer-elementor'));
             } else {
