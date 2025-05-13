@@ -87,6 +87,16 @@ class HFE_Settings_Api {
 				'permission_callback' => [ $this, 'get_items_permissions_check' ],
 			]
 		);
+
+		register_rest_route(
+			'hfe/v1',
+			'/email-webhook',
+			[
+				'methods'             => 'POST',
+				'callback'            => [ $this, 'send_email_to_webhook_api' ],
+				'permission_callback' => [ $this, 'get_items_permissions_check' ],
+			]
+		);
 	}
 
 	/**
@@ -180,8 +190,78 @@ class HFE_Settings_Api {
 		return new WP_REST_Response( $widgets_list, 200 );
 		
 	}
-	
 
+	/**
+	 * Get the API URL.
+	 *
+	 * @since 2.3.1
+	 * @return string
+	 */
+	public function get_api_domain() {
+		return apply_filters( 'hfe_api_domain', 'https://websitedemos.net/' );
+	}
+
+	/**
+	 * Send Email to Webhook.
+	 * @param WP_REST_Request $request Request object.
+	 * 
+	 */
+	public function send_email_to_webhook_api( WP_REST_Request $request ) {
+		$nonce = $request->get_header( 'X-WP-Nonce' );
+		if ( ! wp_verify_nonce( $nonce, 'wp_rest' ) ) {
+			return new WP_Error( 'invalid_nonce', __( 'Invalid nonce', 'header-footer-elementor' ), [ 'status' => 403 ] );
+		}
+
+		$email = sanitize_email( $request->get_param( 'email' ) );
+		$date  = sanitize_text_field( $request->get_param( 'date' ) );
+		$fname  = sanitize_text_field( $request->get_param( 'fname' ) );
+		$lname  = sanitize_text_field( $request->get_param( 'lname' ) );
+
+		if ( empty( $email ) || empty( $date ) || empty( $fname ) ) {
+			// Return error response if any of the required parameters are missing.
+			return new WP_Error( 'missing_parameters', __( 'Missing Fields', 'header-footer-elementor' ), [ 'status' => 400 ] );
+		}
+
+		$api_domain = trailingslashit( $this->get_api_domain() );
+		$api_domain_url = $api_domain . 'wp-json/uaelite/v1/subscribe/';
+		$validation_url = esc_url_raw( get_site_url() . '/wp-json/hfe/v1/email-response/' );
+
+		// Append session_id to track requests.
+		$body = array(
+			'email'          => $email,
+			'date'           => $date,
+			'fname'          => $fname,
+			'lname'          => $lname
+		);
+
+		$args = array(
+			'body'    => $body,
+			'timeout' => 30,
+		);
+
+		$response = wp_remote_post( $api_domain_url, $args );
+
+		if ( is_wp_error( $response ) ) {
+			return new WP_Error( 'webhook_error', __( 'Error calling endpoint', 'header-footer-elementor' ), [ 'status' => 500 ] );
+		}
+
+		$response_code = wp_remote_retrieve_response_code( $response );
+		$response_body = json_decode( wp_remote_retrieve_body( $response ), true );
+
+		if ( ! in_array( $response_code, [ 200, 201, 204 ], true ) ) {
+			return new WP_Error( 'webhook_error', __( 'Error in API response: ' . ( $response_body['message'] ?? 'Unknown error' ), 'header-footer-elementor' ), [ 'status' => $response_code ] );
+		}
+
+		update_option( 'uaelite_subscription', 'done' );
+
+		return new WP_REST_Response(
+			[
+				'message'    => 'success'
+			],
+			200
+		);
+	}
+	
 }
 
 // Initialize the HFE_Settings_Api class.

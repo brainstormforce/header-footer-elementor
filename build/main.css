@@ -5,7 +5,7 @@
   font-style: normal;
   font-display: swap;
   font-weight: 400;
-  src: url(/410fbc8e227942f4d606.woff2) format('woff2'), url(/a145783ea782cd0067ff.woff) format('woff');
+  src: url(/410fbc8e227942f4d606.woff2) format('woff2'), url(/f5a809ac576251495a72.woff) format('woff');
   unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
 }
 
@@ -15,7 +15,7 @@
   font-style: normal;
   font-display: swap;
   font-weight: 400;
-  src: url(/8fbf595b398521a13438.woff2) format('woff2'), url(/0fe49b37405de5564a8c.woff) format('woff');
+  src: url(/8fbf595b398521a13438.woff2) format('woff2'), url(/7d00956da27af3e30b78.woff) format('woff');
   unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
 }
 /* figtree-latin-ext-400-normal */
@@ -24,7 +24,7 @@
   font-style: normal;
   font-display: swap;
   font-weight: 400;
-  src: url(/410fbc8e227942f4d606.woff2) format('woff2'), url(/a145783ea782cd0067ff.woff) format('woff');
+  src: url(/410fbc8e227942f4d606.woff2) format('woff2'), url(/f5a809ac576251495a72.woff) format('woff');
   unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
 }
 
@@ -34,7 +34,7 @@
   font-style: normal;
   font-display: swap;
   font-weight: 400;
-  src: url(/8fbf595b398521a13438.woff2) format('woff2'), url(/0fe49b37405de5564a8c.woff) format('woff');
+  src: url(/8fbf595b398521a13438.woff2) format('woff2'), url(/7d00956da27af3e30b78.woff) format('woff');
   unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
 }
 /* figtree-latin-ext-400-italic */
@@ -43,7 +43,7 @@
   font-style: italic;
   font-display: swap;
   font-weight: 400;
-  src: url(/022beb5767ebf3d54c2c.woff2) format('woff2'), url(/aa2960bb65ece7180950.woff) format('woff');
+  src: url(/022beb5767ebf3d54c2c.woff2) format('woff2'), url(/815fd49f3f94a120685f.woff) format('woff');
   unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
 }
 
@@ -53,7 +53,7 @@
   font-style: italic;
   font-display: swap;
   font-weight: 400;
-  src: url(/0c658d1bd687fc3b8ae1.woff2) format('woff2'), url(/2cd6f384ab13d382a241.woff) format('woff');
+  src: url(/0c658d1bd687fc3b8ae1.woff2) format('woff2'), url(/f2b6d272f68d05e1513a.woff) format('woff');
   unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
 }
 *, ::before, ::after{
@@ -201,16 +201,6 @@
     white-space: nowrap;
     border-width: 0;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .not-sr-only{
-    position: static;
-    width: auto;
-    height: auto;
-    padding: 0;
-    margin: 0;
-    overflow: visible;
-    clip: auto;
-    white-space: normal;
-}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .pointer-events-none{
     pointer-events: none;
 }
@@ -219,12 +209,6 @@
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .visible{
     visibility: visible;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .invisible{
-    visibility: hidden;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .collapse{
-    visibility: collapse;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .static{
     position: static;
@@ -237,9 +221,6 @@
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .relative{
     position: relative;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .sticky{
-    position: sticky;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .-inset-1{
     inset: -0.25rem;
@@ -270,13 +251,7 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .left-0{
     left: 0px;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .left-1{
-    left: 0.25rem;
-}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .left-1\/2{
-    left: 50%;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .left-2\/4{
     left: 50%;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .left-\[calc\(50\%\+10px\)\]{
@@ -329,12 +304,6 @@
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .top-full{
     top: 100%;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .isolate{
-    isolation: isolate;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .isolation-auto{
-    isolation: auto;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .-z-10{
     z-index: -10;
@@ -570,9 +539,6 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .mt-0{
     margin-top: 0px;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .mt-0\.5{
-    margin-top: 0.125rem;
-}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .mt-1{
     margin-top: 0.25rem;
 }
@@ -591,17 +557,11 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .mt-4{
     margin-top: 1rem;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .mt-\[0\.5px\]{
-    margin-top: 0.5px;
-}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .mt-\[2px\]{
     margin-top: 2px;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .mt-auto{
     margin-top: auto;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .mt-px{
-    margin-top: 1px;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .box-border{
     box-sizing: border-box;
@@ -624,47 +584,14 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .table{
     display: table;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .inline-table{
-    display: inline-table;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .table-caption{
-    display: table-caption;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .table-cell{
-    display: table-cell;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .table-column{
-    display: table-column;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .table-column-group{
-    display: table-column-group;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .table-footer-group{
-    display: table-footer-group;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .table-header-group{
-    display: table-header-group;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .table-row-group{
-    display: table-row-group;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .table-row{
-    display: table-row;
-}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .flow-root{
     display: flow-root;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .grid{
     display: grid;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .inline-grid{
-    display: inline-grid;
-}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .contents{
     display: contents;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .list-item{
-    display: list-item;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hidden{
     display: none;
@@ -781,6 +708,12 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .min-h-16{
     min-height: 4rem;
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .min-h-5{
+    min-height: 1.25rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .min-h-6{
+    min-height: 1.5rem;
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .min-h-\[2\.5rem\]{
     min-height: 2.5rem;
 }
@@ -789,6 +722,10 @@
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .min-h-\[3rem\]{
     min-height: 3rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .min-h-fit{
+    min-height: -moz-fit-content;
+    min-height: fit-content;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .min-h-full{
     min-height: 100%;
@@ -859,11 +796,17 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .w-4{
     width: 1rem;
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .w-5{
+    width: 1.25rem;
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .w-60{
     width: 15rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .w-72{
     width: 18rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .w-8{
+    width: 2rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .w-80{
     width: 20rem;
@@ -1033,10 +976,6 @@
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .cursor-pointer{
     cursor: pointer;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .touch-pinch-zoom{
-    --tw-pinch-zoom: pinch-zoom;
-    touch-action: var(--tw-pan-x) var(--tw-pan-y) var(--tw-pinch-zoom);
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .resize{
     resize: both;
@@ -1264,11 +1203,6 @@
     margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
     margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) :is(.space-y-1\.5 > :not([hidden]) ~ :not([hidden])){
-    --tw-space-y-reverse: 0;
-    margin-top: calc(0.375rem * calc(1 - var(--tw-space-y-reverse)));
-    margin-bottom: calc(0.375rem * var(--tw-space-y-reverse));
-}
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.space-y-2 > :not([hidden]) ~ :not([hidden])){
     --tw-space-y-reverse: 0;
     margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
@@ -1284,17 +1218,6 @@
     margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
     margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) :is(.space-y-reverse > :not([hidden]) ~ :not([hidden])){
-    --tw-space-y-reverse: 1;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) :is(.space-x-reverse > :not([hidden]) ~ :not([hidden])){
-    --tw-space-x-reverse: 1;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) :is(.divide-x > :not([hidden]) ~ :not([hidden])){
-    --tw-divide-x-reverse: 0;
-    border-right-width: calc(1px * var(--tw-divide-x-reverse));
-    border-left-width: calc(1px * calc(1 - var(--tw-divide-x-reverse)));
-}
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.divide-x-0 > :not([hidden]) ~ :not([hidden])){
     --tw-divide-x-reverse: 0;
     border-right-width: calc(0px * var(--tw-divide-x-reverse));
@@ -1309,12 +1232,6 @@
     --tw-divide-y-reverse: 0;
     border-top-width: calc(0.5px * calc(1 - var(--tw-divide-y-reverse)));
     border-bottom-width: calc(0.5px * var(--tw-divide-y-reverse));
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) :is(.divide-y-reverse > :not([hidden]) ~ :not([hidden])){
-    --tw-divide-y-reverse: 1;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) :is(.divide-x-reverse > :not([hidden]) ~ :not([hidden])){
-    --tw-divide-x-reverse: 1;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.divide-solid > :not([hidden]) ~ :not([hidden])){
     border-style: solid;
@@ -1376,12 +1293,6 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .text-ellipsis{
-    text-overflow: ellipsis;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .text-clip{
-    text-overflow: clip;
-}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .whitespace-nowrap{
     white-space: nowrap;
 }
@@ -1412,33 +1323,9 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-xl{
     border-radius: 0.75rem;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-b{
-    border-bottom-right-radius: 0.25rem;
-    border-bottom-left-radius: 0.25rem;
-}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-b-none{
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 0px;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-e{
-    border-start-end-radius: 0.25rem;
-    border-end-end-radius: 0.25rem;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-l{
-    border-top-left-radius: 0.25rem;
-    border-bottom-left-radius: 0.25rem;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-r{
-    border-top-right-radius: 0.25rem;
-    border-bottom-right-radius: 0.25rem;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-s{
-    border-start-start-radius: 0.25rem;
-    border-end-start-radius: 0.25rem;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-t{
-    border-top-left-radius: 0.25rem;
-    border-top-right-radius: 0.25rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-bl{
     border-bottom-left-radius: 0.25rem;
@@ -1451,18 +1338,6 @@
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-br-md{
     border-bottom-right-radius: 0.375rem;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-ee{
-    border-end-end-radius: 0.25rem;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-es{
-    border-end-start-radius: 0.25rem;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-se{
-    border-start-end-radius: 0.25rem;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-ss{
-    border-start-start-radius: 0.25rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .rounded-tl{
     border-top-left-radius: 0.25rem;
@@ -1494,10 +1369,6 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .border-\[0\.5px\]{
     border-width: 0.5px;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .border-x{
-    border-left-width: 1px;
-    border-right-width: 1px;
-}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .border-x-0{
     border-left-width: 0px;
     border-right-width: 0px;
@@ -1519,9 +1390,6 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .border-b-0\.5{
     border-bottom-width: 0.5px;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .border-e{
-    border-inline-end-width: 1px;
-}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .border-l{
     border-left-width: 1px;
 }
@@ -1533,9 +1401,6 @@
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .border-r-0{
     border-right-width: 0px;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .border-s{
-    border-inline-start-width: 1px;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .border-t{
     border-top-width: 1px;
@@ -1727,6 +1592,30 @@
     --tw-bg-opacity: 1;
     background-color: rgb(254 252 232 / var(--tw-bg-opacity, 1));
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .bg-badge-hover-disabled{
+    --tw-bg-opacity: 1;
+    background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .bg-badge-hover-gray{
+    --tw-bg-opacity: 1;
+    background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .bg-badge-hover-green{
+    --tw-bg-opacity: 1;
+    background-color: rgb(220 252 231 / var(--tw-bg-opacity, 1));
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .bg-badge-hover-red{
+    --tw-bg-opacity: 1;
+    background-color: rgb(254 226 226 / var(--tw-bg-opacity, 1));
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .bg-badge-hover-sky{
+    --tw-bg-opacity: 1;
+    background-color: rgb(224 242 254 / var(--tw-bg-opacity, 1));
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .bg-badge-hover-yellow{
+    --tw-bg-opacity: 1;
+    background-color: rgb(254 249 195 / var(--tw-bg-opacity, 1));
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .bg-border-interactive{
     --tw-bg-opacity: 1;
     background-color: rgb(37 99 235 / var(--tw-bg-opacity, 1));
@@ -1769,6 +1658,10 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .bg-field-background-disabled{
     --tw-bg-opacity: 1;
     background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1));
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .bg-field-background-error{
+    --tw-bg-opacity: 1;
+    background-color: rgb(254 242 242 / var(--tw-bg-opacity, 1));
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .bg-field-dropzone-background-hover{
     --tw-bg-opacity: 1;
@@ -1835,9 +1728,6 @@
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .bg-none{
     background-image: none;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .bg-repeat{
-    background-repeat: repeat;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .fill-current{
     fill: currentColor;
@@ -1936,10 +1826,6 @@
     padding-left: 1.375rem;
     padding-right: 1.375rem;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .py-0{
-    padding-top: 0px;
-    padding-bottom: 0px;
-}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .py-0\.5{
     padding-top: 0.125rem;
     padding-bottom: 0.125rem;
@@ -1999,6 +1885,12 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .pl-3{
     padding-left: 0.75rem;
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .pl-3\.5{
+    padding-left: 0.875rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .pl-4{
+    padding-left: 1rem;
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .pl-8{
     padding-left: 2rem;
 }
@@ -2054,6 +1946,14 @@
     font-size: 1.5rem;
     line-height: 2rem;
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .text-3xl{
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .text-4xl{
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .text-\[12px\]{
     font-size: 12px;
 }
@@ -2095,54 +1995,14 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .font-semibold{
     font-weight: 600;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .uppercase{
-    text-transform: uppercase;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .lowercase{
-    text-transform: lowercase;
-}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .capitalize{
     text-transform: capitalize;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .normal-case{
-    text-transform: none;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .italic{
     font-style: italic;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .not-italic{
-    font-style: normal;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .normal-nums{
-    font-variant-numeric: normal;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .ordinal{
-    --tw-ordinal: ordinal;
-    font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .slashed-zero{
-    --tw-slashed-zero: slashed-zero;
-    font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .lining-nums{
-    --tw-numeric-figure: lining-nums;
-    font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .oldstyle-nums{
-    --tw-numeric-figure: oldstyle-nums;
-    font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .proportional-nums{
-    --tw-numeric-spacing: proportional-nums;
-    font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .tabular-nums{
-    --tw-numeric-spacing: tabular-nums;
-    font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .diagonal-fractions{
-    --tw-numeric-fraction: diagonal-fractions;
-    font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
+:is(#hfe-settings-app, [data-floating-ui-portal]) .leading-11{
+    line-height: 2.75rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .leading-4{
     line-height: 1rem;
@@ -2153,8 +2013,23 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .leading-6{
     line-height: 1.5rem;
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .leading-7{
+    line-height: 1.75rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .leading-7\.5{
+    line-height: 1.875rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .leading-8{
+    line-height: 2rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .leading-9\.5{
+    line-height: 2.375rem;
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .leading-none{
     line-height: 1;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .tracking-2{
+    letter-spacing: 0.125em;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .text-background-primary{
     --tw-text-opacity: 1;
@@ -2335,22 +2210,8 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .underline{
     text-decoration-line: underline;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .overline{
-    text-decoration-line: overline;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .line-through{
-    text-decoration-line: line-through;
-}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .no-underline{
     text-decoration-line: none;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .antialiased{
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .subpixel-antialiased{
-    -webkit-font-smoothing: auto;
-    -moz-osx-font-smoothing: auto;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .placeholder-text-tertiary::-moz-placeholder{
     --tw-placeholder-opacity: 1;
@@ -2368,11 +2229,6 @@
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .opacity-50{
     opacity: 0.5;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .shadow{
-    --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-    --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .shadow-2xl{
     --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
@@ -2419,6 +2275,11 @@
     --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .shadow-xs{
+    --tw-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+    --tw-shadow-colored: 0px 1px 2px 0px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .outline-none{
     outline: 2px solid transparent;
     outline-offset: 2px;
@@ -2432,11 +2293,20 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .outline-border-disabled{
     outline-color: #E5E7EB;
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .outline-border-interactive{
+    outline-color: #2563EB;
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .outline-border-subtle{
     outline-color: #E5E7EB;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .outline-button-danger{
     outline-color: #DC2626;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .outline-button-danger-hover{
+    outline-color: #B91C1C;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .outline-button-disabled{
+    outline-color: #F3F4F6;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .outline-button-primary{
     outline-color: #2563EB;
@@ -2471,14 +2341,6 @@
     --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
     box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .ring-2{
-    --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-    --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .ring-inset{
-    --tw-ring-inset: inset;
-}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .ring-alert-border-danger{
     --tw-ring-opacity: 1;
     --tw-ring-color: rgb(254 202 202 / var(--tw-ring-opacity, 1));
@@ -2503,10 +2365,6 @@
     --tw-ring-opacity: 1;
     --tw-ring-color: rgb(17 24 39 / var(--tw-ring-opacity, 1));
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .ring-border-interactive{
-    --tw-ring-opacity: 1;
-    --tw-ring-color: rgb(37 99 235 / var(--tw-ring-opacity, 1));
-}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .ring-border-subtle{
     --tw-ring-opacity: 1;
     --tw-ring-color: rgb(229 231 235 / var(--tw-ring-opacity, 1));
@@ -2518,6 +2376,10 @@
     --tw-ring-opacity: 1;
     --tw-ring-color: rgb(147 51 234 / var(--tw-ring-opacity, 1));
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .ring-focus{
+    --tw-ring-opacity: 1;
+    --tw-ring-color: rgb(147 51 234 / var(--tw-ring-opacity, 1));
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .ring-tab-border{
     --tw-ring-opacity: 1;
     --tw-ring-color: rgb(229 231 235 / var(--tw-ring-opacity, 1));
@@ -2525,52 +2387,8 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .ring-offset-0{
     --tw-ring-offset-width: 0px;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .blur{
-    --tw-blur: blur(8px);
-    filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .drop-shadow{
-    --tw-drop-shadow: drop-shadow(0 1px 2px rgb(0 0 0 / 0.1)) drop-shadow(0 1px 1px rgb(0 0 0 / 0.06));
-    filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .grayscale{
-    --tw-grayscale: grayscale(100%);
-    filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .invert{
-    --tw-invert: invert(100%);
-    filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .sepia{
-    --tw-sepia: sepia(100%);
-    filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .filter{
     filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .backdrop-blur{
-    --tw-backdrop-blur: blur(8px);
-    -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-    backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .backdrop-grayscale{
-    --tw-backdrop-grayscale: grayscale(100%);
-    -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-    backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .backdrop-invert{
-    --tw-backdrop-invert: invert(100%);
-    -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-    backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .backdrop-sepia{
-    --tw-backdrop-sepia: sepia(100%);
-    -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-    backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .backdrop-filter{
-    -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-    backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .transition{
     transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
@@ -2640,11 +2458,11 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .ease-linear{
     transition-timing-function: linear;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .ease-out{
-    transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .\[grid-area\:1\/1\/2\/3\]{
     grid-area: 1/1/2/3;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .\[word-break\:break-word\]{
+    word-break: break-word;
 }
 
 /* Add to your main CSS file (e.g., index.css) */
@@ -2965,10 +2783,6 @@ div#hfe-settings-app {
     content: var(--tw-content);
     position: absolute;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .before\:left-2\/4::before{
-    content: var(--tw-content);
-    left: 50%;
-}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .before\:top-2\/4::before{
     content: var(--tw-content);
     top: 50%;
@@ -3012,6 +2826,10 @@ div#hfe-settings-app {
 :is(#hfe-settings-app, [data-floating-ui-portal]) .before\:content-\[\'\'\]::before{
     --tw-content: '';
     content: var(--tw-content);
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .after\:ml-0::after{
+    content: var(--tw-content);
+    margin-left: 0px;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .after\:ml-0\.5::after{
     content: var(--tw-content);
@@ -3237,6 +3055,9 @@ div#hfe-settings-app {
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:outline-border-disabled:hover{
     outline-color: #E5E7EB;
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:outline-border-interactive:hover{
+    outline-color: #2563EB;
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:outline-border-strong:hover{
     outline-color: #6B7280;
 }
@@ -3258,15 +3079,6 @@ div#hfe-settings-app {
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:outline-field-border-disabled:hover{
     outline-color: #F3F4F6;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:ring-2:hover{
-    --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-    --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:ring-border-interactive:hover{
-    --tw-ring-opacity: 1;
-    --tw-ring-color: rgb(37 99 235 / var(--tw-ring-opacity, 1));
-}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:before\:opacity-10:hover::before{
     content: var(--tw-content);
     opacity: 0.1;
@@ -3282,6 +3094,9 @@ div#hfe-settings-app {
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus-within\:hover\:border-focus-border:hover:focus-within{
     --tw-border-opacity: 1;
     border-color: rgb(216 180 254 / var(--tw-border-opacity, 1));
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .focus-within\:hover\:outline-focus-border:hover:focus-within{
+    outline-color: #D8B4FE;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:focus-within\:outline-focus-border:focus-within:hover{
     outline-color: #D8B4FE;
@@ -3369,6 +3184,10 @@ div#hfe-settings-app {
     --tw-ring-opacity: 1;
     --tw-ring-color: rgb(147 51 234 / var(--tw-ring-opacity, 1));
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .focus\:ring-focus-error:focus{
+    --tw-ring-opacity: 1;
+    --tw-ring-color: rgb(220 38 38 / var(--tw-ring-opacity, 1));
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus\:ring-toggle-on:focus{
     --tw-ring-opacity: 1;
     --tw-ring-color: rgb(107 33 168 / var(--tw-ring-opacity, 1));
@@ -3434,6 +3253,16 @@ div#hfe-settings-app {
     --tw-text-opacity: 1;
     color: rgb(189 193 199 / var(--tw-text-opacity, 1));
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .disabled\:shadow-none:disabled{
+    --tw-shadow: 0 0 #0000;
+    --tw-shadow-colored: 0 0 #0000;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .disabled\:shadow-toggle-disabled:disabled{
+    --tw-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.1) inset;
+    --tw-shadow-colored: inset 1px 1px 2px 0px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .disabled\:outline-border-disabled:disabled{
     outline-color: #E5E7EB;
 }
@@ -3455,8 +3284,9 @@ div#hfe-settings-app {
     --tw-bg-opacity: 1;
     background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group\/switch:focus-within .group-focus-within\/switch\:left-0\.5){
-    left: 0.125rem;
+:is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group\/switch:focus-within .group-focus-within\/switch\:size-3\.25){
+    width: 0.8125rem;
+    height: 0.8125rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group\/switch:focus-within .group-focus-within\/switch\:size-4){
     width: 1rem;
@@ -3470,8 +3300,12 @@ div#hfe-settings-app {
     --tw-text-opacity: 1;
     color: rgb(17 24 39 / var(--tw-text-opacity, 1));
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group\/switch:hover .group-hover\/switch\:left-0\.5){
-    left: 0.125rem;
+:is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group\/switch:hover .group-hover\/switch\:right-0\.5){
+    right: 0.125rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group\/switch:hover .group-hover\/switch\:size-3\.25){
+    width: 0.8125rem;
+    height: 0.8125rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group\/switch:hover .group-hover\/switch\:size-4){
     width: 1rem;
@@ -3480,6 +3314,10 @@ div#hfe-settings-app {
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group\/switch:hover .group-hover\/switch\:size-5){
     width: 1.25rem;
     height: 1.25rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group\/switch:hover .group-hover\/switch\:border-toggle-on-border){
+    --tw-border-opacity: 1;
+    border-color: rgb(192 132 252 / var(--tw-border-opacity, 1));
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group\/switch:hover .group-hover\/switch\:bg-toggle-off-hover){
     --tw-bg-opacity: 1;
@@ -3490,14 +3328,6 @@ div#hfe-settings-app {
     color: rgb(17 24 39 / var(--tw-text-opacity, 1));
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group:hover .group-hover\:text-icon-primary){
-    --tw-text-opacity: 1;
-    color: rgb(17 24 39 / var(--tw-text-opacity, 1));
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group:hover .group-hover\:text-text-disabled){
-    --tw-text-opacity: 1;
-    color: rgb(189 193 199 / var(--tw-text-opacity, 1));
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group:hover .group-hover\:text-text-primary){
     --tw-text-opacity: 1;
     color: rgb(17 24 39 / var(--tw-text-opacity, 1));
 }
@@ -3517,6 +3347,14 @@ div#hfe-settings-app {
     --tw-text-opacity: 1;
     color: rgb(189 193 199 / var(--tw-text-opacity, 1));
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) :is(.peer:checked ~ .peer-checked\:translate-x-3){
+    --tw-translate-x: 0.75rem;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) :is(.peer:checked ~ .peer-checked\:translate-x-3\.75){
+    --tw-translate-x: 0.9375rem;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.peer:checked ~ .peer-checked\:translate-x-5){
     --tw-translate-x: 1.25rem;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -3530,6 +3368,22 @@ div#hfe-settings-app {
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.peer:disabled ~ .peer-disabled\:text-border-disabled){
     --tw-text-opacity: 1;
     color: rgb(229 231 235 / var(--tw-text-opacity, 1));
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .not-rtl\:left-1:not([dir="rtl"], [dir="rtl"] *){
+    left: 0.25rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .not-rtl\:left-2\/4:not([dir="rtl"], [dir="rtl"] *){
+    left: 50%;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .not-rtl\:before\:left-2\/4:not([dir="rtl"], [dir="rtl"] *)::before{
+    content: var(--tw-content);
+    left: 50%;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group\/switch:focus-within .not-rtl\:group-focus-within\/switch\:left-0\.5:not([dir="rtl"], [dir="rtl"] *)){
+    left: 0.125rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group\/switch:hover .not-rtl\:group-hover\/switch\:left-0\.5:not([dir="rtl"], [dir="rtl"] *)){
+    left: 0.125rem;
 }
 @media (min-width: 640px){
     :is(#hfe-settings-app, [data-floating-ui-portal]) .sm\:h-10{
@@ -4259,6 +4113,25 @@ div#hfe-settings-app {
     :is(#hfe-settings-app, [data-floating-ui-portal]) .lg\:justify-self-stretch{
         justify-self: stretch;
     }
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .rtl\:right-1:where([dir="rtl"], [dir="rtl"] *){
+    right: 0.25rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .rtl\:right-2\/4:where([dir="rtl"], [dir="rtl"] *){
+    right: 50%;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .rtl\:before\:right-2\/4:where([dir="rtl"], [dir="rtl"] *)::before{
+    content: var(--tw-content);
+    right: 50%;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group\/switch:focus-within .rtl\:group-focus-within\/switch\:right-0\.5:where([dir="rtl"], [dir="rtl"] *)){
+    right: 0.125rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group\/switch:hover .rtl\:group-hover\/switch\:right-0:where([dir="rtl"], [dir="rtl"] *)){
+    right: 0px;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group\/switch:hover .rtl\:group-hover\/switch\:right-0\.5:where([dir="rtl"], [dir="rtl"] *)){
+    right: 0.125rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .\[\&\:hover\:has\(\:disabled\)\]\:outline-field-border-disabled:hover:has(:disabled){
     outline-color: #F3F4F6;

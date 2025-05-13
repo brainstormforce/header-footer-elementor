@@ -123,7 +123,7 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:219
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:178
-#: src/Components/NavMenu.js:252
+#: src/Components/NavMenu.js:253
 msgid "Free"
 msgstr ""
 
@@ -542,7 +542,7 @@ msgid ""
 msgstr ""
 
 #: src/Components/Dashboard/WelcomeContainer.js:58
-#: src/Components/Onboarding/Build.jsx:125
+#: src/Components/Onboarding/Build.jsx:197
 msgid "Create Header/Footer"
 msgstr ""
 
@@ -602,31 +602,31 @@ msgstr ""
 msgid "Get Pro"
 msgstr ""
 
-#: src/Components/NavMenu.js:243
+#: src/Components/NavMenu.js:244
 msgid "Version"
 msgstr ""
 
-#: src/Components/NavMenu.js:275
+#: src/Components/NavMenu.js:278
 msgid "Useful Resources"
 msgstr ""
 
-#: src/Components/NavMenu.js:292
+#: src/Components/NavMenu.js:295
 msgid "Getting Started"
 msgstr ""
 
-#: src/Components/NavMenu.js:305
+#: src/Components/NavMenu.js:308
 msgid "How to use widgets"
 msgstr ""
 
-#: src/Components/NavMenu.js:318
+#: src/Components/NavMenu.js:321
 msgid "How to use features"
 msgstr ""
 
-#: src/Components/NavMenu.js:331
+#: src/Components/NavMenu.js:334
 msgid "How to use templates"
 msgstr ""
 
-#: src/Components/NavMenu.js:344
+#: src/Components/NavMenu.js:347
 msgid "Contact us"
 msgstr ""
 
@@ -634,15 +634,61 @@ msgstr ""
 msgid "What's New?"
 msgstr ""
 
+#: src/Components/Onboarding/Build.jsx:141
+msgid "You're all set!🚀"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:144
+msgid ""
+"Start creating headers, footers, or pages with UAE and take your website to "
+"the next level"
+msgstr ""
+
 #: src/Components/Onboarding/Build.jsx:150
+msgid "Here’s how to get started:"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:154
+msgid "Click on “Create” button"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:155
+msgid ""
+"Choose the type of template you want to create and customize the selected "
+"option"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:156
+msgid ""
+"Use the Elementor editor to customize your template according to your "
+"preferences using UAE widgets"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:157
+msgid "Click “Publish” to make it live"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:222
 msgid "Go To Dashboard"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:166
+#: src/Components/Onboarding/Build.jsx:240
+msgid "We have a special reward just for you!"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:244
+msgid "This special offer is available only on this page and for limited time"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:258
+msgid "Unlock My Surprise"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:275
 msgid "Help make UAE Better"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:195
+#: src/Components/Onboarding/Build.jsx:304
 msgid ""
 "Help us improve by sharing anonymous data about your website setup. This "
 "includes non-sensitive info about plugins, themes, and settings, so we can "
@@ -650,50 +696,74 @@ msgid ""
 "Learn more in our privacy policy."
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:51
+#: src/Components/Onboarding/Build.jsx:318
+msgid "We have a special Reward just for you! 🎁"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:332
+msgid ""
+"Enter your details to get special offer that we have for you and stay "
+"updated on UAE’s latest news and updates."
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:340
+msgid "First Name"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:367
+msgid "Last Name"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:390
+msgid "Your Email Address"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:43
+msgid "This field is required"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:434
+msgid "Submit"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:50
+msgid "Entered email address is invalid!"
+msgstr ""
+
+#: src/Components/Onboarding/Build.jsx:87
 #: src/Components/Settings/ThemeSupport.jsx:63
 #: src/Components/Settings/UsageTracking.jsx:32
 msgid "Settings saved successfully!"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:56
+#: src/Components/Onboarding/Build.jsx:92
 #: src/Components/Settings/ThemeSupport.jsx:68
 #: src/Components/Settings/UsageTracking.jsx:37
 msgid "Failed to save settings!"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:69
-msgid "You're all set!🚀"
+#: src/Components/Onboarding/Success.jsx:100
+msgid "You’ve unlocked a "
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:72
-msgid ""
-"Start creating headers, footers, or pages with UAE and take your website to "
-"the next level"
+#: src/Components/Onboarding/Success.jsx:102
+msgid " discount on UAE Pro. We’ve sent a discount"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:78
-msgid "Here’s how to get started:"
+#: src/Components/Onboarding/Success.jsx:105
+msgid " coupon just for you to your email address."
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:82
-msgid "Click on “Create” button"
+#: src/Components/Onboarding/Success.jsx:135
+msgid "Get Pro Now"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:83
-msgid ""
-"Choose the type of template you want to create and customize the selected "
-"option"
+#: src/Components/Onboarding/Success.jsx:151
+msgid "Go To The Dashboard"
 msgstr ""
 
-#: src/Components/Onboarding/Build.jsx:84
-msgid ""
-"Use the Elementor editor to customize your template according to your "
-"preferences using UAE widgets"
-msgstr ""
-
-#: src/Components/Onboarding/Build.jsx:85
-msgid "Click “Publish” to make it live"
+#: src/Components/Onboarding/Success.jsx:97
+msgid "Congratulations!"
 msgstr ""
 
 #: src/Components/Onboarding/Welcome.jsx:11

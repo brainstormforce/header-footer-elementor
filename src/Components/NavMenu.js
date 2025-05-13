@@ -237,7 +237,8 @@ const NavMenu = () => {
 									<span className="sr-only">Open Menu</span>
 								</DropdownMenu.Trigger>
 								<DropdownMenu.Portal>
-									<DropdownMenu.Content className="w-60">
+								<DropdownMenu.ContentWrapper>
+								<DropdownMenu.Content className="w-60">
 										<DropdownMenu.List>
 											<DropdownMenu.Item>
 												{__(
@@ -260,6 +261,7 @@ const NavMenu = () => {
 											</DropdownMenu.Item>
 										</DropdownMenu.List>
 									</DropdownMenu.Content>
+								</DropdownMenu.ContentWrapper>
 								</DropdownMenu.Portal>
 							</DropdownMenu>
 						</Topbar.Item>
@@ -269,7 +271,8 @@ const NavMenu = () => {
 									<CircleHelp />
 								</DropdownMenu.Trigger>
 								<DropdownMenu.Portal>
-									<DropdownMenu.Content className="w-60">
+								<DropdownMenu.ContentWrapper>
+								<DropdownMenu.Content className="w-60">
 										<DropdownMenu.List>
 											<DropdownMenu.Item>
 												{__(
@@ -348,6 +351,7 @@ const NavMenu = () => {
 											</DropdownMenu.Item>
 										</DropdownMenu.List>
 									</DropdownMenu.Content>
+								</DropdownMenu.ContentWrapper>
 								</DropdownMenu.Portal>
 							</DropdownMenu>
 							<div className="pb-1" id="hfe-whats-new"></div>
