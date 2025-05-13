@@ -788,7 +788,7 @@ class Infocard extends Common_Widget {
 	/**
 	 * Register Infocard Promotion Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.3.1
 	 * @access protected
 	 */
 	protected function register_pro_promotion_controls() {

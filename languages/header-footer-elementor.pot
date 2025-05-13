@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the Ultimate Addons for Elementor Lite package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Ultimate Addons for Elementor Lite 2.3.0\n"
+"Project-Id-Version: Ultimate Addons for Elementor Lite 2.3.1\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/header-footer-elementor\n"
-"POT-Creation-Date: 2025-04-14 06:05:10+00:00\n"
+"POT-Creation-Date: 2025-05-12 11:21:16+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -78,12 +78,12 @@ msgstr ""
 msgid "If you have a moment, please share why you are deactivating the plugin."
 msgstr ""
 
-#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:109
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:112
 #: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:389
 #: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:414
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:204
 #: inc/widgets-manager/widgets/cart/cart.php:113
-#: inc/widgets-manager/widgets/infocard/infocard.php:184
+#: inc/widgets-manager/widgets/infocard/infocard.php:185
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:566
 #: inc/widgets-manager/widgets/page-title/page-title.php:353
 #: inc/widgets-manager/widgets/post-info/post-info.php:366
@@ -96,65 +96,65 @@ msgstr ""
 msgid "Icon"
 msgstr ""
 
-#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:134
-#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:309
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:139
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:314
 msgid "Please tell us more details."
 msgstr ""
 
-#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:143
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:148
 #. translators: %1$s: link html start, %2$s: link html end
 msgid "Need help from our experts? %1$sClick here to contact us.%2$s"
 msgstr ""
 
-#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:154
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:159
 msgid "Submit & Deactivate"
 msgstr ""
 
-#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:155
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:160
 msgid "Skip & Deactivate"
 msgstr ""
 
-#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:224
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:229
 msgid "Sorry, you are not allowed to do this operation."
 msgstr ""
 
-#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:237
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:242
 msgid "Nonce validation failed"
 msgstr ""
 
-#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:284
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:289
 msgid "This is a temporary deactivation for testing."
 msgstr ""
 
-#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:285
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:290
 msgid "How can we assist you?"
 msgstr ""
 
-#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:290
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:295
 msgid "The plugin isn't working properly."
 msgstr ""
 
-#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:291
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:296
 msgid "Please tell us more about what went wrong?"
 msgstr ""
 
-#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:296
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:301
 msgid "I found a better alternative plugin."
 msgstr ""
 
-#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:297
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:302
 msgid "Could you please specify which plugin?"
 msgstr ""
 
-#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:302
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:307
 msgid "It's missing a specific feature."
 msgstr ""
 
-#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:303
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:308
 msgid "Please tell us more about the feature."
 msgstr ""
 
-#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:308
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:313
 msgid "Other"
 msgstr ""
 
@@ -260,7 +260,7 @@ msgstr ""
 msgid "View Template"
 msgstr ""
 
-#: admin/class-hfe-admin.php:464 inc/class-hfe-settings-page.php:383
+#: admin/class-hfe-admin.php:464 inc/class-hfe-settings-page.php:385
 msgid "View All"
 msgstr ""
 
@@ -450,8 +450,8 @@ msgstr ""
 msgid "Ultimate Addons for Elementor Lite <p>Rollback to Previous Version</p>"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:99 inc/class-hfe-settings-page.php:912
-#: inc/class-hfe-settings-page.php:1190
+#: inc/class-hfe-settings-page.php:99 inc/class-hfe-settings-page.php:925
+#: inc/class-hfe-settings-page.php:1203
 msgid "Ultimate Addons for Elementor"
 msgstr ""
 
@@ -490,69 +490,69 @@ msgid ""
 "version."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:362 inc/class-hfe-settings-page.php:1121
+#: inc/class-hfe-settings-page.php:364 inc/class-hfe-settings-page.php:1134
 msgid "Activate"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:363 inc/class-hfe-settings-page.php:1113
+#: inc/class-hfe-settings-page.php:365 inc/class-hfe-settings-page.php:1126
 msgid "Activated"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:364 inc/class-hfe-settings-page.php:1110
+#: inc/class-hfe-settings-page.php:366 inc/class-hfe-settings-page.php:1123
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1030
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1213
 msgid "Active"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:365
+#: inc/class-hfe-settings-page.php:367
 msgid "Deactivate"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:366 inc/class-hfe-settings-page.php:1118
+#: inc/class-hfe-settings-page.php:368 inc/class-hfe-settings-page.php:1131
 msgid "Inactive"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:367 inc/class-hfe-settings-page.php:1134
+#: inc/class-hfe-settings-page.php:369 inc/class-hfe-settings-page.php:1147
 msgid "Install"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:368
+#: inc/class-hfe-settings-page.php:370
 msgid "Theme Installed"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:369
+#: inc/class-hfe-settings-page.php:371
 msgid "Plugin Installed"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:370
+#: inc/class-hfe-settings-page.php:372
 msgid "Download"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:371
+#: inc/class-hfe-settings-page.php:373
 msgid "Already Exists."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:372 inc/class-hfe-settings-page.php:1139
+#: inc/class-hfe-settings-page.php:374 inc/class-hfe-settings-page.php:1152
 msgid "Visit Website"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:373
+#: inc/class-hfe-settings-page.php:375
 msgid "Could not install. Please download from WordPress.org and install manually."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:374
+#: inc/class-hfe-settings-page.php:376
 msgid "Your details are submitted successfully."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:375
+#: inc/class-hfe-settings-page.php:377
 msgid "Encountered an error while performing your request."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:451
+#: inc/class-hfe-settings-page.php:452
 msgid "Add Theme Support"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:467
+#: inc/class-hfe-settings-page.php:468
 msgid ""
 "The Ultimate Addons for Elementor plugin need compatibility with your "
 "current theme to work smoothly.</br></br>Following are two methods that "
@@ -561,27 +561,27 @@ msgid ""
 "issue with the header or footer template, try choosing Method 2."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:486
+#: inc/class-hfe-settings-page.php:487
 msgid " Method 1 (Recommended)"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:487
+#: inc/class-hfe-settings-page.php:488
 msgid ""
 "This method replaces your theme's header (header.php) & footer (footer.php) "
 "template with plugin's custom templates."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:490
+#: inc/class-hfe-settings-page.php:491
 msgid "Method 2"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:494
+#: inc/class-hfe-settings-page.php:495
 msgid ""
 "This method hides your theme's header & footer template with CSS and "
 "displays custom templates from the plugin."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:505
+#: inc/class-hfe-settings-page.php:506
 #. translators: %s: URL to the plugin support page
 msgid ""
 "Sometimes above methods might not work well with your theme, in this case, "
@@ -589,21 +589,21 @@ msgid ""
 "href=\"%s\">plugin.</a>"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:537 inc/class-hfe-settings-page.php:549
+#: inc/class-hfe-settings-page.php:538 inc/class-hfe-settings-page.php:550
 msgid "UAE Lite"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:538
+#: inc/class-hfe-settings-page.php:539
 #: inc/widgets-manager/class-widgets-loader.php:168
 msgid "UAE"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:550
+#: inc/class-hfe-settings-page.php:551
 msgid "Dashboard"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:561 inc/class-hfe-settings-page.php:562
-#: inc/class-hfe-settings-page.php:1261
+#: inc/class-hfe-settings-page.php:562 inc/class-hfe-settings-page.php:563
+#: inc/class-hfe-settings-page.php:1274
 #: inc/widgets-manager/base/widgets-config.php:321
 #: inc/widgets-manager/base/widgets-config.php:404
 #: inc/widgets-manager/base/widgets-config.php:484
@@ -616,107 +616,112 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:572 inc/class-hfe-settings-page.php:573
+#: inc/class-hfe-settings-page.php:573 inc/class-hfe-settings-page.php:574
+#: inc/class-hfe-settings-page.php:585
 msgid "Onboarding"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:633
+#: inc/class-hfe-settings-page.php:586
+msgid "Onboardingsuccess"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:646
 msgid "Elementor Header & Footer Builder "
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:691
+#: inc/class-hfe-settings-page.php:704
 msgid "All Templates"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:698
+#: inc/class-hfe-settings-page.php:711
 msgid "About Us"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:744
+#: inc/class-hfe-settings-page.php:757
 #. translators: 1: Elementor, 2: Link to plugin review
 msgid ""
 "Help us spread the word about the plugin by leaving %2$s %1$s %3$s ratings "
 "on %2$s WordPress.org %3$s. Thank you from the Brainstorm Force team!"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:787
+#: inc/class-hfe-settings-page.php:800
 msgid "Create Impressive Header and Footer Designs"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:788
+#: inc/class-hfe-settings-page.php:801
 msgid ""
 "Elementor Header & Footer Builder plugin lets you build impactful "
 "navigation for your website very easily. Before we begin, we would like to "
 "know more about you. This will help us to serve you better."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:802
+#: inc/class-hfe-settings-page.php:815
 #. translators: %1$s and %3$s are opening anchor tags, and %2$s and %4$s is
 #. closing anchor tags.
 msgid "By submitting, you agree to our %1$sTerms%2$s and %3$sPrivacy Policy%4$s."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:820
+#: inc/class-hfe-settings-page.php:833
 msgid "Skip"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:838
+#: inc/class-hfe-settings-page.php:851
 msgid "Beginner"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:839
+#: inc/class-hfe-settings-page.php:852
 msgid "Intermediate"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:840
+#: inc/class-hfe-settings-page.php:853
 msgid "Expert"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:842 inc/class-hfe-settings-page.php:851
+#: inc/class-hfe-settings-page.php:855 inc/class-hfe-settings-page.php:864
 msgid "Field is required"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:843
+#: inc/class-hfe-settings-page.php:856
 msgid "I'm a WordPress:"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:848
+#: inc/class-hfe-settings-page.php:861
 msgid "Myself/My company"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:849
+#: inc/class-hfe-settings-page.php:862
 msgid "My client"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:852
+#: inc/class-hfe-settings-page.php:865
 msgid "I'm building website for:"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:875
+#: inc/class-hfe-settings-page.php:888
 msgid "First name is required"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:876
+#: inc/class-hfe-settings-page.php:889
 msgid "Your First Name"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:880
+#: inc/class-hfe-settings-page.php:893
 msgid "Email address is required"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:881
+#: inc/class-hfe-settings-page.php:894
 msgid "Your Work Email"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:885
+#: inc/class-hfe-settings-page.php:898
 msgid "I agree to receive your newsletters and accept the data privacy statement."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:890
+#: inc/class-hfe-settings-page.php:903
 msgid "Submit"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:947
+#: inc/class-hfe-settings-page.php:960
 #. translators: %s: theme name
 msgid ""
 "Powering over 1+ Million websites, %s is loved for the fast performance and "
@@ -724,17 +729,17 @@ msgid ""
 "portfolios, business, and WooCommerce stores."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:968
+#: inc/class-hfe-settings-page.php:981
 msgid "Welcome to Elementor Header & Footer Builder!"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:970
+#: inc/class-hfe-settings-page.php:983
 msgid ""
 "With this awesome plugin, experience the easiest way to create a customized "
 "header and footer for your website with Elementor. That too 100% FREE!"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:972
+#: inc/class-hfe-settings-page.php:985
 msgid ""
 "Design beautiful layouts with simple drag & drop and display them at "
 "desired location with powerful target controls. The plugin comes with "
@@ -743,65 +748,65 @@ msgid ""
 "backed up by 24/7 support."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:974
+#: inc/class-hfe-settings-page.php:987
 msgid ""
 "Trusted by more than 1+ Million users, Elementor Header & Footer Builder is "
 "a modern way to build advanced navigation for your website."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:977
+#: inc/class-hfe-settings-page.php:990
 #. translators: %s: theme name
 msgid ""
 "This plugin is brought to you by the same team behind the popular WordPress "
 "theme %s and a series of Ultimate Addons plugins."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:983
+#: inc/class-hfe-settings-page.php:996
 msgid "Team photo"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:985
+#: inc/class-hfe-settings-page.php:998
 msgid "Brainstorm Force Team"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1030
+#: inc/class-hfe-settings-page.php:1043
 #. translators: %s - addon status label.
 msgid "%1$s %3$s %2$s"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1047
+#: inc/class-hfe-settings-page.php:1060
 #. translators: %s - addon status label.
 msgid "Status: %s"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1066
+#: inc/class-hfe-settings-page.php:1079
 msgid "WordPress.org"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1131
+#: inc/class-hfe-settings-page.php:1144
 msgid "Not Installed"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1178
+#: inc/class-hfe-settings-page.php:1191
 #: inc/widgets-manager/base/widgets-config.php:1020
 msgid "Starter Templates"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1179
+#: inc/class-hfe-settings-page.php:1192
 msgid ""
 "A popular templates plugin that provides an extensive library of "
 "professional and fully customizable 600+ ready website and templates. More "
 "than 1+ Million websites have built with this plugin."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1191
+#: inc/class-hfe-settings-page.php:1204
 msgid ""
 "It’s a collection of 40+ unique, creative, and optimized Elementor widgets "
 "with 100+ readymade templates. Trusted by more than 600+ K web "
 "professionals. It’s a #1 toolkit for Elementor Page Builder."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1260
+#: inc/class-hfe-settings-page.php:1273
 msgid "Go to UAE Settings page"
 msgstr ""
 
@@ -974,21 +979,29 @@ msgstr ""
 msgid "The same display setting is already exist in %s post/s."
 msgstr ""
 
-#: inc/settings/hfe-settings-api.php:101
+#: inc/settings/hfe-settings-api.php:111
 msgid "Sorry, you are not authorized to perform this action."
 msgstr ""
 
-#: inc/settings/hfe-settings-api.php:116 inc/settings/hfe-settings-api.php:143
-#: inc/settings/hfe-settings-api.php:170
+#: inc/settings/hfe-settings-api.php:126 inc/settings/hfe-settings-api.php:153
+#: inc/settings/hfe-settings-api.php:180 inc/settings/hfe-settings-api.php:212
 msgid "Invalid nonce"
 msgstr ""
 
-#: inc/settings/hfe-settings-api.php:150
+#: inc/settings/hfe-settings-api.php:160
 msgid "Plugins list not found"
 msgstr ""
 
-#: inc/settings/hfe-settings-api.php:177
+#: inc/settings/hfe-settings-api.php:187
 msgid "Widgets list not found"
+msgstr ""
+
+#: inc/settings/hfe-settings-api.php:222
+msgid "Missing Fields"
+msgstr ""
+
+#: inc/settings/hfe-settings-api.php:245
+msgid "Error calling endpoint"
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:53
@@ -1000,7 +1013,7 @@ msgid "Show author, dates, and reading time with customizable styles."
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:67
-#: inc/widgets-manager/widgets/infocard/infocard.php:128
+#: inc/widgets-manager/widgets/infocard/infocard.php:129
 msgid "Info Card"
 msgstr ""
 
@@ -1637,7 +1650,7 @@ msgstr ""
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:159
 #: inc/widgets-manager/widgets/cart/cart.php:185
 #: inc/widgets-manager/widgets/copyright/copyright.php:134
-#: inc/widgets-manager/widgets/infocard/infocard.php:152
+#: inc/widgets-manager/widgets/infocard/infocard.php:153
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:282
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:313
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:348
@@ -1655,7 +1668,7 @@ msgstr ""
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:167
 #: inc/widgets-manager/widgets/cart/cart.php:193
 #: inc/widgets-manager/widgets/copyright/copyright.php:142
-#: inc/widgets-manager/widgets/infocard/infocard.php:160
+#: inc/widgets-manager/widgets/infocard/infocard.php:161
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:290
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:314
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:356
@@ -1707,9 +1720,9 @@ msgstr ""
 #: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:397
 #: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:447
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:203
-#: inc/widgets-manager/widgets/infocard/infocard.php:492
-#: inc/widgets-manager/widgets/infocard/infocard.php:501
-#: inc/widgets-manager/widgets/infocard/infocard.php:516
+#: inc/widgets-manager/widgets/infocard/infocard.php:493
+#: inc/widgets-manager/widgets/infocard/infocard.php:502
+#: inc/widgets-manager/widgets/infocard/infocard.php:517
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:827
 #: inc/widgets-manager/widgets/post-info/post-info.php:693
 msgid "Text"
@@ -1718,8 +1731,8 @@ msgstr ""
 #: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:462
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:512
 #: inc/widgets-manager/widgets/cart/cart.php:239
-#: inc/widgets-manager/widgets/infocard/infocard.php:204
-#: inc/widgets-manager/widgets/infocard/infocard.php:550
+#: inc/widgets-manager/widgets/infocard/infocard.php:205
+#: inc/widgets-manager/widgets/infocard/infocard.php:551
 #: inc/widgets-manager/widgets/page-title/page-title.php:224
 #: inc/widgets-manager/widgets/post-info/post-info.php:259
 #: inc/widgets-manager/widgets/post-info/post-info.php:659
@@ -1733,8 +1746,8 @@ msgstr ""
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:366
 #: inc/widgets-manager/widgets/cart/cart.php:315
 #: inc/widgets-manager/widgets/cart/cart.php:513
-#: inc/widgets-manager/widgets/infocard/infocard.php:275
-#: inc/widgets-manager/widgets/infocard/infocard.php:583
+#: inc/widgets-manager/widgets/infocard/infocard.php:276
+#: inc/widgets-manager/widgets/infocard/infocard.php:584
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:923
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1127
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1500
@@ -1756,7 +1769,7 @@ msgstr ""
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:439
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:499
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:563
-#: inc/widgets-manager/widgets/infocard/infocard.php:849
+#: inc/widgets-manager/widgets/infocard/infocard.php:882
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1507
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1539
 #: inc/widgets-manager/widgets/page-title/page-title.php:301
@@ -1776,9 +1789,9 @@ msgstr ""
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:464
 #: inc/widgets-manager/widgets/cart/cart.php:358
 #: inc/widgets-manager/widgets/cart/cart.php:414
-#: inc/widgets-manager/widgets/infocard/infocard.php:343
-#: inc/widgets-manager/widgets/infocard/infocard.php:649
-#: inc/widgets-manager/widgets/infocard/infocard.php:768
+#: inc/widgets-manager/widgets/infocard/infocard.php:344
+#: inc/widgets-manager/widgets/infocard/infocard.php:650
+#: inc/widgets-manager/widgets/infocard/infocard.php:769
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1446
 #: inc/widgets-manager/widgets/retina/retina.php:368
 #: inc/widgets-manager/widgets/search-button/search-button.php:349
@@ -1792,8 +1805,8 @@ msgstr ""
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:432
 #: inc/widgets-manager/widgets/cart/cart.php:371
 #: inc/widgets-manager/widgets/cart/cart.php:550
-#: inc/widgets-manager/widgets/infocard/infocard.php:408
-#: inc/widgets-manager/widgets/infocard/infocard.php:726
+#: inc/widgets-manager/widgets/infocard/infocard.php:409
+#: inc/widgets-manager/widgets/infocard/infocard.php:727
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:962
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1170
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1532
@@ -1826,7 +1839,7 @@ msgstr ""
 
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:118
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:324
-#: inc/widgets-manager/widgets/infocard/infocard.php:115
+#: inc/widgets-manager/widgets/infocard/infocard.php:116
 #: inc/widgets-manager/widgets/post-info/post-info.php:100
 #: inc/widgets-manager/widgets/site-title/site-title.php:111
 msgid "General"
@@ -1867,7 +1880,7 @@ msgstr ""
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:163
 #: inc/widgets-manager/widgets/cart/cart.php:189
 #: inc/widgets-manager/widgets/copyright/copyright.php:138
-#: inc/widgets-manager/widgets/infocard/infocard.php:156
+#: inc/widgets-manager/widgets/infocard/infocard.php:157
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:286
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:352
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:388
@@ -1926,7 +1939,7 @@ msgstr ""
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:351
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:619
 #: inc/widgets-manager/widgets/cart/cart.php:297
-#: inc/widgets-manager/widgets/infocard/infocard.php:709
+#: inc/widgets-manager/widgets/infocard/infocard.php:710
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1678
 #: inc/widgets-manager/widgets/retina/retina.php:572
 #: inc/widgets-manager/widgets/site-logo/site-logo.php:637
@@ -1940,8 +1953,8 @@ msgstr ""
 #: inc/widgets-manager/widgets/cart/cart.php:403
 #: inc/widgets-manager/widgets/cart/cart.php:534
 #: inc/widgets-manager/widgets/cart/cart.php:571
-#: inc/widgets-manager/widgets/infocard/infocard.php:303
-#: inc/widgets-manager/widgets/infocard/infocard.php:607
+#: inc/widgets-manager/widgets/infocard/infocard.php:304
+#: inc/widgets-manager/widgets/infocard/infocard.php:608
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:803
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:945
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:987
@@ -1966,7 +1979,7 @@ msgstr ""
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:399
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:532
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:588
-#: inc/widgets-manager/widgets/infocard/infocard.php:797
+#: inc/widgets-manager/widgets/infocard/infocard.php:830
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1668
 msgid "Typography"
 msgstr ""
@@ -1991,13 +2004,13 @@ msgid "Menu Cart"
 msgstr ""
 
 #: inc/widgets-manager/widgets/cart/cart.php:100
-#: inc/widgets-manager/widgets/infocard/infocard.php:486
+#: inc/widgets-manager/widgets/infocard/infocard.php:487
 #: inc/widgets-manager/widgets/post-info/post-info.php:130
 msgid "Type"
 msgstr ""
 
 #: inc/widgets-manager/widgets/cart/cart.php:104
-#: inc/widgets-manager/widgets/infocard/infocard.php:632
+#: inc/widgets-manager/widgets/infocard/infocard.php:633
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:210
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:436
 #: inc/widgets-manager/widgets/page-title/page-title.php:179
@@ -2038,9 +2051,9 @@ msgid "Items Count"
 msgstr ""
 
 #: inc/widgets-manager/widgets/cart/cart.php:134
-#: inc/widgets-manager/widgets/infocard/infocard.php:326
-#: inc/widgets-manager/widgets/infocard/infocard.php:491
-#: inc/widgets-manager/widgets/infocard/infocard.php:631
+#: inc/widgets-manager/widgets/infocard/infocard.php:327
+#: inc/widgets-manager/widgets/infocard/infocard.php:492
+#: inc/widgets-manager/widgets/infocard/infocard.php:632
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:482
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:822
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1430
@@ -2073,8 +2086,8 @@ msgid "This will hide the items count until the cart is empty"
 msgstr ""
 
 #: inc/widgets-manager/widgets/cart/cart.php:258
-#: inc/widgets-manager/widgets/infocard/infocard.php:361
-#: inc/widgets-manager/widgets/infocard/infocard.php:664
+#: inc/widgets-manager/widgets/infocard/infocard.php:362
+#: inc/widgets-manager/widgets/infocard/infocard.php:665
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1463
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1586
 #: inc/widgets-manager/widgets/retina/retina.php:346
@@ -2089,7 +2102,7 @@ msgstr ""
 #: inc/widgets-manager/widgets/cart/cart.php:520
 #: inc/widgets-manager/widgets/cart/cart.php:557
 #: inc/widgets-manager/widgets/copyright/copyright.php:156
-#: inc/widgets-manager/widgets/infocard/infocard.php:592
+#: inc/widgets-manager/widgets/infocard/infocard.php:593
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:930
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:969
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1037
@@ -2109,7 +2122,7 @@ msgstr ""
 
 #: inc/widgets-manager/widgets/cart/cart.php:333
 #: inc/widgets-manager/widgets/cart/cart.php:389
-#: inc/widgets-manager/widgets/infocard/infocard.php:284
+#: inc/widgets-manager/widgets/infocard/infocard.php:285
 #: inc/widgets-manager/widgets/page-title/page-title.php:364
 #: inc/widgets-manager/widgets/search-button/search-button.php:668
 #: inc/widgets-manager/widgets/search-button/search-button.php:708
@@ -2147,7 +2160,7 @@ msgid ""
 msgstr ""
 
 #: inc/widgets-manager/widgets/copyright/copyright.php:121
-#: inc/widgets-manager/widgets/infocard/infocard.php:531
+#: inc/widgets-manager/widgets/infocard/infocard.php:532
 #: inc/widgets-manager/widgets/page-title/page-title.php:175
 #: inc/widgets-manager/widgets/page-title/page-title.php:189
 #: inc/widgets-manager/widgets/post-info/post-info.php:340
@@ -2168,40 +2181,40 @@ msgstr ""
 msgid "https://your-link.com"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:122
-#: inc/widgets-manager/widgets/infocard/infocard.php:805
+#: inc/widgets-manager/widgets/infocard/infocard.php:123
+#: inc/widgets-manager/widgets/infocard/infocard.php:838
 #: inc/widgets-manager/widgets/page-title/page-title.php:108
 #: inc/widgets-manager/widgets/page-title/page-title.php:282
 #: inc/widgets-manager/widgets/site-title/site-title.php:276
 msgid "Title"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:134
-#: inc/widgets-manager/widgets/infocard/infocard.php:867
+#: inc/widgets-manager/widgets/infocard/infocard.php:135
+#: inc/widgets-manager/widgets/infocard/infocard.php:900
 msgid "Description"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:140
+#: inc/widgets-manager/widgets/infocard/infocard.php:141
 msgid ""
 "Enter description text here.Lorem ipsum dolor sit amet, consectetur "
 "adipiscing. Quo incidunt ullamco."
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:147
+#: inc/widgets-manager/widgets/infocard/infocard.php:148
 msgid "Overall Alignment"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:191
+#: inc/widgets-manager/widgets/infocard/infocard.php:192
 #: inc/widgets-manager/widgets/page-title/page-title.php:147
 msgid "Select Icon"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:239
+#: inc/widgets-manager/widgets/infocard/infocard.php:240
 msgid "Background Size"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:321
-#: inc/widgets-manager/widgets/infocard/infocard.php:626
+#: inc/widgets-manager/widgets/infocard/infocard.php:322
+#: inc/widgets-manager/widgets/infocard/infocard.php:627
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1425
 #: inc/widgets-manager/widgets/retina/retina.php:327
 #: inc/widgets-manager/widgets/search-button/search-button.php:326
@@ -2210,8 +2223,8 @@ msgstr ""
 msgid "Border Style"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:327
-#: inc/widgets-manager/widgets/infocard/infocard.php:633
+#: inc/widgets-manager/widgets/infocard/infocard.php:328
+#: inc/widgets-manager/widgets/infocard/infocard.php:634
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1431
 #: inc/widgets-manager/widgets/post-info/post-info.php:508
 #: inc/widgets-manager/widgets/retina/retina.php:333
@@ -2221,8 +2234,8 @@ msgstr ""
 msgid "Solid"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:328
-#: inc/widgets-manager/widgets/infocard/infocard.php:634
+#: inc/widgets-manager/widgets/infocard/infocard.php:329
+#: inc/widgets-manager/widgets/infocard/infocard.php:635
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1432
 #: inc/widgets-manager/widgets/post-info/post-info.php:509
 #: inc/widgets-manager/widgets/retina/retina.php:334
@@ -2232,8 +2245,8 @@ msgstr ""
 msgid "Double"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:329
-#: inc/widgets-manager/widgets/infocard/infocard.php:635
+#: inc/widgets-manager/widgets/infocard/infocard.php:330
+#: inc/widgets-manager/widgets/infocard/infocard.php:636
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1433
 #: inc/widgets-manager/widgets/post-info/post-info.php:510
 #: inc/widgets-manager/widgets/retina/retina.php:335
@@ -2243,8 +2256,8 @@ msgstr ""
 msgid "Dotted"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:330
-#: inc/widgets-manager/widgets/infocard/infocard.php:636
+#: inc/widgets-manager/widgets/infocard/infocard.php:331
+#: inc/widgets-manager/widgets/infocard/infocard.php:637
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1434
 #: inc/widgets-manager/widgets/post-info/post-info.php:511
 #: inc/widgets-manager/widgets/retina/retina.php:336
@@ -2254,166 +2267,183 @@ msgstr ""
 msgid "Dashed"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:384
-#: inc/widgets-manager/widgets/infocard/infocard.php:687
+#: inc/widgets-manager/widgets/infocard/infocard.php:385
+#: inc/widgets-manager/widgets/infocard/infocard.php:688
 msgid "Rounded Corners"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:418
+#: inc/widgets-manager/widgets/infocard/infocard.php:419
 #: inc/widgets-manager/widgets/page-title/page-title.php:382
 #: inc/widgets-manager/widgets/site-tagline/site-tagline.php:239
 #: inc/widgets-manager/widgets/site-title/site-title.php:373
 msgid "Icon Hover Color"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:434
-#: inc/widgets-manager/widgets/infocard/infocard.php:749
+#: inc/widgets-manager/widgets/infocard/infocard.php:435
+#: inc/widgets-manager/widgets/infocard/infocard.php:750
 msgid "Background Hover Color"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:449
+#: inc/widgets-manager/widgets/infocard/infocard.php:450
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1795
 msgid "Border Hover Color"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:479
+#: inc/widgets-manager/widgets/infocard/infocard.php:480
 msgid "Call To Action"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:493
+#: inc/widgets-manager/widgets/infocard/infocard.php:494
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:211
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1656
 #: inc/widgets-manager/widgets/search-button/search-button.php:648
 msgid "Button"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:503
+#: inc/widgets-manager/widgets/infocard/infocard.php:504
 msgid "Read More"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:518
+#: inc/widgets-manager/widgets/infocard/infocard.php:519
 msgid "Click Here"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:554
+#: inc/widgets-manager/widgets/infocard/infocard.php:555
 msgid "Extra Small"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:555
+#: inc/widgets-manager/widgets/infocard/infocard.php:556
 #: inc/widgets-manager/widgets/page-title/page-title.php:229
 #: inc/widgets-manager/widgets/site-title/site-title.php:204
 msgid "Small"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:556
+#: inc/widgets-manager/widgets/infocard/infocard.php:557
 #: inc/widgets-manager/widgets/page-title/page-title.php:230
 #: inc/widgets-manager/widgets/site-title/site-title.php:205
 msgid "Medium"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:557
+#: inc/widgets-manager/widgets/infocard/infocard.php:558
 #: inc/widgets-manager/widgets/page-title/page-title.php:231
 #: inc/widgets-manager/widgets/site-title/site-title.php:206
 msgid "Large"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:558
+#: inc/widgets-manager/widgets/infocard/infocard.php:559
 msgid "Extra Large"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:569
+#: inc/widgets-manager/widgets/infocard/infocard.php:570
 msgid "Colors"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:735
+#: inc/widgets-manager/widgets/infocard/infocard.php:736
 msgid "Text Hover Color"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:815
+#: inc/widgets-manager/widgets/infocard/infocard.php:800
+msgid "Pro Features"
+msgstr ""
+
+#: inc/widgets-manager/widgets/infocard/infocard.php:810
+msgid "Need Advanced Styling?"
+msgstr ""
+
+#: inc/widgets-manager/widgets/infocard/infocard.php:811
+msgid ""
+"Take your designs to the next level with the InfoBox widget in <a "
+"href=\"https://ultimateelementor.com/widgets/info-box/?utm_source=uae-"
+"dashboard&utm_medium=editor&utm_campaign=uae-pro-promotion\" "
+"target=\"_blank\"> Pro  </a> — offering powerful styling options and "
+"enhanced flexibility."
+msgstr ""
+
+#: inc/widgets-manager/widgets/infocard/infocard.php:848
 msgid "Title Tag"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:818
+#: inc/widgets-manager/widgets/infocard/infocard.php:851
 #: inc/widgets-manager/widgets/page-title/page-title.php:210
 #: inc/widgets-manager/widgets/site-title/site-title.php:219
 msgid "H1"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:819
+#: inc/widgets-manager/widgets/infocard/infocard.php:852
 #: inc/widgets-manager/widgets/page-title/page-title.php:211
 #: inc/widgets-manager/widgets/site-title/site-title.php:220
 msgid "H2"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:820
+#: inc/widgets-manager/widgets/infocard/infocard.php:853
 #: inc/widgets-manager/widgets/page-title/page-title.php:212
 #: inc/widgets-manager/widgets/site-title/site-title.php:221
 msgid "H3"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:821
+#: inc/widgets-manager/widgets/infocard/infocard.php:854
 #: inc/widgets-manager/widgets/page-title/page-title.php:213
 #: inc/widgets-manager/widgets/site-title/site-title.php:222
 msgid "H4"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:822
+#: inc/widgets-manager/widgets/infocard/infocard.php:855
 #: inc/widgets-manager/widgets/page-title/page-title.php:214
 #: inc/widgets-manager/widgets/site-title/site-title.php:223
 msgid "H5"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:823
+#: inc/widgets-manager/widgets/infocard/infocard.php:856
 #: inc/widgets-manager/widgets/page-title/page-title.php:215
 #: inc/widgets-manager/widgets/site-title/site-title.php:224
 msgid "H6"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:824
+#: inc/widgets-manager/widgets/infocard/infocard.php:857
 msgid "div"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:825
+#: inc/widgets-manager/widgets/infocard/infocard.php:858
 msgid "p"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:891
+#: inc/widgets-manager/widgets/infocard/infocard.php:924
 msgid "Description Color"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:909
+#: inc/widgets-manager/widgets/infocard/infocard.php:942
 msgid "CTA Link Text"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:921
+#: inc/widgets-manager/widgets/infocard/infocard.php:954
 msgid "CTA Button Text"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:946
+#: inc/widgets-manager/widgets/infocard/infocard.php:979
 msgid "Link Color"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:963
+#: inc/widgets-manager/widgets/infocard/infocard.php:996
 msgid "Link Hover Color"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:990
+#: inc/widgets-manager/widgets/infocard/infocard.php:1023
 msgid "Margins"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:998
+#: inc/widgets-manager/widgets/infocard/infocard.php:1031
 msgid "Icon Margin"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:1021
+#: inc/widgets-manager/widgets/infocard/infocard.php:1054
 msgid "Title Margin"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:1044
+#: inc/widgets-manager/widgets/infocard/infocard.php:1077
 msgid "Description Margins"
 msgstr ""
 
-#: inc/widgets-manager/widgets/infocard/infocard.php:1067
+#: inc/widgets-manager/widgets/infocard/infocard.php:1100
 msgid "CTA Margin"
 msgstr ""
 
