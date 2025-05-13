@@ -129,6 +129,8 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 ---
 
 == Changelog ==
+= 2.3.1 =
+- Improvement: Compatibility with latest Elementor and Elementor Pro 3.29 version.
 
 = 2.3.0 =
 - New: Info Card Widget – Create engaging and elegant content sections with this customizable widget. Easily configure text, icons, and buttons/links to match your design needs.
