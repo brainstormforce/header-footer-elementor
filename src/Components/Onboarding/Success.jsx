@@ -6,22 +6,6 @@ import { __ } from "@wordpress/i18n";
 import { routes } from "../../admin/settings/routes";
 
 const Success = () => {
-    useEffect(() => {
-        const targetUrl = "admin.php?page=hfe#dashboard";
-
-        window.history.replaceState(null, "", targetUrl);
-        window.history.pushState(null, "", window.location.href);
-
-        const handlePopState = () => {
-            window.location.href = targetUrl;
-        };
-
-        window.addEventListener("popstate", handlePopState);
-
-        return () => {
-            window.removeEventListener("popstate", handlePopState);
-        };
-    }, []);
 
     return (
         <>
@@ -155,13 +139,6 @@ const Success = () => {
                                         to={routes.dashboard.path}
                                         onClick={(e) => {
                                             e.preventDefault();
-                                            window.history.pushState(null, "", "admin.php?page=hfe#dashboard");
-                                            window.history.replaceState(null, "", "admin.php?page=hfe#dashboard");
-
-                                            for (let i = 0; i < 10; i++) {
-                                                window.history.pushState(null, "", "admin.php?page=hfe#dashboard");
-                                            }
-
                                             window.location.href = "admin.php?page=hfe#dashboard";
                                         }}
                                     >

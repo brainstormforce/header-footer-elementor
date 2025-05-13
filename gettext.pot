@@ -742,28 +742,28 @@ msgstr ""
 msgid "Failed to save settings!"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:113
-msgid "Congratulations!"
-msgstr ""
-
-#: src/Components/Onboarding/Success.jsx:116
+#: src/Components/Onboarding/Success.jsx:100
 msgid "You’ve unlocked a "
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:118
+#: src/Components/Onboarding/Success.jsx:102
 msgid " discount on UAE Pro. We’ve sent a discount"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:121
+#: src/Components/Onboarding/Success.jsx:105
 msgid " coupon just for you to your email address."
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:151
+#: src/Components/Onboarding/Success.jsx:135
 msgid "Get Pro Now"
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:174
+#: src/Components/Onboarding/Success.jsx:151
 msgid "Go To The Dashboard"
+msgstr ""
+
+#: src/Components/Onboarding/Success.jsx:97
+msgid "Congratulations!"
 msgstr ""
 
 #: src/Components/Onboarding/Welcome.jsx:11
