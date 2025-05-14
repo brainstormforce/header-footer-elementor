@@ -1,5 +1,5 @@
 import React from "react";
-import { Title, Container, Button } from "@bsf/force-ui";
+import { Title, Container, Button, Badge } from "@bsf/force-ui";
 import { Headphones, HelpCircle, StarIcon, NotepadText, BookOpenText } from "lucide-react";
 import { __ } from "@wordpress/i18n";
 
@@ -34,7 +34,7 @@ const QuickAccess = () => {
 			>
 				<Container.Item
 					alignSelf="auto"
-					className="p-4 bg-white rounded-lg shadow-container-item"
+					className="p-4 bg-white flex items-center justify-between rounded-lg shadow-container-item"
 					order="none"
 					shrink={1}
 				>
@@ -52,6 +52,14 @@ const QuickAccess = () => {
 					>
 						{__("VIP Priority Support", "header-footer-elementor")}
 					</Button>
+					<Badge
+						label={__(
+							"PRO",
+							"header-footer-elementor"
+						)}
+						size="xs"
+						variant="inverse"
+					/>
 				</Container.Item>
 				<Container.Item
 					alignSelf="auto"

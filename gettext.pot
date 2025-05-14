@@ -127,6 +127,7 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:219
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:178
+#: src/Components/Dashboard/QuickAccess.js:56
 #: src/Components/NavMenu.js:242
 msgid "Free"
 msgstr ""
@@ -517,7 +518,7 @@ msgstr ""
 msgid "Deactivate All"
 msgstr ""
 
-#: src/Components/Dashboard/QuickAccess.js:106
+#: src/Components/Dashboard/QuickAccess.js:114
 msgid "Request a Feature"
 msgstr ""
 
@@ -529,11 +530,15 @@ msgstr ""
 msgid "VIP Priority Support"
 msgstr ""
 
-#: src/Components/Dashboard/QuickAccess.js:74
+#: src/Components/Dashboard/QuickAccess.js:56
+msgid "PRO"
+msgstr ""
+
+#: src/Components/Dashboard/QuickAccess.js:82
 msgid "Knowledge Base"
 msgstr ""
 
-#: src/Components/Dashboard/QuickAccess.js:90
+#: src/Components/Dashboard/QuickAccess.js:98
 msgid "Help Centre"
 msgstr ""
 
