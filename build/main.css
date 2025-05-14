@@ -714,6 +714,9 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .h-screen{
     height: 100vh;
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .h-36{
+    height: 9rem;
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .max-h-\[10\.75rem\]{
     max-height: 10.75rem;
 }
@@ -904,6 +907,24 @@
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .max-w-xs{
     max-width: 20rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .max-w-md{
+    max-width: 28rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .max-w-44{
+    max-width: 11rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .max-w-72{
+    max-width: 18rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .max-w-48{
+    max-width: 12rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .max-w-96{
+    max-width: 24rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .max-w-120{
+    max-width: 30rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .flex-1{
     flex: 1 1 0%;
@@ -2008,6 +2029,9 @@
     font-size: 0.75rem;
     line-height: 1rem;
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .text-\[16px\]{
+    font-size: 16px;
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .font-bold{
     font-weight: 700;
 }
@@ -2231,6 +2255,14 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .text-white{
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .text-\[\#6005FF\]{
+    --tw-text-opacity: 1;
+    color: rgb(96 5 255 / var(--tw-text-opacity, 1));
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .text-\[\#4F4E7C\]{
+    --tw-text-opacity: 1;
+    color: rgb(79 78 124 / var(--tw-text-opacity, 1));
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .underline{
     text-decoration-line: underline;

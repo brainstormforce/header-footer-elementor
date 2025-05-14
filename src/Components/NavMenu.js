@@ -163,17 +163,6 @@ const NavMenu = () => {
 									{__("Widgets", "header-footer-elementor")}
 								</Link>
 								<Link
-									to={routes.templates.path}
-									className={`${
-										isActive("templates")
-											? "active-link"
-											: ""
-									}`}
-									style={linkStyle("templates")}
-								>
-									{__("Templates", "header-footer-elementor")}
-								</Link>
-								<Link
 									to={routes.settings.path}
 									className={`${
 										isActive("settings")

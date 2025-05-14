@@ -108,6 +108,10 @@ msgstr ""
 #: src/Components/Compare/FreevsPro.jsx:199
 #: src/Components/Compare/UltimateCompare.jsx:109
 #: src/Components/Dashboard/MyAccount.jsx:53
+#: src/Components/Dashboard/UltimateFeatures.js:86
+#: src/Components/Dashboard/UltimateFeatures.js:101
+#: src/Components/Dashboard/UltimateFeatures.js:91
+#: src/Components/Dashboard/UltimateFeatures.js:103
 #: src/Components/Dashboard/UltimateFeatures.js:136
 #: src/Components/Widgets/UltimateWidgets.jsx:116
 msgid "Upgrade Now"
@@ -123,7 +127,7 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:219
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:178
-#: src/Components/NavMenu.js:253
+#: src/Components/NavMenu.js:242
 msgid "Free"
 msgstr ""
 
@@ -161,6 +165,10 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:34
 #: src/Components/Compare/UltimateCompare.jsx:17
+#: src/Components/Dashboard/UltimateFeatures.js:131
+#: src/Components/Dashboard/UltimateFeatures.js:113
+#: src/Components/Dashboard/UltimateFeatures.js:103
+#: src/Components/Dashboard/UltimateFeatures.js:115
 #: src/Components/Dashboard/UltimateFeatures.js:148
 #: src/Components/Widgets/UltimateWidgets.jsx:18
 msgid "Advanced Heading"
@@ -228,6 +236,10 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:54
 #: src/Components/Compare/UltimateCompare.jsx:27
+#: src/Components/Dashboard/UltimateFeatures.js:151
+#: src/Components/Dashboard/UltimateFeatures.js:118
+#: src/Components/Dashboard/UltimateFeatures.js:108
+#: src/Components/Dashboard/UltimateFeatures.js:120
 #: src/Components/Dashboard/UltimateFeatures.js:153
 #: src/Components/Widgets/UltimateWidgets.jsx:28
 msgid "Info Box"
@@ -345,6 +357,10 @@ msgid "Creative Features"
 msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:22
+#: src/Components/Dashboard/UltimateFeatures.js:171
+#: src/Components/Dashboard/UltimateFeatures.js:123
+#: src/Components/Dashboard/UltimateFeatures.js:113
+#: src/Components/Dashboard/UltimateFeatures.js:125
 #: src/Components/Dashboard/UltimateFeatures.js:158
 #: src/Components/Widgets/UltimateWidgets.jsx:23
 msgid "Post Layouts"
@@ -363,24 +379,34 @@ msgid "Form Stylers and more..."
 msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:55
+#: src/Components/Dashboard/UltimateFeatures.js:25
+#: src/Components/Dashboard/UltimateFeatures.js:28
 #: src/Components/Dashboard/UltimateFeatures.js:61
 #: src/Components/Widgets/UltimateWidgets.jsx:54
 msgid "Column Showcase"
 msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:68
+#: src/Components/Dashboard/UltimateFeatures.js:38
+#: src/Components/Dashboard/UltimateFeatures.js:52
+#: src/Components/Dashboard/UltimateFeatures.js:39
 #: src/Components/Dashboard/UltimateFeatures.js:72
 #: src/Components/Widgets/UltimateWidgets.jsx:67
 msgid "Unlock Ultimate Features"
 msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:76
+#: src/Components/Dashboard/UltimateFeatures.js:60
+#: src/Components/Dashboard/UltimateFeatures.js:51
 #: src/Components/Dashboard/UltimateFeatures.js:84
 #: src/Components/Widgets/UltimateWidgets.jsx:75
 msgid "Create Stunning Designs with the Pro Version!"
 msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:80
+#: src/Components/Dashboard/UltimateFeatures.js:56
+#: src/Components/Dashboard/UltimateFeatures.js:70
+#: src/Components/Dashboard/UltimateFeatures.js:60
 #: src/Components/Dashboard/UltimateFeatures.js:93
 #: src/Components/Widgets/UltimateWidgets.jsx:82
 msgid ""
@@ -491,20 +517,24 @@ msgstr ""
 msgid "Deactivate All"
 msgstr ""
 
+#: src/Components/Dashboard/QuickAccess.js:106
+msgid "Request a Feature"
+msgstr ""
+
 #: src/Components/Dashboard/QuickAccess.js:20
 msgid "Quick Access"
 msgstr ""
 
 #: src/Components/Dashboard/QuickAccess.js:53
-msgid "Contact Us"
+msgid "VIP Priority Support"
 msgstr ""
 
-#: src/Components/Dashboard/QuickAccess.js:69
+#: src/Components/Dashboard/QuickAccess.js:74
+msgid "Knowledge Base"
+msgstr ""
+
+#: src/Components/Dashboard/QuickAccess.js:90
 msgid "Help Centre"
-msgstr ""
-
-#: src/Components/Dashboard/QuickAccess.js:85
-msgid "Request a Feature"
 msgstr ""
 
 #: src/Components/Dashboard/TemplateSection.js:64
@@ -521,16 +551,20 @@ msgstr ""
 msgid "View Templates"
 msgstr ""
 
-#: src/Components/Dashboard/UltimateFeatures.js:143
+#: src/Components/Dashboard/UltimateFeatures.js:111
 msgid "Modal Popup."
 msgstr ""
 
-#: src/Components/Dashboard/UltimateFeatures.js:163
+#: src/Components/Dashboard/UltimateFeatures.js:191
 msgid "Form Stylers and more"
 msgstr ""
 
-#: src/Components/Dashboard/WelcomeContainer.js:115
-msgid "Read full guide"
+#: src/Components/Dashboard/UltimateFeatures.js:48
+msgid "Create Stunning Designs with the"
+msgstr ""
+
+#: src/Components/Dashboard/UltimateFeatures.js:50
+msgid "Pro Version!"
 msgstr ""
 
 #: src/Components/Dashboard/WelcomeContainer.js:25
@@ -539,17 +573,17 @@ msgstr ""
 
 #: src/Components/Dashboard/WelcomeContainer.js:29
 msgid ""
-"We're excited to help you supercharge your website-building experience. "
-"Effortlessly design stunning websites with our comprehensive range of free "
-"and premium widgets and features."
+"Effortlessly design stunning websites with our comprehensive range of "
+"widgets and features."
 msgstr ""
 
+#: src/Components/Dashboard/WelcomeContainer.js:59
 #: src/Components/Dashboard/WelcomeContainer.js:58
 #: src/Components/Onboarding/Build.jsx:197
 msgid "Create Header/Footer"
 msgstr ""
 
-#: src/Components/Dashboard/WelcomeContainer.js:86
+#: src/Components/Dashboard/WelcomeContainer.js:87
 msgid "Create New Page"
 msgstr ""
 
@@ -590,46 +624,42 @@ msgid "Widgets"
 msgstr ""
 
 #: src/Components/NavMenu.js:174
-msgid "Templates"
-msgstr ""
-
-#: src/Components/NavMenu.js:185
 msgid "Settings"
 msgstr ""
 
-#: src/Components/NavMenu.js:194
+#: src/Components/NavMenu.js:183
 msgid "Free vs Pro"
 msgstr ""
 
-#: src/Components/NavMenu.js:221
+#: src/Components/NavMenu.js:210
 msgid "Get Pro"
 msgstr ""
 
-#: src/Components/NavMenu.js:244
+#: src/Components/NavMenu.js:233
 msgid "Version"
 msgstr ""
 
-#: src/Components/NavMenu.js:278
+#: src/Components/NavMenu.js:267
 msgid "Useful Resources"
 msgstr ""
 
-#: src/Components/NavMenu.js:295
+#: src/Components/NavMenu.js:284
 msgid "Getting Started"
 msgstr ""
 
-#: src/Components/NavMenu.js:308
+#: src/Components/NavMenu.js:297
 msgid "How to use widgets"
 msgstr ""
 
-#: src/Components/NavMenu.js:321
+#: src/Components/NavMenu.js:310
 msgid "How to use features"
 msgstr ""
 
-#: src/Components/NavMenu.js:334
+#: src/Components/NavMenu.js:323
 msgid "How to use templates"
 msgstr ""
 
-#: src/Components/NavMenu.js:347
+#: src/Components/NavMenu.js:336
 msgid "Contact us"
 msgstr ""
 

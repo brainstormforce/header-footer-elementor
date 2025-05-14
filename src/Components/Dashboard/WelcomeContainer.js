@@ -25,9 +25,9 @@ const WelcomeContainer = () => {
 						title={__("Welcome to Ultimate Addons for Elementor!", "header-footer-elementor")}
 					/>
                 	<HeaderLine />
-					<p className="text-sm font-medium text-text-tertiary m-0 mt-2">
+					<p className="text-sm font-medium text-text-tertiary m-0 max-w-120 mt-2">
 						{__(
-							"We're excited to help you supercharge your website-building experience. Effortlessly design stunning websites with our comprehensive range of free and premium widgets and features.",
+							"Effortlessly design stunning websites with our comprehensive range of widgets and features.",
 							"header-footer-elementor"
 						)}
 					</p>
@@ -35,19 +35,20 @@ const WelcomeContainer = () => {
 						<Button
 							iconPosition="right"
 							variant="primary"
-							className="bg-[#6005FF] hfe-remove-ring"
+							className="text-[#6005FF] border-none hfe-remove-ring"
 							style={{
-								backgroundColor: "#6005FF",
-								transition: "background-color 0.3s ease",
+								backgroundColor: "#F3E5FF",
+								// transition: "background-color 0.3s ease",
+								border: "none",
 							}}
-							onMouseEnter={(e) =>
-								(e.currentTarget.style.backgroundColor =
-									"#4B00CC")
-							}
-							onMouseLeave={(e) =>
-								(e.currentTarget.style.backgroundColor =
-									"#6005FF")
-							}
+							// onMouseEnter={(e) =>
+							// 	(e.currentTarget.style.backgroundColor =
+							// 		"#4B00CC")
+							// }
+							// onMouseLeave={(e) =>
+							// 	(e.currentTarget.style.backgroundColor =
+							// 		"#6005FF")
+							// }
 							onClick={() => {
 								window.open(
 									hfeSettingsData.hfe_post_url,
@@ -85,39 +86,9 @@ const WelcomeContainer = () => {
 						>
 							{__("Create New Page", "header-footer-elementor")}
 						</Button>
-						<div
-							style={{
-								color: "black",
-								background: "none",
-								border: "none",
-								padding: 0,
-								cursor: "pointer",
-							}}
-							onMouseEnter={(e) =>
-								(e.currentTarget.style.color = "#6005ff")
-							}
-							onMouseLeave={(e) =>
-								(e.currentTarget.style.color = "black")
-							}
-							onClick={() => {
-								window.open(
-									"https://ultimateelementor.com/docs/getting-started-with-ultimate-addons-for-elementor-lite/",
-									"_blank"
-								);
-							}}
-						>
-							<Button
-								icon={<ExternalLink />}
-								iconPosition="right"
-								variant="link"
-								className="hfe-remove-ring text-black"
-							>
-								{__("Read full guide", "header-footer-elementor")}
-							</Button>
-						</div>
 					</div>
 				</Container.Item>
-				{/* <Container.Item className="md:mt-0 mt-4">
+				<Container.Item className="md:mt-0 mt-4">
 				<iframe
 						width="280"
 						height="160"
@@ -127,7 +98,7 @@ const WelcomeContainer = () => {
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 						allowFullScreen
 					/>
-				</Container.Item> */}
+				</Container.Item>
 			</Container>
 		</div>
 	);
