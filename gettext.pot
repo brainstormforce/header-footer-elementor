@@ -582,13 +582,14 @@ msgid ""
 "widgets and features."
 msgstr ""
 
+#: src/Components/Dashboard/WelcomeContainer.js:61
 #: src/Components/Dashboard/WelcomeContainer.js:59
 #: src/Components/Dashboard/WelcomeContainer.js:58
 #: src/Components/Onboarding/Build.jsx:197
 msgid "Create Header/Footer"
 msgstr ""
 
-#: src/Components/Dashboard/WelcomeContainer.js:87
+#: src/Components/Dashboard/WelcomeContainer.js:89
 msgid "Create New Page"
 msgstr ""
 

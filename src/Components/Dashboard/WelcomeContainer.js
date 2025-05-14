@@ -40,6 +40,8 @@ const WelcomeContainer = () => {
 								backgroundColor: "#F3E5FF",
 								// transition: "background-color 0.3s ease",
 								border: "none",
+								outline: 'none',       // Removes the default outline
+								boxShadow: 'none',     // Removes the default box shadow
 							}}
 							// onMouseEnter={(e) =>
 							// 	(e.currentTarget.style.backgroundColor =
