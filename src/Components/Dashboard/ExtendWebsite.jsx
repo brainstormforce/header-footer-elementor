@@ -62,7 +62,7 @@ const ExtendWebsite = () => {
                 {loading ? (
                     <Container
                         align="stretch"
-                        className="gap-1 p-1 grid grid-cols-1 md:grid-cols-2"
+                        className="gap-1 p-1 grid grid-cols-1 md:grid-cols-4"
                         containerType="grid"
                         justify="start"
                     >
@@ -84,7 +84,7 @@ const ExtendWebsite = () => {
                 ) : (
                     <Container
                         align="stretch"
-                        className="gap-1 p-1 grid grid-cols-1 md:grid-cols-2"
+                        className="gap-1 p-1 grid grid-cols-1 md:grid-cols-4"
                         containerType="grid"
                         justify="start"
                     >

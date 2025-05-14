@@ -108,7 +108,7 @@ msgstr ""
 #: src/Components/Compare/FreevsPro.jsx:199
 #: src/Components/Compare/UltimateCompare.jsx:109
 #: src/Components/Dashboard/MyAccount.jsx:53
-#: src/Components/Dashboard/UltimateFeatures.js:116
+#: src/Components/Dashboard/UltimateFeatures.js:136
 #: src/Components/Widgets/UltimateWidgets.jsx:116
 msgid "Upgrade Now"
 msgstr ""
@@ -161,7 +161,7 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:34
 #: src/Components/Compare/UltimateCompare.jsx:17
-#: src/Components/Dashboard/UltimateFeatures.js:18
+#: src/Components/Dashboard/UltimateFeatures.js:148
 #: src/Components/Widgets/UltimateWidgets.jsx:18
 msgid "Advanced Heading"
 msgstr ""
@@ -228,7 +228,7 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:54
 #: src/Components/Compare/UltimateCompare.jsx:27
-#: src/Components/Dashboard/UltimateFeatures.js:28
+#: src/Components/Dashboard/UltimateFeatures.js:153
 #: src/Components/Widgets/UltimateWidgets.jsx:28
 msgid "Info Box"
 msgstr ""
@@ -345,7 +345,7 @@ msgid "Creative Features"
 msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:22
-#: src/Components/Dashboard/UltimateFeatures.js:23
+#: src/Components/Dashboard/UltimateFeatures.js:158
 #: src/Components/Widgets/UltimateWidgets.jsx:23
 msgid "Post Layouts"
 msgstr ""
@@ -363,25 +363,25 @@ msgid "Form Stylers and more..."
 msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:55
-#: src/Components/Dashboard/UltimateFeatures.js:135
+#: src/Components/Dashboard/UltimateFeatures.js:61
 #: src/Components/Widgets/UltimateWidgets.jsx:54
 msgid "Column Showcase"
 msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:68
-#: src/Components/Dashboard/UltimateFeatures.js:62
+#: src/Components/Dashboard/UltimateFeatures.js:72
 #: src/Components/Widgets/UltimateWidgets.jsx:67
 msgid "Unlock Ultimate Features"
 msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:76
-#: src/Components/Dashboard/UltimateFeatures.js:73
+#: src/Components/Dashboard/UltimateFeatures.js:84
 #: src/Components/Widgets/UltimateWidgets.jsx:75
 msgid "Create Stunning Designs with the Pro Version!"
 msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:80
-#: src/Components/Dashboard/UltimateFeatures.js:80
+#: src/Components/Dashboard/UltimateFeatures.js:93
 #: src/Components/Widgets/UltimateWidgets.jsx:82
 msgid ""
 "Get access to advanced widgets and features to create the website that "
@@ -521,9 +521,12 @@ msgstr ""
 msgid "View Templates"
 msgstr ""
 
-#: src/Components/Dashboard/UltimateFeatures.js:122
-#: src/Components/Widgets/UltimateWidgets.jsx:119
-msgid "Compare Free vs Pro"
+#: src/Components/Dashboard/UltimateFeatures.js:143
+msgid "Modal Popup."
+msgstr ""
+
+#: src/Components/Dashboard/UltimateFeatures.js:163
+msgid "Form Stylers and more"
 msgstr ""
 
 #: src/Components/Dashboard/WelcomeContainer.js:115
@@ -967,4 +970,8 @@ msgstr ""
 
 #: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:158
 msgid "Activate only what you need to keep your website fast and optimized."
+msgstr ""
+
+#: src/Components/Widgets/UltimateWidgets.jsx:119
+msgid "Compare Free vs Pro"
 msgstr ""
