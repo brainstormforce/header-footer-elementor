@@ -108,11 +108,8 @@ msgstr ""
 #: src/Components/Compare/FreevsPro.jsx:199
 #: src/Components/Compare/UltimateCompare.jsx:109
 #: src/Components/Dashboard/MyAccount.jsx:53
+#: src/Components/Dashboard/UltimateFeatures.js:87
 #: src/Components/Dashboard/UltimateFeatures.js:86
-#: src/Components/Dashboard/UltimateFeatures.js:101
-#: src/Components/Dashboard/UltimateFeatures.js:91
-#: src/Components/Dashboard/UltimateFeatures.js:103
-#: src/Components/Dashboard/UltimateFeatures.js:136
 #: src/Components/Widgets/UltimateWidgets.jsx:116
 msgid "Upgrade Now"
 msgstr ""
@@ -127,7 +124,6 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:219
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:178
-#: src/Components/Dashboard/QuickAccess.js:56
 #: src/Components/NavMenu.js:242
 msgid "Free"
 msgstr ""
@@ -166,11 +162,8 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:34
 #: src/Components/Compare/UltimateCompare.jsx:17
+#: src/Components/Dashboard/UltimateFeatures.js:132
 #: src/Components/Dashboard/UltimateFeatures.js:131
-#: src/Components/Dashboard/UltimateFeatures.js:113
-#: src/Components/Dashboard/UltimateFeatures.js:103
-#: src/Components/Dashboard/UltimateFeatures.js:115
-#: src/Components/Dashboard/UltimateFeatures.js:148
 #: src/Components/Widgets/UltimateWidgets.jsx:18
 msgid "Advanced Heading"
 msgstr ""
@@ -237,11 +230,8 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:54
 #: src/Components/Compare/UltimateCompare.jsx:27
+#: src/Components/Dashboard/UltimateFeatures.js:152
 #: src/Components/Dashboard/UltimateFeatures.js:151
-#: src/Components/Dashboard/UltimateFeatures.js:118
-#: src/Components/Dashboard/UltimateFeatures.js:108
-#: src/Components/Dashboard/UltimateFeatures.js:120
-#: src/Components/Dashboard/UltimateFeatures.js:153
 #: src/Components/Widgets/UltimateWidgets.jsx:28
 msgid "Info Box"
 msgstr ""
@@ -280,7 +270,6 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:67
 #: src/Components/Compare/UltimateCompare.jsx:12
-#: src/Components/Dashboard/UltimateFeatures.js:13
 #: src/Components/Widgets/UltimateWidgets.jsx:13
 msgid "Modal Popup"
 msgstr ""
@@ -358,57 +347,41 @@ msgid "Creative Features"
 msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:22
+#: src/Components/Dashboard/UltimateFeatures.js:172
 #: src/Components/Dashboard/UltimateFeatures.js:171
-#: src/Components/Dashboard/UltimateFeatures.js:123
-#: src/Components/Dashboard/UltimateFeatures.js:113
-#: src/Components/Dashboard/UltimateFeatures.js:125
-#: src/Components/Dashboard/UltimateFeatures.js:158
 #: src/Components/Widgets/UltimateWidgets.jsx:23
 msgid "Post Layouts"
 msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:32
-#: src/Components/Dashboard/UltimateFeatures.js:33
 #: src/Components/Widgets/UltimateWidgets.jsx:33
 msgid "Pricing Cards"
 msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:37
-#: src/Components/Dashboard/UltimateFeatures.js:38
 #: src/Components/Widgets/UltimateWidgets.jsx:38
 msgid "Form Stylers and more..."
 msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:55
 #: src/Components/Dashboard/UltimateFeatures.js:25
-#: src/Components/Dashboard/UltimateFeatures.js:28
-#: src/Components/Dashboard/UltimateFeatures.js:61
 #: src/Components/Widgets/UltimateWidgets.jsx:54
 msgid "Column Showcase"
 msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:68
 #: src/Components/Dashboard/UltimateFeatures.js:38
-#: src/Components/Dashboard/UltimateFeatures.js:52
-#: src/Components/Dashboard/UltimateFeatures.js:39
-#: src/Components/Dashboard/UltimateFeatures.js:72
 #: src/Components/Widgets/UltimateWidgets.jsx:67
 msgid "Unlock Ultimate Features"
 msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:76
-#: src/Components/Dashboard/UltimateFeatures.js:60
-#: src/Components/Dashboard/UltimateFeatures.js:51
-#: src/Components/Dashboard/UltimateFeatures.js:84
 #: src/Components/Widgets/UltimateWidgets.jsx:75
 msgid "Create Stunning Designs with the Pro Version!"
 msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:80
 #: src/Components/Dashboard/UltimateFeatures.js:56
-#: src/Components/Dashboard/UltimateFeatures.js:70
-#: src/Components/Dashboard/UltimateFeatures.js:60
-#: src/Components/Dashboard/UltimateFeatures.js:93
 #: src/Components/Widgets/UltimateWidgets.jsx:82
 msgid ""
 "Get access to advanced widgets and features to create the website that "
@@ -556,11 +529,11 @@ msgstr ""
 msgid "View Templates"
 msgstr ""
 
-#: src/Components/Dashboard/UltimateFeatures.js:111
+#: src/Components/Dashboard/UltimateFeatures.js:112
 msgid "Modal Popup."
 msgstr ""
 
-#: src/Components/Dashboard/UltimateFeatures.js:191
+#: src/Components/Dashboard/UltimateFeatures.js:192
 msgid "Form Stylers and more"
 msgstr ""
 
@@ -576,28 +549,30 @@ msgstr ""
 msgid "Welcome to Ultimate Addons for Elementor!"
 msgstr ""
 
-#: src/Components/Dashboard/WelcomeContainer.js:29
+#: src/Components/Dashboard/WelcomeContainer.js:31
 msgid ""
 "Effortlessly design stunning websites with our comprehensive range of "
 "widgets and features."
 msgstr ""
 
+#: src/Components/Dashboard/WelcomeContainer.js:67
+#: src/Components/Dashboard/WelcomeContainer.js:68
+#: src/Components/Dashboard/WelcomeContainer.js:65
+#: src/Components/Dashboard/WelcomeContainer.js:63
 #: src/Components/Dashboard/WelcomeContainer.js:61
-#: src/Components/Dashboard/WelcomeContainer.js:59
-#: src/Components/Dashboard/WelcomeContainer.js:58
 #: src/Components/Onboarding/Build.jsx:197
 msgid "Create Header/Footer"
 msgstr ""
 
-#: src/Components/Dashboard/WelcomeContainer.js:89
+#: src/Components/Dashboard/WelcomeContainer.js:95
 msgid "Create New Page"
 msgstr ""
 
-#: src/Components/Dashboard/WidgetItem.jsx:133
+#: src/Components/Dashboard/WidgetItem.jsx:134
 msgid "View Demo"
 msgstr ""
 
-#: src/Components/Dashboard/WidgetItem.jsx:147
+#: src/Components/Dashboard/WidgetItem.jsx:148
 msgid "Read Documentation"
 msgstr ""
 

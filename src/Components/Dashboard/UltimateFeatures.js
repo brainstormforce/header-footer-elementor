@@ -69,6 +69,7 @@ const UltimateFeatures = () => {
 							style={{
 								backgroundColor: "#6005FF",
 								transition: "background-color 0.3s ease",
+								outline: 'none'
 							}}
 							onMouseEnter={(e) =>
 								(e.currentTarget.style.backgroundColor = "#4B00CC")

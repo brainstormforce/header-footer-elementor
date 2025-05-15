@@ -22,7 +22,7 @@ const QuickAccess = () => {
 
 			<Container
 				align="stretch"
-				className="p-1 rounded-lg gap-1"
+				className="p-1 rounded-lg bg-[#F9FAFB] gap-1"
 				containerType="flex"
 				direction="column"
 				gap=""

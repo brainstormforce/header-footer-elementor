@@ -24,8 +24,10 @@ const WelcomeContainer = () => {
 						tag="h3"
 						title={__("Welcome to Ultimate Addons for Elementor!", "header-footer-elementor")}
 					/>
-                	<HeaderLine />
-					<p className="text-sm font-medium text-text-tertiary m-0 max-w-120 mt-2">
+					<div className="pt-1">
+						<HeaderLine />
+					</div>
+					<p className="text-sm font-medium text-text-tertiary m-0 max-w-120 pt-3">
 						{__(
 							"Effortlessly design stunning websites with our comprehensive range of widgets and features.",
 							"header-footer-elementor"
@@ -38,19 +40,23 @@ const WelcomeContainer = () => {
 							className="text-[#6005FF] border-none hfe-remove-ring"
 							style={{
 								backgroundColor: "#F3E5FF",
-								// transition: "background-color 0.3s ease",
+								transition: "background-color 0.3s ease",
 								border: "none",
 								outline: 'none',       // Removes the default outline
 								boxShadow: 'none',     // Removes the default box shadow
 							}}
-							// onMouseEnter={(e) =>
-							// 	(e.currentTarget.style.backgroundColor =
-							// 		"#4B00CC")
-							// }
-							// onMouseLeave={(e) =>
-							// 	(e.currentTarget.style.backgroundColor =
-							// 		"#6005FF")
-							// }
+							onMouseEnter={(e) =>
+								(e.currentTarget.style.backgroundColor =
+									"#4B00CC")
+									(e.currentTarget.style.color =
+										"#fff")
+							}
+							onMouseLeave={(e) =>
+								(e.currentTarget.style.backgroundColor =
+									"#F3E5FF")
+									(e.currentTarget.style.color =
+										"#6005FF")
+							}
 							onClick={() => {
 								window.open(
 									hfeSettingsData.hfe_post_url,
@@ -70,8 +76,8 @@ const WelcomeContainer = () => {
 								borderColor: "#E9DFFC",
 							}}
 							onMouseEnter={(e) =>
-								(e.currentTarget.style.color =
-									"#000000")
+							(e.currentTarget.style.color =
+								"#000000")
 							}
 							onMouseLeave={(e) =>
 								(e.currentTarget.style.color =
@@ -90,8 +96,8 @@ const WelcomeContainer = () => {
 						</Button>
 					</div>
 				</Container.Item>
-				<Container.Item className="md:mt-0 mt-4">
-				<iframe
+				{/* <Container.Item className="md:mt-0 mt-4">
+					<iframe
 						width="280"
 						height="160"
 						src="https://www.youtube.com/embed/ZeogOxqdKJI"
@@ -100,7 +106,8 @@ const WelcomeContainer = () => {
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 						allowFullScreen
 					/>
-				</Container.Item>
+				</Container.Item> */}
+
 			</Container>
 		</div>
 	);
