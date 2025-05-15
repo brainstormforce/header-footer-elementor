@@ -118,7 +118,8 @@ const WidgetItem = ({
                             onChange={handleSwitchChange} // Updated to use the new function
                             size='sm'
                             value={isActive}
-                            className="hfe-remove-ring"
+                            style={{ outline: 'none' }}
+                            className="hfe-remove-ring outline-none"
                         />)}
                 </div>
 

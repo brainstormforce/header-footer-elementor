@@ -289,3 +289,28 @@ div#hfe-settings-app {
 		max-width: fit-content;
 	}
 }
+
+.iframe-wrapper {
+	width: 100%;
+	max-width: 100%;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.responsive-iframe {
+	width: 280px;
+	height: 160px;
+	border-radius: 8px;
+	border: none;
+}
+
+/* On large screens, make iframe scale responsively */
+@media (min-width: 1024px) {
+	.responsive-iframe {
+		width: 100%;
+		max-width: 480px; /* or another max width that fits well */
+		height: auto;
+		aspect-ratio: 16 / 9;
+	}
+}
+
