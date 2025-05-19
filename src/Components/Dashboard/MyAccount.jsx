@@ -28,7 +28,7 @@ const MyAccount = () => {
             >
                 <Container.Item className="flex flex-col space-y-2">
                     <p className='text-base font-semibold m-0'>{__('License Key', 'header-footer-elementor')}</p>
-                    <p className='text-sm font-normal m-0'>{__('You are using the free version of Ultimate Addons for Elementor, no license key is needed.. ')}</p>
+                    <p className='text-sm font-normal m-0'>{__('You are using the free version of Ultimate Addons for Elementor, no license key is needed. ')}</p>
                 </Container.Item>
                 <div className='flex items-center justify-between px-4 rounded-xl' style={{paddingTop: '6px' , paddingBottom: '6px', backgroundColor: "#F3F0FF"}}>
                     <span className="flex items-center gap-x-2 text-base font-semibold">

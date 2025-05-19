@@ -109,7 +109,6 @@ msgstr ""
 #: src/Components/Compare/UltimateCompare.jsx:109
 #: src/Components/Dashboard/MyAccount.jsx:53
 #: src/Components/Dashboard/UltimateFeatures.js:87
-#: src/Components/Dashboard/UltimateFeatures.js:86
 #: src/Components/Widgets/UltimateWidgets.jsx:116
 msgid "Upgrade Now"
 msgstr ""
@@ -163,7 +162,6 @@ msgstr ""
 #: src/Components/Compare/FreevsPro.jsx:34
 #: src/Components/Compare/UltimateCompare.jsx:17
 #: src/Components/Dashboard/UltimateFeatures.js:132
-#: src/Components/Dashboard/UltimateFeatures.js:131
 #: src/Components/Widgets/UltimateWidgets.jsx:18
 msgid "Advanced Heading"
 msgstr ""
@@ -231,7 +229,6 @@ msgstr ""
 #: src/Components/Compare/FreevsPro.jsx:54
 #: src/Components/Compare/UltimateCompare.jsx:27
 #: src/Components/Dashboard/UltimateFeatures.js:152
-#: src/Components/Dashboard/UltimateFeatures.js:151
 #: src/Components/Widgets/UltimateWidgets.jsx:28
 msgid "Info Box"
 msgstr ""
@@ -348,7 +345,6 @@ msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:22
 #: src/Components/Dashboard/UltimateFeatures.js:172
-#: src/Components/Dashboard/UltimateFeatures.js:171
 #: src/Components/Widgets/UltimateWidgets.jsx:23
 msgid "Post Layouts"
 msgstr ""
@@ -456,7 +452,7 @@ msgstr ""
 #: src/Components/Dashboard/MyAccount.jsx:31
 msgid ""
 "You are using the free version of Ultimate Addons for Elementor, no license "
-"key is needed.. "
+"key is needed. "
 msgstr ""
 
 #: src/Components/Dashboard/MyAccount.jsx:35
@@ -556,10 +552,6 @@ msgid ""
 msgstr ""
 
 #: src/Components/Dashboard/WelcomeContainer.js:67
-#: src/Components/Dashboard/WelcomeContainer.js:68
-#: src/Components/Dashboard/WelcomeContainer.js:65
-#: src/Components/Dashboard/WelcomeContainer.js:63
-#: src/Components/Dashboard/WelcomeContainer.js:61
 #: src/Components/Onboarding/Build.jsx:197
 msgid "Create Header/Footer"
 msgstr ""

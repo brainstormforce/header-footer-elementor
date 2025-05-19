@@ -71,9 +71,9 @@ const Widgets = () => {
                 <div className='flex items-center gap-x-2 mr-7'>
                     {/* <p className='m-0 text-xs font-semibold text-text-primary'>View All</p> */}
                     {/* <MoreHorizontalIcon /> */}
-                    <Link to={routes.widgets.path} className='text-sm text-text-primary cursor-pointer' style={{ lineHeight: '1rem' }}>
+                    <Link to={routes.widgets.path} className='text-sm font-semibold text-text-primary cursor-pointer' style={{ lineHeight: '1rem' }}>
                         View All
-                        <ArrowUpRight className='ml-1' size={13} />
+                        <ArrowUpRight className='ml-1 font-semibold' size={14} />
                     </Link>
                 </div>
             </div>
