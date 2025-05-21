@@ -541,22 +541,27 @@ msgstr ""
 msgid "Pro Version!"
 msgstr ""
 
+#: src/Components/Dashboard/WelcomeContainer.js:122
+msgid "Read full guide"
+msgstr ""
+
 #: src/Components/Dashboard/WelcomeContainer.js:25
 msgid "Welcome to Ultimate Addons for Elementor!"
 msgstr ""
 
-#: src/Components/Dashboard/WelcomeContainer.js:31
+#: src/Components/Dashboard/WelcomeContainer.js:29
 msgid ""
-"Effortlessly design stunning websites with our comprehensive range of "
-"widgets and features."
+"We're excited to help you supercharge your website-building experience. "
+"Effortlessly design stunning websites with our comprehensive range of free "
+"and premium widgets and features."
 msgstr ""
 
-#: src/Components/Dashboard/WelcomeContainer.js:67
+#: src/Components/Dashboard/WelcomeContainer.js:65
 #: src/Components/Onboarding/Build.jsx:197
 msgid "Create Header/Footer"
 msgstr ""
 
-#: src/Components/Dashboard/WelcomeContainer.js:95
+#: src/Components/Dashboard/WelcomeContainer.js:93
 msgid "Create New Page"
 msgstr ""
 

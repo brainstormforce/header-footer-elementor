@@ -862,6 +862,9 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .w-full{
     width: 100%;
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .w-95{
+    width: 23.75rem;
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .min-w-10{
     min-width: 2.5rem;
 }
@@ -885,9 +888,6 @@
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .min-w-full{
     min-width: 100%;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .max-w-120{
-    max-width: 30rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .max-w-32{
     max-width: 8rem;
@@ -1951,9 +1951,6 @@
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .pr-9{
     padding-right: 2.25rem;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .pt-1{
-    padding-top: 0.25rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .pt-2{
     padding-top: 0.5rem;

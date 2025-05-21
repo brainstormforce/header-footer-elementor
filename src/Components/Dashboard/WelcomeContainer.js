@@ -24,17 +24,15 @@ const WelcomeContainer = () => {
 						tag="h3"
 						title={__("Welcome to Ultimate Addons for Elementor!", "header-footer-elementor")}
 					/>
-					<div className="pt-1">
-						<HeaderLine />
-					</div>
-					<p className="text-sm font-medium text-text-tertiary m-0 max-w-120 pt-3">
+                	<HeaderLine />
+					<p className="text-sm font-medium text-text-tertiary m-0 mt-2">
 						{__(
-							"Effortlessly design stunning websites with our comprehensive range of widgets and features.",
+							"We're excited to help you supercharge your website-building experience. Effortlessly design stunning websites with our comprehensive range of free and premium widgets and features.",
 							"header-footer-elementor"
 						)}
 					</p>
 					<div className="flex items-center pt-6 gap-2">
-						<Button
+					<Button
 							iconPosition="right"
 							variant="primary"
 							className="text-[#6005FF] border-none hfe-remove-ring"
@@ -76,8 +74,8 @@ const WelcomeContainer = () => {
 								borderColor: "#E9DFFC",
 							}}
 							onMouseEnter={(e) =>
-							(e.currentTarget.style.color =
-								"#000000")
+								(e.currentTarget.style.color =
+									"#000000")
 							}
 							onMouseLeave={(e) =>
 								(e.currentTarget.style.color =
@@ -94,10 +92,40 @@ const WelcomeContainer = () => {
 						>
 							{__("Create New Page", "header-footer-elementor")}
 						</Button>
+						<div
+							style={{
+								color: "black",
+								background: "none",
+								border: "none",
+								padding: 0,
+								cursor: "pointer",
+							}}
+							onMouseEnter={(e) =>
+								(e.currentTarget.style.color = "#6005ff")
+							}
+							onMouseLeave={(e) =>
+								(e.currentTarget.style.color = "black")
+							}
+							onClick={() => {
+								window.open(
+									"https://ultimateelementor.com/docs/getting-started-with-ultimate-addons-for-elementor-lite/",
+									"_blank"
+								);
+							}}
+						>
+							<Button
+								icon={<ExternalLink />}
+								iconPosition="right"
+								variant="link"
+								className="hfe-remove-ring text-black"
+							>
+								{__("Read full guide", "header-footer-elementor")}
+							</Button>
+						</div>
 					</div>
 				</Container.Item>
 				{/* <Container.Item className="md:mt-0 mt-4">
-					<iframe
+				<iframe
 						width="280"
 						height="160"
 						src="https://www.youtube.com/embed/ZeogOxqdKJI"
@@ -107,7 +135,6 @@ const WelcomeContainer = () => {
 						allowFullScreen
 					/>
 				</Container.Item> */}
-
 			</Container>
 		</div>
 	);
