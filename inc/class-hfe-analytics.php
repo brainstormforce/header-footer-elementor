@@ -41,10 +41,10 @@ if ( ! class_exists( 'HFE_Analytics' ) ) {
 
 			$bsf_analytics->set_entity(
 				[
-					'bsf' => [
+					'uae' => [
 						'product_name'        => 'Ultimate Addons for Elementor',
 						'path'                => HFE_DIR . 'admin/bsf-analytics',
-						'author'              => 'Brainstorm Force',
+						'author'              => 'Ultimate Addons for Elementor',
 						'time_to_display'     => '+24 hours',
 						'deactivation_survey' => [
 							[
