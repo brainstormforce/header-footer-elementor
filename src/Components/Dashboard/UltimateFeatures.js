@@ -109,7 +109,7 @@ const UltimateFeatures = () => {
 								}}
 							>
 								<CircleCheck color="#6005FF" size={18} />
-								{__("Modal Popup.", "wp-schema-pro")}
+								{__("Modal Popup.", "header-footer-elementor")}
 							</li>
 							<hr
 								className="w-full border-b-0 border-x-0 border-t border-solid border-t-border-subtle"
@@ -129,7 +129,7 @@ const UltimateFeatures = () => {
 								}}
 							>
 								<CircleCheck color="#6005FF" size={18} />
-								{__("Advanced Heading", "wp-schema-pro")}
+								{__("Advanced Heading", "header-footer-elementor")}
 							</li>
 							<hr
 								className="w-full border-b-0 border-x-0 border-t border-solid border-t-border-subtle"
@@ -149,7 +149,7 @@ const UltimateFeatures = () => {
 								}}
 							>
 								<CircleCheck color="#6005FF" size={18} />
-								{__("Info Box", "wp-schema-pro")}
+								{__("Info Box", "header-footer-elementor")}
 							</li>
 							<hr
 								className="w-full border-b-0 border-x-0 border-t border-solid border-t-border-subtle"
@@ -169,7 +169,7 @@ const UltimateFeatures = () => {
 								}}
 							>
 								<CircleCheck color="#6005FF" size={18} />
-								{__("Post Layouts", "wp-schema-pro")}
+								{__("Post Layouts", "header-footer-elementor")}
 							</li>
 							<hr
 								className="w-full border-b-0 border-x-0 border-t border-solid border-t-border-subtle"
@@ -189,7 +189,7 @@ const UltimateFeatures = () => {
 								}}
 							>
 								<CircleCheck color="#6005FF" size={18} />
-								{__("Form Stylers and more", "wp-schema-pro")}
+								{__("Form Stylers and more", "header-footer-elementor")}
 							</li>
 						</ul>
 					</div>

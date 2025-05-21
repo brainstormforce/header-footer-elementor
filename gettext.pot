@@ -589,7 +589,7 @@ msgid "Dashboard"
 msgstr ""
 
 #: src/Components/NavMenu.js:151
-msgid "Header & Footer Builder"
+msgid "Header & Footer"
 msgstr ""
 
 #: src/Components/NavMenu.js:163

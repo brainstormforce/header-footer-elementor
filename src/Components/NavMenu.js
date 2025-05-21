@@ -149,7 +149,7 @@ const NavMenu = () => {
 									}}
 								>
 									{__(
-										"Header & Footer Builder",
+										"Header & Footer",
 										"header-footer-elementor"
 									)}
 								</Link>
