@@ -1,12 +1,12 @@
 import NavMenu from '@components/NavMenu'
 import { Container } from "@bsf/force-ui";
 import React from 'react'
-import ExtendWebsite from '@components/Dashboard/ExtendWebsite';
 import TemplateSection from '@components/Dashboard/TemplateSection';
 import QuickAccess from '@components/Dashboard/QuickAccess';
 import UltimateWidgets from './UltimateWidgets';
 import FeatureWidgets from './Features/FeatureWidgets'
 import UltimateFeatures from '@components/Dashboard/UltimateFeatures';
+import UltimateExtendWebsite from '@components/Dashboard/UltimateExtendWebsite';
 
 const Features = () => {
     return (
@@ -31,7 +31,6 @@ const Features = () => {
                         shrink={1}
                     >
                         <FeatureWidgets />
-                        <ExtendWebsite />
                     </Container.Item>
                     <Container.Item
                         className="p-2 hfe-35-width"
@@ -40,9 +39,10 @@ const Features = () => {
                         {/* <TemplateSection /> */}
                         <UltimateFeatures />
                         {/* <UltimateWidgets /> */}
-                        <div className='' style={{ paddingTop: '16px' }}>
-                            <QuickAccess />
+                        <div style={{ paddingTop: '16px' }}>
+                        <UltimateExtendWebsite />
                         </div>
+                        <QuickAccess />
                     </Container.Item>
                 </Container>
             </div>

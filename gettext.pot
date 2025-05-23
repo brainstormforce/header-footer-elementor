@@ -385,6 +385,7 @@ msgid ""
 msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsite.jsx:57
+#: src/Components/Dashboard/UltimateExtendWebsite.jsx:57
 msgid "Extend Your Website"
 msgstr ""
 
