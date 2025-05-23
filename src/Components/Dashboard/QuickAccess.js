@@ -1,6 +1,6 @@
 import React from "react";
-import { Title, Container, Button } from "@bsf/force-ui";
-import { Headphones, HelpCircle, StarIcon, NotepadText } from "lucide-react";
+import { Title, Container, Button, Badge } from "@bsf/force-ui";
+import { Headphones, HelpCircle, StarIcon, NotepadText, BookOpenText } from "lucide-react";
 import { __ } from "@wordpress/i18n";
 
 const QuickAccess = () => {
@@ -22,7 +22,7 @@ const QuickAccess = () => {
 
 			<Container
 				align="stretch"
-				className="p-1 rounded-lg gap-1"
+				className="p-1 rounded-lg bg-[#F9FAFB] gap-1"
 				containerType="flex"
 				direction="column"
 				gap=""
@@ -34,7 +34,7 @@ const QuickAccess = () => {
 			>
 				<Container.Item
 					alignSelf="auto"
-					className="p-4 bg-white rounded-lg shadow-container-item"
+					className="p-4 bg-white flex items-center justify-between rounded-lg shadow-container-item"
 					order="none"
 					shrink={1}
 				>
@@ -50,7 +50,36 @@ const QuickAccess = () => {
 							);
 						}}
 					>
-						{__("Contact Us", "header-footer-elementor")}
+						{__("VIP Priority Support", "header-footer-elementor")}
+					</Button>
+					<Badge
+						label={__(
+							"PRO",
+							"header-footer-elementor"
+						)}
+						size="xs"
+						variant="inverse"
+					/>
+				</Container.Item>
+				<Container.Item
+					alignSelf="auto"
+					className="p-4 bg-white rounded-lg shadow-container-item"
+					order="none"
+					shrink={1}
+				>
+					<Button
+						className="text-black hfe-remove-ring"
+						icon={<BookOpenText />}
+						iconPosition="left"
+						variant="link"
+						onClick={() => {
+							window.open(
+								"https://ultimateelementor.com/docs/getting-started-with-ultimate-addons-for-elementor-lite/",
+								"_blank"
+							);
+						}}
+					>
+						{__("Knowledge Base", "header-footer-elementor")}
 					</Button>
 				</Container.Item>
 				<Container.Item className="p-4 bg-white rounded-lg shadow-container-item">

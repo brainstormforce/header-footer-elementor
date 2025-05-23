@@ -1,4 +1,10 @@
+/*!************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/styles.css ***!
+  \************************************************************************************************************/
 @import url(https://fonts.googleapis.com/css?family=Josefin+Sans);
+/*!****************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/@fontsource/figtree/index.css ***!
+  \****************************************************************************************************************************************/
 /* figtree-latin-ext-400-normal */
 @font-face {
   font-family: 'Figtree';
@@ -18,6 +24,9 @@
   src: url(/8fbf595b398521a13438.woff2) format('woff2'), url(/7d00956da27af3e30b78.woff) format('woff');
   unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
 }
+/*!**************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/@fontsource/figtree/400.css ***!
+  \**************************************************************************************************************************************/
 /* figtree-latin-ext-400-normal */
 @font-face {
   font-family: 'Figtree';
@@ -37,6 +46,9 @@
   src: url(/8fbf595b398521a13438.woff2) format('woff2'), url(/7d00956da27af3e30b78.woff) format('woff');
   unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
 }
+/*!*********************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/@fontsource/figtree/400-italic.css ***!
+  \*********************************************************************************************************************************************/
 /* figtree-latin-ext-400-italic */
 @font-face {
   font-family: 'Figtree';
@@ -56,6 +68,9 @@
   src: url(/0c658d1bd687fc3b8ae1.woff2) format('woff2'), url(/f2b6d272f68d05e1513a.woff) format('woff');
   unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
 }
+/*!****************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/styles.css (1) ***!
+  \****************************************************************************************************************/
 *, ::before, ::after{
     --tw-border-spacing-x: 0;
     --tw-border-spacing-y: 0;
@@ -471,10 +486,6 @@
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .my-4{
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .my-5{
     margin-top: 1.25rem;
     margin-bottom: 1.25rem;
@@ -665,6 +676,9 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .h-3{
     height: 0.75rem;
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .h-36{
+    height: 9rem;
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .h-4{
     height: 1rem;
 }
@@ -698,6 +712,12 @@
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .h-screen{
     height: 100vh;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .h-40{
+    height: 10rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .h-\[9\.5rem\]{
+    height: 9.5rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .max-h-\[10\.75rem\]{
     max-height: 10.75rem;
@@ -793,6 +813,9 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .w-3{
     width: 0.75rem;
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .w-32{
+    width: 8rem;
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .w-4{
     width: 1rem;
 }
@@ -872,6 +895,9 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .max-w-32{
     max-width: 8rem;
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .max-w-72{
+    max-width: 18rem;
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .max-w-80{
     max-width: 20rem;
 }
@@ -880,6 +906,9 @@
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .max-w-lg{
     max-width: 32rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .max-w-md{
+    max-width: 28rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .max-w-xs{
     max-width: 20rem;
@@ -1525,9 +1554,17 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .border-transparent{
     border-color: transparent;
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .border-t-border-subtle{
+    --tw-border-opacity: 1;
+    border-top-color: rgb(229 231 235 / var(--tw-border-opacity, 1));
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .bg-\[\#6005FF\]{
     --tw-bg-opacity: 1;
     background-color: rgb(96 5 255 / var(--tw-bg-opacity, 1));
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .bg-\[\#F9FAFB\]{
+    --tw-bg-opacity: 1;
+    background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1));
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .bg-alert-background-danger{
     --tw-bg-opacity: 1;
@@ -1924,6 +1961,9 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .pt-3{
     padding-top: 0.75rem;
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .pt-4{
+    padding-top: 1rem;
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .pt-5{
     padding-top: 1.25rem;
 }
@@ -1954,11 +1994,8 @@
     font-size: 2.25rem;
     line-height: 2.5rem;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .text-\[12px\]{
-    font-size: 12px;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .text-\[14px\]{
-    font-size: 14px;
+:is(#hfe-settings-app, [data-floating-ui-portal]) .text-\[16px\]{
+    font-size: 16px;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .text-base{
     font-size: 1rem;
@@ -2030,6 +2067,14 @@
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .tracking-2{
     letter-spacing: 0.125em;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .text-\[\#4F4E7C\]{
+    --tw-text-opacity: 1;
+    color: rgb(79 78 124 / var(--tw-text-opacity, 1));
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .text-\[\#6005FF\]{
+    --tw-text-opacity: 1;
+    color: rgb(96 5 255 / var(--tw-text-opacity, 1));
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .text-background-primary{
     --tw-text-opacity: 1;
@@ -2229,6 +2274,11 @@
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .opacity-50{
     opacity: 0.5;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .shadow{
+    --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .shadow-2xl{
     --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
@@ -2751,6 +2801,30 @@ div#hfe-settings-app {
 		display: grid !important;
 		max-width: -moz-fit-content;
 		max-width: fit-content;
+	}
+}
+
+.iframe-wrapper {
+	width: 100%;
+	max-width: 100%;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.responsive-iframe {
+	width: 280px;
+	height: 160px;
+	border-radius: 8px;
+	border: none;
+}
+
+/* On large screens, make iframe scale responsively */
+@media (min-width: 1024px) {
+	.responsive-iframe {
+		width: 100%;
+		max-width: 480px; /* or another max width that fits well */
+		height: auto;
+		aspect-ratio: 16 / 9;
 	}
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .file\:border-0::file-selector-button{
@@ -4357,4 +4431,3 @@ div#hfe-settings-app {
 }
 
 
-/*# sourceMappingURL=main.css.map*/
