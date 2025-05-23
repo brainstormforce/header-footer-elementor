@@ -7,7 +7,6 @@ import React from 'react'
 import FreevsPro from "./FreevsPro";
 import UltimateCompare from "./UltimateCompare";
 import UltimateFeatures from "@components/Dashboard/UltimateFeatures";
-import UltimateExtendWebsite from "@components/Dashboard/UltimateExtendWebsite";
 
 
 const Upgrade = () => {
@@ -40,11 +39,13 @@ const Upgrade = () => {
                     >
                         {/* <UltimateCompare /> */}
                         <UltimateFeatures />
-                        {/* <ExtendWebsite /> */}
-                        <div className="pt-5">
-                        <UltimateExtendWebsite/>
+                        <div className='pt-5'>
+                            <ExtendWebsite />
                         </div>
-                        <QuickAccess />
+                        <div className='pt-4'>
+                            <QuickAccess />
+                        </div>
+
                     </Container.Item>
                 </Container>
             </div>
