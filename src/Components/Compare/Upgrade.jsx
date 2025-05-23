@@ -37,7 +37,6 @@ const Upgrade = () => {
                         className="p-2 w-full hfe-35-width"
                         shrink={1}
                     >
-                        {/* <UltimateCompare /> */}
                         <UltimateFeatures />
                         <div className='pt-5'>
                             <ExtendWebsite />

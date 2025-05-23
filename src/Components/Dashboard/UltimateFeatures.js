@@ -109,7 +109,7 @@ const UltimateFeatures = () => {
 								}}
 							>
 								<CircleCheck color="#6005FF" size={18} />
-								{__("Modal Popup.", "header-footer-elementor")}
+								{__("Modal Popup", "header-footer-elementor")}
 							</li>
 							<hr
 								className="w-full border-b-0 border-x-0 border-t border-solid border-t-border-subtle"
