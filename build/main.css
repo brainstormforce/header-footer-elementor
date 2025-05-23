@@ -713,6 +713,12 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .h-screen{
     height: 100vh;
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .h-40{
+    height: 10rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .h-\[9\.5rem\]{
+    height: 9.5rem;
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .max-h-\[10\.75rem\]{
     max-height: 10.75rem;
 }

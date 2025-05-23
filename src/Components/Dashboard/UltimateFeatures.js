@@ -23,7 +23,7 @@ const UltimateFeatures = () => {
 						<img
 							src={`${hfeSettingsData.augmented_reality}`}
 							alt={__("Column Showcase", "header-footer-elementor")}
-							className="object-contain h-36 w-80 rounded"
+							className="object-contain h-[9.5rem] w-full rounded"
 						/>
 					</Container.Item>
 
