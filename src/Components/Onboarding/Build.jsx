@@ -76,7 +76,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
                 },
                 body: new URLSearchParams({
                     action: 'save_analytics_option', // WordPress action for your AJAX handler.
-                    bsf_analytics_optin: newIsActive ? 'yes' : 'no',
+                    uae_analytics_optin: newIsActive ? 'yes' : 'no',
                     nonce: hfe_admin_data.nonce // Nonce for security.
                 })
             });
