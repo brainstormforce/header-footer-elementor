@@ -7,7 +7,6 @@ import ThemeSupport from "./ThemeSupport";
 import VersionControl from "./VersionControl";
 import MyAccount from "@components/Dashboard/MyAccount";
 import { __ } from "@wordpress/i18n";
-import UsageTracking from "./UsageTracking";
 
 const Settings = () => {
     const items = [
@@ -70,25 +69,25 @@ const Settings = () => {
             title: __("Version Control", "header-footer-elementor"),
             content: <VersionControl />,
         },
-        {
-            id: 4,
-            icon: (
-                <img
-                    src={`${hfeSettingsData.tracking_url}`}
-                    alt={__("Custom SVG", "header-footer-elementor")}
-                    className="object-contain"
-                />
-            ),
-            selected: (
-                <img
-                    src={`${hfeSettingsData.tracking__selected_url}`}
-                    alt={__("Custom SVG", "header-footer-elementor")}
-                    className="object-contain"
-                />
-            ),
-            title: __("Usage Tracking", "header-footer-elementor"),
-            content: <UsageTracking />,
-        },
+        // {
+        //     id: 4,
+        //     icon: (
+        //         <img
+        //             src={`${hfeSettingsData.tracking_url}`}
+        //             alt={__("Custom SVG", "header-footer-elementor")}
+        //             className="object-contain"
+        //         />
+        //     ),
+        //     selected: (
+        //         <img
+        //             src={`${hfeSettingsData.tracking__selected_url}`}
+        //             alt={__("Custom SVG", "header-footer-elementor")}
+        //             className="object-contain"
+        //         />
+        //     ),
+        //     title: __("Usage Tracking", "header-footer-elementor"),
+        //     content: <UsageTracking />,
+        // },
     ].filter((item) => {
         if ("no" === hfeSettingsData.show_theme_support && item.id === 2) {
             return false;

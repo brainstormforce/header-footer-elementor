@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { __ } from '@wordpress/i18n';
 import { Container, Title, Button } from "@bsf/force-ui";
 import { ArrowUpRight } from "lucide-react";
+import UsageTracking from '@components/Settings/UsageTracking';
 
 const MyAccount = () => {
 
@@ -54,6 +55,8 @@ const MyAccount = () => {
                         </Button>
                 </div>
             </Container>
+            <UsageTracking />
+            
         </>
     );
 };
