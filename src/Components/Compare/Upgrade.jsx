@@ -6,6 +6,7 @@ import UpgradeNotice from "@components/UpgradeNotice";
 import React from 'react'
 import FreevsPro from "./FreevsPro";
 import UltimateCompare from "./UltimateCompare";
+import UltimateFeatures from "@components/Dashboard/UltimateFeatures";
 
 
 const Upgrade = () => {
@@ -36,9 +37,14 @@ const Upgrade = () => {
                         className="p-2 w-full hfe-35-width"
                         shrink={1}
                     >
-                        <UltimateCompare />
-                        <ExtendWebsite />
-                        <QuickAccess />
+                        <UltimateFeatures />
+                        <div className='pt-5'>
+                            <ExtendWebsite />
+                        </div>
+                        <div className='pt-4'>
+                            <QuickAccess />
+                        </div>
+
                     </Container.Item>
                 </Container>
             </div>

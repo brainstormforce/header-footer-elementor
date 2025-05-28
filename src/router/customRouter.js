@@ -6,6 +6,7 @@ import Settings from '@components/Settings/Settings';
 import { routes } from 'admin/settings/routes';
 import Upgrade from '@components/Compare/Upgrade';
 import Onboarding from '@components/Onboarding/Onboarding';
+import Success from '@components/Onboarding/Success';
 
 
 const CustomRouter = () => (
@@ -16,6 +17,7 @@ const CustomRouter = () => (
     <Route path={routes.templates.path}><Templates /></Route>
     <Route path={routes.settings.path}><Settings /></Route>
     <Route path={routes.upgrade.path}><Upgrade /></Route>
+    <Route path={routes.onboardingsuccess.path}><Success /></Route>
   </Router>
 );
 
