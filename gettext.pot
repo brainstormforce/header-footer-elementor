@@ -108,7 +108,7 @@ msgstr ""
 #: src/Components/Compare/FreevsPro.jsx:199
 #: src/Components/Compare/UltimateCompare.jsx:109
 #: src/Components/Dashboard/MyAccount.jsx:54
-#: src/Components/Dashboard/UltimateFeatures.js:116
+#: src/Components/Dashboard/UltimateFeatures.js:87
 #: src/Components/Widgets/UltimateWidgets.jsx:116
 msgid "Upgrade Now"
 msgstr ""

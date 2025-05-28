@@ -661,9 +661,6 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .h-3{
     height: 0.75rem;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .h-36{
-    height: 9rem;
-}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .h-4{
     height: 1rem;
 }
@@ -682,6 +679,9 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .h-\[40px\]{
     height: 40px;
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .h-\[9\.5rem\]{
+    height: 9.5rem;
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .h-auto{
     height: auto;
 }
@@ -697,12 +697,6 @@
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .h-screen{
     height: 100vh;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .h-40{
-    height: 10rem;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .h-\[9\.5rem\]{
-    height: 9.5rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .max-h-\[10\.75rem\]{
     max-height: 10.75rem;
@@ -4416,3 +4410,5 @@ div#hfe-settings-app {
 }
 
 
+
+/*# sourceMappingURL=main.css.map*/
