@@ -31,7 +31,7 @@ if ( ! class_exists( 'HFE_Analytics' ) ) {
 		 * @param array $args Optional. HFE Analytics arguments. Default is an empty array.
 		 */
 		public function __construct() {
-
+			add_action( 'admin_init', [ $this, 'maybe_migrate_analytics_tracking' ] );
 			// BSF Analytics Tracker.
 			if ( ! class_exists( 'BSF_Analytics_Loader' ) ) {
 				require_once HFE_DIR . 'admin/bsf-analytics/class-bsf-analytics-loader.php';
@@ -41,10 +41,10 @@ if ( ! class_exists( 'HFE_Analytics' ) ) {
 
 			$bsf_analytics->set_entity(
 				[
-					'bsf' => [
+					'uae' => [
 						'product_name'        => 'Ultimate Addons for Elementor',
 						'path'                => HFE_DIR . 'admin/bsf-analytics',
-						'author'              => 'Brainstorm Force',
+						'author'              => 'Ultimate Addons for Elementor',
 						'time_to_display'     => '+24 hours',
 						'deactivation_survey' => [
 							[
@@ -63,6 +63,28 @@ if ( ! class_exists( 'HFE_Analytics' ) ) {
 			);
 			
 			add_filter( 'bsf_core_stats', [ $this, 'add_uae_analytics_data' ] );
+		}
+
+		/**
+		 * Migrates analytics tracking option from 'bsf_analytics_optin' to 'uae_analytics_optin'.
+		 *
+		 * Checks if the old analytics tracking option ('bsf_analytics_optin') is set to 'yes'
+		 * and if the new option ('uae_analytics_optin') is not already set.
+		 * If so, updates the new tracking option to 'yes' to maintain user consent during migration.
+		 *
+		 * @since 2.3.2
+		 * @access public
+		 *
+		 * @return void
+		 */
+		public function maybe_migrate_analytics_tracking() {
+			$old_tracking = get_option( 'bsf_analytics_optin', false );
+			$new_tracking = get_option( 'uae_analytics_optin', false );
+			if ( 'yes' === $old_tracking && false === $new_tracking ) {
+				update_option( 'uae_analytics_optin', 'yes' );
+				$time = get_option('bsf_analytics_installed_time');
+				update_option( 'bsf_analytics_installed_time' , $time );
+			}
 		}
         
         /**

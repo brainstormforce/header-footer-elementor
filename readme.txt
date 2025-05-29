@@ -4,7 +4,7 @@ Tags: elementor, elementor addon, elementor widget, elementor template, header f
 Requires at least: 5.0  
 Tested up to: 6.8
 Requires PHP: 7.4  
-Stable tag: 2.3.1
+Stable tag: 2.3.2
 License: GPLv2 or later  
 License URI: https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -129,6 +129,9 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 ---
 
 == Changelog ==
+= 2.3.2 =
+- Improvement: Updated Dashboard for Improved User Experience
+
 = 2.3.1 =
 - Improvement: Compatibility with latest Elementor and Elementor Pro 3.29 version.
 

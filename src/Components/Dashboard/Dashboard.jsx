@@ -55,15 +55,16 @@ const Dashboard = () => {
                     >
                         <WelcomeContainer />
                         <Widgets />
-                        <UltimateFeatures />
+                        <ExtendWebsite />
                     </Container.Item>
-                    <Container.Item 
+                    <Container.Item
                         className="p-2 w-full hfe-35-width"
                         shrink={1}
-                    >  
-                        <TemplateSection />
-                        <ExtendWebsite />
-                        <QuickAccess />
+                    >
+                        <UltimateFeatures />
+                        <div className="pt-5">
+                            <QuickAccess />
+                        </div>
                     </Container.Item>
                 </Container>
             </div>

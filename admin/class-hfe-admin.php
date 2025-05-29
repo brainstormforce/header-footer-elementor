@@ -119,9 +119,7 @@ class HFE_Admin {
 		add_action( 'elementor/editor/footer', [ $this, 'print_permalink_clear_notice' ] );
 		add_action( 'elementor/editor/before_enqueue_scripts', [ $this, 'enqueue_permalink_clear_notice_js' ] );
 		add_action( 'elementor/editor/before_enqueue_styles', [ $this, 'enqueue_permalink_clear_notice_css' ] );
-		if('yes' === get_option('bsf_analytics_optin')){
-			add_action('shutdown', [ $this, 'maybe_run_hfe_widgets_usage_check' ] );
-		}
+		add_action('shutdown', [ $this, 'maybe_run_hfe_widgets_usage_check' ] );
 	}
 
 	/**
@@ -523,7 +521,7 @@ class HFE_Admin {
 		add_submenu_page(
 			$setting_location,
 			__( 'Header/Footer Builder', 'header-footer-elementor' ),
-			__( 'Header & Footer Builder', 'header-footer-elementor' ),
+			__( 'Header & Footer', 'header-footer-elementor' ),
 			'edit_pages',
 			'edit.php?post_type=elementor-hf',
 			'',

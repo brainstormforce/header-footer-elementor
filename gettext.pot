@@ -107,8 +107,8 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:199
 #: src/Components/Compare/UltimateCompare.jsx:109
-#: src/Components/Dashboard/MyAccount.jsx:53
-#: src/Components/Dashboard/UltimateFeatures.js:116
+#: src/Components/Dashboard/MyAccount.jsx:54
+#: src/Components/Dashboard/UltimateFeatures.js:87
 #: src/Components/Widgets/UltimateWidgets.jsx:116
 msgid "Upgrade Now"
 msgstr ""
@@ -123,7 +123,7 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:219
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:178
-#: src/Components/NavMenu.js:253
+#: src/Components/NavMenu.js:242
 msgid "Free"
 msgstr ""
 
@@ -161,7 +161,7 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:34
 #: src/Components/Compare/UltimateCompare.jsx:17
-#: src/Components/Dashboard/UltimateFeatures.js:18
+#: src/Components/Dashboard/UltimateFeatures.js:132
 #: src/Components/Widgets/UltimateWidgets.jsx:18
 msgid "Advanced Heading"
 msgstr ""
@@ -228,7 +228,7 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:54
 #: src/Components/Compare/UltimateCompare.jsx:27
-#: src/Components/Dashboard/UltimateFeatures.js:28
+#: src/Components/Dashboard/UltimateFeatures.js:152
 #: src/Components/Widgets/UltimateWidgets.jsx:28
 msgid "Info Box"
 msgstr ""
@@ -267,7 +267,7 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:67
 #: src/Components/Compare/UltimateCompare.jsx:12
-#: src/Components/Dashboard/UltimateFeatures.js:13
+#: src/Components/Dashboard/UltimateFeatures.js:112
 #: src/Components/Widgets/UltimateWidgets.jsx:13
 msgid "Modal Popup"
 msgstr ""
@@ -345,43 +345,40 @@ msgid "Creative Features"
 msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:22
-#: src/Components/Dashboard/UltimateFeatures.js:23
+#: src/Components/Dashboard/UltimateFeatures.js:172
 #: src/Components/Widgets/UltimateWidgets.jsx:23
 msgid "Post Layouts"
 msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:32
-#: src/Components/Dashboard/UltimateFeatures.js:33
 #: src/Components/Widgets/UltimateWidgets.jsx:33
 msgid "Pricing Cards"
 msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:37
-#: src/Components/Dashboard/UltimateFeatures.js:38
 #: src/Components/Widgets/UltimateWidgets.jsx:38
 msgid "Form Stylers and more..."
 msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:55
-#: src/Components/Dashboard/UltimateFeatures.js:135
+#: src/Components/Dashboard/UltimateFeatures.js:25
 #: src/Components/Widgets/UltimateWidgets.jsx:54
 msgid "Column Showcase"
 msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:68
-#: src/Components/Dashboard/UltimateFeatures.js:62
+#: src/Components/Dashboard/UltimateFeatures.js:38
 #: src/Components/Widgets/UltimateWidgets.jsx:67
 msgid "Unlock Ultimate Features"
 msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:76
-#: src/Components/Dashboard/UltimateFeatures.js:73
 #: src/Components/Widgets/UltimateWidgets.jsx:75
 msgid "Create Stunning Designs with the Pro Version!"
 msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:80
-#: src/Components/Dashboard/UltimateFeatures.js:80
+#: src/Components/Dashboard/UltimateFeatures.js:56
 #: src/Components/Widgets/UltimateWidgets.jsx:82
 msgid ""
 "Get access to advanced widgets and features to create the website that "
@@ -444,26 +441,26 @@ msgstr ""
 msgid "Plugin Installation failed, Please try again later."
 msgstr ""
 
-#: src/Components/Dashboard/MyAccount.jsx:16
-#: src/Components/Settings/Settings.jsx:30
+#: src/Components/Dashboard/MyAccount.jsx:17
+#: src/Components/Settings/Settings.jsx:29
 msgid "My Account"
 msgstr ""
 
-#: src/Components/Dashboard/MyAccount.jsx:30
+#: src/Components/Dashboard/MyAccount.jsx:31
 msgid "License Key"
 msgstr ""
 
-#: src/Components/Dashboard/MyAccount.jsx:31
+#: src/Components/Dashboard/MyAccount.jsx:32
 msgid ""
 "You are using the free version of Ultimate Addons for Elementor, no license "
-"key is needed.. "
-msgstr ""
-
-#: src/Components/Dashboard/MyAccount.jsx:35
-msgid "Unlock Pro Features"
+"key is needed. "
 msgstr ""
 
 #: src/Components/Dashboard/MyAccount.jsx:36
+msgid "Unlock Pro Features"
+msgstr ""
+
+#: src/Components/Dashboard/MyAccount.jsx:37
 msgid "Get access to advanced blocks and premium features."
 msgstr ""
 
@@ -491,20 +488,28 @@ msgstr ""
 msgid "Deactivate All"
 msgstr ""
 
+#: src/Components/Dashboard/QuickAccess.js:114
+msgid "Request a Feature"
+msgstr ""
+
 #: src/Components/Dashboard/QuickAccess.js:20
 msgid "Quick Access"
 msgstr ""
 
 #: src/Components/Dashboard/QuickAccess.js:53
-msgid "Contact Us"
+msgid "VIP Priority Support"
 msgstr ""
 
-#: src/Components/Dashboard/QuickAccess.js:69
+#: src/Components/Dashboard/QuickAccess.js:56
+msgid "PRO"
+msgstr ""
+
+#: src/Components/Dashboard/QuickAccess.js:82
+msgid "Knowledge Base"
+msgstr ""
+
+#: src/Components/Dashboard/QuickAccess.js:98
 msgid "Help Centre"
-msgstr ""
-
-#: src/Components/Dashboard/QuickAccess.js:85
-msgid "Request a Feature"
 msgstr ""
 
 #: src/Components/Dashboard/TemplateSection.js:64
@@ -521,12 +526,19 @@ msgstr ""
 msgid "View Templates"
 msgstr ""
 
-#: src/Components/Dashboard/UltimateFeatures.js:122
-#: src/Components/Widgets/UltimateWidgets.jsx:119
-msgid "Compare Free vs Pro"
+#: src/Components/Dashboard/UltimateFeatures.js:192
+msgid "Form Stylers and more"
 msgstr ""
 
-#: src/Components/Dashboard/WelcomeContainer.js:115
+#: src/Components/Dashboard/UltimateFeatures.js:48
+msgid "Create Stunning Designs with the"
+msgstr ""
+
+#: src/Components/Dashboard/UltimateFeatures.js:50
+msgid "Pro Version!"
+msgstr ""
+
+#: src/Components/Dashboard/WelcomeContainer.js:122
 msgid "Read full guide"
 msgstr ""
 
@@ -541,20 +553,20 @@ msgid ""
 "and premium widgets and features."
 msgstr ""
 
-#: src/Components/Dashboard/WelcomeContainer.js:58
+#: src/Components/Dashboard/WelcomeContainer.js:65
 #: src/Components/Onboarding/Build.jsx:197
 msgid "Create Header/Footer"
 msgstr ""
 
-#: src/Components/Dashboard/WelcomeContainer.js:86
+#: src/Components/Dashboard/WelcomeContainer.js:93
 msgid "Create New Page"
 msgstr ""
 
-#: src/Components/Dashboard/WidgetItem.jsx:133
+#: src/Components/Dashboard/WidgetItem.jsx:134
 msgid "View Demo"
 msgstr ""
 
-#: src/Components/Dashboard/WidgetItem.jsx:147
+#: src/Components/Dashboard/WidgetItem.jsx:148
 msgid "Read Documentation"
 msgstr ""
 
@@ -579,7 +591,7 @@ msgid "Dashboard"
 msgstr ""
 
 #: src/Components/NavMenu.js:151
-msgid "Header & Footer Builder"
+msgid "Header & Footer"
 msgstr ""
 
 #: src/Components/NavMenu.js:163
@@ -587,46 +599,42 @@ msgid "Widgets"
 msgstr ""
 
 #: src/Components/NavMenu.js:174
-msgid "Templates"
-msgstr ""
-
-#: src/Components/NavMenu.js:185
 msgid "Settings"
 msgstr ""
 
-#: src/Components/NavMenu.js:194
+#: src/Components/NavMenu.js:183
 msgid "Free vs Pro"
 msgstr ""
 
-#: src/Components/NavMenu.js:221
+#: src/Components/NavMenu.js:210
 msgid "Get Pro"
 msgstr ""
 
-#: src/Components/NavMenu.js:244
+#: src/Components/NavMenu.js:233
 msgid "Version"
 msgstr ""
 
-#: src/Components/NavMenu.js:278
+#: src/Components/NavMenu.js:267
 msgid "Useful Resources"
 msgstr ""
 
-#: src/Components/NavMenu.js:295
+#: src/Components/NavMenu.js:284
 msgid "Getting Started"
 msgstr ""
 
-#: src/Components/NavMenu.js:308
+#: src/Components/NavMenu.js:297
 msgid "How to use widgets"
 msgstr ""
 
-#: src/Components/NavMenu.js:321
+#: src/Components/NavMenu.js:310
 msgid "How to use features"
 msgstr ""
 
-#: src/Components/NavMenu.js:334
+#: src/Components/NavMenu.js:323
 msgid "How to use templates"
 msgstr ""
 
-#: src/Components/NavMenu.js:347
+#: src/Components/NavMenu.js:336
 msgid "Contact us"
 msgstr ""
 
@@ -785,31 +793,26 @@ msgstr ""
 msgid "Let's Get Started"
 msgstr ""
 
-#: src/Components/Settings/Settings.jsx:49
+#: src/Components/Settings/Settings.jsx:48
 msgid "Editor"
 msgstr ""
 
-#: src/Components/Settings/Settings.jsx:50
+#: src/Components/Settings/Settings.jsx:49
 #: src/Components/Settings/ThemeSupport.jsx:80
 msgid "Theme Support"
 msgstr ""
 
-#: src/Components/Settings/Settings.jsx:69
-msgid "Utilities"
-msgstr ""
-
-#: src/Components/Settings/Settings.jsx:70
-#: src/Components/Settings/VersionControl.jsx:45
-msgid "Version Control"
-msgstr ""
-
-#: src/Components/Settings/Settings.jsx:85
+#: src/Components/Settings/Settings.jsx:64
 msgid "Custom SVG"
 msgstr ""
 
-#: src/Components/Settings/Settings.jsx:89
-#: src/Components/Settings/UsageTracking.jsx:51
-msgid "Usage Tracking"
+#: src/Components/Settings/Settings.jsx:68
+msgid "Utilities"
+msgstr ""
+
+#: src/Components/Settings/Settings.jsx:69
+#: src/Components/Settings/VersionControl.jsx:45
+msgid "Version Control"
 msgstr ""
 
 #: src/Components/Settings/ThemeSupport.jsx:140
@@ -847,15 +850,19 @@ msgid ""
 "choose one of the following options to enable theme support:"
 msgstr ""
 
-#: src/Components/Settings/UsageTracking.jsx:81
+#: src/Components/Settings/UsageTracking.jsx:45
+msgid "Usage Tracking"
+msgstr ""
+
+#: src/Components/Settings/UsageTracking.jsx:68
 msgid "Enable Usage Tracking"
 msgstr ""
 
-#: src/Components/Settings/UsageTracking.jsx:84
+#: src/Components/Settings/UsageTracking.jsx:71
 msgid "Allow Brainstorm Force products to track non-sensitive usage tracking data. "
 msgstr ""
 
-#: src/Components/Settings/UsageTracking.jsx:94
+#: src/Components/Settings/UsageTracking.jsx:81
 #: src/Components/Templates/ExploreTemplates.jsx:227
 msgid "Learn More"
 msgstr ""
@@ -967,4 +974,8 @@ msgstr ""
 
 #: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:158
 msgid "Activate only what you need to keep your website fast and optimized."
+msgstr ""
+
+#: src/Components/Widgets/UltimateWidgets.jsx:119
+msgid "Compare Free vs Pro"
 msgstr ""

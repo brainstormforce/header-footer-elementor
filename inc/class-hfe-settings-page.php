@@ -261,7 +261,7 @@ class HFE_Settings_Page {
 			
 			$show_theme_support = 'no';
 			$hfe_theme_status   = get_option( 'hfe_is_theme_supported', false );
-			$analytics_status   = get_option( 'bsf_analytics_optin', false );
+			$analytics_status   = get_option( 'uae_analytics_optin', false );
 	
 			if ( ( ! current_theme_supports( 'header-footer-elementor' ) ) && ! $hfe_theme_status ) {
 				$show_theme_support = 'yes';
@@ -311,6 +311,8 @@ class HFE_Settings_Page {
 					'success_banner'           => HFE_URL . 'assets/images/settings/success_bg.png',
 					'success_badge'            => HFE_URL . 'assets/images/settings/success_badge.svg',
 					'icon_svg'                 => HFE_URL . 'assets/images/settings/uae-logo-svg.svg',
+					'rocket_svg'                 => HFE_URL . 'assets/images/settings/rocket.svg',
+					'augmented_reality'                 => HFE_URL . 'assets/images/settings/augmented_reality.png',
 					'uaelite_previous_version' => isset( $rollback_versions[0]['value'] ) ? $rollback_versions[0]['value'] : '',
 					'uaelite_versions'         => $rollback_versions,
 					'uaelite_rollback_url'     => esc_url( add_query_arg( 'version', 'VERSION', wp_nonce_url( admin_url( 'admin-post.php?action=uaelite_rollback' ), 'uaelite_rollback' ) ) ),

@@ -468,10 +468,10 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			// Check nonce for security.
 			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
 
-			if ( isset( $_POST['bsf_analytics_optin'] ) ) {
+			if ( isset( $_POST['uae_analytics_optin'] ) ) {
 				// Sanitize and update option.
-				$option = sanitize_text_field( $_POST['bsf_analytics_optin'] );
-				update_option( 'bsf_analytics_optin', $option );
+				$option = sanitize_text_field( $_POST['uae_analytics_optin'] );
+				update_option( 'uae_analytics_optin', $option );
 
 				// Return a success response.
 				wp_send_json_success( __( 'Settings saved successfully!', 'header-footer-elementor' ) );

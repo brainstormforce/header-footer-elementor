@@ -32,21 +32,28 @@ const WelcomeContainer = () => {
 						)}
 					</p>
 					<div className="flex items-center pt-6 gap-2">
-						<Button
+					<Button
 							iconPosition="right"
 							variant="primary"
-							className="bg-[#6005FF] hfe-remove-ring"
+							className="text-[#6005FF] border-none hfe-remove-ring"
 							style={{
-								backgroundColor: "#6005FF",
+								backgroundColor: "#F3E5FF",
 								transition: "background-color 0.3s ease",
+								border: "none",
+								outline: 'none',       // Removes the default outline
+								boxShadow: 'none',     // Removes the default box shadow
 							}}
 							onMouseEnter={(e) =>
 								(e.currentTarget.style.backgroundColor =
 									"#4B00CC")
+									(e.currentTarget.style.color =
+										"#fff")
 							}
 							onMouseLeave={(e) =>
 								(e.currentTarget.style.backgroundColor =
-									"#6005FF")
+									"#F3E5FF")
+									(e.currentTarget.style.color =
+										"#6005FF")
 							}
 							onClick={() => {
 								window.open(
