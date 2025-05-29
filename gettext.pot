@@ -863,11 +863,6 @@ msgid "Allow Brainstorm Force products to track non-sensitive usage tracking dat
 msgstr ""
 
 #: src/Components/Settings/UsageTracking.jsx:81
-#: src/Components/Settings/UsageTracking.jsx:89
-#: src/Components/Settings/UsageTracking.jsx:98
-#: src/Components/Settings/UsageTracking.jsx:95
-#: src/Components/Settings/UsageTracking.jsx:94
-#: src/Components/Settings/UsageTracking.jsx:96
 #: src/Components/Templates/ExploreTemplates.jsx:227
 msgid "Learn More"
 msgstr ""
