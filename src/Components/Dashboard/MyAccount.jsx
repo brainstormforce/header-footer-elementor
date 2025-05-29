@@ -54,9 +54,8 @@ const MyAccount = () => {
                             {__('Upgrade Now', 'header-footer-elementor')}
                         </Button>
                 </div>
+                <UsageTracking />
             </Container>
-            <UsageTracking />
-            
         </>
     );
 };
