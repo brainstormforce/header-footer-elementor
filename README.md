@@ -130,7 +130,7 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 
 ## Changelog ##
 ### 2.3.2 ###
-- Improvement: Updated Dashboard Design.
+- Improvement: Updated Dashboard for Improved User Experience
 
 ### 2.3.1 ###
 - Improvement: Compatibility with latest Elementor and Elementor Pro 3.29 version.
