@@ -72,7 +72,7 @@ if ( ! class_exists( 'HFE_Analytics' ) ) {
 		 * and if the new option ('uae_analytics_tracking') is not already set.
 		 * If so, updates the new tracking option to 'yes' to maintain user consent during migration.
 		 *
-		 * @since x.x.x
+		 * @since 2.3.2
 		 * @access public
 		 *
 		 * @return void
