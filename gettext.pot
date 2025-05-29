@@ -850,18 +850,19 @@ msgid ""
 "choose one of the following options to enable theme support:"
 msgstr ""
 
-#: src/Components/Settings/UsageTracking.jsx:53
+#: src/Components/Settings/UsageTracking.jsx:45
 msgid "Usage Tracking"
 msgstr ""
 
-#: src/Components/Settings/UsageTracking.jsx:76
+#: src/Components/Settings/UsageTracking.jsx:68
 msgid "Enable Usage Tracking"
 msgstr ""
 
-#: src/Components/Settings/UsageTracking.jsx:79
+#: src/Components/Settings/UsageTracking.jsx:71
 msgid "Allow Brainstorm Force products to track non-sensitive usage tracking data. "
 msgstr ""
 
+#: src/Components/Settings/UsageTracking.jsx:81
 #: src/Components/Settings/UsageTracking.jsx:89
 #: src/Components/Settings/UsageTracking.jsx:98
 #: src/Components/Settings/UsageTracking.jsx:95
