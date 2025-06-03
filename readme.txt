@@ -4,7 +4,7 @@ Tags: elementor, header footer builder, widgets, header template, footer templat
 Requires at least: 5.0  
 Tested up to: 6.8
 Requires PHP: 7.4  
-Stable tag: 2.3.2
+Stable tag: 2.3.3
 License: GPLv2 or later  
 License URI: https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -36,6 +36,7 @@ Ultimate Addons for Elementor comes equipped with a suite of Elementor-compatibl
 * **Breadcrumbs**: Improve site navigation and SEO with breadcrumb trails.
 * **Post Info**: Display important post-related information such as publish date, author, and categories.
 * **Scroll to Top**: Allow users to quickly return to the top of the page for a better user experience.
+* **Reading Progress Bar**: Show readers how far they are into the content with a simple progress indicator.
 * **Info Card**: Add headings, icons, and descriptions with CTA - all in one widget.
 
 ---
@@ -129,6 +130,8 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 ---
 
 == Changelog ==
+= 2.3.3 =
+* New Feature: Reading Progress Bar extension to display a progress indicator while reading posts.
 = 2.3.2 =
 - Improvement: Updated Dashboard for Improved User Experience
 

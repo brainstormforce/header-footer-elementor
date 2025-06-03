@@ -1,0 +1,194 @@
+<?php
+/**
+ * Reading Progress Bar Extension
+ *
+ * @package header-footer-elementor
+ */
+
+namespace HFE\WidgetsManager\Extensions;
+
+use Elementor\Controls_Manager;
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly.
+}
+
+/**
+ * HFE Reading Progress Bar extension class
+ */
+class Reading_Progress_Bar {
+
+    /**
+     * Instance
+     *
+     * @var null
+     */
+    private static $_instance = null;
+
+    /**
+     * Get instance
+     *
+     * @return self
+     */
+    public static function instance() {
+        if ( ! isset( self::$_instance ) ) {
+            self::$_instance = new self();
+        }
+        return self::$_instance;
+    }
+
+    /**
+     * Constructor
+     */
+    private function __construct() {
+        require_once HFE_DIR . '/inc/widgets-manager/extensions/class-reading-progress-bar-settings.php';
+
+        add_action( 'elementor/kit/register_tabs', [ $this, 'register_extension_tab' ], 1, 40 );
+        add_action( 'elementor/documents/register_controls', [ $this, 'page_controls' ], 10 );
+
+        add_action( 'wp_footer', [ $this, 'render_progress_bar' ] );
+        add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
+    }
+
+    /**
+     * Enqueue inline script
+     */
+    public function enqueue_scripts() {
+        wp_enqueue_script( 'jquery' );
+        $script = "!function($){'use strict';$(document).ready(function(){var bar=$('.hfe-reading-progress-bar');if(!bar.length)return;$(window).on('scroll',function(){var s=$(window).scrollTop(),d=$(document).height()-$(window).height(),p=d? s/d*100:0;bar.css('width',p+'%')});});}(jQuery);";
+        wp_add_inline_script( 'jquery', $script );
+    }
+
+    /**
+     * Register extension tab
+     */
+    public function register_extension_tab( \Elementor\Core\Kits\Documents\Kit $kit ) {
+        $kit->register_tab( 'hfe-reading-progress-bar', Reading_Progress_Bar_Settings::class );
+    }
+
+    /**
+     * Render progress bar markup
+     */
+    public function render_progress_bar() {
+        $post_id  = get_the_ID();
+        $document = [];
+        $doc_settings = [];
+
+        if ( \Elementor\Plugin::instance()->preview->is_preview_mode() ) {
+            $document = \Elementor\Plugin::$instance->documents->get_doc_for_frontend( $post_id );
+        } else {
+            $document = \Elementor\Plugin::$instance->documents->get( $post_id, false );
+        }
+        if ( isset( $document ) && is_object( $document ) ) {
+            $doc_settings = $document->get_settings();
+        }
+
+        $enable_global = $this->get_elementor_settings( 'hfe_reading_progress_enable' );
+        $show_bar      = false;
+        if ( 'yes' === $enable_global ) {
+            $show_bar = true;
+        }
+        if ( isset( $doc_settings['hfe_reading_progress_disable'] ) && 'yes' === $doc_settings['hfe_reading_progress_disable'] ) {
+            $show_bar = false;
+        }
+
+        if ( ! \Elementor\Plugin::instance()->preview->is_preview_mode() && $show_bar ) {
+            $position = $this->get_elementor_settings( 'hfe_reading_progress_position' );
+            $height   = $this->get_elementor_settings( 'hfe_reading_progress_height' );
+            $color    = $this->get_elementor_settings( 'hfe_reading_progress_color' );
+
+            $style_container = 'position:fixed;left:0;width:100%;z-index:99999;';
+            if ( 'bottom' === $position ) {
+                $style_container .= 'bottom:0;';
+            } else {
+                $style_container .= 'top:0;';
+            }
+            $style_bar = 'width:0;';
+            if ( $height ) {
+                $style_bar .= 'height:' . esc_attr( $height ) . 'px;';
+            } else {
+                $style_bar .= 'height:4px;';
+            }
+            if ( $color ) {
+                $style_bar .= 'background-color:' . esc_attr( $color ) . ';';
+            } else {
+                $style_bar .= 'background-color:#000;';
+            }
+
+            $html = "<div class='hfe-reading-progress' style='{$style_container}'><div class='hfe-reading-progress-bar' style='{$style_bar}'></div></div>";
+            $elementor_page = get_post_meta( $post_id, '_elementor_edit_mode', true );
+            if ( (bool) $elementor_page ) {
+                echo wp_kses_post( $html );
+            }
+        }
+
+        if ( \Elementor\Plugin::instance()->preview->is_preview_mode() ) {
+            if ( $show_bar ) {
+                ?>
+                <div class="hfe-reading-progress" style="position:fixed;top:0;left:0;width:100%;z-index:99999;"><div class="hfe-reading-progress-bar" style="width:0;height:4px;background:#000;"></div></div>
+                <script>
+!function(o){"use strict";o(function(){var r=o('.hfe-reading-progress-bar');if(!r.length)return;o(window).on('scroll',function(){var t=o(window).scrollTop(),n=o(document).height()-o(window).height(),c=n?t/n*100:0;r.css('width',c+'%')});});
+                </script>
+                <?php
+            }
+        }
+    }
+
+    /**
+     * Get kit settings
+     */
+    public function get_elementor_settings( $setting_id ) {
+        $return = '';
+        $extensions_settings = [];
+
+        if ( ! isset( $extensions_settings['kit_settings'] ) ) {
+            if ( \Elementor\Plugin::instance()->preview->is_preview_mode() ) {
+                $kit = \Elementor\Plugin::$instance->documents->get_doc_for_frontend( \Elementor\Plugin::$instance->kits_manager->get_active_id() );
+            } else {
+                $kit = \Elementor\Plugin::$instance->documents->get( \Elementor\Plugin::$instance->kits_manager->get_active_id(), true );
+            }
+            if ( isset( $kit ) && is_object( $kit ) ) {
+                $extensions_settings['kit_settings'] = $kit->get_settings();
+            }
+        }
+
+        if ( isset( $extensions_settings['kit_settings'][ $setting_id ] ) ) {
+            $return = $extensions_settings['kit_settings'][ $setting_id ];
+        }
+        return $return;
+    }
+
+    /**
+     * Add page level controls
+     */
+    public function page_controls( $element ) {
+        $enable_global = $this->get_elementor_settings( 'hfe_reading_progress_enable' );
+        if ( 'yes' !== $enable_global ) {
+            return;
+        }
+
+        $element->start_controls_section(
+            'hfe_reading_progress_single_section',
+            [
+                'label' => __( 'Reading Progress Bar', 'header-footer-elementor' ),
+                'tab'   => Controls_Manager::TAB_SETTINGS,
+            ]
+        );
+
+        $element->add_control(
+            'hfe_reading_progress_disable',
+            [
+                'label'        => __( 'Disable Reading Progress For This Page', 'header-footer-elementor' ),
+                'type'         => Controls_Manager::SWITCHER,
+                'default'      => '',
+                'label_on'     => __( 'Yes', 'header-footer-elementor' ),
+                'label_off'    => __( 'No', 'header-footer-elementor' ),
+                'return_value' => 'yes',
+            ]
+        );
+
+        $element->end_controls_section();
+    }
+}
+
+Reading_Progress_Bar::instance();
