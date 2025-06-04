@@ -137,6 +137,38 @@ class Reading_Progress_Bar_Settings extends Tab_Base {
             ]
         );
 
+        // Get all public post types
+        $post_types = get_post_types([
+            'public' => true,
+        ], 'objects');
+
+        $post_type_options = [
+            'all' => __( 'All Pages', 'header-footer-elementor' ),
+        ];
+
+        foreach ($post_types as $post_type) {
+            // Skip attachment post type
+            if ($post_type->name !== 'attachment') {
+                $post_type_options[$post_type->name] = $post_type->label;
+            }
+        }
+
+        $this->add_control(
+            'hfe_reading_progress_display_on',
+            [
+                'label'       => __( 'Display On', 'header-footer-elementor' ),
+                'type'        => Controls_Manager::SELECT2,
+                'default'     => 'all',
+                'options'     => $post_type_options,
+                'multiple'    => true,
+                'label_block' => true,
+                'condition'   => [
+                    'hfe_reading_progress_enable' => 'yes',
+                ],
+                'description' => __( 'Select "All Pages" or choose specific post types. If "All Pages" is selected along with specific post types, the progress bar will appear on all pages.', 'header-footer-elementor' ),
+            ]
+        );
+
         $this->end_controls_section();
     }
 }

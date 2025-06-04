@@ -86,7 +86,17 @@ class Reading_Progress_Bar {
         $enable_global = $this->get_elementor_settings( 'hfe_reading_progress_enable' );
         $show_bar      = false;
         if ( 'yes' === $enable_global ) {
-            $show_bar = true;
+            $display_on = $this->get_elementor_settings( 'hfe_reading_progress_display_on' );
+            
+            // If display_on is not an array, convert it to one for consistency
+            if (!is_array($display_on)) {
+                $display_on = [$display_on];
+            }
+            
+            // Check if "all" is selected or if the current post type is in the selected types
+            if (in_array('all', $display_on, true) || in_array(get_post_type($post_id), $display_on, true)) {
+                $show_bar = true;
+            }
         }
         if ( isset( $doc_settings['hfe_reading_progress_disable'] ) && 'yes' === $doc_settings['hfe_reading_progress_disable'] ) {
             $show_bar = false;
@@ -116,10 +126,7 @@ class Reading_Progress_Bar {
             }
 
             $html = "<div class='hfe-reading-progress' style='{$style_container}'><div class='hfe-reading-progress-bar' style='{$style_bar}'></div></div>";
-            $elementor_page = get_post_meta( $post_id, '_elementor_edit_mode', true );
-            if ( (bool) $elementor_page ) {
-                echo wp_kses_post( $html );
-            }
+            echo wp_kses_post( $html );
         }
 
         if ( \Elementor\Plugin::instance()->preview->is_preview_mode() ) {
