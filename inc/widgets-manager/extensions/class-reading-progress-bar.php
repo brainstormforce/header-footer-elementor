@@ -112,6 +112,10 @@ class Reading_Progress_Bar {
                 $style_container .= 'bottom:0;';
             } else {
                 $style_container .= 'top:0;';
+                // Add margin-top if user is logged in to account for the admin bar
+                if ( is_user_logged_in() && $position === 'top' ) {
+                    $style_container .= 'margin-top:30px;';
+                }
             }
             $style_bar = 'width:0;';
             if ( $height ) {
