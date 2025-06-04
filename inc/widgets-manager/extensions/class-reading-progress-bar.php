@@ -119,7 +119,15 @@ class Reading_Progress_Bar {
             }
             $style_bar = 'width:0;';
             if ( $height ) {
-                $style_bar .= 'height:' . esc_attr( $height ) . 'px;';
+                // Handle height as array with 'size' and 'unit' properties
+                if ( is_array( $height ) && isset( $height['size'] ) ) {
+                    $height_value = $height['size'];
+                    $height_unit = isset( $height['unit'] ) ? $height['unit'] : 'px';
+                    $style_bar .= 'height:' . esc_attr( $height_value ) . esc_attr( $height_unit ) . ';';
+                } else {
+                    // Fallback for backward compatibility
+                    $style_bar .= 'height:' . esc_attr( $height ) . 'px;';
+                }
             } else {
                 $style_bar .= 'height:4px;';
             }
