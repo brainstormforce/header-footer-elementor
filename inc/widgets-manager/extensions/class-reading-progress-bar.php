@@ -105,14 +105,33 @@ class Reading_Progress_Bar {
             $position = $this->get_elementor_settings( 'hfe_reading_progress_position' );
             $height   = $this->get_elementor_settings( 'hfe_reading_progress_height' );
             $color    = $this->get_elementor_settings( 'hfe_reading_progress_color' );
+            $offset   = $this->get_elementor_settings( 'hfe_reading_progress_offset' );
             $style_container = 'position:fixed;left:0;width:100%;z-index:99999;';
             if ( 'bottom' === $position ) {
-                $style_container .= 'bottom:0;';
+                if ( $offset ) {
+                    // Handle height as array with 'size' and 'unit' properties
+                    if ( is_array( $offset ) && isset( $offset['size'] ) ) {
+                        $offset_value = $offset['size'];
+                        $offset_unit = isset( $offset['unit'] ) ? $offset['unit'] : 'px';
+                        $style_container .= 'bottom:' . esc_attr( $offset_value ) . esc_attr( $offset_unit ) . ';';
+                    } 
+                }else{
+                    $style_container .= 'bottom:0;';
+                }
             } else {
-                $style_container .= 'top:0;';
                 // Add margin-top if user is logged in to account for the admin bar
                 if ( is_admin_bar_showing() && $position === 'top' ) {
                     $style_container .= 'margin-top:30px;';
+                }
+                if ( $offset ) {
+                    // Handle height as array with 'size' and 'unit' properties
+                    if ( is_array( $offset ) && isset( $offset['size'] ) ) {
+                        $offset_value = $offset['size'];
+                        $offset_unit = isset( $offset['unit'] ) ? $offset['unit'] : 'px';
+                        $style_container .= 'top:' . esc_attr( $offset_value ) . esc_attr( $offset_unit ) . ';';
+                    } 
+                }else{
+                    $style_container .= 'top:0;';
                 }
             }
             $style_bar = 'width:0;';

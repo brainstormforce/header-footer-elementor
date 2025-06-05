@@ -139,6 +139,25 @@ class Reading_Progress_Bar_Settings extends Tab_Base {
             ]
         );
 
+        $this->add_control(
+            'hfe_reading_progress_offset',
+            [
+                'label'      => __( 'Offset', 'header-footer-elementor' ),
+                'type'       => Controls_Manager::SLIDER,
+                'size_units' => [ 'px' ],
+                'range'      => [
+                    'px' => [
+                        'min'  => 0,
+                        'max'  => 50,
+                        'step' => 1,
+                    ],
+                ],
+                'condition'  => [
+                    'hfe_reading_progress_enable' => 'yes',
+                ],
+            ]
+        );
+
         // Get all public post types
         $post_types = get_post_types([
             'public' => true,
