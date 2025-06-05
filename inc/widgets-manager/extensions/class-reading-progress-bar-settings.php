@@ -149,7 +149,7 @@ class Reading_Progress_Bar_Settings extends Tab_Base {
         foreach ($post_types as $post_type) {
             // Skip attachment post type
             if ($post_type->name !== 'attachment') {
-                $post_type_options[$post_type->name] = $post_type->label;
+                $post_type_options[$post_type->name] = html_entity_decode( $post_type->label );
             }
         }
 
