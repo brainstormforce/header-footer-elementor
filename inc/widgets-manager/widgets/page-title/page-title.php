@@ -419,7 +419,8 @@ class Page_Title extends Common_Widget {
 					'notice_type' => 'info',
 					'dismissible' => false,
 					'heading' => esc_html__( 'Unlock more possibilities', 'header-footer-elementor' ),
-					'content' => __( 'Unlock the full potential of your designs with the <a href="https://ultimateelementor.com/pricing/?utm_source=uae-dashboard&utm_medium=editor&utm_campaign=uae-pro-promotion" target="_blank"> Pro version </a> — offering advanced features, powerful styling options, and unmatched flexibility.', 'header-footer-elementor' ),				]
+					'content' => __( 'Build smarter and faster with 70+ premium widgets, 200+ section blocks, and advanced customization controls — all in the UAE <a href="https://ultimateelementor.com/pricing/?utm_source=uae-dashboard&utm_medium=editor&utm_campaign=uae-pro-promotion" target="_blank"> Pro version</a>.', 'header-footer-elementor' ),
+				]
 			);
 
 
