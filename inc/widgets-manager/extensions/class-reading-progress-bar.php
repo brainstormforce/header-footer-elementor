@@ -101,19 +101,17 @@ class Reading_Progress_Bar {
         if ( isset( $doc_settings['hfe_reading_progress_disable'] ) && 'yes' === $doc_settings['hfe_reading_progress_disable'] ) {
             $show_bar = false;
         }
-
-        if ( ! \Elementor\Plugin::instance()->preview->is_preview_mode() && $show_bar ) {
+        if ( $show_bar ) {
             $position = $this->get_elementor_settings( 'hfe_reading_progress_position' );
             $height   = $this->get_elementor_settings( 'hfe_reading_progress_height' );
             $color    = $this->get_elementor_settings( 'hfe_reading_progress_color' );
-
             $style_container = 'position:fixed;left:0;width:100%;z-index:99999;';
             if ( 'bottom' === $position ) {
                 $style_container .= 'bottom:0;';
             } else {
                 $style_container .= 'top:0;';
                 // Add margin-top if user is logged in to account for the admin bar
-                if ( is_user_logged_in() && $position === 'top' ) {
+                if ( is_admin_bar_showing() && $position === 'top' ) {
                     $style_container .= 'margin-top:30px;';
                 }
             }
@@ -141,16 +139,7 @@ class Reading_Progress_Bar {
             echo wp_kses_post( $html );
         }
 
-        if ( \Elementor\Plugin::instance()->preview->is_preview_mode() ) {
-            if ( $show_bar ) {
-                ?>
-                <div class="hfe-reading-progress" style="position:fixed;top:0;left:0;width:100%;z-index:99999;"><div class="hfe-reading-progress-bar" style="width:0;height:4px;background:#000;"></div></div>
-                <script>
-!function(o){"use strict";o(function(){var r=o('.hfe-reading-progress-bar');if(!r.length)return;o(window).on('scroll',function(){var t=o(window).scrollTop(),n=o(document).height()-o(window).height(),c=n?t/n*100:0;r.css('width',c+'%')});});
-                </script>
-                <?php
-            }
-        }
+       
     }
 
     /**
