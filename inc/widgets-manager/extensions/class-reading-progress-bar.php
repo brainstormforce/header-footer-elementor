@@ -130,9 +130,7 @@ class Reading_Progress_Bar {
                 $style_bar .= 'height:4px;';
             }
             if ( $color ) {
-                $style_bar .= 'background-color:' . esc_attr( $color ) . ';';
-            } else {
-                $style_bar .= 'background-color:#000;';
+                $style_bar .= 'background-color:' . $color . ';';
             }
 
             $html = "<div class='hfe-reading-progress' style='{$style_container}'><div class='hfe-reading-progress-bar' style='{$style_bar}'></div></div>";

@@ -8,6 +8,7 @@
 namespace HFE\WidgetsManager\Extensions;
 
 use Elementor\Controls_Manager;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use Elementor\Core\Kits\Documents\Tabs\Tab_Base;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -109,6 +110,7 @@ class Reading_Progress_Bar_Settings extends Tab_Base {
                 'selectors' => [
                     '.hfe-reading-progress-bar' => 'background-color: {{VALUE}}',
                 ],
+                'default' => '#6A21A7',
                 'condition' => [
                     'hfe_reading_progress_enable' => 'yes',
                 ],
