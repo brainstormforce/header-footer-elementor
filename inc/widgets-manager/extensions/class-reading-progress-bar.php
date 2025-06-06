@@ -103,14 +103,12 @@ class Reading_Progress_Bar {
         }
         if ( $show_bar ) {
             $position = $this->get_elementor_settings( 'hfe_reading_progress_position' );
-            $new_class = '';
             $style_container = 'position:fixed;left:0;width:100%;z-index:99999;';
             if ( 'top' === $position ) {
                 // Add margin-top if user is logged in to account for the admin bar
                 if ( is_admin_bar_showing() && $position === 'top' ) {
                     $style_container .= 'margin-top:30px;';
                 }
-            }else{
             }
             $style_bar = 'width:0;';
             $html = "<div class='hfe-reading-progress' style='{$style_container}'><div class='hfe-reading-progress-bar' style='{$style_bar}'></div></div>";
