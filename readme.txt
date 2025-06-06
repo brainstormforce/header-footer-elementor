@@ -4,7 +4,7 @@ Tags: elementor, header footer builder, widgets, header template, footer templat
 Requires at least: 5.0  
 Tested up to: 6.8
 Requires PHP: 7.4  
-Stable tag: 2.3.3
+Stable tag: 2.3.2
 License: GPLv2 or later  
 License URI: https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -130,8 +130,9 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 ---
 
 == Changelog ==
-= 2.3.3 =
-* New Feature: Reading Progress Bar extension to display a progress indicator while reading posts.
+= 2.3.2.1 =
+- New Feature: Reading Progress Bar extension to display a progress indicator while reading posts.
+
 = 2.3.2 =
 - Improvement: Updated Dashboard for Improved User Experience
 
