@@ -469,22 +469,22 @@ msgid "WIDGETS"
 msgstr ""
 
 #: src/Components/Dashboard/OnboardingWidgets.jsx:149
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:176
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:216
 msgid "Activating..."
 msgstr ""
 
 #: src/Components/Dashboard/OnboardingWidgets.jsx:149
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:176
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:216
 msgid "Activate All"
 msgstr ""
 
 #: src/Components/Dashboard/OnboardingWidgets.jsx:161
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:187
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:238
 msgid "Deactivating..."
 msgstr ""
 
 #: src/Components/Dashboard/OnboardingWidgets.jsx:161
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:187
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:227
 msgid "Deactivate All"
 msgstr ""
 
@@ -960,12 +960,16 @@ msgstr ""
 msgid "Upgrade now"
 msgstr ""
 
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:142
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:182
 msgid "Widgets / Features"
 msgstr ""
 
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:154
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:194
 msgid "Search..."
+msgstr ""
+
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:238
+msgid "Deactivate Unused"
 msgstr ""
 
 #: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:155
