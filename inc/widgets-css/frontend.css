@@ -2139,3 +2139,8 @@ body .elementor .hfe-button-wrapper a {
 .hfe-button-wrapper {
     border-radius: 3px;
 }
+
+
+.hfe-reading-progress-bar{
+    height: 4px;
+}
