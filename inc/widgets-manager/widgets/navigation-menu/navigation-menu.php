@@ -1830,7 +1830,7 @@ class Navigation_Menu extends Common_Widget {
 			$this->start_controls_section(
 				'section_pro_features_field',
 				array(
-					'label' => __( 'Go UAE Pro for More Features', 'header-footer-elementor' ),
+					'label' => __( 'Go Pro for More Features', 'header-footer-elementor' ),
 				)
 			);
 
@@ -1840,8 +1840,7 @@ class Navigation_Menu extends Common_Widget {
 					'type' => Controls_Manager::NOTICE,
 					'notice_type' => 'info',
 					'dismissible' => false,
-					'heading' => esc_html__( 'Unlock more possibilities', 'header-footer-elementor' ),
-					'content' => __( 'Take your menus to the next level with the Advanced Navigation Menu in <a href="https://ultimateelementor.com/widgets/navigation-menu/?utm_source=uae-dashboard&utm_medium=editor&utm_campaign=uae-pro-promotion" target="_blank"> Pro  </a> — offering mega menus, custom styling options, and enhanced navigation flexibility.', 'header-footer-elementor' ),
+					'content' => __( 'Take your menus to the next level with the Advanced Navigation Menu in <a href="https://ultimateelementor.com/pricing/?utm_source=uae-dashboard&utm_medium=editor&utm_campaign=uae-pro-promotion" target="_blank"> Pro  </a> — offering mega menus, custom styling options, and enhanced navigation flexibility.', 'header-footer-elementor' ),
 				]
 			);
 
