@@ -130,6 +130,10 @@ class Reading_Progress_Bar_Settings extends Tab_Base {
                         'step' => 1,
                     ],
                 ],
+                'default' => [
+					'unit' => 'px',
+					'size' => 4,
+				],
                 'selectors'  => [
                     '.hfe-reading-progress-bar' => 'height: {{SIZE}}{{UNIT}}',
                 ],
@@ -140,7 +144,7 @@ class Reading_Progress_Bar_Settings extends Tab_Base {
         );
 
         $this->add_control(
-            'hfe_reading_progress_offset',
+            'hfe_reading_progress_offset_top',
             [
                 'label'      => __( 'Offset', 'header-footer-elementor' ),
                 'type'       => Controls_Manager::SLIDER,
@@ -152,8 +156,43 @@ class Reading_Progress_Bar_Settings extends Tab_Base {
                         'step' => 1,
                     ],
                 ],
+                'default' => [
+					'unit' => 'px',
+					'size' => 0,
+				],
+                'selectors'  => [
+                    '.hfe-reading-progress' => 'top: {{SIZE}}{{UNIT}}',
+                ],
                 'condition'  => [
                     'hfe_reading_progress_enable' => 'yes',
+                    'hfe_reading_progress_position' => 'top',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'hfe_reading_progress_offset_bottom',
+            [
+                'label'      => __( 'Offset', 'header-footer-elementor' ),
+                'type'       => Controls_Manager::SLIDER,
+                'size_units' => [ 'px' ],
+                'range'      => [
+                    'px' => [
+                        'min'  => 0,
+                        'max'  => 50,
+                        'step' => 1,
+                    ],
+                ],
+                'default' => [
+					'unit' => 'px',
+					'size' => 0,
+				],
+                'selectors'  => [
+                    '.hfe-reading-progress' => 'bottom: {{SIZE}}{{UNIT}}',
+                ],
+                'condition'  => [
+                    'hfe_reading_progress_enable' => 'yes',
+                    'hfe_reading_progress_position' => 'bottom',
                 ],
             ]
         );
