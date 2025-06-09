@@ -162,13 +162,13 @@ class Reading_Progress_Bar {
         $element->add_control(
             'hfe_reading_progress_disable',
             [
-                'label'        => __( 'Disable Reading Progress For This Page', 'header-footer-elementor' ),
+                'label'        => __( 'Disable For This Page', 'header-footer-elementor' ),
                 'type'         => Controls_Manager::SWITCHER,
                 'default'      => '',
                 'label_on'     => __( 'Yes', 'header-footer-elementor' ),
                 'label_off'    => __( 'No', 'header-footer-elementor' ),
                 'return_value' => 'yes',
-                'description'  => __('Note: Changes will be applied on the frontend. To view them in the editor, please refresh the page.', 'header-footer-elementor'),
+                'description'  => __('Note: Changes will be applied on the frontend.', 'header-footer-elementor'),
             ]
         );
 
