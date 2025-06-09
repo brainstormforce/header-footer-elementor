@@ -744,7 +744,7 @@ class Post_Info extends Common_Widget {
 	/**
 	 * Register Page Info Promotion Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.4.0
 	 * @access protected
 	 */
 	protected function register_pro_promotion_controls() {

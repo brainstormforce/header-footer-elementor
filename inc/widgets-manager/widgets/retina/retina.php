@@ -637,7 +637,7 @@ class Retina extends Common_Widget {
 	/**
 	 * Retina Promotion Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.4.0
 	 * @access protected
 	 */
 	protected function register_pro_promotion_controls() {

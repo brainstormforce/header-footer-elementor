@@ -399,7 +399,7 @@ class Page_Title extends Common_Widget {
 	/**
 	 * Register Page Title Promotion Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.4.0
 	 * @access protected
 	 */
 	protected function register_pro_promotion_controls() {
