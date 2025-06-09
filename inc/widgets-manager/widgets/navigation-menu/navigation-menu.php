@@ -156,6 +156,7 @@ class Navigation_Menu extends Common_Widget {
 		$this->register_general_content_controls();
 		$this->register_style_content_controls();
 		$this->register_dropdown_content_controls();
+		$this->register_pro_promotion_controls();
 	}
 
 	/**
@@ -1815,6 +1816,37 @@ class Navigation_Menu extends Common_Widget {
 			$this->end_controls_tabs();
 
 		$this->end_controls_section();
+	}
+
+	/**
+	 * Register Infocard Promotion Controls.
+	 *
+	 * @since 2.4.0
+	 * @access protected
+	 */
+	protected function register_pro_promotion_controls() {
+
+		if(! defined( 'UAEL_VER' )){
+			$this->start_controls_section(
+				'section_pro_features_field',
+				array(
+					'label' => __( 'Go Pro for More Features', 'header-footer-elementor' ),
+				)
+			);
+
+			$this->add_control(
+				'uae_pro_promotion_notice',
+				[
+					'type' => Controls_Manager::NOTICE,
+					'notice_type' => 'info',
+					'dismissible' => false,
+					'content' => __( 'Elevate your site’s navigation with the Advanced Navigation Menu in <a href="https://ultimateelementor.com/pricing/?utm_source=uae-dashboard&utm_medium=editor&utm_campaign=uae-pro-promotion" target="_blank"> Pro  </a> — featuring mega menus, custom styling, and greater flexibility for seamless user experiences.', 'header-footer-elementor' ),
+				]
+			);
+
+
+			$this->end_controls_section();
+		}
 	}
 
 	/**

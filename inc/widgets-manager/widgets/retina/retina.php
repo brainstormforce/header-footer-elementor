@@ -96,6 +96,7 @@ class Retina extends Common_Widget {
 		$this->register_retina_image_styling_controls();
 		$this->register_retina_caption_styling_controls();
 		$this->register_helpful_information();
+		$this->register_pro_promotion_controls();
 	}
 
 	/**
@@ -631,6 +632,37 @@ class Retina extends Common_Widget {
 			);
 
 			$this->end_controls_section();
+	}
+
+	/**
+	 * Retina Promotion Controls.
+	 *
+	 * @since 2.4.0
+	 * @access protected
+	 */
+	protected function register_pro_promotion_controls() {
+
+		if(! defined( 'UAEL_VER' )){
+			$this->start_controls_section(
+				'section_pro_features_field',
+				array(
+					'label' => __( 'Go Pro for More Features', 'header-footer-elementor' ),
+				)
+			);
+
+			$this->add_control(
+				'uae_pro_promotion_notice',
+				[
+					'type' => Controls_Manager::NOTICE,
+					'notice_type' => 'info',
+					'dismissible' => false,
+					'content' => __( '<b>Build smarter and faster</b> with premium widgets, 200+ section blocks, and advanced customisation controls — all available in the <a href="https://ultimateelementor.com/pricing/?utm_source=uae-dashboard&utm_medium=editor&utm_campaign=uae-pro-promotion" target="_blank">UAE Pro</a>.', 'header-footer-elementor' ),
+				]
+			);
+
+
+			$this->end_controls_section();
+		}
 	}
 
 	/**
