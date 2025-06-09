@@ -129,7 +129,21 @@ class Widgets_Config {
 				'demo_url'    => 'https://ultimateelementor.com/widgets/scroll-to-top/',
 				'category'    => 'extension',
 			],
-			'Site_Title'         => [
+			'Reading_Progress_Bar' => [
+				'slug'        => 'reading-progress-bar',
+				'title'       => __( 'Reading Progress Bar', 'header-footer-elementor' ),
+				'keywords'    => [ 'uael', 'reading', 'progress', 'extension' ],
+				'icon'        => 'hfe-icon-progress-bar',
+				'title_url'   => '#',
+				'default'     => true,
+				'doc_url'     => '',
+				'is_pro'      => false,
+				'is_new'      => true,
+				'description' => __( 'Display a progress indicator as users read your content.', 'header-footer-elementor' ),
+				'demo_url'    => '',
+				'category'    => 'extension',
+			],   
+            'Site_Title'         => [
 				'slug'        => 'hfe-site-title',
 				'title'       => __( 'Site Title', 'header-footer-elementor' ),
 				'keywords'    => [ 'uael', 'site', 'title', 'tag' ],
