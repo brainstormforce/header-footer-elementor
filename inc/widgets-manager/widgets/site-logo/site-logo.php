@@ -672,7 +672,7 @@ class Site_Logo extends Common_Widget {
 	/**
 	 * Site Logo Promotion Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.4.0
 	 * @access protected
 	 */
 	protected function register_pro_promotion_controls() {

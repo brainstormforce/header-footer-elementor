@@ -634,7 +634,7 @@ class Breadcrumbs_Widget extends Common_Widget {
 	/**
 	 * Register Breadcrumbs Promotion Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.4.0
 	 * @access protected
 	 */
 	protected function register_pro_promotion_controls() {

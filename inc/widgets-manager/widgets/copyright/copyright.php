@@ -183,7 +183,7 @@ class Copyright extends Common_Widget {
 	/**
 	 * Register Copyright Promotion Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.4.0
 	 * @access protected
 	 */
 	protected function register_pro_promotion_controls() {
