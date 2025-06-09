@@ -168,6 +168,7 @@ class Reading_Progress_Bar {
                 'label_on'     => __( 'Yes', 'header-footer-elementor' ),
                 'label_off'    => __( 'No', 'header-footer-elementor' ),
                 'return_value' => 'yes',
+                'description'  => __('Note: Changes will be applied on the frontend. To view them in the editor, please refresh the page.', 'header-footer-elementor'),
             ]
         );
 
