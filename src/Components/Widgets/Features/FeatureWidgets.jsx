@@ -11,6 +11,7 @@ const FeatureWidgets = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [loadingActivate, setLoadingActivate] = useState(false); // Loading state for activate button
     const [loadingDeactivate, setLoadingDeactivate] = useState(false);
+    const [loadingUnusedDeactivate, setLoadingUnusedDeactivate] = useState(false);
     const [loading, setLoading] = useState(true);
     const [updateCounter, setUpdateCounter] = useState(0);
     const [showTooltip, setShowTooltip] = useState(true); // Add state for showTooltip
@@ -107,6 +108,42 @@ const FeatureWidgets = () => {
         });
     };
 
+    const handleUnusedDeactivate = async () => {
+        setLoadingUnusedDeactivate(true);
+    
+        const formData = new window.FormData();
+        formData.append('action', 'hfe_bulk_deactivate_unused_widgets');
+        formData.append('nonce', hfe_admin_data.nonce);
+    
+        apiFetch({
+            url: hfe_admin_data.ajax_url,
+            method: 'POST',
+            body: formData,
+        }).then((data) => {
+            setLoadingUnusedDeactivate(false);
+    
+            if (data.success && Array.isArray(data.data?.deactivated)) {
+                const deactivatedSlugs = data.data.deactivated;
+                setAllWidgetsData(prevWidgets =>
+                    prevWidgets.map(widget =>
+                        deactivatedSlugs.includes(widget.id)
+                            ? { ...widget, is_active: false }
+                            : widget
+                    )
+                );
+                setUpdateCounter(prev => prev + 1);
+            } else if (data.error) {
+                console.error('AJAX request failed:', data.error);
+            } else {
+                console.error('Unexpected response structure:', data);
+            }
+        }).catch((error) => {
+            setLoadingUnusedDeactivate(false);
+            console.error('Error during AJAX request:', error);
+        });
+    };
+    
+
     function convertToWidgetsArray(data) {
         const widgets = [];
 
@@ -185,6 +222,17 @@ const FeatureWidgets = () => {
                             disabled={!!searchTerm}
                         >
                             {loadingDeactivate ? __('Deactivating...', 'header-footer-elementor') : __('Deactivate All', 'header-footer-elementor')}
+                        </Button>
+
+                        <Button
+                            icon={loadingUnusedDeactivate ? <LoaderCircle className="animate-spin" /> : null} // Loader for deactivate button.
+                            iconPosition="left"
+                            variant="outline"
+                            onClick={handleUnusedDeactivate}
+                            className="hfe-bulk-action-button"
+                            disabled={!!searchTerm}
+                        >
+                            {loadingUnusedDeactivate ? __('Deactivating...', 'header-footer-elementor') : __('Deactivate Unused', 'header-footer-elementor')}
                         </Button>
                     </div>
                 </div>

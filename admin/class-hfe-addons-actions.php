@@ -61,6 +61,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 
 			add_action( 'wp_ajax_hfe_bulk_activate_widgets', [ $this, 'bulk_activate_widgets' ] );
 			add_action( 'wp_ajax_hfe_bulk_deactivate_widgets', [ $this, 'bulk_deactivate_widgets' ] );
+			add_action( 'wp_ajax_hfe_bulk_deactivate_unused_widgets', [ $this, 'bulk_deactivate_unused_widgets' ] );
 
 			add_action( 'wp_ajax_save_theme_compatibility_option', [ $this, 'save_hfe_compatibility_option_callback' ] );
 			add_action( 'wp_ajax_save_analytics_option', [ $this, 'save_analytics_option' ] );
@@ -272,6 +273,44 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			// Send a JSON response.
 			wp_send_json_success( 'Widgets deactivated successfully.' );
 		}
+
+		/**
+		 * Deactivate all unused module
+		 */
+		public static function bulk_deactivate_unused_widgets() {
+
+			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
+		
+			if ( ! isset( self::$widget_list ) ) {
+				self::$widget_list = HFE_Helper::get_widget_list();
+			}
+			$used_widgets = HFE_Admin::get_used_widget();
+			$unused_widgets = [];
+		
+			// Compare slugs from widget_list to keys in $used_widgets
+			foreach ( self::$widget_list as $slug => $value ) {
+				if ( ! isset( $used_widgets[ $value['slug'] ] ) ) {
+					$unused_widgets[] = $slug;
+				}
+			}
+		
+			$widgets = HFE_Helper::get_admin_settings_option( '_hfe_widgets', [] );
+			$deactivated = [];
+		
+			foreach ( $widgets as $slug => $value ) {
+				if ( in_array( $slug, $unused_widgets ) ) {
+					$widgets[ $slug ] = 'disabled';
+					$deactivated[] = $slug;
+				}
+			}
+		
+			$widgets = array_map( 'esc_attr', $widgets );
+		
+			HFE_Helper::update_admin_settings_option( '_hfe_widgets', $widgets );
+		
+			wp_send_json_success( [ 'deactivated' => $deactivated ] );
+		}
+		
 
 		/**
 		 * Deactivate module
