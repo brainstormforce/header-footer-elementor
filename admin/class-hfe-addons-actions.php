@@ -284,8 +284,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			if ( ! isset( self::$widget_list ) ) {
 				self::$widget_list = HFE_Helper::get_widget_list();
 			}
-		
-			$used_widgets = get_option( 'uae_widgets_usage_data_option' );
+			$used_widgets = HFE_Admin::get_used_widget();
 			$unused_widgets = [];
 		
 			// Compare slugs from widget_list to keys in $used_widgets
