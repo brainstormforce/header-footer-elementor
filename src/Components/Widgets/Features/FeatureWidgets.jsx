@@ -124,15 +124,13 @@ const FeatureWidgets = () => {
     
             if (data.success && Array.isArray(data.data?.deactivated)) {
                 const deactivatedSlugs = data.data.deactivated;
-    
                 setAllWidgetsData(prevWidgets =>
                     prevWidgets.map(widget =>
-                        deactivatedSlugs.includes(widget.slug)
+                        deactivatedSlugs.includes(widget.id)
                             ? { ...widget, is_active: false }
                             : widget
                     )
                 );
-    
                 setUpdateCounter(prev => prev + 1);
             } else if (data.error) {
                 console.error('AJAX request failed:', data.error);
@@ -144,7 +142,6 @@ const FeatureWidgets = () => {
             console.error('Error during AJAX request:', error);
         });
     };
-    
     
 
     function convertToWidgetsArray(data) {
