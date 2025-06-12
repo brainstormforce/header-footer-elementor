@@ -22,3 +22,9 @@ vendor/
 
 # E2E test artifacts.
 artifacts/
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
