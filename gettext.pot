@@ -854,15 +854,11 @@ msgid ""
 "choose one of the following options to enable theme support:"
 msgstr ""
 
-#: src/Components/Settings/UsageTracking.jsx:68
-msgid "Enable Anonymous Analytics"
-msgstr ""
-
 #: src/Components/Settings/UsageTracking.jsx:71
 msgid ""
 "Collect non-sensitive information from your website, such as the PHP "
 "version and features used, to help us fix bugs faster, make smarter "
-"decisions, and build features that actually matter to you."
+"decisions, and build features that actually matter to you. "
 msgstr ""
 
 #: src/Components/Settings/UsageTracking.jsx:81
