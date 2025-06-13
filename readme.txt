@@ -131,7 +131,7 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 
 == Changelog ==
 = 2.4.1 =
-- Improvement: Improve code quality.
+- Improvement: Optimized codebase and improved code quality.
 
 = 2.4.0 =
 - New: Reading Progress Bar - Added a sleek, customizable reading progress bar to enhance user engagement on your site.
