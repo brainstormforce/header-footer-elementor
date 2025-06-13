@@ -10,7 +10,6 @@
  * Version: 2.4.1
  * Elementor tested up to: 3.29
  * Elementor Pro tested up to: 3.29
- * Requires Plugins: elementor
  *
  * @package         header-footer-elementor
  */
