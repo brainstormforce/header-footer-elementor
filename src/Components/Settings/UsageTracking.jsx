@@ -42,7 +42,7 @@ const UsageTracking = () => {
 
     return (
         <>
-            <p className='text-base font-semibold m-0'>{__('Usage Tracking', 'header-footer-elementor')}</p>
+            <hr className="w-full border-b-0 border-x-0 border-t border-solid border-t-border-subtle" style={{ marginTop: '20px', marginBottom: '20px', borderColor: '#E5E7EB' }} />
             <Container
                 align="center"
                 className="flex flex-col lg:flex-row"
@@ -64,12 +64,9 @@ const UsageTracking = () => {
                             className="hfe-remove-ring"
                         />
                         <div className='flex flex-col justify-start px-1 gap-3'>
-                            <span className="font-bold text-text-primary m-0">
-                                {__("Enable Usage Tracking", "header-footer-elementor")}
-                            </span>
                             <span className="font-normal text-text-primary m-0">
                                 {__(
-                                    "Allow Brainstorm Force products to track non-sensitive usage tracking data. ",
+                                    "Collect non-sensitive information from your website, such as the PHP version and features used, to help us fix bugs faster, make smarter decisions, and build features that actually matter to you. ",
                                     "header-footer-elementor"
                                 )}
                                 <a

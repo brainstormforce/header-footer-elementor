@@ -4,7 +4,7 @@ Tags: elementor, elementor addon, elementor widget, elementor template, header f
 Requires at least: 5.0  
 Tested up to: 6.8
 Requires PHP: 7.4  
-Stable tag: 2.4.0
+Stable tag: 2.4.1
 License: GPLv2 or later  
 License URI: https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -130,6 +130,9 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 ---
 
 == Changelog ==
+= 2.4.1 =
+- Improvement: Optimized codebase and improved code quality.
+
 = 2.4.0 =
 - New: Reading Progress Bar - Added a sleek, customizable reading progress bar to enhance user engagement on your site.
 
