@@ -854,14 +854,14 @@ msgid ""
 "choose one of the following options to enable theme support:"
 msgstr ""
 
-#: src/Components/Settings/UsageTracking.jsx:71
+#: src/Components/Settings/UsageTracking.jsx:68
 msgid ""
 "Collect non-sensitive information from your website, such as the PHP "
 "version and features used, to help us fix bugs faster, make smarter "
 "decisions, and build features that actually matter to you. "
 msgstr ""
 
-#: src/Components/Settings/UsageTracking.jsx:81
+#: src/Components/Settings/UsageTracking.jsx:78
 #: src/Components/Templates/ExploreTemplates.jsx:227
 msgid "Learn More"
 msgstr ""
