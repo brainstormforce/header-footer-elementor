@@ -1,10 +1,10 @@
 # Ultimate Addons for Elementor (Formerly Elementor Header & Footer Builder) #
 **Contributors:** [@brainstormforce](https://profiles.wordpress.org/@brainstormforce/), [@nikschavan](https://profiles.wordpress.org/@nikschavan/), [@pratikchaskar](https://profiles.wordpress.org/@pratikchaskar/)  
-**Tags:** elementor, header footer builder, widgets, header template, footer template  
+**Tags:** elementor, elementor addon, elementor widget, elementor template, header footer builder  
 **Requires at least:** 5.0    
 **Tested up to:** 6.8  
 **Requires PHP:** 7.4    
-**Stable tag:** 2.4.0  
+**Stable tag:** 2.4.1  
 **License:** GPLv2 or later    
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html    
 
@@ -130,6 +130,9 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 ---
 
 ## Changelog ##
+### 2.4.1 ###
+- Improvement: Optimized codebase and improved code quality.
+
 ### 2.4.0 ###
 - New: Reading Progress Bar - Added a sleek, customizable reading progress bar to enhance user engagement on your site.
 

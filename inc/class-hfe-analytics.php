@@ -58,6 +58,7 @@ if ( ! class_exists( 'HFE_Analytics' ) ) {
 								'show_on_screens'   => [ 'plugins' ],
 							],
 						],
+						'hide_optin_checkbox' => true,
 					],
 				]
 			);
