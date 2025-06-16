@@ -407,9 +407,6 @@ class HFE_Settings_Page {
 	 * @return mixed
 	 */
 	public function hfe_settings( $views ) {
-		// The following methods are currently disabled but may be used in the future.
-		// $this->hfe_tabs();
-		// $this->hfe_modal();.
 		return $views;
 	}
 
