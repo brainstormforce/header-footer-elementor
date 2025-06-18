@@ -509,7 +509,7 @@ class HFE_Settings_Page {
 						],
 					]
 				),
-				'https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme'
+				'https://github.com/brainstormforce/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme'
 			);
 			?>
 		</p>
