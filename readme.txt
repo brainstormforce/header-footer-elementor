@@ -1,5 +1,5 @@
 === Ultimate Addons for Elementor (Formerly Elementor Header & Footer Builder) ===  
-Contributors: @brainstormforce, @nikschavan, @pratikchaskar
+Contributors: @brainstormforce, @pratikchaskar
 Tags: elementor, elementor addon, elementor widget, elementor template, header footer builder
 Requires at least: 5.0  
 Tested up to: 6.8
@@ -499,10 +499,10 @@ Elementor has deprecated few functions and namespaces with its v3.0.0. Following
 * Fix: Flush permalinks on plugin update to Elementor error when trying to edit the Header/Footer.
 
 = 1.1.3 =
-* Improvement: Allow changing the permalinks for the hfe templates (<a href="https://github.com/Nikschavan/header-footer-elementor/pull/162/">#162</a>)
-* Fix: WPML Translations do not work when using the Elementor Template as a shortcode. (<a href="https://github.com/Nikschavan/header-footer-elementor/pull/159/">#159</a>)
-* Fix: Page content appears over the header. (<a href="https://github.com/Nikschavan/header-footer-elementor/pull/150/">#150</a>)
-* Fix: Remove the deprecated function warning for shortcode functions. (Props <a href="https://github.com/hogash">@hogash</a> <a href="https://github.com/Nikschavan/header-footer-elementor/pull/145/">#145</a>)
+* Improvement: Allow changing the permalinks for the hfe templates (<a href="https://github.com/brainstormforce/header-footer-elementor/pull/162/">#162</a>)
+* Fix: WPML Translations do not work when using the Elementor Template as a shortcode. (<a href="https://github.com/brainstormforce/header-footer-elementor/pull/159/">#159</a>)
+* Fix: Page content appears over the header. (<a href="https://github.com/brainstormforce/header-footer-elementor/pull/150/">#150</a>)
+* Fix: Remove the deprecated function warning for shortcode functions. (Props <a href="https://github.com/hogash">@hogash</a> <a href="https://github.com/brainstormforce/header-footer-elementor/pull/145/">#145</a>)
 
 = 1.1.2 =
 * Fix: Depracated function warning from Elementor's method `\Elementor\Post_CSS_File`
