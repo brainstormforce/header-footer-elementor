@@ -10,14 +10,11 @@ const FeatureWidgets = () => {
     const [allWidgetsData, setAllWidgetsData] = useState(null); // Initialize state.
     const [searchTerm, setSearchTerm] = useState('');
     const [loadingActivate, setLoadingActivate] = useState(false); // Loading state for activate button
-    const [loadingDeactivate, setLoadingDeactivate] = useState(false);
     const [loadingUnusedDeactivate, setLoadingUnusedDeactivate] = useState(false);
     const [loading, setLoading] = useState(true);
     const [updateCounter, setUpdateCounter] = useState(0);
     const [showTooltip, setShowTooltip] = useState(true); // Add state for showTooltip
     
-
-
     useEffect(() => {
         const fetchSettings = () => {
             setLoading(true);
@@ -77,33 +74,6 @@ const FeatureWidgets = () => {
             }
         }).catch((error) => {
             setLoadingActivate(false);
-            console.error('Error during AJAX request:', error);
-        });
-    };
-
-    const handleDeactivateAll = async () => {
-        setLoadingDeactivate(true);
-
-        const formData = new window.FormData();
-        formData.append('action', 'hfe_bulk_deactivate_widgets');
-        formData.append('nonce', hfe_admin_data.nonce);
-
-        apiFetch({
-            url: hfe_admin_data.ajax_url,
-            method: 'POST',
-            body: formData,
-        }).then((data) => {
-            setLoadingDeactivate(false);
-            if (data.success) {
-                setAllWidgetsData(prevWidgets =>
-                    prevWidgets.map(widget => ({ ...widget, is_active: false }))
-                );
-                setUpdateCounter(prev => prev + 1);
-            } else if (data.error) {
-                console.error('AJAX request failed:', data.error);
-            }
-        }).catch((error) => {
-            setLoadingDeactivate(false);
             console.error('Error during AJAX request:', error);
         });
     };
@@ -212,18 +182,6 @@ const FeatureWidgets = () => {
                         >
                             {loadingActivate ? __('Activating...', 'header-footer-elementor') : __('Activate All', 'header-footer-elementor')}
                         </Button>
-
-                        <Button
-                            icon={loadingDeactivate ? <LoaderCircle className="animate-spin" /> : null} // Loader for deactivate button.
-                            iconPosition="left"
-                            variant="outline"
-                            onClick={handleDeactivateAll}
-                            className="hfe-bulk-action-button"
-                            disabled={!!searchTerm}
-                        >
-                            {loadingDeactivate ? __('Deactivating...', 'header-footer-elementor') : __('Deactivate All', 'header-footer-elementor')}
-                        </Button>
-
                         <Button
                             icon={loadingUnusedDeactivate ? <LoaderCircle className="animate-spin" /> : null} // Loader for deactivate button.
                             iconPosition="left"
