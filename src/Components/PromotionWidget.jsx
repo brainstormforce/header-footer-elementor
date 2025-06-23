@@ -13,10 +13,12 @@ const PromotionWidget = () => {
                     continue;
                 }
 
-                // Delay to ensure the promotion dialog is rendered
-                setTimeout(() => {
+                const updateDialog = (attempt = 0) => {
                     const dialog = parent.document.querySelector('#elementor-element--promotion__dialog');
                     if (!dialog) {
+                        if (attempt < 10) {
+                            setTimeout(() => updateDialog(attempt + 1), 50);
+                        }
                         return;
                     }
 
@@ -32,7 +34,7 @@ const PromotionWidget = () => {
                         }
 
                         const button = document.createElement('a');
-                        button.appendChild(document.createTextNode('Upgrade to Pro'));
+                        button.textContent = 'Upgrade to Pro';
                         button.setAttribute('href', 'https://your-upgrade-url.com');
                         button.setAttribute('target', '_blank');
                         button.classList.add('dialog-button', 'dialog-action', 'dialog-buttons-action', 'elementor-button', 'go-pro', 'elementor-button-success', 'uae-upgrade-button');
@@ -42,14 +44,12 @@ const PromotionWidget = () => {
                         } else {
                             dialog.appendChild(button);
                         }
-                        e.stopImmediatePropagation();
-                    } else {
-                        if (defaultBtn) {
-                            defaultBtn.style.display = '';
-                        }
+                    } else if (defaultBtn) {
+                        defaultBtn.style.display = '';
                     }
-                }, 0);
+                };
 
+                updateDialog();
                 break;
             }
         };
