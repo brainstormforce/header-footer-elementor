@@ -128,13 +128,13 @@ class HFE_Admin {
 	 * Enqueuing Promotion widget scripts.
 	 */
 	public function enqueue_editor_scripts() {
-		wp_enqueue_script(
-			'uae-pro-promotion',
-			HFE_URL . 'assets/js/promotion-widget.js',
-			['jquery'],
-			HFE_VER,
-			true
-		);
+               wp_enqueue_script(
+                       'uae-pro-promotion',
+                       HFE_URL . 'build/promotion-widget.js',
+                       ['jquery'],
+                       HFE_VER,
+                       true
+               );
 	}
 	
 	/**
