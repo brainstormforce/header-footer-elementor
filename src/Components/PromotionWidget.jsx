@@ -7,32 +7,49 @@ const PromotionWidget = () => {
             if (!proWidgets.length) {
                 return;
             }
+
             for (let i = 0; i < proWidgets.length; i++) {
                 if (!proWidgets[i].contains(e.target)) {
                     continue;
                 }
-                const dialog = parent.document.querySelector('#elementor-element--promotion__dialog');
-                const icon = proWidgets[i].querySelector('.icon > i');
-                if (icon.classList.toString().indexOf('hfe') >= 0) {
-                    dialog.querySelector('.dialog-buttons-action').style.display = 'none';
-                    e.stopImmediatePropagation();
-                    if (dialog.querySelector('.uae-upgrade-button') === null) {
+
+                // Delay to ensure the promotion dialog is rendered
+                setTimeout(() => {
+                    const dialog = parent.document.querySelector('#elementor-element--promotion__dialog');
+                    if (!dialog) {
+                        return;
+                    }
+
+                    const defaultBtn = dialog.querySelector('.dialog-buttons-action');
+                    const icon = proWidgets[i].querySelector('.icon > i');
+
+                    // Clean up any previous custom buttons
+                    dialog.querySelectorAll('.uae-upgrade-button').forEach((b) => b.remove());
+
+                    if (icon && icon.className.includes('hfe')) {
+                        if (defaultBtn) {
+                            defaultBtn.style.display = 'none';
+                        }
+
                         const button = document.createElement('a');
                         button.appendChild(document.createTextNode('Upgrade to Pro'));
                         button.setAttribute('href', 'https://your-upgrade-url.com');
                         button.setAttribute('target', '_blank');
                         button.classList.add('dialog-button', 'dialog-action', 'dialog-buttons-action', 'elementor-button', 'go-pro', 'elementor-button-success', 'uae-upgrade-button');
-                        dialog.querySelector('.dialog-buttons-action').insertAdjacentHTML('afterend', button.outerHTML);
+
+                        if (defaultBtn) {
+                            defaultBtn.insertAdjacentElement('afterend', button);
+                        } else {
+                            dialog.appendChild(button);
+                        }
+                        e.stopImmediatePropagation();
                     } else {
-                        dialog.querySelector('.uae-upgrade-button').style.display = '';
+                        if (defaultBtn) {
+                            defaultBtn.style.display = '';
+                        }
                     }
-                } else {
-                    dialog.querySelector('.dialog-buttons-action').style.display = '';
-                    const btn = dialog.querySelector('.uae-upgrade-button');
-                    if (btn !== null) {
-                        btn.style.display = 'none';
-                    }
-                }
+                }, 0);
+
                 break;
             }
         };
