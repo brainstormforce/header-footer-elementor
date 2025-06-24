@@ -284,7 +284,8 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			if ( ! isset( self::$widget_list ) ) {
 				self::$widget_list = HFE_Helper::get_widget_list();
 			}
-			$used_widgets = HFE_Admin::get_used_widget();
+			$used_widgets = HFE_Helper::get_used_widget();
+			// var_dump($used_widgets);
 			$unused_widgets = [];
 		
 			// Compare slugs from widget_list to keys in $used_widgets
@@ -294,10 +295,10 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 				}
 			}
 		
-			$widgets = HFE_Helper::get_admin_settings_option( '_hfe_widgets', [] );
 			$deactivated = [];
-		
-			foreach ( $widgets as $slug => $value ) {
+	
+			// Set all extension to enabled.
+			foreach ( self::$widget_list as $slug => $value ) {
 				if ( in_array( $slug, $unused_widgets ) ) {
 					$widgets[ $slug ] = 'disabled';
 					$deactivated[] = $slug;
