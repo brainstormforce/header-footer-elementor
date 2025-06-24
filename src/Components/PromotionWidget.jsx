@@ -5,6 +5,7 @@ const PromotionWidget = () => {
         // Global variables to track state
         let lastClickedWidgetType = null;
         let continuousCheckInterval = null;
+        let searchObserver = null;
         
         // Function to customize the promotion dialog
         const customizePromotionDialog = (forceUaeWidget = false) => {
@@ -14,7 +15,7 @@ const PromotionWidget = () => {
             const defaultBtn = dialog.querySelector('.dialog-buttons-action:not(.uae-upgrade-button)');
             if (!defaultBtn) return false;
             
-            // Determine if we should show our button
+            // Always show our button in search results or if forced
             const shouldShowUaeButton = forceUaeWidget || lastClickedWidgetType === 'uae';
             
             // Clean up any previous custom buttons to avoid duplicates
@@ -83,7 +84,7 @@ const PromotionWidget = () => {
             // Check if it's in our category
             const isInUaeCategory = widget.closest('#elementor-panel-category-hfe-widgets') !== null;
             
-            return hasHfeClass && isInUaeCategory;
+            return hasHfeClass || isInUaeCategory;
         };
         
         // Function to start continuous checking for dialog changes
@@ -205,6 +206,104 @@ const PromotionWidget = () => {
             return observer;
         };
         
+        // Special function to handle search results
+        const setupSearchResultsHandler = () => {
+            // If we already have an observer, disconnect it
+            if (searchObserver) {
+                searchObserver.disconnect();
+                searchObserver = null;
+            }
+            
+            // Create a new observer specifically for search results
+            searchObserver = new MutationObserver((mutations) => {
+                // Check if search results are visible
+                const searchWrapper = parent.document.querySelector('#elementor-panel-elements-search-wrapper');
+                if (!searchWrapper) return;
+                
+                // Process all promotion widgets in search results
+                const searchPromoWidgets = searchWrapper.querySelectorAll('.elementor-element--promotion');
+                if (searchPromoWidgets.length === 0) return;
+                
+                console.log('UAE: Found promotion widgets in search results:', searchPromoWidgets.length);
+                
+                // Add click handlers to all promotion widgets in search results
+                searchPromoWidgets.forEach(widget => {
+                    // Remove any existing click handlers
+                    widget.removeEventListener('click', handleSearchWidgetClick);
+                    
+                    // Add our click handler
+                    widget.addEventListener('click', handleSearchWidgetClick);
+                    
+                    // Mark this widget as processed
+                    widget.setAttribute('data-uae-processed', 'true');
+                });
+            });
+            
+            // Observe the panel for changes
+            const panelElements = parent.document.querySelector('#elementor-panel-elements');
+            if (panelElements) {
+                searchObserver.observe(panelElements, {
+                    childList: true,
+                    subtree: true,
+                    attributes: false
+                });
+            }
+            
+            // Also observe the search input
+            const searchInput = parent.document.querySelector('#elementor-panel-elements-search-input');
+            if (searchInput) {
+                // Add input event listener
+                searchInput.addEventListener('input', handleSearchInput);
+            }
+        };
+        
+        // Handle search input changes
+        const handleSearchInput = () => {
+            // Wait a bit for search results to render
+            setTimeout(() => {
+                const searchWrapper = parent.document.querySelector('#elementor-panel-elements-search-wrapper');
+                if (!searchWrapper) return;
+                
+                const searchPromoWidgets = searchWrapper.querySelectorAll('.elementor-element--promotion');
+                console.log('UAE: Search input changed, found widgets:', searchPromoWidgets.length);
+                
+                searchPromoWidgets.forEach(widget => {
+                    // Remove any existing click handlers
+                    widget.removeEventListener('click', handleSearchWidgetClick);
+                    
+                    // Add our click handler
+                    widget.addEventListener('click', handleSearchWidgetClick);
+                    
+                    // Mark this widget as processed
+                    widget.setAttribute('data-uae-processed', 'true');
+                });
+            }, 300);
+        };
+        
+        // Handle clicks on widgets in search results
+        const handleSearchWidgetClick = (e) => {
+            console.log('UAE: Search widget clicked');
+            
+            // Set all widgets in search results to be treated as UAE widgets
+            lastClickedWidgetType = 'uae';
+            
+            // Start continuous checking
+            startContinuousCheck();
+            
+            // Set up immediate checks with increasing delays
+            const delays = [10, 30, 50, 100, 200, 300, 500, 1000];
+            delays.forEach(delay => {
+                setTimeout(() => {
+                    const dialog = parent.document.querySelector('#elementor-element--promotion__dialog');
+                    if (dialog) {
+                        customizePromotionDialog(true);
+                    }
+                }, delay);
+            });
+            
+            // Don't stop propagation - we want the dialog to open
+        };
+        
         // Initialize everything
         const initProWidgets = () => {
             if (typeof parent.document === 'undefined') return;
@@ -214,6 +313,9 @@ const PromotionWidget = () => {
             
             // Add our event listener with capture phase to ensure it runs first
             parent.document.addEventListener('mousedown', handleProWidgetClick, true);
+            
+            // Set up search results handler
+            setupSearchResultsHandler();
             
             // Create the observer
             const observer = createDialogObserver();
@@ -249,8 +351,24 @@ const PromotionWidget = () => {
                 observer.disconnect();
             }
             
+            if (searchObserver) {
+                searchObserver.disconnect();
+            }
+            
             if (typeof parent.document !== 'undefined') {
                 parent.document.removeEventListener('mousedown', handleProWidgetClick, true);
+                
+                // Remove search input event listeners
+                const searchInput = parent.document.querySelector('#elementor-panel-elements-search-input');
+                if (searchInput) {
+                    searchInput.removeEventListener('input', handleSearchInput);
+                }
+                
+                // Remove click handlers from search widgets
+                const searchPromoWidgets = parent.document.querySelectorAll('#elementor-panel-elements-search-wrapper .elementor-element--promotion');
+                searchPromoWidgets.forEach(widget => {
+                    widget.removeEventListener('click', handleSearchWidgetClick);
+                });
             }
             
             if (window.elementor && elementor.off) {
