@@ -577,17 +577,30 @@ class HFE_Settings_Page {
 			9
 		);
 
-
-			// Add the Settings Submenu.
+		if( ! defined( 'UAEL_PRO' ) ){
+			// Add the Upgrade to Pro Submenu.
 			add_submenu_page(
 				$menu_slug,
-				__( 'Onboarding', 'header-footer-elementor' ),
-				__( 'Onboardingsuccess', 'header-footer-elementor' ),
+				__( 'Upgrade to Pro', 'header-footer-elementor' ),
+				'<span style="color:#ff9e30;">' . __( 'Upgrade to Pro', 'header-footer-elementor' ) . '</span>',
 				$capability,
-				$menu_slug . '#onboardingsuccess',
-				[ $this, 'render' ],
-				9
+				'uae-upgrade-to-pro',
+				[ $this, 'redirect_to_pricing_page' ],
+				20
 			);
+		}
+		
+
+		// Add the Settings Submenu.
+		add_submenu_page(
+			$menu_slug,
+			__( 'Onboarding', 'header-footer-elementor' ),
+			__( 'Onboardingsuccess', 'header-footer-elementor' ),
+			$capability,
+			$menu_slug . '#onboardingsuccess',
+			[ $this, 'render' ],
+			9
+		);
 	}
 	
 
@@ -1622,6 +1635,17 @@ class HFE_Settings_Page {
 		libxml_use_internal_errors( $libxml_use_internal_errors );
 
 		return $sanitized;
+	}
+
+	/**
+	 * Redirect to the pricing page when "Upgrade to Pro" is clicked.
+	 *
+	 * @since 2.4.1
+	 * @return void
+	 */
+	public function redirect_to_pricing_page() {
+		wp_redirect( 'https://ultimateelementor.com/pricing/?utm_source=wp-admin&utm_medium=menu&utm_campaign=uae-upgrade' );
+		exit;
 	}
 }
 
