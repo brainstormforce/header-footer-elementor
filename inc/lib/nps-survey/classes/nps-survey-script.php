@@ -1,11 +1,14 @@
 <?php
 /**
  * NPS Survey Script
- * File to handle behaviour and content of NPS popup
+ * File to handle behaviour and content of NPS popup`
  *
  * @package {{package}}
  */
 
+if ( class_exists( 'Nps_Survey' ) ) {
+	return;
+}
 /**
  * Nps_Survey
  */
@@ -208,7 +211,7 @@ class Nps_Survey {
 	 * @return string
 	 */
 	public static function get_api_domain() {
-		return trailingslashit( defined( 'NPS_SURVEY_REMOTE_URL' ) ? NPS_SURVEY_REMOTE_URL : apply_filters( 'nps_survey_api_domain', 'https://websitedemos.net/' ) );
+		return trailingslashit( defined( 'NPS_SURVEY_REMOTE_URL' ) ? NPS_SURVEY_REMOTE_URL : apply_filters( 'nps_survey_api_domain', 'https://metrics.brainstormforce.com/' ) );
 	}
 
 	/**
