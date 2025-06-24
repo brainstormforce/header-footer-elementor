@@ -28,14 +28,14 @@
   content: "UAE";
   position: absolute;
   top: 0;
-  right: 0;
+  left: 0;
   z-index: 0;
   color: #a4afb7;
   background: transparent;
   font-size: 10px;
   font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
   padding: 0.2em 0.5em;
-  border-width: 0 0 1px 1px;
+  border-width: 0 1px 1px 0;
   border-color: #e0e0e0;
   border-style: solid;
 }
