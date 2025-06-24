@@ -582,11 +582,11 @@ class HFE_Settings_Page {
 			add_submenu_page(
 				$menu_slug,
 				__( 'Upgrade to Pro', 'header-footer-elementor' ),
-				'<span style="color:#ff9e30;">' . __( 'Upgrade to Pro', 'header-footer-elementor' ) . '</span>',
+				'<span style="color:#fff;">' . __( 'Upgrade to Pro', 'header-footer-elementor' ) . '</span>',
 				$capability,
 				'uae-upgrade-to-pro',
 				[ $this, 'redirect_to_pricing_page' ],
-				20
+				9
 			);
 		}
 		

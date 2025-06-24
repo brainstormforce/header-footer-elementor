@@ -828,3 +828,11 @@ span.dashicons.dashicons-update.hfe-loader {
         padding-right: 0px;
     }
 }
+
+li#toplevel_page_hfe a[href="admin.php?page=uae-upgrade-to-pro"]{
+    background-color: #6104ff;
+}
+
+li#toplevel_page_hfe a[href="admin.php?page=uae-upgrade-to-pro"]:hover{
+    background-color: #6104ff;
+}
