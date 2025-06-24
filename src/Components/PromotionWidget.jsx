@@ -62,13 +62,11 @@ const PromotionWidget = () => {
                 // Mark the dialog as customized
                 dialog.setAttribute('data-uae-customized', 'true');
                 
-                console.log('UAE: Added custom button, hid default button');
                 return true;
             } else {
                 // Not our widget, make sure default button is visible
                 defaultBtn.style.display = '';
                 dialog.removeAttribute('data-uae-customized');
-                console.log('UAE: Showing default button only');
                 return true;
             }
         };
@@ -139,7 +137,6 @@ const PromotionWidget = () => {
             
             // Update the last clicked widget type
             lastClickedWidgetType = isUae ? 'uae' : 'other';
-            console.log('UAE: Widget clicked, type:', lastClickedWidgetType);
             
             // Start continuous checking for dialog changes
             startContinuousCheck();
@@ -223,9 +220,7 @@ const PromotionWidget = () => {
                 // Process all promotion widgets in search results
                 const searchPromoWidgets = searchWrapper.querySelectorAll('.elementor-element--promotion');
                 if (searchPromoWidgets.length === 0) return;
-                
-                console.log('UAE: Found promotion widgets in search results:', searchPromoWidgets.length);
-                
+                                
                 // Add click handlers to all promotion widgets in search results
                 searchPromoWidgets.forEach(widget => {
                     // Remove any existing click handlers
@@ -265,7 +260,6 @@ const PromotionWidget = () => {
                 if (!searchWrapper) return;
                 
                 const searchPromoWidgets = searchWrapper.querySelectorAll('.elementor-element--promotion');
-                console.log('UAE: Search input changed, found widgets:', searchPromoWidgets.length);
                 
                 searchPromoWidgets.forEach(widget => {
                     // Remove any existing click handlers
@@ -282,7 +276,6 @@ const PromotionWidget = () => {
         
         // Handle clicks on widgets in search results
         const handleSearchWidgetClick = (e) => {
-            console.log('UAE: Search widget clicked');
             
             // Set all widgets in search results to be treated as UAE widgets
             lastClickedWidgetType = 'uae';
