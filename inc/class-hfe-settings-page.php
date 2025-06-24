@@ -45,6 +45,10 @@ class HFE_Settings_Page {
 		if ( ! HFE_Helper::is_pro_active() ) {
 			if ( is_admin() && current_user_can( 'manage_options' ) ) {
 				add_action( 'admin_menu', [ $this, 'hfe_register_settings_page' ] );
+				if( ! defined( 'UAEL_PRO' ) ){
+					add_action( 'admin_menu', [ $this, 'hfe_add_upgrade_to_pro' ] );
+					add_action( 'admin_footer', [ $this, 'hfe_add_upgrade_to_pro_target_attr' ] );
+				}
 			}
 			add_action( 'admin_init', [ $this, 'hfe_admin_init' ] );
 			add_filter( 'views_edit-elementor-hf', [ $this, 'hfe_settings' ], 10, 1 );
@@ -576,19 +580,6 @@ class HFE_Settings_Page {
 			[ $this, 'render' ],
 			9
 		);
-
-		if( ! defined( 'UAEL_PRO' ) ){
-			// Add the Upgrade to Pro Submenu.
-			add_submenu_page(
-				$menu_slug,
-				__( 'Upgrade to Pro', 'header-footer-elementor' ),
-				'<span style="color:#fff;">' . __( 'Upgrade to Pro', 'header-footer-elementor' ) . '</span>',
-				$capability,
-				'uae-upgrade-to-pro',
-				[ $this, 'redirect_to_pricing_page' ],
-				9
-			);
-		}
 		
 
 		// Add the Settings Submenu.
@@ -603,7 +594,48 @@ class HFE_Settings_Page {
 		);
 	}
 	
+	/**
+	 * Open to Upgrade to Pro submenu link in new tab.
+	 *
+	 * @return void
+	 * @since x.x.x
+	 */
+	public function hfe_add_upgrade_to_pro_target_attr() {
+		?>
+		<script type="text/javascript">
+			document.addEventListener('DOMContentLoaded', function () {
+				// Upgrade link handler.
+				// IMPORTANT: If this URL changes, also update it in the `add_upgrade_to_pro` function.
+				const upgradeLink = document.querySelector('a[href*="https://ultimateelementor.com/pricing/?utm_source=wp-admin&utm_medium=menu&utm_campaign=uae-upgrade"]');
+				if (upgradeLink) {
+					upgradeLink.addEventListener('click', e => {
+						e.preventDefault();
+						window.open(upgradeLink.href, '_blank');
+					});
+				}
+			});
+		</script>
+		<?php
+	}
 
+	/**
+	 * Add Upgrade to pro menu item.
+	 *
+	 * @return void
+	 * @since x.x.x
+	 */
+	public function hfe_add_upgrade_to_pro() {
+		// The url used here is used as a selector for css to style the upgrade to pro submenu.
+		// If you are changing this url, please make sure to update the css as well.
+			// Add the Upgrade to Pro Submenu.
+			add_submenu_page(
+				$this->menu_slug,
+				__( 'Upgrade to Pro', 'header-footer-elementor' ),
+				 __( 'Upgrade to Pro', 'header-footer-elementor' ),
+				'manage_options',
+				'https://ultimateelementor.com/pricing/?utm_source=wp-admin&utm_medium=menu&utm_campaign=uae-upgrade',
+			);
+	}
 	/**
 	 * Settings page.
 	 *
@@ -1635,17 +1667,6 @@ class HFE_Settings_Page {
 		libxml_use_internal_errors( $libxml_use_internal_errors );
 
 		return $sanitized;
-	}
-
-	/**
-	 * Redirect to the pricing page when "Upgrade to Pro" is clicked.
-	 *
-	 * @since 2.4.1
-	 * @return void
-	 */
-	public function redirect_to_pricing_page() {
-		wp_redirect( 'https://ultimateelementor.com/pricing/?utm_source=wp-admin&utm_medium=menu&utm_campaign=uae-upgrade' );
-		exit;
 	}
 }
 
