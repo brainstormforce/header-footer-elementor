@@ -27,8 +27,18 @@ const PromotionWidget = () => {
                 
                 // Create our custom button
                 const button = document.createElement('a');
-                button.textContent = 'Upgrade to Pro';
-                button.setAttribute('href', 'https://ultimateelementor.com/pricing/?utm_source=plugin-editor&utm_medium=widget-promo&utm_campaign=uae-upgrade');
+                button.textContent = 'Upgrade Now';
+                
+                // Get widget name from the dialog title
+                const dialogTitle = dialog.querySelector('.dialog-header');
+                let widgetTitle = 'widget';
+                
+                if (dialogTitle && dialogTitle.textContent) {
+                    widgetTitle = dialogTitle.textContent.trim().toLowerCase().replace(/\s+/g, '-');
+                }
+                
+                // Set href with dynamic widget title in utm_medium
+                button.setAttribute('href', `https://ultimateelementor.com/pricing/?utm_source=plugin-editor&utm_medium=${widgetTitle}-promo&utm_campaign=uae-upgrade`);
                 button.setAttribute('target', '_blank');
                 button.classList.add(
                     'dialog-button', 
