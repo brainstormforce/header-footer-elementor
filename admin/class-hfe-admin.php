@@ -119,11 +119,26 @@ class HFE_Admin {
 		add_action( 'elementor/editor/footer', [ $this, 'print_permalink_clear_notice' ] );
 		add_action( 'elementor/editor/before_enqueue_scripts', [ $this, 'enqueue_permalink_clear_notice_js' ] );
 		add_action( 'elementor/editor/before_enqueue_styles', [ $this, 'enqueue_permalink_clear_notice_css' ] );
+		// Hook into Elementor's editor styles
+		add_action('elementor/editor/before_enqueue_scripts', [$this, 'enqueue_editor_scripts']);
 		if ( 'yes' === get_option( 'uae_analytics_optin', false ) ) {
 			add_action('shutdown', [ $this, 'maybe_run_hfe_widgets_usage_check' ] );
 		}
 	}
 
+	/**
+	 * Enqueuing Promotion widget scripts.
+	 */
+	public function enqueue_editor_scripts() {
+               wp_enqueue_script(
+                       'uae-pro-promotion',
+                       HFE_URL . 'build/promotion-widget.js',
+                       [ 'jquery', 'wp-element', 'wp-dom-ready' ],
+                       HFE_VER,
+                       true
+               );
+       }
+	
 	/**
 	 * Check the page on which Widget check need to be run.
 	 */

@@ -115,3 +115,8 @@ body:not(.rtl) .uae-permalink-clear-notice {
 .uae-btn-main-text{
     font-weight: bold;
 }
+
+/* added css to hide button coming from other plugins in promotion widget */
+.uae-upgrade-button button{
+    display: none;
+}
