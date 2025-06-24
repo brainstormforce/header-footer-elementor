@@ -835,4 +835,5 @@ li#toplevel_page_hfe a[href="admin.php?page=uae-upgrade-to-pro"]{
 
 li#toplevel_page_hfe a[href="admin.php?page=uae-upgrade-to-pro"]:hover{
     background-color: #6104ff;
+    color: #fff;
 }
