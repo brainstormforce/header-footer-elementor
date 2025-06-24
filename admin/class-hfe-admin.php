@@ -131,7 +131,7 @@ class HFE_Admin {
                wp_enqueue_script(
                        'uae-pro-promotion',
                        HFE_URL . 'build/promotion-widget.js',
-                       [ 'jquery' ],
+                       [ 'jquery', 'wp-element', 'wp-dom-ready' ],
                        HFE_VER,
                        true
                );
