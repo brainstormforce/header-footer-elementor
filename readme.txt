@@ -127,6 +127,11 @@ No, both plugins are completely independent. You only need to activate both if y
 = How can I access all the features of the Ultimate Addons for Elementor? = 
 To access the advanced features and premium widgets, you’ll need to upgrade to the Pro version. [Purchase your license now](https://ultimateelementor.com/pricing/?utm_source=uae-lite-description&utm_medium=faq&utm_campaign=uae-lite-wporg)
 
+= How can I report a security bug? =
+We take plugin security extremely seriously. If you discover a security vulnerability, please report it in a safe and responsible manner.
+
+You can report the issue through our [Bug Bounty Program](https://brainstormforce.com/bug-bounty-program/). We collaborate with Patchstack to provide opportunities for researchers to report vulnerabilities. The Patchstack team will help validate, triage, and handle any reported security issues.
+
 ---
 
 == Changelog ==
