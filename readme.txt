@@ -1,10 +1,10 @@
 === Ultimate Addons for Elementor (Formerly Elementor Header & Footer Builder) ===  
-Contributors: @brainstormforce, @nikschavan, @pratikchaskar
+Contributors: @brainstormforce, @pratikchaskar
 Tags: elementor, elementor addon, elementor widget, elementor template, header footer builder
 Requires at least: 5.0  
 Tested up to: 6.8
 Requires PHP: 7.4  
-Stable tag: 2.4.1
+Stable tag: 2.4.2
 License: GPLv2 or later  
 License URI: https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -127,9 +127,17 @@ No, both plugins are completely independent. You only need to activate both if y
 = How can I access all the features of the Ultimate Addons for Elementor? = 
 To access the advanced features and premium widgets, you’ll need to upgrade to the Pro version. [Purchase your license now](https://ultimateelementor.com/pricing/?utm_source=uae-lite-description&utm_medium=faq&utm_campaign=uae-lite-wporg)
 
+= How can I report a security bug? =
+We take plugin security extremely seriously. If you discover a security vulnerability, please report it in a safe and responsible manner.
+
+You can report the issue through our [Bug Bounty Program](https://brainstormforce.com/bug-bounty-program/). We collaborate with Patchstack to provide opportunities for researchers to report vulnerabilities. The Patchstack team will help validate, triage, and handle any reported security issues.
+
 ---
 
 == Changelog ==
+= 2.4.2 =
+- Improvement: Optimize performance with the new “Deactivate Unused Widgets” option.
+
 = 2.4.1 =
 - Improvement: Optimized codebase and improved code quality.
 
@@ -499,10 +507,10 @@ Elementor has deprecated few functions and namespaces with its v3.0.0. Following
 * Fix: Flush permalinks on plugin update to Elementor error when trying to edit the Header/Footer.
 
 = 1.1.3 =
-* Improvement: Allow changing the permalinks for the hfe templates (<a href="https://github.com/Nikschavan/header-footer-elementor/pull/162/">#162</a>)
-* Fix: WPML Translations do not work when using the Elementor Template as a shortcode. (<a href="https://github.com/Nikschavan/header-footer-elementor/pull/159/">#159</a>)
-* Fix: Page content appears over the header. (<a href="https://github.com/Nikschavan/header-footer-elementor/pull/150/">#150</a>)
-* Fix: Remove the deprecated function warning for shortcode functions. (Props <a href="https://github.com/hogash">@hogash</a> <a href="https://github.com/Nikschavan/header-footer-elementor/pull/145/">#145</a>)
+* Improvement: Allow changing the permalinks for the hfe templates (<a href="https://github.com/brainstormforce/header-footer-elementor/pull/162/">#162</a>)
+* Fix: WPML Translations do not work when using the Elementor Template as a shortcode. (<a href="https://github.com/brainstormforce/header-footer-elementor/pull/159/">#159</a>)
+* Fix: Page content appears over the header. (<a href="https://github.com/brainstormforce/header-footer-elementor/pull/150/">#150</a>)
+* Fix: Remove the deprecated function warning for shortcode functions. (Props <a href="https://github.com/hogash">@hogash</a> <a href="https://github.com/brainstormforce/header-footer-elementor/pull/145/">#145</a>)
 
 = 1.1.2 =
 * Fix: Depracated function warning from Elementor's method `\Elementor\Post_CSS_File`

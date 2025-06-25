@@ -1,5 +1,5 @@
 {
-  "name": "nikschavan/header-footer-elementor",
+  "name": "brainstormforce/header-footer-elementor",
   "description": "Create Header and Footer using Elementor page builder.",
   "require": {
     "brainstormforce/astra-notices": "^1.1",

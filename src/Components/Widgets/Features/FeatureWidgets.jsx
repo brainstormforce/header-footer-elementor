@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Button, Skeleton } from "@bsf/force-ui";
-import { LoaderCircle, SearchIcon } from "lucide-react";
+import { Container, Button, Skeleton, Tooltip } from "@bsf/force-ui";
+import { LoaderCircle, SearchIcon, Trash2Icon } from "lucide-react";
 import WidgetItem from '@components/Dashboard/WidgetItem';
 import apiFetch from '@wordpress/api-fetch';
 import { __ } from "@wordpress/i18n";
@@ -11,12 +11,11 @@ const FeatureWidgets = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [loadingActivate, setLoadingActivate] = useState(false); // Loading state for activate button
     const [loadingDeactivate, setLoadingDeactivate] = useState(false);
+    const [loadingUnusedDeactivate, setLoadingUnusedDeactivate] = useState(false);
     const [loading, setLoading] = useState(true);
     const [updateCounter, setUpdateCounter] = useState(0);
     const [showTooltip, setShowTooltip] = useState(true); // Add state for showTooltip
     
-
-
     useEffect(() => {
         const fetchSettings = () => {
             setLoading(true);
@@ -107,6 +106,42 @@ const FeatureWidgets = () => {
         });
     };
 
+    const handleUnusedDeactivate = async () => {
+        setLoadingUnusedDeactivate(true);
+    
+        const formData = new window.FormData();
+        formData.append('action', 'hfe_bulk_deactivate_unused_widgets');
+        formData.append('nonce', hfe_admin_data.nonce);
+    
+        apiFetch({
+            url: hfe_admin_data.ajax_url,
+            method: 'POST',
+            body: formData,
+        }).then((data) => {
+            setLoadingUnusedDeactivate(false);
+    
+            if (data.success && Array.isArray(data.data?.deactivated)) {
+                const deactivatedSlugs = data.data.deactivated;
+                setAllWidgetsData(prevWidgets =>
+                    prevWidgets.map(widget =>
+                        deactivatedSlugs.includes(widget.id)
+                            ? { ...widget, is_active: false }
+                            : widget
+                    )
+                );
+                setUpdateCounter(prev => prev + 1);
+            } else if (data.error) {
+                console.error('AJAX request failed:', data.error);
+            } else {
+                console.error('Unexpected response structure:', data);
+            }
+        }).catch((error) => {
+            setLoadingUnusedDeactivate(false);
+            console.error('Error during AJAX request:', error);
+        });
+    };
+    
+
     function convertToWidgetsArray(data) {
         const widgets = [];
 
@@ -165,27 +200,84 @@ const FeatureWidgets = () => {
                         onChange={handleSearchChange}
                     />
                     <div className="flex flex-row gap-2 w-full md:w-auto">
-                        <Button
-                            icon={loadingActivate ? <LoaderCircle className="animate-spin" /> : null}
-                            iconPosition="left"
-                            variant="outline"
-                            className="hfe-bulk-action-button"
-                            onClick={handleActivateAll} // Attach the onClick event.
-                            disabled={!!searchTerm}
-                        >
-                            {loadingActivate ? __('Activating...', 'header-footer-elementor') : __('Activate All', 'header-footer-elementor')}
-                        </Button>
-
-                        <Button
-                            icon={loadingDeactivate ? <LoaderCircle className="animate-spin" /> : null} // Loader for deactivate button.
-                            iconPosition="left"
-                            variant="outline"
+                        <Tooltip
+                                arrow
+                                content={
+                                    <div>
+                                       <p>__('Click here to activate all widgets & extensions.', 'header-footer-elementor')</p>
+                                    </div>
+                                }
+                                placement="top"
+                                title=""
+                                triggers={[
+                                    'hover'
+                                ]}
+                                variant="dark"
+                                size="xs"
+                            >
+                            <Button
+                                icon={loadingActivate ? <LoaderCircle className="animate-spin" /> : null}
+                                iconPosition="left"
+                                variant="outline"
+                                className="hfe-bulk-action-button"
+                                onClick={handleActivateAll} // Attach the onClick event.
+                                disabled={!!searchTerm}
+                            >
+                                {loadingActivate ? __('Activating...', 'header-footer-elementor') : __('Activate All', 'header-footer-elementor')}
+                            </Button>
+                        </Tooltip>
+                        <Tooltip
+                                arrow
+                                content={
+                                    <div>
+                                       <p>__('Click here to deactivate all unused widgets, except Extensions.', 'header-footer-elementor')</p>
+                                    </div>
+                                }
+                                placement="top"
+                                title=""
+                                triggers={[
+                                    'hover'
+                                ]}
+                                variant="dark"
+                                size="xs"
+                            >
+                            <Button
+                                icon={loadingUnusedDeactivate ? <LoaderCircle className="animate-spin" /> : null} // Loader for deactivate button.
+                                iconPosition="left"
+                                variant="outline"
+                                onClick={handleUnusedDeactivate}
+                                className="hfe-bulk-action-button"
+                                disabled={!!searchTerm}
+                            >
+                                {loadingUnusedDeactivate ? __('Deactivating...', 'header-footer-elementor') : __('Deactivate Unused', 'header-footer-elementor')}
+                            </Button>
+                        </Tooltip>
+                        <Tooltip
+                                arrow
+                                content={
+                                    <div>
+                                       <p>{loadingDeactivate ? __('Deactivating...', 'header-footer-elementor') : __('Deactivate All ', 'header-footer-elementor')}</p>
+                                    </div>
+                                }
+                                placement="top"
+                                title=""
+                                triggers={[
+                                    'hover'
+                                ]}
+                                variant="dark"
+                                size="xs"
+                            >
+                            <Trash2Icon 
+                            className="relative text-gray-400"
                             onClick={handleDeactivateAll}
-                            className="hfe-bulk-action-button"
-                            disabled={!!searchTerm}
-                        >
-                            {loadingDeactivate ? __('Deactivating...', 'header-footer-elementor') : __('Deactivate All', 'header-footer-elementor')}
-                        </Button>
+                            style={{
+                                backgroundColor: '#F9FAFB',
+                                top: '5%',
+                                margin: 'auto',
+                                width: '22px',
+                                height: '22px'
+                            }} />
+                        </Tooltip>
                     </div>
                 </div>
             </div>

@@ -15,6 +15,7 @@ use Elementor\Plugin;
 use Elementor\Utils;
 use Elementor\Widget_Base;
 use HFE\WidgetsManager\Base\Widgets_Config;
+use Elementor\Modules\Usage\Module as Usage_Module;
 
 /**
  * Class HFE_Helper.
@@ -470,6 +471,53 @@ class HFE_Helper {
 		}
 
 		return $rollback_versions;
+	}
+
+	/**
+	 * Get Unused Widgets.
+	 *
+	 * @since 2.4.2
+	 * @return array
+	 * @access public
+	 */
+	public static function get_used_widget(){
+		/** @var Usage_Module $usage_module */
+		$usage_module = Usage_Module::instance();
+		$usage_module->recalc_usage();
+
+		$widgets_usage = [];
+
+		foreach ( $usage_module->get_formatted_usage( 'raw' ) as $data ) {
+			foreach ( $data['elements'] as $element => $count ) {
+				$widgets_usage[ $element ] = isset( $widgets_usage[ $element ] ) ? $widgets_usage[ $element ] + $count : $count;
+			}
+		}
+
+		$allowed_widgets = array(
+			'hfe-breadcrumbs-widget',
+			'hfe-cart',
+			'copyright',
+			'navigation-menu',
+			'page-title',
+			'post-info-widget',
+			'retina',
+			'hfe-search-button',
+			'site-logo',
+			'hfe-site-tagline',
+			'hfe-site-title',
+			'hfe-infocard',
+		);
+
+		// Filter widgets usage to include only allowed widgets
+		$filtered_widgets_usage = array_filter(
+			$widgets_usage,
+			function ( $key ) use ( $allowed_widgets ) {
+				return in_array( $key, $allowed_widgets, true );
+			},
+			ARRAY_FILTER_USE_KEY
+		);
+
+		return $filtered_widgets_usage;
 	}
 
 }

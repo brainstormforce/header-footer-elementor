@@ -828,3 +828,24 @@ span.dashicons.dashicons-update.hfe-loader {
         padding-right: 0px;
     }
 }
+
+#toplevel_page_hfe .wp-submenu li a[href*="https://ultimateelementor.com/pricing/?utm_source=wp-admin&utm_medium=menu&utm_campaign=uae-upgrade"]{
+background-color:#04a382;
+color:#fff;
+font-size:13px;
+font-weight:500;
+line-height:20px;
+padding-right:12px!important;
+padding-left:12px!important
+}
+
+#toplevel_page_hfe .wp-submenu li a[href*="https://ultimateelementor.com/pricing/?utm_source=wp-admin&utm_medium=menu&utm_campaign=uae-upgrade"]:hover
+{
+background-color:#018d71;
+color:#fff;
+font-size:13px;
+font-weight:500;
+line-height:20px;
+padding-right:12px!important;
+padding-left:12px!important
+}

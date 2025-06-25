@@ -6,7 +6,7 @@
  */
 
 use HFE\Lib\Astra_Target_Rules_Fields;
-use Elementor\Modules\Usage\Module as Usage_Module;
+use HFE\WidgetsManager\Base\HFE_Helper;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -119,9 +119,26 @@ class HFE_Admin {
 		add_action( 'elementor/editor/footer', [ $this, 'print_permalink_clear_notice' ] );
 		add_action( 'elementor/editor/before_enqueue_scripts', [ $this, 'enqueue_permalink_clear_notice_js' ] );
 		add_action( 'elementor/editor/before_enqueue_styles', [ $this, 'enqueue_permalink_clear_notice_css' ] );
-		add_action('shutdown', [ $this, 'maybe_run_hfe_widgets_usage_check' ] );
+		// Hook into Elementor's editor styles
+		add_action('elementor/editor/before_enqueue_scripts', [$this, 'enqueue_editor_scripts']);
+		if ( 'yes' === get_option( 'uae_analytics_optin', false ) ) {
+			add_action('shutdown', [ $this, 'maybe_run_hfe_widgets_usage_check' ] );
+		}
 	}
 
+	/**
+	 * Enqueuing Promotion widget scripts.
+	 */
+	public function enqueue_editor_scripts() {
+               wp_enqueue_script(
+                       'uae-pro-promotion',
+                       HFE_URL . 'build/promotion-widget.js',
+                       [ 'jquery', 'wp-element', 'wp-dom-ready' ],
+                       HFE_VER,
+                       true
+               );
+       }
+	
 	/**
 	 * Check the page on which Widget check need to be run.
 	 */
@@ -150,42 +167,7 @@ class HFE_Admin {
 		$widgets_usage = get_transient( $transient_key );
 
 		if ( false === $widgets_usage || false === get_option( 'uae_widgets_usage_data_option' ) ) {
-			/** @var Usage_Module $usage_module */
-			$usage_module = Usage_Module::instance();
-			$usage_module->recalc_usage();
-
-			$widgets_usage = [];
-
-			foreach ( $usage_module->get_formatted_usage( 'raw' ) as $data ) {
-				foreach ( $data['elements'] as $element => $count ) {
-					$widgets_usage[ $element ] = isset( $widgets_usage[ $element ] ) ? $widgets_usage[ $element ] + $count : $count;
-				}
-			}
-
-			$allowed_widgets = array(
-				'hfe-breadcrumbs-widget',
-				'hfe-cart',
-				'copyright',
-				'navigation-menu',
-				'page-title',
-				'post-info-widget',
-				'retina',
-				'hfe-search-button',
-				'site-logo',
-				'hfe-site-tagline',
-				'hfe-site-title',
-				'hfe-infocard',
-			);
-
-			// Filter widgets usage to include only allowed widgets
-			$filtered_widgets_usage = array_filter(
-				$widgets_usage,
-				function ( $key ) use ( $allowed_widgets ) {
-					return in_array( $key, $allowed_widgets, true );
-				},
-				ARRAY_FILTER_USE_KEY
-			);
-
+			$filtered_widgets_usage = HFE_Helper::get_used_widget();
 			set_transient( $transient_key, $filtered_widgets_usage, MONTH_IN_SECONDS ); // Store for 5 minutes
 			update_option( 'uae_widgets_usage_data_option', $filtered_widgets_usage );
 		}

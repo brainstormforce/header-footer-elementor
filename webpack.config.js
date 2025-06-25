@@ -8,16 +8,19 @@ module.exports = {
 	// Spread the default WordPress Webpack config and extend it
 	...defaultConfig,
 
-	// Define your custom entry point
-	entry: './src/index.js',
+       // Define custom entry points
+       entry: {
+               main: './src/index.js',
+               'promotion-widget': './src/promotion-widget.js',
+       },
 
 	// Customize the output
-	output: {
-		...defaultConfig.output,
-		filename: 'main.js', // Output the JS file
-		path: path.resolve(__dirname, 'build'),
-		publicPath: '/', // Set for dev server
-	},
+       output: {
+               ...defaultConfig.output,
+               filename: '[name].js', // Output file per entry
+               path: path.resolve(__dirname, 'build'),
+               publicPath: '/', // Set for dev server
+       },
 
 	// Add or extend module rules
 	module: {
