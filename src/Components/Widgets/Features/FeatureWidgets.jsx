@@ -200,21 +200,37 @@ const FeatureWidgets = () => {
                         onChange={handleSearchChange}
                     />
                     <div className="flex flex-row gap-2 w-full md:w-auto">
-                        <Button
-                            icon={loadingActivate ? <LoaderCircle className="animate-spin" /> : null}
-                            iconPosition="left"
-                            variant="outline"
-                            className="hfe-bulk-action-button"
-                            onClick={handleActivateAll} // Attach the onClick event.
-                            disabled={!!searchTerm}
-                        >
-                            {loadingActivate ? __('Activating...', 'header-footer-elementor') : __('Activate All', 'header-footer-elementor')}
-                        </Button>
                         <Tooltip
                                 arrow
                                 content={
                                     <div>
-                                       <p>Deactivate all unused widgets. This does not affect the Extensions.</p>
+                                       <p>Click here to activate all widgets & extensions</p>
+                                    </div>
+                                }
+                                placement="top"
+                                title=""
+                                triggers={[
+                                    'hover'
+                                ]}
+                                variant="dark"
+                                size="xs"
+                            >
+                            <Button
+                                icon={loadingActivate ? <LoaderCircle className="animate-spin" /> : null}
+                                iconPosition="left"
+                                variant="outline"
+                                className="hfe-bulk-action-button"
+                                onClick={handleActivateAll} // Attach the onClick event.
+                                disabled={!!searchTerm}
+                            >
+                                {loadingActivate ? __('Activating...', 'header-footer-elementor') : __('Activate All', 'header-footer-elementor')}
+                            </Button>
+                        </Tooltip>
+                        <Tooltip
+                                arrow
+                                content={
+                                    <div>
+                                       <p>Click here to deactivate all unused widgets, except Extensions.</p>
                                     </div>
                                 }
                                 placement="top"
