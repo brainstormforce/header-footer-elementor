@@ -274,8 +274,8 @@ const FeatureWidgets = () => {
                                 backgroundColor: '#F9FAFB',
                                 top: '5%',
                                 margin: 'auto',
-                                width: '28px',
-                                height: '28px'
+                                width: '22px',
+                                height: '22px'
                             }} />
                         </Tooltip>
                     </div>
