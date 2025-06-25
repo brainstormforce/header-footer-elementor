@@ -291,6 +291,9 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			// Compare slugs from widget_list to keys in $used_widgets
 			foreach ( self::$widget_list as $slug => $value ) {
 				if ( ! isset( $used_widgets[ $value['slug'] ] ) ) {
+					if( $slug === 'Scroll_To_Top' || $slug === 'Reading_Progress_Bar' ){
+						continue;
+					}
 					$unused_widgets[] = $slug;
 				}
 			}
