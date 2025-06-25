@@ -190,7 +190,7 @@ class Widgets_Loader {
 	 * @return object $this_cat class.
 	 */
 	public function register_widget_category( $this_cat ) {
-		$category = defined( 'UAEL_PLUGIN_SHORT_NAME' ) ? UAEL_PLUGIN_SHORT_NAME : __( 'Ultimate Addons', 'header-footer-elementor' );
+		$category = ( defined( 'UAEL_PLUGIN_SHORT_NAME' ) && (UAEL_PLUGIN_SHORT_NAME !== 'UAE') ) ? UAEL_PLUGIN_SHORT_NAME : __( 'Ultimate Addons', 'header-footer-elementor' );
 
 		$this_cat->add_category(
 			'hfe-widgets',
