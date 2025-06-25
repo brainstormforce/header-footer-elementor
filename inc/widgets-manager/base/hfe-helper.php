@@ -476,7 +476,7 @@ class HFE_Helper {
 	/**
 	 * Get Unused Widgets.
 	 *
-	 * @since x.x.x
+	 * @since 2.4.2
 	 * @return array
 	 * @access public
 	 */

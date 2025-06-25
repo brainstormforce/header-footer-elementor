@@ -598,7 +598,7 @@ class HFE_Settings_Page {
 	 * Open to Upgrade to Pro submenu link in new tab.
 	 *
 	 * @return void
-	 * @since x.x.x
+	 * @since 2.4.2
 	 */
 	public function hfe_add_upgrade_to_pro_target_attr() {
 		?>
@@ -622,7 +622,7 @@ class HFE_Settings_Page {
 	 * Add Upgrade to pro menu item.
 	 *
 	 * @return void
-	 * @since x.x.x
+	 * @since 2.4.2
 	 */
 	public function hfe_add_upgrade_to_pro() {
 		// The url used here is used as a selector for css to style the upgrade to pro submenu.
