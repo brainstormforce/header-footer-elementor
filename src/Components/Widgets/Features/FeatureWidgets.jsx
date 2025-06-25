@@ -204,7 +204,7 @@ const FeatureWidgets = () => {
                                 arrow
                                 content={
                                     <div>
-                                       <p>Click here to activate all widgets & extensions</p>
+                                       <p>__('Click here to activate all widgets & extensions.', 'header-footer-elementor')</p>
                                     </div>
                                 }
                                 placement="top"
@@ -230,7 +230,7 @@ const FeatureWidgets = () => {
                                 arrow
                                 content={
                                     <div>
-                                       <p>Click here to deactivate all unused widgets, except Extensions.</p>
+                                       <p>__('Click here to deactivate all unused widgets, except Extensions.', 'header-footer-elementor')</p>
                                     </div>
                                 }
                                 placement="top"
