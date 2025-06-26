@@ -7,7 +7,8 @@ import { __ } from "@wordpress/i18n";
 // import Welcome from "./Welcome";
 import Build from "./Build";
 import Welcome from "./WelcomeNew";
-import Configure from "./Configure";
+// import Configure from "./Configure";
+import Configure from "./ExtendOnboarding";
 import Success from "./Success";
 
 // Full steps array including the hidden "Success" step
