@@ -793,7 +793,32 @@ msgid ""
 msgstr ""
 
 #: src/Components/Onboarding/Welcome.jsx:53
+#: src/Components/Onboarding/WelcomeNew.jsx:64
 msgid "Let's Get Started"
+msgstr ""
+
+#: src/Components/Onboarding/WelcomeNew.jsx:12
+msgid "Welcome to UAE"
+msgstr ""
+
+#: src/Components/Onboarding/WelcomeNew.jsx:19
+msgid "Your Ultimate Elementor Addons to build modern Elementor Websites."
+msgstr ""
+
+#: src/Components/Onboarding/WelcomeNew.jsx:34
+msgid "Disable unused widgets in one click, no bloat"
+msgstr ""
+
+#: src/Components/Onboarding/WelcomeNew.jsx:38
+msgid "Design headers & footers exactly where you want them"
+msgstr ""
+
+#: src/Components/Onboarding/WelcomeNew.jsx:42
+msgid "Reliable support from experts when you need it"
+msgstr ""
+
+#: src/Components/Onboarding/index.js:89
+msgid "Exit Guided Setup"
 msgstr ""
 
 #: src/Components/Settings/Settings.jsx:48

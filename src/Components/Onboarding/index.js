@@ -4,14 +4,15 @@ import { Link } from "../../router/link";
 import { routes } from "../../admin/settings/routes";
 import { X } from "lucide-react";
 import { __ } from "@wordpress/i18n";
-import Welcome from "./Welcome";
+// import Welcome from "./Welcome";
 import Build from "./Build";
+import Welcome from "./WelcomeNew";
 import Configure from "./Configure";
 import Success from "./Success";
 
 // Full steps array including the hidden "Success" step
 const allSteps = [
-    { label: "Welcome", component: Welcome },
+    { label: "", component: Welcome },
     { label: "Configure", component: Configure },
     { label: "Create", component: Build },
     { label: "Success", component: Success }, // Hidden from progress bar
@@ -50,7 +51,7 @@ const Onboarding = () => {
                                 {hfeSettingsData.icon_svg && (
                                     <Link to={routes.dashboard.path}>
                                         <img
-                                            src={`${hfeSettingsData.icon_svg}`}
+                                            src={`${hfeSettingsData.icon_new}`}
                                             alt="Logo"
                                             className="cursor-pointer"
                                             style={{ height: "35px" }}
@@ -83,7 +84,9 @@ const Onboarding = () => {
                                     className="hfe-remove-ring"
                                     to={routes.dashboard.path}
                                     style={{ marginLeft: "125px" }}
-                                >
+                                > 
+                               <div className="flex items-center cursor-pointer justify-center gap-1">
+                                 <p style={{ fontSize: '0.9rem', color: '#111827' }}>{__('Exit Guided Setup', 'header-footer-elementor')}</p>
                                     <Button
                                         icon={<X className="size-4" />}
                                         iconPosition="right"
@@ -91,6 +94,7 @@ const Onboarding = () => {
                                         variant="ghost"
                                         className="hfe-remove-ring"
                                     ></Button>
+                               </div>
                                 </Link>
                             </Topbar.Item>
                         </Topbar.Right>
