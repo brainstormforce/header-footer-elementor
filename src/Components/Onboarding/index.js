@@ -13,7 +13,7 @@ import Success from "./Success";
 // Full steps array including the hidden "Success" step
 const allSteps = [
     { label: "", component: Welcome },
-    { label: "Configure", component: Configure },
+    { label: "", component: Configure },
     { label: "Create", component: Build },
     { label: "Success", component: Success }, // Hidden from progress bar
 ];
