@@ -132,6 +132,7 @@ msgstr ""
 #: src/Components/Compare/FreevsPro.jsx:220
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:178
 #: src/Components/NavMenu.js:242
+#: src/Components/Onboarding/ExtendOnboardingWidget.jsx:187
 msgid "Free"
 msgstr ""
 
@@ -394,54 +395,67 @@ msgid "Extend Your Website"
 msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:122
+#: src/Components/Onboarding/ExtendOnboardingWidget.jsx:122
 msgid "Activating.."
 msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:134
+#: src/Components/Onboarding/ExtendOnboardingWidget.jsx:134
 msgid "Activated"
 msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:151
+#: src/Components/Onboarding/ExtendOnboardingWidget.jsx:151
 msgid "Activate"
 msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:200
+#: src/Components/Onboarding/ExtendOnboardingWidget.jsx:209
 msgid "Visit Site"
 msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:212
+#: src/Components/Onboarding/ExtendOnboardingWidget.jsx:221
 msgid "Activate Theme"
 msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:216
+#: src/Components/Onboarding/ExtendOnboardingWidget.jsx:225
 msgid "Are you sure you want to switch your current theme to Astra?"
 msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:221
+#: src/Components/Onboarding/ExtendOnboardingWidget.jsx:230
 msgid "Yes"
 msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:224
+#: src/Components/Onboarding/ExtendOnboardingWidget.jsx:233
 msgid "Close"
 msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:72
+#: src/Components/Onboarding/ExtendOnboardingWidget.jsx:72
 msgid "Installing.."
 msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:80
+#: src/Components/Onboarding/ExtendOnboardingWidget.jsx:80
 msgid "Installed"
 msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:90
+#: src/Components/Onboarding/ExtendOnboardingWidget.jsx:90
 msgid "Install"
 msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:93
+#: src/Components/Onboarding/ExtendOnboardingWidget.jsx:93
 msgid "Theme Installation failed, Please try again later."
 msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:94
+#: src/Components/Onboarding/ExtendOnboardingWidget.jsx:94
 msgid "Plugin Installation failed, Please try again later."
 msgstr ""
 
@@ -466,29 +480,6 @@ msgstr ""
 
 #: src/Components/Dashboard/MyAccount.jsx:37
 msgid "Get access to advanced blocks and premium features."
-msgstr ""
-
-#: src/Components/Dashboard/OnboardingWidgets.jsx:137
-msgid "WIDGETS"
-msgstr ""
-
-#: src/Components/Dashboard/OnboardingWidgets.jsx:149
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:226
-msgid "Activating..."
-msgstr ""
-
-#: src/Components/Dashboard/OnboardingWidgets.jsx:149
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:226
-msgid "Activate All"
-msgstr ""
-
-#: src/Components/Dashboard/OnboardingWidgets.jsx:161
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:259
-msgid "Deactivating..."
-msgstr ""
-
-#: src/Components/Dashboard/OnboardingWidgets.jsx:161
-msgid "Deactivate All"
 msgstr ""
 
 #: src/Components/Dashboard/QuickAccess.js:114
@@ -571,18 +562,6 @@ msgstr ""
 
 #: src/Components/Dashboard/WidgetItem.jsx:148
 msgid "Read Documentation"
-msgstr ""
-
-#: src/Components/Dashboard/WidgetsOnboarding.jsx:108
-msgid "Back"
-msgstr ""
-
-#: src/Components/Dashboard/WidgetsOnboarding.jsx:118
-msgid "Skip"
-msgstr ""
-
-#: src/Components/Dashboard/WidgetsOnboarding.jsx:131
-msgid " Continue Setup"
 msgstr ""
 
 #: src/Components/HeaderLine.js:16
@@ -718,6 +697,7 @@ msgid ""
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:340
+#: src/Components/Onboarding/ExtendOnboarding.jsx:152
 msgid "First Name"
 msgstr ""
 
@@ -753,6 +733,36 @@ msgstr ""
 msgid "Failed to save settings!"
 msgstr ""
 
+#: src/Components/Onboarding/ExtendOnboarding.jsx:140
+msgid "Get Important Notifications and Updates"
+msgstr ""
+
+#: src/Components/Onboarding/ExtendOnboarding.jsx:181
+msgid "Email Address"
+msgstr ""
+
+#: src/Components/Onboarding/ExtendOnboarding.jsx:213
+msgid "Back"
+msgstr ""
+
+#: src/Components/Onboarding/ExtendOnboarding.jsx:222
+msgid "Skip"
+msgstr ""
+
+#: src/Components/Onboarding/ExtendOnboarding.jsx:235
+msgid " Continue Setup"
+msgstr ""
+
+#: src/Components/Onboarding/ExtendOnboarding.jsx:66
+msgid "Recommended Essentials"
+msgstr ""
+
+#: src/Components/Onboarding/ExtendOnboarding.jsx:75
+msgid ""
+"These free plugins add essential features to your website and help speed up "
+"your workflow. The selected plugins below will be installed on this site."
+msgstr ""
+
 #: src/Components/Onboarding/Success.jsx:100
 msgid "You’ve unlocked a "
 msgstr ""
@@ -777,32 +787,13 @@ msgstr ""
 msgid "Congratulations!"
 msgstr ""
 
-#: src/Components/Onboarding/Welcome.jsx:11
-msgid "Thank You For Choosing"
-msgstr ""
-
-#: src/Components/Onboarding/Welcome.jsx:16
-msgid "Ultimate Addons for Elementor"
-msgstr ""
-
-#: src/Components/Onboarding/Welcome.jsx:23
-msgid ""
-"We're excited to have you onboard. Get ready to create stunning headers, "
-"footers, and custom blocks with ease while keeping your website lightweight "
-"and fast."
-msgstr ""
-
-#: src/Components/Onboarding/Welcome.jsx:53
-#: src/Components/Onboarding/WelcomeNew.jsx:64
-msgid "Let's Get Started"
+#: src/Components/Onboarding/ExtendOnboarding.jsx:61
+#: src/Components/Onboarding/WelcomeNew.jsx:19
+msgid "Your Ultimate Elementor Addons to build modern Elementor Websites."
 msgstr ""
 
 #: src/Components/Onboarding/WelcomeNew.jsx:12
 msgid "Welcome to UAE"
-msgstr ""
-
-#: src/Components/Onboarding/WelcomeNew.jsx:19
-msgid "Your Ultimate Elementor Addons to build modern Elementor Websites."
 msgstr ""
 
 #: src/Components/Onboarding/WelcomeNew.jsx:34
@@ -817,7 +808,11 @@ msgstr ""
 msgid "Reliable support from experts when you need it"
 msgstr ""
 
-#: src/Components/Onboarding/index.js:89
+#: src/Components/Onboarding/WelcomeNew.jsx:64
+msgid "Let's Get Started"
+msgstr ""
+
+#: src/Components/Onboarding/index.js:90
 msgid "Exit Guided Setup"
 msgstr ""
 
@@ -991,20 +986,24 @@ msgstr ""
 msgid "Search..."
 msgstr ""
 
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:226
+msgid "Activating..."
+msgstr ""
+
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:226
+msgid "Activate All"
+msgstr ""
+
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:252
 msgid "Deactivate Unused"
 msgstr ""
 
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:259
+msgid "Deactivating..."
+msgstr ""
+
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:259
 msgid "Deactivate All "
-msgstr ""
-
-#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:155
-msgid "Customize Your UAE Setup"
-msgstr ""
-
-#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:158
-msgid "Activate only what you need to keep your website fast and optimized."
 msgstr ""
 
 #: src/Components/Widgets/UltimateWidgets.jsx:119
