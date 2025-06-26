@@ -10,6 +10,18 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 	const [loading, setLoading] = useState(true);
 	const [updateCounter, setUpdateCounter] = useState(0);
 	const [allInstalled, setAllInstalled] = useState(false);
+	const [formData, setFormData] = useState({
+		firstName: '',
+		email: '',
+		notifications: true
+	});
+
+	const handleInputChange = (name, value) => {
+		setFormData(prev => ({
+			...prev,
+			[name]: value
+		}));
+	};
 
 	useEffect(() => {
 		const fetchSettings = async () => {
@@ -53,7 +65,8 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 	}
 
 	return (
-		<div className="bg-background-primary border-[0.5px] items-start justify-center border-subtle rounded-xl shadow-sm mb-6 p-8 flex w-1/2 flex-col">
+        
+		<div className="bg-background-primary border-[0.5px] items-start justify-center border-subtle rounded-xl shadow-sm mb-6 p-4 flex w-1/2 flex-col">
 			<div className="rounded-lg bg-white w-full">
 				<div
 					className="flex flex-col items-start justify-between p-4"
@@ -132,78 +145,73 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 					)}
 				</div>
 			</div>
-            <div>
-               	<span
-						className="text-md font-medium m-0 mb-2"
-						style={{ lineHeight: "1.5em", color: "#111827" }}
-					>
+			<div className="px-5 bg-white rounded-lg">
+				<h3 className="text-base font-semibold  text-gray-900">
+					{__(
+						"Get Important Notifications and Updates",
+						"header-footer-elementor",
+					)}
+				</h3>
+				<div className="flex flex-row items-start gap-4 mb-4">
+					<div className="flex flex-col flex-1">
+						<label className="text-sm font-medium text-gray-700 mb-2">
+							{__('First Name', 'header-footer-elementor')}
+						</label>
+						<input
+							type="text"
+							name="firstName"
+							value={formData.firstName}
+							onChange={(e) => handleInputChange('firstName', e.target.value)}
+							className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
+							placeholder={__('Enter your first name', 'header-footer-elementor')}
+							style={{
+								height: '48px',
+								fontSize: '14px'
+							}}
+						/>
+					</div>
+					<div className="flex flex-col flex-1">
+						<label className="text-sm font-medium text-gray-700 mb-2">
+							{__('Email Address', 'header-footer-elementor')}
+						</label>
+						<input
+							type="email"
+							name="email"
+                            
+							value={formData.email}
+							onChange={(e) => handleInputChange('email', e.target.value)}
+							className="role-checkbox w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
+							placeholder={__('Enter your email address', 'header-footer-elementor')}
+							style={{
+								height: '48px',
+								fontSize: '14px'
+							}}
+						/>
+					</div>
+				</div>
+				<div className="flex items-start gap-3">
+					<input
+						type="checkbox"
+						id="notifications-checkbox"
+						checked={formData.notifications}
+						onChange={(e) => handleInputChange('notifications', e.target.checked)}
+						className="mt-1 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
+					/>
+					<label htmlFor="notifications-checkbox" className="text-sm text-gray-600 leading-relaxed">
 						{__(
-							"Get Important Notifications and Updates",
+							"Notify me about critical updates and new features — and help us improve by sharing how you use the plugin. ",
 							"header-footer-elementor",
 						)}
-					</span>
-                      <div className="flex flex-row items-center mt-1 w-full gap-3">
-                                <Container.Item className="flex flex-col space-y-1 basis-1/2 flex-1">
-                                    <Title
-                                        icon={null}
-                                        iconPosition="right"
-                                        size="xs"
-                                        tag="h2"
-                                        title={__('First Name', 'uael')}
-                                        description=""
-                                        className="uae-subtitle"
-                                    />
-                                    <input
-                                        type="text"
-                                        name="" // Match the key with the backend
-                                        // value={settings.recaptcha_v3_secretkey}
-                                        // onChange={(e) => handleChange(e.target.name, e.target.value)}
-                                        className='w-full border border-subtle px-2'
-                                        placeholder={__('', 'uael')}
-                                        style={{
-                                            height: '48px',
-                                            borderColor: '#e0e0e0', // Default border color
-                                            outline: 'none',       // Removes the default outline
-                                            boxShadow: 'none',     // Removes the default box shadow
-                                            // marginTop: '16px'
-                                        }}
-                                        onFocus={(e) => e.target.style.borderColor = '#6005FF'} // Apply focus color
-                                        onBlur={(e) => e.target.style.borderColor = '#e0e0e0'}  // Revert to default color
-                                    />
-                                </Container.Item>
-
-                                <Container.Item className="flex flex-col space-y-1 basis-1/2 flex-1">
-                                    <Title
-                                        icon={null}
-                                        iconPosition="right"
-                                        size="xs"
-                                        tag="h2"
-                                        title={__('Email Address', 'uael')}
-                                        description=""
-                                        className="uae-subtitle"
-                                    />
-                                    {/* <p className='font-normal text-field-label text-base'>{__('Score Threshold', 'uael')}</p> */}
-                                    <input
-                                        type="text"
-                                        name="" // Match the key with the backend
-                                        // value={settings.recaptcha_v3_score}
-                                        // onChange={(e) => handleChange(e.target.name, e.target.value)}
-                                        className='w-full border border-subtle px-2'
-                                        placeholder={__('', 'uael')}
-                                        style={{
-                                            height: '48px',
-                                            borderColor: '#e0e0e0', // Default border color
-                                            outline: 'none',       // Removes the default outline
-                                            boxShadow: 'none',     // Removes the default box shadow
-                                            // marginTop: '16px'
-                                        }}
-                                        onFocus={(e) => e.target.style.borderColor = '#6005FF'} // Apply focus color
-                                        onBlur={(e) => e.target.style.borderColor = '#e0e0e0'}  // Revert to default color
-                                    />
-                                </Container.Item>
-                            </div>
-            </div>
-			<div className="flex justify-between items-center pt-1 px-4 gap-4 hfe-onboarding-bottom">
+						<a
+							href="#"
+							className="text-purple-600 underline hover:text-purple-700"
+						>
+							{__("Privacy Policy", "header-footer-elementor")}
+						</a>
+					</label>
+				</div>
+			</div>
+			<div style={{gap: '350px'}}  className="flex justify-end items-center pt-4 px-4 hfe-onboarding-bottom">
 				<Button
 					className="flex items-center gap-1 hfe-remove-ring"
 					icon={<ChevronLeft />}
@@ -212,7 +220,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 				>
 					{__("Back", "header-footer-elementor")}
 				</Button>
-				<div className="flex justify-end items-center gap-3">
+				<div className="flex justify-start text-text-tertiary items-center gap-3">
 					<Button
 						className="hfe-remove-ring"
 						variant="ghost"
@@ -226,13 +234,13 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 						icon={<ArrowRight />}
 						iconPosition="right"
 						style={{
-							backgroundColor: "#6005FF",
+							backgroundColor: "#240064",
 							transition: "background-color 0.3s ease",
 							padding: "12px",
 						}}
 						onClick={() => setCurrentStep(3)}
 					>
-						{__(" Continue Setup", "header-footer-elementor")}
+						{__(" Next", "header-footer-elementor")}
 					</Button>
 				</div>
 			</div>
