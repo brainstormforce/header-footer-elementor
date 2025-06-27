@@ -370,13 +370,14 @@ class HFE_Settings_Page {
 		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
 	
 		$strings = [
-			'addon_activate'        => esc_html__( 'Activate', 'header-footer-elementor' ),
-			'addon_activated'       => esc_html__( 'Activated', 'header-footer-elementor' ),
-			'addon_active'          => esc_html__( 'Active', 'header-footer-elementor' ),
-			'addon_deactivate'      => esc_html__( 'Deactivate', 'header-footer-elementor' ),
-			'addon_inactive'        => esc_html__( 'Inactive', 'header-footer-elementor' ),
-			'addon_install'         => esc_html__( 'Install', 'header-footer-elementor' ),
-			'theme_installed'       => esc_html__( 'Theme Installed', 'header-footer-elementor' ),
+                       'addon_activate'        => esc_html__( 'Activate', 'header-footer-elementor' ),
+                       'addon_activated'       => esc_html__( 'Activated', 'header-footer-elementor' ),
+                       'addon_active'          => esc_html__( 'Active', 'header-footer-elementor' ),
+                       'addon_deactivate'      => esc_html__( 'Deactivate', 'header-footer-elementor' ),
+                       'addon_inactive'        => esc_html__( 'Inactive', 'header-footer-elementor' ),
+                       'addon_install'         => esc_html__( 'Install', 'header-footer-elementor' ),
+                       'addon_installed'       => esc_html__( 'Installed', 'header-footer-elementor' ),
+                       'theme_installed'       => esc_html__( 'Theme Installed', 'header-footer-elementor' ),
 			'plugin_installed'      => esc_html__( 'Plugin Installed', 'header-footer-elementor' ),
 			'addon_download'        => esc_html__( 'Download', 'header-footer-elementor' ),
 			'addon_exists'          => esc_html__( 'Already Exists.', 'header-footer-elementor' ),
@@ -1110,30 +1111,32 @@ class HFE_Settings_Page {
 										?>
 									</strong>
 								</div>
-								<div class="action-button">
-									<?php if ( 'Visit Website' === $plugin_data['action_text'] ) { ?>
-										<a href="<?php echo esc_url( $plugin_data['plugin_src'] ); ?>" target="_blank" rel="noopener noreferrer" class="pro-plugin button button-primary"><?php echo wp_kses_post( $plugin_data['action_text'] ); ?></a>
-									<?php } elseif ( 'theme' === $details['type'] && $can_install_themes ) { ?>
-										<button class="<?php echo esc_attr( $plugin_data['action_class'] ); ?>" data-plugin="<?php echo esc_attr( $plugin_data['plugin_src'] ); ?>" data-type="theme" data-slug="<?php echo esc_attr( $details['slug'] ); ?>" data-site="<?php echo esc_url( $details['url'] ); ?>">
-											<span><?php echo wp_kses_post( $plugin_data['action_text'] ); ?></span>
-										</button>
-									<?php } elseif ( 'plugin' === $details['type'] && $can_install_plugins ) { ?>
-										<button class="<?php echo esc_attr( $plugin_data['action_class'] ); ?>" data-plugin="<?php echo esc_attr( $plugin_data['plugin_src'] ); ?>" data-type="plugin" data-slug="<?php echo esc_attr( $details['slug'] ); ?>" data-site="<?php echo esc_url( $details['url'] ); ?>" data-file="<?php echo esc_attr( $plugin ); ?>">
-											<span><?php echo wp_kses_post( $plugin_data['action_text'] ); ?></span>
-										</button>
-									<?php } else { ?>
-										<a href="<?php echo esc_url( $details['wporg'] ); ?>" target="_blank" rel="noopener noreferrer">
-											<?php esc_html_e( 'WordPress.org', 'header-footer-elementor' ); ?>
-											<span aria-hidden="true" class="dashicons dashicons-external"></span>
-										</a>
-									<?php } ?>
-								</div>
+                                                               <div class="action-checkbox">
+                                                                       <?php if ( 'Visit Website' === $plugin_data['action_text'] ) { ?>
+                                                                               <a href="<?php echo esc_url( $plugin_data['plugin_src'] ); ?>" target="_blank" rel="noopener noreferrer" class="pro-plugin button button-primary"><?php echo wp_kses_post( $plugin_data['action_text'] ); ?></a>
+                                                                       <?php } elseif ( ( 'theme' === $details['type'] && $can_install_themes ) || ( 'plugin' === $details['type'] && $can_install_plugins ) ) { ?>
+                                                                               <label>
+                                                                                       <input type="checkbox" class="addon-select" data-plugin="<?php echo esc_attr( $plugin_data['plugin_src'] ); ?>" data-type="<?php echo esc_attr( $details['type'] ); ?>" data-slug="<?php echo esc_attr( $details['slug'] ); ?>" data-file="<?php echo esc_attr( $plugin ); ?>">
+                                                                                       <?php echo esc_html__( 'Install', 'header-footer-elementor' ); ?>
+                                                                               </label>
+                                                                       <?php } else { ?>
+                                                                               <a href="<?php echo esc_url( $details['wporg'] ); ?>" target="_blank" rel="noopener noreferrer">
+                                                                               <?php esc_html_e( 'WordPress.org', 'header-footer-elementor' ); ?>
+                                                                               <span aria-hidden="true" class="dashicons dashicons-external"></span>
+                                                                               </a>
+                                                                       <?php } ?>
+                                                               </div>
 							</div>
 						</div>
 					</div>
-				<?php endforeach; ?>
-			</div>
-		</div>
+                                <?php endforeach; ?>
+                        </div>
+                        <div class="hfe-addons-install-footer">
+                                <button id="hfe-install-selected" class="button button-primary">
+                                        <?php esc_html_e( 'Next', 'header-footer-elementor' ); ?>
+                                </button>
+                        </div>
+                </div>
 		<?php
 	}
 
@@ -1178,7 +1181,7 @@ class HFE_Settings_Page {
 				$plugin_data['status_text']  = esc_html__( 'Inactive', 'header-footer-elementor' );
 				// Button text/status.
 				$plugin_data['action_class'] = $plugin_data['status_class'] . ' button button-secondary';
-				$plugin_data['action_text']  = esc_html__( 'Activate', 'header-footer-elementor' );
+                               $plugin_data['action_text']  = esc_html__( 'Installed', 'header-footer-elementor' );
 				$plugin_data['plugin_src']   = esc_attr( $addon );
 			}
 		} else {

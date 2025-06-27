@@ -570,6 +570,18 @@ select.hfe-subscribe-field {
     text-decoration: none;
 }
 
+.hfe-admin-addons .addon-item .action-checkbox {
+    width: 110px;
+    text-align: center;
+}
+
+.hfe-admin-addons .addon-item .action-checkbox label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
 /* Modal Popup */
 .hfe-guide-modal-header {
     padding: 10px;

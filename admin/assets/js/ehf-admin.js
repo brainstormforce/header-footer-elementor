@@ -49,18 +49,20 @@
 			// About us - addons functionality.
 			if ( $( '.hfe-admin-addons' ).length ) {
 	
-				$document.on( 'click', '.hfe-admin-addons .addon-item button', function( event ) {
-					event.preventDefault();
-		
-					if ( $( this ).hasClass( 'disabled' ) ) {
-						return false;
-					}
-		
-					HFEAdmin._addons( $( this ) );
+                                $document.on( 'click', '.hfe-admin-addons .addon-item button', function( event ) {
+                                        event.preventDefault();
 
-				} );
-		
-			}
+                                        if ( $( this ).hasClass( 'disabled' ) ) {
+                                                return false;
+                                        }
+
+                                        HFEAdmin._addons( $( this ) );
+
+                                } );
+
+                                $document.on( 'click', '#hfe-install-selected', HFEAdmin._install_selected_addons );
+
+                        }
 
 			if( "yes" === hfe_admin_data.show_all_hfe ) {
 				// Add the "View All" button next to the "Add New" button.
@@ -401,8 +403,41 @@
 					$( '.addon-item .msg' ).remove();
 				}, 3000 );
 	
-			} );
-		},
+                        } );
+                },
+
+               /**
+                * Install selected addons based on checked checkboxes.
+                */
+               _install_selected_addons: function( event ) {
+                       event.preventDefault();
+                       var checkboxes = $('.hfe-admin-addons input.addon-select:checked');
+                       var install_next = function( index ) {
+                               if ( index >= checkboxes.length ) {
+                                       return;
+                               }
+                               var $cb = $( checkboxes[index] );
+                               var plugin = $cb.data('plugin');
+                               var type = $cb.data('type');
+                               var slug = $cb.data('slug');
+                               var $addon = $cb.closest('.addon-item');
+                               HFEAdmin._set_addon_state( plugin, 'install', type, slug, function( res ) {
+                                       if ( res.success ) {
+                                               $addon.find('.actions').append('<div class="msg success">' + res.msg + '</div>');
+                                               $addon.find('span.status-label')
+                                                       .removeClass('status-active status-inactive status-download')
+                                                       .addClass('status-inactive')
+                                                       .text(hfe_admin_data.addon_installed);
+                                       } else {
+                                               var err = ('object' === typeof res.data) ? hfe_admin_data.plugin_error : res.data;
+                                               $addon.find('.actions').append('<div class="msg error">' + err + '</div>');
+                                       }
+                                       setTimeout( function(){ $addon.find('.msg').remove(); }, 3000 );
+                                       install_next( index + 1 );
+                               } );
+                       };
+                       install_next(0);
+               },
 
 		/**
 		 * Change plugin/addon state.
