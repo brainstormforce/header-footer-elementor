@@ -411,7 +411,7 @@
                 */
                _install_selected_addons: function( event ) {
                        event.preventDefault();
-                       var checkboxes = $('.hfe-admin-addons input.addon-select:checked');
+                       var checkboxes = $( '.hfe-admin-addons input.addon-select:checked' );
                        var install_next = function( index ) {
                                if ( index >= checkboxes.length ) {
                                        return;
@@ -433,6 +433,7 @@
                                                $addon.find('.actions').append('<div class="msg error">' + err + '</div>');
                                        }
                                        setTimeout( function(){ $addon.find('.msg').remove(); }, 3000 );
+                                       $cb.prop( 'checked', false ).prop( 'disabled', true );
                                        install_next( index + 1 );
                                } );
                        };

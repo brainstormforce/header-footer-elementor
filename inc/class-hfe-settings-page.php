@@ -1114,16 +1114,13 @@ class HFE_Settings_Page {
                                                                <div class="action-checkbox">
                                                                        <?php if ( 'Visit Website' === $plugin_data['action_text'] ) { ?>
                                                                                <a href="<?php echo esc_url( $plugin_data['plugin_src'] ); ?>" target="_blank" rel="noopener noreferrer" class="pro-plugin button button-primary"><?php echo wp_kses_post( $plugin_data['action_text'] ); ?></a>
-                                                                       <?php } elseif ( ( 'theme' === $details['type'] && $can_install_themes ) || ( 'plugin' === $details['type'] && $can_install_plugins ) ) { ?>
+                                                                       <?php } elseif ( 'Install' === $plugin_data['action_text'] && ( ( 'theme' === $details['type'] && $can_install_themes ) || ( 'plugin' === $details['type'] && $can_install_plugins ) ) ) { ?>
                                                                                <label>
                                                                                        <input type="checkbox" class="addon-select" data-plugin="<?php echo esc_attr( $plugin_data['plugin_src'] ); ?>" data-type="<?php echo esc_attr( $details['type'] ); ?>" data-slug="<?php echo esc_attr( $details['slug'] ); ?>" data-file="<?php echo esc_attr( $plugin ); ?>">
                                                                                        <?php echo esc_html__( 'Install', 'header-footer-elementor' ); ?>
                                                                                </label>
                                                                        <?php } else { ?>
-                                                                               <a href="<?php echo esc_url( $details['wporg'] ); ?>" target="_blank" rel="noopener noreferrer">
-                                                                               <?php esc_html_e( 'WordPress.org', 'header-footer-elementor' ); ?>
-                                                                               <span aria-hidden="true" class="dashicons dashicons-external"></span>
-                                                                               </a>
+                                                                               <span class="installed-text"><?php echo esc_html( $plugin_data['action_text'] ); ?></span>
                                                                        <?php } ?>
                                                                </div>
 							</div>
