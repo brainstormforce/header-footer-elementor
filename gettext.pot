@@ -707,6 +707,7 @@ msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:340
 #: src/Components/Onboarding/Create.jsx:482
+#: src/Components/Onboarding/Create.jsx:481
 #: src/Components/Onboarding/ExtendOnboarding.jsx:225
 msgid "First Name"
 msgstr ""
@@ -766,17 +767,20 @@ msgid "What You Can Do Next:"
 msgstr ""
 
 #: src/Components/Onboarding/Create.jsx:203
-#: src/Components/Onboarding/WelcomeNew.jsx:34
+#: src/Components/Onboarding/Create.jsx:202
+#: src/Components/Onboarding/WelcomeNew.jsx:55
 msgid "Disable unused widgets in one click, no bloat"
 msgstr ""
 
 #: src/Components/Onboarding/Create.jsx:219
-#: src/Components/Onboarding/WelcomeNew.jsx:38
+#: src/Components/Onboarding/Create.jsx:218
+#: src/Components/Onboarding/WelcomeNew.jsx:71
 msgid "Design headers & footers exactly where you want them"
 msgstr ""
 
 #: src/Components/Onboarding/Create.jsx:235
-#: src/Components/Onboarding/WelcomeNew.jsx:42
+#: src/Components/Onboarding/Create.jsx:234
+#: src/Components/Onboarding/WelcomeNew.jsx:87
 msgid "Reliable support from experts when you need it"
 msgstr ""
 
@@ -907,19 +911,19 @@ msgstr ""
 msgid "Congratulations!"
 msgstr ""
 
-#: src/Components/Onboarding/WelcomeNew.jsx:12
-msgid "Welcome to UAE"
-msgstr ""
-
-#: src/Components/Onboarding/WelcomeNew.jsx:19
-msgid "Your Ultimate Elementor Addons to build modern Elementor Websites."
-msgstr ""
-
-#: src/Components/Onboarding/WelcomeNew.jsx:64
+#: src/Components/Onboarding/WelcomeNew.jsx:117
 msgid "Let's Get Started"
 msgstr ""
 
-#: src/Components/Onboarding/index.js:92
+#: src/Components/Onboarding/WelcomeNew.jsx:16
+msgid "Welcome to UAE"
+msgstr ""
+
+#: src/Components/Onboarding/WelcomeNew.jsx:23
+msgid "Your Ultimate Elementor Addons to build modern Elementor Websites."
+msgstr ""
+
+#: src/Components/Onboarding/index.js:91
 msgid "Exit Guided Setup"
 msgstr ""
 

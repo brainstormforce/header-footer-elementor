@@ -130,7 +130,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 
 	return (
         
-		<div className="bg-background-primary border-[0.5px] items-start justify-center border-subtle rounded-xl shadow-sm mb-6 p-4 flex w-1/2 flex-col">
+		<div className="bg-background-primary border-[0.5px] items-start justify-center border-subtle rounded-xl shadow-sm mb-6 p-4 flex flex-col" style={{ width: "672px" }}>
 			{showPluginsSection && (
 				<div className="rounded-lg bg-white w-full">
 					<div
