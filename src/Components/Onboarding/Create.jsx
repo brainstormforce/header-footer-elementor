@@ -150,7 +150,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
 	return (
 		<div
 			className="bg-background-primary border-[0.5px] border-subtle rounded-xl shadow-sm mb-6 p-8"
-			style={{ maxWidth: "50%" }}
+			style={{ width:"672px" }}
 		>
 			<div className="flex items-start hfe-display-flex">
 				{/* Left Content */}
@@ -324,7 +324,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
 					{__("Create New Page", "header-footer-elementor")}
 				</Button>
 			</div>
-			{hfeSettingsData.uaelite_subscription !== "done" && (
+			{/* {hfeSettingsData.uaelite_subscription !== "done" && (
 				<div
 					className="flex items-start justify-start mt-4"
 					style={{
@@ -374,7 +374,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
 						</Button>
 					</div>
 				</div>
-			)}
+			)} */}
 			{/* <hr className="w-full border-b-0 border-x-0 border-t border-solid border-t-border-subtle" style={{ marginTop: '34px', marginBottom: '34px', borderColor: '#E5E7EB' }} /> */}
 
 			{/* <div className="bg-badge-background-gray border-[0.5px] border-subtle p-6" style={{ borderRadius: '5px' }}>

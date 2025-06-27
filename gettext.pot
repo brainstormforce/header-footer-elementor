@@ -667,17 +667,14 @@ msgid "Go To Dashboard"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:240
-#: src/Components/Onboarding/Create.jsx:342
 msgid "We have a special reward just for you!"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:244
-#: src/Components/Onboarding/Create.jsx:349
 msgid "This special offer is available only on this page and for limited time"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:258
-#: src/Components/Onboarding/Create.jsx:370
 msgid "Unlock My Surprise"
 msgstr ""
 
@@ -707,7 +704,6 @@ msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:340
 #: src/Components/Onboarding/Create.jsx:482
-#: src/Components/Onboarding/Create.jsx:481
 #: src/Components/Onboarding/ExtendOnboarding.jsx:225
 msgid "First Name"
 msgstr ""
@@ -767,19 +763,16 @@ msgid "What You Can Do Next:"
 msgstr ""
 
 #: src/Components/Onboarding/Create.jsx:203
-#: src/Components/Onboarding/Create.jsx:202
 #: src/Components/Onboarding/WelcomeNew.jsx:55
 msgid "Disable unused widgets in one click, no bloat"
 msgstr ""
 
 #: src/Components/Onboarding/Create.jsx:219
-#: src/Components/Onboarding/Create.jsx:218
 #: src/Components/Onboarding/WelcomeNew.jsx:71
 msgid "Design headers & footers exactly where you want them"
 msgstr ""
 
 #: src/Components/Onboarding/Create.jsx:235
-#: src/Components/Onboarding/Create.jsx:234
 #: src/Components/Onboarding/WelcomeNew.jsx:87
 msgid "Reliable support from experts when you need it"
 msgstr ""

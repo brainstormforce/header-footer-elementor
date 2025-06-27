@@ -77,7 +77,7 @@ const Features = ({ setCurrentStep }) => {
 				className="box-border bg-background-primary p-6 rounded-lg"
 				style={{
 					marginTop: "24px",
-					width: "50%",
+					width: "672px",
 				}}
 			>
 				<Title
