@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Container, Button, Badge, Dialog } from "@bsf/force-ui";
+import { Container, Button, Dialog } from "@bsf/force-ui";
 import apiFetch from '@wordpress/api-fetch';
 import { __ } from '@wordpress/i18n';
 
 const ExtendOnboardingWidget = ({
     plugin,
-    setUpdateCounter // Receive setUpdateCounter as a prop
+    setUpdateCounter, // Receive setUpdateCounter as a prop
+    onPluginSelect, // New prop to handle plugin selection
 }) => {
     const {
         path,
@@ -24,6 +25,26 @@ const ExtendOnboardingWidget = ({
     } = plugin
     const [isDialogOpen, setIsDialogOpen] = useState(false);
     const [pluginData, setPluginData] = useState(null);
+    const [isChecked, setIsChecked] = useState(false);
+
+    const handleCheckboxChange = (e) => {
+        // Make sure e and e.target exist before accessing properties
+        const isCheckedValue = e.target.checked;
+        setIsChecked(isCheckedValue);
+        
+        // Call the parent component's function to track selected plugins
+        if (onPluginSelect) {
+            onPluginSelect({
+                slug,
+                path,
+                type,
+                name,
+                zipUrl,
+                status,
+                isChecked: isCheckedValue
+            });
+        }
+    };
 
     const getAction = (status) => {
         if (status === 'Activated') {
@@ -179,63 +200,52 @@ const ExtendOnboardingWidget = ({
                     >{__(name, 'header-footer-elementor')}</p>
                     <p className='text-sm font-medium text-text-tertiary m-0 truncate'>{__(desc, 'header-footer-elementor')}</p>
                 </div>
-            </div>
-
-            <div className='flex items-center gap-x-2 flex-shrink-0'>
-                {isFree && (
-                    <Badge
-                        label={__("Free", "header-footer-elementor")}
-                        size="xs"
-                        type="pill"
-                        variant="green"
+                
+                <div className='flex-shrink-0 ml-2'>
+                    <input 
+                        type="checkbox"
+                        checked={isChecked}
+                        onChange={handleCheckboxChange}
+                        id={`plugin-${slug}`}
+                        className="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
+                        data-plugin={zipUrl}
+                        data-type={type}
+                        data-pluginname={name}
+                        data-slug={slug}
+                        data-site={siteUrl}
+                        data-init={path}
+                        data-status={status}
                     />
-                )}
-                <Button
-                    size="xs"
-                    variant="link"
-                    className="cursor-pointer hfe-remove-ring"
-                    onClick={handlePluginAction} // Trigger action on click
-                    data-plugin={zipUrl}
-                    data-type={type}
-                    data-pluginname={name}
-                    data-slug={slug}
-                    data-site={siteUrl}
-                    data-init={path}
-                    data-action={getAction(status)}
-                    style={{
-                        color: status === 'Activated' ? '#16A34A' : '#6005FF',
-                    }}
-                >
-                    {status === 'Activated' ? __('Visit Site', 'header-footer-elementor') : ('Installed' === status ? 'Activate' : status)}
-                </Button>
-                    <Dialog
-                        design="simple"
-                        open={isDialogOpen}
-                        setOpen={setIsDialogOpen}
-                    >
-                        <Dialog.Backdrop />
-                        <Dialog.Panel>
-                            <Dialog.Header>
-                                <div className="flex items-center justify-between">
-                                    <Dialog.Title>
-                                    {__('Activate Theme', 'header-footer-elementor')}
-                                    </Dialog.Title>
-                                </div>
-                                <Dialog.Description>
-                                    {__('Are you sure you want to switch your current theme to Astra?', 'header-footer-elementor')}
-                                </Dialog.Description>
-                            </Dialog.Header>
-                            <Dialog.Footer>
-                                <Button onClick={() => activatePlugin(pluginData)}>
-                                    {__('Yes', 'header-footer-elementor')}
-                                </Button>
-                                <Button variant='outline' onClick={() => setIsDialogOpen(false)}>
-                                    {__('Close', 'header-footer-elementor')}
-                                </Button>
-                            </Dialog.Footer>
-                        </Dialog.Panel>
-                    </Dialog>
+                </div>
             </div>
+            
+            <Dialog
+                design="simple"
+                open={isDialogOpen}
+                setOpen={setIsDialogOpen}
+            >
+                <Dialog.Backdrop />
+                <Dialog.Panel>
+                    <Dialog.Header>
+                        <div className="flex items-center justify-between">
+                            <Dialog.Title>
+                            {__('Activate Theme', 'header-footer-elementor')}
+                            </Dialog.Title>
+                        </div>
+                        <Dialog.Description>
+                            {__('Are you sure you want to switch your current theme to Astra?', 'header-footer-elementor')}
+                        </Dialog.Description>
+                    </Dialog.Header>
+                    <Dialog.Footer>
+                        <Button onClick={() => activatePlugin(pluginData)}>
+                            {__('Yes', 'header-footer-elementor')}
+                        </Button>
+                        <Button variant='outline' onClick={() => setIsDialogOpen(false)}>
+                            {__('Close', 'header-footer-elementor')}
+                        </Button>
+                    </Dialog.Footer>
+                </Dialog.Panel>
+            </Dialog>
         </Container>
     )
 }

@@ -42,6 +42,8 @@ class HFE_Settings_Page {
 
 		add_action( 'admin_head', [ $this, 'fetch_user_email' ] );
 
+		add_action( 'admin_head', [ $this, 'fetch_user_fname' ] );
+
 		if ( ! HFE_Helper::is_pro_active() ) {
 			if ( is_admin() && current_user_can( 'manage_options' ) ) {
 				add_action( 'admin_menu', [ $this, 'hfe_register_settings_page' ] );
@@ -229,6 +231,21 @@ class HFE_Settings_Page {
 	}
 
 	/**
+	 * Fetch and return the user's first name.
+	 *
+	 * @since x.x.x
+	 * @return string|null The user's email if logged in, null otherwise.
+	 */
+	public function fetch_user_fname() {
+		$current_user = wp_get_current_user();
+		if ( $current_user->ID !== 0 ) {
+			return $current_user->user_firstname;
+		} else {
+			return null;
+		}
+	}
+
+	/**
 	 * Load admin styles on header footer elementor edit screen.
 	 *
 	 * @return void
@@ -262,7 +279,7 @@ class HFE_Settings_Page {
 			$hfe_post_url      = admin_url( 'post-new.php?post_type=elementor-hf' );
 			// Fetch the user's email.
 			$user_email = $this->fetch_user_email();
-			
+			$user_name  = $this->fetch_user_fname();
 			$show_theme_support = 'no';
 			$hfe_theme_status   = get_option( 'hfe_is_theme_supported', false );
 			$analytics_status   = get_option( 'uae_analytics_optin', false );
@@ -334,6 +351,7 @@ class HFE_Settings_Page {
 					'hfe_post_url'             => $hfe_post_url,
 					'is_hfe_post'              => $is_hfe_post,
 					'user_email'               => $user_email,
+					'user_fname'               => $user_name,
 					'analytics_status'         => $analytics_status,
 					'onboarding_success_url'   => admin_url( 'admin.php?page=hfe#onboardingsuccess' ),
 					'uaelite_subscription'	   => get_option( 'uaelite_subscription', false )

@@ -10,9 +10,10 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 	const [loading, setLoading] = useState(true);
 	const [updateCounter, setUpdateCounter] = useState(0);
 	const [allInstalled, setAllInstalled] = useState(false);
+	const [selectedPlugins, setSelectedPlugins] = useState({});
 	const [formData, setFormData] = useState({
-		firstName: '',
-		email: '',
+		firstName: (hfeSettingsData.user_fname) ? hfeSettingsData.user_fname : '',
+		email: (hfeSettingsData.user_email) ? hfeSettingsData.user_email : '',
 		notifications: true
 	});
 
@@ -35,13 +36,16 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 					},
 				});
 				const pluginsData = convertToPluginsArray(data);
-				setPlugins(pluginsData);
-
-				// Check if all plugins are installed
-				const areAllInstalled = pluginsData.every(
-					(plugin) => plugin.is_installed,
+				
+				// Filter out plugins that are already installed or activated
+				const uninstalledPlugins = pluginsData.filter(
+					(plugin) => !plugin.is_installed && plugin.status !== 'Activated' && plugin.status !== 'Installed'
 				);
-				setAllInstalled(areAllInstalled);
+				
+				setPlugins(uninstalledPlugins);
+
+				// If there are no uninstalled plugins, set allInstalled to true
+				setAllInstalled(uninstalledPlugins.length === 0);
 			} catch (err) {
 				console.error("Error fetching plugins:", err);
 			} finally {
@@ -59,23 +63,84 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 		}));
 	}
 
-	// If all plugins are installed, don't render the component
-	if (allInstalled) {
-		return null;
-	}
+	// Handle plugin selection from checkbox
+	const handlePluginSelect = (pluginData) => {
+		setSelectedPlugins(prev => ({
+			...prev,
+			[pluginData.slug]: {
+				...pluginData,
+				selected: pluginData.isChecked
+			}
+		}));
+	};
+
+	// Bulk install selected plugins in the background
+	const installSelectedPluginsInBackground = async () => {
+		// Get all selected plugins (they're already filtered to be uninstalled only)
+		const pluginsToInstall = Object.values(selectedPlugins)
+			.filter(plugin => plugin.selected);
+		
+		if (pluginsToInstall.length === 0) {
+			// If no plugins to install, just return
+			return;
+		}
+
+		// Start installation in background
+		setTimeout(async () => {
+			// Install plugins one by one
+			for (const plugin of pluginsToInstall) {
+				const formData = new window.FormData();
+				formData.append(
+					'action',
+					plugin.type === 'theme' ? 'hfe_recommended_theme_install' : 'hfe_recommended_plugin_install'
+				);
+				formData.append('_ajax_nonce', hfe_admin_data.installer_nonce);
+				formData.append('slug', plugin.slug);
+
+				try {
+					const response = await apiFetch({
+						url: hfe_admin_data.ajax_url,
+						method: 'POST',
+						body: formData,
+					});
+
+					if (!response.success && response.errorCode !== 'folder_exists') {
+						console.error(`Failed to install ${plugin.name}:`, response);
+					}
+				} catch (error) {
+					console.error(`Error installing ${plugin.name}:`, error);
+				}
+			}
+		}, 0);
+	};
+
+	// Handle next button click
+	const handleNextClick = () => {
+		// Start installation in background only if there are plugins to install
+		if (plugins.length > 0) {
+			installSelectedPluginsInBackground();
+		}
+		
+		// Immediately proceed to next step
+		setCurrentStep(3);
+	};
+
+	// If all plugins are installed or there are no plugins to show, only hide the plugins section
+	const showPluginsSection = !allInstalled && (loading || plugins.length > 0);
 
 	return (
         
-		<div className="bg-background-primary border-[0.5px] items-start justify-center border-subtle rounded-xl shadow-sm mb-6 p-4 flex w-1/2 flex-col">
-			<div className="rounded-lg bg-white w-full">
-				<div
-					className="flex flex-col items-start justify-between p-4"
-					style={{ paddingBottom: "0" }}
-				>
-					<p
-						className="text-text-primary m-0 mb-2 hfe-65-width"
-						style={{ fontSize: "24px", lineHeight: "1.3em" }}
+		<div className="bg-background-primary border-[0.5px] items-start justify-center border-subtle rounded-xl shadow-sm mb-6 p-4 flex flex-col" style={{ width: "672px" }}>
+			{showPluginsSection && (
+				<div className="rounded-lg bg-white w-full">
+					<div
+						className="flex flex-col items-start justify-between p-4"
+						style={{ paddingBottom: "0" }}
 					>
+						<p
+							className="text-text-primary m-0 mb-2 hfe-65-width"
+							style={{ fontSize: "24px", lineHeight: "1.3em" }}
+						>
 						{__(
 							"Recommended Essentials",
 							"header-footer-elementor",
@@ -86,7 +151,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 						style={{ lineHeight: "1.5em", color: "#111827" }}
 					>
 						{__(
-							"These free plugins add essential features to your website and help speed up your workflow. The selected plugins below will be installed on this site.",
+							"These free plugins add essential features to your website and help speed up your workflow. Select the plugins you want to install.",
 							"header-footer-elementor",
 						)}
 					</span>
@@ -138,6 +203,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 									<ExtendOnboardingWidget
 										plugin={plugin}
 										setUpdateCounter={setUpdateCounter}
+										onPluginSelect={handlePluginSelect}
 									/>
 								</Container.Item>
 							))}
@@ -145,8 +211,9 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 					)}
 				</div>
 			</div>
-			<div className="px-5 bg-white rounded-lg">
-				<h3 className="text-base font-semibold  text-gray-900">
+			)}
+			<div className="px-5 bg-white rounded-lg mt-4">
+				<h3 className={`text-base font-semibold text-gray-900 ${!showPluginsSection ? 'text-xl mb-3' : ''}`}>
 					{__(
 						"Get Important Notifications and Updates",
 						"header-footer-elementor",
@@ -238,9 +305,9 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 							transition: "background-color 0.3s ease",
 							padding: "12px",
 						}}
-						onClick={() => setCurrentStep(3)}
+						onClick={handleNextClick}
 					>
-						{__(" Next", "header-footer-elementor")}
+						{__("Next", "header-footer-elementor")}
 					</Button>
 				</div>
 			</div>
