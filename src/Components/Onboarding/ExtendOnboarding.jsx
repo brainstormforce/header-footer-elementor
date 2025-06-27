@@ -10,6 +10,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 	const [loading, setLoading] = useState(true);
 	const [updateCounter, setUpdateCounter] = useState(0);
 	const [allInstalled, setAllInstalled] = useState(false);
+	const [selectedPlugins, setSelectedPlugins] = useState({});
 	const [formData, setFormData] = useState({
 		firstName: '',
 		email: '',
@@ -59,6 +60,66 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 		}));
 	}
 
+	// Handle plugin selection from checkbox
+	const handlePluginSelect = (pluginData) => {
+		setSelectedPlugins(prev => ({
+			...prev,
+			[pluginData.slug]: {
+				...pluginData,
+				selected: pluginData.isChecked
+			}
+		}));
+	};
+
+	// Bulk install selected plugins in the background
+	const installSelectedPluginsInBackground = async () => {
+		// Get all selected plugins that are not already installed
+		const pluginsToInstall = Object.values(selectedPlugins)
+			.filter(plugin => plugin.selected && plugin.status !== 'Activated' && plugin.status !== 'Installed');
+		
+		if (pluginsToInstall.length === 0) {
+			// If no plugins to install, just return
+			return;
+		}
+
+		// Start installation in background
+		setTimeout(async () => {
+			// Install plugins one by one
+			for (const plugin of pluginsToInstall) {
+				const formData = new window.FormData();
+				formData.append(
+					'action',
+					plugin.type === 'theme' ? 'hfe_recommended_theme_install' : 'hfe_recommended_plugin_install'
+				);
+				formData.append('_ajax_nonce', hfe_admin_data.installer_nonce);
+				formData.append('slug', plugin.slug);
+
+				try {
+					const response = await apiFetch({
+						url: hfe_admin_data.ajax_url,
+						method: 'POST',
+						body: formData,
+					});
+
+					if (!response.success && response.errorCode !== 'folder_exists') {
+						console.error(`Failed to install ${plugin.name}:`, response);
+					}
+				} catch (error) {
+					console.error(`Error installing ${plugin.name}:`, error);
+				}
+			}
+		}, 0);
+	};
+
+	// Handle next button click
+	const handleNextClick = () => {
+		// Start installation in background
+		installSelectedPluginsInBackground();
+		
+		// Immediately proceed to next step
+		setCurrentStep(3);
+	};
+
 	// If all plugins are installed, don't render the component
 	if (allInstalled) {
 		return null;
@@ -86,7 +147,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 						style={{ lineHeight: "1.5em", color: "#111827" }}
 					>
 						{__(
-							"These free plugins add essential features to your website and help speed up your workflow. The selected plugins below will be installed on this site.",
+							"These free plugins add essential features to your website and help speed up your workflow. Select the plugins you want to install.",
 							"header-footer-elementor",
 						)}
 					</span>
@@ -138,6 +199,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 									<ExtendOnboardingWidget
 										plugin={plugin}
 										setUpdateCounter={setUpdateCounter}
+										onPluginSelect={handlePluginSelect}
 									/>
 								</Container.Item>
 							))}
@@ -238,9 +300,9 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 							transition: "background-color 0.3s ease",
 							padding: "12px",
 						}}
-						onClick={() => setCurrentStep(3)}
+						onClick={handleNextClick}
 					>
-						{__(" Next", "header-footer-elementor")}
+						{__("Next", "header-footer-elementor")}
 					</Button>
 				</div>
 			</div>
