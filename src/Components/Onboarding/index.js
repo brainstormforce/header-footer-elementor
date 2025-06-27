@@ -6,6 +6,7 @@ import { X } from "lucide-react";
 import { __ } from "@wordpress/i18n";
 // import Welcome from "./Welcome";
 import Build from "./Build";
+import Create from "./Create";
 import Welcome from "./WelcomeNew";
 // import Configure from "./Configure";
 import Configure from "./ExtendOnboarding";
@@ -15,7 +16,7 @@ import Success from "./Success";
 const allSteps = [
     { label: "", component: Welcome },
     { label: "", component: Configure },
-    { label: "Create", component: Build },
+    { label: "Create", component: Create },
     { label: "Success", component: Success }, // Hidden from progress bar
 ];
 

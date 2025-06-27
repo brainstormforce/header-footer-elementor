@@ -549,10 +549,12 @@ msgstr ""
 
 #: src/Components/Dashboard/WelcomeContainer.js:65
 #: src/Components/Onboarding/Build.jsx:197
+#: src/Components/Onboarding/Create.jsx:279
 msgid "Create Header/Footer"
 msgstr ""
 
 #: src/Components/Dashboard/WelcomeContainer.js:93
+#: src/Components/Onboarding/Create.jsx:324
 msgid "Create New Page"
 msgstr ""
 
@@ -659,18 +661,22 @@ msgid "Click “Publish” to make it live"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:222
+#: src/Components/Onboarding/Create.jsx:297
 msgid "Go To Dashboard"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:240
+#: src/Components/Onboarding/Create.jsx:342
 msgid "We have a special reward just for you!"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:244
+#: src/Components/Onboarding/Create.jsx:349
 msgid "This special offer is available only on this page and for limited time"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:258
+#: src/Components/Onboarding/Create.jsx:370
 msgid "Unlock My Surprise"
 msgstr ""
 
@@ -687,50 +693,100 @@ msgid ""
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:318
+#: src/Components/Onboarding/Create.jsx:440
 msgid "We have a special Reward just for you! 🎁"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:332
+#: src/Components/Onboarding/Create.jsx:466
 msgid ""
 "Enter your details to get special offer that we have for you and stay "
 "updated on UAE’s latest news and updates."
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:340
+#: src/Components/Onboarding/Create.jsx:482
+#: src/Components/Onboarding/Create.jsx:480
+#: src/Components/Onboarding/Create.jsx:377
+#: src/Components/Onboarding/Create.jsx:349
+#: src/Components/Onboarding/Create.jsx:348
+#: src/Components/Onboarding/Create.jsx:340
 #: src/Components/Onboarding/ExtendOnboarding.jsx:158
 msgid "First Name"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:367
+#: src/Components/Onboarding/Create.jsx:522
 msgid "Last Name"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:390
+#: src/Components/Onboarding/Create.jsx:551
 msgid "Your Email Address"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:43
+#: src/Components/Onboarding/Create.jsx:43
 msgid "This field is required"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:434
+#: src/Components/Onboarding/Create.jsx:610
 msgid "Submit"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:50
+#: src/Components/Onboarding/Create.jsx:52
 msgid "Entered email address is invalid!"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:87
+#: src/Components/Onboarding/Create.jsx:93
+#: src/Components/Onboarding/Create.jsx:87
 #: src/Components/Settings/ThemeSupport.jsx:63
 #: src/Components/Settings/UsageTracking.jsx:32
 msgid "Settings saved successfully!"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:92
+#: src/Components/Onboarding/Create.jsx:105
+#: src/Components/Onboarding/Create.jsx:92
 #: src/Components/Settings/ThemeSupport.jsx:68
 #: src/Components/Settings/UsageTracking.jsx:37
 msgid "Failed to save settings!"
+msgstr ""
+
+#: src/Components/Onboarding/Create.jsx:165
+msgid "You’re All Set to Start Creating! 🚀"
+msgstr ""
+
+#: src/Components/Onboarding/Create.jsx:174
+msgid ""
+"Ultimate Addons is now ready to enhance your Elementor workflow.Jump in and "
+"start building faster, cleaner, and more creatively — with full control "
+"over every part of your site."
+msgstr ""
+
+#: src/Components/Onboarding/Create.jsx:180
+msgid "What You Can Do Next:"
+msgstr ""
+
+#: src/Components/Onboarding/Create.jsx:203
+#: src/Components/Onboarding/Create.jsx:156
+#: src/Components/Onboarding/WelcomeNew.jsx:34
+msgid "Disable unused widgets in one click, no bloat"
+msgstr ""
+
+#: src/Components/Onboarding/Create.jsx:219
+#: src/Components/Onboarding/Create.jsx:160
+#: src/Components/Onboarding/WelcomeNew.jsx:38
+msgid "Design headers & footers exactly where you want them"
+msgstr ""
+
+#: src/Components/Onboarding/Create.jsx:235
+#: src/Components/Onboarding/Create.jsx:164
+#: src/Components/Onboarding/WelcomeNew.jsx:42
+msgid "Reliable support from experts when you need it"
 msgstr ""
 
 #: src/Components/Onboarding/ExtendOnboarding.jsx:150
@@ -805,32 +861,19 @@ msgstr ""
 msgid "Congratulations!"
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:61
-#: src/Components/Onboarding/WelcomeNew.jsx:19
-msgid "Your Ultimate Elementor Addons to build modern Elementor Websites."
-msgstr ""
-
 #: src/Components/Onboarding/WelcomeNew.jsx:12
 msgid "Welcome to UAE"
 msgstr ""
 
-#: src/Components/Onboarding/WelcomeNew.jsx:34
-msgid "Disable unused widgets in one click, no bloat"
-msgstr ""
-
-#: src/Components/Onboarding/WelcomeNew.jsx:38
-msgid "Design headers & footers exactly where you want them"
-msgstr ""
-
-#: src/Components/Onboarding/WelcomeNew.jsx:42
-msgid "Reliable support from experts when you need it"
+#: src/Components/Onboarding/WelcomeNew.jsx:19
+msgid "Your Ultimate Elementor Addons to build modern Elementor Websites."
 msgstr ""
 
 #: src/Components/Onboarding/WelcomeNew.jsx:64
 msgid "Let's Get Started"
 msgstr ""
 
-#: src/Components/Onboarding/index.js:90
+#: src/Components/Onboarding/index.js:91
 msgid "Exit Guided Setup"
 msgstr ""
 
