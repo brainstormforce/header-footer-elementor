@@ -16,6 +16,35 @@ import { Link } from "../../router/index";
 import { routes } from "../../admin/settings/routes";
 
 const Features = ({ setCurrentStep }) => {
+	const [selectedFeatures, setSelectedFeatures] = useState({
+		headerFooterBuilder: false,
+		megaMenu: false,
+		modalPopup: false,
+		wooCommerceWidgets: false,
+		premiumWidgets: false,
+	});
+
+	const handleFeatureChange = (featureName) => {
+		setSelectedFeatures((prev) => ({
+			...prev,
+			[featureName]: !prev[featureName],
+		}));
+	};
+
+	const hasFreeFeaturesSelected =
+		selectedFeatures.headerFooterBuilder || selectedFeatures.megaMenu;
+	const hasProFeaturesSelected =
+		selectedFeatures.modalPopup ||
+		selectedFeatures.wooCommerceWidgets ||
+		selectedFeatures.premiumWidgets;
+	const hasAnyFeatureSelected =
+		hasFreeFeaturesSelected || hasProFeaturesSelected;
+
+	const handleUpgrade = () => {
+		// Add your upgrade URL here
+		window.open("https://your-upgrade-url.com", "_blank");
+	};
+
 	return (
 		<>
 			{/* <Toaster
@@ -118,11 +147,18 @@ const Features = ({ setCurrentStep }) => {
 								top: "0",
 							}}
 						>
-							<Switch
-								size="md"
-								// value={smoothScrollEnabled}
-								// onChange={handleSmoothScrollSwitch}
-								// disabled={isLoading}
+							<input
+								type="checkbox"
+								checked={selectedFeatures.headerFooterBuilder}
+								onChange={() =>
+									handleFeatureChange("headerFooterBuilder")
+								}
+								className="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+								style={{
+									accentColor: "#240064",
+									width: "18px",
+									height: "18px",
+								}}
 							/>
 						</Container.Item>
 					</Container>
@@ -179,10 +215,16 @@ const Features = ({ setCurrentStep }) => {
 						order="none"
 						style={{ marginTop: "40px" }}
 					>
-						<Switch
-							size="md"
-							// value={combinedCssEnabled}
-							// onChange={handleCombinedCssSwitch}
+						<input
+							type="checkbox"
+							checked={selectedFeatures.megaMenu}
+							onChange={() => handleFeatureChange("megaMenu")}
+							className="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+							style={{
+								accentColor: "#240064",
+								width: "18px",
+								height: "18px",
+							}}
 						/>
 					</Container.Item>
 				</Container>
@@ -235,10 +277,16 @@ const Features = ({ setCurrentStep }) => {
 						order="none"
 						style={{ marginTop: "40px" }}
 					>
-						<Switch
-							size="md"
-							// value={combinedJsEnabled}
-							// onChange={handleCombinedJsSwitch}
+						<input
+							type="checkbox"
+							checked={selectedFeatures.modalPopup}
+							onChange={() => handleFeatureChange("modalPopup")}
+							className="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+							style={{
+								accentColor: "#240064",
+								width: "18px",
+								height: "18px",
+							}}
 						/>
 					</Container.Item>
 				</Container>
@@ -289,10 +337,18 @@ const Features = ({ setCurrentStep }) => {
 						order="none"
 						style={{ marginTop: "40px" }}
 					>
-						<Switch
-							size="md"
-							// value={analyticsOptin}
-							// onChange={handleAnalyticsSwitch}
+						<input
+							type="checkbox"
+							checked={selectedFeatures.wooCommerceWidgets}
+							onChange={() =>
+								handleFeatureChange("wooCommerceWidgets")
+							}
+							className="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+							style={{
+								accentColor: "#240064",
+								width: "18px",
+								height: "18px",
+							}}
 						/>
 					</Container.Item>
 				</Container>
@@ -344,10 +400,18 @@ const Features = ({ setCurrentStep }) => {
 						order="none"
 						style={{ marginTop: "40px" }}
 					>
-						<Switch
-							size="md"
-							// value={analyticsOptin}
-							// onChange={handleAnalyticsSwitch}
+						<input
+							type="checkbox"
+							checked={selectedFeatures.premiumWidgets}
+							onChange={() =>
+								handleFeatureChange("premiumWidgets")
+							}
+							className="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+							style={{
+								accentColor: "#240064",
+								width: "18px",
+								height: "18px",
+							}}
 						/>
 					</Container.Item>
 				</Container>
@@ -369,21 +433,54 @@ const Features = ({ setCurrentStep }) => {
 							{" "}
 							{__("Skip", "header-footer-elementor")}
 						</Button>
-						<Button
-							className="flex items-center gap-1 hfe-remove-ring"
-							icon={<ArrowRight />}
-							iconPosition="right"
-							style={{
-								backgroundColor: "#240064",
-								transition: "background-color 0.3s ease",
-								padding: "12px",
-							}}
-							onClick={() => setCurrentStep(4)}
-						>
-							{__(" Next", "header-footer-elementor")}
-						</Button>
+						{hasProFeaturesSelected ? (
+							<Button
+								className="flex items-center gap-1 hfe-remove-ring"
+								icon={<ArrowRight />}
+								iconPosition="right"
+								style={{
+									backgroundColor: "#240064",
+									transition: "background-color 0.3s ease",
+									padding: "12px",
+								}}
+								onClick={handleUpgrade}
+							>
+								{__("Upgrade", "header-footer-elementor")}
+							</Button>
+						) : (
+							<Button
+								className="flex items-center gap-1 hfe-remove-ring"
+								icon={<ArrowRight />}
+								iconPosition="right"
+								style={{
+									backgroundColor: "#240064",
+									transition: "background-color 0.3s ease",
+									padding: "12px",
+								}}
+								onClick={() => setCurrentStep(4)}
+							>
+								{__("Next", "header-footer-elementor")}
+							</Button>
+						)}
 					</div>
 				</div>
+				{hasProFeaturesSelected && (
+					<div
+						className="mt-4 p-3 rounded-lg border border-gray-200 bg-gray-50"
+						style={{
+							backgroundColor: "#F9FAFB",
+							borderColor: "#E5E7EB",
+							marginTop: "16px",
+						}}
+					>
+						<div className="text-sm text-gray-700 font-medium">
+							{__(
+								"You've picked Pro features — upgrade to start using them.",
+								"header-footer-elementor",
+							)}
+						</div>
+					</div>
+				)}
 			</div>
 		</>
 	);
