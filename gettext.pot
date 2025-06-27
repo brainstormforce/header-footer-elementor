@@ -280,7 +280,6 @@ msgstr ""
 #: src/Components/Compare/UltimateCompare.jsx:12
 #: src/Components/Dashboard/UltimateFeatures.js:112
 #: src/Components/Onboarding/Features.jsx:253
-#: src/Components/Onboarding/Features.jsx:246
 #: src/Components/Widgets/UltimateWidgets.jsx:13
 msgid "Modal Popup"
 msgstr ""

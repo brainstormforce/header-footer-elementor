@@ -1964,6 +1964,9 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .pt-6{
     padding-top: 1.5rem;
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .pb-6{
+    padding-bottom: 1.5rem;
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .text-left{
     text-align: left;
 }
@@ -2791,11 +2794,26 @@ div#hfe-settings-app {
 		max-width: -moz-fit-content;
 		max-width: fit-content;
 	}
-	.hfe-onboarding-bottom {
-		display: grid !important;
-		max-width: -moz-fit-content;
-		max-width: fit-content;
-	}
+        .hfe-onboarding-bottom {
+                display: grid !important;
+                max-width: -moz-fit-content;
+                max-width: fit-content;
+        }
+}
+
+body.hfe-onboarding-fullscreen #wpadminbar,
+body.hfe-onboarding-fullscreen #adminmenuback,
+body.hfe-onboarding-fullscreen #adminmenuwrap,
+body.hfe-onboarding-fullscreen #adminmenu,
+body.hfe-onboarding-fullscreen #wpfooter {
+       display: none;
+}
+body.hfe-onboarding-fullscreen #wpcontent {
+       margin-left: 0;
+       padding-left: 0;
+}
+body.hfe-onboarding-fullscreen.admin-bar {
+       margin-top: 0 !important;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .file\:border-0::file-selector-button{
     border-width: 0px;
