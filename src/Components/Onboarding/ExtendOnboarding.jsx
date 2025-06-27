@@ -12,8 +12,8 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 	const [allInstalled, setAllInstalled] = useState(false);
 	const [selectedPlugins, setSelectedPlugins] = useState({});
 	const [formData, setFormData] = useState({
-		firstName: '',
-		email: '',
+		firstName: (hfeSettingsData.user_fname) ? hfeSettingsData.user_fname : '',
+		email: (hfeSettingsData.user_email) ? hfeSettingsData.user_email : '',
 		notifications: true
 	});
 
