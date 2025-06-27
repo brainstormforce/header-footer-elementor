@@ -133,10 +133,12 @@ msgstr ""
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:178
 #: src/Components/NavMenu.js:242
 #: src/Components/Onboarding/ExtendOnboardingWidget.jsx:187
+#: src/Components/Onboarding/Features.jsx:158
 msgid "Free"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:226
+#: src/Components/Onboarding/Features.jsx:325
 msgid "Pro"
 msgstr ""
 
@@ -277,6 +279,28 @@ msgstr ""
 #: src/Components/Compare/FreevsPro.jsx:68
 #: src/Components/Compare/UltimateCompare.jsx:12
 #: src/Components/Dashboard/UltimateFeatures.js:112
+#: src/Components/Onboarding/Features.jsx:211
+#: src/Components/Onboarding/Features.jsx:200
+#: src/Components/Onboarding/Features.jsx:199
+#: src/Components/Onboarding/Features.jsx:197
+#: src/Components/Onboarding/Features.jsx:188
+#: src/Components/Onboarding/Features.jsx:186
+#: src/Components/Onboarding/Features.jsx:180
+#: src/Components/Onboarding/Features.jsx:174
+#: src/Components/Onboarding/Features.jsx:175
+#: src/Components/Onboarding/Features.jsx:168
+#: src/Components/Onboarding/Features.jsx:166
+#: src/Components/Onboarding/Features.jsx:165
+#: src/Components/Onboarding/Features.jsx:164
+#: src/Components/Onboarding/Features.jsx:213
+#: src/Components/Onboarding/Features.jsx:232
+#: src/Components/Onboarding/Features.jsx:264
+#: src/Components/Onboarding/Features.jsx:281
+#: src/Components/Onboarding/Features.jsx:307
+#: src/Components/Onboarding/Features.jsx:340
+#: src/Components/Onboarding/Features.jsx:372
+#: src/Components/Onboarding/Features.jsx:400
+#: src/Components/Onboarding/Features.jsx:428
 #: src/Components/Widgets/UltimateWidgets.jsx:13
 msgid "Modal Popup"
 msgstr ""
@@ -706,11 +730,6 @@ msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:340
 #: src/Components/Onboarding/Create.jsx:482
-#: src/Components/Onboarding/Create.jsx:480
-#: src/Components/Onboarding/Create.jsx:377
-#: src/Components/Onboarding/Create.jsx:349
-#: src/Components/Onboarding/Create.jsx:348
-#: src/Components/Onboarding/Create.jsx:340
 #: src/Components/Onboarding/ExtendOnboarding.jsx:158
 msgid "First Name"
 msgstr ""
@@ -742,7 +761,6 @@ msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:87
 #: src/Components/Onboarding/Create.jsx:93
-#: src/Components/Onboarding/Create.jsx:87
 #: src/Components/Settings/ThemeSupport.jsx:63
 #: src/Components/Settings/UsageTracking.jsx:32
 msgid "Settings saved successfully!"
@@ -750,7 +768,6 @@ msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:92
 #: src/Components/Onboarding/Create.jsx:105
-#: src/Components/Onboarding/Create.jsx:92
 #: src/Components/Settings/ThemeSupport.jsx:68
 #: src/Components/Settings/UsageTracking.jsx:37
 msgid "Failed to save settings!"
@@ -772,19 +789,16 @@ msgid "What You Can Do Next:"
 msgstr ""
 
 #: src/Components/Onboarding/Create.jsx:203
-#: src/Components/Onboarding/Create.jsx:156
 #: src/Components/Onboarding/WelcomeNew.jsx:34
 msgid "Disable unused widgets in one click, no bloat"
 msgstr ""
 
 #: src/Components/Onboarding/Create.jsx:219
-#: src/Components/Onboarding/Create.jsx:160
 #: src/Components/Onboarding/WelcomeNew.jsx:38
 msgid "Design headers & footers exactly where you want them"
 msgstr ""
 
 #: src/Components/Onboarding/Create.jsx:235
-#: src/Components/Onboarding/Create.jsx:164
 #: src/Components/Onboarding/WelcomeNew.jsx:42
 msgid "Reliable support from experts when you need it"
 msgstr ""
@@ -816,14 +830,17 @@ msgid "Privacy Policy"
 msgstr ""
 
 #: src/Components/Onboarding/ExtendOnboarding.jsx:221
+#: src/Components/Onboarding/Features.jsx:361
 msgid "Back"
 msgstr ""
 
 #: src/Components/Onboarding/ExtendOnboarding.jsx:230
+#: src/Components/Onboarding/Features.jsx:370
 msgid "Skip"
 msgstr ""
 
 #: src/Components/Onboarding/ExtendOnboarding.jsx:243
+#: src/Components/Onboarding/Features.jsx:383
 msgid " Next"
 msgstr ""
 
@@ -835,6 +852,50 @@ msgstr ""
 msgid ""
 "These free plugins add essential features to your website and help speed up "
 "your workflow. The selected plugins below will be installed on this site."
+msgstr ""
+
+#: src/Components/Onboarding/Features.jsx:104
+msgid ""
+"Assign headers and footers to specific pages or post types. Gives users "
+"complete layout control—something typically locked behind Pro plugins."
+msgstr ""
+
+#: src/Components/Onboarding/Features.jsx:152
+msgid "Mega Menu & Navigation Widget"
+msgstr ""
+
+#: src/Components/Onboarding/Features.jsx:169
+msgid ""
+"Save hours by copying Elementor sections, widgets, or pages from one "
+"website to another—no need to rebuild layouts from scratch."
+msgstr ""
+
+#: src/Components/Onboarding/Features.jsx:267
+msgid "WooCommerce Widgets"
+msgstr ""
+
+#: src/Components/Onboarding/Features.jsx:319
+msgid "50+ Premium Widgets & 200+ Templates"
+msgstr ""
+
+#: src/Components/Onboarding/Features.jsx:335
+msgid ""
+"Design eye-catching popups directly in Elementor—collect leads, display "
+"promotions, or show messages without needing a separate popup plugin."
+msgstr ""
+
+#: src/Components/Onboarding/Features.jsx:60
+msgid "Select Your Features"
+msgstr ""
+
+#: src/Components/Onboarding/Features.jsx:66
+msgid ""
+"Get more control, faster workflows, and deeper customization — all designed "
+"to help you build better websites with less effort."
+msgstr ""
+
+#: src/Components/Onboarding/Features.jsx:84
+msgid "Header & Footer Builder"
 msgstr ""
 
 #: src/Components/Onboarding/Success.jsx:100
@@ -861,19 +922,20 @@ msgstr ""
 msgid "Congratulations!"
 msgstr ""
 
-#: src/Components/Onboarding/WelcomeNew.jsx:12
-msgid "Welcome to UAE"
-msgstr ""
-
+#: src/Components/Onboarding/Features.jsx:55
 #: src/Components/Onboarding/WelcomeNew.jsx:19
 msgid "Your Ultimate Elementor Addons to build modern Elementor Websites."
+msgstr ""
+
+#: src/Components/Onboarding/WelcomeNew.jsx:12
+msgid "Welcome to UAE"
 msgstr ""
 
 #: src/Components/Onboarding/WelcomeNew.jsx:64
 msgid "Let's Get Started"
 msgstr ""
 
-#: src/Components/Onboarding/index.js:91
+#: src/Components/Onboarding/index.js:92
 msgid "Exit Guided Setup"
 msgstr ""
 
@@ -934,6 +996,10 @@ msgid ""
 "choose one of the following options to enable theme support:"
 msgstr ""
 
+#: src/Components/Onboarding/Features.jsx:485
+#: src/Components/Onboarding/Features.jsx:543
+#: src/Components/Onboarding/Features.jsx:535
+#: src/Components/Onboarding/Features.jsx:488
 #: src/Components/Settings/UsageTracking.jsx:68
 msgid ""
 "Collect non-sensitive information from your website, such as the PHP "
