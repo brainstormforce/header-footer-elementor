@@ -11,17 +11,18 @@ import Welcome from "./WelcomeNew";
 // import Configure from "./Configure";
 import Configure from "./ExtendOnboarding";
 import Success from "./Success";
+import Features from "./Features";
 
 // Full steps array including the hidden "Success" step
 const allSteps = [
     { label: "", component: Welcome },
     { label: "", component: Configure },
-    { label: "Create", component: Create },
-    { label: "Success", component: Success }, // Hidden from progress bar
+    { label: "", component: Features },
+    { label: "", component: Create }, // Hidden from progress bar
 ];
 
 // Only visible steps for the top progress bar
-const visibleSteps = allSteps.slice(0, 3); // Exclude "Success"
+const visibleSteps = allSteps.slice(0, 4); // Exclude "Success"
 
 const Onboarding = () => {
     const [currentStep, setCurrentStep] = React.useState(() => {
