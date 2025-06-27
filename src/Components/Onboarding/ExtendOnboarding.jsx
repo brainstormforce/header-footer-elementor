@@ -36,13 +36,16 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 					},
 				});
 				const pluginsData = convertToPluginsArray(data);
-				setPlugins(pluginsData);
-
-				// Check if all plugins are installed
-				const areAllInstalled = pluginsData.every(
-					(plugin) => plugin.is_installed,
+				
+				// Filter out plugins that are already installed or activated
+				const uninstalledPlugins = pluginsData.filter(
+					(plugin) => !plugin.is_installed && plugin.status !== 'Activated' && plugin.status !== 'Installed'
 				);
-				setAllInstalled(areAllInstalled);
+				
+				setPlugins(uninstalledPlugins);
+
+				// If there are no uninstalled plugins, set allInstalled to true
+				setAllInstalled(uninstalledPlugins.length === 0);
 			} catch (err) {
 				console.error("Error fetching plugins:", err);
 			} finally {
@@ -73,9 +76,9 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 
 	// Bulk install selected plugins in the background
 	const installSelectedPluginsInBackground = async () => {
-		// Get all selected plugins that are not already installed
+		// Get all selected plugins (they're already filtered to be uninstalled only)
 		const pluginsToInstall = Object.values(selectedPlugins)
-			.filter(plugin => plugin.selected && plugin.status !== 'Activated' && plugin.status !== 'Installed');
+			.filter(plugin => plugin.selected);
 		
 		if (pluginsToInstall.length === 0) {
 			// If no plugins to install, just return
@@ -113,30 +116,31 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 
 	// Handle next button click
 	const handleNextClick = () => {
-		// Start installation in background
-		installSelectedPluginsInBackground();
+		// Start installation in background only if there are plugins to install
+		if (plugins.length > 0) {
+			installSelectedPluginsInBackground();
+		}
 		
 		// Immediately proceed to next step
 		setCurrentStep(3);
 	};
 
-	// If all plugins are installed, don't render the component
-	if (allInstalled) {
-		return null;
-	}
+	// If all plugins are installed or there are no plugins to show, only hide the plugins section
+	const showPluginsSection = !allInstalled && (loading || plugins.length > 0);
 
 	return (
         
 		<div className="bg-background-primary border-[0.5px] items-start justify-center border-subtle rounded-xl shadow-sm mb-6 p-4 flex w-1/2 flex-col">
-			<div className="rounded-lg bg-white w-full">
-				<div
-					className="flex flex-col items-start justify-between p-4"
-					style={{ paddingBottom: "0" }}
-				>
-					<p
-						className="text-text-primary m-0 mb-2 hfe-65-width"
-						style={{ fontSize: "24px", lineHeight: "1.3em" }}
+			{showPluginsSection && (
+				<div className="rounded-lg bg-white w-full">
+					<div
+						className="flex flex-col items-start justify-between p-4"
+						style={{ paddingBottom: "0" }}
 					>
+						<p
+							className="text-text-primary m-0 mb-2 hfe-65-width"
+							style={{ fontSize: "24px", lineHeight: "1.3em" }}
+						>
 						{__(
 							"Recommended Essentials",
 							"header-footer-elementor",
@@ -207,8 +211,9 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 					)}
 				</div>
 			</div>
-			<div className="px-5 bg-white rounded-lg">
-				<h3 className="text-base font-semibold  text-gray-900">
+			)}
+			<div className="px-5 bg-white rounded-lg mt-4">
+				<h3 className={`text-base font-semibold text-gray-900 ${!showPluginsSection ? 'text-xl mb-3' : ''}`}>
 					{__(
 						"Get Important Notifications and Updates",
 						"header-footer-elementor",
