@@ -47,32 +47,37 @@ const Features = ({ setCurrentStep }) => {
 
 	return (
 		<>
-			{/* <Toaster
-				position="top-right"
-				reverseOrder={false}
-				gutter={8}
-				containerStyle={{
-					top: 20,
-					right: 20,
-					marginTop: "40px",
-				}}
-				toastOptions={{
-					duration: 1000,
-					style: {
-						color: "#0017E1",
-					},
-					success: {
-						duration: 2000,
-						style: {
-							color: "",
-						},
-						iconTheme: {
-							primary: "#0017E1",
-							secondary: "#fff",
-						},
-					},
-				}}
-			/> */}
+			<style>
+				{`
+                    .role-checkbox {
+                        position: relative;
+                        width: 30px;
+                        height: 30px;
+                        -webkit-appearance: none;
+                        appearance: none;
+                        border: 2px solid #d1d5db; /* gray-300 */
+                        border-radius: 4px;
+                        cursor: pointer;
+                    }
+
+                    .role-checkbox:checked {
+                        background-color: #240064;
+                        border-color: #0017E1;
+                    }
+
+                    .role-checkbox:checked::after {
+                        content: '';
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        width: 4px;
+                        height: 8px;
+                        border-right: 2px solid #fff;
+                        border-bottom: 2px solid #fff;
+                        transform: translate(-50%, -60%) rotate(45deg);
+                    }
+                `}
+			</style>
 			<div
 				className="box-border bg-background-primary p-6 rounded-lg"
 				style={{
@@ -153,7 +158,7 @@ const Features = ({ setCurrentStep }) => {
 								onChange={() =>
 									handleFeatureChange("headerFooterBuilder")
 								}
-								className="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+								className="role-checkbox w-5 h-5 outline-none focus:ring-2"
 								style={{
 									accentColor: "#240064",
 									width: "18px",
@@ -219,7 +224,7 @@ const Features = ({ setCurrentStep }) => {
 							type="checkbox"
 							checked={selectedFeatures.megaMenu}
 							onChange={() => handleFeatureChange("megaMenu")}
-							className="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+							className="role-checkbox w-5 h-5  focus:ring-2"
 							style={{
 								accentColor: "#240064",
 								width: "18px",
@@ -281,7 +286,7 @@ const Features = ({ setCurrentStep }) => {
 							type="checkbox"
 							checked={selectedFeatures.modalPopup}
 							onChange={() => handleFeatureChange("modalPopup")}
-							className="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+							className="role-checkbox w-5 h-5  focus:ring-2"
 							style={{
 								accentColor: "#240064",
 								width: "18px",
@@ -343,7 +348,7 @@ const Features = ({ setCurrentStep }) => {
 							onChange={() =>
 								handleFeatureChange("wooCommerceWidgets")
 							}
-							className="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+							className="role-checkbox w-5 h-5  focus:ring-2"
 							style={{
 								accentColor: "#240064",
 								width: "18px",
@@ -406,7 +411,7 @@ const Features = ({ setCurrentStep }) => {
 							onChange={() =>
 								handleFeatureChange("premiumWidgets")
 							}
-							className="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+							className="role-checkbox w-5 h-5  focus:ring-2"
 							style={{
 								accentColor: "#240064",
 								width: "18px",

@@ -177,6 +177,38 @@ const ExtendOnboardingWidget = ({
     };
 
     return (
+      <>
+      	<style>
+				{`
+                    .role-checkbox {
+                        position: relative;
+                        width: 30px;
+                        height: 30px;
+                        -webkit-appearance: none;
+                        appearance: none;
+                        border: 2px solid #d1d5db; /* gray-300 */
+                        border-radius: 4px;
+                        cursor: pointer;
+                    }
+
+                    .role-checkbox:checked {
+                        background-color: #240064;
+                        border-color: #0017E1;
+                    }
+
+                    .role-checkbox:checked::after {
+                        content: '';
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        width: 4px;
+                        height: 8px;
+                        border-right: 2px solid #fff;
+                        border-bottom: 2px solid #fff;
+                        transform: translate(-50%, -60%) rotate(45deg);
+                    }
+                `}
+			</style>
         <Container align="center"
             containerType="flex"
             direction="row"
@@ -207,7 +239,7 @@ const ExtendOnboardingWidget = ({
                         checked={isChecked}
                         onChange={handleCheckboxChange}
                         id={`plugin-${slug}`}
-                        className="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
+                        className="role-checkbox h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
                         data-plugin={zipUrl}
                         data-type={type}
                         data-pluginname={name}
@@ -247,6 +279,7 @@ const ExtendOnboardingWidget = ({
                 </Dialog.Panel>
             </Dialog>
         </Container>
+      </>
     )
 }
 

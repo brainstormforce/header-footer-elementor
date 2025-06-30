@@ -8,7 +8,7 @@ module.exports = withTW({
 				"button-primary": "#2563EB",
 				"button-primary-hover": "#1D4ED8",
 
-				"brand-primary-600": "#9333EA",
+				"brand-primary-600": "#240064",
 				"brand-800": "#6B21A8",
 				"brand-50": "#EFF6FF",
 

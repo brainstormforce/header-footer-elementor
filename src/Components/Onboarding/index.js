@@ -46,7 +46,7 @@ const Onboarding = () => {
 
     return (
         <div>
-            <div className="w-full pb-6">
+            <div className="w-full">
                 <div className="flex flex-col items-center justify-center">
                     <Topbar className="bg-none" style={{ background: "none" }}>
                         <Topbar.Left>

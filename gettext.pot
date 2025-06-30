@@ -132,12 +132,12 @@ msgstr ""
 #: src/Components/Compare/FreevsPro.jsx:220
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:178
 #: src/Components/NavMenu.js:242
-#: src/Components/Onboarding/Features.jsx:194
+#: src/Components/Onboarding/Features.jsx:199
 msgid "Free"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:226
-#: src/Components/Onboarding/Features.jsx:381
+#: src/Components/Onboarding/Features.jsx:386
 msgid "Pro"
 msgstr ""
 
@@ -278,6 +278,8 @@ msgstr ""
 #: src/Components/Compare/FreevsPro.jsx:68
 #: src/Components/Compare/UltimateCompare.jsx:12
 #: src/Components/Dashboard/UltimateFeatures.js:112
+#: src/Components/Onboarding/Features.jsx:258
+#: src/Components/Onboarding/Features.jsx:284
 #: src/Components/Onboarding/Features.jsx:253
 #: src/Components/Widgets/UltimateWidgets.jsx:13
 msgid "Modal Popup"
@@ -416,22 +418,22 @@ msgid "Visit Site"
 msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:212
-#: src/Components/Onboarding/ExtendOnboardingWidget.jsx:232
+#: src/Components/Onboarding/ExtendOnboardingWidget.jsx:264
 msgid "Activate Theme"
 msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:216
-#: src/Components/Onboarding/ExtendOnboardingWidget.jsx:236
+#: src/Components/Onboarding/ExtendOnboardingWidget.jsx:268
 msgid "Are you sure you want to switch your current theme to Astra?"
 msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:221
-#: src/Components/Onboarding/ExtendOnboardingWidget.jsx:241
+#: src/Components/Onboarding/ExtendOnboardingWidget.jsx:273
 msgid "Yes"
 msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:224
-#: src/Components/Onboarding/ExtendOnboardingWidget.jsx:244
+#: src/Components/Onboarding/ExtendOnboardingWidget.jsx:276
 msgid "Close"
 msgstr ""
 
@@ -704,7 +706,7 @@ msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:340
 #: src/Components/Onboarding/Create.jsx:482
-#: src/Components/Onboarding/ExtendOnboarding.jsx:225
+#: src/Components/Onboarding/ExtendOnboarding.jsx:285
 msgid "First Name"
 msgstr ""
 
@@ -777,107 +779,107 @@ msgstr ""
 msgid "Reliable support from experts when you need it"
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:144
+#: src/Components/Onboarding/ExtendOnboarding.jsx:193
 msgid "Recommended Essentials"
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:153
+#: src/Components/Onboarding/ExtendOnboarding.jsx:205
 msgid ""
 "These free plugins add essential features to your website and help speed up "
 "your workflow. Select the plugins you want to install."
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:217
+#: src/Components/Onboarding/ExtendOnboarding.jsx:277
 msgid "Get Important Notifications and Updates"
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:233
+#: src/Components/Onboarding/ExtendOnboarding.jsx:298
 msgid "Enter your first name"
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:242
+#: src/Components/Onboarding/ExtendOnboarding.jsx:310
 msgid "Email Address"
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:251
+#: src/Components/Onboarding/ExtendOnboarding.jsx:320
 msgid "Enter your email address"
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:268
+#: src/Components/Onboarding/ExtendOnboarding.jsx:348
 msgid ""
 "Notify me about critical updates and new features — and help us improve by "
 "sharing how you use the plugin. "
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:276
+#: src/Components/Onboarding/ExtendOnboarding.jsx:356
 msgid "Privacy Policy"
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:288
-#: src/Components/Onboarding/Features.jsx:425
+#: src/Components/Onboarding/ExtendOnboarding.jsx:374
+#: src/Components/Onboarding/Features.jsx:430
 msgid "Back"
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:297
-#: src/Components/Onboarding/Features.jsx:434
+#: src/Components/Onboarding/ExtendOnboarding.jsx:383
+#: src/Components/Onboarding/Features.jsx:439
 msgid "Skip"
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:310
-#: src/Components/Onboarding/Features.jsx:462
+#: src/Components/Onboarding/ExtendOnboarding.jsx:396
+#: src/Components/Onboarding/Features.jsx:467
 msgid "Next"
 msgstr ""
 
-#: src/Components/Onboarding/Features.jsx:113
+#: src/Components/Onboarding/Features.jsx:100
+msgid ""
+"Get more control, faster workflows, and deeper customization — all designed "
+"to help you build better websites with less effort."
+msgstr ""
+
+#: src/Components/Onboarding/Features.jsx:118
 msgid "Header & Footer Builder"
 msgstr ""
 
-#: src/Components/Onboarding/Features.jsx:133
+#: src/Components/Onboarding/Features.jsx:138
 msgid ""
 "Assign headers and footers to specific pages or post types. Gives users "
 "complete layout control—something typically locked behind Pro plugins."
 msgstr ""
 
-#: src/Components/Onboarding/Features.jsx:188
+#: src/Components/Onboarding/Features.jsx:193
 msgid "Mega Menu & Navigation Widget"
 msgstr ""
 
-#: src/Components/Onboarding/Features.jsx:205
+#: src/Components/Onboarding/Features.jsx:210
 msgid ""
 "Save hours by copying Elementor sections, widgets, or pages from one "
 "website to another—no need to rebuild layouts from scratch."
 msgstr ""
 
-#: src/Components/Onboarding/Features.jsx:315
+#: src/Components/Onboarding/Features.jsx:320
 msgid "WooCommerce Widgets"
 msgstr ""
 
-#: src/Components/Onboarding/Features.jsx:375
+#: src/Components/Onboarding/Features.jsx:380
 msgid "50+ Premium Widgets & 200+ Templates"
 msgstr ""
 
-#: src/Components/Onboarding/Features.jsx:391
+#: src/Components/Onboarding/Features.jsx:396
 msgid ""
 "Design eye-catching popups directly in Elementor—collect leads, display "
 "promotions, or show messages without needing a separate popup plugin."
 msgstr ""
 
-#: src/Components/Onboarding/Features.jsx:448
+#: src/Components/Onboarding/Features.jsx:453
 msgid "Upgrade"
 msgstr ""
 
-#: src/Components/Onboarding/Features.jsx:477
+#: src/Components/Onboarding/Features.jsx:482
 msgid "You've picked Pro features — upgrade to start using them."
 msgstr ""
 
-#: src/Components/Onboarding/Features.jsx:89
+#: src/Components/Onboarding/Features.jsx:94
 msgid "Select Your Features"
-msgstr ""
-
-#: src/Components/Onboarding/Features.jsx:95
-msgid ""
-"Get more control, faster workflows, and deeper customization — all designed "
-"to help you build better websites with less effort."
 msgstr ""
 
 #: src/Components/Onboarding/Success.jsx:100
