@@ -3,7 +3,6 @@
  * Theme Update
  *
  * @package     Header Footer Elementor
- * @author      Nikhil Chavan <email@nikhilchavan.com>
  * @copyright   Copyright (c) 2019, Header Footer Elementor
  * @link        https://github.com/brainstormforce/header-footer-elementor
  * @since       HFE 1.1.4
