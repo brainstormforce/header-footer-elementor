@@ -4,7 +4,7 @@ Tags: elementor, elementor addon, elementor widget, elementor template, header f
 Requires at least: 5.0  
 Tested up to: 6.8
 Requires PHP: 7.4  
-Stable tag: 2.4.1
+Stable tag: 2.4.3
 License: GPLv2 or later  
 License URI: https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -23,7 +23,7 @@ When you’re ready to level up, [UAE Pro](https://ultimateelementor.com/?utm_so
 
 Whether you're building your first website or scaling an agency, UAE delivers the performance, versatility, and creative control to build beautiful, high-converting websites.
 
-[youtube https://www.youtube.com/watch?v=6xH5n6YYNJE]
+https://www.youtube.com/watch?v=6xH5n6YYNJE
 
 ## Why UAE Is The Best Elementor Addon ##
 
@@ -297,6 +297,9 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 ---
 
 == Changelog ==
+= 2.4.3 =
+- Updated readme file.
+
 = 2.4.2 =
 - Improvement: Optimize performance with the new “Deactivate Unused Widgets” option.
 
