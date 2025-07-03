@@ -19,7 +19,7 @@ Trusted by over 2 million users, UAE supercharges Elementor with a powerful coll
 
 It works seamlessly with any WordPress theme and keeps your workflow fast, flexible, and frustration-free.
 
-When you’re ready to level up, [UAE Pro](https://ultimateelementor.com/?utm_source=wprepo&utm_medium=uaelite) unlocks a growing library of premium widgets, 200+ pre-designed blocks and advanced features like [cross-site copy-paste](https://ultimateelementor.com/widgets/cross-site-copy-paste/?utm_source=wprepo&utm_medium=uaelite), [particle backgrounds](https://ultimateelementor.com/widgets/particle-backgrounds/?utm_source=wprepo&utm_medium=uaelite), form stylers, advanced display conditions and more.
+When you’re ready to level up, [UAE Pro](https://ultimateelementor.com/?utm_source=wprepo&utm_medium=uaelite) unlocks a growing library of premium widgets, 200+ pre-designed blocks and advanced features like [Cross-Site Copy-Paste](https://ultimateelementor.com/widgets/cross-site-copy-paste/?utm_source=wprepo&utm_medium=uaelite), [Particle Backgrounds](https://ultimateelementor.com/widgets/particle-backgrounds/?utm_source=wprepo&utm_medium=uaelite), Form Stylers, Advanced Display Conditions and more.
 
 Whether you're building your first website or scaling an agency, UAE delivers the performance, versatility, and creative control to build beautiful, high-converting websites.
 
