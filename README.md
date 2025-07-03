@@ -15,7 +15,7 @@ The best free Elementor addon to supercharge web designs with widgets, blocks, a
 
 Formerly known as Elementor Header & Footer Builder, Ultimate Addons for Elementor (UAE) is the premier Elementor addon to design dynamic headers, footers, and creative website sections, without writing a single line of code.
 
-Trusted by over 2 million+ users, UAE supercharges Elementor with a powerful collection of Elementor widgets and creative features that give you complete design freedom. 
+Trusted by over 2 million users, UAE supercharges Elementor with a powerful collection of Elementor widgets and creative features that give you complete design freedom. 
 
 It works seamlessly with any WordPress theme and keeps your workflow fast, flexible, and frustration-free.
 
@@ -25,7 +25,7 @@ Whether you're building your first website or scaling an agency, UAE delivers th
 
 [youtube https://www.youtube.com/watch?v=6xH5n6YYNJE]
 
-## Why UAE Is the Best Elementor Addon ##
+## Why UAE Is The Best Elementor Addon ##
 
 Ultimate Addons for Elementor equips you with tools that make page design faster, cleaner, and more creative. Whether you're just starting your web design journey or building complex websites for clients, UAE can help. 
 
