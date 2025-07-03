@@ -6,9 +6,12 @@
  * @package {{package}}
  */
 
-if ( class_exists( 'Nps_Survey' ) ) {
+// Prevent multiple inclusions of this file.
+if ( defined( 'NPS_SURVEY_SCRIPT_LOADED' ) ) {
 	return;
 }
+define( 'NPS_SURVEY_SCRIPT_LOADED', true );
+
 /**
  * Nps_Survey
  */
@@ -309,7 +312,7 @@ class Nps_Survey {
 		 */
 		$api_endpoint = apply_filters(
 			'nps_survey_api_endpoint',
-			self::get_api_domain() . 'wp-json/starter-templates/v1/nps-survey/',
+			self::get_api_domain() . 'wp-json/bsf-metrics-server/v1/nps-survey/',
 			$post_data // Pass the post data to the filter, so that the endpoint can be modified based on the data.
 		);
 

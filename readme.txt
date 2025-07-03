@@ -1,105 +1,267 @@
 === Ultimate Addons for Elementor (Formerly Elementor Header & Footer Builder) ===  
-Contributors: @brainstormforce, @pratikchaskar
+Contributors: @brainstormforce
 Tags: elementor, elementor addon, elementor widget, elementor template, header footer builder
 Requires at least: 5.0  
 Tested up to: 6.8
 Requires PHP: 7.4  
-Stable tag: 2.4.2
+Stable tag: 2.4.3
 License: GPLv2 or later  
 License URI: https://www.gnu.org/licenses/gpl-2.0.html  
 
 Create dynamic headers, footers, and design blocks effortlessly with Elementor's drag-and-drop builder.
 
 == Description ==  
+The best free Elementor addon to supercharge web designs with widgets, blocks, and powerful features that truly matter.
 
-**Formerly known as - Elementor Headers & Footers Builder!**  
+Formerly known as Elementor Header & Footer Builder, Ultimate Addons for Elementor (UAE) is the premier Elementor addon to design dynamic headers, footers, and creative website sections, without writing a single line of code.
 
-Ultimate Addons for Elementor is the improved and redesigned version of the Elementor Header & Footer Builder. It is designed to help you create dynamic headers, footers, and additional design blocks with ease. This plugin leverages Elementor's powerful drag-and-drop editor to give you complete design freedom and it integrates with any WordPress theme.
+Trusted by over 2 million users, UAE supercharges Elementor with a powerful collection of Elementor widgets and creative features that give you complete design freedom. 
 
-[Try the live demo of Ultimate Addons for Elementor](https://zipwp.org/plugins/header-footer-elementor/)
+It works seamlessly with any WordPress theme and keeps your workflow fast, flexible, and frustration-free.
 
-You can refer to our step-by-step article that will help you [set headers and footers](https://ultimateelementor.com/header-footer-with-elementor/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description) quickly.
+When you’re ready to level up, [UAE Pro](https://ultimateelementor.com/?utm_source=wprepo&utm_medium=uaelite) unlocks a growing library of premium widgets, 200+ pre-designed blocks and advanced features like [Cross-Site Copy-Paste](https://ultimateelementor.com/widgets/cross-site-copy-paste/?utm_source=wprepo&utm_medium=uaelite), [Particle Backgrounds](https://ultimateelementor.com/widgets/particle-backgrounds/?utm_source=wprepo&utm_medium=uaelite), Form Stylers, Advanced Display Conditions and more.
 
----
+Whether you're building your first website or scaling an agency, UAE delivers the performance, versatility, and creative control to build beautiful, high-converting websites.
 
-### **Widgets & Features**
+https://www.youtube.com/watch?v=6xH5n6YYNJE
 
-Ultimate Addons for Elementor comes equipped with a suite of Elementor-compatible widgets to enhance your headers, footers, and other site sections:
+## Why UAE Is The Best Elementor Addon ##
 
-* **Site Logo & Retina Logo**: Ensure your site logo appears crisp and sharp across all devices.
-* **Site Title & Tagline**: Display your site's name and tagline effortlessly.
-* **Navigation Menu**: Provide an intuitive and responsive navigation experience for your visitors.
-* **Search**: Let users quickly search content on your website.
-* **Cart**: View their cart items for e-commerce sites using WooCommerce.
-* **Page Title**: Show the title of each page for better clarity and SEO.
-* **Copyright**: Add copyright information easily in your footer.
-* **Breadcrumbs**: Improve site navigation and SEO with breadcrumb trails.
-* **Post Info**: Display important post-related information such as publish date, author, and categories.
-* **Scroll to Top**: Allow users to quickly return to the top of the page for a better user experience.
-* **Reading Progress Bar**: Show readers how far they are into the content with a simple progress indicator.
-* **Info Card**: Add headings, icons, and descriptions with CTA - all in one widget.
+Ultimate Addons for Elementor equips you with tools that make page design faster, cleaner, and more creative. Whether you're just starting your web design journey or building complex websites for clients, UAE can help. 
 
----
+### Here’s why over 2 million people trust UAE:###
 
-### **Benefits of Using Ultimate Addons for Elementor**
+* **Stand Out With Impactful Design:** Build visually stunning sections with widgets that go beyond basic blocks. From Before/After sliders to particle backgrounds, everything is built to captivate, engage, and convert.
 
-* **Easily Create Header, Footer, and Block Layouts**: Create layouts with Elementor and set them as headers, footers, or design blocks anywhere on your site.
-* **Display Locations**: Customize where headers and footers are displayed — choose specific pages like the homepage, blog archive, or site-wide.
-* **Custom Elementor Blocks**: Create beautiful custom blocks using Elementor and use the shortcodes to place your blocks anywhere on your site, not just headers or footers.
-* **Before Footer Template**: Add a unique template above the footer area for additional content flexibility.
-* **Improved Performance**: Lightweight and performance-optimized plugin. You can turn off unused widgets or features, keeping your website fast.
+* **Copy Elementor Designs From One Domain to Another:** Save hours of time with Cross-Site Copy Paste. Effortlessly move entire sections and widgets between pages and websites.
 
----
+* **Keep Your Website Light by Loading Only What Is Needed:** UAE is optimized for performance. It only loads code for the widgets you use, keeping your site fast, lean and SEO-friendly.
 
-### **Who Can Benefit from Using Ultimate Addons for Elementor?**
+* **Build Faster With 200+ Readymade Section Blocks:** Design faster with a massive library of pre-designed content sections. Just insert, customize, and publish. Ideal for agencies and freelancers seeking efficiency.
 
-Ultimate Addons is designed to cater to a wide range of WordPress users, from beginners to professionals.
+* **50+ Premium Widgets That Truly Matter:** UAE Pro includes over 50+ carefully crafted widgets. High-impact tools designed to solve real design challenges and boost functionality where it counts.
 
-1. **Website Designers and Developers**: Easily create custom headers and footers without needing to code. With ready-to-use widgets like Navigation Menu, Site Logo, and Search Widget, they save time while adding dynamic elements like Breadcrumbs and Post Info for an enhanced user experience. Elementor-designed templates can also be placed anywhere on the website using shortcodes.
-1. **Freelancers and Agencies**: Deliver high-quality websites faster using UAE’s drag-and-drop editor. They can customize headers and footers to meet specific client requirements or branding needs, create unique layouts for pages like blogs, archives, or e-commerce sections, and use features like the Before Footer template to add extra content.
-1. **Bloggers and Content Creators**: Enhance navigation and improve SEO with Page Title and Breadcrumbs widgets. UAE helps them display custom headers and footers to create a unique look, improve performance by disabling unused widgets, and seamlessly integrate Elementor blocks into posts and pages for cohesive design.
-1. **E-commerce Store Owners**: Improve the shopping experience by using the Cart Widget to display cart items and the Search Widget for easy product searches. They can create engaging footers using the Before Footer template to highlight promotions or CTAs and design headers tailored to specific product categories or sales events.
-1. **SEO Professionals**: Use the dynamic widgets like breadcrumbs or post info to improve site structure and boost search engine rankings. By disabling unnecessary widgets, they can optimize site speed and performance. Custom headers and footers can also be designed to highlight essential links and CTAs, improving user engagement.
-1. **Beginner WordPress users**: UAE’s user-friendly interface and pre-designed templates perfect for creating headers and footers effortlessly. With no coding skills needed, comprehensive tutorials make the process even easier.
+* **Works Seamlessly With Any WordPress Theme:** No theme lock-in or compatibility issues. UAE integrates smoothly with all compliant WordPress themes, including Astra.
 
----
+* **Designed for Beginners, Loved by Pros:** Whether you're a DIY site builder or a seasoned designer, UAE strikes the perfect balance between ease of use and advanced functionality.
 
-### **Unlock Stunning Designs with Pro**
+* **Extend Elementor Without Plugin Overload:** UAE packs multiple high-utility widgets into one lightweight plugin. Avoid installing multiple third-party plugins that slow down your site or create conflicts.
 
-Love what Ultimate Addons has to offer? You'll be amazed by what [Pro](https://ultimateelementor.com/?utm_source=wp-repo&utm_campaign=header-footer-elementor&utm_medium=description) brings to the table!
+### Free Widgets in Ultimate Addons for Elementor ###
 
-* **Cross-Domain Copy-Paste**: Seamlessly copy and paste Elementor designs between different websites.
-* **Welcome Music**: Add background audio to engage visitors as soon as they land on your page.
-* **Advanced Heading**: Customize headings to make them more engaging and unique.
-* **Business Hours**: Display your business hours in a stylish and customizable way.
-* **Toggle Button**: Provide an easy way for users to switch between two types of content.
-* **Google Map**: Add interactive and customizable maps, including multi-location support with custom markers.
-* **Image Gallery**: Build advanced, attractive galleries with plenty of customization options.
-* **Info Box**: Combine headings, icons, and descriptions in one widget to deliver impactful messages.
-* **Modal Popup**: Design attention-grabbing popups with animations and interactive content.
-* **Post Layout**: Present your blog posts in a variety of beautifully designed layouts.
-* **Price List**: Create elegant and customizable lists for menus, product catalogs, or pricing tables.
-…and so much more!
+* **[Navigation Menu](https://ultimateelementor.com/widgets/navigation/?utm_source=wprepo&utm_medium=uaelite)** – With this powerful Elementor nav menu addon (widget), you can build responsive menus that match your style.
 
----
+* **[Site Logo](https://ultimateelementor.com/widgets/site-logo/?utm_source=wprepo&utm_medium=uaelite) & [Retina Logo](https://ultimateelementor.com/widgets/retina-logo/?utm_source=wprepo&utm_medium=uaelite)** – Showcase crisp branding across all devices.
 
-### More Tools to Enhance Your WordPress Website 
+* **[Site Title](https://ultimateelementor.com/widgets/site-title/?utm_source=wprepo&utm_medium=uaelite) & [Tagline](https://ultimateelementor.com/widgets/site-tagline/?utm_source=wprepo&utm_medium=uaelite)** – Display key identity elements clearly and elegantly.
 
-If you love Ultimate Addons, you’ll love our other products too: 
+* **[Search](https://ultimateelementor.com/widgets/search/?utm_source=wprepo&utm_medium=uaelite)** – Add fast, user-friendly search to your header or footer.
 
-* **Astra**: The fastest, most flexible WordPress theme – perfect for any type of website.  
-* **Starter Templates**: Choose from hundreds of ready-to-use website designs or use AI to build a site tailored to your needs.  
-* **OttoKit (Formerly SureTriggers)**: Automate repetitive tasks and connect your favorite apps for ultimate efficiency.  
-* **SureForms**: Create stunning forms, quizzes, or surveys in minutes.  
-* **SureCart**: The ultimate plugin for effortless eCommerce – perfect for online sellers. 
+* **[Cart](https://ultimateelementor.com/widgets/cart/?utm_source=wprepo&utm_medium=uaelite)** – Integrate a shopping cart preview for WooCommerce stores.
 
----
+* **[Page Title](https://ultimateelementor.com/widgets/page-title/?utm_source=wprepo&utm_medium=uaelite)** – Automatically show relevant page titles for better UX and SEO.
 
-### Support That Cares!
+* **[Breadcrumbs](https://ultimateelementor.com/widgets/breadcrumbs/?utm_source=wprepo&utm_medium=uaelite)** – Improve site navigation and search engine visibility.
 
-We understand the need for a quality product backed by dedicated support that cares. We are here to listen to all your queries and help you make the most out of our plugin.
+* **[Post Info](https://ultimateelementor.com/widgets/post-info/?utm_source=wprepo&utm_medium=uaelite)** – Display author, date, categories, and more for content clarity.
 
-[Contact us](https://ultimateelementor.com/contact/)
+* **[Scroll to Top](https://ultimateelementor.com/widgets/scroll-to-top/?utm_source=wprepo&utm_medium=uaelite)** – Give users a seamless way to navigate with this handy scroll addon for Elementor.
+
+* **[Reading Progress Bar](https://ultimateelementor.com/widgets/reading-progress-bar/?utm_source=wprepo&utm_medium=uaelite)** – Visually indicate article progress for better engagement.
+
+* **[Info Card](https://ultimateelementor.com/widgets/info-card/?utm_source=wprepo&utm_medium=uaelite)** – Combine icons, headings, text, and CTAs in one flexible block.
+
+* **[Copyright](https://ultimateelementor.com/widgets/copyright/?utm_source=wprepo&utm_medium=uaelite)** – Easily add site-wide copyright or legal text in the footer.
+
+Note: You can refer to our [step-by-step guide](https://ultimateelementor.com/docs/getting-started-with-ultimate-addons-for-elementor-lite/) that will help you set headers and footers quickly.
+
+### How these Elementor widgets help: ###
+
+* Build complete headers and footers directly within Elementor
+* Avoid relying on theme settings or extra plugins
+* Keep your design consistent on all devices
+* Improve usability, accessibility, and SEO
+
+The free UAE widgets give you a strong foundation to build a professional website and they work beautifully with any WordPress theme.
+
+**🚀 [Upgrade to Ultimate Addons for Elementor Pro](https://ultimateelementor.com/pricing/?utm_source=wprepo&utm_medium=uaelite) and unlock limitless possibilities!**
+
+### Content and Interaction Widgets ###
+
+Create compelling, high-converting layouts with powerful content widgets designed for Elementor. UAE widgets help you deliver clear, engaging content experiences that are both informative and interactive. Great for business sites, blogs, service pages, and portfolios.
+
+* **[Advanced Heading](https://ultimateelementor.com/widgets/advanced-heading/?utm_source=wprepo&utm_medium=uaelite)** – Design eye-catching headlines with layered styles and dynamic effects.
+
+* **[Business Hours](https://ultimateelementor.com/widgets/business-hours/?utm_source=wprepo&utm_medium=uaelite)** – Display store or office hours clearly with styled layouts.
+
+* **[Content Toggle (Popular)](https://ultimateelementor.com/widgets/content-toggle/?utm_source=wprepo&utm_medium=uaelite)** – Switch between content blocks for comparisons, FAQs, or pricing plans.
+
+* **[Google Map](https://ultimateelementor.com/widgets/google-map/?utm_source=wprepo&utm_medium=uaelite)** – Add responsive, customizable location maps to boost trust and visibility.
+
+* **[Image Gallery](https://ultimateelementor.com/widgets/image-gallery/?utm_source=wprepo&utm_medium=uaelite)** – Showcase multiple images in a clean, organized grid or masonry layout.
+
+* **[Info Box](https://ultimateelementor.com/widgets/info-box/?utm_source=wprepo&utm_medium=uaelite)** – Combine icons, titles, and descriptions with CTA buttons in one elegant widget.
+
+* **[Modal Popup (Popular)](https://ultimateelementor.com/widgets/modal-popup/?utm_source=wprepo&utm_medium=uaelite)** – Easily trigger stylish popups for promotions, lead generation, or key messages.
+
+* **[Posts](https://ultimateelementor.com/widgets/posts/?utm_source=wprepo&utm_medium=uaelite)** – Showcase your latest blog posts or any custom post types with this visually appealing post grid addon for Elementor.
+
+* **[Price List](https://ultimateelementor.com/widgets/price-list/?utm_source=wprepo&utm_medium=uaelite)** – Highlight products or services with pricing and description in a clean layout.
+
+* **[Table](https://ultimateelementor.com/widgets/table/?utm_source=wprepo&utm_medium=uaelite)** – Create sortable, responsive tables to organize data or feature comparisons.
+
+* **[Video (Popular)](https://ultimateelementor.com/widgets/video/?utm_source=wprepo&utm_medium=uaelite)** – Embed YouTube, Vimeo, or self-hosted videos with custom styling options.
+
+* **[Video Gallery](https://ultimateelementor.com/widgets/video-gallery/?utm_source=wprepo&utm_medium=uaelite)** – Show multiple videos in a neatly organized, responsive gallery.
+
+### Creative Widgets ###
+
+Add flair, functionality, and interactivity to your Elementor designs. Ideal for portfolios, agencies, service-based businesses, and conversion-focused landing pages.
+
+* **[Before After Slider](https://ultimateelementor.com/widgets/before-after-slider/?utm_source=wprepo&utm_medium=uaelite)** – Visually compare two images using a draggable slider.
+
+* **[Countdown Timer](https://ultimateelementor.com/widgets/countdown-timer/?utm_source=wprepo&utm_medium=uaelite)** – Create urgency for offers, events, or product launches.
+
+* **[Display Conditions](https://ultimateelementor.com/widgets/display-conditions/?utm_source=wprepo&utm_medium=uaelite)** – Show or hide content dynamically based on user role, device, login status, and more.
+
+* **[Dual Color Heading](https://ultimateelementor.com/widgets/dual-color-heading/?utm_source=wprepo&utm_medium=uaelite)** – Highlight key phrases in headings with stylish dual-tone designs.
+
+* **[Fancy Heading](https://ultimateelementor.com/widgets/fancy-heading/?utm_source=wprepo&utm_medium=uaelite)** – Create animated, visually distinct headlines to capture attention.
+
+* **[Hotspots (Popular)](https://ultimateelementor.com/widgets/hotspots/?utm_source=wprepo&utm_medium=uaelite)** – Add interactive tooltips to images to explain features or details.
+
+* **[Login Form](https://ultimateelementor.com/widgets/login-form/?utm_source=wprepo&utm_medium=uaelite)** – Embed a beautifully styled, branded login form right into any page.
+
+* **[Marketing Button](https://ultimateelementor.com/widgets/marketing-button/?utm_source=wprepo&utm_medium=uaelite)** – Add call to action buttons with built-in icons, hover effects, and dual text.
+
+* **[Multi Buttons](https://ultimateelementor.com/widgets/multi-buttons/?utm_source=wprepo&utm_medium=uaelite)** – Display multiple action buttons side-by-side for better decision making.
+
+* **[Navigation Menu](https://ultimateelementor.com/widgets/navigation-menu/?utm_source=wprepo&utm_medium=uaelite)** – Create fully customizable, responsive menus directly within Elementor.
+
+* **[Off-Canvas](https://ultimateelementor.com/widgets/off-canvas/?utm_source=wprepo&utm_medium=uaelite)** – Create off-screen panels for menus, filters, or extra content that slides into view.
+
+* **[Price Box](https://ultimateelementor.com/widgets/price-box/?utm_source=wprepo&utm_medium=uaelite)** – Showcase pricing plans with styled headings, features, and call to action buttons.
+
+* **[Retina Image](https://ultimateelementor.com/widgets/retina-image/?utm_source=wprepo&utm_medium=uaelite)** – Ensure images display perfectly on high-resolution (Retina) screens.
+
+* **[Team Member](https://ultimateelementor.com/widgets/team-member/?utm_source=wprepo&utm_medium=uaelite)** – Introduce your team with photos, bios, social links and layout options.
+
+* **[Timeline (Popular)](https://ultimateelementor.com/widgets/timeline/?utm_source=wprepo&utm_medium=uaelite)** – Display milestones, history, or process steps in vertical or horizontal timelines.
+
+* **[User Registration Form](https://ultimateelementor.com/widgets/user-registration-form/?utm_source=wprepo&utm_medium=uaelite)** – Let visitors register with a styled, user-friendly form.
+
+### Form Styler Widgets ###
+
+Match forms to your site design and improve conversions without writing CSS. These widgets let you customize popular WordPress forms with full control over layout, colors, typography, and spacing.
+
+* **[Contact Form 7 Styler](https://ultimateelementor.com/widgets/contact-form-7/?utm_source=wprepo&utm_medium=uaelite)** – Easily style CF7 forms to match your brand.
+
+* **[Gravity Form Styler (Popular)](https://ultimateelementor.com/widgets/gravity-form-styler/?utm_source=wprepo&utm_medium=uaelite)** – Enhance Gravity Forms visually with complete styling control.
+
+* **[WP Fluent Forms Styler](https://ultimateelementor.com/widgets/wp-fluent-forms-styler/?utm_source=wprepo&utm_medium=uaelite)** – Customize Fluent Forms to blend seamlessly into your pages.
+
+* **[WPForms Styler](https://ultimateelementor.com/widgets/wpforms-styler/?utm_source=wprepo&utm_medium=uaelite)** – Transform WPForms into beautiful, responsive forms without touching a line of code.
+
+### SEO Widgets ###
+
+Boost search visibility, enhance content structure and build trust from the Elementor editor.
+
+* **[Business Reviews](https://ultimateelementor.com/widgets/business-reviews/?utm_source=wprepo&utm_medium=uaelite)** – Display authentic reviews from platforms like Google.
+
+* **[How-To Schema](https://ultimateelementor.com/widgets/how-to-schema/?utm_source=wprepo&utm_medium=uaelite)** – Format step-by-step guides with structured data to earn rich snippets.
+
+* **[FAQ Schema](https://ultimateelementor.com/widgets/faq/?utm_source=wprepo&utm_medium=uaelite)** – Create styled FAQs that are also SEO-ready.
+
+* **[Table of Contents](https://ultimateelementor.com/widgets/table-of-contents/?utm_source=wprepo&utm_medium=uaelite)** – Automatically generate clickable TOCs for long content.
+
+### Social Widgets ###
+
+Keep your website fresh, connected and shareable with built-in social media integrations.
+
+* **[Instagram Feed (NEW)](https://ultimateelementor.com/widgets/instagram-feed/?utm_source=wprepo&utm_medium=uaelite)** – Embed a stylish, responsive Instagram gallery that updates automatically.
+
+* **[X Feed (NEW)](https://ultimateelementor.com/widgets/twitter-feed/?utm_source=wprepo&utm_medium=uaelite)** – Show your most recent posts from X (formerly Twitter).
+
+* **[Social Share](https://ultimateelementor.com/widgets/social-share/?utm_source=wprepo&utm_medium=uaelite)** – Add sleek, customizable share buttons to grow your audience.
+
+### WooCommerce Widgets ###
+
+Design high-converting online stores inside Elementor with this modern WooCommerce addon.
+
+* **[Woo – Add to Cart](https://ultimateelementor.com/widgets/woocommerce-add-to-cart/?utm_source=wprepo&utm_medium=uaelite)** – Place flexible Add to Cart buttons anywhere.
+
+* **[Woo – Categories](https://ultimateelementor.com/widgets/woocommerce-categories/?utm_source=wprepo&utm_medium=uaelite)** – Showcase product categories in stylish layouts.
+
+* **[Woo – Checkout](https://ultimateelementor.com/widgets/woo-checkout/?utm_source=wprepo&utm_medium=uaelite)** – Customize the entire checkout experience for better conversions.
+
+* **[Woo – Mini Cart](https://ultimateelementor.com/widgets/woo-mini-cart/?utm_source=wprepo&utm_medium=uaelite)** – Display a sleek cart preview with real-time updates.
+
+* **[Woo – Products](https://ultimateelementor.com/widgets/woocommerce-products/?utm_source=wprepo&utm_medium=uaelite)** – Build fully styled product grids or carousels with advanced controls.
+
+### Creative Features ###
+
+Go beyond widgets and unlock tools that accelerate your workflow.
+
+* **[Cross-Site Copy Paste](https://ultimateelementor.com/widgets/cross-site-copy-paste/?utm_source=wprepo&utm_medium=uaelite)** – Instantly copy and paste entire Elementor sections between domains.
+
+* **[Particle Backgrounds](https://ultimateelementor.com/widgets/particle-backgrounds/?utm_source=wprepo&utm_medium=uaelite)** – Add animated particle effects behind sections.
+
+* **[Party Propz](https://ultimateelementor.com/party-propz/?utm_source=wprepo&utm_medium=uaelite)** – Celebrate special occasions with on-screen confetti and fun animations.
+
+* **[Presets](https://ultimateelementor.com/widgets/presets/?utm_source=wprepo&utm_medium=uaelite)** – Apply consistent design styles across widgets with a single click.
+
+* **[Welcome Music](https://ultimateelementor.com/widgets/welcome-music/?utm_source=wprepo&utm_medium=uaelite)** – Play background music when a visitor lands on your site.
+
+### Unlock Even More With the Essential Toolkit ###
+
+[Upgrade to the Essential Toolkit](https://ultimateelementor.com/pricing/?utm_source=wprepo&utm_medium=uaelite) to access a powerful bundle designed to save time, spark creativity, and give you a real competitive advantage.
+
+300+ Pre-built websites: Skip the blank canvas. Launch faster with professionally designed websites.
+
+Templates for every niche: Build business sites, blogs, portfolios, or stores with no design experience needed.
+
+Total design freedom: Tweak every pixel, colors, fonts, and layouts to make each site uniquely yours.
+
+### What Users Are Saying ###
+
+> “A must-have for any Elementor user. Incredible widget bundle — powerful, essential, and easy to use.” 
+> – Carmelo Teran (nexodreams.com)
+
+> “Huge selection of widgets that help me deliver unique designs fast. Love the Hotspots, Heading, and Cross-Site Copy Paste!” 
+> – Nicola Stobb (imoe.co)
+
+> “If Elementor Pro is the Iron Man suit, Ultimate Addons is the Hulkbuster upgrade. I don’t build without it!” 
+> – Dean Loh (kaia.asia)
+
+### More Tools To Enhance Your WordPress Website ###
+
+If you love Ultimate Addons, you’ll love what else we’ve built to make designing and managing websites easier.
+
+* **[Astra theme](https://wpastra.com/pro/?utm_source=wprepo&utm_medium=uaelite)** – The fastest, most flexible WordPress theme.
+
+* **[Astra Starter Templates](https://startertemplates.com/?utm_source=wprepo&utm_medium=uaelite)** – Pick from over 300+ professionally designed templates or use AI to create a custom website in minutes.
+
+* **[OttoKit (Formerly SureTriggers)](https://ottokit.com/?utm_source=wprepo&utm_medium=uaelite)** – Automate daily tasks by connecting your favorite apps and plugins effortlessly.
+
+* **[SureForms](https://sureforms.com/?utm_source=wprepo&utm_medium=uaelite)** – Build beautiful, high-converting forms, quizzes, and surveys.
+
+* **[SureCart](https://surecart.com/?utm_source=wprepo&utm_medium=uaelite)** – A powerful yet easy to use eCommerce plugin built for modern creators and digital sellers.
+
+Each tool is designed to help you build faster, work smarter, and grow your online presence with less effort and better results.
+
+## Need help getting started? 
+Check out our [getting started guide and documentation](https://ultimateelementor.com/docs/) for step-by-step tutorials. 
+
+## Have a question? 
+Visit the [support forum](https://wordpress.org/support/plugin/header-footer-elementor/) right here on [WordPress.org](http://WordPress.org). We’re happy to help! 
+
+## Want to explore more? 
+Learn about all features, FAQs, and tips on [our website](https://ultimateelementor.com/?utm_source=wprepo&utm_medium=uaelite).
+
+## 🎉 Love Ultimate Addons for Elementor? 
+
+* [Watch tutorials](https://youtube.com/playlist?list=PL1kzJGWGPrW_7HabOZHb6z88t_S8r-xAc&si=neuvhTEr0h-PPhfJ) and walk throughs on our YouTube channel. 
+* Found us helpful? [Leave a review](https://wordpress.org/support/plugin/header-footer-elementor/reviews/) — we’d love to hear from you!
 
 == Installation ==  
 
@@ -135,6 +297,9 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 ---
 
 == Changelog ==
+= 2.4.3 =
+- Updated readme file.
+
 = 2.4.2 =
 - Improvement: Optimize performance with the new “Deactivate Unused Widgets” option.
 

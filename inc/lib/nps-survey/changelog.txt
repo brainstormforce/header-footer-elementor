@@ -1,3 +1,11 @@
+Version 1.0.11 - 27-06-2025
+- Improvement:
+  - Improved core class loading to avoid duplicate declarations and ensure stability.
+
+Version 1.0.10 - 26-06-2025
+- Improvement:
+  - Updated rating submission endpoint.
+
 Version 1.0.9 - 24-06-2025
 - Improvement:
   - Improved library loading conditions to prevent conflicts.
