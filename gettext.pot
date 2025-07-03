@@ -966,6 +966,14 @@ msgstr ""
 msgid "Search..."
 msgstr ""
 
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:207
+msgid "Click here to activate all widgets & extensions."
+msgstr ""
+
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:233
+msgid "Click here to deactivate all unused widgets, except Extensions."
+msgstr ""
+
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:252
 msgid "Deactivate Unused"
 msgstr ""
