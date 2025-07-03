@@ -25,6 +25,8 @@ Whether you're building your first website or scaling an agency, UAE delivers th
 
 https://www.youtube.com/watch?v=6xH5n6YYNJE
 
+[Try the live demo of Ultimate Addons for Elementor](https://zipwp.org/plugins/header-footer-elementor/)
+
 ## Why UAE Is The Best Elementor Addon ##
 
 Ultimate Addons for Elementor equips you with tools that make page design faster, cleaner, and more creative. Whether you're just starting your web design journey or building complex websites for clients, UAE can help. 
