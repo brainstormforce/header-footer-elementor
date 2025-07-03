@@ -7,14 +7,14 @@
  * Author URI:  https://www.brainstormforce.com/
  * Text Domain: header-footer-elementor
  * Domain Path: /languages
- * Version: 2.4.2
+ * Version: 2.4.3
  * Elementor tested up to: 3.29
  * Elementor Pro tested up to: 3.29
  *
  * @package         header-footer-elementor
  */
 
-define( 'HFE_VER', '2.4.2' );
+define( 'HFE_VER', '2.4.3' );
 define( 'HFE_FILE', __FILE__ );
 define( 'HFE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'HFE_URL', plugins_url( '/', __FILE__ ) );
