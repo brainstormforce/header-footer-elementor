@@ -13,6 +13,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 	const [selectedPlugins, setSelectedPlugins] = useState({});
 	const [formData, setFormData] = useState({
 		firstName: hfeSettingsData.user_fname ? hfeSettingsData.user_fname : "",
+		lastName: hfeSettingsData.user_lname ? hfeSettingsData.user_lname : "",
 		email: hfeSettingsData.user_email ? hfeSettingsData.user_email : "",
 		notifications: true,
 	});
@@ -126,6 +127,54 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 		}, 0);
 	};
 
+	// Call webhook with email data
+	const callEmailWebhook = (email, firstName, lastName) => {
+		// Only proceed if we have an email
+		if (!email) {
+			// Immediately proceed to next step if no email
+			setCurrentStep(3);
+			return;
+		}
+
+		const today = new Date().toISOString().split('T')[0];
+
+		const params = new URLSearchParams({
+			email: email,
+			date: today,
+			fname: firstName || '',
+			lname: lastName || ''
+		});
+
+		fetch(`/wp-json/hfe/v1/email-webhook/?${params.toString()}`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'X-WP-Nonce': hfeSettingsData.hfe_nonce_action,
+			},
+		})
+		.then((response) => {
+			if (!response.ok) {
+				throw new Error(`HTTP error! Status: ${response.status}`);
+			}
+			return response.json();
+		})
+		.then(data => {
+			if ("success" === data.message) {
+				// Proceed to next step after successful webhook call
+				setCurrentStep(3);
+			} else {
+				console.warn("Unexpected webhook response:", data);
+				// Still proceed to next step even if webhook response is unexpected
+				setCurrentStep(3);
+			}
+		})
+		.catch(error => {
+			console.error('Error calling webhook:', error);
+			// Proceed to next step even if there's an error
+			setCurrentStep(3);
+		});
+	};
+
 	// Handle next button click
 	const handleNextClick = () => {
 		// Start installation in background only if there are plugins to install
@@ -133,8 +182,13 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 			installSelectedPluginsInBackground();
 		}
 
-		// Immediately proceed to next step
-		setCurrentStep(3);
+		// Only call webhook if notifications are enabled
+		if (formData.notifications && formData.email) {
+			callEmailWebhook(formData.email, formData.firstName, formData.lastName);
+		} else {
+			// Immediately proceed to next step if notifications are disabled
+			setCurrentStep(3);
+		}
 	};
 
 	// If all plugins are installed or there are no plugins to show, only hide the plugins section
@@ -298,21 +352,50 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 										e.target.value,
 									)
 								}
-								className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none hfe-remove-ring  transition-colors"
+								className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none hfe-remove-ring transition-colors"
 								placeholder={__(
 									"Enter your first name",
 									"header-footer-elementor",
 								)}
-								 style={{
-                                            height: '48px',
-                                            borderColor: '#e0e0e0', // Default border color
-                                            outline: 'none',  // Removes the default outline
-											fontSize: "14px",     
-                                            boxShadow: 'none',     // Removes the default box shadow
-                                            // marginTop: '16px'
-                                        }}
+								style={{
+									height: '48px',
+									borderColor: '#e0e0e0',
+									outline: 'none',
+									fontSize: "14px",     
+									boxShadow: 'none',
+								}}
 							/>
 						</div>
+						<div className="flex flex-col flex-1">
+							<label className="text-sm font-medium text-gray-700 mb-2">
+								{__("Last Name", "header-footer-elementor")}
+							</label>
+							<input
+								type="text"
+								name="lastName"
+								value={formData.lastName}
+								onChange={(e) =>
+									handleInputChange(
+										"lastName",
+										e.target.value,
+									)
+								}
+								className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none hfe-remove-ring transition-colors"
+								placeholder={__(
+									"Enter your last name",
+									"header-footer-elementor",
+								)}
+								style={{
+									height: '48px',
+									borderColor: '#e0e0e0',
+									outline: 'none',
+									fontSize: "14px",     
+									boxShadow: 'none',
+								}}
+							/>
+						</div>
+					</div>
+					<div className="flex flex-row items-start gap-4 mb-4">
 						<div className="flex flex-col flex-1">
 							<label className="text-sm font-medium text-gray-700 mb-2">
 								{__("Email Address", "header-footer-elementor")}
