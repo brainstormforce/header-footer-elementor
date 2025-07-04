@@ -132,12 +132,12 @@ msgstr ""
 #: src/Components/Compare/FreevsPro.jsx:220
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:178
 #: src/Components/NavMenu.js:242
-#: src/Components/Onboarding/Features.jsx:199
+#: src/Components/Onboarding/Features.jsx:206
 msgid "Free"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:226
-#: src/Components/Onboarding/Features.jsx:386
+#: src/Components/Onboarding/Features.jsx:393
 msgid "Pro"
 msgstr ""
 
@@ -278,9 +278,7 @@ msgstr ""
 #: src/Components/Compare/FreevsPro.jsx:68
 #: src/Components/Compare/UltimateCompare.jsx:12
 #: src/Components/Dashboard/UltimateFeatures.js:112
-#: src/Components/Onboarding/Features.jsx:258
-#: src/Components/Onboarding/Features.jsx:284
-#: src/Components/Onboarding/Features.jsx:253
+#: src/Components/Onboarding/Features.jsx:265
 #: src/Components/Widgets/UltimateWidgets.jsx:13
 msgid "Modal Popup"
 msgstr ""
@@ -815,71 +813,79 @@ msgstr ""
 msgid "Privacy Policy"
 msgstr ""
 
+#: src/Components/Onboarding/ExtendOnboarding.jsx:371
+#: src/Components/Onboarding/ExtendOnboarding.jsx:405
 #: src/Components/Onboarding/ExtendOnboarding.jsx:374
-#: src/Components/Onboarding/Features.jsx:430
+#: src/Components/Onboarding/Features.jsx:437
 msgid "Back"
 msgstr ""
 
+#: src/Components/Onboarding/ExtendOnboarding.jsx:380
+#: src/Components/Onboarding/ExtendOnboarding.jsx:414
 #: src/Components/Onboarding/ExtendOnboarding.jsx:383
-#: src/Components/Onboarding/Features.jsx:439
+#: src/Components/Onboarding/Features.jsx:446
 msgid "Skip"
 msgstr ""
 
+#: src/Components/Onboarding/ExtendOnboarding.jsx:393
+#: src/Components/Onboarding/ExtendOnboarding.jsx:428
+#: src/Components/Onboarding/ExtendOnboarding.jsx:442
 #: src/Components/Onboarding/ExtendOnboarding.jsx:396
-#: src/Components/Onboarding/Features.jsx:467
+#: src/Components/Onboarding/Features.jsx:474
 msgid "Next"
 msgstr ""
 
-#: src/Components/Onboarding/Features.jsx:100
+#: src/Components/Onboarding/ExtendOnboarding.jsx:428
+#: src/Components/Onboarding/Features.jsx:460
+msgid "Upgrade"
+msgstr ""
+
+#: src/Components/Onboarding/Features.jsx:101
+msgid "Select Your Features"
+msgstr ""
+
+#: src/Components/Onboarding/Features.jsx:107
 msgid ""
 "Get more control, faster workflows, and deeper customization — all designed "
 "to help you build better websites with less effort."
 msgstr ""
 
-#: src/Components/Onboarding/Features.jsx:118
+#: src/Components/Onboarding/Features.jsx:125
 msgid "Header & Footer Builder"
 msgstr ""
 
-#: src/Components/Onboarding/Features.jsx:138
+#: src/Components/Onboarding/Features.jsx:145
 msgid ""
 "Assign headers and footers to specific pages or post types. Gives users "
 "complete layout control—something typically locked behind Pro plugins."
 msgstr ""
 
-#: src/Components/Onboarding/Features.jsx:193
+#: src/Components/Onboarding/Features.jsx:200
 msgid "Mega Menu & Navigation Widget"
 msgstr ""
 
-#: src/Components/Onboarding/Features.jsx:210
+#: src/Components/Onboarding/Features.jsx:217
 msgid ""
 "Save hours by copying Elementor sections, widgets, or pages from one "
 "website to another—no need to rebuild layouts from scratch."
 msgstr ""
 
-#: src/Components/Onboarding/Features.jsx:320
+#: src/Components/Onboarding/Features.jsx:327
 msgid "WooCommerce Widgets"
 msgstr ""
 
-#: src/Components/Onboarding/Features.jsx:380
+#: src/Components/Onboarding/Features.jsx:387
 msgid "50+ Premium Widgets & 200+ Templates"
 msgstr ""
 
-#: src/Components/Onboarding/Features.jsx:396
+#: src/Components/Onboarding/Features.jsx:403
 msgid ""
 "Design eye-catching popups directly in Elementor—collect leads, display "
 "promotions, or show messages without needing a separate popup plugin."
 msgstr ""
 
-#: src/Components/Onboarding/Features.jsx:453
-msgid "Upgrade"
-msgstr ""
-
-#: src/Components/Onboarding/Features.jsx:482
+#: src/Components/Onboarding/Features.jsx:489
 msgid "You've picked Pro features — upgrade to start using them."
-msgstr ""
-
-#: src/Components/Onboarding/Features.jsx:94
-msgid "Select Your Features"
 msgstr ""
 
 #: src/Components/Onboarding/Success.jsx:100

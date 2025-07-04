@@ -156,7 +156,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
                     }
 
                     .role-checkbox:checked {
-                        background-color: #240064;
+                        background-color: #5C2EDE;
                         border-color: #0017E1;
                     }
 
@@ -268,7 +268,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 						</div>
 					</div>
 				)}
-				<div className="px-5 bg-white rounded-lg mt-4">
+				<div className="px-5 bg-white rounded-lg">
 					<h3
 						className={`text-base font-semibold text-gray-900 ${
 							!showPluginsSection ? "text-xl mb-3" : ""
@@ -339,7 +339,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 									e.target.checked,
 								)
 							}
-							className="role-checkbox mt-1 h-4 w-4 text-[#240064] focus:ring-[#240064] border-gray-300 rounded"
+							className="role-checkbox mt-1 h-4 w-4 text-[#5C2EDE] focus:ring-[#5C2EDE] border-gray-300 rounded"
 						/>
 						<label
 							htmlFor="notifications-checkbox"
@@ -361,10 +361,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 						</label>
 					</div>
 				</div>
-				<div
-					style={{ gap: "350px" }}
-					className="flex justify-end items-center pt-4 px-4 hfe-onboarding-bottom"
-				>
+				<div className="flex w-full justify-between items-center pt-6 hfe-onboarding-bottom" style={{ paddingLeft: "8px", paddingRight: "8px" }}>
 					<Button
 						className="flex items-center gap-1 hfe-remove-ring"
 						icon={<ChevronLeft />}
@@ -373,9 +370,9 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 					>
 						{__("Back", "header-footer-elementor")}
 					</Button>
-					<div className="flex justify-start text-text-tertiary items-center gap-3">
+					<div className="flex justify-between items-center" style={{ paddingRight: "1.875rem"}}>
 						<Button
-							className="hfe-remove-ring"
+							className="hfe-remove-ring text-text-tertiary"
 							variant="ghost"
 							onClick={() => setCurrentStep(3)}
 						>
@@ -387,7 +384,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 							icon={<ArrowRight />}
 							iconPosition="right"
 							style={{
-								backgroundColor: "#240064",
+								backgroundColor: "#5C2EDE",
 								transition: "background-color 0.3s ease",
 								padding: "12px",
 							}}

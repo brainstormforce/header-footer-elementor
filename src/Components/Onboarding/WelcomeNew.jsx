@@ -101,16 +101,16 @@ const Welcome = ({ setCurrentStep }) => {
 				<Button
 					iconPosition="right"
 					variant="primary"
-					className="bg-[#240064] hfe-remove-ring p-3 px-5 font-bold mt-2"
+					className="bg-[#5C2EDE] hfe-remove-ring p-3 px-5 font-bold mt-2"
 					style={{
-						backgroundColor: "#240064",
+						backgroundColor: "#5C2EDE",
 						transition: "background-color 0.3s ease",
 					}}
 					onMouseEnter={(e) =>
-						(e.currentTarget.style.backgroundColor = "#240064")
+						(e.currentTarget.style.backgroundColor = "#5C2EDE")
 					}
 					onMouseLeave={(e) =>
-						(e.currentTarget.style.backgroundColor = "#240064")
+						(e.currentTarget.style.backgroundColor = "#5C2EDE")
 					}
 					onClick={() => setCurrentStep(2)}
 				>

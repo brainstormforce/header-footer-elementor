@@ -1511,7 +1511,7 @@
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .border-brand-primary-600{
     --tw-border-opacity: 1;
-    border-color: rgb(36 0 100 / var(--tw-border-opacity, 1));
+    border-color: rgb(92 46 222 / var(--tw-border-opacity, 1));
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .border-button-primary{
     --tw-border-opacity: 1;
@@ -1657,7 +1657,7 @@
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .bg-brand-primary-600{
     --tw-bg-opacity: 1;
-    background-color: rgb(36 0 100 / var(--tw-bg-opacity, 1));
+    background-color: rgb(92 46 222 / var(--tw-bg-opacity, 1));
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .bg-button-danger{
     --tw-bg-opacity: 1;
@@ -1901,9 +1901,6 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .pb-5{
     padding-bottom: 1.25rem;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .pb-6{
-    padding-bottom: 1.5rem;
-}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .pl-10{
     padding-left: 2.5rem;
 }
@@ -2112,7 +2109,7 @@
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .text-brand-primary-600{
     --tw-text-opacity: 1;
-    color: rgb(36 0 100 / var(--tw-text-opacity, 1));
+    color: rgb(92 46 222 / var(--tw-text-opacity, 1));
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .text-button-danger{
     --tw-text-opacity: 1;
@@ -2418,7 +2415,7 @@
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .ring-brand-primary-600{
     --tw-ring-opacity: 1;
-    --tw-ring-color: rgb(36 0 100 / var(--tw-ring-opacity, 1));
+    --tw-ring-color: rgb(92 46 222 / var(--tw-ring-opacity, 1));
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .ring-focus{
     --tw-ring-opacity: 1;
