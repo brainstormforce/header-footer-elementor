@@ -704,7 +704,7 @@ msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:340
 #: src/Components/Onboarding/Create.jsx:482
-#: src/Components/Onboarding/ExtendOnboarding.jsx:285
+#: src/Components/Onboarding/ExtendOnboarding.jsx:289
 msgid "First Name"
 msgstr ""
 
@@ -777,67 +777,55 @@ msgstr ""
 msgid "Reliable support from experts when you need it"
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:193
+#: src/Components/Onboarding/ExtendOnboarding.jsx:197
 msgid "Recommended Essentials"
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:205
+#: src/Components/Onboarding/ExtendOnboarding.jsx:209
 msgid ""
 "These free plugins add essential features to your website and help speed up "
 "your workflow. Select the plugins you want to install."
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:277
+#: src/Components/Onboarding/ExtendOnboarding.jsx:281
 msgid "Get Important Notifications and Updates"
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:298
+#: src/Components/Onboarding/ExtendOnboarding.jsx:302
 msgid "Enter your first name"
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:310
+#: src/Components/Onboarding/ExtendOnboarding.jsx:318
 msgid "Email Address"
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:320
+#: src/Components/Onboarding/ExtendOnboarding.jsx:328
 msgid "Enter your email address"
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:348
+#: src/Components/Onboarding/ExtendOnboarding.jsx:360
 msgid ""
 "Notify me about critical updates and new features — and help us improve by "
 "sharing how you use the plugin. "
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:356
+#: src/Components/Onboarding/ExtendOnboarding.jsx:368
 msgid "Privacy Policy"
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:371
-#: src/Components/Onboarding/ExtendOnboarding.jsx:405
-#: src/Components/Onboarding/ExtendOnboarding.jsx:374
+#: src/Components/Onboarding/ExtendOnboarding.jsx:383
 #: src/Components/Onboarding/Features.jsx:437
 msgid "Back"
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:380
-#: src/Components/Onboarding/ExtendOnboarding.jsx:414
-#: src/Components/Onboarding/ExtendOnboarding.jsx:383
+#: src/Components/Onboarding/ExtendOnboarding.jsx:392
 #: src/Components/Onboarding/Features.jsx:446
 msgid "Skip"
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:393
-#: src/Components/Onboarding/ExtendOnboarding.jsx:428
-#: src/Components/Onboarding/ExtendOnboarding.jsx:442
-#: src/Components/Onboarding/ExtendOnboarding.jsx:396
+#: src/Components/Onboarding/ExtendOnboarding.jsx:405
 #: src/Components/Onboarding/Features.jsx:474
 msgid "Next"
-msgstr ""
-
-#: src/Components/Onboarding/ExtendOnboarding.jsx:428
-#: src/Components/Onboarding/Features.jsx:460
-msgid "Upgrade"
 msgstr ""
 
 #: src/Components/Onboarding/Features.jsx:101
@@ -882,6 +870,10 @@ msgstr ""
 msgid ""
 "Design eye-catching popups directly in Elementor—collect leads, display "
 "promotions, or show messages without needing a separate popup plugin."
+msgstr ""
+
+#: src/Components/Onboarding/Features.jsx:460
+msgid "Upgrade"
 msgstr ""
 
 #: src/Components/Onboarding/Features.jsx:489

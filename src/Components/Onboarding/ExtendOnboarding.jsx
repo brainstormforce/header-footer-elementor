@@ -155,8 +155,12 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
                         cursor: pointer;
                     }
 
+                    .role-checkbox:focus {
+                        outline: none;
+                    }
+
                     .role-checkbox:checked {
-                        background-color: #5C2EDE;
+                        background-color: #5C2EDE !important; /* brand-primary-600 */
                         border-color: #0017E1;
                     }
 
@@ -174,14 +178,14 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
                 `}
 			</style>
 			<div
-				className="bg-background-primary border-[0.5px] items-start justify-center border-subtle rounded-xl shadow-sm mb-6 p-4 flex flex-col"
+				className="bg-background-primary border-[0.5px] items-start justify-center border-subtle p-4 rounded-xl shadow-sm mb-6 flex flex-col"
 				style={{ width: "672px" }}
 			>
 				{showPluginsSection && (
 					<div className="rounded-lg bg-white w-full">
 						<div
-							className="flex flex-col items-start justify-between p-4"
-							style={{ paddingBottom: "0" }}
+							className="flex flex-col items-start justify-between"
+							style={{ paddingTop: "1rem", paddingLeft: "1rem", paddingRight: "1rem" }}
 						>
 							<p
 								className="text-text-primary m-0 mb-2 hfe-65-width"
@@ -210,8 +214,8 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 							<div className="flex items-center gap-x-2 mr-7"></div>
 						</div>
 						<div
-							className="flex flex-col rounded-lg p-4"
-							style={{ backgroundColor: "white" }}
+							className="flex flex-col rounded-lg"
+							style={{ backgroundColor: "white", paddingTop: "1rem", paddingLeft: "1rem", paddingRight: "1rem" }}
 						>
 							{loading ? (
 								<Container
@@ -294,15 +298,19 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 										e.target.value,
 									)
 								}
-								className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
+								className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none hfe-remove-ring  transition-colors"
 								placeholder={__(
 									"Enter your first name",
 									"header-footer-elementor",
 								)}
-								style={{
-									height: "48px",
-									fontSize: "14px",
-								}}
+								 style={{
+                                            height: '48px',
+                                            borderColor: '#e0e0e0', // Default border color
+                                            outline: 'none',  // Removes the default outline
+											fontSize: "14px",     
+                                            boxShadow: 'none',     // Removes the default box shadow
+                                            // marginTop: '16px'
+                                        }}
 							/>
 						</div>
 						<div className="flex flex-col flex-1">
@@ -321,10 +329,14 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 									"Enter your email address",
 									"header-footer-elementor",
 								)}
-								style={{
-									height: "48px",
-									fontSize: "14px",
-								}}
+								 style={{
+                                            height: '48px',
+                                            borderColor: '#e0e0e0', // Default border color
+                                            outline: 'none',  // Removes the default outline
+											fontSize: "14px",     
+                                            boxShadow: 'none',     // Removes the default box shadow
+                                            // marginTop: '16px'
+                                        }}
 							/>
 						</div>
 					</div>
