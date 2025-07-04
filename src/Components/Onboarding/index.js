@@ -11,17 +11,18 @@ import Welcome from "./WelcomeNew";
 // import Configure from "./Configure";
 import Configure from "./ExtendOnboarding";
 import Success from "./Success";
+import Features from "./Features";
 
 // Full steps array including the hidden "Success" step
 const allSteps = [
     { label: "", component: Welcome },
     { label: "", component: Configure },
-    { label: "Create", component: Create },
-    { label: "Success", component: Success }, // Hidden from progress bar
+    { label: "", component: Features },
+    { label: "", component: Create }, // Hidden from progress bar
 ];
 
 // Only visible steps for the top progress bar
-const visibleSteps = allSteps.slice(0, 3); // Exclude "Success"
+const visibleSteps = allSteps.slice(0, 4); // Exclude "Success"
 
 const Onboarding = () => {
     const [currentStep, setCurrentStep] = React.useState(() => {
@@ -45,7 +46,7 @@ const Onboarding = () => {
 
     return (
         <div>
-            <div className="w-full pb-10">
+            <div className="w-full">
                 <div className="flex flex-col items-center justify-center">
                     <Topbar className="bg-none" style={{ background: "none" }}>
                         <Topbar.Left>
@@ -85,7 +86,6 @@ const Onboarding = () => {
                                 <Link
                                     className="hfe-remove-ring"
                                     to={routes.dashboard.path}
-                                    style={{ marginLeft: "125px" }}
                                 > 
                                <div className="flex items-center cursor-pointer justify-center gap-1">
                                  <p style={{ fontSize: '0.9rem', color: '#111827' }}>{__('Exit Guided Setup', 'header-footer-elementor')}</p>

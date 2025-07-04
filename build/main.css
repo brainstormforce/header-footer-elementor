@@ -1,10 +1,4 @@
-/*!************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/styles.css ***!
-  \************************************************************************************************************/
 @import url(https://fonts.googleapis.com/css?family=Josefin+Sans);
-/*!****************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/@fontsource/figtree/index.css ***!
-  \****************************************************************************************************************************************/
 /* figtree-latin-ext-400-normal */
 @font-face {
   font-family: 'Figtree';
@@ -24,9 +18,6 @@
   src: url(/8fbf595b398521a13438.woff2) format('woff2'), url(/7d00956da27af3e30b78.woff) format('woff');
   unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
 }
-/*!**************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/@fontsource/figtree/400.css ***!
-  \**************************************************************************************************************************************/
 /* figtree-latin-ext-400-normal */
 @font-face {
   font-family: 'Figtree';
@@ -46,9 +37,6 @@
   src: url(/8fbf595b398521a13438.woff2) format('woff2'), url(/7d00956da27af3e30b78.woff) format('woff');
   unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
 }
-/*!*********************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/@fontsource/figtree/400-italic.css ***!
-  \*********************************************************************************************************************************************/
 /* figtree-latin-ext-400-italic */
 @font-face {
   font-family: 'Figtree';
@@ -68,9 +56,6 @@
   src: url(/0c658d1bd687fc3b8ae1.woff2) format('woff2'), url(/f2b6d272f68d05e1513a.woff) format('woff');
   unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
 }
-/*!****************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/styles.css (1) ***!
-  \****************************************************************************************************************/
 *, ::before, ::after{
     --tw-border-spacing-x: 0;
     --tw-border-spacing-y: 0;
@@ -1511,7 +1496,7 @@
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .border-brand-primary-600{
     --tw-border-opacity: 1;
-    border-color: rgb(147 51 234 / var(--tw-border-opacity, 1));
+    border-color: rgb(92 46 222 / var(--tw-border-opacity, 1));
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .border-button-primary{
     --tw-border-opacity: 1;
@@ -1657,7 +1642,7 @@
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .bg-brand-primary-600{
     --tw-bg-opacity: 1;
-    background-color: rgb(147 51 234 / var(--tw-bg-opacity, 1));
+    background-color: rgb(92 46 222 / var(--tw-bg-opacity, 1));
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .bg-button-danger{
     --tw-bg-opacity: 1;
@@ -1892,9 +1877,6 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .pb-1{
     padding-bottom: 0.25rem;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .pb-10{
-    padding-bottom: 2.5rem;
-}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .pb-3{
     padding-bottom: 0.75rem;
 }
@@ -2112,7 +2094,7 @@
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .text-brand-primary-600{
     --tw-text-opacity: 1;
-    color: rgb(147 51 234 / var(--tw-text-opacity, 1));
+    color: rgb(92 46 222 / var(--tw-text-opacity, 1));
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .text-button-danger{
     --tw-text-opacity: 1;
@@ -2418,7 +2400,7 @@
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .ring-brand-primary-600{
     --tw-ring-opacity: 1;
-    --tw-ring-color: rgb(147 51 234 / var(--tw-ring-opacity, 1));
+    --tw-ring-color: rgb(92 46 222 / var(--tw-ring-opacity, 1));
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .ring-focus{
     --tw-ring-opacity: 1;
@@ -2791,11 +2773,26 @@ div#hfe-settings-app {
 		max-width: -moz-fit-content;
 		max-width: fit-content;
 	}
-	.hfe-onboarding-bottom {
-		display: grid !important;
-		max-width: -moz-fit-content;
-		max-width: fit-content;
-	}
+        .hfe-onboarding-bottom {
+                display: grid !important;
+                max-width: -moz-fit-content;
+                max-width: fit-content;
+        }
+}
+
+body.hfe-onboarding-fullscreen #wpadminbar,
+body.hfe-onboarding-fullscreen #adminmenuback,
+body.hfe-onboarding-fullscreen #adminmenuwrap,
+body.hfe-onboarding-fullscreen #adminmenu,
+body.hfe-onboarding-fullscreen #wpfooter {
+       display: none;
+}
+body.hfe-onboarding-fullscreen #wpcontent {
+       margin-left: 0;
+       padding-left: 0;
+}
+body.hfe-onboarding-fullscreen.admin-bar {
+       margin-top: 0 !important;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .file\:border-0::file-selector-button{
     border-width: 0px;
@@ -4400,3 +4397,5 @@ div#hfe-settings-app {
     height: 1.5rem;
 }
 
+
+/*# sourceMappingURL=main.css.map*/
