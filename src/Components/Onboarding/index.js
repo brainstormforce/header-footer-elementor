@@ -46,7 +46,7 @@ const Onboarding = () => {
 
     return (
         <div>
-            <div className="w-full pb-10">
+            <div className="w-full">
                 <div className="flex flex-col items-center justify-center">
                     <Topbar className="bg-none" style={{ background: "none" }}>
                         <Topbar.Left>
@@ -86,7 +86,6 @@ const Onboarding = () => {
                                 <Link
                                     className="hfe-remove-ring"
                                     to={routes.dashboard.path}
-                                    style={{ marginLeft: "125px" }}
                                 > 
                                <div className="flex items-center cursor-pointer justify-center gap-1">
                                  <p style={{ fontSize: '0.9rem', color: '#111827' }}>{__('Exit Guided Setup', 'header-footer-elementor')}</p>

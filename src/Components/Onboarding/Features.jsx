@@ -16,39 +16,80 @@ import { Link } from "../../router/index";
 import { routes } from "../../admin/settings/routes";
 
 const Features = ({ setCurrentStep }) => {
+	const [selectedFeatures, setSelectedFeatures] = useState({
+		headerFooterBuilder: false,
+		megaMenu: false,
+		modalPopup: false,
+		wooCommerceWidgets: false,
+		premiumWidgets: false,
+	});
+
+	const handleFeatureChange = (featureName) => {
+		setSelectedFeatures((prev) => ({
+			...prev,
+			[featureName]: !prev[featureName],
+		}));
+	};
+
+	const hasFreeFeaturesSelected =
+		selectedFeatures.headerFooterBuilder || selectedFeatures.megaMenu;
+	const hasProFeaturesSelected =
+		selectedFeatures.modalPopup ||
+		selectedFeatures.wooCommerceWidgets ||
+		selectedFeatures.premiumWidgets;
+	const hasAnyFeatureSelected =
+		hasFreeFeaturesSelected || hasProFeaturesSelected;
+
+	const handleUpgrade = () => {
+		// Add your upgrade URL here
+		window.open("https://your-upgrade-url.com", "_blank");
+	};
+
 	return (
 		<>
-			{/* <Toaster
-				position="top-right"
-				reverseOrder={false}
-				gutter={8}
-				containerStyle={{
-					top: 20,
-					right: 20,
-					marginTop: "40px",
-				}}
-				toastOptions={{
-					duration: 1000,
-					style: {
-						color: "#0017E1",
-					},
-					success: {
-						duration: 2000,
-						style: {
-							color: "",
-						},
-						iconTheme: {
-							primary: "#0017E1",
-							secondary: "#fff",
-						},
-					},
-				}}
-			/> */}
+			<style>
+				{`
+                    .role-checkbox {
+                        position: relative;
+                        width: 30px;
+                        height: 30px;
+                        -webkit-appearance: none;
+                        appearance: none;
+                        border: 2px solid #d1d5db; /* gray-300 */
+                        border-radius: 4px;
+                        cursor: pointer;
+                        outline: none;
+                    }
+
+                    .role-checkbox:focus {
+                        outline: none;
+                        box-shadow: none;
+                    }
+
+                    .role-checkbox:checked {
+                        background-color: #5C2EDE;
+                        border-color: #0017E1;
+                        outline: none;
+                    }
+
+                    .role-checkbox:checked::after {
+                        content: '';
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        width: 4px;
+                        height: 8px;
+                        border-right: 2px solid #fff;
+                        border-bottom: 2px solid #fff;
+                        transform: translate(-50%, -60%) rotate(45deg);
+                    }
+                `}
+			</style>
 			<div
 				className="box-border bg-background-primary p-6 rounded-lg"
 				style={{
 					marginTop: "24px",
-					width: "50%",
+					width: "672px",
 				}}
 			>
 				<Title
@@ -118,11 +159,18 @@ const Features = ({ setCurrentStep }) => {
 								top: "0",
 							}}
 						>
-							<Switch
-								size="md"
-								// value={smoothScrollEnabled}
-								// onChange={handleSmoothScrollSwitch}
-								// disabled={isLoading}
+							<input
+								type="checkbox"
+								checked={selectedFeatures.headerFooterBuilder}
+								onChange={() =>
+									handleFeatureChange("headerFooterBuilder")
+								}
+								className="role-checkbox w-5 h-5 outline-none"
+								style={{
+									accentColor: "#240064",
+									width: "18px",
+									height: "18px",
+								}}
 							/>
 						</Container.Item>
 					</Container>
@@ -179,10 +227,16 @@ const Features = ({ setCurrentStep }) => {
 						order="none"
 						style={{ marginTop: "40px" }}
 					>
-						<Switch
-							size="md"
-							// value={combinedCssEnabled}
-							// onChange={handleCombinedCssSwitch}
+						<input
+							type="checkbox"
+							checked={selectedFeatures.megaMenu}
+							onChange={() => handleFeatureChange("megaMenu")}
+							className="role-checkbox w-5 h-5"
+							style={{
+								accentColor: "#240064",
+								width: "18px",
+								height: "18px",
+							}}
 						/>
 					</Container.Item>
 				</Container>
@@ -235,10 +289,16 @@ const Features = ({ setCurrentStep }) => {
 						order="none"
 						style={{ marginTop: "40px" }}
 					>
-						<Switch
-							size="md"
-							// value={combinedJsEnabled}
-							// onChange={handleCombinedJsSwitch}
+						<input
+							type="checkbox"
+							checked={selectedFeatures.modalPopup}
+							onChange={() => handleFeatureChange("modalPopup")}
+							className="role-checkbox w-5 h-5"
+							style={{
+								accentColor: "#240064",
+								width: "18px",
+								height: "18px",
+							}}
 						/>
 					</Container.Item>
 				</Container>
@@ -289,10 +349,18 @@ const Features = ({ setCurrentStep }) => {
 						order="none"
 						style={{ marginTop: "40px" }}
 					>
-						<Switch
-							size="md"
-							// value={analyticsOptin}
-							// onChange={handleAnalyticsSwitch}
+						<input
+							type="checkbox"
+							checked={selectedFeatures.wooCommerceWidgets}
+							onChange={() =>
+								handleFeatureChange("wooCommerceWidgets")
+							}
+							className="role-checkbox w-5 h-5"
+							style={{
+								accentColor: "#240064",
+								width: "18px",
+								height: "18px",
+							}}
 						/>
 					</Container.Item>
 				</Container>
@@ -344,10 +412,18 @@ const Features = ({ setCurrentStep }) => {
 						order="none"
 						style={{ marginTop: "40px" }}
 					>
-						<Switch
-							size="md"
-							// value={analyticsOptin}
-							// onChange={handleAnalyticsSwitch}
+						<input
+							type="checkbox"
+							checked={selectedFeatures.premiumWidgets}
+							onChange={() =>
+								handleFeatureChange("premiumWidgets")
+							}
+							className="role-checkbox w-5 h-5"
+							style={{
+								accentColor: "#240064",
+								width: "18px",
+								height: "18px",
+							}}
 						/>
 					</Container.Item>
 				</Container>
@@ -369,21 +445,54 @@ const Features = ({ setCurrentStep }) => {
 							{" "}
 							{__("Skip", "header-footer-elementor")}
 						</Button>
-						<Button
-							className="flex items-center gap-1 hfe-remove-ring"
-							icon={<ArrowRight />}
-							iconPosition="right"
-							style={{
-								backgroundColor: "#240064",
-								transition: "background-color 0.3s ease",
-								padding: "12px",
-							}}
-							onClick={() => setCurrentStep(4)}
-						>
-							{__(" Next", "header-footer-elementor")}
-						</Button>
+						{hasProFeaturesSelected ? (
+							<Button
+								className="flex items-center gap-1 hfe-remove-ring"
+								icon={<ArrowRight />}
+								iconPosition="right"
+								style={{
+									backgroundColor: "#5C2EDE",
+									transition: "background-color 0.3s ease",
+									padding: "12px",
+								}}
+								onClick={handleUpgrade}
+							>
+								{__("Upgrade", "header-footer-elementor")}
+							</Button>
+						) : (
+							<Button
+								className="flex items-center gap-1 hfe-remove-ring"
+								icon={<ArrowRight />}
+								iconPosition="right"
+								style={{
+									backgroundColor: "#5C2EDE",
+									transition: "background-color 0.3s ease",
+									padding: "12px",
+								}}
+								onClick={() => setCurrentStep(4)}
+							>
+								{__("Next", "header-footer-elementor")}
+							</Button>
+						)}
 					</div>
 				</div>
+				{hasProFeaturesSelected && (
+					<div
+						className="mt-4 p-3 rounded-lg border border-gray-200 bg-gray-50"
+						style={{
+							backgroundColor: "#F9FAFB",
+							borderColor: "#E5E7EB",
+							marginTop: "16px",
+						}}
+					>
+						<div className="text-sm text-gray-700 font-medium">
+							{__(
+								"You've picked Pro features — upgrade to start using them.",
+								"header-footer-elementor",
+							)}
+						</div>
+					</div>
+				)}
 			</div>
 		</>
 	);
