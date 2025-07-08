@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the Ultimate Addons for Elementor Lite package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Ultimate Addons for Elementor Lite 2.4.3\n"
+"Project-Id-Version: Ultimate Addons for Elementor Lite 2.4.4\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/header-footer-elementor\n"
-"POT-Creation-Date: 2025-07-03 06:35:30+00:00\n"
+"POT-Creation-Date: 2025-07-08 07:49:35+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -82,8 +82,8 @@ msgid "If you have a moment, please share why you are deactivating the plugin."
 msgstr ""
 
 #: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:112
-#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:389
-#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:414
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:403
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:428
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:205
 #: inc/widgets-manager/widgets/cart/cart.php:114
 #: inc/widgets-manager/widgets/infocard/infocard.php:185
@@ -344,7 +344,7 @@ msgid ""
 msgstr ""
 
 #: admin/class-hfe-admin.php:622
-#: inc/widgets-manager/extensions/class-reading-progress-bar-settings.php:108
+#: inc/widgets-manager/extensions/class-reading-progress-bar-settings.php:125
 msgid "Display On"
 msgstr ""
 
@@ -870,7 +870,7 @@ msgid "Basic"
 msgstr ""
 
 #: inc/lib/target-rule/class-astra-target-rules-fields.php:143
-#: inc/widgets-manager/extensions/class-reading-progress-bar-settings.php:95
+#: inc/widgets-manager/extensions/class-reading-progress-bar-settings.php:112
 msgid "Entire Website"
 msgstr ""
 
@@ -1059,7 +1059,7 @@ msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:120
 #: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:49
-#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:103
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:117
 #: inc/widgets-manager/extensions/class-scroll-to-top.php:310
 msgid "Scroll to Top"
 msgstr ""
@@ -1070,7 +1070,7 @@ msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:134
 #: inc/widgets-manager/extensions/class-reading-progress-bar-settings.php:38
-#: inc/widgets-manager/extensions/class-reading-progress-bar-settings.php:74
+#: inc/widgets-manager/extensions/class-reading-progress-bar-settings.php:88
 #: inc/widgets-manager/extensions/class-reading-progress-bar.php:157
 msgid "Reading Progress Bar"
 msgstr ""
@@ -1645,13 +1645,13 @@ msgstr ""
 msgid "Invalid SVG Format, file not uploaded for security reasons!"
 msgstr ""
 
-#: inc/widgets-manager/extensions/class-reading-progress-bar-settings.php:82
+#: inc/widgets-manager/extensions/class-reading-progress-bar-settings.php:96
 msgid "Enable Reading Progress Bar"
 msgstr ""
 
-#: inc/widgets-manager/extensions/class-reading-progress-bar-settings.php:84
+#: inc/widgets-manager/extensions/class-reading-progress-bar-settings.php:98
 #: inc/widgets-manager/extensions/class-reading-progress-bar.php:168
-#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:113
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:127
 #: inc/widgets-manager/extensions/class-scroll-to-top.php:321
 #: inc/widgets-manager/widgets/cart/cart.php:151
 #: inc/widgets-manager/widgets/cart/cart.php:167
@@ -1664,9 +1664,9 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: inc/widgets-manager/extensions/class-reading-progress-bar-settings.php:85
+#: inc/widgets-manager/extensions/class-reading-progress-bar-settings.php:99
 #: inc/widgets-manager/extensions/class-reading-progress-bar.php:169
-#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:114
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:128
 #: inc/widgets-manager/extensions/class-scroll-to-top.php:322
 #: inc/widgets-manager/widgets/cart/cart.php:152
 #: inc/widgets-manager/widgets/cart/cart.php:168
@@ -1679,30 +1679,30 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: inc/widgets-manager/extensions/class-reading-progress-bar-settings.php:117
+#: inc/widgets-manager/extensions/class-reading-progress-bar-settings.php:134
 msgid ""
 "Select \"All Pages\" or choose specific post types. If \"All Pages\" is "
 "selected along with specific post types, the progress bar will appear on "
 "all pages."
 msgstr ""
 
-#: inc/widgets-manager/extensions/class-reading-progress-bar-settings.php:124
-#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:179
+#: inc/widgets-manager/extensions/class-reading-progress-bar-settings.php:141
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:193
 msgid "Position"
 msgstr ""
 
-#: inc/widgets-manager/extensions/class-reading-progress-bar-settings.php:128
+#: inc/widgets-manager/extensions/class-reading-progress-bar-settings.php:145
 msgid "Top"
 msgstr ""
 
-#: inc/widgets-manager/extensions/class-reading-progress-bar-settings.php:129
-#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:197
+#: inc/widgets-manager/extensions/class-reading-progress-bar-settings.php:146
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:211
 msgid "Bottom"
 msgstr ""
 
-#: inc/widgets-manager/extensions/class-reading-progress-bar-settings.php:140
-#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:533
-#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:590
+#: inc/widgets-manager/extensions/class-reading-progress-bar-settings.php:157
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:547
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:604
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:374
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:440
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:500
@@ -1722,19 +1722,19 @@ msgstr ""
 msgid "Color"
 msgstr ""
 
-#: inc/widgets-manager/extensions/class-reading-progress-bar-settings.php:155
-#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:296
+#: inc/widgets-manager/extensions/class-reading-progress-bar-settings.php:172
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:310
 #: inc/widgets-manager/widgets/post-info/post-info.php:581
 msgid "Height"
 msgstr ""
 
-#: inc/widgets-manager/extensions/class-reading-progress-bar-settings.php:181
-#: inc/widgets-manager/extensions/class-reading-progress-bar-settings.php:209
+#: inc/widgets-manager/extensions/class-reading-progress-bar-settings.php:198
+#: inc/widgets-manager/extensions/class-reading-progress-bar-settings.php:226
 msgid "Offset"
 msgstr ""
 
-#: inc/widgets-manager/extensions/class-reading-progress-bar-settings.php:202
-#: inc/widgets-manager/extensions/class-reading-progress-bar-settings.php:230
+#: inc/widgets-manager/extensions/class-reading-progress-bar-settings.php:219
+#: inc/widgets-manager/extensions/class-reading-progress-bar-settings.php:247
 msgid "Set offset value to 0 or greater to ensure the progress bar is visible."
 msgstr ""
 
@@ -1746,31 +1746,31 @@ msgstr ""
 msgid "Note: Changes will be applied on the frontend."
 msgstr ""
 
-#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:111
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:125
 msgid "Enable Scroll To Top"
 msgstr ""
 
-#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:130
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:144
 msgid "Responsive Support"
 msgstr ""
 
-#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:133
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:147
 msgid "Show"
 msgstr ""
 
-#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:134
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:148
 msgid "Hide"
 msgstr ""
 
-#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:184
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:198
 msgid "Bottom Left"
 msgstr ""
 
-#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:185
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:199
 msgid "Bottom Right"
 msgstr ""
 
-#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:229
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:243
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:160
 #: inc/widgets-manager/widgets/cart/cart.php:186
 #: inc/widgets-manager/widgets/copyright/copyright.php:135
@@ -1788,7 +1788,7 @@ msgstr ""
 msgid "Left"
 msgstr ""
 
-#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:263
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:277
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:168
 #: inc/widgets-manager/widgets/cart/cart.php:194
 #: inc/widgets-manager/widgets/copyright/copyright.php:143
@@ -1806,7 +1806,7 @@ msgstr ""
 msgid "Right"
 msgstr ""
 
-#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:319
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:333
 #: inc/widgets-manager/widgets/post-info/post-info.php:552
 #: inc/widgets-manager/widgets/retina/retina.php:254
 #: inc/widgets-manager/widgets/search-button/search-button.php:230
@@ -1815,11 +1815,11 @@ msgstr ""
 msgid "Width"
 msgstr ""
 
-#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:341
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:355
 msgid "Z Index"
 msgstr ""
 
-#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:363
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:377
 #: inc/widgets-manager/widgets/retina/retina.php:420
 #: inc/widgets-manager/widgets/retina/retina.php:454
 #: inc/widgets-manager/widgets/site-logo/site-logo.php:484
@@ -1827,17 +1827,17 @@ msgstr ""
 msgid "Opacity"
 msgstr ""
 
-#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:384
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:398
 msgid "Media Type"
 msgstr ""
 
-#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:393
-#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:431
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:407
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:445
 msgid "Image"
 msgstr ""
 
-#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:397
-#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:447
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:411
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:461
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:204
 #: inc/widgets-manager/widgets/infocard/infocard.php:493
 #: inc/widgets-manager/widgets/infocard/infocard.php:502
@@ -1847,7 +1847,7 @@ msgstr ""
 msgid "Text"
 msgstr ""
 
-#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:462
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:476
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:513
 #: inc/widgets-manager/widgets/cart/cart.php:240
 #: inc/widgets-manager/widgets/infocard/infocard.php:205
@@ -1861,7 +1861,7 @@ msgstr ""
 msgid "Size"
 msgstr ""
 
-#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:523
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:537
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:367
 #: inc/widgets-manager/widgets/cart/cart.php:316
 #: inc/widgets-manager/widgets/cart/cart.php:514
@@ -1882,8 +1882,8 @@ msgstr ""
 msgid "Normal"
 msgstr ""
 
-#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:563
-#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:620
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:577
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:634
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:465
 #: inc/widgets-manager/widgets/cart/cart.php:359
 #: inc/widgets-manager/widgets/cart/cart.php:415
@@ -1899,7 +1899,7 @@ msgstr ""
 msgid "Border Color"
 msgstr ""
 
-#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:580
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:594
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:433
 #: inc/widgets-manager/widgets/cart/cart.php:372
 #: inc/widgets-manager/widgets/cart/cart.php:551
@@ -1917,7 +1917,7 @@ msgstr ""
 msgid "Hover"
 msgstr ""
 
-#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:638
+#: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:652
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:419
 #: inc/widgets-manager/widgets/breadcrumbs-widget/breadcrumbs-widget.php:608
 #: inc/widgets-manager/widgets/cart/cart.php:278

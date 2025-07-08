@@ -4,7 +4,7 @@ Tags: elementor, elementor addon, elementor widget, elementor template, header f
 Requires at least: 5.0  
 Tested up to: 6.8
 Requires PHP: 7.4  
-Stable tag: 2.4.3
+Stable tag: 2.4.4
 License: GPLv2 or later  
 License URI: https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -294,11 +294,15 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 = How can I report a security bug? =
 We take plugin security extremely seriously. If you discover a security vulnerability, please report it in a safe and responsible manner.
 
-You can report the issue through our [Bug Bounty Program](https://brainstormforce.com/bug-bounty-program/). We collaborate with Patchstack to provide opportunities for researchers to report vulnerabilities. The Patchstack team will help validate, triage, and handle any reported security issues.
+You can report the issue through our [Bug Bounty Program](https://brainstormforce.com/bug-bounty-program/).
 
 ---
 
 == Changelog ==
+= 2.4.4 =
+- Improvement: Compatibility with latest Elementor and Elementor Pro 3.30 version.
+- Improvement: Help button in widgets now links directly to relevant documentation.
+
 = 2.4.3 =
 - Updated readme file.
 
