@@ -297,6 +297,12 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 ---
 
 ## Changelog ##
+### 2.4.4 ###
+- Improvement: Compatibility with latest Elementor and Elementor Pro 3.30 version.
+
+### 2.4.3 ###
+- Updated readme file.
+
 ### 2.4.2 ###
 - Improvement: Optimize performance with the new “Deactivate Unused Widgets” option.
 
