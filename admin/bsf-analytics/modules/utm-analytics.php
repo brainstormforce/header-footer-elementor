@@ -50,10 +50,11 @@ if ( ! class_exists( 'BSF_UTM_Analytics' ) ) {
 			'ultimate-addons-for-beaver-builder-lite',
 			'ultimate-addons-for-gutenberg',
 			'ultimate-elementor',
+			'Ultimate_VC_Addons',
 			'variation-swatches-woo',
 			'woo-cart-abandonment-recovery',
 			'wp-schema-pro',
-			'zipwp',
+			'zipwp'
 		];
 	
 	
