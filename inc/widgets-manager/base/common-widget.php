@@ -86,7 +86,7 @@ abstract class Common_Widget extends Widget_Base {
 	 * Retrieve the widget help URL for third-party widgets.
 	 * Elementor uses get_custom_help_url() for widgets outside the Elementor namespace.
 	 *
-	 * @since 2.4.3
+	 * @since x.x.x
 	 * @access public
 	 *
 	 * @return string Widget help URL.
@@ -101,7 +101,7 @@ abstract class Common_Widget extends Widget_Base {
 	 * Retrieve the widget help URL.
 	 * This method is kept for backward compatibility.
 	 *
-	 * @since 2.4.3
+	 * @since x.x.x
 	 * @access public
 	 *
 	 * @return string Widget help URL.

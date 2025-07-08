@@ -52,7 +52,7 @@ class Reading_Progress_Bar_Settings extends Tab_Base {
 	 *
 	 * Retrieve the help URL for the Reading Progress Bar extension.
 	 *
-	 * @since 2.4.3
+	 * @since x.x.x
 	 * @access public
 	 *
 	 * @return string The complete URL to the help page for the extension.
