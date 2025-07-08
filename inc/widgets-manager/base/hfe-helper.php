@@ -480,7 +480,7 @@ class HFE_Helper {
 	 * @return array
 	 * @access public
 	 */
-	public static function get_used_widget(){
+	public static function get_used_widget() {
 		/** @var Usage_Module $usage_module */
 		$usage_module = Usage_Module::instance();
 		$usage_module->recalc_usage();
@@ -493,7 +493,7 @@ class HFE_Helper {
 			}
 		}
 
-		$allowed_widgets = array(
+		$allowed_widgets = [
 			'hfe-breadcrumbs-widget',
 			'hfe-cart',
 			'copyright',
@@ -506,7 +506,7 @@ class HFE_Helper {
 			'hfe-site-tagline',
 			'hfe-site-title',
 			'hfe-infocard',
-		);
+		];
 
 		// Filter widgets usage to include only allowed widgets
 		$filtered_widgets_usage = array_filter(
@@ -518,6 +518,47 @@ class HFE_Helper {
 		);
 
 		return $filtered_widgets_usage;
+	}
+
+	/**
+	 * Get widget help URL
+	 *
+	 * Retrieve the help URL for a specific widget.
+	 *
+	 * @since 2.4.3
+	 * @access public
+	 *
+	 * @param string $widget_name Widget name.
+	 * @return string Widget help URL.
+	 */
+	public static function get_widget_help_url( $widget_name = '' ) {
+		if ( empty( $widget_name ) ) {
+			return '';
+		}
+
+		if ( ! isset( self::$widget_list ) ) {
+			self::$widget_list = self::get_widget_list();
+		}
+
+		// Convert widget name to config key format
+		$widget_key = '';
+		foreach ( self::$widget_list as $key => $widget_data ) {
+			if ( isset( $widget_data['slug'] ) && $widget_data['slug'] === $widget_name ) {
+				$widget_key = $key;
+				break;
+			}
+		}
+
+		if ( empty( $widget_key ) || ! isset( self::$widget_list[ $widget_key ]['doc_url'] ) ) {
+			return '';
+		}
+
+		$help_url = self::$widget_list[ $widget_key ]['doc_url'];
+
+		// Ensure we have a valid URL
+		$help_url = empty( $help_url ) ? '' : $help_url;
+
+		return apply_filters( 'hfe_widget_help_url', $help_url, $widget_name );
 	}
 
 }
