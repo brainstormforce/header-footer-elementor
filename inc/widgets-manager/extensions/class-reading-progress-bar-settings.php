@@ -58,7 +58,7 @@ class Reading_Progress_Bar_Settings extends Tab_Base {
 	 * @return string The complete URL to the help page for the extension.
 	 */
 	public function get_custom_help_url() {
-		return 'https://ultimateelementor.com/docs/reading-progress-bar-extension/';
+		return 'https://ultimateelementor.com/docs/reading-progress-bar-extension/?utm_source=plugin-editor&utm_medium=need-help-button&utm_campaign=uae-documentation';
 	}
 
 	/**

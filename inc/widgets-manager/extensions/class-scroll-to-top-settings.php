@@ -73,7 +73,7 @@ class Scroll_To_Top_Settings extends Tab_Base {
 	 * @return string The complete URL to the help page for the extension.
 	 */
 	public function get_custom_help_url() {
-		return 'https://ultimateelementor.com/docs/scroll-to-top-extension/';
+		return 'https://ultimateelementor.com/docs/scroll-to-top-extension/?utm_source=plugin-editor&utm_medium=need-help-button&utm_campaign=uae-documentation';
 	}
 
 	/**
