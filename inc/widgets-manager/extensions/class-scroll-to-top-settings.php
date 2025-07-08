@@ -79,7 +79,7 @@ class Scroll_To_Top_Settings extends Tab_Base {
 	/**
 	 * Retrieves the help URL.
 	 * 
-	 * @since x.x.x
+	 * @since 2.2.1
 	 *
 	 * @access public
 	 *
