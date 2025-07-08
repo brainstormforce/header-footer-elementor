@@ -233,7 +233,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 			</style>
 			<div
 				className="bg-background-primary border-[0.5px] items-start justify-center border-subtle p-4 rounded-xl shadow-sm mb-6 flex flex-col"
-				style={{ width: "672px" }}
+				style={{ width: "42.625rem" }}
 			>
 				{showPluginsSection && (
 					<div className="rounded-lg bg-white w-full">
@@ -254,10 +254,9 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 								)}
 							</p>
 							<span
-								className="text-md font-medium m-0 mb-2"
+								className="text-md font-normal text-text-secondary m-0 mb-2"
 								style={{
 									lineHeight: "1.5em",
-									color: "#111827",
 								}}
 							>
 								{__(
@@ -326,7 +325,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 						</div>
 					</div>
 				)}
-				<div className="px-5 bg-white rounded-lg">
+				<div className="px-5 pt-3 bg-white rounded-lg">
 					<h3
 						className={`text-base font-semibold text-gray-900 ${
 							!showPluginsSection ? "text-xl mb-3" : ""
@@ -353,10 +352,6 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 									)
 								}
 								className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none hfe-remove-ring transition-colors"
-								placeholder={__(
-									"Enter your first name",
-									"header-footer-elementor",
-								)}
 								style={{
 									height: '48px',
 									borderColor: '#e0e0e0',
@@ -381,10 +376,6 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 									)
 								}
 								className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none hfe-remove-ring transition-colors"
-								placeholder={__(
-									"Enter your last name",
-									"header-footer-elementor",
-								)}
 								style={{
 									height: '48px',
 									borderColor: '#e0e0e0',
@@ -408,10 +399,6 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 									handleInputChange("email", e.target.value)
 								}
 								className="role-checkbox w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
-								placeholder={__(
-									"Enter your email address",
-									"header-footer-elementor",
-								)}
 								 style={{
                                             height: '48px',
                                             borderColor: '#e0e0e0', // Default border color
@@ -423,7 +410,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 							/>
 						</div>
 					</div>
-					<div className="flex items-start gap-3">
+					<div className="flex items-start gap-1">
 						<input
 							type="checkbox"
 							id="notifications-checkbox"
@@ -446,7 +433,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 							)}
 							<a
 								href="#"
-								className="text-purple-600 underline hover:text-purple-700"
+								className="text-sm text-text-primary"
 							>
 								{__(
 									"Privacy Policy",
@@ -456,7 +443,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 						</label>
 					</div>
 				</div>
-				<div className="flex w-full justify-between items-center pt-6 hfe-onboarding-bottom" style={{ paddingLeft: "8px", paddingRight: "8px" }}>
+				<div className="flex w-full justify-between items-center hfe-onboarding-bottom" style={{ paddingLeft: "8px", paddingRight: "8px", paddingTop: "30px" }}>
 					<Button
 						className="flex items-center gap-1 hfe-remove-ring"
 						icon={<ChevronLeft />}
@@ -465,7 +452,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 					>
 						{__("Back", "header-footer-elementor")}
 					</Button>
-					<div className="flex justify-between items-center" style={{ paddingRight: "1.875rem"}}>
+					<div className="flex justify-between gap-3 items-center" style={{ paddingRight: "1.875rem"}}>
 						<Button
 							className="hfe-remove-ring text-text-tertiary"
 							variant="ghost"
@@ -476,7 +463,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 						</Button>
 						<Button
 							className="flex items-center gap-1 hfe-remove-ring"
-							icon={<ArrowRight />}
+							icon={<ChevronRight />}
 							iconPosition="right"
 							style={{
 								backgroundColor: "#5C2EDE",

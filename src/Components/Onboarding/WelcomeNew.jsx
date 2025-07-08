@@ -5,7 +5,7 @@ import { X, Check, Plus, ArrowRight, Package, CheckIcon } from "lucide-react";
 
 const Welcome = ({ setCurrentStep }) => {
 	return (
-		<div className="bg-background-primary border-[0.5px] items-start justify-center border-subtle rounded-xl shadow-sm mb-6 p-8 flex flex-col">
+		<div className="bg-background-primary border-[0.5px] items-start justify-center border-subtle rounded-xl shadow-sm p-8  flex flex-col">
 			<div className="px-1">
 				<div className="flex flex-col">
 					<h1

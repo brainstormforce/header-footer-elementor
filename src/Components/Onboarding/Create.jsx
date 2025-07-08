@@ -160,7 +160,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
 				>
 					<h1
 						className="text-text-primary m-0 mb-2"
-						style={{ fontSize: "1.6rem", lineHeight: "1.3em" }}
+						style={{ fontSize: "1.4rem", lineHeight: "1.3em" }}
 					>
 						{__(
 							"You’re All Set to Start Creating! 🚀",
@@ -168,7 +168,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
 						)}
 					</h1>
 					<span
-						className="text-md font-medium text-text-tertiary m-0 mb-4 "
+						className="text-sm font-normal text-text-tertiary m-0 mb-4 "
 						style={{ lineHeight: "1.6em" }}
 					>
 						{__(
@@ -176,21 +176,20 @@ const OnboardingBuild = ({ setCurrentStep }) => {
 							"header-footer-elementor",
 						)}
 					</span>
-					<span className="font-bold m-0 pt-2">
+					<span className="font-semibold m-0 pt-2">
 						{__("What You Can Do Next:", "header-footer-elementor")}
 					</span>
 
 					<ul
-						className="list-none font-normal "
+						className="font-normal"
 						style={{
 							fontSize: "0.9rem",
 							lineHeight: "1.6em",
-							paddingBottom: "0.5rem",
 							color: "#111827",
 						}}
 					>
 						<li
-							className="none   "
+							className="font-normal"
 							style={{
 								display: "flex",
 								alignItems: "center",
@@ -201,12 +200,12 @@ const OnboardingBuild = ({ setCurrentStep }) => {
 						>
 							<CheckIcon color="#111827" size={18} />
 							{__(
-								"Disable unused widgets in one click, no bloat",
+								"Build a custom header",
 								"header-footer-elementor",
 							)}
 						</li>
 						<li
-							className="none "
+							className="font-normal "
 							style={{
 								display: "flex",
 								alignItems: "center",
@@ -217,12 +216,12 @@ const OnboardingBuild = ({ setCurrentStep }) => {
 						>
 							<CheckIcon color="#111827" size={18} />
 							{__(
-								"Design headers & footers exactly where you want them",
+								"Design your site footer",
 								"header-footer-elementor",
 							)}
 						</li>
 						<li
-							className="none "
+							className="font-normal"
 							style={{
 								display: "flex",
 								alignItems: "center",
@@ -233,7 +232,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
 						>
 							<CheckIcon color="#111827" size={18} />
 							{__(
-								"Reliable support from experts when you need it",
+								"Create a new page",
 								"header-footer-elementor",
 							)}
 						</li>
@@ -258,10 +257,9 @@ const OnboardingBuild = ({ setCurrentStep }) => {
 			<div className="flex flex-row pt-2 items-center justify-between gap-1 pb-4 hfe-display-flex">
 				<div className="flex items-center justify-start gap-3">
                     <Button
-					icon={<ArrowRight />}
 					iconPosition="right"
 					variant="outline"
-					className="hfe-remove-ring"
+					className="hfe-remove-ring text-sm font-semibold"
 					style={{
 						// backgroundColor: "#fff",
 						transition: "background-color 0.3s ease",
@@ -276,33 +274,34 @@ const OnboardingBuild = ({ setCurrentStep }) => {
 						window.open(hfeSettingsData.hfe_post_url, "_self");
 					}}
 				>
-					{__("Create Header/Footer", "header-footer-elementor")}
+					{__("Create New Header", "header-footer-elementor")}
 				</Button>
 
-				<Link to={routes.dashboard.path}>
-					<Button
-						icon={<ArrowRight />}
-						iconPosition="right"
-						variant="ghost"
-						className="hfe-remove-ring"
-						onMouseLeave={(e) =>
-							(e.currentTarget.style.color = "#000000") &&
-							(e.currentTarget.style.borderColor = "#000000")
-						}
-						onMouseEnter={(e) =>
-							(e.currentTarget.style.color = "") &&
-							(e.currentTarget.style.borderColor = "")
-						}
-					>
-						{__("Go To Dashboard", "header-footer-elementor")}
-					</Button>
-				</Link>
-                </div>
-				<Button
-					icon={<Plus />}
+				   <Button
 					iconPosition="right"
 					variant="outline"
-					className="hfe-remove-ring"
+					className="hfe-remove-ring text-sm font-semibold"
+					style={{
+						// backgroundColor: "#fff",
+						transition: "background-color 0.3s ease",
+					}}
+					onMouseEnter={(e) =>
+						(e.currentTarget.style.backgroundColor = "")
+					}
+					onMouseLeave={(e) =>
+						(e.currentTarget.style.backgroundColor = "")
+					}
+					onClick={() => {
+						window.open(hfeSettingsData.hfe_post_url, "_self");
+					}}
+				>
+					{__("Create New Footer", "header-footer-elementor")}
+				</Button>
+                </div>
+				<Button
+					iconPosition="right"
+					variant="outline"
+					className="hfe-remove-ring text-sm font-semibold"
 					style={{
 						color: "",
 						borderColor: "",
@@ -324,100 +323,6 @@ const OnboardingBuild = ({ setCurrentStep }) => {
 					{__("Create New Page", "header-footer-elementor")}
 				</Button>
 			</div>
-			{/* {hfeSettingsData.uaelite_subscription !== "done" && (
-				<div
-					className="flex items-start justify-start mt-4"
-					style={{
-						backgroundImage: `url(${hfeSettingsData.special_reward})`,
-						backgroundSize: "cover",
-						backgroundPosition: "center",
-						borderRadius: "5px",
-					}}
-				>
-					<div className="flex flex-col p-6 items-start">
-						<h3
-							className="font-bold text-text-primary mt-0 mb-1"
-							style={{ lineHeight: "1.3em" }}
-						>
-							{__(
-								"We have a special reward just for you!",
-								"header-footer-elementor",
-							)}
-						</h3>
-
-						<span className="font-medium text-text-secondary mt-2 mb-6">
-							{__(
-								"This special offer is available only on this page and for limited time",
-								"header-footer-elementor",
-							)}
-						</span>
-
-						<Button
-							className="hfe-remove-ring hfe-span hfe-popup-button"
-							icon={<Package aria-label="icon" role="img" />}
-							iconPosition="right"
-							size="md"
-							tag="button"
-							type="button"
-							variant="link"
-							style={{
-								alignItems: "center",
-								justifyContent: "flex-start",
-								color: "#6005FF",
-							}}
-							onClick={() => setIsDialogOpen(true)}
-						>
-							{__(
-								"Unlock My Surprise",
-								"header-footer-elementor",
-							)}
-						</Button>
-					</div>
-				</div>
-			)} */}
-			{/* <hr className="w-full border-b-0 border-x-0 border-t border-solid border-t-border-subtle" style={{ marginTop: '34px', marginBottom: '34px', borderColor: '#E5E7EB' }} /> */}
-
-			{/* <div className="bg-badge-background-gray border-[0.5px] border-subtle p-6" style={{ borderRadius: '5px' }}>
-                <div className='flex flex-row items-center justify-start px-1 gap-3'>
-                    <Switch
-                        onChange={handleSwitchChange}
-                        size='sm'
-                        value={isActive}
-                        className="hfe-remove-ring"
-                    />
-                    <span className="font-bold text-text-primary m-0">
-                        {__("Help make UAE Better", "header-footer-elementor")}
-                    </span>
-                </div>
-                <Toaster
-                    position="top-right"
-                    reverseOrder={false}
-                    gutter={8}
-                    containerStyle={{
-                        top: 20,
-                        right: 20,
-                        marginTop: '40px',
-                    }}
-                    toastOptions={{
-                        duration: 1000,
-                        style: {
-                            background: 'white',
-                        },
-                        success: {
-                            duration: 2000,
-                            style: {
-                                color: '',
-                            },
-                            iconTheme: {
-                                primary: '#6005ff',
-                                secondary: '#fff',
-                            },
-                        },
-                    }}
-                />
-                <span className='flex flex-row items-center justify-start mt-4 gap-3' style={{ lineHeight: '1.5em', fontSize: '0.95em' }}>{__("Help us improve by sharing anonymous data about your website setup. This includes non-sensitive info about plugins, themes, and settings, so we can create a better product for you. Your privacy is always our top priority. Learn more in our privacy policy.", "header-footer-elementor")}</span>
-            </div> */}
-
 			<Dialog
 				design="simple"
 				open={isDialogOpen}

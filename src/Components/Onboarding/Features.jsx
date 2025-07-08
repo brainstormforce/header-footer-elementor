@@ -41,8 +41,7 @@ const Features = ({ setCurrentStep }) => {
 		hasFreeFeaturesSelected || hasProFeaturesSelected;
 
 	const handleUpgrade = () => {
-		// Add your upgrade URL here
-		window.open("https://your-upgrade-url.com", "_blank");
+		window.open("https://ultimateelementor.com/pricing/", "_blank");
 	};
 
 	return (
@@ -88,24 +87,27 @@ const Features = ({ setCurrentStep }) => {
 			<div
 				className="box-border bg-background-primary p-6 rounded-lg"
 				style={{
-					marginTop: "24px",
-					width: "672px",
+					width: "42.625rem",
 				}}
 			>
-				<Title
-					description=""
-					icon={null}
-					iconPosition="right"
-					size="md"
-					tag="h2"
-					title={__("Select Your Features", "ultimate_vc")}
-				/>
+				<p
+								className="text-text-primary m-0 mb-2 hfe-65-width"
+								style={{
+									fontSize: "24px",
+									lineHeight: "1.3em",
+								}}
+							>
+								{__(
+									"Select Your Features",
+									"header-footer-elementor",
+								)}
+							</p>
 				<span
-					className="text-sm font-medium text-text-secondary m-0 mb-2"
+					className="text-sm font-normal text-text-secondary"
 					style={{ lineHeight: "1.5em" }}
 				>
 					{__(
-						"Get more control, faster workflows, and deeper customization — all designed to help you build better websites with less effort.",
+						"Unlock more design control, faster setup, and powerful customization—so you can build a better website, effortlessly.",
 						"header-footer-elementor",
 					)}
 				</span>
@@ -120,8 +122,8 @@ const Features = ({ setCurrentStep }) => {
 						item
 					>
 						<Container.Item className="shrink flex flex-col space-y-1 mt-5">
-							<div className="flex items-center justify-start gap-2">
-								<div className="text-base font-semibold m-0">
+							<div className="flex items-center justify-start gap-1">
+								<div className="text-sm font-normal m-0">
 									{__(
 										"Header & Footer Builder",
 										"ultimate_vc",
@@ -195,8 +197,8 @@ const Features = ({ setCurrentStep }) => {
 					item
 				>
 					<Container.Item className="shrink flex flex-col space-y-1">
-						<div className="flex items-center justify-start gap-2">
-							<div className="text-base font-semibold m-0">
+						<div className="flex items-center justify-start gap-1">
+							<div className="text-sm font-normal m-0">
 								{__(
 									"Mega Menu & Navigation Widget",
 									"ultimate_vc",
@@ -260,8 +262,8 @@ const Features = ({ setCurrentStep }) => {
 					item
 				>
 					<Container.Item className="shrink flex flex-col space-y-1">
-						<div className="flex items-center justify-start gap-2">
-							<div className="text-base font-semibold m-0">
+						<div className="flex items-center justify-start gap-1">
+							<div className="text-sm font-normal m-0">
 								{__("Modal Popup", "ultimate_vc")}
 							</div>
 							<Badge
@@ -322,8 +324,8 @@ const Features = ({ setCurrentStep }) => {
 					item
 				>
 					<Container.Item className="shrink flex flex-col space-y-1">
-						<div className="flex items-center justify-start gap-2">
-							<div className="text-base font-semibold m-0">
+						<div className="flex items-center justify-start gap-1">
+							<div className="text-sm font-normal m-0">
 								{__("WooCommerce Widgets", "ultimate_vc")}
 							</div>
 							<Badge
@@ -382,8 +384,8 @@ const Features = ({ setCurrentStep }) => {
 					item
 				>
 					<Container.Item className="shrink flex flex-col space-y-1">
-						<div className="flex items-center justify-start gap-2">
-							<div className="text-base font-semibold m-0">
+						<div className="flex items-center justify-start gap-1">
+							<div className="text-sm font-normal m-0">
 								{__(
 									"50+ Premium Widgets & 200+ Templates",
 									"ultimate_vc",
@@ -427,7 +429,7 @@ const Features = ({ setCurrentStep }) => {
 						/>
 					</Container.Item>
 				</Container>
-				<div className="flex justify-between items-center pt-6 px-2 hfe-onboarding-bottom">
+				<div className="flex justify-between items-center px-2 hfe-onboarding-bottom" style={{ paddingTop: "30px" }}>
 					<Button
 						className="flex items-center gap-1 outline-none hfe-remove-ring"
 						icon={<ChevronLeft />}
@@ -438,9 +440,9 @@ const Features = ({ setCurrentStep }) => {
 					</Button>
 					<div className="flex justify-start text-text-tertiary items-center gap-3">
 						<Button
-							className="hfe-remove-ring"
+							className="hfe-remove-ring text-text-tertiary"
 							variant="ghost"
-							onClick={() => setCurrentStep(3)}
+							onClick={() => setCurrentStep(4)}
 						>
 							{" "}
 							{__("Skip", "header-footer-elementor")}
@@ -448,7 +450,7 @@ const Features = ({ setCurrentStep }) => {
 						{hasProFeaturesSelected ? (
 							<Button
 								className="flex items-center gap-1 hfe-remove-ring"
-								icon={<ArrowRight />}
+								icon={<ChevronRight />}
 								iconPosition="right"
 								style={{
 									backgroundColor: "#5C2EDE",
@@ -462,7 +464,7 @@ const Features = ({ setCurrentStep }) => {
 						) : (
 							<Button
 								className="flex items-center gap-1 hfe-remove-ring"
-								icon={<ArrowRight />}
+								icon={<ChevronRight  />}
 								iconPosition="right"
 								style={{
 									backgroundColor: "#5C2EDE",
@@ -478,14 +480,14 @@ const Features = ({ setCurrentStep }) => {
 				</div>
 				{hasProFeaturesSelected && (
 					<div
-						className="mt-4 p-3 rounded-lg border border-gray-200 bg-gray-50"
+						className="mt-4 p-3 rounded-lg border border-gray-400 bg-gray-50"
 						style={{
 							backgroundColor: "#F9FAFB",
 							borderColor: "#E5E7EB",
 							marginTop: "16px",
 						}}
 					>
-						<div className="text-sm text-gray-700 font-medium">
+						<div className="text-sm border border-gray-400 text-gray-700 font-medium">
 							{__(
 								"You've picked Pro features — upgrade to start using them.",
 								"header-footer-elementor",
