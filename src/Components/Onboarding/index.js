@@ -69,6 +69,7 @@ const Onboarding = () => {
                                     currentStep={Math.min(currentStep, visibleSteps.length)}
                                     className="uae-steps"
                                     variant="number"
+                                    completedVariant="number"
                                 >
                                     {visibleSteps.map((step, index) => (
                                         <ProgressSteps.Step
