@@ -292,11 +292,14 @@ To access the advanced features and premium widgets, you’ll need to upgrade to
 ### How can I report a security bug? ###
 We take plugin security extremely seriously. If you discover a security vulnerability, please report it in a safe and responsible manner.
 
-You can report the issue through our [Bug Bounty Program](https://brainstormforce.com/bug-bounty-program/). We collaborate with Patchstack to provide opportunities for researchers to report vulnerabilities. The Patchstack team will help validate, triage, and handle any reported security issues.
+You can report the issue through our [Bug Bounty Program](https://brainstormforce.com/bug-bounty-program/).
 
 ---
 
 ## Changelog ##
+### 2.4.3 ###
+- Updated readme file.
+
 ### 2.4.2 ###
 - Improvement: Optimize performance with the new “Deactivate Unused Widgets” option.
 
