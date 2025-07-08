@@ -67,7 +67,7 @@ class Scroll_To_Top_Settings extends Tab_Base {
 	 *
 	 * Retrieve the help URL for the Scroll to Top extension.
 	 *
-	 * @since x.x.x
+	 * @since 2.4.4
 	 * @access public
 	 *
 	 * @return string The complete URL to the help page for the extension.
