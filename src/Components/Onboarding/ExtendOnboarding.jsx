@@ -33,7 +33,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 			setLoading(true);
 			try {
 				const data = await apiFetch({
-					path: "/hfe/v1/plugins",
+					path: "/hfe/v1/recommended-plugins",
 					headers: {
 						"Content-Type": "application/json",
 						"X-WP-Nonce": hfeSettingsData.hfe_nonce_action,

@@ -58,6 +58,13 @@ class HFE_Helper {
 	private static $get_bsf_plugins_list = null;
 
 	/**
+	 * Recommended Plugins List
+	 *
+	 * @var get_recommended_bsf_plugins_list
+	 */
+	private static $get_recommended_bsf_plugins_list = null;
+
+	/**
 	 * Check if UAE Pro is active.
 	 *
 	 * @since 2.2.1
@@ -183,6 +190,21 @@ class HFE_Helper {
 		}
 
 		return apply_filters( 'uael_plugins_list', self::$get_bsf_plugins_list );
+	}
+
+	/**
+	 * Provide recommended plugins list.
+	 *
+	 * @since 2.2.1
+	 * @return array()
+	 */
+	public static function get_recommended_bsf_plugins_list() {
+
+		if ( ! isset( self::$get_recommended_bsf_plugins_list ) ) {
+			self::$get_recommended_bsf_plugins_list = Widgets_Config::get_recommended_bsf_plugins();
+		}
+
+		return apply_filters( 'uael_recommended_plugins_list', self::$get_recommended_bsf_plugins_list );
 	}
 
 	/**
