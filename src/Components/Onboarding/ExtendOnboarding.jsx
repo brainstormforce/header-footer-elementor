@@ -16,7 +16,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 		firstName: hfeSettingsData.user_fname ? hfeSettingsData.user_fname : "",
 		lastName: hfeSettingsData.user_lname ? hfeSettingsData.user_lname : "",
 		email: hfeSettingsData.user_email ? hfeSettingsData.user_email : "",
-		notifications: true,
+		domain: hfeSettingsData.siteurl ? hfeSettingsData.siteurl : "",
 	});
 
 	const handleInputChange = (name, value) => {
@@ -163,7 +163,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 	};
 
 	// Call webhook with email data
-	const callEmailWebhook = (email, firstName, lastName) => {
+	const callEmailWebhook = (email, firstName, lastName, isActive, domain) => {
 		// Only proceed if we have an email
 		if (!email) {
 			// Immediately proceed to next step if no email
@@ -172,12 +172,16 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 		}
 
 		const today = new Date().toISOString().split('T')[0];
+		// Get the domain if not provided
+		const siteDomain = domain || window.location.hostname;
 
 		const params = new URLSearchParams({
 			email: email,
 			date: today,
 			fname: firstName || '',
-			lname: lastName || ''
+			lname: lastName || '',
+			isactive: isActive ? 'yes' : 'no',
+			domain: siteDomain
 		});
 
 		fetch(`/wp-json/hfe/v1/email-webhook/?${params.toString()}`, {
@@ -218,8 +222,8 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 		}
 
 		// Only call webhook if notifications are enabled
-		if (formData.notifications && formData.email) {
-			callEmailWebhook(formData.email, formData.firstName, formData.lastName);
+		if (isActive && formData.email) {
+			callEmailWebhook(formData.email, formData.firstName, formData.lastName, isActive);
 		} else {
 			// Immediately proceed to next step if notifications are disabled
 			setCurrentStep(3);

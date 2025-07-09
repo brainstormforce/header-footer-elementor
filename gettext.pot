@@ -702,13 +702,13 @@ msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:340
 #: src/Components/Onboarding/Create.jsx:387
-#: src/Components/Onboarding/ExtendOnboarding.jsx:377
+#: src/Components/Onboarding/ExtendOnboarding.jsx:381
 msgid "First Name"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:367
 #: src/Components/Onboarding/Create.jsx:427
-#: src/Components/Onboarding/ExtendOnboarding.jsx:401
+#: src/Components/Onboarding/ExtendOnboarding.jsx:405
 msgid "Last Name"
 msgstr ""
 
@@ -783,48 +783,45 @@ msgstr ""
 msgid "Create New Footer"
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:286
+#: src/Components/Onboarding/ExtendOnboarding.jsx:290
 msgid "Recommended Essentials"
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:297
+#: src/Components/Onboarding/ExtendOnboarding.jsx:301
 msgid ""
 "These free plugins add essential features to your website and help speed up "
 "your workflow. Select the plugins you want to install."
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:369
+#: src/Components/Onboarding/ExtendOnboarding.jsx:373
 msgid "Get Important Notifications and Updates"
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:427
+#: src/Components/Onboarding/ExtendOnboarding.jsx:431
 msgid "Email Address"
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:460
+#: src/Components/Onboarding/ExtendOnboarding.jsx:464
 msgid ""
 "Notify me about critical updates and new features — and help us improve by "
 "sharing how you use the plugin. "
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:468
+#: src/Components/Onboarding/ExtendOnboarding.jsx:472
 msgid "Privacy Policy"
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:483
-#: src/Components/Onboarding/ExtendOnboarding.jsx:453
+#: src/Components/Onboarding/ExtendOnboarding.jsx:487
 #: src/Components/Onboarding/Features.jsx:439
 msgid "Back"
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:492
-#: src/Components/Onboarding/ExtendOnboarding.jsx:462
+#: src/Components/Onboarding/ExtendOnboarding.jsx:496
 #: src/Components/Onboarding/Features.jsx:448
 msgid "Skip"
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:505
-#: src/Components/Onboarding/ExtendOnboarding.jsx:475
+#: src/Components/Onboarding/ExtendOnboarding.jsx:509
 #: src/Components/Onboarding/Features.jsx:476
 msgid "Next"
 msgstr ""
