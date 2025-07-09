@@ -41,7 +41,7 @@ class HFE_Settings_Page {
 		add_action( 'admin_head', [ $this, 'hfe_global_css' ] );
 
 		add_action( 'admin_head', [ $this, 'fetch_user_email' ] );
-
+		add_action( 'admin_head', [ $this, 'fetch_site_url' ] );
 		add_action( 'admin_head', [ $this, 'fetch_user_fname' ] );
 
 		if ( ! HFE_Helper::is_pro_active() ) {
@@ -234,12 +234,27 @@ class HFE_Settings_Page {
 	 * Fetch and return the user's first name.
 	 *
 	 * @since x.x.x
-	 * @return string|null The user's email if logged in, null otherwise.
+	 * @return string|null The user's name if logged in, null otherwise.
 	 */
 	public function fetch_user_fname() {
 		$current_user = wp_get_current_user();
 		if ( $current_user->ID !== 0 ) {
 			return $current_user->user_firstname;
+		} else {
+			return null;
+		}
+	}
+
+	/**
+	 * Fetch and return the site URL.
+	 *
+	 * @since x.x.x
+	 * @return string|null
+	 */
+	public function fetch_site_url() {
+		$siteurl = get_option('siteURL');
+		if ( !empty( $siteurl ) ) {
+			return $siteurl;
 		} else {
 			return null;
 		}
@@ -280,6 +295,7 @@ class HFE_Settings_Page {
 			// Fetch the user's email.
 			$user_email = $this->fetch_user_email();
 			$user_name  = $this->fetch_user_fname();
+			$siteurl    = $this->fetch_site_url();
 			$show_theme_support = 'no';
 			$hfe_theme_status   = get_option( 'hfe_is_theme_supported', false );
 			$analytics_status   = get_option( 'uae_analytics_optin', false );
@@ -352,6 +368,7 @@ class HFE_Settings_Page {
 					'is_hfe_post'              => $is_hfe_post,
 					'user_email'               => $user_email,
 					'user_fname'               => $user_name,
+					'siteurl'                  => $siteurl,
 					'analytics_status'         => $analytics_status,
 					'onboarding_success_url'   => admin_url( 'admin.php?page=hfe#onboardingsuccess' ),
 					'uaelite_subscription'	   => get_option( 'uaelite_subscription', false )
