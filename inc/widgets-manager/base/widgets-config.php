@@ -1154,17 +1154,30 @@ class Widgets_Config {
 		$recommended_plugins = [
 
 
-			'surecart/surecart.php'                        => [
-				'icon'         => $images_url . 'surecart.svg',
+				'astra-sites/astra-sites.php'                  => [
+				'icon'         => $images_url . 'stemplates.svg',
 				'type'         => 'plugin',
-				'name'         => esc_html__( 'SureCart', 'header-footer-elementor' ),
-				'desc'         => esc_html__( 'Sell your products easily on WordPress.', 'header-footer-elementor' ),
-				'wporg'        => 'https://wordpress.org/plugins/surecart/',
-				'url'          => 'https://downloads.wordpress.org/plugin/surecart.zip',
-				'siteurl'      => 'https://surecart.com/',
+				'name'         => esc_html__( 'Starter Templates', 'header-footer-elementor' ),
+				'desc'         => esc_html__( 'Launch websites with AI or ready-made templates.', 'header-footer-elementor' ),
+				'wporg'        => 'https://wordpress.org/plugins/astra-sites/',
+				'url'          => 'https://downloads.wordpress.org/plugin/astra-sites.zip',
+				'siteurl'      => 'https://startertemplates.com/',
+				'slug'         => 'astra-sites',
 				'isFree'       => true,
-				'slug'         => 'surecart',
-				'status'       => self::get_plugin_status( 'surecart/surecart.php' ),
+				'status'       => self::get_plugin_status( 'astra-sites/astra-sites.php' ),
+				'settings_url' => admin_url( 'admin.php?page=starter-templates' ),
+			],
+			'surerank/surerank.php'                        => [
+				'icon'         => $images_url . 'surerank.svg',
+				'type'         => 'plugin',
+				'name'         => esc_html__( 'SureRank', 'header-footer-elementor' ),
+				'desc'         => esc_html__( 'Powerful, lightweight SEO plugin to manage search and social previews', 'header-footer-elementor' ),
+				'wporg'        => 'https://wordpress.org/plugins/surerank/',
+				'url'          => 'https://downloads.wordpress.org/plugin/surerank.zip',
+				'siteurl'      => 'https://surerank.com/',
+				'isFree'       => true,
+				'slug'         => 'surerank',
+				'status'       => self::get_plugin_status( 'surerank/surerank.php' ),
 				'settings_url' => admin_url( 'admin.php?page=sc-getting-started' ),
 			],
 			'sureforms/sureforms.php'                      => [
@@ -1180,7 +1193,19 @@ class Widgets_Config {
 				'status'       => self::get_plugin_status( 'sureforms/sureforms.php' ),
 				'settings_url' => admin_url( 'admin.php?page=sureforms_menu' ),
 			],
-
+				'suremail/suremails.php'                        => [
+				'icon'         => $images_url . 'suremail.svg',
+				'type'         => 'plugin',
+				'name'         => esc_html__( 'SureMail', 'header-footer-elementor' ),
+				'desc'         => esc_html__( 'Manage your WordPress emails effortlessly with advanced SMTP features, analytics', 'header-footer-elementor' ),
+				'wporg'        => 'https://wordpress.org/plugins/suremails/',
+				'url'          => 'https://downloads.wordpress.org/plugin/suremails.zip',
+				'siteurl'      => 'https://suremails.com/',
+				'isFree'       => true,
+				'slug'         => 'suremail',
+				'status'       => self::get_plugin_status( 'suremails/suremails.php' ),
+				'settings_url' => admin_url( 'admin.php?page=sc-getting-started' ),
+			],
 			'suretriggers/suretriggers.php'                => [
 				'icon'         => $images_url . 'OttoKit-Symbol-Primary.svg',
 				'type'         => 'plugin',
