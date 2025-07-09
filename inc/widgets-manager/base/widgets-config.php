@@ -1139,6 +1139,89 @@ class Widgets_Config {
 	}
 
 	/**
+	 * List of plugins that we propose to install.
+	 *
+	 * @since 1.6.0
+	 *
+	 * @return array
+	 */
+	public static function get_recommended_bsf_plugins() {
+
+		$white_labels = self::get_white_label();
+
+		$images_url = HFE_URL . 'assets/images/settings/';
+
+		$recommended_plugins = [
+
+
+			'surecart/surecart.php'                        => [
+				'icon'         => $images_url . 'surecart.svg',
+				'type'         => 'plugin',
+				'name'         => esc_html__( 'SureCart', 'header-footer-elementor' ),
+				'desc'         => esc_html__( 'Sell your products easily on WordPress.', 'header-footer-elementor' ),
+				'wporg'        => 'https://wordpress.org/plugins/surecart/',
+				'url'          => 'https://downloads.wordpress.org/plugin/surecart.zip',
+				'siteurl'      => 'https://surecart.com/',
+				'isFree'       => true,
+				'slug'         => 'surecart',
+				'status'       => self::get_plugin_status( 'surecart/surecart.php' ),
+				'settings_url' => admin_url( 'admin.php?page=sc-getting-started' ),
+			],
+			'sureforms/sureforms.php'                      => [
+				'icon'         => $images_url . 'sureforms.svg',
+				'type'         => 'plugin',
+				'name'         => esc_html__( 'SureForms', 'header-footer-elementor' ),
+				'desc'         => esc_html__( 'Create high-converting forms with ease.', 'header-footer-elementor' ),
+				'wporg'        => 'https://wordpress.org/plugins/sureforms/',
+				'url'          => 'https://downloads.wordpress.org/plugin/sureforms.zip',
+				'siteurl'      => 'https://sureforms.com/',
+				'slug'         => 'sureforms',
+				'isFree'       => true,
+				'status'       => self::get_plugin_status( 'sureforms/sureforms.php' ),
+				'settings_url' => admin_url( 'admin.php?page=sureforms_menu' ),
+			],
+
+			'suretriggers/suretriggers.php'                => [
+				'icon'         => $images_url . 'OttoKit-Symbol-Primary.svg',
+				'type'         => 'plugin',
+				'name'         => esc_html__( 'OttoKit (Formerly SureTriggers)', 'header-footer-elementor' ),
+				'desc'         => esc_html__( 'Automate WordPress tasks effortlessly.', 'header-footer-elementor' ),
+				'wporg'        => 'https://wordpress.org/plugins/suretriggers/',
+				'url'          => 'https://downloads.wordpress.org/plugin/suretriggers.zip',
+				'siteurl'      => 'https://ottokit.com/',
+				'slug'         => 'suretriggers',
+				'isFree'       => true,
+				'status'       => self::get_plugin_status( 'suretriggers/suretriggers.php' ),
+				'settings_url' => admin_url( 'admin.php?page=suretriggers' ),
+			],
+
+		];
+
+		foreach ( $recommended_plugins as $key => $plugin ) {
+			// Check if it's a plugin and is active.
+			if ( 'plugin' === $plugin['type'] && is_plugin_active( $key ) ) {
+				unset( $recommended_plugins[ $key ] );
+			}
+
+			if ( 'plugin' === $plugin['type'] && 'astra-sites/astra-sites.php' === $key ) {
+				$st_pro_status = self::get_plugin_status( 'astra-pro-sites/astra-pro-sites.php' );
+				if ( 'Installed' === $st_pro_status || 'Activated' === $st_pro_status ) {
+					unset( $recommended_plugins[ $key ] );
+				}
+			}
+
+			if ( 'theme' === $plugin['type'] ) {
+				$current_theme = wp_get_theme();
+				if ( $current_theme->get_stylesheet() === $plugin['slug'] ) {
+					unset( $recommended_plugins[ $key ] );
+				}
+			}
+		}
+
+		return $recommended_plugins;
+	}
+
+	/**
 	 * Get plugin status
 	 *
 	 * @since 0.0.1
