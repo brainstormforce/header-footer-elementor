@@ -304,3 +304,9 @@ body.hfe-onboarding-fullscreen #wpcontent {
 body.hfe-onboarding-fullscreen.admin-bar {
        margin-top: 0 !important;
 }
+
+
+input[type="checkbox"].role-checkbox:focus{
+	border-color:rgb(92, 46, 222);
+	box-shadow:0 0 0 1px rgb(92, 46, 222);
+}
