@@ -10,6 +10,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 	const [loading, setLoading] = useState(true);
 	const [updateCounter, setUpdateCounter] = useState(0);
 	const [allInstalled, setAllInstalled] = useState(false);
+	const [isActive, setIsActive] = useState(true);
 	const [selectedPlugins, setSelectedPlugins] = useState({});
 	const [formData, setFormData] = useState({
 		firstName: hfeSettingsData.user_fname ? hfeSettingsData.user_fname : "",
@@ -26,7 +27,9 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 	};
 
 	useEffect(() => {
+		setIsActive(hfeSettingsData.analytics_status === 'yes');
 		const fetchSettings = async () => {
+			
 			setLoading(true);
 			try {
 				const data = await apiFetch({
@@ -59,6 +62,38 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 
 		fetchSettings();
 	}, [updateCounter]);
+
+	const handleNotifyChange = async () => {
+
+        const newIsActive = !isActive;
+        setIsActive(newIsActive);
+
+        try {
+            const response = await fetch(hfe_admin_data.ajax_url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    action: 'save_analytics_option', // WordPress action for your AJAX handler.
+                    uae_analytics_optin: newIsActive ? 'yes' : 'no',
+                    nonce: hfe_admin_data.nonce // Nonce for security.
+                })
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                toast.success(__('Settings saved successfully!', 'header-footer-elementor'));
+            } else {
+                toast.error(__('Failed to save settings!', 'header-footer-elementor'));
+            }
+        } catch (error) {
+            toast.error(__('Failed to save settings!', 'header-footer-elementor'));
+        }
+
+        // setIsLoading(false);
+    };
 
 	function convertToPluginsArray(data) {
 		return Object.keys(data).map((key) => ({
@@ -414,13 +449,8 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 						<input
 							type="checkbox"
 							id="notifications-checkbox"
-							checked={formData.notifications}
-							onChange={(e) =>
-								handleInputChange(
-									"notifications",
-									e.target.checked,
-								)
-							}
+							checked={isActive}
+							onChange={handleNotifyChange}
 							className="role-checkbox mt-1 h-4 w-4 text-[#5C2EDE] focus:ring-[#5C2EDE] border-gray-300 rounded"
 						/>
 						<label
