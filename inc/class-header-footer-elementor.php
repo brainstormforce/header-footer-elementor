@@ -396,6 +396,7 @@ class Header_Footer_Elementor {
 
 		require_once HFE_DIR . 'inc/hfe-functions.php';
 		require_once HFE_DIR . 'inc/class-hfe-rollback.php';
+		require_once HFE_DIR . 'inc/class-hfe-post-duplicator.php';
 
 		// Load Elementor Canvas Compatibility.
 		require_once HFE_DIR . 'inc/class-hfe-elementor-canvas-compat.php';

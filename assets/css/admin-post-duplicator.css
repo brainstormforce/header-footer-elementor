@@ -1,0 +1,27 @@
+/**
+ * Admin styles for Post Duplicator.
+ *
+ * @package header-footer-elementor
+ */
+
+.hfe-post-duplicator-notice {
+    padding: 10px 15px;
+    background-color: #fff;
+    border-left: 4px solid #00a0d2;
+    margin: 5px 0 15px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.hfe-post-duplicator-notice p {
+    margin: 0.5em 0;
+    padding: 2px;
+}
+
+/* Style for the UA Duplicate link in row actions */
+.row-actions .hfe_duplicate a {
+    color: #0073aa;
+}
+
+.row-actions .hfe_duplicate a:hover {
+    color: #00a0d2;
+}
