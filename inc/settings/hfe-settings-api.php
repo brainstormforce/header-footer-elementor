@@ -253,6 +253,8 @@ class HFE_Settings_Api {
 		$date  = sanitize_text_field( $request->get_param( 'date' ) );
 		$fname  = sanitize_text_field( $request->get_param( 'fname' ) );
 		$lname  = sanitize_text_field( $request->get_param( 'lname' ) );
+		$isActive = sanitize_text_field( $request->get_param( 'isActive' ) );
+		$domain = sanitize_text_field( $request->get_param( 'domain' ) );
 
 		if ( empty( $email ) || empty( $date ) || empty( $fname ) ) {
 			// Return error response if any of the required parameters are missing.
@@ -268,7 +270,9 @@ class HFE_Settings_Api {
 			'email'          => $email,
 			'date'           => $date,
 			'fname'          => $fname,
-			'lname'          => $lname
+			'lname'          => $lname,
+			'isActive'       => $isActive,
+			'domain'         => $domain
 		);
 
 		$args = array(

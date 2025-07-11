@@ -180,7 +180,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 			date: today,
 			fname: firstName || '',
 			lname: lastName || '',
-			isactive: isActive ? 'yes' : 'no',
+			isActive: isActive ? 'yes' : 'no',
 			domain: siteDomain
 		});
 
