@@ -108,7 +108,7 @@ const WidgetItem = ({
                     {is_pro && (
                         <Badge
                             label="PRO"
-                            size="xs"
+                            size="xxs"
                             type="pill"
                             variant="inverse"
                         />)}
@@ -124,8 +124,8 @@ const WidgetItem = ({
             </div>
 
             {/* Title and info icon section */}
-            <div className='flex items-center justify-between w-full'>
-                <p className='text-sm font-medium text-text-primary m-0 w-full'>{title}</p>
+            <div className='flex items-start justify-between w-full'>
+                <p className='text-sm font-medium text-text-primary m-0 w-full leading-tight flex items-center overflow-hidden' style={{ display: '-webkit-box', WebkitLineClamp: 1, WebkitBoxOrient: 'vertical', wordBreak: 'break-word' }}>{title}</p>
                 {showTooltip && (
                     <div className={`${!demo_url ? 'hfe-tooltip-wrap' : ''} ml-2`}>
                         <Tooltip

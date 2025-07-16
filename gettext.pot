@@ -116,9 +116,8 @@ msgstr ""
 #: src/Components/Compare/FreevsPro.jsx:200
 #: src/Components/Compare/UltimateCompare.jsx:109
 #: src/Components/Dashboard/MyAccount.jsx:54
-#: src/Components/Dashboard/UltimateFeatures.js:140
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:142
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:140
+#: src/Components/Dashboard/UltimateFeatures.js:131
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:133
 #: src/Components/Widgets/UltimateWidgets.jsx:116
 msgid "Upgrade Now"
 msgstr ""
@@ -170,6 +169,8 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:35
 #: src/Components/Compare/UltimateCompare.jsx:17
+#: src/Components/Dashboard/UltimateFeatures.js:90
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:92
 #: src/Components/Widgets/UltimateWidgets.jsx:18
 msgid "Advanced Heading"
 msgstr ""
@@ -236,6 +237,8 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:55
 #: src/Components/Compare/UltimateCompare.jsx:27
+#: src/Components/Dashboard/UltimateFeatures.js:94
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:96
 #: src/Components/Widgets/UltimateWidgets.jsx:28
 msgid "Info Box"
 msgstr ""
@@ -347,6 +350,8 @@ msgid "Business Reviews"
 msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:22
+#: src/Components/Dashboard/UltimateFeatures.js:98
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:100
 #: src/Components/Widgets/UltimateWidgets.jsx:23
 msgid "Post Layouts"
 msgstr ""
@@ -371,7 +376,6 @@ msgstr ""
 #: src/Components/Compare/UltimateCompare.jsx:68
 #: src/Components/Dashboard/UltimateFeatures.js:41
 #: src/Components/Widgets/UltimateWidgetFeatures.jsx:43
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:41
 #: src/Components/Widgets/UltimateWidgets.jsx:67
 msgid "Unlock Ultimate Features"
 msgstr ""
@@ -428,15 +432,15 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:285
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:297
 msgid "Visit Site"
 msgstr ""
 
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:287
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:299
 msgid "Activate"
 msgstr ""
 
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:288
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:300
 msgid "Install & Activate"
 msgstr ""
 
@@ -532,11 +536,6 @@ msgstr ""
 msgid "View Templates"
 msgstr ""
 
-#: src/Components/Dashboard/UltimateFeatures.js:104
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:106
-msgid "WooCommerce Widgets"
-msgstr ""
-
 #: src/Components/Dashboard/UltimateFeatures.js:54
 #: src/Components/Widgets/UltimateWidgetFeatures.jsx:56
 msgid "Bring Your Vision to Life with UAE Pro"
@@ -559,23 +558,9 @@ msgstr ""
 msgid "Form Stylers"
 msgstr ""
 
-#: src/Components/Dashboard/UltimateFeatures.js:86
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:88
+#: src/Components/Dashboard/UltimateFeatures.js:83
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:85
 msgid "Modal Popups"
-msgstr ""
-
-#: src/Components/Dashboard/UltimateFeatures.js:93
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:95
-msgid "Advanced Display Conditions"
-msgstr ""
-
-#: src/Components/Dashboard/UltimateFeatures.js:97
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:99
-msgid "Prebuilt 200+ Section blocks"
-msgstr ""
-
-#: src/Components/Dashboard/WelcomeContainer.js:118
-msgid "Read full guide"
 msgstr ""
 
 #: src/Components/Dashboard/WelcomeContainer.js:25

@@ -14,7 +14,7 @@ const WelcomeContainer = () => {
 				direction="row"
 				gap="sm"
 			>
-				<Container.Item shrink={1}>
+				<Container.Item shrink={1} className="flex-1">
 					<Title
 						description=""
 						icon={null}
@@ -31,11 +31,11 @@ const WelcomeContainer = () => {
 							"header-footer-elementor"
 						)}
 					</p>
-					<div className="flex items-center pt-6 gap-2">
+					<div className="flex items-center pt-6 gap-2 flex-wrap">
 					<Button
 							iconPosition="right"
 							variant="primary"
-							className="text-[#6005FF] border-none hfe-remove-ring"
+							className="text-[#6005FF] border-none hfe-remove-ring flex-shrink-0"
 							style={{
 								backgroundColor: "var(--Colors-Button-button-secondary, #DDD6FE)",
 								transition: "background-color 0.3s ease",
@@ -64,7 +64,7 @@ const WelcomeContainer = () => {
 							icon={<Plus />}
 							iconPosition="right"
 							variant="outline"
-							className="hfe-remove-ring"
+							className="hfe-remove-ring flex-shrink-0"
 							style={{
 								color: "#000",
 								borderColor: "#E9DFFC",
@@ -96,6 +96,7 @@ const WelcomeContainer = () => {
 								padding: 0,
 								cursor: "pointer",
 							}}
+							className="flex-shrink-0"
 							onMouseEnter={(e) =>
 								(e.currentTarget.style.color = "#6005ff")
 							}
@@ -109,18 +110,10 @@ const WelcomeContainer = () => {
 								);
 							}}
 						>
-							<Button
-								icon={<ExternalLink />}
-								iconPosition="right"
-								variant="link"
-								className="hfe-remove-ring text-black"
-							>
-								{__("Read full guide", "header-footer-elementor")}
-							</Button>
 						</div>
 					</div>
 				</Container.Item>
-				<Container.Item className="md:mt-0 mt-4">
+				<Container.Item className="md:mt-0 mt-4 flex-shrink-0">
 				<iframe
 						width="280"
 						height="160"

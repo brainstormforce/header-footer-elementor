@@ -270,7 +270,7 @@ const ExtendWebsiteWidget = ({
 				<div className="pt-4 hfe-remove-ring">
 					<Button
 						size="sm"
-						className="cursor-pointer hfe-remove-ring bg-white hover:bg-gray-200 text-gray-800 rounded- mt-4 px-2 py-2"
+						className="cursor-pointer hfe-remove-ring bg-white hover:bg-gray-100 hover:text-gray-900 hover:shadow-md text-gray-800 rounded mt-4 px-2 py-2 transition-all duration-200 ease-in-out transform hover:scale-105 hover:border-gray-400"
 						onClick={handlePluginAction}
 						data-plugin={zipUrl}
 						data-type={type}
@@ -280,6 +280,18 @@ const ExtendWebsiteWidget = ({
 						data-init={path}
 						data-action={getAction(status)}
 						style={{ outline: "none", border: "1px solid #ccc" }}
+							onMouseEnter={(e) =>
+								(e.currentTarget.style.color = "#5C2EDE")
+							}
+							onMouseLeave={(e) =>
+								(e.currentTarget.style.color = "black")
+							}
+							onClick={() => {
+								window.open(
+									"https://ultimateelementor.com/docs/getting-started-with-ultimate-addons-for-elementor-lite/",
+									"_blank"
+								);
+							}}
 					>
 						{status === "Activated"
 							? __("Visit Site", "header-footer-elementor")

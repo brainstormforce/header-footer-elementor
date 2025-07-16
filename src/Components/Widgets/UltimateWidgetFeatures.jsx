@@ -70,43 +70,34 @@ const UltimateWidgetFeatures = () => {
 					</div>
 
 					{/* Features List */}
-					<div className="grid grid-cols-2 m-0 pt-2">
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-2 m-0 pt-2">
 						<ul className="list-none font-normal space-y-2 text-sm text-[#111827]">
-							<li className="flex items-center gap-1 text-text-tertiary">
-								<Check color="#6005FF" size={18} />
-								{__("Cross-Site Copy Paste", "header-footer-elementor")}
+							<li className="flex items-center gap-1 text-text-tertiary whitespace-nowrap">
+								<Check color="#6005FF" size={16} className="flex-shrink-0" />
+								<span className="truncate">{__("Cross-Site Copy Paste", "header-footer-elementor")}</span>
 							</li>
-							<li className="flex items-center gap-1 text-text-tertiary">
-								<Check color="#6005FF" size={18} />
-								{__(
-									"Form Stylers",
-									"header-footer-elementor",
-								)}
+							<li className="flex items-center gap-1 text-text-tertiary whitespace-nowrap">
+								<Check color="#6005FF" size={16} className="flex-shrink-0" />
+								<span className="truncate">{__("Form Stylers", "header-footer-elementor")}</span>
 							</li>
-							<li className="flex items-center gap-1 text-text-tertiary">
-								<Check color="#6005FF" size={18} />
-								{__("Modal Popups", "header-footer-elementor")}
+							<li className="flex items-center gap-1 text-text-tertiary whitespace-nowrap">
+								<Check color="#6005FF" size={16} className="flex-shrink-0" />
+								<span className="truncate">{__("Modal Popups", "header-footer-elementor")}</span>
 							</li>
 						</ul>
 
 						<ul className="list-none font-normal space-y-2 text-sm text-[#111827]">
-							<li className="flex items-center gap-1 text-text-tertiary">
-								<Check color="#6005FF" size={18} />
-								{__("Advanced Display Conditions", "header-footer-elementor")}
+							<li className="flex items-center gap-1 text-text-tertiary whitespace-nowrap">
+								<Check color="#6005FF" size={16} className="flex-shrink-0" />
+								<span className="truncate">{__("Advanced Heading", "header-footer-elementor")}</span>
 							</li>
-							<li className="flex items-center gap-1 text-text-tertiary">
-								<Check color="#6005FF" size={18} />
-								{__(
-									"Prebuilt 200+ Section blocks",
-									"header-footer-elementor",
-								)}
+							<li className="flex items-center gap-1 text-text-tertiary whitespace-nowrap">
+								<Check color="#6005FF" size={16} className="flex-shrink-0" />
+								<span className="truncate">{__("Info Box", "header-footer-elementor")}</span>
 							</li>
-								<li className="flex items-center gap-1 text-text-tertiary">
-								<Check color="#6005FF" size={18} />
-								{__(
-									"WooCommerce Widgets",
-									"header-footer-elementor",
-								)}
+							<li className="flex items-center gap-1 text-text-tertiary whitespace-nowrap">
+								<Check color="#6005FF" size={16} className="flex-shrink-0" />
+								<span className="truncate">{__("Post Layouts", "header-footer-elementor")}</span>
 							</li>
 						</ul>
 					</div>
