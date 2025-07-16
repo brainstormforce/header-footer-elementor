@@ -21,12 +21,14 @@ const UltimateWidgetFeatures = () => {
 						style={{ width: "34%" }}
 					>
 						<img
-							src={`${hfeSettingsData.augemented}`}
+							src={`${hfeSettingsData.augemented_url}`}
 							alt={__(
 								"Column Showcase",
 								"header-footer-elementor",
 							)}
-							className="object-contain  w-full rounded"
+							style={{ width: "400px", height: "200px" }}
+							loading="lazy"
+							className="object-contain rounded"
 						/>
 					</Container.Item>
 

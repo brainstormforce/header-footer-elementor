@@ -315,7 +315,7 @@ class HFE_Settings_Page {
 					'success_banner'           => HFE_URL . 'assets/images/settings/success_bg.png',
 					'success_badge'            => HFE_URL . 'assets/images/settings/success_badge.svg',
 					'icon_svg'                 => HFE_URL . 'assets/images/settings/uae-logo-svg.svg',
-					'augemented'                 => HFE_URL . 'assets/images/settings/augemented_reality_widgets.svg',
+					'augemented_url'                 => HFE_URL . 'assets/images/settings/augemented_reality_widgets.png',
 					'rocket_svg'                 => HFE_URL . 'assets/images/settings/rocket.svg',
 					'augmented_reality'                 => HFE_URL . 'assets/images/settings/augmented_reality.png',
 					'uaelite_previous_version' => isset( $rollback_versions[0]['value'] ) ? $rollback_versions[0]['value'] : '',

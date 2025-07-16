@@ -117,6 +117,7 @@ msgstr ""
 #: src/Components/Compare/UltimateCompare.jsx:109
 #: src/Components/Dashboard/MyAccount.jsx:54
 #: src/Components/Dashboard/UltimateFeatures.js:140
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:142
 #: src/Components/Widgets/UltimateWidgetFeatures.jsx:140
 #: src/Components/Widgets/UltimateWidgets.jsx:116
 msgid "Upgrade Now"
@@ -369,6 +370,7 @@ msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:68
 #: src/Components/Dashboard/UltimateFeatures.js:41
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:43
 #: src/Components/Widgets/UltimateWidgetFeatures.jsx:41
 #: src/Components/Widgets/UltimateWidgets.jsx:67
 msgid "Unlock Ultimate Features"
@@ -531,44 +533,44 @@ msgid "View Templates"
 msgstr ""
 
 #: src/Components/Dashboard/UltimateFeatures.js:104
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:104
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:106
 msgid "WooCommerce Widgets"
 msgstr ""
 
 #: src/Components/Dashboard/UltimateFeatures.js:54
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:54
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:56
 msgid "Bring Your Vision to Life with UAE Pro"
 msgstr ""
 
 #: src/Components/Dashboard/UltimateFeatures.js:63
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:63
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:65
 msgid ""
 "Streamline your workflow, skip the repetitive tasks, and build modern, "
 "high-performance websites."
 msgstr ""
 
 #: src/Components/Dashboard/UltimateFeatures.js:75
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:75
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:77
 msgid "Cross-Site Copy Paste"
 msgstr ""
 
 #: src/Components/Dashboard/UltimateFeatures.js:79
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:79
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:81
 msgid "Form Stylers"
 msgstr ""
 
 #: src/Components/Dashboard/UltimateFeatures.js:86
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:86
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:88
 msgid "Modal Popups"
 msgstr ""
 
 #: src/Components/Dashboard/UltimateFeatures.js:93
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:93
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:95
 msgid "Advanced Display Conditions"
 msgstr ""
 
 #: src/Components/Dashboard/UltimateFeatures.js:97
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:97
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:99
 msgid "Prebuilt 200+ Section blocks"
 msgstr ""
 
