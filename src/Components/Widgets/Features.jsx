@@ -5,7 +5,7 @@ import TemplateSection from '@components/Dashboard/TemplateSection';
 import QuickAccess from '@components/Dashboard/QuickAccess';
 import UltimateWidgets from './UltimateWidgets';
 import FeatureWidgets from './Features/FeatureWidgets'
-import UltimateFeatures from '@components/Dashboard/UltimateFeatures';
+import UltimateWidgetFeatures from './UltimateWidgetFeatures';
 import ExtendWebsite from '@components/Dashboard/ExtendWebsite';
 
 const Features = () => {
@@ -36,7 +36,7 @@ const Features = () => {
                         className="p-2 hfe-35-width"
                         shrink={1}
                     >
-                        <UltimateFeatures />
+                        <UltimateWidgetFeatures />
                         {/* <div className='pt-5'>
                         <ExtendWebsite/>
                         </div> */}
