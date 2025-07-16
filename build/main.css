@@ -807,9 +807,6 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .w-3{
     width: 0.75rem;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .w-32{
-    width: 8rem;
-}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .w-4{
     width: 1rem;
 }
@@ -889,20 +886,17 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .max-w-32{
     max-width: 8rem;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .max-w-72{
-    max-width: 18rem;
-}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .max-w-80{
     max-width: 20rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .max-w-96{
+    max-width: 24rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .max-w-full{
     max-width: 100%;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .max-w-lg{
     max-width: 32rem;
-}
-:is(#hfe-settings-app, [data-floating-ui-portal]) .max-w-md{
-    max-width: 28rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .max-w-xs{
     max-width: 20rem;
@@ -1548,10 +1542,6 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .border-transparent{
     border-color: transparent;
 }
-:is(#hfe-settings-app, [data-floating-ui-portal]) .border-t-border-subtle{
-    --tw-border-opacity: 1;
-    border-top-color: rgb(229 231 235 / var(--tw-border-opacity, 1));
-}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .bg-\[\#6005FF\]{
     --tw-bg-opacity: 1;
     background-color: rgb(96 5 255 / var(--tw-bg-opacity, 1));
@@ -2062,6 +2052,10 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .tracking-2{
     letter-spacing: 0.125em;
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .text-\[\#111827\]{
+    --tw-text-opacity: 1;
+    color: rgb(17 24 39 / var(--tw-text-opacity, 1));
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .text-\[\#4F4E7C\]{
     --tw-text-opacity: 1;
     color: rgb(79 78 124 / var(--tw-text-opacity, 1));
@@ -2245,6 +2239,10 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .text-white{
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .text-\[\#C026D3\]{
+    --tw-text-opacity: 1;
+    color: rgb(192 38 211 / var(--tw-text-opacity, 1));
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .underline{
     text-decoration-line: underline;
