@@ -130,6 +130,7 @@ msgid "Breadcrumbs"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:220
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:212
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:178
 #: src/Components/NavMenu.js:242
 msgid "Free"
@@ -390,59 +391,63 @@ msgid ""
 msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsite.jsx:57
-msgid "Extend Your Website"
+msgid "Super Charge Your Workflow"
 msgstr ""
 
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:122
-msgid "Activating.."
-msgstr ""
-
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:134
-msgid "Activated"
-msgstr ""
-
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:151
-msgid "Activate"
-msgstr ""
-
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:200
-msgid "Visit Site"
-msgstr ""
-
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:212
-msgid "Activate Theme"
-msgstr ""
-
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:216
-msgid "Are you sure you want to switch your current theme to Astra?"
-msgstr ""
-
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:221
-msgid "Yes"
-msgstr ""
-
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:224
-msgid "Close"
-msgstr ""
-
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:72
-msgid "Installing.."
-msgstr ""
-
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:80
-msgid "Installed"
-msgstr ""
-
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:90
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:101
 msgid "Install"
 msgstr ""
 
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:93
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:107
 msgid "Theme Installation failed, Please try again later."
 msgstr ""
 
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:94
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:111
 msgid "Plugin Installation failed, Please try again later."
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:144
+msgid "Activating.."
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:157
+msgid "Activated"
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:228
+msgid "Activate Theme"
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:235
+msgid "Are you sure you want to switch your current theme to Astra?"
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:245
+msgid "Yes"
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:251
+msgid "Close"
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:283
+msgid "Visit Site"
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:285
+msgid "Activate"
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:286
+msgid "Install & Activate"
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:71
+msgid "Installing.."
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:82
+msgid "Installed"
 msgstr ""
 
 #: src/Components/Dashboard/MyAccount.jsx:17
@@ -565,11 +570,7 @@ msgstr ""
 msgid "Create New Page"
 msgstr ""
 
-#: src/Components/Dashboard/WidgetItem.jsx:134
-msgid "View Demo"
-msgstr ""
-
-#: src/Components/Dashboard/WidgetItem.jsx:148
+#: src/Components/Dashboard/WidgetItem.jsx:140
 msgid "Read Documentation"
 msgstr ""
 

@@ -98,71 +98,62 @@ const WidgetItem = ({
             justify="between"
             gap=""
         >
-            <div className='flex items-center justify-between w-full'>
-                <div className={`h-10 w-10 mb-5 ${icon?.props}`} style={{ fontSize: '22px' }}>
+            {/* Top section with icon and switch/badge */}
+            <div className='flex items-start justify-between w-full mb-4'>
+                <div className={`h-10 w-10 ${icon?.props}`} style={{ fontSize: '22px' }}>
                     {icon}
                 </div>
 
-                <div className='flex items-center gap-x-2' style={{ marginBottom: '15px' }}>
-
+                <div className='flex items-center gap-x-2'>
                     {is_pro && (
                         <Badge
                             label="PRO"
                             size="xs"
                             type="pill"
                             variant="inverse"
-
                         />)}
                     {!is_pro && (
                         <Switch
-                            onChange={handleSwitchChange} // Updated to use the new function
-                            size='sm'
+                            onChange={handleSwitchChange}
+                            size='xs'
                             value={isActive}
                             style={{ outline: 'none' }}
                             className="hfe-remove-ring outline-none"
                         />)}
                 </div>
-
-
             </div>
 
-            <div className='flex flex-col w-full'>
-                <p className='text-sm font-medium text-text-primary pt-3 m-0 pb-1'>{title}</p>
-                <div className='flex items-center justify-between w-full'>
-                    {demo_url && (
-                        <a href={demo_url} target="_blank" rel="noopener noreferrer" className='text-sm text-text-tertiary m-0 mb-1 hfe-remove-ring' style={{ textDecoration: 'none', lineHeight: '1.5rem' }}>
-                            {__('View Demo', 'header-footer-elementor')}
-                        </a>
-                    )}
-                    {showTooltip && (
-                        <div className={`${!demo_url ? 'hfe-tooltip-wrap' : ''}`}>
-                            <Tooltip
-                                arrow
-                                content={
-                                    <div>
-                                        <span className='font-semibold block mb-2'>{title}</span>
-                                        <span className='block mb-2'>{description}</span>
-                                        {doc_url && (
-                                            <a href={doc_url} target="_blank" rel="noopener noreferrer" className='cursor-pointer' style={{ color: '#B498E5', textDecoration: 'none' }}>
-                                                <FileText style={{ color: '#B498E5', width: '11px', height: '11px', marginRight: '3px' }} />
-                                                {__('Read Documentation', 'header-footer-elementor')}
-                                            </a>
-                                        )}
-                                    </div>
-                                }
-                                placement="bottom"
-                                title=""
-                                triggers={[
-                                    'click'
-                                ]}
-                                variant="dark"
-                                size="xs"
-                            >
-                                <InfoIcon className='h-5 w-5' size={18} color="#A0A5B2" />
-                            </Tooltip>
-                        </div>
-                    )}
-                </div>
+            {/* Title and info icon section */}
+            <div className='flex items-center justify-between w-full'>
+                <p className='text-sm font-medium text-text-primary m-0 w-full'>{title}</p>
+                {showTooltip && (
+                    <div className={`${!demo_url ? 'hfe-tooltip-wrap' : ''} ml-2`}>
+                        <Tooltip
+                            arrow
+                            content={
+                                <div>
+                                    <span className='text-xs font-semibold block mb-2'>{title}</span>
+                                    <span className='block mb-2'>{description}</span>
+                                    {doc_url && (
+                                        <a href={doc_url} target="_blank" rel="noopener noreferrer" className='cursor-pointer' style={{ color: '#B498E5', textDecoration: 'none' }}>
+                                            <FileText style={{ color: '#B498E5', width: '11px', height: '11px', marginRight: '3px' }} />
+                                            {__('Read Documentation', 'header-footer-elementor')}
+                                        </a>
+                                    )}
+                                </div>
+                            }
+                            placement="bottom"
+                            title=""
+                            triggers={[
+                                'click'
+                            ]}
+                            variant="dark"
+                            size="xs"
+                        >
+                            <InfoIcon className='h-4 w-4' size={16} color="#A0A5B2" />
+                        </Tooltip>
+                    </div>
+                )}
             </div>
         </Container>
     )
