@@ -1027,39 +1027,11 @@ class Widgets_Config {
 
 		$plugins = [
 
-			'astra'                                        => [
-				'icon'         => ! empty( $white_labels['theme_icon'] ) ? $white_labels['theme_icon'] : $images_url . 'astra.svg',
-				'type'         => 'theme',
-				'name'         => $white_labels['theme_name'],
-				'desc'         => esc_html__( 'Fast and customizable theme for your website.', 'header-footer-elementor' ),
-				'wporg'        => 'https://wordpress.org/themes/astra/',
-				'url'          => 'https://downloads.wordpress.org/theme/astra.zip',
-				'siteurl'      => $white_labels['author_url'],
-				'slug'         => 'astra',
-				'isFree'       => true,
-				'status'       => self::get_theme_status( 'astra' ),
-				'settings_url' => admin_url( 'admin.php?page=astra' ),
-			],
-
-			'astra-sites/astra-sites.php'                  => [
-				'icon'         => $images_url . 'stemplates.svg',
-				'type'         => 'plugin',
-				'name'         => esc_html__( 'Starter Templates', 'header-footer-elementor' ),
-				'desc'         => esc_html__( 'Launch websites with AI or ready-made templates.', 'header-footer-elementor' ),
-				'wporg'        => 'https://wordpress.org/plugins/astra-sites/',
-				'url'          => 'https://downloads.wordpress.org/plugin/astra-sites.zip',
-				'siteurl'      => 'https://startertemplates.com/',
-				'slug'         => 'astra-sites',
-				'isFree'       => true,
-				'status'       => self::get_plugin_status( 'astra-sites/astra-sites.php' ),
-				'settings_url' => admin_url( 'admin.php?page=starter-templates' ),
-			],
-
 			'surecart/surecart.php'                        => [
 				'icon'         => $images_url . 'surecart.svg',
 				'type'         => 'plugin',
-				'name'         => esc_html__( 'SureCart', 'header-footer-elementor' ),
-				'desc'         => esc_html__( 'Sell your products easily on WordPress.', 'header-footer-elementor' ),
+				'name'         => esc_html__( 'Sell Products Effortlessly with SureCart!', 'header-footer-elementor' ),
+				'desc'         => esc_html__( 'Sell your products effortlessly with a modern, flexible eCommerce system. SureCart makes it easy to set up one-click checkout, manage subscriptions, recover abandoned carts, and collect secure payments, helping you launch and grow your online store confidently.', 'header-footer-elementor' ),
 				'wporg'        => 'https://wordpress.org/plugins/surecart/',
 				'url'          => 'https://downloads.wordpress.org/plugin/surecart.zip',
 				'siteurl'      => 'https://surecart.com/',
@@ -1109,20 +1081,6 @@ class Widgets_Config {
 				'isFree'       => true,
 				'status'       => self::get_plugin_status( 'suretriggers/suretriggers.php' ),
 				'settings_url' => admin_url( 'admin.php?page=suretriggers' ),
-			],
-
-			'all-in-one-schemaorg-rich-snippets/index.php' => [
-				'icon'         => $images_url . 'aiosrs.svg',
-				'type'         => 'plugin',
-				'name'         => html_entity_decode( esc_html__( 'Schema – All In One Schema Rich Snippets', 'header-footer-elementor' ) ),
-				'desc'         => html_entity_decode( esc_html__( 'Boost SEO with rich results & structured data.', 'header-footer-elementor' ) ),
-				'wporg'        => 'https://wordpress.org/plugins/all-in-one-schemaorg-rich-snippets/',
-				'url'          => 'https://downloads.wordpress.org/plugin/all-in-one-schemaorg-rich-snippets.zip',
-				'siteurl'      => 'https://wordpress.org/plugins/all-in-one-schemaorg-rich-snippets/',
-				'slug'         => 'all-in-one-schemaorg-rich-snippets',
-				'isFree'       => true,
-				'status'       => self::get_plugin_status( 'all-in-one-schemaorg-rich-snippets/index.php' ),
-				'settings_url' => admin_url( 'admin.php?page=rich_snippet_dashboard' ),
 			],
 
 		];

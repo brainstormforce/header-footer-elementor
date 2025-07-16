@@ -37,24 +37,20 @@ const WelcomeContainer = () => {
 							variant="primary"
 							className="text-[#6005FF] border-none hfe-remove-ring"
 							style={{
-								backgroundColor: "#F3E5FF",
+								backgroundColor: "var(--Colors-Button-button-secondary, #DDD6FE)",
 								transition: "background-color 0.3s ease",
 								border: "none",
 								outline: 'none',       // Removes the default outline
 								boxShadow: 'none',     // Removes the default box shadow
 							}}
-							onMouseEnter={(e) =>
-								(e.currentTarget.style.backgroundColor =
-									"#4B00CC")
-									(e.currentTarget.style.color =
-										"#fff")
-							}
-							onMouseLeave={(e) =>
-								(e.currentTarget.style.backgroundColor =
-									"#F3E5FF")
-									(e.currentTarget.style.color =
-										"#6005FF")
-							}
+							onMouseEnter={(e) => {
+								e.currentTarget.style.backgroundColor = "#4B00CC";
+								e.currentTarget.style.color = "#fff";
+							}}
+							onMouseLeave={(e) => {
+								e.currentTarget.style.backgroundColor = "var(--Colors-Button-button-secondary, #DDD6FE)";
+								e.currentTarget.style.color = "#6005FF";
+							}}
 							onClick={() => {
 								window.open(
 									hfeSettingsData.hfe_post_url,
@@ -70,7 +66,7 @@ const WelcomeContainer = () => {
 							variant="outline"
 							className="hfe-remove-ring"
 							style={{
-								color: "#7D4CDB",
+								color: "#000",
 								borderColor: "#E9DFFC",
 							}}
 							onMouseEnter={(e) =>
@@ -79,7 +75,7 @@ const WelcomeContainer = () => {
 							}
 							onMouseLeave={(e) =>
 								(e.currentTarget.style.color =
-									"#7D4CDB") &&
+									"#000") &&
 								(e.currentTarget.style.borderColor =
 									"#E9DFFC")
 							}

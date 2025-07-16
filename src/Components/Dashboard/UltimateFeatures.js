@@ -37,12 +37,12 @@ const UltimateFeatures = () => {
 							icon={<Rocket />}
 							iconPosition="left"
 							size="xs"
-							tag="h6"
+							tag="h8"
 							title={__(
 								"Unlock Ultimate Features",
 								"header-footer-elementor",
 							)}
-							className="text-xs font-medium  text-[#C026D3]"
+							className="text-xs    text-[#C026D3]"
 						/>
 						<Title
 							description=""

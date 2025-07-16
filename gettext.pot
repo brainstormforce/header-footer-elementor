@@ -424,15 +424,15 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:283
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:285
 msgid "Visit Site"
 msgstr ""
 
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:285
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:287
 msgid "Activate"
 msgstr ""
 
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:286
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:288
 msgid "Install & Activate"
 msgstr ""
 
@@ -562,7 +562,7 @@ msgstr ""
 msgid "Prebuilt 200+ Section blocks"
 msgstr ""
 
-#: src/Components/Dashboard/WelcomeContainer.js:122
+#: src/Components/Dashboard/WelcomeContainer.js:118
 msgid "Read full guide"
 msgstr ""
 
@@ -577,12 +577,13 @@ msgid ""
 "and premium widgets and features."
 msgstr ""
 
+#: src/Components/Dashboard/WelcomeContainer.js:61
 #: src/Components/Dashboard/WelcomeContainer.js:65
 #: src/Components/Onboarding/Build.jsx:197
 msgid "Create Header/Footer"
 msgstr ""
 
-#: src/Components/Dashboard/WelcomeContainer.js:93
+#: src/Components/Dashboard/WelcomeContainer.js:89
 msgid "Create New Page"
 msgstr ""
 

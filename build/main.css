@@ -2016,6 +2016,12 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .font-semibold{
     font-weight: 600;
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .font-thin{
+    font-weight: 100;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .font-extralight{
+    font-weight: 200;
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .capitalize{
     text-transform: capitalize;
 }

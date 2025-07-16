@@ -201,8 +201,8 @@ const ExtendWebsiteWidget = ({
 					<img
 						src={icon}
 						alt="Recommended Plugins/Themes"
-						className="w-full h-auto rounded"
-						style={{ width: "24px", height: "24px" }}
+						className="w-full h-auto rounded cursor-pointer"
+						style={{ width: "140px", height: "140px", paddingBottom: "300px" ,marginTop: "-60px"}}
 					/>
 				</div>
 
@@ -258,8 +258,9 @@ const ExtendWebsiteWidget = ({
 
 			<div className="flex flex-col w-full pb-4">
 				<p
-					className="text-2xl font-medium text-text-primary pb-1 m-0 cursor-pointer"
+					className="text-base font-medium text-text-primary pb-1 m-0 cursor-pointer"
 					onClick={() => window.open(plugin.siteurl, "_blank")}
+					style={{ marginTop: "-10px" }}
 				>
 					{__(name, "header-footer-elementor")}
 				</p>
@@ -269,7 +270,7 @@ const ExtendWebsiteWidget = ({
 				<div className="pt-4 hfe-remove-ring">
 					<Button
 						size="sm"
-						className="cursor-pointer hfe-remove-ring bg-gray-100 hover:bg-gray-200 text-gray-800 border border-gray-300 rounded-md px-4 py-2"
+						className="cursor-pointer hfe-remove-ring bg-white hover:bg-gray-200 text-gray-800 rounded- px-2 py-2"
 						onClick={handlePluginAction}
 						data-plugin={zipUrl}
 						data-type={type}
@@ -278,6 +279,7 @@ const ExtendWebsiteWidget = ({
 						data-site={siteUrl}
 						data-init={path}
 						data-action={getAction(status)}
+						style={{ outline: "none", border: "1px solid #ccc" }}
 					>
 						{status === "Activated"
 							? __("Visit Site", "header-footer-elementor")
