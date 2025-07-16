@@ -40,7 +40,7 @@ const Features = () => {
                         {/* <div className='pt-5'>
                         <ExtendWebsite/>
                         </div> */}
-                        <div className='pt-4'>
+                        <div className='mt-4'>
                         <QuickAccess />
                         </div>
                     </Container.Item>
