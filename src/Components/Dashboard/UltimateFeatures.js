@@ -31,7 +31,7 @@ const UltimateFeatures = () => {
 					</Container.Item>
 
 					{/* Title + Description */}
-					<div className="pt-2 flex flex-col">
+					<div className="pt-2 px-2 flex flex-col">
 						<Title
 							description=""
 							icon={<Rocket />}
@@ -42,7 +42,7 @@ const UltimateFeatures = () => {
 								"Unlock Ultimate Features",
 								"header-footer-elementor",
 							)}
-							className="text-xs    text-[#C026D3]"
+							className="text-xs py-1  text-[#C026D3]"
 						/>
 						<Title
 							description=""

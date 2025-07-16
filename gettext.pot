@@ -117,7 +117,6 @@ msgstr ""
 #: src/Components/Compare/UltimateCompare.jsx:109
 #: src/Components/Dashboard/MyAccount.jsx:54
 #: src/Components/Dashboard/UltimateFeatures.js:140
-#: src/Components/Dashboard/UltimateFeatures.js:139
 #: src/Components/Widgets/UltimateWidgets.jsx:116
 msgid "Upgrade Now"
 msgstr ""
@@ -578,7 +577,6 @@ msgid ""
 msgstr ""
 
 #: src/Components/Dashboard/WelcomeContainer.js:61
-#: src/Components/Dashboard/WelcomeContainer.js:65
 #: src/Components/Onboarding/Build.jsx:197
 msgid "Create Header/Footer"
 msgstr ""

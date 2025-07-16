@@ -37,9 +37,9 @@ const Features = () => {
                         shrink={1}
                     >
                         <UltimateFeatures />
-                        <div className='pt-5'>
+                        {/* <div className='pt-5'>
                         <ExtendWebsite/>
-                        </div>
+                        </div> */}
                         <div className='pt-4'>
                         <QuickAccess />
                         </div>

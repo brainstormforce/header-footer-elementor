@@ -270,7 +270,7 @@ const ExtendWebsiteWidget = ({
 				<div className="pt-4 hfe-remove-ring">
 					<Button
 						size="sm"
-						className="cursor-pointer hfe-remove-ring bg-white hover:bg-gray-200 text-gray-800 rounded- px-2 py-2"
+						className="cursor-pointer hfe-remove-ring bg-white hover:bg-gray-200 text-gray-800 rounded- mt-4 px-2 py-2"
 						onClick={handlePluginAction}
 						data-plugin={zipUrl}
 						data-type={type}
