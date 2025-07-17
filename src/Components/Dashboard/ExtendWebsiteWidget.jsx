@@ -202,7 +202,7 @@ const ExtendWebsiteWidget = ({
 						src={icon}
 						alt="Recommended Plugins/Themes"
 						className="w-full h-auto rounded cursor-pointer"
-						style={{ width: "140px", height: "140px", paddingBottom: "300px" ,marginTop: "-60px"}}
+						style={{ width: "140px", height: "140px", marginTop: "-60px"}}
 					/>
 				</div>
 

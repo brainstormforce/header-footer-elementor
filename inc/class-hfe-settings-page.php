@@ -50,6 +50,7 @@ class HFE_Settings_Page {
 					add_action( 'admin_footer', [ $this, 'hfe_add_upgrade_to_pro_target_attr' ] );
 				}
 			}
+			add_action( 'admin_footer_text', [ $this, 'uae_custom_admin_footer_text' ] );
 			add_action( 'admin_init', [ $this, 'hfe_admin_init' ] );
 			add_filter( 'views_edit-elementor-hf', [ $this, 'hfe_settings' ], 10, 1 );
 		}
@@ -78,7 +79,18 @@ class HFE_Settings_Page {
 		}
 	}
 
-	
+	/**
+	 * Adding Rating footer to dashboard pages.
+	 *
+	 * @since x.x.x
+	 * @return void
+	 */
+	public function uae_custom_admin_footer_text($footer_text) {
+		if ( isset( $_GET['page'] ) && $_GET['page'] === 'hfe' ) {
+			$footer_text = 'Enjoyed UAE? Please leave us a <a class="uae-rating" href="https://wordpress.org/support/plugin/header-footer-elementor/reviews/#new-post" target="_blank">★★★★★</a>  rating. We really appreciate your support!';
+		}
+		return $footer_text;
+	}
 
 	/**
 	 * Render UAE NPS Survey Notice.
