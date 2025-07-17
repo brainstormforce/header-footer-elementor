@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container, Switch, Tooltip, Badge } from "@bsf/force-ui";
-import { InfoIcon, FileText } from "lucide-react";
+import { InfoIcon, FileText, Monitor } from "lucide-react";
 import apiFetch from "@wordpress/api-fetch";
 import { __ } from "@wordpress/i18n";
 
@@ -106,15 +106,47 @@ const WidgetItem = ({ widget, updateCounter, showTooltip }) => {
 				</div>
 
 				<div className="flex items-center gap-x-2">
-					{is_pro && (
-						<Badge
-							label="PRO"
-							size="xxs"
-							type="pill"
-							variant="inverse"
-						/>
-					)}
-					{!is_pro && (
+					{is_pro ? (
+						<Tooltip
+							arrow
+							content={
+								<span>
+									{__(
+										"Available in UAE Pro. Click to ",
+										"header-footer-elementor",
+									)}
+									<a
+										href="https://your-link.com" // Replace with actual upgrade URL
+										target="_blank"
+										rel="noopener noreferrer"
+										style={{
+											color: "#D946EF",
+											textDecoration: "underline",
+										}}
+									>
+										{__(
+											"learn more",
+											"header-footer-elementor",
+										)}
+									</a>
+									.
+								</span>
+							}
+							placement="bottom"
+							variant="dark"
+							size="xs"
+							triggers={["hover", "focus"]}
+						>
+							<Switch
+								onChange={() => {}} // No action for pro widgets
+								size="xs"
+								value={false} // Always off for pro widgets
+								disabled={true} // Disabled state
+								style={{ outline: "none" }}
+								className="hfe-remove-ring outline-none"
+							/>
+						</Tooltip>
+					) : (
 						<Switch
 							onChange={handleSwitchChange}
 							size="xs"
@@ -139,46 +171,8 @@ const WidgetItem = ({ widget, updateCounter, showTooltip }) => {
 				>
 					{title}
 				</p>
-				{showTooltip && (
+				{/* {showTooltip && (
 					<div className="ml-2">
-						{is_pro ? (
-							<Tooltip
-								arrow
-								content={
-									<span>
-										{__(
-											"Available in UAE Pro. Click to ",
-											"header-footer-elementor",
-										)}
-										<a
-											href="https://your-link.com" // Replace with actual upgrade URL
-											target="_blank"
-											rel="noopener noreferrer"
-                                            style={{
-                                                color: "#D946EF",
-                                                textDecoration: "underline",
-                                            }}
-										>
-											{__(
-												"learn more",
-												"header-footer-elementor",
-											)}
-										</a>
-										.
-									</span>
-								}
-								placement="bottom"
-								variant="dark"
-								size="xs"
-								triggers={["hover", "focus"]}
-							>
-								<InfoIcon
-									className="h-4 w-4"
-									size={16}
-									color="#A0A5B2"
-								/>
-							</Tooltip>
-						) : (
 							<Tooltip
 								arrow
 								content={
@@ -222,15 +216,55 @@ const WidgetItem = ({ widget, updateCounter, showTooltip }) => {
 								variant="dark"
 								size="xs"
 							>
-								<InfoIcon
+								<Monitor 
 									className="h-4 w-4"
 									size={16}
 									color="#A0A5B2"
 								/>
 							</Tooltip>
-						)}
 					</div>
-				)}
+				)} */}
+
+				<div className="ml-2">
+					<Tooltip
+						arrow
+						content={
+							<div>
+								{demo_url && (
+									<a
+										href={demo_url}
+										target="_blank"
+										rel="noopener noreferrer"
+										className="text-sm text-text-tertiary focus:outline-none m-0 mb-1 hfe-remove-ring"
+										style={{
+											textDecoration: "none",
+											lineHeight: "1.5rem",
+											outline: "none",
+											border: "none",
+											boxShadow: "none"
+										}}
+									>
+										{__(
+											"View Demo",
+											"header-footer-elementor",
+										)}
+									</a>
+								)}
+							</div>
+						}
+						placement="bottom"
+						title=""
+						triggers={["click"]}
+						variant="dark"
+						size="xs"
+					>
+						<Monitor
+							className="h-4 w-4"
+							size={16}
+							color="#A0A5B2"
+						/>
+					</Tooltip>
+				</div>
 			</div>
 		</Container>
 	);

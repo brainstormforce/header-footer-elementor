@@ -62,11 +62,11 @@ const ExtendWebsite = () => {
                 {loading ? (
                     <Container
                         align="stretch"
-                        className="gap-1 p-1 grid grid-cols-1 md:grid-cols-2"
+                        className="gap-1 p-1 grid grid-cols-1 md:grid-cols-1"
                         containerType="grid"
                         justify="start"
                     >
-                        {[...Array(2)].map((_, index) => (
+                        {[...Array(1)].map((_, index) => (
                             <Container.Item
                                 key={index}
                                 alignSelf="auto"

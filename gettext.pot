@@ -582,16 +582,16 @@ msgstr ""
 msgid "Create New Page"
 msgstr ""
 
-#: src/Components/Dashboard/WidgetItem.jsx:149
+#: src/Components/Dashboard/WidgetItem.jsx:114
 msgid "Available in UAE Pro. Click to "
 msgstr ""
 
-#: src/Components/Dashboard/WidgetItem.jsx:162
+#: src/Components/Dashboard/WidgetItem.jsx:127
 msgid "learn more"
 msgstr ""
 
-#: src/Components/Dashboard/WidgetItem.jsx:211
-msgid "Read Documentation"
+#: src/Components/Dashboard/WidgetItem.jsx:247
+msgid "View Demo"
 msgstr ""
 
 #: src/Components/Dashboard/WidgetsOnboarding.jsx:108
