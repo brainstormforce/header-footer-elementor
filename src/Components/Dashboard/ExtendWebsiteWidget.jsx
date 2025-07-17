@@ -286,12 +286,6 @@ const ExtendWebsiteWidget = ({
 							onMouseLeave={(e) =>
 								(e.currentTarget.style.color = "black")
 							}
-							onClick={() => {
-								window.open(
-									"https://ultimateelementor.com/docs/getting-started-with-ultimate-addons-for-elementor-lite/",
-									"_blank"
-								);
-							}}
 					>
 						{status === "Activated"
 							? __("Visit Site", "header-footer-elementor")

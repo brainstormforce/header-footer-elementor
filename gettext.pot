@@ -432,15 +432,15 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:297
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:291
 msgid "Visit Site"
 msgstr ""
 
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:299
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:293
 msgid "Activate"
 msgstr ""
 
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:300
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:294
 msgid "Install & Activate"
 msgstr ""
 
