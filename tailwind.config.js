@@ -18,9 +18,9 @@ module.exports = withTW({
 				focus: "#9333EA",
 				"focus-border": "#D8B4FE",
 
-				"toggle-on": "#6B21A8",
+				"toggle-on": "#793BFF",
 				"toggle-on-border": "#C084FC",
-				"toggle-on-hover": "#A855F7",
+				"toggle-on-hover": "#793BFF",
 
 				"background-primary": "#FFFFFF",
 				"background-secondary": "#F3F4F6",

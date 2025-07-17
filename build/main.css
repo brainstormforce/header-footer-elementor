@@ -2915,7 +2915,7 @@ div#hfe-settings-app {
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .checked\:bg-toggle-on:checked{
     --tw-bg-opacity: 1;
-    background-color: rgb(107 33 168 / var(--tw-bg-opacity, 1));
+    background-color: rgb(121 59 255 / var(--tw-bg-opacity, 1));
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .checked\:\[background-image\:none\]:checked{
     background-image: none;
@@ -3121,11 +3121,11 @@ div#hfe-settings-app {
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .checked\:hover\:border-toggle-on-hover:hover:checked{
     --tw-border-opacity: 1;
-    border-color: rgb(168 85 247 / var(--tw-border-opacity, 1));
+    border-color: rgb(121 59 255 / var(--tw-border-opacity, 1));
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .checked\:hover\:bg-toggle-on-hover:hover:checked{
     --tw-bg-opacity: 1;
-    background-color: rgb(168 85 247 / var(--tw-bg-opacity, 1));
+    background-color: rgb(121 59 255 / var(--tw-bg-opacity, 1));
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus-within\:hover\:border-focus-border:hover:focus-within{
     --tw-border-opacity: 1;
@@ -3226,7 +3226,7 @@ div#hfe-settings-app {
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus\:ring-toggle-on:focus{
     --tw-ring-opacity: 1;
-    --tw-ring-color: rgb(107 33 168 / var(--tw-ring-opacity, 1));
+    --tw-ring-color: rgb(121 59 255 / var(--tw-ring-opacity, 1));
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus\:ring-transparent:focus{
     --tw-ring-color: transparent;
@@ -3373,7 +3373,7 @@ div#hfe-settings-app {
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group\/switch:hover .checked\:group-hover\/switch\:bg-toggle-on-hover:checked){
     --tw-bg-opacity: 1;
-    background-color: rgb(168 85 247 / var(--tw-bg-opacity, 1));
+    background-color: rgb(121 59 255 / var(--tw-bg-opacity, 1));
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group:disabled .group-disabled\:text-field-color-disabled){
     --tw-text-opacity: 1;

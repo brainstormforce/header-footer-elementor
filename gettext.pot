@@ -569,9 +569,8 @@ msgstr ""
 
 #: src/Components/Dashboard/WelcomeContainer.js:29
 msgid ""
-"We're excited to help you supercharge your website-building experience. "
-"Effortlessly design stunning websites with our comprehensive range of free "
-"and premium widgets and features."
+"Effortlessly design modern websites with UAE using our powerful range of "
+"widgets & features. Get started by selecting an option based on your needs."
 msgstr ""
 
 #: src/Components/Dashboard/WelcomeContainer.js:61
@@ -583,7 +582,15 @@ msgstr ""
 msgid "Create New Page"
 msgstr ""
 
-#: src/Components/Dashboard/WidgetItem.jsx:140
+#: src/Components/Dashboard/WidgetItem.jsx:149
+msgid "Available in UAE Pro. Click to "
+msgstr ""
+
+#: src/Components/Dashboard/WidgetItem.jsx:162
+msgid "learn more"
+msgstr ""
+
+#: src/Components/Dashboard/WidgetItem.jsx:211
 msgid "Read Documentation"
 msgstr ""
 
