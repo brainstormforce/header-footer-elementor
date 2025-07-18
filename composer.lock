@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2c0aab509634d74988694d78dd71c46c",
+    "content-hash": "267110e8dfa6c9b562ca6b2ea30c9d5b",
     "packages": [
         {
             "name": "brainstormforce/astra-notices",
@@ -53,16 +53,16 @@
         },
         {
             "name": "brainstormforce/bsf-analytics",
-            "version": "1.1.15",
+            "version": "1.1.16",
             "source": {
                 "type": "git",
                 "url": "git@github.com:brainstormforce/bsf-analytics.git",
-                "reference": "2205746828d61e1d74d66e87bcff8314dcdc747f"
+                "reference": "82f94cf38b4dfef645e30595f060d66ff4098618"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/brainstormforce/bsf-analytics/zipball/2205746828d61e1d74d66e87bcff8314dcdc747f",
-                "reference": "2205746828d61e1d74d66e87bcff8314dcdc747f",
+                "url": "https://api.github.com/repos/brainstormforce/bsf-analytics/zipball/82f94cf38b4dfef645e30595f060d66ff4098618",
+                "reference": "82f94cf38b4dfef645e30595f060d66ff4098618",
                 "shasum": ""
             },
             "require-dev": {
@@ -96,23 +96,23 @@
             },
             "description": "Library to gather non sensitive analytics data to enhance bsf products.",
             "support": {
-                "source": "https://github.com/brainstormforce/bsf-analytics/tree/1.1.15",
+                "source": "https://github.com/brainstormforce/bsf-analytics/tree/1.1.16",
                 "issues": "https://github.com/brainstormforce/bsf-analytics/issues"
             },
-            "time": "2025-07-03T08:28:45+00:00"
+            "time": "2025-07-15T10:52:37+00:00"
         },
         {
             "name": "brainstormforce/nps-survey",
-            "version": "1.0.11",
+            "version": "1.0.12",
             "source": {
                 "type": "git",
                 "url": "git@github.com:brainstormforce/nps-survey.git",
-                "reference": "bfb5d127550281c3a788d0d05abf14cbc0d329ef"
+                "reference": "efaf3f92e9e17418014b7e3de5822811da82eebb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/brainstormforce/nps-survey/zipball/bfb5d127550281c3a788d0d05abf14cbc0d329ef",
-                "reference": "bfb5d127550281c3a788d0d05abf14cbc0d329ef",
+                "url": "https://api.github.com/repos/brainstormforce/nps-survey/zipball/efaf3f92e9e17418014b7e3de5822811da82eebb",
+                "reference": "efaf3f92e9e17418014b7e3de5822811da82eebb",
                 "shasum": ""
             },
             "require-dev": {
@@ -156,10 +156,10 @@
             },
             "description": "NPS Survey Plugin",
             "support": {
-                "source": "https://github.com/brainstormforce/nps-survey/tree/1.0.11",
+                "source": "https://github.com/brainstormforce/nps-survey/tree/1.0.12",
                 "issues": "https://github.com/brainstormforce/nps-survey/issues"
             },
-            "time": "2025-06-27T06:00:28+00:00"
+            "time": "2025-07-16T09:36:38+00:00"
         },
         {
             "name": "composer/installers",
@@ -496,6 +496,47 @@
             "time": "2025-05-31T08:24:38+00:00"
         },
         {
+            "name": "pheromone/phpcs-security-audit",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FloeDesignTechnologies/phpcs-security-audit.git",
+                "reference": "68a6c53a57156a5efb2073b1eb3f2d79a46c9dc2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FloeDesignTechnologies/phpcs-security-audit/zipball/68a6c53a57156a5efb2073b1eb3f2d79a46c9dc2",
+                "reference": "68a6c53a57156a5efb2073b1eb3f2d79a46c9dc2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4",
+                "squizlabs/php_codesniffer": ">3.0"
+            },
+            "type": "phpcodesniffer-standard",
+            "autoload": {
+                "psr-4": {
+                    "PHPCS_SecurityAudit\\": "Security/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan Marcil",
+                    "homepage": "https://twitter.com/jonathanmarcil"
+                }
+            ],
+            "description": "phpcs-security-audit is a set of PHP_CodeSniffer rules that finds vulnerabilities and weaknesses related to security in PHP code",
+            "support": {
+                "issues": "https://github.com/FloeDesignTechnologies/phpcs-security-audit/issues",
+                "source": "https://github.com/FloeDesignTechnologies/phpcs-security-audit/tree/master"
+            },
+            "time": "2019-08-05T19:34:55+00:00"
+        },
+        {
             "name": "php-stubs/generator",
             "version": "v0.8.5",
             "source": {
@@ -554,16 +595,16 @@
         },
         {
             "name": "php-stubs/wordpress-stubs",
-            "version": "v6.8.1",
+            "version": "v6.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-stubs/wordpress-stubs.git",
-                "reference": "92e444847d94f7c30f88c60004648f507688acd5"
+                "reference": "9c8e22e437463197c1ec0d5eaa9ddd4a0eb6d7f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-stubs/wordpress-stubs/zipball/92e444847d94f7c30f88c60004648f507688acd5",
-                "reference": "92e444847d94f7c30f88c60004648f507688acd5",
+                "url": "https://api.github.com/repos/php-stubs/wordpress-stubs/zipball/9c8e22e437463197c1ec0d5eaa9ddd4a0eb6d7f8",
+                "reference": "9c8e22e437463197c1ec0d5eaa9ddd4a0eb6d7f8",
                 "shasum": ""
             },
             "conflict": {
@@ -571,7 +612,7 @@
             },
             "require-dev": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
-                "nikic/php-parser": "^5.4",
+                "nikic/php-parser": "^5.5",
                 "php": "^7.4 || ^8.0",
                 "php-stubs/generator": "^0.8.3",
                 "phpdocumentor/reflection-docblock": "^5.4.1",
@@ -599,9 +640,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-stubs/wordpress-stubs/issues",
-                "source": "https://github.com/php-stubs/wordpress-stubs/tree/v6.8.1"
+                "source": "https://github.com/php-stubs/wordpress-stubs/tree/v6.8.2"
             },
-            "time": "2025-05-02T12:33:34+00:00"
+            "time": "2025-07-16T06:41:00+00:00"
         },
         {
             "name": "phpcompatibility/php-compatibility",
@@ -814,16 +855,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.12.27",
+            "version": "1.12.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "3a6e423c076ab39dfedc307e2ac627ef579db162"
+                "reference": "fcf8b71aeab4e1a1131d1783cef97b23a51b87a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/3a6e423c076ab39dfedc307e2ac627ef579db162",
-                "reference": "3a6e423c076ab39dfedc307e2ac627ef579db162",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/fcf8b71aeab4e1a1131d1783cef97b23a51b87a9",
+                "reference": "fcf8b71aeab4e1a1131d1783cef97b23a51b87a9",
                 "shasum": ""
             },
             "require": {
@@ -868,7 +909,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-05-21T20:51:45+00:00"
+            "time": "2025-07-17T17:15:39+00:00"
         },
         {
             "name": "psr/container",
@@ -1066,47 +1107,47 @@
         },
         {
             "name": "symfony/console",
-            "version": "v7.3.1",
+            "version": "v6.4.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "9e27aecde8f506ba0fd1d9989620c04a87697101"
+                "reference": "9056771b8eca08d026cd3280deeec3cfd99c4d93"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/9e27aecde8f506ba0fd1d9989620c04a87697101",
-                "reference": "9e27aecde8f506ba0fd1d9989620c04a87697101",
+                "url": "https://api.github.com/repos/symfony/console/zipball/9056771b8eca08d026cd3280deeec3cfd99c4d93",
+                "reference": "9056771b8eca08d026cd3280deeec3cfd99c4d93",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.2",
+                "php": ">=8.1",
                 "symfony/deprecation-contracts": "^2.5|^3",
                 "symfony/polyfill-mbstring": "~1.0",
                 "symfony/service-contracts": "^2.5|^3",
-                "symfony/string": "^7.2"
+                "symfony/string": "^5.4|^6.0|^7.0"
             },
             "conflict": {
-                "symfony/dependency-injection": "<6.4",
-                "symfony/dotenv": "<6.4",
-                "symfony/event-dispatcher": "<6.4",
-                "symfony/lock": "<6.4",
-                "symfony/process": "<6.4"
+                "symfony/dependency-injection": "<5.4",
+                "symfony/dotenv": "<5.4",
+                "symfony/event-dispatcher": "<5.4",
+                "symfony/lock": "<5.4",
+                "symfony/process": "<5.4"
             },
             "provide": {
                 "psr/log-implementation": "1.0|2.0|3.0"
             },
             "require-dev": {
                 "psr/log": "^1|^2|^3",
-                "symfony/config": "^6.4|^7.0",
-                "symfony/dependency-injection": "^6.4|^7.0",
-                "symfony/event-dispatcher": "^6.4|^7.0",
+                "symfony/config": "^5.4|^6.0|^7.0",
+                "symfony/dependency-injection": "^5.4|^6.0|^7.0",
+                "symfony/event-dispatcher": "^5.4|^6.0|^7.0",
                 "symfony/http-foundation": "^6.4|^7.0",
                 "symfony/http-kernel": "^6.4|^7.0",
-                "symfony/lock": "^6.4|^7.0",
-                "symfony/messenger": "^6.4|^7.0",
-                "symfony/process": "^6.4|^7.0",
-                "symfony/stopwatch": "^6.4|^7.0",
-                "symfony/var-dumper": "^6.4|^7.0"
+                "symfony/lock": "^5.4|^6.0|^7.0",
+                "symfony/messenger": "^5.4|^6.0|^7.0",
+                "symfony/process": "^5.4|^6.0|^7.0",
+                "symfony/stopwatch": "^5.4|^6.0|^7.0",
+                "symfony/var-dumper": "^5.4|^6.0|^7.0"
             },
             "type": "library",
             "autoload": {
@@ -1140,7 +1181,7 @@
                 "terminal"
             ],
             "support": {
-                "source": "https://github.com/symfony/console/tree/v7.3.1"
+                "source": "https://github.com/symfony/console/tree/v6.4.23"
             },
             "funding": [
                 {
@@ -1156,7 +1197,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-06-27T19:55:54+00:00"
+            "time": "2025-06-27T19:37:22+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -1227,25 +1268,25 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v7.3.0",
+            "version": "v6.4.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "b8dce482de9d7c9fe2891155035a7248ab5c7fdb"
+                "reference": "4856c9cf585d5a0313d8d35afd681a526f038dd3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/b8dce482de9d7c9fe2891155035a7248ab5c7fdb",
-                "reference": "b8dce482de9d7c9fe2891155035a7248ab5c7fdb",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/4856c9cf585d5a0313d8d35afd681a526f038dd3",
+                "reference": "4856c9cf585d5a0313d8d35afd681a526f038dd3",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.2",
+                "php": ">=8.1",
                 "symfony/polyfill-ctype": "~1.8",
                 "symfony/polyfill-mbstring": "~1.8"
             },
             "require-dev": {
-                "symfony/process": "^6.4|^7.0"
+                "symfony/process": "^5.4|^6.4|^7.0"
             },
             "type": "library",
             "autoload": {
@@ -1273,7 +1314,7 @@
             "description": "Provides basic utilities for the filesystem",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/filesystem/tree/v7.3.0"
+                "source": "https://github.com/symfony/filesystem/tree/v6.4.13"
             },
             "funding": [
                 {
@@ -1289,27 +1330,27 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-10-25T15:15:23+00:00"
+            "time": "2024-10-25T15:07:50+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v7.3.0",
+            "version": "v6.4.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "ec2344cf77a48253bbca6939aa3d2477773ea63d"
+                "reference": "1d0e8266248c5d9ab6a87e3789e6dc482af3c9c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/ec2344cf77a48253bbca6939aa3d2477773ea63d",
-                "reference": "ec2344cf77a48253bbca6939aa3d2477773ea63d",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/1d0e8266248c5d9ab6a87e3789e6dc482af3c9c7",
+                "reference": "1d0e8266248c5d9ab6a87e3789e6dc482af3c9c7",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.2"
+                "php": ">=8.1"
             },
             "require-dev": {
-                "symfony/filesystem": "^6.4|^7.0"
+                "symfony/filesystem": "^6.0|^7.0"
             },
             "type": "library",
             "autoload": {
@@ -1337,7 +1378,7 @@
             "description": "Finds files and directories via an intuitive fluent interface",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/finder/tree/v7.3.0"
+                "source": "https://github.com/symfony/finder/tree/v6.4.17"
             },
             "funding": [
                 {
@@ -1353,7 +1394,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-12-30T19:00:26+00:00"
+            "time": "2024-12-29T13:51:37+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -1835,20 +1876,20 @@
         },
         {
             "name": "symfony/string",
-            "version": "v7.3.0",
+            "version": "v6.4.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/string.git",
-                "reference": "f3570b8c61ca887a9e2938e85cb6458515d2b125"
+                "reference": "73e2c6966a5aef1d4892873ed5322245295370c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/string/zipball/f3570b8c61ca887a9e2938e85cb6458515d2b125",
-                "reference": "f3570b8c61ca887a9e2938e85cb6458515d2b125",
+                "url": "https://api.github.com/repos/symfony/string/zipball/73e2c6966a5aef1d4892873ed5322245295370c6",
+                "reference": "73e2c6966a5aef1d4892873ed5322245295370c6",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.2",
+                "php": ">=8.1",
                 "symfony/polyfill-ctype": "~1.8",
                 "symfony/polyfill-intl-grapheme": "~1.0",
                 "symfony/polyfill-intl-normalizer": "~1.0",
@@ -1858,12 +1899,11 @@
                 "symfony/translation-contracts": "<2.5"
             },
             "require-dev": {
-                "symfony/emoji": "^7.1",
-                "symfony/error-handler": "^6.4|^7.0",
-                "symfony/http-client": "^6.4|^7.0",
-                "symfony/intl": "^6.4|^7.0",
+                "symfony/error-handler": "^5.4|^6.0|^7.0",
+                "symfony/http-client": "^5.4|^6.0|^7.0",
+                "symfony/intl": "^6.2|^7.0",
                 "symfony/translation-contracts": "^2.5|^3.0",
-                "symfony/var-exporter": "^6.4|^7.0"
+                "symfony/var-exporter": "^5.4|^6.0|^7.0"
             },
             "type": "library",
             "autoload": {
@@ -1902,7 +1942,7 @@
                 "utf8"
             ],
             "support": {
-                "source": "https://github.com/symfony/string/tree/v7.3.0"
+                "source": "https://github.com/symfony/string/tree/v6.4.21"
             },
             "funding": [
                 {
@@ -1918,7 +1958,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-04-20T20:19:01+00:00"
+            "time": "2025-04-18T15:23:29+00:00"
         },
         {
             "name": "szepeviktor/phpstan-wordpress",
