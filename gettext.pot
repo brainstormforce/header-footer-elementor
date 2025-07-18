@@ -585,12 +585,46 @@ msgstr ""
 msgid " Continue Setup"
 msgstr ""
 
-#: src/Components/HeaderLine.js:16
-msgid "Formerly Elementor Header & Footer Builder"
+#: src/Components/HF-Builder/AllLayouts.jsx:43
+msgid "Create Layout"
 msgstr ""
 
+#: src/Components/HF-Builder/Navbar.js:116
 #: src/Components/NavMenu.js:131
 msgid "Dashboard"
+msgstr ""
+
+#: src/Components/HF-Builder/Navbar.js:123
+msgid "Header & Footer Builder"
+msgstr ""
+
+#: src/Components/HF-Builder/Sidebar.jsx:103
+#: src/Components/Settings/Settings.jsx:64
+msgid "Custom SVG"
+msgstr ""
+
+#: src/Components/HF-Builder/Sidebar.jsx:107
+msgid "Custom Block"
+msgstr ""
+
+#: src/Components/HF-Builder/Sidebar.jsx:31
+msgid "All Layouts"
+msgstr ""
+
+#: src/Components/HF-Builder/Sidebar.jsx:50
+msgid "Header "
+msgstr ""
+
+#: src/Components/HF-Builder/Sidebar.jsx:69
+msgid "Footer"
+msgstr ""
+
+#: src/Components/HF-Builder/Sidebar.jsx:88
+msgid "Before Footer"
+msgstr ""
+
+#: src/Components/HeaderLine.js:16
+msgid "Formerly Elementor Header & Footer Builder"
 msgstr ""
 
 #: src/Components/NavMenu.js:151
@@ -803,10 +837,6 @@ msgstr ""
 #: src/Components/Settings/Settings.jsx:49
 #: src/Components/Settings/ThemeSupport.jsx:80
 msgid "Theme Support"
-msgstr ""
-
-#: src/Components/Settings/Settings.jsx:64
-msgid "Custom SVG"
 msgstr ""
 
 #: src/Components/Settings/Settings.jsx:68

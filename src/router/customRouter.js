@@ -3,6 +3,7 @@ import Dashboard from '@components/Dashboard/Dashboard';
 import Features from '@components/Widgets/Features';
 import Templates from '@components/Templates/Templates';
 import Settings from '@components/Settings/Settings';
+import HFB from '@components/HF-Builder/HFB';
 import { routes } from 'admin/settings/routes';
 import Upgrade from '@components/Compare/Upgrade';
 import Onboarding from '@components/Onboarding/Onboarding';
@@ -17,6 +18,7 @@ const CustomRouter = () => (
     <Route path={routes.templates.path}><Templates /></Route>
     <Route path={routes.settings.path}><Settings /></Route>
     <Route path={routes.upgrade.path}><Upgrade /></Route>
+    <Route path={routes.headerBuilder.path}>< HFB /></Route>
     <Route path={routes.onboardingsuccess.path}><Success /></Route>
   </Router>
 );
