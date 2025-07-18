@@ -585,7 +585,23 @@ msgstr ""
 msgid " Continue Setup"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:43
+#: src/Components/HF-Builder/AllLayouts.jsx:11
+msgid "Edit Header"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:18
+msgid "Edit Footer"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:25
+msgid "Edit Before Footer"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:32
+msgid "Edit Custom Block"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:65
 msgid "Create Layout"
 msgstr ""
 
