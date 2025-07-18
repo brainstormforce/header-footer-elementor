@@ -142,7 +142,7 @@ const WidgetItem = ({ widget, updateCounter, showTooltip }) => {
 								size="xs"
 								value={false} // Always off for pro widgets
 								disabled={true} // Disabled state
-								style={{ outline: "none" }}
+								style={{ outline: "none", cursor: "default" }}
 								className="hfe-remove-ring outline-none"
 							/>
 						</Tooltip>
@@ -241,7 +241,7 @@ const WidgetItem = ({ widget, updateCounter, showTooltip }) => {
 											lineHeight: "1.5rem",
 											outline: "none",
 											border: "none",
-											boxShadow: "none"
+											boxShadow: "none",
 										}}
 									>
 										{__(
@@ -254,15 +254,29 @@ const WidgetItem = ({ widget, updateCounter, showTooltip }) => {
 						}
 						placement="bottom"
 						title=""
-						triggers={["click"]}
+						triggers={["hover", "focus"]}
 						variant="dark"
 						size="xs"
 					>
-						<Monitor
-							className="h-4 w-4"
-							size={16}
-							color="#A0A5B2"
-						/>
+						<div
+							onClick={() => {
+								if (demo_url) {
+									window.open(
+										demo_url,
+										"_blank",
+										"noopener,noreferrer",
+									);
+								}
+							}}
+							style={{ cursor: demo_url ? "pointer" : "default" }}
+							className="inline-flex items-center"
+						>
+							<Monitor
+								className="h-4 w-4"
+								size={16}
+								color="#A0A5B2"
+							/>
+						</div>
 					</Tooltip>
 				</div>
 			</div>
