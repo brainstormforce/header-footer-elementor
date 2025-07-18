@@ -1556,24 +1556,24 @@ class HFE_Settings_Page {
 		}
 
 		// Strip php tags.
-		$content = preg_replace( '/<\?(=|php)(.+?)\?>/i', '', $original_content );
-		$content = preg_replace( '/<\?(.*)\?>/Us', '', $content );
-		$content = preg_replace( '/<\%(.*)\%>/Us', '', $content );
+		$content = preg_replace_callback( '/<\?(=|php)(.+?)\?>/i', function() { return ''; }, $original_content );
+		$content = preg_replace_callback( '/<\?(.*)\?>/Us', function() { return ''; }, $content );
+		$content = preg_replace_callback( '/<\%(.*)\%>/Us', function() { return ''; }, $content );
 
 		if ( ( false !== strpos( $content, '<?' ) ) || ( false !== strpos( $content, '<%' ) ) ) {
 			return '';
 		}
 
 		// Strip comments.
-		$content = preg_replace( '/<!--(.*)-->/Us', '', $content );
-		$content = preg_replace( '/\/\*(.*)\*\//Us', '', $content );
+		$content = preg_replace_callback( '/<!--(.*)-->/Us', function() { return ''; }, $content );
+		$content = preg_replace_callback( '/\/\*(.*)\*\//Us', function() { return ''; }, $content );
 
 		if ( ( false !== strpos( $content, '<!--' ) ) || ( false !== strpos( $content, '/*' ) ) ) {
 			return '';
 		}
 
 		// Strip line breaks.
-		$content = preg_replace( '/\r|\n/', '', $content );
+		$content = preg_replace_callback( '/\r|\n/', function() { return ''; }, $content );
 
 		// Find the start and end tags so we can cut out miscellaneous garbage.
 		$start = strpos( $content, '<svg' );
