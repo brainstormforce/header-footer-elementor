@@ -902,7 +902,7 @@ msgstr ""
 msgid "Congratulations!"
 msgstr ""
 
-#: src/Components/Onboarding/WelcomeNew.jsx:117
+#: src/Components/Onboarding/WelcomeNew.jsx:120
 msgid "Let's Get Started"
 msgstr ""
 
@@ -914,15 +914,15 @@ msgstr ""
 msgid "Your Ultimate Elementor Addons to build modern Elementor Websites."
 msgstr ""
 
-#: src/Components/Onboarding/WelcomeNew.jsx:55
+#: src/Components/Onboarding/WelcomeNew.jsx:58
 msgid "Disable unused widgets in one click, no bloat"
 msgstr ""
 
-#: src/Components/Onboarding/WelcomeNew.jsx:71
+#: src/Components/Onboarding/WelcomeNew.jsx:74
 msgid "Design headers & footers exactly where you want them"
 msgstr ""
 
-#: src/Components/Onboarding/WelcomeNew.jsx:87
+#: src/Components/Onboarding/WelcomeNew.jsx:90
 msgid "Reliable support from experts when you need it"
 msgstr ""
 

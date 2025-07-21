@@ -17,7 +17,7 @@ const Welcome = ({ setCurrentStep }) => {
 						</span>
 					</h1>
 					<span
-						className="text-md font-medium m-0 mb-2"
+						className="text-md font-medium m-0 mb-4"
 						style={{ lineHeight: "1.5em", color: "#111827" }}
 					>
 						{__(
@@ -26,11 +26,14 @@ const Welcome = ({ setCurrentStep }) => {
 						)}
 					</span>
 				</div>
-				<img
-					alt="Welcome"
-					className="w-full h-auto mb-2 mt-2"
-					src={`${hfeSettingsData.welcome_new}`}
-					loading="lazy"
+				<iframe
+					width="500"
+					height="280"
+					src="https://www.youtube.com/embed/YqWd3VYlxcY"
+					frameBorder="0"
+					style={{ borderRadius: "8px" }}
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+					allowFullScreen
 				/>
 				<ul
 					className="list-none font-normal "
