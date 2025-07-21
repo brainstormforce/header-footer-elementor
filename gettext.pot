@@ -603,12 +603,6 @@ msgid "Configure Display Conditions"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:344
-#: src/Components/HF-Builder/AllLayouts.jsx:338
-#: src/Components/HF-Builder/AllLayouts.jsx:316
-#: src/Components/HF-Builder/AllLayouts.jsx:311
-#: src/Components/HF-Builder/AllLayouts.jsx:291
-#: src/Components/HF-Builder/AllLayouts.jsx:292
-#: src/Components/HF-Builder/AllLayouts.jsx:286
 #: src/Components/HF-Builder/Header.jsx:18
 msgid "Layout Template"
 msgstr ""
