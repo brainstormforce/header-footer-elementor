@@ -1,8 +1,8 @@
 {
 		"name": "header-footer-elementor",
-		"version": "2.4.2",
+		"version": "2.4.4",
 		"main": "index.js",
-		"author": "Nikhil Chavan",
+		"author": "Brainstorm Force",
 		"volta": {
 				"node": "18.15.0"
 		},

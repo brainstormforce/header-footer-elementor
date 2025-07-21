@@ -310,3 +310,14 @@ input[type="checkbox"].role-checkbox:focus{
 	border-color:rgb(92, 46, 222);
 	box-shadow:0 0 0 1px rgb(92, 46, 222);
 }
+
+#wpfooter{
+    background-color: white;
+}
+.uae-rating{
+    color: #6005FF;
+}
+
+.uae-rating:hover{
+	color: #4B00CC;
+}

@@ -204,7 +204,7 @@ const FeatureWidgets = () => {
                                 arrow
                                 content={
                                     <div>
-                                       <p>__('Click here to activate all widgets & extensions.', 'header-footer-elementor')</p>
+                                       <p>{__('Click here to activate all widgets & extensions.', 'header-footer-elementor')}</p>
                                     </div>
                                 }
                                 placement="top"
@@ -230,7 +230,7 @@ const FeatureWidgets = () => {
                                 arrow
                                 content={
                                     <div>
-                                       <p>__('Click here to deactivate all unused widgets, except Extensions.', 'header-footer-elementor')</p>
+                                       <p>{__('Click here to deactivate all unused widgets, except Extensions.', 'header-footer-elementor')}</p>
                                     </div>
                                 }
                                 placement="top"
@@ -313,14 +313,18 @@ const FeatureWidgets = () => {
                         gap=""
                         justify="start"
                         style={{
-                            backgroundColor: '#F9FAFB'
+                            backgroundColor: '#F9FAFB',
                         }}
                     >
                         {filteredWidgets?.map((widget) => (
                             <Container.Item
                                 key={widget.id}
                                 alignSelf="auto"
-                                className="text-wrap rounded-md shadow-container-item bg-background-primary p-4"
+                                style={{
+									paddingTop: "8px",
+									paddingBottom: "8px",
+								}}
+                                className="text-wrap rounded-md shadow-container-item bg-background-primary px-4"
                             >
                                 <WidgetItem widget={{ ...widget, updateCounter }} showTooltip={showTooltip} key={widget.id} updateCounter={updateCounter} />
                             </Container.Item>

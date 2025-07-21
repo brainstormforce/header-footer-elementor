@@ -79,4 +79,35 @@ abstract class Common_Widget extends Widget_Base {
 	public function is_internal_links() {
 		return HFE_Helper::is_internal_links();
 	}
+
+	/**
+	 * Get widget help URL
+	 *
+	 * Retrieve the widget help URL for third-party widgets.
+	 * Elementor uses get_custom_help_url() for widgets outside the Elementor namespace.
+	 *
+	 * @since 2.4.4
+	 * @access public
+	 *
+	 * @return string Widget help URL.
+	 */
+	public function get_custom_help_url() {
+		return HFE_Helper::get_widget_help_url( $this->get_name() );
+	}
+
+	/**
+	 * Get widget help URL (legacy method)
+	 *
+	 * Retrieve the widget help URL.
+	 * This method is kept for backward compatibility.
+	 *
+	 * @since 2.4.4
+	 * @access public
+	 *
+	 * @return string Widget help URL.
+	 */
+	public function get_help_url() {
+		// For third-party widgets, Elementor uses get_custom_help_url()
+		return $this->get_custom_help_url();
+	}
 }
