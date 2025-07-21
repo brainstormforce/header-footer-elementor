@@ -180,7 +180,7 @@ const ExtendOnboardingWidget = ({
       <>
       	<style>
 				{`
-                    .role-checkbox {
+                    .uae-role-checkbox {
                         position: relative;
                         width: 30px;
                         height: 30px;
@@ -191,12 +191,12 @@ const ExtendOnboardingWidget = ({
                         cursor: pointer;
                     }
 
-                    .role-checkbox:checked {
+                    .uae-role-checkbox:checked {
                         background-color: #240064;
                         border-color: #0017E1;
                     }
 
-                    .role-checkbox:checked::after {
+                    .uae-role-checkbox:checked::after {
                         content: '';
                         position: absolute;
                         top: 50%;
@@ -239,7 +239,7 @@ const ExtendOnboardingWidget = ({
                         checked={isChecked}
                         onChange={handleCheckboxChange}
                         id={`plugin-${slug}`}
-                        className="role-checkbox h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
+                        className="uae-role-checkbox h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
                         data-plugin={zipUrl}
                         data-type={type}
                         data-pluginname={name}

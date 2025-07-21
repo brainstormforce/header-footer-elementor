@@ -237,7 +237,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 		<>
 			<style>
 				{`
-                    .role-checkbox {
+                    .uae-role-checkbox {
                         position: relative;
                         width: 30px;
                         height: 30px;
@@ -248,16 +248,16 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
                         cursor: pointer;
                     }
 
-                    .role-checkbox:focus {
+                    .uae-role-checkbox:focus {
                         outline: none;
                     }
 
-                    .role-checkbox:checked {
+                    .uae-role-checkbox:checked {
                         background-color: #5C2EDE !important; /* brand-primary-600 */
                         border-color: #0017E1;
                     }
 
-                    .role-checkbox:checked::after {
+                    .uae-role-checkbox:checked::after {
                         content: '';
                         position: absolute;
                         top: 50%;
@@ -437,7 +437,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 								onChange={(e) =>
 									handleInputChange("email", e.target.value)
 								}
-								className="role-checkbox w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
+								className="uae-role-checkbox w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
 								 style={{
                                             height: '48px',
                                             borderColor: '#e0e0e0', // Default border color
@@ -455,7 +455,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 							id="notifications-checkbox"
 							checked={isActive}
 							onChange={handleNotifyChange}
-							className="role-checkbox mt-1 h-4 w-4 text-[#5C2EDE] focus:ring-[#5C2EDE] border-gray-300 rounded"
+							className="uae-role-checkbox mt-1 h-4 w-4 text-[#5C2EDE] focus:ring-[#5C2EDE] border-gray-300 rounded"
 						/>
 						<label
 							htmlFor="notifications-checkbox"
