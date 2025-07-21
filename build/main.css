@@ -2798,7 +2798,6 @@ body.hfe-onboarding-fullscreen #wpcontent {
        margin-left: 0;
        padding-left: 0;
 }
-<<<<<<< HEAD
 body.hfe-onboarding-fullscreen.admin-bar {
        margin-top: 0 !important;
 }
@@ -2808,8 +2807,6 @@ input[type="checkbox"].role-checkbox:focus{
 	border-color:rgb(92, 46, 222);
 	box-shadow:0 0 0 1px rgb(92, 46, 222);
 }
-
-=======
 
 #wpfooter{
     background-color: white;
@@ -2821,152 +2818,87 @@ input[type="checkbox"].role-checkbox:focus{
 .uae-rating:hover{
 	color: #4B00CC;
 }
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 
 :is(#hfe-settings-app, [data-floating-ui-portal]) .file\:border-0::file-selector-button{
     border-width: 0px;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .file\:bg-transparent::file-selector-button{
     background-color: transparent;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .file\:text-text-tertiary::file-selector-button{
     --tw-text-opacity: 1;
     color: rgb(107 114 128 / var(--tw-text-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .placeholder\:text-field-placeholder::-moz-placeholder{
     --tw-text-opacity: 1;
     color: rgb(107 114 128 / var(--tw-text-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .placeholder\:text-field-placeholder::placeholder{
     --tw-text-opacity: 1;
     color: rgb(107 114 128 / var(--tw-text-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .placeholder\:text-text-disabled::-moz-placeholder{
     --tw-text-opacity: 1;
     color: rgb(189 193 199 / var(--tw-text-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .placeholder\:text-text-disabled::placeholder{
     --tw-text-opacity: 1;
     color: rgb(189 193 199 / var(--tw-text-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .before\:absolute::before{
     content: var(--tw-content);
     position: absolute;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .before\:top-2\/4::before{
     content: var(--tw-content);
     top: 50%;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .before\:hidden::before{
     content: var(--tw-content);
     display: none;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .before\:h-10::before{
     content: var(--tw-content);
     height: 2.5rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .before\:w-10::before{
     content: var(--tw-content);
     width: 2.5rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .before\:-translate-x-2\/4::before{
     content: var(--tw-content);
     --tw-translate-x: -50%;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .before\:-translate-y-2\/4::before{
     content: var(--tw-content);
     --tw-translate-y: -50%;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .before\:rounded-full::before{
     content: var(--tw-content);
     border-radius: 9999px;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .before\:opacity-0::before{
     content: var(--tw-content);
     opacity: 0;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .before\:transition-opacity::before{
     content: var(--tw-content);
     transition-property: opacity;
@@ -2974,1322 +2906,718 @@ input[type="checkbox"].role-checkbox:focus{
     transition-duration: 150ms;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .before\:content-\[\'\'\]::before{
     --tw-content: '';
     content: var(--tw-content);
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .after\:ml-0::after{
     content: var(--tw-content);
     margin-left: 0px;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .after\:ml-0\.5::after{
     content: var(--tw-content);
     margin-left: 0.125rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .after\:text-field-required::after{
     content: var(--tw-content);
     --tw-text-opacity: 1;
     color: rgb(220 38 38 / var(--tw-text-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .after\:content-\[\'\*\'\]::after{
     --tw-content: '*';
     content: var(--tw-content);
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .first\:rounded-bl:first-child{
     border-bottom-left-radius: 0.25rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .first\:rounded-tl:first-child{
     border-top-left-radius: 0.25rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .first\:border-0:first-child{
     border-width: 0px;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .first\:border-r:first-child{
     border-right-width: 1px;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .first\:border-border-subtle:first-child{
     --tw-border-opacity: 1;
     border-color: rgb(229 231 235 / var(--tw-border-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .last\:rounded-br:last-child{
     border-bottom-right-radius: 0.25rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .last\:rounded-tr:last-child{
     border-top-right-radius: 0.25rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .last\:border-0:last-child{
     border-width: 0px;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .checked\:border-border-interactive:checked{
     --tw-border-opacity: 1;
     border-color: rgb(37 99 235 / var(--tw-border-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .checked\:border-toggle-on-border:checked{
     --tw-border-opacity: 1;
     border-color: rgb(192 132 252 / var(--tw-border-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .checked\:bg-toggle-on:checked{
     --tw-bg-opacity: 1;
     background-color: rgb(121 59 255 / var(--tw-bg-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .checked\:\[background-image\:none\]:checked{
     background-image: none;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .checked\:before\:hidden:checked::before{
     content: var(--tw-content);
     display: none;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .checked\:before\:content-\[\'\'\]:checked::before{
     --tw-content: '';
     content: var(--tw-content);
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus-within\:z-10:focus-within{
     z-index: 10;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus-within\:border-focus-border:focus-within{
     --tw-border-opacity: 1;
     border-color: rgb(216 180 254 / var(--tw-border-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus-within\:text-field-input:focus-within{
     --tw-text-opacity: 1;
     color: rgb(17 24 39 / var(--tw-text-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus-within\:outline-none:focus-within{
     outline: 2px solid transparent;
     outline-offset: 2px;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus-within\:outline-focus-border:focus-within{
     outline-color: #D8B4FE;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus-within\:ring-2:focus-within{
     --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
     --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
     box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus-within\:ring-focus:focus-within{
     --tw-ring-opacity: 1;
     --tw-ring-color: rgb(147 51 234 / var(--tw-ring-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus-within\:ring-offset-2:focus-within{
     --tw-ring-offset-width: 2px;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:border-border-disabled:hover{
     --tw-border-opacity: 1;
     border-color: rgb(229 231 235 / var(--tw-border-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:border-border-interactive:hover{
     --tw-border-opacity: 1;
     border-color: rgb(37 99 235 / var(--tw-border-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:border-border-strong:hover{
     --tw-border-opacity: 1;
     border-color: rgb(107 114 128 / var(--tw-border-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:border-button-primary:hover{
     --tw-border-opacity: 1;
     border-color: rgb(37 99 235 / var(--tw-border-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:border-field-border:hover{
     --tw-border-opacity: 1;
     border-color: rgb(229 231 235 / var(--tw-border-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:border-field-dropzone-color:hover{
     --tw-border-opacity: 1;
     border-color: rgb(37 99 235 / var(--tw-border-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:border-text-inverse:hover{
     --tw-border-opacity: 1;
     border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:bg-background-brand:hover{
     --tw-bg-opacity: 1;
     background-color: rgb(37 99 235 / var(--tw-bg-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:bg-background-secondary:hover{
     --tw-bg-opacity: 1;
     background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:bg-badge-hover-disabled:hover{
     --tw-bg-opacity: 1;
     background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:bg-badge-hover-gray:hover{
     --tw-bg-opacity: 1;
     background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:bg-badge-hover-green:hover{
     --tw-bg-opacity: 1;
     background-color: rgb(220 252 231 / var(--tw-bg-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:bg-badge-hover-red:hover{
     --tw-bg-opacity: 1;
     background-color: rgb(254 226 226 / var(--tw-bg-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:bg-badge-hover-sky:hover{
     --tw-bg-opacity: 1;
     background-color: rgb(224 242 254 / var(--tw-bg-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:bg-badge-hover-yellow:hover{
     --tw-bg-opacity: 1;
     background-color: rgb(254 249 195 / var(--tw-bg-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:bg-button-danger-hover:hover{
     --tw-bg-opacity: 1;
     background-color: rgb(185 28 28 / var(--tw-bg-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:bg-button-primary-hover:hover{
     --tw-bg-opacity: 1;
     background-color: rgb(29 78 216 / var(--tw-bg-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:bg-button-secondary-hover:hover{
     --tw-bg-opacity: 1;
     background-color: rgb(55 65 81 / var(--tw-bg-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:bg-button-tertiary-hover:hover{
     --tw-bg-opacity: 1;
     background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:bg-field-background-error:hover{
     --tw-bg-opacity: 1;
     background-color: rgb(254 242 242 / var(--tw-bg-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:bg-field-dropzone-background-hover:hover{
     --tw-bg-opacity: 1;
     background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:bg-transparent:hover{
     background-color: transparent;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:bg-white:hover{
     --tw-bg-opacity: 1;
     background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:text-black:hover{
     --tw-text-opacity: 1;
     color: rgb(0 0 0 / var(--tw-text-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:text-button-danger-secondary:hover{
     --tw-text-opacity: 1;
     color: rgb(220 38 38 / var(--tw-text-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:text-button-primary-hover:hover{
     --tw-text-opacity: 1;
     color: rgb(29 78 216 / var(--tw-text-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:text-link-primary-hover:hover{
     --tw-text-opacity: 1;
     color: rgb(29 78 216 / var(--tw-text-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:text-text-disabled:hover{
     --tw-text-opacity: 1;
     color: rgb(189 193 199 / var(--tw-text-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:text-text-inverse:hover{
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:text-text-primary:hover{
     --tw-text-opacity: 1;
     color: rgb(17 24 39 / var(--tw-text-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:underline:hover{
     text-decoration-line: underline;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:no-underline:hover{
     text-decoration-line: none;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:shadow-sm:hover{
     --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:outline-border-disabled:hover{
     outline-color: #E5E7EB;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:outline-border-interactive:hover{
     outline-color: #2563EB;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:outline-border-strong:hover{
     outline-color: #6B7280;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:outline-border-subtle:hover{
     outline-color: #E5E7EB;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:outline-button-danger:hover{
     outline-color: #DC2626;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:outline-button-danger-hover:hover{
     outline-color: #B91C1C;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:outline-button-primary-hover:hover{
     outline-color: #1D4ED8;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:outline-button-secondary-hover:hover{
     outline-color: #374151;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:outline-field-border-disabled:hover{
     outline-color: #F3F4F6;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:before\:opacity-10:hover::before{
     content: var(--tw-content);
     opacity: 0.1;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .checked\:hover\:border-toggle-on-hover:hover:checked{
     --tw-border-opacity: 1;
     border-color: rgb(121 59 255 / var(--tw-border-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .checked\:hover\:bg-toggle-on-hover:hover:checked{
     --tw-bg-opacity: 1;
     background-color: rgb(121 59 255 / var(--tw-bg-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus-within\:hover\:border-focus-border:hover:focus-within{
     --tw-border-opacity: 1;
     border-color: rgb(216 180 254 / var(--tw-border-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus-within\:hover\:outline-focus-border:hover:focus-within{
     outline-color: #D8B4FE;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:focus-within\:outline-focus-border:focus-within:hover{
     outline-color: #D8B4FE;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus\:rounded-sm:focus{
     border-radius: 0.125rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus\:border-border-interactive:focus{
     --tw-border-opacity: 1;
     border-color: rgb(37 99 235 / var(--tw-border-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus\:border-focus-border:focus{
     --tw-border-opacity: 1;
     border-color: rgb(216 180 254 / var(--tw-border-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus\:border-focus-error-border:focus{
     --tw-border-opacity: 1;
     border-color: rgb(254 202 202 / var(--tw-border-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus\:border-toggle-off-border:focus{
     --tw-border-opacity: 1;
     border-color: rgb(189 193 199 / var(--tw-border-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus\:bg-background-secondary:focus{
     --tw-bg-opacity: 1;
     background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus\:bg-button-tertiary-hover:focus{
     --tw-bg-opacity: 1;
     background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus\:shadow-none:focus{
     --tw-shadow: 0 0 #0000;
     --tw-shadow-colored: 0 0 #0000;
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus\:outline-none:focus{
     outline: 2px solid transparent;
     outline-offset: 2px;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus\:outline:focus{
     outline-style: solid;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus\:outline-1:focus{
     outline-width: 1px;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus\:outline-border-subtle:focus{
     outline-color: #E5E7EB;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus\:outline-focus-border:focus{
     outline-color: #D8B4FE;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus\:outline-focus-error-border:focus{
     outline-color: #FECACA;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus\:ring:focus{
     --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
     --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
     box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus\:ring-0:focus{
     --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
     --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color);
     box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus\:ring-1:focus{
     --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
     --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
     box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus\:ring-2:focus{
     --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
     --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
     box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus\:ring-border-interactive:focus{
     --tw-ring-opacity: 1;
     --tw-ring-color: rgb(37 99 235 / var(--tw-ring-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus\:ring-field-color-error:focus{
     --tw-ring-opacity: 1;
     --tw-ring-color: rgb(220 38 38 / var(--tw-ring-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus\:ring-focus:focus{
     --tw-ring-opacity: 1;
     --tw-ring-color: rgb(147 51 234 / var(--tw-ring-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus\:ring-focus-error:focus{
     --tw-ring-opacity: 1;
     --tw-ring-color: rgb(220 38 38 / var(--tw-ring-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus\:ring-toggle-on:focus{
     --tw-ring-opacity: 1;
     --tw-ring-color: rgb(121 59 255 / var(--tw-ring-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus\:ring-transparent:focus{
     --tw-ring-color: transparent;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus\:ring-offset-0:focus{
     --tw-ring-offset-width: 0px;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus\:ring-offset-2:focus{
     --tw-ring-offset-width: 2px;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus\:\[box-shadow\:none\]:focus{
     box-shadow: none;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .checked\:focus\:border-toggle-on-border:focus:checked{
     --tw-border-opacity: 1;
     border-color: rgb(192 132 252 / var(--tw-border-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus-visible\:outline-none:focus-visible{
     outline: 2px solid transparent;
     outline-offset: 2px;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .active\:text-button-primary:active{
     --tw-text-opacity: 1;
     color: rgb(37 99 235 / var(--tw-text-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .active\:outline-none:active{
     outline: 2px solid transparent;
     outline-offset: 2px;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .disabled\:cursor-default:disabled{
     cursor: default;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .disabled\:cursor-not-allowed:disabled{
     cursor: not-allowed;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .disabled\:border-border-disabled:disabled{
     --tw-border-opacity: 1;
     border-color: rgb(229 231 235 / var(--tw-border-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .disabled\:border-field-border-disabled:disabled{
     --tw-border-opacity: 1;
     border-color: rgb(243 244 246 / var(--tw-border-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .disabled\:border-transparent:disabled{
     border-color: transparent;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .disabled\:bg-button-disabled:disabled{
     --tw-bg-opacity: 1;
     background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .disabled\:bg-button-tertiary:disabled{
     --tw-bg-opacity: 1;
     background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .disabled\:bg-white:disabled{
     --tw-bg-opacity: 1;
     background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .disabled\:text-text-disabled:disabled{
     --tw-text-opacity: 1;
     color: rgb(189 193 199 / var(--tw-text-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .disabled\:shadow-none:disabled{
     --tw-shadow: 0 0 #0000;
     --tw-shadow-colored: 0 0 #0000;
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .disabled\:shadow-toggle-disabled:disabled{
     --tw-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.1) inset;
     --tw-shadow-colored: inset 1px 1px 2px 0px var(--tw-shadow-color);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .disabled\:outline-border-disabled:disabled{
     outline-color: #E5E7EB;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .disabled\:outline-button-disabled:disabled{
     outline-color: #F3F4F6;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .disabled\:outline-field-border-disabled:disabled{
     outline-color: #F3F4F6;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .checked\:disabled\:border-border-disabled:disabled:checked{
     --tw-border-opacity: 1;
     border-color: rgb(229 231 235 / var(--tw-border-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .checked\:disabled\:bg-toggle-on-disabled:disabled:checked{
     --tw-bg-opacity: 1;
     background-color: rgb(239 246 255 / var(--tw-bg-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .checked\:disabled\:bg-white:disabled:checked{
     --tw-bg-opacity: 1;
     background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group\/switch:focus-within .group-focus-within\/switch\:size-3\.25){
     width: 0.8125rem;
     height: 0.8125rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group\/switch:focus-within .group-focus-within\/switch\:size-4){
     width: 1rem;
     height: 1rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group\/switch:focus-within .group-focus-within\/switch\:size-5){
     width: 1.25rem;
     height: 1.25rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group:focus-within .group-focus-within\:text-icon-primary){
     --tw-text-opacity: 1;
     color: rgb(17 24 39 / var(--tw-text-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group\/switch:hover .group-hover\/switch\:right-0\.5){
     right: 0.125rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group\/switch:hover .group-hover\/switch\:size-3\.25){
     width: 0.8125rem;
     height: 0.8125rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group\/switch:hover .group-hover\/switch\:size-4){
     width: 1rem;
     height: 1rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group\/switch:hover .group-hover\/switch\:size-5){
     width: 1.25rem;
     height: 1.25rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group\/switch:hover .group-hover\/switch\:border-toggle-on-border){
     --tw-border-opacity: 1;
     border-color: rgb(192 132 252 / var(--tw-border-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group\/switch:hover .group-hover\/switch\:bg-toggle-off-hover){
     --tw-bg-opacity: 1;
     background-color: rgb(189 193 199 / var(--tw-bg-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group:hover .group-hover\:text-field-input){
     --tw-text-opacity: 1;
     color: rgb(17 24 39 / var(--tw-text-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group:hover .group-hover\:text-icon-primary){
     --tw-text-opacity: 1;
     color: rgb(17 24 39 / var(--tw-text-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group\/switch:hover .checked\:group-hover\/switch\:border-toggle-on-border:checked){
     --tw-border-opacity: 1;
     border-color: rgb(192 132 252 / var(--tw-border-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group\/switch:hover .checked\:group-hover\/switch\:bg-toggle-on-hover:checked){
     --tw-bg-opacity: 1;
     background-color: rgb(121 59 255 / var(--tw-bg-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group:disabled .group-disabled\:text-field-color-disabled){
     --tw-text-opacity: 1;
     color: rgb(189 193 199 / var(--tw-text-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group:disabled .group-disabled\:text-icon-disabled){
     --tw-text-opacity: 1;
     color: rgb(189 193 199 / var(--tw-text-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.peer:checked ~ .peer-checked\:translate-x-3){
     --tw-translate-x: 0.75rem;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.peer:checked ~ .peer-checked\:translate-x-3\.75){
     --tw-translate-x: 0.9375rem;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.peer:checked ~ .peer-checked\:translate-x-5){
     --tw-translate-x: 1.25rem;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.peer:checked ~ .peer-checked\:opacity-100){
     opacity: 1;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.peer:disabled ~ .peer-disabled\:cursor-not-allowed){
     cursor: not-allowed;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.peer:disabled ~ .peer-disabled\:text-border-disabled){
     --tw-text-opacity: 1;
     color: rgb(229 231 235 / var(--tw-text-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .not-rtl\:left-1:not([dir="rtl"], [dir="rtl"] *){
     left: 0.25rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .not-rtl\:left-2\/4:not([dir="rtl"], [dir="rtl"] *){
     left: 50%;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .not-rtl\:before\:left-2\/4:not([dir="rtl"], [dir="rtl"] *)::before{
     content: var(--tw-content);
     left: 50%;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group\/switch:focus-within .not-rtl\:group-focus-within\/switch\:left-0\.5:not([dir="rtl"], [dir="rtl"] *)){
     left: 0.125rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group\/switch:hover .not-rtl\:group-hover\/switch\:left-0\.5:not([dir="rtl"], [dir="rtl"] *)){
     left: 0.125rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 @media (min-width: 640px){
     :is(#hfe-settings-app, [data-floating-ui-portal]) .sm\:h-10{
         height: 2.5rem;
@@ -4299,10 +3627,6 @@ input[type="checkbox"].role-checkbox:focus{
     }
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 @media (min-width: 768px){
     :is(#hfe-settings-app, [data-floating-ui-portal]) .md\:order-1{
         order: 1;
@@ -4667,10 +3991,6 @@ input[type="checkbox"].role-checkbox:focus{
     }
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 @media (min-width: 1024px){
     :is(#hfe-settings-app, [data-floating-ui-portal]) .lg\:order-1{
         order: 1;
@@ -5030,593 +4350,312 @@ input[type="checkbox"].role-checkbox:focus{
     }
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .rtl\:right-1:where([dir="rtl"], [dir="rtl"] *){
     right: 0.25rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .rtl\:right-2\/4:where([dir="rtl"], [dir="rtl"] *){
     right: 50%;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .rtl\:before\:right-2\/4:where([dir="rtl"], [dir="rtl"] *)::before{
     content: var(--tw-content);
     right: 50%;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group\/switch:focus-within .rtl\:group-focus-within\/switch\:right-0\.5:where([dir="rtl"], [dir="rtl"] *)){
     right: 0.125rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group\/switch:hover .rtl\:group-hover\/switch\:right-0:where([dir="rtl"], [dir="rtl"] *)){
     right: 0px;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.group\/switch:hover .rtl\:group-hover\/switch\:right-0\.5:where([dir="rtl"], [dir="rtl"] *)){
     right: 0.125rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .\[\&\:hover\:has\(\:disabled\)\]\:outline-field-border-disabled:hover:has(:disabled){
     outline-color: #F3F4F6;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .\[\&\:hover\:not\(\:focus\)\:not\(\:disabled\)\]\:outline-border-strong:hover:not(:focus):not(:disabled){
     outline-color: #6B7280;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .\[\&\:is\(\[data-hover\=true\]\)\]\:rounded-none:is([data-hover=true]){
     border-radius: 0px;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) .\[\&\:is\(\[data-hover\=true\]\)\]\:bg-brand-background-50:is([data-hover=true]){
     --tw-bg-opacity: 1;
     background-color: rgb(239 246 255 / var(--tw-bg-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>\*\:not\(svg\)\]\:m-1>*:not(svg)){
     margin: 0.25rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>\*\:not\(svg\)\]\:mx-1>*:not(svg)){
     margin-left: 0.25rem;
     margin-right: 0.25rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>\*\:not\(svg\)\]\:my-0\.5>*:not(svg)){
     margin-top: 0.125rem;
     margin-bottom: 0.125rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>\*\]\:box-border>*){
     box-sizing: border-box;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>\*\]\:text-2xl>*){
     font-size: 1.5rem;
     line-height: 2rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>\*\]\:text-base>*){
     font-size: 1rem;
     line-height: 1.5rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>\*\]\:text-lg>*){
     font-size: 1.125rem;
     line-height: 1.75rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>\*\]\:text-sm>*){
     font-size: 0.875rem;
     line-height: 1.25rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>\*\]\:text-xl>*){
     font-size: 1.25rem;
     line-height: 1.75rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>\*\]\:text-xs>*){
     font-size: 0.75rem;
     line-height: 1rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>\*\]\:text-field-color-disabled>*){
     --tw-text-opacity: 1;
     color: rgb(189 193 199 / var(--tw-text-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>\*\]\:text-field-helper>*){
     --tw-text-opacity: 1;
     color: rgb(107 114 128 / var(--tw-text-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>\*\]\:text-field-label>*){
     --tw-text-opacity: 1;
     color: rgb(17 24 39 / var(--tw-text-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>\*\]\:text-support-error>*){
     --tw-text-opacity: 1;
     color: rgb(220 38 38 / var(--tw-text-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>li\]\:pointer-events-auto>li){
     pointer-events: auto;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>p\]\:m-0>p){
     margin: 0px;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>p\]\:w-full>p){
     width: 100%;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>span\:first-child\]\:shrink-0>span:first-child){
     flex-shrink: 0;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>span\]\:flex>span){
     display: flex;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>span\]\:items-center>span){
     align-items: center;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>svg\]\:m-1>svg){
     margin: 0.25rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>svg\]\:m-1\.5>svg){
     margin: 0.375rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>svg\]\:block>svg){
     display: block;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>svg\]\:size-12>svg){
     width: 3rem;
     height: 3rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>svg\]\:size-3>svg){
     width: 0.75rem;
     height: 0.75rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>svg\]\:size-3\.5>svg){
     width: 0.875rem;
     height: 0.875rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>svg\]\:size-4>svg){
     width: 1rem;
     height: 1rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>svg\]\:size-5>svg){
     width: 1.25rem;
     height: 1.25rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>svg\]\:size-6>svg){
     width: 1.5rem;
     height: 1.5rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>svg\]\:size-8>svg){
     width: 2rem;
     height: 2rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>svg\]\:h-3>svg){
     height: 0.75rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>svg\]\:h-4>svg){
     height: 1rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>svg\]\:h-5>svg){
     height: 1.25rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>svg\]\:w-3>svg){
     width: 0.75rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>svg\]\:w-4>svg){
     width: 1rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>svg\]\:w-5>svg){
     width: 1.25rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>svg\]\:shrink-0>svg){
     flex-shrink: 0;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&\>svg\]\:text-icon-interactive>svg){
     --tw-text-opacity: 1;
     color: rgb(37 99 235 / var(--tw-text-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&_\*\]\:box-border *){
     box-sizing: border-box;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&_\*\]\:text-sm *){
     font-size: 0.875rem;
     line-height: 1.25rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&_\*\]\:leading-5 *){
     line-height: 1.25rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&_\.editor-content\>p\]\:min-h-5 .editor-content>p){
     min-height: 1.25rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&_\.editor-content\>p\]\:min-h-6 .editor-content>p){
     min-height: 1.5rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&_\.editor-content\>p\]\:min-h-7 .editor-content>p){
     min-height: 1.75rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&_\.editor-content\>p\]\:content-center .editor-content>p){
     align-content: center;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&_\.editor-content\>p\]\:text-base .editor-content>p){
     font-size: 1rem;
     line-height: 1.5rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&_\.editor-content\>p\]\:text-sm .editor-content>p){
     font-size: 0.875rem;
     line-height: 1.25rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&_\.editor-content\>p\]\:text-xs .editor-content>p){
     font-size: 0.75rem;
     line-height: 1rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&_\.editor-content\>p\]\:font-normal .editor-content>p){
     font-weight: 400;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&_\.pointer-events-none\]\:text-base .pointer-events-none){
     font-size: 1rem;
     line-height: 1.5rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&_\.pointer-events-none\]\:text-sm .pointer-events-none){
     font-size: 0.875rem;
     line-height: 1.25rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&_\.pointer-events-none\]\:text-xs .pointer-events-none){
     font-size: 0.75rem;
     line-height: 1rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&_\.pointer-events-none\]\:font-normal .pointer-events-none){
     font-weight: 400;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&_p\]\:m-0 p){
     margin: 0px;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&_p\]\:text-badge-color-disabled p){
     --tw-text-opacity: 1;
     color: rgb(189 193 199 / var(--tw-text-opacity, 1));
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&_svg\]\:size-3 svg){
     width: 0.75rem;
     height: 0.75rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&_svg\]\:size-4 svg){
     width: 1rem;
     height: 1rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&_svg\]\:size-5 svg){
     width: 1.25rem;
     height: 1.25rem;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59
 :is(#hfe-settings-app, [data-floating-ui-portal]) :is(.\[\&_svg\]\:size-6 svg){
     width: 1.5rem;
     height: 1.5rem;
 }
-
-<<<<<<< HEAD
-=======
-/*# sourceMappingURL=main.css.map*/
->>>>>>> a3e5728d77026053db90d9f3bcf4ca8aefbb1d59

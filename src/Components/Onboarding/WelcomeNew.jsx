@@ -29,12 +29,13 @@ const Welcome = ({ setCurrentStep }) => {
 				<iframe
 					width="500"
 					height="280"
-					src="https://www.youtube.com/embed/YqWd3VYlxcY"
+					src="https://www.youtube.com/embed/YqWd3VYlxcY?modestbranding=1&showinfo=0&rel=0&controls=1"
 					frameBorder="0"
 					style={{ borderRadius: "8px" }}
 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 					allowFullScreen
 				/>
+
 				<ul
 					className="list-none font-normal "
 					style={{
