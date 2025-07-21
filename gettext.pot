@@ -422,6 +422,7 @@ msgid "Yes"
 msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:224
+#: src/Components/HF-Builder/AllLayouts.jsx:329
 msgid "Close"
 msgstr ""
 
@@ -585,7 +586,11 @@ msgstr ""
 msgid " Continue Setup"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:187
+#: src/Components/HF-Builder/AllLayouts.jsx:124
+msgid "Create Layout"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:250
 msgid "[shortcode]"
 msgstr ""
 
@@ -593,12 +598,81 @@ msgstr ""
 msgid "Edit with Elementor"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:61
-msgid "Create Layout"
+#: src/Components/HF-Builder/AllLayouts.jsx:324
+msgid "Configure Display Conditions"
 msgstr ""
 
+#: src/Components/HF-Builder/AllLayouts.jsx:344
+#: src/Components/HF-Builder/AllLayouts.jsx:338
+#: src/Components/HF-Builder/AllLayouts.jsx:316
+#: src/Components/HF-Builder/AllLayouts.jsx:311
+#: src/Components/HF-Builder/AllLayouts.jsx:291
+#: src/Components/HF-Builder/AllLayouts.jsx:292
+#: src/Components/HF-Builder/AllLayouts.jsx:286
 #: src/Components/HF-Builder/Header.jsx:18
 msgid "Layout Template"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:351
+msgid "Where Should Your Layout Appear?"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:354
+msgid "Decide where you want this layout to appear on your site."
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:356
+msgid ""
+"You can show it across your entire site or only on specific pages—your "
+"choice!"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:379
+msgid "Include"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:382
+msgid "Exclude"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:403
+msgid "Entire Site"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:406
+msgid "All Pages"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:409
+msgid "All Posts"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:419
+msgid "Remove condition"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:434
+msgid "Add Conditions"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:450
+#: src/Components/HF-Builder/AllLayouts.jsx:449
+#: src/Components/HF-Builder/AllLayouts.jsx:429
+#: src/Components/HF-Builder/AllLayouts.jsx:407
+#: src/Components/HF-Builder/AllLayouts.jsx:402
+#: src/Components/HF-Builder/AllLayouts.jsx:401
+#: src/Components/HF-Builder/AllLayouts.jsx:400
+#: src/Components/HF-Builder/AllLayouts.jsx:380
+#: src/Components/HF-Builder/AllLayouts.jsx:379
+#: src/Components/HF-Builder/AllLayouts.jsx:378
+#: src/Components/HF-Builder/AllLayouts.jsx:377
+#: src/Components/HF-Builder/AllLayouts.jsx:373
+#: src/Components/Settings/VersionControl.jsx:132
+msgid "Cancel"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:460
+msgid "Save Conditions"
 msgstr ""
 
 #: src/Components/HF-Builder/Header.jsx:25
@@ -927,10 +1001,6 @@ msgstr ""
 
 #: src/Components/Settings/VersionControl.jsx:129
 msgid "Rollback"
-msgstr ""
-
-#: src/Components/Settings/VersionControl.jsx:132
-msgid "Cancel"
 msgstr ""
 
 #: src/Components/Settings/VersionControl.jsx:66
