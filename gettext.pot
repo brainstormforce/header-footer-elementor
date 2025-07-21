@@ -947,7 +947,7 @@ msgstr ""
 msgid "Reliable support from experts when you need it"
 msgstr ""
 
-#: src/Components/Onboarding/index.js:92
+#: src/Components/Onboarding/index.js:90
 msgid "Exit Guided Setup"
 msgstr ""
 
