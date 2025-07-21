@@ -50,6 +50,7 @@ class HFE_Settings_Page {
 					add_action( 'admin_footer', [ $this, 'hfe_add_upgrade_to_pro_target_attr' ] );
 				}
 			}
+			add_action( 'admin_footer_text', [ $this, 'uae_custom_admin_footer_text' ] );
 			add_action( 'admin_init', [ $this, 'hfe_admin_init' ] );
 			add_filter( 'views_edit-elementor-hf', [ $this, 'hfe_settings' ], 10, 1 );
 		}
@@ -78,7 +79,18 @@ class HFE_Settings_Page {
 		}
 	}
 
-	
+	/**
+	 * Adding Rating footer to dashboard pages.
+	 *
+	 * @since x.x.x
+	 * @return void
+	 */
+	public function uae_custom_admin_footer_text($footer_text) {
+		if ( isset( $_GET['page'] ) && $_GET['page'] === 'hfe' ) {
+			$footer_text = 'Enjoyed Ultimate Addons for Elementor? Please leave us a <a class="uae-rating" href="https://wordpress.org/support/plugin/header-footer-elementor/reviews/#new-post" target="_blank">★★★★★</a>  rating. We really appreciate your support!';
+		}
+		return $footer_text;
+	}
 
 	/**
 	 * Render UAE NPS Survey Notice.
@@ -315,6 +327,7 @@ class HFE_Settings_Page {
 					'success_banner'           => HFE_URL . 'assets/images/settings/success_bg.png',
 					'success_badge'            => HFE_URL . 'assets/images/settings/success_badge.svg',
 					'icon_svg'                 => HFE_URL . 'assets/images/settings/uae-logo-svg.svg',
+					'augemented_url'                 => HFE_URL . 'assets/images/settings/augemented_reality_widgets.png',
 					'rocket_svg'                 => HFE_URL . 'assets/images/settings/rocket.svg',
 					'augmented_reality'                 => HFE_URL . 'assets/images/settings/augmented_reality.png',
 					'uaelite_previous_version' => isset( $rollback_versions[0]['value'] ) ? $rollback_versions[0]['value'] : '',

@@ -116,7 +116,8 @@ msgstr ""
 #: src/Components/Compare/FreevsPro.jsx:200
 #: src/Components/Compare/UltimateCompare.jsx:109
 #: src/Components/Dashboard/MyAccount.jsx:54
-#: src/Components/Dashboard/UltimateFeatures.js:87
+#: src/Components/Dashboard/UltimateFeatures.js:131
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:133
 #: src/Components/Widgets/UltimateWidgets.jsx:116
 msgid "Upgrade Now"
 msgstr ""
@@ -130,7 +131,6 @@ msgid "Breadcrumbs"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:220
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:178
 #: src/Components/NavMenu.js:242
 msgid "Free"
 msgstr ""
@@ -169,7 +169,8 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:35
 #: src/Components/Compare/UltimateCompare.jsx:17
-#: src/Components/Dashboard/UltimateFeatures.js:132
+#: src/Components/Dashboard/UltimateFeatures.js:90
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:92
 #: src/Components/Widgets/UltimateWidgets.jsx:18
 msgid "Advanced Heading"
 msgstr ""
@@ -236,7 +237,8 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:55
 #: src/Components/Compare/UltimateCompare.jsx:27
-#: src/Components/Dashboard/UltimateFeatures.js:152
+#: src/Components/Dashboard/UltimateFeatures.js:94
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:96
 #: src/Components/Widgets/UltimateWidgets.jsx:28
 msgid "Info Box"
 msgstr ""
@@ -275,7 +277,6 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:68
 #: src/Components/Compare/UltimateCompare.jsx:12
-#: src/Components/Dashboard/UltimateFeatures.js:112
 #: src/Components/Widgets/UltimateWidgets.jsx:13
 msgid "Modal Popup"
 msgstr ""
@@ -349,7 +350,8 @@ msgid "Business Reviews"
 msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:22
-#: src/Components/Dashboard/UltimateFeatures.js:172
+#: src/Components/Dashboard/UltimateFeatures.js:98
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:100
 #: src/Components/Widgets/UltimateWidgets.jsx:23
 msgid "Post Layouts"
 msgstr ""
@@ -366,12 +368,14 @@ msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:55
 #: src/Components/Dashboard/UltimateFeatures.js:25
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:25
 #: src/Components/Widgets/UltimateWidgets.jsx:54
 msgid "Column Showcase"
 msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:68
-#: src/Components/Dashboard/UltimateFeatures.js:38
+#: src/Components/Dashboard/UltimateFeatures.js:41
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:43
 #: src/Components/Widgets/UltimateWidgets.jsx:67
 msgid "Unlock Ultimate Features"
 msgstr ""
@@ -382,7 +386,6 @@ msgid "Create Stunning Designs with the Pro Version!"
 msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:80
-#: src/Components/Dashboard/UltimateFeatures.js:56
 #: src/Components/Widgets/UltimateWidgets.jsx:82
 msgid ""
 "Get access to advanced widgets and features to create the website that "
@@ -390,59 +393,63 @@ msgid ""
 msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsite.jsx:57
-msgid "Extend Your Website"
+msgid "Super Charge Your Workflow"
 msgstr ""
 
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:122
-msgid "Activating.."
-msgstr ""
-
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:134
-msgid "Activated"
-msgstr ""
-
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:151
-msgid "Activate"
-msgstr ""
-
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:200
-msgid "Visit Site"
-msgstr ""
-
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:212
-msgid "Activate Theme"
-msgstr ""
-
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:216
-msgid "Are you sure you want to switch your current theme to Astra?"
-msgstr ""
-
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:221
-msgid "Yes"
-msgstr ""
-
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:224
-msgid "Close"
-msgstr ""
-
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:72
-msgid "Installing.."
-msgstr ""
-
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:80
-msgid "Installed"
-msgstr ""
-
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:90
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:101
 msgid "Install"
 msgstr ""
 
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:93
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:107
 msgid "Theme Installation failed, Please try again later."
 msgstr ""
 
-#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:94
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:111
 msgid "Plugin Installation failed, Please try again later."
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:144
+msgid "Activating.."
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:157
+msgid "Activated"
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:232
+msgid "Activate Theme"
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:239
+msgid "Are you sure you want to switch your current theme to Astra?"
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:249
+msgid "Yes"
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:255
+msgid "Close"
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:295
+msgid "Visit Site"
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:297
+msgid "Activate"
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:298
+msgid "Install & Activate"
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:71
+msgid "Installing.."
+msgstr ""
+
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:82
+msgid "Installed"
 msgstr ""
 
 #: src/Components/Dashboard/MyAccount.jsx:17
@@ -529,20 +536,31 @@ msgstr ""
 msgid "View Templates"
 msgstr ""
 
-#: src/Components/Dashboard/UltimateFeatures.js:192
-msgid "Form Stylers and more"
+#: src/Components/Dashboard/UltimateFeatures.js:54
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:56
+msgid "Bring Your Vision to Life with UAE Pro"
 msgstr ""
 
-#: src/Components/Dashboard/UltimateFeatures.js:48
-msgid "Create Stunning Designs with the"
+#: src/Components/Dashboard/UltimateFeatures.js:63
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:65
+msgid ""
+"Streamline your workflow, skip the repetitive tasks, and build modern, "
+"high-performance websites."
 msgstr ""
 
-#: src/Components/Dashboard/UltimateFeatures.js:50
-msgid "Pro Version!"
+#: src/Components/Dashboard/UltimateFeatures.js:75
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:77
+msgid "Cross-Site Copy Paste"
 msgstr ""
 
-#: src/Components/Dashboard/WelcomeContainer.js:122
-msgid "Read full guide"
+#: src/Components/Dashboard/UltimateFeatures.js:79
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:81
+msgid "Form Stylers"
+msgstr ""
+
+#: src/Components/Dashboard/UltimateFeatures.js:83
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:85
+msgid "Modal Popups"
 msgstr ""
 
 #: src/Components/Dashboard/WelcomeContainer.js:25
@@ -551,26 +569,29 @@ msgstr ""
 
 #: src/Components/Dashboard/WelcomeContainer.js:29
 msgid ""
-"We're excited to help you supercharge your website-building experience. "
-"Effortlessly design stunning websites with our comprehensive range of free "
-"and premium widgets and features."
+"Effortlessly design modern websites with UAE using our powerful range of "
+"widgets & features. Get started by selecting an option based on your needs."
 msgstr ""
 
-#: src/Components/Dashboard/WelcomeContainer.js:65
+#: src/Components/Dashboard/WelcomeContainer.js:61
 #: src/Components/Onboarding/Build.jsx:197
 msgid "Create Header/Footer"
 msgstr ""
 
-#: src/Components/Dashboard/WelcomeContainer.js:93
+#: src/Components/Dashboard/WelcomeContainer.js:89
 msgid "Create New Page"
 msgstr ""
 
-#: src/Components/Dashboard/WidgetItem.jsx:134
-msgid "View Demo"
+#: src/Components/Dashboard/WidgetItem.jsx:114
+msgid "Available in UAE Pro. Click to "
 msgstr ""
 
-#: src/Components/Dashboard/WidgetItem.jsx:148
-msgid "Read Documentation"
+#: src/Components/Dashboard/WidgetItem.jsx:127
+msgid "learn more"
+msgstr ""
+
+#: src/Components/Dashboard/WidgetItem.jsx:247
+msgid "View Demo"
 msgstr ""
 
 #: src/Components/Dashboard/WidgetsOnboarding.jsx:108

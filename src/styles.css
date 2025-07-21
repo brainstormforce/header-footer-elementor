@@ -289,3 +289,14 @@ div#hfe-settings-app {
 		max-width: fit-content;
 	}
 }
+
+#wpfooter{
+    background-color: white;
+}
+.uae-rating{
+    color: #6005FF;
+}
+
+.uae-rating:hover{
+	color: #4B00CC;
+}
