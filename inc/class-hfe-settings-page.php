@@ -322,6 +322,7 @@ class HFE_Settings_Page {
 					'footer_card'                 => HFE_URL . 'assets/images/settings/footer_card.png',
 					'before_card'                 => HFE_URL . 'assets/images/settings/before_card.png',
 					'custom_card'                 => HFE_URL . 'assets/images/settings/custom_card.png',
+					'layout_template'                 => HFE_URL . 'assets/images/settings/layout_template.png',
 					'uaelite_previous_version' => isset( $rollback_versions[0]['value'] ) ? $rollback_versions[0]['value'] : '',
 					'uaelite_versions'         => $rollback_versions,
 					'uaelite_rollback_url'     => esc_url( add_query_arg( 'version', 'VERSION', wp_nonce_url( admin_url( 'admin-post.php?action=uaelite_rollback' ), 'uaelite_rollback' ) ) ),

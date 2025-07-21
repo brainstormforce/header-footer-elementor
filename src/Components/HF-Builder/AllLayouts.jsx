@@ -66,7 +66,7 @@ const AllLayouts = () => {
 				{layoutItems.map((item) => (
 					<div
 						key={item.name}
-						className="bg-white rounded-xl p-3 shadow-sm group cursor-pointer relative"
+						className="bg-white rounded-md p-3 shadow-sm group cursor-pointer relative"
 					>
 						{/* Card container */}
 						<div

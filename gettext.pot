@@ -597,10 +597,22 @@ msgstr ""
 msgid "Create Layout"
 msgstr ""
 
-#: src/Components/HF-Builder/Header.jsx:36
-#: src/Components/HF-Builder/Sidebar.jsx:103
-#: src/Components/Settings/Settings.jsx:64
-msgid "Custom SVG"
+#: src/Components/HF-Builder/Header.jsx:18
+msgid "Layout Template"
+msgstr ""
+
+#: src/Components/HF-Builder/Header.jsx:25
+msgid "No Layout Found"
+msgstr ""
+
+#: src/Components/HF-Builder/Header.jsx:30
+msgid ""
+"You haven't created a header layout yet. Build a custom header to control "
+"how your site's top section looks and behaves across all pages."
+msgstr ""
+
+#: src/Components/HF-Builder/Header.jsx:59
+msgid "Create Header Layout"
 msgstr ""
 
 #: src/Components/HF-Builder/Navbar.js:116
@@ -610,6 +622,11 @@ msgstr ""
 
 #: src/Components/HF-Builder/Navbar.js:123
 msgid "Header & Footer Builder"
+msgstr ""
+
+#: src/Components/HF-Builder/Sidebar.jsx:103
+#: src/Components/Settings/Settings.jsx:64
+msgid "Custom SVG"
 msgstr ""
 
 #: src/Components/HF-Builder/Sidebar.jsx:107
