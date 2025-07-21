@@ -585,24 +585,22 @@ msgstr ""
 msgid " Continue Setup"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:11
-msgid "Edit Header"
+#: src/Components/HF-Builder/AllLayouts.jsx:187
+msgid "[shortcode]"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:18
-msgid "Edit Footer"
+#: src/Components/HF-Builder/AllLayouts.jsx:29
+msgid "Edit with Elementor"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:25
-msgid "Edit Before Footer"
-msgstr ""
-
-#: src/Components/HF-Builder/AllLayouts.jsx:32
-msgid "Edit Custom Block"
-msgstr ""
-
-#: src/Components/HF-Builder/AllLayouts.jsx:65
+#: src/Components/HF-Builder/AllLayouts.jsx:61
 msgid "Create Layout"
+msgstr ""
+
+#: src/Components/HF-Builder/Header.jsx:36
+#: src/Components/HF-Builder/Sidebar.jsx:103
+#: src/Components/Settings/Settings.jsx:64
+msgid "Custom SVG"
 msgstr ""
 
 #: src/Components/HF-Builder/Navbar.js:116
@@ -612,11 +610,6 @@ msgstr ""
 
 #: src/Components/HF-Builder/Navbar.js:123
 msgid "Header & Footer Builder"
-msgstr ""
-
-#: src/Components/HF-Builder/Sidebar.jsx:103
-#: src/Components/Settings/Settings.jsx:64
-msgid "Custom SVG"
 msgstr ""
 
 #: src/Components/HF-Builder/Sidebar.jsx:107

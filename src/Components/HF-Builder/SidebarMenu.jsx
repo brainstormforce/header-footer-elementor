@@ -12,7 +12,7 @@ const SidebarMenu = ({ items, onSelectItem }) => {
 		<div style={{ padding: "1rem", width: "100%" }}>
 			{/* Loop through items to render main title, icon, and title */}
 			{items.map((item) => (
-				<div key={item.id} className="mb-2">
+				<div key={item.id} className="">
 					{/* Main Title for each section */}
 					{item.main && (
 						<p className="text-sm text-text-tertiary font-normal mb-2">
