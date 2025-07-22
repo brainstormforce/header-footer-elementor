@@ -131,6 +131,7 @@ msgid "Breadcrumbs"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:220
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:178
 #: src/Components/NavMenu.js:242
 #: src/Components/Onboarding/Features.jsx:193
 msgid "Free"
@@ -441,6 +442,8 @@ msgid "Yes"
 msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:255
+#: src/Components/Dashboard/ExtendWebsiteWidget.jsx:224
+#: src/Components/HF-Builder/AllLayouts.jsx:187
 #: src/Components/Onboarding/ExtendOnboardingWidget.jsx:305
 msgid "Close"
 msgstr ""
@@ -489,6 +492,29 @@ msgstr ""
 
 #: src/Components/Dashboard/MyAccount.jsx:37
 msgid "Get access to advanced blocks and premium features."
+msgstr ""
+
+#: src/Components/Dashboard/OnboardingWidgets.jsx:137
+msgid "WIDGETS"
+msgstr ""
+
+#: src/Components/Dashboard/OnboardingWidgets.jsx:149
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:226
+msgid "Activating..."
+msgstr ""
+
+#: src/Components/Dashboard/OnboardingWidgets.jsx:149
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:226
+msgid "Activate All"
+msgstr ""
+
+#: src/Components/Dashboard/OnboardingWidgets.jsx:161
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:259
+msgid "Deactivating..."
+msgstr ""
+
+#: src/Components/Dashboard/OnboardingWidgets.jsx:161
+msgid "Deactivate All"
 msgstr ""
 
 #: src/Components/Dashboard/QuickAccess.js:114
@@ -567,6 +593,7 @@ msgid ""
 msgstr ""
 
 #: src/Components/Dashboard/WelcomeContainer.js:61
+#: src/Components/Dashboard/WelcomeContainer.js:65
 #: src/Components/Onboarding/Build.jsx:197
 msgid "Create Header/Footer"
 msgstr ""
@@ -584,12 +611,153 @@ msgstr ""
 msgid "View Demo"
 msgstr ""
 
-#: src/Components/HeaderLine.js:16
-msgid "Formerly Elementor Header & Footer Builder"
+#: src/Components/Dashboard/WidgetsOnboarding.jsx:108
+#: src/Components/Onboarding/ExtendOnboarding.jsx:491
+#: src/Components/Onboarding/Features.jsx:389
+msgid "Back"
 msgstr ""
 
+#: src/Components/Dashboard/WidgetsOnboarding.jsx:118
+#: src/Components/Onboarding/ExtendOnboarding.jsx:500
+#: src/Components/Onboarding/Features.jsx:398
+msgid "Skip"
+msgstr ""
+
+#: src/Components/Dashboard/WidgetsOnboarding.jsx:131
+msgid " Continue Setup"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:101
+msgid "Create Layout"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:11
+msgid "Edit Header"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:18
+msgid "Edit Footer"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:182
+msgid "Configure Display Conditions"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:202
+#: src/Components/HF-Builder/Header.jsx:18
+msgid "Layout Template"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:209
+msgid "Where Should Your Layout Appear?"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:212
+msgid "Decide where you want this layout to appear on your site."
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:214
+msgid ""
+"You can show it across your entire site or only on specific pages—your "
+"choice!"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:237
+msgid "Include"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:240
+msgid "Exclude"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:25
+msgid "Edit Before Footer"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:261
+msgid "Entire Site"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:264
+msgid "All Pages"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:267
+msgid "All Posts"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:277
+msgid "Remove condition"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:292
+msgid "Add Conditions"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:308
+#: src/Components/Settings/VersionControl.jsx:132
+msgid "Cancel"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:32
+msgid "Edit Custom Block"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:322
+msgid "Save Conditions"
+msgstr ""
+
+#: src/Components/HF-Builder/Header.jsx:25
+msgid "No Layout Found"
+msgstr ""
+
+#: src/Components/HF-Builder/Header.jsx:30
+msgid ""
+"You haven't created a header layout yet. Build a custom header to control "
+"how your site's top section looks and behaves across all pages."
+msgstr ""
+
+#: src/Components/HF-Builder/Header.jsx:59
+msgid "Create Header Layout"
+msgstr ""
+
+#: src/Components/HF-Builder/Navbar.js:116
 #: src/Components/NavMenu.js:131
 msgid "Dashboard"
+msgstr ""
+
+#: src/Components/HF-Builder/Navbar.js:123
+#: src/Components/Onboarding/Features.jsx:125
+msgid "Header & Footer Builder"
+msgstr ""
+
+#: src/Components/HF-Builder/Sidebar.jsx:103
+#: src/Components/Settings/Settings.jsx:64
+msgid "Custom SVG"
+msgstr ""
+
+#: src/Components/HF-Builder/Sidebar.jsx:107
+msgid "Custom Block"
+msgstr ""
+
+#: src/Components/HF-Builder/Sidebar.jsx:31
+msgid "All Layouts"
+msgstr ""
+
+#: src/Components/HF-Builder/Sidebar.jsx:50
+msgid "Header "
+msgstr ""
+
+#: src/Components/HF-Builder/Sidebar.jsx:69
+msgid "Footer"
+msgstr ""
+
+#: src/Components/HF-Builder/Sidebar.jsx:88
+msgid "Before Footer"
+msgstr ""
+
+#: src/Components/HeaderLine.js:16
+msgid "Formerly Elementor Header & Footer Builder"
 msgstr ""
 
 #: src/Components/NavMenu.js:151
@@ -829,16 +997,6 @@ msgstr ""
 msgid " Learn More"
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:491
-#: src/Components/Onboarding/Features.jsx:389
-msgid "Back"
-msgstr ""
-
-#: src/Components/Onboarding/ExtendOnboarding.jsx:500
-#: src/Components/Onboarding/Features.jsx:398
-msgid "Skip"
-msgstr ""
-
 #: src/Components/Onboarding/ExtendOnboarding.jsx:513
 #: src/Components/Onboarding/Features.jsx:426
 msgid "Next"
@@ -852,10 +1010,6 @@ msgstr ""
 msgid ""
 "Unlock more design control, faster setup, and powerful customization—so you "
 "can build a better website, effortlessly."
-msgstr ""
-
-#: src/Components/Onboarding/Features.jsx:125
-msgid "Header & Footer Builder"
 msgstr ""
 
 #: src/Components/Onboarding/Features.jsx:145
@@ -896,6 +1050,46 @@ msgstr ""
 msgid "You've picked Pro features — upgrade to start using them."
 msgstr ""
 
+#: src/Components/Onboarding/Success.jsx:100
+msgid "You’ve unlocked a "
+msgstr ""
+
+#: src/Components/Onboarding/Success.jsx:102
+msgid " discount on UAE Pro. We’ve sent a discount"
+msgstr ""
+
+#: src/Components/Onboarding/Success.jsx:105
+msgid " coupon just for you to your email address."
+msgstr ""
+
+#: src/Components/Onboarding/Success.jsx:135
+msgid "Get Pro Now"
+msgstr ""
+
+#: src/Components/Onboarding/Success.jsx:151
+msgid "Go To The Dashboard"
+msgstr ""
+
+#: src/Components/Onboarding/Success.jsx:97
+msgid "Congratulations!"
+msgstr ""
+
+#: src/Components/Onboarding/Welcome.jsx:11
+msgid "Thank You For Choosing"
+msgstr ""
+
+#: src/Components/Onboarding/Welcome.jsx:16
+msgid "Ultimate Addons for Elementor"
+msgstr ""
+
+#: src/Components/Onboarding/Welcome.jsx:23
+msgid ""
+"We're excited to have you onboard. Get ready to create stunning headers, "
+"footers, and custom blocks with ease while keeping your website lightweight "
+"and fast."
+msgstr ""
+
+#: src/Components/Onboarding/Welcome.jsx:53
 #: src/Components/Onboarding/WelcomeNew.jsx:121
 msgid "Let's Get Started"
 msgstr ""
@@ -931,10 +1125,6 @@ msgstr ""
 #: src/Components/Settings/Settings.jsx:49
 #: src/Components/Settings/ThemeSupport.jsx:80
 msgid "Theme Support"
-msgstr ""
-
-#: src/Components/Settings/Settings.jsx:64
-msgid "Custom SVG"
 msgstr ""
 
 #: src/Components/Settings/Settings.jsx:68
@@ -999,10 +1189,6 @@ msgstr ""
 
 #: src/Components/Settings/VersionControl.jsx:129
 msgid "Rollback"
-msgstr ""
-
-#: src/Components/Settings/VersionControl.jsx:132
-msgid "Cancel"
 msgstr ""
 
 #: src/Components/Settings/VersionControl.jsx:66
@@ -1098,14 +1284,6 @@ msgstr ""
 msgid "Click here to activate all widgets & extensions."
 msgstr ""
 
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:226
-msgid "Activating..."
-msgstr ""
-
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:226
-msgid "Activate All"
-msgstr ""
-
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:233
 msgid "Click here to deactivate all unused widgets, except Extensions."
 msgstr ""
@@ -1115,11 +1293,15 @@ msgid "Deactivate Unused"
 msgstr ""
 
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:259
-msgid "Deactivating..."
+msgid "Deactivate All "
 msgstr ""
 
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:259
-msgid "Deactivate All "
+#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:155
+msgid "Customize Your UAE Setup"
+msgstr ""
+
+#: src/Components/Widgets/Features/FeatureWidgetsOnboarding.jsx:158
+msgid "Activate only what you need to keep your website fast and optimized."
 msgstr ""
 
 #: src/Components/Widgets/UltimateWidgets.jsx:119
