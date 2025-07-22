@@ -152,7 +152,7 @@ const Features = ({ setCurrentStep }) => {
 							</div>
 						</Container.Item>
 						<Container.Item
-							className="shrink-0 p-2 flex space-y-6 uavc-remove-ring"
+							className="shrink-0 p-2 flex space-y-6 hfe-remove-ring"
 							alignSelf="flex-start"
 							order="none"
 							style={{
@@ -224,7 +224,7 @@ const Features = ({ setCurrentStep }) => {
 						</div>
 					</Container.Item>
 					<Container.Item
-						className="shrink-0 p-2 flex space-y-6 uavc-remove-ring"
+						className="shrink-0 p-2 flex space-y-6 hfe-remove-ring"
 						alignSelf="auto"
 						order="none"
 						style={{ marginTop: "40px" }}
@@ -286,7 +286,7 @@ const Features = ({ setCurrentStep }) => {
 						</div>
 					</Container.Item>
 					<Container.Item
-						className="shrink-0 p-2 flex space-y-6 uavc-remove-ring"
+						className="shrink-0 p-2 flex space-y-6 hfe-remove-ring"
 						alignSelf="auto"
 						order="none"
 						style={{ marginTop: "40px" }}
@@ -346,7 +346,7 @@ const Features = ({ setCurrentStep }) => {
 						</div>
 					</Container.Item>
 					<Container.Item
-						className="shrink-0 p-2 flex space-y-6 uavc-remove-ring"
+						className="shrink-0 p-2 flex space-y-6 hfe-remove-ring"
 						alignSelf="auto"
 						order="none"
 						style={{ marginTop: "40px" }}
@@ -409,7 +409,7 @@ const Features = ({ setCurrentStep }) => {
 						</div>
 					</Container.Item>
 					<Container.Item
-						className="shrink-0 p-2 flex space-y-6 uavc-remove-ring"
+						className="shrink-0 p-2 flex space-y-6 hfe-remove-ring"
 						alignSelf="auto"
 						order="none"
 						style={{ marginTop: "40px" }}
