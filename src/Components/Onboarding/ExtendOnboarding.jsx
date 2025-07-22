@@ -84,8 +84,6 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
             const result = await response.json();
 
             if (result.success) {
-                // Update the global hfeSettingsData object to persist the value
-                hfeSettingsData.analytics_status = newIsActive ? 'yes' : 'no';
                 toast.success(__('Settings saved successfully!', 'header-footer-elementor'));
             } else {
                 toast.error(__('Failed to save settings!', 'header-footer-elementor'));
@@ -471,8 +469,9 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 								"header-footer-elementor",
 							)}
 							<a
-								href="https://store.brainstormforce.com/privacy-policy/"
+								href="https://store.brainstormforce.com/usage-tracking/?utm_source=wp_dashboard&utm_medium=general_settings&utm_campaign=usage_tracking"
 								className="text-sm text-text-primary"
+								target="_blank"
 							>
 								{__(
 									" Learn More",
