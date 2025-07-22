@@ -1147,7 +1147,7 @@ class Widgets_Config {
 				'isFree'       => true,
 				'slug'         => 'surerank',
 				'status'       => self::get_plugin_status( 'surerank/surerank.php' ),
-				'settings_url' => admin_url( 'admin.php?page=sc-getting-started' ),
+				'settings_url' => admin_url( 'admin.php?page=surerank_onboarding' ),
 			],
 			'sureforms/sureforms.php'                      => [
 				'icon'         => $images_url . 'sureforms_extend.svg',
