@@ -575,15 +575,15 @@ msgstr ""
 msgid "Create New Page"
 msgstr ""
 
-#: src/Components/Dashboard/WidgetItem.jsx:114
-msgid "Available in UAE Pro. Click to "
+#: src/Components/Dashboard/WidgetItem.jsx:128
+msgid "Unlock it in "
 msgstr ""
 
-#: src/Components/Dashboard/WidgetItem.jsx:127
-msgid "learn more"
+#: src/Components/Dashboard/WidgetItem.jsx:143
+msgid "UAE PRO"
 msgstr ""
 
-#: src/Components/Dashboard/WidgetItem.jsx:247
+#: src/Components/Dashboard/WidgetItem.jsx:269
 msgid "View Demo"
 msgstr ""
 
@@ -923,7 +923,7 @@ msgstr ""
 msgid "Reliable support from experts when you need it"
 msgstr ""
 
-#: src/Components/Onboarding/index.js:90
+#: src/Components/Onboarding/index.js:89
 msgid "Exit Guided Setup"
 msgstr ""
 

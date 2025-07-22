@@ -205,7 +205,7 @@ const ExtendWebsiteWidget = ({
 						style={{
 							width: "140px",
 							height: "140px",
-							marginTop: "-60px",
+							marginTop: "-50px",
 						}}
 					/>
 				</div>
