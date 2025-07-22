@@ -37,7 +37,7 @@ const UltimateFeatures = () => {
 							icon={<Rocket />}
 							iconPosition="left"
 							size="xs"
-							tag="h8"
+							tag="p"
 							title={__(
 								"Unlock Ultimate Features",
 								"header-footer-elementor",
