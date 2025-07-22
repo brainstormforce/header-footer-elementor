@@ -8,7 +8,6 @@ import Build from "./Build";
 import Create from "./Create";
 import Welcome from "./WelcomeNew";
 import Configure from "./ExtendOnboarding";
-import Success from "./Success";
 import Features from "./Features";
 
 // Full steps array including the hidden "Success" step

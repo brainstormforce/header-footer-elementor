@@ -899,30 +899,6 @@ msgstr ""
 msgid "You've picked Pro features — upgrade to start using them."
 msgstr ""
 
-#: src/Components/Onboarding/Success.jsx:100
-msgid "You’ve unlocked a "
-msgstr ""
-
-#: src/Components/Onboarding/Success.jsx:102
-msgid " discount on UAE Pro. We’ve sent a discount"
-msgstr ""
-
-#: src/Components/Onboarding/Success.jsx:105
-msgid " coupon just for you to your email address."
-msgstr ""
-
-#: src/Components/Onboarding/Success.jsx:135
-msgid "Get Pro Now"
-msgstr ""
-
-#: src/Components/Onboarding/Success.jsx:151
-msgid "Go To The Dashboard"
-msgstr ""
-
-#: src/Components/Onboarding/Success.jsx:97
-msgid "Congratulations!"
-msgstr ""
-
 #: src/Components/Onboarding/WelcomeNew.jsx:121
 msgid "Let's Get Started"
 msgstr ""
@@ -947,7 +923,7 @@ msgstr ""
 msgid "Reliable support from experts when you need it"
 msgstr ""
 
-#: src/Components/Onboarding/index.js:90
+#: src/Components/Onboarding/index.js:89
 msgid "Exit Guided Setup"
 msgstr ""
 

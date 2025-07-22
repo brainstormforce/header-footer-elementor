@@ -264,7 +264,7 @@ const Features = ({ setCurrentStep }) => {
 					<Container.Item className="shrink flex flex-col space-y-1">
 						<div className="flex items-center justify-start gap-1">
 							<div className="text-sm font-normal m-0">
-								{__("Modal Popup", "header-footer-elementor",")}
+								{__("Modal Popup", "header-footer-elementor")}
 							</div>
 							<Badge
 								label={__("Pro", "header-footer-elementor")}
@@ -326,7 +326,7 @@ const Features = ({ setCurrentStep }) => {
 					<Container.Item className="shrink flex flex-col space-y-1">
 						<div className="flex items-center justify-start gap-1">
 							<div className="text-sm font-normal m-0">
-								{__("WooCommerce Widgets", "header-footer-elementor",")}
+								{__("WooCommerce Widgets", "header-footer-elementor")}
 							</div>
 							<Badge
 								label={__("Pro", "header-footer-elementor")}
