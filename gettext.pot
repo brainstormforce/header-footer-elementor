@@ -132,13 +132,13 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:220
 #: src/Components/NavMenu.js:242
-#: src/Components/Onboarding/Features.jsx:208
+#: src/Components/Onboarding/Features.jsx:193
 msgid "Free"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:226
 #: src/Components/Dashboard/WidgetItem.jsx:145
-#: src/Components/Onboarding/Features.jsx:395
+#: src/Components/Onboarding/Features.jsx:351
 msgid "Pro"
 msgstr ""
 
@@ -280,7 +280,7 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:68
 #: src/Components/Compare/UltimateCompare.jsx:12
-#: src/Components/Onboarding/Features.jsx:267
+#: src/Components/Onboarding/Features.jsx:243
 #: src/Components/Widgets/UltimateWidgets.jsx:13
 msgid "Modal Popup"
 msgstr ""
@@ -426,22 +426,22 @@ msgid "Activated"
 msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:232
-#: src/Components/Onboarding/ExtendOnboardingWidget.jsx:264
+#: src/Components/Onboarding/ExtendOnboardingWidget.jsx:293
 msgid "Activate Theme"
 msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:239
-#: src/Components/Onboarding/ExtendOnboardingWidget.jsx:268
+#: src/Components/Onboarding/ExtendOnboardingWidget.jsx:297
 msgid "Are you sure you want to switch your current theme to Astra?"
 msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:249
-#: src/Components/Onboarding/ExtendOnboardingWidget.jsx:273
+#: src/Components/Onboarding/ExtendOnboardingWidget.jsx:302
 msgid "Yes"
 msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:255
-#: src/Components/Onboarding/ExtendOnboardingWidget.jsx:276
+#: src/Components/Onboarding/ExtendOnboardingWidget.jsx:305
 msgid "Close"
 msgstr ""
 
@@ -580,7 +580,7 @@ msgstr ""
 msgid "Unlock with "
 msgstr ""
 
-#: src/Components/Dashboard/WidgetItem.jsx:271
+#: src/Components/Dashboard/WidgetItem.jsx:272
 msgid "View Demo"
 msgstr ""
 
@@ -772,8 +772,8 @@ msgstr ""
 
 #: src/Components/Onboarding/Create.jsx:174
 msgid ""
-"Ultimate Addons is now ready to enhance your Elementor workflow.Jump in and "
-"start building faster, cleaner, and more creatively — with full control "
+"Ultimate Addons is now ready to enhance your Elementor workflow. Jump in "
+"and start building faster, cleaner, and more creatively — with full control "
 "over every part of your site."
 msgstr ""
 
@@ -830,17 +830,17 @@ msgid " Learn More"
 msgstr ""
 
 #: src/Components/Onboarding/ExtendOnboarding.jsx:491
-#: src/Components/Onboarding/Features.jsx:439
+#: src/Components/Onboarding/Features.jsx:389
 msgid "Back"
 msgstr ""
 
 #: src/Components/Onboarding/ExtendOnboarding.jsx:500
-#: src/Components/Onboarding/Features.jsx:448
+#: src/Components/Onboarding/Features.jsx:398
 msgid "Skip"
 msgstr ""
 
 #: src/Components/Onboarding/ExtendOnboarding.jsx:513
-#: src/Components/Onboarding/Features.jsx:476
+#: src/Components/Onboarding/Features.jsx:426
 msgid "Next"
 msgstr ""
 
@@ -854,45 +854,45 @@ msgid ""
 "can build a better website, effortlessly."
 msgstr ""
 
-#: src/Components/Onboarding/Features.jsx:127
+#: src/Components/Onboarding/Features.jsx:125
 msgid "Header & Footer Builder"
 msgstr ""
 
-#: src/Components/Onboarding/Features.jsx:147
+#: src/Components/Onboarding/Features.jsx:145
 msgid ""
 "Assign headers and footers to specific pages or post types. Gives users "
 "complete layout control—something typically locked behind Pro plugins."
 msgstr ""
 
-#: src/Components/Onboarding/Features.jsx:202
+#: src/Components/Onboarding/Features.jsx:187
 msgid "Mega Menu & Navigation Widget"
 msgstr ""
 
-#: src/Components/Onboarding/Features.jsx:219
+#: src/Components/Onboarding/Features.jsx:204
 msgid ""
 "Save hours by copying Elementor sections, widgets, or pages from one "
 "website to another—no need to rebuild layouts from scratch."
 msgstr ""
 
-#: src/Components/Onboarding/Features.jsx:329
+#: src/Components/Onboarding/Features.jsx:296
 msgid "WooCommerce Widgets"
 msgstr ""
 
-#: src/Components/Onboarding/Features.jsx:389
+#: src/Components/Onboarding/Features.jsx:345
 msgid "50+ Premium Widgets & 200+ Templates"
 msgstr ""
 
-#: src/Components/Onboarding/Features.jsx:405
+#: src/Components/Onboarding/Features.jsx:361
 msgid ""
 "Design eye-catching popups directly in Elementor—collect leads, display "
 "promotions, or show messages without needing a separate popup plugin."
 msgstr ""
 
-#: src/Components/Onboarding/Features.jsx:462
+#: src/Components/Onboarding/Features.jsx:412
 msgid "Upgrade"
 msgstr ""
 
-#: src/Components/Onboarding/Features.jsx:491
+#: src/Components/Onboarding/Features.jsx:441
 msgid "You've picked Pro features — upgrade to start using them."
 msgstr ""
 

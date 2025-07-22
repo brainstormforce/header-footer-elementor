@@ -215,7 +215,31 @@ const ExtendOnboardingWidget = ({
             justify="between"
             gap="md"
         >
-            <div className='flex items-center gap-x-3 flex-1'>
+            <div 
+                className='flex items-center gap-x-3 flex-1 cursor-pointer'
+                onClick={(e) => {
+                    // Prevent checkbox toggle if clicking on the link
+                    if (e.target.closest('p.text-sm.font-medium')) {
+                        return;
+                    }
+                    // Toggle checkbox
+                    const newCheckedState = !isChecked;
+                    setIsChecked(newCheckedState);
+                    
+                    // Call the parent component's function to track selected plugins
+                    if (onPluginSelect) {
+                        onPluginSelect({
+                            slug,
+                            path,
+                            type,
+                            name,
+                            zipUrl,
+                            status,
+                            isChecked: newCheckedState
+                        });
+                    }
+                }}
+            >
                 <div className='h-6 w-6 flex-shrink-0'>
                     <img
                         src={icon}
@@ -228,9 +252,13 @@ const ExtendOnboardingWidget = ({
                 <div className='flex flex-col pl-3 flex-1 min-w-0'>
                     <p
                         className='text-sm font-medium text-text-primary pb-1 m-0 cursor-pointer truncate'
-                        onClick={() => window.open(plugin.siteurl, '_blank')}
+                        style={{ width: '230px'}}
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            window.open(plugin.siteurl, '_blank');
+                        }}
                     >{__(name, 'header-footer-elementor')}</p>
-                    <p className='text-sm font-normal text-text-tertiary m-0 truncate'>{__(desc, 'header-footer-elementor')}</p>
+                    <p className='text-sm font-normal text-text-tertiary m-0 truncate' style={{ width: '250px'}}>{__(desc, 'header-footer-elementor')}</p>
                 </div>
                 
                 <div className='flex-shrink-0 ml-2'>
@@ -238,6 +266,7 @@ const ExtendOnboardingWidget = ({
                         type="checkbox"
                         checked={isChecked}
                         onChange={handleCheckboxChange}
+                        onClick={(e) => e.stopPropagation()}
                         id={`plugin-${slug}`}
                         className="uae-role-checkbox h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
                         data-plugin={zipUrl}

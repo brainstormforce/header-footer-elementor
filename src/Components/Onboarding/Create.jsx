@@ -172,7 +172,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
 						style={{ lineHeight: "1.6em" }}
 					>
 						{__(
-							"Ultimate Addons is now ready to enhance your Elementor workflow.Jump in and start building faster, cleaner, and more creatively — with full control over every part of your site.",
+							"Ultimate Addons is now ready to enhance your Elementor workflow. Jump in and start building faster, cleaner, and more creatively — with full control over every part of your site.",
 							"header-footer-elementor",
 						)}
 					</span>
@@ -248,7 +248,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
 					<img
 						alt="Build"
 						className="w-full object-contain"
-						style={{ height: "110px", width: "130px" }}
+						style={{ height: "130px", width: "160px" }}
 						src={`${hfeSettingsData.create_new}`}
 						loading="lazy"
 					/>

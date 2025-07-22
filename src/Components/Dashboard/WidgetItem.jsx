@@ -259,13 +259,14 @@ const WidgetItem = ({ widget, updateCounter, showTooltip }) => {
 										href={demo_url}
 										target="_blank"
 										rel="noopener noreferrer"
-										className="text-sm text-white focus:outline-none m-0 mb-1 hfe-remove-ring"
+										className="text-white focus:outline-none m-0 mb-1 hfe-remove-ring"
 										style={{
 											textDecoration: "none",
 											lineHeight: "1.5rem",
 											outline: "none",
 											border: "none",
 											boxShadow: "none",
+											fontSize: "12px",
 										}}
 									>
 										{__(

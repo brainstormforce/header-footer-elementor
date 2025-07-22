@@ -41,7 +41,7 @@ const Features = ({ setCurrentStep }) => {
 		hasFreeFeaturesSelected || hasProFeaturesSelected;
 
 	const handleUpgrade = () => {
-		window.open("https://ultimateelementor.com/pricing/", "_blank");
+		window.open("https://ultimateelementor.com/pricing/?utm_source=wp-admin&utm_medium=onboading&utm_campaign=uae-upgrade", "_blank");
 	};
 
 	return (
@@ -112,16 +112,14 @@ const Features = ({ setCurrentStep }) => {
 					)}
 				</span>
 				<div className="relative" style={{ marginTop: "20px" }}>
-					<Container
-						align="center"  
-						className="flex flex-col lg:flex-row mt-5"
-						containerType="flex"
-						direction="column"
-						gap="sm"
-						justify="between"
-						item
+					<div
+						className="flex items-center justify-between gap-3 mt-5 cursor-pointer"
+						onClick={(e) => {
+							// Toggle checkbox
+							handleFeatureChange("headerFooterBuilder");
+						}}
 					>
-						<Container.Item className="shrink flex flex-col space-y-1 mt-5">
+						<div className="flex flex-col space-y-1 flex-1">
 							<div className="flex items-center justify-start gap-1">
 								<div className="text-sm font-normal m-0">
 									{__(
@@ -150,23 +148,15 @@ const Features = ({ setCurrentStep }) => {
 									),
 								)}
 							</div>
-						</Container.Item>
-						<Container.Item
-							className="shrink-0 p-2 flex space-y-6 hfe-remove-ring"
-							alignSelf="flex-start"
-							order="none"
-							style={{
-								position: "absolute",
-								right: "0",
-								top: "0",
-							}}
+						</div>
+						<div
+							className="flex-shrink-0"
 						>
 							<input
 								type="checkbox"
 								checked={selectedFeatures.headerFooterBuilder}
-								onChange={() =>
-									handleFeatureChange("headerFooterBuilder")
-								}
+								onClick={(e) => e.stopPropagation()}
+								onChange={() => handleFeatureChange("headerFooterBuilder")}
 								className="uae-role-checkbox w-5 h-5 outline-none"
 								style={{
 									accentColor: "#240064",
@@ -174,8 +164,8 @@ const Features = ({ setCurrentStep }) => {
 									height: "18px",
 								}}
 							/>
-						</Container.Item>
-					</Container>
+						</div>
+					</div>
 				</div>
 
 				<hr
@@ -187,16 +177,11 @@ const Features = ({ setCurrentStep }) => {
 					}}
 				/>
 
-				<Container
-					align="center"
-					className="flex flex-col lg:flex-row"
-					containerType="flex"
-					direction="column"
-					gap="sm"
-					justify="between"
-					item
+				<div
+					className="flex items-center justify-between gap-3 cursor-pointer"
+					onClick={() => handleFeatureChange("megaMenu")}
 				>
-					<Container.Item className="shrink flex flex-col space-y-1">
+					<div className="flex flex-col space-y-1 flex-1">
 						<div className="flex items-center justify-start gap-1">
 							<div className="text-sm font-normal m-0">
 								{__(
@@ -222,16 +207,12 @@ const Features = ({ setCurrentStep }) => {
 								),
 							)}
 						</div>
-					</Container.Item>
-					<Container.Item
-						className="shrink-0 p-2 flex space-y-6 hfe-remove-ring"
-						alignSelf="auto"
-						order="none"
-						style={{ marginTop: "40px" }}
-					>
+					</div>
+					<div className="flex-shrink-0">
 						<input
 							type="checkbox"
 							checked={selectedFeatures.megaMenu}
+							onClick={(e) => e.stopPropagation()}
 							onChange={() => handleFeatureChange("megaMenu")}
 							className="uae-role-checkbox w-5 h-5"
 							style={{
@@ -240,8 +221,8 @@ const Features = ({ setCurrentStep }) => {
 								height: "18px",
 							}}
 						/>
-					</Container.Item>
-				</Container>
+					</div>
+				</div>
 
 				<hr
 					className="w-full border-b-0 border-x-0 border-t border-solid border-t-border-subtle"
@@ -252,16 +233,11 @@ const Features = ({ setCurrentStep }) => {
 					}}
 				/>
 
-				<Container
-					align="center"
-					className="flex flex-col lg:flex-row"
-					containerType="flex"
-					direction="column"
-					gap="sm"
-					justify="between"
-					item
+				<div
+					className="flex items-center justify-between gap-3 cursor-pointer"
+					onClick={() => handleFeatureChange("modalPopup")}
 				>
-					<Container.Item className="shrink flex flex-col space-y-1">
+					<div className="flex flex-col space-y-1 flex-1">
 						<div className="flex items-center justify-start gap-1">
 							<div className="text-sm font-normal m-0">
 								{__("Modal Popup", "header-footer-elementor")}
@@ -284,16 +260,12 @@ const Features = ({ setCurrentStep }) => {
 								),
 							)}
 						</div>
-					</Container.Item>
-					<Container.Item
-						className="shrink-0 p-2 flex space-y-6 hfe-remove-ring"
-						alignSelf="auto"
-						order="none"
-						style={{ marginTop: "40px" }}
-					>
+					</div>
+					<div className="flex-shrink-0">
 						<input
 							type="checkbox"
 							checked={selectedFeatures.modalPopup}
+							onClick={(e) => e.stopPropagation()}
 							onChange={() => handleFeatureChange("modalPopup")}
 							className="uae-role-checkbox w-5 h-5"
 							style={{
@@ -302,8 +274,8 @@ const Features = ({ setCurrentStep }) => {
 								height: "18px",
 							}}
 						/>
-					</Container.Item>
-				</Container>
+					</div>
+				</div>
 
 				<hr
 					className="w-full border-b-0 border-x-0 border-t border-solid border-t-border-subtle"
@@ -314,16 +286,11 @@ const Features = ({ setCurrentStep }) => {
 					}}
 				/>
 
-				<Container
-					align="center"
-					className="flex flex-col lg:flex-row"
-					containerType="flex"
-					direction="column"
-					gap="sm"
-					justify="between"
-					item
+				<div
+					className="flex items-center justify-between gap-3 cursor-pointer"
+					onClick={() => handleFeatureChange("wooCommerceWidgets")}
 				>
-					<Container.Item className="shrink flex flex-col space-y-1">
+					<div className="flex flex-col space-y-1 flex-1">
 						<div className="flex items-center justify-start gap-1">
 							<div className="text-sm font-normal m-0">
 								{__("WooCommerce Widgets", "header-footer-elementor")}
@@ -344,19 +311,13 @@ const Features = ({ setCurrentStep }) => {
 								"header-footer-elementor",
 							)}
 						</div>
-					</Container.Item>
-					<Container.Item
-						className="shrink-0 p-2 flex space-y-6 hfe-remove-ring"
-						alignSelf="auto"
-						order="none"
-						style={{ marginTop: "40px" }}
-					>
+					</div>
+					<div className="flex-shrink-0">
 						<input
 							type="checkbox"
 							checked={selectedFeatures.wooCommerceWidgets}
-							onChange={() =>
-								handleFeatureChange("wooCommerceWidgets")
-							}
+							onClick={(e) => e.stopPropagation()}
+							onChange={() => handleFeatureChange("wooCommerceWidgets")}
 							className="uae-role-checkbox w-5 h-5"
 							style={{
 								accentColor: "#240064",
@@ -364,8 +325,8 @@ const Features = ({ setCurrentStep }) => {
 								height: "18px",
 							}}
 						/>
-					</Container.Item>
-				</Container>
+					</div>
+				</div>
 				<hr
 					className="w-full border-b-0 border-x-0 border-t border-solid border-t-border-subtle"
 					style={{
@@ -374,16 +335,11 @@ const Features = ({ setCurrentStep }) => {
 						borderColor: "#E5E7EB",
 					}}
 				/>
-				<Container
-					align="center"
-					className="flex flex-col lg:flex-row"
-					containerType="flex"
-					direction="column"
-					gap="sm"
-					justify="between"
-					item
+				<div
+					className="flex items-center justify-between gap-3 cursor-pointer"
+					onClick={() => handleFeatureChange("premiumWidgets")}
 				>
-					<Container.Item className="shrink flex flex-col space-y-1">
+					<div className="flex flex-col space-y-1 flex-1">
 						<div className="flex items-center justify-start gap-1">
 							<div className="text-sm font-normal m-0">
 								{__(
@@ -407,19 +363,13 @@ const Features = ({ setCurrentStep }) => {
 								"header-footer-elementor",
 							)}
 						</div>
-					</Container.Item>
-					<Container.Item
-						className="shrink-0 p-2 flex space-y-6 hfe-remove-ring"
-						alignSelf="auto"
-						order="none"
-						style={{ marginTop: "40px" }}
-					>
+					</div>
+					<div className="flex-shrink-0">
 						<input
 							type="checkbox"
 							checked={selectedFeatures.premiumWidgets}
-							onChange={() =>
-								handleFeatureChange("premiumWidgets")
-							}
+							onClick={(e) => e.stopPropagation()}
+							onChange={() => handleFeatureChange("premiumWidgets")}
 							className="uae-role-checkbox w-5 h-5"
 							style={{
 								accentColor: "#240064",
@@ -427,8 +377,8 @@ const Features = ({ setCurrentStep }) => {
 								height: "18px",
 							}}
 						/>
-					</Container.Item>
-				</Container>
+					</div>
+				</div>
 				<div className="flex justify-between items-center px-2 hfe-onboarding-bottom" style={{ paddingTop: "30px" }}>
 					<Button
 						className="flex items-center gap-1 outline-none hfe-remove-ring"
