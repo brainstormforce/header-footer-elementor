@@ -84,6 +84,8 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
             const result = await response.json();
 
             if (result.success) {
+                // Update the global hfeSettingsData object to persist the value
+                hfeSettingsData.analytics_status = newIsActive ? 'yes' : 'no';
                 toast.success(__('Settings saved successfully!', 'header-footer-elementor'));
             } else {
                 toast.error(__('Failed to save settings!', 'header-footer-elementor'));
