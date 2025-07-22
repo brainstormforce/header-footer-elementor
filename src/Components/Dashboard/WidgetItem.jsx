@@ -34,6 +34,7 @@ const WidgetItem = ({ widget, updateCounter, showTooltip }) => {
 	const [isActive, setIsActive] = useState(widget.is_active);
 	const [isLoading, setIsLoading] = useState(false);
 	const [isTooltipOpen, setIsTooltipOpen] = useState(false);
+	const [isDemoTooltipOpen, setIsDemoTooltipOpen] = useState(false);
 
 	useEffect(() => {
 		// Update local state when the widget prop changes
@@ -277,20 +278,19 @@ const WidgetItem = ({ widget, updateCounter, showTooltip }) => {
 						}
 						placement="bottom"
 						title=""
-						triggers={["hover", "focus"]}
+						triggers={["click"]}
 						variant="dark"
 						size="xs"
+						open={isDemoTooltipOpen}
+						onOpenChange={setIsDemoTooltipOpen}
 					>
 						<div
-							onClick={() => {
-								if (demo_url) {
-									window.open(
-										demo_url,
-										"_blank",
-										"noopener,noreferrer",
-									);
-								}
+							onClick={(e) => {
+								e.stopPropagation();
+								setIsDemoTooltipOpen(!isDemoTooltipOpen);
 							}}
+							onMouseEnter={() => setIsDemoTooltipOpen(true)}
+							onMouseLeave={() => setIsDemoTooltipOpen(false)}
 							style={{ cursor: demo_url ? "pointer" : "default" }}
 							className="inline-flex items-center"
 						>

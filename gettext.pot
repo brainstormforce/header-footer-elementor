@@ -137,6 +137,7 @@ msgid "Free"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:226
+#: src/Components/Dashboard/WidgetItem.jsx:145
 #: src/Components/Dashboard/WidgetItem.jsx:144
 #: src/Components/Onboarding/Features.jsx:395
 msgid "Pro"
@@ -576,11 +577,11 @@ msgstr ""
 msgid "Create New Page"
 msgstr ""
 
-#: src/Components/Dashboard/WidgetItem.jsx:128
+#: src/Components/Dashboard/WidgetItem.jsx:129
 msgid "Unlock with "
 msgstr ""
 
-#: src/Components/Dashboard/WidgetItem.jsx:270
+#: src/Components/Dashboard/WidgetItem.jsx:271
 msgid "View Demo"
 msgstr ""
 
@@ -821,31 +822,22 @@ msgstr ""
 
 #: src/Components/Onboarding/ExtendOnboarding.jsx:467
 msgid ""
-"Notify me about critical updates and new features — and help us improve by "
-"sharing how you use the plugin. "
-msgstr ""
-
-#: src/Components/Onboarding/ExtendOnboarding.jsx:475
-msgid "Privacy Policy"
+"By enabling this, you allow us to collect basic, non-sensitive usage data. "
+"This helps us improve the plugin and notify you about important updates and "
+"new features."
 msgstr ""
 
 #: src/Components/Onboarding/ExtendOnboarding.jsx:490
-#: src/Components/Onboarding/ExtendOnboarding.jsx:487
-#: src/Components/Onboarding/ExtendOnboarding.jsx:485
 #: src/Components/Onboarding/Features.jsx:439
 msgid "Back"
 msgstr ""
 
 #: src/Components/Onboarding/ExtendOnboarding.jsx:499
-#: src/Components/Onboarding/ExtendOnboarding.jsx:496
-#: src/Components/Onboarding/ExtendOnboarding.jsx:494
 #: src/Components/Onboarding/Features.jsx:448
 msgid "Skip"
 msgstr ""
 
 #: src/Components/Onboarding/ExtendOnboarding.jsx:512
-#: src/Components/Onboarding/ExtendOnboarding.jsx:509
-#: src/Components/Onboarding/ExtendOnboarding.jsx:507
 #: src/Components/Onboarding/Features.jsx:476
 msgid "Next"
 msgstr ""

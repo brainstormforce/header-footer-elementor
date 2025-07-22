@@ -264,14 +264,14 @@ const ExtendWebsiteWidget = ({
 				<p
 					className="text-base font-medium text-text-primary pb-1 m-0 cursor-pointer"
 					onClick={() => window.open(plugin.siteurl, "_blank")}
-					style={{ marginTop: "-10px" }}
+					style={{ marginTop: "-8px" }}
 				>
 					{__(name, "header-footer-elementor")}
 				</p>
 				<p className="text-sm font-medium text-text-tertiary m-0">
 					{__(desc, "header-footer-elementor")}
 				</p>
-				<div className="hfe-remove-ring" style={{ marginTop: "16px" }}>
+				<div className="hfe-remove-ring">
 					<Button
 						size="sm"
 						className="cursor-pointer hfe-remove-ring bg-white hover:bg-gray-100 hover:text-gray-900 hover:shadow-md text-gray-800 rounded mt-4 px-2 py-2 transition-all duration-200 ease-in-out transform hover:scale-105 hover:border-gray-400"

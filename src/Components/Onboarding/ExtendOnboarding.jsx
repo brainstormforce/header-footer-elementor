@@ -465,18 +465,18 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 							className="text-sm text-gray-600 leading-relaxed"
 						>
 							{__(
-								"Notify me about critical updates and new features — and help us improve by sharing how you use the plugin. ",
+								"By enabling this, you allow us to collect basic, non-sensitive usage data. This helps us improve the plugin and notify you about important updates and new features.",
 								"header-footer-elementor",
 							)}
-							<a
-								href="#"
+							{/* <a
+								href=""
 								className="text-sm text-text-primary"
 							>
 								{__(
 									"Privacy Policy",
 									"header-footer-elementor",
 								)}
-							</a>
+							</a> */}
 						</label>
 					</div>
 				</div>
