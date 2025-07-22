@@ -2803,7 +2803,7 @@ body.hfe-onboarding-fullscreen.admin-bar {
 }
 
 
-input[type="checkbox"].role-checkbox:focus{
+input[type="checkbox"].uae-role-checkbox:focus{
 	border-color:rgb(92, 46, 222);
 	box-shadow:0 0 0 1px rgb(92, 46, 222);
 }

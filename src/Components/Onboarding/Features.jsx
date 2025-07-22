@@ -113,7 +113,7 @@ const Features = ({ setCurrentStep }) => {
 				</span>
 				<div className="relative" style={{ marginTop: "20px" }}>
 					<Container
-						align="center"
+						align="center"  
 						className="flex flex-col lg:flex-row mt-5"
 						containerType="flex"
 						direction="column"
@@ -126,7 +126,7 @@ const Features = ({ setCurrentStep }) => {
 								<div className="text-sm font-normal m-0">
 									{__(
 										"Header & Footer Builder",
-										"ultimate_vc",
+										"header-footer-elementor",
 									)}
 								</div>
 								<Badge
@@ -146,7 +146,7 @@ const Features = ({ setCurrentStep }) => {
 								{sprintf(
 									__(
 										"Assign headers and footers to specific pages or post types. Gives users complete layout control—something typically locked behind Pro plugins.",
-										"ultimate_vc",
+										"header-footer-elementor",
 									),
 								)}
 							</div>
@@ -201,7 +201,7 @@ const Features = ({ setCurrentStep }) => {
 							<div className="text-sm font-normal m-0">
 								{__(
 									"Mega Menu & Navigation Widget",
-									"ultimate_vc",
+									"header-footer-elementor",
 								)}
 							</div>
 							<Badge
@@ -218,7 +218,7 @@ const Features = ({ setCurrentStep }) => {
 							{sprintf(
 								__(
 									"Save hours by copying Elementor sections, widgets, or pages from one website to another—no need to rebuild layouts from scratch.",
-									"ultimate_vc",
+									"header-footer-elementor",
 								),
 							)}
 						</div>
@@ -264,7 +264,7 @@ const Features = ({ setCurrentStep }) => {
 					<Container.Item className="shrink flex flex-col space-y-1">
 						<div className="flex items-center justify-start gap-1">
 							<div className="text-sm font-normal m-0">
-								{__("Modal Popup", "ultimate_vc")}
+								{__("Modal Popup", "header-footer-elementor",")}
 							</div>
 							<Badge
 								label={__("Pro", "header-footer-elementor")}
@@ -280,7 +280,7 @@ const Features = ({ setCurrentStep }) => {
 							{sprintf(
 								__(
 									"Design eye-catching popups directly in Elementor—collect leads, display promotions, or show messages without needing a separate popup plugin.",
-									"ultimate_vc",
+									"header-footer-elementor",
 								),
 							)}
 						</div>
@@ -326,7 +326,7 @@ const Features = ({ setCurrentStep }) => {
 					<Container.Item className="shrink flex flex-col space-y-1">
 						<div className="flex items-center justify-start gap-1">
 							<div className="text-sm font-normal m-0">
-								{__("WooCommerce Widgets", "ultimate_vc")}
+								{__("WooCommerce Widgets", "header-footer-elementor",")}
 							</div>
 							<Badge
 								label={__("Pro", "header-footer-elementor")}
@@ -341,7 +341,7 @@ const Features = ({ setCurrentStep }) => {
 						>
 							{__(
 								"Design eye-catching popups directly in Elementor—collect leads, display promotions, or show messages without needing a separate popup plugin.",
-								"ultimate_vc",
+								"header-footer-elementor",
 							)}
 						</div>
 					</Container.Item>
@@ -388,7 +388,7 @@ const Features = ({ setCurrentStep }) => {
 							<div className="text-sm font-normal m-0">
 								{__(
 									"50+ Premium Widgets & 200+ Templates",
-									"ultimate_vc",
+									"header-footer-elementor",
 								)}
 							</div>
 							<Badge
@@ -404,7 +404,7 @@ const Features = ({ setCurrentStep }) => {
 						>
 							{__(
 								"Design eye-catching popups directly in Elementor—collect leads, display promotions, or show messages without needing a separate popup plugin.",
-								"ultimate_vc",
+								"header-footer-elementor",
 							)}
 						</div>
 					</Container.Item>
