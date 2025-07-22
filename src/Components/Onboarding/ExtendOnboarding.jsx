@@ -181,8 +181,11 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 			fname: firstName || '',
 			lname: lastName || '',
 			isActive: isActive ? 'yes' : 'no',
-			domain: siteDomain
 		});
+
+		if (isActive) {
+			params.append('domain', siteDomain);
+		}
 
 		fetch(`/wp-json/hfe/v1/email-webhook/?${params.toString()}`, {
 			method: 'POST',
@@ -223,7 +226,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 
 		// Only call webhook if notifications are enabled
 		if (isActive && formData.email) {
-			callEmailWebhook(formData.email, formData.firstName, formData.lastName, isActive);
+			callEmailWebhook(formData.email, formData.firstName, formData.lastName, isActive, formData.domain);
 		} else {
 			// Immediately proceed to next step if notifications are disabled
 			setCurrentStep(3);
