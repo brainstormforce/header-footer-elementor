@@ -255,12 +255,7 @@ class HFE_Settings_Api {
 		$lname  = sanitize_text_field( $request->get_param( 'lname' ) );
 		$isActive = sanitize_text_field( $request->get_param( 'isActive' ) );
 		$domain = sanitize_text_field( $request->get_param( 'domain' ) );
-
-		if ( empty( $email ) || empty( $date ) || empty( $fname ) ) {
-			// Return error response if any of the required parameters are missing.
-			return new WP_Error( 'missing_parameters', __( 'Missing Fields', 'header-footer-elementor' ), [ 'status' => 400 ] );
-		}
-
+		
 		$api_domain = trailingslashit( $this->get_api_domain() );
 		$api_domain_url = $api_domain . 'wp-json/uaelite/v1/subscribe/';
 		$validation_url = esc_url_raw( get_site_url() . '/wp-json/hfe/v1/email-response/' );
