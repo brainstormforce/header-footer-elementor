@@ -225,7 +225,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 		}
 
 		// Only call webhook if notifications are enabled
-		if (isActive && formData.email) {
+		if (formData.email) {
 			callEmailWebhook(formData.email, formData.firstName, formData.lastName, isActive, formData.domain);
 		} else {
 			// Immediately proceed to next step if notifications are disabled
