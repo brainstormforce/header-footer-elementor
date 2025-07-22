@@ -465,18 +465,18 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 							className="text-sm text-gray-600 leading-relaxed"
 						>
 							{__(
-								"By enabling this, you allow us to collect basic, non-sensitive usage data. This helps us improve the plugin and notify you about important updates and new features.",
+								"Enabling this lets us collect basic, non-sensitive usage data to improve the plugin and keep you informed about important updates and features",
 								"header-footer-elementor",
 							)}
-							{/* <a
-								href=""
+							<a
+								href="https://store.brainstormforce.com/privacy-policy/"
 								className="text-sm text-text-primary"
 							>
 								{__(
-									"Privacy Policy",
+									"Learn More",
 									"header-footer-elementor",
 								)}
-							</a> */}
+							</a>
 						</label>
 					</div>
 				</div>
