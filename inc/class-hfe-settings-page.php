@@ -87,7 +87,7 @@ class HFE_Settings_Page {
 	 *
 	 * @param  array $links links.
 	 * @return array
-	 * @since x.x.x
+	 * @since 2.4.5
 	 */
 	public function upgrade_pro_link( $links ) {
 		$plugin_file = 'ultimate-elementor/ultimate-elementor.php';
@@ -101,7 +101,7 @@ class HFE_Settings_Page {
 	/**
 	 * Adding Rating footer to dashboard pages.
 	 *
-	 * @since x.x.x
+	 * @since 2.4.5
 	 * @return void
 	 */
 	public function uae_custom_admin_footer_text($footer_text) {
@@ -262,7 +262,7 @@ class HFE_Settings_Page {
 	/**
 	 * Fetch and return the user's first name.
 	 *
-	 * @since x.x.x
+	 * @since 2.4.5
 	 * @return string|null The user's name if logged in, null otherwise.
 	 */
 	public function fetch_user_fname() {
@@ -277,7 +277,7 @@ class HFE_Settings_Page {
 	/**
 	 * Fetch and return the site URL.
 	 *
-	 * @since x.x.x
+	 * @since 2.4.5
 	 * @return string|null
 	 */
 	public function fetch_site_url() {
