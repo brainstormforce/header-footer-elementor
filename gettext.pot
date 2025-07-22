@@ -137,6 +137,9 @@ msgid "Free"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:226
+#: src/Components/Dashboard/WidgetItem.jsx:144
+#: src/Components/Dashboard/WidgetItem.jsx:143
+#: src/Components/Dashboard/WidgetItem.jsx:160
 #: src/Components/Onboarding/Features.jsx:395
 msgid "Pro"
 msgstr ""
@@ -576,14 +579,10 @@ msgid "Create New Page"
 msgstr ""
 
 #: src/Components/Dashboard/WidgetItem.jsx:128
-msgid "Unlock it in "
+msgid "Unlock with "
 msgstr ""
 
-#: src/Components/Dashboard/WidgetItem.jsx:143
-msgid "UAE PRO"
-msgstr ""
-
-#: src/Components/Dashboard/WidgetItem.jsx:269
+#: src/Components/Dashboard/WidgetItem.jsx:270
 msgid "View Demo"
 msgstr ""
 

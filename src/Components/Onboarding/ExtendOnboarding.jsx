@@ -366,7 +366,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 				)}
 				<div className="px-5 pt-3 bg-white rounded-lg">
 					<h3
-						className={`text-base font-semibold text-gray-900 ${
+						className={`text-base font-medium text-gray-900 ${
 							!showPluginsSection ? "text-xl mb-3" : ""
 						}`}
 					>

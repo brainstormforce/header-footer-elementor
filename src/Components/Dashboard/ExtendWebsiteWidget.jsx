@@ -205,7 +205,7 @@ const ExtendWebsiteWidget = ({
 						style={{
 							width: "140px",
 							height: "140px",
-							marginTop: "-50px",
+							marginTop: "-55px",
 						}}
 					/>
 				</div>
@@ -271,7 +271,7 @@ const ExtendWebsiteWidget = ({
 				<p className="text-sm font-medium text-text-tertiary m-0">
 					{__(desc, "header-footer-elementor")}
 				</p>
-				<div className="pt-5 hfe-remove-ring">
+				<div className="hfe-remove-ring" style={{ marginTop: "16px" }}>
 					<Button
 						size="sm"
 						className="cursor-pointer hfe-remove-ring bg-white hover:bg-gray-100 hover:text-gray-900 hover:shadow-md text-gray-800 rounded mt-4 px-2 py-2 transition-all duration-200 ease-in-out transform hover:scale-105 hover:border-gray-400"

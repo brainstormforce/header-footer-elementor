@@ -126,7 +126,7 @@ const WidgetItem = ({ widget, updateCounter, showTooltip }) => {
 							content={
 								<span>
 									{__(
-										"Unlock it in ",
+										"Unlock with ",
 										"header-footer-elementor",
 									)}
 									<a
@@ -137,11 +137,12 @@ const WidgetItem = ({ widget, updateCounter, showTooltip }) => {
 											color: "#D946EF",
 											textDecoration: "none",
 											outline: "none",
+											fontSize: "14px",
 										}}
 										className="hfe-uae-pro-link focus:outline-none"
 									>
 										{__(
-											"UAE PRO",
+											"Pro",
 											"header-footer-elementor",
 										)}
 									</a>
