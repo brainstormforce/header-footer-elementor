@@ -138,7 +138,6 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:226
 #: src/Components/Dashboard/WidgetItem.jsx:145
-#: src/Components/Dashboard/WidgetItem.jsx:144
 #: src/Components/Onboarding/Features.jsx:395
 msgid "Pro"
 msgstr ""
@@ -823,13 +822,11 @@ msgstr ""
 #: src/Components/Onboarding/ExtendOnboarding.jsx:467
 msgid ""
 "Enabling this lets us collect basic, non-sensitive usage data to improve "
-"the plugin and keep you informed about important updates and features"
+"the plugin and keep you informed about important updates and features. "
 msgstr ""
 
 #: src/Components/Onboarding/ExtendOnboarding.jsx:475
-#: src/Components/Settings/UsageTracking.jsx:78
-#: src/Components/Templates/ExploreTemplates.jsx:227
-msgid "Learn More"
+msgid " Learn More"
 msgstr ""
 
 #: src/Components/Onboarding/ExtendOnboarding.jsx:490
@@ -982,6 +979,12 @@ msgstr ""
 msgid ""
 "To ensure compatibility between the header/footer and your theme, please "
 "choose one of the following options to enable theme support:"
+msgstr ""
+
+#: src/Components/Onboarding/ExtendOnboarding.jsx:475
+#: src/Components/Settings/UsageTracking.jsx:78
+#: src/Components/Templates/ExploreTemplates.jsx:227
+msgid "Learn More"
 msgstr ""
 
 #: src/Components/Settings/UsageTracking.jsx:68

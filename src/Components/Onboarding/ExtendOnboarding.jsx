@@ -465,7 +465,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 							className="text-sm text-gray-600 leading-relaxed"
 						>
 							{__(
-								"Enabling this lets us collect basic, non-sensitive usage data to improve the plugin and keep you informed about important updates and features",
+								"Enabling this lets us collect basic, non-sensitive usage data to improve the plugin and keep you informed about important updates and features. ",
 								"header-footer-elementor",
 							)}
 							<a
@@ -473,7 +473,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 								className="text-sm text-text-primary"
 							>
 								{__(
-									"Learn More",
+									" Learn More",
 									"header-footer-elementor",
 								)}
 							</a>
