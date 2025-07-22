@@ -1027,7 +1027,7 @@ class Widgets_Config {
 
 		$plugins = [
 
-				'surerank/surerank.php'                        => [
+			'surerank/surerank.php'                        => [
 				'icon'         => $images_url . 'surerank.svg',
 				'type'         => 'plugin',
 				'name'         => esc_html__( 'Boost Your Traffic with Easy SEO Optimization!', 'header-footer-elementor' ),
@@ -1038,7 +1038,7 @@ class Widgets_Config {
 				'isFree'       => true,
 				'slug'         => 'surerank',
 				'status'       => self::get_plugin_status( 'surerank/surerank.php' ),
-				'settings_url' => admin_url( 'admin.php?page=sc-getting-started' ),
+				'settings_url' => admin_url( 'admin.php?page=surerank_onboarding' ),
 			],
 			'surecart/surecart.php'                        => [
 				'icon'         => $images_url . 'surecart.svg',
