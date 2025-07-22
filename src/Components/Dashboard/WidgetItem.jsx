@@ -33,6 +33,8 @@ const WidgetItem = ({ widget, updateCounter, showTooltip }) => {
 	// Track the active state of the widget using React state
 	const [isActive, setIsActive] = useState(widget.is_active);
 	const [isLoading, setIsLoading] = useState(false);
+	const [isTooltipOpen, setIsTooltipOpen] = useState(false);
+	const [isDemoTooltipOpen, setIsDemoTooltipOpen] = useState(false);
 
 	useEffect(() => {
 		// Update local state when the widget prop changes
@@ -89,13 +91,26 @@ const WidgetItem = ({ widget, updateCounter, showTooltip }) => {
 	};
 
 	return (
-		<Container
-			align="center"
-			containerType="flex"
-			direction="column"
-			justify="between"
-			gap=""
-		>
+		<>
+			<style dangerouslySetInnerHTML={{
+				__html: `
+					.hfe-uae-pro-link:focus,
+					.hfe-uae-pro-link:active,
+					.hfe-uae-pro-link:hover,
+					.hfe-uae-pro-link:focus-visible {
+						outline: none !important;
+						box-shadow: none !important;
+						border: none !important;
+					}
+				`
+			}} />
+			<Container
+				align="center"
+				containerType="flex"
+				direction="column"
+				justify="between"
+				gap=""
+			>
 			{/* Top section with icon and switch/badge */}
 			<div className="flex items-start justify-between w-full mb-4">
 				<div
@@ -112,39 +127,48 @@ const WidgetItem = ({ widget, updateCounter, showTooltip }) => {
 							content={
 								<span>
 									{__(
-										"Available in UAE Pro. Click to ",
+										"Unlock with ",
 										"header-footer-elementor",
 									)}
 									<a
-										href="https://your-link.com" // Replace with actual upgrade URL
+										href="https://ultimateelementor.com/pricing/" // Replace with actual upgrade URL
 										target="_blank"
 										rel="noopener noreferrer"
 										style={{
 											color: "#D946EF",
-											textDecoration: "underline",
+											textDecoration: "none",
+											outline: "none",
+											fontSize: "14px",
 										}}
+										className="hfe-uae-pro-link focus:outline-none"
 									>
 										{__(
-											"learn more",
+											"Pro",
 											"header-footer-elementor",
 										)}
 									</a>
-									.
 								</span>
 							}
 							placement="bottom"
 							variant="dark"
 							size="xs"
-							triggers={["hover", "focus"]}
+							triggers={["click"]}
+							open={isTooltipOpen}
+							onOpenChange={setIsTooltipOpen}
 						>
-							<Switch
-								onChange={() => {}} // No action for pro widgets
-								size="xs"
-								value={false} // Always off for pro widgets
-								disabled={true} // Disabled state
-								style={{ outline: "none", cursor: "default" }}
-								className="hfe-remove-ring outline-none"
-							/>
+							<div 
+								onClick={() => setIsTooltipOpen(!isTooltipOpen)}
+								style={{ cursor: "pointer" }}
+							>
+								<Switch
+									onChange={() => {}} // No action for pro widgets
+									size="xs"
+									value={false} // Always off for pro widgets
+									disabled={true} // Disabled state
+									style={{ outline: "none", cursor: "default", pointerEvents: "none" }}
+									className="hfe-remove-ring outline-none"
+								/>
+							</div>
 						</Tooltip>
 					) : (
 						<Switch
@@ -235,13 +259,14 @@ const WidgetItem = ({ widget, updateCounter, showTooltip }) => {
 										href={demo_url}
 										target="_blank"
 										rel="noopener noreferrer"
-										className="text-sm text-text-tertiary focus:outline-none m-0 mb-1 hfe-remove-ring"
+										className="text-white focus:outline-none m-0 mb-1 hfe-remove-ring"
 										style={{
 											textDecoration: "none",
 											lineHeight: "1.5rem",
 											outline: "none",
 											border: "none",
 											boxShadow: "none",
+											fontSize: "12px",
 										}}
 									>
 										{__(
@@ -254,20 +279,19 @@ const WidgetItem = ({ widget, updateCounter, showTooltip }) => {
 						}
 						placement="bottom"
 						title=""
-						triggers={["hover", "focus"]}
+						triggers={["click"]}
 						variant="dark"
 						size="xs"
+						open={isDemoTooltipOpen}
+						onOpenChange={setIsDemoTooltipOpen}
 					>
 						<div
-							onClick={() => {
-								if (demo_url) {
-									window.open(
-										demo_url,
-										"_blank",
-										"noopener,noreferrer",
-									);
-								}
+							onClick={(e) => {
+								e.stopPropagation();
+								setIsDemoTooltipOpen(!isDemoTooltipOpen);
 							}}
+							onMouseEnter={() => setIsDemoTooltipOpen(true)}
+							onMouseLeave={() => setIsDemoTooltipOpen(false)}
 							style={{ cursor: demo_url ? "pointer" : "default" }}
 							className="inline-flex items-center"
 						>
@@ -281,6 +305,7 @@ const WidgetItem = ({ widget, updateCounter, showTooltip }) => {
 				</div>
 			</div>
 		</Container>
+		</>
 	);
 };
 

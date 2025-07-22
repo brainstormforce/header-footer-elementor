@@ -41,6 +41,8 @@ class HFE_Settings_Page {
 		add_action( 'admin_head', [ $this, 'hfe_global_css' ] );
 
 		add_action( 'admin_head', [ $this, 'fetch_user_email' ] );
+		add_action( 'admin_head', [ $this, 'fetch_site_url' ] );
+		add_action( 'admin_head', [ $this, 'fetch_user_fname' ] );
 
 		if ( ! HFE_Helper::is_pro_active() ) {
 			if ( is_admin() && current_user_can( 'manage_options' ) ) {
@@ -104,7 +106,7 @@ class HFE_Settings_Page {
 	 */
 	public function uae_custom_admin_footer_text($footer_text) {
 		if ( isset( $_GET['page'] ) && $_GET['page'] === 'hfe' ) {
-			$footer_text = 'Enjoyed Ultimate Addons for Elementor? Please leave us a <a class="uae-rating" href="https://wordpress.org/support/plugin/header-footer-elementor/reviews/#new-post" target="_blank">★★★★★</a>  rating. We really appreciate your support!';
+			$footer_text = 'Enjoyed <b> UAE </b>? Please leave us a <a class="uae-rating" href="https://wordpress.org/support/plugin/header-footer-elementor/reviews/#new-post" target="_blank">★★★★★</a>  rating. We really appreciate your support!';
 		}
 		return $footer_text;
 	}
@@ -258,6 +260,36 @@ class HFE_Settings_Page {
 	}
 
 	/**
+	 * Fetch and return the user's first name.
+	 *
+	 * @since x.x.x
+	 * @return string|null The user's name if logged in, null otherwise.
+	 */
+	public function fetch_user_fname() {
+		$current_user = wp_get_current_user();
+		if ( $current_user->ID !== 0 ) {
+			return $current_user->user_firstname;
+		} else {
+			return null;
+		}
+	}
+
+	/**
+	 * Fetch and return the site URL.
+	 *
+	 * @since x.x.x
+	 * @return string|null
+	 */
+	public function fetch_site_url() {
+		$siteurl = get_option('siteURL');
+		if ( !empty( $siteurl ) ) {
+			return $siteurl;
+		} else {
+			return null;
+		}
+	}
+
+	/**
 	 * Load admin styles on header footer elementor edit screen.
 	 *
 	 * @return void
@@ -291,7 +323,8 @@ class HFE_Settings_Page {
 			$hfe_post_url      = admin_url( 'post-new.php?post_type=elementor-hf' );
 			// Fetch the user's email.
 			$user_email = $this->fetch_user_email();
-			
+			$user_name  = $this->fetch_user_fname();
+			$siteurl    = $this->fetch_site_url();
 			$show_theme_support = 'no';
 			$hfe_theme_status   = get_option( 'hfe_is_theme_supported', false );
 			$analytics_status   = get_option( 'uae_analytics_optin', false );
@@ -347,6 +380,9 @@ class HFE_Settings_Page {
 					'augemented_url'                 => HFE_URL . 'assets/images/settings/augemented_reality_widgets.png',
 					'rocket_svg'                 => HFE_URL . 'assets/images/settings/rocket.svg',
 					'augmented_reality'                 => HFE_URL . 'assets/images/settings/augmented_reality.png',
+					'welcome_new'                 => HFE_URL . 'assets/images/settings/welcome_new.png',
+					'icon_new'                 => HFE_URL . 'assets/images/settings/icon_2.svg',
+					'create_new'                 => HFE_URL . 'assets/images/settings/create_new_banner.png',
 					'uaelite_previous_version' => isset( $rollback_versions[0]['value'] ) ? $rollback_versions[0]['value'] : '',
 					'uaelite_versions'         => $rollback_versions,
 					'uaelite_rollback_url'     => esc_url( add_query_arg( 'version', 'VERSION', wp_nonce_url( admin_url( 'admin-post.php?action=uaelite_rollback' ), 'uaelite_rollback' ) ) ),
@@ -361,6 +397,8 @@ class HFE_Settings_Page {
 					'hfe_post_url'             => $hfe_post_url,
 					'is_hfe_post'              => $is_hfe_post,
 					'user_email'               => $user_email,
+					'user_fname'               => $user_name,
+					'siteurl'                  => $siteurl,
 					'analytics_status'         => $analytics_status,
 					'onboarding_success_url'   => admin_url( 'admin.php?page=hfe#onboardingsuccess' ),
 					'uaelite_subscription'	   => get_option( 'uaelite_subscription', false )

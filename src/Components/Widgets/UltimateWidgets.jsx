@@ -63,7 +63,7 @@ const UltimateWidgets = () => {
                             icon={<Zap />}
                             iconPosition="left"
                             size="xs"
-                            tag="h6"
+                            tag="p"
                             title={__("Unlock Ultimate Features", "header-footer-elementor")}
                             className="text-xs font-semibold text-brand-primary-600"
                         />
