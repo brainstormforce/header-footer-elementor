@@ -106,7 +106,7 @@ class HFE_Settings_Page {
 	 */
 	public function uae_custom_admin_footer_text($footer_text) {
 		if ( isset( $_GET['page'] ) && $_GET['page'] === 'hfe' ) {
-			$footer_text = 'Enjoyed Ultimate Addons for Elementor? Please leave us a <a class="uae-rating" href="https://wordpress.org/support/plugin/header-footer-elementor/reviews/#new-post" target="_blank">★★★★★</a>  rating. We really appreciate your support!';
+			$footer_text = 'Enjoyed <b> UAE </b>? Please leave us a <a class="uae-rating" href="https://wordpress.org/support/plugin/header-footer-elementor/reviews/#new-post" target="_blank">★★★★★</a>  rating. We really appreciate your support!';
 		}
 		return $footer_text;
 	}
