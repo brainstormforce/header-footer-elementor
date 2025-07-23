@@ -1,10 +1,4 @@
-/*!************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/styles.css ***!
-  \************************************************************************************************************/
 @import url(https://fonts.googleapis.com/css?family=Josefin+Sans);
-/*!****************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/@fontsource/figtree/index.css ***!
-  \****************************************************************************************************************************************/
 /* figtree-latin-ext-400-normal */
 @font-face {
   font-family: 'Figtree';
@@ -24,9 +18,6 @@
   src: url(/8fbf595b398521a13438.woff2) format('woff2'), url(/7d00956da27af3e30b78.woff) format('woff');
   unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
 }
-/*!**************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/@fontsource/figtree/400.css ***!
-  \**************************************************************************************************************************************/
 /* figtree-latin-ext-400-normal */
 @font-face {
   font-family: 'Figtree';
@@ -46,9 +37,6 @@
   src: url(/8fbf595b398521a13438.woff2) format('woff2'), url(/7d00956da27af3e30b78.woff) format('woff');
   unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
 }
-/*!*********************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/@fontsource/figtree/400-italic.css ***!
-  \*********************************************************************************************************************************************/
 /* figtree-latin-ext-400-italic */
 @font-face {
   font-family: 'Figtree';
@@ -68,9 +56,6 @@
   src: url(/0c658d1bd687fc3b8ae1.woff2) format('woff2'), url(/f2b6d272f68d05e1513a.woff) format('woff');
   unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
 }
-/*!****************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/styles.css (1) ***!
-  \****************************************************************************************************************/
 *, ::before, ::after{
     --tw-border-spacing-x: 0;
     --tw-border-spacing-y: 0;
@@ -329,6 +314,12 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .z-20{
     z-index: 20;
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .z-30{
+    z-index: 30;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .z-50{
+    z-index: 50;
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .z-999999{
     z-index: 999999;
 }
@@ -470,6 +461,10 @@
     margin-left: 0.5rem;
     margin-right: 0.5rem;
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .mx-6{
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .mx-auto{
     margin-left: auto;
     margin-right: auto;
@@ -486,9 +481,16 @@
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .my-4{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .my-5{
     margin-top: 1.25rem;
     margin-bottom: 1.25rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .-mr-2{
+    margin-right: -0.5rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .mb-0{
     margin-bottom: 0px;
@@ -504,6 +506,9 @@
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .mb-6{
     margin-bottom: 1.5rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .mb-8{
+    margin-bottom: 2rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .ml-0{
     margin-left: 0px;
@@ -567,6 +572,9 @@
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .mt-4{
     margin-top: 1rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .mt-8{
+    margin-top: 2rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .mt-\[2px\]{
     margin-top: 2px;
@@ -673,11 +681,17 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .h-2\.5{
     height: 0.625rem;
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .h-20{
+    height: 5rem;
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .h-3{
     height: 0.75rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .h-4{
     height: 1rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .h-48{
+    height: 12rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .h-5{
     height: 1.25rem;
@@ -804,6 +818,9 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .w-2\.5{
     width: 0.625rem;
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .w-20{
+    width: 5rem;
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .w-3{
     width: 0.75rem;
 }
@@ -888,6 +905,9 @@
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .max-w-32{
     max-width: 8rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .max-w-3xl{
+    max-width: 48rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .max-w-72{
     max-width: 18rem;
@@ -1155,6 +1175,9 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .gap-1\.5{
     gap: 0.375rem;
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .gap-10{
+    gap: 2.5rem;
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .gap-2{
     gap: 0.5rem;
 }
@@ -1389,6 +1412,9 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .border-0\.5{
     border-width: 0.5px;
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .border-2{
+    border-width: 2px;
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .border-\[0\.5px\]{
     border-width: 0.5px;
 }
@@ -1412,6 +1438,9 @@
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .border-b-0\.5{
     border-bottom-width: 0.5px;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .border-b-2{
+    border-bottom-width: 2px;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .border-l{
     border-left-width: 1px;
@@ -1448,6 +1477,10 @@
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .border-none{
     border-style: none;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .border-\[\#6005FF\]{
+    --tw-border-opacity: 1;
+    border-color: rgb(96 5 255 / var(--tw-border-opacity, 1));
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .border-alert-border-danger{
     --tw-border-opacity: 1;
@@ -1529,6 +1562,22 @@
     --tw-border-opacity: 1;
     border-color: rgb(254 202 202 / var(--tw-border-opacity, 1));
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .border-gray-200{
+    --tw-border-opacity: 1;
+    border-color: rgb(229 231 235 / var(--tw-border-opacity, 1));
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .border-gray-300{
+    --tw-border-opacity: 1;
+    border-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .border-gray-500{
+    --tw-border-opacity: 1;
+    border-color: rgb(107 114 128 / var(--tw-border-opacity, 1));
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .border-red-200{
+    --tw-border-opacity: 1;
+    border-color: rgb(254 202 202 / var(--tw-border-opacity, 1));
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .border-slate-200{
     --tw-border-opacity: 1;
     border-color: rgb(226 232 240 / var(--tw-border-opacity, 1));
@@ -1548,9 +1597,16 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .border-transparent{
     border-color: transparent;
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .border-white{
+    --tw-border-opacity: 1;
+    border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .border-t-border-subtle{
     --tw-border-opacity: 1;
     border-top-color: rgb(229 231 235 / var(--tw-border-opacity, 1));
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .border-t-transparent{
+    border-top-color: transparent;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .bg-\[\#6005FF\]{
     --tw-bg-opacity: 1;
@@ -1647,6 +1703,13 @@
     --tw-bg-opacity: 1;
     background-color: rgb(254 249 195 / var(--tw-bg-opacity, 1));
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .bg-black{
+    --tw-bg-opacity: 1;
+    background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .bg-black\/40{
+    background-color: rgb(0 0 0 / 0.4);
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .bg-border-interactive{
     --tw-bg-opacity: 1;
     background-color: rgb(37 99 235 / var(--tw-bg-opacity, 1));
@@ -1714,6 +1777,10 @@
     --tw-bg-opacity: 1;
     background-color: rgb(229 231 235 / var(--tw-bg-opacity, 1));
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .bg-gray-50{
+    --tw-bg-opacity: 1;
+    background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1));
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .bg-icon-interactive{
     --tw-bg-opacity: 1;
     background-color: rgb(37 99 235 / var(--tw-bg-opacity, 1));
@@ -1721,6 +1788,10 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .bg-misc-progress-background{
     --tw-bg-opacity: 1;
     background-color: rgb(229 231 235 / var(--tw-bg-opacity, 1));
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .bg-red-50{
+    --tw-bg-opacity: 1;
+    background-color: rgb(254 242 242 / var(--tw-bg-opacity, 1));
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .bg-tab-background{
     --tw-bg-opacity: 1;
@@ -1857,6 +1928,14 @@
     padding-left: 1.375rem;
     padding-right: 1.375rem;
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .px-6{
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .px-8{
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .py-0\.5{
     padding-top: 0.125rem;
     padding-bottom: 0.125rem;
@@ -1888,6 +1967,10 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .py-4{
     padding-top: 1rem;
     padding-bottom: 1rem;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .py-6{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .pb-1{
     padding-bottom: 0.25rem;
@@ -2016,6 +2099,9 @@
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .font-bold{
     font-weight: 700;
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .font-light{
+    font-weight: 300;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .font-medium{
     font-weight: 500;
@@ -2154,6 +2240,22 @@
     --tw-text-opacity: 1;
     color: rgb(107 114 128 / var(--tw-text-opacity, 1));
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .text-gray-400{
+    --tw-text-opacity: 1;
+    color: rgb(156 163 175 / var(--tw-text-opacity, 1));
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .text-gray-600{
+    --tw-text-opacity: 1;
+    color: rgb(75 85 99 / var(--tw-text-opacity, 1));
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .text-gray-700{
+    --tw-text-opacity: 1;
+    color: rgb(55 65 81 / var(--tw-text-opacity, 1));
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .text-gray-900{
+    --tw-text-opacity: 1;
+    color: rgb(17 24 39 / var(--tw-text-opacity, 1));
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .text-icon-disabled{
     --tw-text-opacity: 1;
     color: rgb(189 193 199 / var(--tw-text-opacity, 1));
@@ -2177,6 +2279,10 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .text-link-primary{
     --tw-text-opacity: 1;
     color: rgb(37 99 235 / var(--tw-text-opacity, 1));
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .text-red-700{
+    --tw-text-opacity: 1;
+    color: rgb(185 28 28 / var(--tw-text-opacity, 1));
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .text-support-error{
     --tw-text-opacity: 1;
@@ -2433,6 +2539,11 @@
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .filter{
     filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .backdrop-blur-sm{
+    --tw-backdrop-blur: blur(4px);
+    -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+    backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .transition{
     transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
@@ -2994,6 +3105,10 @@ div#hfe-settings-app {
     --tw-border-opacity: 1;
     border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:bg-\[\#4B00CC\]:hover{
+    --tw-bg-opacity: 1;
+    background-color: rgb(75 0 204 / var(--tw-bg-opacity, 1));
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:bg-background-brand:hover{
     --tw-bg-opacity: 1;
     background-color: rgb(37 99 235 / var(--tw-bg-opacity, 1));
@@ -3050,6 +3165,10 @@ div#hfe-settings-app {
     --tw-bg-opacity: 1;
     background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1));
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:bg-gray-50:hover{
+    --tw-bg-opacity: 1;
+    background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1));
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:bg-transparent:hover{
     background-color: transparent;
 }
@@ -3068,6 +3187,10 @@ div#hfe-settings-app {
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:text-button-primary-hover:hover{
     --tw-text-opacity: 1;
     color: rgb(29 78 216 / var(--tw-text-opacity, 1));
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:text-gray-600:hover{
+    --tw-text-opacity: 1;
+    color: rgb(75 85 99 / var(--tw-text-opacity, 1));
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .hover\:text-link-primary-hover:hover{
     --tw-text-opacity: 1;
@@ -3163,6 +3286,9 @@ div#hfe-settings-app {
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus\:border-toggle-off-border:focus{
     --tw-border-opacity: 1;
     border-color: rgb(189 193 199 / var(--tw-border-opacity, 1));
+}
+:is(#hfe-settings-app, [data-floating-ui-portal]) .focus\:border-transparent:focus{
+    border-color: transparent;
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .focus\:bg-background-secondary:focus{
     --tw-bg-opacity: 1;
@@ -4400,3 +4526,5 @@ div#hfe-settings-app {
     height: 1.5rem;
 }
 
+
+/*# sourceMappingURL=main.css.map*/

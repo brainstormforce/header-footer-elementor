@@ -422,7 +422,7 @@ msgid "Yes"
 msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:224
-#: src/Components/HF-Builder/AllLayouts.jsx:187
+#: src/Components/HF-Builder/AllLayouts.jsx:549
 msgid "Close"
 msgstr ""
 
@@ -586,83 +586,91 @@ msgstr ""
 msgid " Continue Setup"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:101
-msgid "Create Layout"
-msgstr ""
-
-#: src/Components/HF-Builder/AllLayouts.jsx:11
+#: src/Components/HF-Builder/AllLayouts.jsx:14
 msgid "Edit Header"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:18
+#: src/Components/HF-Builder/AllLayouts.jsx:22
 msgid "Edit Footer"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:182
+#: src/Components/HF-Builder/AllLayouts.jsx:234
+msgid "Entire Site"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:30
+msgid "Edit Before Footer"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:302
+msgid "Failed to load display conditions"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:38
+msgid "Edit Custom Block"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:415
+msgid "Failed to save display conditions"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:430
+msgid "Start customising Your Header & Footer"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:455
+msgid "Create Layout"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:541
 msgid "Configure Display Conditions"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:202
+#: src/Components/HF-Builder/AllLayouts.jsx:568
 #: src/Components/HF-Builder/Header.jsx:18
 msgid "Layout Template"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:209
+#: src/Components/HF-Builder/AllLayouts.jsx:578
 msgid "Where Should Your Layout Appear?"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:212
+#: src/Components/HF-Builder/AllLayouts.jsx:584
 msgid "Decide where you want this layout to appear on your site."
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:214
+#: src/Components/HF-Builder/AllLayouts.jsx:589
 msgid ""
 "You can show it across your entire site or only on specific pages—your "
 "choice!"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:237
+#: src/Components/HF-Builder/AllLayouts.jsx:631
 msgid "Include"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:240
+#: src/Components/HF-Builder/AllLayouts.jsx:632
 msgid "Exclude"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:25
-msgid "Edit Before Footer"
-msgstr ""
-
-#: src/Components/HF-Builder/AllLayouts.jsx:261
-msgid "Entire Site"
-msgstr ""
-
-#: src/Components/HF-Builder/AllLayouts.jsx:264
-msgid "All Pages"
-msgstr ""
-
-#: src/Components/HF-Builder/AllLayouts.jsx:267
-msgid "All Posts"
-msgstr ""
-
-#: src/Components/HF-Builder/AllLayouts.jsx:277
+#: src/Components/HF-Builder/AllLayouts.jsx:669
 msgid "Remove condition"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:292
+#: src/Components/HF-Builder/AllLayouts.jsx:686
 msgid "Add Conditions"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:308
+#: src/Components/HF-Builder/AllLayouts.jsx:704
 #: src/Components/Settings/VersionControl.jsx:132
 msgid "Cancel"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:32
-msgid "Edit Custom Block"
+#: src/Components/HF-Builder/AllLayouts.jsx:715
+msgid "Saving..."
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:322
+#: src/Components/HF-Builder/AllLayouts.jsx:721
 msgid "Save Conditions"
 msgstr ""
 
