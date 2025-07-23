@@ -258,7 +258,7 @@ const ExtendOnboardingWidget = ({
                             window.open(plugin.siteurl, '_blank');
                         }}
                     >{__(name, 'header-footer-elementor')}</p>
-                    <p className='text-sm font-normal text-text-tertiary m-0 truncate' style={{ width: '250px'}}>{__(desc, 'header-footer-elementor')}</p>
+                    <p className='text-sm font-normal text-text-tertiary m-0 truncate'>{__(desc, 'header-footer-elementor')}</p>
                 </div>
                 
                 <div className='flex-shrink-0 ml-2'>
