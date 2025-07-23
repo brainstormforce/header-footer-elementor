@@ -11,19 +11,21 @@
 Create dynamic headers, footers, and design blocks effortlessly with Elementor's drag-and-drop builder.
 
 ## Description ##
-The best free Elementor addon to supercharge web designs with widgets, blocks, and powerful features that truly matter.
+**Ultimate Addons for Elementor (UAE)** is a powerful yet lightweight plugin that extends Elementors capabilities with purposely built **widgets**, **blocks**, and **features** that help you build better websites—without adding complexity. 
 
-Formerly known as Elementor Header & Footer Builder, Ultimate Addons for Elementor (UAE) is the premier Elementor addon to design dynamic headers, footers, and creative website sections, without writing a single line of code.
+Formerly known as **Elementor Header & Footer Builder**, UAE has evolved into a trusted Elementor Addons used by **over 2 million websites** to design creative sections directly within Elementor—no coding required. 
 
-Trusted by over 2 million users, UAE supercharges Elementor with a powerful collection of Elementor widgets and creative features that give you complete design freedom. 
+The **free version of UAE** includes a hand-picked set of essential widgets like **Info Card**, **Navigation Menu** and more—widgets that are genuinely useful for most websites. It also enables you to design headers and footers visually and adds features that improve your design process without cluttering your interface.
 
-It works seamlessly with any WordPress theme and keeps your workflow fast, flexible, and frustration-free.
+When you're ready to go further, [UAE Pro](https://ultimateelementor.com/?utm_source=wprepo&utm_medium=uaelite) unlocks a library of **50+ premium widgets**, **200+ pre-designed section blocks**, and advanced features like [Cross-Site Copy-Paste](https://ultimateelementor.com/widgets/cross-site-copy-paste/?utm_source=wprepo&utm_medium=uaelite), [Advanced Display Conditions](https://ultimateelementor.com/widgets/display-conditions/?utm_source=wprepo&utm_medium=uaelite), Form Stylers for popular form plugins, and visual effects like [Particle Backgrounds](https://ultimateelementor.com/widgets/particle-backgrounds/?utm_source=wprepo&utm_medium=uaelite). 
 
-When you’re ready to level up, [UAE Pro](https://ultimateelementor.com/?utm_source=wprepo&utm_medium=uaelite) unlocks a growing library of premium widgets, 200+ pre-designed blocks and advanced features like [Cross-Site Copy-Paste](https://ultimateelementor.com/widgets/cross-site-copy-paste/?utm_source=wprepo&utm_medium=uaelite), [Particle Backgrounds](https://ultimateelementor.com/widgets/particle-backgrounds/?utm_source=wprepo&utm_medium=uaelite), Form Stylers, Advanced Display Conditions and more.
+These features are built to save time and offer more design freedom—not just to impress, but to genuinely improve how you build and manage websites.
 
-Whether you're building your first website or scaling an agency, UAE delivers the performance, versatility, and creative control to build beautiful, high-converting websites.
+Whether you're just getting started with WordPress or managing multiple client sites, UAE - Elementor Addons gives you the **control**, **performance**, and **reliability** to design beautiful, high-converting websites efficiently.
 
 https://www.youtube.com/watch?v=6xH5n6YYNJE
+
+[Try the live demo of Ultimate Addons for Elementor](https://zipwp.org/plugins/header-footer-elementor/)
 
 ## Why UAE Is The Best Elementor Addon ##
 
@@ -224,14 +226,14 @@ Total design freedom: Tweak every pixel, colors, fonts, and layouts to make each
 
 ### What Users Are Saying ###
 
-> “A must-have for any Elementor user. Incredible widget bundle — powerful, essential, and easy to use.” 
-> – Carmelo Teran (nexodreams.com)
+“A must-have for any Elementor user. Incredible widget bundle — powerful, essential, and easy to use.” 
+ – Carmelo Teran (nexodreams.com)
 
-> “Huge selection of widgets that help me deliver unique designs fast. Love the Hotspots, Heading, and Cross-Site Copy Paste!” 
-> – Nicola Stobb (imoe.co)
+“Huge selection of widgets that help me deliver unique designs fast. Love the Hotspots, Heading, and Cross-Site Copy Paste!” 
+ – Nicola Stobb (imoe.co)
 
-> “If Elementor Pro is the Iron Man suit, Ultimate Addons is the Hulkbuster upgrade. I don’t build without it!” 
-> – Dean Loh (kaia.asia)
+“If Elementor Pro is the Iron Man suit, Ultimate Addons is the Hulkbuster upgrade. I don’t build without it!” 
+ – Dean Loh (kaia.asia)
 
 ### More Tools To Enhance Your WordPress Website ###
 

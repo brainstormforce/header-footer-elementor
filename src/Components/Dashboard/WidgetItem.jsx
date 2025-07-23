@@ -131,7 +131,7 @@ const WidgetItem = ({ widget, updateCounter, showTooltip }) => {
 										"header-footer-elementor",
 									)}
 									<a
-										href="https://ultimateelementor.com/pricing/" // Replace with actual upgrade URL
+										href="https://ultimateelementor.com/pricing/?utm_source=uae-lite-dashboard&utm_medium=pro-widgets&utm_campaign=uae-upgrade" // Replace with actual upgrade URL
 										target="_blank"
 										rel="noopener noreferrer"
 										style={{
