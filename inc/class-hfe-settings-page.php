@@ -104,9 +104,19 @@ class HFE_Settings_Page {
 	 * @since 2.4.5
 	 * @return void
 	 */
-	public function uae_custom_admin_footer_text($footer_text) {
-		if ( isset( $_GET['page'] ) && $_GET['page'] === 'hfe' ) {
-			$footer_text = 'Enjoyed <b> UAE </b>? Please leave us a <a class="uae-rating" href="https://wordpress.org/support/plugin/header-footer-elementor/reviews/#new-post" target="_blank">★★★★★</a>  rating. We really appreciate your support!';
+	public function uae_custom_admin_footer_text( $footer_text ) {
+		$screen = get_current_screen();
+	
+		if (
+			( isset( $_GET['page'] ) && $_GET['page'] === 'hfe' ) ||
+			( isset( $screen->post_type ) && $screen->post_type === 'elementor-hf' )
+		) {
+			$footer_text = sprintf(
+				/* translators: %1$s is bold plugin name, %2$s is the review link */
+				__( 'Enjoyed %1$s? Please leave us a %2$s rating. We really appreciate your support!', 'header-footer-elementor' ),
+				'<b>UAE</b>',
+				'<a class="uae-rating" href="https://wordpress.org/support/plugin/header-footer-elementor/reviews/#new-post" target="_blank">★★★★★</a>'
+			);
 		}
 		return $footer_text;
 	}

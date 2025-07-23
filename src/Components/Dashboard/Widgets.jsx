@@ -76,7 +76,7 @@ const Widgets = () => {
 				}}
 			>
 				<p className="m-0 text-sm font-semibold text-text-primary">
-					Widgets / Features
+					{__("Widgets / Features", "header-footer-elementor")}
 				</p>
 			</div>
 			<div className="flex bg-black flex-col rounded-lg p-4">
@@ -134,19 +134,19 @@ const Widgets = () => {
 						))}
 					</Container>
 				)}
-                <div className="flex items-center justify-center gap-x-2 ">
-									<Link
-										to={routes.widgets.path}
-										className="text-sm font-normal text-text-primary cursor-pointer"
-										style={{ lineHeight: "1rem", paddingTop: "20px" }}
-									>
-										View More Widgets
-										<ArrowUpRight
-											className="ml-1 font-semibold"
-											size={14}
-										/>
-									</Link>
-								</div>
+				<div className="flex items-center justify-center gap-x-2 ">
+					<Link
+						to={routes.widgets.path}
+						className="text-sm font-normal text-text-primary cursor-pointer"
+						style={{ lineHeight: "1rem", paddingTop: "20px" }}
+					>
+						{__("View More Widgets", "header-footer-elementor")}
+						<ArrowUpRight
+							className="ml-1 font-semibold"
+							size={14}
+						/>
+					</Link>
+				</div>
 			</div>
 		</div>
 	);
