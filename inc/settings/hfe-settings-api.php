@@ -157,12 +157,14 @@ class HFE_Settings_Api {
 
 	public function uae_create_elementor_hf_layout( $request ) {
 		$title = sanitize_text_field( $request->get_param( 'title' ) );
-	
+		$type = sanitize_text_field( $request->get_param( 'type' ) );
+		$type = 'type_'.strtolower($type);
 		$post_id = wp_insert_post( [
 			'post_title'  => $title,
 			'post_type'   => 'elementor-hf',
 			'post_status' => 'draft',
 		] );
+		update_post_meta($post_id, 'ehf_template_type', $type);
 	
 		if ( is_wp_error( $post_id ) ) {
 			return new WP_REST_Response( [

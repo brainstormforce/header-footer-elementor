@@ -8,7 +8,7 @@ import apiFetch from "@wordpress/api-fetch";
 
 const layoutItems = [
 	{
-        id: '80',
+        id: '',
 		name: "Header",
 		image: hfeSettingsData.header_card,
 		buttonText: __("Edit Header", "header-footer-elementor"),
@@ -208,6 +208,7 @@ const AllLayouts = () => {
                 method: "POST",
                 data: {
                     title: "My Custom Layout",
+                    type:  item.name,
                 },
             })
                 .then((response) => {
