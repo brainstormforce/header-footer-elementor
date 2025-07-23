@@ -4,7 +4,7 @@ Tags: elementor, elementor addon, elementor widget, elementor template, header f
 Requires at least: 5.0  
 Tested up to: 6.8
 Requires PHP: 7.4  
-Stable tag: 2.4.4
+Stable tag: 2.4.5
 License: GPLv2 or later  
 License URI: https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -299,6 +299,9 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 ---
 
 == Changelog ==
+= 2.4.5 =
+- Improvement: Updated Dashboard and Onboarding for Improved User Experience. 
+
 = 2.4.4 =
 - Improvement: Compatibility with latest Elementor and Elementor Pro 3.30 version.
 - Improvement: Help button in widgets now links directly to relevant documentation.

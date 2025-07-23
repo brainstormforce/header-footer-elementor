@@ -4,21 +4,22 @@ import { Link } from "../../router/link";
 import { routes } from "../../admin/settings/routes";
 import { X } from "lucide-react";
 import { __ } from "@wordpress/i18n";
-import Welcome from "./Welcome";
 import Build from "./Build";
-import Configure from "./Configure";
-import Success from "./Success";
+import Create from "./Create";
+import Welcome from "./WelcomeNew";
+import Configure from "./ExtendOnboarding";
+import Features from "./Features";
 
 // Full steps array including the hidden "Success" step
 const allSteps = [
-    { label: "Welcome", component: Welcome },
-    { label: "Configure", component: Configure },
-    { label: "Create", component: Build },
-    { label: "Success", component: Success }, // Hidden from progress bar
+    { label: "", component: Welcome },
+    { label: "", component: Configure },
+    { label: "", component: Features },
+    { label: "", component: Create }, // Hidden from progress bar
 ];
 
 // Only visible steps for the top progress bar
-const visibleSteps = allSteps.slice(0, 3); // Exclude "Success"
+const visibleSteps = allSteps.slice(0, 4); // Exclude "Success"
 
 const Onboarding = () => {
     const [currentStep, setCurrentStep] = React.useState(() => {
@@ -42,15 +43,15 @@ const Onboarding = () => {
 
     return (
         <div>
-            <div className="w-full pb-10">
-                <div className="flex flex-col items-center justify-center">
+            <div className="w-full">
+                <div className="flex flex-col items-center justify-center" style={{ marginTop: "-38px", marginBottom: "24px" }}>
                     <Topbar className="bg-none" style={{ background: "none" }}>
                         <Topbar.Left>
                             <Topbar.Item>
                                 {hfeSettingsData.icon_svg && (
                                     <Link to={routes.dashboard.path}>
                                         <img
-                                            src={`${hfeSettingsData.icon_svg}`}
+                                            src={`${hfeSettingsData.icon_new}`}
                                             alt="Logo"
                                             className="cursor-pointer"
                                             style={{ height: "35px" }}
@@ -65,6 +66,7 @@ const Onboarding = () => {
                                     currentStep={Math.min(currentStep, visibleSteps.length)}
                                     className="uae-steps"
                                     variant="number"
+                                    completedVariant="number"
                                 >
                                     {visibleSteps.map((step, index) => (
                                         <ProgressSteps.Step
@@ -82,8 +84,9 @@ const Onboarding = () => {
                                 <Link
                                     className="hfe-remove-ring"
                                     to={routes.dashboard.path}
-                                    style={{ marginLeft: "125px" }}
-                                >
+                                > 
+                               <div className="flex items-center cursor-pointer justify-center gap-1">
+                                 <p style={{ fontSize: '0.9rem', color: '#111827' }}>{__('Exit Guided Setup', 'header-footer-elementor')}</p>
                                     <Button
                                         icon={<X className="size-4" />}
                                         iconPosition="right"
@@ -91,6 +94,7 @@ const Onboarding = () => {
                                         variant="ghost"
                                         className="hfe-remove-ring"
                                     ></Button>
+                               </div>
                                 </Link>
                             </Topbar.Item>
                         </Topbar.Right>

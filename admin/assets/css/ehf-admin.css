@@ -849,3 +849,16 @@ line-height:20px;
 padding-right:12px!important;
 padding-left:12px!important
 }
+
+.uae-plugins-go-pro{
+    color: #6104ff;
+    font-weight: 700;
+}
+
+.uae-plugins-go-pro:active,
+.uae-plugins-go-pro:focus,
+.uae-plugins-go-pro:hover
+{
+    color:#6104ff;
+    opacity:.8;
+}

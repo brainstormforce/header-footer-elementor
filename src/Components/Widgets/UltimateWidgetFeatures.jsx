@@ -3,7 +3,7 @@ import { Container, Title, Button } from "@bsf/force-ui";
 import { Rocket, Check } from "lucide-react";
 import { __ } from "@wordpress/i18n";
 
-const UltimateFeatures = () => {
+const UltimateWidgetFeatures = () => {
 	return (
 		<div>
 			<Container
@@ -21,12 +21,14 @@ const UltimateFeatures = () => {
 						style={{ width: "34%" }}
 					>
 						<img
-							src={`${hfeSettingsData.augmented_reality}`}
+							src={`${hfeSettingsData.augemented_url}`}
 							alt={__(
 								"Column Showcase",
 								"header-footer-elementor",
 							)}
-							className="object-contain  w-full rounded"
+							style={{ width: "400px", height: "200px" }}
+							loading="lazy"
+							className="object-contain rounded"
 						/>
 					</Container.Item>
 
@@ -136,4 +138,4 @@ const UltimateFeatures = () => {
 	);
 };
 
-export default UltimateFeatures;
+export default UltimateWidgetFeatures;

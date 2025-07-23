@@ -36,4 +36,3 @@ parameters:
 		- '#Offset [^\s]+#'
 		- '#Access to [^\s]+#'
 		- '#Strict comparison using \=\=\= between ''no'' and true will always evaluate to false.#'
-
