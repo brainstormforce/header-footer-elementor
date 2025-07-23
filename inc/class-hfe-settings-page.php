@@ -105,7 +105,12 @@ class HFE_Settings_Page {
 	 * @return void
 	 */
 	public function uae_custom_admin_footer_text( $footer_text ) {
-		if ( isset( $_GET['page'] ) && $_GET['page'] === 'hfe' ) {
+		$screen = get_current_screen();
+	
+		if (
+			( isset( $_GET['page'] ) && $_GET['page'] === 'hfe' ) ||
+			( isset( $screen->post_type ) && $screen->post_type === 'elementor-hf' )
+		) {
 			$footer_text = sprintf(
 				/* translators: %1$s is bold plugin name, %2$s is the review link */
 				__( 'Enjoyed %1$s? Please leave us a %2$s rating. We really appreciate your support!', 'header-footer-elementor' ),
