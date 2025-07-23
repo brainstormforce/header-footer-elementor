@@ -10,6 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+use HFE\Lib\Astra_Target_Rules_Fields;
 use HFE\WidgetsManager\Base\HFE_Helper;
 
 /**
@@ -97,6 +98,173 @@ class HFE_Settings_Api {
 				'permission_callback' => [ $this, 'get_items_permissions_check' ],
 			]
 		);
+
+		register_rest_route(
+			'hfe/v1', 
+			'/target-rules', 
+			[
+				'methods'             => 'GET',
+				'callback'            => [ $this,'get_target_rules_data'],
+				'args'     => [
+					'post_id' => [
+						'required' => true,
+						'type'     => 'integer',
+					],
+				],
+				'permission_callback' => [ $this, 'get_items_permissions_check' ],
+			]
+		);
+		
+		register_rest_route(
+			'hfe/v1', 
+			'/target-rules',
+			[
+				'methods' => 'POST',
+				'callback' => [ $this,'save_target_rules_data'],
+				'permission_callback' => [ $this, 'get_items_permissions_check' ],
+			]
+		);
+
+		register_rest_route( 
+			'hfe/v1', 
+			'/target-rules-options', 
+			[
+				'methods'  => 'GET',
+				'callback' => [ $this, 'hfe_get_target_rule_settings'],
+				'permission_callback' => [ $this, 'get_items_permissions_check' ], // secure as needed
+			]
+		);
+
+		register_rest_route( 
+			'hfe/v1', 
+			'/create-layout', 
+			[
+				'methods'             => 'POST',
+				'callback'            => [ $this, 'uae_create_elementor_hf_layout' ],
+				'permission_callback' => function () {
+					return current_user_can( 'edit_posts' );
+				},
+				'args' => [
+					'title' => [
+						'required' => false,
+						'type'     => 'string',
+						'default'  => 'New Header/Footer Layout',
+					],
+				],
+			]
+		);
+	}
+
+	public function uae_create_elementor_hf_layout( $request ) {
+		$title = sanitize_text_field( $request->get_param( 'title' ) );
+	
+		$post_id = wp_insert_post( [
+			'post_title'  => $title,
+			'post_type'   => 'elementor-hf',
+			'post_status' => 'draft',
+		] );
+	
+		if ( is_wp_error( $post_id ) ) {
+			return new WP_REST_Response( [
+				'success' => false,
+				'message' => 'Failed to create post.',
+			], 500 );
+		}
+	
+		return new WP_REST_Response( [
+			'success' => true,
+			'post_id' => $post_id,
+		], 200 );
+	}
+
+	public function hfe_get_target_rule_settings() {
+
+		    // Get an instance of the Astra_Target_Rules_Fields class
+			$target_rules = Astra_Target_Rules_Fields::get_instance();
+    
+			// Call the get_location_selections() method to get the location options
+			$location_selections = $target_rules->get_location_selections();
+			
+			return [
+				'locationOptions' => $location_selections,
+				'addRuleLabel'     => __( 'Add Rule', 'header-footer-elementor' ),
+				'excludeRuleLabel' => __( 'Add Exclusion Rule', 'header-footer-elementor' ),
+			];
+	}
+
+	// public function get_target_rules_data() {
+	// 	// Return all the location options, user roles, etc.
+	// 	$target_rules = Astra_Target_Rules_Fields::get_instance();
+		
+	// 	return [
+	// 		'locations' => $target_rules->get_location_selections(),
+	// 		'userRoles' => $target_rules->get_user_selections(),
+	// 		// Add any other data you need
+	// 	];
+	// }
+
+	public function get_target_rules_data( $request ) {
+		$post_id = isset( $request['post_id'] ) ? intval( $request['post_id'] ) : 0;
+		
+		$include_locations = get_post_meta( $post_id, 'ehf_target_include_locations', true );
+		$exclude_locations = get_post_meta( $post_id, 'ehf_target_exclude_locations', true );
+		$user_roles        = get_post_meta( $post_id, 'ehf_target_user_roles', true );
+		$conditions = [];
+	
+		// Parse include rules
+		if ( isset( $include_locations['rule'] ) && is_array( $include_locations['rule'] ) ) {
+			foreach ( $include_locations['rule'] as $rule ) {
+				$conditions[] = [
+					'conditionType' => [
+						'id'   => 'include',
+						'name' => __( 'Include', 'header-footer-elementor' ),
+					],
+					'displayLocation' => [
+						'id'   => $rule,
+						'name' => ucwords( str_replace( '-', ' ', $rule ) ), // or fetch from options array
+					],
+				];
+			}
+		}
+	
+		// Parse exclude rules
+		if ( isset( $exclude_locations['rule'] ) && is_array( $exclude_locations['rule'] ) ) {
+			foreach ( $exclude_locations['rule'] as $rule ) {
+				$conditions[] = [
+					'conditionType' => [
+						'id'   => 'exclude',
+						'name' => __( 'Exclude', 'header-footer-elementor' ),
+					],
+					'displayLocation' => [
+						'id'   => $rule,
+						'name' => ucwords( str_replace( '-', ' ', $rule ) ),
+					],
+				];
+			}
+		}
+		// You can also parse user roles similarly if needed
+		
+		return [
+			'conditions' => $conditions,
+			'locations'  => Astra_Target_Rules_Fields::get_instance()->get_location_selections(),
+			// 'userRoles'  => Astra_Target_Rules_Fields::get_instance()->get_user_selections(),
+		];
+	}
+	
+	
+	public function save_target_rules_data($request) {
+		$params = $request->get_params();
+		// Save the target rules data
+		$post_id = isset($params['post_id']) ? intval($params['post_id']) : 0;
+		$include_locations = isset($params['include_locations']) ? $params['include_locations'] : [];
+		$exclude_locations = isset($params['exclude_locations']) ? $params['exclude_locations'] : [];
+		$user_roles = isset($params['user_roles']) ? $params['user_roles'] : [];
+		
+		update_post_meta($post_id, 'ehf_target_include_locations', $include_locations);
+		update_post_meta($post_id, 'ehf_target_exclude_locations', $exclude_locations);
+		update_post_meta($post_id, 'ehf_target_user_roles', $user_roles);
+		
+		return ['success' => true];
 	}
 
 	/**
