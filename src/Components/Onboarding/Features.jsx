@@ -41,7 +41,7 @@ const Features = ({ setCurrentStep }) => {
 		hasFreeFeaturesSelected || hasProFeaturesSelected;
 
 	const handleUpgrade = () => {
-		window.open("https://ultimateelementor.com/pricing/?utm_source=wp-admin&utm_medium=onboading&utm_campaign=uae-upgrade", "_blank");
+		window.open("https://ultimateelementor.com/pricing/?utm_source=wp-admin&utm_medium=onboarding&utm_campaign=uae-upgrade", "_blank");
 	};
 
 	return (
