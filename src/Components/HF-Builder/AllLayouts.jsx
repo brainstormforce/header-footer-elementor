@@ -61,6 +61,7 @@ const AllLayouts = () => {
 	const [error, setError] = useState(null);
     const [postId, setPostId] = useState(null);
 	const [locationOptions, setLocationOptions] = useState([]);
+    const [nextId, setNextId] = useState(conditions.length + 1);
 
     useEffect(() => {
         // Fetch the target rule options when component mounts
@@ -78,7 +79,7 @@ const AllLayouts = () => {
 
 	const handleAddCondition = () => {
 		const newCondition = {
-			id: conditions.length + 1,
+			id: nextId,
 			conditionType: {
 				id: "include",
 				name: __("Include", "header-footer-elementor"),
@@ -89,6 +90,7 @@ const AllLayouts = () => {
 			},
 		};
 		setConditions([...conditions, newCondition]);
+        setNextId(nextId + 1);
 	};
 
 	const handleRemoveCondition = (id) => {
@@ -96,8 +98,6 @@ const AllLayouts = () => {
 	};
 
 	const handleUpdateCondition = (id, field, value) => {
-        console.log(id);
-        console.log("shubham");
 		setConditions(
 			conditions.map((condition) =>
 				condition.id === id
@@ -292,8 +292,14 @@ const AllLayouts = () => {
                 path: `/hfe/v1/target-rules?post_id=${item.id}`,
             })
                 .then((data) => {
-                    const { conditions = [], locations = {}, userRoles = {} } = data || {};
-                    setConditions(conditions);
+
+                    const enrichedConditions = data.conditions.map((condition, index) => ({
+                        ...condition,
+                        id: index + 1,
+                    }));
+                    
+                    setConditions(enrichedConditions);
+                    setNextId(enrichedConditions.length + 1);
                     setIsLoading(false);
                 })
                 .catch((err) => {
