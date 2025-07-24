@@ -233,38 +233,50 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 
 	// Handle next button click
 	const handleNextClick = () => {
-		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-		const errors = {};
-		
-		// Check if fields are empty
-		if (!formData.email?.trim()) {
-			errors.email = __('This field is required');
-		} else if (!emailRegex.test(formData.email.trim())) {
-			errors.email = __('Please enter a valid email address');
+
+		if(  localStorage.getItem("uaeFormSubmitted") === "true" )
+		{
+			// Start installation in background only if there are plugins to install
+			if (plugins.length > 0) {
+				installSelectedPluginsInBackground();
+			}
+			setCurrentStep(3);
+		} 
+		else{
+			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			const errors = {};
+			
+			// Check if fields are empty
+			if (!formData.email?.trim()) {
+				errors.email = __('This field is required');
+			} else if (!emailRegex.test(formData.email.trim())) {
+				errors.email = __('Please enter a valid email address');
+			}
+			
+			if (!formData.firstName?.trim()) {
+				errors.firstName = __('This field is required');
+			}
+			
+			// If there are errors, set them and return
+			if (Object.keys(errors).length > 0) {
+				setFieldErrors(errors);
+				return;
+			}
+			
+			// Clear any previous errors
+			setFieldErrors({});
+			
+			// Start installation in background only if there are plugins to install
+			if (plugins.length > 0) {
+				installSelectedPluginsInBackground();
+			}
+			// Call email webhook
+			callEmailWebhook(formData.email, formData.firstName, formData.lastName, isActive, formData.domain);
+			localStorage.setItem("uaeFormSubmitted", "true");
+			setIsFormSubmitted(true);
+			setCurrentStep(3);
 		}
 		
-		if (!formData.firstName?.trim()) {
-			errors.firstName = __('This field is required');
-		}
-		
-		// If there are errors, set them and return
-		if (Object.keys(errors).length > 0) {
-			setFieldErrors(errors);
-			return;
-		}
-		
-		// Clear any previous errors
-		setFieldErrors({});
-		
-		// Start installation in background only if there are plugins to install
-		if (plugins.length > 0) {
-			installSelectedPluginsInBackground();
-		}
-		// Call email webhook
-		callEmailWebhook(formData.email, formData.firstName, formData.lastName, isActive, formData.domain);
-		localStorage.setItem("uaeFormSubmitted", "true");
-		setIsFormSubmitted(true);
-		setCurrentStep(3);
 	};
 
 	// If all plugins are installed or there are no plugins to show, only hide the plugins section
