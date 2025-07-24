@@ -476,7 +476,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 								onChange={(e) =>
 									handleInputChange("email", e.target.value)
 								}
-								className={`uae-role-checkbox w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors ${fieldErrors.email ? 'uae-error-field' : ''}`}
+								className={`w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors ${fieldErrors.email ? 'uae-error-field' : ''}`}
 								 style={{
                                             height: '48px',
                                             borderColor: '#e0e0e0', // Default border color
