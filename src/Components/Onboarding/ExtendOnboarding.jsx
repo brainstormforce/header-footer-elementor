@@ -19,6 +19,9 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 		email: hfeSettingsData.user_email ? hfeSettingsData.user_email : "",
 		domain: hfeSettingsData.siteurl ? hfeSettingsData.siteurl : "",
 	});
+	const [isFormSubmitted, setIsFormSubmitted] = useState(() => {
+		return localStorage.getItem("uaeFormSubmitted") === "true";
+	});
 	const [fieldErrors, setFieldErrors] = useState({});
 
 	const handleInputChange = (name, value) => {
@@ -259,6 +262,8 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 		}
 		// Call email webhook
 		callEmailWebhook(formData.email, formData.firstName, formData.lastName, isActive, formData.domain);
+		localStorage.setItem("uaeFormSubmitted", "true");
+		setIsFormSubmitted(true);
 		setCurrentStep(3);
 	};
 
@@ -406,122 +411,124 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 						</div>
 					</div>
 				)}
-				<div className="px-5 pt-3 bg-white rounded-lg">
-					<h3
-						className={`text-base font-medium text-gray-900 ${
-							!showPluginsSection ? "text-xl mb-3" : ""
-						}`}
-					>
-						{__(
-							"Get Important Notifications and Updates",
-							"header-footer-elementor",
-						)}
-					</h3>
-					<div className="flex flex-row items-start gap-4 mb-4">
-						<div className="flex flex-col flex-1">
-							<label className="text-sm font-medium text-gray-700 mb-2">
-								{__("First Name", "header-footer-elementor")}
-							</label>
-							<input
-								type="text"
-								name="firstName"
-								value={formData.firstName}
-								onChange={(e) =>
-									handleInputChange(
-										"firstName",
-										e.target.value,
-									)
-								}
-								className={`w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none hfe-remove-ring transition-colors ${fieldErrors.firstName ? 'uae-error-field' : ''}`}
-								style={{
-									height: '48px',
-									borderColor: '#e0e0e0',
-									outline: 'none',
-									fontSize: "14px",     
-									boxShadow: 'none',
-								}}
-							/>
-							{fieldErrors.firstName && <span className="uae-error-message">{fieldErrors.firstName}</span>}
-						</div>
-						<div className="flex flex-col flex-1">
-							<label className="text-sm font-medium text-gray-700 mb-2">
-								{__("Last Name", "header-footer-elementor")}
-							</label>
-							<input
-								type="text"
-								name="lastName"
-								value={formData.lastName}
-								onChange={(e) =>
-									handleInputChange(
-										"lastName",
-										e.target.value,
-									)
-								}
-								className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none hfe-remove-ring transition-colors"
-								style={{
-									height: '48px',
-									borderColor: '#e0e0e0',
-									outline: 'none',
-									fontSize: "14px",     
-									boxShadow: 'none',
-								}}
-							/>
-						</div>
-					</div>
-					<div className="flex flex-row items-start gap-4 mb-4">
-						<div className="flex flex-col flex-1">
-							<label className="text-sm font-medium text-gray-700 mb-2">
-								{__("Email Address", "header-footer-elementor")}
-							</label>
-							<input
-								type="email"
-								name="email"
-								value={formData.email}
-								onChange={(e) =>
-									handleInputChange("email", e.target.value)
-								}
-								className={`w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors ${fieldErrors.email ? 'uae-error-field' : ''}`}
-								 style={{
-                                            height: '48px',
-                                            borderColor: '#e0e0e0', // Default border color
-                                            outline: 'none',  // Removes the default outline
-											fontSize: "14px",     
-                                            boxShadow: 'none',     // Removes the default box shadow
-                                            // marginTop: '16px'
-                                        }}
-							/>
-							{fieldErrors.email && <span className="uae-error-message">{fieldErrors.email}</span>}
-						</div>
-					</div>
-					<div className="flex items-start gap-1">
-						<input
-							type="checkbox"
-							id="notifications-checkbox"
-							checked={isActive}
-							onChange={handleNotifyChange}
-							className="uae-role-checkbox mt-1 h-4 w-4 text-[#5C2EDE] focus:ring-[#5C2EDE] border-gray-300 rounded"
-						/>
-						<label
-							htmlFor="notifications-checkbox"
-							className="text-sm text-gray-600 leading-relaxed"
+				{!isFormSubmitted && (
+					<div className="px-5 pt-3 bg-white rounded-lg">
+						<h3
+							className={`text-base font-medium text-gray-900 ${
+								!showPluginsSection ? "text-xl mb-3" : ""
+							}`}
 						>
 							{__(
-								"Notify me about critical updates and new features — and help us improve by sharing how you use the plugin. ",
+								"Get Important Notifications and Updates",
 								"header-footer-elementor",
 							)}
-							<a
-								href="https://store.brainstormforce.com/privacy-policy/?utm_source=uae_onboarding&utm_medium=notification_updates&utm_campaign=privacy_policy"
-								className="text-sm text-text-primary"
-								target="_blank"
+						</h3>
+						<div className="flex flex-row items-start gap-4 mb-4">
+							<div className="flex flex-col flex-1">
+								<label className="text-sm font-medium text-gray-700 mb-2">
+									{__("First Name", "header-footer-elementor")}
+								</label>
+								<input
+									type="text"
+									name="firstName"
+									value={formData.firstName}
+									onChange={(e) =>
+										handleInputChange(
+											"firstName",
+											e.target.value,
+										)
+									}
+									className={`w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none hfe-remove-ring transition-colors ${fieldErrors.firstName ? 'uae-error-field' : ''}`}
+									style={{
+										height: '48px',
+										borderColor: '#e0e0e0',
+										outline: 'none',
+										fontSize: "14px",     
+										boxShadow: 'none',
+									}}
+								/>
+								{fieldErrors.firstName && <span className="uae-error-message">{fieldErrors.firstName}</span>}
+							</div>
+							<div className="flex flex-col flex-1">
+								<label className="text-sm font-medium text-gray-700 mb-2">
+									{__("Last Name", "header-footer-elementor")}
+								</label>
+								<input
+									type="text"
+									name="lastName"
+									value={formData.lastName}
+									onChange={(e) =>
+										handleInputChange(
+											"lastName",
+											e.target.value,
+										)
+									}
+									className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none hfe-remove-ring transition-colors"
+									style={{
+										height: '48px',
+										borderColor: '#e0e0e0',
+										outline: 'none',
+										fontSize: "14px",     
+										boxShadow: 'none',
+									}}
+								/>
+							</div>
+						</div>
+						<div className="flex flex-row items-start gap-4 mb-4">
+							<div className="flex flex-col flex-1">
+								<label className="text-sm font-medium text-gray-700 mb-2">
+									{__("Email Address", "header-footer-elementor")}
+								</label>
+								<input
+									type="email"
+									name="email"
+									value={formData.email}
+									onChange={(e) =>
+										handleInputChange("email", e.target.value)
+									}
+									className={`w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors ${fieldErrors.email ? 'uae-error-field' : ''}`}
+									style={{
+												height: '48px',
+												borderColor: '#e0e0e0', // Default border color
+												outline: 'none',  // Removes the default outline
+												fontSize: "14px",     
+												boxShadow: 'none',     // Removes the default box shadow
+												// marginTop: '16px'
+											}}
+								/>
+								{fieldErrors.email && <span className="uae-error-message">{fieldErrors.email}</span>}
+							</div>
+						</div>
+						<div className="flex items-start gap-1">
+							<input
+								type="checkbox"
+								id="notifications-checkbox"
+								checked={isActive}
+								onChange={handleNotifyChange}
+								className="uae-role-checkbox mt-1 h-4 w-4 text-[#5C2EDE] focus:ring-[#5C2EDE] border-gray-300 rounded"
+							/>
+							<label
+								htmlFor="notifications-checkbox"
+								className="text-sm text-gray-600 leading-relaxed"
 							>
 								{__(
-									" Privacy Policy",
+									"Notify me about critical updates and new features — and help us improve by sharing how you use the plugin. ",
 									"header-footer-elementor",
 								)}
-							</a>
-						</label>
+								<a
+									href="https://store.brainstormforce.com/privacy-policy/?utm_source=uae_onboarding&utm_medium=notification_updates&utm_campaign=privacy_policy"
+									className="text-sm text-text-primary"
+									target="_blank"
+								>
+									{__(
+										" Privacy Policy",
+										"header-footer-elementor",
+									)}
+								</a>
+							</label>
+						</div>
 					</div>
-				</div>
+				)}
 				<div className="flex w-full justify-between items-center hfe-onboarding-bottom" style={{ paddingLeft: "8px", paddingRight: "8px", paddingTop: "30px" }}>
 					<Button
 						className="flex items-center gap-1 hfe-remove-ring"
