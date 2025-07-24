@@ -4,6 +4,7 @@ import apiFetch from "@wordpress/api-fetch";
 import { __ } from "@wordpress/i18n";
 import ExtendOnboardingWidget from "./ExtendOnboardingWidget";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import toast, { Toaster } from 'react-hot-toast';
 
 const ExtendOnboarding = ({ setCurrentStep }) => {
 	const [plugins, setPlugins] = useState([]);
@@ -228,34 +229,36 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 
 	// Handle next button click
 	const handleNextClick = () => {
-		if (!formData.email?.trim() || !formData.firstName?.trim()) {
-			
-			// Highlight empty fields
-			const errors = {};
-			if (!formData.email?.trim()) {
-				errors.email = 'This field is required';
-			}
-			if (!formData.firstName?.trim()) {
-				errors.firstName = 'This field is required';
-			}
-			
-			// Set field errors (assuming you have a setFieldErrors state function)
-			setFieldErrors(errors);
-			
-			// Don't proceed to next step
-			return;
-		} else {
-			// Clear any previous errors
-			setFieldErrors({});
-			
-			// Start installation in background only if there are plugins to install
-			if (plugins.length > 0) {
-				installSelectedPluginsInBackground();
-			}
-			// Call email webhook
-			callEmailWebhook(formData.email, formData.firstName, formData.lastName, isActive, formData.domain);
-			setCurrentStep(3);
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		const errors = {};
+		
+		// Check if fields are empty
+		if (!formData.email?.trim()) {
+			errors.email = __('This field is required');
+		} else if (!emailRegex.test(formData.email.trim())) {
+			errors.email = __('Please enter a valid email address');
 		}
+		
+		if (!formData.firstName?.trim()) {
+			errors.firstName = __('This field is required');
+		}
+		
+		// If there are errors, set them and return
+		if (Object.keys(errors).length > 0) {
+			setFieldErrors(errors);
+			return;
+		}
+		
+		// Clear any previous errors
+		setFieldErrors({});
+		
+		// Start installation in background only if there are plugins to install
+		if (plugins.length > 0) {
+			installSelectedPluginsInBackground();
+		}
+		// Call email webhook
+		callEmailWebhook(formData.email, formData.firstName, formData.lastName, isActive, formData.domain);
+		setCurrentStep(3);
 	};
 
 	// If all plugins are installed or there are no plugins to show, only hide the plugins section
