@@ -18,8 +18,17 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 		email: hfeSettingsData.user_email ? hfeSettingsData.user_email : "",
 		domain: hfeSettingsData.siteurl ? hfeSettingsData.siteurl : "",
 	});
+	const [fieldErrors, setFieldErrors] = useState({});
 
 	const handleInputChange = (name, value) => {
+		setFieldErrors((prevErrors) => {
+			// If there's an error for this field, remove it
+			if (prevErrors[name]) {
+				const { [name]: removed, ...rest } = prevErrors;
+				return rest;
+			}
+			return prevErrors; // No change if no error on this field
+		});
 		setFormData((prev) => ({
 			...prev,
 			[name]: value,
@@ -219,16 +228,32 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 
 	// Handle next button click
 	const handleNextClick = () => {
-		// Start installation in background only if there are plugins to install
-		if (plugins.length > 0) {
-			installSelectedPluginsInBackground();
-		}
-
-		// Only call webhook if notifications are enabled
-		if (formData.email) {
-			callEmailWebhook(formData.email, formData.firstName, formData.lastName, isActive, formData.domain);
+		if (!formData.email?.trim() || !formData.firstName?.trim()) {
+			
+			// Highlight empty fields
+			const errors = {};
+			if (!formData.email?.trim()) {
+				errors.email = 'This field is required';
+			}
+			if (!formData.firstName?.trim()) {
+				errors.firstName = 'This field is required';
+			}
+			
+			// Set field errors (assuming you have a setFieldErrors state function)
+			setFieldErrors(errors);
+			
+			// Don't proceed to next step
+			return;
 		} else {
-			// Immediately proceed to next step if notifications are disabled
+			// Clear any previous errors
+			setFieldErrors({});
+			
+			// Start installation in background only if there are plugins to install
+			if (plugins.length > 0) {
+				installSelectedPluginsInBackground();
+			}
+			// Call email webhook
+			callEmailWebhook(formData.email, formData.firstName, formData.lastName, isActive, formData.domain);
 			setCurrentStep(3);
 		}
 	};
@@ -271,6 +296,16 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
                         border-bottom: 2px solid #fff;
                         transform: translate(-50%, -60%) rotate(45deg);
                     }
+
+					.error-field {
+						border-color: #dc3545 !important;
+					}
+
+					.error-message {
+						color: #dc3545;
+						font-size: 0.875rem;
+						margin-top: 0.25rem;
+					}
                 `}
 			</style>
 			<div
@@ -393,7 +428,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 										e.target.value,
 									)
 								}
-								className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none hfe-remove-ring transition-colors"
+								className={`w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none hfe-remove-ring transition-colors ${fieldErrors.firstName ? 'error-field' : ''}`}
 								style={{
 									height: '48px',
 									borderColor: '#e0e0e0',
@@ -402,6 +437,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 									boxShadow: 'none',
 								}}
 							/>
+							{fieldErrors.firstName && <span className="error-message">{fieldErrors.firstName}</span>}
 						</div>
 						<div className="flex flex-col flex-1">
 							<label className="text-sm font-medium text-gray-700 mb-2">
@@ -440,7 +476,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 								onChange={(e) =>
 									handleInputChange("email", e.target.value)
 								}
-								className="uae-role-checkbox w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
+								className={`uae-role-checkbox w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors ${fieldErrors.email ? 'error-field' : ''}`}
 								 style={{
                                             height: '48px',
                                             borderColor: '#e0e0e0', // Default border color
@@ -450,6 +486,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
                                             // marginTop: '16px'
                                         }}
 							/>
+							{fieldErrors.email && <span className="error-message">{fieldErrors.email}</span>}
 						</div>
 					</div>
 					<div className="flex items-start gap-1">
@@ -465,7 +502,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 							className="text-sm text-gray-600 leading-relaxed"
 						>
 							{__(
-								"Enabling this lets us collect basic, non-sensitive usage data to improve the plugin and keep you informed about important updates and features. ",
+								"Notify me about critical updates and new features — and help us improve by sharing how you use the plugin. ",
 								"header-footer-elementor",
 							)}
 							<a
@@ -474,7 +511,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 								target="_blank"
 							>
 								{__(
-									" Learn More",
+									" Privacy Policy",
 									"header-footer-elementor",
 								)}
 							</a>
