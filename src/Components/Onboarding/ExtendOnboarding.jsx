@@ -297,11 +297,11 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
                         transform: translate(-50%, -60%) rotate(45deg);
                     }
 
-					.error-field {
+					.uae-error-field {
 						border-color: #dc3545 !important;
 					}
 
-					.error-message {
+					.uae-error-message {
 						color: #dc3545;
 						font-size: 0.875rem;
 						margin-top: 0.25rem;
@@ -428,7 +428,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 										e.target.value,
 									)
 								}
-								className={`w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none hfe-remove-ring transition-colors ${fieldErrors.firstName ? 'error-field' : ''}`}
+								className={`w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none hfe-remove-ring transition-colors ${fieldErrors.firstName ? 'uae-error-field' : ''}`}
 								style={{
 									height: '48px',
 									borderColor: '#e0e0e0',
@@ -437,7 +437,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 									boxShadow: 'none',
 								}}
 							/>
-							{fieldErrors.firstName && <span className="error-message">{fieldErrors.firstName}</span>}
+							{fieldErrors.firstName && <span className="uae-error-message">{fieldErrors.firstName}</span>}
 						</div>
 						<div className="flex flex-col flex-1">
 							<label className="text-sm font-medium text-gray-700 mb-2">
@@ -476,7 +476,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 								onChange={(e) =>
 									handleInputChange("email", e.target.value)
 								}
-								className={`uae-role-checkbox w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors ${fieldErrors.email ? 'error-field' : ''}`}
+								className={`uae-role-checkbox w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors ${fieldErrors.email ? 'uae-error-field' : ''}`}
 								 style={{
                                             height: '48px',
                                             borderColor: '#e0e0e0', // Default border color
@@ -486,7 +486,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
                                             // marginTop: '16px'
                                         }}
 							/>
-							{fieldErrors.email && <span className="error-message">{fieldErrors.email}</span>}
+							{fieldErrors.email && <span className="uae-error-message">{fieldErrors.email}</span>}
 						</div>
 					</div>
 					<div className="flex items-start gap-1">
@@ -506,7 +506,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 								"header-footer-elementor",
 							)}
 							<a
-								href="https://store.brainstormforce.com/usage-tracking/?utm_source=wp_dashboard&utm_medium=general_settings&utm_campaign=usage_tracking"
+								href="https://store.brainstormforce.com/privacy-policy/?utm_source=uae_onboarding&utm_medium=notification_updates&utm_campaign=privacy_policy"
 								className="text-sm text-text-primary"
 								target="_blank"
 							>
