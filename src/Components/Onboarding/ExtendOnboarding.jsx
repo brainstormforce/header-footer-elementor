@@ -234,7 +234,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 	// Handle next button click
 	const handleNextClick = () => {
 
-		if(  localStorage.getItem("uaeFormSubmitted") === "true" )
+		if(  localStorage.getItem("uaeFormSubmitted") === "true" && showPluginsSection )
 		{
 			// Start installation in background only if there are plugins to install
 			if (plugins.length > 0) {
@@ -423,7 +423,7 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 						</div>
 					</div>
 				)}
-				{!isFormSubmitted && (
+				{(!isFormSubmitted || !showPluginsSection) && (
 					<div className="px-5 pt-3 bg-white rounded-lg">
 						<h3
 							className={`text-base font-medium text-gray-900 ${
