@@ -57,7 +57,7 @@ const Welcome = ({ setCurrentStep }) => {
 					>
 						<CheckIcon color="#111827" size={18} />
 						{__(
-							"No bloat — disable unused widgets with one click.",
+							"No bloat — disable unused widgets with one click",
 							"header-footer-elementor",
 						)}
 					</li>

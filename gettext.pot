@@ -923,7 +923,7 @@ msgid "Your Ultimate Elementor Addons to build modern Elementor Websites."
 msgstr ""
 
 #: src/Components/Onboarding/WelcomeNew.jsx:59
-msgid "No bloat — disable unused widgets with one click."
+msgid "No bloat — disable unused widgets with one click"
 msgstr ""
 
 #: src/Components/Onboarding/WelcomeNew.jsx:75
