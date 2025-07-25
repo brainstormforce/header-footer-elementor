@@ -46,6 +46,7 @@ if ( ! class_exists( 'BSF_UTM_Analytics' ) ) {
 			'surecart',
 			'sureforms',
 			'suremails',
+			'surerank',
 			'suretriggers',
 			'ultimate-addons-for-beaver-builder-lite',
 			'ultimate-addons-for-gutenberg',

@@ -248,13 +248,13 @@ const ExtendOnboarding = ({ setCurrentStep }) => {
 			
 			// Check if fields are empty
 			if (!formData.email?.trim()) {
-				errors.email = __('This field is required');
+				errors.email = __('This field is required', 'header-footer-elementor');
 			} else if (!emailRegex.test(formData.email.trim())) {
-				errors.email = __('Please enter a valid email address');
+				errors.email = __('Please enter a valid email address', 'header-footer-elementor');
 			}
 			
 			if (!formData.firstName?.trim()) {
-				errors.firstName = __('This field is required');
+				errors.firstName = __('This field is required', 'header-footer-elementor');
 			}
 			
 			// If there are errors, set them and return
