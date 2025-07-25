@@ -1,3 +1,6 @@
+v1.1.16 - 15-July-2025
+- Improvement: Added `SureRank` slug to UTM analytics.
+
 v1.1.15 - 1-July-2025
 - Improvement: Added `Ultimate_VC_Addons` slug to UTM analytics.
 

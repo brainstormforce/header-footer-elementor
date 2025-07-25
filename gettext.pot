@@ -729,13 +729,13 @@ msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:340
 #: src/Components/Onboarding/Create.jsx:387
-#: src/Components/Onboarding/ExtendOnboarding.jsx:384
+#: src/Components/Onboarding/ExtendOnboarding.jsx:441
 msgid "First Name"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:367
 #: src/Components/Onboarding/Create.jsx:427
-#: src/Components/Onboarding/ExtendOnboarding.jsx:408
+#: src/Components/Onboarding/ExtendOnboarding.jsx:466
 msgid "Last Name"
 msgstr ""
 
@@ -746,6 +746,7 @@ msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:43
 #: src/Components/Onboarding/Create.jsx:43
+#: src/Components/Onboarding/ExtendOnboarding.jsx:257
 msgid "This field is required"
 msgstr ""
 
@@ -761,7 +762,7 @@ msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:87
 #: src/Components/Onboarding/Create.jsx:93
-#: src/Components/Onboarding/ExtendOnboarding.jsx:87
+#: src/Components/Onboarding/ExtendOnboarding.jsx:100
 #: src/Components/Settings/ThemeSupport.jsx:63
 #: src/Components/Settings/UsageTracking.jsx:32
 msgid "Settings saved successfully!"
@@ -769,7 +770,7 @@ msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:92
 #: src/Components/Onboarding/Create.jsx:105
-#: src/Components/Onboarding/ExtendOnboarding.jsx:92
+#: src/Components/Onboarding/ExtendOnboarding.jsx:106
 #: src/Components/Settings/ThemeSupport.jsx:68
 #: src/Components/Settings/UsageTracking.jsx:37
 msgid "Failed to save settings!"
@@ -781,9 +782,8 @@ msgstr ""
 
 #: src/Components/Onboarding/Create.jsx:174
 msgid ""
-"Ultimate Addons is now ready to enhance your Elementor workflow. Jump in "
-"and start building faster, cleaner, and more creatively — with full control "
-"over every part of your site."
+"Ultimate Addons is ready to supercharge your Elementor workflow! Build "
+"faster, cleaner, and more creatively — with complete control over your site."
 msgstr ""
 
 #: src/Components/Onboarding/Create.jsx:180
@@ -810,45 +810,49 @@ msgstr ""
 msgid "Create New Footer"
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:293
+#: src/Components/Onboarding/ExtendOnboarding.jsx:253
+msgid "Please enter a valid email address"
+msgstr ""
+
+#: src/Components/Onboarding/ExtendOnboarding.jsx:349
 msgid "Recommended Essentials"
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:304
+#: src/Components/Onboarding/ExtendOnboarding.jsx:360
 msgid ""
 "These free plugins add essential features to your website and help speed up "
 "your workflow. Select the plugins you want to install."
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:376
+#: src/Components/Onboarding/ExtendOnboarding.jsx:433
 msgid "Get Important Notifications and Updates"
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:434
+#: src/Components/Onboarding/ExtendOnboarding.jsx:492
 msgid "Email Address"
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:467
+#: src/Components/Onboarding/ExtendOnboarding.jsx:526
 msgid ""
-"Enabling this lets us collect basic, non-sensitive usage data to improve "
-"the plugin and keep you informed about important updates and features. "
+"Notify me about critical updates and new features — and help us improve by "
+"sharing how you use the plugin. "
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:476
-msgid " Learn More"
+#: src/Components/Onboarding/ExtendOnboarding.jsx:535
+msgid " Privacy Policy"
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:491
+#: src/Components/Onboarding/ExtendOnboarding.jsx:551
 #: src/Components/Onboarding/Features.jsx:389
 msgid "Back"
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:500
+#: src/Components/Onboarding/ExtendOnboarding.jsx:560
 #: src/Components/Onboarding/Features.jsx:398
 msgid "Skip"
 msgstr ""
 
-#: src/Components/Onboarding/ExtendOnboarding.jsx:513
+#: src/Components/Onboarding/ExtendOnboarding.jsx:573
 #: src/Components/Onboarding/Features.jsx:426
 msgid "Next"
 msgstr ""
@@ -918,7 +922,7 @@ msgid "Your Ultimate Elementor Addons to build modern Elementor Websites."
 msgstr ""
 
 #: src/Components/Onboarding/WelcomeNew.jsx:59
-msgid "Disable unused widgets in one click, no bloat"
+msgid "No bloat — disable unused widgets with one click"
 msgstr ""
 
 #: src/Components/Onboarding/WelcomeNew.jsx:75

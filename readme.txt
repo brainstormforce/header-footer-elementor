@@ -4,7 +4,7 @@ Tags: elementor, elementor addon, elementor widget, elementor template, header f
 Requires at least: 5.0  
 Tested up to: 6.8
 Requires PHP: 7.4  
-Stable tag: 2.4.5
+Stable tag: 2.4.6
 License: GPLv2 or later  
 License URI: https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -299,6 +299,9 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 ---
 
 == Changelog ==
+= 2.4.6 =
+- Improvement: Refactored and optimized codebase for improved maintainability.
+
 = 2.4.5 =
 - Improvement: Updated Dashboard and Onboarding for Improved User Experience. 
 

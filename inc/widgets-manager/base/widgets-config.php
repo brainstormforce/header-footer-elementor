@@ -1127,7 +1127,7 @@ class Widgets_Config {
 				'icon'         => $images_url . 'stemplates.svg',
 				'type'         => 'plugin',
 				'name'         => esc_html__( 'Starter Templates', 'header-footer-elementor' ),
-				'desc'         => esc_html__( 'Launch websites with AI or ready-made templates.', 'header-footer-elementor' ),
+				'desc'         => esc_html__( 'Quickly launch websites with 300+ professionally designed Elementor templates.', 'header-footer-elementor' ),
 				'wporg'        => 'https://wordpress.org/plugins/astra-sites/',
 				'url'          => 'https://downloads.wordpress.org/plugin/astra-sites.zip',
 				'siteurl'      => 'https://startertemplates.com/',
