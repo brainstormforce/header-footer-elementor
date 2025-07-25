@@ -300,7 +300,7 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 
 ## Changelog ##
 ### 2.4.6 ###
-Improvement: Optimized codebase for improved performance and maintainability.
+Improvement: Refactored and optimized codebase for improved maintainability.
 
 ### 2.4.5 ###
 - Improvement: Updated Dashboard and Onboarding for Improved User Experience. 
