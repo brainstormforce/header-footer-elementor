@@ -172,7 +172,7 @@ const OnboardingBuild = ({ setCurrentStep }) => {
 						style={{ lineHeight: "1.6em" }}
 					>
 						{__(
-							"Ultimate Addons is now ready to enhance your Elementor workflow. Jump in and start building faster, cleaner, and more creatively — with full control over every part of your site.",
+							"Ultimate Addons is ready to supercharge your Elementor workflow! Build faster, cleaner, and more creatively — with complete control over your site.",
 							"header-footer-elementor",
 						)}
 					</span>
