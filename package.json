@@ -34,7 +34,7 @@
 				"grunt-text-replace": "^0.4.0",
 				"history": "^5.3.0",
 				"lodash": "^4.17.21",
-				"lucide-react": "^0.474.0",
+				"lucide-react": "^0.475.0",
 				"path-to-regexp": "^8.2.0",
 				"postcss-flexibility": "git+https://github.com/Nikschavan/postcss-flexibility.git#fix-145-build",
 				"prop-types": "^15.8.1",
