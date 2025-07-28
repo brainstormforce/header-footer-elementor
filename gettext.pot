@@ -422,7 +422,7 @@ msgid "Yes"
 msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:224
-#: src/Components/HF-Builder/AllLayouts.jsx:556
+#: src/Components/HF-Builder/AllLayouts.jsx:628
 msgid "Close"
 msgstr ""
 
@@ -586,91 +586,113 @@ msgstr ""
 msgid " Continue Setup"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:14
+#: src/Components/HF-Builder/AllLayouts.jsx:17
 msgid "Edit Header"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:22
-msgid "Edit Footer"
-msgstr ""
-
-#: src/Components/HF-Builder/AllLayouts.jsx:235
+#: src/Components/HF-Builder/AllLayouts.jsx:246
 msgid "Entire Site"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:30
-msgid "Edit Before Footer"
+#: src/Components/HF-Builder/AllLayouts.jsx:25
+msgid "Edit Footer"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:309
+#: src/Components/HF-Builder/AllLayouts.jsx:323
 msgid "Failed to load display conditions"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:38
+#: src/Components/HF-Builder/AllLayouts.jsx:33
+msgid "Edit Before Footer"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:41
 msgid "Edit Custom Block"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:422
+#: src/Components/HF-Builder/AllLayouts.jsx:441
 msgid "Failed to save display conditions"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:437
+#: src/Components/HF-Builder/AllLayouts.jsx:458
 msgid "Start customising Your Header & Footer"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:462
+#: src/Components/HF-Builder/AllLayouts.jsx:483
 msgid "Create Layout"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:548
+#: src/Components/HF-Builder/AllLayouts.jsx:569
+msgid "Copy Shortcode"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:581
+msgid "Disable"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:593
+msgid "Delete"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:620
 msgid "Configure Display Conditions"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:575
+#: src/Components/HF-Builder/AllLayouts.jsx:647
+#: src/Components/HF-Builder/AllLayouts.jsx:652
+#: src/Components/HF-Builder/AllLayouts.jsx:658
+#: src/Components/HF-Builder/AllLayouts.jsx:659
+#: src/Components/HF-Builder/AllLayouts.jsx:661
+#: src/Components/HF-Builder/AllLayouts.jsx:695
 #: src/Components/HF-Builder/Header.jsx:18
 msgid "Layout Template"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:585
+#: src/Components/HF-Builder/AllLayouts.jsx:657
 msgid "Where Should Your Layout Appear?"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:591
+#: src/Components/HF-Builder/AllLayouts.jsx:663
 msgid "Decide where you want this layout to appear on your site."
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:596
+#: src/Components/HF-Builder/AllLayouts.jsx:668
 msgid ""
 "You can show it across your entire site or only on specific pages—your "
 "choice!"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:638
+#: src/Components/HF-Builder/AllLayouts.jsx:733
 msgid "Include"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:639
+#: src/Components/HF-Builder/AllLayouts.jsx:739
 msgid "Exclude"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:676
+#: src/Components/HF-Builder/AllLayouts.jsx:830
 msgid "Remove condition"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:693
+#: src/Components/HF-Builder/AllLayouts.jsx:850
 msgid "Add Conditions"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:711
+#: src/Components/HF-Builder/AllLayouts.jsx:868
+#: src/Components/HF-Builder/AllLayouts.jsx:873
+#: src/Components/HF-Builder/AllLayouts.jsx:879
+#: src/Components/HF-Builder/AllLayouts.jsx:880
+#: src/Components/HF-Builder/AllLayouts.jsx:882
+#: src/Components/HF-Builder/AllLayouts.jsx:916
 #: src/Components/Settings/VersionControl.jsx:132
 msgid "Cancel"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:722
+#: src/Components/HF-Builder/AllLayouts.jsx:879
 msgid "Saving..."
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:728
+#: src/Components/HF-Builder/AllLayouts.jsx:885
 msgid "Save Conditions"
 msgstr ""
 
@@ -726,6 +748,36 @@ msgstr ""
 msgid "Formerly Elementor Header & Footer Builder"
 msgstr ""
 
+#: src/Components/HF-Builder/AllLayouts.jsx:568
+#: src/Components/NavMenu.js:267
+msgid "Useful Resources"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:589
+#: src/Components/NavMenu.js:284
+msgid "Getting Started"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:602
+#: src/Components/NavMenu.js:297
+msgid "How to use widgets"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:615
+#: src/Components/NavMenu.js:310
+msgid "How to use features"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:628
+#: src/Components/NavMenu.js:323
+msgid "How to use templates"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:641
+#: src/Components/NavMenu.js:336
+msgid "Contact us"
+msgstr ""
+
 #: src/Components/NavMenu.js:151
 msgid "Header & Footer"
 msgstr ""
@@ -748,30 +800,6 @@ msgstr ""
 
 #: src/Components/NavMenu.js:233
 msgid "Version"
-msgstr ""
-
-#: src/Components/NavMenu.js:267
-msgid "Useful Resources"
-msgstr ""
-
-#: src/Components/NavMenu.js:284
-msgid "Getting Started"
-msgstr ""
-
-#: src/Components/NavMenu.js:297
-msgid "How to use widgets"
-msgstr ""
-
-#: src/Components/NavMenu.js:310
-msgid "How to use features"
-msgstr ""
-
-#: src/Components/NavMenu.js:323
-msgid "How to use templates"
-msgstr ""
-
-#: src/Components/NavMenu.js:336
-msgid "Contact us"
 msgstr ""
 
 #: src/Components/NavMenu.js:78

@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Plus, X } from "lucide-react";
-import { Button, Dialog, Select } from "@bsf/force-ui";
+import { Button, Dialog, Select, DropdownMenu } from "@bsf/force-ui";
 import { __ } from "@wordpress/i18n";
 import apiFetch from "@wordpress/api-fetch";
+import {
+	EllipsisVertical
+} from "lucide-react";
 
 // Example: Ensure these values are coming from global/localized JS in WordPress
 
 const layoutItems = [
 	{
-        id: '',
+		id: "",
 		name: "Header",
 		image: hfeSettingsData.header_card,
 		buttonText: __("Edit Header", "header-footer-elementor"),
@@ -16,7 +19,7 @@ const layoutItems = [
 			window.open("https://your-site.com/edit-header", "_blank"),
 	},
 	{
-        id: '',
+		id: "",
 		name: "Footer",
 		image: hfeSettingsData.footer_card,
 		buttonText: __("Edit Footer", "header-footer-elementor"),
@@ -24,7 +27,7 @@ const layoutItems = [
 			window.open("https://your-site.com/edit-footer", "_blank"),
 	},
 	{
-        id: '',
+		id: "",
 		name: "Before Footer",
 		image: hfeSettingsData.custom_card,
 		buttonText: __("Edit Before Footer", "header-footer-elementor"),
@@ -32,7 +35,7 @@ const layoutItems = [
 			window.open("https://your-site.com/edit-before-footer", "_blank"),
 	},
 	{
-        id: '',
+		id: "",
 		name: "Custom Block",
 		image: hfeSettingsData.custom_card,
 		buttonText: __("Edit Custom Block", "header-footer-elementor"),
@@ -59,23 +62,28 @@ const AllLayouts = () => {
 	]);
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState(null);
-    const [postId, setPostId] = useState(null);
+	const [postId, setPostId] = useState(null);
 	const [locationOptions, setLocationOptions] = useState([]);
-    const [nextId, setNextId] = useState(conditions.length + 1);
+	const [nextId, setNextId] = useState(conditions.length + 1);
 
-    useEffect(() => {
-        // Fetch the target rule options when component mounts
-        apiFetch({ path: '/hfe/v1/target-rules-options' })
-            .then(data => {
-                if (data && data.locationOptions) {
-                    setLocationOptions(data.locationOptions);
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching target rules data:', error);
-                setError(__('Failed to load display conditions', 'header-footer-elementor'));
-            });
-    }, []);
+	useEffect(() => {
+		// Fetch the target rule options when component mounts
+		apiFetch({ path: "/hfe/v1/target-rules-options" })
+			.then((data) => {
+				if (data && data.locationOptions) {
+					setLocationOptions(data.locationOptions);
+				}
+			})
+			.catch((error) => {
+				console.error("Error fetching target rules data:", error);
+				setError(
+					__(
+						"Failed to load display conditions",
+						"header-footer-elementor",
+					),
+				);
+			});
+	}, []);
 
 	const handleAddCondition = () => {
 		const newCondition = {
@@ -90,7 +98,7 @@ const AllLayouts = () => {
 			},
 		};
 		setConditions([...conditions, newCondition]);
-        setNextId(nextId + 1);
+		setNextId(nextId + 1);
 	};
 
 	const handleRemoveCondition = (id) => {
@@ -108,30 +116,30 @@ const AllLayouts = () => {
 	};
 
 	// const handleCreateLayout = (item) => {
-    //     if( ! item.id ) {
-    //         apiFetch({
-    //             path: "/hfe/v1/create-layout",
-    //             method: "POST",
-    //             data: {
-    //                 title: "My Custom Layout", // Optional
-    //             },
-    //         })
-    //         .then(response => {
-    //             if (response.success && response.post_id) {
-    //                 console.log("Post created with ID:", response.post_id);
-    //                 setPostId(response.post_id);
-    //             } else {
-    //                 console.error("Failed:", response);
-    //             }
-    //         })
-    //         .catch(error => {
-    //             console.error("Error:", error);
-    //         });
-           
-    //     }
+	//     if( ! item.id ) {
+	//         apiFetch({
+	//             path: "/hfe/v1/create-layout",
+	//             method: "POST",
+	//             data: {
+	//                 title: "My Custom Layout", // Optional
+	//             },
+	//         })
+	//         .then(response => {
+	//             if (response.success && response.post_id) {
+	//                 console.log("Post created with ID:", response.post_id);
+	//                 setPostId(response.post_id);
+	//             } else {
+	//                 console.error("Failed:", response);
+	//             }
+	//         })
+	//         .catch(error => {
+	//             console.error("Error:", error);
+	//         });
 
-    //     item.id = postId;
-       
+	//     }
+
+	//     item.id = postId;
+
 	// 	// Set the selected item and open the dialog
 	// 	setSelectedItem(item);
 	// 	setIsDialogOpen(true);
@@ -201,121 +209,129 @@ const AllLayouts = () => {
 	// 	}
 	// };
 
-    const handleCreateLayout = (item) => {
-        if (!item.id) {
-            apiFetch({
-                path: "/hfe/v1/create-layout",
-                method: "POST",
-                data: {
-                    title: "My Custom Layout",
-                    type:  item.name,
-                },
-            })
-                .then((response) => {
-                    if (response.success && response.post_id) {
-                        console.log("Post created with ID:", response.post_id);
-    
-                        // Update item with new post ID
-                        const updatedItem = { ...item, id: response.post_id };
-    
-                        // Set selected item and open dialog
-                        setSelectedItem(updatedItem);
-                        setIsDialogOpen(true);
-    
-                        // Set default conditions
-                        setConditions([
-                            {
-                                id: 1,
-                                conditionType: {
-                                    id: "include",
-                                    name: __("Include", "header-footer-elementor"),
-                                },
-                                displayLocation: {
-                                    id: "entire-site",
-                                    name: __("Entire Site", "header-footer-elementor"),
-                                },
-                            },
-                        ]);
-    
-                        // Fetch location options
-                        // apiFetch({ path: "/hfe/v1/target-rules-options" })
-                        //     .then((data) => {
-                        //         if (data.locationOptions) {
-                        //             const optionsArray = Object.entries(data.locationOptions).map(
-                        //                 ([key, label]) => ({
-                        //                     id: key,
-                        //                     name: label,
-                        //                 })
-                        //             );
-                        //             setLocationOptions(optionsArray);
-                        //         }
-                        //     })
-                        //     .catch((err) => {
-                        //         console.error("Failed to fetch rule options", err);
-                        //         setError(
-                        //             __("Failed to load rule options", "header-footer-elementor")
-                        //         );
-                        //     });
-                    } else {
-                        console.error("Failed to create post:", response);
-                    }
-                })
-                .catch((error) => {
-                    console.error("Error creating post:", error);
-                });
-        } else {
-            // Post already exists, use item.id directly
-            setSelectedItem(item);
-            setIsDialogOpen(true);
-    
-            setIsLoading(true);
-            setError(null);
-    
-            // apiFetch({
-            //     path: `/wp-json/hfe/v1/target-rules?post_id=${item.id}`,
-            // })
-            //     .then((data) => {
-            //         if (data && data.conditions) {
-            //             setConditions(data.conditions);
-            //         }
-            //         setIsLoading(false);
-            //     })
-            //     .catch((err) => {
-            //         console.error("Error fetching conditions:", err);
-            //         setError(
-            //             __("Failed to load display conditions", "header-footer-elementor")
-            //         );
-            //         setIsLoading(false);
-            //     });
+	const handleCreateLayout = (item) => {
+		if (!item.id) {
+			apiFetch({
+				path: "/hfe/v1/create-layout",
+				method: "POST",
+				data: {
+					title: "My Custom Layout",
+					type: item.name,
+				},
+			})
+				.then((response) => {
+					if (response.success && response.post_id) {
+						console.log("Post created with ID:", response.post_id);
 
+						// Update item with new post ID
+						const updatedItem = { ...item, id: response.post_id };
 
-            apiFetch({
-                path: `/hfe/v1/target-rules?post_id=${item.id}`,
-            })
-                .then((data) => {
+						// Set selected item and open dialog
+						setSelectedItem(updatedItem);
+						setIsDialogOpen(true);
 
-                    const enrichedConditions = data.conditions.map((condition, index) => ({
-                        ...condition,
-                        id: index + 1,
-                    }));
-                    
-                    setConditions(enrichedConditions);
-                    setNextId(enrichedConditions.length + 1);
-                    setIsLoading(false);
-                })
-                .catch((err) => {
-                    console.error("Error fetching conditions:", err);
-                    setError(
-                        __("Failed to load display conditions", "header-footer-elementor")
-                    );
-                    setIsLoading(false);
-                });
-            
-        }
-    };
-    
+						// Set default conditions
+						setConditions([
+							{
+								id: 1,
+								conditionType: {
+									id: "include",
+									name: __(
+										"Include",
+										"header-footer-elementor",
+									),
+								},
+								displayLocation: {
+									id: "entire-site",
+									name: __(
+										"Entire Site",
+										"header-footer-elementor",
+									),
+								},
+							},
+						]);
+
+						// Fetch location options
+						// apiFetch({ path: "/hfe/v1/target-rules-options" })
+						//     .then((data) => {
+						//         if (data.locationOptions) {
+						//             const optionsArray = Object.entries(data.locationOptions).map(
+						//                 ([key, label]) => ({
+						//                     id: key,
+						//                     name: label,
+						//                 })
+						//             );
+						//             setLocationOptions(optionsArray);
+						//         }
+						//     })
+						//     .catch((err) => {
+						//         console.error("Failed to fetch rule options", err);
+						//         setError(
+						//             __("Failed to load rule options", "header-footer-elementor")
+						//         );
+						//     });
+					} else {
+						console.error("Failed to create post:", response);
+					}
+				})
+				.catch((error) => {
+					console.error("Error creating post:", error);
+				});
+		} else {
+			// Post already exists, use item.id directly
+			setSelectedItem(item);
+			setIsDialogOpen(true);
+
+			setIsLoading(true);
+			setError(null);
+
+			// apiFetch({
+			//     path: `/wp-json/hfe/v1/target-rules?post_id=${item.id}`,
+			// })
+			//     .then((data) => {
+			//         if (data && data.conditions) {
+			//             setConditions(data.conditions);
+			//         }
+			//         setIsLoading(false);
+			//     })
+			//     .catch((err) => {
+			//         console.error("Error fetching conditions:", err);
+			//         setError(
+			//             __("Failed to load display conditions", "header-footer-elementor")
+			//         );
+			//         setIsLoading(false);
+			//     });
+
+			apiFetch({
+				path: `/hfe/v1/target-rules?post_id=${item.id}`,
+			})
+				.then((data) => {
+					const enrichedConditions = data.conditions.map(
+						(condition, index) => ({
+							...condition,
+							id: index + 1,
+						}),
+					);
+
+					setConditions(enrichedConditions);
+					setNextId(enrichedConditions.length + 1);
+					setIsLoading(false);
+				})
+				.catch((err) => {
+					console.error("Error fetching conditions:", err);
+					setError(
+						__(
+							"Failed to load display conditions",
+							"header-footer-elementor",
+						),
+					);
+					setIsLoading(false);
+				});
+		}
+	};
+
 	// 	if (!selectedItem) return;
-    //     console.log(selectedItem);
+	//     console.log(selectedItem);
 	// 	setIsLoading(true);
 	// 	setError(null);
 
@@ -371,60 +387,65 @@ const AllLayouts = () => {
 	// 		});
 	// };
 
-    const handleSaveConditions = () => {
-        if (!selectedItem) return;
-    
-        setIsLoading(true);
-        setError(null);
-    
-        // Reformat to match PHP expected structure
-        const includeRules = conditions
-            .filter((c) => c.conditionType.id === "include")
-            .map((c) => c.displayLocation.id);
-    
-        const excludeRules = conditions
-            .filter((c) => c.conditionType.id === "exclude")
-            .map((c) => c.displayLocation.id);
-    
-        const formattedData = {
-            post_id: selectedItem.id,
-            include_locations: {
-                rule: includeRules,
-                specific: [],
-            },
-            exclude_locations: {
-                rule: excludeRules,
-                specific: [],
-            },
-        };
-    
-        apiFetch({
-            path: "/hfe/v1/target-rules",
-            method: "POST",
-            data: formattedData,
-        })
-            .then((response) => {
-                if (response.success) {
-                    setIsDialogOpen(false);
-                    if (selectedItem && selectedItem.onClick) {
-                        selectedItem.onClick();
-                    }
-                } else {
-                    setError(
-                        __("Failed to save display conditions", "header-footer-elementor")
-                    );
-                }
-                setIsLoading(false);
-            })
-            .catch((err) => {
-                console.error("Error saving conditions:", err);
-                setError(
-                    __("Failed to save display conditions", "header-footer-elementor")
-                );
-                setIsLoading(false);
-            });
-    };
-    
+	const handleSaveConditions = () => {
+		if (!selectedItem) return;
+
+		setIsLoading(true);
+		setError(null);
+
+		// Reformat to match PHP expected structure
+		const includeRules = conditions
+			.filter((c) => c.conditionType.id === "include")
+			.map((c) => c.displayLocation.id);
+
+		const excludeRules = conditions
+			.filter((c) => c.conditionType.id === "exclude")
+			.map((c) => c.displayLocation.id);
+
+		const formattedData = {
+			post_id: selectedItem.id,
+			include_locations: {
+				rule: includeRules,
+				specific: [],
+			},
+			exclude_locations: {
+				rule: excludeRules,
+				specific: [],
+			},
+		};
+
+		apiFetch({
+			path: "/hfe/v1/target-rules",
+			method: "POST",
+			data: formattedData,
+		})
+			.then((response) => {
+				if (response.success) {
+					setIsDialogOpen(false);
+					if (selectedItem && selectedItem.onClick) {
+						selectedItem.onClick();
+					}
+				} else {
+					setError(
+						__(
+							"Failed to save display conditions",
+							"header-footer-elementor",
+						),
+					);
+				}
+				setIsLoading(false);
+			})
+			.catch((err) => {
+				console.error("Error saving conditions:", err);
+				setError(
+					__(
+						"Failed to save display conditions",
+						"header-footer-elementor",
+					),
+				);
+				setIsLoading(false);
+			});
+	};
 
 	return (
 		<>
@@ -526,9 +547,60 @@ const AllLayouts = () => {
 										borderColor: "#E5E7EB",
 									}}
 								/>
-								<p className="text-sm font-medium text-gray-900">
-									{item.name}
-								</p>
+								<div className="flex items-center justify-between">
+									<p className="text-sm font-medium text-gray-900">
+										{item.name}
+									</p>
+									<DropdownMenu placement="bottom-end">
+										<DropdownMenu.Trigger>
+											<EllipsisVertical className="cursor-pointer" />
+										</DropdownMenu.Trigger>
+										<DropdownMenu.Portal>
+											<DropdownMenu.ContentWrapper>
+												<DropdownMenu.Content className="w-40">
+													<DropdownMenu.List>
+														<DropdownMenu.Item
+															onClick={() =>
+																handleRedirect(
+																	"https://ultimateelementor.com/docs-category/features/",
+																)
+															}
+														>
+															{__(
+																"Copy Shortcode",
+																"header-footer-elementor",
+															)}
+														</DropdownMenu.Item>
+														<DropdownMenu.Item
+															onClick={() =>
+																handleRedirect(
+																	"https://ultimateelementor.com/docs-category/templates/",
+																)
+															}
+														>
+															{__(
+																"Disable",
+																"header-footer-elementor",
+															)}
+														</DropdownMenu.Item>
+														<DropdownMenu.Item
+															onClick={() =>
+																handleRedirect(
+																	"https://ultimateelementor.com/contact/",
+																)
+															}
+														>
+															{__(
+																"Delete",
+																"header-footer-elementor",
+															)}
+														</DropdownMenu.Item>
+													</DropdownMenu.List>
+												</DropdownMenu.Content>
+											</DropdownMenu.ContentWrapper>
+										</DropdownMenu.Portal>
+									</DropdownMenu>
+								</div>
 							</div>
 						</div>
 					))}
@@ -614,74 +686,159 @@ const AllLayouts = () => {
 							)}
 
 							{/* Condition selection UI */}
-                            {/* Condition selection UI */}
-                          
-<div className="space-y-3">
-    {conditions.map((condition, index) => (
-        <div key={condition.id} className="flex items-center gap-2">
-            <div className="flex items-center justify-center overflow-hidden bg-gray-50 w-full">
-                {/* Include/Exclude Select - Native HTML */}
-                <div className="rounded-lg" style={{border: '1px solid #d1d5db', width: '120px'}}>
-                    <select
-                        onChange={(e) => {
-                            const selectedOption = e.target.options[e.target.selectedIndex];
-                            handleUpdateCondition(condition.id, 'conditionType', {
-                                id: selectedOption.value,
-                                name: selectedOption.text
-                            });
-                        }}
-                        value={condition.conditionType.id}
-                        className="hfe-select-button border-0 rounded-none bg-transparent h-full w-full px-4 text-black focus:outline-none focus:ring-0 focus:border-transparent"
-                        style={{ boxShadow: 'none' }}
-                        disabled={isLoading}
-                    >
-                        <option value="include">{__("Include", "header-footer-elementor")}</option>
-                        <option value="exclude">{__("Exclude", "header-footer-elementor")}</option>
-                    </select>
-                </div>
+							{/* Condition selection UI */}
 
-                {/* Display Location Select - Native HTML */}
-                <div className="rounded-lg" style={{border: '1px solid #d1d5db', width: '420px'}}>
-                    <select
-                        onChange={(e) => {
-                            const selectedOption = e.target.options[e.target.selectedIndex];
-                            handleUpdateCondition(condition.id, 'displayLocation', {
-                                id: selectedOption.value,
-                                name: selectedOption.text
-                            });
-                        }}
-                        value={condition.displayLocation.id}
-                        className="hfe-select-button border-0 rounded-none bg-transparent h-full w-full px-4 text-black focus:outline-none focus:ring-0 focus:border-transparent"
-                        style={{ boxShadow: 'none' }}
-                        disabled={isLoading}
-                    >
-                        {/* Map through the selection option groups */}
-                        {Object.keys(locationOptions).map(groupKey => (
-                            <optgroup key={groupKey} label={locationOptions[groupKey].label}>
-                                {/* Map through the options in each group */}
-                                {Object.entries(locationOptions[groupKey].value).map(([optKey, optLabel]) => (
-                                    <option key={optKey} value={optKey}>
-                                        {optLabel}
-                                    </option>
-                                ))}
-                            </optgroup>
-                        ))}
-                    </select>
-                </div>
-            </div>
-            {conditions.length > 1 && (
-                <button
-                    onClick={() => handleRemoveCondition(condition.id)}
-                    className="p-2 text-gray-400 hover:text-gray-600 transition-colors"
-                    aria-label={__("Remove condition", "header-footer-elementor")}
-                    disabled={isLoading}
-                >
-                    <X size={20} />
-                </button>
-            )}
-        </div>
-    ))}
-</div>
+							<div className="space-y-3">
+								{conditions.map((condition, index) => (
+									<div
+										key={condition.id}
+										className="flex items-center gap-2"
+									>
+										<div className="flex items-center justify-center overflow-hidden bg-gray-50 w-full">
+											{/* Include/Exclude Select - Native HTML */}
+											<div
+												className="rounded-lg"
+												style={{
+													border: "1px solid #d1d5db",
+													width: "120px",
+												}}
+											>
+												<select
+													onChange={(e) => {
+														const selectedOption =
+															e.target.options[
+																e.target
+																	.selectedIndex
+															];
+														handleUpdateCondition(
+															condition.id,
+															"conditionType",
+															{
+																id: selectedOption.value,
+																name: selectedOption.text,
+															},
+														);
+													}}
+													value={
+														condition.conditionType
+															.id
+													}
+													className="hfe-select-button border-0 rounded-none bg-transparent h-full w-full px-4 text-black focus:outline-none focus:ring-0 focus:border-transparent"
+													style={{
+														boxShadow: "none",
+													}}
+													disabled={isLoading}
+												>
+													<option value="include">
+														{__(
+															"Include",
+															"header-footer-elementor",
+														)}
+													</option>
+													<option value="exclude">
+														{__(
+															"Exclude",
+															"header-footer-elementor",
+														)}
+													</option>
+												</select>
+											</div>
+
+											{/* Display Location Select - Native HTML */}
+											<div
+												className="rounded-lg"
+												style={{
+													border: "1px solid #d1d5db",
+													width: "420px",
+												}}
+											>
+												<select
+													onChange={(e) => {
+														const selectedOption =
+															e.target.options[
+																e.target
+																	.selectedIndex
+															];
+														handleUpdateCondition(
+															condition.id,
+															"displayLocation",
+															{
+																id: selectedOption.value,
+																name: selectedOption.text,
+															},
+														);
+													}}
+													value={
+														condition
+															.displayLocation.id
+													}
+													className="hfe-select-button border-0 rounded-none bg-transparent h-full w-full px-4 text-black focus:outline-none focus:ring-0 focus:border-transparent"
+													style={{
+														boxShadow: "none",
+													}}
+													disabled={isLoading}
+												>
+													{/* Map through the selection option groups */}
+													{Object.keys(
+														locationOptions,
+													).map((groupKey) => (
+														<optgroup
+															key={groupKey}
+															label={
+																locationOptions[
+																	groupKey
+																].label
+															}
+														>
+															{/* Map through the options in each group */}
+															{Object.entries(
+																locationOptions[
+																	groupKey
+																].value,
+															).map(
+																([
+																	optKey,
+																	optLabel,
+																]) => (
+																	<option
+																		key={
+																			optKey
+																		}
+																		value={
+																			optKey
+																		}
+																	>
+																		{
+																			optLabel
+																		}
+																	</option>
+																),
+															)}
+														</optgroup>
+													))}
+												</select>
+											</div>
+										</div>
+										{conditions.length > 1 && (
+											<button
+												onClick={() =>
+													handleRemoveCondition(
+														condition.id,
+													)
+												}
+												className="p-2 text-gray-400 hover:text-gray-600 transition-colors"
+												aria-label={__(
+													"Remove condition",
+													"header-footer-elementor",
+												)}
+												disabled={isLoading}
+											>
+												<X size={20} />
+											</button>
+										)}
+									</div>
+								))}
+							</div>
 							<div className="flex justify-center">
 								<Button
 									variant="secondary"
