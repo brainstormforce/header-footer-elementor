@@ -24,7 +24,7 @@ const SidebarMenu = ({ items, onSelectItem }) => {
 
 					{/* Each item with icon and title */}
 					<div
-						className={`h-10 flex items-center justify-start gap-2 px-2 rounded-md cursor-pointer ${
+						className={`h-8 flex items-center justify-start gap-2 px-2 rounded-md cursor-pointer ${
 							selectedItemId === item.id
 								? "bg-gray-100"
 								: "bg-background-primary"
@@ -55,7 +55,7 @@ const SidebarMenu = ({ items, onSelectItem }) => {
 				}}
 			/>
 			<div className="flex items-center gap-2 mb-4">
-				<CircleHelp size={24} color="#6B7280" />
+				<CircleHelp size={22} color="#6B7280" />
 				<p className="text-base text-[%6B7280] font-normal">Help</p>
 			</div>
 
@@ -63,7 +63,7 @@ const SidebarMenu = ({ items, onSelectItem }) => {
 			<div
 				className="rounded-lg"
 				style={{ 
-					marginTop: "16rem", 
+					marginTop: "19rem", 
 					border: '1px solid #E5E7EB',
 					padding: '10px',
 					backgroundColor: '#F5F3FF'

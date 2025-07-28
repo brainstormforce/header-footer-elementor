@@ -449,10 +449,10 @@ const AllLayouts = () => {
 
 	return (
 		<>
-			<div className="bg-muted min-h-screen" style={{ paddingLeft: "40px", paddingRight: "40px" }}>
+			<div className="" style={{ paddingLeft: "40px", paddingRight: "40px" }}>
 				<div
-					className="flex items-start gap-10 justify-between mb-6"
-					style={{ padding: "0 40px" }}
+					className="flex items-start gap-10 justify-between"
+					style={{ padding: "0 40px" , marginBottom: "10px" }}
 				>
 					<h2 className="text-base font-normal text-foreground">
 						{__(
@@ -460,7 +460,7 @@ const AllLayouts = () => {
 							"header-footer-elementor",
 						)}
 					</h2>
-					<Button
+					{/* <Button
 						iconPosition="left"
 						icon={<Plus />}
 						variant="primary"
@@ -481,23 +481,24 @@ const AllLayouts = () => {
 						}}
 					>
 						{__("Create Layout", "header-footer-elementor")}
-					</Button>
+					</Button> */}
 				</div>
 
 				<div
 					className="grid grid-cols-1 md:grid-cols-2 gap-6"
-					style={{ paddingLeft: "40px" }}
+					style={{ paddingLeft: "30px" }}
 				>
 					{layoutItems.map((item) => (
 						<div
 							key={item.name}
-							className="border bg-background-primary border-gray-200 px-3 py-3 rounded-md overflow-hidden flex flex-col group relative"
+							className="border bg-background-primary border-gray-200 p-2 rounded-lg cursor-pointer overflow-hidden flex flex-col group relative shadow-sm hover:shadow-md transition-shadow duration-200"
 						>
-							<div className="relative h-48 w-full">
+							<div className="relative h-60 w-full">
 								<img
 									src={item.image}
 									alt={`${item.name} Layout`}
-									className="w-full h-full object-cover"
+									style={{ height: '220px'}}
+									className="w-full object-cover"
 								/>
 
 								<div className="absolute inset-0 flex items-center justify-center rounded-lg overflow-hidden backdrop-blur-sm bg-black/40 transition-all duration-200 z-30">
@@ -505,17 +506,18 @@ const AllLayouts = () => {
 										iconPosition="left"
 										icon={
 											item.name !== "Custom Block" ? (
-												<Plus />
+												<Plus size={14} />
 											) : null
 										}
 										variant="primary"
-										className="bg-[#6005FF] font-light px-3 py-3 text-sm text-white hfe-remove-ring z-50"
+										className="bg-[#6005FF] font-medium text-white hfe-remove-ring z-50"
 										style={{
 											backgroundColor: "#6005FF",
 											fontSize: "12px",
-											fontWeight: "700",
-											transition:
-												"background-color 0.3s ease",
+											fontWeight: "600",
+											padding: "8px 8px",
+											borderRadius: "6px",
+											transition: "all 0.2s ease",
 											outline: "none",
 										}}
 										onMouseEnter={(e) =>
@@ -542,12 +544,12 @@ const AllLayouts = () => {
 								<hr
 									className="w-full border-b-0 border-x-0 border-t border-solid border-t-border-subtle"
 									style={{
-										marginTop: "14px",
-										marginBottom: "14px",
+										// marginTop: "8px",
+										// marginBottom: "8px",
 										borderColor: "#E5E7EB",
 									}}
 								/>
-								<div className="flex items-center justify-between">
+								<div className="flex items-center justify-between px-1">
 									<p className="text-sm font-medium text-gray-900">
 										{item.name}
 									</p>
