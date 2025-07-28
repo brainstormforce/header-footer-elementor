@@ -449,7 +449,7 @@ const AllLayouts = () => {
 
 	return (
 		<>
-			<div className="bg-muted min-h-screen" style={{ padding: "40px" }}>
+			<div className="bg-muted min-h-screen" style={{ paddingLeft: "40px", paddingRight: "40px" }}>
 				<div
 					className="flex items-start gap-10 justify-between mb-6"
 					style={{ padding: "0 40px" }}
@@ -553,7 +553,7 @@ const AllLayouts = () => {
 									</p>
 									<DropdownMenu placement="bottom-end">
 										<DropdownMenu.Trigger>
-											<EllipsisVertical className="cursor-pointer" />
+											<EllipsisVertical size={16} className="cursor-pointer" />
 										</DropdownMenu.Trigger>
 										<DropdownMenu.Portal>
 											<DropdownMenu.ContentWrapper>
