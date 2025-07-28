@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { CircleHelp, ArrowRight } from "lucide-react";
+import { Button } from "@bsf/force-ui";
 
 const SidebarMenu = ({ items, onSelectItem }) => {
 	const [selectedItemId, setSelectedItemId] = useState(null); // State to track selected item
@@ -44,6 +46,45 @@ const SidebarMenu = ({ items, onSelectItem }) => {
 					</div>
 				</div>
 			))}
+			<hr
+				className="w-full border-b-0 border-x-0 border-t border-solid border-t-border-subtle"
+				style={{
+					marginTop: "20px",
+					marginBottom: "15px",
+					borderColor: "#E5E7EB",
+				}}
+			/>
+			<div className="flex items-center gap-2 mb-4">
+				<CircleHelp size={24} color="#6B7280" />
+				<p className="text-base text-[%6B7280] font-normal">Help</p>
+			</div>
+
+			{/* Want More? Promotional Card */}
+			<div
+				className="rounded-lg"
+				style={{ 
+					marginTop: "16rem", 
+					border: '1px solid #E5E7EB',
+					padding: '10px',
+					backgroundColor: '#F5F3FF'
+				}}
+			>
+				<h3 className="text-base text-text-primary font-normal" style={{ margin: '0 0 6px 0' }}>
+					Want More?
+				</h3>
+				<p className="text-xs text-[#64748B]" style={{ margin: '0 0 8px 0' }}>
+					Unlock revenue boosting features when you upgrade to Pro
+				</p>
+				<Button
+					icon={<ArrowRight size={16} />}
+					iconPosition="right"
+					variant="link"
+					style={{
+						color: "#5C2EDE",}}
+				>
+					Upgrade Now
+				</Button>
+			</div>
 		</div>
 	);
 };

@@ -639,11 +639,6 @@ msgid "Configure Display Conditions"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:647
-#: src/Components/HF-Builder/AllLayouts.jsx:652
-#: src/Components/HF-Builder/AllLayouts.jsx:658
-#: src/Components/HF-Builder/AllLayouts.jsx:659
-#: src/Components/HF-Builder/AllLayouts.jsx:661
-#: src/Components/HF-Builder/AllLayouts.jsx:695
 #: src/Components/HF-Builder/Header.jsx:18
 msgid "Layout Template"
 msgstr ""
@@ -679,11 +674,9 @@ msgid "Add Conditions"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:868
-#: src/Components/HF-Builder/AllLayouts.jsx:873
-#: src/Components/HF-Builder/AllLayouts.jsx:879
-#: src/Components/HF-Builder/AllLayouts.jsx:880
-#: src/Components/HF-Builder/AllLayouts.jsx:882
-#: src/Components/HF-Builder/AllLayouts.jsx:916
+#: src/Components/HF-Builder/SidebarMenu.jsx:83
+#: src/Components/HF-Builder/SidebarMenu.jsx:84
+#: src/Components/HF-Builder/SidebarMenu.jsx:74
 #: src/Components/Settings/VersionControl.jsx:132
 msgid "Cancel"
 msgstr ""
@@ -748,36 +741,6 @@ msgstr ""
 msgid "Formerly Elementor Header & Footer Builder"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:568
-#: src/Components/NavMenu.js:267
-msgid "Useful Resources"
-msgstr ""
-
-#: src/Components/HF-Builder/AllLayouts.jsx:589
-#: src/Components/NavMenu.js:284
-msgid "Getting Started"
-msgstr ""
-
-#: src/Components/HF-Builder/AllLayouts.jsx:602
-#: src/Components/NavMenu.js:297
-msgid "How to use widgets"
-msgstr ""
-
-#: src/Components/HF-Builder/AllLayouts.jsx:615
-#: src/Components/NavMenu.js:310
-msgid "How to use features"
-msgstr ""
-
-#: src/Components/HF-Builder/AllLayouts.jsx:628
-#: src/Components/NavMenu.js:323
-msgid "How to use templates"
-msgstr ""
-
-#: src/Components/HF-Builder/AllLayouts.jsx:641
-#: src/Components/NavMenu.js:336
-msgid "Contact us"
-msgstr ""
-
 #: src/Components/NavMenu.js:151
 msgid "Header & Footer"
 msgstr ""
@@ -800,6 +763,30 @@ msgstr ""
 
 #: src/Components/NavMenu.js:233
 msgid "Version"
+msgstr ""
+
+#: src/Components/NavMenu.js:267
+msgid "Useful Resources"
+msgstr ""
+
+#: src/Components/NavMenu.js:284
+msgid "Getting Started"
+msgstr ""
+
+#: src/Components/NavMenu.js:297
+msgid "How to use widgets"
+msgstr ""
+
+#: src/Components/NavMenu.js:310
+msgid "How to use features"
+msgstr ""
+
+#: src/Components/NavMenu.js:323
+msgid "How to use templates"
+msgstr ""
+
+#: src/Components/NavMenu.js:336
+msgid "Contact us"
 msgstr ""
 
 #: src/Components/NavMenu.js:78
