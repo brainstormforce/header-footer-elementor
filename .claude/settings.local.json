@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "Bash(chmod:*)",
+      "Bash(mkdir:*)",
+      "Bash(npm install:*)",
+      "Bash(composer require:*)",
+      "Bash(bash:*)",
+      "Bash(composer test:*)"
+    ],
+    "deny": []
+  }
+}

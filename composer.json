@@ -43,15 +43,29 @@
     "phpstan/phpstan": "^1.11",
     "php-stubs/generator": "^0.8.4",
     "php-stubs/wordpress-stubs": "^6.5",
-    "szepeviktor/phpstan-wordpress": "^1.3"
+    "szepeviktor/phpstan-wordpress": "^1.3",
+    "phpunit/phpunit": "^9.6"
   },
   "scripts": {
     "format": "phpcbf",
     "lint": "phpcs",
     "gen-stubs": "vendor/bin/generate-stubs artifact/phpstan/header-footer-elementor/ --out=tests/php/stubs/hfe-stubs.php && rm -rf artifact/phpstan",
     "phpstan": "vendor/bin/phpstan --memory-limit=2048M analyse",
-    "update-stubs": "rm -f tests/php/stubs/hfe-stubs.php && bash bin/build-folder-phpstan.sh && composer gen-stubs"
-
+    "update-stubs": "rm -f tests/php/stubs/hfe-stubs.php && bash bin/build-folder-phpstan.sh && composer gen-stubs",
+    "test": "phpunit",
+    "test:unit": "phpunit --testsuite header-footer-elementor",
+    "test:coverage": "phpunit --coverage-html coverage",
+    "test:coverage-text": "phpunit --coverage-text",
+    "test:watch": "phpunit --watch",
+    "test:local": "phpunit -c phpunit-local.xml",
+    "test:local:coverage": "phpunit -c phpunit-local.xml --coverage-html coverage",
+    "test:install-local": "bash bin/install-wp-tests-local.sh wordpress_test root root",
+    "test:simple": "phpunit -c phpunit-simple.xml",
+    "test:simple:coverage": "phpunit -c phpunit-simple.xml --coverage-html coverage",
+    "test:unit": "phpunit -c phpunit-unit.xml",
+    "test:unit:coverage": "phpunit -c phpunit-unit.xml --coverage-html coverage",
+    "test:mock": "phpunit -c phpunit-mock.xml",
+    "test:mock:coverage": "phpunit -c phpunit-mock.xml --coverage-html coverage"
   },
   "config": {
     "allow-plugins": {

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<phpunit
+	bootstrap="tests/local-bootstrap.php"
+	backupGlobals="false"
+	colors="true"
+	convertErrorsToExceptions="true"
+	convertNoticesToExceptions="true"
+	convertWarningsToExceptions="true"
+	verbose="true"
+	>
+	<testsuites>
+		<testsuite name="header-footer-elementor">
+			<directory prefix="test-" suffix=".php">./tests/php/</directory>
+		</testsuite>
+	</testsuites>
+	<coverage processUncoveredFiles="true">
+		<include>
+			<directory suffix=".php">./inc</directory>
+			<directory suffix=".php">./admin</directory>
+			<directory suffix=".php">./themes</directory>
+		</include>
+		<exclude>
+			<directory>./vendor</directory>
+			<directory>./node_modules</directory>
+			<directory>./tests</directory>
+		</exclude>
+	</coverage>
+	<php>
+		<env name="WP_TESTS_DB_NAME" value="wordpress_test"/>
+		<env name="WP_TESTS_DB_USER" value="root"/>
+		<env name="WP_TESTS_DB_PASS" value="root"/>
+	</php>
+</phpunit>
