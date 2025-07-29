@@ -299,6 +299,9 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 ---
 
 ## Changelog ##
+### 2.4.6.1 ###
+- Fixed: Navigation Menu widget closes when an anchor link is clicked.
+
 ### 2.4.6 ###
 - Improvement: Refactored and optimized codebase for improved maintainability.
 
