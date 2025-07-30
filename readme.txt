@@ -300,7 +300,7 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 
 == Changelog ==
 = 2.4.7 =
-- This update addressed a security bug. Please make sure you are using the latest version on your website.
+- This update addresses a security bug. Props to Peter Thaleikis for privately reporting it to our team. We appreciate the responsible disclosure!
 
 = 2.4.6 =
 - Improvement: Refactored and optimized codebase for improved maintainability.
