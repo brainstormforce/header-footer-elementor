@@ -140,6 +140,10 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 
 			check_ajax_referer( 'updates', '_ajax_nonce' );
 
+			// Check if user has permission to install plugin.
+			if ( ! current_user_can( 'install_plugins' ) ) {
+				wp_send_json_error( esc_html__( 'Plugin installation is disabled for you on this site.', 'header-footer-elementor' ) );
+			}
 			// Fetching the plugin slug from the AJAX request.
 			// @psalm-suppress PossiblyInvalidArgument.
 			$plugin_slug = isset( $_POST['slug'] ) && is_string( $_POST['slug'] ) ? sanitize_text_field( wp_unslash( $_POST['slug'] ) ) : '';
@@ -186,6 +190,10 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 
 			check_ajax_referer( 'updates', '_ajax_nonce' );
 
+			// Check if user has permission to install theme.
+			if ( ! current_user_can( 'install_themes' ) ) {
+				wp_send_json_error( esc_html__( 'Theme installation is disabled for you on this site.', 'header-footer-elementor' ) );
+			}
 			// Fetching the plugin slug from the AJAX request.
 			// @psalm-suppress PossiblyInvalidArgument.
 			$theme_slug = isset( $_POST['slug'] ) && is_string( $_POST['slug'] ) ? sanitize_text_field( wp_unslash( $_POST['slug'] ) ) : '';
@@ -388,6 +396,11 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 
 			// Run a security check.
 			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
+
+			// Check if user has permission to manage options.
+			if ( ! current_user_can( 'manage_options' ) ) {
+				wp_send_json_error( __( 'You do not have permission to perform this action.', 'header-footer-elementor' ) );
+			}
 
 			update_user_meta( get_current_user_id(), 'hfe-popup', 'dismissed' );
 		}
