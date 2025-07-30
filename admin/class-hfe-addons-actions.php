@@ -225,6 +225,11 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 
 			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
 
+			// Check if user has permission to manage options.
+			if ( ! current_user_can( 'manage_options' ) ) {
+				wp_send_json_error( __( 'You do not have permission to perform this action.', 'header-footer-elementor' ) );
+			}
+
 			if ( ! isset( self::$widget_list ) ) {
 				self::$widget_list = HFE_Helper::get_widget_list();
 			}
@@ -253,6 +258,11 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 
 			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
 
+			// Check if user has permission to manage options.
+			if ( ! current_user_can( 'manage_options' ) ) {
+				wp_send_json_error( __( 'You do not have permission to perform this action.', 'header-footer-elementor' ) );
+			}
+
 			if ( ! isset( self::$widget_list ) ) {
 				self::$widget_list = HFE_Helper::get_widget_list();
 			}
@@ -280,6 +290,11 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		public static function bulk_deactivate_unused_widgets() {
 
 			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
+
+			// Check if user has permission to manage options.
+			if ( ! current_user_can( 'manage_options' ) ) {
+				wp_send_json_error( __( 'You do not have permission to perform this action.', 'header-footer-elementor' ) );
+			}
 		
 			if ( ! isset( self::$widget_list ) ) {
 				self::$widget_list = HFE_Helper::get_widget_list();
@@ -323,6 +338,11 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 
 			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
 
+			// Check if user has permission to manage options.
+			if ( ! current_user_can( 'manage_options' ) ) {
+				wp_send_json_error( __( 'You do not have permission to perform this action.', 'header-footer-elementor' ) );
+			}
+
 			$module_id = isset( $_POST['module_id'] ) ? sanitize_text_field( $_POST['module_id'] ) : '';
 			$widgets   = HFE_Helper::get_admin_settings_option( '_hfe_widgets', [] );
 
@@ -341,6 +361,11 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		public static function activate_widget() {
 
 			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
+
+			// Check if user has permission to manage options.
+			if ( ! current_user_can( 'manage_options' ) ) {
+				wp_send_json_error( __( 'You do not have permission to perform this action.', 'header-footer-elementor' ) );
+			}
 
 			$module_id             = isset( $_POST['module_id'] ) ? sanitize_text_field( $_POST['module_id'] ) : '';
 			$widgets               = HFE_Helper::get_admin_settings_option( '_hfe_widgets', [] );
@@ -488,6 +513,11 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			// Check nonce for security.
 			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
 
+			// Check if user has permission to manage options.
+			if ( ! current_user_can( 'manage_options' ) ) {
+				wp_send_json_error( esc_html__( 'You do not have permission to perform this action.', 'header-footer-elementor' ) );
+			}
+
 			if ( isset( $_POST['hfe_compatibility_option'] ) ) {
 				// Sanitize and update option.
 				$option = sanitize_text_field( $_POST['hfe_compatibility_option'] );
@@ -510,6 +540,11 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		public function save_analytics_option() {
 			// Check nonce for security.
 			check_ajax_referer( 'hfe-admin-nonce', 'nonce' );
+
+			// Check if user has permission to manage options.
+			if ( ! current_user_can( 'manage_options' ) ) {
+				wp_send_json_error( __( 'You do not have permission to perform this action.', 'header-footer-elementor' ) );
+			}
 
 			if ( isset( $_POST['uae_analytics_optin'] ) ) {
 				// Sanitize and update option.
