@@ -78,7 +78,7 @@ const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
 
 	if (!hasHeaders) {
 		return (
-			<div className="bg-white p-6 ml-6 rounded-lg">
+			<div className="bg-white p-6 rounded-lg">
 				<div className="flex flex-col items-center justify-center">
 					{/* Icon Container */}
 					<div className="">

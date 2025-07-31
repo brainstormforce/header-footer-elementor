@@ -599,8 +599,6 @@ msgstr ""
 #: src/Components/HF-Builder/CustomBlock.jsx:52
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:236
 #: src/Components/HF-Builder/Footer.jsx:87
-#: src/Components/HF-Builder/Footer.jsx:73
-#: src/Components/HF-Builder/Footer.jsx:66
 #: src/Components/HF-Builder/Header.jsx:87
 msgid "Layout Template"
 msgstr ""
@@ -617,8 +615,6 @@ msgstr ""
 #: src/Components/HF-Builder/BeforeFooter.jsx:72
 #: src/Components/HF-Builder/CustomBlock.jsx:58
 #: src/Components/HF-Builder/Footer.jsx:93
-#: src/Components/HF-Builder/Footer.jsx:79
-#: src/Components/HF-Builder/Footer.jsx:72
 #: src/Components/HF-Builder/Header.jsx:93
 msgid "No Layout Found"
 msgstr ""
@@ -655,8 +651,6 @@ msgstr ""
 #: src/Components/HF-Builder/AllLayouts.jsx:277
 #: src/Components/HF-Builder/CustomBlock.jsx:181
 #: src/Components/HF-Builder/Footer.jsx:234
-#: src/Components/HF-Builder/Footer.jsx:220
-#: src/Components/HF-Builder/Footer.jsx:213
 #: src/Components/HF-Builder/Header.jsx:235
 msgid "Copy Shortcode"
 msgstr ""
@@ -677,8 +671,6 @@ msgstr ""
 #: src/Components/HF-Builder/AllLayouts.jsx:289
 #: src/Components/HF-Builder/CustomBlock.jsx:190
 #: src/Components/HF-Builder/Footer.jsx:243
-#: src/Components/HF-Builder/Footer.jsx:229
-#: src/Components/HF-Builder/Footer.jsx:222
 #: src/Components/HF-Builder/Header.jsx:244
 msgid "Disable"
 msgstr ""
@@ -699,8 +691,6 @@ msgstr ""
 #: src/Components/HF-Builder/AllLayouts.jsx:301
 #: src/Components/HF-Builder/CustomBlock.jsx:199
 #: src/Components/HF-Builder/Footer.jsx:252
-#: src/Components/HF-Builder/Footer.jsx:238
-#: src/Components/HF-Builder/Footer.jsx:231
 #: src/Components/HF-Builder/Header.jsx:253
 msgid "Delete"
 msgstr ""

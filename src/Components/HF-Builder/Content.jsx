@@ -2,7 +2,7 @@ import React from 'react'
 
 const Content = ({ selectedItem }) => {
   return (
-    <div className="" style={{ marginLeft: '4px' }}>
+    <div className="" style={{ padding: "50px"}}>
       <div>{selectedItem?.content}</div>
     </div>
   )
