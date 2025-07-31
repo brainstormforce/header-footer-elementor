@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Plus, EllipsisVertical } from "lucide-react";
-import { Button, DropdownMenu } from "@bsf/force-ui";
+import { Button, DropdownMenu, Loader } from "@bsf/force-ui";
 import { __ } from "@wordpress/i18n";
 import apiFetch from "@wordpress/api-fetch";
 import withDisplayConditions from "./DisplayConditionsDialog";
@@ -66,14 +66,16 @@ const BeforeFooter = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) 
   // Show loading state while fetching data
   if (isLoading) {
     return (
-      <div className="bg-white p-6 ml-6 rounded-lg">
-        <div className="flex flex-col items-center justify-center">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
-          <p className="mt-2 text-sm text-gray-600">
-            {__("Loading before footer templates...", "header-footer-elementor")}
-          </p>
-        </div>
-      </div>
+      	<div className="flex items-center justify-center min-h-screen w-full">
+				<div className="">
+					<Loader
+						className=""
+						icon={null}
+						size="lg"
+						variant="primary"
+					/>
+				</div>
+			</div>
     );
   }
 
