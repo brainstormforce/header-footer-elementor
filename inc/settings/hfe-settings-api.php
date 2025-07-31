@@ -204,6 +204,7 @@ class HFE_Settings_Api {
 			$args = [
 				'post_type'      => 'elementor-hf',
 				'posts_per_page' => -1,
+				'post_status' => array('publish', 'pending', 'draft', 'auto-draft', 'future', 'private', 'inherit'),    
 				'meta_query'     => [
 					[
 						'key'   => 'ehf_template_type',
