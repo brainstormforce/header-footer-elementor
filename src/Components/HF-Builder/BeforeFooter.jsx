@@ -8,7 +8,7 @@ import withDisplayConditions from "./DisplayConditionsDialog";
 const BeforeFooter = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
 
   const [beforeFooterItems, setBeforeFooterItems] = useState([]);
-  const [hasFooters, setHasFooters] = useState(false);
+  const [hasBeforeFooters, setHasBeforeFooters] = useState(false);
   useEffect(() => {
     // Fetch the target rule options when component mounts
     apiFetch({
@@ -22,9 +22,9 @@ const BeforeFooter = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) 
         if (response.success && response.posts) {
           setBeforeFooterItems(response.posts);
           console.log("Post created with ID:", beforeFooterItems);
-          setHasFooters(true);
+          setHasBeforeFooters(true);
         } else {
-          setHasFooters(false);
+          setHasBeforeFooters(false);
           console.error("Failed to create post:", response);
         }
       })
@@ -56,7 +56,7 @@ const BeforeFooter = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) 
     window.open(url, "_blank");
   };
 
-  if (!hasFooters) {
+  if (!hasBeforeFooters) {
     return (
       <div className="bg-white p-6 ml-6 rounded-lg">
         <div className="flex flex-col items-center justify-center">

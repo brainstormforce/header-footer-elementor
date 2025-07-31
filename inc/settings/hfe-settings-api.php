@@ -200,7 +200,12 @@ class HFE_Settings_Api {
 
 	public function uae_get_elementor_hf_post( $request ) {
 			$type = sanitize_text_field( $request->get_param( 'type' ) );
-			$type = 'type_'.strtolower($type);
+			if($type == 'custom'){
+				$type = strtolower($type);
+			}else{
+				$type = 'type_'.strtolower($type);
+			}
+			
 			$args = [
 				'post_type'      => 'elementor-hf',
 				'posts_per_page' => -1,

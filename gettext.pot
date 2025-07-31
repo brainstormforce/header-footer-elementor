@@ -592,7 +592,7 @@ msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:204
 #: src/Components/HF-Builder/BeforeFooter.jsx:220
-#: src/Components/HF-Builder/CustomBlock.jsx:117
+#: src/Components/HF-Builder/CustomBlock.jsx:196
 #: src/Components/HF-Builder/Footer.jsx:220
 #: src/Components/HF-Builder/Header.jsx:221
 msgid "Copy Shortcode"
@@ -600,7 +600,7 @@ msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:216
 #: src/Components/HF-Builder/BeforeFooter.jsx:229
-#: src/Components/HF-Builder/CustomBlock.jsx:126
+#: src/Components/HF-Builder/CustomBlock.jsx:205
 #: src/Components/HF-Builder/Footer.jsx:229
 #: src/Components/HF-Builder/Header.jsx:230
 msgid "Disable"
@@ -608,7 +608,7 @@ msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:228
 #: src/Components/HF-Builder/BeforeFooter.jsx:238
-#: src/Components/HF-Builder/CustomBlock.jsx:135
+#: src/Components/HF-Builder/CustomBlock.jsx:214
 #: src/Components/HF-Builder/Footer.jsx:238
 #: src/Components/HF-Builder/Header.jsx:239
 msgid "Delete"
@@ -639,6 +639,7 @@ msgid "Before Footer Templates"
 msgstr ""
 
 #: src/Components/HF-Builder/BeforeFooter.jsx:67
+#: src/Components/HF-Builder/CustomBlock.jsx:67
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:236
 #: src/Components/HF-Builder/Footer.jsx:67
 #: src/Components/HF-Builder/Header.jsx:67
@@ -646,6 +647,7 @@ msgid "Layout Template"
 msgstr ""
 
 #: src/Components/HF-Builder/BeforeFooter.jsx:73
+#: src/Components/HF-Builder/CustomBlock.jsx:73
 #: src/Components/HF-Builder/Footer.jsx:73
 #: src/Components/HF-Builder/Header.jsx:73
 msgid "No Layout Found"
@@ -658,12 +660,18 @@ msgid ""
 "pages."
 msgstr ""
 
-#: src/Components/HF-Builder/CustomBlock.jsx:13
-msgid "Create Custom Block"
+#: src/Components/HF-Builder/CustomBlock.jsx:106
+msgid "Create Custom Block Layout"
 msgstr ""
 
-#: src/Components/HF-Builder/CustomBlock.jsx:43
+#: src/Components/HF-Builder/CustomBlock.jsx:122
 msgid "Custom Block Templates"
+msgstr ""
+
+#: src/Components/HF-Builder/CustomBlock.jsx:78
+msgid ""
+"You haven't created a custom block layout yet. Build a custom block to "
+"control how your site's top section looks and behaves across all pages."
 msgstr ""
 
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:108
