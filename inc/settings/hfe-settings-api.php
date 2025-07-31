@@ -153,6 +153,25 @@ class HFE_Settings_Api {
 				],
 			]
 		);
+		register_rest_route( 
+			'hfe/v1', 
+			'/get-post', 
+			[
+				'methods'             => 'POST',
+				'callback'            => [ $this, 'uae_get_elementor_hf_post' ],
+				'permission_callback' => function () {
+					return current_user_can( 'edit_posts' );
+				},
+				'args' => [
+					'type' => [
+						'required' => true,
+						'type'     => 'string',
+						'default'  => '',
+					],
+				],
+			]
+		);
+		
 	}
 
 	public function uae_create_elementor_hf_layout( $request ) {
@@ -177,6 +196,37 @@ class HFE_Settings_Api {
 			'success' => true,
 			'post_id' => $post_id,
 		], 200 );
+	}
+
+	public function uae_get_elementor_hf_post( $request ) {
+			$type = sanitize_text_field( $request->get_param( 'type' ) );
+			$type = 'type_'.strtolower($type);
+			$args = [
+				'post_type'      => 'elementor-hf',
+				'posts_per_page' => -1,
+				'meta_query'     => [
+					[
+						'key'   => 'ehf_template_type',
+						'value' => $type,
+					],
+				],
+			];
+			$query = new WP_Query( $args );
+			$posts = [];
+			if ( $query->have_posts() ) {
+				while ( $query->have_posts() ) {
+					$query->the_post();
+					$posts[] = [
+						'id'    => get_the_ID(),
+						'title' => get_the_title(),
+					];
+				}
+				wp_reset_postdata();
+			}
+			return new WP_REST_Response( [
+				'success' => true,
+				'posts' => $posts,
+			], 200 );
 	}
 
 	public function hfe_get_target_rule_settings() {

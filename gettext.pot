@@ -587,28 +587,27 @@ msgid " Continue Setup"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:15
-#: src/Components/HF-Builder/Header.jsx:13
 msgid "Edit Header"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:204
 #: src/Components/HF-Builder/CustomBlock.jsx:117
 #: src/Components/HF-Builder/Footer.jsx:123
-#: src/Components/HF-Builder/Header.jsx:116
+#: src/Components/HF-Builder/Header.jsx:221
 msgid "Copy Shortcode"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:216
 #: src/Components/HF-Builder/CustomBlock.jsx:126
 #: src/Components/HF-Builder/Footer.jsx:132
-#: src/Components/HF-Builder/Header.jsx:125
+#: src/Components/HF-Builder/Header.jsx:230
 msgid "Disable"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:228
 #: src/Components/HF-Builder/CustomBlock.jsx:135
 #: src/Components/HF-Builder/Footer.jsx:141
-#: src/Components/HF-Builder/Header.jsx:134
+#: src/Components/HF-Builder/Header.jsx:239
 msgid "Delete"
 msgstr ""
 
@@ -655,6 +654,7 @@ msgid "Configure Display Conditions"
 msgstr ""
 
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:236
+#: src/Components/HF-Builder/Header.jsx:67
 msgid "Layout Template"
 msgstr ""
 
@@ -705,8 +705,22 @@ msgstr ""
 msgid "Footer Templates"
 msgstr ""
 
-#: src/Components/HF-Builder/Header.jsx:42
+#: src/Components/HF-Builder/Header.jsx:106
+msgid "Create Header Layout"
+msgstr ""
+
+#: src/Components/HF-Builder/Header.jsx:122
 msgid "Header Templates"
+msgstr ""
+
+#: src/Components/HF-Builder/Header.jsx:73
+msgid "No Layout Found"
+msgstr ""
+
+#: src/Components/HF-Builder/Header.jsx:78
+msgid ""
+"You haven't created a header layout yet. Build a custom header to control "
+"how your site's top section looks and behaves across all pages."
 msgstr ""
 
 #: src/Components/HF-Builder/Navbar.js:116
