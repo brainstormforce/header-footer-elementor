@@ -9,6 +9,8 @@ const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
 
 	const [headerItems, setHeaderItems] = useState([]);
 	const [hasHeaders, setHasHeaders] = useState(false);
+	const [isLoading, setIsLoading] = useState(true);
+	
 	useEffect(() => {
 		// Fetch the target rule options when component mounts
 		apiFetch({
@@ -21,14 +23,19 @@ const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
 			.then((response) => {
 				if (response.success && response.posts) {
 					setHeaderItems(response.posts);
-					setHasHeaders(true);
+					// Only set hasHeaders to true if there are actually items
+					setHasHeaders(response.posts.length > 0);
 				} else {
 					setHasHeaders(false);
 					console.error("Failed to create post:", response);
 				}
 			})
 			.catch((error) => {
+				setHasHeaders(false);
 				console.error("Error creating post:", error);
+			})
+			.finally(() => {
+				setIsLoading(false);
 			});
 
 	}, []);
@@ -54,6 +61,20 @@ const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
 	const handleRedirect = (url) => {
 		window.open(url, "_blank");
 	};
+
+	// Show loading state while fetching data
+	if (isLoading) {
+		return (
+			<div className="bg-white p-6 ml-6 rounded-lg">
+				<div className="flex flex-col items-center justify-center">
+					<div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+					<p className="mt-2 text-sm text-gray-600">
+						{__("Loading headers...", "header-footer-elementor")}
+					</p>
+				</div>
+			</div>
+		);
+	}
 
 	if (!hasHeaders) {
 		return (

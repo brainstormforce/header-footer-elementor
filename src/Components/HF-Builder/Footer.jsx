@@ -9,6 +9,8 @@ const Footer = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
 
 	const [footerItems, setFooterItems] = useState([]);
 	const [hasFooters, setHasFooters] = useState(false);
+	const [isLoading, setIsLoading] = useState(true);
+	
 	useEffect(() => {
 		// Fetch the target rule options when component mounts
 		apiFetch({
@@ -21,14 +23,19 @@ const Footer = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
 			.then((response) => {
 				if (response.success && response.posts) {
 					setFooterItems(response.posts);
-					setHasFooters(true);
+					// Only set hasFooters to true if there are actually items
+					setHasFooters(response.posts.length > 0);
 				} else {
 					setHasFooters(false);
 					console.error("Failed to create post:", response);
 				}
 			})
 			.catch((error) => {
+				setHasFooters(false);
 				console.error("Error creating post:", error);
+			})
+			.finally(() => {
+				setIsLoading(false);
 			});
 
 	}, []);
@@ -54,6 +61,20 @@ const Footer = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
 	const handleRedirect = (url) => {
 		window.open(url, "_blank");
 	};
+
+	// Show loading state while fetching data
+	if (isLoading) {
+		return (
+			<div className="bg-white p-6 ml-6 rounded-lg">
+				<div className="flex flex-col items-center justify-center">
+					<div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+					<p className="mt-2 text-sm text-gray-600">
+						{__("Loading footers...", "header-footer-elementor")}
+					</p>
+				</div>
+			</div>
+		);
+	}
 
 	if (!hasFooters) {
 		return (

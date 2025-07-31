@@ -10,30 +10,37 @@ import withDisplayConditions from "./DisplayConditionsDialog";
 const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
 
     const [layoutItems, setlLayoutItems] = useState([]);
-        const [hasLayoutItems, setHasLayoutItems] = useState(false);
-        useEffect(() => {
-            // Fetch the target rule options when component mounts
-            apiFetch({
-                path: "/hfe/v1/get-post",
-                method: "POST",
-                data: {
-                    type: '',
-                },
-            })
-                .then((response) => {
-                    if (response.success && response.posts) {
-                        setlLayoutItems(response.posts);
-                        setHasLayoutItems(true);
-                    } else {
-                        setHasLayoutItems(false);
-                        console.error("Failed to create post:", response);
-                    }
-                })
-                .catch((error) => {
-                    console.error("Error creating post:", error);
-                });
+    const [hasLayoutItems, setHasLayoutItems] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     
-        }, []);
+    useEffect(() => {
+        // Fetch the target rule options when component mounts
+        apiFetch({
+            path: "/hfe/v1/get-post",
+            method: "POST",
+            data: {
+                type: '',
+            },
+        })
+            .then((response) => {
+                if (response.success && response.posts) {
+                    setlLayoutItems(response.posts);
+                    // Only set hasLayoutItems to true if there are actually items
+                    setHasLayoutItems(response.posts.length > 0);
+                } else {
+                    setHasLayoutItems(false);
+                    console.error("Failed to create post:", response);
+                }
+            })
+            .catch((error) => {
+                setHasLayoutItems(false);
+                console.error("Error creating post:", error);
+            })
+            .finally(() => {
+                setIsLoading(false);
+            });
+
+    }, []);
         
 
 	const handleCreateLayout = (item) => {
@@ -71,6 +78,24 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
 	const handleRedirect = (url) => {
 		window.open(url, "_blank");
 	};
+
+	const handleDisplayConditons = (item) => {
+		openDisplayConditionsDialog(item);
+	};
+
+    // Show loading state while fetching data
+    if (isLoading) {
+        return (
+            <div className="bg-white p-6 ml-6 rounded-lg">
+                <div className="flex flex-col items-center justify-center">
+                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+                    <p className="mt-2 text-sm text-gray-600">
+                        {__("Loading layouts...", "header-footer-elementor")}
+                    </p>
+                </div>
+            </div>
+        );
+    }
 
     if (!hasLayoutItems) {
             return (
