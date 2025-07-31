@@ -21,7 +21,6 @@ const Footer = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
 			.then((response) => {
 				if (response.success && response.posts) {
 					setFooterItems(response.posts);
-					console.log("Post created with ID:", footerItems);
 					setHasFooters(true);
 				} else {
 					setHasFooters(false);

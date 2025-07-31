@@ -591,26 +591,26 @@ msgid "Edit Header"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:204
-#: src/Components/HF-Builder/BeforeFooter.jsx:220
-#: src/Components/HF-Builder/CustomBlock.jsx:196
-#: src/Components/HF-Builder/Footer.jsx:220
-#: src/Components/HF-Builder/Header.jsx:221
+#: src/Components/HF-Builder/BeforeFooter.jsx:219
+#: src/Components/HF-Builder/CustomBlock.jsx:181
+#: src/Components/HF-Builder/Footer.jsx:219
+#: src/Components/HF-Builder/Header.jsx:220
 msgid "Copy Shortcode"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:216
-#: src/Components/HF-Builder/BeforeFooter.jsx:229
-#: src/Components/HF-Builder/CustomBlock.jsx:205
-#: src/Components/HF-Builder/Footer.jsx:229
-#: src/Components/HF-Builder/Header.jsx:230
+#: src/Components/HF-Builder/BeforeFooter.jsx:228
+#: src/Components/HF-Builder/CustomBlock.jsx:190
+#: src/Components/HF-Builder/Footer.jsx:228
+#: src/Components/HF-Builder/Header.jsx:229
 msgid "Disable"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:228
-#: src/Components/HF-Builder/BeforeFooter.jsx:238
-#: src/Components/HF-Builder/CustomBlock.jsx:214
-#: src/Components/HF-Builder/Footer.jsx:238
-#: src/Components/HF-Builder/Header.jsx:239
+#: src/Components/HF-Builder/BeforeFooter.jsx:237
+#: src/Components/HF-Builder/CustomBlock.jsx:199
+#: src/Components/HF-Builder/Footer.jsx:237
+#: src/Components/HF-Builder/Header.jsx:238
 msgid "Delete"
 msgstr ""
 
@@ -630,48 +630,48 @@ msgstr ""
 msgid "Start customising Your Header & Footer"
 msgstr ""
 
-#: src/Components/HF-Builder/BeforeFooter.jsx:106
+#: src/Components/HF-Builder/BeforeFooter.jsx:105
 msgid "Create Before Footer Layout"
 msgstr ""
 
-#: src/Components/HF-Builder/BeforeFooter.jsx:122
+#: src/Components/HF-Builder/BeforeFooter.jsx:121
 msgid "Before Footer Templates"
 msgstr ""
 
-#: src/Components/HF-Builder/BeforeFooter.jsx:67
-#: src/Components/HF-Builder/CustomBlock.jsx:67
+#: src/Components/HF-Builder/BeforeFooter.jsx:66
+#: src/Components/HF-Builder/CustomBlock.jsx:52
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:236
-#: src/Components/HF-Builder/Footer.jsx:67
-#: src/Components/HF-Builder/Header.jsx:67
+#: src/Components/HF-Builder/Footer.jsx:66
+#: src/Components/HF-Builder/Header.jsx:66
 msgid "Layout Template"
 msgstr ""
 
-#: src/Components/HF-Builder/BeforeFooter.jsx:73
-#: src/Components/HF-Builder/CustomBlock.jsx:73
-#: src/Components/HF-Builder/Footer.jsx:73
-#: src/Components/HF-Builder/Header.jsx:73
+#: src/Components/HF-Builder/BeforeFooter.jsx:72
+#: src/Components/HF-Builder/CustomBlock.jsx:58
+#: src/Components/HF-Builder/Footer.jsx:72
+#: src/Components/HF-Builder/Header.jsx:72
 msgid "No Layout Found"
 msgstr ""
 
-#: src/Components/HF-Builder/BeforeFooter.jsx:78
+#: src/Components/HF-Builder/BeforeFooter.jsx:77
 msgid ""
 "You haven't created a before footer layout yet. Build a custom before "
 "footer to control how your site's top section looks and behaves across all "
 "pages."
 msgstr ""
 
-#: src/Components/HF-Builder/CustomBlock.jsx:106
-msgid "Create Custom Block Layout"
-msgstr ""
-
-#: src/Components/HF-Builder/CustomBlock.jsx:122
+#: src/Components/HF-Builder/CustomBlock.jsx:107
 msgid "Custom Block Templates"
 msgstr ""
 
-#: src/Components/HF-Builder/CustomBlock.jsx:78
+#: src/Components/HF-Builder/CustomBlock.jsx:63
 msgid ""
 "You haven't created a custom block layout yet. Build a custom block to "
 "control how your site's top section looks and behaves across all pages."
+msgstr ""
+
+#: src/Components/HF-Builder/CustomBlock.jsx:91
+msgid "Create Custom Block Layout"
 msgstr ""
 
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:108
@@ -733,29 +733,29 @@ msgstr ""
 msgid "Save Conditions"
 msgstr ""
 
-#: src/Components/HF-Builder/Footer.jsx:106
+#: src/Components/HF-Builder/Footer.jsx:105
 msgid "Create Footer Layout"
 msgstr ""
 
-#: src/Components/HF-Builder/Footer.jsx:122
+#: src/Components/HF-Builder/Footer.jsx:121
 msgid "Footer Templates"
 msgstr ""
 
-#: src/Components/HF-Builder/Footer.jsx:78
+#: src/Components/HF-Builder/Footer.jsx:77
 msgid ""
 "You haven't created a footer layout yet. Build a custom footer to control "
 "how your site's top section looks and behaves across all pages."
 msgstr ""
 
-#: src/Components/HF-Builder/Header.jsx:106
+#: src/Components/HF-Builder/Header.jsx:105
 msgid "Create Header Layout"
 msgstr ""
 
-#: src/Components/HF-Builder/Header.jsx:122
+#: src/Components/HF-Builder/Header.jsx:121
 msgid "Header Templates"
 msgstr ""
 
-#: src/Components/HF-Builder/Header.jsx:78
+#: src/Components/HF-Builder/Header.jsx:77
 msgid ""
 "You haven't created a header layout yet. Build a custom header to control "
 "how your site's top section looks and behaves across all pages."

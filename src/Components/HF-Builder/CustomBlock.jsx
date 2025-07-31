@@ -3,9 +3,8 @@ import { Plus, EllipsisVertical } from "lucide-react";
 import { Button, DropdownMenu } from "@bsf/force-ui";
 import { __ } from "@wordpress/i18n";
 import apiFetch from "@wordpress/api-fetch";
-import withDisplayConditions from "./DisplayConditionsDialog";
 
-const CustomBlock = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
+const CustomBlock = () => {
 
 	const [customBlockItems, setCustomBlockItems] = useState([]);
 	const [hasCustomBlocks, setCustomBlocks] = useState(false);
@@ -21,7 +20,6 @@ const CustomBlock = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =
 			.then((response) => {
 				if (response.success && response.posts) {
 					setCustomBlockItems(response.posts);
-					console.log("Post created with ID:", customBlockItems);
 					setCustomBlocks(true);
 				} else {
 					setCustomBlocks(false);
@@ -33,19 +31,6 @@ const CustomBlock = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =
 			});
 
 	}, []);
-	
-			
-
-	const handleDisplayConditons = (item) => {
-		// If item doesn't have an ID, create a new Custom Block layout
-		if (!item.id) {
-			// You can add your Custom Block creation logic here
-			console.log("Creating new Custom Block:", item.name);
-		}
-		
-		// Open the display conditions dialog
-		openDisplayConditionsDialog(item);
-	};
 
 	const handleEditWithElementor = (item) => {
 		// Open the edit dialog
@@ -224,13 +209,10 @@ const CustomBlock = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =
 						))}
 					</div>
 				</div>
-	
-				{/* Render the Display Conditions Dialog from HOC */}
-				<DisplayConditionsDialog />
 			</>
 		);
 	}
 	
 };
 
-export default withDisplayConditions(CustomBlock);
+export default CustomBlock;

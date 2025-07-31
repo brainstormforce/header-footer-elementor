@@ -21,7 +21,6 @@ const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
 			.then((response) => {
 				if (response.success && response.posts) {
 					setHeaderItems(response.posts);
-					console.log("Post created with ID:", headerItems);
 					setHasHeaders(true);
 				} else {
 					setHasHeaders(false);

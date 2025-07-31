@@ -21,7 +21,6 @@ const BeforeFooter = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) 
       .then((response) => {
         if (response.success && response.posts) {
           setBeforeFooterItems(response.posts);
-          console.log("Post created with ID:", beforeFooterItems);
           setHasBeforeFooters(true);
         } else {
           setHasBeforeFooters(false);
