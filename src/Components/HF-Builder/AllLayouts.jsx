@@ -117,7 +117,7 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
                     {/* Description */}
                     <p className="text-sm text-text-tertiary text-center max-w-lg">
                         {__(
-                            "You haven't created a header layout yet. Build a custom header to control how your site's top section looks and behaves across all pages.",
+                            "You haven't created any layouts yet. Build a custom layout to control how your site's top section looks and behaves across all pages.",
                             "header-footer-elementor"
                         )}
                     </p>
