@@ -140,7 +140,7 @@ const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
 										className="w-full object-cover"
 									/>
 	
-									<div className="absolute inset-0 flex items-center justify-center rounded-lg overflow-hidden backdrop-blur-sm bg-black/40 transition-all duration-200 z-30">
+									<div className="absolute inset-0 flex items-center justify-center gap-2 rounded-lg overflow-hidden backdrop-blur-sm bg-black/40 transition-all duration-200 z-30">
 										<Button
 											iconPosition="left"
 											icon={<Plus size={14} />}
@@ -169,9 +169,9 @@ const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
 											iconPosition="left"
 											icon={<Plus size={14} />}
 											variant="primary"
-											className="bg-[#6005FF] font-medium text-white hfe-remove-ring z-50"
+											className="font-medium text-black hfe-remove-ring z-50"
 											style={{
-												backgroundColor: "#6005FF",
+												backgroundColor: "#fff",
 												fontSize: "12px",
 												fontWeight: "600",
 												padding: "8px 8px",
@@ -179,15 +179,9 @@ const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
 												transition: "all 0.2s ease",
 												outline: "none",
 											}}
-											onMouseEnter={(e) =>
-												(e.currentTarget.style.backgroundColor = "#4B00CC")
-											}
-											onMouseLeave={(e) =>
-												(e.currentTarget.style.backgroundColor = "#6005FF")
-											}
 											onClick={() => handleDisplayConditons(item)}
 										>
-											{"Display Conditons"}
+											{"Display Conditions"}
 										</Button>
 									</div>
 								</div>

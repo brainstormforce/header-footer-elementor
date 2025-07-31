@@ -595,27 +595,36 @@ msgstr ""
 msgid "Start customising Your Header & Footer"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:277
+#: src/Components/HF-Builder/AllLayouts.jsx:271
+#: src/Components/HF-Builder/BeforeFooter.jsx:213
 #: src/Components/HF-Builder/BeforeFooter.jsx:219
+#: src/Components/HF-Builder/AllLayouts.jsx:277
 #: src/Components/HF-Builder/CustomBlock.jsx:181
+#: src/Components/HF-Builder/Footer.jsx:213
 #: src/Components/HF-Builder/Footer.jsx:219
-#: src/Components/HF-Builder/Header.jsx:220
+#: src/Components/HF-Builder/Header.jsx:214
 msgid "Copy Shortcode"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:289
+#: src/Components/HF-Builder/AllLayouts.jsx:283
+#: src/Components/HF-Builder/BeforeFooter.jsx:222
 #: src/Components/HF-Builder/BeforeFooter.jsx:228
+#: src/Components/HF-Builder/AllLayouts.jsx:289
 #: src/Components/HF-Builder/CustomBlock.jsx:190
+#: src/Components/HF-Builder/Footer.jsx:222
 #: src/Components/HF-Builder/Footer.jsx:228
-#: src/Components/HF-Builder/Header.jsx:229
+#: src/Components/HF-Builder/Header.jsx:223
 msgid "Disable"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:301
+#: src/Components/HF-Builder/AllLayouts.jsx:295
+#: src/Components/HF-Builder/BeforeFooter.jsx:231
 #: src/Components/HF-Builder/BeforeFooter.jsx:237
+#: src/Components/HF-Builder/AllLayouts.jsx:301
 #: src/Components/HF-Builder/CustomBlock.jsx:199
+#: src/Components/HF-Builder/Footer.jsx:231
 #: src/Components/HF-Builder/Footer.jsx:237
-#: src/Components/HF-Builder/Header.jsx:238
+#: src/Components/HF-Builder/Header.jsx:232
 msgid "Delete"
 msgstr ""
 
