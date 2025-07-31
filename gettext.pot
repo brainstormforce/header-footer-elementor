@@ -592,32 +592,30 @@ msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:204
 #: src/Components/HF-Builder/CustomBlock.jsx:117
-#: src/Components/HF-Builder/Footer.jsx:123
+#: src/Components/HF-Builder/Footer.jsx:220
 #: src/Components/HF-Builder/Header.jsx:221
 msgid "Copy Shortcode"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:216
 #: src/Components/HF-Builder/CustomBlock.jsx:126
-#: src/Components/HF-Builder/Footer.jsx:132
+#: src/Components/HF-Builder/Footer.jsx:229
 #: src/Components/HF-Builder/Header.jsx:230
 msgid "Disable"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:228
 #: src/Components/HF-Builder/CustomBlock.jsx:135
-#: src/Components/HF-Builder/Footer.jsx:141
+#: src/Components/HF-Builder/Footer.jsx:238
 #: src/Components/HF-Builder/Header.jsx:239
 msgid "Delete"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:23
-#: src/Components/HF-Builder/Footer.jsx:13
 msgid "Edit Footer"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:31
-#: src/Components/HF-Builder/Footer.jsx:20
 msgid "Edit Before Footer"
 msgstr ""
 
@@ -654,6 +652,7 @@ msgid "Configure Display Conditions"
 msgstr ""
 
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:236
+#: src/Components/HF-Builder/Footer.jsx:67
 #: src/Components/HF-Builder/Header.jsx:67
 msgid "Layout Template"
 msgstr ""
@@ -701,8 +700,23 @@ msgstr ""
 msgid "Save Conditions"
 msgstr ""
 
-#: src/Components/HF-Builder/Footer.jsx:49
+#: src/Components/HF-Builder/Footer.jsx:106
+msgid "Create Footer Layout"
+msgstr ""
+
+#: src/Components/HF-Builder/Footer.jsx:122
 msgid "Footer Templates"
+msgstr ""
+
+#: src/Components/HF-Builder/Footer.jsx:73
+#: src/Components/HF-Builder/Header.jsx:73
+msgid "No Layout Found"
+msgstr ""
+
+#: src/Components/HF-Builder/Footer.jsx:78
+msgid ""
+"You haven't created a footer layout yet. Build a custom footer to control "
+"how your site's top section looks and behaves across all pages."
 msgstr ""
 
 #: src/Components/HF-Builder/Header.jsx:106
@@ -711,10 +725,6 @@ msgstr ""
 
 #: src/Components/HF-Builder/Header.jsx:122
 msgid "Header Templates"
-msgstr ""
-
-#: src/Components/HF-Builder/Header.jsx:73
-msgid "No Layout Found"
 msgstr ""
 
 #: src/Components/HF-Builder/Header.jsx:78
