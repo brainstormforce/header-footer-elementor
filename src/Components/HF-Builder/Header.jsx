@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { Plus, EllipsisVertical } from "lucide-react";
-import { Button, DropdownMenu } from "@bsf/force-ui";
+import { Button, DropdownMenu, Loader } from "@bsf/force-ui";
 import { __ } from "@wordpress/i18n";
 import apiFetch from "@wordpress/api-fetch";
 import withDisplayConditions from "./DisplayConditionsDialog";
+import EmptyState from "./EmptyState";
 
 const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
-
 	const [headerItems, setHeaderItems] = useState([]);
 	const [hasHeaders, setHasHeaders] = useState(false);
 	const [isLoading, setIsLoading] = useState(true);
-	
+
 	useEffect(() => {
 		// Fetch the target rule options when component mounts
 		apiFetch({
 			path: "/hfe/v1/get-post",
 			method: "POST",
 			data: {
-				type: 'header',
+				type: "header",
 			},
 		})
 			.then((response) => {
@@ -37,10 +37,7 @@ const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
 			.finally(() => {
 				setIsLoading(false);
 			});
-
 	}, []);
-	
-			
 
 	const handleDisplayConditons = (item) => {
 		// If item doesn't have an ID, create a new header layout
@@ -48,7 +45,7 @@ const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
 			// You can add your header creation logic here
 			console.log("Creating new header:", item.name);
 		}
-		
+
 		// Open the display conditions dialog
 		openDisplayConditionsDialog(item);
 	};
@@ -65,12 +62,14 @@ const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
 	// Show loading state while fetching data
 	if (isLoading) {
 		return (
-			<div className="bg-white p-6 ml-6 rounded-lg">
-				<div className="flex flex-col items-center justify-center">
-					<div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
-					<p className="mt-2 text-sm text-gray-600">
-						{__("Loading headers...", "header-footer-elementor")}
-					</p>
+			<div className="flex items-center justify-center min-h-screen w-full">
+				<div className="">
+					<Loader
+						className=""
+						icon={null}
+						size="lg"
+						variant="primary"
+					/>
 				</div>
 			</div>
 		);
@@ -78,62 +77,29 @@ const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
 
 	if (!hasHeaders) {
 		return (
-			<div className="bg-white p-6 rounded-lg">
-				<div className="flex flex-col items-center justify-center">
-					{/* Icon Container */}
-					<div className="">
-						<img
-							src={`${hfeSettingsData.layout_template}`}
-							alt={__("Layout Template", "header-footer-elementor")}
-							className="w-20 h-20 object-contain"
-						/>
-					</div>
-					{/* Title */}
-				<h3 className="text-lg m-0 pt-3 font-semibold text-gray-900">
-					{__("No Layout Found", "header-footer-elementor")}
-				</h3>
-
-				{/* Description */}
-				<p className="text-sm text-text-tertiary text-center max-w-lg">
-					{__(
-						"You haven't created a header layout yet. Build a custom header to control how your site's top section looks and behaves across all pages.",
-						"header-footer-elementor"
-					)}
-				</p>
-
-				{/* Create Button */}
-				<Button
-					iconPosition="left"
-					icon={<Plus />}
-					variant="primary"
-					className="font-normal px-3 py-2 flex items-center justify-center hfe-remove-ring"
-					style={{
-						backgroundColor: "#6005FF",
-						transition: "background-color 0.3s ease",
-						outline: "none",
-						borderRadius: "4px",
-					}}
-					onMouseEnter={(e) =>
-						(e.currentTarget.style.backgroundColor = "#4B00CC")
-					}
-					onMouseLeave={(e) =>
-						(e.currentTarget.style.backgroundColor = "#6005FF")
-					}
-					onClick={() => {
-						// TODO: Add actual header creation logic
-						window.open("", "_blank");
-					}}>
-					{__("Create Header Layout", "header-footer-elementor")} 
-				</Button>
-				</div>
-			</div>
+			<EmptyState
+				description={__(
+					"You haven't created a header layout yet. Build a custom header to control how your site's top section looks and behaves across all pages.",
+					"header-footer-elementor",
+				)}
+				buttonText={__(
+					"Create Header Layout",
+					"header-footer-elementor",
+				)}
+				onClick={() => {
+					// TODO: Add actual header creation logic
+					window.open("", "_blank");
+				}}
+				className="bg-white p-6 rounded-lg"
+			/>
 		);
-	} 
-	else
-	{
+	} else {
 		return (
 			<>
-				<div className="header-section" style={{ paddingLeft: "40px", paddingRight: "40px" }}>
+				<div
+					className="header-section"
+					style={{ paddingLeft: "40px", paddingRight: "40px" }}
+				>
 					<div
 						className="flex items-start gap-10 justify-between"
 						style={{ padding: "0 40px", marginBottom: "10px" }}
@@ -142,7 +108,7 @@ const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
 							{__("Header Templates", "header-footer-elementor")}
 						</h2>
 					</div>
-	
+
 					<div
 						className="grid grid-cols-1 md:grid-cols-2 gap-6"
 						style={{ paddingLeft: "30px" }}
@@ -157,10 +123,10 @@ const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
 									<img
 										src={hfeSettingsData.header_card}
 										alt={`${item.title} Layout`}
-										style={{ height: '220px' }}
+										style={{ height: "220px" }}
 										className="w-full object-cover"
 									/>
-	
+
 									<div className="absolute inset-0 flex items-center justify-center gap-2 rounded-lg overflow-hidden backdrop-blur-sm bg-black/40 transition-all duration-200 z-30">
 										<Button
 											iconPosition="left"
@@ -177,12 +143,16 @@ const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
 												outline: "none",
 											}}
 											onMouseEnter={(e) =>
-												(e.currentTarget.style.backgroundColor = "#4B00CC")
+												(e.currentTarget.style.backgroundColor =
+													"#4B00CC")
 											}
 											onMouseLeave={(e) =>
-												(e.currentTarget.style.backgroundColor = "#6005FF")
+												(e.currentTarget.style.backgroundColor =
+													"#6005FF")
 											}
-											onClick={() => handleEditWithElementor(item)}
+											onClick={() =>
+												handleEditWithElementor(item)
+											}
 										>
 											{"Edit Header"}
 										</Button>
@@ -200,7 +170,9 @@ const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
 												transition: "all 0.2s ease",
 												outline: "none",
 											}}
-											onClick={() => handleDisplayConditons(item)}
+											onClick={() =>
+												handleDisplayConditons(item)
+											}
 										>
 											{"Display Conditions"}
 										</Button>
@@ -219,7 +191,10 @@ const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
 										</p>
 										<DropdownMenu placement="bottom-end">
 											<DropdownMenu.Trigger>
-												<EllipsisVertical size={16} className="cursor-pointer" />
+												<EllipsisVertical
+													size={16}
+													className="cursor-pointer"
+												/>
 											</DropdownMenu.Trigger>
 											<DropdownMenu.Portal>
 												<DropdownMenu.ContentWrapper>
@@ -232,7 +207,10 @@ const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
 																	)
 																}
 															>
-																{__("Copy Shortcode", "header-footer-elementor")}
+																{__(
+																	"Copy Shortcode",
+																	"header-footer-elementor",
+																)}
 															</DropdownMenu.Item>
 															<DropdownMenu.Item
 																onClick={() =>
@@ -241,7 +219,10 @@ const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
 																	)
 																}
 															>
-																{__("Disable", "header-footer-elementor")}
+																{__(
+																	"Disable",
+																	"header-footer-elementor",
+																)}
 															</DropdownMenu.Item>
 															<DropdownMenu.Item
 																onClick={() =>
@@ -250,7 +231,10 @@ const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
 																	)
 																}
 															>
-																{__("Delete", "header-footer-elementor")}
+																{__(
+																	"Delete",
+																	"header-footer-elementor",
+																)}
 															</DropdownMenu.Item>
 														</DropdownMenu.List>
 													</DropdownMenu.Content>
@@ -263,13 +247,12 @@ const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
 						))}
 					</div>
 				</div>
-	
+
 				{/* Render the Display Conditions Dialog from HOC */}
 				<DisplayConditionsDialog />
 			</>
 		);
 	}
-	
 };
 
 export default withDisplayConditions(Header);

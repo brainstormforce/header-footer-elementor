@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Plus, EllipsisVertical } from "lucide-react";
-import { Button, DropdownMenu } from "@bsf/force-ui";
+import { Button, DropdownMenu, Loader } from "@bsf/force-ui";
 import { __ } from "@wordpress/i18n";
 import apiFetch from "@wordpress/api-fetch";
+import EmptyState from "./EmptyState";
 
 const CustomBlock = () => {
 
@@ -51,12 +52,14 @@ const CustomBlock = () => {
 	// Show loading state while fetching data
 	if (isLoading) {
 		return (
-			<div className="bg-white p-6 ml-6 rounded-lg">
-				<div className="flex flex-col items-center justify-center">
-					<div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
-					<p className="mt-2 text-sm text-gray-600">
-						{__("Loading custom blocks...", "header-footer-elementor")}
-					</p>
+			<div className="flex items-center justify-center min-h-screen w-full">
+				<div className="">
+					<Loader
+						className=""
+						icon={null}
+						size="lg"
+						variant="primary"
+					/>
 				</div>
 			</div>
 		);
@@ -64,55 +67,18 @@ const CustomBlock = () => {
 
 	if (!hasCustomBlocks) {
 		return (
-			<div className="bg-white p-6 ml-6 rounded-lg">
-				<div className="flex flex-col items-center justify-center">
-					{/* Icon Container */}
-					<div className="">
-						<img
-							src={`${hfeSettingsData.layout_template}`}
-							alt={__("Layout Template", "header-footer-elementor")}
-							className="w-20 h-20 object-contain"
-						/>
-					</div>
-					{/* Title */}
-				<h3 className="text-lg m-0 pt-3 font-semibold text-gray-900">
-					{__("No Layout Found", "header-footer-elementor")}
-				</h3>
-
-				{/* Description */}
-				<p className="text-sm text-text-tertiary text-center max-w-lg">
-					{__(
-						"You haven't created a custom block layout yet. Build a custom block to control how your site's top section looks and behaves across all pages.",
-						"header-footer-elementor"
-					)}
-				</p>
-
-				{/* Create Button */}
-				<Button
-					iconPosition="left"
-					icon={<Plus />}
-					variant="primary"
-					className="font-normal px-3 py-2 flex items-center justify-center hfe-remove-ring"
-					style={{
-						backgroundColor: "#6005FF",
-						transition: "background-color 0.3s ease",
-						outline: "none",
-						borderRadius: "4px",
-					}}
-					onMouseEnter={(e) =>
-						(e.currentTarget.style.backgroundColor = "#4B00CC")
-					}
-					onMouseLeave={(e) =>
-						(e.currentTarget.style.backgroundColor = "#6005FF")
-					}
-					onClick={() => {
-						// TODO: Add actual custom block creation logic
-						window.open("", "_blank");
-					}}>
-					{__("Create Custom Block Layout", "header-footer-elementor")} 
-				</Button>
-				</div>
-			</div>
+			<EmptyState
+				description={__(
+					"You haven't created a custom block layout yet. Build a custom block to control how your site's sections look and behave across all pages.",
+					"header-footer-elementor"
+				)}
+				buttonText={__("Create Custom Block Layout", "header-footer-elementor")}
+				onClick={() => {
+					// TODO: Add actual custom block creation logic
+					window.open("", "_blank");
+				}}
+				className="bg-white p-6 ml-6 rounded-lg"
+			/>
 		);
 	} 
 	else
