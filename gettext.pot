@@ -627,8 +627,7 @@ msgid ""
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:147
-#: src/Components/HF-Builder/Header.jsx:126
-msgid "Create Header Layout"
+msgid "Create Layout"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:163
@@ -811,6 +810,11 @@ msgstr ""
 msgid ""
 "You haven't created a footer layout yet. Build a custom footer to control "
 "how your site's top section looks and behaves across all pages."
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:147
+#: src/Components/HF-Builder/Header.jsx:126
+msgid "Create Header Layout"
 msgstr ""
 
 #: src/Components/HF-Builder/Header.jsx:142

@@ -144,7 +144,7 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
                             // TODO: Add actual header creation logic
                             window.open("", "_blank");
                         }}>
-                        {__("Create Header Layout", "header-footer-elementor")} 
+                        {__("Create Layout", "header-footer-elementor")} 
                     </Button>
                     </div>
                 </div>
