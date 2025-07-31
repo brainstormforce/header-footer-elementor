@@ -199,40 +199,49 @@ class HFE_Settings_Api {
 	}
 
 	public function uae_get_elementor_hf_post( $request ) {
-			$type = sanitize_text_field( $request->get_param( 'type' ) );
-			if($type == 'custom'){
-				$type = strtolower($type);
-			}else{
-				$type = 'type_'.strtolower($type);
+		$type = sanitize_text_field( $request->get_param( 'type' ) );
+	
+		$args = [
+			'post_type'      => 'elementor-hf',
+			'posts_per_page' => -1,
+			'post_status'    => [ 'publish', 'pending', 'draft', 'auto-draft', 'future', 'private', 'inherit' ],
+		];
+	
+		// Only add meta_query if type is provided
+		if ( ! empty( $type ) ) {
+			if ( strtolower( $type ) === 'custom' ) {
+				$type = 'custom';
+			} else {
+				$type = 'type_' . strtolower( $type );
 			}
-			
-			$args = [
-				'post_type'      => 'elementor-hf',
-				'posts_per_page' => -1,
-				'post_status' => array('publish', 'pending', 'draft', 'auto-draft', 'future', 'private', 'inherit'),    
-				'meta_query'     => [
-					[
-						'key'   => 'ehf_template_type',
-						'value' => $type,
-					],
+	
+			$args['meta_query'] = [
+				[
+					'key'   => 'ehf_template_type',
+					'value' => $type,
 				],
 			];
-			$query = new WP_Query( $args );
-			$posts = [];
-			if ( $query->have_posts() ) {
-				while ( $query->have_posts() ) {
-					$query->the_post();
-					$posts[] = [
-						'id'    => get_the_ID(),
-						'title' => get_the_title(),
-					];
-				}
-				wp_reset_postdata();
+		}
+	
+		$query = new WP_Query( $args );
+		$posts = [];
+	
+		if ( $query->have_posts() ) {
+			while ( $query->have_posts() ) {
+				$query->the_post();
+				$posts[] = [
+					'id'    => get_the_ID(),
+					'title' => get_the_title(),
+					'template_type' => get_post_meta(get_the_ID(), 'ehf_template_type', true),
+				];
 			}
-			return new WP_REST_Response( [
-				'success' => true,
-				'posts' => $posts,
-			], 200 );
+			wp_reset_postdata();
+		}
+	
+		return new WP_REST_Response( [
+			'success' => true,
+			'posts'   => $posts,
+		], 200 );
 	}
 
 	public function hfe_get_target_rule_settings() {
