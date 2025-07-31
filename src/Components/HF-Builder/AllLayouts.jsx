@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Plus, X } from "lucide-react";
+import { Plus, X, EllipsisVertical } from "lucide-react";
 import { Button, Dialog, Select, DropdownMenu } from "@bsf/force-ui";
 import { __ } from "@wordpress/i18n";
 import apiFetch from "@wordpress/api-fetch";
-import {
-	EllipsisVertical
-} from "lucide-react";
 
 // Example: Ensure these values are coming from global/localized JS in WordPress
 
