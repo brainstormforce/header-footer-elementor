@@ -12,7 +12,12 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
     const [layoutItems, setlLayoutItems] = useState([]);
     const [hasLayoutItems, setHasLayoutItems] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
-    const [showDummyCards, setShowDummyCards] = useState(false);
+    
+    // Initialize showDummyCards from localStorage to persist state across page refreshes
+    const [showDummyCards, setShowDummyCards] = useState(() => {
+        const saved = localStorage.getItem('hfe_showDummyCards');
+        return saved ? JSON.parse(saved) : false;
+    });
 
     // Define dummy layout types
     const dummyLayoutTypes = [
@@ -50,6 +55,11 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
         }
     ];
     
+    // Save showDummyCards state to localStorage whenever it changes
+    useEffect(() => {
+        localStorage.setItem('hfe_showDummyCards', JSON.stringify(showDummyCards));
+    }, [showDummyCards]);
+    
     useEffect(() => {
         // Fetch the target rule options when component mounts
         apiFetch({
@@ -64,6 +74,12 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
                     setlLayoutItems(response.posts);
                     // Only set hasLayoutItems to true if there are actually items
                     setHasLayoutItems(response.posts.length > 0);
+                    
+                    // Clear localStorage if layouts are found
+                    if (response.posts.length > 0) {
+                        localStorage.removeItem('hfe_showDummyCards');
+                        setShowDummyCards(false);
+                    }
                 } else {
                     setHasLayoutItems(false);
                     console.error("Failed to create post:", response);
@@ -163,7 +179,11 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
                             <Button
                                 variant="secondary"
                                 className="text-sm"
-                                onClick={() => setShowDummyCards(false)}
+                                onClick={() => {
+                                    setShowDummyCards(false);
+                                    // Clear the localStorage when going back
+                                    localStorage.removeItem('hfe_showDummyCards');
+                                }}
                             >
                                 {__("Back", "header-footer-elementor")}
                             </Button>
@@ -330,7 +350,11 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
                     onMouseLeave={(e) =>
                         (e.currentTarget.style.backgroundColor = "#6005FF")
                     }
-                    onClick={() => setShowDummyCards(true)}>
+                    onClick={() => {
+                        setShowDummyCards(true);
+                        // Save to localStorage when showing dummy cards
+                        localStorage.setItem('hfe_showDummyCards', JSON.stringify(true));
+                    }}>
                     {__("Create Layout", "header-footer-elementor")} 
                 </Button>
                 </div>
