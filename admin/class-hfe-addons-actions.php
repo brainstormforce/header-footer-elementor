@@ -71,6 +71,8 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			add_action( 'wp_ajax_hfe_flush_permalink_notice', [ $this, 'hfe_flush_permalink_notice' ] );
 			add_action( 'wp_ajax_nopriv_hfe_flush_permalink_notice', [ $this, 'hfe_flush_permalink_notice' ] );
 
+			add_action( 'wp_ajax_dismiss_sticky_header_notice', [ $this, 'dismiss_sticky_header_notice' ] );
+
 		}
 
 		/**
@@ -570,6 +572,24 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 				// Return an error response if the option is not set.
 				wp_send_json_error( __( 'Unable to save settings.', 'header-footer-elementor' ) );
 			}
+		}
+
+		/**
+		 * Handle sticky header notice dismissal
+		 *
+		 * @return void
+		 */
+		public function dismiss_sticky_header_notice() {
+			if (!wp_verify_nonce($_POST['nonce'], 'uae_dismiss_sticky_header_notice')) {
+				wp_die('Security check failed');
+			}
+			
+			if ( ! current_user_can( 'manage_options' ) ) {
+				wp_send_json_error( 'Unauthorized', 403 );
+			}
+			
+			update_user_meta(get_current_user_id(), 'uae_sticky_header_notice_dismissed', true);
+			wp_send_json_success();
 		}
 
 	}
