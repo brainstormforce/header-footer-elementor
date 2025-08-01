@@ -299,6 +299,9 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 ---
 
 == Changelog ==
+= 2.4.8 =
+- Improvement: Compatibility with latest Elementor and Elementor Pro 3.31 version.
+
 = 2.4.7 =
 - This update addresses a security bug. Props to Peter Thaleikis for privately reporting it to our team. We appreciate the responsible disclosure!
 
