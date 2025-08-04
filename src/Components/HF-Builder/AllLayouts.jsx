@@ -149,6 +149,222 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
 		openDisplayConditionsDialog(item);
 	};
 
+	/**
+	 * Handle disabling a layout (set status to draft)
+	 */
+	const handleDisableLayout = async (item) => {
+		try {
+			const response = await apiFetch({
+				path: "/hfe/v1/update-post-status",
+				method: "POST",
+				data: {
+					post_id: item.id,
+					status: 'draft'
+				},
+			});
+
+			if (response.success) {
+				// Show success toast notification
+				if (window.wp && window.wp.data && window.wp.data.dispatch) {
+					window.wp.data.dispatch('core/notices').createNotice(
+						'success',
+						__('Layout disabled successfully!', 'header-footer-elementor'),
+						{
+							type: 'snackbar',
+							isDismissible: true,
+						}
+					);
+				} else {
+					alert(__('Layout disabled successfully!', 'header-footer-elementor'));
+				}
+				
+				// Reload the page to refresh the data
+				setTimeout(() => {
+					window.location.reload();
+				}, 1000);
+
+			} else {
+				console.error("Failed to disable layout:", response);
+				if (window.wp && window.wp.data && window.wp.data.dispatch) {
+					window.wp.data.dispatch('core/notices').createNotice(
+						'error',
+						__('Failed to disable layout. Please try again.', 'header-footer-elementor'),
+						{
+							type: 'snackbar',
+							isDismissible: true,
+						}
+					);
+				} else {
+					alert(__('Failed to disable layout. Please try again.', 'header-footer-elementor'));
+				}
+			}
+		} catch (error) {
+			console.error("Error disabling layout:", error);
+			if (window.wp && window.wp.data && window.wp.data.dispatch) {
+				window.wp.data.dispatch('core/notices').createNotice(
+					'error',
+					__('Error disabling layout. Please try again.', 'header-footer-elementor'),
+					{
+						type: 'snackbar',
+						isDismissible: true,
+					}
+				);
+			} else {
+				alert(__('Error disabling layout. Please try again.', 'header-footer-elementor'));
+			}
+		}
+	};
+
+	/**
+	 * Handle deleting a layout (move to trash)
+	 */
+	const handleDeleteLayout = async (item) => {
+		// Show confirmation dialog
+		if (!confirm(__('Are you sure you want to delete this layout? This action cannot be undone.', 'header-footer-elementor'))) {
+			return;
+		}
+
+		try {
+			const response = await apiFetch({
+				path: "/hfe/v1/delete-post",
+				method: "POST",
+				data: {
+					post_id: item.id
+				},
+			});
+
+			if (response.success) {
+				// Show success toast notification
+				if (window.wp && window.wp.data && window.wp.data.dispatch) {
+					window.wp.data.dispatch('core/notices').createNotice(
+						'success',
+						__('Layout deleted successfully!', 'header-footer-elementor'),
+						{
+							type: 'snackbar',
+							isDismissible: true,
+						}
+					);
+				} else {
+					alert(__('Layout deleted successfully!', 'header-footer-elementor'));
+				}
+				
+				// Reload the page to refresh the data
+				setTimeout(() => {
+					window.location.reload();
+				}, 1000);
+
+			} else {
+				console.error("Failed to delete layout:", response);
+				if (window.wp && window.wp.data && window.wp.data.dispatch) {
+					window.wp.data.dispatch('core/notices').createNotice(
+						'error',
+						__('Failed to delete layout. Please try again.', 'header-footer-elementor'),
+						{
+							type: 'snackbar',
+							isDismissible: true,
+						}
+					);
+				} else {
+					alert(__('Failed to delete layout. Please try again.', 'header-footer-elementor'));
+				}
+			}
+		} catch (error) {
+			console.error("Error deleting layout:", error);
+			if (window.wp && window.wp.data && window.wp.data.dispatch) {
+				window.wp.data.dispatch('core/notices').createNotice(
+					'error',
+					__('Error deleting layout. Please try again.', 'header-footer-elementor'),
+					{
+						type: 'snackbar',
+						isDismissible: true,
+					}
+				);
+			} else {
+				alert(__('Error deleting layout. Please try again.', 'header-footer-elementor'));
+			}
+		}
+	};
+
+	/**
+	 * Handle copying shortcode to clipboard
+	 */
+	const handleCopyShortcode = (item) => {
+		const shortcode = `[hfe_template id='${item.id}']`;
+		
+		// Copy to clipboard
+		if (navigator.clipboard && window.isSecureContext) {
+			navigator.clipboard.writeText(shortcode).then(() => {
+				// Show success toast notification
+				if (window.wp && window.wp.data && window.wp.data.dispatch) {
+					window.wp.data.dispatch('core/notices').createNotice(
+						'success',
+						__('Shortcode copied to clipboard!', 'header-footer-elementor'),
+						{
+							type: 'snackbar',
+							isDismissible: true,
+						}
+					);
+				} else {
+					alert(__('Shortcode copied to clipboard!', 'header-footer-elementor'));
+				}
+			}).catch((error) => {
+				console.error('Failed to copy shortcode:', error);
+				// Fallback method
+				fallbackCopyToClipboard(shortcode);
+			});
+		} else {
+			// Fallback method for older browsers or non-secure contexts
+			fallbackCopyToClipboard(shortcode);
+		}
+	};
+
+	/**
+	 * Fallback method to copy text to clipboard
+	 */
+	const fallbackCopyToClipboard = (text) => {
+		const textArea = document.createElement('textarea');
+		textArea.value = text;
+		textArea.style.position = 'fixed';
+		textArea.style.left = '-999999px';
+		textArea.style.top = '-999999px';
+		document.body.appendChild(textArea);
+		textArea.focus();
+		textArea.select();
+		
+		try {
+			document.execCommand('copy');
+			// Show success toast notification
+			if (window.wp && window.wp.data && window.wp.data.dispatch) {
+				window.wp.data.dispatch('core/notices').createNotice(
+					'success',
+					__('Shortcode copied to clipboard!', 'header-footer-elementor'),
+					{
+						type: 'snackbar',
+						isDismissible: true,
+					}
+				);
+			} else {
+				alert(__('Shortcode copied to clipboard!', 'header-footer-elementor'));
+			}
+		} catch (error) {
+			console.error('Failed to copy shortcode using fallback method:', error);
+			// Show error toast notification
+			if (window.wp && window.wp.data && window.wp.data.dispatch) {
+				window.wp.data.dispatch('core/notices').createNotice(
+					'error',
+					__('Failed to copy shortcode. Please copy manually.', 'header-footer-elementor'),
+					{
+						type: 'snackbar',
+						isDismissible: true,
+					}
+				);
+			} else {
+				alert(__('Failed to copy shortcode. Please copy manually.', 'header-footer-elementor'));
+			}
+		}
+		
+		document.body.removeChild(textArea);
+	};
     // Show loading state while fetching data
     if (isLoading) {
         return (
@@ -283,11 +499,8 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
                                                         <DropdownMenu.Content className="w-40">
                                                             <DropdownMenu.List>
                                                                 <DropdownMenu.Item
-                                                                    onClick={() =>
-                                                                        handleRedirect(
-                                                                            "https://ultimateelementor.com/docs-category/features/",
-                                                                        )
-                                                                    }
+                                                                    disabled
+                                                                    style={{ opacity: 0.5, cursor: 'not-allowed' }}
                                                                 >
                                                                     {__(
                                                                         "Copy Shortcode",
@@ -295,11 +508,8 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
                                                                     )}
                                                                 </DropdownMenu.Item>
                                                                 <DropdownMenu.Item
-                                                                    onClick={() =>
-                                                                        handleRedirect(
-                                                                            "https://ultimateelementor.com/docs-category/templates/",
-                                                                        )
-                                                                    }
+                                                                    disabled
+                                                                    style={{ opacity: 0.5, cursor: 'not-allowed' }}
                                                                 >
                                                                     {__(
                                                                         "Disable",
@@ -307,11 +517,8 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
                                                                     )}
                                                                 </DropdownMenu.Item>
                                                                 <DropdownMenu.Item
-                                                                    onClick={() =>
-                                                                        handleRedirect(
-                                                                            "https://ultimateelementor.com/contact/",
-                                                                        )
-                                                                    }
+                                                                    disabled
+                                                                    style={{ opacity: 0.5, cursor: 'not-allowed' }}
                                                                 >
                                                                     {__(
                                                                         "Delete",
@@ -504,7 +711,7 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
                                                     }
                                                 }}
                                             >
-                                               { item.template_type === "custom" ? 'Edit with Elementor' : 'Edit Layout'}
+                                               { item.template_type === "custom" ? 'Edit with Elementor' : __('Edit Layout', 'header-footer-elementor') }
                                                 
                                             </Button>
                                             { item.template_type !== "custom" ?
@@ -565,6 +772,11 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
                                         <div className="flex items-center justify-between px-1">
                                             <p className="text-sm font-medium text-gray-900">
                                                 {item.title}
+                                                {item.post_status === 'draft' && (
+                                                    <span className="ml-2 text-xs text-gray-500 font-normal">
+                                                        ({__("Draft", "header-footer-elementor")})
+                                                    </span>
+                                                )}
                                             </p>
                                             <DropdownMenu placement="bottom-end">
                                                 <DropdownMenu.Trigger>
@@ -575,35 +787,34 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
                                                         <DropdownMenu.Content className="w-40">
                                                             <DropdownMenu.List>
                                                                 <DropdownMenu.Item
-                                                                    onClick={() =>
-                                                                        handleRedirect(
-                                                                            "https://ultimateelementor.com/docs-category/features/",
-                                                                        )
-                                                                    }
+                                                                    onClick={() => handleCopyShortcode(item)}
                                                                 >
                                                                     {__(
                                                                         "Copy Shortcode",
                                                                         "header-footer-elementor",
                                                                     )}
                                                                 </DropdownMenu.Item>
+                                                                {item.post_status === 'draft' ? (
+                                                                    <DropdownMenu.Item
+                                                                        onClick={() => handlePublishLayout(item)}
+                                                                    >
+                                                                        {__(
+                                                                            "Publish",
+                                                                            "header-footer-elementor",
+                                                                        )}
+                                                                    </DropdownMenu.Item>
+                                                                ) : (
+                                                                    <DropdownMenu.Item
+                                                                        onClick={() => handleDisableLayout(item)}
+                                                                    >
+                                                                        {__(
+                                                                            "Disable",
+                                                                            "header-footer-elementor",
+                                                                        )}
+                                                                    </DropdownMenu.Item>
+                                                                )}
                                                                 <DropdownMenu.Item
-                                                                    onClick={() =>
-                                                                        handleRedirect(
-                                                                            "https://ultimateelementor.com/docs-category/templates/",
-                                                                        )
-                                                                    }
-                                                                >
-                                                                    {__(
-                                                                        "Disable",
-                                                                        "header-footer-elementor",
-                                                                    )}
-                                                                </DropdownMenu.Item>
-                                                                <DropdownMenu.Item
-                                                                    onClick={() =>
-                                                                        handleRedirect(
-                                                                            "https://ultimateelementor.com/contact/",
-                                                                        )
-                                                                    }
+                                                                    onClick={() => handleDeleteLayout(item)}
                                                                 >
                                                                     {__(
                                                                         "Delete",
@@ -628,6 +839,74 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
             );
         }
 	
-};
+};	/**
+	 * Handle publishing a draft layout (set status to publish)
+	 */
+	const handlePublishLayout = async (item) => {
+		try {
+			const response = await apiFetch({
+				path: "/hfe/v1/update-post-status",
+				method: "POST",
+				data: {
+					post_id: item.id,
+					status: 'publish'
+				},
+			});
+
+			if (response.success) {
+				// Show success toast notification
+				if (window.wp && window.wp.data && window.wp.data.dispatch) {
+					// Using WordPress notices if available
+					window.wp.data.dispatch('core/notices').createNotice(
+						'success',
+						__('Layout published successfully!', 'header-footer-elementor'),
+						{
+							type: 'snackbar',
+							isDismissible: true,
+						}
+					);
+				} else {
+					// Fallback: show browser alert
+					alert(__('Layout published successfully!', 'header-footer-elementor'));
+				}
+				
+				// Reload the page to refresh the data
+				setTimeout(() => {
+					window.location.reload();
+				}, 1000); // Small delay to show the toast first
+
+			} else {
+				console.error("Failed to publish layout:", response);
+				// Show error message
+				if (window.wp && window.wp.data && window.wp.data.dispatch) {
+					window.wp.data.dispatch('core/notices').createNotice(
+						'error',
+						__('Failed to publish layout. Please try again.', 'header-footer-elementor'),
+						{
+							type: 'snackbar',
+							isDismissible: true,
+						}
+					);
+				} else {
+					alert(__('Failed to publish layout. Please try again.', 'header-footer-elementor'));
+				}
+			}
+		} catch (error) {
+			console.error("Error publishing layout:", error);
+			// Show error message
+			if (window.wp && window.wp.data && window.wp.data.dispatch) {
+				window.wp.data.dispatch('core/notices').createNotice(
+					'error',
+					__('Error publishing layout. Please try again.', 'header-footer-elementor'),
+					{
+						type: 'snackbar',
+						isDismissible: true,
+					}
+				);
+			} else {
+				alert(__('Error publishing layout. Please try again.', 'header-footer-elementor'));
+			}
+		}
+	};
 
 export default withDisplayConditions(AllLayouts);
