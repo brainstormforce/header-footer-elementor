@@ -580,7 +580,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		 * @return void
 		 */
 		public function dismiss_sticky_header_notice() {
-			if (!wp_verify_nonce($_POST['nonce'], 'uae_dismiss_sticky_header_notice')) {
+			if (!wp_verify_nonce($_POST['nonce'], 'hfe_dismiss_sticky_header_notice')) {
 				wp_die('Security check failed');
 			}
 			

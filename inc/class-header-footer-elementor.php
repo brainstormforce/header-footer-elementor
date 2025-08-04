@@ -481,7 +481,7 @@ class Header_Footer_Elementor {
 					type: 'POST',
 					data: {
 						action: 'dismiss_sticky_header_notice',
-						nonce: '<?php echo wp_create_nonce('uae_dismiss_sticky_header_notice'); ?>'
+						nonce: '<?php echo wp_create_nonce('hfe_dismiss_sticky_header_notice'); ?>'
 					}
 				});
 			});
