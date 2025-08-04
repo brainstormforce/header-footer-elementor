@@ -441,6 +441,7 @@ msgid "Yes"
 msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:255
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:290
 #: src/Components/Onboarding/ExtendOnboardingWidget.jsx:305
 msgid "Close"
 msgstr ""
@@ -780,6 +781,7 @@ msgid "Dashboard"
 msgstr ""
 
 #: src/Components/HF-Builder/Navbar.js:123
+#: src/Components/Onboarding/Features.jsx:125
 msgid "Header & Footer Builder"
 msgstr ""
 
@@ -1076,10 +1078,6 @@ msgstr ""
 msgid ""
 "Unlock more design control, faster setup, and powerful customization—so you "
 "can build a better website, effortlessly."
-msgstr ""
-
-#: src/Components/Onboarding/Features.jsx:125
-msgid "Header & Footer Builder"
 msgstr ""
 
 #: src/Components/Onboarding/Features.jsx:145
