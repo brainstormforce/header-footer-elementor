@@ -7,6 +7,12 @@ import withDisplayConditions from "./DisplayConditionsDialog";
 import EmptyState from "./EmptyState";
 
 const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
+	// Add debug logging to check if HOC props are available
+	console.log("Header component rendered with props:", {
+		openDisplayConditionsDialog: !!openDisplayConditionsDialog,
+		DisplayConditionsDialog: !!DisplayConditionsDialog
+	});
+	
 	const [headerItems, setHeaderItems] = useState([]);
 	const [hasHeaders, setHasHeaders] = useState(false);
 	const [isLoading, setIsLoading] = useState(true);
@@ -39,15 +45,50 @@ const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
 			});
 	}, []);
 
-	const handleDisplayConditons = (item) => {
-		// If item doesn't have an ID, create a new header layout
-		if (!item.id) {
-			// You can add your header creation logic here
-			console.log("Creating new header:", item.name);
-		}
+	const handleCreateLayout = () => {
+		console.log("handleCreateLayout called");
+		console.log("openDisplayConditionsDialog function available:", !!openDisplayConditionsDialog);
+		
+		apiFetch({
+			path: "/hfe/v1/create-layout",
+			method: "POST",
+			data: {
+				title: "My Custom Layout",
+				type: 'header',
+			},
+		})
+			.then((response) => {
+				console.log("Create layout API response:", response);
+				
+				if (response.success && response.post) {
+					console.log("Post created successfully with data:", response.post);
 
-		// Open the display conditions dialog
-		openDisplayConditionsDialog(item);
+					// Update item with new post ID
+					const updatedItem = {
+						...response.post,
+						id: response.post.id || response.post.ID,
+						title: response.post.title || response.post.post_title,
+					};
+					
+					console.log("Formatted item for dialog:", updatedItem);
+					console.log("About to call openDisplayConditionsDialog with isNew=true");
+					
+					// Open display conditions dialog for NEW post
+					openDisplayConditionsDialog(updatedItem, true); // Pass true for isNew
+				} else {
+					console.error("Failed to create post:", response);
+				}
+			})
+			.catch((error) => {
+				console.error("Error creating post:", error);
+			});
+	};
+
+	const handleDisplayConditions = (item) => {
+		console.log("Opening display conditions for existing item:", item);
+		
+		// For existing items, pass false for isNew (or omit it)
+		openDisplayConditionsDialog(item, false);
 	};
 
 	const handleEditWithElementor = (item) => {
@@ -86,10 +127,7 @@ const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
 					"Create Header Layout",
 					"header-footer-elementor",
 				)}
-				onClick={() => {
-					// TODO: Add actual header creation logic
-					window.open("", "_blank");
-				}}
+				onClick={handleCreateLayout}
 				className="bg-white p-6 rounded-lg"
 			/>
 		);
@@ -171,7 +209,7 @@ const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
 												outline: "none",
 											}}
 											onClick={() =>
-												handleDisplayConditons(item)
+												handleDisplayConditions(item)
 											}
 										>
 											{"Display Conditions"}

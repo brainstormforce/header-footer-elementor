@@ -194,7 +194,10 @@ class HFE_Settings_Api {
 	
 		return new WP_REST_Response( [
 			'success' => true,
-			'post_id' => $post_id,
+			'post'    => [
+				'id' => $post_id,
+				'title'=> $title,
+			],
 		], 200 );
 	}
 
