@@ -48,6 +48,59 @@ class Widgets_Config {
 	public static function get_widget_list() {
 
 		self::$widget_list = [
+			
+				'Retina'               => [
+				'slug'        => 'retina',
+				'title'       => __( 'Retina Logo', 'header-footer-elementor' ),
+				'keywords'    => [ 'uael', 'retina', 'image', 'logo' ],
+				'icon'        => 'hfe-icon-retina-logo',
+				'title_url'   => '#',
+				'default'     => true,
+				'doc_url'     => 'https://ultimateelementor.com/docs/retina-logo-widget/?utm_source=plugin-editor&utm_medium=need-help-button&utm_campaign=uae-documentation',
+				'is_pro'      => false,
+				'description' => __( 'Add a high-quality logo that looks sharp on any screen.', 'header-footer-elementor' ),
+				'demo_url'    => 'https://ultimateelementor.com/widgets/retina-logo/',
+				'category'    => 'content',
+			],
+				'Page_Title'           => [
+				'slug'        => 'page-title',
+				'title'       => __( 'Page Title', 'header-footer-elementor' ),
+				'keywords'    => [ 'uael', 'title', 'dynamic' ],
+				'icon'        => 'hfe-icon-page-title',
+				'title_url'   => '#',
+				'default'     => true,
+				'is_pro'      => false,
+				'doc_url'     => 'https://ultimateelementor.com/docs/page-title-widget/?utm_source=plugin-editor&utm_medium=need-help-button&utm_campaign=uae-documentation',
+				'description' => __( 'Display the title of the current page dynamically.', 'header-footer-elementor' ),
+				'demo_url'    => 'https://ultimateelementor.com/widgets/page-title/',
+				'category'    => 'content',
+			],
+			'Site_Tagline'         => [
+				'slug'        => 'hfe-site-tagline',
+				'title'       => __( 'Site Tagline', 'header-footer-elementor' ),
+				'keywords'    => [ 'uael', 'site', 'tagline', 'tag' ],
+				'icon'        => 'hfe-icon-site-tagline',
+				'title_url'   => '#',
+				'default'     => true,
+				'is_pro'      => false,
+				'doc_url'     => 'https://ultimateelementor.com/docs/site-tagline-widget/?utm_source=plugin-editor&utm_medium=need-help-button&utm_campaign=uae-documentation',
+				'description' => __( 'Display your site\'s tagline to enhance brand identity.', 'header-footer-elementor' ),
+				'demo_url'    => 'https://ultimateelementor.com/widgets/site-tagline/',
+				'category'    => 'content',
+			],
+			'Site_Title'           => [
+				'slug'        => 'hfe-site-title',
+				'title'       => __( 'Site Title', 'header-footer-elementor' ),
+				'keywords'    => [ 'uael', 'site', 'title', 'tag' ],
+				'icon'        => 'hfe-icon-site-title',
+				'title_url'   => '#',
+				'default'     => true,
+				'doc_url'     => 'https://ultimateelementor.com/docs/site-title-widget/?utm_source=plugin-editor&utm_medium=need-help-button&utm_campaign=uae-documentation',
+				'is_pro'      => false,
+				'description' => __( 'Show your site’s name in a customizable style.', 'header-footer-elementor' ),
+				'demo_url'    => 'https://ultimateelementor.com/widgets/site-title/',
+				'category'    => 'content',
+			],
 			'Post_Info'            => [
 				'slug'        => 'post-info-widget',
 				'title'       => __( 'Post Info', 'header-footer-elementor' ),
@@ -60,19 +113,6 @@ class Widgets_Config {
 				'is_new'      => true,
 				'description' => __( 'Show author, dates, and reading time with customizable styles.', 'header-footer-elementor' ),
 				'demo_url'    => 'https://ultimateelementor.com/widgets/post-info/',
-				'category'    => 'content',
-			],
-			'Infocard'             => [
-				'slug'        => 'hfe-infocard',
-				'title'       => __( 'Info Card', 'header-footer-elementor' ),
-				'keywords'    => [ 'uael', 'icon', 'dynamic', 'box', 'card', 'cta' ],
-				'icon'        => 'hfe-icon-infocard',
-				'title_url'   => '#',
-				'default'     => true,
-				'is_pro'      => false,
-				'doc_url'     => 'https://ultimateelementor.com/docs/info-card-widget/?utm_source=plugin-editor&utm_medium=need-help-button&utm_campaign=uae-documentation',
-				'description' => __( 'Add icon, heading, description & button/link — all in one widget.', 'header-footer-elementor' ),
-				'demo_url'    => 'https://ultimateelementor.com/widgets/info-card/',
 				'category'    => 'content',
 			],
 			'Breadcrumbs_Widget'   => [
@@ -89,32 +129,6 @@ class Widgets_Config {
 				'demo_url'    => 'https://ultimateelementor.com/widgets/breadcrumbs/',
 				'category'    => 'content',
 			],
-			'Site_Logo'            => [
-				'slug'        => 'site-logo',
-				'title'       => __( 'Site Logo', 'header-footer-elementor' ),
-				'keywords'    => [ 'uael', 'site', 'logo', 'image' ],
-				'icon'        => 'hfe-icon-site-logo',
-				'title_url'   => '#',
-				'default'     => true,
-				'is_pro'      => false,
-				'doc_url'     => 'https://ultimateelementor.com/docs/site-logo-widget/?utm_source=plugin-editor&utm_medium=need-help-button&utm_campaign=uae-documentation',
-				'description' => __( 'Add your site\'s primary logo with flexible customization options.', 'header-footer-elementor' ),
-				'demo_url'    => 'https://ultimateelementor.com/widgets/site-logo/',
-				'category'    => 'content',
-			],
-			'Navigation_Menu'      => [
-				'slug'        => 'navigation-menu',
-				'title'       => __( 'Navigation Menu', 'header-footer-elementor' ),
-				'keywords'    => [ 'uael', 'navigation', 'menu', 'nav' ],
-				'icon'        => 'hfe-icon-navigation-menu',
-				'title_url'   => '#',
-				'default'     => true,
-				'doc_url'     => 'https://ultimateelementor.com/docs/navigation-menu/?utm_source=plugin-editor&utm_medium=need-help-button&utm_campaign=uae-documentation',
-				'is_pro'      => false,
-				'description' => __( 'Add stylish and functional menus for seamless site navigation.', 'header-footer-elementor' ),
-				'demo_url'    => 'https://ultimateelementor.com/widgets/navigation/',
-				'category'    => 'content',
-			],
 			'Scroll_To_Top'        => [
 				'slug'        => 'scroll-to-top',
 				'title'       => __( 'Scroll to Top', 'header-footer-elementor' ),
@@ -128,85 +142,6 @@ class Widgets_Config {
 				'description' => __( 'Add a customizable button for quick, one-click top scrolling.', 'header-footer-elementor' ),
 				'demo_url'    => 'https://ultimateelementor.com/widgets/scroll-to-top/',
 				'category'    => 'extension',
-			],
-			'Reading_Progress_Bar' => [
-				'slug'        => 'reading-progress-bar',
-				'title'       => __( 'Reading Progress Bar', 'header-footer-elementor' ),
-				'keywords'    => [ 'uael', 'reading', 'progress', 'extension' ],
-				'icon'        => 'hfe-icon-progress-bar',
-				'title_url'   => '#',
-				'default'     => true,
-				'doc_url'     => 'https://ultimateelementor.com/docs/reading-progress-bar-extension/?utm_source=plugin-editor&utm_medium=need-help-button&utm_campaign=uae-documentation',
-				'is_pro'      => false,
-				'is_new'      => true,
-				'description' => __( 'Display a progress indicator as users read your content.', 'header-footer-elementor' ),
-				'demo_url'    => '',
-				'category'    => 'extension',
-			],
-			'Site_Title'           => [
-				'slug'        => 'hfe-site-title',
-				'title'       => __( 'Site Title', 'header-footer-elementor' ),
-				'keywords'    => [ 'uael', 'site', 'title', 'tag' ],
-				'icon'        => 'hfe-icon-site-title',
-				'title_url'   => '#',
-				'default'     => true,
-				'doc_url'     => 'https://ultimateelementor.com/docs/site-title-widget/?utm_source=plugin-editor&utm_medium=need-help-button&utm_campaign=uae-documentation',
-				'is_pro'      => false,
-				'description' => __( 'Show your site’s name in a customizable style.', 'header-footer-elementor' ),
-				'demo_url'    => 'https://ultimateelementor.com/widgets/site-title/',
-				'category'    => 'content',
-			],
-			'Site_Tagline'         => [
-				'slug'        => 'hfe-site-tagline',
-				'title'       => __( 'Site Tagline', 'header-footer-elementor' ),
-				'keywords'    => [ 'uael', 'site', 'tagline', 'tag' ],
-				'icon'        => 'hfe-icon-site-tagline',
-				'title_url'   => '#',
-				'default'     => true,
-				'is_pro'      => false,
-				'doc_url'     => 'https://ultimateelementor.com/docs/site-tagline-widget/?utm_source=plugin-editor&utm_medium=need-help-button&utm_campaign=uae-documentation',
-				'description' => __( 'Display your site\'s tagline to enhance brand identity.', 'header-footer-elementor' ),
-				'demo_url'    => 'https://ultimateelementor.com/widgets/site-tagline/',
-				'category'    => 'content',
-			],
-			'Search_Button'        => [
-				'slug'        => 'hfe-search-button',
-				'title'       => __( 'Search', 'header-footer-elementor' ),
-				'keywords'    => [ 'uael', 'title', 'dynamic' ],
-				'icon'        => 'hfe-icon-search',
-				'title_url'   => '#',
-				'default'     => true,
-				'is_pro'      => false,
-				'doc_url'     => 'https://ultimateelementor.com/docs/search-widget/?utm_source=plugin-editor&utm_medium=need-help-button&utm_campaign=uae-documentation',
-				'description' => __( 'Add a search bar to help visitors find content easily.', 'header-footer-elementor' ),
-				'demo_url'    => 'https://ultimateelementor.com/widgets/search/',
-				'category'    => 'content',
-			],
-			'Page_Title'           => [
-				'slug'        => 'page-title',
-				'title'       => __( 'Page Title', 'header-footer-elementor' ),
-				'keywords'    => [ 'uael', 'title', 'dynamic' ],
-				'icon'        => 'hfe-icon-page-title',
-				'title_url'   => '#',
-				'default'     => true,
-				'is_pro'      => false,
-				'doc_url'     => 'https://ultimateelementor.com/docs/page-title-widget/?utm_source=plugin-editor&utm_medium=need-help-button&utm_campaign=uae-documentation',
-				'description' => __( 'Display the title of the current page dynamically.', 'header-footer-elementor' ),
-				'demo_url'    => 'https://ultimateelementor.com/widgets/page-title/',
-				'category'    => 'content',
-			],
-			'Retina'               => [
-				'slug'        => 'retina',
-				'title'       => __( 'Retina Logo', 'header-footer-elementor' ),
-				'keywords'    => [ 'uael', 'retina', 'image', 'logo' ],
-				'icon'        => 'hfe-icon-retina-logo',
-				'title_url'   => '#',
-				'default'     => true,
-				'doc_url'     => 'https://ultimateelementor.com/docs/retina-logo-widget/?utm_source=plugin-editor&utm_medium=need-help-button&utm_campaign=uae-documentation',
-				'is_pro'      => false,
-				'description' => __( 'Add a high-quality logo that looks sharp on any screen.', 'header-footer-elementor' ),
-				'demo_url'    => 'https://ultimateelementor.com/widgets/retina-logo/',
-				'category'    => 'content',
 			],
 			'Cart'                 => [
 				'slug'        => 'hfe-cart',
@@ -234,6 +169,72 @@ class Widgets_Config {
 				'demo_url'    => 'https://ultimateelementor.com/widgets/copyright/',
 				'category'    => 'content',
 			],
+			'Reading_Progress_Bar' => [
+				'slug'        => 'reading-progress-bar',
+				'title'       => __( 'Reading Progress Bar', 'header-footer-elementor' ),
+				'keywords'    => [ 'uael', 'reading', 'progress', 'extension' ],
+				'icon'        => 'hfe-icon-progress-bar',
+				'title_url'   => '#',
+				'default'     => true,
+				'doc_url'     => 'https://ultimateelementor.com/docs/reading-progress-bar-extension/?utm_source=plugin-editor&utm_medium=need-help-button&utm_campaign=uae-documentation',
+				'is_pro'      => false,
+				'is_new'      => true,
+				'description' => __( 'Display a progress indicator as users read your content.', 'header-footer-elementor' ),
+				'demo_url'    => '',
+				'category'    => 'extension',
+			],
+			'Navigation_Menu'      => [
+				'slug'        => 'navigation-menu',
+				'title'       => __( 'Navigation Menu', 'header-footer-elementor' ),
+				'keywords'    => [ 'uael', 'navigation', 'menu', 'nav' ],
+				'icon'        => 'hfe-icon-navigation-menu',
+				'title_url'   => '#',
+				'default'     => true,
+				'doc_url'     => 'https://ultimateelementor.com/docs/navigation-menu/?utm_source=plugin-editor&utm_medium=need-help-button&utm_campaign=uae-documentation',
+				'is_pro'      => false,
+				'description' => __( 'Add stylish and functional menus for seamless site navigation.', 'header-footer-elementor' ),
+				'demo_url'    => 'https://ultimateelementor.com/widgets/navigation/',
+				'category'    => 'content',
+			],
+				'Site_Logo'            => [
+				'slug'        => 'site-logo',
+				'title'       => __( 'Site Logo', 'header-footer-elementor' ),
+				'keywords'    => [ 'uael', 'site', 'logo', 'image' ],
+				'icon'        => 'hfe-icon-site-logo',
+				'title_url'   => '#',
+				'default'     => true,
+				'is_pro'      => false,
+				'doc_url'     => 'https://ultimateelementor.com/docs/site-logo-widget/?utm_source=plugin-editor&utm_medium=need-help-button&utm_campaign=uae-documentation',
+				'description' => __( 'Add your site\'s primary logo with flexible customization options.', 'header-footer-elementor' ),
+				'demo_url'    => 'https://ultimateelementor.com/widgets/site-logo/',
+				'category'    => 'content',
+			],
+				'Infocard'             => [
+				'slug'        => 'hfe-infocard',
+				'title'       => __( 'Info Card', 'header-footer-elementor' ),
+				'keywords'    => [ 'uael', 'icon', 'dynamic', 'box', 'card', 'cta' ],
+				'icon'        => 'hfe-icon-infocard',
+				'title_url'   => '#',
+				'default'     => true,
+				'is_pro'      => false,
+				'doc_url'     => 'https://ultimateelementor.com/docs/info-card-widget/?utm_source=plugin-editor&utm_medium=need-help-button&utm_campaign=uae-documentation',
+				'description' => __( 'Add icon, heading, description & button/link — all in one widget.', 'header-footer-elementor' ),
+				'demo_url'    => 'https://ultimateelementor.com/widgets/info-card/',
+				'category'    => 'content',
+			],
+				'Search_Button'        => [
+				'slug'        => 'hfe-search-button',
+				'title'       => __( 'Search', 'header-footer-elementor' ),
+				'keywords'    => [ 'uael', 'title', 'dynamic' ],
+				'icon'        => 'hfe-icon-search',
+				'title_url'   => '#',
+				'default'     => true,
+				'is_pro'      => false,
+				'doc_url'     => 'https://ultimateelementor.com/docs/search-widget/?utm_source=plugin-editor&utm_medium=need-help-button&utm_campaign=uae-documentation',
+				'description' => __( 'Add a search bar to help visitors find content easily.', 'header-footer-elementor' ),
+				'demo_url'    => 'https://ultimateelementor.com/widgets/search/',
+				'category'    => 'content',
+				],
 		];
 
 		return apply_filters( 'hfe_widgets_data', self::$widget_list );
@@ -281,6 +282,35 @@ class Widgets_Config {
 					'category'    => 'content',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/modal-popup/',
+				],
+				'Infobox'             => [
+					'slug'        => 'uael-infobox',
+					'title'       => __( 'Info Box', 'header-footer-elementor' ),
+					'description' => __( 'Add headings, icons, and descriptions in one flexible widget.', 'header-footer-elementor' ),
+					'keywords'    => [ 'uael', 'info', 'box', 'bar' ],
+					'icon'        => 'hfe-icon-info-box',
+					'title_url'   => '#',
+					'default'     => true,
+					'doc_url'     => HFE_DOMAIN . 'docs-category/widgets/info-box/?utm_source=uael-pro-dashboard&utm_medium=uael-menu-page&utm_campaign=uael-pro-plugin',
+					'preset'      => '5',
+					'category'    => 'content',
+					'is_pro'      => true,
+					'demo_url'    => HFE_DOMAIN . 'widgets/info-box/',
+				],
+				'Posts'               => [
+					'slug'         => 'uael-posts',
+					'title'        => __( 'Posts', 'header-footer-elementor' ),
+					'description'  => __( 'Display and customize blog posts beautifully on your site.', 'header-footer-elementor' ),
+					'keywords'     => [ 'uael', 'post', 'grid', 'masonry', 'carousel', 'content grid', 'content' ],
+					'icon'         => 'hfe-icon-posts',
+					'title_url'    => '#',
+					'default'      => true,
+					'setting_url'  => $post_url,
+					'setting_text' => __( 'Settings', 'header-footer-elementor' ),
+					'doc_url'      => HFE_DOMAIN . 'docs-category/widgets/posts/?utm_source=uael-pro-dashboard&utm_medium=uael-menu-page&utm_campaign=uael-pro-plugin',
+					'category'     => 'content',
+					'is_pro'       => true,
+					'demo_url'     => HFE_DOMAIN . 'widgets/posts/',
 				],
 				'ContentToggle'       => [
 					'slug'        => 'uael-content-toggle',
@@ -473,20 +503,6 @@ class Widgets_Config {
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/image-gallery/',
 				],
-				'Infobox'             => [
-					'slug'        => 'uael-infobox',
-					'title'       => __( 'Info Box', 'header-footer-elementor' ),
-					'description' => __( 'Add headings, icons, and descriptions in one flexible widget.', 'header-footer-elementor' ),
-					'keywords'    => [ 'uael', 'info', 'box', 'bar' ],
-					'icon'        => 'hfe-icon-info-box',
-					'title_url'   => '#',
-					'default'     => true,
-					'doc_url'     => HFE_DOMAIN . 'docs-category/widgets/info-box/?utm_source=uael-pro-dashboard&utm_medium=uael-menu-page&utm_campaign=uael-pro-plugin',
-					'preset'      => '5',
-					'category'    => 'content',
-					'is_pro'      => true,
-					'demo_url'    => HFE_DOMAIN . 'widgets/info-box/',
-				],
 				'Instagram_Feed'      => [
 					'slug'         => 'uael-instagram-feed',
 					'title'        => __( 'Instagram Feed', 'header-footer-elementor' ),
@@ -571,21 +587,6 @@ class Widgets_Config {
 					'category'    => 'creative',
 					'is_pro'      => true,
 					'demo_url'    => HFE_DOMAIN . 'widgets/off-canvas/',
-				],
-				'Posts'               => [
-					'slug'         => 'uael-posts',
-					'title'        => __( 'Posts', 'header-footer-elementor' ),
-					'description'  => __( 'Display and customize blog posts beautifully on your site.', 'header-footer-elementor' ),
-					'keywords'     => [ 'uael', 'post', 'grid', 'masonry', 'carousel', 'content grid', 'content' ],
-					'icon'         => 'hfe-icon-posts',
-					'title_url'    => '#',
-					'default'      => true,
-					'setting_url'  => $post_url,
-					'setting_text' => __( 'Settings', 'header-footer-elementor' ),
-					'doc_url'      => HFE_DOMAIN . 'docs-category/widgets/posts/?utm_source=uael-pro-dashboard&utm_medium=uael-menu-page&utm_campaign=uael-pro-plugin',
-					'category'     => 'content',
-					'is_pro'       => true,
-					'demo_url'     => HFE_DOMAIN . 'widgets/posts/',
 				],
 				'Price_Table'         => [
 					'slug'        => 'uael-price-table',
@@ -1014,39 +1015,24 @@ class Widgets_Config {
 
 		$plugins = [
 
-			'astra'                                        => [
-				'icon'         => ! empty( $white_labels['theme_icon'] ) ? $white_labels['theme_icon'] : $images_url . 'astra.svg',
-				'type'         => 'theme',
-				'name'         => $white_labels['theme_name'],
-				'desc'         => esc_html__( 'Fast and customizable theme for your website.', 'header-footer-elementor' ),
-				'wporg'        => 'https://wordpress.org/themes/astra/',
-				'url'          => 'https://downloads.wordpress.org/theme/astra.zip',
-				'siteurl'      => $white_labels['author_url'],
-				'slug'         => 'astra',
-				'isFree'       => true,
-				'status'       => self::get_theme_status( 'astra' ),
-				'settings_url' => admin_url( 'admin.php?page=astra' ),
-			],
-
-			'astra-sites/astra-sites.php'                  => [
-				'icon'         => $images_url . 'stemplates.svg',
+				'surerank/surerank.php'                        => [
+				'icon'         => $images_url . 'surerank.svg',
 				'type'         => 'plugin',
-				'name'         => esc_html__( 'Starter Templates', 'header-footer-elementor' ),
-				'desc'         => esc_html__( 'Launch websites with AI or ready-made templates.', 'header-footer-elementor' ),
-				'wporg'        => 'https://wordpress.org/plugins/astra-sites/',
-				'url'          => 'https://downloads.wordpress.org/plugin/astra-sites.zip',
-				'siteurl'      => 'https://startertemplates.com/',
-				'slug'         => 'astra-sites',
+				'name'         => esc_html__( 'Boost Your Traffic with Easy SEO Optimization!', 'header-footer-elementor' ),
+				'desc'         => esc_html__( 'Rank higher with effortless SEO optimization. SureRank offers a simple, clutter-free interface with lightweight code, minimal setup, clear meta and schema settings, and smart content optimization that actually makes sense, helping you grow your traffic easily.', 'header-footer-elementor' ),
+				'wporg'        => 'https://wordpress.org/plugins/surerank/',
+				'url'          => 'https://downloads.wordpress.org/plugin/surerank.zip',
+				'siteurl'      => 'https://surerank.com/',
 				'isFree'       => true,
-				'status'       => self::get_plugin_status( 'astra-sites/astra-sites.php' ),
-				'settings_url' => admin_url( 'admin.php?page=starter-templates' ),
+				'slug'         => 'surerank',
+				'status'       => self::get_plugin_status( 'surerank/surerank.php' ),
+				'settings_url' => admin_url( 'admin.php?page=surerank_onboarding' ),
 			],
-
 			'surecart/surecart.php'                        => [
 				'icon'         => $images_url . 'surecart.svg',
 				'type'         => 'plugin',
-				'name'         => esc_html__( 'SureCart', 'header-footer-elementor' ),
-				'desc'         => esc_html__( 'Sell your products easily on WordPress.', 'header-footer-elementor' ),
+				'name'         => esc_html__( 'Sell Products Effortlessly with SureCart!', 'header-footer-elementor' ),
+				'desc'         => esc_html__( 'Sell your products effortlessly with a modern, flexible eCommerce system. SureCart makes it easy to set up one-click checkout, manage subscriptions, recover abandoned carts, and collect secure payments, helping you launch and grow your online store confidently.', 'header-footer-elementor' ),
 				'wporg'        => 'https://wordpress.org/plugins/surecart/',
 				'url'          => 'https://downloads.wordpress.org/plugin/surecart.zip',
 				'siteurl'      => 'https://surecart.com/',
@@ -1055,26 +1041,11 @@ class Widgets_Config {
 				'status'       => self::get_plugin_status( 'surecart/surecart.php' ),
 				'settings_url' => admin_url( 'admin.php?page=sc-getting-started' ),
 			],
-
-			'presto-player/presto-player.php'              => [
-				'icon'         => $images_url . 'pplayer.svg',
-				'type'         => 'plugin',
-				'name'         => esc_html__( 'Presto Player', 'header-footer-elementor' ),
-				'desc'         => html_entity_decode( esc_html__( 'Display seamless & interactive videos.', 'header-footer-elementor' ) ),
-				'wporg'        => 'https://wordpress.org/plugins/presto-player/',
-				'url'          => 'https://downloads.wordpress.org/plugin/presto-player.zip',
-				'siteurl'      => 'https://prestoplayer.com/',
-				'slug'         => 'presto-player',
-				'isFree'       => true,
-				'status'       => self::get_plugin_status( 'presto-player/presto-player.php' ),
-				'settings_url' => admin_url( 'edit.php?post_type=pp_video_block' ),
-			],
-
 			'sureforms/sureforms.php'                      => [
 				'icon'         => $images_url . 'sureforms.svg',
 				'type'         => 'plugin',
-				'name'         => esc_html__( 'SureForms', 'header-footer-elementor' ),
-				'desc'         => esc_html__( 'Create high-converting forms with ease.', 'header-footer-elementor' ),
+				'name'         => esc_html__( 'Build Powerful Forms in Minutes with SureForms!', 'header-footer-elementor' ),
+				'desc'         => esc_html__( 'Build powerful forms in minutes without complexity. SureForms lets you create contact forms, payment forms, and surveys using an AI-assisted, clean interface with conversational layouts, conditional logic, payment collection, and mobile optimization for a seamless experience.', 'header-footer-elementor' ),
 				'wporg'        => 'https://wordpress.org/plugins/sureforms/',
 				'url'          => 'https://downloads.wordpress.org/plugin/sureforms.zip',
 				'siteurl'      => 'https://sureforms.com/',
@@ -1083,12 +1054,24 @@ class Widgets_Config {
 				'status'       => self::get_plugin_status( 'sureforms/sureforms.php' ),
 				'settings_url' => admin_url( 'admin.php?page=sureforms_menu' ),
 			],
-
+			'presto-player/presto-player.php'              => [
+				'icon'         => $images_url . 'pplayer.svg',
+				'type'         => 'plugin',
+				'name'         => esc_html__( 'Add Engaging Videos Seamlessly with Presto Player!', 'header-footer-elementor' ),
+				'desc'         => html_entity_decode( esc_html__( 'Add engaging videos seamlessly in minutes without complexity. Presto Player lets you enhance your website with videos using branding, chapters, and call-to-actions while providing fast load times, detailed analytics, and user-friendly controls for a seamless viewing experience.', 'header-footer-elementor' ) ),
+				'wporg'        => 'https://wordpress.org/plugins/presto-player/',
+				'url'          => 'https://downloads.wordpress.org/plugin/presto-player.zip',
+				'siteurl'      => 'https://prestoplayer.com/',
+				'slug'         => 'presto-player',
+				'isFree'       => true,
+				'status'       => self::get_plugin_status( 'presto-player/presto-player.php' ),
+				'settings_url' => admin_url( 'edit.php?post_type=pp_video_block' ),
+			],
 			'suretriggers/suretriggers.php'                => [
 				'icon'         => $images_url . 'OttoKit-Symbol-Primary.svg',
 				'type'         => 'plugin',
-				'name'         => esc_html__( 'OttoKit (Formerly SureTriggers)', 'header-footer-elementor' ),
-				'desc'         => esc_html__( 'Automate WordPress tasks effortlessly.', 'header-footer-elementor' ),
+				'name'         => esc_html__( 'Automate Your Workflows Easily with Ottokit!', 'header-footer-elementor' ),
+				'desc'         => esc_html__( 'Automate workflows effortlessly in minutes without complexity. Ottokit lets you connect your WordPress site with web apps to automate tasks, sync data, and run actions using a clean visual builder with scheduling, filters, conditions, and webhooks for a seamless experience.', 'header-footer-elementor' ),
 				'wporg'        => 'https://wordpress.org/plugins/suretriggers/',
 				'url'          => 'https://downloads.wordpress.org/plugin/suretriggers.zip',
 				'siteurl'      => 'https://ottokit.com/',
@@ -1096,20 +1079,6 @@ class Widgets_Config {
 				'isFree'       => true,
 				'status'       => self::get_plugin_status( 'suretriggers/suretriggers.php' ),
 				'settings_url' => admin_url( 'admin.php?page=suretriggers' ),
-			],
-
-			'all-in-one-schemaorg-rich-snippets/index.php' => [
-				'icon'         => $images_url . 'aiosrs.svg',
-				'type'         => 'plugin',
-				'name'         => html_entity_decode( esc_html__( 'Schema – All In One Schema Rich Snippets', 'header-footer-elementor' ) ),
-				'desc'         => html_entity_decode( esc_html__( 'Boost SEO with rich results & structured data.', 'header-footer-elementor' ) ),
-				'wporg'        => 'https://wordpress.org/plugins/all-in-one-schemaorg-rich-snippets/',
-				'url'          => 'https://downloads.wordpress.org/plugin/all-in-one-schemaorg-rich-snippets.zip',
-				'siteurl'      => 'https://wordpress.org/plugins/all-in-one-schemaorg-rich-snippets/',
-				'slug'         => 'all-in-one-schemaorg-rich-snippets',
-				'isFree'       => true,
-				'status'       => self::get_plugin_status( 'all-in-one-schemaorg-rich-snippets/index.php' ),
-				'settings_url' => admin_url( 'admin.php?page=rich_snippet_dashboard' ),
 			],
 
 		];
@@ -1136,6 +1105,101 @@ class Widgets_Config {
 		}
 
 		return $plugins;
+	}
+
+	/**
+	 * List of plugins that we propose to install.
+	 *
+	 * @since 1.6.0
+	 *
+	 * @return array
+	 */
+	public static function get_recommended_bsf_plugins() {
+
+		$white_labels = self::get_white_label();
+
+		$images_url = HFE_URL . 'assets/images/settings/';
+
+		$recommended_plugins = [
+
+
+				'astra-sites/astra-sites.php'                  => [
+				'icon'         => $images_url . 'stemplates.svg',
+				'type'         => 'plugin',
+				'name'         => esc_html__( 'Starter Templates', 'header-footer-elementor' ),
+				'desc'         => esc_html__( 'Quickly launch websites with 300+ professionally designed Elementor templates.', 'header-footer-elementor' ),
+				'wporg'        => 'https://wordpress.org/plugins/astra-sites/',
+				'url'          => 'https://downloads.wordpress.org/plugin/astra-sites.zip',
+				'siteurl'      => 'https://startertemplates.com/',
+				'slug'         => 'astra-sites',
+				'isFree'       => true,
+				'status'       => self::get_plugin_status( 'astra-sites/astra-sites.php' ),
+				'settings_url' => admin_url( 'admin.php?page=starter-templates' ),
+			],
+			'surerank/surerank.php'                        => [
+				'icon'         => $images_url . 'surerank_extend.svg',
+				'type'         => 'plugin',
+				'name'         => esc_html__( 'SureRank', 'header-footer-elementor' ),
+				'desc'         => esc_html__( 'Powerful, lightweight SEO plugin to manage search and social previews', 'header-footer-elementor' ),
+				'wporg'        => 'https://wordpress.org/plugins/surerank/',
+				'url'          => 'https://downloads.wordpress.org/plugin/surerank.zip',
+				'siteurl'      => 'https://surerank.com/',
+				'isFree'       => true,
+				'slug'         => 'surerank',
+				'status'       => self::get_plugin_status( 'surerank/surerank.php' ),
+				'settings_url' => admin_url( 'admin.php?page=surerank_onboarding' ),
+			],
+			'sureforms/sureforms.php'                      => [
+				'icon'         => $images_url . 'sureforms_extend.svg',
+				'type'         => 'plugin',
+				'name'         => esc_html__( 'SureForms', 'header-footer-elementor' ),
+				'desc'         => esc_html__( 'Create high-converting forms with ease.', 'header-footer-elementor' ),
+				'wporg'        => 'https://wordpress.org/plugins/sureforms/',
+				'url'          => 'https://downloads.wordpress.org/plugin/sureforms.zip',
+				'siteurl'      => 'https://sureforms.com/',
+				'slug'         => 'sureforms',
+				'isFree'       => true,
+				'status'       => self::get_plugin_status( 'sureforms/sureforms.php' ),
+				'settings_url' => admin_url( 'admin.php?page=sureforms_menu' ),
+			],
+			'suretriggers/suretriggers.php'                => [
+				'icon'         => $images_url . 'ottokit.svg',
+				'type'         => 'plugin',
+				'name'         => esc_html__( 'OttoKit (Formerly SureTriggers)', 'header-footer-elementor' ),
+				'desc'         => esc_html__( 'Automate WordPress tasks effortlessly.', 'header-footer-elementor' ),
+				'wporg'        => 'https://wordpress.org/plugins/suretriggers/',
+				'url'          => 'https://downloads.wordpress.org/plugin/suretriggers.zip',
+				'siteurl'      => 'https://ottokit.com/',
+				'slug'         => 'suretriggers',
+				'isFree'       => true,
+				'status'       => self::get_plugin_status( 'suretriggers/suretriggers.php' ),
+				'settings_url' => admin_url( 'admin.php?page=suretriggers' ),
+			],
+
+		];
+
+		foreach ( $recommended_plugins as $key => $plugin ) {
+			// Check if it's a plugin and is active.
+			if ( 'plugin' === $plugin['type'] && is_plugin_active( $key ) ) {
+				unset( $recommended_plugins[ $key ] );
+			}
+
+			if ( 'plugin' === $plugin['type'] && 'astra-sites/astra-sites.php' === $key ) {
+				$st_pro_status = self::get_plugin_status( 'astra-pro-sites/astra-pro-sites.php' );
+				if ( 'Installed' === $st_pro_status || 'Activated' === $st_pro_status ) {
+					unset( $recommended_plugins[ $key ] );
+				}
+			}
+
+			if ( 'theme' === $plugin['type'] ) {
+				$current_theme = wp_get_theme();
+				if ( $current_theme->get_stylesheet() === $plugin['slug'] ) {
+					unset( $recommended_plugins[ $key ] );
+				}
+			}
+		}
+
+		return $recommended_plugins;
 	}
 
 	/**

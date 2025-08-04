@@ -97,6 +97,16 @@ class HFE_Settings_Api {
 				'permission_callback' => [ $this, 'get_items_permissions_check' ],
 			]
 		);
+
+		register_rest_route(
+			'hfe/v1',
+			'/recommended-plugins',
+			[
+				'methods'             => 'GET',
+				'callback'            => [ $this, 'get_recommended_plugins_list' ],
+				'permission_callback' => [ $this, 'get_items_permissions_check' ],
+			]
+		);
 	}
 
 	/**
@@ -166,6 +176,33 @@ class HFE_Settings_Api {
 
 	/**
 	 * 
+	 * Callback function to return recommended plugins list.
+	 * 
+	 * @param WP_REST_Request $request Request object.
+	 *
+	 * @return WP_REST_Response
+	 */
+	public function get_recommended_plugins_list( $request ) {
+
+		$nonce = $request->get_header( 'X-WP-Nonce' );
+
+		if ( ! wp_verify_nonce( $nonce, 'wp_rest' ) ) {
+			return new WP_Error( 'invalid_nonce', __( 'Invalid nonce', 'header-footer-elementor' ), [ 'status' => 403 ] );
+		}
+
+		// Fetch recommended plugins list.
+		$recommended_plugins_list = HFE_Helper::get_recommended_bsf_plugins_list();
+
+		if ( ! is_array( $recommended_plugins_list ) ) {
+			return new WP_REST_Response( [ 'message' => __( 'Recommended plugins list not found', 'header-footer-elementor' ) ], 404 );
+		}
+
+		return new WP_REST_Response( $recommended_plugins_list, 200 );
+		
+	}
+
+	/**
+	 * 
 	 * Callback function to return widgets list.
 	 * 
 	 * @param WP_REST_Request $request Request object.
@@ -216,12 +253,9 @@ class HFE_Settings_Api {
 		$date  = sanitize_text_field( $request->get_param( 'date' ) );
 		$fname  = sanitize_text_field( $request->get_param( 'fname' ) );
 		$lname  = sanitize_text_field( $request->get_param( 'lname' ) );
-
-		if ( empty( $email ) || empty( $date ) || empty( $fname ) ) {
-			// Return error response if any of the required parameters are missing.
-			return new WP_Error( 'missing_parameters', __( 'Missing Fields', 'header-footer-elementor' ), [ 'status' => 400 ] );
-		}
-
+		$isActive = sanitize_text_field( $request->get_param( 'isActive' ) );
+		$domain = sanitize_text_field( $request->get_param( 'domain' ) );
+		
 		$api_domain = trailingslashit( $this->get_api_domain() );
 		$api_domain_url = $api_domain . 'wp-json/uaelite/v1/subscribe/';
 		$validation_url = esc_url_raw( get_site_url() . '/wp-json/hfe/v1/email-response/' );
@@ -231,7 +265,9 @@ class HFE_Settings_Api {
 			'email'          => $email,
 			'date'           => $date,
 			'fname'          => $fname,
-			'lname'          => $lname
+			'lname'          => $lname,
+			'isActive'       => $isActive,
+			'domain'         => $domain
 		);
 
 		$args = array(

@@ -14,7 +14,7 @@ const WelcomeContainer = () => {
 				direction="row"
 				gap="sm"
 			>
-				<Container.Item shrink={1}>
+				<Container.Item shrink={1} className="flex-1">
 					<Title
 						description=""
 						icon={null}
@@ -27,34 +27,30 @@ const WelcomeContainer = () => {
                 	<HeaderLine />
 					<p className="text-sm font-medium text-text-tertiary m-0 mt-2">
 						{__(
-							"We're excited to help you supercharge your website-building experience. Effortlessly design stunning websites with our comprehensive range of free and premium widgets and features.",
+							"Effortlessly design modern websites with UAE using our powerful range of widgets & features. Get started by selecting an option based on your needs.",
 							"header-footer-elementor"
 						)}
 					</p>
-					<div className="flex items-center pt-6 gap-2">
+					<div className="flex items-center pt-6 gap-2 flex-wrap">
 					<Button
 							iconPosition="right"
 							variant="primary"
-							className="text-[#6005FF] border-none hfe-remove-ring"
+							className="text-[#6005FF] border-none hfe-remove-ring flex-shrink-0"
 							style={{
-								backgroundColor: "#F3E5FF",
+								backgroundColor: "var(--Colors-Button-button-secondary, #DDD6FE)",
 								transition: "background-color 0.3s ease",
 								border: "none",
 								outline: 'none',       // Removes the default outline
 								boxShadow: 'none',     // Removes the default box shadow
 							}}
-							onMouseEnter={(e) =>
-								(e.currentTarget.style.backgroundColor =
-									"#4B00CC")
-									(e.currentTarget.style.color =
-										"#fff")
-							}
-							onMouseLeave={(e) =>
-								(e.currentTarget.style.backgroundColor =
-									"#F3E5FF")
-									(e.currentTarget.style.color =
-										"#6005FF")
-							}
+							onMouseEnter={(e) => {
+								e.currentTarget.style.backgroundColor = "#4B00CC";
+								e.currentTarget.style.color = "#fff";
+							}}
+							onMouseLeave={(e) => {
+								e.currentTarget.style.backgroundColor = "var(--Colors-Button-button-secondary, #DDD6FE)";
+								e.currentTarget.style.color = "#6005FF";
+							}}
 							onClick={() => {
 								window.open(
 									hfeSettingsData.hfe_post_url,
@@ -68,9 +64,9 @@ const WelcomeContainer = () => {
 							icon={<Plus />}
 							iconPosition="right"
 							variant="outline"
-							className="hfe-remove-ring"
+							className="hfe-remove-ring flex-shrink-0"
 							style={{
-								color: "#7D4CDB",
+								color: "#000",
 								borderColor: "#E9DFFC",
 							}}
 							onMouseEnter={(e) =>
@@ -79,7 +75,7 @@ const WelcomeContainer = () => {
 							}
 							onMouseLeave={(e) =>
 								(e.currentTarget.style.color =
-									"#7D4CDB") &&
+									"#000") &&
 								(e.currentTarget.style.borderColor =
 									"#E9DFFC")
 							}
@@ -100,6 +96,7 @@ const WelcomeContainer = () => {
 								padding: 0,
 								cursor: "pointer",
 							}}
+							className="flex-shrink-0"
 							onMouseEnter={(e) =>
 								(e.currentTarget.style.color = "#6005ff")
 							}
@@ -113,18 +110,10 @@ const WelcomeContainer = () => {
 								);
 							}}
 						>
-							<Button
-								icon={<ExternalLink />}
-								iconPosition="right"
-								variant="link"
-								className="hfe-remove-ring text-black"
-							>
-								{__("Read full guide", "header-footer-elementor")}
-							</Button>
 						</div>
 					</div>
 				</Container.Item>
-				{/* <Container.Item className="md:mt-0 mt-4">
+				<Container.Item className="md:mt-0 mt-4 flex-shrink-0">
 				<iframe
 						width="280"
 						height="160"
@@ -134,7 +123,7 @@ const WelcomeContainer = () => {
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 						allowFullScreen
 					/>
-				</Container.Item> */}
+				</Container.Item>
 			</Container>
 		</div>
 	);
