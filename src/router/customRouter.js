@@ -7,7 +7,6 @@ import HFB from '@components/HF-Builder/HFB';
 import { routes } from 'admin/settings/routes';
 import Upgrade from '@components/Compare/Upgrade';
 import Onboarding from '@components/Onboarding/Onboarding';
-import Success from '@components/Onboarding/Success';
 
 
 const CustomRouter = () => (

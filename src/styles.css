@@ -284,8 +284,40 @@ div#hfe-settings-app {
 		overflow: scroll;
 		max-width: fit-content;
 	}
-	.hfe-onboarding-bottom {
-		display: grid !important;
-		max-width: fit-content;
-	}
+        .hfe-onboarding-bottom {
+                display: grid !important;
+                max-width: fit-content;
+        }
+}
+
+body.hfe-onboarding-fullscreen #wpadminbar,
+body.hfe-onboarding-fullscreen #adminmenuback,
+body.hfe-onboarding-fullscreen #adminmenuwrap,
+body.hfe-onboarding-fullscreen #adminmenu,
+body.hfe-onboarding-fullscreen #wpfooter {
+       display: none;
+}
+body.hfe-onboarding-fullscreen #wpcontent {
+       margin-left: 0;
+       padding-left: 0;
+}
+body.hfe-onboarding-fullscreen.admin-bar {
+       margin-top: 0 !important;
+}
+
+
+input[type="checkbox"].uae-role-checkbox:focus{
+	border-color:rgb(92, 46, 222);
+	box-shadow:0 0 0 1px rgb(92, 46, 222);
+}
+
+#wpfooter{
+    background-color: white;
+}
+.uae-rating{
+    color: #6005FF;
+}
+
+.uae-rating:hover{
+	color: #4B00CC;
 }

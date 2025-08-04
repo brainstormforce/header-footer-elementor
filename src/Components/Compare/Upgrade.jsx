@@ -38,10 +38,10 @@ const Upgrade = () => {
                         shrink={1}
                     >
                         <UltimateFeatures />
-                        <div className='pt-5'>
+                        {/* <div className='pt-5'>
                             <ExtendWebsite />
-                        </div>
-                        <div className='pt-4'>
+                        </div> */}
+                        <div className='pt-4 mt-4'>
                             <QuickAccess />
                         </div>
 

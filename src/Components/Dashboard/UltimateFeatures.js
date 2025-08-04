@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Title, Button } from "@bsf/force-ui";
-import { Rocket, CircleCheck } from "lucide-react";
+import { Rocket, Check } from "lucide-react";
 import { __ } from "@wordpress/i18n";
 
 const UltimateFeatures = () => {
@@ -22,21 +22,27 @@ const UltimateFeatures = () => {
 					>
 						<img
 							src={`${hfeSettingsData.augmented_reality}`}
-							alt={__("Column Showcase", "header-footer-elementor")}
-							className="object-contain h-[9.5rem] w-full rounded"
+							alt={__(
+								"Column Showcase",
+								"header-footer-elementor",
+							)}
+							className="object-contain  w-full rounded"
 						/>
 					</Container.Item>
 
 					{/* Title + Description */}
-					<div className="pt-4 flex flex-col items-center text-center">
+					<div className="pt-2 px-2 flex flex-col">
 						<Title
 							description=""
 							icon={<Rocket />}
 							iconPosition="left"
 							size="xs"
-							tag="h6"
-							title={__("Unlock Ultimate Features", "header-footer-elementor")}
-							className="text-xs font-medium  flex items-center justify-center text-brand-primary-600"
+							tag="p"
+							title={__(
+								"Unlock Ultimate Features",
+								"header-footer-elementor",
+							)}
+							className="text-xs py-1  text-[#C026D3]"
 						/>
 						<Title
 							description=""
@@ -45,155 +51,86 @@ const UltimateFeatures = () => {
 							tag="h6"
 							title={
 								<>
-									{__("Create Stunning Designs with the", "header-footer-elementor")}
-									<br />
-									{__("Pro Version!", "header-footer-elementor")}
+									{__(
+										"Bring Your Vision to Life with UAE Pro",
+										"header-footer-elementor",
+									)}
 								</>
 							}
-							className="py-1 text-[16px] font-semibold text-center text-text-primary max-w-md"
+							className="py-1 text-[16px] font-normal  text-text-primary"
 						/>
-						<p className="m-0 max-w-72 text-sm text-[#4F4E7C]">
+						<p className="m-0 text-base max-w-96 text-[#4F4E7C]">
 							{__(
-								"Get access to advanced widgets and features to create the website that stands out!",
-								"header-footer-elementor"
+								"Streamline your workflow, skip the repetitive tasks, and build modern, high-performance websites.",
+								"header-footer-elementor",
 							)}
 						</p>
 					</div>
 
+					{/* Features List */}
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-2 m-0 pt-2">
+						<ul className="list-none font-normal space-y-2 text-sm text-[#111827]">
+							<li className="flex items-center gap-1 text-text-tertiary whitespace-nowrap">
+								<Check color="#6005FF" size={16} className="flex-shrink-0" />
+								<span className="truncate">{__("Cross-Site Copy Paste", "header-footer-elementor")}</span>
+							</li>
+							<li className="flex items-center gap-1 text-text-tertiary whitespace-nowrap">
+								<Check color="#6005FF" size={16} className="flex-shrink-0" />
+								<span className="truncate">{__("Form Stylers", "header-footer-elementor")}</span>
+							</li>
+							<li className="flex items-center gap-1 text-text-tertiary whitespace-nowrap">
+								<Check color="#6005FF" size={16} className="flex-shrink-0" />
+								<span className="truncate">{__("Modal Popups", "header-footer-elementor")}</span>
+							</li>
+						</ul>
+
+						<ul className="list-none font-normal space-y-2 text-sm text-[#111827]">
+							<li className="flex items-center gap-1 text-text-tertiary whitespace-nowrap">
+								<Check color="#6005FF" size={16} className="flex-shrink-0" />
+								<span className="truncate">{__("Advanced Heading", "header-footer-elementor")}</span>
+							</li>
+							<li className="flex items-center gap-1 text-text-tertiary whitespace-nowrap">
+								<Check color="#6005FF" size={16} className="flex-shrink-0" />
+								<span className="truncate">{__("Info Box", "header-footer-elementor")}</span>
+							</li>
+							<li className="flex items-center gap-1 text-text-tertiary whitespace-nowrap">
+								<Check color="#6005FF" size={16} className="flex-shrink-0" />
+								<span className="truncate">{__("Post Layouts", "header-footer-elementor")}</span>
+							</li>
+						</ul>
+					</div>
+				</Container.Item>
+
 					{/* Upgrade Button */}
-					<div className="flex items-center pt-5 justify-center">
+					<div className="flex items-center m-0 pb-4 w-full  justify-center">
 						<Button
 							iconPosition="right"
 							variant="primary"
-							className="bg-[#6005FF] w-32 flex items-center justify-center hfe-remove-ring"
+							className="bg-[#6005FF] w-full m-0 h-10 flex items-center justify-center hfe-remove-ring"
 							style={{
 								backgroundColor: "#6005FF",
 								transition: "background-color 0.3s ease",
-								outline: 'none'
+								outline: "none",
+								height: "40px",
 							}}
 							onMouseEnter={(e) =>
-								(e.currentTarget.style.backgroundColor = "#4B00CC")
+								(e.currentTarget.style.backgroundColor =
+									"#4B00CC")
 							}
 							onMouseLeave={(e) =>
-								(e.currentTarget.style.backgroundColor = "#6005FF")
+								(e.currentTarget.style.backgroundColor =
+									"#6005FF")
 							}
 							onClick={() => {
 								window.open(
 									"https://ultimateelementor.com/pricing/?utm_source=uae-lite-dashboard&utm_medium=unlock-ultimate-feature&utm_campaign=uae-lite-upgrade",
-									"_blank"
+									"_blank",
 								);
 							}}
 						>
 							{__("Upgrade Now", "header-footer-elementor")}
 						</Button>
 					</div>
-
-					{/* Features List */}
-					<div className="grid grid-cols-1 pt-4 grid-flow-row gap-1">
-						<ul
-							className="list-none font-normal"
-							style={{
-								fontSize: "0.9rem",
-								lineHeight: "1.6em",
-								paddingBottom: "0.5rem",
-								color: "#111827",
-							}}
-						>
-							<li
-								className="none text-text-tertiary"
-								style={{
-									display: "flex",
-									alignItems: "center",
-									justifyContent: "flex-start",
-									gap: "0.5rem",
-								}}
-							>
-								<CircleCheck color="#6005FF" size={18} />
-								{__("Modal Popup", "header-footer-elementor")}
-							</li>
-							<hr
-								className="w-full border-b-0 border-x-0 border-t border-solid border-t-border-subtle"
-								style={{
-									marginTop: "10px",
-									marginBottom: "10px",
-									borderColor: "#E5E7EB",
-								}}
-							/>
-							<li
-								className="none text-text-tertiary"
-								style={{
-									display: "flex",
-									alignItems: "center",
-									justifyContent: "flex-start",
-									gap: "0.5rem",
-								}}
-							>
-								<CircleCheck color="#6005FF" size={18} />
-								{__("Advanced Heading", "header-footer-elementor")}
-							</li>
-							<hr
-								className="w-full border-b-0 border-x-0 border-t border-solid border-t-border-subtle"
-								style={{
-									marginTop: "10px",
-									marginBottom: "10px",
-									borderColor: "#E5E7EB",
-								}}
-							/>
-							<li
-								className="none text-text-tertiary"
-								style={{
-									display: "flex",
-									alignItems: "center",
-									justifyContent: "flex-start",
-									gap: "0.5rem",
-								}}
-							>
-								<CircleCheck color="#6005FF" size={18} />
-								{__("Info Box", "header-footer-elementor")}
-							</li>
-							<hr
-								className="w-full border-b-0 border-x-0 border-t border-solid border-t-border-subtle"
-								style={{
-									marginTop: "10px",
-									marginBottom: "10px",
-									borderColor: "#E5E7EB",
-								}}
-							/>
-							<li
-								className="none text-text-tertiary"
-								style={{
-									display: "flex",
-									alignItems: "center",
-									justifyContent: "flex-start",
-									gap: "0.5rem",
-								}}
-							>
-								<CircleCheck color="#6005FF" size={18} />
-								{__("Post Layouts", "header-footer-elementor")}
-							</li>
-							<hr
-								className="w-full border-b-0 border-x-0 border-t border-solid border-t-border-subtle"
-								style={{
-									marginTop: "10px",
-									marginBottom: "10px",
-									borderColor: "#E5E7EB",
-								}}
-							/>
-							<li
-								className="none text-text-tertiary"
-								style={{
-									display: "flex",
-									alignItems: "center",
-									justifyContent: "flex-start",
-									gap: "0.5rem",
-								}}
-							>
-								<CircleCheck color="#6005FF" size={18} />
-								{__("Form Stylers and more", "header-footer-elementor")}
-							</li>
-						</ul>
-					</div>
-				</Container.Item>
 			</Container>
 		</div>
 	);
