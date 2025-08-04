@@ -92,6 +92,11 @@ class Header_Footer_Elementor {
 							'in_admin_header',
 							function () {
 								$this->render_admin_top_bar();
+								$current_screen = get_current_screen();
+								if( 'edit-elementor-hf' === $current_screen->id ){
+									// Add sticky header promotion notice for elementor-hf listing page
+									$this->sticky_header_promotion_notice();
+								}
 							} 
 						);
 					}
@@ -366,6 +371,144 @@ class Header_Footer_Elementor {
 		$button = '<p><a href="' . esc_url( $action_url ) . '" class="button-primary">' . esc_html( $button_label ) . '</a></p><p></p>';
 
 		printf( '<div class="%1$s"><p>%2$s</p>%3$s</div>', esc_attr( $class ), wp_kses_post( $message ), wp_kses_post( $button ) );
+	}
+
+	/**
+	 * Check if user has headers created with HFE
+	 *
+	 * @return boolean
+	 */
+	private function has_hfe_headers() {
+		$headers = get_posts(array(
+			'post_type' => 'elementor-hf',
+			'meta_query' => array(
+				array(
+					'key' => 'ehf_template_type',
+					'value' => 'type_header',
+					'compare' => '='
+				)
+			),
+			'posts_per_page' => 1,
+			'post_status' => 'publish'
+		));
+		
+		return !empty($headers);
+	}
+
+	/**
+	 * Check if sticky header promotion notice should be shown
+	 *
+	 * @return boolean
+	 */
+	private function should_show_sticky_header_notice() {
+		// Don't show if already dismissed
+		if (get_user_meta(get_current_user_id(), 'uae_sticky_header_notice_dismissed', true)) {
+			return false;
+		}
+		
+		// Don't show if pro version is already active
+		if (defined('UAEL_PRO') && UAEL_PRO) {
+			return false;
+		}
+		
+		// Only show if user has HFE headers
+		$has_headers = $this->has_hfe_headers();
+		
+		// Debug: Uncomment the line below to force show the notice for testing
+		// return true;
+		
+		return $has_headers;
+	}
+
+	/**
+	 * Display sticky header promotion notice
+	 *
+	 * @return void
+	 */
+	public function sticky_header_promotion_notice() {
+		if (!$this->should_show_sticky_header_notice()) {
+			return;
+		}
+		
+		$this->render_sticky_header_notice();
+	}
+
+	/**
+	 * Render the sticky header promotion notice HTML
+	 *
+	 * @return void
+	 */
+	private function render_sticky_header_notice() {
+		
+		?>
+		<div class="notice notice-info is-dismissible uae-sticky-header-notice" data-notice="sticky_header">
+			<div style="display: flex; align-items: center; padding: 10px 0;">
+				<div style="margin-right: 15px;">
+					<img src="<?php echo esc_url(HFE_URL . 'assets/images/settings/logo.svg'); ?>" style="width: 70px; height: 70px;" alt="UAE Logo">
+				</div>
+				<div style="flex: 1;">
+					<h3 style="margin: 0 0 8px 0; color: #23282d;">
+						<?php echo esc_html__('Make Your Header Sticky with UAE Pro!', 'header-footer-elementor'); ?>
+					</h3>
+					<p style="margin: 0 0 10px 0; font-size: 14px; line-height: 1.5;">
+						<?php	
+							echo wp_kses_post( __( 
+									"We noticed you're using <strong>Ultimate Addons for Elementor</strong> to create custom headers. 
+									Take it to the next level with <strong>Sticky Header functionality</strong> in UAE Pro! 
+									Keep your navigation visible as users scroll for better user experience and higher conversions.",
+									'header-footer-elementor'
+								) );
+						?>
+					</p>
+					<div style="margin-top: 12px;">
+						<a href="https://ultimateelementor.com/widgets/sticky-header/?utm_source=plugin&utm_medium=sticky-header-notice&utm_campaign=uae-lite" 
+						   class="button button-secondary" target="_blank" style="margin-right: 10px;">
+						   <?php echo esc_html__('Learn More', 'header-footer-elementor'); ?>
+						</a>
+						<a href="https://ultimateelementor.com/pricing/?utm_source=plugin&utm_medium=sticky-header-notice&utm_campaign=uae-lite" 
+						   class="button button-primary" target="_blank">
+						   <?php echo esc_html__('Unlock Sticky Header', 'header-footer-elementor'); ?>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$(document).on('click', '.uae-sticky-header-notice .notice-dismiss', function() {
+				$.ajax({
+					url: ajaxurl,
+					type: 'POST',
+					data: {
+						action: 'dismiss_sticky_header_notice',
+						nonce: '<?php echo wp_create_nonce('hfe_dismiss_sticky_header_notice'); ?>'
+					}
+				});
+			});
+		});
+		</script>
+		<style>
+		.uae-sticky-header-notice {
+			border-left-color: #6005FF !important;
+			background: #f8f9ff;
+		}
+		.uae-sticky-header-notice h3 {
+			color: #6005FF !important;
+		}
+		.uae-sticky-header-notice .button-primary {
+			background:#6005FF;
+			border-color: #6005FF;
+			text-shadow: none;
+			box-shadow: none;
+		}
+		.uae-sticky-header-notice .button-primary:hover,
+		.uae-sticky-header-notice .button-primary:focus {
+			background: #4B00CC;
+			border-color: #4B00CC;
+			box-shadow: none;
+		}
+		</style>
+		<?php
 	}
 
 	/**
