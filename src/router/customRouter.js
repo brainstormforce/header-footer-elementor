@@ -7,7 +7,6 @@ import HFB from '@components/HF-Builder/HFB';
 import { routes } from 'admin/settings/routes';
 import Upgrade from '@components/Compare/Upgrade';
 import Onboarding from '@components/Onboarding/Onboarding';
-import Success from '@components/Onboarding/Success';
 
 
 const CustomRouter = () => (
@@ -19,7 +18,6 @@ const CustomRouter = () => (
     <Route path={routes.settings.path}><Settings /></Route>
     <Route path={routes.upgrade.path}><Upgrade /></Route>
     <Route path={routes.headerBuilder.path}>< HFB /></Route>
-    <Route path={routes.onboardingsuccess.path}><Success /></Route>
   </Router>
 );
 

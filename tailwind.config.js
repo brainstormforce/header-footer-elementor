@@ -8,7 +8,7 @@ module.exports = withTW({
 				"button-primary": "#2563EB",
 				"button-primary-hover": "#1D4ED8",
 
-				"brand-primary-600": "#9333EA",
+				"brand-primary-600": "#5C2EDE",
 				"brand-800": "#6B21A8",
 				"brand-50": "#EFF6FF",
 
@@ -18,9 +18,9 @@ module.exports = withTW({
 				focus: "#9333EA",
 				"focus-border": "#D8B4FE",
 
-				"toggle-on": "#6B21A8",
+				"toggle-on": "#793BFF",
 				"toggle-on-border": "#C084FC",
-				"toggle-on-hover": "#A855F7",
+				"toggle-on-hover": "#793BFF",
 
 				"background-primary": "#FFFFFF",
 				"background-secondary": "#F3F4F6",
