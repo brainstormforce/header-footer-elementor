@@ -182,10 +182,9 @@ const BeforeFooter = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) 
                     <Button
                       iconPosition="left"
                       icon={<Plus size={14} />}
-                      variant="primary"
-                      className="font-medium text-black hfe-remove-ring z-50"
+                      className=""
                       style={{
-                        backgroundColor: "#fff !important",
+                        backgroundColor: "#ffffff",
                         fontSize: "12px",
                         fontWeight: "600",
                         padding: "8px 8px",
@@ -194,14 +193,29 @@ const BeforeFooter = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) 
                         outline: "none",
                         transform: "scale(0.95)",
                         opacity: "1",
-                        color: "#000 !important"
+                        color: "#000000",
+                        border: "1px solid #e5e7eb",
+                        cursor: "pointer",
+                        display: "inline-flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: "4px",
+                        boxShadow: "none"
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.backgroundColor = "#f3f4f6";
+                        e.currentTarget.style.backgroundColor = '#ffffff';
+                        e.currentTarget.style.color = '#000000';
+                        e.currentTarget.style.borderColor = '#d1d5db';
+                        e.currentTarget.style.outline = 'none';
+                        e.currentTarget.style.boxShadow = 'none';
                         e.currentTarget.style.transform = "scale(1)";
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.backgroundColor = "#fff";
+                        e.currentTarget.style.backgroundColor = '#ffffff';
+                        e.currentTarget.style.color = '#000000';
+                        e.currentTarget.style.borderColor = '#e5e7eb';
+                        e.currentTarget.style.outline = 'none';
+                        e.currentTarget.style.boxShadow = 'none';
                         e.currentTarget.style.transform = "scale(0.95)";
                       }}
                       onClick={() => handleDisplayConditons(item)}
