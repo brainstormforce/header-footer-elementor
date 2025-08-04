@@ -117,6 +117,22 @@ const Footer = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
 							<div
 								key={item.title}
 								className="border bg-background-primary border-gray-200 p-2 rounded-lg cursor-pointer overflow-hidden flex flex-col group relative shadow-sm hover:shadow-md transition-shadow duration-200"
+								onMouseEnter={(e) => {
+									const overlay = e.currentTarget.querySelector('.hover-overlay');
+									if (overlay) {
+										overlay.style.opacity = '1';
+										overlay.style.visibility = 'visible';
+										overlay.style.transform = 'translateY(0)';
+									}
+								}}
+								onMouseLeave={(e) => {
+									const overlay = e.currentTarget.querySelector('.hover-overlay');
+									if (overlay) {
+										overlay.style.opacity = '0';
+										overlay.style.visibility = 'hidden';
+										overlay.style.transform = 'translateY(10px)';
+									}
+								}}
 							>
 								<div className="relative h-60 w-full">
 									<img
@@ -126,27 +142,39 @@ const Footer = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
 										className="w-full object-cover"
 									/>
 	
-									<div className="absolute inset-0 flex items-center justify-center gap-2 rounded-lg overflow-hidden backdrop-blur-sm bg-black/40 transition-all duration-200 z-30">
+									<div 
+										className="hover-overlay absolute inset-0 flex items-center justify-center gap-2 rounded-lg overflow-hidden backdrop-blur-sm transition-all duration-500 ease-in-out z-30"
+										style={{
+											backgroundColor: "rgba(0, 0, 0, 0.4)",
+											opacity: "0",
+											visibility: "hidden",
+											transform: "translateY(10px)"
+										}}
+									>
 										<Button
 											iconPosition="left"
 											icon={<Plus size={14} />}
 											variant="primary"
 											className="bg-[#6005FF] font-medium text-white hfe-remove-ring z-50"
 											style={{
-												backgroundColor: "#6005FF",
+												backgroundColor: "#6005FF !important",
 												fontSize: "12px",
 												fontWeight: "600",
 												padding: "8px 8px",
 												borderRadius: "6px",
 												transition: "all 0.2s ease",
 												outline: "none",
+												transform: "scale(0.95)",
+												opacity: "1"
 											}}
-											onMouseEnter={(e) =>
-												(e.currentTarget.style.backgroundColor = "#4B00CC")
-											}
-											onMouseLeave={(e) =>
-												(e.currentTarget.style.backgroundColor = "#6005FF")
-											}
+											onMouseEnter={(e) => {
+												e.currentTarget.style.backgroundColor = "#4B00CC";
+												e.currentTarget.style.transform = "scale(1)";
+											}}
+											onMouseLeave={(e) => {
+												e.currentTarget.style.backgroundColor = "#6005FF";
+												e.currentTarget.style.transform = "scale(0.95)";
+											}}
 											onClick={() => handleEditWithElementor(item)}
 										>
 											{"Edit Footer"}
@@ -157,13 +185,24 @@ const Footer = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
 											variant="primary"
 											className="font-medium text-black hfe-remove-ring z-50"
 											style={{
-												backgroundColor: "#fff",
+												backgroundColor: "#fff !important",
 												fontSize: "12px",
 												fontWeight: "600",
 												padding: "8px 8px",
 												borderRadius: "6px",
 												transition: "all 0.2s ease",
 												outline: "none",
+												transform: "scale(0.95)",
+												opacity: "1",
+												color: "#000 !important"
+											}}
+											onMouseEnter={(e) => {
+												e.currentTarget.style.backgroundColor = "#f3f4f6";
+												e.currentTarget.style.transform = "scale(1)";
+											}}
+											onMouseLeave={(e) => {
+												e.currentTarget.style.backgroundColor = "#fff";
+												e.currentTarget.style.transform = "scale(0.95)";
 											}}
 											onClick={() => handleDisplayConditons(item)}
 										>
