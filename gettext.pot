@@ -442,14 +442,6 @@ msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:255
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:290
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:314
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:311
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:301
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:300
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:295
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:294
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:286
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:287
 #: src/Components/Onboarding/ExtendOnboardingWidget.jsx:305
 msgid "Close"
 msgstr ""
@@ -664,12 +656,6 @@ msgid "Choose Layout Type"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:404
-#: src/Components/HF-Builder/AllLayouts.jsx:379
-#: src/Components/HF-Builder/AllLayouts.jsx:368
-#: src/Components/HF-Builder/AllLayouts.jsx:341
-#: src/Components/HF-Builder/AllLayouts.jsx:313
-#: src/Components/HF-Builder/AllLayouts.jsx:188
-#: src/Components/HF-Builder/AllLayouts.jsx:191
 #: src/Components/Onboarding/ExtendOnboarding.jsx:551
 #: src/Components/Onboarding/Features.jsx:389
 msgid "Back"
@@ -694,34 +680,12 @@ msgid "Create a custom block that can be used anywhere"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:551
-#: src/Components/HF-Builder/AllLayouts.jsx:526
-#: src/Components/HF-Builder/AllLayouts.jsx:515
-#: src/Components/HF-Builder/AllLayouts.jsx:488
-#: src/Components/HF-Builder/AllLayouts.jsx:460
-#: src/Components/HF-Builder/AllLayouts.jsx:469
-#: src/Components/HF-Builder/AllLayouts.jsx:344
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:310
-#: src/Components/HF-Builder/AllLayouts.jsx:347
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:334
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:331
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:321
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:320
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:315
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:314
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:306
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:307
 #: src/Components/HF-Builder/EmptyState.jsx:19
 msgid "Layout Template"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:557
-#: src/Components/HF-Builder/AllLayouts.jsx:532
-#: src/Components/HF-Builder/AllLayouts.jsx:521
-#: src/Components/HF-Builder/AllLayouts.jsx:494
-#: src/Components/HF-Builder/AllLayouts.jsx:466
-#: src/Components/HF-Builder/AllLayouts.jsx:475
-#: src/Components/HF-Builder/AllLayouts.jsx:350
-#: src/Components/HF-Builder/AllLayouts.jsx:353
 #: src/Components/HF-Builder/EmptyState.jsx:26
 msgid "No Layout Found"
 msgstr ""
@@ -749,17 +713,6 @@ msgid "Draft"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:792
-#: src/Components/HF-Builder/AllLayouts.jsx:767
-#: src/Components/HF-Builder/AllLayouts.jsx:756
-#: src/Components/HF-Builder/AllLayouts.jsx:729
-#: src/Components/HF-Builder/AllLayouts.jsx:701
-#: src/Components/HF-Builder/AllLayouts.jsx:709
-#: src/Components/HF-Builder/AllLayouts.jsx:713
-#: src/Components/HF-Builder/AllLayouts.jsx:696
-#: src/Components/HF-Builder/AllLayouts.jsx:705
-#: src/Components/HF-Builder/AllLayouts.jsx:584
-#: src/Components/HF-Builder/AllLayouts.jsx:591
-#: src/Components/HF-Builder/AllLayouts.jsx:587
 #: src/Components/HF-Builder/BeforeFooter.jsx:253
 #: src/Components/HF-Builder/CustomBlock.jsx:196
 #: src/Components/HF-Builder/Footer.jsx:253
@@ -772,19 +725,6 @@ msgid "Publish"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:810
-#: src/Components/HF-Builder/AllLayouts.jsx:785
-#: src/Components/HF-Builder/AllLayouts.jsx:774
-#: src/Components/HF-Builder/AllLayouts.jsx:747
-#: src/Components/HF-Builder/AllLayouts.jsx:719
-#: src/Components/HF-Builder/AllLayouts.jsx:727
-#: src/Components/HF-Builder/AllLayouts.jsx:731
-#: src/Components/HF-Builder/AllLayouts.jsx:709
-#: src/Components/HF-Builder/AllLayouts.jsx:704
-#: src/Components/HF-Builder/AllLayouts.jsx:713
-#: src/Components/HF-Builder/AllLayouts.jsx:721
-#: src/Components/HF-Builder/AllLayouts.jsx:596
-#: src/Components/HF-Builder/AllLayouts.jsx:603
-#: src/Components/HF-Builder/AllLayouts.jsx:599
 #: src/Components/HF-Builder/BeforeFooter.jsx:262
 #: src/Components/HF-Builder/CustomBlock.jsx:205
 #: src/Components/HF-Builder/Footer.jsx:262
@@ -793,19 +733,6 @@ msgid "Disable"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:819
-#: src/Components/HF-Builder/AllLayouts.jsx:794
-#: src/Components/HF-Builder/AllLayouts.jsx:783
-#: src/Components/HF-Builder/AllLayouts.jsx:756
-#: src/Components/HF-Builder/AllLayouts.jsx:728
-#: src/Components/HF-Builder/AllLayouts.jsx:736
-#: src/Components/HF-Builder/AllLayouts.jsx:740
-#: src/Components/HF-Builder/AllLayouts.jsx:717
-#: src/Components/HF-Builder/AllLayouts.jsx:712
-#: src/Components/HF-Builder/AllLayouts.jsx:721
-#: src/Components/HF-Builder/AllLayouts.jsx:733
-#: src/Components/HF-Builder/AllLayouts.jsx:608
-#: src/Components/HF-Builder/AllLayouts.jsx:615
-#: src/Components/HF-Builder/AllLayouts.jsx:611
 #: src/Components/HF-Builder/BeforeFooter.jsx:271
 #: src/Components/HF-Builder/CustomBlock.jsx:214
 #: src/Components/HF-Builder/Footer.jsx:271
@@ -913,15 +840,6 @@ msgid "Add Conditions"
 msgstr ""
 
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:529
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:556
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:553
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:550
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:540
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:539
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:534
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:533
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:525
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:526
 #: src/Components/Settings/VersionControl.jsx:132
 msgid "Cancel"
 msgstr ""

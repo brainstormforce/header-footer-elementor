@@ -224,6 +224,70 @@ class HFE_Settings_Api {
 		);
 	}
 
+	public function get_target_rules_data( $request ) {
+		$post_id = isset( $request['post_id'] ) ? intval( $request['post_id'] ) : 0;
+		
+		$include_locations = get_post_meta( $post_id, 'ehf_target_include_locations', true );
+		$exclude_locations = get_post_meta( $post_id, 'ehf_target_exclude_locations', true );
+		$user_roles        = get_post_meta( $post_id, 'ehf_target_user_roles', true );
+		$conditions = [];
+	
+		// Parse include rules
+		if ( isset( $include_locations['rule'] ) && is_array( $include_locations['rule'] ) ) {
+			foreach ( $include_locations['rule'] as $rule ) {
+				$conditions[] = [
+					'conditionType' => [
+						'id'   => 'include',
+						'name' => __( 'Include', 'header-footer-elementor' ),
+					],
+					'displayLocation' => [
+						'id'   => $rule,
+						'name' => ucwords( str_replace( '-', ' ', $rule ) ), // or fetch from options array
+					],
+				];
+			}
+		}
+	
+		// Parse exclude rules
+		if ( isset( $exclude_locations['rule'] ) && is_array( $exclude_locations['rule'] ) ) {
+			foreach ( $exclude_locations['rule'] as $rule ) {
+				$conditions[] = [
+					'conditionType' => [
+						'id'   => 'exclude',
+						'name' => __( 'Exclude', 'header-footer-elementor' ),
+					],
+					'displayLocation' => [
+						'id'   => $rule,
+						'name' => ucwords( str_replace( '-', ' ', $rule ) ),
+					],
+				];
+			}
+		}
+		// You can also parse user roles similarly if needed
+		
+		return [
+			'conditions' => $conditions,
+			'locations'  => Astra_Target_Rules_Fields::get_instance()->get_location_selections(),
+			// 'userRoles'  => Astra_Target_Rules_Fields::get_instance()->get_user_selections(),
+		];
+	}
+
+	public function save_target_rules_data($request) {
+		$params = $request->get_params();
+		// Save the target rules data
+		$post_id = isset($params['post_id']) ? intval($params['post_id']) : 0;
+		$include_locations = isset($params['include_locations']) ? $params['include_locations'] : [];
+		$exclude_locations = isset($params['exclude_locations']) ? $params['exclude_locations'] : [];
+		$user_roles = isset($params['user_roles']) ? $params['user_roles'] : [];
+		
+		update_post_meta($post_id, 'ehf_target_include_locations', $include_locations);
+		update_post_meta($post_id, 'ehf_target_exclude_locations', $exclude_locations);
+		update_post_meta($post_id, 'ehf_target_user_roles', $user_roles);
+		
+		return ['success' => true];
+		
+	}
+
 	public function uae_create_elementor_hf_layout( $request ) {
 		$title = sanitize_text_field( $request->get_param( 'title' ) );
 		$type = sanitize_text_field( $request->get_param( 'type' ) );
