@@ -217,7 +217,7 @@ class HFE_Settings_Api {
 		$args = [
 			'post_type'      => 'elementor-hf',
 			'posts_per_page' => -1,
-			'post_status'    => [ 'publish', 'pending', 'draft', 'auto-draft', 'future', 'private', 'inherit' ],
+			'post_status'    => [ 'publish', 'pending', 'draft' ],
 		];
 	
 		// Only add meta_query if type is provided
