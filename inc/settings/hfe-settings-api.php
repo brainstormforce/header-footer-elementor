@@ -137,6 +137,42 @@ class HFE_Settings_Api {
 
 		register_rest_route( 
 			'hfe/v1', 
+			'/user-roles-options', 
+			[
+				'methods'  => 'GET',
+				'callback' => [ $this, 'hfe_get_user_role_settings'],
+				'permission_callback' => [ $this, 'get_items_permissions_check' ],
+			]
+		);
+
+		register_rest_route(
+			'hfe/v1', 
+			'/user-roles', 
+			[
+				'methods'             => 'GET',
+				'callback'            => [ $this,'get_user_roles_data'],
+				'args'     => [
+					'post_id' => [
+						'required' => true,
+						'type'     => 'integer',
+					],
+				],
+				'permission_callback' => [ $this, 'get_items_permissions_check' ],
+			]
+		);
+
+		register_rest_route(
+			'hfe/v1', 
+			'/user-roles',
+			[
+				'methods' => 'POST',
+				'callback' => [ $this,'save_user_roles_data'],
+				'permission_callback' => [ $this, 'get_items_permissions_check' ],
+			]
+		);
+
+		register_rest_route( 
+			'hfe/v1', 
 			'/create-layout', 
 			[
 				'methods'             => 'POST',
@@ -377,6 +413,132 @@ class HFE_Settings_Api {
 				'addRuleLabel'     => __( 'Add Rule', 'header-footer-elementor' ),
 				'excludeRuleLabel' => __( 'Add Exclusion Rule', 'header-footer-elementor' ),
 			];
+	}
+
+	/**
+	 * Get user role options for display conditions.
+	 *
+	 * @return array
+	 */
+	public function hfe_get_user_role_settings() {
+
+		$selection_options = array(
+			'basic'    => array(
+				'label' => __( 'Basic', 'header-footer-elementor' ),
+				'value' => array(
+					'all'        => __( 'All', 'header-footer-elementor' ),
+					'logged-in'  => __( 'Logged In', 'header-footer-elementor' ),
+					'logged-out' => __( 'Logged Out', 'header-footer-elementor' ),
+				),
+			),
+		
+			'advanced' => array(
+				'label' => __( 'Advanced', 'header-footer-elementor' ),
+				'value' => array(),
+			),
+		);
+		
+		/* Load the required file if the function is not defined */
+		if ( ! function_exists( 'get_editable_roles' ) ) {
+			require_once ABSPATH . 'wp-admin/includes/user.php';
+		}
+		
+		/* Call the global function explicitly */
+		$roles = \get_editable_roles();
+		
+		foreach ( $roles as $slug => $data ) {
+			$selection_options['advanced']['value'][ $slug ] = $data['name'];
+		}
+		
+		return [
+			'userroleOptions' => $selection_options,
+		];		
+	}
+
+	/**
+	 * Get user roles data for a specific post.
+	 *
+	 * @param WP_REST_Request $request Request object.
+	 * @return array
+	 */
+	public function get_user_roles_data( $request ) {
+		$post_id = isset( $request['post_id'] ) ? intval( $request['post_id'] ) : 0;
+		
+		// Get saved user roles from post meta
+		$user_roles = get_post_meta( $post_id, 'ehf_target_user_roles', true );
+		
+		// Ensure it's an array
+		if ( ! is_array( $user_roles ) ) {
+			$user_roles = [];
+		}
+		
+		// Get available roles for reference
+		// $wp_roles = wp_roles();
+		// $available_roles = $wp_roles->get_names();
+		
+		// // Build available roles array with special states
+		// $available_roles_formatted = [
+		// 	'logged-in'  => __( 'Logged In Users', 'header-footer-elementor' ),
+		// 	'logged-out' => __( 'Logged Out Users', 'header-footer-elementor' ),
+		// ];
+		
+		// foreach ( $available_roles as $role_key => $role_name ) {
+		// 	$available_roles_formatted[ $role_key ] = translate_user_role( $role_name );
+		// }
+		
+		return [
+			'userRoles'      => $user_roles,
+		];
+	}
+
+	/**
+	 * Save user roles data for a specific post.
+	 *
+	 * @param WP_REST_Request $request Request object.
+	 * @return array
+	 */
+	public function save_user_roles_data( $request ) {
+		$params = $request->get_params();
+		
+		// Get and validate parameters
+		$post_id = isset( $params['post_id'] ) ? intval( $params['post_id'] ) : 0;
+		$user_roles = isset( $params['user_roles'] ) ? $params['user_roles'] : [];
+		
+		// Validate post exists and is correct type
+		$post = get_post( $post_id );
+		if ( ! $post || $post->post_type !== 'elementor-hf' ) {
+			return new WP_REST_Response( [
+				'success' => false,
+				'message' => __( 'Invalid post ID or post type.', 'header-footer-elementor' ),
+			], 400 );
+		}
+		
+		// Ensure user_roles is an array
+		if ( ! is_array( $user_roles ) ) {
+			$user_roles = [];
+		}
+		
+		// Sanitize user roles
+		$sanitized_roles = [];
+		// $wp_roles = wp_roles();
+		// $available_roles = array_keys( $wp_roles->get_names() );
+		// $special_roles = [ 'logged-in', 'logged-out' ];
+		// $valid_roles = array_merge( $available_roles, $special_roles );
+		
+		foreach ( $user_roles as $role ) {
+			$sanitized_role = sanitize_text_field( $role );
+			// if ( in_array( $sanitized_role, $valid_roles, true ) ) {
+				$sanitized_roles[] = $sanitized_role;
+			// }
+		}
+		
+		// Update post meta
+		update_post_meta( $post_id, 'ehf_target_user_roles', $sanitized_roles );
+		
+		return [
+			'success' => true,
+			'message' => __( 'User roles updated successfully.', 'header-footer-elementor' ),
+		];
 	}
 
 	/**

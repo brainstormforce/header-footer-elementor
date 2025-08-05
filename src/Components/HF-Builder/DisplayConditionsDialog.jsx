@@ -17,6 +17,8 @@ const withDisplayConditions = (WrappedComponent) => {
 		const [isButtonLoading, setIsButtonLoading] = useState(false);
 		const [error, setError] = useState(null);
 		const [locationOptions, setLocationOptions] = useState({});
+		const [userRoles, setUserRoles] = useState([]);
+		const [userRoleOptions, setUserRoleOptions] = useState({});
 		const [nextId, setNextId] = useState(2);
 		const [isNewPost, setIsNewPost] = useState(false);
 
@@ -52,6 +54,17 @@ const withDisplayConditions = (WrappedComponent) => {
 						),
 					);
 				});
+
+			// Fetch user role options
+			apiFetch({ path: "/hfe/v1/user-roles-options" })
+				.then((data) => {
+					if (data && data.userroleOptions) {
+						setUserRoleOptions(data.userroleOptions);
+					}
+				})
+				.catch((error) => {
+					console.error("Error fetching user role options:", error);
+				});
 		}, []);
 
 		const handleAddCondition = () => {
@@ -84,21 +97,60 @@ const withDisplayConditions = (WrappedComponent) => {
 			);
 		};
 
+		// User Role handlers
+		const handleAddUserRole = () => {
+			setUserRoles([...userRoles, '']); // Add empty selection
+		};
+
+		const handleRemoveUserRole = (index) => {
+			setUserRoles(userRoles.filter((_, i) => i !== index));
+		};
+
+		const handleUpdateUserRole = (index, value) => {
+			const updatedRoles = [...userRoles];
+			updatedRoles[index] = value;
+			setUserRoles(updatedRoles);
+		};
+
 		const openDisplayConditionsDialog = (item, isNew = false) => {
-			// Check if locationOptions are loaded, if not, fetch them first
-			if (Object.keys(locationOptions).length === 0) {
+			// Check if locationOptions and userRoleOptions are loaded, if not, fetch them first
+			if (Object.keys(locationOptions).length === 0 || Object.keys(userRoleOptions).length === 0) {
 				setIsButtonLoading(true);
-				apiFetch({ path: "/hfe/v1/target-rules-options" })
-					.then((data) => {
-						if (data && data.locationOptions) {
-							setLocationOptions(data.locationOptions);
-							// Retry opening dialog after locationOptions are loaded
-							setIsButtonLoading(false);
-							setTimeout(() => openDisplayConditionsDialog(item, isNew), 100);
-						}
+				
+				const fetchPromises = [];
+				
+				// Fetch location options if not loaded
+				if (Object.keys(locationOptions).length === 0) {
+					fetchPromises.push(
+						apiFetch({ path: "/hfe/v1/target-rules-options" })
+							.then((data) => {
+								if (data && data.locationOptions) {
+									setLocationOptions(data.locationOptions);
+								}
+							})
+					);
+				}
+				
+				// Fetch user role options if not loaded
+				if (Object.keys(userRoleOptions).length === 0) {
+					fetchPromises.push(
+						apiFetch({ path: "/hfe/v1/user-roles-options" })
+							.then((data) => {
+								if (data && data.userroleOptions) {
+									setUserRoleOptions(data.userroleOptions);
+								}
+							})
+					);
+				}
+				
+				Promise.all(fetchPromises)
+					.then(() => {
+						setIsButtonLoading(false);
+						// Retry opening dialog after options are loaded
+						setTimeout(() => openDisplayConditionsDialog(item, isNew), 100);
 					})
 					.catch((error) => {
-						console.error("Error fetching locationOptions:", error);
+						console.error("Error fetching options:", error);
 						setIsButtonLoading(false);
 					});
 				return;
@@ -108,6 +160,7 @@ const withDisplayConditions = (WrappedComponent) => {
 			setError(null);
 			setSelectedItem(item);
 			setIsNewPost(isNew);
+			setUserRoles(['']); // Reset user roles with one empty selection
 			
 			// If it's a new post, use default conditions immediately
 			if (isNew) {
@@ -162,6 +215,11 @@ const withDisplayConditions = (WrappedComponent) => {
 						setNextId(2);
 					}
 					
+					// Ensure user roles has at least one empty selection for existing posts
+					if (userRoles.length === 0) {
+						setUserRoles(['']);
+					}
+					
 					// Open dialog after data is loaded
 					setIsLoading(false);
 					setIsButtonLoading(false);
@@ -173,6 +231,11 @@ const withDisplayConditions = (WrappedComponent) => {
 					const defaultConditions = getDefaultConditions();
 					setConditions(defaultConditions);
 					setNextId(2);
+					
+					// Ensure user roles has at least one empty selection on error
+					if (userRoles.length === 0) {
+						setUserRoles(['']);
+					}
 					
 					// Only show error if it's not a 404 (post not found)
 					if (err.status !== 404) {
@@ -268,6 +331,10 @@ const withDisplayConditions = (WrappedComponent) => {
 			if (!selectedItem) {
 				return null;
 			}
+
+			// Debug: Check if userRoleOptions are loaded
+			console.log("UserRoleOptions:", userRoleOptions);
+			console.log("UserRoles state:", userRoles);
 			
 			return (
 				<Dialog
@@ -521,6 +588,75 @@ const withDisplayConditions = (WrappedComponent) => {
 											"header-footer-elementor",
 										)}
 									</Button>
+								</div>
+
+								{/* User Roles Section */}
+								<div className="mt-8 pt-6 border-t border-gray-200">
+									{/* User Roles Selection */}
+									<div className="space-y-3">
+										{userRoles.map((roleId, index) => (
+											<div key={index} className="flex items-center gap-2">
+												<div className="flex items-center justify-center overflow-hidden bg-gray-50 w-full">
+													<div
+														className="rounded-lg"
+														style={{
+															border: "1px solid #d1d5db",
+															width: "420px",
+														}}
+													>
+														<select
+															value={roleId}
+															onChange={(e) => handleUpdateUserRole(index, e.target.value)}
+															className="hfe-select-button border-0 rounded-none bg-transparent h-full w-full px-4 text-black focus:outline-none focus:ring-0 focus:border-transparent"
+															style={{ boxShadow: "none" }}
+															disabled={isLoading}
+														>
+															<option value="">
+																{__("Select User Role", "header-footer-elementor")}
+															</option>
+															{Object.keys(userRoleOptions).map((groupKey) => (
+																<optgroup
+																	key={groupKey}
+																	label={userRoleOptions[groupKey].label}
+																>
+																	{Object.entries(userRoleOptions[groupKey].value).map(
+																		([optKey, optLabel]) => (
+																			<option key={optKey} value={optKey}>
+																				{optLabel}
+																			</option>
+																		)
+																	)}
+																</optgroup>
+															))}
+														</select>
+													</div>
+													{userRoles.length > 1 && (
+														<button
+															onClick={() => handleRemoveUserRole(index)}
+															className="p-2 text-gray-400 hover:text-gray-600 transition-colors"
+															aria-label={__("Remove user role", "header-footer-elementor")}
+															disabled={isLoading}
+														>
+															<X size={20} />
+														</button>
+													)}
+												</div>
+											</div>
+										))}
+									</div>
+
+									{/* Add User Role Button */}
+									<div className="flex justify-center">
+										<Button
+											variant="secondary"
+											size="md"
+											className="bg-gray-600 text-white px-6 py-2.5 mt-4 mb-4 rounded-md font-medium hover:bg-gray-700"
+											onClick={handleAddUserRole}
+											disabled={isLoading}
+										>
+											{__("Add User Role", "header-footer-elementor")}
+										</Button>
+									</div>
 								</div>
 							</div>
 						</Dialog.Body>
