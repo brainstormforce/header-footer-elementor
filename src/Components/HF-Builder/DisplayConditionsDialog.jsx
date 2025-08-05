@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Plus, X } from "lucide-react";
-import { Button, Dialog, Switch } from "@bsf/force-ui";
+import { Button, Dialog, Switch, Loader } from "@bsf/force-ui";
 import { __ } from "@wordpress/i18n";
 import apiFetch from "@wordpress/api-fetch";
 
@@ -68,55 +68,59 @@ const withDisplayConditions = (WrappedComponent) => {
 				});
 		}, []);
 
-		const handleAddCondition = () => {
-			const newCondition = {
-				id: nextId,
-				conditionType: {
-					id: "include",
-					name: __("Include", "header-footer-elementor"),
-				},
-				displayLocation: {
-					id: "entire-site",
-					name: __("Entire Site", "header-footer-elementor"),
-				},
-			};
-			setConditions([...conditions, newCondition]);
-			setNextId(nextId + 1);
-		};
+		const handleAddCondition = useCallback(() => {
+			setConditions(prevConditions => {
+				const newCondition = {
+					id: nextId,
+					conditionType: {
+						id: "include",
+						name: __("Include", "header-footer-elementor"),
+					},
+					displayLocation: {
+						id: "entire-site",
+						name: __("Entire Site", "header-footer-elementor"),
+					},
+				};
+				return [...prevConditions, newCondition];
+			});
+			setNextId(prevNextId => prevNextId + 1);
+		}, [nextId]);
 
-		const handleRemoveCondition = (id) => {
-			setConditions(conditions.filter((condition) => condition.id !== id));
-		};
+		const handleRemoveCondition = useCallback((id) => {
+			setConditions(prevConditions => prevConditions.filter((condition) => condition.id !== id));
+		}, []);
 
-		const handleUpdateCondition = (id, field, value) => {
-			setConditions(
-				conditions.map((condition) =>
+		const handleUpdateCondition = useCallback((id, field, value) => {
+			setConditions(prevConditions =>
+				prevConditions.map((condition) =>
 					condition.id === id
 						? { ...condition, [field]: value }
 						: condition,
 				),
 			);
-		};
+		}, []);
 
 		// User Role handlers
-		const handleAddUserRole = () => {
-			setUserRoles([...userRoles, '']); // Add empty selection
-		};
+		const handleAddUserRole = useCallback(() => {
+			setUserRoles(prevUserRoles => [...prevUserRoles, '']); // Add empty selection
+		}, []);
 
-		const handleRemoveUserRole = (index) => {
-			setUserRoles(userRoles.filter((_, i) => i !== index));
-		};
+		const handleRemoveUserRole = useCallback((index) => {
+			setUserRoles(prevUserRoles => prevUserRoles.filter((_, i) => i !== index));
+		}, []);
 
-		const handleUpdateUserRole = (index, value) => {
-			const updatedRoles = [...userRoles];
-			updatedRoles[index] = value;
-			setUserRoles(updatedRoles);
-		};
+		const handleUpdateUserRole = useCallback((index, value) => {
+			setUserRoles(prevUserRoles => {
+				const updatedRoles = [...prevUserRoles];
+				updatedRoles[index] = value;
+				return updatedRoles;
+			});
+		}, []);
 
 		// Canvas Template handler
-		const handleCanvasTemplateChange = (enabled) => {
-			setCanvasTemplateEnabled(enabled);
-		};
+		const handleCanvasTemplateChange = useCallback((enabled) => {
+			setCanvasTemplateEnabled(() => enabled);
+		}, []);
 
 		const openDisplayConditionsDialog = (item, isNew = false) => {
 			// Check if locationOptions and userRoleOptions are loaded, if not, fetch them first
@@ -389,7 +393,7 @@ const withDisplayConditions = (WrappedComponent) => {
 					design="simple"
 					open={isDialogOpen}
 					setOpen={setIsDialogOpen}
-					key={`dialog-${selectedItem?.id}-${isNewPost}-${Date.now()}`}
+					key={`dialog-${selectedItem?.id}-${isNewPost}`}
 					style={{ zIndex: 999999 }}
 				>
 					<Dialog.Backdrop style={{ zIndex: 999998 }} />
@@ -461,7 +465,12 @@ const withDisplayConditions = (WrappedComponent) => {
 								{/* Loading state */}
 								{isLoading && (
 									<div className="flex justify-center my-4">
-										<div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#6005FF]"></div>
+										<Loader
+											className=""
+											icon={null}
+											size="lg"
+											variant="primary"
+										/>
 									</div>
 								)}
 
@@ -748,8 +757,13 @@ const withDisplayConditions = (WrappedComponent) => {
 									disabled={isLoading}
 								>
 									{isLoading ? (
-										<span className="flex items-center">
-											<span className="animate-spin mr-2 h-4 w-4 border-2 border-white border-t-transparent rounded-full"></span>
+										<span className="flex items-center gap-2">
+											<Loader
+												className=""
+												icon={null}
+												size="sm"
+												variant="secondary"
+											/>
 											{__(
 												"Saving...",
 												"header-footer-elementor",

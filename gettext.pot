@@ -441,7 +441,7 @@ msgid "Yes"
 msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:255
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:414
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:418
 #: src/Components/Onboarding/ExtendOnboardingWidget.jsx:305
 msgid "Close"
 msgstr ""
@@ -595,13 +595,6 @@ msgid "Widgets / Features"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:1010
-#: src/Components/HF-Builder/AllLayouts.jsx:1009
-#: src/Components/HF-Builder/AllLayouts.jsx:1001
-#: src/Components/HF-Builder/AllLayouts.jsx:798
-#: src/Components/HF-Builder/AllLayouts.jsx:790
-#: src/Components/HF-Builder/AllLayouts.jsx:828
-#: src/Components/HF-Builder/AllLayouts.jsx:827
-#: src/Components/HF-Builder/AllLayouts.jsx:867
 #: src/Components/HF-Builder/BeforeFooter.jsx:284
 #: src/Components/HF-Builder/CustomBlock.jsx:205
 #: src/Components/HF-Builder/Footer.jsx:284
@@ -610,13 +603,6 @@ msgid "Disable"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:1023
-#: src/Components/HF-Builder/AllLayouts.jsx:1022
-#: src/Components/HF-Builder/AllLayouts.jsx:1014
-#: src/Components/HF-Builder/AllLayouts.jsx:807
-#: src/Components/HF-Builder/AllLayouts.jsx:799
-#: src/Components/HF-Builder/AllLayouts.jsx:837
-#: src/Components/HF-Builder/AllLayouts.jsx:836
-#: src/Components/HF-Builder/AllLayouts.jsx:876
 #: src/Components/HF-Builder/BeforeFooter.jsx:293
 #: src/Components/HF-Builder/CustomBlock.jsx:214
 #: src/Components/HF-Builder/Footer.jsx:293
@@ -693,8 +679,6 @@ msgid "Loading layouts..."
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:43
-#: src/Components/HF-Builder/AllLayouts.jsx:37
-#: src/Components/HF-Builder/AllLayouts.jsx:36
 #: src/Components/HF-Builder/Sidebar.jsx:69
 msgid "Footer"
 msgstr ""
@@ -708,8 +692,6 @@ msgid "Choose Layout Type"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:57
-#: src/Components/HF-Builder/AllLayouts.jsx:45
-#: src/Components/HF-Builder/AllLayouts.jsx:44
 #: src/Components/HF-Builder/Sidebar.jsx:88
 msgid "Before Footer"
 msgstr ""
@@ -733,8 +715,6 @@ msgid "Start customising Your Header & Footer"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:71
-#: src/Components/HF-Builder/AllLayouts.jsx:53
-#: src/Components/HF-Builder/AllLayouts.jsx:52
 #: src/Components/HF-Builder/Sidebar.jsx:107
 msgid "Custom Block"
 msgstr ""
@@ -748,13 +728,6 @@ msgid "Edit Layout"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:931
-#: src/Components/HF-Builder/AllLayouts.jsx:930
-#: src/Components/HF-Builder/AllLayouts.jsx:922
-#: src/Components/HF-Builder/AllLayouts.jsx:746
-#: src/Components/HF-Builder/AllLayouts.jsx:738
-#: src/Components/HF-Builder/AllLayouts.jsx:776
-#: src/Components/HF-Builder/AllLayouts.jsx:775
-#: src/Components/HF-Builder/AllLayouts.jsx:815
 #: src/Components/HF-Builder/BeforeFooter.jsx:244
 #: src/Components/HF-Builder/Footer.jsx:244
 #: src/Components/HF-Builder/Header.jsx:285
@@ -766,13 +739,6 @@ msgid "Draft"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:983
-#: src/Components/HF-Builder/AllLayouts.jsx:982
-#: src/Components/HF-Builder/AllLayouts.jsx:974
-#: src/Components/HF-Builder/AllLayouts.jsx:780
-#: src/Components/HF-Builder/AllLayouts.jsx:772
-#: src/Components/HF-Builder/AllLayouts.jsx:810
-#: src/Components/HF-Builder/AllLayouts.jsx:809
-#: src/Components/HF-Builder/AllLayouts.jsx:849
 #: src/Components/HF-Builder/BeforeFooter.jsx:275
 #: src/Components/HF-Builder/CustomBlock.jsx:196
 #: src/Components/HF-Builder/Footer.jsx:275
@@ -813,103 +779,97 @@ msgstr ""
 msgid "Custom Block Templates"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:223
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:227
 msgid "Entire Site"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:268
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:272
 msgid "Failed to load display conditions and user roles, using defaults"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:284
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:288
 msgid "No post selected"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:372
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:376
 msgid "Failed to save display conditions, user roles, and canvas template setting"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:400
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:404
 msgid "Configure Display Conditions"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:406
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:410
 msgid "New Layout"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:444
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:448
 msgid "Where Should Your Layout Appear?"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:450
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:454
 msgid "Decide where you want this layout to appear on your site."
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:455
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:459
 msgid ""
 "You can show it across your entire site or only on specific pages—your "
 "choice!"
-msgstr ""
-
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:518
-msgid "Include"
 msgstr ""
 
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:52
 msgid "Failed to load display conditions"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:524
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:527
+msgid "Include"
+msgstr ""
+
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:533
 msgid "Exclude"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:616
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:625
 msgid "Remove condition"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:636
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:645
 msgid "Add Conditions"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:665
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:674
 msgid "Select User Role"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:687
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:696
 msgid "Remove user role"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:707
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:716
 msgid "Add User Role"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:717
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:726
 msgid "Enable this layout to display on Elementor Canvas template pages."
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:742
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:751
 #: src/Components/Settings/VersionControl.jsx:132
 msgid "Cancel"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:753
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:767
 msgid "Saving..."
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:759
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:773
 msgid "Save Conditions"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:513
-#: src/Components/HF-Builder/AllLayouts.jsx:512
-#: src/Components/HF-Builder/AllLayouts.jsx:552
 #: src/Components/HF-Builder/EmptyState.jsx:19
 msgid "Layout Template"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:519
-#: src/Components/HF-Builder/AllLayouts.jsx:518
-#: src/Components/HF-Builder/AllLayouts.jsx:558
 #: src/Components/HF-Builder/EmptyState.jsx:26
 msgid "No Layout Found"
 msgstr ""
@@ -1178,14 +1138,6 @@ msgstr ""
 msgid "Create New Footer"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:488
-#: src/Components/HF-Builder/AllLayouts.jsx:375
-#: src/Components/HF-Builder/AllLayouts.jsx:374
-#: src/Components/Onboarding/ExtendOnboarding.jsx:551
-#: src/Components/Onboarding/Features.jsx:389
-msgid "Back"
-msgstr ""
-
 #: src/Components/Onboarding/ExtendOnboarding.jsx:253
 msgid "Please enter a valid email address"
 msgstr ""
@@ -1216,6 +1168,11 @@ msgstr ""
 
 #: src/Components/Onboarding/ExtendOnboarding.jsx:535
 msgid " Privacy Policy"
+msgstr ""
+
+#: src/Components/Onboarding/ExtendOnboarding.jsx:551
+#: src/Components/Onboarding/Features.jsx:389
+msgid "Back"
 msgstr ""
 
 #: src/Components/Onboarding/ExtendOnboarding.jsx:560
