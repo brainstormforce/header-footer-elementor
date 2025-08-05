@@ -189,6 +189,33 @@ class HFE_Settings_Api {
 				],
 			]
 		);
+
+		register_rest_route(
+			'hfe/v1', 
+			'/enable-for-canvas-template', 
+			[
+				'methods'             => 'GET',
+				'callback'            => [ $this,'get_enable_for_canvas_template_data'],
+				'args'     => [
+					'post_id' => [
+						'required' => true,
+						'type'     => 'integer',
+					],
+				],
+				'permission_callback' => [ $this, 'get_items_permissions_check' ],
+			]
+		);
+
+		register_rest_route(
+			'hfe/v1', 
+			'/enable-for-canvas-template',
+			[
+				'methods' => 'POST',
+				'callback' => [ $this,'save_enable_for_canvas_template_data'],
+				'permission_callback' => [ $this, 'get_items_permissions_check' ],
+			]
+		);
+
 		register_rest_route( 
 			'hfe/v1', 
 			'/get-post', 
@@ -259,6 +286,58 @@ class HFE_Settings_Api {
 			]
 		);
 	}
+
+	public function get_enable_for_canvas_template_data( $request ) {
+		$post_id = isset( $request['post_id'] ) ? intval( $request['post_id'] ) : 0;
+		$display = get_post_meta( $post_id, 'display-on-canvas-template', true );
+	
+		return [
+			'display' => ( $display === '1' ) ? 1 : 0, // Cast to integer
+		];
+	}
+
+	/**
+	 * Save enable for canvas template data for a specific post.
+	 *
+	 * @param WP_REST_Request $request Request object.
+	 * @return array
+	 */
+	public function save_enable_for_canvas_template_data( $request ) {
+		$params = $request->get_params();
+		
+		// Get and validate parameters
+		$post_id = isset( $params['post_id'] ) ? intval( $params['post_id'] ) : 0;
+		$display = isset( $params['display'] ) ? $params['display'] : 0;
+		
+		// Validate post exists and is correct type
+		$post = get_post( $post_id );
+		if ( ! $post || $post->post_type !== 'elementor-hf' ) {
+			return new WP_REST_Response( [
+				'success' => false,
+				'message' => __( 'Invalid post ID or post type.', 'header-footer-elementor' ),
+			], 400 );
+		}
+		
+		// Sanitize and validate display value (should be 0 or 1)
+		$display_value = intval( $display );
+		$display_value = ( $display_value === 1 ) ? '1' : '0';
+		
+		if( $display_value === '1'){
+			update_post_meta( $post_id, 'display-on-canvas-template', $display_value );
+		}
+		else{
+			// Update post meta
+			delete_post_meta( $post_id, 'display-on-canvas-template' );
+		}
+		
+		
+		return [
+			'success' => true,
+			'message' => __( 'Canvas template setting updated successfully.', 'header-footer-elementor' ),
+			'display' => intval( $display_value ), // Return as integer for consistency
+		];
+	}
+	
 
 	public function get_target_rules_data( $request ) {
 		$post_id = isset( $request['post_id'] ) ? intval( $request['post_id'] ) : 0;
@@ -471,20 +550,6 @@ class HFE_Settings_Api {
 			$user_roles = [];
 		}
 		
-		// Get available roles for reference
-		// $wp_roles = wp_roles();
-		// $available_roles = $wp_roles->get_names();
-		
-		// // Build available roles array with special states
-		// $available_roles_formatted = [
-		// 	'logged-in'  => __( 'Logged In Users', 'header-footer-elementor' ),
-		// 	'logged-out' => __( 'Logged Out Users', 'header-footer-elementor' ),
-		// ];
-		
-		// foreach ( $available_roles as $role_key => $role_name ) {
-		// 	$available_roles_formatted[ $role_key ] = translate_user_role( $role_name );
-		// }
-		
 		return [
 			'userRoles'      => $user_roles,
 		];
@@ -532,6 +597,8 @@ class HFE_Settings_Api {
 			'message' => __( 'User roles updated successfully.', 'header-footer-elementor' ),
 		];
 	}
+
+	
 
 	/**
 	 * Update post status callback.

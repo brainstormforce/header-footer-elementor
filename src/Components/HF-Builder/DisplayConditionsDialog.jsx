@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Plus, X } from "lucide-react";
-import { Button, Dialog } from "@bsf/force-ui";
+import { Button, Dialog, Switch } from "@bsf/force-ui";
 import { __ } from "@wordpress/i18n";
 import apiFetch from "@wordpress/api-fetch";
 
@@ -19,6 +19,7 @@ const withDisplayConditions = (WrappedComponent) => {
 		const [locationOptions, setLocationOptions] = useState({});
 		const [userRoles, setUserRoles] = useState([]);
 		const [userRoleOptions, setUserRoleOptions] = useState({});
+		const [canvasTemplateEnabled, setCanvasTemplateEnabled] = useState(false);
 		const [nextId, setNextId] = useState(2);
 		const [isNewPost, setIsNewPost] = useState(false);
 
@@ -112,6 +113,35 @@ const withDisplayConditions = (WrappedComponent) => {
 			setUserRoles(updatedRoles);
 		};
 
+		// Canvas Template handler
+		const handleCanvasTemplateChange = (enabled) => {
+			setCanvasTemplateEnabled(enabled);
+			
+			// Save immediately when changed
+			if (selectedItem && selectedItem.id) {
+				apiFetch({
+					path: "/hfe/v1/enable-for-canvas-template",
+					method: "POST",
+					data: {
+						post_id: selectedItem.id,
+						display: enabled ? 1 : 0,
+					},
+				})
+				.then((response) => {
+					if (!response.success) {
+						console.error("Failed to save canvas template setting:", response.message);
+						// Revert the state if save failed
+						setCanvasTemplateEnabled(!enabled);
+					}
+				})
+				.catch((error) => {
+					console.error("Error saving canvas template setting:", error);
+					// Revert the state if save failed
+					setCanvasTemplateEnabled(!enabled);
+				});
+			}
+		};
+
 		const openDisplayConditionsDialog = (item, isNew = false) => {
 			// Check if locationOptions and userRoleOptions are loaded, if not, fetch them first
 			if (Object.keys(locationOptions).length === 0 || Object.keys(userRoleOptions).length === 0) {
@@ -161,6 +191,7 @@ const withDisplayConditions = (WrappedComponent) => {
 			setSelectedItem(item);
 			setIsNewPost(isNew);
 			setUserRoles(['']); // Reset user roles with one empty selection
+			setCanvasTemplateEnabled(false); // Reset canvas template setting
 			
 			// If it's a new post, use default conditions immediately
 			if (isNew) {
@@ -195,8 +226,12 @@ const withDisplayConditions = (WrappedComponent) => {
 				path: `/hfe/v1/user-roles?post_id=${item.id}`,
 			});
 			
-			Promise.all([fetchTargetRules, fetchUserRoles])
-				.then(([targetRulesData, userRolesData]) => {
+			const fetchCanvasTemplate = apiFetch({
+				path: `/hfe/v1/enable-for-canvas-template?post_id=${item.id}`,
+			});
+			
+			Promise.all([fetchTargetRules, fetchUserRoles, fetchCanvasTemplate])
+				.then(([targetRulesData, userRolesData, canvasTemplateData]) => {
 					// Handle target rules data
 					if (targetRulesData && targetRulesData.conditions && Array.isArray(targetRulesData.conditions) && targetRulesData.conditions.length > 0) {
 						// Map existing conditions with proper IDs
@@ -230,6 +265,13 @@ const withDisplayConditions = (WrappedComponent) => {
 						setUserRoles(['']);
 					}
 					
+					// Handle canvas template data
+					if (canvasTemplateData && typeof canvasTemplateData.display !== 'undefined') {
+						setCanvasTemplateEnabled(canvasTemplateData.display === 1);
+					} else {
+						setCanvasTemplateEnabled(false);
+					}
+					
 					// Open dialog after data is loaded
 					setIsLoading(false);
 					setIsButtonLoading(false);
@@ -242,6 +284,7 @@ const withDisplayConditions = (WrappedComponent) => {
 					setConditions(defaultConditions);
 					setNextId(2);
 					setUserRoles(['']);
+					setCanvasTemplateEnabled(false);
 					
 					// Only show error if it's not a 404 (post not found)
 					if (err.status !== 404) {
@@ -673,6 +716,25 @@ const withDisplayConditions = (WrappedComponent) => {
 										>
 											{__("Add User Role", "header-footer-elementor")}
 										</Button>
+									</div>
+								</div>
+
+								{/* Canvas Template Section */}
+								<div className="mt-8 pt-6 border-t border-gray-200">
+									<div className="flex items-center justify-between">
+										<div>
+											<p className="text-gray-600 text-sm">
+												{__("Enable this layout to display on Elementor Canvas template pages.", "header-footer-elementor")}
+											</p>
+										</div>
+										<div className="ml-4">
+											<Switch
+												checked={canvasTemplateEnabled}
+												onChange={handleCanvasTemplateChange}
+												disabled={isLoading || !selectedItem?.id}
+												size="md"
+											/>
+										</div>
 									</div>
 								</div>
 							</div>
