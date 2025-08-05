@@ -132,6 +132,7 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:220
 #: src/Components/NavMenu.js:242
+#: src/Components/NavMenu.js:239
 #: src/Components/Onboarding/Features.jsx:193
 msgid "Free"
 msgstr ""
@@ -441,7 +442,7 @@ msgid "Yes"
 msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:255
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:413
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:414
 #: src/Components/Onboarding/ExtendOnboardingWidget.jsx:305
 msgid "Close"
 msgstr ""
@@ -688,7 +689,6 @@ msgid "Create a custom block that can be used anywhere"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:552
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:433
 #: src/Components/HF-Builder/EmptyState.jsx:19
 msgid "Layout Template"
 msgstr ""
@@ -820,21 +820,21 @@ msgstr ""
 msgid "New Layout"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:443
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:444
 msgid "Where Should Your Layout Appear?"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:449
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:450
 msgid "Decide where you want this layout to appear on your site."
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:454
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:455
 msgid ""
 "You can show it across your entire site or only on specific pages—your "
 "choice!"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:517
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:518
 msgid "Include"
 msgstr ""
 
@@ -842,44 +842,44 @@ msgstr ""
 msgid "Failed to load display conditions"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:523
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:524
 msgid "Exclude"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:614
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:616
 msgid "Remove condition"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:634
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:636
 msgid "Add Conditions"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:663
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:665
 msgid "Select User Role"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:685
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:687
 msgid "Remove user role"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:705
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:707
 msgid "Add User Role"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:715
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:717
 msgid "Enable this layout to display on Elementor Canvas template pages."
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:740
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:742
 #: src/Components/Settings/VersionControl.jsx:132
 msgid "Cancel"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:751
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:753
 msgid "Saving..."
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:757
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:759
 msgid "Save Conditions"
 msgstr ""
 
