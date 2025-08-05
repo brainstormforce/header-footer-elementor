@@ -278,7 +278,7 @@ const withDisplayConditions = (WrappedComponent) => {
 					style={{ zIndex: 999999 }}
 				>
 					<Dialog.Backdrop style={{ zIndex: 999998 }} />
-					<Dialog.Panel className="w-1/2 max-w-3xl gap-1" style={{ zIndex: 999999 }}>
+					<Dialog.Panel className="w-1/2 max-w-3xl gap-0" style={{ zIndex: 999999 }}>
 						<Dialog.Header className="text-center p-4">
 							<div className="flex items-center justify-between">
 								<Dialog.Title className="text-xl font-normal">
