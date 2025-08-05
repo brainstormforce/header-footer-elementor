@@ -24,7 +24,7 @@ const SidebarMenu = ({ items, onSelectItem }) => {
 
 					{/* Each item with icon and title */}
 					<div
-						className={`h-8 flex items-center justify-start gap-2 px-2 rounded-md cursor-pointer ${
+						className={`h-10 flex items-center justify-start gap-2 px-2 rounded-md cursor-pointer ${
 							selectedItemId === item.id
 								? "bg-gray-100"
 								: "bg-background-primary"
@@ -54,7 +54,11 @@ const SidebarMenu = ({ items, onSelectItem }) => {
 					borderColor: "#E5E7EB",
 				}}
 			/>
-			<div className="flex items-center ml-1 mb-4" style={{ cursor: "pointer", gap: "8px" }}>
+			<div 
+				className="flex items-center ml-1 mb-4" 
+				style={{ cursor: "pointer", gap: "8px" }}
+				onClick={() => window.open('https://ultimateelementor.com/docs/', '_blank')}
+			>
 				<CircleHelp size={22} color="#6B7280" />
 				<p className="text-base text-[%6B7280] font-normal">Help</p>
 			</div>
@@ -72,7 +76,7 @@ const SidebarMenu = ({ items, onSelectItem }) => {
 				<h3 className="text-base text-text-primary font-normal" style={{ margin: '0 0 6px 0' }}>
 					Want More?
 				</h3>
-				<p className="text-xs text-[#64748B]" style={{ margin: '0 0 8px 0' }}>
+				<p className="text-xs text-[#64748B]" style={{ margin: '0 0 6px 0' }}>
 					Unlock revenue boosting features when you upgrade to Pro
 				</p>
 				<Button
@@ -80,7 +84,9 @@ const SidebarMenu = ({ items, onSelectItem }) => {
 					iconPosition="right"
 					variant="link"
 					style={{
-						color: "#5C2EDE",}}
+						color: "#5C2EDE",
+					marginLeft: '-4px'
+					}}
 				>
 					Upgrade Now
 				</Button>

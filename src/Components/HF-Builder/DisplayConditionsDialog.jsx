@@ -396,7 +396,7 @@ const withDisplayConditions = (WrappedComponent) => {
 					<Dialog.Panel className="w-1/2 max-w-3xl gap-0" style={{ zIndex: 999999 }}>
 						<Dialog.Header className="text-center p-4">
 							<div className="flex items-center justify-between">
-								<Dialog.Title className="text-xl font-normal">
+								<Dialog.Title className="text-base font-normal">
 									{__(
 										"Configure Display Conditions",
 										"header-footer-elementor",
@@ -407,16 +407,17 @@ const withDisplayConditions = (WrappedComponent) => {
 										</span>
 									)}
 								</Dialog.Title>
-								<button
+								<Button
+									variant="ghost"
 									onClick={() => setIsDialogOpen(false)}
-									className="text-2xl leading-none font-light p-2 -mr-2"
+									className="text-2xl leading-none hfe-remove-ring font-light p-2 -mr-2"
 									aria-label={__(
 										"Close",
 										"header-footer-elementor",
 									)}
 								>
 									×
-								</button>
+								</Button>
 							</div>
 						</Dialog.Header>
 						
@@ -427,7 +428,7 @@ const withDisplayConditions = (WrappedComponent) => {
 								style={{ border: "4px solid #F9FAFB" }}
 							>
 								{/* Icon */}
-								<div className="flex justify-center mb-6">
+								{/* <div className="flex justify-center mb-6">
 									<img
 										src={`${hfeSettingsData.layout_template}`}
 										alt={__(
@@ -436,7 +437,7 @@ const withDisplayConditions = (WrappedComponent) => {
 										)}
 										className="w-20 h-20 object-contain"
 									/>
-								</div>
+								</div> */}
 
 								{/* Description */}
 								<h2 className="text-base font-semibold text-gray-900 mb-2 text-center">
@@ -476,12 +477,12 @@ const withDisplayConditions = (WrappedComponent) => {
 									{conditions.map((condition, index) => (
 										<div
 											key={condition.id}
-											className="flex items-center gap-2"
+											className="flex items-center gap-1"
 										>
-											<div className="flex items-center justify-center overflow-hidden bg-gray-50 w-full">
+											<div className="flex items-center justify-center overflow-hidden bg-gray-50" style={{ width: "92%" }}>
 												{/* Include/Exclude Select - Native HTML */}
 												<div
-													className="rounded-lg"
+													className="rounded-sm"
 													style={{
 														border: "1px solid #d1d5db",
 														width: "120px",
@@ -530,7 +531,7 @@ const withDisplayConditions = (WrappedComponent) => {
 
 												{/* Display Location Select - Native HTML */}
 												<div
-													className="rounded-lg"
+													className="rounded-sm"
 													style={{
 														border: "1px solid #d1d5db",
 														width: "420px",
@@ -604,21 +605,22 @@ const withDisplayConditions = (WrappedComponent) => {
 												</div>
 											</div>
 											{conditions.length > 1 && (
-												<button
+												<Button
+												   variant="ghost"
 													onClick={() =>
 														handleRemoveCondition(
 															condition.id,
 														)
 													}
-													className="p-2 text-gray-400 hover:text-gray-600 transition-colors"
+													className="p-2 text-gray-400 hfe-remove-ring hover:text-gray-600 transition-colors"
 													aria-label={__(
 														"Remove condition",
 														"header-footer-elementor",
 													)}
 													disabled={isLoading}
 												>
-													<X size={20} />
-												</button>
+													<X size={18} />
+												</Button>
 											)}
 										</div>
 									))}
@@ -646,7 +648,7 @@ const withDisplayConditions = (WrappedComponent) => {
 											<div key={index} className="flex items-center gap-2">
 												<div className="flex items-center justify-center overflow-hidden bg-gray-50 w-full">
 													<div
-														className="rounded-lg"
+														className="rounded-sm"
 														style={{
 															border: "1px solid #d1d5db",
 															width: "420px",
@@ -708,8 +710,8 @@ const withDisplayConditions = (WrappedComponent) => {
 								</div>
 
 								{/* Canvas Template Section */}
-								<div className="mt-8 pt-6 border-t border-gray-200">
-									<div className="flex items-center justify-between">
+								<div className="mt-8 pt-6  border-t border-gray-200">
+									<div className="flex items-center justify-around">
 										<div>
 											<p className="text-gray-600 text-sm">
 												{__("Enable this layout to display on Elementor Canvas template pages.", "header-footer-elementor")}
@@ -720,7 +722,7 @@ const withDisplayConditions = (WrappedComponent) => {
 												checked={canvasTemplateEnabled}
 												onChange={handleCanvasTemplateChange}
 												disabled={isLoading}
-												size="md"
+												size="sm"
 											/>
 										</div>
 									</div>
