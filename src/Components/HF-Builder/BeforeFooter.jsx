@@ -43,15 +43,38 @@ const BeforeFooter = ({ openDisplayConditionsDialog, DisplayConditionsDialog, is
   
       
 
-  const handleDisplayConditons = (item) => {
-    // If item doesn't have an ID, create a new Before Footer layout
-    if (!item.id) {
-      // You can add your Before Footer creation logic here
-      console.log("Creating new Before Footer:", item.name);
-    }
-    
-    // Open the display conditions dialog
-    openDisplayConditionsDialog(item);
+  const handleCreateLayout = () => {
+    apiFetch({
+      path: "/hfe/v1/create-layout",
+      method: "POST",
+      data: {
+        title: "My Custom Layout",
+        type: 'before_footer',
+      },
+    })
+      .then((response) => {
+        if (response.success && response.post) {
+          // Update item with new post ID
+          const updatedItem = {
+            ...response.post,
+            id: response.post.id || response.post.ID,
+            title: response.post.title || response.post.post_title,
+          };
+          
+          // Open display conditions dialog for NEW post
+          openDisplayConditionsDialog(updatedItem, true); // Pass true for isNew
+        } else {
+          console.error("Failed to create post:", response);
+        }
+      })
+      .catch((error) => {
+        console.error("Error creating post:", error);
+      });
+  };
+
+  const handleDisplayConditions = (item) => {
+    // For existing items, pass false for isNew (or omit it)
+    openDisplayConditionsDialog(item, false);
   };
 
   const handleEditWithElementor = (item) => {
@@ -66,37 +89,42 @@ const BeforeFooter = ({ openDisplayConditionsDialog, DisplayConditionsDialog, is
   // Show loading state while fetching data
   if (isLoading) {
     return (
-      	<div className="flex items-center justify-center min-h-screen w-full">
-				<div className="">
-					<Loader
-						className=""
-						icon={null}
-						size="lg"
-						variant="primary"
-					/>
-				</div>
-			</div>
+      <>
+        <div className="flex items-center justify-center min-h-screen w-full">
+          <div className="">
+            <Loader
+              className=""
+              icon={null}
+              size="lg"
+              variant="primary"
+            />
+          </div>
+        </div>
+        
+        {/* Render the Display Conditions Dialog from HOC */}
+        <DisplayConditionsDialog />
+      </>
     );
   }
 
   if (!hasBeforeFooters) {
     return (
-      <EmptyState
-        description={__(
-          "You haven't created a before footer layout yet. Build a custom before footer to control how your site's pre-footer section looks and behaves across all pages.",
-          "header-footer-elementor"
-        )}
-        buttonText={__("Create Before Footer Layout", "header-footer-elementor")}
-        onClick={() => {
-          // TODO: Add actual before footer creation logic
-          window.open("", "_blank");
-        }}
-        className="bg-white p-6 ml-6 rounded-lg"
-      />
+      <>
+        <EmptyState
+          description={__(
+            "You haven't created a before footer layout yet. Build a custom before footer to control how your site's pre-footer section looks and behaves across all pages.",
+            "header-footer-elementor"
+          )}
+          buttonText={__("Create Before Footer Layout", "header-footer-elementor")}
+          onClick={handleCreateLayout}
+          className="bg-white p-6 ml-6 rounded-lg"
+        />
+        
+        {/* Render the Display Conditions Dialog from HOC */}
+        <DisplayConditionsDialog />
+      </>
     );
-  } 
-  else
-  {
+  } else {
     return (
       <>
         <div className="footer-section" style={{ paddingLeft: "40px", paddingRight: "40px" }}>
@@ -228,7 +256,7 @@ const BeforeFooter = ({ openDisplayConditionsDialog, DisplayConditionsDialog, is
                       }}
                       onClick={() => {
                         if (!isButtonLoading) {
-                          handleDisplayConditons(item);
+                          handleDisplayConditions(item);
                         }
                       }}
                       disabled={isButtonLoading}
