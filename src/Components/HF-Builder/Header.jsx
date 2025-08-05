@@ -7,12 +7,6 @@ import withDisplayConditions from "./DisplayConditionsDialog";
 import EmptyState from "./EmptyState";
 
 const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog, isButtonLoading }) => {
-	// Add debug logging to check if HOC props are available
-	console.log("Header component rendered with props:", {
-		openDisplayConditionsDialog: !!openDisplayConditionsDialog,
-		DisplayConditionsDialog: !!DisplayConditionsDialog
-	});
-	
 	const [headerItems, setHeaderItems] = useState([]);
 	const [hasHeaders, setHasHeaders] = useState(false);
 	const [isLoading, setIsLoading] = useState(true);
@@ -46,9 +40,6 @@ const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog, isButton
 	}, []);
 
 	const handleCreateLayout = () => {
-		console.log("handleCreateLayout called");
-		console.log("openDisplayConditionsDialog function available:", !!openDisplayConditionsDialog);
-		
 		apiFetch({
 			path: "/hfe/v1/create-layout",
 			method: "POST",
@@ -58,20 +49,13 @@ const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog, isButton
 			},
 		})
 			.then((response) => {
-				console.log("Create layout API response:", response);
-				
 				if (response.success && response.post) {
-					console.log("Post created successfully with data:", response.post);
-
 					// Update item with new post ID
 					const updatedItem = {
 						...response.post,
 						id: response.post.id || response.post.ID,
 						title: response.post.title || response.post.post_title,
 					};
-					
-					console.log("Formatted item for dialog:", updatedItem);
-					console.log("About to call openDisplayConditionsDialog with isNew=true");
 					
 					// Open display conditions dialog for NEW post
 					openDisplayConditionsDialog(updatedItem, true); // Pass true for isNew
@@ -85,8 +69,6 @@ const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog, isButton
 	};
 
 	const handleDisplayConditions = (item) => {
-		console.log("Opening display conditions for existing item:", item);
-		
 		// For existing items, pass false for isNew (or omit it)
 		openDisplayConditionsDialog(item, false);
 	};
@@ -103,33 +85,43 @@ const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog, isButton
 	// Show loading state while fetching data
 	if (isLoading) {
 		return (
-			<div className="flex items-center justify-center min-h-screen w-full">
-				<div className="">
-					<Loader
-						className=""
-						icon={null}
-						size="lg"
-						variant="primary"
-					/>
+			<>
+				<div className="flex items-center justify-center min-h-screen w-full">
+					<div className="">
+						<Loader
+							className=""
+							icon={null}
+							size="lg"
+							variant="primary"
+						/>
+					</div>
 				</div>
-			</div>
+				
+				{/* Render the Display Conditions Dialog from HOC */}
+				<DisplayConditionsDialog />
+			</>
 		);
 	}
 
 	if (!hasHeaders) {
 		return (
-			<EmptyState
-				description={__(
-					"You haven't created a header layout yet. Build a custom header to control how your site's top section looks and behaves across all pages.",
-					"header-footer-elementor",
-				)}
-				buttonText={__(
-					"Create Header Layout",
-					"header-footer-elementor",
-				)}
-				onClick={handleCreateLayout}
-				className="bg-white p-6 rounded-lg"
-			/>
+			<>
+				<EmptyState
+					description={__(
+						"You haven't created a header layout yet. Build a custom header to control how your site's top section looks and behaves across all pages.",
+						"header-footer-elementor",
+					)}
+					buttonText={__(
+						"Create Header Layout",
+						"header-footer-elementor",
+					)}
+					onClick={handleCreateLayout}
+					className="bg-white p-6 rounded-lg"
+				/>
+				
+				{/* Render the Display Conditions Dialog from HOC */}
+				<DisplayConditionsDialog />
+			</>
 		);
 	} else {
 		return (
@@ -151,7 +143,6 @@ const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog, isButton
 						className="grid grid-cols-1 md:grid-cols-2 gap-6"
 						style={{ paddingLeft: "30px" }}
 					>
-						{console.log(headerItems)}
 						{headerItems.map((item) => (
 							<div
 								key={item.title}
