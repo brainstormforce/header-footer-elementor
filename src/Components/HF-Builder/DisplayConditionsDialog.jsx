@@ -14,6 +14,7 @@ const withDisplayConditions = (WrappedComponent) => {
 		const [selectedItem, setSelectedItem] = useState(null);
 		const [conditions, setConditions] = useState([]);
 		const [isLoading, setIsLoading] = useState(false);
+		const [isButtonLoading, setIsButtonLoading] = useState(false);
 		const [error, setError] = useState(null);
 		const [locationOptions, setLocationOptions] = useState({});
 		const [nextId, setNextId] = useState(2);
@@ -86,23 +87,25 @@ const withDisplayConditions = (WrappedComponent) => {
 		const openDisplayConditionsDialog = (item, isNew = false) => {
 			// Check if locationOptions are loaded, if not, fetch them first
 			if (Object.keys(locationOptions).length === 0) {
+				setIsButtonLoading(true);
 				apiFetch({ path: "/hfe/v1/target-rules-options" })
 					.then((data) => {
 						if (data && data.locationOptions) {
 							setLocationOptions(data.locationOptions);
 							// Retry opening dialog after locationOptions are loaded
+							setIsButtonLoading(false);
 							setTimeout(() => openDisplayConditionsDialog(item, isNew), 100);
 						}
 					})
 					.catch((error) => {
 						console.error("Error fetching locationOptions:", error);
+						setIsButtonLoading(false);
 					});
 				return;
 			}
 			
 			// Reset all states first
 			setError(null);
-			setIsLoading(false);
 			setSelectedItem(item);
 			setIsNewPost(isNew);
 			
@@ -111,6 +114,7 @@ const withDisplayConditions = (WrappedComponent) => {
 				const defaultConditions = getDefaultConditions();
 				setConditions(defaultConditions);
 				setNextId(2);
+				setIsLoading(false);
 				setIsDialogOpen(true);
 				return;
 			}
@@ -120,13 +124,14 @@ const withDisplayConditions = (WrappedComponent) => {
 				const defaultConditions = getDefaultConditions();
 				setConditions(defaultConditions);
 				setNextId(2);
+				setIsLoading(false);
 				setIsDialogOpen(true);
 				return;
 			}
 
-			// For existing posts, try to fetch existing conditions
+			// For existing posts, fetch conditions first, then open dialog
+			setIsButtonLoading(true);
 			setIsLoading(true);
-			setIsDialogOpen(true);
 			
 			apiFetch({
 				path: `/hfe/v1/target-rules?post_id=${item.id}`,
@@ -157,7 +162,10 @@ const withDisplayConditions = (WrappedComponent) => {
 						setNextId(2);
 					}
 					
+					// Open dialog after data is loaded
 					setIsLoading(false);
+					setIsButtonLoading(false);
+					setIsDialogOpen(true);
 				})
 				.catch((err) => {
 					console.error("Error fetching conditions:", err);
@@ -165,7 +173,6 @@ const withDisplayConditions = (WrappedComponent) => {
 					const defaultConditions = getDefaultConditions();
 					setConditions(defaultConditions);
 					setNextId(2);
-					setIsLoading(false);
 					
 					// Only show error if it's not a 404 (post not found)
 					if (err.status !== 404) {
@@ -176,6 +183,11 @@ const withDisplayConditions = (WrappedComponent) => {
 							),
 						);
 					}
+					
+					// Open dialog even on error (with default conditions)
+					setIsLoading(false);
+					setIsButtonLoading(false);
+					setIsDialogOpen(true);
 				});
 		};
 
@@ -560,6 +572,7 @@ const withDisplayConditions = (WrappedComponent) => {
 				DisplayConditionsDialog={DisplayConditionsDialog}
 				isDialogOpen={isDialogOpen}
 				setIsDialogOpen={setIsDialogOpen}
+				isButtonLoading={isButtonLoading}
 			/>
 		);
 	};

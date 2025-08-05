@@ -441,7 +441,7 @@ msgid "Yes"
 msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:255
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:286
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:298
 #: src/Components/Onboarding/ExtendOnboardingWidget.jsx:305
 msgid "Close"
 msgstr ""
@@ -688,7 +688,7 @@ msgid "Create a custom block that can be used anywhere"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:552
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:306
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:318
 #: src/Components/HF-Builder/EmptyState.jsx:19
 msgid "Layout Template"
 msgstr ""
@@ -716,47 +716,54 @@ msgstr ""
 msgid "Edit Layout"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:812
+#: src/Components/HF-Builder/AllLayouts.jsx:815
+#: src/Components/HF-Builder/BeforeFooter.jsx:244
+#: src/Components/HF-Builder/Footer.jsx:244
+#: src/Components/HF-Builder/Header.jsx:285
+msgid "Display Conditions"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:834
 msgid "Draft"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:827
-#: src/Components/HF-Builder/BeforeFooter.jsx:253
+#: src/Components/HF-Builder/AllLayouts.jsx:849
+#: src/Components/HF-Builder/BeforeFooter.jsx:275
 #: src/Components/HF-Builder/CustomBlock.jsx:196
-#: src/Components/HF-Builder/Footer.jsx:253
-#: src/Components/HF-Builder/Header.jsx:299
+#: src/Components/HF-Builder/Footer.jsx:275
+#: src/Components/HF-Builder/Header.jsx:319
 msgid "Copy Shortcode"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:836
+#: src/Components/HF-Builder/AllLayouts.jsx:858
 msgid "Publish"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:845
-#: src/Components/HF-Builder/BeforeFooter.jsx:262
+#: src/Components/HF-Builder/AllLayouts.jsx:867
+#: src/Components/HF-Builder/BeforeFooter.jsx:284
 #: src/Components/HF-Builder/CustomBlock.jsx:205
-#: src/Components/HF-Builder/Footer.jsx:262
-#: src/Components/HF-Builder/Header.jsx:311
+#: src/Components/HF-Builder/Footer.jsx:284
+#: src/Components/HF-Builder/Header.jsx:331
 msgid "Disable"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:854
-#: src/Components/HF-Builder/BeforeFooter.jsx:271
+#: src/Components/HF-Builder/AllLayouts.jsx:876
+#: src/Components/HF-Builder/BeforeFooter.jsx:293
 #: src/Components/HF-Builder/CustomBlock.jsx:214
-#: src/Components/HF-Builder/Footer.jsx:271
-#: src/Components/HF-Builder/Header.jsx:323
+#: src/Components/HF-Builder/Footer.jsx:293
+#: src/Components/HF-Builder/Header.jsx:343
 msgid "Delete"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:934
+#: src/Components/HF-Builder/AllLayouts.jsx:956
 msgid "Layout published successfully!"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:955
+#: src/Components/HF-Builder/AllLayouts.jsx:977
 msgid "Failed to publish layout. Please try again."
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:971
+#: src/Components/HF-Builder/AllLayouts.jsx:993
 msgid "Error publishing layout. Please try again."
 msgstr ""
 
@@ -789,74 +796,74 @@ msgstr ""
 msgid "Custom Block Templates"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:147
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:152
 msgid "Entire Site"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:173
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:180
 msgid "Failed to load display conditions, using defaults"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:184
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:196
 msgid "No post selected"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:245
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:257
 msgid "Failed to save display conditions"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:273
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:285
 msgid "Configure Display Conditions"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:279
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:291
 msgid "New Layout"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:316
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:328
 msgid "Where Should Your Layout Appear?"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:322
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:334
 msgid "Decide where you want this layout to appear on your site."
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:327
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:339
 msgid ""
 "You can show it across your entire site or only on specific pages—your "
 "choice!"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:390
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:402
 msgid "Include"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:396
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:408
 msgid "Exclude"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:48
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:49
 msgid "Failed to load display conditions"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:487
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:499
 msgid "Remove condition"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:507
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:519
 msgid "Add Conditions"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:525
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:537
 #: src/Components/Settings/VersionControl.jsx:132
 msgid "Cancel"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:536
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:548
 msgid "Saving..."
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:542
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:554
 msgid "Save Conditions"
 msgstr ""
 
