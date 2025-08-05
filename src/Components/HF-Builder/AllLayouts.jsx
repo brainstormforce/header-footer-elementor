@@ -109,8 +109,6 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
 			})
 				.then((response) => {
 					if (response.success && response.post_id) {
-						console.log("Post created with ID:", response.post_id);
-
 						// Update item with new post ID
 						const updatedItem = { ...item, id: response.post_id };
 
@@ -120,15 +118,17 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
 							const elementorEditUrl = `${window.location.origin}/wp-admin/post.php?post=${response.post_id}&action=elementor`;
 							window.open(elementorEditUrl, '_blank');
 						} else {
-							// Open display conditions dialog using HOC function
-							openDisplayConditionsDialog(updatedItem);
+							// Open display conditions dialog using HOC function with isNew flag
+							openDisplayConditionsDialog(updatedItem, true);
 						}
 					} else {
 						console.error("Failed to create post:", response);
+						toast.error(__('Failed to create layout. Please try again.', 'header-footer-elementor'));
 					}
 				})
 				.catch((error) => {
 					console.error("Error creating post:", error);
+					toast.error(__('Error creating layout. Please try again.', 'header-footer-elementor'));
 				});
 		} else {
 			// Post already exists, open dialog directly
@@ -137,7 +137,7 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
 				const elementorEditUrl = `${window.location.origin}/wp-admin/post.php?post=${item.id}&action=elementor`;
 				window.open(elementorEditUrl, '_blank');
 			} else {
-				openDisplayConditionsDialog(item);
+				openDisplayConditionsDialog(item, false);
 			}
 		}
 	};
@@ -147,7 +147,7 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
 	};
 
 	const handleDisplayConditons = (item) => {
-		openDisplayConditionsDialog(item);
+		openDisplayConditionsDialog(item, false);
 	};
 
 	/**
@@ -314,6 +314,9 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
                         </p>
                     </div>
                 </div>
+                
+                {/* Render the Display Conditions Dialog from HOC */}
+                <DisplayConditionsDialog />
                 
                 {/* React Hot Toast Notifications */}
                 <Toaster
@@ -503,6 +506,9 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
                         </div>
                     </div>
                     
+                    {/* Render the Display Conditions Dialog from HOC */}
+                    <DisplayConditionsDialog />
+                    
                     {/* React Hot Toast Notifications */}
                     <Toaster
                         position="bottom-right"
@@ -587,6 +593,9 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
                     </Button>
                     </div>
                 </div>
+                
+                {/* Render the Display Conditions Dialog from HOC */}
+                <DisplayConditionsDialog />
                 
                 {/* React Hot Toast Notifications */}
                 <Toaster

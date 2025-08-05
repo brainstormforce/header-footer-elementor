@@ -53,11 +53,6 @@ const withDisplayConditions = (WrappedComponent) => {
 				});
 		}, []);
 
-		// Debug useEffect to monitor dialog state changes
-		useEffect(() => {
-			console.log("Dialog state changed - isDialogOpen:", isDialogOpen, "selectedItem:", selectedItem);
-		}, [isDialogOpen, selectedItem]);
-
 		const handleAddCondition = () => {
 			const newCondition = {
 				id: nextId,
@@ -89,96 +84,99 @@ const withDisplayConditions = (WrappedComponent) => {
 		};
 
 		const openDisplayConditionsDialog = (item, isNew = false) => {
-			console.log("Opening dialog for item:", item, "isNew:", isNew);
-			console.log("Current dialog state before opening:", isDialogOpen);
-			
-			// Force close dialog first, then reopen with new data
-			setIsDialogOpen(false);
-			
-			// Use setTimeout to ensure state update is processed
-			setTimeout(() => {
-				// Reset all states first
-				setError(null);
-				setIsLoading(false);
-				
-				// Set the selected item and new post flag
-				setSelectedItem(item);
-				setIsNewPost(isNew);
-				
-				// If it's a new post or no ID, use default conditions immediately
-				if (isNew || !item.id) {
-					console.log("Setting default conditions for new post");
-					const defaultConditions = getDefaultConditions();
-					console.log("Default conditions:", defaultConditions);
-					setConditions(defaultConditions);
-					setNextId(2);
-					
-					// Open dialog after setting conditions
-					console.log("Opening dialog for new post");
-					setIsDialogOpen(true);
-					return;
-				}
-
-				// For existing posts, try to fetch existing conditions
-				console.log("Fetching conditions for existing post with ID:", item.id);
-				setIsLoading(true);
-				setIsDialogOpen(true); // Open dialog immediately, show loading state
-				
-				apiFetch({
-					path: `/hfe/v1/target-rules?post_id=${item.id}`,
-				})
+			// Check if locationOptions are loaded, if not, fetch them first
+			if (Object.keys(locationOptions).length === 0) {
+				apiFetch({ path: "/hfe/v1/target-rules-options" })
 					.then((data) => {
-						console.log("Fetched conditions data:", data);
-						
-						// Check if we have valid conditions data
-						if (data && data.conditions && Array.isArray(data.conditions) && data.conditions.length > 0) {
-							// Map existing conditions with proper IDs
-							const enrichedConditions = data.conditions.map((condition, index) => ({
-								id: index + 1,
-								conditionType: {
-									id: condition.conditionType?.id || condition.type || "include",
-									name: condition.conditionType?.name || 
-										  (condition.type === "exclude" ? __("Exclude", "header-footer-elementor") : __("Include", "header-footer-elementor"))
-								},
-								displayLocation: {
-									id: condition.displayLocation?.id || condition.location || "entire-site",
-									name: condition.displayLocation?.name || condition.locationName || __("Entire Site", "header-footer-elementor")
-								}
-							}));
-							
-							console.log("Setting enriched conditions:", enrichedConditions);
-							setConditions(enrichedConditions);
-							setNextId(enrichedConditions.length + 1);
-						} else {
-							// No existing conditions found, use defaults
-							console.log("No existing conditions found, using defaults");
-							const defaultConditions = getDefaultConditions();
-							setConditions(defaultConditions);
-							setNextId(2);
+						if (data && data.locationOptions) {
+							setLocationOptions(data.locationOptions);
+							// Retry opening dialog after locationOptions are loaded
+							setTimeout(() => openDisplayConditionsDialog(item, isNew), 100);
 						}
-						
-						setIsLoading(false);
 					})
-					.catch((err) => {
-						console.error("Error fetching conditions:", err);
-						// On error, fall back to default conditions
-						console.log("Error fetching conditions, using defaults");
+					.catch((error) => {
+						console.error("Error fetching locationOptions:", error);
+					});
+				return;
+			}
+			
+			// Reset all states first
+			setError(null);
+			setIsLoading(false);
+			setSelectedItem(item);
+			setIsNewPost(isNew);
+			
+			// If it's a new post, use default conditions immediately
+			if (isNew) {
+				const defaultConditions = getDefaultConditions();
+				setConditions(defaultConditions);
+				setNextId(2);
+				setIsDialogOpen(true);
+				return;
+			}
+			
+			// If no ID exists, treat as new post
+			if (!item.id) {
+				const defaultConditions = getDefaultConditions();
+				setConditions(defaultConditions);
+				setNextId(2);
+				setIsDialogOpen(true);
+				return;
+			}
+
+			// For existing posts, try to fetch existing conditions
+			setIsLoading(true);
+			setIsDialogOpen(true);
+			
+			apiFetch({
+				path: `/hfe/v1/target-rules?post_id=${item.id}`,
+			})
+				.then((data) => {
+					// Check if we have valid conditions data
+					if (data && data.conditions && Array.isArray(data.conditions) && data.conditions.length > 0) {
+						// Map existing conditions with proper IDs
+						const enrichedConditions = data.conditions.map((condition, index) => ({
+							id: index + 1,
+							conditionType: {
+								id: condition.conditionType?.id || condition.type || "include",
+								name: condition.conditionType?.name || 
+									  (condition.type === "exclude" ? __("Exclude", "header-footer-elementor") : __("Include", "header-footer-elementor"))
+							},
+							displayLocation: {
+								id: condition.displayLocation?.id || condition.location || "entire-site",
+								name: condition.displayLocation?.name || condition.locationName || __("Entire Site", "header-footer-elementor")
+							}
+						}));
+						
+						setConditions(enrichedConditions);
+						setNextId(enrichedConditions.length + 1);
+					} else {
+						// No existing conditions found, use defaults
 						const defaultConditions = getDefaultConditions();
 						setConditions(defaultConditions);
 						setNextId(2);
-						setIsLoading(false);
-						
-						// Only show error if it's not a 404 (post not found)
-						if (err.status !== 404) {
-							setError(
-								__(
-									"Failed to load display conditions, using defaults",
-									"header-footer-elementor",
-								),
-							);
-						}
-					});
-			}, 100); // Small delay to ensure state reset
+					}
+					
+					setIsLoading(false);
+				})
+				.catch((err) => {
+					console.error("Error fetching conditions:", err);
+					// On error, fall back to default conditions
+					const defaultConditions = getDefaultConditions();
+					setConditions(defaultConditions);
+					setNextId(2);
+					setIsLoading(false);
+					
+					// Only show error if it's not a 404 (post not found)
+					if (err.status !== 404) {
+						setError(
+							__(
+								"Failed to load display conditions, using defaults",
+								"header-footer-elementor",
+							),
+						);
+					}
+				});
 		};
 
 		const handleSaveConditions = () => {
@@ -211,16 +209,12 @@ const withDisplayConditions = (WrappedComponent) => {
 				},
 			};
 
-			console.log("Saving conditions:", formattedData);
-
 			apiFetch({
 				path: "/hfe/v1/target-rules",
 				method: "POST",
 				data: formattedData,
 			})
 				.then((response) => {
-					console.log("Save response:", response);
-					
 					if (response.success) {
 						setIsDialogOpen(false);
 						
@@ -258,19 +252,21 @@ const withDisplayConditions = (WrappedComponent) => {
 		};
 
 		const DisplayConditionsDialog = () => {
-			console.log("DisplayConditionsDialog render - isDialogOpen:", isDialogOpen, "selectedItem:", selectedItem, "isNewPost:", isNewPost);
-			console.log("Conditions:", conditions);
-			console.log("LocationOptions:", locationOptions);
+			// Don't render if no selectedItem
+			if (!selectedItem) {
+				return null;
+			}
 			
 			return (
 				<Dialog
 					design="simple"
 					open={isDialogOpen}
 					setOpen={setIsDialogOpen}
-					key={`dialog-${selectedItem?.id}-${isNewPost}`}
+					key={`dialog-${selectedItem?.id}-${isNewPost}-${Date.now()}`}
+					style={{ zIndex: 999999 }}
 				>
-					<Dialog.Backdrop />
-					<Dialog.Panel className="w-1/2 max-w-3xl">
+					<Dialog.Backdrop style={{ zIndex: 999998 }} />
+					<Dialog.Panel className="w-1/2 max-w-3xl" style={{ zIndex: 999999 }}>
 						<Dialog.Header className="text-center p-4">
 							<div className="flex items-center justify-between">
 								<Dialog.Title className="text-xl font-normal">
