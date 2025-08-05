@@ -16,7 +16,7 @@ const Sidebar = () => {
 			id: 1,
 			icon: (
 				<img
-					src={`${hfeSettingsData.all_layouts}`}
+					src={`${hfeSettingsData.all_layout_unselected}`}
 					alt={__("Custom SVG", "header-footer-elementor")}
 					className="object-contain"
 				/>
@@ -35,14 +35,14 @@ const Sidebar = () => {
 			id: 2,
 			icon: (
 				<img
-					src={`${hfeSettingsData.all_layouts}`}
+					src={`${hfeSettingsData.all_headers_unselected}`}
 					alt={__("Custom SVG", "header-footer-elementor")}
 					className="object-contain"
 				/>
 			),
 			selected: (
 				<img
-					src={`${hfeSettingsData.all_layouts}`}
+					src={`${hfeSettingsData.all_headers}`}
 					alt={__("Custom SVG", "header-footer-elementor")}
 					className="object-contain"
 				/>
@@ -54,14 +54,14 @@ const Sidebar = () => {
 			id: 3,
 			icon: (
 				<img
-					src={`${hfeSettingsData.all_layouts}`}
+					src={`${hfeSettingsData.all_footers_unselected}`}
 					alt={__("Custom SVG", "header-footer-elementor")}
 					className="object-contain"
 				/>
 			),
 			selected: (
 				<img
-					src={`${hfeSettingsData.all_layouts}`}
+					src={`${hfeSettingsData.all_footers}`}
 					alt={__("Custom SVG", "header-footer-elementor")}
 					className="object-contain"
 				/>
@@ -73,14 +73,14 @@ const Sidebar = () => {
 			id: 4,
 			icon: (
 				<img
-					src={`${hfeSettingsData.all_layouts}`}
+					src={`${hfeSettingsData.all_before_footers_unselected}`}
 					alt={__("Custom SVG", "header-footer-elementor")}
 					className="object-contain"
 				/>
 			),
 			selected: (
 				<img
-					src={`${hfeSettingsData.all_layouts}`}
+					src={`${hfeSettingsData.all_before_footers}`}
 					alt={__("Custom SVG", "header-footer-elementor")}
 					className="object-contain"
 				/>
@@ -92,14 +92,14 @@ const Sidebar = () => {
 			id: 5,
 			icon: (
 				<img
-					src={`${hfeSettingsData.all_layouts}`}
+					src={`${hfeSettingsData.all_custom_unselected}`}
 					alt={__("Custom SVG", "header-footer-elementor")}
 					className="object-contain"
 				/>
 			),
 			selected: (
 				<img
-					src={`${hfeSettingsData.all_layouts}`}
+					src={`${hfeSettingsData.all_custom}`}
 					alt={__("Custom SVG", "header-footer-elementor")}
 					className="object-contain"
 				/>

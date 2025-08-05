@@ -54,7 +54,7 @@ const SidebarMenu = ({ items, onSelectItem }) => {
 					borderColor: "#E5E7EB",
 				}}
 			/>
-			<div className="flex items-center gap-1 ml-1 mb-4">
+			<div className="flex items-center ml-1 mb-4" style={{ cursor: "pointer", gap: "8px" }}>
 				<CircleHelp size={22} color="#6B7280" />
 				<p className="text-base text-[%6B7280] font-normal">Help</p>
 			</div>
