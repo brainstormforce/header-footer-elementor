@@ -992,7 +992,7 @@ class Basic_Posts extends Common_Widget {
 		$this->query_posts();
 
 		if ( ! $this->query->have_posts() ) {
-			echo '<p>' . __( 'No posts found.', 'header-footer-elementor' ) . '</p>';
+			echo '<p>' . esc_html__( 'No posts found.', 'header-footer-elementor' ) . '</p>';
 			return;
 		}
 
