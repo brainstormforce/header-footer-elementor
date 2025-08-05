@@ -2144,3 +2144,103 @@ body .elementor .hfe-button-wrapper a {
 .hfe-reading-progress-bar{
     height: 4px;
 }
+
+/* Basic Posts Widget CSS */
+.hfe-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.hfe-post-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hfe-post-card:hover {
+    transform: translateY(-2px);
+}
+
+.hfe-post-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.hfe-post-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.hfe-post-image:hover img {
+    transform: scale(1.05);
+}
+
+.hfe-post-content {
+    padding: 20px;
+}
+
+.hfe-post-title {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.hfe-post-title a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.hfe-post-title a:hover {
+    color: #007cba;
+}
+
+.hfe-post-meta {
+    margin: 0 0 15px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.hfe-post-meta .hfe-post-author {
+    margin-left: 10px;
+}
+
+.hfe-post-excerpt {
+    margin: 0 0 15px 0;
+    color: #555;
+    line-height: 1.6;
+}
+
+.hfe-read-more {
+    color: #007cba;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.hfe-read-more:hover {
+    color: #005a87;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hfe-posts-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .hfe-post-content {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hfe-posts-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}

@@ -1,0 +1,1066 @@
+<?php
+/**
+ * Basic Posts Widget for Header Footer Elementor.
+ *
+ * @package header-footer-elementor
+ */
+
+namespace HFE\WidgetsManager\Widgets\BasicPosts;
+
+use Elementor\Controls_Manager;
+use Elementor\Group_Control_Typography;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
+use Elementor\Group_Control_Border;
+use Elementor\Group_Control_Box_Shadow;
+use Elementor\Group_Control_Background;
+use Elementor\Utils;
+
+use HFE\WidgetsManager\Base\Common_Widget;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
+/**
+ * HFE Basic Posts widget
+ *
+ * Fast and lightweight posts widget with basic card layout
+ *
+ * @since x.x.x
+ */
+class Basic_Posts extends Common_Widget {
+
+	/**
+	 * Query object
+	 *
+	 * @var \WP_Query
+	 */
+	protected $query = null;
+
+	/**
+	 * Retrieve the widget name.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 * @return string Widget name.
+	 */
+	public function get_name() {
+		return parent::get_widget_slug( 'Basic_Posts' );
+	}
+
+	/**
+	 * Retrieve the widget title.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 * @return string Widget title.
+	 */
+	public function get_title() {
+		return __( 'Basic Posts', 'header-footer-elementor' );
+	}
+
+	/**
+	 * Retrieve the widget icon.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 * @return string Widget icon.
+	 */
+	public function get_icon() {
+		return 'hfe-icon-posts';
+	}
+
+	/**
+	 * Retrieve the list of keywords the widget belongs to.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 * @return array Widget keywords.
+	 */
+	public function get_keywords() {
+		return [ 'posts', 'blog', 'grid', 'cards', 'basic', 'fast' ];
+	}
+
+	/**
+	 * Indicates if the widget's content is dynamic.
+	 *
+	 * @since x.x.x
+	 * @return bool True for dynamic content.
+	 */
+	protected function is_dynamic_content(): bool {
+		return true;
+	}
+
+	/**
+	 * Register widget controls.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function register_controls(): void {
+		$this->register_general_controls();
+		$this->register_query_controls();
+		$this->register_image_controls();
+		$this->register_content_controls();
+		$this->register_meta_controls();
+		$this->register_excerpt_controls();
+		$this->register_read_more_controls();
+		
+		// Style Controls
+		$this->register_layout_style_controls();
+		$this->register_card_style_controls();
+		$this->register_image_style_controls();
+		$this->register_title_style_controls();
+		$this->register_meta_style_controls();
+		$this->register_excerpt_style_controls();
+		$this->register_read_more_style_controls();
+	}
+
+	/**
+	 * Register Query Controls.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function register_query_controls() {
+		$this->start_controls_section(
+			'section_query',
+			[
+				'label' => __( 'Query', 'header-footer-elementor' ),
+				'tab'   => Controls_Manager::TAB_CONTENT,
+			]
+		);
+
+		$this->add_control(
+			'post_type',
+			[
+				'label'   => __( 'Post Type', 'header-footer-elementor' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'post',
+				'options' => $this->get_post_types(),
+			]
+		);
+
+		$this->add_control(
+			'orderby',
+			[
+				'label'   => __( 'Order By', 'header-footer-elementor' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'date',
+				'options' => [
+					'date'          => __( 'Date', 'header-footer-elementor' ),
+					'title'         => __( 'Title', 'header-footer-elementor' ),
+					'menu_order'    => __( 'Menu Order', 'header-footer-elementor' ),
+					'rand'          => __( 'Random', 'header-footer-elementor' ),
+					'comment_count' => __( 'Comment Count', 'header-footer-elementor' ),
+				],
+			]
+		);
+
+		$this->add_control(
+			'order',
+			[
+				'label'   => __( 'Order', 'header-footer-elementor' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'desc',
+				'options' => [
+					'asc'  => __( 'ASC', 'header-footer-elementor' ),
+					'desc' => __( 'DESC', 'header-footer-elementor' ),
+				],
+			]
+		);
+
+		$this->add_control(
+			'exclude_current',
+			[
+				'label'        => __( 'Exclude Current Post', 'header-footer-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Yes', 'header-footer-elementor' ),
+				'label_off'    => __( 'No', 'header-footer-elementor' ),
+				'return_value' => 'yes',
+				'default'      => '',
+			]
+		);
+
+		$this->end_controls_section();
+	}
+
+	/**
+	 * Register General Controls.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function register_general_controls() {
+		$this->start_controls_section(
+			'section_general',
+			[
+				'label' => __( 'General', 'header-footer-elementor' ),
+				'tab'   => Controls_Manager::TAB_CONTENT,
+			]
+		);
+
+		$this->add_control(
+			'posts_per_page',
+			[
+				'label'   => __( 'Posts Per Page', 'header-footer-elementor' ),
+				'type'    => Controls_Manager::NUMBER,
+				'default' => 6,
+				'min'     => 1,
+				'max'     => 100,
+			]
+		);
+
+		$this->add_responsive_control(
+			'columns',
+			[
+				'label'              => __( 'Columns', 'header-footer-elementor' ),
+				'type'               => Controls_Manager::SELECT,
+				'default'            => '3',
+				'tablet_default'     => '2',
+				'mobile_default'     => '1',
+				'options'            => [
+					'1' => '1',
+					'2' => '2',
+					'3' => '3',
+					'4' => '4',
+					'5' => '5',
+					'6' => '6',
+				],
+				'selectors'          => [
+					'{{WRAPPER}} .hfe-posts-grid' => 'grid-template-columns: repeat({{VALUE}}, 1fr);',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+	}
+
+	/**
+	 * Register Image Controls.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function register_image_controls() {
+		$this->start_controls_section(
+			'section_image',
+			[
+				'label' => __( 'Featured Image', 'header-footer-elementor' ),
+				'tab'   => Controls_Manager::TAB_CONTENT,
+			]
+		);
+
+		$this->add_control(
+			'show_image',
+			[
+				'label'        => __( 'Show Featured Image', 'header-footer-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Show', 'header-footer-elementor' ),
+				'label_off'    => __( 'Hide', 'header-footer-elementor' ),
+				'return_value' => 'yes',
+				'default'      => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'image_size',
+			[
+				'label'     => __( 'Image Size', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'medium',
+				'options'   => $this->get_image_sizes(),
+				'condition' => [
+					'show_image' => 'yes',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+	}
+
+	/**
+	 * Register Content Controls.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function register_content_controls() {
+		$this->start_controls_section(
+			'section_content',
+			[
+				'label' => __( 'Title', 'header-footer-elementor' ),
+				'tab'   => Controls_Manager::TAB_CONTENT,
+			]
+		);
+
+		$this->add_control(
+			'show_title',
+			[
+				'label'        => __( 'Show Title', 'header-footer-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Show', 'header-footer-elementor' ),
+				'label_off'    => __( 'Hide', 'header-footer-elementor' ),
+				'return_value' => 'yes',
+				'default'      => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'title_tag',
+			[
+				'label'     => __( 'Title HTML Tag', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'h3',
+				'options'   => [
+					'h1' => 'H1',
+					'h2' => 'H2',
+					'h3' => 'H3',
+					'h4' => 'H4',
+					'h5' => 'H5',
+					'h6' => 'H6',
+				],
+				'condition' => [
+					'show_title' => 'yes',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+	}
+
+	/**
+	 * Register Meta Controls.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function register_meta_controls() {
+		$this->start_controls_section(
+			'section_meta',
+			[
+				'label' => __( 'Meta', 'header-footer-elementor' ),
+				'tab'   => Controls_Manager::TAB_CONTENT,
+			]
+		);
+
+		$this->add_control(
+			'show_meta',
+			[
+				'label'        => __( 'Show Meta Data', 'header-footer-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Show', 'header-footer-elementor' ),
+				'label_off'    => __( 'Hide', 'header-footer-elementor' ),
+				'return_value' => 'yes',
+				'default'      => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'show_date',
+			[
+				'label'        => __( 'Show Date', 'header-footer-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Show', 'header-footer-elementor' ),
+				'label_off'    => __( 'Hide', 'header-footer-elementor' ),
+				'return_value' => 'yes',
+				'default'      => 'yes',
+				'condition'    => [
+					'show_meta' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'show_author',
+			[
+				'label'        => __( 'Show Author', 'header-footer-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Show', 'header-footer-elementor' ),
+				'label_off'    => __( 'Hide', 'header-footer-elementor' ),
+				'return_value' => 'yes',
+				'default'      => 'yes',
+				'condition'    => [
+					'show_meta' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'meta_separator',
+			[
+				'label'     => __( 'Meta Separator', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::TEXT,
+				'default'   => ' • ',
+				'condition' => [
+					'show_meta' => 'yes',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+	}
+
+	/**
+	 * Register Excerpt Controls.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function register_excerpt_controls() {
+		$this->start_controls_section(
+			'section_excerpt',
+			[
+				'label' => __( 'Excerpt', 'header-footer-elementor' ),
+				'tab'   => Controls_Manager::TAB_CONTENT,
+			]
+		);
+
+		$this->add_control(
+			'show_excerpt',
+			[
+				'label'        => __( 'Show Excerpt', 'header-footer-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Show', 'header-footer-elementor' ),
+				'label_off'    => __( 'Hide', 'header-footer-elementor' ),
+				'return_value' => 'yes',
+				'default'      => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'excerpt_length',
+			[
+				'label'     => __( 'Excerpt Length', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::NUMBER,
+				'default'   => 20,
+				'min'       => 0,
+				'max'       => 100,
+				'condition' => [
+					'show_excerpt' => 'yes',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+	}
+
+	/**
+	 * Register Read More Controls.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function register_read_more_controls() {
+		$this->start_controls_section(
+			'section_read_more',
+			[
+				'label' => __( 'Call to Action', 'header-footer-elementor' ),
+				'tab'   => Controls_Manager::TAB_CONTENT,
+			]
+		);
+
+		$this->add_control(
+			'show_read_more',
+			[
+				'label'        => __( 'Show Read More', 'header-footer-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Show', 'header-footer-elementor' ),
+				'label_off'    => __( 'Hide', 'header-footer-elementor' ),
+				'return_value' => 'yes',
+				'default'      => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'read_more_text',
+			[
+				'label'     => __( 'Read More Text', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::TEXT,
+				'default'   => __( 'Read More', 'header-footer-elementor' ),
+				'condition' => [
+					'show_read_more' => 'yes',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+	}
+
+	/**
+	 * Register Layout Style Controls.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function register_layout_style_controls() {
+		$this->start_controls_section(
+			'section_layout_style',
+			[
+				'label' => __( 'Layout', 'header-footer-elementor' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_responsive_control(
+			'column_gap',
+			[
+				'label'     => __( 'Column Gap', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SLIDER,
+				'default'   => [
+					'size' => 20,
+				],
+				'range'     => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .hfe-posts-grid' => 'column-gap: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'row_gap',
+			[
+				'label'     => __( 'Row Gap', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SLIDER,
+				'default'   => [
+					'size' => 30,
+				],
+				'range'     => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .hfe-posts-grid' => 'row-gap: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+	}
+
+	/**
+	 * Register Card Style Controls.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function register_card_style_controls() {
+		$this->start_controls_section(
+			'section_card_style',
+			[
+				'label' => __( 'Card', 'header-footer-elementor' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name'     => 'card_background',
+				'label'    => __( 'Background', 'header-footer-elementor' ),
+				'types'    => [ 'classic', 'gradient' ],
+				'selector' => '{{WRAPPER}} .hfe-post-card',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name'     => 'card_border',
+				'label'    => __( 'Border', 'header-footer-elementor' ),
+				'selector' => '{{WRAPPER}} .hfe-post-card',
+			]
+		);
+
+		$this->add_responsive_control(
+			'card_border_radius',
+			[
+				'label'      => __( 'Border Radius', 'header-footer-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'selectors'  => [
+					'{{WRAPPER}} .hfe-post-card' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name'     => 'card_box_shadow',
+				'label'    => __( 'Box Shadow', 'header-footer-elementor' ),
+				'selector' => '{{WRAPPER}} .hfe-post-card',
+			]
+		);
+
+		$this->add_responsive_control(
+			'card_padding',
+			[
+				'label'      => __( 'Padding', 'header-footer-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', 'em', '%' ],
+				'selectors'  => [
+					'{{WRAPPER}} .hfe-post-card' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+	}
+
+	/**
+	 * Register Image Style Controls.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function register_image_style_controls() {
+		$this->start_controls_section(
+			'section_image_style',
+			[
+				'label'     => __( 'Featured Image', 'header-footer-elementor' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'show_image' => 'yes',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'image_border_radius',
+			[
+				'label'      => __( 'Border Radius', 'header-footer-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'selectors'  => [
+					'{{WRAPPER}} .hfe-post-image img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'image_spacing',
+			[
+				'label'     => __( 'Spacing', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => [
+					'px' => [
+						'min' => 0,
+						'max' => 50,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .hfe-post-image' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+	}
+
+	/**
+	 * Register Title Style Controls.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function register_title_style_controls() {
+		$this->start_controls_section(
+			'section_title_style',
+			[
+				'label'     => __( 'Title', 'header-footer-elementor' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'show_title' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'title_color',
+			[
+				'label'     => __( 'Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'global'    => [
+					'default' => Global_Colors::COLOR_PRIMARY,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .hfe-post-title a' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'title_hover_color',
+			[
+				'label'     => __( 'Hover Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .hfe-post-title a:hover' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'     => 'title_typography',
+				'label'    => __( 'Typography', 'header-footer-elementor' ),
+				'global'   => [
+					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
+				],
+				'selector' => '{{WRAPPER}} .hfe-post-title',
+			]
+		);
+
+		$this->add_responsive_control(
+			'title_spacing',
+			[
+				'label'     => __( 'Spacing', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => [
+					'px' => [
+						'min' => 0,
+						'max' => 50,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .hfe-post-title' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+	}
+
+	/**
+	 * Register Meta Style Controls.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function register_meta_style_controls() {
+		$this->start_controls_section(
+			'section_meta_style',
+			[
+				'label'     => __( 'Meta', 'header-footer-elementor' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'show_meta' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'meta_color',
+			[
+				'label'     => __( 'Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'global'    => [
+					'default' => Global_Colors::COLOR_SECONDARY,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .hfe-post-meta' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'     => 'meta_typography',
+				'label'    => __( 'Typography', 'header-footer-elementor' ),
+				'global'   => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
+				'selector' => '{{WRAPPER}} .hfe-post-meta',
+			]
+		);
+
+		$this->add_responsive_control(
+			'meta_spacing',
+			[
+				'label'     => __( 'Spacing', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => [
+					'px' => [
+						'min' => 0,
+						'max' => 50,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .hfe-post-meta' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+	}
+
+	/**
+	 * Register Excerpt Style Controls.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function register_excerpt_style_controls() {
+		$this->start_controls_section(
+			'section_excerpt_style',
+			[
+				'label'     => __( 'Excerpt', 'header-footer-elementor' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'show_excerpt' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'excerpt_color',
+			[
+				'label'     => __( 'Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'global'    => [
+					'default' => Global_Colors::COLOR_TEXT,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .hfe-post-excerpt' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'     => 'excerpt_typography',
+				'label'    => __( 'Typography', 'header-footer-elementor' ),
+				'global'   => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
+				'selector' => '{{WRAPPER}} .hfe-post-excerpt',
+			]
+		);
+
+		$this->add_responsive_control(
+			'excerpt_spacing',
+			[
+				'label'     => __( 'Spacing', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => [
+					'px' => [
+						'min' => 0,
+						'max' => 50,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .hfe-post-excerpt' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+	}
+
+	/**
+	 * Register Read More Style Controls.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function register_read_more_style_controls() {
+		$this->start_controls_section(
+			'section_read_more_style',
+			[
+				'label'     => __( 'Call to Action', 'header-footer-elementor' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'show_read_more' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'read_more_color',
+			[
+				'label'     => __( 'Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'global'    => [
+					'default' => Global_Colors::COLOR_ACCENT,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .hfe-read-more' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'read_more_hover_color',
+			[
+				'label'     => __( 'Hover Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .hfe-read-more:hover' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'     => 'read_more_typography',
+				'label'    => __( 'Typography', 'header-footer-elementor' ),
+				'selector' => '{{WRAPPER}} .hfe-read-more',
+			]
+		);
+
+		$this->end_controls_section();
+	}
+
+	/**
+	 * Get available post types.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 * @return array
+	 */
+	protected function get_post_types() {
+		$post_types = get_post_types( [ 'public' => true ], 'objects' );
+		$options    = [];
+
+		foreach ( $post_types as $post_type ) {
+			$options[ $post_type->name ] = $post_type->label;
+		}
+
+		return $options;
+	}
+
+	/**
+	 * Get available image sizes.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 * @return array
+	 */
+	protected function get_image_sizes() {
+		$image_sizes = get_intermediate_image_sizes();
+		$options     = [];
+
+		$options['full'] = __( 'Full', 'header-footer-elementor' );
+
+		foreach ( $image_sizes as $size ) {
+			$options[ $size ] = ucwords( str_replace( '_', ' ', $size ) );
+		}
+
+		return $options;
+	}
+
+	/**
+	 * Query posts.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function query_posts() {
+		$settings = $this->get_settings_for_display();
+
+		$args = [
+			'post_type'      => $settings['post_type'],
+			'posts_per_page' => $settings['posts_per_page'],
+			'orderby'        => $settings['orderby'],
+			'order'          => $settings['order'],
+			'post_status'    => 'publish',
+		];
+
+		// Exclude current post if enabled
+		if ( 'yes' === $settings['exclude_current'] && is_singular() ) {
+			$args['post__not_in'] = [ get_the_ID() ];
+		}
+
+		$this->query = new \WP_Query( $args );
+	}
+
+	/**
+	 * Render the widget output on the frontend.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 */
+	protected function render() {
+		$settings = $this->get_settings_for_display();
+
+		$this->query_posts();
+
+		if ( ! $this->query->have_posts() ) {
+			echo '<p>' . __( 'No posts found.', 'header-footer-elementor' ) . '</p>';
+			return;
+		}
+
+		$title_tag = isset( $settings['title_tag'] ) ? $settings['title_tag'] : 'h3';
+
+		?>
+		<div class="hfe-posts-grid">
+			<?php
+			while ( $this->query->have_posts() ) :
+				$this->query->the_post();
+				?>
+				<article class="hfe-post-card">
+					<?php if ( 'yes' === $settings['show_image'] && has_post_thumbnail() ) : ?>
+						<div class="hfe-post-image">
+							<a href="<?php the_permalink(); ?>">
+								<?php the_post_thumbnail( $settings['image_size'] ); ?>
+							</a>
+						</div>
+					<?php endif; ?>
+
+					<div class="hfe-post-content">
+						<?php if ( 'yes' === $settings['show_title'] ) : ?>
+							<<?php echo esc_attr( $title_tag ); ?> class="hfe-post-title">
+								<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+							</<?php echo esc_attr( $title_tag ); ?>>
+						<?php endif; ?>
+
+						<?php if ( 'yes' === $settings['show_meta'] ) : ?>
+							<div class="hfe-post-meta">
+								<?php if ( 'yes' === $settings['show_date'] ) : ?>
+									<span class="hfe-post-date"><?php echo get_the_date(); ?></span>
+								<?php endif; ?>
+								
+								<?php if ( 'yes' === $settings['show_author'] && 'yes' === $settings['show_date'] ) : ?>
+									<span class="hfe-meta-separator"><?php echo esc_html( $settings['meta_separator'] ); ?></span>
+								<?php endif; ?>
+								
+								<?php if ( 'yes' === $settings['show_author'] ) : ?>
+									<span class="hfe-post-author"><?php echo __( 'by', 'header-footer-elementor' ) . ' ' . get_the_author(); ?></span>
+								<?php endif; ?>
+							</div>
+						<?php endif; ?>
+
+						<?php if ( 'yes' === $settings['show_excerpt'] ) : ?>
+							<div class="hfe-post-excerpt">
+								<?php echo wp_trim_words( get_the_excerpt(), $settings['excerpt_length'], '...' ); ?>
+							</div>
+						<?php endif; ?>
+
+						<?php if ( 'yes' === $settings['show_read_more'] ) : ?>
+							<a href="<?php the_permalink(); ?>" class="hfe-read-more">
+								<?php echo esc_html( $settings['read_more_text'] ); ?>
+							</a>
+						<?php endif; ?>
+					</div>
+				</article>
+				<?php
+			endwhile;
+			wp_reset_postdata();
+			?>
+		</div>
+		<?php
+	}
+}
