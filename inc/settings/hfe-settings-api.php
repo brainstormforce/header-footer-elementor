@@ -318,7 +318,6 @@ class HFE_Settings_Api {
 		
 		update_post_meta($post_id, 'ehf_target_include_locations', $include_locations);
 		update_post_meta($post_id, 'ehf_target_exclude_locations', $exclude_locations);
-		update_post_meta($post_id, 'ehf_target_user_roles', $user_roles);
 		
 		return ['success' => true];
 		
@@ -520,18 +519,11 @@ class HFE_Settings_Api {
 		
 		// Sanitize user roles
 		$sanitized_roles = [];
-		// $wp_roles = wp_roles();
-		// $available_roles = array_keys( $wp_roles->get_names() );
-		// $special_roles = [ 'logged-in', 'logged-out' ];
-		// $valid_roles = array_merge( $available_roles, $special_roles );
 		
 		foreach ( $user_roles as $role ) {
 			$sanitized_role = sanitize_text_field( $role );
-			// if ( in_array( $sanitized_role, $valid_roles, true ) ) {
-				$sanitized_roles[] = $sanitized_role;
-			// }
+			$sanitized_roles[] = $sanitized_role;
 		}
-		
 		// Update post meta
 		update_post_meta( $post_id, 'ehf_target_user_roles', $sanitized_roles );
 		

@@ -186,14 +186,21 @@ const withDisplayConditions = (WrappedComponent) => {
 			setIsButtonLoading(true);
 			setIsLoading(true);
 			
-			apiFetch({
+			// Fetch both target rules and user roles data
+			const fetchTargetRules = apiFetch({
 				path: `/hfe/v1/target-rules?post_id=${item.id}`,
-			})
-				.then((data) => {
-					// Check if we have valid conditions data
-					if (data && data.conditions && Array.isArray(data.conditions) && data.conditions.length > 0) {
+			});
+			
+			const fetchUserRoles = apiFetch({
+				path: `/hfe/v1/user-roles?post_id=${item.id}`,
+			});
+			
+			Promise.all([fetchTargetRules, fetchUserRoles])
+				.then(([targetRulesData, userRolesData]) => {
+					// Handle target rules data
+					if (targetRulesData && targetRulesData.conditions && Array.isArray(targetRulesData.conditions) && targetRulesData.conditions.length > 0) {
 						// Map existing conditions with proper IDs
-						const enrichedConditions = data.conditions.map((condition, index) => ({
+						const enrichedConditions = targetRulesData.conditions.map((condition, index) => ({
 							id: index + 1,
 							conditionType: {
 								id: condition.conditionType?.id || condition.type || "include",
@@ -215,8 +222,11 @@ const withDisplayConditions = (WrappedComponent) => {
 						setNextId(2);
 					}
 					
-					// Ensure user roles has at least one empty selection for existing posts
-					if (userRoles.length === 0) {
+					// Handle user roles data
+					if (userRolesData && userRolesData.userRoles && Array.isArray(userRolesData.userRoles) && userRolesData.userRoles.length > 0) {
+						setUserRoles(userRolesData.userRoles);
+					} else {
+						// No existing user roles found, set one empty selection
 						setUserRoles(['']);
 					}
 					
@@ -226,22 +236,18 @@ const withDisplayConditions = (WrappedComponent) => {
 					setIsDialogOpen(true);
 				})
 				.catch((err) => {
-					console.error("Error fetching conditions:", err);
-					// On error, fall back to default conditions
+					console.error("Error fetching data:", err);
+					// On error, fall back to default conditions and empty user roles
 					const defaultConditions = getDefaultConditions();
 					setConditions(defaultConditions);
 					setNextId(2);
-					
-					// Ensure user roles has at least one empty selection on error
-					if (userRoles.length === 0) {
-						setUserRoles(['']);
-					}
+					setUserRoles(['']);
 					
 					// Only show error if it's not a 404 (post not found)
 					if (err.status !== 404) {
 						setError(
 							__(
-								"Failed to load display conditions, using defaults",
+								"Failed to load display conditions and user roles, using defaults",
 								"header-footer-elementor",
 							),
 						);
@@ -263,7 +269,7 @@ const withDisplayConditions = (WrappedComponent) => {
 			setIsLoading(true);
 			setError(null);
 
-			// Reformat to match PHP expected structure
+			// Reformat display conditions to match PHP expected structure
 			const includeRules = conditions
 				.filter((c) => c.conditionType.id === "include")
 				.map((c) => c.displayLocation.id);
@@ -272,7 +278,7 @@ const withDisplayConditions = (WrappedComponent) => {
 				.filter((c) => c.conditionType.id === "exclude")
 				.map((c) => c.displayLocation.id);
 
-			const formattedData = {
+			const targetRulesData = {
 				post_id: selectedItem.id,
 				include_locations: {
 					rule: includeRules,
@@ -284,41 +290,56 @@ const withDisplayConditions = (WrappedComponent) => {
 				},
 			};
 
-			apiFetch({
+			// Format user roles data (filter out empty selections)
+			const filteredUserRoles = userRoles.filter(role => role && role.trim() !== '');
+			const userRolesData = {
+				post_id: selectedItem.id,
+				user_roles: filteredUserRoles,
+			};
+
+			// Save both target rules and user roles
+			const saveTargetRules = apiFetch({
 				path: "/hfe/v1/target-rules",
 				method: "POST",
-				data: formattedData,
-			})
-				.then((response) => {
-					if (response.success) {
+				data: targetRulesData,
+			});
+
+			const saveUserRoles = apiFetch({
+				path: "/hfe/v1/user-roles",
+				method: "POST",
+				data: userRolesData,
+			});
+
+			Promise.all([saveTargetRules, saveUserRoles])
+				.then(([targetRulesResponse, userRolesResponse]) => {
+					if (targetRulesResponse.success && userRolesResponse.success) {
 						setIsDialogOpen(false);
 						
 						// If there's a redirect URL or edit URL, use it
-						if (response.edit_url) {
-							window.open(response.edit_url, "_blank");
+						if (targetRulesResponse.edit_url) {
+							window.open(targetRulesResponse.edit_url, "_blank");
 						} else if (selectedItem.edit_url) {
 							window.open(selectedItem.edit_url, "_blank");
 						}
 						
 						// Call onSave callback if provided
 						if (props.onConditionsSaved) {
-							props.onConditionsSaved(selectedItem, conditions);
+							props.onConditionsSaved(selectedItem, conditions, filteredUserRoles);
 						}
 					} else {
-						setError(
-							response.message || __(
-								"Failed to save display conditions",
-								"header-footer-elementor",
-							),
+						const errorMessage = targetRulesResponse.message || userRolesResponse.message || __(
+							"Failed to save display conditions and user roles",
+							"header-footer-elementor",
 						);
+						setError(errorMessage);
 					}
 					setIsLoading(false);
 				})
 				.catch((err) => {
-					console.error("Error saving conditions:", err);
+					console.error("Error saving data:", err);
 					setError(
 						__(
-							"Failed to save display conditions",
+							"Failed to save display conditions and user roles",
 							"header-footer-elementor",
 						),
 					);
@@ -331,10 +352,6 @@ const withDisplayConditions = (WrappedComponent) => {
 			if (!selectedItem) {
 				return null;
 			}
-
-			// Debug: Check if userRoleOptions are loaded
-			console.log("UserRoleOptions:", userRoleOptions);
-			console.log("UserRoles state:", userRoles);
 			
 			return (
 				<Dialog
