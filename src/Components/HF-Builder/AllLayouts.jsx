@@ -4,6 +4,7 @@ import { Button, DropdownMenu } from "@bsf/force-ui";
 import { __ } from "@wordpress/i18n";
 import apiFetch from "@wordpress/api-fetch";
 import withDisplayConditions from "./DisplayConditionsDialog";
+import toast, { Toaster } from 'react-hot-toast';
 
 // Example: Ensure these values are coming from global/localized JS in WordPress
 
@@ -165,18 +166,7 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
 
 			if (response.success) {
 				// Show success toast notification
-				if (window.wp && window.wp.data && window.wp.data.dispatch) {
-					window.wp.data.dispatch('core/notices').createNotice(
-						'success',
-						__('Layout disabled successfully!', 'header-footer-elementor'),
-						{
-							type: 'snackbar',
-							isDismissible: true,
-						}
-					);
-				} else {
-					alert(__('Layout disabled successfully!', 'header-footer-elementor'));
-				}
+				toast.success(__('Layout disabled successfully!', 'header-footer-elementor'));
 				
 				// Reload the page to refresh the data
 				setTimeout(() => {
@@ -185,33 +175,11 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
 
 			} else {
 				console.error("Failed to disable layout:", response);
-				if (window.wp && window.wp.data && window.wp.data.dispatch) {
-					window.wp.data.dispatch('core/notices').createNotice(
-						'error',
-						__('Failed to disable layout. Please try again.', 'header-footer-elementor'),
-						{
-							type: 'snackbar',
-							isDismissible: true,
-						}
-					);
-				} else {
-					alert(__('Failed to disable layout. Please try again.', 'header-footer-elementor'));
-				}
+				toast.error(__('Failed to disable layout. Please try again.', 'header-footer-elementor'));
 			}
 		} catch (error) {
 			console.error("Error disabling layout:", error);
-			if (window.wp && window.wp.data && window.wp.data.dispatch) {
-				window.wp.data.dispatch('core/notices').createNotice(
-					'error',
-					__('Error disabling layout. Please try again.', 'header-footer-elementor'),
-					{
-						type: 'snackbar',
-						isDismissible: true,
-					}
-				);
-			} else {
-				alert(__('Error disabling layout. Please try again.', 'header-footer-elementor'));
-			}
+			toast.error(__('Error disabling layout. Please try again.', 'header-footer-elementor'));
 		}
 	};
 
@@ -235,18 +203,7 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
 
 			if (response.success) {
 				// Show success toast notification
-				if (window.wp && window.wp.data && window.wp.data.dispatch) {
-					window.wp.data.dispatch('core/notices').createNotice(
-						'success',
-						__('Layout deleted successfully!', 'header-footer-elementor'),
-						{
-							type: 'snackbar',
-							isDismissible: true,
-						}
-					);
-				} else {
-					alert(__('Layout deleted successfully!', 'header-footer-elementor'));
-				}
+				toast.success(__('Layout deleted successfully!', 'header-footer-elementor'));
 				
 				// Reload the page to refresh the data
 				setTimeout(() => {
@@ -255,33 +212,11 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
 
 			} else {
 				console.error("Failed to delete layout:", response);
-				if (window.wp && window.wp.data && window.wp.data.dispatch) {
-					window.wp.data.dispatch('core/notices').createNotice(
-						'error',
-						__('Failed to delete layout. Please try again.', 'header-footer-elementor'),
-						{
-							type: 'snackbar',
-							isDismissible: true,
-						}
-					);
-				} else {
-					alert(__('Failed to delete layout. Please try again.', 'header-footer-elementor'));
-				}
+				toast.error(__('Failed to delete layout. Please try again.', 'header-footer-elementor'));
 			}
 		} catch (error) {
 			console.error("Error deleting layout:", error);
-			if (window.wp && window.wp.data && window.wp.data.dispatch) {
-				window.wp.data.dispatch('core/notices').createNotice(
-					'error',
-					__('Error deleting layout. Please try again.', 'header-footer-elementor'),
-					{
-						type: 'snackbar',
-						isDismissible: true,
-					}
-				);
-			} else {
-				alert(__('Error deleting layout. Please try again.', 'header-footer-elementor'));
-			}
+			toast.error(__('Error deleting layout. Please try again.', 'header-footer-elementor'));
 		}
 	};
 
@@ -295,18 +230,7 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
 		if (navigator.clipboard && window.isSecureContext) {
 			navigator.clipboard.writeText(shortcode).then(() => {
 				// Show success toast notification
-				if (window.wp && window.wp.data && window.wp.data.dispatch) {
-					window.wp.data.dispatch('core/notices').createNotice(
-						'success',
-						__('Shortcode copied to clipboard!', 'header-footer-elementor'),
-						{
-							type: 'snackbar',
-							isDismissible: true,
-						}
-					);
-				} else {
-					alert(__('Shortcode copied to clipboard!', 'header-footer-elementor'));
-				}
+				toast.success(__('Shortcode copied to clipboard!', 'header-footer-elementor'));
 			}).catch((error) => {
 				console.error('Failed to copy shortcode:', error);
 				// Fallback method
@@ -334,48 +258,91 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
 		try {
 			document.execCommand('copy');
 			// Show success toast notification
-			if (window.wp && window.wp.data && window.wp.data.dispatch) {
-				window.wp.data.dispatch('core/notices').createNotice(
-					'success',
-					__('Shortcode copied to clipboard!', 'header-footer-elementor'),
-					{
-						type: 'snackbar',
-						isDismissible: true,
-					}
-				);
-			} else {
-				alert(__('Shortcode copied to clipboard!', 'header-footer-elementor'));
-			}
+			toast.success(__('Shortcode copied to clipboard!', 'header-footer-elementor'));
 		} catch (error) {
 			console.error('Failed to copy shortcode using fallback method:', error);
 			// Show error toast notification
-			if (window.wp && window.wp.data && window.wp.data.dispatch) {
-				window.wp.data.dispatch('core/notices').createNotice(
-					'error',
-					__('Failed to copy shortcode. Please copy manually.', 'header-footer-elementor'),
-					{
-						type: 'snackbar',
-						isDismissible: true,
-					}
-				);
-			} else {
-				alert(__('Failed to copy shortcode. Please copy manually.', 'header-footer-elementor'));
-			}
+			toast.error(__('Failed to copy shortcode. Please copy manually.', 'header-footer-elementor'));
 		}
 		
 		document.body.removeChild(textArea);
 	};
+
+	/**
+	 * Handle publishing a draft layout (set status to publish)
+	 */
+	const handlePublishLayout = async (item) => {
+		try {
+			const response = await apiFetch({
+				path: "/hfe/v1/update-post-status",
+				method: "POST",
+				data: {
+					post_id: item.id,
+					status: 'publish'
+				},
+			});
+
+			if (response.success) {
+				// Show success toast notification
+				toast.success(__('Layout published successfully!', 'header-footer-elementor'));
+				
+				// Reload the page to refresh the data
+				setTimeout(() => {
+					window.location.reload();
+				}, 1000); // Small delay to show the toast first
+
+			} else {
+				console.error("Failed to publish layout:", response);
+				// Show error message
+				toast.error(__('Failed to publish layout. Please try again.', 'header-footer-elementor'));
+			}
+		} catch (error) {
+			console.error("Error publishing layout:", error);
+			// Show error message
+			toast.error(__('Error publishing layout. Please try again.', 'header-footer-elementor'));
+		}
+	};
     // Show loading state while fetching data
     if (isLoading) {
         return (
-            <div className="bg-white p-6 ml-6 rounded-lg">
-                <div className="flex flex-col items-center justify-center">
-                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
-                    <p className="mt-2 text-sm text-gray-600">
-                        {__("Loading layouts...", "header-footer-elementor")}
-                    </p>
+            <>
+                <div className="bg-white p-6 ml-6 rounded-lg">
+                    <div className="flex flex-col items-center justify-center">
+                        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+                        <p className="mt-2 text-sm text-gray-600">
+                            {__("Loading layouts...", "header-footer-elementor")}
+                        </p>
+                    </div>
                 </div>
-            </div>
+                
+                {/* React Hot Toast Notifications */}
+                <Toaster
+                    position="bottom-right"
+                    toastOptions={{
+                        duration: 3000,
+                        style: {
+                            background: '#363636',
+                            color: '#fff',
+                            borderRadius: '6px',
+                            fontSize: '14px',
+                            padding: '12px 16px',
+                            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+                        },
+                        success: {
+                            iconTheme: {
+                                primary: '#10B981',
+                                secondary: '#fff',
+                            },
+                        },
+                        error: {
+                            iconTheme: {
+                                primary: '#EF4444',
+                                secondary: '#fff',
+                            },
+                        },
+                    }}
+                />
+            </>
         );
     }
 
@@ -532,66 +499,123 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
                                             </DropdownMenu>
                                         </div>
                                     </div>
-                                </div>
-                            ))}
+                                </div>                                ))}
                         </div>
                     </div>
+                    
+                    {/* React Hot Toast Notifications */}
+                    <Toaster
+                        position="bottom-right"
+                        toastOptions={{
+                            duration: 3000,
+                            style: {
+                                background: '#363636',
+                                color: '#fff',
+                                borderRadius: '6px',
+                                fontSize: '14px',
+                                padding: '12px 16px',
+                                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+                            },
+                            success: {
+                                iconTheme: {
+                                    primary: '#10B981',
+                                    secondary: '#fff',
+                                },
+                            },
+                            error: {
+                                iconTheme: {
+                                    primary: '#EF4444',
+                                    secondary: '#fff',
+                                },
+                            },
+                        }}
+                    />
                 </>
             );
         }
 
         // Show initial empty state with "Create Layout" button
         return (
-            <div className="bg-white p-6 ml-6 rounded-lg">
-                <div className="flex flex-col items-center justify-center">
-                    {/* Icon Container */}
-                    <div className="">
-                        <img
-                            src={`${hfeSettingsData.layout_template}`}
-                            alt={__("Layout Template", "header-footer-elementor")}
-                            className="w-20 h-20 object-contain"
-                        />
+            <>
+                <div className="bg-white p-6 ml-6 rounded-lg">
+                    <div className="flex flex-col items-center justify-center">
+                        {/* Icon Container */}
+                        <div className="">
+                            <img
+                                src={`${hfeSettingsData.layout_template}`}
+                                alt={__("Layout Template", "header-footer-elementor")}
+                                className="w-20 h-20 object-contain"
+                            />
+                        </div>
+                        {/* Title */}
+                    <h3 className="text-lg m-0 pt-3 font-semibold text-gray-900">
+                        {__("No Layout Found", "header-footer-elementor")}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-sm text-text-tertiary text-center max-w-lg">
+                        {__(
+                            "You haven't created any layouts yet. Build a custom layout to control how your site's top section looks and behaves across all pages.",
+                            "header-footer-elementor"
+                        )}
+                    </p>
+
+                    {/* Create Button */}
+                    <Button
+                        iconPosition="left"
+                        icon={<Plus />}
+                        variant="primary"
+                        className="font-normal px-3 py-2 flex items-center justify-center hfe-remove-ring"
+                        style={{
+                            backgroundColor: "#6005FF",
+                            transition: "background-color 0.3s ease",
+                            outline: "none",
+                            borderRadius: "4px",
+                        }}
+                        onMouseEnter={(e) =>
+                            (e.currentTarget.style.backgroundColor = "#4B00CC")
+                        }
+                        onMouseLeave={(e) =>
+                            (e.currentTarget.style.backgroundColor = "#6005FF")
+                        }
+                        onClick={() => {
+                            setShowDummyCards(true);
+                            // Save to localStorage when showing dummy cards
+                            localStorage.setItem('hfe_showDummyCards', JSON.stringify(true));
+                        }}>
+                        {__("Create Layout", "header-footer-elementor")} 
+                    </Button>
                     </div>
-                    {/* Title */}
-                <h3 className="text-lg m-0 pt-3 font-semibold text-gray-900">
-                    {__("No Layout Found", "header-footer-elementor")}
-                </h3>
-
-                {/* Description */}
-                <p className="text-sm text-text-tertiary text-center max-w-lg">
-                    {__(
-                        "You haven't created any layouts yet. Build a custom layout to control how your site's top section looks and behaves across all pages.",
-                        "header-footer-elementor"
-                    )}
-                </p>
-
-                {/* Create Button */}
-                <Button
-                    iconPosition="left"
-                    icon={<Plus />}
-                    variant="primary"
-                    className="font-normal px-3 py-2 flex items-center justify-center hfe-remove-ring"
-                    style={{
-                        backgroundColor: "#6005FF",
-                        transition: "background-color 0.3s ease",
-                        outline: "none",
-                        borderRadius: "4px",
-                    }}
-                    onMouseEnter={(e) =>
-                        (e.currentTarget.style.backgroundColor = "#4B00CC")
-                    }
-                    onMouseLeave={(e) =>
-                        (e.currentTarget.style.backgroundColor = "#6005FF")
-                    }
-                    onClick={() => {
-                        setShowDummyCards(true);
-                        // Save to localStorage when showing dummy cards
-                        localStorage.setItem('hfe_showDummyCards', JSON.stringify(true));
-                    }}>
-                    {__("Create Layout", "header-footer-elementor")} 
-                </Button>
                 </div>
-            </div>
+                
+                {/* React Hot Toast Notifications */}
+                <Toaster
+                    position="bottom-right"
+                    toastOptions={{
+                        duration: 3000,
+                        style: {
+                            background: '#363636',
+                            color: '#fff',
+                            borderRadius: '6px',
+                            fontSize: '14px',
+                            padding: '12px 16px',
+                            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+                        },
+                        success: {
+                            iconTheme: {
+                                primary: '#10B981',
+                                secondary: '#fff',
+                            },
+                        },
+                        error: {
+                            iconTheme: {
+                                primary: '#EF4444',
+                                secondary: '#fff',
+                            },
+                        },
+                    }}
+                />
+            </>
         );
     } 
         else
@@ -704,8 +728,10 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
                                                     e.currentTarget.style.transform = "scale(0.95)";
                                                 }}
                                                 onClick={() => {
-                                                    if (item.template_type === "custom") {
-                                                        item.onClick();
+                                                    // For existing layouts, open in Elementor editor
+                                                    if (item.id) {
+                                                        const elementorEditUrl = `${window.location.origin}/wp-admin/post.php?post=${item.id}&action=elementor`;
+                                                        window.open(elementorEditUrl, '_blank');
                                                     } else {
                                                         handleCreateLayout(item);
                                                     }
@@ -835,11 +861,40 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
         
                     {/* Render the Display Conditions Dialog from HOC */}
                     <DisplayConditionsDialog />
+                    
+                    {/* React Hot Toast Notifications */}
+                    <Toaster
+                        position="bottom-right"
+                        toastOptions={{
+                            duration: 3000,
+                            style: {
+                                background: '#363636',
+                                color: '#fff',
+                                borderRadius: '6px',
+                                fontSize: '14px',
+                                padding: '12px 16px',
+                                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+                            },
+                            success: {
+                                iconTheme: {
+                                    primary: '#10B981',
+                                    secondary: '#fff',
+                                },
+                            },
+                            error: {
+                                iconTheme: {
+                                    primary: '#EF4444',
+                                    secondary: '#fff',
+                                },
+                            },
+                        }}
+                    />
                 </>
             );
         }
 	
-};	/**
+};
+/**
 	 * Handle publishing a draft layout (set status to publish)
 	 */
 	const handlePublishLayout = async (item) => {
@@ -910,3 +965,4 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
 	};
 
 export default withDisplayConditions(AllLayouts);
+
