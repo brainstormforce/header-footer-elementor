@@ -110,7 +110,6 @@ class Basic_Posts extends Common_Widget {
 		// Style Controls
 		$this->register_layout_style_controls();
 		$this->register_card_style_controls();
-		$this->register_image_style_controls();
 		$this->register_title_style_controls();
 		$this->register_meta_style_controls();
 		$this->register_excerpt_style_controls();
@@ -257,8 +256,8 @@ class Basic_Posts extends Common_Widget {
 			[
 				'label'        => __( 'Show Featured Image', 'header-footer-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Show', 'header-footer-elementor' ),
-				'label_off'    => __( 'Hide', 'header-footer-elementor' ),
+				'label_on'     => __( 'Yes', 'header-footer-elementor' ),
+				'label_off'    => __( 'No', 'header-footer-elementor' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
 			]
@@ -300,8 +299,8 @@ class Basic_Posts extends Common_Widget {
 			[
 				'label'        => __( 'Show Title', 'header-footer-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Show', 'header-footer-elementor' ),
-				'label_off'    => __( 'Hide', 'header-footer-elementor' ),
+				'label_on'     => __( 'Yes', 'header-footer-elementor' ),
+				'label_off'    => __( 'No', 'header-footer-elementor' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
 			]
@@ -350,8 +349,8 @@ class Basic_Posts extends Common_Widget {
 			[
 				'label'        => __( 'Show Meta Data', 'header-footer-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Show', 'header-footer-elementor' ),
-				'label_off'    => __( 'Hide', 'header-footer-elementor' ),
+				'label_on'     => __( 'Yes', 'header-footer-elementor' ),
+				'label_off'    => __( 'No', 'header-footer-elementor' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
 			]
@@ -362,8 +361,8 @@ class Basic_Posts extends Common_Widget {
 			[
 				'label'        => __( 'Show Date', 'header-footer-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Show', 'header-footer-elementor' ),
-				'label_off'    => __( 'Hide', 'header-footer-elementor' ),
+				'label_on'     => __( 'Yes', 'header-footer-elementor' ),
+				'label_off'    => __( 'No', 'header-footer-elementor' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
 				'condition'    => [
@@ -377,10 +376,25 @@ class Basic_Posts extends Common_Widget {
 			[
 				'label'        => __( 'Show Author', 'header-footer-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Show', 'header-footer-elementor' ),
-				'label_off'    => __( 'Hide', 'header-footer-elementor' ),
+				'label_on'     => __( 'Yes', 'header-footer-elementor' ),
+				'label_off'    => __( 'No', 'header-footer-elementor' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
+				'condition'    => [
+					'show_meta' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'show_comments',
+			[
+				'label'        => __( 'Show Comments Count', 'header-footer-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Yes', 'header-footer-elementor' ),
+				'label_off'    => __( 'No', 'header-footer-elementor' ),
+				'return_value' => 'yes',
+				'default'      => 'no',
 				'condition'    => [
 					'show_meta' => 'yes',
 				],
@@ -392,7 +406,7 @@ class Basic_Posts extends Common_Widget {
 			[
 				'label'     => __( 'Meta Separator', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::TEXT,
-				'default'   => ' • ',
+				'default'   => ' | ',
 				'condition' => [
 					'show_meta' => 'yes',
 				],
@@ -422,8 +436,8 @@ class Basic_Posts extends Common_Widget {
 			[
 				'label'        => __( 'Show Excerpt', 'header-footer-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Show', 'header-footer-elementor' ),
-				'label_off'    => __( 'Hide', 'header-footer-elementor' ),
+				'label_on'     => __( 'Yes', 'header-footer-elementor' ),
+				'label_off'    => __( 'No', 'header-footer-elementor' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
 			]
@@ -466,8 +480,8 @@ class Basic_Posts extends Common_Widget {
 			[
 				'label'        => __( 'Show Read More', 'header-footer-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Show', 'header-footer-elementor' ),
-				'label_off'    => __( 'Hide', 'header-footer-elementor' ),
+				'label_on'     => __( 'Yes', 'header-footer-elementor' ),
+				'label_off'    => __( 'No', 'header-footer-elementor' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
 			]
@@ -478,7 +492,7 @@ class Basic_Posts extends Common_Widget {
 			[
 				'label'     => __( 'Read More Text', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::TEXT,
-				'default'   => __( 'Read More', 'header-footer-elementor' ),
+				'default'   => __( 'Read More →', 'header-footer-elementor' ),
 				'condition' => [
 					'show_read_more' => 'yes',
 				],
@@ -568,6 +582,14 @@ class Basic_Posts extends Common_Widget {
 				'label'    => __( 'Background', 'header-footer-elementor' ),
 				'types'    => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .hfe-post-card',
+				'fields_options' => [
+					'background' => [
+						'default' => 'classic',
+					],
+					'color' => [
+						'default' => '#F6F6F6',
+					],
+				],
 			]
 		);
 
@@ -588,6 +610,7 @@ class Basic_Posts extends Common_Widget {
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
 					'{{WRAPPER}} .hfe-post-card' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .hfe-post-image img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} 0{{UNIT}} 0{{UNIT}};',
 				],
 			]
 		);
@@ -607,58 +630,16 @@ class Basic_Posts extends Common_Widget {
 				'label'      => __( 'Padding', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
+				'default'    => [
+					'top'      => '20',
+					'right'    => '20',
+					'bottom'   => '20',
+					'left'     => '20',
+					'unit'     => 'px',
+					'isLinked' => true,
+				],
 				'selectors'  => [
-					'{{WRAPPER}} .hfe-post-card' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->end_controls_section();
-	}
-
-	/**
-	 * Register Image Style Controls.
-	 *
-	 * @since x.x.x
-	 * @access protected
-	 */
-	protected function register_image_style_controls() {
-		$this->start_controls_section(
-			'section_image_style',
-			[
-				'label'     => __( 'Featured Image', 'header-footer-elementor' ),
-				'tab'       => Controls_Manager::TAB_STYLE,
-				'condition' => [
-					'show_image' => 'yes',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'image_border_radius',
-			[
-				'label'      => __( 'Border Radius', 'header-footer-elementor' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%' ],
-				'selectors'  => [
-					'{{WRAPPER}} .hfe-post-image img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'image_spacing',
-			[
-				'label'     => __( 'Spacing', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::SLIDER,
-				'range'     => [
-					'px' => [
-						'min' => 0,
-						'max' => 50,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .hfe-post-image' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .hfe-post-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -724,8 +705,12 @@ class Basic_Posts extends Common_Widget {
 		$this->add_responsive_control(
 			'title_spacing',
 			[
-				'label'     => __( 'Spacing', 'header-footer-elementor' ),
+				'label'     => __( 'Bottom Spacing', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::SLIDER,
+				'default'   => [
+					'size' => 5,
+					'unit' => 'px',
+				],
 				'range'     => [
 					'px' => [
 						'min' => 0,
@@ -765,7 +750,7 @@ class Basic_Posts extends Common_Widget {
 				'label'     => __( 'Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'global'    => [
-					'default' => Global_Colors::COLOR_SECONDARY,
+					'default' => '#ADADAD',
 				],
 				'selectors' => [
 					'{{WRAPPER}} .hfe-post-meta' => 'color: {{VALUE}};',
@@ -788,8 +773,12 @@ class Basic_Posts extends Common_Widget {
 		$this->add_responsive_control(
 			'meta_spacing',
 			[
-				'label'     => __( 'Spacing', 'header-footer-elementor' ),
+				'label'     => __( 'Bottom Spacing', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::SLIDER,
+				'default'   => [
+					'size' => 15,
+					'unit' => 'px',
+				],
 				'range'     => [
 					'px' => [
 						'min' => 0,
@@ -852,8 +841,12 @@ class Basic_Posts extends Common_Widget {
 		$this->add_responsive_control(
 			'excerpt_spacing',
 			[
-				'label'     => __( 'Spacing', 'header-footer-elementor' ),
+				'label'     => __( 'Bottom Spacing', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::SLIDER,
+				'default'   => [
+					'size' => 15,
+					'unit' => 'px',
+				],
 				'range'     => [
 					'px' => [
 						'min' => 0,
@@ -1029,17 +1022,35 @@ class Basic_Posts extends Common_Widget {
 
 						<?php if ( 'yes' === $settings['show_meta'] ) : ?>
 							<div class="hfe-post-meta">
-								<?php if ( 'yes' === $settings['show_date'] ) : ?>
-									<span class="hfe-post-date"><?php echo get_the_date(); ?></span>
-								<?php endif; ?>
+								<?php
+								$meta_items = [];
 								
-								<?php if ( 'yes' === $settings['show_author'] && 'yes' === $settings['show_date'] ) : ?>
-									<span class="hfe-meta-separator"><?php echo esc_html( $settings['meta_separator'] ); ?></span>
-								<?php endif; ?>
+								// Add date if enabled
+								if ( 'yes' === $settings['show_date'] ) {
+									$meta_items[] = '<span class="hfe-post-date">' . get_the_date() . '</span>';
+								}
 								
-								<?php if ( 'yes' === $settings['show_author'] ) : ?>
-									<span class="hfe-post-author"><?php echo __( 'by', 'header-footer-elementor' ) . ' ' . get_the_author(); ?></span>
-								<?php endif; ?>
+								// Add author if enabled
+								if ( 'yes' === $settings['show_author'] ) {
+									$meta_items[] = '<span class="hfe-post-author">' . __( 'by', 'header-footer-elementor' ) . ' ' . get_the_author() . '</span>';
+								}
+								
+								// Add comments count if enabled
+								if ( 'yes' === $settings['show_comments'] ) {
+									$comments_count = get_comments_number();
+									if ( $comments_count == 0 ) {
+										$comments_text = __( 'No Comments', 'header-footer-elementor' );
+									} elseif ( $comments_count == 1 ) {
+										$comments_text = __( '1 Comment', 'header-footer-elementor' );
+									} else {
+										$comments_text = sprintf( __( '%s Comments', 'header-footer-elementor' ), $comments_count );
+									}
+									$meta_items[] = '<span class="hfe-post-comments">' . $comments_text . '</span>';
+								}
+								
+								// Output meta items with separator
+								echo implode( '<span class="hfe-meta-separator"> ' . esc_html( $settings['meta_separator'] ) . ' </span>', $meta_items );
+								?>
 							</div>
 						<?php endif; ?>
 
