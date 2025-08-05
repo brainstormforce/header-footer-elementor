@@ -6,7 +6,7 @@ import apiFetch from "@wordpress/api-fetch";
 import withDisplayConditions from "./DisplayConditionsDialog";
 import EmptyState from "./EmptyState";
 
-const BeforeFooter = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
+const BeforeFooter = ({ openDisplayConditionsDialog, DisplayConditionsDialog, isButtonLoading }) => {
 
   const [beforeFooterItems, setBeforeFooterItems] = useState([]);
   const [hasBeforeFooters, setHasBeforeFooters] = useState(false);
@@ -181,7 +181,11 @@ const BeforeFooter = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) 
                     </Button>
                     <Button
                       iconPosition="left"
-                      icon={<Plus size={14} />}
+                      icon={isButtonLoading ? (
+                        <div className="animate-spin rounded-full h-3 w-3 border border-gray-400 border-t-transparent"></div>
+                      ) : (
+                        <Plus size={14} />
+                      )}
                       className=""
                       style={{
                         backgroundColor: "#ffffff",
@@ -192,10 +196,10 @@ const BeforeFooter = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) 
                         transition: "all 0.2s ease",
                         outline: "none",
                         transform: "scale(0.95)",
-                        opacity: "1",
+                        opacity: isButtonLoading ? "0.7" : "1",
                         color: "#000000",
                         border: "1px solid #e5e7eb",
-                        cursor: "pointer",
+                        cursor: isButtonLoading ? "not-allowed" : "pointer",
                         display: "inline-flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -203,24 +207,42 @@ const BeforeFooter = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) 
                         boxShadow: "none"
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.backgroundColor = '#ffffff';
-                        e.currentTarget.style.color = '#000000';
-                        e.currentTarget.style.borderColor = '#d1d5db';
-                        e.currentTarget.style.outline = 'none';
-                        e.currentTarget.style.boxShadow = 'none';
-                        e.currentTarget.style.transform = "scale(1)";
+                        if (!isButtonLoading) {
+                          e.currentTarget.style.backgroundColor = '#ffffff';
+                          e.currentTarget.style.color = '#000000';
+                          e.currentTarget.style.borderColor = '#d1d5db';
+                          e.currentTarget.style.outline = 'none';
+                          e.currentTarget.style.boxShadow = 'none';
+                          e.currentTarget.style.transform = "scale(1)";
+                        }
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.backgroundColor = '#ffffff';
-                        e.currentTarget.style.color = '#000000';
-                        e.currentTarget.style.borderColor = '#e5e7eb';
-                        e.currentTarget.style.outline = 'none';
-                        e.currentTarget.style.boxShadow = 'none';
-                        e.currentTarget.style.transform = "scale(0.95)";
+                        if (!isButtonLoading) {
+                          e.currentTarget.style.backgroundColor = '#ffffff';
+                          e.currentTarget.style.color = '#000000';
+                          e.currentTarget.style.borderColor = '#e5e7eb';
+                          e.currentTarget.style.outline = 'none';
+                          e.currentTarget.style.boxShadow = 'none';
+                          e.currentTarget.style.transform = "scale(0.95)";
+                        }
                       }}
-                      onClick={() => handleDisplayConditons(item)}
+                      onClick={() => {
+                        if (!isButtonLoading) {
+                          handleDisplayConditons(item);
+                        }
+                      }}
+                      disabled={isButtonLoading}
                     >
-                      {"Display Conditions"}
+                       {isButtonLoading ? (
+                                                        <Loader
+                                                            className=""
+                                                            icon={null}
+                                                            size="lg"
+                                                            variant="primary"
+                                                        />
+                                                    ) : (
+                                                        __("Display Conditions", "header-footer-elementor")
+                                                    )}
                     </Button>
                   </div>
                 </div>

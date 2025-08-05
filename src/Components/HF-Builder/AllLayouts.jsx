@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Plus, EllipsisVertical } from "lucide-react";
-import { Button, DropdownMenu } from "@bsf/force-ui";
+import { Button, DropdownMenu, Loader } from "@bsf/force-ui";
 import { __ } from "@wordpress/i18n";
 import apiFetch from "@wordpress/api-fetch";
 import withDisplayConditions from "./DisplayConditionsDialog";
@@ -8,7 +8,7 @@ import toast, { Toaster } from 'react-hot-toast';
 
 // Example: Ensure these values are coming from global/localized JS in WordPress
 
-const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) => {
+const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog, isButtonLoading }) => {
 
     const [layoutItems, setlLayoutItems] = useState([]);
     const [hasLayoutItems, setHasLayoutItems] = useState(false);
@@ -752,7 +752,11 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
                                             { item.template_type !== "custom" ?
                                              ( <Button
                                                     iconPosition="left"
-                                                    icon={<Plus size={14} />}
+                                                    icon={isButtonLoading ? (
+                                                        <div className="animate-spin rounded-full h-3 w-3 border border-gray-400 border-t-transparent"></div>
+                                                    ) : (
+                                                        <Plus size={14} />
+                                                    )}
                                                     className=""
                                                     style={{
                                                         backgroundColor: "#ffffff",
@@ -763,10 +767,10 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
                                                         transition: "all 0.2s ease",
                                                         outline: "none",
                                                         transform: "scale(0.95)",
-                                                        opacity: "1",
+                                                        opacity: isButtonLoading ? "0.7" : "1",
                                                         color: "#000000",
                                                         border: "1px solid #e5e7eb",
-                                                        cursor: "pointer",
+                                                        cursor: isButtonLoading ? "not-allowed" : "pointer",
                                                         display: "inline-flex",
                                                         alignItems: "center",
                                                         justifyContent: "center",
@@ -774,24 +778,42 @@ const AllLayouts = ({ openDisplayConditionsDialog, DisplayConditionsDialog }) =>
                                                         boxShadow: "none"
                                                     }}
                                                     onMouseEnter={(e) => {
-                                                        e.currentTarget.style.backgroundColor = '#ffffff';
-                                                        e.currentTarget.style.color = '#000000';
-                                                        e.currentTarget.style.borderColor = '#d1d5db';
-                                                        e.currentTarget.style.outline = 'none';
-                                                        e.currentTarget.style.boxShadow = 'none';
-                                                        e.currentTarget.style.transform = "scale(1)";
+                                                        if (!isButtonLoading) {
+                                                            e.currentTarget.style.backgroundColor = '#ffffff';
+                                                            e.currentTarget.style.color = '#000000';
+                                                            e.currentTarget.style.borderColor = '#d1d5db';
+                                                            e.currentTarget.style.outline = 'none';
+                                                            e.currentTarget.style.boxShadow = 'none';
+                                                            e.currentTarget.style.transform = "scale(1)";
+                                                        }
                                                     }}
                                                     onMouseLeave={(e) => {
-                                                        e.currentTarget.style.backgroundColor = '#ffffff';
-                                                        e.currentTarget.style.color = '#000000';
-                                                        e.currentTarget.style.borderColor = '#e5e7eb';
-                                                        e.currentTarget.style.outline = 'none';
-                                                        e.currentTarget.style.boxShadow = 'none';
-                                                        e.currentTarget.style.transform = "scale(0.95)";
+                                                        if (!isButtonLoading) {
+                                                            e.currentTarget.style.backgroundColor = '#ffffff';
+                                                            e.currentTarget.style.color = '#000000';
+                                                            e.currentTarget.style.borderColor = '#e5e7eb';
+                                                            e.currentTarget.style.outline = 'none';
+                                                            e.currentTarget.style.boxShadow = 'none';
+                                                            e.currentTarget.style.transform = "scale(0.95)";
+                                                        }
                                                     }}
-                                                    onClick={() => handleDisplayConditons(item)}
+                                                    onClick={() => {
+                                                        if (!isButtonLoading) {
+                                                            handleDisplayConditons(item);
+                                                        }
+                                                    }}
+                                                    disabled={isButtonLoading}
                                                 >
-                                                    {"Display Conditions"}
+                                                    {isButtonLoading ? (
+                                                        <Loader
+                                                            className=""
+                                                            icon={null}
+                                                            size="lg"
+                                                            variant="primary"
+                                                        />
+                                                    ) : (
+                                                        __("Display Conditions", "header-footer-elementor")
+                                                    )}
                                                 </Button>   ) : '' }                                      
                                         </div>
                                     </div>
