@@ -116,30 +116,6 @@ const withDisplayConditions = (WrappedComponent) => {
 		// Canvas Template handler
 		const handleCanvasTemplateChange = (enabled) => {
 			setCanvasTemplateEnabled(enabled);
-			
-			// Save immediately when changed
-			if (selectedItem && selectedItem.id) {
-				apiFetch({
-					path: "/hfe/v1/enable-for-canvas-template",
-					method: "POST",
-					data: {
-						post_id: selectedItem.id,
-						display: enabled ? 1 : 0,
-					},
-				})
-				.then((response) => {
-					if (!response.success) {
-						console.error("Failed to save canvas template setting:", response.message);
-						// Revert the state if save failed
-						setCanvasTemplateEnabled(!enabled);
-					}
-				})
-				.catch((error) => {
-					console.error("Error saving canvas template setting:", error);
-					// Revert the state if save failed
-					setCanvasTemplateEnabled(!enabled);
-				});
-			}
 		};
 
 		const openDisplayConditionsDialog = (item, isNew = false) => {
@@ -340,7 +316,13 @@ const withDisplayConditions = (WrappedComponent) => {
 				user_roles: filteredUserRoles,
 			};
 
-			// Save both target rules and user roles
+			// Format canvas template data
+			const canvasTemplateData = {
+				post_id: selectedItem.id,
+				display: canvasTemplateEnabled ? 1 : 0,
+			};
+
+			// Save target rules, user roles, and canvas template setting
 			const saveTargetRules = apiFetch({
 				path: "/hfe/v1/target-rules",
 				method: "POST",
@@ -353,9 +335,15 @@ const withDisplayConditions = (WrappedComponent) => {
 				data: userRolesData,
 			});
 
-			Promise.all([saveTargetRules, saveUserRoles])
-				.then(([targetRulesResponse, userRolesResponse]) => {
-					if (targetRulesResponse.success && userRolesResponse.success) {
+			const saveCanvasTemplate = apiFetch({
+				path: "/hfe/v1/enable-for-canvas-template",
+				method: "POST",
+				data: canvasTemplateData,
+			});
+
+			Promise.all([saveTargetRules, saveUserRoles, saveCanvasTemplate])
+				.then(([targetRulesResponse, userRolesResponse, canvasTemplateResponse]) => {
+					if (targetRulesResponse.success && userRolesResponse.success && canvasTemplateResponse.success) {
 						setIsDialogOpen(false);
 						
 						// If there's a redirect URL or edit URL, use it
@@ -367,11 +355,11 @@ const withDisplayConditions = (WrappedComponent) => {
 						
 						// Call onSave callback if provided
 						if (props.onConditionsSaved) {
-							props.onConditionsSaved(selectedItem, conditions, filteredUserRoles);
+							props.onConditionsSaved(selectedItem, conditions, filteredUserRoles, canvasTemplateEnabled);
 						}
 					} else {
-						const errorMessage = targetRulesResponse.message || userRolesResponse.message || __(
-							"Failed to save display conditions and user roles",
+						const errorMessage = targetRulesResponse.message || userRolesResponse.message || canvasTemplateResponse.message || __(
+							"Failed to save display conditions, user roles, and canvas template setting",
 							"header-footer-elementor",
 						);
 						setError(errorMessage);
@@ -382,7 +370,7 @@ const withDisplayConditions = (WrappedComponent) => {
 					console.error("Error saving data:", err);
 					setError(
 						__(
-							"Failed to save display conditions and user roles",
+							"Failed to save display conditions, user roles, and canvas template setting",
 							"header-footer-elementor",
 						),
 					);
@@ -731,7 +719,7 @@ const withDisplayConditions = (WrappedComponent) => {
 											<Switch
 												checked={canvasTemplateEnabled}
 												onChange={handleCanvasTemplateChange}
-												disabled={isLoading || !selectedItem?.id}
+												disabled={isLoading}
 												size="md"
 											/>
 										</div>
