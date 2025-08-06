@@ -254,7 +254,7 @@ const CustomBlock = () => {
 											item={item}
 											onItemUpdate={handleItemUpdate}
 											onItemDelete={handleItemDelete}
-											showShortcode={false}
+											showShortcode={true}
 										/>
 									</div>
 								</div>
