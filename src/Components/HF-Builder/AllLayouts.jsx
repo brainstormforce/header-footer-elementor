@@ -89,8 +89,9 @@ const AllLayouts = ({
 		);
 	}, [showDummyCards]);
 
-	useEffect(() => {
-		// Fetch the target rule options when component mounts
+	// Function to refresh layout data
+	const refreshLayoutData = () => {
+		setIsLoading(true);
 		apiFetch({
 			path: "/hfe/v1/get-post",
 			method: "POST",
@@ -101,7 +102,6 @@ const AllLayouts = ({
 			.then((response) => {
 				if (response.success && response.posts) {
 					setlLayoutItems(response.posts);
-					// Only set hasLayoutItems to true if there are actually items
 					setHasLayoutItems(response.posts.length > 0);
 
 					// Clear localStorage if layouts are found
@@ -111,16 +111,21 @@ const AllLayouts = ({
 					}
 				} else {
 					setHasLayoutItems(false);
-					console.error("Failed to create post:", response);
+					console.error("Failed to fetch posts:", response);
 				}
 			})
 			.catch((error) => {
 				setHasLayoutItems(false);
-				console.error("Error creating post:", error);
+				console.error("Error fetching posts:", error);
 			})
 			.finally(() => {
 				setIsLoading(false);
 			});
+	};
+
+	useEffect(() => {
+		// Fetch the target rule options when component mounts
+		refreshLayoutData();
 	}, []);
 
 	const handleCreateLayout = (item) => {
@@ -135,7 +140,27 @@ const AllLayouts = ({
 			})
 				.then((response) => {
 					if (response.success && response.post_id) {
-						// Update item with new post ID
+						// Create the new layout item with the response data
+						const newLayoutItem = {
+							id: response.post_id,
+							title: `My Custom ${item.title}`,
+							name: item.name,
+							template_type: item.template_type,
+							post_status: 'publish', // or whatever status is returned
+							// Add any other properties that might be needed
+						};
+
+						// Update the layoutItems state to include the new item
+						setlLayoutItems(prevItems => [...prevItems, newLayoutItem]);
+						
+						// Update hasLayoutItems to true since we now have items
+						setHasLayoutItems(true);
+						
+						// Hide dummy cards and clear localStorage
+						setShowDummyCards(false);
+						localStorage.removeItem("hfe_showDummyCards");
+
+						// Update item with new post ID for further processing
 						const updatedItem = { ...item, id: response.post_id };
 
 						// For custom blocks, redirect to Elementor editor
@@ -147,6 +172,14 @@ const AllLayouts = ({
 							// Open display conditions dialog using HOC function with isNew flag
 							openDisplayConditionsDialog(updatedItem, true);
 						}
+
+						// Show success toast
+						toast.success(
+							__(
+								"Layout created successfully!",
+								"header-footer-elementor",
+							),
+						);
 					} else {
 						console.error("Failed to create post:", response);
 						toast.error(
@@ -201,6 +234,15 @@ const AllLayouts = ({
 			});
 
 			if (response.success) {
+				// Update the item in the state instead of reloading
+				setlLayoutItems(prevItems => 
+					prevItems.map(layoutItem => 
+						layoutItem.id === item.id 
+							? { ...layoutItem, post_status: "draft" }
+							: layoutItem
+					)
+				);
+
 				// Show success toast notification
 				toast.success(
 					__(
@@ -208,11 +250,6 @@ const AllLayouts = ({
 						"header-footer-elementor",
 					),
 				);
-
-				// Reload the page to refresh the data
-				setTimeout(() => {
-					window.location.reload();
-				}, 1000);
 			} else {
 				console.error("Failed to disable layout:", response);
 				toast.error(
@@ -259,6 +296,20 @@ const AllLayouts = ({
 			});
 
 			if (response.success) {
+				// Remove the item from the state instead of reloading
+				setlLayoutItems(prevItems => 
+					prevItems.filter(layoutItem => layoutItem.id !== item.id)
+				);
+
+				// Check if we have any items left, if not, update hasLayoutItems
+				setlLayoutItems(prevItems => {
+					const updatedItems = prevItems.filter(layoutItem => layoutItem.id !== item.id);
+					if (updatedItems.length === 0) {
+						setHasLayoutItems(false);
+					}
+					return updatedItems;
+				});
+
 				// Show success toast notification
 				toast.success(
 					__(
@@ -266,11 +317,6 @@ const AllLayouts = ({
 						"header-footer-elementor",
 					),
 				);
-
-				// Reload the page to refresh the data
-				setTimeout(() => {
-					window.location.reload();
-				}, 1000);
 			} else {
 				console.error("Failed to delete layout:", response);
 				toast.error(
@@ -372,6 +418,15 @@ const AllLayouts = ({
 			});
 
 			if (response.success) {
+				// Update the item in the state instead of reloading
+				setlLayoutItems(prevItems => 
+					prevItems.map(layoutItem => 
+						layoutItem.id === item.id 
+							? { ...layoutItem, post_status: "publish" }
+							: layoutItem
+					)
+				);
+
 				// Show success toast notification
 				toast.success(
 					__(
@@ -379,11 +434,6 @@ const AllLayouts = ({
 						"header-footer-elementor",
 					),
 				);
-
-				// Reload the page to refresh the data
-				setTimeout(() => {
-					window.location.reload();
-				}, 1000); // Small delay to show the toast first
 			} else {
 				console.error("Failed to publish layout:", response);
 				// Show error message
