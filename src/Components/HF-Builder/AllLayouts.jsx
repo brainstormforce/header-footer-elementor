@@ -293,7 +293,7 @@ const AllLayouts = ({
 	 */
 	const showDeleteConfirmation = (item) => {
 		toast((t) => (
-			<div className="flex flex-col gap-3 p-6">
+			<div className="flex flex-col gap-3 p-2">
 				<div className="flex items-start gap-3">
 					<div className="flex-shrink-0 w-8 h-8 bg-red-100 rounded-full flex items-center justify-center" style={{ marginTop: '12px' }}>
 						<Trash2 />
