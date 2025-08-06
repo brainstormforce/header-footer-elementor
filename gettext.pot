@@ -685,6 +685,9 @@ msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:324
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:627
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:626
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:625
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:632
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:580
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:574
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:571
@@ -845,31 +848,31 @@ msgstr ""
 msgid "Conditions"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:461
-msgid "User Role"
-msgstr ""
-
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:487
-msgid "Include"
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:462
+msgid "User Roles"
 msgstr ""
 
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:488
+msgid "Include"
+msgstr ""
+
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:489
 msgid "Exclude"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:536
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:537
 msgid "Add Conditions"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:557
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:558
 msgid "Select User Role"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:589
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:590
 msgid "Add User Role"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:600
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:601
 msgid "Enable this layout to display on Elementor Canvas template pages."
 msgstr ""
 

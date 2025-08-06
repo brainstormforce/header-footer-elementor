@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef, startTransition } from "react";
+import React, { useState, useEffect, useCallback, useRef, startTransition, useMemo } from "react";
 import { Plus, X } from "lucide-react";
 import { Button, Dialog, Switch } from "@bsf/force-ui";
 import { __ } from "@wordpress/i18n";
@@ -345,10 +345,10 @@ const withDisplayConditions = (WrappedComponent) => {
 		}, [state, updateState, props]);
 
 		// Stable dialog component that doesn't re-render unnecessarily
-		const DisplayConditionsDialog = useCallback(() => {
-			if (!state.selectedItem) return null;
+		const DisplayConditionsDialog = useMemo(() => {
+			if (!state.selectedItem) return () => null;
 			
-			return (
+			return () => (
 				<div style={{ position: 'fixed', inset: 0, zIndex: 999999 }}>
 					{/* Backdrop */}
 					<div 
@@ -400,7 +400,7 @@ const withDisplayConditions = (WrappedComponent) => {
 						
 						{/* Body */}
 						<div className="p-4">
-							<div className="mx-6 px-6 py-2 border border-gray-500 rounded-lg" style={{ border: "4px solid #F9FAFB" }}>
+							<div className="mx-6 px-6 py-2 border border-gray-500 rounded-lg relative" style={{ border: "4px solid #F9FAFB" }}>
 								{/* Description */}
 								<h2 className="text-base font-semibold text-gray-900 mb-2 text-center">
 									{__("Where Should Your Layout Appear?", "header-footer-elementor")}
@@ -411,9 +411,9 @@ const withDisplayConditions = (WrappedComponent) => {
 									{__("You can show it across your entire site or only on specific pages—your choice!", "header-footer-elementor")}
 								</p>
 
-								{/* Loading state */}
+								{/* Loading state - Fixed positioning to prevent flicker */}
 								{state.isLoading && (
-									<div className="flex justify-center my-4">
+									<div className="absolute inset-0 flex justify-center items-center bg-white bg-opacity-90 z-10">
 										<div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-600"></div>
 									</div>
 								)}
@@ -425,9 +425,8 @@ const withDisplayConditions = (WrappedComponent) => {
 									</div>
 								)}
 
-								{/* Content - Only show when not loading */}
-								{!state.isLoading && (
-									<>
+								{/* Content - Always show, overlay with loading when needed */}
+								<>
 										{/* Tab Navigation */}
 										<div className="flex justify-center gap-4 mb-8">
 											<button
@@ -440,7 +439,8 @@ const withDisplayConditions = (WrappedComponent) => {
 												style={{ 
 													border: 'none', 
 													cursor: 'pointer', 
-													backgroundColor: state.activeTab === 'conditions' ? '#5C2EDE' : '#f3f4f6'
+													backgroundColor: state.activeTab === 'conditions' ? '#5C2EDE' : '#f3f4f6',
+													padding:'10px 20px'
 												}}
 											>
 												{__("Conditions", "header-footer-elementor")}
@@ -455,10 +455,11 @@ const withDisplayConditions = (WrappedComponent) => {
 												style={{ 
 													border: 'none', 
 													cursor: 'pointer', 
-													backgroundColor: state.activeTab === 'userRoles' ? '#5C2EDE' : '#f3f4f6'
+													backgroundColor: state.activeTab === 'userRoles' ? '#5C2EDE' : '#f3f4f6',
+													padding:'10px 20px'
 												}}
 											>
-												{__("User Role", "header-footer-elementor")}
+												{__("User Roles", "header-footer-elementor")}
 											</button>
 										</div>
 
@@ -469,7 +470,7 @@ const withDisplayConditions = (WrappedComponent) => {
 												<div className="space-y-3 mb-4">
 													{state.conditions.map((condition) => (
 														<div key={condition.id} className="flex items-center gap-1" style={{ marginTop: '12px' }}>
-															<div className="flex items-center justify-center overflow-hidden bg-gray-50" style={{ width: "92%" }}>
+															<div className="flex items-center justify-center overflow-hidden bg-gray-50" style={{ marginLeft: '56px' }}>
 																{/* Include/Exclude Select */}
 																<div className="rounded-sm" style={{ border: "1px solid #d1d5db", width: "120px" }}>
 																	<select
@@ -531,7 +532,7 @@ const withDisplayConditions = (WrappedComponent) => {
 													<button
 														onClick={handleAddCondition}
 														className="text-white px-6 py-2.5 rounded-md font-medium hover:bg-gray-800"
-														style={{ border: 'none', cursor: 'pointer', backgroundColor: '#000' }}
+														style={{ border: 'none', cursor: 'pointer', backgroundColor: '#000', padding:'10px 20px' }}
 													>
 														{__("Add Conditions", "header-footer-elementor")}
 													</button>
@@ -546,8 +547,8 @@ const withDisplayConditions = (WrappedComponent) => {
 													<div className="space-y-3 mb-4">
 														{state.userRoles.map((roleId, index) => (
 															<div key={index} className="flex items-center gap-1" style={{ marginTop: '8px' }}>
-																<div className="flex items-center justify-center overflow-hidden bg-gray-50" style={{ width: "92%" }}>
-																	<div className="rounded-sm" style={{ border: "1px solid #d1d5db", width: "540px" }}>
+																<div className="flex items-center justify-center overflow-hidden bg-gray-50" style={{ marginLeft: '86px' }}>
+																	<div className="rounded-sm" style={{ border: "1px solid #d1d5db", width: "430px" }}>
 																		<select
 																			value={roleId}
 																			onChange={(e) => handleUpdateUserRole(index, e.target.value)}
@@ -568,7 +569,7 @@ const withDisplayConditions = (WrappedComponent) => {
 																{state.userRoles.length > 1 && (
 																	<button
 																		onClick={() => handleRemoveUserRole(index)}
-																		className="p-2 text-gray-400 hover:text-gray-600 transition-colors"
+																		className="text-gray-400 hover:text-gray-600 transition-colors"
 																		style={{ background: 'none', border: 'none', cursor: 'pointer' }}
 																	>
 																		<X size={18} />
@@ -584,7 +585,7 @@ const withDisplayConditions = (WrappedComponent) => {
 													<button
 														onClick={handleAddUserRole}
 														className="text-white px-6 py-2.5 rounded-md font-medium hover:bg-gray-800"
-														style={{ border: 'none', cursor: 'pointer', backgroundColor: '#000' }}
+														style={{ border: 'none', cursor: 'pointer', backgroundColor: '#000', padding:'10px 20px' }}
 													>
 														{__("Add User Role", "header-footer-elementor")}
 													</button>
@@ -611,7 +612,6 @@ const withDisplayConditions = (WrappedComponent) => {
 											</div>
 										</div>
 									</>
-								)}
 							</div>
 						</div>
 
@@ -622,7 +622,7 @@ const withDisplayConditions = (WrappedComponent) => {
 									onClick={() => updateState({ isDialogOpen: false })}
 									className="rounded-md px-6 py-2.5 font-medium border border-gray-300 text-gray-700 hover:bg-gray-50"
 									disabled={state.isLoading}
-									style={{ background: 'white', cursor: 'pointer' }}
+									style={{ background: 'white', cursor: 'pointer', padding:'10px 20px' }}
 								>
 									{__("Cancel", "header-footer-elementor")}
 								</button>
@@ -630,7 +630,7 @@ const withDisplayConditions = (WrappedComponent) => {
 									onClick={handleSaveConditions}
 									className="bg-purple-600 hover:bg-purple-700 rounded-md px-6 py-2.5 font-medium text-white"
 									disabled={state.isLoading}
-									style={{ border: 'none', cursor: 'pointer', backgroundColor: '#5C2EDE' }}
+									style={{ border: 'none', cursor: 'pointer', backgroundColor: '#5C2EDE', padding:'10px 20px' }}
 								>
 									{state.isLoading ? (
 										<span className="flex items-center">
@@ -646,7 +646,7 @@ const withDisplayConditions = (WrappedComponent) => {
 					</div>
 				</div>
 			);
-		}, [state, handleAddCondition, handleRemoveCondition, handleUpdateCondition, handleAddUserRole, handleRemoveUserRole, handleUpdateUserRole, handleCanvasTemplateChange, handleSaveConditions, handleTabChange, updateState]);
+		}, [state.selectedItem?.id, state.isLoading, state.error, state.activeTab, state.conditions, state.userRoles, state.canvasTemplateEnabled, state.locationOptions, state.userRoleOptions, state.isNewPost]);
 
 		// Only render dialog when open
 		const DialogComponent = state.isDialogOpen ? DisplayConditionsDialog : () => null;
