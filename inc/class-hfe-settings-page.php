@@ -677,8 +677,8 @@ class HFE_Settings_Page {
 		// Add the HFB Submenu.
 		add_submenu_page(
 			$menu_slug,
-			__( 'Header & Footer 123 Builder', 'header-footer-elementor' ),
-			__( 'Header & Footer 123 Builder', 'header-footer-elementor' ),
+			__( 'Header & Footer', 'header-footer-elementor' ),
+			__( 'Header & Footer', 'header-footer-elementor' ),
 			$capability,
 			$menu_slug . '#hfb',
 			[ $this, 'render' ],

@@ -501,15 +501,16 @@ class HFE_Admin {
 			1
 		);
 
-		add_submenu_page(
-			$setting_location,
-			__( 'Header/Footer Builder', 'header-footer-elementor' ),
-			__( 'Header & Footer', 'header-footer-elementor' ),
-			'edit_pages',
-			'edit.php?post_type=elementor-hf',
-			'',
-			2
-		);
+		// Commented out to hide the Header & Footer submenu
+		// add_submenu_page(
+		// 	$setting_location,
+		// 	__( 'Header/Footer Builder', 'header-footer-elementor' ),
+		// 	__( 'Header & Footer', 'header-footer-elementor' ),
+		// 	'edit_pages',
+		// 	'edit.php?post_type=elementor-hf',
+		// 	'',
+		// 	2
+		// );
 	}
 
 
