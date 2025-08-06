@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Plus, EllipsisVertical } from "lucide-react";
-import { Button, DropdownMenu, Loader } from "@bsf/force-ui";
+import { Plus } from "lucide-react";
+import { Button, Loader } from "@bsf/force-ui";
 import { __ } from "@wordpress/i18n";
 import apiFetch from "@wordpress/api-fetch";
 import withDisplayConditions from "./DisplayConditionsDialog";
 import EmptyState from "./EmptyState";
+import LayoutDropdownMenu from "./LayoutDropdownMenu";
+import toast, { Toaster } from "react-hot-toast";
 
 const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog, isButtonLoading }) => {
 	const [headerItems, setHeaderItems] = useState([]);
@@ -73,13 +75,32 @@ const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog, isButton
 		openDisplayConditionsDialog(item, false);
 	};
 
+	// Handle item updates from dropdown menu
+	const handleItemUpdate = (itemId, updates) => {
+		setHeaderItems(prevItems => 
+			prevItems.map(item => 
+				item.id === itemId 
+					? { ...item, ...updates }
+					: item
+			)
+		);
+	};
+
+	// Handle item deletion from dropdown menu
+	const handleItemDelete = (itemId) => {
+		setHeaderItems(prevItems => {
+			const updatedItems = prevItems.filter(item => item.id !== itemId);
+			// Update hasHeaders state if no items left
+			if (updatedItems.length === 0) {
+				setHasHeaders(false);
+			}
+			return updatedItems;
+		});
+	};
+
 	const handleEditWithElementor = (item) => {
 		// Open the edit dialog
 		// openDisplayConditionsDialog(item);
-	};
-
-	const handleRedirect = (url) => {
-		window.open(url, "_blank");
 	};
 
 	// Show loading state while fetching data
@@ -289,58 +310,12 @@ const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog, isButton
 										<p className="text-sm font-medium text-gray-900">
 											{item.title}
 										</p>
-										<DropdownMenu placement="bottom-end">
-											<DropdownMenu.Trigger>
-												<EllipsisVertical
-													size={16}
-													className="cursor-pointer"
-												/>
-											</DropdownMenu.Trigger>
-											<DropdownMenu.Portal>
-												<DropdownMenu.ContentWrapper>
-													<DropdownMenu.Content className="w-40">
-														<DropdownMenu.List>
-															<DropdownMenu.Item
-																onClick={() =>
-																	handleRedirect(
-																		"https://ultimateelementor.com/docs-category/features/",
-																	)
-																}
-															>
-																{__(
-																	"Copy Shortcode",
-																	"header-footer-elementor",
-																)}
-															</DropdownMenu.Item>
-															<DropdownMenu.Item
-																onClick={() =>
-																	handleRedirect(
-																		"https://ultimateelementor.com/docs-category/templates/",
-																	)
-																}
-															>
-																{__(
-																	"Disable",
-																	"header-footer-elementor",
-																)}
-															</DropdownMenu.Item>
-															<DropdownMenu.Item
-																onClick={() =>
-																	handleRedirect(
-																		"https://ultimateelementor.com/contact/",
-																	)
-																}
-															>
-																{__(
-																	"Delete",
-																	"header-footer-elementor",
-																)}
-															</DropdownMenu.Item>
-														</DropdownMenu.List>
-													</DropdownMenu.Content>
-												</DropdownMenu.ContentWrapper>
-											</DropdownMenu.Portal>
-										</DropdownMenu>
+										<LayoutDropdownMenu 
+											item={item}
+											onItemUpdate={handleItemUpdate}
+											onItemDelete={handleItemDelete}
+											showShortcode={true}
+										/>
 									</div>
 								</div>
 							</div>
@@ -350,6 +325,18 @@ const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog, isButton
 
 				{/* Render the Display Conditions Dialog from HOC */}
 				<DisplayConditionsDialog />
+
+				{/* React Hot Toast Notifications */}
+				<Toaster
+					position="bottom-right"
+					toastOptions={{
+						duration: 3000,
+						style: {
+							background: '#363636',
+							color: '#fff',
+						},
+					}}
+				/>
 			</>
 		);
 	}

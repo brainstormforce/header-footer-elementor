@@ -5,6 +5,7 @@ import { __ } from "@wordpress/i18n";
 import apiFetch from "@wordpress/api-fetch";
 import withDisplayConditions from "./DisplayConditionsDialog";
 import EmptyState from "./EmptyState";
+import LayoutDropdownMenu from "./LayoutDropdownMenu";
 import toast, { Toaster } from "react-hot-toast";
 
 // Example: Ensure these values are coming from global/localized JS in WordPress
@@ -238,7 +239,7 @@ const AllLayouts = ({
 	};
 
 	/**
-	 * Handle disabling a layout (set status to draft)
+	 * Handle item updates from dropdown menu
 	 */
 	const handleDisableLayout = async (item) => {
 		try {
@@ -469,6 +470,16 @@ const AllLayouts = ({
 		}
 	};
 
+	const handleItemUpdate = (itemId, updates) => {
+        setlLayoutItems(prevItems => 
+            prevItems.map(item => 
+                item.id === itemId 
+                    ? { ...item, ...updates }
+                    : item
+            )
+        );
+    };
+
 	/**
 	 * Handle copying shortcode to clipboard
 	 */
@@ -536,56 +547,17 @@ const AllLayouts = ({
 	};
 
 	/**
-	 * Handle publishing a draft layout (set status to publish)
+	 * Handle item deletion from dropdown menu
 	 */
-	const handlePublishLayout = async (item) => {
-		try {
-			const response = await apiFetch({
-				path: "/hfe/v1/update-post-status",
-				method: "POST",
-				data: {
-					post_id: item.id,
-					status: "publish",
-				},
-			});
-
-			if (response.success) {
-				// Update the item in the state instead of reloading
-				setlLayoutItems(prevItems => 
-					prevItems.map(layoutItem => 
-						layoutItem.id === item.id 
-							? { ...layoutItem, post_status: "publish" }
-							: layoutItem
-					)
-				);
-
-				// Show success toast notification
-				toast.success(
-					__(
-						"Layout published successfully!",
-						"header-footer-elementor",
-					),
-				);
-			} else {
-				console.error("Failed to publish layout:", response);
-				// Show error message
-				toast.error(
-					__(
-						"Failed to publish layout. Please try again.",
-						"header-footer-elementor",
-					),
-				);
+	const handleItemDelete = (itemId) => {
+		setlLayoutItems(prevItems => {
+			const updatedItems = prevItems.filter(item => item.id !== itemId);
+			// Update hasLayoutItems state if no items left
+			if (updatedItems.length === 0) {
+				setHasLayoutItems(false);
 			}
-		} catch (error) {
-			console.error("Error publishing layout:", error);
-			// Show error message
-			toast.error(
-				__(
-					"Error publishing layout. Please try again.",
-					"header-footer-elementor",
-				),
-			);
-		}
+			return updatedItems;
+		});
 	};
 	// Show loading state while fetching data
 	if (isLoading) {
@@ -1143,74 +1115,12 @@ const AllLayouts = ({
 												</span>
 											)}
 										</p>
-										<DropdownMenu placement="bottom-end">
-											<DropdownMenu.Trigger>
-												<EllipsisVertical
-													size={16}
-													className="cursor-pointer"
-												/>
-											</DropdownMenu.Trigger>
-											<DropdownMenu.Portal>
-												<DropdownMenu.ContentWrapper>
-													<DropdownMenu.Content className="w-40">
-														<DropdownMenu.List>
-															<DropdownMenu.Item
-																onClick={() =>
-																	handleCopyShortcode(
-																		item,
-																	)
-																}
-															>
-																{__(
-																	"Copy Shortcode",
-																	"header-footer-elementor",
-																)}
-															</DropdownMenu.Item>
-															{item.post_status ===
-															"draft" ? (
-																<DropdownMenu.Item
-																	onClick={() =>
-																		handlePublishLayout(
-																			item,
-																		)
-																	}
-																>
-																	{__(
-																		"Publish",
-																		"header-footer-elementor",
-																	)}
-																</DropdownMenu.Item>
-															) : (
-																<DropdownMenu.Item
-																	onClick={() =>
-																		handleDisableLayout(
-																			item,
-																		)
-																	}
-																>
-																	{__(
-																		"Disable",
-																		"header-footer-elementor",
-																	)}
-																</DropdownMenu.Item>
-															)}
-															<DropdownMenu.Item
-																onClick={() =>
-																	handleDeleteLayout(
-																		item,
-																	)
-																}
-															>
-																{__(
-																	"Delete",
-																	"header-footer-elementor",
-																)}
-															</DropdownMenu.Item>
-														</DropdownMenu.List>
-													</DropdownMenu.Content>
-												</DropdownMenu.ContentWrapper>
-											</DropdownMenu.Portal>
-										</DropdownMenu>
+										<LayoutDropdownMenu 
+											item={item}
+											onItemUpdate={handleItemUpdate}
+											onItemDelete={handleItemDelete}
+											showShortcode={true}
+										/>
 									</div>
 								</div>
 							</div>
