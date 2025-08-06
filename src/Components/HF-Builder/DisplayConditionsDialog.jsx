@@ -26,6 +26,9 @@ const withDisplayConditions = (WrappedComponent) => {
 			canvasTemplateEnabled: false,
 			nextId: 2,
 			
+			// Tab state
+			activeTab: localStorage.getItem('hfe-display-conditions-tab') || 'conditions',
+			
 			// Options
 			locationOptions: {},
 			userRoleOptions: {},
@@ -157,6 +160,12 @@ const withDisplayConditions = (WrappedComponent) => {
 		// Canvas Template handler
 		const handleCanvasTemplateChange = useCallback((enabled) => {
 			updateState({ canvasTemplateEnabled: enabled });
+		}, [updateState]);
+
+		// Tab handler
+		const handleTabChange = useCallback((tabName) => {
+			localStorage.setItem('hfe-display-conditions-tab', tabName);
+			updateState({ activeTab: tabName });
 		}, [updateState]);
 
 		const openDisplayConditionsDialog = useCallback(async (item, isNew = false) => {
@@ -419,124 +428,169 @@ const withDisplayConditions = (WrappedComponent) => {
 								{/* Content - Only show when not loading */}
 								{!state.isLoading && (
 									<>
-										{/* Conditions */}
-										<div className="space-y-3 mb-4">
-											{state.conditions.map((condition) => (
-												<div key={condition.id} className="flex items-center gap-1">
-													<div className="flex items-center justify-center overflow-hidden bg-gray-50" style={{ width: "92%" }}>
-														{/* Include/Exclude Select */}
-														<div className="rounded-sm" style={{ border: "1px solid #d1d5db", width: "120px" }}>
-															<select
-																onChange={(e) => {
-																	const selectedOption = e.target.options[e.target.selectedIndex];
-																	handleUpdateCondition(condition.id, "conditionType", {
-																		id: selectedOption.value,
-																		name: selectedOption.text,
-																	});
-																}}
-																value={condition.conditionType.id}
-																className="border-0 rounded-none bg-transparent h-full w-full px-4 text-black focus:outline-none"
-																style={{ boxShadow: "none", height: '40px' }}
-															>
-																<option value="include">{__("Include", "header-footer-elementor")}</option>
-																<option value="exclude">{__("Exclude", "header-footer-elementor")}</option>
-															</select>
-														</div>
-
-														{/* Display Location Select */}
-														<div className="rounded-sm" style={{ border: "1px solid #d1d5db", width: "420px" }}>
-															<select
-																onChange={(e) => {
-																	const selectedOption = e.target.options[e.target.selectedIndex];
-																	handleUpdateCondition(condition.id, "displayLocation", {
-																		id: selectedOption.value,
-																		name: selectedOption.text,
-																	});
-																}}
-																value={condition.displayLocation.id}
-																className="border-0 rounded-none bg-transparent h-full w-full px-4 text-black focus:outline-none"
-																style={{ boxShadow: "none", height: '40px' }}
-															>
-																{Object.keys(state.locationOptions).map((groupKey) => (
-																	<optgroup key={groupKey} label={state.locationOptions[groupKey].label}>
-																		{Object.entries(state.locationOptions[groupKey].value).map(([optKey, optLabel]) => (
-																			<option key={optKey} value={optKey}>{optLabel}</option>
-																		))}
-																	</optgroup>
-																))}
-															</select>
-														</div>
-													</div>
-													{state.conditions.length > 1 && (
-														<button
-															onClick={() => handleRemoveCondition(condition.id)}
-															className="p-2 text-gray-400 hover:text-gray-600 transition-colors"
-															style={{ background: 'none', border: 'none', cursor: 'pointer' }}
-														>
-															<X size={18} />
-														</button>
-													)}
-												</div>
-											))}
-										</div>
-										
-										<div className="flex justify-center mb-8">
+										{/* Tab Navigation */}
+										<div className="flex justify-center gap-4 mb-8">
 											<button
-												onClick={handleAddCondition}
-												className="text-white px-6 py-2.5 rounded-md font-medium hover:bg-gray-800"
-												style={{ border: 'none', cursor: 'pointer', backgroundColor: '#000' }}
+												onClick={() => handleTabChange('conditions')}
+												className={`px-6 py-2.5 rounded-md font-medium transition-colors ${
+													state.activeTab === 'conditions'
+														? 'text-white hover:bg-gray-800'
+														: 'text-gray-700 bg-gray-100 hover:bg-gray-200'
+												}`}
+												style={{ 
+													border: 'none', 
+													cursor: 'pointer', 
+													backgroundColor: state.activeTab === 'conditions' ? '#5C2EDE' : '#f3f4f6'
+												}}
 											>
-												{__("Add Conditions", "header-footer-elementor")}
+												{__("Conditions", "header-footer-elementor")}
+											</button>
+											<button
+												onClick={() => handleTabChange('userRoles')}
+												className={`px-6 py-2.5 rounded-md font-medium transition-colors ${
+													state.activeTab === 'userRoles'
+														? 'text-white hover:bg-gray-800'
+														: 'text-gray-700 bg-gray-100 hover:bg-gray-200'
+												}`}
+												style={{ 
+													border: 'none', 
+													cursor: 'pointer', 
+													backgroundColor: state.activeTab === 'userRoles' ? '#5C2EDE' : '#f3f4f6'
+												}}
+											>
+												{__("User Role", "header-footer-elementor")}
 											</button>
 										</div>
 
-										{/* User Roles Section */}
-										<div className="mt-8 pt-6 border-t border-gray-200">
-											<div className="space-y-3 mb-4">
-												{state.userRoles.map((roleId, index) => (
-													<div key={index} className="flex items-center gap-2">
-														<div className="flex items-center justify-center overflow-hidden bg-gray-50 w-full">
-															<div className="rounded-sm" style={{ border: "1px solid #d1d5db", width: "420px" }}>
-																<select
-																	value={roleId}
-																	onChange={(e) => handleUpdateUserRole(index, e.target.value)}
-																	className="border-0 rounded-none bg-transparent h-full w-full px-4 text-black focus:outline-none"
-																	style={{ boxShadow: "none", height: '40px' }}
-																>
-																	<option value="">{__("Select User Role", "header-footer-elementor")}</option>
-																	{Object.keys(state.userRoleOptions).map((groupKey) => (
-																		<optgroup key={groupKey} label={state.userRoleOptions[groupKey].label}>
-																			{Object.entries(state.userRoleOptions[groupKey].value).map(([optKey, optLabel]) => (
-																				<option key={optKey} value={optKey}>{optLabel}</option>
-																			))}
-																		</optgroup>
-																	))}
-																</select>
+										{/* Tab Content */}
+										{state.activeTab === 'conditions' && (
+											<>
+												{/* Conditions */}
+												<div className="space-y-3 mb-4">
+													{state.conditions.map((condition) => (
+														<div key={condition.id} className="flex items-center gap-1" style={{ marginTop: '12px' }}>
+															<div className="flex items-center justify-center overflow-hidden bg-gray-50" style={{ width: "92%" }}>
+																{/* Include/Exclude Select */}
+																<div className="rounded-sm" style={{ border: "1px solid #d1d5db", width: "120px" }}>
+																	<select
+																		onChange={(e) => {
+																			const selectedOption = e.target.options[e.target.selectedIndex];
+																			handleUpdateCondition(condition.id, "conditionType", {
+																				id: selectedOption.value,
+																				name: selectedOption.text,
+																			});
+																		}}
+																		value={condition.conditionType.id}
+																		className="border-0 rounded-none bg-transparent h-full w-full px-4 text-black focus:outline-none"
+																		style={{ boxShadow: "none", height: '40px' }}
+																	>
+																		<option value="include">{__("Include", "header-footer-elementor")}</option>
+																		<option value="exclude">{__("Exclude", "header-footer-elementor")}</option>
+																	</select>
+																</div>
+
+																{/* Display Location Select */}
+																<div className="rounded-sm" style={{ border: "1px solid #d1d5db", width: "420px" }}>
+																	<select
+																		onChange={(e) => {
+																			const selectedOption = e.target.options[e.target.selectedIndex];
+																			handleUpdateCondition(condition.id, "displayLocation", {
+																				id: selectedOption.value,
+																				name: selectedOption.text,
+																			});
+																		}}
+																		value={condition.displayLocation.id}
+																		className="border-0 rounded-none bg-transparent h-full w-full px-4 text-black focus:outline-none"
+																		style={{ boxShadow: "none", height: '40px' }}
+																	>
+																		{Object.keys(state.locationOptions).map((groupKey) => (
+																			<optgroup key={groupKey} label={state.locationOptions[groupKey].label}>
+																				{Object.entries(state.locationOptions[groupKey].value).map(([optKey, optLabel]) => (
+																					<option key={optKey} value={optKey}>{optLabel}</option>
+																				))}
+																			</optgroup>
+																		))}
+																	</select>
+																</div>
 															</div>
-															{state.userRoles.length > 1 && (
+															{state.conditions.length > 1 && (
 																<button
-																	onClick={() => handleRemoveUserRole(index)}
+																	onClick={() => handleRemoveCondition(condition.id)}
 																	className="p-2 text-gray-400 hover:text-gray-600 transition-colors"
 																	style={{ background: 'none', border: 'none', cursor: 'pointer' }}
 																>
-																	<X size={20} />
+																	<X size={18} />
 																</button>
 															)}
 														</div>
-													</div>
-												))}
-											</div>
+													))}
+												</div>
 
-											<div className="flex justify-center mb-8">
-												<button
-													onClick={handleAddUserRole}
-													className="bg-gray-600 text-white px-6 py-2.5 rounded-md font-medium hover:bg-gray-700"
-													style={{ border: 'none', cursor: 'pointer', backgroundColor: '#000' }}
-												>
-													{__("Add User Role", "header-footer-elementor")}
-												</button>
-											</div>
-										</div>
+												{/* Add Condition Button */}
+												<div className="flex justify-center mb-8">
+													<button
+														onClick={handleAddCondition}
+														className="text-white px-6 py-2.5 rounded-md font-medium hover:bg-gray-800"
+														style={{ border: 'none', cursor: 'pointer', backgroundColor: '#000' }}
+													>
+														{__("Add Conditions", "header-footer-elementor")}
+													</button>
+												</div>
+											</>
+										)}
+
+										{state.activeTab === 'userRoles' && (
+											<>
+												{/* User Roles Section */}
+												<div className="mb-4">
+													<div className="space-y-3 mb-4">
+														{state.userRoles.map((roleId, index) => (
+															<div key={index} className="flex items-center gap-1" style={{ marginTop: '8px' }}>
+																<div className="flex items-center justify-center overflow-hidden bg-gray-50" style={{ width: "92%" }}>
+																	<div className="rounded-sm" style={{ border: "1px solid #d1d5db", width: "540px" }}>
+																		<select
+																			value={roleId}
+																			onChange={(e) => handleUpdateUserRole(index, e.target.value)}
+																			className="border-0 rounded-none bg-transparent h-full w-full px-4 text-black focus:outline-none"
+																			style={{ boxShadow: "none", height: '40px' }}
+																		>
+																			<option value="">{__("Select User Role", "header-footer-elementor")}</option>
+																			{Object.keys(state.userRoleOptions).map((groupKey) => (
+																				<optgroup key={groupKey} label={state.userRoleOptions[groupKey].label}>
+																					{Object.entries(state.userRoleOptions[groupKey].value).map(([optKey, optLabel]) => (
+																						<option key={optKey} value={optKey}>{optLabel}</option>
+																					))}
+																				</optgroup>
+																			))}
+																		</select>
+																	</div>
+																</div>
+																{state.userRoles.length > 1 && (
+																	<button
+																		onClick={() => handleRemoveUserRole(index)}
+																		className="p-2 text-gray-400 hover:text-gray-600 transition-colors"
+																		style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+																	>
+																		<X size={18} />
+																	</button>
+																)}
+															</div>
+														))}
+													</div>
+												</div>
+
+												{/* Add User Role Button */}
+												<div className="flex justify-center mb-8">
+													<button
+														onClick={handleAddUserRole}
+														className="text-white px-6 py-2.5 rounded-md font-medium hover:bg-gray-800"
+														style={{ border: 'none', cursor: 'pointer', backgroundColor: '#000' }}
+													>
+														{__("Add User Role", "header-footer-elementor")}
+													</button>
+												</div>
+											</>
+										)}
 
 										{/* Canvas Template Section */}
 										<div className="mt-8 pt-6 border-t border-gray-200">
@@ -592,7 +646,7 @@ const withDisplayConditions = (WrappedComponent) => {
 					</div>
 				</div>
 			);
-		}, [state, handleAddCondition, handleRemoveCondition, handleUpdateCondition, handleAddUserRole, handleRemoveUserRole, handleUpdateUserRole, handleCanvasTemplateChange, handleSaveConditions, updateState]);
+		}, [state, handleAddCondition, handleRemoveCondition, handleUpdateCondition, handleAddUserRole, handleRemoveUserRole, handleUpdateUserRole, handleCanvasTemplateChange, handleSaveConditions, handleTabChange, updateState]);
 
 		// Only render dialog when open
 		const DialogComponent = state.isDialogOpen ? DisplayConditionsDialog : () => null;
