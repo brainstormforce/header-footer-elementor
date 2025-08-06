@@ -104,22 +104,65 @@ class HFE_Settings_Page {
 	 * @since 2.4.5
 	 * @return void
 	 */
+	// public function uae_custom_admin_footer_text( $footer_text ) {
+	// 	$screen = get_current_screen();
+	
+	// 	if (
+	// 		( isset( $_GET['page'] ) && $_GET['page'] === 'hfe' ) ||
+	// 		( isset( $screen->post_type ) && $screen->post_type === 'elementor-hf' )
+	// 	) {
+	// 		$footer_text = sprintf(
+	// 			/* translators: %1$s is bold plugin name, %2$s is the review link */
+	// 			__( 'Enjoyed %1$s? Please leave us a %2$s rating. We really appreciate your support!', 'header-footer-elementor' ),
+	// 			'<b>UAE</b>',
+	// 			'<a class="uae-rating" href="https://wordpress.org/support/plugin/header-footer-elementor/reviews/#new-post" target="_blank">★★★★★</a>'
+	// 		);
+	// 	}
+	// 	return $footer_text;
+	// }
+
 	public function uae_custom_admin_footer_text( $footer_text ) {
 		$screen = get_current_screen();
 	
+		// Show only for hfe page or elementor-hf post type
 		if (
 			( isset( $_GET['page'] ) && $_GET['page'] === 'hfe' ) ||
 			( isset( $screen->post_type ) && $screen->post_type === 'elementor-hf' )
 		) {
 			$footer_text = sprintf(
-				/* translators: %1$s is bold plugin name, %2$s is the review link */
 				__( 'Enjoyed %1$s? Please leave us a %2$s rating. We really appreciate your support!', 'header-footer-elementor' ),
 				'<b>UAE</b>',
 				'<a class="uae-rating" href="https://wordpress.org/support/plugin/header-footer-elementor/reviews/#new-post" target="_blank">★★★★★</a>'
 			);
+	
+			// Inject JS to hide footer on certain tabs
+			$footer_text .= '
+				<script>
+					(function() {
+						function toggleFooter() {
+							const hash = window.location.hash;
+							const hideTabs = ["#hfb", "#settings"];
+							const footer = document.getElementById("wpfooter");
+	
+							if (footer) {
+								if (hideTabs.includes(hash)) {
+									footer.style.display = "none";
+								} else {
+									footer.style.display = "";
+								}
+							}
+						}
+	
+						window.addEventListener("hashchange", toggleFooter);
+						document.addEventListener("DOMContentLoaded", toggleFooter);
+					})();
+				</script>
+			';
 		}
+	
 		return $footer_text;
 	}
+		
 
 	/**
 	 * Render UAE NPS Survey Notice.
