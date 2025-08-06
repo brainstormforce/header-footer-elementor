@@ -6,6 +6,7 @@ import apiFetch from "@wordpress/api-fetch";
 import withDisplayConditions from "./DisplayConditionsDialog";
 import EmptyState from "./EmptyState";
 import LayoutDropdownMenu from "./LayoutDropdownMenu";
+import useCopyShortcode from "./hooks/useCopyShortcode";
 import toast, { Toaster } from "react-hot-toast";
 
 // Example: Ensure these values are coming from global/localized JS in WordPress
@@ -15,6 +16,8 @@ const AllLayouts = ({
 	DisplayConditionsDialog,
 	isButtonLoading,
 }) => {
+	// Use the custom hook for copy shortcode functionality
+	const { handleCopyShortcode } = useCopyShortcode();
 	const [layoutItems, setlLayoutItems] = useState([]);
 	const [hasLayoutItems, setHasLayoutItems] = useState(false);
 	const [isLoading, setIsLoading] = useState(true);
@@ -184,9 +187,7 @@ const AllLayouts = ({
 
 						// For custom blocks, redirect to Elementor editor
 						if (item.template_type === "custom") {
-							// Construct Elementor edit URL
-							const elementorEditUrl = `${window.location.origin}/wp-admin/post.php?post=${response.post_id}&action=elementor`;
-							window.open(elementorEditUrl, "_blank");
+                            refreshLayoutData();
 						} else {
 							// Open display conditions dialog using HOC function with isNew flag
 							openDisplayConditionsDialog(updatedItem, true);
@@ -650,6 +651,48 @@ const AllLayouts = ({
 											transform: "translateY(10px)",
 										}}
 									>
+                                        {item.template_type === "custom" ? 
+                                        <Button
+											iconPosition="left"
+											icon={
+												item.name !== "Custom Block" ? (
+													<Plus size={14} />
+												) : null
+											}
+											variant="primary"
+											className="bg-[#6005FF] font-medium text-white hfe-remove-ring z-50"
+											style={{
+												backgroundColor:
+													"#6005FF !important",
+												fontSize: "12px",
+												fontWeight: "600",
+												padding: "8px 8px",
+												borderRadius: "6px",
+												transition: "all 0.2s ease",
+												outline: "none",
+												transform: "scale(0.95)",
+												opacity: "1",
+											}}
+											onMouseEnter={(e) => {
+												e.currentTarget.style.backgroundColor =
+													"#4B00CC";
+												e.currentTarget.style.transform =
+													"scale(1)";
+											}}
+											onMouseLeave={(e) => {
+												e.currentTarget.style.backgroundColor =
+													"#6005FF";
+												e.currentTarget.style.transform =
+													"scale(0.95)";
+											}}
+											onClick={() => handleCopyShortcode(item)}
+										>
+                                            {__(
+													`Copy Shortcode`,
+													"header-footer-elementor",
+												)}
+										</Button>
+                                        : ''}
 										<Button
 											iconPosition="left"
 											icon={
