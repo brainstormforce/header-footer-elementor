@@ -594,10 +594,11 @@ msgstr ""
 msgid "Widgets / Features"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:1007
+#: src/Components/HF-Builder/AllLayouts.jsx:1006
 msgid "Draft"
 msgstr ""
 
+#: src/Components/HF-Builder/AllLayouts.jsx:1032
 #: src/Components/HF-Builder/AllLayouts.jsx:1033
 #: src/Components/HF-Builder/BeforeFooter.jsx:303
 #: src/Components/HF-Builder/CustomBlock.jsx:247
@@ -606,10 +607,11 @@ msgstr ""
 msgid "Copy Shortcode"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:1047
+#: src/Components/HF-Builder/AllLayouts.jsx:1046
 msgid "Publish"
 msgstr ""
 
+#: src/Components/HF-Builder/AllLayouts.jsx:1059
 #: src/Components/HF-Builder/AllLayouts.jsx:1060
 #: src/Components/HF-Builder/BeforeFooter.jsx:312
 #: src/Components/HF-Builder/CustomBlock.jsx:256
@@ -618,6 +620,7 @@ msgstr ""
 msgid "Disable"
 msgstr ""
 
+#: src/Components/HF-Builder/AllLayouts.jsx:1072
 #: src/Components/HF-Builder/AllLayouts.jsx:1073
 #: src/Components/HF-Builder/BeforeFooter.jsx:321
 #: src/Components/HF-Builder/CustomBlock.jsx:265
@@ -626,15 +629,15 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:1158
+#: src/Components/HF-Builder/AllLayouts.jsx:1157
 msgid "Layout published successfully!"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:1188
+#: src/Components/HF-Builder/AllLayouts.jsx:1187
 msgid "Failed to publish layout. Please try again."
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:1214
+#: src/Components/HF-Builder/AllLayouts.jsx:1213
 msgid "Error publishing layout. Please try again."
 msgstr ""
 
@@ -703,11 +706,7 @@ msgstr ""
 msgid "Create a custom footer layout for your website"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:466
-msgid "Loading layouts..."
-msgstr ""
-
-#: src/Components/HF-Builder/AllLayouts.jsx:522
+#: src/Components/HF-Builder/AllLayouts.jsx:521
 msgid "Choose Layout Type"
 msgstr ""
 
@@ -720,13 +719,13 @@ msgstr ""
 msgid "Create a layout that appears before the footer"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:694
+#: src/Components/HF-Builder/AllLayouts.jsx:693
 msgid ""
 "You haven't created any layouts yet. Build a custom layout to control how "
 "your site's top section looks and behaves across all pages."
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:698
+#: src/Components/HF-Builder/AllLayouts.jsx:697
 msgid "Create Layout"
 msgstr ""
 
@@ -739,14 +738,15 @@ msgstr ""
 msgid "Create a custom block that can be used anywhere"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:756
+#: src/Components/HF-Builder/AllLayouts.jsx:755
 msgid "Start customising Your Header & Footer"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:893
+#: src/Components/HF-Builder/AllLayouts.jsx:892
 msgid "Edit Layout"
 msgstr ""
 
+#: src/Components/HF-Builder/AllLayouts.jsx:980
 #: src/Components/HF-Builder/AllLayouts.jsx:981
 #: src/Components/HF-Builder/BeforeFooter.jsx:272
 #: src/Components/HF-Builder/Footer.jsx:272

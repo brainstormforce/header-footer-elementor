@@ -459,15 +459,14 @@ const AllLayouts = ({
 	if (isLoading) {
 		return (
 			<>
-				<div className="bg-white p-6 ml-6 rounded-lg">
-					<div className="flex flex-col items-center justify-center">
-						<div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
-						<p className="mt-2 text-sm text-gray-600">
-							{__(
-								"Loading layouts...",
-								"header-footer-elementor",
-							)}
-						</p>
+				<div className="flex items-center justify-center min-h-screen w-full">
+					<div className="">
+						<Loader
+							className=""
+							icon={null}
+							size="lg"
+							variant="primary"
+						/>
 					</div>
 				</div>
 

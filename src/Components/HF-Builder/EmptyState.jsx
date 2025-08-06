@@ -10,7 +10,7 @@ const EmptyState = ({
 	className = "bg-white p-6 ml-6 rounded-lg" 
 }) => {
 	return (
-		<div className={className}>
+		<div className={className} style={{ height: '550px'}}>
 			<div className="flex flex-col items-center justify-center">
 				{/* Icon Container */}
 				<div className="">
