@@ -10,6 +10,7 @@ const CustomBlock = () => {
 	const [customBlockItems, setCustomBlockItems] = useState([]);
 	const [hasCustomBlocks, setCustomBlocks] = useState(false);
 	const [isLoading, setIsLoading] = useState(true);
+	const [isCreating, setIsCreating] = useState(false);
 	
 	useEffect(() => {
 		// Fetch the target rule options when component mounts
@@ -40,9 +41,63 @@ const CustomBlock = () => {
 
 	}, []);
 
+	const handleCreateLayout = () => {
+		setIsCreating(true);
+		
+		apiFetch({
+			path: "/hfe/v1/create-layout",
+			method: "POST",
+			data: {
+				title: "My Custom Block Layout",
+				type: 'custom',
+			},
+		})
+			.then((response) => {
+				if (response.success && response.post) {
+					// Get the edit URL from the response or construct it
+					const editUrl = response.edit_url || response.post.edit_url;
+					
+					if (editUrl) {
+						// Redirect to edit with Elementor
+						window.open(editUrl, "_blank");
+					} else {
+						console.error("No edit URL provided in response");
+					}
+					
+					// Refresh the list to show the new item
+					// Re-fetch the custom blocks to update the list
+					apiFetch({
+						path: "/hfe/v1/get-post",
+						method: "POST",
+						data: {
+							type: 'custom',
+						},
+					})
+						.then((refreshResponse) => {
+							if (refreshResponse.success && refreshResponse.posts) {
+								setCustomBlockItems(refreshResponse.posts);
+								setCustomBlocks(refreshResponse.posts.length > 0);
+							}
+						})
+						.catch((error) => {
+							console.error("Error refreshing custom blocks:", error);
+						});
+				} else {
+					console.error("Failed to create custom block:", response);
+				}
+			})
+			.catch((error) => {
+				console.error("Error creating custom block:", error);
+			})
+			.finally(() => {
+				setIsCreating(false);
+			});
+	};
+
 	const handleEditWithElementor = (item) => {
-		// Open the edit dialog
-		// openDisplayConditionsDialog(item);
+		// Redirect to edit with Elementor
+		const elementorEditUrl = `${window.location.origin}/wp-admin/post.php?post=${item.id}&action=elementor`;
+		window.open(elementorEditUrl, "_blank");
 	};
 
 	const handleRedirect = (url) => {
@@ -72,17 +127,13 @@ const CustomBlock = () => {
 					"You haven't created a custom block layout yet. Build a custom block to control how your site's sections look and behave across all pages.",
 					"header-footer-elementor"
 				)}
-				buttonText={__("Create Custom Block Layout", "header-footer-elementor")}
-				onClick={() => {
-					// TODO: Add actual custom block creation logic
-					window.open("", "_blank");
-				}}
+				buttonText={isCreating ? __("Creating...", "header-footer-elementor") : __("Create Custom Block Layout", "header-footer-elementor")}
+				onClick={handleCreateLayout}
+				disabled={isCreating}
 				className="bg-white p-6 ml-6 rounded-lg"
 			/>
 		);
-	} 
-	else
-	{
+	} else {
 		return (
 			<>
 				<div className="custom-block-section" style={{ paddingLeft: "40px", paddingRight: "40px" }}>
