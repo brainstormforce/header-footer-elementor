@@ -441,7 +441,7 @@ msgid "Yes"
 msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:255
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:414
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:384
 #: src/Components/Onboarding/ExtendOnboardingWidget.jsx:305
 msgid "Close"
 msgstr ""
@@ -787,91 +787,83 @@ msgstr ""
 msgid "Custom Block Templates"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:223
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:224
 msgid "Entire Site"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:268
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:257
 msgid "Failed to load display conditions and user roles, using defaults"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:284
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:266
 msgid "No post selected"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:372
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:332
 msgid "Failed to save display conditions, user roles, and canvas template setting"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:400
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:374
 msgid "Configure Display Conditions"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:406
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:377
 msgid "New Layout"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:444
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:397
 msgid "Where Should Your Layout Appear?"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:450
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:400
 msgid "Decide where you want this layout to appear on your site."
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:455
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:402
 msgid ""
 "You can show it across your entire site or only on specific pages—your "
 "choice!"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:518
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:441
 msgid "Include"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:52
-msgid "Failed to load display conditions"
-msgstr ""
-
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:524
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:442
 msgid "Exclude"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:616
-msgid "Remove condition"
-msgstr ""
-
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:636
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:489
 msgid "Add Conditions"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:665
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:506
 msgid "Select User Role"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:687
-msgid "Remove user role"
-msgstr ""
-
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:707
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:536
 msgid "Add User Role"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:717
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:546
 msgid "Enable this layout to display on Elementor Canvas template pages."
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:742
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:573
 #: src/Components/Settings/VersionControl.jsx:132
 msgid "Cancel"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:753
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:584
 msgid "Saving..."
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:759
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:587
 msgid "Save Conditions"
+msgstr ""
+
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:95
+msgid "Failed to load display conditions"
 msgstr ""
 
 #: src/Components/HF-Builder/EmptyState.jsx:19
