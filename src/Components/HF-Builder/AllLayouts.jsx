@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Plus, EllipsisVertical } from "lucide-react";
-import { Button, DropdownMenu, Loader } from "@bsf/force-ui";
+import { Plus } from "lucide-react";
+import { Button, Loader } from "@bsf/force-ui";
 import { __ } from "@wordpress/i18n";
 import apiFetch from "@wordpress/api-fetch";
 import withDisplayConditions from "./DisplayConditionsDialog";
 import EmptyState from "./EmptyState";
+import LayoutDropdownMenu from "./LayoutDropdownMenu";
 import toast, { Toaster } from "react-hot-toast";
 
 // Example: Ensure these values are coming from global/localized JS in WordPress
@@ -220,240 +221,30 @@ const AllLayouts = ({
 	};
 
 	/**
-	 * Handle disabling a layout (set status to draft)
+	 * Handle item updates from dropdown menu
 	 */
-	const handleDisableLayout = async (item) => {
-		try {
-			const response = await apiFetch({
-				path: "/hfe/v1/update-post-status",
-				method: "POST",
-				data: {
-					post_id: item.id,
-					status: "draft",
-				},
-			});
-
-			if (response.success) {
-				// Update the item in the state instead of reloading
-				setlLayoutItems(prevItems => 
-					prevItems.map(layoutItem => 
-						layoutItem.id === item.id 
-							? { ...layoutItem, post_status: "draft" }
-							: layoutItem
-					)
-				);
-
-				// Show success toast notification
-				toast.success(
-					__(
-						"Layout disabled successfully!",
-						"header-footer-elementor",
-					),
-				);
-			} else {
-				console.error("Failed to disable layout:", response);
-				toast.error(
-					__(
-						"Failed to disable layout. Please try again.",
-						"header-footer-elementor",
-					),
-				);
-			}
-		} catch (error) {
-			console.error("Error disabling layout:", error);
-			toast.error(
-				__(
-					"Error disabling layout. Please try again.",
-					"header-footer-elementor",
-				),
-			);
-		}
-	};
-
-	/**
-	 * Handle deleting a layout (move to trash)
-	 */
-	const handleDeleteLayout = async (item) => {
-		// Show confirmation dialog
-		if (
-			!confirm(
-				__(
-					"Are you sure you want to delete this layout? This action cannot be undone.",
-					"header-footer-elementor",
-				),
+	const handleItemUpdate = (itemId, updates) => {
+		setlLayoutItems(prevItems => 
+			prevItems.map(item => 
+				item.id === itemId 
+					? { ...item, ...updates }
+					: item
 			)
-		) {
-			return;
-		}
+		);
+	};
 
-		try {
-			const response = await apiFetch({
-				path: "/hfe/v1/delete-post",
-				method: "POST",
-				data: {
-					post_id: item.id,
-				},
-			});
-
-			if (response.success) {
-				// Remove the item from the state instead of reloading
-				setlLayoutItems(prevItems => 
-					prevItems.filter(layoutItem => layoutItem.id !== item.id)
-				);
-
-				// Check if we have any items left, if not, update hasLayoutItems
-				setlLayoutItems(prevItems => {
-					const updatedItems = prevItems.filter(layoutItem => layoutItem.id !== item.id);
-					if (updatedItems.length === 0) {
-						setHasLayoutItems(false);
-					}
-					return updatedItems;
-				});
-
-				// Show success toast notification
-				toast.success(
-					__(
-						"Layout deleted successfully!",
-						"header-footer-elementor",
-					),
-				);
-			} else {
-				console.error("Failed to delete layout:", response);
-				toast.error(
-					__(
-						"Failed to delete layout. Please try again.",
-						"header-footer-elementor",
-					),
-				);
+	/**
+	 * Handle item deletion from dropdown menu
+	 */
+	const handleItemDelete = (itemId) => {
+		setlLayoutItems(prevItems => {
+			const updatedItems = prevItems.filter(item => item.id !== itemId);
+			// Update hasLayoutItems state if no items left
+			if (updatedItems.length === 0) {
+				setHasLayoutItems(false);
 			}
-		} catch (error) {
-			console.error("Error deleting layout:", error);
-			toast.error(
-				__(
-					"Error deleting layout. Please try again.",
-					"header-footer-elementor",
-				),
-			);
-		}
-	};
-
-	/**
-	 * Handle copying shortcode to clipboard
-	 */
-	const handleCopyShortcode = (item) => {
-		const shortcode = `[hfe_template id='${item.id}']`;
-
-		// Copy to clipboard
-		if (navigator.clipboard && window.isSecureContext) {
-			navigator.clipboard
-				.writeText(shortcode)
-				.then(() => {
-					// Show success toast notification
-					toast.success(
-						__(
-							"Shortcode copied to clipboard!",
-							"header-footer-elementor",
-						),
-					);
-				})
-				.catch((error) => {
-					console.error("Failed to copy shortcode:", error);
-					// Fallback method
-					fallbackCopyToClipboard(shortcode);
-				});
-		} else {
-			// Fallback method for older browsers or non-secure contexts
-			fallbackCopyToClipboard(shortcode);
-		}
-	};
-
-	/**
-	 * Fallback method to copy text to clipboard
-	 */
-	const fallbackCopyToClipboard = (text) => {
-		const textArea = document.createElement("textarea");
-		textArea.value = text;
-		textArea.style.position = "fixed";
-		textArea.style.left = "-999999px";
-		textArea.style.top = "-999999px";
-		document.body.appendChild(textArea);
-		textArea.focus();
-		textArea.select();
-
-		try {
-			document.execCommand("copy");
-			// Show success toast notification
-			toast.success(
-				__("Shortcode copied to clipboard!", "header-footer-elementor"),
-			);
-		} catch (error) {
-			console.error(
-				"Failed to copy shortcode using fallback method:",
-				error,
-			);
-			// Show error toast notification
-			toast.error(
-				__(
-					"Failed to copy shortcode. Please copy manually.",
-					"header-footer-elementor",
-				),
-			);
-		}
-
-		document.body.removeChild(textArea);
-	};
-
-	/**
-	 * Handle publishing a draft layout (set status to publish)
-	 */
-	const handlePublishLayout = async (item) => {
-		try {
-			const response = await apiFetch({
-				path: "/hfe/v1/update-post-status",
-				method: "POST",
-				data: {
-					post_id: item.id,
-					status: "publish",
-				},
-			});
-
-			if (response.success) {
-				// Update the item in the state instead of reloading
-				setlLayoutItems(prevItems => 
-					prevItems.map(layoutItem => 
-						layoutItem.id === item.id 
-							? { ...layoutItem, post_status: "publish" }
-							: layoutItem
-					)
-				);
-
-				// Show success toast notification
-				toast.success(
-					__(
-						"Layout published successfully!",
-						"header-footer-elementor",
-					),
-				);
-			} else {
-				console.error("Failed to publish layout:", response);
-				// Show error message
-				toast.error(
-					__(
-						"Failed to publish layout. Please try again.",
-						"header-footer-elementor",
-					),
-				);
-			}
-		} catch (error) {
-			console.error("Error publishing layout:", error);
-			// Show error message
-			toast.error(
-				__(
-					"Error publishing layout. Please try again.",
-					"header-footer-elementor",
-				),
-			);
-		}
+			return updatedItems;
+		});
 	};
 	// Show loading state while fetching data
 	if (isLoading) {
@@ -1012,74 +803,12 @@ const AllLayouts = ({
 												</span>
 											)}
 										</p>
-										<DropdownMenu placement="bottom-end">
-											<DropdownMenu.Trigger>
-												<EllipsisVertical
-													size={16}
-													className="cursor-pointer"
-												/>
-											</DropdownMenu.Trigger>
-											<DropdownMenu.Portal>
-												<DropdownMenu.ContentWrapper>
-													<DropdownMenu.Content className="w-40">
-														<DropdownMenu.List>
-															<DropdownMenu.Item
-																onClick={() =>
-																	handleCopyShortcode(
-																		item,
-																	)
-																}
-															>
-																{__(
-																	"Copy Shortcode",
-																	"header-footer-elementor",
-																)}
-															</DropdownMenu.Item>
-															{item.post_status ===
-															"draft" ? (
-																<DropdownMenu.Item
-																	onClick={() =>
-																		handlePublishLayout(
-																			item,
-																		)
-																	}
-																>
-																	{__(
-																		"Publish",
-																		"header-footer-elementor",
-																	)}
-																</DropdownMenu.Item>
-															) : (
-																<DropdownMenu.Item
-																	onClick={() =>
-																		handleDisableLayout(
-																			item,
-																		)
-																	}
-																>
-																	{__(
-																		"Disable",
-																		"header-footer-elementor",
-																	)}
-																</DropdownMenu.Item>
-															)}
-															<DropdownMenu.Item
-																onClick={() =>
-																	handleDeleteLayout(
-																		item,
-																	)
-																}
-															>
-																{__(
-																	"Delete",
-																	"header-footer-elementor",
-																)}
-															</DropdownMenu.Item>
-														</DropdownMenu.List>
-													</DropdownMenu.Content>
-												</DropdownMenu.ContentWrapper>
-											</DropdownMenu.Portal>
-										</DropdownMenu>
+										<LayoutDropdownMenu 
+											item={item}
+											onItemUpdate={handleItemUpdate}
+											onItemDelete={handleItemDelete}
+											showShortcode={true}
+										/>
 									</div>
 								</div>
 							</div>
