@@ -599,7 +599,6 @@ msgid "Draft"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:1032
-#: src/Components/HF-Builder/AllLayouts.jsx:1033
 #: src/Components/HF-Builder/BeforeFooter.jsx:303
 #: src/Components/HF-Builder/CustomBlock.jsx:247
 #: src/Components/HF-Builder/Footer.jsx:303
@@ -612,7 +611,6 @@ msgid "Publish"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:1059
-#: src/Components/HF-Builder/AllLayouts.jsx:1060
 #: src/Components/HF-Builder/BeforeFooter.jsx:312
 #: src/Components/HF-Builder/CustomBlock.jsx:256
 #: src/Components/HF-Builder/Footer.jsx:312
@@ -621,7 +619,6 @@ msgid "Disable"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:1072
-#: src/Components/HF-Builder/AllLayouts.jsx:1073
 #: src/Components/HF-Builder/BeforeFooter.jsx:321
 #: src/Components/HF-Builder/CustomBlock.jsx:265
 #: src/Components/HF-Builder/Footer.jsx:321
@@ -747,7 +744,6 @@ msgid "Edit Layout"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:980
-#: src/Components/HF-Builder/AllLayouts.jsx:981
 #: src/Components/HF-Builder/BeforeFooter.jsx:272
 #: src/Components/HF-Builder/Footer.jsx:272
 #: src/Components/HF-Builder/Header.jsx:276
