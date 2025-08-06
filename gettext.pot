@@ -594,10 +594,43 @@ msgstr ""
 msgid "Widgets / Features"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:1006
+#: src/Components/HF-Builder/AllLayouts.jsx:1024
+msgid "Edit Layout"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:1112
+#: src/Components/HF-Builder/AllLayouts.jsx:1109
+#: src/Components/HF-Builder/AllLayouts.jsx:1108
+#: src/Components/HF-Builder/AllLayouts.jsx:1107
+#: src/Components/HF-Builder/AllLayouts.jsx:1111
+#: src/Components/HF-Builder/AllLayouts.jsx:1105
+#: src/Components/HF-Builder/AllLayouts.jsx:1101
+#: src/Components/HF-Builder/AllLayouts.jsx:1097
+#: src/Components/HF-Builder/AllLayouts.jsx:1095
+#: src/Components/HF-Builder/AllLayouts.jsx:1077
+#: src/Components/HF-Builder/AllLayouts.jsx:1030
+#: src/Components/HF-Builder/AllLayouts.jsx:980
+#: src/Components/HF-Builder/BeforeFooter.jsx:272
+#: src/Components/HF-Builder/Footer.jsx:272
+#: src/Components/HF-Builder/Header.jsx:276
+msgid "Display Conditions"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:1138
 msgid "Draft"
 msgstr ""
 
+#: src/Components/HF-Builder/AllLayouts.jsx:1164
+#: src/Components/HF-Builder/AllLayouts.jsx:1161
+#: src/Components/HF-Builder/AllLayouts.jsx:1160
+#: src/Components/HF-Builder/AllLayouts.jsx:1159
+#: src/Components/HF-Builder/AllLayouts.jsx:1163
+#: src/Components/HF-Builder/AllLayouts.jsx:1157
+#: src/Components/HF-Builder/AllLayouts.jsx:1153
+#: src/Components/HF-Builder/AllLayouts.jsx:1149
+#: src/Components/HF-Builder/AllLayouts.jsx:1147
+#: src/Components/HF-Builder/AllLayouts.jsx:1129
+#: src/Components/HF-Builder/AllLayouts.jsx:1082
 #: src/Components/HF-Builder/AllLayouts.jsx:1032
 #: src/Components/HF-Builder/BeforeFooter.jsx:303
 #: src/Components/HF-Builder/CustomBlock.jsx:247
@@ -606,10 +639,21 @@ msgstr ""
 msgid "Copy Shortcode"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:1046
+#: src/Components/HF-Builder/AllLayouts.jsx:1178
 msgid "Publish"
 msgstr ""
 
+#: src/Components/HF-Builder/AllLayouts.jsx:1191
+#: src/Components/HF-Builder/AllLayouts.jsx:1188
+#: src/Components/HF-Builder/AllLayouts.jsx:1187
+#: src/Components/HF-Builder/AllLayouts.jsx:1186
+#: src/Components/HF-Builder/AllLayouts.jsx:1190
+#: src/Components/HF-Builder/AllLayouts.jsx:1184
+#: src/Components/HF-Builder/AllLayouts.jsx:1180
+#: src/Components/HF-Builder/AllLayouts.jsx:1176
+#: src/Components/HF-Builder/AllLayouts.jsx:1174
+#: src/Components/HF-Builder/AllLayouts.jsx:1156
+#: src/Components/HF-Builder/AllLayouts.jsx:1109
 #: src/Components/HF-Builder/AllLayouts.jsx:1059
 #: src/Components/HF-Builder/BeforeFooter.jsx:312
 #: src/Components/HF-Builder/CustomBlock.jsx:256
@@ -618,6 +662,17 @@ msgstr ""
 msgid "Disable"
 msgstr ""
 
+#: src/Components/HF-Builder/AllLayouts.jsx:1204
+#: src/Components/HF-Builder/AllLayouts.jsx:1201
+#: src/Components/HF-Builder/AllLayouts.jsx:1200
+#: src/Components/HF-Builder/AllLayouts.jsx:1199
+#: src/Components/HF-Builder/AllLayouts.jsx:1203
+#: src/Components/HF-Builder/AllLayouts.jsx:1197
+#: src/Components/HF-Builder/AllLayouts.jsx:1193
+#: src/Components/HF-Builder/AllLayouts.jsx:1189
+#: src/Components/HF-Builder/AllLayouts.jsx:1187
+#: src/Components/HF-Builder/AllLayouts.jsx:1169
+#: src/Components/HF-Builder/AllLayouts.jsx:1122
 #: src/Components/HF-Builder/AllLayouts.jsx:1072
 #: src/Components/HF-Builder/BeforeFooter.jsx:321
 #: src/Components/HF-Builder/CustomBlock.jsx:265
@@ -626,128 +681,137 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:1157
+#: src/Components/HF-Builder/AllLayouts.jsx:1289
 msgid "Layout published successfully!"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:1187
+#: src/Components/HF-Builder/AllLayouts.jsx:1319
 msgid "Failed to publish layout. Please try again."
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:1213
+#: src/Components/HF-Builder/AllLayouts.jsx:1345
 msgid "Error publishing layout. Please try again."
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:178
+#: src/Components/HF-Builder/AllLayouts.jsx:196
 msgid "Layout created successfully!"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:186
+#: src/Components/HF-Builder/AllLayouts.jsx:204
 msgid "Failed to create layout. Please try again."
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:196
+#: src/Components/HF-Builder/AllLayouts.jsx:214
 msgid "Error creating layout. Please try again."
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:248
+#: src/Components/HF-Builder/AllLayouts.jsx:266
 msgid "Layout disabled successfully!"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:256
+#: src/Components/HF-Builder/AllLayouts.jsx:274
 msgid "Failed to disable layout. Please try again."
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:265
+#: src/Components/HF-Builder/AllLayouts.jsx:283
 msgid "Error disabling layout. Please try again."
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:280
-msgid "Are you sure you want to delete this layout? This action cannot be undone."
+#: src/Components/HF-Builder/AllLayouts.jsx:303
+msgid "Delete Layout"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:315
+#: src/Components/HF-Builder/AllLayouts.jsx:306
+msgid "Are you sure you want to delete this layout?"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:324
+#: src/Components/HF-Builder/AllLayouts.jsx:323
+#: src/Components/HF-Builder/AllLayouts.jsx:322
+#: src/Components/HF-Builder/AllLayouts.jsx:306
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:573
+#: src/Components/Settings/VersionControl.jsx:132
+msgid "Cancel"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:364
+msgid "Deleting layout..."
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:398
 msgid "Layout deleted successfully!"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:32
-msgid "Header"
-msgstr ""
-
-#: src/Components/HF-Builder/AllLayouts.jsx:323
+#: src/Components/HF-Builder/AllLayouts.jsx:423
 msgid "Failed to delete layout. Please try again."
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:33
-msgid "Create a custom header layout for your website"
-msgstr ""
-
-#: src/Components/HF-Builder/AllLayouts.jsx:332
+#: src/Components/HF-Builder/AllLayouts.jsx:448
 msgid "Error deleting layout. Please try again."
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:387
+#: src/Components/HF-Builder/AllLayouts.jsx:50
+msgid "Header"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:51
+msgid "Create a custom header layout for your website"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:519
 msgid "Shortcode copied to clipboard!"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:396
+#: src/Components/HF-Builder/AllLayouts.jsx:528
 msgid "Failed to copy shortcode. Please copy manually."
 msgstr ""
 
+#: src/Components/HF-Builder/AllLayouts.jsx:61
 #: src/Components/HF-Builder/AllLayouts.jsx:43
 #: src/Components/HF-Builder/Sidebar.jsx:69
 msgid "Footer"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:44
+#: src/Components/HF-Builder/AllLayouts.jsx:62
 msgid "Create a custom footer layout for your website"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:521
+#: src/Components/HF-Builder/AllLayouts.jsx:653
 msgid "Choose Layout Type"
 msgstr ""
 
+#: src/Components/HF-Builder/AllLayouts.jsx:75
 #: src/Components/HF-Builder/AllLayouts.jsx:57
 #: src/Components/HF-Builder/Sidebar.jsx:88
 msgid "Before Footer"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:58
+#: src/Components/HF-Builder/AllLayouts.jsx:76
 msgid "Create a layout that appears before the footer"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:693
+#: src/Components/HF-Builder/AllLayouts.jsx:825
 msgid ""
 "You haven't created any layouts yet. Build a custom layout to control how "
 "your site's top section looks and behaves across all pages."
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:697
+#: src/Components/HF-Builder/AllLayouts.jsx:829
 msgid "Create Layout"
 msgstr ""
 
+#: src/Components/HF-Builder/AllLayouts.jsx:887
+msgid "Start customising Your Header & Footer"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:89
 #: src/Components/HF-Builder/AllLayouts.jsx:71
 #: src/Components/HF-Builder/Sidebar.jsx:107
 msgid "Custom Block"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:72
+#: src/Components/HF-Builder/AllLayouts.jsx:90
 msgid "Create a custom block that can be used anywhere"
-msgstr ""
-
-#: src/Components/HF-Builder/AllLayouts.jsx:755
-msgid "Start customising Your Header & Footer"
-msgstr ""
-
-#: src/Components/HF-Builder/AllLayouts.jsx:892
-msgid "Edit Layout"
-msgstr ""
-
-#: src/Components/HF-Builder/AllLayouts.jsx:980
-#: src/Components/HF-Builder/BeforeFooter.jsx:272
-#: src/Components/HF-Builder/Footer.jsx:272
-#: src/Components/HF-Builder/Header.jsx:276
-msgid "Display Conditions"
 msgstr ""
 
 #: src/Components/HF-Builder/BeforeFooter.jsx:114
@@ -843,11 +907,6 @@ msgstr ""
 
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:546
 msgid "Enable this layout to display on Elementor Canvas template pages."
-msgstr ""
-
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:573
-#: src/Components/Settings/VersionControl.jsx:132
-msgid "Cancel"
 msgstr ""
 
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:584

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Plus, EllipsisVertical } from "lucide-react";
+import { Plus, EllipsisVertical, Trash2 } from "lucide-react";
 import { Button, DropdownMenu, Loader } from "@bsf/force-ui";
 import { __ } from "@wordpress/i18n";
 import apiFetch from "@wordpress/api-fetch";
@@ -23,6 +23,24 @@ const AllLayouts = ({
 		const saved = localStorage.getItem("hfe_showDummyCards");
 		return saved ? JSON.parse(saved) : false;
 	});
+
+	// Add custom styles for toast positioning
+	useEffect(() => {
+		const style = document.createElement('style');
+		style.textContent = `
+			.toast-confirmation {
+				z-index: 999999 !important;
+			}
+			.toast-confirmation > div {
+				max-width: 400px !important;
+			}
+		`;
+		document.head.appendChild(style);
+		
+		return () => {
+			document.head.removeChild(style);
+		};
+	}, []);
 
 	// Define dummy layout types
 	const dummyLayoutTypes = [
@@ -271,22 +289,84 @@ const AllLayouts = ({
 	};
 
 	/**
+	 * Custom confirmation toast component
+	 */
+	const showDeleteConfirmation = (item) => {
+		toast((t) => (
+			<div className="flex flex-col gap-3 p-6">
+				<div className="flex items-start gap-3">
+					<div className="flex-shrink-0 w-8 h-8 bg-red-100 rounded-full flex items-center justify-center" style={{ marginTop: '12px' }}>
+						<Trash2 />
+					</div>
+					<div className="flex-1">
+						<h3 className="text-base font-medium text-gray-900">
+							{__("Delete Layout", "header-footer-elementor")}
+						</h3>
+						<p className="text-base text-gray-600">
+							{__("Are you sure you want to delete this layout?", "header-footer-elementor")}
+						</p>
+						<div className="flex gap-2">
+							<button
+								onClick={() => {
+									toast.dismiss(t.id);
+									performDeleteLayout(item);
+								}}
+								style={{ backgroundColor: '#000'}}
+								className="px-3 py-1.5 text-white text-sm font-medium rounded-md focus:outline-none"
+							>
+								{__("Delete", "header-footer-elementor")}
+							</button>
+							<button
+								style={{ backgroundColor: '#000'}}
+								onClick={() => toast.dismiss(t.id)}
+								className="px-3 py-1.5 text-white text-sm font-medium rounded-md  focus:outline-none"
+							>
+								{__("Cancel", "header-footer-elementor")}
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		), {
+			duration: Infinity, // Keep open until user decides
+			position: 'top-right',
+			className: 'toast-confirmation',
+			style: {
+				background: 'white',
+				color: '#374151',
+				border: '1px solid #e5e7eb',
+				borderRadius: '0.5rem',
+				boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+				padding: '0',
+				maxWidth: '400px',
+				marginTop: '80px',
+				marginRight: '20px',
+				zIndex: 999999,
+			},
+		});
+	};
+
+	/**
 	 * Handle deleting a layout (move to trash)
 	 */
-	const handleDeleteLayout = async (item) => {
-		// Show confirmation dialog
-		if (
-			!confirm(
-				__(
-					"Are you sure you want to delete this layout? This action cannot be undone.",
-					"header-footer-elementor",
-				),
-			)
-		) {
-			return;
-		}
+	const handleDeleteLayout = (item) => {
+		showDeleteConfirmation(item);
+	};
+
+	/**
+	 * Perform the actual delete operation
+	 */
+	const performDeleteLayout = async (item) => {
 
 		try {
+			// Show loading toast
+			const loadingToast = toast.loading(
+				__("Deleting layout...", "header-footer-elementor"),
+				{
+					position: 'bottom-right',
+				}
+			);
+
 			const response = await apiFetch({
 				path: "/hfe/v1/delete-post",
 				method: "POST",
@@ -294,6 +374,9 @@ const AllLayouts = ({
 					post_id: item.id,
 				},
 			});
+
+			// Dismiss loading toast
+			toast.dismiss(loadingToast);
 
 			if (response.success) {
 				// Remove the item from the state instead of reloading
@@ -316,6 +399,23 @@ const AllLayouts = ({
 						"Layout deleted successfully!",
 						"header-footer-elementor",
 					),
+					{
+						position: 'top-right',
+						duration: 4000,
+						style: {
+							marginTop: '20px',
+							background: '#10b981',
+							color: 'white',
+							borderRadius: '0.5rem',
+							fontSize: '14px',
+							padding: '12px 16px',
+							boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+						},
+						iconTheme: {
+							primary: 'white',
+							secondary: '#10b981',
+						},
+					}
 				);
 			} else {
 				console.error("Failed to delete layout:", response);
@@ -324,6 +424,22 @@ const AllLayouts = ({
 						"Failed to delete layout. Please try again.",
 						"header-footer-elementor",
 					),
+					{
+						position: 'top-center',
+						duration: 5000,
+						style: {
+							background: '#ef4444',
+							color: 'white',
+							borderRadius: '0.5rem',
+							fontSize: '14px',
+							padding: '12px 16px',
+							boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+						},
+						iconTheme: {
+							primary: 'white',
+							secondary: '#ef4444',
+						},
+					}
 				);
 			}
 		} catch (error) {
@@ -333,6 +449,22 @@ const AllLayouts = ({
 					"Error deleting layout. Please try again.",
 					"header-footer-elementor",
 				),
+				{
+					position: 'top-center',
+					duration: 5000,
+					style: {
+						background: '#ef4444',
+						color: 'white',
+						borderRadius: '0.5rem',
+						fontSize: '14px',
+						padding: '12px 16px',
+						boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+					},
+					iconTheme: {
+						primary: 'white',
+						secondary: '#ef4444',
+					},
+				}
 			);
 		}
 	};
