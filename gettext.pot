@@ -633,7 +633,6 @@ msgid "Start customising Your Header & Footer"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:65
-#: src/Components/HF-Builder/AllLayouts.jsx:47
 #: src/Components/HF-Builder/Sidebar.jsx:69
 msgid "Footer"
 msgstr ""
@@ -644,10 +643,6 @@ msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:690
 #: src/Components/HF-Builder/CustomBlock.jsx:374
-#: src/Components/HF-Builder/CustomBlock.jsx:344
-#: src/Components/HF-Builder/CustomBlock.jsx:314
-#: src/Components/HF-Builder/CustomBlock.jsx:294
-#: src/Components/HF-Builder/CustomBlock.jsx:276
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:256
 msgid "Copy Shortcode"
 msgstr ""
@@ -657,7 +652,6 @@ msgid "Edit Layout"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:79
-#: src/Components/HF-Builder/AllLayouts.jsx:61
 #: src/Components/HF-Builder/Sidebar.jsx:88
 msgid "Before Footer"
 msgstr ""
@@ -668,18 +662,7 @@ msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:832
 #: src/Components/HF-Builder/BeforeFooter.jsx:438
-#: src/Components/HF-Builder/BeforeFooter.jsx:410
-#: src/Components/HF-Builder/BeforeFooter.jsx:382
-#: src/Components/HF-Builder/BeforeFooter.jsx:381
-#: src/Components/HF-Builder/BeforeFooter.jsx:361
-#: src/Components/HF-Builder/BeforeFooter.jsx:343
 #: src/Components/HF-Builder/Footer.jsx:432
-#: src/Components/HF-Builder/Footer.jsx:404
-#: src/Components/HF-Builder/Footer.jsx:376
-#: src/Components/HF-Builder/Footer.jsx:375
-#: src/Components/HF-Builder/Footer.jsx:355
-#: src/Components/HF-Builder/BeforeFooter.jsx:297
-#: src/Components/HF-Builder/Footer.jsx:337
 #: src/Components/HF-Builder/Header.jsx:432
 msgid "Display Conditions"
 msgstr ""
@@ -689,7 +672,6 @@ msgid "Draft"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:93
-#: src/Components/HF-Builder/AllLayouts.jsx:75
 #: src/Components/HF-Builder/Sidebar.jsx:107
 msgid "Custom Block"
 msgstr ""
@@ -827,8 +809,6 @@ msgstr ""
 
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:627
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:150
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:134
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:142
 #: src/Components/Settings/VersionControl.jsx:132
 msgid "Cancel"
 msgstr ""
