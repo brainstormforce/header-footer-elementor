@@ -116,8 +116,11 @@ msgstr ""
 #: src/Components/Compare/FreevsPro.jsx:200
 #: src/Components/Compare/UltimateCompare.jsx:109
 #: src/Components/Dashboard/MyAccount.jsx:54
-#: src/Components/Dashboard/UltimateFeatures.js:131
+#: src/Components/Dashboard/UltimateFeatures.js:139
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:141
 #: src/Components/Widgets/UltimateWidgetFeatures.jsx:133
+#: src/Components/Dashboard/UltimateFeatures.js:135
+#: src/Components/Dashboard/UltimateFeatures.js:131
 #: src/Components/Widgets/UltimateWidgets.jsx:116
 msgid "Upgrade Now"
 msgstr ""
@@ -172,8 +175,8 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:35
 #: src/Components/Compare/UltimateCompare.jsx:17
-#: src/Components/Dashboard/UltimateFeatures.js:90
 #: src/Components/Widgets/UltimateWidgetFeatures.jsx:92
+#: src/Components/Dashboard/UltimateFeatures.js:90
 #: src/Components/Widgets/UltimateWidgets.jsx:18
 msgid "Advanced Heading"
 msgstr ""
@@ -183,6 +186,8 @@ msgid "Dual Color Heading"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:37
+#: src/Components/Dashboard/UltimateFeatures.js:75
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:77
 msgid "Fancy Heading"
 msgstr ""
 
@@ -207,6 +212,8 @@ msgid "Image Gallery"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:47
+#: src/Components/Dashboard/UltimateFeatures.js:98
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:100
 msgid "Video Gallery"
 msgstr ""
 
@@ -240,8 +247,8 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:55
 #: src/Components/Compare/UltimateCompare.jsx:27
-#: src/Components/Dashboard/UltimateFeatures.js:94
 #: src/Components/Widgets/UltimateWidgetFeatures.jsx:96
+#: src/Components/Dashboard/UltimateFeatures.js:94
 #: src/Components/Widgets/UltimateWidgets.jsx:28
 msgid "Info Box"
 msgstr ""
@@ -354,8 +361,8 @@ msgid "Business Reviews"
 msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:22
-#: src/Components/Dashboard/UltimateFeatures.js:98
 #: src/Components/Widgets/UltimateWidgetFeatures.jsx:100
+#: src/Components/Dashboard/UltimateFeatures.js:98
 #: src/Components/Widgets/UltimateWidgets.jsx:23
 msgid "Post Layouts"
 msgstr ""
@@ -529,6 +536,26 @@ msgstr ""
 msgid "View Templates"
 msgstr ""
 
+#: src/Components/Dashboard/UltimateFeatures.js:102
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:104
+msgid "Pricing Box"
+msgstr ""
+
+#: src/Components/Dashboard/UltimateFeatures.js:106
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:108
+msgid "And more.."
+msgstr ""
+
+#: src/Components/Dashboard/UltimateFeatures.js:139
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:141
+msgid "View plans"
+msgstr ""
+
+#: src/Components/Dashboard/UltimateFeatures.js:41
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:43
+msgid "Unlock Pro widgets"
+msgstr ""
+
 #: src/Components/Dashboard/UltimateFeatures.js:54
 #: src/Components/Widgets/UltimateWidgetFeatures.jsx:56
 msgid "Bring Your Vision to Life with UAE Pro"
@@ -541,19 +568,24 @@ msgid ""
 "high-performance websites."
 msgstr ""
 
-#: src/Components/Dashboard/UltimateFeatures.js:75
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:77
-msgid "Cross-Site Copy Paste"
-msgstr ""
-
 #: src/Components/Dashboard/UltimateFeatures.js:79
 #: src/Components/Widgets/UltimateWidgetFeatures.jsx:81
-msgid "Form Stylers"
+msgid "Faq Schema"
 msgstr ""
 
 #: src/Components/Dashboard/UltimateFeatures.js:83
 #: src/Components/Widgets/UltimateWidgetFeatures.jsx:85
-msgid "Modal Popups"
+msgid "Modal Pop-up"
+msgstr ""
+
+#: src/Components/Dashboard/UltimateFeatures.js:87
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:89
+msgid "Infobox"
+msgstr ""
+
+#: src/Components/Dashboard/UltimateFeatures.js:94
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:96
+msgid "Before After Slider"
 msgstr ""
 
 #: src/Components/Dashboard/WelcomeContainer.js:25
@@ -1088,11 +1120,11 @@ msgid "Close Upgrade Notice"
 msgstr ""
 
 #: src/Components/UpgradeNotice.jsx:38
-msgid "Unlock Ultimate Addons For Elementor!  "
+msgid "Unlock UAE's full potential!"
 msgstr ""
 
 #: src/Components/UpgradeNotice.jsx:44
-msgid "Get exclusive features and unbeatable performance.  "
+msgid "Get powerful widgets and faster performance"
 msgstr ""
 
 #: src/Components/UpgradeNotice.jsx:53
