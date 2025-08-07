@@ -453,12 +453,21 @@ class HFE_Settings_Api {
 		}else{
 			$type = strtolower($type);
 		}
-		
+
 		$post_id = wp_insert_post( [
 			'post_title'  => $title,
 			'post_type'   => 'elementor-hf',
 			'post_status' => 'draft',
 		] );
+
+		// Update title to include post ID (e.g., "UAE Something #123")
+		$updated_title = $title . ' #' . $post_id;
+
+		wp_update_post( [
+			'ID'         => $post_id,
+			'post_title' => $updated_title,
+		] );
+
 		update_post_meta($post_id, 'ehf_template_type', $type);
 	
 		if ( is_wp_error( $post_id ) ) {
@@ -467,13 +476,13 @@ class HFE_Settings_Api {
 				'message' => 'Failed to create post.',
 			], 500 );
 		}
-	
+
 		return new WP_REST_Response( [
 			'success' => true,
 			'post_id' => $post_id,
 			'post'    => [
 				'id' => $post_id,
-				'title'=> $title,
+				'title'=> $updated_title,
 				'post_status' => 'draft',
 			],
 		], 200 );

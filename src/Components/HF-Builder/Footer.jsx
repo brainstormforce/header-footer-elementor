@@ -69,7 +69,7 @@ const Footer = ({
 			path: "/hfe/v1/create-layout",
 			method: "POST",
 			data: {
-				title: "My Custom Footer",
+				title: "UAE Footer",
 				type: "footer",
 			},
 		})

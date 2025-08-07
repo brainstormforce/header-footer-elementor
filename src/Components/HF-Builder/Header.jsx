@@ -69,7 +69,7 @@ const Header = ({
 			path: "/hfe/v1/create-layout",
 			method: "POST",
 			data: {
-				title: "My Custom Header",
+				title: "UAE Header",
 				type: "header",
 			},
 		})

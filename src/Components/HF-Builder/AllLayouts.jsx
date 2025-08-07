@@ -152,21 +152,23 @@ const AllLayouts = ({
 	}, []);
 
 	const handleCreateLayout = (item) => {
+        console.log(item);
 		if (!item.id) {
 			apiFetch({
 				path: "/hfe/v1/create-layout",
 				method: "POST",
 				data: {
-					title: `My Custom ${item.title}`,
+					title: `UAE ${item.title}`,
 					type: item.name,
 				},
 			})
 				.then((response) => {
 					if (response.success && response.post_id) {
 						// Create the new layout item with the response data
+
 						const newLayoutItem = {
 							id: response.post_id,
-							title: `My Custom ${item.title}`,
+							title: `${response.post['title']}`,
 							name: item.name,
 							template_type: item.template_type,
 							post_status: "draft", // or whatever status is returned

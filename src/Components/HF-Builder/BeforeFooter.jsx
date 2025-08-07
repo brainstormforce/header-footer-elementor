@@ -69,7 +69,7 @@ const BeforeFooter = ({
 			path: "/hfe/v1/create-layout",
 			method: "POST",
 			data: {
-				title: "My Custom Before Footer",
+				title: "UAE Before Footer",
 				type: "before_footer",
 			},
 		})

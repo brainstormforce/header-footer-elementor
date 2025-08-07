@@ -594,28 +594,26 @@ msgstr ""
 msgid "Widgets / Features"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:1037
-#: src/Components/HF-Builder/AllLayouts.jsx:850
-#: src/Components/HF-Builder/AllLayouts.jsx:847
+#: src/Components/HF-Builder/AllLayouts.jsx:1039
 #: src/Components/HF-Builder/BeforeFooter.jsx:449
 #: src/Components/HF-Builder/Footer.jsx:443
 #: src/Components/HF-Builder/Header.jsx:443
 msgid "Display Conditions"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:202
+#: src/Components/HF-Builder/AllLayouts.jsx:204
 msgid "Layout created successfully!"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:210
+#: src/Components/HF-Builder/AllLayouts.jsx:212
 msgid "Failed to create layout. Please try again."
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:220
+#: src/Components/HF-Builder/AllLayouts.jsx:222
 msgid "Error creating layout. Please try again."
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:508
+#: src/Components/HF-Builder/AllLayouts.jsx:510
 msgid ""
 "You haven't created any layouts yet. Build a custom layout to control how "
 "your site's top section looks and behaves across all pages."
@@ -629,11 +627,11 @@ msgstr ""
 msgid "Create a custom header layout for your website"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:573
+#: src/Components/HF-Builder/AllLayouts.jsx:575
 msgid "Choose Layout Type"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:589
+#: src/Components/HF-Builder/AllLayouts.jsx:591
 #: src/Components/Onboarding/ExtendOnboarding.jsx:551
 #: src/Components/Onboarding/Features.jsx:389
 msgid "Back"
@@ -648,11 +646,11 @@ msgstr ""
 msgid "Create a custom footer layout for your website"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:757
+#: src/Components/HF-Builder/AllLayouts.jsx:759
 msgid "Start Customising Your Header & Footer"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:791
+#: src/Components/HF-Builder/AllLayouts.jsx:793
 msgid "Create Layout"
 msgstr ""
 
@@ -665,9 +663,7 @@ msgstr ""
 msgid "Create a layout that appears before the footer"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:893
-#: src/Components/HF-Builder/AllLayouts.jsx:706
-#: src/Components/HF-Builder/AllLayouts.jsx:703
+#: src/Components/HF-Builder/AllLayouts.jsx:895
 #: src/Components/HF-Builder/CustomBlock.jsx:385
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:575
 msgid "Copy Shortcode"
@@ -678,12 +674,12 @@ msgstr ""
 msgid "Custom Block"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:949
-msgid "Edit Layout"
-msgstr ""
-
 #: src/Components/HF-Builder/AllLayouts.jsx:95
 msgid "Create a custom block that can be used anywhere"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:951
+msgid "Edit Layout"
 msgstr ""
 
 #: src/Components/HF-Builder/BeforeFooter.jsx:105
@@ -884,37 +880,31 @@ msgid "Header layout created successfully!"
 msgstr ""
 
 #: src/Components/HF-Builder/InlineTitleEditor.jsx:149
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:143
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:252
 msgid "Layout renamed successfully!"
 msgstr ""
 
 #: src/Components/HF-Builder/InlineTitleEditor.jsx:173
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:164
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:275
 msgid "Failed to rename layout. Please try again."
 msgstr ""
 
 #: src/Components/HF-Builder/InlineTitleEditor.jsx:197
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:185
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:301
 msgid "Error renaming layout. Please try again."
 msgstr ""
 
 #: src/Components/HF-Builder/InlineTitleEditor.jsx:203
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:188
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:304
 msgid "You don't have permission to rename this layout."
 msgstr ""
 
 #: src/Components/HF-Builder/InlineTitleEditor.jsx:208
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:190
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:306
 msgid "Security check failed. Please refresh the page and try again."
 msgstr ""
 
 #: src/Components/HF-Builder/InlineTitleEditor.jsx:262
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:237
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:86
 msgid "Layout name"
 msgstr ""
@@ -950,7 +940,6 @@ msgid "Layout name is too long. Maximum 255 characters allowed."
 msgstr ""
 
 #: src/Components/HF-Builder/InlineTitleEditor.jsx:93
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:90
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:188
 msgid "Layout name contains invalid characters."
 msgstr ""

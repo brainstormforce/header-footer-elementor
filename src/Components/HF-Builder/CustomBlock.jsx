@@ -69,7 +69,7 @@ const CustomBlock = () => {
 			path: "/hfe/v1/create-layout",
 			method: "POST",
 			data: {
-				title: "My Custom Block",
+				title: "UAE Custom Block",
 				type: "custom",
 			},
 		})
