@@ -31,7 +31,7 @@ const AllLayouts = ({
 
 	// Add custom styles for toast positioning
 	useEffect(() => {
-		const style = document.createElement('style');
+		const style = document.createElement("style");
 		style.textContent = `
 			.toast-confirmation {
 				z-index: 999999 !important;
@@ -41,7 +41,7 @@ const AllLayouts = ({
 			}
 		`;
 		document.head.appendChild(style);
-		
+
 		return () => {
 			document.head.removeChild(style);
 		};
@@ -169,16 +169,19 @@ const AllLayouts = ({
 							title: `My Custom ${item.title}`,
 							name: item.name,
 							template_type: item.template_type,
-							post_status: 'draft', // or whatever status is returned
+							post_status: "draft", // or whatever status is returned
 							// Add any other properties that might be needed
 						};
 
 						// Update the layoutItems state to include the new item
-						setlLayoutItems(prevItems => [...prevItems, newLayoutItem]);
-						
+						setlLayoutItems((prevItems) => [
+							...prevItems,
+							newLayoutItem,
+						]);
+
 						// Update hasLayoutItems to true since we now have items
 						setHasLayoutItems(true);
-						
+
 						// Hide dummy cards and clear localStorage
 						setShowDummyCards(false);
 						localStorage.removeItem("hfe_showDummyCards");
@@ -188,7 +191,7 @@ const AllLayouts = ({
 
 						// For custom blocks, redirect to Elementor editor
 						if (item.template_type === "custom") {
-                            refreshLayoutData();
+							refreshLayoutData();
 						} else {
 							// Open display conditions dialog using HOC function with isNew flag
 							openDisplayConditionsDialog(updatedItem, true);
@@ -244,21 +247,19 @@ const AllLayouts = ({
 	 * Handle item updates from dropdown menu and inline editor
 	 */
 	const handleItemUpdate = (itemId, updates) => {
-        setlLayoutItems(prevItems => 
-            prevItems.map(item => 
-                item.id === itemId 
-                    ? { ...item, ...updates }
-                    : item
-            )
-        );
-    };
+		setlLayoutItems((prevItems) =>
+			prevItems.map((item) =>
+				item.id === itemId ? { ...item, ...updates } : item,
+			),
+		);
+	};
 
 	/**
 	 * Handle item deletion from dropdown menu
 	 */
 	const handleItemDelete = (itemId) => {
-		setlLayoutItems(prevItems => {
-			const updatedItems = prevItems.filter(item => item.id !== itemId);
+		setlLayoutItems((prevItems) => {
+			const updatedItems = prevItems.filter((item) => item.id !== itemId);
 			// Update hasLayoutItems state if no items left
 			if (updatedItems.length === 0) {
 				setHasLayoutItems(false);
@@ -285,32 +286,32 @@ const AllLayouts = ({
 				<DisplayConditionsDialog />
 
 				{/* React Hot Toast Notifications */}
-				    <Toaster
-                            position="top-right"
-                            reverseOrder={false}
-                            gutter={8}
-                            containerStyle={{
-                                top: 20,
-                                right: 20,
-                                marginTop: '40px',
-                            }}
-                            toastOptions={{
-                                duration: 1000,
-                                style: {
-                                    background: 'white',
-                                },
-                                success: {
-                                    duration: 2000,
-                                    style: {
-                                        color: '',
-                                    },
-                                    iconTheme: {
-                                        primary: '#6005ff',
-                                        secondary: '#fff',
-                                    },
-                                },
-                            }}
-                        />
+				<Toaster
+					position="top-right"
+					reverseOrder={false}
+					gutter={8}
+					containerStyle={{
+						top: 20,
+						right: 20,
+						marginTop: "40px",
+					}}
+					toastOptions={{
+						duration: 1000,
+						style: {
+							background: "white",
+						},
+						success: {
+							duration: 2000,
+							style: {
+								color: "",
+							},
+							iconTheme: {
+								primary: "#6005ff",
+								secondary: "#fff",
+							},
+						},
+					}}
+				/>
 			</>
 		);
 	}
@@ -328,7 +329,10 @@ const AllLayouts = ({
 							className="flex items-start gap-10 justify-between"
 							style={{ padding: "0 40px", marginBottom: "10px" }}
 						>
-							<h2 className="text-base font-medium text-foreground" style={{ marginLeft: "-10px" }}>
+							<h2
+								className="text-base font-medium text-foreground"
+								style={{ marginLeft: "-10px" }}
+							>
 								{__(
 									"Choose Layout Type",
 									"header-footer-elementor",
@@ -467,32 +471,32 @@ const AllLayouts = ({
 					<DisplayConditionsDialog />
 
 					{/* React Hot Toast Notifications */}
-				   <Toaster
-                            position="top-right"
-                            reverseOrder={false}
-                            gutter={8}
-                            containerStyle={{
-                                top: 20,
-                                right: 20,
-                                marginTop: '40px',
-                            }}
-                            toastOptions={{
-                                duration: 1000,
-                                style: {
-                                    background: 'white',
-                                },
-                                success: {
-                                    duration: 2000,
-                                    style: {
-                                        color: '',
-                                    },
-                                    iconTheme: {
-                                        primary: '#6005ff',
-                                        secondary: '#fff',
-                                    },
-                                },
-                            }}
-                        />
+					<Toaster
+						position="top-right"
+						reverseOrder={false}
+						gutter={8}
+						containerStyle={{
+							top: 20,
+							right: 20,
+							marginTop: "40px",
+						}}
+						toastOptions={{
+							duration: 1000,
+							style: {
+								background: "white",
+							},
+							success: {
+								duration: 2000,
+								style: {
+									color: "",
+								},
+								iconTheme: {
+									primary: "#6005ff",
+									secondary: "#fff",
+								},
+							},
+						}}
+					/>
 				</>
 			);
 		}
@@ -520,32 +524,32 @@ const AllLayouts = ({
 				<DisplayConditionsDialog />
 
 				{/* React Hot Toast Notifications */}
-				    <Toaster
-                            position="top-right"
-                            reverseOrder={false}
-                            gutter={8}
-                            containerStyle={{
-                                top: 20,
-                                right: 20,
-                                marginTop: '40px',
-                            }}
-                            toastOptions={{
-                                duration: 1000,
-                                style: {
-                                    background: 'white',
-                                },
-                                success: {
-                                    duration: 2000,
-                                    style: {
-                                        color: '',
-                                    },
-                                    iconTheme: {
-                                        primary: '#6005ff',
-                                        secondary: '#fff',
-                                    },
-                                },
-                            }}
-                        />
+				<Toaster
+					position="top-right"
+					reverseOrder={false}
+					gutter={8}
+					containerStyle={{
+						top: 20,
+						right: 20,
+						marginTop: "40px",
+					}}
+					toastOptions={{
+						duration: 1000,
+						style: {
+							background: "white",
+						},
+						success: {
+							duration: 2000,
+							style: {
+								color: "",
+							},
+							iconTheme: {
+								primary: "#6005ff",
+								secondary: "#fff",
+							},
+						},
+					}}
+				/>
 			</>
 		);
 	} else {
@@ -569,37 +573,37 @@ const AllLayouts = ({
 							)}
 						</h2>
 						{/* <Button
-                                iconPosition="left"
-                                icon={<Plus />}
-                                variant="primary"
-                                className="bg-[#6005FF] font-light flex items-center justify-center hfe-remove-ring"
-                                style={{
-                                    backgroundColor: "#6005FF",
-                                    transition: "background-color 0.3s ease",
-                                    outline: "none",
-                                }}
-                                onMouseEnter={(e) =>
-                                    (e.currentTarget.style.backgroundColor = "#4B00CC")
-                                }
-                                onMouseLeave={(e) =>
-                                    (e.currentTarget.style.backgroundColor = "#6005FF")
-                                }
-                                onClick={() => {
-                                    window.open("", "_blank");
-                                }}
-                            >
-                                {__("Create Layout", "header-footer-elementor")}
-                            </Button> */}
-					</div>
-                    	<hr
-							className="border-b-0 border-x-0 border-t border-solid border-t-border-transparent-subtle"
+							iconPosition="left"
+							icon={<Plus />}
+							variant="primary"
+							className="bg-[#6005FF] font-light flex items-center justify-center hfe-remove-ring"
 							style={{
-								marginTop: "10px",
-								marginBottom: "15px",
-                                width: '92%'
-								// borderColor: "#E5E7EB",
+								backgroundColor: "#6005FF",
+								transition: "background-color 0.3s ease",
+								outline: "none",
 							}}
-						/>
+							onMouseEnter={(e) =>
+								(e.currentTarget.style.backgroundColor =
+									"#4B00CC")
+							}
+							onMouseLeave={(e) =>
+								(e.currentTarget.style.backgroundColor =
+									"#6005FF")
+							}
+							onClick={() => handleCreateLayout(layoutType)}
+						>
+							{__("Create Layout", "header-footer-elementor")}
+						</Button> */}
+					</div>
+					<hr
+						className="border-b-0 border-x-0 border-t border-solid border-t-border-transparent-subtle"
+						style={{
+							marginTop: "10px",
+							marginBottom: "15px",
+							width: "92%",
+							// borderColor: "#E5E7EB",
+						}}
+					/>
 
 					<div
 						className="grid grid-cols-1 md:grid-cols-2 gap-6"
@@ -652,48 +656,52 @@ const AllLayouts = ({
 											transform: "translateY(10px)",
 										}}
 									>
-                                        {item.template_type === "custom" ? 
-                                        <Button
-											iconPosition="left"
-											icon={
-												item.name !== "Custom Block" ? (
-													<Copy size={14} />
-												) : null
-											}
-											variant="primary"
-											className="font-medium text-black hfe-remove-ring z-50"
-											style={{
-												backgroundColor:
-													"white",
-												fontSize: "12px",
-												fontWeight: "600",
-												padding: "8px 8px",
-												borderRadius: "6px",
-												transition: "all 0.2s ease",
-												outline: "none",
-												transform: "scale(0.95)",
-												opacity: "1",
-											}}
-											onMouseEnter={(e) => {
-												e.currentTarget.style.backgroundColor =
-													"white";
-												e.currentTarget.style.transform =
-													"scale(1)";
-											}}
-											onMouseLeave={(e) => {
-												e.currentTarget.style.backgroundColor =
-													"white";
-												e.currentTarget.style.transform =
-													"scale(0.95)";
-											}}
-											onClick={() => handleCopyShortcode(item)}
-										>
-                                            {__(
+										{item.template_type === "custom" ? (
+											<Button
+												iconPosition="left"
+												icon={
+													item.name !==
+													"Custom Block" ? (
+														<Copy size={14} />
+													) : null
+												}
+												variant="primary"
+												className="font-medium text-black hfe-remove-ring z-50"
+												style={{
+													backgroundColor: "white",
+													fontSize: "12px",
+													fontWeight: "600",
+													padding: "8px 8px",
+													borderRadius: "6px",
+													transition: "all 0.2s ease",
+													outline: "none",
+													transform: "scale(0.95)",
+													opacity: "1",
+												}}
+												onMouseEnter={(e) => {
+													e.currentTarget.style.backgroundColor =
+														"white";
+													e.currentTarget.style.transform =
+														"scale(1)";
+												}}
+												onMouseLeave={(e) => {
+													e.currentTarget.style.backgroundColor =
+														"white";
+													e.currentTarget.style.transform =
+														"scale(0.95)";
+												}}
+												onClick={() =>
+													handleCopyShortcode(item)
+												}
+											>
+												{__(
 													`Copy Shortcode`,
 													"header-footer-elementor",
 												)}
-										</Button>
-                                        : ''}
+											</Button>
+										) : (
+											""
+										)}
 										<Button
 											iconPosition="left"
 											icon={
@@ -851,13 +859,13 @@ const AllLayouts = ({
 										}}
 									/>
 									<div className="flex items-center justify-between px-1">
-										<InlineTitleEditor 
+										<InlineTitleEditor
 											item={item}
 											onTitleUpdate={handleItemUpdate}
 											showDraftStatus={true}
 											alwaysShowIcon={true}
 										/>
-										<LayoutDropdownMenu 
+										<LayoutDropdownMenu
 											item={item}
 											onItemUpdate={handleItemUpdate}
 											onItemDelete={handleItemDelete}
@@ -874,32 +882,32 @@ const AllLayouts = ({
 				<DisplayConditionsDialog />
 
 				{/* React Hot Toast Notifications */}
-				    <Toaster
-                            position="top-right"
-                            reverseOrder={false}
-                            gutter={8}
-                            containerStyle={{
-                                top: 20,
-                                right: 20,
-                                marginTop: '40px',
-                            }}
-                            toastOptions={{
-                                duration: 1000,
-                                style: {
-                                    background: 'white',
-                                },
-                                success: {
-                                    duration: 2000,
-                                    style: {
-                                        color: '',
-                                    },
-                                    iconTheme: {
-                                        primary: '#6005ff',
-                                        secondary: '#fff',
-                                    },
-                                },
-                            }}
-                        />
+				<Toaster
+					position="top-right"
+					reverseOrder={false}
+					gutter={8}
+					containerStyle={{
+						top: 20,
+						right: 20,
+						marginTop: "40px",
+					}}
+					toastOptions={{
+						duration: 1000,
+						style: {
+							background: "white",
+						},
+						success: {
+							duration: 2000,
+							style: {
+								color: "",
+							},
+							iconTheme: {
+								primary: "#6005ff",
+								secondary: "#fff",
+							},
+						},
+					}}
+				/>
 			</>
 		);
 	}

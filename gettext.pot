@@ -594,29 +594,29 @@ msgstr ""
 msgid "Widgets / Features"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:199
+#: src/Components/HF-Builder/AllLayouts.jsx:202
 msgid "Layout created successfully!"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:207
+#: src/Components/HF-Builder/AllLayouts.jsx:210
 msgid "Failed to create layout. Please try again."
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:217
+#: src/Components/HF-Builder/AllLayouts.jsx:220
 msgid "Error creating layout. Please try again."
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:332
+#: src/Components/HF-Builder/AllLayouts.jsx:336
 msgid "Choose Layout Type"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:504
+#: src/Components/HF-Builder/AllLayouts.jsx:508
 msgid ""
 "You haven't created any layouts yet. Build a custom layout to control how "
 "your site's top section looks and behaves across all pages."
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:508
+#: src/Components/HF-Builder/AllLayouts.jsx:512
 msgid "Create Layout"
 msgstr ""
 
@@ -628,7 +628,7 @@ msgstr ""
 msgid "Create a custom header layout for your website"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:566
+#: src/Components/HF-Builder/AllLayouts.jsx:570
 msgid "Start Customising Your Header & Footer"
 msgstr ""
 
@@ -641,6 +641,9 @@ msgstr ""
 msgid "Create a custom footer layout for your website"
 msgstr ""
 
+#: src/Components/HF-Builder/AllLayouts.jsx:697
+#: src/Components/HF-Builder/AllLayouts.jsx:703
+#: src/Components/HF-Builder/AllLayouts.jsx:693
 #: src/Components/HF-Builder/AllLayouts.jsx:691
 #: src/Components/HF-Builder/CustomBlock.jsx:385
 #: src/Components/HF-Builder/CustomBlock.jsx:375
@@ -648,7 +651,7 @@ msgstr ""
 msgid "Copy Shortcode"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:745
+#: src/Components/HF-Builder/AllLayouts.jsx:753
 msgid "Edit Layout"
 msgstr ""
 
@@ -661,6 +664,9 @@ msgstr ""
 msgid "Create a layout that appears before the footer"
 msgstr ""
 
+#: src/Components/HF-Builder/AllLayouts.jsx:841
+#: src/Components/HF-Builder/AllLayouts.jsx:847
+#: src/Components/HF-Builder/AllLayouts.jsx:835
 #: src/Components/HF-Builder/AllLayouts.jsx:833
 #: src/Components/HF-Builder/BeforeFooter.jsx:449
 #: src/Components/HF-Builder/Footer.jsx:443
