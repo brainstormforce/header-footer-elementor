@@ -5,7 +5,7 @@ import React, {
 	useRef,
 	useMemo,
 } from "react";
-import { Plus, X } from "lucide-react";
+import { Plus, X, Settings, Users } from "lucide-react";
 import { Button, Dialog, Switch, Loader, Tabs } from "@bsf/force-ui";
 import { __ } from "@wordpress/i18n";
 import apiFetch from "@wordpress/api-fetch";
@@ -32,8 +32,15 @@ const withDisplayConditions = (WrappedComponent) => {
 			canvasTemplateEnabled: false,
 			nextId: 2,
 
-			// Tab state
-			activeTab: localStorage.getItem('hfe-display-conditions-tab') || 'conditions',
+			// Tab state - ensure it's always a string
+			activeTab: (() => {
+				try {
+					const stored = localStorage.getItem('hfe-display-conditions-tab');
+					return (stored === 'conditions' || stored === 'userRoles') ? stored : 'conditions';
+				} catch (e) {
+					return 'conditions';
+				}
+			})(),
 
 			// Options
 			locationOptions: {},
@@ -63,30 +70,62 @@ const withDisplayConditions = (WrappedComponent) => {
 			};
 		}, [updateState]);
 
-		// Debug effect to track activeTab changes
-		useEffect(() => {
-			console.log('Active tab changed to:', state.activeTab);
-		}, [state.activeTab]);
-
 		// Stable update function that batches all state changes
 		const updateState = useCallback((updates) => {
 			if (!isMountedRef.current) return;
 
-			console.log('updateState called with:', updates); // Debug log
-			
 			setState((prevState) => {
 				const newState = {
 					...prevState,
 					...updates,
 				};
-				console.log('State updated from:', prevState.activeTab, 'to:', newState.activeTab); // Debug log
 				return newState;
 			});
 		}, []);
 
-		// Tab handler - moved after updateState
-		const handleTabChange = useCallback((tabSlug) => {
-			console.log('Tab change requested:', tabSlug, 'Current tab:', state.activeTab); // Debug log
+		// Ensure activeTab is always a valid string
+		const safeActiveTab = useMemo(() => {
+			const tab = state.activeTab;
+			if (typeof tab === 'string' && (tab === 'conditions' || tab === 'userRoles')) {
+				return tab;
+			}
+			return 'conditions';
+		}, [state.activeTab]);
+
+		// Tab handler - fixed to handle Force UI event object
+		const handleTabChange = useCallback((tabSlugOrEvent) => {
+			// Extract the actual tab slug from Force UI event object
+			let tabSlug;
+			if (typeof tabSlugOrEvent === 'string') {
+				// Direct string (custom implementation)
+				tabSlug = tabSlugOrEvent;
+			} else if (tabSlugOrEvent && typeof tabSlugOrEvent === 'object') {
+				// Force UI event object - extract the slug
+				if (tabSlugOrEvent.value && typeof tabSlugOrEvent.value === 'object') {
+					tabSlug = tabSlugOrEvent.value.slug || tabSlugOrEvent.value;
+				} else if (tabSlugOrEvent.slug) {
+					tabSlug = tabSlugOrEvent.slug;
+				} else if (tabSlugOrEvent.value) {
+					tabSlug = tabSlugOrEvent.value;
+				} else {
+					console.error('Could not extract tab slug from:', tabSlugOrEvent);
+					return;
+				}
+			} else {
+				console.error('Invalid tab change parameter:', tabSlugOrEvent);
+				return;
+			}
+			
+			// Don't update if it's the same tab
+			if (state.activeTab === tabSlug) {
+				return;
+			}
+			
+			// Validate tab slug
+			if (tabSlug !== 'conditions' && tabSlug !== 'userRoles') {
+				console.error('Invalid tab slug:', tabSlug);
+				return;
+			}
 			
 			// Persist to localStorage
 			try {
@@ -249,16 +288,18 @@ const withDisplayConditions = (WrappedComponent) => {
 				// Prepare initial state
 				const defaultConditions = getDefaultConditions();
 				
-				// Get saved tab from localStorage or use current state
-				let savedTab = state.activeTab;
+				// Get saved tab from localStorage or use default
+				let savedTab = 'conditions'; // Default fallback
 				try {
 					const storedTab = localStorage.getItem('hfe-display-conditions-tab');
-					if (storedTab && (storedTab === 'conditions' || storedTab === 'userRoles')) {
+					if (storedTab === 'conditions' || storedTab === 'userRoles') {
 						savedTab = storedTab;
 					}
 				} catch (e) {
 					console.warn('Could not read tab from localStorage:', e);
 				}
+				
+				
 				
 				const initialUpdates = {
 					isDialogOpen: true,
@@ -584,7 +625,7 @@ const withDisplayConditions = (WrappedComponent) => {
 						<div className="p-4">
 							<div
 								className="mx-6 px-6 py-2 border border-gray-500 rounded-lg relative"
-								style={{ border: "4px solid #F9FAFB" }}
+								style={{ border: "4px solid #F9FAFB"}}
 							>
 								{/* Description */}
 								<h2 className="text-base font-semibold text-gray-900 mb-2 text-center">
@@ -629,7 +670,8 @@ const withDisplayConditions = (WrappedComponent) => {
 								{/* Content - Always show, overlay with loading when needed */}
 								<>
 									{/* Tab Navigation */}
-									{/* <div className="flex justify-center gap-4 mb-8">
+									<div className="flex justify-center" style={{width: '300px',flexDirection: 'column', alignItems: 'center', justifyContent: 'center', margin: 'auto', marginTop: '20px'}}>
+									{/* 
 										<button
 											onClick={() =>
 												handleTabChange("conditions")
@@ -682,25 +724,25 @@ const withDisplayConditions = (WrappedComponent) => {
 										</button>
 									</div> */}
 
-									<Tabs key={state.activeTab} activeItem={state.activeTab}>
+									{console.log('Tabs component activeItem:', safeActiveTab, 'Type:', typeof safeActiveTab)}
+								<Tabs activeItem={safeActiveTab}>
 										<Tabs.Group 
-										  size="sm"
+										  size="md"
 										onChange={(tabSlug) => {
-											console.log('Tabs.Group onChange called with:', tabSlug);
 											handleTabChange(tabSlug);
 										}}>
 											<Tabs.Tab
-												icon={<Plus />}
+												icon={<Settings />}
 												slug="conditions"
 												text="Conditions"
 											/>
 											<Tabs.Tab
-												icon={<Plus />}
+												icon={<Users />}
 												slug="userRoles"
 												text="User Roles"
 											/>
 										</Tabs.Group>
-										<div className="my-5 p-5 rounded-md bg-slate-100 shadow-md">
+										<div className="p-5 rounded-md bg-slate-100">
 											<Tabs.Panel slug="conditions">
 												<div className="space-y-3 mb-4">
 												{state.conditions.map(
@@ -1066,7 +1108,7 @@ const withDisplayConditions = (WrappedComponent) => {
 											</Tabs.Panel>
 										</div>
 									</Tabs>
-
+									</div>
 									{/* Tab Content */}
 								
 
