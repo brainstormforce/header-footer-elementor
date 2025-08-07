@@ -154,22 +154,23 @@ const LayoutDropdownMenu = ({
 				</div>
 			</div>
 		), {
-			duration: Infinity, // Keep open until user decides
-			position: 'top-right',
-			className: 'toast-confirmation',
-			style: {
-				background: 'white',
-				color: '#374151',
-				border: '1px solid #e5e7eb',
-				borderRadius: '0.5rem',
-				boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-				padding: '0',
-				maxWidth: '400px',
-				marginTop: '80px',
-				marginRight: '20px',
-				zIndex: 999999,
-			},
-		});
+            duration: Infinity,
+            position: 'top-right',
+            className: 'toast-confirmation',
+            style: {
+                background: 'white',
+                color: '#374151',
+                border: '1px solid #e5e7eb',
+                borderRadius: '0.5rem',
+                boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                padding: '0',
+                maxWidth: '400px',
+                top: 20,
+                right: 20,
+                marginTop: '40px',
+                zIndex: 999999,
+            },
+        });
 	};
 
 	/**
@@ -179,10 +180,7 @@ const LayoutDropdownMenu = ({
 		try {
 			// Show loading toast
 			const loadingToast = toast.loading(
-				__("Deleting layout...", "header-footer-elementor"),
-				{
-					position: 'bottom-right',
-				}
+				__("Deleting layout...", "header-footer-elementor")
 			);
 
 			const response = await apiFetch({
@@ -202,29 +200,12 @@ const LayoutDropdownMenu = ({
 					onItemDelete(item.id);
 				}
 
-				// Show success toast notification with enhanced styling
+				// Show success toast notification with uniform styling
 				toast.success(
 					__(
 						"Layout deleted successfully!",
 						"header-footer-elementor",
-					),
-					{
-						position: 'top-right',
-						duration: 4000,
-						style: {
-							marginTop: '20px',
-							background: '#10b981',
-							color: 'white',
-							borderRadius: '0.5rem',
-							fontSize: '14px',
-							padding: '12px 16px',
-							boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
-						},
-						iconTheme: {
-							primary: 'white',
-							secondary: '#10b981',
-						},
-					}
+					)
 				);
 			} else {
 				console.error("Failed to delete layout:", response);
@@ -232,23 +213,7 @@ const LayoutDropdownMenu = ({
 					__(
 						"Failed to delete layout. Please try again.",
 						"header-footer-elementor",
-					),
-					{
-						position: 'top-center',
-						duration: 5000,
-						style: {
-							background: '#ef4444',
-							color: 'white',
-							borderRadius: '0.5rem',
-							fontSize: '14px',
-							padding: '12px 16px',
-							boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
-						},
-						iconTheme: {
-							primary: 'white',
-							secondary: '#ef4444',
-						},
-					}
+					)
 				);
 			}
 		} catch (error) {
@@ -257,23 +222,7 @@ const LayoutDropdownMenu = ({
 				__(
 					"Error deleting layout. Please try again.",
 					"header-footer-elementor",
-				),
-				{
-					position: 'top-center',
-					duration: 5000,
-					style: {
-						background: '#ef4444',
-						color: 'white',
-						borderRadius: '0.5rem',
-						fontSize: '14px',
-						padding: '12px 16px',
-						boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
-					},
-					iconTheme: {
-						primary: 'white',
-						secondary: '#ef4444',
-					},
-				}
+				)
 			);
 		}
 	};

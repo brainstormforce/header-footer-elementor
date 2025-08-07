@@ -284,32 +284,32 @@ const AllLayouts = ({
 				<DisplayConditionsDialog />
 
 				{/* React Hot Toast Notifications */}
-				<Toaster
-					position="bottom-right"
-					toastOptions={{
-						duration: 3000,
-						style: {
-							background: "#363636",
-							color: "#fff",
-							borderRadius: "6px",
-							fontSize: "14px",
-							padding: "12px 16px",
-							boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
-						},
-						success: {
-							iconTheme: {
-								primary: "#10B981",
-								secondary: "#fff",
-							},
-						},
-						error: {
-							iconTheme: {
-								primary: "#EF4444",
-								secondary: "#fff",
-							},
-						},
-					}}
-				/>
+				    <Toaster
+                            position="top-right"
+                            reverseOrder={false}
+                            gutter={8}
+                            containerStyle={{
+                                top: 20,
+                                right: 20,
+                                marginTop: '40px',
+                            }}
+                            toastOptions={{
+                                duration: 1000,
+                                style: {
+                                    background: 'white',
+                                },
+                                success: {
+                                    duration: 2000,
+                                    style: {
+                                        color: '',
+                                    },
+                                    iconTheme: {
+                                        primary: '#6005ff',
+                                        secondary: '#fff',
+                                    },
+                                },
+                            }}
+                        />
 			</>
 		);
 	}
@@ -466,32 +466,32 @@ const AllLayouts = ({
 					<DisplayConditionsDialog />
 
 					{/* React Hot Toast Notifications */}
-					<Toaster
-						position="bottom-right"
-						toastOptions={{
-							duration: 3000,
-							style: {
-								background: "#363636",
-								color: "#fff",
-								borderRadius: "6px",
-								fontSize: "14px",
-								padding: "12px 16px",
-								boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
-							},
-							success: {
-								iconTheme: {
-									primary: "#10B981",
-									secondary: "#fff",
-								},
-							},
-							error: {
-								iconTheme: {
-									primary: "#EF4444",
-									secondary: "#fff",
-								},
-							},
-						}}
-					/>
+				   <Toaster
+                            position="top-right"
+                            reverseOrder={false}
+                            gutter={8}
+                            containerStyle={{
+                                top: 20,
+                                right: 20,
+                                marginTop: '40px',
+                            }}
+                            toastOptions={{
+                                duration: 1000,
+                                style: {
+                                    background: 'white',
+                                },
+                                success: {
+                                    duration: 2000,
+                                    style: {
+                                        color: '',
+                                    },
+                                    iconTheme: {
+                                        primary: '#6005ff',
+                                        secondary: '#fff',
+                                    },
+                                },
+                            }}
+                        />
 				</>
 			);
 		}
@@ -519,32 +519,32 @@ const AllLayouts = ({
 				<DisplayConditionsDialog />
 
 				{/* React Hot Toast Notifications */}
-				<Toaster
-					position="bottom-right"
-					toastOptions={{
-						duration: 3000,
-						style: {
-							background: "#363636",
-							color: "#fff",
-							borderRadius: "6px",
-							fontSize: "14px",
-							padding: "12px 16px",
-							boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
-						},
-						success: {
-							iconTheme: {
-								primary: "#10B981",
-								secondary: "#fff",
-							},
-						},
-						error: {
-							iconTheme: {
-								primary: "#EF4444",
-								secondary: "#fff",
-							},
-						},
-					}}
-				/>
+				    <Toaster
+                            position="top-right"
+                            reverseOrder={false}
+                            gutter={8}
+                            containerStyle={{
+                                top: 20,
+                                right: 20,
+                                marginTop: '40px',
+                            }}
+                            toastOptions={{
+                                duration: 1000,
+                                style: {
+                                    background: 'white',
+                                },
+                                success: {
+                                    duration: 2000,
+                                    style: {
+                                        color: '',
+                                    },
+                                    iconTheme: {
+                                        primary: '#6005ff',
+                                        secondary: '#fff',
+                                    },
+                                },
+                            }}
+                        />
 			</>
 		);
 	} else {
@@ -880,32 +880,32 @@ const AllLayouts = ({
 				<DisplayConditionsDialog />
 
 				{/* React Hot Toast Notifications */}
-				<Toaster
-					position="bottom-right"
-					toastOptions={{
-						duration: 3000,
-						style: {
-							background: "#363636",
-							color: "#fff",
-							borderRadius: "6px",
-							fontSize: "14px",
-							padding: "12px 16px",
-							boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
-						},
-						success: {
-							iconTheme: {
-								primary: "#10B981",
-								secondary: "#fff",
-							},
-						},
-						error: {
-							iconTheme: {
-								primary: "#EF4444",
-								secondary: "#fff",
-							},
-						},
-					}}
-				/>
+				    <Toaster
+                            position="top-right"
+                            reverseOrder={false}
+                            gutter={8}
+                            containerStyle={{
+                                top: 20,
+                                right: 20,
+                                marginTop: '40px',
+                            }}
+                            toastOptions={{
+                                duration: 1000,
+                                style: {
+                                    background: 'white',
+                                },
+                                success: {
+                                    duration: 2000,
+                                    style: {
+                                        color: '',
+                                    },
+                                    iconTheme: {
+                                        primary: '#6005ff',
+                                        secondary: '#fff',
+                                    },
+                                },
+                            }}
+                        />
 			</>
 		);
 	}
