@@ -238,47 +238,45 @@ const CustomBlock = () => {
 										}}
 									>
 										<Button
-												iconPosition="left"
-												icon={
-													item.name !==
-													"Custom Block" ? (
-														<Copy size={14} />
-													) : null
-												}
-												variant="primary"
-												className="font-medium text-black hfe-remove-ring z-50"
-												style={{
-													backgroundColor:
-														"white",
-													fontSize: "12px",
-													fontWeight: "600",
-													padding: "8px 8px",
-													borderRadius: "6px",
-													transition: "all 0.2s ease",
-													outline: "none",
-													transform: "scale(0.95)",
-													opacity: "1",
-												}}
-												onMouseEnter={(e) => {
-													e.currentTarget.style.backgroundColor =
-														"white";
-													e.currentTarget.style.transform =
-														"scale(1)";
-												}}
-												onMouseLeave={(e) => {
-													e.currentTarget.style.backgroundColor =
-														"white";
-													e.currentTarget.style.transform =
-														"scale(0.95)";
-												}}
-												onClick={() =>
-													handleCopyShortcode(item)
-												}
-											>
-												{__(
-													`Copy Shortcode`,
-													"header-footer-elementor",
-												)}
+											iconPosition="left"
+											icon={
+												item.name !== "Custom Block" ? (
+													<Copy size={14} />
+												) : null
+											}
+											variant="primary"
+											className="font-medium text-black hfe-remove-ring z-50"
+											style={{
+												backgroundColor: "white",
+												fontSize: "12px",
+												fontWeight: "600",
+												padding: "8px 8px",
+												borderRadius: "6px",
+												transition: "all 0.2s ease",
+												outline: "none",
+												transform: "scale(0.95)",
+												opacity: "1",
+											}}
+											onMouseEnter={(e) => {
+												e.currentTarget.style.backgroundColor =
+													"white";
+												e.currentTarget.style.transform =
+													"scale(1)";
+											}}
+											onMouseLeave={(e) => {
+												e.currentTarget.style.backgroundColor =
+													"white";
+												e.currentTarget.style.transform =
+													"scale(0.95)";
+											}}
+											onClick={() =>
+												handleCopyShortcode(item)
+											}
+										>
+											{__(
+												`Copy Shortcode`,
+												"header-footer-elementor",
+											)}
 										</Button>
 										<Button
 											iconPosition="left"
@@ -343,12 +341,28 @@ const CustomBlock = () => {
 
 				{/* React Hot Toast Notifications */}
 				<Toaster
-					position="bottom-right"
+					position="top-right"
+					reverseOrder={false}
+					gutter={8}
+					containerStyle={{
+						top: 20,
+						right: 20,
+						marginTop: "40px",
+					}}
 					toastOptions={{
-						duration: 3000,
+						duration: 1000,
 						style: {
-							background: "#363636",
-							color: "#fff",
+							background: "white",
+						},
+						success: {
+							duration: 2000,
+							style: {
+								color: "",
+							},
+							iconTheme: {
+								primary: "#6005ff",
+								secondary: "#fff",
+							},
 						},
 					}}
 				/>

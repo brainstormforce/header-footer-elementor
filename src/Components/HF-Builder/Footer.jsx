@@ -8,19 +8,22 @@ import EmptyState from "./EmptyState";
 import LayoutDropdownMenu from "./LayoutDropdownMenu";
 import toast, { Toaster } from "react-hot-toast";
 
-const Footer = ({ openDisplayConditionsDialog, DisplayConditionsDialog, isButtonLoading }) => {
-
+const Footer = ({
+	openDisplayConditionsDialog,
+	DisplayConditionsDialog,
+	isButtonLoading,
+}) => {
 	const [footerItems, setFooterItems] = useState([]);
 	const [hasFooters, setHasFooters] = useState(false);
 	const [isLoading, setIsLoading] = useState(true);
-	
+
 	useEffect(() => {
 		// Fetch the target rule options when component mounts
 		apiFetch({
 			path: "/hfe/v1/get-post",
 			method: "POST",
 			data: {
-				type: 'footer',
+				type: "footer",
 			},
 		})
 			.then((response) => {
@@ -40,10 +43,7 @@ const Footer = ({ openDisplayConditionsDialog, DisplayConditionsDialog, isButton
 			.finally(() => {
 				setIsLoading(false);
 			});
-
 	}, []);
-	
-			
 
 	const handleCreateLayout = () => {
 		apiFetch({
@@ -51,7 +51,7 @@ const Footer = ({ openDisplayConditionsDialog, DisplayConditionsDialog, isButton
 			method: "POST",
 			data: {
 				title: "My Custom Layout",
-				type: 'footer',
+				type: "footer",
 			},
 		})
 			.then((response) => {
@@ -62,11 +62,11 @@ const Footer = ({ openDisplayConditionsDialog, DisplayConditionsDialog, isButton
 						id: response.post.id || response.post.ID,
 						title: response.post.title || response.post.post_title,
 					};
-					
+
 					// Update the state immediately to show the new footer card
-					setFooterItems(prevItems => [...prevItems, updatedItem]);
+					setFooterItems((prevItems) => [...prevItems, updatedItem]);
 					setHasFooters(true);
-					
+
 					// Open display conditions dialog for NEW post
 					openDisplayConditionsDialog(updatedItem, true); // Pass true for isNew
 				} else {
@@ -85,19 +85,17 @@ const Footer = ({ openDisplayConditionsDialog, DisplayConditionsDialog, isButton
 
 	// Handle item updates from dropdown menu
 	const handleItemUpdate = (itemId, updates) => {
-		setFooterItems(prevItems => 
-			prevItems.map(item => 
-				item.id === itemId 
-					? { ...item, ...updates }
-					: item
-			)
+		setFooterItems((prevItems) =>
+			prevItems.map((item) =>
+				item.id === itemId ? { ...item, ...updates } : item,
+			),
 		);
 	};
 
 	// Handle item deletion from dropdown menu
 	const handleItemDelete = (itemId) => {
-		setFooterItems(prevItems => {
-			const updatedItems = prevItems.filter(item => item.id !== itemId);
+		setFooterItems((prevItems) => {
+			const updatedItems = prevItems.filter((item) => item.id !== itemId);
 			// Update hasFooters state if no items left
 			if (updatedItems.length === 0) {
 				setHasFooters(false);
@@ -125,7 +123,7 @@ const Footer = ({ openDisplayConditionsDialog, DisplayConditionsDialog, isButton
 						/>
 					</div>
 				</div>
-				
+
 				{/* Render the Display Conditions Dialog from HOC */}
 				<DisplayConditionsDialog />
 			</>
@@ -138,13 +136,16 @@ const Footer = ({ openDisplayConditionsDialog, DisplayConditionsDialog, isButton
 				<EmptyState
 					description={__(
 						"You haven't created a footer layout yet. Build a custom footer to control how your site's bottom section looks and behaves across all pages.",
-						"header-footer-elementor"
+						"header-footer-elementor",
 					)}
-					buttonText={__("Create Footer Layout", "header-footer-elementor")}
+					buttonText={__(
+						"Create Footer Layout",
+						"header-footer-elementor",
+					)}
 					onClick={handleCreateLayout}
 					className="bg-white p-6 ml-6 rounded-lg"
 				/>
-				
+
 				{/* Render the Display Conditions Dialog from HOC */}
 				<DisplayConditionsDialog />
 			</>
@@ -152,7 +153,10 @@ const Footer = ({ openDisplayConditionsDialog, DisplayConditionsDialog, isButton
 	} else {
 		return (
 			<>
-				<div className="footer-section" style={{ paddingLeft: "40px", paddingRight: "40px" }}>
+				<div
+					className="footer-section"
+					style={{ paddingLeft: "40px", paddingRight: "40px" }}
+				>
 					<div
 						className="flex items-start gap-10 justify-between"
 						style={{ padding: "0 40px", marginBottom: "10px" }}
@@ -161,7 +165,7 @@ const Footer = ({ openDisplayConditionsDialog, DisplayConditionsDialog, isButton
 							{__("Footer Templates", "header-footer-elementor")}
 						</h2>
 					</div>
-	
+
 					<div
 						className="grid grid-cols-1 md:grid-cols-2 gap-6"
 						style={{ paddingLeft: "30px" }}
@@ -171,19 +175,27 @@ const Footer = ({ openDisplayConditionsDialog, DisplayConditionsDialog, isButton
 								key={item.title}
 								className="border bg-background-primary border-gray-200 p-2 rounded-lg cursor-pointer overflow-hidden flex flex-col group relative shadow-sm hover:shadow-md transition-shadow duration-200"
 								onMouseEnter={(e) => {
-									const overlay = e.currentTarget.querySelector('.hover-overlay');
+									const overlay =
+										e.currentTarget.querySelector(
+											".hover-overlay",
+										);
 									if (overlay) {
-										overlay.style.opacity = '1';
-										overlay.style.visibility = 'visible';
-										overlay.style.transform = 'translateY(0)';
+										overlay.style.opacity = "1";
+										overlay.style.visibility = "visible";
+										overlay.style.transform =
+											"translateY(0)";
 									}
 								}}
 								onMouseLeave={(e) => {
-									const overlay = e.currentTarget.querySelector('.hover-overlay');
+									const overlay =
+										e.currentTarget.querySelector(
+											".hover-overlay",
+										);
 									if (overlay) {
-										overlay.style.opacity = '0';
-										overlay.style.visibility = 'hidden';
-										overlay.style.transform = 'translateY(10px)';
+										overlay.style.opacity = "0";
+										overlay.style.visibility = "hidden";
+										overlay.style.transform =
+											"translateY(10px)";
 									}
 								}}
 							>
@@ -191,17 +203,18 @@ const Footer = ({ openDisplayConditionsDialog, DisplayConditionsDialog, isButton
 									<img
 										src={hfeSettingsData.header_card}
 										alt={`${item.title} Layout`}
-										style={{ height: '220px' }}
+										style={{ height: "220px" }}
 										className="w-full object-cover"
 									/>
-	
-									<div 
+
+									<div
 										className="hover-overlay absolute inset-0 flex items-center justify-center gap-2 rounded-lg overflow-hidden backdrop-blur-sm transition-all duration-500 ease-in-out z-30"
 										style={{
-											backgroundColor: "rgba(0, 0, 0, 0.4)",
+											backgroundColor:
+												"rgba(0, 0, 0, 0.4)",
 											opacity: "0",
 											visibility: "hidden",
-											transform: "translateY(10px)"
+											transform: "translateY(10px)",
 										}}
 									>
 										<Button
@@ -210,7 +223,8 @@ const Footer = ({ openDisplayConditionsDialog, DisplayConditionsDialog, isButton
 											variant="primary"
 											className="bg-[#6005FF] font-medium text-white hfe-remove-ring z-50"
 											style={{
-												backgroundColor: "#6005FF !important",
+												backgroundColor:
+													"#6005FF !important",
 												fontSize: "12px",
 												fontWeight: "600",
 												padding: "8px 8px",
@@ -218,27 +232,35 @@ const Footer = ({ openDisplayConditionsDialog, DisplayConditionsDialog, isButton
 												transition: "all 0.2s ease",
 												outline: "none",
 												transform: "scale(0.95)",
-												opacity: "1"
+												opacity: "1",
 											}}
 											onMouseEnter={(e) => {
-												e.currentTarget.style.backgroundColor = "#4B00CC";
-												e.currentTarget.style.transform = "scale(1)";
+												e.currentTarget.style.backgroundColor =
+													"#4B00CC";
+												e.currentTarget.style.transform =
+													"scale(1)";
 											}}
 											onMouseLeave={(e) => {
-												e.currentTarget.style.backgroundColor = "#6005FF";
-												e.currentTarget.style.transform = "scale(0.95)";
+												e.currentTarget.style.backgroundColor =
+													"#6005FF";
+												e.currentTarget.style.transform =
+													"scale(0.95)";
 											}}
-											onClick={() => handleEditWithElementor(item)}
+											onClick={() =>
+												handleEditWithElementor(item)
+											}
 										>
 											{"Edit Footer"}
 										</Button>
 										<Button
 											iconPosition="left"
-											icon={isButtonLoading ? (
-												<div className="animate-spin rounded-full h-3 w-3 border border-gray-400 border-t-transparent"></div>
-											) : (
-												<Plus size={14} />
-											)}
+											icon={
+												isButtonLoading ? (
+													<div className="animate-spin rounded-full h-3 w-3 border border-gray-400 border-t-transparent"></div>
+												) : (
+													<Plus size={14} />
+												)
+											}
 											className=""
 											style={{
 												backgroundColor: "#ffffff",
@@ -249,53 +271,74 @@ const Footer = ({ openDisplayConditionsDialog, DisplayConditionsDialog, isButton
 												transition: "all 0.2s ease",
 												outline: "none",
 												transform: "scale(0.95)",
-												opacity: isButtonLoading ? "0.7" : "1",
+												opacity: isButtonLoading
+													? "0.7"
+													: "1",
 												color: "#000000",
 												border: "1px solid #e5e7eb",
-												cursor: isButtonLoading ? "not-allowed" : "pointer",
+												cursor: isButtonLoading
+													? "not-allowed"
+													: "pointer",
 												display: "inline-flex",
 												alignItems: "center",
 												justifyContent: "center",
 												gap: "4px",
-												boxShadow: "none"
+												boxShadow: "none",
 											}}
 											onMouseEnter={(e) => {
 												if (!isButtonLoading) {
-													e.currentTarget.style.backgroundColor = '#ffffff';
-													e.currentTarget.style.color = '#000000';
-													e.currentTarget.style.borderColor = '#d1d5db';
-													e.currentTarget.style.outline = 'none';
-													e.currentTarget.style.boxShadow = 'none';
-													e.currentTarget.style.transform = "scale(1)";
+													e.currentTarget.style.backgroundColor =
+														"#ffffff";
+													e.currentTarget.style.color =
+														"#000000";
+													e.currentTarget.style.borderColor =
+														"#d1d5db";
+													e.currentTarget.style.outline =
+														"none";
+													e.currentTarget.style.boxShadow =
+														"none";
+													e.currentTarget.style.transform =
+														"scale(1)";
 												}
 											}}
 											onMouseLeave={(e) => {
 												if (!isButtonLoading) {
-													e.currentTarget.style.backgroundColor = '#ffffff';
-													e.currentTarget.style.color = '#000000';
-													e.currentTarget.style.borderColor = '#e5e7eb';
-													e.currentTarget.style.outline = 'none';
-													e.currentTarget.style.boxShadow = 'none';
-													e.currentTarget.style.transform = "scale(0.95)";
+													e.currentTarget.style.backgroundColor =
+														"#ffffff";
+													e.currentTarget.style.color =
+														"#000000";
+													e.currentTarget.style.borderColor =
+														"#e5e7eb";
+													e.currentTarget.style.outline =
+														"none";
+													e.currentTarget.style.boxShadow =
+														"none";
+													e.currentTarget.style.transform =
+														"scale(0.95)";
 												}
 											}}
 											onClick={() => {
 												if (!isButtonLoading) {
-													handleDisplayConditions(item);
+													handleDisplayConditions(
+														item,
+													);
 												}
 											}}
 											disabled={isButtonLoading}
 										>
-											 {isButtonLoading ? (
-                                                        <Loader
-                                                            className=""
-                                                            icon={null}
-                                                            size="lg"
-                                                            variant="primary"
-                                                        />
-                                                    ) : (
-                                                        __("Display Conditions", "header-footer-elementor")
-                                                    )}
+											{isButtonLoading ? (
+												<Loader
+													className=""
+													icon={null}
+													size="lg"
+													variant="primary"
+												/>
+											) : (
+												__(
+													"Display Conditions",
+													"header-footer-elementor",
+												)
+											)}
 										</Button>
 									</div>
 								</div>
@@ -310,7 +353,7 @@ const Footer = ({ openDisplayConditionsDialog, DisplayConditionsDialog, isButton
 										<p className="text-sm font-medium text-gray-900">
 											{item.title}
 										</p>
-										<LayoutDropdownMenu 
+										<LayoutDropdownMenu
 											item={item}
 											onItemUpdate={handleItemUpdate}
 											onItemDelete={handleItemDelete}
@@ -322,25 +365,40 @@ const Footer = ({ openDisplayConditionsDialog, DisplayConditionsDialog, isButton
 						))}
 					</div>
 				</div>
-	
+
 				{/* Render the Display Conditions Dialog from HOC */}
 				<DisplayConditionsDialog />
 
 				{/* React Hot Toast Notifications */}
 				<Toaster
-					position="bottom-right"
+					position="top-right"
+					reverseOrder={false}
+					gutter={8}
+					containerStyle={{
+						top: 20,
+						right: 20,
+						marginTop: "40px",
+					}}
 					toastOptions={{
-						duration: 3000,
+						duration: 1000,
 						style: {
-							background: '#363636',
-							color: '#fff',
+							background: "white",
+						},
+						success: {
+							duration: 2000,
+							style: {
+								color: "",
+							},
+							iconTheme: {
+								primary: "#6005ff",
+								secondary: "#fff",
+							},
 						},
 					}}
 				/>
 			</>
 		);
 	}
-	
 };
 
 export default withDisplayConditions(Footer);

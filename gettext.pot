@@ -633,6 +633,7 @@ msgid "Start customising Your Header & Footer"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:65
+#: src/Components/HF-Builder/AllLayouts.jsx:47
 #: src/Components/HF-Builder/Sidebar.jsx:69
 msgid "Footer"
 msgstr ""
@@ -642,8 +643,9 @@ msgid "Create a custom footer layout for your website"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:690
+#: src/Components/HF-Builder/CustomBlock.jsx:276
 #: src/Components/HF-Builder/CustomBlock.jsx:278
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:305
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:254
 msgid "Copy Shortcode"
 msgstr ""
 
@@ -652,6 +654,7 @@ msgid "Edit Layout"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:79
+#: src/Components/HF-Builder/AllLayouts.jsx:61
 #: src/Components/HF-Builder/Sidebar.jsx:88
 msgid "Before Footer"
 msgstr ""
@@ -661,9 +664,10 @@ msgid "Create a layout that appears before the footer"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:832
+#: src/Components/HF-Builder/BeforeFooter.jsx:343
 #: src/Components/HF-Builder/BeforeFooter.jsx:297
-#: src/Components/HF-Builder/Footer.jsx:297
-#: src/Components/HF-Builder/Header.jsx:301
+#: src/Components/HF-Builder/Footer.jsx:337
+#: src/Components/HF-Builder/Header.jsx:337
 msgid "Display Conditions"
 msgstr ""
 
@@ -672,6 +676,7 @@ msgid "Draft"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:93
+#: src/Components/HF-Builder/AllLayouts.jsx:75
 #: src/Components/HF-Builder/Sidebar.jsx:107
 msgid "Custom Block"
 msgstr ""
@@ -680,18 +685,18 @@ msgstr ""
 msgid "Create a custom block that can be used anywhere"
 msgstr ""
 
-#: src/Components/HF-Builder/BeforeFooter.jsx:139
+#: src/Components/HF-Builder/BeforeFooter.jsx:140
 msgid ""
 "You haven't created a before footer layout yet. Build a custom before "
 "footer to control how your site's pre-footer section looks and behaves "
 "across all pages."
 msgstr ""
 
-#: src/Components/HF-Builder/BeforeFooter.jsx:143
+#: src/Components/HF-Builder/BeforeFooter.jsx:144
 msgid "Create Before Footer Layout"
 msgstr ""
 
-#: src/Components/HF-Builder/BeforeFooter.jsx:161
+#: src/Components/HF-Builder/BeforeFooter.jsx:168
 msgid "Before Footer Templates"
 msgstr ""
 
@@ -785,6 +790,8 @@ msgstr ""
 
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:627
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:150
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:134
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:142
 #: src/Components/Settings/VersionControl.jsx:132
 msgid "Cancel"
 msgstr ""
@@ -809,31 +816,31 @@ msgstr ""
 msgid "No Layout Found"
 msgstr ""
 
-#: src/Components/HF-Builder/Footer.jsx:139
+#: src/Components/HF-Builder/Footer.jsx:137
 msgid ""
 "You haven't created a footer layout yet. Build a custom footer to control "
 "how your site's bottom section looks and behaves across all pages."
 msgstr ""
 
-#: src/Components/HF-Builder/Footer.jsx:143
+#: src/Components/HF-Builder/Footer.jsx:141
 msgid "Create Footer Layout"
 msgstr ""
 
-#: src/Components/HF-Builder/Footer.jsx:161
+#: src/Components/HF-Builder/Footer.jsx:165
 msgid "Footer Templates"
 msgstr ""
 
-#: src/Components/HF-Builder/Header.jsx:135
+#: src/Components/HF-Builder/Header.jsx:137
 msgid ""
 "You haven't created a header layout yet. Build a custom header to control "
 "how your site's top section looks and behaves across all pages."
 msgstr ""
 
-#: src/Components/HF-Builder/Header.jsx:139
+#: src/Components/HF-Builder/Header.jsx:141
 msgid "Create Header Layout"
 msgstr ""
 
-#: src/Components/HF-Builder/Header.jsx:163
+#: src/Components/HF-Builder/Header.jsx:165
 msgid "Header Templates"
 msgstr ""
 
@@ -853,31 +860,31 @@ msgstr ""
 msgid "Are you sure you want to delete this layout?"
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:182
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:183
 msgid "Deleting layout..."
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:207
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:205
 msgid "Layout deleted successfully!"
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:232
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:213
 msgid "Failed to delete layout. Please try again."
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:257
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:222
 msgid "Error deleting layout. Please try again."
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:317
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:266
 msgid "Publish"
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:326
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:275
 msgid "Disable"
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:337
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:286
 msgid "Delete"
 msgstr ""
 
