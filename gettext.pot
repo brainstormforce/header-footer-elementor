@@ -1040,11 +1040,13 @@ msgstr ""
 msgid "Enter a new name for this layout"
 msgstr ""
 
+#: src/Components/HF-Builder/Navbar.js:117
 #: src/Components/HF-Builder/Navbar.js:116
 #: src/Components/NavMenu.js:131
 msgid "Dashboard"
 msgstr ""
 
+#: src/Components/HF-Builder/Navbar.js:124
 #: src/Components/HF-Builder/Navbar.js:123
 #: src/Components/Onboarding/Features.jsx:125
 msgid "Header & Footer Builder"
@@ -1075,6 +1077,8 @@ msgstr ""
 msgid "Formerly Elementor Header & Footer Builder"
 msgstr ""
 
+#: src/Components/HF-Builder/Navbar.js:154
+#: src/Components/HF-Builder/Navbar.js:158
 #: src/Components/NavMenu.js:146
 msgid "Header & Footer"
 msgstr ""

@@ -8,6 +8,7 @@ import {
 	House,
 	User,
 	ChevronRight,
+	TableOfContents,
 	X,
 } from "lucide-react";
 import { __ } from "@wordpress/i18n";
@@ -129,7 +130,14 @@ const NavBar = () => {
 							</nav>
 						</Topbar.Item>
 					</Topbar.Middle>
-					<Topbar.Right className="gap-4">
+					<Topbar.Right className="gap-6">
+						<Link to={routes.headerFooterBuilder.path}>
+							<div className="flex cursor-pointer items-center justify-center gap-1">
+								<span className="text-black text-sm">
+									Switch to Table View
+								</span>
+							</div>
+						</Link>
 						<Link to={routes.settings.path}>
 							<div className="flex cursor-pointer items-center justify-center gap-1">
 								<span className="text-black text-sm">
