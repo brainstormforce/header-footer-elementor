@@ -14,8 +14,8 @@ if ( ! isset( $this->query ) || ! $this->query instanceof WP_Query ) {
 	return;
 }
 
-// Validate title tag with additional security
-$title_tag = isset( $settings['title_tag'] ) ? $settings['title_tag'] : 'h3';
+// Sanitize title tag
+$title_tag = sanitize_key( $settings['title_tag'] ?? 'h3' );
 $allowed_title_tags = [ 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' ];
 if ( ! in_array( $title_tag, $allowed_title_tags, true ) ) {
 	$title_tag = 'h3';
@@ -37,8 +37,8 @@ if ( ! in_array( $title_tag, $allowed_title_tags, true ) ) {
 				<div class="hfe-post-image">
 					<a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
 						<?php 
-						// Validate image size
-						$image_size = isset( $settings['image_size'] ) ? sanitize_key( $settings['image_size'] ) : 'medium';
+						// Sanitize image size
+						$image_size = sanitize_key( $settings['image_size'] ?? 'medium' );
 						the_post_thumbnail( $image_size, [
 							'alt' => esc_attr( get_the_title() ),
 							'loading' => 'lazy'
@@ -90,7 +90,7 @@ if ( ! in_array( $title_tag, $allowed_title_tags, true ) ) {
 						
 						// Output meta items with separator
 						if ( ! empty( $meta_items ) ) {
-							$separator = isset( $settings['meta_separator'] ) ? wp_kses_post( $settings['meta_separator'] ) : ' | ';
+							$separator = wp_kses_post( $settings['meta_separator'] ?? ' | ' );
 							echo implode( '<span class="hfe-meta-separator">' . $separator . '</span>', $meta_items );
 						}
 						?>
@@ -100,7 +100,7 @@ if ( ! in_array( $title_tag, $allowed_title_tags, true ) ) {
 				<?php if ( 'yes' === $settings['show_excerpt'] ) : ?>
 					<div class="hfe-post-excerpt">
 						<?php 
-						$excerpt_length = isset( $settings['excerpt_length'] ) ? absint( $settings['excerpt_length'] ) : 20;
+						$excerpt_length = absint( $settings['excerpt_length'] ?? 20 );
 						$excerpt_length = max( 0, min( 100, $excerpt_length ) ); // Ensure within bounds
 						echo wp_kses_post( wp_trim_words( get_the_excerpt(), $excerpt_length, '...' ) ); 
 						?>
@@ -110,7 +110,7 @@ if ( ! in_array( $title_tag, $allowed_title_tags, true ) ) {
 				<?php if ( 'yes' === $settings['show_read_more'] ) : ?>
 					<a href="<?php echo esc_url( get_permalink() ); ?>" class="hfe-read-more" rel="bookmark">
 						<?php 
-						$read_more_text = isset( $settings['read_more_text'] ) ? $settings['read_more_text'] : __( 'Read More →', 'header-footer-elementor' );
+						$read_more_text = sanitize_text_field( $settings['read_more_text'] ?? __( 'Read More →', 'header-footer-elementor' ) );
 						echo esc_html( $read_more_text ); 
 						?>
 					</a>
