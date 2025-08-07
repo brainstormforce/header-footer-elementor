@@ -1,6 +1,12 @@
-import React, { useState, useEffect, useCallback, useRef, startTransition, useMemo } from "react";
+import React, {
+	useState,
+	useEffect,
+	useCallback,
+	useRef,
+	useMemo,
+} from "react";
 import { Plus, X } from "lucide-react";
-import { Button, Dialog, Switch, Loader } from "@bsf/force-ui";
+import { Button, Dialog, Switch, Loader, Tabs } from "@bsf/force-ui";
 import { __ } from "@wordpress/i18n";
 import apiFetch from "@wordpress/api-fetch";
 
@@ -19,16 +25,16 @@ const withDisplayConditions = (WrappedComponent) => {
 			error: null,
 			selectedItem: null,
 			isNewPost: false,
-			
+
 			// Form data
 			conditions: [],
-			userRoles: [''],
+			userRoles: [""],
 			canvasTemplateEnabled: false,
 			nextId: 2,
-			
+
 			// Tab state
 			activeTab: localStorage.getItem('hfe-display-conditions-tab') || 'conditions',
-			
+
 			// Options
 			locationOptions: {},
 			userRoleOptions: {},
@@ -41,22 +47,56 @@ const withDisplayConditions = (WrappedComponent) => {
 
 		useEffect(() => {
 			isMountedRef.current = true;
+			
+			// Initialize tab from localStorage
+			try {
+				const storedTab = localStorage.getItem('hfe-display-conditions-tab');
+				if (storedTab && (storedTab === 'conditions' || storedTab === 'userRoles')) {
+					updateState({ activeTab: storedTab });
+				}
+			} catch (e) {
+				console.warn('Could not read tab from localStorage:', e);
+			}
+			
 			return () => {
 				isMountedRef.current = false;
 			};
-		}, []);
+		}, [updateState]);
+
+		// Debug effect to track activeTab changes
+		useEffect(() => {
+			console.log('Active tab changed to:', state.activeTab);
+		}, [state.activeTab]);
 
 		// Stable update function that batches all state changes
 		const updateState = useCallback((updates) => {
 			if (!isMountedRef.current) return;
+
+			console.log('updateState called with:', updates); // Debug log
 			
-			startTransition(() => {
-				setState(prevState => ({
+			setState((prevState) => {
+				const newState = {
 					...prevState,
-					...updates
-				}));
+					...updates,
+				};
+				console.log('State updated from:', prevState.activeTab, 'to:', newState.activeTab); // Debug log
+				return newState;
 			});
 		}, []);
+
+		// Tab handler - moved after updateState
+		const handleTabChange = useCallback((tabSlug) => {
+			console.log('Tab change requested:', tabSlug, 'Current tab:', state.activeTab); // Debug log
+			
+			// Persist to localStorage
+			try {
+				localStorage.setItem('hfe-display-conditions-tab', tabSlug);
+			} catch (e) {
+				console.warn('Could not save tab to localStorage:', e);
+			}
+			
+			updateState({ activeTab: tabSlug });
+		}, [updateState, state.activeTab]);
 
 		// Default conditions
 		const getDefaultConditions = () => [
@@ -80,7 +120,7 @@ const withDisplayConditions = (WrappedComponent) => {
 			try {
 				const [locationData, userRoleData] = await Promise.all([
 					apiFetch({ path: "/hfe/v1/target-rules-options" }),
-					apiFetch({ path: "/hfe/v1/user-roles-options" })
+					apiFetch({ path: "/hfe/v1/user-roles-options" }),
 				]);
 
 				if (!isMountedRef.current) return;
@@ -89,13 +129,16 @@ const withDisplayConditions = (WrappedComponent) => {
 					locationOptions: locationData?.locationOptions || {},
 					userRoleOptions: userRoleData?.userroleOptions || {},
 				});
-				
+
 				optionsLoadedRef.current = true;
 			} catch (error) {
 				if (!isMountedRef.current) return;
 				console.error("Error fetching options:", error);
 				updateState({
-					error: __("Failed to load display conditions", "header-footer-elementor")
+					error: __(
+						"Failed to load display conditions",
+						"header-footer-elementor",
+					),
 				});
 			}
 		}, [updateState]);
@@ -117,162 +160,239 @@ const withDisplayConditions = (WrappedComponent) => {
 					name: __("Entire Site", "header-footer-elementor"),
 				},
 			};
-			
+
 			updateState({
 				conditions: [...state.conditions, newCondition],
 				nextId: state.nextId + 1,
 			});
 		}, [state.conditions, state.nextId, updateState]);
 
-		const handleRemoveCondition = useCallback((id) => {
-			updateState({
-				conditions: state.conditions.filter((condition) => condition.id !== id)
-			});
-		}, [state.conditions, updateState]);
+		const handleRemoveCondition = useCallback(
+			(id) => {
+				updateState({
+					conditions: state.conditions.filter(
+						(condition) => condition.id !== id,
+					),
+				});
+			},
+			[state.conditions, updateState],
+		);
 
-		const handleUpdateCondition = useCallback((id, field, value) => {
-			updateState({
-				conditions: state.conditions.map((condition) =>
-					condition.id === id ? { ...condition, [field]: value } : condition
-				)
-			});
-		}, [state.conditions, updateState]);
+		const handleUpdateCondition = useCallback(
+			(id, field, value) => {
+				updateState({
+					conditions: state.conditions.map((condition) =>
+						condition.id === id
+							? { ...condition, [field]: value }
+							: condition,
+					),
+				});
+			},
+			[state.conditions, updateState],
+		);
 
 		// User Role handlers
 		const handleAddUserRole = useCallback(() => {
 			updateState({
-				userRoles: [...state.userRoles, '']
+				userRoles: [...state.userRoles, ""],
 			});
 		}, [state.userRoles, updateState]);
 
-		const handleRemoveUserRole = useCallback((index) => {
-			updateState({
-				userRoles: state.userRoles.filter((_, i) => i !== index)
-			});
-		}, [state.userRoles, updateState]);
+		const handleRemoveUserRole = useCallback(
+			(index) => {
+				updateState({
+					userRoles: state.userRoles.filter((_, i) => i !== index),
+				});
+			},
+			[state.userRoles, updateState],
+		);
 
-		const handleUpdateUserRole = useCallback((index, value) => {
-			const updatedRoles = [...state.userRoles];
-			updatedRoles[index] = value;
-			updateState({ userRoles: updatedRoles });
-		}, [state.userRoles, updateState]);
+		const handleUpdateUserRole = useCallback(
+			(index, value) => {
+				const updatedRoles = [...state.userRoles];
+				updatedRoles[index] = value;
+				updateState({ userRoles: updatedRoles });
+			},
+			[state.userRoles, updateState],
+		);
 
 		// Canvas Template handler
-		const handleCanvasTemplateChange = useCallback((enabled) => {
-			updateState({ canvasTemplateEnabled: enabled });
-		}, [updateState]);
+		const handleCanvasTemplateChange = useCallback(
+			(enabled) => {
+				updateState({ canvasTemplateEnabled: enabled });
+			},
+			[updateState],
+		);
 
 		// Tab handler
-		const handleTabChange = useCallback((tabName) => {
-			localStorage.setItem('hfe-display-conditions-tab', tabName);
-			updateState({ activeTab: tabName });
-		}, [updateState]);
+		// const handleTabChange = useCallback(
+		// 	(tabName) => {
+		// 		localStorage.setItem("hfe-display-conditions-tab", tabName);
+		// 		updateState({ activeTab: tabName });
+		// 	},
+		// 	[updateState],
+		// );
 
-		const openDisplayConditionsDialog = useCallback(async (item, isNew = false) => {
-			// Increment dialog key for fresh render
-			dialogKeyRef.current += 1;
+		const openDisplayConditionsDialog = useCallback(
+			async (item, isNew = false) => {
+				// Increment dialog key for fresh render
+				dialogKeyRef.current += 1;
 
-			// Ensure options are loaded first
-			if (!optionsLoadedRef.current) {
-				updateState({ isButtonLoading: true });
-				await loadOptions();
-				if (!isMountedRef.current) return;
-				updateState({ isButtonLoading: false });
-			}
-
-			// Prepare initial state
-			const defaultConditions = getDefaultConditions();
-			const initialUpdates = {
-				isDialogOpen: true,
-				isLoading: false,
-				error: null,
-				selectedItem: item,
-				isNewPost: isNew,
-				conditions: defaultConditions,
-				userRoles: [''],
-				canvasTemplateEnabled: false,
-				nextId: 2,
-			};
-
-			// For new posts or posts without ID, use defaults immediately
-			if (isNew || !item.id) {
-				updateState(initialUpdates);
-				return;
-			}
-
-			// For existing posts, show loading first
-			updateState({
-				...initialUpdates,
-				isLoading: true,
-			});
-
-			try {
-				// Fetch all data in parallel
-				const [targetRulesData, userRolesData, canvasTemplateData] = await Promise.all([
-					apiFetch({ path: `/hfe/v1/target-rules?post_id=${item.id}` }),
-					apiFetch({ path: `/hfe/v1/user-roles?post_id=${item.id}` }),
-					apiFetch({ path: `/hfe/v1/enable-for-canvas-template?post_id=${item.id}` })
-				]);
-
-				if (!isMountedRef.current) return;
-
-				// Process all data and update in one go
-				const finalUpdates = { ...initialUpdates, isLoading: false };
-
-				// Handle target rules data
-				if (targetRulesData?.conditions?.length > 0) {
-					const enrichedConditions = targetRulesData.conditions.map((condition, index) => ({
-						id: index + 1,
-						conditionType: {
-							id: condition.conditionType?.id || condition.type || "include",
-							name: condition.conditionType?.name || 
-								  (condition.type === "exclude" ? __("Exclude", "header-footer-elementor") : __("Include", "header-footer-elementor"))
-						},
-						displayLocation: {
-							id: condition.displayLocation?.id || condition.location || "entire-site",
-							name: condition.displayLocation?.name || condition.locationName || __("Entire Site", "header-footer-elementor")
-						}
-					}));
-					
-					finalUpdates.conditions = enrichedConditions;
-					finalUpdates.nextId = enrichedConditions.length + 1;
+				// Ensure options are loaded first
+				if (!optionsLoadedRef.current) {
+					updateState({ isButtonLoading: true });
+					await loadOptions();
+					if (!isMountedRef.current) return;
+					updateState({ isButtonLoading: false });
 				}
 
-				// Handle user roles data
-				if (userRolesData?.userRoles?.length > 0) {
-					finalUpdates.userRoles = userRolesData.userRoles;
-				}
-
-				// Handle canvas template data
-				if (typeof canvasTemplateData?.display !== 'undefined') {
-					finalUpdates.canvasTemplateEnabled = canvasTemplateData.display === 1;
-				}
-
-				// Single state update with all data
-				updateState(finalUpdates);
-
-			} catch (err) {
-				if (!isMountedRef.current) return;
+				// Prepare initial state
+				const defaultConditions = getDefaultConditions();
 				
-				console.error("Error fetching data:", err);
+				// Get saved tab from localStorage or use current state
+				let savedTab = state.activeTab;
+				try {
+					const storedTab = localStorage.getItem('hfe-display-conditions-tab');
+					if (storedTab && (storedTab === 'conditions' || storedTab === 'userRoles')) {
+						savedTab = storedTab;
+					}
+				} catch (e) {
+					console.warn('Could not read tab from localStorage:', e);
+				}
 				
-				const errorUpdates = {
-					...initialUpdates,
+				const initialUpdates = {
+					isDialogOpen: true,
 					isLoading: false,
+					error: null,
+					selectedItem: item,
+					isNewPost: isNew,
+					conditions: defaultConditions,
+					userRoles: [""],
+					canvasTemplateEnabled: false,
+					nextId: 2,
+					activeTab: savedTab, // Preserve the active tab
 				};
 
-				// Only show error if it's not a 404
-				if (err.status !== 404) {
-					errorUpdates.error = __("Failed to load display conditions and user roles, using defaults", "header-footer-elementor");
+				// For new posts or posts without ID, use defaults immediately
+				if (isNew || !item.id) {
+					updateState(initialUpdates);
+					return;
 				}
 
-				updateState(errorUpdates);
-			}
-		}, [loadOptions, updateState]);
+				// For existing posts, show loading first
+				updateState({
+					...initialUpdates,
+					isLoading: true,
+				});
+
+				try {
+					// Fetch all data in parallel
+					const [targetRulesData, userRolesData, canvasTemplateData] =
+						await Promise.all([
+							apiFetch({
+								path: `/hfe/v1/target-rules?post_id=${item.id}`,
+							}),
+							apiFetch({
+								path: `/hfe/v1/user-roles?post_id=${item.id}`,
+							}),
+							apiFetch({
+								path: `/hfe/v1/enable-for-canvas-template?post_id=${item.id}`,
+							}),
+						]);
+
+					if (!isMountedRef.current) return;
+
+					// Process all data and update in one go
+					const finalUpdates = {
+						...initialUpdates,
+						isLoading: false,
+					};
+
+					// Handle target rules data
+					if (targetRulesData?.conditions?.length > 0) {
+						const enrichedConditions =
+							targetRulesData.conditions.map(
+								(condition, index) => ({
+									id: index + 1,
+									conditionType: {
+										id:
+											condition.conditionType?.id ||
+											condition.type ||
+											"include",
+										name:
+											condition.conditionType?.name ||
+											(condition.type === "exclude"
+												? __(
+														"Exclude",
+														"header-footer-elementor",
+												  )
+												: __(
+														"Include",
+														"header-footer-elementor",
+												  )),
+									},
+									displayLocation: {
+										id:
+											condition.displayLocation?.id ||
+											condition.location ||
+											"entire-site",
+										name:
+											condition.displayLocation?.name ||
+											condition.locationName ||
+											__(
+												"Entire Site",
+												"header-footer-elementor",
+											),
+									},
+								}),
+							);
+
+						finalUpdates.conditions = enrichedConditions;
+						finalUpdates.nextId = enrichedConditions.length + 1;
+					}
+
+					// Handle user roles data
+					if (userRolesData?.userRoles?.length > 0) {
+						finalUpdates.userRoles = userRolesData.userRoles;
+					}
+
+					// Handle canvas template data
+					if (typeof canvasTemplateData?.display !== "undefined") {
+						finalUpdates.canvasTemplateEnabled =
+							canvasTemplateData.display === 1;
+					}
+
+					// Single state update with all data
+					updateState(finalUpdates);
+				} catch (err) {
+					if (!isMountedRef.current) return;
+
+					console.error("Error fetching data:", err);
+
+					const errorUpdates = {
+						...initialUpdates,
+						isLoading: false,
+					};
+
+					// Only show error if it's not a 404
+					if (err.status !== 404) {
+						errorUpdates.error = __(
+							"Failed to load display conditions and user roles, using defaults",
+							"header-footer-elementor",
+						);
+					}
+
+					updateState(errorUpdates);
+				}
+			},
+			[loadOptions, updateState],
+		);
 
 		const handleSaveConditions = useCallback(async () => {
 			if (!state.selectedItem?.id) {
-				updateState({ error: __("No post selected", "header-footer-elementor") });
+				updateState({
+					error: __("No post selected", "header-footer-elementor"),
+				});
 				return;
 			}
 
@@ -294,7 +414,9 @@ const withDisplayConditions = (WrappedComponent) => {
 					exclude_locations: { rule: excludeRules, specific: [] },
 				};
 
-				const filteredUserRoles = state.userRoles.filter(role => role && role.trim() !== '');
+				const filteredUserRoles = state.userRoles.filter(
+					(role) => role && role.trim() !== "",
+				);
 				const userRolesData = {
 					post_id: state.selectedItem.id,
 					user_roles: filteredUserRoles,
@@ -306,40 +428,74 @@ const withDisplayConditions = (WrappedComponent) => {
 				};
 
 				// Save all data in parallel
-				const [targetRulesResponse, userRolesResponse, canvasTemplateResponse] = await Promise.all([
-					apiFetch({ path: "/hfe/v1/target-rules", method: "POST", data: targetRulesData }),
-					apiFetch({ path: "/hfe/v1/user-roles", method: "POST", data: userRolesData }),
-					apiFetch({ path: "/hfe/v1/enable-for-canvas-template", method: "POST", data: canvasTemplateData })
+				const [
+					targetRulesResponse,
+					userRolesResponse,
+					canvasTemplateResponse,
+				] = await Promise.all([
+					apiFetch({
+						path: "/hfe/v1/target-rules",
+						method: "POST",
+						data: targetRulesData,
+					}),
+					apiFetch({
+						path: "/hfe/v1/user-roles",
+						method: "POST",
+						data: userRolesData,
+					}),
+					apiFetch({
+						path: "/hfe/v1/enable-for-canvas-template",
+						method: "POST",
+						data: canvasTemplateData,
+					}),
 				]);
 
 				if (!isMountedRef.current) return;
 
-				if (targetRulesResponse.success && userRolesResponse.success && canvasTemplateResponse.success) {
+				if (
+					targetRulesResponse.success &&
+					userRolesResponse.success &&
+					canvasTemplateResponse.success
+				) {
 					updateState({ isDialogOpen: false, isLoading: false });
-					
+
 					// Handle redirect or edit URL
 					if (targetRulesResponse.edit_url) {
 						window.open(targetRulesResponse.edit_url, "_blank");
 					} else if (state.selectedItem.edit_url) {
 						window.open(state.selectedItem.edit_url, "_blank");
 					}
-					
+
 					// Call onSave callback if provided
 					if (props.onConditionsSaved) {
-						props.onConditionsSaved(state.selectedItem, state.conditions, filteredUserRoles, state.canvasTemplateEnabled);
+						props.onConditionsSaved(
+							state.selectedItem,
+							state.conditions,
+							filteredUserRoles,
+							state.canvasTemplateEnabled,
+						);
 					}
 				} else {
-					const errorMessage = targetRulesResponse.message || userRolesResponse.message || canvasTemplateResponse.message || 
-						__("Failed to save display conditions, user roles, and canvas template setting", "header-footer-elementor");
+					const errorMessage =
+						targetRulesResponse.message ||
+						userRolesResponse.message ||
+						canvasTemplateResponse.message ||
+						__(
+							"Failed to save display conditions, user roles, and canvas template setting",
+							"header-footer-elementor",
+						);
 					updateState({ error: errorMessage, isLoading: false });
 				}
 			} catch (err) {
 				if (!isMountedRef.current) return;
-				
+
 				console.error("Error saving data:", err);
 				updateState({
-					error: __("Failed to save display conditions, user roles, and canvas template setting", "header-footer-elementor"),
-					isLoading: false
+					error: __(
+						"Failed to save display conditions, user roles, and canvas template setting",
+						"header-footer-elementor",
+					),
+					isLoading: false,
 				});
 			}
 		}, [state, updateState, props]);
@@ -347,75 +503,118 @@ const withDisplayConditions = (WrappedComponent) => {
 		// Stable dialog component that doesn't re-render unnecessarily
 		const DisplayConditionsDialog = useMemo(() => {
 			if (!state.selectedItem) return () => null;
-			
+
 			return () => (
-				<div style={{ position: 'fixed', inset: 0, zIndex: 999999 }}>
+				<div style={{ position: "fixed", inset: 0, zIndex: 999999 }}>
 					{/* Backdrop */}
-					<div 
-						style={{ 
-							position: 'fixed', 
-							inset: 0, 
-							backgroundColor: 'rgba(0, 0, 0, 0.5)', 
-							zIndex: 999998 
+					<div
+						style={{
+							position: "fixed",
+							inset: 0,
+							backgroundColor: "rgba(0, 0, 0, 0.5)",
+							zIndex: 999998,
 						}}
 						onClick={() => updateState({ isDialogOpen: false })}
 					/>
-					
+
 					{/* Dialog Panel */}
-					<div style={{
-						position: 'fixed',
-						top: '50%',
-						left: '50%',
-						transform: 'translate(-50%, -50%)',
-						width: '50%',
-						maxWidth: '48rem',
-						backgroundColor: 'white',
-						borderRadius: '0.5rem',
-						boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-						zIndex: 999999,
-						maxHeight: '90vh',
-						overflow: 'auto'
-					}}>
+					<div
+						style={{
+							position: "fixed",
+							top: "50%",
+							left: "50%",
+							transform: "translate(-50%, -50%)",
+							width: "50%",
+							maxWidth: "48rem",
+							backgroundColor: "white",
+							borderRadius: "0.5rem",
+							boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+							zIndex: 999999,
+							maxHeight: "90vh",
+							overflow: "auto",
+						}}
+					>
 						{/* Header */}
-						<div className="text-center border-b border-gray-200" style={{ paddingLeft: '1.5rem', paddingRight: '1.5rem', paddingTop: '1.5rem' }}>
+						<div
+							className="text-center border-b border-gray-200"
+							style={{
+								paddingLeft: "1.5rem",
+								paddingRight: "1.5rem",
+								paddingTop: "1.5rem",
+							}}
+						>
 							<div className="flex items-center justify-between">
 								<h2 className="text-base font-normal">
-									{__("Configure Display Conditions", "header-footer-elementor")}
+									{__(
+										"Configure Display Conditions",
+										"header-footer-elementor",
+									)}
 									{state.isNewPost && (
 										<span className="ml-2 text-sm text-gray-500">
-											({__("New Layout", "header-footer-elementor")})
+											(
+											{__(
+												"New Layout",
+												"header-footer-elementor",
+											)}
+											)
 										</span>
 									)}
 								</h2>
 								<button
-									onClick={() => updateState({ isDialogOpen: false })}
+									onClick={() =>
+										updateState({ isDialogOpen: false })
+									}
 									className="text-2xl leading-none font-light p-2 -mr-2 hover:bg-gray-100 rounded"
-									aria-label={__("Close", "header-footer-elementor")}
-									style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+									aria-label={__(
+										"Close",
+										"header-footer-elementor",
+									)}
+									style={{
+										background: "none",
+										border: "none",
+										cursor: "pointer",
+									}}
 								>
 									×
 								</button>
 							</div>
 						</div>
-						
+
 						{/* Body */}
 						<div className="p-4">
-							<div className="mx-6 px-6 py-2 border border-gray-500 rounded-lg relative" style={{ border: "4px solid #F9FAFB" }}>
+							<div
+								className="mx-6 px-6 py-2 border border-gray-500 rounded-lg relative"
+								style={{ border: "4px solid #F9FAFB" }}
+							>
 								{/* Description */}
 								<h2 className="text-base font-semibold text-gray-900 mb-2 text-center">
-									{__("Where Should Your Layout Appear?", "header-footer-elementor")}
+									{__(
+										"Where Should Your Layout Appear?",
+										"header-footer-elementor",
+									)}
 								</h2>
 								<p className="text-gray-600 text-sm mb-8 text-center">
-									{__("Decide where you want this layout to appear on your site.", "header-footer-elementor")}
+									{__(
+										"Decide where you want this layout to appear on your site.",
+										"header-footer-elementor",
+									)}
 									<br />
-									{__("You can show it across your entire site or only on specific pages—your choice!", "header-footer-elementor")}
+									{__(
+										"You can show it across your entire site or only on specific pages—your choice!",
+										"header-footer-elementor",
+									)}
 								</p>
 
 								{/* Loading state - Fixed positioning to prevent flicker */}
 								{state.isLoading && (
 									<div className="flex items-center justify-center min-h-screen w-full absolute inset-0 bg-white bg-opacity-90 z-10">
 										<div className="">
-											<Loader className="" icon={null} size="lg" variant="primary" />
+											<Loader
+												className=""
+												icon={null}
+												size="lg"
+												variant="primary"
+											/>
 										</div>
 									</div>
 								)}
@@ -429,156 +628,420 @@ const withDisplayConditions = (WrappedComponent) => {
 
 								{/* Content - Always show, overlay with loading when needed */}
 								<>
-										{/* Tab Navigation */}
-										<div className="flex justify-center gap-4 mb-8">
-											<button
-												onClick={() => handleTabChange('conditions')}
-												className={`px-6 py-2.5 rounded-md font-medium transition-colors ${
-													state.activeTab === 'conditions'
-														? 'text-white hover:bg-gray-800'
-														: 'text-gray-700 bg-gray-100 hover:bg-gray-200'
-												}`}
-												style={{ 
-													border: 'none', 
-													cursor: 'pointer', 
-													backgroundColor: state.activeTab === 'conditions' ? '#5C2EDE' : '#f3f4f6',
-													padding:'10px 20px'
-												}}
-											>
-												{__("Conditions", "header-footer-elementor")}
-											</button>
-											<button
-												onClick={() => handleTabChange('userRoles')}
-												className={`px-6 py-2.5 rounded-md font-medium transition-colors ${
-													state.activeTab === 'userRoles'
-														? 'text-white hover:bg-gray-800'
-														: 'text-gray-700 bg-gray-100 hover:bg-gray-200'
-												}`}
-												style={{ 
-													border: 'none', 
-													cursor: 'pointer', 
-													backgroundColor: state.activeTab === 'userRoles' ? '#5C2EDE' : '#f3f4f6',
-													padding:'10px 20px'
-												}}
-											>
-												{__("User Roles", "header-footer-elementor")}
-											</button>
-										</div>
+									{/* Tab Navigation */}
+									{/* <div className="flex justify-center gap-4 mb-8">
+										<button
+											onClick={() =>
+												handleTabChange("conditions")
+											}
+											className={`px-6 py-2.5 rounded-md font-medium transition-colors ${
+												state.activeTab === "conditions"
+													? "text-white hover:bg-gray-800"
+													: "text-gray-700 bg-gray-100 hover:bg-gray-200"
+											}`}
+											style={{
+												border: "none",
+												cursor: "pointer",
+												backgroundColor:
+													state.activeTab ===
+													"conditions"
+														? "#5C2EDE"
+														: "#f3f4f6",
+												padding: "10px 20px",
+											}}
+										>
+											{__(
+												"Conditions",
+												"header-footer-elementor",
+											)}
+										</button>
+										<button
+											onClick={() =>
+												handleTabChange("userRoles")
+											}
+											className={`px-6 py-2.5 rounded-md font-medium transition-colors ${
+												state.activeTab === "userRoles"
+													? "text-white hover:bg-gray-800"
+													: "text-gray-700 bg-gray-100 hover:bg-gray-200"
+											}`}
+											style={{
+												border: "none",
+												cursor: "pointer",
+												backgroundColor:
+													state.activeTab ===
+													"userRoles"
+														? "#5C2EDE"
+														: "#f3f4f6",
+												padding: "10px 20px",
+											}}
+										>
+											{__(
+												"User Roles",
+												"header-footer-elementor",
+											)}
+										</button>
+									</div> */}
 
-										{/* Tab Content */}
-										{state.activeTab === 'conditions' && (
-											<>
-												{/* Conditions */}
+									<Tabs key={state.activeTab} activeItem={state.activeTab}>
+										<Tabs.Group 
+										  size="sm"
+										onChange={(tabSlug) => {
+											console.log('Tabs.Group onChange called with:', tabSlug);
+											handleTabChange(tabSlug);
+										}}>
+											<Tabs.Tab
+												icon={<Plus />}
+												slug="conditions"
+												text="Conditions"
+											/>
+											<Tabs.Tab
+												icon={<Plus />}
+												slug="userRoles"
+												text="User Roles"
+											/>
+										</Tabs.Group>
+										<div className="my-5 p-5 rounded-md bg-slate-100 shadow-md">
+											<Tabs.Panel slug="conditions">
 												<div className="space-y-3 mb-4">
-													{state.conditions.map((condition) => (
-														<div key={condition.id} className="flex items-center gap-1" style={{ marginTop: '12px' }}>
-															<div className="flex items-center justify-center overflow-hidden bg-gray-50" style={{ marginLeft: '56px' }}>
+												{state.conditions.map(
+													(condition) => (
+														<div
+															key={condition.id}
+															className="flex items-center gap-1"
+															style={{
+																marginTop:
+																	"12px",
+															}}
+														>
+															<div
+																className="flex items-center justify-center overflow-hidden bg-gray-50"
+																style={{
+																	marginLeft:
+																		"56px",
+																}}
+															>
 																{/* Include/Exclude Select */}
-																<div className="rounded-sm" style={{ border: "1px solid #d1d5db", width: "120px" }}>
+																<div
+																	className="rounded-sm"
+																	style={{
+																		border: "1px solid #d1d5db",
+																		width: "120px",
+																	}}
+																>
 																	<select
-																		onChange={(e) => {
-																			const selectedOption = e.target.options[e.target.selectedIndex];
-																			handleUpdateCondition(condition.id, "conditionType", {
-																				id: selectedOption.value,
-																				name: selectedOption.text,
-																			});
+																		onChange={(
+																			e,
+																		) => {
+																			const selectedOption =
+																				e
+																					.target
+																					.options[
+																					e
+																						.target
+																						.selectedIndex
+																				];
+																			handleUpdateCondition(
+																				condition.id,
+																				"conditionType",
+																				{
+																					id: selectedOption.value,
+																					name: selectedOption.text,
+																				},
+																			);
 																		}}
-																		value={condition.conditionType.id}
+																		value={
+																			condition
+																				.conditionType
+																				.id
+																		}
 																		className="border-0 rounded-none bg-transparent h-full w-full px-4 text-black focus:outline-none"
-																		style={{ boxShadow: "none", height: '40px' }}
+																		style={{
+																			boxShadow:
+																				"none",
+																			height: "40px",
+																		}}
 																	>
-																		<option value="include">{__("Include", "header-footer-elementor")}</option>
-																		<option value="exclude">{__("Exclude", "header-footer-elementor")}</option>
+																		<option value="include">
+																			{__(
+																				"Include",
+																				"header-footer-elementor",
+																			)}
+																		</option>
+																		<option value="exclude">
+																			{__(
+																				"Exclude",
+																				"header-footer-elementor",
+																			)}
+																		</option>
 																	</select>
 																</div>
 
 																{/* Display Location Select */}
-																<div className="rounded-sm" style={{ border: "1px solid #d1d5db", width: "420px" }}>
+																<div
+																	className="rounded-sm"
+																	style={{
+																		border: "1px solid #d1d5db",
+																		width: "420px",
+																	}}
+																>
 																	<select
-																		onChange={(e) => {
-																			const selectedOption = e.target.options[e.target.selectedIndex];
-																			handleUpdateCondition(condition.id, "displayLocation", {
-																				id: selectedOption.value,
-																				name: selectedOption.text,
-																			});
+																		onChange={(
+																			e,
+																		) => {
+																			const selectedOption =
+																				e
+																					.target
+																					.options[
+																					e
+																						.target
+																						.selectedIndex
+																				];
+																			handleUpdateCondition(
+																				condition.id,
+																				"displayLocation",
+																				{
+																					id: selectedOption.value,
+																					name: selectedOption.text,
+																				},
+																			);
 																		}}
-																		value={condition.displayLocation.id}
+																		value={
+																			condition
+																				.displayLocation
+																				.id
+																		}
 																		className="border-0 rounded-none bg-transparent h-full w-full px-4 text-black focus:outline-none"
-																		style={{ boxShadow: "none", height: '40px' }}
+																		style={{
+																			boxShadow:
+																				"none",
+																			height: "40px",
+																		}}
 																	>
-																		{Object.keys(state.locationOptions).map((groupKey) => (
-																			<optgroup key={groupKey} label={state.locationOptions[groupKey].label}>
-																				{Object.entries(state.locationOptions[groupKey].value).map(([optKey, optLabel]) => (
-																					<option key={optKey} value={optKey}>{optLabel}</option>
-																				))}
-																			</optgroup>
-																		))}
+																		{Object.keys(
+																			state.locationOptions,
+																		).map(
+																			(
+																				groupKey,
+																			) => (
+																				<optgroup
+																					key={
+																						groupKey
+																					}
+																					label={
+																						state
+																							.locationOptions[
+																							groupKey
+																						]
+																							.label
+																					}
+																				>
+																					{Object.entries(
+																						state
+																							.locationOptions[
+																							groupKey
+																						]
+																							.value,
+																					).map(
+																						([
+																							optKey,
+																							optLabel,
+																						]) => (
+																							<option
+																								key={
+																									optKey
+																								}
+																								value={
+																									optKey
+																								}
+																							>
+																								{
+																									optLabel
+																								}
+																							</option>
+																						),
+																					)}
+																				</optgroup>
+																			),
+																		)}
 																	</select>
 																</div>
 															</div>
-															{state.conditions.length > 1 && (
+															{state.conditions
+																.length > 1 && (
 																<button
-																	onClick={() => handleRemoveCondition(condition.id)}
+																	onClick={() =>
+																		handleRemoveCondition(
+																			condition.id,
+																		)
+																	}
 																	className="p-2 text-gray-400 hover:text-gray-600 transition-colors"
-																	style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+																	style={{
+																		background:
+																			"none",
+																		border: "none",
+																		cursor: "pointer",
+																	}}
 																>
-																	<X size={18} />
+																	<X
+																		size={
+																			18
+																		}
+																	/>
 																</button>
 															)}
 														</div>
-													))}
-												</div>
-
-												{/* Add Condition Button */}
+													),
+												)}
+											</div>
 												<div className="flex justify-center mb-8">
-													<button
-														onClick={handleAddCondition}
-														className="text-white px-6 py-2.5 rounded-md font-medium hover:bg-gray-800"
-														style={{ border: 'none', cursor: 'pointer', backgroundColor: '#000', padding:'10px 20px' }}
-													>
-														{__("Add Conditions", "header-footer-elementor")}
-													</button>
-												</div>
-											</>
-										)}
-
-										{state.activeTab === 'userRoles' && (
-											<>
+												<button
+													onClick={handleAddCondition}
+													className="text-white px-6 py-2.5 rounded-md font-medium hover:bg-gray-800"
+													style={{
+														border: "none",
+														cursor: "pointer",
+														backgroundColor: "#000",
+														padding: "10px 20px",
+													}}
+												>
+													{__(
+														"Add Conditions",
+														"header-footer-elementor",
+													)}
+												</button>
+											</div>
+											</Tabs.Panel>
+											<Tabs.Panel slug="userRoles">
 												{/* User Roles Section */}
 												<div className="mb-4">
 													<div className="space-y-3 mb-4">
-														{state.userRoles.map((roleId, index) => (
-															<div key={index} className="flex items-center gap-1" style={{ marginTop: '8px' }}>
-																<div className="flex items-center justify-center overflow-hidden bg-gray-50" style={{ marginLeft: '86px' }}>
-																	<div className="rounded-sm" style={{ border: "1px solid #d1d5db", width: "430px" }}>
-																		<select
-																			value={roleId}
-																			onChange={(e) => handleUpdateUserRole(index, e.target.value)}
-																			className="border-0 rounded-none bg-transparent h-full w-full px-4 text-black focus:outline-none"
-																			style={{ boxShadow: "none", height: '40px' }}
-																		>
-																			<option value="">{__("Select User Role", "header-footer-elementor")}</option>
-																			{Object.keys(state.userRoleOptions).map((groupKey) => (
-																				<optgroup key={groupKey} label={state.userRoleOptions[groupKey].label}>
-																					{Object.entries(state.userRoleOptions[groupKey].value).map(([optKey, optLabel]) => (
-																						<option key={optKey} value={optKey}>{optLabel}</option>
-																					))}
-																				</optgroup>
-																			))}
-																		</select>
-																	</div>
-																</div>
-																{state.userRoles.length > 1 && (
-																	<button
-																		onClick={() => handleRemoveUserRole(index)}
-																		className="text-gray-400 hover:text-gray-600 transition-colors"
-																		style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+														{state.userRoles.map(
+															(roleId, index) => (
+																<div
+																	key={index}
+																	className="flex items-center gap-1"
+																	style={{
+																		marginTop:
+																			"8px",
+																	}}
+																>
+																	<div
+																		className="flex items-center justify-center overflow-hidden bg-gray-50"
+																		style={{
+																			marginLeft:
+																				"86px",
+																		}}
 																	>
-																		<X size={18} />
-																	</button>
-																)}
-															</div>
-														))}
+																		<div
+																			className="rounded-sm"
+																			style={{
+																				border: "1px solid #d1d5db",
+																				width: "430px",
+																			}}
+																		>
+																			<select
+																				value={
+																					roleId
+																				}
+																				onChange={(
+																					e,
+																				) =>
+																					handleUpdateUserRole(
+																						index,
+																						e
+																							.target
+																							.value,
+																					)
+																				}
+																				className="border-0 rounded-none bg-transparent h-full w-full px-4 text-black focus:outline-none"
+																				style={{
+																					boxShadow:
+																						"none",
+																					height: "40px",
+																				}}
+																			>
+																				<option value="">
+																					{__(
+																						"Select User Role",
+																						"header-footer-elementor",
+																					)}
+																				</option>
+																				{Object.keys(
+																					state.userRoleOptions,
+																				).map(
+																					(
+																						groupKey,
+																					) => (
+																						<optgroup
+																							key={
+																								groupKey
+																							}
+																							label={
+																								state
+																									.userRoleOptions[
+																									groupKey
+																								]
+																									.label
+																							}
+																						>
+																							{Object.entries(
+																								state
+																									.userRoleOptions[
+																									groupKey
+																								]
+																								.value,
+																							).map(
+																								([
+																									optKey,
+																									optLabel,
+																								]) => (
+																									<option
+																										key={
+																											optKey
+																										}
+																										value={
+																											optKey
+																										}
+																									>
+																										{
+																											optLabel
+																										}
+																									</option>
+																								),
+																							)}
+																						</optgroup>
+																					),
+																				)}
+																			</select>
+																		</div>
+																	</div>
+																	{state.userRoles
+																		.length >
+																		1 && (
+																		<button
+																			onClick={() =>
+																				handleRemoveUserRole(
+																					index,
+																				)
+																			}
+																			className="text-gray-400 hover:text-gray-600 transition-colors"
+																			style={{
+																				background:
+																					"none",
+																				border: "none",
+																				cursor: "pointer",
+																			}}
+																		>
+																			<X
+																				size={
+																					18
+																				}
+																			/>
+																		</button>
+																	)}
+																</div>
+															),
+														)}
 													</div>
 												</div>
 
@@ -587,33 +1050,54 @@ const withDisplayConditions = (WrappedComponent) => {
 													<button
 														onClick={handleAddUserRole}
 														className="text-white px-6 py-2.5 rounded-md font-medium hover:bg-gray-800"
-														style={{ border: 'none', cursor: 'pointer', backgroundColor: '#000', padding:'10px 20px' }}
+														style={{
+															border: "none",
+															cursor: "pointer",
+															backgroundColor: "#000",
+															padding: "10px 20px",
+														}}
 													>
-														{__("Add User Role", "header-footer-elementor")}
+														{__(
+															"Add User Role",
+															"header-footer-elementor",
+														)}
 													</button>
 												</div>
-											</>
-										)}
+											</Tabs.Panel>
+										</div>
+									</Tabs>
 
-										{/* Canvas Template Section */}
-										<div className="mt-8 pt-6 border-t border-gray-200">
-											<div className="flex items-center justify-around">
-												<div>
-													<p className="text-gray-600 text-sm">
-														{__("Enable this layout to display on Elementor Canvas template pages.", "header-footer-elementor")}
-													</p>
-												</div>
-												<div className="ml-4">
-													<Switch
-														checked={state.canvasTemplateEnabled}
-														onChange={handleCanvasTemplateChange}
-														disabled={state.isLoading}
-														size="sm"
-													/>
-												</div>
+									{/* Tab Content */}
+								
+
+									
+
+									{/* Canvas Template Section */}
+									<div className="mt-8 pt-6 border-t border-gray-200">
+										<div className="flex items-center justify-around">
+											<div>
+												<p className="text-gray-600 text-sm">
+													{__(
+														"Enable this layout to display on Elementor Canvas template pages.",
+														"header-footer-elementor",
+													)}
+												</p>
+											</div>
+											<div className="ml-4">
+												<Switch
+													checked={
+														state.canvasTemplateEnabled
+													}
+													onChange={
+														handleCanvasTemplateChange
+													}
+													disabled={state.isLoading}
+													size="sm"
+												/>
 											</div>
 										</div>
-									</>
+									</div>
+								</>
 							</div>
 						</div>
 
@@ -621,10 +1105,16 @@ const withDisplayConditions = (WrappedComponent) => {
 						<div className="border-t border-gray-200 px-8 py-6">
 							<div className="flex justify-end p-4 gap-3">
 								<button
-									onClick={() => updateState({ isDialogOpen: false })}
+									onClick={() =>
+										updateState({ isDialogOpen: false })
+									}
 									className="rounded-md px-6 py-2.5 font-medium border border-gray-300 text-gray-700 hover:bg-gray-50"
 									disabled={state.isLoading}
-									style={{ background: 'white', cursor: 'pointer', padding:'10px 20px' }}
+									style={{
+										background: "white",
+										cursor: "pointer",
+										padding: "10px 20px",
+									}}
 								>
 									{__("Cancel", "header-footer-elementor")}
 								</button>
@@ -632,15 +1122,26 @@ const withDisplayConditions = (WrappedComponent) => {
 									onClick={handleSaveConditions}
 									className="bg-purple-600 hover:bg-purple-700 rounded-md px-6 py-2.5 font-medium text-white"
 									disabled={state.isLoading}
-									style={{ border: 'none', cursor: 'pointer', backgroundColor: '#5C2EDE', padding:'10px 20px' }}
+									style={{
+										border: "none",
+										cursor: "pointer",
+										backgroundColor: "#5C2EDE",
+										padding: "10px 20px",
+									}}
 								>
 									{state.isLoading ? (
 										<span className="flex items-center">
 											<span className="animate-spin mr-2 h-4 w-4 border-2  border-t-transparent rounded-full"></span>
-											{__("Saving...", "header-footer-elementor")}
+											{__(
+												"Saving...",
+												"header-footer-elementor",
+											)}
 										</span>
 									) : (
-										__("Save Conditions", "header-footer-elementor")
+										__(
+											"Save Conditions",
+											"header-footer-elementor",
+										)
 									)}
 								</button>
 							</div>
@@ -648,10 +1149,23 @@ const withDisplayConditions = (WrappedComponent) => {
 					</div>
 				</div>
 			);
-		}, [state.selectedItem?.id, state.isLoading, state.error, state.activeTab, state.conditions, state.userRoles, state.canvasTemplateEnabled, state.locationOptions, state.userRoleOptions, state.isNewPost]);
+		}, [
+			state.selectedItem?.id,
+			state.isLoading,
+			state.error,
+			state.activeTab,
+			state.conditions,
+			state.userRoles,
+			state.canvasTemplateEnabled,
+			state.locationOptions,
+			state.userRoleOptions,
+			state.isNewPost,
+		]);
 
 		// Only render dialog when open
-		const DialogComponent = state.isDialogOpen ? DisplayConditionsDialog : () => null;
+		const DialogComponent = state.isDialogOpen
+			? DisplayConditionsDialog
+			: () => null;
 
 		return (
 			<WrappedComponent
