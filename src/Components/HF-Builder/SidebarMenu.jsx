@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { CircleHelp, ArrowRight } from "lucide-react";
 import { Button } from "@bsf/force-ui";
 
-const SidebarMenu = ({ items, onSelectItem }) => {
-	const [selectedItemId, setSelectedItemId] = useState(null); // State to track selected item
+const SidebarMenu = ({ items, onSelectItem, selectedItemId }) => {
+	const [internalSelectedItemId, setInternalSelectedItemId] = useState(selectedItemId); // Initialize with prop
+
+	// Sync internal state with prop changes
+	useEffect(() => {
+		setInternalSelectedItemId(selectedItemId);
+	}, [selectedItemId]);
 
 	const handleSelectItem = (item) => {
-		setSelectedItemId(item.id); // Update selected item
+		setInternalSelectedItemId(item.id); // Update internal selected item
 		onSelectItem(item); // Trigger onSelectItem callback
 	};
 
@@ -34,18 +39,18 @@ const SidebarMenu = ({ items, onSelectItem }) => {
 						{/* Each item with icon and title */}
 						<div
 							className={`h-10 flex items-center justify-start gap-2 px-2 rounded-md cursor-pointer ${
-								selectedItemId === item.id
+								internalSelectedItemId === item.id
 									? "bg-gray-100"
 									: "bg-background-primary"
 							}`}
 							style={{
 								backgroundColor:
-									selectedItemId === item.id ? "#F9FAFB" : "", // Apply background color when selected
+									internalSelectedItemId === item.id ? "#F9FAFB" : "", // Apply background color when selected
 							}}
 							onClick={() => handleSelectItem(item)}
 						>
 							<span>
-								{selectedItemId === item.id
+								{internalSelectedItemId === item.id
 									? item.selected
 									: item.icon}
 							</span>
