@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<phpunit
+	bootstrap="tests/simple-bootstrap-v2.php"
+	backupGlobals="false"
+	colors="true"
+	convertErrorsToExceptions="true"
+	convertNoticesToExceptions="true"
+	convertWarningsToExceptions="true"
+	verbose="true"
+	>
+	<testsuites>
+		<testsuite name="header-footer-elementor-unit">
+			<directory suffix=".php">./tests/php/unit/</directory>
+		</testsuite>
+	</testsuites>
+	<coverage processUncoveredFiles="true">
+		<include>
+			<directory suffix=".php">./inc</directory>
+			<directory suffix=".php">./admin</directory>
+			<directory suffix=".php">./themes</directory>
+		</include>
+		<exclude>
+			<directory>./vendor</directory>
+			<directory>./node_modules</directory>
+			<directory>./tests</directory>
+		</exclude>
+	</coverage>
+</phpunit>
