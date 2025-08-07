@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef, startTransition, useMemo } from "react";
 import { Plus, X } from "lucide-react";
-import { Button, Dialog, Switch } from "@bsf/force-ui";
+import { Button, Dialog, Switch, Loader } from "@bsf/force-ui";
 import { __ } from "@wordpress/i18n";
 import apiFetch from "@wordpress/api-fetch";
 
@@ -413,8 +413,10 @@ const withDisplayConditions = (WrappedComponent) => {
 
 								{/* Loading state - Fixed positioning to prevent flicker */}
 								{state.isLoading && (
-									<div className="absolute inset-0 flex justify-center items-center bg-white bg-opacity-90 z-10">
-										<div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-600"></div>
+									<div className="flex items-center justify-center min-h-screen w-full absolute inset-0 bg-white bg-opacity-90 z-10">
+										<div className="">
+											<Loader className="" icon={null} size="lg" variant="primary" />
+										</div>
 									</div>
 								)}
 
