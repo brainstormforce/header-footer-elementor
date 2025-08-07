@@ -57,7 +57,7 @@ class Basic_Posts extends Common_Widget {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Basic Posts', 'header-footer-elementor' );
+		return parent::get_widget_title( 'Basic_Posts' );
 	}
 
 	/**
@@ -956,25 +956,175 @@ class Basic_Posts extends Common_Widget {
 	}
 
 	/**
+	 * Validate post type input.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 * @param string $post_type Post type to validate.
+	 * @return string Validated post type.
+	 */
+	protected function validate_post_type( $post_type ) {
+		$post_type = sanitize_key( $post_type );
+		$allowed_post_types = array_keys( $this->get_post_types() );
+		
+		if ( ! in_array( $post_type, $allowed_post_types, true ) ) {
+			return 'post'; // Default fallback
+		}
+		
+		// Check if user can read this post type
+		$post_type_obj = get_post_type_object( $post_type );
+		if ( ! $post_type_obj || ! current_user_can( $post_type_obj->cap->read ) ) {
+			return 'post'; // Default fallback
+		}
+		
+		return $post_type;
+	}
+
+	/**
+	 * Validate posts per page input.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 * @param mixed $posts_per_page Posts per page value.
+	 * @return int Validated posts per page.
+	 */
+	protected function validate_posts_per_page( $posts_per_page ) {
+		$posts_per_page = absint( $posts_per_page );
+		
+		// Ensure it's within reasonable bounds
+		if ( $posts_per_page < 1 ) {
+			return 6; // Default
+		}
+		
+		if ( $posts_per_page > 100 ) {
+			return 100; // Maximum allowed
+		}
+		
+		return $posts_per_page;
+	}
+
+	/**
+	 * Validate orderby input.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 * @param string $orderby Orderby value.
+	 * @return string Validated orderby.
+	 */
+	protected function validate_orderby( $orderby ) {
+		$allowed_orderby = [
+			'date',
+			'title',
+			'menu_order',
+			'rand',
+			'comment_count',
+		];
+		
+		$orderby = sanitize_key( $orderby );
+		
+		if ( ! in_array( $orderby, $allowed_orderby, true ) ) {
+			return 'date'; // Default fallback
+		}
+		
+		return $orderby;
+	}
+
+	/**
+	 * Validate order input.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 * @param string $order Order value.
+	 * @return string Validated order.
+	 */
+	protected function validate_order( $order ) {
+		$order = strtoupper( sanitize_key( $order ) );
+		
+		if ( ! in_array( $order, [ 'ASC', 'DESC' ], true ) ) {
+			return 'DESC'; // Default fallback
+		}
+		
+		return $order;
+	}
+
+	/**
+	 * Validate excerpt length input.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 * @param mixed $length Excerpt length value.
+	 * @return int Validated excerpt length.
+	 */
+	protected function validate_excerpt_length( $length ) {
+		$length = absint( $length );
+		
+		if ( $length < 0 ) {
+			return 20; // Default
+		}
+		
+		if ( $length > 100 ) {
+			return 100; // Maximum allowed
+		}
+		
+		return $length;
+	}
+
+	/**
+	 * Validate and sanitize text input.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 * @param string $text Text to validate.
+	 * @param string $default Default value if validation fails.
+	 * @return string Validated text.
+	 */
+	protected function validate_text_input( $text, $default = '' ) {
+		if ( empty( $text ) ) {
+			return $default;
+		}
+		
+		// Remove any potentially harmful content
+		$text = wp_kses_post( $text );
+		$text = trim( $text );
+		
+		return $text;
+	}
+
+	/**
 	 * Query posts.
 	 *
 	 * @since x.x.x
 	 * @access protected
 	 */
 	protected function query_posts() {
+		// Check user capabilities
+		if ( ! current_user_can( 'read' ) ) {
+			$this->query = new \WP_Query( [] ); // Empty query
+			return;
+		}
+
 		$settings = $this->get_settings_for_display();
 
+		// Validate and sanitize inputs
+		$post_type = $this->validate_post_type( $settings['post_type'] );
+		$posts_per_page = $this->validate_posts_per_page( $settings['posts_per_page'] );
+		$orderby = $this->validate_orderby( $settings['orderby'] );
+		$order = $this->validate_order( $settings['order'] );
+
 		$args = [
-			'post_type'      => $settings['post_type'],
-			'posts_per_page' => $settings['posts_per_page'],
-			'orderby'        => $settings['orderby'],
-			'order'          => $settings['order'],
+			'post_type'      => $post_type,
+			'posts_per_page' => $posts_per_page,
+			'orderby'        => $orderby,
+			'order'          => $order,
 			'post_status'    => 'publish',
 		];
 
 		// Exclude current post if enabled
 		if ( 'yes' === $settings['exclude_current'] && is_singular() ) {
-			$args['post__not_in'] = [ get_the_ID() ];
+			$current_id = get_the_ID();
+			if ( $current_id ) {
+				$args['post__not_in'] = [ absint( $current_id ) ];
+			}
 		}
 
 		$this->query = new \WP_Query( $args );
@@ -993,9 +1143,81 @@ class Basic_Posts extends Common_Widget {
 	 * @return string Rendered HTML.
 	 */
 	protected function render_template( $settings ) {
+		// Validate and sanitize settings before passing to template
+		$settings = $this->sanitize_settings( $settings );
+		
 		ob_start();
 		include __DIR__ . '/template.php';
 		return ob_get_clean();
+	}
+
+	/**
+	 * Sanitize widget settings for security.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 * @param array $settings Widget settings.
+	 * @return array Sanitized settings.
+	 */
+	protected function sanitize_settings( $settings ) {
+		$sanitized = [];
+		
+		// Sanitize text inputs
+		$sanitized['title_tag'] = $this->validate_title_tag( $settings['title_tag'] ?? 'h3' );
+		$sanitized['read_more_text'] = $this->validate_text_input( $settings['read_more_text'] ?? '', __( 'Read More →', 'header-footer-elementor' ) );
+		$sanitized['meta_separator'] = $this->validate_text_input( $settings['meta_separator'] ?? '', ' | ' );
+		$sanitized['image_size'] = $this->validate_image_size( $settings['image_size'] ?? 'medium' );
+		$sanitized['excerpt_length'] = $this->validate_excerpt_length( $settings['excerpt_length'] ?? 20 );
+		
+		// Copy boolean settings (already validated by Elementor)
+		$boolean_settings = [
+			'show_image', 'show_title', 'show_meta', 'show_date', 
+			'show_author', 'show_comments', 'show_excerpt', 'show_read_more'
+		];
+		
+		foreach ( $boolean_settings as $setting ) {
+			$sanitized[$setting] = $settings[$setting] ?? 'no';
+		}
+		
+		return $sanitized;
+	}
+
+	/**
+	 * Validate title tag input.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 * @param string $tag HTML tag.
+	 * @return string Validated tag.
+	 */
+	protected function validate_title_tag( $tag ) {
+		$allowed_tags = [ 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' ];
+		$tag = sanitize_key( $tag );
+		
+		if ( ! in_array( $tag, $allowed_tags, true ) ) {
+			return 'h3'; // Default fallback
+		}
+		
+		return $tag;
+	}
+
+	/**
+	 * Validate image size input.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 * @param string $size Image size.
+	 * @return string Validated image size.
+	 */
+	protected function validate_image_size( $size ) {
+		$size = sanitize_key( $size );
+		$allowed_sizes = array_keys( $this->get_image_sizes() );
+		
+		if ( ! in_array( $size, $allowed_sizes, true ) ) {
+			return 'medium'; // Default fallback
+		}
+		
+		return $size;
 	}
 
 	/**
@@ -1005,6 +1227,11 @@ class Basic_Posts extends Common_Widget {
 	 * @access protected
 	 */
 	protected function render() {
+		// Security check - ensure user can read content
+		if ( ! current_user_can( 'read' ) ) {
+			return;
+		}
+
 		$settings = $this->get_settings_for_display();
 
 		$this->query_posts();

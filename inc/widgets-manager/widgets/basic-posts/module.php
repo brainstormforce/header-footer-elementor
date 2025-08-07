@@ -27,6 +27,11 @@ class Module extends Module_Base {
 	 * @return bool true|false.
 	 */
 	public static function is_enable() {
+		// Security check - ensure user has basic read capabilities
+		if ( ! current_user_can( 'read' ) ) {
+			return false;
+		}
+		
 		return true;
 	}
 
