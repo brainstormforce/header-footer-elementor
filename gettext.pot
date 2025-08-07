@@ -643,7 +643,7 @@ msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:690
 #: src/Components/HF-Builder/CustomBlock.jsx:374
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:256
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:266
 msgid "Copy Shortcode"
 msgstr ""
 
@@ -808,8 +808,13 @@ msgid "Enable this layout to display on Elementor Canvas template pages."
 msgstr ""
 
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:629
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:627
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:150
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:156
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:154
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:153
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:143
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:142
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:627
 #: src/Components/Settings/VersionControl.jsx:132
 msgid "Cancel"
 msgstr ""
@@ -898,35 +903,43 @@ msgstr ""
 msgid "Delete Layout"
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:132
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:133
+msgid "This action cannot be done"
+msgstr ""
+
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:139
 msgid "Are you sure you want to delete this layout?"
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:180
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:160
+msgid "Yes, Delete Layout"
+msgstr ""
+
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:193
 msgid "Deleting layout..."
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:202
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:215
 msgid "Layout deleted successfully!"
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:210
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:223
 msgid "Failed to delete layout. Please try again."
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:219
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:232
 msgid "Error deleting layout. Please try again."
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:272
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:282
 msgid "Publish"
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:285
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:292
 msgid "Disable"
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:301
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:305
 msgid "Delete"
 msgstr ""
 

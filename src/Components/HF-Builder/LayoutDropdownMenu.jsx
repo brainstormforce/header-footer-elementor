@@ -1,6 +1,6 @@
 import React from "react";
-import { EllipsisVertical, Trash2 } from "lucide-react";
-import { DropdownMenu } from "@bsf/force-ui";
+import { EllipsisVertical, TriangleAlert } from "lucide-react";
+import { DropdownMenu, Button } from "@bsf/force-ui";
 import { __ } from "@wordpress/i18n";
 import apiFetch from "@wordpress/api-fetch";
 import toast from "react-hot-toast";
@@ -10,11 +10,11 @@ import useCopyShortcode from "./hooks/useCopyShortcode";
  * Reusable Layout Dropdown Menu Component
  * Provides Copy Shortcode, Publish/Disable, and Delete functionality
  */
-const LayoutDropdownMenu = ({ 
-	item, 
-	onItemUpdate, 
+const LayoutDropdownMenu = ({
+	item,
+	onItemUpdate,
 	onItemDelete,
-	showShortcode = true 
+	showShortcode = true,
 }) => {
 	// Use the custom hook for copy shortcode functionality
 	const { handleCopyShortcode } = useCopyShortcode();
@@ -118,56 +118,69 @@ const LayoutDropdownMenu = ({
 	 * Custom confirmation toast component for delete action
 	 */
 	const showDeleteConfirmation = (item) => {
-		toast((t) => (
-			<div className="flex flex-col gap-3 p-2">
-				<div className="flex items-start gap-3">
-					<div className="flex-shrink-0 w-8 h-8 bg-red-100 rounded-full flex items-center justify-center" style={{ marginTop: '12px' }}>
-						<Trash2 size={16} className="text-red-600" />
-					</div>
-					<div className="flex-1">
-						<h3 className="text-base font-medium text-gray-900">
-							{__("Delete Layout", "header-footer-elementor")}
-						</h3>
-						<p className="text-base text-gray-600">
-							{__("Are you sure you want to delete this layout?", "header-footer-elementor")}
-						</p>
-						<div className="flex gap-2 mt-3">
-							<button
-								onClick={() => {
-									toast.dismiss(t.id);
-									performDeleteLayout(item);
-								}}
-								style={{ backgroundColor: '#dc2626'}}
-								className="px-3 py-1.5 text-white text-sm font-medium rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
-							>
-								{__("Delete", "header-footer-elementor")}
-							</button>
-							<button
-								style={{ backgroundColor: '#6b7280'}}
-								onClick={() => toast.dismiss(t.id)}
-								className="px-3 py-1.5 text-white text-sm font-medium rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
-							>
-								{__("Cancel", "header-footer-elementor")}
-							</button>
+		toast(
+			(t) => (
+				<div className="flex flex-col gap-3 p-2">
+					<div className="flex items-start">
+						<div className="">
+							<div className="flex items-center gap-1">
+								<TriangleAlert size={22} className="text-red-600" />
+							<h3 className="text-base m-0 font-medium text-gray-900">
+								{__("Delete Layout", "header-footer-elementor")}
+							</h3>
+							</div>
+							<p className="text-base m-0 text-text-primary" style={{  padding: '2px', marginTop: "4px" }}>
+								{__(
+									"This action cannot be done",
+									"header-footer-elementor",
+								)}
+							</p>
+							<p className="text-base text-text-primary" style={{ margin: "4px", paddingBottom: '4px' }}>
+								{__(
+									"Are you sure you want to delete this layout?",
+									"header-footer-elementor",
+								)}
+							</p>
+							<div className="flex gap-2"> 
+								<Button
+									style={{ backgroundColor: "#fff", border: "1px solid #E5E7EB" }}
+									onClick={() => toast.dismiss(t.id)}
+									className="px-3 py-1.5 text-black text-md font-medium rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+								>
+									{__("Cancel", "header-footer-elementor")}
+								</Button>
+								<Button
+									onClick={() => {
+										toast.dismiss(t.id);
+										performDeleteLayout(item);
+									}}
+									style={{ backgroundColor: "#dc2626", border: "1px solid #E5E7EB" }}
+									className="px-3 py-1.5 text-white text-md font-medium rounded-md focus:outline-none"
+								>
+									{__("Yes, Delete Layout", "header-footer-elementor")}
+								</Button>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		), {
-            duration: Infinity,
-            position: 'top-right',
-            className: 'toast-confirmation',
-            style: {
-                background: 'white',
-                color: '#374151',
-                border: '1px solid #e5e7eb',
-                borderRadius: '0.5rem',
-                boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-                padding: '0',
-                maxWidth: '400px',
-                zIndex: 999999,
-            },
-        });
+			),
+			{
+				duration: Infinity,
+				position: "top-right",
+				className: "toast-confirmation",
+				style: {
+					background: "white",
+					color: "#374151",
+					border: "1px solid #e5e7eb",
+					borderRadius: "0.5rem",
+					boxShadow:
+						"0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+					padding: "0",
+					maxWidth: "400px",
+					zIndex: 999999,
+				},
+			},
+		);
 	};
 
 	/**
@@ -177,7 +190,7 @@ const LayoutDropdownMenu = ({
 		try {
 			// Show loading toast
 			const loadingToast = toast.loading(
-				__("Deleting layout...", "header-footer-elementor")
+				__("Deleting layout...", "header-footer-elementor"),
 			);
 
 			const response = await apiFetch({
@@ -202,7 +215,7 @@ const LayoutDropdownMenu = ({
 					__(
 						"Layout deleted successfully!",
 						"header-footer-elementor",
-					)
+					),
 				);
 			} else {
 				console.error("Failed to delete layout:", response);
@@ -210,7 +223,7 @@ const LayoutDropdownMenu = ({
 					__(
 						"Failed to delete layout. Please try again.",
 						"header-footer-elementor",
-					)
+					),
 				);
 			}
 		} catch (error) {
@@ -219,7 +232,7 @@ const LayoutDropdownMenu = ({
 				__(
 					"Error deleting layout. Please try again.",
 					"header-footer-elementor",
-				)
+				),
 			);
 		}
 	};
@@ -235,10 +248,7 @@ const LayoutDropdownMenu = ({
 	return (
 		<DropdownMenu placement="bottom-end">
 			<DropdownMenu.Trigger>
-				<EllipsisVertical
-					size={16}
-					className="cursor-pointer"
-				/>
+				<EllipsisVertical size={16} className="cursor-pointer" />
 			</DropdownMenu.Trigger>
 			<DropdownMenu.Portal>
 				<DropdownMenu.ContentWrapper>
@@ -259,7 +269,7 @@ const LayoutDropdownMenu = ({
 									)}
 								</DropdownMenu.Item>
 							)}
-							
+
 							{/* Publish/Disable based on current status */}
 							{item.post_status === "draft" ? (
 								<DropdownMenu.Item
@@ -269,10 +279,7 @@ const LayoutDropdownMenu = ({
 										handlePublishLayout(item);
 									}}
 								>
-									{__(
-										"Publish",
-										"header-footer-elementor",
-									)}
+									{__("Publish", "header-footer-elementor")}
 								</DropdownMenu.Item>
 							) : (
 								<DropdownMenu.Item
@@ -282,13 +289,10 @@ const LayoutDropdownMenu = ({
 										handleDisableLayout(item);
 									}}
 								>
-									{__(
-										"Disable",
-										"header-footer-elementor",
-									)}
+									{__("Disable", "header-footer-elementor")}
 								</DropdownMenu.Item>
 							)}
-							
+
 							{/* Delete */}
 							<DropdownMenu.Item
 								onClick={(e) => {
@@ -298,10 +302,7 @@ const LayoutDropdownMenu = ({
 									handleDeleteLayout(item);
 								}}
 							>
-								{__(
-									"Delete",
-									"header-footer-elementor",
-								)}
+								{__("Delete", "header-footer-elementor")}
 							</DropdownMenu.Item>
 						</DropdownMenu.List>
 					</DropdownMenu.Content>
