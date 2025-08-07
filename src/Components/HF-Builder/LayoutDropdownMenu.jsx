@@ -239,9 +239,12 @@ const LayoutDropdownMenu = ({
 			toast.dismiss(loadingToast);
 
 			if (response.success) {
-				// Update the item via callback
+				// Update both post_title and title fields via callback
 				if (onItemUpdate) {
-					onItemUpdate(itemData.id, { post_title: sanitizedName });
+					onItemUpdate(itemData.id, { 
+						post_title: sanitizedName,
+						title: sanitizedName // Update the title field as well
+					});
 				}
 
 				// Show success toast notification with enhanced styling
