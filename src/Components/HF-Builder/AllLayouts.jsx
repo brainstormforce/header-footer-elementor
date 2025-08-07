@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Plus } from "lucide-react";
+import { Plus, Copy } from "lucide-react";
 import { Button, Loader } from "@bsf/force-ui";
 import { __ } from "@wordpress/i18n";
 import apiFetch from "@wordpress/api-fetch";
@@ -642,7 +642,7 @@ const AllLayouts = ({
 									/>
 
 									<div
-										className="hover-overlay absolute inset-0 flex items-center gap-2 justify-center rounded-lg overflow-hidden backdrop-blur-sm transition-all duration-500 ease-in-out z-30"
+										className="hover-overlay absolute inset-0 flex flex-col items-center gap-1 justify-center rounded-lg overflow-hidden backdrop-blur-sm transition-all duration-500 ease-in-out z-30"
 										style={{
 											backgroundColor:
 												"rgba(0, 0, 0, 0.4)",
@@ -656,14 +656,14 @@ const AllLayouts = ({
 											iconPosition="left"
 											icon={
 												item.name !== "Custom Block" ? (
-													<Plus size={14} />
+													<Copy size={14} />
 												) : null
 											}
 											variant="primary"
-											className="bg-[#6005FF] font-medium text-white hfe-remove-ring z-50"
+											className="font-medium text-black hfe-remove-ring z-50"
 											style={{
 												backgroundColor:
-													"#6005FF !important",
+													"white",
 												fontSize: "12px",
 												fontWeight: "600",
 												padding: "8px 8px",
@@ -675,13 +675,13 @@ const AllLayouts = ({
 											}}
 											onMouseEnter={(e) => {
 												e.currentTarget.style.backgroundColor =
-													"#4B00CC";
+													"white";
 												e.currentTarget.style.transform =
 													"scale(1)";
 											}}
 											onMouseLeave={(e) => {
 												e.currentTarget.style.backgroundColor =
-													"#6005FF";
+													"white";
 												e.currentTarget.style.transform =
 													"scale(0.95)";
 											}}
