@@ -642,8 +642,6 @@ msgid "Create a custom footer layout for your website"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:690
-#: src/Components/HF-Builder/AllLayouts.jsx:710
-#: src/Components/HF-Builder/AllLayouts.jsx:697
 #: src/Components/HF-Builder/CustomBlock.jsx:278
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:305
 msgid "Copy Shortcode"
@@ -663,12 +661,8 @@ msgid "Create a layout that appears before the footer"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:832
-#: src/Components/HF-Builder/AllLayouts.jsx:886
-#: src/Components/HF-Builder/AllLayouts.jsx:839
 #: src/Components/HF-Builder/BeforeFooter.jsx:297
-#: src/Components/HF-Builder/BeforeFooter.jsx:293
 #: src/Components/HF-Builder/Footer.jsx:297
-#: src/Components/HF-Builder/Footer.jsx:293
 #: src/Components/HF-Builder/Header.jsx:301
 msgid "Display Conditions"
 msgstr ""
