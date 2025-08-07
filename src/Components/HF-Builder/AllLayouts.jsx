@@ -357,9 +357,9 @@ const AllLayouts = ({
 							className="grid grid-cols-1 md:grid-cols-2 gap-6"
 							style={{ paddingLeft: "30px" }}
 						>
-							{dummyLayoutTypes.map((layoutType) => (
+							{dummyLayoutTypes.map((layoutItem) => (
 								<div
-									key={layoutType.name}
+									key={layoutItem.name}
 									className="border bg-background-primary border-gray-200 p-2 rounded-lg cursor-pointer overflow-hidden flex flex-col group relative shadow-sm hover:shadow-md transition-shadow duration-200"
 									onMouseEnter={(e) => {
 										const overlay =
@@ -389,8 +389,8 @@ const AllLayouts = ({
 								>
 									<div className="relative h-60 w-full">
 										<img
-											src={layoutType.image}
-											alt={`${layoutType.title} Layout`}
+											src={layoutItem.image}
+											alt={`${layoutItem.title} Layout`}
 											style={{ height: "220px" }}
 											className="w-full object-cover"
 										/>
@@ -436,12 +436,12 @@ const AllLayouts = ({
 												}}
 												onClick={() =>
 													handleCreateLayout(
-														layoutType,
+														layoutItem,
 													)
 												}
 											>
 												{__(
-													`Create ${layoutType.title}`,
+													`Create ${layoutItem.title}`,
 													"header-footer-elementor",
 												)}
 											</Button>
@@ -458,7 +458,7 @@ const AllLayouts = ({
 										/>
 										<div className="flex items-center justify-between px-1">
 											<p className="text-sm font-medium text-gray-900">
-												{layoutType.title}
+												{layoutItem.title}
 											</p>
 										</div>
 									</div>
@@ -552,7 +552,194 @@ const AllLayouts = ({
 				/>
 			</>
 		);
-	} else {
+	}
+
+	// Show dummy cards when user clicks "Create Layout" even if layouts exist
+	if (showDummyCards) {
+		return (
+			<>
+				<div
+					className=""
+					style={{ paddingLeft: "40px", paddingRight: "40px" }}
+				>
+					<div
+						className="flex items-start gap-10 justify-between"
+						style={{ padding: "0 40px", marginBottom: "10px" }}
+					>
+						<h2
+							className="text-base font-medium text-foreground"
+							style={{ marginLeft: "-10px" }}
+						>
+							{__(
+								"Choose Layout Type",
+								"header-footer-elementor",
+							)}
+						</h2>
+						<Button
+							variant="secondary"
+							className="text-sm"
+							onClick={() => {
+								setShowDummyCards(false);
+								// Clear the localStorage when going back
+								localStorage.removeItem(
+									"hfe_showDummyCards",
+								);
+							}}
+						>
+							{__("Back", "header-footer-elementor")}
+						</Button>
+					</div>
+
+					<div
+						className="grid grid-cols-1 md:grid-cols-2 gap-6"
+						style={{ paddingLeft: "30px" }}
+					>
+						{dummyLayoutTypes.map((layoutItem) => (
+							<div
+								key={layoutItem.name}
+								className="border bg-background-primary border-gray-200 p-2 rounded-lg cursor-pointer overflow-hidden flex flex-col group relative shadow-sm hover:shadow-md transition-shadow duration-200"
+								onMouseEnter={(e) => {
+									const overlay =
+										e.currentTarget.querySelector(
+											".hover-overlay",
+										);
+									if (overlay) {
+										overlay.style.opacity = "1";
+										overlay.style.visibility =
+											"visible";
+										overlay.style.transform =
+											"translateY(0)";
+									}
+								}}
+								onMouseLeave={(e) => {
+									const overlay =
+										e.currentTarget.querySelector(
+											".hover-overlay",
+										);
+									if (overlay) {
+										overlay.style.opacity = "0";
+										overlay.style.visibility = "hidden";
+										overlay.style.transform =
+											"translateY(10px)";
+									}
+								}}
+							>
+								<div className="relative h-60 w-full">
+									<img
+										src={layoutItem.image}
+										alt={`${layoutItem.title} Layout`}
+										style={{ height: "220px" }}
+										className="w-full object-cover"
+									/>
+
+									<div
+										className="hover-overlay absolute inset-0 flex items-center gap-2 justify-center rounded-lg overflow-hidden backdrop-blur-sm transition-all duration-500 ease-in-out z-30"
+										style={{
+											backgroundColor:
+												"rgba(0, 0, 0, 0.4)",
+											opacity: "0",
+											visibility: "hidden",
+											transform: "translateY(10px)",
+										}}
+									>
+										<Button
+											iconPosition="left"
+											icon={<Plus size={14} />}
+											variant="primary"
+											className="bg-[#6005FF] font-medium text-white hfe-remove-ring z-50"
+											style={{
+												backgroundColor:
+													"#6005FF !important",
+												fontSize: "12px",
+												fontWeight: "600",
+												padding: "8px 8px",
+												borderRadius: "6px",
+												transition: "all 0.2s ease",
+												outline: "none",
+												transform: "scale(0.95)",
+												opacity: "1",
+											}}
+											onMouseEnter={(e) => {
+												e.currentTarget.style.backgroundColor =
+													"#4B00CC";
+												e.currentTarget.style.transform =
+													"scale(1)";
+											}}
+											onMouseLeave={(e) => {
+												e.currentTarget.style.backgroundColor =
+													"#6005FF";
+												e.currentTarget.style.transform =
+													"scale(0.95)";
+											}}
+											onClick={() =>
+												handleCreateLayout(
+													layoutItem,
+												)
+											}
+										>
+											{__(
+												`Create ${layoutItem.title}`,
+												"header-footer-elementor",
+											)}
+										</Button>
+									</div>
+								</div>
+								<div className="">
+									<hr
+										className="w-full border-b-0 border-x-0 border-t border-solid border-t-border-subtle"
+										style={{
+											// marginTop: "8px",
+											// marginBottom: "8px",
+											borderColor: "#E5E7EB",
+										}}
+									/>
+									<div className="flex items-center justify-between px-1">
+										<p className="text-sm font-medium text-gray-900">
+											{layoutItem.title}
+										</p>
+									</div>
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+
+				{/* Render the Display Conditions Dialog from HOC */}
+				<DisplayConditionsDialog />
+
+				{/* React Hot Toast Notifications */}
+				<Toaster
+					position="top-right"
+					reverseOrder={false}
+					gutter={8}
+					containerStyle={{
+						top: 20,
+						right: 20,
+						marginTop: "40px",
+					}}
+					toastOptions={{
+						duration: 1000,
+						style: {
+							background: "white",
+						},
+						success: {
+							duration: 2000,
+							style: {
+								color: "",
+							},
+							iconTheme: {
+								primary: "#6005ff",
+								secondary: "#fff",
+							},
+						},
+					}}
+				/>
+			</>
+		);
+	}
+
+	// Show existing layouts
+	else {
 		return (
 			<>
 				<div
@@ -572,7 +759,7 @@ const AllLayouts = ({
 								"header-footer-elementor",
 							)}
 						</h2>
-						{/* <Button
+						<Button
 							iconPosition="left"
 							icon={<Plus />}
 							variant="primary"
@@ -590,10 +777,19 @@ const AllLayouts = ({
 								(e.currentTarget.style.backgroundColor =
 									"#6005FF")
 							}
-							onClick={() => handleCreateLayout(layoutType)}
+							onClick={() => {
+								console.log("Create Layout button clicked");
+								console.log("Current showDummyCards:", showDummyCards);
+								setShowDummyCards(true);
+								localStorage.setItem(
+									"hfe_showDummyCards",
+									JSON.stringify(true),
+								);
+								console.log("Set showDummyCards to true");
+							}}
 						>
 							{__("Create Layout", "header-footer-elementor")}
-						</Button> */}
+						</Button>
 					</div>
 					<hr
 						className="border-b-0 border-x-0 border-t border-solid border-t-border-transparent-subtle"
