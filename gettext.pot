@@ -441,6 +441,17 @@ msgid "Yes"
 msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:255
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:568
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:569
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:565
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:560
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:549
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:536
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:528
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:526
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:527
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:523
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:524
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:393
 #: src/Components/Onboarding/ExtendOnboardingWidget.jsx:305
 msgid "Close"
@@ -741,92 +752,105 @@ msgstr ""
 msgid "Custom block created successfully!"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:233
-msgid "Entire Site"
-msgstr ""
-
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:266
-msgid "Failed to load display conditions and user roles, using defaults"
-msgstr ""
-
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:275
-msgid "No post selected"
-msgstr ""
-
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:341
-msgid "Failed to save display conditions, user roles, and canvas template setting"
-msgstr ""
-
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:383
-msgid "Configure Display Conditions"
-msgstr ""
-
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:386
-msgid "New Layout"
-msgstr ""
-
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:406
-msgid "Where Should Your Layout Appear?"
-msgstr ""
-
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:409
-msgid "Decide where you want this layout to appear on your site."
-msgstr ""
-
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:411
-msgid ""
-"You can show it across your entire site or only on specific pages—your "
-"choice!"
-msgstr ""
-
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:448
-msgid "Conditions"
-msgstr ""
-
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:464
-msgid "User Roles"
-msgstr ""
-
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:490
-msgid "Include"
-msgstr ""
-
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:491
-msgid "Exclude"
-msgstr ""
-
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:539
-msgid "Add Conditions"
-msgstr ""
-
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:560
-msgid "Select User Role"
-msgstr ""
-
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:592
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1060
 msgid "Add User Role"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:603
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1080
 msgid "Enable this layout to display on Elementor Canvas template pages."
 msgstr ""
 
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1119
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1117
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1118
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1114
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1111
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1106
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1095
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1082
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1074
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1072
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1073
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1075
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1077
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:922
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1076
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1081
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1089
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:666
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:629
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:612
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:608
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:606
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:150
 #: src/Components/Settings/VersionControl.jsx:132
 msgid "Cancel"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:640
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1135
 msgid "Saving..."
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:643
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1141
 msgid "Save Conditions"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:98
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:138
 msgid "Failed to load display conditions"
+msgstr ""
+
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:342
+msgid "Entire Site"
+msgstr ""
+
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:379
+msgid "Failed to load display conditions and user roles, using defaults"
+msgstr ""
+
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:394
+msgid "No post selected"
+msgstr ""
+
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:494
+msgid "Failed to save display conditions, user roles, and canvas template setting"
+msgstr ""
+
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:548
+msgid "Configure Display Conditions"
+msgstr ""
+
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:555
+msgid "New Layout"
+msgstr ""
+
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:591
+msgid "Where Should Your Layout Appear?"
+msgstr ""
+
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:597
+msgid "Decide where you want this layout to appear on your site."
+msgstr ""
+
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:602
+msgid ""
+"You can show it across your entire site or only on specific pages—your "
+"choice!"
+msgstr ""
+
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:765
+msgid "Include"
+msgstr ""
+
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:771
+msgid "Exclude"
+msgstr ""
+
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:907
+msgid "Add Conditions"
+msgstr ""
+
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:964
+msgid "Select User Role"
 msgstr ""
 
 #: src/Components/HF-Builder/EmptyState.jsx:19
