@@ -268,6 +268,49 @@ class HFE_Settings_Api {
 			]
 		);
 
+		// GET endpoint to fetch single post data
+		register_rest_route( 
+			'hfe/v1', 
+			'/get-post/(?P<id>\d+)', 
+			[
+				'methods'             => 'GET',
+				'callback'            => [ $this, 'uae_get_single_post' ],
+				'permission_callback' => function () {
+					return current_user_can( 'edit_posts' );
+				},
+				'args' => [
+					'id' => [
+						'required' => true,
+						'type'     => 'integer',
+					],
+				],
+			]
+		);
+
+		// POST endpoint to update post title
+		register_rest_route( 
+			'hfe/v1', 
+			'/update-post-title', 
+			[
+				'methods'             => 'POST',
+				'callback'            => [ $this, 'uae_update_post_title' ],
+				'permission_callback' => function () {
+					return current_user_can( 'edit_posts' );
+				},
+				'args' => [
+					'post_id' => [
+						'required' => true,
+						'type'     => 'integer',
+					],
+					'post_title' => [
+						'required' => true,
+						'type'     => 'string',
+						'sanitize_callback' => 'sanitize_text_field',
+					],
+				],
+			]
+		);
+
 		register_rest_route( 
 			'hfe/v1', 
 			'/delete-post', 
@@ -640,6 +683,167 @@ class HFE_Settings_Api {
 		return new WP_REST_Response( [
 			'success' => true,
 			'message' => sprintf( __( 'Post status updated to %s successfully.', 'header-footer-elementor' ), $status ),
+		], 200 );
+	}
+
+	/**
+	 * Get single post data callback.
+	 *
+	 * @param WP_REST_Request $request The REST request object.
+	 * @return WP_REST_Response
+	 */
+	public function uae_get_single_post( $request ) {
+		$post_id = intval( $request->get_param( 'id' ) );
+
+		// Verify nonce for additional security
+		if ( ! wp_verify_nonce( $request->get_header( 'X-WP-Nonce' ), 'wp_rest' ) ) {
+			return new WP_REST_Response( [
+				'success' => false,
+				'message' => __( 'Invalid nonce.', 'header-footer-elementor' ),
+			], 403 );
+		}
+
+		// Verify post exists and is the right type
+		$post = get_post( $post_id );
+		if ( ! $post || $post->post_type !== 'elementor-hf' ) {
+			return new WP_REST_Response( [
+				'success' => false,
+				'message' => __( 'Invalid post ID or post type.', 'header-footer-elementor' ),
+			], 400 );
+		}
+
+		// Check if user can edit this specific post
+		if ( ! current_user_can( 'edit_post', $post_id ) ) {
+			return new WP_REST_Response( [
+				'success' => false,
+				'message' => __( 'You do not have permission to edit this post.', 'header-footer-elementor' ),
+			], 403 );
+		}
+
+		// Get post meta data
+		$template_type = get_post_meta( $post_id, 'ehf_template_type', true );
+		$target_include = get_post_meta( $post_id, 'ehf_target_include_locations', true );
+		$target_exclude = get_post_meta( $post_id, 'ehf_target_exclude_locations', true );
+
+		// Prepare response data with escaped values
+		$post_data = [
+			'id'                => $post->ID,
+			'post_title'        => esc_html( $post->post_title ),
+			'post_status'       => sanitize_key( $post->post_status ),
+			'template_type'     => sanitize_text_field( $template_type ),
+			'target_include'    => is_array( $target_include ) ? array_map( 'sanitize_text_field', $target_include ) : sanitize_text_field( $target_include ),
+			'target_exclude'    => is_array( $target_exclude ) ? array_map( 'sanitize_text_field', $target_exclude ) : sanitize_text_field( $target_exclude ),
+			'post_date'         => sanitize_text_field( $post->post_date ),
+			'post_modified'     => sanitize_text_field( $post->post_modified ),
+		];
+
+		return new WP_REST_Response( [
+			'success' => true,
+			'message' => __( 'Post data retrieved successfully.', 'header-footer-elementor' ),
+			'data'    => $post_data,
+		], 200 );
+	}
+
+	/**
+	 * Update post title callback.
+	 *
+	 * @param WP_REST_Request $request The REST request object.
+	 * @return WP_REST_Response
+	 */
+	public function uae_update_post_title( $request ) {
+		$post_id    = intval( $request->get_param( 'post_id' ) );
+		$post_title = sanitize_text_field( $request->get_param( 'post_title' ) );
+
+		// Verify nonce for additional security
+		if ( ! wp_verify_nonce( $request->get_header( 'X-WP-Nonce' ), 'wp_rest' ) ) {
+			return new WP_REST_Response( [
+				'success' => false,
+				'message' => __( 'Invalid nonce.', 'header-footer-elementor' ),
+			], 403 );
+		}
+
+		// Verify post exists and is the right type
+		$post = get_post( $post_id );
+		if ( ! $post || $post->post_type !== 'elementor-hf' ) {
+			return new WP_REST_Response( [
+				'success' => false,
+				'message' => __( 'Invalid post ID or post type.', 'header-footer-elementor' ),
+			], 400 );
+		}
+
+		// Check if user can edit this specific post
+		if ( ! current_user_can( 'edit_post', $post_id ) ) {
+			return new WP_REST_Response( [
+				'success' => false,
+				'message' => __( 'You do not have permission to edit this post.', 'header-footer-elementor' ),
+			], 403 );
+		}
+
+		// Validate post title
+		if ( empty( $post_title ) ) {
+			return new WP_REST_Response( [
+				'success' => false,
+				'message' => __( 'Post title cannot be empty.', 'header-footer-elementor' ),
+			], 400 );
+		}
+
+		// Additional validation: Check title length
+		if ( strlen( $post_title ) > 255 ) {
+			return new WP_REST_Response( [
+				'success' => false,
+				'message' => __( 'Post title is too long. Maximum 255 characters allowed.', 'header-footer-elementor' ),
+			], 400 );
+		}
+
+		// Additional validation: Check for potentially harmful content
+		$post_title = wp_strip_all_tags( $post_title );
+		$post_title = trim( $post_title );
+
+		// Rate limiting check (prevent spam)
+		$transient_key = 'hfe_rename_limit_' . get_current_user_id();
+		$recent_renames = get_transient( $transient_key );
+		if ( $recent_renames && $recent_renames >= 10 ) {
+			return new WP_REST_Response( [
+				'success' => false,
+				'message' => __( 'Too many rename attempts. Please wait a moment before trying again.', 'header-footer-elementor' ),
+			], 429 );
+		}
+
+		// Update post title
+		$result = wp_update_post( [
+			'ID'         => $post_id,
+			'post_title' => $post_title,
+		] );
+
+		if ( is_wp_error( $result ) ) {
+			return new WP_REST_Response( [
+				'success' => false,
+				'message' => __( 'Failed to update post title.', 'header-footer-elementor' ),
+			], 500 );
+		}
+
+		// Set rate limiting transient
+		$current_count = $recent_renames ? $recent_renames + 1 : 1;
+		set_transient( $transient_key, $current_count, 60 ); // 1 minute
+
+		// Log the action for security auditing
+		if ( function_exists( 'wp_log' ) ) {
+			wp_log( sprintf( 
+				'User %d renamed post %d from "%s" to "%s"', 
+				get_current_user_id(), 
+				$post_id, 
+				$post->post_title, 
+				$post_title 
+			) );
+		}
+
+		return new WP_REST_Response( [
+			'success' => true,
+			'message' => __( 'Post title updated successfully.', 'header-footer-elementor' ),
+			'data'    => [
+				'post_id'    => $post_id,
+				'post_title' => esc_html( $post_title ),
+			],
 		], 200 );
 	}
 
