@@ -15,6 +15,24 @@ const CustomBlock = () => {
 	const [isLoading, setIsLoading] = useState(true);
 	const [isCreating, setIsCreating] = useState(false);
 
+	// Add custom styles for toast positioning
+	useEffect(() => {
+		const style = document.createElement('style');
+		style.textContent = `
+			.toast-confirmation {
+				z-index: 999999 !important;
+			}
+			.toast-confirmation > div {
+				max-width: 400px !important;
+			}
+		`;
+		document.head.appendChild(style);
+		
+		return () => {
+			document.head.removeChild(style);
+		};
+	}, []);
+
 	useEffect(() => {
 		// Fetch the target rule options when component mounts
 		apiFetch({
@@ -50,7 +68,7 @@ const CustomBlock = () => {
 			path: "/hfe/v1/create-layout",
 			method: "POST",
 			data: {
-				title: "My Custom Block Layout",
+				title: "My Custom Block",
 				type: "custom",
 			},
 		})
@@ -65,6 +83,14 @@ const CustomBlock = () => {
 					} else {
 						console.error("No edit URL provided in response");
 					}
+
+					// Show success toast
+					toast.success(
+						__(
+							"Custom block created successfully!",
+							"header-footer-elementor",
+						),
+					);
 
 					// Refresh the list to show the new item
 					// Re-fetch the custom blocks to update the list
@@ -94,10 +120,22 @@ const CustomBlock = () => {
 						});
 				} else {
 					console.error("Failed to create custom block:", response);
+					toast.error(
+						__(
+							"Failed to create custom block. Please try again.",
+							"header-footer-elementor",
+						),
+					);
 				}
 			})
 			.catch((error) => {
 				console.error("Error creating custom block:", error);
+				toast.error(
+					__(
+						"Error creating custom block. Please try again.",
+						"header-footer-elementor",
+					),
+				);
 			})
 			.finally(() => {
 				setIsCreating(false);
@@ -134,38 +172,98 @@ const CustomBlock = () => {
 	// Show loading state while fetching data
 	if (isLoading) {
 		return (
-			<div className="flex items-center justify-center min-h-screen w-full">
-				<div className="">
-					<Loader
-						className=""
-						icon={null}
-						size="lg"
-						variant="primary"
-					/>
+			<>
+				<div className="flex items-center justify-center min-h-screen w-full">
+					<div className="">
+						<Loader
+							className=""
+							icon={null}
+							size="lg"
+							variant="primary"
+						/>
+					</div>
 				</div>
-			</div>
+
+				{/* React Hot Toast Notifications */}
+				<Toaster
+					position="top-right"
+					reverseOrder={false}
+					gutter={8}
+					containerStyle={{
+						top: 20,
+						right: 20,
+						marginTop: '40px',
+					}}
+					toastOptions={{
+						duration: 1000,
+						style: {
+							background: 'white',
+						},
+						success: {
+							duration: 2000,
+							style: {
+								color: '',
+							},
+							iconTheme: {
+								primary: '#6005ff',
+								secondary: '#fff',
+							},
+						},
+					}}
+				/>
+			</>
 		);
 	}
 
 	if (!hasCustomBlocks) {
 		return (
-			<EmptyState
-				description={__(
-					"You haven't created a custom block layout yet. Build a custom block to control how your site's sections look and behave across all pages.",
-					"header-footer-elementor",
-				)}
-				buttonText={
-					isCreating
-						? __("Creating...", "header-footer-elementor")
-						: __(
-								"Create Custom Block Layout",
-								"header-footer-elementor",
-						  )
-				}
-				onClick={handleCreateLayout}
-				disabled={isCreating}
-				className="bg-white p-6 ml-6 rounded-lg"
-			/>
+			<>
+				<EmptyState
+					description={__(
+						"You haven't created a custom block layout yet. Build a custom block to control how your site's sections look and behave across all pages.",
+						"header-footer-elementor",
+					)}
+					buttonText={
+						isCreating
+							? __("Creating...", "header-footer-elementor")
+							: __(
+									"Create Custom Block Layout",
+									"header-footer-elementor",
+							  )
+					}
+					onClick={handleCreateLayout}
+					disabled={isCreating}
+					className="bg-white p-6 ml-6 rounded-lg"
+				/>
+
+				{/* React Hot Toast Notifications */}
+				<Toaster
+					position="top-right"
+					reverseOrder={false}
+					gutter={8}
+					containerStyle={{
+						top: 20,
+						right: 20,
+						marginTop: '40px',
+					}}
+					toastOptions={{
+						duration: 1000,
+						style: {
+							background: 'white',
+						},
+						success: {
+							duration: 2000,
+							style: {
+								color: '',
+							},
+							iconTheme: {
+								primary: '#6005ff',
+								secondary: '#fff',
+							},
+						},
+					}}
+				/>
+			</>
 		);
 	} else {
 		return (
@@ -238,47 +336,45 @@ const CustomBlock = () => {
 										}}
 									>
 										<Button
-												iconPosition="left"
-												icon={
-													item.name !==
-													"Custom Block" ? (
-														<Copy size={14} />
-													) : null
-												}
-												variant="primary"
-												className="font-medium text-black hfe-remove-ring z-50"
-												style={{
-													backgroundColor:
-														"white",
-													fontSize: "12px",
-													fontWeight: "600",
-													padding: "8px 8px",
-													borderRadius: "6px",
-													transition: "all 0.2s ease",
-													outline: "none",
-													transform: "scale(0.95)",
-													opacity: "1",
-												}}
-												onMouseEnter={(e) => {
-													e.currentTarget.style.backgroundColor =
-														"white";
-													e.currentTarget.style.transform =
-														"scale(1)";
-												}}
-												onMouseLeave={(e) => {
-													e.currentTarget.style.backgroundColor =
-														"white";
-													e.currentTarget.style.transform =
-														"scale(0.95)";
-												}}
-												onClick={() =>
-													handleCopyShortcode(item)
-												}
-											>
-												{__(
-													`Copy Shortcode`,
-													"header-footer-elementor",
-												)}
+											iconPosition="left"
+											icon={
+												item.name !== "Custom Block" ? (
+													<Copy size={14} />
+												) : null
+											}
+											variant="primary"
+											className="font-medium text-black hfe-remove-ring z-50"
+											style={{
+												backgroundColor: "white",
+												fontSize: "12px",
+												fontWeight: "600",
+												padding: "8px 8px",
+												borderRadius: "6px",
+												transition: "all 0.2s ease",
+												outline: "none",
+												transform: "scale(0.95)",
+												opacity: "1",
+											}}
+											onMouseEnter={(e) => {
+												e.currentTarget.style.backgroundColor =
+													"white";
+												e.currentTarget.style.transform =
+													"scale(1)";
+											}}
+											onMouseLeave={(e) => {
+												e.currentTarget.style.backgroundColor =
+													"white";
+												e.currentTarget.style.transform =
+													"scale(0.95)";
+											}}
+											onClick={() =>
+												handleCopyShortcode(item)
+											}
+										>
+											{__(
+												`Copy Shortcode`,
+												"header-footer-elementor",
+											)}
 										</Button>
 										<Button
 											iconPosition="left"
@@ -327,6 +423,16 @@ const CustomBlock = () => {
 									<div className="flex items-center justify-between px-1">
 										<p className="text-sm font-medium text-gray-900">
 											{item.title}
+											{item.post_status === "draft" && (
+												<span className="ml-2 text-xs text-gray-500 font-normal">
+													(
+													{__(
+														"Draft",
+														"header-footer-elementor",
+													)}
+													)
+												</span>
+											)}
 										</p>
 										<LayoutDropdownMenu
 											item={item}
@@ -343,12 +449,28 @@ const CustomBlock = () => {
 
 				{/* React Hot Toast Notifications */}
 				<Toaster
-					position="bottom-right"
+					position="top-right"
+					reverseOrder={false}
+					gutter={8}
+					containerStyle={{
+						top: 20,
+						right: 20,
+						marginTop: "40px",
+					}}
 					toastOptions={{
-						duration: 3000,
+						duration: 1000,
 						style: {
-							background: "#363636",
-							color: "#fff",
+							background: "white",
+						},
+						success: {
+							duration: 2000,
+							style: {
+								color: "",
+							},
+							iconTheme: {
+								primary: "#6005ff",
+								secondary: "#fff",
+							},
 						},
 					}}
 				/>

@@ -168,7 +168,7 @@ const AllLayouts = ({
 							title: `My Custom ${item.title}`,
 							name: item.name,
 							template_type: item.template_type,
-							post_status: 'publish', // or whatever status is returned
+							post_status: 'draft', // or whatever status is returned
 							// Add any other properties that might be needed
 						};
 
