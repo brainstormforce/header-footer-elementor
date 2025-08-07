@@ -5,6 +5,8 @@
  * @package header-footer-elementor
  */
 
+use HFE\WidgetsManager\Widgets_Loader;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
