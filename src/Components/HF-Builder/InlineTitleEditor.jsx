@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Edit3, Check, X } from "lucide-react";
+import { Edit3, Check, X, SquarePen } from "lucide-react";
 import { __ } from "@wordpress/i18n";
 import apiFetch from "@wordpress/api-fetch";
 import toast from "react-hot-toast";
+import { Button,} from "@bsf/force-ui";
 
 /**
  * Reusable Inline Title Editor Component
@@ -228,36 +229,40 @@ const InlineTitleEditor = ({
 				<div className="flex items-center gap-2 flex-1">
 					<input
 						type="text"
+						style={{ maxWidth: '200px',  outline: 'none', height: '32px' }}	
 						value={editingTitle}
 						onChange={(e) => setEditingTitle(e.target.value)}
 						onKeyDown={handleKeyDown}
-						className="flex-1 px-2 py-1 text-sm font-medium text-gray-900 border border-blue-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+						className="flex-1 px-2 py-1 text-sm font-medium text-gray-900 rounded focus:outline-none"
 						placeholder={__("Layout name", "header-footer-elementor")}
 						autoFocus
 						disabled={isUpdating}
+						onFocus={(e) => e.target.style.borderColor = '#6005FF'}
 					/>
-					<div className="flex items-center gap-1">
-						<button
+					<div className="flex items-center pt-2" >
+						<Button
+						variant="ghost"
 							onClick={saveTitle}
 							disabled={isUpdating}
-							className="p-1 text-green-600 hover:text-green-700 hover:bg-green-50 rounded transition-colors duration-150 disabled:opacity-50"
+							className="p-1 cursor-pointer hover:bg-green-50 transition-colors duration-150 disabled:opacity-50"
 							title={__("Save changes", "header-footer-elementor")}
 						>
-							<Check size={14} />
-						</button>
-						<button
+							<Check size={18} color="#008000"  />
+						</Button>
+						<Button
+								variant="ghost"
 							onClick={cancelEditing}
 							disabled={isUpdating}
-							className="p-1 text-red-600 hover:text-red-700 hover:bg-red-50 rounded transition-colors duration-150 disabled:opacity-50"
+							className="p-1 cursor-pointer hover:bg-red-50 transition-colors duration-150 disabled:opacity-50"
 							title={__("Cancel editing", "header-footer-elementor")}
 						>
-							<X size={14} />
-						</button>
+							<X size={18} color="#dc3545"  />
+						</Button>
 					</div>
 				</div>
 			) : (
 				// Display mode
-				<div className="flex items-center gap-2 flex-1 min-w-0">
+				<div className="flex items-center gap-1">
 					<p className={titleClassName}>
 						{item.title || item.post_title}
 						{showDraftStatus && item.post_status === "draft" && (
@@ -271,25 +276,17 @@ const InlineTitleEditor = ({
 							</span>
 						)}
 					</p>
-					<button
+					<Button
+					variant="ghost"
 						onClick={startEditing}
-						className={`p-1 text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded transition-colors duration-150 flex-shrink-0 ${
+						className={`p-1 cursor-pointer mt-1 text-gray-500 rounded transition-colors duration-150 flex-shrink-0 ${
 							alwaysShowIcon ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
 						}`}
 						title={__("Edit layout name", "header-footer-elementor")}
-						style={{ 
-							minWidth: '24px', 
-							minHeight: '24px',
-							display: 'flex',
-							alignItems: 'center',
-							justifyContent: 'center'
-						}}
 					>
 						{/* Try both icon and fallback */}
-						<Edit3 size={14} />
-						{/* Fallback text icon if Edit3 doesn't work */}
-						{/* ✏️ */}
-					</button>
+						<SquarePen  size={18} />
+					</Button>
 				</div>
 			)}
 		</div>

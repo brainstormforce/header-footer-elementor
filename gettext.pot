@@ -746,7 +746,7 @@ msgid "Enable this layout to display on Elementor Canvas template pages."
 msgstr ""
 
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1161
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:150
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:459
 #: src/Components/Settings/VersionControl.jsx:132
 msgid "Cancel"
 msgstr ""
@@ -873,62 +873,72 @@ msgstr ""
 msgid "Header layout created successfully!"
 msgstr ""
 
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:143
 #: src/Components/HF-Builder/InlineTitleEditor.jsx:142
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:252
 msgid "Layout renamed successfully!"
 msgstr ""
 
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:164
 #: src/Components/HF-Builder/InlineTitleEditor.jsx:163
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:275
 msgid "Failed to rename layout. Please try again."
 msgstr ""
 
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:185
 #: src/Components/HF-Builder/InlineTitleEditor.jsx:184
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:301
 msgid "Error renaming layout. Please try again."
 msgstr ""
 
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:188
 #: src/Components/HF-Builder/InlineTitleEditor.jsx:187
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:304
 msgid "You don't have permission to rename this layout."
 msgstr ""
 
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:190
 #: src/Components/HF-Builder/InlineTitleEditor.jsx:189
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:306
 msgid "Security check failed. Please refresh the page and try again."
 msgstr ""
 
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:237
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:236
 #: src/Components/HF-Builder/InlineTitleEditor.jsx:235
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:86
 msgid "Layout name"
 msgstr ""
 
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:244
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:248
 msgid "Save changes"
 msgstr ""
 
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:252
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:257
 msgid "Cancel editing"
 msgstr ""
 
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:266
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:271
 msgid "Draft"
 msgstr ""
 
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:279
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:285
 msgid "Edit layout name"
 msgstr ""
 
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:49
 #: src/Components/HF-Builder/InlineTitleEditor.jsx:48
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:144
 msgid "Layout name cannot be empty."
 msgstr ""
 
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:69
 #: src/Components/HF-Builder/InlineTitleEditor.jsx:68
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:167
 msgid "Layout name is too long. Maximum 255 characters allowed."
 msgstr ""
 
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:90
 #: src/Components/HF-Builder/InlineTitleEditor.jsx:89
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:188
 msgid "Layout name contains invalid characters."
