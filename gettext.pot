@@ -629,7 +629,7 @@ msgid "Create a custom header layout for your website"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:566
-msgid "Start customising Your Header & Footer"
+msgid "Start Customising Your Header & Footer"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:66
@@ -642,6 +642,7 @@ msgid "Create a custom footer layout for your website"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:691
+#: src/Components/HF-Builder/CustomBlock.jsx:385
 #: src/Components/HF-Builder/CustomBlock.jsx:375
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:575
 msgid "Copy Shortcode"
@@ -661,9 +662,10 @@ msgid "Create a layout that appears before the footer"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:833
+#: src/Components/HF-Builder/BeforeFooter.jsx:449
+#: src/Components/HF-Builder/Footer.jsx:443
 #: src/Components/HF-Builder/BeforeFooter.jsx:439
-#: src/Components/HF-Builder/Footer.jsx:433
-#: src/Components/HF-Builder/Header.jsx:433
+#: src/Components/HF-Builder/Header.jsx:443
 msgid "Display Conditions"
 msgstr ""
 
@@ -747,7 +749,6 @@ msgstr ""
 
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1161
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:459
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:463
 #: src/Components/Settings/VersionControl.jsx:132
 msgid "Cancel"
 msgstr ""
@@ -1032,13 +1033,11 @@ msgid "Enter a new name for this layout"
 msgstr ""
 
 #: src/Components/HF-Builder/Navbar.js:117
-#: src/Components/HF-Builder/Navbar.js:116
 #: src/Components/NavMenu.js:131
 msgid "Dashboard"
 msgstr ""
 
 #: src/Components/HF-Builder/Navbar.js:124
-#: src/Components/HF-Builder/Navbar.js:123
 #: src/Components/Onboarding/Features.jsx:125
 msgid "Header & Footer Builder"
 msgstr ""
@@ -1068,8 +1067,6 @@ msgstr ""
 msgid "Formerly Elementor Header & Footer Builder"
 msgstr ""
 
-#: src/Components/HF-Builder/Navbar.js:154
-#: src/Components/HF-Builder/Navbar.js:158
 #: src/Components/NavMenu.js:146
 msgid "Header & Footer"
 msgstr ""

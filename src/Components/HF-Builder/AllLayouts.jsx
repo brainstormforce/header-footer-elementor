@@ -560,11 +560,11 @@ const AllLayouts = ({
 						style={{ padding: "0 40px", marginBottom: "10px" }}
 					>
 						<h2
-							className="text-lg font-medium text-foreground"
+							className="text-lg font-semibold text-foreground"
 							style={{ marginLeft: "-10px" }}
 						>
 							{__(
-								"Start customising Your Header & Footer",
+								"Start Customising Your Header & Footer",
 								"header-footer-elementor",
 							)}
 						</h2>

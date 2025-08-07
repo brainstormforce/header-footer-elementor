@@ -277,13 +277,23 @@ const CustomBlock = () => {
 						className="flex items-start gap-10 justify-between"
 						style={{ padding: "0 40px", marginBottom: "10px" }}
 					>
-						<h2 className="text-base font-normal text-foreground">
+						<h2 className="text-lg font-semibold text-foreground" style={{ marginLeft: "-10px" }}>
 							{__(
 								"Custom Block Templates",
 								"header-footer-elementor",
 							)}
 						</h2>
 					</div>
+
+						<hr
+							className="border-b-0 border-x-0 border-t border-solid border-t-border-transparent-subtle"
+							style={{
+								marginTop: "10px",
+								marginBottom: "15px",
+                                width: '92%'
+								// borderColor: "#E5E7EB",
+							}}
+						/>
 
 					<div
 						className="grid grid-cols-1 md:grid-cols-2 gap-6"

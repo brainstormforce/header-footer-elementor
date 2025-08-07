@@ -130,16 +130,16 @@ const NavBar = () => {
 							</nav>
 						</Topbar.Item>
 					</Topbar.Middle>
-					<Topbar.Right className="gap-6">
+					<Topbar.Right className="mr-6">
 						<Link to={routes.headerFooterBuilder.path}>
-							<div className="flex cursor-pointer items-center justify-center gap-1">
+							<div className="flex cursor-pointer mr-6 items-center justify-center gap-1">
 								<span className="text-black text-sm">
 									Switch to Table View
 								</span>
 							</div>
 						</Link>
 						<Link to={routes.settings.path}>
-							<div className="flex cursor-pointer items-center justify-center gap-1">
+							<div className="flex cursor-pointer mr-3 items-center justify-center gap-1">
 								<span className="text-black text-sm">
 									Close
 								</span>

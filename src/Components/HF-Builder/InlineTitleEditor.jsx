@@ -13,7 +13,7 @@ const InlineTitleEditor = ({
 	item, 
 	onTitleUpdate, 
 	className = "",
-	titleClassName = "text-sm font-medium text-gray-900 truncate",
+	titleClassName = "text-base font-medium text-gray-900 truncate",
 	showDraftStatus = true,
 	alwaysShowIcon = false // New prop to control icon visibility
 }) => {

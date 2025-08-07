@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { EllipsisVertical, Trash2, Edit3 } from "lucide-react";
-import { DropdownMenu } from "@bsf/force-ui";
+import { EllipsisVertical, Trash2, Edit3, TriangleAlert } from "lucide-react";
+import { DropdownMenu, Button } from "@bsf/force-ui";
 import { __ } from "@wordpress/i18n";
 import apiFetch from "@wordpress/api-fetch";
 import toast from "react-hot-toast";

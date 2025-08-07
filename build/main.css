@@ -574,6 +574,9 @@
 :is(#hfe-settings-app, [data-floating-ui-portal]) .mt-auto{
     margin-top: auto;
 }
+:is(#hfe-settings-app, [data-floating-ui-portal]) .mr-4{
+    margin-right: 1rem;
+}
 :is(#hfe-settings-app, [data-floating-ui-portal]) .box-border{
     box-sizing: border-box;
 }
