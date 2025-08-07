@@ -668,6 +668,10 @@ msgid "Display Conditions"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:858
+#: src/Components/HF-Builder/BeforeFooter.jsx:459
+#: src/Components/HF-Builder/CustomBlock.jsx:429
+#: src/Components/HF-Builder/Footer.jsx:453
+#: src/Components/HF-Builder/Header.jsx:453
 msgid "Draft"
 msgstr ""
 
@@ -809,12 +813,6 @@ msgstr ""
 
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:629
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:150
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:156
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:154
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:153
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:143
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:142
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:627
 #: src/Components/Settings/VersionControl.jsx:132
 msgid "Cancel"
 msgstr ""

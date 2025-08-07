@@ -447,6 +447,16 @@ const Footer = ({
 									<div className="flex items-center justify-between px-1">
 										<p className="text-sm font-medium text-gray-900">
 											{item.title}
+											{item.post_status === "draft" && (
+												<span className="ml-2 text-xs text-gray-500 font-normal">
+													(
+													{__(
+														"Draft",
+														"header-footer-elementor",
+													)}
+													)
+												</span>
+											)}
 										</p>
 										<LayoutDropdownMenu
 											item={item}
