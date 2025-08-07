@@ -17,6 +17,7 @@ use Elementor\Group_Control_Background;
 use Elementor\Utils;
 
 use HFE\WidgetsManager\Base\Common_Widget;
+use HFE\WidgetsManager\Widgets_Loader;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -57,7 +58,7 @@ class Basic_Posts extends Common_Widget {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Basic Posts', 'header-footer-elementor' );
+		return parent::get_widget_title( 'Basic_Posts' );
 	}
 
 	/**
@@ -955,6 +956,8 @@ class Basic_Posts extends Common_Widget {
 		return $options;
 	}
 
+
+
 	/**
 	 * Query posts.
 	 *
@@ -962,30 +965,60 @@ class Basic_Posts extends Common_Widget {
 	 * @access protected
 	 */
 	protected function query_posts() {
+		// Check user capabilities
+		if ( ! current_user_can( 'read' ) ) {
+			$this->query = new \WP_Query( [] ); // Empty query
+			return;
+		}
+
 		$settings = $this->get_settings_for_display();
 
+		// Sanitize inputs.
+		$post_type = sanitize_key( $settings['post_type'] ?? 'post' );
+		$posts_per_page = absint( $settings['posts_per_page'] ?? 6 );
+		$orderby = sanitize_key( $settings['orderby'] ?? 'date' );
+		$order = sanitize_key( $settings['order'] ?? 'desc' );
+
+		// Validate post type exists and user can read it
+		$post_type_obj = get_post_type_object( $post_type );
+		if ( ! $post_type_obj || ! current_user_can( $post_type_obj->cap->read ) ) {
+			$post_type = 'post';
+		}
+
+		// Ensure posts_per_page is within bounds
+		$posts_per_page = max( 1, min( 100, $posts_per_page ) );
+
+		// Validate orderby against allowed values
+		$allowed_orderby = [ 'date', 'title', 'menu_order', 'rand', 'comment_count' ];
+		if ( ! in_array( $orderby, $allowed_orderby, true ) ) {
+			$orderby = 'date';
+		}
+
+		// Validate order
+		$order = strtoupper( $order );
+		if ( ! in_array( $order, [ 'ASC', 'DESC' ], true ) ) {
+			$order = 'DESC';
+		}
+
 		$args = [
-			'post_type'      => $settings['post_type'],
-			'posts_per_page' => $settings['posts_per_page'],
-			'orderby'        => $settings['orderby'],
-			'order'          => $settings['order'],
+			'post_type'      => $post_type,
+			'posts_per_page' => $posts_per_page,
+			'orderby'        => $orderby,
+			'order'          => $order,
 			'post_status'    => 'publish',
 		];
 
 		// Exclude current post if enabled
 		if ( 'yes' === $settings['exclude_current'] && is_singular() ) {
-			$args['post__not_in'] = [ get_the_ID() ];
+			$current_id = get_the_ID();
+			if ( $current_id ) {
+				$args['post__not_in'] = [ absint( $current_id ) ];
+			}
 		}
 
 		$this->query = new \WP_Query( $args );
 	}
 
-	/**
-	 * Render the widget output on the frontend.
-	 *
-	 * @since x.x.x
-	 * @access protected
-	 */
 	/**
 	 * Render template HTML using ob_start
 	 *
@@ -1005,6 +1038,7 @@ class Basic_Posts extends Common_Widget {
 	 * @access protected
 	 */
 	protected function render() {
+
 		$settings = $this->get_settings_for_display();
 
 		$this->query_posts();
