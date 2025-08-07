@@ -131,22 +131,17 @@ const NavMenu = () => {
 									{__("Dashboard", "header-footer-elementor")}
 								</Link>
 								<Link
-									to={routes.headerFooterBuilder.path}
+									to={routes.headerBuilder.path}
 									className={`${
 										isActive(
-											"edit.php?post_type=elementor-hf"
+											"hfb"
 										)
 											? "active-link"
 											: ""
 									}`}
 									style={linkStyle(
-										"edit.php?post_type=elementor-hf"
+										"hfb"
 									)}
-									onClick={() => {
-										console.log(
-											"Navigating to Header & Footer Builder"
-										);
-									}}
 								>
 									{__(
 										"Header & Footer",

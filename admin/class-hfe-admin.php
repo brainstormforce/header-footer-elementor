@@ -501,6 +501,7 @@ class HFE_Admin {
 			1
 		);
 
+		// Commented out to hide the Header & Footer submenu
 		add_submenu_page(
 			$setting_location,
 			__( 'Header/Footer Builder', 'header-footer-elementor' ),

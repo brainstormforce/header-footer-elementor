@@ -405,7 +405,12 @@ class HFE_Settings_Api {
 	public function uae_create_elementor_hf_layout( $request ) {
 		$title = sanitize_text_field( $request->get_param( 'title' ) );
 		$type = sanitize_text_field( $request->get_param( 'type' ) );
-		$type = 'type_'.strtolower($type);
+		if($type !== 'custom'){
+			$type = 'type_'.strtolower($type);
+		}else{
+			$type = strtolower($type);
+		}
+		
 		$post_id = wp_insert_post( [
 			'post_title'  => $title,
 			'post_type'   => 'elementor-hf',

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Plus, EllipsisVertical } from "lucide-react";
-import { Button, DropdownMenu, Loader } from "@bsf/force-ui";
+import { Plus, Copy } from "lucide-react";
+import { Button, Loader } from "@bsf/force-ui";
 import { __ } from "@wordpress/i18n";
 import apiFetch from "@wordpress/api-fetch";
 import withDisplayConditions from "./DisplayConditionsDialog";
 import EmptyState from "./EmptyState";
+import LayoutDropdownMenu from "./LayoutDropdownMenu";
+import useCopyShortcode from "./hooks/useCopyShortcode";
 import toast, { Toaster } from "react-hot-toast";
 
 // Example: Ensure these values are coming from global/localized JS in WordPress
@@ -14,6 +16,8 @@ const AllLayouts = ({
 	DisplayConditionsDialog,
 	isButtonLoading,
 }) => {
+	// Use the custom hook for copy shortcode functionality
+	const { handleCopyShortcode } = useCopyShortcode();
 	const [layoutItems, setlLayoutItems] = useState([]);
 	const [hasLayoutItems, setHasLayoutItems] = useState(false);
 	const [isLoading, setIsLoading] = useState(true);
@@ -23,6 +27,24 @@ const AllLayouts = ({
 		const saved = localStorage.getItem("hfe_showDummyCards");
 		return saved ? JSON.parse(saved) : false;
 	});
+
+	// Add custom styles for toast positioning
+	useEffect(() => {
+		const style = document.createElement('style');
+		style.textContent = `
+			.toast-confirmation {
+				z-index: 999999 !important;
+			}
+			.toast-confirmation > div {
+				max-width: 400px !important;
+			}
+		`;
+		document.head.appendChild(style);
+		
+		return () => {
+			document.head.removeChild(style);
+		};
+	}, []);
 
 	// Define dummy layout types
 	const dummyLayoutTypes = [
@@ -89,8 +111,9 @@ const AllLayouts = ({
 		);
 	}, [showDummyCards]);
 
-	useEffect(() => {
-		// Fetch the target rule options when component mounts
+	// Function to refresh layout data
+	const refreshLayoutData = () => {
+		setIsLoading(true);
 		apiFetch({
 			path: "/hfe/v1/get-post",
 			method: "POST",
@@ -101,7 +124,6 @@ const AllLayouts = ({
 			.then((response) => {
 				if (response.success && response.posts) {
 					setlLayoutItems(response.posts);
-					// Only set hasLayoutItems to true if there are actually items
 					setHasLayoutItems(response.posts.length > 0);
 
 					// Clear localStorage if layouts are found
@@ -111,16 +133,21 @@ const AllLayouts = ({
 					}
 				} else {
 					setHasLayoutItems(false);
-					console.error("Failed to create post:", response);
+					console.error("Failed to fetch posts:", response);
 				}
 			})
 			.catch((error) => {
 				setHasLayoutItems(false);
-				console.error("Error creating post:", error);
+				console.error("Error fetching posts:", error);
 			})
 			.finally(() => {
 				setIsLoading(false);
 			});
+	};
+
+	useEffect(() => {
+		// Fetch the target rule options when component mounts
+		refreshLayoutData();
 	}, []);
 
 	const handleCreateLayout = (item) => {
@@ -135,18 +162,44 @@ const AllLayouts = ({
 			})
 				.then((response) => {
 					if (response.success && response.post_id) {
-						// Update item with new post ID
+						// Create the new layout item with the response data
+						const newLayoutItem = {
+							id: response.post_id,
+							title: `My Custom ${item.title}`,
+							name: item.name,
+							template_type: item.template_type,
+							post_status: 'draft', // or whatever status is returned
+							// Add any other properties that might be needed
+						};
+
+						// Update the layoutItems state to include the new item
+						setlLayoutItems(prevItems => [...prevItems, newLayoutItem]);
+						
+						// Update hasLayoutItems to true since we now have items
+						setHasLayoutItems(true);
+						
+						// Hide dummy cards and clear localStorage
+						setShowDummyCards(false);
+						localStorage.removeItem("hfe_showDummyCards");
+
+						// Update item with new post ID for further processing
 						const updatedItem = { ...item, id: response.post_id };
 
 						// For custom blocks, redirect to Elementor editor
 						if (item.template_type === "custom") {
-							// Construct Elementor edit URL
-							const elementorEditUrl = `${window.location.origin}/wp-admin/post.php?post=${response.post_id}&action=elementor`;
-							window.open(elementorEditUrl, "_blank");
+                            refreshLayoutData();
 						} else {
 							// Open display conditions dialog using HOC function with isNew flag
 							openDisplayConditionsDialog(updatedItem, true);
 						}
+
+						// Show success toast
+						toast.success(
+							__(
+								"Layout created successfully!",
+								"header-footer-elementor",
+							),
+						);
 					} else {
 						console.error("Failed to create post:", response);
 						toast.error(
@@ -187,237 +240,43 @@ const AllLayouts = ({
 	};
 
 	/**
-	 * Handle disabling a layout (set status to draft)
+	 * Handle item updates from dropdown menu
 	 */
-	const handleDisableLayout = async (item) => {
-		try {
-			const response = await apiFetch({
-				path: "/hfe/v1/update-post-status",
-				method: "POST",
-				data: {
-					post_id: item.id,
-					status: "draft",
-				},
-			});
+	const handleItemUpdate = (itemId, updates) => {
+        setlLayoutItems(prevItems => 
+            prevItems.map(item => 
+                item.id === itemId 
+                    ? { ...item, ...updates }
+                    : item
+            )
+        );
+    };
 
-			if (response.success) {
-				// Show success toast notification
-				toast.success(
-					__(
-						"Layout disabled successfully!",
-						"header-footer-elementor",
-					),
-				);
-
-				// Reload the page to refresh the data
-				setTimeout(() => {
-					window.location.reload();
-				}, 1000);
-			} else {
-				console.error("Failed to disable layout:", response);
-				toast.error(
-					__(
-						"Failed to disable layout. Please try again.",
-						"header-footer-elementor",
-					),
-				);
+	/**
+	 * Handle item deletion from dropdown menu
+	 */
+	const handleItemDelete = (itemId) => {
+		setlLayoutItems(prevItems => {
+			const updatedItems = prevItems.filter(item => item.id !== itemId);
+			// Update hasLayoutItems state if no items left
+			if (updatedItems.length === 0) {
+				setHasLayoutItems(false);
 			}
-		} catch (error) {
-			console.error("Error disabling layout:", error);
-			toast.error(
-				__(
-					"Error disabling layout. Please try again.",
-					"header-footer-elementor",
-				),
-			);
-		}
-	};
-
-	/**
-	 * Handle deleting a layout (move to trash)
-	 */
-	const handleDeleteLayout = async (item) => {
-		// Show confirmation dialog
-		if (
-			!confirm(
-				__(
-					"Are you sure you want to delete this layout? This action cannot be undone.",
-					"header-footer-elementor",
-				),
-			)
-		) {
-			return;
-		}
-
-		try {
-			const response = await apiFetch({
-				path: "/hfe/v1/delete-post",
-				method: "POST",
-				data: {
-					post_id: item.id,
-				},
-			});
-
-			if (response.success) {
-				// Show success toast notification
-				toast.success(
-					__(
-						"Layout deleted successfully!",
-						"header-footer-elementor",
-					),
-				);
-
-				// Reload the page to refresh the data
-				setTimeout(() => {
-					window.location.reload();
-				}, 1000);
-			} else {
-				console.error("Failed to delete layout:", response);
-				toast.error(
-					__(
-						"Failed to delete layout. Please try again.",
-						"header-footer-elementor",
-					),
-				);
-			}
-		} catch (error) {
-			console.error("Error deleting layout:", error);
-			toast.error(
-				__(
-					"Error deleting layout. Please try again.",
-					"header-footer-elementor",
-				),
-			);
-		}
-	};
-
-	/**
-	 * Handle copying shortcode to clipboard
-	 */
-	const handleCopyShortcode = (item) => {
-		const shortcode = `[hfe_template id='${item.id}']`;
-
-		// Copy to clipboard
-		if (navigator.clipboard && window.isSecureContext) {
-			navigator.clipboard
-				.writeText(shortcode)
-				.then(() => {
-					// Show success toast notification
-					toast.success(
-						__(
-							"Shortcode copied to clipboard!",
-							"header-footer-elementor",
-						),
-					);
-				})
-				.catch((error) => {
-					console.error("Failed to copy shortcode:", error);
-					// Fallback method
-					fallbackCopyToClipboard(shortcode);
-				});
-		} else {
-			// Fallback method for older browsers or non-secure contexts
-			fallbackCopyToClipboard(shortcode);
-		}
-	};
-
-	/**
-	 * Fallback method to copy text to clipboard
-	 */
-	const fallbackCopyToClipboard = (text) => {
-		const textArea = document.createElement("textarea");
-		textArea.value = text;
-		textArea.style.position = "fixed";
-		textArea.style.left = "-999999px";
-		textArea.style.top = "-999999px";
-		document.body.appendChild(textArea);
-		textArea.focus();
-		textArea.select();
-
-		try {
-			document.execCommand("copy");
-			// Show success toast notification
-			toast.success(
-				__("Shortcode copied to clipboard!", "header-footer-elementor"),
-			);
-		} catch (error) {
-			console.error(
-				"Failed to copy shortcode using fallback method:",
-				error,
-			);
-			// Show error toast notification
-			toast.error(
-				__(
-					"Failed to copy shortcode. Please copy manually.",
-					"header-footer-elementor",
-				),
-			);
-		}
-
-		document.body.removeChild(textArea);
-	};
-
-	/**
-	 * Handle publishing a draft layout (set status to publish)
-	 */
-	const handlePublishLayout = async (item) => {
-		try {
-			const response = await apiFetch({
-				path: "/hfe/v1/update-post-status",
-				method: "POST",
-				data: {
-					post_id: item.id,
-					status: "publish",
-				},
-			});
-
-			if (response.success) {
-				// Show success toast notification
-				toast.success(
-					__(
-						"Layout published successfully!",
-						"header-footer-elementor",
-					),
-				);
-
-				// Reload the page to refresh the data
-				setTimeout(() => {
-					window.location.reload();
-				}, 1000); // Small delay to show the toast first
-			} else {
-				console.error("Failed to publish layout:", response);
-				// Show error message
-				toast.error(
-					__(
-						"Failed to publish layout. Please try again.",
-						"header-footer-elementor",
-					),
-				);
-			}
-		} catch (error) {
-			console.error("Error publishing layout:", error);
-			// Show error message
-			toast.error(
-				__(
-					"Error publishing layout. Please try again.",
-					"header-footer-elementor",
-				),
-			);
-		}
+			return updatedItems;
+		});
 	};
 	// Show loading state while fetching data
 	if (isLoading) {
 		return (
 			<>
-				<div className="bg-white p-6 ml-6 rounded-lg">
-					<div className="flex flex-col items-center justify-center">
-						<div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
-						<p className="mt-2 text-sm text-gray-600">
-							{__(
-								"Loading layouts...",
-								"header-footer-elementor",
-							)}
-						</p>
+				<div className="flex items-center justify-center min-h-screen w-full">
+					<div className="">
+						<Loader
+							className=""
+							icon={null}
+							size="lg"
+							variant="primary"
+						/>
 					</div>
 				</div>
 
@@ -425,32 +284,32 @@ const AllLayouts = ({
 				<DisplayConditionsDialog />
 
 				{/* React Hot Toast Notifications */}
-				<Toaster
-					position="bottom-right"
-					toastOptions={{
-						duration: 3000,
-						style: {
-							background: "#363636",
-							color: "#fff",
-							borderRadius: "6px",
-							fontSize: "14px",
-							padding: "12px 16px",
-							boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
-						},
-						success: {
-							iconTheme: {
-								primary: "#10B981",
-								secondary: "#fff",
-							},
-						},
-						error: {
-							iconTheme: {
-								primary: "#EF4444",
-								secondary: "#fff",
-							},
-						},
-					}}
-				/>
+				    <Toaster
+                            position="top-right"
+                            reverseOrder={false}
+                            gutter={8}
+                            containerStyle={{
+                                top: 20,
+                                right: 20,
+                                marginTop: '40px',
+                            }}
+                            toastOptions={{
+                                duration: 1000,
+                                style: {
+                                    background: 'white',
+                                },
+                                success: {
+                                    duration: 2000,
+                                    style: {
+                                        color: '',
+                                    },
+                                    iconTheme: {
+                                        primary: '#6005ff',
+                                        secondary: '#fff',
+                                    },
+                                },
+                            }}
+                        />
 			</>
 		);
 	}
@@ -607,32 +466,32 @@ const AllLayouts = ({
 					<DisplayConditionsDialog />
 
 					{/* React Hot Toast Notifications */}
-					<Toaster
-						position="bottom-right"
-						toastOptions={{
-							duration: 3000,
-							style: {
-								background: "#363636",
-								color: "#fff",
-								borderRadius: "6px",
-								fontSize: "14px",
-								padding: "12px 16px",
-								boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
-							},
-							success: {
-								iconTheme: {
-									primary: "#10B981",
-									secondary: "#fff",
-								},
-							},
-							error: {
-								iconTheme: {
-									primary: "#EF4444",
-									secondary: "#fff",
-								},
-							},
-						}}
-					/>
+				   <Toaster
+                            position="top-right"
+                            reverseOrder={false}
+                            gutter={8}
+                            containerStyle={{
+                                top: 20,
+                                right: 20,
+                                marginTop: '40px',
+                            }}
+                            toastOptions={{
+                                duration: 1000,
+                                style: {
+                                    background: 'white',
+                                },
+                                success: {
+                                    duration: 2000,
+                                    style: {
+                                        color: '',
+                                    },
+                                    iconTheme: {
+                                        primary: '#6005ff',
+                                        secondary: '#fff',
+                                    },
+                                },
+                            }}
+                        />
 				</>
 			);
 		}
@@ -660,32 +519,32 @@ const AllLayouts = ({
 				<DisplayConditionsDialog />
 
 				{/* React Hot Toast Notifications */}
-				<Toaster
-					position="bottom-right"
-					toastOptions={{
-						duration: 3000,
-						style: {
-							background: "#363636",
-							color: "#fff",
-							borderRadius: "6px",
-							fontSize: "14px",
-							padding: "12px 16px",
-							boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
-						},
-						success: {
-							iconTheme: {
-								primary: "#10B981",
-								secondary: "#fff",
-							},
-						},
-						error: {
-							iconTheme: {
-								primary: "#EF4444",
-								secondary: "#fff",
-							},
-						},
-					}}
-				/>
+				    <Toaster
+                            position="top-right"
+                            reverseOrder={false}
+                            gutter={8}
+                            containerStyle={{
+                                top: 20,
+                                right: 20,
+                                marginTop: '40px',
+                            }}
+                            toastOptions={{
+                                duration: 1000,
+                                style: {
+                                    background: 'white',
+                                },
+                                success: {
+                                    duration: 2000,
+                                    style: {
+                                        color: '',
+                                    },
+                                    iconTheme: {
+                                        primary: '#6005ff',
+                                        secondary: '#fff',
+                                    },
+                                },
+                            }}
+                        />
 			</>
 		);
 	} else {
@@ -783,7 +642,7 @@ const AllLayouts = ({
 									/>
 
 									<div
-										className="hover-overlay absolute inset-0 flex items-center gap-2 justify-center rounded-lg overflow-hidden backdrop-blur-sm transition-all duration-500 ease-in-out z-30"
+										className="hover-overlay absolute inset-0 flex flex-col items-center gap-1 justify-center rounded-lg overflow-hidden backdrop-blur-sm transition-all duration-500 ease-in-out z-30"
 										style={{
 											backgroundColor:
 												"rgba(0, 0, 0, 0.4)",
@@ -792,6 +651,48 @@ const AllLayouts = ({
 											transform: "translateY(10px)",
 										}}
 									>
+                                        {item.template_type === "custom" ? 
+                                        <Button
+											iconPosition="left"
+											icon={
+												item.name !== "Custom Block" ? (
+													<Copy size={14} />
+												) : null
+											}
+											variant="primary"
+											className="font-medium text-black hfe-remove-ring z-50"
+											style={{
+												backgroundColor:
+													"white",
+												fontSize: "12px",
+												fontWeight: "600",
+												padding: "8px 8px",
+												borderRadius: "6px",
+												transition: "all 0.2s ease",
+												outline: "none",
+												transform: "scale(0.95)",
+												opacity: "1",
+											}}
+											onMouseEnter={(e) => {
+												e.currentTarget.style.backgroundColor =
+													"white";
+												e.currentTarget.style.transform =
+													"scale(1)";
+											}}
+											onMouseLeave={(e) => {
+												e.currentTarget.style.backgroundColor =
+													"white";
+												e.currentTarget.style.transform =
+													"scale(0.95)";
+											}}
+											onClick={() => handleCopyShortcode(item)}
+										>
+                                            {__(
+													`Copy Shortcode`,
+													"header-footer-elementor",
+												)}
+										</Button>
+                                        : ''}
 										<Button
 											iconPosition="left"
 											icon={
@@ -962,74 +863,12 @@ const AllLayouts = ({
 												</span>
 											)}
 										</p>
-										<DropdownMenu placement="bottom-end">
-											<DropdownMenu.Trigger>
-												<EllipsisVertical
-													size={16}
-													className="cursor-pointer"
-												/>
-											</DropdownMenu.Trigger>
-											<DropdownMenu.Portal>
-												<DropdownMenu.ContentWrapper>
-													<DropdownMenu.Content className="w-40">
-														<DropdownMenu.List>
-															<DropdownMenu.Item
-																onClick={() =>
-																	handleCopyShortcode(
-																		item,
-																	)
-																}
-															>
-																{__(
-																	"Copy Shortcode",
-																	"header-footer-elementor",
-																)}
-															</DropdownMenu.Item>
-															{item.post_status ===
-															"draft" ? (
-																<DropdownMenu.Item
-																	onClick={() =>
-																		handlePublishLayout(
-																			item,
-																		)
-																	}
-																>
-																	{__(
-																		"Publish",
-																		"header-footer-elementor",
-																	)}
-																</DropdownMenu.Item>
-															) : (
-																<DropdownMenu.Item
-																	onClick={() =>
-																		handleDisableLayout(
-																			item,
-																		)
-																	}
-																>
-																	{__(
-																		"Disable",
-																		"header-footer-elementor",
-																	)}
-																</DropdownMenu.Item>
-															)}
-															<DropdownMenu.Item
-																onClick={() =>
-																	handleDeleteLayout(
-																		item,
-																	)
-																}
-															>
-																{__(
-																	"Delete",
-																	"header-footer-elementor",
-																)}
-															</DropdownMenu.Item>
-														</DropdownMenu.List>
-													</DropdownMenu.Content>
-												</DropdownMenu.ContentWrapper>
-											</DropdownMenu.Portal>
-										</DropdownMenu>
+										<LayoutDropdownMenu 
+											item={item}
+											onItemUpdate={handleItemUpdate}
+											onItemDelete={handleItemDelete}
+											showShortcode={true}
+										/>
 									</div>
 								</div>
 							</div>
@@ -1041,132 +880,34 @@ const AllLayouts = ({
 				<DisplayConditionsDialog />
 
 				{/* React Hot Toast Notifications */}
-				<Toaster
-					position="bottom-right"
-					toastOptions={{
-						duration: 3000,
-						style: {
-							background: "#363636",
-							color: "#fff",
-							borderRadius: "6px",
-							fontSize: "14px",
-							padding: "12px 16px",
-							boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
-						},
-						success: {
-							iconTheme: {
-								primary: "#10B981",
-								secondary: "#fff",
-							},
-						},
-						error: {
-							iconTheme: {
-								primary: "#EF4444",
-								secondary: "#fff",
-							},
-						},
-					}}
-				/>
+				    <Toaster
+                            position="top-right"
+                            reverseOrder={false}
+                            gutter={8}
+                            containerStyle={{
+                                top: 20,
+                                right: 20,
+                                marginTop: '40px',
+                            }}
+                            toastOptions={{
+                                duration: 1000,
+                                style: {
+                                    background: 'white',
+                                },
+                                success: {
+                                    duration: 2000,
+                                    style: {
+                                        color: '',
+                                    },
+                                    iconTheme: {
+                                        primary: '#6005ff',
+                                        secondary: '#fff',
+                                    },
+                                },
+                            }}
+                        />
 			</>
 		);
-	}
-};
-/**
- * Handle publishing a draft layout (set status to publish)
- */
-const handlePublishLayout = async (item) => {
-	try {
-		const response = await apiFetch({
-			path: "/hfe/v1/update-post-status",
-			method: "POST",
-			data: {
-				post_id: item.id,
-				status: "publish",
-			},
-		});
-
-		if (response.success) {
-			// Show success toast notification
-			if (window.wp && window.wp.data && window.wp.data.dispatch) {
-				// Using WordPress notices if available
-				window.wp.data
-					.dispatch("core/notices")
-					.createNotice(
-						"success",
-						__(
-							"Layout published successfully!",
-							"header-footer-elementor",
-						),
-						{
-							type: "snackbar",
-							isDismissible: true,
-						},
-					);
-			} else {
-				// Fallback: show browser alert
-				alert(
-					__(
-						"Layout published successfully!",
-						"header-footer-elementor",
-					),
-				);
-			}
-
-			// Reload the page to refresh the data
-			setTimeout(() => {
-				window.location.reload();
-			}, 1000); // Small delay to show the toast first
-		} else {
-			console.error("Failed to publish layout:", response);
-			// Show error message
-			if (window.wp && window.wp.data && window.wp.data.dispatch) {
-				window.wp.data
-					.dispatch("core/notices")
-					.createNotice(
-						"error",
-						__(
-							"Failed to publish layout. Please try again.",
-							"header-footer-elementor",
-						),
-						{
-							type: "snackbar",
-							isDismissible: true,
-						},
-					);
-			} else {
-				alert(
-					__(
-						"Failed to publish layout. Please try again.",
-						"header-footer-elementor",
-					),
-				);
-			}
-		}
-	} catch (error) {
-		console.error("Error publishing layout:", error);
-		// Show error message
-		if (window.wp && window.wp.data && window.wp.data.dispatch) {
-			window.wp.data
-				.dispatch("core/notices")
-				.createNotice(
-					"error",
-					__(
-						"Error publishing layout. Please try again.",
-						"header-footer-elementor",
-					),
-					{
-						type: "snackbar",
-						isDismissible: true,
-					},
-				);
-		} else {
-			alert(
-				__(
-					"Error publishing layout. Please try again.",
-					"header-footer-elementor",
-				),
-			);
-		}
 	}
 };
 
