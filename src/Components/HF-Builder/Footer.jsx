@@ -63,6 +63,10 @@ const Footer = ({ openDisplayConditionsDialog, DisplayConditionsDialog, isButton
 						title: response.post.title || response.post.post_title,
 					};
 					
+					// Update the state immediately to show the new footer card
+					setFooterItems(prevItems => [...prevItems, updatedItem]);
+					setHasFooters(true);
+					
 					// Open display conditions dialog for NEW post
 					openDisplayConditionsDialog(updatedItem, true); // Pass true for isNew
 				} else {

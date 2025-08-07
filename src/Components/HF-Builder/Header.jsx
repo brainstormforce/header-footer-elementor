@@ -59,6 +59,10 @@ const Header = ({ openDisplayConditionsDialog, DisplayConditionsDialog, isButton
 						title: response.post.title || response.post.post_title,
 					};
 					
+					// Update the state immediately to show the new header card
+					setHeaderItems(prevItems => [...prevItems, updatedItem]);
+					setHasHeaders(true);
+					
 					// Open display conditions dialog for NEW post
 					openDisplayConditionsDialog(updatedItem, true); // Pass true for isNew
 				} else {

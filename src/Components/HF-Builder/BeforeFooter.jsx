@@ -63,6 +63,10 @@ const BeforeFooter = ({ openDisplayConditionsDialog, DisplayConditionsDialog, is
             title: response.post.title || response.post.post_title,
           };
           
+          // Update the state immediately to show the new before footer card
+          setBeforeFooterItems(prevItems => [...prevItems, updatedItem]);
+          setHasBeforeFooters(true);
+          
           // Open display conditions dialog for NEW post
           openDisplayConditionsDialog(updatedItem, true); // Pass true for isNew
         } else {

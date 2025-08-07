@@ -661,9 +661,11 @@ msgid "Create a layout that appears before the footer"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:832
+#: src/Components/HF-Builder/BeforeFooter.jsx:297
 #: src/Components/HF-Builder/BeforeFooter.jsx:293
+#: src/Components/HF-Builder/Footer.jsx:297
 #: src/Components/HF-Builder/Footer.jsx:293
-#: src/Components/HF-Builder/Header.jsx:297
+#: src/Components/HF-Builder/Header.jsx:301
 msgid "Display Conditions"
 msgstr ""
 
@@ -680,18 +682,18 @@ msgstr ""
 msgid "Create a custom block that can be used anywhere"
 msgstr ""
 
-#: src/Components/HF-Builder/BeforeFooter.jsx:135
+#: src/Components/HF-Builder/BeforeFooter.jsx:139
 msgid ""
 "You haven't created a before footer layout yet. Build a custom before "
 "footer to control how your site's pre-footer section looks and behaves "
 "across all pages."
 msgstr ""
 
-#: src/Components/HF-Builder/BeforeFooter.jsx:139
+#: src/Components/HF-Builder/BeforeFooter.jsx:143
 msgid "Create Before Footer Layout"
 msgstr ""
 
-#: src/Components/HF-Builder/BeforeFooter.jsx:157
+#: src/Components/HF-Builder/BeforeFooter.jsx:161
 msgid "Before Footer Templates"
 msgstr ""
 
@@ -809,31 +811,31 @@ msgstr ""
 msgid "No Layout Found"
 msgstr ""
 
-#: src/Components/HF-Builder/Footer.jsx:135
+#: src/Components/HF-Builder/Footer.jsx:139
 msgid ""
 "You haven't created a footer layout yet. Build a custom footer to control "
 "how your site's bottom section looks and behaves across all pages."
 msgstr ""
 
-#: src/Components/HF-Builder/Footer.jsx:139
+#: src/Components/HF-Builder/Footer.jsx:143
 msgid "Create Footer Layout"
 msgstr ""
 
-#: src/Components/HF-Builder/Footer.jsx:157
+#: src/Components/HF-Builder/Footer.jsx:161
 msgid "Footer Templates"
 msgstr ""
 
-#: src/Components/HF-Builder/Header.jsx:131
+#: src/Components/HF-Builder/Header.jsx:135
 msgid ""
 "You haven't created a header layout yet. Build a custom header to control "
 "how your site's top section looks and behaves across all pages."
 msgstr ""
 
-#: src/Components/HF-Builder/Header.jsx:135
+#: src/Components/HF-Builder/Header.jsx:139
 msgid "Create Header Layout"
 msgstr ""
 
-#: src/Components/HF-Builder/Header.jsx:159
+#: src/Components/HF-Builder/Header.jsx:163
 msgid "Header Templates"
 msgstr ""
 
