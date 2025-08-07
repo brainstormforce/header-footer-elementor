@@ -593,12 +593,136 @@ msgstr ""
 msgid "Widgets / Features"
 msgstr ""
 
-#: src/Components/HeaderLine.js:16
-msgid "Formerly Elementor Header & Footer Builder"
+#: src/Components/HF-Builder/AllLayouts.jsx:101
+msgid "Create Layout"
 msgstr ""
 
+#: src/Components/HF-Builder/AllLayouts.jsx:11
+msgid "Edit Header"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:18
+msgid "Edit Footer"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:182
+msgid "Configure Display Conditions"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:202
+#: src/Components/HF-Builder/Header.jsx:18
+msgid "Layout Template"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:209
+msgid "Where Should Your Layout Appear?"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:212
+msgid "Decide where you want this layout to appear on your site."
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:214
+msgid ""
+"You can show it across your entire site or only on specific pages—your "
+"choice!"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:237
+msgid "Include"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:240
+msgid "Exclude"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:25
+msgid "Edit Before Footer"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:261
+msgid "Entire Site"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:264
+msgid "All Pages"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:267
+msgid "All Posts"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:277
+msgid "Remove condition"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:292
+msgid "Add Conditions"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:308
+#: src/Components/Settings/VersionControl.jsx:132
+msgid "Cancel"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:32
+msgid "Edit Custom Block"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:322
+msgid "Save Conditions"
+msgstr ""
+
+#: src/Components/HF-Builder/Header.jsx:25
+msgid "No Layout Found"
+msgstr ""
+
+#: src/Components/HF-Builder/Header.jsx:30
+msgid ""
+"You haven't created a header layout yet. Build a custom header to control "
+"how your site's top section looks and behaves across all pages."
+msgstr ""
+
+#: src/Components/HF-Builder/Header.jsx:59
+msgid "Create Header Layout"
+msgstr ""
+
+#: src/Components/HF-Builder/Navbar.js:116
 #: src/Components/NavMenu.js:131
 msgid "Dashboard"
+msgstr ""
+
+#: src/Components/HF-Builder/Navbar.js:123
+msgid "Header & Footer Builder"
+msgstr ""
+
+#: src/Components/HF-Builder/Sidebar.jsx:103
+#: src/Components/Settings/Settings.jsx:64
+msgid "Custom SVG"
+msgstr ""
+
+#: src/Components/HF-Builder/Sidebar.jsx:107
+msgid "Custom Block"
+msgstr ""
+
+#: src/Components/HF-Builder/Sidebar.jsx:31
+msgid "All Layouts"
+msgstr ""
+
+#: src/Components/HF-Builder/Sidebar.jsx:50
+msgid "Header "
+msgstr ""
+
+#: src/Components/HF-Builder/Sidebar.jsx:69
+msgid "Footer"
+msgstr ""
+
+#: src/Components/HF-Builder/Sidebar.jsx:88
+msgid "Before Footer"
+msgstr ""
+
+#: src/Components/HeaderLine.js:16
+msgid "Formerly Elementor Header & Footer Builder"
 msgstr ""
 
 #: src/Components/NavMenu.js:151
@@ -946,10 +1070,6 @@ msgstr ""
 msgid "Theme Support"
 msgstr ""
 
-#: src/Components/Settings/Settings.jsx:64
-msgid "Custom SVG"
-msgstr ""
-
 #: src/Components/Settings/Settings.jsx:68
 msgid "Utilities"
 msgstr ""
@@ -1012,10 +1132,6 @@ msgstr ""
 
 #: src/Components/Settings/VersionControl.jsx:129
 msgid "Rollback"
-msgstr ""
-
-#: src/Components/Settings/VersionControl.jsx:132
-msgid "Cancel"
 msgstr ""
 
 #: src/Components/Settings/VersionControl.jsx:66

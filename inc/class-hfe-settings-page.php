@@ -390,6 +390,12 @@ class HFE_Settings_Page {
 					'augemented_url'                 => HFE_URL . 'assets/images/settings/augemented_reality_widgets.png',
 					'rocket_svg'                 => HFE_URL . 'assets/images/settings/rocket.svg',
 					'augmented_reality'                 => HFE_URL . 'assets/images/settings/augmented_reality.png',
+					'all_layouts'                 => HFE_URL . 'assets/images/settings/all_layouts.svg',
+					'header_card'                 => HFE_URL . 'assets/images/settings/header_card.png',
+					'footer_card'                 => HFE_URL . 'assets/images/settings/footer_card.png',
+					'before_card'                 => HFE_URL . 'assets/images/settings/before_card.png',
+					'custom_card'                 => HFE_URL . 'assets/images/settings/custom_card.png',
+					'layout_template'                 => HFE_URL . 'assets/images/settings/layout_template.png',
 					'welcome_new'                 => HFE_URL . 'assets/images/settings/welcome_new.png',
 					'icon_new'                 => HFE_URL . 'assets/images/settings/icon_2.svg',
 					'create_new'                 => HFE_URL . 'assets/images/settings/create_new_banner.png',
@@ -655,6 +661,17 @@ class HFE_Settings_Page {
 			__( 'Onboarding', 'header-footer-elementor' ),
 			$capability,
 			$menu_slug . '#onboarding',
+			[ $this, 'render' ],
+			9
+		);
+
+		// Add the HFB Submenu.
+		add_submenu_page(
+			$menu_slug,
+			__( 'Header & Footer 123 Builder', 'header-footer-elementor' ),
+			__( 'Header & Footer 123 Builder', 'header-footer-elementor' ),
+			$capability,
+			$menu_slug . '#hfb',
 			[ $this, 'render' ],
 			9
 		);
