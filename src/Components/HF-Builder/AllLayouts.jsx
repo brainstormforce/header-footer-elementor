@@ -6,6 +6,7 @@ import apiFetch from "@wordpress/api-fetch";
 import withDisplayConditions from "./DisplayConditionsDialog";
 import EmptyState from "./EmptyState";
 import LayoutDropdownMenu from "./LayoutDropdownMenu";
+import InlineTitleEditor from "./InlineTitleEditor";
 import useCopyShortcode from "./hooks/useCopyShortcode";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -240,7 +241,7 @@ const AllLayouts = ({
 	};
 
 	/**
-	 * Handle item updates from dropdown menu
+	 * Handle item updates from dropdown menu and inline editor
 	 */
 	const handleItemUpdate = (itemId, updates) => {
         setlLayoutItems(prevItems => 
@@ -850,19 +851,12 @@ const AllLayouts = ({
 										}}
 									/>
 									<div className="flex items-center justify-between px-1">
-										<p className="text-sm font-medium text-gray-900">
-											{item.title}
-											{item.post_status === "draft" && (
-												<span className="ml-2 text-xs text-gray-500 font-normal">
-													(
-													{__(
-														"Draft",
-														"header-footer-elementor",
-													)}
-													)
-												</span>
-											)}
-										</p>
+										<InlineTitleEditor 
+											item={item}
+											onTitleUpdate={handleItemUpdate}
+											showDraftStatus={true}
+											alwaysShowIcon={true}
+										/>
 										<LayoutDropdownMenu 
 											item={item}
 											onItemUpdate={handleItemUpdate}
