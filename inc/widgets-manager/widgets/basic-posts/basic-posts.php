@@ -17,6 +17,7 @@ use Elementor\Group_Control_Background;
 use Elementor\Utils;
 
 use HFE\WidgetsManager\Base\Common_Widget;
+use HFE\WidgetsManager\Widgets_Loader;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -972,7 +973,7 @@ class Basic_Posts extends Common_Widget {
 
 		$settings = $this->get_settings_for_display();
 
-		// Sanitize inputs using WordPress functions
+		// Sanitize inputs.
 		$post_type = sanitize_key( $settings['post_type'] ?? 'post' );
 		$posts_per_page = absint( $settings['posts_per_page'] ?? 6 );
 		$orderby = sanitize_key( $settings['orderby'] ?? 'date' );

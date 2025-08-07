@@ -14,12 +14,8 @@ if ( ! isset( $this->query ) || ! $this->query instanceof WP_Query ) {
 	return;
 }
 
-// Sanitize title tag
-$title_tag = sanitize_key( $settings['title_tag'] ?? 'h3' );
-$allowed_title_tags = [ 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' ];
-if ( ! in_array( $title_tag, $allowed_title_tags, true ) ) {
-	$title_tag = 'h3';
-}
+// Sanitize title tag using the standard validation method
+$title_tag = Widgets_Loader::validate_html_tag( $settings['title_tag'] ?? 'h3' );
 ?>
 
 <div class="hfe-posts-grid">
