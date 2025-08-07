@@ -122,7 +122,7 @@ const LayoutDropdownMenu = ({
 			<div className="flex flex-col gap-3 p-2">
 				<div className="flex items-start gap-3">
 					<div className="flex-shrink-0 w-8 h-8 bg-red-100 rounded-full flex items-center justify-center" style={{ marginTop: '12px' }}>
-						<Trash2 />
+						<Trash2 size={16} className="text-red-600" />
 					</div>
 					<div className="flex-1">
 						<h3 className="text-base font-medium text-gray-900">
@@ -131,21 +131,21 @@ const LayoutDropdownMenu = ({
 						<p className="text-base text-gray-600">
 							{__("Are you sure you want to delete this layout?", "header-footer-elementor")}
 						</p>
-						<div className="flex gap-2">
+						<div className="flex gap-2 mt-3">
 							<button
 								onClick={() => {
 									toast.dismiss(t.id);
 									performDeleteLayout(item);
 								}}
-								style={{ backgroundColor: '#000'}}
-								className="px-3 py-1.5 text-white text-sm font-medium rounded-md focus:outline-none"
+								style={{ backgroundColor: '#dc2626'}}
+								className="px-3 py-1.5 text-white text-sm font-medium rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
 							>
 								{__("Delete", "header-footer-elementor")}
 							</button>
 							<button
-								style={{ backgroundColor: '#000'}}
+								style={{ backgroundColor: '#6b7280'}}
 								onClick={() => toast.dismiss(t.id)}
-								className="px-3 py-1.5 text-white text-sm font-medium rounded-md  focus:outline-none"
+								className="px-3 py-1.5 text-white text-sm font-medium rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
 							>
 								{__("Cancel", "header-footer-elementor")}
 							</button>
@@ -165,9 +165,6 @@ const LayoutDropdownMenu = ({
                 boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
                 padding: '0',
                 maxWidth: '400px',
-                top: 20,
-                right: 20,
-                marginTop: '40px',
                 zIndex: 999999,
             },
         });
@@ -228,9 +225,10 @@ const LayoutDropdownMenu = ({
 	};
 
 	/**
-	 * Handle deleting a layout (show confirmation toast)
+	 * Handle deleting a layout (show confirmation toast immediately)
 	 */
 	const handleDeleteLayout = (item) => {
+		// Show confirmation immediately - no async/await needed
 		showDeleteConfirmation(item);
 	};
 
@@ -249,7 +247,11 @@ const LayoutDropdownMenu = ({
 							{/* Copy Shortcode - Only show if enabled */}
 							{showShortcode && (
 								<DropdownMenu.Item
-									onClick={() => handleCopyShortcode(item)}
+									onClick={(e) => {
+										e.preventDefault();
+										e.stopPropagation();
+										handleCopyShortcode(item);
+									}}
 								>
 									{__(
 										"Copy Shortcode",
@@ -261,7 +263,11 @@ const LayoutDropdownMenu = ({
 							{/* Publish/Disable based on current status */}
 							{item.post_status === "draft" ? (
 								<DropdownMenu.Item
-									onClick={() => handlePublishLayout(item)}
+									onClick={(e) => {
+										e.preventDefault();
+										e.stopPropagation();
+										handlePublishLayout(item);
+									}}
 								>
 									{__(
 										"Publish",
@@ -270,7 +276,11 @@ const LayoutDropdownMenu = ({
 								</DropdownMenu.Item>
 							) : (
 								<DropdownMenu.Item
-									onClick={() => handleDisableLayout(item)}
+									onClick={(e) => {
+										e.preventDefault();
+										e.stopPropagation();
+										handleDisableLayout(item);
+									}}
 								>
 									{__(
 										"Disable",
@@ -281,7 +291,12 @@ const LayoutDropdownMenu = ({
 							
 							{/* Delete */}
 							<DropdownMenu.Item
-								onClick={() => handleDeleteLayout(item)}
+								onClick={(e) => {
+									e.preventDefault();
+									e.stopPropagation();
+									// Call immediately without any delay
+									handleDeleteLayout(item);
+								}}
 							>
 								{__(
 									"Delete",

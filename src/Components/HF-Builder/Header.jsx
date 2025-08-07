@@ -17,6 +17,24 @@ const Header = ({
 	const [hasHeaders, setHasHeaders] = useState(false);
 	const [isLoading, setIsLoading] = useState(true);
 
+	// Add custom styles for toast positioning
+	useEffect(() => {
+		const style = document.createElement('style');
+		style.textContent = `
+			.toast-confirmation {
+				z-index: 999999 !important;
+			}
+			.toast-confirmation > div {
+				max-width: 400px !important;
+			}
+		`;
+		document.head.appendChild(style);
+		
+		return () => {
+			document.head.removeChild(style);
+		};
+	}, []);
+
 	useEffect(() => {
 		// Fetch the target rule options when component mounts
 		apiFetch({
@@ -50,7 +68,7 @@ const Header = ({
 			path: "/hfe/v1/create-layout",
 			method: "POST",
 			data: {
-				title: "My Custom Layout",
+				title: "My Custom Header",
 				type: "header",
 			},
 		})
@@ -69,12 +87,32 @@ const Header = ({
 
 					// Open display conditions dialog for NEW post
 					openDisplayConditionsDialog(updatedItem, true); // Pass true for isNew
+
+					// Show success toast
+					toast.success(
+						__(
+							"Header layout created successfully!",
+							"header-footer-elementor",
+						),
+					);
 				} else {
 					console.error("Failed to create post:", response);
+					toast.error(
+						__(
+							"Failed to create header layout. Please try again.",
+							"header-footer-elementor",
+						),
+					);
 				}
 			})
 			.catch((error) => {
 				console.error("Error creating post:", error);
+				toast.error(
+					__(
+						"Error creating header layout. Please try again.",
+						"header-footer-elementor",
+					),
+				);
 			});
 	};
 
@@ -105,8 +143,9 @@ const Header = ({
 	};
 
 	const handleEditWithElementor = (item) => {
-		// Open the edit dialog
-		// openDisplayConditionsDialog(item);
+		// Redirect to Elementor editor
+		const elementorEditUrl = `${window.location.origin}/wp-admin/post.php?post=${item.id}&action=elementor`;
+		window.open(elementorEditUrl, "_blank");
 	};
 
 	// Show loading state while fetching data
@@ -126,6 +165,34 @@ const Header = ({
 
 				{/* Render the Display Conditions Dialog from HOC */}
 				<DisplayConditionsDialog />
+
+				{/* React Hot Toast Notifications */}
+				<Toaster
+					position="top-right"
+					reverseOrder={false}
+					gutter={8}
+					containerStyle={{
+						top: 20,
+						right: 20,
+						marginTop: '40px',
+					}}
+					toastOptions={{
+						duration: 1000,
+						style: {
+							background: 'white',
+						},
+						success: {
+							duration: 2000,
+							style: {
+								color: '',
+							},
+							iconTheme: {
+								primary: '#6005ff',
+								secondary: '#fff',
+							},
+						},
+					}}
+				/>
 			</>
 		);
 	}
@@ -148,6 +215,34 @@ const Header = ({
 
 				{/* Render the Display Conditions Dialog from HOC */}
 				<DisplayConditionsDialog />
+
+				{/* React Hot Toast Notifications */}
+				<Toaster
+					position="top-right"
+					reverseOrder={false}
+					gutter={8}
+					containerStyle={{
+						top: 20,
+						right: 20,
+						marginTop: '40px',
+					}}
+					toastOptions={{
+						duration: 1000,
+						style: {
+							background: 'white',
+						},
+						success: {
+							duration: 2000,
+							style: {
+								color: '',
+							},
+							iconTheme: {
+								primary: '#6005ff',
+								secondary: '#fff',
+							},
+						},
+					}}
+				/>
 			</>
 		);
 	} else {
