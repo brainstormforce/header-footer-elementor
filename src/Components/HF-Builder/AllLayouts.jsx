@@ -31,7 +31,7 @@ const AllLayouts = ({
 
 	// Add custom styles for toast positioning
 	useEffect(() => {
-		const style = document.createElement('style');
+		const style = document.createElement("style");
 		style.textContent = `
 			.toast-confirmation {
 				z-index: 999999 !important;
@@ -41,7 +41,7 @@ const AllLayouts = ({
 			}
 		`;
 		document.head.appendChild(style);
-		
+
 		return () => {
 			document.head.removeChild(style);
 		};
@@ -152,33 +152,38 @@ const AllLayouts = ({
 	}, []);
 
 	const handleCreateLayout = (item) => {
+		console.log(item);
 		if (!item.id) {
 			apiFetch({
 				path: "/hfe/v1/create-layout",
 				method: "POST",
 				data: {
-					title: `My Custom ${item.title}`,
+					title: `UAE ${item.title}`,
 					type: item.name,
 				},
 			})
 				.then((response) => {
 					if (response.success && response.post_id) {
 						// Create the new layout item with the response data
+
 						const newLayoutItem = {
 							id: response.post_id,
-							title: `My Custom ${item.title}`,
+							title: `${response.post["title"]}`,
 							name: item.name,
 							template_type: item.template_type,
-							post_status: 'draft', // or whatever status is returned
+							post_status: "draft", // or whatever status is returned
 							// Add any other properties that might be needed
 						};
 
 						// Update the layoutItems state to include the new item
-						setlLayoutItems(prevItems => [...prevItems, newLayoutItem]);
-						
+						setlLayoutItems((prevItems) => [
+							...prevItems,
+							newLayoutItem,
+						]);
+
 						// Update hasLayoutItems to true since we now have items
 						setHasLayoutItems(true);
-						
+
 						// Hide dummy cards and clear localStorage
 						setShowDummyCards(false);
 						localStorage.removeItem("hfe_showDummyCards");
@@ -188,7 +193,14 @@ const AllLayouts = ({
 
 						// For custom blocks, redirect to Elementor editor
 						if (item.template_type === "custom") {
-                            refreshLayoutData();
+							// Get the edit URL from the response or construct it
+							const editUrl = response.edit_url || response.post.edit_url || 
+								`${window.location.origin}/wp-admin/post.php?post=${response.post_id}&action=elementor`;
+
+							// Open in new tab
+							window.open(editUrl, "_blank");
+							
+							refreshLayoutData();
 						} else {
 							// Open display conditions dialog using HOC function with isNew flag
 							openDisplayConditionsDialog(updatedItem, true);
@@ -223,8 +235,8 @@ const AllLayouts = ({
 		} else {
 			// Post already exists, open dialog directly
 			if (item.template_type === "custom") {
-				// Redirect to Elementor editor for existing custom blocks
-				const elementorEditUrl = `${window.location.origin}/wp-admin/post.php?post=${item.id}&action=elementor`;
+				// Use edit_url from item data if available, otherwise construct it
+				const elementorEditUrl = item.edit_url || `${window.location.origin}/wp-admin/post.php?post=${item.id}&action=elementor`;
 				window.open(elementorEditUrl, "_blank");
 			} else {
 				openDisplayConditionsDialog(item, false);
@@ -244,21 +256,19 @@ const AllLayouts = ({
 	 * Handle item updates from dropdown menu and inline editor
 	 */
 	const handleItemUpdate = (itemId, updates) => {
-        setlLayoutItems(prevItems => 
-            prevItems.map(item => 
-                item.id === itemId 
-                    ? { ...item, ...updates }
-                    : item
-            )
-        );
-    };
+		setlLayoutItems((prevItems) =>
+			prevItems.map((item) =>
+				item.id === itemId ? { ...item, ...updates } : item,
+			),
+		);
+	};
 
 	/**
 	 * Handle item deletion from dropdown menu
 	 */
 	const handleItemDelete = (itemId) => {
-		setlLayoutItems(prevItems => {
-			const updatedItems = prevItems.filter(item => item.id !== itemId);
+		setlLayoutItems((prevItems) => {
+			const updatedItems = prevItems.filter((item) => item.id !== itemId);
 			// Update hasLayoutItems state if no items left
 			if (updatedItems.length === 0) {
 				setHasLayoutItems(false);
@@ -285,32 +295,32 @@ const AllLayouts = ({
 				<DisplayConditionsDialog />
 
 				{/* React Hot Toast Notifications */}
-				    <Toaster
-                            position="top-right"
-                            reverseOrder={false}
-                            gutter={8}
-                            containerStyle={{
-                                top: 20,
-                                right: 20,
-                                marginTop: '40px',
-                            }}
-                            toastOptions={{
-                                duration: 1000,
-                                style: {
-                                    background: 'white',
-                                },
-                                success: {
-                                    duration: 2000,
-                                    style: {
-                                        color: '',
-                                    },
-                                    iconTheme: {
-                                        primary: '#6005ff',
-                                        secondary: '#fff',
-                                    },
-                                },
-                            }}
-                        />
+				<Toaster
+					position="top-right"
+					reverseOrder={false}
+					gutter={8}
+					containerStyle={{
+						top: 20,
+						right: 20,
+						marginTop: "40px",
+					}}
+					toastOptions={{
+						duration: 1000,
+						style: {
+							background: "white",
+						},
+						success: {
+							duration: 2000,
+							style: {
+								color: "",
+							},
+							iconTheme: {
+								primary: "#6005ff",
+								secondary: "#fff",
+							},
+						},
+					}}
+				/>
 			</>
 		);
 	}
@@ -328,7 +338,10 @@ const AllLayouts = ({
 							className="flex items-start gap-10 justify-between"
 							style={{ padding: "0 40px", marginBottom: "10px" }}
 						>
-							<h2 className="text-base font-medium text-foreground" style={{ marginLeft: "-10px" }}>
+							<h2
+								className="text-base font-medium text-foreground"
+								style={{ marginLeft: "-10px" }}
+							>
 								{__(
 									"Choose Layout Type",
 									"header-footer-elementor",
@@ -353,9 +366,9 @@ const AllLayouts = ({
 							className="grid grid-cols-1 md:grid-cols-2 gap-6"
 							style={{ paddingLeft: "30px" }}
 						>
-							{dummyLayoutTypes.map((layoutType) => (
+							{dummyLayoutTypes.map((layoutItem) => (
 								<div
-									key={layoutType.name}
+									key={layoutItem.name}
 									className="border bg-background-primary border-gray-200 p-2 rounded-lg cursor-pointer overflow-hidden flex flex-col group relative shadow-sm hover:shadow-md transition-shadow duration-200"
 									onMouseEnter={(e) => {
 										const overlay =
@@ -385,8 +398,8 @@ const AllLayouts = ({
 								>
 									<div className="relative h-60 w-full">
 										<img
-											src={layoutType.image}
-											alt={`${layoutType.title} Layout`}
+											src={layoutItem.image}
+											alt={`${layoutItem.title} Layout`}
 											style={{ height: "220px" }}
 											className="w-full object-cover"
 										/>
@@ -432,12 +445,12 @@ const AllLayouts = ({
 												}}
 												onClick={() =>
 													handleCreateLayout(
-														layoutType,
+														layoutItem,
 													)
 												}
 											>
 												{__(
-													`Create ${layoutType.title}`,
+													`Create ${layoutItem.title}`,
 													"header-footer-elementor",
 												)}
 											</Button>
@@ -454,7 +467,7 @@ const AllLayouts = ({
 										/>
 										<div className="flex items-center justify-between px-1">
 											<p className="text-sm font-medium text-gray-900">
-												{layoutType.title}
+												{layoutItem.title}
 											</p>
 										</div>
 									</div>
@@ -467,32 +480,32 @@ const AllLayouts = ({
 					<DisplayConditionsDialog />
 
 					{/* React Hot Toast Notifications */}
-				   <Toaster
-                            position="top-right"
-                            reverseOrder={false}
-                            gutter={8}
-                            containerStyle={{
-                                top: 20,
-                                right: 20,
-                                marginTop: '40px',
-                            }}
-                            toastOptions={{
-                                duration: 1000,
-                                style: {
-                                    background: 'white',
-                                },
-                                success: {
-                                    duration: 2000,
-                                    style: {
-                                        color: '',
-                                    },
-                                    iconTheme: {
-                                        primary: '#6005ff',
-                                        secondary: '#fff',
-                                    },
-                                },
-                            }}
-                        />
+					<Toaster
+						position="top-right"
+						reverseOrder={false}
+						gutter={8}
+						containerStyle={{
+							top: 20,
+							right: 20,
+							marginTop: "40px",
+						}}
+						toastOptions={{
+							duration: 1000,
+							style: {
+								background: "white",
+							},
+							success: {
+								duration: 2000,
+								style: {
+									color: "",
+								},
+								iconTheme: {
+									primary: "#6005ff",
+									secondary: "#fff",
+								},
+							},
+						}}
+					/>
 				</>
 			);
 		}
@@ -520,35 +533,38 @@ const AllLayouts = ({
 				<DisplayConditionsDialog />
 
 				{/* React Hot Toast Notifications */}
-				    <Toaster
-                            position="top-right"
-                            reverseOrder={false}
-                            gutter={8}
-                            containerStyle={{
-                                top: 20,
-                                right: 20,
-                                marginTop: '40px',
-                            }}
-                            toastOptions={{
-                                duration: 1000,
-                                style: {
-                                    background: 'white',
-                                },
-                                success: {
-                                    duration: 2000,
-                                    style: {
-                                        color: '',
-                                    },
-                                    iconTheme: {
-                                        primary: '#6005ff',
-                                        secondary: '#fff',
-                                    },
-                                },
-                            }}
-                        />
+				<Toaster
+					position="top-right"
+					reverseOrder={false}
+					gutter={8}
+					containerStyle={{
+						top: 20,
+						right: 20,
+						marginTop: "40px",
+					}}
+					toastOptions={{
+						duration: 1000,
+						style: {
+							background: "white",
+						},
+						success: {
+							duration: 2000,
+							style: {
+								color: "",
+							},
+							iconTheme: {
+								primary: "#6005ff",
+								secondary: "#fff",
+							},
+						},
+					}}
+				/>
 			</>
 		);
-	} else {
+	}
+
+	// Show dummy cards when user clicks "Create Layout" even if layouts exist
+	if (showDummyCards) {
 		return (
 			<>
 				<div
@@ -560,46 +576,247 @@ const AllLayouts = ({
 						style={{ padding: "0 40px", marginBottom: "10px" }}
 					>
 						<h2
-							className="text-lg font-medium text-foreground"
+							className="text-lg font-semibold text-foreground"
 							style={{ marginLeft: "-10px" }}
 						>
 							{__(
-								"Start customising Your Header & Footer",
+								"Choose Layout Type",
 								"header-footer-elementor",
 							)}
 						</h2>
-						{/* <Button
-                                iconPosition="left"
-                                icon={<Plus />}
-                                variant="primary"
-                                className="bg-[#6005FF] font-light flex items-center justify-center hfe-remove-ring"
-                                style={{
-                                    backgroundColor: "#6005FF",
-                                    transition: "background-color 0.3s ease",
-                                    outline: "none",
-                                }}
-                                onMouseEnter={(e) =>
-                                    (e.currentTarget.style.backgroundColor = "#4B00CC")
-                                }
-                                onMouseLeave={(e) =>
-                                    (e.currentTarget.style.backgroundColor = "#6005FF")
-                                }
-                                onClick={() => {
-                                    window.open("", "_blank");
-                                }}
-                            >
-                                {__("Create Layout", "header-footer-elementor")}
-                            </Button> */}
-					</div>
-                    	<hr
-							className="border-b-0 border-x-0 border-t border-solid border-t-border-transparent-subtle"
+						<Button
+							variant="secondary"
+							className="text-sm"
 							style={{
-								marginTop: "10px",
-								marginBottom: "15px",
-                                width: '92%'
-								// borderColor: "#E5E7EB",
+								outline: "none",
+								border: "1px solid #ccc",
+								boxShadow: "none",
 							}}
-						/>
+							onFocus={(e) => {
+								e.currentTarget.style.outline = "none";
+								e.currentTarget.style.boxShadow = "none";
+							}}
+							onClick={() => {
+								setShowDummyCards(false);
+								// Clear the localStorage when going back
+								localStorage.removeItem("hfe_showDummyCards");
+							}}
+						>
+							{__("Back", "header-footer-elementor")}
+						</Button>
+					</div>
+
+					<div
+						className="grid grid-cols-1 md:grid-cols-2 gap-6"
+						style={{ paddingLeft: "30px" }}
+					>
+						{dummyLayoutTypes.map((layoutItem) => (
+							<div
+								key={layoutItem.name}
+								className="border bg-background-primary border-gray-200 p-2 rounded-lg cursor-pointer overflow-hidden flex flex-col group relative shadow-sm hover:shadow-md transition-shadow duration-200"
+								onMouseEnter={(e) => {
+									const overlay =
+										e.currentTarget.querySelector(
+											".hover-overlay",
+										);
+									if (overlay) {
+										overlay.style.opacity = "1";
+										overlay.style.visibility = "visible";
+										overlay.style.transform =
+											"translateY(0)";
+									}
+								}}
+								onMouseLeave={(e) => {
+									const overlay =
+										e.currentTarget.querySelector(
+											".hover-overlay",
+										);
+									if (overlay) {
+										overlay.style.opacity = "0";
+										overlay.style.visibility = "hidden";
+										overlay.style.transform =
+											"translateY(10px)";
+									}
+								}}
+							>
+								<div className="relative h-60 w-full">
+									<img
+										src={layoutItem.image}
+										alt={`${layoutItem.title} Layout`}
+										style={{ height: "220px" }}
+										className="w-full object-cover"
+									/>
+
+									<div
+										className="hover-overlay absolute inset-0 flex items-center gap-2 justify-center rounded-lg overflow-hidden backdrop-blur-sm transition-all duration-500 ease-in-out z-30"
+										style={{
+											backgroundColor:
+												"rgba(0, 0, 0, 0.4)",
+											opacity: "0",
+											visibility: "hidden",
+											transform: "translateY(10px)",
+										}}
+									>
+										<Button
+											iconPosition="left"
+											icon={<Plus size={14} />}
+											variant="primary"
+											className="bg-[#6005FF] font-medium text-white hfe-remove-ring z-50"
+											style={{
+												backgroundColor:
+													"#6005FF !important",
+												fontSize: "12px",
+												fontWeight: "600",
+												padding: "8px 8px",
+												borderRadius: "6px",
+												transition: "all 0.2s ease",
+												outline: "none",
+												transform: "scale(0.95)",
+												opacity: "1",
+											}}
+											onMouseEnter={(e) => {
+												e.currentTarget.style.backgroundColor =
+													"#4B00CC";
+												e.currentTarget.style.transform =
+													"scale(1)";
+											}}
+											onMouseLeave={(e) => {
+												e.currentTarget.style.backgroundColor =
+													"#6005FF";
+												e.currentTarget.style.transform =
+													"scale(0.95)";
+											}}
+											onClick={() =>
+												handleCreateLayout(layoutItem)
+											}
+										>
+											{__(
+												`Create ${layoutItem.title}`,
+												"header-footer-elementor",
+											)}
+										</Button>
+									</div>
+								</div>
+								<div className="">
+									<hr
+										className="w-full border-b-0 border-x-0 border-t border-solid border-t-border-subtle"
+										style={{
+											// marginTop: "8px",
+											// marginBottom: "8px",
+											borderColor: "#E5E7EB",
+										}}
+									/>
+									<div className="flex items-center justify-between px-1">
+										<p className="text-sm font-medium text-gray-900">
+											{layoutItem.title}
+										</p>
+									</div>
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+
+				{/* Render the Display Conditions Dialog from HOC */}
+				<DisplayConditionsDialog />
+
+				{/* React Hot Toast Notifications */}
+				<Toaster
+					position="top-right"
+					reverseOrder={false}
+					gutter={8}
+					containerStyle={{
+						top: 20,
+						right: 20,
+						marginTop: "40px",
+					}}
+					toastOptions={{
+						duration: 1000,
+						style: {
+							background: "white",
+						},
+						success: {
+							duration: 2000,
+							style: {
+								color: "",
+							},
+							iconTheme: {
+								primary: "#6005ff",
+								secondary: "#fff",
+							},
+						},
+					}}
+				/>
+			</>
+		);
+	}
+
+	// Show existing layouts
+	else {
+		return (
+			<>
+				<div
+					className=""
+					style={{ paddingLeft: "40px", paddingRight: "40px" }}
+				>
+					<div
+						className="flex items-start gap-10 justify-between"
+						style={{ padding: "0 40px", marginBottom: "10px" }}
+					>
+						<h2
+							className="text-lg font-semibold text-foreground"
+							style={{ marginLeft: "-10px" }}
+						>
+							{__(
+								"Start Customising Your Header & Footer",
+								"header-footer-elementor",
+							)}
+						</h2>
+						<Button
+							iconPosition="left"
+							icon={<Plus />}
+							variant="primary"
+							className="bg-[#6005FF] font-light flex items-center justify-center hfe-remove-ring"
+							style={{
+								backgroundColor: "#6005FF",
+								transition: "background-color 0.3s ease",
+								outline: "none",
+							}}
+							onMouseEnter={(e) =>
+								(e.currentTarget.style.backgroundColor =
+									"#4B00CC")
+							}
+							onMouseLeave={(e) =>
+								(e.currentTarget.style.backgroundColor =
+									"#6005FF")
+							}
+							onClick={() => {
+								console.log("Create Layout button clicked");
+								console.log(
+									"Current showDummyCards:",
+									showDummyCards,
+								);
+								setShowDummyCards(true);
+								localStorage.setItem(
+									"hfe_showDummyCards",
+									JSON.stringify(true),
+								);
+								console.log("Set showDummyCards to true");
+							}}
+						>
+							{__("Create Layout", "header-footer-elementor")}
+						</Button>
+					</div>
+					<hr
+						className="border-b-0 border-x-0 border-t border-solid border-t-border-transparent-subtle"
+						style={{
+							marginTop: "10px",
+							marginBottom: "15px",
+							width: "96%",
+							marginLeft: "32px",
+							// borderColor: "#E5E7EB",
+						}}
+					/>
 
 					<div
 						className="grid grid-cols-1 md:grid-cols-2 gap-6"
@@ -652,48 +869,52 @@ const AllLayouts = ({
 											transform: "translateY(10px)",
 										}}
 									>
-                                        {item.template_type === "custom" ? 
-                                        <Button
-											iconPosition="left"
-											icon={
-												item.name !== "Custom Block" ? (
-													<Copy size={14} />
-												) : null
-											}
-											variant="primary"
-											className="font-medium text-black hfe-remove-ring z-50"
-											style={{
-												backgroundColor:
-													"white",
-												fontSize: "12px",
-												fontWeight: "600",
-												padding: "8px 8px",
-												borderRadius: "6px",
-												transition: "all 0.2s ease",
-												outline: "none",
-												transform: "scale(0.95)",
-												opacity: "1",
-											}}
-											onMouseEnter={(e) => {
-												e.currentTarget.style.backgroundColor =
-													"white";
-												e.currentTarget.style.transform =
-													"scale(1)";
-											}}
-											onMouseLeave={(e) => {
-												e.currentTarget.style.backgroundColor =
-													"white";
-												e.currentTarget.style.transform =
-													"scale(0.95)";
-											}}
-											onClick={() => handleCopyShortcode(item)}
-										>
-                                            {__(
+										{item.template_type === "custom" ? (
+											<Button
+												iconPosition="left"
+												icon={
+													item.name !==
+													"Custom Block" ? (
+														<Copy size={14} />
+													) : null
+												}
+												variant="primary"
+												className="font-medium text-black hfe-remove-ring z-50"
+												style={{
+													backgroundColor: "white",
+													fontSize: "12px",
+													fontWeight: "600",
+													padding: "8px 8px",
+													borderRadius: "6px",
+													transition: "all 0.2s ease",
+													outline: "none",
+													transform: "scale(0.95)",
+													opacity: "1",
+												}}
+												onMouseEnter={(e) => {
+													e.currentTarget.style.backgroundColor =
+														"white";
+													e.currentTarget.style.transform =
+														"scale(1)";
+												}}
+												onMouseLeave={(e) => {
+													e.currentTarget.style.backgroundColor =
+														"white";
+													e.currentTarget.style.transform =
+														"scale(0.95)";
+												}}
+												onClick={() =>
+													handleCopyShortcode(item)
+												}
+											>
+												{__(
 													`Copy Shortcode`,
 													"header-footer-elementor",
 												)}
-										</Button>
-                                        : ''}
+											</Button>
+										) : (
+											""
+										)}
 										<Button
 											iconPosition="left"
 											icon={
@@ -730,7 +951,7 @@ const AllLayouts = ({
 											onClick={() => {
 												// For existing layouts, open in Elementor editor
 												if (item.id) {
-													const elementorEditUrl = `${window.location.origin}/wp-admin/post.php?post=${item.id}&action=elementor`;
+                                                    const elementorEditUrl = `${window.location.origin}/wp-admin/post.php?post=${item.id}&action=elementor`;
 													window.open(
 														elementorEditUrl,
 														"_blank",
@@ -851,13 +1072,13 @@ const AllLayouts = ({
 										}}
 									/>
 									<div className="flex items-center justify-between px-1">
-										<InlineTitleEditor 
+										<InlineTitleEditor
 											item={item}
 											onTitleUpdate={handleItemUpdate}
 											showDraftStatus={true}
 											alwaysShowIcon={true}
 										/>
-										<LayoutDropdownMenu 
+										<LayoutDropdownMenu
 											item={item}
 											onItemUpdate={handleItemUpdate}
 											onItemDelete={handleItemDelete}
@@ -874,32 +1095,32 @@ const AllLayouts = ({
 				<DisplayConditionsDialog />
 
 				{/* React Hot Toast Notifications */}
-				    <Toaster
-                            position="top-right"
-                            reverseOrder={false}
-                            gutter={8}
-                            containerStyle={{
-                                top: 20,
-                                right: 20,
-                                marginTop: '40px',
-                            }}
-                            toastOptions={{
-                                duration: 1000,
-                                style: {
-                                    background: 'white',
-                                },
-                                success: {
-                                    duration: 2000,
-                                    style: {
-                                        color: '',
-                                    },
-                                    iconTheme: {
-                                        primary: '#6005ff',
-                                        secondary: '#fff',
-                                    },
-                                },
-                            }}
-                        />
+				<Toaster
+					position="top-right"
+					reverseOrder={false}
+					gutter={8}
+					containerStyle={{
+						top: 20,
+						right: 20,
+						marginTop: "40px",
+					}}
+					toastOptions={{
+						duration: 1000,
+						style: {
+							background: "white",
+						},
+						success: {
+							duration: 2000,
+							style: {
+								color: "",
+							},
+							iconTheme: {
+								primary: "#6005ff",
+								secondary: "#fff",
+							},
+						},
+					}}
+				/>
 			</>
 		);
 	}

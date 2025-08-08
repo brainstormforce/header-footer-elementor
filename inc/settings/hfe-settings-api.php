@@ -453,12 +453,21 @@ class HFE_Settings_Api {
 		}else{
 			$type = strtolower($type);
 		}
-		
+
 		$post_id = wp_insert_post( [
 			'post_title'  => $title,
 			'post_type'   => 'elementor-hf',
 			'post_status' => 'draft',
 		] );
+
+		// Update title to include post ID (e.g., "UAE Something #123")
+		$updated_title = $title . ' #' . $post_id;
+
+		wp_update_post( [
+			'ID'         => $post_id,
+			'post_title' => $updated_title,
+		] );
+
 		update_post_meta($post_id, 'ehf_template_type', $type);
 	
 		if ( is_wp_error( $post_id ) ) {
@@ -467,14 +476,19 @@ class HFE_Settings_Api {
 				'message' => 'Failed to create post.',
 			], 500 );
 		}
-	
+
+		// Generate Elementor edit URL
+		$edit_url = admin_url( 'post.php?post=' . $post_id . '&action=elementor' );
+
 		return new WP_REST_Response( [
 			'success' => true,
 			'post_id' => $post_id,
+			'edit_url' => $edit_url,
 			'post'    => [
 				'id' => $post_id,
-				'title'=> $title,
+				'title'=> $updated_title,
 				'post_status' => 'draft',
+				'edit_url' => $edit_url,
 			],
 		], 200 );
 	}
@@ -510,11 +524,13 @@ class HFE_Settings_Api {
 		if ( $query->have_posts() ) {
 			while ( $query->have_posts() ) {
 				$query->the_post();
+				$post_id = get_the_ID();
 				$posts[] = [
-					'id'    => get_the_ID(),
+					'id'    => $post_id,
 					'title' => get_the_title(),
-					'template_type' => get_post_meta(get_the_ID(), 'ehf_template_type', true),
+					'template_type' => get_post_meta($post_id, 'ehf_template_type', true),
 					'post_status' => get_post_status(),
+					'edit_url' => admin_url( 'post.php?post=' . $post_id . '&action=elementor' ),
 				];
 			}
 			wp_reset_postdata();

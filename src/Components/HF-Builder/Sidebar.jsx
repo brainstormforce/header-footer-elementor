@@ -115,17 +115,61 @@ const Sidebar = () => {
 		return true;
 	});
 
-	// Default state: Set 'My Account' (first item) as the default when the settings tab is clicked
+	// Default state: Always set 'All Layouts' (id: 1) as the default when the Header & Footer nav is clicked
 	const [selectedItem, setSelectedItem] = useState(() => {
+		// Check if we're on the Header & Footer page
+		const currentPath = window.location.hash;
+		if (currentPath.includes('hfb')) {
+			// Clear any saved selection for fresh start on Header & Footer page
+			localStorage.removeItem("hfeSelectedItemId");
+			// Always default to "All Layouts" (first item with id: 1)
+			const allLayoutsItem = items.find((item) => item.id === 1);
+			return allLayoutsItem || items[0];
+		}
+		
+		// For other pages, use saved selection or default to All Layouts
 		const savedItemId = localStorage.getItem("hfeSelectedItemId");
 		const savedItem = items.find((item) => item.id === Number(savedItemId));
-		return savedItem || items[0]; // Default to the first item if no saved item is found
+		const allLayoutsItem = items.find((item) => item.id === 1);
+		return savedItem || allLayoutsItem || items[0];
 	});
 
 	useEffect(() => {
 		// Store selectedItemId in localStorage (or other persistent storage) to retain selection
 		localStorage.setItem("hfeSelectedItemId", selectedItem.id.toString());
 	}, [selectedItem]);
+
+	// Reset to All Layouts when the component mounts (when Header & Footer nav is clicked)
+	useEffect(() => {
+		const allLayoutsItem = items.find((item) => item.id === 1);
+		if (allLayoutsItem) {
+			setSelectedItem(allLayoutsItem);
+		}
+
+		// Listen for hash changes to reset to All Layouts when Header & Footer nav is clicked
+		const handleHashChange = () => {
+			const currentPath = window.location.hash;
+			if (currentPath.includes('hfb')) {
+				const allLayoutsItem = items.find((item) => item.id === 1);
+				if (allLayoutsItem) {
+					setSelectedItem(allLayoutsItem);
+					// Clear any saved selection to ensure fresh start
+					localStorage.removeItem("hfeSelectedItemId");
+				}
+			}
+		};
+
+		// Add event listener for hash changes
+		window.addEventListener('hashchange', handleHashChange);
+
+		// Check current hash on mount
+		handleHashChange();
+
+		// Cleanup event listener
+		return () => {
+			window.removeEventListener('hashchange', handleHashChange);
+		};
+	}, []); // Empty dependency array means this runs once when component mounts
 
 	useEffect(() => {
 		const params = new URLSearchParams(window.location.search);
@@ -144,7 +188,8 @@ const Sidebar = () => {
 	};
 
 	const handleSettingsTabClick = () => {
-		setSelectedItem(items[0]); // Set "My Account" as the default item when settings tab is clicked
+		const allLayoutsItem = items.find((item) => item.id === 1);
+		setSelectedItem(allLayoutsItem || items[0]); // Set "All Layouts" as the default item when Header & Footer nav is clicked
 	};
 
 	return (

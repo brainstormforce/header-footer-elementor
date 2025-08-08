@@ -18,7 +18,7 @@ const CustomBlock = () => {
 
 	// Add custom styles for toast positioning
 	useEffect(() => {
-		const style = document.createElement('style');
+		const style = document.createElement("style");
 		style.textContent = `
 			.toast-confirmation {
 				z-index: 999999 !important;
@@ -28,7 +28,7 @@ const CustomBlock = () => {
 			}
 		`;
 		document.head.appendChild(style);
-		
+
 		return () => {
 			document.head.removeChild(style);
 		};
@@ -69,21 +69,18 @@ const CustomBlock = () => {
 			path: "/hfe/v1/create-layout",
 			method: "POST",
 			data: {
-				title: "My Custom Block",
+				title: "UAE Custom Block",
 				type: "custom",
 			},
 		})
 			.then((response) => {
 				if (response.success && response.post) {
 					// Get the edit URL from the response or construct it
-					const editUrl = response.edit_url || response.post.edit_url;
+					const editUrl = response.edit_url || response.post.edit_url || 
+						`${window.location.origin}/wp-admin/post.php?post=${response.post.id}&action=elementor`;
 
-					if (editUrl) {
-						// Redirect to edit with Elementor
-						window.open(editUrl, "_blank");
-					} else {
-						console.error("No edit URL provided in response");
-					}
+					// Open in new tab
+					window.open(editUrl, "_blank");
 
 					// Show success toast
 					toast.success(
@@ -144,8 +141,8 @@ const CustomBlock = () => {
 	};
 
 	const handleEditWithElementor = (item) => {
-		// Redirect to edit with Elementor
-		const elementorEditUrl = `${window.location.origin}/wp-admin/post.php?post=${item.id}&action=elementor`;
+		// Use edit_url from API response if available, otherwise construct it
+		const elementorEditUrl = item.edit_url || `${window.location.origin}/wp-admin/post.php?post=${item.id}&action=elementor`;
 		window.open(elementorEditUrl, "_blank");
 	};
 
@@ -193,21 +190,21 @@ const CustomBlock = () => {
 					containerStyle={{
 						top: 20,
 						right: 20,
-						marginTop: '40px',
+						marginTop: "40px",
 					}}
 					toastOptions={{
 						duration: 1000,
 						style: {
-							background: 'white',
+							background: "white",
 						},
 						success: {
 							duration: 2000,
 							style: {
-								color: '',
+								color: "",
 							},
 							iconTheme: {
-								primary: '#6005ff',
-								secondary: '#fff',
+								primary: "#6005ff",
+								secondary: "#fff",
 							},
 						},
 					}}
@@ -228,7 +225,7 @@ const CustomBlock = () => {
 						isCreating
 							? __("Creating...", "header-footer-elementor")
 							: __(
-									"Create Custom Block Layout",
+									"Create Custom Block",
 									"header-footer-elementor",
 							  )
 					}
@@ -245,21 +242,21 @@ const CustomBlock = () => {
 					containerStyle={{
 						top: 20,
 						right: 20,
-						marginTop: '40px',
+						marginTop: "40px",
 					}}
 					toastOptions={{
 						duration: 1000,
 						style: {
-							background: 'white',
+							background: "white",
 						},
 						success: {
 							duration: 2000,
 							style: {
-								color: '',
+								color: "",
 							},
 							iconTheme: {
-								primary: '#6005ff',
-								secondary: '#fff',
+								primary: "#6005ff",
+								secondary: "#fff",
 							},
 						},
 					}}
@@ -274,16 +271,59 @@ const CustomBlock = () => {
 					style={{ paddingLeft: "40px", paddingRight: "40px" }}
 				>
 					<div
-						className="flex items-start gap-10 justify-between"
+						className="flex items-center justify-between"
 						style={{ padding: "0 40px", marginBottom: "10px" }}
 					>
-						<h2 className="text-base font-normal text-foreground">
+						<h2
+							className="text-lg font-semibold text-foreground"
+							style={{ marginLeft: "-10px" }}
+						>
 							{__(
 								"Custom Block Templates",
 								"header-footer-elementor",
 							)}
 						</h2>
+						<Button
+							iconPosition="left"
+							icon={<Plus />}
+							variant="primary"
+							className="font-normal px-3 py-2 flex items-center justify-center hfe-remove-ring"
+							style={{
+								backgroundColor: "#6005FF",
+								transition: "background-color 0.3s ease",
+								outline: "none",
+								borderRadius: "4px",
+							}}
+							onMouseEnter={(e) =>
+								(e.currentTarget.style.backgroundColor =
+									"#4B00CC")
+							}
+							onMouseLeave={(e) =>
+								(e.currentTarget.style.backgroundColor =
+									"#6005FF")
+							}
+							onClick={handleCreateLayout}
+							disabled={isCreating}
+						>
+							{isCreating
+								? __("Creating...", "header-footer-elementor")
+								: __(
+										"Create Custom Block",
+										"header-footer-elementor",
+								  )}
+						</Button>
 					</div>
+
+					<hr
+						className="border-b-0 border-x-0 border-t border-solid border-t-border-transparent-subtle"
+						style={{
+							marginTop: "10px",
+							marginBottom: "15px",
+							width: "96%",
+							marginLeft: "32px",
+							// borderColor: "#E5E7EB",
+						}}
+					/>
 
 					<div
 						className="grid grid-cols-1 md:grid-cols-2 gap-6"
@@ -422,7 +462,7 @@ const CustomBlock = () => {
 										}}
 									/>
 									<div className="flex items-center justify-between px-1">
-										<InlineTitleEditor 
+										<InlineTitleEditor
 											item={item}
 											onTitleUpdate={handleItemUpdate}
 											showDraftStatus={true}
