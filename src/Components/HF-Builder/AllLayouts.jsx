@@ -812,7 +812,8 @@ const AllLayouts = ({
 						style={{
 							marginTop: "10px",
 							marginBottom: "15px",
-							width: "95%",
+							width: "96%",
+							marginLeft: "32px",
 							// borderColor: "#E5E7EB",
 						}}
 					/>

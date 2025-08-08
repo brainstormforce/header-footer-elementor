@@ -8,7 +8,7 @@ import {
 	House,
 	User,
 	ChevronRight,
-	TableOfContents,
+	AlignJustify,
 	X,
 } from "lucide-react";
 import { __ } from "@wordpress/i18n";
@@ -132,14 +132,19 @@ const NavBar = () => {
 					</Topbar.Middle>
 					<Topbar.Right className="mr-6">
 						<Link to={routes.headerFooterBuilder.path}>
-							<div className="flex cursor-pointer mr-6 items-center justify-center gap-1">
+							<div className="flex cursor-pointer mr-6 gap-2 items-center justify-center">
 								<span className="text-black text-sm">
 									Switch to Table View
 								</span>
+									<AlignJustify 
+									className="cursor-pointer hfe-user-icon"
+									style={{ color: "black" }}
+									size={16}
+								/>
 							</div>
 						</Link>
 						<Link to={routes.dashboard.path}>
-							<div className="flex cursor-pointer items-center justify-center gap-1">
+							<div className="flex cursor-pointer items-center justify-end gap-1" style={{ paddingLeft: "0.5rem" }}>
 								<span className="text-black text-sm">
 									Close
 								</span>
