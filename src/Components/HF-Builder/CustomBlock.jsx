@@ -274,7 +274,7 @@ const CustomBlock = () => {
 					style={{ paddingLeft: "40px", paddingRight: "40px" }}
 				>
 					<div
-						className="flex items-start gap-10 justify-between"
+						className="flex items-center justify-between"
 						style={{ padding: "0 40px", marginBottom: "10px" }}
 					>
 						<h2 className="text-lg font-semibold text-foreground" style={{ marginLeft: "-10px" }}>
@@ -283,6 +283,31 @@ const CustomBlock = () => {
 								"header-footer-elementor",
 							)}
 						</h2>
+						<Button
+							iconPosition="left"
+							icon={<Plus />}
+							variant="primary"
+							className="font-normal px-3 py-2 flex items-center justify-center hfe-remove-ring"
+							style={{
+								backgroundColor: "#6005FF",
+								transition: "background-color 0.3s ease",
+								outline: "none",
+								borderRadius: "4px",
+							}}
+							onMouseEnter={(e) =>
+								(e.currentTarget.style.backgroundColor = "#4B00CC")
+							}
+							onMouseLeave={(e) =>
+								(e.currentTarget.style.backgroundColor = "#6005FF")
+							}
+							onClick={handleCreateLayout}
+							disabled={isCreating}
+						>
+							{isCreating
+								? __("Creating...", "header-footer-elementor")
+								: __("Create Custom Block Layout", "header-footer-elementor")
+							}
+						</Button>
 					</div>
 
 						<hr
