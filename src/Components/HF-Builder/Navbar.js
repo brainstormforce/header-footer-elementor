@@ -94,7 +94,7 @@ const NavBar = () => {
 					</Topbar.Left>
 					<Topbar.Middle className="flex-grow" align="left">
 						<Topbar.Item>
-							<nav className="flex text-text-tertiary text-lg flex-wrap gap-2 mt-2 md:mt-0 cursor-pointer">
+							<nav className="flex text-text-tertiary text-sm flex-wrap gap-2 mt-2 md:mt-0 cursor-pointer">
 								<Link
 									to={routes.dashboard.path}
 									className={`${
@@ -139,7 +139,7 @@ const NavBar = () => {
 							</div>
 						</Link>
 						<Link to={routes.dashboard.path}>
-							<div className="flex cursor-pointer mr-3 items-center justify-center gap-1">
+							<div className="flex cursor-pointer items-center justify-center gap-1">
 								<span className="text-black text-sm">
 									Close
 								</span>

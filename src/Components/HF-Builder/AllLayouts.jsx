@@ -805,7 +805,7 @@ const AllLayouts = ({
 						style={{
 							marginTop: "10px",
 							marginBottom: "15px",
-							width: "92%",
+							width: "95%",
 							// borderColor: "#E5E7EB",
 						}}
 					/>
