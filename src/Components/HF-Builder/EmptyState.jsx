@@ -7,10 +7,10 @@ const EmptyState = ({
 	description, 
 	buttonText, 
 	onClick, 
-	className = "bg-white p-6 rounded-lg" 
+	className = "bg-white p-6 mx-auto rounded-lg" 
 }) => {
 	return (
-		<div className={className} style={{ height: '550px', marginLeft: '10px' }}>
+		<div className={className} style={{ marginLeft: "auto", marginRight: "auto", maxWidth: "800px", marginTop: "50px", height: '250px' }}>
 			<div className="flex flex-col items-center justify-center">
 				{/* Icon Container */}
 				<div className="">
