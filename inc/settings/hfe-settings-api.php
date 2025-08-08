@@ -458,17 +458,7 @@ class HFE_Settings_Api {
 			'post_type'   => 'elementor-hf',
 			'post_status' => 'draft',
 		] );
-
-		// Update title to include post ID (e.g., "UAE Something #123")
-		$updated_title = $title . ' #' . $post_id;
-
-		wp_update_post( [
-			'ID'         => $post_id,
-			'post_title' => $updated_title,
-		] );
-
-		update_post_meta($post_id, 'ehf_template_type', $type);
-	
+		
 		if ( is_wp_error( $post_id ) ) {
 			return new WP_REST_Response( [
 				'success' => false,
@@ -476,6 +466,25 @@ class HFE_Settings_Api {
 			], 500 );
 		}
 
+		// Create updated title with post ID
+		$updated_title = $title . ' #' . $post_id;
+		
+		// Temporarily disable revisions only for this specific update
+		add_filter( 'wp_revisions_to_keep', '__return_zero', 999 );
+		
+		// Update the post title without creating revisions
+		wp_update_post( [
+			'ID'         => $post_id,
+			'post_title' => $updated_title,
+		] );
+		
+		// Re-enable revisions immediately after the update
+		remove_filter( 'wp_revisions_to_keep', '__return_zero', 999 );
+
+		update_post_meta($post_id, 'ehf_template_type', $type);
+		
+		// Generate edit URL
+		$edit_url = admin_url( 'post.php?post=' . $post_id . '&action=elementor' );
 
 		return new WP_REST_Response( [
 			'success' => true,
