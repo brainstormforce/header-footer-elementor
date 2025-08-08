@@ -50,6 +50,9 @@ const Header = ({
 		apiFetch({
 			path: "/hfe/v1/get-post",
 			method: "POST",
+			headers: {
+				"X-WP-Nonce": hfeSettingsData.hfe_nonce_action,
+			},
 			data: {
 				type: "header",
 			},
@@ -77,6 +80,9 @@ const Header = ({
 		apiFetch({
 			path: "/hfe/v1/create-layout",
 			method: "POST",
+			headers: {
+				"X-WP-Nonce": hfeSettingsData.hfe_nonce_action,
+			},
 			data: {
 				title: "UAE Header",
 				type: "header",

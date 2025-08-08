@@ -50,6 +50,9 @@ const BeforeFooter = ({
 		apiFetch({
 			path: "/hfe/v1/get-post",
 			method: "POST",
+			headers: {
+				"X-WP-Nonce": hfeSettingsData.hfe_nonce_action,
+			},
 			data: {
 				type: "before_footer",
 			},
@@ -77,6 +80,9 @@ const BeforeFooter = ({
 		apiFetch({
 			path: "/hfe/v1/create-layout",
 			method: "POST",
+			headers: {
+				"X-WP-Nonce": hfeSettingsData.hfe_nonce_action,
+			},
 			data: {
 				title: "UAE Before Footer",
 				type: "before_footer",

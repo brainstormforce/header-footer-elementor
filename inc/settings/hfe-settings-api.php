@@ -346,6 +346,14 @@ class HFE_Settings_Api {
 	 * @return array
 	 */
 	public function save_enable_for_canvas_template_data( $request ) {
+		// Verify nonce for additional security
+		if ( ! wp_verify_nonce( $request->get_header( 'X-WP-Nonce' ), 'wp_rest' ) ) {
+			return new WP_REST_Response( [
+				'success' => false,
+				'message' => __( 'Invalid nonce.', 'header-footer-elementor' ),
+			], 403 );
+		}
+
 		$params = $request->get_params();
 		
 		// Get and validate parameters
@@ -383,6 +391,14 @@ class HFE_Settings_Api {
 	
 
 	public function get_target_rules_data( $request ) {
+
+		// Verify nonce for additional security
+		if ( ! wp_verify_nonce( $request->get_header( 'X-WP-Nonce' ), 'wp_rest' ) ) {
+			return new WP_REST_Response( [
+				'success' => false,
+				'message' => __( 'Invalid nonce.', 'header-footer-elementor' ),
+			], 403 );
+		}
 		$post_id = isset( $request['post_id'] ) ? intval( $request['post_id'] ) : 0;
 		
 		$include_locations = get_post_meta( $post_id, 'ehf_target_include_locations', true );
@@ -430,6 +446,14 @@ class HFE_Settings_Api {
 	}
 
 	public function save_target_rules_data($request) {
+		// Verify nonce for additional security
+		if ( ! wp_verify_nonce( $request->get_header( 'X-WP-Nonce' ), 'wp_rest' ) ) {
+			return new WP_REST_Response( [
+				'success' => false,
+				'message' => __( 'Invalid nonce.', 'header-footer-elementor' ),
+			], 403 );
+		}
+
 		$params = $request->get_params();
 		// Save the target rules data
 		$post_id = isset($params['post_id']) ? intval($params['post_id']) : 0;
@@ -445,6 +469,14 @@ class HFE_Settings_Api {
 	}
 
 	public function uae_create_elementor_hf_layout( $request ) {
+		// Verify nonce for additional security
+		if ( ! wp_verify_nonce( $request->get_header( 'X-WP-Nonce' ), 'wp_rest' ) ) {
+			return new WP_REST_Response( [
+				'success' => false,
+				'message' => __( 'Invalid nonce.', 'header-footer-elementor' ),
+			], 403 );
+		}
+
 		$title = sanitize_text_field( $request->get_param( 'title' ) );
 		$type = sanitize_text_field( $request->get_param( 'type' ) );
 		if($type !== 'custom'){
@@ -499,6 +531,14 @@ class HFE_Settings_Api {
 	}
 
 	public function uae_get_elementor_hf_post( $request ) {
+		// Verify nonce for additional security
+		if ( ! wp_verify_nonce( $request->get_header( 'X-WP-Nonce' ), 'wp_rest' ) ) {
+			return new WP_REST_Response( [
+				'success' => false,
+				'message' => __( 'Invalid nonce.', 'header-footer-elementor' ),
+			], 403 );
+		}
+
 		$type = sanitize_text_field( $request->get_param( 'type' ) );
 	
 		$args = [
@@ -630,6 +670,14 @@ class HFE_Settings_Api {
 	 * @return array
 	 */
 	public function save_user_roles_data( $request ) {
+		// Verify nonce for additional security
+		if ( ! wp_verify_nonce( $request->get_header( 'X-WP-Nonce' ), 'wp_rest' ) ) {
+			return new WP_REST_Response( [
+				'success' => false,
+				'message' => __( 'Invalid nonce.', 'header-footer-elementor' ),
+			], 403 );
+		}
+
 		$params = $request->get_params();
 		
 		// Get and validate parameters
@@ -675,6 +723,14 @@ class HFE_Settings_Api {
 	 * @return WP_REST_Response
 	 */
 	public function uae_update_post_status( $request ) {
+		// Verify nonce for additional security
+		if ( ! wp_verify_nonce( $request->get_header( 'X-WP-Nonce' ), 'wp_rest' ) ) {
+			return new WP_REST_Response( [
+				'success' => false,
+				'message' => __( 'Invalid nonce.', 'header-footer-elementor' ),
+			], 403 );
+		}
+
 		$post_id = intval( $request->get_param( 'post_id' ) );
 		$status  = sanitize_text_field( $request->get_param( 'status' ) );
 
@@ -874,6 +930,14 @@ class HFE_Settings_Api {
 	 * @return WP_REST_Response
 	 */
 	public function uae_delete_post( $request ) {
+		// Verify nonce for additional security
+		if ( ! wp_verify_nonce( $request->get_header( 'X-WP-Nonce' ), 'wp_rest' ) ) {
+			return new WP_REST_Response( [
+				'success' => false,
+				'message' => __( 'Invalid nonce.', 'header-footer-elementor' ),
+			], 403 );
+		}
+
 		$post_id = intval( $request->get_param( 'post_id' ) );
 
 		// Verify post exists and is the right type
