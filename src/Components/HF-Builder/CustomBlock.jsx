@@ -84,8 +84,7 @@ const CustomBlock = ({ onEmptyStateChange }) => {
 			.then((response) => {
 				if (response.success && response.post) {
 					// Get the edit URL from the response or construct it
-					const editUrl = response.edit_url || response.post.edit_url || 
-						`${window.location.origin}/wp-admin/post.php?post=${response.post.id}&action=elementor`;
+					const editUrl = `${window.location.origin}/wp-admin/post.php?post=${response.post.id}&action=elementor`;
 
 					// Open in new tab
 					window.open(editUrl, "_blank");
@@ -150,7 +149,7 @@ const CustomBlock = ({ onEmptyStateChange }) => {
 
 	const handleEditWithElementor = (item) => {
 		// Use edit_url from API response if available, otherwise construct it
-		const elementorEditUrl = item.edit_url || `${window.location.origin}/wp-admin/post.php?post=${item.id}&action=elementor`;
+		const elementorEditUrl = `${window.location.origin}/wp-admin/post.php?post=${item.id}&action=elementor`;
 		window.open(elementorEditUrl, "_blank");
 	};
 

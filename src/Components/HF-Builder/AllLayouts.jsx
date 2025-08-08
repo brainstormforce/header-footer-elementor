@@ -370,7 +370,6 @@ const AllLayouts = ({
 								{__("Back", "header-footer-elementor")}
 							</Button> */}
 						</div>
-
 						<div
 							className="grid grid-cols-1 md:grid-cols-2 gap-6"
 							style={{ paddingLeft: "30px" }}
@@ -469,8 +468,6 @@ const AllLayouts = ({
 										<hr
 											className="w-full border-b-0 border-x-0 border-t border-solid border-t-border-subtle"
 											style={{
-												// marginTop: "8px",
-												// marginBottom: "8px",
 												borderColor: "#E5E7EB",
 											}}
 										/>
@@ -614,7 +611,16 @@ const AllLayouts = ({
 							{__("Back", "header-footer-elementor")}
 						</Button>
 					</div>
-
+					<hr
+							className="border-b-0 border-x-0 border-t border-solid border-t-border-transparent-subtle"
+							style={{
+								marginTop: "10px",
+								marginBottom: "15px",
+								width: "96%",
+								marginLeft: "32px",
+								// borderColor: "#E5E7EB",
+							}}
+						/>
 					<div
 						className="grid grid-cols-1 md:grid-cols-2 gap-6"
 						style={{ paddingLeft: "30px" }}
@@ -710,8 +716,6 @@ const AllLayouts = ({
 									<hr
 										className="w-full border-b-0 border-x-0 border-t border-solid border-t-border-subtle"
 										style={{
-											// marginTop: "8px",
-											// marginBottom: "8px",
 											borderColor: "#E5E7EB",
 										}}
 									/>
@@ -1075,8 +1079,6 @@ const AllLayouts = ({
 									<hr
 										className="w-full border-b-0 border-x-0 border-t border-solid border-t-border-subtle"
 										style={{
-											// marginTop: "8px",
-											// marginBottom: "8px",
 											borderColor: "#E5E7EB",
 										}}
 									/>

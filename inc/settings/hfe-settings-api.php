@@ -426,7 +426,6 @@ class HFE_Settings_Api {
 		return [
 			'conditions' => $conditions,
 			'locations'  => Astra_Target_Rules_Fields::get_instance()->get_location_selections(),
-			// 'userRoles'  => Astra_Target_Rules_Fields::get_instance()->get_user_selections(),
 		];
 	}
 
@@ -477,8 +476,6 @@ class HFE_Settings_Api {
 			], 500 );
 		}
 
-		// Generate Elementor edit URL
-		$edit_url = admin_url( 'post.php?post=' . $post_id . '&action=elementor' );
 
 		return new WP_REST_Response( [
 			'success' => true,
@@ -488,7 +485,6 @@ class HFE_Settings_Api {
 				'id' => $post_id,
 				'title'=> $updated_title,
 				'post_status' => 'draft',
-				'edit_url' => $edit_url,
 			],
 		], 200 );
 	}
@@ -530,7 +526,6 @@ class HFE_Settings_Api {
 					'title' => get_the_title(),
 					'template_type' => get_post_meta($post_id, 'ehf_template_type', true),
 					'post_status' => get_post_status(),
-					'edit_url' => admin_url( 'post.php?post=' . $post_id . '&action=elementor' ),
 				];
 			}
 			wp_reset_postdata();
