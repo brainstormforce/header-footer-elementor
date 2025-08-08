@@ -594,10 +594,13 @@ msgstr ""
 msgid "Widgets / Features"
 msgstr ""
 
+#: src/Components/HF-Builder/AllLayouts.jsx:1047
+#: src/Components/HF-Builder/BeforeFooter.jsx:479
+#: src/Components/HF-Builder/Footer.jsx:473
+#: src/Components/HF-Builder/BeforeFooter.jsx:471
 #: src/Components/HF-Builder/AllLayouts.jsx:1046
 #: src/Components/HF-Builder/BeforeFooter.jsx:470
-#: src/Components/HF-Builder/Footer.jsx:464
-#: src/Components/HF-Builder/Header.jsx:465
+#: src/Components/HF-Builder/Header.jsx:473
 msgid "Display Conditions"
 msgstr ""
 
@@ -663,6 +666,9 @@ msgstr ""
 msgid "Create a layout that appears before the footer"
 msgstr ""
 
+#: src/Components/HF-Builder/AllLayouts.jsx:903
+#: src/Components/HF-Builder/CustomBlock.jsx:418
+#: src/Components/HF-Builder/CustomBlock.jsx:411
 #: src/Components/HF-Builder/AllLayouts.jsx:902
 #: src/Components/HF-Builder/CustomBlock.jsx:410
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:648
@@ -678,7 +684,7 @@ msgstr ""
 msgid "Create a custom block that can be used anywhere"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:958
+#: src/Components/HF-Builder/AllLayouts.jsx:959
 msgid "Edit Layout"
 msgstr ""
 
@@ -697,12 +703,12 @@ msgid ""
 "across all pages."
 msgstr ""
 
-#: src/Components/HF-Builder/BeforeFooter.jsx:264
+#: src/Components/HF-Builder/BeforeFooter.jsx:267
 msgid "Before Footer Templates"
 msgstr ""
 
-#: src/Components/HF-Builder/BeforeFooter.jsx:288
-msgid "Create Before Footer Layout"
+#: src/Components/HF-Builder/BeforeFooter.jsx:293
+msgid "Create Before Footer"
 msgstr ""
 
 #: src/Components/HF-Builder/BeforeFooter.jsx:97
@@ -723,16 +729,16 @@ msgid ""
 "control how your site's sections look and behave across all pages."
 msgstr ""
 
-#: src/Components/HF-Builder/CustomBlock.jsx:281
+#: src/Components/HF-Builder/CustomBlock.jsx:284
 msgid "Custom Block Templates"
 msgstr ""
 
-#: src/Components/HF-Builder/CustomBlock.jsx:307
+#: src/Components/HF-Builder/CustomBlock.jsx:312
 msgid "Creating..."
 msgstr ""
 
-#: src/Components/HF-Builder/CustomBlock.jsx:308
-msgid "Create Custom Block Layout"
+#: src/Components/HF-Builder/CustomBlock.jsx:313
+msgid "Create Custom Block"
 msgstr ""
 
 #: src/Components/HF-Builder/CustomBlock.jsx:90
@@ -845,12 +851,12 @@ msgid ""
 "how your site's bottom section looks and behaves across all pages."
 msgstr ""
 
-#: src/Components/HF-Builder/Footer.jsx:261
+#: src/Components/HF-Builder/Footer.jsx:264
 msgid "Footer Templates"
 msgstr ""
 
-#: src/Components/HF-Builder/Footer.jsx:282
-msgid "Create Footer Layout"
+#: src/Components/HF-Builder/Footer.jsx:287
+msgid "Create Footer"
 msgstr ""
 
 #: src/Components/HF-Builder/Footer.jsx:94
@@ -871,12 +877,12 @@ msgid ""
 "how your site's top section looks and behaves across all pages."
 msgstr ""
 
-#: src/Components/HF-Builder/Header.jsx:261
+#: src/Components/HF-Builder/Header.jsx:264
 msgid "Header Templates"
 msgstr ""
 
-#: src/Components/HF-Builder/Header.jsx:282
-msgid "Create Header Layout"
+#: src/Components/HF-Builder/Header.jsx:287
+msgid "Create Header"
 msgstr ""
 
 #: src/Components/HF-Builder/Header.jsx:94

@@ -18,7 +18,7 @@ const CustomBlock = () => {
 
 	// Add custom styles for toast positioning
 	useEffect(() => {
-		const style = document.createElement('style');
+		const style = document.createElement("style");
 		style.textContent = `
 			.toast-confirmation {
 				z-index: 999999 !important;
@@ -28,7 +28,7 @@ const CustomBlock = () => {
 			}
 		`;
 		document.head.appendChild(style);
-		
+
 		return () => {
 			document.head.removeChild(style);
 		};
@@ -193,21 +193,21 @@ const CustomBlock = () => {
 					containerStyle={{
 						top: 20,
 						right: 20,
-						marginTop: '40px',
+						marginTop: "40px",
 					}}
 					toastOptions={{
 						duration: 1000,
 						style: {
-							background: 'white',
+							background: "white",
 						},
 						success: {
 							duration: 2000,
 							style: {
-								color: '',
+								color: "",
 							},
 							iconTheme: {
-								primary: '#6005ff',
-								secondary: '#fff',
+								primary: "#6005ff",
+								secondary: "#fff",
 							},
 						},
 					}}
@@ -228,7 +228,7 @@ const CustomBlock = () => {
 						isCreating
 							? __("Creating...", "header-footer-elementor")
 							: __(
-									"Create Custom Block Layout",
+									"Create Custom Block",
 									"header-footer-elementor",
 							  )
 					}
@@ -245,21 +245,21 @@ const CustomBlock = () => {
 					containerStyle={{
 						top: 20,
 						right: 20,
-						marginTop: '40px',
+						marginTop: "40px",
 					}}
 					toastOptions={{
 						duration: 1000,
 						style: {
-							background: 'white',
+							background: "white",
 						},
 						success: {
 							duration: 2000,
 							style: {
-								color: '',
+								color: "",
 							},
 							iconTheme: {
-								primary: '#6005ff',
-								secondary: '#fff',
+								primary: "#6005ff",
+								secondary: "#fff",
 							},
 						},
 					}}
@@ -277,7 +277,10 @@ const CustomBlock = () => {
 						className="flex items-center justify-between"
 						style={{ padding: "0 40px", marginBottom: "10px" }}
 					>
-						<h2 className="text-lg font-semibold text-foreground" style={{ marginLeft: "-10px" }}>
+						<h2
+							className="text-lg font-semibold text-foreground"
+							style={{ marginLeft: "-10px" }}
+						>
 							{__(
 								"Custom Block Templates",
 								"header-footer-elementor",
@@ -295,30 +298,35 @@ const CustomBlock = () => {
 								borderRadius: "4px",
 							}}
 							onMouseEnter={(e) =>
-								(e.currentTarget.style.backgroundColor = "#4B00CC")
+								(e.currentTarget.style.backgroundColor =
+									"#4B00CC")
 							}
 							onMouseLeave={(e) =>
-								(e.currentTarget.style.backgroundColor = "#6005FF")
+								(e.currentTarget.style.backgroundColor =
+									"#6005FF")
 							}
 							onClick={handleCreateLayout}
 							disabled={isCreating}
 						>
 							{isCreating
 								? __("Creating...", "header-footer-elementor")
-								: __("Create Custom Block Layout", "header-footer-elementor")
-							}
+								: __(
+										"Create Custom Block",
+										"header-footer-elementor",
+								  )}
 						</Button>
 					</div>
 
-						<hr
-							className="border-b-0 border-x-0 border-t border-solid border-t-border-transparent-subtle"
-							style={{
-								marginTop: "10px",
-								marginBottom: "15px",
-                                width: '92%'
-								// borderColor: "#E5E7EB",
-							}}
-						/>
+					<hr
+						className="border-b-0 border-x-0 border-t border-solid border-t-border-transparent-subtle"
+						style={{
+							marginTop: "10px",
+							marginBottom: "15px",
+							width: "96%",
+							marginLeft: "32px",
+							// borderColor: "#E5E7EB",
+						}}
+					/>
 
 					<div
 						className="grid grid-cols-1 md:grid-cols-2 gap-6"
@@ -457,7 +465,7 @@ const CustomBlock = () => {
 										}}
 									/>
 									<div className="flex items-center justify-between px-1">
-										<InlineTitleEditor 
+										<InlineTitleEditor
 											item={item}
 											onTitleUpdate={handleItemUpdate}
 											showDraftStatus={true}

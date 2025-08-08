@@ -207,7 +207,7 @@ const Header = ({
 						"header-footer-elementor",
 					)}
 					buttonText={__(
-						"Create Header Layout",
+						"Create Header",
 						"header-footer-elementor",
 					)}
 					onClick={handleCreateLayout}
@@ -257,7 +257,10 @@ const Header = ({
 						className="flex items-center justify-between"
 						style={{ padding: "0 40px", marginBottom: "10px" }}
 					>
-						<h2 className="text-lg font-semibold text-foreground" style={{ marginLeft: "-10px" }}>
+						<h2
+							className="text-lg font-semibold text-foreground"
+							style={{ marginLeft: "-10px" }}
+						>
 							{__("Header Templates", "header-footer-elementor")}
 						</h2>
 						<Button
@@ -272,27 +275,32 @@ const Header = ({
 								borderRadius: "4px",
 							}}
 							onMouseEnter={(e) =>
-								(e.currentTarget.style.backgroundColor = "#4B00CC")
+								(e.currentTarget.style.backgroundColor =
+									"#4B00CC")
 							}
 							onMouseLeave={(e) =>
-								(e.currentTarget.style.backgroundColor = "#6005FF")
+								(e.currentTarget.style.backgroundColor =
+									"#6005FF")
 							}
 							onClick={handleCreateLayout}
 						>
-							{__("Create Header Layout", "header-footer-elementor")}
+							{__(
+								"Create Header",
+								"header-footer-elementor",
+							)}
 						</Button>
 					</div>
-					
 
-						<hr
-							className="border-b-0 border-x-0 border-t border-solid border-t-border-transparent-subtle"
-							style={{
-								marginTop: "10px",
-								marginBottom: "15px",
-                                width: '92%'
-								// borderColor: "#E5E7EB",
-							}}
-						/>
+					<hr
+						className="border-b-0 border-x-0 border-t border-solid border-t-border-transparent-subtle"
+						style={{
+							marginTop: "10px",
+							marginBottom: "15px",
+							width: "96%",
+							marginLeft: "32px",
+							// borderColor: "#E5E7EB",
+						}}
+					/>
 
 					<div
 						className="grid grid-cols-1 md:grid-cols-2 gap-6"
