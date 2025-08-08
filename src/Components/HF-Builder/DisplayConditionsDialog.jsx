@@ -146,8 +146,8 @@ const withDisplayConditions = (WrappedComponent) => {
 					name: __("Include", "header-footer-elementor"),
 				},
 				displayLocation: {
-					id: "entire-site",
-					name: __("Entire Site", "header-footer-elementor"),
+					id: "",
+					name: __("Select Conditions", "header-footer-elementor"),
 				},
 			},
 		];
@@ -195,8 +195,8 @@ const withDisplayConditions = (WrappedComponent) => {
 					name: __("Include", "header-footer-elementor"),
 				},
 				displayLocation: {
-					id: "entire-site",
-					name: __("Entire Site", "header-footer-elementor"),
+					id: "",
+					name: __("Select Conditions", "header-footer-elementor"),
 				},
 			};
 
@@ -440,12 +440,16 @@ const withDisplayConditions = (WrappedComponent) => {
 			updateState({ isLoading: true, error: null });
 
 			try {
-				// Prepare data
-				const includeRules = state.conditions
+				// Prepare data - filter out conditions with empty display locations
+				const validConditions = state.conditions.filter(
+					(c) => c.displayLocation.id && c.displayLocation.id.trim() !== "",
+				);
+
+				const includeRules = validConditions
 					.filter((c) => c.conditionType.id === "include")
 					.map((c) => c.displayLocation.id);
 
-				const excludeRules = state.conditions
+				const excludeRules = validConditions
 					.filter((c) => c.conditionType.id === "exclude")
 					.map((c) => c.displayLocation.id);
 
@@ -859,6 +863,12 @@ const withDisplayConditions = (WrappedComponent) => {
 																			height: "40px",
 																		}}
 																	>
+																		<option value="">
+																			{__(
+																				"Select Conditions",
+																				"header-footer-elementor",
+																			)}
+																		</option>
 																		{Object.keys(
 																			state.locationOptions,
 																		).map(
