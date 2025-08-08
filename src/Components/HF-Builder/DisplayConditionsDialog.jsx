@@ -585,11 +585,11 @@ const withDisplayConditions = (WrappedComponent) => {
 							style={{
 								paddingLeft: "1.5rem",
 								paddingRight: "1.5rem",
-								paddingTop: "1.5rem",
+								paddingTop: "0.5rem",
 							}}
 						>
 							<div className="flex items-center justify-between">
-								<h2 className="text-base font-normal">
+								<h2 className="text-lg font-medium">
 									{__(
 										"Configure Display Conditions",
 										"header-footer-elementor",
@@ -674,7 +674,7 @@ const withDisplayConditions = (WrappedComponent) => {
 								{/* Content - Always show, overlay with loading when needed */}
 								<>
 									{/* Tab Navigation */}
-									<div className="flex justify-center" style={{width: '300px',flexDirection: 'column', alignItems: 'center', justifyContent: 'center', margin: 'auto', marginTop: '20px'}}>
+									<div className="flex justify-center" style={{width: '300px',flexDirection: 'column', alignItems: 'center', justifyContent: 'center', margin: 'auto', marginTop: '40px'}}>
 									{/* 
 										<button
 											onClick={() =>
@@ -728,10 +728,9 @@ const withDisplayConditions = (WrappedComponent) => {
 										</button>
 									</div> */}
 
-									{console.log('Tabs component activeItem:', safeActiveTab, 'Type:', typeof safeActiveTab)}
 								<Tabs activeItem={safeActiveTab}>
 										<Tabs.Group 
-										  size="md"
+										  size="sm"
 										onChange={(tabSlug) => {
 											handleTabChange(tabSlug);
 										}}>
@@ -761,10 +760,10 @@ const withDisplayConditions = (WrappedComponent) => {
 														>
 															<div
 																className="flex items-center justify-center overflow-hidden bg-gray-50"
-																style={{
-																	marginLeft:
-																		"56px",
-																}}
+																// style={{
+																// 	marginLeft:
+																// 		"56px",
+																// }}
 															>
 																{/* Include/Exclude Select */}
 																<div
@@ -827,7 +826,7 @@ const withDisplayConditions = (WrappedComponent) => {
 																	className="rounded-sm"
 																	style={{
 																		border: "1px solid #d1d5db",
-																		width: "420px",
+																		width: "400px",
 																	}}
 																>
 																	<select
@@ -945,7 +944,7 @@ const withDisplayConditions = (WrappedComponent) => {
 													),
 												)}
 											</div>
-												<div className="flex justify-center mb-8">
+												<div className="flex justify-center pt-4 mb-8" style={{paddingTop: '15px'}}>
 												<button
 													onClick={handleAddCondition}
 													className="text-white px-6 py-2.5 rounded-md font-medium hover:bg-gray-800"
@@ -979,16 +978,16 @@ const withDisplayConditions = (WrappedComponent) => {
 																>
 																	<div
 																		className="flex items-center justify-center overflow-hidden bg-gray-50"
-																		style={{
-																			marginLeft:
-																				"86px",
-																		}}
+																		// style={{
+																		// 	marginLeft:
+																		// 		"86px",
+																		// }}
 																	>
 																		<div
 																			className="rounded-sm"
 																			style={{
 																				border: "1px solid #d1d5db",
-																				width: "430px",
+																				width: "410px",
 																			}}
 																		>
 																			<select
@@ -1098,7 +1097,7 @@ const withDisplayConditions = (WrappedComponent) => {
 												</div>
 
 												{/* Add User Role Button */}
-												<div className="flex justify-center mb-8">
+												<div className="flex justify-center mb-8" style={{paddingTop: '15px'}}>
 													<button
 														onClick={handleAddUserRole}
 														className="text-white px-6 py-2.5 rounded-md font-medium hover:bg-gray-800"
@@ -1125,12 +1124,12 @@ const withDisplayConditions = (WrappedComponent) => {
 									
 
 									{/* Canvas Template Section */}
-									<div className="mt-8 pt-6 border-t border-gray-200">
-										<div className="flex items-center justify-around">
+									<div className=" border-t pb-3 border-gray-200">
+										<div className="flex items-center justify-center" style={{ gap: '4rem'}} >
 											<div>
 												<p className="text-gray-600 text-sm">
 													{__(
-														"Enable this layout to display on Elementor Canvas template pages.",
+														"Enable this layout to display on Elementor Canvas template pages",
 														"header-footer-elementor",
 													)}
 												</p>
@@ -1155,7 +1154,7 @@ const withDisplayConditions = (WrappedComponent) => {
 
 						{/* Footer */}
 						<div className="border-t border-gray-200 px-8 py-6">
-							<div className="flex justify-end p-4 gap-3" style={{ marginRight: '30px' }}>
+							<div className="flex justify-end p-4 gap-3" style={{ marginRight: '20px'}}>
 								<button
 									onClick={() =>
 										updateState({ isDialogOpen: false })
