@@ -594,7 +594,7 @@ msgstr ""
 msgid "Widgets / Features"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:1039
+#: src/Components/HF-Builder/AllLayouts.jsx:1046
 #: src/Components/HF-Builder/BeforeFooter.jsx:449
 #: src/Components/HF-Builder/Footer.jsx:443
 #: src/Components/HF-Builder/Header.jsx:443
@@ -631,7 +631,7 @@ msgstr ""
 msgid "Choose Layout Type"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:591
+#: src/Components/HF-Builder/AllLayouts.jsx:598
 #: src/Components/Onboarding/ExtendOnboarding.jsx:551
 #: src/Components/Onboarding/Features.jsx:389
 msgid "Back"
@@ -646,12 +646,8 @@ msgstr ""
 msgid "Create a custom footer layout for your website"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:759
+#: src/Components/HF-Builder/AllLayouts.jsx:763
 msgid "Start Customising Your Header & Footer"
-msgstr ""
-
-#: src/Components/HF-Builder/AllLayouts.jsx:793
-msgid "Create Layout"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:80
@@ -659,13 +655,17 @@ msgstr ""
 msgid "Before Footer"
 msgstr ""
 
+#: src/Components/HF-Builder/AllLayouts.jsx:800
+msgid "Create Layout"
+msgstr ""
+
 #: src/Components/HF-Builder/AllLayouts.jsx:81
 msgid "Create a layout that appears before the footer"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:895
+#: src/Components/HF-Builder/AllLayouts.jsx:902
 #: src/Components/HF-Builder/CustomBlock.jsx:385
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:575
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:648
 msgid "Copy Shortcode"
 msgstr ""
 
@@ -678,7 +678,7 @@ msgstr ""
 msgid "Create a custom block that can be used anywhere"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:951
+#: src/Components/HF-Builder/AllLayouts.jsx:958
 msgid "Edit Layout"
 msgstr ""
 
@@ -752,7 +752,7 @@ msgid "Enable this layout to display on Elementor Canvas template pages."
 msgstr ""
 
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1161
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:459
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:519
 #: src/Components/Settings/VersionControl.jsx:132
 msgid "Cancel"
 msgstr ""
@@ -880,163 +880,163 @@ msgid "Header layout created successfully!"
 msgstr ""
 
 #: src/Components/HF-Builder/InlineTitleEditor.jsx:149
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:252
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:279
 msgid "Layout renamed successfully!"
 msgstr ""
 
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:173
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:275
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:170
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:301
 msgid "Failed to rename layout. Please try again."
 msgstr ""
 
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:197
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:301
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:194
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:330
 msgid "Error renaming layout. Please try again."
 msgstr ""
 
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:203
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:304
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:200
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:336
 msgid "You don't have permission to rename this layout."
 msgstr ""
 
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:208
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:306
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:205
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:341
 msgid "Security check failed. Please refresh the page and try again."
 msgstr ""
 
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:262
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:86
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:259
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:98
 msgid "Layout name"
 msgstr ""
 
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:278
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:275
 msgid "Save changes"
 msgstr ""
 
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:290
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:287
 msgid "Cancel editing"
 msgstr ""
 
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:310
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:307
 msgid "Draft"
 msgstr ""
 
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:316
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:313
 msgid "Published"
 msgstr ""
 
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:332
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:329
 msgid "Edit layout name"
 msgstr ""
 
 #: src/Components/HF-Builder/InlineTitleEditor.jsx:49
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:144
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:168
 msgid "Layout name cannot be empty."
 msgstr ""
 
 #: src/Components/HF-Builder/InlineTitleEditor.jsx:69
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:167
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:191
 msgid "Layout name is too long. Maximum 255 characters allowed."
 msgstr ""
 
 #: src/Components/HF-Builder/InlineTitleEditor.jsx:93
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:188
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:215
 msgid "Layout name contains invalid characters."
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:106
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:127
 msgid "Change"
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:208
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:237
 msgid "No changes made."
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:220
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:247
 msgid "Renaming layout..."
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:352
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:390
 msgid "Layout published successfully!"
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:361
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:399
 msgid "Failed to publish layout. Please try again."
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:371
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:409
 msgid "Error publishing layout. Please try again."
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:401
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:439
 msgid "Layout disabled successfully!"
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:409
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:447
 msgid "Failed to disable layout. Please try again."
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:418
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:456
 msgid "Error disabling layout. Please try again."
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:438
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:479
 msgid "Delete Layout"
-msgstr ""
-
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:442
-msgid "This action cannot be done"
-msgstr ""
-
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:448
-msgid "Are you sure you want to delete this layout?"
-msgstr ""
-
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:469
-msgid "Yes, Delete Layout"
 msgstr ""
 
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:48
 msgid "You don't have permission to edit this layout."
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:502
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:489
+msgid "This action cannot be done"
+msgstr ""
+
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:498
+msgid "Are you sure you want to delete this layout?"
+msgstr ""
+
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:539
+msgid "Yes, Delete Layout"
+msgstr ""
+
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:575
 msgid "Deleting layout..."
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:524
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:597
 msgid "Layout deleted successfully!"
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:532
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:605
 msgid "Failed to delete layout. Please try again."
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:541
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:614
 msgid "Error deleting layout. Please try again."
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:590
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:663
 msgid "Rename"
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:605
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:675
 msgid "Publish"
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:615
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:685
 msgid "Disable"
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:628
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:698
 msgid "Delete"
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:76
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:83
 msgid "Rename Layout"
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:79
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:86
 msgid "Enter a new name for this layout"
 msgstr ""
 

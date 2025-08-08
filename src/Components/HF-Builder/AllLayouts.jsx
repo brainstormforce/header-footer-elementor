@@ -152,7 +152,7 @@ const AllLayouts = ({
 	}, []);
 
 	const handleCreateLayout = (item) => {
-        console.log(item);
+		console.log(item);
 		if (!item.id) {
 			apiFetch({
 				path: "/hfe/v1/create-layout",
@@ -168,7 +168,7 @@ const AllLayouts = ({
 
 						const newLayoutItem = {
 							id: response.post_id,
-							title: `${response.post['title']}`,
+							title: `${response.post["title"]}`,
 							name: item.name,
 							template_type: item.template_type,
 							post_status: "draft", // or whatever status is returned
@@ -569,7 +569,7 @@ const AllLayouts = ({
 						style={{ padding: "0 40px", marginBottom: "10px" }}
 					>
 						<h2
-							className="text-base font-medium text-foreground"
+							className="text-lg font-semibold text-foreground"
 							style={{ marginLeft: "-10px" }}
 						>
 							{__(
@@ -580,12 +580,19 @@ const AllLayouts = ({
 						<Button
 							variant="secondary"
 							className="text-sm"
+							style={{
+								outline: "none",
+								border: "1px solid #ccc",
+								boxShadow: "none",
+							}}
+							onFocus={(e) => {
+								e.currentTarget.style.outline = "none";
+								e.currentTarget.style.boxShadow = "none";
+							}}
 							onClick={() => {
 								setShowDummyCards(false);
 								// Clear the localStorage when going back
-								localStorage.removeItem(
-									"hfe_showDummyCards",
-								);
+								localStorage.removeItem("hfe_showDummyCards");
 							}}
 						>
 							{__("Back", "header-footer-elementor")}
@@ -607,8 +614,7 @@ const AllLayouts = ({
 										);
 									if (overlay) {
 										overlay.style.opacity = "1";
-										overlay.style.visibility =
-											"visible";
+										overlay.style.visibility = "visible";
 										overlay.style.transform =
 											"translateY(0)";
 									}
@@ -674,9 +680,7 @@ const AllLayouts = ({
 													"scale(0.95)";
 											}}
 											onClick={() =>
-												handleCreateLayout(
-													layoutItem,
-												)
+												handleCreateLayout(layoutItem)
 											}
 										>
 											{__(
@@ -781,7 +785,10 @@ const AllLayouts = ({
 							}
 							onClick={() => {
 								console.log("Create Layout button clicked");
-								console.log("Current showDummyCards:", showDummyCards);
+								console.log(
+									"Current showDummyCards:",
+									showDummyCards,
+								);
 								setShowDummyCards(true);
 								localStorage.setItem(
 									"hfe_showDummyCards",

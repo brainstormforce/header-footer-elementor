@@ -145,28 +145,25 @@ const InlineTitleEditor = ({
 				cancelEditing();
 
 				// Show success toast
-				toast.success(
-					__(
-						"Layout renamed successfully!",
-						"header-footer-elementor",
-					),
-					{
-						position: "top-right",
-						duration: 3000,
-						style: {
-							background: "#10b981",
-							color: "white",
-							borderRadius: "0.5rem",
-							fontSize: "14px",
-							padding: "12px 16px",
-							boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
-						},
-						iconTheme: {
-							primary: "white",
-							secondary: "#10b981",
-						},
-					},
-				);
+				   toast.success(
+                    __(
+                        "Layout renamed successfully!",
+                        "header-footer-elementor",
+                    ),
+                    {
+                        position: "top-right",
+                        duration: 2000,
+                        style: {
+                            marginTop: "40px",
+                            background: "white",
+                            color: "",
+                        },
+                        iconTheme: {
+                            primary: "#6005ff",
+                            secondary: "#fff",
+                        },
+                    },
+                );
 			} else {
 				console.error("Failed to rename layout:", response);
 
@@ -182,7 +179,7 @@ const InlineTitleEditor = ({
 					position: "top-center",
 					duration: 5000,
 					style: {
-						background: "#ef4444",
+						background: "#10b981",
 						color: "white",
 						borderRadius: "0.5rem",
 						fontSize: "14px",
