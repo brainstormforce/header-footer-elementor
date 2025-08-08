@@ -50,11 +50,12 @@ const AllLayouts = ({
 
 	// Notify parent about empty state changes
 	useEffect(() => {
-		const isEmpty = !hasLayoutItems && !isLoading;
+		// Only consider it empty if there are no layout items, not loading, AND not showing dummy cards
+		const isEmpty = !hasLayoutItems && !isLoading && !showDummyCards;
 		if (onEmptyStateChange) {
 			onEmptyStateChange(isEmpty);
 		}
-	}, [hasLayoutItems, isLoading, onEmptyStateChange]);
+	}, [hasLayoutItems, isLoading, showDummyCards, onEmptyStateChange]);
 
 	// Define dummy layout types
 	const dummyLayoutTypes = [
@@ -353,7 +354,7 @@ const AllLayouts = ({
 							style={{ padding: "0 40px", marginBottom: "10px" }}
 						>
 							<h2
-								className="text-base font-medium text-foreground"
+								className="text-lg font-semibold text-foreground"
 								style={{ marginLeft: "-10px" }}
 							>
 								{__(
@@ -375,6 +376,17 @@ const AllLayouts = ({
 								{__("Back", "header-footer-elementor")}
 							</Button> */}
 						</div>
+						<hr
+						className="border-b-0 border-x-0 border-t border-solid border-t-border-transparent-subtle"
+						style={{
+							marginTop: "10px",
+							marginBottom: "15px",
+							width: "96%",
+							marginLeft: "32px",
+							// borderColor: "#E5E7EB",
+						}}
+					/>
+
 						<div
 							className="grid grid-cols-1 md:grid-cols-2 gap-6"
 							style={{ paddingLeft: "30px" }}
