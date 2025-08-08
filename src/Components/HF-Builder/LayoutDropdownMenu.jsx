@@ -653,7 +653,7 @@ const LayoutDropdownMenu = ({
 							)}
 
 							{/* Rename Layout */}
-							<DropdownMenu.Item
+							{/* <DropdownMenu.Item
 								onClick={(e) => {
 									e.preventDefault();
 									e.stopPropagation();
@@ -661,7 +661,7 @@ const LayoutDropdownMenu = ({
 								}}
 							>
 								{__("Rename", "header-footer-elementor")}
-							</DropdownMenu.Item>
+							</DropdownMenu.Item> */}
 
 							{/* Publish/Disable based on current status */}
 							{item.post_status === "draft" ? (
@@ -682,7 +682,7 @@ const LayoutDropdownMenu = ({
 										handleDisableLayout(item);
 									}}
 								>
-									{__("Disable", "header-footer-elementor")}
+									{__("Draft", "header-footer-elementor")}
 								</DropdownMenu.Item>
 							)}
 

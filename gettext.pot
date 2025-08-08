@@ -922,6 +922,7 @@ msgid "Cancel editing"
 msgstr ""
 
 #: src/Components/HF-Builder/InlineTitleEditor.jsx:307
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:685
 msgid "Draft"
 msgstr ""
 
@@ -1020,16 +1021,8 @@ msgstr ""
 msgid "Error deleting layout. Please try again."
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:663
-msgid "Rename"
-msgstr ""
-
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:675
 msgid "Publish"
-msgstr ""
-
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:685
-msgid "Disable"
 msgstr ""
 
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:698

@@ -138,7 +138,7 @@ const NavBar = () => {
 								</span>
 							</div>
 						</Link>
-						<Link to={routes.settings.path}>
+						<Link to={routes.dashboard.path}>
 							<div className="flex cursor-pointer mr-3 items-center justify-center gap-1">
 								<span className="text-black text-sm">
 									Close
