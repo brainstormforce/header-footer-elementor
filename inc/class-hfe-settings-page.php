@@ -104,22 +104,65 @@ class HFE_Settings_Page {
 	 * @since 2.4.5
 	 * @return void
 	 */
+	// public function uae_custom_admin_footer_text( $footer_text ) {
+	// 	$screen = get_current_screen();
+	
+	// 	if (
+	// 		( isset( $_GET['page'] ) && $_GET['page'] === 'hfe' ) ||
+	// 		( isset( $screen->post_type ) && $screen->post_type === 'elementor-hf' )
+	// 	) {
+	// 		$footer_text = sprintf(
+	// 			/* translators: %1$s is bold plugin name, %2$s is the review link */
+	// 			__( 'Enjoyed %1$s? Please leave us a %2$s rating. We really appreciate your support!', 'header-footer-elementor' ),
+	// 			'<b>UAE</b>',
+	// 			'<a class="uae-rating" href="https://wordpress.org/support/plugin/header-footer-elementor/reviews/#new-post" target="_blank">★★★★★</a>'
+	// 		);
+	// 	}
+	// 	return $footer_text;
+	// }
+
 	public function uae_custom_admin_footer_text( $footer_text ) {
 		$screen = get_current_screen();
 	
+		// Show only for hfe page or elementor-hf post type
 		if (
 			( isset( $_GET['page'] ) && $_GET['page'] === 'hfe' ) ||
 			( isset( $screen->post_type ) && $screen->post_type === 'elementor-hf' )
 		) {
 			$footer_text = sprintf(
-				/* translators: %1$s is bold plugin name, %2$s is the review link */
 				__( 'Enjoyed %1$s? Please leave us a %2$s rating. We really appreciate your support!', 'header-footer-elementor' ),
 				'<b>UAE</b>',
 				'<a class="uae-rating" href="https://wordpress.org/support/plugin/header-footer-elementor/reviews/#new-post" target="_blank">★★★★★</a>'
 			);
+	
+			// Inject JS to hide footer on certain tabs
+			$footer_text .= '
+				<script>
+					(function() {
+						function toggleFooter() {
+							const hash = window.location.hash;
+							const hideTabs = ["#hfb", "#settings"];
+							const footer = document.getElementById("wpfooter");
+	
+							if (footer) {
+								if (hideTabs.includes(hash)) {
+									footer.style.display = "none";
+								} else {
+									footer.style.display = "";
+								}
+							}
+						}
+	
+						window.addEventListener("hashchange", toggleFooter);
+						document.addEventListener("DOMContentLoaded", toggleFooter);
+					})();
+				</script>
+			';
 		}
+	
 		return $footer_text;
 	}
+		
 
 	/**
 	 * Render UAE NPS Survey Notice.
@@ -390,7 +433,16 @@ class HFE_Settings_Page {
 					'augemented_url'                 => HFE_URL . 'assets/images/settings/augemented_reality_widgets.png',
 					'rocket_svg'                 => HFE_URL . 'assets/images/settings/rocket.svg',
 					'augmented_reality'                 => HFE_URL . 'assets/images/settings/augmented_reality.png',
+					'all_layout_unselected'                 => HFE_URL . 'assets/images/settings/all_layouts_unselected.svg',
 					'all_layouts'                 => HFE_URL . 'assets/images/settings/all_layouts.svg',
+					'all_headers_unselected'                 => HFE_URL . 'assets/images/settings/all_headers_unselected.svg',
+					'all_headers'                 => HFE_URL . 'assets/images/settings/all_headers.svg',
+					'all_footers_unselected'                 => HFE_URL . 'assets/images/settings/all_footers_unselected.svg',
+					'all_footers'                 => HFE_URL . 'assets/images/settings/all_footers.svg',
+					'all_before_footers_unselected'                 => HFE_URL . 'assets/images/settings/all_before_footers_unselected.svg',
+					'all_before_footers'                 => HFE_URL . 'assets/images/settings/all_before_footers.svg',
+					'all_custom_unselected'                 => HFE_URL . 'assets/images/settings/all_custom_unselected.svg',
+					'all_custom'                 => HFE_URL . 'assets/images/settings/all_custom.svg',
 					'header_card'                 => HFE_URL . 'assets/images/settings/header_card.png',
 					'footer_card'                 => HFE_URL . 'assets/images/settings/footer_card.png',
 					'before_card'                 => HFE_URL . 'assets/images/settings/before_card.png',
@@ -668,8 +720,8 @@ class HFE_Settings_Page {
 		// Add the HFB Submenu.
 		add_submenu_page(
 			$menu_slug,
-			__( 'Header & Footer 123 Builder', 'header-footer-elementor' ),
-			__( 'Header & Footer 123 Builder', 'header-footer-elementor' ),
+			__( 'Header & Footer', 'header-footer-elementor' ),
+			__( 'Header & Footer', 'header-footer-elementor' ),
 			$capability,
 			$menu_slug . '#hfb',
 			[ $this, 'render' ],

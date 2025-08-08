@@ -457,6 +457,7 @@ class HFE_Admin {
 			'exclude_from_search' => true,
 			'capability_type'     => 'post',
 			'hierarchical'        => false,
+			'show_in_rest'        => true,
 			'menu_icon'           => 'dashicons-editor-kitchensink',
 			'supports'            => [ 'title', 'thumbnail', 'elementor' ],
 			'menu_position'       => 5,
@@ -500,6 +501,7 @@ class HFE_Admin {
 			1
 		);
 
+		// Commented out to hide the Header & Footer submenu
 		add_submenu_page(
 			$setting_location,
 			__( 'Header/Footer Builder', 'header-footer-elementor' ),

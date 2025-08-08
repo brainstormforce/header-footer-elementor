@@ -8,6 +8,7 @@ import {
 	House,
 	User,
 	ChevronRight,
+	AlignJustify,
 	X,
 } from "lucide-react";
 import { __ } from "@wordpress/i18n";
@@ -93,9 +94,9 @@ const NavBar = () => {
 					</Topbar.Left>
 					<Topbar.Middle className="flex-grow" align="left">
 						<Topbar.Item>
-							<nav className="flex text-text-tertiary text-sm flex-wrap gap-2 mt-2 md:mt-0 cursor-pointer">
+							<nav className="flex text-text-tertiary flex-wrap gap-2 mt-2 md:mt-0 cursor-pointer">
 								<Link
-									to={routes.headerFooterBuilder.path}
+									to={routes.dashboard.path}
 									className={`${
 										isActive(
 											"edit.php?post_type=elementor-hf",
@@ -129,10 +130,97 @@ const NavBar = () => {
 							</nav>
 						</Topbar.Item>
 					</Topbar.Middle>
-					<Topbar.Right className="gap-4">
-						<Link to={routes.settings.path}>
-							<div className="flex cursor-pointer items-center justify-center gap-1">
-								<span className="text-black text-xs">
+					<Topbar.Right className="mr-6">
+						<Link to={routes.headerFooterBuilder.path}>
+							<div 
+								className="flex cursor-pointer mr-6 gap-2 items-center justify-center"
+								style={{
+									backgroundColor: "#ffffff",
+									fontSize: "14px",
+									fontWeight: "400",
+									padding: "8px 12px",
+									borderRadius: "6px",
+									transition: "all 0.2s ease",
+									outline: "none",
+									transform: "scale(0.95)",
+									opacity: "1",
+									color: "#000000",
+									// border: "1px solid #e5e7eb",
+									cursor: "pointer",
+									display: "inline-flex",
+									alignItems: "center",
+									justifyContent: "center",
+									gap: "8px",
+									boxShadow: "none",
+								}}
+								onMouseEnter={(e) => {
+									e.currentTarget.style.backgroundColor = "#ffffff";
+									e.currentTarget.style.color = "#000000";
+									// e.currentTarget.style.borderColor = "#d1d5db";
+									e.currentTarget.style.outline = "none";
+									e.currentTarget.style.boxShadow = "none";
+									e.currentTarget.style.transform = "scale(1)";
+								}}
+								onMouseLeave={(e) => {
+									e.currentTarget.style.backgroundColor = "#ffffff";
+									e.currentTarget.style.color = "#000000";
+									// e.currentTarget.style.borderColor = "#e5e7eb";
+									e.currentTarget.style.outline = "none";
+									e.currentTarget.style.boxShadow = "none";
+									e.currentTarget.style.transform = "scale(0.95)";
+								}}
+							>
+								<span className="text-black text-sm">
+									Switch to Table View
+								</span>
+								<AlignJustify 
+									className="cursor-pointer hfe-user-icon"
+									style={{ color: "black" }}
+									size={16}
+								/>
+							</div>
+						</Link>
+						<Link to={routes.dashboard.path}>
+							<div 
+								className="flex cursor-pointer items-center justify-end gap-1" 
+								style={{ 
+									paddingLeft: "0.5rem",
+									backgroundColor: "#ffffff",
+									fontSize: "14px",
+									fontWeight: "400",
+									padding: "8px 12px",
+									borderRadius: "6px",
+									transition: "all 0.2s ease",
+									outline: "none",
+									transform: "scale(0.95)",
+									opacity: "1",
+									color: "#000000",
+									// border: "1px solid #e5e7eb",
+									cursor: "pointer",
+									display: "inline-flex",
+									alignItems: "center",
+									justifyContent: "center",
+									gap: "8px",
+									boxShadow: "none",
+								}}
+								onMouseEnter={(e) => {
+									e.currentTarget.style.backgroundColor = "#ffffff";
+									e.currentTarget.style.color = "#000000";
+									// e.currentTarget.style.borderColor = "#d1d5db";
+									e.currentTarget.style.outline = "none";
+									e.currentTarget.style.boxShadow = "none";
+									e.currentTarget.style.transform = "scale(1)";
+								}}
+								onMouseLeave={(e) => {
+									e.currentTarget.style.backgroundColor = "#ffffff";
+									e.currentTarget.style.color = "#000000";
+									// e.currentTarget.style.borderColor = "#e5e7eb";
+									e.currentTarget.style.outline = "none";
+									e.currentTarget.style.boxShadow = "none";
+									e.currentTarget.style.transform = "scale(0.95)";
+								}}
+							>
+								<span className="text-black text-sm">
 									Close
 								</span>
 								<X
