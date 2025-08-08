@@ -193,6 +193,13 @@ const AllLayouts = ({
 
 						// For custom blocks, redirect to Elementor editor
 						if (item.template_type === "custom") {
+							// Get the edit URL from the response or construct it
+							const editUrl = response.edit_url || response.post.edit_url || 
+								`${window.location.origin}/wp-admin/post.php?post=${response.post_id}&action=elementor`;
+
+							// Open in new tab
+							window.open(editUrl, "_blank");
+							
 							refreshLayoutData();
 						} else {
 							// Open display conditions dialog using HOC function with isNew flag
@@ -228,8 +235,8 @@ const AllLayouts = ({
 		} else {
 			// Post already exists, open dialog directly
 			if (item.template_type === "custom") {
-				// Redirect to Elementor editor for existing custom blocks
-				const elementorEditUrl = `${window.location.origin}/wp-admin/post.php?post=${item.id}&action=elementor`;
+				// Use edit_url from item data if available, otherwise construct it
+				const elementorEditUrl = item.edit_url || `${window.location.origin}/wp-admin/post.php?post=${item.id}&action=elementor`;
 				window.open(elementorEditUrl, "_blank");
 			} else {
 				openDisplayConditionsDialog(item, false);
@@ -944,7 +951,7 @@ const AllLayouts = ({
 											onClick={() => {
 												// For existing layouts, open in Elementor editor
 												if (item.id) {
-													const elementorEditUrl = `${window.location.origin}/wp-admin/post.php?post=${item.id}&action=elementor`;
+                                                    const elementorEditUrl = `${window.location.origin}/wp-admin/post.php?post=${item.id}&action=elementor`;
 													window.open(
 														elementorEditUrl,
 														"_blank",
