@@ -127,6 +127,9 @@ const AllLayouts = ({
 		apiFetch({
 			path: "/hfe/v1/get-post",
 			method: "POST",
+			headers: {
+				"X-WP-Nonce": hfeSettingsData.hfe_nonce_action,
+			},
 			data: {
 				type: "",
 			},
@@ -166,6 +169,9 @@ const AllLayouts = ({
 			apiFetch({
 				path: "/hfe/v1/create-layout",
 				method: "POST",
+				headers: {
+					"X-WP-Nonce": hfeSettingsData.hfe_nonce_action,
+				},
 				data: {
 					title: `UAE ${item.title}`,
 					type: item.name,

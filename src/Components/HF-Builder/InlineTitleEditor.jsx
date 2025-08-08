@@ -128,7 +128,7 @@ const InlineTitleEditor = ({
 					post_title: sanitizedTitle,
 				},
 				headers: {
-					"X-WP-Nonce": wpApiSettings?.nonce || "",
+					"X-WP-Nonce": hfeSettingsData.hfe_nonce_action,
 				},
 			});
 

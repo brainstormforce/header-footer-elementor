@@ -373,6 +373,9 @@ const LayoutDropdownMenu = ({
 			const response = await apiFetch({
 				path: "/hfe/v1/update-post-status",
 				method: "POST",
+				headers: {
+					"X-WP-Nonce": hfeSettingsData.hfe_nonce_action,
+				},
 				data: {
 					post_id: item.id,
 					status: "publish",
@@ -422,6 +425,9 @@ const LayoutDropdownMenu = ({
 			const response = await apiFetch({
 				path: "/hfe/v1/update-post-status",
 				method: "POST",
+				headers: {
+					"X-WP-Nonce": hfeSettingsData.hfe_nonce_action,
+				},
 				data: {
 					post_id: item.id,
 					status: "draft",
@@ -578,6 +584,9 @@ const LayoutDropdownMenu = ({
 			const response = await apiFetch({
 				path: "/hfe/v1/delete-post",
 				method: "POST",
+				headers: {
+					"X-WP-Nonce": hfeSettingsData.hfe_nonce_action,
+				},
 				data: {
 					post_id: item.id,
 				},

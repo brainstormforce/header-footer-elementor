@@ -158,8 +158,18 @@ const withDisplayConditions = (WrappedComponent) => {
 
 			try {
 				const [locationData, userRoleData] = await Promise.all([
-					apiFetch({ path: "/hfe/v1/target-rules-options" }),
-					apiFetch({ path: "/hfe/v1/user-roles-options" }),
+					apiFetch({ 
+						path: "/hfe/v1/target-rules-options",
+						headers: {
+							"X-WP-Nonce": hfeSettingsData.hfe_nonce_action,
+						},
+					}),
+					apiFetch({ 
+						path: "/hfe/v1/user-roles-options",
+						headers: {
+							"X-WP-Nonce": hfeSettingsData.hfe_nonce_action,
+						},
+					}),
 				]);
 
 				if (!isMountedRef.current) return;
@@ -332,12 +342,21 @@ const withDisplayConditions = (WrappedComponent) => {
 						await Promise.all([
 							apiFetch({
 								path: `/hfe/v1/target-rules?post_id=${item.id}`,
+								headers: {
+									"X-WP-Nonce": hfeSettingsData.hfe_nonce_action,
+								},
 							}),
 							apiFetch({
 								path: `/hfe/v1/user-roles?post_id=${item.id}`,
+								headers: {
+									"X-WP-Nonce": hfeSettingsData.hfe_nonce_action,
+								},
 							}),
 							apiFetch({
 								path: `/hfe/v1/enable-for-canvas-template?post_id=${item.id}`,
+								headers: {
+									"X-WP-Nonce": hfeSettingsData.hfe_nonce_action,
+								},
 							}),
 						]);
 
@@ -481,16 +500,25 @@ const withDisplayConditions = (WrappedComponent) => {
 					apiFetch({
 						path: "/hfe/v1/target-rules",
 						method: "POST",
+						headers: {
+							"X-WP-Nonce": hfeSettingsData.hfe_nonce_action,
+						},
 						data: targetRulesData,
 					}),
 					apiFetch({
 						path: "/hfe/v1/user-roles",
 						method: "POST",
+						headers: {
+							"X-WP-Nonce": hfeSettingsData.hfe_nonce_action,
+						},
 						data: userRolesData,
 					}),
 					apiFetch({
 						path: "/hfe/v1/enable-for-canvas-template",
 						method: "POST",
+						headers: {
+							"X-WP-Nonce": hfeSettingsData.hfe_nonce_action,
+						},
 						data: canvasTemplateData,
 					}),
 				]);
