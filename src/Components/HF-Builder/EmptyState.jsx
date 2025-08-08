@@ -7,13 +7,13 @@ const EmptyState = ({
 	description, 
 	buttonText, 
 	onClick, 
-	className = "bg-white p-6 rounded-lg" 
+	className = "bg-white mx-auto rounded-lg" 
 }) => {
 	return (
-		<div className={className} style={{ height: '550px', marginLeft: '10px' }}>
+		<div className={className} style={{ marginLeft: "auto", marginRight: "auto", maxWidth: "800px", marginTop: "50px", height: '400px' }}>
 			<div className="flex flex-col items-center justify-center">
 				{/* Icon Container */}
-				<div className="">
+				<div className="mt-4" style={{ marginTop: "120px" }}>
 					<img
 						src={`${hfeSettingsData.layout_template}`}
 						alt={__("Layout Template", "header-footer-elementor")}

@@ -1,5 +1,5 @@
-import React from "react";
-import { EllipsisVertical, TriangleAlert } from "lucide-react";
+import React, { useState } from "react";
+import { EllipsisVertical, Trash2, Edit3, TriangleAlert } from "lucide-react";
 import { DropdownMenu, Button } from "@bsf/force-ui";
 import { __ } from "@wordpress/i18n";
 import apiFetch from "@wordpress/api-fetch";
@@ -8,7 +8,7 @@ import useCopyShortcode from "./hooks/useCopyShortcode";
 
 /**
  * Reusable Layout Dropdown Menu Component
- * Provides Copy Shortcode, Publish/Disable, and Delete functionality
+ * Provides Copy Shortcode, Rename, Publish/Disable, and Delete functionality
  */
 const LayoutDropdownMenu = ({
 	item,
@@ -18,6 +18,353 @@ const LayoutDropdownMenu = ({
 }) => {
 	// Use the custom hook for copy shortcode functionality
 	const { handleCopyShortcode } = useCopyShortcode();
+
+	/**
+	 * Handle renaming a layout with custom toast popup
+	 */
+	const handleRenameLayout = async (item) => {
+		// First, get the current post data to ensure we have the latest title
+		try {
+			const response = await apiFetch({
+				path: `/hfe/v1/get-post/${item.id}`,
+				method: "GET",
+				headers: {
+					"X-WP-Nonce": hfeSettingsData.hfe_nonce_action,
+				},
+			});
+
+			if (response.success && response.data) {
+				showRenameToast(response.data);
+			} else {
+				// Fallback to item data if API call fails
+				showRenameToast(item);
+			}
+		} catch (error) {
+			console.error("Error fetching post data:", error);
+
+			// Handle specific errors
+			if (error.code === "rest_forbidden") {
+				toast.error(
+					__(
+						"You don't have permission to edit this layout.",
+						"header-footer-elementor",
+					),
+					{
+						position: "top-center",
+						duration: 4000,
+					},
+				);
+				return;
+			}
+
+			// Fallback to item data if API call fails
+			showRenameToast(item);
+		}
+	};
+
+	/**
+	 * Custom rename toast component with input field
+	 */
+	const showRenameToast = (itemData) => {
+		let inputValue = itemData.post_title || "";
+
+		toast(
+			(t) => (
+				<div className="flex flex-col gap-3 p-2">
+					<div className="flex items-start gap-3">
+						<div
+							className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center"
+							style={{ marginTop: "12px" }}
+						>
+							<Edit3 size={16} className="text-blue-600" />
+						</div>
+						<div className="flex-1">
+							<h3 className="text-base font-medium text-gray-900">
+								{__("Rename Layout", "header-footer-elementor")}
+							</h3>
+							<p className="text-sm text-gray-600 mb-3">
+								{__(
+									"Enter a new name for this layout",
+									"header-footer-elementor",
+								)}
+							</p>
+							<input
+								type="text"
+								defaultValue={inputValue}
+								onChange={(e) => {
+									inputValue = e.target.value;
+								}}
+								className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+								placeholder={__(
+									"Layout name",
+									"header-footer-elementor",
+								)}
+								autoFocus
+								onKeyDown={(e) => {
+									if (e.key === "Enter") {
+										toast.dismiss(t.id);
+										performRenameLayout(
+											itemData,
+											inputValue,
+										);
+									} else if (e.key === "Escape") {
+										toast.dismiss(t.id);
+									}
+								}}
+							/>
+							<div className="flex gap-2 mt-3">
+								<button
+									onClick={() => {
+										toast.dismiss(t.id);
+										performRenameLayout(
+											itemData,
+											inputValue,
+										);
+									}}
+									style={{ backgroundColor: "#000" }}
+									className="px-3 py-1.5 text-white text-sm font-medium rounded-md focus:outline-none hover:bg-gray-800"
+								>
+									{__("Change", "header-footer-elementor")}
+								</button>
+								<button
+									onClick={() => toast.dismiss(t.id)}
+									className="px-3 py-1.5 bg-gray-200 text-gray-700 text-sm font-medium rounded-md focus:outline-none hover:bg-gray-300"
+								>
+									{__("Cancel", "header-footer-elementor")}
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			),
+			{
+				duration: Infinity, // Keep open until user decides
+				position: "top-right",
+				className: "toast-rename",
+				style: {
+					background: "white",
+					color: "#374151",
+					border: "1px solid #e5e7eb",
+					borderRadius: "0.5rem",
+					boxShadow:
+						"0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+					padding: "0",
+					maxWidth: "400px",
+					marginTop: "80px",
+					marginRight: "20px",
+					zIndex: 999999,
+				},
+			},
+		);
+	};
+
+	/**
+	 * Perform the actual rename operation
+	 */
+	const performRenameLayout = async (itemData, newName) => {
+		// Validate input
+		if (!newName || newName.trim() === "") {
+			toast.error(
+				__("Layout name cannot be empty.", "header-footer-elementor"),
+				{
+					position: "top-center",
+					duration: 3000,
+					style: {
+						background: "#ef4444",
+						color: "white",
+						borderRadius: "0.5rem",
+						fontSize: "14px",
+						padding: "12px 16px",
+						boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
+					},
+				},
+			);
+			return;
+		}
+
+		// Additional frontend validation
+		const trimmedName = newName.trim();
+
+		// Check length
+		if (trimmedName.length > 255) {
+			toast.error(
+				__(
+					"Layout name is too long. Maximum 255 characters allowed.",
+					"header-footer-elementor",
+				),
+				{
+					position: "top-center",
+					duration: 4000,
+					style: {
+						background: "#ef4444",
+						color: "white",
+						borderRadius: "0.5rem",
+						fontSize: "14px",
+						padding: "12px 16px",
+						boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
+					},
+				},
+			);
+			return;
+		}
+
+		// Check for potentially harmful content
+		const sanitizedName = trimmedName.replace(/<[^>]*>/g, ""); // Remove HTML tags
+		if (sanitizedName !== trimmedName) {
+			toast.error(
+				__(
+					"Layout name contains invalid characters.",
+					"header-footer-elementor",
+				),
+				{
+					position: "top-center",
+					duration: 4000,
+					style: {
+						background: "#ef4444",
+						color: "white",
+						borderRadius: "0.5rem",
+						fontSize: "14px",
+						padding: "12px 16px",
+						boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
+					},
+				},
+			);
+			return;
+		}
+
+		// Check if name is the same
+		if (sanitizedName === itemData.post_title) {
+			toast.success(__("No changes made.", "header-footer-elementor"), {
+				position: "top-right",
+				duration: 2000,
+			});
+			return;
+		}
+
+		try {
+			// Show loading toast
+			const loadingToast = toast.loading(
+				__("Renaming layout...", "header-footer-elementor"),
+				{
+					position: "bottom-right",
+				},
+			);
+
+			const response = await apiFetch({
+				path: "/hfe/v1/update-post-title",
+				method: "POST",
+				data: {
+					post_id: itemData.id,
+					post_title: sanitizedName,
+				},
+				headers: {
+					"X-WP-Nonce": hfeSettingsData.hfe_nonce_action,
+				},
+			});
+
+			// Dismiss loading toast
+			toast.dismiss(loadingToast);
+
+			if (response.success) {
+				// Update both post_title and title fields via callback
+				if (onItemUpdate) {
+					onItemUpdate(itemData.id, {
+						post_title: sanitizedName,
+						title: sanitizedName, // Update the title field as well
+					});
+				}
+
+				// Show success toast notification with enhanced styling
+				      toast.success(
+                    __(
+                        "Layout renamed successfully!",
+                        "header-footer-elementor",
+                    ),
+                    {
+                        position: "top-right",
+                        duration: 2000,
+                        style: {
+                            marginTop: "40px",
+                            background: "white",
+                            color: "",
+                        },
+                        iconTheme: {
+                            primary: "#6005ff",
+                            secondary: "#fff",
+                        },
+                    },
+                );
+			} else {
+				console.error("Failed to rename layout:", response);
+
+				// Handle specific error messages
+				let errorMessage = __(
+					"Failed to rename layout. Please try again.",
+					"header-footer-elementor",
+				);
+				if (response.message) {
+					errorMessage = response.message;
+				}
+
+				toast.error(errorMessage, {
+					position: "top-center",
+					duration: 5000,
+					style: {
+						background: "#ef4444",
+						color: "white",
+						borderRadius: "0.5rem",
+						fontSize: "14px",
+						padding: "12px 16px",
+						boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
+					},
+					iconTheme: {
+						primary: "white",
+						secondary: "#ef4444",
+					},
+				});
+			}
+		} catch (error) {
+			console.error("Error renaming layout:", error);
+
+			// Handle different types of errors
+			let errorMessage = __(
+				"Error renaming layout. Please try again.",
+				"header-footer-elementor",
+			);
+
+			if (error.code === "rest_forbidden") {
+				errorMessage = __(
+					"You don't have permission to rename this layout.",
+					"header-footer-elementor",
+				);
+			} else if (error.code === "rest_invalid_nonce") {
+				errorMessage = __(
+					"Security check failed. Please refresh the page and try again.",
+					"header-footer-elementor",
+				);
+			} else if (error.message) {
+				errorMessage = error.message;
+			}
+
+			toast.error(errorMessage, {
+				position: "top-center",
+				duration: 5000,
+				style: {
+					background: "#ef4444",
+					color: "white",
+					borderRadius: "0.5rem",
+					fontSize: "14px",
+					padding: "12px 16px",
+					boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
+				},
+				iconTheme: {
+					primary: "white",
+					secondary: "#ef4444",
+				},
+			});
+		}
+	};
+
 	/**
 	 * Handle publishing a draft layout (set status to publish)
 	 */
@@ -26,6 +373,9 @@ const LayoutDropdownMenu = ({
 			const response = await apiFetch({
 				path: "/hfe/v1/update-post-status",
 				method: "POST",
+				headers: {
+					"X-WP-Nonce": hfeSettingsData.hfe_nonce_action,
+				},
 				data: {
 					post_id: item.id,
 					status: "publish",
@@ -75,6 +425,9 @@ const LayoutDropdownMenu = ({
 			const response = await apiFetch({
 				path: "/hfe/v1/update-post-status",
 				method: "POST",
+				headers: {
+					"X-WP-Nonce": hfeSettingsData.hfe_nonce_action,
+				},
 				data: {
 					post_id: item.id,
 					status: "draft",
@@ -124,28 +477,50 @@ const LayoutDropdownMenu = ({
 					<div className="flex items-start">
 						<div className="">
 							<div className="flex items-center gap-1">
-								<TriangleAlert size={22} className="text-red-600" />
-							<h3 className="text-base m-0 font-medium text-gray-900">
-								{__("Delete Layout", "header-footer-elementor")}
-							</h3>
+								<TriangleAlert
+									size={20}
+									color="#dc2626"
+								/>
+								<h3 className="text-lg m-0 font-medium text-gray-900" style={{  marginTop: "2px", marginLeft: "4px" }}>
+									{__(
+										"Delete Layout",
+										"header-footer-elementor",
+									)}
+								</h3>
 							</div>
-							<p className="text-base m-0 text-text-primary" style={{  padding: '2px', marginTop: "4px" }}>
+							<p
+								className="text-base m-0 text-text-primary"
+								style={{ padding: "2px", marginTop: "4px" }}
+							>
 								{__(
 									"This action cannot be done",
 									"header-footer-elementor",
 								)}
 							</p>
-							<p className="text-base text-text-primary" style={{ margin: "4px", paddingBottom: '4px' }}>
+							<p
+								className="text-base text-text-primary"
+								style={{ margin: "4px", paddingBottom: "4px" }}
+							>
 								{__(
 									"Are you sure you want to delete this layout?",
 									"header-footer-elementor",
 								)}
 							</p>
-							<div className="flex gap-2"> 
+							<div className="flex gap-2">
 								<Button
-									style={{ backgroundColor: "#fff", border: "1px solid #E5E7EB" }}
+									style={{
+										outline: "none",
+										border: "1px solid #E5E7EB",
+										boxShadow: "none",
+										backgroundColor: "#fff",
+									}}
+									onFocus={(e) => {
+										e.currentTarget.style.outline = "none";
+										e.currentTarget.style.boxShadow =
+											"none";
+									}}
 									onClick={() => toast.dismiss(t.id)}
-									className="px-3 py-1.5 text-black text-md font-medium rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+									className="p-2 text-black text-md font-medium rounded-md focus:outline-none"
 								>
 									{__("Cancel", "header-footer-elementor")}
 								</Button>
@@ -154,10 +529,23 @@ const LayoutDropdownMenu = ({
 										toast.dismiss(t.id);
 										performDeleteLayout(item);
 									}}
-									style={{ backgroundColor: "#dc2626", border: "1px solid #E5E7EB" }}
-									className="px-3 py-1.5 text-white text-md font-medium rounded-md focus:outline-none"
+									style={{
+										outline: "none",
+										border: "1px solid #E5E7EB",
+										boxShadow: "none",
+										backgroundColor: "#dc2626",
+									}}
+									onFocus={(e) => {
+										e.currentTarget.style.outline = "none";
+										e.currentTarget.style.boxShadow =
+											"none";
+									}}
+									className="p-2 text-white text-md font-medium rounded-md focus:outline-none"
 								>
-									{__("Yes, Delete Layout", "header-footer-elementor")}
+									{__(
+										"Yes, Delete Layout",
+										"header-footer-elementor",
+									)}
 								</Button>
 							</div>
 						</div>
@@ -196,6 +584,9 @@ const LayoutDropdownMenu = ({
 			const response = await apiFetch({
 				path: "/hfe/v1/delete-post",
 				method: "POST",
+				headers: {
+					"X-WP-Nonce": hfeSettingsData.hfe_nonce_action,
+				},
 				data: {
 					post_id: item.id,
 				},
@@ -270,6 +661,17 @@ const LayoutDropdownMenu = ({
 								</DropdownMenu.Item>
 							)}
 
+							{/* Rename Layout */}
+							{/* <DropdownMenu.Item
+								onClick={(e) => {
+									e.preventDefault();
+									e.stopPropagation();
+									handleRenameLayout(item);
+								}}
+							>
+								{__("Rename", "header-footer-elementor")}
+							</DropdownMenu.Item> */}
+
 							{/* Publish/Disable based on current status */}
 							{item.post_status === "draft" ? (
 								<DropdownMenu.Item
@@ -289,7 +691,7 @@ const LayoutDropdownMenu = ({
 										handleDisableLayout(item);
 									}}
 								>
-									{__("Disable", "header-footer-elementor")}
+									{__("Draft", "header-footer-elementor")}
 								</DropdownMenu.Item>
 							)}
 

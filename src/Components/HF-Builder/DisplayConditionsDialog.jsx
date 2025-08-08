@@ -146,8 +146,8 @@ const withDisplayConditions = (WrappedComponent) => {
 					name: __("Include", "header-footer-elementor"),
 				},
 				displayLocation: {
-					id: "entire-site",
-					name: __("Entire Site", "header-footer-elementor"),
+					id: "",
+					name: __("Select Conditions", "header-footer-elementor"),
 				},
 			},
 		];
@@ -158,8 +158,18 @@ const withDisplayConditions = (WrappedComponent) => {
 
 			try {
 				const [locationData, userRoleData] = await Promise.all([
-					apiFetch({ path: "/hfe/v1/target-rules-options" }),
-					apiFetch({ path: "/hfe/v1/user-roles-options" }),
+					apiFetch({ 
+						path: "/hfe/v1/target-rules-options",
+						headers: {
+							"X-WP-Nonce": hfeSettingsData.hfe_nonce_action,
+						},
+					}),
+					apiFetch({ 
+						path: "/hfe/v1/user-roles-options",
+						headers: {
+							"X-WP-Nonce": hfeSettingsData.hfe_nonce_action,
+						},
+					}),
 				]);
 
 				if (!isMountedRef.current) return;
@@ -195,8 +205,8 @@ const withDisplayConditions = (WrappedComponent) => {
 					name: __("Include", "header-footer-elementor"),
 				},
 				displayLocation: {
-					id: "entire-site",
-					name: __("Entire Site", "header-footer-elementor"),
+					id: "",
+					name: __("Select Conditions", "header-footer-elementor"),
 				},
 			};
 
@@ -332,12 +342,21 @@ const withDisplayConditions = (WrappedComponent) => {
 						await Promise.all([
 							apiFetch({
 								path: `/hfe/v1/target-rules?post_id=${item.id}`,
+								headers: {
+									"X-WP-Nonce": hfeSettingsData.hfe_nonce_action,
+								},
 							}),
 							apiFetch({
 								path: `/hfe/v1/user-roles?post_id=${item.id}`,
+								headers: {
+									"X-WP-Nonce": hfeSettingsData.hfe_nonce_action,
+								},
 							}),
 							apiFetch({
 								path: `/hfe/v1/enable-for-canvas-template?post_id=${item.id}`,
+								headers: {
+									"X-WP-Nonce": hfeSettingsData.hfe_nonce_action,
+								},
 							}),
 						]);
 
@@ -440,12 +459,16 @@ const withDisplayConditions = (WrappedComponent) => {
 			updateState({ isLoading: true, error: null });
 
 			try {
-				// Prepare data
-				const includeRules = state.conditions
+				// Prepare data - filter out conditions with empty display locations
+				const validConditions = state.conditions.filter(
+					(c) => c.displayLocation.id && c.displayLocation.id.trim() !== "",
+				);
+
+				const includeRules = validConditions
 					.filter((c) => c.conditionType.id === "include")
 					.map((c) => c.displayLocation.id);
 
-				const excludeRules = state.conditions
+				const excludeRules = validConditions
 					.filter((c) => c.conditionType.id === "exclude")
 					.map((c) => c.displayLocation.id);
 
@@ -477,16 +500,25 @@ const withDisplayConditions = (WrappedComponent) => {
 					apiFetch({
 						path: "/hfe/v1/target-rules",
 						method: "POST",
+						headers: {
+							"X-WP-Nonce": hfeSettingsData.hfe_nonce_action,
+						},
 						data: targetRulesData,
 					}),
 					apiFetch({
 						path: "/hfe/v1/user-roles",
 						method: "POST",
+						headers: {
+							"X-WP-Nonce": hfeSettingsData.hfe_nonce_action,
+						},
 						data: userRolesData,
 					}),
 					apiFetch({
 						path: "/hfe/v1/enable-for-canvas-template",
 						method: "POST",
+						headers: {
+							"X-WP-Nonce": hfeSettingsData.hfe_nonce_action,
+						},
 						data: canvasTemplateData,
 					}),
 				]);
@@ -581,11 +613,11 @@ const withDisplayConditions = (WrappedComponent) => {
 							style={{
 								paddingLeft: "1.5rem",
 								paddingRight: "1.5rem",
-								paddingTop: "1.5rem",
+								paddingTop: "0.5rem",
 							}}
 						>
 							<div className="flex items-center justify-between">
-								<h2 className="text-base font-normal">
+								<h2 className="text-lg font-medium">
 									{__(
 										"Configure Display Conditions",
 										"header-footer-elementor",
@@ -670,7 +702,7 @@ const withDisplayConditions = (WrappedComponent) => {
 								{/* Content - Always show, overlay with loading when needed */}
 								<>
 									{/* Tab Navigation */}
-									<div className="flex justify-center" style={{width: '300px',flexDirection: 'column', alignItems: 'center', justifyContent: 'center', margin: 'auto', marginTop: '20px'}}>
+									<div className="flex justify-center" style={{width: '300px',flexDirection: 'column', alignItems: 'center', justifyContent: 'center', margin: 'auto', marginTop: '40px'}}>
 									{/* 
 										<button
 											onClick={() =>
@@ -724,10 +756,9 @@ const withDisplayConditions = (WrappedComponent) => {
 										</button>
 									</div> */}
 
-									{console.log('Tabs component activeItem:', safeActiveTab, 'Type:', typeof safeActiveTab)}
 								<Tabs activeItem={safeActiveTab}>
 										<Tabs.Group 
-										  size="md"
+										  size="sm"
 										onChange={(tabSlug) => {
 											handleTabChange(tabSlug);
 										}}>
@@ -757,10 +788,10 @@ const withDisplayConditions = (WrappedComponent) => {
 														>
 															<div
 																className="flex items-center justify-center overflow-hidden bg-gray-50"
-																style={{
-																	marginLeft:
-																		"56px",
-																}}
+																// style={{
+																// 	marginLeft:
+																// 		"56px",
+																// }}
 															>
 																{/* Include/Exclude Select */}
 																<div
@@ -823,7 +854,7 @@ const withDisplayConditions = (WrappedComponent) => {
 																	className="rounded-sm"
 																	style={{
 																		border: "1px solid #d1d5db",
-																		width: "420px",
+																		width: "400px",
 																	}}
 																>
 																	<select
@@ -859,6 +890,12 @@ const withDisplayConditions = (WrappedComponent) => {
 																			height: "40px",
 																		}}
 																	>
+																		<option value="">
+																			{__(
+																				"Select Conditions",
+																				"header-footer-elementor",
+																			)}
+																		</option>
 																		{Object.keys(
 																			state.locationOptions,
 																		).map(
@@ -935,7 +972,7 @@ const withDisplayConditions = (WrappedComponent) => {
 													),
 												)}
 											</div>
-												<div className="flex justify-center mb-8">
+												<div className="flex justify-center pt-4 mb-8" style={{paddingTop: '15px'}}>
 												<button
 													onClick={handleAddCondition}
 													className="text-white px-6 py-2.5 rounded-md font-medium hover:bg-gray-800"
@@ -969,16 +1006,16 @@ const withDisplayConditions = (WrappedComponent) => {
 																>
 																	<div
 																		className="flex items-center justify-center overflow-hidden bg-gray-50"
-																		style={{
-																			marginLeft:
-																				"86px",
-																		}}
+																		// style={{
+																		// 	marginLeft:
+																		// 		"86px",
+																		// }}
 																	>
 																		<div
 																			className="rounded-sm"
 																			style={{
 																				border: "1px solid #d1d5db",
-																				width: "430px",
+																				width: "410px",
 																			}}
 																		>
 																			<select
@@ -1088,7 +1125,7 @@ const withDisplayConditions = (WrappedComponent) => {
 												</div>
 
 												{/* Add User Role Button */}
-												<div className="flex justify-center mb-8">
+												<div className="flex justify-center mb-8" style={{paddingTop: '15px'}}>
 													<button
 														onClick={handleAddUserRole}
 														className="text-white px-6 py-2.5 rounded-md font-medium hover:bg-gray-800"
@@ -1115,12 +1152,12 @@ const withDisplayConditions = (WrappedComponent) => {
 									
 
 									{/* Canvas Template Section */}
-									<div className="mt-8 pt-6 border-t border-gray-200">
-										<div className="flex items-center justify-around">
+									<div className=" border-t pb-3 border-gray-200">
+										<div className="flex items-center justify-center" style={{ gap: '4rem'}} >
 											<div>
 												<p className="text-gray-600 text-sm">
 													{__(
-														"Enable this layout to display on Elementor Canvas template pages.",
+														"Enable this layout to display on Elementor Canvas template pages",
 														"header-footer-elementor",
 													)}
 												</p>
@@ -1145,7 +1182,7 @@ const withDisplayConditions = (WrappedComponent) => {
 
 						{/* Footer */}
 						<div className="border-t border-gray-200 px-8 py-6">
-							<div className="flex justify-end p-4 gap-3">
+							<div className="flex justify-end p-4 gap-3" style={{ marginRight: '20px'}}>
 								<button
 									onClick={() =>
 										updateState({ isDialogOpen: false })
