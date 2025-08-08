@@ -1155,7 +1155,7 @@ const withDisplayConditions = (WrappedComponent) => {
 
 						{/* Footer */}
 						<div className="border-t border-gray-200 px-8 py-6">
-							<div className="flex justify-end p-4 gap-3">
+							<div className="flex justify-end p-4 gap-3" style={{ marginRight: '30px' }}>
 								<button
 									onClick={() =>
 										updateState({ isDialogOpen: false })
