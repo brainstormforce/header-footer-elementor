@@ -664,7 +664,7 @@ msgid "Create a layout that appears before the footer"
 msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:902
-#: src/Components/HF-Builder/CustomBlock.jsx:410
+#: src/Components/HF-Builder/CustomBlock.jsx:407
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:648
 msgid "Copy Shortcode"
 msgstr ""
@@ -709,33 +709,33 @@ msgstr ""
 msgid "Before Footer layout created successfully!"
 msgstr ""
 
-#: src/Components/HF-Builder/CustomBlock.jsx:125
+#: src/Components/HF-Builder/CustomBlock.jsx:122
 msgid "Failed to create custom block. Please try again."
 msgstr ""
 
-#: src/Components/HF-Builder/CustomBlock.jsx:135
+#: src/Components/HF-Builder/CustomBlock.jsx:132
 msgid "Error creating custom block. Please try again."
 msgstr ""
 
-#: src/Components/HF-Builder/CustomBlock.jsx:223
+#: src/Components/HF-Builder/CustomBlock.jsx:220
 msgid ""
 "You haven't created a custom block layout yet. Build a custom block to "
 "control how your site's sections look and behave across all pages."
 msgstr ""
 
-#: src/Components/HF-Builder/CustomBlock.jsx:281
+#: src/Components/HF-Builder/CustomBlock.jsx:278
 msgid "Custom Block Templates"
 msgstr ""
 
-#: src/Components/HF-Builder/CustomBlock.jsx:307
+#: src/Components/HF-Builder/CustomBlock.jsx:304
 msgid "Creating..."
 msgstr ""
 
-#: src/Components/HF-Builder/CustomBlock.jsx:308
+#: src/Components/HF-Builder/CustomBlock.jsx:305
 msgid "Create Custom Block Layout"
 msgstr ""
 
-#: src/Components/HF-Builder/CustomBlock.jsx:90
+#: src/Components/HF-Builder/CustomBlock.jsx:87
 msgid "Custom block created successfully!"
 msgstr ""
 

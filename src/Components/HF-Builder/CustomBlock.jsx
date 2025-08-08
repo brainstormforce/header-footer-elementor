@@ -76,14 +76,11 @@ const CustomBlock = () => {
 			.then((response) => {
 				if (response.success && response.post) {
 					// Get the edit URL from the response or construct it
-					const editUrl = response.edit_url || response.post.edit_url;
+					const editUrl = response.edit_url || response.post.edit_url || 
+						`${window.location.origin}/wp-admin/post.php?post=${response.post.id}&action=elementor`;
 
-					if (editUrl) {
-						// Redirect to edit with Elementor
-						window.open(editUrl, "_blank");
-					} else {
-						console.error("No edit URL provided in response");
-					}
+					// Open in new tab
+					window.open(editUrl, "_blank");
 
 					// Show success toast
 					toast.success(
@@ -144,8 +141,8 @@ const CustomBlock = () => {
 	};
 
 	const handleEditWithElementor = (item) => {
-		// Redirect to edit with Elementor
-		const elementorEditUrl = `${window.location.origin}/wp-admin/post.php?post=${item.id}&action=elementor`;
+		// Use edit_url from API response if available, otherwise construct it
+		const elementorEditUrl = item.edit_url || `${window.location.origin}/wp-admin/post.php?post=${item.id}&action=elementor`;
 		window.open(elementorEditUrl, "_blank");
 	};
 
