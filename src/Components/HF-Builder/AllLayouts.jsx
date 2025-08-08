@@ -203,8 +203,7 @@ const AllLayouts = ({
 						// For custom blocks, redirect to Elementor editor
 						if (item.template_type === "custom") {
 							// Get the edit URL from the response or construct it
-							const editUrl = response.edit_url || response.post.edit_url || 
-								`${window.location.origin}/wp-admin/post.php?post=${response.post_id}&action=elementor`;
+							const editUrl = `${window.location.origin}/wp-admin/post.php?post=${response.post_id}&action=elementor`;
 
 							// Open in new tab
 							window.open(editUrl, "_blank");
