@@ -752,7 +752,6 @@ msgid "Enable this layout to display on Elementor Canvas template pages"
 msgstr ""
 
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1170
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1171
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:519
 #: src/Components/Settings/VersionControl.jsx:132
 msgid "Cancel"
