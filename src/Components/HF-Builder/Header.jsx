@@ -13,6 +13,7 @@ const Header = ({
 	openDisplayConditionsDialog,
 	DisplayConditionsDialog,
 	isButtonLoading,
+	onEmptyStateChange,
 }) => {
 	const [headerItems, setHeaderItems] = useState([]);
 	const [hasHeaders, setHasHeaders] = useState(false);
@@ -35,6 +36,14 @@ const Header = ({
 			document.head.removeChild(style);
 		};
 	}, []);
+
+	// Notify parent about empty state changes
+	useEffect(() => {
+		const isEmpty = !hasHeaders && !isLoading;
+		if (onEmptyStateChange) {
+			onEmptyStateChange(isEmpty);
+		}
+	}, [hasHeaders, isLoading, onEmptyStateChange]);
 
 	useEffect(() => {
 		// Fetch the target rule options when component mounts

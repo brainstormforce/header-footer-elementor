@@ -11,6 +11,29 @@ import CustomBlock from "./CustomBlock";
 import { __ } from "@wordpress/i18n";
 
 const Sidebar = () => {
+	const [isCurrentTabEmpty, setIsCurrentTabEmpty] = useState(false);
+
+	// Inject CSS for empty state styling
+	useEffect(() => {
+		const style = document.createElement("style");
+		style.textContent = `
+			.hfe-empty-state-container {
+				background-color: white !important;
+				margin-top: -40px !important;
+				margin-left: 8px !important;
+				border-left: 1px solid #e5e7eb !important;
+				box-shadow: -2px 0 4px rgba(0, 0, 0, 0.05) !important;
+			}
+		`;
+		document.head.appendChild(style);
+
+		return () => {
+			if (document.head.contains(style)) {
+				document.head.removeChild(style);
+			}
+		};
+	}, []);
+
 	const items = [
 		{
 			id: 1,
@@ -29,7 +52,7 @@ const Sidebar = () => {
 				/>
 			),
 			title: __("All Layouts", "header-footer-elementor"),
-			content: <AllLayouts />,
+			content: <AllLayouts onEmptyStateChange={setIsCurrentTabEmpty} />,
 		},
 		{
 			id: 2,
@@ -48,7 +71,7 @@ const Sidebar = () => {
 				/>
 			),
 			title: __("Header ", "header-footer-elementor"),
-			content: <Header />,
+			content: <Header onEmptyStateChange={setIsCurrentTabEmpty} />,
 		},
 		{
 			id: 3,
@@ -67,7 +90,7 @@ const Sidebar = () => {
 				/>
 			),
 			title: __("Footer", "header-footer-elementor"),
-			content: <Footer />,
+			content: <Footer onEmptyStateChange={setIsCurrentTabEmpty} />,
 		},
 		{
 			id: 4,
@@ -86,7 +109,7 @@ const Sidebar = () => {
 				/>
 			),
 			title: __("Before Footer", "header-footer-elementor"),
-			content: <BeforeFooter />,
+			content: <BeforeFooter onEmptyStateChange={setIsCurrentTabEmpty} />,
 		},
 		{
 			id: 5,
@@ -105,7 +128,7 @@ const Sidebar = () => {
 				/>
 			),
 			title: __("Custom Block", "header-footer-elementor"),
-			content: <CustomBlock />,
+			content: <CustomBlock onEmptyStateChange={setIsCurrentTabEmpty} />,
 		},
 	].filter((item) => {
 		if ("no" === hfeSettingsData.show_theme_support && item.id === 2) {
@@ -205,12 +228,14 @@ const Sidebar = () => {
 					justify="start"
 					style={{ height: "100%" }}
 				>
-					<Container.Item
+					<div
 						className="p-2 hfe-sticky-outer-wrapper"
-						alignSelf="auto"
-						order="none"
-						shrink={1}
-						style={{ backgroundColor: "#ffffff" }}
+						style={{ 
+							alignSelf: "auto",
+							order: "none",
+							flexShrink: 1,
+							backgroundColor: "#ffffff" 
+						}}
 					>
 						<div className="hfe-sticky-sidebar">
 							<SidebarMenu
@@ -219,21 +244,30 @@ const Sidebar = () => {
 								selectedItemId={selectedItem.id}
 							/>
 						</div>
-					</Container.Item>
-					<Container.Item
-						className="p-2 flex w-full justify-center items-start hfe-hide-scrollbar"
-						alignSelf="auto"
-						order="none"
-						shrink={1}
+					</div>
+					<div
+						className={`p-2 flex w-full justify-center items-start hfe-hide-scrollbar ${isCurrentTabEmpty ? 'hfe-empty-state-container' : ''}`}
 						style={{
+							alignSelf: "auto",
+							order: "none",
+							flexShrink: 1,
 							height: "calc(100vh - 1px)",
 							overflowY: "auto",
+							...(isCurrentTabEmpty && {
+								backgroundColor: 'white',
+								marginTop: '-40px',
+								marginLeft: '8px',
+								borderLeft: '1px solid #e5e7eb',
+								boxShadow: '-2px 0 4px rgba(0, 0, 0, 0.05)',
+								position: 'relative',
+								zIndex: 1
+							})
 						}}
 					>
 						<div className="w-full">
 							<Content selectedItem={selectedItem} />
 						</div>
-					</Container.Item>
+					</div>
 				</Container>
 			</div>
 		</>

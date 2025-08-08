@@ -13,6 +13,7 @@ const BeforeFooter = ({
 	openDisplayConditionsDialog,
 	DisplayConditionsDialog,
 	isButtonLoading,
+	onEmptyStateChange,
 }) => {
 	const [beforeFooterItems, setBeforeFooterItems] = useState([]);
 	const [hasBeforeFooters, setHasBeforeFooters] = useState(false);
@@ -35,6 +36,14 @@ const BeforeFooter = ({
 			document.head.removeChild(style);
 		};
 	}, []);
+
+	// Notify parent about empty state changes
+	useEffect(() => {
+		const isEmpty = !hasBeforeFooters && !isLoading;
+		if (onEmptyStateChange) {
+			onEmptyStateChange(isEmpty);
+		}
+	}, [hasBeforeFooters, isLoading, onEmptyStateChange]);
 
 	useEffect(() => {
 		// Fetch the target rule options when component mounts

@@ -9,7 +9,7 @@ import InlineTitleEditor from "./InlineTitleEditor";
 import useCopyShortcode from "./hooks/useCopyShortcode";
 import toast, { Toaster } from "react-hot-toast";
 
-const CustomBlock = () => {
+const CustomBlock = ({ onEmptyStateChange }) => {
 	const { handleCopyShortcode } = useCopyShortcode();
 	const [customBlockItems, setCustomBlockItems] = useState([]);
 	const [hasCustomBlocks, setCustomBlocks] = useState(false);
@@ -33,6 +33,14 @@ const CustomBlock = () => {
 			document.head.removeChild(style);
 		};
 	}, []);
+
+	// Notify parent about empty state changes
+	useEffect(() => {
+		const isEmpty = !hasCustomBlocks && !isLoading;
+		if (onEmptyStateChange) {
+			onEmptyStateChange(isEmpty);
+		}
+	}, [hasCustomBlocks, isLoading, onEmptyStateChange]);
 
 	useEffect(() => {
 		// Fetch the target rule options when component mounts

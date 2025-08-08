@@ -16,6 +16,7 @@ const AllLayouts = ({
 	openDisplayConditionsDialog,
 	DisplayConditionsDialog,
 	isButtonLoading,
+	onEmptyStateChange,
 }) => {
 	// Use the custom hook for copy shortcode functionality
 	const { handleCopyShortcode } = useCopyShortcode();
@@ -46,6 +47,14 @@ const AllLayouts = ({
 			document.head.removeChild(style);
 		};
 	}, []);
+
+	// Notify parent about empty state changes
+	useEffect(() => {
+		const isEmpty = !hasLayoutItems && !isLoading;
+		if (onEmptyStateChange) {
+			onEmptyStateChange(isEmpty);
+		}
+	}, [hasLayoutItems, isLoading, onEmptyStateChange]);
 
 	// Define dummy layout types
 	const dummyLayoutTypes = [

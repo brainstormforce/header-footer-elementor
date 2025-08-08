@@ -13,6 +13,7 @@ const Footer = ({
 	openDisplayConditionsDialog,
 	DisplayConditionsDialog,
 	isButtonLoading,
+	onEmptyStateChange,
 }) => {
 	const [footerItems, setFooterItems] = useState([]);
 	const [hasFooters, setHasFooters] = useState(false);
@@ -35,6 +36,14 @@ const Footer = ({
 			document.head.removeChild(style);
 		};
 	}, []);
+
+	// Notify parent about empty state changes
+	useEffect(() => {
+		const isEmpty = !hasFooters && !isLoading;
+		if (onEmptyStateChange) {
+			onEmptyStateChange(isEmpty);
+		}
+	}, [hasFooters, isLoading, onEmptyStateChange]);
 
 	useEffect(() => {
 		// Fetch the target rule options when component mounts
