@@ -89,7 +89,7 @@ class HFE_Promotion {
             'title' => '',
             'description' => '',
             'features' => [],
-            'upgrade_text' => __( 'Upgrade to Ultimate Elementor Pro', 'header-footer-elementor' ),
+            'upgrade_text' => __( 'Upgrade to Pro', 'header-footer-elementor' ),
             'upgrade_url' => 'https://ultimateelementor.com/pricing/',
             'demo_url' => '',
         ];
@@ -114,10 +114,7 @@ class HFE_Promotion {
 
         $html = '
         <div class="hfe-promotion-box">
-            <div class="hfe-promo-header">
-                <div class="hfe-promo-icon">' . $args['icon'] . '</div>
-                <div class="hfe-promo-title">' . esc_html( $args['title'] ) . '</div>
-            </div>
+           
             <div class="hfe-promo-content">
                 <div class="hfe-promo-description">' . esc_html( $args['description'] ) . '</div>
                 ' . $features_html . '
@@ -131,7 +128,7 @@ class HFE_Promotion {
         </div>
         <style>
         .hfe-promotion-box {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #3D0ED6, #4E1FFF);
             border-radius: 8px;
             padding: 20px;
             color: white;
@@ -169,20 +166,21 @@ class HFE_Promotion {
         }
         .hfe-promo-footer {
             display: flex;
+            flex-direction: row;
             gap: 10px;
             justify-content: center;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
         }
         .hfe-promo-button, .hfe-promo-demo-btn {
             background: rgba(255,255,255,0.2) !important;
             border: 1px solid rgba(255,255,255,0.3) !important;
             color: white !important;
-            padding: 10px 20px !important;
+            padding: 5px 10px !important;
             border-radius: 5px !important;
             text-decoration: none !important;
             display: inline-block !important;
             transition: all 0.3s ease !important;
-            font-size: 14px !important;
+            font-size: 12px !important;
         }
         .hfe-promo-button:hover, .hfe-promo-demo-btn:hover {
             background: rgba(255,255,255,0.3) !important;
