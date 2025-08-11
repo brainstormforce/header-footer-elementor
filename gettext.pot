@@ -278,7 +278,9 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:68
 #: src/Components/Compare/UltimateCompare.jsx:12
+#: src/Components/Dashboard/UltimateFeatures.js:83
 #: src/Components/Onboarding/Features.jsx:243
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:85
 #: src/Components/Widgets/UltimateWidgets.jsx:13
 msgid "Modal Popup"
 msgstr ""
@@ -525,7 +527,7 @@ msgstr ""
 
 #: src/Components/Dashboard/UltimateFeatures.js:102
 #: src/Components/Widgets/UltimateWidgetFeatures.jsx:104
-msgid "Pricing Box"
+msgid "Price Box"
 msgstr ""
 
 #: src/Components/Dashboard/UltimateFeatures.js:106
@@ -540,7 +542,7 @@ msgstr ""
 
 #: src/Components/Dashboard/UltimateFeatures.js:41
 #: src/Components/Widgets/UltimateWidgetFeatures.jsx:43
-msgid "Unlock Pro widgets"
+msgid "Unlock Pro Widgets"
 msgstr ""
 
 #: src/Components/Dashboard/UltimateFeatures.js:54
@@ -556,18 +558,12 @@ msgid ""
 msgstr ""
 
 #: src/Components/Dashboard/UltimateFeatures.js:79
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:81
-msgid "Faq Schema"
-msgstr ""
-
-#: src/Components/Dashboard/UltimateFeatures.js:83
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:85
-msgid "Modal Pop-up"
+msgid "FAQWW Schema"
 msgstr ""
 
 #: src/Components/Dashboard/UltimateFeatures.js:87
 #: src/Components/Widgets/UltimateWidgetFeatures.jsx:89
-msgid "Infobox"
+msgid "InfoBox"
 msgstr ""
 
 #: src/Components/Dashboard/UltimateFeatures.js:94
@@ -1148,6 +1144,10 @@ msgstr ""
 
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:259
 msgid "Deactivate All "
+msgstr ""
+
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:81
+msgid "FAQ Schema"
 msgstr ""
 
 #: src/Components/Widgets/UltimateWidgets.jsx:119

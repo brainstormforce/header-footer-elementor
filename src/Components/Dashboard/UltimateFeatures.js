@@ -39,7 +39,7 @@ const UltimateFeatures = () => {
 							size="xs"
 							tag="p"
 							title={__(
-								"Unlock Pro widgets",
+								"Unlock Pro Widgets",
 								"header-footer-elementor",
 							)}
 							className="text-xs py-1  text-[#C026D3]"
@@ -76,15 +76,15 @@ const UltimateFeatures = () => {
 							</li>
 							<li className="flex items-center gap-1 text-text-tertiary whitespace-nowrap">
 								<Check color="#6005FF" size={16} className="flex-shrink-0" />
-								<span className="truncate">{__("Faq Schema", "header-footer-elementor")}</span>
+								<span className="truncate">{__("FAQWW Schema", "header-footer-elementor")}</span>
 							</li>
 							<li className="flex items-center gap-1 text-text-tertiary whitespace-nowrap">
 								<Check color="#6005FF" size={16} className="flex-shrink-0" />
-								<span className="truncate">{__("Modal Pop-up", "header-footer-elementor")}</span>
+								<span className="truncate">{__("Modal Popup", "header-footer-elementor")}</span>
 							</li>
 							<li className="flex items-center gap-1 text-text-tertiary whitespace-nowrap">
 								<Check color="#6005FF" size={16} className="flex-shrink-0" />
-								<span className="truncate">{__("Infobox", "header-footer-elementor")}</span>
+								<span className="truncate">{__("InfoBox", "header-footer-elementor")}</span>
 							</li>
 						</ul>
 
@@ -99,7 +99,7 @@ const UltimateFeatures = () => {
 							</li>
 							<li className="flex items-center gap-1 text-text-tertiary whitespace-nowrap">
 								<Check color="#6005FF" size={16} className="flex-shrink-0" />
-								<span className="truncate">{__("Pricing Box", "header-footer-elementor")}</span>
+								<span className="truncate">{__("Price Box", "header-footer-elementor")}</span>
 							</li>
 							<li className="flex items-center gap-1 text-text-tertiary whitespace-nowrap">
 								<Check color="#6005FF" size={16} className="flex-shrink-0" />
