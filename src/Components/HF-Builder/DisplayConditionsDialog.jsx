@@ -614,31 +614,31 @@ const withDisplayConditions = (WrappedComponent) => {
 								{/* Content - Always show, overlay with loading when needed */}
 								<>
 									{/* Unified Form Layout */}
-									<div className="space-y-8" style={{ marginTop: '40px' }}>
+									<div className="space-y-8">
 										
 										{/* Display Conditions Section */}
-										<div className="bg-white rounded-lg border border-gray-200 p-6">
-											<div className="flex items-center mb-4">
+										<div className="bg-white rounded-lg border border-gray-200">
+											<div className="flex items-center justify-center">
 												<Settings className="w-5 h-5 text-purple-600 mr-3" />
 												<h3 className="text-lg font-semibold text-gray-900">
 													{__("Display Conditions", "header-footer-elementor")}
 												</h3>
 											</div>
-											<p className="text-gray-600 text-sm mb-6">
+											<p className="text-gray-600 flex items-center justify-center m-0 text-sm">
 												{__("Configure where this layout should appear on your website.", "header-footer-elementor")}
 											</p>
 											
-											<div className="space-y-4">
+											<div className="space-y-2 pl-10 pr-10 py-4 m-0">
 												{state.conditions.map((condition) => (
 													<div
 														key={condition.id}
-														className="flex items-center gap-3 p-4 bg-gray-50 rounded-lg border border-gray-100"
+														className="flex items-center gap-2 justify-center bg-gray-50 rounded-lg border border-gray-100"
 													>
 														{/* Include/Exclude Select */}
 														<div className="flex-shrink-0">
-															<label className="block text-sm font-medium text-gray-700 mb-1">
+															{/* <label className="block text-sm font-medium text-gray-700 mb-1">
 																{__("Type", "header-footer-elementor")}
-															</label>
+															</label> */}
 															<div className="relative">
 																<select
 																	onChange={(e) => {
@@ -668,9 +668,9 @@ const withDisplayConditions = (WrappedComponent) => {
 
 														{/* Display Location Select */}
 														<div className="flex-grow">
-															<label className="block text-sm font-medium text-gray-700 mb-1">
+															{/* <label className="block text-sm font-medium text-gray-700 mb-1">
 																{__("Location", "header-footer-elementor")}
-															</label>
+															</label> */}
 															<div className="relative">
 																<select
 																	onChange={(e) => {
@@ -710,7 +710,7 @@ const withDisplayConditions = (WrappedComponent) => {
 
 														{/* Remove Button */}
 														{state.conditions.length > 1 && (
-															<div className="flex-shrink-0 pt-6">
+															<div className="flex-shrink-0">
 																<button
 																	onClick={() => handleRemoveCondition(condition.id)}
 																	className="p-2 text-red-400 hover:text-red-600 hover:bg-red-50 rounded-md transition-colors"
@@ -737,33 +737,34 @@ const withDisplayConditions = (WrappedComponent) => {
 										</div>
 
 										{/* User Roles Section */}
-										<div className="bg-white rounded-lg border border-gray-200 p-6">
-											<div className="flex items-center mb-4">
+										<div className="bg-white rounded-lg border border-gray-200">
+											<div className="flex items-center justify-center">
 												<Users className="w-5 h-5 text-blue-600 mr-3" />
 												<h3 className="text-lg font-semibold text-gray-900">
-													{__("User Role Restrictions", "header-footer-elementor")}
+													{__("User Roles", "header-footer-elementor")}
 												</h3>
 											</div>
-											<p className="text-gray-600 text-sm mb-6">
+											<p className="text-gray-600 flex items-center justify-center text-sm m-0">
 												{__("Restrict this layout to specific user roles. Leave empty to show for all users.", "header-footer-elementor")}
 											</p>
 
-											<div className="space-y-4">
+											<div className="space-y-2 pr-10 py-4 m-0" style={{ paddingLeft: '150px', paddingRight: '40px'}}>
 												{state.userRoles.map((roleId, index) => (
 													<div
 														key={index}
-														className="flex items-center gap-3 p-4 bg-gray-50 rounded-lg border border-gray-100"
+														className="flex items-center gap-2 justify-center bg-gray-50 rounded-lg border border-gray-100"
 													>
 														{/* User Role Select */}
 														<div className="flex-grow">
-															<label className="block text-sm font-medium text-gray-700 mb-1">
+															{/* <label className="block text-sm font-medium text-gray-700 mb-1">
 																{__("User Role", "header-footer-elementor")} {index + 1}
-															</label>
-															<div className="relative">
+															</label> */}
+															<div className="relative" style={{ Width: '400px !important' }}>
 																<select
 																	value={roleId}
+																	// style={{ Width: '400px !important' }}
 																	onChange={(e) => handleUpdateUserRole(index, e.target.value)}
-																	className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 bg-white"
+																	className="w-full block px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 bg-white"
 																>
 																	<option value="">
 																		{__("Select User Role", "header-footer-elementor")}
@@ -788,7 +789,7 @@ const withDisplayConditions = (WrappedComponent) => {
 
 														{/* Remove Button */}
 														{state.userRoles.length > 1 && (
-															<div className="flex-shrink-0 pt-6">
+															<div className="flex-shrink-0">
 																<button
 																	onClick={() => handleRemoveUserRole(index)}
 																	className="p-2 text-red-400 hover:text-red-600 hover:bg-red-50 rounded-md transition-colors"
@@ -819,7 +820,7 @@ const withDisplayConditions = (WrappedComponent) => {
 									
 
 									{/* Canvas Template Section */}
-									<div className="bg-white rounded-lg border border-gray-200 p-6">
+									<div className="bg-white rounded-lg border p-10 border-gray-200">
 										<div className="flex items-center justify-between">
 											<div>
 												<h3 className="text-lg font-semibold text-gray-900 mb-2">

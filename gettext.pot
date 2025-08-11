@@ -786,20 +786,12 @@ msgstr ""
 msgid "Configure where this layout should appear on your website."
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:640
-msgid "Type"
-msgstr ""
-
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:660
 msgid "Include"
 msgstr ""
 
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:663
 msgid "Exclude"
-msgstr ""
-
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:672
-msgid "Location"
 msgstr ""
 
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:691
@@ -815,7 +807,7 @@ msgid "Add Condition"
 msgstr ""
 
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:744
-msgid "User Role Restrictions"
+msgid "User Roles"
 msgstr ""
 
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:748
@@ -824,41 +816,38 @@ msgid ""
 "users."
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:760
-msgid "User Role"
-msgstr ""
-
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:769
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:770
 msgid "Select User Role"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:795
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:796
 msgid "Remove user role"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:812
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:813
 msgid "Add User Role"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:826
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:827
 msgid "Canvas Template Support"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:829
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:830
 msgid "Enable this layout to display on Elementor Canvas template pages"
 msgstr ""
 
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:862
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:861
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:525
 #: src/Components/Settings/VersionControl.jsx:132
 msgid "Cancel"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:877
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:878
 msgid "Saving..."
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:883
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:884
 msgid "Save Conditions"
 msgstr ""
 
