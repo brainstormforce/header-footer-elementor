@@ -535,7 +535,7 @@ msgstr ""
 
 #: src/Components/Dashboard/UltimateFeatures.js:139
 #: src/Components/Widgets/UltimateWidgetFeatures.jsx:141
-msgid "View plans"
+msgid "View Plans"
 msgstr ""
 
 #: src/Components/Dashboard/UltimateFeatures.js:41

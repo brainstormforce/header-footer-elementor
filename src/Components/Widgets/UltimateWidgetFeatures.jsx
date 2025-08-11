@@ -138,7 +138,7 @@ const UltimateWidgetFeatures = () => {
 								);
 							}}
 						>
-							{__("View plans", "header-footer-elementor")}
+							{__("View Plans", "header-footer-elementor")}
 						</Button>
 					</div>
 			</Container>
