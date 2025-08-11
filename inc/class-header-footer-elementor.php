@@ -425,6 +425,9 @@ class Header_Footer_Elementor {
 		if ( ! class_exists( 'Uae_Nps_Survey' ) ) {
 			require_once HFE_DIR . 'inc/lib/class-uae-nps-survey.php';
 		}
+
+		// Load the Promotion system for Ultimate Elementor
+		require_once HFE_DIR . 'inc/class-hfe-promotion.php';
 					
 	}
 
