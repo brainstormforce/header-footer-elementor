@@ -76,7 +76,7 @@ const UltimateFeatures = () => {
 							</li>
 							<li className="flex items-center gap-1 text-text-tertiary whitespace-nowrap">
 								<Check color="#6005FF" size={16} className="flex-shrink-0" />
-								<span className="truncate">{__("FAQWW Schema", "header-footer-elementor")}</span>
+								<span className="truncate">{__("FAQ Schema", "header-footer-elementor")}</span>
 							</li>
 							<li className="flex items-center gap-1 text-text-tertiary whitespace-nowrap">
 								<Check color="#6005FF" size={16} className="flex-shrink-0" />
