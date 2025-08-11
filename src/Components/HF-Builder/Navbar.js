@@ -182,7 +182,7 @@ const NavBar = () => {
 						</Link>
 						<Link to={routes.dashboard.path}>
 							<div 
-								className="flex cursor-pointer items-center justify-end gap-1" 
+								className="flex cursor-pointer items-center justify-center gap-1" 
 								style={{ 
 									paddingLeft: "0.5rem",
 									backgroundColor: "#ffffff",

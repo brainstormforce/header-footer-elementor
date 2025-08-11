@@ -83,13 +83,13 @@ const SidebarMenu = ({ items, onSelectItem, selectedItemId }) => {
 				className="rounded-lg"
 				style={{ 
 					border: '1px solid #E5E7EB',
-					padding: '10px',
+					padding: '11px',
 					backgroundColor: '#F5F3FF',
 					marginTop: 'auto', // This pushes the card to the bottom
 					flexShrink: 0 // Prevents the card from shrinking
 				}}
 			>
-				<h3 className="text-base text-text-primary font-normal" style={{ margin: '0 0 6px 0' }}>
+				<h3 className="text-base text-text-primary font-medium" style={{ margin: '0 0 6px 0' }}>
 					Want More?
 				</h3>
 				<p className="text-xs text-[#64748B]" style={{ margin: '0 0 6px 0' }}>

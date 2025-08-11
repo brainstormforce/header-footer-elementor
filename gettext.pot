@@ -442,10 +442,6 @@ msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:255
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:553
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:567
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:621
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:631
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:641
 #: src/Components/Onboarding/ExtendOnboardingWidget.jsx:305
 msgid "Close"
 msgstr ""
@@ -610,10 +606,6 @@ msgstr ""
 #: src/Components/HF-Builder/AllLayouts.jsx:1084
 #: src/Components/HF-Builder/BeforeFooter.jsx:494
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:624
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:638
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:692
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:702
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:712
 #: src/Components/HF-Builder/Footer.jsx:488
 #: src/Components/HF-Builder/Header.jsx:488
 msgid "Display Conditions"
@@ -857,12 +849,6 @@ msgid "Enable this layout to display on Elementor Canvas template pages"
 msgstr ""
 
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:861
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:875
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:929
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:939
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:949
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:953
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1198
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:525
 #: src/Components/Settings/VersionControl.jsx:132
 msgid "Cancel"
