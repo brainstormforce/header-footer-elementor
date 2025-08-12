@@ -926,14 +926,28 @@ class Basic_Posts extends Common_Widget {
 	 * @return array
 	 */
 	protected function get_post_types() {
-		$post_types = get_post_types( [ 'public' => true ], 'objects' );
-		$options    = [];
+
+		// return $options;
+		$post_types = get_post_types(
+			array(
+				'public' => true,
+			),
+			'objects'
+		);
+
+		$options = array();
 
 		foreach ( $post_types as $post_type ) {
 			$options[ $post_type->name ] = $post_type->label;
 		}
 
-		return $options;
+		// Deprecated 'Media' post type.
+		$key = array_search( 'Media', $options, true );
+		if ( 'attachment' === $key ) {
+			unset( $options[ $key ] );
+		}
+
+		return apply_filters( 'hfe_loop_post_types', $options );
 	}
 
 	/**
