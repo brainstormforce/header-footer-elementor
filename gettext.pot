@@ -837,7 +837,6 @@ msgid "Enable this layout to display on Elementor Canvas template pages"
 msgstr ""
 
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:862
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:861
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:525
 #: src/Components/Settings/VersionControl.jsx:132
 msgid "Cancel"
@@ -936,29 +935,31 @@ msgstr ""
 msgid "Security check failed. Please refresh the page and try again."
 msgstr ""
 
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:259
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:261
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:260
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:98
 msgid "Layout name"
 msgstr ""
 
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:275
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:277
 msgid "Save changes"
 msgstr ""
 
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:287
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:289
 msgid "Cancel editing"
 msgstr ""
 
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:307
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:309
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:308
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:694
 msgid "Draft"
 msgstr ""
 
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:313
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:315
 msgid "Published"
 msgstr ""
 
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:329
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:331
 msgid "Edit layout name"
 msgstr ""
 

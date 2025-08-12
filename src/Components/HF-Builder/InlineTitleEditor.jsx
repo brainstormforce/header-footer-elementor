@@ -3,7 +3,7 @@ import { Edit3, Check, X, SquarePen } from "lucide-react";
 import { __ } from "@wordpress/i18n";
 import apiFetch from "@wordpress/api-fetch";
 import toast from "react-hot-toast";
-import { Button, Badge } from "@bsf/force-ui";
+import { Button, Badge, Input } from "@bsf/force-ui";
 
 /**
  * Reusable Inline Title Editor Component
@@ -13,7 +13,7 @@ const InlineTitleEditor = ({
 	item,
 	onTitleUpdate,
 	className = "",
-	titleClassName = "text-base font-medium text-gray-900 truncate",
+	titleClassName = "text-sm font-medium text-gray-900 truncate",
 	showDraftStatus = true,
 	alwaysShowIcon = false, // New prop to control icon visibility
 }) => {
@@ -245,12 +245,14 @@ const InlineTitleEditor = ({
 			{isEditing ? (
 				// Editing mode
 				<div className="flex items-center gap-2 flex-1">
-					<input
+					<Input
 						type="text"
+						size="md"
 						style={{
 							maxWidth: "200px",
 							outline: "none",
-							height: "32px",
+							height: "40px", // Match the text line height
+							// lineHeight: "20px", // Ensure consistent line height
 						}}
 						value={editingTitle}
 						onChange={(e) => setEditingTitle(e.target.value)}
@@ -266,7 +268,7 @@ const InlineTitleEditor = ({
 							(e.target.style.borderColor = "#6005FF")
 						}
 					/>
-					<div className="flex items-center pt-2">
+					<div className="flex items-center pt-2" >
 						<Button
 							variant="ghost"
 							onClick={saveTitle}
