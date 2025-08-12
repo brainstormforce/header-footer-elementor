@@ -2144,3 +2144,8 @@ body .elementor .hfe-button-wrapper a {
 .hfe-reading-progress-bar{
     height: 4px;
 }
+
+/* Woo Products Widget Icon */
+.hfe-icon-woo-products:before {
+    content: "\e8c4"; /* Using existing eicon for products */
+}

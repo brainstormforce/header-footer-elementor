@@ -143,9 +143,40 @@ class Header_Footer_Elementor {
 
 			add_action( 'astra_notice_before_markup_header-footer-elementor-rating', [ $this, 'rating_notice_css' ] );
 
+			// Add WooCommerce support
+			$this->setup_woocommerce_support();
+
 			require_once HFE_DIR . 'inc/class-hfe-analytics.php';
 			     
 		}
+	}
+
+	/**
+	 * Setup WooCommerce support.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	private function setup_woocommerce_support() {
+		if ( class_exists( 'WooCommerce' ) ) {
+			add_action( 'elementor/editor/before_enqueue_scripts', [ $this, 'enqueue_woocommerce_editor_config' ] );
+		}
+	}
+
+	/**
+	 * Enqueue WooCommerce editor configuration.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public function enqueue_woocommerce_editor_config() {
+		wp_localize_script(
+			'elementor-editor',
+			'hfeWooConfig',
+			[
+				'woocommerce_enabled' => class_exists( 'WooCommerce' ),
+			]
+		);
 	}
 
 	/**

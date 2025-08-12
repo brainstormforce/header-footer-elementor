@@ -235,6 +235,19 @@ class Widgets_Config {
 				'demo_url'    => 'https://ultimateelementor.com/widgets/search/',
 				'category'    => 'content',
 				],
+			'Woo_Products'         => [
+				'slug'        => 'hfe-woo-products',
+				'title'       => __( 'Woo Products', 'header-footer-elementor' ),
+				'keywords'    => [ 'uael', 'woocommerce', 'products', 'shop', 'grid' ],
+				'icon'        => 'hfe-icon-woo-products',
+				'title_url'   => '#',
+				'default'     => true,
+				'is_pro'      => false,
+				'doc_url'     => 'https://ultimateelementor.com/docs/woo-products-widget/?utm_source=plugin-editor&utm_medium=need-help-button&utm_campaign=uae-documentation',
+				'description' => __( 'Display WooCommerce products in a clean, customizable grid layout.', 'header-footer-elementor' ),
+				'demo_url'    => 'https://ultimateelementor.com/widgets/woo-products/',
+				'category'    => 'content',
+			],
 		];
 
 		return apply_filters( 'hfe_widgets_data', self::$widget_list );
