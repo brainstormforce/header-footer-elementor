@@ -239,7 +239,7 @@ class Widgets_Config {
 				'slug'        => 'hfe-woo-products',
 				'title'       => __( 'Woo Products', 'header-footer-elementor' ),
 				'keywords'    => [ 'uael', 'woocommerce', 'products', 'shop', 'grid' ],
-				'icon'        => 'hfe-icon-woo-products',
+				'icon'        => 'hfe-icon-woo-product',
 				'title_url'   => '#',
 				'default'     => true,
 				'is_pro'      => false,

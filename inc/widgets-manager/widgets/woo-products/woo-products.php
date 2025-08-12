@@ -12,8 +12,6 @@ use Elementor\Group_Control_Typography;
 use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use Elementor\Group_Control_Background;
-use Elementor\Group_Control_Border;
-use Elementor\Group_Control_Box_Shadow;
 use Elementor\Utils;
 
 use HFE\WidgetsManager\Widgets_Loader;
@@ -123,7 +121,6 @@ class Woo_Products extends Common_Widget {
 	protected function is_dynamic_content(): bool {
 		return true;
 	}
-
 	/**
 	 * Register widget controls.
 	 *
@@ -325,6 +322,7 @@ class Woo_Products extends Common_Widget {
 
 		$this->end_controls_section();
 	}
+
 	/**
 	 * Register query controls.
 	 *
@@ -465,6 +463,7 @@ class Woo_Products extends Common_Widget {
 
 		$this->end_controls_section();
 	}
+
 	/**
 	 * Register content style controls.
 	 *
@@ -574,15 +573,24 @@ class Woo_Products extends Common_Widget {
 
 		$this->end_controls_section();
 
-		// Title Styling
+		// Title, Rating, Price, Add to Cart styles (condensed)
+		$this->register_title_style_controls();
+		$this->register_rating_style_controls();
+		$this->register_price_style_controls();
+		$this->register_add_to_cart_style_controls();
+		$this->register_image_hover_style_controls();
+	}
+
+	/**
+	 * Register title style controls.
+	 */
+	private function register_title_style_controls() {
 		$this->start_controls_section(
 			'section_title_style',
 			[
 				'label'     => __( 'Title', 'header-footer-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
-				'condition' => [
-					'show_title' => 'yes',
-				],
+				'condition' => [ 'show_title' => 'yes' ],
 			]
 		);
 
@@ -591,12 +599,8 @@ class Woo_Products extends Common_Widget {
 			[
 				'label'     => __( 'Text Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'global'    => [
-					'default' => Global_Colors::COLOR_PRIMARY,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .hfe-product-title' => 'color: {{VALUE}};',
-				],
+				'global'    => [ 'default' => Global_Colors::COLOR_PRIMARY ],
+				'selectors' => [ '{{WRAPPER}} .hfe-product-title' => 'color: {{VALUE}};' ],
 			]
 		);
 
@@ -604,24 +608,24 @@ class Woo_Products extends Common_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'title_typography',
-				'global'   => [
-					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
-				],
+				'global'   => [ 'default' => Global_Typography::TYPOGRAPHY_PRIMARY ],
 				'selector' => '{{WRAPPER}} .hfe-product-title',
 			]
 		);
 
 		$this->end_controls_section();
+	}
 
-		// Rating Styling
+	/**
+	 * Register rating style controls.
+	 */
+	private function register_rating_style_controls() {
 		$this->start_controls_section(
 			'section_rating_style',
 			[
 				'label'     => __( 'Rating', 'header-footer-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
-				'condition' => [
-					'show_rating' => 'yes',
-				],
+				'condition' => [ 'show_rating' => 'yes' ],
 			]
 		);
 
@@ -631,23 +635,23 @@ class Woo_Products extends Common_Widget {
 				'label'     => __( 'Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#ffc107',
-				'selectors' => [
-					'{{WRAPPER}} .hfe-product-rating .star-rating' => 'color: {{VALUE}};',
-				],
+				'selectors' => [ '{{WRAPPER}} .hfe-product-rating .star-rating' => 'color: {{VALUE}};' ],
 			]
 		);
 
 		$this->end_controls_section();
+	}
 
-		// Price Styling
+	/**
+	 * Register price style controls.
+	 */
+	private function register_price_style_controls() {
 		$this->start_controls_section(
 			'section_price_style',
 			[
 				'label'     => __( 'Price', 'header-footer-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
-				'condition' => [
-					'show_price' => 'yes',
-				],
+				'condition' => [ 'show_price' => 'yes' ],
 			]
 		);
 
@@ -656,26 +660,24 @@ class Woo_Products extends Common_Widget {
 			[
 				'label'     => __( 'Text Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'global'    => [
-					'default' => Global_Colors::COLOR_PRIMARY,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .hfe-product-price' => 'color: {{VALUE}};',
-				],
+				'global'    => [ 'default' => Global_Colors::COLOR_PRIMARY ],
+				'selectors' => [ '{{WRAPPER}} .hfe-product-price' => 'color: {{VALUE}};' ],
 			]
 		);
 
 		$this->end_controls_section();
+	}
 
-		// Add to Cart Styling
+	/**
+	 * Register add to cart style controls.
+	 */
+	private function register_add_to_cart_style_controls() {
 		$this->start_controls_section(
 			'section_add_to_cart_style',
 			[
 				'label'     => __( 'Add to Cart', 'header-footer-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
-				'condition' => [
-					'show_add_to_cart' => 'yes',
-				],
+				'condition' => [ 'show_add_to_cart' => 'yes' ],
 			]
 		);
 
@@ -684,9 +686,7 @@ class Woo_Products extends Common_Widget {
 			[
 				'label'     => __( 'Text Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .hfe-product-add-to-cart .button' => 'color: {{VALUE}};',
-				],
+				'selectors' => [ '{{WRAPPER}} .hfe-product-add-to-cart .button' => 'color: {{VALUE}};' ],
 			]
 		);
 
@@ -718,16 +718,18 @@ class Woo_Products extends Common_Widget {
 		);
 
 		$this->end_controls_section();
+	}
 
-		// Image Hover Effect
+	/**
+	 * Register image hover style controls.
+	 */
+	private function register_image_hover_style_controls() {
 		$this->start_controls_section(
 			'section_image_hover_style',
 			[
 				'label'     => __( 'Image Hover', 'header-footer-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
-				'condition' => [
-					'show_image' => 'yes',
-				],
+				'condition' => [ 'show_image' => 'yes' ],
 			]
 		);
 
@@ -745,6 +747,7 @@ class Woo_Products extends Common_Widget {
 
 		$this->end_controls_section();
 	}
+
 	/**
 	 * Register promotion controls.
 	 *
@@ -754,7 +757,6 @@ class Woo_Products extends Common_Widget {
 	protected function register_pro_promotion_controls() {
 		// Add promotion controls if needed for pro features
 	}
-
 	/**
 	 * Get products list for manual selection.
 	 *
@@ -772,7 +774,7 @@ class Woo_Products extends Common_Widget {
 		$query = new \WP_Query( [
 			'post_type'      => 'product',
 			'post_status'    => 'publish',
-			'posts_per_page' => -1,
+			'posts_per_page' => 50, // Limit for performance
 			'fields'         => 'ids',
 		] );
 
@@ -849,7 +851,7 @@ class Woo_Products extends Common_Widget {
 		return $this->query;
 	}
 	/**
-	 * Render widget output on the frontend.
+	 * Render widget output on both frontend and editor.
 	 *
 	 * @since 1.0.0
 	 * @access protected
@@ -991,57 +993,5 @@ class Woo_Products extends Common_Widget {
 		<?php
 	}
 
-	/**
-	 * Render widget output in the editor.
-	 *
-	 * @since 1.0.0
-	 * @access protected
-	 */
-	protected function content_template() {
-		?>
-		<#
-		if ( ! elementor.config.woocommerce_enabled ) {
-			#>
-			<div class="hfe-woo-products-notice">
-				<p><?php esc_html_e( 'WooCommerce is not installed or activated.', 'header-footer-elementor' ); ?></p>
-			</div>
-			<#
-			return;
-		}
-		#>
-		<div class="hfe-woo-products-wrapper">
-			<div class="hfe-woo-products-grid">
-				<div class="hfe-product-item">
-					<# if ( 'yes' === settings.show_image ) { #>
-						<div class="hfe-product-image">
-							<img src="<?php echo esc_url( Utils::get_placeholder_image_src() ); ?>" alt="<?php esc_attr_e( 'Product Image', 'header-footer-elementor' ); ?>">
-						</div>
-					<# } #>
-					<div class="hfe-product-content">
-						<# if ( 'yes' === settings.show_category ) { #>
-							<div class="hfe-product-category"><?php esc_html_e( 'Category', 'header-footer-elementor' ); ?></div>
-						<# } #>
-						<# if ( 'yes' === settings.show_title ) { #>
-							<h3 class="hfe-product-title"><?php esc_html_e( 'Product Title', 'header-footer-elementor' ); ?></h3>
-						<# } #>
-						<# if ( 'yes' === settings.show_rating ) { #>
-							<div class="hfe-product-rating">★★★★★</div>
-						<# } #>
-						<# if ( 'yes' === settings.show_price ) { #>
-							<div class="hfe-product-price">$99.00</div>
-						<# } #>
-						<# if ( 'yes' === settings.show_description ) { #>
-							<div class="hfe-product-description"><?php esc_html_e( 'Product short description...', 'header-footer-elementor' ); ?></div>
-						<# } #>
-						<# if ( 'yes' === settings.show_add_to_cart ) { #>
-							<div class="hfe-product-add-to-cart">
-								<button class="button"><?php esc_html_e( 'Add to Cart', 'header-footer-elementor' ); ?></button>
-							</div>
-						<# } #>
-					</div>
-				</div>
-			</div>
-		</div>
-		<?php
-	}
+	// NO content_template() method - this forces Elementor to use render() for both editor and frontend
 }
