@@ -754,51 +754,16 @@ msgstr ""
 msgid "Create Custom Block"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1029
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1038
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1042
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1046
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1050
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1054
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1057
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1058
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1059
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1045
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1033
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1022
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1011
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1005
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1001
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:997
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:993
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:989
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:985
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:986
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:987
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1004
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1015
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1010
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1007
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1006
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1017
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1028
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1027
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1003
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1002
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:990
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:979
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:973
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:525
-#: src/Components/Settings/VersionControl.jsx:132
-msgid "Cancel"
-msgstr ""
-
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1045
 msgid "Saving..."
 msgstr ""
 
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1051
-msgid "Save Conditions"
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1054
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:818
+#: src/Components/Onboarding/ExtendOnboarding.jsx:573
+#: src/Components/Onboarding/Features.jsx:426
+msgid "Next"
 msgstr ""
 
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:121
@@ -1015,6 +980,45 @@ msgstr ""
 #: src/Components/HF-Builder/InlineTitleEditor.jsx:93
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:215
 msgid "Layout name contains invalid characters."
+msgstr ""
+
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1029
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1038
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1042
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1046
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1050
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1054
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1057
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1058
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1059
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1045
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1033
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1022
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1011
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1005
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1001
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:997
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:993
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:989
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:985
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:986
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:987
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1004
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1015
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1010
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1007
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1006
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1017
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1028
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1027
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1003
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1002
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:990
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:979
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:973
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:525
+#: src/Components/Settings/VersionControl.jsx:132
+msgid "Cancel"
 msgstr ""
 
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:127
@@ -1380,11 +1384,6 @@ msgstr ""
 #: src/Components/Onboarding/ExtendOnboarding.jsx:560
 #: src/Components/Onboarding/Features.jsx:398
 msgid "Skip"
-msgstr ""
-
-#: src/Components/Onboarding/ExtendOnboarding.jsx:573
-#: src/Components/Onboarding/Features.jsx:426
-msgid "Next"
 msgstr ""
 
 #: src/Components/HF-Builder/Navbar.js:124

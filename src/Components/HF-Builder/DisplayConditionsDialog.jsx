@@ -796,7 +796,7 @@ const withDisplayConditions = (WrappedComponent) => {
 																icon={<X size={18} />}
 																variant="link"
 																	onClick={() => handleRemoveCondition(condition.id)}
-																	className="p-2 text-red-400 hover:text-red-600 hover:bg-red-50 rounded-md transition-colors"
+																	className="p-2 text-red-400 hover:text-red-600 hover:bg-red-50 rounded-md hfe-remove-ring transition-colors"
 																	title={__("Remove condition", "header-footer-elementor")}
 																>
 																</Button>
@@ -918,7 +918,7 @@ const withDisplayConditions = (WrappedComponent) => {
 																variant="link"
 																icon={<X size={18} />}
 																	onClick={() => handleRemoveUserRole(index)}
-																	className="p-2 text-red-400 hover:text-red-600 hover:bg-red-50 rounded-md transition-colors"
+																	className="p-2 text-red-400 hover:text-red-600 hover:bg-red-50 rounded-md hfe-remove-ring transition-colors"
 																	title={__("Remove user role", "header-footer-elementor")}
 																>
 																
@@ -977,12 +977,12 @@ const withDisplayConditions = (WrappedComponent) => {
                                        <p>{__('A blank page layout with no header or footer, giving you full control over the design.', 'header-footer-elementor')}</p>
                                     </div>
                                 }
-        placement="top"
+        placement="bottom"
         triggers={['hover']}
         variant="dark"
         size="xs"
     >
-        <span style={{ textDecoration: 'underline', cursor: 'help' }}>
+        <span style={{ textDecoration: 'underline', cursor: 'pointer' }}>
             {__("Elementor Canvas pages", "header-footer-elementor")}
         </span>
     </Tooltip>
@@ -1014,7 +1014,7 @@ const withDisplayConditions = (WrappedComponent) => {
 						{/* Footer */}
 						<div className="border-t border-gray-200 px-8 py-6">
 							<div className="flex justify-end p-4 gap-3" style={{ marginRight: '20px'}}>
-								<button
+								{/* <button
 									onClick={() =>
 										updateState({ isDialogOpen: false })
 									}
@@ -1027,7 +1027,7 @@ const withDisplayConditions = (WrappedComponent) => {
 									}}
 								>
 									{__("Cancel", "header-footer-elementor")}
-								</button>
+								</button> */}
 								<button
 									onClick={handleSaveConditions}
 									className="bg-purple-600 hover:bg-purple-700 rounded-md px-6 py-2.5 font-medium text-white"
@@ -1049,7 +1049,7 @@ const withDisplayConditions = (WrappedComponent) => {
 										</span>
 									) : (
 										__(
-											"Save Conditions",
+											"Next",
 											"header-footer-elementor",
 										)
 									)}
