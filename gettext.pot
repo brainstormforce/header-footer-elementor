@@ -821,21 +821,22 @@ msgid ""
 "the design."
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:931
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:930
 msgid "Elementor Canvas pages"
 msgstr ""
 
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:973
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:974
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:525
 #: src/Components/Settings/VersionControl.jsx:132
 msgid "Cancel"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:990
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:989
 msgid "Saving..."
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:996
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:995
 msgid "Save Conditions"
 msgstr ""
 

@@ -492,7 +492,7 @@ const withDisplayConditions = (WrappedComponent) => {
 			if (!state.selectedItem) return () => null;
 
 			return () => (
-				<div style={{ position: "fixed", inset: 0, zIndex: 999999 }}>
+				<div style={{ position: "fixed", inset: 0, zIndex: 9 }}>
 					{/* Backdrop */}
 					<div
 						style={{
@@ -921,7 +921,6 @@ const withDisplayConditions = (WrappedComponent) => {
                                        <p>{__('A blank page layout with no header or footer, giving you full control over the design.', 'header-footer-elementor')}</p>
                                     </div>
                                 }
-        // content={__("", "header-footer-elementor")}
         placement="top"
         triggers={['hover']}
         variant="dark"
