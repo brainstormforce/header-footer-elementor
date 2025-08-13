@@ -760,93 +760,74 @@ msgstr ""
 msgid "Failed to save display conditions, user roles, and canvas template setting"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:533
-msgid "Configure Display Conditions"
-msgstr ""
-
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:540
 msgid "New Layout"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:576
-msgid "Where Should Your Layout Appear?"
-msgstr ""
-
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:582
-msgid "Decide where you want this layout to appear on your site."
-msgstr ""
-
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:587
-msgid ""
-"You can show it across your entire site or only on specific pages—your "
-"choice!"
-msgstr ""
-
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:628
-msgid "Configure where this layout should appear on your website."
-msgstr ""
-
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:660
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:663
 msgid "Include"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:663
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:666
 msgid "Exclude"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:691
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:695
 msgid "Select Conditions"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:717
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:721
 msgid "Remove condition"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:734
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:739
 msgid "Add Condition"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:744
-msgid "User Roles"
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:745
+msgid "Configure Display Conditions"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:748
-msgid ""
-"Restrict this layout to specific user roles. Leave empty to show for all "
-"users."
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:761
+msgid "Where Should Your Layout Appear?"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:770
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:767
+msgid "Decide where you want this layout to appear on your site."
+msgstr ""
+
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:801
 msgid "Select User Role"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:796
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:827
 msgid "Remove user role"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:813
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:845
 msgid "Add User Role"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:827
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:865
 msgid "Canvas Template Support"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:830
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:869
 msgid "Enable this layout to display on Elementor Canvas template pages"
 msgstr ""
 
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:903
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:862
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:525
 #: src/Components/Settings/VersionControl.jsx:132
 msgid "Cancel"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:878
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:919
 msgid "Saving..."
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:884
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:925
 msgid "Save Conditions"
 msgstr ""
 
@@ -936,7 +917,6 @@ msgid "Security check failed. Please refresh the page and try again."
 msgstr ""
 
 #: src/Components/HF-Builder/InlineTitleEditor.jsx:261
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:260
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:98
 msgid "Layout name"
 msgstr ""
@@ -950,7 +930,6 @@ msgid "Cancel editing"
 msgstr ""
 
 #: src/Components/HF-Builder/InlineTitleEditor.jsx:309
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:308
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:694
 msgid "Draft"
 msgstr ""

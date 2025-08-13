@@ -511,7 +511,7 @@ const withDisplayConditions = (WrappedComponent) => {
 							transform: "translate(-50%, -50%)",
 							width: "50%",
 							maxWidth: "48rem",
-							backgroundColor: "white",
+							backgroundColor: "#F9FAFB",
 							borderRadius: "0.5rem",
 							boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
 							zIndex: 999999,
@@ -566,29 +566,11 @@ const withDisplayConditions = (WrappedComponent) => {
 						</div>
 
 						{/* Body */}
-						<div className="p-4">
+						<div className="px-4">
 							<div
-								className="mx-6 px-6 py-2 border border-gray-500 rounded-lg relative"
+								className=" py-2 border border-gray-500 rounded-lg relative"
 								style={{ border: "4px solid #F9FAFB"}}
 							>
-								{/* Description */}
-								<h2 className="text-base font-semibold text-gray-900 mb-2 text-center">
-									{__(
-										"Where Should Your Layout Appear?",
-										"header-footer-elementor",
-									)}
-								</h2>
-								<p className="text-gray-600 text-sm mb-8 text-center">
-									{__(
-										"Decide where you want this layout to appear on your site.",
-										"header-footer-elementor",
-									)}
-									<br />
-									{__(
-										"You can show it across your entire site or only on specific pages—your choice!",
-										"header-footer-elementor",
-									)}
-								</p>
 
 								{/* Loading state - Fixed positioning to prevent flicker */}
 								{state.isLoading && (
@@ -614,25 +596,46 @@ const withDisplayConditions = (WrappedComponent) => {
 								{/* Content - Always show, overlay with loading when needed */}
 								<>
 									{/* Unified Form Layout */}
-									<div className="space-y-8">
+									<div className="space-y-8 border border-gray-500">
+										
 										
 										{/* Display Conditions Section */}
-										<div className="bg-white rounded-lg border border-gray-200">
-											<div className="flex items-center justify-center">
+										<div className="bg-white rounded-lg border border-red-900" style={{ border: "4px solid #F9FAFB" }}>
+												{/* Description */}
+									<div className="px-4 py-2">
+										<h2 className="text-base font-semibold text-gray-900 mb-2 text-start">
+									{__(
+										"Where Should Your Layout Appear?",
+										"header-footer-elementor",
+									)}
+								</h2>
+								<p className="text-text-tertiary text-sm m-0 text-start">
+									{__(
+										"Decide where you want this layout to appear on your site.",
+										"header-footer-elementor",
+									)}
+									{/* <br />
+									{__(
+										"You can show it across your entire site or only on specific pages—your choice!",
+										"header-footer-elementor",
+									)} */}
+								</p>
+									</div>
+											{/* <div className="flex items-center justify-center">
 												<Settings className="w-5 h-5 text-purple-600 mr-3" />
 												<h3 className="text-lg font-semibold text-gray-900">
 													{__("Display Conditions", "header-footer-elementor")}
 												</h3>
-											</div>
-											<p className="text-gray-600 flex items-center justify-center m-0 text-sm">
+											</div> */}
+											{/* <p className="text-gray-600 flex items-center justify-center m-0 text-sm">
 												{__("Configure where this layout should appear on your website.", "header-footer-elementor")}
 											</p>
-											
-											<div className="space-y-2 pl-10 pr-10 py-4 m-0">
+											 */}
+											<div className="space-y-2 pl-4 pr-10 pb-4 m-0">
 												{state.conditions.map((condition) => (
 													<div
 														key={condition.id}
-														className="flex items-center gap-2 justify-center bg-gray-50 rounded-lg border border-gray-100"
+														className="flex items-center justify-center bg-gray-50 rounded-lg border border-gray-100"
 													>
 														{/* Include/Exclude Select */}
 														<div className="flex-shrink-0">
@@ -653,8 +656,8 @@ const withDisplayConditions = (WrappedComponent) => {
 																		);
 																	}}
 																	value={condition.conditionType.id}
-																	className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500 bg-white"
-																	style={{ minWidth: '120px' }}
+																	className="block w-full px-3 py-2 border border-gray-300 rounded-sm shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500 bg-white"
+																	style={{ minWidth: '120px', height: '42px' }}
 																>
 																	<option value="include">
 																		{__("Include", "header-footer-elementor")}
@@ -685,7 +688,8 @@ const withDisplayConditions = (WrappedComponent) => {
 																		);
 																	}}
 																	value={condition.displayLocation.id}
-																	className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500 bg-white"
+																	style={{ height: '42px'}}
+																	className="block w-full px-3 py-2 border border-gray-300 shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500 bg-white"
 																>
 																	<option value="">
 																		{__("Select Conditions", "header-footer-elementor")}
@@ -725,30 +729,57 @@ const withDisplayConditions = (WrappedComponent) => {
 											</div>
 
 											{/* Add Condition Button */}
-											<div className="flex justify-center mt-6">
-												<button
+											<div className="flex justify-start items-center mt-6">
+												<Button
+												icon={<Plus size={16} />}
+													variant="link"
 													onClick={handleAddCondition}
-													className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition-colors"
+													className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-blue-300 "
 												>
-													<Plus size={16} className="mr-2" />
 													{__("Add Condition", "header-footer-elementor")}
-												</button>
+												</Button>
 											</div>
 										</div>
 
+										<h2 className="text-lg font-medium">
+									{__(
+										"Configure Display Conditions",
+										"header-footer-elementor",
+									)}
+									</h2>
+
 										{/* User Roles Section */}
-										<div className="bg-white rounded-lg border border-gray-200">
-											<div className="flex items-center justify-center">
+										<div className="bg-white rounded-lg border border-gray-200" style={{ marginTop: '20px'}}>
+											{/* <div className="flex items-center justify-center">
 												<Users className="w-5 h-5 text-blue-600 mr-3" />
 												<h3 className="text-lg font-semibold text-gray-900">
 													{__("User Roles", "header-footer-elementor")}
 												</h3>
-											</div>
-											<p className="text-gray-600 flex items-center justify-center text-sm m-0">
+											</div> */}
+											<div className="px-4 py-2">
+										<h2 className="text-base font-semibold text-gray-900 mb-2 text-start">
+									{__(
+										"Where Should Your Layout Appear?",
+										"header-footer-elementor",
+									)}
+								</h2>
+								<p className="text-text-tertiary text-sm m-0 text-start">
+									{__(
+										"Decide where you want this layout to appear on your site.",
+										"header-footer-elementor",
+									)}
+									{/* <br />
+									{__(
+										"You can show it across your entire site or only on specific pages—your choice!",
+										"header-footer-elementor",
+									)} */}
+								</p>
+									</div>
+											{/* <p className="text-gray-600 flex items-center justify-center text-sm m-0">
 												{__("Restrict this layout to specific user roles. Leave empty to show for all users.", "header-footer-elementor")}
-											</p>
+											</p> */}
 
-											<div className="space-y-2 pr-10 py-4 m-0" style={{ paddingLeft: '150px', paddingRight: '40px'}}>
+											<div className="space-y-2 pl-4 pr-10 pb-4 m-0" style={{  paddingRight: '40px'}}>
 												{state.userRoles.map((roleId, index) => (
 													<div
 														key={index}
@@ -762,9 +793,9 @@ const withDisplayConditions = (WrappedComponent) => {
 															<div className="relative" style={{ Width: '400px !important' }}>
 																<select
 																	value={roleId}
-																	// style={{ Width: '400px !important' }}
+																	style={{ height: '42px' }}
 																	onChange={(e) => handleUpdateUserRole(index, e.target.value)}
-																	className="w-full block px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 bg-white"
+																	className="w-full block px-3 py-2 border border-gray-300 shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 bg-white"
 																>
 																	<option value="">
 																		{__("Select User Role", "header-footer-elementor")}
@@ -804,45 +835,55 @@ const withDisplayConditions = (WrappedComponent) => {
 											</div>
 
 											{/* Add User Role Button */}
-											<div className="flex justify-center mt-6">
-												<button
+											<div className="flex justify-start">
+												<Button
+												icon={<Plus size={16}  />}
+												variant="link"
 													onClick={handleAddUserRole}
-													className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+													className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white  text-blue-300"
 												>
-													<Plus size={16} className="mr-2" />
 													{__("Add User Role", "header-footer-elementor")}
-												</button>
+												</Button>
 											</div>
 										</div>
 									</div>
-								
+								</>
 
-									
-
-									{/* Canvas Template Section */}
-									<div className="bg-white rounded-lg border p-10 border-gray-200">
-										<div className="flex items-center justify-between">
+								{/* Canvas Template Section */}
+									<div className="px-6" style={{ marginTop: '40px', paddingLeft: '30px', paddingRight: '30px'}}>
+										<div className="flex items-center justify-start">
 											<div>
-												<h3 className="text-lg font-semibold text-gray-900 mb-2">
-													{__("Canvas Template Support", "header-footer-elementor")}
-												</h3>
-												<p className="text-gray-600 text-sm">
-													{__("Enable this layout to display on Elementor Canvas template pages", "header-footer-elementor")}
-												</p>
-											</div>
-											<div className="flex-shrink-0">
+												<div className="flex items-center gap-2">
 												<Switch
 													checked={state.canvasTemplateEnabled}
 													onChange={handleCanvasTemplateChange}
 													disabled={state.isLoading}
 													size="sm"
 												/>
+										
+												<h3 className="text-lg m-0 font-semibold text-gray-900">
+													{__("Canvas Template Support", "header-footer-elementor")}
+												</h3>
+													</div>
+												<p className="text-text-tertiary m-0 pt-4 text-sm" style={{ paddingTop: '10px'}}>
+													{__("Enable this layout to display on Elementor Canvas template pages", "header-footer-elementor")}
+												</p>
 											</div>
 										</div>
 									</div>
-								</>
 							</div>
 						</div>
+
+							<hr
+						className="border-b-0 border-x-0 border-t border-solid border-t-border-transparent-subtle"
+						style={{
+							marginTop: "10px",
+							marginBottom: "15px",
+							width: "88%",
+							marginLeft: "32px",
+							// borderColor: "#E5E7EB",
+						}}
+					/>
 
 						{/* Footer */}
 						<div className="border-t border-gray-200 px-8 py-6">
