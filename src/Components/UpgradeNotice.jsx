@@ -36,13 +36,13 @@ const UpgradeNotice = ({ onClose }) => {
             </button>
             <strong>
                 {__(
-                    "Unlock Ultimate Addons For Elementor!  ",
+                    "Unlock UAE's full potential!",
                     "header-footer-elementor"
-                )}
+                )}{" "}
             </strong>
             <span>
                 {__(
-                    "Get exclusive features and unbeatable performance.  ",
+                    "Get powerful widgets and faster performance",
                     "header-footer-elementor"
                 )}{" "}
                 <a
