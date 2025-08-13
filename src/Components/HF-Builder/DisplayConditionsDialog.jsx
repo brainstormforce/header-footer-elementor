@@ -561,6 +561,7 @@ const withDisplayConditions = (WrappedComponent) => {
 						style={{
 							position: "fixed",
 							top: "50%",
+							padding: '0.8rem',
 							left: "50%",
 							transform: "translate(-50%, -50%)",
 							width: "50%",
@@ -956,7 +957,7 @@ const withDisplayConditions = (WrappedComponent) => {
 								</>
 
 								{/* Canvas Template Section */}
-									<div className="px-6" style={{ marginTop: '40px', paddingLeft: '30px', paddingRight: '30px'}}>
+									<div className="px-6" style={{ marginTop: '40px', paddingRight: '30px'}}>
 										<div className="flex items-center justify-start">
 											<div>
 												<div className="flex items-center justify-center gap-2">
