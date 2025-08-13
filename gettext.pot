@@ -442,21 +442,6 @@ msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:255
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:607
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:616
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:604
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:592
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:581
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:570
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:564
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:560
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:566
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:577
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:588
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:583
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:595
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:572
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:561
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:555
 #: src/Components/Onboarding/ExtendOnboardingWidget.jsx:305
 msgid "Close"
 msgstr ""
@@ -759,8 +744,6 @@ msgid "Saving..."
 msgstr ""
 
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1051
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1054
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:818
 #: src/Components/Onboarding/ExtendOnboarding.jsx:573
 #: src/Components/Onboarding/Features.jsx:426
 msgid "Next"
@@ -938,8 +921,6 @@ msgid "Security check failed. Please refresh the page and try again."
 msgstr ""
 
 #: src/Components/HF-Builder/InlineTitleEditor.jsx:262
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:260
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:261
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:98
 msgid "Layout name"
 msgstr ""
@@ -953,8 +934,6 @@ msgid "Cancel editing"
 msgstr ""
 
 #: src/Components/HF-Builder/InlineTitleEditor.jsx:310
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:309
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:304
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:694
 msgid "Draft"
 msgstr ""
@@ -980,45 +959,6 @@ msgstr ""
 #: src/Components/HF-Builder/InlineTitleEditor.jsx:93
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:215
 msgid "Layout name contains invalid characters."
-msgstr ""
-
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1029
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1038
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1042
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1046
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1050
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1054
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1057
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1058
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1059
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1045
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1033
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1022
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1011
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1005
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1001
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:997
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:993
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:989
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:985
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:986
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:987
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1004
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1015
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1010
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1007
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1006
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1017
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1028
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1027
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1003
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1002
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:990
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:979
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:973
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:525
-#: src/Components/Settings/VersionControl.jsx:132
-msgid "Cancel"
 msgstr ""
 
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:127
@@ -1071,6 +1011,11 @@ msgstr ""
 
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:504
 msgid "Are you sure you want to delete this layout?"
+msgstr ""
+
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:525
+#: src/Components/Settings/VersionControl.jsx:132
+msgid "Cancel"
 msgstr ""
 
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:545
@@ -1386,11 +1331,6 @@ msgstr ""
 msgid "Skip"
 msgstr ""
 
-#: src/Components/HF-Builder/Navbar.js:124
-#: src/Components/Onboarding/Features.jsx:125
-msgid "Header & Footer Builder"
-msgstr ""
-
 #: src/Components/Onboarding/Features.jsx:100
 msgid "Select Your Features"
 msgstr ""
@@ -1399,6 +1339,10 @@ msgstr ""
 msgid ""
 "Unlock more design control, faster setup, and powerful customization—so you "
 "can build a better website, effortlessly."
+msgstr ""
+
+#: src/Components/Onboarding/Features.jsx:125
+msgid "Header & Footer Builder"
 msgstr ""
 
 #: src/Components/Onboarding/Features.jsx:145
