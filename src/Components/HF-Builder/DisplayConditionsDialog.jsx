@@ -181,6 +181,18 @@ const withDisplayConditions = (WrappedComponent) => {
 							: condition,
 					),
 				});
+
+				// Scroll to the updated condition after state update
+				setTimeout(() => {
+					const conditionElement = document.querySelector(`[data-condition-id="${id}"]`);
+					if (conditionElement) {
+						conditionElement.scrollIntoView({
+							behavior: 'smooth',
+							block: 'center',
+							inline: 'nearest'
+						});
+					}
+				}, 100);
 			},
 			[state.conditions, updateState],
 		);
@@ -217,6 +229,18 @@ const withDisplayConditions = (WrappedComponent) => {
 				const updatedRoles = [...state.userRoles];
 				updatedRoles[index] = value;
 				updateState({ userRoles: updatedRoles });
+
+				// Scroll to the updated user role after state update
+				setTimeout(() => {
+					const userRoleElement = document.querySelector(`[data-user-role-index="${index}"]`);
+					if (userRoleElement) {
+						userRoleElement.scrollIntoView({
+							behavior: 'smooth',
+							block: 'center',
+							inline: 'nearest'
+						});
+					}
+				}, 100);
 			},
 			[state.userRoles, updateState],
 		);
@@ -598,14 +622,14 @@ const withDisplayConditions = (WrappedComponent) => {
 						{/* Body */}
 						<div className="px-4">
 							<div
-								className=" py-2 border border-gray-500 rounded-lg relative"
+								className="border border-gray-500 rounded-lg relative"
 								style={{ border: "4px solid #F9FAFB"}}
 							>
 
 								{/* Loading state - Fixed positioning to prevent flicker */}
 								{state.isLoading && (
 									<div className="flex items-center justify-center min-h-screen w-full absolute inset-0 bg-white bg-opacity-90 z-10">
-										<div className="">
+										<div className="" style={{ paddingBottom: '380px' }}>
 											<Loader
 												className=""
 												icon={null}
@@ -665,6 +689,7 @@ const withDisplayConditions = (WrappedComponent) => {
 												{state.conditions.map((condition, index) => (
 													<div
 														key={condition.id}
+														data-condition-id={condition.id}
 														ref={index === state.conditions.length - 1 ? lastAddedConditionRef : null}
 														className="flex items-center justify-center bg-gray-50 rounded-lg border border-gray-100"
 													>
@@ -840,6 +865,7 @@ const withDisplayConditions = (WrappedComponent) => {
 												{state.userRoles.map((roleId, index) => (
 													<div
 														key={index}
+														data-user-role-index={index}
 														ref={index === state.userRoles.length - 1 ? lastAddedUserRoleRef : null}
 														className="flex items-center gap-2 bg-gray-50 rounded-lg border border-gray-100"
 													>
