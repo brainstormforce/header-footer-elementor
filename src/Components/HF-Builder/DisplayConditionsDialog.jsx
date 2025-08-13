@@ -600,7 +600,7 @@ const withDisplayConditions = (WrappedComponent) => {
 										
 										
 										{/* Display Conditions Section */}
-										<div className="bg-white rounded-lg border border-red-900" style={{ border: "4px solid #F9FAFB" }}>
+										<div className="bg-white rounded-lg" style={{ border : "2px solid #EEEEEE"}}>
 												{/* Description */}
 									<div className="px-4 py-2">
 										<h2 className="text-base font-medium text-gray-900 mb-2 text-start">
@@ -750,7 +750,7 @@ const withDisplayConditions = (WrappedComponent) => {
 									</h2>
 
 										{/* User Roles Section */}
-										<div className="bg-white rounded-lg border border-gray-200" style={{ marginTop: '20px'}}>
+										<div className="bg-white rounded-lg border border-gray-200" style={{ marginTop: '20px', border : "2px solid #EEEEEE"}}>
 											{/* <div className="flex items-center justify-center">
 												<Users className="w-5 h-5 text-blue-600 mr-3" />
 												<h3 className="text-lg font-semibold text-gray-900">
