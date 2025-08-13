@@ -299,6 +299,9 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 ---
 
 == Changelog ==
+= 2.4.8.1 =
+- New: Woo - Product Grid Widget.
+
 = 2.4.8 =
 - Improvement: Compatibility with latest Elementor and Elementor Pro 3.31 version.
 
