@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * HFE Woo Products Widget
  *
- * @since 1.0.0
+ * @since x.x.x
  */
 class Woo_Products extends Common_Widget {
 
@@ -38,7 +38,7 @@ class Woo_Products extends Common_Widget {
 	/**
 	 * Retrieve the widget name.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access public
 	 * @return string Widget name.
 	 */
@@ -49,7 +49,7 @@ class Woo_Products extends Common_Widget {
 	/**
 	 * Retrieve the widget title.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access public
 	 * @return string Widget title.
 	 */
@@ -60,7 +60,7 @@ class Woo_Products extends Common_Widget {
 	/**
 	 * Retrieve the widget icon.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access public
 	 * @return string Widget icon.
 	 */
@@ -71,7 +71,7 @@ class Woo_Products extends Common_Widget {
 	/**
 	 * Retrieve the list of keywords the widget belongs to.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access public
 	 * @return array Widget keywords.
 	 */
@@ -82,7 +82,7 @@ class Woo_Products extends Common_Widget {
 	/**
 	 * Get Script Depends.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access public
 	 * @return array scripts.
 	 */
@@ -93,7 +93,7 @@ class Woo_Products extends Common_Widget {
 	/**
 	 * Get Style Depends.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access public
 	 * @return array styles.
 	 */
@@ -104,7 +104,7 @@ class Woo_Products extends Common_Widget {
 	/**
 	 * Check if WooCommerce is active.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access private
 	 * @return bool
 	 */
@@ -115,16 +115,18 @@ class Woo_Products extends Common_Widget {
 	/**
 	 * Indicates if the widget's content is dynamic.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
+	 * @access protected
 	 * @return bool True for dynamic content, false for static content.
 	 */
 	protected function is_dynamic_content(): bool {
 		return true;
 	}
+
 	/**
 	 * Register widget controls.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access protected
 	 */
 	protected function register_controls() {
@@ -144,7 +146,7 @@ class Woo_Products extends Common_Widget {
 	/**
 	 * Register WooCommerce notice controls.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access protected
 	 */
 	protected function register_woocommerce_notice_controls() {
@@ -175,7 +177,7 @@ class Woo_Products extends Common_Widget {
 	/**
 	 * Register general controls.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access protected
 	 */
 	protected function register_general_controls() {
@@ -222,10 +224,11 @@ class Woo_Products extends Common_Widget {
 
 		$this->end_controls_section();
 	}
+
 	/**
 	 * Register content controls.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access protected
 	 */
 	protected function register_content_controls() {
@@ -326,7 +329,7 @@ class Woo_Products extends Common_Widget {
 	/**
 	 * Register query controls.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access protected
 	 */
 	protected function register_query_controls() {
@@ -402,10 +405,11 @@ class Woo_Products extends Common_Widget {
 
 		$this->end_controls_section();
 	}
+
 	/**
 	 * Register layout style controls.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access protected
 	 */
 	protected function register_layout_style_controls() {
@@ -467,7 +471,7 @@ class Woo_Products extends Common_Widget {
 	/**
 	 * Register content style controls.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access protected
 	 */
 	protected function register_content_style_controls() {
@@ -583,6 +587,9 @@ class Woo_Products extends Common_Widget {
 
 	/**
 	 * Register title style controls.
+	 *
+	 * @since x.x.x
+	 * @access private
 	 */
 	private function register_title_style_controls() {
 		$this->start_controls_section(
@@ -599,8 +606,12 @@ class Woo_Products extends Common_Widget {
 			[
 				'label'     => __( 'Text Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'global'    => [ 'default' => Global_Colors::COLOR_PRIMARY ],
-				'selectors' => [ '{{WRAPPER}} .hfe-product-title' => 'color: {{VALUE}};' ],
+				'global'    => [
+					'default' => Global_Colors::COLOR_PRIMARY,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .hfe-product-title' => 'color: {{VALUE}};',
+				],
 			]
 		);
 
@@ -608,7 +619,9 @@ class Woo_Products extends Common_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'title_typography',
-				'global'   => [ 'default' => Global_Typography::TYPOGRAPHY_PRIMARY ],
+				'global'   => [
+					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
+				],
 				'selector' => '{{WRAPPER}} .hfe-product-title',
 			]
 		);
@@ -618,6 +631,9 @@ class Woo_Products extends Common_Widget {
 
 	/**
 	 * Register rating style controls.
+	 *
+	 * @since x.x.x
+	 * @access private
 	 */
 	private function register_rating_style_controls() {
 		$this->start_controls_section(
@@ -635,7 +651,9 @@ class Woo_Products extends Common_Widget {
 				'label'     => __( 'Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#ffc107',
-				'selectors' => [ '{{WRAPPER}} .hfe-product-rating .star-rating' => 'color: {{VALUE}};' ],
+				'selectors' => [
+					'{{WRAPPER}} .hfe-product-rating .star-rating' => 'color: {{VALUE}};',
+				],
 			]
 		);
 
@@ -644,6 +662,9 @@ class Woo_Products extends Common_Widget {
 
 	/**
 	 * Register price style controls.
+	 *
+	 * @since x.x.x
+	 * @access private
 	 */
 	private function register_price_style_controls() {
 		$this->start_controls_section(
@@ -660,8 +681,12 @@ class Woo_Products extends Common_Widget {
 			[
 				'label'     => __( 'Text Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'global'    => [ 'default' => Global_Colors::COLOR_PRIMARY ],
-				'selectors' => [ '{{WRAPPER}} .hfe-product-price' => 'color: {{VALUE}};' ],
+				'global'    => [
+					'default' => Global_Colors::COLOR_PRIMARY,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .hfe-product-price' => 'color: {{VALUE}};',
+				],
 			]
 		);
 
@@ -670,6 +695,9 @@ class Woo_Products extends Common_Widget {
 
 	/**
 	 * Register add to cart style controls.
+	 *
+	 * @since x.x.x
+	 * @access private
 	 */
 	private function register_add_to_cart_style_controls() {
 		$this->start_controls_section(
@@ -686,7 +714,9 @@ class Woo_Products extends Common_Widget {
 			[
 				'label'     => __( 'Text Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => [ '{{WRAPPER}} .hfe-product-add-to-cart .button' => 'color: {{VALUE}};' ],
+				'selectors' => [
+					'{{WRAPPER}} .hfe-product-add-to-cart .button' => 'color: {{VALUE}};',
+				],
 			]
 		);
 
@@ -722,6 +752,9 @@ class Woo_Products extends Common_Widget {
 
 	/**
 	 * Register image hover style controls.
+	 *
+	 * @since x.x.x
+	 * @access private
 	 */
 	private function register_image_hover_style_controls() {
 		$this->start_controls_section(
@@ -751,16 +784,17 @@ class Woo_Products extends Common_Widget {
 	/**
 	 * Register promotion controls.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access protected
 	 */
 	protected function register_pro_promotion_controls() {
 		// Add promotion controls if needed for pro features
 	}
+
 	/**
 	 * Get products list for manual selection.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access private
 	 * @return array
 	 */
@@ -792,7 +826,7 @@ class Woo_Products extends Common_Widget {
 	/**
 	 * Build query arguments.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access private
 	 * @return array
 	 */
@@ -839,7 +873,7 @@ class Woo_Products extends Common_Widget {
 	/**
 	 * Get products query.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access private
 	 * @return \WP_Query
 	 */
@@ -850,10 +884,11 @@ class Woo_Products extends Common_Widget {
 
 		return $this->query;
 	}
+
 	/**
 	 * Render widget output on both frontend and editor.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access protected
 	 */
 	protected function render() {
@@ -895,7 +930,7 @@ class Woo_Products extends Common_Widget {
 	/**
 	 * Render WooCommerce notice.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access private
 	 */
 	private function render_woocommerce_notice() {
@@ -909,7 +944,7 @@ class Woo_Products extends Common_Widget {
 	/**
 	 * Render no products message.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access private
 	 */
 	private function render_no_products_message() {
@@ -923,7 +958,7 @@ class Woo_Products extends Common_Widget {
 	/**
 	 * Render individual product item.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access private
 	 * @param array $settings Widget settings.
 	 */
