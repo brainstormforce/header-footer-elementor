@@ -6,7 +6,7 @@ import React, {
 	useMemo,
 } from "react";
 import { Plus, X, Settings, Users } from "lucide-react";
-import { Button, Dialog, Switch, Loader } from "@bsf/force-ui";
+import { Button, Dialog, Switch, Loader , Tooltip} from "@bsf/force-ui";
 import { __ } from "@wordpress/i18n";
 import apiFetch from "@wordpress/api-fetch";
 
@@ -36,6 +36,8 @@ const withDisplayConditions = (WrappedComponent) => {
 			locationOptions: {},
 			userRoleOptions: {},
 		});
+
+		const [showTooltip, setShowTooltip] = useState(true); // Add state for showTooltip
 
 		// Refs for stability
 		const isMountedRef = useRef(true);
@@ -643,7 +645,7 @@ const withDisplayConditions = (WrappedComponent) => {
 																{__("Type", "header-footer-elementor")}
 															</label> */}
 															<div className="relative">
-																<select
+		<select
     onChange={(e) => {
         const selectedOption = e.target.options[e.target.selectedIndex];
         handleUpdateCondition(
@@ -660,13 +662,15 @@ const withDisplayConditions = (WrappedComponent) => {
     style={{
         minWidth: '120px',
         height: '42px',
-        borderColor: '#e0e0e0', // Default border color
-        borderRight: 'none',    // Remove right border
-        outline: 'none',        // Removes the default outline
-        boxShadow: 'none',      // Removes the default box shadow
+        borderColor: '#e0e0e0',
+        borderRight: 'none',
+        borderTopRightRadius: '0',    // Remove top-right border radius
+        borderBottomRightRadius: '0', // Remove bottom-right border radius
+        outline: 'none',
+        boxShadow: 'none',
     }}
-    onFocus={(e) => e.target.style.borderColor = '#e0e0e0'} // Apply focus color
-    onBlur={(e) => e.target.style.borderColor = '#e0e0e0'}  // Revert to default color
+    onFocus={(e) => e.target.style.borderColor = '#e0e0e0'}
+    onBlur={(e) => e.target.style.borderColor = '#e0e0e0'}
 >
 																	<option value="include">
 																		{__("Include", "header-footer-elementor")}
@@ -685,29 +689,31 @@ const withDisplayConditions = (WrappedComponent) => {
 															</label> */}
 															<div className="relative">
 																<select
-																	onChange={(e) => {
-																		const selectedOption = e.target.options[e.target.selectedIndex];
-																		handleUpdateCondition(
-																			condition.id,
-																			"displayLocation",
-																			{
-																				id: selectedOption.value,
-																				name: selectedOption.text,
-																			}
-																		);
-																	}}
-																	value={condition.displayLocation.id}
-																		style={{
-																		minWidth: '120px',
-																		height: '42px',
-																		borderColor: '#e0e0e0', // Default border color
-																		outline: 'none',       // Removes the default outline
-																		boxShadow: 'none',     // Removes the default box shadow
-																	}}
-																	 onFocus={(e) => e.target.style.borderColor = '#e0e0e0'} // Apply focus color
-                                    onBlur={(e) => e.target.style.borderColor = '#e0e0e0'}  // Revert to default color
-																	className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500 bg-white"
-																>
+    onChange={(e) => {
+        const selectedOption = e.target.options[e.target.selectedIndex];
+        handleUpdateCondition(
+            condition.id,
+            "displayLocation",
+            {
+                id: selectedOption.value,
+                name: selectedOption.text,
+            }
+        );
+    }}
+    value={condition.displayLocation.id}
+    style={{
+        minWidth: '120px',
+        height: '42px',
+        borderColor: '#e0e0e0',
+        borderTopLeftRadius: '0',     // Remove top-left border radius
+        borderBottomLeftRadius: '0',  // Remove bottom-left border radius
+        outline: 'none',
+        boxShadow: 'none',
+    }}
+    onFocus={(e) => e.target.style.borderColor = '#e0e0e0'}
+    onBlur={(e) => e.target.style.borderColor = '#e0e0e0'}
+    className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500 bg-white"
+>
 																	<option value="">
 																		{__("Select Conditions", "header-footer-elementor")}
 																	</option>
@@ -758,24 +764,27 @@ const withDisplayConditions = (WrappedComponent) => {
 													{__("Add Condition", "header-footer-elementor")}
 												</Button>
 											</div>
-										</div>
 
-										{/* <h2 className="text-lg font-medium">
-									{__(
-										"Configure User Roles",
-										"header-footer-elementor",
-									)}
-									</h2> */}
+													<hr
+						className="border-b-0 border-x-0 border-t border-solid border-t-border-transparent-subtle"
+						style={{
+							marginTop: "10px",
+							marginBottom: "15px",
+							width: "90%",
+							marginRight: "50px",
+							// borderColor: "#E5E7EB",
+						}}
+					/>
 
-										{/* User Roles Section */}
-										<div className="bg-white rounded-lg border border-gray-200" style={{ marginTop: '20px', border : "2px solid #EEEEEE"}}>
+													{/* User Roles Section */}
+										<div className="bg-white rounded-lg border border-gray-200" >
 											{/* <div className="flex items-center justify-center">
 												<Users className="w-5 h-5 text-blue-600 mr-3" />
 												<h3 className="text-lg font-semibold text-gray-900">
 													{__("User Roles", "header-footer-elementor")}
 												</h3>
 											</div> */}
-											<div className="px-4 py-2">
+											<div className="px-4">
 										<h2 className="text-base font-medium text-gray-900 mb-2 text-start">
 									{__(
 										"Where Should Your Layout Appear?",
@@ -878,6 +887,16 @@ const withDisplayConditions = (WrappedComponent) => {
 											</div>
 										</div>
 									</div>
+										</div>
+
+										{/* <h2 className="text-lg font-medium">
+									{__(
+										"Configure User Roles",
+										"header-footer-elementor",
+									)}
+									</h2> */}
+
+								
 								</>
 
 								{/* Canvas Template Section */}
@@ -893,9 +912,26 @@ const withDisplayConditions = (WrappedComponent) => {
 												/>
 										
 												
-												<p className="text-text-tertiary m-0  text-sm">
-													{__("Turn on to display this layout on Elementor Canvas pages", "header-footer-elementor")}
-												</p>
+											<p className="text-text-tertiary m-0 text-sm">
+    {__("Turn on to display this layout on ", "header-footer-elementor")}
+    <Tooltip
+        arrow
+		 content={
+                                    <div>
+                                       <p>{__('A blank page layout with no header or footer, giving you full control over the design.', 'header-footer-elementor')}</p>
+                                    </div>
+                                }
+        // content={__("", "header-footer-elementor")}
+        placement="top"
+        triggers={['hover']}
+        variant="dark"
+        size="xs"
+    >
+        <span style={{ textDecoration: 'underline', cursor: 'help' }}>
+            {__("Elementor Canvas pages", "header-footer-elementor")}
+        </span>
+    </Tooltip>
+</p>
 													</div>
 												{/* <p className="text-text-tertiary m-0 pt-4 text-sm" style={{ paddingTop: '10px'}}>
 													{__("Enable this layout to display on Elementor Canvas template pages", "header-footer-elementor")}
