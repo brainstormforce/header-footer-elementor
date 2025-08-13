@@ -442,8 +442,6 @@ msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:255
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:555
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:553
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:558
 #: src/Components/Onboarding/ExtendOnboardingWidget.jsx:305
 msgid "Close"
 msgstr ""
@@ -828,30 +826,6 @@ msgid "Elementor Canvas pages"
 msgstr ""
 
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:974
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:969
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:967
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:965
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:978
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:970
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:968
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:951
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:939
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:938
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:937
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:936
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:935
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:927
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:930
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:922
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:919
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1139
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1131
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:910
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:914
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:888
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:913
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:812
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:912
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:525
 #: src/Components/Settings/VersionControl.jsx:132
 msgid "Cancel"
