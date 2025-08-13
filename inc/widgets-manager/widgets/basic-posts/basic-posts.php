@@ -750,8 +750,9 @@ class Basic_Posts extends Common_Widget {
 			[
 				'label'     => __( 'Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
+				// 'default'   => '#ADADAD',
 				'global'    => [
-					'default' => '#ADADAD',
+					'default' => Global_Colors::COLOR_TEXT,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .hfe-post-meta' => 'color: {{VALUE}};',
@@ -979,12 +980,6 @@ class Basic_Posts extends Common_Widget {
 	 * @access protected
 	 */
 	protected function query_posts() {
-		// Check user capabilities
-		if ( ! current_user_can( 'read' ) ) {
-			$this->query = new \WP_Query( [] ); // Empty query
-			return;
-		}
-
 		$settings = $this->get_settings_for_display();
 
 		// Sanitize inputs.
@@ -993,9 +988,8 @@ class Basic_Posts extends Common_Widget {
 		$orderby = sanitize_key( $settings['orderby'] ?? 'date' );
 		$order = sanitize_key( $settings['order'] ?? 'desc' );
 
-		// Validate post type exists and user can read it
-		$post_type_obj = get_post_type_object( $post_type );
-		if ( ! $post_type_obj || ! current_user_can( $post_type_obj->cap->read ) ) {
+		// Validate post type exists, fallback to 'post' if not
+		if ( ! post_type_exists( $post_type ) ) {
 			$post_type = 'post';
 		}
 
@@ -1032,7 +1026,7 @@ class Basic_Posts extends Common_Widget {
 
 		$this->query = new \WP_Query( $args );
 	}
-
+	
 	/**
 	 * Render template HTML using ob_start
 	 *
