@@ -43,6 +43,12 @@ const withDisplayConditions = (WrappedComponent) => {
 		const isMountedRef = useRef(true);
 		const optionsLoadedRef = useRef(false);
 		const dialogKeyRef = useRef(0);
+		
+		// Refs for scrolling to newly added elements
+		const conditionsContainerRef = useRef(null);
+		const userRolesContainerRef = useRef(null);
+		const lastAddedConditionRef = useRef(null);
+		const lastAddedUserRoleRef = useRef(null);
 
 		useEffect(() => {
 			isMountedRef.current = true;
@@ -142,6 +148,17 @@ const withDisplayConditions = (WrappedComponent) => {
 				conditions: [...state.conditions, newCondition],
 				nextId: state.nextId + 1,
 			});
+
+			// Scroll to the newly added condition after state update
+			setTimeout(() => {
+				if (lastAddedConditionRef.current) {
+					lastAddedConditionRef.current.scrollIntoView({
+						behavior: 'smooth',
+						block: 'center',
+						inline: 'nearest'
+					});
+				}
+			}, 100);
 		}, [state.conditions, state.nextId, updateState]);
 
 		const handleRemoveCondition = useCallback(
@@ -173,6 +190,17 @@ const withDisplayConditions = (WrappedComponent) => {
 			updateState({
 				userRoles: [...state.userRoles, ""],
 			});
+
+			// Scroll to the newly added user role after state update
+			setTimeout(() => {
+				if (lastAddedUserRoleRef.current) {
+					lastAddedUserRoleRef.current.scrollIntoView({
+						behavior: 'smooth',
+						block: 'center',
+						inline: 'nearest'
+					});
+				}
+			}, 100);
 		}, [state.userRoles, updateState]);
 
 		const handleRemoveUserRole = useCallback(
@@ -633,10 +661,11 @@ const withDisplayConditions = (WrappedComponent) => {
 												{__("Configure where this layout should appear on your website.", "header-footer-elementor")}
 											</p>
 											 */}
-											<div className="space-y-2 pl-4 pr-20 pb-4 m-0" style={{ paddingRight: '70px', paddingTop: '15px'}}>
-												{state.conditions.map((condition) => (
+											<div className="space-y-2 pl-4 pr-20 pb-4 m-0" style={{ paddingRight: '70px', paddingTop: '15px'}} ref={conditionsContainerRef}>
+												{state.conditions.map((condition, index) => (
 													<div
 														key={condition.id}
+														ref={index === state.conditions.length - 1 ? lastAddedConditionRef : null}
 														className="flex items-center justify-center bg-gray-50 rounded-lg border border-gray-100"
 													>
 														{/* Include/Exclude Select */}
@@ -807,10 +836,11 @@ const withDisplayConditions = (WrappedComponent) => {
 												{__("Restrict this layout to specific user roles. Leave empty to show for all users.", "header-footer-elementor")}
 											</p> */}
 
-											<div className="space-y-2 pl-4 pb-4 m-0" style={{ paddingTop: '15px'}}>
+											<div className="space-y-2 pl-4 pb-4 m-0" style={{ paddingTop: '15px'}} ref={userRolesContainerRef}>
 												{state.userRoles.map((roleId, index) => (
 													<div
 														key={index}
+														ref={index === state.userRoles.length - 1 ? lastAddedUserRoleRef : null}
 														className="flex items-center gap-2 bg-gray-50 rounded-lg border border-gray-100"
 													>
 														{/* User Role Select */}

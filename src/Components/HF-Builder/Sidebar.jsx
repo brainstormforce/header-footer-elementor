@@ -130,13 +130,7 @@ const Sidebar = () => {
 			title: __("Custom Block", "header-footer-elementor"),
 			content: <CustomBlock onEmptyStateChange={setIsCurrentTabEmpty} />,
 		},
-	].filter((item) => {
-		if ("no" === hfeSettingsData.show_theme_support && item.id === 2) {
-			return false;
-		}
-
-		return true;
-	});
+	]
 
 	// Default state: Always set 'All Layouts' (id: 1) as the default when the Header & Footer nav is clicked
 	const [selectedItem, setSelectedItem] = useState(() => {
