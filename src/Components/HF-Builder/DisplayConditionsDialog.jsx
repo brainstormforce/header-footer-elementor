@@ -602,7 +602,7 @@ const withDisplayConditions = (WrappedComponent) => {
 										{/* Display Conditions Section */}
 										<div className="bg-white rounded-lg" style={{ border : "2px solid #EEEEEE"}}>
 												{/* Description */}
-									<div className="px-4 py-2">
+									<div className="px-4">
 										<h2 className="text-base font-medium text-gray-900 mb-2 text-start">
 									{__(
 										"Where Should Your Layout Appear?",
@@ -644,21 +644,30 @@ const withDisplayConditions = (WrappedComponent) => {
 															</label> */}
 															<div className="relative">
 																<select
-																	onChange={(e) => {
-																		const selectedOption = e.target.options[e.target.selectedIndex];
-																		handleUpdateCondition(
-																			condition.id,
-																			"conditionType",
-																			{
-																				id: selectedOption.value,
-																				name: selectedOption.text,
-																			}
-																		);
-																	}}
-																	value={condition.conditionType.id}
-																	className="block w-full px-3 py-2 border border-gray-300 rounded-sm shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500 bg-white"
-																	style={{ minWidth: '120px', height: '42px' }}
-																>
+    onChange={(e) => {
+        const selectedOption = e.target.options[e.target.selectedIndex];
+        handleUpdateCondition(
+            condition.id,
+            "conditionType",
+            {
+                id: selectedOption.value,
+                name: selectedOption.text,
+            }
+        );
+    }}
+    value={condition.conditionType.id}
+    className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500 bg-white"
+    style={{
+        minWidth: '120px',
+        height: '42px',
+        borderColor: '#e0e0e0', // Default border color
+        borderRight: 'none',    // Remove right border
+        outline: 'none',        // Removes the default outline
+        boxShadow: 'none',      // Removes the default box shadow
+    }}
+    onFocus={(e) => e.target.style.borderColor = '#e0e0e0'} // Apply focus color
+    onBlur={(e) => e.target.style.borderColor = '#e0e0e0'}  // Revert to default color
+>
 																	<option value="include">
 																		{__("Include", "header-footer-elementor")}
 																	</option>
@@ -688,8 +697,16 @@ const withDisplayConditions = (WrappedComponent) => {
 																		);
 																	}}
 																	value={condition.displayLocation.id}
-																	style={{ height: '42px'}}
-																	className="block w-full px-3 py-2 border border-gray-300 shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500 bg-white"
+																		style={{
+																		minWidth: '120px',
+																		height: '42px',
+																		borderColor: '#e0e0e0', // Default border color
+																		outline: 'none',       // Removes the default outline
+																		boxShadow: 'none',     // Removes the default box shadow
+																	}}
+																	 onFocus={(e) => e.target.style.borderColor = '#e0e0e0'} // Apply focus color
+                                    onBlur={(e) => e.target.style.borderColor = '#e0e0e0'}  // Revert to default color
+																	className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500 bg-white"
 																>
 																	<option value="">
 																		{__("Select Conditions", "header-footer-elementor")}
@@ -734,6 +751,7 @@ const withDisplayConditions = (WrappedComponent) => {
 												<Button
 												icon={<Plus size={16} />}
 													variant="link"
+													style={{ color: '#3B82F6' }}
 													onClick={handleAddCondition}
 													className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium hfe-remove-ring rounded-md text-blue-300 "
 												>
@@ -742,12 +760,12 @@ const withDisplayConditions = (WrappedComponent) => {
 											</div>
 										</div>
 
-										<h2 className="text-lg font-medium">
+										{/* <h2 className="text-lg font-medium">
 									{__(
 										"Configure User Roles",
 										"header-footer-elementor",
 									)}
-									</h2>
+									</h2> */}
 
 										{/* User Roles Section */}
 										<div className="bg-white rounded-lg border border-gray-200" style={{ marginTop: '20px', border : "2px solid #EEEEEE"}}>
@@ -780,23 +798,32 @@ const withDisplayConditions = (WrappedComponent) => {
 												{__("Restrict this layout to specific user roles. Leave empty to show for all users.", "header-footer-elementor")}
 											</p> */}
 
-											<div className="space-y-2 pl-4 pb-4 m-0" style={{  paddingRight: '200px', paddingTop: '15px'}}>
+											<div className="space-y-2 pl-4 pb-4 m-0" style={{ paddingTop: '15px'}}>
 												{state.userRoles.map((roleId, index) => (
 													<div
 														key={index}
-														className="flex items-center gap-2 justify-center bg-gray-50 rounded-lg border border-gray-100"
+														className="flex items-center gap-2 bg-gray-50 rounded-lg border border-gray-100"
 													>
 														{/* User Role Select */}
-														<div className="flex-grow">
+														<div className="">
 															{/* <label className="block text-sm font-medium text-gray-700 mb-1">
 																{__("User Role", "header-footer-elementor")} {index + 1}
 															</label> */}
-															<div className="relative" style={{ Width: '400px !important' }}>
+															<div className="relative">
 																<select
 																	value={roleId}
-																	style={{ height: '42px' }}
+																	style={{
+																		minWidth: '526px',
+																		// marginLeft: '28px',
+																		height: '42px',
+																		borderColor: '#e0e0e0', // Default border color
+																		outline: 'none',       // Removes the default outline
+																		boxShadow: 'none',     // Removes the default box shadow
+																	}}
+																	 onFocus={(e) => e.target.style.borderColor = '#e0e0e0'} // Apply focus color
+                                    onBlur={(e) => e.target.style.borderColor = '#e0e0e0'}  // Revert to default color
 																	onChange={(e) => handleUpdateUserRole(index, e.target.value)}
-																	className="w-full block px-3 py-2 border border-gray-300 shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 bg-white"
+																	className="w-full block py-2 rounded-md border border-gray-300 shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 bg-white"
 																>
 																	<option value="">
 																		{__("Select User Role", "header-footer-elementor")}
@@ -841,6 +868,7 @@ const withDisplayConditions = (WrappedComponent) => {
 											<div className="flex justify-start">
 												<Button
 												icon={<Plus size={16}  />}
+												style={{ color: '#3B82F6' }}
 												variant="link"
 													onClick={handleAddUserRole}
 													className="inline-flex items-center px-4 py-2 mb-2 border border-transparent text-sm font-medium rounded-md hfe-remove-ring  text-blue-300"

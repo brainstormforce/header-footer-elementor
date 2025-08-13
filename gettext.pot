@@ -442,6 +442,7 @@ msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:255
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:553
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:558
 #: src/Components/Onboarding/ExtendOnboardingWidget.jsx:305
 msgid "Close"
 msgstr ""
@@ -771,70 +772,76 @@ msgstr ""
 msgid "Choose where you want it to be visible"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:663
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:672
 msgid "Include"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:666
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:675
 msgid "Exclude"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:695
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:712
 msgid "Select Conditions"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:723
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:740
 msgid "Remove condition"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:740
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:758
 msgid "Add Condition"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:746
-msgid "Configure User Roles"
-msgstr ""
-
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:762
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:780
 msgid "Where Should Your Layout Appear?"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:768
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:786
 msgid "Choose which types of users can view this layout on your site"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:802
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:829
 msgid "Select User Role"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:830
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:857
 msgid "Remove user role"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:848
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:876
 msgid "Add User Role"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:869
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:897
 msgid "Turn on to display this layout on Elementor Canvas pages"
 msgstr ""
 
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:938
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:937
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:936
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:935
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:927
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:930
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:922
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:919
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1139
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1131
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:910
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:907
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:906
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:905
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:904
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:903
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:914
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:888
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:913
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:812
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:912
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:525
 #: src/Components/Settings/VersionControl.jsx:132
 msgid "Cancel"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:926
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:954
 msgid "Saving..."
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:932
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:960
 msgid "Save Conditions"
 msgstr ""
 
