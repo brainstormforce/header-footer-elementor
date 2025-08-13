@@ -122,7 +122,7 @@ const NavBar = () => {
 									<ChevronRight size={16} />
 									<span>
 										{__(
-											"Header & Footer Builder",
+											"Header & Footer",
 											"header-footer-elementor",
 										)}
 									</span>

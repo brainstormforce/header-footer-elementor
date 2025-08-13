@@ -972,29 +972,33 @@ msgstr ""
 msgid "Security check failed. Please refresh the page and try again."
 msgstr ""
 
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:262
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:260
 #: src/Components/HF-Builder/InlineTitleEditor.jsx:261
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:98
 msgid "Layout name"
 msgstr ""
 
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:277
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:278
 msgid "Save changes"
 msgstr ""
 
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:289
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:290
 msgid "Cancel editing"
 msgstr ""
 
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:310
 #: src/Components/HF-Builder/InlineTitleEditor.jsx:309
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:304
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:694
 msgid "Draft"
 msgstr ""
 
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:315
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:316
 msgid "Published"
 msgstr ""
 
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:331
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:332
 msgid "Edit layout name"
 msgstr ""
 
@@ -1107,8 +1111,8 @@ msgid "Dashboard"
 msgstr ""
 
 #: src/Components/HF-Builder/Navbar.js:124
-#: src/Components/Onboarding/Features.jsx:125
-msgid "Header & Footer Builder"
+#: src/Components/NavMenu.js:146
+msgid "Header & Footer"
 msgstr ""
 
 #: src/Components/HF-Builder/Sidebar.jsx:126
@@ -1134,10 +1138,6 @@ msgstr ""
 
 #: src/Components/HeaderLine.js:16
 msgid "Formerly Elementor Header & Footer Builder"
-msgstr ""
-
-#: src/Components/NavMenu.js:146
-msgid "Header & Footer"
 msgstr ""
 
 #: src/Components/NavMenu.js:158
@@ -1385,6 +1385,11 @@ msgstr ""
 #: src/Components/Onboarding/ExtendOnboarding.jsx:573
 #: src/Components/Onboarding/Features.jsx:426
 msgid "Next"
+msgstr ""
+
+#: src/Components/HF-Builder/Navbar.js:124
+#: src/Components/Onboarding/Features.jsx:125
+msgid "Header & Footer Builder"
 msgstr ""
 
 #: src/Components/Onboarding/Features.jsx:100

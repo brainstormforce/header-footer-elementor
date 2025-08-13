@@ -241,23 +241,24 @@ const InlineTitleEditor = ({
 	};
 
 	return (
-		<div className={`flex items-center flex-1 min-w-0 ${className}`}>
+		<div className={`flex items-center min-w-0 ${className}`}>
 			{isEditing ? (
 				// Editing mode
-				<div className="flex items-center gap-2 flex-1">
+				<div className="flex items-center gap-2">
 					<Input
 						type="text"
-						size="md"
+						size="xs"
 						style={{
-							maxWidth: "200px",
+							// maxWidth: "200px",
 							outline: "none",
-							height: "40px", // Match the text line height
-							// lineHeight: "20px", // Ensure consistent line height
+							// height: "36px",
+							fontSize: "16px",
+							width: '130px' // Match the text line height
 						}}
 						value={editingTitle}
 						onChange={(e) => setEditingTitle(e.target.value)}
 						onKeyDown={handleKeyDown}
-						className="flex-1 px-2 py-1 text-sm font-medium text-gray-900 rounded focus:outline-none"
+						className="py-2 text-base font-medium text-gray-900 rounded focus:outline-none"
 						placeholder={__(
 							"Layout name",
 							"header-footer-elementor",
@@ -265,7 +266,7 @@ const InlineTitleEditor = ({
 						autoFocus
 						disabled={isUpdating}
 						onFocus={(e) =>
-							(e.target.style.borderColor = "#6005FF")
+							(e.target.style.borderColor = "#6005FF", e.target.style.marginTop = "0.4rem")
 						}
 					/>
 					<div className="flex items-center pt-2" >
@@ -299,7 +300,7 @@ const InlineTitleEditor = ({
 				// Display mode
 				<div className="flex items-center gap-1 flex-nowrap">
 					<p className={`${titleClassName} flex items-center flex-nowrap whitespace-nowrap`}>
-						<span className="truncate">
+						<span className="truncate text-base">
 							{item.title || item.post_title}
 						</span>
 						{showDraftStatus && (
