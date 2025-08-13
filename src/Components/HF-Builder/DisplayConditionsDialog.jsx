@@ -603,7 +603,7 @@ const withDisplayConditions = (WrappedComponent) => {
 										<div className="bg-white rounded-lg border border-red-900" style={{ border: "4px solid #F9FAFB" }}>
 												{/* Description */}
 									<div className="px-4 py-2">
-										<h2 className="text-base font-semibold text-gray-900 mb-2 text-start">
+										<h2 className="text-base font-medium text-gray-900 mb-2 text-start">
 									{__(
 										"Where Should Your Layout Appear?",
 										"header-footer-elementor",
@@ -611,7 +611,7 @@ const withDisplayConditions = (WrappedComponent) => {
 								</h2>
 								<p className="text-text-tertiary text-sm m-0 text-start">
 									{__(
-										"Decide where you want this layout to appear on your site.",
+										"Choose where you want it to be visible",
 										"header-footer-elementor",
 									)}
 									{/* <br />
@@ -631,7 +631,7 @@ const withDisplayConditions = (WrappedComponent) => {
 												{__("Configure where this layout should appear on your website.", "header-footer-elementor")}
 											</p>
 											 */}
-											<div className="space-y-2 pl-4 pr-10 pb-4 m-0">
+											<div className="space-y-2 pl-4 pr-20 pb-4 m-0" style={{ paddingRight: '70px', paddingTop: '15px'}}>
 												{state.conditions.map((condition) => (
 													<div
 														key={condition.id}
@@ -715,13 +715,14 @@ const withDisplayConditions = (WrappedComponent) => {
 														{/* Remove Button */}
 														{state.conditions.length > 1 && (
 															<div className="flex-shrink-0">
-																<button
+																<Button
+																icon={<X size={18} />}
+																variant="link"
 																	onClick={() => handleRemoveCondition(condition.id)}
 																	className="p-2 text-red-400 hover:text-red-600 hover:bg-red-50 rounded-md transition-colors"
 																	title={__("Remove condition", "header-footer-elementor")}
 																>
-																	<X size={18} />
-																</button>
+																</Button>
 															</div>
 														)}
 													</div>
@@ -729,12 +730,12 @@ const withDisplayConditions = (WrappedComponent) => {
 											</div>
 
 											{/* Add Condition Button */}
-											<div className="flex justify-start items-center mt-6">
+											<div className="flex justify-start items-center mt-6 mb-2">
 												<Button
 												icon={<Plus size={16} />}
 													variant="link"
 													onClick={handleAddCondition}
-													className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-blue-300 "
+													className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium hfe-remove-ring rounded-md text-blue-300 "
 												>
 													{__("Add Condition", "header-footer-elementor")}
 												</Button>
@@ -743,7 +744,7 @@ const withDisplayConditions = (WrappedComponent) => {
 
 										<h2 className="text-lg font-medium">
 									{__(
-										"Configure Display Conditions",
+										"Configure User Roles",
 										"header-footer-elementor",
 									)}
 									</h2>
@@ -757,7 +758,7 @@ const withDisplayConditions = (WrappedComponent) => {
 												</h3>
 											</div> */}
 											<div className="px-4 py-2">
-										<h2 className="text-base font-semibold text-gray-900 mb-2 text-start">
+										<h2 className="text-base font-medium text-gray-900 mb-2 text-start">
 									{__(
 										"Where Should Your Layout Appear?",
 										"header-footer-elementor",
@@ -765,7 +766,7 @@ const withDisplayConditions = (WrappedComponent) => {
 								</h2>
 								<p className="text-text-tertiary text-sm m-0 text-start">
 									{__(
-										"Decide where you want this layout to appear on your site.",
+										"Choose which types of users can view this layout on your site",
 										"header-footer-elementor",
 									)}
 									{/* <br />
@@ -779,7 +780,7 @@ const withDisplayConditions = (WrappedComponent) => {
 												{__("Restrict this layout to specific user roles. Leave empty to show for all users.", "header-footer-elementor")}
 											</p> */}
 
-											<div className="space-y-2 pl-4 pr-10 pb-4 m-0" style={{  paddingRight: '40px'}}>
+											<div className="space-y-2 pl-4 pb-4 m-0" style={{  paddingRight: '200px', paddingTop: '15px'}}>
 												{state.userRoles.map((roleId, index) => (
 													<div
 														key={index}
@@ -821,13 +822,15 @@ const withDisplayConditions = (WrappedComponent) => {
 														{/* Remove Button */}
 														{state.userRoles.length > 1 && (
 															<div className="flex-shrink-0">
-																<button
+																<Button
+																variant="link"
+																icon={<X size={18} />}
 																	onClick={() => handleRemoveUserRole(index)}
 																	className="p-2 text-red-400 hover:text-red-600 hover:bg-red-50 rounded-md transition-colors"
 																	title={__("Remove user role", "header-footer-elementor")}
 																>
-																	<X size={18} />
-																</button>
+																
+																</Button>
 															</div>
 														)}
 													</div>
@@ -840,7 +843,7 @@ const withDisplayConditions = (WrappedComponent) => {
 												icon={<Plus size={16}  />}
 												variant="link"
 													onClick={handleAddUserRole}
-													className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white  text-blue-300"
+													className="inline-flex items-center px-4 py-2 mb-2 border border-transparent text-sm font-medium rounded-md hfe-remove-ring  text-blue-300"
 												>
 													{__("Add User Role", "header-footer-elementor")}
 												</Button>
@@ -853,7 +856,7 @@ const withDisplayConditions = (WrappedComponent) => {
 									<div className="px-6" style={{ marginTop: '40px', paddingLeft: '30px', paddingRight: '30px'}}>
 										<div className="flex items-center justify-start">
 											<div>
-												<div className="flex items-center gap-2">
+												<div className="flex items-center justify-center gap-2">
 												<Switch
 													checked={state.canvasTemplateEnabled}
 													onChange={handleCanvasTemplateChange}
@@ -861,13 +864,17 @@ const withDisplayConditions = (WrappedComponent) => {
 													size="sm"
 												/>
 										
-												<h3 className="text-lg m-0 font-semibold text-gray-900">
-													{__("Canvas Template Support", "header-footer-elementor")}
-												</h3>
-													</div>
-												<p className="text-text-tertiary m-0 pt-4 text-sm" style={{ paddingTop: '10px'}}>
-													{__("Enable this layout to display on Elementor Canvas template pages", "header-footer-elementor")}
+												
+												<p className="text-text-tertiary m-0  text-sm">
+													{__("Turn on to display this layout on Elementor Canvas pages", "header-footer-elementor")}
 												</p>
+													</div>
+												{/* <p className="text-text-tertiary m-0 pt-4 text-sm" style={{ paddingTop: '10px'}}>
+													{__("Enable this layout to display on Elementor Canvas template pages", "header-footer-elementor")}
+												</p> */}
+												{/* <h3 className="text-lg m-0 font-semibold text-gray-900">
+													{__("Canvas Template Support", "header-footer-elementor")}
+												</h3> */}
 											</div>
 										</div>
 									</div>
