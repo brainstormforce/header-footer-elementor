@@ -441,6 +441,8 @@ msgid "Yes"
 msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:255
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:631
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:632
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:608
 #: src/Components/Onboarding/ExtendOnboardingWidget.jsx:305
 msgid "Close"
@@ -739,100 +741,103 @@ msgstr ""
 msgid "Create Custom Block"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1046
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1002
+msgid ""
+"A blank page layout with no header or footer, giving you full control over "
+"the design."
+msgstr ""
+
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1011
+msgid "Elementor Canvas pages"
+msgstr ""
+
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1070
 msgid "Saving..."
 msgstr ""
 
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1076
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1077
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1053
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1052
 #: src/Components/Onboarding/ExtendOnboarding.jsx:573
 #: src/Components/Onboarding/Features.jsx:426
 msgid "Next"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:121
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:122
 msgid "Failed to load display conditions"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:368
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:391
 msgid "Entire Site"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:405
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:428
 msgid "Failed to load display conditions and user roles, using defaults"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:420
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:443
 msgid "No post selected"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:533
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:556
 msgid "Failed to save display conditions, user roles, and canvas template setting"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:588
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:611
 msgid "Configure Display Conditions"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:595
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:618
 msgid "New Layout"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:668
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:691
 msgid "Choose where you want it to be visible"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:731
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:754
 msgid "Include"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:734
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:757
 msgid "Exclude"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:773
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:796
 msgid "Select Conditions"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:801
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:824
 msgid "Remove condition"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:819
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:842
 msgid "Add Condition"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:844
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:867
 msgid "Where Should Your Layout Appear?"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:850
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:873
 msgid "Choose which types of users can view this layout on your site"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:895
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:918
 msgid "Select User Role"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:923
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:946
 msgid "Remove user role"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:942
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:965
 msgid "Add User Role"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:973
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:997
 msgid "Turn on to display this layout on "
-msgstr ""
-
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:978
-msgid ""
-"A blank page layout with no header or footer, giving you full control over "
-"the design."
-msgstr ""
-
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:987
-msgid "Elementor Canvas pages"
 msgstr ""
 
 #: src/Components/HF-Builder/EmptyState.jsx:19

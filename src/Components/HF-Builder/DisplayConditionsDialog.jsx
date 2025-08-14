@@ -9,6 +9,7 @@ import { Plus, X, Settings, Users } from "lucide-react";
 import { Button, Dialog, Switch, Loader , Tooltip} from "@bsf/force-ui";
 import { __ } from "@wordpress/i18n";
 import apiFetch from "@wordpress/api-fetch";
+import toast from "react-hot-toast"; 
 
 /**
  * Higher-Order Component for Display Conditions Dialog
@@ -247,11 +248,33 @@ const withDisplayConditions = (WrappedComponent) => {
 
 		// Canvas Template handler
 		const handleCanvasTemplateChange = useCallback(
-			(enabled) => {
-				updateState({ canvasTemplateEnabled: enabled });
-			},
-			[updateState],
-		);
+    (enabled) => {
+        updateState({ canvasTemplateEnabled: enabled });
+        
+        // Show success toast based on the toggle state
+        toast.success(
+            __(
+                enabled 
+                    ? "Enabled for Elementor Canvas pages." 
+                    : "Disabled for Elementor Canvas pages.",
+                "header-footer-elementor",
+            ),
+            {
+                position: "top-right",
+                duration: 2000,
+                style: {
+                    background: "white",
+                    color: "",
+                },
+                iconTheme: {
+                    primary: "#6005ff",
+                    secondary: "#fff",
+                },
+            },
+        );
+    },
+    [updateState],
+);
 
 		// Tab handler
 		// const handleTabChange = useCallback(
@@ -966,6 +989,7 @@ const withDisplayConditions = (WrappedComponent) => {
 													onChange={handleCanvasTemplateChange}
 													disabled={state.isLoading}
 													size="sm"
+													className="hfe-remove-ring"
 												/>
 										
 												
