@@ -69,12 +69,23 @@ class HFE_Promotion {
      */
     private function is_header_template() {
         global $post;
-        if ( ! $post ) {
+        
+        // Validate $post is an object and has ID property
+        if ( ! is_object( $post ) || ! isset( $post->ID ) || ! is_numeric( $post->ID ) ) {
             return false;
         }
         
-        $post_type = get_post_type( $post->ID );
-        $template_type = get_post_meta( $post->ID, 'ehf_template_type', true );
+        // Sanitize post ID
+        $post_id = absint( $post->ID );
+        if ( ! $post_id ) {
+            return false;
+        }
+        
+        $post_type = get_post_type( $post_id );
+        $template_type = get_post_meta( $post_id, 'ehf_template_type', true );
+        
+        // Sanitize template type
+        $template_type = sanitize_text_field( $template_type );
         
         return ( 'elementor-hf' === $post_type && 'type_header' === $template_type );
     }
@@ -83,6 +94,11 @@ class HFE_Promotion {
      * Generate promotional teaser template
      */
     private function get_teaser_template( $args ) {
+        // Validate input is array
+        if ( ! is_array( $args ) ) {
+            $args = [];
+        }
+        
         $defaults = [
             'description' => '',
             'upgrade_text' => __( 'Upgrade Now', 'header-footer-elementor' ),
@@ -90,13 +106,23 @@ class HFE_Promotion {
         ];
 
         $args = wp_parse_args( $args, $defaults );
+        
+        // Additional sanitization
+        $description = sanitize_text_field( $args['description'] );
+        $upgrade_text = sanitize_text_field( $args['upgrade_text'] );
+        $upgrade_url = esc_url_raw( $args['upgrade_url'] );
+        
+        // Validate URL
+        if ( ! filter_var( $upgrade_url, FILTER_VALIDATE_URL ) ) {
+            $upgrade_url = '#';
+        }
 
         $html = '
         <div class="hfe-promotion-box">
             <div class="hfe-promo-content">
-                <div class="hfe-promo-description">' . esc_html( $args['description'] ) . '</div>
-                 <a href="' . esc_url( $args['upgrade_url'] ) . '" target="_blank" class="hfe-promo-button elementor-button e-accent dialog-button">
-                    ' . esc_html( $args['upgrade_text'] ) . '
+                <div class="hfe-promo-description">' . esc_html( $description ) . '</div>
+                 <a href="' . esc_url( $upgrade_url ) . '" target="_blank" rel="noopener noreferrer" class="hfe-promo-button elementor-button e-accent dialog-button">
+                    ' . esc_html( $upgrade_text ) . '
                 </a>
             </div>
         </div>
@@ -118,13 +144,29 @@ class HFE_Promotion {
     }
 
     /**
+     * Get sanitized promotion label
+     */
+    private function get_promotion_label( $feature_name ) {
+        $feature_name = sanitize_text_field( $feature_name );
+        $lock_icon = '<i class="hfe-lock eicon-lock"></i>';
+        
+        // Using sprintf for better string formatting
+        return sprintf(
+            /* translators: %1$s: Feature name, %2$s: Lock icon */
+            __( 'UAE - %1$s %2$s', 'header-footer-elementor' ),
+            esc_html( $feature_name ),
+            $lock_icon // This is safe as it's hardcoded HTML
+        );
+    }
+
+    /**
      * Add Particles extension promotion
      */
     public function add_particles_promotion( $element ) {
         $element->start_controls_section(
             'hfe_particles_promo',
             [
-                'label' => __( 'UAE - Particle Backgrounds <i class="hfe-lock eicon-lock"></i>', 'header-footer-elementor' ),
+                'label' => $this->get_promotion_label( __( 'Particle Backgrounds', 'header-footer-elementor' ) ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -150,7 +192,7 @@ class HFE_Promotion {
         $element->start_controls_section(
             'hfe_display_conditions_promo',
             [
-                'label' => __( 'UAE - Display Conditions <i class="hfe-lock eicon-lock"></i>', 'header-footer-elementor' ),
+                'label' => $this->get_promotion_label( __( 'Display Conditions', 'header-footer-elementor' ) ),
                 'tab' => Controls_Manager::TAB_ADVANCED,
             ]
         );
@@ -176,7 +218,7 @@ class HFE_Promotion {
         $element->start_controls_section(
             'hfe_party_propz_promo',
             [
-                'label' => __( 'UAE - Party Propz <i class="hfe-lock eicon-lock"></i>', 'header-footer-elementor' ),
+                'label' => $this->get_promotion_label( __( 'Party Propz', 'header-footer-elementor' ) ),
                 'tab' => Controls_Manager::TAB_ADVANCED,
             ]
         );
@@ -207,7 +249,7 @@ class HFE_Promotion {
         $element->start_controls_section(
             'hfe_sticky_header_promo',
             [
-                'label' => __( 'UAE - Sticky Header <i class="hfe-lock eicon-lock"></i>', 'header-footer-elementor' ),
+                'label' => $this->get_promotion_label( __( 'Sticky Header', 'header-footer-elementor' ) ),
                 'tab' => Controls_Manager::TAB_ADVANCED,
             ]
         );
