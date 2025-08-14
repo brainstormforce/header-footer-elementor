@@ -663,7 +663,7 @@
 		$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).off( 'click keyup' ).on( 'click keyup', function( event ) {
 
 			// Handle keyboard events properly
-			if ( event.type === 'keyup' && event.keyCode !== 13 && event.keyCode !== 32 ) {
+			if ( event.type === 'keyup' && event.key !== 'Enter' && event.key !== 'Space' ) {
 				return; // Only handle Enter and Space keys
 			}
 
