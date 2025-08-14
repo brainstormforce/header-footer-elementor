@@ -36,9 +36,9 @@ const App = () => {
 
     return (
         <div className="app-container font-figtree">
-            {/* {showTopBar && (
+            {showTopBar && (
                 <UpgradeNotice onClose={() => setShowTopBar(false)} /> // Pass a prop to handle closing
-            )} */}
+            )}
             <CustomRouter />
         </div>
     );
