@@ -817,7 +817,7 @@ const withDisplayConditions = (WrappedComponent) => {
 														{state.conditions.length > 1 && (
 															<div className="flex-shrink-0">
 																<Button
-																icon={<X size={18} />}
+																icon={<X size={18} color="#6B7280" />}
 																variant="link"
 																	onClick={() => handleRemoveCondition(condition.id)}
 																	className="p-2 text-red-400 hover:text-red-600 hover:bg-red-50 rounded-md hfe-remove-ring transition-colors"
@@ -940,7 +940,7 @@ const withDisplayConditions = (WrappedComponent) => {
 															<div className="flex-shrink-0">
 																<Button
 																variant="link"
-																icon={<X size={18} />}
+																icon={<X size={18} color="#6B7280" />}
 																	onClick={() => handleRemoveUserRole(index)}
 																	className="p-2 text-red-400 hover:text-red-600 hover:bg-red-50 rounded-md hfe-remove-ring transition-colors"
 																	title={__("Remove user role", "header-footer-elementor")}
