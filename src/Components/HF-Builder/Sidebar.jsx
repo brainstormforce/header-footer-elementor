@@ -253,8 +253,6 @@ const Sidebar = () => {
 								marginLeft: '8px',
 								borderLeft: '1px solid #e5e7eb',
 								boxShadow: '-2px 0 4px rgba(0, 0, 0, 0.05)',
-								position: 'relative',
-								zIndex: 1
 							})
 						}}
 					>
