@@ -197,25 +197,25 @@
 				var $menuItems = $( this ).find( 'li > a:visible' );
 				var currentIndex = $menuItems.index( $currentElement );
 
-				switch( e.keyCode ) {
-					case 27: // Escape key - close menu
+				switch( e.key ) {
+					case 'Escape': // Escape key - close menu
 						$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).trigger( 'click' );
 						$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).focus();
 						e.preventDefault();
 						break;
-					case 40: // Down arrow
+					case 'ArrowDown': // Down arrow
 						if ( currentIndex < $menuItems.length - 1 ) {
 							$menuItems.eq( currentIndex + 1 ).focus();
 						}
 						e.preventDefault();
 						break;
-					case 38: // Up arrow
+					case 'ArrowUp': // Up arrow
 						if ( currentIndex > 0 ) {
 							$menuItems.eq( currentIndex - 1 ).focus();
 						}
 						e.preventDefault();
 						break;
-					case 9: // Tab key
+					case 'Tab': // Tab key
 						// Let default tab behavior work but close menu when tabbing out
 						if ( e.shiftKey && currentIndex === 0 ) {
 							// Shift+Tab on first item - close menu
@@ -242,7 +242,7 @@
 			var $this = $( this );
 
 			// Handle Enter and Space keys for submenu toggle
-			if ( e.keyCode === 13 || e.keyCode === 32 ) {
+			if ( e.key === 'Enter' || e.key === 'Space' ) {
 				e.preventDefault();
 				e.stopPropagation();
 			} else {
