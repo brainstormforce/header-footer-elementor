@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Edit3, Check, X, SquarePen } from "lucide-react";
 import { __ } from "@wordpress/i18n";
 import apiFetch from "@wordpress/api-fetch";
@@ -20,13 +20,51 @@ const InlineTitleEditor = ({
 	const [isEditing, setIsEditing] = useState(false);
 	const [editingTitle, setEditingTitle] = useState("");
 	const [isUpdating, setIsUpdating] = useState(false);
+	const inputRef = useRef(null);
+
+	// Focus and select input when editing starts
+	useEffect(() => {
+		if (isEditing && inputRef.current) {
+			console.log('useEffect: Focusing input');
+			const input = inputRef.current;
+			// Try to get the actual input element if it's wrapped
+			const actualInput = input.querySelector('input') || input;
+			
+			setTimeout(() => {
+				actualInput.focus();
+				actualInput.select();
+				console.log('Input focused and selected');
+			}, 100);
+		}
+	}, [isEditing]);
+
+	/**
+	 * Decode HTML entities to normal characters
+	 */
+	const decodeHtmlEntities = (str) => {
+		if (!str) return str;
+		const textarea = document.createElement('textarea');
+		textarea.innerHTML = str;
+		return textarea.value;
+	};
 
 	/**
 	 * Start inline editing
 	 */
 	const startEditing = () => {
+		console.log('startEditing called');
+		console.log('Item:', item);
+		
+		// Decode HTML entities from the title before editing
+		const rawTitle = item.title || item.post_title || "";
+		const decodedTitle = decodeHtmlEntities(rawTitle);
+		
+		console.log('Raw title:', rawTitle);
+		console.log('Decoded title:', decodedTitle);
+		
 		setIsEditing(true);
-		setEditingTitle(item.title || item.post_title || "");
+		setEditingTitle(decodedTitle);
+		console.log('Edit mode activated');
 	};
 
 	/**
@@ -86,12 +124,15 @@ const InlineTitleEditor = ({
 			return;
 		}
 
-		// Check for potentially harmful content
-		const sanitizedTitle = trimmedTitle.replace(/<[^>]*>/g, ""); // Remove HTML tags
-		if (sanitizedTitle !== trimmedTitle) {
+		// Check for potentially harmful content (only remove HTML tags, preserve apostrophes)
+		const sanitizedTitle = trimmedTitle.replace(/<[^>]*>/g, ""); // Remove HTML tags only
+		
+		// Don't reject titles with apostrophes - they're valid
+		if (sanitizedTitle !== trimmedTitle && trimmedTitle.includes('<')) {
+			// Only show error if HTML tags were actually removed
 			toast.error(
 				__(
-					"Layout name contains invalid characters.",
+					"Layout name contains invalid HTML tags.",
 					"header-footer-elementor",
 				),
 				{
@@ -133,11 +174,14 @@ const InlineTitleEditor = ({
 			});
 
 			if (response.success) {
+				// Use the title from server response to ensure consistency
+				const serverTitle = response.data?.post_title || response.data?.title || sanitizedTitle;
+				
 				// Update via callback
 				if (onTitleUpdate) {
 					onTitleUpdate(item.id, {
-						post_title: sanitizedTitle,
-						title: sanitizedTitle,
+						post_title: serverTitle,
+						title: serverTitle,
 					});
 				}
 
@@ -246,17 +290,21 @@ const InlineTitleEditor = ({
 				// Editing mode
 				<div className="flex items-center gap-2">
 					<Input
+						ref={inputRef}
 						type="text"
 						size="xs"
 						style={{
-							// maxWidth: "200px",
 							outline: "none",
-							// height: "36px",
 							fontSize: "16px",
-							width: '130px' // Match the text line height
+							width: '130px',
+							pointerEvents: 'auto',
+							userSelect: 'text',
 						}}
 						value={editingTitle}
-						onChange={(e) => setEditingTitle(e.target.value)}
+						onChange={(e) => {
+							console.log('Input onChange:', e.target.value);
+							setEditingTitle(e.target.value);
+						}}
 						onKeyDown={handleKeyDown}
 						className="py-2 text-base font-medium text-gray-900 rounded focus:outline-none"
 						placeholder={__(
@@ -264,10 +312,28 @@ const InlineTitleEditor = ({
 							"header-footer-elementor",
 						)}
 						autoFocus
-						disabled={isUpdating}
-						onFocus={(e) =>
-							(e.target.style.borderColor = "#6005FF", e.target.style.marginTop = "0.4rem")
-						}
+						disabled={false}
+						readOnly={false}
+						onFocus={(e) => {
+							console.log('Input focused, value:', e.target.value);
+							e.target.style.borderColor = "#6005FF";
+							e.target.style.marginTop = "0.4rem";
+						}}
+						onClick={(e) => {
+							console.log('Input clicked');
+							e.stopPropagation();
+						}}
+						onMouseDown={(e) => {
+							console.log('Input mousedown');
+							e.stopPropagation();
+						}}
+						onKeyPress={(e) => {
+							console.log('Key pressed:', e.key);
+						}}
+						onInput={(e) => {
+							console.log('Input event:', e.target.value);
+							setEditingTitle(e.target.value);
+						}}
 					/>
 					<div className="flex items-center pt-2" >
 						<Button
@@ -301,7 +367,7 @@ const InlineTitleEditor = ({
 				<div className="flex items-center gap-1 flex-nowrap">
 					<p className={`${titleClassName} flex items-center flex-nowrap whitespace-nowrap`}>
 						<span className="truncate text-base">
-							{item.title || item.post_title}
+							{decodeHtmlEntities(item.title || item.post_title)}
 						</span>
 						{showDraftStatus && (
 							<span className="ml-2 flex items-center text-xs text-gray-500 font-normal flex-shrink-0">
