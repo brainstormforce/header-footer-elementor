@@ -558,7 +558,8 @@ msgid ""
 msgstr ""
 
 #: src/Components/Dashboard/UltimateFeatures.js:79
-msgid "FAQWW Schema"
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:81
+msgid "FAQ Schema"
 msgstr ""
 
 #: src/Components/Dashboard/UltimateFeatures.js:87
@@ -1144,10 +1145,6 @@ msgstr ""
 
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:259
 msgid "Deactivate All "
-msgstr ""
-
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:81
-msgid "FAQ Schema"
 msgstr ""
 
 #: src/Components/Widgets/UltimateWidgets.jsx:119

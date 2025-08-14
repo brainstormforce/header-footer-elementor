@@ -4,7 +4,7 @@ import "@fontsource/figtree/400.css"; // Specify weight
 import "@fontsource/figtree/400-italic.css"; // Specify weight and style
 import CustomRouter from "router/customRouter";
 import { Loader } from "@bsf/force-ui";
-import UpgradeNotice from "@components/UpgradeNotice";
+// import UpgradeNotice from "@components/UpgradeNotice";
 
 
 const App = () => {
@@ -36,9 +36,6 @@ const App = () => {
 
     return (
         <div className="app-container font-figtree">
-            {showTopBar && (
-                <UpgradeNotice onClose={() => setShowTopBar(false)} /> // Pass a prop to handle closing
-            )}
             <CustomRouter />
         </div>
     );

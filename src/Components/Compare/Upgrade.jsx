@@ -3,15 +3,21 @@ import ExtendWebsite from "@components/Dashboard/ExtendWebsite";
 import QuickAccess from "@components/Dashboard/QuickAccess";
 import NavMenu from "@components/NavMenu";
 import UpgradeNotice from "@components/UpgradeNotice";
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import FreevsPro from "./FreevsPro";
 import UltimateCompare from "./UltimateCompare";
 import UltimateFeatures from "@components/Dashboard/UltimateFeatures";
 
 
 const Upgrade = () => {
+
+        const [showTopBar, setShowTopBar] = useState(true); // State to manage the visibility of the top bar
+
     return (
         <>
+         {showTopBar && (
+                <UpgradeNotice onClose={() => setShowTopBar(false)} /> // Pass a prop to handle closing
+            )}
             <NavMenu />
             <div>
                 <Container

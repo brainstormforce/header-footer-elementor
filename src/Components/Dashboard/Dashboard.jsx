@@ -1,14 +1,18 @@
 import { Container } from "@bsf/force-ui";
 import NavMenu from '@components/NavMenu'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Widgets from './Widgets'
 import TemplateSection from './TemplateSection'
 import QuickAccess from './QuickAccess'
 import WelcomeContainer from './WelcomeContainer'
 import UltimateFeatures from './UltimateFeatures'
 import ExtendWebsite from './ExtendWebsite'
+import UpgradeNotice from "@components/UpgradeNotice";
 
 const Dashboard = () => {
+
+        const [showTopBar, setShowTopBar] = useState(true); // State to manage the visibility of the top bar
+
     useEffect(() => {
         const dashboardURL = "admin.php?page=hfe#dashboard";
 
@@ -34,6 +38,9 @@ const Dashboard = () => {
 
     return (
         <>
+            {showTopBar && (
+                <UpgradeNotice onClose={() => setShowTopBar(false)} /> // Pass a prop to handle closing
+            )}
             <NavMenu />
             <div>
                 <Container

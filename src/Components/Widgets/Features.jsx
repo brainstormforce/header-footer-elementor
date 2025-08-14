@@ -1,16 +1,22 @@
 import NavMenu from '@components/NavMenu'
 import { Container } from "@bsf/force-ui";
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import TemplateSection from '@components/Dashboard/TemplateSection';
 import QuickAccess from '@components/Dashboard/QuickAccess';
 import UltimateWidgets from './UltimateWidgets';
 import FeatureWidgets from './Features/FeatureWidgets'
 import UltimateWidgetFeatures from './UltimateWidgetFeatures';
 import ExtendWebsite from '@components/Dashboard/ExtendWebsite';
+import UpgradeNotice from "@components/UpgradeNotice";
 
 const Features = () => {
+            const [showTopBar, setShowTopBar] = useState(true); // State to manage the visibility of the top bar
+
     return (
         <>
+         {showTopBar && (
+                <UpgradeNotice onClose={() => setShowTopBar(false)} /> // Pass a prop to handle closing
+            )}
             <NavMenu />
             <div>
                 <Container
