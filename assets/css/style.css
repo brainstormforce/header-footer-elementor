@@ -245,3 +245,10 @@
 .elementor-control-uae_pro_promotion_notice a:hover {
   color: #2463eb;
 }
+
+.hfe-lock.eicon-lock:hover{
+  color: #93003f;
+}
+.hfe-lock.eicon-lock{
+  margin-left: 15px;
+}

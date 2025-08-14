@@ -55,8 +55,6 @@ class HFE_Promotion {
         add_action( 'elementor/element/section/section_advanced/after_section_end', [ $this, 'add_sticky_header_promotion' ], 10 );
         add_action( 'elementor/element/container/section_layout/after_section_end', [ $this, 'add_sticky_header_promotion' ], 10 );
         
-        // Cross Domain Copy Paste - Add to Elementor editor
-        add_action( 'elementor/editor/after_enqueue_scripts', [ $this, 'add_cross_domain_copy_paste_promotion' ] );
     }
 
     /**
@@ -86,108 +84,35 @@ class HFE_Promotion {
      */
     private function get_teaser_template( $args ) {
         $defaults = [
-            'title' => '',
             'description' => '',
-            'features' => [],
-            'upgrade_text' => __( 'Upgrade to Pro', 'header-footer-elementor' ),
-            'upgrade_url' => 'https://ultimateelementor.com/pricing/',
-            'demo_url' => '',
+            'upgrade_text' => __( 'Upgrade Now', 'header-footer-elementor' ),
+            'upgrade_url' => '',
         ];
 
         $args = wp_parse_args( $args, $defaults );
 
-        $features_html = '';
-        if ( ! empty( $args['features'] ) ) {
-            $features_html = '<ul class="hfe-promo-features">';
-            foreach ( $args['features'] as $feature ) {
-                $features_html .= '<li>✓ ' . esc_html( $feature ) . '</li>';
-            }
-            $features_html .= '</ul>';
-        }
-
-        $demo_button = '';
-        if ( ! empty( $args['demo_url'] ) ) {
-            $demo_button = '<a href="' . esc_url( $args['demo_url'] ) . '" target="_blank" class="hfe-promo-demo-btn">
-                ' . __( 'View Demo', 'header-footer-elementor' ) . '
-            </a>';
-        }
-
         $html = '
         <div class="hfe-promotion-box">
-           
             <div class="hfe-promo-content">
                 <div class="hfe-promo-description">' . esc_html( $args['description'] ) . '</div>
-                ' . $features_html . '
-            </div>
-            <div class="hfe-promo-footer">
-                ' . $demo_button . '
-                <a href="' . esc_url( $args['upgrade_url'] ) . '" target="_blank" class="hfe-promo-button elementor-button elementor-button-default">
+                 <a href="' . esc_url( $args['upgrade_url'] ) . '" target="_blank" class="hfe-promo-button elementor-button e-accent dialog-button">
                     ' . esc_html( $args['upgrade_text'] ) . '
                 </a>
             </div>
         </div>
         <style>
-        .hfe-promotion-box {
-            background: linear-gradient(135deg, #3D0ED6, #4E1FFF);
-            border-radius: 8px;
-            padding: 20px;
-            color: white;
-            text-align: center;
-            margin: 10px 0;
-        }
-        .hfe-promo-header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 15px;
-        }
-        .hfe-promo-icon {
-            font-size: 24px;
-            margin-right: 10px;
-        }
-        .hfe-promo-title {
-            font-size: 18px;
-            font-weight: 600;
-        }
-        .hfe-promo-description {
-            font-size: 14px;
-            margin-bottom: 15px;
-            opacity: 0.9;
-        }
-        .hfe-promo-features {
-            list-style: none;
-            padding: 0;
-            margin: 15px 0;
-            text-align: left;
-        }
-        .hfe-promo-features li {
-            padding: 5px 0;
+        .hfe-promo-description{
+            line-height: 19.5px;
             font-size: 13px;
         }
-        .hfe-promo-footer {
-            display: flex;
-            flex-direction: row;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: nowrap;
+        .hfe-promo-button{
+            margin-top:10px;
         }
-        .hfe-promo-button, .hfe-promo-demo-btn {
-            background: rgba(255,255,255,0.2) !important;
-            border: 1px solid rgba(255,255,255,0.3) !important;
-            color: white !important;
-            padding: 5px 10px !important;
-            border-radius: 5px !important;
-            text-decoration: none !important;
-            display: inline-block !important;
-            transition: all 0.3s ease !important;
-            font-size: 12px !important;
+        .hfe-lock.eicon-lock:hover{
+            color: #93003f;
         }
-        .hfe-promo-button:hover, .hfe-promo-demo-btn:hover {
-            background: rgba(255,255,255,0.3) !important;
-            transform: translateY(-2px);
-            color: white !important;
-        }
-        </style>';
+        </style>
+        ';
 
         return $html;
     }
@@ -199,7 +124,7 @@ class HFE_Promotion {
         $element->start_controls_section(
             'hfe_particles_promo',
             [
-                'label' => __( 'UAE - Particle Backgrounds', 'header-footer-elementor' ),
+                'label' => __( 'UAE - Particle Backgrounds <i class="hfe-lock eicon-lock"></i>', 'header-footer-elementor' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -209,16 +134,8 @@ class HFE_Promotion {
             [
                 'type' => Controls_Manager::RAW_HTML,
                 'raw' => $this->get_teaser_template([
-                    'title' => __( 'Particle Backgrounds', 'header-footer-elementor' ),
-                    'description' => __( 'Add stunning animated particle backgrounds to your sections, columns, and containers.', 'header-footer-elementor' ),
-                    'features' => [
-                        'NASA, Snow, Christmas themes',
-                        'Custom particle configurations',
-                        'Interactive animations',
-                        'Performance optimized',
-                        'Mobile responsive'
-                    ],
-                    'demo_url' => 'https://ultimateelementor.com/particles-background/',
+                    'description' => __( 'Use particles background and other pro features to extend your toolbox with more control and flexibility.', 'header-footer-elementor' ),
+                    'upgrade_url' => 'https://ultimateelementor.com/pricing/?utm_source=plugin-editor&utm_medium=particle-background-promo&utm_campaign=uae-upgrade',
                 ]),
             ]
         );
@@ -233,7 +150,7 @@ class HFE_Promotion {
         $element->start_controls_section(
             'hfe_display_conditions_promo',
             [
-                'label' => __( 'UAE - Display Conditions', 'header-footer-elementor' ),
+                'label' => __( 'UAE - Display Conditions <i class="hfe-lock eicon-lock"></i>', 'header-footer-elementor' ),
                 'tab' => Controls_Manager::TAB_ADVANCED,
             ]
         );
@@ -243,16 +160,8 @@ class HFE_Promotion {
             [
                 'type' => Controls_Manager::RAW_HTML,
                 'raw' => $this->get_teaser_template([
-                    'title' => __( 'Display Conditions', 'header-footer-elementor' ),
-                    'description' => __( 'Control when and where your content appears with advanced conditional logic.', 'header-footer-elementor' ),
-                    'features' => [
-                        'User role based visibility',
-                        'Date & time conditions',
-                        'Device & browser targeting',
-                        'Location based display',
-                        'Custom PHP conditions'
-                    ],
-                    'demo_url' => 'https://ultimateelementor.com/display-conditions/',
+                    'description' => __( 'Use advanced display condition and other pro features to extend your toolbox with more control and flexibility.', 'header-footer-elementor' ),
+                    'upgrade_url' => 'https://ultimateelementor.com/pricing/?utm_source=plugin-editor&utm_medium=display-conditions-promo&utm_campaign=uae-upgrade',
                 ]),
             ]
         );
@@ -267,7 +176,7 @@ class HFE_Promotion {
         $element->start_controls_section(
             'hfe_party_propz_promo',
             [
-                'label' => __( 'UAE - Party Propz', 'header-footer-elementor' ),
+                'label' => __( 'UAE - Party Propz <i class="hfe-lock eicon-lock"></i>', 'header-footer-elementor' ),
                 'tab' => Controls_Manager::TAB_ADVANCED,
             ]
         );
@@ -277,16 +186,8 @@ class HFE_Promotion {
             [
                 'type' => Controls_Manager::RAW_HTML,
                 'raw' => $this->get_teaser_template([
-                    'title' => __( 'Party Propz Extension', 'header-footer-elementor' ),
-                    'description' => __( 'Add festive animations and effects to celebrate special occasions and events.', 'header-footer-elementor' ),
-                    'features' => [
-                        'Confetti animations',
-                        'Fireworks effects',
-                        'Balloon animations',
-                        'Snow falling effects',
-                        'Custom celebration themes'
-                    ],
-                    'demo_url' => 'https://ultimateelementor.com/party-propz/',
+                    'description' => __( 'Use party propz and other pro features to extend your toolbox with more control and flexibility.', 'header-footer-elementor' ),
+                    'upgrade_url' => 'https://ultimateelementor.com/pricing/?utm_source=plugin-editor&utm_medium=party-propz-promo&utm_campaign=uae-upgrade',
                 ]),
             ]
         );
@@ -306,7 +207,7 @@ class HFE_Promotion {
         $element->start_controls_section(
             'hfe_sticky_header_promo',
             [
-                'label' => __( 'UAE - Sticky Header', 'header-footer-elementor' ),
+                'label' => __( 'UAE - Sticky Header <i class="hfe-lock eicon-lock"></i>', 'header-footer-elementor' ),
                 'tab' => Controls_Manager::TAB_ADVANCED,
             ]
         );
@@ -316,16 +217,8 @@ class HFE_Promotion {
             [
                 'type' => Controls_Manager::RAW_HTML,
                 'raw' => $this->get_teaser_template([
-                    'title' => __( 'Sticky Header', 'header-footer-elementor' ),
-                    'description' => __( 'Make your header stick to the top when users scroll for better navigation.', 'header-footer-elementor' ),
-                    'features' => [
-                        'Smart sticky behavior',
-                        'Offset controls',
-                        'Hide on scroll options',
-                        'Mobile responsive',
-                        'Custom animations'
-                    ],
-                    'demo_url' => 'https://ultimateelementor.com/sticky-header/',
+                    'description' => __( 'Use sticky header and other pro features to extend your toolbox with more control and flexibility.', 'header-footer-elementor' ),
+                    'upgrade_url' => 'https://ultimateelementor.com/pricing/?utm_source=plugin-editor&utm_medium=sticky-header-promo&utm_campaign=uae-upgrade',
                 ]),
             ]
         );
@@ -333,38 +226,6 @@ class HFE_Promotion {
         $element->end_controls_section();
     }
 
-    /**
-     * Add Cross Domain Copy Paste promotion
-     */
-    public function add_cross_domain_copy_paste_promotion() {
-        // Add a notice in the Elementor editor about cross-domain copy paste
-        ?>
-        <script>
-        jQuery(document).ready(function($) {
-            if (typeof elementor !== 'undefined') {
-                elementor.once('preview:loaded', function() {
-                    // Add promotion notice for cross-domain copy paste
-                    var promoHtml = '<div class="hfe-cross-domain-promo" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px; margin: 10px; border-radius: 8px; text-align: center;">' +
-                        '<div style="font-size: 16px; font-weight: 600; margin-bottom: 10px;">🔄 Cross-Domain Copy Paste</div>' +
-                        '<div style="font-size: 14px; margin-bottom: 15px;">Copy elements between different websites seamlessly with Ultimate Elementor Pro.</div>' +
-                        '<div>' +
-                            '<a href="https://ultimateelementor.com/cross-domain-copy-paste/" target="_blank" style="background: rgba(255,255,255,0.2); color: white; padding: 8px 16px; border-radius: 4px; text-decoration: none; margin-right: 10px; font-size: 14px;">View Demo</a>' +
-                            '<a href="https://ultimateelementor.com/pricing/" target="_blank" style="background: rgba(255,255,255,0.2); color: white; padding: 8px 16px; border-radius: 4px; text-decoration: none; font-size: 14px;">Upgrade Now</a>' +
-                        '</div>' +
-                    '</div>';
-                    
-                    // Add to Elementor panel
-                    setTimeout(function() {
-                        if ($('#elementor-panel-elements-search-area').length) {
-                            $('#elementor-panel-elements-search-area').after(promoHtml);
-                        }
-                    }, 2000);
-                });
-            }
-        });
-        </script>
-        <?php
-    }
 }
 
 // Initialize the promotion class
