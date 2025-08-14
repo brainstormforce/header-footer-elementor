@@ -594,15 +594,17 @@ msgstr ""
 msgid "Widgets / Features"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:104
-#: src/Components/HF-Builder/Sidebar.jsx:130
-msgid "Custom Block"
+#: src/Components/HF-Builder/AllLayouts.jsx:1001
+msgid "Edit Layout"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:105
-msgid "Create a custom block that can be used anywhere"
-msgstr ""
-
+#: src/Components/HF-Builder/AllLayouts.jsx:1089
+#: src/Components/HF-Builder/AllLayouts.jsx:1093
+#: src/Components/HF-Builder/AllLayouts.jsx:1098
+#: src/Components/HF-Builder/AllLayouts.jsx:1100
+#: src/Components/HF-Builder/AllLayouts.jsx:1101
+#: src/Components/HF-Builder/AllLayouts.jsx:1102
+#: src/Components/HF-Builder/AllLayouts.jsx:1092
 #: src/Components/HF-Builder/AllLayouts.jsx:1084
 #: src/Components/HF-Builder/BeforeFooter.jsx:494
 #: src/Components/HF-Builder/Footer.jsx:488
@@ -610,76 +612,97 @@ msgstr ""
 msgid "Display Conditions"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:226
+#: src/Components/HF-Builder/AllLayouts.jsx:110
+#: src/Components/HF-Builder/AllLayouts.jsx:104
+#: src/Components/HF-Builder/Sidebar.jsx:130
+msgid "Custom Block"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:111
+msgid "Create a custom block that can be used anywhere"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:242
 msgid "Layout created successfully!"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:234
+#: src/Components/HF-Builder/AllLayouts.jsx:250
 msgid "Failed to create layout. Please try again."
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:244
+#: src/Components/HF-Builder/AllLayouts.jsx:260
 msgid "Error creating layout. Please try again."
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:540
+#: src/Components/HF-Builder/AllLayouts.jsx:556
 msgid ""
 "You haven't created any layouts yet. Build a custom layout to control how "
 "your site's top section looks and behaves across all pages."
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:605
+#: src/Components/HF-Builder/AllLayouts.jsx:616
 msgid "Choose Layout Type"
 msgstr ""
 
+#: src/Components/HF-Builder/AllLayouts.jsx:637
+#: src/Components/HF-Builder/AllLayouts.jsx:642
+#: src/Components/HF-Builder/AllLayouts.jsx:644
+#: src/Components/HF-Builder/AllLayouts.jsx:645
+#: src/Components/HF-Builder/AllLayouts.jsx:646
+#: src/Components/HF-Builder/AllLayouts.jsx:636
 #: src/Components/HF-Builder/AllLayouts.jsx:628
 #: src/Components/Onboarding/ExtendOnboarding.jsx:551
 #: src/Components/Onboarding/Features.jsx:389
 msgid "Back"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:65
+#: src/Components/HF-Builder/AllLayouts.jsx:71
 msgid "Header"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:66
+#: src/Components/HF-Builder/AllLayouts.jsx:72
 msgid "Create a custom header layout for your website"
 msgstr ""
 
+#: src/Components/HF-Builder/AllLayouts.jsx:809
+msgid "Start Customising Your Header & Footer"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:82
 #: src/Components/HF-Builder/AllLayouts.jsx:76
 #: src/Components/HF-Builder/Sidebar.jsx:92
 msgid "Footer"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:77
+#: src/Components/HF-Builder/AllLayouts.jsx:83
 msgid "Create a custom footer layout for your website"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:800
-msgid "Start Customising Your Header & Footer"
-msgstr ""
-
-#: src/Components/HF-Builder/AllLayouts.jsx:837
+#: src/Components/HF-Builder/AllLayouts.jsx:842
 msgid "Create Layout"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:90
-#: src/Components/HF-Builder/Sidebar.jsx:111
-msgid "Before Footer"
-msgstr ""
-
-#: src/Components/HF-Builder/AllLayouts.jsx:91
-msgid "Create a layout that appears before the footer"
-msgstr ""
-
+#: src/Components/HF-Builder/AllLayouts.jsx:945
+#: src/Components/HF-Builder/AllLayouts.jsx:949
+#: src/Components/HF-Builder/AllLayouts.jsx:954
+#: src/Components/HF-Builder/AllLayouts.jsx:956
+#: src/Components/HF-Builder/AllLayouts.jsx:957
+#: src/Components/HF-Builder/AllLayouts.jsx:958
+#: src/Components/HF-Builder/AllLayouts.jsx:948
 #: src/Components/HF-Builder/AllLayouts.jsx:940
 #: src/Components/HF-Builder/CustomBlock.jsx:431
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:658
 msgid "Copy Shortcode"
 msgstr ""
 
-#: src/Components/HF-Builder/AllLayouts.jsx:996
-msgid "Edit Layout"
+#: src/Components/HF-Builder/AllLayouts.jsx:96
+#: src/Components/HF-Builder/AllLayouts.jsx:90
+#: src/Components/HF-Builder/Sidebar.jsx:111
+msgid "Before Footer"
+msgstr ""
+
+#: src/Components/HF-Builder/AllLayouts.jsx:97
+msgid "Create a layout that appears before the footer"
 msgstr ""
 
 #: src/Components/HF-Builder/BeforeFooter.jsx:112
@@ -739,20 +762,21 @@ msgstr ""
 msgid "Create Custom Block"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1002
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1003
 msgid ""
 "A blank page layout with no header or footer, giving you full control over "
 "the design."
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1011
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1012
 msgid "Elementor Canvas pages"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1070
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1071
 msgid "Saving..."
 msgstr ""
 
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1077
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1076
 #: src/Components/Onboarding/ExtendOnboarding.jsx:573
 #: src/Components/Onboarding/Features.jsx:426
@@ -787,6 +811,10 @@ msgstr ""
 msgid "New Layout"
 msgstr ""
 
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:685
+msgid "Where Should Your Layout Appear?"
+msgstr ""
+
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:691
 msgid "Choose where you want it to be visible"
 msgstr ""
@@ -803,35 +831,35 @@ msgstr ""
 msgid "Select Conditions"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:824
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:825
 msgid "Remove condition"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:842
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:843
 msgid "Add Condition"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:867
-msgid "Where Should Your Layout Appear?"
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:868
+msgid "Who Should See This Layout?"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:873
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:874
 msgid "Choose which types of users can view this layout on your site"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:918
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:919
 msgid "Select User Role"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:946
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:947
 msgid "Remove user role"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:965
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:966
 msgid "Add User Role"
 msgstr ""
 
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:997
+#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:998
 msgid "Turn on to display this layout on "
 msgstr ""
 

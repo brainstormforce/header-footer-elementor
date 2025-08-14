@@ -26,8 +26,14 @@ const AllLayouts = ({
 
 	// Initialize showDummyCards from localStorage to persist state across page refreshes
 	const [showDummyCards, setShowDummyCards] = useState(() => {
-		const saved = localStorage.getItem("hfe_showDummyCards");
-		return saved ? JSON.parse(saved) : false;
+		// Only read from localStorage if we're currently on the All Layouts tab
+		// This prevents showing dummy cards when navigating back from other tabs
+		const currentTab = localStorage.getItem("hfeSelectedItemId");
+		if (currentTab === "1") { // All Layouts tab has id 1
+			const saved = localStorage.getItem("hfe_showDummyCards");
+			return saved ? JSON.parse(saved) : false;
+		}
+		return false;
 	});
 
 	// Add custom styles for toast positioning
@@ -116,11 +122,23 @@ const AllLayouts = ({
 
 	// Save showDummyCards state to localStorage whenever it changes
 	useEffect(() => {
-		localStorage.setItem(
-			"hfe_showDummyCards",
-			JSON.stringify(showDummyCards),
-		);
+		if (showDummyCards) {
+			localStorage.setItem(
+				"hfe_showDummyCards",
+				JSON.stringify(showDummyCards),
+			);
+		} else {
+			localStorage.removeItem("hfe_showDummyCards");
+		}
 	}, [showDummyCards]);
+
+	// Cleanup effect to clear showDummyCards when component unmounts
+	useEffect(() => {
+		return () => {
+			// Clear the showDummyCards state when component unmounts (user navigates away)
+			localStorage.removeItem("hfe_showDummyCards");
+		};
+	}, []);
 
 	// Function to refresh layout data
 	const refreshLayoutData = () => {
@@ -142,7 +160,6 @@ const AllLayouts = ({
 
 					// Clear localStorage if layouts are found
 					if (response.posts.length > 0) {
-						localStorage.removeItem("hfe_showDummyCards");
 						setShowDummyCards(false);
 					}
 				} else {
@@ -202,7 +219,6 @@ const AllLayouts = ({
 
 						// Hide dummy cards and clear localStorage
 						setShowDummyCards(false);
-						localStorage.removeItem("hfe_showDummyCards");
 
 						// Update item with new post ID for further processing
 						const updatedItem = { ...item, id: response.post_id };
@@ -544,11 +560,6 @@ const AllLayouts = ({
 					buttonText={__("Create Layout", "header-footer-elementor")}
 					onClick={() => {
 						setShowDummyCards(true);
-						// Save to localStorage when showing dummy cards
-						localStorage.setItem(
-							"hfe_showDummyCards",
-							JSON.stringify(true),
-						);
 					}}
 				/>
 
@@ -621,8 +632,6 @@ const AllLayouts = ({
 							}}
 							onClick={() => {
 								setShowDummyCards(false);
-								// Clear the localStorage when going back
-								localStorage.removeItem("hfe_showDummyCards");
 							}}
 						>
 							{__("Back", "header-footer-elementor")}
@@ -827,10 +836,6 @@ const AllLayouts = ({
 									showDummyCards,
 								);
 								setShowDummyCards(true);
-								localStorage.setItem(
-									"hfe_showDummyCards",
-									JSON.stringify(true),
-								);
 								console.log("Set showDummyCards to true");
 							}}
 						>

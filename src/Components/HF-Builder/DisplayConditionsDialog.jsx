@@ -819,6 +819,7 @@ const withDisplayConditions = (WrappedComponent) => {
 																<Button
 																icon={<X size={18} color="#6B7280" />}
 																variant="link"
+																style={{ paddingRight: '1.3rem' }}
 																	onClick={() => handleRemoveCondition(condition.id)}
 																	className="p-2 text-red-400 hover:text-red-600 hover:bg-red-50 rounded-md hfe-remove-ring transition-colors"
 																	title={__("Remove condition", "header-footer-elementor")}
@@ -865,7 +866,7 @@ const withDisplayConditions = (WrappedComponent) => {
 											<div className="px-4">
 										<h2 className="text-base font-medium text-gray-900 mb-2 text-start">
 									{__(
-										"Where Should Your Layout Appear?",
+										"Who Should See This Layout?",
 										"header-footer-elementor",
 									)}
 								</h2>
