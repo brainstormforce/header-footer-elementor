@@ -1108,7 +1108,7 @@ msgid "Unlock UAE's full potential!"
 msgstr ""
 
 #: src/Components/UpgradeNotice.jsx:44
-msgid "Get powerful widgets and faster performance."
+msgid "Get powerful widgets and faster performance - "
 msgstr ""
 
 #: src/Components/UpgradeNotice.jsx:53
