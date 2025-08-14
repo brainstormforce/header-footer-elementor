@@ -4,7 +4,7 @@ Tags: elementor, elementor addon, elementor widget, elementor template, header f
 Requires at least: 5.0  
 Tested up to: 6.8
 Requires PHP: 7.4  
-Stable tag: 2.4.8
+Stable tag: 2.4.9
 License: GPLv2 or later  
 License URI: https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -301,8 +301,8 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 == Changelog ==
 
 = 2.4.9 =
-- Fixed: Resolved accessibility issue with the expandable navigation menu
-- Fixed: Navigation Menu widget closes when an anchor link is clicked.
+- Fixed: Navigation Menu - Resolved accessibility issue with the expandable menu layout.
+- Fixed: Navigation Menu - Widget closes when an anchor link is clicked.
 
 = 2.4.8 =
 - Improvement: Compatibility with latest Elementor and Elementor Pro 3.31 version.
