@@ -10,36 +10,16 @@ import ExtendWebsite from './ExtendWebsite'
 import UpgradeNotice from "@components/UpgradeNotice";
 
 const Dashboard = () => {
-    // Check if upgrade notice was dismissed (this will be handled by PHP)
+    // Check if upgrade notice was dismissed (handled by PHP via WordPress options)
     const [showTopBar, setShowTopBar] = useState(() => {
-        // First check server-side dismissal
-        if (window.hfe_admin_data && window.hfe_admin_data.upgrade_notice_dismissed) {
-            return false;
-        }
-        
-        // Fallback to localStorage check
-        try {
-            const dismissed = localStorage.getItem('uae_upgrade_notice_dismissed');
-            return dismissed !== 'true';
-        } catch (error) {
-            console.error('Dashboard - localStorage check error:', error);
-            return true; // Default to showing the notice
-        }
+        return !(window.hfe_admin_data && window.hfe_admin_data.upgrade_notice_dismissed);
     });
 
     // Function to handle closing the upgrade notice
     const handleCloseUpgradeNotice = async () => {
-        console.log('Dashboard - Closing upgrade notice'); // Debug log
         setShowTopBar(false);
         
-        // Fallback to localStorage if WordPress AJAX is not available
         if (!window.hfe_admin_data || !window.hfe_admin_data.ajax_url) {
-            console.log('Dashboard - Falling back to localStorage');
-            try {
-                localStorage.setItem('uae_upgrade_notice_dismissed', 'true');
-            } catch (error) {
-                console.error('Dashboard - localStorage fallback error:', error);
-            }
             return;
         }
         

@@ -584,6 +584,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			// Check if user has permission to manage options.
 			if ( ! current_user_can( 'manage_options' ) ) {
 				wp_send_json_error( __( 'You do not have permission to perform this action.', 'header-footer-elementor' ) );
+				return;
 			}
 
 			// Verify nonce for security
