@@ -674,7 +674,7 @@ msgstr ""
 
 #: src/Components/HF-Builder/AllLayouts.jsx:940
 #: src/Components/HF-Builder/CustomBlock.jsx:431
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:657
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:658
 msgid "Copy Shortcode"
 msgstr ""
 
@@ -943,7 +943,7 @@ msgid "Cancel editing"
 msgstr ""
 
 #: src/Components/HF-Builder/InlineTitleEditor.jsx:376
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:694
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:697
 msgid "Draft"
 msgstr ""
 
@@ -1041,11 +1041,11 @@ msgstr ""
 msgid "Error deleting layout. Please try again."
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:684
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:686
 msgid "Publish"
 msgstr ""
 
-#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:707
+#: src/Components/HF-Builder/LayoutDropdownMenu.jsx:711
 msgid "Delete"
 msgstr ""
 

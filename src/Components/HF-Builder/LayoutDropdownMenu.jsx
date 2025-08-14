@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { EllipsisVertical, Trash2, Edit3, TriangleAlert } from "lucide-react";
+import { EllipsisVertical, Trash2, Edit3, TriangleAlert, Copy, FileText, CircleCheck, } from "lucide-react";
 import { DropdownMenu, Button } from "@bsf/force-ui";
 import { __ } from "@wordpress/i18n";
 import apiFetch from "@wordpress/api-fetch";
@@ -654,6 +654,7 @@ const LayoutDropdownMenu = ({
 										handleCopyShortcode(item);
 									}}
 								>
+									<Copy />
 									{__(
 										"Copy Shortcode",
 										"header-footer-elementor",
@@ -681,6 +682,7 @@ const LayoutDropdownMenu = ({
 										handlePublishLayout(item);
 									}}
 								>
+									<CircleCheck />
 									{__("Publish", "header-footer-elementor")}
 								</DropdownMenu.Item>
 							) : (
@@ -691,6 +693,7 @@ const LayoutDropdownMenu = ({
 										handleDisableLayout(item);
 									}}
 								>
+<FileText/>
 									{__("Draft", "header-footer-elementor")}
 								</DropdownMenu.Item>
 							)}
@@ -704,6 +707,7 @@ const LayoutDropdownMenu = ({
 									handleDeleteLayout(item);
 								}}
 							>
+								<Trash2 />
 								{__("Delete", "header-footer-elementor")}
 							</DropdownMenu.Item>
 						</DropdownMenu.List>
