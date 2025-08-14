@@ -744,12 +744,20 @@
 				var link  = $this.attr( 'href' );
 				var linkValue = '';
 				
-				// Optimized code to redirect to submenu-ids on traverse.
-				if ( link.includes( '#' )  && link.charAt(0) === '#' ) { // Check if the link is an anchor link.
-					event.preventDefault();
-					var index     = link.indexOf( '#' );
-					linkValue = link.slice( index + 1 );
+				// Check if this is an anchor link
+				if ( link && link.includes( '#' ) ) {
+					// Get the hash value
+					if ( link.charAt(0) === '#' ) {
+						event.preventDefault();
+						linkValue = link.slice( 1 );
+					} else {
+						var index = link.indexOf( '#' );
+						if ( index !== -1 ) {
+							linkValue = link.slice( index + 1 );
+						}
+					}
 				}
+				
 				if ( linkValue.length > 0 ) {
 					var targetSection = $( '#' + linkValue );
 
@@ -759,25 +767,30 @@
 						}, 800); 
 					}
 
-					if ( 'expandible' == layout ) {
-						$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).trigger( "click" );
-						if ($this.hasClass( 'hfe-sub-menu-item' )) {
-							$( '.elementor-element-' + id + ' .hfe-menu-toggle' ).trigger( "click" );
-						}
-					} else {
-						if ( window.matchMedia( '(max-width: 1024px)' ).matches && ( 'horizontal' == layout || 'vertical' == layout ) ) {
-							$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).trigger( "click" );
-							if ($this.hasClass( 'hfe-sub-menu-item' )) {
-								$( '.elementor-element-' + id + ' .hfe-menu-toggle' ).trigger( "click" );
+					// Close the menu after clicking anchor link
+					setTimeout(function() {
+						if ( 'expandible' == layout ) {
+							// For expandible layout, trigger click on toggle if menu is open
+							var $toggle = $( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' );
+							if ( $toggle.hasClass( 'hfe-active-menu' ) ) {
+								$toggle.trigger( 'click' );
 							}
-						} else {
-							if ($this.hasClass( 'hfe-sub-menu-item' )) {
-								_closeMenu( id );
-								$( '.elementor-element-' + id + ' .hfe-menu-toggle' ).trigger( "click" );
-							}
+						} else if ( 'flyout' == layout ) {
+							// For flyout layout, use the close menu function
 							_closeMenu( id );
+						} else {
+							// For horizontal and vertical layouts on mobile/tablet
+							if ( window.matchMedia( '(max-width: 1024px)' ).matches ) {
+								if ( $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-tablet') || 
+									 $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-mobile') ) {
+									var $toggle = $( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' );
+									if ( $toggle.hasClass( 'hfe-active-menu' ) ) {
+										$toggle.trigger( 'click' );
+									}
+								}
+							}
 						}
-					}
+					}, 100); // Small delay to ensure smooth scrolling starts first
 				}
 			}
 		);
