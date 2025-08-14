@@ -4,11 +4,11 @@ Tags: elementor, elementor addon, elementor widget, elementor template, header f
 Requires at least: 5.0  
 Tested up to: 6.8
 Requires PHP: 7.4  
-Stable tag: 2.4.8
+Stable tag: 2.4.9
 License: GPLv2 or later  
 License URI: https://www.gnu.org/licenses/gpl-2.0.html  
 
-Create dynamic headers, footers, and design blocks effortlessly with Elementor's drag-and-drop builder.
+Most-used Elementor addon with widgets like InfoCard, Fancy Heading, Before/After Slider, Price Box, FAQ Schema, WooCommerce widgets, and more—plus a flexible Header-Footer builder.
 
 == Description ==
 **Ultimate Addons for Elementor (UAE)** is a powerful yet lightweight plugin that extends Elementors capabilities with purposely built **widgets**, **blocks**, and **features** that help you build better websites—without adding complexity. 
@@ -299,6 +299,11 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 ---
 
 == Changelog ==
+
+= 2.4.9 =
+- Fixed: Navigation Menu - Resolved accessibility issue with the expandable menu layout.
+- Fixed: Navigation Menu - Widget closes when an anchor link is clicked.
+
 = 2.4.8 =
 - Improvement: Compatibility with latest Elementor and Elementor Pro 3.31 version.
 
