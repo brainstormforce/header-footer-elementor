@@ -404,7 +404,7 @@ class Navigation_Menu extends Common_Widget {
 					],
 					'selectors'          => [
 						'{{WRAPPER}} li.menu-item a' => 'justify-content: {{VALUE}};',
-						'{{WRAPPER}} li .hfe-button-wrapper' => 'text-align: {{VALUE}};',
+						'{{WRAPPER}} li.hfe-button-wrapper' => 'text-align: {{VALUE}};',
 						'{{WRAPPER}}.hfe-menu-item-flex-end li.hfe-button-wrapper' => 'text-align: right;',
 					],
 					'prefix_class'       => 'hfe-menu-item-',
