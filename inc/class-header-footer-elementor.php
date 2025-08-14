@@ -427,8 +427,9 @@ class Header_Footer_Elementor {
 		}
 
 		// Load the Promotion system for Ultimate Elementor
-		require_once HFE_DIR . 'inc/class-hfe-promotion.php';
-					
+		if ( ! class_exists( 'HFE_Promotion' ) ) {
+			require_once HFE_DIR . 'inc/class-hfe-promotion.php';
+		}
 	}
 
 	/**
