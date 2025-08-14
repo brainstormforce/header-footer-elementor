@@ -190,13 +190,69 @@
 
 		$( document ).trigger( 'hfe_nav_menu_init', id );
 
+		// Add keyboard navigation for expandable menu
+		if ( 'expandible' === layout ) {
+			$( '.elementor-element-' + id + ' nav' ).on( 'keydown', function(e) {
+				var $currentElement = $( document.activeElement );
+				var $menuItems = $( this ).find( 'li > a:visible' );
+				var currentIndex = $menuItems.index( $currentElement );
+
+				switch( e.keyCode ) {
+					case 27: // Escape key - close menu
+						$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).trigger( 'click' );
+						$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).focus();
+						e.preventDefault();
+						break;
+					case 40: // Down arrow
+						if ( currentIndex < $menuItems.length - 1 ) {
+							$menuItems.eq( currentIndex + 1 ).focus();
+						}
+						e.preventDefault();
+						break;
+					case 38: // Up arrow
+						if ( currentIndex > 0 ) {
+							$menuItems.eq( currentIndex - 1 ).focus();
+						}
+						e.preventDefault();
+						break;
+					case 9: // Tab key
+						// Let default tab behavior work but close menu when tabbing out
+						if ( e.shiftKey && currentIndex === 0 ) {
+							// Shift+Tab on first item - close menu
+							setTimeout(function() {
+								if ( !$( '.elementor-element-' + id + ' nav' ).find( ':focus' ).length ) {
+									$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).trigger( 'click' );
+								}
+							}, 10);
+						} else if ( !e.shiftKey && currentIndex === $menuItems.length - 1 ) {
+							// Tab on last item - close menu
+							setTimeout(function() {
+								if ( !$( '.elementor-element-' + id + ' nav' ).find( ':focus' ).length ) {
+									$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).trigger( 'click' );
+								}
+							}, 10);
+						}
+						break;
+				}
+			});
+		}
+
 		$( '.elementor-element-' + id + ' div.hfe-has-submenu-container' ).on( 'keyup', function(e){
 
 			var $this = $( this );
 
+			// Handle Enter and Space keys for submenu toggle
+			if ( e.keyCode === 13 || e.keyCode === 32 ) {
+				e.preventDefault();
+				e.stopPropagation();
+			} else {
+				return; // Only handle Enter and Space keys
+			}
+
 		  	if( $this.parent().hasClass( 'menu-active' ) ) {
 
 		  		$this.parent().removeClass( 'menu-active' );
+		  		$this.attr( 'aria-expanded', 'false' );
 
 		  		$this.parent().next().find('ul').css( { 'visibility': 'hidden', 'opacity': '0', 'height': '0' } );
 		  		$this.parent().prev().find('ul').css( { 'visibility': 'hidden', 'opacity': '0', 'height': '0' } );
@@ -225,6 +281,7 @@
 				}
 				
 				$this.find( 'a' ).attr( 'aria-expanded', 'true' );
+				$this.attr( 'aria-expanded', 'true' );
 
 				$this.next().css( { 'visibility': 'visible', 'opacity': '1', 'height': 'auto' } );
 
@@ -605,6 +662,16 @@
 
 		$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).off( 'click keyup' ).on( 'click keyup', function( event ) {
 
+			// Handle keyboard events properly
+			if ( event.type === 'keyup' && event.keyCode !== 13 && event.keyCode !== 32 ) {
+				return; // Only handle Enter and Space keys
+			}
+
+			// Prevent default for keyboard events to avoid scrolling
+			if ( event.type === 'keyup' ) {
+				event.preventDefault();
+			}
+
 			var $this = $( this );
 			var $selector = $this.next();
 
@@ -658,6 +725,13 @@
 			}else {
 
 				$( '.elementor-element-' + id + ' nav' ).addClass( 'menu-is-active' );
+				
+				// Focus on first menu item when menu opens
+				if ( event.type === 'keyup' ) {
+					setTimeout(function() {
+						$selector.find('li:first-child > a').focus();
+					}, 100);
+				}
 			}				
 		} );
 	}

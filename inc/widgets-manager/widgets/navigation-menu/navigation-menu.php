@@ -1964,7 +1964,7 @@ class Navigation_Menu extends Common_Widget {
 			}
 
 			?>
-			<div class="hfe-nav-menu__toggle elementor-clickable hfe-flyout-trigger" tabindex="0">
+			<div class="hfe-nav-menu__toggle elementor-clickable hfe-flyout-trigger" tabindex="0" role="button" aria-label="<?php esc_attr_e( 'Menu Toggle', 'header-footer-elementor' ); ?>">
 					<div class="hfe-nav-menu-icon">
 						<?php echo isset( $menu_close_icons[0] ) ? $menu_close_icons[0] : ''; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					</div>
@@ -2041,7 +2041,7 @@ class Navigation_Menu extends Common_Widget {
 
 			?>
 			<div <?php $this->print_render_attribute_string( 'hfe-main-menu' ); ?>>
-				<div role="button" class="hfe-nav-menu__toggle elementor-clickable">
+				<div role="button" class="hfe-nav-menu__toggle elementor-clickable" tabindex="0" aria-label="<?php esc_attr_e( 'Menu Toggle', 'header-footer-elementor' ); ?>">
 					<span class="screen-reader-text"><?php esc_html_e( 'Menu', 'header-footer-elementor' ); ?></span>
 					<div class="hfe-nav-menu-icon">
 						<?php
