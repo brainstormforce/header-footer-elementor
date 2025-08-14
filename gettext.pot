@@ -442,8 +442,6 @@ msgstr ""
 
 #: src/Components/Dashboard/ExtendWebsiteWidget.jsx:255
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:631
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:632
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:608
 #: src/Components/Onboarding/ExtendOnboardingWidget.jsx:305
 msgid "Close"
 msgstr ""
@@ -756,9 +754,6 @@ msgid "Saving..."
 msgstr ""
 
 #: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1076
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1077
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1053
-#: src/Components/HF-Builder/DisplayConditionsDialog.jsx:1052
 #: src/Components/Onboarding/ExtendOnboarding.jsx:573
 #: src/Components/Onboarding/Features.jsx:426
 msgid "Next"
