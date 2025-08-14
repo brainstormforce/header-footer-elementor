@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Edit3, Check, X, SquarePen } from "lucide-react";
 import { __ } from "@wordpress/i18n";
 import apiFetch from "@wordpress/api-fetch";
@@ -20,13 +20,34 @@ const InlineTitleEditor = ({
 	const [isEditing, setIsEditing] = useState(false);
 	const [editingTitle, setEditingTitle] = useState("");
 	const [isUpdating, setIsUpdating] = useState(false);
+	const inputRef = useRef(null);
+
+	// Focus and select input when editing starts
+	useEffect(() => {
+		if (isEditing && inputRef.current) {
+			console.log('useEffect: Focusing input');
+			const input = inputRef.current;
+			// Try to get the actual input element if it's wrapped
+			const actualInput = input.querySelector('input') || input;
+			
+			setTimeout(() => {
+				actualInput.focus();
+				actualInput.select();
+				console.log('Input focused and selected');
+			}, 100);
+		}
+	}, [isEditing]);
 
 	/**
 	 * Start inline editing
 	 */
 	const startEditing = () => {
+		console.log('startEditing called');
+		console.log('Item:', item);
+		console.log('Current title:', item.title || item.post_title || "");
 		setIsEditing(true);
 		setEditingTitle(item.title || item.post_title || "");
+		console.log('Edit mode activated');
 	};
 
 	/**
@@ -246,17 +267,21 @@ const InlineTitleEditor = ({
 				// Editing mode
 				<div className="flex items-center gap-2">
 					<Input
+						ref={inputRef}
 						type="text"
 						size="xs"
 						style={{
-							// maxWidth: "200px",
 							outline: "none",
-							// height: "36px",
 							fontSize: "16px",
-							width: '130px' // Match the text line height
+							width: '130px',
+							pointerEvents: 'auto',
+							userSelect: 'text',
 						}}
 						value={editingTitle}
-						onChange={(e) => setEditingTitle(e.target.value)}
+						onChange={(e) => {
+							console.log('Input onChange:', e.target.value);
+							setEditingTitle(e.target.value);
+						}}
 						onKeyDown={handleKeyDown}
 						className="py-2 text-base font-medium text-gray-900 rounded focus:outline-none"
 						placeholder={__(
@@ -264,10 +289,28 @@ const InlineTitleEditor = ({
 							"header-footer-elementor",
 						)}
 						autoFocus
-						disabled={isUpdating}
-						onFocus={(e) =>
-							(e.target.style.borderColor = "#6005FF", e.target.style.marginTop = "0.4rem")
-						}
+						disabled={false}
+						readOnly={false}
+						onFocus={(e) => {
+							console.log('Input focused, value:', e.target.value);
+							e.target.style.borderColor = "#6005FF";
+							e.target.style.marginTop = "0.4rem";
+						}}
+						onClick={(e) => {
+							console.log('Input clicked');
+							e.stopPropagation();
+						}}
+						onMouseDown={(e) => {
+							console.log('Input mousedown');
+							e.stopPropagation();
+						}}
+						onKeyPress={(e) => {
+							console.log('Key pressed:', e.key);
+						}}
+						onInput={(e) => {
+							console.log('Input event:', e.target.value);
+							setEditingTitle(e.target.value);
+						}}
 					/>
 					<div className="flex items-center pt-2" >
 						<Button
