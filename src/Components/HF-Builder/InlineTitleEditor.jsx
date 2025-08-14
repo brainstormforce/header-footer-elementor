@@ -39,14 +39,31 @@ const InlineTitleEditor = ({
 	}, [isEditing]);
 
 	/**
+	 * Decode HTML entities to normal characters
+	 */
+	const decodeHtmlEntities = (str) => {
+		if (!str) return str;
+		const textarea = document.createElement('textarea');
+		textarea.innerHTML = str;
+		return textarea.value;
+	};
+
+	/**
 	 * Start inline editing
 	 */
 	const startEditing = () => {
 		console.log('startEditing called');
 		console.log('Item:', item);
-		console.log('Current title:', item.title || item.post_title || "");
+		
+		// Decode HTML entities from the title before editing
+		const rawTitle = item.title || item.post_title || "";
+		const decodedTitle = decodeHtmlEntities(rawTitle);
+		
+		console.log('Raw title:', rawTitle);
+		console.log('Decoded title:', decodedTitle);
+		
 		setIsEditing(true);
-		setEditingTitle(item.title || item.post_title || "");
+		setEditingTitle(decodedTitle);
 		console.log('Edit mode activated');
 	};
 
@@ -107,12 +124,15 @@ const InlineTitleEditor = ({
 			return;
 		}
 
-		// Check for potentially harmful content
-		const sanitizedTitle = trimmedTitle.replace(/<[^>]*>/g, ""); // Remove HTML tags
-		if (sanitizedTitle !== trimmedTitle) {
+		// Check for potentially harmful content (only remove HTML tags, preserve apostrophes)
+		const sanitizedTitle = trimmedTitle.replace(/<[^>]*>/g, ""); // Remove HTML tags only
+		
+		// Don't reject titles with apostrophes - they're valid
+		if (sanitizedTitle !== trimmedTitle && trimmedTitle.includes('<')) {
+			// Only show error if HTML tags were actually removed
 			toast.error(
 				__(
-					"Layout name contains invalid characters.",
+					"Layout name contains invalid HTML tags.",
 					"header-footer-elementor",
 				),
 				{
@@ -154,11 +174,14 @@ const InlineTitleEditor = ({
 			});
 
 			if (response.success) {
+				// Use the title from server response to ensure consistency
+				const serverTitle = response.data?.post_title || response.data?.title || sanitizedTitle;
+				
 				// Update via callback
 				if (onTitleUpdate) {
 					onTitleUpdate(item.id, {
-						post_title: sanitizedTitle,
-						title: sanitizedTitle,
+						post_title: serverTitle,
+						title: serverTitle,
 					});
 				}
 
@@ -344,7 +367,7 @@ const InlineTitleEditor = ({
 				<div className="flex items-center gap-1 flex-nowrap">
 					<p className={`${titleClassName} flex items-center flex-nowrap whitespace-nowrap`}>
 						<span className="truncate text-base">
-							{item.title || item.post_title}
+							{decodeHtmlEntities(item.title || item.post_title)}
 						</span>
 						{showDraftStatus && (
 							<span className="ml-2 flex items-center text-xs text-gray-500 font-normal flex-shrink-0">
