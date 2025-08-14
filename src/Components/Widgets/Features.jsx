@@ -10,12 +10,66 @@ import ExtendWebsite from '@components/Dashboard/ExtendWebsite';
 import UpgradeNotice from "@components/UpgradeNotice";
 
 const Features = () => {
-            const [showTopBar, setShowTopBar] = useState(true); // State to manage the visibility of the top bar
+    // Check if upgrade notice was dismissed (this will be handled by PHP)
+    const [showTopBar, setShowTopBar] = useState(() => {
+        // First check server-side dismissal
+        if (window.hfe_admin_data && window.hfe_admin_data.upgrade_notice_dismissed) {
+            return false;
+        }
+        
+        // Fallback to localStorage check
+        try {
+            const dismissed = localStorage.getItem('uae_upgrade_notice_dismissed');
+            return dismissed !== 'true';
+        } catch (error) {
+            console.error('Features - localStorage check error:', error);
+            return true; // Default to showing the notice
+        }
+    });
+
+    // Function to handle closing the upgrade notice
+    const handleCloseUpgradeNotice = async () => {
+        console.log('Features - Closing upgrade notice'); // Debug log
+        setShowTopBar(false);
+        
+        // Fallback to localStorage if WordPress AJAX is not available
+        if (!window.hfe_admin_data || !window.hfe_admin_data.ajax_url) {
+            console.log('Features - Falling back to localStorage');
+            try {
+                localStorage.setItem('uae_upgrade_notice_dismissed', 'true');
+            } catch (error) {
+                console.error('Features - localStorage fallback error:', error);
+            }
+            return;
+        }
+        
+        try {
+            const response = await fetch(window.hfe_admin_data.ajax_url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    action: 'hfe_dismiss_upgrade_notice',
+                    nonce: window.hfe_admin_data.upgrade_notice_nonce
+                })
+            });
+
+            const result = await response.json();
+            if (result.success) {
+                console.log('Features - Upgrade notice dismissed successfully');
+            } else {
+                console.error('Features - Failed to dismiss upgrade notice:', result.data);
+            }
+        } catch (error) {
+            console.error('Features - AJAX error:', error);
+        }
+    };
 
     return (
         <>
          {showTopBar && (
-                <UpgradeNotice onClose={() => setShowTopBar(false)} /> // Pass a prop to handle closing
+                <UpgradeNotice onClose={handleCloseUpgradeNotice} />
             )}
             <NavMenu />
             <div>
