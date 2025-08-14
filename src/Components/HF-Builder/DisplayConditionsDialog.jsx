@@ -746,6 +746,11 @@ const withDisplayConditions = (WrappedComponent) => {
         borderBottomRightRadius: '0', // Remove bottom-right border radius
         outline: 'none',
         boxShadow: 'none',
+        display: 'flex',
+        alignItems: 'center',
+        lineHeight: '42px',
+        paddingTop: '0',
+        paddingBottom: '0',
     }}
     onFocus={(e) => e.target.style.borderColor = '#e0e0e0'}
     onBlur={(e) => e.target.style.borderColor = '#e0e0e0'}
@@ -787,6 +792,11 @@ const withDisplayConditions = (WrappedComponent) => {
         borderBottomLeftRadius: '0',  // Remove bottom-left border radius
         outline: 'none',
         boxShadow: 'none',
+        display: 'flex',
+        alignItems: 'center',
+        lineHeight: '42px',
+        paddingTop: '0',
+        paddingBottom: '0',
     }}
     onFocus={(e) => e.target.style.borderColor = '#e0e0e0'}
     onBlur={(e) => e.target.style.borderColor = '#e0e0e0'}
@@ -909,6 +919,11 @@ const withDisplayConditions = (WrappedComponent) => {
 																		borderColor: '#e0e0e0', // Default border color
 																		outline: 'none',       // Removes the default outline
 																		boxShadow: 'none',     // Removes the default box shadow
+																		display: 'flex',
+																		alignItems: 'center',
+																		lineHeight: '42px',
+																		paddingTop: '0',
+																		paddingBottom: '0',
 																	}}
 																	 onFocus={(e) => e.target.style.borderColor = '#e0e0e0'} // Apply focus color
                                     onBlur={(e) => e.target.style.borderColor = '#e0e0e0'}  // Revert to default color
