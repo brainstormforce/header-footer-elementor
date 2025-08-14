@@ -1,6 +1,6 @@
 import NavMenu from '@components/NavMenu'
 import { Container } from "@bsf/force-ui";
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import TemplateSection from '@components/Dashboard/TemplateSection';
 import QuickAccess from '@components/Dashboard/QuickAccess';
 import UltimateWidgets from './UltimateWidgets';
@@ -10,47 +10,9 @@ import ExtendWebsite from '@components/Dashboard/ExtendWebsite';
 import UpgradeNotice from "@components/UpgradeNotice";
 
 const Features = () => {
-    // Check if upgrade notice was dismissed (handled by PHP via WordPress options)
-    const [showTopBar, setShowTopBar] = useState(() => {
-        return !(window.hfe_admin_data && window.hfe_admin_data.upgrade_notice_dismissed);
-    });
-
-    // Function to handle closing the upgrade notice
-    const handleCloseUpgradeNotice = async () => {
-        setShowTopBar(false);
-        
-        if (!window.hfe_admin_data || !window.hfe_admin_data.ajax_url) {
-            return;
-        }
-        
-        try {
-            const response = await fetch(window.hfe_admin_data.ajax_url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: new URLSearchParams({
-                    action: 'hfe_dismiss_upgrade_notice',
-                    nonce: window.hfe_admin_data.upgrade_notice_nonce
-                })
-            });
-
-            const result = await response.json();
-            if (result.success) {
-                console.log('Features - Upgrade notice dismissed successfully');
-            } else {
-                console.error('Features - Failed to dismiss upgrade notice:', result.data);
-            }
-        } catch (error) {
-            console.error('Features - AJAX error:', error);
-        }
-    };
-
     return (
         <>
-         {showTopBar && (
-                <UpgradeNotice onClose={handleCloseUpgradeNotice} />
-            )}
+            <UpgradeNotice />
             <NavMenu />
             <div>
                 <Container

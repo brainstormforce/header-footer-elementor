@@ -1099,19 +1099,19 @@ msgstr ""
 msgid "Install Starter Templates"
 msgstr ""
 
-#: src/Components/UpgradeNotice.jsx:33
+#: src/Components/UpgradeNotice.jsx:75
 msgid "Close Upgrade Notice"
 msgstr ""
 
-#: src/Components/UpgradeNotice.jsx:38
+#: src/Components/UpgradeNotice.jsx:80
 msgid "Unlock UAE's full potential!"
 msgstr ""
 
-#: src/Components/UpgradeNotice.jsx:44
-msgid "Get powerful widgets and faster performance - "
+#: src/Components/UpgradeNotice.jsx:86
+msgid "Get powerful widgets and faster performance"
 msgstr ""
 
-#: src/Components/UpgradeNotice.jsx:53
+#: src/Components/UpgradeNotice.jsx:95
 msgid "Upgrade now"
 msgstr ""
 
