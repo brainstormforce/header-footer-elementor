@@ -580,6 +580,12 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 		 * @return void
 		 */
 		public function dismiss_upgrade_notice() {
+
+			// Check if user has permission to manage options.
+			if ( ! current_user_can( 'manage_options' ) ) {
+				wp_send_json_error( __( 'You do not have permission to perform this action.', 'header-footer-elementor' ) );
+			}
+
 			// Verify nonce for security
 			if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'hfe_dismiss_upgrade_notice' ) ) {
 				wp_send_json_error( __( 'Security check failed.', 'header-footer-elementor' ) );
