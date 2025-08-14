@@ -299,6 +299,10 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 ---
 
 ## Changelog ##
+
+### 2.4.9 ###
+- Fixed: Resolved accessibility issue with the expandable navigation menu
+
 ### 2.4.8 ###
 - Improvement: Compatibility with latest Elementor and Elementor Pro 3.31 version.
 
