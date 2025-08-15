@@ -176,7 +176,7 @@ class HFE_Promotion {
             [
                 'type' => Controls_Manager::RAW_HTML,
                 'raw' => $this->get_teaser_template([
-                    'description' => __( 'Use particles background and other pro features to extend your toolbox with more control and flexibility.', 'header-footer-elementor' ),
+                    'description' => __( 'Use Particle Backgrounds and other Pro features to extend your toolbox with more control and flexibility.', 'header-footer-elementor' ),
                     'upgrade_url' => 'https://ultimateelementor.com/pricing/?utm_source=plugin-editor&utm_medium=particle-background-promo&utm_campaign=uae-upgrade',
                 ]),
             ]
@@ -202,7 +202,7 @@ class HFE_Promotion {
             [
                 'type' => Controls_Manager::RAW_HTML,
                 'raw' => $this->get_teaser_template([
-                    'description' => __( 'Use advanced display condition and other pro features to extend your toolbox with more control and flexibility.', 'header-footer-elementor' ),
+                    'description' => __( 'Use Advanced Display Condition and other Pro features to extend your toolbox with more control and flexibility.', 'header-footer-elementor' ),
                     'upgrade_url' => 'https://ultimateelementor.com/pricing/?utm_source=plugin-editor&utm_medium=display-conditions-promo&utm_campaign=uae-upgrade',
                 ]),
             ]
@@ -228,7 +228,7 @@ class HFE_Promotion {
             [
                 'type' => Controls_Manager::RAW_HTML,
                 'raw' => $this->get_teaser_template([
-                    'description' => __( 'Use party propz and other pro features to extend your toolbox with more control and flexibility.', 'header-footer-elementor' ),
+                    'description' => __( 'Use Party Propz and other Pro features to extend your toolbox with more control and flexibility.', 'header-footer-elementor' ),
                     'upgrade_url' => 'https://ultimateelementor.com/pricing/?utm_source=plugin-editor&utm_medium=party-propz-promo&utm_campaign=uae-upgrade',
                 ]),
             ]
@@ -259,7 +259,7 @@ class HFE_Promotion {
             [
                 'type' => Controls_Manager::RAW_HTML,
                 'raw' => $this->get_teaser_template([
-                    'description' => __( 'Use sticky header and other pro features to extend your toolbox with more control and flexibility.', 'header-footer-elementor' ),
+                    'description' => __( 'Use Sticky Header and other Pro features to extend your toolbox with more control and flexibility.', 'header-footer-elementor' ),
                     'upgrade_url' => 'https://ultimateelementor.com/pricing/?utm_source=plugin-editor&utm_medium=sticky-header-promo&utm_campaign=uae-upgrade',
                 ]),
             ]
