@@ -24,8 +24,8 @@ const UpgradeNotice = () => {
                 },
                 body: new URLSearchParams({
                     action: 'hfe_dismiss_upgrade_notice',
-                    nonce: window.hfe_admin_data.upgrade_notice_nonce
-                })
+                    nonce: window.hfe_admin_data.nonce,
+                }),
             });
 
             const result = await response.json();

@@ -588,13 +588,16 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			}
 
 			// Verify nonce for security
-			if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'hfe_dismiss_upgrade_notice' ) ) {
+			if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'hfe-admin-nonce' ) ) {
 				wp_send_json_error( __( 'Security check failed.', 'header-footer-elementor' ) );
 				return;
 			}
 
 			// Update option to remember the dismissal
-			update_option( 'hfe_upgrade_notice_dismissed', 'true' );
+			// update_option( 'hfe_upgrade_notice_dismissed', 'true' );
+			update_user_meta( get_current_user_id(), 'hfe_upgrade_notice_dismissed', 'true' );
+			var_dump(update_user_meta(get_current_user_id(), 'hfe_upgrade_notice_dismissed', 'true'));
+			die();
 			wp_send_json_success( __( 'Upgrade notice dismissed.', 'header-footer-elementor' ) );
 		}
 
