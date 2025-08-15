@@ -90,9 +90,18 @@ class Widgets_Loader {
 
 		if ( ! class_exists( $class_to_load ) && ! class_exists( $class ) ) {
 			$filename = strtolower(
-				preg_replace(
+				preg_replace_callback(
 					[ '/([a-z])([A-Z])/', '/_/', '/\\\/' ],
-					[ '$1-$2', '-', DIRECTORY_SEPARATOR ],
+					function( $matches ) {
+						if ( isset( $matches[1] ) && isset( $matches[2] ) ) {
+							return $matches[1] . '-' . $matches[2];
+						} elseif ( $matches[0] === '_' ) {
+							return '-';
+						} elseif ( $matches[0] === '\\' ) {
+							return DIRECTORY_SEPARATOR;
+						}
+						return $matches[0];
+					},
 					$class_to_load
 				)
 			);
