@@ -288,85 +288,110 @@ const InlineTitleEditor = ({
 		<div className={`flex items-center min-w-0 ${className}`}>
 			{isEditing ? (
 				// Editing mode
-				<div className="flex items-center gap-2">
-					<Input
-						ref={inputRef}
-						type="text"
-						size="xs"
-						style={{
-							outline: "none",
-							fontSize: "16px",
-							width: '130px',
-							pointerEvents: 'auto',
-							userSelect: 'text',
-						}}
-						value={editingTitle}
-						onChange={(e) => {
-							console.log('Input onChange:', e.target.value);
-							setEditingTitle(e.target.value);
-						}}
-						onKeyDown={handleKeyDown}
-						className="py-2 text-base font-medium text-gray-900 rounded focus:outline-none"
-						placeholder={__(
-							"Layout name",
-							"header-footer-elementor",
+				<div className="flex flex-col gap-1">
+					<div className="flex items-center gap-2">
+						<Input
+							ref={inputRef}
+							type="text"
+							size="xs"
+							style={{
+								outline: "none",
+								fontSize: "16px",
+								width: '130px',
+								pointerEvents: 'auto',
+								userSelect: 'text',
+								textOverflow: 'ellipsis',
+								overflow: 'hidden',
+								whiteSpace: 'nowrap',
+							}}
+							value={editingTitle}
+							onChange={(e) => {
+								console.log('Input onChange:', e.target.value);
+								setEditingTitle(e.target.value);
+							}}
+							onKeyDown={handleKeyDown}
+							className="py-2 text-base font-medium text-gray-900 rounded focus:outline-none"
+							placeholder={__(
+								"Layout name",
+								"header-footer-elementor",
+							)}
+							autoFocus
+							disabled={false}
+							readOnly={false}
+							maxLength={200}
+							title={editingTitle} // Show full text on hover
+							onFocus={(e) => {
+								console.log('Input focused, value:', e.target.value);
+								e.target.style.borderColor = "#6005FF";
+								e.target.style.marginTop = "0.4rem";
+							}}
+							onClick={(e) => {
+								console.log('Input clicked');
+								e.stopPropagation();
+							}}
+							onMouseDown={(e) => {
+								console.log('Input mousedown');
+								e.stopPropagation();
+							}}
+							onKeyPress={(e) => {
+								console.log('Key pressed:', e.key);
+							}}
+							onInput={(e) => {
+								console.log('Input event:', e.target.value);
+								setEditingTitle(e.target.value);
+							}}
+						/>
+						<div className="flex items-center pt-2" >
+							<Button
+								variant="ghost"
+								onClick={saveTitle}
+								disabled={isUpdating}
+								className="p-1 cursor-pointer hover:bg-green-50 transition-colors duration-150 disabled:opacity-50"
+								title={__(
+									"Save changes",
+									"header-footer-elementor",
+								)}
+							>
+								<Check size={18} color="#008000" />
+							</Button>
+							<Button
+								variant="ghost"
+								onClick={cancelEditing}
+								disabled={isUpdating}
+								className="p-1 cursor-pointer hover:bg-red-50 transition-colors duration-150 disabled:opacity-50"
+								title={__(
+									"Cancel editing",
+									"header-footer-elementor",
+								)}
+							>
+								<X size={18} color="#dc3545" />
+							</Button>
+						</div>
+					</div>
+					{/* Character counter */}
+					<div className="text-xs text-gray-500 ml-1">
+						{editingTitle.length}/255 {__("characters", "header-footer-elementor")}
+						{editingTitle.length > 200 && (
+							<span className="text-orange-500 ml-1">
+								({255 - editingTitle.length} {__("remaining", "header-footer-elementor")})
+							</span>
 						)}
-						autoFocus
-						disabled={false}
-						readOnly={false}
-						onFocus={(e) => {
-							console.log('Input focused, value:', e.target.value);
-							e.target.style.borderColor = "#6005FF";
-							e.target.style.marginTop = "0.4rem";
-						}}
-						onClick={(e) => {
-							console.log('Input clicked');
-							e.stopPropagation();
-						}}
-						onMouseDown={(e) => {
-							console.log('Input mousedown');
-							e.stopPropagation();
-						}}
-						onKeyPress={(e) => {
-							console.log('Key pressed:', e.key);
-						}}
-						onInput={(e) => {
-							console.log('Input event:', e.target.value);
-							setEditingTitle(e.target.value);
-						}}
-					/>
-					<div className="flex items-center pt-2" >
-						<Button
-							variant="ghost"
-							onClick={saveTitle}
-							disabled={isUpdating}
-							className="p-1 cursor-pointer hover:bg-green-50 transition-colors duration-150 disabled:opacity-50"
-							title={__(
-								"Save changes",
-								"header-footer-elementor",
-							)}
-						>
-							<Check size={18} color="#008000" />
-						</Button>
-						<Button
-							variant="ghost"
-							onClick={cancelEditing}
-							disabled={isUpdating}
-							className="p-1 cursor-pointer hover:bg-red-50 transition-colors duration-150 disabled:opacity-50"
-							title={__(
-								"Cancel editing",
-								"header-footer-elementor",
-							)}
-						>
-							<X size={18} color="#dc3545" />
-						</Button>
 					</div>
 				</div>
 			) : (
 				// Display mode
 				<div className="flex items-center gap-1 flex-nowrap">
 					<p className={`${titleClassName} flex items-center flex-nowrap whitespace-nowrap`}>
-						<span className="truncate text-base">
+						<span 
+							className="truncate text-base max-w-[120px]" 
+							title={decodeHtmlEntities(item.title || item.post_title)}
+							style={{
+								textOverflow: 'ellipsis',
+								overflow: 'hidden',
+								whiteSpace: 'nowrap',
+								maxWidth: '120px'
+							}}
+						>
 							{decodeHtmlEntities(item.title || item.post_title)}
 						</span>
 						{showDraftStatus && (

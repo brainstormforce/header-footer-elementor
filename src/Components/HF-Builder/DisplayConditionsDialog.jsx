@@ -889,7 +889,7 @@ const withDisplayConditions = (WrappedComponent) => {
 													<hr
 						className="border-b-0 border-x-0 border-t border-solid border-t-border-transparent-subtle"
 						style={{
-							marginTop: "10px",
+							marginTop: "20px",
 							marginBottom: "15px",
 							width: "90%",
 							marginRight: "50px",

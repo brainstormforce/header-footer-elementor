@@ -933,29 +933,42 @@ msgstr ""
 msgid "Security check failed. Please refresh the page and try again."
 msgstr ""
 
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:314
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:313
 #: src/Components/HF-Builder/InlineTitleEditor.jsx:310
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:98
 msgid "Layout name"
 msgstr ""
 
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:344
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:350
 msgid "Save changes"
 msgstr ""
 
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:356
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:362
 msgid "Cancel editing"
 msgstr ""
 
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:373
+msgid "characters"
+msgstr ""
+
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:376
+msgid "remaining"
+msgstr ""
+
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:401
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:390
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:381
 #: src/Components/HF-Builder/InlineTitleEditor.jsx:376
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:697
 msgid "Draft"
 msgstr ""
 
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:382
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:407
 msgid "Published"
 msgstr ""
 
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:398
+#: src/Components/HF-Builder/InlineTitleEditor.jsx:423
 msgid "Edit layout name"
 msgstr ""
 
