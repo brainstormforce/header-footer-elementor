@@ -158,7 +158,7 @@ const NavBar = () => {
 							</nav>
 						</Topbar.Item>
 						<Topbar.Item>
-							<Button
+							{/* <Button
 								icon={<ArrowUpRight />}
 								iconPosition="right"
 								variant="ghost"
@@ -177,7 +177,7 @@ const NavBar = () => {
 								}
 							>
 								{__("Get Pro", "header-footer-elementor")}
-							</Button>
+							</Button> */}
 						</Topbar.Item>
 					</Topbar.Middle>
 					<Topbar.Right className="gap-4">
@@ -230,9 +230,13 @@ const NavBar = () => {
 							</Link>
 						</Topbar.Item>
 						<Topbar.Item>
+								<Topbar.Item className="gap-4 cursor-pointer">
+							<div className="pb-1" id="hfe-whats-new"></div>
+						</Topbar.Item>
+						</Topbar.Item>
 							<Link to={routes.dashboard.path}>
 								<div 
-									className="flex cursor-pointer items-center justify-center gap-1" 
+									className="flex cursor-pointer items-center justify-center" 
 									style={{ 
 										backgroundColor: "#ffffff",
 										fontSize: "14px",
@@ -248,8 +252,10 @@ const NavBar = () => {
 										display: "inline-flex",
 										alignItems: "center",
 										justifyContent: "center",
-										gap: "8px",
+										gap: "4px",
 										boxShadow: "none",
+										paddingLeft: '35px',
+										marginRight: '-15px'
 									}}
 									onMouseEnter={(e) => {
 										e.currentTarget.style.backgroundColor = "#ffffff";
@@ -276,10 +282,6 @@ const NavBar = () => {
 									/>
 								</div>
 							</Link>
-						</Topbar.Item>
-						<Topbar.Item className="gap-4 cursor-pointer">
-							<div className="pb-1" id="hfe-whats-new"></div>
-						</Topbar.Item>
 					</Topbar.Right>
 				</div>
 			</div>

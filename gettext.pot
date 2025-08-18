@@ -131,12 +131,6 @@ msgid "Breadcrumbs"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:220
-#: src/Components/HF-Builder/Navbar.js:211
-#: src/Components/HF-Builder/Navbar.js:185
-#: src/Components/HF-Builder/Navbar.js:184
-#: src/Components/HF-Builder/Navbar.js:162
-#: src/Components/HF-Builder/Navbar.js:164
-#: src/Components/HF-Builder/Navbar.js:181
 #: src/Components/NavMenu.js:237
 #: src/Components/Onboarding/Features.jsx:193
 msgid "Free"
@@ -940,8 +934,6 @@ msgid "Security check failed. Please refresh the page and try again."
 msgstr ""
 
 #: src/Components/HF-Builder/InlineTitleEditor.jsx:314
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:313
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:310
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:98
 msgid "Layout name"
 msgstr ""
@@ -963,9 +955,6 @@ msgid "remaining"
 msgstr ""
 
 #: src/Components/HF-Builder/InlineTitleEditor.jsx:401
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:390
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:381
-#: src/Components/HF-Builder/InlineTitleEditor.jsx:376
 #: src/Components/HF-Builder/LayoutDropdownMenu.jsx:697
 msgid "Draft"
 msgstr ""
@@ -1081,34 +1070,13 @@ msgid "Enter a new name for this layout"
 msgstr ""
 
 #: src/Components/HF-Builder/Navbar.js:145
-#: src/Components/HF-Builder/Navbar.js:119
-#: src/Components/HF-Builder/Navbar.js:118
-#: src/Components/HF-Builder/Navbar.js:120
-#: src/Components/HF-Builder/Navbar.js:110
-#: src/Components/HF-Builder/Navbar.js:108
-#: src/Components/HF-Builder/Navbar.js:117
 #: src/Components/NavMenu.js:131
 msgid "Dashboard"
 msgstr ""
 
 #: src/Components/HF-Builder/Navbar.js:152
-#: src/Components/HF-Builder/Navbar.js:126
-#: src/Components/HF-Builder/Navbar.js:125
-#: src/Components/HF-Builder/Navbar.js:127
-#: src/Components/HF-Builder/Navbar.js:122
-#: src/Components/HF-Builder/Navbar.js:120
-#: src/Components/HF-Builder/Navbar.js:124
 #: src/Components/NavMenu.js:146
 msgid "Header & Footer"
-msgstr ""
-
-#: src/Components/HF-Builder/Navbar.js:179
-#: src/Components/HF-Builder/Navbar.js:153
-#: src/Components/HF-Builder/Navbar.js:152
-#: src/Components/HF-Builder/Navbar.js:149
-#: src/Components/HF-Builder/Navbar.js:147
-#: src/Components/NavMenu.js:205
-msgid "Get Pro"
 msgstr ""
 
 #: src/Components/HF-Builder/Navbar.js:82
@@ -1141,74 +1109,9 @@ msgstr ""
 msgid "Formerly Elementor Header & Footer Builder"
 msgstr ""
 
-#: src/Components/HF-Builder/Navbar.js:202
-#: src/Components/HF-Builder/Navbar.js:176
-#: src/Components/HF-Builder/Navbar.js:175
-#: src/Components/HF-Builder/Navbar.js:153
-#: src/Components/HF-Builder/Navbar.js:155
-#: src/Components/HF-Builder/Navbar.js:172
-#: src/Components/NavMenu.js:228
-msgid "Version"
-msgstr ""
-
-#: src/Components/HF-Builder/Navbar.js:236
-#: src/Components/HF-Builder/Navbar.js:210
-#: src/Components/HF-Builder/Navbar.js:209
-#: src/Components/HF-Builder/Navbar.js:187
-#: src/Components/HF-Builder/Navbar.js:189
-#: src/Components/HF-Builder/Navbar.js:206
-#: src/Components/NavMenu.js:262
-msgid "Useful Resources"
-msgstr ""
-
-#: src/Components/HF-Builder/Navbar.js:253
-#: src/Components/HF-Builder/Navbar.js:227
-#: src/Components/HF-Builder/Navbar.js:226
-#: src/Components/HF-Builder/Navbar.js:204
-#: src/Components/HF-Builder/Navbar.js:206
-#: src/Components/HF-Builder/Navbar.js:223
-#: src/Components/NavMenu.js:279
-msgid "Getting Started"
-msgstr ""
-
-#: src/Components/HF-Builder/Navbar.js:266
-#: src/Components/HF-Builder/Navbar.js:240
-#: src/Components/HF-Builder/Navbar.js:239
-#: src/Components/HF-Builder/Navbar.js:217
-#: src/Components/HF-Builder/Navbar.js:219
-#: src/Components/HF-Builder/Navbar.js:236
-#: src/Components/NavMenu.js:292
-msgid "How to use widgets"
-msgstr ""
-
-#: src/Components/HF-Builder/Navbar.js:279
-#: src/Components/HF-Builder/Navbar.js:253
-#: src/Components/HF-Builder/Navbar.js:252
-#: src/Components/HF-Builder/Navbar.js:230
-#: src/Components/HF-Builder/Navbar.js:232
-#: src/Components/HF-Builder/Navbar.js:249
-#: src/Components/NavMenu.js:305
-msgid "How to use features"
-msgstr ""
-
-#: src/Components/HF-Builder/Navbar.js:292
-#: src/Components/HF-Builder/Navbar.js:266
-#: src/Components/HF-Builder/Navbar.js:265
-#: src/Components/HF-Builder/Navbar.js:243
-#: src/Components/HF-Builder/Navbar.js:245
-#: src/Components/HF-Builder/Navbar.js:262
-#: src/Components/NavMenu.js:318
-msgid "How to use templates"
-msgstr ""
-
-#: src/Components/HF-Builder/Navbar.js:305
-#: src/Components/HF-Builder/Navbar.js:279
-#: src/Components/HF-Builder/Navbar.js:278
-#: src/Components/HF-Builder/Navbar.js:256
-#: src/Components/HF-Builder/Navbar.js:258
-#: src/Components/HF-Builder/Navbar.js:275
-#: src/Components/NavMenu.js:331
-msgid "Contact us"
+#: src/Components/HF-Builder/Navbar.js:179
+#: src/Components/NavMenu.js:205
+msgid "Get Pro"
 msgstr ""
 
 #: src/Components/NavMenu.js:158
@@ -1221,6 +1124,34 @@ msgstr ""
 
 #: src/Components/NavMenu.js:178
 msgid "Free vs Pro"
+msgstr ""
+
+#: src/Components/NavMenu.js:228
+msgid "Version"
+msgstr ""
+
+#: src/Components/NavMenu.js:262
+msgid "Useful Resources"
+msgstr ""
+
+#: src/Components/NavMenu.js:279
+msgid "Getting Started"
+msgstr ""
+
+#: src/Components/NavMenu.js:292
+msgid "How to use widgets"
+msgstr ""
+
+#: src/Components/NavMenu.js:305
+msgid "How to use features"
+msgstr ""
+
+#: src/Components/NavMenu.js:318
+msgid "How to use templates"
+msgstr ""
+
+#: src/Components/NavMenu.js:331
+msgid "Contact us"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:141
