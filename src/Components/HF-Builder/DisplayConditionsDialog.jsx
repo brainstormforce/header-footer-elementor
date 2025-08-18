@@ -568,6 +568,17 @@ const withDisplayConditions = (WrappedComponent) => {
 
 			return () => (
 				<div style={{ position: "fixed", inset: 0, zIndex: 9 }}>
+					{/* Global styles to hide scrollbars */}
+					<style>{`
+						.hfe-hide-scrollbar::-webkit-scrollbar {
+							display: none;
+						}
+						.hfe-hide-scrollbar {
+							-ms-overflow-style: none;
+							scrollbar-width: none;
+						}
+					`}</style>
+
 					{/* Backdrop */}
 					<div
 						style={{
@@ -593,8 +604,9 @@ const withDisplayConditions = (WrappedComponent) => {
 							borderRadius: "0.5rem",
 							boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
 							zIndex: 999999,
-							maxHeight: "90vh",
-							overflow: "auto",
+							maxHeight: "75vh",
+							display: "flex",
+							flexDirection: "column",
 						}}
 					>
 						{/* Header */}
@@ -604,6 +616,7 @@ const withDisplayConditions = (WrappedComponent) => {
 								paddingLeft: "1.5rem",
 								paddingRight: "1.5rem",
 								paddingTop: "0.5rem",
+								flexShrink: 0,
 							}}
 						>
 							<div className="flex items-center justify-between">
@@ -644,10 +657,18 @@ const withDisplayConditions = (WrappedComponent) => {
 						</div>
 
 						{/* Body */}
-						<div className="px-4">
+						<div 
+							className="px-4 hfe-hide-scrollbar" 
+							style={{ 
+								flex: 1, 
+								overflow: "auto", 
+								display: "flex", 
+								flexDirection: "column",
+							}}
+						>
 							<div
 								className="border border-gray-500 rounded-lg relative"
-								style={{ border: "4px solid #F9FAFB"}}
+								style={{ border: "4px solid #F9FAFB", display: "flex", flexDirection: "column" }}
 							>
 
 								{/* Loading state - Fixed positioning to prevent flicker */}
@@ -666,21 +687,21 @@ const withDisplayConditions = (WrappedComponent) => {
 
 								{/* Error message */}
 								{state.error && (
-									<div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded mb-4">
+									<div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded mb-4" style={{ flexShrink: 0 }}>
 										{state.error}
 									</div>
 								)}
 
 								{/* Content - Always show, overlay with loading when needed */}
-								<>
+								<div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
 									{/* Unified Form Layout */}
-									<div className="space-y-8 border border-gray-500">
+									<div className="space-y-8 border border-gray-500" style={{ display: "flex", flexDirection: "column" }}>
 										
 										
 										{/* Display Conditions Section */}
-										<div className="bg-white rounded-lg" style={{ border : "2px solid #EEEEEE"}}>
+										<div className="bg-white rounded-lg" style={{ border : "2px solid #EEEEEE", flexShrink: 0}}>
 												{/* Description */}
-									<div className="px-4">
+									<div className="px-4" style={{ flexShrink: 0 }}>
 										<h2 className="text-base font-medium text-gray-900 mb-2 text-start">
 									{__(
 										"Where Should Your Layout Appear?",
@@ -709,7 +730,17 @@ const withDisplayConditions = (WrappedComponent) => {
 												{__("Configure where this layout should appear on your website.", "header-footer-elementor")}
 											</p>
 											 */}
-											<div className="space-y-2 pl-4 pr-20 pb-4 m-0" style={{ paddingRight: '70px', paddingTop: '15px'}} ref={conditionsContainerRef}>
+											<div 
+												className="space-y-2 pl-4 pr-20 pb-4 m-0 hfe-hide-scrollbar" 
+												style={{ 
+													paddingRight: '70px', 
+													paddingTop: '15px',
+													maxHeight: state.conditions.length > 4 ? '200px' : 'auto',
+													overflowY: state.conditions.length > 4 ? 'auto' : 'visible',
+													overflowX: 'hidden',
+												}} 
+												ref={conditionsContainerRef}
+											>
 												{state.conditions.map((condition, index) => (
 													<div
 														key={condition.id}
@@ -842,7 +873,7 @@ const withDisplayConditions = (WrappedComponent) => {
 											</div>
 
 											{/* Add Condition Button */}
-											<div className="flex justify-start items-center mt-6 mb-2">
+											<div className="flex justify-start items-center mt-6 mb-2" style={{ flexShrink: 0, paddingLeft: '1rem' }}>
 												<Button
 												icon={<Plus size={16} />}
 													variant="link"
@@ -853,6 +884,7 @@ const withDisplayConditions = (WrappedComponent) => {
 													{__("Add Condition", "header-footer-elementor")}
 												</Button>
 											</div>
+										</div>
 
 													<hr
 						className="border-b-0 border-x-0 border-t border-solid border-t-border-transparent-subtle"
@@ -861,19 +893,20 @@ const withDisplayConditions = (WrappedComponent) => {
 							marginBottom: "15px",
 							width: "90%",
 							marginRight: "50px",
+							flexShrink: 0
 							// borderColor: "#E5E7EB",
 						}}
 					/>
 
 													{/* User Roles Section */}
-										<div className="bg-white rounded-lg border border-gray-200" >
+										<div className="bg-white rounded-lg border border-gray-200" style={{ flexShrink: 0 }}>
 											{/* <div className="flex items-center justify-center">
 												<Users className="w-5 h-5 text-blue-600 mr-3" />
 												<h3 className="text-lg font-semibold text-gray-900">
 													{__("User Roles", "header-footer-elementor")}
 												</h3>
 											</div> */}
-											<div className="px-4">
+											<div className="px-4" style={{ flexShrink: 0 }}>
 										<h2 className="text-base font-medium text-gray-900 mb-2 text-start">
 									{__(
 										"Who Should See This Layout?",
@@ -896,7 +929,16 @@ const withDisplayConditions = (WrappedComponent) => {
 												{__("Restrict this layout to specific user roles. Leave empty to show for all users.", "header-footer-elementor")}
 											</p> */}
 
-											<div className="space-y-2 pl-4 pb-4 m-0" style={{ paddingTop: '15px'}} ref={userRolesContainerRef}>
+											<div 
+												className="space-y-2 pl-4 pb-4 m-0 hfe-hide-scrollbar" 
+												style={{ 
+													paddingTop: '15px',
+													maxHeight: state.userRoles.length > 4 ? '200px' : 'auto',
+													overflowY: state.userRoles.length > 4 ? 'auto' : 'visible',
+													overflowX: 'hidden',
+												}} 
+												ref={userRolesContainerRef}
+											>
 												{state.userRoles.map((roleId, index) => (
 													<div
 														key={index}
@@ -970,7 +1012,7 @@ const withDisplayConditions = (WrappedComponent) => {
 											</div>
 
 											{/* Add User Role Button */}
-											<div className="flex justify-start">
+											<div className="flex justify-start" style={{ flexShrink: 0, paddingLeft: '1rem' }}>
 												<Button
 												icon={<Plus size={16}  />}
 												style={{ color: '#3B82F6' }}
@@ -982,21 +1024,9 @@ const withDisplayConditions = (WrappedComponent) => {
 												</Button>
 											</div>
 										</div>
-									</div>
-										</div>
-
-										{/* <h2 className="text-lg font-medium">
-									{__(
-										"Configure User Roles",
-										"header-footer-elementor",
-									)}
-									</h2> */}
-
-								
-								</>
 
 								{/* Canvas Template Section */}
-									<div className="px-6" style={{ marginTop: '40px', paddingRight: '30px'}}>
+									<div className="px-6" style={{ marginTop: '20px', paddingRight: '30px', flexShrink: 0}}>
 										<div className="flex items-center justify-start">
 											<div>
 												<div className="flex items-center justify-center gap-2">
@@ -1038,22 +1068,33 @@ const withDisplayConditions = (WrappedComponent) => {
 											</div>
 										</div>
 									</div>
-							</div>
-						</div>
+									</div>
 
-							<hr
-						className="border-b-0 border-x-0 border-t border-solid border-t-border-transparent-subtle"
-						style={{
-							marginTop: "10px",
-							marginBottom: "15px",
-							width: "88%",
-							marginLeft: "32px",
-							// borderColor: "#E5E7EB",
-						}}
-					/>
+										{/* <h2 className="text-lg font-medium">
+									{__(
+										"Configure User Roles",
+										"header-footer-elementor",
+									)}
+									</h2> */}
 
-						{/* Footer */}
-						<div className="border-t border-gray-200 px-8 py-6">
+								
+								</div>
+
+							<div>
+								<hr
+							className="border-b-0 border-x-0 border-t border-solid border-t-border-transparent-subtle"
+							style={{
+								marginTop: "35px",
+								marginBottom: "15px",
+								width: "100%",
+								// marginLeft: "12px",
+								flexShrink: 0
+								// borderColor: "#E5E7EB",
+							}}
+						/>
+
+							{/* Footer */}
+							<div className="border-t border-gray-200 px-8 py-6" style={{ flexShrink: 0 }}>
 							<div className="flex justify-end p-4 gap-3" style={{ marginRight: '20px'}}>
 								{/* <button
 									onClick={() =>
@@ -1097,20 +1138,23 @@ const withDisplayConditions = (WrappedComponent) => {
 								</button>
 							</div>
 						</div>
-					</div>
-				</div>
-			);
-		}, [
-			state.selectedItem?.id,
-			state.isLoading,
-			state.error,
-			state.conditions,
-			state.userRoles,
-			state.canvasTemplateEnabled,
-			state.locationOptions,
-			state.userRoleOptions,
-			state.isNewPost,
-		]);
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }, [
+            state.selectedItem?.id,
+            state.isLoading,
+            state.error,
+            state.conditions,
+            state.userRoles,
+            state.canvasTemplateEnabled,
+            state.locationOptions,
+            state.userRoleOptions,
+            state.isNewPost,
+        ]);
 
 		// Only render dialog when open
 		const DialogComponent = state.isDialogOpen
