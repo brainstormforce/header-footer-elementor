@@ -10,8 +10,10 @@ import UltimateFeatures from "@components/Dashboard/UltimateFeatures";
 
 
 const Upgrade = () => {
+
     return (
         <>
+            <UpgradeNotice />
             <NavMenu />
             <div>
                 <Container
