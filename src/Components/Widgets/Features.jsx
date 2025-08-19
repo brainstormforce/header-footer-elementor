@@ -7,10 +7,12 @@ import UltimateWidgets from './UltimateWidgets';
 import FeatureWidgets from './Features/FeatureWidgets'
 import UltimateWidgetFeatures from './UltimateWidgetFeatures';
 import ExtendWebsite from '@components/Dashboard/ExtendWebsite';
+import UpgradeNotice from "@components/UpgradeNotice";
 
 const Features = () => {
     return (
         <>
+            <UpgradeNotice />
             <NavMenu />
             <div>
                 <Container

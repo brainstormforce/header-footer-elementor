@@ -443,7 +443,8 @@ class HFE_Settings_Page {
 		wp_enqueue_script( 'hfe-admin-script', HFE_URL . 'admin/assets/js/ehf-admin.js', [ 'jquery', 'updates' ], HFE_VER, true );
 	
 		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
-	
+		$upgrade_notice_dismissed = get_user_meta( get_current_user_id(), 'hfe_upgrade_notice_dismissed', 'false' ) === 'true';
+
 		$strings = [
 			'addon_activate'        => esc_html__( 'Activate', 'header-footer-elementor' ),
 			'addon_activated'       => esc_html__( 'Activated', 'header-footer-elementor' ),
@@ -462,6 +463,7 @@ class HFE_Settings_Page {
 			'ajax_url'              => admin_url( 'admin-ajax.php' ),
 			'nonce'                 => wp_create_nonce( 'hfe-admin-nonce' ),
 			'installer_nonce'       => wp_create_nonce( 'updates' ),
+			'upgrade_notice_dismissed' => $upgrade_notice_dismissed,
 			'popup_dismiss'         => false,
 			'data_source'           => 'HFE',
 			'show_all_hfe'          => $show_view_all,

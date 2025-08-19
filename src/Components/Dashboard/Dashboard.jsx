@@ -7,6 +7,7 @@ import QuickAccess from './QuickAccess'
 import WelcomeContainer from './WelcomeContainer'
 import UltimateFeatures from './UltimateFeatures'
 import ExtendWebsite from './ExtendWebsite'
+import UpgradeNotice from "@components/UpgradeNotice";
 
 const Dashboard = () => {
     useEffect(() => {
@@ -34,6 +35,7 @@ const Dashboard = () => {
 
     return (
         <>
+            <UpgradeNotice />
             <NavMenu />
             <div>
                 <Container
