@@ -33,7 +33,7 @@ const Features = () => {
                         <FeatureWidgets />
                     </Container.Item>
                     <Container.Item
-                        className="p-2 hfe-35-width"
+                        className="p-2 hfe-35-width hfe-sticky-right-sidebar"
                         shrink={1}
                     >
                         <UltimateWidgetFeatures />
