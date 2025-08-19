@@ -144,11 +144,12 @@ class HFE_Settings_Page {
 						'plugin_name'           => __( 'Ultimate Addons for Elementor', 'header-footer-elementor' ),
 						'nps_rating_message'    => __( 'How likely are you to recommend Ultimate Addons for Elementor to your friends or colleagues?', 'header-footer-elementor' ),
 						// Step 2A i.e. positive.
-						'feedback_content'      => __( 'Could you please do us a favor and give us a 5-star rating on Trustpilot? It would help others choose Ultimate Addons for Elementor with confidence. Thank you!', 'header-footer-elementor' ),
+						'feedback_title' => __( 'Thanks a lot for your feedback! 😍', 'header-footer-elementor' ),
+						'feedback_content' => __( 'Thanks for using Ultimate Addons! Got feedback or suggestions to make it even better? We’d love to hear from you.', 'header-footer-elementor' ),
 						'plugin_rating_link'    => esc_url( 'https://www.trustpilot.com/review/ultimateelementor.com' ),
 						// Step 2B i.e. negative.
 						'plugin_rating_title'   => __( 'Thank you for your feedback', 'header-footer-elementor' ),
-						'plugin_rating_content' => __( 'We value your input. How can we improve your experience?', 'header-footer-elementor' ),
+						'plugin_rating_content' => __( 'We value your input. How can we improve your experience?', 'header-footer-elementor' ),				
 					],
 				]
 			);
@@ -443,7 +444,8 @@ class HFE_Settings_Page {
 		wp_enqueue_script( 'hfe-admin-script', HFE_URL . 'admin/assets/js/ehf-admin.js', [ 'jquery', 'updates' ], HFE_VER, true );
 	
 		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
-	
+		$upgrade_notice_dismissed = get_user_meta( get_current_user_id(), 'hfe_upgrade_notice_dismissed', 'false' ) === 'true';
+
 		$strings = [
 			'addon_activate'        => esc_html__( 'Activate', 'header-footer-elementor' ),
 			'addon_activated'       => esc_html__( 'Activated', 'header-footer-elementor' ),
@@ -462,6 +464,7 @@ class HFE_Settings_Page {
 			'ajax_url'              => admin_url( 'admin-ajax.php' ),
 			'nonce'                 => wp_create_nonce( 'hfe-admin-nonce' ),
 			'installer_nonce'       => wp_create_nonce( 'updates' ),
+			'upgrade_notice_dismissed' => $upgrade_notice_dismissed,
 			'popup_dismiss'         => false,
 			'data_source'           => 'HFE',
 			'show_all_hfe'          => $show_view_all,

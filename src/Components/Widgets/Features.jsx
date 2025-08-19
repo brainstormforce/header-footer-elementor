@@ -7,10 +7,12 @@ import UltimateWidgets from './UltimateWidgets';
 import FeatureWidgets from './Features/FeatureWidgets'
 import UltimateWidgetFeatures from './UltimateWidgetFeatures';
 import ExtendWebsite from '@components/Dashboard/ExtendWebsite';
+import UpgradeNotice from "@components/UpgradeNotice";
 
 const Features = () => {
     return (
         <>
+            <UpgradeNotice />
             <NavMenu />
             <div>
                 <Container
@@ -33,7 +35,7 @@ const Features = () => {
                         <FeatureWidgets />
                     </Container.Item>
                     <Container.Item
-                        className="p-2 hfe-35-width"
+                        className="p-2 hfe-35-width hfe-sticky-right-sidebar"
                         shrink={1}
                     >
                         <UltimateWidgetFeatures />

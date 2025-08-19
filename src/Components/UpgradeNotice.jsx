@@ -1,7 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import { __ } from "@wordpress/i18n";
 
-const UpgradeNotice = ({ onClose }) => {
+const UpgradeNotice = () => {
+    // Check if upgrade notice was dismissed (handled by PHP via WordPress options)
+    const [showNotice, setShowNotice] = useState(() => {
+        return !(window.hfe_admin_data && window.hfe_admin_data.upgrade_notice_dismissed);
+    });
+
+    // Function to handle closing the upgrade notice
+    const handleCloseUpgradeNotice = async () => {
+        setShowNotice(false);
+        
+        if (!window.hfe_admin_data || !window.hfe_admin_data.ajax_url) {
+            return;
+        }
+        
+        try {
+            const response = await fetch(window.hfe_admin_data.ajax_url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    action: 'hfe_dismiss_upgrade_notice',
+                    nonce: window.hfe_admin_data.nonce,
+                }),
+            });
+
+        } catch (error) {
+        }
+    };
+
+    // Don't render anything if notice should not be shown
+    if (!showNotice) {
+        return null;
+    }
+
     return (
         <div
             className="uae-upgrade p-3 d font-medium"
@@ -14,7 +48,7 @@ const UpgradeNotice = ({ onClose }) => {
             }}
         >
             <button
-                onClick={onClose} // Call the passed onClose function when clicked
+                onClick={handleCloseUpgradeNotice}
                 style={{
                     position: "absolute",
                     top: "5px",
@@ -42,7 +76,7 @@ const UpgradeNotice = ({ onClose }) => {
             </strong>
             <span>
                 {__(
-                    "Get powerful widgets and faster performance - ",
+                    "Get powerful widgets and faster performance.",
                     "header-footer-elementor"
                 )}{" "}
                 <a
