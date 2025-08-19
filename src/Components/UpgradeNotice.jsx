@@ -12,7 +12,6 @@ const UpgradeNotice = () => {
         setShowNotice(false);
         
         if (!window.hfe_admin_data || !window.hfe_admin_data.ajax_url) {
-            console.error('UpgradeNotice - hfe_admin_data not available');
             return;
         }
         
@@ -28,14 +27,7 @@ const UpgradeNotice = () => {
                 }),
             });
 
-            const result = await response.json();
-            if (result.success) {
-                console.log('UpgradeNotice - Upgrade notice dismissed successfully');
-            } else {
-                console.error('UpgradeNotice - Failed to dismiss upgrade notice:', result.data);
-            }
         } catch (error) {
-            console.error('UpgradeNotice - AJAX error:', error);
         }
     };
 
