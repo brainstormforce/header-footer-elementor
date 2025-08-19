@@ -36,7 +36,7 @@ const Upgrade = () => {
                         <FreevsPro />
                     </Container.Item>
                     <Container.Item
-                        className="p-2 w-full hfe-35-width"
+                        className="p-2 w-full hfe-35-width hfe-sticky-right-sidebar"
                         shrink={1}
                     >
                         <UltimateFeatures />
