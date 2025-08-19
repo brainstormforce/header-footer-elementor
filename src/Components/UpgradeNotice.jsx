@@ -84,7 +84,7 @@ const UpgradeNotice = () => {
             </strong>
             <span>
                 {__(
-                    "Get powerful widgets and faster performance",
+                    "Get powerful widgets and faster performance.",
                     "header-footer-elementor"
                 )}{" "}
                 <a
