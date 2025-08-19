@@ -594,10 +594,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			}
 
 			// Update option to remember the dismissal
-			// update_option( 'hfe_upgrade_notice_dismissed', 'true' );
 			update_user_meta( get_current_user_id(), 'hfe_upgrade_notice_dismissed', 'true' );
-			var_dump(update_user_meta(get_current_user_id(), 'hfe_upgrade_notice_dismissed', 'true'));
-			die();
 			wp_send_json_success( __( 'Upgrade notice dismissed.', 'header-footer-elementor' ) );
 		}
 
