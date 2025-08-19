@@ -132,7 +132,7 @@ button.hfe-bulk-action-button {
 /* Sticky Right Sidebar */
 .hfe-sticky-right-sidebar {
 	position: sticky !important;
-	top: 20px !important;
+	top: 30px !important;
 	align-self: flex-start !important;
 }
 
