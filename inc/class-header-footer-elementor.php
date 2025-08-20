@@ -143,6 +143,9 @@ class Header_Footer_Elementor {
 
 			add_action( 'astra_notice_before_markup_header-footer-elementor-rating', [ $this, 'rating_notice_css' ] );
 
+			// Add Elementor preview notice
+			add_action( 'wp_footer', [ $this, 'elementor_preview_notice' ] );
+
 			require_once HFE_DIR . 'inc/class-hfe-analytics.php';
 			     
 		}
@@ -266,6 +269,359 @@ class Header_Footer_Elementor {
 	 */
 	public function rating_notice_css() {
 		wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'assets/css/admin-header-footer-elementor.css', [], HFE_VER );
+	}
+
+	/**
+	 * Display Elementor preview notice in footer when in preview mode.
+	 *
+	 * @since 2.4.9
+	 * @return void
+	 */
+	public function elementor_preview_notice() {
+		// Show notice only for page post type in preview mode
+		if ( $this->should_show_preview_notice() ) {
+			?>
+			<style>
+				@keyframes slideInFromBottom {
+					0% {
+						transform: translateY(100%);
+						opacity: 0;
+					}
+					100% {
+						transform: translateY(0);
+						opacity: 1;
+					}
+				}
+				
+				@keyframes slideOutToBottom {
+					0% {
+						transform: translateY(0);
+						opacity: 1;
+					}
+					100% {
+						transform: translateY(100%);
+						opacity: 0;
+					}
+				}
+				
+				.hfe-promo-notice {
+					position: fixed;
+					bottom: 0;
+					left: 0;
+					right: 0;
+					background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+					color: #ffffff;
+					padding: 16px 20px;
+					box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+					z-index: 999999;
+					font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+					font-size: 14px;
+					font-weight: 500;
+					animation: slideInFromBottom 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+					backdrop-filter: blur(10px);
+					border-top: 1px solid rgba(255, 255, 255, 0.2);
+					display: none;
+				}
+				
+				.hfe-promo-notice.show {
+					display: block;
+				}
+				
+				.hfe-promo-notice.hide {
+					animation: slideOutToBottom 0.4s cubic-bezier(0.55, 0.06, 0.68, 0.19) forwards;
+				}
+				
+				.hfe-promo-notice-container {
+					max-width: 1200px;
+					margin: 0 auto;
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					position: relative;
+				}
+				
+				.hfe-promo-notice-content {
+					display: flex;
+					align-items: center;
+					flex: 1;
+				}
+				
+				.hfe-promo-notice-icon {
+					display: inline-flex;
+					width: 24px;
+					height: 24px;
+					margin-right: 12px;
+					background: rgba(255, 255, 255, 0.2);
+					border-radius: 50%;
+					align-items: center;
+					justify-content: center;
+					font-size: 14px;
+					flex-shrink: 0;
+				}
+				
+				.hfe-promo-notice-text {
+					flex: 1;
+					line-height: 1.4;
+				}
+				
+				.hfe-promo-notice-title {
+					font-weight: 600;
+					margin-bottom: 2px;
+					font-size: 15px;
+				}
+				
+				.hfe-promo-notice-description {
+					opacity: 0.9;
+					font-size: 13px;
+				}
+				
+				.hfe-promo-notice-cta {
+					margin-left: 16px;
+					padding: 8px 16px;
+					background: rgba(255, 255, 255, 0.2);
+					border: 1px solid rgba(255, 255, 255, 0.3);
+					color: #ffffff;
+					text-decoration: none;
+					border-radius: 6px;
+					font-size: 13px;
+					font-weight: 600;
+					transition: all 0.2s ease;
+					white-space: nowrap;
+				}
+				
+				.hfe-promo-notice-cta:hover {
+					background: rgba(255, 255, 255, 0.3);
+					color: #ffffff;
+					text-decoration: none;
+				}
+				
+				.hfe-promo-notice-close {
+					margin-left: 16px;
+					background: none;
+					border: none;
+					color: rgba(255, 255, 255, 0.8);
+					font-size: 20px;
+					cursor: pointer;
+					padding: 4px;
+					width: 28px;
+					height: 28px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					border-radius: 50%;
+					transition: all 0.2s ease;
+					flex-shrink: 0;
+				}
+				
+				.hfe-promo-notice-close:hover {
+					background: rgba(255, 255, 255, 0.1);
+					color: #ffffff;
+				}
+				
+				@media (max-width: 768px) {
+					.hfe-promo-notice {
+						padding: 12px 16px;
+						font-size: 13px;
+					}
+					
+					.hfe-promo-notice-container {
+						flex-direction: column;
+						align-items: stretch;
+						gap: 12px;
+					}
+					
+					.hfe-promo-notice-content {
+						flex-direction: column;
+						align-items: flex-start;
+						text-align: left;
+					}
+					
+					.hfe-promo-notice-icon {
+						margin-right: 8px;
+						width: 20px;
+						height: 20px;
+						font-size: 12px;
+					}
+					
+					.hfe-promo-notice-cta {
+						margin-left: 0;
+						margin-top: 8px;
+						align-self: flex-start;
+					}
+					
+					.hfe-promo-notice-close {
+						position: absolute;
+						top: 8px;
+						right: 8px;
+						margin-left: 0;
+					}
+				}
+				
+				@media (max-width: 480px) {
+					.hfe-promo-notice-container {
+						padding-right: 40px;
+					}
+					
+					.hfe-promo-notice-title {
+						font-size: 14px;
+					}
+					
+					.hfe-promo-notice-description {
+						font-size: 12px;
+					}
+				}
+			</style>
+			
+			<div id="hfe-promo-notice" class="hfe-promo-notice">
+				<div class="hfe-promo-notice-container">
+					<div class="hfe-promo-notice-content">
+						<div class="hfe-promo-notice-icon">🚀</div>
+						<div class="hfe-promo-notice-text">
+							<div class="hfe-promo-notice-title">Unlock More Elementor Widgets!</div>
+							<div class="hfe-promo-notice-description">Get 50+ premium widgets, 200+ templates, and advanced features with Ultimate Addons Pro.</div>
+						</div>
+						<a href="https://ultimateelementor.com/pricing/?utm_source=preview&utm_medium=notice&utm_campaign=uae-lite" 
+						   target="_blank" 
+						   class="hfe-promo-notice-cta">
+							Upgrade Now
+						</a>
+					</div>
+					<button class="hfe-promo-notice-close" onclick="hfePromoNotice.dismiss()">&times;</button>
+				</div>
+			</div>
+			
+			<script>
+				window.hfePromoNotice = {
+					storageKey: 'hfe_promo_notice_dismissed',
+					oneWeekMs: 7 * 24 * 60 * 60 * 1000, // 7 days in milliseconds
+					
+					init: function() {
+						if (this.shouldShow()) {
+							this.show();
+						}
+					},
+					
+					shouldShow: function() {
+						try {
+							const dismissedData = localStorage.getItem(this.storageKey);
+							if (!dismissedData) {
+								return true; // Never dismissed before
+							}
+							
+							const dismissedTime = parseInt(dismissedData);
+							const currentTime = Date.now();
+							const timeDiff = currentTime - dismissedTime;
+							
+							// Show again if more than one week has passed
+							return timeDiff >= this.oneWeekMs;
+						} catch (e) {
+							// If localStorage is not available, always show
+							return true;
+						}
+					},
+					
+					show: function() {
+						const notice = document.getElementById('hfe-promo-notice');
+						if (notice) {
+							notice.classList.add('show');
+						}
+					},
+					
+					dismiss: function() {
+						const notice = document.getElementById('hfe-promo-notice');
+						if (notice) {
+							notice.classList.add('hide');
+							
+							// Store dismissal timestamp
+							try {
+								localStorage.setItem(this.storageKey, Date.now().toString());
+							} catch (e) {
+								// Handle localStorage not available
+								console.log('Could not save dismissal state');
+							}
+							
+							// Remove from DOM after animation
+							setTimeout(() => {
+								notice.remove();
+							}, 400);
+						}
+					}
+				};
+				
+				// Initialize when DOM is ready
+				if (document.readyState === 'loading') {
+					document.addEventListener('DOMContentLoaded', function() {
+						hfePromoNotice.init();
+					});
+				} else {
+					hfePromoNotice.init();
+				}
+			</script>
+			<?php
+		}
+	}
+
+	/**
+	 * Check if preview notice should be shown for page post type only.
+	 *
+	 * @since 2.4.9
+	 * @return bool
+	 */
+	private function should_show_preview_notice() {
+		// Basic preview check
+		if ( ! isset( $_GET['preview'] ) || $_GET['preview'] !== 'true' ) {
+			return false;
+		}
+
+		// Must have preview_id
+		if ( ! isset( $_GET['preview_id'] ) ) {
+			return false;
+		}
+
+		$preview_id = intval( $_GET['preview_id'] );
+
+		// Verify preview nonce for security (if available)
+		if ( isset( $_GET['preview_nonce'] ) ) {
+			if ( ! wp_verify_nonce( $_GET['preview_nonce'], 'post_preview_' . $preview_id ) ) {
+				return false;
+			}
+		}
+
+		// Check if it's a page post type (not header/footer templates)
+		$post_type = get_post_type( $preview_id );
+		if ( $post_type !== 'page' ) {
+			return false;
+		}
+
+		// Exclude header/footer templates from UAE
+		$template_type = get_post_meta( $preview_id, 'ehf_template_type', true );
+		if ( ! empty( $template_type ) ) {
+			return false; // This is a header/footer template, don't show notice
+		}
+
+		// Optional: Check if page uses Elementor
+		if ( ! $this->is_elementor_page( $preview_id ) ) {
+			return false;
+		}
+
+		// Optional: Allow filtering for custom conditions
+		return apply_filters( 'hfe_show_preview_notice', true, $preview_id );
+	}
+
+	/**
+	 * Check if the page is built with Elementor.
+	 *
+	 * @since 2.4.9
+	 * @param int $post_id Post ID to check.
+	 * @return bool
+	 */
+	private function is_elementor_page( $post_id ) {
+		if ( ! class_exists( '\Elementor\Plugin' ) ) {
+			return false;
+		}
+
+		$elementor_data = get_post_meta( $post_id, '_elementor_data', true );
+		return ! empty( $elementor_data );
 	}
 
 	/**
