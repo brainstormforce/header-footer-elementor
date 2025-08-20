@@ -567,6 +567,12 @@ class Header_Footer_Elementor {
 	 * @return bool
 	 */
 	private function should_show_preview_notice() {
+		// Don't show if UAE Pro is already installed/activated
+		if ( is_plugin_active( 'ultimate-elementor/ultimate-elementor.php' ) || 
+			file_exists( WP_PLUGIN_DIR . '/ultimate-elementor/ultimate-elementor.php' ) ) {
+			return false;
+		}
+
 		// Basic preview check
 		if ( ! isset( $_GET['preview'] ) || $_GET['preview'] !== 'true' ) {
 			return false;
