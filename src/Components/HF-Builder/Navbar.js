@@ -161,7 +161,7 @@ const NavBar = () => {
 											"header-footer-elementor",
 										)}
 									</span>
-									<ChevronRight size={16} className='mx-2' />
+									<ChevronRight size={16}  style={{ marginRight: '2px', marginLeft: '2px' }} />
 								</Link>
 								<Link
 									to={routes.dashboard.path}
