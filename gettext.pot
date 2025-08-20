@@ -132,8 +132,6 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:220
 #: src/Components/NavMenu.js:237
-#: src/Components/NavMenu.js:243
-#: src/Components/NavMenu.js:238
 #: src/Components/Onboarding/Features.jsx:193
 msgid "Free"
 msgstr ""
