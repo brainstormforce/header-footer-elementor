@@ -309,9 +309,9 @@ class Header_Footer_Elementor {
 					bottom: 0;
 					left: 0;
 					right: 0;
-					background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+					background: #000;
 					color: #ffffff;
-					padding: 16px 20px;
+					padding: 10px 20px;
 					box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
 					z-index: 999999;
 					font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -332,18 +332,15 @@ class Header_Footer_Elementor {
 				}
 				
 				.hfe-promo-notice-container {
-					max-width: 1200px;
-					margin: 0 auto;
 					display: flex;
 					align-items: center;
-					justify-content: space-between;
-					position: relative;
+					justify-content: space-around;
 				}
 				
 				.hfe-promo-notice-content {
 					display: flex;
 					align-items: center;
-					flex: 1;
+					/* flex: 1; */
 				}
 				
 				.hfe-promo-notice-icon {
@@ -372,17 +369,17 @@ class Header_Footer_Elementor {
 				
 				.hfe-promo-notice-description {
 					opacity: 0.9;
-					font-size: 13px;
+					font-size: 20px;
 				}
 				
 				.hfe-promo-notice-cta {
 					margin-left: 16px;
 					padding: 8px 16px;
-					background: rgba(255, 255, 255, 0.2);
-					border: 1px solid rgba(255, 255, 255, 0.3);
+					background: #93003f;
+					border: 1px solid #93003f;
 					color: #ffffff;
 					text-decoration: none;
-					border-radius: 6px;
+					border-radius: 25px;
 					font-size: 13px;
 					font-weight: 600;
 					transition: all 0.2s ease;
@@ -390,13 +387,15 @@ class Header_Footer_Elementor {
 				}
 				
 				.hfe-promo-notice-cta:hover {
-					background: rgba(255, 255, 255, 0.3);
+					background: #8f1a4c;
 					color: #ffffff;
 					text-decoration: none;
 				}
 				
 				.hfe-promo-notice-close {
 					margin-left: 16px;
+					position: absolute;
+					right:5px;
 					background: none;
 					border: none;
 					color: rgba(255, 255, 255, 0.8);
@@ -475,15 +474,15 @@ class Header_Footer_Elementor {
 			<div id="hfe-promo-notice" class="hfe-promo-notice">
 				<div class="hfe-promo-notice-container">
 					<div class="hfe-promo-notice-content">
-						<div class="hfe-promo-notice-icon">🚀</div>
+						<!-- <div class="hfe-promo-notice-icon">🚀</div> -->
 						<div class="hfe-promo-notice-text">
-							<div class="hfe-promo-notice-title">Unlock More Elementor Widgets!</div>
-							<div class="hfe-promo-notice-description">Get 50+ premium widgets, 200+ templates, and advanced features with Ultimate Addons Pro.</div>
+							<!-- <div class="hfe-promo-notice-title">Unlock More Elementor Widgets!</div> -->
+							<div class="hfe-promo-notice-description">Psst… want to save hours? Get 300+ professionally built templates.</div>
 						</div>
 						<a href="https://ultimateelementor.com/pricing/?utm_source=preview&utm_medium=notice&utm_campaign=uae-lite" 
 						   target="_blank" 
 						   class="hfe-promo-notice-cta">
-							Upgrade Now
+							Unlock Now
 						</a>
 					</div>
 					<button class="hfe-promo-notice-close" onclick="hfePromoNotice.dismiss()">&times;</button>
