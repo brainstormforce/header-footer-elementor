@@ -132,6 +132,8 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:220
 #: src/Components/NavMenu.js:237
+#: src/Components/NavMenu.js:243
+#: src/Components/NavMenu.js:238
 #: src/Components/Onboarding/Features.jsx:193
 msgid "Free"
 msgstr ""
@@ -1069,19 +1071,19 @@ msgstr ""
 msgid "Enter a new name for this layout"
 msgstr ""
 
-#: src/Components/HF-Builder/Navbar.js:145
+#: src/Components/HF-Builder/Navbar.js:104
+#: src/Components/NavMenu.js:78
+msgid "What's New?"
+msgstr ""
+
+#: src/Components/HF-Builder/Navbar.js:159
 #: src/Components/NavMenu.js:131
 msgid "Dashboard"
 msgstr ""
 
-#: src/Components/HF-Builder/Navbar.js:152
+#: src/Components/HF-Builder/Navbar.js:185
 #: src/Components/NavMenu.js:146
 msgid "Header & Footer"
-msgstr ""
-
-#: src/Components/HF-Builder/Navbar.js:82
-#: src/Components/NavMenu.js:78
-msgid "What's New?"
 msgstr ""
 
 #: src/Components/HF-Builder/Sidebar.jsx:126
@@ -1109,11 +1111,6 @@ msgstr ""
 msgid "Formerly Elementor Header & Footer Builder"
 msgstr ""
 
-#: src/Components/HF-Builder/Navbar.js:179
-#: src/Components/NavMenu.js:205
-msgid "Get Pro"
-msgstr ""
-
 #: src/Components/NavMenu.js:158
 msgid "Widgets"
 msgstr ""
@@ -1124,6 +1121,10 @@ msgstr ""
 
 #: src/Components/NavMenu.js:178
 msgid "Free vs Pro"
+msgstr ""
+
+#: src/Components/NavMenu.js:205
+msgid "Get Pro"
 msgstr ""
 
 #: src/Components/NavMenu.js:228

@@ -27,10 +27,15 @@ function updateNavMenuActiveState() {
 		const parentLi = item.closest("li");
 		const itemText = item.textContent.trim();
 
+		// Skip Dashboard from getting active state
+		if (itemText === "Dashboard") {
+			parentLi.classList.remove("current");
+			return;
+		}
+
 		if (
 			href &&
-			(currentPath.includes(href.split("#")[1]) ||
-				("#dashboard" === currentPath && itemText === "Dashboard"))
+			currentPath.includes(href.split("#")[1])
 		) {
 			parentLi.classList.add("current");
 		} else {
@@ -55,14 +60,31 @@ const NavBar = () => {
 	const currentPath = window.location.hash;
 
 	// Since this is the only setting on the navbar, always show it as active
-	const isActive = (path) => true; // Always return true to show as active
+	const isActive = (path) => {
+		// Never show Dashboard as active
+		if (path === "dashboard" || currentPath.includes("dashboard")) {
+			return false;
+		}
+		return true; // Always return true for other paths to show as active
+	};
 
-	const linkStyle = (path) => ({
-		color: "#111827", // Always use active color
-		borderBottom: "2px solid #6005FF", // Always show active border
-		paddingBottom: "22px",
-		marginBottom: "-16px",
-	});
+	const linkStyle = (path) => {
+		// Never show Dashboard as active
+		if (path === "dashboard" || currentPath.includes("dashboard")) {
+			return {
+				color: "#4B5563", // Inactive color
+				borderBottom: "none", // No active border
+				paddingBottom: "22px",
+				marginBottom: "-16px",
+			};
+		}
+		return {
+			color: "#111827", // Always use active color for other links
+			borderBottom: "2px solid #6005FF", // Always show active border for other links
+			paddingBottom: "22px",
+			marginBottom: "-16px",
+		};
+	};
 
 	const handleRedirect = (url) => {
 		window.open(url, "_blank");
@@ -122,7 +144,25 @@ const NavBar = () => {
 					</Topbar.Left>
 					<Topbar.Middle className="flex-grow" align="left">
 						<Topbar.Item>
-							<nav className="flex flex-wrap gap-6 mt-2 md:mt-0 cursor-pointer">
+							<nav className="flex flex-wrap gap-1 mt-2 md:mt-0 cursor-pointer">
+								<Link
+									to={routes.dashboard.path}
+									className="flex items-center gap-1"
+									style={{
+										color: "#4B5563",
+										borderBottom: "none",
+										paddingBottom: "22px",
+										marginBottom: "-16px"
+									}}
+								>
+									<span>
+										{__(
+											"Dashboard",
+											"header-footer-elementor",
+										)}
+									</span>
+									<ChevronRight size={16} className='mx-2' />
+								</Link>
 								<Link
 									to={routes.dashboard.path}
 									className={`${
@@ -141,13 +181,6 @@ const NavBar = () => {
 										);
 									}}
 								>
-									<span>
-										{__(
-											"Dashboard",
-											"header-footer-elementor",
-										)}
-									</span>
-									<ChevronRight size={16} />
 									<span>
 										{__(
 											"Header & Footer",
