@@ -299,6 +299,8 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 ---
 
 == Changelog ==
+= 2.4.10 = Development version
+- Fixed: Navigation Menu -  Alignment now works for last menu item as button.
 
 = 2.4.9 =
 - Fixed: Navigation Menu - Resolved accessibility issue with the expandable menu layout.
