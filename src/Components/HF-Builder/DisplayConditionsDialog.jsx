@@ -6,9 +6,10 @@ import React, {
 	useMemo,
 } from "react";
 import { Plus, X, Settings, Users } from "lucide-react";
-import { Button, Dialog, Switch, Loader, Tabs } from "@bsf/force-ui";
+import { Button, Dialog, Switch, Loader , Tooltip} from "@bsf/force-ui";
 import { __ } from "@wordpress/i18n";
 import apiFetch from "@wordpress/api-fetch";
+import toast from "react-hot-toast"; 
 
 /**
  * Higher-Order Component for Display Conditions Dialog
@@ -32,38 +33,26 @@ const withDisplayConditions = (WrappedComponent) => {
 			canvasTemplateEnabled: false,
 			nextId: 2,
 
-			// Tab state - ensure it's always a string
-			activeTab: (() => {
-				try {
-					const stored = localStorage.getItem('hfe-display-conditions-tab');
-					return (stored === 'conditions' || stored === 'userRoles') ? stored : 'conditions';
-				} catch (e) {
-					return 'conditions';
-				}
-			})(),
-
 			// Options
 			locationOptions: {},
 			userRoleOptions: {},
 		});
 
+		const [showTooltip, setShowTooltip] = useState(true); // Add state for showTooltip
+
 		// Refs for stability
 		const isMountedRef = useRef(true);
 		const optionsLoadedRef = useRef(false);
 		const dialogKeyRef = useRef(0);
+		
+		// Refs for scrolling to newly added elements
+		const conditionsContainerRef = useRef(null);
+		const userRolesContainerRef = useRef(null);
+		const lastAddedConditionRef = useRef(null);
+		const lastAddedUserRoleRef = useRef(null);
 
 		useEffect(() => {
 			isMountedRef.current = true;
-			
-			// Initialize tab from localStorage
-			try {
-				const storedTab = localStorage.getItem('hfe-display-conditions-tab');
-				if (storedTab && (storedTab === 'conditions' || storedTab === 'userRoles')) {
-					updateState({ activeTab: storedTab });
-				}
-			} catch (e) {
-				console.warn('Could not read tab from localStorage:', e);
-			}
 			
 			return () => {
 				isMountedRef.current = false;
@@ -82,60 +71,6 @@ const withDisplayConditions = (WrappedComponent) => {
 				return newState;
 			});
 		}, []);
-
-		// Ensure activeTab is always a valid string
-		const safeActiveTab = useMemo(() => {
-			const tab = state.activeTab;
-			if (typeof tab === 'string' && (tab === 'conditions' || tab === 'userRoles')) {
-				return tab;
-			}
-			return 'conditions';
-		}, [state.activeTab]);
-
-		// Tab handler - fixed to handle Force UI event object
-		const handleTabChange = useCallback((tabSlugOrEvent) => {
-			// Extract the actual tab slug from Force UI event object
-			let tabSlug;
-			if (typeof tabSlugOrEvent === 'string') {
-				// Direct string (custom implementation)
-				tabSlug = tabSlugOrEvent;
-			} else if (tabSlugOrEvent && typeof tabSlugOrEvent === 'object') {
-				// Force UI event object - extract the slug
-				if (tabSlugOrEvent.value && typeof tabSlugOrEvent.value === 'object') {
-					tabSlug = tabSlugOrEvent.value.slug || tabSlugOrEvent.value;
-				} else if (tabSlugOrEvent.slug) {
-					tabSlug = tabSlugOrEvent.slug;
-				} else if (tabSlugOrEvent.value) {
-					tabSlug = tabSlugOrEvent.value;
-				} else {
-					console.error('Could not extract tab slug from:', tabSlugOrEvent);
-					return;
-				}
-			} else {
-				console.error('Invalid tab change parameter:', tabSlugOrEvent);
-				return;
-			}
-			
-			// Don't update if it's the same tab
-			if (state.activeTab === tabSlug) {
-				return;
-			}
-			
-			// Validate tab slug
-			if (tabSlug !== 'conditions' && tabSlug !== 'userRoles') {
-				console.error('Invalid tab slug:', tabSlug);
-				return;
-			}
-			
-			// Persist to localStorage
-			try {
-				localStorage.setItem('hfe-display-conditions-tab', tabSlug);
-			} catch (e) {
-				console.warn('Could not save tab to localStorage:', e);
-			}
-			
-			updateState({ activeTab: tabSlug });
-		}, [updateState, state.activeTab]);
 
 		// Default conditions
 		const getDefaultConditions = () => [
@@ -214,6 +149,17 @@ const withDisplayConditions = (WrappedComponent) => {
 				conditions: [...state.conditions, newCondition],
 				nextId: state.nextId + 1,
 			});
+
+			// Scroll to the newly added condition after state update
+			setTimeout(() => {
+				if (lastAddedConditionRef.current) {
+					lastAddedConditionRef.current.scrollIntoView({
+						behavior: 'smooth',
+						block: 'center',
+						inline: 'nearest'
+					});
+				}
+			}, 100);
 		}, [state.conditions, state.nextId, updateState]);
 
 		const handleRemoveCondition = useCallback(
@@ -236,6 +182,18 @@ const withDisplayConditions = (WrappedComponent) => {
 							: condition,
 					),
 				});
+
+				// Scroll to the updated condition after state update
+				setTimeout(() => {
+					const conditionElement = document.querySelector(`[data-condition-id="${id}"]`);
+					if (conditionElement) {
+						conditionElement.scrollIntoView({
+							behavior: 'smooth',
+							block: 'center',
+							inline: 'nearest'
+						});
+					}
+				}, 100);
 			},
 			[state.conditions, updateState],
 		);
@@ -245,6 +203,17 @@ const withDisplayConditions = (WrappedComponent) => {
 			updateState({
 				userRoles: [...state.userRoles, ""],
 			});
+
+			// Scroll to the newly added user role after state update
+			setTimeout(() => {
+				if (lastAddedUserRoleRef.current) {
+					lastAddedUserRoleRef.current.scrollIntoView({
+						behavior: 'smooth',
+						block: 'center',
+						inline: 'nearest'
+					});
+				}
+			}, 100);
 		}, [state.userRoles, updateState]);
 
 		const handleRemoveUserRole = useCallback(
@@ -261,17 +230,51 @@ const withDisplayConditions = (WrappedComponent) => {
 				const updatedRoles = [...state.userRoles];
 				updatedRoles[index] = value;
 				updateState({ userRoles: updatedRoles });
+
+				// Scroll to the updated user role after state update
+				setTimeout(() => {
+					const userRoleElement = document.querySelector(`[data-user-role-index="${index}"]`);
+					if (userRoleElement) {
+						userRoleElement.scrollIntoView({
+							behavior: 'smooth',
+							block: 'center',
+							inline: 'nearest'
+						});
+					}
+				}, 100);
 			},
 			[state.userRoles, updateState],
 		);
 
 		// Canvas Template handler
 		const handleCanvasTemplateChange = useCallback(
-			(enabled) => {
-				updateState({ canvasTemplateEnabled: enabled });
-			},
-			[updateState],
-		);
+    (enabled) => {
+        updateState({ canvasTemplateEnabled: enabled });
+        
+        // Show success toast based on the toggle state
+        toast.success(
+            __(
+                enabled 
+                    ? "Enabled for Elementor Canvas pages." 
+                    : "Disabled for Elementor Canvas pages.",
+                "header-footer-elementor",
+            ),
+            {
+                position: "top-right",
+                duration: 2000,
+                style: {
+                    background: "white",
+                    color: "",
+                },
+                iconTheme: {
+                    primary: "#6005ff",
+                    secondary: "#fff",
+                },
+            },
+        );
+    },
+    [updateState],
+);
 
 		// Tab handler
 		// const handleTabChange = useCallback(
@@ -298,19 +301,6 @@ const withDisplayConditions = (WrappedComponent) => {
 				// Prepare initial state
 				const defaultConditions = getDefaultConditions();
 				
-				// Get saved tab from localStorage or use default
-				let savedTab = 'conditions'; // Default fallback
-				try {
-					const storedTab = localStorage.getItem('hfe-display-conditions-tab');
-					if (storedTab === 'conditions' || storedTab === 'userRoles') {
-						savedTab = storedTab;
-					}
-				} catch (e) {
-					console.warn('Could not read tab from localStorage:', e);
-				}
-				
-				
-				
 				const initialUpdates = {
 					isDialogOpen: true,
 					isLoading: false,
@@ -321,7 +311,6 @@ const withDisplayConditions = (WrappedComponent) => {
 					userRoles: [""],
 					canvasTemplateEnabled: false,
 					nextId: 2,
-					activeTab: savedTab, // Preserve the active tab
 				};
 
 				// For new posts or posts without ID, use defaults immediately
@@ -578,7 +567,18 @@ const withDisplayConditions = (WrappedComponent) => {
 			if (!state.selectedItem) return () => null;
 
 			return () => (
-				<div style={{ position: "fixed", inset: 0, zIndex: 999999 }}>
+				<div style={{ position: "fixed", inset: 0, zIndex: 9 }}>
+					{/* Global styles to hide scrollbars */}
+					<style>{`
+						.hfe-hide-scrollbar::-webkit-scrollbar {
+							display: none;
+						}
+						.hfe-hide-scrollbar {
+							-ms-overflow-style: none;
+							scrollbar-width: none;
+						}
+					`}</style>
+
 					{/* Backdrop */}
 					<div
 						style={{
@@ -595,16 +595,18 @@ const withDisplayConditions = (WrappedComponent) => {
 						style={{
 							position: "fixed",
 							top: "50%",
+							padding: '0.8rem',
 							left: "50%",
 							transform: "translate(-50%, -50%)",
 							width: "50%",
 							maxWidth: "48rem",
-							backgroundColor: "white",
+							backgroundColor: "#F9FAFB",
 							borderRadius: "0.5rem",
 							boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
 							zIndex: 999999,
-							maxHeight: "90vh",
-							overflow: "auto",
+							maxHeight: "75vh",
+							display: "flex",
+							flexDirection: "column",
 						}}
 					>
 						{/* Header */}
@@ -614,6 +616,7 @@ const withDisplayConditions = (WrappedComponent) => {
 								paddingLeft: "1.5rem",
 								paddingRight: "1.5rem",
 								paddingTop: "0.5rem",
+								flexShrink: 0,
 							}}
 						>
 							<div className="flex items-center justify-between">
@@ -654,34 +657,24 @@ const withDisplayConditions = (WrappedComponent) => {
 						</div>
 
 						{/* Body */}
-						<div className="p-4">
+						<div 
+							className="px-4 hfe-hide-scrollbar" 
+							style={{ 
+								flex: 1, 
+								overflow: "auto", 
+								display: "flex", 
+								flexDirection: "column",
+							}}
+						>
 							<div
-								className="mx-6 px-6 py-2 border border-gray-500 rounded-lg relative"
-								style={{ border: "4px solid #F9FAFB"}}
+								className="border border-gray-500 rounded-lg relative"
+								style={{ border: "4px solid #F9FAFB", display: "flex", flexDirection: "column" }}
 							>
-								{/* Description */}
-								<h2 className="text-base font-semibold text-gray-900 mb-2 text-center">
-									{__(
-										"Where Should Your Layout Appear?",
-										"header-footer-elementor",
-									)}
-								</h2>
-								<p className="text-gray-600 text-sm mb-8 text-center">
-									{__(
-										"Decide where you want this layout to appear on your site.",
-										"header-footer-elementor",
-									)}
-									<br />
-									{__(
-										"You can show it across your entire site or only on specific pages—your choice!",
-										"header-footer-elementor",
-									)}
-								</p>
 
 								{/* Loading state - Fixed positioning to prevent flicker */}
 								{state.isLoading && (
 									<div className="flex items-center justify-center min-h-screen w-full absolute inset-0 bg-white bg-opacity-90 z-10">
-										<div className="">
+										<div className="" style={{ paddingBottom: '380px' }}>
 											<Loader
 												className=""
 												icon={null}
@@ -694,496 +687,416 @@ const withDisplayConditions = (WrappedComponent) => {
 
 								{/* Error message */}
 								{state.error && (
-									<div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded mb-4">
+									<div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded mb-4" style={{ flexShrink: 0 }}>
 										{state.error}
 									</div>
 								)}
 
 								{/* Content - Always show, overlay with loading when needed */}
-								<>
-									{/* Tab Navigation */}
-									<div className="flex justify-center" style={{width: '300px',flexDirection: 'column', alignItems: 'center', justifyContent: 'center', margin: 'auto', marginTop: '40px'}}>
-									{/* 
-										<button
-											onClick={() =>
-												handleTabChange("conditions")
-											}
-											className={`px-6 py-2.5 rounded-md font-medium transition-colors ${
-												state.activeTab === "conditions"
-													? "text-white hover:bg-gray-800"
-													: "text-gray-700 bg-gray-100 hover:bg-gray-200"
-											}`}
-											style={{
-												border: "none",
-												cursor: "pointer",
-												backgroundColor:
-													state.activeTab ===
-													"conditions"
-														? "#5C2EDE"
-														: "#f3f4f6",
-												padding: "10px 20px",
-											}}
-										>
-											{__(
-												"Conditions",
-												"header-footer-elementor",
-											)}
-										</button>
-										<button
-											onClick={() =>
-												handleTabChange("userRoles")
-											}
-											className={`px-6 py-2.5 rounded-md font-medium transition-colors ${
-												state.activeTab === "userRoles"
-													? "text-white hover:bg-gray-800"
-													: "text-gray-700 bg-gray-100 hover:bg-gray-200"
-											}`}
-											style={{
-												border: "none",
-												cursor: "pointer",
-												backgroundColor:
-													state.activeTab ===
-													"userRoles"
-														? "#5C2EDE"
-														: "#f3f4f6",
-												padding: "10px 20px",
-											}}
-										>
-											{__(
-												"User Roles",
-												"header-footer-elementor",
-											)}
-										</button>
-									</div> */}
-
-								<Tabs activeItem={safeActiveTab}>
-										<Tabs.Group 
-										  size="sm"
-										onChange={(tabSlug) => {
-											handleTabChange(tabSlug);
-										}}>
-											<Tabs.Tab
-												icon={<Settings />}
-												slug="conditions"
-												text="Conditions"
-											/>
-											<Tabs.Tab
-												icon={<Users />}
-												slug="userRoles"
-												text="User Roles"
-											/>
-										</Tabs.Group>
-										<div className="p-5 rounded-md bg-slate-100">
-											<Tabs.Panel slug="conditions">
-												<div className="space-y-3 mb-4">
-												{state.conditions.map(
-													(condition) => (
-														<div
-															key={condition.id}
-															className="flex items-center gap-1"
-															style={{
-																marginTop:
-																	"12px",
-															}}
-														>
-															<div
-																className="flex items-center justify-center overflow-hidden bg-gray-50"
-																// style={{
-																// 	marginLeft:
-																// 		"56px",
-																// }}
-															>
-																{/* Include/Exclude Select */}
-																<div
-																	className="rounded-sm"
-																	style={{
-																		border: "1px solid #d1d5db",
-																		width: "120px",
-																	}}
-																>
-																	<select
-																		onChange={(
-																			e,
-																		) => {
-																			const selectedOption =
-																				e
-																					.target
-																					.options[
-																					e
-																						.target
-																						.selectedIndex
-																				];
-																			handleUpdateCondition(
-																				condition.id,
-																				"conditionType",
-																				{
-																					id: selectedOption.value,
-																					name: selectedOption.text,
-																				},
-																			);
-																		}}
-																		value={
-																			condition
-																				.conditionType
-																				.id
-																		}
-																		className="border-0 rounded-none bg-transparent h-full w-full px-4 text-black focus:outline-none"
-																		style={{
-																			boxShadow:
-																				"none",
-																			height: "40px",
-																		}}
-																	>
-																		<option value="include">
-																			{__(
-																				"Include",
-																				"header-footer-elementor",
-																			)}
-																		</option>
-																		<option value="exclude">
-																			{__(
-																				"Exclude",
-																				"header-footer-elementor",
-																			)}
-																		</option>
-																	</select>
-																</div>
-
-																{/* Display Location Select */}
-																<div
-																	className="rounded-sm"
-																	style={{
-																		border: "1px solid #d1d5db",
-																		width: "400px",
-																	}}
-																>
-																	<select
-																		onChange={(
-																			e,
-																		) => {
-																			const selectedOption =
-																				e
-																					.target
-																					.options[
-																					e
-																						.target
-																						.selectedIndex
-																				];
-																			handleUpdateCondition(
-																				condition.id,
-																				"displayLocation",
-																				{
-																					id: selectedOption.value,
-																					name: selectedOption.text,
-																				},
-																			);
-																		}}
-																		value={
-																			condition
-																				.displayLocation
-																				.id
-																		}
-																		className="border-0 rounded-none bg-transparent h-full w-full px-4 text-black focus:outline-none"
-																		style={{
-																			boxShadow:
-																				"none",
-																			height: "40px",
-																		}}
-																	>
-																		<option value="">
-																			{__(
-																				"Select Conditions",
-																				"header-footer-elementor",
-																			)}
-																		</option>
-																		{Object.keys(
-																			state.locationOptions,
-																		).map(
-																			(
-																				groupKey,
-																			) => (
-																				<optgroup
-																					key={
-																						groupKey
-																					}
-																					label={
-																						state
-																							.locationOptions[
-																							groupKey
-																						]
-																							.label
-																					}
-																				>
-																					{Object.entries(
-																						state
-																							.locationOptions[
-																							groupKey
-																						]
-																							.value,
-																					).map(
-																						([
-																							optKey,
-																							optLabel,
-																						]) => (
-																							<option
-																								key={
-																									optKey
-																								}
-																								value={
-																									optKey
-																								}
-																							>
-																								{
-																									optLabel
-																								}
-																							</option>
-																						),
-																					)}
-																				</optgroup>
-																			),
-																		)}
-																	</select>
-																</div>
+								<div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+									{/* Unified Form Layout */}
+									<div className="space-y-8 border border-gray-500" style={{ display: "flex", flexDirection: "column" }}>
+										
+										
+										{/* Display Conditions Section */}
+										<div className="bg-white rounded-lg" style={{ border : "2px solid #EEEEEE", flexShrink: 0}}>
+												{/* Description */}
+									<div className="px-4" style={{ flexShrink: 0 }}>
+										<h2 className="text-base font-medium text-gray-900 mb-2 text-start">
+									{__(
+										"Where Should Your Layout Appear?",
+										"header-footer-elementor",
+									)}
+								</h2>
+								<p className="text-text-tertiary text-sm m-0 text-start">
+									{__(
+										"Choose where you want it to be visible",
+										"header-footer-elementor",
+									)}
+									{/* <br />
+									{__(
+										"You can show it across your entire site or only on specific pages—your choice!",
+										"header-footer-elementor",
+									)} */}
+								</p>
+									</div>
+											{/* <div className="flex items-center justify-center">
+												<Settings className="w-5 h-5 text-purple-600 mr-3" />
+												<h3 className="text-lg font-semibold text-gray-900">
+													{__("Display Conditions", "header-footer-elementor")}
+												</h3>
+											</div> */}
+											{/* <p className="text-gray-600 flex items-center justify-center m-0 text-sm">
+												{__("Configure where this layout should appear on your website.", "header-footer-elementor")}
+											</p>
+											 */}
+											<div 
+												className="space-y-2 pl-4 pr-20 pb-4 m-0 hfe-hide-scrollbar" 
+												style={{ 
+													paddingRight: '70px', 
+													paddingTop: '15px',
+													maxHeight: state.conditions.length > 4 ? '200px' : 'auto',
+													overflowY: state.conditions.length > 4 ? 'auto' : 'visible',
+													overflowX: 'hidden',
+												}} 
+												ref={conditionsContainerRef}
+											>
+												{state.conditions.map((condition, index) => (
+													<div
+														key={condition.id}
+														data-condition-id={condition.id}
+														ref={index === state.conditions.length - 1 ? lastAddedConditionRef : null}
+														className="flex items-center justify-center bg-gray-50 rounded-lg border border-gray-100"
+													>
+														{/* Include/Exclude Select */}
+														<div className="flex-shrink-0">
+															{/* <label className="block text-sm font-medium text-gray-700 mb-1">
+																{__("Type", "header-footer-elementor")}
+															</label> */}
+															<div className="relative">
+		<select
+    onChange={(e) => {
+        const selectedOption = e.target.options[e.target.selectedIndex];
+        handleUpdateCondition(
+            condition.id,
+            "conditionType",
+            {
+                id: selectedOption.value,
+                name: selectedOption.text,
+            }
+        );
+    }}
+    value={condition.conditionType.id}
+    className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500 bg-white"
+    style={{
+        minWidth: '120px',
+        height: '42px',
+        borderColor: '#e0e0e0',
+        borderRight: 'none',
+        borderTopRightRadius: '0',    // Remove top-right border radius
+        borderBottomRightRadius: '0', // Remove bottom-right border radius
+        outline: 'none',
+        boxShadow: 'none',
+        display: 'flex',
+        alignItems: 'center',
+        lineHeight: '42px',
+        paddingTop: '0',
+        paddingBottom: '0',
+    }}
+    onFocus={(e) => e.target.style.borderColor = '#e0e0e0'}
+    onBlur={(e) => e.target.style.borderColor = '#e0e0e0'}
+>
+																	<option value="include">
+																		{__("Include", "header-footer-elementor")}
+																	</option>
+																	<option value="exclude">
+																		{__("Exclude", "header-footer-elementor")}
+																	</option>
+																</select>
 															</div>
-															{state.conditions
-																.length > 1 && (
-																<button
-																	onClick={() =>
-																		handleRemoveCondition(
-																			condition.id,
-																		)
-																	}
-																	className="p-2 text-gray-400 hover:text-gray-600 transition-colors"
-																	style={{
-																		background:
-																			"none",
-																		border: "none",
-																		cursor: "pointer",
-																	}}
-																>
-																	<X
-																		size={
-																			18
-																		}
-																	/>
-																</button>
-															)}
 														</div>
-													),
-												)}
-											</div>
-												<div className="flex justify-center pt-4 mb-8" style={{paddingTop: '15px'}}>
-												<button
-													onClick={handleAddCondition}
-													className="text-white px-6 py-2.5 rounded-md font-medium hover:bg-gray-800"
-													style={{
-														border: "none",
-														cursor: "pointer",
-														backgroundColor: "#000",
-														padding: "10px 20px",
-													}}
-												>
-													{__(
-														"Add Conditions",
-														"header-footer-elementor",
-													)}
-												</button>
-											</div>
-											</Tabs.Panel>
-											<Tabs.Panel slug="userRoles">
-												{/* User Roles Section */}
-												<div className="mb-4">
-													<div className="space-y-3 mb-4">
-														{state.userRoles.map(
-															(roleId, index) => (
-																<div
-																	key={index}
-																	className="flex items-center gap-1"
-																	style={{
-																		marginTop:
-																			"8px",
-																	}}
-																>
-																	<div
-																		className="flex items-center justify-center overflow-hidden bg-gray-50"
-																		// style={{
-																		// 	marginLeft:
-																		// 		"86px",
-																		// }}
-																	>
-																		<div
-																			className="rounded-sm"
-																			style={{
-																				border: "1px solid #d1d5db",
-																				width: "410px",
-																			}}
+
+														{/* Display Location Select */}
+														<div className="flex-grow">
+															{/* <label className="block text-sm font-medium text-gray-700 mb-1">
+																{__("Location", "header-footer-elementor")}
+															</label> */}
+															<div className="relative">
+																<select
+    onChange={(e) => {
+        const selectedOption = e.target.options[e.target.selectedIndex];
+        handleUpdateCondition(
+            condition.id,
+            "displayLocation",
+            {
+                id: selectedOption.value,
+                name: selectedOption.text,
+            }
+        );
+    }}
+    value={condition.displayLocation.id}
+    style={{
+        minWidth: '120px',
+        height: '42px',
+        borderColor: '#e0e0e0',
+        borderTopLeftRadius: '0',     // Remove top-left border radius
+        borderBottomLeftRadius: '0',  // Remove bottom-left border radius
+        outline: 'none',
+        boxShadow: 'none',
+        display: 'flex',
+        alignItems: 'center',
+        lineHeight: '42px',
+        paddingTop: '0',
+        paddingBottom: '0',
+    }}
+    onFocus={(e) => e.target.style.borderColor = '#e0e0e0'}
+    onBlur={(e) => e.target.style.borderColor = '#e0e0e0'}
+    className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500 bg-white"
+>
+																	<option value="">
+																		{__("Select Conditions", "header-footer-elementor")}
+																	</option>
+																	{Object.keys(state.locationOptions).map((groupKey) => (
+																		<optgroup
+																			key={groupKey}
+																			label={state.locationOptions[groupKey].label}
 																		>
-																			<select
-																				value={
-																					roleId
-																				}
-																				onChange={(
-																					e,
-																				) =>
-																					handleUpdateUserRole(
-																						index,
-																						e
-																							.target
-																							.value,
-																					)
-																				}
-																				className="border-0 rounded-none bg-transparent h-full w-full px-4 text-black focus:outline-none"
-																				style={{
-																					boxShadow:
-																						"none",
-																					height: "40px",
-																				}}
-																			>
-																				<option value="">
-																					{__(
-																						"Select User Role",
-																						"header-footer-elementor",
-																					)}
-																				</option>
-																				{Object.keys(
-																					state.userRoleOptions,
-																				).map(
-																					(
-																						groupKey,
-																					) => (
-																						<optgroup
-																							key={
-																								groupKey
-																							}
-																							label={
-																								state
-																									.userRoleOptions[
-																									groupKey
-																								]
-																									.label
-																							}
-																						>
-																							{Object.entries(
-																								state
-																									.userRoleOptions[
-																									groupKey
-																								]
-																								.value,
-																							).map(
-																								([
-																									optKey,
-																									optLabel,
-																								]) => (
-																									<option
-																										key={
-																											optKey
-																										}
-																										value={
-																											optKey
-																										}
-																									>
-																										{
-																											optLabel
-																										}
-																									</option>
-																								),
-																							)}
-																						</optgroup>
-																					),
-																				)}
-																			</select>
-																		</div>
-																	</div>
-																	{state.userRoles
-																		.length >
-																		1 && (
-																		<button
-																			onClick={() =>
-																				handleRemoveUserRole(
-																					index,
+																			{Object.entries(state.locationOptions[groupKey].value).map(
+																				([optKey, optLabel]) => (
+																					<option key={optKey} value={optKey}>
+																						{optLabel}
+																					</option>
 																				)
-																			}
-																			className="text-gray-400 hover:text-gray-600 transition-colors"
-																			style={{
-																				background:
-																					"none",
-																				border: "none",
-																				cursor: "pointer",
-																			}}
-																		>
-																			<X
-																				size={
-																					18
-																				}
-																			/>
-																		</button>
-																	)}
-																</div>
-															),
+																			)}
+																		</optgroup>
+																	))}
+																</select>
+															</div>
+														</div>
+
+														{/* Remove Button */}
+														{state.conditions.length > 1 && (
+															<div className="flex-shrink-0">
+																<Button
+																icon={<X size={18} color="#6B7280" />}
+																variant="link"
+																style={{ paddingRight: '1.3rem' }}
+																	onClick={() => handleRemoveCondition(condition.id)}
+																	className="p-2 text-red-400 hover:text-red-600 hover:bg-red-50 rounded-md hfe-remove-ring transition-colors"
+																	title={__("Remove condition", "header-footer-elementor")}
+																>
+																</Button>
+															</div>
 														)}
 													</div>
-												</div>
-
-												{/* Add User Role Button */}
-												<div className="flex justify-center mb-8" style={{paddingTop: '15px'}}>
-													<button
-														onClick={handleAddUserRole}
-														className="text-white px-6 py-2.5 rounded-md font-medium hover:bg-gray-800"
-														style={{
-															border: "none",
-															cursor: "pointer",
-															backgroundColor: "#000",
-															padding: "10px 20px",
-														}}
-													>
-														{__(
-															"Add User Role",
-															"header-footer-elementor",
-														)}
-													</button>
-												</div>
-											</Tabs.Panel>
-										</div>
-									</Tabs>
-									</div>
-									{/* Tab Content */}
-								
-
-									
-
-									{/* Canvas Template Section */}
-									<div className=" border-t pb-3 border-gray-200">
-										<div className="flex items-center justify-center" style={{ gap: '4rem'}} >
-											<div>
-												<p className="text-gray-600 text-sm">
-													{__(
-														"Enable this layout to display on Elementor Canvas template pages",
-														"header-footer-elementor",
-													)}
-												</p>
+												))}
 											</div>
-											<div className="ml-4">
+
+											{/* Add Condition Button */}
+											<div className="flex justify-start items-center mt-6 mb-2" style={{ flexShrink: 0, paddingLeft: '1rem' }}>
+												<Button
+												icon={<Plus size={16} />}
+													variant="link"
+													style={{ color: '#3B82F6' }}
+													onClick={handleAddCondition}
+													className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium hfe-remove-ring rounded-md text-blue-300 "
+												>
+													{__("Add Condition", "header-footer-elementor")}
+												</Button>
+											</div>
+										</div>
+
+													<hr
+						className="border-b-0 border-x-0 border-t border-solid border-t-border-transparent-subtle"
+						style={{
+							marginTop: "20px",
+							marginBottom: "15px",
+							width: "90%",
+							marginRight: "50px",
+							flexShrink: 0
+							// borderColor: "#E5E7EB",
+						}}
+					/>
+
+													{/* User Roles Section */}
+										<div className="bg-white rounded-lg border border-gray-200" style={{ flexShrink: 0 }}>
+											{/* <div className="flex items-center justify-center">
+												<Users className="w-5 h-5 text-blue-600 mr-3" />
+												<h3 className="text-lg font-semibold text-gray-900">
+													{__("User Roles", "header-footer-elementor")}
+												</h3>
+											</div> */}
+											<div className="px-4" style={{ flexShrink: 0 }}>
+										<h2 className="text-base font-medium text-gray-900 mb-2 text-start">
+									{__(
+										"Who Should See This Layout?",
+										"header-footer-elementor",
+									)}
+								</h2>
+								<p className="text-text-tertiary text-sm m-0 text-start">
+									{__(
+										"Choose which types of users can view this layout on your site",
+										"header-footer-elementor",
+									)}
+									{/* <br />
+									{__(
+										"You can show it across your entire site or only on specific pages—your choice!",
+										"header-footer-elementor",
+									)} */}
+								</p>
+									</div>
+											{/* <p className="text-gray-600 flex items-center justify-center text-sm m-0">
+												{__("Restrict this layout to specific user roles. Leave empty to show for all users.", "header-footer-elementor")}
+											</p> */}
+
+											<div 
+												className="space-y-2 pl-4 pb-4 m-0 hfe-hide-scrollbar" 
+												style={{ 
+													paddingTop: '15px',
+													maxHeight: state.userRoles.length > 4 ? '200px' : 'auto',
+													overflowY: state.userRoles.length > 4 ? 'auto' : 'visible',
+													overflowX: 'hidden',
+												}} 
+												ref={userRolesContainerRef}
+											>
+												{state.userRoles.map((roleId, index) => (
+													<div
+														key={index}
+														data-user-role-index={index}
+														ref={index === state.userRoles.length - 1 ? lastAddedUserRoleRef : null}
+														className="flex items-center gap-2 bg-gray-50 rounded-lg border border-gray-100"
+													>
+														{/* User Role Select */}
+														<div className="">
+															{/* <label className="block text-sm font-medium text-gray-700 mb-1">
+																{__("User Role", "header-footer-elementor")} {index + 1}
+															</label> */}
+															<div className="relative">
+																<select
+																	value={roleId}
+																	style={{
+																		minWidth: '526px',
+																		// marginLeft: '28px',
+																		height: '42px',
+																		borderColor: '#e0e0e0', // Default border color
+																		outline: 'none',       // Removes the default outline
+																		boxShadow: 'none',     // Removes the default box shadow
+																		display: 'flex',
+																		alignItems: 'center',
+																		lineHeight: '42px',
+																		paddingTop: '0',
+																		paddingBottom: '0',
+																	}}
+																	 onFocus={(e) => e.target.style.borderColor = '#e0e0e0'} // Apply focus color
+                                    onBlur={(e) => e.target.style.borderColor = '#e0e0e0'}  // Revert to default color
+																	onChange={(e) => handleUpdateUserRole(index, e.target.value)}
+																	className="w-full block py-2 rounded-md border border-gray-300 shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 bg-white"
+																>
+																	<option value="">
+																		{__("Select User Role", "header-footer-elementor")}
+																	</option>
+																	{Object.keys(state.userRoleOptions).map((groupKey) => (
+																		<optgroup
+																			key={groupKey}
+																			label={state.userRoleOptions[groupKey].label}
+																		>
+																			{Object.entries(state.userRoleOptions[groupKey].value).map(
+																				([optKey, optLabel]) => (
+																					<option key={optKey} value={optKey}>
+																						{optLabel}
+																					</option>
+																				)
+																			)}
+																		</optgroup>
+																	))}
+																</select>
+															</div>
+														</div>
+
+														{/* Remove Button */}
+														{state.userRoles.length > 1 && (
+															<div className="flex-shrink-0">
+																<Button
+																variant="link"
+																icon={<X size={18} color="#6B7280" />}
+																	onClick={() => handleRemoveUserRole(index)}
+																	className="p-2 text-red-400 hover:text-red-600 hover:bg-red-50 rounded-md hfe-remove-ring transition-colors"
+																	title={__("Remove user role", "header-footer-elementor")}
+																>
+																
+																</Button>
+															</div>
+														)}
+													</div>
+												))}
+											</div>
+
+											{/* Add User Role Button */}
+											<div className="flex justify-start" style={{ flexShrink: 0, paddingLeft: '1rem' }}>
+												<Button
+												icon={<Plus size={16}  />}
+												style={{ color: '#3B82F6' }}
+												variant="link"
+													onClick={handleAddUserRole}
+													className="inline-flex items-center px-4 py-2 mb-2 border border-transparent text-sm font-medium rounded-md hfe-remove-ring  text-blue-300"
+												>
+													{__("Add User Role", "header-footer-elementor")}
+												</Button>
+											</div>
+										</div>
+
+								{/* Canvas Template Section */}
+									<div className="px-6" style={{ marginTop: '20px', paddingRight: '30px', flexShrink: 0}}>
+										<div className="flex items-center justify-start">
+											<div>
+												<div className="flex items-center justify-center gap-2">
 												<Switch
-													checked={
-														state.canvasTemplateEnabled
-													}
-													onChange={
-														handleCanvasTemplateChange
-													}
+													checked={state.canvasTemplateEnabled}
+													onChange={handleCanvasTemplateChange}
 													disabled={state.isLoading}
 													size="sm"
+													className="hfe-remove-ring"
 												/>
+										
+												
+											<p className="text-text-tertiary m-0 text-sm">
+    {__("Turn on to display this layout on ", "header-footer-elementor")}
+    <Tooltip
+        arrow
+		 content={
+                                    <div>
+                                       <p>{__('A blank page layout with no header or footer, giving you full control over the design.', 'header-footer-elementor')}</p>
+                                    </div>
+                                }
+        placement="bottom"
+        triggers={['hover']}
+        variant="dark"
+        size="xs"
+    >
+        <span style={{ textDecoration: 'underline', cursor: 'pointer' }}>
+            {__("Elementor Canvas pages", "header-footer-elementor")}
+        </span>
+    </Tooltip>
+</p>
+													</div>
+												{/* <p className="text-text-tertiary m-0 pt-4 text-sm" style={{ paddingTop: '10px'}}>
+													{__("Enable this layout to display on Elementor Canvas template pages", "header-footer-elementor")}
+												</p> */}
+												{/* <h3 className="text-lg m-0 font-semibold text-gray-900">
+													{__("Canvas Template Support", "header-footer-elementor")}
+												</h3> */}
 											</div>
 										</div>
 									</div>
-								</>
-							</div>
-						</div>
+									</div>
 
-						{/* Footer */}
-						<div className="border-t border-gray-200 px-8 py-6">
+										{/* <h2 className="text-lg font-medium">
+									{__(
+										"Configure User Roles",
+										"header-footer-elementor",
+									)}
+									</h2> */}
+
+								
+								</div>
+
+							<div>
+								<hr
+							className="border-b-0 border-x-0 border-t border-solid border-t-border-transparent-subtle"
+							style={{
+								marginTop: "35px",
+								marginBottom: "15px",
+								width: "100%",
+								// marginLeft: "12px",
+								flexShrink: 0
+								// borderColor: "#E5E7EB",
+							}}
+						/>
+
+							{/* Footer */}
+							<div className="border-t border-gray-200 px-8 py-6" style={{ flexShrink: 0 }}>
 							<div className="flex justify-end p-4 gap-3" style={{ marginRight: '20px'}}>
-								<button
+								{/* <button
 									onClick={() =>
 										updateState({ isDialogOpen: false })
 									}
@@ -1196,7 +1109,7 @@ const withDisplayConditions = (WrappedComponent) => {
 									}}
 								>
 									{__("Cancel", "header-footer-elementor")}
-								</button>
+								</button> */}
 								<button
 									onClick={handleSaveConditions}
 									className="bg-purple-600 hover:bg-purple-700 rounded-md px-6 py-2.5 font-medium text-white"
@@ -1218,28 +1131,30 @@ const withDisplayConditions = (WrappedComponent) => {
 										</span>
 									) : (
 										__(
-											"Save Conditions",
+											"Next",
 											"header-footer-elementor",
 										)
 									)}
 								</button>
 							</div>
 						</div>
-					</div>
-				</div>
-			);
-		}, [
-			state.selectedItem?.id,
-			state.isLoading,
-			state.error,
-			state.activeTab,
-			state.conditions,
-			state.userRoles,
-			state.canvasTemplateEnabled,
-			state.locationOptions,
-			state.userRoleOptions,
-			state.isNewPost,
-		]);
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }, [
+            state.selectedItem?.id,
+            state.isLoading,
+            state.error,
+            state.conditions,
+            state.userRoles,
+            state.canvasTemplateEnabled,
+            state.locationOptions,
+            state.userRoleOptions,
+            state.isNewPost,
+        ]);
 
 		// Only render dialog when open
 		const DialogComponent = state.isDialogOpen

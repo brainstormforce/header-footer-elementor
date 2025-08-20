@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Edit3, Check, X, SquarePen } from "lucide-react";
 import { __ } from "@wordpress/i18n";
 import apiFetch from "@wordpress/api-fetch";
 import toast from "react-hot-toast";
-import { Button, Badge } from "@bsf/force-ui";
+import { Button, Badge, Input } from "@bsf/force-ui";
 
 /**
  * Reusable Inline Title Editor Component
@@ -13,20 +13,58 @@ const InlineTitleEditor = ({
 	item,
 	onTitleUpdate,
 	className = "",
-	titleClassName = "text-base font-medium text-gray-900 truncate",
+	titleClassName = "text-sm font-medium text-gray-900 truncate",
 	showDraftStatus = true,
 	alwaysShowIcon = false, // New prop to control icon visibility
 }) => {
 	const [isEditing, setIsEditing] = useState(false);
 	const [editingTitle, setEditingTitle] = useState("");
 	const [isUpdating, setIsUpdating] = useState(false);
+	const inputRef = useRef(null);
+
+	// Focus and select input when editing starts
+	useEffect(() => {
+		if (isEditing && inputRef.current) {
+			console.log('useEffect: Focusing input');
+			const input = inputRef.current;
+			// Try to get the actual input element if it's wrapped
+			const actualInput = input.querySelector('input') || input;
+			
+			setTimeout(() => {
+				actualInput.focus();
+				actualInput.select();
+				console.log('Input focused and selected');
+			}, 100);
+		}
+	}, [isEditing]);
+
+	/**
+	 * Decode HTML entities to normal characters
+	 */
+	const decodeHtmlEntities = (str) => {
+		if (!str) return str;
+		const textarea = document.createElement('textarea');
+		textarea.innerHTML = str;
+		return textarea.value;
+	};
 
 	/**
 	 * Start inline editing
 	 */
 	const startEditing = () => {
+		console.log('startEditing called');
+		console.log('Item:', item);
+		
+		// Decode HTML entities from the title before editing
+		const rawTitle = item.title || item.post_title || "";
+		const decodedTitle = decodeHtmlEntities(rawTitle);
+		
+		console.log('Raw title:', rawTitle);
+		console.log('Decoded title:', decodedTitle);
+		
 		setIsEditing(true);
-		setEditingTitle(item.title || item.post_title || "");
+		setEditingTitle(decodedTitle);
+		console.log('Edit mode activated');
 	};
 
 	/**
@@ -86,12 +124,15 @@ const InlineTitleEditor = ({
 			return;
 		}
 
-		// Check for potentially harmful content
-		const sanitizedTitle = trimmedTitle.replace(/<[^>]*>/g, ""); // Remove HTML tags
-		if (sanitizedTitle !== trimmedTitle) {
+		// Check for potentially harmful content (only remove HTML tags, preserve apostrophes)
+		const sanitizedTitle = trimmedTitle.replace(/<[^>]*>/g, ""); // Remove HTML tags only
+		
+		// Don't reject titles with apostrophes - they're valid
+		if (sanitizedTitle !== trimmedTitle && trimmedTitle.includes('<')) {
+			// Only show error if HTML tags were actually removed
 			toast.error(
 				__(
-					"Layout name contains invalid characters.",
+					"Layout name contains invalid HTML tags.",
 					"header-footer-elementor",
 				),
 				{
@@ -133,11 +174,14 @@ const InlineTitleEditor = ({
 			});
 
 			if (response.success) {
+				// Use the title from server response to ensure consistency
+				const serverTitle = response.data?.post_title || response.data?.title || sanitizedTitle;
+				
 				// Update via callback
 				if (onTitleUpdate) {
 					onTitleUpdate(item.id, {
-						post_title: sanitizedTitle,
-						title: sanitizedTitle,
+						post_title: serverTitle,
+						title: serverTitle,
 					});
 				}
 
@@ -241,64 +285,114 @@ const InlineTitleEditor = ({
 	};
 
 	return (
-		<div className={`flex items-center flex-1 min-w-0 ${className}`}>
+		<div className={`flex items-center min-w-0 ${className}`}>
 			{isEditing ? (
 				// Editing mode
-				<div className="flex items-center gap-2 flex-1">
-					<input
-						type="text"
-						style={{
-							maxWidth: "200px",
-							outline: "none",
-							height: "32px",
-						}}
-						value={editingTitle}
-						onChange={(e) => setEditingTitle(e.target.value)}
-						onKeyDown={handleKeyDown}
-						className="flex-1 px-2 py-1 text-sm font-medium text-gray-900 rounded focus:outline-none"
-						placeholder={__(
-							"Layout name",
-							"header-footer-elementor",
+				<div className="flex flex-col gap-1">
+					<div className="flex items-center gap-2">
+						<Input
+							ref={inputRef}
+							type="text"
+							size="xs"
+							style={{
+								outline: "none",
+								fontSize: "16px",
+								width: '130px',
+								pointerEvents: 'auto',
+								userSelect: 'text',
+								textOverflow: 'ellipsis',
+								overflow: 'hidden',
+								whiteSpace: 'nowrap',
+							}}
+							value={editingTitle}
+							onChange={(e) => {
+								console.log('Input onChange:', e.target.value);
+								setEditingTitle(e.target.value);
+							}}
+							onKeyDown={handleKeyDown}
+							className="py-2 text-base font-medium text-gray-900 rounded focus:outline-none"
+							placeholder={__(
+								"Layout name",
+								"header-footer-elementor",
+							)}
+							autoFocus
+							disabled={false}
+							readOnly={false}
+							maxLength={200}
+							title={editingTitle} // Show full text on hover
+							onFocus={(e) => {
+								console.log('Input focused, value:', e.target.value);
+								e.target.style.borderColor = "#6005FF";
+								e.target.style.marginTop = "0.4rem";
+							}}
+							onClick={(e) => {
+								console.log('Input clicked');
+								e.stopPropagation();
+							}}
+							onMouseDown={(e) => {
+								console.log('Input mousedown');
+								e.stopPropagation();
+							}}
+							onKeyPress={(e) => {
+								console.log('Key pressed:', e.key);
+							}}
+							onInput={(e) => {
+								console.log('Input event:', e.target.value);
+								setEditingTitle(e.target.value);
+							}}
+						/>
+						<div className="flex items-center pt-2" >
+							<Button
+								variant="ghost"
+								onClick={saveTitle}
+								disabled={isUpdating}
+								className="p-1 cursor-pointer hover:bg-green-50 transition-colors duration-150 disabled:opacity-50"
+								title={__(
+									"Save changes",
+									"header-footer-elementor",
+								)}
+							>
+								<Check size={18} color="#008000" />
+							</Button>
+							<Button
+								variant="ghost"
+								onClick={cancelEditing}
+								disabled={isUpdating}
+								className="p-1 cursor-pointer hover:bg-red-50 transition-colors duration-150 disabled:opacity-50"
+								title={__(
+									"Cancel editing",
+									"header-footer-elementor",
+								)}
+							>
+								<X size={18} color="#dc3545" />
+							</Button>
+						</div>
+					</div>
+					{/* Character counter */}
+					<div className="text-xs text-gray-500 ml-1">
+						{editingTitle.length}/255 {__("characters", "header-footer-elementor")}
+						{editingTitle.length > 200 && (
+							<span className="text-orange-500 ml-1">
+								({255 - editingTitle.length} {__("remaining", "header-footer-elementor")})
+							</span>
 						)}
-						autoFocus
-						disabled={isUpdating}
-						onFocus={(e) =>
-							(e.target.style.borderColor = "#6005FF")
-						}
-					/>
-					<div className="flex items-center pt-2">
-						<Button
-							variant="ghost"
-							onClick={saveTitle}
-							disabled={isUpdating}
-							className="p-1 cursor-pointer hover:bg-green-50 transition-colors duration-150 disabled:opacity-50"
-							title={__(
-								"Save changes",
-								"header-footer-elementor",
-							)}
-						>
-							<Check size={18} color="#008000" />
-						</Button>
-						<Button
-							variant="ghost"
-							onClick={cancelEditing}
-							disabled={isUpdating}
-							className="p-1 cursor-pointer hover:bg-red-50 transition-colors duration-150 disabled:opacity-50"
-							title={__(
-								"Cancel editing",
-								"header-footer-elementor",
-							)}
-						>
-							<X size={18} color="#dc3545" />
-						</Button>
 					</div>
 				</div>
 			) : (
 				// Display mode
 				<div className="flex items-center gap-1 flex-nowrap">
 					<p className={`${titleClassName} flex items-center flex-nowrap whitespace-nowrap`}>
-						<span className="truncate">
-							{item.title || item.post_title}
+						<span 
+							className="truncate text-base max-w-[120px]" 
+							title={decodeHtmlEntities(item.title || item.post_title)}
+							style={{
+								textOverflow: 'ellipsis',
+								overflow: 'hidden',
+								whiteSpace: 'nowrap',
+								maxWidth: '120px'
+							}}
+						>
+							{decodeHtmlEntities(item.title || item.post_title)}
 						</span>
 						{showDraftStatus && (
 							<span className="ml-2 flex items-center text-xs text-gray-500 font-normal flex-shrink-0">

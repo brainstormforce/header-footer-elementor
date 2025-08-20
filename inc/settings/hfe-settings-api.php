@@ -570,9 +570,15 @@ class HFE_Settings_Api {
 			while ( $query->have_posts() ) {
 				$query->the_post();
 				$post_id = get_the_ID();
+				
+				// Get the raw title and decode HTML entities to preserve apostrophes
+				$raw_title = get_the_title();
+				$decoded_title = html_entity_decode( $raw_title, ENT_QUOTES | ENT_HTML5, 'UTF-8' );
+				
 				$posts[] = [
 					'id'    => $post_id,
-					'title' => get_the_title(),
+					'title' => $decoded_title,
+					'post_title' => $decoded_title, // Add both for compatibility
 					'template_type' => get_post_meta($post_id, 'ehf_template_type', true),
 					'post_status' => get_post_status(),
 				];
@@ -801,10 +807,13 @@ class HFE_Settings_Api {
 		$target_include = get_post_meta( $post_id, 'ehf_target_include_locations', true );
 		$target_exclude = get_post_meta( $post_id, 'ehf_target_exclude_locations', true );
 
-		// Prepare response data with escaped values
+		// Prepare response data with properly decoded titles
+		$decoded_title = html_entity_decode( $post->post_title, ENT_QUOTES | ENT_HTML5, 'UTF-8' );
+		
 		$post_data = [
 			'id'                => $post->ID,
-			'post_title'        => esc_html( $post->post_title ),
+			'post_title'        => $decoded_title,
+			'title'             => $decoded_title, // Add both for compatibility
 			'post_status'       => sanitize_key( $post->post_status ),
 			'template_type'     => sanitize_text_field( $template_type ),
 			'target_include'    => is_array( $target_include ) ? array_map( 'sanitize_text_field', $target_include ) : sanitize_text_field( $target_include ),
@@ -828,7 +837,7 @@ class HFE_Settings_Api {
 	 */
 	public function uae_update_post_title( $request ) {
 		$post_id    = intval( $request->get_param( 'post_id' ) );
-		$post_title = sanitize_text_field( $request->get_param( 'post_title' ) );
+		$post_title = $request->get_param( 'post_title' );
 
 		// Verify nonce for additional security
 		if ( ! wp_verify_nonce( $request->get_header( 'X-WP-Nonce' ), 'wp_rest' ) ) {
@@ -855,6 +864,17 @@ class HFE_Settings_Api {
 			], 403 );
 		}
 
+		// Sanitize title properly - preserve apostrophes but remove HTML tags
+		$post_title = wp_strip_all_tags( $post_title ); // Remove HTML tags
+		$post_title = trim( $post_title ); // Trim whitespace
+		
+		// Use wp_unslash to handle slashes properly, then sanitize without converting quotes
+		$post_title = wp_unslash( $post_title );
+		$post_title = sanitize_text_field( $post_title );
+		
+		// Convert HTML entities back to normal characters (including apostrophes)
+		$post_title = html_entity_decode( $post_title, ENT_QUOTES | ENT_HTML5, 'UTF-8' );
+
 		// Validate post title
 		if ( empty( $post_title ) ) {
 			return new WP_REST_Response( [
@@ -870,10 +890,6 @@ class HFE_Settings_Api {
 				'message' => __( 'Post title is too long. Maximum 255 characters allowed.', 'header-footer-elementor' ),
 			], 400 );
 		}
-
-		// Additional validation: Check for potentially harmful content
-		$post_title = wp_strip_all_tags( $post_title );
-		$post_title = trim( $post_title );
 
 		// Rate limiting check (prevent spam)
 		$transient_key = 'hfe_rename_limit_' . get_current_user_id();
@@ -918,7 +934,8 @@ class HFE_Settings_Api {
 			'message' => __( 'Post title updated successfully.', 'header-footer-elementor' ),
 			'data'    => [
 				'post_id'    => $post_id,
-				'post_title' => esc_html( $post_title ),
+				'post_title' => $post_title, // Return the properly sanitized title without additional escaping
+				'title'      => $post_title, // Add both for compatibility
 			],
 		], 200 );
 	}
