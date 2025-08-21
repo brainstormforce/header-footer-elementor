@@ -110,7 +110,7 @@ class HFE_Kadence_Compat {
 	 * @return string
 	 */
 	private function get_theme_version() {
-		return defined( 'KADENCE_VERSION' ) ? KADENCE_VERSION : '1.0.0';
+		return defined( 'KADENCE_VERSION' );
 	}
 
 }
