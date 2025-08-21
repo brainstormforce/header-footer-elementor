@@ -1,0 +1,140 @@
+/* HFE Woo Products Widget Styles */
+.hfe-woo-products-wrapper {
+	width: 100%;
+}
+
+.hfe-woo-products-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px 20px;
+}
+
+.hfe-product-item {
+	background: #fff;
+	border-radius: 4px;
+	overflow: hidden;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hfe-product-item:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.hfe-product-image {
+	position: relative;
+	overflow: hidden;
+}
+
+.hfe-product-image img {
+	width: 100%;
+	height: auto;
+	display: block;
+	transition: transform 0.3s ease;
+}
+
+.hfe-image-hover-zoom .hfe-product-image:hover img {
+	transform: scale(1.05);
+}
+
+.hfe-product-content {
+	padding: 20px;
+}
+
+.hfe-product-category {
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	margin-bottom: 10px;
+	opacity: 0.7;
+}
+
+.hfe-product-title {
+	margin: 0 0 10px 0;
+	font-size: 16px;
+	line-height: 1.4;
+}
+
+.hfe-product-title a {
+	color: inherit;
+	text-decoration: none;
+	transition: color 0.3s ease;
+}
+
+.hfe-product-title a:hover {
+	opacity: 0.8;
+}
+
+.hfe-product-rating {
+	margin-bottom: 10px;
+}
+
+.hfe-product-rating .star-rating {
+	font-size: 14px;
+}
+
+.hfe-product-price {
+	margin-bottom: 15px;
+	font-weight: 600;
+}
+
+.hfe-product-price .price {
+	font-size: 18px;
+}
+
+.hfe-product-price .price del {
+	opacity: 0.6;
+	margin-right: 8px;
+}
+
+.hfe-product-description {
+	margin-bottom: 15px;
+	font-size: 14px;
+	line-height: 1.5;
+	color: #666;
+}
+
+.hfe-product-add-to-cart .button {
+	width: 100%;
+	padding: 15px;
+	border: none;
+	border-radius: 4px;
+	background: #333;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.hfe-product-add-to-cart .button:hover {
+	background: #555;
+}
+
+.hfe-woo-products-notice,
+.hfe-woo-products-empty {
+	text-align: center;
+	padding: 40px 20px;
+	background: #f8f9fa;
+	border-radius: 4px;
+	color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+	.hfe-woo-products-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 767px) {
+	.hfe-woo-products-grid {
+		grid-template-columns: 1fr;
+	}
+	
+	.hfe-product-content {
+		padding: 15px;
+	}
+}
