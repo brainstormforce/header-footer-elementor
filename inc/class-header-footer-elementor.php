@@ -115,6 +115,12 @@ class Header_Footer_Elementor {
 				require HFE_DIR . 'themes/storefront/class-hfe-storefront-compat.php';
 			} elseif ( 'hello-elementor' == $this->template ) {
 				require HFE_DIR . 'themes/hello-elementor/class-hfe-hello-elementor-compat.php';
+			} elseif ( 'kadence' == $this->template ) {
+				require HFE_DIR . 'themes/kadence/class-hfe-kadence-compat.php';
+			} elseif ( 'neve' == $this->template ) {
+				require HFE_DIR . 'themes/neve/class-hfe-neve-compat.php';
+			} elseif ( 'blocksy' == $this->template ) {
+				require HFE_DIR . 'themes/blocksy/class-hfe-blocksy-compat.php';
 			} else {
 				$is_theme_supported = false;
 				add_filter( 'hfe_settings_tabs', [ $this, 'setup_unsupported_theme' ] );
