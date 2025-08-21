@@ -75,6 +75,28 @@ class Infocard extends Common_Widget {
 	}
 
 	/**
+	 * Get widget upsale data.
+	 *
+	 * Retrieve the widget promotion data.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 *
+	 * @return array Widget promotion data.
+	 */
+	protected function get_upsale_data() {
+		return [
+			'condition' => ! defined( 'UAEL_VER' ),
+			'image' => esc_url( ELEMENTOR_ASSETS_URL . 'images/go-pro.svg' ),
+			'image_alt' => esc_attr__( 'Upgrade', 'header-footer-elementor' ),
+			'title' => esc_html__( 'Convert visitors into customers', 'header-footer-elementor' ),
+			'description' => esc_html__( 'Get the Call to Action widget and grow your toolbox with Elementor Pro.', 'header-footer-elementor' ),
+			'upgrade_url' => esc_url( 'https://ultimateelementor.com/pricing/' ),
+			'upgrade_text' => esc_html__( 'Upgrade Now', 'header-footer-elementor' ),
+		];
+	}
+
+	/**
 	 * Indicates if the widget's content is dynamic.
 	 *
 	 * This method returns true if the widget's output is dynamic and should not be cached,
