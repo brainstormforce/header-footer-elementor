@@ -299,6 +299,8 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 ---
 
 == Changelog ==
+= 2.4.9.1 = 
+- New: Blog Posts widget.
 
 = 2.4.9 =
 - Fixed: Navigation Menu - Resolved accessibility issue with the expandable menu layout.
