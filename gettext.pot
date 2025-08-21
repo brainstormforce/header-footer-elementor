@@ -116,8 +116,6 @@ msgstr ""
 #: src/Components/Compare/FreevsPro.jsx:200
 #: src/Components/Compare/UltimateCompare.jsx:109
 #: src/Components/Dashboard/MyAccount.jsx:54
-#: src/Components/Dashboard/UltimateFeatures.js:131
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:133
 #: src/Components/Widgets/UltimateWidgets.jsx:116
 msgid "Upgrade Now"
 msgstr ""
@@ -172,8 +170,6 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:35
 #: src/Components/Compare/UltimateCompare.jsx:17
-#: src/Components/Dashboard/UltimateFeatures.js:90
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:92
 #: src/Components/Widgets/UltimateWidgets.jsx:18
 msgid "Advanced Heading"
 msgstr ""
@@ -183,6 +179,8 @@ msgid "Dual Color Heading"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:37
+#: src/Components/Dashboard/UltimateFeatures.js:75
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:77
 msgid "Fancy Heading"
 msgstr ""
 
@@ -207,6 +205,8 @@ msgid "Image Gallery"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:47
+#: src/Components/Dashboard/UltimateFeatures.js:98
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:100
 msgid "Video Gallery"
 msgstr ""
 
@@ -240,8 +240,6 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:55
 #: src/Components/Compare/UltimateCompare.jsx:27
-#: src/Components/Dashboard/UltimateFeatures.js:94
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:96
 #: src/Components/Widgets/UltimateWidgets.jsx:28
 msgid "Info Box"
 msgstr ""
@@ -280,7 +278,9 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:68
 #: src/Components/Compare/UltimateCompare.jsx:12
+#: src/Components/Dashboard/UltimateFeatures.js:83
 #: src/Components/Onboarding/Features.jsx:243
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:85
 #: src/Components/Widgets/UltimateWidgets.jsx:13
 msgid "Modal Popup"
 msgstr ""
@@ -354,8 +354,6 @@ msgid "Business Reviews"
 msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:22
-#: src/Components/Dashboard/UltimateFeatures.js:98
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:100
 #: src/Components/Widgets/UltimateWidgets.jsx:23
 msgid "Post Layouts"
 msgstr ""
@@ -378,8 +376,6 @@ msgid "Column Showcase"
 msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:68
-#: src/Components/Dashboard/UltimateFeatures.js:41
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:43
 #: src/Components/Widgets/UltimateWidgets.jsx:67
 msgid "Unlock Ultimate Features"
 msgstr ""
@@ -529,6 +525,26 @@ msgstr ""
 msgid "View Templates"
 msgstr ""
 
+#: src/Components/Dashboard/UltimateFeatures.js:102
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:104
+msgid "Price Box"
+msgstr ""
+
+#: src/Components/Dashboard/UltimateFeatures.js:106
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:108
+msgid "And more.."
+msgstr ""
+
+#: src/Components/Dashboard/UltimateFeatures.js:139
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:141
+msgid "View Plans"
+msgstr ""
+
+#: src/Components/Dashboard/UltimateFeatures.js:41
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:43
+msgid "Unlock Pro Widgets"
+msgstr ""
+
 #: src/Components/Dashboard/UltimateFeatures.js:54
 #: src/Components/Widgets/UltimateWidgetFeatures.jsx:56
 msgid "Bring Your Vision to Life with UAE Pro"
@@ -541,19 +557,19 @@ msgid ""
 "high-performance websites."
 msgstr ""
 
-#: src/Components/Dashboard/UltimateFeatures.js:75
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:77
-msgid "Cross-Site Copy Paste"
-msgstr ""
-
 #: src/Components/Dashboard/UltimateFeatures.js:79
 #: src/Components/Widgets/UltimateWidgetFeatures.jsx:81
-msgid "Form Stylers"
+msgid "FAQ Schema"
 msgstr ""
 
-#: src/Components/Dashboard/UltimateFeatures.js:83
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:85
-msgid "Modal Popups"
+#: src/Components/Dashboard/UltimateFeatures.js:87
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:89
+msgid "InfoBox"
+msgstr ""
+
+#: src/Components/Dashboard/UltimateFeatures.js:94
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:96
+msgid "Before After Slider"
 msgstr ""
 
 #: src/Components/Dashboard/WelcomeContainer.js:25
@@ -1083,19 +1099,19 @@ msgstr ""
 msgid "Install Starter Templates"
 msgstr ""
 
-#: src/Components/UpgradeNotice.jsx:33
+#: src/Components/UpgradeNotice.jsx:67
 msgid "Close Upgrade Notice"
 msgstr ""
 
-#: src/Components/UpgradeNotice.jsx:38
-msgid "Unlock Ultimate Addons For Elementor!  "
+#: src/Components/UpgradeNotice.jsx:72
+msgid "Unlock UAE's full potential!"
 msgstr ""
 
-#: src/Components/UpgradeNotice.jsx:44
-msgid "Get exclusive features and unbeatable performance.  "
+#: src/Components/UpgradeNotice.jsx:78
+msgid "Get powerful widgets and faster performance."
 msgstr ""
 
-#: src/Components/UpgradeNotice.jsx:53
+#: src/Components/UpgradeNotice.jsx:87
 msgid "Upgrade now"
 msgstr ""
 
