@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Ultimate Addons for Elementor Lite 2.4.9\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/header-footer-elementor\n"
-"POT-Creation-Date: 2025-08-14 07:29:20+00:00\n"
+"POT-Creation-Date: 2025-08-19 08:52:45+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -161,73 +161,82 @@ msgstr ""
 msgid "Other"
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:145
+#: admin/class-hfe-addons-actions.php:147
 msgid "Plugin installation is disabled for you on this site."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:152
+#: admin/class-hfe-addons-actions.php:154
 msgid "Plugin slug is missing."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:175
+#: admin/class-hfe-addons-actions.php:177
 msgid "Plugin installation function not found."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:195
+#: admin/class-hfe-addons-actions.php:197
 msgid "Theme installation is disabled for you on this site."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:202
+#: admin/class-hfe-addons-actions.php:204
 msgid "Theme slug is missing."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:225
+#: admin/class-hfe-addons-actions.php:227
 msgid "Theme installation function not found."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:238
-#: admin/class-hfe-addons-actions.php:271
-#: admin/class-hfe-addons-actions.php:304
-#: admin/class-hfe-addons-actions.php:351
-#: admin/class-hfe-addons-actions.php:375
-#: admin/class-hfe-addons-actions.php:402
-#: admin/class-hfe-addons-actions.php:531
-#: admin/class-hfe-addons-actions.php:559
+#: admin/class-hfe-addons-actions.php:240
+#: admin/class-hfe-addons-actions.php:273
+#: admin/class-hfe-addons-actions.php:306
+#: admin/class-hfe-addons-actions.php:353
+#: admin/class-hfe-addons-actions.php:377
+#: admin/class-hfe-addons-actions.php:404
+#: admin/class-hfe-addons-actions.php:533
+#: admin/class-hfe-addons-actions.php:561
+#: admin/class-hfe-addons-actions.php:586
 msgid "You do not have permission to perform this action."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:477
+#: admin/class-hfe-addons-actions.php:479
 msgid "Plugin activation is disabled for you on this site."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:486
+#: admin/class-hfe-addons-actions.php:488
 msgid "Plugin Activated."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:497
+#: admin/class-hfe-addons-actions.php:499
 msgid "Theme activation is disabled for you on this site."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:506
+#: admin/class-hfe-addons-actions.php:508
 msgid "Theme Activated."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:513
+#: admin/class-hfe-addons-actions.php:515
 msgid "Could not activate plugin. Please activate from the Plugins page."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:515
+#: admin/class-hfe-addons-actions.php:517
 msgid "Could not activate theme. Please activate from the Themes page."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:540
-#: admin/class-hfe-addons-actions.php:568
+#: admin/class-hfe-addons-actions.php:542
+#: admin/class-hfe-addons-actions.php:570
 msgid "Settings saved successfully!"
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:543
-#: admin/class-hfe-addons-actions.php:571
+#: admin/class-hfe-addons-actions.php:545
+#: admin/class-hfe-addons-actions.php:573
 msgid "Unable to save settings."
+msgstr ""
+
+#: admin/class-hfe-addons-actions.php:592
+msgid "Security check failed."
+msgstr ""
+
+#: admin/class-hfe-addons-actions.php:598
+msgid "Upgrade notice dismissed."
 msgstr ""
 
 #: admin/class-hfe-admin.php:261
@@ -282,7 +291,7 @@ msgstr ""
 msgid "View Template"
 msgstr ""
 
-#: admin/class-hfe-admin.php:444 inc/class-hfe-settings-page.php:469
+#: admin/class-hfe-admin.php:444 inc/class-hfe-settings-page.php:472
 msgid "View All"
 msgstr ""
 
@@ -465,8 +474,60 @@ msgstr ""
 msgid "Update Elementor"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:601
+#: inc/class-header-footer-elementor.php:605
 msgid "Theme Support"
+msgstr ""
+
+#: inc/class-hfe-promotion.php:104
+msgid "Upgrade Now"
+msgstr ""
+
+#: inc/class-hfe-promotion.php:156
+#. translators: %1$s: Feature name, %2$s: Lock icon
+msgid "UAE - %1$s %2$s"
+msgstr ""
+
+#: inc/class-hfe-promotion.php:169
+#: inc/widgets-manager/base/widgets-config.php:880
+msgid "Particle Backgrounds"
+msgstr ""
+
+#: inc/class-hfe-promotion.php:179
+msgid ""
+"Use Particle Backgrounds and other Pro features to extend your toolbox with "
+"more control and flexibility."
+msgstr ""
+
+#: inc/class-hfe-promotion.php:195
+#: inc/widgets-manager/base/widgets-config.php:865
+msgid "Display Conditions"
+msgstr ""
+
+#: inc/class-hfe-promotion.php:205
+msgid ""
+"Use Advanced Display Condition and other Pro features to extend your "
+"toolbox with more control and flexibility."
+msgstr ""
+
+#: inc/class-hfe-promotion.php:221
+#: inc/widgets-manager/base/widgets-config.php:893
+msgid "Party Propz"
+msgstr ""
+
+#: inc/class-hfe-promotion.php:231
+msgid ""
+"Use Party Propz and other Pro features to extend your toolbox with more "
+"control and flexibility."
+msgstr ""
+
+#: inc/class-hfe-promotion.php:252
+msgid "Sticky Header"
+msgstr ""
+
+#: inc/class-hfe-promotion.php:262
+msgid ""
+"Use Sticky Header and other Pro features to extend your toolbox with more "
+"control and flexibility."
 msgstr ""
 
 #: inc/class-hfe-rollback.php:167
@@ -484,8 +545,8 @@ msgid ""
 "support!"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:144 inc/class-hfe-settings-page.php:1047
-#: inc/class-hfe-settings-page.php:1325
+#: inc/class-hfe-settings-page.php:144 inc/class-hfe-settings-page.php:1050
+#: inc/class-hfe-settings-page.php:1328
 msgid "Ultimate Addons for Elementor"
 msgstr ""
 
@@ -496,97 +557,100 @@ msgid ""
 msgstr ""
 
 #: inc/class-hfe-settings-page.php:147
-msgid ""
-"Could you please do us a favor and give us a 5-star rating on Trustpilot? "
-"It would help others choose Ultimate Addons for Elementor with confidence. "
-"Thank you!"
+msgid "Thanks a lot for your feedback! 😍"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:150
-msgid "Thank you for your feedback"
+#: inc/class-hfe-settings-page.php:148
+msgid ""
+"Thanks for using Ultimate Addons! Got feedback or suggestions to make it "
+"even better? We’d love to hear from you."
 msgstr ""
 
 #: inc/class-hfe-settings-page.php:151
+msgid "Thank you for your feedback"
+msgstr ""
+
+#: inc/class-hfe-settings-page.php:152
 msgid "We value your input. How can we improve your experience?"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:195
+#: inc/class-hfe-settings-page.php:196
 msgid "You do not have permission to access this page."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:196 inc/class-hfe-settings-page.php:231
+#: inc/class-hfe-settings-page.php:197 inc/class-hfe-settings-page.php:232
 msgid "Rollback to Previous Version"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:212
+#: inc/class-hfe-settings-page.php:213
 msgid ""
 "Error occurred, The version selected is invalid. Try selecting different "
 "version."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:448 inc/class-hfe-settings-page.php:1256
+#: inc/class-hfe-settings-page.php:450 inc/class-hfe-settings-page.php:1259
 msgid "Activate"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:449 inc/class-hfe-settings-page.php:1248
+#: inc/class-hfe-settings-page.php:451 inc/class-hfe-settings-page.php:1251
 msgid "Activated"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:450 inc/class-hfe-settings-page.php:1245
+#: inc/class-hfe-settings-page.php:452 inc/class-hfe-settings-page.php:1248
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1031
 #: inc/widgets-manager/widgets/navigation-menu/navigation-menu.php:1214
 msgid "Active"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:451
+#: inc/class-hfe-settings-page.php:453
 msgid "Deactivate"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:452 inc/class-hfe-settings-page.php:1253
+#: inc/class-hfe-settings-page.php:454 inc/class-hfe-settings-page.php:1256
 msgid "Inactive"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:453 inc/class-hfe-settings-page.php:1269
+#: inc/class-hfe-settings-page.php:455 inc/class-hfe-settings-page.php:1272
 msgid "Install"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:454
+#: inc/class-hfe-settings-page.php:456
 msgid "Theme Installed"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:455
+#: inc/class-hfe-settings-page.php:457
 msgid "Plugin Installed"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:456
+#: inc/class-hfe-settings-page.php:458
 msgid "Download"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:457
+#: inc/class-hfe-settings-page.php:459
 msgid "Already Exists."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:458 inc/class-hfe-settings-page.php:1274
+#: inc/class-hfe-settings-page.php:460 inc/class-hfe-settings-page.php:1277
 msgid "Visit Website"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:459
+#: inc/class-hfe-settings-page.php:461
 msgid "Could not install. Please download from WordPress.org and install manually."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:460
+#: inc/class-hfe-settings-page.php:462
 msgid "Your details are submitted successfully."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:461
+#: inc/class-hfe-settings-page.php:463
 msgid "Encountered an error while performing your request."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:533
+#: inc/class-hfe-settings-page.php:536
 msgid "Add Theme Support"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:549
+#: inc/class-hfe-settings-page.php:552
 msgid ""
 "The Ultimate Addons for Elementor plugin need compatibility with your "
 "current theme to work smoothly.</br></br>Following are two methods that "
@@ -595,27 +659,27 @@ msgid ""
 "issue with the header or footer template, try choosing Method 2."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:568
+#: inc/class-hfe-settings-page.php:571
 msgid " Method 1 (Recommended)"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:569
+#: inc/class-hfe-settings-page.php:572
 msgid ""
 "This method replaces your theme's header (header.php) & footer (footer.php) "
 "template with plugin's custom templates."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:572
+#: inc/class-hfe-settings-page.php:575
 msgid "Method 2"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:576
+#: inc/class-hfe-settings-page.php:579
 msgid ""
 "This method hides your theme's header & footer template with CSS and "
 "displays custom templates from the plugin."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:587
+#: inc/class-hfe-settings-page.php:590
 #. translators: %s: URL to the plugin support page
 msgid ""
 "Sometimes above methods might not work well with your theme, in this case, "
@@ -623,21 +687,21 @@ msgid ""
 "href=\"%s\">plugin.</a>"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:619 inc/class-hfe-settings-page.php:631
+#: inc/class-hfe-settings-page.php:622 inc/class-hfe-settings-page.php:634
 msgid "UAE Lite"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:620
+#: inc/class-hfe-settings-page.php:623
 #: inc/widgets-manager/class-widgets-loader.php:171
 msgid "UAE"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:632
+#: inc/class-hfe-settings-page.php:635
 msgid "Dashboard"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:643 inc/class-hfe-settings-page.php:644
-#: inc/class-hfe-settings-page.php:1396
+#: inc/class-hfe-settings-page.php:646 inc/class-hfe-settings-page.php:647
+#: inc/class-hfe-settings-page.php:1399
 #: inc/widgets-manager/base/widgets-config.php:309
 #: inc/widgets-manager/base/widgets-config.php:365
 #: inc/widgets-manager/base/widgets-config.php:448
@@ -650,116 +714,116 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:654 inc/class-hfe-settings-page.php:655
-#: inc/class-hfe-settings-page.php:666
+#: inc/class-hfe-settings-page.php:657 inc/class-hfe-settings-page.php:658
+#: inc/class-hfe-settings-page.php:669
 msgid "Onboarding"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:667
+#: inc/class-hfe-settings-page.php:670
 msgid "Onboardingsuccess"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:711 inc/class-hfe-settings-page.php:712
+#: inc/class-hfe-settings-page.php:714 inc/class-hfe-settings-page.php:715
 msgid "Upgrade to Pro"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:768
+#: inc/class-hfe-settings-page.php:771
 msgid "Elementor Header & Footer Builder "
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:826
+#: inc/class-hfe-settings-page.php:829
 msgid "All Templates"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:833
+#: inc/class-hfe-settings-page.php:836
 msgid "About Us"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:879
+#: inc/class-hfe-settings-page.php:882
 #. translators: 1: Elementor, 2: Link to plugin review
 msgid ""
 "Help us spread the word about the plugin by leaving %2$s %1$s %3$s ratings "
 "on %2$s WordPress.org %3$s. Thank you from the Brainstorm Force team!"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:922
+#: inc/class-hfe-settings-page.php:925
 msgid "Create Impressive Header and Footer Designs"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:923
+#: inc/class-hfe-settings-page.php:926
 msgid ""
 "Elementor Header & Footer Builder plugin lets you build impactful "
 "navigation for your website very easily. Before we begin, we would like to "
 "know more about you. This will help us to serve you better."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:937
+#: inc/class-hfe-settings-page.php:940
 #. translators: %1$s and %3$s are opening anchor tags, and %2$s and %4$s is
 #. closing anchor tags.
 msgid "By submitting, you agree to our %1$sTerms%2$s and %3$sPrivacy Policy%4$s."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:955
+#: inc/class-hfe-settings-page.php:958
 msgid "Skip"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:973
+#: inc/class-hfe-settings-page.php:976
 msgid "Beginner"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:974
+#: inc/class-hfe-settings-page.php:977
 msgid "Intermediate"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:975
+#: inc/class-hfe-settings-page.php:978
 msgid "Expert"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:977 inc/class-hfe-settings-page.php:986
+#: inc/class-hfe-settings-page.php:980 inc/class-hfe-settings-page.php:989
 msgid "Field is required"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:978
+#: inc/class-hfe-settings-page.php:981
 msgid "I'm a WordPress:"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:983
+#: inc/class-hfe-settings-page.php:986
 msgid "Myself/My company"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:984
+#: inc/class-hfe-settings-page.php:987
 msgid "My client"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:987
+#: inc/class-hfe-settings-page.php:990
 msgid "I'm building website for:"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1010
+#: inc/class-hfe-settings-page.php:1013
 msgid "First name is required"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1011
+#: inc/class-hfe-settings-page.php:1014
 msgid "Your First Name"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1015
+#: inc/class-hfe-settings-page.php:1018
 msgid "Email address is required"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1016
+#: inc/class-hfe-settings-page.php:1019
 msgid "Your Work Email"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1020
+#: inc/class-hfe-settings-page.php:1023
 msgid "I agree to receive your newsletters and accept the data privacy statement."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1025
+#: inc/class-hfe-settings-page.php:1028
 msgid "Submit"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1082
+#: inc/class-hfe-settings-page.php:1085
 #. translators: %s: theme name
 msgid ""
 "Powering over 1+ Million websites, %s is loved for the fast performance and "
@@ -767,17 +831,17 @@ msgid ""
 "portfolios, business, and WooCommerce stores."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1103
+#: inc/class-hfe-settings-page.php:1106
 msgid "Welcome to Elementor Header & Footer Builder!"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1105
+#: inc/class-hfe-settings-page.php:1108
 msgid ""
 "With this awesome plugin, experience the easiest way to create a customized "
 "header and footer for your website with Elementor. That too 100% FREE!"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1107
+#: inc/class-hfe-settings-page.php:1110
 msgid ""
 "Design beautiful layouts with simple drag & drop and display them at "
 "desired location with powerful target controls. The plugin comes with "
@@ -786,65 +850,65 @@ msgid ""
 "backed up by 24/7 support."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1109
+#: inc/class-hfe-settings-page.php:1112
 msgid ""
 "Trusted by more than 1+ Million users, Elementor Header & Footer Builder is "
 "a modern way to build advanced navigation for your website."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1112
+#: inc/class-hfe-settings-page.php:1115
 #. translators: %s: theme name
 msgid ""
 "This plugin is brought to you by the same team behind the popular WordPress "
 "theme %s and a series of Ultimate Addons plugins."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1118
+#: inc/class-hfe-settings-page.php:1121
 msgid "Team photo"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1120
+#: inc/class-hfe-settings-page.php:1123
 msgid "Brainstorm Force Team"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1165
+#: inc/class-hfe-settings-page.php:1168
 #. translators: %s - addon status label.
 msgid "%1$s %3$s %2$s"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1182
+#: inc/class-hfe-settings-page.php:1185
 #. translators: %s - addon status label.
 msgid "Status: %s"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1201
+#: inc/class-hfe-settings-page.php:1204
 msgid "WordPress.org"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1266
+#: inc/class-hfe-settings-page.php:1269
 msgid "Not Installed"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1313
+#: inc/class-hfe-settings-page.php:1316
 #: inc/widgets-manager/base/widgets-config.php:1129
 msgid "Starter Templates"
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1314
+#: inc/class-hfe-settings-page.php:1317
 msgid ""
 "A popular templates plugin that provides an extensive library of "
 "professional and fully customizable 600+ ready website and templates. More "
 "than 1+ Million websites have built with this plugin."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1326
+#: inc/class-hfe-settings-page.php:1329
 msgid ""
 "It’s a collection of 40+ unique, creative, and optimized Elementor widgets "
 "with 100+ readymade templates. Trusted by more than 600+ K web "
 "professionals. It’s a #1 toolkit for Elementor Page Builder."
 msgstr ""
 
-#: inc/class-hfe-settings-page.php:1395
+#: inc/class-hfe-settings-page.php:1398
 msgid "Go to UAE Settings page"
 msgstr ""
 
@@ -856,12 +920,12 @@ msgstr ""
 msgid "Invalid notice ID."
 msgstr ""
 
-#: inc/lib/nps-survey/classes/nps-survey-script.php:254
+#: inc/lib/nps-survey/classes/nps-survey-script.php:277
 msgid "Sorry, you are not allowed to do that."
 msgstr ""
 
-#: inc/lib/nps-survey/classes/nps-survey-script.php:276
-#: inc/lib/nps-survey/classes/nps-survey-script.php:382
+#: inc/lib/nps-survey/classes/nps-survey-script.php:331
+#: inc/lib/nps-survey/classes/nps-survey-script.php:449
 msgid "Nonce verification failed."
 msgstr ""
 
@@ -1559,24 +1623,12 @@ msgstr ""
 msgid "Upgrade WPForms with customizable design and layout options."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:865
-msgid "Display Conditions"
-msgstr ""
-
 #: inc/widgets-manager/base/widgets-config.php:866
 msgid "Show or hide content based on user interactions."
 msgstr ""
 
-#: inc/widgets-manager/base/widgets-config.php:880
-msgid "Particle Backgrounds"
-msgstr ""
-
 #: inc/widgets-manager/base/widgets-config.php:881
 msgid "Add dynamic, animated backgrounds to sections and columns."
-msgstr ""
-
-#: inc/widgets-manager/base/widgets-config.php:893
-msgid "Party Propz"
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:894
