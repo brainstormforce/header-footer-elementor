@@ -20,7 +20,7 @@ module.exports = defineConfig({
 	/* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
 	use: {
 		/* Base URL to use in actions like `await page.goto('/')`. */
-		baseURL: process.env.WP_BASE_URL || 'http://localhost:8888',
+		baseURL: process.env.WP_BASE_URL || 'http://localhost:9092',
 
 		/* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
 		trace: 'on-first-retry',

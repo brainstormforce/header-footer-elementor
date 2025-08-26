@@ -5,7 +5,7 @@ test('plugin deactivation', async ({ page, request }) => {
 
   await site_login(page, "admin", "password");
   
-  await page.goto('http://localhost:9092/wp-admin/plugins.php');
+  await page.goto('/wp-admin/plugins.php');
 
   //Check if plugin is already deactivated
   const activeLink = page.locator('#activate-header-footer-elementor');

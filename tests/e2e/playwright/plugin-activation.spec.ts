@@ -5,8 +5,8 @@ import { site_login } from '../playwright/helpers/site-login';
 test('plugin activation', async ({ page, request }) => {
 
   await site_login(page, "admin", "password");
-  
-  await page.goto('http://localhost:9092/wp-admin/plugins.php');
+
+  await page.goto('/wp-admin/plugins.php');
   // Check if deactivate link is visible and proceed with deactivation
   const deactivateLink = page.locator('#deactivate-header-footer-elementor');
   if (await deactivateLink.isVisible()) {
