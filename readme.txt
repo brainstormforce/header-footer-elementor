@@ -8,7 +8,7 @@ Stable tag: 2.4.9
 License: GPLv2 or later  
 License URI: https://www.gnu.org/licenses/gpl-2.0.html  
 
-Feature-rich Elementor addon with widgets like InfoCard, Fancy Heading, Before/After Slider, Price Box, FAQ Schema, WooCommerce widgets, and more—plus a flexible Header-Footer builder.
+Powerful Elementor addon with InfoCard, Fancy Heading, Before/After Slider, Price Box, FAQ Schema, WooCommerce widgets & Header-Footer builder.
 
 == Description ==
 **Ultimate Addons for Elementor (UAE)** is a powerful yet lightweight plugin that extends Elementors capabilities with purposely built **widgets**, **blocks**, and **features** that help you build better websites—without adding complexity. 
