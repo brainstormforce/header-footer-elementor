@@ -299,19 +299,22 @@ class Widgets_Loader {
 	 * Sanitize uploaded SVG files via XML-RPC before they are saved.
 	 *
 	 * @param array $prepared_media Array of prepared media item information.
-	 * @param array $media_item Array of uploaded media item information.
+	 * @param WP_Post $attachment The attachment post object.
 	 * @return array|WP_Error Modified array of media item information or WP_Error on failure.
 	 */
-	public function sanitize_xmlrpc_svg_upload( $prepared_media, $media_item ) {
+	public function sanitize_xmlrpc_svg_upload( $prepared_media, $attachment ) {
 		// Only process if this is an SVG file
-		if ( isset( $media_item['type'] ) && 'image/svg+xml' === $media_item['type'] ) {
+		if ( isset( $prepared_media['type'] ) && 'image/svg+xml' === $prepared_media['type'] ) {
 
-			// Get the file path from the media item
+			// Get the file path from the prepared media or attachment
 			$file_path = '';
-			if ( isset( $media_item['tmp_name'] ) && file_exists( $media_item['tmp_name'] ) ) {
-				$file_path = $media_item['tmp_name'];
-			} elseif ( isset( $prepared_media['file'] ) && file_exists( $prepared_media['file'] ) ) {
+			if ( isset( $prepared_media['file'] ) && file_exists( $prepared_media['file'] ) ) {
 				$file_path = $prepared_media['file'];
+			} elseif ( is_object( $attachment ) && ! is_wp_error( $attachment ) ) {
+				$attached_file = get_attached_file( $attachment->ID );
+				if ( $attached_file && file_exists( $attached_file ) ) {
+					$file_path = $attached_file;
+				}
 			}
 
 			if ( ! empty( $file_path ) && Svg::file_sanitizer_can_run() ) {
