@@ -138,6 +138,9 @@ class Widgets_Loader {
 		// Add filter to sanitize uploaded SVG files.
 		add_filter( 'wp_handle_upload_prefilter', [ $this, 'sanitize_uploaded_svg' ] );
 
+		// Add filter to sanitize SVG files uploaded via XML-RPC.
+		add_filter( 'xmlrpc_prepare_media_item', [ $this, 'sanitize_xmlrpc_svg_upload' ], 10, 2 );
+
 		// Refresh the cart fragments.
 		if ( class_exists( 'woocommerce' ) ) {
 
@@ -290,7 +293,47 @@ class Widgets_Loader {
 		}
 
 		return $file;
-	}  
+	}
+
+	/**
+	 * Sanitize uploaded SVG files via XML-RPC before they are saved.
+	 *
+	 * @param array $prepared_media Array of prepared media item information.
+	 * @param array $media_item Array of uploaded media item information.
+	 * @return array|WP_Error Modified array of media item information or WP_Error on failure.
+	 */
+	public function sanitize_xmlrpc_svg_upload( $prepared_media, $media_item ) {
+		// Only process if this is an SVG file
+		if ( isset( $media_item['type'] ) && 'image/svg+xml' === $media_item['type'] ) {
+
+			// Get the file path from the media item
+			$file_path = '';
+			if ( isset( $media_item['tmp_name'] ) && file_exists( $media_item['tmp_name'] ) ) {
+				$file_path = $media_item['tmp_name'];
+			} elseif ( isset( $prepared_media['file'] ) && file_exists( $prepared_media['file'] ) ) {
+				$file_path = $prepared_media['file'];
+			}
+
+			if ( ! empty( $file_path ) && Svg::file_sanitizer_can_run() ) {
+				/**
+				 * SVG Handler instance.
+				 *
+				 * @var object $svg_handler;
+				 */
+				$svg_handler = Plugin::instance()->assets_manager->get_asset( 'svg-handler' );
+
+				// Try to sanitize the SVG - this will clean it instead of just blocking
+				$sanitized = $svg_handler->sanitize_svg( $file_path );
+				
+				// If sanitization completely fails (malformed SVG), then block it
+				if ( false === $sanitized ) {
+					return new WP_Error( 'invalid_svg', esc_html__( 'Invalid SVG Format, file not uploaded for security reasons!', 'header-footer-elementor' ) );
+				}
+			}
+		}
+
+		return $prepared_media;
+	}
 
 	/**
 	 * List pro widgets
