@@ -303,40 +303,58 @@ class Widgets_Loader {
 	 * @return array|WP_Error Modified array of media item information or WP_Error on failure.
 	 */
 	public function sanitize_xmlrpc_svg_upload( $prepared_media, $attachment ) {
-		// Only process if this is an SVG file
-		if ( isset( $prepared_media['type'] ) && 'image/svg+xml' === $prepared_media['type'] ) {
-
-			// Get the file path from the prepared media or attachment
-			$file_path = '';
-			if ( isset( $prepared_media['file'] ) && file_exists( $prepared_media['file'] ) ) {
-				$file_path = $prepared_media['file'];
-			} elseif ( is_object( $attachment ) && ! is_wp_error( $attachment ) ) {
-				$attached_file = get_attached_file( $attachment->ID );
-				if ( $attached_file && file_exists( $attached_file ) ) {
-					$file_path = $attached_file;
+		// Only process if this is an SVG file.
+		if ( isset( $prepared_media['type'] ) ) {
+			$mime_type = strtolower( $prepared_media['type'] );
+	
+			// Common SVG MIME variations attackers may try.
+			$svg_mime_types = array(
+				'image/svg',
+				'image/svg+xml',
+			);
+	
+			if ( in_array( $mime_type, $svg_mime_types, true ) ) {
+				// Get the file path from the prepared media or attachment.
+				$file_path = '';
+				if ( isset( $prepared_media['file'] ) && file_exists( $prepared_media['file'] ) ) {
+					$file_path = $prepared_media['file'];
+				} elseif ( is_object( $attachment ) && ! is_wp_error( $attachment ) ) {
+					$attached_file = get_attached_file( $attachment->ID );
+					if ( $attached_file && file_exists( $attached_file ) ) {
+						$file_path = $attached_file;
+					}
 				}
-			}
-
-			if ( ! empty( $file_path ) && Svg::file_sanitizer_can_run() ) {
-				/**
-				 * SVG Handler instance.
-				 *
-				 * @var object $svg_handler;
-				 */
-				$svg_handler = Plugin::instance()->assets_manager->get_asset( 'svg-handler' );
-
-				// Try to sanitize the SVG - this will clean it instead of just blocking
-				$sanitized = $svg_handler->sanitize_svg( $file_path );
-				
-				// If sanitization completely fails (malformed SVG), then block it
-				if ( false === $sanitized ) {
-					return new WP_Error( 'invalid_svg', esc_html__( 'Invalid SVG Format, file not uploaded for security reasons!', 'header-footer-elementor' ) );
+	
+				// Extra safeguard: check file extension in case MIME is manipulated.
+				if ( empty( $file_path ) || ! preg_match( '/\.svg$/i', $file_path ) ) {
+					return $prepared_media;
+				}
+	
+				if ( ! empty( $file_path ) && Svg::file_sanitizer_can_run() ) {
+					/**
+					 * SVG Handler instance.
+					 *
+					 * @var object $svg_handler
+					 */
+					$svg_handler = Plugin::instance()->assets_manager->get_asset( 'svg-handler' );
+	
+					// Try to sanitize the SVG - this will clean it instead of just blocking.
+					$sanitized = $svg_handler->sanitize_svg( $file_path );
+	
+					// If sanitization completely fails (malformed SVG), then block it.
+					if ( false === $sanitized ) {
+						return new WP_Error(
+							'invalid_svg',
+							esc_html__( 'Invalid SVG Format, file not uploaded for security reasons!', 'header-footer-elementor' )
+						);
+					}
 				}
 			}
 		}
-
+	
 		return $prepared_media;
 	}
+	
 
 	/**
 	 * List pro widgets
