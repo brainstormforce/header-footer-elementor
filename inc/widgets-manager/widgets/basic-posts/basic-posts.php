@@ -133,16 +133,6 @@ class Basic_Posts extends Common_Widget {
 		);
 
 		$this->add_control(
-			'post_type',
-			[
-				'label'   => __( 'Post Type', 'header-footer-elementor' ),
-				'type'    => Controls_Manager::SELECT,
-				'default' => 'post',
-				'options' => $this->get_post_types(),
-			]
-		);
-
-		$this->add_control(
 			'orderby',
 			[
 				'label'   => __( 'Order By', 'header-footer-elementor' ),
@@ -919,37 +909,6 @@ class Basic_Posts extends Common_Widget {
 		$this->end_controls_section();
 	}
 
-	/**
-	 * Get available post types.
-	 *
-	 * @since x.x.x
-	 * @access protected
-	 * @return array
-	 */
-	protected function get_post_types() {
-
-		// return $options;
-		$post_types = get_post_types(
-			array(
-				'public' => true,
-			),
-			'objects'
-		);
-
-		$options = array();
-
-		foreach ( $post_types as $post_type ) {
-			$options[ $post_type->name ] = $post_type->label;
-		}
-
-		// Deprecated 'Media' post type.
-		$key = array_search( 'Media', $options, true );
-		if ( 'attachment' === $key ) {
-			unset( $options[ $key ] );
-		}
-
-		return apply_filters( 'hfe_loop_post_types', $options );
-	}
 
 	/**
 	 * Get available image sizes.
@@ -983,15 +942,9 @@ class Basic_Posts extends Common_Widget {
 		$settings = $this->get_settings_for_display();
 
 		// Sanitize inputs.
-		$post_type = sanitize_key( $settings['post_type'] ?? 'post' );
 		$posts_per_page = absint( $settings['posts_per_page'] ?? 6 );
 		$orderby = sanitize_key( $settings['orderby'] ?? 'date' );
 		$order = sanitize_key( $settings['order'] ?? 'desc' );
-
-		// Validate post type exists, fallback to 'post' if not
-		if ( ! post_type_exists( $post_type ) ) {
-			$post_type = 'post';
-		}
 
 		// Ensure posts_per_page is within bounds
 		$posts_per_page = max( 1, min( 100, $posts_per_page ) );
@@ -1009,7 +962,7 @@ class Basic_Posts extends Common_Widget {
 		}
 
 		$args = [
-			'post_type'      => $post_type,
+			'post_type'      => 'post',
 			'posts_per_page' => $posts_per_page,
 			'orderby'        => $orderby,
 			'order'          => $order,
