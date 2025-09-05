@@ -141,6 +141,9 @@ class Widgets_Loader {
 		// Add filter to sanitize SVG files uploaded via XML-RPC.
 		add_filter( 'xmlrpc_prepare_media_item', [ $this, 'sanitize_xmlrpc_svg_upload' ], 10, 2 );
 
+		// Add filter to ensure proper SVG file type detection across all upload contexts.
+		add_filter( 'wp_check_filetype_and_ext', [ $this, 'check_filetype_and_ext' ], 10, 4 );
+
 		// Refresh the cart fragments.
 		if ( class_exists( 'woocommerce' ) ) {
 
@@ -324,9 +327,9 @@ class Widgets_Loader {
 						$file_path = $attached_file;
 					}
 				}
-	
+				
 				// Extra safeguard: check file extension in case MIME is manipulated.
-				if ( empty( $file_path ) || ! preg_match( '/\.svg$/i', $file_path ) ) {
+				if (  empty( $file_path ) || ! preg_match( '/\.svg$/i', $file_path ) ) {
 					return $prepared_media;
 				}
 	
@@ -343,18 +346,55 @@ class Widgets_Loader {
 	
 					// If sanitization completely fails (malformed SVG), then block it.
 					if ( false === $sanitized ) {
-						return new WP_Error(
-							'invalid_svg',
-							esc_html__( 'Invalid SVG Format, file not uploaded for security reasons!', 'header-footer-elementor' )
-						);
+						$file['error'] = esc_html__( 'Invalid SVG Format, file not uploaded for security reasons!', 'header-footer-elementor' );
+
+						return $file;
 					}
 				}
+
+				return $prepared_media;
+
+			} else {
+				$file['error'] = esc_html__( 'Invalid SVG Format, file not uploaded for security reasons!', 'header-footer-elementor' );
+
+				return $file;
 			}
-		}
-	
-		return $prepared_media;
+		}	
 	}
-	
+
+	/**
+	 * Check filetype and ext for SVG files
+	 *
+	 * A workaround for upload validation which relies on a PHP extension (fileinfo)
+	 * with inconsistent reporting behaviour for SVG files.
+	 * This ensures proper SVG file type detection across all WordPress upload contexts.
+	 *
+	 * @since 1.2.0
+	 * @access public
+	 *
+	 * @param array $data File data array with 'ext', 'type', and 'proper_filename' keys.
+	 * @param string $file Full path to the file.
+	 * @param string $filename The name of the file.
+	 * @param array $mimes Array of allowed mime types keyed by their file extension regex.
+	 * @return array Modified file data array.
+	 */
+	public function check_filetype_and_ext( $data, $file, $filename, $mimes ) {
+		// Only process if WordPress couldn't determine both extension and type.
+		if ( ! empty( $data['ext'] ) && ! empty( $data['type'] ) ) {
+			return $data;
+		}
+
+		// Use WordPress's fallback file type checking.
+		$wp_file_type = wp_check_filetype( $filename, $mimes );
+
+		// Check if this is an SVG file that we handle.
+		if ( 'svg' === $wp_file_type['ext'] ) {
+			$data['ext'] = 'svg';
+			$data['type'] = 'image/svg+xml';
+		}
+
+		return $data;
+	}
 
 	/**
 	 * List pro widgets
