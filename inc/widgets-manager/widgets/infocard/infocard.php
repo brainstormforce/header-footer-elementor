@@ -87,10 +87,10 @@ class Infocard extends Common_Widget {
 	protected function get_upsale_data() {
 		return [
 			'condition' => ! defined( 'UAEL_VER' ),
-			'image' => esc_url( ELEMENTOR_ASSETS_URL . 'images/go-pro.svg' ),
+			'image' => esc_url( HFE_URL . 'assets/images/upgrade-pro.png' ),
 			'image_alt' => esc_attr__( 'Upgrade', 'header-footer-elementor' ),
-			'title' => esc_html__( 'Convert visitors into customers', 'header-footer-elementor' ),
-			'description' => esc_html__( 'Get the Call to Action widget and grow your toolbox with Elementor Pro.', 'header-footer-elementor' ),
+			'title' => esc_html__( 'Upgrade your Info Card widget', 'header-footer-elementor' ),
+			'description' => esc_html__( 'Get the Info Box widget in UAE Pro and unlock advanced layouts, icons, and styling for better content display.', 'header-footer-elementor' ),
 			'upgrade_url' => esc_url( 'https://ultimateelementor.com/pricing/' ),
 			'upgrade_text' => esc_html__( 'Upgrade Now', 'header-footer-elementor' ),
 		];
@@ -120,7 +120,6 @@ class Infocard extends Common_Widget {
 		$this->register_general_content_controls();
 		$this->register_icon_content_controls();
 		$this->register_cta_content_controls();
-		$this->register_pro_promotion_controls();
 		$this->register_typo_content_controls();
 		$this->register_margin_content_controls();
 	}
@@ -805,37 +804,6 @@ class Infocard extends Common_Widget {
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
-	}
-
-	/**
-	 * Register Infocard Promotion Controls.
-	 *
-	 * @since 2.3.1
-	 * @access protected
-	 */
-	protected function register_pro_promotion_controls() {
-
-		if(! defined( 'UAEL_VER' )){
-			$this->start_controls_section(
-				'section_pro_features_field',
-				array(
-					'label' => __( 'Go Pro for More Features', 'header-footer-elementor' ),
-				)
-			);
-			
-			$this->add_control(
-				'uae_pro_promotion_notice',
-				[
-					'type' => Controls_Manager::NOTICE,
-					'notice_type' => 'info',
-					'dismissible' => false,
-					'content' => __( 'Take your designs to the next level with the InfoBox widget in <a href="https://ultimateelementor.com/pricing/?utm_source=uae-dashboard&utm_medium=editor&utm_campaign=uae-pro-promotion" target="_blank"> Pro  </a> — offering powerful styling options and enhanced flexibility.', 'header-footer-elementor' ),
-				]
-			);
-		
-
-			$this->end_controls_section();
-		}
 	}
 
 	/**
