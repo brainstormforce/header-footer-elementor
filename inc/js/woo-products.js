@@ -34,7 +34,7 @@
 
     // Initialize for Elementor editor
     $(window).on('elementor/frontend/init', function() {
-        elementorFrontend.hooks.addAction('frontend/element_ready/hfe-woo-products.default', function($scope) {
+        elementorFrontend.hooks.addAction('frontend/element_ready/hfe-woo-product-grid.default', function($scope) {
             HFEWooProducts.init();
         });
     });

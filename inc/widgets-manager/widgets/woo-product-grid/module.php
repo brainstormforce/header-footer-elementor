@@ -5,7 +5,7 @@
  * @package header-footer-elementor
  */
 
-namespace HFE\WidgetsManager\Widgets\WooProducts;
+namespace HFE\WidgetsManager\Widgets\WooProductGrid;
 
 use HFE\WidgetsManager\Base\Module_Base;
 
@@ -39,7 +39,7 @@ class Module extends Module_Base {
 	 * @return string Module name.
 	 */
 	public function get_name() {
-		return 'woo-products';
+		return 'woo-product-grid';
 	}
 
 	/**
@@ -52,7 +52,7 @@ class Module extends Module_Base {
 	 */
 	public function get_widgets() {
 		return [
-			'Woo_Products',
+			'Woo_Product_Grid',
 		];
 	}
 

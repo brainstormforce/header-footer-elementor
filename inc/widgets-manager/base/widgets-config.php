@@ -235,11 +235,11 @@ class Widgets_Config {
 				'demo_url'    => 'https://ultimateelementor.com/widgets/search/',
 				'category'    => 'content',
 				],
-			'Woo_Products'        => [
-					'slug'        => 'hfe-woo-products',
-					'title'       => __( 'Woo - Products Grid', 'header-footer-elementor' ),
+			'Woo_Product_Grid'        => [
+					'slug'        => 'hfe-woo-product-grid',
+					'title'       => __( 'Woo Product Grid', 'header-footer-elementor' ),
 					'description' => __( 'Display WooCommerce products in a responsive grid layout with customizable styling options.', 'header-footer-elementor' ),
-					'keywords'    => [ 'uael', 'woo', 'products', 'grid' ],
+					'keywords'    => [ 'hfe', 'woo', 'products', 'grid' ],
 					'icon'        => 'hfe-icon-woo-product',
 					'title_url'   => '#',
 					'default'     => true,

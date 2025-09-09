@@ -199,7 +199,6 @@ class Widgets_Loader {
 				'icon'  => 'eicon-font',
 			]
 		);
-
 		return $this_cat;
 	}
 
@@ -216,7 +215,7 @@ class Widgets_Loader {
 				'dep'       => [ 'jquery' ],
 				'in_footer' => true,
 			],
-			'hfe-woo-products' => [
+			'hfe-woo-product-grid' => [
 				'path'      => 'inc/js/woo-products.js',
 				'dep'       => [ 'jquery' ],
 				'in_footer' => true,
@@ -259,7 +258,7 @@ class Widgets_Loader {
 		
 		// Enqueue Woo Products widget styles
 		if ( class_exists( 'WooCommerce' ) ) {
-			wp_enqueue_style( 'hfe-woo-products', HFE_URL . 'inc/widgets-css/woo-products.css', [], HFE_VER );
+			wp_enqueue_style( 'hfe-woo-product-grid', HFE_URL . 'inc/widgets-css/woo-products.css', [], HFE_VER );
 		}
 	}
 

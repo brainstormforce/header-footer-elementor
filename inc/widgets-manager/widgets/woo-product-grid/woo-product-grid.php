@@ -5,7 +5,7 @@
  * @package header-footer-elementor
  */
 
-namespace HFE\WidgetsManager\Widgets\WooProducts;
+namespace HFE\WidgetsManager\Widgets\WooProductGrid;
 
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since x.x.x
  */
-class Woo_Products extends Common_Widget {
+class Woo_Product_Grid extends Common_Widget {
 
 	/**
 	 * Products Query
@@ -45,7 +45,7 @@ class Woo_Products extends Common_Widget {
 	 * @return string Widget name.
 	 */
 	public function get_name() {
-		return parent::get_widget_slug( 'Woo_Products' );
+		return parent::get_widget_slug( 'Woo_Product_Grid' );
 	}
 
 	/**
@@ -56,7 +56,7 @@ class Woo_Products extends Common_Widget {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return parent::get_widget_title( 'Woo_Products' );
+		return parent::get_widget_title( 'Woo_Product_Grid' );
 	}
 
 	/**
@@ -67,7 +67,7 @@ class Woo_Products extends Common_Widget {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return parent::get_widget_icon( 'Woo_Products' );
+		return parent::get_widget_icon( 'Woo_Product_Grid' );
 	}
 
 	/**
@@ -78,7 +78,7 @@ class Woo_Products extends Common_Widget {
 	 * @return array Widget keywords.
 	 */
 	public function get_keywords() {
-		return parent::get_widget_keywords( 'Woo_Products' );
+		return parent::get_widget_keywords( 'Woo_Product_Grid' );
 	}
 
 	/**
@@ -89,7 +89,7 @@ class Woo_Products extends Common_Widget {
 	 * @return array scripts.
 	 */
 	public function get_script_depends() {
-		return [ 'hfe-woo-products' ];
+		return [ 'hfe-woo-product-grid' ];
 	}
 
 	/**
@@ -100,7 +100,7 @@ class Woo_Products extends Common_Widget {
 	 * @return array styles.
 	 */
 	public function get_style_depends() {
-		return [ 'hfe-woo-products' ];
+		return [ 'hfe-woo-product-grid' ];
 	}
 
 	/**
