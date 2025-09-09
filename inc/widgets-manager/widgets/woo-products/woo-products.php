@@ -472,7 +472,7 @@ class Woo_Products extends Common_Widget {
 				],
 				'default'   => 'left',
 				'selectors' => [
-					'{{WRAPPER}} .hfe-product-content' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .hfe-product-item' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -483,11 +483,14 @@ class Woo_Products extends Common_Widget {
 				'name'     => 'content_background',
 				'label'    => __( 'Background', 'header-footer-elementor' ),
 				'types'    => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .hfe-product-content',
+				'selector' => '{{WRAPPER}} .hfe-product-item',
 			]
 		);
 
 		$this->end_controls_section();
+
+		$this->register_image_size_style_controls();
+		
 
 		// Category Styling
 		$this->start_controls_section(
@@ -549,7 +552,6 @@ class Woo_Products extends Common_Widget {
 		$this->register_rating_style_controls();
 		$this->register_price_style_controls();
 		$this->register_add_to_cart_style_controls();
-		$this->register_image_size_style_controls();
 	}
 
 	/**
@@ -736,7 +738,7 @@ class Woo_Products extends Common_Widget {
 		$this->start_controls_section(
 			'section_image_size_style',
 			[
-				'label'     => __( 'Image Size', 'header-footer-elementor' ),
+				'label'     => __( 'Image', 'header-footer-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [ 'show_image' => 'yes' ],
 			]
