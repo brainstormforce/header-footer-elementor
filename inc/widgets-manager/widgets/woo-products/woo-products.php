@@ -549,7 +549,7 @@ class Woo_Products extends Common_Widget {
 		$this->register_rating_style_controls();
 		$this->register_price_style_controls();
 		$this->register_add_to_cart_style_controls();
-		$this->register_image_hover_style_controls();
+		$this->register_image_size_style_controls();
 	}
 
 	/**
@@ -723,25 +723,30 @@ class Woo_Products extends Common_Widget {
 	 * @since x.x.x
 	 * @access private
 	 */
-	private function register_image_hover_style_controls() {
+	private function register_image_size_style_controls() {
 		$this->start_controls_section(
-			'section_image_hover_style',
+			'section_image_size_style',
 			[
-				'label'     => __( 'Image Hover', 'header-footer-elementor' ),
+				'label'     => __( 'Image Size', 'header-footer-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [ 'show_image' => 'yes' ],
 			]
 		);
 
 		$this->add_control(
-			'image_hover_zoom',
+			'image_size',
 			[
-				'label'        => __( 'Zoom Animation', 'header-footer-elementor' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Enable', 'header-footer-elementor' ),
-				'label_off'    => __( 'Disable', 'header-footer-elementor' ),
-				'return_value' => 'yes',
-				'default'      => '',
+				'label'   => __( 'Image Size', 'header-footer-elementor' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'woocommerce_thumbnail',
+				'options' => [
+					'thumbnail'             => __( 'Thumbnail', 'header-footer-elementor' ),
+					'medium'                => __( 'Medium', 'header-footer-elementor' ),
+					'large'                 => __( 'Large', 'header-footer-elementor' ),
+					'full'                  => __( 'Full Size', 'header-footer-elementor' ),
+					'woocommerce_thumbnail' => __( 'WooCommerce Thumbnail', 'header-footer-elementor' ),
+					'woocommerce_single'    => __( 'WooCommerce Single', 'header-footer-elementor' ),
+				],
 			]
 		);
 
@@ -838,10 +843,6 @@ class Woo_Products extends Common_Widget {
 		$this->add_render_attribute( 'wrapper', 'class', 'hfe-woo-products-wrapper' );
 		$this->add_render_attribute( 'grid', 'class', 'hfe-woo-products-grid' );
 
-		if ( 'yes' === $settings['image_hover_zoom'] ) {
-			$this->add_render_attribute( 'wrapper', 'class', 'hfe-image-hover-zoom' );
-		}
-
 		?>
 		<div <?php $this->print_render_attribute_string( 'wrapper' ); ?>>
 			<div <?php $this->print_render_attribute_string( 'grid' ); ?>>
@@ -904,7 +905,10 @@ class Woo_Products extends Common_Widget {
 			<?php if ( 'yes' === $settings['show_image'] ) : ?>
 				<div class="hfe-product-image">
 					<a href="<?php echo esc_url( get_permalink() ); ?>">
-						<?php echo wp_kses_post( woocommerce_get_product_thumbnail() ); ?>
+						<?php
+						$image_size = ! empty( $settings['image_size'] ) ? $settings['image_size'] : 'woocommerce_thumbnail';
+						echo wp_kses_post( woocommerce_get_product_thumbnail( $image_size ) );
+						?>
 					</a>
 				</div>
 			<?php endif; ?>
