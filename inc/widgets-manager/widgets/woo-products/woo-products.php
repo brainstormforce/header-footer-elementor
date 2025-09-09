@@ -184,7 +184,7 @@ class Woo_Products extends Common_Widget {
 		$this->start_controls_section(
 			'section_general',
 			[
-				'label' => __( 'Grid Settings', 'header-footer-elementor' ),
+				'label' => __( 'General Settings', 'header-footer-elementor' ),
 			]
 		);
 
@@ -235,7 +235,7 @@ class Woo_Products extends Common_Widget {
 		$this->start_controls_section(
 			'section_content_toggles',
 			[
-				'label' => __( 'Content Toggles', 'header-footer-elementor' ),
+				'label' => __( 'Content', 'header-footer-elementor' ),
 			]
 		);
 
@@ -244,8 +244,8 @@ class Woo_Products extends Common_Widget {
 			[
 				'label'        => __( 'Show Image', 'header-footer-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Show', 'header-footer-elementor' ),
-				'label_off'    => __( 'Hide', 'header-footer-elementor' ),
+				'label_on'     => __( 'Yes', 'header-footer-elementor' ),
+				'label_off'    => __( 'No', 'header-footer-elementor' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
 			]
@@ -256,8 +256,8 @@ class Woo_Products extends Common_Widget {
 			[
 				'label'        => __( 'Show Category', 'header-footer-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Show', 'header-footer-elementor' ),
-				'label_off'    => __( 'Hide', 'header-footer-elementor' ),
+				'label_on'     => __( 'Yes', 'header-footer-elementor' ),
+				'label_off'    => __( 'No', 'header-footer-elementor' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
 			]
@@ -268,8 +268,8 @@ class Woo_Products extends Common_Widget {
 			[
 				'label'        => __( 'Show Title', 'header-footer-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Show', 'header-footer-elementor' ),
-				'label_off'    => __( 'Hide', 'header-footer-elementor' ),
+				'label_on'     => __( 'Yes', 'header-footer-elementor' ),
+				'label_off'    => __( 'No', 'header-footer-elementor' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
 			]
@@ -280,8 +280,8 @@ class Woo_Products extends Common_Widget {
 			[
 				'label'        => __( 'Show Rating', 'header-footer-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Show', 'header-footer-elementor' ),
-				'label_off'    => __( 'Hide', 'header-footer-elementor' ),
+				'label_on'     => __( 'Yes', 'header-footer-elementor' ),
+				'label_off'    => __( 'No', 'header-footer-elementor' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
 			]
@@ -292,8 +292,8 @@ class Woo_Products extends Common_Widget {
 			[
 				'label'        => __( 'Show Price', 'header-footer-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Show', 'header-footer-elementor' ),
-				'label_off'    => __( 'Hide', 'header-footer-elementor' ),
+				'label_on'     => __( 'Yes', 'header-footer-elementor' ),
+				'label_off'    => __( 'No', 'header-footer-elementor' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
 			]
@@ -304,8 +304,8 @@ class Woo_Products extends Common_Widget {
 			[
 				'label'        => __( 'Show Short Description', 'header-footer-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Show', 'header-footer-elementor' ),
-				'label_off'    => __( 'Hide', 'header-footer-elementor' ),
+				'label_on'     => __( 'Yes', 'header-footer-elementor' ),
+				'label_off'    => __( 'No', 'header-footer-elementor' ),
 				'return_value' => 'yes',
 				'default'      => '',
 			]
@@ -316,8 +316,8 @@ class Woo_Products extends Common_Widget {
 			[
 				'label'        => __( 'Show Add to Cart', 'header-footer-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Show', 'header-footer-elementor' ),
-				'label_off'    => __( 'Hide', 'header-footer-elementor' ),
+				'label_on'     => __( 'Yes', 'header-footer-elementor' ),
+				'label_off'    => __( 'No', 'header-footer-elementor' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
 			]
