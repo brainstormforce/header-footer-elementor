@@ -126,6 +126,28 @@ class Woo_Product_Grid extends Common_Widget {
 	}
 
 	/**
+	 * Get widget upsale data.
+	 *
+	 * Retrieve the widget promotion data.
+	 *
+	 * @since x.x.x
+	 * @access protected
+	 *
+	 * @return array Widget promotion data.
+	 */
+	protected function get_upsale_data() {
+		return [
+			'condition' => true,
+			'image' => esc_url( HFE_URL . 'assets/images/upgrade-pro.png' ),
+			'image_alt' => esc_attr__( 'Upgrade', 'header-footer-elementor' ),
+			'title' => esc_html__( 'Upgrade your Woo Product widget', 'header-footer-elementor' ),
+			'description' => esc_html__( 'Get the advanced Woo Product widget and unlock powerful layouts, filters, and customization options with UAE Pro.', 'header-footer-elementor' ),
+			'upgrade_url' => esc_url( 'https://ultimateelementor.com/pricing/' ),
+			'upgrade_text' => esc_html__( 'Upgrade Now', 'header-footer-elementor' ),
+		];
+	}
+
+	/**
 	 * Register widget controls.
 	 *
 	 * @since x.x.x
