@@ -446,7 +446,7 @@ class Woo_Products extends Common_Widget {
 		$this->start_controls_section(
 			'section_content_area_style',
 			[
-				'label' => __( 'Content Area', 'header-footer-elementor' ),
+				'label' => __( 'Card', 'header-footer-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -619,7 +619,7 @@ class Woo_Products extends Common_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#ffc107',
 				'selectors' => [
-					'{{WRAPPER}} .hfe-product-rating .star-rating' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .hfe-woo-products-grid .hfe-product-rating .star-rating' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -640,6 +640,15 @@ class Woo_Products extends Common_Widget {
 				'label'     => __( 'Price', 'header-footer-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [ 'show_price' => 'yes' ],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'     => 'price_typography',
+				'label'    => __( 'Typography', 'header-footer-elementor' ),
+				'selector' => '{{WRAPPER}} .hfe-product-price span',
 			]
 		);
 
