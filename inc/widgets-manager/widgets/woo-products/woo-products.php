@@ -341,33 +341,6 @@ class Woo_Products extends Common_Widget {
 		);
 
 		$this->add_control(
-			'source',
-			[
-				'label'   => __( 'Source', 'header-footer-elementor' ),
-				'type'    => Controls_Manager::SELECT,
-				'default' => 'all',
-				'options' => [
-					'all'    => __( 'All Products', 'header-footer-elementor' ),
-					'manual' => __( 'Manual Selection', 'header-footer-elementor' ),
-				],
-			]
-		);
-
-		$this->add_control(
-			'manual_products',
-			[
-				'label'       => __( 'Select Products', 'header-footer-elementor' ),
-				'type'        => Controls_Manager::SELECT2,
-				'multiple'    => true,
-				'label_block' => true,
-				'options'     => $this->get_products_list(),
-				'condition'   => [
-					'source' => 'manual',
-				],
-			]
-		);
-
-		$this->add_control(
 			'orderby',
 			[
 				'label'     => __( 'Order By', 'header-footer-elementor' ),
@@ -381,9 +354,6 @@ class Woo_Products extends Common_Widget {
 					'rating'     => __( 'Rating', 'header-footer-elementor' ),
 					'rand'       => __( 'Random', 'header-footer-elementor' ),
 				],
-				'condition' => [
-					'source' => 'all',
-				],
 			]
 		);
 
@@ -396,9 +366,6 @@ class Woo_Products extends Common_Widget {
 				'options'   => [
 					'desc' => __( 'Descending', 'header-footer-elementor' ),
 					'asc'  => __( 'Ascending', 'header-footer-elementor' ),
-				],
-				'condition' => [
-					'source' => 'all',
 				],
 			]
 		);
@@ -792,38 +759,6 @@ class Woo_Products extends Common_Widget {
 	}
 
 	/**
-	 * Get products list for manual selection.
-	 *
-	 * @since x.x.x
-	 * @access private
-	 * @return array
-	 */
-	private function get_products_list() {
-		$products = [];
-
-		if ( ! $this->is_woocommerce_active() ) {
-			return $products;
-		}
-
-		$query = new \WP_Query( [
-			'post_type'      => 'product',
-			'post_status'    => 'publish',
-			'posts_per_page' => 50, // Limit for performance
-			'fields'         => 'ids',
-		] );
-
-		if ( $query->have_posts() ) {
-			foreach ( $query->posts as $product_id ) {
-				$products[ $product_id ] = get_the_title( $product_id );
-			}
-		}
-
-		wp_reset_postdata();
-
-		return $products;
-	}
-
-	/**
 	 * Build query arguments.
 	 *
 	 * @since x.x.x
@@ -841,31 +776,26 @@ class Woo_Products extends Common_Widget {
 			'tax_query'      => WC()->query->get_tax_query(), // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
 		];
 
-		if ( 'manual' === $settings['source'] && ! empty( $settings['manual_products'] ) ) {
-			$args['post__in'] = $settings['manual_products'];
-			$args['orderby']  = 'post__in';
-		} else {
-			// Set ordering
-			switch ( $settings['orderby'] ) {
-				case 'price':
-					$args['meta_key'] = '_price'; // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
-					$args['orderby']  = 'meta_value_num';
-					break;
-				case 'popularity':
-					$args['meta_key'] = 'total_sales'; // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
-					$args['orderby']  = 'meta_value_num';
-					break;
-				case 'rating':
-					$args['meta_key'] = '_wc_average_rating'; // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
-					$args['orderby']  = 'meta_value_num';
-					break;
-				default:
-					$args['orderby'] = $settings['orderby'];
-					break;
-			}
-
-			$args['order'] = $settings['order'];
+		// Set ordering
+		switch ( $settings['orderby'] ) {
+			case 'price':
+				$args['meta_key'] = '_price'; // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
+				$args['orderby']  = 'meta_value_num';
+				break;
+			case 'popularity':
+				$args['meta_key'] = 'total_sales'; // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
+				$args['orderby']  = 'meta_value_num';
+				break;
+			case 'rating':
+				$args['meta_key'] = '_wc_average_rating'; // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
+				$args['orderby']  = 'meta_value_num';
+				break;
+			default:
+				$args['orderby'] = $settings['orderby'];
+				break;
 		}
+
+		$args['order'] = $settings['order'];
 
 		return $args;
 	}
