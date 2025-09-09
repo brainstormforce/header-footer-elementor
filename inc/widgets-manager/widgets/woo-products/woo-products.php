@@ -639,7 +639,18 @@ class Woo_Products extends Common_Widget {
 					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .hfe-product-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .hfe-product-title, {{WRAPPER}} .hfe-product-title a' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'title_hover_color',
+			[
+				'label'     => __( 'Hover Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .hfe-product-title a:hover' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -695,7 +706,9 @@ class Woo_Products extends Common_Widget {
 			[
 				'label'     => __( 'Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#ffc107',
+				'global'    => [
+					'default' => Global_Colors::COLOR_ACCENT,
+				],
 				'selectors' => [
 					'{{WRAPPER}} .hfe-woo-products-grid .hfe-product-rating .star-rating' => 'color: {{VALUE}};',
 				],
@@ -809,6 +822,9 @@ class Woo_Products extends Common_Widget {
 			[
 				'label'     => __( 'Text Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
+				'global'    => [
+					'default' => Global_Colors::COLOR_TEXT,
+				],
 				'selectors' => [
 					'{{WRAPPER}} .hfe-product-description' => 'color: {{VALUE}};',
 				],
@@ -850,53 +866,96 @@ class Woo_Products extends Common_Widget {
 			]
 		);
 
-		$this->add_control(
-			'add_to_cart_color',
+		$this->add_responsive_control(
+			'add_to_cart_padding',
 			[
-				'label'     => __( 'Text Color', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '#ffffff',
-				'selectors' => [
-					'{{WRAPPER}} .hfe-product-add-to-cart .button' => 'color: {{VALUE}};',
+				'label'      => __( 'Padding', 'header-footer-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', 'em', '%' ],
+				'default'    => [
+					'top'    => 12,
+					'right'  => 20,
+					'bottom' => 12,
+					'left'   => 20,
+					'unit'   => 'px',
+				],
+				'selectors'  => [
+					'{{WRAPPER}} .hfe-product-add-to-cart .button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
 
-		$this->add_control(
-			'add_to_cart_background_color',
-			[
-				'label'     => __( 'Background Color', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '#007cba',
-				'selectors' => [
-					'{{WRAPPER}} .hfe-product-add-to-cart .button' => 'background-color: {{VALUE}};',
-				],
-			]
-		);
+		$this->start_controls_tabs( 'add_to_cart_tabs' );
 
-		$this->add_control(
-			'add_to_cart_hover_color',
-			[
-				'label'     => __( 'Hover Text Color', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '#ffffff',
-				'selectors' => [
-					'{{WRAPPER}} .hfe-product-add-to-cart .button:hover' => 'color: {{VALUE}};',
-				],
-			]
-		);
+			$this->start_controls_tab(
+				'add_to_cart_normal_tab',
+				[
+					'label' => __( 'Normal', 'header-footer-elementor' ),
+				]
+			);
 
-		$this->add_control(
-			'add_to_cart_hover_background_color',
-			[
-				'label'     => __( 'Hover Background Color', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '#005a87',
-				'selectors' => [
-					'{{WRAPPER}} .hfe-product-add-to-cart .button:hover' => 'background-color: {{VALUE}};',
-				],
-			]
-		);
+				$this->add_control(
+					'add_to_cart_color',
+					[
+						'label'     => __( 'Text Color', 'header-footer-elementor' ),
+						'type'      => Controls_Manager::COLOR,
+						'default'   => '',
+						'selectors' => [
+							'{{WRAPPER}} .hfe-product-add-to-cart .button' => 'color: {{VALUE}};',
+						],
+					]
+				);
+
+				$this->add_group_control(
+					Group_Control_Background::get_type(),
+					[
+						'name'           => 'add_to_cart_background_color',
+						'label'          => __( 'Background Color', 'header-footer-elementor' ),
+						'types'          => [ 'classic', 'gradient' ],
+						'selector'       => '{{WRAPPER}} .hfe-product-add-to-cart .button',
+						'fields_options' => [
+							'color' => [
+								'global' => [
+									'default' => Global_Colors::COLOR_ACCENT,
+								],
+							],
+						],
+					]
+				);
+
+			$this->end_controls_tab();
+
+			$this->start_controls_tab(
+				'add_to_cart_hover_tab',
+				[
+					'label' => __( 'Hover', 'header-footer-elementor' ),
+				]
+			);
+
+				$this->add_control(
+					'add_to_cart_hover_color',
+					[
+						'label'     => __( 'Text Color', 'header-footer-elementor' ),
+						'type'      => Controls_Manager::COLOR,
+						'selectors' => [
+							'{{WRAPPER}} .hfe-product-add-to-cart .button:hover' => 'color: {{VALUE}};',
+						],
+					]
+				);
+
+				$this->add_group_control(
+					Group_Control_Background::get_type(),
+					[
+						'name'     => 'add_to_cart_hover_background_color',
+						'label'    => __( 'Background Color', 'header-footer-elementor' ),
+						'types'    => [ 'classic', 'gradient' ],
+						'selector' => '{{WRAPPER}} .hfe-product-add-to-cart .button:hover',
+					]
+				);
+
+			$this->end_controls_tab();
+
+		$this->end_controls_tabs();
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
@@ -910,39 +969,33 @@ class Woo_Products extends Common_Widget {
 		);
 
 		$this->add_responsive_control(
-			'add_to_cart_border_radius',
+			'add_to_cart_margin_bottom',
 			[
-				'label'      => __( 'Border Radius', 'header-footer-elementor' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em' ],
-				'default'    => [
-					'top'    => 4,
-					'right'  => 4,
-					'bottom' => 4,
-					'left'   => 4,
-					'unit'   => 'px',
+				'label'     => __( 'Margin Bottom', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => [
+					'px' => [
+						'max' => 100,
+					],
 				],
-				'selectors'  => [
-					'{{WRAPPER}} .hfe-product-add-to-cart .button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'selectors' => [
+					'{{WRAPPER}} .hfe-product-add-to-cart .button' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
 
 		$this->add_responsive_control(
-			'add_to_cart_padding',
+			'add_to_cart_margin_right',
 			[
-				'label'      => __( 'Padding', 'header-footer-elementor' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', 'em', '%' ],
-				'default'    => [
-					'top'    => 15,
-					'right'  => 15,
-					'bottom' => 15,
-					'left'   => 15,
-					'unit'   => 'px',
+				'label'     => __( 'Margin Right', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => [
+					'px' => [
+						'max' => 100,
+					],
 				],
-				'selectors'  => [
-					'{{WRAPPER}} .hfe-product-add-to-cart .button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'selectors' => [
+					'{{WRAPPER}} .hfe-product-add-to-cart .button' => 'margin-right: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
