@@ -137,7 +137,7 @@ class Woo_Product_Grid extends Common_Widget {
 	 */
 	protected function get_upsale_data() {
 		return [
-			'condition' => true,
+			'condition' => ! defined( 'UAEL_VER' ),
 			'image' => esc_url( HFE_URL . 'assets/images/upgrade-pro.png' ),
 			'image_alt' => esc_attr__( 'Upgrade', 'header-footer-elementor' ),
 			'title' => esc_html__( 'Upgrade your Woo Product widget', 'header-footer-elementor' ),
