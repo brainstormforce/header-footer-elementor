@@ -551,6 +551,7 @@ class Woo_Products extends Common_Widget {
 		$this->register_title_style_controls();
 		$this->register_rating_style_controls();
 		$this->register_price_style_controls();
+		$this->register_short_description_style_controls();
 		$this->register_add_to_cart_style_controls();
 	}
 
@@ -595,6 +596,22 @@ class Woo_Products extends Common_Widget {
 			]
 		);
 
+		$this->add_responsive_control(
+			'title_spacing',
+			[
+				'label'      => __( 'Spacing', 'header-footer-elementor' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', 'em' ],
+				'default'    => [
+					'size' => 10,
+					'unit' => 'px',
+				],
+				'selectors'  => [
+					'{{WRAPPER}} .hfe-product-title' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
 		$this->end_controls_section();
 	}
 
@@ -622,6 +639,22 @@ class Woo_Products extends Common_Widget {
 				'default'   => '#ffc107',
 				'selectors' => [
 					'{{WRAPPER}} .hfe-woo-products-grid .hfe-product-rating .star-rating' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'rating_spacing',
+			[
+				'label'      => __( 'Spacing', 'header-footer-elementor' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', 'em' ],
+				'default'    => [
+					'size' => 10,
+					'unit' => 'px',
+				],
+				'selectors'  => [
+					'{{WRAPPER}} .hfe-product-rating' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -664,6 +697,77 @@ class Woo_Products extends Common_Widget {
 				],
 				'selectors' => [
 					'{{WRAPPER}} .hfe-product-price' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'price_spacing',
+			[
+				'label'      => __( 'Spacing', 'header-footer-elementor' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', 'em' ],
+				'default'    => [
+					'size' => 10,
+					'unit' => 'px',
+				],
+				'selectors'  => [
+					'{{WRAPPER}} .hfe-product-price' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+	}
+
+	/**
+	 * Register short description style controls.
+	 *
+	 * @since x.x.x
+	 * @access private
+	 */
+	private function register_short_description_style_controls() {
+		$this->start_controls_section(
+			'section_short_description_style',
+			[
+				'label'     => __( 'Short Description', 'header-footer-elementor' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => [ 'show_description' => 'yes' ],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'     => 'short_description_typography',
+				'label'    => __( 'Typography', 'header-footer-elementor' ),
+				'selector' => '{{WRAPPER}} .hfe-product-description',
+			]
+		);
+
+		$this->add_control(
+			'short_description_color',
+			[
+				'label'     => __( 'Text Color', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .hfe-product-description' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'short_description_spacing',
+			[
+				'label'      => __( 'Spacing', 'header-footer-elementor' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', 'em' ],
+				'default'    => [
+					'size' => 10,
+					'unit' => 'px',
+				],
+				'selectors'  => [
+					'{{WRAPPER}} .hfe-product-description' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
