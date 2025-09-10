@@ -307,8 +307,8 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 
 
 = 2.4.9 =
-- Fixed: Navigation Menu - Resolved accessibility issue with the expandable menu layout.
-- Fixed: Navigation Menu - Widget closes when an anchor link is clicked.
+- Fix: Navigation Menu - Resolved accessibility issue with the expandable menu layout.
+- Fix: Navigation Menu - Widget closes when an anchor link is clicked.
 
 = 2.4.8 =
 - Improvement: Compatibility with latest Elementor and Elementor Pro 3.31 version.
