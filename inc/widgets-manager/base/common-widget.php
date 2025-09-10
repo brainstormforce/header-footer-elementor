@@ -76,7 +76,7 @@ abstract class Common_Widget extends Widget_Base {
 	 *
 	 * Retrieve the widget promotion data.
 	 *
-	 * @since x.x.x
+	 * @since 2.5.0
 	 * @access protected
 	 *
 	 * @return array|null Widget promotion data.
