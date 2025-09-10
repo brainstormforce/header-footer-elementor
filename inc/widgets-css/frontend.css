@@ -2144,3 +2144,31 @@ body .elementor .hfe-button-wrapper a {
 .hfe-reading-progress-bar{
     height: 4px;
 }
+
+/* Basic Posts Widget CSS - Only essential structure, no styling */
+.hfe-posts-grid {
+    display: grid;
+}
+
+.hfe-post-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.hfe-post-title a {
+    text-decoration: none;
+}
+.hfe-post-title {
+    margin-top: 0px;
+}
+.hfe-read-more {
+    text-decoration: none;
+}
+.hfe-post-meta {
+    font-size: 12px;
+    line-height: 1.3em;
+}
+.hfe-post-title {
+    font-size: 20px;
+}

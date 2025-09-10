@@ -300,6 +300,7 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 
 == Changelog ==
 = 2.4.10 = Development version
+- New: Blog Posts widget.
 - This update addressed a security bug. Props to Willow from WP Scan for reporting it responsibly to our team.
 - Fixed: Navigation Menu -  Alignment now works for last menu item as button.
 
