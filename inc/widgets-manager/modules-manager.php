@@ -57,6 +57,7 @@ class Modules_Manager {
 			'breadcrumbs-widget',
 			'post-info',
 			'infocard',
+			'woo-product-grid',
 		];
 
 		foreach ( $all_modules as $module_name ) {
