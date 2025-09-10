@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * Fast and lightweight posts widget with basic card layout
  *
- * @since x.x.x
+ * @since 2.5.0
  */
 class Basic_Posts extends Common_Widget {
 
@@ -42,7 +42,7 @@ class Basic_Posts extends Common_Widget {
 	/**
 	 * Retrieve the widget name.
 	 *
-	 * @since x.x.x
+	 * @since 2.5.0
 	 * @access public
 	 * @return string Widget name.
 	 */
@@ -53,7 +53,7 @@ class Basic_Posts extends Common_Widget {
 	/**
 	 * Retrieve the widget title.
 	 *
-	 * @since x.x.x
+	 * @since 2.5.0
 	 * @access public
 	 * @return string Widget title.
 	 */
@@ -64,7 +64,7 @@ class Basic_Posts extends Common_Widget {
 	/**
 	 * Retrieve the widget icon.
 	 *
-	 * @since x.x.x
+	 * @since 2.5.0
 	 * @access public
 	 * @return string Widget icon.
 	 */
@@ -75,7 +75,7 @@ class Basic_Posts extends Common_Widget {
 	/**
 	 * Retrieve the list of keywords the widget belongs to.
 	 *
-	 * @since x.x.x
+	 * @since 2.5.0
 	 * @access public
 	 * @return array Widget keywords.
 	 */
@@ -86,7 +86,7 @@ class Basic_Posts extends Common_Widget {
 	/**
 	 * Indicates if the widget's content is dynamic.
 	 *
-	 * @since x.x.x
+	 * @since 2.5.0
 	 * @return bool True for dynamic content.
 	 */
 	protected function is_dynamic_content(): bool {
@@ -98,7 +98,7 @@ class Basic_Posts extends Common_Widget {
 	 *
 	 * Retrieve the widget promotion data.
 	 *
-	 * @since x.x.x
+	 * @since 2.5.0
 	 * @access protected
 	 *
 	 * @return array Widget promotion data.
@@ -118,7 +118,7 @@ class Basic_Posts extends Common_Widget {
 	/**
 	 * Register widget controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.5.0
 	 * @access protected
 	 */
 	protected function register_controls(): void {
@@ -142,7 +142,7 @@ class Basic_Posts extends Common_Widget {
 	/**
 	 * Register Query Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.5.0
 	 * @access protected
 	 */
 	protected function register_query_controls() {
@@ -201,7 +201,7 @@ class Basic_Posts extends Common_Widget {
 	/**
 	 * Register General Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.5.0
 	 * @access protected
 	 */
 	protected function register_general_controls() {
@@ -252,7 +252,7 @@ class Basic_Posts extends Common_Widget {
 	/**
 	 * Register Image Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.5.0
 	 * @access protected
 	 */
 	protected function register_image_controls() {
@@ -295,7 +295,7 @@ class Basic_Posts extends Common_Widget {
 	/**
 	 * Register Content Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.5.0
 	 * @access protected
 	 */
 	protected function register_content_controls() {
@@ -345,7 +345,7 @@ class Basic_Posts extends Common_Widget {
 	/**
 	 * Register Meta Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.5.0
 	 * @access protected
 	 */
 	protected function register_meta_controls() {
@@ -432,7 +432,7 @@ class Basic_Posts extends Common_Widget {
 	/**
 	 * Register Excerpt Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.5.0
 	 * @access protected
 	 */
 	protected function register_excerpt_controls() {
@@ -476,7 +476,7 @@ class Basic_Posts extends Common_Widget {
 	/**
 	 * Register Read More Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.5.0
 	 * @access protected
 	 */
 	protected function register_read_more_controls() {
@@ -518,7 +518,7 @@ class Basic_Posts extends Common_Widget {
 	/**
 	 * Register Layout Style Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.5.0
 	 * @access protected
 	 */
 	protected function register_layout_style_controls() {
@@ -576,7 +576,7 @@ class Basic_Posts extends Common_Widget {
 	/**
 	 * Register Card Style Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.5.0
 	 * @access protected
 	 */
 	protected function register_card_style_controls() {
@@ -663,7 +663,7 @@ class Basic_Posts extends Common_Widget {
 	/**
 	 * Register Title Style Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.5.0
 	 * @access protected
 	 */
 	protected function register_title_style_controls() {
@@ -742,7 +742,7 @@ class Basic_Posts extends Common_Widget {
 	/**
 	 * Register Meta Style Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.5.0
 	 * @access protected
 	 */
 	protected function register_meta_style_controls() {
@@ -811,7 +811,7 @@ class Basic_Posts extends Common_Widget {
 	/**
 	 * Register Excerpt Style Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.5.0
 	 * @access protected
 	 */
 	protected function register_excerpt_style_controls() {
@@ -879,7 +879,7 @@ class Basic_Posts extends Common_Widget {
 	/**
 	 * Register Read More Style Controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.5.0
 	 * @access protected
 	 */
 	protected function register_read_more_style_controls() {
@@ -935,7 +935,7 @@ class Basic_Posts extends Common_Widget {
 	/**
 	 * Get available image sizes.
 	 *
-	 * @since x.x.x
+	 * @since 2.5.0
 	 * @access protected
 	 * @return array
 	 */
@@ -957,7 +957,7 @@ class Basic_Posts extends Common_Widget {
 	/**
 	 * Query posts.
 	 *
-	 * @since x.x.x
+	 * @since 2.5.0
 	 * @access protected
 	 */
 	protected function query_posts() {

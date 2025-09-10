@@ -76,7 +76,7 @@ class Post_Info extends Common_Widget {
 	 *
 	 * Retrieve the widget promotion data.
 	 *
-	 * @since x.x.x
+	 * @since 2.5.0
 	 * @access protected
 	 *
 	 * @return array Widget promotion data.
