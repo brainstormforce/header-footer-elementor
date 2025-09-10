@@ -639,7 +639,17 @@ class HFE_Settings_Page {
 			1
 		);
 
-		
+		// Add the Widgets Submenu.
+		add_submenu_page(
+			$menu_slug,
+			__( 'Widgets', 'header-footer-elementor' ),
+			__( 'Widgets', 'header-footer-elementor' ),
+			$capability,
+			$menu_slug . '#widgets',
+			[ $this, 'render' ],
+			9
+		);
+
 		// Add the Settings Submenu.
 		add_submenu_page(
 			$menu_slug,
@@ -694,6 +704,15 @@ class HFE_Settings_Page {
 						window.open(upgradeLink.href, '_blank');
 					});
 				}
+
+				// Get Help link handler.
+				const getHelpLink = document.querySelector('a[href*="https://ultimateelementor.com/docs"]');
+				if (getHelpLink) {
+					getHelpLink.addEventListener('click', e => {
+						e.preventDefault();
+						window.open(getHelpLink.href, '_blank');
+					});
+				}
 			});
 		</script>
 		<?php
@@ -706,16 +725,26 @@ class HFE_Settings_Page {
 	 * @since 2.4.2
 	 */
 	public function hfe_add_upgrade_to_pro() {
-		// The url used here is used as a selector for css to style the upgrade to pro submenu.
-		// If you are changing this url, please make sure to update the css as well.
-			// Add the Upgrade to Pro Submenu.
-			add_submenu_page(
-				$this->menu_slug,
-				__( 'Upgrade to Pro', 'header-footer-elementor' ),
-				 __( 'Upgrade to Pro', 'header-footer-elementor' ),
-				'manage_options',
-				'https://ultimateelementor.com/pricing/?utm_source=wp-admin&utm_medium=menu&utm_campaign=uae-upgrade',
-			);
+		
+		// Add the Get Help Submenu.
+		add_submenu_page(
+			$this->menu_slug,
+			__( 'Get Help', 'header-footer-elementor' ),
+			__( 'Get Help', 'header-footer-elementor' ),
+			'manage_options',
+			'https://ultimateelementor.com/docs/',
+			null,
+			11
+		);
+
+		// Add the Upgrade to Pro Submenu.
+		add_submenu_page(
+			$this->menu_slug,
+			__( 'Upgrade to Pro', 'header-footer-elementor' ),
+			 __( 'Upgrade to Pro', 'header-footer-elementor' ),
+			'manage_options',
+			'https://ultimateelementor.com/pricing/?utm_source=wp-admin&utm_medium=menu&utm_campaign=uae-upgrade',
+		);
 	}
 	/**
 	 * Settings page.
