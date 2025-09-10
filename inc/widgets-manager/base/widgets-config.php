@@ -122,11 +122,11 @@ class Widgets_Config {
 				'icon'        => 'hfe-icon-posts',
 				'title_url'   => '#',
 				'default'     => true,
-				'doc_url'     => '#',
+				'doc_url'     => 'https://ultimateelementor.com/docs/basic-posts/?utm_source=plugin-editor&utm_medium=need-help-button&utm_campaign=uae-documentation',
 				'is_pro'      => false,
 				'is_new'      => true,
 				'description' => __( 'Display posts in a fast, lightweight card layout with basic styling options.', 'header-footer-elementor' ),
-				'demo_url'    => '#',
+				'demo_url'    => 'https://ultimateelementor.com/widgets/basic-posts/',
 				'category'    => 'content',
 			],
 			'Breadcrumbs_Widget'   => [
