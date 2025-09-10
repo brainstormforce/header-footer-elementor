@@ -733,6 +733,7 @@ class Woo_Product_Grid extends Common_Widget {
 				],
 				'selectors' => [
 					'{{WRAPPER}} .hfe-woo-products-grid .hfe-product-rating .star-rating' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .hfe-woo-products-grid .hfe-product-rating .star-rating::before' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -790,7 +791,7 @@ class Woo_Product_Grid extends Common_Widget {
 					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .hfe-product-price' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .hfe-product-price span' => 'color: {{VALUE}};',
 				],
 			]
 		);
