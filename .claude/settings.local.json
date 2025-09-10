@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/akshayurankar/Local Sites/hfb-hfe/app/public/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
