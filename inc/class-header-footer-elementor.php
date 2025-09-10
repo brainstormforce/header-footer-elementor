@@ -143,6 +143,10 @@ class Header_Footer_Elementor {
 
 			add_action( 'astra_notice_before_markup_header-footer-elementor-rating', [ $this, 'rating_notice_css' ] );
 
+			add_action( 'admin_init', [ $this, 'register_notices' ] );
+			add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_notice_styles' ] );
+			add_action( 'admin_notices', [ $this, 'show_custom_notice' ] );
+
 			require_once HFE_DIR . 'inc/class-hfe-analytics.php';
 			     
 		}
@@ -256,6 +260,83 @@ class Header_Footer_Elementor {
 				'display-with-other-notices' => false,
 			]
 		);
+	}
+
+	/**
+	 * Enqueue styles for the notice
+	 *
+	 * @since 1.2.0
+	 * @return void
+	 */
+	public function enqueue_notice_styles() {
+		wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'assets/css/admin-header-footer-elementor.css', [], HFE_VER );
+	}
+
+	/**
+	 * Show custom notice directly as fallback
+	 *
+	 * @since 1.2.0
+	 * @return void
+	 */
+	public function show_custom_notice() {
+		// Display the notice directly
+		$image_path = HFE_URL . 'assets/images/settings/uael-icon.svg';
+		?>
+		<style>
+		.astra-review-notice .notice-container {
+			display: flex;
+			align-items: center;
+			padding: 10px 0;
+		}
+		.astra-review-notice .notice-image img {
+			max-width: 90px;
+			margin-right: 15px;
+		}
+		.astra-review-notice .notice-content .notice-heading {
+			font-weight: bold;
+			margin-bottom: 5px;
+		}
+		.astra-review-notice .astra-review-notice-container {
+			display: flex;
+			align-items: center;
+			margin-top: 10px;
+		}
+		.astra-review-notice .astra-review-notice-container a {
+			margin-right: 10px;
+			text-decoration: none;
+		}
+		.astra-review-notice .astra-review-notice-container .dashicons {
+			font-size: 1.4em;
+			margin: 0 5px;
+		}
+		</style>
+		<div class="notice notice-info is-dismissible astra-notice astra-review-notice">
+			<div class="notice-container">
+				<div class="notice-image">
+					<img src="<?php echo esc_url($image_path); ?>" class="custom-logo" alt="Header Footer Elementor" itemprop="logo">
+				</div>
+				<div class="notice-content">
+					<div class="notice-heading">
+						<?php _e( 'Hello! Seems like you have used Ultimate Addons for Elementor to build this website — Thanks a ton!', 'header-footer-elementor' ); ?>
+					</div>
+					<?php _e( 'Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Ultimate Addons for Elementor.', 'header-footer-elementor' ); ?><br />
+					<div class="astra-review-notice-container">
+						<a href="https://wordpress.org/support/plugin/header-footer-elementor/reviews/?filter=5#new-post" class="astra-notice-close astra-review-notice button-primary" target="_blank">
+							<?php _e( 'Ok, you deserve it', 'header-footer-elementor' ); ?>
+						</a>
+						<span class="dashicons dashicons-calendar"></span>
+						<a href="#" data-repeat-notice-after="<?php echo MONTH_IN_SECONDS; ?>" class="astra-notice-close astra-review-notice">
+							<?php _e( 'Nope, maybe later', 'header-footer-elementor' ); ?>
+						</a>
+						<span class="dashicons dashicons-smiley"></span>
+						<a href="#" class="astra-notice-close astra-review-notice">
+							<?php _e( 'I already did', 'header-footer-elementor' ); ?>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<?php
 	}
 
 	/**

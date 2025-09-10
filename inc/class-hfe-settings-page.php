@@ -253,6 +253,17 @@ class HFE_Settings_Page {
 	 */
 	public function hfe_global_css() {
 		wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'admin/assets/css/ehf-admin.css', [], HFE_VER );
+		
+		// Hide onboarding and create new menu items by default
+		?>
+		<style>
+		#toplevel_page_hfe .wp-submenu a[href*="#onboarding"],
+		#toplevel_page_hfe .wp-submenu a[href*="#onboardingsuccess"],
+		#toplevel_page_hfe .wp-submenu a[href*="post-new.php"] {
+			display: none !important;
+		}
+		</style>
+		<?php
 	}
 
 	/**
@@ -661,7 +672,7 @@ class HFE_Settings_Page {
 			9
 		);
 
-		// Add the Settings Submenu.
+		// Add the Onboarding Submenu (hidden by default).
 		add_submenu_page(
 			$menu_slug,
 			__( 'Onboarding', 'header-footer-elementor' ),
@@ -673,7 +684,7 @@ class HFE_Settings_Page {
 		);
 		
 
-		// Add the Settings Submenu.
+		// Add the Onboarding Success Submenu (hidden by default).
 		add_submenu_page(
 			$menu_slug,
 			__( 'Onboarding', 'header-footer-elementor' ),

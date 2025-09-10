@@ -491,6 +491,10 @@ msgstr ""
 msgid "Request a Feature"
 msgstr ""
 
+#: src/Components/Dashboard/QuickAccess.js:130
+msgid "Rate Us"
+msgstr ""
+
 #: src/Components/Dashboard/QuickAccess.js:20
 msgid "Quick Access"
 msgstr ""
