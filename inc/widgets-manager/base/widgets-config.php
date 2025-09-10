@@ -237,7 +237,7 @@ class Widgets_Config {
 				],
 			'Woo_Product_Grid'        => [
 					'slug'        => 'hfe-woo-product-grid',
-					'title'       => __( 'Woo Product Grid', 'header-footer-elementor' ),
+					'title'       => __( 'Woo Products Grid', 'header-footer-elementor' ),
 					'description' => __( 'Display WooCommerce products in a responsive grid layout with customizable styling options.', 'header-footer-elementor' ),
 					'keywords'    => [ 'hfe', 'woo', 'products', 'grid' ],
 					'icon'        => 'hfe-icon-woo-product',

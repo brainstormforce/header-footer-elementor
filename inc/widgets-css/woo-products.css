@@ -14,7 +14,6 @@
 	border-radius: 8px;
 	overflow: hidden;
 	border: 1px solid #f0f0f0;
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 
@@ -144,6 +143,94 @@
 	flex: 1;
 	display: flex;
 	flex-direction: column;
+}
+
+/* Content Alignment Classes */
+.hfe-content-align-left .hfe-product-item {
+	text-align: left;
+}
+
+.hfe-content-align-left .hfe-product-item .star-rating {
+	margin-left: 0;
+	margin-right: auto;
+}
+
+.hfe-content-align-center .hfe-product-item {
+	text-align: center;
+}
+
+.hfe-content-align-center .hfe-product-item .star-rating {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.hfe-content-align-right .hfe-product-item {
+	text-align: right;
+}
+
+.hfe-content-align-right .hfe-product-item .star-rating {
+	margin-left: auto;
+	margin-right: 0;
+}
+
+/* Tablet Responsive Alignment */
+@media (max-width: 1024px) {
+	.hfe-content-tablet-align-left .hfe-product-item {
+		text-align: left;
+	}
+
+	.hfe-content-tablet-align-left .hfe-product-item .star-rating {
+		margin-left: 0;
+		margin-right: auto;
+	}
+
+	.hfe-content-tablet-align-center .hfe-product-item {
+		text-align: center;
+	}
+
+	.hfe-content-tablet-align-center .hfe-product-item .star-rating {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.hfe-content-tablet-align-right .hfe-product-item {
+		text-align: right;
+	}
+
+	.hfe-content-tablet-align-right .hfe-product-item .star-rating {
+		margin-left: auto;
+		margin-right: 0;
+	}
+}
+
+/* Mobile Responsive Alignment */
+@media (max-width: 767px) {
+	.hfe-content-mobile-align-left .hfe-product-item {
+		text-align: left;
+	}
+
+	.hfe-content-mobile-align-left .hfe-product-item .star-rating {
+		margin-left: 0;
+		margin-right: auto;
+	}
+
+	.hfe-content-mobile-align-center .hfe-product-item {
+		text-align: center;
+	}
+
+	.hfe-content-mobile-align-center .hfe-product-item .star-rating {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.hfe-content-mobile-align-right .hfe-product-item {
+		text-align: right;
+	}
+
+	.hfe-content-mobile-align-right .hfe-product-item .star-rating {
+		margin-left: auto;
+		margin-right: 0;
+	}
 }
 
 /* Responsive Design */

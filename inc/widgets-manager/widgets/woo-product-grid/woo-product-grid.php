@@ -208,7 +208,7 @@ class Woo_Product_Grid extends Common_Widget {
 		$this->start_controls_section(
 			'section_general',
 			[
-				'label' => __( 'General Settings', 'header-footer-elementor' ),
+				'label' => __( 'General', 'header-footer-elementor' ),
 			]
 		);
 
@@ -533,9 +533,8 @@ class Woo_Product_Grid extends Common_Widget {
 					],
 				],
 				'default'   => 'left',
-				'selectors' => [
-					'{{WRAPPER}} .hfe-product-item' => 'text-align: {{VALUE}};',
-				],
+				'prefix_class' => 'hfe-content%s-align-',
+				'frontend_available' => true,
 			]
 		);
 
