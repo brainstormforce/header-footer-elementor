@@ -1,6 +1,6 @@
 import React from "react";
 import { Title, Container, Button, Badge } from "@bsf/force-ui";
-import { Headphones, HelpCircle, StarIcon, NotepadText, BookOpenText } from "lucide-react";
+import { Headphones, HelpCircle, StarIcon, NotepadText, BookOpenText,Star } from "lucide-react";
 import { __ } from "@wordpress/i18n";
 
 const QuickAccess = () => {
@@ -114,22 +114,22 @@ const QuickAccess = () => {
 						{__("Request a Feature", "header-footer-elementor")}
 					</Button>
 				</Container.Item>
-				{/* <Container.Item className="p-4 bg-white rounded-lg shadow-container-item">
+				<Container.Item className="p-4 bg-white rounded-lg shadow-container-item">
 					<Button
 						className="text-black hfe-remove-ring"
-						icon={<MessagesSquareIcon />}
+						icon={<Star />}
 						iconPosition="left"
 						variant="link"
 						onClick={() => {
 							window.open(
-								"https://make.wordpress.org/",
+								"https://wordpress.org/support/plugin/header-footer-elementor/reviews/#new-post",
 								"_blank"
 							);
 						}}
 					>
-						{__("Join the Community", "header-footer-elementor")}
+						{__("Rate Us", "header-footer-elementor")}
 					</Button>
-				</Container.Item> */}
+				</Container.Item>
 			</Container>
 		</div>
 	);
