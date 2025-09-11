@@ -23,9 +23,9 @@ These features are built to save time and offer more design freedom—not just t
 
 Whether you're just getting started with WordPress or managing multiple client sites, UAE - Elementor Addons gives you the **control**, **performance**, and **reliability** to design beautiful, high-converting websites efficiently.
 
-https://www.youtube.com/watch?v=6xH5n6YYNJE
+[Try the live demo of Ultimate Addons for Elementor](https://app.zipwp.com/blueprint/uae-cloned-demo-arv)
 
-[Try the live demo of Ultimate Addons for Elementor](https://zipwp.org/plugins/header-footer-elementor/)
+https://www.youtube.com/watch?v=6xH5n6YYNJE
 
 ## Why Choose UAE Elementor Addon ##
 
@@ -307,8 +307,8 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 
 
 ### 2.4.9 ###
-- Fixed: Navigation Menu - Resolved accessibility issue with the expandable menu layout.
-- Fixed: Navigation Menu - Widget closes when an anchor link is clicked.
+- Fix: Navigation Menu - Resolved accessibility issue with the expandable menu layout.
+- Fix: Navigation Menu - Widget closes when an anchor link is clicked.
 
 ### 2.4.8 ###
 - Improvement: Compatibility with latest Elementor and Elementor Pro 3.31 version.
