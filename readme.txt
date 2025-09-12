@@ -23,7 +23,7 @@ These features are built to save time and offer more design freedom—not just t
 
 Whether you're just getting started with WordPress or managing multiple client sites, UAE - Elementor Addons gives you the **control**, **performance**, and **reliability** to design beautiful, high-converting websites efficiently.
 
-[Try the live demo of Ultimate Addons for Elementor](https://app.zipwp.com/blueprint/uae-cloned-demo-arv)
+[Try the live demo of Ultimate Addons for Elementor](https://app.zipwp.com/blueprint/ultimate-addons-for-elementor-demo-fas)
 
 https://www.youtube.com/watch?v=6xH5n6YYNJE
 
