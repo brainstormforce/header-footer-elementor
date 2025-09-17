@@ -37,7 +37,7 @@ jobs:
 
       - name: PHPCS check
         if: always()
-        run: ./vendor/bin/phpcs | cs2pr
+        run: composer lint
 
       - name: Use desired version of NodeJS
         uses: actions/setup-node@v3
