@@ -44,11 +44,6 @@ jobs:
       - name: Install composer dependencies
         run: composer config github-oauth.github.com ${{ secrets.PRIVATE_ACCESS_TOKEN }} && composer install --prefer-dist --no-suggest --no-progress
 
-      - name: Install npm dependencies
-        run: |
-          npm ci
-          npm list --depth=0
-
       - name: Run phpcs
         id: phpcs
         if: always()
