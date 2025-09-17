@@ -50,10 +50,21 @@ jobs:
 
       - name: PHPCS check
         if: always()
-        run: ./vendor/bin/phpcs --report-full --report-checkstyle=./phpcs-report.xml
+        uses: chekalsky/phpcs-action@v1
+        with:
+          phpcs_bin_path: './vendor/bin/phpcs'
+
+      - name: Use desired version of NodeJS
+        uses: actions/setup-node@v3
+        with:
+            node-version: ${{ matrix.node }}
+            cache: 'npm'   
 
       - name: Lint JS
         run: npm run lint:js
+      
+      - name: Build project
+        run: npm run build
 
       - name: Lint CSS
         run: npm run lint:css
