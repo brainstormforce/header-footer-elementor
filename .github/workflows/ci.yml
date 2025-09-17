@@ -1,7 +1,6 @@
 name: Code Analysis
 on: pull_request
 
-# Cancels all previous workflow runs for pull requests that have not completed.
 concurrency:
   group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.head_ref || github.sha }}
   cancel-in-progress: true
@@ -17,17 +16,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Use desired version of NodeJS
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node }}
-
-      - name: Cache NPM packages
-        uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ matrix.node }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
-
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -35,21 +23,23 @@ jobs:
           coverage: none
           tools: composer, cs2pr
 
-      - name: Install composer dependencies
+      - name: Install composer dependencies (CI safe)
         run: |
-          composer config github-oauth.github.com ${{ secrets.GITHUB_TOKEN }}
-          composer install --ignore-platform-reqs --no-interaction
+          composer install --ignore-platform-reqs --no-interaction --no-scripts --no-plugins
           composer require --dev squizlabs/php_codesniffer phpstan/phpstan --ignore-platform-reqs --no-interaction
           ls -la vendor/bin/
 
       - name: Run PHPCS with annotations
         run: vendor/bin/phpcs -q --report=checkstyle | cs2pr
 
-      - name: Use desired version of NodeJS (with cache)
-        uses: actions/setup-node@v3
+      - name: Setup NodeJS
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
           cache: 'npm'
+
+      - name: Install NPM dependencies
+        run: npm ci
 
       - name: Lint JS
         run: npm run lint:js
