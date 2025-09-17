@@ -15,20 +15,20 @@ jobs:
 
     strategy:
       matrix:
-        node: ['14.17']
-        php: ['7.4']
+        node: [ 14.17 ]
+        php: ['7.4', '8.1']
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Use desired version of NodeJS
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
 
       - name: Cache NPM packages
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           # npm cache files are stored in `~/.npm` on Linux/macOS
           path: ~/.npm
@@ -39,10 +39,13 @@ jobs:
         with:
           php-version: ${{ matrix.php }}
           coverage: none
-          tools: composer, cs2pr, phpcs
+          tools: composer, cs2pr
 
-      - name: Install dependencies
-        run: composer install --prefer-dist --no-suggest --no-progress && npm install
+      - name: Install npm dependencies
+        run: npm install
+
+      - name: Install composer dependencies
+        run: composer config github-oauth.github.com ${{ secrets.PRIVATE_ACCESS_TOKEN }} && composer install --prefer-dist --no-suggest --no-progress
 
       - name: Run phpcs
         id: phpcs
@@ -53,9 +56,9 @@ jobs:
         if: ${{ always() && steps.phpcs.outcome == 'failure' }}
         run: cs2pr ./phpcs-report.xml
 
-      - name: Prettier Check
+      - name: PHP static analysis
         if: always()
-        run: npm run pretty
+        run: composer run phpstan
 
       - name: Lint JS
         if: always()
