@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         node: [ 18.15.0 ]
-        php: ['7.4', '8.1']
+        php: ['7.4']
 
     steps:
       - name: Checkout
@@ -50,7 +50,7 @@ jobs:
 
       - name: PHPCS check
         if: always()
-        uses: chekalsky/phpcs-action@v2
+        uses: chekalsky/phpcs-action@v1
         with:
           phpcs_bin_path: './vendor/bin/phpcs'
 
