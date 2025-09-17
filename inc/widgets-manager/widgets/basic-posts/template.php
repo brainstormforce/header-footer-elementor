@@ -37,10 +37,13 @@ $title_tag = Widgets_Loader::validate_html_tag( $settings['title_tag'] ?? 'h3' )
 						<?php 
 						// Sanitize image size
 						$image_size = sanitize_key( $settings['image_size'] ?? 'medium' );
-						the_post_thumbnail( $image_size, [
-							'alt' => esc_attr( get_the_title() ),
-							'loading' => 'lazy'
-						] ); 
+						the_post_thumbnail(
+							$image_size,
+							[
+								'alt'     => esc_attr( get_the_title() ),
+								'loading' => 'lazy',
+							] 
+						); 
 						?>
 					</a>
 				</div>

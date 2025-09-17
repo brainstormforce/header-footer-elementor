@@ -130,7 +130,7 @@ class Header_Footer_Elementor {
 			}
 
 			// Filter to change Astra menu positon.
-			add_filter( 'astra_menu_priority', array( $this, 'update_admin_menu_position' ) );
+			add_filter( 'astra_menu_priority', [ $this, 'update_admin_menu_position' ] );
 			// Scripts and styles.
 			add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
 
@@ -144,7 +144,7 @@ class Header_Footer_Elementor {
 			add_action( 'astra_notice_before_markup_header-footer-elementor-rating', [ $this, 'rating_notice_css' ] );
 
 			require_once HFE_DIR . 'inc/class-hfe-analytics.php';
-			     
+				 
 		}
 	}
 

@@ -114,11 +114,10 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 				wp_send_json_error( 'Unauthorized user' );
 			}
 
-			$permalink_structure = get_option('permalink_structure');
+			$permalink_structure = get_option( 'permalink_structure' );
 			// Check if the permalink structure is not empty.
-			if ( '' !== $permalink_structure )
-			{ 
-				update_option('permalink_structure', $permalink_structure);
+			if ( '' !== $permalink_structure ) { 
+				update_option( 'permalink_structure', $permalink_structure );
 				flush_rewrite_rules(); 
 				// Update the option to true.
 				update_user_meta( get_current_user_id(), 'hfe_permalink_notice_option', 'notice-dismissed' );
@@ -316,7 +315,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			// Compare slugs from widget_list to keys in $used_widgets
 			foreach ( self::$widget_list as $slug => $value ) {
 				if ( ! isset( $used_widgets[ $value['slug'] ] ) ) {
-					if( $slug === 'Scroll_To_Top' || $slug === 'Reading_Progress_Bar' ){
+					if ( $slug === 'Scroll_To_Top' || $slug === 'Reading_Progress_Bar' ) {
 						continue;
 					}
 					$unused_widgets[] = $slug;
@@ -329,7 +328,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			foreach ( self::$widget_list as $slug => $value ) {
 				if ( in_array( $slug, $unused_widgets ) ) {
 					$widgets[ $slug ] = 'disabled';
-					$deactivated[] = $slug;
+					$deactivated[]    = $slug;
 				}
 			}
 		

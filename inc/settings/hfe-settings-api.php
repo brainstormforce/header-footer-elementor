@@ -240,8 +240,8 @@ class HFE_Settings_Api {
 
 	/**
 	 * Send Email to Webhook.
+	 *
 	 * @param WP_REST_Request $request Request object.
-	 * 
 	 */
 	public function send_email_to_webhook_api( WP_REST_Request $request ) {
 		$nonce = $request->get_header( 'X-WP-Nonce' );
@@ -249,31 +249,31 @@ class HFE_Settings_Api {
 			return new WP_Error( 'invalid_nonce', __( 'Invalid nonce', 'header-footer-elementor' ), [ 'status' => 403 ] );
 		}
 
-		$email = sanitize_email( $request->get_param( 'email' ) );
-		$date  = sanitize_text_field( $request->get_param( 'date' ) );
-		$fname  = sanitize_text_field( $request->get_param( 'fname' ) );
-		$lname  = sanitize_text_field( $request->get_param( 'lname' ) );
+		$email    = sanitize_email( $request->get_param( 'email' ) );
+		$date     = sanitize_text_field( $request->get_param( 'date' ) );
+		$fname    = sanitize_text_field( $request->get_param( 'fname' ) );
+		$lname    = sanitize_text_field( $request->get_param( 'lname' ) );
 		$isActive = sanitize_text_field( $request->get_param( 'isActive' ) );
-		$domain = sanitize_text_field( $request->get_param( 'domain' ) );
+		$domain   = sanitize_text_field( $request->get_param( 'domain' ) );
 		
-		$api_domain = trailingslashit( $this->get_api_domain() );
+		$api_domain     = trailingslashit( $this->get_api_domain() );
 		$api_domain_url = $api_domain . 'wp-json/uaelite/v1/subscribe/';
 		$validation_url = esc_url_raw( get_site_url() . '/wp-json/hfe/v1/email-response/' );
 
 		// Append session_id to track requests.
-		$body = array(
-			'email'          => $email,
-			'date'           => $date,
-			'fname'          => $fname,
-			'lname'          => $lname,
-			'isActive'       => $isActive,
-			'domain'         => $domain
-		);
+		$body = [
+			'email'    => $email,
+			'date'     => $date,
+			'fname'    => $fname,
+			'lname'    => $lname,
+			'isActive' => $isActive,
+			'domain'   => $domain,
+		];
 
-		$args = array(
+		$args = [
 			'body'    => $body,
 			'timeout' => 30,
-		);
+		];
 
 		$response = wp_remote_post( $api_domain_url, $args );
 
@@ -292,7 +292,7 @@ class HFE_Settings_Api {
 
 		return new WP_REST_Response(
 			[
-				'message'    => 'success'
+				'message' => 'success',
 			],
 			200
 		);
