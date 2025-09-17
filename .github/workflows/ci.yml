@@ -1,54 +1,61 @@
 name: Code Analysis
 on: pull_request
+
 # Cancels all previous workflow runs for pull requests that have not completed.
 concurrency:
-  # The concurrency group contains the workflow name and the branch name for pull requests
-  # or the commit hash for any other events.
   group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.head_ref || github.sha }}
   cancel-in-progress: true
+
 jobs:
   analysis:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [ 14.15 ]
-        php: ['7.4']
+        node: [ 18.15.0 ]
+        php: ['7.4', '8.1']
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Use desired version of NodeJS
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
+
       - name: Cache NPM packages
         uses: actions/cache@v4
         with:
-          # npm cache files are stored in `~/.npm` on Linux/macOS
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ matrix.node }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
+
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
           coverage: none
           tools: composer, cs2pr
-      - name: Install composer dependencies
-        run: composer config github-oauth.github.com ${{ secrets.PRIVATE_ACCESS_TOKEN }} && composer install --prefer-dist --no-suggest --no-progress
 
-      - name: PHPCS check
-        if: always()
-        uses: chekalsky/phpcs-action@v1
-        with:
-          phpcs_bin_path: './vendor/bin/phpcs'
-      - name: Use desired version of NodeJS
+      - name: Install composer dependencies
+        run: |
+          composer config github-oauth.github.com ${{ secrets.GITHUB_TOKEN }}
+          composer install --ignore-platform-reqs --no-interaction
+          composer require --dev squizlabs/php_codesniffer phpstan/phpstan --ignore-platform-reqs --no-interaction
+          ls -la vendor/bin/
+
+      - name: Run PHPCS with annotations
+        run: vendor/bin/phpcs -q --report=checkstyle | cs2pr
+
+      - name: Use desired version of NodeJS (with cache)
         uses: actions/setup-node@v3
         with:
-            node-version: ${{ matrix.node }}
-            cache: 'npm'   
+          node-version: ${{ matrix.node }}
+          cache: 'npm'
+
       - name: Lint JS
         run: npm run lint:js
-      
+
       - name: Build project
         run: npm run build
+
       - name: Lint CSS
         run: npm run lint:css
