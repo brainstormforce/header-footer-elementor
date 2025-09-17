@@ -47,16 +47,18 @@ jobs:
           composer install --ignore-platform-reqs --no-interaction || composer install --no-dev --ignore-platform-reqs --no-interaction
           composer require --dev squizlabs/php_codesniffer phpstan/phpstan --ignore-platform-reqs --no-interaction
 
-      - name: Run phpcs
-        id: phpcs
+      - name: PHPCS check
         if: always()
-        run: ./vendor/bin/phpcs --report-full --report-checkstyle=./phpcs-report.xml
-
-      - name: Show PHPCS results in PR
-        if: ${{ always() && steps.phpcs.outcome == 'failure' }}
-        run: cs2pr ./phpcs-report.xml
+        uses: chekalsky/phpcs-action@v1
+        with:
+          phpcs_bin_path: './vendor/bin/phpcs'
 
       - name: PHP static analysis
         if: always()
         run: composer phpstan
-        
+
+      - name: Lint JS
+        run: npm run lint:js
+
+      - name: Lint CSS
+        run: npm run lint:css
