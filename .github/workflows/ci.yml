@@ -1,4 +1,4 @@
-\name: Code Analysis
+name: Code Analysis
 on: pull_request
 
 # Cancels all previous workflow runs for pull requests that have not completed.
