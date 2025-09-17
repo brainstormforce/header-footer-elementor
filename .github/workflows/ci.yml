@@ -43,20 +43,10 @@ jobs:
 
       - name: Install composer dependencies
         run: |
-          echo "Installing dev dependencies only for CI..."
           if [ -n "${{ secrets.PRIVATE_ACCESS_TOKEN }}" ]; then
-            echo "Setting GitHub token..."
             composer config github-oauth.github.com ${{ secrets.PRIVATE_ACCESS_TOKEN }}
-            composer install --prefer-dist --no-suggest --no-progress
-          else
-            echo "No GitHub token found, installing dev-only packages"
-            composer install --no-dev --prefer-dist --no-suggest --no-progress || true
-            composer require --dev squizlabs/php_codesniffer phpstan/phpstan --prefer-dist --no-progress
           fi
-          echo "Checking installed packages..."
-          ls -la vendor/bin/ || echo "vendor/bin directory not found"
-          which phpcs || echo "phpcs not in PATH"
-          which phpstan || echo "phpstan not in PATH"
+          composer install --prefer-dist --no-progress
 
       - name: Run phpcs
         id: phpcs
