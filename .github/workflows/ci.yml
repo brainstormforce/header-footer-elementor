@@ -50,7 +50,7 @@ jobs:
 
       - name: PHPCS check
         if: always()
-        uses: chekalsky/phpcs-action@v4
+        uses: chekalsky/phpcs-action@v2
         with:
           phpcs_bin_path: './vendor/bin/phpcs'
 
