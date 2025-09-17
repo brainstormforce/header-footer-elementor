@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         node: [ 18.15.0 ]
-        php: ['7.4']
+        php: ['7.4', '8.0', '8.1',]
 
     steps:
       - name: Checkout
@@ -42,11 +42,8 @@ jobs:
           tools: composer, cs2pr
 
       - name: Install composer dependencies
-        run: |
-          composer config github-oauth.github.com ${{ secrets.GITHUB_TOKEN }}
-          composer install --ignore-platform-reqs --no-interaction || true
-          composer require --dev squizlabs/php_codesniffer phpstan/phpstan --ignore-platform-reqs --no-interaction
-          ls -la vendor/bin/
+        run: composer config github-oauth.github.com ${{ secrets.PRIVATE_ACCESS_TOKEN }} && composer install --prefer-dist --no-suggest --no-progress
+
 
       - name: PHPCS check
         if: always()
