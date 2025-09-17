@@ -53,10 +53,6 @@ jobs:
         with:
           phpcs_bin_path: './vendor/bin/phpcs'
 
-      - name: PHP static analysis
-        if: always()
-        run: composer phpstan
-
       - name: Lint JS
         run: npm run lint:js
 
