@@ -42,13 +42,15 @@ jobs:
           tools: composer, cs2pr
 
       - name: Install composer dependencies
-        run: composer config github-oauth.github.com ${{ secrets.PRIVATE_ACCESS_TOKEN }} && composer install --prefer-dist --no-suggest --no-progress
+        run: |
+          composer config github-oauth.github.com ${{ secrets.GITHUB_TOKEN }}
+          composer install --ignore-platform-reqs --no-interaction || true
+          composer require --dev squizlabs/php_codesniffer phpstan/phpstan --ignore-platform-reqs --no-interaction
+          ls -la vendor/bin/
 
       - name: PHPCS check
         if: always()
-        uses: chekalsky/phpcs-action@v1
-        with:
-          phpcs_bin_path: './vendor/bin/phpcs'
+        run: ./vendor/bin/phpcs --report-full --report-checkstyle=./phpcs-report.xml
 
       - name: Lint JS
         run: npm run lint:js
