@@ -37,7 +37,7 @@ jobs:
 
       - name: PHPCS check
         if: always()
-        run: ./vendor/bin/phpcs --report=checkstyle | cs2pr
+        run: ./vendor/bin/phpcs | cs2pr
 
       - name: Use desired version of NodeJS
         uses: actions/setup-node@v3
