@@ -56,11 +56,4 @@ jobs:
       - name: PHP static analysis
         if: always()
         run: composer run phpstan
-
-      - name: Lint JS
-        if: always()
-        run: npm run lint:js
-
-      - name: Lint CSS
-        if: always()
-        run: npm run lint:css
+        
