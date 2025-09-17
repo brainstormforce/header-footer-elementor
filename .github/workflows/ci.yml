@@ -59,8 +59,8 @@ jobs:
 
       - name: Lint JS
         if: always()
-        run: npm run lint-js
+        run: npm run lint:js
 
       - name: Lint CSS
         if: always()
-        run: npm run lint-css
+        run: npm run lint:css
