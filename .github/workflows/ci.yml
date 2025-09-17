@@ -34,9 +34,6 @@ jobs:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ matrix.node }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
 
-      - name: Install npm dependencies
-        run: npm install
-
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
