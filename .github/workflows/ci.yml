@@ -58,5 +58,5 @@ jobs:
 
       - name: PHP static analysis
         if: always()
-        run: composer run phpstan
+        run: composer phpstan
         
