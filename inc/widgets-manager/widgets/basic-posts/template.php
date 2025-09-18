@@ -25,10 +25,6 @@ $title_tag = Widgets_Loader::validate_html_tag( $settings['title_tag'] ?? 'h3' )
 	while ( $this->query->have_posts() ) :
 		$this->query->the_post();
 		
-		// Security check - ensure we can read this post
-		if ( ! current_user_can( 'read_post', get_the_ID() ) ) {
-			continue;
-		}
 		?>
 		<article class="hfe-post-card">
 			<?php if ( 'yes' === $settings['show_image'] && has_post_thumbnail() ) : ?>
