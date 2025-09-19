@@ -299,6 +299,9 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 ---
 
 == Changelog ==
+= 2.5.1.1 - Development Version=
+- Fix: Basic Post Widget not showing for logged out users.
+
 = 2.5.1 =
 - Improvement: Updated required packages to the latest stable versions for improved compatibility and security.
 
