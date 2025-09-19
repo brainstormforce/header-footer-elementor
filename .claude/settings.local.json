@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/akshayurankar/Downloads/**)",
+      "Read(//Users/akshayurankar/Downloads/ultimate-addons-for-gutenberg-master/.github/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

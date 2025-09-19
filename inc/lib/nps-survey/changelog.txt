@@ -1,3 +1,8 @@
+Version 1.0.15 - 11-09-2025
+- New:
+  - Added `privacy_policy` option with configurable link and custom content.
+  - Added `popup.placement` option to customize popup position.
+
 Version 1.0.14 - 18-08-2025
 - Improvement:
   - Added `rating_min_label` and `rating_max_label` text options for customizable rating labels.

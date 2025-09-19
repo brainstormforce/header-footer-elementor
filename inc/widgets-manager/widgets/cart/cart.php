@@ -77,12 +77,12 @@ class Cart extends Common_Widget {
 	 */
 	protected function get_upsale_data() {
 		return [
-			'condition' => ! defined( 'UAEL_VER' ),
-			'image' => esc_url( HFE_URL . 'assets/images/upgrade-pro.png' ),
-			'image_alt' => esc_attr__( 'Upgrade', 'header-footer-elementor' ),
-			'title' => esc_html__( 'Upgrade your Cart widget', 'header-footer-elementor' ),
-			'description' => esc_html__( 'Get the WooCommerce Add to Cart widget and unlock advanced layouts, styles, and features with UAE Pro.', 'header-footer-elementor' ),
-			'upgrade_url' => esc_url( 'https://ultimateelementor.com/pricing/?utm_source=UAE-Cart&utm_medium=editor&utm_campaign=static-promotion' ),
+			'condition'    => ! defined( 'UAEL_VER' ),
+			'image'        => esc_url( HFE_URL . 'assets/images/upgrade-pro.png' ),
+			'image_alt'    => esc_attr__( 'Upgrade', 'header-footer-elementor' ),
+			'title'        => esc_html__( 'Upgrade your Cart widget', 'header-footer-elementor' ),
+			'description'  => esc_html__( 'Get the WooCommerce Add to Cart widget and unlock advanced layouts, styles, and features with UAE Pro.', 'header-footer-elementor' ),
+			'upgrade_url'  => esc_url( 'https://ultimateelementor.com/pricing/?utm_source=UAE-Cart&utm_medium=editor&utm_campaign=static-promotion' ),
 			'upgrade_text' => esc_html__( 'Upgrade Now', 'header-footer-elementor' ),
 		];
 	}
