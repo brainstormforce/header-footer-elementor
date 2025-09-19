@@ -4,7 +4,7 @@ Tags: elementor, elementor addon, elementor widget, elementor template, header f
 Requires at least: 5.0  
 Tested up to: 6.8
 Requires PHP: 7.4  
-Stable tag: 2.5.1
+Stable tag: 2.5.2
 License: GPLv2 or later  
 License URI: https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -299,6 +299,9 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 ---
 
 == Changelog ==
+= 2.5.2=
+- Fix: Basic Post Widget not showing for logged out users.
+
 = 2.5.1 =
 - Improvement: Updated required packages to the latest stable versions for improved compatibility and security.
 
