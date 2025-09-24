@@ -66,6 +66,9 @@ class Header_Footer_Elementor {
 
 			$this->includes();
 
+			// Register admin notices after WordPress is fully loaded
+			add_action( 'wp_loaded', [ $this, 'register_notices' ] );
+
 			add_action( 'admin_init', [ $this, 'hfe_redirect_to_onboarding' ] );
 			
 			add_action( 'init', [ $this, 'load_hfe_textdomain' ] );
@@ -212,7 +215,23 @@ class Header_Footer_Elementor {
 	 * @return void
 	 */
 	public function register_notices() {
+		
 		$image_path = HFE_URL . 'assets/images/settings/uael-icon.svg';
+
+		// Initialize Astra_Notices to ensure hooks are registered.
+		Astra_Notices::get_instance();
+		
+		// Clear any existing dismissals for testing.
+		$notice_id = 'header-footer-elementor-rating';
+		delete_transient( $notice_id );
+		delete_user_meta( get_current_user_id(), $notice_id );
+		
+		// Check conditions
+		$header_enabled = hfe_header_enabled();
+		$footer_enabled = hfe_footer_enabled();
+		$before_footer_enabled = hfe_is_before_footer_enabled();
+		$show_condition = $header_enabled || $footer_enabled || $before_footer_enabled;
+		
 
 		Astra_Notices::add_notice(
 			[
@@ -249,13 +268,18 @@ class Header_Footer_Elementor {
 					__( 'Nope, maybe later', 'header-footer-elementor' ),
 					__( 'I already did', 'header-footer-elementor' )
 				),
-				'show_if'                    => ( hfe_header_enabled() || hfe_footer_enabled() || hfe_is_before_footer_enabled() ) ? true : false,
+				'show_if'                    => true, // Force true for debugging.
 				'repeat-notice-after'        => MONTH_IN_SECONDS,
-				'display-notice-after'       => 1296000, // Display notice after 15 days.
+				'display-notice-after'       => false, // Display notice immediately for testing.
 				'priority'                   => 18,
-				'display-with-other-notices' => false,
+				'display-with-other-notices' => true, // Allow with other notices for debugging.
 			]
 		);
+		
+		// Debug: Add a direct admin notice as backup
+		add_action( 'admin_notices', function() {
+			error_log( 'HFE: admin_notices hook fired' );
+		});
 	}
 
 	/**
