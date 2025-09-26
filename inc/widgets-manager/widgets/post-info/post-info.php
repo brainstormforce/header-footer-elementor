@@ -76,7 +76,7 @@ class Post_Info extends Common_Widget {
 	 *
 	 * Retrieve the widget promotion data.
 	 *
-	 * @since x.x.x
+	 * @since 2.5.0
 	 * @access protected
 	 *
 	 * @return array Widget promotion data.
@@ -87,8 +87,8 @@ class Post_Info extends Common_Widget {
 			'image' => esc_url( HFE_URL . 'assets/images/upgrade-pro.png' ),
 			'image_alt' => esc_attr__( 'Upgrade', 'header-footer-elementor' ),
 			'title' => esc_html__( 'Upgrade your Post Info widget', 'header-footer-elementor' ),
-			'description' => esc_html__( 'Get the advanced Posts widget and unlock powerful layouts, filters, and customization options with UAE Pro.', 'header-footer-elementor' ),
-			'upgrade_url' => esc_url( 'https://ultimateelementor.com/pricing/' ),
+			'description' => esc_html__( 'Get the Advanced Posts widget and unlock powerful layouts, filters, and customization options with UAE Pro.', 'header-footer-elementor' ),
+			'upgrade_url' => esc_url( 'https://ultimateelementor.com/pricing/?utm_source=UAE-Post-Info&utm_medium=editor&utm_campaign=static-promotion' ),
 			'upgrade_text' => esc_html__( 'Upgrade Now', 'header-footer-elementor' ),
 		];
 	}

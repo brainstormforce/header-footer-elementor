@@ -4,11 +4,11 @@
 **Requires at least:** 5.0    
 **Tested up to:** 6.8  
 **Requires PHP:** 7.4    
-**Stable tag:** 2.4.9  
+**Stable tag:** 2.5.2  
 **License:** GPLv2 or later    
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html    
 
-Feature-rich Elementor addon with widgets like InfoCard, Fancy Heading, Before/After Slider, Price Box, FAQ Schema, WooCommerce widgets, and more—plus a flexible Header-Footer builder.
+Powerful Elementor addon with InfoCard, Fancy Heading, Before/After Slider, Price Box, FAQ Schema, WooCommerce widgets & Header-Footer builder.
 
 ## Description ##
 **Ultimate Addons for Elementor (UAE)** is a powerful yet lightweight plugin that extends Elementors capabilities with purposely built **widgets**, **blocks**, and **features** that help you build better websites—without adding complexity. 
@@ -23,9 +23,9 @@ These features are built to save time and offer more design freedom—not just t
 
 Whether you're just getting started with WordPress or managing multiple client sites, UAE - Elementor Addons gives you the **control**, **performance**, and **reliability** to design beautiful, high-converting websites efficiently.
 
-https://www.youtube.com/watch?v=6xH5n6YYNJE
+[Try the live demo of Ultimate Addons for Elementor](https://app.zipwp.com/blueprint/ultimate-addons-for-elementor-demo-fas)
 
-[Try the live demo of Ultimate Addons for Elementor](https://zipwp.org/plugins/header-footer-elementor/)
+https://www.youtube.com/watch?v=6xH5n6YYNJE
 
 ## Why Choose UAE Elementor Addon ##
 
@@ -299,13 +299,22 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 ---
 
 ## Changelog ##
-= 2.4.10 = Development version
-- This update addressed a security bug. Props to Willow from WP Scan for reporting it responsibly to our team.
-- Fixed: Navigation Menu -  Alignment now works for last menu item as button.
+### 2.5.2###
+- Fix: Basic Post Widget not showing for logged out users.
+
+### 2.5.1 ###
+- Improvement: Updated required packages to the latest stable versions for improved compatibility and security.
+
+### 2.5.0 ###
+- New: Added Basic Blog Posts Widget – Showcase blog posts or any custom post type in a fully customizable, responsive grid layout.
+- Improvement: Compatibility with latest Elementor and Elementor Pro 3.32 version.
+- Fix: This update addressed a security bug. Props to Willow from WP Scan for reporting it responsibly to our team.
+- Fix: Navigation Menu - Alignment now works for last menu item as button.
+
 
 ### 2.4.9 ###
-- Fixed: Navigation Menu - Resolved accessibility issue with the expandable menu layout.
-- Fixed: Navigation Menu - Widget closes when an anchor link is clicked.
+- Fix: Navigation Menu - Resolved accessibility issue with the expandable menu layout.
+- Fix: Navigation Menu - Widget closes when an anchor link is clicked.
 
 ### 2.4.8 ###
 - Improvement: Compatibility with latest Elementor and Elementor Pro 3.31 version.

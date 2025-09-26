@@ -70,7 +70,7 @@ class Navigation_Menu extends Common_Widget {
 	 *
 	 * Retrieve the widget promotion data.
 	 *
-	 * @since x.x.x
+	 * @since 2.5.0
 	 * @access protected
 	 *
 	 * @return array Widget promotion data.
@@ -81,8 +81,8 @@ class Navigation_Menu extends Common_Widget {
 			'image' => esc_url( HFE_URL . 'assets/images/upgrade-pro.png' ),
 			'image_alt' => esc_attr__( 'Upgrade', 'header-footer-elementor' ),
 			'title' => esc_html__( 'Upgrade your Navigation widget', 'header-footer-elementor' ),
-			'description' => esc_html__( 'Get the Navigation Menu widget in UAE Pro and unlock advanced layouts, styling, and flexible menu options.', 'header-footer-elementor' ),
-			'upgrade_url' => esc_url( 'https://ultimateelementor.com/pricing/' ),
+			'description' => esc_html__( 'Get the Advanced Navigation Menu widget in UAE Pro and unlock advanced layouts, styling, and flexible menu options.', 'header-footer-elementor' ),
+			'upgrade_url' => esc_url( 'https://ultimateelementor.com/pricing/?utm_source=UAE-Navigation-menu&utm_medium=editor&utm_campaign=static-promotion' ),
 			'upgrade_text' => esc_html__( 'Upgrade Now', 'header-footer-elementor' ),
 		];
 	}

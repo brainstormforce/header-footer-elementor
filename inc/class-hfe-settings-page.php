@@ -707,7 +707,6 @@ class HFE_Settings_Page {
 
 				// Get Help link handler.
 				const getHelpLink = document.querySelector('a[href*="https://ultimateelementor.com/docs"]');
-				console.log(getHelpLink);
 				if (getHelpLink) {
 					getHelpLink.addEventListener('click', e => {
 						e.preventDefault();

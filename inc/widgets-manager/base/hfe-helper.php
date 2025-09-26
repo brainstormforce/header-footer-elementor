@@ -529,6 +529,7 @@ class HFE_Helper {
 			'hfe-site-title',
 			'hfe-infocard',
 			'hfe-woo-product-grid',
+			'hfe-basic-posts',
 		];
 
 		// Filter widgets usage to include only allowed widgets
