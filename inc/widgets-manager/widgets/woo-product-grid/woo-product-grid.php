@@ -482,10 +482,10 @@ class Woo_Product_Grid extends Common_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'default'    => [
-					'top'    => 8,
-					'right'  => 8,
-					'bottom' => 8,
-					'left'   => 8,
+					'top'    => 0,
+					'right'  => 0,
+					'bottom' => 0,
+					'left'   => 0,
 					'unit'   => 'px',
 				],
 				'selectors'  => [
@@ -545,6 +545,14 @@ class Woo_Product_Grid extends Common_Widget {
 				'label'    => __( 'Background', 'header-footer-elementor' ),
 				'types'    => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .hfe-product-item',
+				'fields_options' => [
+					'background' => [
+						'default' => 'classic',
+					],
+					'color' => [
+						'default' => '#f6f6f6',
+					],
+				],
 			]
 		);
 
