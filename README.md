@@ -4,11 +4,11 @@
 **Requires at least:** 5.0    
 **Tested up to:** 6.8  
 **Requires PHP:** 7.4    
-**Stable tag:** 2.4.9  
+**Stable tag:** 2.5.2  
 **License:** GPLv2 or later    
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html    
 
-Most-used Elementor addon with widgets like InfoCard, Fancy Heading, Before/After Slider, Price Box, FAQ Schema, WooCommerce widgets, and more—plus a flexible Header-Footer builder.
+Powerful Elementor addon with InfoCard, Fancy Heading, Before/After Slider, Price Box, FAQ Schema, WooCommerce widgets & Header-Footer builder.
 
 ## Description ##
 **Ultimate Addons for Elementor (UAE)** is a powerful yet lightweight plugin that extends Elementors capabilities with purposely built **widgets**, **blocks**, and **features** that help you build better websites—without adding complexity. 
@@ -23,21 +23,21 @@ These features are built to save time and offer more design freedom—not just t
 
 Whether you're just getting started with WordPress or managing multiple client sites, UAE - Elementor Addons gives you the **control**, **performance**, and **reliability** to design beautiful, high-converting websites efficiently.
 
+[Try the live demo of Ultimate Addons for Elementor](https://app.zipwp.com/blueprint/ultimate-addons-for-elementor-demo-fas)
+
 https://www.youtube.com/watch?v=6xH5n6YYNJE
 
-[Try the live demo of Ultimate Addons for Elementor](https://zipwp.org/plugins/header-footer-elementor/)
-
-## Why UAE Is The Best Elementor Addon ##
+## Why Choose UAE Elementor Addon ##
 
 Ultimate Addons for Elementor equips you with tools that make page design faster, cleaner, and more creative. Whether you're just starting your web design journey or building complex websites for clients, UAE can help. 
 
 ### Here’s why over 2 million people trust UAE:###
 
-* **Stand Out With Impactful Design:** Build visually stunning sections with widgets that go beyond basic blocks. From Before/After sliders to particle backgrounds, everything is built to captivate, engage, and convert.
+* **Create Engaging Designs:** Build visually stunning sections with widgets that go beyond basic blocks. From Before/After sliders to particle backgrounds, everything is built to captivate, engage, and convert.
 
-* **Copy Elementor Designs From One Domain to Another:** Save hours of time with Cross-Site Copy Paste. Effortlessly move entire sections and widgets between pages and websites.
+* **Copy Elementor Designs From One Domain to Another:** Use the Cross-Site Copy Paste feature to move sections and widgets between pages/sites, which streamlines the workflow and saves time.
 
-* **Keep Your Website Light by Loading Only What Is Needed:** UAE is optimized for performance. It only loads code for the widgets you use, keeping your site fast, lean and SEO-friendly.
+* **Keep Your Website Light by Loading Only What Is Needed:** UAE loads code only for the widgets you use, which helps maintain site performance and supports SEO best practices.
 
 * **Build Faster With 200+ Readymade Section Blocks:** Design faster with a massive library of pre-designed content sections. Just insert, customize, and publish. Ideal for agencies and freelancers seeking efficiency.
 
@@ -45,7 +45,7 @@ Ultimate Addons for Elementor equips you with tools that make page design faster
 
 * **Works Seamlessly With Any WordPress Theme:** No theme lock-in or compatibility issues. UAE integrates smoothly with all compliant WordPress themes, including Astra.
 
-* **Designed for Beginners, Loved by Pros:** Whether you're a DIY site builder or a seasoned designer, UAE strikes the perfect balance between ease of use and advanced functionality.
+* **Designed for Beginners, Loved by Pros:** Whether you're a DIY site builder or a seasoned designer, UAE strikes the balance between ease of use and advanced functionality.
 
 * **Extend Elementor Without Plugin Overload:** UAE packs multiple high-utility widgets into one lightweight plugin. Avoid installing multiple third-party plugins that slow down your site or create conflicts.
 
@@ -239,7 +239,7 @@ Total design freedom: Tweak every pixel, colors, fonts, and layouts to make each
 
 If you love Ultimate Addons, you’ll love what else we’ve built to make designing and managing websites easier.
 
-* **[Astra theme](https://wpastra.com/pro/?utm_source=wprepo&utm_medium=uaelite)** – The fastest, most flexible WordPress theme.
+* **[Astra theme](https://wpastra.com/pro/?utm_source=wprepo&utm_medium=uaelite)** – A popular WordPress theme known for speed and flexibility.
 
 * **[Astra Starter Templates](https://startertemplates.com/?utm_source=wprepo&utm_medium=uaelite)** – Pick from over 300+ professionally designed templates or use AI to create a custom website in minutes.
 
@@ -299,10 +299,22 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 ---
 
 ## Changelog ##
+### 2.5.2###
+- Fix: Basic Post Widget not showing for logged out users.
+
+### 2.5.1 ###
+- Improvement: Updated required packages to the latest stable versions for improved compatibility and security.
+
+### 2.5.0 ###
+- New: Added Basic Blog Posts Widget – Showcase blog posts or any custom post type in a fully customizable, responsive grid layout.
+- Improvement: Compatibility with latest Elementor and Elementor Pro 3.32 version.
+- Fix: This update addressed a security bug. Props to Willow from WP Scan for reporting it responsibly to our team.
+- Fix: Navigation Menu - Alignment now works for last menu item as button.
+
 
 ### 2.4.9 ###
-- Fixed: Navigation Menu - Resolved accessibility issue with the expandable menu layout.
-- Fixed: Navigation Menu - Widget closes when an anchor link is clicked.
+- Fix: Navigation Menu - Resolved accessibility issue with the expandable menu layout.
+- Fix: Navigation Menu - Widget closes when an anchor link is clicked.
 
 ### 2.4.8 ###
 - Improvement: Compatibility with latest Elementor and Elementor Pro 3.31 version.

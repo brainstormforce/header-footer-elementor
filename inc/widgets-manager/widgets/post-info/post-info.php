@@ -72,6 +72,28 @@ class Post_Info extends Common_Widget {
 	}
 
 	/**
+	 * Get widget upsale data.
+	 *
+	 * Retrieve the widget promotion data.
+	 *
+	 * @since 2.5.0
+	 * @access protected
+	 *
+	 * @return array Widget promotion data.
+	 */
+	protected function get_upsale_data() {
+		return [
+			'condition' => ! defined( 'UAEL_VER' ),
+			'image' => esc_url( HFE_URL . 'assets/images/upgrade-pro.png' ),
+			'image_alt' => esc_attr__( 'Upgrade', 'header-footer-elementor' ),
+			'title' => esc_html__( 'Upgrade your Post Info widget', 'header-footer-elementor' ),
+			'description' => esc_html__( 'Get the Advanced Posts widget and unlock powerful layouts, filters, and customization options with UAE Pro.', 'header-footer-elementor' ),
+			'upgrade_url' => esc_url( 'https://ultimateelementor.com/pricing/?utm_source=UAE-Post-Info&utm_medium=editor&utm_campaign=static-promotion' ),
+			'upgrade_text' => esc_html__( 'Upgrade Now', 'header-footer-elementor' ),
+		];
+	}
+	
+	/**
 	 * Register Post Info controls.
 	 *
 	 * @since 2.2.1
@@ -83,7 +105,6 @@ class Post_Info extends Common_Widget {
 		$this->register_style_post_info_meta_controls();
 		$this->register_style_post_info_icon_controls();
 		$this->register_style_post_info_text_controls();
-		$this->register_pro_promotion_controls();
 	}
 
 	
@@ -739,37 +760,6 @@ class Post_Info extends Common_Widget {
 
 		$this->end_controls_section();
 
-	}
-
-	/**
-	 * Register Page Info Promotion Controls.
-	 *
-	 * @since 2.4.0
-	 * @access protected
-	 */
-	protected function register_pro_promotion_controls() {
-
-		if(! defined( 'UAEL_VER' )){
-			$this->start_controls_section(
-				'section_pro_features_field',
-				array(
-					'label' => __( 'Go Pro for More Features', 'header-footer-elementor' ),
-				)
-			);
-
-			$this->add_control(
-				'uae_pro_promotion_notice',
-				[
-					'type' => Controls_Manager::NOTICE,
-					'notice_type' => 'info',
-					'dismissible' => false,
-					'content' => __( '<b>Build smarter and faster</b> with premium widgets, 200+ section blocks, and advanced customisation controls — all available in the <a href="https://ultimateelementor.com/pricing/?utm_source=uae-dashboard&utm_medium=editor&utm_campaign=uae-pro-promotion" target="_blank">UAE Pro</a>.', 'header-footer-elementor' ),
-				]
-			);
-
-
-			$this->end_controls_section();
-		}
 	}
 
 	/**
