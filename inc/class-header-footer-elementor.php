@@ -279,8 +279,11 @@ class Header_Footer_Elementor {
 	 */
 	public function elementor_preview_notice() {
 		// Show notice only for page post type in preview mode
-		if ( $this->should_show_preview_notice() ) {
-			?>
+		if ( ! $this->should_show_preview_notice() ) {
+			return;
+		}
+
+		?>
 			<style>
 				@keyframes slideInFromBottom {
 					0% {
@@ -375,8 +378,8 @@ class Header_Footer_Elementor {
 				.hfe-promo-notice-cta {
 					margin-left: 16px;
 					padding: 8px 16px;
-					background: #93003f;
-					border: 1px solid #93003f;
+					background: rgb(96, 5, 255);
+					border: 1px solid rgb(96, 5, 255);
 					color: #ffffff;
 					text-decoration: none;
 					border-radius: 25px;
@@ -387,7 +390,7 @@ class Header_Footer_Elementor {
 				}
 				
 				.hfe-promo-notice-cta:hover {
-					background: #8f1a4c;
+					background:rgb(96, 5, 255);
 					color: #ffffff;
 					text-decoration: none;
 				}
@@ -557,7 +560,6 @@ class Header_Footer_Elementor {
 				}
 			</script>
 			<?php
-		}
 	}
 
 	/**
@@ -574,7 +576,7 @@ class Header_Footer_Elementor {
 		}
 
 		// Basic preview check
-		if ( ! isset( $_GET['preview'] ) || $_GET['preview'] !== 'true' ) {
+		if ( ! isset( $_GET['preview'] ) || sanitize_text_field( wp_unslash( $_GET['preview'] ) ) !== 'true' ) {
 			return false;
 		}
 
@@ -583,11 +585,12 @@ class Header_Footer_Elementor {
 			return false;
 		}
 
-		$preview_id = intval( $_GET['preview_id'] );
+		$preview_id = intval( sanitize_text_field( wp_unslash( $_GET['preview_id'] ) ) );
 
 		// Verify preview nonce for security (if available)
 		if ( isset( $_GET['preview_nonce'] ) ) {
-			if ( ! wp_verify_nonce( $_GET['preview_nonce'], 'post_preview_' . $preview_id ) ) {
+			$preview_nonce = sanitize_text_field( wp_unslash( $_GET['preview_nonce'] ) );
+			if ( ! wp_verify_nonce( $preview_nonce, 'post_preview_' . $preview_id ) ) {
 				return false;
 			}
 		}
