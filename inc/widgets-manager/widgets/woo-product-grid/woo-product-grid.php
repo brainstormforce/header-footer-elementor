@@ -1246,11 +1246,11 @@ class Woo_Product_Grid extends Common_Widget {
 				<?php endif; ?>
 
 				<?php if ( 'yes' === $settings['show_title'] ) : ?>
-					<h3 class="hfe-product-title">
-						<a href="<?php echo esc_url( get_permalink() ); ?>">
-							<?php echo esc_html( get_the_title() ); ?>
+					<div class="hfe-product-title">
+						<a href="<?php echo esc_url( get_permalink() ); ?>" class="hfe-loop-product__link">
+							<?php woocommerce_template_loop_product_title(); ?>
 						</a>
-					</h3>
+					</div>
 				<?php endif; ?>
 
 				<?php if ( 'yes' === $settings['show_rating'] ) : ?>

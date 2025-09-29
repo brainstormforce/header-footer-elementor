@@ -59,6 +59,18 @@
 	text-decoration: none;
 }
 
+.hfe-product-title h2 {
+	margin: 0;
+	font-size: inherit;
+	line-height: inherit;
+	font-weight: inherit;
+	color: inherit;
+}
+
+.hfe-product-title .hfe-loop-product__link {
+	display: block;
+}
+
 
 .hfe-product-rating {
 	margin-bottom: 12px;
