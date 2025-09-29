@@ -392,6 +392,9 @@ class Woo_Product_Grid extends Common_Widget {
 					'desc' => __( 'Descending', 'header-footer-elementor' ),
 					'asc'  => __( 'Ascending', 'header-footer-elementor' ),
 				],
+				'condition' => [
+					'orderby!' => 'rand',
+				],
 			]
 		);
 
