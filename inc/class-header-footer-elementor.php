@@ -268,11 +268,11 @@ class Header_Footer_Elementor {
 					__( 'Nope, maybe later', 'header-footer-elementor' ),
 					__( 'I already did', 'header-footer-elementor' )
 				),
-				'show_if'                    => true, // Force true for debugging.
+				'show_if' => ( hfe_header_enabled() || hfe_footer_enabled() || hfe_is_before_footer_enabled() ) ? true : false,
 				'repeat-notice-after'        => MONTH_IN_SECONDS,
-				'display-notice-after'       => false, // Display notice immediately for testing.
+				'display-notice-after' => 1296000,
 				'priority'                   => 18,
-				'display-with-other-notices' => true, // Allow with other notices for debugging.
+				'display-with-other-notices' => false, // Allow with other notices for debugging.
 			]
 		);
 		
