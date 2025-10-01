@@ -221,10 +221,7 @@ class Header_Footer_Elementor {
 		// Initialize Astra_Notices to ensure hooks are registered.
 		Astra_Notices::get_instance();
 		
-		// Clear any existing dismissals for testing.
 		$notice_id = 'header-footer-elementor-rating';
-		delete_transient( $notice_id );
-		delete_user_meta( get_current_user_id(), $notice_id );
 		
 		// Check conditions
 		$header_enabled = hfe_header_enabled();
@@ -270,9 +267,9 @@ class Header_Footer_Elementor {
 				),
 				'show_if' => ( hfe_header_enabled() || hfe_footer_enabled() || hfe_is_before_footer_enabled() ) ? true : false,
 				'repeat-notice-after'        => MONTH_IN_SECONDS,
-				'display-notice-after' => 1296000,
+				'display-notice-after' => false,
 				'priority'                   => 18,
-				'display-with-other-notices' => false, // Allow with other notices for debugging.
+				'display-with-other-notices' => true, // Allow with other notices for debugging.
 			]
 		);
 		
