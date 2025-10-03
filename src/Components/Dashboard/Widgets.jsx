@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import WidgetItem from "./WidgetItem";
 import { ArrowUpRight } from "lucide-react";
-import { Container, Skeleton } from "@bsf/force-ui";
+import { Container, Skeleton, Button } from "@bsf/force-ui";
 import apiFetch from "@wordpress/api-fetch";
 import { __ } from "@wordpress/i18n";
 import { routes } from "../../admin/settings/routes";
@@ -78,6 +78,41 @@ const Widgets = () => {
 				<p className="m-0 text-sm font-semibold text-text-primary">
 					{__("Widgets / Features", "header-footer-elementor")}
 				</p>
+				{/* <span>
+					<Link
+						to={'https://ultimateelementor.com/pricing/?utm_source=uae-lite-dashboard&utm_medium=navigation-bar&utm_campaign=uae-lite-upgrade'}
+						className="text-sm font-normal text-text-primary cursor-pointer"
+						style={{ color: "#6005FF" }}
+					>
+						{__("Unlock All Features", "header-footer-elementor")}
+						<ArrowUpRight
+							className="ml-1 font-semibold"
+							size={14}
+						/>
+					</Link>
+				</span> */}
+				<Button
+					icon={<ArrowUpRight />}
+					iconPosition="right"
+					variant="ghost"
+					className="hfe-remove-ring m-0"
+					style={{
+						color: "#6005FF",
+						// paddingBottom: "10px",
+						background: "none",
+						border: "none",
+						padding: 0,
+						cursor: "pointer",
+						fontWeight: "normal",
+					}}
+					onClick={() =>
+						handleRedirect(
+							"https://ultimateelementor.com/pricing/?utm_source=uae-lite-dashboard&utm_medium=widget-feature-section&utm_campaign=uae-lite-upgrade",
+						)
+					}
+				>
+					{__("Get Full Control", "header-footer-elementor")}
+				</Button>
 			</div>
 			<div className="flex bg-black flex-col rounded-lg p-4">
 				{loading ? (

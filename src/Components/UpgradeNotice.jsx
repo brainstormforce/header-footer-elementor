@@ -68,15 +68,9 @@ const UpgradeNotice = () => {
             >
                 &times;
             </button>
-            <strong>
-                {__(
-                    "Unlock UAE's full potential!",
-                    "header-footer-elementor"
-                )}{" "}
-            </strong>
             <span>
                 {__(
-                    "Get powerful widgets and faster performance.",
+                    "Design Without Limits: Access the features that top WordPress sites run on.",
                     "header-footer-elementor"
                 )}{" "}
                 <a
@@ -84,7 +78,7 @@ const UpgradeNotice = () => {
                     target="_blank"
                     style={{ color: "#000000" }}
                 >
-                    {__("Upgrade now", "header-footer-elementor")}
+                  <strong>  {__("Get Full Control", "header-footer-elementor")} </strong>
                 </a>
             </span>
         </div>

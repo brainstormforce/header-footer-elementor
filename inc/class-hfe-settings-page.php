@@ -92,7 +92,7 @@ class HFE_Settings_Page {
 	public function upgrade_pro_link( $links ) {
 		$plugin_file = 'ultimate-elementor/ultimate-elementor.php';
 		if ( ! file_exists( WP_PLUGIN_DIR . '/' . $plugin_file ) && ! HFE_Helper::is_pro_active() ) {
-			$links[]     = '<a href="' . esc_url( 'https://ultimateelementor.com/pricing/?utm_source=wp-admin&utm_medium=plugin-list&utm_campaign=uae-upgrade' ) . '" target="_blank" rel="noreferrer" class="uae-plugins-go-pro">' . esc_html__( 'Get UAE Pro', 'header-footer-elementor' ) . '</a>';
+			$links[]     = '<a href="' . esc_url( 'https://ultimateelementor.com/pricing/?utm_source=wp-admin&utm_medium=plugin-list&utm_campaign=uae-upgrade' ) . '" target="_blank" rel="noreferrer" class="uae-plugins-go-pro">' . esc_html__( 'Go Pro', 'header-footer-elementor' ) . '</a>';
 		}
 
 		return $links;

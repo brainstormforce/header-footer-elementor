@@ -114,10 +114,7 @@ msgid "Scroll to Top"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:200
-#: src/Components/Compare/UltimateCompare.jsx:109
-#: src/Components/Dashboard/MyAccount.jsx:54
-#: src/Components/Widgets/UltimateWidgets.jsx:116
-msgid "Upgrade Now"
+msgid "Get Full Toolkit"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:21
@@ -353,6 +350,11 @@ msgstr ""
 msgid "Business Reviews"
 msgstr ""
 
+#: src/Components/Compare/UltimateCompare.jsx:109
+#: src/Components/Widgets/UltimateWidgets.jsx:116
+msgid "Upgrade Now"
+msgstr ""
+
 #: src/Components/Compare/UltimateCompare.jsx:22
 #: src/Components/Widgets/UltimateWidgets.jsx:23
 msgid "Post Layouts"
@@ -480,11 +482,21 @@ msgid ""
 msgstr ""
 
 #: src/Components/Dashboard/MyAccount.jsx:36
-msgid "Unlock Pro Features"
+msgid "Build Better Websites With Ultimate Addons Pro"
 msgstr ""
 
 #: src/Components/Dashboard/MyAccount.jsx:37
-msgid "Get access to advanced blocks and premium features."
+msgid ""
+"Unlock advanced addons built to supercharge Elementor. Smarter widgets, "
+"smoother workflows, and more freedom to bring your designs to life with UAE "
+"Pro."
+msgstr ""
+
+#: src/Components/Dashboard/MyAccount.jsx:54
+#: src/Components/Dashboard/Widgets.jsx:114
+#: src/Components/NavMenu.js:210
+#: src/Components/UpgradeNotice.jsx:81
+msgid "Get Full Control"
 msgstr ""
 
 #: src/Components/Dashboard/QuickAccess.js:114
@@ -604,7 +616,7 @@ msgstr ""
 msgid "View Demo"
 msgstr ""
 
-#: src/Components/Dashboard/Widgets.jsx:143
+#: src/Components/Dashboard/Widgets.jsx:178
 msgid "View More Widgets"
 msgstr ""
 
@@ -635,10 +647,6 @@ msgstr ""
 
 #: src/Components/NavMenu.js:183
 msgid "Free vs Pro"
-msgstr ""
-
-#: src/Components/NavMenu.js:210
-msgid "Get Pro"
 msgstr ""
 
 #: src/Components/NavMenu.js:233
@@ -1108,15 +1116,7 @@ msgid "Close Upgrade Notice"
 msgstr ""
 
 #: src/Components/UpgradeNotice.jsx:72
-msgid "Unlock UAE's full potential!"
-msgstr ""
-
-#: src/Components/UpgradeNotice.jsx:78
-msgid "Get powerful widgets and faster performance."
-msgstr ""
-
-#: src/Components/UpgradeNotice.jsx:87
-msgid "Upgrade now"
+msgid "Design Without Limits: Access the features that top WordPress sites run on."
 msgstr ""
 
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:189
