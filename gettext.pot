@@ -493,7 +493,7 @@ msgid ""
 msgstr ""
 
 #: src/Components/Dashboard/MyAccount.jsx:54
-#: src/Components/Dashboard/Widgets.jsx:114
+#: src/Components/Dashboard/Widgets.jsx:101
 #: src/Components/NavMenu.js:210
 #: src/Components/UpgradeNotice.jsx:81
 msgid "Get Full Control"
@@ -616,7 +616,7 @@ msgstr ""
 msgid "View Demo"
 msgstr ""
 
-#: src/Components/Dashboard/Widgets.jsx:178
+#: src/Components/Dashboard/Widgets.jsx:165
 msgid "View More Widgets"
 msgstr ""
 

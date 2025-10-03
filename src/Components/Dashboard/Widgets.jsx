@@ -78,19 +78,6 @@ const Widgets = () => {
 				<p className="m-0 text-sm font-semibold text-text-primary">
 					{__("Widgets / Features", "header-footer-elementor")}
 				</p>
-				{/* <span>
-					<Link
-						to={'https://ultimateelementor.com/pricing/?utm_source=uae-lite-dashboard&utm_medium=navigation-bar&utm_campaign=uae-lite-upgrade'}
-						className="text-sm font-normal text-text-primary cursor-pointer"
-						style={{ color: "#6005FF" }}
-					>
-						{__("Unlock All Features", "header-footer-elementor")}
-						<ArrowUpRight
-							className="ml-1 font-semibold"
-							size={14}
-						/>
-					</Link>
-				</span> */}
 				<Button
 					icon={<ArrowUpRight />}
 					iconPosition="right"
