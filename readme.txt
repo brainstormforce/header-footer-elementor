@@ -299,7 +299,7 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 ---
 
 == Changelog ==
-= 2.5.2=
+= 2.5.2 =
 - Fix: Basic Post Widget not showing for logged out users.
 
 = 2.5.1 =
@@ -310,7 +310,6 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 - Improvement: Compatibility with latest Elementor and Elementor Pro 3.32 version.
 - Fix: This update addressed a security bug. Props to Willow from WP Scan for reporting it responsibly to our team.
 - Fix: Navigation Menu - Alignment now works for last menu item as button.
-
 
 = 2.4.9 =
 - Fix: Navigation Menu - Resolved accessibility issue with the expandable menu layout.
