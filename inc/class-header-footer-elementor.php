@@ -133,7 +133,7 @@ class Header_Footer_Elementor {
 			}
 
 			// Filter to change Astra menu positon.
-			add_filter( 'astra_menu_priority', array( $this, 'update_admin_menu_position' ) );
+			add_filter( 'astra_menu_priority', [ $this, 'update_admin_menu_position' ] );
 			// Scripts and styles.
 			add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
 
@@ -147,7 +147,7 @@ class Header_Footer_Elementor {
 			add_action( 'astra_notice_before_markup_header-footer-elementor-rating', [ $this, 'rating_notice_css' ] );
 
 			require_once HFE_DIR . 'inc/class-hfe-analytics.php';
-			     
+				 
 		}
 	}
 
@@ -219,15 +219,17 @@ class Header_Footer_Elementor {
 		$image_path = HFE_URL . 'assets/images/settings/uael-icon.svg';
 
 		// Initialize Astra_Notices to ensure hooks are registered.
-		Astra_Notices::get_instance();
+		if ( class_exists( 'Astra_Notices' ) ) {
+			Astra_Notices::get_instance();
+		}
 		
 		$notice_id = 'header-footer-elementor-rating';
 		
 		// Check conditions
-		$header_enabled = hfe_header_enabled();
-		$footer_enabled = hfe_footer_enabled();
+		$header_enabled        = hfe_header_enabled();
+		$footer_enabled        = hfe_footer_enabled();
 		$before_footer_enabled = hfe_is_before_footer_enabled();
-		$show_condition = $header_enabled || $footer_enabled || $before_footer_enabled;
+		$show_condition        = $header_enabled || $footer_enabled || $before_footer_enabled;
 		
 
 		Astra_Notices::add_notice(
@@ -265,18 +267,13 @@ class Header_Footer_Elementor {
 					__( 'Nope, maybe later', 'header-footer-elementor' ),
 					__( 'I already did', 'header-footer-elementor' )
 				),
-				'show_if' => ( hfe_header_enabled() || hfe_footer_enabled() || hfe_is_before_footer_enabled() ) ? true : false,
+				'show_if'                    => ( hfe_header_enabled() || hfe_footer_enabled() || hfe_is_before_footer_enabled() ) ? true : false,
 				'repeat-notice-after'        => MONTH_IN_SECONDS,
-				'display-notice-after' => false,
+				'display-notice-after'       => false,
 				'priority'                   => 18,
 				'display-with-other-notices' => true, // Allow with other notices for debugging.
 			]
 		);
-		
-		// Debug: Add a direct admin notice as backup
-		add_action( 'admin_notices', function() {
-			error_log( 'HFE: admin_notices hook fired' );
-		});
 	}
 
 	/**
