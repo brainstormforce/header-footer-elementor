@@ -221,7 +221,6 @@ class Header_Footer_Elementor {
 		// Initialize Astra_Notices to ensure hooks are registered.
 		if ( class_exists( 'Astra_Notices' ) ) {
 			Astra_Notices::get_instance();
-		}
 		
 		$notice_id = 'header-footer-elementor-rating';
 		
@@ -274,6 +273,8 @@ class Header_Footer_Elementor {
 				'display-with-other-notices' => true, // Allow with other notices for debugging.
 			]
 		);
+
+		}
 	}
 
 	/**
