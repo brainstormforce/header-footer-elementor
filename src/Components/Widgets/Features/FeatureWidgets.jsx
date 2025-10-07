@@ -220,7 +220,7 @@ const FeatureWidgets = () => {
                         onChange={handleSearchChange}
                     />
                     <div className="flex flex-row gap-2 w-full md:w-auto">
-                        <div style={{ width: '210px', minWidth: '210px' }} className="rounded-none">
+                        <div style={{ width: '210px', minWidth: '210px' }}>
                             <Tabs.Group
                                 activeItem={activeTab}
                                 iconPosition="left"
@@ -232,14 +232,15 @@ const FeatureWidgets = () => {
                                 size="sm"
                                 variant="default"
                                 width="210px"
-                                className="rounded-none"
-                                style={{ borderRadius: '0px', width: '100%', minWidth: '100%' }}
+                                className="rounded-md"
+                                style={{ borderRadius: '6px', width: '100%', minWidth: '100%' }}
                             >
                             <Tabs.Tab
                                 icon={loadingActivate ? <LoaderCircle className="animate-spin" /> : null}
                                 slug="activate"
-                                text={loadingActivate ? __('Activating...', 'header-footer-elementor') : __('Activate All', 'header-footer-elementor')}
+                                text={loadingActivate ? '' : __('Activate All', 'header-footer-elementor')}
                                 disabled={!!searchTerm}
+                                style={{ borderRadius: '8px', minHeight: '37px', height: '37px' }}
                                 onClick={() => {
                                     console.log('Activate tab clicked');
                                     if (!loadingActivate && !searchTerm) {
@@ -250,8 +251,9 @@ const FeatureWidgets = () => {
                             <Tabs.Tab
                                 icon={loadingUnusedDeactivate ? <LoaderCircle className="animate-spin" /> : null}
                                 slug="deactivateUnused"
-                                text={loadingUnusedDeactivate ? __('Deactivating...', 'header-footer-elementor') : __('Deactivate All', 'header-footer-elementor')}
+                                text={loadingUnusedDeactivate ? '' : __('Deactivate All', 'header-footer-elementor')}
                                 disabled={!!searchTerm}
+                                style={{ borderRadius: '8px', minHeight: '37px', height: '37px' }}
                                 onClick={() => {
                                     console.log('Deactivate unused tab clicked');
                                     if (!loadingUnusedDeactivate && !searchTerm) {

@@ -140,7 +140,7 @@ msgstr ""
 msgid "Reading Progress Bar"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:242
+#: src/Components/Compare/FreevsPro.jsx:246
 msgid "See all UAE Pro Features"
 msgstr ""
 
@@ -282,9 +282,7 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:71
 #: src/Components/Compare/UltimateCompare.jsx:12
-#: src/Components/Dashboard/UltimateFeatures.js:83
 #: src/Components/Onboarding/Features.jsx:243
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:85
 #: src/Components/Widgets/UltimateWidgets.jsx:13
 msgid "Modal Popup"
 msgstr ""
@@ -530,20 +528,16 @@ msgid "View Templates"
 msgstr ""
 
 #: src/Components/Dashboard/UltimateFeatures.js:102
-#: src/Components/Dashboard/UltimateFeatures.js:98
 #: src/Components/Widgets/UltimateWidgetFeatures.jsx:104
 msgid "Form & Pop-up Builder"
 msgstr ""
 
 #: src/Components/Dashboard/UltimateFeatures.js:106
-#: src/Components/Dashboard/UltimateFeatures.js:102
 #: src/Components/Widgets/UltimateWidgetFeatures.jsx:108
 msgid "Animation Effects"
 msgstr ""
 
 #: src/Components/Dashboard/UltimateFeatures.js:110
-#: src/Components/Dashboard/UltimateFeatures.js:114
-#: src/Components/Dashboard/UltimateFeatures.js:91
 #: src/Components/Widgets/UltimateWidgetFeatures.jsx:93
 msgid "Bloggers Toolkit"
 msgstr ""
@@ -588,21 +582,16 @@ msgid "Display Conditions"
 msgstr ""
 
 #: src/Components/Dashboard/UltimateFeatures.js:87
-#: src/Components/Dashboard/UltimateFeatures.js:91
 #: src/Components/Widgets/UltimateWidgetFeatures.jsx:89
 msgid "White Label"
 msgstr ""
 
 #: src/Components/Dashboard/UltimateFeatures.js:91
-#: src/Components/Dashboard/UltimateFeatures.js:114
-#: src/Components/Dashboard/UltimateFeatures.js:110
-#: src/Components/Dashboard/UltimateFeatures.js:106
 #: src/Components/Widgets/UltimateWidgetFeatures.jsx:112
 msgid "WooCommerce Builder"
 msgstr ""
 
 #: src/Components/Dashboard/UltimateFeatures.js:98
-#: src/Components/Dashboard/UltimateFeatures.js:94
 #: src/Components/Widgets/UltimateWidgetFeatures.jsx:100
 msgid "200+ Section Blocks"
 msgstr ""
@@ -1159,39 +1148,33 @@ msgid "Search..."
 msgstr ""
 
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:241
-msgid "Activating..."
-msgstr ""
-
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:241
 msgid "Activate All"
 msgstr ""
 
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:253
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:254
 msgid "Deactivate All"
 msgstr ""
 
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:268
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:270
 msgid "Deactivating..."
 msgstr ""
 
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:268
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:270
 msgid "Deactivate All "
-msgstr ""
-
-#: src/Components/Dashboard/UltimateFeatures.js:54
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:56
-msgid "Bring Your Vision to Life with UAE Pro"
-msgstr ""
-
-#: src/Components/Dashboard/UltimateFeatures.js:63
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:65
-msgid ""
-"Streamline your workflow, skip the repetitive tasks, and build modern, "
-"high-performance websites."
 msgstr ""
 
 #: src/Components/Widgets/UltimateWidgetFeatures.jsx:149
 msgid "Start Building Smarter"
+msgstr ""
+
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:56
+msgid "Bring Your Vision to Life with UAE Pro"
+msgstr ""
+
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:65
+msgid ""
+"Streamline your workflow, skip the repetitive tasks, and build modern, "
+"high-performance websites."
 msgstr ""
 
 #: src/Components/Widgets/UltimateWidgets.jsx:119

@@ -234,10 +234,14 @@ const FreevsPro = () => {
                         </React.Fragment>
                     ))}
                            <div className="flex items-center justify-center gap-x-2 ">
-					<Link
-						to={routes.widgets.path}
-						className="text-sm font-normal text-text-primary cursor-pointer"
-						style={{ lineHeight: "1rem", paddingTop: "10px", paddingBottom: "20px", color: "#6005FF" }}
+					<a
+						href="https://ultimateelementor.com/pricing-plans/?utm_source=uae-lite-dashboard&utm_medium=unlock-ultimate-feature&utm_campaign=uae-lite-upgrade"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="text-sm font-normal text-text-primary cursor-pointer no-underline"
+						style={{ lineHeight: "1rem", paddingTop: "10px", paddingBottom: "20px", color: "#6005FF", textDecoration: "none", outline: "none", boxShadow: "none" }}
+						onFocus={(e) => e.target.style.outline = "none"}
+						onBlur={(e) => e.target.style.outline = "none"}
 					>
 						{__("See all UAE Pro Features", "header-footer-elementor")}
 						<ArrowUpRight
@@ -245,7 +249,7 @@ const FreevsPro = () => {
 							size={14}
                             color="#6005FF"
 						/>
-					</Link>
+					</a>
 				</div>
                 </div>
             </div>
