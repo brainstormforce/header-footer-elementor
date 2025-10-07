@@ -78,6 +78,19 @@ const Widgets = () => {
 				<p className="m-0 text-sm font-semibold text-text-primary">
 					{__("Widgets / Features", "header-footer-elementor")}
 				</p>
+					<Link
+						to={routes.widgets.path}
+						className="text-sm font-normal gap-1 text-text-primary cursor-pointer"
+						style={{ color: "#6005FF" }}
+					>
+						{__("Unlock All Features", "header-footer-elementor")}
+						<ArrowUpRight
+							className="ml-1 mt-2 font-semibold"
+							size={14}
+							// style={{ paddingTop: "8px" }}
+							color="#6005FF"
+						/>
+					</Link>
 			</div>
 			<div className="flex bg-black flex-col rounded-lg p-4">
 				{loading ? (

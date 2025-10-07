@@ -2,6 +2,9 @@ import React from "react";
 import { Container, Button } from "@bsf/force-ui";
 import { Check, X } from "lucide-react";
 import { __ } from "@wordpress/i18n";
+import { routes } from "../../admin/settings/routes";
+import { Link } from "../../router/index";
+import { ArrowUpRight } from "lucide-react";
 
 const FreevsPro = () => {
     const sections = [
@@ -230,6 +233,20 @@ const FreevsPro = () => {
                             {renderItems(section.items)}
                         </React.Fragment>
                     ))}
+                           <div className="flex items-center justify-center gap-x-2 ">
+					<Link
+						to={routes.widgets.path}
+						className="text-sm font-normal text-text-primary cursor-pointer"
+						style={{ lineHeight: "1rem", paddingTop: "10px", paddingBottom: "20px", color: "#6005FF" }}
+					>
+						{__("See all UAE Pro Features", "header-footer-elementor")}
+						<ArrowUpRight
+							className="ml-1 font-semibold"
+							size={14}
+                            color="#6005FF"
+						/>
+					</Link>
+				</div>
                 </div>
             </div>
         </div>

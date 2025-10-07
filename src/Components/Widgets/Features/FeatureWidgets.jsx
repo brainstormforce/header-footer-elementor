@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Button, Skeleton, Tooltip } from "@bsf/force-ui";
+import { Container, Button, Skeleton, Tooltip, Tabs } from "@bsf/force-ui";
 import { LoaderCircle, SearchIcon, Trash2Icon } from "lucide-react";
 import WidgetItem from '@components/Dashboard/WidgetItem';
 import apiFetch from '@wordpress/api-fetch';
@@ -15,6 +15,7 @@ const FeatureWidgets = () => {
     const [loading, setLoading] = useState(true);
     const [updateCounter, setUpdateCounter] = useState(0);
     const [showTooltip, setShowTooltip] = useState(true); // Add state for showTooltip
+    const [activeTab, setActiveTab] = useState(''); // Add state for active tab - start with no tab selected
     
     useEffect(() => {
         const fetchSettings = () => {
@@ -44,6 +45,22 @@ const FeatureWidgets = () => {
         setSearchTerm(event.target.value.toLowerCase());
     };
 
+    // Handle tab change
+    const handleTabChange = (activeSlug) => {
+        console.log('Tab changed to:', activeSlug); // Debug log
+        setActiveTab(activeSlug);
+        
+        // Trigger action based on tab selection
+        if (activeSlug === 'activate') {
+            console.log('Calling handleActivateAll'); // Debug log
+            handleActivateAll();
+        } else if (activeSlug === 'deactivateUnused') {
+            console.log('Calling handleUnusedDeactivate'); // Debug log
+            handleUnusedDeactivate();
+        }
+    };
+
+
     // Filter widgets based on search term
     const filteredWidgets = allWidgetsData?.filter(widget =>
         widget.title.toLowerCase().includes(searchTerm) ||
@@ -51,7 +68,7 @@ const FeatureWidgets = () => {
     );
 
     const handleActivateAll = async () => {
-
+        console.log('handleActivateAll called'); // Debug log
         setLoadingActivate(true);
 
         const formData = new window.FormData();
@@ -69,6 +86,7 @@ const FeatureWidgets = () => {
                     prevWidgets.map(widget => ({ ...widget, is_active: true }))
                 );
                 setUpdateCounter(prev => prev + 1);
+                console.log('Activation completed successfully');
             } else if (data.error) {
                 setLoadingActivate(false);
                 console.error('Error during AJAX request:', error);
@@ -107,6 +125,7 @@ const FeatureWidgets = () => {
     };
 
     const handleUnusedDeactivate = async () => {
+        console.log('handleUnusedDeactivate called'); // Debug log
         setLoadingUnusedDeactivate(true);
     
         const formData = new window.FormData();
@@ -130,6 +149,7 @@ const FeatureWidgets = () => {
                     )
                 );
                 setUpdateCounter(prev => prev + 1);
+                console.log('Deactivate unused completed successfully');
             } else if (data.error) {
                 console.error('AJAX request failed:', data.error);
             } else {
@@ -200,58 +220,47 @@ const FeatureWidgets = () => {
                         onChange={handleSearchChange}
                     />
                     <div className="flex flex-row gap-2 w-full md:w-auto">
-                        <Tooltip
-                                arrow
-                                content={
-                                    <div>
-                                       <p>{__('Click here to activate all widgets & extensions.', 'header-footer-elementor')}</p>
-                                    </div>
-                                }
-                                placement="top"
-                                title=""
-                                triggers={[
-                                    'hover'
-                                ]}
-                                variant="dark"
-                                size="xs"
+                        <div style={{ width: '210px', minWidth: '210px' }} className="rounded-none">
+                            <Tabs.Group
+                                activeItem={activeTab}
+                                iconPosition="left"
+                                onChange={(slug) => {
+                                    console.log('Tabs.Group onChange called with:', slug);
+                                    handleTabChange(slug);
+                                }}
+                                orientation="horizontal"
+                                size="sm"
+                                variant="default"
+                                width="210px"
+                                className="rounded-none"
+                                style={{ borderRadius: '0px', width: '100%', minWidth: '100%' }}
                             >
-                            <Button
+                            <Tabs.Tab
                                 icon={loadingActivate ? <LoaderCircle className="animate-spin" /> : null}
-                                iconPosition="left"
-                                variant="outline"
-                                className="hfe-bulk-action-button"
-                                onClick={handleActivateAll} // Attach the onClick event.
+                                slug="activate"
+                                text={loadingActivate ? __('Activating...', 'header-footer-elementor') : __('Activate All', 'header-footer-elementor')}
                                 disabled={!!searchTerm}
-                            >
-                                {loadingActivate ? __('Activating...', 'header-footer-elementor') : __('Activate All', 'header-footer-elementor')}
-                            </Button>
-                        </Tooltip>
-                        <Tooltip
-                                arrow
-                                content={
-                                    <div>
-                                       <p>{__('Click here to deactivate all unused widgets, except Extensions.', 'header-footer-elementor')}</p>
-                                    </div>
-                                }
-                                placement="top"
-                                title=""
-                                triggers={[
-                                    'hover'
-                                ]}
-                                variant="dark"
-                                size="xs"
-                            >
-                            <Button
-                                icon={loadingUnusedDeactivate ? <LoaderCircle className="animate-spin" /> : null} // Loader for deactivate button.
-                                iconPosition="left"
-                                variant="outline"
-                                onClick={handleUnusedDeactivate}
-                                className="hfe-bulk-action-button"
+                                onClick={() => {
+                                    console.log('Activate tab clicked');
+                                    if (!loadingActivate && !searchTerm) {
+                                        handleTabChange('activate');
+                                    }
+                                }}
+                            />
+                            <Tabs.Tab
+                                icon={loadingUnusedDeactivate ? <LoaderCircle className="animate-spin" /> : null}
+                                slug="deactivateUnused"
+                                text={loadingUnusedDeactivate ? __('Deactivating...', 'header-footer-elementor') : __('Deactivate All', 'header-footer-elementor')}
                                 disabled={!!searchTerm}
-                            >
-                                {loadingUnusedDeactivate ? __('Deactivating...', 'header-footer-elementor') : __('Deactivate Unused', 'header-footer-elementor')}
-                            </Button>
-                        </Tooltip>
+                                onClick={() => {
+                                    console.log('Deactivate unused tab clicked');
+                                    if (!loadingUnusedDeactivate && !searchTerm) {
+                                        handleTabChange('deactivateUnused');
+                                    }
+                                }}
+                            />
+                        </Tabs.Group>
+                        </div>
                         <Tooltip
                                 arrow
                                 content={
