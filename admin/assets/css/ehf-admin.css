@@ -868,10 +868,10 @@ tr[data-plugin*="header-footer-elementor"] a[href*="reviews"],
 tr[data-plugin*="header-footer-elementor"] a[href*="reviews"]:focus,
 tr[data-plugin*="header-footer-elementor"] a[href*="reviews"]:active,
 tr[data-plugin*="header-footer-elementor"] a[href*="reviews"]:hover,
-.plugin-description-actions a[href*="reviews"],
-.plugin-description-actions a[href*="reviews"]:focus,
-.plugin-description-actions a[href*="reviews"]:active,
-.plugin-description-actions a[href*="reviews"]:hover {
+tr[data-plugin*="header-footer-elementor"] .plugin-description-actions a[href*="reviews"],
+tr[data-plugin*="header-footer-elementor"] .plugin-description-actions a[href*="reviews"]:focus,
+tr[data-plugin*="header-footer-elementor"] .plugin-description-actions a[href*="reviews"]:active,
+tr[data-plugin*="header-footer-elementor"] .plugin-description-actions a[href*="reviews"]:hover {
     text-decoration: none !important;
     outline: 0 !important;
     outline: none !important;
@@ -886,11 +886,20 @@ tr[data-plugin*="header-footer-elementor"] a[href*="reviews"]:hover,
 }
 
 tr[data-plugin*="header-footer-elementor"] a[href*="reviews"]:hover,
-.plugin-description-actions a[href*="reviews"]:hover {
+tr[data-plugin*="header-footer-elementor"] .plugin-description-actions a[href*="reviews"]:hover {
     opacity: 0.8;
 }
 
 tr[data-plugin*="header-footer-elementor/header-footer-elementor.php"] .plugin-description-actions a[href*="reviews"] .dashicons {
     vertical-align: top;
     margin: 0 1px;
+}
+
+/* Rating star styles for plugin meta links */
+.hfe-rating-star {
+    color: #ffb900;
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    line-height: 1.2;
 }

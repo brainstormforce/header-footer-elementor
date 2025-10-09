@@ -109,10 +109,7 @@ class HFE_Settings_Page {
 	 */
 	public function add_rating_meta_links( array $links, string $file ): array {
 		if ( HFE_PATH === $file ) {
-			$stars = '';
-			for ( $indx = 0; $indx < 5; $indx++ ) {
-				$stars .= '<span class="dashicons dashicons-star-filled" style="color: #ffb900; font-size: 16px; width: 16px; height: 16px; line-height: 1.2;" aria-hidden="true"></span>';
-			}
+			$stars = str_repeat( '<span class="dashicons dashicons-star-filled hfe-rating-star" aria-hidden="true"></span>', 5 );
 			$links[] = sprintf(
 				'<a href="%s" target="_blank" rel="noopener noreferrer" aria-label="%s" role="button">%s</a>',
 				esc_url( 'https://wordpress.org/support/plugin/header-footer-elementor/reviews/#new-post' ),
