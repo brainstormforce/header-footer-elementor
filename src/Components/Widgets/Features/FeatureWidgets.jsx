@@ -220,7 +220,7 @@ const FeatureWidgets = () => {
                         onChange={handleSearchChange}
                     />
                     <div className="flex flex-row gap-2 w-full md:w-auto">
-                        <div style={{ width: '210px', minWidth: '210px' }}>
+                        <div style={{ width: '210px', minWidth: '245px' }}>
                             <Tabs.Group
                                 activeItem={activeTab}
                                 iconPosition="left"
@@ -251,7 +251,7 @@ const FeatureWidgets = () => {
                             <Tabs.Tab
                                 icon={loadingUnusedDeactivate ? <LoaderCircle className="animate-spin" /> : null}
                                 slug="deactivateUnused"
-                                text={loadingUnusedDeactivate ? '' : __('Deactivate All', 'header-footer-elementor')}
+                                text={loadingUnusedDeactivate ? '' : __('Deactivate Unused', 'header-footer-elementor')}
                                 disabled={!!searchTerm}
                                 style={{ borderRadius: '8px', minHeight: '37px', height: '37px' }}
                                 onClick={() => {

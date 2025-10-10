@@ -112,6 +112,7 @@ msgstr ""
 #: src/Components/Compare/FreevsPro.jsx:203
 #: src/Components/Compare/UltimateCompare.jsx:109
 #: src/Components/Dashboard/MyAccount.jsx:54
+#: src/Components/Dashboard/WidgetItem.jsx:177
 #: src/Components/Widgets/UltimateWidgets.jsx:116
 msgid "Upgrade Now"
 msgstr ""
@@ -502,6 +503,7 @@ msgid "VIP Priority Support"
 msgstr ""
 
 #: src/Components/Dashboard/QuickAccess.js:56
+#: src/Components/Dashboard/WidgetItem.jsx:153
 msgid "PRO"
 msgstr ""
 
@@ -616,11 +618,11 @@ msgstr ""
 msgid "Create New Page"
 msgstr ""
 
-#: src/Components/Dashboard/WidgetItem.jsx:129
-msgid "Unlock with "
+#: src/Components/Dashboard/WidgetItem.jsx:177
+msgid "Get Full Control"
 msgstr ""
 
-#: src/Components/Dashboard/WidgetItem.jsx:272
+#: src/Components/Dashboard/WidgetItem.jsx:301
 msgid "View Demo"
 msgstr ""
 
@@ -1152,7 +1154,7 @@ msgid "Activate All"
 msgstr ""
 
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:254
-msgid "Deactivate All"
+msgid "Deactivate Unused"
 msgstr ""
 
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:270

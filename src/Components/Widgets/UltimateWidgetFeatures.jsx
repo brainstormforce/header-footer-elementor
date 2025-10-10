@@ -26,9 +26,9 @@ const UltimateWidgetFeatures = () => {
 								"Column Showcase",
 								"header-footer-elementor",
 							)}
-							style={{ width: "400px", height: "200px" }}
+							style={{  height: "250" }}
 							loading="lazy"
-							className="object-contain rounded"
+							className="object-cover rounded w-full"
 						/>
 					</Container.Item>
 
