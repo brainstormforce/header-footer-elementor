@@ -299,6 +299,10 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 ---
 
 == Changelog ==
+= 2.5.3 = Development version
+- New: Woo Product Grid Widget.
+- Added Support fro Blocksy, Neve and Kadence Theme
+
 = 2.5.2=
 - Fix: Basic Post Widget not showing for logged out users.
 

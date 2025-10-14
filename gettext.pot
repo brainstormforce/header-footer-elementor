@@ -114,10 +114,7 @@ msgid "Scroll to Top"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:200
-#: src/Components/Compare/UltimateCompare.jsx:109
-#: src/Components/Dashboard/MyAccount.jsx:54
-#: src/Components/Widgets/UltimateWidgets.jsx:116
-msgid "Upgrade Now"
+msgid "Get Full Toolkit"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:21
@@ -130,12 +127,15 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:220
 #: src/Components/NavMenu.js:242
+#: src/Components/Compare/FreevsPro.jsx:223
+#: src/Components/NavMenu.js:239
 #: src/Components/Onboarding/Features.jsx:193
 msgid "Free"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:226
 #: src/Components/Dashboard/WidgetItem.jsx:145
+#: src/Components/Compare/FreevsPro.jsx:229
 #: src/Components/Onboarding/Features.jsx:351
 msgid "Pro"
 msgstr ""
@@ -169,6 +169,7 @@ msgid "Creative & Advanced Design Widgets"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:35
+#: src/Components/Compare/FreevsPro.jsx:38
 #: src/Components/Compare/UltimateCompare.jsx:17
 #: src/Components/Widgets/UltimateWidgets.jsx:18
 msgid "Advanced Heading"
@@ -179,6 +180,7 @@ msgid "Dual Color Heading"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:37
+#: src/Components/Compare/FreevsPro.jsx:40
 #: src/Components/Dashboard/UltimateFeatures.js:75
 #: src/Components/Widgets/UltimateWidgetFeatures.jsx:77
 msgid "Fancy Heading"
@@ -205,6 +207,7 @@ msgid "Image Gallery"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:47
+#: src/Components/Compare/FreevsPro.jsx:50
 #: src/Components/Dashboard/UltimateFeatures.js:98
 #: src/Components/Widgets/UltimateWidgetFeatures.jsx:100
 msgid "Video Gallery"
@@ -239,6 +242,7 @@ msgid "Conditional Display"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:55
+#: src/Components/Compare/FreevsPro.jsx:58
 #: src/Components/Compare/UltimateCompare.jsx:27
 #: src/Components/Widgets/UltimateWidgets.jsx:28
 msgid "Info Box"
@@ -277,6 +281,7 @@ msgid "Business Hours"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:68
+#: src/Components/Compare/FreevsPro.jsx:71
 #: src/Components/Compare/UltimateCompare.jsx:12
 #: src/Components/Dashboard/UltimateFeatures.js:83
 #: src/Components/Onboarding/Features.jsx:243
@@ -351,6 +356,14 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:96
 msgid "Business Reviews"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:200
+#: src/Components/Compare/FreevsPro.jsx:203
+#: src/Components/Compare/UltimateCompare.jsx:109
+#: src/Components/Dashboard/MyAccount.jsx:54
+#: src/Components/Widgets/UltimateWidgets.jsx:116
+msgid "Upgrade Now"
 msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:22
@@ -480,11 +493,13 @@ msgid ""
 msgstr ""
 
 #: src/Components/Dashboard/MyAccount.jsx:36
-msgid "Unlock Pro Features"
+msgid "Build Better Websites With Ultimate Addons Pro"
 msgstr ""
 
 #: src/Components/Dashboard/MyAccount.jsx:37
-msgid "Get access to advanced blocks and premium features."
+msgid ""
+"Unlock advanced addons to power up Elementor — smarter widgets, smoother "
+"workflows, and more creative freedom with UAE Pro."
 msgstr ""
 
 #: src/Components/Dashboard/QuickAccess.js:114
@@ -638,7 +653,8 @@ msgid "Free vs Pro"
 msgstr ""
 
 #: src/Components/NavMenu.js:210
-msgid "Get Pro"
+#: src/Components/UpgradeNotice.jsx:81
+msgid "Get Full Control"
 msgstr ""
 
 #: src/Components/NavMenu.js:233
@@ -749,12 +765,16 @@ msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:340
 #: src/Components/Onboarding/Create.jsx:387
+#: src/Components/Onboarding/Build.jsx:338
+#: src/Components/Onboarding/Create.jsx:385
 #: src/Components/Onboarding/ExtendOnboarding.jsx:441
 msgid "First Name"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:367
 #: src/Components/Onboarding/Create.jsx:427
+#: src/Components/Onboarding/Build.jsx:365
+#: src/Components/Onboarding/Create.jsx:425
 #: src/Components/Onboarding/ExtendOnboarding.jsx:466
 msgid "Last Name"
 msgstr ""
@@ -783,6 +803,7 @@ msgstr ""
 #: src/Components/Onboarding/Build.jsx:87
 #: src/Components/Onboarding/Create.jsx:93
 #: src/Components/Onboarding/ExtendOnboarding.jsx:100
+#: src/Components/Onboarding/ExtendOnboarding.jsx:99
 #: src/Components/Settings/ThemeSupport.jsx:63
 #: src/Components/Settings/UsageTracking.jsx:32
 msgid "Settings saved successfully!"
@@ -791,6 +812,7 @@ msgstr ""
 #: src/Components/Onboarding/Build.jsx:92
 #: src/Components/Onboarding/Create.jsx:105
 #: src/Components/Onboarding/ExtendOnboarding.jsx:106
+#: src/Components/Onboarding/ExtendOnboarding.jsx:105
 #: src/Components/Settings/ThemeSupport.jsx:68
 #: src/Components/Settings/UsageTracking.jsx:37
 msgid "Failed to save settings!"
@@ -863,16 +885,19 @@ msgid " Privacy Policy"
 msgstr ""
 
 #: src/Components/Onboarding/ExtendOnboarding.jsx:551
+#: src/Components/Onboarding/ExtendOnboarding.jsx:543
 #: src/Components/Onboarding/Features.jsx:389
 msgid "Back"
 msgstr ""
 
 #: src/Components/Onboarding/ExtendOnboarding.jsx:560
+#: src/Components/Onboarding/ExtendOnboarding.jsx:552
 #: src/Components/Onboarding/Features.jsx:398
 msgid "Skip"
 msgstr ""
 
 #: src/Components/Onboarding/ExtendOnboarding.jsx:573
+#: src/Components/Onboarding/ExtendOnboarding.jsx:565
 #: src/Components/Onboarding/Features.jsx:426
 msgid "Next"
 msgstr ""
@@ -1108,15 +1133,7 @@ msgid "Close Upgrade Notice"
 msgstr ""
 
 #: src/Components/UpgradeNotice.jsx:72
-msgid "Unlock UAE's full potential!"
-msgstr ""
-
-#: src/Components/UpgradeNotice.jsx:78
-msgid "Get powerful widgets and faster performance."
-msgstr ""
-
-#: src/Components/UpgradeNotice.jsx:87
-msgid "Upgrade now"
+msgid "Design Without Limits: Access the features that top WordPress sites run on."
 msgstr ""
 
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:189
