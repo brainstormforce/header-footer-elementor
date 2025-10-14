@@ -207,7 +207,7 @@ const NavMenu = () => {
 									)
 								}
 							>
-								{__("Get Pro", "header-footer-elementor")}
+								{__("Get Full Control", "header-footer-elementor")}
 							</Button>
 						</Topbar.Item>
 					</Topbar.Middle>
