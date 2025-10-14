@@ -34,7 +34,7 @@ const MyAccount = () => {
                 <div className='flex items-center justify-between px-4 rounded-xl' style={{paddingTop: '6px' , paddingBottom: '6px', backgroundColor: "#F3F0FF"}}>
                     <span className="flex flex-col items-left mt-2 text-base font-semibold">
                         {__('Build Better Websites With Ultimate Addons Pro', 'header-footer-elementor')}
-                        <p className='text-base font-normal m-0 py-2' style={{ width: '500px'}}>{__('Unlock advanced addons to power up Elementor — smarter widgets, smoother workflows, and more creative freedom with UAE Pro.', 'header-footer-elementor')}</p>
+                        <p className='text-base font-normal m-0 py-2' style={{ width: '700px'}}>{__('Unlock advanced addons to power up Elementor — smarter widgets, smoother workflows, and more creative freedom with UAE Pro.', 'header-footer-elementor')}</p>
                     </span>
                     <Button
                             icon={<ArrowUpRight />}

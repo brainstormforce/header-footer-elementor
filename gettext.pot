@@ -622,12 +622,6 @@ msgstr ""
 msgid "Formerly Elementor Header & Footer Builder"
 msgstr ""
 
-#: src/Components/Dashboard/MyAccount.jsx:54
-#: src/Components/NavMenu.js:210
-#: src/Components/UpgradeNotice.jsx:81
-msgid "Get Full Control"
-msgstr ""
-
 #: src/Components/NavMenu.js:131
 msgid "Dashboard"
 msgstr ""
@@ -646,6 +640,11 @@ msgstr ""
 
 #: src/Components/NavMenu.js:183
 msgid "Free vs Pro"
+msgstr ""
+
+#: src/Components/NavMenu.js:210
+#: src/Components/UpgradeNotice.jsx:81
+msgid "Get Full Control"
 msgstr ""
 
 #: src/Components/NavMenu.js:233
@@ -884,11 +883,6 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: src/Components/Dashboard/MyAccount.jsx:54
-#: src/Components/Onboarding/Features.jsx:412
-msgid "Upgrade"
-msgstr ""
-
 #: src/Components/Onboarding/Features.jsx:100
 msgid "Select Your Features"
 msgstr ""
@@ -931,6 +925,10 @@ msgstr ""
 msgid ""
 "Design eye-catching popups directly in Elementor—collect leads, display "
 "promotions, or show messages without needing a separate popup plugin."
+msgstr ""
+
+#: src/Components/Onboarding/Features.jsx:412
+msgid "Upgrade"
 msgstr ""
 
 #: src/Components/Onboarding/Features.jsx:441
