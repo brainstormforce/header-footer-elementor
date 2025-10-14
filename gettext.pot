@@ -1146,15 +1146,15 @@ msgstr ""
 msgid "Activate All"
 msgstr ""
 
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:248
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:247
 msgid "Deactivate Unused"
 msgstr ""
 
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:256
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:255
 msgid "Deactivating..."
 msgstr ""
 
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:256
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:255
 msgid "Deactivate All "
 msgstr ""
 
