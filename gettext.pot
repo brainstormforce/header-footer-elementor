@@ -119,7 +119,6 @@ msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:223
 #: src/Components/NavMenu.js:242
-#: src/Components/NavMenu.js:239
 #: src/Components/Onboarding/Features.jsx:193
 msgid "Free"
 msgstr ""
@@ -348,7 +347,6 @@ msgstr ""
 msgid "Business Reviews"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:203
 #: src/Components/Compare/UltimateCompare.jsx:109
 #: src/Components/Dashboard/MyAccount.jsx:54
 #: src/Components/Widgets/UltimateWidgets.jsx:116
@@ -778,16 +776,12 @@ msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:340
 #: src/Components/Onboarding/Create.jsx:387
-#: src/Components/Onboarding/Build.jsx:338
-#: src/Components/Onboarding/Create.jsx:385
 #: src/Components/Onboarding/ExtendOnboarding.jsx:441
 msgid "First Name"
 msgstr ""
 
 #: src/Components/Onboarding/Build.jsx:367
 #: src/Components/Onboarding/Create.jsx:427
-#: src/Components/Onboarding/Build.jsx:365
-#: src/Components/Onboarding/Create.jsx:425
 #: src/Components/Onboarding/ExtendOnboarding.jsx:466
 msgid "Last Name"
 msgstr ""
@@ -816,7 +810,6 @@ msgstr ""
 #: src/Components/Onboarding/Build.jsx:87
 #: src/Components/Onboarding/Create.jsx:93
 #: src/Components/Onboarding/ExtendOnboarding.jsx:100
-#: src/Components/Onboarding/ExtendOnboarding.jsx:99
 #: src/Components/Settings/ThemeSupport.jsx:63
 #: src/Components/Settings/UsageTracking.jsx:32
 msgid "Settings saved successfully!"
@@ -825,7 +818,6 @@ msgstr ""
 #: src/Components/Onboarding/Build.jsx:92
 #: src/Components/Onboarding/Create.jsx:105
 #: src/Components/Onboarding/ExtendOnboarding.jsx:106
-#: src/Components/Onboarding/ExtendOnboarding.jsx:105
 #: src/Components/Settings/ThemeSupport.jsx:68
 #: src/Components/Settings/UsageTracking.jsx:37
 msgid "Failed to save settings!"
@@ -898,19 +890,16 @@ msgid " Privacy Policy"
 msgstr ""
 
 #: src/Components/Onboarding/ExtendOnboarding.jsx:551
-#: src/Components/Onboarding/ExtendOnboarding.jsx:543
 #: src/Components/Onboarding/Features.jsx:389
 msgid "Back"
 msgstr ""
 
 #: src/Components/Onboarding/ExtendOnboarding.jsx:560
-#: src/Components/Onboarding/ExtendOnboarding.jsx:552
 #: src/Components/Onboarding/Features.jsx:398
 msgid "Skip"
 msgstr ""
 
 #: src/Components/Onboarding/ExtendOnboarding.jsx:573
-#: src/Components/Onboarding/ExtendOnboarding.jsx:565
 #: src/Components/Onboarding/Features.jsx:426
 msgid "Next"
 msgstr ""
