@@ -299,6 +299,9 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 ---
 
 == Changelog ==
+= 2.5.2.1 = Development version
+- New: Woo Product Grid Widget.
+
 = 2.5.2=
 - Fix: Basic Post Widget not showing for logged out users.
 
