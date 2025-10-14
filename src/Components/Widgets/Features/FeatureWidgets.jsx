@@ -220,7 +220,7 @@ const FeatureWidgets = () => {
                         onChange={handleSearchChange}
                     />
                     <div className="flex flex-row gap-2 w-full md:w-auto">
-                        <div style={{ width: '210px', minWidth: '245px' }}>
+                        <div style={{ width: '210px', minWidth: '245px', position: 'relative' }}>
                             <Tabs.Group
                                 activeItem={activeTab}
                                 iconPosition="left"
@@ -240,7 +240,7 @@ const FeatureWidgets = () => {
                                 slug="activate"
                                 text={loadingActivate ? '' : __('Activate All', 'header-footer-elementor')}
                                 disabled={!!searchTerm}
-                                style={{ borderRadius: '8px', minHeight: '37px', height: '37px' }}
+                                style={{ borderRadius: '6px', minHeight: '37px', height: '37px' }}
                                 onClick={() => {
                                     console.log('Activate tab clicked');
                                     if (!loadingActivate && !searchTerm) {
@@ -253,7 +253,7 @@ const FeatureWidgets = () => {
                                 slug="deactivateUnused"
                                 text={loadingUnusedDeactivate ? '' : __('Deactivate Unused', 'header-footer-elementor')}
                                 disabled={!!searchTerm}
-                                style={{ borderRadius: '8px', minHeight: '37px', height: '37px' }}
+                                style={{ borderRadius: '6px', minHeight: '37px', height: '37px' }}
                                 onClick={() => {
                                     console.log('Deactivate unused tab clicked');
                                     if (!loadingUnusedDeactivate && !searchTerm) {
@@ -262,6 +262,18 @@ const FeatureWidgets = () => {
                                 }}
                             />
                         </Tabs.Group>
+                        <div 
+                            style={{
+                                position: 'absolute',
+                                top: '50%',
+                                left: '39%',
+                                transform: 'translate(-50%, -50%)',
+                                width: '1px',
+                                height: '20px',
+                                backgroundColor: '#000',
+                                zIndex: 10
+                            }}
+                        />
                         </div>
                         <Tooltip
                                 arrow

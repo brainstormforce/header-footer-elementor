@@ -112,7 +112,6 @@ msgstr ""
 #: src/Components/Compare/FreevsPro.jsx:203
 #: src/Components/Compare/UltimateCompare.jsx:109
 #: src/Components/Dashboard/MyAccount.jsx:54
-#: src/Components/Dashboard/WidgetItem.jsx:177
 #: src/Components/Widgets/UltimateWidgets.jsx:116
 msgid "Upgrade Now"
 msgstr ""
@@ -128,7 +127,6 @@ msgid "Free"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:229
-#: src/Components/Dashboard/WidgetItem.jsx:145
 #: src/Components/Onboarding/Features.jsx:351
 msgid "Pro"
 msgstr ""
@@ -626,17 +624,17 @@ msgstr ""
 msgid "View Demo"
 msgstr ""
 
-#: src/Components/Dashboard/Widgets.jsx:156
+#: src/Components/Dashboard/Widgets.jsx:100
+msgid "Unlock All Features"
+msgstr ""
+
+#: src/Components/Dashboard/Widgets.jsx:164
 msgid "View More Widgets"
 msgstr ""
 
 #: src/Components/Dashboard/Widgets.jsx:79
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:197
 msgid "Widgets / Features"
-msgstr ""
-
-#: src/Components/Dashboard/Widgets.jsx:86
-msgid "Unlock All Features"
 msgstr ""
 
 #: src/Components/HeaderLine.js:16
@@ -1157,11 +1155,11 @@ msgstr ""
 msgid "Deactivate Unused"
 msgstr ""
 
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:270
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:282
 msgid "Deactivating..."
 msgstr ""
 
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:270
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:282
 msgid "Deactivate All "
 msgstr ""
 
