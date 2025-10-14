@@ -47,15 +47,12 @@ const FeatureWidgets = () => {
 
     // Handle tab change
     const handleTabChange = (activeSlug) => {
-        console.log('Tab changed to:', activeSlug); // Debug log
         setActiveTab(activeSlug);
         
         // Trigger action based on tab selection
         if (activeSlug === 'activate') {
-            console.log('Calling handleActivateAll'); // Debug log
             handleActivateAll();
         } else if (activeSlug === 'deactivateUnused') {
-            console.log('Calling handleUnusedDeactivate'); // Debug log
             handleUnusedDeactivate();
         }
     };
@@ -68,7 +65,6 @@ const FeatureWidgets = () => {
     );
 
     const handleActivateAll = async () => {
-        console.log('handleActivateAll called'); // Debug log
         setLoadingActivate(true);
 
         const formData = new window.FormData();
@@ -86,14 +82,11 @@ const FeatureWidgets = () => {
                     prevWidgets.map(widget => ({ ...widget, is_active: true }))
                 );
                 setUpdateCounter(prev => prev + 1);
-                console.log('Activation completed successfully');
             } else if (data.error) {
                 setLoadingActivate(false);
-                console.error('Error during AJAX request:', error);
             }
         }).catch((error) => {
             setLoadingActivate(false);
-            console.error('Error during AJAX request:', error);
         });
     };
 
@@ -116,16 +109,13 @@ const FeatureWidgets = () => {
                 );
                 setUpdateCounter(prev => prev + 1);
             } else if (data.error) {
-                console.error('AJAX request failed:', data.error);
             }
         }).catch((error) => {
             setLoadingDeactivate(false);
-            console.error('Error during AJAX request:', error);
         });
     };
 
     const handleUnusedDeactivate = async () => {
-        console.log('handleUnusedDeactivate called'); // Debug log
         setLoadingUnusedDeactivate(true);
     
         const formData = new window.FormData();
@@ -149,15 +139,11 @@ const FeatureWidgets = () => {
                     )
                 );
                 setUpdateCounter(prev => prev + 1);
-                console.log('Deactivate unused completed successfully');
             } else if (data.error) {
-                console.error('AJAX request failed:', data.error);
             } else {
-                console.error('Unexpected response structure:', data);
             }
         }).catch((error) => {
             setLoadingUnusedDeactivate(false);
-            console.error('Error during AJAX request:', error);
         });
     };
     
@@ -220,60 +206,51 @@ const FeatureWidgets = () => {
                         onChange={handleSearchChange}
                     />
                     <div className="flex flex-row gap-2 w-full md:w-auto">
-                        <div style={{ width: '210px', minWidth: '245px', position: 'relative' }}>
-                            <Tabs.Group
-                                activeItem={activeTab}
-                                iconPosition="left"
-                                onChange={(slug) => {
-                                    console.log('Tabs.Group onChange called with:', slug);
-                                    handleTabChange(slug);
-                                }}
-                                orientation="horizontal"
-                                size="sm"
-                                variant="default"
-                                width="210px"
-                                className="rounded-md"
-                                style={{ borderRadius: '6px', width: '100%', minWidth: '100%' }}
-                            >
-                            <Tabs.Tab
-                                icon={loadingActivate ? <LoaderCircle className="animate-spin" /> : null}
-                                slug="activate"
-                                text={loadingActivate ? '' : __('Activate All', 'header-footer-elementor')}
-                                disabled={!!searchTerm}
-                                style={{ borderRadius: '6px', minHeight: '37px', height: '37px' }}
-                                onClick={() => {
-                                    console.log('Activate tab clicked');
-                                    if (!loadingActivate && !searchTerm) {
-                                        handleTabChange('activate');
-                                    }
-                                }}
-                            />
-                            <Tabs.Tab
-                                icon={loadingUnusedDeactivate ? <LoaderCircle className="animate-spin" /> : null}
-                                slug="deactivateUnused"
-                                text={loadingUnusedDeactivate ? '' : __('Deactivate Unused', 'header-footer-elementor')}
-                                disabled={!!searchTerm}
-                                style={{ borderRadius: '6px', minHeight: '37px', height: '37px' }}
-                                onClick={() => {
-                                    console.log('Deactivate unused tab clicked');
-                                    if (!loadingUnusedDeactivate && !searchTerm) {
-                                        handleTabChange('deactivateUnused');
-                                    }
-                                }}
-                            />
-                        </Tabs.Group>
-                        <div 
-                            style={{
-                                position: 'absolute',
-                                top: '50%',
-                                left: '39%',
-                                transform: 'translate(-50%, -50%)',
-                                width: '1px',
-                                height: '20px',
-                                backgroundColor: '#000',
-                                zIndex: 10
-                            }}
-                        />
+                        <div style={{ width: '245px', minWidth: '245px'}}>
+                        <div
+							className="flex justify-center items-center rounded-sm overflow-hidden"
+							style={ { border: '1.5px solid #e5e7eb', borderRadius: '0.25rem' } }
+						>
+							<div
+								className="font-medium p-2 hover:bg-button-tertiary-hover hover:outline-border-subtle transition-all duration-300 cursor-pointer"
+								style={ { 
+									border: 'none', 
+									borderRight: '1.5px solid #e5e7eb',
+									opacity: (!!searchTerm || loadingActivate) ? 0.5 : 1,
+									pointerEvents: (!!searchTerm || loadingActivate) ? 'none' : 'auto'
+								} }
+								onClick={ () => {
+									if (!loadingActivate && !searchTerm) {
+										handleActivateAll();
+									}
+								} }
+							>
+								{loadingActivate ? (
+									<LoaderCircle className="animate-spin w-4 h-4" />
+								) : (
+									__( 'Activate All', 'header-footer-elementor' )
+								)}
+							</div>
+							<div
+								className="font-medium p-2 hover:bg-button-tertiary-hover hover:outline-border-subtle transition-all duration-300 cursor-pointer"
+								style={ { 
+									border: 'none',
+									opacity: (!!searchTerm || loadingUnusedDeactivate) ? 0.5 : 1,
+									pointerEvents: (!!searchTerm || loadingUnusedDeactivate) ? 'none' : 'auto'
+								} }
+								onClick={ () => {
+									if (!loadingUnusedDeactivate && !searchTerm) {
+										handleUnusedDeactivate();
+									}
+								} }
+							>
+								{loadingUnusedDeactivate ? (
+									<LoaderCircle className="animate-spin w-4 h-4" />
+								) : (
+									__( 'Deactivate Unused', 'header-footer-elementor' )
+								)}
+							</div>
+						</div>
                         </div>
                         <Tooltip
                                 arrow
