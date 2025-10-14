@@ -141,7 +141,7 @@ const WidgetItem = ({ widget, updateCounter, showTooltip }) => {
 											{title}
 										</span>
 										<span style={{
-											backgroundColor: "#6005FF",
+											backgroundColor: "#C026D3",
 											color: "#ffffff",
 											fontSize: "10px",
 											fontWeight: "600",
@@ -166,7 +166,7 @@ const WidgetItem = ({ widget, updateCounter, showTooltip }) => {
 										target="_blank"
 										rel="noopener noreferrer"
 										style={{
-											color: "#6005FF",
+											color: "#C026D3",
 											textDecoration: "none",
 											outline: "none",
 											fontSize: "12px",
