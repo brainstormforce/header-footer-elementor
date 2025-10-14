@@ -78,28 +78,7 @@ const Widgets = () => {
 				<p className="m-0 text-sm font-semibold text-text-primary">
 					{__("Widgets / Features", "header-footer-elementor")}
 				</p>
-				<Button
-					icon={<ArrowUpRight />}
-					iconPosition="right"
-					variant="ghost"
-					className="hfe-remove-ring m-0"
-					style={{
-						color: "#6005FF",
-						// paddingBottom: "10px",
-						background: "none",
-						border: "none",
-						padding: 0,
-						cursor: "pointer",
-						fontWeight: "normal",
-					}}
-					onClick={() =>
-						handleRedirect(
-							"https://ultimateelementor.com/pricing/?utm_source=uae-lite-dashboard&utm_medium=widget-feature-section&utm_campaign=uae-lite-upgrade",
-						)
-					}
-				>
-					{__("Get Full Control", "header-footer-elementor")}
-				</Button>
+				
 			</div>
 			<div className="flex bg-black flex-col rounded-lg p-4">
 				{loading ? (
