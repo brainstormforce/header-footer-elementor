@@ -110,10 +110,7 @@ msgid "Dynamic Header & Footer Widgets"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:203
-#: src/Components/Compare/UltimateCompare.jsx:109
-#: src/Components/Dashboard/MyAccount.jsx:54
-#: src/Components/Widgets/UltimateWidgets.jsx:116
-msgid "Upgrade Now"
+msgid "Get Full Toolkit"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:22
@@ -351,6 +348,13 @@ msgstr ""
 msgid "Business Reviews"
 msgstr ""
 
+#: src/Components/Compare/FreevsPro.jsx:203
+#: src/Components/Compare/UltimateCompare.jsx:109
+#: src/Components/Dashboard/MyAccount.jsx:54
+#: src/Components/Widgets/UltimateWidgets.jsx:116
+msgid "Upgrade Now"
+msgstr ""
+
 #: src/Components/Compare/UltimateCompare.jsx:22
 #: src/Components/Widgets/UltimateWidgets.jsx:23
 msgid "Post Layouts"
@@ -478,11 +482,13 @@ msgid ""
 msgstr ""
 
 #: src/Components/Dashboard/MyAccount.jsx:36
-msgid "Unlock Pro Features"
+msgid "Build Better Websites With Ultimate Addons Pro"
 msgstr ""
 
 #: src/Components/Dashboard/MyAccount.jsx:37
-msgid "Get access to advanced blocks and premium features."
+msgid ""
+"Unlock advanced addons to power up Elementor — smarter widgets, smoother "
+"workflows, and more creative freedom with UAE Pro."
 msgstr ""
 
 #: src/Components/Dashboard/QuickAccess.js:114
@@ -618,6 +624,8 @@ msgid "Create New Page"
 msgstr ""
 
 #: src/Components/Dashboard/WidgetItem.jsx:177
+#: src/Components/NavMenu.js:210
+#: src/Components/UpgradeNotice.jsx:81
 msgid "Get Full Control"
 msgstr ""
 
@@ -660,10 +668,6 @@ msgstr ""
 
 #: src/Components/NavMenu.js:183
 msgid "Free vs Pro"
-msgstr ""
-
-#: src/Components/NavMenu.js:210
-msgid "Get Pro"
 msgstr ""
 
 #: src/Components/NavMenu.js:233
@@ -1142,15 +1146,7 @@ msgid "Close Upgrade Notice"
 msgstr ""
 
 #: src/Components/UpgradeNotice.jsx:72
-msgid "Unlock UAE's full potential!"
-msgstr ""
-
-#: src/Components/UpgradeNotice.jsx:78
-msgid "Get powerful widgets and faster performance."
-msgstr ""
-
-#: src/Components/UpgradeNotice.jsx:87
-msgid "Upgrade now"
+msgid "Design Without Limits: Access the features that top WordPress sites run on."
 msgstr ""
 
 #: src/Components/Widgets/Features/FeatureWidgets.jsx:195

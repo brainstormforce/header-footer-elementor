@@ -200,7 +200,7 @@ const FreevsPro = () => {
                             );
                         }}
                     >
-                        {__("Upgrade Now", "header-footer-elementor")}
+                        {__("Get Full Toolkit", "header-footer-elementor")}
                     </Button>
                 </div>
             </div>

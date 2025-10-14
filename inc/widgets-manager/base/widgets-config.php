@@ -249,6 +249,19 @@ class Widgets_Config {
 				'demo_url'    => 'https://ultimateelementor.com/widgets/search/',
 				'category'    => 'content',
 				],
+			'Woo_Product_Grid'        => [
+					'slug'        => 'hfe-woo-product-grid',
+					'title'       => __( 'Woo Products Grid', 'header-footer-elementor' ),
+					'description' => __( 'Display WooCommerce products in a responsive grid layout with customizable styling options.', 'header-footer-elementor' ),
+					'keywords'    => [ 'hfe', 'woo', 'products', 'grid' ],
+					'icon'        => 'hfe-icon-woo-product',
+					'title_url'   => '#',
+					'default'     => true,
+					'doc_url'     => HFE_DOMAIN . 'docs-category/widgets/woo-products/?utm_source=uael-pro-dashboard&utm_medium=uael-menu-page&utm_campaign=uael-pro-plugin',
+					'category'    => 'content',
+					'is_pro'      => false,
+					'demo_url'    => HFE_DOMAIN . 'widgets/woo-products/',
+				],
 		];
 
 		return apply_filters( 'hfe_widgets_data', self::$widget_list );
