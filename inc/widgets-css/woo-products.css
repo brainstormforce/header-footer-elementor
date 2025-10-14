@@ -76,9 +76,16 @@
 	margin-bottom: 12px;
 }
 
+.hfe-product-rating .review-rating {
+	display: flex;
+	align-items: center;
+	min-height: 16px;
+}
+
 .hfe-product-rating .star-rating {
 	font-size: 14px;
 	color: #ffa500;
+	display: inline-block;
 }
 
 .hfe-product-price {
