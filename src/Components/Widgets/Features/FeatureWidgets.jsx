@@ -212,12 +212,14 @@ const FeatureWidgets = () => {
 							style={ { border: '1.5px solid #e5e7eb', borderRadius: '0.25rem' } }
 						>
 							<div
-								className="font-medium p-2 hover:bg-button-tertiary-hover hover:outline-border-subtle transition-all duration-300 cursor-pointer"
+								className={`font-medium p-2 transition-all duration-300 ${(!!searchTerm || loadingActivate) ? 'cursor-not-allowed' : 'cursor-pointer hover:bg-button-tertiary-hover hover:outline-border-subtle'}`}
 								style={ { 
 									border: 'none', 
 									borderRight: '1.5px solid #e5e7eb',
 									opacity: (!!searchTerm || loadingActivate) ? 0.5 : 1,
-									pointerEvents: (!!searchTerm || loadingActivate) ? 'none' : 'auto'
+									pointerEvents: (!!searchTerm || loadingActivate) ? 'none' : 'auto',
+									backgroundColor: (!!searchTerm || loadingActivate) ? '#000000' : 'transparent',
+									color: (!!searchTerm || loadingActivate) ? '#ffffff' : 'inherit'
 								} }
 								onClick={ () => {
 									if (!loadingActivate && !searchTerm) {
@@ -225,18 +227,16 @@ const FeatureWidgets = () => {
 									}
 								} }
 							>
-								{loadingActivate ? (
-									<LoaderCircle className="animate-spin w-4 h-4" />
-								) : (
-									__( 'Activate All', 'header-footer-elementor' )
-								)}
+                                {__("Activate All", "header-footer-elementor")}
 							</div>
 							<div
-								className="font-medium p-2 hover:bg-button-tertiary-hover hover:outline-border-subtle transition-all duration-300 cursor-pointer"
+								className={`font-medium p-2 transition-all duration-300 ${(!!searchTerm || loadingUnusedDeactivate) ? 'cursor-not-allowed' : 'cursor-pointer hover:bg-button-tertiary-hover hover:outline-border-subtle'}`}
 								style={ { 
 									border: 'none',
 									opacity: (!!searchTerm || loadingUnusedDeactivate) ? 0.5 : 1,
-									pointerEvents: (!!searchTerm || loadingUnusedDeactivate) ? 'none' : 'auto'
+									pointerEvents: (!!searchTerm || loadingUnusedDeactivate) ? 'none' : 'auto',
+									backgroundColor: (!!searchTerm || loadingUnusedDeactivate) ? '#000000' : 'transparent',
+									color: (!!searchTerm || loadingUnusedDeactivate) ? '#ffffff' : 'inherit'
 								} }
 								onClick={ () => {
 									if (!loadingUnusedDeactivate && !searchTerm) {
@@ -244,11 +244,7 @@ const FeatureWidgets = () => {
 									}
 								} }
 							>
-								{loadingUnusedDeactivate ? (
-									<LoaderCircle className="animate-spin w-4 h-4" />
-								) : (
-									__( 'Deactivate Unused', 'header-footer-elementor' )
-								)}
+                                {__("Deactivate Unused", "header-footer-elementor")}
 							</div>
 						</div>
                         </div>

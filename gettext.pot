@@ -1142,19 +1142,19 @@ msgstr ""
 msgid "Search..."
 msgstr ""
 
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:231
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:230
 msgid "Activate All"
 msgstr ""
 
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:250
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:248
 msgid "Deactivate Unused"
 msgstr ""
 
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:259
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:256
 msgid "Deactivating..."
 msgstr ""
 
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:259
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:256
 msgid "Deactivate All "
 msgstr ""
 
