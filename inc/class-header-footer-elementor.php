@@ -492,73 +492,7 @@ class Header_Footer_Elementor {
 				</div>
 			</div>
 			
-			<script>
-				window.hfePromoNotice = {
-					storageKey: 'hfe_promo_notice_dismissed',
-					oneMonthMs: 30 * 24 * 60 * 60 * 1000, // 30 days in milliseconds
-					
-					init: function() {
-						if (this.shouldShow()) {
-							this.show();
-						}
-					},
-					
-					shouldShow: function() {
-						try {
-							const dismissedData = localStorage.getItem(this.storageKey);
-							if (!dismissedData) {
-								return true; // Never dismissed before
-							}
-							
-							const dismissedTime = parseInt(dismissedData);
-							const currentTime = Date.now();
-							const timeDiff = currentTime - dismissedTime;
-							
-							// Show again if more than one month has passed
-							return timeDiff >= this.oneMonthMs;
-						} catch (e) {
-							// If localStorage is not available, always show
-							return true;
-						}
-					},
-					
-					show: function() {
-						const notice = document.getElementById('hfe-promo-notice');
-						if (notice) {
-							notice.classList.add('show');
-						}
-					},
-					
-					dismiss: function() {
-						const notice = document.getElementById('hfe-promo-notice');
-						if (notice) {
-							notice.classList.add('hide');
-							
-							// Store dismissal timestamp
-							try {
-								localStorage.setItem(this.storageKey, Date.now().toString());
-							} catch (e) {
-								// Handle localStorage not available
-								console.log('Could not save dismissal state');
-							}
-							
-							// Remove from DOM after animation
-							setTimeout(() => {
-								notice.remove();
-							}, 400);
-						}
-					}
-				};
-				
-				// Initialize when DOM is ready
-				if (document.readyState === 'loading') {
-					document.addEventListener('DOMContentLoaded', function() {
-						hfePromoNotice.init();
-					});
-				} else {
-					hfePromoNotice.init();
-				}
-			</script>
+			<script>window.hfePromoNotice={storageKey:'hfe_promo_notice_dismissed',oneMonthMs:2592000000,init:function(){this.shouldShow()&&this.show()},shouldShow:function(){try{const a=localStorage.getItem(this.storageKey);if(!a)return!0;const b=parseInt(a),c=Date.now();return c-b>=this.oneMonthMs}catch(a){return!0}},show:function(){const a=document.getElementById('hfe-promo-notice');a&&a.classList.add('show')},dismiss:function(){const a=document.getElementById('hfe-promo-notice');a&&(a.classList.add('hide'),setTimeout(()=>{a.remove()},400));try{localStorage.setItem(this.storageKey,Date.now().toString())}catch(a){console.log('Could not save dismissal state')}}};"loading"===document.readyState?document.addEventListener('DOMContentLoaded',function(){hfePromoNotice.init()}):hfePromoNotice.init();</script>
 			<?php
 	}
 
