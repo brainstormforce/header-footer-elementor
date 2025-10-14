@@ -351,6 +351,7 @@ msgid "Business Reviews"
 msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:109
+#: src/Components/Dashboard/MyAccount.jsx:54
 #: src/Components/Widgets/UltimateWidgets.jsx:116
 msgid "Upgrade Now"
 msgstr ""
@@ -487,15 +488,8 @@ msgstr ""
 
 #: src/Components/Dashboard/MyAccount.jsx:37
 msgid ""
-"Unlock advanced addons built to supercharge Elementor. Smarter widgets, "
-"smoother workflows, and more freedom to bring your designs to life with UAE "
-"Pro."
-msgstr ""
-
-#: src/Components/Dashboard/MyAccount.jsx:54
-#: src/Components/NavMenu.js:210
-#: src/Components/UpgradeNotice.jsx:81
-msgid "Get Full Control"
+"Unlock advanced addons to power up Elementor — smarter widgets, smoother "
+"workflows, and more creative freedom with UAE Pro."
 msgstr ""
 
 #: src/Components/Dashboard/QuickAccess.js:114
@@ -626,6 +620,12 @@ msgstr ""
 
 #: src/Components/HeaderLine.js:16
 msgid "Formerly Elementor Header & Footer Builder"
+msgstr ""
+
+#: src/Components/Dashboard/MyAccount.jsx:54
+#: src/Components/NavMenu.js:210
+#: src/Components/UpgradeNotice.jsx:81
+msgid "Get Full Control"
 msgstr ""
 
 #: src/Components/NavMenu.js:131
@@ -884,6 +884,11 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
+#: src/Components/Dashboard/MyAccount.jsx:54
+#: src/Components/Onboarding/Features.jsx:412
+msgid "Upgrade"
+msgstr ""
+
 #: src/Components/Onboarding/Features.jsx:100
 msgid "Select Your Features"
 msgstr ""
@@ -926,10 +931,6 @@ msgstr ""
 msgid ""
 "Design eye-catching popups directly in Elementor—collect leads, display "
 "promotions, or show messages without needing a separate popup plugin."
-msgstr ""
-
-#: src/Components/Onboarding/Features.jsx:412
-msgid "Upgrade"
 msgstr ""
 
 #: src/Components/Onboarding/Features.jsx:441
