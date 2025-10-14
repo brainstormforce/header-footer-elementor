@@ -609,7 +609,7 @@ msgstr ""
 msgid "View Demo"
 msgstr ""
 
-#: src/Components/Dashboard/Widgets.jsx:144
+#: src/Components/Dashboard/Widgets.jsx:143
 msgid "View More Widgets"
 msgstr ""
 

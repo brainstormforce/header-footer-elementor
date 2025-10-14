@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import WidgetItem from "./WidgetItem";
 import { ArrowUpRight } from "lucide-react";
-import { Container, Skeleton, Button } from "@bsf/force-ui";
+import { Container, Skeleton } from "@bsf/force-ui";
 import apiFetch from "@wordpress/api-fetch";
 import { __ } from "@wordpress/i18n";
 import { routes } from "../../admin/settings/routes";
@@ -78,7 +78,6 @@ const Widgets = () => {
 				<p className="m-0 text-sm font-semibold text-text-primary">
 					{__("Widgets / Features", "header-footer-elementor")}
 				</p>
-				
 			</div>
 			<div className="flex bg-black flex-col rounded-lg p-4">
 				{loading ? (
