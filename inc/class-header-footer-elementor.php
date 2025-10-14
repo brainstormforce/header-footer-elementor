@@ -495,7 +495,7 @@ class Header_Footer_Elementor {
 			<script>
 				window.hfePromoNotice = {
 					storageKey: 'hfe_promo_notice_dismissed',
-					oneWeekMs: 7 * 24 * 60 * 60 * 1000, // 7 days in milliseconds
+					oneMonthMs: 30 * 24 * 60 * 60 * 1000, // 30 days in milliseconds
 					
 					init: function() {
 						if (this.shouldShow()) {
@@ -514,8 +514,8 @@ class Header_Footer_Elementor {
 							const currentTime = Date.now();
 							const timeDiff = currentTime - dismissedTime;
 							
-							// Show again if more than one week has passed
-							return timeDiff >= this.oneWeekMs;
+							// Show again if more than one month has passed
+							return timeDiff >= this.oneMonthMs;
 						} catch (e) {
 							// If localStorage is not available, always show
 							return true;
