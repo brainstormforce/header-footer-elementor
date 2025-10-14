@@ -57,6 +57,7 @@ class Modules_Manager {
 			'breadcrumbs-widget',
 			'post-info',
 			'infocard',
+			'woo-product-grid',
 			'basic-posts',
 		];
 
