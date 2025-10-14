@@ -472,6 +472,7 @@ class HFE_Admin {
 				'delete_others_posts'    => 'manage_options',
 				'delete_private_posts'   => 'manage_options',
 				'delete_published_posts' => 'manage_options',
+				'create_posts'           => 'manage_options',
 			],
 		];
 

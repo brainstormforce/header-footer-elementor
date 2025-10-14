@@ -59,7 +59,8 @@ class HFE_Settings_Page {
 		
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
 		add_filter( 'plugin_action_links_' . HFE_PATH, [ $this, 'settings_link' ] );
-		add_filter( 'plugin_action_links_' . HFE_PATH, [ $this, 'upgrade_pro_link' ] );		
+		add_filter( 'plugin_action_links_' . HFE_PATH, [ $this, 'upgrade_pro_link' ] );
+		add_filter( 'plugin_row_meta', [ $this, 'add_rating_meta_links' ], 10, 2 );		
 
 		if ( version_compare( get_bloginfo( 'version' ), '5.1.0', '>=' ) ) {
 			add_filter( 'wp_check_filetype_and_ext', [ $this, 'real_mime_types_5_1_0' ], 10, 5 );
@@ -95,6 +96,27 @@ class HFE_Settings_Page {
 			$links[]     = '<a href="' . esc_url( 'https://ultimateelementor.com/pricing/?utm_source=wp-admin&utm_medium=plugin-list&utm_campaign=uae-upgrade' ) . '" target="_blank" rel="noreferrer" class="uae-plugins-go-pro">' . esc_html__( 'Get UAE Pro', 'header-footer-elementor' ) . '</a>';
 		}
 
+		return $links;
+	}
+
+	/**
+	 * Add meta links to the plugin row (under description).
+	 *
+	 * @param array<int,string> $links Array of plugin meta links.
+	 * @param string            $file Plugin file path.
+	 * @return array<int,string> Modified plugin meta links.
+	 * @since 2.5.2
+	 */
+	public function add_rating_meta_links( array $links, string $file ): array {
+		if ( HFE_PATH === $file ) {
+			$stars = str_repeat( '<span class="dashicons dashicons-star-filled hfe-rating-star" aria-hidden="true"></span>', 5 );
+			$links[] = sprintf(
+				'<a href="%s" target="_blank" rel="noopener noreferrer" aria-label="%s" role="button">%s</a>',
+				esc_url( 'https://wordpress.org/support/plugin/header-footer-elementor/reviews/#new-post' ),
+				esc_attr__( 'Rate our plugin', 'header-footer-elementor' ),
+				$stars
+			);
+		}
 		return $links;
 	}
 
@@ -144,11 +166,12 @@ class HFE_Settings_Page {
 						'plugin_name'           => __( 'Ultimate Addons for Elementor', 'header-footer-elementor' ),
 						'nps_rating_message'    => __( 'How likely are you to recommend Ultimate Addons for Elementor to your friends or colleagues?', 'header-footer-elementor' ),
 						// Step 2A i.e. positive.
-						'feedback_content'      => __( 'Could you please do us a favor and give us a 5-star rating on Trustpilot? It would help others choose Ultimate Addons for Elementor with confidence. Thank you!', 'header-footer-elementor' ),
+						'feedback_title' => __( 'Thanks a lot for your feedback! 😍', 'header-footer-elementor' ),
+						'feedback_content' => __( 'Thanks for using Ultimate Addons! Got feedback or suggestions to make it even better? We’d love to hear from you.', 'header-footer-elementor' ),
 						'plugin_rating_link'    => esc_url( 'https://www.trustpilot.com/review/ultimateelementor.com' ),
 						// Step 2B i.e. negative.
 						'plugin_rating_title'   => __( 'Thank you for your feedback', 'header-footer-elementor' ),
-						'plugin_rating_content' => __( 'We value your input. How can we improve your experience?', 'header-footer-elementor' ),
+						'plugin_rating_content' => __( 'We value your input. How can we improve your experience?', 'header-footer-elementor' ),				
 					],
 				]
 			);
@@ -443,7 +466,8 @@ class HFE_Settings_Page {
 		wp_enqueue_script( 'hfe-admin-script', HFE_URL . 'admin/assets/js/ehf-admin.js', [ 'jquery', 'updates' ], HFE_VER, true );
 	
 		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
-	
+		$upgrade_notice_dismissed = get_user_meta( get_current_user_id(), 'hfe_upgrade_notice_dismissed', 'false' ) === 'true';
+
 		$strings = [
 			'addon_activate'        => esc_html__( 'Activate', 'header-footer-elementor' ),
 			'addon_activated'       => esc_html__( 'Activated', 'header-footer-elementor' ),
@@ -462,6 +486,7 @@ class HFE_Settings_Page {
 			'ajax_url'              => admin_url( 'admin-ajax.php' ),
 			'nonce'                 => wp_create_nonce( 'hfe-admin-nonce' ),
 			'installer_nonce'       => wp_create_nonce( 'updates' ),
+			'upgrade_notice_dismissed' => $upgrade_notice_dismissed,
 			'popup_dismiss'         => false,
 			'data_source'           => 'HFE',
 			'show_all_hfe'          => $show_view_all,
@@ -636,7 +661,17 @@ class HFE_Settings_Page {
 			1
 		);
 
-		
+		// Add the Widgets Submenu.
+		add_submenu_page(
+			$menu_slug,
+			__( 'Widgets', 'header-footer-elementor' ),
+			__( 'Widgets', 'header-footer-elementor' ),
+			$capability,
+			$menu_slug . '#widgets',
+			[ $this, 'render' ],
+			9
+		);
+
 		// Add the Settings Submenu.
 		add_submenu_page(
 			$menu_slug,
@@ -691,6 +726,15 @@ class HFE_Settings_Page {
 						window.open(upgradeLink.href, '_blank');
 					});
 				}
+
+				// Get Help link handler.
+				const getHelpLink = document.querySelector('a[href*="https://ultimateelementor.com/docs"]');
+				if (getHelpLink) {
+					getHelpLink.addEventListener('click', e => {
+						e.preventDefault();
+						window.open(getHelpLink.href, '_blank');
+					});
+				}
 			});
 		</script>
 		<?php
@@ -703,16 +747,26 @@ class HFE_Settings_Page {
 	 * @since 2.4.2
 	 */
 	public function hfe_add_upgrade_to_pro() {
-		// The url used here is used as a selector for css to style the upgrade to pro submenu.
-		// If you are changing this url, please make sure to update the css as well.
-			// Add the Upgrade to Pro Submenu.
-			add_submenu_page(
-				$this->menu_slug,
-				__( 'Upgrade to Pro', 'header-footer-elementor' ),
-				 __( 'Upgrade to Pro', 'header-footer-elementor' ),
-				'manage_options',
-				'https://ultimateelementor.com/pricing/?utm_source=wp-admin&utm_medium=menu&utm_campaign=uae-upgrade',
-			);
+		
+		// Add the Get Help Submenu.
+		add_submenu_page(
+			$this->menu_slug,
+			__( 'Get Help', 'header-footer-elementor' ),
+			__( 'Get Help', 'header-footer-elementor' ),
+			'manage_options',
+			'https://ultimateelementor.com/docs/',
+			null,
+			11
+		);
+
+		// Add the Upgrade to Pro Submenu.
+		add_submenu_page(
+			$this->menu_slug,
+			__( 'Upgrade to Pro', 'header-footer-elementor' ),
+			 __( 'Upgrade to Pro', 'header-footer-elementor' ),
+			'manage_options',
+			'https://ultimateelementor.com/pricing/?utm_source=wp-admin&utm_medium=menu&utm_campaign=uae-upgrade',
+		);
 	}
 	/**
 	 * Settings page.

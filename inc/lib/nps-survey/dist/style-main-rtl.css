@@ -9,6 +9,7 @@
 }.nps-survey-root .top-3 {top: 0.75rem
 }.nps-survey-root .isolate {isolation: isolate
 }.nps-survey-root .z-\[9999999999\] {z-index: 9999999999
+}.nps-survey-root .z-\[999999999\] {z-index: 999999999
 }.nps-survey-root .mx-0 {margin-right: 0px;margin-left: 0px
 }.nps-survey-root .my-0 {margin-top: 0px;margin-bottom: 0px
 }.nps-survey-root .mb-0 {margin-bottom: 0px
@@ -16,6 +17,7 @@
 }.nps-survey-root .mt-2 {margin-top: 0.5rem
 }.nps-survey-root .mt-3 {margin-top: 0.75rem
 }.nps-survey-root .mt-5 {margin-top: 1.25rem
+}.nps-survey-root .box-border {box-sizing: border-box
 }.nps-survey-root .block {display: block
 }.nps-survey-root .flex {display: flex
 }.nps-survey-root .inline-flex {display: inline-flex
@@ -55,6 +57,7 @@
 }.nps-survey-root .border-transparent {border-color: transparent
 }.nps-survey-root .border-white {--tw-border-opacity: 1;border-color: rgb(255 255 255 / var(--tw-border-opacity))
 }.nps-survey-root .border-zip-body-text {--tw-border-opacity: 1;border-color: rgb(var(--zip-body-text) / var(--tw-border-opacity))
+}.nps-survey-root .bg-\[\#111827BF\]\/75 {background-color: rgb(17 24 39 / 0.75)
 }.nps-survey-root .bg-nps-button-background {--tw-bg-opacity: 1;background-color: rgb(34 113 177 / var(--tw-bg-opacity))
 }.nps-survey-root .bg-transparent {background-color: transparent
 }.nps-survey-root .bg-white {--tw-bg-opacity: 1;background-color: rgb(255 255 255 / var(--tw-bg-opacity))
@@ -108,6 +111,7 @@
 }.nps-survey-root * {box-sizing: border-box;font-family: Figtree, sans-serif
 }.nps-survey-root .hover\:cursor-pointer:hover {cursor: pointer
 }.nps-survey-root .hover\:bg-gray-50:hover {--tw-bg-opacity: 1;background-color: rgb(249 250 251 / var(--tw-bg-opacity))
+}.nps-survey-root .hover\:text-white:hover {--tw-text-opacity: 1;color: rgb(255 255 255 / var(--tw-text-opacity))
 }.nps-survey-root .focus\:z-10:focus {z-index: 10
 }.nps-survey-root .focus\:ring-1:focus {--tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)
 }.nps-survey-root .focus\:ring-nps-button-background:focus {--tw-ring-opacity: 1;--tw-ring-color: rgb(34 113 177 / var(--tw-ring-opacity))

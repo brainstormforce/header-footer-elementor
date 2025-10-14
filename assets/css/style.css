@@ -245,3 +245,11 @@
 .elementor-control-uae_pro_promotion_notice a:hover {
   color: #2463eb;
 }
+
+/* CSS for lock icon in Extension promotion notice */
+.hfe-lock.eicon-lock:hover{
+  color: #93003f;
+}
+.hfe-lock.eicon-lock{
+  margin-left: 15px;
+}

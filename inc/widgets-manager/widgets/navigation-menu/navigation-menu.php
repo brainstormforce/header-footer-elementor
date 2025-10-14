@@ -66,6 +66,28 @@ class Navigation_Menu extends Common_Widget {
 	}
 
 	/**
+	 * Get widget upsale data.
+	 *
+	 * Retrieve the widget promotion data.
+	 *
+	 * @since 2.5.0
+	 * @access protected
+	 *
+	 * @return array Widget promotion data.
+	 */
+	protected function get_upsale_data() {
+		return [
+			'condition' => ! defined( 'UAEL_VER' ),
+			'image' => esc_url( HFE_URL . 'assets/images/upgrade-pro.png' ),
+			'image_alt' => esc_attr__( 'Upgrade', 'header-footer-elementor' ),
+			'title' => esc_html__( 'Upgrade your Navigation widget', 'header-footer-elementor' ),
+			'description' => esc_html__( 'Get the Advanced Navigation Menu widget in UAE Pro and unlock advanced layouts, styling, and flexible menu options.', 'header-footer-elementor' ),
+			'upgrade_url' => esc_url( 'https://ultimateelementor.com/pricing/?utm_source=UAE-Navigation-menu&utm_medium=editor&utm_campaign=static-promotion' ),
+			'upgrade_text' => esc_html__( 'Upgrade Now', 'header-footer-elementor' ),
+		];
+	}
+
+	/**
 	 * Retrieve the widget icon.
 	 *
 	 * @since 1.3.0
@@ -156,7 +178,6 @@ class Navigation_Menu extends Common_Widget {
 		$this->register_general_content_controls();
 		$this->register_style_content_controls();
 		$this->register_dropdown_content_controls();
-		$this->register_pro_promotion_controls();
 	}
 
 	/**
@@ -404,7 +425,7 @@ class Navigation_Menu extends Common_Widget {
 					],
 					'selectors'          => [
 						'{{WRAPPER}} li.menu-item a' => 'justify-content: {{VALUE}};',
-						'{{WRAPPER}} li .hfe-button-wrapper' => 'text-align: {{VALUE}};',
+						'{{WRAPPER}} li.hfe-button-wrapper' => 'text-align: {{VALUE}};',
 						'{{WRAPPER}}.hfe-menu-item-flex-end li.hfe-button-wrapper' => 'text-align: right;',
 					],
 					'prefix_class'       => 'hfe-menu-item-',
@@ -1819,37 +1840,6 @@ class Navigation_Menu extends Common_Widget {
 	}
 
 	/**
-	 * Register Infocard Promotion Controls.
-	 *
-	 * @since 2.4.0
-	 * @access protected
-	 */
-	protected function register_pro_promotion_controls() {
-
-		if(! defined( 'UAEL_VER' )){
-			$this->start_controls_section(
-				'section_pro_features_field',
-				array(
-					'label' => __( 'Go Pro for More Features', 'header-footer-elementor' ),
-				)
-			);
-
-			$this->add_control(
-				'uae_pro_promotion_notice',
-				[
-					'type' => Controls_Manager::NOTICE,
-					'notice_type' => 'info',
-					'dismissible' => false,
-					'content' => __( 'Elevate your site’s navigation with the Advanced Navigation Menu in <a href="https://ultimateelementor.com/pricing/?utm_source=uae-dashboard&utm_medium=editor&utm_campaign=uae-pro-promotion" target="_blank"> Pro  </a> — featuring mega menus, custom styling, and greater flexibility for seamless user experiences.', 'header-footer-elementor' ),
-				]
-			);
-
-
-			$this->end_controls_section();
-		}
-	}
-
-	/**
 	 * Add itemprop for Navigation Schema.
 	 *
 	 * @since 1.5.2
@@ -1964,7 +1954,7 @@ class Navigation_Menu extends Common_Widget {
 			}
 
 			?>
-			<div class="hfe-nav-menu__toggle elementor-clickable hfe-flyout-trigger" tabindex="0">
+			<div class="hfe-nav-menu__toggle elementor-clickable hfe-flyout-trigger" tabindex="0" role="button" aria-label="<?php esc_attr_e( 'Menu Toggle', 'header-footer-elementor' ); ?>">
 					<div class="hfe-nav-menu-icon">
 						<?php echo isset( $menu_close_icons[0] ) ? $menu_close_icons[0] : ''; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					</div>
@@ -2041,7 +2031,7 @@ class Navigation_Menu extends Common_Widget {
 
 			?>
 			<div <?php $this->print_render_attribute_string( 'hfe-main-menu' ); ?>>
-				<div role="button" class="hfe-nav-menu__toggle elementor-clickable">
+				<div role="button" class="hfe-nav-menu__toggle elementor-clickable" tabindex="0" aria-label="<?php esc_attr_e( 'Menu Toggle', 'header-footer-elementor' ); ?>">
 					<span class="screen-reader-text"><?php esc_html_e( 'Menu', 'header-footer-elementor' ); ?></span>
 					<div class="hfe-nav-menu-icon">
 						<?php

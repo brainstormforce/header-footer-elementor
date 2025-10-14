@@ -2608,6 +2608,14 @@ button.hfe-bulk-action-button {
 .hfe-88-width {
 	width: 88%;
 }
+
+/* Sticky Right Sidebar */
+.hfe-sticky-right-sidebar {
+	position: sticky !important;
+	top: 30px !important;
+	align-self: flex-start !important;
+}
+
 #hfe-settings-app .subject-cell {
 	max-width: 200px; /* Adjust this width based on your layout */
 	white-space: nowrap;
@@ -2692,6 +2700,13 @@ input[type="radio"].hfe-radio-field:focus {
 		width: 100% !important;
 		height: 100% !important;
 		border-radius: 0 !important;
+	}
+	
+	/* Disable sticky on mobile */
+	.hfe-sticky-right-sidebar {
+		position: static !important;
+		max-height: none !important;
+		overflow-y: visible !important;
 	}
 }
 :is(#hfe-settings-app, [data-floating-ui-portal]) .uae-steps .text-xs {

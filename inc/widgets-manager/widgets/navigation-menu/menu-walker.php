@@ -64,7 +64,7 @@ class Menu_Walker extends \Walker_Nav_Menu {
 
 		$atts = apply_filters( 'hfe_nav_menu_attrs', $attributes );
 
-		$item_output  = $args->has_children ? '<div class="hfe-has-submenu-container">' : '';
+		$item_output  = $args->has_children ? '<div class="hfe-has-submenu-container" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">' : '';
 		$item_output .= $args->before;
 		$item_output .= '<a' . $atts;
 		if ( 0 === $depth ) {

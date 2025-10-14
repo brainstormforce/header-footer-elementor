@@ -132,12 +132,6 @@ class Widgets_Loader {
 		//Showing Pro Widgets
 		add_filter('elementor/editor/localize_settings', [$this, 'uae_promote_pro_elements']);
 
-		// Add svg support.
-		add_filter( 'upload_mimes', [ $this, 'hfe_svg_mime_types' ] ); // PHPCS:Ignore WordPressVIPMinimum.Hooks.RestrictedHooks.upload_mimes
-
-		// Add filter to sanitize uploaded SVG files.
-		add_filter( 'wp_handle_upload_prefilter', [ $this, 'sanitize_uploaded_svg' ] );
-
 		// Refresh the cart fragments.
 		if ( class_exists( 'woocommerce' ) ) {
 
@@ -199,7 +193,6 @@ class Widgets_Loader {
 				'icon'  => 'eicon-font',
 			]
 		);
-
 		return $this_cat;
 	}
 
@@ -213,6 +206,11 @@ class Widgets_Loader {
 		$js_files = [
 			'hfe-frontend-js' => [
 				'path'      => 'inc/js/frontend.js',
+				'dep'       => [ 'jquery' ],
+				'in_footer' => true,
+			],
+			'hfe-woo-product-grid' => [
+				'path'      => 'inc/js/woo-products.js',
 				'dep'       => [ 'jquery' ],
 				'in_footer' => true,
 			],
@@ -251,47 +249,13 @@ class Widgets_Loader {
 
 		// Emqueue the widgets style.
 		wp_enqueue_style( 'hfe-widgets-style', HFE_URL . 'inc/widgets-css/frontend.css', [], HFE_VER );
-	}
-
-	/**
-	 * Provide the SVG support for Retina Logo widget.
-	 *
-	 * @param array $mimes which return mime type.
-	 *
-	 * @since  1.2.0
-	 * @return array $mimes.
-	 */
-	public function hfe_svg_mime_types( $mimes ) {
-		// New allowed mime types.
-		$mimes['svg'] = 'image/svg+xml';
-		return $mimes;
-	}
-
-	/**
-	 * Sanitize uploaded SVG files before they are saved.
-	 *
-	 * @param array $file Array of uploaded file information.
-	 * @return array Modified array of uploaded file information.
-	 */
-	public function sanitize_uploaded_svg( $file ) {
-		if ( 'image/svg+xml' === $file['type'] ) {
-
-			/**
-			 * SVG Handler instance.
-			 *
-			 * @var object $svg_handler;
-			 */
-			$svg_handler = Plugin::instance()->assets_manager->get_asset( 'svg-handler' );
-
-			if ( Svg::file_sanitizer_can_run() && ! $svg_handler->sanitize_svg( $file['tmp_name'] ) ) {
-
-				$file['error'] = esc_html__( 'Invalid SVG Format, file not uploaded for security reasons!', 'header-footer-elementor' );
-			}
+		
+		// Enqueue Woo Products widget styles
+		if ( class_exists( 'WooCommerce' ) ) {
+			wp_enqueue_style( 'hfe-woo-product-grid', HFE_URL . 'inc/widgets-css/woo-products.css', [], HFE_VER );
 		}
-
-		return $file;
-	}  
-
+	}
+	
 	/**
 	 * List pro widgets
 	 *

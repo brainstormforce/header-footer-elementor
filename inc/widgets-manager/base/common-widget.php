@@ -72,6 +72,20 @@ abstract class Common_Widget extends Widget_Base {
 	}
 
 	/**
+	 * Get widget upsale data.
+	 *
+	 * Retrieve the widget promotion data.
+	 *
+	 * @since 2.5.0
+	 * @access protected
+	 *
+	 * @return array|null Widget promotion data.
+	 */
+	protected function get_upsale_data() {
+		return null;
+	}
+
+	/**
 	 * Is internal link
 	 *
 	 * @since 1.0.0

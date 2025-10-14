@@ -71,6 +71,8 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			add_action( 'wp_ajax_hfe_flush_permalink_notice', [ $this, 'hfe_flush_permalink_notice' ] );
 			add_action( 'wp_ajax_nopriv_hfe_flush_permalink_notice', [ $this, 'hfe_flush_permalink_notice' ] );
 
+			add_action( 'wp_ajax_hfe_dismiss_upgrade_notice', [ $this, 'dismiss_upgrade_notice' ] );
+
 		}
 
 		/**
@@ -570,6 +572,30 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 				// Return an error response if the option is not set.
 				wp_send_json_error( __( 'Unable to save settings.', 'header-footer-elementor' ) );
 			}
+		}
+
+		/**
+		 * Dismiss upgrade notice
+		 *
+		 * @return void
+		 */
+		public function dismiss_upgrade_notice() {
+
+			// Check if user has permission to manage options.
+			if ( ! current_user_can( 'manage_options' ) ) {
+				wp_send_json_error( __( 'You do not have permission to perform this action.', 'header-footer-elementor' ) );
+				return;
+			}
+
+			// Verify nonce for security
+			if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'hfe-admin-nonce' ) ) {
+				wp_send_json_error( __( 'Security check failed.', 'header-footer-elementor' ) );
+				return;
+			}
+
+			// Update option to remember the dismissal
+			update_user_meta( get_current_user_id(), 'hfe_upgrade_notice_dismissed', 'true' );
+			wp_send_json_success( __( 'Upgrade notice dismissed.', 'header-footer-elementor' ) );
 		}
 
 	}
