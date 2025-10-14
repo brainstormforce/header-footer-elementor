@@ -268,9 +268,9 @@ class Header_Footer_Elementor {
 				),
 				'show_if'                    => ( hfe_header_enabled() || hfe_footer_enabled() || hfe_is_before_footer_enabled() ) ? true : false,
 				'repeat-notice-after'        => MONTH_IN_SECONDS,
-				'display-notice-after'       => false,
+				'display-notice-after'       => 1296000, // Display notice after 15 days.
 				'priority'                   => 18,
-				'display-with-other-notices' => true, // Allow with other notices for debugging.
+				'display-with-other-notices' => false,
 			]
 		);
 
