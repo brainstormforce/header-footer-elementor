@@ -227,8 +227,7 @@ const FeatureWidgets = () => {
 									}
 								} }
 							>
-								{loadingActivate ? __('Activate All', 'header-footer-elementor') : __('Activate All', 'header-footer-elementor')}
-
+                                {__("Activate All", "header-footer-elementor")}
 							</div>
 							<div
 								className={`font-medium p-2 transition-all duration-300 ${(!!searchTerm || loadingUnusedDeactivate) ? 'cursor-not-allowed' : 'cursor-pointer hover:bg-button-tertiary-hover hover:outline-border-subtle'}`}
@@ -245,7 +244,7 @@ const FeatureWidgets = () => {
 									}
 								} }
 							>
-								{loadingUnusedDeactivate ? __('Deactivate Unused', 'header-footer-elementor') : __('Deactivate Unused', 'header-footer-elementor')}
+                                {__("Deactivate Unused", "header-footer-elementor")}
 							</div>
 						</div>
                         </div>
