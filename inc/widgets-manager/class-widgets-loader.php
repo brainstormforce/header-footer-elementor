@@ -193,7 +193,6 @@ class Widgets_Loader {
 				'icon'  => 'eicon-font',
 			]
 		);
-
 		return $this_cat;
 	}
 
@@ -207,6 +206,11 @@ class Widgets_Loader {
 		$js_files = [
 			'hfe-frontend-js' => [
 				'path'      => 'inc/js/frontend.js',
+				'dep'       => [ 'jquery' ],
+				'in_footer' => true,
+			],
+			'hfe-woo-product-grid' => [
+				'path'      => 'inc/js/woo-products.js',
 				'dep'       => [ 'jquery' ],
 				'in_footer' => true,
 			],
@@ -245,6 +249,11 @@ class Widgets_Loader {
 
 		// Emqueue the widgets style.
 		wp_enqueue_style( 'hfe-widgets-style', HFE_URL . 'inc/widgets-css/frontend.css', [], HFE_VER );
+		
+		// Enqueue Woo Products widget styles
+		if ( class_exists( 'WooCommerce' ) ) {
+			wp_enqueue_style( 'hfe-woo-product-grid', HFE_URL . 'inc/widgets-css/woo-products.css', [], HFE_VER );
+		}
 	}
 	
 	/**
