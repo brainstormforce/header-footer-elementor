@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * HFE Woo Products Widget
  *
- * @since x.x.x
+ * @since 2.6.0
  */
 class Woo_Product_Grid extends Common_Widget {
 
@@ -40,7 +40,7 @@ class Woo_Product_Grid extends Common_Widget {
 	/**
 	 * Retrieve the widget name.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 * @access public
 	 * @return string Widget name.
 	 */
@@ -51,7 +51,7 @@ class Woo_Product_Grid extends Common_Widget {
 	/**
 	 * Retrieve the widget title.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 * @access public
 	 * @return string Widget title.
 	 */
@@ -62,7 +62,7 @@ class Woo_Product_Grid extends Common_Widget {
 	/**
 	 * Retrieve the widget icon.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 * @access public
 	 * @return string Widget icon.
 	 */
@@ -73,7 +73,7 @@ class Woo_Product_Grid extends Common_Widget {
 	/**
 	 * Retrieve the list of keywords the widget belongs to.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 * @access public
 	 * @return array Widget keywords.
 	 */
@@ -84,7 +84,7 @@ class Woo_Product_Grid extends Common_Widget {
 	/**
 	 * Get Script Depends.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 * @access public
 	 * @return array scripts.
 	 */
@@ -95,7 +95,7 @@ class Woo_Product_Grid extends Common_Widget {
 	/**
 	 * Get Style Depends.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 * @access public
 	 * @return array styles.
 	 */
@@ -106,7 +106,7 @@ class Woo_Product_Grid extends Common_Widget {
 	/**
 	 * Check if WooCommerce is active.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 * @access private
 	 * @return bool
 	 */
@@ -117,7 +117,7 @@ class Woo_Product_Grid extends Common_Widget {
 	/**
 	 * Indicates if the widget's content is dynamic.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 * @access protected
 	 * @return bool True for dynamic content, false for static content.
 	 */
@@ -130,7 +130,7 @@ class Woo_Product_Grid extends Common_Widget {
 	 *
 	 * Retrieve the widget promotion data.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 * @access protected
 	 *
 	 * @return array Widget promotion data.
@@ -150,7 +150,7 @@ class Woo_Product_Grid extends Common_Widget {
 	/**
 	 * Register widget controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 * @access protected
 	 */
 	protected function register_controls() {
@@ -170,7 +170,7 @@ class Woo_Product_Grid extends Common_Widget {
 	/**
 	 * Register WooCommerce notice controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 * @access protected
 	 */
 	protected function register_woocommerce_notice_controls() {
@@ -201,7 +201,7 @@ class Woo_Product_Grid extends Common_Widget {
 	/**
 	 * Register general controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 * @access protected
 	 */
 	protected function register_general_controls() {
@@ -253,7 +253,7 @@ class Woo_Product_Grid extends Common_Widget {
 	/**
 	 * Register content controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 * @access protected
 	 */
 	protected function register_content_controls() {
@@ -354,7 +354,7 @@ class Woo_Product_Grid extends Common_Widget {
 	/**
 	 * Register query controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 * @access protected
 	 */
 	protected function register_query_controls() {
@@ -404,7 +404,7 @@ class Woo_Product_Grid extends Common_Widget {
 	/**
 	 * Register layout style controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 * @access protected
 	 */
 	protected function register_layout_style_controls() {
@@ -503,7 +503,7 @@ class Woo_Product_Grid extends Common_Widget {
 	/**
 	 * Register content style controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 * @access protected
 	 */
 	protected function register_content_style_controls() {
@@ -649,7 +649,7 @@ class Woo_Product_Grid extends Common_Widget {
 	/**
 	 * Register title style controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 * @access private
 	 */
 	private function register_title_style_controls() {
@@ -720,7 +720,7 @@ class Woo_Product_Grid extends Common_Widget {
 	/**
 	 * Register rating style controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 * @access private
 	 */
 	private function register_rating_style_controls() {
@@ -770,7 +770,7 @@ class Woo_Product_Grid extends Common_Widget {
 	/**
 	 * Register price style controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 * @access private
 	 */
 	private function register_price_style_controls() {
@@ -828,7 +828,7 @@ class Woo_Product_Grid extends Common_Widget {
 	/**
 	 * Register short description style controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 * @access private
 	 */
 	private function register_short_description_style_controls() {
@@ -886,7 +886,7 @@ class Woo_Product_Grid extends Common_Widget {
 	/**
 	 * Register add to cart style controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 * @access private
 	 */
 	private function register_add_to_cart_style_controls() {
@@ -1039,7 +1039,7 @@ class Woo_Product_Grid extends Common_Widget {
 	/**
 	 * Register image hover style controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 * @access private
 	 */
 	private function register_image_size_style_controls() {
@@ -1075,7 +1075,7 @@ class Woo_Product_Grid extends Common_Widget {
 	/**
 	 * Register promotion controls.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 * @access protected
 	 */
 	protected function register_pro_promotion_controls() {
@@ -1085,7 +1085,7 @@ class Woo_Product_Grid extends Common_Widget {
 	/**
 	 * Build query arguments.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 * @access private
 	 * @return array
 	 */
@@ -1127,7 +1127,7 @@ class Woo_Product_Grid extends Common_Widget {
 	/**
 	 * Get products query.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 * @access private
 	 * @return \WP_Query
 	 */
@@ -1142,7 +1142,7 @@ class Woo_Product_Grid extends Common_Widget {
 	/**
 	 * Render widget output on both frontend and editor.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 * @access protected
 	 */
 	protected function render() {
@@ -1180,7 +1180,7 @@ class Woo_Product_Grid extends Common_Widget {
 	/**
 	 * Render WooCommerce notice.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 * @access private
 	 */
 	private function render_woocommerce_notice() {
@@ -1194,7 +1194,7 @@ class Woo_Product_Grid extends Common_Widget {
 	/**
 	 * Render no products message.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 * @access private
 	 */
 	private function render_no_products_message() {
@@ -1208,7 +1208,7 @@ class Woo_Product_Grid extends Common_Widget {
 	/**
 	 * Render individual product item.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 * @access private
 	 * @param array $settings Widget settings.
 	 */

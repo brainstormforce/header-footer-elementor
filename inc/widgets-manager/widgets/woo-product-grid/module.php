@@ -21,7 +21,7 @@ class Module extends Module_Base {
 	/**
 	 * Module should load or not.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 * @access public
 	 *
 	 * @return bool true|false.
@@ -33,7 +33,7 @@ class Module extends Module_Base {
 	/**
 	 * Get Module Name.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 * @access public
 	 *
 	 * @return string Module name.
@@ -45,7 +45,7 @@ class Module extends Module_Base {
 	/**
 	 * Get Widgets.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 * @access public
 	 *
 	 * @return array Widgets.
@@ -59,7 +59,7 @@ class Module extends Module_Base {
 	/**
 	 * Constructor.
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 * @access public
 	 */
 	public function __construct() {
