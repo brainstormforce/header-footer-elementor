@@ -396,21 +396,21 @@ class Header_Footer_Elementor {
 				
 				.hfe-promo-notice-description {
 					opacity: 0.9;
-					font-size: 20px;
+					font-size: 14px;
 				}
 				
 				.hfe-promo-notice-cta {
-					margin-left: 16px;
-					padding: 8px 16px;
+					margin-left: 8px;
+					padding: 5px 16px;
 					background: rgb(96, 5, 255);
 					border: 1px solid rgb(96, 5, 255);
 					color: #ffffff;
 					text-decoration: none;
-					border-radius: 25px;
-					font-size: 13px;
+					border-radius: 4px;
+					font-size: 12px;
 					font-weight: 600;
 					transition: all 0.2s ease;
-					white-space: nowrap;
+    				white-space: nowrap;
 				}
 				
 				.hfe-promo-notice-cta:hover {

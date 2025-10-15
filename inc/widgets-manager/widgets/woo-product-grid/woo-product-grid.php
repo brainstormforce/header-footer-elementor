@@ -623,7 +623,7 @@ class Woo_Product_Grid extends Common_Widget {
 		$this->add_responsive_control(
 			'category_spacing',
 			[
-				'label'      => __( 'Spacing', 'header-footer-elementor' ),
+				'label'      => __( 'Bottom Spacing', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', 'em' ],
 				'default'    => [
@@ -701,7 +701,7 @@ class Woo_Product_Grid extends Common_Widget {
 		$this->add_responsive_control(
 			'title_spacing',
 			[
-				'label'      => __( 'Spacing', 'header-footer-elementor' ),
+				'label'      => __( 'Bottom Spacing', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', 'em' ],
 				'default'    => [
@@ -751,7 +751,7 @@ class Woo_Product_Grid extends Common_Widget {
 		$this->add_responsive_control(
 			'rating_spacing',
 			[
-				'label'      => __( 'Spacing', 'header-footer-elementor' ),
+				'label'      => __( 'Bottom Spacing', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', 'em' ],
 				'default'    => [
@@ -809,7 +809,7 @@ class Woo_Product_Grid extends Common_Widget {
 		$this->add_responsive_control(
 			'price_spacing',
 			[
-				'label'      => __( 'Spacing', 'header-footer-elementor' ),
+				'label'      => __( 'Bottom Spacing', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', 'em' ],
 				'default'    => [
@@ -867,7 +867,7 @@ class Woo_Product_Grid extends Common_Widget {
 		$this->add_responsive_control(
 			'short_description_spacing',
 			[
-				'label'      => __( 'Spacing', 'header-footer-elementor' ),
+				'label'      => __( 'Bottom Spacing', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', 'em' ],
 				'default'    => [
@@ -997,38 +997,6 @@ class Woo_Product_Grid extends Common_Widget {
 				'selector' => '{{WRAPPER}} .hfe-product-add-to-cart .button',
 				'global'   => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'add_to_cart_margin_bottom',
-			[
-				'label'     => __( 'Margin Bottom', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::SLIDER,
-				'range'     => [
-					'px' => [
-						'max' => 100,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .hfe-product-add-to-cart .button' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'add_to_cart_margin_right',
-			[
-				'label'     => __( 'Margin Right', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::SLIDER,
-				'range'     => [
-					'px' => [
-						'max' => 100,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .hfe-product-add-to-cart .button' => 'margin-right: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);

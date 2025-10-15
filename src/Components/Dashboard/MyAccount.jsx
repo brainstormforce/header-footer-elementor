@@ -16,6 +16,12 @@ const MyAccount = () => {
                 tag="h2"
                 title={__('My Account', 'header-footer-elementor')}
             />
+              <div
+                className=""
+                style={{
+                    marginTop: "24px",
+                }}
+            >
             <Container
                 align="stretch"
                 className="bg-background-primary p-6 rounded-lg"
@@ -27,14 +33,16 @@ const MyAccount = () => {
                     marginTop: "24px",
                 }}
             >
-                <Container.Item className="flex flex-col space-y-2">
+                <Container.Item className="flex flex-col space-y-2"  style={{
+                    marginTop: "24px",
+                }}>
                     <p className='text-base font-semibold m-0'>{__('License Key', 'header-footer-elementor')}</p>
                     <p className='text-sm font-normal m-0'>{__('You are using the free version of Ultimate Addons for Elementor, no license key is needed. ')}</p>
                 </Container.Item>
                 <div className='flex items-center justify-between px-4 rounded-xl' style={{paddingTop: '6px' , paddingBottom: '6px', backgroundColor: "#F3F0FF"}}>
                     <span className="flex flex-col items-left mt-2 text-base font-semibold">
                         {__('Build Better Websites With Ultimate Addons Pro', 'header-footer-elementor')}
-                        <p className='text-base font-normal m-0 py-2' style={{ width: '500px'}}>{__('Unlock advanced addons to power up Elementor — smarter widgets, smoother workflows, and more creative freedom with UAE Pro.', 'header-footer-elementor')}</p>
+                        <p className='text-sm font-normal m-0 py-2' style={{ width: '500px'}}>{__('Unlock advanced addons to power up Elementor - smarter widgets, smoother workflows, and more creative freedom with UAE Pro.', 'header-footer-elementor')}</p>
                     </span>
                     <Button
                             icon={<ArrowUpRight />}
@@ -56,6 +64,7 @@ const MyAccount = () => {
                 </div>
                 <UsageTracking />
             </Container>
+             </div>
         </>
     );
 };
