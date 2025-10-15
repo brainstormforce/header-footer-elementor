@@ -67,7 +67,7 @@ class Header_Footer_Elementor {
 			$this->includes();
 
 			// Register admin notices after WordPress is fully loaded
-			add_action( 'wp_loaded', [ $this, 'register_notices' ] );
+			add_action( 'admin_init', [ $this, 'register_notices' ] );
 
 			add_action( 'admin_init', [ $this, 'hfe_redirect_to_onboarding' ] );
 			
