@@ -1,8 +1,7 @@
 {
     "core": null,
     "themes": [
-        "https://downloads.wordpress.org/theme/astra.zip",
-        "https://downloads.wordpress.org/theme/twentytwentyone.zip"
+        "https://downloads.wordpress.org/theme/astra.zip"
     ],
     "plugins": [
         ".",
