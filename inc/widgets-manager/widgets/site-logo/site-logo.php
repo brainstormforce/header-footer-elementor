@@ -76,6 +76,18 @@ class Site_Logo extends Common_Widget {
 	}
 
 	/**
+	 * Retrieve Widget Keywords.
+	 *
+	 * @since 2.6.0
+	 * @access public
+	 *
+	 * @return string Widget keywords.
+	 */
+	public function get_keywords() {
+		return parent::get_widget_keywords( 'Site_Logo' );
+	}
+
+	/**
 	 * Retrieve the list of categories the widget belongs to.
 	 *
 	 * Used to determine where to display the widget in the editor.
