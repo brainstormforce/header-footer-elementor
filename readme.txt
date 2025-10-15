@@ -300,7 +300,7 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 
 == Changelog ==
 = 2.6.1 =
-- Fix: Header not displaying on specific pages with Astra theme.
+- Fix: Header not displaying on specific pages.
 
 = 2.6.0 =
 - New: Added Woo Product Grid Widget - Display WooCommerce products in a responsive grid layout with customizable styling options.
