@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Button, Skeleton, Tooltip } from "@bsf/force-ui";
+import { Container, Button, Skeleton, Tooltip, Tabs } from "@bsf/force-ui";
 import { LoaderCircle, SearchIcon, Trash2Icon } from "lucide-react";
 import WidgetItem from '@components/Dashboard/WidgetItem';
 import apiFetch from '@wordpress/api-fetch';
@@ -15,6 +15,7 @@ const FeatureWidgets = () => {
     const [loading, setLoading] = useState(true);
     const [updateCounter, setUpdateCounter] = useState(0);
     const [showTooltip, setShowTooltip] = useState(true); // Add state for showTooltip
+    const [activeTab, setActiveTab] = useState(''); // Add state for active tab - start with no tab selected
     
     useEffect(() => {
         const fetchSettings = () => {
@@ -44,6 +45,19 @@ const FeatureWidgets = () => {
         setSearchTerm(event.target.value.toLowerCase());
     };
 
+    // Handle tab change
+    const handleTabChange = (activeSlug) => {
+        setActiveTab(activeSlug);
+        
+        // Trigger action based on tab selection
+        if (activeSlug === 'activate') {
+            handleActivateAll();
+        } else if (activeSlug === 'deactivateUnused') {
+            handleUnusedDeactivate();
+        }
+    };
+
+
     // Filter widgets based on search term
     const filteredWidgets = allWidgetsData?.filter(widget =>
         widget.title.toLowerCase().includes(searchTerm) ||
@@ -51,7 +65,6 @@ const FeatureWidgets = () => {
     );
 
     const handleActivateAll = async () => {
-
         setLoadingActivate(true);
 
         const formData = new window.FormData();
@@ -71,11 +84,9 @@ const FeatureWidgets = () => {
                 setUpdateCounter(prev => prev + 1);
             } else if (data.error) {
                 setLoadingActivate(false);
-                console.error('Error during AJAX request:', error);
             }
         }).catch((error) => {
             setLoadingActivate(false);
-            console.error('Error during AJAX request:', error);
         });
     };
 
@@ -98,11 +109,9 @@ const FeatureWidgets = () => {
                 );
                 setUpdateCounter(prev => prev + 1);
             } else if (data.error) {
-                console.error('AJAX request failed:', data.error);
             }
         }).catch((error) => {
             setLoadingDeactivate(false);
-            console.error('Error during AJAX request:', error);
         });
     };
 
@@ -131,13 +140,10 @@ const FeatureWidgets = () => {
                 );
                 setUpdateCounter(prev => prev + 1);
             } else if (data.error) {
-                console.error('AJAX request failed:', data.error);
             } else {
-                console.error('Unexpected response structure:', data);
             }
         }).catch((error) => {
             setLoadingUnusedDeactivate(false);
-            console.error('Error during AJAX request:', error);
         });
     };
     
@@ -200,58 +206,46 @@ const FeatureWidgets = () => {
                         onChange={handleSearchChange}
                     />
                     <div className="flex flex-row gap-2 w-full md:w-auto">
-                        <Tooltip
-                                arrow
-                                content={
-                                    <div>
-                                       <p>{__('Click here to activate all widgets & extensions.', 'header-footer-elementor')}</p>
-                                    </div>
-                                }
-                                placement="top"
-                                title=""
-                                triggers={[
-                                    'hover'
-                                ]}
-                                variant="dark"
-                                size="xs"
-                            >
-                            <Button
-                                icon={loadingActivate ? <LoaderCircle className="animate-spin" /> : null}
-                                iconPosition="left"
-                                variant="outline"
-                                className="hfe-bulk-action-button"
-                                onClick={handleActivateAll} // Attach the onClick event.
-                                disabled={!!searchTerm}
-                            >
-                                {loadingActivate ? __('Activating...', 'header-footer-elementor') : __('Activate All', 'header-footer-elementor')}
-                            </Button>
-                        </Tooltip>
-                        <Tooltip
-                                arrow
-                                content={
-                                    <div>
-                                       <p>{__('Click here to deactivate all unused widgets, except Extensions.', 'header-footer-elementor')}</p>
-                                    </div>
-                                }
-                                placement="top"
-                                title=""
-                                triggers={[
-                                    'hover'
-                                ]}
-                                variant="dark"
-                                size="xs"
-                            >
-                            <Button
-                                icon={loadingUnusedDeactivate ? <LoaderCircle className="animate-spin" /> : null} // Loader for deactivate button.
-                                iconPosition="left"
-                                variant="outline"
-                                onClick={handleUnusedDeactivate}
-                                className="hfe-bulk-action-button"
-                                disabled={!!searchTerm}
-                            >
-                                {loadingUnusedDeactivate ? __('Deactivating...', 'header-footer-elementor') : __('Deactivate Unused', 'header-footer-elementor')}
-                            </Button>
-                        </Tooltip>
+                        <div style={{ width: '245px', minWidth: '245px'}}>
+                        <div
+							className="flex justify-center items-center rounded-sm overflow-hidden"
+							style={ { border: '1.5px solid #e5e7eb', borderRadius: '0.25rem' } }
+						>
+							<div
+								className={`font-medium p-2 transition-all duration-300 ${(!!searchTerm || loadingActivate) ? 'cursor-not-allowed' : 'cursor-pointer hover:bg-button-tertiary-hover hover:outline-border-subtle'}`}
+								style={ { 
+									border: 'none', 
+									borderRight: '1.5px solid #e5e7eb',
+									opacity: (!!searchTerm || loadingActivate) ? 0.5 : 1,
+									pointerEvents: (!!searchTerm || loadingActivate) ? 'none' : 'auto',
+									color: (!!searchTerm || loadingActivate) ? '#A9ACB0' : 'inherit'
+								} }
+								onClick={ () => {
+									if (!loadingActivate && !searchTerm) {
+										handleActivateAll();
+									}
+								} }
+							>
+                                {__("Activate All", "header-footer-elementor")}
+							</div>
+							<div
+								className={`font-medium p-2 transition-all duration-300 ${(!!searchTerm || loadingUnusedDeactivate) ? 'cursor-not-allowed' : 'cursor-pointer hover:bg-button-tertiary-hover hover:outline-border-subtle'}`}
+								style={ { 
+									border: 'none',
+									opacity: (!!searchTerm || loadingUnusedDeactivate) ? 0.5 : 1,
+									pointerEvents: (!!searchTerm || loadingUnusedDeactivate) ? 'none' : 'auto',
+									color: (!!searchTerm || loadingUnusedDeactivate) ? '#A9ACB0' : 'inherit'
+								} }
+								onClick={ () => {
+									if (!loadingUnusedDeactivate && !searchTerm) {
+										handleUnusedDeactivate();
+									}
+								} }
+							>
+                                {__("Deactivate Unused", "header-footer-elementor")}
+							</div>
+						</div>
+                        </div>
                         <Tooltip
                                 arrow
                                 content={

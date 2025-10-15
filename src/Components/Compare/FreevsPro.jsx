@@ -2,6 +2,9 @@ import React from "react";
 import { Container, Button } from "@bsf/force-ui";
 import { Check, X } from "lucide-react";
 import { __ } from "@wordpress/i18n";
+import { routes } from "../../admin/settings/routes";
+import { Link } from "../../router/index";
+import { ArrowUpRight } from "lucide-react";
 
 const FreevsPro = () => {
     const sections = [
@@ -197,7 +200,7 @@ const FreevsPro = () => {
                             );
                         }}
                     >
-                        {__("Upgrade Now", "header-footer-elementor")}
+                        {__("Get Full Toolkit", "header-footer-elementor")}
                     </Button>
                 </div>
             </div>
@@ -230,6 +233,24 @@ const FreevsPro = () => {
                             {renderItems(section.items)}
                         </React.Fragment>
                     ))}
+                           <div className="flex items-center justify-center gap-x-2 ">
+					<a
+						href="https://ultimateelementor.com/pricing-plans/?utm_source=uae-lite-dashboard&utm_medium=unlock-ultimate-feature&utm_campaign=uae-lite-upgrade"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="text-sm font-normal text-text-primary cursor-pointer no-underline"
+						style={{ lineHeight: "1rem", paddingTop: "10px", paddingBottom: "20px", color: "#6005FF", textDecoration: "none", outline: "none", boxShadow: "none" }}
+						onFocus={(e) => e.target.style.outline = "none"}
+						onBlur={(e) => e.target.style.outline = "none"}
+					>
+						{__("See all UAE Pro Features", "header-footer-elementor")}
+						<ArrowUpRight
+							className="ml-1 font-semibold"
+							size={14}
+                            color="#6005FF"
+						/>
+					</a>
+				</div>
                 </div>
             </div>
         </div>

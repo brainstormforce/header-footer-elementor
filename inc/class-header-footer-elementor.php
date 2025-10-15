@@ -66,6 +66,9 @@ class Header_Footer_Elementor {
 
 			$this->includes();
 
+			// Register admin notices after WordPress is fully loaded
+			add_action( 'wp_loaded', [ $this, 'register_notices' ] );
+
 			add_action( 'admin_init', [ $this, 'hfe_redirect_to_onboarding' ] );
 			
 			add_action( 'init', [ $this, 'load_hfe_textdomain' ] );
@@ -115,6 +118,12 @@ class Header_Footer_Elementor {
 				require HFE_DIR . 'themes/storefront/class-hfe-storefront-compat.php';
 			} elseif ( 'hello-elementor' == $this->template ) {
 				require HFE_DIR . 'themes/hello-elementor/class-hfe-hello-elementor-compat.php';
+			} elseif ( 'kadence' == $this->template ) {
+				require HFE_DIR . 'themes/kadence/class-hfe-kadence-compat.php';
+			} elseif ( 'neve' == $this->template ) {
+				require HFE_DIR . 'themes/neve/class-hfe-neve-compat.php';
+			} elseif ( 'blocksy' == $this->template ) {
+				require HFE_DIR . 'themes/blocksy/class-hfe-blocksy-compat.php';
 			} else {
 				$is_theme_supported = false;
 				add_filter( 'hfe_settings_tabs', [ $this, 'setup_unsupported_theme' ] );
@@ -130,7 +139,7 @@ class Header_Footer_Elementor {
 			}
 
 			// Filter to change Astra menu positon.
-			add_filter( 'astra_menu_priority', array( $this, 'update_admin_menu_position' ) );
+			add_filter( 'astra_menu_priority', [ $this, 'update_admin_menu_position' ] );
 			// Scripts and styles.
 			add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
 
@@ -143,8 +152,11 @@ class Header_Footer_Elementor {
 
 			add_action( 'astra_notice_before_markup_header-footer-elementor-rating', [ $this, 'rating_notice_css' ] );
 
+			// Add Elementor preview notice
+			add_action( 'wp_footer', [ $this, 'elementor_preview_notice' ] );
+
 			require_once HFE_DIR . 'inc/class-hfe-analytics.php';
-			     
+				 
 		}
 	}
 
@@ -212,50 +224,65 @@ class Header_Footer_Elementor {
 	 * @return void
 	 */
 	public function register_notices() {
+		
 		$image_path = HFE_URL . 'assets/images/settings/uael-icon.svg';
 
-		Astra_Notices::add_notice(
-			[
-				'id'                         => 'header-footer-elementor-rating',
-				'type'                       => '',
-				'message'                    => sprintf(
-					'<div class="notice-image">
-						<img src="%1$s" class="custom-logo" alt="Sidebar Manager" itemprop="logo"></div>
-						<div class="notice-content">
-							<div class="notice-heading">
-								%2$s
-							</div>
-							%3$s<br />
-							<div class="astra-review-notice-container">
-								<a href="%4$s" class="astra-notice-close astra-review-notice button-primary" target="_blank">
-								%5$s
-								</a>
-							<span class="dashicons dashicons-calendar"></span>
-								<a href="#" data-repeat-notice-after="%6$s" class="astra-notice-close astra-review-notice">
-								%7$s
-								</a>
-							<span class="dashicons dashicons-smiley"></span>
-								<a href="#" class="astra-notice-close astra-review-notice">
-								%8$s
-								</a>
-							</div>
-						</div>',
-					$image_path,
-					__( 'Hello! Seems like you have used Ultimate Addons for Elementor to build this website — Thanks a ton!', 'header-footer-elementor' ),
-					__( 'Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Ultimate Addons for Elementor.', 'header-footer-elementor' ),
-					'https://wordpress.org/support/plugin/header-footer-elementor/reviews/?filter=5#new-post',
-					__( 'Ok, you deserve it', 'header-footer-elementor' ),
-					MONTH_IN_SECONDS,
-					__( 'Nope, maybe later', 'header-footer-elementor' ),
-					__( 'I already did', 'header-footer-elementor' )
-				),
-				'show_if'                    => ( hfe_header_enabled() || hfe_footer_enabled() || hfe_is_before_footer_enabled() ) ? true : false,
-				'repeat-notice-after'        => MONTH_IN_SECONDS,
-				'display-notice-after'       => 1296000, // Display notice after 15 days.
-				'priority'                   => 18,
-				'display-with-other-notices' => false,
-			]
-		);
+		// Initialize Astra_Notices to ensure hooks are registered.
+		if ( class_exists( 'Astra_Notices' ) ) {
+			Astra_Notices::get_instance();
+		
+			$notice_id = 'header-footer-elementor-rating';
+			
+			// Check conditions
+			$header_enabled        = hfe_header_enabled();
+			$footer_enabled        = hfe_footer_enabled();
+			$before_footer_enabled = hfe_is_before_footer_enabled();
+			$show_condition        = $header_enabled || $footer_enabled || $before_footer_enabled;
+			
+
+			Astra_Notices::add_notice(
+				[
+					'id'                         => 'header-footer-elementor-rating',
+					'type'                       => '',
+					'message'                    => sprintf(
+						'<div class="notice-image">
+							<img src="%1$s" class="custom-logo" alt="Sidebar Manager" itemprop="logo"></div>
+							<div class="notice-content">
+								<div class="notice-heading">
+									%2$s
+								</div>
+								%3$s<br />
+								<div class="astra-review-notice-container">
+									<a href="%4$s" class="astra-notice-close astra-review-notice button-primary" target="_blank">
+									%5$s
+									</a>
+								<span class="dashicons dashicons-calendar"></span>
+									<a href="#" data-repeat-notice-after="%6$s" class="astra-notice-close astra-review-notice">
+									%7$s
+									</a>
+								<span class="dashicons dashicons-smiley"></span>
+									<a href="#" class="astra-notice-close astra-review-notice">
+									%8$s
+									</a>
+								</div>
+							</div>',
+						$image_path,
+						__( 'Hello! Seems like you have used Ultimate Addons for Elementor to build this website — Thanks a ton!', 'header-footer-elementor' ),
+						__( 'Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Ultimate Addons for Elementor.', 'header-footer-elementor' ),
+						'https://wordpress.org/support/plugin/header-footer-elementor/reviews/?filter=5#new-post',
+						__( 'Ok, you deserve it', 'header-footer-elementor' ),
+						MONTH_IN_SECONDS,
+						__( 'Nope, maybe later', 'header-footer-elementor' ),
+						__( 'I already did', 'header-footer-elementor' )
+					),
+					'show_if'                    => ( hfe_header_enabled() || hfe_footer_enabled() || hfe_is_before_footer_enabled() ) ? true : false,
+					'repeat-notice-after'        => MONTH_IN_SECONDS,
+					'display-notice-after'       => 1296000, // Display notice after 15 days.
+					'priority'                   => 18,
+					'display-with-other-notices' => false,
+				]
+			);
+		}
 	}
 
 	/**
@@ -266,6 +293,301 @@ class Header_Footer_Elementor {
 	 */
 	public function rating_notice_css() {
 		wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'assets/css/admin-header-footer-elementor.css', [], HFE_VER );
+	}
+
+	/**
+	 * Display Elementor preview notice in footer when in preview mode.
+	 *
+	 * @since 2.4.9
+	 * @return void
+	 */
+	public function elementor_preview_notice() {
+		// Show notice only for page post type in preview mode
+		if ( ! $this->should_show_preview_notice() ) {
+			return;
+		}
+
+		?>
+			<style>
+				@keyframes slideInFromBottom {
+					0% {
+						transform: translateY(100%);
+						opacity: 0;
+					}
+					100% {
+						transform: translateY(0);
+						opacity: 1;
+					}
+				}
+				
+				@keyframes slideOutToBottom {
+					0% {
+						transform: translateY(0);
+						opacity: 1;
+					}
+					100% {
+						transform: translateY(100%);
+						opacity: 0;
+					}
+				}
+				
+				.hfe-promo-notice {
+					position: fixed;
+					bottom: 0;
+					left: 0;
+					right: 0;
+					background: #000;
+					color: #ffffff;
+					padding: 10px 20px;
+					box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+					z-index: 999999;
+					font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+					font-size: 14px;
+					font-weight: 500;
+					animation: slideInFromBottom 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+					backdrop-filter: blur(10px);
+					border-top: 1px solid rgba(255, 255, 255, 0.2);
+					display: none;
+				}
+				
+				.hfe-promo-notice.show {
+					display: block;
+				}
+				
+				.hfe-promo-notice.hide {
+					animation: slideOutToBottom 0.4s cubic-bezier(0.55, 0.06, 0.68, 0.19) forwards;
+				}
+				
+				.hfe-promo-notice-container {
+					display: flex;
+					align-items: center;
+					justify-content: space-around;
+				}
+				
+				.hfe-promo-notice-content {
+					display: flex;
+					align-items: center;
+					/* flex: 1; */
+				}
+				
+				.hfe-promo-notice-icon {
+					display: inline-flex;
+					width: 24px;
+					height: 24px;
+					margin-right: 12px;
+					background: rgba(255, 255, 255, 0.2);
+					border-radius: 50%;
+					align-items: center;
+					justify-content: center;
+					font-size: 14px;
+					flex-shrink: 0;
+				}
+				
+				.hfe-promo-notice-text {
+					flex: 1;
+					line-height: 1.4;
+				}
+				
+				.hfe-promo-notice-title {
+					font-weight: 600;
+					margin-bottom: 2px;
+					font-size: 15px;
+				}
+				
+				.hfe-promo-notice-description {
+					opacity: 0.9;
+					font-size: 14px;
+				}
+				
+				.hfe-promo-notice-cta {
+					margin-left: 8px;
+					padding: 5px 16px;
+					background: rgb(96, 5, 255);
+					border: 1px solid rgb(96, 5, 255);
+					color: #ffffff;
+					text-decoration: none;
+					border-radius: 4px;
+					font-size: 12px;
+					font-weight: 600;
+					transition: all 0.2s ease;
+    				white-space: nowrap;
+				}
+				
+				.hfe-promo-notice-cta:hover {
+					background:rgb(96, 5, 255);
+					color: #ffffff;
+					text-decoration: none;
+				}
+				
+				.hfe-promo-notice-close {
+					margin-left: 16px;
+					position: absolute;
+					right:5px;
+					background: none;
+					border: none;
+					color: rgba(255, 255, 255, 0.8);
+					font-size: 20px;
+					cursor: pointer;
+					padding: 4px;
+					width: 28px;
+					height: 28px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					border-radius: 50%;
+					transition: all 0.2s ease;
+					flex-shrink: 0;
+				}
+				
+				.hfe-promo-notice-close:hover {
+					background: rgba(255, 255, 255, 0.1);
+					color: #ffffff;
+				}
+				
+				@media (max-width: 768px) {
+					.hfe-promo-notice {
+						padding: 12px 16px;
+						font-size: 13px;
+					}
+					
+					.hfe-promo-notice-container {
+						flex-direction: column;
+						align-items: stretch;
+						gap: 12px;
+					}
+					
+					.hfe-promo-notice-content {
+						flex-direction: column;
+						align-items: flex-start;
+						text-align: left;
+					}
+					
+					.hfe-promo-notice-icon {
+						margin-right: 8px;
+						width: 20px;
+						height: 20px;
+						font-size: 12px;
+					}
+					
+					.hfe-promo-notice-cta {
+						margin-left: 0;
+						margin-top: 8px;
+						align-self: flex-start;
+					}
+					
+					.hfe-promo-notice-close {
+						position: absolute;
+						top: 8px;
+						right: 8px;
+						margin-left: 0;
+					}
+				}
+				
+				@media (max-width: 480px) {
+					.hfe-promo-notice-container {
+						padding-right: 40px;
+					}
+					
+					.hfe-promo-notice-title {
+						font-size: 14px;
+					}
+					
+					.hfe-promo-notice-description {
+						font-size: 12px;
+					}
+				}
+			</style>
+			
+			<div id="hfe-promo-notice" class="hfe-promo-notice">
+				<div class="hfe-promo-notice-container">
+					<div class="hfe-promo-notice-content">
+						<!-- <div class="hfe-promo-notice-icon">🚀</div> -->
+						<div class="hfe-promo-notice-text">
+							<!-- <div class="hfe-promo-notice-title">Unlock More Elementor Widgets!</div> -->
+							<div class="hfe-promo-notice-description">Psst… want to save hours? Get 300+ professionally built templates.</div>
+						</div>
+						<a href="https://ultimateelementor.com/pricing/?utm_source=preview&utm_medium=notice&utm_campaign=uae-lite" 
+						   target="_blank" 
+						   class="hfe-promo-notice-cta">
+							Unlock Now
+						</a>
+					</div>
+					<button class="hfe-promo-notice-close" onclick="hfePromoNotice.dismiss()">&times;</button>
+				</div>
+			</div>
+			
+			<script>window.hfePromoNotice={storageKey:'hfe_promo_notice_dismissed',oneMonthMs:2592000000,init:function(){this.shouldShow()&&this.show()},shouldShow:function(){try{const a=localStorage.getItem(this.storageKey);if(!a)return!0;const b=parseInt(a),c=Date.now();return c-b>=this.oneMonthMs}catch(a){return!0}},show:function(){const a=document.getElementById('hfe-promo-notice');a&&a.classList.add('show')},dismiss:function(){const a=document.getElementById('hfe-promo-notice');a&&(a.classList.add('hide'),setTimeout(()=>{a.remove()},400));try{localStorage.setItem(this.storageKey,Date.now().toString())}catch(a){console.log('Could not save dismissal state')}}};"loading"===document.readyState?document.addEventListener('DOMContentLoaded',function(){hfePromoNotice.init()}):hfePromoNotice.init();</script>
+			<?php
+	}
+
+	/**
+	 * Check if preview notice should be shown for page post type only.
+	 *
+	 * @since 2.4.9
+	 * @return bool
+	 */
+	private function should_show_preview_notice() {
+		// Don't show if UAE Pro is already installed/activated
+		if ( is_plugin_active( 'ultimate-elementor/ultimate-elementor.php' ) || 
+			file_exists( WP_PLUGIN_DIR . '/ultimate-elementor/ultimate-elementor.php' ) ) {
+			return false;
+		}
+
+		// Basic preview check
+		if ( ! isset( $_GET['preview'] ) || sanitize_text_field( wp_unslash( $_GET['preview'] ) ) !== 'true' ) {
+			return false;
+		}
+
+		// Must have preview_id
+		if ( ! isset( $_GET['preview_id'] ) ) {
+			return false;
+		}
+
+		$preview_id = intval( sanitize_text_field( wp_unslash( $_GET['preview_id'] ) ) );
+
+		// Verify preview nonce for security (if available)
+		if ( isset( $_GET['preview_nonce'] ) ) {
+			$preview_nonce = sanitize_text_field( wp_unslash( $_GET['preview_nonce'] ) );
+			if ( ! wp_verify_nonce( $preview_nonce, 'post_preview_' . $preview_id ) ) {
+				return false;
+			}
+		}
+
+		// Check if it's a page post type (not header/footer templates)
+		$post_type = get_post_type( $preview_id );
+		if ( $post_type !== 'page' ) {
+			return false;
+		}
+
+		// Exclude header/footer templates from UAE
+		$template_type = get_post_meta( $preview_id, 'ehf_template_type', true );
+		if ( ! empty( $template_type ) ) {
+			return false; // This is a header/footer template, don't show notice
+		}
+
+		// Optional: Check if page uses Elementor
+		if ( ! $this->is_elementor_page( $preview_id ) ) {
+			return false;
+		}
+
+		// Optional: Allow filtering for custom conditions
+		return apply_filters( 'hfe_show_preview_notice', true, $preview_id );
+	}
+
+	/**
+	 * Check if the page is built with Elementor.
+	 *
+	 * @since 2.4.9
+	 * @param int $post_id Post ID to check.
+	 * @return bool
+	 */
+	private function is_elementor_page( $post_id ) {
+		if ( ! class_exists( '\Elementor\Plugin' ) ) {
+			return false;
+		}
+
+		$elementor_data = get_post_meta( $post_id, '_elementor_data', true );
+		return ! empty( $elementor_data );
 	}
 
 	/**

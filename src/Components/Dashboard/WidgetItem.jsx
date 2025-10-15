@@ -125,33 +125,62 @@ const WidgetItem = ({ widget, updateCounter, showTooltip }) => {
 						<Tooltip
 							arrow
 							content={
-								<span>
-									{__(
-										"Unlock with ",
-										"header-footer-elementor",
-									)}
+								<div style={{ textAlign: "left", maxWidth: "280px" }}>
+									<div style={{ 
+										display: "flex", 
+										alignItems: "center", 
+										marginBottom: "8px",
+										gap: "6px"
+									}}>
+										<span style={{
+											fontSize: "14px",
+											fontWeight: "600",
+											color: "#ffffff",
+											lineHeight: "1.2"
+										}}>
+											{title}
+										</span>
+										<span style={{
+											backgroundColor: "#C026D3",
+											color: "#ffffff",
+											fontSize: "10px",
+											fontWeight: "600",
+											padding: "2px 6px",
+											borderRadius: "4px",
+											textTransform: "uppercase",
+											letterSpacing: "0.5px"
+										}}>
+											{__("PRO", "header-footer-elementor")}
+										</span>
+									</div>
+									<p style={{
+										fontSize: "12px",
+										color: "#E5E7EB",
+										margin: "0 0 12px 0",
+										lineHeight: "1.4"
+									}}>
+										{description}
+									</p>
 									<a
-										href="https://ultimateelementor.com/pricing/?utm_source=uae-lite-dashboard&utm_medium=pro-widgets&utm_campaign=uae-upgrade" // Replace with actual upgrade URL
+										href="https://ultimateelementor.com/pricing/?utm_source=uae-lite-dashboard&utm_medium=pro-widgets&utm_campaign=uae-upgrade"
 										target="_blank"
 										rel="noopener noreferrer"
 										style={{
-											color: "#D946EF",
+											color: "#C026D3",
 											textDecoration: "none",
 											outline: "none",
-											fontSize: "14px",
+											fontSize: "12px",
+											fontWeight: "600"
 										}}
 										className="hfe-uae-pro-link focus:outline-none"
 									>
-										{__(
-											"Pro",
-											"header-footer-elementor",
-										)}
+										{__("Get Full Control", "header-footer-elementor")}
 									</a>
-								</span>
+								</div>
 							}
 							placement="bottom"
 							variant="dark"
-							size="xs"
+							size="md"
 							triggers={["click"]}
 							open={isTooltipOpen}
 							onOpenChange={setIsTooltipOpen}

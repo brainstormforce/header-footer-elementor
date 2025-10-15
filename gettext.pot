@@ -3,354 +3,354 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "X-Generator: babel-plugin-makepot\n"
 
-#: src/Components/Compare/FreevsPro.jsx:100
+#: src/Components/Compare/FreevsPro.jsx:103
 msgid "Creative Features"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:102
+#: src/Components/Compare/FreevsPro.jsx:105
 msgid "Presets"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:103
+#: src/Components/Compare/FreevsPro.jsx:106
 msgid "Welcome Music"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:104
+#: src/Components/Compare/FreevsPro.jsx:107
 msgid "Particles"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:105
+#: src/Components/Compare/FreevsPro.jsx:108
 msgid "Party Propz"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:106
+#: src/Components/Compare/FreevsPro.jsx:109
 msgid "Shape Divider"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:11
-msgid "White Label Option"
-msgstr ""
-
-#: src/Components/Compare/FreevsPro.jsx:110
+#: src/Components/Compare/FreevsPro.jsx:113
 msgid "Social Media Integration"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:112
+#: src/Components/Compare/FreevsPro.jsx:115
 msgid "Instagram Feed"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:113
+#: src/Components/Compare/FreevsPro.jsx:116
 msgid "Twitter Feed"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:114
+#: src/Components/Compare/FreevsPro.jsx:117
 msgid "Social Share"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:118
-msgid "Advanced Features"
-msgstr ""
-
 #: src/Components/Compare/FreevsPro.jsx:12
-msgid "24/7 Premium Support"
-msgstr ""
-
-#: src/Components/Compare/FreevsPro.jsx:120
-msgid "Retina Image"
+msgid "Essentials"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:121
-msgid "Team Member"
-msgstr ""
-
-#: src/Components/Compare/FreevsPro.jsx:122
-msgid "Post Layout"
+msgid "Advanced Features"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:123
+msgid "Retina Image"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:124
+msgid "Team Member"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:125
+msgid "Post Layout"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:126
 msgid "Off Canvas"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:13
-msgid "Cross-Domain Copy-Paste"
+#: src/Components/Compare/FreevsPro.jsx:14
+msgid "White Label Option"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:152
-msgid "Navigation Menu"
-msgstr ""
-
-#: src/Components/Compare/FreevsPro.jsx:154
-msgid "Basic"
+#: src/Components/Compare/FreevsPro.jsx:15
+msgid "24/7 Premium Support"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:155
+msgid "Navigation Menu"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:157
+msgid "Basic"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:158
 msgid "Advanced"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:17
-msgid "Dynamic Header & Footer Widgets"
-msgstr ""
-
-#: src/Components/Compare/FreevsPro.jsx:170
-msgid "Free Vs Pro"
+#: src/Components/Compare/FreevsPro.jsx:16
+msgid "Cross-Domain Copy-Paste"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:173
-msgid "Ultimate Addons for Elementor Pro offers 50+ widgets and features!"
+msgid "Free Vs Pro"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:176
+msgid "Ultimate Addons for Elementor Pro offers 50+ widgets and features!"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:179
 msgid ""
 "Compare the popular features/widgets to find the best option for your "
 "website."
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:19
-msgid "Post Info"
-msgstr ""
-
 #: src/Components/Compare/FreevsPro.jsx:20
-msgid "Scroll to Top"
+msgid "Dynamic Header & Footer Widgets"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:200
-#: src/Components/Compare/UltimateCompare.jsx:109
-#: src/Components/Dashboard/MyAccount.jsx:54
-#: src/Components/Widgets/UltimateWidgets.jsx:116
-msgid "Upgrade Now"
-msgstr ""
-
-#: src/Components/Compare/FreevsPro.jsx:21
-msgid "Reading Progress Bar"
+#: src/Components/Compare/FreevsPro.jsx:203
+msgid "Get Full Toolkit"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:22
-msgid "Breadcrumbs"
+msgid "Post Info"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:220
+#: src/Components/Compare/FreevsPro.jsx:223
 #: src/Components/NavMenu.js:242
 #: src/Components/Onboarding/Features.jsx:193
 msgid "Free"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:226
-#: src/Components/Dashboard/WidgetItem.jsx:145
+#: src/Components/Compare/FreevsPro.jsx:229
 #: src/Components/Onboarding/Features.jsx:351
 msgid "Pro"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:23
-msgid "Retina Logo"
+msgid "Scroll to Top"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:24
-msgid "Copyright"
+msgid "Reading Progress Bar"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:246
+msgid "See all UAE Pro Features"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:25
-msgid "Page Title"
+msgid "Breadcrumbs"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:26
-msgid "Site Tagline"
+msgid "Retina Logo"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:27
-msgid "Site Logo"
+msgid "Copyright"
 msgstr ""
 
 #: src/Components/Compare/FreevsPro.jsx:28
+msgid "Page Title"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:29
+msgid "Site Tagline"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:30
+msgid "Site Logo"
+msgstr ""
+
+#: src/Components/Compare/FreevsPro.jsx:31
 msgid "Search"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:33
+#: src/Components/Compare/FreevsPro.jsx:36
 msgid "Creative & Advanced Design Widgets"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:35
+#: src/Components/Compare/FreevsPro.jsx:38
 #: src/Components/Compare/UltimateCompare.jsx:17
 #: src/Components/Widgets/UltimateWidgets.jsx:18
 msgid "Advanced Heading"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:36
+#: src/Components/Compare/FreevsPro.jsx:39
 msgid "Dual Color Heading"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:37
-#: src/Components/Dashboard/UltimateFeatures.js:75
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:77
+#: src/Components/Compare/FreevsPro.jsx:40
 msgid "Fancy Heading"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:38
+#: src/Components/Compare/FreevsPro.jsx:41
 msgid "Multi-Button"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:39
+#: src/Components/Compare/FreevsPro.jsx:42
 msgid "Image Hotspots"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:43
+#: src/Components/Compare/FreevsPro.jsx:46
 msgid "Content & Media Widgets"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:45
+#: src/Components/Compare/FreevsPro.jsx:48
 msgid "Content Toggle Button"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:46
+#: src/Components/Compare/FreevsPro.jsx:49
 msgid "Image Gallery"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:47
-#: src/Components/Dashboard/UltimateFeatures.js:98
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:100
+#: src/Components/Compare/FreevsPro.jsx:50
 msgid "Video Gallery"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:48
+#: src/Components/Compare/FreevsPro.jsx:51
 msgid "Table"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:49
+#: src/Components/Compare/FreevsPro.jsx:52
 msgid "Timeline"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:50
+#: src/Components/Compare/FreevsPro.jsx:53
 msgid "Google Map"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:51
+#: src/Components/Compare/FreevsPro.jsx:54
 msgid "Before & After Slider"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:52
+#: src/Components/Compare/FreevsPro.jsx:55
 msgid "Info Card"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:53
+#: src/Components/Compare/FreevsPro.jsx:56
 msgid "Video"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:54
+#: src/Components/Compare/FreevsPro.jsx:57
 msgid "Conditional Display"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:55
+#: src/Components/Compare/FreevsPro.jsx:58
 #: src/Components/Compare/UltimateCompare.jsx:27
 #: src/Components/Widgets/UltimateWidgets.jsx:28
 msgid "Info Box"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:56
+#: src/Components/Compare/FreevsPro.jsx:59
 msgid "Login Form"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:57
+#: src/Components/Compare/FreevsPro.jsx:60
 msgid "User Registration Form"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:61
+#: src/Components/Compare/FreevsPro.jsx:64
 msgid "Marketing & Engagement Widgets"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:63
+#: src/Components/Compare/FreevsPro.jsx:66
 msgid "Marketing Button"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:64
+#: src/Components/Compare/FreevsPro.jsx:67
 msgid "Pricing Table"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:65
+#: src/Components/Compare/FreevsPro.jsx:68
 msgid "Price List"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:66
+#: src/Components/Compare/FreevsPro.jsx:69
 msgid "Countdown Timer"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:67
+#: src/Components/Compare/FreevsPro.jsx:70
 msgid "Business Hours"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:68
+#: src/Components/Compare/FreevsPro.jsx:71
 #: src/Components/Compare/UltimateCompare.jsx:12
-#: src/Components/Dashboard/UltimateFeatures.js:83
 #: src/Components/Onboarding/Features.jsx:243
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:85
 #: src/Components/Widgets/UltimateWidgets.jsx:13
 msgid "Modal Popup"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:72
+#: src/Components/Compare/FreevsPro.jsx:75
 msgid "E-Commerce Integration"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:74
+#: src/Components/Compare/FreevsPro.jsx:77
 msgid "WooCommerce: Add to Cart"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:75
+#: src/Components/Compare/FreevsPro.jsx:78
 msgid "WooCommerce: Product Category"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:76
+#: src/Components/Compare/FreevsPro.jsx:79
 msgid "WooCommerce: Mini Cart"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:77
+#: src/Components/Compare/FreevsPro.jsx:80
 msgid "WooCommerce: Product"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:78
+#: src/Components/Compare/FreevsPro.jsx:81
 msgid "WooCommerce: Checkout"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:82
+#: src/Components/Compare/FreevsPro.jsx:85
 msgid "Forms Integration"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:84
+#: src/Components/Compare/FreevsPro.jsx:87
 msgid "Contact Form 7"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:85
+#: src/Components/Compare/FreevsPro.jsx:88
 msgid "Gravity Forms"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:86
+#: src/Components/Compare/FreevsPro.jsx:89
 msgid "WPForms"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:87
+#: src/Components/Compare/FreevsPro.jsx:90
 msgid "Fluent Forms"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:9
-msgid "Essentials"
-msgstr ""
-
-#: src/Components/Compare/FreevsPro.jsx:91
+#: src/Components/Compare/FreevsPro.jsx:94
 msgid "SEO Widgets"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:93
+#: src/Components/Compare/FreevsPro.jsx:96
 msgid "FAQ with Schema"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:94
+#: src/Components/Compare/FreevsPro.jsx:97
 msgid "How-To"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:95
+#: src/Components/Compare/FreevsPro.jsx:98
 msgid "Table of Contents"
 msgstr ""
 
-#: src/Components/Compare/FreevsPro.jsx:96
+#: src/Components/Compare/FreevsPro.jsx:99
 msgid "Business Reviews"
+msgstr ""
+
+#: src/Components/Compare/UltimateCompare.jsx:109
+#: src/Components/Dashboard/MyAccount.jsx:62
+#: src/Components/Widgets/UltimateWidgets.jsx:116
+msgid "Upgrade Now"
 msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:22
@@ -469,22 +469,24 @@ msgstr ""
 msgid "My Account"
 msgstr ""
 
-#: src/Components/Dashboard/MyAccount.jsx:31
+#: src/Components/Dashboard/MyAccount.jsx:39
 msgid "License Key"
 msgstr ""
 
-#: src/Components/Dashboard/MyAccount.jsx:32
+#: src/Components/Dashboard/MyAccount.jsx:40
 msgid ""
 "You are using the free version of Ultimate Addons for Elementor, no license "
 "key is needed. "
 msgstr ""
 
-#: src/Components/Dashboard/MyAccount.jsx:36
-msgid "Unlock Pro Features"
+#: src/Components/Dashboard/MyAccount.jsx:44
+msgid "Build Better Websites With Ultimate Addons Pro"
 msgstr ""
 
-#: src/Components/Dashboard/MyAccount.jsx:37
-msgid "Get access to advanced blocks and premium features."
+#: src/Components/Dashboard/MyAccount.jsx:45
+msgid ""
+"Unlock advanced addons to power up Elementor - smarter widgets, smoother "
+"workflows, and more creative freedom with UAE Pro."
 msgstr ""
 
 #: src/Components/Dashboard/QuickAccess.js:114
@@ -504,6 +506,7 @@ msgid "VIP Priority Support"
 msgstr ""
 
 #: src/Components/Dashboard/QuickAccess.js:56
+#: src/Components/Dashboard/WidgetItem.jsx:153
 msgid "PRO"
 msgstr ""
 
@@ -531,16 +534,25 @@ msgstr ""
 
 #: src/Components/Dashboard/UltimateFeatures.js:102
 #: src/Components/Widgets/UltimateWidgetFeatures.jsx:104
-msgid "Price Box"
+msgid "Form & Pop-up Builder"
 msgstr ""
 
 #: src/Components/Dashboard/UltimateFeatures.js:106
 #: src/Components/Widgets/UltimateWidgetFeatures.jsx:108
-msgid "And more.."
+msgid "Animation Effects"
 msgstr ""
 
-#: src/Components/Dashboard/UltimateFeatures.js:139
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:141
+#: src/Components/Dashboard/UltimateFeatures.js:110
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:93
+msgid "Bloggers Toolkit"
+msgstr ""
+
+#: src/Components/Dashboard/UltimateFeatures.js:114
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:116
+msgid "Social Media Bundle"
+msgstr ""
+
+#: src/Components/Dashboard/UltimateFeatures.js:147
 msgid "View Plans"
 msgstr ""
 
@@ -550,30 +562,43 @@ msgid "Unlock Pro Widgets"
 msgstr ""
 
 #: src/Components/Dashboard/UltimateFeatures.js:54
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:56
-msgid "Bring Your Vision to Life with UAE Pro"
+msgid "Design Smarter with Ultimate Addons!"
 msgstr ""
 
 #: src/Components/Dashboard/UltimateFeatures.js:63
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:65
 msgid ""
-"Streamline your workflow, skip the repetitive tasks, and build modern, "
-"high-performance websites."
+"Craft stunning websites faster with powerful widgets, advanced features, "
+"and total flexibility."
+msgstr ""
+
+#: src/Components/Dashboard/UltimateFeatures.js:75
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:77
+msgid "50+ Widgets"
 msgstr ""
 
 #: src/Components/Dashboard/UltimateFeatures.js:79
 #: src/Components/Widgets/UltimateWidgetFeatures.jsx:81
-msgid "FAQ Schema"
+msgid "Conversion Extensions"
+msgstr ""
+
+#: src/Components/Dashboard/UltimateFeatures.js:83
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:85
+msgid "Display Conditions"
 msgstr ""
 
 #: src/Components/Dashboard/UltimateFeatures.js:87
 #: src/Components/Widgets/UltimateWidgetFeatures.jsx:89
-msgid "InfoBox"
+msgid "White Label"
 msgstr ""
 
-#: src/Components/Dashboard/UltimateFeatures.js:94
-#: src/Components/Widgets/UltimateWidgetFeatures.jsx:96
-msgid "Before After Slider"
+#: src/Components/Dashboard/UltimateFeatures.js:91
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:112
+msgid "WooCommerce Builder"
+msgstr ""
+
+#: src/Components/Dashboard/UltimateFeatures.js:98
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:100
+msgid "200+ Section Blocks"
 msgstr ""
 
 #: src/Components/Dashboard/WelcomeContainer.js:25
@@ -596,20 +621,26 @@ msgstr ""
 msgid "Create New Page"
 msgstr ""
 
-#: src/Components/Dashboard/WidgetItem.jsx:129
-msgid "Unlock with "
+#: src/Components/Dashboard/WidgetItem.jsx:177
+#: src/Components/NavMenu.js:210
+#: src/Components/UpgradeNotice.jsx:81
+msgid "Get Full Control"
 msgstr ""
 
-#: src/Components/Dashboard/WidgetItem.jsx:272
+#: src/Components/Dashboard/WidgetItem.jsx:301
 msgid "View Demo"
 msgstr ""
 
-#: src/Components/Dashboard/Widgets.jsx:143
+#: src/Components/Dashboard/Widgets.jsx:100
+msgid "Unlock All Features"
+msgstr ""
+
+#: src/Components/Dashboard/Widgets.jsx:164
 msgid "View More Widgets"
 msgstr ""
 
 #: src/Components/Dashboard/Widgets.jsx:79
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:177
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:183
 msgid "Widgets / Features"
 msgstr ""
 
@@ -635,10 +666,6 @@ msgstr ""
 
 #: src/Components/NavMenu.js:183
 msgid "Free vs Pro"
-msgstr ""
-
-#: src/Components/NavMenu.js:210
-msgid "Get Pro"
 msgstr ""
 
 #: src/Components/NavMenu.js:233
@@ -1108,47 +1135,41 @@ msgid "Close Upgrade Notice"
 msgstr ""
 
 #: src/Components/UpgradeNotice.jsx:72
-msgid "Unlock UAE's full potential!"
+msgid "Design Without Limits: Access the features that top WordPress sites run on."
 msgstr ""
 
-#: src/Components/UpgradeNotice.jsx:78
-msgid "Get powerful widgets and faster performance."
-msgstr ""
-
-#: src/Components/UpgradeNotice.jsx:87
-msgid "Upgrade now"
-msgstr ""
-
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:189
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:195
 msgid "Search..."
 msgstr ""
 
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:207
-msgid "Click here to activate all widgets & extensions."
-msgstr ""
-
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:226
-msgid "Activating..."
-msgstr ""
-
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:226
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:229
 msgid "Activate All"
 msgstr ""
 
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:233
-msgid "Click here to deactivate all unused widgets, except Extensions."
-msgstr ""
-
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:252
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:245
 msgid "Deactivate Unused"
 msgstr ""
 
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:259
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:253
 msgid "Deactivating..."
 msgstr ""
 
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:259
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:253
 msgid "Deactivate All "
+msgstr ""
+
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:149
+msgid "Start Building Smarter"
+msgstr ""
+
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:56
+msgid "Bring Your Vision to Life with UAE Pro"
+msgstr ""
+
+#: src/Components/Widgets/UltimateWidgetFeatures.jsx:65
+msgid ""
+"Streamline your workflow, skip the repetitive tasks, and build modern, "
+"high-performance websites."
 msgstr ""
 
 #: src/Components/Widgets/UltimateWidgets.jsx:119

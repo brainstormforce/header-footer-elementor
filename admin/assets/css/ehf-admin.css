@@ -851,7 +851,7 @@ padding-left:12px!important
 }
 
 .uae-plugins-go-pro{
-    color: #6104ff;
+    color: #93003C;
     font-weight: 700;
 }
 
@@ -859,6 +859,47 @@ padding-left:12px!important
 .uae-plugins-go-pro:focus,
 .uae-plugins-go-pro:hover
 {
-    color:#6104ff;
+    color:#93003C;
     opacity:.8;
+}
+
+/* Rating Stars in Plugin List - Remove all borders and outlines */
+tr[data-plugin*="header-footer-elementor"] a[href*="reviews"],
+tr[data-plugin*="header-footer-elementor"] a[href*="reviews"]:focus,
+tr[data-plugin*="header-footer-elementor"] a[href*="reviews"]:active,
+tr[data-plugin*="header-footer-elementor"] a[href*="reviews"]:hover,
+tr[data-plugin*="header-footer-elementor"] .plugin-description-actions a[href*="reviews"],
+tr[data-plugin*="header-footer-elementor"] .plugin-description-actions a[href*="reviews"]:focus,
+tr[data-plugin*="header-footer-elementor"] .plugin-description-actions a[href*="reviews"]:active,
+tr[data-plugin*="header-footer-elementor"] .plugin-description-actions a[href*="reviews"]:hover {
+    text-decoration: none !important;
+    outline: 0 !important;
+    outline: none !important;
+    border: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    background: transparent !important;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+tr[data-plugin*="header-footer-elementor"] a[href*="reviews"]:hover,
+tr[data-plugin*="header-footer-elementor"] .plugin-description-actions a[href*="reviews"]:hover {
+    opacity: 0.8;
+}
+
+tr[data-plugin*="header-footer-elementor/header-footer-elementor.php"] .plugin-description-actions a[href*="reviews"] .dashicons {
+    vertical-align: top;
+    margin: 0 1px;
+}
+
+/* Rating star styles for plugin meta links */
+.hfe-rating-star {
+    color: #ffb900;
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    line-height: 1.2;
 }
