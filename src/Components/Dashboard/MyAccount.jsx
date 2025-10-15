@@ -32,9 +32,9 @@ const MyAccount = () => {
                     <p className='text-sm font-normal m-0'>{__('You are using the free version of Ultimate Addons for Elementor, no license key is needed. ')}</p>
                 </Container.Item>
                 <div className='flex items-center justify-between px-4 rounded-xl' style={{paddingTop: '6px' , paddingBottom: '6px', backgroundColor: "#F3F0FF"}}>
-                    <span className="flex items-center gap-x-2 text-base font-semibold">
-                        {__('Unlock Pro Features', 'header-footer-elementor')}
-                        <p className='text-base font-normal'>{__('Get access to advanced blocks and premium features.', 'header-footer-elementor')}</p>
+                    <span className="flex flex-col items-left mt-2 text-base font-semibold">
+                        {__('Build Better Websites With Ultimate Addons Pro', 'header-footer-elementor')}
+                        <p className='text-base font-normal m-0 py-2' style={{ width: '500px'}}>{__('Unlock advanced addons to power up Elementor — smarter widgets, smoother workflows, and more creative freedom with UAE Pro.', 'header-footer-elementor')}</p>
                     </span>
                     <Button
                             icon={<ArrowUpRight />}
