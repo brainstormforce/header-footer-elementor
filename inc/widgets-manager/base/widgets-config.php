@@ -239,7 +239,7 @@ class Widgets_Config {
 			'Search_Button'        => [
 				'slug'        => 'hfe-search-button',
 				'title'       => __( 'Search', 'header-footer-elementor' ),
-				'keywords'    => [ 'uael', 'title', 'dynamic' ],
+				'keywords'    => [ 'uael', 'search', 'title', 'dynamic' ],
 				'icon'        => 'hfe-icon-search',
 				'title_url'   => '#',
 				'default'     => true,
@@ -253,7 +253,7 @@ class Widgets_Config {
 				'slug'        => 'hfe-woo-product-grid',
 				'title'       => __( 'Woo Products Grid', 'header-footer-elementor' ),
 				'description' => __( 'Display WooCommerce products in a responsive grid layout with customizable styling options.', 'header-footer-elementor' ),
-				'keywords'    => [ 'hfe', 'woo', 'products', 'grid' ],
+				'keywords'    => [ 'uael', 'hfe', 'woo', 'products', 'grid' ],
 				'icon'        => 'hfe-icon-woo-product',
 				'title_url'   => '#',
 				'default'     => true,

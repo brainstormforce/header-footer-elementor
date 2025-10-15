@@ -70,6 +70,18 @@ class Search_Button extends Common_Widget {
 	}
 
 	/**
+	 * Retrieve Widget Keywords.
+	 *
+	 * @since 2.6.0
+	 * @access public
+	 *
+	 * @return string Widget keywords.
+	 */
+	public function get_keywords() {
+		return parent::get_widget_keywords( 'Search_Button' );
+	}
+
+	/**
 	 * Retrieve the list of categories the widget belongs to.
 	 *
 	 * Used to determine where to display the widget in the editor.
