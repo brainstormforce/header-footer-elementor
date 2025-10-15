@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Ultimate Addons for Elementor Lite 2.6.0\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/header-footer-elementor\n"
-"POT-Creation-Date: 2025-10-14 12:53:50+00:00\n"
+"POT-Creation-Date: 2025-10-15 08:05:41+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2118,7 +2118,7 @@ msgstr ""
 
 #: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:407
 #: inc/widgets-manager/extensions/class-scroll-to-top-settings.php:445
-#: inc/widgets-manager/widgets/woo-product-grid/woo-product-grid.php:1049
+#: inc/widgets-manager/widgets/woo-product-grid/woo-product-grid.php:1017
 msgid "Image"
 msgstr ""
 
@@ -2329,7 +2329,7 @@ msgstr ""
 #: inc/widgets-manager/widgets/basic-posts/basic-posts.php:282
 #: inc/widgets-manager/widgets/retina/retina.php:145
 #: inc/widgets-manager/widgets/site-logo/site-logo.php:171
-#: inc/widgets-manager/widgets/woo-product-grid/woo-product-grid.php:1058
+#: inc/widgets-manager/widgets/woo-product-grid/woo-product-grid.php:1026
 msgid "Image Size"
 msgstr ""
 
@@ -2477,6 +2477,11 @@ msgstr ""
 #: inc/widgets-manager/widgets/basic-posts/basic-posts.php:721
 #: inc/widgets-manager/widgets/basic-posts/basic-posts.php:790
 #: inc/widgets-manager/widgets/basic-posts/basic-posts.php:858
+#: inc/widgets-manager/widgets/woo-product-grid/woo-product-grid.php:626
+#: inc/widgets-manager/widgets/woo-product-grid/woo-product-grid.php:704
+#: inc/widgets-manager/widgets/woo-product-grid/woo-product-grid.php:754
+#: inc/widgets-manager/widgets/woo-product-grid/woo-product-grid.php:812
+#: inc/widgets-manager/widgets/woo-product-grid/woo-product-grid.php:870
 msgid "Bottom Spacing"
 msgstr ""
 
@@ -3019,14 +3024,14 @@ msgstr ""
 #: inc/widgets-manager/widgets/infocard/infocard.php:578
 #: inc/widgets-manager/widgets/page-title/page-title.php:231
 #: inc/widgets-manager/widgets/site-title/site-title.php:206
-#: inc/widgets-manager/widgets/woo-product-grid/woo-product-grid.php:1063
+#: inc/widgets-manager/widgets/woo-product-grid/woo-product-grid.php:1031
 msgid "Medium"
 msgstr ""
 
 #: inc/widgets-manager/widgets/infocard/infocard.php:579
 #: inc/widgets-manager/widgets/page-title/page-title.php:232
 #: inc/widgets-manager/widgets/site-title/site-title.php:207
-#: inc/widgets-manager/widgets/woo-product-grid/woo-product-grid.php:1064
+#: inc/widgets-manager/widgets/woo-product-grid/woo-product-grid.php:1032
 msgid "Large"
 msgstr ""
 
@@ -3680,11 +3685,6 @@ msgid "Site logo"
 msgstr ""
 
 #: inc/widgets-manager/widgets/site-logo/site-logo.php:650
-#: inc/widgets-manager/widgets/woo-product-grid/woo-product-grid.php:626
-#: inc/widgets-manager/widgets/woo-product-grid/woo-product-grid.php:704
-#: inc/widgets-manager/widgets/woo-product-grid/woo-product-grid.php:754
-#: inc/widgets-manager/widgets/woo-product-grid/woo-product-grid.php:812
-#: inc/widgets-manager/widgets/woo-product-grid/woo-product-grid.php:870
 msgid "Spacing"
 msgstr ""
 
@@ -3779,37 +3779,29 @@ msgstr ""
 msgid "Add to Cart"
 msgstr ""
 
-#: inc/widgets-manager/widgets/woo-product-grid/woo-product-grid.php:1007
-msgid "Margin Bottom"
-msgstr ""
-
-#: inc/widgets-manager/widgets/woo-product-grid/woo-product-grid.php:1023
-msgid "Margin Right"
-msgstr ""
-
-#: inc/widgets-manager/widgets/woo-product-grid/woo-product-grid.php:1062
+#: inc/widgets-manager/widgets/woo-product-grid/woo-product-grid.php:1030
 msgid "Thumbnail"
 msgstr ""
 
-#: inc/widgets-manager/widgets/woo-product-grid/woo-product-grid.php:1065
+#: inc/widgets-manager/widgets/woo-product-grid/woo-product-grid.php:1033
 msgid "Full Size"
 msgstr ""
 
-#: inc/widgets-manager/widgets/woo-product-grid/woo-product-grid.php:1066
+#: inc/widgets-manager/widgets/woo-product-grid/woo-product-grid.php:1034
 msgid "WooCommerce Thumbnail"
 msgstr ""
 
-#: inc/widgets-manager/widgets/woo-product-grid/woo-product-grid.php:1067
+#: inc/widgets-manager/widgets/woo-product-grid/woo-product-grid.php:1035
 msgid "WooCommerce Single"
 msgstr ""
 
-#: inc/widgets-manager/widgets/woo-product-grid/woo-product-grid.php:1189
+#: inc/widgets-manager/widgets/woo-product-grid/woo-product-grid.php:1157
 msgid ""
 "WooCommerce is not installed or activated. Please install and activate "
 "WooCommerce to use this widget."
 msgstr ""
 
-#: inc/widgets-manager/widgets/woo-product-grid/woo-product-grid.php:1203
+#: inc/widgets-manager/widgets/woo-product-grid/woo-product-grid.php:1171
 msgid "No products found."
 msgstr ""
 
