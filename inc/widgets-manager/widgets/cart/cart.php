@@ -66,6 +66,18 @@ class Cart extends Common_Widget {
 	}
 
 	/**
+	 * Retrieve Widget Keywords.
+	 *
+	 * @since 2.6.0
+	 * @access public
+	 *
+	 * @return string Widget keywords.
+	 */
+	public function get_keywords() {
+		return parent::get_widget_keywords( 'Cart' );
+	}
+
+	/**
 	 * Get widget upsale data.
 	 *
 	 * Retrieve the widget promotion data.
