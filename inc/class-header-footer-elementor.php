@@ -65,10 +65,7 @@ class Header_Footer_Elementor {
 			self::$elementor_instance = Elementor\Plugin::instance();
 
 			$this->includes();
-
-			// Register admin notices after WordPress is fully loaded
-			add_action( 'wp_loaded', [ $this, 'register_notices' ] );
-
+			
 			add_action( 'admin_init', [ $this, 'hfe_redirect_to_onboarding' ] );
 			
 			add_action( 'init', [ $this, 'load_hfe_textdomain' ] );
@@ -150,7 +147,6 @@ class Header_Footer_Elementor {
 
 			add_shortcode( 'hfe_template', [ $this, 'render_template' ] );
 
-			add_action( 'astra_notice_before_markup_header-footer-elementor-rating', [ $this, 'rating_notice_css' ] );
 
 			// Add Elementor preview notice
 			add_action( 'wp_footer', [ $this, 'elementor_preview_notice' ] );
@@ -214,85 +210,6 @@ class Header_Footer_Elementor {
 	 */
 	public function reset_unsupported_theme_notice() {
 		delete_user_meta( get_current_user_id(), 'unsupported-theme' );
-	}
-
-	/**
-	 * Register Astra Notices.
-	 *
-	 * @since 1.2.0
-	 *
-	 * @return void
-	 */
-	public function register_notices() {
-		
-		$image_path = HFE_URL . 'assets/images/settings/uael-icon.svg';
-
-		// Initialize Astra_Notices to ensure hooks are registered.
-		if ( class_exists( 'Astra_Notices' ) ) {
-			Astra_Notices::get_instance();
-		
-			$notice_id = 'header-footer-elementor-rating';
-			
-			// Check conditions
-			$header_enabled        = hfe_header_enabled();
-			$footer_enabled        = hfe_footer_enabled();
-			$before_footer_enabled = hfe_is_before_footer_enabled();
-			$show_condition        = $header_enabled || $footer_enabled || $before_footer_enabled;
-			
-
-			Astra_Notices::add_notice(
-				[
-					'id'                         => 'header-footer-elementor-rating',
-					'type'                       => '',
-					'message'                    => sprintf(
-						'<div class="notice-image">
-							<img src="%1$s" class="custom-logo" alt="Sidebar Manager" itemprop="logo"></div>
-							<div class="notice-content">
-								<div class="notice-heading">
-									%2$s
-								</div>
-								%3$s<br />
-								<div class="astra-review-notice-container">
-									<a href="%4$s" class="astra-notice-close astra-review-notice button-primary" target="_blank">
-									%5$s
-									</a>
-								<span class="dashicons dashicons-calendar"></span>
-									<a href="#" data-repeat-notice-after="%6$s" class="astra-notice-close astra-review-notice">
-									%7$s
-									</a>
-								<span class="dashicons dashicons-smiley"></span>
-									<a href="#" class="astra-notice-close astra-review-notice">
-									%8$s
-									</a>
-								</div>
-							</div>',
-						$image_path,
-						__( 'Hello! Seems like you have used Ultimate Addons for Elementor to build this website — Thanks a ton!', 'header-footer-elementor' ),
-						__( 'Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Ultimate Addons for Elementor.', 'header-footer-elementor' ),
-						'https://wordpress.org/support/plugin/header-footer-elementor/reviews/?filter=5#new-post',
-						__( 'Ok, you deserve it', 'header-footer-elementor' ),
-						MONTH_IN_SECONDS,
-						__( 'Nope, maybe later', 'header-footer-elementor' ),
-						__( 'I already did', 'header-footer-elementor' )
-					),
-					'show_if'                    => ( hfe_header_enabled() || hfe_footer_enabled() || hfe_is_before_footer_enabled() ) ? true : false,
-					'repeat-notice-after'        => MONTH_IN_SECONDS,
-					'display-notice-after'       => 1296000, // Display notice after 15 days.
-					'priority'                   => 18,
-					'display-with-other-notices' => false,
-				]
-			);
-		}
-	}
-
-	/**
-	 * Enqueue CSS for the Rating Notice.
-	 *
-	 * @since 1.2.0
-	 * @return void
-	 */
-	public function rating_notice_css() {
-		wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'assets/css/admin-header-footer-elementor.css', [], HFE_VER );
 	}
 
 	/**

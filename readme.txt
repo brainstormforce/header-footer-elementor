@@ -4,7 +4,7 @@ Tags: elementor, elementor addon, elementor widget, elementor template, header f
 Requires at least: 5.0  
 Tested up to: 6.8
 Requires PHP: 7.4  
-Stable tag: 2.6.0
+Stable tag: 2.6.1
 License: GPLv2 or later  
 License URI: https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -299,6 +299,9 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 ---
 
 == Changelog ==
+= 2.6.1 =
+- Fix: Header not displaying on specific pages.
+
 = 2.6.0 =
 - New: Added Woo Product Grid Widget - Display WooCommerce products in a responsive grid layout with customizable styling options.
 - Improvement: Added Support for Blocksy, Neve and Kadence Theme.
