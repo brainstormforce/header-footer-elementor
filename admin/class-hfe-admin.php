@@ -55,7 +55,7 @@ class HFE_Admin {
 	 */
 	public static function load_admin() {
 		add_action( 'elementor/editor/after_enqueue_styles', __CLASS__ . '::hfe_admin_enqueue_scripts' );
-		add_action( 'admin_head', __CLASS__ . '::hfe_admin_enqueue_scripts' );      
+		add_action( 'elementor/editor/before_enqueue_scripts', __CLASS__ . '::hfe_enqueue_editor_bar_script' );      
 	}
 
 	/**
@@ -80,6 +80,31 @@ class HFE_Admin {
 
 	}
 
+	/**
+	 * Enqueue editor bar script for Elementor editor only
+	 *
+	 * @since 2.6.1
+	 * @access public
+	 * @return void
+	 */
+	public static function hfe_enqueue_editor_bar_script() {
+		wp_register_script( 
+			'hfe-elementor', 
+			HFE_URL . 'assets/js/hfe-elementor-editor-bar-simple.js', 
+			[ 'jquery', 'wp-data' ], 
+			HFE_VER, 
+			false 
+		);
+		
+		// Pass UAE Pro status and icon URL to JavaScript
+		$is_uae_pro_active = class_exists( 'UltimateElementor\\Plugin' ) || defined( 'UAEL_FILE' );
+		wp_localize_script( 'hfe-elementor', 'hfeEditorConfig', array(
+			'isUAEPro' => $is_uae_pro_active,
+			'iconUrl' => HFE_URL . 'assets/images/settings/logo.svg'
+		));
+		
+		wp_enqueue_script( 'hfe-elementor' );
+	}
 
 	/**
 	 * Constructor
