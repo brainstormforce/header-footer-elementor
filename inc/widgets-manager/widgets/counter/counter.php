@@ -110,11 +110,10 @@ class Counter extends Common_Widget {
 	 */
 	protected function register_controls(): void {
 		$this->register_general_content_controls();
-		$this->register_counter_style_controls();
 		$this->register_title_style_controls();
+		$this->register_number_style_controls();
 		$this->register_prefix_style_controls();
 		$this->register_suffix_style_controls();
-		$this->register_spacing_controls();
 	}
 
 	/**
@@ -234,140 +233,28 @@ class Counter extends Common_Widget {
 	}
 
 	/**
-	 * Register Counter Style Controls.
+	 * Register Number Style Controls.
 	 *
 	 * @since 1.0.0
 	 * @access protected
 	 * @return void
 	 */
-	protected function register_counter_style_controls(): void {
+	protected function register_number_style_controls(): void {
 		$start = is_rtl() ? 'right' : 'left';
 		$end = ! is_rtl() ? 'right' : 'left';
 
 		$this->start_controls_section(
-			'section_counter_style',
+			'section_number',
 			[
-				'label' => __( 'Counter', 'header-footer-elementor' ),
+				'label' => __( 'Number', 'header-footer-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
-			]
-		);
-
-		$this->add_responsive_control(
-			'title_position',
-			[
-				'label'   => __( 'Title Position', 'header-footer-elementor' ),
-				'type'    => Controls_Manager::CHOOSE,
-				'options' => [
-					'before' => [
-						'title' => __( 'Before', 'header-footer-elementor' ),
-						'icon'  => 'eicon-v-align-top',
-					],
-					'after' => [
-						'title' => __( 'After', 'header-footer-elementor' ),
-						'icon'  => 'eicon-v-align-bottom',
-					],
-					'start' => [
-						'title' => __( 'Start', 'header-footer-elementor' ),
-						'icon'  => "eicon-h-align-$start",
-					],
-					'end' => [
-						'title' => __( 'End', 'header-footer-elementor' ),
-						'icon'  => "eicon-h-align-$end",
-					],
-				],
-				'selectors_dictionary' => [
-					'before' => 'flex-direction: column;',
-					'after' => 'flex-direction: column-reverse;',
-					'start' => 'flex-direction: row;',
-					'end' => 'flex-direction: row-reverse;',
-				],
-				'selectors' => [
-					'{{WRAPPER}} .hfe-counter-wrapper' => '{{VALUE}}',
-				],
-				'condition' => [
-					'title!' => '',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'title_horizontal_alignment',
-			[
-				'label'   => __( 'Title Horizontal Alignment', 'header-footer-elementor' ),
-				'type'    => Controls_Manager::CHOOSE,
-				'options' => [
-					'start' => [
-						'title' => __( 'Start', 'header-footer-elementor' ),
-						'icon'  => "eicon-h-align-$start",
-					],
-					'center' => [
-						'title' => __( 'Center', 'header-footer-elementor' ),
-						'icon'  => 'eicon-h-align-center',
-					],
-					'end' => [
-						'title' => __( 'End', 'header-footer-elementor' ),
-						'icon'  => "eicon-h-align-$end",
-					],
-				],
-				'separator' => 'before',
-				'selectors' => [
-					'{{WRAPPER}} .hfe-counter-title' => 'justify-content: {{VALUE}};',
-				],
-				'condition' => [
-					'title!' => '',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'title_vertical_alignment',
-			[
-				'label'   => __( 'Title Vertical Alignment', 'header-footer-elementor' ),
-				'type'    => Controls_Manager::CHOOSE,
-				'options' => [
-					'start' => [
-						'title' => __( 'Top', 'header-footer-elementor' ),
-						'icon'  => 'eicon-v-align-top',
-					],
-					'center' => [
-						'title' => __( 'Middle', 'header-footer-elementor' ),
-						'icon'  => 'eicon-v-align-middle',
-					],
-					'end' => [
-						'title' => __( 'Bottom', 'header-footer-elementor' ),
-						'icon'  => 'eicon-v-align-bottom',
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .hfe-counter-title' => 'align-items: {{VALUE}};',
-				],
-				'condition' => [
-					'title!' => '',
-					'title_position' => [ 'start', 'end' ],
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'title_gap',
-			[
-				'label'      => __( 'Title Gap', 'header-footer-elementor' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', 'em', 'rem' ],
-				'selectors'  => [
-					'{{WRAPPER}} .hfe-counter-wrapper' => 'gap: {{SIZE}}{{UNIT}};',
-				],
-				'condition' => [
-					'title!' => '',
-					'title_position' => [ '', 'before', 'after' ],
-				],
 			]
 		);
 
 		$this->add_responsive_control(
 			'number_position',
 			[
-				'label'   => __( 'Number Position', 'header-footer-elementor' ),
+				'label'   => __( 'Position', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'start' => [
@@ -396,14 +283,13 @@ class Counter extends Common_Widget {
 				'selectors' => [
 					'{{WRAPPER}} .hfe-counter-content' => '{{VALUE}}',
 				],
-				'separator' => 'before',
 			]
 		);
 
 		$this->add_responsive_control(
 			'number_alignment',
 			[
-				'label'   => __( 'Number Alignment', 'header-footer-elementor' ),
+				'label'   => __( 'Alignment', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'start' => [
@@ -431,7 +317,7 @@ class Counter extends Common_Widget {
 		$this->add_responsive_control(
 			'number_gap',
 			[
-				'label'      => __( 'Number Gap', 'header-footer-elementor' ),
+				'label'      => __( 'Gap', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', 'em', 'rem' ],
 				'selectors'  => [
@@ -465,16 +351,6 @@ class Counter extends Common_Widget {
 			]
 		);
 
-		$this->end_controls_section();
-
-		$this->start_controls_section(
-			'section_number',
-			[
-				'label' => __( 'Number', 'header-footer-elementor' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			]
-		);
-
 		$this->add_control(
 			'number_color',
 			[
@@ -486,6 +362,7 @@ class Counter extends Common_Widget {
 				'selectors' => [
 					'{{WRAPPER}} .hfe-counter-content' => 'color: {{VALUE}};',
 				],
+				'separator' => 'before',
 			]
 		);
 
@@ -528,7 +405,7 @@ class Counter extends Common_Widget {
 		$this->add_responsive_control(
 			'title_position',
 			[
-				'label'   => __( 'Title Position', 'header-footer-elementor' ),
+				'label'   => __( 'Position', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'before' => [
@@ -563,7 +440,7 @@ class Counter extends Common_Widget {
 		$this->add_responsive_control(
 			'title_horizontal_alignment',
 			[
-				'label'   => __( 'Title Horizontal Alignment', 'header-footer-elementor' ),
+				'label'   => __( 'Horizontal Alignment', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'start' => [
@@ -589,7 +466,7 @@ class Counter extends Common_Widget {
 		$this->add_responsive_control(
 			'title_vertical_alignment',
 			[
-				'label'   => __( 'Title Vertical Alignment', 'header-footer-elementor' ),
+				'label'   => __( 'Vertical Alignment', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'start' => [
@@ -608,8 +485,29 @@ class Counter extends Common_Widget {
 				'selectors' => [
 					'{{WRAPPER}} .hfe-counter-title' => 'align-items: {{VALUE}};',
 				],
+				'condition' => [
+					'title!' => '',
+					'title_position' => [ 'start', 'end' ],
+				],
 			]
 		);
+
+		$this->add_responsive_control(
+			'title_gap',
+			[
+				'label'      => __( 'Gap', 'header-footer-elementor' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', 'em', 'rem' ],
+				'selectors'  => [
+					'{{WRAPPER}} .hfe-counter-wrapper' => 'gap: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'title!' => '',
+					'title_position' => [ '', 'before', 'after' ],
+				],
+			]
+		);
+
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
@@ -758,36 +656,6 @@ class Counter extends Common_Widget {
 		$this->end_controls_section();
 	}
 
-	/**
-	 * Register Spacing Controls.
-	 *
-	 * @since 1.0.0
-	 * @access protected
-	 * @return void
-	 */
-	protected function register_spacing_controls(): void {
-		$this->start_controls_section(
-			'section_spacing',
-			[
-				'label' => __( 'Spacing', 'header-footer-elementor' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			]
-		);
-
-		$this->add_responsive_control(
-			'counter_wrapper_margin',
-			[
-				'label'      => __( 'Counter Wrapper Margin', 'header-footer-elementor' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em', 'rem' ],
-				'selectors'  => [
-					'{{WRAPPER}} .hfe-counter-wrapper' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->end_controls_section();
-	}
 
 	/**
 	 * Render Counter output on the frontend.
