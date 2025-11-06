@@ -299,6 +299,9 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 ---
 
 == Changelog ==
+= 2.6.2 =
+- New: Added Counter widget.
+
 = 2.6.1 =
 - Fix: Header not displaying on specific pages.
 
