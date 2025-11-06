@@ -24,14 +24,14 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * HFE widget for displaying animated counters
  *
- * @since 1.0.0
+ * @since x.x.x
  */
 class Counter extends Common_Widget {
 
 	/**
 	 * Retrieve the widget name.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 *
 	 * @access public
 	 *
@@ -44,7 +44,7 @@ class Counter extends Common_Widget {
 	/**
 	 * Retrieve the widget title.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 *
 	 * @access public
 	 *
@@ -57,7 +57,7 @@ class Counter extends Common_Widget {
 	/**
 	 * Retrieve the widget icon.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 *
 	 * @access public
 	 *
@@ -70,7 +70,7 @@ class Counter extends Common_Widget {
 	/**
 	 * Retrieve Widget Keywords.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access public
 	 *
 	 * @return string Widget keywords.
@@ -82,7 +82,7 @@ class Counter extends Common_Widget {
 	/**
 	 * Get script dependencies.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access public
 	 *
 	 * @return array Script dependencies.
@@ -94,7 +94,7 @@ class Counter extends Common_Widget {
 	/**
 	 * Indicates if the widget's content is dynamic.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @return bool True for dynamic content, false for static content.
 	 */
 	protected function is_dynamic_content(): bool {
@@ -104,7 +104,7 @@ class Counter extends Common_Widget {
 	/**
 	 * Register counter controls.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access protected
 	 * @return void
 	 */
@@ -119,7 +119,7 @@ class Counter extends Common_Widget {
 	/**
 	 * Register General Content Controls.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access protected
 	 * @return void
 	 */
@@ -235,7 +235,7 @@ class Counter extends Common_Widget {
 	/**
 	 * Register Number Style Controls.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access protected
 	 * @return void
 	 */
@@ -383,7 +383,7 @@ class Counter extends Common_Widget {
 	/**
 	 * Register Title Style Controls.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access protected
 	 * @return void
 	 */
@@ -553,7 +553,7 @@ class Counter extends Common_Widget {
 	/**
 	 * Register Prefix Style Controls.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access protected
 	 * @return void
 	 */
@@ -606,7 +606,7 @@ class Counter extends Common_Widget {
 	/**
 	 * Register Suffix Style Controls.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access protected
 	 * @return void
 	 */
@@ -660,7 +660,7 @@ class Counter extends Common_Widget {
 	/**
 	 * Render Counter output on the frontend.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access protected
 	 * @return void
 	 */
@@ -740,7 +740,7 @@ class Counter extends Common_Widget {
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @access protected
 	 * @return void
 	 */
