@@ -14,32 +14,15 @@
          */
         init: function() {
             elementorFrontend.hooks.addAction('frontend/element_ready/hfe-counter.default', this.initCounter);
-            
-            // Also try with the widget name from config
-            elementorFrontend.hooks.addAction('frontend/element_ready/counter.default', this.initCounter);
-            
-            // Debug log
-            console.log('HFE Counter script initialized');
         },
 
         /**
          * Initialize counter for specific element
          */
         initCounter: function($scope) {
-            console.log('HFE Counter initCounter called', $scope);
             var $counter = $scope.find('.hfe-counter-number');
             
-            console.log('Found counter elements:', $counter.length);
-            
             if ($counter.length) {
-                $counter.each(function() {
-                    console.log('Counter element data:', {
-                        start: $(this).data('start'),
-                        end: $(this).data('end'),
-                        speed: $(this).data('speed'),
-                        separator: $(this).data('separator')
-                    });
-                });
                 HfeCounter.setupCounterAnimation($counter);
             }
         },

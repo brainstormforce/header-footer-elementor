@@ -697,41 +697,6 @@ class Counter extends Common_Widget {
 				<span <?php echo wp_kses_post( $this->get_render_attribute_string( 'suffix' ) ); ?>><?php echo wp_kses_post( $settings['suffix'] ); ?></span>
 			</div>
 		</div>
-
-		<style>
-		.hfe-counter-wrapper {
-			align-items: stretch;
-			display: flex;
-			flex-direction: column-reverse;
-			justify-content: center;
-		}
-		.hfe-counter-content {
-			display: flex;
-			flex: 1;
-			text-align: center;
-		}
-		.hfe-counter-number {
-			flex-grow: var(--counter-number-grow, 0);
-		}
-		.hfe-counter-prefix {
-			flex-grow: var(--counter-prefix-grow, 1);
-			text-align: end;
-			white-space: pre-wrap;
-		}
-		.hfe-counter-suffix {
-			flex-grow: var(--counter-suffix-grow, 1);
-			text-align: start;
-			white-space: pre-wrap;
-		}
-		.hfe-counter-title {
-			align-items: center;
-			display: flex;
-			flex: 1;
-			justify-content: center;
-			margin: 0;
-			padding: 0;
-		}
-		</style>
 		<?php
 	}
 
