@@ -80,6 +80,18 @@ class Counter extends Common_Widget {
 	}
 
 	/**
+	 * Get style dependencies.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 *
+	 * @return array Style dependencies.
+	 */
+	public function get_style_depends() {
+		return [];
+	}
+
+	/**
 	 * Get script dependencies.
 	 *
 	 * @since x.x.x
@@ -251,6 +263,18 @@ class Counter extends Common_Widget {
 			]
 		);
 
+		// Add default display: flex to counter content
+		$this->add_control(
+			'counter_content_display',
+			[
+				'type' => Controls_Manager::HIDDEN,
+				'default' => 'flex',
+				'selectors' => [
+					'{{WRAPPER}} .hfe-counter-content' => 'display: flex; align-items: center;',
+				],
+			]
+		);
+
 		$this->add_responsive_control(
 			'number_horizontal_alignment',
 			[
@@ -275,10 +299,10 @@ class Counter extends Common_Widget {
 					],
 				],
 				'selectors_dictionary' => [
-					'flex-start' => 'justify-content: flex-start; --counter-prefix-grow: 0; --counter-suffix-grow: 1; --counter-number-grow: 0;',
-					'center' => 'justify-content: center; --counter-prefix-grow: 1; --counter-suffix-grow: 1; --counter-number-grow: 0;',
-					'flex-end' => 'justify-content: flex-end; --counter-prefix-grow: 1; --counter-suffix-grow: 0; --counter-number-grow: 0;',
-					'space-between' => 'justify-content: space-between; --counter-prefix-grow: 0; --counter-suffix-grow: 0; --counter-number-grow: 1;',
+					'flex-start' => 'display: flex; justify-content: flex-start; --counter-prefix-grow: 0; --counter-suffix-grow: 1; --counter-number-grow: 0;',
+					'center' => 'display: flex; justify-content: center; --counter-prefix-grow: 1; --counter-suffix-grow: 1; --counter-number-grow: 0;',
+					'flex-end' => 'display: flex; justify-content: flex-end; --counter-prefix-grow: 1; --counter-suffix-grow: 0; --counter-number-grow: 0;',
+					'space-between' => 'display: flex; justify-content: space-between; --counter-prefix-grow: 0; --counter-suffix-grow: 0; --counter-number-grow: 1;',
 				],
 				'selectors' => [
 					'{{WRAPPER}} .hfe-counter-content' => '{{VALUE}}',
@@ -402,6 +426,18 @@ class Counter extends Common_Widget {
 			]
 		);
 
+		// Add default display: flex to counter wrapper
+		$this->add_control(
+			'counter_wrapper_display',
+			[
+				'type' => Controls_Manager::HIDDEN,
+				'default' => 'flex',
+				'selectors' => [
+					'{{WRAPPER}} .hfe-counter-wrapper' => 'display: flex;',
+				],
+			]
+		);
+
 		$this->add_responsive_control(
 			'title_position',
 			[
@@ -460,6 +496,38 @@ class Counter extends Common_Widget {
 				'selectors' => [
 					'{{WRAPPER}} .hfe-counter-title' => 'justify-content: {{VALUE}}; display: flex;',
 				],
+				'condition' => [
+					'title_position' => [ 'start', 'end' ],
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'title_horizontal_alignment_column',
+			[
+				'label'   => __( 'Horizontal Alignment', 'header-footer-elementor' ),
+				'type'    => Controls_Manager::CHOOSE,
+				'options' => [
+					'flex-start' => [
+						'title' => __( 'Start', 'header-footer-elementor' ),
+						'icon'  => "eicon-h-align-$start",
+					],
+					'center' => [
+						'title' => __( 'Center', 'header-footer-elementor' ),
+						'icon'  => 'eicon-h-align-center',
+					],
+					'flex-end' => [
+						'title' => __( 'End', 'header-footer-elementor' ),
+						'icon'  => "eicon-h-align-$end",
+					],
+				],
+				'separator' => 'before',
+				'selectors' => [
+					'{{WRAPPER}} .hfe-counter-wrapper' => 'align-items: {{VALUE}};',
+				],
+				'condition' => [
+					'title_position' => [ '', 'before', 'after' ],
+				],
 			]
 		);
 
@@ -469,7 +537,7 @@ class Counter extends Common_Widget {
 				'label'   => __( 'Vertical Alignment', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
-					'start' => [
+					'flex-start' => [
 						'title' => __( 'Top', 'header-footer-elementor' ),
 						'icon'  => 'eicon-v-align-top',
 					],
@@ -477,13 +545,13 @@ class Counter extends Common_Widget {
 						'title' => __( 'Middle', 'header-footer-elementor' ),
 						'icon'  => 'eicon-v-align-middle',
 					],
-					'end' => [
+					'flex-end' => [
 						'title' => __( 'Bottom', 'header-footer-elementor' ),
 						'icon'  => 'eicon-v-align-bottom',
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .hfe-counter-title' => 'align-items: {{VALUE}};',
+					'{{WRAPPER}} .hfe-counter-wrapper' => 'align-items: {{VALUE}};',
 				],
 				'condition' => [
 					'title!' => '',
