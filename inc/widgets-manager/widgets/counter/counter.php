@@ -316,7 +316,7 @@ class Counter extends Common_Widget {
 				'label'   => __( 'Alignment', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
-					'start' => [
+					'left' => [
 						'title' => __( 'Start', 'header-footer-elementor' ),
 						'icon'  => "eicon-text-align-$start",
 					],
@@ -324,13 +324,13 @@ class Counter extends Common_Widget {
 						'title' => __( 'Center', 'header-footer-elementor' ),
 						'icon'  => 'eicon-text-align-center',
 					],
-					'end' => [
+					'right' => [
 						'title' => __( 'End', 'header-footer-elementor' ),
 						'icon'  => "eicon-text-align-$end",
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .hfe-counter-number' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .hfe-counter-number' => 'text-align: {{VALUE}}; flex-grow: var(--counter-number-grow, 0);',
 				],
 				'condition' => [
 					'number_horizontal_alignment' => 'space-between',
