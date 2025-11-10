@@ -252,12 +252,12 @@ class Counter extends Common_Widget {
 		);
 
 		$this->add_responsive_control(
-			'number_position',
+			'number_horizontal_alignment',
 			[
-				'label'   => __( 'Position', 'header-footer-elementor' ),
+				'label'   => __( 'Horizontal Alignment', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
-					'start' => [
+					'flex-start' => [
 						'title' => __( 'Start', 'header-footer-elementor' ),
 						'icon'  => "eicon-h-align-$start",
 					],
@@ -265,20 +265,20 @@ class Counter extends Common_Widget {
 						'title' => __( 'Center', 'header-footer-elementor' ),
 						'icon'  => 'eicon-h-align-center',
 					],
-					'end' => [
+					'flex-end' => [
 						'title' => __( 'End', 'header-footer-elementor' ),
 						'icon'  => "eicon-h-align-$end",
 					],
-					'stretch' => [
+					'space-between' => [
 						'title' => __( 'Stretch', 'header-footer-elementor' ),
 						'icon'  => 'eicon-grow',
 					],
 				],
 				'selectors_dictionary' => [
-					'start' => 'text-align: {{VALUE}}; --counter-prefix-grow: 0; --counter-suffix-grow: 1; --counter-number-grow: 0;',
-					'center' => 'text-align: {{VALUE}}; --counter-prefix-grow: 1; --counter-suffix-grow: 1; --counter-number-grow: 0;',
-					'end' => 'text-align: {{VALUE}}; --counter-prefix-grow: 1; --counter-suffix-grow: 0; --counter-number-grow: 0;',
-					'stretch' => '--counter-prefix-grow: 0; --counter-suffix-grow: 0; --counter-number-grow: 1;',
+					'flex-start' => 'justify-content: flex-start; --counter-prefix-grow: 0; --counter-suffix-grow: 1; --counter-number-grow: 0;',
+					'center' => 'justify-content: center; --counter-prefix-grow: 1; --counter-suffix-grow: 1; --counter-number-grow: 0;',
+					'flex-end' => 'justify-content: flex-end; --counter-prefix-grow: 1; --counter-suffix-grow: 0; --counter-number-grow: 0;',
+					'space-between' => 'justify-content: space-between; --counter-prefix-grow: 0; --counter-suffix-grow: 0; --counter-number-grow: 1;',
 				],
 				'selectors' => [
 					'{{WRAPPER}} .hfe-counter-content' => '{{VALUE}}',
@@ -309,7 +309,7 @@ class Counter extends Common_Widget {
 					'{{WRAPPER}} .hfe-counter-number' => 'text-align: {{VALUE}};',
 				],
 				'condition' => [
-					'number_position' => 'stretch',
+					'number_horizontal_alignment' => 'space-between',
 				],
 			]
 		);
@@ -327,9 +327,9 @@ class Counter extends Common_Widget {
 					'relation' => 'and',
 					'terms' => [
 						[
-							'name' => 'number_position',
+							'name' => 'number_horizontal_alignment',
 							'operator' => '!==',
-							'value' => 'stretch',
+							'value' => 'space-between',
 						],
 						[
 							'relation' => 'or',
