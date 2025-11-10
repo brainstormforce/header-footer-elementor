@@ -299,10 +299,10 @@ class Counter extends Common_Widget {
 					],
 				],
 				'selectors_dictionary' => [
-					'flex-start' => 'display: flex; justify-content: flex-start; --counter-prefix-grow: 0; --counter-suffix-grow: 1; --counter-number-grow: 0;',
-					'center' => 'display: flex; justify-content: center; --counter-prefix-grow: 1; --counter-suffix-grow: 1; --counter-number-grow: 0;',
-					'flex-end' => 'display: flex; justify-content: flex-end; --counter-prefix-grow: 1; --counter-suffix-grow: 0; --counter-number-grow: 0;',
-					'space-between' => 'display: flex; justify-content: space-between; --counter-prefix-grow: 0; --counter-suffix-grow: 0; --counter-number-grow: 1;',
+					'flex-start' => 'display: flex; justify-content: flex-start; align-self: flex-start; --counter-prefix-grow: 0; --counter-suffix-grow: 1; --counter-number-grow: 0;',
+					'center' => 'display: flex; justify-content: center; align-self: center; --counter-prefix-grow: 1; --counter-suffix-grow: 1; --counter-number-grow: 0;',
+					'flex-end' => 'display: flex; justify-content: flex-end; align-self: flex-end; --counter-prefix-grow: 1; --counter-suffix-grow: 0; --counter-number-grow: 0;',
+					'space-between' => 'display: flex; justify-content: space-between; align-self: stretch; --counter-prefix-grow: 0; --counter-suffix-grow: 0; --counter-number-grow: 1;',
 				],
 				'selectors' => [
 					'{{WRAPPER}} .hfe-counter-content' => '{{VALUE}}',
@@ -523,10 +523,10 @@ class Counter extends Common_Widget {
 				],
 				'separator' => 'before',
 				'selectors' => [
-					'{{WRAPPER}} .hfe-counter-wrapper' => 'align-items: {{VALUE}};',
+					'{{WRAPPER}} .hfe-counter-title' => 'align-self: {{VALUE}};',
 				],
 				'condition' => [
-					'title_position' => [ '', 'before', 'after' ],
+					'title_position' => [ 'before', 'after' ],
 				],
 			]
 		);
@@ -571,7 +571,7 @@ class Counter extends Common_Widget {
 				],
 				'condition' => [
 					'title!' => '',
-					'title_position' => [ '', 'before', 'after' ],
+					'title_position' => [ 'before', 'after' ],
 				],
 			]
 		);
