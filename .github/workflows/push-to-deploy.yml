@@ -8,9 +8,10 @@ jobs:
     name: New tag
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v4
       with:
-        token: ${{ secrets.PRIVATE_ACCESS_TOKEN }}
+         fetch-depth: 0 # fetch all tags
+         token: ${{ secrets.GITHUB_TOKEN }} # Use built-in token for same repo
 
     - name: Use Node.js 18.x
       uses: actions/setup-node@v3
