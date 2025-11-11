@@ -301,6 +301,7 @@ class Counter extends Common_Widget {
 						'icon'  => 'eicon-grow',
 					],
 				],
+				'default' => 'center',
 				'selectors_dictionary' => [
 					'flex-start' => 'display: flex; justify-content: flex-start; align-self: flex-start; --counter-prefix-grow: 0; --counter-suffix-grow: 1; --counter-number-grow: 0;',
 					'center' => 'display: flex; justify-content: center; align-self: center; --counter-prefix-grow: 1; --counter-suffix-grow: 1; --counter-number-grow: 0;',
@@ -464,6 +465,7 @@ class Counter extends Common_Widget {
 						'icon'  => "eicon-h-align-$end",
 					],
 				],
+				'default' => 'before',
 				'selectors_dictionary' => [
 					'before' => 'flex-direction: column;',
 					'after' => 'flex-direction: column-reverse;',
