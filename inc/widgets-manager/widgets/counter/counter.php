@@ -271,6 +271,9 @@ class Counter extends Common_Widget {
 				'default' => 'flex',
 				'selectors' => [
 					'{{WRAPPER}} .hfe-counter-content' => 'display: flex; align-items: center;',
+					'{{WRAPPER}} .hfe-counter-prefix' => 'flex-grow: var(--counter-prefix-grow, 0);',
+					'{{WRAPPER}} .hfe-counter-number' => 'flex-grow: var(--counter-number-grow, 0);',
+					'{{WRAPPER}} .hfe-counter-suffix' => 'flex-grow: var(--counter-suffix-grow, 0);',
 				],
 			]
 		);
@@ -433,7 +436,7 @@ class Counter extends Common_Widget {
 				'type' => Controls_Manager::HIDDEN,
 				'default' => 'flex',
 				'selectors' => [
-					'{{WRAPPER}} .hfe-counter-wrapper' => 'display: flex;',
+					'{{WRAPPER}} .hfe-counter-wrapper' => 'display: flex; flex-direction: column;',
 				],
 			]
 		);
