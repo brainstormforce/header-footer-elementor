@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the Ultimate Addons for Elementor Lite package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Ultimate Addons for Elementor Lite 2.6.1\n"
+"Project-Id-Version: Ultimate Addons for Elementor Lite 2.6.2\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/header-footer-elementor\n"
-"POT-Creation-Date: 2025-10-15 11:06:23+00:00\n"
+"POT-Creation-Date: 2025-11-12 04:56:14+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -424,59 +424,34 @@ msgstr ""
 msgid "Template %1$s is already assigned to the location %2$s"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:270
-msgid ""
-"Hello! Seems like you have used Ultimate Addons for Elementor to build this "
-"website — Thanks a ton!"
-msgstr ""
-
-#: inc/class-header-footer-elementor.php:271
-msgid ""
-"Could you please do us a BIG favor and give it a 5-star rating on "
-"WordPress? This would boost our motivation and help other users make a "
-"comfortable decision while choosing the Ultimate Addons for Elementor."
-msgstr ""
-
-#: inc/class-header-footer-elementor.php:273
-msgid "Ok, you deserve it"
-msgstr ""
-
-#: inc/class-header-footer-elementor.php:275
-msgid "Nope, maybe later"
-msgstr ""
-
-#: inc/class-header-footer-elementor.php:276
-msgid "I already did"
-msgstr ""
-
-#: inc/class-header-footer-elementor.php:637
+#: inc/class-header-footer-elementor.php:554
 #. translators: %s: html tags
 msgid ""
 "The %1$sUltimate Addons for Elementor%2$s plugin requires %1$sElementor%2$s "
 "plugin installed & activated."
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:644
+#: inc/class-header-footer-elementor.php:561
 msgid "Activate Elementor"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:649
-#: inc/class-header-footer-elementor.php:685
+#: inc/class-header-footer-elementor.php:566
+#: inc/class-header-footer-elementor.php:602
 msgid "Install Elementor"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:673
+#: inc/class-header-footer-elementor.php:590
 #. translators: %s: html tags
 msgid ""
 "The %1$sUltimate Addons for Elementor%2$s plugin has stopped working "
 "because you are using an older version of %1$sElementor%2$s plugin."
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:680
+#: inc/class-header-footer-elementor.php:597
 msgid "Update Elementor"
 msgstr ""
 
-#: inc/class-header-footer-elementor.php:927
+#: inc/class-header-footer-elementor.php:844
 msgid "Theme Support"
 msgstr ""
 
@@ -1880,7 +1855,7 @@ msgid "Create high-converting forms with ease."
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:1195
-msgid "OttoKit (Formerly SureTriggers)"
+msgid "OttoKit"
 msgstr ""
 
 #: inc/widgets-manager/base/widgets-config.php:1196
@@ -3815,10 +3790,10 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"Formerly known as \"Elementor Header & Footer Builder\", this powerful "
-"plugin allows you to create custom headers and footers with Elementor and "
-"display them in selected locations. You can also create custom Elementor "
-"blocks and place them anywhere on your website using a shortcode."
+"Ultimate Addons is a powerful plugin allows you to create custom headers "
+"and footers with Elementor and display them in selected locations. You can "
+"also create custom Elementor blocks and place them anywhere on your website "
+"using a shortcode."
 msgstr ""
 
 #. Author of the plugin/theme

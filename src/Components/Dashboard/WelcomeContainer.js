@@ -24,7 +24,6 @@ const WelcomeContainer = () => {
 						tag="h3"
 						title={__("Welcome to Ultimate Addons for Elementor!", "header-footer-elementor")}
 					/>
-                	<HeaderLine />
 					<p className="text-sm font-medium text-text-tertiary m-0 mt-2">
 						{__(
 							"Effortlessly design modern websites with UAE using our powerful range of widgets & features. Get started by selecting an option based on your needs.",

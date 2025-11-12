@@ -1,10 +1,10 @@
-# Ultimate Addons for Elementor (Formerly Elementor Header & Footer Builder) #
+# Ultimate Addons for Elementor #
 **Contributors:** [@brainstormforce](https://profiles.wordpress.org/@brainstormforce/)  
 **Tags:** elementor, elementor addon, elementor widget, elementor template, header footer builder  
 **Requires at least:** 5.0    
 **Tested up to:** 6.8  
 **Requires PHP:** 7.4    
-**Stable tag:** 2.6.1  
+**Stable tag:** 2.6.2  
 **License:** GPLv2 or later    
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html    
 
@@ -13,7 +13,7 @@ Powerful Elementor addon with InfoCard, Fancy Heading, Before/After Slider, Pric
 ## Description ##
 **Ultimate Addons for Elementor (UAE)** is a powerful yet lightweight plugin that extends Elementors capabilities with purposely built **widgets**, **blocks**, and **features** that help you build better websites—without adding complexity. 
 
-Formerly known as **Elementor Header & Footer Builder**, UAE has evolved into a trusted Elementor Addons used by **over 2 million websites** to design creative sections directly within Elementor—no coding required. 
+UAE has evolved into a trusted Elementor Addons used by **over 2 million websites** to design creative sections directly within Elementor—no coding required. 
 
 The **free version of UAE** includes a hand-picked set of essential widgets like **Info Card**, **Navigation Menu** and more—widgets that are genuinely useful for most websites. It also enables you to design headers and footers visually and adds features that improve your design process without cluttering your interface.
 
@@ -243,7 +243,7 @@ If you love Ultimate Addons, you’ll love what else we’ve built to make desig
 
 * **[Astra Starter Templates](https://startertemplates.com/?utm_source=wprepo&utm_medium=uaelite)** – Pick from over 300+ professionally designed templates or use AI to create a custom website in minutes.
 
-* **[OttoKit (Formerly SureTriggers)](https://ottokit.com/?utm_source=wprepo&utm_medium=uaelite)** – Automate daily tasks by connecting your favorite apps and plugins effortlessly.
+* **[OttoKit](https://ottokit.com/?utm_source=wprepo&utm_medium=uaelite)** – Automate daily tasks by connecting your favorite apps and plugins effortlessly.
 
 * **[SureForms](https://sureforms.com/?utm_source=wprepo&utm_medium=uaelite)** – Build beautiful, high-converting forms, quizzes, and surveys.
 
@@ -299,6 +299,9 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 ---
 
 ## Changelog ##
+### 2.6.2 ###
+- Improvement: Compatibility with latest Elementor and Elementor Pro 3.33 version.
+
 ### 2.6.1 ###
 - Fix: Header not displaying on specific pages.
 
