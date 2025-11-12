@@ -1,4 +1,4 @@
-=== Ultimate Addons for Elementor (Formerly Elementor Header & Footer Builder) ===  
+=== Ultimate Addons for Elementor ===  
 Contributors: @brainstormforce
 Tags: elementor, elementor addon, elementor widget, elementor template, header footer builder
 Requires at least: 5.0  
@@ -243,7 +243,7 @@ If you love Ultimate Addons, you’ll love what else we’ve built to make desig
 
 * **[Astra Starter Templates](https://startertemplates.com/?utm_source=wprepo&utm_medium=uaelite)** – Pick from over 300+ professionally designed templates or use AI to create a custom website in minutes.
 
-* **[OttoKit (Formerly SureTriggers)](https://ottokit.com/?utm_source=wprepo&utm_medium=uaelite)** – Automate daily tasks by connecting your favorite apps and plugins effortlessly.
+* **[OttoKit](https://ottokit.com/?utm_source=wprepo&utm_medium=uaelite)** – Automate daily tasks by connecting your favorite apps and plugins effortlessly.
 
 * **[SureForms](https://sureforms.com/?utm_source=wprepo&utm_medium=uaelite)** – Build beautiful, high-converting forms, quizzes, and surveys.
 
