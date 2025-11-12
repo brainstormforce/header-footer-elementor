@@ -17,6 +17,11 @@
             return;
         }
 
+        // Only show button if UAE Pro is NOT active
+        if (window.hfeEditorConfig && window.hfeEditorConfig.isUAEPro) {
+            return;
+        }
+
         
         // Use jQuery like SureRank does
         const $ = window.jQuery;
@@ -58,25 +63,32 @@
                              width="30" height="30" >
                     </button>
                 `).on('click', function() {
-                    // Check if UAE Pro is active and redirect accordingly
-                    const redirectUrl = window.hfeEditorConfig && window.hfeEditorConfig.isUAEPro 
-                        ? '/wp-admin/admin.php?page=uaepro#dashboard'
-                        : '/wp-admin/edit.php?post_type=elementor-hf';
-                    window.open(redirectUrl, '_blank');
+                    // Always redirect to HFE dashboard
+                    window.open('/wp-admin/admin.php?page=hfe#dashboard', '_blank');
                 });
 
                 // Add conditional tooltip functionality
                 function getTooltipText() {
                     // Check different conditions and return appropriate tooltip
                     if (window.hfeEditorConfig) {
-                        // Condition 1: Check if UAE Pro is active
-                        if (window.hfeEditorConfig.isUAEPro) {
-                            return 'UAE Pro Dashboard';
+                        // Condition 1: Check if user has templates
+                        if (window.hfeEditorConfig.hasTemplates) {
+                            return 'HFE Dashboard - View Your Templates';
+                        }
+                        
+                        // Condition 2: Check user capability
+                        if (window.hfeEditorConfig.canCreateTemplates) {
+                            return 'HFE Dashboard - Create New Templates';
+                        }
+                        
+                        // Condition 3: Check current post type
+                        if (window.hfeEditorConfig.currentPostType === 'elementor-hf') {
+                            return 'HFE Dashboard - Back to Templates List';
                         }
                     }
                     
                     // Default tooltip
-                    return 'Header Footer Templates';
+                    return 'Header Footer Elementor Dashboard';
                 }
 
                 hfeButton.hover(
@@ -98,59 +110,8 @@
                 targetContainer.children().last().after(hfeWrapper);
                 
                 hfeButtonAdded = true;
-            } else {
-                addFallbackButton($);
             }
         }, 500);
-    }
-
-    // Fallback method for older Elementor versions
-    function addFallbackButton($) {
-        // Prevent duplicate buttons
-        if (hfeButtonAdded) {
-            return;
-        }
-
-        // Check if button already exists
-        if ($('#hfe-dashboard-button').length > 0) {
-            hfeButtonAdded = true;
-            return;
-        }
-
-        // Try different selectors for older Elementor versions
-        const fallbackSelectors = [
-            '#elementor-panel-header-kit-close',
-            '.elementor-panel-header-button',
-            '#elementor-panel-header'
-        ];
-
-        for (const selector of fallbackSelectors) {
-            const target = $(selector).first();
-            if (target.length) {
-                
-                const fallbackButton = $(`
-                    <div id="hfe-dashboard-button" style="display: inline-block; margin-left: 8px;">
-                        <button type="button" 
-                                style="background: #9b59b6; color: white; border: none; padding: 6px 12px; border-radius: 3px; cursor: pointer; font-size: 11px; font-weight: 500;"
-                                title="HFE Dashboard">
-                            HFE
-                        </button>
-                    </div>
-                `);
-                
-                fallbackButton.find('button').on('click', function() {
-                    // Check if UAE Pro is active and redirect accordingly
-                    const redirectUrl = window.hfeEditorConfig && window.hfeEditorConfig.isUAEPro 
-                        ? '/wp-admin/admin.php?page=uaepro#dashboard'
-                        : '/wp-admin/admin.php?page=hfe#dashboard';
-                    window.open(redirectUrl, '_blank');
-                });
-                
-                target.after(fallbackButton);
-                hfeButtonAdded = true;
-                break;
-            }
-        }
     }
 
     // Initialize when Elementor is ready (following SureRank pattern)
