@@ -97,6 +97,7 @@ class HFE_Admin {
 		);
 		
 		// Pass UAE Pro status and icon URL to JavaScript
+		$plugin_file = 'ultimate-elementor/ultimate-elementor.php';
 		$is_uae_pro_active =  ! file_exists( WP_PLUGIN_DIR . '/' . $plugin_file ) && ! HFE_Helper::is_pro_active() ;
 		wp_localize_script( 'hfe-elementor', 'hfeEditorConfig', array(
 			'isUAEPro' => ! $is_uae_pro_active,

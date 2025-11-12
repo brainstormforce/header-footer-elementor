@@ -68,27 +68,9 @@
                 });
 
                 // Add conditional tooltip functionality
-                function getTooltipText() {
-                    // Check different conditions and return appropriate tooltip
-                    if (window.hfeEditorConfig) {
-                        // Condition 1: Check if user has templates
-                        if (window.hfeEditorConfig.hasTemplates) {
-                            return 'HFE Dashboard - View Your Templates';
-                        }
-                        
-                        // Condition 2: Check user capability
-                        if (window.hfeEditorConfig.canCreateTemplates) {
-                            return 'HFE Dashboard - Create New Templates';
-                        }
-                        
-                        // Condition 3: Check current post type
-                        if (window.hfeEditorConfig.currentPostType === 'elementor-hf') {
-                            return 'HFE Dashboard - Back to Templates List';
-                        }
-                    }
-                    
+                function getTooltipText() {                    
                     // Default tooltip
-                    return 'Header Footer Elementor Dashboard';
+                    return 'Header Footer Builder';
                 }
 
                 hfeButton.hover(
