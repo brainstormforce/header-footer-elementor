@@ -65,11 +65,25 @@
                     window.open(redirectUrl, '_blank');
                 });
 
-                // Add tooltip functionality like SureRank
+                // Add conditional tooltip functionality
+                function getTooltipText() {
+                    // Check different conditions and return appropriate tooltip
+                    if (window.hfeEditorConfig) {
+                        // Condition 1: Check if UAE Pro is active
+                        if (window.hfeEditorConfig.isUAEPro) {
+                            return 'UAE Pro Dashboard';
+                        }
+                    }
+                    
+                    // Default tooltip
+                    return 'Header Footer Templates';
+                }
+
                 hfeButton.hover(
                     function() {
-                        // Show tooltip on hover
-                        $(this).attr('title', 'Header Footer Elementor Dashboard');
+                        // Show conditional tooltip on hover
+                        const tooltipText = getTooltipText();
+                        $(this).attr('title', tooltipText);
                     },
                     function() {
                         // Hide tooltip
