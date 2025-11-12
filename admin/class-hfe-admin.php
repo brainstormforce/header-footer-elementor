@@ -55,6 +55,7 @@ class HFE_Admin {
 	 */
 	public static function load_admin() {
 		add_action( 'elementor/editor/after_enqueue_styles', __CLASS__ . '::hfe_admin_enqueue_scripts' );
+		add_action( 'admin_head', __CLASS__ . '::hfe_admin_enqueue_scripts' );      
 		add_action( 'elementor/editor/before_enqueue_scripts', __CLASS__ . '::hfe_enqueue_editor_bar_script' );      
 	}
 
