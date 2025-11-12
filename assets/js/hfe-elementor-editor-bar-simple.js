@@ -61,7 +61,7 @@
                     // Check if UAE Pro is active and redirect accordingly
                     const redirectUrl = window.hfeEditorConfig && window.hfeEditorConfig.isUAEPro 
                         ? '/wp-admin/admin.php?page=uaepro#dashboard'
-                        : '/wp-admin/admin.php?page=hfe#dashboard';
+                        : '/wp-admin/edit.php?post_type=elementor-hf';
                     window.open(redirectUrl, '_blank');
                 });
 
