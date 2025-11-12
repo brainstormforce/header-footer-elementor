@@ -13,7 +13,7 @@ Powerful Elementor addon with InfoCard, Fancy Heading, Before/After Slider, Pric
 ## Description ##
 **Ultimate Addons for Elementor (UAE)** is a powerful yet lightweight plugin that extends Elementors capabilities with purposely built **widgets**, **blocks**, and **features** that help you build better websites—without adding complexity. 
 
-Formerly known as **Elementor Header & Footer Builder**, UAE has evolved into a trusted Elementor Addons used by **over 2 million websites** to design creative sections directly within Elementor—no coding required. 
+UAE has evolved into a trusted Elementor Addons used by **over 2 million websites** to design creative sections directly within Elementor—no coding required. 
 
 The **free version of UAE** includes a hand-picked set of essential widgets like **Info Card**, **Navigation Menu** and more—widgets that are genuinely useful for most websites. It also enables you to design headers and footers visually and adds features that improve your design process without cluttering your interface.
 
