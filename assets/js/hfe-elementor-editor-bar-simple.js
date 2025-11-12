@@ -70,7 +70,9 @@
                 // Add conditional tooltip functionality
                 function getTooltipText() {                    
                     // Default tooltip
-                    return 'Header Footer Builder';
+                    return window.hfeEditorConfig && window.hfeEditorConfig.strings && window.hfeEditorConfig.strings.headerFooterBuilder 
+                        ? window.hfeEditorConfig.strings.headerFooterBuilder 
+                        : 'Header Footer Builder';
                 }
 
                 hfeButton.hover(

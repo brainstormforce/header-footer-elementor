@@ -92,7 +92,7 @@ class HFE_Admin {
 		wp_register_script( 
 			'hfe-elementor', 
 			HFE_URL . 'assets/js/hfe-elementor-editor-bar-simple.js', 
-			[ 'jquery', 'wp-data' ], 
+			[ 'jquery', 'wp-data', 'wp-i18n' ], 
 			HFE_VER, 
 			false 
 		);
@@ -102,7 +102,10 @@ class HFE_Admin {
 		$is_uae_pro_active =  ! file_exists( WP_PLUGIN_DIR . '/' . $plugin_file ) && ! HFE_Helper::is_pro_active() ;
 		wp_localize_script( 'hfe-elementor', 'hfeEditorConfig', array(
 			'isUAEPro' => ! $is_uae_pro_active,
-			'iconUrl' => HFE_URL . 'assets/images/settings/logo.svg'
+			'iconUrl' => HFE_URL . 'assets/images/settings/logo.svg',
+			'strings' => array(
+				'headerFooterBuilder' => __( 'Header Footer Builder', 'header-footer-elementor' )
+			)
 		));
 		
 		wp_enqueue_script( 'hfe-elementor' );
