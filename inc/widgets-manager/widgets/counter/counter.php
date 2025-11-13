@@ -155,9 +155,10 @@ class Counter extends Common_Widget {
 		$this->add_control(
 			'title_tag',
 			[
-				'label'   => __( 'Title HTML Tag', 'header-footer-elementor' ),
-				'type'    => Controls_Manager::SELECT,
-				'options' => [
+				'label'     => __( 'Title HTML Tag', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::SELECT,
+				'separator' => 'after',
+				'options'   => [
 					'h1' => __( 'H1', 'header-footer-elementor' ),
 					'h2' => __( 'H2', 'header-footer-elementor' ),
 					'h3' => __( 'H3', 'header-footer-elementor' ),
@@ -168,7 +169,7 @@ class Counter extends Common_Widget {
 					'span' => __( 'span', 'header-footer-elementor' ),
 					'p' => __( 'p', 'header-footer-elementor' ),
 				],
-				'default' => 'h1',
+				'default'   => 'h1',
 			]
 		);
 
