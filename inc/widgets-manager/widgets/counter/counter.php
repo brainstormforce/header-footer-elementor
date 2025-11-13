@@ -427,6 +427,21 @@ class Counter extends Common_Widget {
 				'selector' => '{{WRAPPER}} .hfe-counter-content',
 			]
 		);
+		$this->add_group_control(
+			\Elementor\Group_Control_Text_Stroke::get_type(),
+			[
+				'name' => 'number_text_stroke',
+				'selector' => '{{WRAPPER}} .hfe-counter-number',
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Text_Shadow::get_type(),
+			[
+				'name' => 'number_text_shadow',
+				'selector' => '{{WRAPPER}} .hfe-counter-number',
+			]
+		);
 
 		$this->end_controls_section();
 	}
@@ -635,6 +650,22 @@ class Counter extends Common_Widget {
 			]
 		);
 
+		$this->add_group_control(
+			\Elementor\Group_Control_Text_Stroke::get_type(),
+			[
+				'name' => 'title_text_stroke',
+				'selector' => '{{WRAPPER}} .hfe-counter-title',
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Text_Shadow::get_type(),
+			[
+				'name' => 'title_text_shadow',
+				'selector' => '{{WRAPPER}} .hfe-counter-title',
+			]
+		);
+
 		$this->end_controls_section();
 	}
 
@@ -673,6 +704,22 @@ class Counter extends Common_Widget {
 				'selectors' => [
 					'{{WRAPPER}} .hfe-counter-prefix' => 'color: {{VALUE}};',
 				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Text_Stroke::get_type(),
+			[
+				'name' => 'prefix_text_stroke',
+				'selector' => '{{WRAPPER}} .hfe-counter-prefix',
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Text_Shadow::get_type(),
+			[
+				'name' => 'prefix_text_shadow',
+				'selector' => '{{WRAPPER}} .hfe-counter-prefix',
 			]
 		);
 
@@ -728,6 +775,23 @@ class Counter extends Common_Widget {
 				],
 			]
 		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Text_Stroke::get_type(),
+			[
+				'name' => 'suffix_text_stroke',
+				'selector' => '{{WRAPPER}} .hfe-counter-suffix',
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Text_Shadow::get_type(),
+			[
+				'name' => 'suffix_text_shadow',
+				'selector' => '{{WRAPPER}} .hfe-counter-suffix',
+			]
+		);
+
 
 		$this->add_responsive_control(
 			'suffix_margin',
