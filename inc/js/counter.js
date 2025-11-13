@@ -32,7 +32,8 @@
          */
         setupCounterAnimation: function($counter) {
             var startNumber = parseInt($counter.data('start')) || 0;
-            var endNumber = parseInt($counter.data('end')) || 100;
+            var endNumber = parseInt($counter.data('end'));
+            endNumber = isNaN(endNumber) ? 100 : endNumber;            
             var speed = parseInt($counter.data('speed')) || 3000;
             var separator = $counter.data('separator') || '';
             
