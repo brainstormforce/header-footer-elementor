@@ -229,18 +229,6 @@ class Counter extends Common_Widget {
 			]
 		);
 
-		// $this->add_control(
-		// 	'counter_speed',
-		// 	[
-		// 		'label'   => __( 'Counter Speed (seconds)', 'header-footer-elementor' ),
-		// 		'type'    => Controls_Manager::NUMBER,
-		// 		'default' => 3,
-		// 		'min'     => 1,
-		// 		'max'     => 10,
-		// 		'step'    => 0.1,
-		// 	]
-		// );
-
 		$this->add_control(
 			'counter_speed',
 			[
@@ -624,19 +612,6 @@ class Counter extends Common_Widget {
 			]
 		);
 
-
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'name'     => 'title_typography',
-				'global'   => [
-					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
-				],
-				'selector' => '{{WRAPPER}} .hfe-counter-title',
-				'separator' => 'before',
-			]
-		);
-
 		$this->add_control(
 			'title_color',
 			[
@@ -648,6 +623,18 @@ class Counter extends Common_Widget {
 				'selectors' => [
 					'{{WRAPPER}} .hfe-counter-title' => 'color: {{VALUE}};',
 				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'     => 'title_typography',
+				'global'   => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
+				'selector' => '{{WRAPPER}} .hfe-counter-title',
+				'separator' => 'before',
 			]
 		);
 
@@ -689,14 +676,6 @@ class Counter extends Common_Widget {
 			]
 		);
 
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'name'     => 'prefix_typography',
-				'selector' => '{{WRAPPER}} .hfe-counter-prefix',
-			]
-		);
-
 		$this->add_control(
 			'prefix_color',
 			[
@@ -705,6 +684,14 @@ class Counter extends Common_Widget {
 				'selectors' => [
 					'{{WRAPPER}} .hfe-counter-prefix' => 'color: {{VALUE}};',
 				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'     => 'prefix_typography',
+				'selector' => '{{WRAPPER}} .hfe-counter-prefix',
 			]
 		);
 
@@ -727,11 +714,22 @@ class Counter extends Common_Widget {
 		$this->add_responsive_control(
 			'prefix_margin',
 			[
-				'label'      => __( 'Margin', 'header-footer-elementor' ),
-				'type'       => Controls_Manager::DIMENSIONS,
+				'label'      => __( 'Left Margin', 'header-footer-elementor' ),
+				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%', 'em', 'rem' ],
+				'default'    => [
+					'size' => 0,
+					'unit' => 'px',
+				],
+				'range'      => [
+					'px' => [
+						'min'  => 0,
+						'max'  => 100,
+						'step' => 1,
+					],
+				],
 				'selectors'  => [
-					'{{WRAPPER}} .hfe-counter-prefix' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .hfe-counter-prefix' => 'margin-left: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -758,14 +756,6 @@ class Counter extends Common_Widget {
 			]
 		);
 
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'name'     => 'suffix_typography',
-				'selector' => '{{WRAPPER}} .hfe-counter-suffix',
-			]
-		);
-
 		$this->add_control(
 			'suffix_color',
 			[
@@ -774,6 +764,14 @@ class Counter extends Common_Widget {
 				'selectors' => [
 					'{{WRAPPER}} .hfe-counter-suffix' => 'color: {{VALUE}};',
 				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'     => 'suffix_typography',
+				'selector' => '{{WRAPPER}} .hfe-counter-suffix',
 			]
 		);
 
@@ -793,15 +791,25 @@ class Counter extends Common_Widget {
 			]
 		);
 
-
 		$this->add_responsive_control(
 			'suffix_margin',
 			[
-				'label'      => __( 'Margin', 'header-footer-elementor' ),
-				'type'       => Controls_Manager::DIMENSIONS,
+				'label'      => __( 'Right Margin', 'header-footer-elementor' ),
+				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%', 'em', 'rem' ],
+				'default'    => [
+					'size' => 0,
+					'unit' => 'px',
+				],
+				'range'      => [
+					'px' => [
+						'min'  => 0,
+						'max'  => 100,
+						'step' => 1,
+					],
+				],
 				'selectors'  => [
-					'{{WRAPPER}} .hfe-counter-suffix' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .hfe-counter-suffix' => 'margin-right: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
