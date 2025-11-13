@@ -102,7 +102,7 @@ class HFE_Admin {
 		$is_uae_pro_active =  ! file_exists( WP_PLUGIN_DIR . '/' . $plugin_file ) && ! HFE_Helper::is_pro_active() ;
 		wp_localize_script( 'hfe-elementor', 'hfeEditorConfig', array(
 			'isUAEPro' => ! $is_uae_pro_active,
-			'iconUrl' => HFE_URL . 'assets/images/settings/logo.svg',
+			'iconUrl' => HFE_URL . 'assets/images/settings/logo-white.svg',
 			'strings' => array(
 				'headerFooterBuilder' => __( 'Header Footer Builder', 'header-footer-elementor' )
 			)
