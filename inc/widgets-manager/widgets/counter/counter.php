@@ -228,17 +228,36 @@ class Counter extends Common_Widget {
 			]
 		);
 
+		// $this->add_control(
+		// 	'counter_speed',
+		// 	[
+		// 		'label'   => __( 'Counter Speed (seconds)', 'header-footer-elementor' ),
+		// 		'type'    => Controls_Manager::NUMBER,
+		// 		'default' => 3,
+		// 		'min'     => 1,
+		// 		'max'     => 10,
+		// 		'step'    => 0.1,
+		// 	]
+		// );
+
 		$this->add_control(
 			'counter_speed',
 			[
-				'label'   => __( 'Counter Speed (seconds)', 'header-footer-elementor' ),
-				'type'    => Controls_Manager::NUMBER,
-				'default' => 3,
-				'min'     => 1,
-				'max'     => 10,
-				'step'    => 0.1,
+				'label' => __( 'Counter Speed (seconds)', 'header-footer-elementor' ),
+				'type'  => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 3,
+				],
+				'range' => [
+					'px' => [ // Elementor uses 'px' key even if it's not pixels — it's just a required label
+						'min' => 1,
+						'max' => 10,
+						'step' => 0.1,
+					],
+				],
 			]
 		);
+
 
 
 		$this->end_controls_section();
@@ -743,7 +762,7 @@ class Counter extends Common_Widget {
 		$this->add_render_attribute( 'counter-number', 'class', 'hfe-counter-number' );
 		$this->add_render_attribute( 'counter-number', 'data-start', $settings['start_number'] );
 		$this->add_render_attribute( 'counter-number', 'data-end', $settings['end_number'] );
-		$this->add_render_attribute( 'counter-number', 'data-speed', $settings['counter_speed'] * 1000 );
+		$this->add_render_attribute( 'counter-number', 'data-speed', $settings['counter_speed']['size'] * 1000 );
 		$this->add_render_attribute( 'counter-number', 'data-separator', $settings['digit_separator'] );
 
 		$this->add_render_attribute( 'prefix', 'class', 'hfe-counter-prefix' );
@@ -795,7 +814,7 @@ class Counter extends Common_Widget {
 		view.addRenderAttribute( 'counter-number', 'class', 'hfe-counter-number' );
 		view.addRenderAttribute( 'counter-number', 'data-start', settings.start_number );
 		view.addRenderAttribute( 'counter-number', 'data-end', settings.end_number );
-		view.addRenderAttribute( 'counter-number', 'data-speed', settings.counter_speed * 1000 );
+		view.addRenderAttribute( 'counter-number', 'data-speed', settings.counter_speed.size * 1000 );
 		view.addRenderAttribute( 'counter-number', 'data-separator', settings.digit_separator );
 
 		view.addRenderAttribute( 'prefix', 'class', 'hfe-counter-prefix' );
