@@ -175,7 +175,7 @@ class Counter extends Common_Widget {
 		$this->add_control(
 			'start_number',
 			[
-				'label'   => __( 'Start', 'header-footer-elementor' ),
+				'label'   => __( 'Starting Number', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 20,
 			]
@@ -184,7 +184,7 @@ class Counter extends Common_Widget {
 		$this->add_control(
 			'end_number',
 			[
-				'label'   => __( 'End', 'header-footer-elementor' ),
+				'label'   => __( 'Ending Number', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 100,
 			]
@@ -193,7 +193,7 @@ class Counter extends Common_Widget {
 		$this->add_control(
 			'prefix',
 			[
-				'label'   => __( 'Before Number', 'header-footer-elementor' ),
+				'label'   => __( 'Prefix', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::TEXT,
 				'dynamic' => [
 					'active' => true,
@@ -204,7 +204,7 @@ class Counter extends Common_Widget {
 		$this->add_control(
 			'suffix',
 			[
-				'label'   => __( 'After Number', 'header-footer-elementor' ),
+				'label'   => __( 'Suffix', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::TEXT,
 				'dynamic' => [
 					'active' => true,
@@ -285,7 +285,7 @@ class Counter extends Common_Widget {
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'flex-start' => [
-						'title' => __( 'Start', 'header-footer-elementor' ),
+						'title' => __( 'Left', 'header-footer-elementor' ),
 						'icon'  => "eicon-h-align-$start",
 					],
 					'center' => [
@@ -293,7 +293,7 @@ class Counter extends Common_Widget {
 						'icon'  => 'eicon-h-align-center',
 					],
 					'flex-end' => [
-						'title' => __( 'End', 'header-footer-elementor' ),
+						'title' => __( 'Right', 'header-footer-elementor' ),
 						'icon'  => "eicon-h-align-$end",
 					],
 					'space-between' => [
@@ -321,7 +321,7 @@ class Counter extends Common_Widget {
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => __( 'Start', 'header-footer-elementor' ),
+						'title' => __( 'Left', 'header-footer-elementor' ),
 						'icon'  => "eicon-text-align-$start",
 					],
 					'center' => [
@@ -329,7 +329,7 @@ class Counter extends Common_Widget {
 						'icon'  => 'eicon-text-align-center',
 					],
 					'right' => [
-						'title' => __( 'End', 'header-footer-elementor' ),
+						'title' => __( 'Right', 'header-footer-elementor' ),
 						'icon'  => "eicon-text-align-$end",
 					],
 				],
@@ -348,6 +348,10 @@ class Counter extends Common_Widget {
 				'label'      => __( 'Gap', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', 'em', 'rem' ],
+				'default'    => [
+					'size' => 5,
+					'unit' => 'px',
+				],
 				'selectors'  => [
 					'{{WRAPPER}} .hfe-counter-content' => 'gap: {{SIZE}}{{UNIT}};',
 				],
@@ -382,7 +386,7 @@ class Counter extends Common_Widget {
 		$this->add_control(
 			'number_color',
 			[
-				'label'     => __( 'Text Color', 'header-footer-elementor' ),
+				'label'     => __( 'Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'global'    => [
 					'default' => Global_Colors::COLOR_PRIMARY,
@@ -449,19 +453,19 @@ class Counter extends Common_Widget {
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'before' => [
-						'title' => __( 'Before', 'header-footer-elementor' ),
+						'title' => __( 'Top', 'header-footer-elementor' ),
 						'icon'  => 'eicon-v-align-top',
 					],
 					'after' => [
-						'title' => __( 'After', 'header-footer-elementor' ),
+						'title' => __( 'Bottom', 'header-footer-elementor' ),
 						'icon'  => 'eicon-v-align-bottom',
 					],
 					'start' => [
-						'title' => __( 'Start', 'header-footer-elementor' ),
+						'title' => __( 'Left', 'header-footer-elementor' ),
 						'icon'  => "eicon-h-align-$start",
 					],
 					'end' => [
-						'title' => __( 'End', 'header-footer-elementor' ),
+						'title' => __( 'Right', 'header-footer-elementor' ),
 						'icon'  => "eicon-h-align-$end",
 					],
 				],
@@ -485,7 +489,7 @@ class Counter extends Common_Widget {
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'start' => [
-						'title' => __( 'Start', 'header-footer-elementor' ),
+						'title' => __( 'Left', 'header-footer-elementor' ),
 						'icon'  => "eicon-h-align-$start",
 					],
 					'center' => [
@@ -493,7 +497,7 @@ class Counter extends Common_Widget {
 						'icon'  => 'eicon-h-align-center',
 					],
 					'end' => [
-						'title' => __( 'End', 'header-footer-elementor' ),
+						'title' => __( 'Right', 'header-footer-elementor' ),
 						'icon'  => "eicon-h-align-$end",
 					],
 				],
@@ -514,7 +518,7 @@ class Counter extends Common_Widget {
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'flex-start' => [
-						'title' => __( 'Start', 'header-footer-elementor' ),
+						'title' => __( 'Left', 'header-footer-elementor' ),
 						'icon'  => "eicon-h-align-$start",
 					],
 					'center' => [
@@ -522,7 +526,7 @@ class Counter extends Common_Widget {
 						'icon'  => 'eicon-h-align-center',
 					],
 					'flex-end' => [
-						'title' => __( 'End', 'header-footer-elementor' ),
+						'title' => __( 'Right', 'header-footer-elementor' ),
 						'icon'  => "eicon-h-align-$end",
 					],
 				],
@@ -571,6 +575,10 @@ class Counter extends Common_Widget {
 				'label'      => __( 'Gap', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', 'em', 'rem' ],
+				'default'    => [
+					'size' => 20,
+					'unit' => 'px',
+				],
 				'selectors'  => [
 					'{{WRAPPER}} .hfe-counter-wrapper' => 'gap: {{SIZE}}{{UNIT}};',
 				],
@@ -604,18 +612,6 @@ class Counter extends Common_Widget {
 				],
 				'selectors' => [
 					'{{WRAPPER}} .hfe-counter-title' => 'color: {{VALUE}};',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'title_margin',
-			[
-				'label'      => __( 'Margin', 'header-footer-elementor' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em', 'rem' ],
-				'selectors'  => [
-					'{{WRAPPER}} .hfe-counter-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
