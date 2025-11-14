@@ -214,6 +214,11 @@ class Widgets_Loader {
 				'dep'       => [ 'jquery' ],
 				'in_footer' => true,
 			],
+			'hfe-counter' => [
+				'path'      => 'inc/js/counter.js',
+				'dep'       => [ 'jquery', 'elementor-frontend' ],
+				'in_footer' => true,
+			],
 		];
 
 		return $js_files;

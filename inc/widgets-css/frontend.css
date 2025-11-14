@@ -1,3 +1,120 @@
+/* Counter Widget CSS */
+.hfe-counter-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Default alignments that will be overridden by controls */
+.hfe-counter-wrapper[style*="flex-direction: column"] {
+    align-items: center; /* horizontal alignment for column layouts */
+    justify-content: center; /* vertical alignment for column layouts */
+}
+
+.hfe-counter-wrapper[style*="flex-direction: row"] {
+    justify-content: center; /* horizontal alignment for row layouts */
+    align-items: center; /* vertical alignment for row layouts */
+}
+
+.hfe-counter-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.hfe-counter-number {
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 1;
+}
+
+.hfe-counter-title {
+    font-size: 18px;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.hfe-counter-prefix,
+.hfe-counter-suffix {
+    font-size: inherit;
+    line-height: inherit;
+}
+
+
+
+/* Title styling - flex enabled for alignment controls */
+.hfe-counter-title {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Ensure counter content doesn't shrink */
+.hfe-counter-content {
+    flex-shrink: 0;
+}
+
+/* Equal width distribution for horizontal layouts */
+.hfe-counter-wrapper[style*="flex-direction: row"] .hfe-counter-title,
+.hfe-counter-wrapper[style*="flex-direction: row"] .hfe-counter-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.hfe-counter-wrapper[style*="flex-direction: row-reverse"] .hfe-counter-title,
+.hfe-counter-wrapper[style*="flex-direction: row-reverse"] .hfe-counter-content {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Alternative approach - apply to all potential horizontal layouts */
+.hfe-counter-wrapper:not([style*="column"]) .hfe-counter-title,
+.hfe-counter-wrapper:not([style*="column"]) .hfe-counter-content {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Ensure counter content maintains flex display in all layouts */
+.hfe-counter-content {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Responsive equal width distribution */
+@media (max-width: 1024px) {
+    .elementor-widget-hfe-counter .hfe-counter-wrapper[style*="row"] .hfe-counter-title,
+    .elementor-widget-hfe-counter .hfe-counter-wrapper[style*="row"] .hfe-counter-content {
+        flex: 1;
+        min-width: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .elementor-widget-hfe-counter .hfe-counter-wrapper[style*="row"] .hfe-counter-title,
+    .elementor-widget-hfe-counter .hfe-counter-wrapper[style*="row"] .hfe-counter-content {
+        flex: 1;
+        min-width: 0;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .hfe-counter-number {
+        font-size: 36px;
+    }
+    
+    .hfe-counter-title {
+        font-size: 16px;
+    }
+}
+
 /* Navigation Menu CSS */
 
 ul.hfe-nav-menu,

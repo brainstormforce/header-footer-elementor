@@ -262,6 +262,19 @@ class Widgets_Config {
 				'is_pro'      => false,
 				'demo_url'    => 'https://ultimateelementor.com/widgets/woo-product-grid/',
 			],
+			'Counter'                 => [
+				'slug'        => 'hfe-counter',
+				'title'       => __( 'Counter', 'header-footer-elementor' ),
+				'description' => __( 'Display animated counters with customizable styling for showcasing statistics and achievements.', 'header-footer-elementor' ),
+				'keywords'    => [ 'uael', 'hfe', 'counter', 'number', 'stats', 'statistics', 'animate' ],
+				'icon'        => 'hfe-icon-counter',
+				'title_url'   => '#',
+				'default'     => true,
+				'doc_url'     => 'https://ultimateelementor.com/docs/counter-widget/?utm_source=plugin-editor&utm_medium=need-help-button&utm_campaign=uae-documentation',
+				'category'    => 'content',
+				'is_pro'      => false,
+				'demo_url'    => 'https://ultimateelementor.com/widgets/counter/',
+			],
 		];
 
 		return apply_filters( 'hfe_widgets_data', self::$widget_list );

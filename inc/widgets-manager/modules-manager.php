@@ -59,6 +59,7 @@ class Modules_Manager {
 			'infocard',
 			'woo-product-grid',
 			'basic-posts',
+			'counter',
 		];
 
 		foreach ( $all_modules as $module_name ) {
