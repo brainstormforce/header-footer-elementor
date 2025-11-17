@@ -60,7 +60,7 @@
                             aria-label="Header Footer Elementor Dashboard" 
                             tabindex="0">
                         <img src="${iconUrl}" 
-                             width="30" height="30" >
+                             width="22" height="22" >
                     </button>
                 `).on('click', function() {
                     // Always redirect to HFE dashboard
