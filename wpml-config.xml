@@ -103,5 +103,15 @@
 				<field type="Info Card: CTA URL">infocard_text_link>url</field>
 			</fields>
 		</widget>
+		<widget name="hfe-counter">
+			<conditions>
+				<condition key="widgetType">hfe-counter</condition>
+			</conditions>
+			<fields>
+				<field type="Counter: Title">title</field>
+				<field type="Counter: Prefix">prefix</field>
+				<field type="Counter: Suffix">suffix</field>
+			</fields>
+		</widget>
 	</elementor-widgets>
 </wpml-config>

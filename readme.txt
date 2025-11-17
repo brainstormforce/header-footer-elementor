@@ -299,6 +299,9 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 ---
 
 == Changelog ==
+= 2.6.3 =
+- New: Added Counter widget.
+
 = 2.6.2 =
 - Improvement: Compatibility with latest Elementor and Elementor Pro 3.33 version.
 
