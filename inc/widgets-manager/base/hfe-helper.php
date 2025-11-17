@@ -530,6 +530,7 @@ class HFE_Helper {
 			'hfe-infocard',
 			'hfe-woo-product-grid',
 			'hfe-basic-posts',
+			'hfe-counter',
 		];
 
 		// Filter widgets usage to include only allowed widgets
