@@ -605,18 +605,18 @@ msgstr ""
 msgid "Welcome to Ultimate Addons for Elementor!"
 msgstr ""
 
-#: src/Components/Dashboard/WelcomeContainer.js:29
+#: src/Components/Dashboard/WelcomeContainer.js:28
 msgid ""
 "Effortlessly design modern websites with UAE using our powerful range of "
 "widgets & features. Get started by selecting an option based on your needs."
 msgstr ""
 
-#: src/Components/Dashboard/WelcomeContainer.js:61
+#: src/Components/Dashboard/WelcomeContainer.js:60
 #: src/Components/Onboarding/Build.jsx:197
 msgid "Create Header/Footer"
 msgstr ""
 
-#: src/Components/Dashboard/WelcomeContainer.js:89
+#: src/Components/Dashboard/WelcomeContainer.js:88
 #: src/Components/Onboarding/Create.jsx:323
 msgid "Create New Page"
 msgstr ""

@@ -1205,7 +1205,7 @@ class Widgets_Config {
 			'suretriggers/suretriggers.php'                => [
 				'icon'         => $images_url . 'ottokit.svg',
 				'type'         => 'plugin',
-				'name'         => esc_html__( 'OttoKit (Formerly SureTriggers)', 'header-footer-elementor' ),
+				'name'         => esc_html__( 'OttoKit', 'header-footer-elementor' ),
 				'desc'         => esc_html__( 'Automate WordPress tasks effortlessly.', 'header-footer-elementor' ),
 				'wporg'        => 'https://wordpress.org/plugins/suretriggers/',
 				'url'          => 'https://downloads.wordpress.org/plugin/suretriggers.zip',
