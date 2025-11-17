@@ -413,7 +413,7 @@ class Counter extends Common_Widget {
 				'global'   => [
 					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
 				],
-				'selector' => '{{WRAPPER}} .hfe-counter-content',
+				'selector' => '{{WRAPPER}} .hfe-counter-number',
 			]
 		);
 		$this->add_group_control(
@@ -711,29 +711,6 @@ class Counter extends Common_Widget {
 			]
 		);
 
-		$this->add_responsive_control(
-			'prefix_margin',
-			[
-				'label'      => __( 'Left Margin', 'header-footer-elementor' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%', 'em', 'rem' ],
-				'default'    => [
-					'size' => 0,
-					'unit' => 'px',
-				],
-				'range'      => [
-					'px' => [
-						'min'  => 0,
-						'max'  => 100,
-						'step' => 1,
-					],
-				],
-				'selectors'  => [
-					'{{WRAPPER}} .hfe-counter-prefix' => 'margin-left: {{SIZE}}{{UNIT}};',
-				],
-			]
-		);
-
 		$this->end_controls_section();
 	}
 
@@ -788,29 +765,6 @@ class Counter extends Common_Widget {
 			[
 				'name' => 'suffix_text_shadow',
 				'selector' => '{{WRAPPER}} .hfe-counter-suffix',
-			]
-		);
-
-		$this->add_responsive_control(
-			'suffix_margin',
-			[
-				'label'      => __( 'Right Margin', 'header-footer-elementor' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%', 'em', 'rem' ],
-				'default'    => [
-					'size' => 0,
-					'unit' => 'px',
-				],
-				'range'      => [
-					'px' => [
-						'min'  => 0,
-						'max'  => 100,
-						'step' => 1,
-					],
-				],
-				'selectors'  => [
-					'{{WRAPPER}} .hfe-counter-suffix' => 'margin-right: {{SIZE}}{{UNIT}};',
-				],
 			]
 		);
 
