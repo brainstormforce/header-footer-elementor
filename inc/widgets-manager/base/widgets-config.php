@@ -249,7 +249,7 @@ class Widgets_Config {
 				'demo_url'    => 'https://ultimateelementor.com/widgets/search/',
 				'category'    => 'content',
 			],
-			'Woo_Product_Grid'        => [
+			'Woo_Product_Grid'     => [
 				'slug'        => 'hfe-woo-product-grid',
 				'title'       => __( 'Woo Products Grid', 'header-footer-elementor' ),
 				'description' => __( 'Display WooCommerce products in a responsive grid layout with customizable styling options.', 'header-footer-elementor' ),
@@ -262,7 +262,7 @@ class Widgets_Config {
 				'is_pro'      => false,
 				'demo_url'    => 'https://ultimateelementor.com/widgets/woo-product-grid/',
 			],
-			'Counter'                 => [
+			'Counter'              => [
 				'slug'        => 'hfe-counter',
 				'title'       => __( 'Counter', 'header-footer-elementor' ),
 				'description' => __( 'Display animated counters with customizable styling for showcasing statistics and achievements.', 'header-footer-elementor' ),

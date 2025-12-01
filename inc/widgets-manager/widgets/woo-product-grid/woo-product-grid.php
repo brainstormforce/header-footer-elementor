@@ -137,12 +137,12 @@ class Woo_Product_Grid extends Common_Widget {
 	 */
 	protected function get_upsale_data() {
 		return [
-			'condition' => ! defined( 'UAEL_VER' ),
-			'image' => esc_url( HFE_URL . 'assets/images/upgrade-pro.png' ),
-			'image_alt' => esc_attr__( 'Upgrade', 'header-footer-elementor' ),
-			'title' => esc_html__( 'Upgrade your Woo Products widget', 'header-footer-elementor' ),
-			'description' => esc_html__( 'Get the advanced Woo Products widget and unlock powerful layouts, filters, and customization options with UAE Pro.', 'header-footer-elementor' ),
-			'upgrade_url' => esc_url( 'https://ultimateelementor.com/pricing/?utm_source=UAE-Basic-Post&utm_medium=editor&utm_campaign=static-promotion' ),
+			'condition'    => ! defined( 'UAEL_VER' ),
+			'image'        => esc_url( HFE_URL . 'assets/images/upgrade-pro.png' ),
+			'image_alt'    => esc_attr__( 'Upgrade', 'header-footer-elementor' ),
+			'title'        => esc_html__( 'Upgrade your Woo Products widget', 'header-footer-elementor' ),
+			'description'  => esc_html__( 'Get the advanced Woo Products widget and unlock powerful layouts, filters, and customization options with UAE Pro.', 'header-footer-elementor' ),
+			'upgrade_url'  => esc_url( 'https://ultimateelementor.com/pricing/?utm_source=UAE-Basic-Post&utm_medium=editor&utm_campaign=static-promotion' ),
 			'upgrade_text' => esc_html__( 'Upgrade Now', 'header-footer-elementor' ),
 		];
 	}
@@ -368,10 +368,10 @@ class Woo_Product_Grid extends Common_Widget {
 		$this->add_control(
 			'orderby',
 			[
-				'label'     => __( 'Order By', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::SELECT,
-				'default'   => 'date',
-				'options'   => [
+				'label'   => __( 'Order By', 'header-footer-elementor' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'date',
+				'options' => [
 					'date'       => __( 'Date', 'header-footer-elementor' ),
 					'title'      => __( 'Title', 'header-footer-elementor' ),
 					'price'      => __( 'Price', 'header-footer-elementor' ),
@@ -519,9 +519,9 @@ class Woo_Product_Grid extends Common_Widget {
 		$this->add_responsive_control(
 			'content_alignment',
 			[
-				'label'     => __( 'Alignment', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::CHOOSE,
-				'options'   => [
+				'label'              => __( 'Alignment', 'header-footer-elementor' ),
+				'type'               => Controls_Manager::CHOOSE,
+				'options'            => [
 					'left'   => [
 						'title' => __( 'Left', 'header-footer-elementor' ),
 						'icon'  => 'eicon-text-align-left',
@@ -535,8 +535,8 @@ class Woo_Product_Grid extends Common_Widget {
 						'icon'  => 'eicon-text-align-right',
 					],
 				],
-				'default'   => 'left',
-				'prefix_class' => 'hfe-content%s-align-',
+				'default'            => 'left',
+				'prefix_class'       => 'hfe-content%s-align-',
 				'frontend_available' => true,
 			]
 		);
@@ -544,15 +544,15 @@ class Woo_Product_Grid extends Common_Widget {
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name'     => 'content_background',
-				'label'    => __( 'Background', 'header-footer-elementor' ),
-				'types'    => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .hfe-product-item',
+				'name'           => 'content_background',
+				'label'          => __( 'Background', 'header-footer-elementor' ),
+				'types'          => [ 'classic', 'gradient' ],
+				'selector'       => '{{WRAPPER}} .hfe-product-item',
 				'fields_options' => [
 					'background' => [
 						'default' => 'classic',
 					],
-					'color' => [
+					'color'      => [
 						'default' => '#f6f6f6',
 					],
 				],

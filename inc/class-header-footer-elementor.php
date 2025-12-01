@@ -327,7 +327,7 @@ class Header_Footer_Elementor {
 					font-size: 12px;
 					font-weight: 600;
 					transition: all 0.2s ease;
-    				white-space: nowrap;
+					white-space: nowrap;
 				}
 				
 				.hfe-promo-notice-cta:hover {

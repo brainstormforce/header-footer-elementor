@@ -204,7 +204,7 @@ class Widgets_Loader {
 	 */
 	public static function get_widget_script() {
 		$js_files = [
-			'hfe-frontend-js' => [
+			'hfe-frontend-js'      => [
 				'path'      => 'inc/js/frontend.js',
 				'dep'       => [ 'jquery' ],
 				'in_footer' => true,
@@ -214,7 +214,7 @@ class Widgets_Loader {
 				'dep'       => [ 'jquery' ],
 				'in_footer' => true,
 			],
-			'hfe-counter' => [
+			'hfe-counter'          => [
 				'path'      => 'inc/js/counter.js',
 				'dep'       => [ 'jquery', 'elementor-frontend' ],
 				'in_footer' => true,
