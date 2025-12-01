@@ -118,6 +118,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			// Check if the permalink structure is not empty.
 			if ( '' !== $permalink_structure ) { 
 				update_option( 'permalink_structure', $permalink_structure );
+				// phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.flush_rewrite_rules_flush_rewrite_rules -- This is necessary after updating permalink structure.
 				flush_rewrite_rules(); 
 				// Update the option to true.
 				update_user_meta( get_current_user_id(), 'hfe_permalink_notice_option', 'notice-dismissed' );

@@ -503,7 +503,7 @@ class HFE_Helper {
 	 * @access public
 	 */
 	public static function get_used_widget() {
-		/** @var Usage_Module $usage_module */
+		/** Get usage module instance. @var Usage_Module $usage_module */
 		$usage_module = Usage_Module::instance();
 		$usage_module->recalc_usage();
 

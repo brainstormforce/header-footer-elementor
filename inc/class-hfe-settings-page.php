@@ -124,7 +124,8 @@ class HFE_Settings_Page {
 	 * Adding Rating footer to dashboard pages.
 	 *
 	 * @since 2.4.5
-	 * @return void
+	 * @param string $footer_text The footer text.
+	 * @return string Modified footer text.
 	 */
 	public function uae_custom_admin_footer_text( $footer_text ) {
 		$screen = get_current_screen();
@@ -793,9 +794,6 @@ class HFE_Settings_Page {
 	 * Renders the admin settings content.
 	 *
 	 * @since 1.0.0
-	 * @param string $menu_page_slug current page name.
-	 * @param string $page_action current page action.
-	 *
 	 * @return void
 	 */
 	public function render_content() {

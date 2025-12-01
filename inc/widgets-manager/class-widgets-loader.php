@@ -265,6 +265,8 @@ class Widgets_Loader {
 	 * List pro widgets
 	 *
 	 * @since v3.1.4
+	 * @param array $config The widget configuration.
+	 * @return array Modified configuration.
 	 */
 	public function uae_promote_pro_elements( $config ) {
 

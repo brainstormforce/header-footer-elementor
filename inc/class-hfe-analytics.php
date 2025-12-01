@@ -4,6 +4,7 @@
  *
  * @package HFE
  */
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
@@ -27,8 +28,6 @@ if ( ! class_exists( 'HFE_Analytics' ) ) {
 		 *
 		 * @since 2.3.0
 		 * @access public
-		 *
-		 * @param array $args Optional. HFE Analytics arguments. Default is an empty array.
 		 */
 		public function __construct() {
 			add_action( 'admin_init', [ $this, 'maybe_migrate_analytics_tracking' ] );

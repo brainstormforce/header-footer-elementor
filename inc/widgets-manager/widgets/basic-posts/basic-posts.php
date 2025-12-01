@@ -940,6 +940,7 @@ class Basic_Posts extends Common_Widget {
 	 * @return array
 	 */
 	protected function get_image_sizes() {
+		// phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.get_intermediate_image_sizes_get_intermediate_image_sizes -- This is necessary to get available image sizes.
 		$image_sizes = get_intermediate_image_sizes();
 		$options     = [];
 

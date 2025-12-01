@@ -285,7 +285,8 @@ class HFE_Settings_Api {
 		$response_body = json_decode( wp_remote_retrieve_body( $response ), true );
 
 		if ( ! in_array( $response_code, [ 200, 201, 204 ], true ) ) {
-			return new WP_Error( 'webhook_error', __( 'Error in API response: ' . ( $response_body['message'] ?? 'Unknown error' ), 'header-footer-elementor' ), [ 'status' => $response_code ] );
+			$error_message = 'Error in API response: ' . ( $response_body['message'] ?? 'Unknown error' );
+			return new WP_Error( 'webhook_error', esc_html( $error_message ), [ 'status' => $response_code ] );
 		}
 
 		update_option( 'uaelite_subscription', 'done' );

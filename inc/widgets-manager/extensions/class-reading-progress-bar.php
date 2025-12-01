@@ -61,6 +61,8 @@ class Reading_Progress_Bar {
 
 	/**
 	 * Register extension tab
+	 *
+	 * @param \Elementor\Core\Kits\Documents\Kit $kit The kit document.
 	 */
 	public function register_extension_tab( \Elementor\Core\Kits\Documents\Kit $kit ) {
 		$kit->register_tab( 'hfe-reading-progress-bar', Reading_Progress_Bar_Settings::class );
@@ -106,7 +108,7 @@ class Reading_Progress_Bar {
 			$style_container = 'position:fixed;left:0;width:100%;z-index:99999;';
 			if ( 'top' === $position ) {
 				// Add margin-top if user is logged in to account for the admin bar.
-				if ( is_admin_bar_showing() && $position === 'top' ) {
+				if ( is_admin_bar_showing() && 'top' === $position ) {
 					$style_container .= 'margin-top:30px;';
 				}
 			}
@@ -120,6 +122,9 @@ class Reading_Progress_Bar {
 
 	/**
 	 * Get kit settings
+	 *
+	 * @param string $setting_id The setting ID to retrieve.
+	 * @return mixed The setting value.
 	 */
 	public function get_elementor_settings( $setting_id ) {
 		$return              = '';
@@ -144,6 +149,8 @@ class Reading_Progress_Bar {
 
 	/**
 	 * Add page level controls
+	 *
+	 * @param \Elementor\Element_Base $element The element to add controls to.
 	 */
 	public function page_controls( $element ) {
 		$enable_global = $this->get_elementor_settings( 'hfe_reading_progress_enable' );
