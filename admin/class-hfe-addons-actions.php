@@ -310,6 +310,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 				self::$widget_list = HFE_Helper::get_widget_list();
 			}
 			$used_widgets = HFE_Helper::get_used_widget();
+			// phpcs:ignore Squiz.PHP.CommentedOutCode.Found -- Keeping as reference.
 			// var_dump($used_widgets).
 			$unused_widgets = [];
 		
@@ -588,6 +589,7 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 			}
 
 			// Verify nonce for security.
+			// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Nonce verified before use.
 			if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'hfe-admin-nonce' ) ) {
 				wp_send_json_error( __( 'Security check failed.', 'header-footer-elementor' ) );
 				return;

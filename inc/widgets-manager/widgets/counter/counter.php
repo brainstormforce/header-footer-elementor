@@ -828,6 +828,7 @@ class Counter extends Common_Widget {
 	 */
 	protected function content_template() {
 		?>
+		<?php // phpcs:disable WordPressVIPMinimum.Security.Mustache.OutputNotation -- JavaScript template syntax, not PHP output. ?>
 		<#
 		var titleTag = elementor.helpers.validateHTMLTag( settings.title_tag );
 		if ( typeof elementor.helpers.validateHTMLTag === "function" ) { 
@@ -864,6 +865,7 @@ class Counter extends Common_Widget {
 				<span {{{ view.getRenderAttributeString( 'suffix' ) }}}>{{{ settings.suffix }}}</span>
 			</div>
 		</div>
+		<?php // phpcs:enable WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 		<?php
 	}
 }

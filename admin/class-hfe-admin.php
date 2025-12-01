@@ -180,8 +180,8 @@ class HFE_Admin {
 		// Run only on admin.php?page=hfe.
 		if (
 			is_admin() &&
-			isset( $_GET['page'] ) &&
-			( 'uaepro' === $_GET['page'] || 'hfe' === $_GET['page'] )
+			isset( $_GET['page'] ) && // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Context checking for page display, no form processing.
+			( 'uaepro' === $_GET['page'] || 'hfe' === $_GET['page'] ) // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Context checking for page display, no form processing.
 		) {
 			$this->hfe_check_widgets_data_usage();
 		}

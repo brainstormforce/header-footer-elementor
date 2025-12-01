@@ -9,6 +9,8 @@
  * @since       HFE 2.2.1
  */
 
+// phpcs:disable WordPress.WhiteSpace.PrecisionAlignment.Found -- Alignment spacing in array declarations for readability.
+
 namespace HFE\WidgetsManager;
 
 use Elementor\Plugin;

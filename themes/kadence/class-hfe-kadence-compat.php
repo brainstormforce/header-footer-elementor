@@ -5,6 +5,8 @@
  * @package header-footer-elementor
  */
 
+// phpcs:disable WordPress.WhiteSpace.PrecisionAlignment.Found -- Alignment spacing in array declarations for readability.
+
 /**
  * Kadence theme compatibility.
  *

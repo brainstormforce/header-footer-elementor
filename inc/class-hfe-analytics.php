@@ -5,6 +5,8 @@
  * @package HFE
  */
 
+// phpcs:disable WordPress.WhiteSpace.PrecisionAlignment.Found -- Alignment spacing in array declarations for readability.
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }

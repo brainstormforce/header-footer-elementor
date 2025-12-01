@@ -129,9 +129,9 @@ class HFE_Settings_Page {
 	 */
 	public function uae_custom_admin_footer_text( $footer_text ) {
 		$screen = get_current_screen();
-	
+
 		if (
-			( isset( $_GET['page'] ) && 'hfe' === $_GET['page'] ) ||
+			( isset( $_GET['page'] ) && 'hfe' === $_GET['page'] ) || // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Context checking, no form processing.
 			( isset( $screen->post_type ) && 'elementor-hf' === $screen->post_type )
 		) {
 			$footer_text = sprintf(
@@ -338,10 +338,12 @@ class HFE_Settings_Page {
 		$hfe_edit_url  = admin_url( 'edit.php?post_type=elementor-hf' );
 		$is_hfe_post   = ( 'elementor-hf' === $post_type && ( 'post.php' === $pagenow || 'post-new.php' === $pagenow ) ) ? 'yes' : 'no';
 	
-		$additional_condition = ( isset( $_GET['post_type'] ) && 'elementor-hf' === sanitize_text_field( $_GET['post_type'] ) && 
+		// phpcs:disable WordPress.Security.NonceVerification.Recommended -- Context checking for UI display, no form processing.
+		$additional_condition = ( isset( $_GET['post_type'] ) && 'elementor-hf' === sanitize_text_field( $_GET['post_type'] ) &&
 			( 'edit.php' === $GLOBALS['pagenow'] || 'post.php' === $GLOBALS['pagenow'] || 'post-new.php' === $GLOBALS['pagenow'] ) ) ||
 			( isset( $_GET['post'] ) && 'post.php' === $GLOBALS['pagenow'] && isset( $_GET['action'] ) && 'edit' === sanitize_text_field( $_GET['action'] ) && 'elementor-hf' === get_post_type( sanitize_text_field( $_GET['post'] ) ) ) ||
 			( 'post-new.php' === $GLOBALS['pagenow'] && isset( $_GET['post_type'] ) && 'elementor-hf' === sanitize_text_field( $_GET['post_type'] ) );
+		// phpcs:enable WordPress.Security.NonceVerification.Recommended
 	
 		if ( ( 
 				self::is_current_page( 'hfe' ) || 
@@ -1506,11 +1508,11 @@ class HFE_Settings_Page {
 
 		if ( 'svg' === pathinfo( $filename, PATHINFO_EXTENSION ) ) {
 			// Perform SVG sanitization using the sanitize_svg function.
-			$svg_content           = file_get_contents( $file ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+			// phpcs:ignore WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown -- SVG sanitization necessary.
+			$svg_content           = file_get_contents( $file );
 			$sanitized_svg_content = $this->sanitize_svg( $svg_content );
-			// phpcs:disable WordPress.WP.AlternativeFunctions.file_system_read_file_put_contents
+			// phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_file_put_contents -- SVG sanitization necessary.
 			file_put_contents( $file, $sanitized_svg_content );
-			// phpcs:enable WordPress.WP.AlternativeFunctions.file_system_read_file_put_contents
 
 			// Update mime type and extension.
 			$defaults['type'] = 'image/svg+xml';

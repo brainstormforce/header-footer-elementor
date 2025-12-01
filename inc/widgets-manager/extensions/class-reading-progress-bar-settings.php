@@ -15,6 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+// phpcs:disable WordPress.WhiteSpace.PrecisionAlignment.Found
+
 /**
  * HFE Reading Progress Bar extension settings
  */

@@ -762,6 +762,7 @@ class Basic_Posts extends Common_Widget {
 			[
 				'label'     => __( 'Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
+				// phpcs:ignore Squiz.PHP.CommentedOutCode.Found -- Keeping as reference.
 				// 'default'   => '#ADADAD'.
 				'global'    => [
 					'default' => Global_Colors::COLOR_TEXT,

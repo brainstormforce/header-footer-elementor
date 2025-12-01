@@ -21,6 +21,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;   // Exit if accessed directly.
 }
 
+// phpcs:disable WordPress.WhiteSpace.PrecisionAlignment.Found
+
 /**
  * Class Infocard.
  */
@@ -1234,6 +1236,7 @@ class Infocard extends Common_Widget {
 	protected function content_template() {
 
 		?>
+		<?php // phpcs:disable WordPressVIPMinimum.Security.Mustache.OutputNotation -- JavaScript template syntax, not PHP output. ?>
 		<#
 		var iconHTML = elementor.helpers.renderIcon( view, settings.infocard_select_icon, { 'aria-hidden': true }, 'i' , 'object' );
 
@@ -1318,6 +1321,7 @@ class Infocard extends Common_Widget {
 				<# render_link(); #>
 			</div>
 		</div>
+		<?php // phpcs:enable WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 		<?php
 	}
 }

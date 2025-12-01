@@ -5,6 +5,8 @@
  * @package header-footer-elementor
  */
 
+// phpcs:disable WordPress.WhiteSpace.PrecisionAlignment.Found -- Alignment spacing in array declarations for readability.
+
 use HFE\Lib\Astra_Target_Rules_Fields;
 
 /**
@@ -432,7 +434,8 @@ class Header_Footer_Elementor {
 					<button class="hfe-promo-notice-close" onclick="hfePromoNotice.dismiss()">&times;</button>
 				</div>
 			</div>
-			
+
+			<?php // phpcs:disable WordPressVIPMinimum.Security.Mustache.OutputNotation -- JavaScript code, not PHP output. ?>
 			<script>window.hfePromoNotice={storageKey:'hfe_promo_notice_dismissed',oneMonthMs:2592000000,init:function(){this.shouldShow()&&this.show()},shouldShow:function(){try{const a=localStorage.getItem(this.storageKey);if(!a)return!0;const b=parseInt(a),c=Date.now();return c-b>=this.oneMonthMs}catch(a){return!0}},show:function(){const a=document.getElementById('hfe-promo-notice');a&&a.classList.add('show')},dismiss:function(){const a=document.getElementById('hfe-promo-notice');a&&(a.classList.add('hide'),setTimeout(()=>{a.remove()},400));try{localStorage.setItem(this.storageKey,Date.now().toString())}catch(a){console.log('Could not save dismissal state')}}};"loading"===document.readyState?document.addEventListener('DOMContentLoaded',function(){hfePromoNotice.init()}):hfePromoNotice.init();</script>
 			<?php
 	}
