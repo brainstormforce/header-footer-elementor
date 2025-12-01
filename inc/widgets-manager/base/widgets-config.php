@@ -239,7 +239,7 @@ class Widgets_Config {
 			'Search_Button'        => [
 				'slug'        => 'hfe-search-button',
 				'title'       => __( 'Search', 'header-footer-elementor' ),
-				'keywords'    => [ 'uael', 'title', 'dynamic' ],
+				'keywords'    => [ 'uael', 'search', 'title', 'dynamic' ],
 				'icon'        => 'hfe-icon-search',
 				'title_url'   => '#',
 				'default'     => true,
@@ -253,7 +253,7 @@ class Widgets_Config {
 				'slug'        => 'hfe-woo-product-grid',
 				'title'       => __( 'Woo Products Grid', 'header-footer-elementor' ),
 				'description' => __( 'Display WooCommerce products in a responsive grid layout with customizable styling options.', 'header-footer-elementor' ),
-				'keywords'    => [ 'hfe', 'woo', 'products', 'grid' ],
+				'keywords'    => [ 'uael', 'hfe', 'woo', 'products', 'grid' ],
 				'icon'        => 'hfe-icon-woo-product',
 				'title_url'   => '#',
 				'default'     => true,
@@ -261,6 +261,19 @@ class Widgets_Config {
 				'category'    => 'content',
 				'is_pro'      => false,
 				'demo_url'    => 'https://ultimateelementor.com/widgets/woo-product-grid/',
+			],
+			'Counter'                 => [
+				'slug'        => 'hfe-counter',
+				'title'       => __( 'Counter', 'header-footer-elementor' ),
+				'description' => __( 'Display animated counters with customizable styling for showcasing statistics and achievements.', 'header-footer-elementor' ),
+				'keywords'    => [ 'uael', 'hfe', 'counter', 'number', 'stats', 'statistics', 'animate' ],
+				'icon'        => 'hfe-icon-counter',
+				'title_url'   => '#',
+				'default'     => true,
+				'doc_url'     => 'https://ultimateelementor.com/docs/counter-widget/?utm_source=plugin-editor&utm_medium=need-help-button&utm_campaign=uae-documentation',
+				'category'    => 'content',
+				'is_pro'      => false,
+				'demo_url'    => 'https://ultimateelementor.com/widgets/counter/',
 			],
 		];
 
@@ -1192,7 +1205,7 @@ class Widgets_Config {
 			'suretriggers/suretriggers.php' => [
 				'icon'         => $images_url . 'ottokit.svg',
 				'type'         => 'plugin',
-				'name'         => esc_html__( 'OttoKit (Formerly SureTriggers)', 'header-footer-elementor' ),
+				'name'         => esc_html__( 'OttoKit', 'header-footer-elementor' ),
 				'desc'         => esc_html__( 'Automate WordPress tasks effortlessly.', 'header-footer-elementor' ),
 				'wporg'        => 'https://wordpress.org/plugins/suretriggers/',
 				'url'          => 'https://downloads.wordpress.org/plugin/suretriggers.zip',

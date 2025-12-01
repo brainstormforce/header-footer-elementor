@@ -24,7 +24,7 @@ jobs:
           tools: composer, cs2pr
 
       - name: Install composer dependencies
-        run: composer config github-oauth.github.com ${{ secrets.PRIVATE_ACCESS_TOKEN }} && composer install --prefer-dist --no-suggest --no-progress
+        run: composer config github-oauth.github.com ${{ secrets.BSF_PRODUCTS_REPO_TOKEN }} && composer install --prefer-dist --no-suggest --no-progress
 
       - name: Run PHPCS with annotations
         run: vendor/bin/phpcs -q --report=checkstyle | cs2pr

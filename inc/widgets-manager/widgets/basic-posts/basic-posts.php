@@ -75,12 +75,12 @@ class Basic_Posts extends Common_Widget {
 	/**
 	 * Retrieve the list of keywords the widget belongs to.
 	 *
-	 * @since 2.5.0
+	 * @since 2.6.0
 	 * @access public
 	 * @return array Widget keywords.
 	 */
 	public function get_keywords() {
-		return [ 'posts', 'blog', 'grid', 'cards', 'basic', 'fast' ];
+		return parent::get_widget_keywords( 'Basic_Posts' );
 	}
 
 	/**

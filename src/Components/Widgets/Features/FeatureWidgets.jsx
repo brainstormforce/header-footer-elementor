@@ -218,8 +218,7 @@ const FeatureWidgets = () => {
 									borderRight: '1.5px solid #e5e7eb',
 									opacity: (!!searchTerm || loadingActivate) ? 0.5 : 1,
 									pointerEvents: (!!searchTerm || loadingActivate) ? 'none' : 'auto',
-									backgroundColor: (!!searchTerm || loadingActivate) ? '#000000' : 'transparent',
-									color: (!!searchTerm || loadingActivate) ? '#ffffff' : 'inherit'
+									color: (!!searchTerm || loadingActivate) ? '#A9ACB0' : 'inherit'
 								} }
 								onClick={ () => {
 									if (!loadingActivate && !searchTerm) {
@@ -235,8 +234,7 @@ const FeatureWidgets = () => {
 									border: 'none',
 									opacity: (!!searchTerm || loadingUnusedDeactivate) ? 0.5 : 1,
 									pointerEvents: (!!searchTerm || loadingUnusedDeactivate) ? 'none' : 'auto',
-									backgroundColor: (!!searchTerm || loadingUnusedDeactivate) ? '#000000' : 'transparent',
-									color: (!!searchTerm || loadingUnusedDeactivate) ? '#ffffff' : 'inherit'
+									color: (!!searchTerm || loadingUnusedDeactivate) ? '#A9ACB0' : 'inherit'
 								} }
 								onClick={ () => {
 									if (!loadingUnusedDeactivate && !searchTerm) {

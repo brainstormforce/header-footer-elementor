@@ -101,6 +101,18 @@ class Navigation_Menu extends Common_Widget {
 	}
 
 	/**
+	 * Retrieve Widget Keywords.
+	 *
+	 * @since 2.6.0
+	 * @access public
+	 *
+	 * @return string Widget keywords.
+	 */
+	public function get_keywords() {
+		return parent::get_widget_keywords( 'Navigation_Menu' );
+	}
+
+	/**
 	 * Retrieve the list of scripts the navigation menu depended on.
 	 *
 	 * Used to set scripts dependencies required to run the widget.

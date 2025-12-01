@@ -348,7 +348,7 @@ msgid "Business Reviews"
 msgstr ""
 
 #: src/Components/Compare/UltimateCompare.jsx:109
-#: src/Components/Dashboard/MyAccount.jsx:54
+#: src/Components/Dashboard/MyAccount.jsx:62
 #: src/Components/Widgets/UltimateWidgets.jsx:116
 msgid "Upgrade Now"
 msgstr ""
@@ -469,23 +469,23 @@ msgstr ""
 msgid "My Account"
 msgstr ""
 
-#: src/Components/Dashboard/MyAccount.jsx:31
+#: src/Components/Dashboard/MyAccount.jsx:39
 msgid "License Key"
 msgstr ""
 
-#: src/Components/Dashboard/MyAccount.jsx:32
+#: src/Components/Dashboard/MyAccount.jsx:40
 msgid ""
 "You are using the free version of Ultimate Addons for Elementor, no license "
 "key is needed. "
 msgstr ""
 
-#: src/Components/Dashboard/MyAccount.jsx:36
+#: src/Components/Dashboard/MyAccount.jsx:44
 msgid "Build Better Websites With Ultimate Addons Pro"
 msgstr ""
 
-#: src/Components/Dashboard/MyAccount.jsx:37
+#: src/Components/Dashboard/MyAccount.jsx:45
 msgid ""
-"Unlock advanced addons to power up Elementor — smarter widgets, smoother "
+"Unlock advanced addons to power up Elementor - smarter widgets, smoother "
 "workflows, and more creative freedom with UAE Pro."
 msgstr ""
 
@@ -605,18 +605,18 @@ msgstr ""
 msgid "Welcome to Ultimate Addons for Elementor!"
 msgstr ""
 
-#: src/Components/Dashboard/WelcomeContainer.js:29
+#: src/Components/Dashboard/WelcomeContainer.js:28
 msgid ""
 "Effortlessly design modern websites with UAE using our powerful range of "
 "widgets & features. Get started by selecting an option based on your needs."
 msgstr ""
 
-#: src/Components/Dashboard/WelcomeContainer.js:61
+#: src/Components/Dashboard/WelcomeContainer.js:60
 #: src/Components/Onboarding/Build.jsx:197
 msgid "Create Header/Footer"
 msgstr ""
 
-#: src/Components/Dashboard/WelcomeContainer.js:89
+#: src/Components/Dashboard/WelcomeContainer.js:88
 #: src/Components/Onboarding/Create.jsx:323
 msgid "Create New Page"
 msgstr ""
@@ -1142,19 +1142,19 @@ msgstr ""
 msgid "Search..."
 msgstr ""
 
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:230
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:229
 msgid "Activate All"
 msgstr ""
 
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:247
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:245
 msgid "Deactivate Unused"
 msgstr ""
 
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:255
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:253
 msgid "Deactivating..."
 msgstr ""
 
-#: src/Components/Widgets/Features/FeatureWidgets.jsx:255
+#: src/Components/Widgets/Features/FeatureWidgets.jsx:253
 msgid "Deactivate All "
 msgstr ""
 

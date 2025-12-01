@@ -68,6 +68,18 @@ class Site_Tagline extends Common_Widget {
 	}
 
 	/**
+	 * Retrieve Widget Keywords.
+	 *
+	 * @since 2.6.0
+	 * @access public
+	 *
+	 * @return string Widget keywords.
+	 */
+	public function get_keywords() {
+		return parent::get_widget_keywords( 'Site_Tagline' );
+	}
+
+	/**
 	 * Indicates if the widget's content is dynamic.
 	 *
 	 * This method returns true if the widget's output is dynamic and should not be cached,
