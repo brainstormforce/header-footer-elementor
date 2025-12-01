@@ -41,7 +41,7 @@
     "phpcompatibility/phpcompatibility-wp": "*",
     "automattic/vipwpcs": "^2.3",
     "phpstan/phpstan": "^1.11",
-    "php-stubs/generator": "^0.8.4",
+    "php-stubs/generator": "^0.8.0,<0.8.5",
     "php-stubs/wordpress-stubs": "^6.5",
     "szepeviktor/phpstan-wordpress": "^1.3"
   },
