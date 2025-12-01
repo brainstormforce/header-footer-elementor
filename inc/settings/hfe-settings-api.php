@@ -272,7 +272,7 @@ class HFE_Settings_Api {
 
 		$args = [
 			'body'    => $body,
-			'timeout' => 30,
+			'timeout' => 5,
 		];
 
 		$response = wp_remote_post( $api_domain_url, $args );

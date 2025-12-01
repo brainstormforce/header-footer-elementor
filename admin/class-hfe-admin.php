@@ -97,7 +97,7 @@ class HFE_Admin {
 			false 
 		);
 		
-		// Pass UAE Pro status and icon URL to JavaScript
+		// Pass UAE Pro status and icon URL to JavaScript.
 		$plugin_file       = 'ultimate-elementor/ultimate-elementor.php';
 		$is_uae_pro_active = ! file_exists( WP_PLUGIN_DIR . '/' . $plugin_file ) && ! HFE_Helper::is_pro_active();
 		wp_localize_script(
@@ -153,7 +153,7 @@ class HFE_Admin {
 		add_action( 'elementor/editor/footer', [ $this, 'print_permalink_clear_notice' ] );
 		add_action( 'elementor/editor/before_enqueue_scripts', [ $this, 'enqueue_permalink_clear_notice_js' ] );
 		add_action( 'elementor/editor/before_enqueue_styles', [ $this, 'enqueue_permalink_clear_notice_css' ] );
-		// Hook into Elementor's editor styles
+		// Hook into Elementor's editor styles.
 		add_action( 'elementor/editor/before_enqueue_scripts', [ $this, 'enqueue_editor_scripts' ] );
 		if ( 'yes' === get_option( 'uae_analytics_optin', false ) ) {
 			add_action( 'shutdown', [ $this, 'maybe_run_hfe_widgets_usage_check' ] );
@@ -177,7 +177,7 @@ class HFE_Admin {
 	 * Check the page on which Widget check need to be run.
 	 */
 	public function maybe_run_hfe_widgets_usage_check() {
-		// Run only on admin.php?page=hfe
+		// Run only on admin.php?page=hfe.
 		if (
 			is_admin() &&
 			isset( $_GET['page'] ) &&
@@ -192,7 +192,7 @@ class HFE_Admin {
 	 * @since 2.3.0
 	 */
 	public function hfe_check_widgets_data_usage() {
-		// Check user permissions
+		// Check user permissions.
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
@@ -202,7 +202,7 @@ class HFE_Admin {
 
 		if ( false === $widgets_usage || false === get_option( 'uae_widgets_usage_data_option' ) ) {
 			$filtered_widgets_usage = HFE_Helper::get_used_widget();
-			set_transient( $transient_key, $filtered_widgets_usage, MONTH_IN_SECONDS ); // Store for 5 minutes
+			set_transient( $transient_key, $filtered_widgets_usage, MONTH_IN_SECONDS ); // Store for 5 minutes.
 			update_option( 'uae_widgets_usage_data_option', $filtered_widgets_usage );
 		}
 	}
@@ -221,7 +221,7 @@ class HFE_Admin {
 		if ( isset( self::$elementor_instance ) ) {
 			$current_post_type = get_post_type( self::$elementor_instance->editor->get_post_id() );
 			
-			if ( $current_post_type !== 'elementor-hf' ) {
+			if ( 'elementor-hf' !== $current_post_type ) {
 				return;
 			}
 		}
@@ -248,7 +248,7 @@ class HFE_Admin {
 		if ( isset( self::$elementor_instance ) ) {
 			$current_post_type = get_post_type( self::$elementor_instance->editor->get_post_id() );
 
-			if ( $current_post_type !== 'elementor-hf' ) {
+			if ( 'elementor-hf' !== $current_post_type ) {
 				return;
 			}
 		}
@@ -284,7 +284,7 @@ class HFE_Admin {
 			if ( isset( self::$elementor_instance ) ) {
 				$current_post_type = get_post_type( self::$elementor_instance->editor->get_post_id() );
 				
-				if ( $current_post_type !== 'elementor-hf' ) {
+				if ( 'elementor-hf' !== $current_post_type ) {
 					return;
 				}
 			}
