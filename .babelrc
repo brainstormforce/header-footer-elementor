@@ -18,12 +18,11 @@
     [
       "module-resolver",
       {
-        "root": ["./src"], // Base folder for resolution
+        "root": ["./src"],
         "alias": {
-          "@screens": "./src/Screens",     // Alias for Screens folder
-          "@components": "./src/Components", // Alias for Components folder
-          // "@utils": "./src/Utils",
-          "@routes": "./src/Routes"           // Alias for Utilities folder
+          "@screens": "./src/Screens",
+          "@components": "./src/Components",
+          "@routes": "./src/Routes"
         }
       }
     ],
