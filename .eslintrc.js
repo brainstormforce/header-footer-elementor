@@ -51,6 +51,7 @@ module.exports = {
 				'jest/no-hooks': 'off',
 				'jest/prefer-expect-assertions': 'off',
 				'jest/prefer-inline-snapshots': 'off',
+				'jest/unbound-method': 'off',
 				'@typescript-eslint/unbound-method': 'off',
 			},
 		},
