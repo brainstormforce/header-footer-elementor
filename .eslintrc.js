@@ -27,6 +27,13 @@ module.exports = {
 				'plugin:@wordpress/eslint-plugin/test-e2e',
 				'plugin:jest/all',
 			],
+			parserOptions: {
+				requireConfigFile: false,
+				babelOptions: {
+					presets: [ require.resolve( '@wordpress/babel-preset-default' ) ],
+				},
+				project: null,
+			},
 			settings: {
 				jest: {
 					version: 26,
@@ -44,6 +51,7 @@ module.exports = {
 				'jest/no-hooks': 'off',
 				'jest/prefer-expect-assertions': 'off',
 				'jest/prefer-inline-snapshots': 'off',
+				'@typescript-eslint/unbound-method': 'off',
 			},
 		},
 	],
