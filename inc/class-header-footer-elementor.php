@@ -444,25 +444,25 @@ class Header_Footer_Elementor {
 	 * @return bool
 	 */
 	private function should_show_preview_notice() {
-		// Don't show if UAE Pro is already installed/activated
-		if ( is_plugin_active( 'ultimate-elementor/ultimate-elementor.php' ) || 
+		// Don't show if UAE Pro is already installed/activated.
+		if ( is_plugin_active( 'ultimate-elementor/ultimate-elementor.php' ) ||
 			file_exists( WP_PLUGIN_DIR . '/ultimate-elementor/ultimate-elementor.php' ) ) {
 			return false;
 		}
 
-		// Basic preview check
+		// Basic preview check.
 		if ( ! isset( $_GET['preview'] ) || sanitize_text_field( wp_unslash( $_GET['preview'] ) ) !== 'true' ) {
 			return false;
 		}
 
-		// Must have preview_id
+		// Must have preview_id.
 		if ( ! isset( $_GET['preview_id'] ) ) {
 			return false;
 		}
 
 		$preview_id = intval( sanitize_text_field( wp_unslash( $_GET['preview_id'] ) ) );
 
-		// Verify preview nonce for security (if available)
+		// Verify preview nonce for security (if available).
 		if ( isset( $_GET['preview_nonce'] ) ) {
 			$preview_nonce = sanitize_text_field( wp_unslash( $_GET['preview_nonce'] ) );
 			if ( ! wp_verify_nonce( $preview_nonce, 'post_preview_' . $preview_id ) ) {
@@ -470,24 +470,24 @@ class Header_Footer_Elementor {
 			}
 		}
 
-		// Check if it's a page post type (not header/footer templates)
+		// Check if it's a page post type (not header/footer templates).
 		$post_type = get_post_type( $preview_id );
-		if ( $post_type !== 'page' ) {
+		if ( 'page' !== $post_type ) {
 			return false;
 		}
 
-		// Exclude header/footer templates from UAE
+		// Exclude header/footer templates from UAE.
 		$template_type = get_post_meta( $preview_id, 'ehf_template_type', true );
 		if ( ! empty( $template_type ) ) {
-			return false; // This is a header/footer template, don't show notice
+			return false; // This is a header/footer template, don't show notice.
 		}
 
-		// Optional: Check if page uses Elementor
+		// Optional: Check if page uses Elementor.
 		if ( ! $this->is_elementor_page( $preview_id ) ) {
 			return false;
 		}
 
-		// Optional: Allow filtering for custom conditions
+		// Optional: Allow filtering for custom conditions.
 		return apply_filters( 'hfe_show_preview_notice', true, $preview_id );
 	}
 
@@ -665,7 +665,7 @@ class Header_Footer_Elementor {
 			require_once HFE_DIR . 'inc/lib/class-uae-nps-survey.php';
 		}
 
-		// Load the Promotion system for Ultimate Elementor
+		// Load the Promotion system for Ultimate Elementor.
 		if ( ! class_exists( 'HFE_Promotion' ) ) {
 			require_once HFE_DIR . 'inc/class-hfe-promotion.php';
 		}

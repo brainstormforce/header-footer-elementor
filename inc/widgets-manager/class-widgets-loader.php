@@ -129,7 +129,7 @@ class Widgets_Loader {
 		// Register widgets script.
 		add_action( 'elementor/frontend/after_register_scripts', [ $this, 'register_widget_scripts' ] );
 
-		// Showing Pro Widgets
+		// Showing Pro Widgets.
 		add_filter( 'elementor/editor/localize_settings', [ $this, 'uae_promote_pro_elements' ] );
 
 		// Refresh the cart fragments.
@@ -255,7 +255,7 @@ class Widgets_Loader {
 		// Emqueue the widgets style.
 		wp_enqueue_style( 'hfe-widgets-style', HFE_URL . 'inc/widgets-css/frontend.css', [], HFE_VER );
 		
-		// Enqueue Woo Products widget styles
+		// Enqueue Woo Products widget styles.
 		if ( class_exists( 'WooCommerce' ) ) {
 			wp_enqueue_style( 'hfe-woo-product-grid', HFE_URL . 'inc/widgets-css/woo-products.css', [], HFE_VER );
 		}

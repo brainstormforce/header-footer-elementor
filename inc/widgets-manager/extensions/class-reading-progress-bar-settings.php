@@ -100,7 +100,7 @@ class Reading_Progress_Bar_Settings extends Tab_Base {
 			]
 		);
 
-		 // Get all public post types
+		 // Get all public post types.
 		$post_types = get_post_types(
 			[
 				'public' => true,
@@ -113,8 +113,8 @@ class Reading_Progress_Bar_Settings extends Tab_Base {
 		];
 
 		foreach ( $post_types as $post_type ) {
-			// Skip attachment post type
-			if ( $post_type->name !== 'attachment' ) {
+			// Skip attachment post type.
+			if ( 'attachment' !== $post_type->name ) {
 				$post_type_options[ $post_type->name ] = html_entity_decode( $post_type->label );
 			}
 		}

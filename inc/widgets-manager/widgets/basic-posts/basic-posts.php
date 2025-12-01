@@ -129,8 +129,8 @@ class Basic_Posts extends Common_Widget {
 		$this->register_meta_controls();
 		$this->register_excerpt_controls();
 		$this->register_read_more_controls();
-		
-		// Style Controls
+
+		// Style Controls.
 		$this->register_layout_style_controls();
 		$this->register_card_style_controls();
 		$this->register_title_style_controls();
@@ -762,7 +762,7 @@ class Basic_Posts extends Common_Widget {
 			[
 				'label'     => __( 'Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				// 'default'   => '#ADADAD',
+				// 'default'   => '#ADADAD'.
 				'global'    => [
 					'default' => Global_Colors::COLOR_TEXT,
 				],
@@ -968,16 +968,16 @@ class Basic_Posts extends Common_Widget {
 		$orderby        = sanitize_key( $settings['orderby'] ?? 'date' );
 		$order          = sanitize_key( $settings['order'] ?? 'desc' );
 
-		// Ensure posts_per_page is within bounds
+		// Ensure posts_per_page is within bounds.
 		$posts_per_page = max( 1, min( 100, $posts_per_page ) );
 
-		// Validate orderby against allowed values
+		// Validate order.by against allowed values.
 		$allowed_orderby = [ 'date', 'title', 'menu_order', 'rand', 'comment_count' ];
 		if ( ! in_array( $orderby, $allowed_orderby, true ) ) {
 			$orderby = 'date';
 		}
 
-		// Validate order
+		// Validate order.
 		$order = strtoupper( $order );
 		if ( ! in_array( $order, [ 'ASC', 'DESC' ], true ) ) {
 			$order = 'DESC';
@@ -991,7 +991,7 @@ class Basic_Posts extends Common_Widget {
 			'post_status'    => 'publish',
 		];
 
-		// Exclude current post if enabled
+		// Exclude current post if enabled.
 		if ( 'yes' === $settings['exclude_current'] && is_singular() ) {
 			$current_id = get_the_ID();
 			if ( $current_id ) {
@@ -1031,6 +1031,6 @@ class Basic_Posts extends Common_Widget {
 			return;
 		}
 
-		echo $this->render_template( $settings );
+		echo wp_kses_post( $this->render_template( $settings ) );
 	}
 }

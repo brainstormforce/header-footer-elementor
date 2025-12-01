@@ -88,12 +88,12 @@ class Reading_Progress_Bar {
 		if ( 'yes' === $enable_global ) {
 			$display_on = $this->get_elementor_settings( 'hfe_reading_progress_display_on' );
 			
-			// If display_on is not an array, convert it to one for consistency
+			// If display_on is not an array, convert it to one for consistency.
 			if ( ! is_array( $display_on ) ) {
 				$display_on = [ $display_on ];
 			}
 			
-			// Check if "all" is selected or if the current post type is in the selected types
+			// Check if "all" is selected or if the current post type is in the selected types.
 			if ( in_array( 'all', $display_on, true ) || in_array( get_post_type( $post_id ), $display_on, true ) ) {
 				$show_bar = true;
 			}
@@ -105,7 +105,7 @@ class Reading_Progress_Bar {
 			$position        = $this->get_elementor_settings( 'hfe_reading_progress_position' );
 			$style_container = 'position:fixed;left:0;width:100%;z-index:99999;';
 			if ( 'top' === $position ) {
-				// Add margin-top if user is logged in to account for the admin bar
+				// Add margin-top if user is logged in to account for the admin bar.
 				if ( is_admin_bar_showing() && $position === 'top' ) {
 					$style_container .= 'margin-top:30px;';
 				}

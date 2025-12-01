@@ -130,8 +130,8 @@ class HFE_Settings_Page {
 		$screen = get_current_screen();
 	
 		if (
-			( isset( $_GET['page'] ) && $_GET['page'] === 'hfe' ) ||
-			( isset( $screen->post_type ) && $screen->post_type === 'elementor-hf' )
+			( isset( $_GET['page'] ) && 'hfe' === $_GET['page'] ) ||
+			( isset( $screen->post_type ) && 'elementor-hf' === $screen->post_type )
 		) {
 			$footer_text = sprintf(
 				/* translators: %1$s is bold plugin name, %2$s is the review link */
@@ -285,7 +285,7 @@ class HFE_Settings_Page {
 	 */
 	public function fetch_user_email() {
 		$current_user = wp_get_current_user();
-		if ( $current_user->ID !== 0 ) {
+		if ( 0 !== $current_user->ID ) {
 			return $current_user->user_email;
 		} else {
 			return null;
@@ -300,7 +300,7 @@ class HFE_Settings_Page {
 	 */
 	public function fetch_user_fname() {
 		$current_user = wp_get_current_user();
-		if ( $current_user->ID !== 0 ) {
+		if ( 0 !== $current_user->ID ) {
 			return $current_user->user_firstname;
 		} else {
 			return null;
@@ -333,7 +333,7 @@ class HFE_Settings_Page {
 	
 		$uae_logo      = HFE_URL . 'assets/images/settings/dashboard-logo.svg';
 		$white_logo    = HFE_URL . 'assets/images/settings/white-logo.svg';
-		$show_view_all = ( $post_type === 'elementor-hf' && $pagenow === 'post.php' ) ? 'yes' : 'no';
+		$show_view_all = ( 'elementor-hf' === $post_type && 'post.php' === $pagenow ) ? 'yes' : 'no';
 		$hfe_edit_url  = admin_url( 'edit.php?post_type=elementor-hf' );
 		$is_hfe_post   = ( 'elementor-hf' === $post_type && ( 'post.php' === $pagenow || 'post-new.php' === $pagenow ) ) ? 'yes' : 'no';
 	
@@ -540,7 +540,7 @@ class HFE_Settings_Page {
 			$action = explode( ' ', $action );
 		}
 
-		if ( $page_slug === $current_page_slug && in_array( $current_action, $action, true ) ) {
+		if ( $current_page_slug === $page_slug && in_array( $current_action, $action, true ) ) {
 			$page_matched = true;
 		}
 
@@ -855,7 +855,7 @@ class HFE_Settings_Page {
 		$is_dismissed = [];
 		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
 
-		$is_subscribed   = get_user_meta( get_current_user_ID(), 'hfe-subscribed' );
+		$is_subscribed   = get_user_meta( get_current_user_id(), 'hfe-subscribed' );
 		$subscribe_valid = ( is_array( $is_subscribed ) && isset( $is_subscribed[0] ) && 'yes' === $is_subscribed[0] ) ? 'yes' : false;
 
 		if ( ( ! empty( $is_dismissed ) && 'dismissed' === $is_dismissed[0] ) || 'yes' === $subscribe_valid ) {
@@ -894,9 +894,9 @@ class HFE_Settings_Page {
 
 				$tab_slug = str_replace( '_', '-', $tab_id );
 
-				$active_tab = ( ( isset( $_GET['page'] ) && $tab_slug == $_GET['page'] ) || ( ! isset( $_GET['page'] ) && 'hfe_templates' == $tab_id ) ) ? $tab_id : ''; // PHPCS:Ignore WordPress.Security.NonceVerification.Recommended --This code is deprecated and will be removed in future versions.
+				$active_tab = ( ( isset( $_GET['page'] ) && $tab_slug === $_GET['page'] ) || ( ! isset( $_GET['page'] ) && 'hfe_templates' === $tab_id ) ) ? $tab_id : ''; // PHPCS:Ignore WordPress.Security.NonceVerification.Recommended --This code is deprecated and will be removed in future versions.
 
-				$active = ( $active_tab == $tab_id ) ? ' nav-tab-active' : '';
+				$active = ( $active_tab === $tab_id ) ? ' nav-tab-active' : '';
 
 				echo '<a href="' . esc_url( $tab['url'] ) . '" class="nav-tab' . esc_attr( $active ) . '">';
 				echo esc_html( $tab['name'] );
@@ -964,7 +964,7 @@ class HFE_Settings_Page {
 	 */
 	public function get_guide_html() {
 
-		$is_subscribed   = get_user_meta( get_current_user_ID(), 'hfe-subscribed' );
+		$is_subscribed   = get_user_meta( get_current_user_id(), 'hfe-subscribed' );
 		$subscribe_valid = ( is_array( $is_subscribed ) && isset( $is_subscribed[0] ) && 'yes' === $is_subscribed[0] ) ? 'yes' : false;
 		$subscribe_flag  = ( 'yes' === $subscribe_valid ) ? ' hfe-user-subscribed' : ' hfe-user-unsubscribed';
 		?>
