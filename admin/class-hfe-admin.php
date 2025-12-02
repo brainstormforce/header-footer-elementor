@@ -308,8 +308,8 @@ class HFE_Admin {
 					<?php } ?>
 				</div>
 			</div>
-			<?php 
-		} 
+			<?php
+		}
 	}
 
 
