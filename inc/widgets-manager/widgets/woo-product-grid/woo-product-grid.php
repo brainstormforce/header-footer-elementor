@@ -507,7 +507,7 @@ class Woo_Product_Grid extends Common_Widget {
 	 * @access protected
 	 */
 	protected function register_content_style_controls() {
-		// Content Area Styling
+		// Content Area Styling.
 		$this->start_controls_section(
 			'section_content_area_style',
 			[
@@ -581,9 +581,9 @@ class Woo_Product_Grid extends Common_Widget {
 		$this->end_controls_section();
 
 		$this->register_image_size_style_controls();
-		
 
-		// Category Styling
+
+		// Category Styling.
 		$this->start_controls_section(
 			'section_category_style',
 			[
@@ -638,7 +638,7 @@ class Woo_Product_Grid extends Common_Widget {
 
 		$this->end_controls_section();
 
-		// Title, Rating, Price, Add to Cart styles (condensed)
+		// Title, Rating, Price, Add to Cart styles (condensed).
 		$this->register_title_style_controls();
 		$this->register_rating_style_controls();
 		$this->register_price_style_controls();
@@ -1047,7 +1047,7 @@ class Woo_Product_Grid extends Common_Widget {
 	 * @access protected
 	 */
 	protected function register_pro_promotion_controls() {
-		// Add promotion controls if needed for pro features
+		// Add promotion controls if needed for pro features.
 	}
 
 	/**
@@ -1068,19 +1068,19 @@ class Woo_Product_Grid extends Common_Widget {
 			'tax_query'      => WC()->query->get_tax_query(), // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
 		];
 
-		// Set ordering
+		// Set ordering.
 		switch ( $settings['orderby'] ) {
 			case 'price':
 				$args['meta_key'] = '_price'; // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
-				$args['orderby']  = 'meta_value_num';
+				$args['orderby'] = 'meta_value_num';
 				break;
 			case 'popularity':
 				$args['meta_key'] = 'total_sales'; // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
-				$args['orderby']  = 'meta_value_num';
+				$args['orderby'] = 'meta_value_num';
 				break;
 			case 'rating':
 				$args['meta_key'] = '_wc_average_rating'; // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
-				$args['orderby']  = 'meta_value_num';
+				$args['orderby'] = 'meta_value_num';
 				break;
 			default:
 				$args['orderby'] = $settings['orderby'];
@@ -1120,7 +1120,7 @@ class Woo_Product_Grid extends Common_Widget {
 		}
 
 		$settings = $this->get_settings_for_display();
-		$query    = $this->get_products_query();
+		$query = $this->get_products_query();
 
 		if ( ! $query->have_posts() ) {
 			$this->render_no_products_message();
@@ -1249,5 +1249,5 @@ class Woo_Product_Grid extends Common_Widget {
 		<?php
 	}
 
-	// NO content_template() method - this forces Elementor to use render() for both editor and frontend
+	// NO content_template() method - this forces Elementor to use render() for both editor and frontend.
 }

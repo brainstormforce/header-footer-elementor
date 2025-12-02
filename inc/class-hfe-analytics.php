@@ -132,6 +132,8 @@ if ( ! class_exists( 'HFE_Analytics' ) ) {
 
 		/**
 		 * Fetch Elementor data.
+		 *
+		 * @return array
 		 */
 		private function hfe_get_widgets_usage() {
 				$get_Widgets = get_option( 'uae_widgets_usage_data_option', [] );

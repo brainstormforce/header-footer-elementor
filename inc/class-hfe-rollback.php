@@ -92,6 +92,7 @@ if ( ! class_exists( 'HFE_Rollback' ) ) {
 		 *
 		 * @since 2.2.1
 		 * @access private
+		 * @return void
 		 */
 		private function print_inline_style() {
 			?>
@@ -130,6 +131,7 @@ if ( ! class_exists( 'HFE_Rollback' ) ) {
 		 *
 		 * @since 2.2.1
 		 * @access protected
+		 * @return void
 		 */
 		protected function apply_package() {
 			$update_plugins = get_site_transient( 'update_plugins' );
@@ -137,11 +139,11 @@ if ( ! class_exists( 'HFE_Rollback' ) ) {
 				$update_plugins = new \stdClass();
 			}
 
-			$plugin_info              = new \stdClass();
+			$plugin_info = new \stdClass();
 			$plugin_info->new_version = $this->version;
-			$plugin_info->slug        = $this->plugin_slug;
-			$plugin_info->package     = $this->package_url;
-			$plugin_info->url         = 'https://wordpress.org/plugins/header-footer-elementor/';
+			$plugin_info->slug = $this->plugin_slug;
+			$plugin_info->package = $this->package_url;
+			$plugin_info->url = 'https://wordpress.org/plugins/header-footer-elementor/';
 
 			$update_plugins->response[ $this->plugin_name ] = $plugin_info;
 
@@ -155,6 +157,7 @@ if ( ! class_exists( 'HFE_Rollback' ) ) {
 		 *
 		 * @since 2.2.1
 		 * @access protected
+		 * @return void
 		 */
 		protected function upgrade() {
 
@@ -180,6 +183,7 @@ if ( ! class_exists( 'HFE_Rollback' ) ) {
 		 *
 		 * @since 2.2.1
 		 * @access public
+		 * @return void
 		 */
 		public function run() {
 			$this->apply_package();

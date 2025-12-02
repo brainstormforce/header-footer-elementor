@@ -18,9 +18,9 @@ class HFE_Elementor_Canvas_Compat {
 	private static $instance;
 
 	/**
-	 *  Initiator
+	 * Initiator
 	 *
-	 * @return  HFE_Elementor_Canvas_Compat
+	 * @return HFE_Elementor_Canvas_Compat
 	 */
 	public static function instance() {
 		if ( ! isset( self::$instance ) ) {
@@ -60,11 +60,11 @@ class HFE_Elementor_Canvas_Compat {
 
 		if ( hfe_is_before_footer_enabled() ) {
 
-			// check if current page template is Elemenntor Canvas.
-			if ( 'elementor_canvas' == get_page_template_slug() ) {
+			// Check if current page template is Elementor Canvas.
+			if ( 'elementor_canvas' === get_page_template_slug() ) {
 				$override_cannvas_template = get_post_meta( hfe_get_before_footer_id(), 'display-on-canvas-template', true );
 
-				if ( '1' == $override_cannvas_template ) {
+				if ( '1' === $override_cannvas_template ) {
 					add_action( 'elementor/page_templates/canvas/after_content', 'hfe_render_before_footer', 9 );
 				}
 			}
@@ -79,14 +79,14 @@ class HFE_Elementor_Canvas_Compat {
 	 */
 	public function render_header() {
 
-		// bail if current page template is not Elemenntor Canvas.
+		// Bail if current page template is not Elementor Canvas.
 		if ( 'elementor_canvas' !== get_page_template_slug() ) {
 			return;
 		}
 
 		$override_cannvas_template = get_post_meta( get_hfe_header_id(), 'display-on-canvas-template', true );
 
-		if ( '1' == $override_cannvas_template ) {
+		if ( '1' === $override_cannvas_template ) {
 			hfe_render_header();
 		}
 	}
@@ -99,14 +99,14 @@ class HFE_Elementor_Canvas_Compat {
 	 */
 	public function render_footer() {
 
-		// bail if current page template is not Elemenntor Canvas.
+		// Bail if current page template is not Elementor Canvas.
 		if ( 'elementor_canvas' !== get_page_template_slug() ) {
 			return;
 		}
 
 		$override_cannvas_template = get_post_meta( get_hfe_footer_id(), 'display-on-canvas-template', true );
 
-		if ( '1' == $override_cannvas_template ) {
+		if ( '1' === $override_cannvas_template ) {
 			hfe_render_footer();
 		}
 	}

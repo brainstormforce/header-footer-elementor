@@ -1,7 +1,7 @@
 <?php
 /**
  * HFE Promotion Class
- * 
+ *
  * Promotes Ultimate Elementor extensions within Header Footer Elementor
  *
  * @package header-footer-elementor
@@ -22,6 +22,8 @@ class HFE_Promotion {
 
 	/**
 	 * Constructor
+	 *
+	 * @return void
 	 */
 	public function __construct() {
 		// Only show promotions if Ultimate Elementor Pro is not active.
@@ -32,6 +34,8 @@ class HFE_Promotion {
 
 	/**
 	 * Initialize hooks
+	 *
+	 * @return void
 	 */
 	private function init_hooks() {
 		// Particles Extension - Add to section/column/container background sections.
@@ -59,6 +63,8 @@ class HFE_Promotion {
 
 	/**
 	 * Check if Ultimate Elementor Pro is active
+	 *
+	 * @return bool
 	 */
 	private function is_ultimate_elementor_active() {
 		return defined( 'UAEL_PRO' ) && UAEL_PRO;
@@ -66,6 +72,8 @@ class HFE_Promotion {
 
 	/**
 	 * Check if we're editing a header template
+	 *
+	 * @return bool
 	 */
 	private function is_header_template() {
 		global $post;
@@ -94,6 +102,7 @@ class HFE_Promotion {
 	 * Generate promotional teaser template
 	 *
 	 * @param array $args Arguments for the teaser template.
+	 * @return string
 	 */
 	private function get_teaser_template( $args ) {
 		// Validate input is array.
@@ -149,6 +158,7 @@ class HFE_Promotion {
 	 * Get sanitized promotion label
 	 *
 	 * @param string $feature_name Name of the feature.
+	 * @return string
 	 */
 	private function get_promotion_label( $feature_name ) {
 		$feature_name = sanitize_text_field( $feature_name );
@@ -167,6 +177,7 @@ class HFE_Promotion {
 	 * Add Particles extension promotion
 	 *
 	 * @param object $element Elementor element object.
+	 * @return void
 	 */
 	public function add_particles_promotion( $element ) {
 		$element->start_controls_section(
@@ -197,6 +208,7 @@ class HFE_Promotion {
 	 * Add Display Conditions extension promotion
 	 *
 	 * @param object $element Elementor element object.
+	 * @return void
 	 */
 	public function add_display_conditions_promotion( $element ) {
 		$element->start_controls_section(
@@ -227,6 +239,7 @@ class HFE_Promotion {
 	 * Add Party Propz extension promotion
 	 *
 	 * @param object $element Elementor element object.
+	 * @return void
 	 */
 	public function add_party_propz_promotion( $element ) {
 		$element->start_controls_section(
@@ -257,6 +270,7 @@ class HFE_Promotion {
 	 * Add Sticky Header extension promotion (only for header templates)
 	 *
 	 * @param object $element Elementor element object.
+	 * @return void
 	 */
 	public function add_sticky_header_promotion( $element ) {
 		// Only show for header templates.

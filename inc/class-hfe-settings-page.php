@@ -20,8 +20,7 @@ use HFE\WidgetsManager\Base\HFE_Helper;
 class HFE_Settings_Page {
 	
 	/**
-	 * Instance
-	 * z
+	 * Instance.
 	 *
 	 * @access private
 	 * @var string Class object.
@@ -37,7 +36,7 @@ class HFE_Settings_Page {
 	public function __construct() {
 
 		add_action( 'admin_post_uaelite_rollback', [ $this, 'post_uaelite_rollback' ] );
-		
+
 		add_action( 'admin_head', [ $this, 'hfe_global_css' ] );
 
 		add_action( 'admin_head', [ $this, 'fetch_user_email' ] );
@@ -56,11 +55,11 @@ class HFE_Settings_Page {
 			add_action( 'admin_init', [ $this, 'hfe_admin_init' ] );
 			add_filter( 'views_edit-elementor-hf', [ $this, 'hfe_settings' ], 10, 1 );
 		}
-		
+
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
 		add_filter( 'plugin_action_links_' . HFE_PATH, [ $this, 'settings_link' ] );
 		add_filter( 'plugin_action_links_' . HFE_PATH, [ $this, 'upgrade_pro_link' ] );
-		add_filter( 'plugin_row_meta', [ $this, 'add_rating_meta_links' ], 10, 2 );     
+		add_filter( 'plugin_row_meta', [ $this, 'add_rating_meta_links' ], 10, 2 );
 
 		if ( version_compare( get_bloginfo( 'version' ), '5.1.0', '>=' ) ) {
 			add_filter( 'wp_check_filetype_and_ext', [ $this, 'real_mime_types_5_1_0' ], 10, 5 );
@@ -124,14 +123,15 @@ class HFE_Settings_Page {
 	 * Adding Rating footer to dashboard pages.
 	 *
 	 * @since 2.4.5
-	 * @return void
+	 * @param string $footer_text Footer text content.
+	 * @return string
 	 */
 	public function uae_custom_admin_footer_text( $footer_text ) {
 		$screen = get_current_screen();
-	
+
 		if (
-			( isset( $_GET['page'] ) && $_GET['page'] === 'hfe' ) ||
-			( isset( $screen->post_type ) && $screen->post_type === 'elementor-hf' )
+			( isset( $_GET['page'] ) && 'hfe' === $_GET['page'] ) ||
+			( isset( $screen->post_type ) && 'elementor-hf' === $screen->post_type )
 		) {
 			$footer_text = sprintf(
 				/* translators: %1$s is bold plugin name, %2$s is the review link */
@@ -171,7 +171,7 @@ class HFE_Settings_Page {
 						'plugin_rating_link'    => esc_url( 'https://www.trustpilot.com/review/ultimateelementor.com' ),
 						// Step 2B i.e. negative.
 						'plugin_rating_title'   => __( 'Thank you for your feedback', 'header-footer-elementor' ),
-						'plugin_rating_content' => __( 'We value your input. How can we improve your experience?', 'header-footer-elementor' ),             
+						'plugin_rating_content' => __( 'We value your input. How can we improve your experience?', 'header-footer-elementor' ),
 					],
 				]
 			);
@@ -179,7 +179,9 @@ class HFE_Settings_Page {
 	}
 
 	/**
-	 * Get Elementor edit page link
+	 * Get Elementor edit page link.
+	 *
+	 * @return string
 	 */
 	public static function get_elementor_new_page_url() {
 
@@ -236,7 +238,7 @@ class HFE_Settings_Page {
 		}
 
 		$plugin_slug = basename( HFE_FILE, '.php' );
-		
+
 		if ( class_exists( 'HFE_Rollback' ) ) {
 			$rollback = new \HFE_Rollback(
 				[
@@ -261,9 +263,9 @@ class HFE_Settings_Page {
 	}
 
 	/**
-	 * Settings tab array
+	 * Settings tab array.
 	 *
-	 * @var settings tabs
+	 * @var array Settings tabs.
 	 */
 	public static $hfe_settings_tabs;
 
@@ -330,43 +332,43 @@ class HFE_Settings_Page {
 	public function enqueue_admin_scripts() {
 
 		global $pagenow, $post_type;
-	
-		$uae_logo      = HFE_URL . 'assets/images/settings/dashboard-logo.svg';
-		$white_logo    = HFE_URL . 'assets/images/settings/white-logo.svg';
-		$show_view_all = ( $post_type === 'elementor-hf' && $pagenow === 'post.php' ) ? 'yes' : 'no';
-		$hfe_edit_url  = admin_url( 'edit.php?post_type=elementor-hf' );
-		$is_hfe_post   = ( 'elementor-hf' === $post_type && ( 'post.php' === $pagenow || 'post-new.php' === $pagenow ) ) ? 'yes' : 'no';
-	
-		$additional_condition = ( isset( $_GET['post_type'] ) && 'elementor-hf' === sanitize_text_field( $_GET['post_type'] ) && 
+
+		$uae_logo = HFE_URL . 'assets/images/settings/dashboard-logo.svg';
+		$white_logo = HFE_URL . 'assets/images/settings/white-logo.svg';
+		$show_view_all = ( 'elementor-hf' === $post_type && 'post.php' === $pagenow ) ? 'yes' : 'no';
+		$hfe_edit_url = admin_url( 'edit.php?post_type=elementor-hf' );
+		$is_hfe_post = ( 'elementor-hf' === $post_type && ( 'post.php' === $pagenow || 'post-new.php' === $pagenow ) ) ? 'yes' : 'no';
+
+		$additional_condition = ( isset( $_GET['post_type'] ) && 'elementor-hf' === sanitize_text_field( $_GET['post_type'] ) &&
 			( 'edit.php' === $GLOBALS['pagenow'] || 'post.php' === $GLOBALS['pagenow'] || 'post-new.php' === $GLOBALS['pagenow'] ) ) ||
 			( isset( $_GET['post'] ) && 'post.php' === $GLOBALS['pagenow'] && isset( $_GET['action'] ) && 'edit' === sanitize_text_field( $_GET['action'] ) && 'elementor-hf' === get_post_type( sanitize_text_field( $_GET['post'] ) ) ) ||
 			( 'post-new.php' === $GLOBALS['pagenow'] && isset( $_GET['post_type'] ) && 'elementor-hf' === sanitize_text_field( $_GET['post_type'] ) );
-	
-		if ( ( 
-				self::is_current_page( 'hfe' ) || 
-				$additional_condition 
-			) && 
-			! HFE_Helper::is_pro_active() 
+
+		if ( (
+				self::is_current_page( 'hfe' ) ||
+				$additional_condition
+			) &&
+			! HFE_Helper::is_pro_active()
 		) {
-	
+
 			$rollback_versions = HFE_Helper::get_rollback_versions_options();
-			$st_status         = HFE_Helper::free_starter_templates_status();
-			$stpro_status      = HFE_Helper::premium_starter_templates_status();
-			$st_link           = HFE_Helper::starter_templates_link();
-			$hfe_post_url      = admin_url( 'post-new.php?post_type=elementor-hf' );
+			$st_status = HFE_Helper::free_starter_templates_status();
+			$stpro_status = HFE_Helper::premium_starter_templates_status();
+			$st_link = HFE_Helper::starter_templates_link();
+			$hfe_post_url = admin_url( 'post-new.php?post_type=elementor-hf' );
 			// Fetch the user's email.
-			$user_email         = $this->fetch_user_email();
-			$user_name          = $this->fetch_user_fname();
-			$siteurl            = $this->fetch_site_url();
+			$user_email = $this->fetch_user_email();
+			$user_name = $this->fetch_user_fname();
+			$siteurl = $this->fetch_site_url();
 			$show_theme_support = 'no';
-			$hfe_theme_status   = get_option( 'hfe_is_theme_supported', false );
-			$analytics_status   = get_option( 'uae_analytics_optin', false );
-	
+			$hfe_theme_status = get_option( 'hfe_is_theme_supported', false );
+			$analytics_status = get_option( 'uae_analytics_optin', false );
+
 			if ( ( ! current_theme_supports( 'header-footer-elementor' ) ) && ! $hfe_theme_status ) {
 				$show_theme_support = 'yes';
 			}
 			$theme_option = get_option( 'hfe_compatibility_option', '1' );
-	
+
 			wp_enqueue_script(
 				'header-footer-elementor-react-app',
 				HFE_URL . 'build/main.js',
@@ -377,7 +379,6 @@ class HFE_Settings_Page {
 
 			wp_set_script_translations( 'header-footer-elementor-react-app', 'header-footer-elementor', HFE_DIR . 'languages' );
 
-	
 			wp_localize_script(
 				'header-footer-elementor-react-app',
 				'hfeSettingsData',
@@ -445,9 +446,9 @@ class HFE_Settings_Page {
 				HFE_VER
 			);
 		}
-	
+
 		if ( '' !== $uae_logo && '' !== $white_logo ) {
-	
+
 			$custom_css = '
 				#toplevel_page_hfe .wp-menu-image {
 					background-image: url(' . esc_url( $uae_logo ) . ') !important;
@@ -462,11 +463,11 @@ class HFE_Settings_Page {
 			';
 			wp_add_inline_style( 'wp-admin', $custom_css );
 		}
-	
+
 		wp_enqueue_script( 'hfe-admin-script', HFE_URL . 'admin/assets/js/ehf-admin.js', [ 'jquery', 'updates' ], HFE_VER, true );
-	
-		$is_dismissed             = get_user_meta( get_current_user_id(), 'hfe-popup' );
-		$upgrade_notice_dismissed = get_user_meta( get_current_user_id(), 'hfe_upgrade_notice_dismissed', 'false' ) === 'true';
+
+		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
+		$upgrade_notice_dismissed = 'true' === get_user_meta( get_current_user_id(), 'hfe_upgrade_notice_dismissed', 'false' );
 
 		$strings = [
 			'addon_activate'           => esc_html__( 'Activate', 'header-footer-elementor' ),
@@ -496,7 +497,7 @@ class HFE_Settings_Page {
 		];
 	
 		$strings = apply_filters( 'hfe_admin_strings', $strings );
-	
+
 		wp_localize_script(
 			'hfe-admin-script',
 			'hfe_admin_data',
@@ -509,7 +510,7 @@ class HFE_Settings_Page {
 	 * Adds a tab in plugin submenu page.
 	 *
 	 * @since 1.6.0
-	 * @param string $views to add tab to current post type view.
+	 * @param string $views To add tab to current post type view.
 	 *
 	 * @return mixed
 	 */
@@ -518,12 +519,12 @@ class HFE_Settings_Page {
 	}
 
 	/**
-	 * CHeck if it is current page by parameters
+	 * Check if it is current page by parameters.
 	 *
 	 * @param string $page_slug Menu name.
 	 * @param string $action Menu name.
 	 *
-	 * @return  string page url
+	 * @return  string Page url.
 	 */
 	public static function is_current_page( $page_slug = '', $action = '' ) {
 
@@ -563,9 +564,9 @@ class HFE_Settings_Page {
 	}
 
 	/**
-	 * Call back function for the ssettings api function add_settings_section
+	 * Call back function for the settings api function add_settings_section.
 	 *
-	 * This function can be used to add description of the settings sections
+	 * This function can be used to add description of the settings sections.
 	 *
 	 * @since 1.6.0
 	 * @return void
@@ -577,9 +578,9 @@ class HFE_Settings_Page {
 	}
 
 	/**
-	 * Call back function for the ssettings api function add_settings_field
+	 * Call back function for the settings api function add_settings_field.
 	 *
-	 * This function will contain the markup for the input feilds that we can add.
+	 * This function will contain the markup for the input fields that we can add.
 	 *
 	 * @since 1.6.0
 	 * @return void
@@ -693,7 +694,6 @@ class HFE_Settings_Page {
 			[ $this, 'render' ],
 			9
 		);
-		
 
 		// Add the Settings Submenu.
 		add_submenu_page(
@@ -747,7 +747,7 @@ class HFE_Settings_Page {
 	 * @since 2.4.2
 	 */
 	public function hfe_add_upgrade_to_pro() {
-		
+
 		// Add the Get Help Submenu.
 		add_submenu_page(
 			$this->menu_slug,
@@ -779,13 +779,13 @@ class HFE_Settings_Page {
 	public function render() {
 
 		$menu_page_slug = ( ! empty( $_GET['page'] ) ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : $this->menu_slug; //phpcs:ignore WordPress.Security.NonceVerification.Recommended
-		$page_action    = '';
-   
+		$page_action = '';
+
 		if ( isset( $_GET['action'] ) ) { //phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			$page_action = sanitize_text_field( wp_unslash( $_GET['action'] ) ); //phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			$page_action = str_replace( '_', '-', $page_action );
 		}
-   
+
 		include_once HFE_DIR . 'inc/settings/admin-base.php';
 	}
 
@@ -793,8 +793,8 @@ class HFE_Settings_Page {
 	 * Renders the admin settings content.
 	 *
 	 * @since 1.0.0
-	 * @param string $menu_page_slug current page name.
-	 * @param string $page_action current page action.
+	 * @param string $menu_page_slug Current page name.
+	 * @param string $page_action Current page action.
 	 *
 	 * @return void
 	 */
@@ -894,9 +894,9 @@ class HFE_Settings_Page {
 
 				$tab_slug = str_replace( '_', '-', $tab_id );
 
-				$active_tab = ( ( isset( $_GET['page'] ) && $tab_slug == $_GET['page'] ) || ( ! isset( $_GET['page'] ) && 'hfe_templates' == $tab_id ) ) ? $tab_id : ''; // PHPCS:Ignore WordPress.Security.NonceVerification.Recommended --This code is deprecated and will be removed in future versions.
+				$active_tab = ( ( isset( $_GET['page'] ) && $tab_slug === $_GET['page'] ) || ( ! isset( $_GET['page'] ) && 'hfe_templates' === $tab_id ) ) ? $tab_id : ''; // PHPCS:Ignore WordPress.Security.NonceVerification.Recommended --This code is deprecated and will be removed in future versions.
 
-				$active = ( $active_tab == $tab_id ) ? ' nav-tab-active' : '';
+				$active = ( $active_tab === $tab_id ) ? ' nav-tab-active' : '';
 
 				echo '<a href="' . esc_url( $tab['url'] ) . '" class="nav-tab' . esc_attr( $active ) . '">';
 				echo esc_html( $tab['name'] );
@@ -964,9 +964,9 @@ class HFE_Settings_Page {
 	 */
 	public function get_guide_html() {
 
-		$is_subscribed   = get_user_meta( get_current_user_ID(), 'hfe-subscribed' );
+		$is_subscribed = get_user_meta( get_current_user_ID(), 'hfe-subscribed' );
 		$subscribe_valid = ( is_array( $is_subscribed ) && isset( $is_subscribed[0] ) && 'yes' === $is_subscribed[0] ) ? 'yes' : false;
-		$subscribe_flag  = ( 'yes' === $subscribe_valid ) ? ' hfe-user-subscribed' : ' hfe-user-unsubscribed';
+		$subscribe_flag = ( 'yes' === $subscribe_valid ) ? ' hfe-user-subscribed' : ' hfe-user-unsubscribed';
 		?>
 
 		<div class="hfe-admin-about-section hfe-admin-columns hfe-admin-guide-section<?php echo esc_attr( $subscribe_flag ); ?>">
@@ -1192,11 +1192,11 @@ class HFE_Settings_Page {
 			return;
 		}
 
-		$all_plugins         = get_plugins();
-		$all_themes          = wp_get_themes();
-		$bsf_plugins         = $this->get_bsf_plugins();
+		$all_plugins = get_plugins();
+		$all_themes = wp_get_themes();
+		$bsf_plugins = $this->get_bsf_plugins();
 		$can_install_plugins = $this->hfe_can_install( 'plugin' );
-		$can_install_themes  = $this->hfe_can_install( 'theme' );
+		$can_install_themes = $this->hfe_can_install( 'theme' );
 
 		?>
 		<div class="hfe-admin-addons">
@@ -1271,10 +1271,10 @@ class HFE_Settings_Page {
 	 *
 	 * @since 1.6.0
 	 *
-	 * @param string $addon      Plugin/Theme slug.
+	 * @param string $addon       Plugin/Theme slug.
 	 * @param array  $details     Plugin details.
 	 * @param array  $all_plugins List of all plugins.
-	 * @param array  $all_themes List of all themes.
+	 * @param array  $all_themes  List of all themes.
 	 *
 	 * @return array
 	 */
@@ -1287,8 +1287,8 @@ class HFE_Settings_Page {
 
 		$plugin_data = [];
 
-		$is_plugin = ( 'plugin' === $details['type'] ) ? true : false;
-		$is_theme  = ( 'theme' === $details['type'] ) ? true : false;
+		$is_plugin = 'plugin' === $details['type'];
+		$is_theme = 'theme' === $details['type'];
 
 		if ( ( $is_plugin && array_key_exists( $addon, $all_plugins ) ) || ( $is_theme && array_key_exists( $addon, $all_themes ) ) ) {
 
@@ -1311,7 +1311,7 @@ class HFE_Settings_Page {
 				$plugin_data['plugin_src']   = esc_attr( $addon );
 			}
 		} else {
-			// install if already doesn't exists.
+			// Install if already doesn't exists.
 			// Status text/status.
 			$plugin_data['status_class'] = 'status-download';
 			if ( isset( $details['act'] ) && 'go-to-url' === $details['act'] ) {
@@ -1391,7 +1391,7 @@ class HFE_Settings_Page {
 	 * Determine if the plugin/addon installations are allowed.
 	 *
 	 * @since 1.6.0
-	 * @param string $type defines addon type.
+	 * @param string $type Defines addon type.
 	 * @return bool
 	 */
 	public function hfe_can_install( $type ) {
@@ -1454,55 +1454,52 @@ class HFE_Settings_Page {
 	}
 
 	/**
-	 * Different MIME type of different PHP version
+	 * Different MIME type of different PHP version.
 	 *
 	 * Filters the "real" file type of the given file.
 	 *
 	 * @since 1.2.9
 	 *
-	 * @param array  $defaults File data array containing 'ext', 'type', and
-	 *                                          'proper_filename' keys.
-	 * @param string $file                      Full path to the file.
-	 * @param string $filename                  The name of the file (may differ from $file due to
-	 *                                          $file being in a tmp directory).
-	 * @param array  $mimes                     Key is the file extension with value as the mime type.
-	 * @param string $real_mime                Real MIME type of the uploaded file.
+	 * @param array  $defaults  File data array containing 'ext', 'type', and 'proper_filename' keys.
+	 * @param string $file      Full path to the file.
+	 * @param string $filename  The name of the file (may differ from $file due to $file being in a tmp directory).
+	 * @param array  $mimes     Key is the file extension with value as the mime type.
+	 * @param string $real_mime Real MIME type of the uploaded file.
+	 * @return array
 	 */
 	public function real_mime_types_5_1_0( $defaults, $file, $filename, $mimes, $real_mime ) {
 		return $this->real_mimes( $defaults, $filename, $file );
 	}
 
 	/**
-	 * Different MIME type of different PHP version
+	 * Different MIME type of different PHP version.
 	 *
 	 * Filters the "real" file type of the given file.
 	 *
 	 * @since 1.2.9
 	 *
-	 * @param array  $defaults File data array containing 'ext', 'type', and
-	 *                                          'proper_filename' keys.
-	 * @param string $file                      Full path to the file.
-	 * @param string $filename                  The name of the file (may differ from $file due to
-	 *                                          $file being in a tmp directory).
-	 * @param array  $mimes                     Key is the file extension with value as the mime type.
+	 * @param array  $defaults File data array containing 'ext', 'type', and 'proper_filename' keys.
+	 * @param string $file     Full path to the file.
+	 * @param string $filename The name of the file (may differ from $file due to $file being in a tmp directory).
+	 * @param array  $mimes    Key is the file extension with value as the mime type.
+	 * @return array
 	 */
 	public function real_mime_types( $defaults, $file, $filename, $mimes ) {
 		return $this->real_mimes( $defaults, $filename, $file );
 	}
 
 	/**
-	 * Real Mime Type
+	 * Real Mime Type.
 	 *
-	 * This function checks if the file is an SVG and sanitizes it accordingly. 
+	 * This function checks if the file is an SVG and sanitizes it accordingly.
 	 * PHPCS rules are disabled selectively to allow necessary file operations that are essential for handling SVG files safely.
 	 *
 	 * @since 1.2.15
 	 *
-	 * @param array  $defaults File data array containing 'ext', 'type', and
-	 *                                          'proper_filename' keys.
-	 * @param string $filename                  The name of the file (may differ from $file due to
-	 *                                          $file being in a tmp directory).
-	 * @param string $file file content.
+	 * @param array  $defaults File data array containing 'ext', 'type', and 'proper_filename' keys.
+	 * @param string $filename The name of the file (may differ from $file due to $file being in a tmp directory).
+	 * @param string $file     File content.
+	 * @return array
 	 */
 	public function real_mimes( $defaults, $filename, $file ) {
 
@@ -1524,18 +1521,18 @@ class HFE_Settings_Page {
 	/**
 	 * Sanitizes SVG Code string.
 	 *
-	 * This function performs sanitization on SVG code to ensure that only safe tags and attributes are retained. 
+	 * This function performs sanitization on SVG code to ensure that only safe tags and attributes are retained.
 	 * PHPCS rules are selectively disabled in specific areas to accommodate necessary file operations, compatibility with different PHP versions, and to enhance code readability:
-	 * 
+	 *
 	 * - File operations are required for reading and writing SVG content.
 	 * - PHP version compatibility is maintained by selectively disabling PHPCS rules for PHP version-specific functions.
 	 * - Code readability is enhanced by selectively disabling PHPCS rules for specific areas.
-	 * 
+	 *
 	 * @param string $original_content SVG code to sanitize.
 	 * @return string|bool
 	 * @since 1.0.7
 	 * @phpstan-ignore-next-line
-	 * */
+	 */
 	public function sanitize_svg( $original_content ) {
 
 		if ( ! $original_content ) {
@@ -1775,14 +1772,14 @@ class HFE_Settings_Page {
 
 			// Strip xlink:href.
 			$xlink_href = $current_element->getAttributeNS( 'http://www.w3.org/1999/xlink', 'href' );
-			if ( $xlink_href && strpos( $xlink_href, '#' ) !== 0 ) {
+			if ( $xlink_href && 0 !== strpos( $xlink_href, '#' ) ) {
 				$current_element->removeAttributeNS( 'http://www.w3.org/1999/xlink', 'href' );
 			}
 
 			// Strip use tag with external references.
-			if ( strtolower( $current_element->tagName ) === 'use' ) {
+			if ( 'use' === strtolower( $current_element->tagName ) ) {
 				$xlink_href = $current_element->getAttributeNS( 'http://www.w3.org/1999/xlink', 'href' );
-				if ( $current_element->parentNode && $xlink_href && strpos( $xlink_href, '#' ) !== 0 ) {
+				if ( $current_element->parentNode && $xlink_href && 0 !== strpos( $xlink_href, '#' ) ) {
 					$current_element->parentNode->removeChild( $current_element );
 				}
 			}

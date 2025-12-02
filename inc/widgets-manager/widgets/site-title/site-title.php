@@ -100,7 +100,7 @@ class Site_Title extends Common_Widget {
 	 * @access protected
 	 * @return void
 	 */
-	// phpcs:ignore
+	// phpcs:ignore.
 	protected function register_controls(): void {
 
 		$this->register_general_content_controls();
@@ -115,7 +115,7 @@ class Site_Title extends Common_Widget {
 	 * @access protected
 	 * @return void
 	 */
-	// phpcs:ignore
+	// phpcs:ignore.
 	protected function register_general_content_controls(): void {
 
 		$this->start_controls_section(
@@ -281,7 +281,7 @@ class Site_Title extends Common_Widget {
 	 * @access protected
 	 * @return void
 	 */
-	// phpcs:ignore
+	// phpcs:ignore.
 	protected function register_heading_typo_content_controls(): void {
 		$this->start_controls_section(
 			'section_heading_typography',
@@ -437,10 +437,10 @@ class Site_Title extends Common_Widget {
 	 * @since 1.3.0
 	 * @access protected
 	 *
-	 * // phpcs:ignore
+	 * // phpcs:ignore.
 	 * @return void
 	 */
-	// phpcs:ignore
+	// phpcs:ignore.
 	protected function render(): void {
 
 		$settings = $this->get_settings();

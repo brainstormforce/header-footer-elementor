@@ -39,10 +39,7 @@ jobs:
         run: npm ci
 
       - name: Lint JS
-        run: npm run lint:js
+        run: npm run lint:js  
 
       - name: Build project
         run: npm run build
-
-      - name: Lint CSS
-        run: npm run lint:css

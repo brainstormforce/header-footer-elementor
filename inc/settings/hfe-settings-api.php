@@ -126,8 +126,9 @@ class HFE_Settings_Api {
 
 	/**
 	 * Get Starter Templates Status.
-	 * 
+	 *
 	 * @param WP_REST_Request $request Request object.
+	 * @return WP_REST_Response|WP_Error
 	 */
 	public function get_templates_status( WP_REST_Request $request ) {
 		$nonce = $request->get_header( 'X-WP-Nonce' );
@@ -175,11 +176,9 @@ class HFE_Settings_Api {
 	}
 
 	/**
-	 * 
 	 * Callback function to return recommended plugins list.
-	 * 
-	 * @param WP_REST_Request $request Request object.
 	 *
+	 * @param WP_REST_Request $request Request object.
 	 * @return WP_REST_Response
 	 */
 	public function get_recommended_plugins_list( $request ) {
@@ -202,11 +201,9 @@ class HFE_Settings_Api {
 	}
 
 	/**
-	 * 
 	 * Callback function to return widgets list.
-	 * 
-	 * @param WP_REST_Request $request Request object.
 	 *
+	 * @param WP_REST_Request $request Request object.
 	 * @return WP_REST_Response
 	 */
 	public function get_hfe_widgets( $request ) {
@@ -242,6 +239,7 @@ class HFE_Settings_Api {
 	 * Send Email to Webhook.
 	 *
 	 * @param WP_REST_Request $request Request object.
+	 * @return WP_REST_Response|WP_Error
 	 */
 	public function send_email_to_webhook_api( WP_REST_Request $request ) {
 		$nonce = $request->get_header( 'X-WP-Nonce' );
