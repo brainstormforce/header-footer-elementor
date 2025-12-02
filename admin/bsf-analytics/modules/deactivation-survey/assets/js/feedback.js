@@ -1,4 +1,4 @@
-( function ( $ ) {
+( function( $ ) {
 	const UserDeactivationPopup = {
 		slug: '',
 		skipButton: '',
@@ -21,7 +21,7 @@
 			this.skipButton = $( '.uds-feedback-skip' );
 			this.submitDeactivate = $( '.uds-feedback-submit' );
 			this.deactivateButton = $( '#the-list' ).find(
-				`.row-actions span.deactivate a`
+				`.row-actions span.deactivate a`,
 			);
 			this.feedbackForm = $( '.uds-feedback-form' ); // Feedback Form.
 			this.feedbackInput = $( '.uds-options-feedback' ); // Feedback Textarea.
@@ -236,4 +236,4 @@
 	$( function () {
 		UserDeactivationPopup._init();
 	} );
-} )( jQuery );
+} ( jQuery ));

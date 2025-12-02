@@ -9,7 +9,7 @@ import {
 	viewPage,
 } from '../utils/elementor-e2e-test-utils/src';
 
-describe( 'Hello World', () => {
+describe( 'hello World', () => {
 	it( 'elementor Hello, World!', async () => {
 		await createNewElementorPost( 'page' );
 		await insertSection();

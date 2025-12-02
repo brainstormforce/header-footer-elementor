@@ -1,7 +1,7 @@
-import React from "react";
-import { Container, Title, Button } from "@bsf/force-ui";
-import { Rocket, Check } from "lucide-react";
-import { __ } from "@wordpress/i18n";
+import React from 'react';
+import { Container, Title, Button } from '@bsf/force-ui';
+import { Rocket, Check } from 'lucide-react';
+import { __ } from '@wordpress/i18n';
 
 const UltimateWidgetFeatures = () => {
 	return (
@@ -14,36 +14,36 @@ const UltimateWidgetFeatures = () => {
 			>
 				<Container.Item
 					className="flex flex-col pt-6 justify-between"
-					style={{ width: "65%" }}
+					style={ { width: '65%' } }
 				>
 					<Container.Item
 						className="flex justify-center items-center"
-						style={{ width: "34%" }}
+						style={ { width: '34%' } }
 					>
 						<img
-							src={`${hfeSettingsData.augemented_url}`}
-							alt={__(
-								"Column Showcase",
-								"header-footer-elementor",
-							)}
-							style={{  height: "250" }}
+							src={ `${ hfeSettingsData.augemented_url }` }
+							alt={ __(
+								'Column Showcase',
+								'header-footer-elementor',
+							) }
+							style={ { height: '250' } }
 							loading="lazy"
 							className="object-cover rounded w-full"
 						/>
 					</Container.Item>
 
-					{/* Title + Description */}
+					{ /* Title + Description */ }
 					<div className="pt-2 px-2 flex flex-col">
 						<Title
 							description=""
-							icon={<Rocket />}
+							icon={ <Rocket /> }
 							iconPosition="left"
 							size="xs"
 							tag="p"
-							title={__(
-								"Unlock Pro Widgets",
-								"header-footer-elementor",
-							)}
+							title={ __(
+								'Unlock Pro Widgets',
+								'header-footer-elementor',
+							) }
 							className="text-xs py-1  text-[#C026D3]"
 						/>
 						<Title
@@ -53,102 +53,102 @@ const UltimateWidgetFeatures = () => {
 							tag="h6"
 							title={
 								<>
-									{__(
-										"Bring Your Vision to Life with UAE Pro",
-										"header-footer-elementor",
-									)}
+									{ __(
+										'Bring Your Vision to Life with UAE Pro',
+										'header-footer-elementor',
+									) }
 								</>
 							}
 							className="py-1 text-[16px] font-normal  text-text-primary"
 						/>
 						<p className="m-0 text-base max-w-96 text-[#4F4E7C]">
-							{__(
-								"Streamline your workflow, skip the repetitive tasks, and build modern, high-performance websites.",
-								"header-footer-elementor",
-							)}
+							{ __(
+								'Streamline your workflow, skip the repetitive tasks, and build modern, high-performance websites.',
+								'header-footer-elementor',
+							) }
 						</p>
 					</div>
 
-					{/* Features List */}
+					{ /* Features List */ }
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-2 m-0 pt-2">
 						<ul className="list-none font-normal space-y-2 text-sm text-[#111827]">
 							<li className="flex items-center gap-1 text-text-tertiary whitespace-nowrap">
-								<Check color="#6005FF" size={16} className="flex-shrink-0" />
-								<span className="truncate">{__("50+ Widgets", "header-footer-elementor")}</span>
+								<Check color="#6005FF" size={ 16 } className="flex-shrink-0" />
+								<span className="truncate">{ __( '50+ Widgets', 'header-footer-elementor' ) }</span>
 							</li>
 							<li className="flex items-center gap-1 text-text-tertiary whitespace-nowrap">
-								<Check color="#6005FF" size={16} className="flex-shrink-0" />
-								<span className="truncate">{__("Conversion Extensions", "header-footer-elementor")}</span>
+								<Check color="#6005FF" size={ 16 } className="flex-shrink-0" />
+								<span className="truncate">{ __( 'Conversion Extensions', 'header-footer-elementor' ) }</span>
 							</li>
 							<li className="flex items-center gap-1 text-text-tertiary whitespace-nowrap">
-								<Check color="#6005FF" size={16} className="flex-shrink-0" />
-								<span className="truncate">{__("Display Conditions", "header-footer-elementor")}</span>
+								<Check color="#6005FF" size={ 16 } className="flex-shrink-0" />
+								<span className="truncate">{ __( 'Display Conditions', 'header-footer-elementor' ) }</span>
 							</li>
 							<li className="flex items-center gap-1 text-text-tertiary whitespace-nowrap">
-								<Check color="#6005FF" size={16} className="flex-shrink-0" />
-								<span className="truncate">{__("White Label", "header-footer-elementor")}</span>
+								<Check color="#6005FF" size={ 16 } className="flex-shrink-0" />
+								<span className="truncate">{ __( 'White Label', 'header-footer-elementor' ) }</span>
 							</li>
-								<li className="flex items-center gap-1 text-text-tertiary whitespace-nowrap">
-								<Check color="#6005FF" size={16} className="flex-shrink-0" />
-								<span className="truncate">{__("Bloggers Toolkit", "header-footer-elementor")}</span>
+							<li className="flex items-center gap-1 text-text-tertiary whitespace-nowrap">
+								<Check color="#6005FF" size={ 16 } className="flex-shrink-0" />
+								<span className="truncate">{ __( 'Bloggers Toolkit', 'header-footer-elementor' ) }</span>
 							</li>
 						</ul>
 
 						<ul className="list-none font-normal space-y-2 text-sm text-[#111827]">
 							<li className="flex items-center gap-1 text-text-tertiary whitespace-nowrap">
-								<Check color="#6005FF" size={16} className="flex-shrink-0" />
-								<span className="truncate">{__("200+ Section Blocks", "header-footer-elementor")}</span>
+								<Check color="#6005FF" size={ 16 } className="flex-shrink-0" />
+								<span className="truncate">{ __( '200+ Section Blocks', 'header-footer-elementor' ) }</span>
 							</li>
 							<li className="flex items-center gap-1 text-text-tertiary whitespace-nowrap">
-								<Check color="#6005FF" size={16} className="flex-shrink-0" />
-								<span className="truncate">{__("Form & Pop-up Builder", "header-footer-elementor")}</span>
+								<Check color="#6005FF" size={ 16 } className="flex-shrink-0" />
+								<span className="truncate">{ __( 'Form & Pop-up Builder', 'header-footer-elementor' ) }</span>
 							</li>
 							<li className="flex items-center gap-1 text-text-tertiary whitespace-nowrap">
-								<Check color="#6005FF" size={16} className="flex-shrink-0" />
-								<span className="truncate">{__("Animation Effects", "header-footer-elementor")}</span>
+								<Check color="#6005FF" size={ 16 } className="flex-shrink-0" />
+								<span className="truncate">{ __( 'Animation Effects', 'header-footer-elementor' ) }</span>
 							</li>
 							<li className="flex items-center gap-1 text-text-tertiary whitespace-nowrap">
-								<Check color="#6005FF" size={16} className="flex-shrink-0" />
-								<span className="truncate">{__("WooCommerce Builder", "header-footer-elementor")}</span>
+								<Check color="#6005FF" size={ 16 } className="flex-shrink-0" />
+								<span className="truncate">{ __( 'WooCommerce Builder', 'header-footer-elementor' ) }</span>
 							</li>
 							<li className="flex items-center gap-1 text-text-tertiary whitespace-nowrap">
-								<Check color="#6005FF" size={16} className="flex-shrink-0" />
-								<span className="truncate">{__("Social Media Bundle", "header-footer-elementor")}</span>
+								<Check color="#6005FF" size={ 16 } className="flex-shrink-0" />
+								<span className="truncate">{ __( 'Social Media Bundle', 'header-footer-elementor' ) }</span>
 							</li>
 						</ul>
 					</div>
 				</Container.Item>
 
-					{/* Upgrade Button */}
-					<div className="flex items-center m-0 pb-4 w-full  justify-center">
-						<Button
-							iconPosition="right"
-							variant="primary"
-							className="bg-[#6005FF] w-full m-0 h-10 flex items-center justify-center hfe-remove-ring"
-							style={{
-								backgroundColor: "#6005FF",
-								transition: "background-color 0.3s ease",
-								outline: "none",
-								height: "40px",
-							}}
-							onMouseEnter={(e) =>
-								(e.currentTarget.style.backgroundColor =
-									"#4B00CC")
-							}
-							onMouseLeave={(e) =>
-								(e.currentTarget.style.backgroundColor =
-									"#6005FF")
-							}
-							onClick={() => {
-								window.open(
-									"https://ultimateelementor.com/pricing/?utm_source=uae-lite-dashboard&utm_medium=unlock-ultimate-feature&utm_campaign=uae-lite-upgrade",
-									"_blank",
-								);
-							}}
-						>
-							{__("Start Building Smarter", "header-footer-elementor")}
-						</Button>
-					</div>
+				{ /* Upgrade Button */ }
+				<div className="flex items-center m-0 pb-4 w-full  justify-center">
+					<Button
+						iconPosition="right"
+						variant="primary"
+						className="bg-[#6005FF] w-full m-0 h-10 flex items-center justify-center hfe-remove-ring"
+						style={ {
+							backgroundColor: '#6005FF',
+							transition: 'background-color 0.3s ease',
+							outline: 'none',
+							height: '40px',
+						} }
+						onMouseEnter={ ( e ) =>
+							( e.currentTarget.style.backgroundColor =
+									'#4B00CC' )
+						}
+						onMouseLeave={ ( e ) =>
+							( e.currentTarget.style.backgroundColor =
+									'#6005FF' )
+						}
+						onClick={ () => {
+							window.open(
+								'https://ultimateelementor.com/pricing/?utm_source=uae-lite-dashboard&utm_medium=unlock-ultimate-feature&utm_campaign=uae-lite-upgrade',
+								'_blank',
+							);
+						} }
+					>
+						{ __( 'Start Building Smarter', 'header-footer-elementor' ) }
+					</Button>
+				</div>
 			</Container>
 		</div>
 	);

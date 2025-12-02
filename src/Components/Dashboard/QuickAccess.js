@@ -1,23 +1,23 @@
-import React from "react";
-import { Title, Container, Button, Badge } from "@bsf/force-ui";
-import { Headphones, HelpCircle, StarIcon, NotepadText, BookOpenText,Star } from "lucide-react";
-import { __ } from "@wordpress/i18n";
+import React from 'react';
+import { Title, Container, Button, Badge } from '@bsf/force-ui';
+import { Headphones, HelpCircle, StarIcon, NotepadText, BookOpenText, Star } from 'lucide-react';
+import { __ } from '@wordpress/i18n';
 
 const QuickAccess = () => {
 	return (
 		<div
 			className="box-border hfe-dashboard-quick-access p-4 bg-white rounded-lg shadow-md"
-			style={{
-				width: "-webkit-fill-available",
-			}}
+			style={ {
+				width: '-webkit-fill-available',
+			} }
 		>
 			<Title
 				className="mb-2"
-				icon={null}
+				icon={ null }
 				iconPosition="right"
 				size="xs"
 				tag="h3"
-				title={__("Quick Access", "header-footer-elementor")}
+				title={ __( 'Quick Access', 'header-footer-elementor' ) }
 			/>
 
 			<Container
@@ -27,36 +27,36 @@ const QuickAccess = () => {
 				direction="column"
 				gap=""
 				justify="start"
-				style={{
-					width: "100%",
-					backgroundColor: "#F9FAFB",
-				}}
+				style={ {
+					width: '100%',
+					backgroundColor: '#F9FAFB',
+				} }
 			>
 				<Container.Item
 					alignSelf="auto"
 					className="p-4 bg-white flex items-center justify-between rounded-lg shadow-container-item"
 					order="none"
-					shrink={1}
+					shrink={ 1 }
 				>
 					<Button
 						className="text-black hfe-remove-ring"
-						icon={<Headphones />}
+						icon={ <Headphones /> }
 						iconPosition="left"
 						variant="link"
-						onClick={() => {
+						onClick={ () => {
 							window.open(
-								"https://ultimateelementor.com/contact/",
-								"_blank"
+								'https://ultimateelementor.com/contact/',
+								'_blank',
 							);
-						}}
+						} }
 					>
-						{__("VIP Priority Support", "header-footer-elementor")}
+						{ __( 'VIP Priority Support', 'header-footer-elementor' ) }
 					</Button>
 					<Badge
-						label={__(
-							"PRO",
-							"header-footer-elementor"
-						)}
+						label={ __(
+							'PRO',
+							'header-footer-elementor',
+						) }
 						size="xs"
 						variant="inverse"
 					/>
@@ -65,69 +65,69 @@ const QuickAccess = () => {
 					alignSelf="auto"
 					className="p-4 bg-white rounded-lg shadow-container-item"
 					order="none"
-					shrink={1}
+					shrink={ 1 }
 				>
 					<Button
 						className="text-black hfe-remove-ring"
-						icon={<BookOpenText />}
+						icon={ <BookOpenText /> }
 						iconPosition="left"
 						variant="link"
-						onClick={() => {
+						onClick={ () => {
 							window.open(
-								"https://ultimateelementor.com/docs/getting-started-with-ultimate-addons-for-elementor-lite/",
-								"_blank"
+								'https://ultimateelementor.com/docs/getting-started-with-ultimate-addons-for-elementor-lite/',
+								'_blank',
 							);
-						}}
+						} }
 					>
-						{__("Knowledge Base", "header-footer-elementor")}
+						{ __( 'Knowledge Base', 'header-footer-elementor' ) }
 					</Button>
 				</Container.Item>
 				<Container.Item className="p-4 bg-white rounded-lg shadow-container-item">
 					<Button
 						className="text-black hfe-remove-ring"
-						icon={<HelpCircle />}
+						icon={ <HelpCircle /> }
 						iconPosition="left"
 						variant="link"
-						onClick={() => {
+						onClick={ () => {
 							window.open(
-								"https://ultimateelementor.com/docs/",
-								"_blank"
+								'https://ultimateelementor.com/docs/',
+								'_blank',
 							);
-						}}
+						} }
 					>
-						{__("Help Centre", "header-footer-elementor")}
+						{ __( 'Help Centre', 'header-footer-elementor' ) }
 					</Button>
 				</Container.Item>
 				<Container.Item className="p-4 bg-white rounded-lg shadow-container-item">
 					<Button
 						className="text-black hfe-remove-ring"
-						icon={<NotepadText />}
+						icon={ <NotepadText /> }
 						iconPosition="left"
 						variant="link"
-						onClick={() => {
+						onClick={ () => {
 							window.open(
-								"https://ideas.ultimateelementor.com/boards/feature-requests",
-								"_blank"
+								'https://ideas.ultimateelementor.com/boards/feature-requests',
+								'_blank',
 							);
-						}}
+						} }
 					>
-						{__("Request a Feature", "header-footer-elementor")}
+						{ __( 'Request a Feature', 'header-footer-elementor' ) }
 					</Button>
 				</Container.Item>
 				<Container.Item className="p-4 bg-white rounded-lg shadow-container-item">
 					<Button
 						className="text-black hfe-remove-ring"
-						icon={<Star />}
+						icon={ <Star /> }
 						iconPosition="left"
 						variant="link"
-						onClick={() => {
+						onClick={ () => {
 							window.open(
-								"https://wordpress.org/support/plugin/header-footer-elementor/reviews/#new-post",
-								"_blank"
+								'https://wordpress.org/support/plugin/header-footer-elementor/reviews/#new-post',
+								'_blank',
 							);
-						}}
+						} }
 					>
-						{__("Rate Us", "header-footer-elementor")}
+						{ __( 'Rate Us', 'header-footer-elementor' ) }
 					</Button>
 				</Container.Item>
 			</Container>

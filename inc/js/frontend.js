@@ -1,79 +1,77 @@
 ( function( $ ) {
-
 	/**
-	* Search widget JS
-	*/
+	 * Search widget JS
+	 */
 
-	var WidgethfeSearchButton = function( $scope, $ ){
-
-		if ( 'undefined' == typeof $scope )
+	const WidgethfeSearchButton = function( $scope, $ ) {
+		if ( 'undefined' === typeof $scope ) {
 			return;
+		}
 
-			var $input = $scope.find( "input.hfe-search-form__input" );
-			var $clear = $scope.find( "button#clear" );
-			var $clear_with_button = $scope.find( "button#clear-with-button" );
-			var $search_button = $scope.find( ".hfe-search-submit" );
-			var $toggle_search = $scope.find( ".hfe-search-icon-toggle input" );
+		const $input = $scope.find( 'input.hfe-search-form__input' );
+		const $clear = $scope.find( 'button#clear' );
+		const $clear_with_button = $scope.find( 'button#clear-with-button' );
+		const $search_button = $scope.find( '.hfe-search-submit' );
+		const $toggle_search = $scope.find( '.hfe-search-icon-toggle input' );
 
-		$scope.find( '.hfe-search-icon-toggle' ).on( 'click', function( ){
-			$scope.find( ".hfe-search-form__input" ).trigger( 'focus' );						
-		});	
-		
-		$scope.find( ".hfe-search-form__input" ).on( 'focus', function(){
-			$scope.find( ".hfe-search-button-wrapper" ).addClass( "hfe-input-focus" );
-		});
+		$scope.find( '.hfe-search-icon-toggle' ).on( 'click', function() {
+			$scope.find( '.hfe-search-form__input' ).trigger( 'focus' );
+		} );
 
-		$scope.find( ".hfe-search-form__input" ).blur( function() {
-			$scope.find( ".hfe-search-button-wrapper" ).removeClass( "hfe-input-focus" );
-		});
-  		   
+		$scope.find( '.hfe-search-form__input' ).on( 'focus', function() {
+			$scope.find( '.hfe-search-button-wrapper' ).addClass( 'hfe-input-focus' );
+		} );
 
-		$search_button.on( 'touchstart click', function(){
+		$scope.find( '.hfe-search-form__input' ).blur( function() {
+			$scope.find( '.hfe-search-button-wrapper' ).removeClass( 'hfe-input-focus' );
+		} );
+
+		$search_button.on( 'touchstart click', function() {
 			$input.submit();
-		});
+		} );
 
 		$toggle_search.css( 'padding-right', $toggle_search.next().outerWidth() + 'px' );
 
-	
-		$input.on( 'keyup', function(){
-			$clear.style = (this.value.length) ? $clear.css('visibility','visible'): $clear.css('visibility','hidden');
-			$clear_with_button.style = (this.value.length) ? $clear_with_button.css('visibility','visible'): $clear_with_button.css('visibility','hidden');
+		$input.on( 'keyup', function() {
+			$clear.style = ( this.value.length ) ? $clear.css( 'visibility', 'visible' ) : $clear.css( 'visibility', 'hidden' );
+			$clear_with_button.style = ( this.value.length ) ? $clear_with_button.css( 'visibility', 'visible' ) : $clear_with_button.css( 'visibility', 'hidden' );
 			$clear_with_button.css( 'right', $search_button.outerWidth() + 'px' );
-		});
+		} );
 
-		$clear.on("click",function(){
-			this.style = $clear.css('visibility','hidden');
-			$input.value = "";
-		});
-		$clear_with_button.on("click",function(){
-			this.style = $clear_with_button.css('visibility','hidden');
-			$input.value = "";
-		});
-		
+		$clear.on( 'click', function() {
+			this.style = $clear.css( 'visibility', 'hidden' );
+			$input.value = '';
+		} );
+		$clear_with_button.on( 'click', function() {
+			this.style = $clear_with_button.css( 'visibility', 'hidden' );
+			$input.value = '';
+		} );
 	};
 		/**
-	 * Nav Menu handler Function.
-	 *
-	 */
-	var WidgethfeNavMenuHandler = function( $scope, $ ) {
-
-		if ( 'undefined' == typeof $scope )
+		 * Nav Menu handler Function.
+		 *
+		 * @param $scope
+		 * @param $
+		 */
+	const WidgethfeNavMenuHandler = function( $scope, $ ) {
+		if ( 'undefined' === typeof $scope ) {
 			return;
-		
-		var id = $scope.data( 'id' );
-		var wrapper = $scope.find('.elementor-widget-hfe-nav-menu ');		
-		var layout = $( '.elementor-element-' + id + ' .hfe-nav-menu' ).data( 'layout' );
-		var flyout_data = $( '.elementor-element-' + id + ' .hfe-flyout-wrapper' ).data( 'flyout-class' );
-		var last_item = $( '.elementor-element-' + id + ' .hfe-nav-menu' ).data( 'last-item' );
-		var last_item_flyout = $( '.elementor-element-' + id + ' .hfe-flyout-wrapper' ).data( 'last-item' );
+		}
 
-		var menu_items_links        = $( '.elementor-element-' + id + ' .hfe-nav-menu nav li a' );
-		var menu_items_links_flyout = $( '.elementor-element-' + id + ' .hfe-flyout-wrapper li a' );
-		if (menu_items_links.length > 0) {
+		const id = $scope.data( 'id' );
+		const wrapper = $scope.find( '.elementor-widget-hfe-nav-menu ' );
+		const layout = $( '.elementor-element-' + id + ' .hfe-nav-menu' ).data( 'layout' );
+		const flyout_data = $( '.elementor-element-' + id + ' .hfe-flyout-wrapper' ).data( 'flyout-class' );
+		const last_item = $( '.elementor-element-' + id + ' .hfe-nav-menu' ).data( 'last-item' );
+		const last_item_flyout = $( '.elementor-element-' + id + ' .hfe-flyout-wrapper' ).data( 'last-item' );
+
+		const menu_items_links = $( '.elementor-element-' + id + ' .hfe-nav-menu nav li a' );
+		const menu_items_links_flyout = $( '.elementor-element-' + id + ' .hfe-flyout-wrapper li a' );
+		if ( menu_items_links.length > 0 ) {
 			_handle_current_menu_item_class( menu_items_links );
 		}
 
-		if (menu_items_links_flyout.length > 0) {
+		if ( menu_items_links_flyout.length > 0 ) {
 			_handle_current_menu_item_class( menu_items_links_flyout );
 		}
 
@@ -85,105 +83,88 @@
 
 		_handleSinglePageMenu( id, layout );
 
-		if( 'horizontal' !== layout ){
-
+		if ( 'horizontal' !== layout ) {
 			_eventClick( id );
-		}else if ( 'horizontal' === layout && window.matchMedia( "( max-width: 767px )" ).matches ) {
-
+		} else if ( 'horizontal' === layout && window.matchMedia( '( max-width: 767px )' ).matches ) {
 			_eventClick( id );
-		}else if ( 'horizontal' === layout && window.matchMedia( "( max-width: 1024px )" ).matches ) {
-
+		} else if ( 'horizontal' === layout && window.matchMedia( '( max-width: 1024px )' ).matches ) {
 			_eventClick( id );
 		}
 
 		$( '.elementor-element-' + id + ' .hfe-flyout-trigger .hfe-nav-menu-icon' ).off( 'click keyup' ).on( 'click keyup', function() {
-
 			_openMenu( id );
 		} );
 
 		$( '.elementor-element-' + id + ' .hfe-flyout-close' ).off( 'click keyup' ).on( 'click keyup', function() {
-
 			_closeMenu( id );
 		} );
 
 		$( '.elementor-element-' + id + ' .hfe-flyout-overlay' ).off( 'click' ).on( 'click', function() {
-
 			_closeMenu( id );
-		} );	
-
+		} );
 
 		$scope.find( '.sub-menu' ).each( function() {
-
-			var parent = $( this ).closest( '.menu-item' );
+			const parent = $( this ).closest( '.menu-item' );
 
 			$scope.find( parent ).addClass( 'parent-has-child' );
 			$scope.find( parent ).removeClass( 'parent-has-no-child' );
-		});
+		} );
 
-		if( ( 'cta' == last_item || 'cta' == last_item_flyout ) && 'expandible' != layout ){
+		if ( ( 'cta' == last_item || 'cta' == last_item_flyout ) && 'expandible' != layout ) {
 			$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).parent().addClass( 'hfe-button-wrapper elementor-widget-button' );
-			$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).addClass( 'elementor-button' );			
+			$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).addClass( 'elementor-button' );
 		}
 
-		_borderClass( id );	
+		_borderClass( id );
 
-		$( window ).on( 'resize', function(){ 
-
-			if( 'horizontal' !== layout ) {
-
+		$( window ).on( 'resize', function() {
+			if ( 'horizontal' !== layout ) {
 				_eventClick( id );
-			}else if ( 'horizontal' === layout && window.matchMedia( "( max-width: 767px )" ).matches ) {
-
+			} else if ( 'horizontal' === layout && window.matchMedia( '( max-width: 767px )' ).matches ) {
 				_eventClick( id );
-			}else if ( 'horizontal' === layout && window.matchMedia( "( max-width: 1024px )" ).matches ) {
-
+			} else if ( 'horizontal' === layout && window.matchMedia( '( max-width: 1024px )' ).matches ) {
 				_eventClick( id );
 			}
 
-			if( 'horizontal' == layout && window.matchMedia( "( min-width: 977px )" ).matches){
-
-				$( '.elementor-element-' + id + ' div.hfe-has-submenu-container' ).next().css( 'position', 'absolute');	
+			if ( 'horizontal' == layout && window.matchMedia( '( min-width: 977px )' ).matches ) {
+				$( '.elementor-element-' + id + ' div.hfe-has-submenu-container' ).next().css( 'position', 'absolute' );
 			}
 
-			if( 'expandible' == layout || 'flyout' == layout ){
-
+			if ( 'expandible' == layout || 'flyout' == layout ) {
 				_toggleClick( id );
-			}else if ( 'vertical' == layout || 'horizontal' == layout ) {
-				if( window.matchMedia( "( max-width: 767px )" ).matches && ($( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-tablet') || $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-mobile'))){
-
-					_toggleClick( id );					
-				}else if ( window.matchMedia( "( max-width: 1024px )" ).matches && $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-tablet') ) {
-					
+			} else if ( 'vertical' == layout || 'horizontal' == layout ) {
+				if ( window.matchMedia( '( max-width: 767px )' ).matches && ( $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-tablet' ) || $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-mobile' ) ) ) {
 					_toggleClick( id );
-				}else{
-					var $toggle = $( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' );
-                    var $nextElement= $toggle.next();
-                    var width = $nextElement.parent().width();
-                    if( $nextElement.length ){
+				} else if ( window.matchMedia( '( max-width: 1024px )' ).matches && $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-tablet' ) ) {
+					_toggleClick( id );
+				} else {
+					const $toggle = $( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' );
+					const $nextElement = $toggle.next();
+					const width = $nextElement.parent().width();
+					if ( $nextElement.length ) {
 						$nextElement.css( 'width', width + 'px' );
 						$nextElement.css( 'left', '0' );
 					}
 				}
 			}
 
-			_borderClass( id );	
+			_borderClass( id );
+		} );
 
-		});
+		// Acessibility functions
 
-        // Acessibility functions
+  		$scope.find( '.parent-has-child .hfe-has-submenu-container a' ).attr( 'aria-haspopup', 'true' );
+  		$scope.find( '.parent-has-child .hfe-has-submenu-container a' ).attr( 'aria-expanded', 'false' );
 
-  		$scope.find( '.parent-has-child .hfe-has-submenu-container a').attr( 'aria-haspopup', 'true' );
-  		$scope.find( '.parent-has-child .hfe-has-submenu-container a').attr( 'aria-expanded', 'false' );
-
-		var hef_navmenu_toggle = $scope.find( '.hfe-nav-menu__toggle' );
+		const hef_navmenu_toggle = $scope.find( '.hfe-nav-menu__toggle' );
 		hef_navmenu_toggle.attr( 'aria-haspopup', 'true' );
 		hef_navmenu_toggle.attr( 'aria-expanded', 'false' );
 
-		if ( window.matchMedia( "( max-width: 1024px )" ).matches && $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-tablet') ) {
-			hef_navmenu_toggle.find('i').attr('aria-hidden', 'false');
+		if ( window.matchMedia( '( max-width: 1024px )' ).matches && $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-tablet' ) ) {
+			hef_navmenu_toggle.find( 'i' ).attr( 'aria-hidden', 'false' );
 		}
-		if ( window.matchMedia( "( max-width: 768px )" ).matches && $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-mobile') ) {
-			hef_navmenu_toggle.find('i').attr('aria-hidden', 'false');
+		if ( window.matchMedia( '( max-width: 768px )' ).matches && $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-mobile' ) ) {
+			hef_navmenu_toggle.find( 'i' ).attr( 'aria-hidden', 'false' );
 		}
 
   		// End of accessibility functions
@@ -192,12 +173,12 @@
 
 		// Add keyboard navigation for expandable menu
 		if ( 'expandible' === layout ) {
-			$( '.elementor-element-' + id + ' nav' ).on( 'keydown', function(e) {
-				var $currentElement = $( document.activeElement );
-				var $menuItems = $( this ).find( 'li > a:visible' );
-				var currentIndex = $menuItems.index( $currentElement );
+			$( '.elementor-element-' + id + ' nav' ).on( 'keydown', function( e ) {
+				const $currentElement = $( document.activeElement );
+				const $menuItems = $( this ).find( 'li > a:visible' );
+				const currentIndex = $menuItems.index( $currentElement );
 
-				switch( e.key ) {
+				switch ( e.key ) {
 					case 'Escape': // Escape key - close menu
 						$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).trigger( 'click' );
 						$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).focus();
@@ -219,27 +200,26 @@
 						// Let default tab behavior work but close menu when tabbing out
 						if ( e.shiftKey && currentIndex === 0 ) {
 							// Shift+Tab on first item - close menu
-							setTimeout(function() {
-								if ( !$( '.elementor-element-' + id + ' nav' ).find( ':focus' ).length ) {
+							setTimeout( function() {
+								if ( ! $( '.elementor-element-' + id + ' nav' ).find( ':focus' ).length ) {
 									$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).trigger( 'click' );
 								}
-							}, 10);
-						} else if ( !e.shiftKey && currentIndex === $menuItems.length - 1 ) {
+							}, 10 );
+						} else if ( ! e.shiftKey && currentIndex === $menuItems.length - 1 ) {
 							// Tab on last item - close menu
-							setTimeout(function() {
-								if ( !$( '.elementor-element-' + id + ' nav' ).find( ':focus' ).length ) {
+							setTimeout( function() {
+								if ( ! $( '.elementor-element-' + id + ' nav' ).find( ':focus' ).length ) {
 									$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).trigger( 'click' );
 								}
-							}, 10);
+							}, 10 );
 						}
 						break;
 				}
-			});
+			} );
 		}
 
-		$( '.elementor-element-' + id + ' div.hfe-has-submenu-container' ).on( 'keyup', function(e){
-
-			var $this = $( this );
+		$( '.elementor-element-' + id + ' div.hfe-has-submenu-container' ).on( 'keyup', function( e ) {
+			const $this = $( this );
 
 			// Handle Enter and Space keys for submenu toggle
 			if ( e.key === 'Enter' || e.key === 'Space' ) {
@@ -249,20 +229,18 @@
 				return; // Only handle Enter and Space keys
 			}
 
-		  	if( $this.parent().hasClass( 'menu-active' ) ) {
-
+		  	if ( $this.parent().hasClass( 'menu-active' ) ) {
 		  		$this.parent().removeClass( 'menu-active' );
 		  		$this.attr( 'aria-expanded', 'false' );
 
-		  		$this.parent().next().find('ul').css( { 'visibility': 'hidden', 'opacity': '0', 'height': '0' } );
-		  		$this.parent().prev().find('ul').css( { 'visibility': 'hidden', 'opacity': '0', 'height': '0' } );
+		  		$this.parent().next().find( 'ul' ).css( { visibility: 'hidden', opacity: '0', height: '0' } );
+		  		$this.parent().prev().find( 'ul' ).css( { visibility: 'hidden', opacity: '0', height: '0' } );
 
 		  		$this.parent().next().find( 'div.hfe-has-submenu-container' ).removeClass( 'sub-menu-active' );
 		  		$this.parent().prev().find( 'div.hfe-has-submenu-container' ).removeClass( 'sub-menu-active' );
-			}else { 
-
-				$this.parent().next().find('ul').css( { 'visibility': 'hidden', 'opacity': '0', 'height': '0' } );
-		  		$this.parent().prev().find('ul').css( { 'visibility': 'hidden', 'opacity': '0', 'height': '0' } );
+			} else {
+				$this.parent().next().find( 'ul' ).css( { visibility: 'hidden', opacity: '0', height: '0' } );
+		  		$this.parent().prev().find( 'ul' ).css( { visibility: 'hidden', opacity: '0', height: '0' } );
 
 		  		$this.parent().next().find( 'div.hfe-has-submenu-container' ).removeClass( 'sub-menu-active' );
 		  		$this.parent().prev().find( 'div.hfe-has-submenu-container' ).removeClass( 'sub-menu-active' );
@@ -276,384 +254,329 @@
 
 				$this.parent().addClass( 'menu-active' );
 
-				if( 'horizontal' !== layout ){
-					$this.addClass( 'sub-menu-active' );	
+				if ( 'horizontal' !== layout ) {
+					$this.addClass( 'sub-menu-active' );
 				}
-				
+
 				$this.find( 'a' ).attr( 'aria-expanded', 'true' );
 				$this.attr( 'aria-expanded', 'true' );
 
-				$this.next().css( { 'visibility': 'visible', 'opacity': '1', 'height': 'auto' } );
+				$this.next().css( { visibility: 'visible', opacity: '1', height: 'auto' } );
 
 				if ( 'horizontal' !== layout ) {
-						
-		  			$this.next().css( 'position', 'relative');			
-				} else if ( 'horizontal' === layout && window.matchMedia( "( max-width: 767px )" ).matches && ($( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-tablet') || $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-mobile'))) {
-										
-  					$this.next().css( 'position', 'relative');		  					
-				} else if ( 'horizontal' === layout && window.matchMedia( "( max-width: 1024px )" ).matches ) {
-					
-  					if ( $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-tablet') ) {
-
-  						$this.next().css( 'position', 'relative');	
-  					} else if ( $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-mobile') || $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-none') ) {
-  						
-  						$this.next().css( 'position', 'absolute');	
+		  			$this.next().css( 'position', 'relative' );
+				} else if ( 'horizontal' === layout && window.matchMedia( '( max-width: 767px )' ).matches && ( $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-tablet' ) || $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-mobile' ) ) ) {
+  					$this.next().css( 'position', 'relative' );
+				} else if ( 'horizontal' === layout && window.matchMedia( '( max-width: 1024px )' ).matches ) {
+  					if ( $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-tablet' ) ) {
+  						$this.next().css( 'position', 'relative' );
+  					} else if ( $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-mobile' ) || $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-none' ) ) {
+  						$this.next().css( 'position', 'absolute' );
   					}
-  				}		
+  				}
 			}
-		});
+		} );
 
-		$( '.elementor-element-' + id + ' li.menu-item' ).on( 'keyup', function(e){
-			var $this = $( this );
+		$( '.elementor-element-' + id + ' li.menu-item' ).on( 'keyup', function( e ) {
+			const $this = $( this );
 
 	 		$this.next().find( 'a' ).attr( 'aria-expanded', 'false' );
 	 		$this.prev().find( 'a' ).attr( 'aria-expanded', 'false' );
-	  		
-	  		$this.next().find('ul').css( { 'visibility': 'hidden', 'opacity': '0', 'height': '0' } );
-	  		$this.prev().find('ul').css( { 'visibility': 'hidden', 'opacity': '0', 'height': '0' } );
-	  		
+
+	  		$this.next().find( 'ul' ).css( { visibility: 'hidden', opacity: '0', height: '0' } );
+	  		$this.prev().find( 'ul' ).css( { visibility: 'hidden', opacity: '0', height: '0' } );
+
 	  		$this.siblings().removeClass( 'menu-active' );
 	  		$this.next().find( 'div.hfe-has-submenu-container' ).removeClass( 'sub-menu-active' );
 		  	$this.prev().find( 'div.hfe-has-submenu-container' ).removeClass( 'sub-menu-active' );
-		  		
-		});
+		} );
 	};
 
 	function _handle_current_menu_item_class( layout_links ) {
 		layout_links.each(
-			function () {
-				var $this = $( this );
-				if ($this.is( '[href*="#"]' )) {
-					var menu_item_parent = $this.parent();
+			function() {
+				const $this = $( this );
+				if ( $this.is( '[href*="#"]' ) ) {
+					const menu_item_parent = $this.parent();
 					menu_item_parent.removeClass( 'current-menu-item current-menu-ancestor' );
 					$this.click(
-						function () {
-							var current_index  = menu_item_parent.index(),
+						function() {
+							const current_index = menu_item_parent.index(),
 								parent_element = $this.closest( 'ul' );
 							parent_element.find( 'li' ).not( ':eq(' + current_index + ')' ).removeClass( 'current-menu-item current-menu-ancestor' );
 							menu_item_parent.addClass( 'current-menu-item current-menu-ancestor' );
-						}
-					)
+						},
+					);
 				}
-			}
+			},
 		);
 	}
 
 	function _openMenu( id ) {
-
-		var flyout_content = $( '#hfe-flyout-content-id-' + id );
-		var layout = $( '#hfe-flyout-content-id-' + id ).data( 'layout' );
-		var layout_type = $( '#hfe-flyout-content-id-' + id ).data( 'flyout-type' );
-		var wrap_width = flyout_content.width() + 'px';
-		var container = $( '.elementor-element-' + id + ' .hfe-flyout-container .hfe-side.hfe-flyout-' + layout );
+		const flyout_content = $( '#hfe-flyout-content-id-' + id );
+		const layout = $( '#hfe-flyout-content-id-' + id ).data( 'layout' );
+		const layout_type = $( '#hfe-flyout-content-id-' + id ).data( 'flyout-type' );
+		const wrap_width = flyout_content.width() + 'px';
+		const container = $( '.elementor-element-' + id + ' .hfe-flyout-container .hfe-side.hfe-flyout-' + layout );
 
 		$( '.elementor-element-' + id + ' .hfe-flyout-overlay' ).fadeIn( 100 );
 
-		if( 'left' == layout ) {
-
-			$( 'body' ).css( 'margin-left' , '0' );
+		if ( 'left' == layout ) {
+			$( 'body' ).css( 'margin-left', '0' );
 			container.css( 'left', '0' );
 
-			if( 'push' == layout_type ) {
-
-				$( 'body' ).addClass( 'hfe-flyout-animating' ).css({ 
+			if ( 'push' == layout_type ) {
+				$( 'body' ).addClass( 'hfe-flyout-animating' ).css( {
 					position: 'absolute',
 					width: '100%',
-					'margin-left' : wrap_width,
-					'margin-right' : 'auto'
-				});
-			}	
-
-			container.addClass( 'hfe-flyout-show' );	
-		} else {
-
-			$( 'body' ).css( 'margin-right', '0' );
-			container.css( 'right', '0' );
-
-			if( 'push' == layout_type ) {
-
-				$( 'body' ).addClass( 'hfe-flyout-animating' ).css({ 
-					position: 'absolute',
-					width: '100%',
-					'margin-left' : '-' + wrap_width,
-					'margin-right' : 'auto',
-				});
+					'margin-left': wrap_width,
+					'margin-right': 'auto',
+				} );
 			}
 
 			container.addClass( 'hfe-flyout-show' );
-		}		
+		} else {
+			$( 'body' ).css( 'margin-right', '0' );
+			container.css( 'right', '0' );
+
+			if ( 'push' == layout_type ) {
+				$( 'body' ).addClass( 'hfe-flyout-animating' ).css( {
+					position: 'absolute',
+					width: '100%',
+					'margin-left': '-' + wrap_width,
+					'margin-right': 'auto',
+				} );
+			}
+
+			container.addClass( 'hfe-flyout-show' );
+		}
 	}
 
 	function _closeMenu( id ) {
+		const flyout_content = $( '#hfe-flyout-content-id-' + id );
+		const layout = $( '#hfe-flyout-content-id-' + id ).data( 'layout' );
+		const wrap_width = flyout_content.width() + 'px';
+		const layout_type = $( '#hfe-flyout-content-id-' + id ).data( 'flyout-type' );
+		const container = $( '.elementor-element-' + id + ' .hfe-flyout-container .hfe-side.hfe-flyout-' + layout );
 
-		var flyout_content = $( '#hfe-flyout-content-id-' + id );
-		var layout    = $( '#hfe-flyout-content-id-' + id ).data( 'layout' );
-		var wrap_width = flyout_content.width() + 'px';
-		var layout_type = $( '#hfe-flyout-content-id-' + id ).data( 'flyout-type' );
-		var container = $( '.elementor-element-' + id + ' .hfe-flyout-container .hfe-side.hfe-flyout-' + layout );
+		$( '.elementor-element-' + id + ' .hfe-flyout-overlay' ).fadeOut( 100 );
 
-		$( '.elementor-element-' + id + ' .hfe-flyout-overlay' ).fadeOut( 100 );	
-
-		if( 'left' == layout ) {
-
+		if ( 'left' == layout ) {
 			container.css( 'left', '-' + wrap_width );
 
-			if( 'push' == layout_type ) {
-
-				$( 'body' ).css({ 
+			if ( 'push' == layout_type ) {
+				$( 'body' ).css( {
 					position: '',
-					'margin-left' : '',
-					'margin-right' : '',
-				});
+					'margin-left': '',
+					'margin-right': '',
+				} );
 
 				setTimeout( function() {
-					$( 'body' ).removeClass( 'hfe-flyout-animating' ).css({ 
+					$( 'body' ).removeClass( 'hfe-flyout-animating' ).css( {
 						width: '',
-					});
-				});
-			}	
+					} );
+				} );
+			}
 
-			container.removeClass( 'hfe-flyout-show' );					
+			container.removeClass( 'hfe-flyout-show' );
 		} else {
 			container.css( 'right', '-' + wrap_width );
-			
-			if( 'push' == layout_type ) {
 
-				$( 'body' ).css({
+			if ( 'push' == layout_type ) {
+				$( 'body' ).css( {
 					position: '',
-					'margin-right' : '',
-					'margin-left' : '',
-				});
+					'margin-right': '',
+					'margin-left': '',
+				} );
 
 				setTimeout( function() {
-					$( 'body' ).removeClass( 'hfe-flyout-animating' ).css({ 
+					$( 'body' ).removeClass( 'hfe-flyout-animating' ).css( {
 						width: '',
-					});
-				});
+					} );
+				} );
 			}
 			container.removeClass( 'hfe-flyout-show' );
-		}	
+		}
 	}
 
-	function _eventClick( id ){
-
-		var layout = $( '.elementor-element-' + id + ' .hfe-nav-menu' ).data( 'layout' );
+	function _eventClick( id ) {
+		const layout = $( '.elementor-element-' + id + ' .hfe-nav-menu' ).data( 'layout' );
 
 		$( '.elementor-element-' + id + ' div.hfe-has-submenu-container' ).off( 'click' ).on( 'click', function( event ) {
+			const $this = $( this );
 
-			var $this = $( this );
-
-			if( $( '.elementor-element-' + id ).hasClass( 'hfe-link-redirect-child' ) ) {
-
-				if( $this.hasClass( 'sub-menu-active' ) ) {
-
-					if( ! $this.next().hasClass( 'sub-menu-open' ) ) {
-
+			if ( $( '.elementor-element-' + id ).hasClass( 'hfe-link-redirect-child' ) ) {
+				if ( $this.hasClass( 'sub-menu-active' ) ) {
+					if ( ! $this.next().hasClass( 'sub-menu-open' ) ) {
 						$this.find( 'a' ).attr( 'aria-expanded', 'false' );
 
-						if( 'horizontal' !== layout ){
-
+						if ( 'horizontal' !== layout ) {
 							event.preventDefault();
-
-							$this.next().css( 'position', 'relative' );	
-						} else if ( 'horizontal' === layout && window.matchMedia( "( max-width: 767px )" ).matches && ($( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-tablet') || $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-mobile'))) {
-							
-							event.preventDefault();
-
-							$this.next().css( 'position', 'relative' );	
-						} else if ( 'horizontal' === layout && window.matchMedia( "( max-width: 1024px )" ).matches && ( $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-tablet') || $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-mobile'))) {
-							
-							event.preventDefault();	
-
-							$this.next().css( 'position', 'relative' );	
-						}	
-					
-						$this.removeClass( 'sub-menu-active' );
-						$this.nextAll('.sub-menu').removeClass( 'sub-menu-open' );
-						$this.nextAll('.sub-menu').css( { 'visibility': 'hidden', 'opacity': '0', 'height': '0' } );
-						$this.nextAll('.sub-menu').css( { 'transition': 'none'} );
-					} else{
-
-						$this.find( 'a' ).attr( 'aria-expanded', 'false' );
-						
-						$this.removeClass( 'sub-menu-active' );
-						$this.nextAll('.sub-menu').removeClass( 'sub-menu-open' );
-						$this.nextAll('.sub-menu').css( { 'visibility': 'hidden', 'opacity': '0', 'height': '0' } );
-						$this.nextAll('.sub-menu').css( { 'transition': 'none'} );
-
-						if ( 'horizontal' !== layout ){
 
 							$this.next().css( 'position', 'relative' );
-						} else if ( 'horizontal' === layout && window.matchMedia( "( max-width: 767px )" ).matches && ($( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-tablet') || $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-mobile'))) {
-							
-							$this.next().css( 'position', 'relative' );	
-							
-						} else if ( 'horizontal' === layout && window.matchMedia( "( max-width: 1024px )" ).matches && ( $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-tablet') || $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-mobile'))) {
-							
-							$this.next().css( 'position', 'absolute' );				
-						}	  								
-					}		  											
-				} else {
+						} else if ( 'horizontal' === layout && window.matchMedia( '( max-width: 767px )' ).matches && ( $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-tablet' ) || $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-mobile' ) ) ) {
+							event.preventDefault();
 
+							$this.next().css( 'position', 'relative' );
+						} else if ( 'horizontal' === layout && window.matchMedia( '( max-width: 1024px )' ).matches && ( $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-tablet' ) || $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-mobile' ) ) ) {
+							event.preventDefault();
+
+							$this.next().css( 'position', 'relative' );
+						}
+
+						$this.removeClass( 'sub-menu-active' );
+						$this.nextAll( '.sub-menu' ).removeClass( 'sub-menu-open' );
+						$this.nextAll( '.sub-menu' ).css( { visibility: 'hidden', opacity: '0', height: '0' } );
+						$this.nextAll( '.sub-menu' ).css( { transition: 'none' } );
+					} else {
+						$this.find( 'a' ).attr( 'aria-expanded', 'false' );
+
+						$this.removeClass( 'sub-menu-active' );
+						$this.nextAll( '.sub-menu' ).removeClass( 'sub-menu-open' );
+						$this.nextAll( '.sub-menu' ).css( { visibility: 'hidden', opacity: '0', height: '0' } );
+						$this.nextAll( '.sub-menu' ).css( { transition: 'none' } );
+
+						if ( 'horizontal' !== layout ) {
+							$this.next().css( 'position', 'relative' );
+						} else if ( 'horizontal' === layout && window.matchMedia( '( max-width: 767px )' ).matches && ( $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-tablet' ) || $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-mobile' ) ) ) {
+							$this.next().css( 'position', 'relative' );
+						} else if ( 'horizontal' === layout && window.matchMedia( '( max-width: 1024px )' ).matches && ( $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-tablet' ) || $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-mobile' ) ) ) {
+							$this.next().css( 'position', 'absolute' );
+						}
+					}
+				} else {
 					$this.find( 'a' ).attr( 'aria-expanded', 'true' );
 					if ( 'horizontal' !== layout ) {
-						
 						event.preventDefault();
-						$this.next().css( 'position', 'relative');			
-					} else if ( 'horizontal' === layout && window.matchMedia( "( max-width: 767px )" ).matches && ($( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-tablet') || $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-mobile'))) {
-						
+						$this.next().css( 'position', 'relative' );
+					} else if ( 'horizontal' === layout && window.matchMedia( '( max-width: 767px )' ).matches && ( $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-tablet' ) || $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-mobile' ) ) ) {
 						event.preventDefault();
-						$this.next().css( 'position', 'relative');		  					
-					} else if ( 'horizontal' === layout && window.matchMedia( "( max-width: 1024px )" ).matches ) {
+						$this.next().css( 'position', 'relative' );
+					} else if ( 'horizontal' === layout && window.matchMedia( '( max-width: 1024px )' ).matches ) {
 						event.preventDefault();
 
-						if ( $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-tablet') ) {
-
-							$this.next().css( 'position', 'relative');	
-						} else if ( $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-mobile') || $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-none') ) {
-							
-							$this.next().css( 'position', 'absolute');	
+						if ( $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-tablet' ) ) {
+							$this.next().css( 'position', 'relative' );
+						} else if ( $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-mobile' ) || $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-none' ) ) {
+							$this.next().css( 'position', 'absolute' );
 						}
-					}	
-							
+					}
+
 					$this.addClass( 'sub-menu-active' );
-					$this.nextAll('.sub-menu').addClass( 'sub-menu-open' );
-					$this.nextAll('.sub-menu').css( { 'visibility': 'visible', 'opacity': '1', 'height': 'auto' } );
-					$this.nextAll('.sub-menu').css( { 'transition': '0.3s ease'} );
+					$this.nextAll( '.sub-menu' ).addClass( 'sub-menu-open' );
+					$this.nextAll( '.sub-menu' ).css( { visibility: 'visible', opacity: '1', height: 'auto' } );
+					$this.nextAll( '.sub-menu' ).css( { transition: '0.3s ease' } );
 				}
 			}
-		});
+		} );
 
-		$( '.elementor-element-' + id + ' .hfe-menu-toggle' ).off( 'click keyup' ).on( 'click keyup',function( event ) {
+		$( '.elementor-element-' + id + ' .hfe-menu-toggle' ).off( 'click keyup' ).on( 'click keyup', function( event ) {
+			const $this = $( this );
 
-			var $this = $( this );
-
-		  	if( $this.parent().parent().hasClass( 'menu-active' ) ) {
-
+		  	if ( $this.parent().parent().hasClass( 'menu-active' ) ) {
 	  			event.preventDefault();
 
 				$this.parent().parent().removeClass( 'menu-active' );
-				$this.parent().parent().next().css( { 'visibility': 'hidden', 'opacity': '0', 'height': '0' } );
+				$this.parent().parent().next().css( { visibility: 'hidden', opacity: '0', height: '0' } );
 
 				if ( 'horizontal' !== layout ) {
-						
-		  			$this.parent().parent().next().css( 'position', 'relative');			
-				} else if ( 'horizontal' === layout && window.matchMedia( "( max-width: 767px )" ).matches && ($( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-tablet') || $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-mobile'))) {
-										
-  					$this.parent().parent().next().css( 'position', 'relative');		  					
-				} else if ( 'horizontal' === layout && window.matchMedia( "( max-width: 1024px )" ).matches ) {
-					
-  					if ( $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-tablet') ) {
-
-  						$this.parent().parent().next().css( 'position', 'relative');	
-  					} else if ( $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-mobile') || $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-none') ) {
-  						
-  						$this.parent().parent().next().css( 'position', 'absolute');	
+		  			$this.parent().parent().next().css( 'position', 'relative' );
+				} else if ( 'horizontal' === layout && window.matchMedia( '( max-width: 767px )' ).matches && ( $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-tablet' ) || $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-mobile' ) ) ) {
+  					$this.parent().parent().next().css( 'position', 'relative' );
+				} else if ( 'horizontal' === layout && window.matchMedia( '( max-width: 1024px )' ).matches ) {
+  					if ( $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-tablet' ) ) {
+  						$this.parent().parent().next().css( 'position', 'relative' );
+  					} else if ( $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-mobile' ) || $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-none' ) ) {
+  						$this.parent().parent().next().css( 'position', 'absolute' );
   					}
   				}
-			}else { 
-
+			} else {
 				event.preventDefault();
 
 				$this.parent().parent().addClass( 'menu-active' );
 
-				$this.parent().parent().next().css( { 'visibility': 'visible', 'opacity': '1', 'height': 'auto' } );
+				$this.parent().parent().next().css( { visibility: 'visible', opacity: '1', height: 'auto' } );
 
 				if ( 'horizontal' !== layout ) {
-						
-		  			$this.parent().parent().next().css( 'position', 'relative');			
-				} else if ( 'horizontal' === layout && window.matchMedia( "( max-width: 767px )" ).matches && ($( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-tablet') || $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-mobile'))) {
-										
-  					$this.parent().parent().next().css( 'position', 'relative');		  					
-				} else if ( 'horizontal' === layout && window.matchMedia( "( max-width: 1024px )" ).matches ) {
-					
-  					if ( $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-tablet') ) {
-
-  						$this.parent().parent().next().css( 'position', 'relative');	
-  					} else if ( $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-mobile') || $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-none') ) {
-  						
-  						$this.parent().parent().next().css( 'position', 'absolute');	
+		  			$this.parent().parent().next().css( 'position', 'relative' );
+				} else if ( 'horizontal' === layout && window.matchMedia( '( max-width: 767px )' ).matches && ( $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-tablet' ) || $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-mobile' ) ) ) {
+  					$this.parent().parent().next().css( 'position', 'relative' );
+				} else if ( 'horizontal' === layout && window.matchMedia( '( max-width: 1024px )' ).matches ) {
+  					if ( $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-tablet' ) ) {
+  						$this.parent().parent().next().css( 'position', 'relative' );
+  					} else if ( $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-mobile' ) || $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-none' ) ) {
+  						$this.parent().parent().next().css( 'position', 'absolute' );
   					}
-  				}		
+  				}
 			}
-		});
+		} );
 	}
 
-	function _borderClass( id ){
-
-		var last_item = $( '.elementor-element-' + id + ' .hfe-nav-menu' ).data( 'last-item' );
-		var last_item_flyout = $( '.elementor-element-' + id + ' .hfe-flyout-wrapper' ).data( 'last-item' );
+	function _borderClass( id ) {
+		const last_item = $( '.elementor-element-' + id + ' .hfe-nav-menu' ).data( 'last-item' );
+		const last_item_flyout = $( '.elementor-element-' + id + ' .hfe-flyout-wrapper' ).data( 'last-item' );
 		var layout = $( '.elementor-element-' + id + ' .hfe-nav-menu' ).data( 'layout' );
 
-		$( '.elementor-element-' + id + ' nav').removeClass('hfe-dropdown');
+		$( '.elementor-element-' + id + ' nav' ).removeClass( 'hfe-dropdown' );
 
-		if ( window.matchMedia( "( max-width: 767px )" ).matches ) {
-
-			if( $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-mobile') || $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-tablet')){
-				
-				$( '.elementor-element-' + id + ' nav').addClass('hfe-dropdown');
-				if( ( 'cta' == last_item || 'cta' == last_item_flyout ) && 'expandible' != layout ){
+		if ( window.matchMedia( '( max-width: 767px )' ).matches ) {
+			if ( $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-mobile' ) || $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-tablet' ) ) {
+				$( '.elementor-element-' + id + ' nav' ).addClass( 'hfe-dropdown' );
+				if ( ( 'cta' == last_item || 'cta' == last_item_flyout ) && 'expandible' != layout ) {
 					$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).parent().removeClass( 'hfe-button-wrapper elementor-widget-button' );
-					$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).removeClass( 'elementor-button' );	
-				}	
-			}else{
-				
-				$( '.elementor-element-' + id + ' nav').removeClass('hfe-dropdown');
-				if( ( 'cta' == last_item || 'cta' == last_item_flyout ) && 'expandible' != layout ){
-					$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).parent().addClass( 'hfe-button-wrapper elementor-widget-button' );
-					$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).addClass( 'elementor-button' );	
+					$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).removeClass( 'elementor-button' );
 				}
-			}
-		}else if ( window.matchMedia( "( max-width: 1024px )" ).matches ) {
-
-			if( $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-tablet') ) {
-				
-				$( '.elementor-element-' + id + ' nav').addClass('hfe-dropdown');
-				if( ( 'cta' == last_item || 'cta' == last_item_flyout ) && 'expandible' != layout ){
-					$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).parent().removeClass( 'hfe-button-wrapper elementor-widget-button' );
-					$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).removeClass( 'elementor-button' );	
-				}
-			}else{
-				
-				$( '.elementor-element-' + id + ' nav').removeClass('hfe-dropdown');
-				if( ( 'cta' == last_item || 'cta' == last_item_flyout ) && 'expandible' != layout ){
+			} else {
+				$( '.elementor-element-' + id + ' nav' ).removeClass( 'hfe-dropdown' );
+				if ( ( 'cta' == last_item || 'cta' == last_item_flyout ) && 'expandible' != layout ) {
 					$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).parent().addClass( 'hfe-button-wrapper elementor-widget-button' );
 					$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).addClass( 'elementor-button' );
 				}
 			}
-		}else {
-			var $parent_element = $( '.elementor-element-' + id );
-			$parent_element.find( 'nav').removeClass( 'hfe-dropdown' );
-			if( ( 'cta' == last_item || 'cta' == last_item_flyout ) && 'expandible' != layout ){
+		} else if ( window.matchMedia( '( max-width: 1024px )' ).matches ) {
+			if ( $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-tablet' ) ) {
+				$( '.elementor-element-' + id + ' nav' ).addClass( 'hfe-dropdown' );
+				if ( ( 'cta' == last_item || 'cta' == last_item_flyout ) && 'expandible' != layout ) {
+					$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).parent().removeClass( 'hfe-button-wrapper elementor-widget-button' );
+					$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).removeClass( 'elementor-button' );
+				}
+			} else {
+				$( '.elementor-element-' + id + ' nav' ).removeClass( 'hfe-dropdown' );
+				if ( ( 'cta' == last_item || 'cta' == last_item_flyout ) && 'expandible' != layout ) {
+					$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).parent().addClass( 'hfe-button-wrapper elementor-widget-button' );
+					$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).addClass( 'elementor-button' );
+				}
+			}
+		} else {
+			const $parent_element = $( '.elementor-element-' + id );
+			$parent_element.find( 'nav' ).removeClass( 'hfe-dropdown' );
+			if ( ( 'cta' == last_item || 'cta' == last_item_flyout ) && 'expandible' != layout ) {
 				$parent_element.find( 'li.menu-item:last-child a.hfe-menu-item' ).parent().addClass( 'hfe-button-wrapper elementor-widget-button' );
 				$parent_element.find( 'li.menu-item:last-child a.hfe-menu-item' ).addClass( 'elementor-button' );
 			}
 		}
 
 		var layout = $( '.elementor-element-' + id + ' .hfe-nav-menu' ).data( 'layout' );
-		if( 'expandible' == layout ){
-			if( ( 'cta' == last_item || 'cta' == last_item_flyout ) && 'expandible' != layout ){
+		if ( 'expandible' == layout ) {
+			if ( ( 'cta' == last_item || 'cta' == last_item_flyout ) && 'expandible' != layout ) {
 				$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).parent().removeClass( 'hfe-button-wrapper elementor-widget-button' );
-				$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).removeClass( 'elementor-button' );			
-			}			
+				$( '.elementor-element-' + id + ' li.menu-item:last-child a.hfe-menu-item' ).removeClass( 'elementor-button' );
+			}
 		}
 	}
 
-	function _toggleClick( id ){
+	function _toggleClick( id ) {
+		if ( $( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).hasClass( 'hfe-active-menu-full-width' ) ) {
+			const $toggle = $( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' );
+			const $nextElement = $toggle.next();
 
-		if ( $( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).hasClass( 'hfe-active-menu-full-width' ) ){
-
-			var $toggle = $( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' );
-			var $nextElement= $toggle.next();
-
-			if( $nextElement.length ){
+			if ( $nextElement.length ) {
 				$nextElement.css( 'left', '0' );
-				
-				var $section = $( '.elementor-element-' + id ).closest('.elementor-section, .e-con-boxed.e-parent, .e-con-full.e-parent');
+
+				const $section = $( '.elementor-element-' + id ).closest( '.elementor-section, .e-con-boxed.e-parent, .e-con-full.e-parent' );
 				if ( $section.length ) {
-					var width = $section.outerWidth();
-					var sec_pos = $section.offset().left - $toggle.next().offset().left;
+					const width = $section.outerWidth();
+					const sec_pos = $section.offset().left - $toggle.next().offset().left;
 					$nextElement.css( 'width', width + 'px' );
 					$nextElement.css( 'left', sec_pos + 'px' );
 				}
@@ -661,7 +584,6 @@
 		}
 
 		$( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' ).off( 'click keyup' ).on( 'click keyup', function( event ) {
-
 			// Handle keyboard events properly
 			if ( event.type === 'keyup' && event.key !== 'Enter' && event.key !== 'Space' ) {
 				return; // Only handle Enter and Space keys
@@ -672,103 +594,97 @@
 				event.preventDefault();
 			}
 
-			var $this = $( this );
-			var $selector = $this.next();
+			const $this = $( this );
+			const $selector = $this.next();
 
 			if ( $this.hasClass( 'hfe-active-menu' ) ) {
-
 				var layout = $( '.elementor-element-' + id + ' .hfe-nav-menu' ).data( 'layout' );
 				var full_width = $selector.data( 'full-width' );
-				var toggle_icon = $( '.elementor-element-' + id + ' nav' ).data( 'toggle-icon' );
+				const toggle_icon = $( '.elementor-element-' + id + ' nav' ).data( 'toggle-icon' );
 
-				$( '.elementor-element-' + id).find( '.hfe-nav-menu-icon' ).html( toggle_icon );
+				$( '.elementor-element-' + id ).find( '.hfe-nav-menu-icon' ).html( toggle_icon );
 
 				$this.removeClass( 'hfe-active-menu' );
 				$this.attr( 'aria-expanded', 'false' );
-				
-				if ( 'yes' == full_width ){
 
+				if ( 'yes' == full_width ) {
 					$this.removeClass( 'hfe-active-menu-full-width' );
-				
+
 					$selector.css( 'width', 'auto' );
 					$selector.css( 'left', '0' );
 					$selector.css( 'z-index', '0' );
-				}				
+				}
 			} else {
-
 				var layout = $( '.elementor-element-' + id + ' .hfe-nav-menu' ).data( 'layout' );
 				var full_width = $selector.data( 'full-width' );
-				var close_icon = $( '.elementor-element-' + id + ' nav' ).data( 'close-icon' );
+				const close_icon = $( '.elementor-element-' + id + ' nav' ).data( 'close-icon' );
 
-				$( '.elementor-element-' + id).find( '.hfe-nav-menu-icon' ).html( close_icon );
-				
+				$( '.elementor-element-' + id ).find( '.hfe-nav-menu-icon' ).html( close_icon );
+
 				$this.addClass( 'hfe-active-menu' );
 				$this.attr( 'aria-expanded', 'true' );
 
-				if ( 'yes' == full_width ){
-
+				if ( 'yes' == full_width ) {
 					$this.addClass( 'hfe-active-menu-full-width' );
 
-					var closestElement = $( '.elementor-element-' + id ).closest('.elementor-section, .e-con-boxed.e-parent, .e-con-full.e-parent');
-					var width = closestElement.outerWidth();
-					var sec_pos = closestElement.offset().left - $selector.offset().left;
-				
+					const closestElement = $( '.elementor-element-' + id ).closest( '.elementor-section, .e-con-boxed.e-parent, .e-con-full.e-parent' );
+					const width = closestElement.outerWidth();
+					const sec_pos = closestElement.offset().left - $selector.offset().left;
+
 					$selector.css( 'width', width + 'px' );
 					$selector.css( 'left', sec_pos + 'px' );
 					$selector.css( 'z-index', '9999' );
 				}
 			}
 
-			if( $( '.elementor-element-' + id + ' nav' ).hasClass( 'menu-is-active' ) ) {
-
+			if ( $( '.elementor-element-' + id + ' nav' ).hasClass( 'menu-is-active' ) ) {
 				$( '.elementor-element-' + id + ' nav' ).removeClass( 'menu-is-active' );
-			}else {
-
+			} else {
 				$( '.elementor-element-' + id + ' nav' ).addClass( 'menu-is-active' );
-				
+
 				// Focus on first menu item when menu opens
 				if ( event.type === 'keyup' ) {
-					setTimeout(function() {
-						$selector.find('li:first-child > a').focus();
-					}, 100);
+					setTimeout( function() {
+						$selector.find( 'li:first-child > a' ).focus();
+					}, 100 );
 				}
-			}				
+			}
 		} );
 	}
 
 	function _handleSinglePageMenu( id, layout ) {
 		$( '.elementor-element-' + id + ' ul.hfe-nav-menu li a' ).on(
 			'click',
-			function ( event ) {
-				var $this = $( this );
-				var link  = $this.attr( 'href' );
-				var linkValue = '';
-				
+			function( event ) {
+				const $this = $( this );
+				const link = $this.attr( 'href' );
+				let linkValue = '';
+
 				// Check if this is an anchor link
 				if ( link && link.includes( '#' ) ) {
 					// Get the hash value
-					if ( link.charAt(0) === '#' ) {
+					if ( link.charAt( 0 ) === '#' ) {
 						event.preventDefault();
 						linkValue = link.slice( 1 );
 					} else {
-						var index = link.indexOf( '#' );
+						const index = link.indexOf( '#' );
 						if ( index !== -1 ) {
 							linkValue = link.slice( index + 1 );
 						}
 					}
 				}
-				
+
 				if ( linkValue.length > 0 ) {
-					var targetSection = $( '#' + linkValue );
+					const targetSection = $( '#' + linkValue );
 
 					if ( targetSection.length ) {	// Check if the target section exists.
-						$('html, body').animate({
-							scrollTop: targetSection.offset().top
-						}, 800); 
+						$( 'html, body' ).animate( {
+							scrollTop: targetSection.offset().top,
+						}, 800 );
 					}
 
 					// Close the menu after clicking anchor link
-					setTimeout(function() {
+					setTimeout( function() {
 						if ( 'expandible' == layout ) {
 							// For expandible layout, trigger click on toggle if menu is open
 							var $toggle = $( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' );
@@ -781,8 +697,8 @@
 						} else {
 							// For horizontal and vertical layouts on mobile/tablet
 							if ( window.matchMedia( '(max-width: 1024px)' ).matches ) {
-								if ( $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-tablet') || 
-									 $( '.elementor-element-' + id ).hasClass('hfe-nav-menu__breakpoint-mobile') ) {
+								if ( $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-tablet' ) ||
+									 $( '.elementor-element-' + id ).hasClass( 'hfe-nav-menu__breakpoint-mobile' ) ) {
 									var $toggle = $( '.elementor-element-' + id + ' .hfe-nav-menu__toggle' );
 									if ( $toggle.hasClass( 'hfe-active-menu' ) ) {
 										$toggle.trigger( 'click' );
@@ -790,9 +706,9 @@
 								}
 							}
 						}
-					}, 100); // Small delay to ensure smooth scrolling starts first
+					}, 100 ); // Small delay to ensure smooth scrolling starts first
 				}
-			}
+			},
 		);
 	}
 
@@ -802,20 +718,19 @@
 	 * @param {Object} $scope The current element(hfe nav menu) wrapped with jQuery.
 	 */
 	function _handlePolylangSwitcher( $scope ) {
-		var polylangSwitcher = $scope.find( '.hfe-nav-menu nav .pll-parent-menu-item a.hfe-menu-item' );
-		var hrefProperty     = polylangSwitcher.prop( 'href' );
+		const polylangSwitcher = $scope.find( '.hfe-nav-menu nav .pll-parent-menu-item a.hfe-menu-item' );
+		const hrefProperty = polylangSwitcher.prop( 'href' );
 		if ( undefined !== hrefProperty && hrefProperty.includes( '#' ) ) {
-			var index = hrefProperty.indexOf( '#' );
-			var value = hrefProperty.slice( index );
+			const index = hrefProperty.indexOf( '#' );
+			const value = hrefProperty.slice( index );
 			if ( value === '#pll_switcher' ) {
 				polylangSwitcher.prop( 'href', '#' );
 			}
 		}
 	}
 
-	$( window ).on( 'elementor/frontend/init', function () {
-
+	$( window ).on( 'elementor/frontend/init', function() {
 		elementorFrontend.hooks.addAction( 'frontend/element_ready/navigation-menu.default', WidgethfeNavMenuHandler );
 		elementorFrontend.hooks.addAction( 'frontend/element_ready/hfe-search-button.default', WidgethfeSearchButton );
-	});
-} )( jQuery );
+	} );
+}( jQuery ) );

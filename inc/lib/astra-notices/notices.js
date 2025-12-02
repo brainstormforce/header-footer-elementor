@@ -1,11 +1,11 @@
 /**
  * Customizer controls toggles
  *
- * @package Astra
+ * @param $
+ * @package
  */
 
 ( function( $ ) {
-
 	/**
 	 * Helper class for the main Customizer interface.
 	 *
@@ -18,10 +18,9 @@
 		 * Initializes our custom logic for the Customizer.
 		 *
 		 * @since 1.0.0
-		 * @method init
+		 * @function init
 		 */
-		init: function()
-		{
+		init() {
 			this._bind();
 		},
 
@@ -30,66 +29,63 @@
 		 *
 		 * @since 1.0.0
 		 * @access private
-		 * @method _bind
+		 * @function _bind
 		 */
-		_bind: function()
-		{
-			$( document ).on('click', '.astra-notice-close', AstraNotices._dismissNoticeNew );
-			$( document ).on('click', '.astra-notice .notice-dismiss', AstraNotices._dismissNotice );
+		_bind() {
+			$( document ).on( 'click', '.astra-notice-close', AstraNotices._dismissNoticeNew );
+			$( document ).on( 'click', '.astra-notice .notice-dismiss', AstraNotices._dismissNotice );
 		},
 
-		_dismissNotice: function( event ) {
+		_dismissNotice( event ) {
 			event.preventDefault();
 
-			var repeat_notice_after = $( this ).parents('.astra-notice').data( 'repeat-notice-after' ) || '';
-			var notice_id = $( this ).parents('.astra-notice').attr( 'id' ) || '';
+			const repeat_notice_after = $( this ).parents( '.astra-notice' ).data( 'repeat-notice-after' ) || '';
+			const notice_id = $( this ).parents( '.astra-notice' ).attr( 'id' ) || '';
 
 			AstraNotices._ajax( notice_id, repeat_notice_after );
 		},
 
-		_dismissNoticeNew: function( event ) {
+		_dismissNoticeNew( event ) {
 			event.preventDefault();
 
-			var repeat_notice_after = $( this ).attr( 'data-repeat-notice-after' ) || '';
-			var notice_id = $( this ).parents('.astra-notice').attr( 'id' ) || '';
+			const repeat_notice_after = $( this ).attr( 'data-repeat-notice-after' ) || '';
+			const notice_id = $( this ).parents( '.astra-notice' ).attr( 'id' ) || '';
 
-			var $el = $( this ).parents('.astra-notice');
+			const $el = $( this ).parents( '.astra-notice' );
 			$el.fadeTo( 100, 0, function() {
 				$el.slideUp( 100, function() {
 					$el.remove();
-				});
-			});
+				} );
+			} );
 
 			AstraNotices._ajax( notice_id, repeat_notice_after );
 
-			var link   = $( this ).attr( 'href' ) || '';
-			var target = $( this ).attr( 'target' ) || '';
-			if( '' !== link && '_blank' === target ) {
-				window.open(link , '_blank');
+			const link = $( this ).attr( 'href' ) || '';
+			const target = $( this ).attr( 'target' ) || '';
+			if ( '' !== link && '_blank' === target ) {
+				window.open( link, '_blank' );
 			}
 		},
 
-		_ajax: function( notice_id, repeat_notice_after ) {
-			
-			if( '' === notice_id ) {
+		_ajax( notice_id, repeat_notice_after ) {
+			if ( '' === notice_id ) {
 				return;
 			}
 
-			$.ajax({
+			$.ajax( {
 				url: ajaxurl,
 				type: 'POST',
 				data: {
-					action            : 'astra-notice-dismiss',
-					nonce             : astraNotices._notice_nonce,
-					notice_id         : notice_id,
-					repeat_notice_after : parseInt( repeat_notice_after ),
+					action: 'astra-notice-dismiss',
+					nonce: astraNotices._notice_nonce,
+					notice_id,
+					repeat_notice_after: parseInt( repeat_notice_after ),
 				},
-			});
-
-		}
+			} );
+		},
 	};
 
 	$( function() {
 		AstraNotices.init();
 	} );
-} )( jQuery );
+}( jQuery ) );
