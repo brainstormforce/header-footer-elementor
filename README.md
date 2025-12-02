@@ -2,7 +2,7 @@
 **Contributors:** [@brainstormforce](https://profiles.wordpress.org/@brainstormforce/)  
 **Tags:** elementor, elementor addon, elementor widget, elementor template, header footer builder  
 **Requires at least:** 5.0    
-**Tested up to:** 6.8  
+**Tested up to:** 6.9  
 **Requires PHP:** 7.4    
 **Stable tag:** 2.7.0  
 **License:** GPLv2 or later    
@@ -299,6 +299,9 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 ---
 
 ## Changelog ##
+### 2.7.1 ###
+Improvement: WordPress 6.9 compatibility.
+
 ### 2.7.0 ###
 - New: Added Counter Widget – Enables animated number counters with customizable styling options.
 
