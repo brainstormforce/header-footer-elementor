@@ -40,3 +40,6 @@ jobs:
 
       - name: Build project
         run: npm run build
+
+      - name: Lint CSS
+        run: npm run lint:css
