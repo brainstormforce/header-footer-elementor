@@ -20,7 +20,7 @@ class Header_Footer_Elementor {
 	public $template;
 
 	/**
-	 * Instance of Elemenntor Frontend class.
+	 * Instance of Elementor Frontend class.
 	 *
 	 * @var object \Elementor\Frontend()
 	 */
@@ -51,11 +51,11 @@ class Header_Footer_Elementor {
 	public function __construct() {
 		$this->template = get_template();
 
-		$is_elementor_callable = ( defined( 'ELEMENTOR_VERSION' ) && is_callable( 'Elementor\Plugin::instance' ) ) ? true : false;
+		$is_elementor_callable = defined( 'ELEMENTOR_VERSION' ) && is_callable( 'Elementor\Plugin::instance' );
 
 		$required_elementor_version = '3.5.0';
 
-		$is_elementor_outdated = ( $is_elementor_callable && ( ! version_compare( ELEMENTOR_VERSION, $required_elementor_version, '>=' ) ) ) ? true : false;
+		$is_elementor_outdated = $is_elementor_callable && ( ! version_compare( ELEMENTOR_VERSION, $required_elementor_version, '>=' ) );
 
 		if ( ( ! $is_elementor_callable ) || $is_elementor_outdated ) {
 			$this->elementor_not_available( $is_elementor_callable, $is_elementor_outdated );
@@ -65,15 +65,15 @@ class Header_Footer_Elementor {
 			self::$elementor_instance = Elementor\Plugin::instance();
 
 			$this->includes();
-			
+
 			add_action( 'admin_init', [ $this, 'hfe_redirect_to_onboarding' ] );
-			
+
 			add_action( 'init', [ $this, 'load_hfe_textdomain' ] );
 
 			add_filter(
 				'elementor/admin-top-bar/is-active',
 				function( $is_active, $current_screen ) {
-					if ( strpos( $current_screen->id, 'elementor-hf' ) !== false ) {
+					if ( false !== strpos( $current_screen->id, 'elementor-hf' ) ) {
 						return false;
 					}
 					return $is_active;
@@ -81,7 +81,6 @@ class Header_Footer_Elementor {
 				10,
 				2
 			);
-			
 
 			add_action(
 				'current_screen',
@@ -92,34 +91,34 @@ class Header_Footer_Elementor {
 							'in_admin_header',
 							function () {
 								$this->render_admin_top_bar();
-							} 
+							}
 						);
 					}
-				} 
+				}
 			);
 
 			$is_theme_supported = true;
 
-			if ( 'genesis' == $this->template ) {
+			if ( 'genesis' === $this->template ) {
 				require HFE_DIR . 'themes/genesis/class-hfe-genesis-compat.php';
-			} elseif ( 'astra' == $this->template ) {
+			} elseif ( 'astra' === $this->template ) {
 				require HFE_DIR . 'themes/astra/class-hfe-astra-compat.php';
-			} elseif ( 'bb-theme' == $this->template || 'beaver-builder-theme' == $this->template ) {
+			} elseif ( 'bb-theme' === $this->template || 'beaver-builder-theme' === $this->template ) {
 				$this->template = 'beaver-builder-theme';
 				require HFE_DIR . 'themes/bb-theme/class-hfe-bb-theme-compat.php';
-			} elseif ( 'generatepress' == $this->template ) {
+			} elseif ( 'generatepress' === $this->template ) {
 				require HFE_DIR . 'themes/generatepress/class-hfe-generatepress-compat.php';
-			} elseif ( 'oceanwp' == $this->template ) {
+			} elseif ( 'oceanwp' === $this->template ) {
 				require HFE_DIR . 'themes/oceanwp/class-hfe-oceanwp-compat.php';
-			} elseif ( 'storefront' == $this->template ) {
+			} elseif ( 'storefront' === $this->template ) {
 				require HFE_DIR . 'themes/storefront/class-hfe-storefront-compat.php';
-			} elseif ( 'hello-elementor' == $this->template ) {
+			} elseif ( 'hello-elementor' === $this->template ) {
 				require HFE_DIR . 'themes/hello-elementor/class-hfe-hello-elementor-compat.php';
-			} elseif ( 'kadence' == $this->template ) {
+			} elseif ( 'kadence' === $this->template ) {
 				require HFE_DIR . 'themes/kadence/class-hfe-kadence-compat.php';
-			} elseif ( 'neve' == $this->template ) {
+			} elseif ( 'neve' === $this->template ) {
 				require HFE_DIR . 'themes/neve/class-hfe-neve-compat.php';
-			} elseif ( 'blocksy' == $this->template ) {
+			} elseif ( 'blocksy' === $this->template ) {
 				require HFE_DIR . 'themes/blocksy/class-hfe-blocksy-compat.php';
 			} else {
 				$is_theme_supported = false;
@@ -128,14 +127,14 @@ class Header_Footer_Elementor {
 			}
 
 			update_option( 'hfe_is_theme_supported', $is_theme_supported );
-			
+
 			add_action( 'init', [ $this, 'setup_settings_page' ] );
 
 			if ( 'yes' === get_option( 'uae_lite_is_activated' ) ) {
 				add_action( 'admin_init', [ $this, 'get_plugin_version' ] );
 			}
 
-			// Filter to change Astra menu positon.
+			// Filter to change Astra menu position.
 			add_filter( 'astra_menu_priority', [ $this, 'update_admin_menu_position' ] );
 			// Scripts and styles.
 			add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
@@ -152,7 +151,7 @@ class Header_Footer_Elementor {
 			add_action( 'wp_footer', [ $this, 'elementor_preview_notice' ] );
 
 			require_once HFE_DIR . 'inc/class-hfe-analytics.php';
-				 
+
 		}
 	}
 
@@ -173,9 +172,9 @@ class Header_Footer_Elementor {
 			return;
 		}
 
-		$is_old_user             = ( 'yes' === get_option( 'hfe_plugin_is_activated' ) ) ? true : false;
-		$is_onboarding_triggered = ( 'yes' === get_option( 'hfe_onboarding_triggered' ) ) ? true : false;
-		$is_uaepro_active        = ( defined( 'UAEL_PRO' ) && UAEL_PRO ) ? true : false;
+		$is_old_user             = 'yes' === get_option( 'hfe_plugin_is_activated' );
+		$is_onboarding_triggered = 'yes' === get_option( 'hfe_onboarding_triggered' );
+		$is_uaepro_active        = defined( 'UAEL_PRO' ) && UAEL_PRO;
 
 		// IMPORTANT: Comment out this code before release - Show onboarding only for new users only once.
 		if ( $is_old_user || $is_onboarding_triggered || $is_uaepro_active ) {
@@ -202,7 +201,7 @@ class Header_Footer_Elementor {
 	}
 
 	/**
-	 * Reset the Unsupported theme nnotice after a theme is switched.
+	 * Reset the Unsupported theme notice after a theme is switched.
 	 *
 	 * @since 1.0.16
 	 *
@@ -444,25 +443,25 @@ class Header_Footer_Elementor {
 	 * @return bool
 	 */
 	private function should_show_preview_notice() {
-		// Don't show if UAE Pro is already installed/activated
-		if ( is_plugin_active( 'ultimate-elementor/ultimate-elementor.php' ) || 
+		// Don't show if UAE Pro is already installed/activated.
+		if ( is_plugin_active( 'ultimate-elementor/ultimate-elementor.php' ) ||
 			file_exists( WP_PLUGIN_DIR . '/ultimate-elementor/ultimate-elementor.php' ) ) {
 			return false;
 		}
 
-		// Basic preview check
-		if ( ! isset( $_GET['preview'] ) || sanitize_text_field( wp_unslash( $_GET['preview'] ) ) !== 'true' ) {
+		// Basic preview check.
+		if ( ! isset( $_GET['preview'] ) || 'true' !== sanitize_text_field( wp_unslash( $_GET['preview'] ) ) ) {
 			return false;
 		}
 
-		// Must have preview_id
+		// Must have preview_id.
 		if ( ! isset( $_GET['preview_id'] ) ) {
 			return false;
 		}
 
 		$preview_id = intval( sanitize_text_field( wp_unslash( $_GET['preview_id'] ) ) );
 
-		// Verify preview nonce for security (if available)
+		// Verify preview nonce for security (if available).
 		if ( isset( $_GET['preview_nonce'] ) ) {
 			$preview_nonce = sanitize_text_field( wp_unslash( $_GET['preview_nonce'] ) );
 			if ( ! wp_verify_nonce( $preview_nonce, 'post_preview_' . $preview_id ) ) {
@@ -470,24 +469,24 @@ class Header_Footer_Elementor {
 			}
 		}
 
-		// Check if it's a page post type (not header/footer templates)
+		// Check if it's a page post type (not header/footer templates).
 		$post_type = get_post_type( $preview_id );
-		if ( $post_type !== 'page' ) {
+		if ( 'page' !== $post_type ) {
 			return false;
 		}
 
-		// Exclude header/footer templates from UAE
+		// Exclude header/footer templates from UAE.
 		$template_type = get_post_meta( $preview_id, 'ehf_template_type', true );
 		if ( ! empty( $template_type ) ) {
-			return false; // This is a header/footer template, don't show notice
+			return false; // This is a header/footer template, don't show notice.
 		}
 
-		// Optional: Check if page uses Elementor
+		// Optional: Check if page uses Elementor.
 		if ( ! $this->is_elementor_page( $preview_id ) ) {
 			return false;
 		}
 
-		// Optional: Allow filtering for custom conditions
+		// Optional: Allow filtering for custom conditions.
 		return apply_filters( 'hfe_show_preview_notice', true, $preview_id );
 	}
 
@@ -508,11 +507,11 @@ class Header_Footer_Elementor {
 	}
 
 	/**
-	 * Prints the admin notics when Elementor is not installed or activated or version outdated.
+	 * Prints the admin notices when Elementor is not installed or activated or version outdated.
 	 *
 	 * @since 1.5.9
-	 * @param  boolean $is_elementor_callable specifies if elementor is available.
-	 * @param  boolean $is_elementor_outdated specifies if elementor version is old.
+	 * @param  boolean $is_elementor_callable Specifies if elementor is available.
+	 * @param  boolean $is_elementor_outdated Specifies if elementor version is old.
 	 * @return void
 	 */
 	public function elementor_not_available( $is_elementor_callable, $is_elementor_outdated ) {
@@ -531,7 +530,7 @@ class Header_Footer_Elementor {
 	}
 
 	/**
-	 * Prints the admin notics when Elementor is not installed or activated.
+	 * Prints the admin notices when Elementor is not installed or activated.
 	 *
 	 * @return void
 	 */
@@ -573,7 +572,7 @@ class Header_Footer_Elementor {
 	}
 
 	/**
-	 * Prints the admin notics when Elementor version is outdated.
+	 * Prints the admin notices when Elementor version is outdated.
 	 *
 	 * @return void
 	 */
@@ -615,8 +614,8 @@ class Header_Footer_Elementor {
 	public function get_plugin_version() {
 
 		$hfe_old_version = get_option( 'hfe_plugin_version' );
-		$old_version     = $hfe_old_version ? $hfe_old_version : HFE_VER;
-		$new_version     = HFE_VER;
+		$old_version = $hfe_old_version ? $hfe_old_version : HFE_VER;
+		$new_version = HFE_VER;
 
 		if ( ! $hfe_old_version || ( $old_version !== $new_version ) ) {
 			// Store previous version.
@@ -665,7 +664,7 @@ class Header_Footer_Elementor {
 			require_once HFE_DIR . 'inc/lib/class-uae-nps-survey.php';
 		}
 
-		// Load the Promotion system for Ultimate Elementor
+		// Load the Promotion system for Ultimate Elementor.
 		if ( ! class_exists( 'HFE_Promotion' ) ) {
 			require_once HFE_DIR . 'inc/class-hfe-promotion.php';
 		}
@@ -677,39 +676,39 @@ class Header_Footer_Elementor {
 	 * @return void
 	 */
 	public function load_hfe_textdomain() {
-	
+
 		// Default languages directory for "header-footer-elementor".
 		$lang_dir = HFE_DIR . 'languages/';
-	
+
 		/**
 		 * Filters the languages directory path to use for AffiliateWP.
 		 *
 		 * @param string $lang_dir The languages directory path.
 		 */
 		$lang_dir = apply_filters( 'hfe_languages_directory', $lang_dir );
-	
+
 		// Traditional WordPress plugin locale filter.
 		global $wp_version;
-	
+
 		$get_locale = get_locale();
-	
-		if ( $wp_version >= 4.7 ) {
+
+		if ( 4.7 <= $wp_version ) {
 			$get_locale = get_user_locale();
 		}
 	
 		/**
-		 * Language Locale for Ultimate Elementor
+		 * Language Locale for Ultimate Elementor.
 		 *
 		 * @var $get_locale The locale to use. Uses get_user_locale()` in WordPress 4.7 or greater,
 		 *                  otherwise uses `get_locale()`.
 		 */
 		$locale = apply_filters( 'plugin_locale', $get_locale, 'header-footer-elementor' );
 		$mofile = sprintf( '%1$s-%2$s.mo', 'header-footer-elementor', $locale );
-	
+
 		// Setup paths to current locale file.
 		$mofile_local  = $lang_dir . $mofile;
 		$mofile_global = WP_LANG_DIR . '/header-footer-elementor/' . $mofile;
-	
+
 		if ( file_exists( $mofile_global ) ) {
 			// Look in global /wp-content/languages/header-footer-elementor/ folder.
 			load_textdomain( 'header-footer-elementor', $mofile_global );
@@ -789,7 +788,7 @@ class Header_Footer_Elementor {
 		global $pagenow;
 		$screen = get_current_screen();
 
-		if ( ( 'elementor-hf' == $screen->id && ( 'post.php' == $pagenow || 'post-new.php' == $pagenow ) ) || ( 'edit.php' == $pagenow && 'edit-elementor-hf' == $screen->id ) ) {
+		if ( ( 'elementor-hf' === $screen->id && ( 'post.php' === $pagenow || 'post-new.php' === $pagenow ) ) || ( 'edit.php' === $pagenow && 'edit-elementor-hf' === $screen->id ) ) {
 
 			wp_enqueue_style( 'hfe-admin-style', HFE_URL . 'admin/assets/css/ehf-admin.css', [], HFE_VER );
 			wp_enqueue_script( 'hfe-admin-script', HFE_URL . 'admin/assets/js/ehf-admin.js', [ 'jquery', 'updates' ], HFE_VER, true );
@@ -831,9 +830,9 @@ class Header_Footer_Elementor {
 	}
 
 	/**
-	 * Display Unsupported theme notice if the current theme does add support for 'header-footer-elementor'
+	 * Display Unsupported theme notice if the current theme does add support for 'header-footer-elementor'.
 	 *
-	 * @param array $hfe_settings_tabs settings array tabs.
+	 * @param array $hfe_settings_tabs Settings array tabs.
 	 * @since 1.0.3
 	 * @return array
 	 */
@@ -849,7 +848,7 @@ class Header_Footer_Elementor {
 	}
 
 	/**
-	 * Add support for theme if the current theme does add support for 'header-footer-elementor'
+	 * Add support for theme if the current theme does add support for 'header-footer-elementor'.
 	 *
 	 * @since  1.6.1
 	 * @return void
@@ -902,7 +901,7 @@ class Header_Footer_Elementor {
 	}
 
 	/**
-	 * Get option for the plugin settings
+	 * Get option for the plugin settings.
 	 *
 	 * @param  string $setting Option name.
 	 * @param  string $default Default value to be received if the option value is not stored in the option.
@@ -910,7 +909,7 @@ class Header_Footer_Elementor {
 	 * @return mixed | string
 	 */
 	public static function get_settings( $setting = '', $default = '' ) {
-		if ( 'type_header' == $setting || 'type_footer' == $setting || 'type_before_footer' == $setting ) {
+		if ( 'type_header' === $setting || 'type_footer' === $setting || 'type_before_footer' === $setting ) {
 			$templates = self::get_template_id( $setting );
 
 			$template = ! is_array( $templates ) ? $templates : $templates[0];
@@ -940,7 +939,7 @@ class Header_Footer_Elementor {
 		foreach ( $hfe_templates as $template ) {
 			if ( get_post_meta( absint( $template['id'] ), 'ehf_template_type', true ) === $type ) {
 				if ( function_exists( 'pll_current_language' ) ) {
-					if ( pll_current_language( 'slug' ) == pll_get_post_language( $template['id'], 'slug' ) ) {
+					if ( pll_current_language( 'slug' ) === pll_get_post_language( $template['id'], 'slug' ) ) {
 						return $template['id'];
 					}
 				} else {
@@ -955,7 +954,7 @@ class Header_Footer_Elementor {
 	/**
 	 * Callback to shortcode.
 	 *
-	 * @param array $atts attributes for shortcode.
+	 * @param array $atts Attributes for shortcode.
 	 * @return string
 	 */
 	public function render_template( $atts ) {
@@ -999,7 +998,7 @@ class Header_Footer_Elementor {
 if ( ! function_exists( '_is_elementor_installed' ) ) {
 
 	/**
-	 * Check if Elementor is installed
+	 * Check if Elementor is installed.
 	 *
 	 * @since 1.6.0
 	 *
@@ -1007,6 +1006,6 @@ if ( ! function_exists( '_is_elementor_installed' ) ) {
 	 * @return bool
 	 */
 	function _is_elementor_installed() {
-		return ( file_exists( WP_PLUGIN_DIR . '/elementor/elementor.php' ) ) ? true : false;
+		return file_exists( WP_PLUGIN_DIR . '/elementor/elementor.php' );
 	}
 }

@@ -11,7 +11,6 @@ use HFE\WidgetsManager\Base\Module_Base;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
-	return $this->_modules;
 }
 
 /**

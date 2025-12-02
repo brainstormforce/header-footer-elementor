@@ -533,7 +533,7 @@ class HFE_Helper {
 			'hfe-counter',
 		];
 
-		// Filter widgets usage to include only allowed widgets
+		// Filter widgets usage to include only allowed widgets.
 		$filtered_widgets_usage = array_filter(
 			$widgets_usage,
 			function ( $key ) use ( $allowed_widgets ) {
@@ -565,7 +565,7 @@ class HFE_Helper {
 			self::$widget_list = self::get_widget_list();
 		}
 
-		// Convert widget name to config key format
+		// Convert widget name to config key format.
 		$widget_key = '';
 		foreach ( self::$widget_list as $key => $widget_data ) {
 			if ( isset( $widget_data['slug'] ) && $widget_data['slug'] === $widget_name ) {
@@ -580,7 +580,7 @@ class HFE_Helper {
 
 		$help_url = self::$widget_list[ $widget_key ]['doc_url'];
 
-		// Ensure we have a valid URL
+		// Ensure we have a valid URL.
 		$help_url = empty( $help_url ) ? '' : $help_url;
 
 		return apply_filters( 'hfe_widget_help_url', $help_url, $widget_name );

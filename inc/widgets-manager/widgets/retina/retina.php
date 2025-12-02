@@ -821,7 +821,7 @@ class Retina extends Common_Widget {
 				$image_url = $placeholder_img_url;
 			}
 
-			// PHPCS:Ignore WordPressVIPMinimum.Variables.RestrictedVariables.cache_constraints___SERVER__HTTP_USER_AGENT__
+			// PHPCS:Ignore WordPressVIPMinimum.Variables.RestrictedVariables.cache_constraints___SERVER__HTTP_USER_AGENT__.
 			if ( isset( $_SERVER['HTTP_USER_AGENT'] ) && strpos( sanitize_text_field( $_SERVER['HTTP_USER_AGENT'] ), 'Chrome' ) !== false ) {
 				$date             = new \DateTime();
 				$timestam         = $date->getTimestamp();

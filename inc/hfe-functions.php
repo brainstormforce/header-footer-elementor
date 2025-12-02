@@ -9,7 +9,7 @@
  * Checks if Header is enabled from HFE.
  *
  * @since  1.0.2
- * @return bool True if header is enabled. False if header is not enabled
+ * @return bool True if header is enabled. False if header is not enabled.
  */
 function hfe_header_enabled() {
 	$header_id = Header_Footer_Elementor::get_settings( 'type_header', '' );
@@ -85,7 +85,7 @@ function hfe_render_header() {
 
 	?>
 		<header id="masthead" itemscope="itemscope" itemtype="https://schema.org/WPHeader">
-			<p class="main-title bhf-hidden" itemprop="headline"><a href="<?php echo bloginfo( 'url' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+			<p class="main-title bhf-hidden" itemprop="headline"><a href="<?php echo esc_url( bloginfo( 'url' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 			<?php Header_Footer_Elementor::get_header_content(); ?>
 		</header>
 
@@ -113,10 +113,10 @@ function hfe_render_footer() {
 
 
 /**
- * Get HFE Before Footer ID
+ * Get HFE Before Footer ID.
  *
  * @since  1.0.2
- * @return String|boolean before footer id if it is set else returns false.
+ * @return String|boolean Before footer id if it is set else returns false.
  */
 function hfe_get_before_footer_id() {
 

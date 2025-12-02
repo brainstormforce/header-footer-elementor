@@ -990,7 +990,7 @@ class Post_Info extends Common_Widget {
 	 */
 	function get_post_time_data( $repeater_item ) {
 		// Define default and custom time formats.
-		$default_format     = 'g:i a';
+		$default_format = 'g:i a';
 		$custom_time_format = ! empty( $repeater_item['custom_time_format'] ) ? $repeater_item['custom_time_format'] : $default_format;
 
 		// Available time formats.
@@ -1029,7 +1029,7 @@ class Post_Info extends Common_Widget {
 	 */
 	function get_post_date_data( $repeater_item ) {
 		// Define default and custom date formats.
-		$default_format     = 'F j, Y';
+		$default_format = 'F j, Y';
 		$custom_date_format = ! empty( $repeater_item['custom_date_format'] ) ? $repeater_item['custom_date_format'] : $default_format;
 
 		// Available date formats.
@@ -1124,14 +1124,14 @@ class Post_Info extends Common_Widget {
 	 * @return void
 	 */
 	protected function render_item( $repeater_item ) {
-		$item_data      = $this->get_meta_data( $repeater_item );
+		$item_data = $this->get_meta_data( $repeater_item );
 		$repeater_index = $repeater_item['_id'];
-	
+
 		// Bail early if both text and terms list are empty.
 		if ( empty( $item_data['text'] ) && empty( $item_data['terms_list'] ) ) {
 			return;
 		}
-	
+
 		$item_key = 'item_' . $repeater_index;
 		$link_key = 'link_' . $repeater_index;
 		$has_link = false;

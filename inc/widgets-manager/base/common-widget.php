@@ -121,7 +121,7 @@ abstract class Common_Widget extends Widget_Base {
 	 * @return string Widget help URL.
 	 */
 	public function get_help_url() {
-		// For third-party widgets, Elementor uses get_custom_help_url()
+		// For third-party widgets, Elementor uses get_custom_help_url().
 		return $this->get_custom_help_url();
 	}
 }

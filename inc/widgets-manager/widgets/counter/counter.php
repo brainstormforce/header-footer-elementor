@@ -238,7 +238,7 @@ class Counter extends Common_Widget {
 					'size' => 3,
 				],
 				'range'   => [
-					'px' => [ // Elementor uses 'px' key even if it's not pixels — it's just a required label
+					'px' => [ // Elementor uses 'px' key even if it's not pixels — it's just a required label.
 						'min'  => 1,
 						'max'  => 10,
 						'step' => 0.1,
@@ -246,8 +246,6 @@ class Counter extends Common_Widget {
 				],
 			]
 		);
-
-
 
 		$this->end_controls_section();
 	}
@@ -271,7 +269,7 @@ class Counter extends Common_Widget {
 			]
 		);
 
-		// Add default display: flex to counter content
+		// Add default display: flex to counter content.
 		$this->add_control(
 			'counter_content_display',
 			[
@@ -457,7 +455,7 @@ class Counter extends Common_Widget {
 			]
 		);
 
-		// Add default display: flex to counter wrapper
+		// Add default display: flex to counter wrapper.
 		$this->add_control(
 			'counter_wrapper_display',
 			[

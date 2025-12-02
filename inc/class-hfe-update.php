@@ -27,7 +27,7 @@ if ( ! class_exists( 'HFE_Update' ) ) {
 		 * @since 1.1.4
 		 * @var string
 		 */
-		// phpcs:ignore
+		// phpcs:ignore.
 		private string $db_option_key = '_hfe_db_version'; 
 
 		/**
@@ -64,7 +64,7 @@ if ( ! class_exists( 'HFE_Update' ) ) {
 				$this->setup_default_terget_rules();
 			}
 
-			// flush rewrite rules on plugin update.
+			// Flush rewrite rules on plugin update.
 			flush_rewrite_rules();  // PHPCS:Ignore WordPressVIPMinimum.Functions.RestrictedFunctions.flush_rewrite_rules_flush_rewrite_rules
 
 			$this->update_db_version();
