@@ -49,7 +49,7 @@ class Widgets_Config {
 
 		self::$widget_list = [
 			
-				'Retina'               => [
+			'Retina'               => [
 				'slug'        => 'retina',
 				'title'       => __( 'Retina Logo', 'header-footer-elementor' ),
 				'keywords'    => [ 'uael', 'retina', 'image', 'logo' ],
@@ -62,7 +62,7 @@ class Widgets_Config {
 				'demo_url'    => 'https://ultimateelementor.com/widgets/retina-logo/',
 				'category'    => 'content',
 			],
-				'Page_Title'           => [
+			'Page_Title'           => [
 				'slug'        => 'page-title',
 				'title'       => __( 'Page Title', 'header-footer-elementor' ),
 				'keywords'    => [ 'uael', 'title', 'dynamic' ],
@@ -249,7 +249,7 @@ class Widgets_Config {
 				'demo_url'    => 'https://ultimateelementor.com/widgets/search/',
 				'category'    => 'content',
 			],
-			'Woo_Product_Grid'        => [
+			'Woo_Product_Grid'     => [
 				'slug'        => 'hfe-woo-product-grid',
 				'title'       => __( 'Woo Products Grid', 'header-footer-elementor' ),
 				'description' => __( 'Display WooCommerce products in a responsive grid layout with customizable styling options.', 'header-footer-elementor' ),
@@ -262,7 +262,7 @@ class Widgets_Config {
 				'is_pro'      => false,
 				'demo_url'    => 'https://ultimateelementor.com/widgets/woo-product-grid/',
 			],
-			'Counter'                 => [
+			'Counter'              => [
 				'slug'        => 'hfe-counter',
 				'title'       => __( 'Counter', 'header-footer-elementor' ),
 				'description' => __( 'Display animated counters with customizable styling for showcasing statistics and achievements.', 'header-footer-elementor' ),
@@ -1055,7 +1055,7 @@ class Widgets_Config {
 
 		$plugins = [
 
-				'surerank/surerank.php'                        => [
+			'surerank/surerank.php'           => [
 				'icon'         => $images_url . 'surerank.svg',
 				'type'         => 'plugin',
 				'name'         => esc_html__( 'Boost Your Traffic with Easy SEO Optimization!', 'header-footer-elementor' ),
@@ -1068,7 +1068,7 @@ class Widgets_Config {
 				'status'       => self::get_plugin_status( 'surerank/surerank.php' ),
 				'settings_url' => admin_url( 'admin.php?page=surerank_onboarding' ),
 			],
-			'surecart/surecart.php'                        => [
+			'surecart/surecart.php'           => [
 				'icon'         => $images_url . 'surecart.svg',
 				'type'         => 'plugin',
 				'name'         => esc_html__( 'Sell Products Effortlessly with SureCart!', 'header-footer-elementor' ),
@@ -1081,7 +1081,7 @@ class Widgets_Config {
 				'status'       => self::get_plugin_status( 'surecart/surecart.php' ),
 				'settings_url' => admin_url( 'admin.php?page=sc-getting-started' ),
 			],
-			'sureforms/sureforms.php'                      => [
+			'sureforms/sureforms.php'         => [
 				'icon'         => $images_url . 'sureforms.svg',
 				'type'         => 'plugin',
 				'name'         => esc_html__( 'Build Powerful Forms in Minutes with SureForms!', 'header-footer-elementor' ),
@@ -1094,7 +1094,7 @@ class Widgets_Config {
 				'status'       => self::get_plugin_status( 'sureforms/sureforms.php' ),
 				'settings_url' => admin_url( 'admin.php?page=sureforms_menu' ),
 			],
-			'presto-player/presto-player.php'              => [
+			'presto-player/presto-player.php' => [
 				'icon'         => $images_url . 'pplayer.svg',
 				'type'         => 'plugin',
 				'name'         => esc_html__( 'Add Engaging Videos Seamlessly with Presto Player!', 'header-footer-elementor' ),
@@ -1107,7 +1107,7 @@ class Widgets_Config {
 				'status'       => self::get_plugin_status( 'presto-player/presto-player.php' ),
 				'settings_url' => admin_url( 'edit.php?post_type=pp_video_block' ),
 			],
-			'suretriggers/suretriggers.php'                => [
+			'suretriggers/suretriggers.php'   => [
 				'icon'         => $images_url . 'OttoKit-Symbol-Primary.svg',
 				'type'         => 'plugin',
 				'name'         => esc_html__( 'Automate Your Workflows Easily with Ottokit!', 'header-footer-elementor' ),
@@ -1163,7 +1163,7 @@ class Widgets_Config {
 		$recommended_plugins = [
 
 
-				'astra-sites/astra-sites.php'                  => [
+			'astra-sites/astra-sites.php'   => [
 				'icon'         => $images_url . 'stemplates.svg',
 				'type'         => 'plugin',
 				'name'         => esc_html__( 'Starter Templates', 'header-footer-elementor' ),
@@ -1176,7 +1176,7 @@ class Widgets_Config {
 				'status'       => self::get_plugin_status( 'astra-sites/astra-sites.php' ),
 				'settings_url' => admin_url( 'admin.php?page=starter-templates' ),
 			],
-			'surerank/surerank.php'                        => [
+			'surerank/surerank.php'         => [
 				'icon'         => $images_url . 'surerank_extend.svg',
 				'type'         => 'plugin',
 				'name'         => esc_html__( 'SureRank', 'header-footer-elementor' ),
@@ -1189,7 +1189,7 @@ class Widgets_Config {
 				'status'       => self::get_plugin_status( 'surerank/surerank.php' ),
 				'settings_url' => admin_url( 'admin.php?page=surerank_onboarding' ),
 			],
-			'sureforms/sureforms.php'                      => [
+			'sureforms/sureforms.php'       => [
 				'icon'         => $images_url . 'sureforms_extend.svg',
 				'type'         => 'plugin',
 				'name'         => esc_html__( 'SureForms', 'header-footer-elementor' ),
@@ -1202,7 +1202,7 @@ class Widgets_Config {
 				'status'       => self::get_plugin_status( 'sureforms/sureforms.php' ),
 				'settings_url' => admin_url( 'admin.php?page=sureforms_menu' ),
 			],
-			'suretriggers/suretriggers.php'                => [
+			'suretriggers/suretriggers.php' => [
 				'icon'         => $images_url . 'ottokit.svg',
 				'type'         => 'plugin',
 				'name'         => esc_html__( 'OttoKit', 'header-footer-elementor' ),

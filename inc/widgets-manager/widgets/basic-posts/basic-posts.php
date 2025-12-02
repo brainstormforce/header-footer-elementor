@@ -105,12 +105,12 @@ class Basic_Posts extends Common_Widget {
 	 */
 	protected function get_upsale_data() {
 		return [
-			'condition' => ! defined( 'UAEL_VER' ),
-			'image' => esc_url( HFE_URL . 'assets/images/upgrade-pro.png' ),
-			'image_alt' => esc_attr__( 'Upgrade', 'header-footer-elementor' ),
-			'title' => esc_html__( 'Upgrade your Basic Posts Widget', 'header-footer-elementor' ),
-			'description' => esc_html__( 'Get the Advanced Posts widget and unlock powerful layouts, filters, and customization options with UAE Pro.', 'header-footer-elementor' ),
-			'upgrade_url' => esc_url( 'https://ultimateelementor.com/pricing/?utm_source=UAE-Basic-Post&utm_medium=editor&utm_campaign=static-promotion' ),
+			'condition'    => ! defined( 'UAEL_VER' ),
+			'image'        => esc_url( HFE_URL . 'assets/images/upgrade-pro.png' ),
+			'image_alt'    => esc_attr__( 'Upgrade', 'header-footer-elementor' ),
+			'title'        => esc_html__( 'Upgrade your Basic Posts Widget', 'header-footer-elementor' ),
+			'description'  => esc_html__( 'Get the Advanced Posts widget and unlock powerful layouts, filters, and customization options with UAE Pro.', 'header-footer-elementor' ),
+			'upgrade_url'  => esc_url( 'https://ultimateelementor.com/pricing/?utm_source=UAE-Basic-Post&utm_medium=editor&utm_campaign=static-promotion' ),
 			'upgrade_text' => esc_html__( 'Upgrade Now', 'header-footer-elementor' ),
 		];
 	}
@@ -227,12 +227,12 @@ class Basic_Posts extends Common_Widget {
 		$this->add_responsive_control(
 			'columns',
 			[
-				'label'              => __( 'Columns', 'header-footer-elementor' ),
-				'type'               => Controls_Manager::SELECT,
-				'default'            => '3',
-				'tablet_default'     => '2',
-				'mobile_default'     => '1',
-				'options'            => [
+				'label'          => __( 'Columns', 'header-footer-elementor' ),
+				'type'           => Controls_Manager::SELECT,
+				'default'        => '3',
+				'tablet_default' => '2',
+				'mobile_default' => '1',
+				'options'        => [
 					'1' => '1',
 					'2' => '2',
 					'3' => '3',
@@ -240,7 +240,7 @@ class Basic_Posts extends Common_Widget {
 					'5' => '5',
 					'6' => '6',
 				],
-				'selectors'          => [
+				'selectors'      => [
 					'{{WRAPPER}} .hfe-posts-grid' => 'grid-template-columns: repeat({{VALUE}}, 1fr);',
 				],
 			]
@@ -591,15 +591,15 @@ class Basic_Posts extends Common_Widget {
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name'     => 'card_background',
-				'label'    => __( 'Background', 'header-footer-elementor' ),
-				'types'    => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .hfe-post-card',
+				'name'           => 'card_background',
+				'label'          => __( 'Background', 'header-footer-elementor' ),
+				'types'          => [ 'classic', 'gradient' ],
+				'selector'       => '{{WRAPPER}} .hfe-post-card',
 				'fields_options' => [
 					'background' => [
 						'default' => 'classic',
 					],
-					'color' => [
+					'color'      => [
 						'default' => '#F6F6F6',
 					],
 				],
@@ -622,7 +622,7 @@ class Basic_Posts extends Common_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .hfe-post-card' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .hfe-post-card'      => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					'{{WRAPPER}} .hfe-post-image img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} 0{{UNIT}} 0{{UNIT}};',
 				],
 			]
@@ -965,8 +965,8 @@ class Basic_Posts extends Common_Widget {
 
 		// Sanitize inputs.
 		$posts_per_page = absint( $settings['posts_per_page'] ?? 6 );
-		$orderby = sanitize_key( $settings['orderby'] ?? 'date' );
-		$order = sanitize_key( $settings['order'] ?? 'desc' );
+		$orderby        = sanitize_key( $settings['orderby'] ?? 'date' );
+		$order          = sanitize_key( $settings['order'] ?? 'desc' );
 
 		// Ensure posts_per_page is within bounds
 		$posts_per_page = max( 1, min( 100, $posts_per_page ) );

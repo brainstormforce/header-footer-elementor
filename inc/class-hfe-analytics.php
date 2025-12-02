@@ -83,50 +83,52 @@ if ( ! class_exists( 'HFE_Analytics' ) ) {
 			$new_tracking = get_option( 'uae_analytics_optin', false );
 			if ( 'yes' === $old_tracking && false === $new_tracking ) {
 				update_option( 'uae_analytics_optin', 'yes' );
-				$time = get_option('bsf_analytics_installed_time');
-				update_option( 'bsf_analytics_installed_time' , $time );
+				$time = get_option( 'bsf_analytics_installed_time' );
+				update_option( 'bsf_analytics_installed_time', $time );
 			}
 		}
-        
-        /**
-         * Callback function to add specific analytics data.
-         *
-         * @param array $stats_data existing stats_data.
-         * @since 2.3.0
-         * @return array
-         */
-        public function add_uae_analytics_data( $stats_data ) {
+		
+		/**
+		 * Callback function to add specific analytics data.
+		 *
+		 * @param array $stats_data existing stats_data.
+		 * @since 2.3.0
+		 * @return array
+		 */
+		public function add_uae_analytics_data( $stats_data ) {
 			 // Check if $stats_data is empty or not an array.
-			 if ( empty( $stats_data ) || ! is_array( $stats_data ) ) {
+			if ( empty( $stats_data ) || ! is_array( $stats_data ) ) {
 				$stats_data = []; // Initialize as an empty array.
 			}
 		
-            $stats_data['plugin_data']['uae']		= [
-                'free_version'  => HFE_VER,
-                'pro_version' => ( defined( 'UAEL_VERSION' ) ? UAEL_VERSION : '' ),
-                'site_language' => get_locale(),
-                'elementor_version' => ( defined( 'ELEMENTOR_VERSION' ) ? ELEMENTOR_VERSION : '' ),
-                'elementor_pro_version' => ( defined( 'ELEMENTOR_PRO_VERSION' ) ? ELEMENTOR_PRO_VERSION : '' ),
-                'onboarding_triggered' => ( 'yes' === get_option( 'hfe_onboarding_triggered' ) ) ? 'yes' : 'no',
-				'uaelite_subscription' => ( 'done' === get_option( 'uaelite_subscription' ) ) ? 'yes' : 'no'
-            ];
+			$stats_data['plugin_data']['uae'] = [
+				'free_version'          => HFE_VER,
+				'pro_version'           => ( defined( 'UAEL_VERSION' ) ? UAEL_VERSION : '' ),
+				'site_language'         => get_locale(),
+				'elementor_version'     => ( defined( 'ELEMENTOR_VERSION' ) ? ELEMENTOR_VERSION : '' ),
+				'elementor_pro_version' => ( defined( 'ELEMENTOR_PRO_VERSION' ) ? ELEMENTOR_PRO_VERSION : '' ),
+				'onboarding_triggered'  => ( 'yes' === get_option( 'hfe_onboarding_triggered' ) ) ? 'yes' : 'no',
+				'uaelite_subscription'  => ( 'done' === get_option( 'uaelite_subscription' ) ) ? 'yes' : 'no',
+			];
 
-            $hfe_posts = get_posts( [
-                'post_type'   => 'elementor-hf',
-                'post_status' => 'publish',
-                'numberposts' => -1
-            ] );
+			$hfe_posts = get_posts(
+				[
+					'post_type'   => 'elementor-hf',
+					'post_status' => 'publish',
+					'numberposts' => -1,
+				] 
+			);
 
-            $stats_data['plugin_data']['uae']['numeric_values'] = [
-                'total_hfe_templates'            => count( $hfe_posts ),
-            ];
+			$stats_data['plugin_data']['uae']['numeric_values'] = [
+				'total_hfe_templates' => count( $hfe_posts ),
+			];
 
 			$fetch_elementor_data = $this->hfe_get_widgets_usage();
-			foreach ($fetch_elementor_data as $key => $value) {
-				$stats_data['plugin_data']['uae']['numeric_values'][$key] = $value;
+			foreach ( $fetch_elementor_data as $key => $value ) {
+				$stats_data['plugin_data']['uae']['numeric_values'][ $key ] = $value;
 			}
-            return $stats_data;
-        }
+			return $stats_data;
+		}
 
 		/**
 		 * Fetch Elementor data.

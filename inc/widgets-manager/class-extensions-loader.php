@@ -72,12 +72,12 @@ class Extensions_Loader {
 	 * @since 1.3.0
 	 */
 	public static function get_extensions_list() {
-               $extensions_list = [
-                       'Scroll_To_Top'      => 'scroll-to-top',
-                       'Reading_Progress_Bar' => 'reading-progress-bar',
-               ];
+			   $extensions_list = [
+				   'Scroll_To_Top'        => 'scroll-to-top',
+				   'Reading_Progress_Bar' => 'reading-progress-bar',
+			   ];
 
-		return $extensions_list;
+			   return $extensions_list;
 	}
 
 	/**

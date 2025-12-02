@@ -47,7 +47,7 @@ class HFE_Settings_Page {
 		if ( ! HFE_Helper::is_pro_active() ) {
 			if ( is_admin() && current_user_can( 'manage_options' ) ) {
 				add_action( 'admin_menu', [ $this, 'hfe_register_settings_page' ] );
-				if( ! defined( 'UAEL_PRO' ) ){
+				if ( ! defined( 'UAEL_PRO' ) ) {
 					add_action( 'admin_menu', [ $this, 'hfe_add_upgrade_to_pro' ] );
 					add_action( 'admin_footer', [ $this, 'hfe_add_upgrade_to_pro_target_attr' ] );
 				}
@@ -60,7 +60,7 @@ class HFE_Settings_Page {
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
 		add_filter( 'plugin_action_links_' . HFE_PATH, [ $this, 'settings_link' ] );
 		add_filter( 'plugin_action_links_' . HFE_PATH, [ $this, 'upgrade_pro_link' ] );
-		add_filter( 'plugin_row_meta', [ $this, 'add_rating_meta_links' ], 10, 2 );		
+		add_filter( 'plugin_row_meta', [ $this, 'add_rating_meta_links' ], 10, 2 );     
 
 		if ( version_compare( get_bloginfo( 'version' ), '5.1.0', '>=' ) ) {
 			add_filter( 'wp_check_filetype_and_ext', [ $this, 'real_mime_types_5_1_0' ], 10, 5 );
@@ -93,7 +93,7 @@ class HFE_Settings_Page {
 	public function upgrade_pro_link( $links ) {
 		$plugin_file = 'ultimate-elementor/ultimate-elementor.php';
 		if ( ! file_exists( WP_PLUGIN_DIR . '/' . $plugin_file ) && ! HFE_Helper::is_pro_active() ) {
-			$links[]     = '<a href="' . esc_url( 'https://ultimateelementor.com/pricing/?utm_source=wp-admin&utm_medium=plugin-list&utm_campaign=uae-upgrade' ) . '" target="_blank" rel="noreferrer" class="uae-plugins-go-pro">' . esc_html__( 'Go Pro', 'header-footer-elementor' ) . '</a>';
+			$links[] = '<a href="' . esc_url( 'https://ultimateelementor.com/pricing/?utm_source=wp-admin&utm_medium=plugin-list&utm_campaign=uae-upgrade' ) . '" target="_blank" rel="noreferrer" class="uae-plugins-go-pro">' . esc_html__( 'Go Pro', 'header-footer-elementor' ) . '</a>';
 		}
 
 		return $links;
@@ -109,7 +109,7 @@ class HFE_Settings_Page {
 	 */
 	public function add_rating_meta_links( array $links, string $file ): array {
 		if ( HFE_PATH === $file ) {
-			$stars = str_repeat( '<span class="dashicons dashicons-star-filled hfe-rating-star" aria-hidden="true"></span>', 5 );
+			$stars   = str_repeat( '<span class="dashicons dashicons-star-filled hfe-rating-star" aria-hidden="true"></span>', 5 );
 			$links[] = sprintf(
 				'<a href="%s" target="_blank" rel="noopener noreferrer" aria-label="%s" role="button">%s</a>',
 				esc_url( 'https://wordpress.org/support/plugin/header-footer-elementor/reviews/#new-post' ),
@@ -166,12 +166,12 @@ class HFE_Settings_Page {
 						'plugin_name'           => __( 'Ultimate Addons for Elementor', 'header-footer-elementor' ),
 						'nps_rating_message'    => __( 'How likely are you to recommend Ultimate Addons for Elementor to your friends or colleagues?', 'header-footer-elementor' ),
 						// Step 2A i.e. positive.
-						'feedback_title' => __( 'Thanks a lot for your feedback! 😍', 'header-footer-elementor' ),
-						'feedback_content' => __( 'Thanks for using Ultimate Addons! Got feedback or suggestions to make it even better? We’d love to hear from you.', 'header-footer-elementor' ),
+						'feedback_title'        => __( 'Thanks a lot for your feedback! 😍', 'header-footer-elementor' ),
+						'feedback_content'      => __( 'Thanks for using Ultimate Addons! Got feedback or suggestions to make it even better? We’d love to hear from you.', 'header-footer-elementor' ),
 						'plugin_rating_link'    => esc_url( 'https://www.trustpilot.com/review/ultimateelementor.com' ),
 						// Step 2B i.e. negative.
 						'plugin_rating_title'   => __( 'Thank you for your feedback', 'header-footer-elementor' ),
-						'plugin_rating_content' => __( 'We value your input. How can we improve your experience?', 'header-footer-elementor' ),				
+						'plugin_rating_content' => __( 'We value your input. How can we improve your experience?', 'header-footer-elementor' ),             
 					],
 				]
 			);
@@ -314,8 +314,8 @@ class HFE_Settings_Page {
 	 * @return string|null
 	 */
 	public function fetch_site_url() {
-		$siteurl = get_option('siteURL');
-		if ( !empty( $siteurl ) ) {
+		$siteurl = get_option( 'siteURL' );
+		if ( ! empty( $siteurl ) ) {
 			return $siteurl;
 		} else {
 			return null;
@@ -355,9 +355,9 @@ class HFE_Settings_Page {
 			$st_link           = HFE_Helper::starter_templates_link();
 			$hfe_post_url      = admin_url( 'post-new.php?post_type=elementor-hf' );
 			// Fetch the user's email.
-			$user_email = $this->fetch_user_email();
-			$user_name  = $this->fetch_user_fname();
-			$siteurl    = $this->fetch_site_url();
+			$user_email         = $this->fetch_user_email();
+			$user_name          = $this->fetch_user_fname();
+			$siteurl            = $this->fetch_site_url();
 			$show_theme_support = 'no';
 			$hfe_theme_status   = get_option( 'hfe_is_theme_supported', false );
 			$analytics_status   = get_option( 'uae_analytics_optin', false );
@@ -399,8 +399,8 @@ class HFE_Settings_Page {
 					'theme_url'                => HFE_URL . 'assets/images/settings/layout-template.svg',
 					'version_url'              => HFE_URL . 'assets/images/settings/version.svg',
 					'version__selected_url'    => HFE_URL . 'assets/images/settings/git-compare.svg',
-					'tracking_url'              => HFE_URL . 'assets/images/settings/tracking.svg',
-					'tracking__selected_url'    => HFE_URL . 'assets/images/settings/tracking_selected.svg',
+					'tracking_url'             => HFE_URL . 'assets/images/settings/tracking.svg',
+					'tracking__selected_url'   => HFE_URL . 'assets/images/settings/tracking_selected.svg',
 					'user_url'                 => HFE_URL . 'assets/images/settings/user.svg',
 					'user__selected_url'       => HFE_URL . 'assets/images/settings/user-selected.svg',
 					'integrations_url'         => HFE_URL . 'assets/images/settings/integrations.svg', // Update the path to your assets folder.
@@ -410,12 +410,12 @@ class HFE_Settings_Page {
 					'success_banner'           => HFE_URL . 'assets/images/settings/success_bg.png',
 					'success_badge'            => HFE_URL . 'assets/images/settings/success_badge.svg',
 					'icon_svg'                 => HFE_URL . 'assets/images/settings/uae-logo-svg.svg',
-					'augemented_url'                 => HFE_URL . 'assets/images/settings/augemented_reality_widgets.png',
-					'rocket_svg'                 => HFE_URL . 'assets/images/settings/rocket.svg',
-					'augmented_reality'                 => HFE_URL . 'assets/images/settings/augmented_reality.png',
-					'welcome_new'                 => HFE_URL . 'assets/images/settings/welcome_new.png',
+					'augemented_url'           => HFE_URL . 'assets/images/settings/augemented_reality_widgets.png',
+					'rocket_svg'               => HFE_URL . 'assets/images/settings/rocket.svg',
+					'augmented_reality'        => HFE_URL . 'assets/images/settings/augmented_reality.png',
+					'welcome_new'              => HFE_URL . 'assets/images/settings/welcome_new.png',
 					'icon_new'                 => HFE_URL . 'assets/images/settings/icon_2.svg',
-					'create_new'                 => HFE_URL . 'assets/images/settings/create_new_banner.png',
+					'create_new'               => HFE_URL . 'assets/images/settings/create_new_banner.png',
 					'uaelite_previous_version' => isset( $rollback_versions[0]['value'] ) ? $rollback_versions[0]['value'] : '',
 					'uaelite_versions'         => $rollback_versions,
 					'uaelite_rollback_url'     => esc_url( add_query_arg( 'version', 'VERSION', wp_nonce_url( admin_url( 'admin-post.php?action=uaelite_rollback' ), 'uaelite_rollback' ) ) ),
@@ -434,7 +434,7 @@ class HFE_Settings_Page {
 					'siteurl'                  => $siteurl,
 					'analytics_status'         => $analytics_status,
 					'onboarding_success_url'   => admin_url( 'admin.php?page=hfe#onboardingsuccess' ),
-					'uaelite_subscription'	   => get_option( 'uaelite_subscription', false )
+					'uaelite_subscription'     => get_option( 'uaelite_subscription', false ),
 				]
 			);
 	
@@ -465,34 +465,34 @@ class HFE_Settings_Page {
 	
 		wp_enqueue_script( 'hfe-admin-script', HFE_URL . 'admin/assets/js/ehf-admin.js', [ 'jquery', 'updates' ], HFE_VER, true );
 	
-		$is_dismissed = get_user_meta( get_current_user_id(), 'hfe-popup' );
+		$is_dismissed             = get_user_meta( get_current_user_id(), 'hfe-popup' );
 		$upgrade_notice_dismissed = get_user_meta( get_current_user_id(), 'hfe_upgrade_notice_dismissed', 'false' ) === 'true';
 
 		$strings = [
-			'addon_activate'        => esc_html__( 'Activate', 'header-footer-elementor' ),
-			'addon_activated'       => esc_html__( 'Activated', 'header-footer-elementor' ),
-			'addon_active'          => esc_html__( 'Active', 'header-footer-elementor' ),
-			'addon_deactivate'      => esc_html__( 'Deactivate', 'header-footer-elementor' ),
-			'addon_inactive'        => esc_html__( 'Inactive', 'header-footer-elementor' ),
-			'addon_install'         => esc_html__( 'Install', 'header-footer-elementor' ),
-			'theme_installed'       => esc_html__( 'Theme Installed', 'header-footer-elementor' ),
-			'plugin_installed'      => esc_html__( 'Plugin Installed', 'header-footer-elementor' ),
-			'addon_download'        => esc_html__( 'Download', 'header-footer-elementor' ),
-			'addon_exists'          => esc_html__( 'Already Exists.', 'header-footer-elementor' ),
-			'visit_site'            => esc_html__( 'Visit Website', 'header-footer-elementor' ),
-			'plugin_error'          => esc_html__( 'Could not install. Please download from WordPress.org and install manually.', 'header-footer-elementor' ),
-			'subscribe_success'     => esc_html__( 'Your details are submitted successfully.', 'header-footer-elementor' ),
-			'subscribe_error'       => esc_html__( 'Encountered an error while performing your request.', 'header-footer-elementor' ),
-			'ajax_url'              => admin_url( 'admin-ajax.php' ),
-			'nonce'                 => wp_create_nonce( 'hfe-admin-nonce' ),
-			'installer_nonce'       => wp_create_nonce( 'updates' ),
+			'addon_activate'           => esc_html__( 'Activate', 'header-footer-elementor' ),
+			'addon_activated'          => esc_html__( 'Activated', 'header-footer-elementor' ),
+			'addon_active'             => esc_html__( 'Active', 'header-footer-elementor' ),
+			'addon_deactivate'         => esc_html__( 'Deactivate', 'header-footer-elementor' ),
+			'addon_inactive'           => esc_html__( 'Inactive', 'header-footer-elementor' ),
+			'addon_install'            => esc_html__( 'Install', 'header-footer-elementor' ),
+			'theme_installed'          => esc_html__( 'Theme Installed', 'header-footer-elementor' ),
+			'plugin_installed'         => esc_html__( 'Plugin Installed', 'header-footer-elementor' ),
+			'addon_download'           => esc_html__( 'Download', 'header-footer-elementor' ),
+			'addon_exists'             => esc_html__( 'Already Exists.', 'header-footer-elementor' ),
+			'visit_site'               => esc_html__( 'Visit Website', 'header-footer-elementor' ),
+			'plugin_error'             => esc_html__( 'Could not install. Please download from WordPress.org and install manually.', 'header-footer-elementor' ),
+			'subscribe_success'        => esc_html__( 'Your details are submitted successfully.', 'header-footer-elementor' ),
+			'subscribe_error'          => esc_html__( 'Encountered an error while performing your request.', 'header-footer-elementor' ),
+			'ajax_url'                 => admin_url( 'admin-ajax.php' ),
+			'nonce'                    => wp_create_nonce( 'hfe-admin-nonce' ),
+			'installer_nonce'          => wp_create_nonce( 'updates' ),
 			'upgrade_notice_dismissed' => $upgrade_notice_dismissed,
-			'popup_dismiss'         => false,
-			'data_source'           => 'HFE',
-			'show_all_hfe'          => $show_view_all,
-			'hfe_edit_url'          => $hfe_edit_url,
-			'view_all_text'         => esc_html__( 'View All', 'header-footer-elementor' ),
-			'header_footer_builder' => $hfe_edit_url,
+			'popup_dismiss'            => false,
+			'data_source'              => 'HFE',
+			'show_all_hfe'             => $show_view_all,
+			'hfe_edit_url'             => $hfe_edit_url,
+			'view_all_text'            => esc_html__( 'View All', 'header-footer-elementor' ),
+			'header_footer_builder'    => $hfe_edit_url,
 		];
 	
 		$strings = apply_filters( 'hfe_admin_strings', $strings );
@@ -763,7 +763,7 @@ class HFE_Settings_Page {
 		add_submenu_page(
 			$this->menu_slug,
 			__( 'Upgrade to Pro', 'header-footer-elementor' ),
-			 __( 'Upgrade to Pro', 'header-footer-elementor' ),
+			__( 'Upgrade to Pro', 'header-footer-elementor' ),
 			'manage_options',
 			'https://ultimateelementor.com/pricing/?utm_source=wp-admin&utm_medium=menu&utm_campaign=uae-upgrade',
 		);
@@ -988,7 +988,7 @@ class HFE_Settings_Page {
 					</div>
 					<div class="hfe-privacy-policy-container">
 						<?php /* translators: %1$s and %3$s are opening anchor tags, and %2$s and %4$s is closing anchor tags. */ ?>
-						<p class="hfe-subscription-policy"><?php printf( __( 'By submitting, you agree to our %1$sTerms%2$s and %3$sPrivacy Policy%4$s.', 'header-footer-elementor' ), '<a href="https://store.brainstormforce.com/terms-and-conditions/" target="_blank">', '</a>', '<a href="https://store.brainstormforce.com/privacy-policy/" target="_blank">', '</a>' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- This code is deprecated and will be removed in future versions?></p>
+						<p class="hfe-subscription-policy"><?php printf( __( 'By submitting, you agree to our %1$sTerms%2$s and %3$sPrivacy Policy%4$s.', 'header-footer-elementor' ), '<a href="https://store.brainstormforce.com/terms-and-conditions/" target="_blank">', '</a>', '<a href="https://store.brainstormforce.com/privacy-policy/" target="_blank">', '</a>' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- This code is deprecated and will be removed in future versions ?></p>
 					</div>
 				</div>
 			<?php } ?>

@@ -51,9 +51,9 @@ class Module extends Module_Base {
 	 * @return array Widgets.
 	 */
 	public function get_widgets() {
-		return array(
+		return [
 			'Infocard',
-		);
+		];
 	}
 
 	/**

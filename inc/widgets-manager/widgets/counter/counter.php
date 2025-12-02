@@ -159,15 +159,15 @@ class Counter extends Common_Widget {
 				'type'      => Controls_Manager::SELECT,
 				'separator' => 'after',
 				'options'   => [
-					'h1' => __( 'H1', 'header-footer-elementor' ),
-					'h2' => __( 'H2', 'header-footer-elementor' ),
-					'h3' => __( 'H3', 'header-footer-elementor' ),
-					'h4' => __( 'H4', 'header-footer-elementor' ),
-					'h5' => __( 'H5', 'header-footer-elementor' ),
-					'h6' => __( 'H6', 'header-footer-elementor' ),
-					'div' => __( 'div', 'header-footer-elementor' ),
+					'h1'   => __( 'H1', 'header-footer-elementor' ),
+					'h2'   => __( 'H2', 'header-footer-elementor' ),
+					'h3'   => __( 'H3', 'header-footer-elementor' ),
+					'h4'   => __( 'H4', 'header-footer-elementor' ),
+					'h5'   => __( 'H5', 'header-footer-elementor' ),
+					'h6'   => __( 'H6', 'header-footer-elementor' ),
+					'div'  => __( 'div', 'header-footer-elementor' ),
 					'span' => __( 'span', 'header-footer-elementor' ),
-					'p' => __( 'p', 'header-footer-elementor' ),
+					'p'    => __( 'p', 'header-footer-elementor' ),
 				],
 				'default'   => 'h1',
 			]
@@ -219,11 +219,11 @@ class Counter extends Common_Widget {
 				'label'   => __( 'Digit Separator', 'header-footer-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					''      => __( 'None', 'header-footer-elementor' ),
-					','     => __( 'Comma', 'header-footer-elementor' ),
-					'.'     => __( 'Dot', 'header-footer-elementor' ),
-					' '     => __( 'Space', 'header-footer-elementor' ),
-					'_'     => __( 'Underscore', 'header-footer-elementor' ),
+					''  => __( 'None', 'header-footer-elementor' ),
+					',' => __( 'Comma', 'header-footer-elementor' ),
+					'.' => __( 'Dot', 'header-footer-elementor' ),
+					' ' => __( 'Space', 'header-footer-elementor' ),
+					'_' => __( 'Underscore', 'header-footer-elementor' ),
 				],
 				'default' => ',',
 			]
@@ -232,15 +232,15 @@ class Counter extends Common_Widget {
 		$this->add_control(
 			'counter_speed',
 			[
-				'label' => __( 'Counter Speed (seconds)', 'header-footer-elementor' ),
-				'type'  => Controls_Manager::SLIDER,
+				'label'   => __( 'Counter Speed (seconds)', 'header-footer-elementor' ),
+				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 3,
 				],
-				'range' => [
+				'range'   => [
 					'px' => [ // Elementor uses 'px' key even if it's not pixels — it's just a required label
-						'min' => 1,
-						'max' => 10,
+						'min'  => 1,
+						'max'  => 10,
 						'step' => 0.1,
 					],
 				],
@@ -261,7 +261,7 @@ class Counter extends Common_Widget {
 	 */
 	protected function register_number_style_controls(): void {
 		$start = is_rtl() ? 'right' : 'left';
-		$end = ! is_rtl() ? 'right' : 'left';
+		$end   = ! is_rtl() ? 'right' : 'left';
 
 		$this->start_controls_section(
 			'section_number',
@@ -275,13 +275,13 @@ class Counter extends Common_Widget {
 		$this->add_control(
 			'counter_content_display',
 			[
-				'type' => Controls_Manager::HIDDEN,
-				'default' => 'flex',
+				'type'      => Controls_Manager::HIDDEN,
+				'default'   => 'flex',
 				'selectors' => [
 					'{{WRAPPER}} .hfe-counter-content' => 'display: flex; align-items: center;',
-					'{{WRAPPER}} .hfe-counter-prefix' => 'flex-grow: var(--counter-prefix-grow, 0);',
-					'{{WRAPPER}} .hfe-counter-number' => 'flex-grow: var(--counter-number-grow, 0);',
-					'{{WRAPPER}} .hfe-counter-suffix' => 'flex-grow: var(--counter-suffix-grow, 0);',
+					'{{WRAPPER}} .hfe-counter-prefix'  => 'flex-grow: var(--counter-prefix-grow, 0);',
+					'{{WRAPPER}} .hfe-counter-number'  => 'flex-grow: var(--counter-number-grow, 0);',
+					'{{WRAPPER}} .hfe-counter-suffix'  => 'flex-grow: var(--counter-suffix-grow, 0);',
 				],
 			]
 		);
@@ -289,18 +289,18 @@ class Counter extends Common_Widget {
 		$this->add_responsive_control(
 			'number_horizontal_alignment',
 			[
-				'label'   => __( 'Horizontal Alignment', 'header-footer-elementor' ),
-				'type'    => Controls_Manager::CHOOSE,
-				'options' => [
-					'flex-start' => [
+				'label'                => __( 'Horizontal Alignment', 'header-footer-elementor' ),
+				'type'                 => Controls_Manager::CHOOSE,
+				'options'              => [
+					'flex-start'    => [
 						'title' => __( 'Left', 'header-footer-elementor' ),
 						'icon'  => "eicon-h-align-$start",
 					],
-					'center' => [
+					'center'        => [
 						'title' => __( 'Center', 'header-footer-elementor' ),
 						'icon'  => 'eicon-h-align-center',
 					],
-					'flex-end' => [
+					'flex-end'      => [
 						'title' => __( 'Right', 'header-footer-elementor' ),
 						'icon'  => "eicon-h-align-$end",
 					],
@@ -309,14 +309,14 @@ class Counter extends Common_Widget {
 						'icon'  => 'eicon-grow',
 					],
 				],
-				'default' => 'center',
+				'default'              => 'center',
 				'selectors_dictionary' => [
-					'flex-start' => 'display: flex; justify-content: flex-start; align-self: flex-start; --counter-prefix-grow: 0; --counter-suffix-grow: 1; --counter-number-grow: 0;',
-					'center' => 'display: flex; justify-content: center; align-self: center; --counter-prefix-grow: 1; --counter-suffix-grow: 1; --counter-number-grow: 0;',
-					'flex-end' => 'display: flex; justify-content: flex-end; align-self: flex-end; --counter-prefix-grow: 1; --counter-suffix-grow: 0; --counter-number-grow: 0;',
+					'flex-start'    => 'display: flex; justify-content: flex-start; align-self: flex-start; --counter-prefix-grow: 0; --counter-suffix-grow: 1; --counter-number-grow: 0;',
+					'center'        => 'display: flex; justify-content: center; align-self: center; --counter-prefix-grow: 1; --counter-suffix-grow: 1; --counter-number-grow: 0;',
+					'flex-end'      => 'display: flex; justify-content: flex-end; align-self: flex-end; --counter-prefix-grow: 1; --counter-suffix-grow: 0; --counter-number-grow: 0;',
 					'space-between' => 'display: flex; justify-content: space-between; align-self: stretch; --counter-prefix-grow: 0; --counter-suffix-grow: 0; --counter-number-grow: 1;',
 				],
-				'selectors' => [
+				'selectors'            => [
 					'{{WRAPPER}} .hfe-counter-content' => '{{VALUE}}',
 				],
 			]
@@ -325,10 +325,10 @@ class Counter extends Common_Widget {
 		$this->add_responsive_control(
 			'number_alignment',
 			[
-				'label'   => __( 'Alignment', 'header-footer-elementor' ),
-				'type'    => Controls_Manager::CHOOSE,
-				'options' => [
-					'left' => [
+				'label'     => __( 'Alignment', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::CHOOSE,
+				'options'   => [
+					'left'   => [
 						'title' => __( 'Left', 'header-footer-elementor' ),
 						'icon'  => "eicon-text-align-$start",
 					],
@@ -336,7 +336,7 @@ class Counter extends Common_Widget {
 						'title' => __( 'Center', 'header-footer-elementor' ),
 						'icon'  => 'eicon-text-align-center',
 					],
-					'right' => [
+					'right'  => [
 						'title' => __( 'Right', 'header-footer-elementor' ),
 						'icon'  => "eicon-text-align-$end",
 					],
@@ -365,24 +365,24 @@ class Counter extends Common_Widget {
 				],
 				'conditions' => [
 					'relation' => 'and',
-					'terms' => [
+					'terms'    => [
 						[
-							'name' => 'number_horizontal_alignment',
+							'name'     => 'number_horizontal_alignment',
 							'operator' => '!==',
-							'value' => 'space-between',
+							'value'    => 'space-between',
 						],
 						[
 							'relation' => 'or',
-							'terms' => [
+							'terms'    => [
 								[
-									'name' => 'prefix',
+									'name'     => 'prefix',
 									'operator' => '!==',
-									'value' => '',
+									'value'    => '',
 								],
 								[
-									'name' => 'suffix',
+									'name'     => 'suffix',
 									'operator' => '!==',
-									'value' => '',
+									'value'    => '',
 								],
 							],
 						],
@@ -419,7 +419,7 @@ class Counter extends Common_Widget {
 		$this->add_group_control(
 			\Elementor\Group_Control_Text_Stroke::get_type(),
 			[
-				'name' => 'number_text_stroke',
+				'name'     => 'number_text_stroke',
 				'selector' => '{{WRAPPER}} .hfe-counter-number',
 			]
 		);
@@ -427,7 +427,7 @@ class Counter extends Common_Widget {
 		$this->add_group_control(
 			\Elementor\Group_Control_Text_Shadow::get_type(),
 			[
-				'name' => 'number_text_shadow',
+				'name'     => 'number_text_shadow',
 				'selector' => '{{WRAPPER}} .hfe-counter-number',
 			]
 		);
@@ -444,7 +444,7 @@ class Counter extends Common_Widget {
 	 */
 	protected function register_title_style_controls(): void {
 		$start = is_rtl() ? 'right' : 'left';
-		$end = ! is_rtl() ? 'right' : 'left';
+		$end   = ! is_rtl() ? 'right' : 'left';
 
 		$this->start_controls_section(
 			'section_title_style',
@@ -461,8 +461,8 @@ class Counter extends Common_Widget {
 		$this->add_control(
 			'counter_wrapper_display',
 			[
-				'type' => Controls_Manager::HIDDEN,
-				'default' => 'flex',
+				'type'      => Controls_Manager::HIDDEN,
+				'default'   => 'flex',
 				'selectors' => [
 					'{{WRAPPER}} .hfe-counter-wrapper' => 'display: flex; flex-direction: column;',
 				],
@@ -472,34 +472,34 @@ class Counter extends Common_Widget {
 		$this->add_responsive_control(
 			'title_position',
 			[
-				'label'   => __( 'Position', 'header-footer-elementor' ),
-				'type'    => Controls_Manager::CHOOSE,
-				'options' => [
+				'label'                => __( 'Position', 'header-footer-elementor' ),
+				'type'                 => Controls_Manager::CHOOSE,
+				'options'              => [
 					'before' => [
 						'title' => __( 'Top', 'header-footer-elementor' ),
 						'icon'  => 'eicon-v-align-top',
 					],
-					'after' => [
+					'after'  => [
 						'title' => __( 'Bottom', 'header-footer-elementor' ),
 						'icon'  => 'eicon-v-align-bottom',
 					],
-					'start' => [
+					'start'  => [
 						'title' => __( 'Left', 'header-footer-elementor' ),
 						'icon'  => "eicon-h-align-$start",
 					],
-					'end' => [
+					'end'    => [
 						'title' => __( 'Right', 'header-footer-elementor' ),
 						'icon'  => "eicon-h-align-$end",
 					],
 				],
-				'default' => 'before',
+				'default'              => 'before',
 				'selectors_dictionary' => [
 					'before' => 'flex-direction: column;',
-					'after' => 'flex-direction: column-reverse;',
-					'start' => 'flex-direction: row;',
-					'end' => 'flex-direction: row-reverse;',
+					'after'  => 'flex-direction: column-reverse;',
+					'start'  => 'flex-direction: row;',
+					'end'    => 'flex-direction: row-reverse;',
 				],
-				'selectors' => [
+				'selectors'            => [
 					'{{WRAPPER}} .hfe-counter-wrapper' => '{{VALUE}} display: flex;',
 				],
 			]
@@ -508,10 +508,10 @@ class Counter extends Common_Widget {
 		$this->add_responsive_control(
 			'title_horizontal_alignment',
 			[
-				'label'   => __( 'Horizontal Alignment', 'header-footer-elementor' ),
-				'type'    => Controls_Manager::CHOOSE,
-				'options' => [
-					'start' => [
+				'label'     => __( 'Horizontal Alignment', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::CHOOSE,
+				'options'   => [
+					'start'  => [
 						'title' => __( 'Left', 'header-footer-elementor' ),
 						'icon'  => "eicon-h-align-$start",
 					],
@@ -519,7 +519,7 @@ class Counter extends Common_Widget {
 						'title' => __( 'Center', 'header-footer-elementor' ),
 						'icon'  => 'eicon-h-align-center',
 					],
-					'end' => [
+					'end'    => [
 						'title' => __( 'Right', 'header-footer-elementor' ),
 						'icon'  => "eicon-h-align-$end",
 					],
@@ -537,18 +537,18 @@ class Counter extends Common_Widget {
 		$this->add_responsive_control(
 			'title_horizontal_alignment_column',
 			[
-				'label'   => __( 'Horizontal Alignment', 'header-footer-elementor' ),
-				'type'    => Controls_Manager::CHOOSE,
-				'options' => [
+				'label'     => __( 'Horizontal Alignment', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::CHOOSE,
+				'options'   => [
 					'flex-start' => [
 						'title' => __( 'Left', 'header-footer-elementor' ),
 						'icon'  => "eicon-h-align-$start",
 					],
-					'center' => [
+					'center'     => [
 						'title' => __( 'Center', 'header-footer-elementor' ),
 						'icon'  => 'eicon-h-align-center',
 					],
-					'flex-end' => [
+					'flex-end'   => [
 						'title' => __( 'Right', 'header-footer-elementor' ),
 						'icon'  => "eicon-h-align-$end",
 					],
@@ -566,18 +566,18 @@ class Counter extends Common_Widget {
 		$this->add_responsive_control(
 			'title_vertical_alignment',
 			[
-				'label'   => __( 'Vertical Alignment', 'header-footer-elementor' ),
-				'type'    => Controls_Manager::CHOOSE,
-				'options' => [
+				'label'     => __( 'Vertical Alignment', 'header-footer-elementor' ),
+				'type'      => Controls_Manager::CHOOSE,
+				'options'   => [
 					'flex-start' => [
 						'title' => __( 'Top', 'header-footer-elementor' ),
 						'icon'  => 'eicon-v-align-top',
 					],
-					'center' => [
+					'center'     => [
 						'title' => __( 'Middle', 'header-footer-elementor' ),
 						'icon'  => 'eicon-v-align-middle',
 					],
-					'flex-end' => [
+					'flex-end'   => [
 						'title' => __( 'Bottom', 'header-footer-elementor' ),
 						'icon'  => 'eicon-v-align-bottom',
 					],
@@ -586,7 +586,7 @@ class Counter extends Common_Widget {
 					'{{WRAPPER}} .hfe-counter-wrapper' => 'align-items: {{VALUE}};',
 				],
 				'condition' => [
-					'title!' => '',
+					'title!'         => '',
 					'title_position' => [ 'start', 'end' ],
 				],
 			]
@@ -605,8 +605,8 @@ class Counter extends Common_Widget {
 				'selectors'  => [
 					'{{WRAPPER}} .hfe-counter-wrapper' => 'gap: {{SIZE}}{{UNIT}};',
 				],
-				'condition' => [
-					'title!' => '',
+				'condition'  => [
+					'title!'         => '',
 					'title_position' => [ 'before', 'after' ],
 				],
 			]
@@ -629,11 +629,11 @@ class Counter extends Common_Widget {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name'     => 'title_typography',
-				'global'   => [
+				'name'      => 'title_typography',
+				'global'    => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 				],
-				'selector' => '{{WRAPPER}} .hfe-counter-title',
+				'selector'  => '{{WRAPPER}} .hfe-counter-title',
 				'separator' => 'before',
 			]
 		);
@@ -641,7 +641,7 @@ class Counter extends Common_Widget {
 		$this->add_group_control(
 			\Elementor\Group_Control_Text_Stroke::get_type(),
 			[
-				'name' => 'title_text_stroke',
+				'name'     => 'title_text_stroke',
 				'selector' => '{{WRAPPER}} .hfe-counter-title',
 			]
 		);
@@ -649,7 +649,7 @@ class Counter extends Common_Widget {
 		$this->add_group_control(
 			\Elementor\Group_Control_Text_Shadow::get_type(),
 			[
-				'name' => 'title_text_shadow',
+				'name'     => 'title_text_shadow',
 				'selector' => '{{WRAPPER}} .hfe-counter-title',
 			]
 		);
@@ -698,7 +698,7 @@ class Counter extends Common_Widget {
 		$this->add_group_control(
 			\Elementor\Group_Control_Text_Stroke::get_type(),
 			[
-				'name' => 'prefix_text_stroke',
+				'name'     => 'prefix_text_stroke',
 				'selector' => '{{WRAPPER}} .hfe-counter-prefix',
 			]
 		);
@@ -706,7 +706,7 @@ class Counter extends Common_Widget {
 		$this->add_group_control(
 			\Elementor\Group_Control_Text_Shadow::get_type(),
 			[
-				'name' => 'prefix_text_shadow',
+				'name'     => 'prefix_text_shadow',
 				'selector' => '{{WRAPPER}} .hfe-counter-prefix',
 			]
 		);
@@ -755,7 +755,7 @@ class Counter extends Common_Widget {
 		$this->add_group_control(
 			\Elementor\Group_Control_Text_Stroke::get_type(),
 			[
-				'name' => 'suffix_text_stroke',
+				'name'     => 'suffix_text_stroke',
 				'selector' => '{{WRAPPER}} .hfe-counter-suffix',
 			]
 		);
@@ -763,7 +763,7 @@ class Counter extends Common_Widget {
 		$this->add_group_control(
 			\Elementor\Group_Control_Text_Shadow::get_type(),
 			[
-				'name' => 'suffix_text_shadow',
+				'name'     => 'suffix_text_shadow',
 				'selector' => '{{WRAPPER}} .hfe-counter-suffix',
 			]
 		);
@@ -803,7 +803,9 @@ class Counter extends Common_Widget {
 		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'counter-wrapper' ) ); ?>>
 			<?php
 			if ( $settings['title'] ) :
-				?><<?php echo esc_attr( $title_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'counter-title' ) ); ?>><?php echo wp_kses_post( $this->get_settings_for_display( 'title' ) ); ?></<?php echo esc_attr( $title_tag ); ?>><?php
+				?>
+				<<?php echo esc_attr( $title_tag ); ?> <?php echo wp_kses_post( $this->get_render_attribute_string( 'counter-title' ) ); ?>><?php echo wp_kses_post( $this->get_settings_for_display( 'title' ) ); ?></<?php echo esc_attr( $title_tag ); ?>>
+				<?php
 			endif;
 			?>
 			<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'counter-content' ) ); ?>>

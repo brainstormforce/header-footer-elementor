@@ -148,7 +148,7 @@ class Header_Footer_Elementor {
 			add_shortcode( 'hfe_template', [ $this, 'render_template' ] );
 
 
-			// Add Elementor preview notice
+			// Add Elementor preview notice.
 			add_action( 'wp_footer', [ $this, 'elementor_preview_notice' ] );
 
 			require_once HFE_DIR . 'inc/class-hfe-analytics.php';
@@ -191,7 +191,7 @@ class Header_Footer_Elementor {
 		}
 	}
 	
-	/*
+	/**
 	 * Render admin top bar
 	 */
 	private function render_admin_top_bar() {
@@ -219,7 +219,7 @@ class Header_Footer_Elementor {
 	 * @return void
 	 */
 	public function elementor_preview_notice() {
-		// Show notice only for page post type in preview mode
+		// Show notice only for page post type in preview mode.
 		if ( ! $this->should_show_preview_notice() ) {
 			return;
 		}
@@ -327,7 +327,7 @@ class Header_Footer_Elementor {
 					font-size: 12px;
 					font-weight: 600;
 					transition: all 0.2s ease;
-    				white-space: nowrap;
+					white-space: nowrap;
 				}
 				
 				.hfe-promo-notice-cta:hover {

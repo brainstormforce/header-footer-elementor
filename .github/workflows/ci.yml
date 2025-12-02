@@ -1,47 +1,48 @@
-name: CI
-
+name: Code Analysis
 on: pull_request
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.head_ref || github.sha }}
+  cancel-in-progress: true
+
 jobs:
-  CI:
+  analysis:
     runs-on: ubuntu-latest
-    
     strategy:
       matrix:
-        node: [ 14.15 ]
-        php: ['7.4']
-        
+        node: [ 18.15.0 ]
+        php: ['8.2']
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
           coverage: none
-          tools: composer
-            
+          tools: composer, cs2pr
+
       - name: Install composer dependencies
         run: composer config github-oauth.github.com ${{ secrets.BSF_PRODUCTS_REPO_TOKEN }} && composer install --prefer-dist --no-suggest --no-progress
 
-      - name: PHPCS check
-        if: always()
-        uses: chekalsky/phpcs-action@v1
-        with:
-          phpcs_bin_path: './vendor/bin/phpcs'
-          
-      - name: Use desired version of NodeJS
-        uses: actions/setup-node@v3
-        with:
-            node-version: ${{ matrix.node }}
-            cache: 'npm'
+      - name: Run PHPCS with annotations
+        run: vendor/bin/phpcs -q --report=checkstyle | cs2pr
 
-      - name: npm install
+      - name: Setup NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: 'npm'
+
+      - name: Install NPM dependencies
         run: npm ci
-
-      - name: Build project
-      run: npm run build
 
       - name: Lint JS
         run: npm run lint:js
+
+      - name: Build project
+        run: npm run build
+
+      - name: Lint CSS
+        run: npm run lint:css

@@ -97,16 +97,20 @@ class HFE_Admin {
 			false 
 		);
 		
-		// Pass UAE Pro status and icon URL to JavaScript
-		$plugin_file = 'ultimate-elementor/ultimate-elementor.php';
-		$is_uae_pro_active =  ! file_exists( WP_PLUGIN_DIR . '/' . $plugin_file ) && ! HFE_Helper::is_pro_active() ;
-		wp_localize_script( 'hfe-elementor', 'hfeEditorConfig', array(
-			'isUAEPro' => ! $is_uae_pro_active,
-			'iconUrl' => HFE_URL . 'assets/images/settings/logo-white.svg',
-			'strings' => array(
-				'headerFooterBuilder' => __( 'Header Footer Builder', 'header-footer-elementor' )
-			)
-		));
+		// Pass UAE Pro status and icon URL to JavaScript.
+		$plugin_file       = 'ultimate-elementor/ultimate-elementor.php';
+		$is_uae_pro_active = ! file_exists( WP_PLUGIN_DIR . '/' . $plugin_file ) && ! HFE_Helper::is_pro_active();
+		wp_localize_script(
+			'hfe-elementor',
+			'hfeEditorConfig',
+			[
+				'isUAEPro' => ! $is_uae_pro_active,
+				'iconUrl'  => HFE_URL . 'assets/images/settings/logo-white.svg',
+				'strings'  => [
+					'headerFooterBuilder' => __( 'Header Footer Builder', 'header-footer-elementor' ),
+				],
+			]
+		);
 		
 		wp_enqueue_script( 'hfe-elementor' );
 	}
@@ -149,10 +153,10 @@ class HFE_Admin {
 		add_action( 'elementor/editor/footer', [ $this, 'print_permalink_clear_notice' ] );
 		add_action( 'elementor/editor/before_enqueue_scripts', [ $this, 'enqueue_permalink_clear_notice_js' ] );
 		add_action( 'elementor/editor/before_enqueue_styles', [ $this, 'enqueue_permalink_clear_notice_css' ] );
-		// Hook into Elementor's editor styles
-		add_action('elementor/editor/before_enqueue_scripts', [$this, 'enqueue_editor_scripts']);
+		// Hook into Elementor's editor styles.
+		add_action( 'elementor/editor/before_enqueue_scripts', [ $this, 'enqueue_editor_scripts' ] );
 		if ( 'yes' === get_option( 'uae_analytics_optin', false ) ) {
-			add_action('shutdown', [ $this, 'maybe_run_hfe_widgets_usage_check' ] );
+			add_action( 'shutdown', [ $this, 'maybe_run_hfe_widgets_usage_check' ] );
 		}
 	}
 
@@ -160,24 +164,24 @@ class HFE_Admin {
 	 * Enqueuing Promotion widget scripts.
 	 */
 	public function enqueue_editor_scripts() {
-               wp_enqueue_script(
-                       'uae-pro-promotion',
-                       HFE_URL . 'build/promotion-widget.js',
-                       [ 'jquery', 'wp-element', 'wp-dom-ready' ],
-                       HFE_VER,
-                       true
-               );
-       }
+			wp_enqueue_script(
+				'uae-pro-promotion',
+				HFE_URL . 'build/promotion-widget.js',
+				[ 'jquery', 'wp-element', 'wp-dom-ready' ],
+				HFE_VER,
+				true
+			);
+	}
 	
 	/**
 	 * Check the page on which Widget check need to be run.
 	 */
 	public function maybe_run_hfe_widgets_usage_check() {
-		// Run only on admin.php?page=hfe
+		// Run only on admin.php?page=hfe.
 		if (
 			is_admin() &&
 			isset( $_GET['page'] ) &&
-			( 'uaepro' === $_GET['page'] || 'hfe' === $_GET['page'])
+			( 'uaepro' === $_GET['page'] || 'hfe' === $_GET['page'] )
 		) {
 			$this->hfe_check_widgets_data_usage();
 		}
@@ -188,7 +192,7 @@ class HFE_Admin {
 	 * @since 2.3.0
 	 */
 	public function hfe_check_widgets_data_usage() {
-		// Check user permissions
+		// Check user permissions.
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
@@ -198,7 +202,7 @@ class HFE_Admin {
 
 		if ( false === $widgets_usage || false === get_option( 'uae_widgets_usage_data_option' ) ) {
 			$filtered_widgets_usage = HFE_Helper::get_used_widget();
-			set_transient( $transient_key, $filtered_widgets_usage, MONTH_IN_SECONDS ); // Store for 5 minutes
+			set_transient( $transient_key, $filtered_widgets_usage, MONTH_IN_SECONDS ); // Store for 5 minutes.
 			update_option( 'uae_widgets_usage_data_option', $filtered_widgets_usage );
 		}
 	}
@@ -214,10 +218,10 @@ class HFE_Admin {
 			return;
 		}
 	
-		if(isset(self::$elementor_instance)){
+		if ( isset( self::$elementor_instance ) ) {
 			$current_post_type = get_post_type( self::$elementor_instance->editor->get_post_id() );
 			
-			if ( $current_post_type !== 'elementor-hf' ) {
+			if ( 'elementor-hf' !== $current_post_type ) {
 				return;
 			}
 		}
@@ -241,10 +245,10 @@ class HFE_Admin {
 			return;
 		}
 		
-		if(isset(self::$elementor_instance)){
+		if ( isset( self::$elementor_instance ) ) {
 			$current_post_type = get_post_type( self::$elementor_instance->editor->get_post_id() );
 
-			if ( $current_post_type !== 'elementor-hf' ) {
+			if ( 'elementor-hf' !== $current_post_type ) {
 				return;
 			}
 		}
@@ -277,14 +281,14 @@ class HFE_Admin {
 				return;
 			}
 
-			if(isset(self::$elementor_instance)){
+			if ( isset( self::$elementor_instance ) ) {
 				$current_post_type = get_post_type( self::$elementor_instance->editor->get_post_id() );
 				
-				if ( $current_post_type !== 'elementor-hf' ) {
+				if ( 'elementor-hf' !== $current_post_type ) {
 					return;
 				}
 			}
-?>
+			?>
 			<div class="uae-permalink-clear-notice" id="uae-permalink-clear-notice">
 				<header>
 					<i class="eicon-warning"></i>
@@ -296,7 +300,7 @@ class HFE_Admin {
 					<?php echo esc_html__( 'Try clearing your cache or resetting permalinks (Settings > Permalinks > Save Changes).', 'header-footer-elementor' ); ?>
 					<a href="<?php echo esc_url( 'https://ultimateelementor.com/docs/elementor-header-footer-template-not-loading-or-stuck-on-loading/' ); ?>" target="_blank"><?php echo esc_html_e( 'Learn More', 'header-footer-elementor' ); ?></a>
 					<br>
-					<?php if(!is_multisite()){ ?>
+					<?php if ( ! is_multisite() ) { ?>
 						<button class="uae-permalink-flush-btn" type="button">
 							<span class="uae-btn-main-text"><?php echo esc_html__( 'Flush Permalink', 'header-footer-elementor' ); ?></span>
 							<span class="uae-notice-loader"></span>
@@ -304,7 +308,7 @@ class HFE_Admin {
 					<?php } ?>
 				</div>
 			</div>
-<?php 
+			<?php 
 		} 
 	}
 

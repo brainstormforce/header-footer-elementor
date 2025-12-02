@@ -86,12 +86,12 @@ class Infocard extends Common_Widget {
 	 */
 	protected function get_upsale_data() {
 		return [
-			'condition' => ! defined( 'UAEL_VER' ),
-			'image' => esc_url( HFE_URL . 'assets/images/upgrade-pro.png' ),
-			'image_alt' => esc_attr__( 'Upgrade', 'header-footer-elementor' ),
-			'title' => esc_html__( 'Upgrade your Info Card widget', 'header-footer-elementor' ),
-			'description' => esc_html__( 'Get the Info Box widget in UAE Pro and unlock advanced layouts, icons, and styling for better content display.', 'header-footer-elementor' ),
-			'upgrade_url' => esc_url( 'https://ultimateelementor.com/pricing/?utm_source=UAE-Infocard&utm_medium=editor&utm_campaign=static-promotion' ),
+			'condition'    => ! defined( 'UAEL_VER' ),
+			'image'        => esc_url( HFE_URL . 'assets/images/upgrade-pro.png' ),
+			'image_alt'    => esc_attr__( 'Upgrade', 'header-footer-elementor' ),
+			'title'        => esc_html__( 'Upgrade your Info Card widget', 'header-footer-elementor' ),
+			'description'  => esc_html__( 'Get the Info Box widget in UAE Pro and unlock advanced layouts, icons, and styling for better content display.', 'header-footer-elementor' ),
+			'upgrade_url'  => esc_url( 'https://ultimateelementor.com/pricing/?utm_source=UAE-Infocard&utm_medium=editor&utm_campaign=static-promotion' ),
 			'upgrade_text' => esc_html__( 'Upgrade Now', 'header-footer-elementor' ),
 		];
 	}
@@ -133,60 +133,60 @@ class Infocard extends Common_Widget {
 	protected function register_general_content_controls() {
 		$this->start_controls_section(
 			'section_general_field',
-			array(
+			[
 				'label' => __( 'General', 'header-footer-elementor' ),
-			)
+			]
 		);
 
 		$this->add_control(
 			'infocard_title',
-			array(
+			[
 				'label'    => __( 'Title', 'header-footer-elementor' ),
 				'type'     => Controls_Manager::TEXT,
 				'selector' => '{{WRAPPER}} .hfe-infocard-title',
-				'dynamic'  => array(
+				'dynamic'  => [
 					'active' => true,
-				),
+				],
 				'default'  => __( 'Info Card', 'header-footer-elementor' ),
-			)
+			]
 		);
 		$this->add_control(
 			'infocard_description',
-			array(
+			[
 				'label'    => __( 'Description', 'header-footer-elementor' ),
 				'type'     => Controls_Manager::TEXTAREA,
 				'selector' => '{{WRAPPER}} .hfe-infocard-text',
-				'dynamic'  => array(
+				'dynamic'  => [
 					'active' => true,
-				),
+				],
 				'default'  => __( 'Enter description text here.Lorem ipsum dolor sit amet, consectetur adipiscing. Quo incidunt ullamco.', 'header-footer-elementor' ),
-			)
+			]
 		);
 
 		$this->add_responsive_control(
 			'infocard_overall_align',
-			array(
+			[
 				'label'     => __( 'Overall Alignment', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'default'   => 'center',
-				'options'   => array(
-					'left'   => array(
+				'options'   => [
+					'left'   => [
 						'title' => __( 'Left', 'header-footer-elementor' ),
 						'icon'  => 'fa fa-align-left',
-					),
-					'center' => array(
+					],
+					'center' => [
 						'title' => __( 'Center', 'header-footer-elementor' ),
 						'icon'  => 'fa fa-align-center',
-					),
-					'right'  => array(
+					],
+					'right'  => [
 						'title' => __( 'Right', 'header-footer-elementor' ),
 						'icon'  => 'fa fa-align-right',
-					),
-				),
-				'selectors' => array(
+					],
+				],
+				'selectors' => [
 					'{{WRAPPER}} .hfe-infocard' => 'text-align: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 
@@ -202,283 +202,283 @@ class Infocard extends Common_Widget {
 	protected function register_icon_content_controls() {
 		$this->start_controls_section(
 			'section_icon_field',
-			array(
+			[
 				'label' => __( 'Icon', 'header-footer-elementor' ),
-			)
+			]
 		);
 
 		$this->add_control(
 			'infocard_select_icon',
-			array(
-				'label'            => __( 'Select Icon', 'header-footer-elementor' ),
-				'type'             => Controls_Manager::ICONS,
-				'default'          => array(
+			[
+				'label'       => __( 'Select Icon', 'header-footer-elementor' ),
+				'type'        => Controls_Manager::ICONS,
+				'default'     => [
 					'value'   => '',
 					'library' => 'fa-solid',
-				),
-				'render_type'      => 'template',
-			)
+				],
+				'render_type' => 'template',
+			]
 		);
 
 		$this->add_responsive_control(
 			'infocard_icon_size',
-			array(
+			[
 				'label'      => __( 'Size', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
-				'size_units' => array( 'px', 'em', 'rem' ),
-				'range'      => array(
-					'px' => array(
+				'size_units' => [ 'px', 'em', 'rem' ],
+				'range'      => [
+					'px' => [
 						'min'  => 0,
 						'max'  => 100,
 						'step' => 1,
-					),
-					'%'  => array(
+					],
+					'%'  => [
 						'min' => 0,
 						'max' => 100,
-					),
-					'em' => array(
+					],
+					'em' => [
 						'min' => 0,
 						'max' => 100,
-					),
-				),
-				'default'    => array(
+					],
+				],
+				'default'    => [
 					'size' => 40,
 					'unit' => 'px',
-				),
-				'condition' => array(
-					'infocard_select_icon[value]!'    => '',
-				),
-				'selectors'  => array(
+				],
+				'condition'  => [
+					'infocard_select_icon[value]!' => '',
+				],
+				'selectors'  => [
 					'{{WRAPPER}} .hfe-icon-wrap .hfe-icon i' => 'font-size: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};line-height: {{SIZE}}{{UNIT}}; text-align: center;',
 					'{{WRAPPER}} .hfe-icon-wrap .hfe-icon' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}; line-height: {{SIZE}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'infocard_icon_bgsize',
-			array(
+			[
 				'label'      => __( 'Background Size', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
-				'size_units' => array( 'px', 'em', 'rem' ),
-				'range'      => array(
-					'px' => array(
+				'size_units' => [ 'px', 'em', 'rem' ],
+				'range'      => [
+					'px' => [
 						'min'  => 0,
 						'max'  => 100,
 						'step' => 1,
-					),
-					'%'  => array(
+					],
+					'%'  => [
 						'min' => 0,
 						'max' => 100,
-					),
-					'em' => array(
+					],
+					'em' => [
 						'min' => 0,
 						'max' => 100,
-					),
-				),
-				'default'    => array(
+					],
+				],
+				'default'    => [
 					'size' => 0,
 					'unit' => 'px',
-				),
-				'condition' => array(
-					'infocard_select_icon[value]!'    => '',
-				),
-				'selectors'  => array(
+				],
+				'condition'  => [
+					'infocard_select_icon[value]!' => '',
+				],
+				'selectors'  => [
 					'{{WRAPPER}} .hfe-icon-wrap .hfe-icon' => 'padding: {{SIZE}}{{UNIT}}; display:inline-block; box-sizing:content-box;',
-				)
-			)
+				],
+			]
 		);
 
 		$this->start_controls_tabs( 'infocard_tabs_icon_style' );
 
 			$this->start_controls_tab(
 				'infocard_icon_normal',
-				array(
+				[
 					'label'     => __( 'Normal', 'header-footer-elementor' ),
-					'condition' => array(
-						'infocard_select_icon[value]!'    => '',
-					),
-				)
+					'condition' => [
+						'infocard_select_icon[value]!' => '',
+					],
+				]
 			);
 			$this->add_control(
 				'infocard_icon_color',
-				array(
-					'label'      => __( 'Icon Color', 'header-footer-elementor' ),
-					'type'       => Controls_Manager::COLOR,
-					'global'     => array(
+				[
+					'label'     => __( 'Icon Color', 'header-footer-elementor' ),
+					'type'      => Controls_Manager::COLOR,
+					'global'    => [
 						'default' => Global_Colors::COLOR_PRIMARY,
-					),
-					'condition' => array(
-						'infocard_select_icon[value]!'    => '',
-					),
-					'default'    => '',
-					'selectors'  => array(
+					],
+					'condition' => [
+						'infocard_select_icon[value]!' => '',
+					],
+					'default'   => '',
+					'selectors' => [
 						'{{WRAPPER}} .hfe-icon-wrap .hfe-icon i' => 'color: {{VALUE}};',
 						'{{WRAPPER}} .hfe-icon-wrap .hfe-icon svg' => 'fill: {{VALUE}};',
-					),
-				)
+					],
+				]
 			);
 
 			$this->add_control(
 				'infocard_icon_bgcolor',
-				array(
+				[
 					'label'     => __( 'Background Color', 'header-footer-elementor' ),
 					'type'      => Controls_Manager::COLOR,
-					'global'    => array(
+					'global'    => [
 						'default' => '',
-					),
-					'condition' => array(
-						'infocard_select_icon[value]!'    => '',
-					),
+					],
+					'condition' => [
+						'infocard_select_icon[value]!' => '',
+					],
 					'default'   => '',
-					'selectors' => array(
+					'selectors' => [
 						'{{WRAPPER}} .hfe-infocard .hfe-icon-wrap .hfe-icon' => 'background-color: {{VALUE}};',
-					),
-				)
+					],
+				]
 			);
 
 			$this->add_control(
 				'infocard_icon_border',
-				array(
+				[
 					'label'       => __( 'Border Style', 'header-footer-elementor' ),
 					'type'        => Controls_Manager::SELECT,
 					'default'     => 'none',
 					'label_block' => false,
-					'options'     => array(
+					'options'     => [
 						'none'   => __( 'None', 'header-footer-elementor' ),
 						'solid'  => __( 'Solid', 'header-footer-elementor' ),
 						'double' => __( 'Double', 'header-footer-elementor' ),
 						'dotted' => __( 'Dotted', 'header-footer-elementor' ),
 						'dashed' => __( 'Dashed', 'header-footer-elementor' ),
-					),
-					'condition' => array(
-						'infocard_select_icon[value]!'    => '',
-					),
-					'selectors'   => array(
+					],
+					'condition'   => [
+						'infocard_select_icon[value]!' => '',
+					],
+					'selectors'   => [
 						'{{WRAPPER}} .hfe-icon-wrap .hfe-icon' => 'border-style: {{VALUE}};',
-					),
-				)
+					],
+				]
 			);
 			$this->add_control(
 				'infocard_icon_border_color',
-				array(
+				[
 					'label'     => __( 'Border Color', 'header-footer-elementor' ),
 					'type'      => Controls_Manager::COLOR,
-					'global'    => array(
+					'global'    => [
 						'default' => Global_Colors::COLOR_PRIMARY,
-					),
-					'condition' => array(
-						'infocard_icon_border!'    => 'none',
-						'infocard_select_icon[value]!'    => '',
-					),
+					],
+					'condition' => [
+						'infocard_icon_border!'        => 'none',
+						'infocard_select_icon[value]!' => '',
+					],
 					'default'   => '',
-					'selectors' => array(
+					'selectors' => [
 						'{{WRAPPER}} .hfe-icon-wrap .hfe-icon' => 'border-color: {{VALUE}};',
-					),
-				)
+					],
+				]
 			);
 			$this->add_control(
 				'infocard_icon_border_size',
-				array(
+				[
 					'label'      => __( 'Border Width', 'header-footer-elementor' ),
 					'type'       => Controls_Manager::DIMENSIONS,
-					'size_units' => array( 'px' ),
-					'default'    => array(
+					'size_units' => [ 'px' ],
+					'default'    => [
 						'top'    => '1',
 						'bottom' => '1',
 						'left'   => '1',
 						'right'  => '1',
 						'unit'   => 'px',
-					),
-					'condition'  => array(
-						'infocard_icon_border!'    => 'none',
-						'infocard_select_icon[value]!'    => '',
-					),
-					'selectors'  => array(
+					],
+					'condition'  => [
+						'infocard_icon_border!'        => 'none',
+						'infocard_select_icon[value]!' => '',
+					],
+					'selectors'  => [
 						'{{WRAPPER}} .hfe-icon-wrap .hfe-icon' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; box-sizing:content-box;',
-					),
-				)
+					],
+				]
 			);
 
 			$this->add_responsive_control(
 				'infocard_icon_border_radius',
-				array(
+				[
 					'label'      => __( 'Rounded Corners', 'header-footer-elementor' ),
 					'type'       => Controls_Manager::DIMENSIONS,
-					'size_units' => array( 'px', '%' ),
-					'default'    => array(
+					'size_units' => [ 'px', '%' ],
+					'default'    => [
 						'top'    => '5',
 						'bottom' => '5',
 						'left'   => '5',
 						'right'  => '5',
 						'unit'   => 'px',
-					),
-					'condition'  => array(
-						'infocard_select_icon[value]!'    => '',
-					),
-					'selectors'  => array(
+					],
+					'condition'  => [
+						'infocard_select_icon[value]!' => '',
+					],
+					'selectors'  => [
 						'{{WRAPPER}} .hfe-icon-wrap .hfe-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};  box-sizing:content-box;',
-					),
-				)
+					],
+				]
 			);
 
 			$this->end_controls_tab();
 
 			$this->start_controls_tab(
 				'infocard_icon_hover',
-				array(
+				[
 					'label'     => __( 'Hover', 'header-footer-elementor' ),
-					'condition'  => array(
-						'infocard_select_icon[value]!'    => '',
-					),
+					'condition' => [
+						'infocard_select_icon[value]!' => '',
+					],
 					
-				)
+				]
 			);
 				$this->add_control(
 					'infocard_icon_hover_color',
-					array(
-						'label'      => __( 'Icon Hover Color', 'header-footer-elementor' ),
-						'type'       => Controls_Manager::COLOR,
-						'default'    => '',
-						'condition'  => array(
-							'infocard_select_icon[value]!'    => '',
-						),
-						'selectors'  => array(
+					[
+						'label'     => __( 'Icon Hover Color', 'header-footer-elementor' ),
+						'type'      => Controls_Manager::COLOR,
+						'default'   => '',
+						'condition' => [
+							'infocard_select_icon[value]!' => '',
+						],
+						'selectors' => [
 							'{{WRAPPER}} .hfe-icon-wrap .hfe-icon:hover > i' => 'color: {{VALUE}};',
 							'{{WRAPPER}} .hfe-icon-wrap .hfe-icon:hover > svg' => 'fill: {{VALUE}};',
-						),
-					)
+						],
+					]
 				);
 
 				$this->add_control(
 					'infocard_icon_hover_bgcolor',
-					array(
+					[
 						'label'     => __( 'Background Hover Color', 'header-footer-elementor' ),
 						'type'      => Controls_Manager::COLOR,
 						'default'   => '',
-						'condition'  => array(
-							'infocard_select_icon[value]!'    => '',
-						),
-						'selectors' => array(
+						'condition' => [
+							'infocard_select_icon[value]!' => '',
+						],
+						'selectors' => [
 							'{{WRAPPER}} .hfe-icon-wrap .hfe-icon:hover' => 'background-color: {{VALUE}};',
-						),
-					)
+						],
+					]
 				);
 
 				$this->add_control(
 					'infocard_icon_hover_border',
-					array(
+					[
 						'label'     => __( 'Border Hover Color', 'header-footer-elementor' ),
 						'type'      => Controls_Manager::COLOR,
-						'condition' => array(
-							'infocard_icon_border!'    => 'none',
-							'infocard_select_icon[value]!'    => '',
-						),
+						'condition' => [
+							'infocard_icon_border!'        => 'none',
+							'infocard_select_icon[value]!' => '',
+						],
 						'default'   => '',
-						'selectors' => array(
+						'selectors' => [
 							'{{WRAPPER}} .hfe-icon-wrap .hfe-icon:hover' => 'border-color: {{VALUE}};',
-						),
-					)
+						],
+					]
 				);
 
 			$this->end_controls_tab();
@@ -497,306 +497,306 @@ class Infocard extends Common_Widget {
 	protected function register_cta_content_controls() {
 		$this->start_controls_section(
 			'section_cta_field',
-			array(
+			[
 				'label' => __( 'Call To Action', 'header-footer-elementor' ),
-			)
+			]
 		);
 
 		$this->add_control(
 			'infocard_cta_type',
-			array(
+			[
 				'label'       => __( 'Type', 'header-footer-elementor' ),
 				'type'        => Controls_Manager::SELECT,
 				'default'     => 'button',
 				'label_block' => false,
-				'options'     => array(
+				'options'     => [
 					'none'   => __( 'None', 'header-footer-elementor' ),
 					'link'   => __( 'Text', 'header-footer-elementor' ),
 					'button' => __( 'Button', 'header-footer-elementor' ),
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'infocard_link_text',
-			array(
+			[
 				'label'     => __( 'Text', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => __( 'Read More', 'header-footer-elementor' ),
-				'dynamic'   => array(
+				'dynamic'   => [
 					'active' => true,
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'infocard_cta_type' => 'link',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'infocard_button_text',
-			array(
+			[
 				'label'     => __( 'Text', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => __( 'Click Here', 'header-footer-elementor' ),
-				'dynamic'   => array(
+				'dynamic'   => [
 					'active' => true,
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'infocard_cta_type' => 'button',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'infocard_text_link',
-			array(
+			[
 				'label'         => __( 'Link', 'header-footer-elementor' ),
 				'type'          => Controls_Manager::URL,
-				'default'       => array(
+				'default'       => [
 					'url'         => '#',
 					'is_external' => '',
-				),
-				'dynamic'       => array(
+				],
+				'dynamic'       => [
 					'active' => true,
-				),
+				],
 				'show_external' => true, // Show the 'open in new tab' button.
-				'condition'     => array(
+				'condition'     => [
 					'infocard_cta_type!' => 'none',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'infocard_button_size',
-			array(
+			[
 				'label'     => __( 'Size', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'sm',
-				'options'   => array(
+				'options'   => [
 					'xs' => __( 'Extra Small', 'header-footer-elementor' ),
 					'sm' => __( 'Small', 'header-footer-elementor' ),
 					'md' => __( 'Medium', 'header-footer-elementor' ),
 					'lg' => __( 'Large', 'header-footer-elementor' ),
 					'xl' => __( 'Extra Large', 'header-footer-elementor' ),
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'infocard_cta_type' => 'button',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'infocard_button_colors',
-			array(
+			[
 				'label'     => __( 'Colors', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
-				'condition' => array(
+				'condition' => [
 					'infocard_cta_type' => 'button',
-				),
-			)
+				],
+			]
 		);
 
 		$this->start_controls_tabs( 'infocard_tabs_button_style' );
 
 			$this->start_controls_tab(
 				'infocard_button_normal',
-				array(
+				[
 					'label'     => __( 'Normal', 'header-footer-elementor' ),
-					'condition' => array(
+					'condition' => [
 						'infocard_cta_type' => 'button',
-					),
-				)
+					],
+				]
 			);
 			$this->add_control(
 				'infocard_button_text_color',
-				array(
+				[
 					'label'     => __( 'Text Color', 'header-footer-elementor' ),
 					'type'      => Controls_Manager::COLOR,
 					'default'   => '',
-					'condition' => array(
+					'condition' => [
 						'infocard_cta_type' => 'button',
-					),
-					'selectors' => array(
-						'{{WRAPPER}} a.elementor-button, {{WRAPPER}} .elementor-button' => 'color: {{VALUE}};'
-					),
-				)
+					],
+					'selectors' => [
+						'{{WRAPPER}} a.elementor-button, {{WRAPPER}} .elementor-button' => 'color: {{VALUE}};',
+					],
+				]
 			);
 			$this->add_group_control(
 				Group_Control_Background::get_type(),
-				array(
+				[
 					'name'           => 'btn_background_color',
 					'label'          => __( 'Background Color', 'header-footer-elementor' ),
-					'types'          => array( 'classic', 'gradient' ),
+					'types'          => [ 'classic', 'gradient' ],
 					'selector'       => '{{WRAPPER}} .elementor-button',
-					'condition'      => array(
+					'condition'      => [
 						'infocard_cta_type' => 'button',
-					),
-					'fields_options' => array(
-						'color' => array(
-							'global' => array(
+					],
+					'fields_options' => [
+						'color' => [
+							'global' => [
 								'default' => Global_Colors::COLOR_ACCENT,
-							),
-						),
-					),
-				)
+							],
+						],
+					],
+				]
 			);
 
 			$this->add_control(
 				'infocard_button_border',
-				array(
+				[
 					'label'       => __( 'Border Style', 'header-footer-elementor' ),
 					'type'        => Controls_Manager::SELECT,
 					'default'     => 'none',
 					'label_block' => false,
-					'options'     => array(
+					'options'     => [
 						'none'    => __( 'None', 'header-footer-elementor' ),
 						'default' => __( 'Default', 'header-footer-elementor' ),
 						'solid'   => __( 'Solid', 'header-footer-elementor' ),
 						'double'  => __( 'Double', 'header-footer-elementor' ),
 						'dotted'  => __( 'Dotted', 'header-footer-elementor' ),
 						'dashed'  => __( 'Dashed', 'header-footer-elementor' ),
-					),
-					'condition'   => array(
+					],
+					'condition'   => [
 						'infocard_cta_type' => 'button',
-					),
-					'selectors'   => array(
+					],
+					'selectors'   => [
 						'{{WRAPPER}} .elementor-button' => 'border-style: {{VALUE}};',
-					),
-				)
+					],
+				]
 			);
 			$this->add_control(
 				'infocard_button_border_color',
-				array(
+				[
 					'label'     => __( 'Border Color', 'header-footer-elementor' ),
 					'type'      => Controls_Manager::COLOR,
-					'condition' => array(
+					'condition' => [
 						'infocard_cta_type'       => 'button',
-						'infocard_button_border!' => array( 'none', 'default' ),
-					),
+						'infocard_button_border!' => [ 'none', 'default' ],
+					],
 					'default'   => '',
-					'selectors' => array(
+					'selectors' => [
 						'{{WRAPPER}} .elementor-button' => 'border-color: {{VALUE}};',
-					),
-				)
+					],
+				]
 			);
 			$this->add_control(
 				'infocard_button_border_size',
-				array(
+				[
 					'label'      => __( 'Border Width', 'header-footer-elementor' ),
 					'type'       => Controls_Manager::DIMENSIONS,
-					'size_units' => array( 'px' ),
-					'default'    => array(
+					'size_units' => [ 'px' ],
+					'default'    => [
 						'top'    => '1',
 						'bottom' => '1',
 						'left'   => '1',
 						'right'  => '1',
 						'unit'   => 'px',
-					),
-					'condition'  => array(
+					],
+					'condition'  => [
 						'infocard_cta_type'       => 'button',
-						'infocard_button_border!' => array( 'none', 'default' ),
-					),
-					'selectors'  => array(
+						'infocard_button_border!' => [ 'none', 'default' ],
+					],
+					'selectors'  => [
 						'{{WRAPPER}} .elementor-button' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					),
-				)
+					],
+				]
 			);
 
 			$this->add_control(
 				'infocard_button_radius',
-				array(
+				[
 					'label'      => __( 'Rounded Corners', 'header-footer-elementor' ),
 					'type'       => Controls_Manager::DIMENSIONS,
-					'size_units' => array( 'px', '%' ),
-					'default'    => array(
+					'size_units' => [ 'px', '%' ],
+					'default'    => [
 						'top'    => '',
 						'bottom' => '',
 						'left'   => '',
 						'right'  => '',
 						'unit'   => 'px',
-					),
-					'selectors'  => array(
+					],
+					'selectors'  => [
 						'{{WRAPPER}} a.elementor-button, {{WRAPPER}} .elementor-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					),
-					'condition'  => array(
+					],
+					'condition'  => [
 						'infocard_cta_type' => 'button',
-					),
-				)
+					],
+				]
 			);
 
 			$this->add_responsive_control(
 				'infocard_button_custom_padding',
-				array(
+				[
 					'label'      => __( 'Padding', 'header-footer-elementor' ),
 					'type'       => Controls_Manager::DIMENSIONS,
-					'size_units' => array( 'px', 'em', '%' ),
-					'selectors'  => array(
+					'size_units' => [ 'px', 'em', '%' ],
+					'selectors'  => [
 						'{{WRAPPER}} a.elementor-button, {{WRAPPER}} .elementor-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					),
-					'condition'  => array(
+					],
+					'condition'  => [
 						'infocard_cta_type' => 'button',
-					),
-				)
+					],
+				]
 			);
 
 			$this->end_controls_tab();
 
 			$this->start_controls_tab(
 				'infocard_button_hover',
-				array(
+				[
 					'label'     => __( 'Hover', 'header-footer-elementor' ),
-					'condition' => array(
+					'condition' => [
 						'infocard_cta_type' => 'button',
-					),
-				)
+					],
+				]
 			);
 			$this->add_control(
 				'infocard_button_hover_color',
-				array(
+				[
 					'label'     => __( 'Text Hover Color', 'header-footer-elementor' ),
 					'type'      => Controls_Manager::COLOR,
-					'condition' => array(
+					'condition' => [
 						'infocard_cta_type' => 'button',
-					),
-					'selectors' => array(
+					],
+					'selectors' => [
 						'{{WRAPPER}} a.elementor-button:hover, {{WRAPPER}} .elementor-button:hover' => 'color: {{VALUE}};',
-					),
-				)
+					],
+				]
 			);
 			$this->add_group_control(
 				Group_Control_Background::get_type(),
-				array(
+				[
 					'name'           => 'infocard_button_hover_bgcolor',
 					'label'          => __( 'Background Hover Color', 'header-footer-elementor' ),
-					'types'          => array( 'classic', 'gradient' ),
+					'types'          => [ 'classic', 'gradient' ],
 					'selector'       => '{{WRAPPER}} a.elementor-button:hover, {{WRAPPER}} .elementor-button:hover',
-					'condition'      => array(
+					'condition'      => [
 						'infocard_cta_type' => 'button',
-					),
-					'fields_options' => array(
-						'color' => array(
-							'global' => array(
+					],
+					'fields_options' => [
+						'color' => [
+							'global' => [
 								'default' => Global_Colors::COLOR_ACCENT,
-							),
-						),
-					),
-				)
+							],
+						],
+					],
+				]
 			);
 
 			$this->add_control(
 				'infocard_button_border_hover_color',
-				array(
+				[
 					'label'     => __( 'Border Color', 'header-footer-elementor' ),
 					'type'      => Controls_Manager::COLOR,
-					'condition' => array(
+					'condition' => [
 						'infocard_cta_type'       => 'button',
 						'infocard_button_border!' => 'none',
-					),
-					'selectors' => array(
+					],
+					'selectors' => [
 						'{{WRAPPER}} a.elementor-button:hover, {{WRAPPER}} .elementor-button:hover' => 'border-color: {{VALUE}};',
-					),
-				)
+					],
+				]
 			);
 
 			$this->end_controls_tab();
@@ -815,28 +815,28 @@ class Infocard extends Common_Widget {
 	protected function register_typo_content_controls() {
 		$this->start_controls_section(
 			'section_typography_field',
-			array(
+			[
 				'label' => __( 'Typography', 'header-footer-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
-			)
+			]
 		);
 
 		$this->add_control(
 			'infocard_title_typo',
-			array(
+			[
 				'label'     => __( 'Title', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::HEADING,
-				'condition' => array(
+				'condition' => [
 					'infocard_title!' => '',
-				),
-			)
+				],
+			]
 		);
 		$this->add_control(
 			'infocard_title_tag',
-			array(
+			[
 				'label'     => __( 'Title Tag', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::SELECT,
-				'options'   => array(
+				'options'   => [
 					'h1'  => __( 'H1', 'header-footer-elementor' ),
 					'h2'  => __( 'H2', 'header-footer-elementor' ),
 					'h3'  => __( 'H3', 'header-footer-elementor' ),
@@ -845,155 +845,155 @@ class Infocard extends Common_Widget {
 					'h6'  => __( 'H6', 'header-footer-elementor' ),
 					'div' => __( 'div', 'header-footer-elementor' ),
 					'p'   => __( 'p', 'header-footer-elementor' ),
-				),
+				],
 				'default'   => 'h3',
-				'condition' => array(
+				'condition' => [
 					'infocard_title!' => '',
-				),
-			)
+				],
+			]
 		);
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
+			[
 				'name'      => 'title_typography',
-				'global'    => array(
+				'global'    => [
 					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
-				),
+				],
 				'selector'  => '{{WRAPPER}} .hfe-infocard-title',
-				'condition' => array(
+				'condition' => [
 					'infocard_title!' => '',
-				),
-			)
+				],
+			]
 		);
 		$this->add_control(
 			'infocard_title_color',
-			array(
+			[
 				'label'     => __( 'Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'global'    => array(
+				'global'    => [
 					'default' => Global_Colors::COLOR_PRIMARY,
-				),
+				],
 				'default'   => '',
-				'condition' => array(
+				'condition' => [
 					'infocard_title!' => '',
-				),
-				'selectors' => array(
+				],
+				'selectors' => [
 					'{{WRAPPER}} .hfe-infocard-title' => 'color: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'infocard_desc_typo',
-			array(
+			[
 				'label'     => __( 'Description', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
-				'condition' => array(
+				'condition' => [
 					'infocard_description!' => '',
-				),
-			)
+				],
+			]
 		);
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
+			[
 				'name'      => 'desc_typography',
-				'global'    => array(
+				'global'    => [
 					'default' => Global_Typography::TYPOGRAPHY_TEXT,
-				),
+				],
 				'selector'  => '{{WRAPPER}} .hfe-infocard-text',
-				'condition' => array(
+				'condition' => [
 					'infocard_description!' => '',
-				),
-			)
+				],
+			]
 		);
 		$this->add_control(
 			'infocard_desc_color',
-			array(
+			[
 				'label'     => __( 'Description Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'global'    => array(
+				'global'    => [
 					'default' => Global_Colors::COLOR_TEXT,
-				),
+				],
 				'default'   => '',
-				'condition' => array(
+				'condition' => [
 					'infocard_description!' => '',
-				),
-				'selectors' => array(
+				],
+				'selectors' => [
 					'{{WRAPPER}} .hfe-infocard-text' => 'color: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'infocard_link_typo',
-			array(
+			[
 				'label'     => __( 'CTA Link Text', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
-				'condition' => array(
+				'condition' => [
 					'infocard_cta_type' => 'link',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'infocard_button_typo',
-			array(
+			[
 				'label'     => __( 'CTA Button Text', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
-				'condition' => array(
+				'condition' => [
 					'infocard_cta_type' => 'button',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
+			[
 				'name'      => 'cta_typography',
-				'global'    => array(
+				'global'    => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
-				),
+				],
 				'selector'  => '{{WRAPPER}} .hfe-infocard-cta-link, {{WRAPPER}} .elementor-button, {{WRAPPER}} a.elementor-button',
-				'condition' => array(
-					'infocard_cta_type' => array( 'link', 'button' ),
-				),
-			)
+				'condition' => [
+					'infocard_cta_type' => [ 'link', 'button' ],
+				],
+			]
 		);
 		$this->add_control(
 			'infocard_cta_color',
-			array(
+			[
 				'label'     => __( 'Link Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'global'    => array(
+				'global'    => [
 					'default' => Global_Colors::COLOR_ACCENT,
-				),
-				'selectors' => array(
+				],
+				'selectors' => [
 					'{{WRAPPER}} .hfe-infocard-cta-link' => 'color: {{VALUE}};',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'infocard_cta_type' => 'link',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'infocard_cta_hover_color',
-			array(
+			[
 				'label'     => __( 'Link Hover Color', 'header-footer-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'global'    => array(
+				'global'    => [
 					'default' => '',
-				),
-				'selectors' => array(
+				],
+				'selectors' => [
 					'{{WRAPPER}} .hfe-infocard-cta-link:hover' => 'color: {{VALUE}};',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'infocard_cta_type' => 'link',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_section();
@@ -1008,102 +1008,102 @@ class Infocard extends Common_Widget {
 	protected function register_margin_content_controls() {
 		$this->start_controls_section(
 			'section_margin_field',
-			array(
+			[
 				'label' => __( 'Margins', 'header-footer-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
-			)
+			]
 		);
 
 		$this->add_responsive_control(
 			'infocard_responsive_icon_margin',
-			array(
+			[
 				'label'      => __( 'Icon Margin', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px' ),
-				'default'    => array(
+				'size_units' => [ 'px' ],
+				'default'    => [
 					'top'      => '0',
 					'bottom'   => '10',
 					'left'     => '0',
 					'right'    => '0',
 					'unit'     => 'px',
 					'isLinked' => false,
-				),
-				'condition'  => array(
-					'infocard_select_icon[value]!'    => '',
-				),
-				'selectors'  => array(
+				],
+				'condition'  => [
+					'infocard_select_icon[value]!' => '',
+				],
+				'selectors'  => [
 					'{{WRAPPER}} .hfe-icon-wrap' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'infocard_title_margin',
-			array(
+			[
 				'label'      => __( 'Title Margin', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px' ),
-				'default'    => array(
+				'size_units' => [ 'px' ],
+				'default'    => [
 					'top'      => '0',
 					'bottom'   => '10',
 					'left'     => '0',
 					'right'    => '0',
 					'unit'     => 'px',
 					'isLinked' => false,
-				),
-				'selectors'  => array(
+				],
+				'selectors'  => [
 					'{{WRAPPER}} .hfe-infocard-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-				'condition'  => array(
+				],
+				'condition'  => [
 					'infocard_title!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'infocard_desc_margin',
-			array(
+			[
 				'label'      => __( 'Description Margins', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px' ),
-				'default'    => array(
+				'size_units' => [ 'px' ],
+				'default'    => [
 					'top'      => '0',
 					'bottom'   => '0',
 					'left'     => '0',
 					'right'    => '0',
 					'unit'     => 'px',
 					'isLinked' => false,
-				),
-				'condition'  => array(
+				],
+				'condition'  => [
 					'infocard_description!' => '',
-				),
-				'selectors'  => array(
+				],
+				'selectors'  => [
 					'{{WRAPPER}} .hfe-infocard-text' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
 			'infocard_cta_margin',
-			array(
+			[
 				'label'      => __( 'CTA Margin', 'header-footer-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px' ),
-				'default'    => array(
+				'size_units' => [ 'px' ],
+				'default'    => [
 					'top'      => '10',
 					'bottom'   => '0',
 					'left'     => '0',
 					'right'    => '0',
 					'unit'     => 'px',
 					'isLinked' => false,
-				),
-				'selectors'  => array(
+				],
+				'selectors'  => [
 					'{{WRAPPER}} .hfe-infocard-cta-link-style, {{WRAPPER}} .hfe-button-wrapper' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-				'condition'  => array(
-					'infocard_cta_type' => array( 'link', 'button' ),
-				),
-			)
+				],
+				'condition'  => [
+					'infocard_cta_type' => [ 'link', 'button' ],
+				],
+			]
 		);
 		$this->end_controls_section();
 	}
